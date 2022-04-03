@@ -34,7 +34,8 @@
 		"plugin:@typescript-eslint/recommended",
 		"plugin:react/recommended",
 		"plugin:jsx-a11y/recommended",
-		"plugin:react-hooks/recommended"
+		"plugin:react-hooks/recommended",
+		"plugin:storybook/recommended"
 	],
 	"rules": {
 		"react/react-in-jsx-scope": "off",
@@ -70,12 +71,12 @@
 						"position": "before"
 					},
 					{
-						"pattern": "@mantine*/**",
+						"pattern": "@chakra-ui*/**",
 						"group": "external",
 						"position": "before"
 					}
 				],
-				"pathGroupsExcludedImportTypes": ["react", "react-router-dom/**", "react*/**", "@mantine*/**"],
+				"pathGroupsExcludedImportTypes": ["react", "react-router-dom/**", "react*/**", "@chakra-ui*/**"],
 				"newlines-between": "always",
 				"alphabetize": {
 					"order": "asc",
