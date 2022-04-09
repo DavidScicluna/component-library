@@ -11,10 +11,11 @@ const isTouchDevice: boolean = handleIsTouchDevice();
 export default (theme: Theme, colorProp: Color, sizeProp: Size): Style => {
 	const amount = handleAmount('contained');
 	const shade = handleHue('light', colorProp);
+
 	const size = handleSize(sizeProp);
-	const transform = size.transform.contained;
 	const border = size.border;
-	const offset = size.offset;
+	const transform = size.transform.contained;
+	const offset = size.offset.contained;
 
 	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
 	const textShade: ColorHues = colorProp === 'white' ? 400 : 50;

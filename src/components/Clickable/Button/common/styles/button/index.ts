@@ -112,9 +112,13 @@ export default (
 
 		'&:active': {
 			outline: !isTouchDevice ? '0px auto' : 'none !important',
-			borderBottom: '0px solid transparent',
+			borderBottom: `${variant === 'outlined' ? border : 0}px solid transparent`,
 
 			transform: variant !== 'text' ? `translateY(${variant === 'outlined' ? border : transform}px)` : 'none'
+		},
+
+		'& .ds-cl-icon': {
+			fontSize: sizeProp
 		}
 	};
 };

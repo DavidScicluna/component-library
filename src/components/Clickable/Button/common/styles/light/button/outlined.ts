@@ -11,10 +11,11 @@ const isTouchDevice: boolean = handleIsTouchDevice();
 export default (theme: Theme, colorProp: Color, sizeProp: Size): Style => {
 	const amount = handleAmount('outlined');
 	const shade = handleHue('light', colorProp);
+
 	const size = handleSize(sizeProp);
-	const transform = size.transform.outlined;
 	const border = size.border;
-	const offset = size.offset;
+	const transform = size.transform.outlined;
+	const offset = size.offset.outlined;
 
 	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
 
