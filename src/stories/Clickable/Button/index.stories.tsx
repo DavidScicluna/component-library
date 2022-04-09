@@ -74,6 +74,13 @@ export default {
 			// description: '',
 			control: 'boolean'
 		},
+		isActive: {
+			name: 'Active',
+			type: 'boolean',
+			defaultValue: false,
+			// description: '',
+			control: 'boolean'
+		},
 		renderLeft: {
 			name: 'Left Element',
 			// description: '',
