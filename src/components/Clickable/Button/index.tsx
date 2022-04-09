@@ -48,6 +48,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): R
 			variant='unstyled'
 			sx={merge(style.button, sx)}
 			_disabled={style.disabled}
+			_active={style.active}
 		>
 			<HStack width='inherit' align='center' justify='center' flex={1} spacing={handleReturnSpacing()}>
 				{isLoading && !renderLeft ? (

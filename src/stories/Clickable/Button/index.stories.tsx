@@ -83,9 +83,11 @@ export default {
 		},
 		renderLeft: {
 			name: 'Left Element',
+			defaultValue: 'None',
 			// description: '',
-			options: ['Alert Icon', 'Cake Icon', 'Face Icon', 'World Icon', 'Heart Icon'],
+			options: ['None', 'Alert Icon', 'Cake Icon', 'Face Icon', 'World Icon', 'Heart Icon'],
 			mapping: {
+				'None': undefined,
 				'Alert Icon': () => <Icon icon='report' type='filled' />,
 				'Cake Icon': () => <Icon icon='cake' type='filled' />,
 				'Face Icon': () => <Icon icon='face' type='filled' />,
@@ -96,9 +98,11 @@ export default {
 		},
 		renderRight: {
 			name: 'Right Element',
+			defaultValue: 'None',
 			// description: '',
-			options: ['Alert Icon', 'Cake Icon', 'Face Icon', 'World Icon', 'Heart Icon'],
+			options: ['None', 'Alert Icon', 'Cake Icon', 'Face Icon', 'World Icon', 'Heart Icon'],
 			mapping: {
+				'None': undefined,
 				'Alert Icon': () => <Icon icon='report' type='filled' />,
 				'Cake Icon': () => <Icon icon='cake' type='filled' />,
 				'Face Icon': () => <Icon icon='face' type='filled' />,
