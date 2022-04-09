@@ -14,7 +14,7 @@ export default (theme: Theme, colorProp: Color, isLoading = false, sizeProp: Siz
 		'color': `${theme.colors[color][shade]} !important`,
 
 		'&::before': {
-			boxShadow: `0 ${border}px 0 0 ${theme.colors[color][shade]}`,
+			boxShadow: `0 ${border}px 0 0 ${theme.colors[color][shade]} !important`,
 			borderColor: `${theme.colors[color][shade]} !important`,
 			backgroundColor: `${theme.colors.transparent} !important`,
 			background: `${theme.colors.transparent} !important`
