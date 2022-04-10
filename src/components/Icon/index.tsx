@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 
 import { useColorMode, useConst, Center } from '@chakra-ui/react';
 
@@ -12,7 +12,7 @@ import '@fontsource/material-icons-outlined';
 const Icon = (props: IconProps): ReactElement => {
 	const { colorMode } = useColorMode();
 
-	const { w, width, h, height, icon, type, color, background, borderRadius = 'none', ...rest } = props;
+	const { w, width, h, height, icon, type, color, borderRadius = 'none', ...rest } = props;
 
 	const hasLoaded = useConst<boolean>(true);
 
