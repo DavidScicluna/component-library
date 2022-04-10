@@ -25,11 +25,13 @@ export type Color =
 
 export type Colors = Record<Color, string | Record<ColorHues, string>>;
 
-// export type Space = typeof spacing;
+export type Font = 'body' | 'heading' | 'mono';
 
-// export type FontSizes = typeof typography.fontSizes;
+export type Fonts = Record<Font, string>;
 
-// export type Theme = { colors: Color; space: Space } & Omit<CUITheme, 'colors' | 'space'>;
+export type FontSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl';
+
+export type FontSizes = Record<FontSize, string>;
 
 export type Radius = 'none' | 'xs' | 'sm' | 'base' | 'lg' | 'xl' | 'full';
 
