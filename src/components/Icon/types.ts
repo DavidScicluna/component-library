@@ -1,4 +1,4 @@
-import { CenterProps } from '@chakra-ui/react';
+import { ColorMode, CenterProps } from '@chakra-ui/react';
 
 import { BoxPadding, BoxGrid, BoxPseudo, BoxOther } from '../../common/types/box';
 
@@ -1891,6 +1891,7 @@ type Omitted =
 	| 'children';
 
 export type IconProps = {
+	colorMode?: ColorMode;
 	icon: Icon;
 	type: IconType;
 } & Omit<CenterProps, Omitted>;

@@ -1,24 +1,40 @@
 import { ReactElement } from 'react';
 
-import { useColorMode, useConst, Center } from '@chakra-ui/react';
+import { ColorMode, useColorMode, useConst, Center } from '@chakra-ui/react';
 
 import { IconProps } from './types';
-
-import * as fallback from '../../common/assets/fallback';
 
 import '@fontsource/material-icons';
 import '@fontsource/material-icons-outlined';
 
+const handleCheckFontStatus = (): boolean => {
+	if (document.fonts.check("1rem 'Material Icons'")) {
+		return true;
+	} else {
+		return false;
+	}
+};
+
 const Icon = (props: IconProps): ReactElement => {
-	const { colorMode } = useColorMode();
+	const { colorMode: colorModeHook } = useColorMode();
 
-	const { w, width, h, height, icon, type, color, borderRadius = 'none', ...rest } = props;
+	const {
+		colorMode: colorModeProp,
+		w,
+		width,
+		h,
+		height,
+		icon,
+		type,
+		color,
+		background,
+		borderRadius = 'none',
+		...rest
+	} = props;
 
-	const hasLoaded = useConst<boolean>(true);
+	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
-	console.log(props);
-
-	// alert('Roboto loaded? ' + document.fonts.check('material-icons'));
+	const hasLoaded = useConst<boolean>(handleCheckFontStatus());
 
 	return (
 		<Center
@@ -31,17 +47,16 @@ const Icon = (props: IconProps): ReactElement => {
 			height={height}
 			maxWidth={w || width || '24px'}
 			maxHeight={h || height || '24px'}
-			borderRadius={!hasLoaded ? 'base' : borderRadius}
-			backgroundImage={
-				!hasLoaded ? `url(${colorMode === 'light' ? fallback.default.light : fallback.default.dark})` : ''
-			}
-			color={!hasLoaded ? `gray.${colorMode === 'light' ? 200 : 700}` : color}
+			borderRadius={!hasLoaded ? 'xs' : borderRadius}
+			background={!hasLoaded ? `gray.${colorMode === 'light' ? 200 : 700}` : background}
+			color={!hasLoaded ? 'transparent' : color}
 			overflow='hidden'
 			overflowX='hidden'
 			overflowY='hidden'
 			whiteSpace='nowrap'
+			userSelect={!hasLoaded ? 'none' : 'auto'}
 		>
-			{hasLoaded ? icon : ''}
+			{icon}
 		</Center>
 	);
 };
