@@ -9,13 +9,13 @@ export default (theme: Theme, colorProp: Color): Style => {
 	const textShade: ColorHues = colorProp === 'white' ? 400 : 50;
 
 	return {
-		'color': `${theme.colors.gray[textShade]} !important`,
+		'color': theme.colors.gray[textShade],
 
 		'&::before': {
 			boxShadow: 'none !important',
-			borderColor: `${theme.colors[color][shade]} !important`,
-			backgroundColor: `${theme.colors[color][shade]} !important`,
-			background: `${theme.colors[color][shade]} !important`
+			borderColor: theme.colors[color][shade],
+			backgroundColor: theme.colors[color][shade],
+			background: theme.colors[color][shade]
 		}
 	};
 };
