@@ -13,8 +13,17 @@ export default (theme: Theme, isRound: IconButtonProps['isActive'], sizeProp: Si
 	const transform = size.transform[variant];
 	const padding = size.padding;
 
-	const radius: Radius =
-		sizeProp === 'xs' || sizeProp === 'sm' ? 'xs' : sizeProp === 'lg' || sizeProp === 'xl' ? 'lg' : 'base';
+	const fontSize: string =
+		sizeProp === 'xs'
+			? '15px' // Height of theme xs font-size
+			: sizeProp === 'sm'
+			? '17px' // Height of theme sm font-size
+			: sizeProp === 'md'
+			? '18px' // Height of theme md font-size
+			: sizeProp === 'lg'
+			? '21px' // Height of theme lg font-size
+			: '23px'; // Height of theme xl font-size
+
 	const radius: Radius = isRound
 		? 'full'
 		: sizeProp === 'xs' || sizeProp === 'sm'
@@ -54,7 +63,7 @@ export default (theme: Theme, isRound: IconButtonProps['isActive'], sizeProp: Si
 
 		'outline': !isTouchDevice ? '0px auto' : 'none !important',
 
-		'fontSize': sizeProp,
+		'fontSize': fontSize,
 		'fontWeight': 'semibold',
 		'textTransform': 'uppercase',
 		'whiteSpace': 'nowrap',
@@ -65,7 +74,8 @@ export default (theme: Theme, isRound: IconButtonProps['isActive'], sizeProp: Si
 
 		'transform': variant !== 'icon' ? 'translateY(0px)' : 'none',
 
-		'padding': `${theme.space[padding]} !important`,
+		'px': `${theme.space[padding.x]} !important`,
+		'py': `${theme.space[padding.y]} !important`,
 
 		'transition': transition,
 		'WebkitTransitionProperty': transitionProperty,
@@ -118,8 +128,6 @@ export default (theme: Theme, isRound: IconButtonProps['isActive'], sizeProp: Si
 			transform: variant !== 'icon' ? `translateY(${variant === 'outlined' ? border : transform}px)` : 'none'
 		},
 
-		'& .ds-cl-icon': {
-			fontSize: sizeProp
-		}
+		'& .ds-cl-icon': { fontSize }
 	};
 };

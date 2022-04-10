@@ -9,6 +9,11 @@ type Amounts = {
 	active: number;
 };
 
+type Padding = {
+	x: Space; // In Space (Theme) Values
+	y: Space; // In Space (Theme) Values
+};
+
 type Variants = {
 	contained: number; // In Pixels
 	outlined: number; // In Pixels
@@ -16,7 +21,7 @@ type Variants = {
 };
 
 type SizeStyle = {
-	padding: Space; // In Space (Theme) Values
+	padding: Padding;
 	border: number; // In Pixels
 	spacing: Space; // In Space (Theme) Values
 	transform: Variants;
@@ -27,7 +32,7 @@ export const handleSize = (size: Size): SizeStyle => {
 	switch (size) {
 		case 'xs':
 			return {
-				padding: 0.25,
+				padding: { x: 0.25, y: 0.25 },
 				border: 1,
 				spacing: 0.5,
 				transform: { contained: 2, outlined: 2, icon: 0 },
@@ -35,7 +40,7 @@ export const handleSize = (size: Size): SizeStyle => {
 			};
 		case 'sm':
 			return {
-				padding: 0.5,
+				padding: { x: 0.5, y: 0.5 },
 				border: 1,
 				spacing: 1,
 				transform: { contained: 2, outlined: 2, icon: 0 },
@@ -43,7 +48,7 @@ export const handleSize = (size: Size): SizeStyle => {
 			};
 		case 'lg':
 			return {
-				padding: 1.5,
+				padding: { x: 1.75, y: 1.5 },
 				border: 2,
 				spacing: 3,
 				transform: { contained: 4, outlined: 4, icon: 0 },
@@ -51,7 +56,7 @@ export const handleSize = (size: Size): SizeStyle => {
 			};
 		case 'xl':
 			return {
-				padding: 2,
+				padding: { x: 2.25, y: 2 },
 				border: 2,
 				spacing: 4,
 				transform: { contained: 4, outlined: 4, icon: 0 },
@@ -59,7 +64,7 @@ export const handleSize = (size: Size): SizeStyle => {
 			};
 		default:
 			return {
-				padding: 1,
+				padding: { x: 1.25, y: 1 },
 				border: 2,
 				spacing: 2,
 				transform: { contained: 4, outlined: 4, icon: 0 },
