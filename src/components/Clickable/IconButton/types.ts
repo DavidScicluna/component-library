@@ -47,13 +47,9 @@ type Omitted =
 	| 'children'
 	| 'color'
 	| 'colorScheme'
-	| 'iconSpacing'
-	| 'leftIcon'
-	| 'loadingText'
-	| 'rightIcon'
+	| 'icon'
 	| 'size'
 	| 'spinner'
-	| 'spinnerPlacement'
 	| 'variant';
 
 export type IconButtonProps = {
