@@ -1,12 +1,12 @@
 import { Style } from '../../../../../../common/types';
 import { handleIsTouchDevice } from '../../../../../../common/utils';
 import { Radius, Theme } from '../../../../../../theme/types';
-import { Size, Variant } from '../../../types';
+import { IconButtonProps, Size, Variant } from '../../../types';
 import { handleSize } from '../../utils';
 
 const isTouchDevice: boolean = handleIsTouchDevice();
 
-export default (theme: Theme, sizeProp: Size, variant: Variant): Style => {
+export default (theme: Theme, isRound: IconButtonProps['isActive'], sizeProp: Size, variant: Variant): Style => {
 	const size = handleSize(sizeProp);
 
 	const border = size.border;
@@ -15,6 +15,13 @@ export default (theme: Theme, sizeProp: Size, variant: Variant): Style => {
 
 	const radius: Radius =
 		sizeProp === 'xs' || sizeProp === 'sm' ? 'xs' : sizeProp === 'lg' || sizeProp === 'xl' ? 'lg' : 'base';
+	const radius: Radius = isRound
+		? 'full'
+		: sizeProp === 'xs' || sizeProp === 'sm'
+		? 'xs'
+		: sizeProp === 'lg' || sizeProp === 'xl'
+		? 'lg'
+		: 'base';
 
 	const transition = 'none';
 	const transitionProperty = ['filter', 'border-color', 'background', 'background-color', 'color'].join(', ');

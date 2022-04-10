@@ -17,12 +17,12 @@ type ButtonStyle = {
 };
 
 export default (theme: Theme, props: ButtonStyleProps): ButtonStyle => {
-	const { color, colorMode, isLoading, size, variant } = props;
+	const { color, colorMode, isLoading, isRound, size, variant } = props;
 
 	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
-		iconbutton: merge(iconbutton(theme, size, variant), scheme.iconbutton[variant](theme, color, size)),
+		iconbutton: merge(iconbutton(theme, isRound, size, variant), scheme.iconbutton[variant](theme, color, size)),
 		active: merge(active(size, variant), scheme.active[variant](theme, color, size)),
 		disabled: merge(disabled(isLoading, size, variant), scheme.disabled[variant](theme, color, isLoading, size))
 	};
