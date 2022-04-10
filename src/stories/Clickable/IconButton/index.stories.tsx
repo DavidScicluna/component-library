@@ -10,6 +10,13 @@ import Provider from '../../../components/Provider';
 export default {
 	title: 'Clickable/Icon Button',
 	component: IconButtonComponent,
+	decorators: [
+		(Story) => (
+			<Provider>
+				<Story />
+			</Provider>
+		)
+	],
 	argTypes: {
 		children: {
 			name: 'Icon',
@@ -117,8 +124,4 @@ export default {
 	// }
 } as Meta;
 
-export const IconButton: Story = (props: IconButtonProps): ReactElement => (
-	<Provider>
-		<IconButtonComponent {...props} />
-	</Provider>
-);
+export const IconButton: Story = (props: IconButtonProps): ReactElement => <IconButtonComponent {...props} />;
