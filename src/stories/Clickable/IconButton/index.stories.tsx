@@ -82,6 +82,13 @@ export default {
 			// description: '',
 			control: 'boolean'
 		},
+		isRound: {
+			name: 'Round',
+			type: 'boolean',
+			defaultValue: false,
+			// description: '',
+			control: 'boolean'
+		},
 		size: {
 			name: 'Size',
 			type: 'string',
