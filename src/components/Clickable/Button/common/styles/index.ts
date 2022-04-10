@@ -1,8 +1,8 @@
 import { merge } from 'lodash';
 
+import active from './active';
 import button from './button';
 import dark from './dark';
-import active from './active';
 import disabled from './disabled';
 import light from './light';
 import { ButtonStyleProps } from './types';

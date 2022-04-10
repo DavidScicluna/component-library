@@ -1,8 +1,8 @@
-import React, { ReactElement, forwardRef, useCallback } from 'react';
+import { ReactElement, forwardRef, useCallback } from 'react';
 
 import { ColorMode, useTheme, useColorMode, Button as CUIButton, Center, HStack } from '@chakra-ui/react';
 
-import { merge } from 'lodash';
+import merge from 'lodash/merge';
 import { useElementSize } from 'usehooks-ts';
 
 import useStyles from './common/styles';

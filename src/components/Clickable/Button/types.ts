@@ -36,7 +36,7 @@ export type RenderProps = {
 };
 
 type Omitted =
-	// MUI Box Props
+	// CUI Box Props
 	| BoxPadding
 	| BoxColor
 	| BoxGradient
@@ -50,7 +50,7 @@ type Omitted =
 	| BoxFilter
 	| BoxPseudo
 	| BoxOther
-	// MUI Button Props
+	// CUI Button Props
 	| 'as'
 	| 'children'
 	| 'color'
