@@ -12,13 +12,13 @@ export default (theme: Theme, colorProp: Color, sizeProp: Size): Style => {
 	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
 
 	return {
-		'color': `${theme.colors[color][shade]} !important`,
+		'color': theme.colors[color][shade],
 
 		'&::before': {
 			boxShadow: `0 ${border}px 0 0 ${theme.colors[color][shade]} !important`,
-			borderColor: `${theme.colors[color][shade]} !important`,
-			backgroundColor: `${theme.colors.transparent} !important`,
-			background: `${theme.colors.transparent} !important`
+			borderColor: theme.colors[color][shade],
+			backgroundColor: theme.colors.transparent,
+			background: theme.colors.transparent
 		}
 	};
 };

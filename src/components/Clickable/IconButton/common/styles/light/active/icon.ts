@@ -8,12 +8,12 @@ export default (theme: Theme, colorProp: Color): Style => {
 	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
 
 	return {
-		'color': `${theme.colors[color][shade]} !important`,
+		'color': theme.colors[color][shade],
 
 		'&::before': {
-			borderColor: `${theme.colors.transparent} !important`,
-			backgroundColor: `${theme.colors.transparent} !important`,
-			background: `${theme.colors.transparent} !important`
+			borderColor: theme.colors.transparent,
+			backgroundColor: theme.colors.transparent,
+			background: theme.colors.transparent
 		}
 	};
 };
