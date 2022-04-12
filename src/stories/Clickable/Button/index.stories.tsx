@@ -3,7 +3,7 @@ import { ReactElement } from 'react';
 import { Meta, Story } from './types';
 
 import ButtonComponent from '../../../components/Clickable/Button';
-import { ButtonProps } from '../../../components/Clickable/Button/types';
+import { ButtonProps, RenderProps } from '../../../components/Clickable/Button/types';
 import Icon from '../../../components/Icon';
 import Provider from '../../../components/Provider';
 
@@ -92,14 +92,24 @@ export default {
 			name: 'Left Element',
 			defaultValue: 'None',
 			// description: '',
-			options: ['None', 'Alert Icon', 'Cake Icon', 'Face Icon', 'World Icon', 'Heart Icon'],
+			options: ['None', 'Alert Icon', 'Food Bank Icon', 'Facebook Icon', 'World Icon', 'Heart Icon'],
 			mapping: {
 				'None': undefined,
-				'Alert Icon': () => <Icon icon='report' type='filled' />,
-				'Cake Icon': () => <Icon icon='cake' type='filled' />,
-				'Face Icon': () => <Icon icon='face' type='filled' />,
-				'World Icon': () => <Icon icon='public' type='filled' />,
-				'Heart Icon': () => <Icon icon='favorite' type='filled' />
+				'Alert Icon': ({ colorMode }: RenderProps) => (
+					<Icon colorMode={colorMode} icon='report' type='filled' />
+				),
+				'Food Bank Icon': ({ colorMode }: RenderProps) => (
+					<Icon colorMode={colorMode} icon='food_bank' type='filled' />
+				),
+				'Facebook Icon': ({ colorMode }: RenderProps) => (
+					<Icon colorMode={colorMode} icon='facebook' type='filled' />
+				),
+				'World Icon': ({ colorMode }: RenderProps) => (
+					<Icon colorMode={colorMode} icon='public' type='filled' />
+				),
+				'Heart Icon': ({ colorMode }: RenderProps) => (
+					<Icon colorMode={colorMode} icon='favorite' type='filled' />
+				)
 			},
 			control: 'select'
 		},
@@ -107,14 +117,24 @@ export default {
 			name: 'Right Element',
 			defaultValue: 'None',
 			// description: '',
-			options: ['None', 'Alert Icon', 'Cake Icon', 'Face Icon', 'World Icon', 'Heart Icon'],
+			options: ['None', 'Alert Icon', 'Food Bank Icon', 'Facebook Icon', 'World Icon', 'Heart Icon'],
 			mapping: {
 				'None': undefined,
-				'Alert Icon': () => <Icon icon='report' type='filled' />,
-				'Cake Icon': () => <Icon icon='cake' type='filled' />,
-				'Face Icon': () => <Icon icon='face' type='filled' />,
-				'World Icon': () => <Icon icon='public' type='filled' />,
-				'Heart Icon': () => <Icon icon='favorite' type='filled' />
+				'Alert Icon': ({ colorMode }: RenderProps) => (
+					<Icon colorMode={colorMode} icon='report' type='filled' />
+				),
+				'Food Bank Icon': ({ colorMode }: RenderProps) => (
+					<Icon colorMode={colorMode} icon='food_bank' type='filled' />
+				),
+				'Facebook Icon': ({ colorMode }: RenderProps) => (
+					<Icon colorMode={colorMode} icon='facebook' type='filled' />
+				),
+				'World Icon': ({ colorMode }: RenderProps) => (
+					<Icon colorMode={colorMode} icon='public' type='filled' />
+				),
+				'Heart Icon': ({ colorMode }: RenderProps) => (
+					<Icon colorMode={colorMode} icon='favorite' type='filled' />
+				)
 			},
 			control: 'select'
 		},
