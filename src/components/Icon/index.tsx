@@ -1,19 +1,13 @@
-import { ReactElement } from 'react';
+import { ReactElement, useCallback, useEffect } from 'react';
 
-import { ColorMode, useColorMode, useConst, Center } from '@chakra-ui/react';
-
-import { IconProps } from './types';
+import { ColorMode, useColorMode, useBoolean, Center } from '@chakra-ui/react';
 
 import '@fontsource/material-icons';
 import '@fontsource/material-icons-outlined';
 
-const handleCheckFontStatus = (): boolean => {
-	if (document.fonts.check("1rem 'Material Icons'")) {
-		return true;
-	} else {
-		return false;
-	}
-};
+import { debounce } from 'lodash';
+
+import { IconProps } from './types';
 
 const Icon = (props: IconProps): ReactElement => {
 	const { colorMode: colorModeHook } = useColorMode();
@@ -34,7 +28,20 @@ const Icon = (props: IconProps): ReactElement => {
 
 	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
-	const hasLoaded = useConst<boolean>(handleCheckFontStatus());
+	const [hasLoaded, setHasLoaded] = useBoolean(document.fonts.check("1rem 'Material Icons'"));
+
+	const handleCheckFontStatus = useCallback(
+		debounce(() => {
+			if (document.fonts.check("1rem 'Material Icons'")) {
+				return setHasLoaded.on();
+			} else {
+				return setHasLoaded.off();
+			}
+		}, 250),
+		[document.fonts]
+	);
+
+	useEffect(() => handleCheckFontStatus(), [document.fonts]);
 
 	return (
 		<Center
