@@ -9,6 +9,7 @@ import { SpinnerProps } from './types';
 
 import { handleConvertREMToPixels, handleConvertStringToNumber } from '../../../../../common/utils';
 import { Theme } from '../../../../../theme/types';
+import { handleIconFontSize } from '../../common/utils';
 
 const Spinner: FC<SpinnerProps> = (props) => {
 	const theme = useTheme<Theme>();
@@ -42,8 +43,8 @@ const Spinner: FC<SpinnerProps> = (props) => {
 	 * @returns - number: Font-size in PX
 	 */
 	const handleReturnSize = useCallback((): number => {
-		return handleConvertREMToPixels(handleConvertStringToNumber(theme.fontSizes[size], 'rem'));
-	}, [size, theme]);
+		return handleConvertStringToNumber(handleIconFontSize(size), 'px');
+	}, [size]);
 
 	const rgba = handleReturnColorRGBA();
 	const pixels = handleReturnSize();
