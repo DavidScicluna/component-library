@@ -46,7 +46,7 @@ export default (theme: Theme, isRound: IconButtonProps['isRound'], sizeProp: Siz
 		'opacity': 1,
 
 		'border': '0 solid transparent',
-		'borderBottom': `${transform}px solid transparent`,
+		'borderBottom': `${variant !== 'icon' ? transform : 0}px solid transparent`,
 		'borderRadius': theme.radii[radius],
 
 		'outline': !isTouchDevice ? '0px auto' : 'none !important',
@@ -99,7 +99,7 @@ export default (theme: Theme, isRound: IconButtonProps['isRound'], sizeProp: Siz
 
 		'&:active': {
 			outline: !isTouchDevice ? '0px auto' : 'none !important',
-			borderBottom: `${border}px solid transparent`,
+			borderBottom: `${variant !== 'icon' ? border : 0}px solid transparent`,
 
 			transform: variant !== 'icon' ? `translateY(${border}px)` : 'none'
 		},

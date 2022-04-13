@@ -12,7 +12,7 @@ export default (isLoading = false, sizeProp: Size, variant: Variant): Style => {
 
 		opacity: isLoading ? 1 : 0.5,
 
-		borderBottom: `${border}px solid transparent`,
+		borderBottom: `${variant !== 'icon' ? border : 0}px solid transparent`,
 
 		transform: variant !== 'icon' ? `translateY(${border}px)` : 'none'
 	};
