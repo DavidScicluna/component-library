@@ -1,4 +1,4 @@
-import { ReactElement, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 
 import { useTheme } from '@chakra-ui/react';
 
@@ -7,10 +7,11 @@ import { SpinnerCircularFixed } from 'spinners-react';
 
 import { SpinnerProps } from './types';
 
-import { handleConvertREMToPixels, handleConvertStringToNumber } from '../../../../../common/utils';
+import { handleConvertStringToNumber } from '../../../../../common/utils';
 import { Theme } from '../../../../../theme/types';
+import { handleFontSize } from '../../common/utils';
 
-const Spinner = (props: SpinnerProps): ReactElement => {
+const Spinner: FC<SpinnerProps> = (props) => {
 	const theme = useTheme<Theme>();
 
 	const { color, colorMode, size, variant } = props;
@@ -42,8 +43,8 @@ const Spinner = (props: SpinnerProps): ReactElement => {
 	 * @returns - number: Font-size in PX
 	 */
 	const handleReturnSize = useCallback((): number => {
-		return handleConvertREMToPixels(handleConvertStringToNumber(theme.fontSizes[size], 'rem'));
-	}, [size, theme]);
+		return handleConvertStringToNumber(handleFontSize(size), 'px');
+	}, [size]);
 
 	const rgba = handleReturnColorRGBA();
 	const pixels = handleReturnSize();

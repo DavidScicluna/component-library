@@ -2,7 +2,7 @@ import { Style } from '../../../../../../common/types';
 import { handleIsTouchDevice } from '../../../../../../common/utils';
 import { Radius, Theme } from '../../../../../../theme/types';
 import { IconButtonProps, Size, Variant } from '../../../types';
-import { handleSize } from '../../utils';
+import { handleFontSize, handleSize } from '../../utils';
 
 const isTouchDevice: boolean = handleIsTouchDevice();
 
@@ -13,16 +13,7 @@ export default (theme: Theme, isRound: IconButtonProps['isActive'], sizeProp: Si
 	const transform = size.transform[variant];
 	const padding = size.padding;
 
-	const fontSize: string =
-		sizeProp === 'xs'
-			? '15px' // Height of theme xs font-size
-			: sizeProp === 'sm'
-			? '17px' // Height of theme sm font-size
-			: sizeProp === 'md'
-			? '18px' // Height of theme md font-size
-			: sizeProp === 'lg'
-			? '21px' // Height of theme lg font-size
-			: '23px'; // Height of theme xl font-size
+	const fontSize: string = handleFontSize(sizeProp);
 
 	const radius: Radius = isRound
 		? 'full'
