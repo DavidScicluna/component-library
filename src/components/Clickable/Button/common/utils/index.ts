@@ -88,3 +88,18 @@ export const handleAmount = (variant: Variant): Amounts => {
 		active: 0.15
 	};
 };
+
+export const handleIconFontSize = (size: Size): string => {
+	switch (size) {
+		case 'xs':
+			return '15px'; // Height of theme xs font-size
+		case 'sm':
+			return '17px'; // Height of theme sm font-size
+		case 'lg':
+			return '21px'; // Height of theme lg font-size
+		case 'xl':
+			return '23px'; // Height of theme xl font-size
+		default:
+			return '18px'; // Height of theme md font-size
+	}
+};

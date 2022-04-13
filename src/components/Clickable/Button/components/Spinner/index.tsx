@@ -1,4 +1,4 @@
-import { ReactElement, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 
 import { useTheme } from '@chakra-ui/react';
 
@@ -10,7 +10,7 @@ import { SpinnerProps } from './types';
 import { handleConvertREMToPixels, handleConvertStringToNumber } from '../../../../../common/utils';
 import { Theme } from '../../../../../theme/types';
 
-const Spinner = (props: SpinnerProps): ReactElement => {
+const Spinner: FC<SpinnerProps> = (props) => {
 	const theme = useTheme<Theme>();
 
 	const { color, colorMode, size, variant } = props;

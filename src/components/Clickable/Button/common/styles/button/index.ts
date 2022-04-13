@@ -2,7 +2,7 @@ import { Style } from '../../../../../../common/types';
 import { handleIsTouchDevice } from '../../../../../../common/utils';
 import { Radius, Theme } from '../../../../../../theme/types';
 import { ButtonProps, Size, Variant } from '../../../types';
-import { handleSize } from '../../utils';
+import { handleIconFontSize, handleSize } from '../../utils';
 
 const isTouchDevice: boolean = handleIsTouchDevice();
 
@@ -17,6 +17,8 @@ export default (
 	const border = size.border;
 	const transform = size.transform[variant];
 	const padding = size.padding;
+
+	const iconFontSize = handleIconFontSize(sizeProp);
 
 	const radius: Radius =
 		sizeProp === 'xs' || sizeProp === 'sm' ? 'xs' : sizeProp === 'lg' || sizeProp === 'xl' ? 'lg' : 'base';
