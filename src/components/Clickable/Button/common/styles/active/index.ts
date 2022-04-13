@@ -7,7 +7,7 @@ export default (sizeProp: Size, variant: Variant): Style => {
 	const border = size.border;
 
 	return {
-		borderBottom: `${border}px solid transparent`,
+		borderBottom: `${variant !== 'text' ? border : 0}px solid transparent`,
 
 		transform: variant !== 'text' ? `translateY(${border}px)` : 'none'
 	};

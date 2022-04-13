@@ -46,7 +46,7 @@ export default (
 		'opacity': 1,
 
 		'border': '0 solid transparent',
-		'borderBottom': `${transform}px solid transparent`,
+		'borderBottom': `${variant !== 'text' ? transform : 0}px solid transparent`,
 		'borderRadius': theme.radii[radius],
 
 		'outline': !isTouchDevice ? '0px auto' : 'none !important',
@@ -99,7 +99,7 @@ export default (
 
 		'&:active': {
 			outline: !isTouchDevice ? '0px auto' : 'none !important',
-			borderBottom: `${border}px solid transparent`,
+			borderBottom: `${variant !== 'text' ? border : 0}px solid transparent`,
 
 			transform: variant !== 'text' ? `translateY(${border}px)` : 'none'
 		},
