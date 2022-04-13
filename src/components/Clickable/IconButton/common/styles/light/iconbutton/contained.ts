@@ -18,7 +18,7 @@ export default (theme: Theme, colorProp: Color, sizeProp: Size): Style => {
 	const offset = size.offset.contained;
 
 	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
-	const textShade: ColorHues = colorProp === 'white' ? 400 : 50;
+	const textShade: ColorHues = colorProp === 'white' ? 900 : 50;
 
 	return {
 		'color': theme.colors.gray[textShade],
