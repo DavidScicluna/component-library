@@ -44,7 +44,7 @@ export default (theme: Theme, colorProp: Color, sizeProp: Size): Style => {
 				'color': theme.colors.gray[textShade],
 
 				'&::before': {
-					boxShadow: 'none',
+					boxShadow: `0 ${border}px 0 0 ${lighten(theme.colors[color][shade], amount.active)}`,
 					borderColor: lighten(theme.colors[color][shade], amount.active),
 					backgroundColor: lighten(theme.colors[color][shade], amount.active),
 					background: lighten(theme.colors[color][shade], amount.active)
@@ -56,7 +56,7 @@ export default (theme: Theme, colorProp: Color, sizeProp: Size): Style => {
 			'color': theme.colors.gray[textShade],
 
 			'&::before': {
-				boxShadow: 'none',
+				boxShadow: `0 ${border}px 0 0 ${lighten(theme.colors[color][shade], amount.active)}`,
 				borderColor: lighten(theme.colors[color][shade], amount.active),
 				backgroundColor: lighten(theme.colors[color][shade], amount.active),
 				background: lighten(theme.colors[color][shade], amount.active)

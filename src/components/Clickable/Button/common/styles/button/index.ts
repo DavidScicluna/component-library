@@ -22,9 +22,6 @@ export default (
 		sizeProp === 'xs' || sizeProp === 'sm' ? 'xs' : sizeProp === 'lg' || sizeProp === 'xl' ? 'lg' : 'base';
 
 	const transition = 'none';
-	const transitionProperty = ['filter', 'border-color', 'background', 'background-color', 'color'].join(', ');
-	const transitionDuration = theme.transition.duration.faster;
-	const transitionTimingFunction = theme.transition.easing['ease-out'];
 
 	return {
 		'cursor': 'pointer',
@@ -67,12 +64,6 @@ export default (
 		'py': `${theme.space[padding.y]} !important`,
 
 		'transition': transition,
-		'WebkitTransitionProperty': transitionProperty,
-		'transitionProperty': transitionProperty,
-		'WebkitTransitionDuration': transitionDuration,
-		'transitionDuration': transitionDuration,
-		'WebkitTransitionTimingFunction': transitionTimingFunction,
-		'transitionTimingFunction': transitionTimingFunction,
 
 		'&::before': {
 			content: '""',
@@ -92,13 +83,7 @@ export default (
 			borderStyle: 'solid',
 			borderColor: 'transparent',
 
-			transition: transition,
-			WebkitTransitionProperty: transitionProperty,
-			transitionProperty: transitionProperty,
-			WebkitTransitionDuration: transitionDuration,
-			transitionDuration: transitionDuration,
-			WebkitTransitionTimingFunction: transitionTimingFunction,
-			transitionTimingFunction: transitionTimingFunction
+			transition: transition
 		},
 
 		'&:focus:not(:focus-visible)': {
@@ -112,13 +97,11 @@ export default (
 
 		'&:active': {
 			outline: !isTouchDevice ? '0px auto' : 'none !important',
-			borderBottom: `${variant === 'outlined' ? border : 0}px solid transparent`,
+			borderBottom: `${border}px solid transparent`,
 
-			transform: variant !== 'text' ? `translateY(${variant === 'outlined' ? border : transform}px)` : 'none'
+			transform: variant !== 'text' ? `translateY(${border}px)` : 'none'
 		},
 
-		'& .ds-cl-icon': {
-			fontSize: sizeProp
-		}
+		'& svg, .ds-cl-text': { fontSize: iconFontSize, userSelect: 'none' }
 	};
 };

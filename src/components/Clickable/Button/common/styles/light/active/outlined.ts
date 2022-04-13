@@ -18,7 +18,7 @@ export default (theme: Theme, colorProp: Color, sizeProp: Size): Style => {
 		'color': theme.colors[color][shade],
 
 		'&::before': {
-			boxShadow: `0 ${border}px 0 0 ${theme.colors[color][shade]} !important`,
+			boxShadow: `0 ${border}px 0 0 ${theme.colors[color][shade]}`,
 			borderColor: theme.colors[color][shade],
 			backgroundColor: theme.colors.transparent,
 			background: theme.colors.transparent
@@ -28,7 +28,7 @@ export default (theme: Theme, colorProp: Color, sizeProp: Size): Style => {
 			'color': darken(theme.colors[color][shade], amount.hover),
 
 			'&::before': {
-				boxShadow: `0 ${border}px 0 0 ${darken(theme.colors[color][shade], amount.hover)}  !important`,
+				boxShadow: `0 ${border}px 0 0 ${darken(theme.colors[color][shade], amount.hover)}`,
 				borderColor: darken(theme.colors[color][shade], amount.hover),
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
@@ -38,7 +38,7 @@ export default (theme: Theme, colorProp: Color, sizeProp: Size): Style => {
 				'color': darken(theme.colors[color][shade], amount.active),
 
 				'&::before': {
-					boxShadow: `0 ${border}px 0 0 ${darken(theme.colors[color][shade], amount.active)} !important`,
+					boxShadow: `0 ${border}px 0 0 ${darken(theme.colors[color][shade], amount.active)}`,
 					borderColor: darken(theme.colors[color][shade], amount.active),
 					backgroundColor: theme.colors.transparent,
 					background: theme.colors.transparent
