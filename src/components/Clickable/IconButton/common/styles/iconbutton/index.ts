@@ -6,7 +6,7 @@ import { handleFontSize, handleSize } from '../../utils';
 
 const isTouchDevice: boolean = handleIsTouchDevice();
 
-export default (theme: Theme, isRound: IconButtonProps['isActive'], sizeProp: Size, variant: Variant): Style => {
+export default (theme: Theme, isRound: IconButtonProps['isRound'], sizeProp: Size, variant: Variant): Style => {
 	const size = handleSize(sizeProp);
 
 	const border = size.border;
