@@ -10,7 +10,7 @@ export default (theme: Theme, colorProp: Color, isLoading = false, sizeProp: Siz
 	const border = size.border;
 
 	const color = isLoading ? (colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp) : 'gray';
-	const textShade: ColorHues = colorProp === 'black' ? 500 : 900;
+	const textShade: ColorHues = colorProp === 'black' ? 50 : 900;
 
 	return {
 		'color': `${theme.colors.gray[textShade]} !important`,
