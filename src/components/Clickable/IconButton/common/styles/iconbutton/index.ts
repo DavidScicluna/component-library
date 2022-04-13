@@ -24,9 +24,6 @@ export default (theme: Theme, isRound: IconButtonProps['isActive'], sizeProp: Si
 		: 'base';
 
 	const transition = 'none';
-	const transitionProperty = ['filter', 'border-color', 'background', 'background-color', 'color'].join(', ');
-	const transitionDuration = theme.transition.duration.faster;
-	const transitionTimingFunction = theme.transition.easing['ease-out'];
 
 	return {
 		'cursor': 'pointer',
@@ -69,12 +66,6 @@ export default (theme: Theme, isRound: IconButtonProps['isActive'], sizeProp: Si
 		'py': `${theme.space[padding.y]} !important`,
 
 		'transition': transition,
-		'WebkitTransitionProperty': transitionProperty,
-		'transitionProperty': transitionProperty,
-		'WebkitTransitionDuration': transitionDuration,
-		'transitionDuration': transitionDuration,
-		'WebkitTransitionTimingFunction': transitionTimingFunction,
-		'transitionTimingFunction': transitionTimingFunction,
 
 		'&::before': {
 			content: '""',
@@ -94,13 +85,7 @@ export default (theme: Theme, isRound: IconButtonProps['isActive'], sizeProp: Si
 			borderStyle: 'solid',
 			borderColor: 'transparent',
 
-			transition: transition,
-			WebkitTransitionProperty: transitionProperty,
-			transitionProperty: transitionProperty,
-			WebkitTransitionDuration: transitionDuration,
-			transitionDuration: transitionDuration,
-			WebkitTransitionTimingFunction: transitionTimingFunction,
-			transitionTimingFunction: transitionTimingFunction
+			transition: transition
 		},
 
 		'&:focus:not(:focus-visible)': {
