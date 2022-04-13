@@ -44,7 +44,7 @@ export default (theme: Theme, colorProp: Color, sizeProp: Size): Style => {
 				'color': theme.colors.gray[textShade],
 
 				'&::before': {
-					boxShadow: 'none',
+					boxShadow: `0 ${border}px 0 0 ${darken(theme.colors[color][shade], amount.active)}`,
 					borderColor: darken(theme.colors[color][shade], amount.active),
 					backgroundColor: darken(theme.colors[color][shade], amount.active),
 					background: darken(theme.colors[color][shade], amount.active)
@@ -56,7 +56,7 @@ export default (theme: Theme, colorProp: Color, sizeProp: Size): Style => {
 			'color': theme.colors.gray[textShade],
 
 			'&::before': {
-				boxShadow: 'none',
+				boxShadow: `0 ${border}px 0 0 ${darken(theme.colors[color][shade], amount.active)}`,
 				borderColor: darken(theme.colors[color][shade], amount.active),
 				backgroundColor: darken(theme.colors[color][shade], amount.active),
 				background: darken(theme.colors[color][shade], amount.active)

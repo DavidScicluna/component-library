@@ -114,11 +114,11 @@ export default (theme: Theme, isRound: IconButtonProps['isActive'], sizeProp: Si
 
 		'&:active': {
 			outline: !isTouchDevice ? '0px auto' : 'none !important',
-			borderBottom: `${variant === 'outlined' ? border : 0}px solid transparent`,
+			borderBottom: `${border}px solid transparent`,
 
-			transform: variant !== 'icon' ? `translateY(${variant === 'outlined' ? border : transform}px)` : 'none'
+			transform: variant !== 'icon' ? `translateY(${border}px)` : 'none'
 		},
 
-		'& .ds-cl-icon': { fontSize }
+		'& svg, .ds-cl-icon': { fontSize, userSelect: 'none' }
 	};
 };
