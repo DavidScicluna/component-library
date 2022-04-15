@@ -1,4 +1,4 @@
-import { ReactElement, useCallback, useEffect } from 'react';
+import { FC, useCallback, useEffect } from 'react';
 
 import { ColorMode, useColorMode, useBoolean, Center } from '@chakra-ui/react';
 
@@ -9,7 +9,7 @@ import { debounce } from 'lodash';
 
 import { IconProps } from './types';
 
-const Icon = (props: IconProps): ReactElement => {
+const Icon: FC<IconProps> = (props) => {
 	const { colorMode: colorModeHook } = useColorMode();
 
 	const {
