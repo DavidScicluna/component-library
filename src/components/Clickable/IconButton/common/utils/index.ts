@@ -75,9 +75,9 @@ export const handleSize = (size: Size): SizeStyle => {
 
 export const handleHue = (colorMode: ColorMode, color: Color): ColorHues => {
 	if (colorMode === 'light') {
-		return color === 'gray' ? 400 : color === 'white' ? 200 : color === 'black' ? 700 : 500;
+		return color === 'gray' ? 400 : color === 'white' ? 100 : color === 'black' ? 800 : 500;
 	} else {
-		return color === 'gray' ? 500 : color === 'white' ? 200 : color === 'black' ? 700 : 400;
+		return color === 'gray' ? 500 : color === 'white' ? 100 : color === 'black' ? 800 : 400;
 	}
 };
 
