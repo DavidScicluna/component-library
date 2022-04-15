@@ -1,9 +1,9 @@
-// export const parameters = {
-// 	actions: { argTypesRegex: '^on[A-Z].*' },
-// 	controls: {
-// 		matchers: {
-// 			color: /(background|color)$/i,
-// 			date: /Date$/
-// 		}
-// 	}
-// };
+import Provider from '../src/components/Provider';
+
+export const decorators = [
+	(Story) => (
+		<Provider>
+			<Story />
+		</Provider>
+	)
+];

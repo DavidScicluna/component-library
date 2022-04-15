@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { FC } from 'react';
 
 import { ChakraProvider } from '@chakra-ui/react';
 
@@ -6,7 +6,9 @@ import { ProviderProps } from './types';
 
 import theme from '../../theme';
 
-const Provider = ({ children }: ProviderProps): ReactElement => {
+const Provider: FC<ProviderProps> = ({ children }) => {
+	console.log(theme);
+
 	return (
 		<ChakraProvider theme={theme} resetCSS>
 			{children}
