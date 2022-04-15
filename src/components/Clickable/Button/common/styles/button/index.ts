@@ -104,6 +104,8 @@ export default (
 			transform: variant !== 'text' ? `translateY(${border}px)` : 'none'
 		},
 
-		'& svg, .ds-cl-text': { fontSize: iconFontSize, userSelect: 'none' }
+		'& svg, .ds-cl-icon': { fontSize: iconFontSize, userSelect: 'none' },
+
+		'*, *::before, *::after': { transition }
 	};
 };
