@@ -1,13 +1,58 @@
 import { ReactElement } from 'react';
 
+import { ColorMode } from '@chakra-ui/react';
+
 import { sample } from 'lodash';
 
 import { Meta, Story } from './types';
 
 import icons from '../../../common/data/icons';
+import { Icon as IconType } from '../../../common/types/icons';
 import IconButtonComponent from '../../../components/Clickable/IconButton';
-import { IconButtonProps } from '../../../components/Clickable/IconButton/types';
+import { IconButtonColor, Size, Variant, IconButtonProps } from '../../../components/Clickable/IconButton/types';
 import Icon from '../../../components/Icon';
+
+const childrenDefaultValue: IconType | undefined = sample(icons);
+const childrenOptions: IconType[] = [...icons];
+const childrenMapping = Object.assign(
+	{},
+	...icons.map((icon) => {
+		return {
+			[icon]: <Icon icon={icon} type='filled' />
+		};
+	})
+);
+
+const colorDefaultValue: IconButtonColor = 'gray';
+const colorOptions: IconButtonColor[] = [
+	'black',
+	'white',
+	'gray',
+	'red',
+	'pink',
+	'purple',
+	'deep_purple',
+	'indigo',
+	'blue',
+	'light_blue',
+	'cyan',
+	'teal',
+	'green',
+	'light_green',
+	'lime',
+	'yellow',
+	'orange',
+	'deep_orange'
+];
+
+const colorModeDefaultValue: ColorMode = 'light';
+const colorModeOptions: ColorMode[] = ['light', 'dark'];
+
+const sizeDefaultValue: Size = 'md';
+const sizeOptions: Size[] = ['xs', 'sm', 'md', 'lg', 'xl'];
+
+const variantDefaultValue: Variant = 'contained';
+const variantOptions: Variant[] = ['contained', 'outlined', 'icon'];
 
 export default {
 	title: 'Clickable/Icon Button',
@@ -15,52 +60,26 @@ export default {
 	argTypes: {
 		children: {
 			name: 'Icon',
-			defaultValue: sample(icons),
+			defaultValue: childrenDefaultValue,
 			// description: '',
-			options: [...icons],
-			mapping: Object.assign(
-				{},
-				...icons.map((icon) => {
-					return {
-						[icon]: <Icon icon={icon} type='filled' />
-					};
-				})
-			),
+			options: childrenOptions,
+			mapping: childrenMapping,
 			control: 'select'
 		},
 		color: {
 			name: 'Color',
 			type: 'string',
-			defaultValue: 'gray',
+			defaultValue: colorDefaultValue,
 			// description: '',
-			options: [
-				'black',
-				'white',
-				'gray',
-				'red',
-				'pink',
-				'purple',
-				'deep_purple',
-				'indigo',
-				'blue',
-				'light_blue',
-				'cyan',
-				'teal',
-				'green',
-				'light_green',
-				'lime',
-				'yellow',
-				'orange',
-				'deep_orange'
-			],
+			options: colorOptions,
 			control: 'select'
 		},
 		colorMode: {
 			name: 'ColorMode',
 			type: 'string',
-			defaultValue: 'light',
+			defaultValue: colorModeDefaultValue,
 			// description: '',
-			options: ['light', 'dark'],
+			options: colorModeOptions,
 			control: 'radio'
 		},
 		isDisabled: {
@@ -94,17 +113,17 @@ export default {
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: 'md',
+			defaultValue: sizeDefaultValue,
 			// description: '',
-			options: ['xs', 'sm', 'md', 'lg', 'xl'],
+			options: sizeOptions,
 			control: 'select'
 		},
 		variant: {
 			name: 'Variant',
 			type: 'string',
-			defaultValue: 'contained',
+			defaultValue: variantDefaultValue,
 			// description: '',
-			options: ['contained', 'outlined', 'icon'],
+			options: variantOptions,
 			control: 'select'
 		}
 	}
