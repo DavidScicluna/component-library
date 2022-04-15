@@ -1,13 +1,40 @@
 import { ReactElement } from 'react';
 
+import { ColorMode } from '@chakra-ui/react';
+
 import { Meta, Story } from './types';
 
 import icons from '../../../common/data/icons';
 import ButtonComponent from '../../../components/Clickable/Button';
-import { ButtonProps, RenderProps } from '../../../components/Clickable/Button/types';
+import { ButtonColor, RenderProps, Size, Variant, ButtonProps } from '../../../components/Clickable/Button/types';
 import Icon from '../../../components/Icon';
 
-const iconMapping = Object.assign(
+const colorDefaultValue: ButtonColor = 'gray';
+const colorOptions: ButtonColor[] = [
+	'black',
+	'white',
+	'gray',
+	'red',
+	'pink',
+	'purple',
+	'deep_purple',
+	'indigo',
+	'blue',
+	'light_blue',
+	'cyan',
+	'teal',
+	'green',
+	'light_green',
+	'lime',
+	'yellow',
+	'orange',
+	'deep_orange'
+];
+
+const colorModeDefaultValue: ColorMode = 'light';
+const colorModeOptions: ColorMode[] = ['light', 'dark'];
+
+const renderMapping = Object.assign(
 	{ none: undefined },
 	...icons.map((icon) => {
 		return {
@@ -15,6 +42,12 @@ const iconMapping = Object.assign(
 		};
 	})
 );
+
+const sizeDefaultValue: Size = 'md';
+const sizeOptions: Size[] = ['xs', 'sm', 'md', 'lg', 'xl'];
+
+const variantDefaultValue: Variant = 'contained';
+const variantOptions: Variant[] = ['contained', 'outlined', 'text'];
 
 export default {
 	title: 'Clickable/Button',
@@ -30,36 +63,17 @@ export default {
 		color: {
 			name: 'Color',
 			type: 'string',
-			defaultValue: 'gray',
+			defaultValue: colorDefaultValue,
 			// description: '',
-			options: [
-				'black',
-				'white',
-				'gray',
-				'red',
-				'pink',
-				'purple',
-				'deep_purple',
-				'indigo',
-				'blue',
-				'light_blue',
-				'cyan',
-				'teal',
-				'green',
-				'light_green',
-				'lime',
-				'yellow',
-				'orange',
-				'deep_orange'
-			],
+			options: [...colorOptions],
 			control: 'select'
 		},
 		colorMode: {
 			name: 'ColorMode',
 			type: 'string',
-			defaultValue: 'light',
+			defaultValue: colorModeDefaultValue,
 			// description: '',
-			options: ['light', 'dark'],
+			options: [...colorModeOptions],
 			control: 'radio'
 		},
 		isDisabled: {
@@ -95,7 +109,7 @@ export default {
 			defaultValue: 'none',
 			// description: '',
 			options: ['none', ...icons],
-			mapping: { ...iconMapping },
+			mapping: { ...renderMapping },
 			control: 'select'
 		},
 		renderRight: {
@@ -103,23 +117,23 @@ export default {
 			defaultValue: 'none',
 			// description: '',
 			options: ['none', ...icons],
-			mapping: { ...iconMapping },
+			mapping: { ...renderMapping },
 			control: 'select'
 		},
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: 'md',
+			defaultValue: sizeDefaultValue,
 			// description: '',
-			options: ['xs', 'sm', 'md', 'lg', 'xl'],
+			options: [...sizeOptions],
 			control: 'select'
 		},
 		variant: {
 			name: 'Variant',
 			type: 'string',
-			defaultValue: 'contained',
+			defaultValue: variantDefaultValue,
 			// description: '',
-			options: ['contained', 'outlined', 'text'],
+			options: [...variantOptions],
 			control: 'select'
 		}
 	}
