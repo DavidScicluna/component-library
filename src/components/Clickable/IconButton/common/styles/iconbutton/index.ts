@@ -104,6 +104,8 @@ export default (theme: Theme, isRound: IconButtonProps['isRound'], sizeProp: Siz
 			transform: variant !== 'icon' ? `translateY(${border}px)` : 'none'
 		},
 
-		'& svg, .ds-cl-icon': { fontSize, userSelect: 'none' }
+		'& svg, .ds-cl-icon': { fontSize, userSelect: 'none' },
+
+		'*, *::before, *::after': { transition }
 	};
 };
