@@ -1,36 +1,31 @@
 import { ReactElement } from 'react';
 
+import { sample } from 'lodash';
+
 import { Meta, Story } from './types';
 
+import icons from '../../../common/data/icons';
 import IconButtonComponent from '../../../components/Clickable/IconButton';
 import { IconButtonProps } from '../../../components/Clickable/IconButton/types';
 import Icon from '../../../components/Icon';
-import Provider from '../../../components/Provider';
 
 export default {
 	title: 'Clickable/Icon Button',
 	component: IconButtonComponent,
-	decorators: [
-		(Story) => (
-			<Provider>
-				<Story />
-			</Provider>
-		)
-	],
 	argTypes: {
 		children: {
 			name: 'Icon',
-			defaultValue: 'Square',
+			defaultValue: sample(icons),
 			// description: '',
-			options: ['Square', 'Alert Icon', 'Cake Icon', 'Face Icon', 'World Icon', 'Heart Icon'],
-			mapping: {
-				'Square': <Icon icon='crop_square' type='filled' />,
-				'Alert Icon': <Icon icon='report' type='filled' />,
-				'Cake Icon': <Icon icon='cake' type='filled' />,
-				'Face Icon': <Icon icon='face' type='filled' />,
-				'World Icon': <Icon icon='public' type='filled' />,
-				'Heart Icon': <Icon icon='favorite' type='filled' />
-			},
+			options: [...icons],
+			mapping: Object.assign(
+				{},
+				...icons.map((icon) => {
+					return {
+						[icon]: <Icon icon={icon} type='filled' />
+					};
+				})
+			),
 			control: 'select'
 		},
 		color: {
