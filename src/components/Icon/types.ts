@@ -1,20 +1,14 @@
 import { ColorMode, CenterProps } from '@chakra-ui/react';
 
-import { BoxPadding, BoxGrid, BoxPseudo, BoxOther } from '../../common/types/box';
+import { BoxFlexbox, BoxGrid, BoxPseudo, BoxOther } from '../../common/types/box';
 import { Icon } from '../../common/types/icons';
 
-type IconType = 'filled' | 'outlined';
+export type Type = 'filled' | 'outlined';
 
 type Omitted =
 	// MUI Box Props
-	| BoxPadding
-	// |BoxFlexbox
+	| BoxFlexbox
 	| BoxGrid
-	// |BoxBackground
-	// |BoxBorders
-	// | BoxBorderRadius
-	// |BoxShadow
-	// |BoxFilter
 	| BoxPseudo
 	| BoxOther
 	// MUI Center Props
@@ -24,5 +18,5 @@ type Omitted =
 export type IconProps = {
 	colorMode?: ColorMode;
 	icon: Icon;
-	type: IconType;
+	type: Type;
 } & Omit<CenterProps, Omitted>;
