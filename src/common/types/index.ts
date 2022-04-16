@@ -5,3 +5,5 @@ export type NonNullable<T> = Exclude<T, null | undefined>; // Remove null and un
 
 // Component Types
 export type Style = CSSObject;
+
+export type Orientation = 'vertical' | 'horizontal';
