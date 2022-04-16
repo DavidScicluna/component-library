@@ -1,8 +1,8 @@
 import { Style } from '../../../../../../common/types';
 import { handleIsTouchDevice } from '../../../../../../common/utils';
-import { Radius, Theme } from '../../../../../../theme/types';
+import { Theme, Radius } from '../../../../../../theme/types';
 import { IconButtonProps, Size, Variant } from '../../../types';
-import { handleFontSize, handleSize } from '../../utils';
+import { handleSize, handleFontSize } from '../../utils';
 
 const isTouchDevice: boolean = handleIsTouchDevice();
 

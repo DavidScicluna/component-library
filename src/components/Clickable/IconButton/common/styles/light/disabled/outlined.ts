@@ -1,5 +1,5 @@
 import { Style } from '../../../../../../../common/types';
-import { Color, Theme } from '../../../../../../../theme/types';
+import { Theme, Color } from '../../../../../../../theme/types';
 import { Size } from '../../../../types';
 import { handleHue, handleSize } from '../../../utils';
 

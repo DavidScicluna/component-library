@@ -2,9 +2,9 @@ import { darken } from 'color2k';
 
 import { Style } from '../../../../../../../common/types';
 import { handleIsTouchDevice } from '../../../../../../../common/utils';
-import { Color, Theme } from '../../../../../../../theme/types';
+import { Theme, Color } from '../../../../../../../theme/types';
 import { Size } from '../../../../types';
-import { handleSize, handleHue, handleAmount } from '../../../utils';
+import { handleAmount, handleHue, handleSize } from '../../../utils';
 
 const isTouchDevice: boolean = handleIsTouchDevice();
 

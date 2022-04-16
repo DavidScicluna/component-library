@@ -1,7 +1,7 @@
 import { darken } from 'color2k';
 
 import { Style } from '../../../../../../../common/types';
-import { Color, ColorHues, Theme } from '../../../../../../../theme/types';
+import { Theme, Color, ColorHues } from '../../../../../../../theme/types';
 import { Size } from '../../../../types';
 import { handleAmount, handleHue, handleSize } from '../../../utils';
 

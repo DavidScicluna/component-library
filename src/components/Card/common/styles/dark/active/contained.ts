@@ -1,4 +1,4 @@
-import { darken, lighten } from 'color2k';
+import { lighten } from 'color2k';
 
 import { Style } from '../../../../../../common/types';
 import { Theme, Color } from '../../../../../../theme/types';
@@ -30,7 +30,7 @@ export default (
 		'&:hover': {
 			'&::before': {
 				boxShadow: isClickable
-					? `0 ${border}px 0 0 ${darken(theme.colors[color][shade], amount.back)}`
+					? `0 ${border}px 0 0 ${lighten(theme.colors[color][shade], amount.back)}`
 					: 'none',
 				borderColor: isClickable
 					? lighten(theme.colors[color][shade], amount.hover)
@@ -44,7 +44,7 @@ export default (
 			'&:active': {
 				'&::before': {
 					boxShadow: isClickable
-						? `0 ${border}px 0 0 ${darken(theme.colors[color][shade], amount.active)}`
+						? `0 ${border}px 0 0 ${lighten(theme.colors[color][shade], amount.active)}`
 						: 'none',
 					borderColor: isClickable
 						? lighten(theme.colors[color][shade], amount.active)
