@@ -2,7 +2,7 @@ import { ColorMode } from '@chakra-ui/react';
 
 import { IconButtonProps, IconButtonColor, Size, Variant } from '../../types';
 
-export type ButtonStyleProps = {
+export type IconButtonStyleProps = {
 	color: IconButtonColor;
 	colorMode: ColorMode;
 	isLoading: IconButtonProps['isLoading'];

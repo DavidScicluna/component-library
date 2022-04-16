@@ -1,9 +1,9 @@
 import { Style } from '../../../../../../../common/types';
 import { Theme, Color } from '../../../../../../../theme/types';
 import { handleHue } from '../../../utils';
-import { ButtonStyleProps } from '../../types';
+import { IconButtonStyleProps } from '../../types';
 
-export default (theme: Theme, colorProp: Color, isLoading: ButtonStyleProps['isLoading'] = false): Style => {
+export default (theme: Theme, colorProp: Color, isLoading: IconButtonStyleProps['isLoading'] = false): Style => {
 	const shade = handleHue('dark', isLoading ? colorProp : 'gray');
 
 	const color = isLoading ? (colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp) : 'gray';

@@ -5,7 +5,7 @@ import dark from './dark';
 import disabled from './disabled';
 import iconbutton from './iconbutton';
 import light from './light';
-import { ButtonStyleProps } from './types';
+import { IconButtonStyleProps } from './types';
 
 import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';
@@ -16,7 +16,7 @@ type ButtonStyle = {
 	disabled: Style;
 };
 
-export default (theme: Theme, props: ButtonStyleProps): ButtonStyle => {
+export default (theme: Theme, props: IconButtonStyleProps): ButtonStyle => {
 	const { color, colorMode, isLoading, isRound, size, variant } = props;
 
 	const scheme = colorMode === 'light' ? light : dark;
