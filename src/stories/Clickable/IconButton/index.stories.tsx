@@ -1,7 +1,5 @@
 import { ReactElement } from 'react';
 
-import { ColorMode } from '@chakra-ui/react';
-
 import { sample } from 'lodash';
 
 import { Meta, Story } from './types';
@@ -11,6 +9,7 @@ import { Icon as IconType } from '../../../common/types/icons';
 import IconButtonComponent from '../../../components/Clickable/IconButton';
 import { IconButtonColor, Size, Variant, IconButtonProps } from '../../../components/Clickable/IconButton/types';
 import Icon from '../../../components/Icon';
+import controls from '../../common/controls';
 
 const childrenDefaultValue: IconType | undefined = sample(icons);
 const childrenOptions: IconType[] = [...icons];
@@ -45,9 +44,6 @@ const colorOptions: IconButtonColor[] = [
 	'deep_orange'
 ];
 
-const colorModeDefaultValue: ColorMode = 'light';
-const colorModeOptions: ColorMode[] = ['light', 'dark'];
-
 const sizeDefaultValue: Size = 'md';
 const sizeOptions: Size[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
@@ -74,14 +70,7 @@ export default {
 			options: colorOptions,
 			control: 'select'
 		},
-		colorMode: {
-			name: 'ColorMode',
-			type: 'string',
-			defaultValue: colorModeDefaultValue,
-			// description: '',
-			options: colorModeOptions,
-			control: 'radio'
-		},
+		colorMode: { ...controls.theme.colorMode },
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',

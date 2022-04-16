@@ -1,13 +1,12 @@
 import { ReactElement } from 'react';
 
-import { ColorMode } from '@chakra-ui/react';
-
 import { Meta, Story } from './types';
 
 import icons from '../../../common/data/icons';
 import ButtonComponent from '../../../components/Clickable/Button';
 import { ButtonColor, RenderProps, Size, Variant, ButtonProps } from '../../../components/Clickable/Button/types';
 import Icon from '../../../components/Icon';
+import controls from '../../common/controls';
 
 const colorDefaultValue: ButtonColor = 'gray';
 const colorOptions: ButtonColor[] = [
@@ -30,9 +29,6 @@ const colorOptions: ButtonColor[] = [
 	'orange',
 	'deep_orange'
 ];
-
-const colorModeDefaultValue: ColorMode = 'light';
-const colorModeOptions: ColorMode[] = ['light', 'dark'];
 
 const renderMapping = Object.assign(
 	{ none: undefined },
@@ -68,14 +64,7 @@ export default {
 			options: [...colorOptions],
 			control: 'select'
 		},
-		colorMode: {
-			name: 'ColorMode',
-			type: 'string',
-			defaultValue: colorModeDefaultValue,
-			// description: '',
-			options: [...colorModeOptions],
-			control: 'radio'
-		},
+		colorMode: { ...controls.theme.colorMode },
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
