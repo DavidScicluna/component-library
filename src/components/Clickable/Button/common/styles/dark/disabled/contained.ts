@@ -2,8 +2,14 @@ import { Style } from '../../../../../../../common/types';
 import { Theme, Color, ColorHues } from '../../../../../../../theme/types';
 import { Size } from '../../../../types';
 import { handleHue, handleSize } from '../../../utils';
+import { ButtonStyleProps } from '../../types';
 
-export default (theme: Theme, colorProp: Color, isLoading = false, sizeProp: Size): Style => {
+export default (
+	theme: Theme,
+	colorProp: Color,
+	isLoading: ButtonStyleProps['isLoading'] = false,
+	sizeProp: Size
+): Style => {
 	const shade = handleHue('dark', colorProp);
 
 	const size = handleSize(sizeProp);

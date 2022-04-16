@@ -1,8 +1,9 @@
 import { Style } from '../../../../../../common/types';
 import { Size, Variant } from '../../../types';
 import { handleSize } from '../../utils';
+import { ButtonStyleProps } from '../types';
 
-export default (isLoading = false, sizeProp: Size, variant: Variant): Style => {
+export default (isLoading: ButtonStyleProps['isLoading'] = false, sizeProp: Size, variant: Variant): Style => {
 	const size = handleSize(sizeProp);
 	const border = size.border;
 
