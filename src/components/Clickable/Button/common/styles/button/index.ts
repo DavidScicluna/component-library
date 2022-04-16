@@ -1,6 +1,6 @@
 import { Style } from '../../../../../../common/types';
 import { handleIsTouchDevice } from '../../../../../../common/utils';
-import { Radius, Theme } from '../../../../../../theme/types';
+import { Theme, Radius } from '../../../../../../theme/types';
 import { ButtonProps, Size, Variant } from '../../../types';
 import { handleIconFontSize, handleSize } from '../../utils';
 

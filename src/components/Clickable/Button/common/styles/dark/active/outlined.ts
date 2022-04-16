@@ -1,9 +1,9 @@
 import { lighten } from 'color2k';
 
 import { Style } from '../../../../../../../common/types';
-import { Color, Theme } from '../../../../../../../theme/types';
+import { Theme, Color } from '../../../../../../../theme/types';
 import { Size } from '../../../../types';
-import { handleSize, handleHue, handleAmount } from '../../../utils';
+import { handleAmount, handleHue, handleSize } from '../../../utils';
 
 export default (theme: Theme, colorProp: Color, sizeProp: Size): Style => {
 	const amount = handleAmount('outlined');
