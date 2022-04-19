@@ -8,6 +8,6 @@ export type CardStyleProps = {
 	isFullWidth: CardProps['isFullWidth'];
 	isLight: CardProps['isLight'];
 	isClickable: CardProps['isClickable'];
-	isFixed: CardProps['isFixed'];
+	// isFixed: CardProps['isFixed'];
 	variant: Variant;
 };

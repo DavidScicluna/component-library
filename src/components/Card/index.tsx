@@ -25,7 +25,7 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 		isDivisible = true,
 		isLight = true,
 		isClickable = false,
-		isFixed: isFixedProp = false,
+		// isFixed: isFixedProp = false,
 		isDisabled = false,
 		spacing = 2,
 		variant = 'outlined',
@@ -34,7 +34,7 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 	} = props;
 
 	const colorMode: ColorMode = colorModeProp || colorModeHook;
-	const isFixed: boolean = isFixedProp || !isClickable;
+	// const isFixed: boolean = isFixedProp || !isClickable;
 
 	const style = useStyles(theme, {
 		color,
@@ -42,7 +42,7 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 		isFullWidth,
 		isLight,
 		isClickable,
-		isFixed,
+		// isFixed,
 		variant
 	});
 

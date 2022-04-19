@@ -11,7 +11,7 @@ export default (
 	theme: Theme,
 	isFullWidth: CardStyleProps['isFullWidth'] = false,
 	isClickable: CardStyleProps['isClickable'] = false,
-	isFixed: CardStyleProps['isFixed'] = false,
+	// isFixed: CardStyleProps['isFixed'] = false,
 	variant: Variant
 ): Style => {
 	const size = handleSize();
@@ -24,7 +24,7 @@ export default (
 	const transition = 'none';
 
 	return {
-		'cursor': !isFixed && isClickable ? 'pointer' : 'default',
+		'cursor': isClickable ? 'pointer' : 'default',
 
 		'position': 'relative',
 

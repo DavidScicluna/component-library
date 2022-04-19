@@ -17,13 +17,21 @@ type CardStyle = {
 };
 
 export default (theme: Theme, props: CardStyleProps): CardStyle => {
-	const { color, colorMode, isFullWidth, isLight, isClickable, isFixed, variant } = props;
+	const {
+		color,
+		colorMode,
+		isFullWidth,
+		isLight,
+		isClickable,
+		// isFixed,
+		variant
+	} = props;
 
 	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
 		card: merge(
-			card(theme, isFullWidth, isClickable, isFixed, variant),
+			card(theme, isFullWidth, isClickable, variant),
 			variant !== 'transparent' ? scheme.card[variant](theme, color, isLight, isClickable) : {}
 		),
 		active: merge(

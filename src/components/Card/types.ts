@@ -67,7 +67,7 @@ export type CardProps = {
 	isDivisible?: boolean;
 	isLight?: boolean;
 	isClickable?: boolean;
-	isFixed?: boolean;
+	// isFixed?: boolean;
 	spacing?: Space;
 	variant?: Variant;
 } & Omit<CUIButtonProps, Omitted>;
