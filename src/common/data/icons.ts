@@ -1,5 +1,6 @@
 import { Icon } from '../types/icons';
 
+// All Material Design Icons
 const icons: Icon[] = [
 	'10k',
 	'10mp',

@@ -1,4 +1,4 @@
-// All Material UI Icons
+// All Material Design Icons
 export type Icon = string &
 	(
 		| '10k'
