@@ -7,7 +7,7 @@ import { SpinnerCircularFixed } from 'spinners-react';
 
 import { SpinnerProps } from './types';
 
-import { handleConvertREMToPixels, handleConvertStringToNumber } from '../../../../../common/utils';
+import { handleConvertStringToNumber } from '../../../../../common/utils';
 import { Theme } from '../../../../../theme/types';
 import { handleIconFontSize } from '../../common/utils';
 
