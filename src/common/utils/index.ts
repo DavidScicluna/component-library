@@ -1,3 +1,7 @@
+import { ColorMode } from '@chakra-ui/react';
+
+import { Color, ColorHues } from '../../theme/types';
+
 /**
  * This method will check whether the user's device is a touch device or not
  *
@@ -27,4 +31,12 @@ export const handleConvertREMToPixels = (rem: number): number => {
  */
 export const handleConvertStringToNumber = (string: string, cut: string): number => {
 	return Number(string.replace(cut, ''));
+};
+
+export const handleHue = (colorMode: ColorMode, color: Omit<Color, 'transparent'>): ColorHues => {
+	if (colorMode === 'light') {
+		return color === 'gray' ? 400 : color === 'white' ? 50 : color === 'black' ? 900 : 500;
+	} else {
+		return color === 'gray' ? 500 : color === 'white' ? 50 : color === 'black' ? 900 : 400;
+	}
 };
