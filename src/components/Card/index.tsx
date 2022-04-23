@@ -1,6 +1,6 @@
 import { ReactElement, createContext, forwardRef } from 'react';
 
-import { ColorMode, useTheme, useColorMode, VStack, Button as CUIButton } from '@chakra-ui/react';
+import { ColorMode, useColorMode, VStack, Button as CUIButton } from '@chakra-ui/react';
 
 import merge from 'lodash/merge';
 
@@ -8,13 +8,13 @@ import useStyles from './common/styles';
 import { handleHue } from './common/utils';
 import { Context, CardRef, CardProps } from './types';
 
-import { Theme } from '../../theme/types';
+import { useTheme } from '../../common/hooks';
 import Divider from '../Divider';
 
 export const CardContext = createContext<Context>({ color: 'gray', colorMode: 'light' });
 
 const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElement {
-	const theme = useTheme<Theme>();
+	const theme = useTheme();
 	const { colorMode: colorModeHook } = useColorMode();
 
 	const {

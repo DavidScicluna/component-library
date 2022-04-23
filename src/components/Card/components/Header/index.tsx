@@ -1,19 +1,20 @@
 import { FC, useContext } from 'react';
 
-import { useTheme, useMediaQuery, HStack, VStack, Center, Text } from '@chakra-ui/react';
+import { useMediaQuery, HStack, VStack, Center, Text } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
 import { HeaderProps } from './types';
 
 import { CardContext } from '../..';
-import { Space, Theme } from '../../../../theme/types';
+import { useTheme } from '../../../../common/hooks';
+import { Space } from '../../../../theme/types';
 import { Context } from '../../types';
 
 const spacing: Space = 2;
 
 const Header: FC<HeaderProps> = ({ title, subtitle, actions }) => {
-	const theme = useTheme<Theme>();
+	const theme = useTheme();
 	const [isXs] = useMediaQuery('(max-width: 600px)');
 
 	const { colorMode } = useContext<Context>(CardContext);

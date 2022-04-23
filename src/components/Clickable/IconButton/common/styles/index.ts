@@ -10,13 +10,13 @@ import { IconButtonStyleProps } from './types';
 import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';
 
-type ButtonStyle = {
+type IconButtonStyle = {
 	iconbutton: Style;
 	active: Style;
 	disabled: Style;
 };
 
-export default (theme: Theme, props: IconButtonStyleProps): ButtonStyle => {
+export default (theme: Theme, props: IconButtonStyleProps): IconButtonStyle => {
 	const { color, colorMode, isLoading, isRound, size, variant } = props;
 
 	const scheme = colorMode === 'light' ? light : dark;

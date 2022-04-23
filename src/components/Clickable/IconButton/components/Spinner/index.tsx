@@ -1,18 +1,16 @@
 import { FC, useCallback } from 'react';
 
-import { useTheme } from '@chakra-ui/react';
-
 import { toRgba } from 'color2k';
 import { SpinnerCircularFixed } from 'spinners-react';
 
 import { SpinnerProps } from './types';
 
+import { useTheme } from '../../../../../common/hooks';
 import { handleConvertStringToNumber } from '../../../../../common/utils';
-import { Theme } from '../../../../../theme/types';
 import { handleFontSize } from '../../common/utils';
 
 const Spinner: FC<SpinnerProps> = (props) => {
-	const theme = useTheme<Theme>();
+	const theme = useTheme();
 
 	const { color, colorMode, size, variant } = props;
 
