@@ -1,6 +1,10 @@
+import beep from '@rollup/plugin-beep';
 import commonjs from '@rollup/plugin-commonjs';
+// import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
+import eslint from '@rollup/plugin-eslint';
+import image from '@rollup/plugin-image';
 import resolve from '@rollup/plugin-node-resolve';
-import gzip from 'rollup-plugin-gzip';
+import strip from '@rollup/plugin-strip';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import typescript from 'rollup-plugin-typescript2';
@@ -24,10 +28,19 @@ export default {
 	],
 	plugins: [
 		peerDepsExternal(),
+		strip(),
 		resolve(),
 		commonjs(),
-		typescript({ useTsconfigDeclarationDir: true }),
-		postcss({ extensions: ['.css'] })
+		beep(),
+		// dynamicImportVars(),
+		eslint(),
+		typescript({
+			useTsconfigDeclarationDir: true,
+			rollupCommonJSResolveHack: false,
+			clean: true
+		}),
+		postcss({ extensions: ['.css'] }),
+		image()
 		// gzip()
 	]
 };
