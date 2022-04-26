@@ -7,8 +7,9 @@ export default (sizeProp: Size, variant: Variant): Style => {
 	const border = size.border;
 
 	return {
+		borderTop: `${variant !== 'icon' ? border : 0}px solid transparent`,
 		borderBottom: `${variant !== 'icon' ? border : 0}px solid transparent`,
 
-		transform: variant !== 'icon' ? `translateY(${border}px)` : 'none'
+		transform: variant !== 'icon' ? 'translateY(0px)' : 'none'
 	};
 };

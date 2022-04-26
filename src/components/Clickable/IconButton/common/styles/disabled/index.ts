@@ -13,8 +13,9 @@ export default (isLoading: IconButtonStyleProps['isLoading'] = false, sizeProp: 
 
 		opacity: isLoading ? 1 : 0.5,
 
+		borderTop: `${variant !== 'icon' ? border : 0}px solid transparent`,
 		borderBottom: `${variant !== 'icon' ? border : 0}px solid transparent`,
 
-		transform: variant !== 'icon' ? `translateY(${border}px)` : 'none'
+		transform: variant !== 'icon' ? 'translateY(0px)' : 'none'
 	};
 };

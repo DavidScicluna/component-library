@@ -99,9 +99,10 @@ export default (theme: Theme, isRound: IconButtonProps['isRound'] = false, sizeP
 
 		'&:active': {
 			outline: !isTouchDevice ? '0px auto' : 'none !important',
+			borderTop: `${variant !== 'icon' ? border : 0}px solid transparent`,
 			borderBottom: `${variant !== 'icon' ? border : 0}px solid transparent`,
 
-			transform: variant !== 'icon' ? `translateY(${border}px)` : 'none'
+			transform: variant !== 'icon' ? 'translateY(0px)' : 'none'
 		},
 
 		'& svg, .ds-cl-icon': { fontSize, userSelect: 'none' },
