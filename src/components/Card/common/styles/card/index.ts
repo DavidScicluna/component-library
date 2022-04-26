@@ -88,9 +88,11 @@ export default (
 
 		'&:active': {
 			outline: !isTouchDevice ? '0px auto' : 'none !important',
+
+			borderTop: `${variant !== 'transparent' && isClickable ? border : 0}px solid transparent`,
 			borderBottom: `${variant !== 'transparent' && isClickable ? border : 0}px solid transparent`,
 
-			transform: variant !== 'transparent' && isClickable ? `translateY(${border}px)` : 'none'
+			transform: variant !== 'transparent' && isClickable ? 'translateY(0px)' : 'none'
 		},
 
 		'*, *::before, *::after': { transition }

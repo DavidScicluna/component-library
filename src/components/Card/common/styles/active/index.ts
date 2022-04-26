@@ -8,8 +8,9 @@ export default (isClickable: CardStyleProps['isClickable'] = true, variant: Vari
 	const border = size.border;
 
 	return {
+		borderTop: `${variant !== 'transparent' ? border : 0}px solid transparent`,
 		borderBottom: `${variant !== 'transparent' ? border : 0}px solid transparent`,
 
-		transform: variant !== 'transparent' && isClickable ? `translateY(${border}px)` : 'none'
+		transform: variant !== 'transparent' && isClickable ? 'translateY(0px)' : 'none'
 	};
 };

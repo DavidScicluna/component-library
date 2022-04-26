@@ -13,8 +13,9 @@ export default (isClickable: CardStyleProps['isClickable'] = true, variant: Vari
 
 		opacity: 0.5,
 
+		borderTop: `${variant !== 'transparent' ? border : 0}px solid transparent`,
 		borderBottom: `${variant !== 'transparent' ? border : 0}px solid transparent`,
 
-		transform: variant !== 'transparent' && isClickable ? `translateY(${border}px)` : 'none'
+		transform: variant !== 'transparent' && isClickable ? 'translateY(0px)' : 'none'
 	};
 };
