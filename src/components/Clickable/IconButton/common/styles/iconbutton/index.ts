@@ -66,6 +66,8 @@ export default (theme: Theme, isRound: IconButtonProps['isRound'] = false, sizeP
 		'py': `${theme.space[padding.y]} !important`,
 
 		'transition': transition,
+		'transitionDuration': transition,
+		'transitionTimingFunction': transition,
 
 		'&::before': {
 			content: '""',
@@ -85,7 +87,9 @@ export default (theme: Theme, isRound: IconButtonProps['isRound'] = false, sizeP
 			borderStyle: 'solid',
 			borderColor: 'transparent',
 
-			transition: transition
+			transition: transition,
+			transitionDuration: transition,
+			transitionTimingFunction: transition
 		},
 
 		'&:focus:not(:focus-visible)': {
@@ -99,6 +103,7 @@ export default (theme: Theme, isRound: IconButtonProps['isRound'] = false, sizeP
 
 		'&:active': {
 			outline: !isTouchDevice ? '0px auto' : 'none !important',
+
 			borderTop: `${variant !== 'icon' ? border : 0}px solid transparent`,
 			borderBottom: `${variant !== 'icon' ? border : 0}px solid transparent`,
 
@@ -107,6 +112,10 @@ export default (theme: Theme, isRound: IconButtonProps['isRound'] = false, sizeP
 
 		'& svg, .ds-cl-icon': { fontSize, userSelect: 'none' },
 
-		'*, *::before, *::after': { transition }
+		'*, *::before, *::after': {
+			transition: transition,
+			transitionDuration: transition,
+			transitionTimingFunction: transition
+		}
 	};
 };
