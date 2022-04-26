@@ -54,6 +54,8 @@ export default (
 		'p': variant === 'transparent' ? '0 !important' : 0,
 
 		'transition': transition,
+		'transitionDuration': transition,
+		'transitionTimingFunction': transition,
 
 		'&::before': {
 			content: '""',
@@ -74,7 +76,9 @@ export default (
 			borderStyle: 'solid',
 			borderColor: 'transparent',
 
-			transition: transition
+			transition: transition,
+			transitionDuration: transition,
+			transitionTimingFunction: transition
 		},
 
 		'&:focus:not(:focus-visible)': {
@@ -95,6 +99,10 @@ export default (
 			transform: variant !== 'transparent' && isClickable ? 'translateY(0px)' : 'none'
 		},
 
-		'*, *::before, *::after': { transition }
+		'*, *::before, *::after': {
+			transition: transition,
+			transitionDuration: transition,
+			transitionTimingFunction: transition
+		}
 	};
 };
