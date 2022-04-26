@@ -13,8 +13,9 @@ export default (isLoading: ButtonStyleProps['isLoading'] = false, sizeProp: Size
 
 		opacity: isLoading ? 1 : 0.5,
 
+		borderTop: `${variant !== 'text' ? border : 0}px solid transparent`,
 		borderBottom: `${variant !== 'text' ? border : 0}px solid transparent`,
 
-		transform: variant !== 'text' ? `translateY(${border}px)` : 'none'
+		transform: variant !== 'text' ? 'translateY(0px)' : 'none'
 	};
 };

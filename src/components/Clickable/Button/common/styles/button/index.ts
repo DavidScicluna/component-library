@@ -99,9 +99,10 @@ export default (
 
 		'&:active': {
 			outline: !isTouchDevice ? '0px auto' : 'none !important',
+			borderTop: `${variant !== 'text' ? border : 0}px solid transparent`,
 			borderBottom: `${variant !== 'text' ? border : 0}px solid transparent`,
 
-			transform: variant !== 'text' ? `translateY(${border}px)` : 'none'
+			transform: variant !== 'text' ? 'translateY(0px)' : 'none'
 		},
 
 		'& svg, .ds-cl-icon': { fontSize: iconFontSize, userSelect: 'none' },
