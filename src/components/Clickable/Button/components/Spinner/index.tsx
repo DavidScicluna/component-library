@@ -6,7 +6,7 @@ import { SpinnerCircularFixed } from 'spinners-react';
 import { SpinnerProps } from './types';
 
 import { useTheme } from '../../../../../common/hooks';
-import { handleConvertStringToNumber } from '../../../../../common/utils';
+import { convertStringToNumber } from '../../../../../common/utils';
 import { handleIconFontSize } from '../../common/utils';
 
 const Spinner: FC<SpinnerProps> = (props) => {
@@ -41,7 +41,7 @@ const Spinner: FC<SpinnerProps> = (props) => {
 	 * @returns - number: Font-size in PX
 	 */
 	const handleReturnSize = useCallback((): number => {
-		return handleConvertStringToNumber(handleIconFontSize(size), 'px');
+		return convertStringToNumber(handleIconFontSize(size), 'px');
 	}, [size]);
 
 	const rgba = handleReturnColorRGBA();

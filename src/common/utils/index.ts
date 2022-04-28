@@ -18,7 +18,7 @@ export const isTouchDevice = (): boolean => {
  * @param rem - number: REM size
  * @returns - number: Converted PX size from REM size
  */
-export const handleConvertREMToPixels = (rem: number): number => {
+export const convertREMToPixels = (rem: number): number => {
 	return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
 };
 
@@ -29,7 +29,7 @@ export const handleConvertREMToPixels = (rem: number): number => {
  * @param cut - string: The string to cut from the string
  * @returns number: A number from the string passed
  */
-export const handleConvertStringToNumber = (string: string, cut: string): number => {
+export const convertStringToNumber = (string: string, cut: string): number => {
 	return Number(string.replace(cut, ''));
 };
 
