@@ -2911,10 +2911,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/roboto@npm:^4.5.5":
-  version: 4.5.5
-  resolution: "@fontsource/roboto@npm:4.5.5"
-  checksum: ab6675e04392ccd5def878762be67dbbf64f77c49c26030c6a1d03c34ce33045b0eb1199ad1bd3f398f362e5fa1fcbcbe25c18af8dda855ab43df45561eea569
+"@fontsource/work-sans@npm:^4.5.7":
+  version: 4.5.7
+  resolution: "@fontsource/work-sans@npm:4.5.7"
+  checksum: 4de9dbc3e8027d1d65fb93eff2c3d0fdeb092b27af18824aad39a7bef954b3db54c97e5d8664d4dfd8cf5a46fde553286d1069deac930d7ff44d6aa2a6e44314
   languageName: node
   linkType: hard
 
@@ -3508,20 +3508,6 @@ __metadata:
   peerDependencies:
     rollup: ^2.38.3
   checksum: e8280f4b6192729f2bdf878c48c451dc441075f2a12f22c688393f48a6b95e8ff83caaacc3df4eb1d81516e08a0e3a669213632879910d85dd630b37bb284df7
-  languageName: node
-  linkType: hard
-
-"@rollup/plugin-dynamic-import-vars@npm:^1.4.3":
-  version: 1.4.3
-  resolution: "@rollup/plugin-dynamic-import-vars@npm:1.4.3"
-  dependencies:
-    "@rollup/pluginutils": ^4.1.2
-    estree-walker: ^2.0.1
-    fast-glob: ^3.2.7
-    magic-string: ^0.25.7
-  peerDependencies:
-    rollup: ^1.20.0||^2.0.0
-  checksum: 79bf1fcdf62fbdfe865b5cb5fe7612b8d29fe64a85da9be2089de4485faf69804a4c799960fd22ad19ea6676f6a6d0af43507c3bb09c92c0f2ccd985b9f61fa0
   languageName: node
   linkType: hard
 
@@ -8141,12 +8127,11 @@ __metadata:
     "@emotion/styled": ^11
     "@fontsource/material-icons": ^4.5.4
     "@fontsource/material-icons-outlined": ^4.5.4
-    "@fontsource/roboto": ^4.5.5
     "@fontsource/roboto-mono": ^4.5.5
     "@fontsource/roboto-slab": ^4.5.6
+    "@fontsource/work-sans": ^4.5.7
     "@rollup/plugin-beep": ^0.2.0
     "@rollup/plugin-commonjs": ^21.1.0
-    "@rollup/plugin-dynamic-import-vars": ^1.4.3
     "@rollup/plugin-eslint": ^8.0.2
     "@rollup/plugin-image": ^2.1.1
     "@rollup/plugin-node-resolve": ^13.2.1
@@ -8181,7 +8166,6 @@ __metadata:
     react-scripts: ^5.0.0
     rimraf: ^3.0.2
     rollup: ^2.70.2
-    rollup-plugin-gzip: ^3.0.1
     rollup-plugin-peer-deps-external: ^2.2.4
     rollup-plugin-postcss: ^4.0.2
     rollup-plugin-typescript2: ^0.31.2
@@ -8194,9 +8178,15 @@ __metadata:
     "@chakra-ui/theme-tools": ^1.3.6
     "@emotion/react": ^11
     "@emotion/styled": ^11
+    "@fontsource/material-icons": ^4.5.4
+    "@fontsource/material-icons-outlined": ^4.5.4
+    "@fontsource/roboto-mono": ^4.5.5
+    "@fontsource/roboto-slab": ^4.5.6
+    "@fontsource/work-sans": ^4.5.7
     framer-motion: ^6
     react: ^17.0.2
     react-dom: ^17.0.2
+    react-router-dom: 6
   languageName: unknown
   linkType: soft
 
@@ -10392,7 +10382,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.7, fast-glob@npm:^3.2.9":
+"fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.9":
   version: 3.2.11
   resolution: "fast-glob@npm:3.2.11"
   dependencies:
@@ -17777,15 +17767,6 @@ __metadata:
     hash-base: ^3.0.0
     inherits: ^2.0.1
   checksum: 006accc40578ee2beae382757c4ce2908a826b27e2b079efdcd2959ee544ddf210b7b5d7d5e80467807604244e7388427330f5c6d4cd61e6edaddc5773ccc393
-  languageName: node
-  linkType: hard
-
-"rollup-plugin-gzip@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "rollup-plugin-gzip@npm:3.0.1"
-  peerDependencies:
-    rollup: ">=2.0.0"
-  checksum: df456cd1720be1ddf7a57c1d81be70f7bc7cbba7d9098f369ebcf0f31f21db1eb16ab9d5f19a59fe844129a972e244c5be300007de4f63274d5991ecf28c92a9
   languageName: node
   linkType: hard
 

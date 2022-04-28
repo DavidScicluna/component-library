@@ -11,7 +11,9 @@ const styles: Styles = {
 		'*, *::before, *::after': {
 			fontFamily: 'body',
 			lineHeight: 'normal',
-			transition: `${transition.duration.normal} ${transition.easing['ease-in-out']}`
+			transition: 'none',
+			transitionDuration: transition.duration.normal,
+			transitionTimingFunction: transition.easing['ease-in-out']
 		}
 	})
 };

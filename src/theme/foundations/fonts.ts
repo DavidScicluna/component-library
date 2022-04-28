@@ -1,7 +1,7 @@
 import { Fonts } from '../types';
 
 const fonts: Fonts = {
-	body: 'Roboto, sans-serif',
+	body: 'Work Sans, sans-serif',
 	heading: 'Roboto Slab, serif',
 	mono: 'Roboto Mono, monospace'
 };
