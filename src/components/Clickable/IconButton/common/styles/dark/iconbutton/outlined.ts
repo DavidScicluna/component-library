@@ -1,12 +1,12 @@
 import { lighten } from 'color2k';
 
 import { Style } from '../../../../../../../common/types';
-import { isTouchDevice } from '../../../../../../../common/utils';
+import { checkIsTouchDevice } from '../../../../../../../common/utils';
 import { Theme, Color } from '../../../../../../../theme/types';
 import { Size } from '../../../../types';
 import { handleAmount, handleHue, handleSize } from '../../../utils';
 
-const isTouchDevice: boolean = isTouchDevice();
+const isTouchDevice: boolean = checkIsTouchDevice();
 
 export default (theme: Theme, colorProp: Color, sizeProp: Size): Style => {
 	const amount = handleAmount('outlined');

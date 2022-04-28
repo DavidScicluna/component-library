@@ -5,7 +5,7 @@ import { memoize } from 'lodash';
  *
  * @returns boolean: Either its a touch device or not
  */
-export const isTouchDevice = memoize((): boolean => {
+export const checkIsTouchDevice = memoize((): boolean => {
 	return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 	// || navigator.msMaxTouchPoints > 0;
 });

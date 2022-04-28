@@ -1,9 +1,9 @@
 import { Style } from '../../../../../../../../common/types';
-import { handleHue } from '../../../../../../../../common/utils';
+import { getHue } from '../../../../../../../../common/utils/color';
 import { Theme } from '../../../../../../../../theme/types';
 
 export default (theme: Theme): Style => {
-	const shade = handleHue('dark', 'gray');
+	const shade = getHue({ type: 'text.secondary', colorMode: 'dark' });
 
 	return {
 		'& svg, .ds-cl-icon, ': {

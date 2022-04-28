@@ -1,12 +1,12 @@
 import { darken } from 'color2k';
 
 import { Style } from '../../../../../../common/types';
-import { isTouchDevice } from '../../../../../../common/utils';
+import { checkIsTouchDevice } from '../../../../../../common/utils';
 import { Theme, Color } from '../../../../../../theme/types';
 import { handleSize, handleHue, handleAmount } from '../../../utils';
 import { CardStyleProps } from '../../types';
 
-const isTouchDevice: boolean = isTouchDevice();
+const isTouchDevice: boolean = checkIsTouchDevice();
 
 export default (
 	theme: Theme,

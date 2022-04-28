@@ -1,7 +1,7 @@
 import { Style } from '../../../../../../../common/types';
-import { handleIsTouchDevice } from '../../../../../../../common/utils';
+import { checkIsTouchDevice } from '../../../../../../../common/utils';
 
-const isTouchDevice: boolean = handleIsTouchDevice();
+const isTouchDevice: boolean = checkIsTouchDevice();
 
 export default (): Style => ({
 	'cursor': 'pointer',

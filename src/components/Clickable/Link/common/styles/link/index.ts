@@ -1,10 +1,10 @@
 import { Style } from '../../../../../../common/types';
-import { isTouchDevice } from '../../../../../../common/utils';
+import { checkIsTouchDevice } from '../../../../../../common/utils';
 import { Theme } from '../../../../../../theme/types';
 import { handleHue } from '../../utils';
 import { LinkStyleProps } from '../types';
 
-const isTouchDevice: boolean = isTouchDevice();
+const isTouchDevice: boolean = checkIsTouchDevice();
 
 export default (
 	theme: Theme,

@@ -1,11 +1,11 @@
 import { Style } from '../../../../../common/types';
-import { isTouchDevice } from '../../../../../common/utils';
+import { checkIsTouchDevice } from '../../../../../common/utils';
 import { Theme, Radius } from '../../../../../theme/types';
 import { Variant } from '../../../types';
 import { handleSize } from '../../utils';
 import { CardStyleProps } from '../types';
 
-const isTouchDevice: boolean = isTouchDevice();
+const isTouchDevice: boolean = checkIsTouchDevice();
 
 export default (
 	theme: Theme,

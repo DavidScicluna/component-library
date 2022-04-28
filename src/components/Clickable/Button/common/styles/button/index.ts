@@ -1,10 +1,10 @@
 import { Style } from '../../../../../../common/types';
-import { isTouchDevice } from '../../../../../../common/utils';
+import { checkIsTouchDevice } from '../../../../../../common/utils';
 import { Theme, Radius } from '../../../../../../theme/types';
 import { ButtonProps, Size, Variant } from '../../../types';
 import { handleIconFontSize, handleSize } from '../../utils';
 
-const isTouchDevice: boolean = isTouchDevice();
+const isTouchDevice: boolean = checkIsTouchDevice();
 
 export default (
 	theme: Theme,
