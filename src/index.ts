@@ -1,7 +1,7 @@
 import fallback from './common/assets/fallback';
 import { useTheme } from './common/hooks';
 import { Icon as IconType } from './common/types/icons';
-import { handleIsTouchDevice, handleConvertREMToPixels, handleConvertStringToNumber, handleHue } from './common/utils';
+import { isTouchDevice, handleConvertREMToPixels, handleConvertStringToNumber, handleHue } from './common/utils';
 import Card from './components/Card';
 import CardBody from './components/Card/components/Body';
 import { BodyProps as CardBodyProps } from './components/Card/components/Body/types';
@@ -76,7 +76,7 @@ const assets = {
 export { useTheme };
 
 // Utils
-export { handleIsTouchDevice, handleConvertREMToPixels, handleConvertStringToNumber, handleHue };
+export { isTouchDevice, handleConvertREMToPixels, handleConvertStringToNumber, handleHue };
 
 export {
 	assets,

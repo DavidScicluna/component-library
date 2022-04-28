@@ -7,7 +7,7 @@ import { Color, ColorHues } from '../../theme/types';
  *
  * @returns boolean: Either its a touch device or not
  */
-export const handleIsTouchDevice = (): boolean => {
+export const isTouchDevice = (): boolean => {
 	return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 	// || navigator.msMaxTouchPoints > 0;
 };
