@@ -1,7 +1,8 @@
 import fallback from './common/assets/fallback';
 import { useTheme } from './common/hooks';
 import { Icon as IconType } from './common/types/icons';
-import { isTouchDevice, convertREMToPixels, convertStringToNumber, getColor } from './common/utils';
+import { isTouchDevice, convertREMToPixels, convertStringToNumber } from './common/utils';
+import { getHue, getColor } from './common/utils/color';
 import Card from './components/Card';
 import CardBody from './components/Card/components/Body';
 import { BodyProps as CardBodyProps } from './components/Card/components/Body/types';
@@ -76,7 +77,7 @@ const assets = {
 export { useTheme };
 
 // Utils
-export { isTouchDevice, convertREMToPixels, convertStringToNumber, getColor };
+export { isTouchDevice, convertREMToPixels, convertStringToNumber, getHue, getColor };
 
 export {
 	assets,

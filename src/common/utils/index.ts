@@ -1,8 +1,4 @@
-import { ColorMode } from '@chakra-ui/react';
-
 import { memoize } from 'lodash';
-
-import { Theme } from '../../theme/types';
 
 /**
  * This method will check whether the user's device is a touch device or not
@@ -33,17 +29,4 @@ export const convertREMToPixels = memoize((rem: number): number => {
  */
 export const convertStringToNumber = memoize((string: string, cut: string): number => {
 	return Number(string.replace(cut, ''));
-});
-
-type Type = 'text.primary' | 'text.secondary' | 'divider';
-
-export const getColor = memoize((theme: Theme, colorMode: ColorMode, type: Type) => {
-	switch (type) {
-		case 'text.primary':
-			return theme.colors.gray[colorMode === 'light' ? 900 : 50];
-		case 'text.secondary':
-			return theme.colors.gray[colorMode === 'light' ? 400 : 500];
-		case 'divider':
-			return theme.colors.gray[colorMode === 'light' ? 200 : 700];
-	}
 });
