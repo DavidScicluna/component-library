@@ -29,7 +29,7 @@ const IconButton = forwardRef<IconButtonRef, IconButtonProps>(function IconButto
 
 	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
-	const style = useStyles(theme, { color, colorMode, isLoading, isRound, size, variant });
+	const style = useStyles({ theme, color, colorMode, isLoading, isRound, size, variant });
 
 	return (
 		<CUIIconButton

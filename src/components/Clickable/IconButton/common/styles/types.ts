@@ -9,6 +9,7 @@ export type ButtonStyleProps = {
 	color: IconButtonColor;
 	colorMode: ColorMode;
 	isLoading: boolean;
+	isRound: boolean;
 	size: Size;
 	variant: Variant;
 };

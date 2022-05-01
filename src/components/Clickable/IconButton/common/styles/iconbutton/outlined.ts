@@ -4,12 +4,18 @@ import { Style } from '../../../../../../common/types';
 import { Radius } from '../../../../../../theme/types';
 import { getSizeConfig } from '../../utils';
 
-export default ({ theme, size = 'md' }: IconButtonStyleProps): Style => {
+export default ({ theme, isRound = false, size = 'md' }: IconButtonStyleProps): Style => {
 	const config = getSizeConfig({ size });
 	const transform = config.transform.contained;
 	const border = config.border;
 
-	const radius: Radius = size === 'xs' || size === 'sm' ? 'xs' : size === 'lg' || size === 'xl' ? 'lg' : 'base';
+	const radius: Radius = isRound
+		? 'full'
+		: size === 'xs' || size === 'sm'
+		? 'xs'
+		: size === 'lg' || size === 'xl'
+		? 'lg'
+		: 'base';
 
 	return {
 		'borderBottomWidth': `${transform}px`,

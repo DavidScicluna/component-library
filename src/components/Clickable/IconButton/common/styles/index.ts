@@ -8,14 +8,22 @@ import light from './light';
 import { ButtonStyleProps, ButtonStyleReturn } from './types';
 
 export default memoize((props: ButtonStyleProps): ButtonStyleReturn => {
-	const { theme, color = 'gray', colorMode, isLoading = false, size = 'md', variant = 'contained' } = props;
+	const {
+		theme,
+		color = 'gray',
+		colorMode,
+		isLoading = false,
+		isRound = false,
+		size = 'md',
+		variant = 'contained'
+	} = props;
 
 	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
 		iconbutton: merge(
-			iconbutton.general({ theme, size }),
-			iconbutton[variant]({ theme, size }),
+			iconbutton.general({ theme, isRound, size }),
+			iconbutton[variant]({ theme, isRound, size }),
 			scheme.iconbutton[variant]({ theme, color, size })
 		),
 		active: merge(active[variant]({ size }), scheme.active[variant]({ theme, color, size })),
