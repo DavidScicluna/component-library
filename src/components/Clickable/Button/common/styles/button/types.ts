@@ -3,5 +3,6 @@ import { Size } from '../../../types';
 
 export type ButtonStyleProps = {
 	theme: Theme;
+	isFullWidth: boolean;
 	size: Size;
 };

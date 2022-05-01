@@ -2,16 +2,11 @@ import { ButtonStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
-import { ButtonProps } from '../../../types';
 import { getIconFontSize, getSizeConfig } from '../../utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-type ButtonGeneralProps = {
-	isFullWidth: ButtonProps['isFullWidth'];
-} & ButtonStyleProps;
-
-export default ({ theme, isFullWidth = false, size = 'md' }: ButtonGeneralProps): Style => {
+export default ({ theme, isFullWidth = false, size = 'md' }: ButtonStyleProps): Style => {
 	const iconFontSize = getIconFontSize({ size });
 
 	const config = getSizeConfig({ size });
