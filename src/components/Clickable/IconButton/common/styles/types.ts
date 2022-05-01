@@ -4,7 +4,7 @@ import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';
 import { IconButtonColor, Size, Variant } from '../../types';
 
-export type ButtonStyleProps = {
+export type IconButtonStyleProps = {
 	theme: Theme;
 	color: IconButtonColor;
 	colorMode: ColorMode;
@@ -14,7 +14,7 @@ export type ButtonStyleProps = {
 	variant: Variant;
 };
 
-export type ButtonStyleReturn = {
+export type IconButtonStyleReturn = {
 	iconbutton: Style;
 	active: Style;
 	disabled: Style;

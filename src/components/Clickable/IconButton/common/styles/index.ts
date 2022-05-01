@@ -5,9 +5,9 @@ import dark from './dark';
 import disabled from './disabled';
 import iconbutton from './iconbutton';
 import light from './light';
-import { ButtonStyleProps, ButtonStyleReturn } from './types';
+import { IconButtonStyleProps, IconButtonStyleReturn } from './types';
 
-export default memoize((props: ButtonStyleProps): ButtonStyleReturn => {
+export default memoize((props: IconButtonStyleProps): IconButtonStyleReturn => {
 	const {
 		theme,
 		color = 'gray',

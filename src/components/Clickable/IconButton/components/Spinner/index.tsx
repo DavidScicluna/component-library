@@ -7,7 +7,7 @@ import { SpinnerProps } from './types';
 
 import { useTheme } from '../../../../../common/hooks';
 import { convertStringToNumber } from '../../../../../common/utils';
-import { handleFontSize } from '../../common/utils';
+import { getIconFontSize } from '../../common/utils';
 
 const Spinner: FC<SpinnerProps> = (props) => {
 	const theme = useTheme();
@@ -41,7 +41,7 @@ const Spinner: FC<SpinnerProps> = (props) => {
 	 * @returns - number: Font-size in PX
 	 */
 	const handleReturnSize = useCallback((): number => {
-		return convertStringToNumber(handleFontSize(size), 'px');
+		return convertStringToNumber(getIconFontSize({ size }), 'px');
 	}, [size]);
 
 	return (
