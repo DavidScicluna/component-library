@@ -1,29 +1,36 @@
-import { merge } from 'lodash';
+import { memoize, merge } from 'lodash';
 
 import active from './active';
 import button from './button';
 import dark from './dark';
 import disabled from './disabled';
 import light from './light';
-import { ButtonStyleProps } from './types';
+import { ButtonStyleProps, ButtonStyleReturn } from './types';
 
-import { Style } from '../../../../../common/types';
-import { Theme } from '../../../../../theme/types';
-
-type ButtonStyle = {
-	button: Style;
-	active: Style;
-	disabled: Style;
-};
-
-export default (theme: Theme, props: ButtonStyleProps): ButtonStyle => {
-	const { color, colorMode, isFullWidth, isLoading, size, variant } = props;
+export default memoize((props: ButtonStyleProps): ButtonStyleReturn => {
+	const {
+		theme,
+		color = 'gray',
+		colorMode,
+		isFullWidth = false,
+		isLoading = false,
+		size = 'md',
+		variant = 'contained'
+	} = props;
 
 	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
-		button: merge(button(theme, isFullWidth, size, variant), scheme.button[variant](theme, color, size)),
-		active: merge(active(size, variant), scheme.active[variant](theme, color, size)),
-		disabled: merge(disabled(isLoading, size, variant), scheme.disabled[variant](theme, color, isLoading, size))
+		button: merge(
+			button.general({ theme, isFullWidth, size }),
+			button[variant]({ theme, isFullWidth, size }),
+			scheme.button[variant]({ theme, color, size })
+		),
+		active: merge(active[variant]({ size }), scheme.active[variant]({ theme, color, size })),
+		disabled: merge(
+			disabled.general({ isLoading, size }),
+			disabled[variant]({ isLoading, size }),
+			scheme.disabled[variant]({ theme, color, isLoading })
+		)
 	};
-};
+});
