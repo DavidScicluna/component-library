@@ -1,23 +1,26 @@
 import { darken } from 'color2k';
 
+import { ButtonLightStylingProps } from './types';
+
 import { Style } from '../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../common/utils';
-import { Theme, Color, ColorHues } from '../../../../../../../theme/types';
-import { Size } from '../../../../types';
-import { handleAmount, handleHue, handleSize } from '../../../utils';
+import { getHue } from '../../../../../../../common/utils/color';
+import { ColorHues } from '../../../../../../../theme/types';
+import { getAmount, getSizeConfig } from '../../../utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default (theme: Theme, colorProp: Color, sizeProp: Size): Style => {
-	const amount = handleAmount('contained');
-	const shade = handleHue('light', colorProp);
-
-	const size = handleSize(sizeProp);
-	const border = size.border;
-	const transform = size.transform.contained;
-	const offset = size.offset.contained;
-
+export default ({ theme, color: colorProp = 'gray', size = 'md' }: ButtonLightStylingProps): Style => {
 	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
+
+	const amount = getAmount({ variant: 'contained' });
+	const shade = getHue({ colorMode: 'light', type: color === 'gray' ? 'text.secondary' : 'color' });
+
+	const config = getSizeConfig({ size });
+	const border = config.border;
+	const transform = config.transform.contained;
+	const offset = config.offset.contained;
+
 	const textShade: ColorHues = colorProp === 'white' ? 900 : 50;
 
 	return {
@@ -44,7 +47,7 @@ export default (theme: Theme, colorProp: Color, sizeProp: Size): Style => {
 				'color': theme.colors.gray[textShade],
 
 				'&::before': {
-					boxShadow: `0 ${border}px 0 0 ${darken(theme.colors[color][shade], amount.active)}`,
+					boxShadow: 'none',
 					borderColor: darken(theme.colors[color][shade], amount.active),
 					backgroundColor: darken(theme.colors[color][shade], amount.active),
 					background: darken(theme.colors[color][shade], amount.active)
@@ -56,7 +59,7 @@ export default (theme: Theme, colorProp: Color, sizeProp: Size): Style => {
 			'color': theme.colors.gray[textShade],
 
 			'&::before': {
-				boxShadow: `0 ${border}px 0 0 ${darken(theme.colors[color][shade], amount.active)}`,
+				boxShadow: 'none',
 				borderColor: darken(theme.colors[color][shade], amount.active),
 				backgroundColor: darken(theme.colors[color][shade], amount.active),
 				background: darken(theme.colors[color][shade], amount.active)
