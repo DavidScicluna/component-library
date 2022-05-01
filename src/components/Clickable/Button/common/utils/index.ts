@@ -26,41 +26,41 @@ export const getSizeConfig = ({ size = 'md' }: GetSizeConfigProps): GetSizeConfi
 	switch (size) {
 		case 'xs':
 			return {
-				padding: { x: 0.5, y: 0 },
+				padding: { x: 0.5, y: 0.25 },
 				border: 1,
 				spacing: 0.5,
-				transform: { contained: 2, outlined: 2, text: 0 },
+				transform: { contained: 3, outlined: 3, text: 0 },
 				offset: { contained: 2, outlined: 2, text: 0 }
 			};
 		case 'sm':
 			return {
-				padding: { x: 1, y: 0.25 },
+				padding: { x: 1, y: 0.5 },
 				border: 1,
 				spacing: 1,
-				transform: { contained: 2, outlined: 2, text: 0 },
+				transform: { contained: 3, outlined: 3, text: 0 },
 				offset: { contained: 2, outlined: 2, text: 0 }
 			};
 		case 'lg':
 			return {
-				padding: { x: 3, y: 0.75 },
+				padding: { x: 4, y: 2 },
 				border: 2,
-				spacing: 3,
+				spacing: 2,
 				transform: { contained: 4, outlined: 4, text: 0 },
 				offset: { contained: 4, outlined: 4, text: 0 }
 			};
 		case 'xl':
 			return {
-				padding: { x: 4, y: 1 },
+				padding: { x: 5, y: 3 },
 				border: 2,
-				spacing: 4,
+				spacing: 3,
 				transform: { contained: 4, outlined: 4, text: 0 },
 				offset: { contained: 4, outlined: 4, text: 0 }
 			};
 		default:
 			return {
-				padding: { x: 2, y: 0.5 },
+				padding: { x: 2, y: 1 },
 				border: 2,
-				spacing: 2,
+				spacing: 1,
 				transform: { contained: 4, outlined: 4, text: 0 },
 				offset: { contained: 4, outlined: 4, text: 0 }
 			};
@@ -88,14 +88,14 @@ type GetIconFontSize = { size: Size };
 export const getIconFontSize = ({ size = 'md' }: GetIconFontSize): string => {
 	switch (size) {
 		case 'xs':
-			return '16px'; // Height of theme xs font-size
+			return '14px'; // Height of theme xs font-size
 		case 'sm':
-			return '19px'; // Height of theme sm font-size
+			return '17px'; // Height of theme sm font-size
 		case 'lg':
-			return '25px'; // Height of theme lg font-size
+			return '23px'; // Height of theme lg font-size
 		case 'xl':
-			return '28px'; // Height of theme xl font-size
+			return '26px'; // Height of theme xl font-size
 		default:
-			return '22px'; // Height of theme md font-size
+			return '20px'; // Height of theme md font-size
 	}
 };
