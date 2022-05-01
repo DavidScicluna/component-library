@@ -1,5 +1,5 @@
-import activeStyle from './active';
-import buttonStyle from './button';
-import disabledStyle from './disabled';
+import active from './active';
+import button from './button';
+import disabled from './disabled';
 
-export default { button: buttonStyle, active: activeStyle, disabled: disabledStyle };
+export default { button, active, disabled };
