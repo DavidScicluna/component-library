@@ -1,3 +1,6 @@
 import { Size } from '../../../types';
 
-export type ButtonDisabledStylingProps = { size: Size };
+export type ButtonDisabledStylingProps = {
+	isLoading: boolean;
+	size: Size;
+};

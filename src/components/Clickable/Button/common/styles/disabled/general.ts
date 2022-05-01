@@ -1,9 +1,8 @@
+import { ButtonDisabledStylingProps } from './types';
+
 import { Style } from '../../../../../../common/types';
-import { ButtonStyleProps } from '../types';
 
-export type ButtonDisabledGeneralStylingProps = { isLoading: ButtonStyleProps['isLoading'] };
-
-export default ({ isLoading = false }: ButtonDisabledGeneralStylingProps): Style => {
+export default ({ isLoading = false }: ButtonDisabledStylingProps): Style => {
 	return {
 		cursor: 'not-allowed',
 		pointerEvents: 'none',
