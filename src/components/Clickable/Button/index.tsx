@@ -6,7 +6,7 @@ import merge from 'lodash/merge';
 import { useElementSize } from 'usehooks-ts';
 
 import useStyles from './common/styles';
-import { handleSize } from './common/utils';
+import { getSizeConfig } from './common/utils';
 import Spinner from './components/Spinner';
 import { ButtonRef, ButtonProps } from './types';
 
@@ -35,9 +35,9 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): R
 
 	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
-	const style = useStyles(theme, { color, colorMode, isFullWidth, isLoading, size, variant });
+	const style = useStyles({ theme, color, colorMode, isFullWidth, isLoading, size, variant });
 
-	const handleReturnSpacing = useCallback((): number => handleSize(size).spacing, [size, handleSize]);
+	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
 
 	return (
 		<CUIButton
