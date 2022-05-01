@@ -1,12 +1,12 @@
+import { IconButtonDarkDisabledStylingProps } from './types';
+
 import { Style } from '../../../../../../../common/types';
-import { Theme, Color } from '../../../../../../../theme/types';
-import { handleHue } from '../../../utils';
-import { IconButtonStyleProps } from '../../types';
+import { getHue } from '../../../../../../../common/utils/color';
 
-export default (theme: Theme, colorProp: Color, isLoading: IconButtonStyleProps['isLoading'] = false): Style => {
-	const shade = handleHue('dark', isLoading ? colorProp : 'gray');
-
+export default ({ theme, color: colorProp = 'gray', isLoading = false }: IconButtonDarkDisabledStylingProps): Style => {
 	const color = isLoading ? (colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp) : 'gray';
+
+	const shade = getHue({ colorMode: 'dark', type: color === 'gray' ? 'text.secondary' : 'color' });
 
 	return {
 		'color': `${theme.colors[color][shade]} !important`,
