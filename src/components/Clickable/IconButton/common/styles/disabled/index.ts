@@ -1,21 +1,6 @@
-import { Style } from '../../../../../../common/types';
-import { Size, Variant } from '../../../types';
-import { handleSize } from '../../utils';
-import { IconButtonStyleProps } from '../types';
+import contained from './contained';
+import general from './general';
+import icon from './icon';
+import outlined from './outlined';
 
-export default (isLoading: IconButtonStyleProps['isLoading'] = false, sizeProp: Size, variant: Variant): Style => {
-	const size = handleSize(sizeProp);
-	const border = size.border;
-
-	return {
-		cursor: 'not-allowed',
-		pointerEvents: 'none',
-
-		opacity: isLoading ? 1 : 0.5,
-
-		borderTop: `${variant !== 'icon' ? border : 0}px solid transparent`,
-		borderBottom: `${variant !== 'icon' ? border : 0}px solid transparent`,
-
-		transform: variant !== 'icon' ? 'translateY(0px)' : 'none'
-	};
-};
+export default { general, contained, icon, outlined };
