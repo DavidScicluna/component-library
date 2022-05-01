@@ -5,7 +5,7 @@ import { getSizeConfig } from '../../utils';
 
 export default ({ size = 'md' }: ButtonDisabledStylingProps): Style => {
 	const config = getSizeConfig({ size });
-	const transform = config.transform;
+	const transform = config.transform.contained;
 
 	return {
 		borderTopWidth: `${transform}px`,

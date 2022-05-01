@@ -36,6 +36,7 @@ export default ({ theme, isFullWidth = false, size = 'md' }: ButtonStyleProps): 
 
 		'outline': !isTouchDevice ? '0px auto' : 'none !important',
 
+		'fontSize': theme.fontSizes[size],
 		'fontWeight': 'semibold',
 		'textTransform': 'uppercase',
 		'whiteSpace': 'nowrap',
@@ -83,7 +84,10 @@ export default ({ theme, isFullWidth = false, size = 'md' }: ButtonStyleProps): 
 		},
 
 		'& svg, .ds-cl-icon': {
-			fontSize: iconFontSize,
+			width: iconFontSize,
+			height: iconFontSize,
+			maxWidth: iconFontSize,
+			maxHeight: iconFontSize,
 
 			userSelect: 'none',
 
