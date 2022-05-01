@@ -1,26 +1,18 @@
+import { ButtonLightDisabledStylingProps } from './types';
+
 import { Style } from '../../../../../../../common/types';
-import { Theme, Color } from '../../../../../../../theme/types';
-import { Size } from '../../../../types';
-import { handleHue, handleSize } from '../../../utils';
-import { ButtonStyleProps } from '../../types';
+import { getHue } from '../../../../../../../common/utils/color';
 
-export default (
-	theme: Theme,
-	colorProp: Color,
-	isLoading: ButtonStyleProps['isLoading'] = false,
-	sizeProp: Size
-): Style => {
-	const shade = handleHue('light', isLoading ? colorProp : 'gray');
-	const size = handleSize(sizeProp);
-	const border = size.border;
-
+export default ({ theme, color: colorProp = 'gray', isLoading = false }: ButtonLightDisabledStylingProps): Style => {
 	const color = isLoading ? (colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp) : 'gray';
+
+	const shade = getHue({ colorMode: 'light', type: color === 'gray' ? 'text.secondary' : 'color' });
 
 	return {
 		'color': `${theme.colors[color][shade]} !important`,
 
 		'&::before': {
-			boxShadow: `0 ${border}px 0 0 ${theme.colors[color][shade]} !important`,
+			boxShadow: 'none !important',
 			borderColor: `${theme.colors[color][shade]} !important`,
 			backgroundColor: `${theme.colors.transparent} !important`,
 			background: `${theme.colors.transparent} !important`
