@@ -1,23 +1,24 @@
-import { lighten } from 'color2k';
+import { darken } from 'color2k';
+
+import { ButtonDarkStylingProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../common/utils';
-import { Theme, Color } from '../../../../../../../theme/types';
-import { Size } from '../../../../types';
-import { handleAmount, handleHue, handleSize } from '../../../utils';
+import { getHue } from '../../../../../../../common/utils/color';
+import { getAmount, getSizeConfig } from '../../../utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default (theme: Theme, colorProp: Color, sizeProp: Size): Style => {
-	const amount = handleAmount('outlined');
-	const shade = handleHue('dark', colorProp);
-
-	const size = handleSize(sizeProp);
-	const border = size.border;
-	const transform = size.transform.outlined;
-	const offset = size.offset.outlined;
-
+export default ({ theme, color: colorProp = 'gray', size = 'md' }: ButtonDarkStylingProps): Style => {
 	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
+
+	const amount = getAmount({ variant: 'outlined' });
+	const shade = getHue({ colorMode: 'dark', type: color === 'gray' ? 'text.secondary' : 'color' });
+
+	const config = getSizeConfig({ size });
+	const border = config.border;
+	const transform = config.transform.contained;
+	const offset = config.offset.contained;
 
 	return {
 		'color': theme.colors[color][shade],
@@ -30,21 +31,21 @@ export default (theme: Theme, colorProp: Color, sizeProp: Size): Style => {
 		},
 
 		'&:hover': {
-			'color': lighten(theme.colors[color][shade], amount.hover),
+			'color': darken(theme.colors[color][shade], amount.hover),
 
 			'&::before': {
-				boxShadow: `0 ${transform}px 0 0 ${lighten(theme.colors[color][shade], amount.hover)}`,
-				borderColor: lighten(theme.colors[color][shade], amount.hover),
+				boxShadow: `0 ${transform}px 0 0 ${darken(theme.colors[color][shade], amount.hover)}`,
+				borderColor: darken(theme.colors[color][shade], amount.hover),
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
 			},
 
 			'&:active': {
-				'color': lighten(theme.colors[color][shade], amount.active),
+				'color': darken(theme.colors[color][shade], amount.active),
 
 				'&::before': {
-					boxShadow: `0 ${border}px 0 0 ${lighten(theme.colors[color][shade], amount.active)}`,
-					borderColor: lighten(theme.colors[color][shade], amount.active),
+					boxShadow: `0 ${border}px 0 0 ${darken(theme.colors[color][shade], amount.active)}`,
+					borderColor: darken(theme.colors[color][shade], amount.active),
 					backgroundColor: theme.colors.transparent,
 					background: theme.colors.transparent
 				}
@@ -52,11 +53,11 @@ export default (theme: Theme, colorProp: Color, sizeProp: Size): Style => {
 		},
 
 		'&:active': {
-			'color': lighten(theme.colors[color][shade], amount.active),
+			'color': darken(theme.colors[color][shade], amount.active),
 
 			'&::before': {
-				boxShadow: `0 ${border}px 0 0 ${lighten(theme.colors[color][shade], amount.active)}`,
-				borderColor: lighten(theme.colors[color][shade], amount.active),
+				boxShadow: `0 ${border}px 0 0 ${darken(theme.colors[color][shade], amount.active)}`,
+				borderColor: darken(theme.colors[color][shade], amount.active),
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
 			}
