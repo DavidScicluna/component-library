@@ -1,4 +1,4 @@
-import { darken } from 'color2k';
+import { lighten } from 'color2k';
 
 import { ButtonDarkActiveStylingProps } from './types';
 
@@ -30,9 +30,9 @@ export default ({ theme, color: colorProp = 'gray' }: ButtonDarkActiveStylingPro
 
 			'&::before': {
 				boxShadow: 'none',
-				borderColor: darken(theme.colors[color][shade], amount.hover),
-				backgroundColor: darken(theme.colors[color][shade], amount.hover),
-				background: darken(theme.colors[color][shade], amount.hover)
+				borderColor: lighten(theme.colors[color][shade], amount.hover),
+				backgroundColor: lighten(theme.colors[color][shade], amount.hover),
+				background: lighten(theme.colors[color][shade], amount.hover)
 			},
 
 			'&:active': {
@@ -40,9 +40,9 @@ export default ({ theme, color: colorProp = 'gray' }: ButtonDarkActiveStylingPro
 
 				'&::before': {
 					boxShadow: 'none',
-					borderColor: darken(theme.colors[color][shade], amount.active),
-					backgroundColor: darken(theme.colors[color][shade], amount.active),
-					background: darken(theme.colors[color][shade], amount.active)
+					borderColor: lighten(theme.colors[color][shade], amount.active),
+					backgroundColor: lighten(theme.colors[color][shade], amount.active),
+					background: lighten(theme.colors[color][shade], amount.active)
 				}
 			}
 		}

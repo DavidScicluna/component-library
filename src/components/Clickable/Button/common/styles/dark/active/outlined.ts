@@ -1,4 +1,4 @@
-import { darken } from 'color2k';
+import { lighten } from 'color2k';
 
 import { ButtonDarkActiveStylingProps } from './types';
 
@@ -26,21 +26,21 @@ export default ({ theme, color: colorProp = 'gray', size = 'md' }: ButtonDarkAct
 		},
 
 		'&:hover': {
-			'color': darken(theme.colors[color][shade], amount.hover),
+			'color': lighten(theme.colors[color][shade], amount.hover),
 
 			'&::before': {
-				boxShadow: `0 ${border}px 0 0 ${darken(theme.colors[color][shade], amount.hover)}`,
-				borderColor: darken(theme.colors[color][shade], amount.hover),
+				boxShadow: `0 ${border}px 0 0 ${lighten(theme.colors[color][shade], amount.hover)}`,
+				borderColor: lighten(theme.colors[color][shade], amount.hover),
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
 			},
 
 			'&:active': {
-				'color': darken(theme.colors[color][shade], amount.active),
+				'color': lighten(theme.colors[color][shade], amount.active),
 
 				'&::before': {
-					boxShadow: `0 ${border}px 0 0 ${darken(theme.colors[color][shade], amount.active)}`,
-					borderColor: darken(theme.colors[color][shade], amount.active),
+					boxShadow: `0 ${border}px 0 0 ${lighten(theme.colors[color][shade], amount.active)}`,
+					borderColor: lighten(theme.colors[color][shade], amount.active),
 					backgroundColor: theme.colors.transparent,
 					background: theme.colors.transparent
 				}

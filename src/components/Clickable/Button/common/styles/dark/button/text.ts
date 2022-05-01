@@ -1,4 +1,4 @@
-import { darken } from 'color2k';
+import { lighten } from 'color2k';
 
 import { ButtonDarkStylingProps } from './types';
 
@@ -29,7 +29,7 @@ export default ({ theme, color: colorProp = 'gray', size = 'md' }: ButtonDarkSty
 		},
 
 		'&:hover': {
-			'color': darken(theme.colors[color][shade], amount.hover),
+			'color': lighten(theme.colors[color][shade], amount.hover),
 
 			'&::before': {
 				borderColor: theme.colors.transparent,
@@ -38,7 +38,7 @@ export default ({ theme, color: colorProp = 'gray', size = 'md' }: ButtonDarkSty
 			},
 
 			'&:active': {
-				'color': darken(theme.colors[color][shade], amount.active),
+				'color': lighten(theme.colors[color][shade], amount.active),
 
 				'&::before': {
 					borderColor: theme.colors.transparent,
@@ -49,7 +49,7 @@ export default ({ theme, color: colorProp = 'gray', size = 'md' }: ButtonDarkSty
 		},
 
 		'&:active': {
-			'color': darken(theme.colors[color][shade], amount.active),
+			'color': lighten(theme.colors[color][shade], amount.active),
 
 			'&::before': {
 				borderColor: theme.colors.transparent,

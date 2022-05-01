@@ -1,4 +1,4 @@
-import { darken } from 'color2k';
+import { darken, lighten } from 'color2k';
 
 import { ButtonDarkStylingProps } from './types';
 
@@ -38,9 +38,9 @@ export default ({ theme, color: colorProp = 'gray', size = 'md' }: ButtonDarkSty
 
 			'&::before': {
 				boxShadow: `0 ${transform}px 0 0 ${darken(theme.colors[color][shade], amount.back)}`,
-				borderColor: darken(theme.colors[color][shade], amount.hover),
-				backgroundColor: darken(theme.colors[color][shade], amount.hover),
-				background: darken(theme.colors[color][shade], amount.hover)
+				borderColor: lighten(theme.colors[color][shade], amount.hover),
+				backgroundColor: lighten(theme.colors[color][shade], amount.hover),
+				background: lighten(theme.colors[color][shade], amount.hover)
 			},
 
 			'&:active': {
@@ -48,9 +48,9 @@ export default ({ theme, color: colorProp = 'gray', size = 'md' }: ButtonDarkSty
 
 				'&::before': {
 					boxShadow: 'none',
-					borderColor: darken(theme.colors[color][shade], amount.active),
-					backgroundColor: darken(theme.colors[color][shade], amount.active),
-					background: darken(theme.colors[color][shade], amount.active)
+					borderColor: lighten(theme.colors[color][shade], amount.active),
+					backgroundColor: lighten(theme.colors[color][shade], amount.active),
+					background: lighten(theme.colors[color][shade], amount.active)
 				}
 			}
 		},
@@ -60,9 +60,9 @@ export default ({ theme, color: colorProp = 'gray', size = 'md' }: ButtonDarkSty
 
 			'&::before': {
 				boxShadow: 'none',
-				borderColor: darken(theme.colors[color][shade], amount.active),
-				backgroundColor: darken(theme.colors[color][shade], amount.active),
-				background: darken(theme.colors[color][shade], amount.active)
+				borderColor: lighten(theme.colors[color][shade], amount.active),
+				backgroundColor: lighten(theme.colors[color][shade], amount.active),
+				background: lighten(theme.colors[color][shade], amount.active)
 			}
 		},
 
