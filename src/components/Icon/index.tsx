@@ -2,12 +2,10 @@ import { FC, useCallback } from 'react';
 
 import { ColorMode, useColorMode, useBoolean, Center } from '@chakra-ui/react';
 
-import '@fontsource/material-icons';
-import '@fontsource/material-icons-outlined';
+import { useInterval } from 'usehooks-ts';
 
-import { Type, IconProps } from './types';
-
-const handleReturnURL = (type: Type): string => `1rem 'Material Icons${type === 'outlined' ? ' Outlined' : ''}'`;
+import { checkFontStatus } from './common/utils';
+import { IconProps } from './types';
 
 const Icon: FC<IconProps> = (props) => {
 	const { colorMode: colorModeHook } = useColorMode();
@@ -28,22 +26,17 @@ const Icon: FC<IconProps> = (props) => {
 
 	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
-	const [hasLoaded, setHasLoaded] = useBoolean(document.fonts.check(handleReturnURL(type)));
+	const [hasLoaded, setHasLoaded] = useBoolean();
 
-	const handleCheckFontStatus = useCallback(() => {
-		if (document.fonts.check(handleReturnURL(type))) {
-			return setHasLoaded.on();
+	const handleCheckFontStatus = useCallback((): void => {
+		if (checkFontStatus(type)) {
+			setHasLoaded.on();
 		} else {
-			return setHasLoaded.off();
+			setHasLoaded.off();
 		}
-	}, [document.fonts, type]);
+	}, [type]);
 
-	const handleOnLoading = useCallback(() => {
-		document.fonts.onloading = () => setHasLoaded.off();
-		document.fonts.onloadingdone = () => handleCheckFontStatus();
-	}, [document.fonts]);
-
-	handleOnLoading();
+	useInterval(() => handleCheckFontStatus(), !hasLoaded ? 500 : null);
 
 	return (
 		<Center
