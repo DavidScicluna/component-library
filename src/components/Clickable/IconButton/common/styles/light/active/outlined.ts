@@ -1,18 +1,19 @@
 import { darken } from 'color2k';
 
+import { IconButtonLightActiveStylingProps } from './types';
+
 import { Style } from '../../../../../../../common/types';
-import { Theme, Color } from '../../../../../../../theme/types';
-import { Size } from '../../../../types';
-import { handleAmount, handleHue, handleSize } from '../../../utils';
+import { getHue } from '../../../../../../../common/utils/color';
+import { getAmount, getSizeConfig } from '../../../utils';
 
-export default (theme: Theme, colorProp: Color, sizeProp: Size): Style => {
-	const amount = handleAmount('outlined');
-	const shade = handleHue('light', colorProp);
-
-	const size = handleSize(sizeProp);
-	const border = size.border;
-
+export default ({ theme, color: colorProp = 'gray', size = 'md' }: IconButtonLightActiveStylingProps): Style => {
 	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
+
+	const amount = getAmount({ variant: 'outlined' });
+	const shade = getHue({ colorMode: 'light', type: color === 'gray' ? 'text.secondary' : 'color' });
+
+	const config = getSizeConfig({ size });
+	const border = config.border;
 
 	return {
 		'color': theme.colors[color][shade],
