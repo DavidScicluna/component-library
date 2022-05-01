@@ -7,7 +7,7 @@ import { SpinnerProps } from './types';
 
 import { useTheme } from '../../../../../common/hooks';
 import { convertStringToNumber } from '../../../../../common/utils';
-import { handleIconFontSize } from '../../common/utils';
+import { getIconFontSize } from '../../common/utils';
 
 const Spinner: FC<SpinnerProps> = (props) => {
 	const theme = useTheme();
@@ -41,17 +41,14 @@ const Spinner: FC<SpinnerProps> = (props) => {
 	 * @returns - number: Font-size in PX
 	 */
 	const handleReturnSize = useCallback((): number => {
-		return convertStringToNumber(handleIconFontSize(size), 'px');
+		return convertStringToNumber(getIconFontSize({ size }), 'px');
 	}, [size]);
-
-	const rgba = handleReturnColorRGBA();
-	const pixels = handleReturnSize();
 
 	return (
 		<SpinnerCircularFixed
-			color={rgba}
+			color={handleReturnColorRGBA()}
 			secondaryColor={toRgba(theme.colors.gray[colorMode === 'light' ? 200 : 700])}
-			size={pixels}
+			size={handleReturnSize()}
 			thickness={160}
 			speed={140}
 		/>
