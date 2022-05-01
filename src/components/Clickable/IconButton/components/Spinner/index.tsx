@@ -44,14 +44,11 @@ const Spinner: FC<SpinnerProps> = (props) => {
 		return convertStringToNumber(handleFontSize(size), 'px');
 	}, [size]);
 
-	const rgba = handleReturnColorRGBA();
-	const pixels = handleReturnSize();
-
 	return (
 		<SpinnerCircularFixed
-			color={rgba}
+			color={handleReturnColorRGBA()}
 			secondaryColor={toRgba(theme.colors.gray[colorMode === 'light' ? 200 : 700])}
-			size={pixels}
+			size={handleReturnSize()}
 			thickness={160}
 			speed={140}
 		/>
