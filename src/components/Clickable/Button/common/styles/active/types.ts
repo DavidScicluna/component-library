@@ -1,3 +1,3 @@
 import { Size } from '../../../types';
 
-export type ActiveStyleProps = { size: Size };
+export type ButtonActiveStyleProps = { size: Size };
