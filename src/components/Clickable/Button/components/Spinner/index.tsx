@@ -6,13 +6,18 @@ import { SpinnerCircularFixed } from 'spinners-react';
 import { SpinnerProps } from './types';
 
 import { useTheme } from '../../../../../common/hooks';
-import { convertStringToNumber } from '../../../../../common/utils';
-import { getIconFontSize } from '../../common/utils';
+import { getHue } from '../../../../../common/utils/color';
+import {
+	color as defaultColor,
+	colorMode as defaultColorMode,
+	size as defaultSize,
+	variant as defaultVariant
+} from '../../common/data/defaultPropValues';
 
 const Spinner: FC<SpinnerProps> = (props) => {
 	const theme = useTheme();
 
-	const { color, colorMode, size, variant } = props;
+	const { color = defaultColor, colorMode = defaultColorMode, size = defaultSize, variant = defaultVariant } = props;
 
 	/**
 	 * This method will return the appropriate color in RGBA depending on color & colorMode props
@@ -22,16 +27,26 @@ const Spinner: FC<SpinnerProps> = (props) => {
 	const handleReturnColorRGBA = useCallback((): string => {
 		switch (variant) {
 			case 'outlined':
-			case 'text': {
-				return toRgba(theme.colors[color][colorMode === 'light' ? 500 : 400]);
-			}
-			default: {
+			case 'text':
 				return toRgba(
-					theme.colors.gray[
-						colorMode === 'light' ? (color === 'white' ? 400 : 50) : color === 'black' ? 500 : 900
+					theme.colors[color === 'black' || color === 'white' ? 'gray' : color][
+						getHue({
+							colorMode: 'light',
+							type:
+								color === 'black' || color === 'white'
+									? color
+									: color === 'gray'
+									? 'text.secondary'
+									: 'color'
+						})
 					]
 				);
-			}
+			default:
+				return toRgba(
+					theme.colors[color === 'black' || color === 'white' ? 'gray' : color][
+						colorMode === 'light' ? (color === 'white' ? 900 : 50) : color === 'black' ? 50 : 900
+					]
+				);
 		}
 	}, [variant, theme, color, colorMode]);
 
@@ -40,9 +55,9 @@ const Spinner: FC<SpinnerProps> = (props) => {
 	 *
 	 * @returns - number: Font-size in PX
 	 */
-	const handleReturnSize = useCallback((): number => {
-		return convertStringToNumber(getIconFontSize({ size }), 'px');
-	}, [size]);
+	const handleReturnSize = useCallback((): string => {
+		return theme.fontSizes[size];
+	}, [theme, size]);
 
 	return (
 		<SpinnerCircularFixed
