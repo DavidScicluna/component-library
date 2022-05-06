@@ -1,7 +1,5 @@
-import { Theme } from '../../../../../../theme/types';
-import { Size } from '../../../types';
+import { ButtonStyleProps } from '../types';
 
-export type ButtonActiveStyleProps = {
-	theme: Theme;
-	size: Size;
-};
+type Picked = 'theme' | 'size';
+
+export type ButtonActiveStyleProps = Pick<ButtonStyleProps, Picked>;

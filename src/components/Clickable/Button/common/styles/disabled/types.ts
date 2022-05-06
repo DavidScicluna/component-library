@@ -1,8 +1,5 @@
-import { Theme } from '../../../../../../theme/types';
-import { Size } from '../../../types';
+import { ButtonStyleProps } from '../types';
 
-export type ButtonDisabledStylingProps = {
-	theme: Theme;
-	isLoading: boolean;
-	size: Size;
-};
+type Picked = 'theme' | 'isLoading' | 'size';
+
+export type ButtonDisabledStylingProps = Pick<ButtonStyleProps, Picked>;

@@ -1,8 +1,5 @@
-import { Theme } from '../../../../../../theme/types';
-import { Size } from '../../../types';
+import { ButtonStyleProps as AllButtonStyleProps } from '../types';
 
-export type ButtonStyleProps = {
-	theme: Theme;
-	isFullWidth: boolean;
-	size: Size;
-};
+type Picked = 'theme' | 'isFullWidth' | 'size';
+
+export type ButtonStyleProps = Pick<AllButtonStyleProps, Picked>;

@@ -1,18 +1,12 @@
-import { ColorMode } from '@chakra-ui/react';
-
 import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';
-import { ButtonColor, Size, Variant } from '../../types';
+import { ButtonProps } from '../../types';
+
+type Picked = 'color' | 'colorMode' | 'isFullWidth' | 'isLoading' | 'size' | 'variant';
 
 export type ButtonStyleProps = {
 	theme: Theme;
-	color: ButtonColor;
-	colorMode: ColorMode;
-	isFullWidth: boolean;
-	isLoading: boolean;
-	size: Size;
-	variant: Variant;
-};
+} & Pick<ButtonProps, Picked>;
 
 export type ButtonStyleReturn = {
 	button: Style;
