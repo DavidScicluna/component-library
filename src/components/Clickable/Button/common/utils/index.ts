@@ -1,5 +1,6 @@
 import { Space } from '../../../../../theme/types';
-import { Size, Variant } from '../../types';
+import { Size } from '../../types';
+import { size as defaultSize } from '../data/defaultPropValues';
 
 type Padding = {
 	x: Space; // In Space (Theme) Values
@@ -22,7 +23,7 @@ type GetSizeConfigReturn = {
 
 type GetSizeConfigProps = { size: Size };
 
-export const getSizeConfig = ({ size = 'md' }: GetSizeConfigProps): GetSizeConfigReturn => {
+export const getSizeConfig = ({ size = defaultSize }: GetSizeConfigProps): GetSizeConfigReturn => {
 	switch (size) {
 		case 'xs':
 			return {
@@ -73,19 +74,17 @@ type GetAmountReturn = {
 	active: number;
 };
 
-type GetAmountProps = { variant: Variant };
-
-export const getAmount = ({ variant = 'contained' }: GetAmountProps): GetAmountReturn => {
+export const getAmount = (): GetAmountReturn => {
 	return {
-		back: variant === 'contained' ? 0.15 : 0,
-		hover: 0.1,
-		active: 0.15
+		back: 0.15,
+		hover: 0.05,
+		active: 0.1
 	};
 };
 
 type GetIconFontSize = { size: Size };
 
-export const getIconFontSize = ({ size = 'md' }: GetIconFontSize): string => {
+export const getIconFontSize = ({ size = defaultSize }: GetIconFontSize): string => {
 	switch (size) {
 		case 'xs':
 			return '14px'; // Height of theme xs font-size
