@@ -4,12 +4,17 @@ import { ButtonDarkActiveStylingProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
+import { color as defaultColor, size as defaultSize } from '../../../data/defaultPropValues';
 import { getAmount, getSizeConfig } from '../../../utils';
 
-export default ({ theme, color: colorProp = 'gray', size = 'md' }: ButtonDarkActiveStylingProps): Style => {
+export default ({
+	theme,
+	color: colorProp = defaultColor,
+	size = defaultSize
+}: ButtonDarkActiveStylingProps): Style => {
 	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
 
-	const amount = getAmount({ variant: 'outlined' });
+	const amount = getAmount();
 	const shade = getHue({ colorMode: 'dark', type: color === 'gray' ? 'text.secondary' : 'color' });
 
 	const config = getSizeConfig({ size });
@@ -21,8 +26,8 @@ export default ({ theme, color: colorProp = 'gray', size = 'md' }: ButtonDarkAct
 		'&::before': {
 			boxShadow: `0 ${border}px 0 0 ${theme.colors[color][shade]}`,
 			borderColor: theme.colors[color][shade],
-			backgroundColor: theme.colors.transparent,
-			background: theme.colors.transparent
+			backgroundColor: theme.colors.gray[50],
+			background: theme.colors.gray[50]
 		},
 
 		'&:hover': {
@@ -31,8 +36,8 @@ export default ({ theme, color: colorProp = 'gray', size = 'md' }: ButtonDarkAct
 			'&::before': {
 				boxShadow: `0 ${border}px 0 0 ${lighten(theme.colors[color][shade], amount.hover)}`,
 				borderColor: lighten(theme.colors[color][shade], amount.hover),
-				backgroundColor: theme.colors.transparent,
-				background: theme.colors.transparent
+				backgroundColor: theme.colors.gray[50],
+				background: theme.colors.gray[50]
 			},
 
 			'&:active': {
@@ -41,8 +46,8 @@ export default ({ theme, color: colorProp = 'gray', size = 'md' }: ButtonDarkAct
 				'&::before': {
 					boxShadow: `0 ${border}px 0 0 ${lighten(theme.colors[color][shade], amount.active)}`,
 					borderColor: lighten(theme.colors[color][shade], amount.active),
-					backgroundColor: theme.colors.transparent,
-					background: theme.colors.transparent
+					backgroundColor: theme.colors.gray[50],
+					background: theme.colors.gray[50]
 				}
 			}
 		}

@@ -5,12 +5,13 @@ import { ButtonDarkActiveStylingProps } from './types';
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { ColorHues } from '../../../../../../../theme/types';
+import { color as defaultColor } from '../../../data/defaultPropValues';
 import { getAmount } from '../../../utils';
 
-export default ({ theme, color: colorProp = 'gray' }: ButtonDarkActiveStylingProps): Style => {
+export default ({ theme, color: colorProp = defaultColor }: ButtonDarkActiveStylingProps): Style => {
 	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
 
-	const amount = getAmount({ variant: 'contained' });
+	const amount = getAmount();
 	const shade = getHue({ colorMode: 'dark', type: color === 'gray' ? 'text.secondary' : 'color' });
 
 	const textShade: ColorHues = colorProp === 'black' ? 50 : 900;
