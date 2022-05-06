@@ -1,8 +1,5 @@
-import { Theme } from '../../../../../../../theme/types';
-import { ButtonColor } from '../../../../types';
+import { ButtonStyleProps } from '../../types';
 
-export type ButtonDarkDisabledStylingProps = {
-	theme: Theme;
-	color: ButtonColor;
-	isLoading: boolean;
-};
+type Picked = 'theme' | 'color' | 'isLoading';
+
+export type ButtonDarkDisabledStylingProps = Pick<ButtonStyleProps, Picked>;

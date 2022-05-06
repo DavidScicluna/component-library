@@ -3,13 +3,18 @@ import { ButtonDarkDisabledStylingProps } from './types';
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { ColorHues } from '../../../../../../../theme/types';
+import { color as defaultColor, isLoading as defaultIsLoading } from '../../../data/defaultPropValues';
 
-export default ({ theme, color: colorProp = 'gray', isLoading = false }: ButtonDarkDisabledStylingProps): Style => {
+export default ({
+	theme,
+	color: colorProp = defaultColor,
+	isLoading = defaultIsLoading
+}: ButtonDarkDisabledStylingProps): Style => {
 	const color = isLoading ? (colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp) : 'gray';
 
 	const shade = getHue({ colorMode: 'dark', type: color === 'gray' ? 'text.secondary' : 'color' });
 
-	const textShade: ColorHues = colorProp === 'black' ? 50 : 900;
+	const textShade: ColorHues = isLoading && colorProp === 'black' ? 50 : 900;
 
 	return {
 		'color': `${theme.colors.gray[textShade]} !important`,
