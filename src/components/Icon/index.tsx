@@ -26,17 +26,17 @@ const Icon: FC<IconProps> = (props) => {
 
 	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
-	const [hasLoaded, setHasLoaded] = useBoolean();
+	const [hasLoaded, setHasLoaded] = useBoolean(checkFontStatus({ type }));
 
 	const handleCheckFontStatus = useCallback((): void => {
-		if (checkFontStatus(type)) {
+		if (checkFontStatus({ type })) {
 			setHasLoaded.on();
 		} else {
 			setHasLoaded.off();
 		}
 	}, [type]);
 
-	useInterval(() => handleCheckFontStatus(), !hasLoaded ? 500 : null);
+	useInterval(() => handleCheckFontStatus(), !hasLoaded ? 250 : null);
 
 	return (
 		<Center
