@@ -26,8 +26,8 @@ export default ({
 		'&::before': {
 			boxShadow: `0 ${border}px 0 0 ${theme.colors[color][shade]}`,
 			borderColor: theme.colors[color][shade],
-			backgroundColor: theme.colors.gray[50],
-			background: theme.colors.gray[50]
+			backgroundColor: theme.colors.gray[900],
+			background: theme.colors.gray[900]
 		},
 
 		'&:hover': {
@@ -36,8 +36,8 @@ export default ({
 			'&::before': {
 				boxShadow: `0 ${border}px 0 0 ${lighten(theme.colors[color][shade], amount.hover)}`,
 				borderColor: lighten(theme.colors[color][shade], amount.hover),
-				backgroundColor: theme.colors.gray[50],
-				background: theme.colors.gray[50]
+				backgroundColor: theme.colors.gray[900],
+				background: theme.colors.gray[900]
 			},
 
 			'&:active': {
@@ -46,8 +46,8 @@ export default ({
 				'&::before': {
 					boxShadow: `0 ${border}px 0 0 ${lighten(theme.colors[color][shade], amount.active)}`,
 					borderColor: lighten(theme.colors[color][shade], amount.active),
-					backgroundColor: theme.colors.gray[50],
-					background: theme.colors.gray[50]
+					backgroundColor: theme.colors.gray[900],
+					background: theme.colors.gray[900]
 				}
 			}
 		}
