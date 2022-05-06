@@ -2,17 +2,24 @@ import { ButtonStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
+import { Radius } from '../../../../../../theme/types';
+import { isFullWidth as defaultIsFullWidth, size as defaultSize } from '../../data/defaultPropValues';
 import { getIconFontSize, getSizeConfig } from '../../utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme, isFullWidth = false, size = 'md' }: ButtonStyleProps): Style => {
+export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }: ButtonStyleProps): Style => {
 	const iconFontSize = getIconFontSize({ size });
 
 	const config = getSizeConfig({ size });
 	const padding = config.padding;
 
+	const radius: Radius = size === 'xs' || size === 'sm' ? 'xs' : size === 'lg' || size === 'xl' ? 'lg' : 'base';
+
 	const transition = 'none';
+	const transitionProperty = transition;
+	const transitionDuration = transition;
+	const transitionTimingFunction = transition;
 
 	return {
 		'cursor': 'pointer',
@@ -36,14 +43,17 @@ export default ({ theme, isFullWidth = false, size = 'md' }: ButtonStyleProps): 
 
 		'outline': !isTouchDevice ? '0px auto' : 'none !important',
 
+		'background': 'none',
+		'borderRadius': theme.radii[radius],
+
 		'fontSize': theme.fontSizes[size],
-		'fontWeight': 'semibold',
+		'fontWeight': theme.fontWeights.semibold,
 		'textTransform': 'uppercase',
 		'whiteSpace': 'nowrap',
-		'lineHeight': 'base',
+		'lineHeight': theme.lineHeights.base,
 		'letterSpacing': '.6px',
 
-		'WebkitTapHighlightColor': 'transparent',
+		'WebkitTapHighlightColor': theme.colors.transparent,
 
 		'transform': 'none',
 
@@ -51,13 +61,14 @@ export default ({ theme, isFullWidth = false, size = 'md' }: ButtonStyleProps): 
 		'py': `${theme.space[padding.y]} !important`,
 
 		'transition': transition,
-		'transitionDuration': transition,
-		'transitionTimingFunction': transition,
+		'transitionProperty': transitionProperty,
+		'transitionDuration': transitionDuration,
+		'transitionTimingFunction': transitionTimingFunction,
 
 		'&::before': {
 			content: '""',
 
-			zIndex: -1,
+			zIndex: 0,
 
 			position: 'absolute',
 			top: 0,
@@ -65,9 +76,12 @@ export default ({ theme, isFullWidth = false, size = 'md' }: ButtonStyleProps): 
 			left: 0,
 			right: 0,
 
-			transition: transition,
-			transitionDuration: transition,
-			transitionTimingFunction: transition
+			borderRadius: theme.radii[radius],
+
+			transition,
+			transitionProperty,
+			transitionDuration,
+			transitionTimingFunction
 		},
 
 		'&:focus:not(:focus-visible)': {
