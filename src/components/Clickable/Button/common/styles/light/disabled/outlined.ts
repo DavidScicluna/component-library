@@ -2,8 +2,13 @@ import { ButtonLightDisabledStylingProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
+import { color as defaultColor, isLoading as defaultIsLoading } from '../../../data/defaultPropValues';
 
-export default ({ theme, color: colorProp = 'gray', isLoading = false }: ButtonLightDisabledStylingProps): Style => {
+export default ({
+	theme,
+	color: colorProp = defaultColor,
+	isLoading = defaultIsLoading
+}: ButtonLightDisabledStylingProps): Style => {
 	const color = isLoading ? (colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp) : 'gray';
 
 	const shade = getHue({ colorMode: 'light', type: color === 'gray' ? 'text.secondary' : 'color' });
@@ -14,8 +19,8 @@ export default ({ theme, color: colorProp = 'gray', isLoading = false }: ButtonL
 		'&::before': {
 			boxShadow: 'none !important',
 			borderColor: `${theme.colors[color][shade]} !important`,
-			backgroundColor: `${theme.colors.transparent} !important`,
-			background: `${theme.colors.transparent} !important`
+			backgroundColor: `${theme.colors.gray[50]} !important`,
+			background: `${theme.colors.gray[50]} !important`
 		}
 	};
 };
