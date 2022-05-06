@@ -5,17 +5,22 @@ import { ButtonDarkStylingProps } from './types';
 import { Style } from '../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../common/utils';
 import { getHue } from '../../../../../../../common/utils/color';
-import { ColorHues } from '../../../../../../../theme/types';
+import { Color, ColorHues } from '../../../../../../../theme/types';
 import { color as defaultColor, size as defaultSize } from '../../../data/defaultPropValues';
 import { getAmount, getSizeConfig } from '../../../utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme, color = defaultColor, size = defaultSize }: ButtonDarkStylingProps): Style => {
+export default ({ theme, color: colorProp = defaultColor, size = defaultSize }: ButtonDarkStylingProps): Style => {
 	const amount = getAmount();
 	const shade = getHue({
 		colorMode: 'dark',
-		type: color === 'black' || color === 'white' ? color : color === 'gray' ? 'text.secondary' : 'color'
+		type:
+			colorProp === 'black' || colorProp === 'white'
+				? colorProp
+				: colorProp === 'gray'
+				? 'text.secondary'
+				: 'color'
 	});
 
 	const config = getSizeConfig({ size });
@@ -23,7 +28,8 @@ export default ({ theme, color = defaultColor, size = defaultSize }: ButtonDarkS
 	const transform = config.transform.contained;
 	const offset = config.offset.contained;
 
-	const textShade: ColorHues = color === 'black' ? 50 : 900;
+	const textShade: ColorHues = colorProp === 'black' ? 50 : 900;
+	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
 
 	return {
 		'color': theme.colors.gray[textShade],

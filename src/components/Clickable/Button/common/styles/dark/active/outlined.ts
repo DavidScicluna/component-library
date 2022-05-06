@@ -4,18 +4,30 @@ import { ButtonDarkActiveStylingProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
+import { Color } from '../../../../../../../theme/types';
 import { color as defaultColor, size as defaultSize } from '../../../data/defaultPropValues';
 import { getAmount, getSizeConfig } from '../../../utils';
 
-export default ({ theme, color = defaultColor, size = defaultSize }: ButtonDarkActiveStylingProps): Style => {
+export default ({
+	theme,
+	color: colorProp = defaultColor,
+	size = defaultSize
+}: ButtonDarkActiveStylingProps): Style => {
 	const amount = getAmount();
 	const shade = getHue({
 		colorMode: 'dark',
-		type: color === 'black' || color === 'white' ? color : color === 'gray' ? 'text.secondary' : 'color'
+		type:
+			colorProp === 'black' || colorProp === 'white'
+				? colorProp
+				: colorProp === 'gray'
+				? 'text.secondary'
+				: 'color'
 	});
 
 	const config = getSizeConfig({ size });
 	const border = config.border;
+
+	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
 
 	return {
 		'color': theme.colors[color][shade],
