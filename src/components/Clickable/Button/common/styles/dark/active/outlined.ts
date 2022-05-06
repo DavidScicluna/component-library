@@ -7,15 +7,12 @@ import { getHue } from '../../../../../../../common/utils/color';
 import { color as defaultColor, size as defaultSize } from '../../../data/defaultPropValues';
 import { getAmount, getSizeConfig } from '../../../utils';
 
-export default ({
-	theme,
-	color: colorProp = defaultColor,
-	size = defaultSize
-}: ButtonDarkActiveStylingProps): Style => {
-	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
-
+export default ({ theme, color = defaultColor, size = defaultSize }: ButtonDarkActiveStylingProps): Style => {
 	const amount = getAmount();
-	const shade = getHue({ colorMode: 'dark', type: color === 'gray' ? 'text.secondary' : 'color' });
+	const shade = getHue({
+		colorMode: 'dark',
+		type: color === 'black' || color === 'white' ? color : color === 'gray' ? 'text.secondary' : 'color'
+	});
 
 	const config = getSizeConfig({ size });
 	const border = config.border;

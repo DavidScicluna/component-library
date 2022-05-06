@@ -9,9 +9,12 @@ export default ({
 	color: colorProp = defaultColor,
 	isLoading = defaultIsLoading
 }: ButtonLightDisabledStylingProps): Style => {
-	const color = isLoading ? (colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp) : 'gray';
+	const color = isLoading ? colorProp : 'gray';
 
-	const shade = getHue({ colorMode: 'light', type: color === 'gray' ? 'text.secondary' : 'color' });
+	const shade = getHue({
+		colorMode: 'light',
+		type: color === 'black' || color === 'white' ? color : color === 'gray' ? 'text.secondary' : 'color'
+	});
 
 	return {
 		'color': `${theme.colors[color][shade]} !important`,

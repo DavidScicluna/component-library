@@ -10,11 +10,12 @@ import { getAmount, getSizeConfig } from '../../../utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme, color: colorProp = defaultColor, size = defaultSize }: ButtonLightStylingProps): Style => {
-	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
-
+export default ({ theme, color = defaultColor, size = defaultSize }: ButtonLightStylingProps): Style => {
 	const amount = getAmount();
-	const shade = getHue({ colorMode: 'light', type: color === 'gray' ? 'text.secondary' : 'color' });
+	const shade = getHue({
+		colorMode: 'light',
+		type: color === 'black' || color === 'white' ? color : color === 'gray' ? 'text.secondary' : 'color'
+	});
 
 	const config = getSizeConfig({ size });
 	const border = config.border;

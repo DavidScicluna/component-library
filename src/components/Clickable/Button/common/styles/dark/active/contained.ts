@@ -8,13 +8,14 @@ import { ColorHues } from '../../../../../../../theme/types';
 import { color as defaultColor } from '../../../data/defaultPropValues';
 import { getAmount } from '../../../utils';
 
-export default ({ theme, color: colorProp = defaultColor }: ButtonDarkActiveStylingProps): Style => {
-	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
-
+export default ({ theme, color = defaultColor }: ButtonDarkActiveStylingProps): Style => {
 	const amount = getAmount();
-	const shade = getHue({ colorMode: 'dark', type: color === 'gray' ? 'text.secondary' : 'color' });
+	const shade = getHue({
+		colorMode: 'dark',
+		type: color === 'black' || color === 'white' ? color : color === 'gray' ? 'text.secondary' : 'color'
+	});
 
-	const textShade: ColorHues = colorProp === 'black' ? 50 : 900;
+	const textShade: ColorHues = color === 'black' ? 50 : 900;
 
 	return {
 		'color': theme.colors.gray[textShade],

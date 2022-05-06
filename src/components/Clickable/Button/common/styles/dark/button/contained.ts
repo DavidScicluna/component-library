@@ -11,18 +11,19 @@ import { getAmount, getSizeConfig } from '../../../utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme, color: colorProp = defaultColor, size = defaultSize }: ButtonDarkStylingProps): Style => {
-	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
-
+export default ({ theme, color = defaultColor, size = defaultSize }: ButtonDarkStylingProps): Style => {
 	const amount = getAmount();
-	const shade = getHue({ colorMode: 'dark', type: color === 'gray' ? 'text.secondary' : 'color' });
+	const shade = getHue({
+		colorMode: 'dark',
+		type: color === 'black' || color === 'white' ? color : color === 'gray' ? 'text.secondary' : 'color'
+	});
 
 	const config = getSizeConfig({ size });
 	const border = config.border;
 	const transform = config.transform.contained;
 	const offset = config.offset.contained;
 
-	const textShade: ColorHues = colorProp === 'black' ? 50 : 900;
+	const textShade: ColorHues = color === 'black' ? 50 : 900;
 
 	return {
 		'color': theme.colors.gray[textShade],
