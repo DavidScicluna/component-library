@@ -39,7 +39,7 @@ export default memoize((props: ButtonStyleProps): ButtonStyleReturn => {
 		disabled: merge(
 			disabled.general({ theme, isLoading, size }),
 			disabled[variant]({ theme, isLoading, size }),
-			scheme.disabled[variant]({ theme, color, isLoading })
+			scheme.disabled[variant]({ theme, color, isLoading, size })
 		)
 	};
 });
