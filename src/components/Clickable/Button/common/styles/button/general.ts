@@ -9,9 +9,10 @@ import { getIconFontSize, getSizeConfig } from '../../utils';
 const isTouchDevice: boolean = checkIsTouchDevice();
 
 export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }: ButtonStyleProps): Style => {
-	const iconFontSize = getIconFontSize({ size });
+	// const iconFontSize = getIconFontSize({ size });
 
 	const config = getSizeConfig({ size });
+	const height = config.height;
 	const padding = config.padding;
 
 	const radius: Radius = size === 'xs' || size === 'sm' ? 'xs' : size === 'lg' || size === 'xl' ? 'lg' : 'base';
@@ -27,7 +28,7 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 		'position': 'relative',
 
 		'width': isFullWidth ? '100%' : 'auto',
-		'height': 'auto',
+		'height': `${height}px`,
 
 		'minWidth': 'auto',
 		'minHeight': 'auto',
@@ -98,10 +99,12 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 		},
 
 		'& svg, .ds-cl-icon': {
-			width: iconFontSize,
-			height: iconFontSize,
-			maxWidth: iconFontSize,
-			maxHeight: iconFontSize,
+			width: theme.fontSizes[size],
+			height: theme.fontSizes[size],
+			maxWidth: theme.fontSizes[size],
+			maxHeight: theme.fontSizes[size],
+
+			fontSize: theme.fontSizes[size],
 
 			userSelect: 'none',
 

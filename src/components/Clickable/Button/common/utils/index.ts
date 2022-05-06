@@ -14,6 +14,7 @@ type Variants = {
 };
 
 type GetSizeConfigReturn = {
+	height: number; // In Pixels
 	padding: Padding;
 	border: number; // In Pixels
 	spacing: Space; // In Space (Theme) Values
@@ -27,31 +28,35 @@ export const getSizeConfig = ({ size = defaultSize }: GetSizeConfigProps): GetSi
 	switch (size) {
 		case 'xs':
 			return {
-				padding: { x: 0.5, y: 0.25 },
-				border: 1,
-				spacing: 0.5,
-				transform: { contained: 3, outlined: 3, text: 0 },
-				offset: { contained: 2, outlined: 2, text: 0 }
-			};
-		case 'sm':
-			return {
-				padding: { x: 1, y: 0.5 },
+				height: 30,
+				padding: { x: 1, y: 0 },
 				border: 1,
 				spacing: 1,
 				transform: { contained: 3, outlined: 3, text: 0 },
 				offset: { contained: 2, outlined: 2, text: 0 }
 			};
+		case 'sm':
+			return {
+				height: 36,
+				padding: { x: 1.5, y: 0 },
+				border: 1,
+				spacing: 1.5,
+				transform: { contained: 3, outlined: 3, text: 0 },
+				offset: { contained: 2, outlined: 2, text: 0 }
+			};
 		case 'lg':
 			return {
-				padding: { x: 4, y: 2 },
+				height: 50,
+				padding: { x: 2.5, y: 0 },
 				border: 2,
-				spacing: 2,
+				spacing: 2.5,
 				transform: { contained: 4, outlined: 4, text: 0 },
 				offset: { contained: 4, outlined: 4, text: 0 }
 			};
 		case 'xl':
 			return {
-				padding: { x: 5, y: 3 },
+				height: 60,
+				padding: { x: 3, y: 0 },
 				border: 2,
 				spacing: 3,
 				transform: { contained: 4, outlined: 4, text: 0 },
@@ -59,9 +64,10 @@ export const getSizeConfig = ({ size = defaultSize }: GetSizeConfigProps): GetSi
 			};
 		default:
 			return {
-				padding: { x: 2, y: 1 },
+				height: 42,
+				padding: { x: 2, y: 0 },
 				border: 2,
-				spacing: 1,
+				spacing: 2,
 				transform: { contained: 4, outlined: 4, text: 0 },
 				offset: { contained: 4, outlined: 4, text: 0 }
 			};
