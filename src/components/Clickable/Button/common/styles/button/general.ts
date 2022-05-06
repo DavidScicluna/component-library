@@ -4,13 +4,11 @@ import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
 import { Radius } from '../../../../../../theme/types';
 import { isFullWidth as defaultIsFullWidth, size as defaultSize } from '../../data/defaultPropValues';
-import { getIconFontSize, getSizeConfig } from '../../utils';
+import { getSizeConfig } from '../../utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
 export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }: ButtonStyleProps): Style => {
-	// const iconFontSize = getIconFontSize({ size });
-
 	const config = getSizeConfig({ size });
 	const height = config.height;
 	const padding = config.padding;

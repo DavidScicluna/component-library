@@ -87,20 +87,3 @@ export const getAmount = (): GetAmountReturn => {
 		active: 0.1
 	};
 };
-
-type GetIconFontSize = { size: Size };
-
-export const getIconFontSize = ({ size = defaultSize }: GetIconFontSize): string => {
-	switch (size) {
-		case 'xs':
-			return '14px'; // Height of theme xs font-size
-		case 'sm':
-			return '17px'; // Height of theme sm font-size
-		case 'lg':
-			return '23px'; // Height of theme lg font-size
-		case 'xl':
-			return '26px'; // Height of theme xl font-size
-		default:
-			return '20px'; // Height of theme md font-size
-	}
-};
