@@ -5,6 +5,14 @@ import { ColorMode, useColorMode, Button as CUIButton, Center, HStack } from '@c
 import merge from 'lodash/merge';
 import { useElementSize } from 'usehooks-ts';
 
+import {
+	color as defaultColor,
+	isDisabled as defaultIsDisabled,
+	isFullWidth as defaultIsFullWidth,
+	isLoading as defaultIsLoading,
+	size as defaultSize,
+	variant as defaultVariant
+} from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
 import Spinner from './components/Spinner';
@@ -20,15 +28,15 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): R
 
 	const {
 		children,
-		color = 'gray',
+		color = defaultColor,
 		colorMode: colorModeProp,
 		renderLeft,
 		renderRight,
-		isDisabled = false,
-		isFullWidth = false,
-		isLoading = false,
-		size = 'md',
-		variant = 'contained',
+		isDisabled = defaultIsDisabled,
+		isFullWidth = defaultIsFullWidth,
+		isLoading = defaultIsLoading,
+		size = defaultSize,
+		variant = defaultVariant,
 		sx,
 		...rest
 	} = props;
@@ -50,7 +58,15 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): R
 			_disabled={style.disabled}
 			_active={style.active}
 		>
-			<HStack width='inherit' align='center' justify='center' flex={1} spacing={handleReturnSpacing()}>
+			<HStack
+				width='inherit'
+				position='relative'
+				zIndex={1}
+				align='center'
+				justify='center'
+				flex={1}
+				spacing={handleReturnSpacing()}
+			>
 				{isLoading && !renderLeft ? (
 					<Spinner
 						color={color}
