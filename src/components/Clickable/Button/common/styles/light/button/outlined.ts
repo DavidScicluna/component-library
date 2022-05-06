@@ -5,20 +5,21 @@ import { ButtonLightStylingProps } from './types';
 import { Style } from '../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../common/utils';
 import { getHue } from '../../../../../../../common/utils/color';
+import { color as defaultColor, size as defaultSize } from '../../../data/defaultPropValues';
 import { getAmount, getSizeConfig } from '../../../utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme, color: colorProp = 'gray', size = 'md' }: ButtonLightStylingProps): Style => {
+export default ({ theme, color: colorProp = defaultColor, size = defaultSize }: ButtonLightStylingProps): Style => {
 	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
 
-	const amount = getAmount({ variant: 'outlined' });
+	const amount = getAmount();
 	const shade = getHue({ colorMode: 'light', type: color === 'gray' ? 'text.secondary' : 'color' });
 
 	const config = getSizeConfig({ size });
 	const border = config.border;
-	const transform = config.transform.contained;
-	const offset = config.offset.contained;
+	const transform = config.transform.outlined;
+	const offset = config.offset.outlined;
 
 	return {
 		'color': theme.colors[color][shade],
@@ -26,8 +27,8 @@ export default ({ theme, color: colorProp = 'gray', size = 'md' }: ButtonLightSt
 		'&::before': {
 			boxShadow: `0 ${transform}px 0 0 ${theme.colors[color][shade]}`,
 			borderColor: theme.colors[color][shade],
-			backgroundColor: theme.colors.transparent,
-			background: theme.colors.transparent
+			backgroundColor: theme.colors.gray[50],
+			background: theme.colors.gray[50]
 		},
 
 		'&:hover': {
@@ -36,8 +37,8 @@ export default ({ theme, color: colorProp = 'gray', size = 'md' }: ButtonLightSt
 			'&::before': {
 				boxShadow: `0 ${transform}px 0 0 ${darken(theme.colors[color][shade], amount.hover)}`,
 				borderColor: darken(theme.colors[color][shade], amount.hover),
-				backgroundColor: theme.colors.transparent,
-				background: theme.colors.transparent
+				backgroundColor: theme.colors.gray[50],
+				background: theme.colors.gray[50]
 			},
 
 			'&:active': {
@@ -46,8 +47,8 @@ export default ({ theme, color: colorProp = 'gray', size = 'md' }: ButtonLightSt
 				'&::before': {
 					boxShadow: `0 ${border}px 0 0 ${darken(theme.colors[color][shade], amount.active)}`,
 					borderColor: darken(theme.colors[color][shade], amount.active),
-					backgroundColor: theme.colors.transparent,
-					background: theme.colors.transparent
+					backgroundColor: theme.colors.gray[50],
+					background: theme.colors.gray[50]
 				}
 			}
 		},
@@ -58,8 +59,8 @@ export default ({ theme, color: colorProp = 'gray', size = 'md' }: ButtonLightSt
 			'&::before': {
 				boxShadow: `0 ${border}px 0 0 ${darken(theme.colors[color][shade], amount.active)}`,
 				borderColor: darken(theme.colors[color][shade], amount.active),
-				backgroundColor: theme.colors.transparent,
-				background: theme.colors.transparent
+				backgroundColor: theme.colors.gray[50],
+				background: theme.colors.gray[50]
 			}
 		},
 
