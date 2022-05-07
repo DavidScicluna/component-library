@@ -1,12 +1,11 @@
 import { IconButtonDisabledStylingProps } from './types';
 
 import { Style } from '../../../../../../common/types';
+import { isLoading as defaultIsLoading } from '../../data/defaultPropValues';
 
-export default ({ isLoading = false }: IconButtonDisabledStylingProps): Style => {
-	return {
-		cursor: 'not-allowed',
-		pointerEvents: 'none',
+export default ({ isLoading = defaultIsLoading }: IconButtonDisabledStylingProps): Style => ({
+	cursor: 'not-allowed',
+	pointerEvents: 'none',
 
-		opacity: isLoading ? 1 : 0.5
-	};
-};
+	opacity: isLoading ? 1 : 0.5
+});

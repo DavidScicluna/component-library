@@ -1,10 +1,10 @@
+import { IconButtonDisabledStylingProps } from './types';
+
 import { Style } from '../../../../../../common/types';
 
-export default (): Style => {
-	return {
-		borderTopWidth: 0,
-		borderBottomWidth: 0,
-		borderStyle: 'solid',
-		borderColor: 'transparent'
-	};
-};
+export default ({ theme }: IconButtonDisabledStylingProps): Style => ({
+	borderTopWidth: 0,
+	borderBottomWidth: 0,
+	borderStyle: 'solid',
+	borderColor: theme.colors.transparent
+});

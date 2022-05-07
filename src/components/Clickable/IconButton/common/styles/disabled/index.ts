@@ -3,4 +3,4 @@ import general from './general';
 import icon from './icon';
 import outlined from './outlined';
 
-export default { general, contained, icon, outlined };
+export default { contained, general, icon, outlined };

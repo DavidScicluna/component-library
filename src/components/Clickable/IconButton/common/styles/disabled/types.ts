@@ -1,6 +1,5 @@
-import { Size } from '../../../types';
+import { IconButtonStyleProps } from '../types';
 
-export type IconButtonDisabledStylingProps = {
-	isLoading: boolean;
-	size: Size;
-};
+type Picked = 'theme' | 'isLoading' | 'size';
+
+export type IconButtonDisabledStylingProps = Pick<IconButtonStyleProps, Picked>;
