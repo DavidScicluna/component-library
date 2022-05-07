@@ -1,5 +1,5 @@
 import active from './active';
 import disabled from './disabled';
-import button from './iconbutton';
+import iconbutton from './iconbutton';
 
-export default { active, disabled, button };
+export default { active, disabled, iconbutton };

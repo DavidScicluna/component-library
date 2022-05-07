@@ -7,15 +7,24 @@ import iconbutton from './iconbutton';
 import light from './light';
 import { IconButtonStyleProps, IconButtonStyleReturn } from './types';
 
+import {
+	color as defaultColor,
+	colorMode as defaultColorMode,
+	isRound as defaultIsRound,
+	isLoading as defaultIsLoading,
+	size as defaultSize,
+	variant as defaultVariant
+} from '../data/defaultPropValues';
+
 export default memoize((props: IconButtonStyleProps): IconButtonStyleReturn => {
 	const {
 		theme,
-		color = 'gray',
-		colorMode,
-		isLoading = false,
-		isRound = false,
-		size = 'md',
-		variant = 'contained'
+		color = defaultColor,
+		colorMode = defaultColorMode,
+		isRound = defaultIsRound,
+		isLoading = defaultIsLoading,
+		size = defaultSize,
+		variant = defaultVariant
 	} = props;
 
 	const scheme = colorMode === 'light' ? light : dark;
@@ -26,11 +35,11 @@ export default memoize((props: IconButtonStyleProps): IconButtonStyleReturn => {
 			iconbutton[variant]({ theme, isRound, size }),
 			scheme.iconbutton[variant]({ theme, color, size })
 		),
-		active: merge(active[variant]({ size }), scheme.active[variant]({ theme, color, size })),
+		active: merge(active[variant]({ theme, size }), scheme.active[variant]({ theme, color, size })),
 		disabled: merge(
-			disabled.general({ isLoading, size }),
-			disabled[variant]({ isLoading, size }),
-			scheme.disabled[variant]({ theme, color, isLoading })
+			disabled.general({ theme, isLoading, size }),
+			disabled[variant]({ theme, isLoading, size }),
+			scheme.disabled[variant]({ theme, color, isLoading, size })
 		)
 	};
 });
