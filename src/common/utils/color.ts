@@ -4,7 +4,7 @@ import { memoize } from 'lodash';
 
 import { Theme, ColorHues, Color } from '../../theme/types';
 
-type Type = 'text.primary' | 'text.secondary' | 'divider' | 'color';
+type Type = 'text.primary' | 'text.secondary' | 'divider' | 'black' | 'white' | 'color';
 
 type GetHueProps = {
 	colorMode: ColorMode;
@@ -19,8 +19,12 @@ export const getHue = memoize(({ type, colorMode }: GetHueProps): ColorHues => {
 			return colorMode === 'light' ? 400 : 500;
 		case 'divider':
 			return colorMode === 'light' ? 200 : 700;
+		case 'black':
+			return 900;
+		case 'white':
+			return 50;
 		case 'color':
-			return colorMode === 'light' ? 200 : 700;
+			return colorMode === 'light' ? 500 : 400;
 	}
 });
 
@@ -36,14 +40,5 @@ type GetColorProps = {
 export const getColor = memoize(({ theme, colorMode, type, color: colorProp }: GetColorProps): string => {
 	const color: Color = colorProp || 'gray';
 
-	switch (type) {
-		case 'text.primary':
-			return theme.colors[color][getHue({ type, colorMode })];
-		case 'text.secondary':
-			return theme.colors[color][getHue({ type, colorMode })];
-		case 'divider':
-			return theme.colors[color][getHue({ type, colorMode })];
-		case 'color':
-			return theme.colors[color][getHue({ type, colorMode })];
-	}
+	return theme.colors[color][getHue({ type, colorMode })];
 });
