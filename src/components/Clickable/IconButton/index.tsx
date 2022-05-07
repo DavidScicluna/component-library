@@ -1,6 +1,6 @@
 import { ReactElement, forwardRef } from 'react';
 
-import { ColorMode, useColorMode, IconButton as CUIIconButton } from '@chakra-ui/react';
+import { ColorMode, useColorMode, IconButton as CUIIconButton, Center } from '@chakra-ui/react';
 
 import merge from 'lodash/merge';
 
@@ -50,7 +50,9 @@ const IconButton = forwardRef<IconButtonRef, IconButtonProps>(function IconButto
 			_disabled={style.disabled}
 			_active={style.active}
 		>
-			{isLoading ? <Spinner color={color} colorMode={colorMode} size={size} variant={variant} /> : children}
+			<Center width='inherit' position='relative' zIndex={1}>
+				{isLoading ? <Spinner color={color} colorMode={colorMode} size={size} variant={variant} /> : children}
+			</Center>
 		</CUIIconButton>
 	);
 });

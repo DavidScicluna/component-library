@@ -10,6 +10,7 @@ const isTouchDevice: boolean = checkIsTouchDevice();
 
 export default ({ theme, isRound = defaultIsRound, size = defaultSize }: IconButtonStyleProps): Style => {
 	const config = getSizeConfig({ size });
+	const width = config.width;
 	const height = config.height;
 	const padding = config.padding;
 
@@ -33,7 +34,7 @@ export default ({ theme, isRound = defaultIsRound, size = defaultSize }: IconBut
 
 		'position': 'relative',
 
-		'width': 'auto',
+		'width': `${width}px`,
 		'height': `${height}px`,
 
 		'minWidth': 'auto',

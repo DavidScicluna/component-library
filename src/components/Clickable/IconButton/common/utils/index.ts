@@ -9,6 +9,7 @@ type Variants = {
 };
 
 type GetSizeConfigReturn = {
+	width: number; // In Pixels
 	height: number; // In Pixels
 	padding: Space; // In Space (Theme) Values
 	border: number; // In Pixels
@@ -22,6 +23,7 @@ export const getSizeConfig = ({ size = defaultSize }: GetSizeConfigProps): GetSi
 	switch (size) {
 		case 'xs':
 			return {
+				width: 30,
 				height: 30,
 				padding: 1,
 				border: 1,
@@ -30,6 +32,7 @@ export const getSizeConfig = ({ size = defaultSize }: GetSizeConfigProps): GetSi
 			};
 		case 'sm':
 			return {
+				width: 36,
 				height: 36,
 				padding: 1.5,
 				border: 1,
@@ -38,6 +41,7 @@ export const getSizeConfig = ({ size = defaultSize }: GetSizeConfigProps): GetSi
 			};
 		case 'lg':
 			return {
+				width: 50,
 				height: 50,
 				padding: 2.5,
 				border: 2,
@@ -46,6 +50,7 @@ export const getSizeConfig = ({ size = defaultSize }: GetSizeConfigProps): GetSi
 			};
 		case 'xl':
 			return {
+				width: 60,
 				height: 60,
 				padding: 3,
 				border: 2,
@@ -54,6 +59,7 @@ export const getSizeConfig = ({ size = defaultSize }: GetSizeConfigProps): GetSi
 			};
 		default:
 			return {
+				width: 42,
 				height: 42,
 				padding: 2,
 				border: 2,
