@@ -4,6 +4,14 @@ import { ColorMode, useColorMode, IconButton as CUIIconButton } from '@chakra-ui
 
 import merge from 'lodash/merge';
 
+import {
+	color as defaultColor,
+	isDisabled as defaultIsDisabled,
+	isLoading as defaultIsLoading,
+	isRound as defaultIsRound,
+	size as defaultSize,
+	variant as defaultVariant
+} from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import Spinner from './components/Spinner';
 import { IconButtonRef, IconButtonProps } from './types';
@@ -16,13 +24,13 @@ const IconButton = forwardRef<IconButtonRef, IconButtonProps>(function IconButto
 
 	const {
 		children,
-		color = 'gray',
+		color = defaultColor,
 		colorMode: colorModeProp,
-		isDisabled = false,
-		isLoading = false,
-		isRound = false,
-		size = 'md',
-		variant = 'contained',
+		isDisabled = defaultIsDisabled,
+		isLoading = defaultIsLoading,
+		isRound = defaultIsRound,
+		size = defaultSize,
+		variant = defaultVariant,
 		sx,
 		...rest
 	} = props;
