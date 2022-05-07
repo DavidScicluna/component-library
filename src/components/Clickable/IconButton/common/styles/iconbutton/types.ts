@@ -1,8 +1,5 @@
-import { Theme } from '../../../../../../theme/types';
-import { Size } from '../../../types';
+import { IconButtonStyleProps as AllIconButtonStyleProps } from '../types';
 
-export type IconButtonStyleProps = {
-	theme: Theme;
-	isRound: boolean;
-	size: Size;
-};
+type Picked = 'theme' | 'isRound' | 'size';
+
+export type IconButtonStyleProps = Pick<AllIconButtonStyleProps, Picked>;

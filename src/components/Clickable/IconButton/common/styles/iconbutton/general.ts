@@ -2,17 +2,31 @@ import { IconButtonStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
+import { Radius } from '../../../../../../theme/types';
+import { isRound as defaultIsRound, size as defaultSize } from '../../data/defaultPropValues';
 import { getIconFontSize, getSizeConfig } from '../../utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme, size = 'md' }: IconButtonStyleProps): Style => {
-	const iconFontSize = getIconFontSize({ size });
-
+export default ({ theme, isRound = defaultIsRound, size = defaultSize }: IconButtonStyleProps): Style => {
 	const config = getSizeConfig({ size });
+	const height = config.height;
 	const padding = config.padding;
 
+	const fontSize = getIconFontSize({ size });
+
+	const radius: Radius = isRound
+		? 'full'
+		: size === 'xs' || size === 'sm'
+		? 'xs'
+		: size === 'lg' || size === 'xl'
+		? 'lg'
+		: 'base';
+
 	const transition = 'none';
+	const transitionProperty = transition;
+	const transitionDuration = transition;
+	const transitionTimingFunction = transition;
 
 	return {
 		'cursor': 'pointer',
@@ -20,7 +34,7 @@ export default ({ theme, size = 'md' }: IconButtonStyleProps): Style => {
 		'position': 'relative',
 
 		'width': 'auto',
-		'height': 'auto',
+		'height': `${height}px`,
 
 		'minWidth': 'auto',
 		'minHeight': 'auto',
@@ -36,28 +50,24 @@ export default ({ theme, size = 'md' }: IconButtonStyleProps): Style => {
 
 		'outline': !isTouchDevice ? '0px auto' : 'none !important',
 
-		'fontSize': theme.fontSizes[size],
-		'fontWeight': 'semibold',
-		'textTransform': 'uppercase',
-		'whiteSpace': 'nowrap',
-		'lineHeight': 'base',
-		'letterSpacing': '.6px',
+		'background': 'none',
+		'borderRadius': theme.radii[radius],
 
-		'WebkitTapHighlightColor': 'transparent',
+		'WebkitTapHighlightColor': theme.colors.transparent,
 
 		'transform': 'none',
 
-		'px': `${theme.space[padding.x]} !important`,
-		'py': `${theme.space[padding.y]} !important`,
+		'p': `${theme.space[padding]} !important`,
 
 		'transition': transition,
-		'transitionDuration': transition,
-		'transitionTimingFunction': transition,
+		'transitionProperty': transitionProperty,
+		'transitionDuration': transitionDuration,
+		'transitionTimingFunction': transitionTimingFunction,
 
 		'&::before': {
 			content: '""',
 
-			zIndex: -1,
+			zIndex: 0,
 
 			position: 'absolute',
 			top: 0,
@@ -65,9 +75,12 @@ export default ({ theme, size = 'md' }: IconButtonStyleProps): Style => {
 			left: 0,
 			right: 0,
 
-			transition: transition,
-			transitionDuration: transition,
-			transitionTimingFunction: transition
+			borderRadius: theme.radii[radius],
+
+			transition,
+			transitionProperty,
+			transitionDuration,
+			transitionTimingFunction
 		},
 
 		'&:focus:not(:focus-visible)': {
@@ -84,10 +97,12 @@ export default ({ theme, size = 'md' }: IconButtonStyleProps): Style => {
 		},
 
 		'& svg, .ds-cl-icon': {
-			width: iconFontSize,
-			height: iconFontSize,
-			maxWidth: iconFontSize,
-			maxHeight: iconFontSize,
+			width: fontSize,
+			height: fontSize,
+			maxWidth: fontSize,
+			maxHeight: fontSize,
+
+			fontSize: fontSize,
 
 			userSelect: 'none',
 

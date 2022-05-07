@@ -1,43 +1,34 @@
 import { IconButtonStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
-import { Radius } from '../../../../../../theme/types';
+import { size as defaultSize } from '../../data/defaultPropValues';
 import { getSizeConfig } from '../../utils';
 
-export default ({ theme, isRound = false, size = 'md' }: IconButtonStyleProps): Style => {
+export default ({ theme, size = defaultSize }: IconButtonStyleProps): Style => {
 	const config = getSizeConfig({ size });
-	const transform = config.transform.contained;
+	const transform = config.transform.outlined;
 	const border = config.border;
-
-	const radius: Radius = isRound
-		? 'full'
-		: size === 'xs' || size === 'sm'
-		? 'xs'
-		: size === 'lg' || size === 'xl'
-		? 'lg'
-		: 'base';
 
 	return {
 		'borderBottomWidth': `${transform}px`,
 		'borderStyle': 'solid',
-		'borderColor': 'transparent',
+		'borderColor': theme.colors.transparent,
 
 		'&::before': {
 			content: '""',
 
-			borderRadius: theme.radii[radius],
 			borderTopWidth: `${border}px`,
 			borderLeftWidth: `${border}px`,
 			borderRightWidth: `${border}px`,
 			borderStyle: 'solid',
-			borderColor: 'transparent'
+			borderColor: theme.colors.transparent
 		},
 
 		'&:active': {
 			borderTopWidth: `${border}px`,
 			borderBottomWidth: `${border}px`,
 			borderStyle: 'solid',
-			borderColor: 'transparent'
+			borderColor: theme.colors.transparent
 		}
 	};
 };
