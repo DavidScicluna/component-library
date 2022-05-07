@@ -1,9 +1,10 @@
 import { IconButtonActiveStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
+import { size as defaultSize } from '../../data/defaultPropValues';
 import { getSizeConfig } from '../../utils';
 
-export default ({ size = 'md' }: IconButtonActiveStyleProps): Style => {
+export default ({ theme, size = defaultSize }: IconButtonActiveStyleProps): Style => {
 	const config = getSizeConfig({ size });
 	const transform = config.transform.contained;
 
@@ -11,6 +12,6 @@ export default ({ size = 'md' }: IconButtonActiveStyleProps): Style => {
 		borderTopWidth: `${transform}px`,
 		borderBottomWidth: 0,
 		borderStyle: 'solid',
-		borderColor: 'transparent'
+		borderColor: theme.colors.transparent
 	};
 };
