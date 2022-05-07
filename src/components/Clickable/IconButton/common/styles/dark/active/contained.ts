@@ -4,16 +4,24 @@ import { IconButtonDarkActiveStylingProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
-import { ColorHues } from '../../../../../../../theme/types';
+import { Color, ColorHues } from '../../../../../../../theme/types';
+import { color as defaultColor } from '../../../data/defaultPropValues';
 import { getAmount } from '../../../utils';
 
-export default ({ theme, color: colorProp = 'gray' }: IconButtonDarkActiveStylingProps): Style => {
-	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
-
-	const amount = getAmount({ variant: 'contained' });
-	const shade = getHue({ colorMode: 'dark', type: color === 'gray' ? 'text.secondary' : 'color' });
+export default ({ theme, color: colorProp = defaultColor }: IconButtonDarkActiveStylingProps): Style => {
+	const amount = getAmount();
+	const shade = getHue({
+		colorMode: 'dark',
+		type:
+			colorProp === 'black' || colorProp === 'white'
+				? colorProp
+				: colorProp === 'gray'
+				? 'text.secondary'
+				: 'color'
+	});
 
 	const textShade: ColorHues = colorProp === 'black' ? 50 : 900;
+	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
 
 	return {
 		'color': theme.colors.gray[textShade],

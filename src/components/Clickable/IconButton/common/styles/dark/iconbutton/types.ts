@@ -1,8 +1,5 @@
-import { Theme } from '../../../../../../../theme/types';
-import { IconButtonColor, Size } from '../../../../types';
+import { IconButtonStyleProps } from '../../types';
 
-export type IconButtonDarkStylingProps = {
-	theme: Theme;
-	color: IconButtonColor;
-	size: Size;
-};
+type Picked = 'theme' | 'color' | 'size';
+
+export type IconButtonDarkStylingProps = Pick<IconButtonStyleProps, Picked>;

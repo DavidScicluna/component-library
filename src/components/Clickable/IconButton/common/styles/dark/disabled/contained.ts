@@ -2,14 +2,26 @@ import { IconButtonDarkDisabledStylingProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
-import { ColorHues } from '../../../../../../../theme/types';
+import { Color, ColorHues } from '../../../../../../../theme/types';
+import { color as defaultColor, isLoading as defaultIsLoading } from '../../../data/defaultPropValues';
 
-export default ({ theme, color: colorProp = 'gray', isLoading = false }: IconButtonDarkDisabledStylingProps): Style => {
-	const color = isLoading ? (colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp) : 'gray';
+export default ({
+	theme,
+	color: colorProp = defaultColor,
+	isLoading = defaultIsLoading
+}: IconButtonDarkDisabledStylingProps): Style => {
+	const shade = getHue({
+		colorMode: 'dark',
+		type:
+			colorProp === 'black' || colorProp === 'white'
+				? colorProp
+				: colorProp === 'gray'
+				? 'text.secondary'
+				: 'color'
+	});
 
-	const shade = getHue({ colorMode: 'dark', type: color === 'gray' ? 'text.secondary' : 'color' });
-
-	const textShade: ColorHues = colorProp === 'black' ? 50 : 900;
+	const textShade: ColorHues = isLoading && colorProp === 'black' ? 50 : 900;
+	const color: Color = isLoading ? (colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp) : 'gray';
 
 	return {
 		'color': `${theme.colors.gray[textShade]} !important`,

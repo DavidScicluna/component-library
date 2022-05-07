@@ -5,16 +5,23 @@ import { IconButtonDarkStylingProps } from './types';
 import { Style } from '../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../common/utils';
 import { getHue } from '../../../../../../../common/utils/color';
-import { ColorHues } from '../../../../../../../theme/types';
+import { Color, ColorHues } from '../../../../../../../theme/types';
+import { color as defaultColor, size as defaultSize } from '../../../data/defaultPropValues';
 import { getAmount, getSizeConfig } from '../../../utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme, color: colorProp = 'gray', size = 'md' }: IconButtonDarkStylingProps): Style => {
-	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
-
-	const amount = getAmount({ variant: 'contained' });
-	const shade = getHue({ colorMode: 'dark', type: color === 'gray' ? 'text.secondary' : 'color' });
+export default ({ theme, color: colorProp = defaultColor, size = defaultSize }: IconButtonDarkStylingProps): Style => {
+	const amount = getAmount();
+	const shade = getHue({
+		colorMode: 'dark',
+		type:
+			colorProp === 'black' || colorProp === 'white'
+				? colorProp
+				: colorProp === 'gray'
+				? 'text.secondary'
+				: 'color'
+	});
 
 	const config = getSizeConfig({ size });
 	const border = config.border;
@@ -22,6 +29,7 @@ export default ({ theme, color: colorProp = 'gray', size = 'md' }: IconButtonDar
 	const offset = config.offset.contained;
 
 	const textShade: ColorHues = colorProp === 'black' ? 50 : 900;
+	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
 
 	return {
 		'color': theme.colors.gray[textShade],
