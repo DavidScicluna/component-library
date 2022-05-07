@@ -1,10 +1,6 @@
 import { Space } from '../../../../../theme/types';
-import { Size, Variant } from '../../types';
-
-type Padding = {
-	x: Space; // In Space (Theme) Values
-	y: Space; // In Space (Theme) Values
-};
+import { Size } from '../../types';
+import { size as defaultSize } from '../data/defaultPropValues';
 
 type Variants = {
 	contained: number; // In Pixels
@@ -13,54 +9,54 @@ type Variants = {
 };
 
 type GetSizeConfigReturn = {
-	padding: Padding;
+	height: number; // In Pixels
+	padding: Space; // In Space (Theme) Values
 	border: number; // In Pixels
-	spacing: Space; // In Space (Theme) Values
 	transform: Variants;
 	offset: Variants;
 };
 
 type GetSizeConfigProps = { size: Size };
 
-export const getSizeConfig = ({ size = 'md' }: GetSizeConfigProps): GetSizeConfigReturn => {
+export const getSizeConfig = ({ size = defaultSize }: GetSizeConfigProps): GetSizeConfigReturn => {
 	switch (size) {
 		case 'xs':
 			return {
-				padding: { x: 0.25, y: 0.25 },
+				height: 30,
+				padding: 1,
 				border: 1,
-				spacing: 0.5,
 				transform: { contained: 3, outlined: 3, icon: 0 },
 				offset: { contained: 2, outlined: 2, icon: 0 }
 			};
 		case 'sm':
 			return {
-				padding: { x: 0.5, y: 0.5 },
+				height: 36,
+				padding: 1.5,
 				border: 1,
-				spacing: 1,
 				transform: { contained: 3, outlined: 3, icon: 0 },
 				offset: { contained: 2, outlined: 2, icon: 0 }
 			};
 		case 'lg':
 			return {
-				padding: { x: 2, y: 2 },
+				height: 50,
+				padding: 2.5,
 				border: 2,
-				spacing: 2,
 				transform: { contained: 4, outlined: 4, icon: 0 },
 				offset: { contained: 4, outlined: 4, icon: 0 }
 			};
 		case 'xl':
 			return {
-				padding: { x: 3, y: 3 },
+				height: 60,
+				padding: 3,
 				border: 2,
-				spacing: 3,
 				transform: { contained: 4, outlined: 4, icon: 0 },
 				offset: { contained: 4, outlined: 4, icon: 0 }
 			};
 		default:
 			return {
-				padding: { x: 1, y: 1 },
+				height: 42,
+				padding: 2,
 				border: 2,
-				spacing: 1,
 				transform: { contained: 4, outlined: 4, icon: 0 },
 				offset: { contained: 4, outlined: 4, icon: 0 }
 			};
@@ -73,29 +69,27 @@ type GetAmountReturn = {
 	active: number;
 };
 
-type GetAmountProps = { variant: Variant };
-
-export const getAmount = ({ variant = 'contained' }: GetAmountProps): GetAmountReturn => {
+export const getAmount = (): GetAmountReturn => {
 	return {
-		back: variant === 'contained' ? 0.15 : 0,
-		hover: 0.1,
-		active: 0.15
+		back: 0.15,
+		hover: 0.05,
+		active: 0.1
 	};
 };
 
-type GetIconFontSize = { size: Size };
+type GetIconFontSizeProps = { size: Size };
 
-export const getIconFontSize = ({ size = 'md' }: GetIconFontSize): string => {
+export const getIconFontSize = ({ size = defaultSize }: GetIconFontSizeProps): string => {
 	switch (size) {
 		case 'xs':
-			return '14px'; // Height of theme xs font-size
+			return '18px';
 		case 'sm':
-			return '17px'; // Height of theme sm font-size
+			return '21px';
 		case 'lg':
-			return '23px'; // Height of theme lg font-size
+			return '27px';
 		case 'xl':
-			return '26px'; // Height of theme xl font-size
+			return '30px';
 		default:
-			return '20px'; // Height of theme md font-size
+			return '24px';
 	}
 };
