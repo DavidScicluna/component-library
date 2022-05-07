@@ -5,24 +5,34 @@ import { IconButtonLightStylingProps } from './types';
 import { Style } from '../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../common/utils';
 import { getHue } from '../../../../../../../common/utils/color';
+import { Color } from '../../../../../../../theme/types';
+import { color as defaultColor, size as defaultSize } from '../../../data/defaultPropValues';
 import { getAmount, getSizeConfig } from '../../../utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme, color: colorProp = 'gray', size = 'md' }: IconButtonLightStylingProps): Style => {
-	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
-
-	const amount = getAmount({ variant: 'icon' });
-	const shade = getHue({ colorMode: 'light', type: color === 'gray' ? 'text.secondary' : 'color' });
+export default ({ theme, color: colorProp = defaultColor, size = defaultSize }: IconButtonLightStylingProps): Style => {
+	const amount = getAmount();
+	const shade = getHue({
+		colorMode: 'light',
+		type:
+			colorProp === 'black' || colorProp === 'white'
+				? colorProp
+				: colorProp === 'gray'
+				? 'text.secondary'
+				: 'color'
+	});
 
 	const config = getSizeConfig({ size });
 	const border = config.border;
-	const offset = config.offset.contained;
+
+	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
 
 	return {
 		'color': theme.colors[color][shade],
 
 		'&::before': {
+			boxShadow: 'none',
 			borderColor: theme.colors.transparent,
 			backgroundColor: theme.colors.transparent,
 			background: theme.colors.transparent
@@ -32,6 +42,7 @@ export default ({ theme, color: colorProp = 'gray', size = 'md' }: IconButtonLig
 			'color': darken(theme.colors[color][shade], amount.hover),
 
 			'&::before': {
+				boxShadow: 'none',
 				borderColor: theme.colors.transparent,
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
@@ -41,6 +52,7 @@ export default ({ theme, color: colorProp = 'gray', size = 'md' }: IconButtonLig
 				'color': darken(theme.colors[color][shade], amount.active),
 
 				'&::before': {
+					boxShadow: 'none',
 					borderColor: theme.colors.transparent,
 					backgroundColor: theme.colors.transparent,
 					background: theme.colors.transparent
@@ -52,6 +64,7 @@ export default ({ theme, color: colorProp = 'gray', size = 'md' }: IconButtonLig
 			'color': darken(theme.colors[color][shade], amount.active),
 
 			'&::before': {
+				boxShadow: 'none',
 				borderColor: theme.colors.transparent,
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
@@ -60,7 +73,7 @@ export default ({ theme, color: colorProp = 'gray', size = 'md' }: IconButtonLig
 
 		'&:focus-visible': {
 			outline: !isTouchDevice ? `${border}px auto ${theme.colors[color][shade]}` : 'none',
-			outlineOffset: !isTouchDevice ? `${offset}px` : 0
+			outlineOffset: 0
 		}
 	};
 };
