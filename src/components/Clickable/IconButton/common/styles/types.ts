@@ -1,18 +1,12 @@
-import { ColorMode } from '@chakra-ui/react';
-
 import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';
-import { IconButtonColor, Size, Variant } from '../../types';
+import { IconButtonProps } from '../../types';
+
+type Picked = 'color' | 'colorMode' | 'isRound' | 'isLoading' | 'size' | 'variant';
 
 export type IconButtonStyleProps = {
 	theme: Theme;
-	color: IconButtonColor;
-	colorMode: ColorMode;
-	isLoading: boolean;
-	isRound: boolean;
-	size: Size;
-	variant: Variant;
-};
+} & Pick<IconButtonProps, Picked>;
 
 export type IconButtonStyleReturn = {
 	iconbutton: Style;
