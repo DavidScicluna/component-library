@@ -1,10 +1,5 @@
-import { ColorMode } from '@chakra-ui/react';
+import { IconButtonProps } from '../../types';
 
-import { IconButtonColor, Size, Variant } from '../../types';
+type Picked = 'color' | 'colorMode' | 'size' | 'variant';
 
-export type SpinnerProps = {
-	color: IconButtonColor;
-	colorMode: ColorMode;
-	size: Size;
-	variant: Variant;
-};
+export type SpinnerProps = Pick<IconButtonProps, Picked>;

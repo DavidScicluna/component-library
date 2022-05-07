@@ -1,53 +1,68 @@
 import { FC, useCallback } from 'react';
 
-import { toRgba } from 'color2k';
 import { SpinnerCircularFixed } from 'spinners-react';
 
 import { SpinnerProps } from './types';
 
 import { useTheme } from '../../../../../common/hooks';
-import { convertStringToNumber } from '../../../../../common/utils';
-import { getIconFontSize } from '../../common/utils';
+import { getColor } from '../../../../../common/utils/color';
+import {
+	color as defaultColor,
+	colorMode as defaultColorMode,
+	size as defaultSize,
+	variant as defaultVariant
+} from '../../common/data/defaultPropValues';
 
 const Spinner: FC<SpinnerProps> = (props) => {
 	const theme = useTheme();
 
-	const { color, colorMode, size, variant } = props;
+	const { color = defaultColor, colorMode = defaultColorMode, size = defaultSize, variant = defaultVariant } = props;
 
-	/**
-	 * This method will return the appropriate color in RGBA depending on color & colorMode props
-	 *
-	 * @returns - string: RGBA color
-	 */
-	const handleReturnColorRGBA = useCallback((): string => {
+	const handleReturnPrimaryColorRGBA = useCallback((): string => {
 		switch (variant) {
 			case 'outlined':
-			case 'icon': {
-				return toRgba(theme.colors[color][colorMode === 'light' ? 500 : 400]);
-			}
-			default: {
-				return toRgba(
-					theme.colors.gray[
-						colorMode === 'light' ? (color === 'white' ? 400 : 50) : color === 'black' ? 500 : 900
-					]
-				);
-			}
+			case 'icon':
+				return getColor({
+					theme,
+					colorMode,
+					type:
+						color === 'black' || color === 'white' ? color : color === 'gray' ? 'text.secondary' : 'color',
+					color: color === 'black' || color === 'white' ? 'gray' : color
+				});
+			default:
+				return getColor({
+					theme,
+					colorMode,
+					type:
+						color === 'black'
+							? 'white'
+							: color === 'white'
+							? 'black'
+							: colorMode === 'light'
+							? 'white'
+							: 'black',
+					color: 'gray'
+				});
 		}
-	}, [variant, theme, color, colorMode]);
+	}, [theme, color, colorMode, variant]);
 
-	/**
-	 * This method will return the appropriate font-size in PX depending on size prop
-	 *
-	 * @returns - number: Font-size in PX
-	 */
-	const handleReturnSize = useCallback((): number => {
-		return convertStringToNumber(getIconFontSize({ size }), 'px');
-	}, [size]);
+	const handleReturnSecondaryColorRGBA = useCallback((): string => {
+		return getColor({
+			theme,
+			colorMode: color === 'black' ? 'dark' : color === 'white' ? 'light' : colorMode,
+			type: 'divider',
+			color: color === 'black' || color === 'white' ? 'gray' : color
+		});
+	}, [theme, color, colorMode, variant]);
+
+	const handleReturnSize = useCallback((): string => {
+		return theme.fontSizes[size];
+	}, [theme, size]);
 
 	return (
 		<SpinnerCircularFixed
-			color={handleReturnColorRGBA()}
-			secondaryColor={toRgba(theme.colors.gray[colorMode === 'light' ? 200 : 700])}
+			color={handleReturnPrimaryColorRGBA()}
+			secondaryColor={handleReturnSecondaryColorRGBA()}
 			size={handleReturnSize()}
 			thickness={160}
 			speed={140}
