@@ -68,13 +68,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): R
 				spacing={handleReturnSpacing()}
 			>
 				{isLoading && !renderLeft ? (
-					<Spinner
-						color={color}
-						colorMode={colorMode}
-						hasChildren={typeof children === 'string'}
-						size={size}
-						variant={variant}
-					/>
+					<Spinner color={color} colorMode={colorMode} size={size} variant={variant} />
 				) : renderLeft ? (
 					renderLeft({ color, colorMode, width, height, size })
 				) : null}
@@ -84,13 +78,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): R
 					</Center>
 				) : null}
 				{isLoading && renderLeft ? (
-					<Spinner
-						color={color}
-						colorMode={colorMode}
-						hasChildren={typeof children === 'string'}
-						size={size}
-						variant={variant}
-					/>
+					<Spinner color={color} colorMode={colorMode} size={size} variant={variant} />
 				) : renderRight ? (
 					renderRight({ color, colorMode, width, height, size })
 				) : null}
