@@ -4,11 +4,19 @@ import { Meta, Story } from './types';
 
 import icons from '../../../common/data/icons';
 import ButtonComponent from '../../../components/Clickable/Button';
+import {
+	color as defaultColor,
+	colorMode as defaultColorMode,
+	isDisabled as defaultIsDisabled,
+	isFullWidth as defaultIsFullWidth,
+	isLoading as defaultIsLoading,
+	size as defaultSize,
+	variant as defaultVariant
+} from '../../../components/Clickable/Button/common/data/defaultPropValues';
 import { ButtonColor, RenderProps, Size, Variant, ButtonProps } from '../../../components/Clickable/Button/types';
 import Icon from '../../../components/Icon';
 import controls from '../../common/controls';
 
-const colorDefaultValue: ButtonColor = 'gray';
 const colorOptions: ButtonColor[] = [
 	'black',
 	'white',
@@ -39,10 +47,8 @@ const renderMapping = Object.assign(
 	})
 );
 
-const sizeDefaultValue: Size = 'md';
 const sizeOptions: Size[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
-const variantDefaultValue: Variant = 'contained';
 const variantOptions: Variant[] = ['contained', 'outlined', 'text'];
 
 export default {
@@ -59,30 +65,30 @@ export default {
 		color: {
 			name: 'Color',
 			type: 'string',
-			defaultValue: colorDefaultValue,
+			defaultValue: defaultColor,
 			// description: '',
 			options: [...colorOptions],
 			control: 'select'
 		},
-		colorMode: { ...controls.theme.colorMode },
+		colorMode: { ...controls.theme.colorMode, defaultValue: defaultColorMode },
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
-			defaultValue: false,
+			defaultValue: defaultIsDisabled,
 			// description: '',
 			control: 'boolean'
 		},
 		isFullWidth: {
 			name: 'FullWidth',
 			type: 'boolean',
-			defaultValue: false,
+			defaultValue: defaultIsFullWidth,
 			// description: '',
 			control: 'boolean'
 		},
 		isLoading: {
 			name: 'Loading',
 			type: 'boolean',
-			defaultValue: false,
+			defaultValue: defaultIsLoading,
 			// description: '',
 			control: 'boolean'
 		},
@@ -112,7 +118,7 @@ export default {
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: sizeDefaultValue,
+			defaultValue: defaultSize,
 			// description: '',
 			options: [...sizeOptions],
 			control: 'select'
@@ -120,7 +126,7 @@ export default {
 		variant: {
 			name: 'Variant',
 			type: 'string',
-			defaultValue: variantDefaultValue,
+			defaultValue: defaultVariant,
 			// description: '',
 			options: [...variantOptions],
 			control: 'select'
