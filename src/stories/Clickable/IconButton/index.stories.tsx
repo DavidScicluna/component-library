@@ -7,6 +7,15 @@ import { Meta, Story } from './types';
 import icons from '../../../common/data/icons';
 import { Icon as IconType } from '../../../common/types/icons';
 import IconButtonComponent from '../../../components/Clickable/IconButton';
+import {
+	color as defaultColor,
+	colorMode as defaultColorMode,
+	isDisabled as defaultIsDisabled,
+	isLoading as defaultIsLoading,
+	isRound as defaultIsRound,
+	size as defaultSize,
+	variant as defaultVariant
+} from '../../../components/Clickable/IconButton/common/data/defaultPropValues';
 import { IconButtonColor, Size, Variant, IconButtonProps } from '../../../components/Clickable/IconButton/types';
 import Icon from '../../../components/Icon';
 import controls from '../../common/controls';
@@ -22,7 +31,6 @@ const childrenMapping = Object.assign(
 	})
 );
 
-const colorDefaultValue: IconButtonColor = 'gray';
 const colorOptions: IconButtonColor[] = [
 	'black',
 	'white',
@@ -44,10 +52,8 @@ const colorOptions: IconButtonColor[] = [
 	'deep_orange'
 ];
 
-const sizeDefaultValue: Size = 'md';
 const sizeOptions: Size[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
-const variantDefaultValue: Variant = 'contained';
 const variantOptions: Variant[] = ['contained', 'outlined', 'icon'];
 
 export default {
@@ -65,23 +71,23 @@ export default {
 		color: {
 			name: 'Color',
 			type: 'string',
-			defaultValue: colorDefaultValue,
+			defaultValue: defaultColor,
 			// description: '',
 			options: colorOptions,
 			control: 'select'
 		},
-		colorMode: { ...controls.theme.colorMode },
+		colorMode: { ...controls.theme.colorMode, defaultValue: defaultColorMode },
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
-			defaultValue: false,
+			defaultValue: defaultIsDisabled,
 			// description: '',
 			control: 'boolean'
 		},
 		isLoading: {
 			name: 'Loading',
 			type: 'boolean',
-			defaultValue: false,
+			defaultValue: defaultIsLoading,
 			// description: '',
 			control: 'boolean'
 		},
@@ -95,14 +101,14 @@ export default {
 		isRound: {
 			name: 'Round',
 			type: 'boolean',
-			defaultValue: false,
+			defaultValue: defaultIsRound,
 			// description: '',
 			control: 'boolean'
 		},
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: sizeDefaultValue,
+			defaultValue: defaultSize,
 			// description: '',
 			options: sizeOptions,
 			control: 'select'
@@ -110,7 +116,7 @@ export default {
 		variant: {
 			name: 'Variant',
 			type: 'string',
-			defaultValue: variantDefaultValue,
+			defaultValue: defaultVariant,
 			// description: '',
 			options: variantOptions,
 			control: 'select'
