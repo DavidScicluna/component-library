@@ -5,14 +5,17 @@ import { TabDarkStylingProps } from './types';
 import { Style } from '../../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../../common/utils';
 import { getHue } from '../../../../../../../../common/utils/color';
-import { color as defaultColor } from '../../../data/defaultPropValues';
+import { Color } from '../../../../../../../../theme/types';
+import { color as defaultColor, isActive as defaultIsActive } from '../../../data/defaultPropValues';
 import { getAmount } from '../../../utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme, color = defaultColor }: TabDarkStylingProps): Style => {
+export default ({ theme, color: colorProp = defaultColor, isActive = defaultIsActive }: TabDarkStylingProps): Style => {
 	const amount = getAmount();
 	const shade = getHue({ colorMode: 'dark', type: 'color' });
+
+	const color: Color = isActive ? colorProp : 'gray';
 
 	return {
 		'background': theme.colors.transparent,

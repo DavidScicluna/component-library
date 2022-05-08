@@ -6,14 +6,22 @@ import light from './light';
 import tab from './tab';
 import { TabStyleProps, TabStyleReturn } from './types';
 
-import { color as defaultColor, colorMode as defaultColorMode } from '../data/defaultPropValues';
+import {
+	color as defaultColor,
+	colorMode as defaultColorMode,
+	isActive as defaultIsActive
+} from '../data/defaultPropValues';
 
-export default ({ theme, color = defaultColor, colorMode = defaultColorMode }: TabStyleProps): TabStyleReturn => {
+export default ({
+	theme,
+	color = defaultColor,
+	colorMode = defaultColorMode,
+	isActive = defaultIsActive
+}: TabStyleProps): TabStyleReturn => {
 	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
-		tab: merge(tab(), scheme.tab({ theme, color })),
-		disabled: merge(disabled(), scheme.disabled({ theme })),
-		active: scheme.active({ theme, color })
+		tab: merge(tab(), scheme.tab({ theme, color, isActive })),
+		disabled: merge(disabled(), scheme.disabled({ theme }))
 	};
 };
