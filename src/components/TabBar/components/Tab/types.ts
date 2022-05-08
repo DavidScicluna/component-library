@@ -1,10 +1,16 @@
+import { ReactNode } from 'react';
+
 import { ColorMode } from '@chakra-ui/react';
 
-import { Icon } from '../../../../common/types/icons';
 import { TabBarColor } from '../../types';
 
+type RenderProps = {
+	width?: string;
+	height?: string;
+};
+
 export type Tab = {
-	icon: Icon;
+	renderIcon: (props: RenderProps) => ReactNode;
 	label: string;
 	isDisabled?: boolean;
 	onClick?: () => void;

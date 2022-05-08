@@ -2,19 +2,32 @@ import { FC } from 'react';
 
 import { VStack, Text, Box, SlideFade } from '@chakra-ui/react';
 
+import {
+	color as defaultColor,
+	colorMode as defaultColorMode,
+	isActive as defaultIsActive,
+	isDisabled as defaultIsDisabled
+} from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { TabProps } from './types';
 
 import { useTheme } from '../../../../common/hooks';
-import { handleHue } from '../../../../common/utils';
-import Icon from '../../../Icon';
+import { getColor } from '../../../../common/utils/color';
 
 const Tab: FC<TabProps> = (props) => {
 	const theme = useTheme();
 
-	const { color, colorMode = 'light', icon, label, isActive = false, isDisabled = false, onClick } = props;
+	const {
+		color = defaultColor,
+		colorMode = defaultColorMode,
+		renderIcon,
+		label,
+		isActive = defaultIsActive,
+		isDisabled = defaultIsDisabled,
+		onClick
+	} = props;
 
-	const style = useStyles(theme, { color, colorMode });
+	const style = useStyles({ theme, color, colorMode, isActive });
 
 	return (
 		<VStack
@@ -24,9 +37,18 @@ const Tab: FC<TabProps> = (props) => {
 			sx={{ ...style.tab }}
 			_disabled={{ ...style.disabled }}
 		>
-			<VStack spacing={0.5}>
-				<Icon width={theme.fontSizes['4xl']} height={theme.fontSizes['4xl']} icon={icon} type='outlined' />
-				<Text align='center' fontSize='xs' fontWeight='semibold' textTransform='uppercase' whiteSpace='nowrap'>
+			<VStack spacing={0}>
+				{renderIcon({ width: theme.fontSizes['4xl'], height: theme.fontSizes['4xl'] })}
+
+				<Text
+					align='center'
+					fontSize='xs'
+					fontWeight='semibold'
+					textTransform='uppercase'
+					whiteSpace='nowrap'
+					lineHeight='normal'
+					letterSpacing='.6px'
+				>
 					{label}
 				</Text>
 			</VStack>
@@ -35,7 +57,7 @@ const Tab: FC<TabProps> = (props) => {
 				<Box
 					width={theme.space['0.5']}
 					height={theme.space['0.5']}
-					backgroundColor={`${color}.${handleHue(colorMode, color)}`}
+					backgroundColor={getColor({ theme, colorMode, color, type: 'color' })}
 					borderRadius='full'
 				/>
 			</SlideFade>
