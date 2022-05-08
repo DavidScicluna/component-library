@@ -1,13 +1,15 @@
-import { ColorMode } from '@chakra-ui/react';
+import { Style } from '../../../../common/types';
+import { Theme } from '../../../../theme/types';
+import { CardProps } from '../../types';
 
-import { CardProps, CardColor, Variant } from '../../types';
+type Picked = 'color' | 'colorMode' | 'isFullWidth' | 'isLight' | 'isClickable' | 'variant';
 
 export type CardStyleProps = {
-	color: CardColor;
-	colorMode: ColorMode;
-	isFullWidth: CardProps['isFullWidth'];
-	isLight: CardProps['isLight'];
-	isClickable: CardProps['isClickable'];
-	// isFixed: CardProps['isFixed'];
-	variant: Variant;
+	theme: Theme;
+} & Pick<CardProps, Picked>;
+
+export type CardStyleReturn = {
+	card: Style;
+	active: Style;
+	disabled: Style;
 };
