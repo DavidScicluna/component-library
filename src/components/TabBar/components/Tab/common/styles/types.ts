@@ -2,7 +2,7 @@ import { Style } from '../../../../../../common/types';
 import { Theme } from '../../../../../../theme/types';
 import { TabProps } from '../../types';
 
-type Picked = 'color' | 'colorMode' | 'isActive';
+type Picked = 'color' | 'colorMode';
 
 export type TabStyleProps = {
 	theme: Theme;
@@ -11,4 +11,5 @@ export type TabStyleProps = {
 export type TabStyleReturn = {
 	tab: Style;
 	disabled: Style;
+	active: Style;
 };
