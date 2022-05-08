@@ -1,16 +1,5 @@
-import { Style } from '../../../../../common/types';
-import { Variant } from '../../../types';
-import { handleSize } from '../../utils';
-import { CardStyleProps } from '../types';
+import contained from './contained';
+import outlined from './outlined';
+import transparent from './transparent';
 
-export default (isClickable: CardStyleProps['isClickable'] = true, variant: Variant): Style => {
-	const size = handleSize();
-	const border = size.border;
-
-	return {
-		borderTop: `${variant !== 'transparent' ? border : 0}px solid transparent`,
-		borderBottom: `${variant !== 'transparent' ? border : 0}px solid transparent`,
-
-		transform: variant !== 'transparent' && isClickable ? 'translateY(0px)' : 'none'
-	};
-};
+export default { contained, outlined, transparent };
