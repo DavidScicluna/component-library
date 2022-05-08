@@ -32,15 +32,15 @@ export default memoize((props: CardStyleProps): CardStyleReturn => {
 
 	return {
 		card: merge(
-			card.general({ theme, isFullWidth, size }),
-			card[variant]({ theme, isFullWidth, size }),
-			scheme.card[variant]({ theme, color, size })
+			card.general({ theme, isFullWidth, isClickable }),
+			card[variant]({ theme, isFullWidth }),
+			scheme.card[variant]({ theme, color, isLight })
 		),
-		active: merge(active[variant]({ theme, size }), scheme.active[variant]({ theme, color, size })),
+		active: merge(active[variant]({ theme }), scheme.active[variant]({ theme, color, isLight })),
 		disabled: merge(
-			disabled.general({ theme, isLoading, size }),
-			disabled[variant]({ theme, isLoading, size }),
-			scheme.disabled[variant]({ theme, color, isLoading, size })
+			disabled.general(),
+			disabled[variant]({ theme }),
+			scheme.disabled[variant]({ theme, color, isLight })
 		)
 	};
 });

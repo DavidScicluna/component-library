@@ -6,12 +6,12 @@ import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
 import { getHue } from '../../../../../../common/utils/color';
 import { Color, ColorHues } from '../../../../../../theme/types';
-import { color as defaultColor } from '../../../data/defaultPropValues';
+import { color as defaultColor, isLight as defaultIsLight } from '../../../data/defaultPropValues';
 import { getAmount, getSizeConfig } from '../../../utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme, color: colorProp = defaultColor }: CardDarkStylingProps): Style => {
+export default ({ theme, color: colorProp = defaultColor, isLight = defaultIsLight }: CardDarkStylingProps): Style => {
 	const amount = getAmount();
 	const shade = getHue({
 		colorMode: 'dark',
@@ -19,7 +19,11 @@ export default ({ theme, color: colorProp = defaultColor }: CardDarkStylingProps
 			colorProp === 'black' || colorProp === 'white'
 				? colorProp
 				: colorProp === 'gray'
-				? 'text.secondary'
+				? isLight
+					? 'divider'
+					: 'text.secondary'
+				: isLight
+				? 'divider'
 				: 'color'
 	});
 

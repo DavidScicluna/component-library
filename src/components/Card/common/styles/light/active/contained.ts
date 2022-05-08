@@ -5,10 +5,14 @@ import { CardLightActiveStylingProps } from './types';
 import { Style } from '../../../../../../common/types';
 import { getHue } from '../../../../../../common/utils/color';
 import { Color, ColorHues } from '../../../../../../theme/types';
-import { color as defaultColor } from '../../../data/defaultPropValues';
+import { color as defaultColor, isLight as defaultIsLight } from '../../../data/defaultPropValues';
 import { getAmount } from '../../../utils';
 
-export default ({ theme, color: colorProp = defaultColor }: CardLightActiveStylingProps): Style => {
+export default ({
+	theme,
+	color: colorProp = defaultColor,
+	isLight = defaultIsLight
+}: CardLightActiveStylingProps): Style => {
 	const amount = getAmount();
 	const shade = getHue({
 		colorMode: 'light',
@@ -16,7 +20,11 @@ export default ({ theme, color: colorProp = defaultColor }: CardLightActiveStyli
 			colorProp === 'black' || colorProp === 'white'
 				? colorProp
 				: colorProp === 'gray'
-				? 'text.secondary'
+				? isLight
+					? 'divider'
+					: 'text.secondary'
+				: isLight
+				? 'divider'
 				: 'color'
 	});
 

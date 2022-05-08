@@ -3,20 +3,15 @@ import { CardDarkDisabledStylingProps } from './types';
 import { Style } from '../../../../../../common/types';
 import { getHue } from '../../../../../../common/utils/color';
 import { Color } from '../../../../../../theme/types';
-import { color as defaultColor } from '../../../data/defaultPropValues';
+import { isLight as defaultIsLight } from '../../../data/defaultPropValues';
 
-export default ({ theme, color: colorProp = defaultColor }: CardDarkDisabledStylingProps): Style => {
+export default ({ theme, isLight = defaultIsLight }: CardDarkDisabledStylingProps): Style => {
 	const shade = getHue({
 		colorMode: 'dark',
-		type:
-			colorProp === 'black' || colorProp === 'white'
-				? colorProp
-				: colorProp === 'gray'
-				? 'text.secondary'
-				: 'color'
+		type: isLight ? 'divider' : 'text.secondary'
 	});
 
-	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
+	const color: Color = 'gray';
 
 	return {
 		'color': `${theme.colors[color][shade]} !important`,

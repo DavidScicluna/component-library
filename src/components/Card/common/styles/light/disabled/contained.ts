@@ -2,25 +2,19 @@ import { CardLightDisabledStylingProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { getHue } from '../../../../../../common/utils/color';
-import { Color, ColorHues } from '../../../../../../theme/types';
-import { color as defaultColor } from '../../../data/defaultPropValues';
+import { Color } from '../../../../../../theme/types';
+import { isLight as defaultIsLight } from '../../../data/defaultPropValues';
 
-export default ({ theme, color: colorProp = defaultColor }: CardLightDisabledStylingProps): Style => {
+export default ({ theme, isLight = defaultIsLight }: CardLightDisabledStylingProps): Style => {
 	const shade = getHue({
 		colorMode: 'light',
-		type:
-			colorProp === 'black' || colorProp === 'white'
-				? colorProp
-				: colorProp === 'gray'
-				? 'text.secondary'
-				: 'color'
+		type: isLight ? 'divider' : 'text.secondary'
 	});
 
-	const textShade: ColorHues = colorProp === 'white' ? 900 : 50;
-	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
+	const color: Color = 'gray';
 
 	return {
-		'color': `${theme.colors.gray[textShade]} !important`,
+		'color': `${theme.colors.gray[50]} !important`,
 
 		'&::before': {
 			boxShadow: 'none !important',

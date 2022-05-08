@@ -71,14 +71,33 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 				_active={style.active}
 			>
 				<VStack
+					position='relative'
+					zIndex={1}
+					flex={1}
 					divider={
 						isDivisible && variant !== 'contained' ? (
 							<Divider
 								backgroundColor={getColor({
 									theme,
 									colorMode,
-									color: color === 'black' || color === 'white' ? 'gray' : color,
-									type: 'divider'
+									color: isDisabled
+										? 'gray'
+										: color === 'black' || color === 'white'
+										? 'gray'
+										: color,
+									type: isDisabled
+										? isLight
+											? 'divider'
+											: 'text.secondary'
+										: color === 'black' || color === 'white'
+										? color
+										: color === 'gray'
+										? isLight
+											? 'divider'
+											: 'text.secondary'
+										: isLight
+										? 'divider'
+										: 'color'
 								})}
 							/>
 						) : undefined
