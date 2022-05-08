@@ -1,81 +1,76 @@
 import { darken } from 'color2k';
 
+import { CardLightStylingProps } from './types';
+
 import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
-import { Theme, Color } from '../../../../../../theme/types';
-import { handleSize, handleHue, handleAmount } from '../../../utils';
-import { CardStyleProps } from '../../types';
+import { getHue } from '../../../../../../common/utils/color';
+import { Color, ColorHues } from '../../../../../../theme/types';
+import { color as defaultColor } from '../../../data/defaultPropValues';
+import { getAmount, getSizeConfig } from '../../../utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default (
-	theme: Theme,
-	colorProp: Color,
-	isLight: CardStyleProps['isLight'] = true,
-	isClickable: CardStyleProps['isClickable'] = false
-): Style => {
-	const amount = handleAmount('contained');
-	const shade = handleHue('light', colorProp, isLight);
+export default ({ theme, color: colorProp = defaultColor }: CardLightStylingProps): Style => {
+	const amount = getAmount();
+	const shade = getHue({
+		colorMode: 'light',
+		type:
+			colorProp === 'black' || colorProp === 'white'
+				? colorProp
+				: colorProp === 'gray'
+				? 'text.secondary'
+				: 'color'
+	});
 
-	const size = handleSize();
-	const border = size.border;
-	const transform = size.transform;
-	const offset = size.offset;
+	const config = getSizeConfig();
+	const border = config.border;
+	const transform = config.transform;
+	const offset = config.offset;
 
-	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
+	const textShade: ColorHues = colorProp === 'white' ? 900 : 50;
+	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
 
 	return {
+		'color': theme.colors.gray[textShade],
+
 		'&::before': {
-			boxShadow: isClickable ? `0 ${transform}px 0 0 ${darken(theme.colors[color][shade], amount.back)}` : 'none',
+			boxShadow: `0 ${transform}px 0 0 ${darken(theme.colors[color][shade], amount.back)}`,
 			borderColor: theme.colors[color][shade],
 			backgroundColor: theme.colors[color][shade],
 			background: theme.colors[color][shade]
 		},
 
 		'&:hover': {
+			'color': theme.colors.gray[textShade],
+
 			'&::before': {
-				boxShadow: isClickable
-					? `0 ${transform}px 0 0 ${darken(theme.colors[color][shade], amount.back)}`
-					: 'none',
-				borderColor: isClickable
-					? darken(theme.colors[color][shade], amount.hover)
-					: theme.colors[color][shade],
-				backgroundColor: isClickable
-					? darken(theme.colors[color][shade], amount.hover)
-					: theme.colors[color][shade],
-				background: isClickable ? darken(theme.colors[color][shade], amount.hover) : theme.colors[color][shade]
+				boxShadow: `0 ${transform}px 0 0 ${darken(theme.colors[color][shade], amount.back)}`,
+				borderColor: darken(theme.colors[color][shade], amount.hover),
+				backgroundColor: darken(theme.colors[color][shade], amount.hover),
+				background: darken(theme.colors[color][shade], amount.hover)
 			},
 
 			'&:active': {
+				'color': theme.colors.gray[textShade],
+
 				'&::before': {
-					boxShadow: isClickable
-						? `0 ${border}px 0 0 ${darken(theme.colors[color][shade], amount.active)}`
-						: 'none',
-					borderColor: isClickable
-						? darken(theme.colors[color][shade], amount.active)
-						: theme.colors[color][shade],
-					backgroundColor: isClickable
-						? darken(theme.colors[color][shade], amount.active)
-						: theme.colors[color][shade],
-					background: isClickable
-						? darken(theme.colors[color][shade], amount.active)
-						: theme.colors[color][shade]
+					boxShadow: 'none',
+					borderColor: darken(theme.colors[color][shade], amount.active),
+					backgroundColor: darken(theme.colors[color][shade], amount.active),
+					background: darken(theme.colors[color][shade], amount.active)
 				}
 			}
 		},
 
 		'&:active': {
+			'color': theme.colors.gray[textShade],
+
 			'&::before': {
-				boxShadow: isClickable
-					? `0 ${border}px 0 0 ${darken(theme.colors[color][shade], amount.active)}`
-					: 'none',
-				borderColor: isClickable
-					? darken(theme.colors[color][shade], amount.active)
-					: theme.colors[color][shade],
-				backgroundColor: isClickable
-					? darken(theme.colors[color][shade], amount.active)
-					: theme.colors[color][shade],
-				background: isClickable ? darken(theme.colors[color][shade], amount.active) : theme.colors[color][shade]
+				boxShadow: 'none',
+				borderColor: darken(theme.colors[color][shade], amount.active),
+				backgroundColor: darken(theme.colors[color][shade], amount.active),
+				background: darken(theme.colors[color][shade], amount.active)
 			}
 		},
 

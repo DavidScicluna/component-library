@@ -1,5 +1,5 @@
-import activeStyle from './active';
-import cardStyle from './card';
-import disabledStyle from './disabled';
+import active from './active';
+import card from './card';
+import disabled from './disabled';
 
-export default { card: cardStyle, active: activeStyle, disabled: disabledStyle };
+export default { active, card, disabled };
