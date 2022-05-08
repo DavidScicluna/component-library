@@ -1,24 +1,29 @@
+import { CardDarkDisabledStylingProps } from './types';
+
 import { Style } from '../../../../../../common/types';
-import { Theme, Color } from '../../../../../../theme/types';
-import { handleHue, handleSize } from '../../../utils';
-import { CardStyleProps } from '../../types';
+import { getHue } from '../../../../../../common/utils/color';
+import { Color, ColorHues } from '../../../../../../theme/types';
+import { color as defaultColor } from '../../../data/defaultPropValues';
 
-export default (
-	theme: Theme,
-	colorProp: Color,
-	isLight: CardStyleProps['isLight'] = true,
-	isClickable: CardStyleProps['isClickable'] = false
-): Style => {
-	const shade = handleHue('dark', colorProp, isLight);
+export default ({ theme, color: colorProp = defaultColor }: CardDarkDisabledStylingProps): Style => {
+	const shade = getHue({
+		colorMode: 'dark',
+		type:
+			colorProp === 'black' || colorProp === 'white'
+				? colorProp
+				: colorProp === 'gray'
+				? 'text.secondary'
+				: 'color'
+	});
 
-	const size = handleSize();
-	const border = size.border;
-
-	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
+	const textShade: ColorHues = colorProp === 'black' ? 50 : 900;
+	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
 
 	return {
+		'color': `${theme.colors.gray[textShade]} !important`,
+
 		'&::before': {
-			boxShadow: isClickable ? `0 ${border}px 0 0 ${theme.colors[color][shade]} !important` : 'none !important',
+			boxShadow: 'none !important',
 			borderColor: `${theme.colors[color][shade]} !important`,
 			backgroundColor: `${theme.colors[color][shade]} !important`,
 			background: `${theme.colors[color][shade]} !important`

@@ -1,54 +1,58 @@
 import { lighten } from 'color2k';
 
+import { CardDarkActiveStylingProps } from './types';
+
 import { Style } from '../../../../../../common/types';
-import { Theme, Color } from '../../../../../../theme/types';
-import { handleAmount, handleHue, handleSize } from '../../../utils';
-import { CardStyleProps } from '../../types';
+import { getHue } from '../../../../../../common/utils/color';
+import { Color } from '../../../../../../theme/types';
+import { color as defaultColor } from '../../../data/defaultPropValues';
+import { getAmount, getSizeConfig } from '../../../utils';
 
-export default (
-	theme: Theme,
-	colorProp: Color,
-	isLight: CardStyleProps['isLight'] = true,
-	isClickable: CardStyleProps['isClickable'] = false
-): Style => {
-	const amount = handleAmount('outlined');
-	const shade = handleHue('dark', colorProp, isLight);
+export default ({ theme, color: colorProp = defaultColor }: CardDarkActiveStylingProps): Style => {
+	const amount = getAmount();
+	const shade = getHue({
+		colorMode: 'dark',
+		type:
+			colorProp === 'black' || colorProp === 'white'
+				? colorProp
+				: colorProp === 'gray'
+				? 'text.secondary'
+				: 'color'
+	});
 
-	const size = handleSize();
-	const border = size.border;
+	const config = getSizeConfig();
+	const border = config.border;
 
-	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
+	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
 
 	return {
+		'color': theme.colors[color][shade],
+
 		'&::before': {
-			boxShadow: isClickable ? `0 ${border}px 0 0 ${theme.colors[color][shade]}` : 'none',
+			boxShadow: `0 ${border}px 0 0 ${theme.colors[color][shade]}`,
 			borderColor: theme.colors[color][shade],
-			backgroundColor: theme.colors.transparent,
-			background: theme.colors.transparent
+			backgroundColor: theme.colors.gray[900],
+			background: theme.colors.gray[900]
 		},
 
 		'&:hover': {
+			'color': lighten(theme.colors[color][shade], amount.hover),
+
 			'&::before': {
-				boxShadow: isClickable
-					? `0 ${border}px 0 0 ${lighten(theme.colors[color][shade], amount.hover)}`
-					: 'none',
-				borderColor: isClickable
-					? lighten(theme.colors[color][shade], amount.hover)
-					: theme.colors[color][shade],
-				backgroundColor: theme.colors.transparent,
-				background: theme.colors.transparent
+				boxShadow: `0 ${border}px 0 0 ${lighten(theme.colors[color][shade], amount.hover)}`,
+				borderColor: lighten(theme.colors[color][shade], amount.hover),
+				backgroundColor: theme.colors.gray[900],
+				background: theme.colors.gray[900]
 			},
 
 			'&:active': {
+				'color': lighten(theme.colors[color][shade], amount.active),
+
 				'&::before': {
-					boxShadow: isClickable
-						? `0 ${border}px 0 0 ${lighten(theme.colors[color][shade], amount.active)}`
-						: 'none',
-					borderColor: isClickable
-						? lighten(theme.colors[color][shade], amount.active)
-						: theme.colors[color][shade],
-					backgroundColor: theme.colors.transparent,
-					background: theme.colors.transparent
+					boxShadow: `0 ${border}px 0 0 ${lighten(theme.colors[color][shade], amount.active)}`,
+					borderColor: lighten(theme.colors[color][shade], amount.active),
+					backgroundColor: theme.colors.gray[900],
+					background: theme.colors.gray[900]
 				}
 			}
 		}

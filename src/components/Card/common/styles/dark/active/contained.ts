@@ -1,60 +1,56 @@
 import { lighten } from 'color2k';
 
+import { CardDarkActiveStylingProps } from './types';
+
 import { Style } from '../../../../../../common/types';
-import { Theme, Color } from '../../../../../../theme/types';
-import { handleAmount, handleHue, handleSize } from '../../../utils';
-import { CardStyleProps } from '../../types';
+import { getHue } from '../../../../../../common/utils/color';
+import { Color, ColorHues } from '../../../../../../theme/types';
+import { color as defaultColor } from '../../../data/defaultPropValues';
+import { getAmount } from '../../../utils';
 
-export default (
-	theme: Theme,
-	colorProp: Color,
-	isLight: CardStyleProps['isLight'] = true,
-	isClickable: CardStyleProps['isClickable'] = false
-): Style => {
-	const amount = handleAmount('contained');
-	const shade = handleHue('dark', colorProp, isLight);
+export default ({ theme, color: colorProp = defaultColor }: CardDarkActiveStylingProps): Style => {
+	const amount = getAmount();
+	const shade = getHue({
+		colorMode: 'dark',
+		type:
+			colorProp === 'black' || colorProp === 'white'
+				? colorProp
+				: colorProp === 'gray'
+				? 'text.secondary'
+				: 'color'
+	});
 
-	const size = handleSize();
-	const border = size.border;
-
-	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
+	const textShade: ColorHues = colorProp === 'black' ? 50 : 900;
+	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
 
 	return {
+		'color': theme.colors.gray[textShade],
+
 		'&::before': {
-			boxShadow: isClickable ? `0 ${border}px 0 0 ${theme.colors[color][shade]}` : 'none',
+			boxShadow: 'none',
 			borderColor: theme.colors[color][shade],
 			backgroundColor: theme.colors[color][shade],
 			background: theme.colors[color][shade]
 		},
 
 		'&:hover': {
+			'color': theme.colors.gray[textShade],
+
 			'&::before': {
-				boxShadow: isClickable
-					? `0 ${border}px 0 0 ${lighten(theme.colors[color][shade], amount.back)}`
-					: 'none',
-				borderColor: isClickable
-					? lighten(theme.colors[color][shade], amount.hover)
-					: theme.colors[color][shade],
-				backgroundColor: isClickable
-					? lighten(theme.colors[color][shade], amount.hover)
-					: theme.colors[color][shade],
-				background: isClickable ? lighten(theme.colors[color][shade], amount.hover) : theme.colors[color][shade]
+				boxShadow: 'none',
+				borderColor: lighten(theme.colors[color][shade], amount.hover),
+				backgroundColor: lighten(theme.colors[color][shade], amount.hover),
+				background: lighten(theme.colors[color][shade], amount.hover)
 			},
 
 			'&:active': {
+				'color': theme.colors.gray[textShade],
+
 				'&::before': {
-					boxShadow: isClickable
-						? `0 ${border}px 0 0 ${lighten(theme.colors[color][shade], amount.active)}`
-						: 'none',
-					borderColor: isClickable
-						? lighten(theme.colors[color][shade], amount.active)
-						: theme.colors[color][shade],
-					backgroundColor: isClickable
-						? lighten(theme.colors[color][shade], amount.active)
-						: theme.colors[color][shade],
-					background: isClickable
-						? lighten(theme.colors[color][shade], amount.active)
-						: theme.colors[color][shade]
+					boxShadow: 'none',
+					borderColor: lighten(theme.colors[color][shade], amount.active),
+					backgroundColor: lighten(theme.colors[color][shade], amount.active),
+					background: lighten(theme.colors[color][shade], amount.active)
 				}
 			}
 		}
