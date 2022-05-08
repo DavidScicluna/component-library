@@ -1,4 +1,5 @@
-import disabledStyle from './disabled';
-import tabStyle from './tab';
+import active from './active';
+import disabled from './disabled';
+import tab from './tab';
 
-export default { tab: tabStyle, disabled: disabledStyle };
+export default { active, disabled, tab };

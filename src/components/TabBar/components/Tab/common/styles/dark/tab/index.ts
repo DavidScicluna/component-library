@@ -1,38 +1,65 @@
 import { lighten } from 'color2k';
 
+import { TabDarkStylingProps } from './types';
+
 import { Style } from '../../../../../../../../common/types';
-import { handleHue, handleIsTouchDevice } from '../../../../../../../../common/utils';
-import { Color, Theme } from '../../../../../../../../theme/types';
-import { handleAmount } from '../../../utils';
+import { checkIsTouchDevice } from '../../../../../../../../common/utils';
+import { getHue } from '../../../../../../../../common/utils/color';
+import { color as defaultColor } from '../../../data/defaultPropValues';
+import { getAmount } from '../../../utils';
 
-const isTouchDevice: boolean = handleIsTouchDevice();
+const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default (theme: Theme, colorProp: Color): Style => {
-	const amount = handleAmount();
-	const shade = handleHue('dark', colorProp);
-
-	const color = colorProp === 'white' || colorProp === 'black' ? 'gray' : colorProp;
+export default ({ theme, color = defaultColor }: TabDarkStylingProps): Style => {
+	const amount = getAmount();
+	const shade = getHue({ type: 'color', colorMode: 'light' });
 
 	return {
-		'& svg, .ds-cl-icon, ': {
-			'color': theme.colors[color][shade],
+		'background': theme.colors.transparent,
+		'backgroundColor': theme.colors.transparent,
+		'borderColor': theme.colors.transparent,
+		'color': theme.colors[color][shade],
 
-			'&:hover': {
-				'color': lighten(theme.colors[color][shade], amount.hover),
+		'& svg, .ds-cl-icon': {
+			color: theme.colors[color][shade]
+		},
 
-				'&:active': {
-					color: lighten(theme.colors[color][shade], amount.active)
-				}
+		'&:hover': {
+			'background': theme.colors.transparent,
+			'backgroundColor': theme.colors.transparent,
+			'borderColor': theme.colors.transparent,
+			'color': lighten(theme.colors[color][shade], amount.hover),
+
+			'& svg, .ds-cl-icon': {
+				color: lighten(theme.colors[color][shade], amount.hover)
 			},
 
 			'&:active': {
-				color: lighten(theme.colors[color][shade], amount.active)
-			},
+				'background': theme.colors.transparent,
+				'backgroundColor': theme.colors.transparent,
+				'borderColor': theme.colors.transparent,
+				'color': lighten(theme.colors[color][shade], amount.active),
 
-			'&:focus-visible': {
-				outline: !isTouchDevice ? `2px auto ${theme.colors[color][shade]}` : 'none',
-				outlineOffset: !isTouchDevice ? '4px' : 0
+				'& svg, .ds-cl-icon': {
+					color: lighten(theme.colors[color][shade], amount.active)
+				}
 			}
+		},
+
+		'&:active': {
+			'background': theme.colors.transparent,
+			'backgroundColor': theme.colors.transparent,
+			'borderColor': theme.colors.transparent,
+			'color': lighten(theme.colors[color][shade], amount.active),
+
+			'& svg, .ds-cl-icon': {
+				color: lighten(theme.colors[color][shade], amount.active)
+			}
+		},
+
+		'&:focus-visible': {
+			outline: !isTouchDevice ? `2px auto ${theme.colors[color][shade]}` : 'none',
+			outlineOffset: !isTouchDevice ? '4px' : 0
 		}
 	};
 };
