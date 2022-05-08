@@ -31,14 +31,15 @@ const Header: FC<HeaderProps> = ({ title, subtitle, actions }) => {
 			{title ? (
 				<VStack
 					width={`calc(100% - ${actions ? width + theme.space[spacing] : 0}px)`}
-					justifyContent='flex-start'
+					alignItems='flex-start'
+					spacing={0}
 				>
 					{/* Title */}
 					{typeof title === 'string' ? (
 						<Text
 							align='left'
 							color={`gray.${colorMode === 'light' ? 900 : 50}`}
-							fontSize={isXs ? 'md' : 'lg'}
+							fontSize={isXs ? 'md' : 'xl'}
 							fontWeight='bold'
 							isTruncated
 							overflow='hidden'
@@ -56,7 +57,7 @@ const Header: FC<HeaderProps> = ({ title, subtitle, actions }) => {
 							<Text
 								align='left'
 								color={`gray.${colorMode === 'light' ? 400 : 500}`}
-								fontSize={isXs ? 'md' : 'lg'}
+								fontSize={isXs ? 'xs' : 'sm'}
 								isTruncated
 								overflow='hidden'
 								whiteSpace='nowrap'
