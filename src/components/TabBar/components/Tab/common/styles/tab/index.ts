@@ -22,13 +22,6 @@ export default (): Style => ({
 
 	'outline': !isTouchDevice ? '0px auto' : 'none !important',
 
-	// 'fontSize': sizeProp,
-	// 'fontWeight': 'semibold',
-	// 'textTransform': 'uppercase',
-	// 'whiteSpace': 'nowrap',
-	// 'lineHeight': 'normal',
-	// 'letterSpacing': '.6px',
-
 	'WebkitTapHighlightColor': 'transparent',
 
 	'&:focus:not(:focus-visible)': {
