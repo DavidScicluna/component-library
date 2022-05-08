@@ -33,7 +33,7 @@ export default memoize((props: CardStyleProps): CardStyleReturn => {
 	return {
 		card: merge(
 			card.general({ theme, isFullWidth, isClickable }),
-			card[variant]({ theme, isFullWidth }),
+			card[variant]({ theme, isFullWidth, isClickable }),
 			scheme.card[variant]({ theme, color, isClickable, isLight })
 		),
 		active: merge(active[variant]({ theme }), scheme.active[variant]({ theme, color, isLight })),

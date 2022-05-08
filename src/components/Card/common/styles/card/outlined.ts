@@ -10,7 +10,7 @@ export default ({ theme, isClickable = defaultIsClickable }: CardStyleProps): St
 	const border = config.border;
 
 	return {
-		'borderBottomWidth': `${isClickable ? transform : 0}px`,
+		'borderBottomWidth': `${isClickable ? transform : border}px`,
 		'borderStyle': 'solid',
 		'borderColor': theme.colors.transparent,
 
