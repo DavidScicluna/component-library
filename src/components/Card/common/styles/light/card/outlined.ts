@@ -6,12 +6,21 @@ import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
 import { getHue } from '../../../../../../common/utils/color';
 import { Color } from '../../../../../../theme/types';
-import { color as defaultColor, isLight as defaultIsLight } from '../../../data/defaultPropValues';
+import {
+	color as defaultColor,
+	isClickable as defaultIsClickable,
+	isLight as defaultIsLight
+} from '../../../data/defaultPropValues';
 import { getAmount, getSizeConfig } from '../../../utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme, color: colorProp = defaultColor, isLight = defaultIsLight }: CardLightStylingProps): Style => {
+export default ({
+	theme,
+	color: colorProp = defaultColor,
+	isClickable = defaultIsClickable,
+	isLight = defaultIsLight
+}: CardLightStylingProps): Style => {
 	const amount = getAmount();
 	const shade = getHue({
 		colorMode: 'light',
@@ -38,7 +47,7 @@ export default ({ theme, color: colorProp = defaultColor, isLight = defaultIsLig
 		'color': theme.colors[color][shade],
 
 		'&::before': {
-			boxShadow: `0 ${transform}px 0 0 ${theme.colors[color][shade]}`,
+			boxShadow: `0 ${isClickable ? transform : border}px 0 0 ${theme.colors[color][shade]}`,
 			borderColor: theme.colors[color][shade],
 			backgroundColor: theme.colors.gray[50],
 			background: theme.colors.gray[50]

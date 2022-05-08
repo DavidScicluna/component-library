@@ -1,15 +1,16 @@
 import { CardStyleProps } from './types';
 
 import { Style } from '../../../../../common/types';
+import { isClickable as defaultIsClickable } from '../../data/defaultPropValues';
 import { getSizeConfig } from '../../utils';
 
-export default ({ theme }: CardStyleProps): Style => {
+export default ({ theme, isClickable = defaultIsClickable }: CardStyleProps): Style => {
 	const config = getSizeConfig();
 	const transform = config.transform;
 	const border = config.border;
 
 	return {
-		'borderBottomWidth': `${transform}px`,
+		'borderBottomWidth': `${isClickable ? transform : 0}px`,
 		'borderStyle': 'solid',
 		'borderColor': theme.colors.transparent,
 
@@ -24,8 +25,8 @@ export default ({ theme }: CardStyleProps): Style => {
 		},
 
 		'&:active': {
-			borderTopWidth: `${border}px`,
-			borderBottomWidth: `${border}px`,
+			borderTopWidth: `${isClickable ? border : 0}px`,
+			borderBottomWidth: `${isClickable ? border : 0}px`,
 			borderStyle: 'solid',
 			borderColor: theme.colors.transparent
 		}

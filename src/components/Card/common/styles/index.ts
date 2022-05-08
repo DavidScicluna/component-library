@@ -34,13 +34,9 @@ export default memoize((props: CardStyleProps): CardStyleReturn => {
 		card: merge(
 			card.general({ theme, isFullWidth, isClickable }),
 			card[variant]({ theme, isFullWidth }),
-			scheme.card[variant]({ theme, color, isLight })
+			scheme.card[variant]({ theme, color, isClickable, isLight })
 		),
 		active: merge(active[variant]({ theme }), scheme.active[variant]({ theme, color, isLight })),
-		disabled: merge(
-			disabled.general(),
-			disabled[variant]({ theme }),
-			scheme.disabled[variant]({ theme, color, isLight })
-		)
+		disabled: merge(disabled.general(), disabled[variant]({ theme }), scheme.disabled[variant]({ theme, isLight }))
 	};
 });

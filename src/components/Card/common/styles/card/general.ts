@@ -22,6 +22,8 @@ export default ({
 	return {
 		'cursor': isClickable ? 'pointer' : 'default',
 
+		'pointerEvents': isClickable ? 'auto' : 'none',
+
 		'position': 'relative',
 
 		'width': isFullWidth ? '100%' : 'auto',
