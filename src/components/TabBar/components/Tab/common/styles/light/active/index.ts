@@ -9,7 +9,7 @@ import { getAmount } from '../../../utils';
 
 export default ({ theme, color = defaultColor }: TabLightActiveStylingProps): Style => {
 	const amount = getAmount();
-	const shade = getHue({ type: 'color', colorMode: 'light' });
+	const shade = getHue({ colorMode: 'light', type: 'color' });
 
 	return {
 		'background': theme.colors.transparent,
