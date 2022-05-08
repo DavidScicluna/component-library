@@ -2,28 +2,49 @@ import { FC } from 'react';
 
 import { ColorMode, useColorMode, HStack } from '@chakra-ui/react';
 
+import { merge } from 'lodash';
+
 import Tab from './components/Tab';
 import { TabBarProps } from './types';
 
+import { useTheme } from '../../common/hooks';
+import { getColor } from '../../common/utils/color';
+
 const TabBar: FC<TabBarProps> = (props) => {
+	const theme = useTheme();
 	const { colorMode: colorModeHook } = useColorMode();
 
-	const { color, colorMode: colorModeProp, activeTab, tabs = [], onChange } = props;
+	const {
+		activeTab,
+		color,
+		colorMode: colorModeProp,
+		direction = 'bottom',
+		tabs = [],
+		width = '100%',
+		justify = 'space-between',
+		onChange,
+		sx,
+		...rest
+	} = props;
 
 	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
 	return (
 		<HStack
-			width='100%'
-			justify='space-between'
-			position='fixed'
-			bottom={0}
+			{...rest}
+			width={width}
+			justify={justify}
 			spacing={0}
-			p={2}
 			sx={{
-				borderTopWidth: '2px',
-				borderTopColor: `gray.${colorMode === 'light' ? 200 : 700}`,
-				borderTopStyle: 'solid'
+				...merge(
+					{
+						borderTopWidth: direction === 'bottom' ? '2px' : 0,
+						borderBottomWidth: direction === 'top' ? '2px' : 0,
+						borderColor: getColor({ theme, colorMode, type: 'divider' }),
+						borderStyle: 'solid'
+					},
+					sx
+				)
 			}}
 		>
 			{tabs.map(({ onClick, ...tab }, index: number) => (

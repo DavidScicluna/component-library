@@ -4,7 +4,7 @@ import { ColorMode } from '@chakra-ui/react';
 
 import { TabBarColor } from '../../types';
 
-type RenderProps = {
+export type RenderProps = {
 	width?: string;
 	height?: string;
 };
