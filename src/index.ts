@@ -1,7 +1,7 @@
 import fallback from './common/assets/fallback';
 import { useTheme } from './common/hooks';
 import { Icon as IconType } from './common/types/icons';
-import { isTouchDevice, convertREMToPixels, convertStringToNumber } from './common/utils';
+import { checkIsTouchDevice, convertREMToPixels, convertStringToNumber } from './common/utils';
 import { getHue, getColor } from './common/utils/color';
 import Card from './components/Card';
 import CardBody from './components/Card/components/Body';
@@ -23,6 +23,7 @@ import Divider from './components/Divider';
 import { DividerProps } from './components/Divider/types';
 import Icon from './components/Icon';
 import { IconProps } from './components/Icon/types';
+import TabBar from './components/TabBar';
 import theme from './theme';
 
 // Theme Types
@@ -77,7 +78,7 @@ const assets = {
 export { useTheme };
 
 // Utils
-export { isTouchDevice, convertREMToPixels, convertStringToNumber, getHue, getColor };
+export { checkIsTouchDevice, convertREMToPixels, convertStringToNumber, getHue, getColor };
 
 export {
 	assets,
@@ -91,7 +92,8 @@ export {
 	Button,
 	IconButton,
 	Divider,
-	Icon
+	Icon,
+	TabBar
 };
 export type {
 	CardBodyProps,
