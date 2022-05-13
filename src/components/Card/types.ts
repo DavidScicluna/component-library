@@ -31,7 +31,7 @@ export type Context = {
 };
 
 type Omitted =
-	// MUI Box Props
+	// CUI Box Props
 	| BoxColor
 	| BoxGradient
 	| BoxTypography

@@ -6,12 +6,12 @@ import { Icon } from '../../common/types/icons';
 export type Type = 'filled' | 'outlined';
 
 type Omitted =
-	// MUI Box Props
+	// CUI Box Props
 	| BoxFlexbox
 	| BoxGrid
 	| BoxPseudo
 	| BoxOther
-	// MUI Center Props
+	// CUI Center Props
 	| 'as'
 	| 'children';
 
