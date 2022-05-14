@@ -11,7 +11,7 @@ const ModalFooter: FC<ModalFooterProps> = ({ renderCancel, renderAction, ...rest
 	const { colorMode } = useContext<ModalContextType>(ModalContext);
 
 	return (
-		<CUIModalFooter as={HStack} width='100%' justifyContent='space-between' {...rest}>
+		<CUIModalFooter as={HStack} width='100%' justifyContent='space-between' px={2} pt={0} pb={2} {...rest}>
 			{renderCancel && renderCancel({ color: 'gray', colorMode, size: 'md', variant: 'outlined' })}
 
 			{renderAction && renderAction({ color: 'gray', colorMode, size: 'md', variant: 'contained' })}

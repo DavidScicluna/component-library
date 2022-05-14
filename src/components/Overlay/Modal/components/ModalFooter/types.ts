@@ -12,7 +12,14 @@ type RenderProps = Pick<ButtonProps, ButtonPropsPicked>;
 
 type Omitted =
 	// CUI Box Props
-	BoxTypography | BoxFlexbox | BoxGrid | BoxPosition | BoxShadow | BoxOther;
+	| BoxTypography
+	| BoxFlexbox
+	| BoxGrid
+	| BoxPosition
+	| BoxShadow
+	| BoxOther
+	// CUI Modal Footer Props
+	| 'children';
 
 export type ModalFooterProps = {
 	renderCancel?: (props: RenderProps) => ReactNode;
