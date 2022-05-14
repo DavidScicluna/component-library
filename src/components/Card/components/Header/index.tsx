@@ -1,6 +1,6 @@
-import { FC, useContext } from 'react';
+import { FC, useContext, useCallback } from 'react';
 
-import { useMediaQuery, HStack, VStack, Center, Text } from '@chakra-ui/react';
+import { HStack, VStack, Center } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
@@ -8,70 +8,60 @@ import { HeaderProps } from './types';
 
 import { CardContext } from '../..';
 import { useTheme } from '../../../../common/hooks';
-import { Space } from '../../../../theme/types';
-import { Context } from '../../types';
+import { convertREMToPixels, convertStringToNumber } from '../../../../common/utils';
+import { getHue } from '../../../../common/utils/color';
+import { CardContext as CardContextType } from '../../types';
 
-const spacing: Space = 2;
-
-const Header: FC<HeaderProps> = ({ title, subtitle, actions }) => {
+const Header: FC<HeaderProps> = ({ renderTitle, renderSubtitle, actions, spacing = 2, ...rest }) => {
 	const theme = useTheme();
-	const [isXs] = useMediaQuery('(max-width: 600px)');
 
-	const { colorMode } = useContext<Context>(CardContext);
+	const { colorMode } = useContext<CardContextType>(CardContext);
 
-	const [ref, { width }] = useElementSize();
+	const [actionsRef, { width: actionsWidth }] = useElementSize();
+
+	const handleCalculateTextWidth = useCallback((): number => {
+		return actionsWidth + convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'));
+	}, [theme.space, spacing, actionsWidth]);
 
 	return (
 		<HStack
 			width='100%'
 			alignItems='center'
-			justifyContent={title ? 'space-between' : 'flex-end'}
+			justifyContent={renderTitle ? 'space-between' : 'flex-end'}
 			spacing={spacing}
+			{...rest}
 		>
-			{title ? (
+			{renderTitle && (
 				<VStack
-					width={`calc(100% - ${actions ? width + theme.space[spacing] : 0}px)`}
+					width={`calc(100% - ${actions ? handleCalculateTextWidth() : 0}px)`}
 					alignItems='flex-start'
 					spacing={0}
 				>
 					{/* Title */}
-					{typeof title === 'string' ? (
-						<Text
-							align='left'
-							color={`gray.${colorMode === 'light' ? 900 : 50}`}
-							fontSize={isXs ? 'md' : 'xl'}
-							fontWeight='bold'
-							isTruncated
-							overflow='hidden'
-							whiteSpace='nowrap'
-						>
-							{title}
-						</Text>
-					) : (
-						title
-					)}
+					{renderTitle({
+						align: 'left',
+						color: `gray.${getHue({ colorMode, type: 'text.primary' })}`,
+						fontSize: 'xl',
+						fontWeight: 'bold',
+						isTruncated: true,
+						overflow: 'hidden',
+						whiteSpace: 'nowrap'
+					})}
 
 					{/* Subtitle */}
-					{subtitle ? (
-						typeof title === 'string' ? (
-							<Text
-								align='left'
-								color={`gray.${colorMode === 'light' ? 400 : 500}`}
-								fontSize={isXs ? 'xs' : 'sm'}
-								isTruncated
-								overflow='hidden'
-								whiteSpace='nowrap'
-							>
-								{subtitle}
-							</Text>
-						) : (
-							subtitle
-						)
-					) : null}
+					{renderSubtitle &&
+						renderSubtitle({
+							align: 'left',
+							color: `gray.${getHue({ colorMode, type: 'text.secondary' })}`,
+							fontSize: 'sm',
+							isTruncated: true,
+							overflow: 'hidden',
+							whiteSpace: 'nowrap'
+						})}
 				</VStack>
-			) : null}
+			)}
 
-			{actions ? <Center ref={ref}>{actions}</Center> : null}
+			{actions && <Center ref={actionsRef}>{actions}</Center>}
 		</HStack>
 	);
 };
