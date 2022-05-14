@@ -6,7 +6,7 @@ import { Space } from '../../../../theme/types';
 
 type Omitted = 'children' | 'spacing';
 
-export type HeaderProps = {
+export type CardHeaderProps = {
 	renderTitle?: (props: TextProps) => ReactNode;
 	renderSubtitle?: (props: TextProps) => ReactNode;
 	actions?: ReactNode;

@@ -4,7 +4,7 @@ import { HStack, VStack, Center } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import { HeaderProps } from './types';
+import { CardHeaderProps } from './types';
 
 import { CardContext } from '../..';
 import { useTheme } from '../../../../common/hooks';
@@ -12,7 +12,7 @@ import { convertREMToPixels, convertStringToNumber } from '../../../../common/ut
 import { getHue } from '../../../../common/utils/color';
 import { CardContext as CardContextType } from '../../types';
 
-const Header: FC<HeaderProps> = ({ renderTitle, renderSubtitle, actions, spacing = 2, ...rest }) => {
+const CardHeader: FC<CardHeaderProps> = ({ renderTitle, renderSubtitle, actions, spacing = 2, ...rest }) => {
 	const theme = useTheme();
 
 	const { colorMode } = useContext<CardContextType>(CardContext);
@@ -66,4 +66,4 @@ const Header: FC<HeaderProps> = ({ renderTitle, renderSubtitle, actions, spacing
 	);
 };
 
-export default Header;
+export default CardHeader;
