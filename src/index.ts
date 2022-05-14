@@ -25,6 +25,14 @@ import Divider from './components/Divider';
 import { DividerProps } from './components/Divider/types';
 import Icon from './components/Icon';
 import { IconProps } from './components/Icon/types';
+import Modal from './components/Overlay/Modal';
+import ModalBody from './components/Overlay/Modal/components/ModalBody';
+import { ModalBodyProps } from './components/Overlay/Modal/components/ModalBody/types';
+import ModalFooter from './components/Overlay/Modal/components/ModalFooter';
+import { ModalFooterProps } from './components/Overlay/Modal/components/ModalFooter/types';
+import ModalHeader from './components/Overlay/Modal/components/ModalHeader';
+import { ModalHeaderProps } from './components/Overlay/Modal/components/ModalHeader/types';
+import { ModalProps } from './components/Overlay/Modal/types';
 import Tooltip from './components/Overlay/Tooltip';
 import { TooltipProps } from './components/Overlay/Tooltip/types';
 import TabBar from './components/TabBar';
@@ -98,6 +106,10 @@ export {
 	IconButton,
 	Divider,
 	Icon,
+	Modal,
+	ModalBody,
+	ModalFooter,
+	ModalHeader,
 	TabBar,
 	Tooltip
 };
@@ -114,5 +126,9 @@ export type {
 	DividerProps,
 	IconProps,
 	IconType,
+	ModalBodyProps,
+	ModalFooterProps,
+	ModalHeaderProps,
+	ModalProps,
 	TooltipProps
 };

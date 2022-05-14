@@ -4,17 +4,14 @@ import { Box, Text } from '@chakra-ui/react';
 
 import { Meta, Story } from './types';
 
-import ModalComponent from '../../../components/Overlay/Modal';
+import { Modal as ModalComponent, ModalProps, ModalBody, ModalFooter, ModalHeader } from '../../..';
 import {
 	colorMode as defaultColorMode,
 	isOpen as defaultIsOpen,
 	size as defaultSize,
 	spacing as defaultSpacing
 } from '../../../components/Overlay/Modal/common/data/defaultPropValues';
-import ModalBody from '../../../components/Overlay/Modal/components/ModalBody';
-import ModalFooter from '../../../components/Overlay/Modal/components/ModalFooter';
-import ModalHeader from '../../../components/Overlay/Modal/components/ModalHeader';
-import { ModalSize, ModalProps } from '../../../components/Overlay/Modal/types';
+import { ModalSize } from '../../../components/Overlay/Modal/types';
 import controls from '../../common/controls';
 
 const sizeOptions: ModalSize[] = ['full', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'];
