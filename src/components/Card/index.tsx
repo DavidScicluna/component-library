@@ -16,13 +16,13 @@ import {
 	variant as defaultVariant
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
-import { Context, CardRef, CardProps } from './types';
+import { CardContext as CardContextType, CardRef, CardProps } from './types';
 
 import { useTheme } from '../../common/hooks';
 import { getColor } from '../../common/utils/color';
 import Divider from '../Divider';
 
-export const CardContext = createContext<Context>({ color: 'gray', colorMode: 'light' });
+export const CardContext = createContext<CardContextType>({ color: 'gray', colorMode: 'light' });
 
 const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElement {
 	const theme = useTheme();

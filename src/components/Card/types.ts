@@ -25,7 +25,7 @@ export type CardColor = Exclude<Color, 'transparent'>;
 
 export type Variant = 'contained' | 'outlined' | 'transparent';
 
-export type Context = {
+export type CardContext = {
 	color: CardColor;
 	colorMode: ColorMode;
 };
