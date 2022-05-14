@@ -45,7 +45,8 @@ type Omitted =
 	| 'direction'
 	| 'shouldWrapChildren'
 	| 'spacing'
-	| 'wrap';
+	| 'wrap'
+	| 'onChange';
 
 export type TabBarProps = {
 	color: TabBarColor;
