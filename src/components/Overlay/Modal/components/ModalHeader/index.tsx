@@ -26,7 +26,7 @@ const ModalHeader: FC<ModalHeaderProps> = (props) => {
 	}, [theme.space, spacing, cancelWidth]);
 
 	return (
-		<CUIModalHeader as={HStack} width='100%' justifyContent='space-between' {...rest}>
+		<CUIModalHeader as={HStack} width='100%' justifyContent='space-between' px={2} pt={2} pb={0} {...rest}>
 			<VStack
 				width={`calc(100% - ${renderCancel ? handleCalculateTextWidth() : 0}px)`}
 				alignItems='flex-start'

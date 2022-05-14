@@ -15,7 +15,14 @@ type RenderProps = Pick<IconProps, IconPropsPicked> & Pick<IconButtonProps, Butt
 
 type Omitted =
 	// CUI Box Props
-	BoxTypography | BoxFlexbox | BoxGrid | BoxPosition | BoxShadow | BoxOther;
+	| BoxTypography
+	| BoxFlexbox
+	| BoxGrid
+	| BoxPosition
+	| BoxShadow
+	| BoxOther
+	// CUI Modal Header Props
+	| 'children';
 
 export type ModalHeaderProps = {
 	renderTitle: (props: TextProps) => ReactNode;
