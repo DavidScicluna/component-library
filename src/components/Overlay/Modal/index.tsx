@@ -60,33 +60,31 @@ const Modal = (props: ModalProps): ReactElement | null => {
 
 	useEffect(() => handleCheckIsMounted(), [isOpen]);
 
-	return (
-		isMounted && (
-			<CUIModal
-				{...rest}
-				isOpen={isOpen}
-				onClose={onClose}
-				isCentered
-				motionPreset='slideInBottom'
-				scrollBehavior='inside'
-				size={size === 'full' || isXs ? 'full' : size}
+	return isMounted ? (
+		<CUIModal
+			{...rest}
+			isOpen={isOpen}
+			onClose={onClose}
+			isCentered
+			motionPreset='slideInBottom'
+			scrollBehavior='inside'
+			size={size === 'full' || isXs ? 'full' : size}
+		>
+			<ModalOverlay />
+			<ModalContent
+				backgroundColor={`gray.${getHue({ colorMode, type: colorMode === 'light' ? 'white' : 'black' })}`}
+				borderRadius={size === 'full' || isXs ? 'none' : 'xl'}
+				m={isXs ? 2 : 0}
+				sx={{ transition: `${theme.transition.duration.faster} ${theme.transition.easing['ease-out']}` }}
 			>
-				<ModalOverlay />
-				<ModalContent
-					backgroundColor={`gray.${getHue({ colorMode, type: colorMode === 'light' ? 'white' : 'black' })}`}
-					borderRadius={size === 'full' || isXs ? 'none' : 'xl'}
-					m={isXs ? 2 : 0}
-					sx={{ transition: `${theme.transition.duration.faster} ${theme.transition.easing['ease-out']}` }}
-				>
-					<ModalContext.Provider value={{ colorMode }}>
-						<VStack width='100%' divider={<Divider colorMode={colorMode} />} spacing={spacing}>
-							{children}
-						</VStack>
-					</ModalContext.Provider>
-				</ModalContent>
-			</CUIModal>
-		)
-	);
+				<ModalContext.Provider value={{ colorMode }}>
+					<VStack width='100%' divider={<Divider colorMode={colorMode} />} spacing={spacing}>
+						{children}
+					</VStack>
+				</ModalContext.Provider>
+			</ModalContent>
+		</CUIModal>
+	) : null;
 };
 
 export default Modal;
