@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 
-import { Box } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 
 import { Meta, Story } from './types';
 
@@ -132,8 +132,8 @@ export default {
 export const Card: Story = (props: CardProps): ReactElement => (
 	<CardComponent {...props}>
 		<CardHeader
-			title='Title'
-			subtitle='Subtitle'
+			renderTitle={(props) => <Text {...props}>Title</Text>}
+			renderSubtitle={(props) => <Text {...props}>Subtitle</Text>}
 			actions={<Box width='87.7px' height='42px' backgroundColor='blue.300' borderRadius='base' />}
 		/>
 		<CardBody>
