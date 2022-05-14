@@ -11,7 +11,7 @@ type GetHueProps = {
 	type: Type;
 };
 
-export const getHue = memoize(({ type, colorMode }: GetHueProps): ColorHues => {
+export const getHue = memoize(({ colorMode, type }: GetHueProps): ColorHues => {
 	switch (type) {
 		case 'text.primary':
 			return colorMode === 'light' ? 900 : 50;
@@ -33,11 +33,11 @@ type OmittedColors = 'transparent' | 'black' | 'white';
 type GetColorProps = {
 	theme: Theme;
 	colorMode: ColorMode;
-	type: Type;
 	color?: Exclude<Color, OmittedColors>;
+	type: Type;
 };
 
-export const getColor = memoize(({ theme, colorMode, type, color: colorProp }: GetColorProps): string => {
+export const getColor = memoize(({ theme, colorMode, color: colorProp, type }: GetColorProps): string => {
 	const color: Color = colorProp || 'gray';
 
 	return theme.colors[color][getHue({ type, colorMode })];
