@@ -1,8 +1,8 @@
 import { TooltipDarkStyleProps } from './types';
 
-import { Style } from '../../../../../common/types';
-import { getHue } from '../../../../../common/utils/color';
-import { Color, ColorHues } from '../../../../../theme/types';
+import { Style } from '../../../../../../common/types';
+import { getHue } from '../../../../../../common/utils/color';
+import { Color, ColorHues } from '../../../../../../theme/types';
 import { color as defaultColor } from '../../data/defaultPropValues';
 
 export default ({ theme, color: colorProp = defaultColor }: TooltipDarkStyleProps): Style => {

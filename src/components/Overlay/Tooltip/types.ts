@@ -17,8 +17,8 @@ import {
 	BoxFilter,
 	BoxPseudo,
 	BoxOther
-} from '../../common/types/box';
-import { Color } from '../../theme/types';
+} from '../../../common/types/box';
+import { Color } from '../../../theme/types';
 
 export type TooltipRef = HTMLDivElement | null;
 

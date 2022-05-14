@@ -1,5 +1,5 @@
-import { Style } from '../../../../common/types';
-import { Theme } from '../../../../theme/types';
+import { Style } from '../../../../../common/types';
+import { Theme } from '../../../../../theme/types';
 import { TooltipProps } from '../../types';
 
 type Picked = 'color' | 'colorMode';

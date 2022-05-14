@@ -8,8 +8,8 @@ import { color as defaultColor } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { TooltipRef, TooltipProps } from './types';
 
-import { useTheme } from '../../common/hooks';
-import { checkIsTouchDevice, convertStringToNumber } from '../../common/utils';
+import { useTheme } from '../../../common/hooks';
+import { checkIsTouchDevice, convertStringToNumber } from '../../../common/utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 

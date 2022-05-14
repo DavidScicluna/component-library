@@ -13,6 +13,8 @@ import { HeaderProps as CardHeaderProps } from './components/Card/components/Hea
 import { CardProps } from './components/Card/types';
 import Button from './components/Clickable/Button';
 import { ButtonProps } from './components/Clickable/Button/types';
+import ButtonGroup from './components/Clickable/ButtonGroup';
+import { ButtonGroupProps } from './components/Clickable/ButtonGroup/types';
 import IconButton from './components/Clickable/IconButton';
 import { IconButtonProps } from './components/Clickable/IconButton/types';
 import { LinkProps } from './components/Clickable/Link/common/types';
@@ -23,6 +25,8 @@ import Divider from './components/Divider';
 import { DividerProps } from './components/Divider/types';
 import Icon from './components/Icon';
 import { IconProps } from './components/Icon/types';
+import Tooltip from './components/Overlay/Tooltip';
+import { TooltipProps } from './components/Overlay/Tooltip/types';
 import TabBar from './components/TabBar';
 import theme from './theme';
 
@@ -90,10 +94,12 @@ export {
 	ExternalLink,
 	InternalLink,
 	Button,
+	ButtonGroup,
 	IconButton,
 	Divider,
 	Icon,
-	TabBar
+	TabBar,
+	Tooltip
 };
 export type {
 	CardBodyProps,
@@ -103,8 +109,10 @@ export type {
 	LinkProps,
 	InternalProps,
 	ButtonProps,
+	ButtonGroupProps,
 	IconButtonProps,
 	DividerProps,
 	IconProps,
-	IconType
+	IconType,
+	TooltipProps
 };
