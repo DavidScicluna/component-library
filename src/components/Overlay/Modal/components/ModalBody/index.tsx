@@ -6,7 +6,7 @@ import { ModalBodyProps } from './types';
 
 const ModalBody: FC<ModalBodyProps> = ({ children, ...rest }) => {
 	return (
-		<CUIModalBody {...rest} width='100%'>
+		<CUIModalBody width='100%' px={2} py={0} m={0} {...rest}>
 			{children}
 		</CUIModalBody>
 	);
