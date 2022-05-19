@@ -1,5 +1,5 @@
 import { Space } from '../../../../../theme/types';
-import { Size } from '../../types';
+import { ButtonSize } from '../../types';
 import { size as defaultSize } from '../data/defaultPropValues';
 
 type Padding = {
@@ -22,7 +22,7 @@ type GetSizeConfigReturn = {
 	offset: Variants;
 };
 
-type GetSizeConfigProps = { size: Size };
+type GetSizeConfigProps = { size: ButtonSize };
 
 export const getSizeConfig = ({ size = defaultSize }: GetSizeConfigProps): GetSizeConfigReturn => {
 	switch (size) {
