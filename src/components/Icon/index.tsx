@@ -4,6 +4,7 @@ import { ColorMode, useColorMode, useBoolean, Center } from '@chakra-ui/react';
 
 import { useInterval } from 'usehooks-ts';
 
+import { category as defaultCategory } from './common/data/defaultPropValues';
 import { checkFontStatus } from './common/utils';
 import { IconProps } from './types';
 
@@ -17,7 +18,7 @@ const Icon: FC<IconProps> = (props) => {
 		h,
 		height,
 		icon,
-		type,
+		category = defaultCategory,
 		color,
 		background,
 		borderRadius = 'none',
@@ -26,15 +27,15 @@ const Icon: FC<IconProps> = (props) => {
 
 	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
-	const [hasLoaded, setHasLoaded] = useBoolean(checkFontStatus({ type }));
+	const [hasLoaded, setHasLoaded] = useBoolean(checkFontStatus({ category }));
 
 	const handleCheckFontStatus = useCallback((): void => {
-		if (checkFontStatus({ type })) {
+		if (checkFontStatus({ category })) {
 			setHasLoaded.on();
 		} else {
 			setHasLoaded.off();
 		}
-	}, [type]);
+	}, [category]);
 
 	useInterval(() => handleCheckFontStatus(), !hasLoaded ? 250 : null);
 
@@ -42,7 +43,7 @@ const Icon: FC<IconProps> = (props) => {
 		<Center
 			{...rest}
 			as='span'
-			className={`material-icons${type === 'outlined' ? '-outlined' : ''} ds-cl-icon`}
+			className={`material-icons${category === 'outlined' ? '-outlined' : ''} ds-cl-icon`}
 			w={w}
 			width={width}
 			h={h}
