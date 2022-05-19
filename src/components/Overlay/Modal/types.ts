@@ -44,7 +44,7 @@ type Omitted =
 	| BoxFilter
 	| BoxPseudo
 	| BoxOther
-	// CUI Button Props
+	// CUI Modal Props
 	| 'as'
 	| 'colorScheme'
 	| 'id'

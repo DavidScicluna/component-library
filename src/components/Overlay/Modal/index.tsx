@@ -1,4 +1,4 @@
-import { ReactElement, createContext, useCallback, useEffect } from 'react';
+import { FC, createContext, useCallback, useEffect } from 'react';
 
 import {
 	ColorMode,
@@ -27,7 +27,7 @@ import Divider from '../../Divider';
 
 export const ModalContext = createContext<ModalContextType>({ colorMode: 'light' });
 
-const Modal = (props: ModalProps): ReactElement | null => {
+const Modal: FC<ModalProps> | null = (props) => {
 	const theme = useTheme();
 	const { colorMode: colorModeHook } = useColorMode();
 

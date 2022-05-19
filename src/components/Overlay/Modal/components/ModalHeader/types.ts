@@ -9,9 +9,9 @@ import { IconProps } from '../../../../Icon/types';
 
 type IconPropsPicked = 'icon' | 'type';
 
-type ButtonPropsPicked = 'aria-label' | 'color' | 'colorMode' | 'size' | 'variant';
+type IconButtonPropsPicked = 'aria-label' | 'color' | 'colorMode' | 'size' | 'variant';
 
-type RenderProps = Pick<IconProps, IconPropsPicked> & Pick<IconButtonProps, ButtonPropsPicked>;
+type RenderProps = Pick<IconProps, IconPropsPicked> & Pick<IconButtonProps, IconButtonPropsPicked>;
 
 type Omitted =
 	// CUI Box Props
