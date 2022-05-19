@@ -2,8 +2,8 @@ import { ReactElement } from 'react';
 
 import { Meta, Story } from './types';
 
+import { ButtonColor, ButtonProps, ButtonSize, ButtonVariant, Button as ButtonComponent } from '../../..';
 import icons from '../../../common/data/icons';
-import ButtonComponent from '../../../components/Clickable/Button';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -13,7 +13,7 @@ import {
 	size as defaultSize,
 	variant as defaultVariant
 } from '../../../components/Clickable/Button/common/data/defaultPropValues';
-import { ButtonColor, RenderProps, Size, Variant, ButtonProps } from '../../../components/Clickable/Button/types';
+import { RenderProps } from '../../../components/Clickable/Button/types';
 import Icon from '../../../components/Icon';
 import controls from '../../common/controls';
 
@@ -42,14 +42,14 @@ const renderMapping = Object.assign(
 	{ none: undefined },
 	...icons.map((icon) => {
 		return {
-			[icon]: ({ colorMode }: RenderProps) => <Icon colorMode={colorMode} icon={icon} type='filled' />
+			[icon]: ({ colorMode }: RenderProps) => <Icon colorMode={colorMode} icon={icon} />
 		};
 	})
 );
 
-const sizeOptions: Size[] = ['xs', 'sm', 'md', 'lg', 'xl'];
+const sizeOptions: ButtonSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
-const variantOptions: Variant[] = ['contained', 'outlined', 'text'];
+const variantOptions: ButtonVariant[] = ['contained', 'outlined', 'text'];
 
 export default {
 	title: 'Clickable/Button',
