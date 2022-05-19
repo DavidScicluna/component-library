@@ -4,16 +4,15 @@ import { Box } from '@chakra-ui/react';
 
 import { Meta, Story } from './types';
 
-import ButtonGroupComponent from '../../../components/Clickable/ButtonGroup';
+import { ButtonGroupProps, ButtonGroupSize, ButtonGroup as ButtonGroupComponent } from '../../..';
 import {
 	isAttached as defaultIsAttached,
 	size as defaultSize,
 	spacing as defaultSpacing
 } from '../../../components/Clickable/ButtonGroup/common/data/defaultPropValues';
-import { Size, ButtonGroupProps } from '../../../components/Clickable/ButtonGroup/types';
 import controls from '../../common/controls';
 
-const sizeOptions: Size[] = ['xs', 'sm', 'md', 'lg', 'xl'];
+const sizeOptions: ButtonGroupSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 export default {
 	title: 'Clickable/Button Group',
