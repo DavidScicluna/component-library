@@ -4,17 +4,15 @@ import { sample } from 'lodash';
 
 import { Meta, Story } from './types';
 
+import { IconProps, IconCategory, IconType, Icon as IconComponent } from '../..';
 import icons from '../../common/data/icons';
-import { Icon as IconType } from '../../common/types/icons';
-import IconComponent from '../../components/Icon';
-import { Type, IconProps } from '../../components/Icon/types';
 import controls from '../common/controls';
 
 const childrenDefaultValue: IconType | undefined = sample(icons);
 const childrenOptions: IconType[] = [...icons];
 
-const typeDefaultValue: Type = 'filled';
-const typeOptions: Type[] = ['filled', 'outlined'];
+const categoryDefaultValue: IconCategory = 'filled';
+const categoryOptions: IconCategory[] = ['filled', 'outlined'];
 
 export default {
 	title: 'Icon',
@@ -34,12 +32,12 @@ export default {
 		fontSize: { ...controls.theme.fontSize },
 		padding: { ...controls.theme.padding },
 		margin: { ...controls.theme.margin },
-		type: {
-			name: 'Type',
+		category: {
+			name: 'Category',
 			type: 'string',
-			defaultValue: typeDefaultValue,
+			defaultValue: categoryDefaultValue,
 			// description: '',
-			options: typeOptions,
+			options: categoryOptions,
 			control: 'radio'
 		}
 	}
