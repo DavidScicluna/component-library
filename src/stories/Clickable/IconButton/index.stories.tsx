@@ -4,9 +4,15 @@ import { sample } from 'lodash';
 
 import { Meta, Story } from './types';
 
+import {
+	IconButtonColor,
+	IconButtonProps,
+	IconButtonSize,
+	IconButtonVariant,
+	IconButton as IconButtonComponent
+} from '../../..';
 import icons from '../../../common/data/icons';
 import { Icon as IconType } from '../../../common/types/icons';
-import IconButtonComponent from '../../../components/Clickable/IconButton';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -16,7 +22,6 @@ import {
 	size as defaultSize,
 	variant as defaultVariant
 } from '../../../components/Clickable/IconButton/common/data/defaultPropValues';
-import { IconButtonColor, Size, Variant, IconButtonProps } from '../../../components/Clickable/IconButton/types';
 import Icon from '../../../components/Icon';
 import controls from '../../common/controls';
 
@@ -26,7 +31,7 @@ const childrenMapping = Object.assign(
 	{},
 	...icons.map((icon) => {
 		return {
-			[icon]: <Icon icon={icon} type='filled' />
+			[icon]: <Icon icon={icon} />
 		};
 	})
 );
@@ -52,9 +57,9 @@ const colorOptions: IconButtonColor[] = [
 	'deep_orange'
 ];
 
-const sizeOptions: Size[] = ['xs', 'sm', 'md', 'lg', 'xl'];
+const sizeOptions: IconButtonSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
-const variantOptions: Variant[] = ['contained', 'outlined', 'icon'];
+const variantOptions: IconButtonVariant[] = ['contained', 'outlined', 'icon'];
 
 export default {
 	title: 'Clickable/Icon Button',
