@@ -25,6 +25,12 @@ import Divider from './components/Divider';
 import { DividerProps } from './components/Divider/types';
 import Icon from './components/Icon';
 import { IconProps } from './components/Icon/types';
+import ConfirmModal from './components/Overlay/ConfirmModal';
+import ConfirmModalBody from './components/Overlay/ConfirmModal/components/ConfirmModalBody';
+import { ConfirmModalBodyProps } from './components/Overlay/ConfirmModal/components/ConfirmModalBody/types';
+import ConfirmModalFooter from './components/Overlay/ConfirmModal/components/ConfirmModalFooter';
+import { ConfirmModalFooterProps } from './components/Overlay/ConfirmModal/components/ConfirmModalFooter/types';
+import { ConfirmModalProps } from './components/Overlay/ConfirmModal/types';
 import Modal from './components/Overlay/Modal';
 import ModalBody from './components/Overlay/Modal/components/ModalBody';
 import { ModalBodyProps } from './components/Overlay/Modal/components/ModalBody/types';
@@ -106,6 +112,9 @@ export {
 	IconButton,
 	Divider,
 	Icon,
+	ConfirmModal,
+	ConfirmModalBody,
+	ConfirmModalFooter,
 	Modal,
 	ModalBody,
 	ModalFooter,
@@ -126,6 +135,9 @@ export type {
 	DividerProps,
 	IconProps,
 	IconType,
+	ConfirmModalProps,
+	ConfirmModalBodyProps,
+	ConfirmModalFooterProps,
 	ModalBodyProps,
 	ModalFooterProps,
 	ModalHeaderProps,
