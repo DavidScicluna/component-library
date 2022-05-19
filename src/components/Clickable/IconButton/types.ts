@@ -23,9 +23,9 @@ export type IconButtonRef = HTMLButtonElement | null;
 
 export type IconButtonColor = Exclude<Color, 'transparent'>;
 
-export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type IconButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export type Variant = 'contained' | 'outlined' | 'icon';
+export type IconButtonVariant = 'contained' | 'outlined' | 'icon';
 
 type Omitted =
 	// CUI Box Props
@@ -56,6 +56,6 @@ export type IconButtonProps = {
 	children: ReactNode;
 	color?: IconButtonColor;
 	colorMode?: ColorMode;
-	size?: Size;
-	variant?: Variant;
+	size?: IconButtonSize;
+	variant?: IconButtonVariant;
 } & Omit<CUIIconButtonProps, Omitted>;

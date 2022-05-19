@@ -1,5 +1,5 @@
 import { Space } from '../../../../../theme/types';
-import { Size } from '../../types';
+import { IconButtonSize } from '../../types';
 import { size as defaultSize } from '../data/defaultPropValues';
 
 type Variants = {
@@ -17,7 +17,7 @@ type GetSizeConfigReturn = {
 	offset: Variants;
 };
 
-type GetSizeConfigProps = { size: Size };
+type GetSizeConfigProps = { size: IconButtonSize };
 
 export const getSizeConfig = ({ size = defaultSize }: GetSizeConfigProps): GetSizeConfigReturn => {
 	switch (size) {
@@ -83,7 +83,7 @@ export const getAmount = (): GetAmountReturn => {
 	};
 };
 
-type GetIconFontSizeProps = { size: Size };
+type GetIconFontSizeProps = { size: IconButtonSize };
 
 export const getIconFontSize = ({ size = defaultSize }: GetIconFontSizeProps): string => {
 	switch (size) {
