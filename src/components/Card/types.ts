@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { ColorMode, ButtonProps as CUIButtonProps } from '@chakra-ui/react';
+import { ColorMode, CenterProps } from '@chakra-ui/react';
 
 import {
 	BoxColor,
@@ -19,11 +19,11 @@ import {
 } from '../../common/types/box';
 import { Color, Space } from '../../theme/types';
 
-export type CardRef = HTMLButtonElement | null;
+export type CardRef = HTMLDivElement | null;
 
 export type CardColor = Exclude<Color, 'transparent'>;
 
-export type Variant = 'contained' | 'outlined' | 'transparent';
+export type CardVariant = 'contained' | 'outlined' | 'transparent';
 
 export type CardContext = {
 	color: CardColor;
@@ -45,29 +45,22 @@ type Omitted =
 	| BoxFilter
 	| BoxPseudo
 	| BoxOther
-	// CUI Button Props
+	// CUI Center Props
 	| 'as'
 	| 'children'
 	| 'color'
-	| 'colorScheme'
-	| 'iconSpacing'
-	| 'leftIcon'
-	| 'loadingText'
-	| 'rightIcon'
-	| 'isLoading'
-	| 'size'
-	| 'spinner'
-	| 'spinnerPlacement'
-	| 'variant';
+	| 'colorScheme';
 
 export type CardProps = {
 	children: ReactNode;
 	color?: CardColor;
 	colorMode?: ColorMode;
+	isDisabled?: boolean;
 	isDivisible?: boolean;
 	isLight?: boolean;
 	isClickable?: boolean;
+	isFullWidth?: boolean;
 	// isFixed?: boolean;
 	spacing?: Space;
-	variant?: Variant;
-} & Omit<CUIButtonProps, Omitted>;
+	variant?: CardVariant;
+} & Omit<CenterProps, Omitted>;

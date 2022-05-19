@@ -35,7 +35,7 @@ const CardHeader: FC<CardHeaderProps> = ({ renderTitle, renderSubtitle, actions,
 				<VStack
 					width={`calc(100% - ${actions ? handleCalculateTextWidth() : 0}px)`}
 					alignItems='flex-start'
-					spacing={0}
+					spacing={0.5}
 				>
 					{/* Title */}
 					{renderTitle({
@@ -43,9 +43,8 @@ const CardHeader: FC<CardHeaderProps> = ({ renderTitle, renderSubtitle, actions,
 						color: `gray.${getHue({ colorMode, type: 'text.primary' })}`,
 						fontSize: 'xl',
 						fontWeight: 'bold',
-						isTruncated: true,
-						overflow: 'hidden',
-						whiteSpace: 'nowrap'
+						lineHeight: 'normal',
+						noOfLines: 1
 					})}
 
 					{/* Subtitle */}
@@ -54,9 +53,8 @@ const CardHeader: FC<CardHeaderProps> = ({ renderTitle, renderSubtitle, actions,
 							align: 'left',
 							color: `gray.${getHue({ colorMode, type: 'text.secondary' })}`,
 							fontSize: 'sm',
-							isTruncated: true,
-							overflow: 'hidden',
-							whiteSpace: 'nowrap'
+							lineHeight: 'normal',
+							noOfLines: 1
 						})}
 				</VStack>
 			)}

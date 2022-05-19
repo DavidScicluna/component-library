@@ -1,7 +1,7 @@
 import { ColorMode } from '@chakra-ui/react';
 
 import { Space } from '../../../../theme/types';
-import { CardColor, Variant } from '../../types';
+import { CardColor, CardVariant } from '../../types';
 
 export const color: CardColor = 'gray';
 
@@ -16,4 +16,4 @@ export const isDisabled = false;
 
 export const spacing: Space = 2;
 
-export const variant: Variant = 'outlined';
+export const variant: CardVariant = 'outlined';

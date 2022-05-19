@@ -1,6 +1,6 @@
 import { ReactElement, createContext, forwardRef } from 'react';
 
-import { ColorMode, useColorMode, VStack, Button as CUIButton } from '@chakra-ui/react';
+import { ColorMode, useColorMode, Center, VStack } from '@chakra-ui/react';
 
 import merge from 'lodash/merge';
 
@@ -60,12 +60,12 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 
 	return (
 		<CardContext.Provider value={{ color, colorMode }}>
-			<CUIButton
+			<Center
 				{...rest}
 				ref={ref}
+				as='div'
+				aria-disabled={isDisabled}
 				tabIndex={0}
-				isDisabled={isDisabled}
-				variant='unstyled'
 				sx={merge(style.card, sx)}
 				_disabled={style.disabled}
 				_active={style.active}
@@ -107,7 +107,7 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 				>
 					{children}
 				</VStack>
-			</CUIButton>
+			</Center>
 		</CardContext.Provider>
 	);
 });
