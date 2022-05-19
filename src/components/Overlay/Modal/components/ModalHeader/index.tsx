@@ -38,9 +38,7 @@ const ModalHeader: FC<ModalHeaderProps> = (props) => {
 					color: `gray.${getHue({ colorMode, type: 'text.primary' })}`,
 					fontSize: 'xl',
 					fontWeight: 'bold',
-					isTruncated: true,
-					overflow: 'hidden',
-					whiteSpace: 'nowrap'
+					noOfLines: 1
 				})}
 
 				{/* Subtitle */}
@@ -49,9 +47,7 @@ const ModalHeader: FC<ModalHeaderProps> = (props) => {
 						align: 'left',
 						color: `gray.${getHue({ colorMode, type: 'text.secondary' })}`,
 						fontSize: 'sm',
-						isTruncated: true,
-						overflow: 'hidden',
-						whiteSpace: 'nowrap'
+						noOfLines: 1
 					})}
 			</VStack>
 
