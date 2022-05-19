@@ -4,8 +4,7 @@ import { Box, Text } from '@chakra-ui/react';
 
 import { Meta, Story } from './types';
 
-import { CardHeader, CardBody, CardFooter } from '../..';
-import CardComponent from '../../components/Card';
+import { CardColor, CardProps, CardVariant, Card as CardComponent, CardHeader, CardBody, CardFooter } from '../..';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -18,7 +17,6 @@ import {
 	spacing as defaultSpacing,
 	variant as defaultVariant
 } from '../../components/Card/common/data/defaultPropValues';
-import { CardColor, CardProps, Variant } from '../../components/Card/types';
 import controls from '../common/controls';
 
 const colorOptions: CardColor[] = [
@@ -42,7 +40,7 @@ const colorOptions: CardColor[] = [
 	'deep_orange'
 ];
 
-const variantOptions: Variant[] = ['contained', 'outlined', 'transparent'];
+const variantOptions: CardVariant[] = ['contained', 'outlined', 'transparent'];
 
 export default {
 	title: 'Card',
