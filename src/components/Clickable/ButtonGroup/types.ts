@@ -20,7 +20,7 @@ import {
 
 export type ButtonGroupRef = HTMLDivElement | null;
 
-export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type ButtonGroupSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 type Omitted =
 	// CUI Box Props
@@ -47,5 +47,5 @@ type Omitted =
 
 export type ButtonGroupProps = {
 	children?: ReactElement[];
-	size?: Size;
+	size?: ButtonGroupSize;
 } & Omit<CUIButtonGroupProps, Omitted>;
