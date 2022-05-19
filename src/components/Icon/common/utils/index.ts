@@ -1,9 +1,9 @@
 import { memoize } from 'lodash';
 
-import { Type } from '../../types';
+import { IconType } from '../../types';
 
 type CheckFontStatusProps = {
-	type: Type;
+	type: IconType;
 };
 
 export const checkFontStatus = memoize(({ type }: CheckFontStatusProps): boolean => {
