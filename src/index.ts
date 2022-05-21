@@ -26,6 +26,19 @@ import { LinkProps } from './components/Clickable/Link/common/types';
 import ExternalLink from './components/Clickable/Link/External';
 import InternalLink from './components/Clickable/Link/Internal';
 import { InternalProps } from './components/Clickable/Link/Internal/types';
+import Badge from './components/DataDisplay/Badge';
+import BadgeIcon from './components/DataDisplay/Badge/components/BadgeIcon';
+import { BadgeIconProps } from './components/DataDisplay/Badge/components/BadgeIcon/types';
+import BadgeLabel from './components/DataDisplay/Badge/components/BadgeLabel';
+import { BadgeLabelProps } from './components/DataDisplay/Badge/components/BadgeLabel/types';
+import {
+	BadgeColor,
+	BadgeContext,
+	BadgeProps,
+	BadgeRef,
+	BadgeSize,
+	BadgeVariant
+} from './components/DataDisplay/Badge/types';
 import Tag from './components/DataDisplay/Tag';
 import TagDeleteButton from './components/DataDisplay/Tag/components/TagDeleteButton';
 import { TagDeleteIconButtonProps } from './components/DataDisplay/Tag/components/TagDeleteButton/types';
@@ -34,6 +47,10 @@ import { TagLabelProps } from './components/DataDisplay/Tag/components/TagLabel/
 import { TagColor, TagContext, TagProps, TagRef, TagSize, TagVariant } from './components/DataDisplay/Tag/types';
 import Divider from './components/Divider';
 import { DividerProps } from './components/Divider/types';
+import Input from './components/Forms/Input';
+import { InputColor, InputProps, InputRef, InputSize } from './components/Forms/Input/types';
+import Textarea from './components/Forms/Textarea';
+import { TextareaColor, TextareaProps, TextareaRef, TextareaSize } from './components/Forms/Textarea/types';
 import Icon from './components/Icon';
 import { IconProps, IconCategory } from './components/Icon/types';
 import ConfirmModal from './components/Overlay/ConfirmModal';
@@ -123,10 +140,15 @@ export {
 	Button,
 	ButtonGroup,
 	IconButton,
+	Badge,
+	BadgeIcon,
+	BadgeLabel,
 	Tag,
 	TagDeleteButton,
 	TagLabel,
 	Divider,
+	Input,
+	Textarea,
 	Icon,
 	ConfirmModal,
 	ConfirmModalBody,
@@ -164,6 +186,14 @@ export type {
 	IconButtonRef,
 	IconButtonSize,
 	IconButtonVariant,
+	BadgeIconProps,
+	BadgeLabelProps,
+	BadgeColor,
+	BadgeContext,
+	BadgeProps,
+	BadgeRef,
+	BadgeSize,
+	BadgeVariant,
 	TagDeleteIconButtonProps,
 	TagLabelProps,
 	TagColor,
@@ -173,6 +203,14 @@ export type {
 	TagSize,
 	TagVariant,
 	DividerProps,
+	InputColor,
+	InputProps,
+	InputRef,
+	InputSize,
+	TextareaColor,
+	TextareaProps,
+	TextareaRef,
+	TextareaSize,
 	IconProps,
 	IconCategory,
 	ConfirmModalProps,
