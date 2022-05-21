@@ -7,6 +7,7 @@ export const color: CardColor = 'gray';
 
 export const colorMode: ColorMode = 'light';
 
+export const isActive = false;
 export const isFullWidth = true;
 export const isDivisible = true;
 export const isLight = true;

@@ -55,6 +55,7 @@ export type CardProps = {
 	children: ReactNode;
 	color?: CardColor;
 	colorMode?: ColorMode;
+	isActive?: boolean;
 	isDisabled?: boolean;
 	isDivisible?: boolean;
 	isLight?: boolean;

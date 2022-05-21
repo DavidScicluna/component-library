@@ -8146,6 +8146,7 @@ __metadata:
   dependencies:
     "@chakra-ui/react": ^2.0.2
     "@chakra-ui/theme-tools": ^2.0.0
+    "@chakra-ui/utils": ^2.0.0
     "@emotion/react": ^11.9.0
     "@emotion/styled": ^11.8.1
     "@fontsource/material-icons": ^4.5.4

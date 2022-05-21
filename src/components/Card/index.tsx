@@ -1,11 +1,13 @@
 import { ReactElement, createContext, forwardRef } from 'react';
 
 import { ColorMode, useColorMode, Center, VStack } from '@chakra-ui/react';
+import { dataAttr } from '@chakra-ui/utils';
 
 import merge from 'lodash/merge';
 
 import {
 	color as defaultColor,
+	isActive as defaultIsActive,
 	isFullWidth as defaultIsFullWidth,
 	isDivisible as defaultIsDivisible,
 	isLight as defaultIsLight,
@@ -32,6 +34,7 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 		children,
 		color = defaultColor,
 		colorMode: colorModeProp,
+		isActive = defaultIsActive,
 		isFullWidth = defaultIsFullWidth,
 		isDivisible = defaultIsDivisible,
 		isLight = defaultIsLight,
@@ -64,7 +67,8 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 				{...rest}
 				ref={ref}
 				as='div'
-				aria-disabled={isDisabled}
+				aria-disabled={isClickable && isDisabled}
+				data-active={dataAttr(isClickable && isActive)}
 				tabIndex={0}
 				sx={merge(style.card, sx)}
 				_disabled={style.disabled}
