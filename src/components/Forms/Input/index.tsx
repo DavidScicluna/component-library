@@ -7,13 +7,13 @@ import {
 	FormControl,
 	InputGroup,
 	Input as CUIInput,
-	// FormHelperText,
 	VStack,
 	HStack,
-	Center
-	// Collapse
+	Center,
+	Collapse
 } from '@chakra-ui/react';
 
+import { isEmpty, isNil } from 'lodash';
 import merge from 'lodash/merge';
 import { useElementSize } from 'usehooks-ts';
 
@@ -34,6 +34,7 @@ import { getSizeConfig } from './common/utils';
 import { InputProps, RenderProps, Event } from './types';
 
 import { useTheme } from '../../../common/hooks';
+import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 
 const Input = (props: InputProps): ReactElement => {
@@ -49,7 +50,7 @@ const Input = (props: InputProps): ReactElement => {
 		id,
 		name,
 		label,
-		// helper,
+		helper,
 		isDisabled = defaultIsDisabled,
 		isError = defaultIsError,
 		isWarning = defaultIsWarning,
@@ -157,20 +158,20 @@ const Input = (props: InputProps): ReactElement => {
 				{renderRightPanel && <Center>{renderRightPanel({ ...renderProps })}</Center>}
 			</HStack>
 
-			{/* <Collapse in={!(isNil(helper) || isEmpty(helper))} unmountOnExit style={{ width: '100%' }}>
+			<Collapse in={!(isNil(helper) || isEmpty(helper))} unmountOnExit style={{ width: '100%' }}>
 				<FormHelperText
-					sx={{
-						...merge(
-							style.formHelperText.default,
-							style.formHelperText[size],
-							style[colorMode].formHelperText,
-							sx?.formHelperText || {}
-						)
-					}}
+					colorMode={colorMode}
+					isDisabled={isDisabled}
+					isError={isError}
+					isWarning={isWarning}
+					isSuccess={isSuccess}
+					isReadOnly={isReadOnly}
+					size={size}
+					sx={sx?.formHelperText || {}}
 				>
 					{helper}
 				</FormHelperText>
-			</Collapse> */}
+			</Collapse>
 		</VStack>
 	);
 };
