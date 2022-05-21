@@ -31,9 +31,10 @@ import {
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
-import { InputProps, RenderProps, Event } from './types';
+import { InputProps, InputRef, RenderProps, Event } from './types';
 
 import { useTheme } from '../../../common/hooks';
+import { NonNullable } from '../../../common/types';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 
@@ -41,7 +42,7 @@ const Input = (props: InputProps): ReactElement => {
 	const theme = useTheme();
 	const { colorMode: colorModeHook } = useColorMode();
 
-	const [inputRef, { width: inputWidth, height: inputHeight }] = useElementSize();
+	const [inputRef, { width: inputWidth, height: inputHeight }] = useElementSize<NonNullable<InputRef>>();
 
 	const {
 		autoComplete = defaultAutoComplete,

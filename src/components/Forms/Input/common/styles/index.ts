@@ -1,6 +1,6 @@
 import { memoize, merge } from 'lodash';
 
-// import dark from './dark';
+import dark from './dark';
 import disabled from './disabled';
 import group from './group';
 import input from './input';
@@ -9,7 +9,7 @@ import readonly from './readonly';
 import { InputStyleProps, InputStyleReturn } from './types';
 
 import {
-	// colorMode as defaultColorMode,
+	colorMode as defaultColorMode,
 	isSuccess as defaultIsSuccess,
 	isWarning as defaultIsWarning,
 	isFocused as defaultIsFocused,
@@ -21,7 +21,7 @@ export default memoize((props: InputStyleProps): InputStyleReturn => {
 	const {
 		theme,
 		color,
-		//  colorMode = defaultColorMode,
+		colorMode = defaultColorMode,
 		isSuccess = defaultIsSuccess,
 		isWarning = defaultIsWarning,
 		isFocused = defaultIsFocused,
@@ -29,10 +29,7 @@ export default memoize((props: InputStyleProps): InputStyleReturn => {
 		size = defaultSize
 	} = props;
 
-	const scheme =
-		//  colorMode === 'light' ?
-		light;
-	// : dark;
+	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
 		group: merge(
