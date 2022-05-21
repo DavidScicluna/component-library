@@ -1,6 +1,5 @@
 import fallback from './common/assets/fallback';
 import { useTheme } from './common/hooks';
-import { Icon as IconType } from './common/types/icons';
 import { checkIsTouchDevice, convertREMToPixels, convertStringToNumber } from './common/utils';
 import { getHue, getColor } from './common/utils/color';
 import Card from './components/Card';
@@ -10,21 +9,33 @@ import CardFooter from './components/Card/components/CardFooter';
 import { CardFooterProps } from './components/Card/components/CardFooter/types';
 import CardHeader from './components/Card/components/CardHeader';
 import { CardHeaderProps } from './components/Card/components/CardHeader/types';
-import { CardProps } from './components/Card/types';
+import { CardColor, CardContext, CardProps, CardRef, CardVariant } from './components/Card/types';
 import Button from './components/Clickable/Button';
-import { ButtonProps } from './components/Clickable/Button/types';
+import { ButtonColor, ButtonProps, ButtonRef, ButtonSize, ButtonVariant } from './components/Clickable/Button/types';
 import ButtonGroup from './components/Clickable/ButtonGroup';
-import { ButtonGroupProps } from './components/Clickable/ButtonGroup/types';
+import { ButtonGroupProps, ButtonGroupRef, ButtonGroupSize } from './components/Clickable/ButtonGroup/types';
 import IconButton from './components/Clickable/IconButton';
-import { IconButtonProps } from './components/Clickable/IconButton/types';
+import {
+	IconButtonColor,
+	IconButtonProps,
+	IconButtonRef,
+	IconButtonSize,
+	IconButtonVariant
+} from './components/Clickable/IconButton/types';
 import { LinkProps } from './components/Clickable/Link/common/types';
 import ExternalLink from './components/Clickable/Link/External';
 import InternalLink from './components/Clickable/Link/Internal';
 import { InternalProps } from './components/Clickable/Link/Internal/types';
+import Tag from './components/Clickable/Tag';
+import TagDeleteButton from './components/Clickable/Tag/components/TagDeleteButton';
+import { TagDeleteIconButtonProps } from './components/Clickable/Tag/components/TagDeleteButton/types';
+import TagLabel from './components/Clickable/Tag/components/TagLabel';
+import { TagLabelProps } from './components/Clickable/Tag/components/TagLabel/types';
+import { TagColor, TagContext, TagProps, TagRef, TagSize, TagVariant } from './components/Clickable/Tag/types';
 import Divider from './components/Divider';
 import { DividerProps } from './components/Divider/types';
 import Icon from './components/Icon';
-import { IconProps } from './components/Icon/types';
+import { IconProps, IconCategory } from './components/Icon/types';
 import ConfirmModal from './components/Overlay/ConfirmModal';
 import ConfirmModalBody from './components/Overlay/ConfirmModal/components/ConfirmModalBody';
 import { ConfirmModalBodyProps } from './components/Overlay/ConfirmModal/components/ConfirmModalBody/types';
@@ -88,18 +99,20 @@ export type {
 // Common Types
 export type { NonNullable, Style, Orientation } from './common/types';
 
-const assets = {
-	fallback
-};
+// Icon Types
+export type { Icon as IconType } from './common/types/icons';
 
 // Hooks
 export { useTheme };
 
-// Utils
-export { checkIsTouchDevice, convertREMToPixels, convertStringToNumber, getHue, getColor };
+// Assets
+export const assets = { fallback };
 
+// Utils
+export const utils = { checkIsTouchDevice, convertREMToPixels, convertStringToNumber, getHue, getColor };
+
+// Components
 export {
-	assets,
 	theme,
 	Card,
 	CardBody,
@@ -110,6 +123,9 @@ export {
 	Button,
 	ButtonGroup,
 	IconButton,
+	Tag,
+	TagDeleteButton,
+	TagLabel,
 	Divider,
 	Icon,
 	ConfirmModal,
@@ -122,19 +138,43 @@ export {
 	TabBar,
 	Tooltip
 };
+
+// Components Types
 export type {
 	CardBodyProps,
 	CardFooterProps,
 	CardHeaderProps,
+	CardColor,
+	CardContext,
 	CardProps,
+	CardRef,
+	CardVariant,
 	LinkProps,
 	InternalProps,
+	ButtonColor,
 	ButtonProps,
+	ButtonRef,
+	ButtonSize,
+	ButtonVariant,
 	ButtonGroupProps,
+	ButtonGroupRef,
+	ButtonGroupSize,
+	IconButtonColor,
 	IconButtonProps,
+	IconButtonRef,
+	IconButtonSize,
+	IconButtonVariant,
+	TagDeleteIconButtonProps,
+	TagLabelProps,
+	TagColor,
+	TagContext,
+	TagProps,
+	TagRef,
+	TagSize,
+	TagVariant,
 	DividerProps,
 	IconProps,
-	IconType,
+	IconCategory,
 	ConfirmModalProps,
 	ConfirmModalBodyProps,
 	ConfirmModalFooterProps,
