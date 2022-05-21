@@ -43,6 +43,7 @@ type Omitted =
 	| BoxPseudo
 	| BoxOther
 	// CUI Badge Props
+	| 'as'
 	| 'color'
 	| 'colorScheme'
 	| 'size'
