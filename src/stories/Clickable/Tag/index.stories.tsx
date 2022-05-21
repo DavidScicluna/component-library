@@ -12,7 +12,7 @@ import {
 	// isFixed as defaultIsFixed,
 	isDisabled as defaultIsDisabled,
 	variant as defaultVariant
-} from '../../../components/Clickable/Tag/common/data/defaultPropValues';
+} from '../../../components/DataDisplay/Tag/common/data/defaultPropValues';
 import controls from '../../common/controls';
 
 const colorOptions: TagColor[] = [

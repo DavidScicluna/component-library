@@ -3,8 +3,8 @@ import { FC, useContext } from 'react';
 import { TagDeleteIconButtonProps, TagEvent } from './types';
 
 import { TagContext } from '../..';
+import IconButton from '../../../../Clickable/IconButton';
 import Icon from '../../../../Icon';
-import IconButton from '../../../IconButton';
 import {
 	colorMode as defaultColorMode,
 	size as defaultSize,
