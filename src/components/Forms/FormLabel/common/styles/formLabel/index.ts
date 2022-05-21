@@ -12,7 +12,7 @@ export default ({ theme, size = defaultSize }: FormLabelStyleProps): Style => {
 
 		fontSize: theme.fontSizes[fontSize],
 		fontWeight: theme.fontWeights.semibold,
-		// textTransform: 'uppercase',
+		textTransform: 'capitalize',
 		whiteSpace: 'nowrap',
 		lineHeight: theme.lineHeights.normal,
 		letterSpacing: '.8px',
