@@ -4,8 +4,10 @@ import { sample } from 'lodash';
 
 import { Meta, Story } from './types';
 
+import icons from '../../../common/data/icons';
 import InputComponent from '../../../components/Forms/Input';
 import {
+	autoComplete as defaultAutoComplete,
 	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
@@ -17,10 +19,19 @@ import {
 	isFullWidth as defaultIsFullWidth,
 	size as defaultSize
 } from '../../../components/Forms/Input/common/data/defaultPropValues';
-import { InputColor, InputProps, InputSize } from '../../../components/Forms/Input/types';
+import {
+	InputAutoComplete,
+	InputColor,
+	InputPanelRenderProps,
+	InputSize,
+	InputProps
+} from '../../../components/Forms/Input/types';
+import Icon from '../../../components/Icon';
 // eslint-disable-next-line max-len
 // import { InputColor, InputProps, InputRef, InputSize, Input as InputComponent, InputHeader, InputBody, InputFooter } from '../..';
 import controls from '../../common/controls';
+
+const autoCompleteOptions: InputAutoComplete[] = ['on', 'password', 'off'];
 
 const colorOptions: InputColor[] = [
 	'pink',
@@ -38,12 +49,31 @@ const colorOptions: InputColor[] = [
 ];
 const defaultColor: InputColor = sample(colorOptions) || colorOptions[0];
 
+const renderMapping = Object.assign(
+	{ none: undefined },
+	...icons.map((icon) => {
+		return {
+			[icon]: ({ width, height, ...rest }: InputPanelRenderProps) => (
+				<Icon {...rest} icon={icon} width={`${width}px`} height={`${height}px`} />
+			)
+		};
+	})
+);
+
 const sizeOptions: InputSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 export default {
 	title: 'Forms/Input',
 	component: InputComponent,
 	argTypes: {
+		autoComplete: {
+			name: 'AutoComplete',
+			type: 'string',
+			defaultValue: defaultAutoComplete,
+			// description: '',
+			options: [...autoCompleteOptions],
+			control: 'radio'
+		},
 		color: {
 			name: 'Color',
 			type: 'string',
@@ -53,6 +83,27 @@ export default {
 			control: 'select'
 		},
 		colorMode: { ...controls.theme.colorMode, defaultValue: defaultColorMode },
+		label: {
+			name: 'Label',
+			type: 'string',
+			defaultValue: 'Hello I am a Label',
+			// description: '',
+			control: 'text'
+		},
+		placeholder: {
+			name: 'Placeholder',
+			type: 'string',
+			defaultValue: 'Hello I am a placeholder',
+			// description: '',
+			control: 'text'
+		},
+		helper: {
+			name: 'Helper',
+			type: 'string',
+			defaultValue: 'Hello I am the helper text',
+			// description: '',
+			control: 'text'
+		},
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
@@ -109,7 +160,22 @@ export default {
 			// description: '',
 			control: 'boolean'
 		},
-
+		renderLeftPanel: {
+			name: 'Left Element',
+			defaultValue: 'none',
+			// description: '',
+			options: ['none', ...icons],
+			mapping: { ...renderMapping },
+			control: 'select'
+		},
+		renderRightPanel: {
+			name: 'Right Element',
+			defaultValue: 'none',
+			// description: '',
+			options: ['none', ...icons],
+			mapping: { ...renderMapping },
+			control: 'select'
+		},
 		size: {
 			name: 'Size',
 			type: 'string',
