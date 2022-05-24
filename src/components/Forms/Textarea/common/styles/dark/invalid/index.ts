@@ -1,6 +1,6 @@
 import { darken, transparentize } from 'color2k';
 
-import { TextareaDarkInvalidStyleProps } from './types';
+import { InputDarkInvalidStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../common/utils';
@@ -10,8 +10,12 @@ import { getAmount, getSizeConfig } from '../../../utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme, size = defaultSize }: TextareaDarkInvalidStyleProps): Style => {
+export default ({ theme, size = defaultSize }: InputDarkInvalidStyleProps): Style => {
 	const amount = getAmount();
+	const selectionShade = getHue({
+		colorMode: 'dark',
+		type: 'black'
+	});
 	const shade = getHue({
 		colorMode: 'dark',
 		type: 'color'
@@ -62,14 +66,14 @@ export default ({ theme, size = defaultSize }: TextareaDarkInvalidStyleProps): S
 			background: theme.colors.transparent
 		},
 
-		'& > textarea::selection': {
-			color: theme.colors.red[shade],
-			backgroundColor: transparentize(theme.colors.red[shade], 0.75),
-			background: transparentize(theme.colors.red[shade], 0.75)
+		'& input::selection': {
+			color: theme.colors.gray[selectionShade],
+			backgroundColor: transparentize(theme.colors.red[shade], amount.selection),
+			background: transparentize(theme.colors.red[shade], amount.selection)
 		},
 
-		'& > textarea::placeholder': {
-			color: transparentize(theme.colors.red[shade], 0.5)
+		'& input::placeholder': {
+			color: transparentize(theme.colors.red[shade], amount.placeholder)
 		},
 
 		'&:focus-visible': {

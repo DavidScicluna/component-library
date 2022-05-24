@@ -1,6 +1,6 @@
 import { darken, transparentize } from 'color2k';
 
-import { TextareaLightFocusedStyleProps } from './types';
+import { InputLightFocusedStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../common/utils';
@@ -10,8 +10,12 @@ import { getAmount, getSizeConfig } from '../../../utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme, color, size = defaultSize }: TextareaLightFocusedStyleProps): Style => {
+export default ({ theme, color, size = defaultSize }: InputLightFocusedStyleProps): Style => {
 	const amount = getAmount();
+	const selectionShade = getHue({
+		colorMode: 'light',
+		type: 'white'
+	});
 	const shade = getHue({
 		colorMode: 'light',
 		type: 'color'
@@ -62,14 +66,14 @@ export default ({ theme, color, size = defaultSize }: TextareaLightFocusedStyleP
 			background: theme.colors.transparent
 		},
 
-		'& > textarea::selection': {
-			color: theme.colors[color][shade],
-			backgroundColor: transparentize(theme.colors[color][shade], 0.75),
-			background: transparentize(theme.colors[color][shade], 0.75)
+		'& input::selection': {
+			color: theme.colors.gray[selectionShade],
+			backgroundColor: transparentize(theme.colors[color][shade], amount.selection),
+			background: transparentize(theme.colors[color][shade], amount.selection)
 		},
 
-		'& > textarea::placeholder': {
-			color: transparentize(theme.colors[color][shade], 0.5)
+		'& input::placeholder': {
+			color: transparentize(theme.colors[color][shade], amount.placeholder)
 		},
 
 		'&:focus-visible': {

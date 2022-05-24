@@ -1,9 +1,9 @@
-import { TextareaDarkDisabledStyleProps } from './types';
+import { InputDarkDisabledStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 
-export default ({ theme }: TextareaDarkDisabledStyleProps): Style => {
+export default ({ theme }: InputDarkDisabledStyleProps): Style => {
 	const textShade = getHue({
 		colorMode: 'dark',
 		type: 'text.primary'

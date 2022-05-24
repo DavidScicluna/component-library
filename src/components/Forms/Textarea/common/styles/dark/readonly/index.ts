@@ -1,9 +1,9 @@
-import { TextareaDarkReadOnlyStyleProps } from './types';
+import { InputDarkReadOnlyStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 
-export default ({ theme }: TextareaDarkReadOnlyStyleProps): Style => {
+export default ({ theme }: InputDarkReadOnlyStyleProps): Style => {
 	const textShade = getHue({
 		colorMode: 'dark',
 		type: 'text.primary'
@@ -16,7 +16,7 @@ export default ({ theme }: TextareaDarkReadOnlyStyleProps): Style => {
 	return {
 		color: `${theme.colors.gray[textShade]} !important`,
 		borderColor: `${theme.colors.gray[borderShade]} !important`,
-		backgroundColor: `${theme.colors.gray[100]} !important`,
-		background: `${theme.colors.gray[100]}  important`
+		backgroundColor: `${theme.colors.gray[800]} !important`,
+		background: `${theme.colors.gray[800]}  important`
 	};
 };

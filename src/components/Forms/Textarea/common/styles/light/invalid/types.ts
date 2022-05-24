@@ -1,5 +1,5 @@
-import { TextareaStyleProps } from '../../types';
+import { InputStyleProps } from '../../types';
 
 type Picked = 'theme' | 'size';
 
-export type TextareaLightInvalidStyleProps = Pick<TextareaStyleProps, Picked>;
+export type InputLightInvalidStyleProps = Pick<InputStyleProps, Picked>;

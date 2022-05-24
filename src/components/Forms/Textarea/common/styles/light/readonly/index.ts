@@ -1,9 +1,9 @@
-import { TextareaLightReadOnlyStyleProps } from './types';
+import { InputLightReadOnlyStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 
-export default ({ theme }: TextareaLightReadOnlyStyleProps): Style => {
+export default ({ theme }: InputLightReadOnlyStyleProps): Style => {
 	const textShade = getHue({
 		colorMode: 'light',
 		type: 'text.primary'
