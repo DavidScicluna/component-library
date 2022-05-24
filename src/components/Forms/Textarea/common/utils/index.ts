@@ -81,3 +81,20 @@ export const getAmount = (): GetAmountReturn => {
 		placeholder: 0.25
 	};
 };
+
+type GetIconFontSizeProps = { size: TextareaSize };
+
+export const getIconFontSize = ({ size = defaultSize }: GetIconFontSizeProps): string => {
+	switch (size) {
+		case 'xs':
+			return '18px';
+		case 'sm':
+			return '21px';
+		case 'lg':
+			return '27px';
+		case 'xl':
+			return '30px';
+		default:
+			return '24px';
+	}
+};

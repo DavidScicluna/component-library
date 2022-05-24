@@ -28,10 +28,12 @@ export type TextareaResize = 'horizontal' | 'vertical' | 'none';
 
 export type TextareaSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export type RenderProps = {
+export type RenderPanelProps = {
 	width: number;
 	height: number;
-	fontSize: 'xs' | 'sm' | 'md';
+	fontSize: TextareaSize;
+	color: TextareaColor;
+	colorMode?: ColorMode;
 };
 
 export type AutoComplete = 'on' | 'password' | 'off';
@@ -73,8 +75,8 @@ export type TextareaProps = {
 	isSuccess?: boolean;
 	isFocused?: boolean;
 	isFullWidth?: boolean;
-	renderLeftPanel?: (props: RenderProps) => ReactNode;
-	renderRightPanel?: (props: RenderProps) => ReactNode;
+	renderLeftPanel?: (props: RenderPanelProps) => ReactNode;
+	renderRightPanel?: (props: RenderPanelProps) => ReactNode;
 	resize?: TextareaResize;
 	size?: TextareaSize;
 	sx?: { group?: Style; textarea?: Style; formLabel?: Style; formHelperText?: Style };
