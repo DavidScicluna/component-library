@@ -22,21 +22,21 @@ export type Event = FocusEvent<HTMLTextAreaElement, Element>;
 
 export type TextareaRef = HTMLTextAreaElement | null;
 
+export type TextareaAutoComplete = 'on' | 'password' | 'off';
+
 export type TextareaColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray' | 'red' | 'yellow' | 'green'>;
 
 export type TextareaResize = 'horizontal' | 'vertical' | 'none';
 
 export type TextareaSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export type RenderPanelProps = {
+export type TextareaPanelRenderProps = {
 	width: number;
 	height: number;
 	fontSize: TextareaSize;
 	color: TextareaColor;
 	colorMode?: ColorMode;
 };
-
-export type AutoComplete = 'on' | 'password' | 'off';
 
 type Omitted =
 	// CUI Box Props
@@ -65,7 +65,7 @@ type Omitted =
 	| 'sx';
 
 export type TextareaProps = {
-	autoComplete?: AutoComplete;
+	autoComplete?: TextareaAutoComplete;
 	color: TextareaColor;
 	colorMode?: ColorMode;
 	label?: string;
@@ -75,8 +75,8 @@ export type TextareaProps = {
 	isSuccess?: boolean;
 	isFocused?: boolean;
 	isFullWidth?: boolean;
-	renderLeftPanel?: (props: RenderPanelProps) => ReactNode;
-	renderRightPanel?: (props: RenderPanelProps) => ReactNode;
+	renderLeftPanel?: (props: TextareaPanelRenderProps) => ReactNode;
+	renderRightPanel?: (props: TextareaPanelRenderProps) => ReactNode;
 	resize?: TextareaResize;
 	size?: TextareaSize;
 	sx?: { group?: Style; textarea?: Style; formLabel?: Style; formHelperText?: Style };

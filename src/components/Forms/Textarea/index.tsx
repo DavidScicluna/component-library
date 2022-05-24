@@ -31,7 +31,7 @@ import {
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { getIconFontSize, getSizeConfig } from './common/utils';
-import { TextareaProps, TextareaRef, RenderPanelProps, Event } from './types';
+import { TextareaProps, TextareaRef, TextareaPanelRenderProps, Event } from './types';
 
 import { useTheme } from '../../../common/hooks';
 import { convertStringToNumber } from '../../../common/utils';
@@ -110,7 +110,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 		[onBlur]
 	);
 
-	const renderPanelProps: RenderPanelProps = {
+	const renderPanelProps: TextareaPanelRenderProps = {
 		width: handleReturnPanelSize(),
 		height: handleReturnPanelSize(),
 		fontSize: size,
@@ -127,8 +127,6 @@ const Textarea = (props: TextareaProps): ReactElement => {
 			isInvalid={isError}
 			isReadOnly={isReadOnly}
 			onClick={handleClick}
-			resize={resize}
-			variant='unstyled'
 			sx={{ width: isFullWidth ? '100%' : 'auto' }}
 		>
 			{label && (
@@ -168,6 +166,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 					name={name}
 					onFocus={handleFocus}
 					onBlur={handleBlur}
+					resize={resize}
 					variant='unstyled'
 					sx={merge(style.textarea, sx?.textarea || {})}
 				/>
