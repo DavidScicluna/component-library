@@ -1,12 +1,20 @@
+import { transparentize } from 'color2k';
+
 import { InputLightReadOnlyStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
+import { getAmount } from '../../../utils';
 
 export default ({ theme }: InputLightReadOnlyStyleProps): Style => {
-	const textShade = getHue({
+	const amount = getAmount();
+	const textPrimaryShade = getHue({
 		colorMode: 'light',
 		type: 'text.primary'
+	});
+	const textSecondaryShade = getHue({
+		colorMode: 'light',
+		type: 'text.secondary'
 	});
 	const borderShade = getHue({
 		colorMode: 'light',
@@ -14,9 +22,13 @@ export default ({ theme }: InputLightReadOnlyStyleProps): Style => {
 	});
 
 	return {
-		color: `${theme.colors.gray[textShade]} !important`,
-		borderColor: `${theme.colors.gray[borderShade]} !important`,
-		backgroundColor: `${theme.colors.gray[100]} !important`,
-		background: `${theme.colors.gray[100]}  important`
+		'color': `${theme.colors.gray[textPrimaryShade]} !important`,
+		'borderColor': `${theme.colors.gray[borderShade]} !important`,
+		'backgroundColor': `${theme.colors.gray[100]} !important`,
+		'background': `${theme.colors.gray[100]}  important`,
+
+		'& input::placeholder': {
+			color: `${transparentize(theme.colors.gray[textSecondaryShade], amount.placeholder)} !important`
+		}
 	};
 };
