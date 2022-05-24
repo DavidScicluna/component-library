@@ -5,6 +5,7 @@ import { SpinnerCircularFixed } from 'spinners-react';
 import { SpinnerProps } from './types';
 
 import { useTheme } from '../../../../../common/hooks';
+import { convertREMToPixels, convertStringToNumber } from '../../../../../common/utils';
 import { getColor } from '../../../../../common/utils/color';
 import {
 	color as defaultColor,
@@ -12,6 +13,7 @@ import {
 	size as defaultSize,
 	variant as defaultVariant
 } from '../../common/data/defaultPropValues';
+import { getIconFontSize, getSizeConfig } from '../../common/utils';
 
 const Spinner: FC<SpinnerProps> = (props) => {
 	const theme = useTheme();
@@ -55,9 +57,9 @@ const Spinner: FC<SpinnerProps> = (props) => {
 		});
 	}, [theme, color, colorMode, variant]);
 
-	const handleReturnSize = useCallback((): string => {
-		return theme.fontSizes[size];
-	}, [theme, size]);
+	const handleReturnSize = useCallback((): number => {
+		return convertREMToPixels(convertStringToNumber(getIconFontSize({ size }), 'px'));
+	}, [size, getSizeConfig]);
 
 	return (
 		<SpinnerCircularFixed
