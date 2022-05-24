@@ -66,13 +66,13 @@ export default ({ theme, size = defaultSize }: InputLightSuccessStyleProps): Sty
 			background: theme.colors.transparent
 		},
 
-		'& input::selection': {
+		'& textarea::selection': {
 			color: theme.colors.gray[selectionShade],
 			backgroundColor: transparentize(theme.colors.green[shade], amount.selection),
 			background: transparentize(theme.colors.green[shade], amount.selection)
 		},
 
-		'& input::placeholder': {
+		'& textarea::placeholder': {
 			color: transparentize(theme.colors.green[shade], amount.placeholder)
 		},
 

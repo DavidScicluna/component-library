@@ -74,13 +74,13 @@ export default ({ theme, size = defaultSize }: InputGroupLightStyleProps): Style
 			background: theme.colors.transparent
 		},
 
-		'& input::selection': {
+		'& textarea::selection': {
 			color: theme.colors.gray[textPrimaryShade],
 			backgroundColor: transparentize(theme.colors.gray[backgroundShade], amount.selection),
 			background: transparentize(theme.colors.gray[backgroundShade], amount.selection)
 		},
 
-		'& input::placeholder': {
+		'& textarea::placeholder': {
 			color: transparentize(theme.colors.gray[textSecondaryShade], amount.placeholder)
 		},
 

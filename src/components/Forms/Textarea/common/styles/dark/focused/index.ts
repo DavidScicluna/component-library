@@ -66,13 +66,13 @@ export default ({ theme, color, size = defaultSize }: InputDarkFocusedStyleProps
 			background: theme.colors.transparent
 		},
 
-		'& input::selection': {
+		'& textarea::selection': {
 			color: theme.colors.gray[selectionShade],
 			backgroundColor: transparentize(theme.colors[color][shade], amount.selection),
 			background: transparentize(theme.colors[color][shade], amount.selection)
 		},
 
-		'& input::placeholder': {
+		'& textarea::placeholder': {
 			color: transparentize(theme.colors[color][shade], amount.placeholder)
 		},
 

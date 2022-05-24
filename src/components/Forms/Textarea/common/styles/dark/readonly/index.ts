@@ -27,7 +27,7 @@ export default ({ theme }: InputDarkReadOnlyStyleProps): Style => {
 		'backgroundColor': `${theme.colors.gray[800]} !important`,
 		'background': `${theme.colors.gray[800]}  important`,
 
-		'& input::placeholder': {
+		'& textarea::placeholder': {
 			color: `${transparentize(theme.colors.gray[textSecondaryShade], amount.placeholder)} !important`
 		}
 	};
