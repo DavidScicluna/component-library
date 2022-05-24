@@ -1,4 +1,4 @@
-import { ReactElement, useCallback } from 'react';
+import { ReactElement, useRef, useCallback } from 'react';
 
 import {
 	ColorMode,
@@ -34,7 +34,6 @@ import { getSizeConfig } from './common/utils';
 import { InputProps, InputRef, RenderProps, Event } from './types';
 
 import { useTheme } from '../../../common/hooks';
-import { NonNullable } from '../../../common/types';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 
@@ -42,7 +41,8 @@ const Input = (props: InputProps): ReactElement => {
 	const theme = useTheme();
 	const { colorMode: colorModeHook } = useColorMode();
 
-	const [inputRef, { width: inputWidth, height: inputHeight }] = useElementSize<NonNullable<InputRef>>();
+	const [containerRef, { width: containerWidth, height: containerHeight }] = useElementSize();
+	const inputRef = useRef<InputRef>(null);
 
 	const {
 		autoComplete = defaultAutoComplete,
@@ -75,13 +75,19 @@ const Input = (props: InputProps): ReactElement => {
 
 	const renderProps: RenderProps = {
 		fontSize: size === 'sm' ? 'xs' : size === 'md' ? 'sm' : 'md',
-		width: inputWidth,
-		height: inputHeight
+		width: containerWidth,
+		height: containerHeight
 	};
 
 	const style = useStyles({ theme, color, colorMode, isWarning, isSuccess, isFocused, isFullWidth, size });
 
 	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
+
+	const handleClick = useCallback((): void => {
+		if (inputRef && inputRef.current) {
+			inputRef.current.focus();
+		}
+	}, [inputRef]);
 
 	const handleFocus = useCallback(
 		(event: Event): void => {
@@ -113,6 +119,7 @@ const Input = (props: InputProps): ReactElement => {
 			isRequired={isRequired}
 			isInvalid={isError}
 			isReadOnly={isReadOnly}
+			onClick={handleClick}
 			variant='unstyled'
 			sx={{ width: isFullWidth ? '100%' : 'auto' }}
 		>
@@ -141,21 +148,23 @@ const Input = (props: InputProps): ReactElement => {
 				_readOnly={style.readonly}
 			>
 				{renderLeftPanel && <Center>{renderLeftPanel({ ...renderProps })}</Center>}
-				<CUIInput
-					{...rest}
-					ref={inputRef}
-					autoComplete={autoComplete || 'off'}
-					isDisabled={isDisabled}
-					isRequired={isRequired}
-					isInvalid={isError}
-					isReadOnly={isReadOnly}
-					id={id || name}
-					name={name}
-					onFocus={handleFocus}
-					onBlur={handleBlur}
-					variant='unstyled'
-					sx={merge(style.input, sx?.input || {})}
-				/>
+				<Center ref={containerRef} width='100%'>
+					<CUIInput
+						{...rest}
+						ref={inputRef}
+						autoComplete={autoComplete || 'off'}
+						isDisabled={isDisabled}
+						isRequired={isRequired}
+						isInvalid={isError}
+						isReadOnly={isReadOnly}
+						id={id || name}
+						name={name}
+						onFocus={handleFocus}
+						onBlur={handleBlur}
+						variant='unstyled'
+						sx={merge(style.input, sx?.input || {})}
+					/>
+				</Center>
 				{renderRightPanel && <Center>{renderRightPanel({ ...renderProps })}</Center>}
 			</HStack>
 
