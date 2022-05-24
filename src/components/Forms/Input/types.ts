@@ -22,19 +22,19 @@ export type Event = FocusEvent<HTMLInputElement, Element>;
 
 export type InputRef = HTMLInputElement | null;
 
+export type InputAutoComplete = 'on' | 'password' | 'off';
+
 export type InputColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray' | 'red' | 'yellow' | 'green'>;
 
 export type InputSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export type RenderPanelProps = {
+export type InputPanelRenderProps = {
 	width: number;
 	height: number;
 	fontSize: InputSize;
 	color: InputColor;
 	colorMode?: ColorMode;
 };
-
-export type AutoComplete = 'on' | 'password' | 'off';
 
 type Omitted =
 	// CUI Box Props
@@ -62,7 +62,7 @@ type Omitted =
 	| 'sx';
 
 export type InputProps = {
-	autoComplete?: AutoComplete;
+	autoComplete?: InputAutoComplete;
 	color: InputColor;
 	colorMode?: ColorMode;
 	label?: string;
@@ -72,8 +72,8 @@ export type InputProps = {
 	isSuccess?: boolean;
 	isFocused?: boolean;
 	isFullWidth?: boolean;
-	renderLeftPanel?: (props: RenderPanelProps) => ReactNode;
-	renderRightPanel?: (props: RenderPanelProps) => ReactNode;
+	renderLeftPanel?: (props: InputPanelRenderProps) => ReactNode;
+	renderRightPanel?: (props: InputPanelRenderProps) => ReactNode;
 	size?: InputSize;
 	sx?: { group?: Style; input?: Style; formLabel?: Style; formHelperText?: Style };
 } & Omit<CUIInputProps, Omitted>;

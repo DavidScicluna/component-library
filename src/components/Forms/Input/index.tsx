@@ -30,7 +30,7 @@ import {
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { getIconFontSize, getSizeConfig } from './common/utils';
-import { InputProps, InputRef, RenderPanelProps, Event } from './types';
+import { InputProps, InputRef, InputPanelRenderProps, Event } from './types';
 
 import { useTheme } from '../../../common/hooks';
 import { convertStringToNumber } from '../../../common/utils';
@@ -108,7 +108,7 @@ const Input = (props: InputProps): ReactElement => {
 		[onBlur]
 	);
 
-	const renderPanelProps: RenderPanelProps = {
+	const renderPanelProps: InputPanelRenderProps = {
 		width: handleReturnPanelSize(),
 		height: handleReturnPanelSize(),
 		fontSize: size,
