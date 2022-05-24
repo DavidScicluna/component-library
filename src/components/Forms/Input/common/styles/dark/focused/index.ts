@@ -1,4 +1,4 @@
-import { darken, transparentize } from 'color2k';
+import { lighten, transparentize } from 'color2k';
 
 import { InputDarkFocusedStyleProps } from './types';
 
@@ -32,36 +32,36 @@ export default ({ theme, color, size = defaultSize }: InputDarkFocusedStyleProps
 		'background': theme.colors.transparent,
 
 		'&:hover': {
-			'color': darken(theme.colors[color][shade], amount.hover),
-			'borderColor': darken(theme.colors[color][shade], amount.hover),
+			'color': lighten(theme.colors[color][shade], amount.hover),
+			'borderColor': lighten(theme.colors[color][shade], amount.hover),
 			'backgroundColor': theme.colors.transparent,
 			'background': theme.colors.transparent,
 
 			'&:focus': {
-				color: darken(theme.colors[color][shade], amount.active),
-				borderColor: darken(theme.colors[color][shade], amount.active),
+				color: lighten(theme.colors[color][shade], amount.active),
+				borderColor: lighten(theme.colors[color][shade], amount.active),
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
 			},
 
 			'&:active': {
-				color: darken(theme.colors[color][shade], amount.active),
-				borderColor: darken(theme.colors[color][shade], amount.active),
+				color: lighten(theme.colors[color][shade], amount.active),
+				borderColor: lighten(theme.colors[color][shade], amount.active),
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
 			}
 		},
 
 		'&:focus': {
-			color: darken(theme.colors[color][shade], amount.active),
-			borderColor: darken(theme.colors[color][shade], amount.active),
+			color: lighten(theme.colors[color][shade], amount.active),
+			borderColor: lighten(theme.colors[color][shade], amount.active),
 			backgroundColor: theme.colors.transparent,
 			background: theme.colors.transparent
 		},
 
 		'&:active': {
-			color: darken(theme.colors[color][shade], amount.active),
-			borderColor: darken(theme.colors[color][shade], amount.active),
+			color: lighten(theme.colors[color][shade], amount.active),
+			borderColor: lighten(theme.colors[color][shade], amount.active),
 			backgroundColor: theme.colors.transparent,
 			background: theme.colors.transparent
 		},

@@ -1,4 +1,4 @@
-import { darken, transparentize } from 'color2k';
+import { lighten, transparentize } from 'color2k';
 
 import { InputDarkSuccessStyleProps } from './types';
 
@@ -32,36 +32,36 @@ export default ({ theme, size = defaultSize }: InputDarkSuccessStyleProps): Styl
 		'background': theme.colors.transparent,
 
 		'&:hover': {
-			'color': darken(theme.colors.green[shade], amount.hover),
-			'borderColor': darken(theme.colors.green[shade], amount.hover),
+			'color': lighten(theme.colors.green[shade], amount.hover),
+			'borderColor': lighten(theme.colors.green[shade], amount.hover),
 			'backgroundColor': theme.colors.transparent,
 			'background': theme.colors.transparent,
 
 			'&:focus': {
-				color: darken(theme.colors.green[shade], amount.active),
-				borderColor: darken(theme.colors.green[shade], amount.active),
+				color: lighten(theme.colors.green[shade], amount.active),
+				borderColor: lighten(theme.colors.green[shade], amount.active),
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
 			},
 
 			'&:active': {
-				color: darken(theme.colors.green[shade], amount.active),
-				borderColor: darken(theme.colors.green[shade], amount.active),
+				color: lighten(theme.colors.green[shade], amount.active),
+				borderColor: lighten(theme.colors.green[shade], amount.active),
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
 			}
 		},
 
 		'&:focus': {
-			color: darken(theme.colors.green[shade], amount.active),
-			borderColor: darken(theme.colors.green[shade], amount.active),
+			color: lighten(theme.colors.green[shade], amount.active),
+			borderColor: lighten(theme.colors.green[shade], amount.active),
 			backgroundColor: theme.colors.transparent,
 			background: theme.colors.transparent
 		},
 
 		'&:active': {
-			color: darken(theme.colors.green[shade], amount.active),
-			borderColor: darken(theme.colors.green[shade], amount.active),
+			color: lighten(theme.colors.green[shade], amount.active),
+			borderColor: lighten(theme.colors.green[shade], amount.active),
 			backgroundColor: theme.colors.transparent,
 			background: theme.colors.transparent
 		},

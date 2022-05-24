@@ -1,4 +1,4 @@
-import { darken, transparentize } from 'color2k';
+import { lighten, transparentize } from 'color2k';
 
 import { InputGroupDarkStyleProps } from './types';
 
@@ -40,36 +40,36 @@ export default ({ theme, size = defaultSize }: InputGroupDarkStyleProps): Style 
 		'background': theme.colors.transparent,
 
 		'&:hover': {
-			'color': darken(theme.colors.gray[textPrimaryShade], amount.hover),
-			'borderColor': darken(theme.colors.gray[borderShade], amount.hover),
+			'color': lighten(theme.colors.gray[textPrimaryShade], amount.hover),
+			'borderColor': lighten(theme.colors.gray[borderShade], amount.hover),
 			'backgroundColor': theme.colors.transparent,
 			'background': theme.colors.transparent,
 
 			'&:focus': {
-				color: darken(theme.colors.gray[textPrimaryShade], amount.active),
-				borderColor: darken(theme.colors.gray[borderShade], amount.active),
+				color: lighten(theme.colors.gray[textPrimaryShade], amount.active),
+				borderColor: lighten(theme.colors.gray[borderShade], amount.active),
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
 			},
 
 			'&:active': {
-				color: darken(theme.colors.gray[textPrimaryShade], amount.active),
-				borderColor: darken(theme.colors.gray[borderShade], amount.active),
+				color: lighten(theme.colors.gray[textPrimaryShade], amount.active),
+				borderColor: lighten(theme.colors.gray[borderShade], amount.active),
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
 			}
 		},
 
 		'&:focus': {
-			color: darken(theme.colors.gray[textPrimaryShade], amount.active),
-			borderColor: darken(theme.colors.gray[borderShade], amount.active),
+			color: lighten(theme.colors.gray[textPrimaryShade], amount.active),
+			borderColor: lighten(theme.colors.gray[borderShade], amount.active),
 			backgroundColor: theme.colors.transparent,
 			background: theme.colors.transparent
 		},
 
 		'&:active': {
-			color: darken(theme.colors.gray[textPrimaryShade], amount.active),
-			borderColor: darken(theme.colors.gray[borderShade], amount.active),
+			color: lighten(theme.colors.gray[textPrimaryShade], amount.active),
+			borderColor: lighten(theme.colors.gray[borderShade], amount.active),
 			backgroundColor: theme.colors.transparent,
 			background: theme.colors.transparent
 		},
