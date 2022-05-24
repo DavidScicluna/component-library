@@ -24,6 +24,8 @@ export type TextareaRef = HTMLTextAreaElement | null;
 
 export type TextareaColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray' | 'red' | 'yellow' | 'green'>;
 
+export type TextareaResize = 'horizontal' | 'vertical' | 'none';
+
 export type TextareaSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type RenderProps = {
@@ -55,6 +57,7 @@ type Omitted =
 	| 'focusBorderColor'
 	| 'htmlSize'
 	| 'isInvalid'
+	| 'resize'
 	| 'size'
 	| 'variant'
 	| 'sx';
@@ -72,6 +75,7 @@ export type TextareaProps = {
 	isFullWidth?: boolean;
 	renderLeftPanel?: (props: RenderProps) => ReactNode;
 	renderRightPanel?: (props: RenderProps) => ReactNode;
+	resize?: TextareaResize;
 	size?: TextareaSize;
 	sx?: { group?: Style; textarea?: Style; formLabel?: Style; formHelperText?: Style };
 } & Omit<CUITextareaProps, Omitted>;

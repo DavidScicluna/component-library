@@ -1,4 +1,4 @@
-import { ReactElement, useCallback } from 'react';
+import { ReactElement, useRef, useCallback } from 'react';
 
 import {
 	ColorMode,
@@ -27,6 +27,7 @@ import {
 	isReadOnly as defaultIsReadOnly,
 	isRequired as defaultIsRequired,
 	isFullWidth as defaultIsFullWidth,
+	resize as defaultResize,
 	size as defaultSize
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
@@ -34,7 +35,6 @@ import { getSizeConfig } from './common/utils';
 import { TextareaProps, TextareaRef, RenderProps, Event } from './types';
 
 import { useTheme } from '../../../common/hooks';
-import { NonNullable } from '../../../common/types';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 
@@ -42,7 +42,8 @@ const Textarea = (props: TextareaProps): ReactElement => {
 	const theme = useTheme();
 	const { colorMode: colorModeHook } = useColorMode();
 
-	const [textareaRef, { width: textareaWidth, height: textareaHeight }] = useElementSize<NonNullable<TextareaRef>>();
+	const [containerRef, { width: containerWidth, height: containerHeight }] = useElementSize();
+	const textareaRef = useRef<TextareaRef>(null);
 
 	const {
 		autoComplete = defaultAutoComplete,
@@ -64,6 +65,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 		renderRightPanel,
 		onBlur,
 		size = defaultSize,
+		resize = defaultResize,
 		sx,
 		...rest
 	} = props;
@@ -75,13 +77,19 @@ const Textarea = (props: TextareaProps): ReactElement => {
 
 	const renderProps: RenderProps = {
 		fontSize: size === 'sm' ? 'xs' : size === 'md' ? 'sm' : 'md',
-		width: textareaWidth,
-		height: textareaHeight
+		width: containerWidth,
+		height: containerHeight
 	};
 
 	const style = useStyles({ theme, color, colorMode, isWarning, isSuccess, isFocused, isFullWidth, size });
 
 	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
+
+	const handleClick = useCallback((): void => {
+		if (textareaRef && textareaRef.current) {
+			textareaRef.current.focus();
+		}
+	}, [textareaRef]);
 
 	const handleFocus = useCallback(
 		(event: Event): void => {
@@ -113,6 +121,8 @@ const Textarea = (props: TextareaProps): ReactElement => {
 			isRequired={isRequired}
 			isInvalid={isError}
 			isReadOnly={isReadOnly}
+			onClick={handleClick}
+			resize={resize}
 			variant='unstyled'
 			sx={{ width: isFullWidth ? '100%' : 'auto' }}
 		>
@@ -141,21 +151,23 @@ const Textarea = (props: TextareaProps): ReactElement => {
 				_readOnly={style.readonly}
 			>
 				{renderLeftPanel && <Center>{renderLeftPanel({ ...renderProps })}</Center>}
-				<CUITextarea
-					{...rest}
-					ref={textareaRef}
-					autoComplete={autoComplete || 'off'}
-					isDisabled={isDisabled}
-					isRequired={isRequired}
-					isInvalid={isError}
-					isReadOnly={isReadOnly}
-					id={id || name}
-					name={name}
-					onFocus={handleFocus}
-					onBlur={handleBlur}
-					variant='unstyled'
-					sx={merge(style.textarea, sx?.textarea || {})}
-				/>
+				<Center ref={containerRef} width='100%'>
+					<CUITextarea
+						{...rest}
+						ref={textareaRef}
+						autoComplete={autoComplete || 'off'}
+						isDisabled={isDisabled}
+						isRequired={isRequired}
+						isInvalid={isError}
+						isReadOnly={isReadOnly}
+						id={id || name}
+						name={name}
+						onFocus={handleFocus}
+						onBlur={handleBlur}
+						variant='unstyled'
+						sx={merge(style.textarea, sx?.textarea || {})}
+					/>
+				</Center>
 				{renderRightPanel && <Center>{renderRightPanel({ ...renderProps })}</Center>}
 			</HStack>
 
