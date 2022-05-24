@@ -15,7 +15,6 @@ import {
 
 import { isEmpty, isNil } from 'lodash';
 import merge from 'lodash/merge';
-import { useElementSize } from 'usehooks-ts';
 
 import {
 	autoComplete as defaultAutoComplete,
@@ -30,10 +29,11 @@ import {
 	size as defaultSize
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
-import { getSizeConfig } from './common/utils';
-import { InputProps, InputRef, RenderProps, Event } from './types';
+import { getIconFontSize, getSizeConfig } from './common/utils';
+import { InputProps, InputRef, RenderPanelProps, Event } from './types';
 
 import { useTheme } from '../../../common/hooks';
+import { convertStringToNumber } from '../../../common/utils';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 
@@ -41,7 +41,6 @@ const Input = (props: InputProps): ReactElement => {
 	const theme = useTheme();
 	const { colorMode: colorModeHook } = useColorMode();
 
-	const [containerRef, { width: containerWidth, height: containerHeight }] = useElementSize();
 	const inputRef = useRef<InputRef>(null);
 
 	const {
@@ -73,13 +72,11 @@ const Input = (props: InputProps): ReactElement => {
 	const colorMode: ColorMode = colorModeProp || colorModeHook;
 	const isFocused: boolean = isFocusedProp || isFocusedHook;
 
-	const renderProps: RenderProps = {
-		fontSize: size === 'sm' ? 'xs' : size === 'md' ? 'sm' : 'md',
-		width: containerWidth,
-		height: containerHeight
-	};
-
 	const style = useStyles({ theme, color, colorMode, isWarning, isSuccess, isFocused, isFullWidth, size });
+
+	const handleReturnPanelSize = useCallback((): number => {
+		return convertStringToNumber(getIconFontSize({ size }), 'px');
+	}, [size, getIconFontSize]);
 
 	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
 
@@ -110,6 +107,14 @@ const Input = (props: InputProps): ReactElement => {
 		},
 		[onBlur]
 	);
+
+	const renderPanelProps: RenderPanelProps = {
+		width: handleReturnPanelSize(),
+		height: handleReturnPanelSize(),
+		fontSize: size,
+		color,
+		colorMode
+	};
 
 	return (
 		<VStack
@@ -147,25 +152,23 @@ const Input = (props: InputProps): ReactElement => {
 				_invalid={style.invalid}
 				_readOnly={style.readonly}
 			>
-				{renderLeftPanel && <Center>{renderLeftPanel({ ...renderProps })}</Center>}
-				<Center ref={containerRef} width='100%'>
-					<CUIInput
-						{...rest}
-						ref={inputRef}
-						autoComplete={autoComplete || 'off'}
-						isDisabled={isDisabled}
-						isRequired={isRequired}
-						isInvalid={isError}
-						isReadOnly={isReadOnly}
-						id={id || name}
-						name={name}
-						onFocus={handleFocus}
-						onBlur={handleBlur}
-						variant='unstyled'
-						sx={merge(style.input, sx?.input || {})}
-					/>
-				</Center>
-				{renderRightPanel && <Center>{renderRightPanel({ ...renderProps })}</Center>}
+				{renderLeftPanel && <Center>{renderLeftPanel({ ...renderPanelProps })}</Center>}
+				<CUIInput
+					{...rest}
+					ref={inputRef}
+					autoComplete={autoComplete || 'off'}
+					isDisabled={isDisabled}
+					isRequired={isRequired}
+					isInvalid={isError}
+					isReadOnly={isReadOnly}
+					id={id || name}
+					name={name}
+					onFocus={handleFocus}
+					onBlur={handleBlur}
+					variant='unstyled'
+					sx={merge(style.input, sx?.input || {})}
+				/>
+				{renderRightPanel && <Center>{renderRightPanel({ ...renderPanelProps })}</Center>}
 			</HStack>
 
 			<Collapse in={!(isNil(helper) || isEmpty(helper))} unmountOnExit style={{ width: '100%' }}>

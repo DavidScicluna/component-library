@@ -26,10 +26,12 @@ export type InputColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gra
 
 export type InputSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export type RenderProps = {
+export type RenderPanelProps = {
 	width: number;
 	height: number;
-	fontSize: 'xs' | 'sm' | 'md';
+	fontSize: InputSize;
+	color: InputColor;
+	colorMode?: ColorMode;
 };
 
 export type AutoComplete = 'on' | 'password' | 'off';
@@ -70,8 +72,8 @@ export type InputProps = {
 	isSuccess?: boolean;
 	isFocused?: boolean;
 	isFullWidth?: boolean;
-	renderLeftPanel?: (props: RenderProps) => ReactNode;
-	renderRightPanel?: (props: RenderProps) => ReactNode;
+	renderLeftPanel?: (props: RenderPanelProps) => ReactNode;
+	renderRightPanel?: (props: RenderPanelProps) => ReactNode;
 	size?: InputSize;
 	sx?: { group?: Style; input?: Style; formLabel?: Style; formHelperText?: Style };
 } & Omit<CUIInputProps, Omitted>;
