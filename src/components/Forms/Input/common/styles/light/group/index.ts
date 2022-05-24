@@ -12,9 +12,17 @@ const isTouchDevice: boolean = checkIsTouchDevice();
 
 export default ({ theme, size = defaultSize }: InputGroupLightStyleProps): Style => {
 	const amount = getAmount();
-	const textShade = getHue({
+	const textPrimaryShade = getHue({
 		colorMode: 'light',
 		type: 'text.primary'
+	});
+	const textSecondaryShade = getHue({
+		colorMode: 'light',
+		type: 'text.secondary'
+	});
+	const backgroundShade = getHue({
+		colorMode: 'light',
+		type: 'color'
 	});
 	const borderShade = getHue({
 		colorMode: 'light',
@@ -26,29 +34,26 @@ export default ({ theme, size = defaultSize }: InputGroupLightStyleProps): Style
 	const offset = config.offset;
 
 	return {
-		'color': theme.colors.gray[textShade],
+		'color': theme.colors.gray[textPrimaryShade],
 		'borderColor': theme.colors.gray[borderShade],
 		'backgroundColor': theme.colors.transparent,
 		'background': theme.colors.transparent,
 
 		'&:hover': {
-			// 'color': darken(theme.colors[color][shade], amount.hover),
-			'color': theme.colors.gray[textShade],
+			'color': darken(theme.colors.gray[textPrimaryShade], amount.hover),
 			'borderColor': darken(theme.colors.gray[borderShade], amount.hover),
 			'backgroundColor': theme.colors.transparent,
 			'background': theme.colors.transparent,
 
 			'&:focus': {
-				// color: darken(theme.colors[color][shade], amount.active),
-				color: theme.colors.gray[textShade],
+				color: darken(theme.colors.gray[textPrimaryShade], amount.active),
 				borderColor: darken(theme.colors.gray[borderShade], amount.active),
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
 			},
 
 			'&:active': {
-				// color: darken(theme.colors[color][shade], amount.active),
-				color: theme.colors.gray[textShade],
+				color: darken(theme.colors.gray[textPrimaryShade], amount.active),
 				borderColor: darken(theme.colors.gray[borderShade], amount.active),
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
@@ -56,29 +61,27 @@ export default ({ theme, size = defaultSize }: InputGroupLightStyleProps): Style
 		},
 
 		'&:focus': {
-			// color: darken(theme.colors[color][shade], amount.active),
-			color: theme.colors.gray[textShade],
+			color: darken(theme.colors.gray[textPrimaryShade], amount.active),
 			borderColor: darken(theme.colors.gray[borderShade], amount.active),
 			backgroundColor: theme.colors.transparent,
 			background: theme.colors.transparent
 		},
 
 		'&:active': {
-			// color: darken(theme.colors[color][shade], amount.active),
-			color: theme.colors.gray[textShade],
+			color: darken(theme.colors.gray[textPrimaryShade], amount.active),
 			borderColor: darken(theme.colors.gray[borderShade], amount.active),
 			backgroundColor: theme.colors.transparent,
 			background: theme.colors.transparent
 		},
 
-		'& > input::selection': {
-			color: theme.colors.gray[borderShade],
-			backgroundColor: transparentize(theme.colors.gray[borderShade], 0.75),
-			background: transparentize(theme.colors.gray[borderShade], 0.75)
+		'& input::selection': {
+			color: theme.colors.gray[textPrimaryShade],
+			backgroundColor: transparentize(theme.colors.gray[backgroundShade], amount.selection),
+			background: transparentize(theme.colors.gray[backgroundShade], amount.selection)
 		},
 
-		'& > input::placeholder': {
-			color: transparentize(theme.colors.gray[borderShade], 0.5)
+		'& input::placeholder': {
+			color: transparentize(theme.colors.gray[textSecondaryShade], amount.placeholder)
 		},
 
 		'&:focus-visible': {

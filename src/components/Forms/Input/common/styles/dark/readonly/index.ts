@@ -16,7 +16,7 @@ export default ({ theme }: InputDarkReadOnlyStyleProps): Style => {
 	return {
 		color: `${theme.colors.gray[textShade]} !important`,
 		borderColor: `${theme.colors.gray[borderShade]} !important`,
-		backgroundColor: `${theme.colors.gray[100]} !important`,
-		background: `${theme.colors.gray[100]}  important`
+		backgroundColor: `${theme.colors.gray[800]} !important`,
+		background: `${theme.colors.gray[800]}  important`
 	};
 };

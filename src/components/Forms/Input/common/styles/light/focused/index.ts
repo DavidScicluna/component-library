@@ -12,6 +12,10 @@ const isTouchDevice: boolean = checkIsTouchDevice();
 
 export default ({ theme, color, size = defaultSize }: InputLightFocusedStyleProps): Style => {
 	const amount = getAmount();
+	const selectionShade = getHue({
+		colorMode: 'light',
+		type: 'white'
+	});
 	const shade = getHue({
 		colorMode: 'light',
 		type: 'color'
@@ -62,14 +66,14 @@ export default ({ theme, color, size = defaultSize }: InputLightFocusedStyleProp
 			background: theme.colors.transparent
 		},
 
-		'& > input::selection': {
-			color: theme.colors[color][shade],
-			backgroundColor: transparentize(theme.colors[color][shade], 0.75),
-			background: transparentize(theme.colors[color][shade], 0.75)
+		'& input::selection': {
+			color: theme.colors.gray[selectionShade],
+			backgroundColor: transparentize(theme.colors[color][shade], amount.selection),
+			background: transparentize(theme.colors[color][shade], amount.selection)
 		},
 
-		'& > input::placeholder': {
-			color: transparentize(theme.colors[color][shade], 0.5)
+		'& input::placeholder': {
+			color: transparentize(theme.colors[color][shade], amount.placeholder)
 		},
 
 		'&:focus-visible': {

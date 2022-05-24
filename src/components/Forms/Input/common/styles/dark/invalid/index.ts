@@ -12,6 +12,10 @@ const isTouchDevice: boolean = checkIsTouchDevice();
 
 export default ({ theme, size = defaultSize }: InputDarkInvalidStyleProps): Style => {
 	const amount = getAmount();
+	const selectionShade = getHue({
+		colorMode: 'dark',
+		type: 'black'
+	});
 	const shade = getHue({
 		colorMode: 'dark',
 		type: 'color'
@@ -62,14 +66,14 @@ export default ({ theme, size = defaultSize }: InputDarkInvalidStyleProps): Styl
 			background: theme.colors.transparent
 		},
 
-		'& > input::selection': {
-			color: theme.colors.red[shade],
-			backgroundColor: transparentize(theme.colors.red[shade], 0.75),
-			background: transparentize(theme.colors.red[shade], 0.75)
+		'& input::selection': {
+			color: theme.colors.gray[selectionShade],
+			backgroundColor: transparentize(theme.colors.red[shade], amount.selection),
+			background: transparentize(theme.colors.red[shade], amount.selection)
 		},
 
-		'& > input::placeholder': {
-			color: transparentize(theme.colors.red[shade], 0.5)
+		'& input::placeholder': {
+			color: transparentize(theme.colors.red[shade], amount.placeholder)
 		},
 
 		'&:focus-visible': {
