@@ -20,7 +20,7 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 		'cursor': 'text',
 
 		'width': isFullWidth ? '100%' : 'auto',
-		'height': `${height}px`,
+		'height': 'auto',
 
 		'minWidth': 'auto',
 		'minHeight': 'auto',
@@ -48,6 +48,13 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 		'transition': 'none',
 		'transitionDuration': theme.transition.duration.normal,
 		'transitionTimingFunction': theme.transition.easing['ease-in-out'],
+
+		'& textarea': {
+			minWidth: 'auto',
+			minHeight: `${height}px`,
+			maxWidth: 'none',
+			maxHeight: 'none'
+		},
 
 		'&:focus:not(:focus-visible)': {
 			outline: !isTouchDevice ? '0px auto' : 'none !important'
