@@ -41,6 +41,7 @@ const FormHelperText: FC<FormHelperTextProps> = (props) => {
 			aria-readonly={isReadOnly}
 			sx={merge(style.formHelperText, sx)}
 			_disabled={style.disabled}
+			_readOnly={style.readonly}
 		>
 			{children}
 		</CUIFormHelperText>

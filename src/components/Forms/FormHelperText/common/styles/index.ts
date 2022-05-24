@@ -33,6 +33,7 @@ export default memoize((props: FormHelperTextStyleProps): FormHelperTextStyleRet
 				theme
 			})
 		),
-		disabled: disabled()
+		disabled: disabled(),
+		readonly: scheme.readonly({ theme })
 	};
 });
