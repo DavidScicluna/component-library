@@ -1,16 +1,12 @@
 import { lighten, transparentize } from 'color2k';
 
-import { InputDarkFocusedStyleProps } from './types';
+import { TextareaDarkStyleProps } from './types';
 
-import { Style } from '../../../../../../../common/types';
-import { checkIsTouchDevice } from '../../../../../../../common/utils';
-import { getHue } from '../../../../../../../common/utils/color';
-import { size as defaultSize } from '../../../data/defaultPropValues';
-import { getAmount, getSizeConfig } from '../../../utils';
+import { Style } from '../../../../../../common/types';
+import { getHue } from '../../../../../../common/utils/color';
+import { getAmount } from '../../utils';
 
-const isTouchDevice: boolean = checkIsTouchDevice();
-
-export default ({ theme, color, size = defaultSize }: InputDarkFocusedStyleProps): Style => {
+export default ({ theme, color }: TextareaDarkStyleProps): Style => {
 	const amount = getAmount();
 	const selectionShade = getHue({
 		colorMode: 'dark',
@@ -20,10 +16,6 @@ export default ({ theme, color, size = defaultSize }: InputDarkFocusedStyleProps
 		colorMode: 'dark',
 		type: 'color'
 	});
-
-	const config = getSizeConfig({ size });
-	const border = config.border;
-	const offset = config.offset;
 
 	return {
 		'color': theme.colors[color][shade],
@@ -74,11 +66,6 @@ export default ({ theme, color, size = defaultSize }: InputDarkFocusedStyleProps
 
 		'& textarea::placeholder': {
 			color: transparentize(theme.colors[color][shade], amount.placeholder)
-		},
-
-		'&:focus-visible': {
-			outline: !isTouchDevice ? `${border}px auto ${theme.colors[color][shade]}` : 'none',
-			outlineOffset: !isTouchDevice ? `${offset}px` : 0
 		}
 	};
 };

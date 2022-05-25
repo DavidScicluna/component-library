@@ -62,6 +62,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 		isFullWidth = defaultIsFullWidth,
 		renderLeftPanel,
 		renderRightPanel,
+		onFocus,
 		onBlur,
 		size = defaultSize,
 		resize = defaultResize,
@@ -92,11 +93,11 @@ const Textarea = (props: TextareaProps): ReactElement => {
 		(event: Event): void => {
 			setIsFocusedHook.on();
 
-			if (onBlur) {
-				onBlur(event);
+			if (onFocus) {
+				onFocus(event);
 			}
 		},
-		[onBlur]
+		[onFocus]
 	);
 
 	const handleBlur = useCallback(
@@ -121,11 +122,8 @@ const Textarea = (props: TextareaProps): ReactElement => {
 	return (
 		<VStack
 			as={FormControl}
+			tabIndex={0}
 			alignItems='flex-start'
-			isDisabled={isDisabled}
-			isRequired={isRequired}
-			isInvalid={isError}
-			isReadOnly={isReadOnly}
 			onClick={handleClick}
 			sx={{ width: isFullWidth ? '100%' : 'auto' }}
 		>

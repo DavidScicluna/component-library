@@ -36,13 +36,12 @@ export default memoize((props: TextareaStyleProps): TextareaStyleReturn => {
 			group({ theme, isFullWidth, size }),
 			scheme[isSuccess ? 'success' : isWarning ? 'warning' : isFocused ? 'focused' : 'group']({
 				theme,
-				color,
-				size
+				color
 			})
 		),
-		disabled: merge(disabled(), scheme.disabled({ theme })),
-		readonly: merge(readonly(), scheme.readonly({ theme })),
-		invalid: scheme.invalid({ theme, size }),
+		disabled: merge(disabled(), scheme.disabled({ theme, color })),
+		readonly: merge(readonly(), scheme.readonly({ theme, color })),
+		invalid: scheme.invalid({ theme, color }),
 		textarea: textarea({ theme, size })
 	};
 });

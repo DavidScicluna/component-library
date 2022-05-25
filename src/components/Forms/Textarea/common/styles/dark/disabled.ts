@@ -1,12 +1,12 @@
 import { transparentize } from 'color2k';
 
-import { InputDarkReadOnlyStyleProps } from './types';
+import { TextareaDarkStyleProps } from './types';
 
-import { Style } from '../../../../../../../common/types';
-import { getHue } from '../../../../../../../common/utils/color';
-import { getAmount } from '../../../utils';
+import { Style } from '../../../../../../common/types';
+import { getHue } from '../../../../../../common/utils/color';
+import { getAmount } from '../../utils';
 
-export default ({ theme }: InputDarkReadOnlyStyleProps): Style => {
+export default ({ theme }: TextareaDarkStyleProps): Style => {
 	const amount = getAmount();
 	const textPrimaryShade = getHue({
 		colorMode: 'dark',
@@ -24,8 +24,8 @@ export default ({ theme }: InputDarkReadOnlyStyleProps): Style => {
 	return {
 		'color': `${theme.colors.gray[textPrimaryShade]} !important`,
 		'borderColor': `${theme.colors.gray[borderShade]} !important`,
-		'backgroundColor': `${theme.colors.gray[800]} !important`,
-		'background': `${theme.colors.gray[800]}  important`,
+		'backgroundColor': `${theme.colors.transparent} !important`,
+		'background': `${theme.colors.transparent} !important`,
 
 		'& textarea::placeholder': {
 			color: `${transparentize(theme.colors.gray[textSecondaryShade], amount.placeholder)} !important`
