@@ -1,16 +1,12 @@
 import { lighten, transparentize } from 'color2k';
 
-import { InputGroupDarkStyleProps } from './types';
+import { InputDarkStyleProps } from './types';
 
-import { Style } from '../../../../../../../common/types';
-import { checkIsTouchDevice } from '../../../../../../../common/utils';
-import { getHue } from '../../../../../../../common/utils/color';
-import { size as defaultSize } from '../../../data/defaultPropValues';
-import { getAmount, getSizeConfig } from '../../../utils';
+import { Style } from '../../../../../../common/types';
+import { getHue } from '../../../../../../common/utils/color';
+import { getAmount } from '../../utils';
 
-const isTouchDevice: boolean = checkIsTouchDevice();
-
-export default ({ theme, size = defaultSize }: InputGroupDarkStyleProps): Style => {
+export default ({ theme }: InputDarkStyleProps): Style => {
 	const amount = getAmount();
 	const textPrimaryShade = getHue({
 		colorMode: 'dark',
@@ -28,10 +24,6 @@ export default ({ theme, size = defaultSize }: InputGroupDarkStyleProps): Style 
 		colorMode: 'dark',
 		type: 'divider'
 	});
-
-	const config = getSizeConfig({ size });
-	const border = config.border;
-	const offset = config.offset;
 
 	return {
 		'color': theme.colors.gray[textPrimaryShade],
@@ -82,11 +74,6 @@ export default ({ theme, size = defaultSize }: InputGroupDarkStyleProps): Style 
 
 		'& input::placeholder': {
 			color: transparentize(theme.colors.gray[textSecondaryShade], amount.placeholder)
-		},
-
-		'&:focus-visible': {
-			outline: !isTouchDevice ? `${border}px auto ${theme.colors.gray[borderShade]}` : 'none',
-			outlineOffset: !isTouchDevice ? `${offset}px` : 0
 		}
 	};
 };

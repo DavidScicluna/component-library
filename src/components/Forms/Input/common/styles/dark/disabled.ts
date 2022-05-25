@@ -1,31 +1,31 @@
 import { transparentize } from 'color2k';
 
-import { InputLightReadOnlyStyleProps } from './types';
+import { InputDarkStyleProps } from './types';
 
-import { Style } from '../../../../../../../common/types';
-import { getHue } from '../../../../../../../common/utils/color';
-import { getAmount } from '../../../utils';
+import { Style } from '../../../../../../common/types';
+import { getHue } from '../../../../../../common/utils/color';
+import { getAmount } from '../../utils';
 
-export default ({ theme }: InputLightReadOnlyStyleProps): Style => {
+export default ({ theme }: InputDarkStyleProps): Style => {
 	const amount = getAmount();
 	const textPrimaryShade = getHue({
-		colorMode: 'light',
+		colorMode: 'dark',
 		type: 'text.primary'
 	});
 	const textSecondaryShade = getHue({
-		colorMode: 'light',
+		colorMode: 'dark',
 		type: 'text.secondary'
 	});
 	const borderShade = getHue({
-		colorMode: 'light',
+		colorMode: 'dark',
 		type: 'divider'
 	});
 
 	return {
 		'color': `${theme.colors.gray[textPrimaryShade]} !important`,
 		'borderColor': `${theme.colors.gray[borderShade]} !important`,
-		'backgroundColor': `${theme.colors.gray[100]} !important`,
-		'background': `${theme.colors.gray[100]}  important`,
+		'backgroundColor': `${theme.colors.transparent} !important`,
+		'background': `${theme.colors.transparent} !important`,
 
 		'& input::placeholder': {
 			color: `${transparentize(theme.colors.gray[textSecondaryShade], amount.placeholder)} !important`

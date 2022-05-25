@@ -61,6 +61,7 @@ const Input = (props: InputProps): ReactElement => {
 		isFullWidth = defaultIsFullWidth,
 		renderLeftPanel,
 		renderRightPanel,
+		onFocus,
 		onBlur,
 		size = defaultSize,
 		sx,
@@ -90,11 +91,11 @@ const Input = (props: InputProps): ReactElement => {
 		(event: Event): void => {
 			setIsFocusedHook.on();
 
-			if (onBlur) {
-				onBlur(event);
+			if (onFocus) {
+				onFocus(event);
 			}
 		},
-		[onBlur]
+		[onFocus]
 	);
 
 	const handleBlur = useCallback(
@@ -119,13 +120,9 @@ const Input = (props: InputProps): ReactElement => {
 	return (
 		<VStack
 			as={FormControl}
+			tabIndex={0}
 			alignItems='flex-start'
-			isDisabled={isDisabled}
-			isRequired={isRequired}
-			isInvalid={isError}
-			isReadOnly={isReadOnly}
 			onClick={handleClick}
-			variant='unstyled'
 			sx={{ width: isFullWidth ? '100%' : 'auto' }}
 		>
 			{label && (

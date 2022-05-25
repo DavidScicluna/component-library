@@ -1,12 +1,12 @@
 import { transparentize } from 'color2k';
 
-import { InputLightDisabledStyleProps } from './types';
+import { InputLightStyleProps } from './types';
 
-import { Style } from '../../../../../../../common/types';
-import { getHue } from '../../../../../../../common/utils/color';
-import { getAmount } from '../../../utils';
+import { Style } from '../../../../../../common/types';
+import { getHue } from '../../../../../../common/utils/color';
+import { getAmount } from '../../utils';
 
-export default ({ theme }: InputLightDisabledStyleProps): Style => {
+export default ({ theme }: InputLightStyleProps): Style => {
 	const amount = getAmount();
 	const textPrimaryShade = getHue({
 		colorMode: 'light',
