@@ -2,7 +2,7 @@ import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';
 import { TextareaProps } from '../../types';
 
-type Picked = 'color' | 'colorMode' | 'isWarning' | 'isSuccess' | 'isFocused' | 'isFullWidth' | 'size';
+type Picked = 'color' | 'colorMode' | 'isError' | 'isWarning' | 'isSuccess' | 'isFocused' | 'isFullWidth' | 'size';
 
 export type TextareaStyleProps = {
 	theme: Theme;
@@ -11,7 +11,6 @@ export type TextareaStyleProps = {
 export type TextareaStyleReturn = {
 	group: Style;
 	disabled: Style;
-	invalid: Style;
-	readonly: Style;
+	readOnly: Style;
 	textarea: Style;
 };

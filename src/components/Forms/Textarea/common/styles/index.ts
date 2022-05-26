@@ -4,12 +4,13 @@ import dark from './dark';
 import disabled from './disabled';
 import group from './group';
 import light from './light';
-import readonly from './readonly';
+import readOnly from './readOnly';
 import textarea from './textarea';
 import { TextareaStyleProps, TextareaStyleReturn } from './types';
 
 import {
 	colorMode as defaultColorMode,
+	isError as defaultIsError,
 	isSuccess as defaultIsSuccess,
 	isWarning as defaultIsWarning,
 	isFocused as defaultIsFocused,
@@ -22,6 +23,7 @@ export default memoize((props: TextareaStyleProps): TextareaStyleReturn => {
 		theme,
 		color,
 		colorMode = defaultColorMode,
+		isError = defaultIsError,
 		isSuccess = defaultIsSuccess,
 		isWarning = defaultIsWarning,
 		isFocused = defaultIsFocused,
@@ -34,14 +36,18 @@ export default memoize((props: TextareaStyleProps): TextareaStyleReturn => {
 	return {
 		group: merge(
 			group({ theme, isFullWidth, size }),
-			scheme[isSuccess ? 'success' : isWarning ? 'warning' : isFocused ? 'focused' : 'group']({
-				theme,
-				color
-			})
+			isError || isSuccess || isWarning || isFocused
+				? scheme.focused({
+						theme,
+						color,
+						isError,
+						isSuccess,
+						isWarning
+				  })
+				: scheme.group({ theme })
 		),
-		disabled: merge(disabled(), scheme.disabled({ theme, color })),
-		readonly: merge(readonly(), scheme.readonly({ theme, color })),
-		invalid: scheme.invalid({ theme, color }),
+		disabled: merge(disabled(), scheme.disabled({ theme })),
+		readOnly: merge(readOnly(), scheme.readOnly({ theme })),
 		textarea: textarea({ theme, size })
 	};
 });
