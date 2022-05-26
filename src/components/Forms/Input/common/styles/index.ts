@@ -5,11 +5,12 @@ import disabled from './disabled';
 import group from './group';
 import input from './input';
 import light from './light';
-import readonly from './readonly';
+import readOnly from './readOnly';
 import { InputStyleProps, InputStyleReturn } from './types';
 
 import {
 	colorMode as defaultColorMode,
+	isError as defaultIsError,
 	isSuccess as defaultIsSuccess,
 	isWarning as defaultIsWarning,
 	isFocused as defaultIsFocused,
@@ -22,6 +23,7 @@ export default memoize((props: InputStyleProps): InputStyleReturn => {
 		theme,
 		color,
 		colorMode = defaultColorMode,
+		isError = defaultIsError,
 		isSuccess = defaultIsSuccess,
 		isWarning = defaultIsWarning,
 		isFocused = defaultIsFocused,
@@ -34,14 +36,18 @@ export default memoize((props: InputStyleProps): InputStyleReturn => {
 	return {
 		group: merge(
 			group({ theme, isFullWidth, size }),
-			scheme[isSuccess ? 'success' : isWarning ? 'warning' : isFocused ? 'focused' : 'group']({
-				theme,
-				color
-			})
+			isError || isSuccess || isWarning || isFocused
+				? scheme.focused({
+						theme,
+						color,
+						isError,
+						isSuccess,
+						isWarning
+				  })
+				: scheme.group({ theme })
 		),
-		disabled: merge(disabled(), scheme.disabled({ theme, color })),
-		readonly: merge(readonly(), scheme.readonly({ theme, color })),
-		invalid: scheme.invalid({ theme, color }),
+		disabled: merge(disabled(), scheme.disabled({ theme })),
+		readOnly: merge(readOnly(), scheme.readOnly({ theme })),
 		input: input({ theme, size })
 	};
 });
