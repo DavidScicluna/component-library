@@ -1,12 +1,12 @@
 import { transparentize } from 'color2k';
 
-import { TextareaDarkStyleProps } from './types';
+import { TextareaDarkReadOnlyStyleProps } from './types';
 
-import { Style } from '../../../../../../common/types';
-import { getHue } from '../../../../../../common/utils/color';
-import { getAmount } from '../../utils';
+import { Style } from '../../../../../../../common/types';
+import { getHue } from '../../../../../../../common/utils/color';
+import { getAmount } from '../../../utils';
 
-export default ({ theme }: TextareaDarkStyleProps): Style => {
+export default ({ theme }: TextareaDarkReadOnlyStyleProps): Style => {
 	const amount = getAmount();
 	const textPrimaryShade = getHue({
 		colorMode: 'dark',
