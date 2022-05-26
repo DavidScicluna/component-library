@@ -148,8 +148,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 				spacing={handleReturnSpacing()}
 				sx={merge(style.group, sx?.group || {})}
 				_disabled={style.disabled}
-				_invalid={style.invalid}
-				_readOnly={style.readonly}
+				_readOnly={style.readOnly}
 			>
 				{renderLeftPanel && <Center>{renderLeftPanel({ ...renderPanelProps })}</Center>}
 				<CUITextarea
