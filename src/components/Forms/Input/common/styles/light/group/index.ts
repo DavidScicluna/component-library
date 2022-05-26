@@ -1,12 +1,12 @@
 import { darken, transparentize } from 'color2k';
 
-import { InputLightStyleProps } from './types';
+import { InputLightGroupStyleProps } from './types';
 
-import { Style } from '../../../../../../common/types';
-import { getHue } from '../../../../../../common/utils/color';
-import { getAmount } from '../../utils';
+import { Style } from '../../../../../../../common/types';
+import { getHue } from '../../../../../../../common/utils/color';
+import { getAmount } from '../../../utils';
 
-export default ({ theme }: InputLightStyleProps): Style => {
+export default ({ theme }: InputLightGroupStyleProps): Style => {
 	const amount = getAmount();
 	const textPrimaryShade = getHue({
 		colorMode: 'light',

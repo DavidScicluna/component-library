@@ -1,12 +1,24 @@
 import { darken, transparentize } from 'color2k';
 
-import { InputLightStyleProps } from './types';
+import { InputLightFocusedStyleProps } from './types';
 
-import { Style } from '../../../../../../common/types';
-import { getHue } from '../../../../../../common/utils/color';
-import { getAmount } from '../../utils';
+import { Style } from '../../../../../../../common/types';
+import { getHue } from '../../../../../../../common/utils/color';
+import { Color } from '../../../../../../../theme/types';
+import {
+	isError as defaultIsError,
+	isSuccess as defaultIsSuccess,
+	isWarning as defaultIsWarning
+} from '../../../data/defaultPropValues';
+import { getAmount } from '../../../utils';
 
-export default ({ theme, color }: InputLightStyleProps): Style => {
+export default ({
+	theme,
+	color: colorProp,
+	isError = defaultIsError,
+	isSuccess = defaultIsSuccess,
+	isWarning = defaultIsWarning
+}: InputLightFocusedStyleProps): Style => {
 	const amount = getAmount();
 	const selectionShade = getHue({
 		colorMode: 'light',
@@ -16,6 +28,8 @@ export default ({ theme, color }: InputLightStyleProps): Style => {
 		colorMode: 'light',
 		type: 'color'
 	});
+
+	const color: Color = isError ? 'red' : isSuccess ? 'green' : isWarning ? 'yellow' : colorProp;
 
 	return {
 		'color': theme.colors[color][shade],
