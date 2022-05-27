@@ -54,7 +54,10 @@ const ButtonGroup = forwardRef<ButtonGroupRef, ButtonGroupProps>(function Button
 	return (
 		<CUIButtonGroup {...rest} ref={ref} isAttached={isAttached} spacing={spacing}>
 			{children.map((child, index: number) => (
-				<Center key={index} sx={{ '*, *::before, *::after': { borderRadius: handleReturnRadius(index) } }}>
+				<Center
+					key={index}
+					sx={isAttached ? { '*, *::before, *::after': { borderRadius: handleReturnRadius(index) } } : {}}
+				>
 					{child}
 				</Center>
 			))}
