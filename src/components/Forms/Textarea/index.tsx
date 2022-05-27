@@ -141,22 +141,26 @@ const Textarea = (props: TextareaProps): ReactElement => {
 				_readOnly={style.readOnly}
 			>
 				{renderLeftPanel && <Center>{renderLeftPanel({ ...renderPanelProps })}</Center>}
-				<CUITextarea
-					{...rest}
-					ref={textareaRef}
-					autoComplete={autoComplete || 'off'}
-					isDisabled={isDisabled}
-					isRequired={isRequired}
-					isInvalid={isError}
-					isReadOnly={isReadOnly}
-					id={id || name}
-					name={name}
-					onFocus={handleFocus}
-					onBlur={handleBlur}
-					resize={resize}
-					variant='unstyled'
-					sx={merge(style.textarea, sx?.textarea || {})}
-				/>
+
+				<Center flex={1}>
+					<CUITextarea
+						{...rest}
+						ref={textareaRef}
+						autoComplete={autoComplete || 'off'}
+						isDisabled={isDisabled}
+						isRequired={isRequired}
+						isInvalid={isError}
+						isReadOnly={isReadOnly}
+						id={id || name}
+						name={name}
+						onFocus={handleFocus}
+						onBlur={handleBlur}
+						resize={resize}
+						variant='unstyled'
+						sx={merge(style.textarea, sx?.textarea || {})}
+					/>
+				</Center>
+
 				{renderRightPanel && <Center>{renderRightPanel({ ...renderPanelProps })}</Center>}
 			</HStack>
 

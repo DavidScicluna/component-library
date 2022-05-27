@@ -29,7 +29,7 @@ export default ({ theme }: TextareaLightReadOnlyStyleProps): Style => {
 		'color': `${theme.colors.gray[textPrimaryShade]} !important`,
 		'borderColor': `${theme.colors.gray[borderShade]} !important`,
 		'backgroundColor': `${theme.colors.gray[backgroundShade]} !important`,
-		'background': `${theme.colors.gray[backgroundShade]}  important`,
+		'background': `${theme.colors.gray[backgroundShade]}  !important`,
 
 		'& textarea::placeholder': {
 			color: `${transparentize(theme.colors.gray[textSecondaryShade], amount.placeholder)} !important`
