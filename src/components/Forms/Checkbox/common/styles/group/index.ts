@@ -21,6 +21,8 @@ export default ({
 	const config = getSizeConfig({ size });
 	const border = config.border;
 	const padding = config.padding;
+	const checkboxFontSize = config.fontSize.checkbox;
+	const iconFontSize = config.fontSize.icon;
 
 	const radius: Radius = size === 'xs' || size === 'sm' ? 'xs' : size === 'lg' || size === 'xl' ? 'lg' : 'base';
 
@@ -56,6 +58,66 @@ export default ({
 		'transition': 'none',
 		'transitionDuration': theme.transition.duration.normal,
 		'transitionTimingFunction': theme.transition.easing['ease-in-out'],
+
+		'& .chakra-checkbox': {
+			cursor: 'pointer',
+
+			width: `${checkboxFontSize}px`,
+			height: `${checkboxFontSize}px`,
+
+			minWidth: 'auto',
+			minHeight: 'auto',
+			maxWidth: 'none',
+			maxHeight: 'none',
+
+			userSelect: 'none',
+
+			border: 'none',
+			borderRadius: theme.radii.xs,
+			boxShadow: 'none !important',
+
+			WebkitTapHighlightColor: theme.colors.transparent,
+
+			p: 0,
+			m: 0,
+
+			transition: 'none',
+			transitionDuration: theme.transition.duration.normal,
+			transitionTimingFunction: theme.transition.easing['ease-in-out']
+		},
+
+		'& .chakra-checkbox__control': {
+			cursor: 'pointer',
+
+			width: 'inherit',
+			height: 'inherit',
+
+			userSelect: 'none',
+
+			borderWidth: `${border}px`,
+			borderStyle: 'solid',
+			borderRadius: theme.radii.xs,
+			boxShadow: 'none !important',
+
+			transition: 'none',
+			transitionDuration: theme.transition.duration.normal,
+			transitionTimingFunction: theme.transition.easing['ease-in-out']
+		},
+
+		'& svg, .ds-cl-icon': {
+			width: `${iconFontSize}px`,
+			height: `${iconFontSize}px`,
+			maxWidth: `${iconFontSize}px`,
+			maxHeight: `${iconFontSize}px`,
+
+			fontSize: `${iconFontSize}px`,
+
+			userSelect: 'none',
+
+			transition: 'none',
+			transitionDuration: theme.transition.duration.normal,
+			transitionTimingFunction: theme.transition.easing['ease-in-out']
+		},
 
 		'&:focus:not(:focus-visible)': {
 			outline: !isTouchDevice ? '0px auto' : 'none !important'

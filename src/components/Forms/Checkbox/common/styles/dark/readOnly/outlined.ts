@@ -15,27 +15,27 @@ export default ({ theme, isChecked = defaultIsChecked }: CheckboxDarkReadOnlySty
 	});
 	const backgroundShade = getHue({
 		colorMode: 'dark',
-		type: 'light'
+		type: 'dark'
 	});
 
 	return {
 		'color': `${theme.colors.gray[textShade]} !important`,
 		'borderColor': `${theme.colors.gray[borderShade]} !important`,
 		'backgroundColor': `${theme.colors.gray[backgroundShade]} !important`,
-		'background': `${theme.colors.gray[backgroundShade]}  important`,
+		'background': `${theme.colors.gray[backgroundShade]} !important`,
 
 		'& .chakra-checkbox': {
 			color: `${theme.colors.gray[textShade]} !important`,
 			borderColor: `${theme.colors.gray[borderShade]} !important`,
 			backgroundColor: `${isChecked ? theme.colors.gray[borderShade] : theme.colors.transparent} !important`,
-			background: `${isChecked ? theme.colors.gray[borderShade] : theme.colors.transparent}  important`
+			background: `${isChecked ? theme.colors.gray[borderShade] : theme.colors.transparent} !important`
 		},
 
 		'& .chakra-checkbox__control': {
 			color: `${theme.colors.gray[textShade]} !important`,
 			borderColor: `${theme.colors.gray[borderShade]} !important`,
 			backgroundColor: `${isChecked ? theme.colors.gray[borderShade] : theme.colors.transparent} !important`,
-			background: `${isChecked ? theme.colors.gray[borderShade] : theme.colors.transparent}  important`
+			background: `${isChecked ? theme.colors.gray[borderShade] : theme.colors.transparent} !important`
 		}
 	};
 };

@@ -24,14 +24,14 @@ export default ({ theme, isChecked = defaultIsChecked }: CheckboxLightReadOnlySt
 			color: `${theme.colors.gray[textShade]} !important`,
 			borderColor: `${theme.colors.gray[borderShade]} !important`,
 			backgroundColor: `${isChecked ? theme.colors.gray[borderShade] : theme.colors.transparent} !important`,
-			background: `${isChecked ? theme.colors.gray[borderShade] : theme.colors.transparent}  important`
+			background: `${isChecked ? theme.colors.gray[borderShade] : theme.colors.transparent} !important`
 		},
 
 		'& .chakra-checkbox__control': {
 			color: `${theme.colors.gray[textShade]} !important`,
 			borderColor: `${theme.colors.gray[borderShade]} !important`,
 			backgroundColor: `${isChecked ? theme.colors.gray[borderShade] : theme.colors.transparent} !important`,
-			background: `${isChecked ? theme.colors.gray[borderShade] : theme.colors.transparent}  important`
+			background: `${isChecked ? theme.colors.gray[borderShade] : theme.colors.transparent} !important`
 		}
 	};
 };

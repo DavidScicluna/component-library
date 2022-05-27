@@ -22,7 +22,7 @@ export default ({
 	const amount = getAmount();
 	const colorShade = getHue({
 		colorMode: 'dark',
-		type: 'lightest'
+		type: 'darkest'
 	});
 	const shade = getHue({
 		colorMode: 'dark',

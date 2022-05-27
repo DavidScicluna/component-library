@@ -138,21 +138,25 @@ const Checkbox: FC<CheckboxProps> = (props) => {
 					_readOnly={style.readOnly}
 				>
 					{renderLeftPanel && <Center flex={1}>{renderLeftPanel({ ...renderPanelProps })}</Center>}
-					<CUICheckbox
-						{...rest}
-						ref={checkboxRef}
-						icon={icon}
-						isChecked={isChecked}
-						isIndeterminate={isIndeterminate}
-						isDisabled={isDisabled}
-						isRequired={isRequired}
-						isInvalid={isError}
-						isReadOnly={isReadOnly}
-						id={id || name}
-						name={name}
-						variant='unstyled'
-						sx={merge(style.checkbox, sx?.checkbox || {})}
-					/>
+
+					<Center>
+						<CUICheckbox
+							{...rest}
+							ref={checkboxRef}
+							icon={icon}
+							isChecked={isChecked}
+							isIndeterminate={isIndeterminate}
+							isDisabled={isDisabled}
+							isRequired={isRequired}
+							isInvalid={isError}
+							isReadOnly={isReadOnly}
+							id={id || name}
+							name={name}
+							variant='unstyled'
+							sx={merge(style.checkbox, sx?.checkbox || {})}
+						/>
+					</Center>
+
 					{renderRightPanel && <Center flex={1}>{renderRightPanel({ ...renderPanelProps })}</Center>}
 				</HStack>
 
