@@ -20,12 +20,16 @@ export default ({ theme }: InputDarkReadOnlyStyleProps): Style => {
 		colorMode: 'dark',
 		type: 'divider'
 	});
+	const backgroundShade = getHue({
+		colorMode: 'dark',
+		type: 'dark'
+	});
 
 	return {
 		'color': `${theme.colors.gray[textPrimaryShade]} !important`,
 		'borderColor': `${theme.colors.gray[borderShade]} !important`,
-		'backgroundColor': `${theme.colors.gray[800]} !important`,
-		'background': `${theme.colors.gray[800]}  important`,
+		'backgroundColor': `${theme.colors.gray[backgroundShade]} !important`,
+		'background': `${theme.colors.gray[backgroundShade]}  important`,
 
 		'& input::placeholder': {
 			color: `${transparentize(theme.colors.gray[textSecondaryShade], amount.placeholder)} !important`
