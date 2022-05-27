@@ -30,11 +30,10 @@ import {
 	size as defaultSize
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
-import { getIconFontSize, getSizeConfig } from './common/utils';
+import { getSizeConfig } from './common/utils';
 import { TextareaProps, TextareaRef, TextareaPanelRenderProps, Event } from './types';
 
 import { useTheme } from '../../../common/hooks';
-import { convertStringToNumber } from '../../../common/utils';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 
@@ -75,11 +74,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 	const colorMode: ColorMode = colorModeProp || colorModeHook;
 	const isFocused: boolean = isFocusedProp || isFocusedHook;
 
-	const style = useStyles({ theme, color, colorMode, isWarning, isSuccess, isFocused, isFullWidth, size });
-
-	const handleReturnPanelSize = useCallback((): number => {
-		return convertStringToNumber(getIconFontSize({ size }), 'px');
-	}, [size, getIconFontSize]);
+	const style = useStyles({ theme, color, colorMode, isError, isWarning, isSuccess, isFocused, isFullWidth, size });
 
 	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
 
@@ -111,13 +106,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 		[onBlur]
 	);
 
-	const renderPanelProps: TextareaPanelRenderProps = {
-		width: handleReturnPanelSize(),
-		height: handleReturnPanelSize(),
-		fontSize: size,
-		color,
-		colorMode
-	};
+	const renderPanelProps: TextareaPanelRenderProps = { color, colorMode };
 
 	return (
 		<VStack
@@ -133,6 +122,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 					id={id || name}
 					isDisabled={isDisabled}
 					isReadOnly={isReadOnly}
+					isRequired={isRequired}
 					size={size}
 					sx={sx?.formLabel}
 				>

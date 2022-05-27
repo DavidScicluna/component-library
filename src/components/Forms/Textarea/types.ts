@@ -31,9 +31,6 @@ export type TextareaResize = 'horizontal' | 'vertical' | 'none';
 export type TextareaSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type TextareaPanelRenderProps = {
-	width: number;
-	height: number;
-	fontSize: TextareaSize;
 	color: TextareaColor;
 	colorMode?: ColorMode;
 };
