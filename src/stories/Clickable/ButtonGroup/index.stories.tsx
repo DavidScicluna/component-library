@@ -1,10 +1,11 @@
 import { ReactElement } from 'react';
 
-import { Box } from '@chakra-ui/react';
+import { sample } from 'lodash';
 
 import { Meta, Story } from './types';
 
-import { ButtonGroupProps, ButtonGroupSize, ButtonGroup as ButtonGroupComponent } from '../../..';
+import { ButtonGroupProps, ButtonGroupSize, ButtonGroup as ButtonGroupComponent, IconButton, Icon } from '../../..';
+import icons from '../../../common/data/icons';
 import {
 	isAttached as defaultIsAttached,
 	size as defaultSize,
@@ -48,10 +49,20 @@ export default {
 
 export const ButtonGroup: Story = (props: ButtonGroupProps): ReactElement => (
 	<ButtonGroupComponent {...props}>
-		<Box backgroundColor='green.200' p={3} />
-		<Box backgroundColor='green.300' p={3} />
-		<Box backgroundColor='green.400' p={3} />
-		<Box backgroundColor='green.500' p={3} />
-		<Box backgroundColor='green.600' p={3} />
+		<IconButton aria-label='IconButton01' color='green' size={props.size}>
+			<Icon icon={sample(icons) || icons[0]} />
+		</IconButton>
+		<IconButton aria-label='IconButton02' color='green' size={props.size}>
+			<Icon icon={sample(icons) || icons[50]} />
+		</IconButton>
+		<IconButton aria-label='IconButton03' color='green' size={props.size}>
+			<Icon icon={sample(icons) || icons[100]} />
+		</IconButton>
+		<IconButton aria-label='IconButton04' color='green' size={props.size}>
+			<Icon icon={sample(icons) || icons[150]} />
+		</IconButton>
+		<IconButton aria-label='IconButton04' color='green' size={props.size}>
+			<Icon icon={sample(icons) || icons[200]} />
+		</IconButton>
 	</ButtonGroupComponent>
 );
