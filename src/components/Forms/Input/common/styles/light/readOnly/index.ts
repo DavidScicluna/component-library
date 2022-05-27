@@ -29,7 +29,7 @@ export default ({ theme }: InputLightReadOnlyStyleProps): Style => {
 		'color': `${theme.colors.gray[textPrimaryShade]} !important`,
 		'borderColor': `${theme.colors.gray[borderShade]} !important`,
 		'backgroundColor': `${theme.colors.gray[backgroundShade]} !important`,
-		'background': `${theme.colors.gray[backgroundShade]}  important`,
+		'background': `${theme.colors.gray[backgroundShade]} !important`,
 
 		'& input::placeholder': {
 			color: `${transparentize(theme.colors.gray[textSecondaryShade], amount.placeholder)} !important`

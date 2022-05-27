@@ -139,21 +139,25 @@ const Input = (props: InputProps): ReactElement => {
 				_readOnly={style.readOnly}
 			>
 				{renderLeftPanel && <Center>{renderLeftPanel({ ...renderPanelProps })}</Center>}
-				<CUIInput
-					{...rest}
-					ref={inputRef}
-					autoComplete={autoComplete || 'off'}
-					isDisabled={isDisabled}
-					isRequired={isRequired}
-					isInvalid={isError}
-					isReadOnly={isReadOnly}
-					id={id || name}
-					name={name}
-					onFocus={handleFocus}
-					onBlur={handleBlur}
-					variant='unstyled'
-					sx={merge(style.input, sx?.input || {})}
-				/>
+
+				<Center flex={1}>
+					<CUIInput
+						{...rest}
+						ref={inputRef}
+						autoComplete={autoComplete || 'off'}
+						isDisabled={isDisabled}
+						isRequired={isRequired}
+						isInvalid={isError}
+						isReadOnly={isReadOnly}
+						id={id || name}
+						name={name}
+						onFocus={handleFocus}
+						onBlur={handleBlur}
+						variant='unstyled'
+						sx={merge(style.input, sx?.input || {})}
+					/>
+				</Center>
+
 				{renderRightPanel && <Center>{renderRightPanel({ ...renderPanelProps })}</Center>}
 			</HStack>
 
