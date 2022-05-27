@@ -48,5 +48,6 @@ export type FormLabelProps = {
 	colorMode?: ColorMode;
 	isDisabled?: boolean;
 	isReadOnly?: boolean;
+	isRequired?: boolean;
 	size?: FormLabelSize;
 } & Omit<CUIFormLabelProps, Omitted>;
