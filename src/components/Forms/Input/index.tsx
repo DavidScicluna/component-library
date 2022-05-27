@@ -29,11 +29,10 @@ import {
 	size as defaultSize
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
-import { getIconFontSize, getSizeConfig } from './common/utils';
+import { getSizeConfig } from './common/utils';
 import { InputProps, InputRef, InputPanelRenderProps, Event } from './types';
 
 import { useTheme } from '../../../common/hooks';
-import { convertStringToNumber } from '../../../common/utils';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 
@@ -73,11 +72,7 @@ const Input = (props: InputProps): ReactElement => {
 	const colorMode: ColorMode = colorModeProp || colorModeHook;
 	const isFocused: boolean = isFocusedProp || isFocusedHook;
 
-	const style = useStyles({ theme, color, colorMode, isWarning, isSuccess, isFocused, isFullWidth, size });
-
-	const handleReturnPanelSize = useCallback((): number => {
-		return convertStringToNumber(getIconFontSize({ size }), 'px');
-	}, [size, getIconFontSize]);
+	const style = useStyles({ theme, color, colorMode, isError, isWarning, isSuccess, isFocused, isFullWidth, size });
 
 	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
 
@@ -109,13 +104,7 @@ const Input = (props: InputProps): ReactElement => {
 		[onBlur]
 	);
 
-	const renderPanelProps: InputPanelRenderProps = {
-		width: handleReturnPanelSize(),
-		height: handleReturnPanelSize(),
-		fontSize: size,
-		color,
-		colorMode
-	};
+	const renderPanelProps: InputPanelRenderProps = { color, colorMode };
 
 	return (
 		<VStack
@@ -131,6 +120,7 @@ const Input = (props: InputProps): ReactElement => {
 					id={id || name}
 					isDisabled={isDisabled}
 					isReadOnly={isReadOnly}
+					isRequired={isRequired}
 					size={size}
 					sx={sx?.formLabel}
 				>

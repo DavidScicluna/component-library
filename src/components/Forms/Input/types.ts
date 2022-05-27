@@ -29,9 +29,6 @@ export type InputColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gra
 export type InputSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type InputPanelRenderProps = {
-	width: number;
-	height: number;
-	fontSize: InputSize;
 	color: InputColor;
 	colorMode?: ColorMode;
 };
