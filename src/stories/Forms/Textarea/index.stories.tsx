@@ -55,9 +55,7 @@ const renderMapping = Object.assign(
 	{ none: undefined },
 	...icons.map((icon) => {
 		return {
-			[icon]: ({ width, height, colorMode }: TextareaPanelRenderProps) => (
-				<Icon colorMode={colorMode} icon={icon} width={`${width}px`} height={`${height}px`} />
-			)
+			[icon]: ({ colorMode }: TextareaPanelRenderProps) => <Icon colorMode={colorMode} icon={icon} />
 		};
 	})
 );
