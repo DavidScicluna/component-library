@@ -2,14 +2,27 @@ import { FormHelperTextLightStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { getHue } from '../../../../../../common/utils/color';
+import { Color } from '../../../../../../theme/types';
+import {
+	isError as defaultIsError,
+	isWarning as defaultIsWarning,
+	isSuccess as defaultIsSuccess
+} from '../../data/defaultPropValues';
 
-export default ({ theme }: FormHelperTextLightStyleProps): Style => {
+export default ({
+	theme,
+	isError = defaultIsError,
+	isWarning = defaultIsWarning,
+	isSuccess = defaultIsSuccess
+}: FormHelperTextLightStyleProps): Style => {
 	const shade = getHue({
 		colorMode: 'light',
 		type: 'text.secondary'
 	});
 
+	const color: Color = isError ? 'red' : isWarning ? 'yellow' : isSuccess ? 'green' : 'gray';
+
 	return {
-		color: theme.colors.gray[shade]
+		color: theme.colors[color][shade]
 	};
 };

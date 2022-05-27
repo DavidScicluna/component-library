@@ -6,7 +6,7 @@ import { getHue } from '../../../../../../common/utils/color';
 export default ({ theme }: FormHelperTextDarkStyleProps): Style => {
 	const shade = getHue({
 		colorMode: 'dark',
-		type: 'text.primary'
+		type: 'text.secondary'
 	});
 
 	return {
