@@ -56,6 +56,21 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 			maxHeight: 'none'
 		},
 
+		'& svg, .ds-cl-icon': {
+			width: theme.fontSizes[size],
+			height: theme.fontSizes[size],
+			maxWidth: theme.fontSizes[size],
+			maxHeight: theme.fontSizes[size],
+
+			fontSize: theme.fontSizes[size],
+
+			userSelect: 'none',
+
+			transition: 'none',
+			transitionDuration: theme.transition.duration.normal,
+			transitionTimingFunction: theme.transition.easing['ease-in-out']
+		},
+
 		'&:focus:not(:focus-visible)': {
 			outline: !isTouchDevice ? '0px auto' : 'none !important'
 		},
