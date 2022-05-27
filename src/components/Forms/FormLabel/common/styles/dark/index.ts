@@ -16,7 +16,7 @@ export default ({ theme }: FormLabelDarkStyleProps): Style => {
 	return {
 		'color': theme.colors.gray[textShade],
 
-		'& .chakra-form__required-indicator': {
+		'& .ds-cl-required-indicator': {
 			color: theme.colors.red[indicatorShade]
 		}
 	};
