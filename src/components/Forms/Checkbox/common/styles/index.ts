@@ -1,6 +1,5 @@
 import { memoize, merge } from 'lodash';
 
-import checkbox from './checkbox';
 import dark from './dark';
 import disabled from './disabled';
 import group from './group';
@@ -40,7 +39,6 @@ export default memoize((props: CheckboxStyleProps): CheckboxStyleReturn => {
 			group({ theme, isFullWidth, size }),
 			scheme.group[variant]({ theme, isError, isSuccess, isWarning })
 		),
-		checkbox: checkbox({ theme, size }),
 		checked: scheme.checked[variant]({
 			theme,
 			color,

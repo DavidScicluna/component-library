@@ -21,6 +21,5 @@ export type CheckboxStyleReturn = {
 	group: Style;
 	disabled: Style;
 	readOnly: Style;
-	checkbox: Style;
 	checked: Style;
 };

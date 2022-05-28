@@ -153,7 +153,7 @@ const Checkbox: FC<CheckboxProps> = (props) => {
 							id={id || name}
 							name={name}
 							variant='unstyled'
-							sx={merge(style.checkbox, sx?.checkbox || {})}
+							sx={sx?.checkbox || {}}
 						/>
 					</Center>
 
