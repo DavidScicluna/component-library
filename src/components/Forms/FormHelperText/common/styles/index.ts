@@ -29,9 +29,7 @@ export default memoize((props: FormHelperTextStyleProps): FormHelperTextStyleRet
 	return {
 		formHelperText: merge(
 			formHelperText({ theme, size }),
-			scheme[isError ? 'invalid' : isSuccess ? 'success' : isWarning ? 'warning' : 'formHelperText']({
-				theme
-			})
+			scheme.formHelperText({ theme, isError, isWarning, isSuccess })
 		),
 		disabled: disabled(),
 		readonly: scheme.readonly({ theme })
