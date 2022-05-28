@@ -13,8 +13,10 @@ export default ({ theme, color: colorProp = defaultColor }: TagDarkActiveStyling
 	const shade = getHue({
 		colorMode: 'dark',
 		type:
-			colorProp === 'black' || colorProp === 'white'
-				? colorProp
+			colorProp === 'black'
+				? 'darkest'
+				: colorProp === 'white'
+				? 'lightest'
 				: colorProp === 'gray'
 				? 'text.secondary'
 				: 'color'

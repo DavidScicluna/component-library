@@ -8,7 +8,7 @@ import { color as defaultColor } from '../../data/defaultPropValues';
 export default ({ theme, color: colorProp = defaultColor }: TooltipDarkStyleProps): Style => {
 	const shade = getHue({
 		colorMode: 'dark',
-		type: colorProp === 'black' || colorProp === 'white' ? colorProp : 'divider'
+		type: colorProp === 'black' ? 'darkest' : colorProp === 'white' ? 'lightest' : 'divider'
 	});
 
 	const textShade: ColorHues = colorProp === 'black' ? 50 : 900;

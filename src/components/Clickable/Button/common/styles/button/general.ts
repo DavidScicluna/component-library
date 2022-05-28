@@ -49,6 +49,7 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 		'fontWeight': theme.fontWeights.semibold,
 		'textTransform': 'uppercase',
 		'whiteSpace': 'nowrap',
+		'textOverflow': 'ellipses',
 		'lineHeight': theme.lineHeights.base,
 		'letterSpacing': '.6px',
 

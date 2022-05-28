@@ -27,23 +27,29 @@ const Spinner: FC<SpinnerProps> = (props) => {
 				return getColor({
 					theme,
 					colorMode,
+					color: color === 'black' || color === 'white' ? 'gray' : color,
 					type:
-						color === 'black' || color === 'white' ? color : color === 'gray' ? 'text.secondary' : 'color',
-					color: color === 'black' || color === 'white' ? 'gray' : color
+						color === 'black'
+							? 'darkest'
+							: color === 'white'
+							? 'lightest'
+							: color === 'gray'
+							? 'text.secondary'
+							: 'color'
 				});
 			default:
 				return getColor({
 					theme,
 					colorMode,
+					color: 'gray',
 					type:
 						color === 'black'
-							? 'white'
+							? 'lightest'
 							: color === 'white'
-							? 'black'
+							? 'darkest'
 							: colorMode === 'light'
-							? 'white'
-							: 'black',
-					color: 'gray'
+							? 'lightest'
+							: 'darkest'
 				});
 		}
 	}, [theme, color, colorMode, variant]);

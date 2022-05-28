@@ -75,7 +75,7 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 			<ModalOverlay />
 			<ModalContent
 				position='relative'
-				backgroundColor={`gray.${getHue({ colorMode, type: colorMode === 'light' ? 'white' : 'black' })}`}
+				backgroundColor={`gray.${getHue({ colorMode, type: colorMode === 'light' ? 'lightest' : 'darkest' })}`}
 				borderRadius='xl'
 				// m={isXs ? 2 : 0}
 				sx={{ transition: `${theme.transition.duration.faster} ${theme.transition.easing['ease-out']}` }}

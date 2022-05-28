@@ -13,8 +13,10 @@ export default ({ theme, color: colorProp = defaultColor, size = defaultSize }: 
 	const shade = getHue({
 		colorMode: 'light',
 		type:
-			colorProp === 'black' || colorProp === 'white'
-				? colorProp
+			colorProp === 'black'
+				? 'darkest'
+				: colorProp === 'white'
+				? 'lightest'
 				: colorProp === 'gray'
 				? 'text.secondary'
 				: 'color'

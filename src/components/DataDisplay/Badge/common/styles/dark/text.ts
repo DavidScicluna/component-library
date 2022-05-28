@@ -9,8 +9,10 @@ export default ({ theme, color: colorProp = defaultColor, isLight = defaultIsLig
 	const shade = getHue({
 		colorMode: 'dark',
 		type:
-			colorProp === 'black' || colorProp === 'white'
-				? colorProp
+			colorProp === 'black'
+				? 'darkest'
+				: colorProp === 'white'
+				? 'lightest'
 				: colorProp === 'gray'
 				? isLight
 					? 'divider'

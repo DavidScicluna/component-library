@@ -93,8 +93,10 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 										? isLight
 											? 'divider'
 											: 'text.secondary'
-										: color === 'black' || color === 'white'
-										? color
+										: color === 'black'
+										? 'darkest'
+										: color === 'white'
+										? 'lightest'
 										: color === 'gray'
 										? isLight
 											? 'divider'
