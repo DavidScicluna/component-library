@@ -35,9 +35,7 @@ const directionOptions: TabBarDirection[] = ['top', 'bottom'];
 
 const tabs: Tab[] = range(0, 5).map((_dummy, index) => {
 	return {
-		renderIcon: (props: TabRenderProps) => (
-			<Icon {...props} icon={sample(icons) || 'crop_square'} type='outlined' />
-		),
+		renderIcon: (props: TabRenderProps) => <Icon {...props} icon={sample(icons) || 'crop_square'} />,
 		label: `Tab ${index}`
 	};
 });
