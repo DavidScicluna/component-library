@@ -101,6 +101,10 @@ import ConfirmModalBody from './components/Overlay/ConfirmModal/components/Confi
 import { ConfirmModalBodyProps } from './components/Overlay/ConfirmModal/components/ConfirmModalBody/types';
 import ConfirmModalFooter from './components/Overlay/ConfirmModal/components/ConfirmModalFooter';
 import { ConfirmModalFooterProps } from './components/Overlay/ConfirmModal/components/ConfirmModalFooter/types';
+import ConfirmModalSubtitle from './components/Overlay/ConfirmModal/components/ConfirmModalSubtitle';
+import { ConfirmModalSubtitleProps } from './components/Overlay/ConfirmModal/components/ConfirmModalSubtitle/types';
+import ConfirmModalTitle from './components/Overlay/ConfirmModal/components/ConfirmModalTitle';
+import { ConfirmModalTitleProps } from './components/Overlay/ConfirmModal/components/ConfirmModalTitle/types';
 import { ConfirmModalProps } from './components/Overlay/ConfirmModal/types';
 import Modal from './components/Overlay/Modal';
 import ModalBody from './components/Overlay/Modal/components/ModalBody';
@@ -202,6 +206,8 @@ export {
 	ConfirmModal,
 	ConfirmModalBody,
 	ConfirmModalFooter,
+	ConfirmModalSubtitle,
+	ConfirmModalTitle,
 	Modal,
 	ModalBody,
 	ModalFooter,
@@ -285,9 +291,11 @@ export type {
 	TextareaSize,
 	IconProps,
 	IconCategory,
-	ConfirmModalProps,
 	ConfirmModalBodyProps,
 	ConfirmModalFooterProps,
+	ConfirmModalSubtitleProps,
+	ConfirmModalTitleProps,
+	ConfirmModalProps,
 	ModalBodyProps,
 	ModalFooterProps,
 	ModalHeaderProps,
