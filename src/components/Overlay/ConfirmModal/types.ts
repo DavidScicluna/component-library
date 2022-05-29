@@ -24,11 +24,9 @@ import { Space } from '../../../theme/types';
 import { IconButtonProps } from '../../Clickable/IconButton/types';
 import { IconProps } from '../../Icon/types';
 
-export type ConfirmModalContext = {
-	colorMode: ColorMode;
-};
+export type ConfirmModalContext = Pick<ConfirmModalProps, 'colorMode' | 'spacing'>;
 
-type IconPropsPicked = 'icon' | 'type';
+type IconPropsPicked = 'icon' | 'category';
 
 type IconButtonPropsPicked = 'aria-label' | 'color' | 'colorMode' | 'onClick' | 'size' | 'variant';
 

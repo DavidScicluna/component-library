@@ -62,46 +62,59 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 
 	useEffect(() => handleCheckIsMounted(), [isOpen]);
 
-	return isMounted ? (
-		<CUIModal
-			{...rest}
-			isOpen={isOpen}
-			onClose={onClose}
-			isCentered
-			motionPreset='slideInBottom'
-			scrollBehavior='inside'
-			size={size}
-		>
-			<ModalOverlay />
-			<ModalContent
-				position='relative'
-				backgroundColor={`gray.${getHue({ colorMode, type: colorMode === 'light' ? 'lightest' : 'darkest' })}`}
-				borderRadius='xl'
-				// m={isXs ? 2 : 0}
-				sx={{ transition: `${theme.transition.duration.faster} ${theme.transition.easing['ease-out']}` }}
+	return (
+		(isMounted && (
+			<CUIModal
+				{...rest}
+				isOpen={isOpen}
+				onClose={onClose}
+				isCentered
+				motionPreset='slideInBottom'
+				scrollBehavior='inside'
+				size={size}
 			>
-				<ConfirmModalContext.Provider value={{ colorMode }}>
-					{renderCancel && (
-						<Center position='absolute' top={theme.space[spacing]} right={theme.space[spacing]}>
-							{renderCancel({
-								'aria-label': 'Close modal?',
-								'color': 'gray',
-								'colorMode': colorMode,
-								'icon': 'close',
-								'type': 'outlined',
-								'onClick': () => onClose(),
-								'variant': 'icon'
-							})}
-						</Center>
-					)}
+				<ConfirmModalContext.Provider value={{ colorMode, spacing }}>
+					<ModalOverlay />
+					<ModalContent
+						position='relative'
+						backgroundColor={`gray.${getHue({
+							colorMode,
+							type: colorMode === 'light' ? 'lightest' : 'darkest'
+						})}`}
+						borderRadius='xl'
+						// m={isXs ? 2 : 0}
+						sx={{
+							transition: `${theme.transition.duration.faster} ${theme.transition.easing['ease-out']}`
+						}}
+					>
+						{renderCancel && (
+							<Center position='absolute' top={theme.space[spacing]} right={theme.space[spacing]}>
+								{renderCancel({
+									'aria-label': 'Close modal?',
+									'color': 'gray',
+									'colorMode': colorMode,
+									'icon': 'close',
+									'category': 'outlined',
+									'onClick': () => onClose(),
+									'variant': 'icon'
+								})}
+							</Center>
+						)}
 
-					<VStack width='100%' divider={<Divider colorMode={colorMode} />} spacing={spacing}>
-						{children}
-					</VStack>
+						<VStack
+							width='100%'
+							divider={<Divider colorMode={colorMode} />}
+							spacing={spacing}
+							p={spacing * 2}
+						>
+							{children}
+						</VStack>
+					</ModalContent>
 				</ConfirmModalContext.Provider>
-			</ModalContent>
-		</CUIModal>
-	) : null;
+			</CUIModal>
+		)) ||
+		null
+	);
 };
 
 export default ConfirmModal;
