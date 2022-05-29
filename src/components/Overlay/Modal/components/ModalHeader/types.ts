@@ -7,7 +7,7 @@ import { Space } from '../../../../../theme/types';
 import { IconButtonProps } from '../../../../Clickable/IconButton/types';
 import { IconProps } from '../../../../Icon/types';
 
-type IconPropsPicked = 'icon' | 'type';
+type IconPropsPicked = 'icon' | 'category';
 
 type IconButtonPropsPicked = 'aria-label' | 'color' | 'colorMode' | 'size' | 'variant';
 
