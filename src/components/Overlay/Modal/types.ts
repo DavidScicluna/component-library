@@ -20,9 +20,7 @@ import {
 } from '../../../common/types/box';
 import { Space } from '../../../theme/types';
 
-export type ModalContext = {
-	colorMode: ColorMode;
-};
+export type ModalContext = Pick<ModalProps, 'colorMode' | 'spacing'>;
 
 export type ModalSize = 'full' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl';
 

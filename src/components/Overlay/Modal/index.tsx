@@ -27,7 +27,7 @@ import Divider from '../../Divider';
 
 export const ModalContext = createContext<ModalContextType>({ colorMode: 'light' });
 
-const Modal: FC<ModalProps> | null = (props) => {
+const Modal: FC<ModalProps> = (props) => {
 	const theme = useTheme();
 	const { colorMode: colorModeHook } = useColorMode();
 
@@ -60,31 +60,39 @@ const Modal: FC<ModalProps> | null = (props) => {
 
 	useEffect(() => handleCheckIsMounted(), [isOpen]);
 
-	return isMounted ? (
-		<CUIModal
-			{...rest}
-			isOpen={isOpen}
-			onClose={onClose}
-			isCentered
-			motionPreset='slideInBottom'
-			scrollBehavior='inside'
-			size={size === 'full' || isXs ? 'full' : size}
-		>
-			<ModalOverlay />
-			<ModalContent
-				backgroundColor={`gray.${getHue({ colorMode, type: colorMode === 'light' ? 'lightest' : 'darkest' })}`}
-				borderRadius={size === 'full' || isXs ? 'none' : 'xl'}
-				m={isXs ? 2 : 0}
-				sx={{ transition: `${theme.transition.duration.faster} ${theme.transition.easing['ease-out']}` }}
+	return (
+		(isMounted && (
+			<CUIModal
+				{...rest}
+				isOpen={isOpen}
+				onClose={onClose}
+				isCentered
+				motionPreset='slideInBottom'
+				scrollBehavior='inside'
+				size={size === 'full' || isXs ? 'full' : size}
 			>
-				<ModalContext.Provider value={{ colorMode }}>
-					<VStack width='100%' divider={<Divider colorMode={colorMode} />} spacing={spacing}>
-						{children}
-					</VStack>
+				<ModalContext.Provider value={{ colorMode, spacing }}>
+					<ModalOverlay />
+					<ModalContent
+						backgroundColor={`gray.${getHue({
+							colorMode,
+							type: colorMode === 'light' ? 'lightest' : 'darkest'
+						})}`}
+						borderRadius={size === 'full' || isXs ? 'none' : 'xl'}
+						m={isXs ? 2 : 0}
+						sx={{
+							transition: `${theme.transition.duration.faster} ${theme.transition.easing['ease-out']}`
+						}}
+					>
+						<VStack width='100%' divider={<Divider colorMode={colorMode} />} spacing={spacing} p={spacing}>
+							{children}
+						</VStack>
+					</ModalContent>
 				</ModalContext.Provider>
-			</ModalContent>
-		</CUIModal>
-	) : null;
+			</CUIModal>
+		)) ||
+		null
+	);
 };
 
 export default Modal;
