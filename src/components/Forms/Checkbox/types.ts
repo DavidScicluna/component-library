@@ -36,11 +36,6 @@ export type CheckboxPanelRenderProps = {
 	colorMode?: ColorMode;
 };
 
-export type CheckboxContext = {
-	color?: CheckboxColor;
-	colorMode?: ColorMode;
-};
-
 type Omitted =
 	// CUI Box Props
 	| BoxPadding
@@ -84,3 +79,5 @@ export type CheckboxProps = {
 	variant?: CheckboxVariant;
 	sx?: { group?: Style; checkbox?: Style; formLabel?: Style; formHelperText?: Style };
 } & Omit<CUICheckboxProps, Omitted>;
+
+export type CheckboxContext = Pick<CheckboxProps, 'color' | 'colorMode'>;
