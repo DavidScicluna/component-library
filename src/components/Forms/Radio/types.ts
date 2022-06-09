@@ -36,11 +36,6 @@ export type RadioPanelRenderProps = {
 	colorMode?: ColorMode;
 };
 
-export type RadioContext = {
-	color?: RadioColor;
-	colorMode?: ColorMode;
-};
-
 type Omitted =
 	// CUI Box Props
 	| BoxPadding
@@ -84,3 +79,5 @@ export type RadioProps = {
 	variant?: RadioVariant;
 	sx?: { group?: Style; radio?: Style; formLabel?: Style; formHelperText?: Style };
 } & Omit<CUIRadioProps, Omitted>;
+
+export type RadioContext = Pick<RadioProps, 'color' | 'colorMode'>;
