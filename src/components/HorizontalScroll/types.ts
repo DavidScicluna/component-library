@@ -2,11 +2,11 @@ import { ReactNode } from 'react';
 
 import { ColorMode } from '@chakra-ui/react';
 
-// import { Props as RHSMHorizontalScrollProps } from 'react-horizontal-scrolling-menu';
+import { Props as RHSMHorizontalScrollProps } from 'react-horizontal-scrolling-menu';
 
 export type HorizontalScrollRef = HTMLDivElement | null;
 
-// type Omitted = 'Arrows' | 'LeftArrow' | 'RightArrow' | 'children';
+type Omitted = 'children' | 'Arrows';
 
 export type HorizontalScrollProps = {
 	children: ReactNode[];
@@ -14,7 +14,6 @@ export type HorizontalScrollProps = {
 	isFullWidth?: boolean;
 	isDisabled?: boolean;
 	renderDivider?: (props: { padding?: string }) => ReactNode;
-};
-// & Omit<RHSMHorizontalScrollProps, Omitted>;
+} & Omit<RHSMHorizontalScrollProps, Omitted>;
 
 export type HorizontalScrollContext = Pick<HorizontalScrollProps, 'colorMode' | 'isDisabled'>;

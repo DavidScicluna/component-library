@@ -40,6 +40,8 @@ const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(
 		colorMode: colorModeProp,
 		isDisabled = defaultIsDisabled,
 		isFullWidth = defaultIsFullWidth,
+		LeftArrow: LeftArrowProp,
+		RightArrow: RightArrowProp,
 		...rest
 	} = props;
 
@@ -49,8 +51,8 @@ const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(
 		<HorizontalScrollContext.Provider value={{ colorMode, isDisabled }}>
 			<Box ref={ref} width={isFullWidth ? '100%' : 'auto'}>
 				<ScrollMenu
-					LeftArrow={LeftArrow}
-					RightArrow={RightArrow}
+					LeftArrow={LeftArrowProp || LeftArrow}
+					RightArrow={RightArrowProp || RightArrow}
 					transitionDuration={convertStringToNumber(theme.transition.duration['ultra-slow'], 'ms')}
 					wrapperClassName='wrapperContainer'
 					scrollContainerClassName={isFullWidth ? 'scrollFullWidthContainer' : 'scrollContainer'}

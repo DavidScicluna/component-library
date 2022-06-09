@@ -94,6 +94,14 @@ import {
 	TextareaResize,
 	TextareaSize
 } from './components/Forms/Textarea/types';
+import HorizontalScroll from './components/HorizontalScroll';
+import HorizontalScrollArrow from './components/HorizontalScroll/components/Arrow';
+import { ArrowProps as HorizontalScrollArrowProps } from './components/HorizontalScroll/components/Arrow/types';
+import {
+	HorizontalScrollContext,
+	HorizontalScrollProps,
+	HorizontalScrollRef
+} from './components/HorizontalScroll/types';
 import Icon from './components/Icon';
 import { IconProps, IconCategory } from './components/Icon/types';
 import ConfirmModal from './components/Overlay/ConfirmModal';
@@ -202,6 +210,8 @@ export {
 	RadioSubtitle,
 	RadioTitle,
 	Textarea,
+	HorizontalScroll,
+	HorizontalScrollArrow,
 	Icon,
 	ConfirmModal,
 	ConfirmModalBody,
@@ -289,6 +299,10 @@ export type {
 	TextareaRef,
 	TextareaResize,
 	TextareaSize,
+	HorizontalScrollArrowProps,
+	HorizontalScrollContext,
+	HorizontalScrollProps,
+	HorizontalScrollRef,
 	IconProps,
 	IconCategory,
 	ConfirmModalBodyProps,
