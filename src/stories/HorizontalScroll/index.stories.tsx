@@ -11,7 +11,18 @@ import {
 	isDisabled as defaultIsDisabled,
 	isFullWidth as defaultIsFullWidth
 } from '../../components/HorizontalScroll/common/data/defaultPropValues';
+import { RenderDividerProps } from '../../components/HorizontalScroll/types';
+import spacing from '../../theme/foundations/spacing';
 import controls from '../common/controls';
+
+const renderMapping = Object.assign(
+	{ none: undefined },
+	...Object.entries(spacing).map(([key, value]) => {
+		return {
+			[key]: ({ padding }: RenderDividerProps) => <Box p={value || padding} />
+		};
+	})
+);
 
 export default {
 	title: 'HorizontalScroll',
@@ -31,6 +42,14 @@ export default {
 			defaultValue: defaultIsFullWidth,
 			// description: '',
 			control: 'boolean'
+		},
+		renderDivider: {
+			name: 'Spacing',
+			defaultValue: 'none',
+			// description: '',
+			options: ['none', ...Object.keys(spacing)],
+			mapping: { ...renderMapping },
+			control: 'select'
 		}
 	}
 	// parameters: {

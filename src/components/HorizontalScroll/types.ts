@@ -6,6 +6,8 @@ import { Props as RHSMHorizontalScrollProps } from 'react-horizontal-scrolling-m
 
 export type HorizontalScrollRef = HTMLDivElement | null;
 
+export type RenderDividerProps = { padding?: string };
+
 type Omitted = 'children' | 'Arrows';
 
 export type HorizontalScrollProps = {
@@ -13,7 +15,7 @@ export type HorizontalScrollProps = {
 	colorMode?: ColorMode;
 	isFullWidth?: boolean;
 	isDisabled?: boolean;
-	renderDivider?: (props: { padding?: string }) => ReactNode;
+	renderDivider?: (props: RenderDividerProps) => ReactNode;
 } & Omit<RHSMHorizontalScrollProps, Omitted>;
 
 export type HorizontalScrollContext = Pick<HorizontalScrollProps, 'colorMode' | 'isDisabled'>;
