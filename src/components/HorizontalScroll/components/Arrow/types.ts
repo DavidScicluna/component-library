@@ -8,4 +8,4 @@ type Direction = 'left' | 'right';
 
 export type ArrowProps = {
 	direction: Direction;
-} & Omit<IconButtonProps, 'children'>;
+} & Omit<IconButtonProps, 'children' | 'aria-label'>;

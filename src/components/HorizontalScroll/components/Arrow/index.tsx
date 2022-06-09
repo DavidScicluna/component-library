@@ -2,6 +2,7 @@ import { FC, useContext } from 'react';
 
 import { useMediaQuery, Center, Fade } from '@chakra-ui/react';
 
+import { capitalize } from 'lodash';
 import merge from 'lodash/merge';
 import { useElementSize } from 'usehooks-ts';
 
@@ -86,6 +87,7 @@ const Arrow: FC<ArrowProps> = (props) => {
 					<IconButton
 						{...rest}
 						ref={iconButtonRef}
+						aria-label={`${capitalize(direction)} Arrow Button`}
 						colorMode={colorMode}
 						size={isXs ? 'sm' : 'md'}
 						variant='icon'
