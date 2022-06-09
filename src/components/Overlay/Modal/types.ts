@@ -20,8 +20,6 @@ import {
 } from '../../../common/types/box';
 import { Space } from '../../../theme/types';
 
-export type ModalContext = Pick<ModalProps, 'colorMode' | 'spacing'>;
-
 export type ModalSize = 'full' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl';
 
 type Omitted =
@@ -57,3 +55,5 @@ export type ModalProps = {
 	size?: ModalSize;
 	spacing?: Space;
 } & Omit<CUIModalProps, Omitted>;
+
+export type ModalContext = Pick<ModalProps, 'colorMode' | 'spacing'>;
