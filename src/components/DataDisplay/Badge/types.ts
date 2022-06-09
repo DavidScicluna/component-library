@@ -25,8 +25,6 @@ export type BadgeSize = Exclude<FontSize, '5xl' | '6xl' | '7xl' | '8xl' | '9xl'>
 
 export type BadgeVariant = 'contained' | 'outlined' | 'text';
 
-export type BadgeContext = Pick<BadgeProps, 'color' | 'colorMode' | 'isLight' | 'size' | 'variant'>;
-
 type Omitted =
 	// CUI Box Props
 	| BoxPadding
@@ -56,3 +54,5 @@ export type BadgeProps = {
 	size?: BadgeSize;
 	variant?: BadgeVariant;
 } & Omit<CUIBadgeProps, Omitted>;
+
+export type BadgeContext = Pick<BadgeProps, 'color' | 'colorMode' | 'isLight' | 'size' | 'variant'>;
