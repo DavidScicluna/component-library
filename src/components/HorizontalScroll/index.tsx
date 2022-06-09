@@ -5,11 +5,7 @@ import { ColorMode, useColorMode, Box } from '@chakra-ui/react';
 import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 
 import './common/styles/index.css';
-import {
-	colorMode as defaultColorMode,
-	isDisabled as defaultIsDisabled,
-	isFullWidth as defaultIsFullWidth
-} from './common/data/defaultPropValues';
+import { colorMode as defaultColorMode, isDisabled as defaultIsDisabled } from './common/data/defaultPropValues';
 import Child from './components/Child';
 import LeftArrow from './components/LeftArrow';
 import RightArrow from './components/RightArrow';
@@ -36,12 +32,23 @@ const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(
 
 	const {
 		children,
-		renderDivider,
+		apiRef,
 		colorMode: colorModeProp,
 		isDisabled = defaultIsDisabled,
-		isFullWidth = defaultIsFullWidth,
+		renderDivider,
 		LeftArrow: LeftArrowProp,
 		RightArrow: RightArrowProp,
+		itemClassName,
+		separatorClassName,
+		scrollContainerClassName = 'scrollContainer',
+		wrapperClassName = 'wrapperContainer',
+		onWheel,
+		onScroll,
+		onInit,
+		onUpdate,
+		onMouseDown,
+		onMouseUp,
+		onMouseMove,
 		...rest
 	} = props;
 
@@ -49,14 +56,23 @@ const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(
 
 	return (
 		<HorizontalScrollContext.Provider value={{ colorMode, isDisabled }}>
-			<Box ref={ref} width={isFullWidth ? '100%' : 'auto'}>
+			<Box ref={ref} width='100%' {...rest}>
 				<ScrollMenu
+					apiRef={apiRef}
 					LeftArrow={LeftArrowProp || LeftArrow}
 					RightArrow={RightArrowProp || RightArrow}
 					transitionDuration={convertStringToNumber(theme.transition.duration['ultra-slow'], 'ms')}
-					wrapperClassName='wrapperContainer'
-					scrollContainerClassName='scrollContainer'
-					{...rest}
+					itemClassName={itemClassName}
+					separatorClassName={separatorClassName}
+					wrapperClassName={wrapperClassName}
+					scrollContainerClassName={scrollContainerClassName}
+					onWheel={onWheel}
+					onScroll={onScroll}
+					onInit={onInit}
+					onUpdate={onUpdate}
+					onMouseDown={onMouseDown}
+					onMouseUp={onMouseUp}
+					onMouseMove={onMouseMove}
 				>
 					{children.map((child, index) => (
 						<Child

@@ -13,11 +13,7 @@ const Child: FC<ChildProps> = ({ children, renderDivider, isLast = false }) => {
 		<Center height='100%'>
 			{children}
 
-			{renderDivider && !isLast ? (
-				<Center p={0} m={0}>
-					{renderDivider({ padding: theme.space['0.75'] })}
-				</Center>
-			) : null}
+			{renderDivider && !isLast && renderDivider({ padding: theme.space['0.75'] })}
 		</Center>
 	);
 };
