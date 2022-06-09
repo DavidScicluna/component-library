@@ -1,3 +1,10 @@
+const width = {
+	name: 'Width',
+	type: 'string',
+	// description: '',
+	control: 'text'
+};
+
 const color = {
 	name: 'Color',
 	type: 'string',
@@ -12,4 +19,4 @@ const backgroundColor = {
 	control: 'color'
 };
 
-export default { color, backgroundColor };
+export default { width, color, backgroundColor };
