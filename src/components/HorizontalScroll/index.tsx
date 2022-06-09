@@ -4,7 +4,7 @@ import { ColorMode, useColorMode, Box } from '@chakra-ui/react';
 
 import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 
-import './common/styles/styles.css';
+import './common/styles/index.css';
 import {
 	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
@@ -55,7 +55,7 @@ const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(
 					RightArrow={RightArrowProp || RightArrow}
 					transitionDuration={convertStringToNumber(theme.transition.duration['ultra-slow'], 'ms')}
 					wrapperClassName='wrapperContainer'
-					scrollContainerClassName={isFullWidth ? 'scrollFullWidthContainer' : 'scrollContainer'}
+					scrollContainerClassName='scrollContainer'
 					{...rest}
 				>
 					{children.map((child, index) => (
