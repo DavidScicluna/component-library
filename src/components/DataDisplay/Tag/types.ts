@@ -25,10 +25,6 @@ export type TagSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type TagVariant = 'contained' | 'outlined' | 'text';
 
-type Picked = 'color' | 'colorMode' | 'isDisabled' | 'size' | 'variant';
-
-export type TagContext = Pick<TagProps, Picked>;
-
 type Omitted =
 	// CUI Box Props
 	| BoxPadding
@@ -61,3 +57,5 @@ export type TagProps = {
 	size?: TagSize;
 	variant?: TagVariant;
 } & Omit<CUITagProps, Omitted>;
+
+export type TagContext = Pick<TagProps, 'color' | 'colorMode' | 'isDisabled' | 'size' | 'variant'>;
