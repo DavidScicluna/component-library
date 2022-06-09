@@ -7,10 +7,7 @@ import { range } from 'lodash';
 import { Meta, Story } from './types';
 
 import { HorizontalScrollProps, HorizontalScroll as HorizontalScrollComponent } from '../..';
-import {
-	isDisabled as defaultIsDisabled,
-	isFullWidth as defaultIsFullWidth
-} from '../../components/HorizontalScroll/common/data/defaultPropValues';
+import { isDisabled as defaultIsDisabled } from '../../components/HorizontalScroll/common/data/defaultPropValues';
 import { RenderDividerProps } from '../../components/HorizontalScroll/types';
 import spacing from '../../theme/foundations/spacing';
 import controls from '../common/controls';
@@ -29,17 +26,11 @@ export default {
 	component: HorizontalScrollComponent,
 	argTypes: {
 		colorMode: { ...controls.theme.colorMode },
+		width: { ...controls.common.width },
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
 			defaultValue: defaultIsDisabled,
-			// description: '',
-			control: 'boolean'
-		},
-		isFullWidth: {
-			name: 'FullWidth',
-			type: 'boolean',
-			defaultValue: defaultIsFullWidth,
 			// description: '',
 			control: 'boolean'
 		},
