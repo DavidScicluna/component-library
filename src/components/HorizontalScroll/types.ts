@@ -35,7 +35,10 @@ type OmittedBoxProps =
 	| BoxShadow
 	| BoxFilter
 	| BoxPseudo
-	| BoxOther;
+	| BoxOther
+	| 'as'
+	| 'children'
+	| 'colorScheme';
 
 type OmittedRHSMHorizontalScrollProps =
 	| 'children'
