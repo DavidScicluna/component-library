@@ -48,7 +48,7 @@ const Arrow: FC<ArrowProps> = (props) => {
 						? {
 								...merge(
 									{
-										...style.before,
+										...style.pseudo,
 										width: `${iconButtonWidth}px`,
 										minHeight: `${iconButtonHeight}px`,
 										height: '100%'
@@ -63,7 +63,7 @@ const Arrow: FC<ArrowProps> = (props) => {
 						? {
 								...merge(
 									{
-										...style.after,
+										...style.pseudo,
 										width: `${iconButtonWidth}px`,
 										minHeight: `${iconButtonHeight}px`,
 										height: '100%'
