@@ -79,10 +79,6 @@ const Modal: FC<ModalProps> = (props) => {
 							type: colorMode === 'light' ? 'lightest' : 'darkest'
 						})}`}
 						borderRadius={size === 'full' || isXs ? 'none' : 'xl'}
-						m={isXs ? 2 : 0}
-						sx={{
-							transition: `${theme.transition.duration.faster} ${theme.transition.easing['ease-out']}`
-						}}
 					>
 						<VStack width='100%' divider={<Divider colorMode={colorMode} />} spacing={spacing} p={spacing}>
 							{children}
