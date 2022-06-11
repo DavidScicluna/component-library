@@ -124,6 +124,8 @@ import { ModalHeaderProps } from './components/Overlay/Modal/components/ModalHea
 import { ModalProps } from './components/Overlay/Modal/types';
 import Tooltip from './components/Overlay/Tooltip';
 import { TooltipProps } from './components/Overlay/Tooltip/types';
+import Skeleton from './components/Skeleton';
+import { SkeletonColor, SkeletonProps, SkeletonType } from './components/Skeleton/types';
 import TabBar from './components/TabBar';
 import theme from './theme';
 
@@ -222,6 +224,7 @@ export {
 	ModalBody,
 	ModalFooter,
 	ModalHeader,
+	Skeleton,
 	TabBar,
 	Tooltip
 };
@@ -314,5 +317,8 @@ export type {
 	ModalFooterProps,
 	ModalHeaderProps,
 	ModalProps,
-	TooltipProps
+	TooltipProps,
+	SkeletonColor,
+	SkeletonProps,
+	SkeletonType
 };
