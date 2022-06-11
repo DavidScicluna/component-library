@@ -82,10 +82,6 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 							type: colorMode === 'light' ? 'lightest' : 'darkest'
 						})}`}
 						borderRadius='xl'
-						// m={isXs ? 2 : 0}
-						sx={{
-							transition: `${theme.transition.duration.faster} ${theme.transition.easing['ease-out']}`
-						}}
 					>
 						{renderCancel && (
 							<Center position='absolute' top={theme.space[spacing]} right={theme.space[spacing]}>
