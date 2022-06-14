@@ -25,11 +25,6 @@ export type CardColor = Exclude<Color, 'transparent'>;
 
 export type CardVariant = 'contained' | 'outlined' | 'transparent';
 
-export type CardContext = {
-	color: CardColor;
-	colorMode: ColorMode;
-};
-
 type Omitted =
 	// CUI Box Props
 	| BoxColor
@@ -65,3 +60,5 @@ export type CardProps = {
 	spacing?: Space;
 	variant?: CardVariant;
 } & Omit<CenterProps, Omitted>;
+
+export type CardContext = Pick<CardProps, 'color' | 'colorMode' | 'isDisabled' | 'isLight'>;

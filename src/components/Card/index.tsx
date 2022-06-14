@@ -18,11 +18,10 @@ import {
 	variant as defaultVariant
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
+import CardDivider from './components/CardDivider';
 import { CardContext as CardContextType, CardRef, CardProps } from './types';
 
 import { useTheme } from '../../common/hooks';
-import { getColor } from '../../common/utils/color';
-import Divider from '../Divider';
 
 export const CardContext = createContext<CardContextType>({ color: 'gray', colorMode: 'light' });
 
@@ -78,36 +77,7 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 					position='relative'
 					zIndex={1}
 					flex={1}
-					divider={
-						isDivisible && variant !== 'contained' ? (
-							<Divider
-								backgroundColor={getColor({
-									theme,
-									colorMode,
-									color: isDisabled
-										? 'gray'
-										: color === 'black' || color === 'white'
-										? 'gray'
-										: color,
-									type: isDisabled
-										? isLight
-											? 'divider'
-											: 'text.secondary'
-										: color === 'black'
-										? 'darkest'
-										: color === 'white'
-										? 'lightest'
-										: color === 'gray'
-										? isLight
-											? 'divider'
-											: 'text.secondary'
-										: isLight
-										? 'divider'
-										: 'color'
-								})}
-							/>
-						) : undefined
-					}
+					divider={isDivisible && variant !== 'contained' ? <CardDivider /> : undefined}
 					spacing={spacing}
 					overflow='hidden'
 				>
