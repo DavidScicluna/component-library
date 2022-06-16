@@ -61,7 +61,7 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 	});
 
 	return (
-		<CardContext.Provider value={{ color, colorMode }}>
+		<CardContext.Provider value={{ color, colorMode, isDisabled, isLight }}>
 			<Center
 				{...rest}
 				ref={ref}
