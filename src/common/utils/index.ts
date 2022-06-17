@@ -30,3 +30,15 @@ export const convertREMToPixels = memoize((rem: number): number => {
 export const convertStringToNumber = memoize((string: string, cut: string): number => {
 	return Number(string.replace(cut, ''));
 });
+
+type ConvertEasingsToArrayProps = { easing: string };
+
+export const convertEasingsToArray = memoize(({ easing }: ConvertEasingsToArrayProps): number[] => {
+	return easing
+		.replaceAll('cubic-bezier', '')
+		.replaceAll('(', '')
+		.replaceAll(')', '')
+		.replaceAll(' ', '')
+		.split(',')
+		.map((number) => Number(number));
+});
