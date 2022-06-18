@@ -12,13 +12,14 @@ import {
 	// colorMode as defaultColorMode,
 	isFullWidth as defaultIsFullWidth
 } from '../../../../common/data/defaultPropValues';
-import { isOpen as defaultIsOpen } from '../data/defaultPropValues';
+import { isLight as defaultIsLight, isOpen as defaultIsOpen } from '../data/defaultPropValues';
 
 export default memoize((props: AccordionStyleProps): AccordionStyleReturn => {
 	const {
 		theme,
 		color = defaultColor,
 		// colorMode = defaultColorMode,
+		isLight = defaultIsLight,
 		isFullWidth = defaultIsFullWidth,
 		isOpen = defaultIsOpen
 	} = props;
@@ -29,10 +30,10 @@ export default memoize((props: AccordionStyleProps): AccordionStyleReturn => {
 	//  : dark;
 
 	return {
-		accordion: merge(accordion({ theme, isFullWidth }), scheme.accordion({ theme, color, isOpen })),
-		active: merge(active({ theme }), scheme.active({ theme, color, isOpen })),
+		accordion: merge(accordion({ theme, isFullWidth }), scheme.accordion({ theme, color, isLight, isOpen })),
+		active: merge(active({ theme }), scheme.active({ theme, color, isLight, isOpen })),
 		disabled: {
-			accordion: merge(disabled.accordion({ theme }), scheme.disabled({ theme })),
+			accordion: merge(disabled.accordion({ theme }), scheme.disabled({ theme, isLight })),
 			header: disabled.header()
 		}
 	};

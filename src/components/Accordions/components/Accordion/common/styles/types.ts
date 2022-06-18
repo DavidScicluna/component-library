@@ -3,11 +3,9 @@ import { Theme } from '../../../../../../theme/types';
 import { AccordionsProps } from '../../../../types';
 import { AccordionProps } from '../../types';
 
-type Picked = 'color' | 'colorMode' | 'isFullWidth';
-
-export type AccordionStyleProps = Pick<AccordionProps, 'isOpen'> & {
+export type AccordionStyleProps = Pick<AccordionProps, 'isLight' | 'isOpen'> & {
 	theme: Theme;
-} & Pick<AccordionsProps, Picked>;
+} & Pick<AccordionsProps, 'color' | 'colorMode' | 'isFullWidth'>;
 
 export type AccordionStyleReturn = {
 	accordion: Style;

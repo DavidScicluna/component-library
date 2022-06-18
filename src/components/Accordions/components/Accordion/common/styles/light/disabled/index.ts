@@ -3,12 +3,13 @@ import { AccordionLightDisabledStylingProps } from './types';
 import { Style } from '../../../../../../../../common/types';
 import { getHue } from '../../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../../theme/types';
+import { isLight as defaultIsLight } from '../../../data/defaultPropValues';
 import { getSizeConfig } from '../../../utils';
 
-export default ({ theme }: AccordionLightDisabledStylingProps): Style => {
+export default ({ theme, isLight = defaultIsLight }: AccordionLightDisabledStylingProps): Style => {
 	const shade = getHue({
 		colorMode: 'light',
-		type: 'text.secondary'
+		type: isLight ? 'divider' : 'text.secondary'
 	});
 
 	const config = getSizeConfig();
