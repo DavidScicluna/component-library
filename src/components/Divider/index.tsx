@@ -1,16 +1,20 @@
-import { FC } from 'react';
+import { ReactElement, forwardRef } from 'react';
 
 import { ColorMode, useColorMode, Box } from '@chakra-ui/react';
 
-import { DividerProps } from './types';
+import { DividerRef, DividerProps } from './types';
 
-const Divider: FC<DividerProps> = ({ colorMode: colorModeProp, orientation = 'horizontal', ...rest }) => {
+const Divider = forwardRef<DividerRef, DividerProps>(function Divider(props, ref): ReactElement {
 	const { colorMode: colorModeHook } = useColorMode();
+
+	const { colorMode: colorModeProp, orientation = 'horizontal', ...rest } = props;
 
 	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
 	return (
 		<Box
+			ref={ref}
+			as='hr'
 			width={orientation === 'horizontal' ? '100%' : '2px'}
 			height={orientation === 'horizontal' ? '2px' : '100%'}
 			backgroundColor={`gray.${colorMode === 'light' ? 200 : 700}`}
@@ -18,6 +22,6 @@ const Divider: FC<DividerProps> = ({ colorMode: colorModeProp, orientation = 'ho
 			border='none'
 		/>
 	);
-};
+});
 
 export default Divider;
