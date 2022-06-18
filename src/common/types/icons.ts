@@ -1296,6 +1296,7 @@ export type Icon = string &
 		| 'playlist_add'
 		| 'playlist_add_check'
 		| 'playlist_play'
+		| 'playlist_remove'
 		| 'plumbing'
 		| 'plus_one'
 		| 'podcasts'

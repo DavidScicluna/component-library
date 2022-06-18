@@ -1293,6 +1293,7 @@ const icons: Icon[] = [
 	'playlist_add',
 	'playlist_add_check',
 	'playlist_play',
+	'playlist_remove',
 	'plumbing',
 	'plus_one',
 	'podcasts',
