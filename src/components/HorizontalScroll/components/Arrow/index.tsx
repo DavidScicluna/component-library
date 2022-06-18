@@ -1,6 +1,6 @@
 import { FC, useContext } from 'react';
 
-import { useMediaQuery, Center, Fade } from '@chakra-ui/react';
+import { useMediaQuery, Center } from '@chakra-ui/react';
 
 import { capitalize } from 'lodash';
 import merge from 'lodash/merge';
@@ -15,6 +15,7 @@ import { useTheme } from '../../../../common/hooks';
 import { getColor } from '../../../../common/utils/color';
 import IconButton from '../../../Clickable/IconButton';
 import Icon from '../../../Icon';
+import Fade from '../../../Transitions/Fade';
 import { HorizontalScrollContext as HorizontalScrollContextType } from '../../types';
 
 const Arrow: FC<ArrowProps> = (props) => {
@@ -36,7 +37,7 @@ const Arrow: FC<ArrowProps> = (props) => {
 		<Fade in={!isDisabled} unmountOnExit style={{ height: '100%' }}>
 			<Center
 				width={`${iconButtonWidth * 2}px`}
-				height={'calc(100% + 2px)'}
+				height='100%'
 				minHeight={`${iconButtonHeight}px`}
 				position='absolute'
 				top='50%'
