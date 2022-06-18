@@ -14,6 +14,7 @@ import {
 import { isEmpty, isNil, merge } from 'lodash';
 
 import {
+	color as defaultColor,
 	colorMode as defaultColorMode,
 	isChecked as defaultIsChecked,
 	isIndeterminate as defaultIsIndeterminate,
@@ -36,7 +37,7 @@ import Icon from '../../Icon';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 
-export const CheckboxContext = createContext<CheckboxContextType>({ colorMode: defaultColorMode });
+export const CheckboxContext = createContext<CheckboxContextType>({ color: defaultColor, colorMode: defaultColorMode });
 
 const Checkbox: FC<CheckboxProps> = (props) => {
 	const theme = useTheme();
