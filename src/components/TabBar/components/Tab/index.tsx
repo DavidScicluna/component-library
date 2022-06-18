@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { VStack, Text, Box, SlideFade } from '@chakra-ui/react';
+import { VStack, Text, Box } from '@chakra-ui/react';
 
 import {
 	color as defaultColor,
@@ -13,6 +13,7 @@ import { TabProps } from './types';
 
 import { useTheme } from '../../../../common/hooks';
 import { getColor } from '../../../../common/utils/color';
+import SlideFade from '../../../Transitions/SlideFade';
 
 const Tab: FC<TabProps> = (props) => {
 	const theme = useTheme();

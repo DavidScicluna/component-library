@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 
-import { ColorMode, useColorMode, Center, Skeleton as CUISkeleton, SlideFade } from '@chakra-ui/react';
+import { ColorMode, useColorMode, Center, Skeleton as CUISkeleton } from '@chakra-ui/react';
 
 import { darken, lighten } from 'color2k';
 import { AnimatePresence } from 'framer-motion';
@@ -18,6 +18,7 @@ import { SkeletonProps } from './types';
 import { useTheme } from '../../common/hooks';
 import { convertStringToNumber } from '../../common/utils';
 import { getColor } from '../../common/utils/color';
+import SlideFade from '../Transitions/SlideFade';
 
 const Skeleton: FC<SkeletonProps> = (props) => {
 	const theme = useTheme();
