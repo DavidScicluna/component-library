@@ -17,12 +17,8 @@ import {
 	BoxPseudo,
 	BoxOther
 } from '../../../../common/types/box';
+import { Space } from '../../../../theme/types';
 import { Accordion } from '../../types';
-
-type Children = {
-	header: ReactNode;
-	body: ReactNode;
-};
 
 type OnToggleProps = { id: Accordion['id'] };
 
@@ -47,13 +43,17 @@ type Omitted =
 	| 'color'
 	| 'colorScheme';
 
-export type AccordionProps = Accordion & {
-	children: Children;
+export type AccordionProps = Pick<Accordion, 'id'> & {
+	header: ReactNode;
+	body: ReactNode;
+	footer?: ReactNode;
 	isActive?: boolean;
 	isDisabled?: boolean;
 	isDivisible?: boolean;
+	isLight?: boolean;
 	isOpen?: boolean;
 	onToggle: (props?: OnToggleProps) => void;
+	spacing?: Space;
 } & Omit<CenterProps, Omitted>;
 
-export type AccordionContext = { isHovering?: boolean } & Pick<AccordionProps, 'isOpen' | 'isDisabled'>;
+export type AccordionContext = Pick<AccordionProps, 'isDisabled' | 'isLight' | 'isOpen'>;

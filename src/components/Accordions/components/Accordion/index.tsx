@@ -1,16 +1,19 @@
 import { FC, createContext, useContext } from 'react';
 
-import { useBoolean, Center, VStack, VisuallyHidden, Collapse } from '@chakra-ui/react';
+import { useConst, Box, VisuallyHidden, Center, VStack } from '@chakra-ui/react';
 import { dataAttr } from '@chakra-ui/utils';
 
+import { Transition } from 'framer-motion';
 import { merge } from 'lodash';
 import { useInView } from 'react-cool-inview';
 
 import {
-	isOpen as defaultIsOpen,
 	isActive as defaultIsActive,
 	isDivisible as defaultIsDivisible,
-	isDisabled as defaultAccordionIsDisabled
+	isDisabled as defaultAccordionIsDisabled,
+	isLight as defaultIsLight,
+	isOpen as defaultIsOpen,
+	spacing as defaultSpacing
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import AccordionDivider from './components/AccordionDivider';
@@ -18,12 +21,16 @@ import { AccordionContext as AccordionContextType, AccordionProps } from './type
 
 import { AccordionsContext } from '../..';
 import { useTheme } from '../../../../common/hooks';
+import Collapse from '../../../Transitions/Collapse';
+import {
+	getDuration as getTransitionDuration,
+	getEasings as getTransitionEasings
+} from '../../../Transitions/common/utils';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
 	isDisabled as defaultAccordionsIsDisabled,
-	isFullWidth as defaultIsFullWidth,
-	spacing as defaultSpacing
+	isFullWidth as defaultIsFullWidth
 } from '../../common/data/defaultPropValues';
 import { AccordionsContext as AccordionsContextType } from '../../types';
 
@@ -44,79 +51,79 @@ const Accordion: FC<AccordionProps> = (props) => {
 		color = defaultColor,
 		colorMode = defaultColorMode,
 		isDisabled: isDisabledHook = defaultAccordionsIsDisabled,
-		isFullWidth = defaultIsFullWidth,
-		spacing = defaultSpacing
+		isFullWidth = defaultIsFullWidth
 	} = useContext<AccordionsContextType>(AccordionsContext);
 
 	const {
-		children,
 		id,
-		// title,
+		header,
+		body,
+		footer,
 		isActive = defaultIsActive,
 		isDisabled: isDisabledProp = defaultAccordionIsDisabled,
 		isDivisible = defaultIsDivisible,
+		isLight = defaultIsLight,
 		isOpen: isOpenProp = defaultIsOpen,
 		onToggle,
+		spacing = defaultSpacing,
 		sx,
 		...rest
 	} = props;
 
-	const [isHovering, setIsHovering] = useBoolean();
-
 	const isDisabled = isDisabledHook || isDisabledProp;
-	const isOpen = !isDisabled || isOpenProp;
+	const isOpen = !isDisabled && isOpenProp;
 
-	const style = useStyles({ theme, color, colorMode, isFullWidth, isOpen });
+	const style = useStyles({ theme, color, colorMode, isFullWidth, isLight, isOpen });
+
+	const duration = useConst<number>(getTransitionDuration({ theme, duration: 'slower' }));
+	const easing = useConst<number[]>(getTransitionEasings({ theme }));
+
+	const config = useConst<Transition>({ duration, easing });
 
 	return (
-		<AccordionContext.Provider value={{ isDisabled, isHovering, isOpen }}>
-			<Center
+		<AccordionContext.Provider value={{ isDisabled, isLight, isOpen }}>
+			<Box
 				{...rest}
 				ref={ref}
 				as='div'
 				aria-disabled={isDisabled}
+				tabIndex={0}
 				data-active={dataAttr(isActive)}
-				onMouseEnter={() => setIsHovering.on()}
-				onMouseLeave={() => setIsHovering.off()}
+				onClick={() => onToggle({ id })}
 				sx={merge(style.accordion, sx)}
 				_disabled={style.disabled.accordion}
 				_active={style.active}
 			>
-				{id && (
-					<VisuallyHidden>
-						<span id={id.toLowerCase()} />
-					</VisuallyHidden>
-				)}
+				<VisuallyHidden sx={{ top: 0 }}>
+					<span id={id.toLowerCase()} />
+				</VisuallyHidden>
 
 				<VStack
+					width='100%'
 					position='relative'
 					zIndex={1}
-					flex={1}
-					divider={isDivisible && !isOpen ? <AccordionDivider /> : undefined}
+					divider={isDivisible && isOpen && !isDisabled ? <AccordionDivider /> : undefined}
 					spacing={spacing}
-					overflow='hidden'
 				>
-					<Center
-						aria-disabled={isDisabled}
-						tabIndex={0}
-						onClick={() => onToggle({ id })}
-						// sx={merge(style.card, sx)}
-						_disabled={style.disabled.header}
-					>
-						{children.header}
-					</Center>
+					<Center width='100%'>{header}</Center>
 
-					<Collapse in={isOpen && inView} unmountOnExit style={{ width: '100%' }}>
+					<Collapse
+						in={isOpen && inView}
+						unmountOnExit
+						style={{ width: '100%' }}
+						transition={{ enter: { ...config }, exit: { ...config } }}
+					>
 						<VStack
-							divider={isDivisible ? <AccordionDivider /> : undefined}
+							width='100%'
+							divider={isDivisible && !isDisabled ? <AccordionDivider /> : undefined}
 							spacing={spacing}
-							overflow='hidden'
 						>
-							{children.body}
+							{body}
+							{footer}
 						</VStack>
 					</Collapse>
 				</VStack>
-			</Center>
+			</Box>
 		</AccordionContext.Provider>
 	);
 };
