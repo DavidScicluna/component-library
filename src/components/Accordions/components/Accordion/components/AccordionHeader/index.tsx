@@ -1,6 +1,6 @@
 import { FC, useContext, useCallback } from 'react';
 
-import { HStack, VStack, Center } from '@chakra-ui/react';
+import { useMediaQuery, HStack, VStack, Center } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
@@ -13,24 +13,23 @@ import { convertREMToPixels, convertStringToNumber } from '../../../../../../com
 import { getColor } from '../../../../../../common/utils/color';
 import { Space } from '../../../../../../theme/types';
 import Icon from '../../../../../Icon';
-import { colorMode as defaultColorMode, spacing as defaultSpacing } from '../../../../common/data/defaultPropValues';
+import { colorMode as defaultColorMode } from '../../../../common/data/defaultPropValues';
 import { AccordionsContext as AccordionsContextType } from '../../../../types';
-import { isOpen as defaultIsOpen, isHovering as defaultIsHovering } from '../../common/data/defaultPropValues';
+import { isOpen as defaultIsOpen, spacing as defaultSpacing } from '../../common/data/defaultPropValues';
 import { AccordionContext as AccordionContextType } from '../../types';
+// import AccordionDivider from '../AccordionDivider';
 
 const AccordionHeader: FC<AccordionHeaderProps> = (props) => {
 	const theme = useTheme();
 
-	const { colorMode = defaultColorMode, spacing: spacingHook = defaultSpacing } =
-		useContext<AccordionsContextType>(AccordionsContext);
-	const { isOpen = defaultIsOpen, isHovering = defaultIsHovering } =
-		useContext<AccordionContextType>(AccordionContext);
+	const [isXs] = useMediaQuery('(max-width: 600px)');
+
+	const { colorMode = defaultColorMode } = useContext<AccordionsContextType>(AccordionsContext);
+	const { isOpen = defaultIsOpen } = useContext<AccordionContextType>(AccordionContext);
 
 	const [actionsRef, { width: actionsWidth }] = useElementSize();
 
-	const { renderTitle, renderSubtitle, actions, spacing: spacingProp = defaultSpacing, ...rest } = props;
-
-	const spacing = spacingProp || spacingHook;
+	const { renderTitle, renderSubtitle, actions, spacing = defaultSpacing, ...rest } = props;
 
 	const handleCalculateTextWidth = useCallback((): string => {
 		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem'));
@@ -39,6 +38,7 @@ const AccordionHeader: FC<AccordionHeaderProps> = (props) => {
 	}, [theme, spacing, actionsWidth]);
 
 	return (
+		// <VStack width='100%' divider={isXs ? <AccordionDivider /> : undefined} spacing={spacing}>
 		<HStack width='100%' alignItems='center' justifyContent='space-between' spacing={spacing} {...rest}>
 			<VStack width={handleCalculateTextWidth()} alignItems='flex-start' spacing={0.5}>
 				{/* Title */}
@@ -62,19 +62,14 @@ const AccordionHeader: FC<AccordionHeaderProps> = (props) => {
 					})}
 			</VStack>
 
-			<HStack spacing={2}>
-				{actions && <Center ref={actionsRef}>{actions}</Center>}
+			<HStack ref={actionsRef} spacing={spacing}>
+				{actions && !isXs && <Center>{actions}</Center>}
 
-				<Icon
-					icon={isOpen ? 'remove' : 'add'}
-					color={getColor({
-						theme,
-						colorMode,
-						type: isOpen || isHovering ? 'text.primary' : 'text.secondary'
-					})}
-				/>
+				<Icon icon={isOpen ? 'remove' : 'add'} color={getColor({ theme, colorMode, type: 'text.secondary' })} />
 			</HStack>
 		</HStack>
+		// 	{actions && isXs && <Center width='100%'>{actions}</Center>}
+		// </VStack>
 	);
 };
 
