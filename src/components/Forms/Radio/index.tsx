@@ -1,15 +1,6 @@
 import { FC, createContext, useRef, useCallback } from 'react';
 
-import {
-	ColorMode,
-	useColorMode,
-	FormControl,
-	Radio as CUIRadio,
-	VStack,
-	HStack,
-	Center,
-	Collapse
-} from '@chakra-ui/react';
+import { ColorMode, useColorMode, FormControl, Radio as CUIRadio, VStack, HStack, Center } from '@chakra-ui/react';
 
 import { isEmpty, isNil, merge } from 'lodash';
 
@@ -32,6 +23,7 @@ import { getSizeConfig } from './common/utils';
 import { RadioContext as RadioContextType, RadioProps, RadioRef, RadioPanelRenderProps } from './types';
 
 import { useTheme } from '../../../common/hooks';
+import Collapse from '../../Transitions/Collapse';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 

@@ -7,8 +7,7 @@ import {
 	Checkbox as CUICheckbox,
 	VStack,
 	HStack,
-	Center,
-	Collapse
+	Center
 } from '@chakra-ui/react';
 
 import { isEmpty, isNil, merge } from 'lodash';
@@ -34,6 +33,7 @@ import { CheckboxContext as CheckboxContextType, CheckboxProps, CheckboxRef, Che
 
 import { useTheme } from '../../../common/hooks';
 import Icon from '../../Icon';
+import Collapse from '../../Transitions/Collapse';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 

@@ -9,8 +9,7 @@ import {
 	Input as CUIInput,
 	VStack,
 	HStack,
-	Center,
-	Collapse
+	Center
 } from '@chakra-ui/react';
 
 import { isEmpty, isNil } from 'lodash';
@@ -33,6 +32,7 @@ import { getSizeConfig } from './common/utils';
 import { InputProps, InputRef, InputPanelRenderProps, Event } from './types';
 
 import { useTheme } from '../../../common/hooks';
+import Collapse from '../../Transitions/Collapse';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 
