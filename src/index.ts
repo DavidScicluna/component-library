@@ -2,6 +2,24 @@ import fallback from './common/assets/fallback';
 import { useTheme } from './common/hooks';
 import { checkIsTouchDevice, convertREMToPixels, convertStringToNumber } from './common/utils';
 import { getHue, getColor } from './common/utils/color';
+import Accordions from './components/Accordions';
+import Accordion from './components/Accordions/components/Accordion';
+import AccordionBody from './components/Accordions/components/Accordion/components/AccordionBody';
+import { AccordionBodyProps } from './components/Accordions/components/Accordion/components/AccordionBody/types';
+import AccordionFooter from './components/Accordions/components/Accordion/components/AccordionFooter';
+import { AccordionFooterProps } from './components/Accordions/components/Accordion/components/AccordionFooter/types';
+import AccordionHeader from './components/Accordions/components/Accordion/components/AccordionHeader';
+import { AccordionHeaderProps } from './components/Accordions/components/Accordion/components/AccordionHeader/types';
+import { AccordionContext, AccordionProps } from './components/Accordions/components/Accordion/types';
+import QuickToggles from './components/Accordions/components/QuickToggles';
+import { QuickTogglesProps } from './components/Accordions/components/QuickToggles/types';
+import {
+	Accordion as AccordionType,
+	AccordionsColor,
+	AccordionsContext,
+	AccordionsProps,
+	AccordionsRef
+} from './components/Accordions/types';
 import Card from './components/Card';
 import CardBody from './components/Card/components/CardBody';
 import { CardBodyProps } from './components/Card/components/CardBody/types';
@@ -127,6 +145,16 @@ import { TooltipProps } from './components/Overlay/Tooltip/types';
 import Skeleton from './components/Skeleton';
 import { SkeletonColor, SkeletonProps, SkeletonType } from './components/Skeleton/types';
 import TabBar from './components/TabBar';
+import Collapse from './components/Transitions/Collapse';
+import { CollapseProps } from './components/Transitions/Collapse/types';
+import Fade from './components/Transitions/Fade';
+import { FadeProps } from './components/Transitions/Fade/types';
+import ScaleFade from './components/Transitions/ScaleFade';
+import { ScaleFadeProps } from './components/Transitions/ScaleFade/types';
+import Slide from './components/Transitions/Slide';
+import { SlideProps } from './components/Transitions/Slide/types';
+import SlideFade from './components/Transitions/SlideFade';
+import { SlideFadeProps } from './components/Transitions/SlideFade/types';
 import theme from './theme';
 
 // Theme Types
@@ -185,9 +213,17 @@ export const assets = { fallback };
 // Utils
 export const utils = { checkIsTouchDevice, convertREMToPixels, convertStringToNumber, getHue, getColor };
 
+// Theme
+export { theme };
+
 // Components
 export {
-	theme,
+	Accordions,
+	Accordion,
+	AccordionBody,
+	AccordionFooter,
+	AccordionHeader,
+	QuickToggles,
 	Card,
 	CardBody,
 	CardFooter,
@@ -226,11 +262,27 @@ export {
 	ModalHeader,
 	Skeleton,
 	TabBar,
-	Tooltip
+	Tooltip,
+	Collapse,
+	Fade,
+	ScaleFade,
+	Slide,
+	SlideFade
 };
 
 // Components Types
 export type {
+	AccordionBodyProps,
+	AccordionFooterProps,
+	AccordionHeaderProps,
+	AccordionContext,
+	AccordionProps,
+	AccordionType,
+	QuickTogglesProps,
+	AccordionsColor,
+	AccordionsContext,
+	AccordionsProps,
+	AccordionsRef,
 	CardBodyProps,
 	CardFooterProps,
 	CardHeaderProps,
@@ -320,5 +372,10 @@ export type {
 	TooltipProps,
 	SkeletonColor,
 	SkeletonProps,
-	SkeletonType
+	SkeletonType,
+	CollapseProps,
+	FadeProps,
+	ScaleFadeProps,
+	SlideProps,
+	SlideFadeProps
 };
