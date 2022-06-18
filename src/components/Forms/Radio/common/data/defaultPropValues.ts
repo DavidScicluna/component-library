@@ -1,6 +1,8 @@
 import { ColorMode } from '@chakra-ui/react';
 
-import { RadioSize, RadioVariant } from '../../types';
+import { RadioColor, RadioSize, RadioVariant } from '../../types';
+
+export const color: RadioColor = 'blue';
 
 export const colorMode: ColorMode = 'light';
 

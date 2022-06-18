@@ -14,6 +14,7 @@ import {
 import { isEmpty, isNil, merge } from 'lodash';
 
 import {
+	color as defaultColor,
 	colorMode as defaultColorMode,
 	isChecked as defaultIsChecked,
 	isDisabled as defaultIsDisabled,
@@ -34,7 +35,7 @@ import { useTheme } from '../../../common/hooks';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 
-export const RadioContext = createContext<RadioContextType>({ colorMode: defaultColorMode });
+export const RadioContext = createContext<RadioContextType>({ color: defaultColor, colorMode: defaultColorMode });
 
 const Radio: FC<RadioProps> = (props) => {
 	const theme = useTheme();
