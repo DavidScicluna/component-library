@@ -6,9 +6,13 @@ import { useTheme } from '../../../../../../common/hooks';
 import { getColor } from '../../../../../../common/utils/color';
 import Divider from '../../../../../Divider';
 import { DividerProps } from '../../../../../Divider/types';
-import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/data/defaultPropValues';
+import {
+	color as defaultColor,
+	colorMode as defaultColorMode,
+	isDisabled as defaultIsDisabled
+} from '../../../../common/data/defaultPropValues';
 import { AccordionsContext as AccordionsContextType } from '../../../../types';
-import { isDisabled as defaultIsDisabled, isLight as defaultIsLight } from '../../common/data/defaultPropValues';
+import { isLight as defaultIsLight } from '../../common/data/defaultPropValues';
 import { AccordionContext as AccordionContextType } from '../../types';
 
 const AccordionDivider: FC<DividerProps> = (props) => {
