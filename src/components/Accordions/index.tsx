@@ -37,7 +37,7 @@ const Accordions = forwardRef<AccordionsRef, AccordionsProps>(function Accordion
 	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
 	return (
-		<AccordionsContext.Provider value={{ accordions, color, colorMode, isDisabled, isFullWidth }}>
+		<AccordionsContext.Provider value={{ accordions, color, colorMode, isDisabled, isFullWidth, spacing }}>
 			<VStack ref={ref} width='100%' spacing={spacing} {...rest}>
 				{children}
 

@@ -66,6 +66,6 @@ export type AccordionsProps = {
 	isFullWidth?: boolean;
 } & Omit<StackProps, Omitted>;
 
-type Picked = 'accordions' | 'color' | 'colorMode' | 'isDisabled' | 'isFullWidth';
+type Picked = 'accordions' | 'color' | 'colorMode' | 'isDisabled' | 'isFullWidth' | 'spacing';
 
 export type AccordionsContext = Pick<AccordionsProps, Picked>;
