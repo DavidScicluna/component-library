@@ -17,14 +17,11 @@ export const AccordionsContext = createContext<AccordionsContextType>({
 	color: defaultColor,
 	colorMode: defaultColorMode,
 	isDisabled: defaultIsDisabled,
-	isFullWidth: defaultIsFullWidth,
-	spacing: defaultSpacing
+	isFullWidth: defaultIsFullWidth
 });
 
 const Accordions = forwardRef<AccordionsRef, AccordionsProps>(function Accordions(props, ref): ReactElement {
 	const { colorMode: colorModeHook } = useColorMode();
-
-	// const [openedAccordions, setOpenedAccordions] = useState<AccordionType<D>['id'][]>([]);
 
 	const {
 		children,
@@ -39,33 +36,8 @@ const Accordions = forwardRef<AccordionsRef, AccordionsProps>(function Accordion
 
 	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
-	// /**
-	//  * This method will check whether the passed id is already opened, if so it will close it
-	//  * Else it will open it
-	//  *
-	//  * @param id string - ID of the Accordion
-	//  */
-	// const handleToggleAccordion = useCallback((id: AccordionType<D>['id']): void => {
-	// 	if (openedAccordions.some((accordion) => accordion === id)) {
-	// 		setOpenedAccordions(openedAccordions.filter((accordion) => accordion !== id));
-	// 	} else {
-	// 		setOpenedAccordions([...openedAccordions, id]);
-	// 	}
-	// }, []);
-
-	// /**
-	//  * This methodd will either open all or close all accordions
-	//  */
-	// const handleToggleAllAccordions = useCallback((): void => {
-	// 	if (accordions.length === openedAccordions.length) {
-	// 		setOpenedAccordions([]);
-	// 	} else {
-	// 		setOpenedAccordions(accordions.map((accordion) => accordion.id));
-	// 	}
-	// }, []);
-
 	return (
-		<AccordionsContext.Provider value={{ accordions, color, colorMode, isDisabled, isFullWidth, spacing }}>
+		<AccordionsContext.Provider value={{ accordions, color, colorMode, isDisabled, isFullWidth }}>
 			<VStack ref={ref} width='100%' spacing={spacing} {...rest}>
 				{children}
 

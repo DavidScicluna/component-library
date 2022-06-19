@@ -18,7 +18,7 @@ import { Color } from '../../theme/types';
 
 export type AccordionsRef = HTMLDivElement | null;
 
-export type AccordionsColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
+export type AccordionsColor = Exclude<Color, 'transparent' | 'black' | 'white'>;
 
 // export type Total = {
 // 	prefix?: string;
@@ -30,6 +30,10 @@ export type Accordion = {
 	id: string;
 	title: string;
 };
+
+export type OpenedAccordion = Accordion['id'];
+
+export type OpenedAccordions = OpenedAccordion[];
 
 // export type RenderProps<D> = {
 // 	isOpen: boolean;
@@ -62,6 +66,6 @@ export type AccordionsProps = {
 	isFullWidth?: boolean;
 } & Omit<StackProps, Omitted>;
 
-type Picked = 'accordions' | 'color' | 'colorMode' | 'isDisabled' | 'isFullWidth' | 'spacing';
+type Picked = 'accordions' | 'color' | 'colorMode' | 'isDisabled' | 'isFullWidth';
 
 export type AccordionsContext = Pick<AccordionsProps, Picked>;
