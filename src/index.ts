@@ -3,7 +3,6 @@ import { useTheme } from './common/hooks';
 import { checkIsTouchDevice, convertREMToPixels, convertStringToNumber } from './common/utils';
 import { getHue, getColor } from './common/utils/color';
 import Accordions from './components/Accordions';
-import { toggleAccordion, toggleAllAccordions } from './components/Accordions/common/utils';
 import Accordion from './components/Accordions/components/Accordion';
 import AccordionBody from './components/Accordions/components/Accordion/components/AccordionBody';
 import { AccordionBodyProps } from './components/Accordions/components/Accordion/components/AccordionBody/types';
@@ -213,12 +212,8 @@ export { useTheme };
 // Assets
 export const assets = { fallback };
 
-// Accordions Utils
-export const accordionsUtils = { toggleAccordion, toggleAllAccordions };
-
 // Utils
 export const utils = {
-	accordionsUtils,
 	checkIsTouchDevice,
 	convertREMToPixels,
 	convertStringToNumber,
