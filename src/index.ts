@@ -3,6 +3,7 @@ import { useTheme } from './common/hooks';
 import { checkIsTouchDevice, convertREMToPixels, convertStringToNumber } from './common/utils';
 import { getHue, getColor } from './common/utils/color';
 import Accordions from './components/Accordions';
+import { toggleAccordion, toggleAllAccordions } from './components/Accordions/common/utils';
 import Accordion from './components/Accordions/components/Accordion';
 import AccordionBody from './components/Accordions/components/Accordion/components/AccordionBody';
 import { AccordionBodyProps } from './components/Accordions/components/Accordion/components/AccordionBody/types';
@@ -11,6 +12,8 @@ import { AccordionFooterProps } from './components/Accordions/components/Accordi
 import AccordionHeader from './components/Accordions/components/Accordion/components/AccordionHeader';
 import { AccordionHeaderProps } from './components/Accordions/components/Accordion/components/AccordionHeader/types';
 import { AccordionContext, AccordionProps } from './components/Accordions/components/Accordion/types';
+import AccordionsPanel from './components/Accordions/components/AccordionsPanel';
+import { AccordionsPanelProps } from './components/Accordions/components/AccordionsPanel/types';
 import QuickToggles from './components/Accordions/components/QuickToggles';
 import { QuickTogglesProps } from './components/Accordions/components/QuickToggles/types';
 import {
@@ -210,8 +213,18 @@ export { useTheme };
 // Assets
 export const assets = { fallback };
 
+// Accordions Utils
+export const accordionsUtils = { toggleAccordion, toggleAllAccordions };
+
 // Utils
-export const utils = { checkIsTouchDevice, convertREMToPixels, convertStringToNumber, getHue, getColor };
+export const utils = {
+	accordionsUtils,
+	checkIsTouchDevice,
+	convertREMToPixels,
+	convertStringToNumber,
+	getHue,
+	getColor
+};
 
 // Theme
 export { theme };
@@ -223,6 +236,7 @@ export {
 	AccordionBody,
 	AccordionFooter,
 	AccordionHeader,
+	AccordionsPanel,
 	QuickToggles,
 	Card,
 	CardBody,
@@ -278,6 +292,7 @@ export type {
 	AccordionContext,
 	AccordionProps,
 	AccordionType,
+	AccordionsPanelProps,
 	QuickTogglesProps,
 	AccordionsColor,
 	AccordionsContext,
