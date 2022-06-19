@@ -1,4 +1,4 @@
-import {  transparentize } from 'color2k';
+import { transparentize } from 'color2k';
 
 import { ArrowLightStyleProps } from './types';
 
