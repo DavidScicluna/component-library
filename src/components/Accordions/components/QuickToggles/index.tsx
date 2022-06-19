@@ -6,7 +6,6 @@ import range from 'lodash/range';
 import { useElementSize } from 'usehooks-ts';
 
 import {
-	opened as defaultOpened,
 	isLoading as defaultIsLoading,
 	spacing as defaultSpacing,
 	size as defaultSize
@@ -47,10 +46,8 @@ const QuickToggles: FC<QuickTogglesProps> = (props) => {
 
 	const {
 		color: colorProp = defaultColor,
-		opened = defaultOpened,
 		isDisabled: isDisabledProp = defaultIsDisabled,
 		isLoading = defaultIsLoading,
-		onToggle,
 		spacing = defaultSpacing,
 		size = defaultSize
 	} = props;
@@ -76,7 +73,7 @@ const QuickToggles: FC<QuickTogglesProps> = (props) => {
 			alignItems='stretch'
 			justifyContent='stretch'
 			divider={
-				<Center ref={borderRef}>
+				<Center ref={borderRef} border='none'>
 					<Divider colorMode={colorMode} orientation='vertical' height={`${toggleHeight}px`} />
 				</Center>
 			}
@@ -117,7 +114,6 @@ const QuickToggles: FC<QuickTogglesProps> = (props) => {
 										key={accordion.id}
 										color={color}
 										isDisabled={isDisabled}
-										onToggle={onToggle}
 										size={size}
 									/>
 							  ))
@@ -129,13 +125,7 @@ const QuickToggles: FC<QuickTogglesProps> = (props) => {
 			</HStack>
 
 			<Center ref={toggleRef}>
-				<Toggle
-					color={color}
-					hasOpened={accordions.length === opened}
-					isDisabled={isLoading || isDisabled}
-					onToggle={onToggle}
-					size={size}
-				/>
+				<Toggle color={color} isDisabled={isLoading || isDisabled} size={size} />
 			</Center>
 		</HStack>
 	);

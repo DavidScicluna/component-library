@@ -1,5 +1,5 @@
 import { QuickTogglesProps } from '../../types';
 
-type Picked = 'color' | 'isDisabled' | 'onToggle' | 'size';
+type Picked = 'color' | 'isDisabled' | 'size';
 
-export type ToggleProps = { hasOpened?: boolean } & Pick<QuickTogglesProps, Picked>;
+export type ToggleProps = Pick<QuickTogglesProps, Picked>;

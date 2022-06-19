@@ -1,4 +1,4 @@
-import { FC, useContext } from 'react';
+import { FC, useContext, useCallback } from 'react';
 
 import { useMediaQuery } from '@chakra-ui/react';
 
@@ -9,25 +9,34 @@ import Button from '../../../../../Clickable/Button';
 import IconButton from '../../../../../Clickable/IconButton';
 import Icon from '../../../../../Icon';
 import {
+	accordions as defaultAccordions,
 	color as defaultColor,
 	colorMode as defaultColorMode,
-	isDisabled as defaultIsDisabled
+	isDisabled as defaultIsDisabled,
+	opened as defaultOpened,
+	setOpened as defaultSetOpened
 } from '../../../../common/data/defaultPropValues';
+import { toggleAllAccordions } from '../../../../common/utils';
 import { AccordionsContext as AccordionsContextType } from '../../../../types';
 import { size as defaultSize } from '../../common/data/defaultPropValues';
 
 const Toggle: FC<ToggleProps> = (props) => {
 	const [isXs] = useMediaQuery('(max-width: 600px)');
 
-	const { colorMode = defaultColorMode } = useContext<AccordionsContextType>(AccordionsContext);
-
 	const {
-		color = defaultColor,
-		hasOpened = false,
-		isDisabled = defaultIsDisabled,
-		onToggle,
-		size = defaultSize
-	} = props;
+		accordions = defaultAccordions,
+		colorMode = defaultColorMode,
+		opened = defaultOpened,
+		setOpened = defaultSetOpened
+	} = useContext<AccordionsContextType>(AccordionsContext);
+
+	const { color = defaultColor, isDisabled = defaultIsDisabled, size = defaultSize } = props;
+
+	const hasOpened = accordions.length === opened.length;
+
+	const handleClick = useCallback(() => {
+		setOpened(toggleAllAccordions({ accordions, opened: opened.length }));
+	}, [accordions, opened]);
 
 	return isXs ? (
 		<IconButton
@@ -35,7 +44,7 @@ const Toggle: FC<ToggleProps> = (props) => {
 			color={color}
 			colorMode={colorMode}
 			isDisabled={isDisabled}
-			onClick={() => onToggle()}
+			onClick={handleClick}
 			size={size}
 			variant='icon'
 		>
@@ -46,7 +55,7 @@ const Toggle: FC<ToggleProps> = (props) => {
 			color={color}
 			colorMode={colorMode}
 			isDisabled={isDisabled}
-			onClick={() => onToggle()}
+			onClick={handleClick}
 			size={size}
 			variant='text'
 		>
