@@ -29,8 +29,11 @@ import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
-	isFullWidth as defaultIsFullWidth
+	isFullWidth as defaultIsFullWidth,
+	opened as defaultOpened,
+	setOpened as defaultSetOpened
 } from '../../common/data/defaultPropValues';
+import { toggleAccordion } from '../../common/utils';
 import { AccordionsContext as AccordionsContextType } from '../../types';
 
 export const AccordionContext = createContext<AccordionContextType>({
@@ -50,7 +53,9 @@ const Accordion: FC<AccordionProps> = (props) => {
 		color = defaultColor,
 		colorMode = defaultColorMode,
 		isDisabled: isDisabledHook = defaultIsDisabled,
-		isFullWidth = defaultIsFullWidth
+		isFullWidth = defaultIsFullWidth,
+		opened = defaultOpened,
+		setOpened = defaultSetOpened
 	} = useContext<AccordionsContextType>(AccordionsContext);
 
 	const {
@@ -62,15 +67,13 @@ const Accordion: FC<AccordionProps> = (props) => {
 		isDisabled: isDisabledProp = defaultIsDisabled,
 		isDivisible = defaultIsDivisible,
 		isLight = defaultIsLight,
-		isOpen: isOpenProp = defaultIsOpen,
-		onToggle,
 		spacing = defaultSpacing,
 		sx,
 		...rest
 	} = props;
 
 	const isDisabled = isDisabledHook || isDisabledProp;
-	const isOpen = !isDisabled && isOpenProp;
+	const isOpen = !isDisabled && opened.some((accordion) => accordion === id);
 
 	const style = useStyles({ theme, color, colorMode, isFullWidth, isLight, isOpen });
 
@@ -88,7 +91,7 @@ const Accordion: FC<AccordionProps> = (props) => {
 				aria-disabled={isDisabled}
 				tabIndex={0}
 				data-active={dataAttr(isActive)}
-				onClick={() => onToggle({ id })}
+				onClick={() => setOpened(toggleAccordion({ id, opened }))}
 				sx={merge(style.accordion, sx)}
 				_disabled={style.disabled.accordion}
 				_active={style.active}
@@ -97,13 +100,7 @@ const Accordion: FC<AccordionProps> = (props) => {
 					<span id={id.toLowerCase()} />
 				</VisuallyHidden>
 
-				<VStack
-					width='100%'
-					position='relative'
-					zIndex={1}
-					divider={isDivisible && isOpen && !isDisabled ? <AccordionDivider /> : undefined}
-					spacing={spacing}
-				>
+				<VStack width='100%' position='relative' zIndex={1} spacing={spacing}>
 					<Center width='100%'>{header}</Center>
 
 					<Collapse
@@ -112,13 +109,17 @@ const Accordion: FC<AccordionProps> = (props) => {
 						style={{ width: '100%' }}
 						transition={{ enter: { ...config }, exit: { ...config } }}
 					>
-						<VStack
-							width='100%'
-							divider={isDivisible && !isDisabled ? <AccordionDivider /> : undefined}
-							spacing={spacing}
-						>
-							{body}
-							{footer}
+						<VStack width='100%' spacing={spacing}>
+							{isDivisible && <AccordionDivider />}
+
+							<VStack
+								width='100%'
+								divider={isDivisible && !isDisabled ? <AccordionDivider /> : undefined}
+								spacing={spacing}
+							>
+								{body}
+								{footer}
+							</VStack>
 						</VStack>
 					</Collapse>
 				</VStack>

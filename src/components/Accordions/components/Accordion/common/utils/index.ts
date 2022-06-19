@@ -13,14 +13,12 @@ export const getSizeConfig = (): GetSizeConfigReturn => {
 };
 
 type GetAmountReturn = {
-	back: number;
 	hover: number;
 	active: number;
 };
 
 export const getAmount = (): GetAmountReturn => {
 	return {
-		back: 0.15,
 		hover: 0.05,
 		active: 0.1
 	};
