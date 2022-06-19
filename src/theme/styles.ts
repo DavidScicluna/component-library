@@ -10,9 +10,10 @@ const styles: Styles = {
 		},
 		'*, *::before, *::after': {
 			fontFamily: 'body',
-			transition: 'none',
-			transitionDuration: transition.duration.normal,
-			transitionTimingFunction: transition.easing['ease-in-out']
+
+			boxShadow: 'none',
+
+			transition: `${transition.duration.normal} ${transition.easing['ease-in-out']}`
 		}
 	})
 };
