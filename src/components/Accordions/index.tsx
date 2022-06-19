@@ -1,4 +1,4 @@
-import { ReactElement, createContext, forwardRef } from 'react';
+import { ReactElement, createContext, forwardRef, useState } from 'react';
 
 import { ColorMode, useColorMode, VStack } from '@chakra-ui/react';
 
@@ -8,20 +8,26 @@ import {
 	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	isFullWidth as defaultIsFullWidth,
-	spacing as defaultSpacing
+	opened as defaultOpened,
+	spacing as defaultSpacing,
+	setOpened as defaultSetOpened
 } from './common/data/defaultPropValues';
-import { AccordionsContext as AccordionsContextType, AccordionsRef, AccordionsProps } from './types';
+import { AccordionsContext as AccordionsContextType, AccordionsRef, AccordionsProps, OpenedAccordions } from './types';
 
 export const AccordionsContext = createContext<AccordionsContextType>({
+	opened: defaultOpened,
 	accordions: defaultAccordions,
 	color: defaultColor,
 	colorMode: defaultColorMode,
 	isDisabled: defaultIsDisabled,
-	isFullWidth: defaultIsFullWidth
+	isFullWidth: defaultIsFullWidth,
+	setOpened: defaultSetOpened
 });
 
 const Accordions = forwardRef<AccordionsRef, AccordionsProps>(function Accordions(props, ref): ReactElement {
 	const { colorMode: colorModeHook } = useColorMode();
+
+	const [opened, setOpened] = useState<OpenedAccordions>([]);
 
 	const {
 		children,
@@ -37,7 +43,18 @@ const Accordions = forwardRef<AccordionsRef, AccordionsProps>(function Accordion
 	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
 	return (
-		<AccordionsContext.Provider value={{ accordions, color, colorMode, isDisabled, isFullWidth, spacing }}>
+		<AccordionsContext.Provider
+			value={{
+				opened,
+				accordions,
+				color,
+				colorMode,
+				isDisabled,
+				isFullWidth,
+				spacing,
+				setOpened
+			}}
+		>
 			<VStack ref={ref} width='100%' spacing={spacing} {...rest}>
 				{children}
 

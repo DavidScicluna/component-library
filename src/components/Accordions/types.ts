@@ -68,4 +68,7 @@ export type AccordionsProps = {
 
 type Picked = 'accordions' | 'color' | 'colorMode' | 'isDisabled' | 'isFullWidth' | 'spacing';
 
-export type AccordionsContext = Pick<AccordionsProps, Picked>;
+export type AccordionsContext = {
+	opened: OpenedAccordions;
+	setOpened: (opened: OpenedAccordions) => void;
+} & Pick<AccordionsProps, Picked>;
