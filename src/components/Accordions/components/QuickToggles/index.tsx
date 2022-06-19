@@ -1,17 +1,19 @@
 import { FC, useContext, useCallback } from 'react';
 
-import { useMediaQuery, Stack, HStack, Center, Text } from '@chakra-ui/react';
+import { HStack, Center, Text } from '@chakra-ui/react';
 
 import range from 'lodash/range';
 import { useElementSize } from 'usehooks-ts';
 
 import {
 	opened as defaultOpened,
-	isDisabled as defaultQuickTogglesIsDisabled,
-	isLoading as defaultIsLoading
+	isLoading as defaultIsLoading,
+	spacing as defaultSpacing,
+	size as defaultSize
 } from './common/data/defaultPropValues';
 import Accordion from './components/Accordion';
 import DummyAccordion from './components/DummyAccordion';
+import Toggle from './components/Toggle';
 import { QuickTogglesProps } from './types';
 
 import { AccordionsContext } from '../..';
@@ -19,88 +21,88 @@ import { useTheme } from '../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../common/utils';
 import { getColor } from '../../../../common/utils/color';
 import { Space } from '../../../../theme/types';
-import Button from '../../../Clickable/Button';
 import Divider from '../../../Divider';
 import HorizontalScroll from '../../../HorizontalScroll';
 import {
 	accordions as defaultAccordions,
 	color as defaultColor,
 	colorMode as defaultColorMode,
-	isDisabled as defaultAccordionsIsDisabled,
-	spacing as defaultSpacing
+	isDisabled as defaultIsDisabled
 } from '../../common/data/defaultPropValues';
 import { AccordionsContext as AccordionsContextType } from '../../types';
 
 const QuickToggles: FC<QuickTogglesProps> = (props) => {
 	const theme = useTheme();
 
-	const [isXs] = useMediaQuery('(max-width: 600px)');
-
 	const {
 		accordions = defaultAccordions,
-		color = defaultColor,
+		color: colorHook = defaultColor,
 		colorMode = defaultColorMode,
-		isDisabled: isDisabledHook = defaultAccordionsIsDisabled,
-		spacing = defaultSpacing
+		isDisabled: isDisabledHook = defaultIsDisabled
 	} = useContext<AccordionsContextType>(AccordionsContext);
 
-	const [textRef, { width: textWidth }] = useElementSize<HTMLParagraphElement>();
-	const [borderRef, { width: borderWidth }] = useElementSize<HTMLParagraphElement>();
-	const [buttonRef, { width: buttonWidth, height: buttonHeight }] = useElementSize<HTMLButtonElement>();
+	const [borderRef, { width: borderWidth }] = useElementSize();
+	const [textRef, { width: textWidth }] = useElementSize();
+	const [toggleRef, { width: toggleWidth, height: toggleHeight }] = useElementSize();
 
 	const {
+		color: colorProp = defaultColor,
 		opened = defaultOpened,
-		isDisabled: isDisabledProp = defaultIsLoading,
-		isLoading = defaultQuickTogglesIsDisabled,
-		onToggle
+		isDisabled: isDisabledProp = defaultIsDisabled,
+		isLoading = defaultIsLoading,
+		onToggle,
+		spacing = defaultSpacing,
+		size = defaultSize
 	} = props;
 
+	const color = colorProp || colorHook;
 	const isDisabled = isDisabledHook || isDisabledProp;
 
 	const handleAccordionsWidth = useCallback((): string => {
-		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem'));
+		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem') * 2);
 
-		return `calc(100% - ${buttonWidth + spacingWidth + borderWidth}px)`;
-	}, [theme, borderWidth, buttonWidth, spacing]);
+		return `calc(100% - ${toggleWidth + spacingWidth + borderWidth}px)`;
+	}, [theme.space, toggleWidth, borderWidth, spacing]);
 
 	const handleScrollWidth = useCallback((): string => {
 		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem'));
 
 		return `calc(100% - ${textWidth + spacingWidth}px)`;
-	}, [theme, textWidth, spacing]);
+	}, [theme.space, textWidth, spacing]);
 
 	return (
-		<Stack
+		<HStack
 			width='100%'
-			direction={isXs ? 'column' : 'row'}
+			alignItems='stretch'
+			justifyContent='stretch'
 			divider={
-				<Divider
-					ref={borderRef}
-					colorMode={colorMode}
-					orientation={isXs ? 'vertical' : 'vertical'}
-					height={!isXs ? `${buttonHeight}px` : undefined}
-				/>
+				<Center ref={borderRef}>
+					<Divider colorMode={colorMode} orientation='vertical' height={`${toggleHeight}px`} />
+				</Center>
 			}
 			spacing={spacing}
 		>
-			<HStack width={handleAccordionsWidth()} justifyContent='stretch'>
-				<Text
-					ref={textRef}
-					align='left'
-					color={getColor({ theme, colorMode, type: 'text.secondary' })}
-					fontSize='sm'
-					noOfLines={1}
-				>
-					Jump to:
-				</Text>
+			<HStack width={handleAccordionsWidth()} alignItems='stretch' justifyContent='stretch' spacing={spacing}>
+				<Center ref={textRef}>
+					<Text
+						align='left'
+						color={getColor({ theme, colorMode, type: 'text.secondary' })}
+						fontSize={size}
+						whiteSpace='nowrap'
+						noOfLines={0}
+					>
+						Jump to:
+					</Text>
+				</Center>
 
 				<Center width={handleScrollWidth()} height='100%'>
 					<HorizontalScroll
+						colorMode={colorMode}
 						isDisabled={isLoading || isDisabled}
 						renderDivider={({ padding }) => (
 							<Text
 								align='left'
-								color={`gray.${colorMode === 'light' ? 400 : 500}`}
+								color={getColor({ theme, colorMode, type: 'text.secondary' })}
 								fontSize='md'
 								px={padding}
 							>
@@ -113,28 +115,29 @@ const QuickToggles: FC<QuickTogglesProps> = (props) => {
 									<Accordion
 										{...accordion}
 										key={accordion.id}
+										color={color}
 										isDisabled={isDisabled}
 										onToggle={onToggle}
+										size={size}
 									/>
 							  ))
-							: range(0, 10).map((_dummy, index: number) => <DummyAccordion key={index} />)}
+							: range(0, 10).map((_dummy, index: number) => (
+									<DummyAccordion key={index} color={color} size={size} />
+							  ))}
 					</HorizontalScroll>
 				</Center>
 			</HStack>
 
-			<Button
-				ref={buttonRef}
-				color={color}
-				colorMode={colorMode}
-				isDisabled={isLoading || isDisabled}
-				isFullWidth={isXs}
-				onClick={() => onToggle()}
-				size='sm'
-				variant='text'
-			>
-				{accordions.length === opened ? 'Hide all' : 'Show all'}
-			</Button>
-		</Stack>
+			<Center ref={toggleRef}>
+				<Toggle
+					color={color}
+					hasOpened={accordions.length === opened}
+					isDisabled={isLoading || isDisabled}
+					onToggle={onToggle}
+					size={size}
+				/>
+			</Center>
+		</HStack>
 	);
 };
 
