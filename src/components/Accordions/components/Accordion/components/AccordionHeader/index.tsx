@@ -1,6 +1,11 @@
 import { FC, useContext, useCallback } from 'react';
 
-import { useMediaQuery, HStack, VStack, Center } from '@chakra-ui/react';
+import {
+	// useMediaQuery,
+	HStack,
+	VStack,
+	Center
+} from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
@@ -22,7 +27,7 @@ import { AccordionContext as AccordionContextType } from '../../types';
 const AccordionHeader: FC<AccordionHeaderProps> = (props) => {
 	const theme = useTheme();
 
-	const [isXs] = useMediaQuery('(max-width: 600px)');
+	// const [isXs] = useMediaQuery('(max-width: 600px)');
 
 	const { colorMode = defaultColorMode } = useContext<AccordionsContextType>(AccordionsContext);
 	const { isOpen = defaultIsOpen } = useContext<AccordionContextType>(AccordionContext);
@@ -63,7 +68,7 @@ const AccordionHeader: FC<AccordionHeaderProps> = (props) => {
 			</VStack>
 
 			<HStack ref={actionsRef} spacing={spacing}>
-				{actions && !isXs && <Center>{actions}</Center>}
+				{actions && <Center>{actions}</Center>}
 
 				<Icon icon={isOpen ? 'remove' : 'add'} color={getColor({ theme, colorMode, type: 'text.secondary' })} />
 			</HStack>

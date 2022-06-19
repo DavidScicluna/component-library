@@ -10,7 +10,6 @@ import { useInView } from 'react-cool-inview';
 import {
 	isActive as defaultIsActive,
 	isDivisible as defaultIsDivisible,
-	isDisabled as defaultAccordionIsDisabled,
 	isLight as defaultIsLight,
 	isOpen as defaultIsOpen,
 	spacing as defaultSpacing
@@ -29,13 +28,13 @@ import {
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
-	isDisabled as defaultAccordionsIsDisabled,
+	isDisabled as defaultIsDisabled,
 	isFullWidth as defaultIsFullWidth
 } from '../../common/data/defaultPropValues';
 import { AccordionsContext as AccordionsContextType } from '../../types';
 
 export const AccordionContext = createContext<AccordionContextType>({
-	isDisabled: defaultAccordionIsDisabled,
+	isDisabled: defaultIsDisabled,
 	isOpen: defaultIsOpen
 });
 
@@ -50,7 +49,7 @@ const Accordion: FC<AccordionProps> = (props) => {
 	const {
 		color = defaultColor,
 		colorMode = defaultColorMode,
-		isDisabled: isDisabledHook = defaultAccordionsIsDisabled,
+		isDisabled: isDisabledHook = defaultIsDisabled,
 		isFullWidth = defaultIsFullWidth
 	} = useContext<AccordionsContextType>(AccordionsContext);
 
@@ -60,7 +59,7 @@ const Accordion: FC<AccordionProps> = (props) => {
 		body,
 		footer,
 		isActive = defaultIsActive,
-		isDisabled: isDisabledProp = defaultAccordionIsDisabled,
+		isDisabled: isDisabledProp = defaultIsDisabled,
 		isDivisible = defaultIsDivisible,
 		isLight = defaultIsLight,
 		isOpen: isOpenProp = defaultIsOpen,
