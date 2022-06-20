@@ -1,6 +1,8 @@
 import { ReactElement, createContext, forwardRef, useState } from 'react';
 
-import { ColorMode, useColorMode, VStack } from '@chakra-ui/react';
+import { useColorMode, VStack } from '@chakra-ui/react';
+
+import { useDebounce } from 'usehooks-ts';
 
 import {
 	accordions as defaultAccordions,
@@ -25,27 +27,26 @@ export const AccordionsContext = createContext<AccordionsContextType>({
 });
 
 const Accordions = forwardRef<AccordionsRef, AccordionsProps>(function Accordions(props, ref): ReactElement {
-	const { colorMode: colorModeHook } = useColorMode();
+	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const [opened, setOpened] = useState<OpenedAccordions>([]);
+	const debouncedOpened = useDebounce<OpenedAccordions>(opened, 500);
 
 	const {
 		children,
 		accordions = defaultAccordions,
 		color = defaultColor,
-		colorMode: colorModeProp,
+		colorMode = colorModeHook,
 		isDisabled = defaultIsDisabled,
 		isFullWidth = defaultIsFullWidth,
 		spacing = defaultSpacing,
 		...rest
 	} = props;
 
-	const colorMode: ColorMode = colorModeProp || colorModeHook;
-
 	return (
 		<AccordionsContext.Provider
 			value={{
-				opened,
+				opened: debouncedOpened,
 				accordions,
 				color,
 				colorMode,

@@ -20,12 +20,6 @@ export type AccordionsRef = HTMLDivElement | null;
 
 export type AccordionsColor = Exclude<Color, 'transparent' | 'black' | 'white'>;
 
-// export type Total = {
-// 	prefix?: string;
-// 	number?: number;
-// 	suffix?: string;
-// };
-
 export type Accordion = {
 	id: string;
 	title: string;
@@ -34,10 +28,6 @@ export type Accordion = {
 export type OpenedAccordion = Accordion['id'];
 
 export type OpenedAccordions = OpenedAccordion[];
-
-// export type RenderProps<D> = {
-// 	isOpen: boolean;
-// } & Accordion<D>;
 
 type Omitted =
 	// CUI Box Props
@@ -56,7 +46,8 @@ type Omitted =
 	// CUI Stack Props
 	| 'as'
 	| 'colorScheme'
-	| 'direction';
+	| 'direction'
+	| 'spacing';
 
 export type AccordionsProps = {
 	accordions: Accordion[];
