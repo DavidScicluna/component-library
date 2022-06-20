@@ -2,16 +2,10 @@ import { FC, useContext, useCallback } from 'react';
 
 import { HStack, Center, Text } from '@chakra-ui/react';
 
-import range from 'lodash/range';
 import { useElementSize } from 'usehooks-ts';
 
-import {
-	isLoading as defaultIsLoading,
-	spacing as defaultSpacing,
-	size as defaultSize
-} from './common/data/defaultPropValues';
+import { size as defaultSize } from './common/data/defaultPropValues';
 import Accordion from './components/Accordion';
-// import DummyAccordion from './components/DummyAccordion';
 import Toggle from './components/Toggle';
 import { QuickTogglesProps } from './types';
 
@@ -26,7 +20,8 @@ import {
 	accordions as defaultAccordions,
 	color as defaultColor,
 	colorMode as defaultColorMode,
-	isDisabled as defaultIsDisabled
+	isDisabled as defaultIsDisabled,
+	spacing as defaultSpacing
 } from '../../common/data/defaultPropValues';
 import { AccordionsContext as AccordionsContextType } from '../../types';
 
@@ -37,23 +32,15 @@ const QuickToggles: FC<QuickTogglesProps> = (props) => {
 		accordions = defaultAccordions,
 		color: colorHook = defaultColor,
 		colorMode = defaultColorMode,
-		isDisabled: isDisabledHook = defaultIsDisabled
+		isDisabled: isDisabledHook = defaultIsDisabled,
+		spacing: spacingHook = defaultSpacing
 	} = useContext<AccordionsContextType>(AccordionsContext);
 
 	const [borderRef, { width: borderWidth }] = useElementSize();
 	const [textRef, { width: textWidth }] = useElementSize();
 	const [toggleRef, { width: toggleWidth, height: toggleHeight }] = useElementSize();
 
-	const {
-		color: colorProp = defaultColor,
-		isDisabled: isDisabledProp = defaultIsDisabled,
-		isLoading = defaultIsLoading,
-		spacing = defaultSpacing,
-		size = defaultSize
-	} = props;
-
-	const color = colorProp || colorHook;
-	const isDisabled = isDisabledHook || isDisabledProp;
+	const { color = colorHook, isDisabled = isDisabledHook, spacing = spacingHook, size = defaultSize } = props;
 
 	const handleAccordionsWidth = useCallback((): string => {
 		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem') * 2);
@@ -95,7 +82,7 @@ const QuickToggles: FC<QuickTogglesProps> = (props) => {
 				<Center width={handleScrollWidth()} height='100%'>
 					<HorizontalScroll
 						colorMode={colorMode}
-						isDisabled={isLoading || isDisabled}
+						isDisabled={isDisabled}
 						renderDivider={({ padding }) => (
 							<Text
 								align='left'
@@ -107,25 +94,21 @@ const QuickToggles: FC<QuickTogglesProps> = (props) => {
 							</Text>
 						)}
 					>
-						{!isLoading
-							? accordions.map((accordion) => (
-									<Accordion
-										{...accordion}
-										key={accordion.id}
-										color={color}
-										isDisabled={isDisabled}
-										size={size}
-									/>
-							  ))
-							: range(0, 10).map((_dummy, index: number) => (
-									<DummyAccordion key={index} color={color} size={size} />
-							  ))}
+						{accordions.map((accordion) => (
+							<Accordion
+								{...accordion}
+								key={accordion.id}
+								color={color}
+								isDisabled={isDisabled}
+								size={size}
+							/>
+						))}
 					</HorizontalScroll>
 				</Center>
 			</HStack>
 
 			<Center ref={toggleRef}>
-				<Toggle color={color} isDisabled={isLoading || isDisabled} size={size} />
+				<Toggle color={color} isDisabled={isDisabled} size={size} />
 			</Center>
 		</HStack>
 	);
