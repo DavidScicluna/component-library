@@ -60,7 +60,7 @@ type Omitted =
 
 export type AccordionsProps = {
 	accordions: Accordion[];
-	color: AccordionsColor;
+	color?: AccordionsColor;
 	colorMode?: ColorMode;
 	isDisabled?: boolean;
 	isFullWidth?: boolean;
