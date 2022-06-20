@@ -16,7 +16,7 @@ import {
 	AccordionBody,
 	AccordionFooter,
 	AccordionType,
-	QuickToggles
+	AccordionsQuickToggles
 } from '../..';
 import {
 	color as defaultColor,
@@ -24,7 +24,7 @@ import {
 	isFullWidth as defaultIsFullWidth,
 	isDisabled as defaultIsDisabled,
 	spacing as defaultSpacing
-} from '../../components/Accordions/common/data/defaultPropValues';
+} from '../../components/Accordions/OriginalAccordions/common/data/defaultPropValues';
 import controls from '../common/controls';
 
 const accordions: AccordionType[] = range(0, 5).map((_dummy, index) => {
@@ -95,7 +95,7 @@ export default {
 
 export const Accordions: Story = (props: AccordionsProps): ReactElement => (
 	<AccordionsComponent {...props} color='gray' accordions={accordions} p={0}>
-		<QuickToggles color={props.color} />
+		<AccordionsQuickToggles color={props.color} />
 
 		<AccordionsPanel>
 			{accordions.map((accordion) => (
