@@ -1,3 +1,5 @@
 import { StackProps } from '@chakra-ui/react';
 
-export type AccordionsPanelProps = Omit<StackProps, 'direction' | 'spacing'>;
+import { AccordionsProps } from '../../types';
+
+export type AccordionsPanelProps = Pick<AccordionsProps, 'spacing'> & Omit<StackProps, 'direction' | 'spacing'>;
