@@ -2,30 +2,40 @@ import fallback from './common/assets/fallback';
 import { useTheme } from './common/hooks';
 import { checkIsTouchDevice, convertREMToPixels, convertStringToNumber } from './common/utils';
 import { getHue, getColor } from './common/utils/color';
-import Accordions from './components/Accordions';
-import Accordion from './components/Accordions/components/Accordion';
-import AccordionBody from './components/Accordions/components/Accordion/components/AccordionBody';
-import { AccordionBodyProps } from './components/Accordions/components/Accordion/components/AccordionBody/types';
-import AccordionFooter from './components/Accordions/components/Accordion/components/AccordionFooter';
-import { AccordionFooterProps } from './components/Accordions/components/Accordion/components/AccordionFooter/types';
-import AccordionHeader from './components/Accordions/components/Accordion/components/AccordionHeader';
-import { AccordionHeaderProps } from './components/Accordions/components/Accordion/components/AccordionHeader/types';
-import { AccordionContext, AccordionProps } from './components/Accordions/components/Accordion/types';
-import AccordionsPanel from './components/Accordions/components/AccordionsPanel';
-import { AccordionsPanelProps } from './components/Accordions/components/AccordionsPanel/types';
-import DummyAccordion from './components/Accordions/components/DummyAccordion';
-import DummyAccordionHeader from './components/Accordions/components/DummyAccordion/components/DummyAccordionHeader';
-import { DummyAccordionHeaderProps } from './components/Accordions/components/DummyAccordion/components/DummyAccordionHeader/types';
-import { DummyAccordionProps } from './components/Accordions/components/DummyAccordion/types';
-import QuickToggles from './components/Accordions/components/QuickToggles';
-import { QuickTogglesProps } from './components/Accordions/components/QuickToggles/types';
+import DummyAccordions from './components/Accordions/DummyAccordions';
+import DummyAccordion from './components/Accordions/DummyAccordions/components/DummyAccordion';
+import DummyAccordionHeader from './components/Accordions/DummyAccordions/components/DummyAccordion/components/DummyAccordionHeader';
+import { DummyAccordionHeaderProps } from './components/Accordions/DummyAccordions/components/DummyAccordion/components/DummyAccordionHeader/types';
+import { DummyAccordionProps } from './components/Accordions/DummyAccordions/components/DummyAccordion/types';
+import DummyQuickToggles from './components/Accordions/DummyAccordions/components/DummyQuickToggles';
+import { DummyQuickTogglesProps } from './components/Accordions/DummyAccordions/components/DummyQuickToggles/types';
+import { DummyAccordionsContext, DummyAccordionsProps } from './components/Accordions/DummyAccordions/types';
+import Accordions from './components/Accordions/OriginalAccordions';
+import Accordion from './components/Accordions/OriginalAccordions/components/Accordion';
+import AccordionBody from './components/Accordions/OriginalAccordions/components/Accordion/components/AccordionBody';
+import { AccordionBodyProps } from './components/Accordions/OriginalAccordions/components/Accordion/components/AccordionBody/types';
+import AccordionFooter from './components/Accordions/OriginalAccordions/components/Accordion/components/AccordionFooter';
+import { AccordionFooterProps } from './components/Accordions/OriginalAccordions/components/Accordion/components/AccordionFooter/types';
+import AccordionHeader from './components/Accordions/OriginalAccordions/components/Accordion/components/AccordionHeader';
+import { AccordionHeaderProps } from './components/Accordions/OriginalAccordions/components/Accordion/components/AccordionHeader/types';
+import {
+	AccordionContext,
+	AccordionProps
+} from './components/Accordions/OriginalAccordions/components/Accordion/types';
+import AccordionsPanel from './components/Accordions/OriginalAccordions/components/AccordionsPanel';
+import { AccordionsPanelProps } from './components/Accordions/OriginalAccordions/components/AccordionsPanel/types';
+import AccordionsQuickToggles from './components/Accordions/OriginalAccordions/components/QuickToggles';
+import {
+	QuickTogglesProps as AccordionsQuickTogglesProps,
+	QuickTogglesSize as AccordionsQuickTogglesSize
+} from './components/Accordions/OriginalAccordions/components/QuickToggles/types';
 import {
 	Accordion as AccordionType,
 	AccordionsColor,
 	AccordionsContext,
 	AccordionsProps,
 	AccordionsRef
-} from './components/Accordions/types';
+} from './components/Accordions/OriginalAccordions/types';
 import Card from './components/Card';
 import CardBody from './components/Card/components/CardBody';
 import { CardBodyProps } from './components/Card/components/CardBody/types';
@@ -230,15 +240,17 @@ export { theme };
 
 // Components
 export {
+	DummyAccordions,
+	DummyAccordion,
+	DummyAccordionHeader,
+	DummyQuickToggles,
 	Accordions,
 	Accordion,
 	AccordionBody,
 	AccordionFooter,
 	AccordionHeader,
 	AccordionsPanel,
-	DummyAccordion,
-	DummyAccordionHeader,
-	QuickToggles,
+	AccordionsQuickToggles,
 	Card,
 	CardBody,
 	CardFooter,
@@ -287,16 +299,20 @@ export {
 
 // Components Types
 export type {
+	DummyAccordionHeaderProps,
+	DummyAccordionProps,
+	DummyQuickTogglesProps,
+	DummyAccordionsContext,
+	DummyAccordionsProps,
 	AccordionBodyProps,
 	AccordionFooterProps,
 	AccordionHeaderProps,
 	AccordionContext,
 	AccordionProps,
-	AccordionType,
 	AccordionsPanelProps,
-	QuickTogglesProps,
-	DummyAccordionHeaderProps,
-	DummyAccordionProps,
+	AccordionsQuickTogglesProps,
+	AccordionsQuickTogglesSize,
+	AccordionType,
 	AccordionsColor,
 	AccordionsContext,
 	AccordionsProps,
