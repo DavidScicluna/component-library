@@ -13,6 +13,10 @@ import { AccordionHeaderProps } from './components/Accordions/components/Accordi
 import { AccordionContext, AccordionProps } from './components/Accordions/components/Accordion/types';
 import AccordionsPanel from './components/Accordions/components/AccordionsPanel';
 import { AccordionsPanelProps } from './components/Accordions/components/AccordionsPanel/types';
+import DummyAccordion from './components/Accordions/components/DummyAccordion';
+import DummyAccordionHeader from './components/Accordions/components/DummyAccordion/components/DummyAccordionHeader';
+import { DummyAccordionHeaderProps } from './components/Accordions/components/DummyAccordion/components/DummyAccordionHeader/types';
+import { DummyAccordionProps } from './components/Accordions/components/DummyAccordion/types';
 import QuickToggles from './components/Accordions/components/QuickToggles';
 import { QuickTogglesProps } from './components/Accordions/components/QuickToggles/types';
 import {
@@ -232,6 +236,8 @@ export {
 	AccordionFooter,
 	AccordionHeader,
 	AccordionsPanel,
+	DummyAccordion,
+	DummyAccordionHeader,
 	QuickToggles,
 	Card,
 	CardBody,
@@ -289,6 +295,8 @@ export type {
 	AccordionType,
 	AccordionsPanelProps,
 	QuickTogglesProps,
+	DummyAccordionHeaderProps,
+	DummyAccordionProps,
 	AccordionsColor,
 	AccordionsContext,
 	AccordionsProps,
