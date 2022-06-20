@@ -11,8 +11,7 @@ import {
 	isActive as defaultIsActive,
 	isDivisible as defaultIsDivisible,
 	isLight as defaultIsLight,
-	isOpen as defaultIsOpen,
-	spacing as defaultSpacing
+	isOpen as defaultIsOpen
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import AccordionDivider from './components/AccordionDivider';
@@ -31,6 +30,7 @@ import {
 	isDisabled as defaultIsDisabled,
 	isFullWidth as defaultIsFullWidth,
 	opened as defaultOpened,
+	spacing as defaultSpacing,
 	setOpened as defaultSetOpened
 } from '../../common/data/defaultPropValues';
 import { toggleAccordion } from '../../common/utils';
@@ -64,7 +64,7 @@ const Accordion: FC<AccordionProps> = (props) => {
 		body,
 		footer,
 		isActive = defaultIsActive,
-		isDisabled: isDisabledProp = defaultIsDisabled,
+		isDisabled = isDisabledHook,
 		isDivisible = defaultIsDivisible,
 		isLight = defaultIsLight,
 		spacing = defaultSpacing,
@@ -72,7 +72,6 @@ const Accordion: FC<AccordionProps> = (props) => {
 		...rest
 	} = props;
 
-	const isDisabled = isDisabledHook || isDisabledProp;
 	const isOpen = !isDisabled && opened.some((accordion) => accordion === id);
 
 	const style = useStyles({ theme, color, colorMode, isFullWidth, isLight, isOpen });

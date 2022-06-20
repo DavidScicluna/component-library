@@ -17,8 +17,7 @@ import {
 	BoxPseudo,
 	BoxOther
 } from '../../../../../common/types/box';
-import { Space } from '../../../../../theme/types';
-import { Accordion } from '../../types';
+import { Accordion, AccordionsProps } from '../../types';
 
 type Omitted =
 	// CUI Box Props
@@ -41,15 +40,14 @@ type Omitted =
 	| 'color'
 	| 'colorScheme';
 
-export type AccordionProps = Pick<Accordion, 'id'> & {
-	header: ReactNode;
-	body: ReactNode;
-	footer?: ReactNode;
-	isActive?: boolean;
-	isDisabled?: boolean;
-	isDivisible?: boolean;
-	isLight?: boolean;
-	spacing?: Space;
-} & Omit<CenterProps, Omitted>;
+export type AccordionProps = Pick<Accordion, 'id'> &
+	Pick<AccordionsProps, 'isDisabled' | 'spacing'> & {
+		header: ReactNode;
+		body: ReactNode;
+		footer?: ReactNode;
+		isActive?: boolean;
+		isDivisible?: boolean;
+		isLight?: boolean;
+	} & Omit<CenterProps, Omitted>;
 
 export type AccordionContext = { isOpen?: boolean } & Pick<AccordionProps, 'isDisabled' | 'isLight'>;
