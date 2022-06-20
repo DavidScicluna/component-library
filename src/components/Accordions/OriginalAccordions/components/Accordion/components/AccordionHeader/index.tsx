@@ -1,11 +1,6 @@
 import { FC, useContext, useCallback } from 'react';
 
-import {
-	// useMediaQuery,
-	HStack,
-	VStack,
-	Center
-} from '@chakra-ui/react';
+import { HStack, VStack, Center } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
@@ -18,23 +13,21 @@ import { convertREMToPixels, convertStringToNumber } from '../../../../../../../
 import { getColor } from '../../../../../../../common/utils/color';
 import { Space } from '../../../../../../../theme/types';
 import Icon from '../../../../../../Icon';
-import { colorMode as defaultColorMode } from '../../../../common/data/defaultPropValues';
+import { colorMode as defaultColorMode, spacing as defaultSpacing } from '../../../../common/data/defaultPropValues';
 import { AccordionsContext as AccordionsContextType } from '../../../../types';
-import { isOpen as defaultIsOpen, spacing as defaultSpacing } from '../../common/data/defaultPropValues';
+import { isOpen as defaultIsOpen } from '../../common/data/defaultPropValues';
 import { AccordionContext as AccordionContextType } from '../../types';
-// import AccordionDivider from '../AccordionDivider';
 
 const AccordionHeader: FC<AccordionHeaderProps> = (props) => {
 	const theme = useTheme();
 
-	// const [isXs] = useMediaQuery('(max-width: 600px)');
-
-	const { colorMode = defaultColorMode } = useContext<AccordionsContextType>(AccordionsContext);
+	const { colorMode = defaultColorMode, spacing: spacingHook = defaultSpacing } =
+		useContext<AccordionsContextType>(AccordionsContext);
 	const { isOpen = defaultIsOpen } = useContext<AccordionContextType>(AccordionContext);
 
 	const [actionsRef, { width: actionsWidth }] = useElementSize();
 
-	const { renderTitle, renderSubtitle, actions, spacing = defaultSpacing, ...rest } = props;
+	const { renderTitle, renderSubtitle, actions, spacing = spacingHook, ...rest } = props;
 
 	const handleCalculateTextWidth = useCallback((): string => {
 		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem'));
