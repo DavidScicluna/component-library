@@ -1,6 +1,6 @@
 import { AccordionDisabledStylingProps } from './types';
 
-import { Style } from '../../../../../../../../common/types';
+import { Style } from '../../../../../../../../../common/types';
 import { getSizeConfig } from '../../../utils';
 
 export default ({ theme }: AccordionDisabledStylingProps): Style => {

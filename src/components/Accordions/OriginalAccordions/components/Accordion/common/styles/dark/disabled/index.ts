@@ -1,8 +1,8 @@
 import { AccordionDarkDisabledStylingProps } from './types';
 
-import { Style } from '../../../../../../../../common/types';
-import { getHue } from '../../../../../../../../common/utils/color';
-import { Color } from '../../../../../../../../theme/types';
+import { Style } from '../../../../../../../../../common/types';
+import { getHue } from '../../../../../../../../../common/utils/color';
+import { Color } from '../../../../../../../../../theme/types';
 import { isLight as defaultIsLight } from '../../../data/defaultPropValues';
 import { getSizeConfig } from '../../../utils';
 

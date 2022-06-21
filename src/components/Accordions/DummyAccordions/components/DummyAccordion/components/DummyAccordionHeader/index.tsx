@@ -15,9 +15,9 @@ import Icon from '../../../../../../Icon';
 import Skeleton from '../../../../../../Skeleton';
 import {
 	color as defaultColor,
-	colorMode as defaultColorMode
+	colorMode as defaultColorMode,
+	spacing as defaultSpacing
 } from '../../../../../OriginalAccordions/common/data/defaultPropValues';
-import { spacing as defaultSpacing } from '../../../../../OriginalAccordions/components/Accordion/common/data/defaultPropValues';
 import { DummyAccordionsContext as DummyAccordionsContextType } from '../../../../types';
 
 const DummyAccordionHeader: FC<DummyAccordionHeaderProps> = (props) => {

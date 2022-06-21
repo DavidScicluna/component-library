@@ -2,8 +2,8 @@ import { lighten } from 'color2k';
 
 import { AccordionDarkActiveStylingProps } from './types';
 
-import { Style } from '../../../../../../../../common/types';
-import { getHue } from '../../../../../../../../common/utils/color';
+import { Style } from '../../../../../../../../../common/types';
+import { getHue } from '../../../../../../../../../common/utils/color';
 import { color as defaultColor } from '../../../../../../common/data/defaultPropValues';
 import { isLight as defaultIsLight, isOpen as defaultIsOpen } from '../../../data/defaultPropValues';
 import { getAmount, getSizeConfig } from '../../../utils';
