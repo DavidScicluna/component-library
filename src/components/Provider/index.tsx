@@ -56,6 +56,7 @@ import '@fontsource/material-icons';
 import '@fontsource/material-icons-outlined';
 
 const Provider: FC<ProviderProps> = ({ children }) => {
+	// TODO: Remove console.log
 	console.log(theme);
 
 	return (
