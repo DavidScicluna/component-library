@@ -1,14 +1,6 @@
 import { FC, createContext, useRef, useCallback } from 'react';
 
-import {
-	ColorMode,
-	useColorMode,
-	FormControl,
-	Checkbox as CUICheckbox,
-	VStack,
-	HStack,
-	Center
-} from '@chakra-ui/react';
+import { useColorMode, FormControl, Checkbox as CUICheckbox, VStack, HStack, Center } from '@chakra-ui/react';
 
 import { isEmpty, isNil, merge } from 'lodash';
 
@@ -41,13 +33,13 @@ export const CheckboxContext = createContext<CheckboxContextType>({ color: defau
 
 const Checkbox: FC<CheckboxProps> = (props) => {
 	const theme = useTheme();
-	const { colorMode: colorModeHook } = useColorMode();
+	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const checkboxRef = useRef<CheckboxRef>(null);
 
 	const {
 		color,
-		colorMode: colorModeProp,
+		colorMode = colorModeHook,
 		id,
 		name,
 		label,
@@ -70,8 +62,6 @@ const Checkbox: FC<CheckboxProps> = (props) => {
 		sx,
 		...rest
 	} = props;
-
-	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
 	const isChecked: boolean = defaultChecked || isIndeterminate || isCheckedProp;
 
