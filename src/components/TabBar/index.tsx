@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { ColorMode, useColorMode, HStack } from '@chakra-ui/react';
+import { useColorMode, HStack } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
@@ -12,12 +12,12 @@ import { getColor } from '../../common/utils/color';
 
 const TabBar: FC<TabBarProps> = (props) => {
 	const theme = useTheme();
-	const { colorMode: colorModeHook } = useColorMode();
+	const { colorMode: colorModeHook = 'light' } = useColorMode();
 
 	const {
 		activeTab,
 		color,
-		colorMode: colorModeProp,
+		colorMode = colorModeHook,
 		direction = 'bottom',
 		tabs = [],
 		width = '100%',
@@ -27,8 +27,7 @@ const TabBar: FC<TabBarProps> = (props) => {
 		...rest
 	} = props;
 
-	const colorMode: ColorMode = colorModeProp || colorModeHook;
-
+	// TODO: Add context and pass colorMode
 	return (
 		<HStack
 			{...rest}
