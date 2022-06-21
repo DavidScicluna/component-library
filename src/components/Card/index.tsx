@@ -7,6 +7,7 @@ import merge from 'lodash/merge';
 
 import {
 	color as defaultColor,
+	colorMode as defaultColorMode,
 	isActive as defaultIsActive,
 	isFullWidth as defaultIsFullWidth,
 	isDivisible as defaultIsDivisible,
@@ -33,7 +34,7 @@ export const CardContext = createContext<CardContextType>({
 
 const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElement {
 	const theme = useTheme();
-	const { colorMode: colorModeHook } = useColorMode();
+	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const {
 		children,
