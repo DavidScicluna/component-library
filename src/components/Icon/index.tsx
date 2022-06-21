@@ -1,18 +1,22 @@
 import { FC, useCallback } from 'react';
 
-import { ColorMode, useColorMode, useBoolean, Center } from '@chakra-ui/react';
+import { useColorMode, useBoolean, Center } from '@chakra-ui/react';
 
 import { useInterval } from 'usehooks-ts';
 
-import { category as defaultCategory } from './common/data/defaultPropValues';
+import {
+	colorMode as defaultColorMode,
+	category as defaultCategory,
+	borderRadius as defaultBorderRadius
+} from './common/data/defaultPropValues';
 import { checkFontStatus } from './common/utils';
 import { IconProps } from './types';
 
 const Icon: FC<IconProps> = (props) => {
-	const { colorMode: colorModeHook } = useColorMode();
+	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const {
-		colorMode: colorModeProp,
+		colorMode = colorModeHook,
 		w,
 		width,
 		h,
@@ -21,11 +25,9 @@ const Icon: FC<IconProps> = (props) => {
 		category = defaultCategory,
 		color,
 		background,
-		borderRadius = 'none',
+		borderRadius = defaultBorderRadius,
 		...rest
 	} = props;
-
-	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
 	const [hasLoaded, setHasLoaded] = useBoolean(checkFontStatus({ category }));
 
