@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 
-import { ColorMode, useColorMode, Center, Skeleton as CUISkeleton } from '@chakra-ui/react';
+import { useColorMode, Center, Skeleton as CUISkeleton } from '@chakra-ui/react';
 
 import { darken, lighten } from 'color2k';
 import { AnimatePresence } from 'framer-motion';
@@ -9,6 +9,7 @@ import { useElementSize } from 'usehooks-ts';
 
 import {
 	color as defaultColor,
+	colorMode as defaultColorMode,
 	isLoaded as defaultIsLoaded,
 	isReversed as defaultIsReversed,
 	type as defaultType
@@ -23,22 +24,20 @@ import SlideFade from '../Transitions/SlideFade';
 const Skeleton: FC<SkeletonProps> = (props) => {
 	const theme = useTheme();
 
-	const { colorMode: colorModeHook } = useColorMode();
+	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const [childrenRef, { height: childrenHeight }] = useElementSize();
 
 	const {
 		children,
 		color: colorProp = defaultColor,
-		colorMode: colorModeProp,
+		colorMode = colorModeHook,
 		isLoaded = defaultIsLoaded,
 		isReversed = defaultIsReversed,
 		type = defaultType,
 		speed,
 		...rest
 	} = props;
-
-	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
 	const handleReturnSpeed = useCallback((): number => {
 		if (speed) {
