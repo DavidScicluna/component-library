@@ -1,6 +1,6 @@
 import { ReactElement, createContext, forwardRef, useCallback } from 'react';
 
-import { ColorMode, useColorMode, Badge as CUIBadge, HStack } from '@chakra-ui/react';
+import { useColorMode, Badge as CUIBadge, HStack } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
@@ -27,20 +27,18 @@ export const BadgeContext = createContext<BadgeContextType>({
 
 const Badge = forwardRef<BadgeRef, BadgeProps>(function Badge(props, ref): ReactElement {
 	const theme = useTheme();
-	const { colorMode: colorModeHook } = useColorMode();
+	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const {
 		children,
 		color = defaultColor,
-		colorMode: colorModeProp,
+		colorMode = colorModeHook,
 		isLight = defaultIsLight,
 		size = defaultSize,
 		variant = defaultVariant,
 		sx,
 		...rest
 	} = props;
-
-	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
 	const style = useStyles({ theme, color, colorMode, isLight, size, variant });
 
