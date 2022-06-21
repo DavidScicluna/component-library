@@ -14,9 +14,10 @@
 	"scripts": {
 		"lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
 		"format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json}\" --config ./.prettierrc",
-		"prebuild": "yarn rimraf build && yarn run lint --fix",
+		"cleanup": "rimraf node_modules",
+		"prebuild": "yarn run cleanup && yarn && yarn run lint --fix && rimraf build",
 		"build": "yarn run prebuild && yarn rollup -c",
-		"storybook": "BROWSER=none start-storybook -p 6006",
+		"storybook": "start-storybook -p BROWSER=none 6006",
 		"build-storybook": "build-storybook"
 	},
 	"dependencies": {
@@ -72,7 +73,6 @@
 		"eslint-plugin-storybook": "^0.5.12",
 		"postcss": "^8.4.14",
 		"prettier": "^2.7.1",
-		"rimraf": "^3.0.2",
 		"rollup": "^2.75.6",
 		"rollup-plugin-peer-deps-external": "^2.2.4",
 		"rollup-plugin-postcss": "^4.0.2",
