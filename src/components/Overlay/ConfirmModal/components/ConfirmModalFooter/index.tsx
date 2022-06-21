@@ -5,11 +5,12 @@ import { ModalFooter, HStack } from '@chakra-ui/react';
 import { ConfirmModalFooterProps } from './types';
 
 import { ConfirmModalContext } from '../..';
-import { spacing as defaultSpacing } from '../../common/data/defaultPropValues';
+import { colorMode as defaultColorMode, spacing as defaultSpacing } from '../../common/data/defaultPropValues';
 import { ConfirmModalContext as ConfirmModalContextType } from '../../types';
 
 const ConfirmModalFooter: FC<ConfirmModalFooterProps> = ({ renderCancel, renderAction, ...rest }) => {
-	const { colorMode, spacing = defaultSpacing } = useContext<ConfirmModalContextType>(ConfirmModalContext);
+	const { colorMode = defaultColorMode, spacing = defaultSpacing } =
+		useContext<ConfirmModalContextType>(ConfirmModalContext);
 
 	return (
 		<ModalFooter as={HStack} width='100%' justifyContent='space-between' spacing={spacing} p={0} m={0} {...rest}>

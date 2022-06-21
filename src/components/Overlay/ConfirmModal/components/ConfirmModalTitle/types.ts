@@ -1,5 +1,3 @@
-import { TextProps, ColorMode } from '@chakra-ui/react';
+import { TextProps } from '@chakra-ui/react';
 
-export type ConfirmModalTitleProps = {
-	colorMode?: ColorMode;
-} & TextProps;
+export type ConfirmModalTitleProps = TextProps;

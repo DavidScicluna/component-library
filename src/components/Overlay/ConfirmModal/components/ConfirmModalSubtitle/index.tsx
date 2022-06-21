@@ -1,6 +1,6 @@
 import { FC, useContext } from 'react';
 
-import { ColorMode, Text } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
 
 import { ConfirmModalSubtitleProps } from './types';
 
@@ -10,11 +10,9 @@ import { colorMode as defaultColorMode } from '../../common/data/defaultPropValu
 import { ConfirmModalContext as ConfirmModalContextType } from '../../types';
 
 const ConfirmModalSubtitle: FC<ConfirmModalSubtitleProps> = (props) => {
-	const { colorMode: colorModeHook = defaultColorMode } = useContext<ConfirmModalContextType>(ConfirmModalContext);
+	const { colorMode = defaultColorMode } = useContext<ConfirmModalContextType>(ConfirmModalContext);
 
-	const { children, colorMode: colorModeProp, ...rest } = props;
-
-	const colorMode: ColorMode = colorModeProp || colorModeHook;
+	const { children, ...rest } = props;
 
 	return (
 		<Text
