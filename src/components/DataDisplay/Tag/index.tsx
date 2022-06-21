@@ -1,6 +1,6 @@
 import { ReactElement, createContext, forwardRef, useCallback } from 'react';
 
-import { ColorMode, useColorMode, Tag as CUITag, HStack } from '@chakra-ui/react';
+import { useColorMode, Tag as CUITag, HStack } from '@chakra-ui/react';
 import { dataAttr } from '@chakra-ui/utils';
 
 import merge from 'lodash/merge';
@@ -31,12 +31,12 @@ export const TagContext = createContext<TagContextType>({
 
 const Tag = forwardRef<TagRef, TagProps>(function Tag(props, ref): ReactElement {
 	const theme = useTheme();
-	const { colorMode: colorModeHook } = useColorMode();
+	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const {
 		children,
 		color = defaultColor,
-		colorMode: colorModeProp,
+		colorMode = colorModeHook,
 		isActive = defaultIsActive,
 		isClickable = defaultIsClickable,
 		isDisabled = defaultIsDisabled,
@@ -46,8 +46,6 @@ const Tag = forwardRef<TagRef, TagProps>(function Tag(props, ref): ReactElement 
 		sx,
 		...rest
 	} = props;
-
-	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
 	const style = useStyles({ theme, color, colorMode, isFullWidth, isClickable, size, variant });
 
