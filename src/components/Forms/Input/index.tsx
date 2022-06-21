@@ -1,7 +1,6 @@
 import { ReactElement, useRef, useCallback } from 'react';
 
 import {
-	ColorMode,
 	useColorMode,
 	useBoolean,
 	FormControl,
@@ -17,6 +16,7 @@ import merge from 'lodash/merge';
 
 import {
 	autoComplete as defaultAutoComplete,
+	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
 	isSuccess as defaultIsSuccess,
@@ -38,14 +38,14 @@ import FormLabel from '../FormLabel';
 
 const Input = (props: InputProps): ReactElement => {
 	const theme = useTheme();
-	const { colorMode: colorModeHook } = useColorMode();
+	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const inputRef = useRef<InputRef>(null);
 
 	const {
 		autoComplete = defaultAutoComplete,
 		color,
-		colorMode: colorModeProp,
+		colorMode = colorModeHook,
 		id,
 		name,
 		label,
@@ -69,7 +69,6 @@ const Input = (props: InputProps): ReactElement => {
 
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
-	const colorMode: ColorMode = colorModeProp || colorModeHook;
 	const isFocused: boolean = isFocusedProp || isFocusedHook;
 
 	const style = useStyles({ theme, color, colorMode, isError, isWarning, isSuccess, isFocused, isFullWidth, size });
