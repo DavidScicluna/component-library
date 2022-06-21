@@ -1,12 +1,13 @@
 import { ReactElement, forwardRef, useCallback } from 'react';
 
-import { ColorMode, useColorMode, Button as CUIButton, HStack, Center } from '@chakra-ui/react';
+import { useColorMode, Button as CUIButton, HStack, Center } from '@chakra-ui/react';
 
 import merge from 'lodash/merge';
 import { useElementSize } from 'usehooks-ts';
 
 import {
 	color as defaultColor,
+	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	isFullWidth as defaultIsFullWidth,
 	isLoading as defaultIsLoading,
@@ -22,14 +23,14 @@ import { useTheme } from '../../../common/hooks';
 
 const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): ReactElement {
 	const theme = useTheme();
-	const { colorMode: colorModeHook } = useColorMode();
+	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const [childrenRef, { width, height }] = useElementSize();
 
 	const {
 		children,
 		color = defaultColor,
-		colorMode: colorModeProp,
+		colorMode = colorModeHook,
 		renderLeft,
 		renderRight,
 		isDisabled = defaultIsDisabled,
@@ -40,8 +41,6 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): R
 		sx,
 		...rest
 	} = props;
-
-	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
 	const style = useStyles({ theme, color, colorMode, isFullWidth, isLoading, size, variant });
 
