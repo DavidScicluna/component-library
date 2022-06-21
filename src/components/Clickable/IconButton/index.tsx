@@ -1,11 +1,12 @@
 import { ReactElement, forwardRef } from 'react';
 
-import { ColorMode, useColorMode, IconButton as CUIIconButton, Center } from '@chakra-ui/react';
+import { useColorMode, IconButton as CUIIconButton, Center } from '@chakra-ui/react';
 
 import merge from 'lodash/merge';
 
 import {
 	color as defaultColor,
+	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	isLoading as defaultIsLoading,
 	isRound as defaultIsRound,
@@ -20,12 +21,12 @@ import { useTheme } from '../../../common/hooks';
 
 const IconButton = forwardRef<IconButtonRef, IconButtonProps>(function IconButton(props, ref): ReactElement {
 	const theme = useTheme();
-	const { colorMode: colorModeHook } = useColorMode();
+	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const {
 		children,
 		color = defaultColor,
-		colorMode: colorModeProp,
+		colorMode = colorModeHook,
 		isDisabled = defaultIsDisabled,
 		isLoading = defaultIsLoading,
 		isRound = defaultIsRound,
@@ -34,8 +35,6 @@ const IconButton = forwardRef<IconButtonRef, IconButtonProps>(function IconButto
 		sx,
 		...rest
 	} = props;
-
-	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
 	const style = useStyles({ theme, color, colorMode, isLoading, isRound, size, variant });
 
