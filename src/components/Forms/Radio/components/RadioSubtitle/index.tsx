@@ -1,6 +1,6 @@
 import { FC, useContext } from 'react';
 
-import { ColorMode, Text } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
 
 import { RadioSubtitleProps } from './types';
 
@@ -10,11 +10,9 @@ import { colorMode as defaultColorMode } from '../../common/data/defaultPropValu
 import { RadioContext as RadioContextType } from '../../types';
 
 const RadioSubtitle: FC<RadioSubtitleProps> = (props) => {
-	const { colorMode: colorModeHook = defaultColorMode } = useContext<RadioContextType>(RadioContext);
+	const { colorMode = defaultColorMode } = useContext<RadioContextType>(RadioContext);
 
-	const { children, colorMode: colorModeProp, ...rest } = props;
-
-	const colorMode: ColorMode = colorModeProp || colorModeHook;
+	const { children, ...rest } = props;
 
 	return (
 		<Text

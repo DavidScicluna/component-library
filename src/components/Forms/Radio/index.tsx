@@ -1,6 +1,6 @@
 import { FC, createContext, useRef, useCallback } from 'react';
 
-import { ColorMode, useColorMode, FormControl, Radio as CUIRadio, VStack, HStack, Center } from '@chakra-ui/react';
+import { useColorMode, FormControl, Radio as CUIRadio, VStack, HStack, Center } from '@chakra-ui/react';
 
 import { isEmpty, isNil, merge } from 'lodash';
 
@@ -31,13 +31,13 @@ export const RadioContext = createContext<RadioContextType>({ color: defaultColo
 
 const Radio: FC<RadioProps> = (props) => {
 	const theme = useTheme();
-	const { colorMode: colorModeHook } = useColorMode();
+	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const radioRef = useRef<RadioRef>(null);
 
 	const {
 		color,
-		colorMode: colorModeProp,
+		colorMode = colorModeHook,
 		id,
 		name,
 		label,
@@ -58,8 +58,6 @@ const Radio: FC<RadioProps> = (props) => {
 		sx,
 		...rest
 	} = props;
-
-	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
 	const isChecked: boolean = defaultChecked || isCheckedProp;
 
