@@ -61,4 +61,4 @@ export type CardProps = {
 	variant?: CardVariant;
 } & Omit<CenterProps, Omitted>;
 
-export type CardContext = Pick<CardProps, 'color' | 'colorMode' | 'isDisabled' | 'isLight'>;
+export type CardContext = Pick<CardProps, 'color' | 'colorMode' | 'isDisabled' | 'isLight' | 'spacing'>;

@@ -11,15 +11,18 @@ import { useTheme } from '../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../common/utils';
 import { getColor } from '../../../../common/utils/color';
 import { Space } from '../../../../theme/types';
-import { colorMode as defaultColorMode } from '../../common/data/defaultPropValues';
+import { colorMode as defaultColorMode, spacing as defaultSpacing } from '../../common/data/defaultPropValues';
 import { CardContext as CardContextType } from '../../types';
 
-const CardHeader: FC<CardHeaderProps> = ({ renderTitle, renderSubtitle, actions, spacing = 2, ...rest }) => {
+const CardHeader: FC<CardHeaderProps> = (props) => {
 	const theme = useTheme();
 
-	const { colorMode = defaultColorMode } = useContext<CardContextType>(CardContext);
+	const { colorMode = defaultColorMode, spacing: spacingHook = defaultSpacing } =
+		useContext<CardContextType>(CardContext);
 
 	const [actionsRef, { width: actionsWidth }] = useElementSize();
+
+	const { renderTitle, renderSubtitle, actions, spacing = spacingHook, ...rest } = props;
 
 	const handleCalculateTextWidth = useCallback((): string => {
 		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem'));

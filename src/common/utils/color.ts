@@ -6,7 +6,7 @@ import { Theme, ColorHues, Color } from '../../theme/types';
 
 type Type = 'text.primary' | 'text.secondary' | 'divider' | 'light' | 'lightest' | 'dark' | 'darkest' | 'color';
 
-type GetHueProps = {
+export type GetHueProps = {
 	colorMode: ColorMode;
 	type: Type;
 };
@@ -34,7 +34,7 @@ export const getHue = memoize(({ colorMode, type }: GetHueProps): ColorHues => {
 
 type OmittedColors = 'transparent' | 'black' | 'white';
 
-type GetColorProps = {
+export type GetColorProps = {
 	theme: Theme;
 	colorMode: ColorMode;
 	color?: Exclude<Color, OmittedColors>;

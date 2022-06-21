@@ -1,8 +1,8 @@
-import { FC, useContext } from 'react';
+import { FC, useContext, useCallback } from 'react';
 
 import { CardContext } from '../..';
 import { useTheme } from '../../../../common/hooks';
-import { getColor } from '../../../../common/utils/color';
+import { GetColorProps, getColor } from '../../../../common/utils/color';
 import Divider from '../../../Divider';
 import { DividerProps as CardDividerProps } from '../../../Divider/types';
 import {
@@ -23,6 +23,21 @@ const CardDivider: FC<CardDividerProps> = (props) => {
 		isLight = defaultIsLight
 	} = useContext<CardContextType>(CardContext);
 
+	const handleReturnType = useCallback((): GetColorProps['type'] => {
+		if (isDisabled) {
+			return isLight ? 'divider' : 'text.secondary';
+		} else {
+			switch (color) {
+				case 'black':
+					return 'darkest';
+				case 'white':
+					return 'lightest';
+				default:
+					return isLight ? 'divider' : color === 'gray' ? 'text.secondary' : 'color';
+			}
+		}
+	}, [isDisabled, isLight, color]);
+
 	return (
 		<Divider
 			{...props}
@@ -30,21 +45,7 @@ const CardDivider: FC<CardDividerProps> = (props) => {
 				theme,
 				colorMode,
 				color: isDisabled ? 'gray' : color === 'black' || color === 'white' ? 'gray' : color,
-				type: isDisabled
-					? isLight
-						? 'divider'
-						: 'text.secondary'
-					: color === 'black'
-					? 'darkest'
-					: color === 'white'
-					? 'lightest'
-					: color === 'gray'
-					? isLight
-						? 'divider'
-						: 'text.secondary'
-					: isLight
-					? 'divider'
-					: 'color'
+				type: handleReturnType()
 			})}
 		/>
 	);

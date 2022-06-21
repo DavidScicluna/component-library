@@ -1,6 +1,6 @@
 import { ReactElement, createContext, forwardRef } from 'react';
 
-import { ColorMode, useColorMode, Center, VStack } from '@chakra-ui/react';
+import { useColorMode, Center, VStack } from '@chakra-ui/react';
 import { dataAttr } from '@chakra-ui/utils';
 
 import merge from 'lodash/merge';
@@ -23,7 +23,13 @@ import { CardContext as CardContextType, CardRef, CardProps } from './types';
 
 import { useTheme } from '../../common/hooks';
 
-export const CardContext = createContext<CardContextType>({ color: 'gray', colorMode: 'light' });
+export const CardContext = createContext<CardContextType>({
+	color: 'gray',
+	colorMode: 'light',
+	isDisabled: defaultIsDisabled,
+	isLight: defaultIsLight,
+	spacing: defaultSpacing
+});
 
 const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElement {
 	const theme = useTheme();
@@ -32,7 +38,7 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 	const {
 		children,
 		color = defaultColor,
-		colorMode: colorModeProp,
+		colorMode = colorModeHook,
 		isActive = defaultIsActive,
 		isFullWidth = defaultIsFullWidth,
 		isDivisible = defaultIsDivisible,
@@ -46,9 +52,6 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 		...rest
 	} = props;
 
-	const colorMode: ColorMode = colorModeProp || colorModeHook;
-	// const isFixed: boolean = isFixedProp || !isClickable;
-
 	const style = useStyles({
 		theme,
 		color,
@@ -61,7 +64,7 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 	});
 
 	return (
-		<CardContext.Provider value={{ color, colorMode, isDisabled, isLight }}>
+		<CardContext.Provider value={{ color, colorMode, isDisabled, isLight, spacing }}>
 			<Center
 				{...rest}
 				ref={ref}
