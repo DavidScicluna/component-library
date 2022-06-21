@@ -1,6 +1,6 @@
 import { ReactElement, createContext, forwardRef } from 'react';
 
-import { ColorMode, useColorMode, Box } from '@chakra-ui/react';
+import { useColorMode, Box } from '@chakra-ui/react';
 
 import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 
@@ -28,12 +28,12 @@ const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(
 	ref
 ): ReactElement {
 	const theme = useTheme();
-	const { colorMode: colorModeHook } = useColorMode();
+	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const {
 		children,
 		apiRef,
-		colorMode: colorModeProp,
+		colorMode = colorModeHook,
 		isDisabled = defaultIsDisabled,
 		renderDivider,
 		LeftArrow: LeftArrowProp,
@@ -51,8 +51,6 @@ const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(
 		onMouseMove,
 		...rest
 	} = props;
-
-	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
 	return (
 		<HorizontalScrollContext.Provider value={{ colorMode, isDisabled }}>

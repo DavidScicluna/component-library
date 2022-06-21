@@ -10,11 +10,11 @@ const LeftArrow: FC = () => {
 	const { isFirstItemVisible, scrollPrev, visibleItemsWithoutSeparators, initComplete } =
 		useContext(VisibilityContext);
 
-	const [isDisabled, setIsDisabled] = useBoolean(!initComplete || (initComplete && isFirstItemVisible));
+	const [isDisabled, setIsDisabled] = useBoolean();
 
 	useEffect(() => {
 		if (visibleItemsWithoutSeparators.length) {
-			if (isFirstItemVisible) {
+			if (!initComplete || (initComplete && isFirstItemVisible)) {
 				setIsDisabled.on();
 			} else {
 				setIsDisabled.off();

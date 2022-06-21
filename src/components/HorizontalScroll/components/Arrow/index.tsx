@@ -23,13 +23,11 @@ const Arrow: FC<ArrowProps> = (props) => {
 
 	const [isXs] = useMediaQuery('(max-width: 600px)');
 
-	const { colorMode = defaultColorMode, isDisabled: isDisabledHook } =
+	const { colorMode = defaultColorMode, isDisabled: isDisabledHook = defaultIsDisabled } =
 		useContext<HorizontalScrollContextType>(HorizontalScrollContext);
 
 	const [iconButtonRef, { width: iconButtonWidth, height: iconButtonHeight }] = useElementSize<HTMLButtonElement>();
-	const { direction, isDisabled: isDisabledProp = defaultIsDisabled, ...rest } = props;
-
-	const isDisabled = isDisabledHook || isDisabledProp;
+	const { direction, isDisabled = isDisabledHook, ...rest } = props;
 
 	const style = useStyles({ theme, colorMode, direction });
 

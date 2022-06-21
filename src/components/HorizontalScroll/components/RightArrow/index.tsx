@@ -9,7 +9,7 @@ import Arrow from '../Arrow';
 const RightArrow: FC = () => {
 	const { isLastItemVisible, scrollNext, visibleItemsWithoutSeparators } = useContext(VisibilityContext);
 
-	const [isDisabled, setIsDisabled] = useBoolean(!visibleItemsWithoutSeparators.length && isLastItemVisible);
+	const [isDisabled, setIsDisabled] = useBoolean();
 
 	useEffect(() => {
 		if (visibleItemsWithoutSeparators.length) {
