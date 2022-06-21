@@ -1,7 +1,6 @@
 import { FC, createContext, useCallback, useEffect } from 'react';
 
 import {
-	ColorMode,
 	useColorMode,
 	useMediaQuery,
 	useBoolean,
@@ -14,6 +13,7 @@ import {
 import { useTimeout } from 'usehooks-ts';
 
 import {
+	colorMode as defaultColorMode,
 	isOpen as defaultIsOpen,
 	size as defaultSize,
 	spacing as defaultSpacing
@@ -29,13 +29,13 @@ export const ModalContext = createContext<ModalContextType>({ colorMode: 'light'
 
 const Modal: FC<ModalProps> = (props) => {
 	const theme = useTheme();
-	const { colorMode: colorModeHook } = useColorMode();
+	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const [isXs] = useMediaQuery('(max-width: 600px)');
 
 	const {
 		children,
-		colorMode: colorModeProp,
+		colorMode = colorModeHook,
 		isOpen = defaultIsOpen,
 		onClose,
 		size = defaultSize,
@@ -44,8 +44,6 @@ const Modal: FC<ModalProps> = (props) => {
 	} = props;
 
 	const [isMounted, setIsMounted] = useBoolean();
-
-	const colorMode: ColorMode = colorModeProp || colorModeHook;
 
 	const handleCheckIsMounted = useCallback(() => {
 		if (isOpen) {
