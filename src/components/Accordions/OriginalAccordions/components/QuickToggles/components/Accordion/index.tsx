@@ -9,7 +9,7 @@ import { AccordionProps } from './types';
 import { AccordionsContext } from '../../../..';
 import { useTheme } from '../../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../../common/utils';
-import Button from '../../../../../../Clickable/Button';
+import Button from '../../../../../../Clickable/Buttons/OriginalButton';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,

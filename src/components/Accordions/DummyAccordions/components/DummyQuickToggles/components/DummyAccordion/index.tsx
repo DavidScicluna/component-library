@@ -3,7 +3,7 @@ import { FC, useContext } from 'react';
 import { DummyAccordionProps } from './types';
 
 import { DummyAccordionsContext } from '../../../..';
-import Button from '../../../../../../Clickable/Button';
+import Button from '../../../../../../Clickable/Buttons/OriginalButton';
 import Skeleton from '../../../../../../Skeleton';
 import {
 	color as defaultColor,

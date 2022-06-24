@@ -5,7 +5,7 @@ import { useMediaQuery } from '@chakra-ui/react';
 import { DummyToggleProps } from './types';
 
 import { DummyAccordionsContext } from '../../../..';
-import Button from '../../../../../../Clickable/Button';
+import Button from '../../../../../../Clickable/Buttons/OriginalButton';
 import IconButton from '../../../../../../Clickable/IconButton';
 import Icon from '../../../../../../Icon';
 import {
