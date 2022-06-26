@@ -36,8 +36,8 @@ const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(
 		colorMode = colorModeHook,
 		isDisabled = defaultIsDisabled,
 		renderDivider,
-		LeftArrow: LeftArrowProp,
-		RightArrow: RightArrowProp,
+		LeftArrow: LeftArrowProp = LeftArrow,
+		RightArrow: RightArrowProp = RightArrow,
 		itemClassName,
 		separatorClassName,
 		scrollContainerClassName = 'scrollContainer',
@@ -57,8 +57,8 @@ const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(
 			<Box ref={ref} width='100%' {...rest}>
 				<ScrollMenu
 					apiRef={apiRef}
-					LeftArrow={LeftArrowProp || LeftArrow}
-					RightArrow={RightArrowProp || RightArrow}
+					LeftArrow={LeftArrowProp}
+					RightArrow={RightArrowProp}
 					transitionDuration={convertStringToNumber(theme.transition.duration['ultra-slow'], 'ms')}
 					itemClassName={itemClassName}
 					separatorClassName={separatorClassName}

@@ -28,3 +28,8 @@
 	justify-content: stretch;
 	align-items: stretch;
 }
+
+.react-horizontal-scrolling-menu--header,
+.react-horizontal-scrolling-menu--footer {
+	display: none;
+}
