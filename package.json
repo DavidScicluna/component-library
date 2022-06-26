@@ -14,10 +14,10 @@
 	"scripts": {
 		"lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
 		"format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json}\" --config ./.prettierrc",
-		"cleanup": "rimraf node_modules",
+		"cleanup": "rimraf node_modules && yarn cache clean --all",
 		"prebuild": "yarn run cleanup && yarn && yarn run lint --fix && rimraf build",
 		"build": "yarn run prebuild && yarn rollup -c",
-		"storybook": "start-storybook -p BROWSER=none 6006",
+		"storybook": "BROWSER=none start-storybook -p 6006",
 		"build-storybook": "build-storybook"
 	},
 	"dependencies": {
