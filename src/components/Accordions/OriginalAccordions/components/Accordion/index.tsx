@@ -76,7 +76,7 @@ const Accordion: FC<AccordionProps> = (props) => {
 
 	const style = useStyles({ theme, color, colorMode, isFullWidth, isLight, isOpen });
 
-	const duration = useConst<number>(getTransitionDuration({ theme, duration: 'slower' }));
+	const duration = useConst<number>(getTransitionDuration({ theme, duration: 'slow' }));
 	const easing = useConst<number[]>(getTransitionEasings({ theme }));
 
 	const config = useConst<Transition>({ duration, easing });
@@ -99,7 +99,7 @@ const Accordion: FC<AccordionProps> = (props) => {
 					<span id={id.toLowerCase()} />
 				</VisuallyHidden>
 
-				<VStack width='100%' position='relative' zIndex={1} spacing={spacing}>
+				<VStack width='100%' position='relative' zIndex={1} spacing={0}>
 					<Center width='100%'>{header}</Center>
 
 					<Collapse
@@ -108,17 +108,13 @@ const Accordion: FC<AccordionProps> = (props) => {
 						style={{ width: '100%' }}
 						transition={{ enter: { ...config }, exit: { ...config } }}
 					>
-						<VStack width='100%' spacing={spacing}>
-							{isDivisible && <AccordionDivider />}
+						<VStack width='100%' divider={isDivisible ? <AccordionDivider /> : undefined} spacing={spacing}>
+							<VisuallyHidden>
+								<span />
+							</VisuallyHidden>
 
-							<VStack
-								width='100%'
-								divider={isDivisible && !isDisabled ? <AccordionDivider /> : undefined}
-								spacing={spacing}
-							>
-								{body}
-								{footer}
-							</VStack>
+							{body}
+							{footer}
 						</VStack>
 					</Collapse>
 				</VStack>
