@@ -11,7 +11,7 @@ import {
 	colorMode as defaultColorMode,
 	size as defaultSize,
 	variant as defaultVariant
-} from '../../common/data/defaultPropValues';
+} from '../../../common/data/defaultPropValues';
 
 const Spinner: FC<SpinnerProps> = (props) => {
 	const theme = useTheme();

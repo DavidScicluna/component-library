@@ -5,6 +5,11 @@ import { useColorMode, Button as CUIButton, HStack, Center } from '@chakra-ui/re
 import merge from 'lodash/merge';
 import { useElementSize } from 'usehooks-ts';
 
+import useStyles from './common/styles';
+import Spinner from './components/Spinner';
+import { ButtonRef, ButtonProps } from './types';
+
+import { useTheme } from '../../../../common/hooks';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -13,19 +18,14 @@ import {
 	isLoading as defaultIsLoading,
 	size as defaultSize,
 	variant as defaultVariant
-} from './common/data/defaultPropValues';
-import useStyles from './common/styles';
-import { getSizeConfig } from './common/utils';
-import Spinner from './components/Spinner';
-import { ButtonRef, ButtonProps } from './types';
-
-import { useTheme } from '../../../../common/hooks';
+} from '../common/data/defaultPropValues';
+import { getSizeConfig } from '../common/utils';
 
 const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): ReactElement {
 	const theme = useTheme();
 	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
-	const [childrenRef, { width, height }] = useElementSize();
+	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const {
 		children,
@@ -69,17 +69,19 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): R
 				{isLoading && !renderLeft ? (
 					<Spinner color={color} colorMode={colorMode} size={size} variant={variant} />
 				) : renderLeft ? (
-					renderLeft({ color, colorMode, width, height })
+					renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })
 				) : null}
-				{children ? (
+
+				{children && (
 					<Center ref={childrenRef} as='span'>
 						{children}
 					</Center>
-				) : null}
+				)}
+
 				{isLoading && renderLeft ? (
 					<Spinner color={color} colorMode={colorMode} size={size} variant={variant} />
 				) : renderRight ? (
-					renderRight({ color, colorMode, width, height })
+					renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })
 				) : null}
 			</HStack>
 		</CUIButton>
