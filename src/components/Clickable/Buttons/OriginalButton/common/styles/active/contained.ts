@@ -1,8 +1,8 @@
 import { ButtonActiveStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
-import { size as defaultSize } from '../../data/defaultPropValues';
-import { getSizeConfig } from '../../utils';
+import { size as defaultSize } from '../../../../common/data/defaultPropValues';
+import { getSizeConfig } from '../../../../common/utils';
 
 export default ({ theme, size = defaultSize }: ButtonActiveStyleProps): Style => {
 	const config = getSizeConfig({ size });
