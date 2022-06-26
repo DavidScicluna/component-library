@@ -2,7 +2,14 @@ import { ReactElement } from 'react';
 
 import { Meta, Story } from './types';
 
-import { ButtonColor, ButtonProps, ButtonSize, ButtonVariant, Button as ButtonComponent } from '../../..';
+import {
+	ButtonColor,
+	ButtonSize,
+	ButtonVariant,
+	ButtonProps,
+	ButtonRenderProps,
+	Button as ButtonComponent
+} from '../../..';
 import icons from '../../../common/data/icons';
 import {
 	color as defaultColor,
@@ -12,8 +19,7 @@ import {
 	isLoading as defaultIsLoading,
 	size as defaultSize,
 	variant as defaultVariant
-} from '../../../components/Clickable/Button/common/data/defaultPropValues';
-import { RenderProps } from '../../../components/Clickable/Button/types';
+} from '../../../components/Clickable/Buttons/common/data/defaultPropValues';
 import Icon from '../../../components/Icon';
 import controls from '../../common/controls';
 
@@ -42,7 +48,7 @@ const renderMapping = Object.assign(
 	{ none: undefined },
 	...icons.map((icon) => {
 		return {
-			[icon]: ({ colorMode }: RenderProps) => <Icon colorMode={colorMode} icon={icon} />
+			[icon]: ({ colorMode }: ButtonRenderProps) => <Icon colorMode={colorMode} icon={icon} />
 		};
 	})
 );

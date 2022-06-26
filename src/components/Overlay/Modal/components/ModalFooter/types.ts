@@ -4,7 +4,7 @@ import { ModalFooterProps as CUIModalFooterProps } from '@chakra-ui/react';
 
 import { BoxTypography, BoxFlexbox, BoxGrid, BoxPosition, BoxShadow, BoxOther } from '../../../../../common/types/box';
 import { Space } from '../../../../../theme/types';
-import { ButtonProps } from '../../../../Clickable/Buttons/OriginalButton/types';
+import { ButtonProps } from '../../../../Clickable/Buttons/common/types';
 
 type ButtonPropsPicked = 'color' | 'colorMode' | 'size' | 'variant';
 

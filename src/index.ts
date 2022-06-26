@@ -44,10 +44,17 @@ import { CardFooterProps } from './components/Card/components/CardFooter/types';
 import CardHeader from './components/Card/components/CardHeader';
 import { CardHeaderProps } from './components/Card/components/CardHeader/types';
 import { CardColor, CardContext, CardProps, CardRef, CardVariant } from './components/Card/types';
-import Button from './components/Clickable/Button';
-import { ButtonColor, ButtonProps, ButtonRef, ButtonSize, ButtonVariant } from './components/Clickable/Button/types';
 import ButtonGroup from './components/Clickable/ButtonGroup';
 import { ButtonGroupProps, ButtonGroupRef, ButtonGroupSize } from './components/Clickable/ButtonGroup/types';
+import { ButtonColor, ButtonSize, ButtonVariant } from './components/Clickable/Buttons/common/types';
+import DummyButton from './components/Clickable/Buttons/DummyButton';
+import { DummyButtonProps, DummyButtonRef } from './components/Clickable/Buttons/DummyButton/types';
+import Button from './components/Clickable/Buttons/OriginalButton';
+import {
+	ButtonProps,
+	ButtonRef,
+	RenderProps as ButtonRenderProps
+} from './components/Clickable/Buttons/OriginalButton/types';
 import IconButton from './components/Clickable/IconButton';
 import {
 	IconButtonColor,
@@ -257,6 +264,7 @@ export {
 	CardHeader,
 	ExternalLink,
 	InternalLink,
+	DummyButton,
 	Button,
 	ButtonGroup,
 	IconButton,
@@ -328,10 +336,13 @@ export type {
 	LinkProps,
 	InternalProps,
 	ButtonColor,
+	DummyButtonProps,
+	DummyButtonRef,
 	ButtonProps,
 	ButtonRef,
 	ButtonSize,
 	ButtonVariant,
+	ButtonRenderProps,
 	ButtonGroupProps,
 	ButtonGroupRef,
 	ButtonGroupSize,
