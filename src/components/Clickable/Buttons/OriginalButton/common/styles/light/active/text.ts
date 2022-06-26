@@ -3,7 +3,7 @@ import { ButtonLightActiveStylingProps } from './types';
 import { Style } from '../../../../../../../../common/types';
 import { getHue } from '../../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../../theme/types';
-import { color as defaultColor } from '../../../data/defaultPropValues';
+import { color as defaultColor } from '../../../../../common/data/defaultPropValues';
 
 export default ({ theme, color: colorProp = defaultColor }: ButtonLightActiveStylingProps): Style => {
 	const shade = getHue({

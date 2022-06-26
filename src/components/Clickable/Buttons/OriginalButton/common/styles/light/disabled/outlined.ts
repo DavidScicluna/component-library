@@ -7,8 +7,8 @@ import {
 	color as defaultColor,
 	isLoading as defaultIsLoading,
 	size as defaultSize
-} from '../../../data/defaultPropValues';
-import { getSizeConfig } from '../../../utils';
+} from '../../../../../common/data/defaultPropValues';
+import { getSizeConfig } from '../../../../../common/utils';
 
 export default ({
 	theme,
