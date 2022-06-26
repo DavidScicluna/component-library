@@ -14,7 +14,7 @@ import {
 	isLoading as defaultIsLoading,
 	size as defaultSize,
 	variant as defaultVariant
-} from '../data/defaultPropValues';
+} from '../../../common/data/defaultPropValues';
 
 export default memoize((props: ButtonStyleProps): ButtonStyleReturn => {
 	const {
