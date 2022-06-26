@@ -27,7 +27,7 @@ import {
 } from '../../components/Accordions/OriginalAccordions/common/data/defaultPropValues';
 import controls from '../common/controls';
 
-const accordions: AccordionType[] = range(0, 5).map((_dummy, index) => {
+const accordions: AccordionType[] = range(0, 15).map((_dummy, index) => {
 	return { id: toString(index), title: `Accordion ${++index}` } as AccordionType;
 });
 
