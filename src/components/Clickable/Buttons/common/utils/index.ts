@@ -1,6 +1,6 @@
-import { Space } from '../../../../../../theme/types';
-import { ButtonSize } from '../../types';
+import { Space } from '../../../../../theme/types';
 import { size as defaultSize } from '../data/defaultPropValues';
+import { ButtonSize } from '../types';
 
 type Padding = {
 	x: Space; // In Space (Theme) Values
