@@ -4,7 +4,12 @@ import { useColorMode, Box } from '@chakra-ui/react';
 
 import { DividerRef, DividerProps } from './types';
 
+import { useTheme } from '../../common/hooks';
+import { getColor } from '../../common/utils/color';
+
 const Divider = forwardRef<DividerRef, DividerProps>(function Divider(props, ref): ReactElement {
+	const theme = useTheme();
+
 	const { colorMode: colorModeHook = 'light' } = useColorMode();
 
 	const { colorMode = colorModeHook, orientation = 'horizontal', ...rest } = props;
@@ -12,11 +17,15 @@ const Divider = forwardRef<DividerRef, DividerProps>(function Divider(props, ref
 	return (
 		<Box
 			ref={ref}
-			as='hr'
 			width={orientation === 'horizontal' ? '100%' : '2px'}
-			height={orientation === 'horizontal' ? '2px' : '100%'}
-			backgroundColor={`gray.${colorMode === 'light' ? 200 : 700}`}
-			flex={1}
+			minWidth={orientation === 'horizontal' ? '100%' : '2px'}
+			maxWidth={orientation === 'horizontal' ? '100%' : '2px'}
+			height={orientation === 'horizontal' ? '2px' : 'auto'}
+			minHeight={orientation === 'horizontal' ? '2px' : 'auto'}
+			maxHeight={orientation === 'horizontal' ? '2px' : 'auto'}
+			backgroundColor={getColor({ theme, colorMode, type: 'divider' })}
+			border='none'
+			flex={orientation === 'vertical' ? 1 : undefined}
 			{...rest}
 		/>
 	);
