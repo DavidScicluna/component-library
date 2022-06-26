@@ -1,6 +1,6 @@
 import { ColorMode } from '@chakra-ui/react';
 
-import { ButtonColor, ButtonSize, ButtonVariant } from '../../types';
+import { ButtonColor, ButtonSize, ButtonVariant } from '../types';
 
 export const color: ButtonColor = 'gray';
 
