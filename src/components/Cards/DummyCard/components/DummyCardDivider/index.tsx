@@ -1,10 +1,11 @@
 import { FC, useContext, useCallback } from 'react';
 
+import { DummyCardDividerProps } from './types';
+
 import { DummyCardContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import { getColor, GetColorProps } from '../../../../../common/utils/color';
 import Divider from '../../../../Divider';
-import { DividerProps as DummyCardDividerProps } from '../../../../Divider/types';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
