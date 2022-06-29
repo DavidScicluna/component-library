@@ -7,8 +7,8 @@ import DummyAccordion from './components/Accordions/DummyAccordions/components/D
 import DummyAccordionHeader from './components/Accordions/DummyAccordions/components/DummyAccordion/components/DummyAccordionHeader';
 import { DummyAccordionHeaderProps } from './components/Accordions/DummyAccordions/components/DummyAccordion/components/DummyAccordionHeader/types';
 import { DummyAccordionProps } from './components/Accordions/DummyAccordions/components/DummyAccordion/types';
-import DummyQuickToggles from './components/Accordions/DummyAccordions/components/DummyQuickToggles';
-import { DummyQuickTogglesProps } from './components/Accordions/DummyAccordions/components/DummyQuickToggles/types';
+import DummyAccordionsQuickToggles from './components/Accordions/DummyAccordions/components/DummyQuickToggles';
+import { DummyQuickTogglesProps as DummyAccordionsQuickTogglesProps } from './components/Accordions/DummyAccordions/components/DummyQuickToggles/types';
 import { DummyAccordionsContext, DummyAccordionsProps } from './components/Accordions/DummyAccordions/types';
 import Accordions from './components/Accordions/OriginalAccordions';
 import Accordion from './components/Accordions/OriginalAccordions/components/Accordion';
@@ -36,14 +36,23 @@ import {
 	AccordionsProps,
 	AccordionsRef
 } from './components/Accordions/OriginalAccordions/types';
-import Card from './components/Card';
-import CardBody from './components/Card/components/CardBody';
-import { CardBodyProps } from './components/Card/components/CardBody/types';
-import CardFooter from './components/Card/components/CardFooter';
-import { CardFooterProps } from './components/Card/components/CardFooter/types';
-import CardHeader from './components/Card/components/CardHeader';
-import { CardHeaderProps } from './components/Card/components/CardHeader/types';
-import { CardColor, CardContext, CardProps, CardRef, CardVariant } from './components/Card/types';
+import { CardColor, CardVariant } from './components/Cards/common/types';
+import CardBody from './components/Cards/components/CardBody';
+import { CardBodyProps } from './components/Cards/components/CardBody/types';
+import CardFooter from './components/Cards/components/CardFooter';
+import { CardFooterProps } from './components/Cards/components/CardFooter/types';
+import DummyCard from './components/Cards/DummyCard';
+import DummyCardDivider from './components/Cards/DummyCard/components/DummyCardDivider';
+import { DummyCardDividerProps } from './components/Cards/DummyCard/components/DummyCardDivider/types';
+import DummyCardHeader from './components/Cards/DummyCard/components/DummyCardHeader';
+import { DummyCardHeaderProps } from './components/Cards/DummyCard/components/DummyCardHeader/types';
+import { DummyCardContext, DummyCardProps, DummyCardRef } from './components/Cards/DummyCard/types';
+import Card from './components/Cards/OriginalCard';
+import CardDivider from './components/Cards/OriginalCard/components/CardDivider';
+import { CardDividerProps } from './components/Cards/OriginalCard/components/CardDivider/types';
+import CardHeader from './components/Cards/OriginalCard/components/CardHeader';
+import { CardHeaderProps } from './components/Cards/OriginalCard/components/CardHeader/types';
+import { CardContext, CardProps, CardRef } from './components/Cards/OriginalCard/types';
 import ButtonGroup from './components/Clickable/ButtonGroup';
 import { ButtonGroupProps, ButtonGroupRef, ButtonGroupSize } from './components/Clickable/ButtonGroup/types';
 import { ButtonColor, ButtonSize, ButtonVariant } from './components/Clickable/Buttons/common/types';
@@ -250,7 +259,7 @@ export {
 	DummyAccordions,
 	DummyAccordion,
 	DummyAccordionHeader,
-	DummyQuickToggles,
+	DummyAccordionsQuickToggles,
 	Accordions,
 	Accordion,
 	AccordionBody,
@@ -258,9 +267,13 @@ export {
 	AccordionHeader,
 	AccordionsPanel,
 	AccordionsQuickToggles,
-	Card,
 	CardBody,
 	CardFooter,
+	DummyCard,
+	DummyCardDivider,
+	DummyCardHeader,
+	Card,
+	CardDivider,
 	CardHeader,
 	ExternalLink,
 	InternalLink,
@@ -309,7 +322,7 @@ export {
 export type {
 	DummyAccordionHeaderProps,
 	DummyAccordionProps,
-	DummyQuickTogglesProps,
+	DummyAccordionsQuickTogglesProps,
 	DummyAccordionsContext,
 	DummyAccordionsProps,
 	AccordionBodyProps,
@@ -325,14 +338,20 @@ export type {
 	AccordionsContext,
 	AccordionsProps,
 	AccordionsRef,
+	CardColor,
+	CardVariant,
 	CardBodyProps,
 	CardFooterProps,
+	DummyCardDividerProps,
+	DummyCardHeaderProps,
+	DummyCardContext,
+	DummyCardProps,
+	DummyCardRef,
+	CardDividerProps,
 	CardHeaderProps,
-	CardColor,
 	CardContext,
 	CardProps,
 	CardRef,
-	CardVariant,
 	LinkProps,
 	InternalProps,
 	ButtonColor,
