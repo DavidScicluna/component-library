@@ -51,7 +51,6 @@ export type CommonCardProps = Omit<CenterProps, Omitted> & {
 	isDivisible?: boolean;
 	isLight?: boolean;
 	isFullWidth?: boolean;
-	// isFixed?: boolean;
 	spacing?: Space;
 	variant?: CardVariant;
 };
