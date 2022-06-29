@@ -12,7 +12,6 @@ import {
 	colorMode as defaultColorMode,
 	isFullWidth as defaultIsFullWidth,
 	isLight as defaultIsLight,
-	// isFixed as defaultIsFixed,
 	variant as defaultVariant
 } from '../../../common/data/defaultPropValues';
 import { isClickable as defaultIsClickable } from '../data/defaultPropValues';

@@ -46,7 +46,6 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 		isDivisible = defaultIsDivisible,
 		isLight = defaultIsLight,
 		isClickable = defaultIsClickable,
-		// isFixed: isFixedProp = defaultIsFixed,
 		isDisabled = defaultIsDisabled,
 		spacing = defaultSpacing,
 		variant = defaultVariant,
@@ -61,7 +60,7 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 		isFullWidth,
 		isLight,
 		isClickable,
-		// isFixed,
+
 		variant
 	});
 
@@ -84,7 +83,8 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 					flex={1}
 					divider={isDivisible && variant !== 'contained' ? <CardDivider /> : undefined}
 					spacing={spacing}
-					overflow='hidden'
+					overflowY='hidden'
+					overflowX='hidden'
 				>
 					{children}
 				</VStack>
