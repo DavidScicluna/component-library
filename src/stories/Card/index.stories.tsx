@@ -11,11 +11,12 @@ import {
 	isFullWidth as defaultIsFullWidth,
 	isDivisible as defaultIsDivisible,
 	isLight as defaultIsLight,
-	isClickable as defaultIsClickable,
-	// isFixed as defaultIsFixed,
-	isDisabled as defaultIsDisabled,
 	spacing as defaultSpacing,
 	variant as defaultVariant
+} from '../../components/Cards/common/data/defaultPropValues';
+import {
+	isClickable as defaultIsClickable,
+	isDisabled as defaultIsDisabled
 } from '../../components/Cards/OriginalCard/common/data/defaultPropValues';
 import controls from '../common/controls';
 
@@ -90,13 +91,6 @@ export default {
 			// description: '',
 			control: 'boolean'
 		},
-		// isFixed: {
-		// 	name: 'Fixed',
-		// 	type: 'boolean',
-		// 	defaultValue: false,
-		// 	// description: '',
-		// 	control: 'boolean'
-		// },
 		isActive: {
 			name: 'Active',
 			type: 'boolean',
