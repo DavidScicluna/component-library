@@ -2,7 +2,6 @@ import { ButtonStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../common/utils';
-import { Radius } from '../../../../../../../theme/types';
 import { isFullWidth as defaultIsFullWidth, size as defaultSize } from '../../../../common/data/defaultPropValues';
 import { getSizeConfig } from '../../../../common/utils';
 
@@ -12,8 +11,6 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 	const config = getSizeConfig({ size });
 	const height = config.height;
 	const padding = config.padding;
-
-	const radius: Radius = size === 'xs' || size === 'sm' ? 'xs' : size === 'lg' || size === 'xl' ? 'lg' : 'base';
 
 	const transition = 'none';
 	const transitionProperty = transition;
@@ -43,7 +40,6 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 		'outline': !isTouchDevice ? '0px transparent' : 'none !important',
 
 		'background': 'none',
-		'borderRadius': theme.radii[radius],
 
 		'fontSize': theme.fontSizes[size],
 		'fontWeight': theme.fontWeights.semibold,
@@ -75,8 +71,6 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 			bottom: 0,
 			left: 0,
 			right: 0,
-
-			borderRadius: theme.radii[radius],
 
 			transition,
 			transitionProperty,

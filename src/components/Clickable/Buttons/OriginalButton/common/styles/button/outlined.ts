@@ -1,6 +1,7 @@
 import { ButtonStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
+import { Radius } from '../../../../../../../theme/types';
 import { size as defaultSize } from '../../../../common/data/defaultPropValues';
 import { getSizeConfig } from '../../../../common/utils';
 
@@ -9,10 +10,13 @@ export default ({ theme, size = defaultSize }: ButtonStyleProps): Style => {
 	const transform = config.transform.outlined;
 	const border = config.border;
 
+	const radius: Radius = size === 'xs' || size === 'sm' ? 'xs' : size === 'lg' || size === 'xl' ? 'lg' : 'base';
+
 	return {
 		'borderBottomWidth': `${transform}px`,
 		'borderStyle': 'solid',
 		'borderColor': theme.colors.transparent,
+		'borderRadius': theme.radii[radius],
 
 		'&::before': {
 			content: '""',
@@ -21,7 +25,8 @@ export default ({ theme, size = defaultSize }: ButtonStyleProps): Style => {
 			borderLeftWidth: `${border}px`,
 			borderRightWidth: `${border}px`,
 			borderStyle: 'solid',
-			borderColor: theme.colors.transparent
+			borderColor: theme.colors.transparent,
+			borderRadius: theme.radii[radius]
 		},
 
 		'&:active': {
