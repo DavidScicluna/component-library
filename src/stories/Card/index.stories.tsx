@@ -16,7 +16,7 @@ import {
 	isDisabled as defaultIsDisabled,
 	spacing as defaultSpacing,
 	variant as defaultVariant
-} from '../../components/Card/common/data/defaultPropValues';
+} from '../../components/Cards/OriginalCard/common/data/defaultPropValues';
 import controls from '../common/controls';
 
 const colorOptions: CardColor[] = [
