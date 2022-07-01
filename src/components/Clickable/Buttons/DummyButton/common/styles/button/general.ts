@@ -1,7 +1,6 @@
 import { DummyButtonStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
-import { Radius } from '../../../../../../../theme/types';
 import { isFullWidth as defaultIsFullWidth, size as defaultSize } from '../../../../common/data/defaultPropValues';
 import { getSizeConfig } from '../../../../common/utils';
 
@@ -9,9 +8,6 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 	const config = getSizeConfig({ size });
 	const height = config.height;
 	const padding = config.padding;
-
-	const buttonRadius: Radius = size === 'xs' || size === 'sm' ? 'xs' : size === 'lg' || size === 'xl' ? 'lg' : 'base';
-	const skeletonRadius: Radius = size === 'xs' || size === 'sm' ? 'xs' : size === 'xl' ? 'base' : 'sm';
 
 	const transition = 'none';
 	const transitionProperty = transition;
@@ -41,7 +37,6 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 		'opacity': 1,
 
 		'background': 'none',
-		'borderRadius': theme.radii[buttonRadius],
 
 		'fontSize': theme.fontSizes[size],
 		'fontWeight': theme.fontWeights.semibold,
@@ -64,8 +59,6 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 		'transitionTimingFunction': transitionTimingFunction,
 
 		'& .ds-cl-dummy-button-skeleton-icon': {
-			borderRadius: theme.radii[skeletonRadius],
-
 			userSelect: 'none',
 
 			transition,
