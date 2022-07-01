@@ -20,20 +20,20 @@ export default (): Style => ({
 
 	'border': '0 solid transparent',
 
-	'outline': !isTouchDevice ? '0px auto' : 'none !important',
+	'outline': !isTouchDevice ? '0px transparent' : 'none !important',
 
 	'WebkitTapHighlightColor': 'transparent',
 
 	'&:focus:not(:focus-visible)': {
-		outline: !isTouchDevice ? '0px auto' : 'none !important'
+		outline: !isTouchDevice ? '0px transparent' : 'none !important'
 	},
 
 	'&:focus': {
 		boxShadow: 'none',
-		outline: !isTouchDevice ? '0px auto' : 'none !important'
+		outline: !isTouchDevice ? '0px transparent' : 'none !important'
 	},
 
 	'&:active': {
-		outline: !isTouchDevice ? '0px auto' : 'none !important'
+		outline: !isTouchDevice ? '0px transparent' : 'none !important'
 	}
 });

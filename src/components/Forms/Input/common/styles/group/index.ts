@@ -35,7 +35,7 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 
 		'opacity': 1,
 
-		'outline': !isTouchDevice ? '0px auto' : 'none !important',
+		'outline': !isTouchDevice ? '0px transparent' : 'none !important',
 		'borderStyle': 'solid',
 		'borderWidth': `${border}px`,
 		'borderRadius': theme.radii[radius],
@@ -65,16 +65,16 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 		},
 
 		'&:focus:not(:focus-visible)': {
-			outline: !isTouchDevice ? '0px auto' : 'none !important'
+			outline: !isTouchDevice ? '0px transparent' : 'none !important'
 		},
 
 		'&:focus': {
 			boxShadow: 'none',
-			outline: !isTouchDevice ? '0px auto' : 'none !important'
+			outline: !isTouchDevice ? '0px transparent' : 'none !important'
 		},
 
 		'&:active': {
-			outline: !isTouchDevice ? '0px auto' : 'none !important'
+			outline: !isTouchDevice ? '0px transparent' : 'none !important'
 		}
 	};
 };

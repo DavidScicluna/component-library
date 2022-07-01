@@ -32,7 +32,7 @@ export default (
 
 		'border': '0 solid transparent',
 
-		'outline': !isTouchDevice ? '0px auto' : 'none !important',
+		'outline': !isTouchDevice ? '0px transparent' : 'none !important',
 
 		'textDecorationColor': theme.colors.transparent,
 		'textDecorationStyle': 'wavy',
@@ -53,7 +53,7 @@ export default (
 		},
 
 		'&:focus:not(:focus-visible)': {
-			outline: !isTouchDevice ? '0px auto' : 'none !important'
+			outline: !isTouchDevice ? '0px transparent' : 'none !important'
 		},
 
 		'&:focus-visible': {
@@ -63,11 +63,11 @@ export default (
 
 		'&:focus': {
 			boxShadow: 'none',
-			outline: !isTouchDevice ? '0px auto' : 'none !important'
+			outline: !isTouchDevice ? '0px transparent' : 'none !important'
 		},
 
 		'&:active': {
-			outline: !isTouchDevice ? '0px auto' : 'none !important'
+			outline: !isTouchDevice ? '0px transparent' : 'none !important'
 		}
 	};
 };

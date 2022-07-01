@@ -12,6 +12,7 @@ const styles: Styles = {
 			fontFamily: 'body',
 
 			boxShadow: 'none',
+			outline: '0px transparent',
 
 			transition: `${transition.duration.normal} ${transition.easing['ease-in-out']}`
 		}
