@@ -1,6 +1,7 @@
 import { CardStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
+import { Radius } from '../../../../../../theme/types';
 import { getSizeConfig } from '../../../../common/utils';
 import { isClickable as defaultIsClickable } from '../../data/defaultPropValues';
 
@@ -9,10 +10,13 @@ export default ({ theme, isClickable = defaultIsClickable }: CardStyleProps): St
 	const transform = config.transform;
 	const border = config.border;
 
+	const radius: Radius = 'lg';
+
 	return {
 		'borderBottomWidth': `${isClickable ? transform : border}px`,
 		'borderStyle': 'solid',
 		'borderColor': theme.colors.transparent,
+		'borderRadius': theme.radii[radius],
 
 		'&::before': {
 			content: '""',
@@ -21,7 +25,8 @@ export default ({ theme, isClickable = defaultIsClickable }: CardStyleProps): St
 			borderLeftWidth: `${border}px`,
 			borderRightWidth: `${border}px`,
 			borderStyle: 'solid',
-			borderColor: theme.colors.transparent
+			borderColor: theme.colors.transparent,
+			borderRadius: theme.radii[radius]
 		},
 
 		'&:active': {

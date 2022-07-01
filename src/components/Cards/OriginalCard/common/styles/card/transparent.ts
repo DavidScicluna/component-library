@@ -1,26 +1,32 @@
 import { CardStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
+import { Radius } from '../../../../../../theme/types';
 
-export default ({ theme }: CardStyleProps): Style => ({
-	'borderWidth': 0,
-	'borderStyle': 'solid',
-	'borderColor': theme.colors.transparent,
+export default ({ theme }: CardStyleProps): Style => {
+	const radius: Radius = 'none';
 
-	'p': '0 !important',
+	return {
+		'borderWidth': 0,
+		'borderStyle': 'solid',
+		'borderColor': theme.colors.transparent,
+		'borderRadius': theme.radii[radius],
 
-	'&::before': {
-		content: '""',
+		'p': '0 !important',
 
-		borderRadius: theme.radii.none,
-		borderWidth: 0,
-		borderStyle: 'solid',
-		borderColor: theme.colors.transparent
-	},
+		'&::before': {
+			content: '""',
 
-	'&:active': {
-		borderWidth: 0,
-		borderStyle: 'solid',
-		borderColor: theme.colors.transparent
-	}
-});
+			borderWidth: 0,
+			borderStyle: 'solid',
+			borderColor: theme.colors.transparent,
+			borderRadius: theme.radii[radius]
+		},
+
+		'&:active': {
+			borderWidth: 0,
+			borderStyle: 'solid',
+			borderColor: theme.colors.transparent
+		}
+	};
+};

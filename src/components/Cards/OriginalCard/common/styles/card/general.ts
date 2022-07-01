@@ -2,7 +2,6 @@ import { CardStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
-import { Radius } from '../../../../../../theme/types';
 import { isFullWidth as defaultIsFullWidth } from '../../../../common/data/defaultPropValues';
 import { isClickable as defaultIsClickable } from '../../data/defaultPropValues';
 
@@ -13,8 +12,6 @@ export default ({
 	isFullWidth = defaultIsFullWidth,
 	isClickable = defaultIsClickable
 }: CardStyleProps): Style => {
-	const radius: Radius = 'lg';
-
 	const transition = 'none';
 	const transitionProperty = transition;
 	const transitionDuration = transition;
@@ -45,7 +42,6 @@ export default ({
 		'outline': !isTouchDevice ? '0px transparent' : 'none !important',
 
 		'background': 'none',
-		'borderRadius': theme.radii[radius],
 
 		'WebkitTapHighlightColor': theme.colors.transparent,
 
@@ -66,8 +62,6 @@ export default ({
 			bottom: 0,
 			left: 0,
 			right: 0,
-
-			borderRadius: theme.radii[radius],
 
 			transition,
 			transitionProperty,
