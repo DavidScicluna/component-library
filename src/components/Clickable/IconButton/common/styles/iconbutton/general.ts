@@ -2,27 +2,18 @@ import { IconButtonStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
-import { Radius } from '../../../../../../theme/types';
-import { isRound as defaultIsRound, size as defaultSize } from '../../data/defaultPropValues';
+import { size as defaultSize } from '../../data/defaultPropValues';
 import { getIconFontSize, getSizeConfig } from '../../utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme, isRound = defaultIsRound, size = defaultSize }: IconButtonStyleProps): Style => {
+export default ({ theme, size = defaultSize }: IconButtonStyleProps): Style => {
 	const config = getSizeConfig({ size });
 	const width = config.width;
 	const height = config.height;
 	const padding = config.padding;
 
 	const fontSize = getIconFontSize({ size });
-
-	const radius: Radius = isRound
-		? 'full'
-		: size === 'xs' || size === 'sm'
-		? 'xs'
-		: size === 'lg' || size === 'xl'
-		? 'lg'
-		: 'base';
 
 	const transition = 'none';
 	const transitionProperty = transition;
@@ -52,7 +43,6 @@ export default ({ theme, isRound = defaultIsRound, size = defaultSize }: IconBut
 		'outline': !isTouchDevice ? '0px transparent' : 'none !important',
 
 		'background': 'none',
-		'borderRadius': theme.radii[radius],
 
 		'WebkitTapHighlightColor': theme.colors.transparent,
 
@@ -75,8 +65,6 @@ export default ({ theme, isRound = defaultIsRound, size = defaultSize }: IconBut
 			bottom: 0,
 			left: 0,
 			right: 0,
-
-			borderRadius: theme.radii[radius],
 
 			transition,
 			transitionProperty,

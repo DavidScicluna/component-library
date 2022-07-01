@@ -1,24 +1,31 @@
 import { IconButtonStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
+import { Radius } from '../../../../../../theme/types';
+import { isRound as defaultIsRound } from '../../data/defaultPropValues';
 
-export default ({ theme }: IconButtonStyleProps): Style => ({
-	'borderWidth': 0,
-	'borderStyle': 'solid',
-	'borderColor': theme.colors.transparent,
+export default ({ theme, isRound = defaultIsRound }: IconButtonStyleProps): Style => {
+	const radius: Radius = isRound ? 'full' : 'none';
 
-	'&::before': {
-		content: '""',
+	return {
+		'borderWidth': 0,
+		'borderStyle': 'solid',
+		'borderColor': theme.colors.transparent,
+		'borderRadius': theme.radii[radius],
 
-		borderRadius: theme.radii.none,
-		borderWidth: 0,
-		borderStyle: 'solid',
-		borderColor: theme.colors.transparent
-	},
+		'&::before': {
+			content: '""',
 
-	'&:active': {
-		borderWidth: 0,
-		borderStyle: 'solid',
-		borderColor: theme.colors.transparent
-	}
-});
+			borderWidth: 0,
+			borderStyle: 'solid',
+			borderColor: theme.colors.transparent,
+			borderRadius: theme.radii[radius]
+		},
+
+		'&:active': {
+			borderWidth: 0,
+			borderStyle: 'solid',
+			borderColor: theme.colors.transparent
+		}
+	};
+};
