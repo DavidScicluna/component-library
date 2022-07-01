@@ -1,13 +1,13 @@
 import { memoize, merge } from 'lodash';
 
 import card from './card';
-// import dark from './dark';
+import dark from './dark';
 import light from './light';
 import { DummyCardStyleProps, DummyCardStyleReturn } from './types';
 
 import {
 	color as defaultColor,
-	// colorMode as defaultColorMode,
+	colorMode as defaultColorMode,
 	isFullWidth as defaultIsFullWidth,
 	isLight as defaultIsLight,
 	variant as defaultVariant
@@ -17,16 +17,13 @@ export default memoize((props: DummyCardStyleProps): DummyCardStyleReturn => {
 	const {
 		theme,
 		color = defaultColor,
-		// colorMode = defaultColorMode,
+		colorMode = defaultColorMode,
 		isFullWidth = defaultIsFullWidth,
 		isLight = defaultIsLight,
 		variant = defaultVariant
 	} = props;
 
-	const scheme =
-		// colorMode === 'light' ?
-		light;
-	// : dark;
+	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
 		card: merge(
