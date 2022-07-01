@@ -1,12 +1,9 @@
 import { DummyCardStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
-import { Radius } from '../../../../../../theme/types';
 import { isFullWidth as defaultIsFullWidth } from '../../../../common/data/defaultPropValues';
 
 export default ({ theme, isFullWidth = defaultIsFullWidth }: DummyCardStyleProps): Style => {
-	const radius: Radius = 'lg';
-
 	const transition = 'none';
 	const transitionProperty = transition;
 	const transitionDuration = transition;
@@ -31,10 +28,9 @@ export default ({ theme, isFullWidth = defaultIsFullWidth }: DummyCardStyleProps
 		'userSelect': 'none',
 		'willChange': 'auto',
 
-		'opacity': 0.5,
+		'opacity': 1,
 
 		'background': 'none',
-		'borderRadius': theme.radii[radius],
 
 		'WebkitTapHighlightColor': theme.colors.transparent,
 

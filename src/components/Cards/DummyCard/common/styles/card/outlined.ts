@@ -1,16 +1,19 @@
 import { DummyCardStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
+import { Radius } from '../../../../../../theme/types';
 import { getSizeConfig } from '../../../../common/utils';
 
 export default ({ theme }: DummyCardStyleProps): Style => {
 	const config = getSizeConfig();
 	const border = config.border;
 
+	const radius: Radius = 'lg';
+
 	return {
-		borderTopWidth: `${border}px`,
-		borderBottomWidth: `${border}px`,
+		borderWidth: `${border}px`,
 		borderStyle: 'solid',
-		borderColor: theme.colors.transparent
+		borderColor: theme.colors.transparent,
+		borderRadius: theme.radii[radius]
 	};
 };
