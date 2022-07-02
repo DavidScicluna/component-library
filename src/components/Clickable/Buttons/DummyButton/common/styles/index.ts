@@ -6,7 +6,6 @@ import light from './light';
 import { DummyButtonStyleProps, DummyButtonStyleReturn } from './types';
 
 import {
-	color as defaultColor,
 	colorMode as defaultColorMode,
 	isFullWidth as defaultIsFullWidth,
 	size as defaultSize,
@@ -16,7 +15,6 @@ import {
 export default memoize((props: DummyButtonStyleProps): DummyButtonStyleReturn => {
 	const {
 		theme,
-		color = defaultColor,
 		colorMode = defaultColorMode,
 		isFullWidth = defaultIsFullWidth,
 		size = defaultSize,
@@ -29,7 +27,7 @@ export default memoize((props: DummyButtonStyleProps): DummyButtonStyleReturn =>
 		button: merge(
 			button.general({ theme, isFullWidth, size }),
 			button[variant]({ theme, isFullWidth, size }),
-			scheme[variant]({ theme, color })
+			variant !== 'contained' ? scheme[variant]({ theme }) : {}
 		)
 	};
 });
