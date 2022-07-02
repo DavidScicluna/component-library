@@ -52,4 +52,6 @@ export default {
 	// }
 } as Meta;
 
-export const Icon: Story = (props: IconProps): ReactElement => <IconComponent {...props} />;
+export const Icon: Story = (props: IconProps): ReactElement => (
+	<IconComponent {...props} sx={{ background: props.backgroundColor, color: props.color }} />
+);
