@@ -63,7 +63,10 @@ const AccordionHeader: FC<AccordionHeaderProps> = (props) => {
 			<HStack ref={actionsRef} spacing={spacing}>
 				{actions && <Center>{actions}</Center>}
 
-				<Icon icon={isOpen ? 'remove' : 'add'} color={getColor({ theme, colorMode, type: 'text.secondary' })} />
+				<Icon
+					icon={isOpen ? 'remove' : 'add'}
+					sx={{ color: getColor({ theme, colorMode, type: 'text.secondary' }) }}
+				/>
 			</HStack>
 		</HStack>
 		// 	{actions && isXs && <Center width='100%'>{actions}</Center>}

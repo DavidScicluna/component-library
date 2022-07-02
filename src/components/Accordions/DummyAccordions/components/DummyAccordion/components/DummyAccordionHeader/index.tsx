@@ -71,7 +71,7 @@ const DummyAccordionHeader: FC<DummyAccordionHeaderProps> = (props) => {
 
 			<Center ref={iconRef}>
 				<Skeleton color={color} colorMode={colorMode} isLoaded={false} type='rectangle'>
-					<Icon icon='add' color={getColor({ theme, colorMode, type: 'text.secondary' })} />
+					<Icon icon='add' sx={{ color: getColor({ theme, colorMode, type: 'text.secondary' }) }} />
 				</Skeleton>
 			</Center>
 		</HStack>
