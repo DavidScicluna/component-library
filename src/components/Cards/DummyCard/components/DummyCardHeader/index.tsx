@@ -41,7 +41,7 @@ const DummyCardHeader: FC<DummyCardHeaderProps> = (props) => {
 			{hasTitle && (
 				<VStack width={handleCalculateTextWidth()} alignItems='flex-start' spacing={0.5}>
 					{/* Title */}
-					<Skeleton colorMode={colorMode} isLoaded={false} type='text'>
+					<Skeleton colorMode={colorMode} isLoaded={false} variant='text'>
 						<Text align='left' fontSize='xl' fontWeight='bold' lineHeight='normal' noOfLines={1}>
 							Card Title
 						</Text>
@@ -49,7 +49,7 @@ const DummyCardHeader: FC<DummyCardHeaderProps> = (props) => {
 
 					{/* Subtitle */}
 					{hasSubtitle && (
-						<Skeleton colorMode={colorMode} isLoaded={false} type='text'>
+						<Skeleton colorMode={colorMode} isLoaded={false} variant='text'>
 							<Text align='left' fontSize='sm' lineHeight='normal' noOfLines={1}>
 								This is the Card Header Subtitle
 							</Text>

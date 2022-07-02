@@ -40,7 +40,7 @@ const DummyAccordionHeader: FC<DummyAccordionHeaderProps> = (props) => {
 		<HStack width='100%' alignItems='center' justifyContent='space-between' spacing={spacing} {...rest}>
 			<VStack width={handleCalculateTextWidth()} alignItems='flex-start' spacing={0.5}>
 				{/* Title */}
-				<Skeleton color={color} colorMode={colorMode} isLoaded={false} type='text'>
+				<Skeleton color={color} colorMode={colorMode} isLoaded={false} variant='text'>
 					<Text
 						align='left'
 						color={getColor({ theme, colorMode, type: 'text.primary' })}
@@ -55,7 +55,7 @@ const DummyAccordionHeader: FC<DummyAccordionHeaderProps> = (props) => {
 
 				{/* Subtitle */}
 				{hasSubtitle && (
-					<Skeleton color={color} colorMode={colorMode} isLoaded={false} type='text'>
+					<Skeleton color={color} colorMode={colorMode} isLoaded={false} variant='text'>
 						<Text
 							align='left'
 							color={getColor({ theme, colorMode, type: 'text.secondary' })}
@@ -70,7 +70,7 @@ const DummyAccordionHeader: FC<DummyAccordionHeaderProps> = (props) => {
 			</VStack>
 
 			<Center ref={iconRef}>
-				<Skeleton color={color} colorMode={colorMode} isLoaded={false} type='rectangle'>
+				<Skeleton color={color} colorMode={colorMode} isLoaded={false} variant='rectangle'>
 					<Icon icon='add' sx={{ color: getColor({ theme, colorMode, type: 'text.secondary' }) }} />
 				</Skeleton>
 			</Center>

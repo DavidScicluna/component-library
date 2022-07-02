@@ -16,7 +16,7 @@ const DummyAccordion: FC<DummyAccordionProps> = ({ color = defaultColor, size = 
 	const { colorMode = defaultColorMode } = useContext<DummyAccordionsContextType>(DummyAccordionsContext);
 
 	return (
-		<Skeleton color={color} colorMode={colorMode} isLoaded={false} type='rectangle'>
+		<Skeleton color={color} colorMode={colorMode} isLoaded={false} variant='rectangle'>
 			<Button color={color} colorMode={colorMode} isDisabled size={size} variant='text' sx={{ front: { px: 0 } }}>
 				Dummy Accordion Label
 			</Button>
