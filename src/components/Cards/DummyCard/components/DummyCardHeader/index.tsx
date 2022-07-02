@@ -9,7 +9,6 @@ import { DummyCardHeaderProps } from './types';
 import { DummyCardContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../common/utils';
-import { getColor } from '../../../../../common/utils/color';
 import { Space } from '../../../../../theme/types';
 import Skeleton from '../../../../Skeleton';
 import { colorMode as defaultColorMode, spacing as defaultSpacing } from '../../../common/data/defaultPropValues';
@@ -43,29 +42,16 @@ const DummyCardHeader: FC<DummyCardHeaderProps> = (props) => {
 				<VStack width={handleCalculateTextWidth()} alignItems='flex-start' spacing={0.5}>
 					{/* Title */}
 					<Skeleton colorMode={colorMode} isLoaded={false} type='text'>
-						<Text
-							align='left'
-							color={getColor({ theme, colorMode, type: 'text.primary' })}
-							fontSize='xl'
-							fontWeight='bold'
-							lineHeight='normal'
-							noOfLines={1}
-						>
-							Dummy Card Title
+						<Text align='left' fontSize='xl' fontWeight='bold' lineHeight='normal' noOfLines={1}>
+							Card Title
 						</Text>
 					</Skeleton>
 
 					{/* Subtitle */}
 					{hasSubtitle && (
 						<Skeleton colorMode={colorMode} isLoaded={false} type='text'>
-							<Text
-								align='left'
-								color={getColor({ theme, colorMode, type: 'text.secondary' })}
-								fontSize='sm'
-								lineHeight='normal'
-								noOfLines={1}
-							>
-								This is a Dummy Card Subtitle
+							<Text align='left' fontSize='sm' lineHeight='normal' noOfLines={1}>
+								This is the Card Header Subtitle
 							</Text>
 						</Skeleton>
 					)}
