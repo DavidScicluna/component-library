@@ -1,12 +1,12 @@
-import { ReactElement, forwardRef, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 
-import { useColorMode, Center, HStack } from '@chakra-ui/react';
+import { useColorMode, HStack, Center } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 import { useElementSize } from 'usehooks-ts';
 
 import useStyles from './common/styles';
-import { DummyButtonRef, DummyButtonProps } from './types';
+import { DummyButtonProps } from './types';
 
 import { useTheme } from '../../../../common/hooks';
 import Skeleton from '../../../Skeleton';
@@ -19,7 +19,7 @@ import {
 } from '../common/data/defaultPropValues';
 import { getSizeConfig } from '../common/utils';
 
-const DummyButton = forwardRef<DummyButtonRef, DummyButtonProps>(function DummyButton(props, ref): ReactElement {
+const DummyButton: FC<DummyButtonProps> = (props) => {
 	const theme = useTheme();
 	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
@@ -38,12 +38,17 @@ const DummyButton = forwardRef<DummyButtonRef, DummyButtonProps>(function DummyB
 		...rest
 	} = props;
 
-	const style = useStyles({ theme, color, colorMode, isFullWidth, size, variant });
+	const style = useStyles({ theme, colorMode, isFullWidth, size, variant });
 
 	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
 
 	return (
-		<Center {...rest} ref={ref} sx={merge(style.button, sx)}>
+		<Skeleton
+			{...rest}
+			color={color === 'black' || color === 'white' ? 'gray' : color}
+			isLoaded={false}
+			sx={merge(style.button, sx)}
+		>
 			<HStack
 				width='inherit'
 				position='relative'
@@ -87,8 +92,8 @@ const DummyButton = forwardRef<DummyButtonRef, DummyButtonProps>(function DummyB
 					/>
 				)}
 			</HStack>
-		</Center>
+		</Skeleton>
 	);
-});
+};
 
 export default DummyButton;

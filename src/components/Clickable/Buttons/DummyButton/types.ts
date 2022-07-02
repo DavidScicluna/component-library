@@ -1,46 +1,9 @@
-import { CenterProps } from '@chakra-ui/react';
-
-import {
-	BoxPadding,
-	BoxColor,
-	BoxGradient,
-	BoxTypography,
-	BoxLayout,
-	BoxFlexbox,
-	BoxGrid,
-	BoxBackground,
-	BoxBorders,
-	BoxShadow,
-	BoxFilter,
-	BoxPseudo,
-	BoxOther
-} from '../../../../common/types/box';
+import { SkeletonProps } from '../../../Skeleton/types';
 import { CommonButtonProps } from '../common/types';
 
-type Omitted =
-	// CUI Box Props
-	| BoxPadding
-	| BoxColor
-	| BoxGradient
-	| BoxTypography
-	| BoxLayout
-	| BoxFlexbox
-	| BoxGrid
-	| BoxBackground
-	| BoxBorders
-	| BoxShadow
-	| BoxFilter
-	| BoxPseudo
-	| BoxOther
-	// CUI Button Props
-	| 'as'
-	| 'children'
-	| 'color'
-	| 'colorScheme';
+type Omitted = 'color' | 'colorScheme' | 'isReversed' | 'variant';
 
-export type DummyButtonProps = Omit<CenterProps, Omitted> & {
+export type DummyButtonProps = Omit<SkeletonProps, Omitted> & {
 	hasLeft?: boolean;
 	hasRight?: boolean;
 } & CommonButtonProps;
-
-export type DummyButtonRef = HTMLDivElement | null;
