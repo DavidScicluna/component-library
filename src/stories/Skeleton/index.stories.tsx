@@ -10,12 +10,13 @@ import {
 	colorMode as defaultColorMode,
 	isLoaded as defaultIsLoaded,
 	isReversed as defaultIsReversed,
-	type as defaultType
+	variant as defaultVariant
 } from '../../components/Skeleton/common/data/defaultPropValues';
-import {} from '../../components/Skeleton/types';
 import controls from '../common/controls';
 
 const colorOptions: SkeletonColor[] = [
+	'black',
+	'white',
 	'gray',
 	'red',
 	'pink',
@@ -65,10 +66,10 @@ export default {
 		},
 		padding: { ...controls.theme.padding, defaultValue: 6 },
 		margin: { ...controls.theme.margin },
-		type: {
-			name: 'Type',
+		variant: {
+			name: 'Variant',
 			type: 'string',
-			defaultValue: defaultType,
+			defaultValue: defaultVariant,
 			// description: '',
 			options: [...typeOptions],
 			control: 'radio'
@@ -90,7 +91,7 @@ export const Skeleton: Story = ({ padding, ...rest }: SkeletonProps): ReactEleme
 		<Box
 			p={padding}
 			backgroundColor={`yellow.${rest.colorMode === 'light' ? 500 : 400}`}
-			borderRadius={rest.type === 'rectangle' ? 'base' : rest.type === 'text' ? 'xs' : 'full'}
+			borderRadius={rest.variant === 'rectangle' ? 'base' : rest.variant === 'text' ? 'xs' : 'full'}
 		/>
 	</SkeletonComponent>
 );
