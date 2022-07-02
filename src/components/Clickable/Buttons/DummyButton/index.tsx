@@ -54,35 +54,38 @@ const DummyButton: FC<DummyButtonProps> = (props) => {
 				spacing={handleReturnSpacing()}
 			>
 				{hasLeft && (
-					<Center className='ds-cl-dummy-button-skeleton-icon' as='span'>
-						<Skeleton
-							width={`${childrenHeight}px`}
-							height={`${childrenHeight}px`}
-							color={color}
-							colorMode={colorMode}
-							isLoaded={false}
-						/>
-					</Center>
+					<Skeleton
+						className='ds-cl-dummy-button-skeleton-icon'
+						width={`${childrenHeight}px`}
+						height={`${childrenHeight}px`}
+						color={color}
+						colorMode={colorMode}
+						isLoaded={false}
+					/>
 				)}
 
 				{children && (
 					<Center ref={childrenRef} as='span'>
-						<Skeleton color={color} colorMode={colorMode} isLoaded={false}>
+						<Skeleton
+							className='ds-cl-dummy-button-skeleton-icon'
+							color={color}
+							colorMode={colorMode}
+							isLoaded={false}
+						>
 							{children}
 						</Skeleton>
 					</Center>
 				)}
 
 				{hasRight && (
-					<Center className='ds-cl-dummy-button-skeleton-icon' as='span'>
-						<Skeleton
-							width={`${childrenHeight}px`}
-							height={`${childrenHeight}px`}
-							color={color}
-							colorMode={colorMode}
-							isLoaded={false}
-						/>
-					</Center>
+					<Skeleton
+						className='ds-cl-dummy-button-skeleton-icon'
+						width={`${childrenHeight}px`}
+						height={`${childrenHeight}px`}
+						color={color}
+						colorMode={colorMode}
+						isLoaded={false}
+					/>
 				)}
 			</HStack>
 		</Skeleton>
