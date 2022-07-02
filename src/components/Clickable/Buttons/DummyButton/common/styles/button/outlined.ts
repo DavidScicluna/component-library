@@ -18,8 +18,14 @@ export default ({ theme, size = defaultSize }: DummyButtonStyleProps): Style => 
 		'borderColor': theme.colors.transparent,
 		'borderRadius': theme.radii[buttonRadius],
 
+		'visibility': 'visible',
+
 		'& .ds-cl-dummy-button-skeleton-icon': {
 			borderRadius: theme.radii[skeletonRadius]
+		},
+
+		'*, *::before, *::after': {
+			visibility: 'visible'
 		}
 	};
 };
