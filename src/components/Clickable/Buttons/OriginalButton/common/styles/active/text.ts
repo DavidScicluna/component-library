@@ -1,10 +1,16 @@
 import { ButtonActiveStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
+import { size as defaultSize } from '../../../../common/data/defaultPropValues';
+import { getSizeConfig } from '../../../../common/utils';
 
-export default ({ theme }: ButtonActiveStyleProps): Style => ({
-	borderTopWidth: 0,
-	borderBottomWidth: 0,
-	borderStyle: 'solid',
-	borderColor: theme.colors.transparent
-});
+export default ({ theme, size = defaultSize }: ButtonActiveStyleProps): Style => {
+	const config = getSizeConfig({ size });
+	const border = config.border;
+
+	return {
+		borderWidth: `${border}px`,
+		borderStyle: 'solid',
+		borderColor: theme.colors.transparent
+	};
+};

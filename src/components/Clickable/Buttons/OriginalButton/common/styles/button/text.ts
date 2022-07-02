@@ -20,14 +20,14 @@ export default ({ theme, size = defaultSize }: ButtonStyleProps): Style => {
 		'&::before': {
 			content: '""',
 
-			borderWidth: 0,
+			borderWidth: `${border}px`,
 			borderStyle: 'solid',
 			borderColor: theme.colors.transparent,
 			borderRadius: theme.radii[radius]
 		},
 
 		'&:active': {
-			borderWidth: 0,
+			borderWidth: `${border}px`,
 			borderStyle: 'solid',
 			borderColor: theme.colors.transparent
 		}
