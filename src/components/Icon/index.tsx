@@ -5,27 +5,27 @@ import { useColorMode, useBoolean, Center } from '@chakra-ui/react';
 import { useInterval } from 'usehooks-ts';
 
 import {
+	color as defaultColor,
 	colorMode as defaultColorMode,
-	category as defaultCategory,
-	borderRadius as defaultBorderRadius
+	category as defaultCategory
 } from './common/data/defaultPropValues';
 import { checkFontStatus } from './common/utils';
 import { IconProps } from './types';
+
+import Skeleton from '../Skeleton';
 
 const Icon: FC<IconProps> = (props) => {
 	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const {
+		color = defaultColor,
 		colorMode = colorModeHook,
+		category = defaultCategory,
 		w,
 		width,
 		h,
 		height,
 		icon,
-		category = defaultCategory,
-		color,
-		background,
-		borderRadius = defaultBorderRadius,
 		...rest
 	} = props;
 
@@ -42,27 +42,24 @@ const Icon: FC<IconProps> = (props) => {
 	useInterval(() => handleCheckFontStatus(), !hasLoaded ? 250 : null);
 
 	return (
-		<Center
-			{...rest}
-			as='span'
-			className={`material-icons${category === 'outlined' ? '-outlined' : ''} ds-cl-icon`}
-			w={w}
-			width={width}
-			h={h}
-			height={height}
-			maxWidth={w || width || '24px'}
-			maxHeight={h || height || '24px'}
-			borderRadius={!hasLoaded ? 'xs' : borderRadius}
-			background={!hasLoaded ? `gray.${colorMode === 'light' ? 200 : 700}` : background}
-			color={!hasLoaded ? 'transparent' : color}
-			overflow='hidden'
-			overflowX='hidden'
-			overflowY='hidden'
-			whiteSpace='nowrap'
-			userSelect={!hasLoaded ? 'none' : 'auto'}
-		>
-			{icon}
-		</Center>
+		<Skeleton color={color} colorMode={colorMode} isLoaded={hasLoaded} variant='rectangle'>
+			<Center
+				{...rest}
+				as='span'
+				className={`material-icons${category === 'outlined' ? '-outlined' : ''} ds-cl-icon`}
+				w={w}
+				width={width}
+				h={h}
+				height={height}
+				maxWidth={w || width || '24px'}
+				maxHeight={h || height || '24px'}
+				overflowX='hidden'
+				overflowY='hidden'
+				whiteSpace='nowrap'
+			>
+				{icon}
+			</Center>
+		</Skeleton>
 	);
 };
 
