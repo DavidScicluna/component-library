@@ -9,8 +9,8 @@ import {
 	ButtonProps,
 	ButtonRenderProps,
 	Button as ButtonComponent
-} from '../../..';
-import icons from '../../../common/data/icons';
+} from '../../../..';
+import icons from '../../../../common/data/icons';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -19,9 +19,9 @@ import {
 	isLoading as defaultIsLoading,
 	size as defaultSize,
 	variant as defaultVariant
-} from '../../../components/Clickable/Buttons/common/data/defaultPropValues';
-import Icon from '../../../components/Icon';
-import controls from '../../common/controls';
+} from '../../../../components/Clickable/Buttons/common/data/defaultPropValues';
+import Icon from '../../../../components/Icon';
+import controls from '../../../common/controls';
 
 const colorOptions: ButtonColor[] = [
 	'black',
@@ -58,7 +58,7 @@ const sizeOptions: ButtonSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 const variantOptions: ButtonVariant[] = ['contained', 'outlined', 'text'];
 
 export default {
-	title: 'Clickable/Button',
+	title: 'Clickable/Buttons/Button',
 	component: ButtonComponent,
 	argTypes: {
 		children: {
