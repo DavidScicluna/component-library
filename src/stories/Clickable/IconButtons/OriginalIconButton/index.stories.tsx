@@ -10,9 +10,9 @@ import {
 	IconButtonSize,
 	IconButtonVariant,
 	IconButton as IconButtonComponent
-} from '../../..';
-import icons from '../../../common/data/icons';
-import { Icon as IconType } from '../../../common/types/icons';
+} from '../../../..';
+import icons from '../../../../common/data/icons';
+import { Icon as IconType } from '../../../../common/types/icons';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -21,9 +21,9 @@ import {
 	isRound as defaultIsRound,
 	size as defaultSize,
 	variant as defaultVariant
-} from '../../../components/Clickable/IconButton/common/data/defaultPropValues';
-import Icon from '../../../components/Icon';
-import controls from '../../common/controls';
+} from '../../../../components/Clickable/IconButtons/common/data/defaultPropValues';
+import Icon from '../../../../components/Icon';
+import controls from '../../../common/controls';
 
 const childrenDefaultValue: IconType | undefined = sample(icons);
 const childrenOptions: IconType[] = [...icons];
