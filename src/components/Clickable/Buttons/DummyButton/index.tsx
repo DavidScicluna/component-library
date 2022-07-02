@@ -43,12 +43,7 @@ const DummyButton: FC<DummyButtonProps> = (props) => {
 	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
 
 	return (
-		<Skeleton
-			{...rest}
-			color={color === 'black' || color === 'white' ? 'gray' : color}
-			isLoaded={false}
-			sx={merge(style.button, sx)}
-		>
+		<Skeleton {...rest} color={color} isLoaded={false} sx={merge(style.button, sx)}>
 			<HStack
 				width='inherit'
 				position='relative'
@@ -59,37 +54,35 @@ const DummyButton: FC<DummyButtonProps> = (props) => {
 				spacing={handleReturnSpacing()}
 			>
 				{hasLeft && (
-					<Skeleton
-						className='ds-cl-dummy-button-skeleton-icon'
-						width={`${childrenHeight}px`}
-						height={`${childrenHeight}px`}
-						color={color === 'black' || color === 'white' ? 'gray' : color}
-						colorMode={colorMode}
-						isLoaded={false}
-					/>
+					<Center className='ds-cl-dummy-button-skeleton-icon' as='span'>
+						<Skeleton
+							width={`${childrenHeight}px`}
+							height={`${childrenHeight}px`}
+							color={color}
+							colorMode={colorMode}
+							isLoaded={false}
+						/>
+					</Center>
 				)}
 
 				{children && (
 					<Center ref={childrenRef} as='span'>
-						<Skeleton
-							color={color === 'black' || color === 'white' ? 'gray' : color}
-							colorMode={colorMode}
-							isLoaded={false}
-						>
+						<Skeleton color={color} colorMode={colorMode} isLoaded={false}>
 							{children}
 						</Skeleton>
 					</Center>
 				)}
 
 				{hasRight && (
-					<Skeleton
-						className='ds-cl-dummy-button-skeleton-icon'
-						width={`${childrenHeight}px`}
-						height={`${childrenHeight}px`}
-						color={color === 'black' || color === 'white' ? 'gray' : color}
-						colorMode={colorMode}
-						isLoaded={false}
-					/>
+					<Center className='ds-cl-dummy-button-skeleton-icon' as='span'>
+						<Skeleton
+							width={`${childrenHeight}px`}
+							height={`${childrenHeight}px`}
+							color={color}
+							colorMode={colorMode}
+							isLoaded={false}
+						/>
+					</Center>
 				)}
 			</HStack>
 		</Skeleton>
