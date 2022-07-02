@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import DummyButton from '../../../../components/Clickable/Buttons/DummyButton';
+import { DummyButton } from '../../../..';
 
 export type Meta = ComponentMeta<typeof DummyButton>;
 

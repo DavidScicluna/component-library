@@ -44,7 +44,7 @@ const sizeOptions: ButtonSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 const variantOptions: ButtonVariant[] = ['contained', 'outlined', 'text'];
 
 export default {
-	title: 'Dummies/Clickable/DummyButton',
+	title: 'Clickable/Buttons/DummyButton',
 	component: DummyButtonComponent,
 	argTypes: {
 		children: {
