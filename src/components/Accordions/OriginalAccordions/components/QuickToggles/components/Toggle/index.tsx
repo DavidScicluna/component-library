@@ -6,7 +6,7 @@ import { ToggleProps } from './types';
 
 import { AccordionsContext } from '../../../..';
 import Button from '../../../../../../Clickable/Buttons/OriginalButton';
-import IconButton from '../../../../../../Clickable/IconButton';
+import IconButton from '../../../../../../Clickable/IconButtons/OriginalIconButton';
 import Icon from '../../../../../../Icon';
 import {
 	accordions as defaultAccordions,

@@ -21,7 +21,7 @@ import {
 	BoxOther
 } from '../../../common/types/box';
 import { Space } from '../../../theme/types';
-import { IconButtonProps } from '../../Clickable/IconButton/types';
+import { IconButtonProps } from '../../Clickable/IconButtons/OriginalIconButton/types';
 import { IconProps } from '../../Icon/types';
 
 type IconPropsPicked = 'icon' | 'category';

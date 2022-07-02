@@ -1,6 +1,6 @@
 import { MouseEvent } from 'react';
 
-import { IconButtonProps } from '../../../../Clickable/IconButton/types';
+import { IconButtonProps } from '../../../../Clickable/IconButtons/OriginalIconButton/types';
 
 export type TagEvent = MouseEvent<HTMLButtonElement, globalThis.MouseEvent>;
 

@@ -14,7 +14,7 @@ import { ArrowProps } from './types';
 import { HorizontalScrollContext } from '../..';
 import { useTheme } from '../../../../common/hooks';
 import { getColor } from '../../../../common/utils/color';
-import IconButton from '../../../Clickable/IconButton';
+import IconButton from '../../../Clickable/IconButtons/OriginalIconButton';
 import Icon from '../../../Icon';
 import {
 	getDuration as getTransitionDuration,

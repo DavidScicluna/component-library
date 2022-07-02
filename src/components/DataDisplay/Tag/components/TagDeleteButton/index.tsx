@@ -3,7 +3,7 @@ import { FC, useContext } from 'react';
 import { TagDeleteIconButtonProps, TagEvent } from './types';
 
 import { TagContext } from '../..';
-import IconButton from '../../../../Clickable/IconButton';
+import IconButton from '../../../../Clickable/IconButtons/OriginalIconButton';
 import Icon from '../../../../Icon';
 import {
 	colorMode as defaultColorMode,
