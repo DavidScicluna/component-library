@@ -57,21 +57,18 @@ import ButtonGroup from './components/Clickable/ButtonGroup';
 import { ButtonGroupProps, ButtonGroupRef, ButtonGroupSize } from './components/Clickable/ButtonGroup/types';
 import { ButtonColor, ButtonSize, ButtonVariant } from './components/Clickable/Buttons/common/types';
 import DummyButton from './components/Clickable/Buttons/DummyButton';
-import { DummyButtonProps, DummyButtonRef } from './components/Clickable/Buttons/DummyButton/types';
+import { DummyButtonProps } from './components/Clickable/Buttons/DummyButton/types';
 import Button from './components/Clickable/Buttons/OriginalButton';
 import {
 	ButtonProps,
 	ButtonRef,
 	RenderProps as ButtonRenderProps
 } from './components/Clickable/Buttons/OriginalButton/types';
-import IconButton from './components/Clickable/IconButton';
-import {
-	IconButtonColor,
-	IconButtonProps,
-	IconButtonRef,
-	IconButtonSize,
-	IconButtonVariant
-} from './components/Clickable/IconButton/types';
+import { IconButtonColor, IconButtonSize, IconButtonVariant } from './components/Clickable/IconButtons/common/types';
+import DummyIconButton from './components/Clickable/IconButtons/DummyIconButton';
+import { DummyIconButtonProps } from './components/Clickable/IconButtons/DummyIconButton/types';
+import IconButton from './components/Clickable/IconButtons/OriginalIconButton';
+import { IconButtonProps, IconButtonRef } from './components/Clickable/IconButtons/OriginalIconButton/types';
 import { LinkProps } from './components/Clickable/Link/common/types';
 import ExternalLink from './components/Clickable/Link/External';
 import InternalLink from './components/Clickable/Link/Internal';
@@ -175,7 +172,7 @@ import { ModalProps } from './components/Overlay/Modal/types';
 import Tooltip from './components/Overlay/Tooltip';
 import { TooltipProps } from './components/Overlay/Tooltip/types';
 import Skeleton from './components/Skeleton';
-import { SkeletonColor, SkeletonProps, SkeletonType } from './components/Skeleton/types';
+import { SkeletonColor, SkeletonProps, SkeletonVariant } from './components/Skeleton/types';
 import TabBar from './components/TabBar';
 import Collapse from './components/Transitions/Collapse';
 import { CollapseProps } from './components/Transitions/Collapse/types';
@@ -275,12 +272,13 @@ export {
 	Card,
 	CardDivider,
 	CardHeader,
+	DummyIconButton,
+	IconButton,
 	ExternalLink,
 	InternalLink,
 	DummyButton,
 	Button,
 	ButtonGroup,
-	IconButton,
 	Badge,
 	BadgeIcon,
 	BadgeLabel,
@@ -352,11 +350,16 @@ export type {
 	CardContext,
 	CardProps,
 	CardRef,
+	IconButtonColor,
+	IconButtonSize,
+	IconButtonVariant,
+	DummyIconButtonProps,
+	IconButtonProps,
+	IconButtonRef,
 	LinkProps,
 	InternalProps,
 	ButtonColor,
 	DummyButtonProps,
-	DummyButtonRef,
 	ButtonProps,
 	ButtonRef,
 	ButtonSize,
@@ -365,11 +368,6 @@ export type {
 	ButtonGroupProps,
 	ButtonGroupRef,
 	ButtonGroupSize,
-	IconButtonColor,
-	IconButtonProps,
-	IconButtonRef,
-	IconButtonSize,
-	IconButtonVariant,
 	BadgeIconProps,
 	BadgeLabelProps,
 	BadgeColor,
@@ -436,7 +434,7 @@ export type {
 	TooltipProps,
 	SkeletonColor,
 	SkeletonProps,
-	SkeletonType,
+	SkeletonVariant,
 	CollapseProps,
 	FadeProps,
 	ScaleFadeProps,
