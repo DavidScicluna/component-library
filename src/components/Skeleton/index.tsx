@@ -2,7 +2,6 @@ import { FC, useCallback } from 'react';
 
 import { useColorMode, Center, Skeleton as CUISkeleton } from '@chakra-ui/react';
 
-import { darken, lighten } from 'color2k';
 import { AnimatePresence } from 'framer-motion';
 import { round } from 'lodash';
 import { useElementSize } from 'usehooks-ts';
@@ -12,8 +11,9 @@ import {
 	colorMode as defaultColorMode,
 	isLoaded as defaultIsLoaded,
 	isReversed as defaultIsReversed,
-	type as defaultType
+	variant as defaultVariant
 } from './common/data/defaultPropValues';
+import { getSkeletonAnimationColor, getSkeletonDuration, getSkeletonDelay } from './common/utils';
 import { SkeletonProps } from './types';
 
 import { useTheme } from '../../common/hooks';
@@ -30,12 +30,13 @@ const Skeleton: FC<SkeletonProps> = (props) => {
 
 	const {
 		children,
-		color: colorProp = defaultColor,
+		color = defaultColor,
 		colorMode = colorModeHook,
 		isLoaded = defaultIsLoaded,
 		isReversed = defaultIsReversed,
-		type = defaultType,
+		transition,
 		speed,
+		variant = defaultVariant,
 		...rest
 	} = props;
 
@@ -45,30 +46,15 @@ const Skeleton: FC<SkeletonProps> = (props) => {
 		}
 
 		return convertStringToNumber(theme.transition.duration['slower'] || '750ms', 'ms') / 1000;
-	}, [theme, speed]);
-
-	const handleReturnColor = useCallback(
-		({ type }: { type: 'start' | 'end' }): string => {
-			const color = getColor({ theme, colorMode, color: colorProp, type: 'divider' });
-			const opacity = type === 'start' ? 0 : 0.05;
-
-			switch (colorMode) {
-				case 'light':
-					return darken(color, opacity);
-				case 'dark':
-					return lighten(color, opacity);
-			}
-		},
-		[theme, colorMode, colorProp]
-	);
+	}, [theme, speed, convertStringToNumber]);
 
 	const handleReturnDuration = useCallback((): number => {
-		return convertStringToNumber(theme.transition.duration.normal || '250ms', 'ms') / 1000;
-	}, [theme]);
+		return getSkeletonDuration({ theme });
+	}, [theme, getSkeletonDuration]);
 
 	const handleReturnDelay = useCallback((): number => {
-		return convertStringToNumber(theme.transition.duration.faster || '100ms', 'ms') / 1000;
-	}, [theme]);
+		return getSkeletonDelay({ theme });
+	}, [theme, getSkeletonDelay]);
 
 	return (
 		<Center ref={childrenRef} width='auto' height='auto'>
@@ -79,11 +65,14 @@ const Skeleton: FC<SkeletonProps> = (props) => {
 						in
 						offsetY={round(childrenHeight / 4)}
 						reverse={isReversed}
-						transition={{
-							enter: { duration: handleReturnDuration(), delay: handleReturnDelay() },
-							exit: { duration: handleReturnDuration(), delay: handleReturnDelay() }
-						}}
+						transition={
+							transition || {
+								enter: { duration: handleReturnDuration(), delay: handleReturnDelay() },
+								exit: { duration: handleReturnDuration(), delay: handleReturnDelay() }
+							}
+						}
 						unmountOnExit
+						style={{ width: '100%', height: '100%' }}
 					>
 						{children}
 					</SlideFade>
@@ -100,14 +89,37 @@ const Skeleton: FC<SkeletonProps> = (props) => {
 							exit: { duration: handleReturnDuration(), delay: handleReturnDelay() }
 						}}
 						unmountOnExit
+						style={{ width: '100%', height: '100%' }}
 					>
 						<CUISkeleton
-							{...rest}
-							borderRadius={theme.radii[type === 'rectangle' ? 'base' : type === 'text' ? 'xs' : 'full']}
+							borderRadius={
+								theme.radii[variant === 'rectangle' ? 'base' : variant === 'text' ? 'xs' : 'full']
+							}
 							fadeDuration={0}
 							speed={handleReturnSpeed()}
-							startColor={handleReturnColor({ type: 'start' })}
-							endColor={handleReturnColor({ type: 'end' })}
+							startColor={getSkeletonAnimationColor({
+								color,
+								colorMode,
+								hex: getColor({
+									theme,
+									colorMode,
+									color: color === 'white' || color === 'black' ? 'gray' : color,
+									type: color === 'white' ? 'lightest' : color === 'black' ? 'darkest' : 'divider'
+								}),
+								type: 'start'
+							})}
+							endColor={getSkeletonAnimationColor({
+								color,
+								colorMode,
+								hex: getColor({
+									theme,
+									colorMode,
+									color: color === 'white' || color === 'black' ? 'gray' : color,
+									type: color === 'white' ? 'lightest' : color === 'black' ? 'darkest' : 'divider'
+								}),
+								type: 'end'
+							})}
+							{...rest}
 						>
 							{children}
 						</CUISkeleton>

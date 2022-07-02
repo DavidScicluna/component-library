@@ -1,4 +1,4 @@
-import { ColorMode, SkeletonProps as CUISkeletonProps } from '@chakra-ui/react';
+import { ColorMode, SkeletonProps as CUISkeletonProps, SlideFadeProps } from '@chakra-ui/react';
 
 import {
 	BoxColor,
@@ -16,9 +16,9 @@ import {
 } from '../../common/types/box';
 import { Color } from '../../theme/types';
 
-export type SkeletonColor = Exclude<Color, 'transparent' | 'black' | 'white'>;
+export type SkeletonColor = Exclude<Color, 'transparent'>;
 
-export type SkeletonType = 'rectangle' | 'circle' | 'text';
+export type SkeletonVariant = 'rectangle' | 'circle' | 'text';
 
 type Omitted =
 	// Box Props
@@ -38,15 +38,14 @@ type Omitted =
 	| 'as'
 	| 'color'
 	| 'colorScheme'
-	| 'endColor'
 	| 'fadeDuration'
 	| 'size'
-	| 'startColor'
 	| 'variant';
 
-export type SkeletonProps = {
+export type SkeletonProps = Omit<CUISkeletonProps, Omitted> & {
 	color?: SkeletonColor;
 	colorMode?: ColorMode;
 	isReversed?: boolean;
-	type?: SkeletonType;
-} & Omit<CUISkeletonProps, Omitted>;
+	transition?: SlideFadeProps['transition'];
+	variant?: SkeletonVariant;
+};
