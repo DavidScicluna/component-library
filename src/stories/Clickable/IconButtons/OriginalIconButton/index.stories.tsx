@@ -62,7 +62,7 @@ const sizeOptions: IconButtonSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 const variantOptions: IconButtonVariant[] = ['contained', 'outlined', 'icon'];
 
 export default {
-	title: 'Clickable/Icon Button',
+	title: 'Clickable/IconButtons/Icon Button',
 	component: IconButtonComponent,
 	argTypes: {
 		children: {
