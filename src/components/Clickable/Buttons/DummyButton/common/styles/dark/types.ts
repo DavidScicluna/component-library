@@ -1,5 +1,5 @@
 import { DummyButtonStyleProps } from '../types';
 
-type Picked = 'theme' | 'color';
+type Picked = 'theme';
 
 export type DummyButtonDarkStylingProps = Pick<DummyButtonStyleProps, Picked>;
