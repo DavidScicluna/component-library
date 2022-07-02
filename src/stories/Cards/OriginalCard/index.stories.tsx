@@ -4,7 +4,7 @@ import { Box, Text } from '@chakra-ui/react';
 
 import { Meta, Story } from './types';
 
-import { CardColor, CardProps, CardVariant, Card as CardComponent, CardHeader, CardBody, CardFooter } from '../..';
+import { CardColor, CardProps, CardVariant, Card as CardComponent, CardHeader, CardBody, CardFooter } from '../../..';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -13,12 +13,12 @@ import {
 	isLight as defaultIsLight,
 	spacing as defaultSpacing,
 	variant as defaultVariant
-} from '../../components/Cards/common/data/defaultPropValues';
+} from '../../../components/Cards/common/data/defaultPropValues';
 import {
 	isClickable as defaultIsClickable,
 	isDisabled as defaultIsDisabled
-} from '../../components/Cards/OriginalCard/common/data/defaultPropValues';
-import controls from '../common/controls';
+} from '../../../components/Cards/OriginalCard/common/data/defaultPropValues';
+import controls from '../../common/controls';
 
 const colorOptions: CardColor[] = [
 	'black',
@@ -44,7 +44,7 @@ const colorOptions: CardColor[] = [
 const variantOptions: CardVariant[] = ['contained', 'outlined', 'transparent'];
 
 export default {
-	title: 'Card',
+	title: 'Cards/Card',
 	component: CardComponent,
 	argTypes: {
 		color: {
