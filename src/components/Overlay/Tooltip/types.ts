@@ -42,7 +42,7 @@ type Omitted =
 	| BoxFilter
 	| BoxPseudo
 	| BoxOther
-	// CUI Button Props
+	// CUI Tooltip Props
 	| 'as'
 	| 'aria-label'
 	| 'arrowPadding'
