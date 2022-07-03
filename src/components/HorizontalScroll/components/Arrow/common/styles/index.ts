@@ -6,21 +6,14 @@ import pseudo from './pseudo';
 import transition from './transition';
 import { ArrowStyleProps, ArrowStyleReturn } from './types';
 
-import { colorMode as defaultColorMode, isDisabled as defaultIsDisabled } from '../data/defaultPropValues';
+import { colorMode as defaultColorMode } from '../data/defaultPropValues';
 
-export default memoize(
-	({
-		theme,
-		colorMode = defaultColorMode,
-		direction,
-		isDisabled = defaultIsDisabled
-	}: ArrowStyleProps): ArrowStyleReturn => {
-		const scheme = colorMode === 'light' ? light : dark;
+export default memoize(({ theme, colorMode = defaultColorMode, direction }: ArrowStyleProps): ArrowStyleReturn => {
+	const scheme = colorMode === 'light' ? light : dark;
 
-		return {
-			arrow: scheme({ theme, direction, isDisabled }),
-			pseudo: pseudo(),
-			transition: transition({ theme })
-		};
-	}
-);
+	return {
+		arrow: scheme({ theme, direction }),
+		pseudo: pseudo(),
+		transition: transition({ theme })
+	};
+});

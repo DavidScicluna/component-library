@@ -4,7 +4,7 @@ import { ArrowProps } from '../../types';
 
 export type ArrowStyleProps = {
 	theme: Theme;
-} & Pick<ArrowProps, 'colorMode' | 'direction' | 'isDisabled'>;
+} & Pick<ArrowProps, 'colorMode' | 'direction'>;
 
 export type ArrowStyleReturn = {
 	arrow: Style;
