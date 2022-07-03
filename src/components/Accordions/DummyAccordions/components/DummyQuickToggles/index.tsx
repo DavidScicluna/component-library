@@ -2,7 +2,6 @@ import { FC, useContext, useCallback } from 'react';
 
 import { HStack, Center, Text } from '@chakra-ui/react';
 
-import range from 'lodash/range';
 import { useElementSize } from 'usehooks-ts';
 
 import DummyAccordion from './components/DummyAccordion';
@@ -20,14 +19,16 @@ import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
 	spacing as defaultSpacing
-} from '../../../OriginalAccordions/common/data/defaultPropValues';
+} from '../../../common/data/defaultPropValues';
 import { size as defaultSize } from '../../../OriginalAccordions/components/QuickToggles/common/data/defaultPropValues';
+import { accordions as defaultAccordions } from '../../common/data/defaultPropValues';
 import { DummyAccordionsContext as DummyAccordionsContextType } from '../../types';
 
 const DummyQuickToggles: FC<DummyQuickTogglesProps> = (props) => {
 	const theme = useTheme();
 
 	const {
+		accordions = defaultAccordions,
 		color: colorHook = defaultColor,
 		colorMode = defaultColorMode,
 		spacing: spacingHook = defaultSpacing
@@ -91,7 +92,7 @@ const DummyQuickToggles: FC<DummyQuickTogglesProps> = (props) => {
 							</Text>
 						)}
 					>
-						{range(0, 15).map((_dummy, index: number) => (
+						{accordions.map((_dummy, index: number) => (
 							<DummyAccordion key={index} color={color} size={size} />
 						))}
 					</HorizontalScroll>
