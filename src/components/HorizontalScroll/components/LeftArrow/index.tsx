@@ -17,20 +17,20 @@ const LeftArrow: FC = () => {
 
 	const duration = useConst<number>(convertStringToNumber(theme.transition.duration.normal, 'ms'));
 
-	const [isDisabled, setIsDisabled] = useBoolean();
-	const debouncedIsDisabled = useDebounce<boolean>(isDisabled, duration);
+	const [isVisible, setIsVisible] = useBoolean();
+	const debouncedIsVisible = useDebounce<boolean>(isVisible, duration);
 
 	useEffect(() => {
 		if (visibleItemsWithoutSeparators.length) {
 			if (!initComplete || (initComplete && isFirstItemVisible)) {
-				setIsDisabled.on();
+				setIsVisible.off();
 			} else {
-				setIsDisabled.off();
+				setIsVisible.on();
 			}
 		}
 	}, [initComplete, visibleItemsWithoutSeparators, isFirstItemVisible]);
 
-	return <Arrow direction='left' isDisabled={debouncedIsDisabled} onClick={() => scrollPrev()} />;
+	return <Arrow direction='left' isVisible={debouncedIsVisible} onClick={() => scrollPrev()} />;
 };
 
 export default LeftArrow;
