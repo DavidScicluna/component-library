@@ -10,9 +10,8 @@ import { AccordionsContext } from '../../../..';
 import { useTheme } from '../../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../../common/utils';
 import Button from '../../../../../../Clickable/Buttons/OriginalButton';
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../common/data/defaultPropValues';
 import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	opened as defaultOpened,
 	setOpened as defaultSetOpened
