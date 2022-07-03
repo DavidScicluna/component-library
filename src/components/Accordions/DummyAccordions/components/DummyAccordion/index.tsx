@@ -1,6 +1,6 @@
 import { FC, useContext } from 'react';
 
-import { Box } from '@chakra-ui/react';
+import { Center } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
@@ -31,9 +31,11 @@ const DummyAccordion: FC<DummyAccordionProps> = (props) => {
 	const style = useAccordionStyles({ theme, color, colorMode, isFullWidth, isLight, isOpen: false });
 
 	return (
-		<Box {...rest} as='div' aria-disabled sx={merge(style.accordion, sx)} _disabled={style.disabled.accordion}>
-			{children}
-		</Box>
+		<Center {...rest} as='div' aria-disabled sx={merge(style.accordion, sx)} _disabled={style.disabled.accordion}>
+			<Center width='100%' position='relative' zIndex={1}>
+				{children}
+			</Center>
+		</Center>
 	);
 };
 
