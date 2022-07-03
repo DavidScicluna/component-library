@@ -1,3 +1,4 @@
+import useOs from './useOs';
 import useTheme from './useThemeTyped';
 
-export { useTheme };
+export { useOs, useTheme };
