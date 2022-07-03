@@ -33,6 +33,7 @@ import {
 // eslint-disable-next-line max-len
 // import { RadioColor, RadioProps, RadioRef, RadioSize, Radio as RadioComponent, RadioHeader, RadioBody, RadioFooter } from '../..';
 import controls from '../../common/controls';
+import parameters from '../../common/parameters';
 
 const colorOptions: RadioColor[] = [
 	'pink',
@@ -181,16 +182,8 @@ export default {
 			options: [...variantOptions],
 			control: 'radio'
 		}
-	}
-	// parameters: {
-	// 	backgrounds: {
-	// 		default: 'twitter',
-	// 		values: [
-	// 			{ name: 'twitter', value: '#00aced' },
-	// 			{ name: 'facebook', value: '#3b5998' }
-	// 		]
-	// 	}
-	// }
+	},
+	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
 export const Radio: Story = (props: RadioProps): ReactElement => <RadioComponent {...props} />;

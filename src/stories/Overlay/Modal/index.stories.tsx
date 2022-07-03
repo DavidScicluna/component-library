@@ -12,6 +12,7 @@ import {
 } from '../../../components/Overlay/Modal/common/data/defaultPropValues';
 import { ModalSize } from '../../../components/Overlay/Modal/types';
 import controls from '../../common/controls';
+import parameters from '../../common/parameters';
 
 const sizeOptions: ModalSize[] = ['full', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'];
 
@@ -36,16 +37,8 @@ export default {
 			control: 'select'
 		},
 		spacing: { ...controls.theme.spacing, defaultValue: defaultSpacing }
-	}
-	// parameters: {
-	// 	backgrounds: {
-	// 		default: 'twitter',
-	// 		values: [
-	// 			{ name: 'twitter', value: '#00aced' },
-	// 			{ name: 'facebook', value: '#3b5998' }
-	// 		]
-	// 	}
-	// }
+	},
+	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
 export const Modal: Story = (props: ModalProps): ReactElement => (

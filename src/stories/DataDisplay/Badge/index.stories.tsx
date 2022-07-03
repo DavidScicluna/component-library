@@ -13,6 +13,7 @@ import {
 	variant as defaultVariant
 } from '../../../components/DataDisplay/Badge/common/data/defaultPropValues';
 import controls from '../../common/controls';
+import parameters from '../../common/parameters';
 
 const colorOptions: BadgeColor[] = [
 	'black',
@@ -67,16 +68,8 @@ export default {
 			options: [...variantOptions],
 			control: 'select'
 		}
-	}
-	// parameters: {
-	// 	backgrounds: {
-	// 		default: 'twitter',
-	// 		values: [
-	// 			{ name: 'twitter', value: '#00aced' },
-	// 			{ name: 'facebook', value: '#3b5998' }
-	// 		]
-	// 	}
-	// }
+	},
+	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
 export const Badge: Story = (props: BadgeProps): ReactElement => (

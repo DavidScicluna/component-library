@@ -12,6 +12,7 @@ import {
 	variant as defaultVariant
 } from '../../components/Skeleton/common/data/defaultPropValues';
 import controls from '../common/controls';
+import parameters from '../common/parameters';
 
 const colorOptions: SkeletonColor[] = [
 	'black',
@@ -73,16 +74,8 @@ export default {
 			options: [...typeOptions],
 			control: 'radio'
 		}
-	}
-	// parameters: {
-	// 	backgrounds: {
-	// 		default: 'twitter',
-	// 		values: [
-	// 			{ name: 'twitter', value: '#00aced' },
-	// 			{ name: 'facebook', value: '#3b5998' }
-	// 		]
-	// 	}
-	// }
+	},
+	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
 export const Skeleton: Story = ({ padding, ...rest }: SkeletonProps): ReactElement => (

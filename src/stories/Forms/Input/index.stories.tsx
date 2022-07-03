@@ -29,6 +29,7 @@ import Icon from '../../../components/Icon';
 // eslint-disable-next-line max-len
 // import { InputColor, InputProps, InputRef, InputSize, Input as InputComponent, InputHeader, InputBody, InputFooter } from '../..';
 import controls from '../../common/controls';
+import parameters from '../../common/parameters';
 
 const autoCompleteOptions: InputAutoComplete[] = ['on', 'password', 'off'];
 
@@ -181,16 +182,8 @@ export default {
 			options: [...sizeOptions],
 			control: 'select'
 		}
-	}
-	// parameters: {
-	// 	backgrounds: {
-	// 		default: 'twitter',
-	// 		values: [
-	// 			{ name: 'twitter', value: '#00aced' },
-	// 			{ name: 'facebook', value: '#3b5998' }
-	// 		]
-	// 	}
-	// }
+	},
+	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
 export const Input: Story = (props: InputProps): ReactElement => <InputComponent {...props} />;

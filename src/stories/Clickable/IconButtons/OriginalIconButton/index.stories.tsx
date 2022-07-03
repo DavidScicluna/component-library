@@ -23,6 +23,7 @@ import {
 } from '../../../../components/Clickable/IconButtons/common/data/defaultPropValues';
 import Icon from '../../../../components/Icon';
 import controls from '../../../common/controls';
+import parameters from '../../../common/parameters';
 
 const childrenDefaultValue: IconType | undefined = sample(icons);
 const childrenOptions: IconType[] = [...icons];
@@ -125,16 +126,8 @@ export default {
 			options: variantOptions,
 			control: 'select'
 		}
-	}
-	// parameters: {
-	// 	backgrounds: {
-	// 		default: 'twitter',
-	// 		values: [
-	// 			{ name: 'twitter', value: '#00aced' },
-	// 			{ name: 'facebook', value: '#3b5998' }
-	// 		]
-	// 	}
-	// }
+	},
+	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
 export const IconButton: Story = (props: IconButtonProps): ReactElement => <IconButtonComponent {...props} />;

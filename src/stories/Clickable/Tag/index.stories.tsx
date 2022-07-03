@@ -13,6 +13,7 @@ import {
 	variant as defaultVariant
 } from '../../../components/DataDisplay/Tag/common/data/defaultPropValues';
 import controls from '../../common/controls';
+import parameters from '../../common/parameters';
 
 const colorOptions: TagColor[] = [
 	'black',
@@ -94,16 +95,8 @@ export default {
 			options: [...variantOptions],
 			control: 'select'
 		}
-	}
-	// parameters: {
-	// 	backgrounds: {
-	// 		default: 'twitter',
-	// 		values: [
-	// 			{ name: 'twitter', value: '#00aced' },
-	// 			{ name: 'facebook', value: '#3b5998' }
-	// 		]
-	// 	}
-	// }
+	},
+	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
 export const Tag: Story = (props: TagProps): ReactElement => (

@@ -11,6 +11,7 @@ import { isDisabled as defaultIsDisabled } from '../../components/HorizontalScro
 import { RenderDividerProps } from '../../components/HorizontalScroll/types';
 import spacing from '../../theme/foundations/spacing';
 import controls from '../common/controls';
+import parameters from '../common/parameters';
 
 const renderMapping = Object.assign(
 	{ none: undefined },
@@ -42,16 +43,8 @@ export default {
 			mapping: { ...renderMapping },
 			control: 'select'
 		}
-	}
-	// parameters: {
-	// 	backgrounds: {
-	// 		default: 'twitter',
-	// 		values: [
-	// 			{ name: 'twitter', value: '#00aced' },
-	// 			{ name: 'facebook', value: '#3b5998' }
-	// 		]
-	// 	}
-	// }
+	},
+	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
 export const HorizontalScroll: Story = (props: HorizontalScrollProps): ReactElement => (

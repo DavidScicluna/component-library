@@ -31,6 +31,7 @@ import Icon from '../../../components/Icon';
 // eslint-disable-next-line max-len
 // import { TextareaColor, TextareaProps, TextareaRef, TextareaSize, Textarea as TextareaComponent, TextareaHeader, TextareaBody, TextareaFooter } from '../..';
 import controls from '../../common/controls';
+import parameters from '../../common/parameters';
 
 const autoCompleteOptions: TextareaAutoComplete[] = ['on', 'password', 'off'];
 
@@ -193,16 +194,8 @@ export default {
 			options: [...sizeOptions],
 			control: 'select'
 		}
-	}
-	// parameters: {
-	// 	backgrounds: {
-	// 		default: 'twitter',
-	// 		values: [
-	// 			{ name: 'twitter', value: '#00aced' },
-	// 			{ name: 'facebook', value: '#3b5998' }
-	// 		]
-	// 	}
-	// }
+	},
+	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
 export const Textarea: Story = (props: TextareaProps): ReactElement => <TextareaComponent {...props} />;

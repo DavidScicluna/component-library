@@ -25,6 +25,7 @@ import {
 	spacing as defaultSpacing
 } from '../../components/Accordions/OriginalAccordions/common/data/defaultPropValues';
 import controls from '../common/controls';
+import parameters from '../common/parameters';
 
 const accordions: AccordionType[] = range(0, 15).map((_dummy, index) => {
 	return { id: toString(index), title: `Accordion ${++index}` } as AccordionType;
@@ -80,16 +81,8 @@ export default {
 		spacing: { ...controls.theme.spacing, defaultValue: defaultSpacing },
 		padding: { ...controls.theme.padding, defaultValue: 2 }
 		// margin: { ...controls.theme.margin },
-	}
-	// parameters: {
-	// 	backgrounds: {
-	// 		default: 'twitter',
-	// 		values: [
-	// 			{ name: 'twitter', value: '#00aced' },
-	// 			{ name: 'facebook', value: '#3b5998' }
-	// 		]
-	// 	}
-	// }
+	},
+	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
 export const Accordions: Story = (props: AccordionsProps): ReactElement => (

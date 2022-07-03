@@ -34,6 +34,7 @@ import {
 // eslint-disable-next-line max-len
 // import { CheckboxColor, CheckboxProps, CheckboxRef, CheckboxSize, Checkbox as CheckboxComponent, CheckboxHeader, CheckboxBody, CheckboxFooter } from '../..';
 import controls from '../../common/controls';
+import parameters from '../../common/parameters';
 
 const colorOptions: CheckboxColor[] = [
 	'pink',
@@ -189,16 +190,8 @@ export default {
 			options: [...variantOptions],
 			control: 'radio'
 		}
-	}
-	// parameters: {
-	// 	backgrounds: {
-	// 		default: 'twitter',
-	// 		values: [
-	// 			{ name: 'twitter', value: '#00aced' },
-	// 			{ name: 'facebook', value: '#3b5998' }
-	// 		]
-	// 	}
-	// }
+	},
+	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
 export const Checkbox: Story = (props: CheckboxProps): ReactElement => <CheckboxComponent {...props} />;

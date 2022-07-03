@@ -7,6 +7,7 @@ import { Meta, Story } from './types';
 import { IconProps, IconCategory, IconType, Icon as IconComponent } from '../..';
 import icons from '../../common/data/icons';
 import controls from '../common/controls';
+import parameters from '../common/parameters';
 
 const childrenDefaultValue: IconType | undefined = sample(icons);
 const childrenOptions: IconType[] = [...icons];
@@ -40,16 +41,8 @@ export default {
 			options: categoryOptions,
 			control: 'radio'
 		}
-	}
-	// parameters: {
-	// 	backgrounds: {
-	// 		default: 'twitter',
-	// 		values: [
-	// 			{ name: 'twitter', value: '#00aced' },
-	// 			{ name: 'facebook', value: '#3b5998' }
-	// 		]
-	// 	}
-	// }
+	},
+	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
 export const Icon: Story = (props: IconProps): ReactElement => (

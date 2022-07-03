@@ -10,6 +10,7 @@ import TabBarComponent from '../../components/TabBar';
 import { RenderProps as TabRenderProps, Tab } from '../../components/TabBar/components/Tab/types';
 import { TabBarColor, TabBarDirection, TabBarProps } from '../../components/TabBar/types';
 import controls from '../common/controls';
+import parameters from '../common/parameters';
 
 const colorDefaultValue: TabBarColor = 'blue';
 const colorOptions: TabBarColor[] = [
@@ -72,16 +73,8 @@ export default {
 			options: [...directionOptions],
 			control: 'radio'
 		}
-	}
-	// parameters: {
-	// 	backgrounds: {
-	// 		default: 'twitter',
-	// 		values: [
-	// 			{ name: 'twitter', value: '#00aced' },
-	// 			{ name: 'facebook', value: '#3b5998' }
-	// 		]
-	// 	}
-	// }
+	},
+	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
 export const TabBar: Story = (props: TabBarProps): ReactElement => <TabBarComponent {...props} tabs={tabs} />;

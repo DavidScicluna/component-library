@@ -19,6 +19,7 @@ import {
 } from '../../../components/Overlay/ConfirmModal/common/data/defaultPropValues';
 import { ConfirmModalSize } from '../../../components/Overlay/ConfirmModal/types';
 import controls from '../../common/controls';
+import parameters from '../../common/parameters';
 
 const sizeOptions: ConfirmModalSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
@@ -43,16 +44,8 @@ export default {
 			control: 'select'
 		},
 		spacing: { ...controls.theme.spacing, defaultValue: defaultSpacing }
-	}
-	// parameters: {
-	// 	backgrounds: {
-	// 		default: 'twitter',
-	// 		values: [
-	// 			{ name: 'twitter', value: '#00aced' },
-	// 			{ name: 'facebook', value: '#3b5998' }
-	// 		]
-	// 	}
-	// }
+	},
+	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
 export const ConfirmModal: Story = (props: ConfirmModalProps): ReactElement => (
