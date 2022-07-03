@@ -8,10 +8,7 @@ import { DummyAccordionsContext } from '../../../..';
 import Button from '../../../../../../Clickable/Buttons/OriginalButton';
 import IconButton from '../../../../../../Clickable/IconButtons/OriginalIconButton';
 import Icon from '../../../../../../Icon';
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode
-} from '../../../../../OriginalAccordions/common/data/defaultPropValues';
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../common/data/defaultPropValues';
 import { size as defaultSize } from '../../../../../OriginalAccordions/components/QuickToggles/common/data/defaultPropValues';
 import { DummyAccordionsContext as DummyAccordionsContextType } from '../../../../types';
 
