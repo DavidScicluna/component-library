@@ -8,21 +8,28 @@ export default ({ theme }: TooltipStyleProps): Style => ({
 
 	'minWidth': 'auto',
 	'minHeight': 'auto',
-	'maxWidth': 'none',
+	'maxWidth': '320px',
 	'maxHeight': 'none',
 
+	'display': 'inline-flex',
+
+	'userSelect': 'none',
+	'willChange': 'auto',
+
+	'opacity': 1,
+
 	'background': 'none',
-	'boxShadow': theme.shadows.base,
-	'borderRadius': theme.radii.sm,
+	'boxShadow': theme.shadows.md,
+	'borderRadius': theme.radii.base,
 
 	'fontSize': theme.fontSizes.sm,
 	'fontWeight': theme.fontWeights.medium,
-	'lineHeight': theme.lineHeights.normal,
+	'lineHeight': theme.lineHeights.base,
 
 	'px': `${theme.space[1]} !important`,
 	'py': `${theme.space[0.5]} !important`,
 
 	'& .chakra-tooltip__arrow': {
-		boxShadow: `${theme.shadows.base} !important`
+		boxShadow: theme.shadows.md
 	}
 });
