@@ -13,7 +13,7 @@ import { convertREMToPixels, convertStringToNumber } from '../../../../../../../
 import { getColor } from '../../../../../../../common/utils/color';
 import { Space } from '../../../../../../../theme/types';
 import Icon from '../../../../../../Icon';
-import { colorMode as defaultColorMode, spacing as defaultSpacing } from '../../../../common/data/defaultPropValues';
+import { colorMode as defaultColorMode, spacing as defaultSpacing } from '../../../../../common/data/defaultPropValues';
 import { AccordionsContext as AccordionsContextType } from '../../../../types';
 import { isOpen as defaultIsOpen } from '../../common/data/defaultPropValues';
 import { AccordionContext as AccordionContextType } from '../../types';
