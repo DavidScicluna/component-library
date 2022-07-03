@@ -35,7 +35,7 @@ const DummyIconButton: FC<DummyIconButtonProps> = (props) => {
 	const style = useStyles({ theme, colorMode, isRound, size, variant });
 
 	return (
-		<Skeleton {...rest} color={color} isLoaded={false} sx={merge(style.iconbutton, sx)}>
+		<Skeleton {...rest} color={color} colorMode={colorMode} isLoaded={false} sx={merge(style.iconbutton, sx)}>
 			<Skeleton
 				className='ds-cl-dummy-iconbutton-skeleton-icon'
 				color={color}
