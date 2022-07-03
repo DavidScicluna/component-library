@@ -1,5 +1,9 @@
-import { AccordionsProps } from '../OriginalAccordions/types';
+import { CommonAccordionsProps } from '../common/types';
 
-export type DummyAccordionsProps = Omit<AccordionsProps, 'accordions' | 'isDisabled'>;
+export type DummyAccordionsProps = {
+	accordions?: number[];
+} & CommonAccordionsProps;
 
-export type DummyAccordionsContext = Pick<AccordionsProps, 'color' | 'colorMode' | 'isFullWidth' | 'spacing'>;
+type Picked = 'accordions' | 'color' | 'colorMode' | 'isFullWidth' | 'spacing';
+
+export type DummyAccordionsContext = Pick<DummyAccordionsProps, Picked>;
