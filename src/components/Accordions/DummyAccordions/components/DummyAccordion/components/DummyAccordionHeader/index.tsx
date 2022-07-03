@@ -26,15 +26,15 @@ const DummyAccordionHeader: FC<DummyAccordionHeaderProps> = (props) => {
 	const { color = defaultColor, colorMode = defaultColorMode } =
 		useContext<DummyAccordionsContextType>(DummyAccordionsContext);
 
-	const [iconRef, { width: iconWidth }] = useElementSize();
+	const [actionsRef, { width: actionsWidth }] = useElementSize();
 
-	const { actions, hasSubtitle = false, spacing = defaultSpacing, ...rest } = props;
+	const { hasSubtitle = false, actions, spacing = defaultSpacing, ...rest } = props;
 
 	const handleCalculateTextWidth = useCallback((): string => {
 		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem'));
 
-		return `calc(100% - ${actions ? iconWidth + spacingWidth : 0}px)`;
-	}, [theme, spacing, iconWidth]);
+		return `calc(100% - ${actions ? actionsWidth + spacingWidth : 0}px)`;
+	}, [theme, spacing, actionsWidth]);
 
 	return (
 		<HStack width='100%' alignItems='center' justifyContent='space-between' spacing={spacing} {...rest}>
@@ -69,11 +69,11 @@ const DummyAccordionHeader: FC<DummyAccordionHeaderProps> = (props) => {
 				)}
 			</VStack>
 
-			<Center ref={iconRef}>
-				<Skeleton color={color} colorMode={colorMode} isLoaded={false} variant='rectangle'>
-					<Icon icon='add' sx={{ color: getColor({ theme, colorMode, type: 'text.secondary' }) }} />
-				</Skeleton>
-			</Center>
+			<HStack ref={actionsRef} spacing={spacing}>
+				{actions && <Center>{actions}</Center>}
+
+				<Icon icon='add' sx={{ color: getColor({ theme, colorMode, type: 'text.secondary' }) }} />
+			</HStack>
 		</HStack>
 	);
 };

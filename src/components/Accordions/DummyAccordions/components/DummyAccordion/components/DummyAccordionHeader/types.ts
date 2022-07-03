@@ -2,4 +2,4 @@ import { AccordionHeaderProps } from '../../../../../OriginalAccordions/componen
 
 export type DummyAccordionHeaderProps = {
 	hasSubtitle?: boolean;
-} & AccordionHeaderProps;
+} & Omit<AccordionHeaderProps, 'renderTitle' | 'renderSubtitle'>;
