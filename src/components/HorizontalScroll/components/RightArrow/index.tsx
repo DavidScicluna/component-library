@@ -16,20 +16,20 @@ const RightArrow: FC = () => {
 
 	const duration = useConst<number>(convertStringToNumber(theme.transition.duration.normal, 'ms'));
 
-	const [isDisabled, setIsDisabled] = useBoolean();
-	const debouncedIsDisabled = useDebounce<boolean>(isDisabled, duration);
+	const [isVisible, setIsVisible] = useBoolean();
+	const debouncedIsVisible = useDebounce<boolean>(isVisible, duration);
 
 	useEffect(() => {
 		if (visibleItemsWithoutSeparators.length) {
 			if (isLastItemVisible) {
-				setIsDisabled.on();
+				setIsVisible.off();
 			} else {
-				setIsDisabled.off();
+				setIsVisible.on();
 			}
 		}
 	}, [visibleItemsWithoutSeparators, isLastItemVisible]);
 
-	return <Arrow direction='right' isDisabled={debouncedIsDisabled} onClick={() => scrollNext()} />;
+	return <Arrow direction='right' isVisible={debouncedIsVisible} onClick={() => scrollNext()} />;
 };
 
 export default RightArrow;
