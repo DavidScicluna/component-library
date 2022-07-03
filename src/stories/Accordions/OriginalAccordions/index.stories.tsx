@@ -100,7 +100,11 @@ export const Accordions: Story = (props: AccordionsProps): ReactElement => (
 							renderTitle={(props) => <Text {...props}>{`${accordion.title} Title`}</Text>}
 							renderSubtitle={(props) => <Text {...props}>{`${accordion.title} Subtitle`}</Text>}
 							actions={
-								<DummyButton color='deep_orange' colorMode={props.colorMode} size='xs'>
+								<DummyButton
+									color={props.color === 'gray' ? 'orange' : props.color}
+									colorMode={props.colorMode}
+									size='xs'
+								>
 									Dummy Card Action
 								</DummyButton>
 							}
@@ -128,7 +132,7 @@ export const Accordions: Story = (props: AccordionsProps): ReactElement => (
 					footer={
 						<AccordionFooter>
 							<DummyButton
-								color='deep_orange'
+								color={props.color === 'gray' ? 'orange' : props.color}
 								colorMode={props.colorMode}
 								isFullWidth
 								size='xs'
