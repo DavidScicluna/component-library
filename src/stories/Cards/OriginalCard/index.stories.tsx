@@ -1,10 +1,22 @@
 import { ReactElement } from 'react';
 
-import { Box, Text } from '@chakra-ui/react';
+import { VStack, Text } from '@chakra-ui/react';
+
+import { range } from 'lodash';
 
 import { Meta, Story } from './types';
 
-import { CardColor, CardProps, CardVariant, Card as CardComponent, CardHeader, CardBody, CardFooter } from '../../..';
+import {
+	CardColor,
+	CardProps,
+	CardVariant,
+	Card as CardComponent,
+	CardHeader,
+	CardBody,
+	CardFooter,
+	DummyButton,
+	Skeleton
+} from '../../..';
 import {
 	color as defaultColor,
 	isFullWidth as defaultIsFullWidth,
@@ -29,8 +41,8 @@ const colorOptions: CardColor[] = [
 	'purple',
 	'deep_purple',
 	'indigo',
-	'blue',
 	'light_blue',
+	'blue',
 	'cyan',
 	'teal',
 	'green',
@@ -118,13 +130,33 @@ export const Card: Story = (props: CardProps): ReactElement => (
 		<CardHeader
 			renderTitle={(props) => <Text {...props}>Title</Text>}
 			renderSubtitle={(props) => <Text {...props}>Subtitle</Text>}
-			actions={<Box width='87.7px' height='42px' backgroundColor='blue.300' borderRadius='base' />}
+			actions={
+				<DummyButton color='light_blue' colorMode={props.colorMode} size='xs'>
+					Dummy Card Action
+				</DummyButton>
+			}
 		/>
 		<CardBody>
-			<Box width='100%' p={4} backgroundColor='blue.400' borderRadius='base' />
+			<VStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={2}>
+				{range(2).map((_dummy, index) => (
+					<Skeleton
+						key={index}
+						colorMode={props.colorMode}
+						isLoaded={false}
+						variant='text'
+						sx={{ width: '100%', flex: 1 }}
+					>
+						<Text width='100%' align='left' fontSize='md' noOfLines={1}>
+							Dummy Text
+						</Text>
+					</Skeleton>
+				))}
+			</VStack>
 		</CardBody>
 		<CardFooter>
-			<Box width='100%' p={4} backgroundColor='blue.500' borderRadius='base' />
+			<DummyButton color='light_blue' colorMode={props.colorMode} isFullWidth size='xs' variant='text'>
+				This is the Dummy Card Footer Action
+			</DummyButton>
 		</CardFooter>
 	</CardComponent>
 );

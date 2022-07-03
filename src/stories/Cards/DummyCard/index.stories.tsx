@@ -113,8 +113,14 @@ export const DummyCard: Story = (props: DummyCardProps): ReactElement => (
 		/>
 		<CardBody>
 			<VStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={2}>
-				{range(4).map((_dummy, index) => (
-					<Skeleton key={index} isLoaded={false} variant='text' sx={{ width: '100%', flex: 1 }}>
+				{range(2).map((_dummy, index) => (
+					<Skeleton
+						key={index}
+						colorMode={props.colorMode}
+						isLoaded={false}
+						variant='text'
+						sx={{ width: '100%', flex: 1 }}
+					>
 						<Text width='100%' align='left' fontSize='md' noOfLines={1}>
 							Dummy Text
 						</Text>
