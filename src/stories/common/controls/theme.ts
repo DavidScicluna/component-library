@@ -1,5 +1,6 @@
 import { ColorMode } from '@chakra-ui/react';
 
+import { getColorMode } from '../../../common/utils';
 import { Radius, FontSize, Space } from '../../../theme/types';
 
 const borderRadiusDefaultValue: Radius = 'none';
@@ -14,7 +15,7 @@ const borderRadius = {
 	control: 'select'
 };
 
-const colorModeDefaultValue: ColorMode = 'light';
+const colorModeDefaultValue: ColorMode = getColorMode();
 const colorModeOptions: ColorMode[] = ['light', 'dark'];
 
 const colorMode = {

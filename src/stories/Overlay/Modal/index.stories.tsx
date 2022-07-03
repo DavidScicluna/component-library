@@ -6,7 +6,6 @@ import { Meta, Story } from './types';
 
 import { Modal as ModalComponent, ModalProps, ModalBody, ModalFooter, ModalHeader } from '../../..';
 import {
-	colorMode as defaultColorMode,
 	isOpen as defaultIsOpen,
 	size as defaultSize,
 	spacing as defaultSpacing
@@ -20,7 +19,7 @@ export default {
 	title: 'Overlay/Modal',
 	component: ModalComponent,
 	argTypes: {
-		colorMode: { ...controls.theme.colorMode, defaultValue: defaultColorMode },
+		colorMode: { ...controls.theme.colorMode },
 		isOpen: {
 			name: 'Open',
 			type: 'boolean',

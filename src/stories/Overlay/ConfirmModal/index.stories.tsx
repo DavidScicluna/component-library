@@ -13,7 +13,6 @@ import {
 	ConfirmModalTitle
 } from '../../..';
 import {
-	colorMode as defaultColorMode,
 	isOpen as defaultIsOpen,
 	size as defaultSize,
 	spacing as defaultSpacing
@@ -27,7 +26,7 @@ export default {
 	title: 'Overlay/Confirm Modal',
 	component: ConfirmModalComponent,
 	argTypes: {
-		colorMode: { ...controls.theme.colorMode, defaultValue: defaultColorMode },
+		colorMode: { ...controls.theme.colorMode },
 		isOpen: {
 			name: 'Open',
 			type: 'boolean',

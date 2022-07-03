@@ -5,7 +5,6 @@ import { Meta, Story } from './types';
 import { TagColor, TagProps, TagVariant, Tag as TagComponent, TagDeleteButton, TagLabel } from '../../..';
 import {
 	color as defaultColor,
-	colorMode as defaultColorMode,
 	isActive as defaultIsActive,
 	isFullWidth as defaultIsFullWidth,
 	isClickable as defaultIsClickable,
@@ -50,7 +49,7 @@ export default {
 			options: [...colorOptions],
 			control: 'select'
 		},
-		colorMode: { ...controls.theme.colorMode, defaultValue: defaultColorMode },
+		colorMode: { ...controls.theme.colorMode },
 		is: {
 			name: 'Divisible',
 			type: 'boolean',

@@ -20,7 +20,6 @@ import {
 } from '../..';
 import {
 	color as defaultColor,
-	colorMode as defaultColorMode,
 	isFullWidth as defaultIsFullWidth,
 	isDisabled as defaultIsDisabled,
 	spacing as defaultSpacing
@@ -62,7 +61,7 @@ export default {
 			options: [...colorOptions],
 			control: 'select'
 		},
-		colorMode: { ...controls.theme.colorMode, defaultValue: defaultColorMode },
+		colorMode: { ...controls.theme.colorMode },
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',

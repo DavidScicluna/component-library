@@ -9,7 +9,6 @@ import icons from '../../../common/data/icons';
 import { Icon } from '../../../common/types/icons';
 import {
 	color as defaultColor,
-	colorMode as defaultColorMode,
 	isLight as defaultIsLight,
 	variant as defaultVariant
 } from '../../../components/DataDisplay/Badge/common/data/defaultPropValues';
@@ -52,7 +51,7 @@ export default {
 			options: [...colorOptions],
 			control: 'select'
 		},
-		colorMode: { ...controls.theme.colorMode, defaultValue: defaultColorMode },
+		colorMode: { ...controls.theme.colorMode },
 		isLight: {
 			name: 'Light',
 			type: 'boolean',

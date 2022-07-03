@@ -7,7 +7,6 @@ import { Meta, Story } from './types';
 import { Skeleton as SkeletonComponent, SkeletonColor, SkeletonType, SkeletonProps } from '../..';
 import {
 	color as defaultColor,
-	colorMode as defaultColorMode,
 	isLoaded as defaultIsLoaded,
 	isReversed as defaultIsReversed,
 	variant as defaultVariant
@@ -49,7 +48,7 @@ export default {
 			options: [...colorOptions],
 			control: 'select'
 		},
-		colorMode: { ...controls.theme.colorMode, defaultValue: defaultColorMode },
+		colorMode: { ...controls.theme.colorMode },
 		isLoaded: {
 			name: 'Loaded',
 			type: 'boolean',

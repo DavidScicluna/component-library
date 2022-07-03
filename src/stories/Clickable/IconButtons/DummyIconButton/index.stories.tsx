@@ -16,7 +16,6 @@ import {
 import icons from '../../../../common/data/icons';
 import {
 	color as defaultColor,
-	colorMode as defaultColorMode,
 	size as defaultSize,
 	variant as defaultVariant
 } from '../../../../components/Clickable/IconButtons/common/data/defaultPropValues';
@@ -78,7 +77,7 @@ export default {
 			options: [...colorOptions],
 			control: 'select'
 		},
-		colorMode: { ...controls.theme.colorMode, defaultValue: defaultColorMode },
+		colorMode: { ...controls.theme.colorMode },
 		size: {
 			name: 'Size',
 			type: 'string',

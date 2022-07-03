@@ -8,7 +8,6 @@ import icons from '../../../common/data/icons';
 import InputComponent from '../../../components/Forms/Input';
 import {
 	autoComplete as defaultAutoComplete,
-	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
 	isWarning as defaultIsWarning,
@@ -80,7 +79,7 @@ export default {
 			options: [...colorOptions],
 			control: 'select'
 		},
-		colorMode: { ...controls.theme.colorMode, defaultValue: defaultColorMode },
+		colorMode: { ...controls.theme.colorMode },
 		label: {
 			name: 'Label',
 			type: 'string',

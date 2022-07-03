@@ -15,7 +15,6 @@ import icons from '../../../../common/data/icons';
 import { Icon as IconType } from '../../../../common/types/icons';
 import {
 	color as defaultColor,
-	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	isLoading as defaultIsLoading,
 	isRound as defaultIsRound,
@@ -81,7 +80,7 @@ export default {
 			options: colorOptions,
 			control: 'select'
 		},
-		colorMode: { ...controls.theme.colorMode, defaultValue: defaultColorMode },
+		colorMode: { ...controls.theme.colorMode },
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',

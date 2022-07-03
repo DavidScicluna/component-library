@@ -11,7 +11,6 @@ import {
 } from '../../../..';
 import {
 	color as defaultColor,
-	colorMode as defaultColorMode,
 	isFullWidth as defaultIsFullWidth,
 	size as defaultSize,
 	variant as defaultVariant
@@ -62,7 +61,7 @@ export default {
 			options: [...colorOptions],
 			control: 'select'
 		},
-		colorMode: { ...controls.theme.colorMode, defaultValue: defaultColorMode },
+		colorMode: { ...controls.theme.colorMode },
 		isFullWidth: {
 			name: 'FullWidth',
 			type: 'boolean',

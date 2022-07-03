@@ -9,7 +9,6 @@ import { Meta, Story } from './types';
 // import icons from '../../../common/data/icons';
 import RadioComponent from '../../../components/Forms/Radio';
 import {
-	colorMode as defaultColorMode,
 	isChecked as defaultIsChecked,
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
@@ -79,7 +78,7 @@ export default {
 			options: [...colorOptions],
 			control: 'select'
 		},
-		colorMode: { ...controls.theme.colorMode, defaultValue: defaultColorMode },
+		colorMode: { ...controls.theme.colorMode },
 		label: {
 			name: 'Label',
 			type: 'string',

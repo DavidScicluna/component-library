@@ -7,7 +7,6 @@ import { Meta, Story } from './types';
 import { CardColor, CardProps, CardVariant, Card as CardComponent, CardHeader, CardBody, CardFooter } from '../../..';
 import {
 	color as defaultColor,
-	colorMode as defaultColorMode,
 	isFullWidth as defaultIsFullWidth,
 	isDivisible as defaultIsDivisible,
 	isLight as defaultIsLight,
@@ -55,7 +54,7 @@ export default {
 			options: [...colorOptions],
 			control: 'select'
 		},
-		colorMode: { ...controls.theme.colorMode, defaultValue: defaultColorMode },
+		colorMode: { ...controls.theme.colorMode },
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',

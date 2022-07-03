@@ -9,7 +9,6 @@ import { Meta, Story } from './types';
 // import icons from '../../../common/data/icons';
 import CheckboxComponent from '../../../components/Forms/Checkbox';
 import {
-	colorMode as defaultColorMode,
 	isChecked as defaultIsChecked,
 	isIndeterminate as defaultIsIndeterminate,
 	isDisabled as defaultIsDisabled,
@@ -80,7 +79,7 @@ export default {
 			options: [...colorOptions],
 			control: 'select'
 		},
-		colorMode: { ...controls.theme.colorMode, defaultValue: defaultColorMode },
+		colorMode: { ...controls.theme.colorMode },
 		label: {
 			name: 'Label',
 			type: 'string',
