@@ -120,6 +120,7 @@ const Arrow: FC<ArrowProps> = (props) => {
 				}
 			>
 				<Center
+					height='100%'
 					sx={{
 						backgroundColor: getColor({
 							theme,
