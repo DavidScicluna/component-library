@@ -43,7 +43,7 @@ const DummyButton: FC<DummyButtonProps> = (props) => {
 	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
 
 	return (
-		<Skeleton {...rest} color={color} isLoaded={false} sx={merge(style.button, sx)}>
+		<Skeleton {...rest} color={color} colorMode={colorMode} isLoaded={false} sx={merge(style.button, sx)}>
 			<HStack
 				width='inherit'
 				position='relative'
