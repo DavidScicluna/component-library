@@ -6,15 +6,18 @@ import { useDebounce } from 'usehooks-ts';
 
 import {
 	accordions as defaultAccordions,
-	color as defaultColor,
-	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
-	isFullWidth as defaultIsFullWidth,
 	opened as defaultOpened,
-	spacing as defaultSpacing,
 	setOpened as defaultSetOpened
 } from './common/data/defaultPropValues';
 import { AccordionsContext as AccordionsContextType, AccordionsRef, AccordionsProps, OpenedAccordions } from './types';
+
+import {
+	color as defaultColor,
+	colorMode as defaultColorMode,
+	isFullWidth as defaultIsFullWidth,
+	spacing as defaultSpacing
+} from '../common/data/defaultPropValues';
 
 export const AccordionsContext = createContext<AccordionsContextType>({
 	opened: defaultOpened,
