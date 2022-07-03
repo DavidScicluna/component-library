@@ -17,12 +17,11 @@ import { Space } from '../../../../../theme/types';
 import Divider from '../../../../Divider';
 import HorizontalScroll from '../../../../HorizontalScroll';
 import {
-	accordions as defaultAccordions,
 	color as defaultColor,
 	colorMode as defaultColorMode,
-	isDisabled as defaultIsDisabled,
 	spacing as defaultSpacing
-} from '../../common/data/defaultPropValues';
+} from '../../../common/data/defaultPropValues';
+import { accordions as defaultAccordions, isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
 import { AccordionsContext as AccordionsContextType } from '../../types';
 
 const QuickToggles: FC<QuickTogglesProps> = (props) => {
@@ -38,7 +37,7 @@ const QuickToggles: FC<QuickTogglesProps> = (props) => {
 
 	const [borderRef, { width: borderWidth }] = useElementSize();
 	const [textRef, { width: textWidth }] = useElementSize();
-	const [toggleRef, { width: toggleWidth, height: toggleHeight }] = useElementSize();
+	const [toggleRef, { width: toggleWidth }] = useElementSize();
 
 	const { color = colorHook, isDisabled = isDisabledHook, spacing = spacingHook, size = defaultSize } = props;
 
@@ -59,14 +58,17 @@ const QuickToggles: FC<QuickTogglesProps> = (props) => {
 			width='100%'
 			alignItems='stretch'
 			justifyContent='stretch'
-			divider={
-				<Center ref={borderRef} border='none'>
-					<Divider colorMode={colorMode} orientation='vertical' height={`${toggleHeight}px`} />
-				</Center>
-			}
+			divider={<Divider ref={borderRef} colorMode={colorMode} orientation='vertical' />}
 			spacing={spacing}
 		>
-			<HStack width={handleAccordionsWidth()} alignItems='stretch' justifyContent='stretch' spacing={spacing}>
+			<HStack
+				width='100%'
+				maxWidth={handleAccordionsWidth()}
+				flex={1}
+				alignItems='stretch'
+				justifyContent='stretch'
+				spacing={spacing}
+			>
 				<Center ref={textRef}>
 					<Text
 						align='left'
@@ -79,32 +81,35 @@ const QuickToggles: FC<QuickTogglesProps> = (props) => {
 					</Text>
 				</Center>
 
-				<Center width={handleScrollWidth()} height='100%'>
-					<HorizontalScroll
-						colorMode={colorMode}
-						isDisabled={isDisabled}
-						renderDivider={({ padding }) => (
-							<Text
-								align='left'
-								color={getColor({ theme, colorMode, type: 'text.secondary' })}
-								fontSize='md'
-								px={padding}
-							>
-								•
-							</Text>
-						)}
-					>
-						{accordions.map((accordion) => (
-							<Accordion
-								{...accordion}
-								key={accordion.id}
-								color={color}
-								isDisabled={isDisabled}
-								size={size}
-							/>
-						))}
-					</HorizontalScroll>
-				</Center>
+				{/* <Center > */}
+				<HorizontalScroll
+					maxWidth={handleScrollWidth()}
+					height='100%'
+					colorMode={colorMode}
+					isDisabled={isDisabled}
+					renderDivider={({ padding }) => (
+						<Text
+							align='left'
+							color={getColor({ theme, colorMode, type: 'text.secondary' })}
+							fontSize='md'
+							userSelect='none'
+							px={padding}
+						>
+							•
+						</Text>
+					)}
+				>
+					{accordions.map((accordion) => (
+						<Accordion
+							{...accordion}
+							key={accordion.id}
+							color={color}
+							isDisabled={isDisabled}
+							size={size}
+						/>
+					))}
+				</HorizontalScroll>
+				{/* </Center> */}
 			</HStack>
 
 			<Center ref={toggleRef}>

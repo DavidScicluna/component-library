@@ -1,4 +1,5 @@
-import { AccordionsColor, AccordionsProps } from '../../types';
+import { AccordionsColor } from '../../../common/types';
+import { AccordionsProps } from '../../types';
 
 export type QuickTogglesSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
