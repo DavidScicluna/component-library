@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import Accordions from '../../components/Accordions/OriginalAccordions';
+import { Accordions } from '../../..';
 
 export type Meta = ComponentMeta<typeof Accordions>;
 
