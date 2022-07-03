@@ -27,10 +27,12 @@ import {
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
-	isDisabled as defaultIsDisabled,
-	isFullWidth as defaultIsFullWidth,
-	opened as defaultOpened,
 	spacing as defaultSpacing,
+	isFullWidth as defaultIsFullWidth
+} from '../../../common/data/defaultPropValues';
+import {
+	isDisabled as defaultIsDisabled,
+	opened as defaultOpened,
 	setOpened as defaultSetOpened
 } from '../../common/data/defaultPropValues';
 import { toggleAccordion } from '../../common/utils';
