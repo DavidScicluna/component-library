@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 
 import { ProviderProps } from './types';
 
@@ -61,6 +61,7 @@ const Provider: FC<ProviderProps> = ({ children }) => {
 
 	return (
 		<ChakraProvider theme={theme} resetCSS>
+			<ColorModeScript initialColorMode={theme.config.initialColorMode} />
 			{children}
 		</ChakraProvider>
 	);
