@@ -36,6 +36,7 @@
 		"plugin:@typescript-eslint/recommended",
 		"plugin:storybook/recommended"
 	],
+	"ignorePatterns": ["**/*.css"],
 	"rules": {
 		"jsx-a11y/href-no-hash": ["off"],
 		"react/react-in-jsx-scope": "off",
