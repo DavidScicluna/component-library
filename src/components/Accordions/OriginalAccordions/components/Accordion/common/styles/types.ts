@@ -3,8 +3,9 @@ import { Theme } from '../../../../../../../theme/types';
 import { AccordionsProps } from '../../../../types';
 import { AccordionProps } from '../../types';
 
-export type AccordionStyleProps = Pick<AccordionProps, 'isLight' | 'isOpen'> & {
+export type AccordionStyleProps = Pick<AccordionProps, 'isLight'> & {
 	theme: Theme;
+	isOpen?: boolean;
 } & Pick<AccordionsProps, 'color' | 'colorMode' | 'isFullWidth'>;
 
 export type AccordionStyleReturn = {

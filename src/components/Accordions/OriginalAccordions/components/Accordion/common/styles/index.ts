@@ -11,7 +11,7 @@ import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
 	isFullWidth as defaultIsFullWidth
-} from '../../../../common/data/defaultPropValues';
+} from '../../../../../common/data/defaultPropValues';
 import { isLight as defaultIsLight, isOpen as defaultIsOpen } from '../data/defaultPropValues';
 
 export default memoize((props: AccordionStyleProps): AccordionStyleReturn => {
