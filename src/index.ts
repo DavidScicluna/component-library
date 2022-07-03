@@ -2,6 +2,8 @@ import fallback from './common/assets/fallback';
 import { useTheme } from './common/hooks';
 import { checkIsTouchDevice, convertREMToPixels, convertStringToNumber } from './common/utils';
 import { getHue, getColor } from './common/utils/color';
+import AccordionsPanel from './components/Accordions/components/AccordionsPanel';
+import { AccordionsPanelProps } from './components/Accordions/components/AccordionsPanel/types';
 import DummyAccordions from './components/Accordions/DummyAccordions';
 import DummyAccordion from './components/Accordions/DummyAccordions/components/DummyAccordion';
 import DummyAccordionHeader from './components/Accordions/DummyAccordions/components/DummyAccordion/components/DummyAccordionHeader';
@@ -22,8 +24,6 @@ import {
 	AccordionContext,
 	AccordionProps
 } from './components/Accordions/OriginalAccordions/components/Accordion/types';
-import AccordionsPanel from './components/Accordions/OriginalAccordions/components/AccordionsPanel';
-import { AccordionsPanelProps } from './components/Accordions/OriginalAccordions/components/AccordionsPanel/types';
 import AccordionsQuickToggles from './components/Accordions/OriginalAccordions/components/QuickToggles';
 import {
 	QuickTogglesProps as AccordionsQuickTogglesProps,
