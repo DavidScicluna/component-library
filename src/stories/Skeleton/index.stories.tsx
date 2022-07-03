@@ -4,7 +4,7 @@ import { Box } from '@chakra-ui/react';
 
 import { Meta, Story } from './types';
 
-import { Skeleton as SkeletonComponent, SkeletonColor, SkeletonType, SkeletonProps } from '../..';
+import { SkeletonColor, SkeletonVariant, SkeletonProps, Skeleton as SkeletonComponent } from '../..';
 import {
 	color as defaultColor,
 	isLoaded as defaultIsLoaded,
@@ -35,7 +35,7 @@ const colorOptions: SkeletonColor[] = [
 	'deep_orange'
 ];
 
-const typeOptions: SkeletonType[] = ['rectangle', 'circle', 'text'];
+const typeOptions: SkeletonVariant[] = ['rectangle', 'circle', 'text'];
 
 export default {
 	title: 'Skeleton',
