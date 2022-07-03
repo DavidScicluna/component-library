@@ -8251,9 +8251,11 @@ __metadata:
     react-scripts: ^5.0.1
     react-scroll: ^1.8.7
     rollup: ^2.75.6
+    rollup-plugin-gzip: ^3.0.1
     rollup-plugin-peer-deps-external: ^2.2.4
     rollup-plugin-postcss: ^4.0.2
     rollup-plugin-typescript2: ^0.32.1
+    rooks: ^5.11.8
     spinners-react: ^1.0.7
     tslib: ^2.4.0
     typescript: ^4.7.4
@@ -18080,6 +18082,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rollup-plugin-gzip@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "rollup-plugin-gzip@npm:3.0.1"
+  peerDependencies:
+    rollup: ">=2.0.0"
+  checksum: df456cd1720be1ddf7a57c1d81be70f7bc7cbba7d9098f369ebcf0f31f21db1eb16ab9d5f19a59fe844129a972e244c5be300007de4f63274d5991ecf28c92a9
+  languageName: node
+  linkType: hard
+
 "rollup-plugin-peer-deps-external@npm:^2.2.4":
   version: 2.2.4
   resolution: "rollup-plugin-peer-deps-external@npm:2.2.4"
@@ -18162,6 +18173,19 @@ __metadata:
   bin:
     rollup: dist/bin/rollup
   checksum: df83c6d43a144a296daf82bed7f12f2dfcc6c495a64245e840d15fd21f2ab8b66bb3423e61c974875b33ccf53fb659d2ed099f272937ecf23af48815277c6cd5
+  languageName: node
+  linkType: hard
+
+"rooks@npm:^5.11.8":
+  version: 5.11.8
+  resolution: "rooks@npm:5.11.8"
+  dependencies:
+    lodash.debounce: ^4.0.8
+    raf: ^3.4.1
+  peerDependencies:
+    react: ^16.8.0  || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0  || ^17.0.0 || ^18.0.0
+  checksum: 0cfc194f371fa9743ede0386b51ca176d43dda295fae228c0cd9c97422ce6e2a9c0aafee7a83199e1473d1f808696f1068fc0c91662df982f0bd3d9311062a04
   languageName: node
   linkType: hard
 
