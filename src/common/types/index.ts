@@ -9,3 +9,5 @@ export type NoUndefinedField<T> = { [P in keyof T]-?: NoUndefinedField<NonNullab
 export type Style = CSSObject;
 
 export type Orientation = 'vertical' | 'horizontal';
+
+export type OS = 'undetermined' | 'macos' | 'ios' | 'windows' | 'android' | 'linux';
