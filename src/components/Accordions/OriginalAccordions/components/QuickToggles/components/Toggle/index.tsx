@@ -8,10 +8,9 @@ import { AccordionsContext } from '../../../..';
 import Button from '../../../../../../Clickable/Buttons/OriginalButton';
 import IconButton from '../../../../../../Clickable/IconButtons/OriginalIconButton';
 import Icon from '../../../../../../Icon';
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../common/data/defaultPropValues';
 import {
 	accordions as defaultAccordions,
-	color as defaultColor,
-	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	opened as defaultOpened,
 	setOpened as defaultSetOpened
