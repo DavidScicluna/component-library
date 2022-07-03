@@ -5,8 +5,8 @@ import { useMediaQuery } from '@chakra-ui/react';
 import { DummyToggleProps } from './types';
 
 import { DummyAccordionsContext } from '../../../..';
-import Button from '../../../../../../Clickable/Buttons/OriginalButton';
-import IconButton from '../../../../../../Clickable/IconButtons/OriginalIconButton';
+import DummyButton from '../../../../../../Clickable/Buttons/DummyButton';
+import DummyIconButton from '../../../../../../Clickable/IconButtons/DummyIconButton';
 import Icon from '../../../../../../Icon';
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../common/data/defaultPropValues';
 import { size as defaultSize } from '../../../../../OriginalAccordions/components/QuickToggles/common/data/defaultPropValues';
@@ -20,20 +20,13 @@ const DummyToggle: FC<DummyToggleProps> = (props) => {
 	const { color = defaultColor, size = defaultSize } = props;
 
 	return isXs ? (
-		<IconButton
-			aria-label='Dummy Show all'
-			color={color}
-			colorMode={colorMode}
-			isDisabled
-			size={size}
-			variant='icon'
-		>
+		<DummyIconButton aria-label='Dummy Show all' color={color} colorMode={colorMode} size={size} variant='icon'>
 			<Icon icon='playlist_add_check' />
-		</IconButton>
+		</DummyIconButton>
 	) : (
-		<Button color={color} colorMode={colorMode} isDisabled size={size} variant='text'>
+		<DummyButton color={color} colorMode={colorMode} size={size} variant='text'>
 			Dummy Show all
-		</Button>
+		</DummyButton>
 	);
 };
 
