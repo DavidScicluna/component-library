@@ -17,7 +17,7 @@ import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
 	spacing as defaultSpacing
-} from '../../../../../OriginalAccordions/common/data/defaultPropValues';
+} from '../../../../../common/data/defaultPropValues';
 import { DummyAccordionsContext as DummyAccordionsContextType } from '../../../../types';
 
 const DummyAccordionHeader: FC<DummyAccordionHeaderProps> = (props) => {
