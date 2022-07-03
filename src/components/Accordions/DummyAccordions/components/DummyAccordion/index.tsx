@@ -12,7 +12,7 @@ import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
 	isFullWidth as defaultIsFullWidth
-} from '../../../OriginalAccordions/common/data/defaultPropValues';
+} from '../../../common/data/defaultPropValues';
 import { isLight as defaultIsLight } from '../../../OriginalAccordions/components/Accordion/common/data/defaultPropValues';
 import useAccordionStyles from '../../../OriginalAccordions/components/Accordion/common/styles';
 import { DummyAccordionsContext as DummyAccordionsContextType } from '../../types';
