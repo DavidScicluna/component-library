@@ -4,7 +4,12 @@ import { useColorMode, Tooltip as CUITooltip } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
-import { color as defaultColor, colorMode as defaultColorMode } from './common/data/defaultPropValues';
+import {
+	arrowSize as defaultArrowSize,
+	color as defaultColor,
+	colorMode as defaultColorMode,
+	gutter as defaultGutter
+} from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { TooltipRef, TooltipProps } from './types';
 
@@ -19,10 +24,12 @@ const Tooltip = forwardRef<TooltipRef, TooltipProps>(function Tooltip(props, ref
 
 	const {
 		children,
+		arrowSize = defaultArrowSize,
 		color = defaultColor,
 		colorMode = colorModeHook,
 		closeDelay = convertStringToNumber(theme.transition.duration.slow, 'ms') || 500,
 		openDelay = convertStringToNumber(theme.transition.duration.normal, 'ms') || 250,
+		gutter = defaultGutter,
 		sx,
 		...rest
 	} = props;
@@ -35,10 +42,11 @@ const Tooltip = forwardRef<TooltipRef, TooltipProps>(function Tooltip(props, ref
 				<CUITooltip
 					{...rest}
 					ref={ref}
-					arrowSize={8}
+					arrowSize={arrowSize}
 					closeDelay={closeDelay}
 					openDelay={openDelay}
 					hasArrow
+					gutter={gutter}
 					sx={merge(style.tooltip, sx)}
 				>
 					{children}

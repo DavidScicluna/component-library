@@ -47,7 +47,6 @@ type Omitted =
 	| 'aria-label'
 	| 'arrowPadding'
 	| 'arrowShadowColor'
-	| 'arrowSize'
 	// | 'closeDelay'
 	| 'colorScheme'
 	| 'direction'
