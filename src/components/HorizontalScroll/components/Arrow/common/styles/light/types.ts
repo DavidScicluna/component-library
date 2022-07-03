@@ -1,5 +1,5 @@
 import { ArrowStyleProps } from '../types';
 
-type Picked = 'theme' | 'direction' | 'isDisabled';
+type Picked = 'theme' | 'direction';
 
 export type ArrowLightStyleProps = Pick<ArrowStyleProps, Picked>;
