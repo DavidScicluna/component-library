@@ -5,6 +5,7 @@ import eslint from '@rollup/plugin-eslint';
 import image from '@rollup/plugin-image';
 import resolve from '@rollup/plugin-node-resolve';
 import strip from '@rollup/plugin-strip';
+import gzip from 'rollup-plugin-gzip';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import typescript from 'rollup-plugin-typescript2';
@@ -40,7 +41,7 @@ export default {
 			clean: true
 		}),
 		postcss({ extensions: ['.css'] }),
-		image()
-		// gzip()
+		image(),
+		gzip()
 	]
 };
