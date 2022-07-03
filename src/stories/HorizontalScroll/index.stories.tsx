@@ -37,7 +37,7 @@ export default {
 		},
 		renderDivider: {
 			name: 'Spacing',
-			defaultValue: 'none',
+			defaultValue: '1',
 			// description: '',
 			options: ['none', ...Object.keys(spacing)],
 			mapping: { ...renderMapping },
