@@ -2,4 +2,4 @@ import { ColorMode } from '@chakra-ui/react';
 
 export const colorMode: ColorMode = 'light';
 
-export const isDisabled = true;
+export const isVisible = true;
