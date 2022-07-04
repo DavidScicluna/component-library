@@ -1,4 +1,4 @@
 import formHelperText from './formHelperText';
-import readonly from './readonly';
+import readOnly from './readOnly';
 
-export default { formHelperText, readonly };
+export default { formHelperText, readOnly };
