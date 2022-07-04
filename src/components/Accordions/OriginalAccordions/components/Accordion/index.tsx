@@ -1,4 +1,4 @@
-import { FC, createContext, useContext } from 'react';
+import { createContext, useContext, ReactElement } from 'react';
 
 import { useConst, Box, VisuallyHidden, Center, VStack } from '@chakra-ui/react';
 import { dataAttr } from '@chakra-ui/utils';
@@ -38,12 +38,12 @@ import {
 import { toggleAccordion } from '../../common/utils';
 import { AccordionsContext as AccordionsContextType } from '../../types';
 
-export const AccordionContext = createContext<AccordionContextType>({
+export const AccordionContext = createContext<AccordionContextType<unknown>>({
 	isDisabled: defaultIsDisabled,
 	isOpen: defaultIsOpen
 });
 
-const Accordion: FC<AccordionProps> = (props) => {
+const Accordion = <D,>(props: AccordionProps<D>): ReactElement => {
 	const theme = useTheme();
 
 	const { observe: ref, inView } = useInView<HTMLDivElement>({
@@ -58,7 +58,7 @@ const Accordion: FC<AccordionProps> = (props) => {
 		isFullWidth = defaultIsFullWidth,
 		opened = defaultOpened,
 		setOpened = defaultSetOpened
-	} = useContext<AccordionsContextType>(AccordionsContext);
+	} = useContext<AccordionsContextType<D>>(AccordionsContext);
 
 	const {
 		id,
@@ -74,7 +74,7 @@ const Accordion: FC<AccordionProps> = (props) => {
 		...rest
 	} = props;
 
-	const isOpen = !isDisabled && opened.some((accordion) => accordion === id);
+	const isOpen = !isDisabled && opened.some((accordion: unknown) => accordion === id);
 
 	const style = useStyles({ theme, color, colorMode, isFullWidth, isLight, isOpen });
 

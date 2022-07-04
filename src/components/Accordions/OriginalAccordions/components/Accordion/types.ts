@@ -40,8 +40,8 @@ type Omitted =
 	| 'color'
 	| 'colorScheme';
 
-export type AccordionProps = Pick<Accordion, 'id'> &
-	Pick<AccordionsProps, 'isDisabled' | 'spacing'> & {
+export type AccordionProps<D> = Pick<Accordion<D>, 'id'> &
+	Pick<AccordionsProps<D>, 'isDisabled' | 'spacing'> & {
 		header: ReactNode;
 		body: ReactNode;
 		footer?: ReactNode;
@@ -50,4 +50,4 @@ export type AccordionProps = Pick<Accordion, 'id'> &
 		isLight?: boolean;
 	} & Omit<CenterProps, Omitted>;
 
-export type AccordionContext = { isOpen?: boolean } & Pick<AccordionProps, 'isDisabled' | 'isLight'>;
+export type AccordionContext<D> = { isOpen?: boolean } & Pick<AccordionProps<D>, 'isDisabled' | 'isLight'>;
