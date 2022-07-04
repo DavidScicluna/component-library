@@ -1,4 +1,4 @@
-import { ReactElement, createContext, forwardRef } from 'react';
+import { createContext, FC } from 'react';
 
 import { useColorMode, VStack } from '@chakra-ui/react';
 
@@ -11,7 +11,6 @@ import {
 	isFullWidth as defaultIsFullWidth,
 	spacing as defaultSpacing
 } from '../common/data/defaultPropValues';
-import { AccordionsRef as DummyAccordionsRef } from '../OriginalAccordions/types';
 
 export const DummyAccordionsContext = createContext<DummyAccordionsContextType>({
 	accordions: defaultAccordions,
@@ -21,10 +20,7 @@ export const DummyAccordionsContext = createContext<DummyAccordionsContextType>(
 	spacing: defaultSpacing
 });
 
-const DummyAccordions = forwardRef<DummyAccordionsRef, DummyAccordionsProps>(function DummyAccordions(
-	props,
-	ref
-): ReactElement {
+const DummyAccordions: FC<DummyAccordionsProps> = (props) => {
 	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const {
@@ -39,11 +35,11 @@ const DummyAccordions = forwardRef<DummyAccordionsRef, DummyAccordionsProps>(fun
 
 	return (
 		<DummyAccordionsContext.Provider value={{ accordions, color, colorMode, isFullWidth, spacing }}>
-			<VStack ref={ref} width='100%' spacing={spacing} {...rest}>
+			<VStack width='100%' spacing={spacing} {...rest}>
 				{children}
 			</VStack>
 		</DummyAccordionsContext.Provider>
 	);
-});
+};
 
 export default DummyAccordions;
