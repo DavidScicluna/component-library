@@ -14,7 +14,7 @@ import {
 } from '../../../../../common/data/defaultPropValues';
 import { isLight as defaultIsLight, isOpen as defaultIsOpen } from '../data/defaultPropValues';
 
-export default memoize((props: AccordionStyleProps): AccordionStyleReturn => {
+export default memoize(<D>(props: AccordionStyleProps<D>): AccordionStyleReturn => {
 	const {
 		theme,
 		color = defaultColor,

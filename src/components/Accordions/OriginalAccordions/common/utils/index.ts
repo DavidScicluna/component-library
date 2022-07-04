@@ -2,12 +2,12 @@ import { memoize } from 'lodash';
 
 import { Accordion, OpenedAccordion, OpenedAccordions } from '../../types';
 
-type ToggleAccordionProps = {
-	id: OpenedAccordion;
-	opened: OpenedAccordions;
+type ToggleAccordionProps<D> = {
+	id: OpenedAccordion<D>;
+	opened: OpenedAccordions<D>;
 };
 
-export const toggleAccordion = memoize(({ id, opened = [] }: ToggleAccordionProps): OpenedAccordions => {
+export const toggleAccordion = memoize(<D>({ id, opened = [] }: ToggleAccordionProps<D>): OpenedAccordions<D> => {
 	if (opened.some((accordion) => accordion === id)) {
 		return opened.filter((accordion) => accordion !== id);
 	} else {
@@ -15,13 +15,13 @@ export const toggleAccordion = memoize(({ id, opened = [] }: ToggleAccordionProp
 	}
 });
 
-type ToggleAllAccordionsProps = {
-	accordions: Accordion[];
+type ToggleAllAccordionsProps<D> = {
+	accordions: Accordion<D>[];
 	opened: number;
 };
 
 export const toggleAllAccordions = memoize(
-	({ accordions = [], opened = 0 }: ToggleAllAccordionsProps): OpenedAccordions => {
+	<D>({ accordions = [], opened = 0 }: ToggleAllAccordionsProps<D>): OpenedAccordions<D> => {
 		if (accordions.length === opened) {
 			return [];
 		} else {

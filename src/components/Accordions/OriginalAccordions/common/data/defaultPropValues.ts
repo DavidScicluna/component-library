@@ -1,9 +1,9 @@
 import { Accordion, OpenedAccordions } from '../../types';
 
-export const accordions: Accordion[] = [];
+export const accordions: Accordion<unknown>[] = [];
 
 export const isDisabled = false;
 
-export const opened: OpenedAccordions = [];
+export const opened: OpenedAccordions<unknown> = [];
 
 export const setOpened = () => console.log('');

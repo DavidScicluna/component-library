@@ -32,6 +32,6 @@ export default memoize((props: FormHelperTextStyleProps): FormHelperTextStyleRet
 			scheme.formHelperText({ theme, isError, isWarning, isSuccess })
 		),
 		disabled: disabled(),
-		readonly: scheme.readonly({ theme })
+		readonly: scheme.readOnly({ theme })
 	};
 });
