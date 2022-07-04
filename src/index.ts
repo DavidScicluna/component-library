@@ -3,13 +3,13 @@ import { useTheme } from './common/hooks';
 import { checkIsTouchDevice, convertREMToPixels, convertStringToNumber } from './common/utils';
 import { getHue, getColor } from './common/utils/color';
 import { AccordionsColor } from './components/Accordions/common/types';
-import AccordionsPanel from './components/Accordions/components/AccordionsPanel';
-import { AccordionsPanelProps } from './components/Accordions/components/AccordionsPanel/types';
 import DummyAccordions from './components/Accordions/DummyAccordions';
 import DummyAccordion from './components/Accordions/DummyAccordions/components/DummyAccordion';
 import DummyAccordionHeader from './components/Accordions/DummyAccordions/components/DummyAccordion/components/DummyAccordionHeader';
 import { DummyAccordionHeaderProps } from './components/Accordions/DummyAccordions/components/DummyAccordion/components/DummyAccordionHeader/types';
 import { DummyAccordionProps } from './components/Accordions/DummyAccordions/components/DummyAccordion/types';
+import DummyAccordionsPanel from './components/Accordions/DummyAccordions/components/DummyAccordionsPanel';
+import { DummyAccordionsPanelProps } from './components/Accordions/DummyAccordions/components/DummyAccordionsPanel/types';
 import DummyAccordionsQuickToggles from './components/Accordions/DummyAccordions/components/DummyQuickToggles';
 import { DummyQuickTogglesProps as DummyAccordionsQuickTogglesProps } from './components/Accordions/DummyAccordions/components/DummyQuickToggles/types';
 import { DummyAccordionsContext, DummyAccordionsProps } from './components/Accordions/DummyAccordions/types';
@@ -25,6 +25,8 @@ import {
 	AccordionContext,
 	AccordionProps
 } from './components/Accordions/OriginalAccordions/components/Accordion/types';
+import AccordionsPanel from './components/Accordions/OriginalAccordions/components/AccordionsPanel';
+import { AccordionsPanelProps } from './components/Accordions/OriginalAccordions/components/AccordionsPanel/types';
 import AccordionsQuickToggles from './components/Accordions/OriginalAccordions/components/QuickToggles';
 import {
 	QuickTogglesProps as AccordionsQuickTogglesProps,
@@ -256,6 +258,7 @@ export {
 	DummyAccordions,
 	DummyAccordion,
 	DummyAccordionHeader,
+	DummyAccordionsPanel,
 	DummyAccordionsQuickToggles,
 	Accordions,
 	Accordion,
@@ -323,6 +326,7 @@ export type {
 	DummyAccordionsQuickTogglesProps,
 	DummyAccordionsContext,
 	DummyAccordionsProps,
+	DummyAccordionsPanelProps,
 	AccordionBodyProps,
 	AccordionFooterProps,
 	AccordionHeaderProps,
