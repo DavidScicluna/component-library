@@ -1,15 +1,14 @@
 import { ReactElement } from 'react';
 
-import { range, toString } from 'lodash';
+import { range } from 'lodash';
 
 import { Meta, Story } from './types';
 
 import {
 	AccordionsColor,
-	AccordionType,
 	DummyAccordionsProps,
 	DummyAccordions as DummyAccordionsComponent,
-	AccordionsPanel,
+	DummyAccordionsPanel,
 	DummyAccordion,
 	DummyAccordionHeader,
 	DummyAccordionsQuickToggles,
@@ -22,10 +21,6 @@ import {
 } from '../../../components/Accordions/common/data/defaultPropValues';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
-
-const accordions: AccordionType[] = range(0, 15).map((_dummy, index) => {
-	return { id: toString(index), title: `Accordion ${++index}` } as AccordionType;
-});
 
 const colorOptions: AccordionsColor[] = [
 	'gray',
@@ -74,26 +69,28 @@ export default {
 } as Meta;
 
 export const DummyAccordions: Story = (props: DummyAccordionsProps): ReactElement => (
-	<DummyAccordionsComponent {...props} color='gray' p={0}>
+	<DummyAccordionsComponent {...props} color='gray' accordions={range(0, 15)} p={0}>
 		<DummyAccordionsQuickToggles color={props.color === 'gray' ? 'orange' : props.color} spacing={2} />
 
-		<AccordionsPanel>
-			{accordions.map((accordion) => (
-				<DummyAccordion key={accordion.id} id={accordion.id} p={props.padding}>
-					<DummyAccordionHeader
-						hasSubtitle
-						actions={
-							<DummyButton
-								color={props.color === 'gray' ? 'orange' : props.color}
-								colorMode={props.colorMode}
-								size='xs'
-							>
-								Dummy Card Action
-							</DummyButton>
-						}
-					/>
-				</DummyAccordion>
-			))}
-		</AccordionsPanel>
+		<DummyAccordionsPanel>
+			{({ accordions }) =>
+				accordions.map((accordion) => (
+					<DummyAccordion key={accordion} p={props.padding}>
+						<DummyAccordionHeader
+							hasSubtitle
+							actions={
+								<DummyButton
+									color={props.color === 'gray' ? 'orange' : props.color}
+									colorMode={props.colorMode}
+									size='xs'
+								>
+									Dummy Card Action
+								</DummyButton>
+							}
+						/>
+					</DummyAccordion>
+				))
+			}
+		</DummyAccordionsPanel>
 	</DummyAccordionsComponent>
 );
