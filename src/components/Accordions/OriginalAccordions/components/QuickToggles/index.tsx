@@ -1,4 +1,4 @@
-import { FC, useContext, useCallback } from 'react';
+import { ReactElement, useContext, useCallback } from 'react';
 
 import { HStack, Center, Text } from '@chakra-ui/react';
 
@@ -24,7 +24,7 @@ import {
 import { accordions as defaultAccordions, isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
 import { AccordionsContext as AccordionsContextType } from '../../types';
 
-const QuickToggles: FC<QuickTogglesProps> = (props) => {
+const QuickToggles = <D,>(props: QuickTogglesProps<D>): ReactElement => {
 	const theme = useTheme();
 
 	const {
@@ -33,7 +33,7 @@ const QuickToggles: FC<QuickTogglesProps> = (props) => {
 		colorMode = defaultColorMode,
 		isDisabled: isDisabledHook = defaultIsDisabled,
 		spacing: spacingHook = defaultSpacing
-	} = useContext<AccordionsContextType>(AccordionsContext);
+	} = useContext<AccordionsContextType<D>>(AccordionsContext);
 
 	const [borderRef, { width: borderWidth }] = useElementSize();
 	const [textRef, { width: textWidth }] = useElementSize();
