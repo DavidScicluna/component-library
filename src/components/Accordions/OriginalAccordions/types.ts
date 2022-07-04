@@ -21,5 +21,3 @@ export type AccordionsContext<D> = {
 	opened: OpenedAccordions<D>;
 	setOpened: (opened: OpenedAccordions<D>) => void;
 } & Pick<AccordionsProps<D>, Picked>;
-
-export type AccordionsRef = HTMLDivElement | null;

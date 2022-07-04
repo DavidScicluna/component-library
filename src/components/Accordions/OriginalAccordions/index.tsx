@@ -1,4 +1,4 @@
-import { ForwardedRef, ReactElement, createContext, forwardRef, useState } from 'react';
+import { ReactElement, createContext, useState } from 'react';
 
 import { useColorMode, VStack } from '@chakra-ui/react';
 
@@ -10,7 +10,7 @@ import {
 	opened as defaultOpened,
 	setOpened as defaultSetOpened
 } from './common/data/defaultPropValues';
-import { AccordionsContext as AccordionsContextType, AccordionsRef, AccordionsProps, OpenedAccordions } from './types';
+import { AccordionsContext as AccordionsContextType, AccordionsProps, OpenedAccordions } from './types';
 
 import {
 	color as defaultColor,
@@ -30,10 +30,7 @@ export const AccordionsContext = createContext<AccordionsContextType<any>>({
 	setOpened: defaultSetOpened
 });
 
-const Accordions = forwardRef(function Accordions<D>(
-	props: AccordionsProps<D>,
-	ref: ForwardedRef<AccordionsRef>
-): ReactElement {
+const Accordions = <D,>(props: AccordionsProps<D>): ReactElement => {
 	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const [opened, setOpened] = useState<OpenedAccordions<D>>([]);
@@ -63,11 +60,11 @@ const Accordions = forwardRef(function Accordions<D>(
 				setOpened
 			}}
 		>
-			<VStack ref={ref} width='100%' spacing={spacing} {...rest}>
+			<VStack width='100%' spacing={spacing} {...rest}>
 				{children}
 			</VStack>
 		</AccordionsContext.Provider>
 	);
-});
+};
 
 export default Accordions;
