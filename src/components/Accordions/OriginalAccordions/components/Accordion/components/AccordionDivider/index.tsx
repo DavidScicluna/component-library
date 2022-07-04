@@ -1,4 +1,4 @@
-import { FC, useContext } from 'react';
+import { ReactElement, useContext } from 'react';
 
 import { AccordionContext } from '../..';
 import { AccordionsContext } from '../../../..';
@@ -12,12 +12,13 @@ import { AccordionsContext as AccordionsContextType } from '../../../../types';
 import { isLight as defaultIsLight } from '../../common/data/defaultPropValues';
 import { AccordionContext as AccordionContextType } from '../../types';
 
-const AccordionDivider: FC<DividerProps> = (props) => {
+const AccordionDivider = <D,>(props: DividerProps): ReactElement => {
 	const theme = useTheme();
 
-	const { color = defaultColor, colorMode = defaultColorMode } = useContext<AccordionsContextType>(AccordionsContext);
+	const { color = defaultColor, colorMode = defaultColorMode } =
+		useContext<AccordionsContextType<D>>(AccordionsContext);
 	const { isDisabled = defaultIsDisabled, isLight = defaultIsLight } =
-		useContext<AccordionContextType>(AccordionContext);
+		useContext<AccordionContextType<D>>(AccordionContext);
 
 	return (
 		<Divider
