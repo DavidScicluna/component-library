@@ -20,14 +20,14 @@ import { toggleAccordion } from '../../../../common/utils';
 import { AccordionsContext as AccordionsContextType } from '../../../../types';
 import { size as defaultSize } from '../../common/data/defaultPropValues';
 
-const Accordion = (props: AccordionProps): ReactElement => {
+const Accordion = <D,>(props: AccordionProps<D>): ReactElement => {
 	const theme = useTheme();
 
 	const {
 		colorMode = defaultColorMode,
 		opened = defaultOpened,
 		setOpened = defaultSetOpened
-	} = useContext<AccordionsContextType>(AccordionsContext);
+	} = useContext<AccordionsContextType<D>>(AccordionsContext);
 
 	const { id, title, color = defaultColor, isDisabled = defaultIsDisabled, size = defaultSize } = props;
 
