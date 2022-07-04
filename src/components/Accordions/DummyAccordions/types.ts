@@ -1,7 +1,7 @@
 import { CommonAccordionsProps } from '../common/types';
 
 export type DummyAccordionsProps = {
-	accordions?: number[];
+	accordions: number[];
 } & CommonAccordionsProps;
 
 type Picked = 'accordions' | 'color' | 'colorMode' | 'isFullWidth' | 'spacing';
