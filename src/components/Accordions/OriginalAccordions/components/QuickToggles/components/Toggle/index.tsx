@@ -1,4 +1,4 @@
-import { FC, useContext, useCallback } from 'react';
+import { ReactElement, useContext, useCallback } from 'react';
 
 import { useMediaQuery } from '@chakra-ui/react';
 
@@ -19,7 +19,7 @@ import { toggleAllAccordions } from '../../../../common/utils';
 import { AccordionsContext as AccordionsContextType } from '../../../../types';
 import { size as defaultSize } from '../../common/data/defaultPropValues';
 
-const Toggle: FC<ToggleProps> = (props) => {
+const Toggle = <D,>(props: ToggleProps<D>): ReactElement => {
 	const [isXs] = useMediaQuery('(max-width: 600px)');
 
 	const {
@@ -27,7 +27,7 @@ const Toggle: FC<ToggleProps> = (props) => {
 		colorMode = defaultColorMode,
 		opened = defaultOpened,
 		setOpened = defaultSetOpened
-	} = useContext<AccordionsContextType>(AccordionsContext);
+	} = useContext<AccordionsContextType<D>>(AccordionsContext);
 
 	const { color = defaultColor, isDisabled = defaultIsDisabled, size = defaultSize } = props;
 

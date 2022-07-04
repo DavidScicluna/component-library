@@ -2,4 +2,4 @@ import { QuickTogglesProps } from '../../types';
 
 type Picked = 'color' | 'isDisabled' | 'size';
 
-export type ToggleProps = Pick<QuickTogglesProps, Picked>;
+export type ToggleProps<D> = Pick<QuickTogglesProps<D>, Picked>;
