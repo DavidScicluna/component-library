@@ -9,7 +9,6 @@ import { Meta, Story } from './types';
 import {
 	AccordionsColor,
 	AccordionsProps,
-	AccordionType,
 	Accordions as AccordionsComponent,
 	AccordionsPanel,
 	Accordion,
@@ -87,7 +86,7 @@ export const Accordions: Story = (props: AccordionsProps<unknown>): ReactElement
 		{...props}
 		color='gray'
 		accordions={range(0, 15).map((_dummy, index) => {
-			return { id: toString(index), title: `Accordion ${++index}` } as AccordionType<unknown>;
+			return { id: toString(index), title: `Accordion ${++index}`, data: {} };
 		})}
 		p={0}
 	>
