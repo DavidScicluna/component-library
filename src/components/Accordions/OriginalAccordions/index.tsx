@@ -1,4 +1,4 @@
-import { ReactElement, createContext, forwardRef, useState } from 'react';
+import { ForwardedRef, ReactElement, createContext, forwardRef, useState } from 'react';
 
 import { useColorMode, VStack } from '@chakra-ui/react';
 
@@ -19,7 +19,8 @@ import {
 	spacing as defaultSpacing
 } from '../common/data/defaultPropValues';
 
-export const AccordionsContext = createContext<AccordionsContextType>({
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const AccordionsContext = createContext<AccordionsContextType<any>>({
 	opened: defaultOpened,
 	accordions: defaultAccordions,
 	color: defaultColor,
@@ -29,11 +30,14 @@ export const AccordionsContext = createContext<AccordionsContextType>({
 	setOpened: defaultSetOpened
 });
 
-const Accordions = forwardRef<AccordionsRef, AccordionsProps>(function Accordions(props, ref): ReactElement {
+const Accordions = forwardRef(function Accordions<D>(
+	props: AccordionsProps<D>,
+	ref: ForwardedRef<AccordionsRef>
+): ReactElement {
 	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
-	const [opened, setOpened] = useState<OpenedAccordions>([]);
-	const debouncedOpened = useDebounce<OpenedAccordions>(opened, 500);
+	const [opened, setOpened] = useState<OpenedAccordions<D>>([]);
+	const debouncedOpened = useDebounce<OpenedAccordions<D>>(opened, 500);
 
 	const {
 		children,
