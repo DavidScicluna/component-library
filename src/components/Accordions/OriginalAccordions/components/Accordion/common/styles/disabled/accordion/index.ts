@@ -8,7 +8,7 @@ export default ({ theme }: AccordionDisabledStylingProps): Style => {
 	const border = config.border;
 
 	return {
-		cursor: 'not-allowed',
+		cursor: 'default',
 		pointerEvents: 'none',
 
 		opacity: 0.5,

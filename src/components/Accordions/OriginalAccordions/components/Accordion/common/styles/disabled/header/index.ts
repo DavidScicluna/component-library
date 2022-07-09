@@ -1,6 +1,6 @@
 import { Style } from '../../../../../../../../../common/types';
 
 export default (): Style => ({
-	cursor: 'not-allowed',
+	cursor: 'default',
 	pointerEvents: 'none'
 });

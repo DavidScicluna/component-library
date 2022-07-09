@@ -4,7 +4,7 @@ import { Style } from '../../../../../../../common/types';
 import { isLoading as defaultIsLoading } from '../../../../common/data/defaultPropValues';
 
 export default ({ isLoading = defaultIsLoading }: ButtonDisabledStylingProps): Style => ({
-	cursor: 'not-allowed',
+	cursor: 'default',
 	pointerEvents: 'none',
 
 	opacity: isLoading ? 1 : 0.5
