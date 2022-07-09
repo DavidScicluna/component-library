@@ -1,6 +1,12 @@
 import fallback from './common/assets/fallback';
-import { useTheme } from './common/hooks';
-import { checkIsTouchDevice, convertREMToPixels, convertStringToNumber } from './common/utils';
+import { useOs, useTheme } from './common/hooks';
+import {
+	getOS,
+	checkIsTouchDevice,
+	convertREMToPixels,
+	convertStringToNumber,
+	convertEasingsToArray
+} from './common/utils';
 import { getHue, getColor } from './common/utils/color';
 import { AccordionsColor } from './components/Accordions/common/types';
 import DummyAccordions from './components/Accordions/DummyAccordions';
@@ -178,6 +184,11 @@ import { SkeletonColor, SkeletonProps, SkeletonVariant } from './components/Skel
 import TabBar from './components/TabBar';
 import Collapse from './components/Transitions/Collapse';
 import { CollapseProps } from './components/Transitions/Collapse/types';
+import {
+	getDuration as getTransitionDuration,
+	getEasings as getTransitionEasings,
+	getConfig as getTransitionConfig
+} from './components/Transitions/common/utils';
 import Fade from './components/Transitions/Fade';
 import { FadeProps } from './components/Transitions/Fade/types';
 import ScaleFade from './components/Transitions/ScaleFade';
@@ -236,18 +247,23 @@ export type { NonNullable, Style, Orientation } from './common/types';
 export type { Icon as IconType } from './common/types/icons';
 
 // Hooks
-export { useTheme };
+export { useOs, useTheme };
 
 // Assets
 export const assets = { fallback };
 
 // Utils
 export const utils = {
+	getOS,
 	checkIsTouchDevice,
 	convertREMToPixels,
 	convertStringToNumber,
+	convertEasingsToArray,
 	getHue,
-	getColor
+	getColor,
+	getTransitionDuration,
+	getTransitionEasings,
+	getTransitionConfig
 };
 
 // Theme
