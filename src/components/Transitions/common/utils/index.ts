@@ -3,9 +3,13 @@ import { Transition } from 'framer-motion';
 import { convertEasingsToArray, convertStringToNumber } from '../../../../common/utils';
 import { Theme, Duration, Ease } from '../../../../theme/types';
 
-type GetDurationProps = { theme: Theme; duration?: Duration };
+type GetDelayDurationProps = { theme: Theme; duration?: Duration };
 
-export const getDuration = ({ theme, duration = 'normal' }: GetDurationProps): number => {
+export const getDelay = ({ theme, duration = 'normal' }: GetDelayDurationProps): number => {
+	return convertStringToNumber(theme.transition.duration[duration], 'ms') / 1000;
+};
+
+export const getDuration = ({ theme, duration = 'normal' }: GetDelayDurationProps): number => {
 	return convertStringToNumber(theme.transition.duration[duration], 'ms') / 1000;
 };
 

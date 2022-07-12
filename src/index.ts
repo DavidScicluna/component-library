@@ -80,7 +80,7 @@ import { IconButtonProps, IconButtonRef } from './components/Clickable/IconButto
 import { LinkProps } from './components/Clickable/Link/common/types';
 import ExternalLink from './components/Clickable/Link/External';
 import InternalLink from './components/Clickable/Link/Internal';
-import { InternalProps } from './components/Clickable/Link/Internal/types';
+import { InternalProps as InternalLinkProps } from './components/Clickable/Link/Internal/types';
 import Badge from './components/DataDisplay/Badge';
 import BadgeIcon from './components/DataDisplay/Badge/components/BadgeIcon';
 import { BadgeIconProps } from './components/DataDisplay/Badge/components/BadgeIcon/types';
@@ -185,6 +185,7 @@ import TabBar from './components/TabBar';
 import Collapse from './components/Transitions/Collapse';
 import { CollapseProps } from './components/Transitions/Collapse/types';
 import {
+	getDelay as getTransitionDelay,
 	getDuration as getTransitionDuration,
 	getEasings as getTransitionEasings,
 	getConfig as getTransitionConfig
@@ -261,6 +262,7 @@ export const utils = {
 	convertEasingsToArray,
 	getHue,
 	getColor,
+	getTransitionDelay,
 	getTransitionDuration,
 	getTransitionEasings,
 	getTransitionConfig
@@ -377,7 +379,7 @@ export type {
 	IconButtonProps,
 	IconButtonRef,
 	LinkProps,
-	InternalProps,
+	InternalLinkProps,
 	ButtonColor,
 	DummyButtonProps,
 	ButtonProps,
