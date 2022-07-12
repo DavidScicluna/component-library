@@ -4,6 +4,9 @@ import transition from './foundations/transition';
 
 const styles: Styles = {
 	global: (props: Styles['global']) => ({
+		'html': {
+			scrollBehavior: 'smooth'
+		},
 		'body': {
 			color: mode('gray.900', 'gray.50')(props),
 			background: mode('gray.50', 'gray.900')(props),

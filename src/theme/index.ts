@@ -6,7 +6,7 @@ import styles from './styles';
 const config: ThemeConfig = {
 	cssVarPrefix: 'ds-cl',
 	initialColorMode: 'light',
-	useSystemColorMode: true
+	useSystemColorMode: false
 };
 
 const theme = {
