@@ -1,16 +1,6 @@
-import { ColorMode } from '@chakra-ui/react';
-
 import { memoize } from 'lodash';
 
 import { OS } from '../types';
-
-export const getColorMode = (): ColorMode => {
-	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-		return 'dark';
-	} else {
-		return 'light';
-	}
-};
 
 /**
  * This method will get the OS type of the user's device
