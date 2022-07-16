@@ -1,7 +1,4 @@
 import { Style } from '../../../../../../../common/types';
-import { checkIsTouchDevice } from '../../../../../../../common/utils';
-
-const isTouchDevice: boolean = checkIsTouchDevice();
 
 export default (): Style => ({
 	'cursor': 'pointer',
@@ -14,26 +11,21 @@ export default (): Style => ({
 	'maxWidth': 'none',
 	'maxHeight': 'none',
 
+	'pointerEvents': 'auto',
+
 	'userSelect': 'none',
 
 	'opacity': 1,
 
+	'flex': 1,
+
+	'p': 1.5,
+
 	'border': '0 solid transparent',
 
-	'outline': !isTouchDevice ? '0px transparent' : 'none !important',
+	'outline': 'none !important',
 
 	'WebkitTapHighlightColor': 'transparent',
 
-	'&:focus:not(:focus-visible)': {
-		outline: !isTouchDevice ? '0px transparent' : 'none !important'
-	},
-
-	'&:focus': {
-		boxShadow: 'none',
-		outline: !isTouchDevice ? '0px transparent' : 'none !important'
-	},
-
-	'&:active': {
-		outline: !isTouchDevice ? '0px transparent' : 'none !important'
-	}
+	'&:focus': { boxShadow: 'none' }
 });
