@@ -16,8 +16,8 @@ import { DummyAccordionHeaderProps } from './components/Accordions/DummyAccordio
 import { DummyAccordionProps } from './components/Accordions/DummyAccordions/components/DummyAccordion/types';
 import DummyAccordionsPanel from './components/Accordions/DummyAccordions/components/DummyAccordionsPanel';
 import { DummyAccordionsPanelProps } from './components/Accordions/DummyAccordions/components/DummyAccordionsPanel/types';
-import DummyQuickToggles from './components/Accordions/DummyAccordions/components/DummyQuickToggles';
-import { DummyQuickTogglesProps } from './components/Accordions/DummyAccordions/components/DummyQuickToggles/types';
+import DummyAccordionsQuickToggles from './components/Accordions/DummyAccordions/components/DummyQuickToggles';
+import { DummyQuickTogglesProps as DummyAccordionsQuickTogglesProps } from './components/Accordions/DummyAccordions/components/DummyQuickToggles/types';
 import { DummyAccordionsContext, DummyAccordionsProps } from './components/Accordions/DummyAccordions/types';
 import Accordions from './components/Accordions/OriginalAccordions';
 import Accordion from './components/Accordions/OriginalAccordions/components/Accordion';
@@ -182,6 +182,8 @@ import { TooltipColor, TooltipProps, TooltipRef } from './components/Overlay/Too
 import Skeleton from './components/Skeleton';
 import { SkeletonColor, SkeletonProps, SkeletonVariant } from './components/Skeleton/types';
 import TabBar from './components/TabBar';
+import { Tab } from './components/TabBar/components/Tab/types';
+import { TabBarColor, TabBarContext, TabBarDirection, TabBarProps, TabBarRef } from './components/TabBar/types';
 import Collapse from './components/Transitions/Collapse';
 import { CollapseProps } from './components/Transitions/Collapse/types';
 import {
@@ -277,7 +279,7 @@ export {
 	DummyAccordion,
 	DummyAccordionHeader,
 	DummyAccordionsPanel,
-	DummyQuickToggles,
+	DummyAccordionsQuickToggles,
 	Accordions,
 	Accordion,
 	AccordionBody,
@@ -344,7 +346,7 @@ export type {
 	DummyAccordionHeaderProps,
 	DummyAccordionProps,
 	DummyAccordionsPanelProps,
-	DummyQuickTogglesProps,
+	DummyAccordionsQuickTogglesProps,
 	DummyAccordionsContext,
 	DummyAccordionsProps,
 	AccordionBodyProps,
@@ -459,6 +461,12 @@ export type {
 	SkeletonColor,
 	SkeletonProps,
 	SkeletonVariant,
+	Tab,
+	TabBarColor,
+	TabBarContext,
+	TabBarDirection,
+	TabBarProps,
+	TabBarRef,
 	CollapseProps,
 	FadeProps,
 	ScaleFadeProps,

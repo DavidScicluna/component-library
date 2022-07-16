@@ -4,6 +4,8 @@ import { Tab } from './components/Tab/types';
 
 import { Style } from '../../common/types';
 import {
+	BoxMargin,
+	BoxPadding,
 	BoxColor,
 	BoxGradient,
 	BoxTypography,
@@ -19,14 +21,14 @@ import {
 } from '../../common/types/box';
 import { Color } from '../../theme/types';
 
-export type TabBarRef = HTMLDivElement | null;
-
 export type TabBarColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 
 export type TabBarDirection = 'top' | 'bottom';
 
 type Omitted =
 	// CUI Box Props
+	| BoxMargin
+	| BoxPadding
 	| BoxColor
 	| BoxGradient
 	| BoxTypography
@@ -57,3 +59,7 @@ export type TabBarProps = {
 	onChange: (index: number) => void;
 	sx?: Style;
 } & Omit<StackProps, Omitted>;
+
+export type TabBarRef = HTMLDivElement | null;
+
+export type TabBarContext = Pick<TabBarProps, 'color' | 'colorMode' | 'direction'>;
