@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import { FC, isValidElement } from 'react';
 
 import { useColorMode, Link as CUILink } from '@chakra-ui/react';
 
-import { isString, merge } from 'lodash';
+import { merge } from 'lodash';
 import { Link as RRDLink } from 'react-router-dom';
 
 import { InternalProps } from './types';
@@ -30,7 +30,7 @@ const Internal: FC<InternalProps> = (props) => {
 		...rest
 	} = props;
 
-	const style = useStyles({ theme, color, colorMode, isFullWidth, isString: isString(children) });
+	const style = useStyles({ theme, color, colorMode, isFullWidth, isString: isValidElement(children) });
 
 	return (
 		<CUILink
