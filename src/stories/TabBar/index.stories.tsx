@@ -41,8 +41,6 @@ const tabs: Tab[] = range(0, 5).map((_dummy, index) => {
 	};
 });
 
-console.log(tabs);
-
 export default {
 	title: 'TabBar',
 	component: TabBarComponent,
@@ -63,8 +61,6 @@ export default {
 			control: 'select'
 		},
 		colorMode: { ...controls.theme.colorMode },
-		padding: { ...controls.theme.padding, defaultValue: 2 },
-		margin: { ...controls.theme.margin },
 		direction: {
 			name: 'Direction',
 			type: 'string',
