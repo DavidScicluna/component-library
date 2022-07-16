@@ -1,9 +1,5 @@
 import { ReactNode } from 'react';
 
-import { ColorMode } from '@chakra-ui/react';
-
-import { TabBarColor } from '../../types';
-
 export type RenderProps = {
 	width?: string;
 	height?: string;
@@ -16,9 +12,7 @@ export type Tab = {
 	onClick?: () => void;
 };
 
-export type TabProps = {
-	color: TabBarColor;
-	colorMode?: ColorMode;
+export type TabProps = Tab & {
 	isActive?: boolean;
 	onClick: () => void;
-} & Tab;
+};
