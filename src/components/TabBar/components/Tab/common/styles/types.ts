@@ -1,12 +1,11 @@
 import { Style } from '../../../../../../common/types';
 import { Theme } from '../../../../../../theme/types';
+import { TabBarProps } from '../../../../types';
 import { TabProps } from '../../types';
 
-type Picked = 'color' | 'colorMode' | 'isActive';
-
-export type TabStyleProps = {
+export type TabStyleProps = Pick<TabProps, 'isActive'> & {
 	theme: Theme;
-} & Pick<TabProps, Picked>;
+} & Pick<TabBarProps, 'color' | 'colorMode'>;
 
 export type TabStyleReturn = {
 	tab: Style;
