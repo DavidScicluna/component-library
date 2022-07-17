@@ -9,7 +9,8 @@ import { LinkStyleProps, LinkStyleReturn } from './types';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
-	isFullWidth as defaultFullWidth
+	isFullWidth as defaultFullWidth,
+	hasUnderline as defaultHasUnderline
 } from '../data/defaultPropValues';
 
 export default memoize((props: LinkStyleProps): LinkStyleReturn => {
@@ -18,13 +19,16 @@ export default memoize((props: LinkStyleProps): LinkStyleReturn => {
 		color = defaultColor,
 		colorMode = defaultColorMode,
 		isFullWidth = defaultFullWidth,
-		isString = false
+		hasUnderline = defaultHasUnderline
 	} = props;
 
 	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
-		link: merge(link({ theme, isFullWidth }), isString && color !== 'transparent' ? scheme({ theme, color }) : {}),
+		link: merge(
+			link({ theme, isFullWidth }),
+			hasUnderline && color !== 'transparent' ? scheme({ theme, color }) : {}
+		),
 		disabled: disabled()
 	};
 });
