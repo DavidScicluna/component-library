@@ -4,7 +4,8 @@ import { LinkProps } from '../types';
 
 export type LinkStyleProps = {
 	theme: Theme;
-} & Pick<LinkProps, 'color' | 'colorMode' | 'isFullWidth' | 'hasUnderline'>;
+	isString: boolean;
+} & Pick<LinkProps, 'color' | 'colorMode' | 'isFullWidth'>;
 
 export type LinkStyleReturn = {
 	link: Style;
