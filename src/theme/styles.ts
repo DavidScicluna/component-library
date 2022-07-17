@@ -10,7 +10,9 @@ const styles: Styles = {
 		'body': {
 			color: mode('gray.900', 'gray.50')(props),
 			background: mode('gray.50', 'gray.900')(props),
-			backgroundColor: mode('gray.50', 'gray.900')(props)
+			backgroundColor: mode('gray.50', 'gray.900')(props),
+
+			transition: `${transition.duration.normal} ${transition.easing['ease-in-out']}`
 		},
 		'*, *::before, *::after': {
 			fontFamily: 'body',

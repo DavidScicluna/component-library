@@ -1,9 +1,9 @@
 import { Durations, Easings, Transition } from '../types';
 
 const easings: Easings = {
-	'ease-in': 'cubic-bezier(0.5, 0, 0.75, 0)',
-	'ease-out': 'cubic-bezier(0.25, 1, 0.5, 1)',
-	'ease-in-out': 'cubic-bezier(0.76, 0, 0.24, 1)'
+	'ease-in': 'cubic-bezier(0.55,0.06,0.68,0.19)',
+	'ease-out': 'cubic-bezier(0.22,0.61,0.36,1)',
+	'ease-in-out': 'cubic-bezier(0.65,0.05,0.36,1)'
 };
 
 const durations: Durations = {
