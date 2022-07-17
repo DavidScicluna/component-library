@@ -9,8 +9,7 @@ import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
-	isFullWidth as defaultIsFullWidth,
-	hasUnderline as defaultHasUnderline
+	isFullWidth as defaultIsFullWidth
 } from '../common/data/defaultPropValues';
 import useStyles from '../common/styles';
 import { LinkProps as ExternalProps } from '../common/types';
@@ -25,12 +24,11 @@ const External: FC<ExternalProps> = (props) => {
 		colorMode = colorModeHook,
 		isDisabled = defaultIsDisabled,
 		isFullWidth = defaultIsFullWidth,
-		hasUnderline = defaultHasUnderline,
 		sx,
 		...rest
 	} = props;
 
-	const style = useStyles({ theme, color, colorMode, isFullWidth, hasUnderline });
+	const style = useStyles({ theme, color, colorMode, isFullWidth, isString: typeof children === 'string' });
 
 	return (
 		<CUILink
