@@ -159,6 +159,18 @@ import {
 } from './components/HorizontalScroll/types';
 import Icon from './components/Icon';
 import { IconProps, IconCategory } from './components/Icon/types';
+import SideNavigation from './components/Navigation/SideNavigation';
+import NavGroup from './components/Navigation/SideNavigation/components/NavGroup';
+import { NavGroupProps } from './components/Navigation/SideNavigation/components/NavGroup/types';
+import NavItem from './components/Navigation/SideNavigation/components/NavItem';
+import { NavItem as NavItemType, NavItemProps } from './components/Navigation/SideNavigation/components/NavItem/types';
+import {
+	SideNavigationColor,
+	SideNavigationContext,
+	SideNavigationMode,
+	SideNavigationProps,
+	SideNavigationRef
+} from './components/Navigation/SideNavigation/types';
 import TabBar from './components/Navigation/TabBar';
 import { Tab } from './components/Navigation/TabBar/components/Tab/types';
 import {
@@ -337,6 +349,9 @@ export {
 	ModalFooter,
 	ModalHeader,
 	Skeleton,
+	SideNavigation,
+	NavGroup,
+	NavItem,
 	TabBar,
 	Tooltip,
 	Collapse,
@@ -467,6 +482,14 @@ export type {
 	SkeletonColor,
 	SkeletonProps,
 	SkeletonVariant,
+	NavGroupProps,
+	NavItemType,
+	NavItemProps,
+	SideNavigationColor,
+	SideNavigationContext,
+	SideNavigationMode,
+	SideNavigationProps,
+	SideNavigationRef,
 	Tab,
 	TabBarColor,
 	TabBarContext,
