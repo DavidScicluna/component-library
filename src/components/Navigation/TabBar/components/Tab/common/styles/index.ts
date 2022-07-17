@@ -18,7 +18,7 @@ export default ({
 	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
-		tab: merge(tab(), scheme[isActive ? 'active' : 'tab']({ theme, color })),
+		tab: merge(tab({ theme, isActive }), scheme[isActive ? 'active' : 'tab']({ theme, color })),
 		disabled: merge(disabled(), scheme.disabled({ theme }))
 	};
 };

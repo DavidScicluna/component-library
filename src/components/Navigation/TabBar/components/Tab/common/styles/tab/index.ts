@@ -1,7 +1,10 @@
-import { Style } from '../../../../../../../../common/types';
+import { TabStyleProps } from './types';
 
-export default (): Style => ({
-	'cursor': 'pointer',
+import { Style } from '../../../../../../../../common/types';
+import { isActive as defaultIsActive } from '../../data/defaultPropValues';
+
+export default ({ theme, isActive = defaultIsActive }: TabStyleProps): Style => ({
+	'cursor': isActive ? 'default' : 'pointer',
 
 	'width': '100%',
 	'height': 'auto',
@@ -11,7 +14,7 @@ export default (): Style => ({
 	'maxWidth': 'none',
 	'maxHeight': 'none',
 
-	'pointerEvents': 'auto',
+	'pointerEvents': isActive ? 'none' : 'auto',
 
 	'userSelect': 'none',
 
@@ -19,13 +22,13 @@ export default (): Style => ({
 
 	'flex': 1,
 
-	'p': 1.5,
+	'p': theme.space['1.5'],
 
 	'border': '0 solid transparent',
 
 	'outline': 'none !important',
 
-	'WebkitTapHighlightColor': 'transparent',
+	'WebkitTapHighlightColor': theme.colors.transparent,
 
 	'&:focus': { boxShadow: 'none' }
 });
