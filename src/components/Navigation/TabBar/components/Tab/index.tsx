@@ -8,8 +8,8 @@ import ActiveDot from './components/ActiveDot';
 import { TabProps } from './types';
 
 import { TabBarContext } from '../..';
-import { useTheme } from '../../../../common/hooks';
-import SlideFade from '../../../Transitions/SlideFade';
+import { useTheme } from '../../../../../common/hooks';
+import SlideFade from '../../../../Transitions/SlideFade';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,

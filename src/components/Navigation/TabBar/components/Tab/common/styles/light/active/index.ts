@@ -2,8 +2,8 @@ import { darken } from 'color2k';
 
 import { TabLightActiveStylingProps } from './types';
 
-import { Style } from '../../../../../../../../common/types';
-import { getHue } from '../../../../../../../../common/utils/color';
+import { Style } from '../../../../../../../../../common/types';
+import { getHue } from '../../../../../../../../../common/utils/color';
 import { color as defaultColor } from '../../../../../../common/data/defaultPropValues';
 import { getAmount } from '../../../utils';
 

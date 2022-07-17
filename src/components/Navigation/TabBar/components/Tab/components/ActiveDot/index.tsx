@@ -3,8 +3,8 @@ import { FC, useContext } from 'react';
 import { Box } from '@chakra-ui/react';
 
 import { TabBarContext } from '../../../..';
-import { useTheme } from '../../../../../../common/hooks';
-import { getColor } from '../../../../../../common/utils/color';
+import { useTheme } from '../../../../../../../common/hooks';
+import { getColor } from '../../../../../../../common/utils/color';
 import {
 	colorMode as defaultColorMode,
 	direction as defaultDirection

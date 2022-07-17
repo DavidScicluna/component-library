@@ -159,6 +159,15 @@ import {
 } from './components/HorizontalScroll/types';
 import Icon from './components/Icon';
 import { IconProps, IconCategory } from './components/Icon/types';
+import TabBar from './components/Navigation/TabBar';
+import { Tab } from './components/Navigation/TabBar/components/Tab/types';
+import {
+	TabBarColor,
+	TabBarContext,
+	TabBarDirection,
+	TabBarProps,
+	TabBarRef
+} from './components/Navigation/TabBar/types';
 import ConfirmModal from './components/Overlay/ConfirmModal';
 import ConfirmModalBody from './components/Overlay/ConfirmModal/components/ConfirmModalBody';
 import { ConfirmModalBodyProps } from './components/Overlay/ConfirmModal/components/ConfirmModalBody/types';
@@ -181,9 +190,6 @@ import Tooltip from './components/Overlay/Tooltip';
 import { TooltipColor, TooltipProps, TooltipRef } from './components/Overlay/Tooltip/types';
 import Skeleton from './components/Skeleton';
 import { SkeletonColor, SkeletonProps, SkeletonVariant } from './components/Skeleton/types';
-import TabBar from './components/TabBar';
-import { Tab } from './components/TabBar/components/Tab/types';
-import { TabBarColor, TabBarContext, TabBarDirection, TabBarProps, TabBarRef } from './components/TabBar/types';
 import Collapse from './components/Transitions/Collapse';
 import { CollapseProps } from './components/Transitions/Collapse/types';
 import {
