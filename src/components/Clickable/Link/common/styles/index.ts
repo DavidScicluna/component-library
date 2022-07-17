@@ -24,7 +24,10 @@ export default memoize((props: LinkStyleProps): LinkStyleReturn => {
 	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
-		link: merge(link({ theme, isFullWidth }), isString && color !== 'transparent' ? scheme({ theme, color }) : {}),
+		link: merge(
+			link({ theme, isFullWidth, isString }),
+			isString && color !== 'transparent' ? scheme({ theme, color }) : {}
+		),
 		disabled: disabled()
 	};
 });

@@ -28,6 +28,7 @@ export default ({ theme, color: colorProp }: LinkDarkStylingProps): Style => {
 
 	return {
 		'color': theme.colors[color][shade],
+		'textDecorationColor': theme.colors[color][shade],
 
 		'&:hover': {
 			'color': lighten(theme.colors[color][shade], amount.hover),

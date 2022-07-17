@@ -6,7 +6,7 @@ import { isFullWidth as defaultFullWidth } from '../../data/defaultPropValues';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme, isFullWidth = defaultFullWidth }: LinkStyleProps): Style => ({
+export default ({ theme, isFullWidth = defaultFullWidth, isString = false }: LinkStyleProps): Style => ({
 	'cursor': 'pointer',
 
 	'position': 'relative',
@@ -23,6 +23,8 @@ export default ({ theme, isFullWidth = defaultFullWidth }: LinkStyleProps): Styl
 
 	'userSelect': 'none',
 	'willChange': 'auto',
+
+	'textDecoration': `${isString ? 'underline' : 'none'} !important`,
 
 	'opacity': 1,
 
