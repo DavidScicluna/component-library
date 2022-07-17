@@ -34,7 +34,7 @@ const Tab: FC<TabProps> = (props) => {
 		<VStack
 			aria-disabled={isDisabled}
 			onClick={() => onClick()}
-			spacing={0.5}
+			spacing={0}
 			sx={{ ...style.tab }}
 			_disabled={{ ...style.disabled }}
 		>
