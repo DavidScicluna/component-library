@@ -22,8 +22,8 @@ const ActiveDot: FC = () => {
 			height={theme.space['0.5']}
 			backgroundColor={getColor({ theme, colorMode, type: 'background' })}
 			borderRadius='full'
-			mt={direction === 'bottom' ? 0.5 : 0}
-			mb={direction === 'top' ? 0.5 : 0}
+			mt={direction === 'bottom' ? 1 : 0}
+			mb={direction === 'top' ? 1 : 0}
 			sx={{ transition: 'none' }}
 		/>
 	);
