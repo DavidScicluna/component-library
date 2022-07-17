@@ -8,5 +8,3 @@ export const colorMode: ColorMode = 'light';
 
 export const isDisabled = false;
 export const isFullWidth = false;
-
-export const hasUnderline = false;
