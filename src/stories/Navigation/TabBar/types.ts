@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import TabBar from '../../components/TabBar';
+import TabBar from '../../../components/Navigation/TabBar';
 
 export type Meta = ComponentMeta<typeof TabBar>;
 

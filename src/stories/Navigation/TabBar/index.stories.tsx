@@ -4,13 +4,13 @@ import { range, sample } from 'lodash';
 
 import { Meta, Story } from './types';
 
-import icons from '../../common/data/icons';
-import Icon from '../../components/Icon';
-import TabBarComponent from '../../components/TabBar';
-import { RenderProps as TabRenderProps, Tab } from '../../components/TabBar/components/Tab/types';
-import { TabBarColor, TabBarDirection, TabBarProps } from '../../components/TabBar/types';
-import controls from '../common/controls';
-import parameters from '../common/parameters';
+import icons from '../../../common/data/icons';
+import Icon from '../../../components/Icon';
+import TabBarComponent from '../../../components/Navigation/TabBar';
+import { RenderProps as TabRenderProps, Tab } from '../../../components/Navigation/TabBar/components/Tab/types';
+import { TabBarColor, TabBarDirection, TabBarProps } from '../../../components/Navigation/TabBar/types';
+import controls from '../../common/controls';
+import parameters from '../../common/parameters';
 
 const colorDefaultValue: TabBarColor = 'blue';
 const colorOptions: TabBarColor[] = [
