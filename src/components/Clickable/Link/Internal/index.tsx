@@ -1,4 +1,4 @@
-import { FC, isValidElement } from 'react';
+import { FC } from 'react';
 
 import { useColorMode, Link as CUILink } from '@chakra-ui/react';
 
@@ -30,7 +30,7 @@ const Internal: FC<InternalProps> = (props) => {
 		...rest
 	} = props;
 
-	const style = useStyles({ theme, color, colorMode, isFullWidth, isString: isValidElement(children) });
+	const style = useStyles({ theme, color, colorMode, isFullWidth, isString: typeof children === 'string' });
 
 	return (
 		<CUILink

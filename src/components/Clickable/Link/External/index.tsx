@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { useColorMode, Link as CUILink } from '@chakra-ui/react';
 
-import { isString, merge } from 'lodash';
+import { merge } from 'lodash';
 
 import { useTheme } from '../../../../common/hooks';
 import {
@@ -28,7 +28,7 @@ const External: FC<ExternalProps> = (props) => {
 		...rest
 	} = props;
 
-	const style = useStyles({ theme, color, colorMode, isFullWidth, isString: isString(children) });
+	const style = useStyles({ theme, color, colorMode, isFullWidth, isString: typeof children === 'string' });
 
 	return (
 		<CUILink
