@@ -9,4 +9,5 @@ export type LinkProps = {
 	colorMode?: ColorMode;
 	isDisabled?: boolean;
 	isFullWidth?: boolean;
+	hasUnderline?: boolean;
 } & Omit<CUILinkProps, Omitted>;
