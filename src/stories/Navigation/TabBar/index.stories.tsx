@@ -42,14 +42,14 @@ const tabs: Tab[] = range(0, 5).map((_dummy, index) => {
 });
 
 export default {
-	title: 'TabBar',
+	title: 'Navigation/TabBar',
 	component: TabBarComponent,
 	argTypes: {
 		activeTab: {
 			name: 'Active Tab',
 			defaultValue: 0,
 			// description: '',
-			options: [0, 1, 2, 3],
+			options: [0, 1, 2, 3, 4],
 			control: 'select'
 		},
 		color: {
