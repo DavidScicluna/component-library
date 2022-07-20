@@ -26,8 +26,6 @@ export default ({ theme, isFullWidth = defaultFullWidth, isString = false }: Lin
 
 	'textDecoration': `${isString ? 'underline' : 'none'} !important`,
 
-	'opacity': 1,
-
 	'outline': !isTouchDevice ? '0px transparent' : 'none !important',
 
 	'background': 'none',

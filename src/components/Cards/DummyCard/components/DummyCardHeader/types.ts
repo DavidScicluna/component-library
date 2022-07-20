@@ -6,4 +6,4 @@ export type DummyCardHeaderProps = {
 	hasTitle?: boolean;
 	hasSubtitle?: boolean;
 	actions?: ReactNode;
-} & Omit<StackProps, 'children'>;
+} & Omit<StackProps, 'children' | 'direction'>;

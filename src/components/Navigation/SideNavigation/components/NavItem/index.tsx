@@ -80,7 +80,7 @@ const NavItem: FC<NavItemProps> = (props) => {
 				<Fade in={mode === 'expanded'} unmountOnExit style={{ width: handleTextWidth() }}>
 					<Text
 						align={mode === 'expanded' ? 'left' : 'center'}
-						fontSize='sm'
+						fontSize='md'
 						fontWeight='semibold'
 						textTransform='uppercase'
 						lineHeight='base'

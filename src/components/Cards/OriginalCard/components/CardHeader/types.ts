@@ -6,4 +6,4 @@ export type CardHeaderProps = {
 	renderTitle?: (props: TextProps) => ReactNode;
 	renderSubtitle?: (props: TextProps) => ReactNode;
 	actions?: ReactNode;
-} & Omit<StackProps, 'children'>;
+} & Omit<StackProps, 'children' | 'direction'>;
