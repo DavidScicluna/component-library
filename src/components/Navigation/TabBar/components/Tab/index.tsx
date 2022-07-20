@@ -2,6 +2,8 @@ import { FC, useContext } from 'react';
 
 import { VStack, Text } from '@chakra-ui/react';
 
+import { merge } from 'lodash';
+
 import { isActive as defaultIsActive, isDisabled as defaultIsDisabled } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import ActiveDot from './components/ActiveDot';
@@ -26,22 +28,31 @@ const Tab: FC<TabProps> = (props) => {
 		direction = defaultDirection
 	} = useContext<TabBarContextType>(TabBarContext);
 
-	const { renderIcon, label, isActive = defaultIsActive, isDisabled = defaultIsDisabled, onClick } = props;
+	const {
+		renderIcon,
+		label,
+		isActive = defaultIsActive,
+		isDisabled = defaultIsDisabled,
+		onClick,
+		sx,
+		...rest
+	} = props;
 
 	const style = useStyles({ theme, color, colorMode, isActive });
 
 	return (
 		<VStack
+			{...rest}
 			aria-disabled={isDisabled}
 			onClick={() => onClick()}
 			spacing={0}
-			sx={{ ...style.tab }}
+			sx={{ ...merge(style.tab, sx) }}
 			_disabled={{ ...style.disabled }}
 		>
-			{direction === 'bottom' ? (
+			{direction === 'bottom' && renderIcon ? (
 				renderIcon({ width: theme.fontSizes['4xl'], height: theme.fontSizes['4xl'] })
 			) : (
-				<SlideFade in={isActive} unmountOnExit>
+				<SlideFade in={isActive}>
 					<ActiveDot />
 				</SlideFade>
 			)}
@@ -59,10 +70,10 @@ const Tab: FC<TabProps> = (props) => {
 				{label}
 			</Text>
 
-			{direction === 'top' ? (
+			{direction === 'top' && renderIcon ? (
 				renderIcon({ width: theme.fontSizes['4xl'], height: theme.fontSizes['4xl'] })
 			) : (
-				<SlideFade in={isActive} unmountOnExit>
+				<SlideFade in={isActive}>
 					<ActiveDot />
 				</SlideFade>
 			)}
