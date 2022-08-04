@@ -8,7 +8,6 @@ import formlabel from './formLabel';
 import light from './light';
 import { FormLabelStyleProps, FormLabelStyleReturn } from './types';
 
-
 export default memoize((props: FormLabelStyleProps): FormLabelStyleReturn => {
 	const { theme, colorMode = defaultColorMode, size = defaultSize } = props;
 

@@ -4,7 +4,6 @@ import { VStack } from '@chakra-ui/react';
 
 import { sample } from 'lodash';
 
-
 // import icons from '../../../common/data/icons';
 import CheckboxComponent from '../../../components/Forms/Checkbox';
 import {

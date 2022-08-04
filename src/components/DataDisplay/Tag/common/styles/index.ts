@@ -16,7 +16,6 @@ import light from './light';
 import tag from './tag';
 import { TagStyleProps, TagStyleReturn } from './types';
 
-
 export default memoize((props: TagStyleProps): TagStyleReturn => {
 	const {
 		theme,

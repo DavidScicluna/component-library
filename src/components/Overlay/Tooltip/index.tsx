@@ -16,7 +16,6 @@ import {
 import useStyles from './common/styles';
 import { TooltipRef, TooltipProps } from './types';
 
-
 const isTouchDevice: boolean = checkIsTouchDevice();
 
 const Tooltip = forwardRef<TooltipRef, TooltipProps>(function Tooltip(props, ref): ReactElement {

@@ -4,7 +4,6 @@ import { Center } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
-
 import { DummyAccordionsContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import {

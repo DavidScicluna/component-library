@@ -19,7 +19,6 @@ import {
 } from './common/data/defaultPropValues';
 import { AccordionsContext as AccordionsContextType, AccordionsProps, OpenedAccordions } from './types';
 
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const AccordionsContext = createContext<AccordionsContextType<any>>({
 	opened: defaultOpened,

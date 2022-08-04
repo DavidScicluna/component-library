@@ -4,7 +4,6 @@ import { ModalHeader as CUIModalHeader, HStack, VStack, Center } from '@chakra-u
 
 import { useElementSize } from 'usehooks-ts';
 
-
 import { ModalContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../common/utils';

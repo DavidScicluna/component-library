@@ -5,7 +5,6 @@ import { useColorMode, HStack, Center } from '@chakra-ui/react';
 import { merge } from 'lodash';
 import { useElementSize } from 'usehooks-ts';
 
-
 import { useTheme } from '../../../../common/hooks';
 import Skeleton from '../../../Skeleton';
 import {

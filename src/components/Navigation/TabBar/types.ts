@@ -1,6 +1,5 @@
 import { ColorMode, StackProps } from '@chakra-ui/react';
 
-
 import { Style } from '../../../common/types';
 import {
 	BoxMargin,

@@ -1,4 +1,3 @@
-
 import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
 import { Radius } from '../../../../../../theme/types';

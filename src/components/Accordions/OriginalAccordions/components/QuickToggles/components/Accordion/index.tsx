@@ -4,7 +4,6 @@ import { useConst } from '@chakra-ui/react';
 
 import { Link } from 'react-scroll';
 
-
 import { AccordionsContext } from '../../../..';
 import { useTheme } from '../../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../../common/utils';

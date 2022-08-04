@@ -2,7 +2,6 @@ import { Style } from '../../../../../../common/types';
 
 import { TagStyleProps } from './types';
 
-
 export default ({ theme }: TagStyleProps): Style => ({
 	'borderWidth': 0,
 	'borderStyle': 'solid',

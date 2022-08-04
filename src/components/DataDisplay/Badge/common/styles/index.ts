@@ -13,7 +13,6 @@ import dark from './dark';
 import light from './light';
 import { BadgeStyleProps, BadgeStyleReturn } from './types';
 
-
 export default memoize((props: BadgeStyleProps): BadgeStyleReturn => {
 	const {
 		theme,

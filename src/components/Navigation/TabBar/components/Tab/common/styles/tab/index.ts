@@ -1,4 +1,3 @@
-
 import { Style } from '../../../../../../../../common/types';
 import { isActive as defaultIsActive } from '../../data/defaultPropValues';
 

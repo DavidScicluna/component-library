@@ -4,7 +4,6 @@ import { VStack, Text } from '@chakra-ui/react';
 
 import { range } from 'lodash';
 
-
 import {
 	CardColor,
 	CardVariant,

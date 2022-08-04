@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { range } from 'lodash';
 
-
 import {
 	AccordionsColor,
 	DummyAccordionsProps,

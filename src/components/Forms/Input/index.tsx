@@ -36,7 +36,6 @@ import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
 import { InputProps, InputRef, InputPanelRenderProps, Event } from './types';
 
-
 const Input = (props: InputProps): ReactElement => {
 	const theme = useTheme();
 	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();

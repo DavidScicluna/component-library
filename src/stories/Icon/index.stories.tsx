@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { sample } from 'lodash';
 
-
 import { IconProps, IconCategory, IconType, Icon as IconComponent } from '../..';
 import icons from '../../common/data/icons';
 import controls from '../common/controls';

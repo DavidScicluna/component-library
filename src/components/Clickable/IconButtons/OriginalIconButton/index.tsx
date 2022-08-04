@@ -19,7 +19,6 @@ import useStyles from './common/styles';
 import Spinner from './components/Spinner';
 import { IconButtonRef, IconButtonProps } from './types';
 
-
 const IconButton = forwardRef<IconButtonRef, IconButtonProps>(function IconButton(props, ref): ReactElement {
 	const theme = useTheme();
 	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();

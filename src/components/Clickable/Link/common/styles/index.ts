@@ -12,7 +12,6 @@ import light from './light';
 import link from './link';
 import { LinkStyleProps, LinkStyleReturn } from './types';
 
-
 export default memoize((props: LinkStyleProps): LinkStyleReturn => {
 	const {
 		theme,

@@ -2,7 +2,6 @@ import { FC, useCallback } from 'react';
 
 import { SpinnerCircularFixed } from 'spinners-react';
 
-
 import { useTheme } from '../../../../../../common/hooks';
 import { getColor } from '../../../../../../common/utils/color';
 import {

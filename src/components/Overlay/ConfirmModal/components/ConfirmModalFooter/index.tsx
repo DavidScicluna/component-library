@@ -2,7 +2,6 @@ import { FC, useContext } from 'react';
 
 import { ModalFooter, HStack } from '@chakra-ui/react';
 
-
 import { ConfirmModalContext } from '../..';
 import { colorMode as defaultColorMode, spacing as defaultSpacing } from '../../common/data/defaultPropValues';
 import { ConfirmModalContext as ConfirmModalContextType } from '../../types';

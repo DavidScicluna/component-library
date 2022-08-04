@@ -2,7 +2,6 @@ import { FC, useContext, useCallback } from 'react';
 
 import { merge } from 'lodash';
 
-
 import { BadgeContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import Icon from '../../../../Icon';

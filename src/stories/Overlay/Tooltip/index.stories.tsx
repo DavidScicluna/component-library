@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { Center } from '@chakra-ui/react';
 
-
 import { TooltipColor, TooltipProps, Tooltip as TooltipComponent, DummyButton } from '../../..';
 import {
 	color as defaultColor,

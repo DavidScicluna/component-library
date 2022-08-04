@@ -18,7 +18,6 @@ import {
 	HorizontalScrollProps
 } from './types';
 
-
 export const HorizontalScrollContext = createContext<HorizontalScrollContextType>({
 	colorMode: defaultColorMode,
 	isDisabled: defaultIsDisabled

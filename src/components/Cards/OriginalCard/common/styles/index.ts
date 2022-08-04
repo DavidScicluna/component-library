@@ -16,7 +16,6 @@ import disabled from './disabled';
 import light from './light';
 import { CardStyleProps, CardStyleReturn } from './types';
 
-
 export default memoize((props: CardStyleProps): CardStyleReturn => {
 	const {
 		theme,

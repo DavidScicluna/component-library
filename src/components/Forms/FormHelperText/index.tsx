@@ -18,7 +18,6 @@ import {
 import useStyles from './common/styles';
 import { FormHelperTextProps } from './types';
 
-
 const FormHelperText: FC<FormHelperTextProps> = (props) => {
 	const theme = useTheme();
 
@@ -42,7 +41,7 @@ const FormHelperText: FC<FormHelperTextProps> = (props) => {
 			aria-readonly={isReadOnly}
 			sx={merge(style.formHelperText, sx)}
 			_disabled={style.disabled}
-			_readOnly={style.readonly}
+			_readOnly={style.readOnly}
 		>
 			{children}
 		</CUIFormHelperText>

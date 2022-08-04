@@ -2,7 +2,6 @@ import { FC, useContext } from 'react';
 
 import { Text } from '@chakra-ui/react';
 
-
 import { ConfirmModalContext } from '../..';
 import { getHue } from '../../../../../common/utils/color';
 import { colorMode as defaultColorMode } from '../../common/data/defaultPropValues';

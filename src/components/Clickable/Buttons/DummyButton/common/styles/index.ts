@@ -12,7 +12,6 @@ import dark from './dark';
 import light from './light';
 import { DummyButtonStyleProps, DummyButtonStyleReturn } from './types';
 
-
 export default memoize((props: DummyButtonStyleProps): DummyButtonStyleReturn => {
 	const {
 		theme,

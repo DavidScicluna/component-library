@@ -7,7 +7,6 @@ import { capitalize } from 'lodash';
 import merge from 'lodash/merge';
 import { useDebounce, useElementSize } from 'usehooks-ts';
 
-
 import { HorizontalScrollContext } from '../..';
 import { useTheme } from '../../../../common/hooks';
 import { getColor } from '../../../../common/utils/color';

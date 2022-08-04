@@ -7,7 +7,6 @@ import light from './light';
 import tooltip from './tooltip';
 import { TooltipStyleProps, TooltipStyleReturn } from './types';
 
-
 export default memoize((props: TooltipStyleProps): TooltipStyleReturn => {
 	const { theme, color = defaultColor, colorMode = defaultColorMode } = props;
 

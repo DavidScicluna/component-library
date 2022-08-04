@@ -13,7 +13,6 @@ import light from './light';
 import navItem from './navItem';
 import { NavItemStyleProps, NavItemStyleReturn } from './types';
 
-
 export default memoize((props: NavItemStyleProps): NavItemStyleReturn => {
 	const {
 		theme,

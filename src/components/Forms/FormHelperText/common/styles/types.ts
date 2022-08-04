@@ -11,5 +11,5 @@ export type FormHelperTextStyleProps = {
 export type FormHelperTextStyleReturn = {
 	formHelperText: Style;
 	disabled: Style;
-	readonly: Style;
+	readOnly: Style;
 };

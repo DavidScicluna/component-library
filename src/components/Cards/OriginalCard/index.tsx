@@ -25,7 +25,6 @@ import useStyles from './common/styles';
 import CardDivider from './components/CardDivider';
 import { CardContext as CardContextType, CardRef, CardProps } from './types';
 
-
 export const CardContext = createContext<CardContextType>({
 	color: defaultColor,
 	colorMode: defaultColorMode,

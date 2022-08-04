@@ -4,7 +4,6 @@ import { Style } from '../../../../../../../common/types';
 
 import { ArrowDarkStyleProps } from './types';
 
-
 export default ({ theme, direction }: ArrowDarkStyleProps): Style => ({
 	// backgroundColor: theme.colors.gray[900],
 	background: `linear-gradient(${direction === 'left' ? 90 : 270}deg, ${transparentize(

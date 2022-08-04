@@ -1,4 +1,3 @@
-
 import { Style } from '../../../../../../../common/types';
 import { isLoading as defaultIsLoading } from '../../../../common/data/defaultPropValues';
 

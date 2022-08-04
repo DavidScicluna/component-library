@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { sample } from 'lodash';
 
-
 import { BadgeColor, BadgeProps, BadgeVariant, Badge as BadgeComponent, BadgeIcon, BadgeLabel } from '../../..';
 import icons from '../../../common/data/icons';
 import { Icon } from '../../../common/types/icons';

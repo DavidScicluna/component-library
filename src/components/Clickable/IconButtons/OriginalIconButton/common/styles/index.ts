@@ -16,7 +16,6 @@ import iconbutton from './iconbutton';
 import light from './light';
 import { IconButtonStyleProps, IconButtonStyleReturn } from './types';
 
-
 export default memoize((props: IconButtonStyleProps): IconButtonStyleReturn => {
 	const {
 		theme,

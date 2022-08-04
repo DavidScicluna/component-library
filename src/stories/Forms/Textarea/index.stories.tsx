@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { sample } from 'lodash';
 
-
 import icons from '../../../common/data/icons';
 import TextareaComponent from '../../../components/Forms/Textarea';
 import {

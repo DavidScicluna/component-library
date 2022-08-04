@@ -12,7 +12,6 @@ import {
 
 import { useTimeout } from 'usehooks-ts';
 
-
 import { useTheme } from '../../../common/hooks';
 import { convertStringToNumber } from '../../../common/utils';
 import { getHue } from '../../../common/utils/color';

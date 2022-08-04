@@ -4,7 +4,6 @@ import { useConst, SlideFade as CUISlideFade } from '@chakra-ui/react';
 
 import { Transition } from 'framer-motion';
 
-
 import { useTheme } from '../../../common/hooks';
 import { getConfig } from '../common/utils';
 

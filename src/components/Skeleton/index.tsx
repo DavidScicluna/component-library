@@ -6,7 +6,6 @@ import { AnimatePresence } from 'framer-motion';
 import { round } from 'lodash';
 import { useElementSize } from 'usehooks-ts';
 
-
 import { useTheme } from '../../common/hooks';
 import { convertStringToNumber } from '../../common/utils';
 import { getColor } from '../../common/utils/color';

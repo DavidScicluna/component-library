@@ -8,7 +8,6 @@ import pseudo from './pseudo';
 import transition from './transition';
 import { ArrowStyleProps, ArrowStyleReturn } from './types';
 
-
 export default memoize(({ theme, colorMode = defaultColorMode, direction }: ArrowStyleProps): ArrowStyleReturn => {
 	const scheme = colorMode === 'light' ? light : dark;
 

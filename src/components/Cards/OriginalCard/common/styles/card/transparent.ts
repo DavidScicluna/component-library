@@ -1,4 +1,3 @@
-
 import { Style } from '../../../../../../common/types';
 import { Radius } from '../../../../../../theme/types';
 

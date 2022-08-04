@@ -4,7 +4,6 @@ import { VStack, Text } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
-
 import { TabBarContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import SlideFade from '../../../../Transitions/SlideFade';

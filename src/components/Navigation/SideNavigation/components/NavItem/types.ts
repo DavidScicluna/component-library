@@ -4,7 +4,6 @@ import { Location } from 'react-router-dom';
 
 import { StackProps } from '@chakra-ui/react';
 
-
 import {
 	BoxMargin,
 	BoxPadding,

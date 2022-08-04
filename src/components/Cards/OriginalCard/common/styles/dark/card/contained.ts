@@ -1,6 +1,5 @@
 import { darken, lighten } from 'color2k';
 
-
 import { Style } from '../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../common/utils';
 import { getHue } from '../../../../../../../common/utils/color';

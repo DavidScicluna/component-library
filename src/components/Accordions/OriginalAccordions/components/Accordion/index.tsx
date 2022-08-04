@@ -7,7 +7,6 @@ import { Transition } from 'framer-motion';
 import { merge } from 'lodash';
 import { useInView } from 'react-cool-inview';
 
-
 import { AccordionsContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import Collapse from '../../../../Transitions/Collapse';

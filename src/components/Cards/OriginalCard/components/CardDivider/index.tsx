@@ -1,6 +1,5 @@
 import { FC, useContext, useCallback } from 'react';
 
-
 import { CardContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import { GetColorProps, getColor } from '../../../../../common/utils/color';

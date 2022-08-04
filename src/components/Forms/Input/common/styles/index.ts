@@ -18,7 +18,6 @@ import light from './light';
 import readOnly from './readOnly';
 import { InputStyleProps, InputStyleReturn } from './types';
 
-
 export default memoize((props: InputStyleProps): InputStyleReturn => {
 	const {
 		theme,

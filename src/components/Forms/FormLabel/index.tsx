@@ -16,7 +16,6 @@ import {
 import useStyles from './common/styles';
 import { FormLabelProps } from './types';
 
-
 const FormLabel: FC<FormLabelProps> = (props) => {
 	const theme = useTheme();
 

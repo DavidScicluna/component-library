@@ -4,7 +4,6 @@ import { Center } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
-
 import { BadgeContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import { size as defaultSize } from '../../common/data/defaultPropValues';

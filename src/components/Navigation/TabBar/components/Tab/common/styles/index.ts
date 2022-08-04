@@ -9,7 +9,6 @@ import light from './light';
 import tab from './tab';
 import { TabStyleProps, TabStyleReturn } from './types';
 
-
 export default ({
 	theme,
 	color = defaultColor,

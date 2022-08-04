@@ -2,7 +2,6 @@ import { FC, useContext } from 'react';
 
 import { VStack, Text } from '@chakra-ui/react';
 
-
 import { SideNavigationContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import { getColor } from '../../../../../common/utils/color';

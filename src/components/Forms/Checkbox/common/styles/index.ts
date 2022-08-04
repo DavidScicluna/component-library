@@ -18,7 +18,6 @@ import light from './light';
 import readOnly from './readOnly';
 import { CheckboxStyleProps, CheckboxStyleReturn } from './types';
 
-
 export default memoize((props: CheckboxStyleProps): CheckboxStyleReturn => {
 	const {
 		theme,

@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { range, sample } from 'lodash';
 
-
 import icons from '../../../common/data/icons';
 import Icon from '../../../components/Icon';
 import TabBarComponent from '../../../components/Navigation/TabBar';

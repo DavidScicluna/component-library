@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { Box, Text } from '@chakra-ui/react';
 
-
 import { Modal as ModalComponent, ModalProps, ModalBody, ModalFooter, ModalHeader } from '../../..';
 import {
 	isOpen as defaultIsOpen,

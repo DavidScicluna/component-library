@@ -6,7 +6,6 @@ import { useTheme } from '../../../../common/hooks';
 
 import { ChildProps } from './types';
 
-
 const Child: FC<ChildProps> = ({ children, renderDivider, isLast = false }) => {
 	const theme = useTheme();
 

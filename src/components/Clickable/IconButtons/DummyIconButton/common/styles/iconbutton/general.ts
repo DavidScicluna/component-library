@@ -1,4 +1,3 @@
-
 import { Style } from '../../../../../../../common/types';
 import { size as defaultSize } from '../../../../common/data/defaultPropValues';
 import { getIconFontSize, getSizeConfig } from '../../../../common/utils';

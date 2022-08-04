@@ -4,7 +4,6 @@ import { useColorMode } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
-
 import { useTheme } from '../../../../common/hooks';
 import Skeleton from '../../../Skeleton';
 import {

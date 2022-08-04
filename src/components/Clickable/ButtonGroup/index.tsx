@@ -12,7 +12,6 @@ import {
 } from './common/data/defaultPropValues';
 import { ButtonGroupRef, ButtonGroupProps } from './types';
 
-
 const ButtonGroup = forwardRef<ButtonGroupRef, ButtonGroupProps>(function ButtonGroup(props, ref): ReactElement {
 	const theme = useTheme();
 

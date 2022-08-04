@@ -4,7 +4,6 @@ import { useConst, Collapse as CUICollapse } from '@chakra-ui/react';
 
 import { Transition } from 'framer-motion';
 
-
 import { useTheme } from '../../../common/hooks';
 import { getConfig } from '../common/utils';
 

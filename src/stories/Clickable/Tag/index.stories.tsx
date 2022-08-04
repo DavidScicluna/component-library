@@ -1,6 +1,5 @@
 import { ReactElement } from 'react';
 
-
 import { TagColor, TagProps, TagVariant, Tag as TagComponent, TagDeleteButton, TagLabel } from '../../..';
 import {
 	color as defaultColor,

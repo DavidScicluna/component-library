@@ -15,7 +15,6 @@ import {
 import Tab from './components/Tab';
 import { TabBarContext as TabBarContextType, TabBarProps } from './types';
 
-
 export const TabBarContext = createContext<TabBarContextType>({
 	color: defaultColor,
 	colorMode: defaultColorMode,

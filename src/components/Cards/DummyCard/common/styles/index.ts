@@ -13,7 +13,6 @@ import dark from './dark';
 import light from './light';
 import { DummyCardStyleProps, DummyCardStyleReturn } from './types';
 
-
 export default memoize((props: DummyCardStyleProps): DummyCardStyleReturn => {
 	const {
 		theme,

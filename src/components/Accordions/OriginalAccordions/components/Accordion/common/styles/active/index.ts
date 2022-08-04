@@ -1,4 +1,3 @@
-
 import { Style } from '../../../../../../../../common/types';
 import { getSizeConfig } from '../../utils';
 

@@ -21,7 +21,6 @@ import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
 import { TagContext as TagContextType, TagRef, TagProps } from './types';
 
-
 export const TagContext = createContext<TagContextType>({
 	color: defaultColor,
 	colorMode: defaultColorMode,

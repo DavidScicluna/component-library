@@ -1,6 +1,5 @@
 import { lighten } from 'color2k';
 
-
 import { Style } from '../../../../../../../../common/types';
 import { getHue } from '../../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../../theme/types';

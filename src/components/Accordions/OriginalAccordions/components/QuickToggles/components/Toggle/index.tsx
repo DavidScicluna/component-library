@@ -2,7 +2,6 @@ import { ReactElement, useContext, useCallback } from 'react';
 
 import { useMediaQuery } from '@chakra-ui/react';
 
-
 import { AccordionsContext } from '../../../..';
 import Button from '../../../../../../Clickable/Buttons/OriginalButton';
 import IconButton from '../../../../../../Clickable/IconButtons/OriginalIconButton';

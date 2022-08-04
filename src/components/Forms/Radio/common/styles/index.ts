@@ -18,7 +18,6 @@ import light from './light';
 import readOnly from './readOnly';
 import { RadioStyleProps, RadioStyleReturn } from './types';
 
-
 export default memoize((props: RadioStyleProps): RadioStyleReturn => {
 	const {
 		theme,

@@ -18,7 +18,6 @@ import readOnly from './readOnly';
 import textarea from './textarea';
 import { TextareaStyleProps, TextareaStyleReturn } from './types';
 
-
 export default memoize((props: TextareaStyleProps): TextareaStyleReturn => {
 	const {
 		theme,

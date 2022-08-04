@@ -16,7 +16,6 @@ import disabled from './disabled';
 import light from './light';
 import { ButtonStyleProps, ButtonStyleReturn } from './types';
 
-
 export default memoize((props: ButtonStyleProps): ButtonStyleReturn => {
 	const {
 		theme,

@@ -2,7 +2,6 @@ import { FC, useContext } from 'react';
 
 import { useMediaQuery } from '@chakra-ui/react';
 
-
 import { DummyAccordionsContext } from '../../../..';
 import DummyButton from '../../../../../../Clickable/Buttons/DummyButton';
 import DummyIconButton from '../../../../../../Clickable/IconButtons/DummyIconButton';

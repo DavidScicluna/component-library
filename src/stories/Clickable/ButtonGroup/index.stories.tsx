@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { sample } from 'lodash';
 
-
 import { ButtonGroupProps, ButtonGroupSize, ButtonGroup as ButtonGroupComponent, IconButton, Icon } from '../../..';
 import icons from '../../../common/data/icons';
 import {

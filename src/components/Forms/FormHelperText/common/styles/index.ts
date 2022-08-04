@@ -14,7 +14,6 @@ import formHelperText from './formHelperText';
 import light from './light';
 import { FormHelperTextStyleProps, FormHelperTextStyleReturn } from './types';
 
-
 export default memoize((props: FormHelperTextStyleProps): FormHelperTextStyleReturn => {
 	const {
 		theme,
@@ -33,6 +32,6 @@ export default memoize((props: FormHelperTextStyleProps): FormHelperTextStyleRet
 			scheme.formHelperText({ theme, isError, isWarning, isSuccess })
 		),
 		disabled: disabled(),
-		readonly: scheme.readOnly({ theme })
+		readOnly: scheme.readOnly({ theme })
 	};
 });

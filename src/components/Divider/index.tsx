@@ -2,7 +2,6 @@ import { ReactElement, forwardRef } from 'react';
 
 import { useColorMode, Box } from '@chakra-ui/react';
 
-
 import { useTheme } from '../../common/hooks';
 import { getColor } from '../../common/utils/color';
 

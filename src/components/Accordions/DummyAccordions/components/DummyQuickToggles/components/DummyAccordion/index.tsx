@@ -1,6 +1,5 @@
 import { FC, useContext } from 'react';
 
-
 import { DummyAccordionsContext } from '../../../..';
 import Button from '../../../../../../Clickable/Buttons/OriginalButton';
 import Skeleton from '../../../../../../Skeleton';

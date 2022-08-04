@@ -14,7 +14,6 @@ import {
 import { checkFontStatus } from './common/utils';
 import { IconProps } from './types';
 
-
 const Icon: FC<IconProps> = (props) => {
 	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 

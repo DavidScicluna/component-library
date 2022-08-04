@@ -6,7 +6,6 @@ import theme from '../../theme';
 
 import { ProviderProps } from './types';
 
-
 // Importing Main Fonts (Work Sans & Roboto)
 import '@fontsource/work-sans/100.css';
 import '@fontsource/work-sans/100-italic.css';

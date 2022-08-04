@@ -4,7 +4,6 @@ import { Style } from '../../../../../../../common/types';
 
 import { ArrowLightStyleProps } from './types';
 
-
 export default ({ theme, direction }: ArrowLightStyleProps): Style => ({
 	// backgroundColor: theme.colors.gray[50],
 	background: `linear-gradient(${direction === 'left' ? 90 : 270}deg, ${transparentize(

@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { Box } from '@chakra-ui/react';
 
-
 import {
 	ConfirmModalProps,
 	ConfirmModal as ConfirmModalComponent,

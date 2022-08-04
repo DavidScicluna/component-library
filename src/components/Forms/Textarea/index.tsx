@@ -37,7 +37,6 @@ import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
 import { TextareaProps, TextareaRef, TextareaPanelRenderProps, Event } from './types';
 
-
 const Textarea = (props: TextareaProps): ReactElement => {
 	const theme = useTheme();
 	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();

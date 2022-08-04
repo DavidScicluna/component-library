@@ -21,7 +21,6 @@ import useStyles from './common/styles';
 import Spinner from './components/Spinner';
 import { ButtonRef, ButtonProps } from './types';
 
-
 const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): ReactElement {
 	const theme = useTheme();
 	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();

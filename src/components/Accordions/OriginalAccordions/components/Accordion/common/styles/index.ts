@@ -14,7 +14,6 @@ import disabled from './disabled';
 import light from './light';
 import { AccordionStyleProps, AccordionStyleReturn } from './types';
 
-
 export default memoize(<D>(props: AccordionStyleProps<D>): AccordionStyleReturn => {
 	const {
 		theme,

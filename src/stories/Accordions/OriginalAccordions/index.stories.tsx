@@ -4,7 +4,6 @@ import { VStack, Text } from '@chakra-ui/react';
 
 import { range, toString } from 'lodash';
 
-
 import {
 	AccordionsColor,
 	AccordionsProps,

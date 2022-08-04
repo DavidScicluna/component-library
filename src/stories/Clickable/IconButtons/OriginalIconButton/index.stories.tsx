@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { sample } from 'lodash';
 
-
 import {
 	IconButtonColor,
 	IconButtonProps,

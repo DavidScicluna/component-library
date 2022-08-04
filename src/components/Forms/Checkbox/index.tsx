@@ -4,7 +4,6 @@ import { useColorMode, FormControl, Checkbox as CUICheckbox, VStack, HStack, Cen
 
 import { isEmpty, isNil, merge } from 'lodash';
 
-
 import { useTheme } from '../../../common/hooks';
 import Icon from '../../Icon';
 import Collapse from '../../Transitions/Collapse';

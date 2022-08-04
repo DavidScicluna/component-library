@@ -17,7 +17,6 @@ import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
 import { BadgeContext as BadgeContextType, BadgeRef, BadgeProps } from './types';
 
-
 export const BadgeContext = createContext<BadgeContextType>({
 	color: defaultColor,
 	colorMode: defaultColorMode,

@@ -1,12 +1,10 @@
 import { FC } from 'react';
 
-
 import { Link as RRDLink } from 'react-router-dom';
 
 import { useColorMode, Link as CUILink } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
-
 
 import { useTheme } from '../../../../common/hooks';
 import {

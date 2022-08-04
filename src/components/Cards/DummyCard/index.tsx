@@ -19,7 +19,6 @@ import useStyles from './common/styles';
 import DummyCardDivider from './components/DummyCardDivider';
 import { DummyCardContext as DummyCardContextType, DummyCardRef, DummyCardProps } from './types';
 
-
 export const DummyCardContext = createContext<DummyCardContextType>({
 	color: defaultColor,
 	colorMode: defaultColorMode,

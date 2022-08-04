@@ -6,7 +6,6 @@ import { Transition } from 'framer-motion';
 import { merge } from 'lodash';
 import { useElementSize } from 'usehooks-ts';
 
-
 import { SideNavigationContext } from '../..';
 import { InternalLink, Fade } from '../../../../..';
 import { useTheme } from '../../../../../common/hooks';

@@ -1,4 +1,3 @@
-
 import { Style } from '../../../../../../../common/types';
 import { isFullWidth as defaultIsFullWidth, size as defaultSize } from '../../../../common/data/defaultPropValues';
 import { getSizeConfig } from '../../../../common/utils';

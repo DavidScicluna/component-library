@@ -1,6 +1,5 @@
 import { FC, useContext } from 'react';
 
-
 import { TagContext } from '../..';
 import IconButton from '../../../../Clickable/IconButtons/OriginalIconButton';
 import Icon from '../../../../Icon';

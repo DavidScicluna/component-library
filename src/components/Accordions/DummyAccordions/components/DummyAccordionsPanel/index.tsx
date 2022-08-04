@@ -2,7 +2,6 @@ import { FC, useContext } from 'react';
 
 import { VStack } from '@chakra-ui/react';
 
-
 import { DummyAccordionsContext } from '../..';
 import { spacing as defaultSpacing } from '../../../common/data/defaultPropValues';
 import { DummyAccordionsContext as DummyAccordionsContextType } from '../../types';

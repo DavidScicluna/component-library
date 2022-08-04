@@ -12,7 +12,6 @@ import {
 import { accordions as defaultAccordions } from './common/data/defaultPropValues';
 import { DummyAccordionsContext as DummyAccordionsContextType, DummyAccordionsProps } from './types';
 
-
 export const DummyAccordionsContext = createContext<DummyAccordionsContextType>({
 	accordions: defaultAccordions,
 	color: defaultColor,

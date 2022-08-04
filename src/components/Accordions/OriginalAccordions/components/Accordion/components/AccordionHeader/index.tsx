@@ -4,7 +4,6 @@ import { HStack, VStack, Center } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-
 import { AccordionContext } from '../..';
 import { AccordionsContext } from '../../../..';
 import { useTheme } from '../../../../../../../common/hooks';

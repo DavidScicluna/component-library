@@ -1,4 +1,3 @@
-
 import { Style } from '../../../../../../common/types';
 import { isClickable as defaultIsClickable, size as defaultSize } from '../../data/defaultPropValues';
 import { getSizeConfig } from '../../utils';
