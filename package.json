@@ -21,9 +21,9 @@
 		"build-storybook": "build-storybook"
 	},
 	"dependencies": {
-		"@chakra-ui/react": "^2.2.4",
-		"@chakra-ui/theme-tools": "^2.0.5",
-		"@chakra-ui/utils": "^2.0.4",
+		"@chakra-ui/react": "^2.2.5",
+		"@chakra-ui/theme-tools": "^2.0.6",
+		"@chakra-ui/utils": "^2.0.5",
 		"@emotion/react": "^11.10.0",
 		"@emotion/styled": "^11.10.0",
 		"color2k": "^2.0.0",
@@ -98,5 +98,5 @@
 		"react-router-dom": "^6.3.0"
 	},
 	"license": "MIT",
-	"packageManager": "yarn@3.2.1"
+	"packageManager": "yarn@3.2.2"
 }
