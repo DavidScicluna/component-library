@@ -1,7 +1,8 @@
 import { FC, useContext, useCallback } from 'react';
 
-import { HStack, Center, Text } from '@chakra-ui/react';
+import { useConst, HStack, Center, Text } from '@chakra-ui/react';
 
+import { Transition } from 'framer-motion';
 import { merge } from 'lodash';
 import { useElementSize } from 'usehooks-ts';
 
@@ -13,6 +14,7 @@ import { SideNavigationContext } from '../..';
 import { InternalLink, Fade } from '../../../../..';
 import { useTheme } from '../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../common/utils';
+import { getDelay as getTransitionDelay } from '../../../../Transitions/common/utils';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -48,6 +50,9 @@ const NavItem: FC<NavItemProps> = (props) => {
 
 	const style = useStyles({ theme, color, colorMode, isActive, mode });
 
+	const delay = useConst<number>(getTransitionDelay({ theme, duration: 'ultra-slow' }));
+	const config = useConst<Transition>({ delay });
+
 	const handleTextWidth = useCallback((): string => {
 		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'));
 
@@ -77,18 +82,20 @@ const NavItem: FC<NavItemProps> = (props) => {
 					</Center>
 				)}
 
-				<Fade in={mode === 'expanded'} unmountOnExit style={{ width: handleTextWidth() }}>
-					<Text
-						align={mode === 'expanded' ? 'left' : 'center'}
-						fontSize='md'
-						fontWeight='semibold'
-						textTransform='uppercase'
-						lineHeight='base'
-						letterSpacing='.6px'
-						noOfLines={1}
-					>
-						{title}
-					</Text>
+				<Fade in={mode === 'expanded'} unmountOnExit style={{ flex: 1 }} transition={{ enter: { ...config } }}>
+					<Center width={handleTextWidth()}>
+						<Text
+							align={mode === 'expanded' ? 'left' : 'center'}
+							fontSize='md'
+							fontWeight='semibold'
+							textTransform='uppercase'
+							lineHeight='base'
+							letterSpacing='.6px'
+							noOfLines={1}
+						>
+							{title}
+						</Text>
+					</Center>
 				</Fade>
 
 				{renderRightIcon && (
