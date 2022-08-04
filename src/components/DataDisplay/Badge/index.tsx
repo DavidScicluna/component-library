@@ -4,6 +4,8 @@ import { useColorMode, Badge as CUIBadge, HStack } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
+import { useTheme } from '../../../common/hooks';
+
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -15,7 +17,6 @@ import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
 import { BadgeContext as BadgeContextType, BadgeRef, BadgeProps } from './types';
 
-import { useTheme } from '../../../common/hooks';
 
 export const BadgeContext = createContext<BadgeContextType>({
 	color: defaultColor,

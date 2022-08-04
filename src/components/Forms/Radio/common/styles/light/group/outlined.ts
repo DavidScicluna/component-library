@@ -1,6 +1,5 @@
 import { darken } from 'color2k';
 
-import { RadioLightGroupStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
@@ -11,6 +10,8 @@ import {
 	isWarning as defaultIsWarning
 } from '../../../data/defaultPropValues';
 import { getAmount } from '../../../utils';
+
+import { RadioLightGroupStyleProps } from './types';
 
 export default ({
 	theme,

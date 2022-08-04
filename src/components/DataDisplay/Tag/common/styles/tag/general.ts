@@ -1,4 +1,3 @@
-import { TagStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
@@ -9,6 +8,8 @@ import {
 	size as defaultSize
 } from '../../data/defaultPropValues';
 import { getSizeConfig } from '../../utils';
+
+import { TagStyleProps } from './types';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 

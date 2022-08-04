@@ -1,10 +1,11 @@
 import { lighten, transparentize } from 'color2k';
 
-import { InputDarkGroupStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { getAmount } from '../../../utils';
+
+import { InputDarkGroupStyleProps } from './types';
 
 export default ({ theme }: InputDarkGroupStyleProps): Style => {
 	const amount = getAmount();

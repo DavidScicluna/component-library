@@ -1,8 +1,9 @@
 import { transparentize } from 'color2k';
 
+import { Style } from '../../../../../../../common/types';
+
 import { ArrowDarkStyleProps } from './types';
 
-import { Style } from '../../../../../../../common/types';
 
 export default ({ theme, direction }: ArrowDarkStyleProps): Style => ({
 	// backgroundColor: theme.colors.gray[900],

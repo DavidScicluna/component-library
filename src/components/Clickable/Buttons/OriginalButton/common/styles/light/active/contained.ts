@@ -1,12 +1,13 @@
 import { darken } from 'color2k';
 
-import { ButtonLightActiveStylingProps } from './types';
 
 import { Style } from '../../../../../../../../common/types';
 import { getHue } from '../../../../../../../../common/utils/color';
 import { Color, ColorHues } from '../../../../../../../../theme/types';
 import { color as defaultColor } from '../../../../../common/data/defaultPropValues';
 import { getAmount } from '../../../../../common/utils';
+
+import { ButtonLightActiveStylingProps } from './types';
 
 export default ({ theme, color: colorProp = defaultColor }: ButtonLightActiveStylingProps): Style => {
 	const amount = getAmount();

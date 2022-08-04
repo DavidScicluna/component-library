@@ -2,12 +2,13 @@ import { FC, useContext } from 'react';
 
 import { Text } from '@chakra-ui/react';
 
-import { CheckboxSubtitleProps } from './types';
 
 import { CheckboxContext } from '../..';
 import { getHue } from '../../../../../common/utils/color';
 import { colorMode as defaultColorMode } from '../../common/data/defaultPropValues';
 import { CheckboxContext as CheckboxContextType } from '../../types';
+
+import { CheckboxSubtitleProps } from './types';
 
 const CheckboxSubtitle: FC<CheckboxSubtitleProps> = (props) => {
 	const { colorMode = defaultColorMode } = useContext<CheckboxContextType>(CheckboxContext);

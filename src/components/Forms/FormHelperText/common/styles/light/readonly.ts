@@ -1,7 +1,8 @@
-import { FormHelperTextLightStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { getHue } from '../../../../../../common/utils/color';
+
+import { FormHelperTextLightStyleProps } from './types';
 
 export default ({ theme }: FormHelperTextLightStyleProps): Style => {
 	const shade = getHue({

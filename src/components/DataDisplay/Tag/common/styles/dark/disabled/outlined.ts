@@ -1,10 +1,11 @@
-import { TagDarkDisabledStylingProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../theme/types';
 import { size as defaultSize } from '../../../data/defaultPropValues';
 import { getSizeConfig } from '../../../utils';
+
+import { TagDarkDisabledStylingProps } from './types';
 
 export default ({ theme, size = defaultSize }: TagDarkDisabledStylingProps): Style => {
 	const shade = getHue({

@@ -1,10 +1,11 @@
 import { transparentize } from 'color2k';
 
-import { TextareaDarkReadOnlyStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { getAmount } from '../../../utils';
+
+import { TextareaDarkReadOnlyStyleProps } from './types';
 
 export default ({ theme }: TextareaDarkReadOnlyStyleProps): Style => {
 	const amount = getAmount();

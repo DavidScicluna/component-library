@@ -4,6 +4,9 @@ import { useColorMode, Tooltip as CUITooltip } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
+import { useTheme } from '../../../common/hooks';
+import { checkIsTouchDevice, convertStringToNumber } from '../../../common/utils';
+
 import {
 	arrowSize as defaultArrowSize,
 	color as defaultColor,
@@ -13,8 +16,6 @@ import {
 import useStyles from './common/styles';
 import { TooltipRef, TooltipProps } from './types';
 
-import { useTheme } from '../../../common/hooks';
-import { checkIsTouchDevice, convertStringToNumber } from '../../../common/utils';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 

@@ -1,10 +1,11 @@
 import { darken } from 'color2k';
 
-import { NavItemLightStylingProps } from './types';
 
 import { Style } from '../../../../../../../../../common/types';
 import { getHue } from '../../../../../../../../../common/utils/color';
 import { getAmount } from '../../../utils';
+
+import { NavItemLightStylingProps } from './types';
 
 export default ({ theme }: NavItemLightStylingProps): Style => {
 	const amount = getAmount();

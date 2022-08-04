@@ -4,7 +4,6 @@ import { VStack, Text } from '@chakra-ui/react';
 
 import { range } from 'lodash';
 
-import { Meta, Story } from './types';
 
 import {
 	CardColor,
@@ -31,6 +30,8 @@ import {
 } from '../../../components/Cards/OriginalCard/common/data/defaultPropValues';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
+
+import { Meta, Story } from './types';
 
 const colorOptions: CardColor[] = [
 	'black',

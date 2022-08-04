@@ -1,7 +1,8 @@
-import { CardActiveStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { getSizeConfig } from '../../../../common/utils';
+
+import { CardActiveStyleProps } from './types';
 
 export default ({ theme }: CardActiveStyleProps): Style => {
 	const config = getSizeConfig();

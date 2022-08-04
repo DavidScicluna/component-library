@@ -1,6 +1,7 @@
+import { Style } from '../../../../../../common/types';
+
 import { TagActiveStyleProps } from './types';
 
-import { Style } from '../../../../../../common/types';
 
 export default ({ theme }: TagActiveStyleProps): Style => ({
 	borderTopWidth: 0,

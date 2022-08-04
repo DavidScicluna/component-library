@@ -1,16 +1,17 @@
 import { memoize, merge } from 'lodash';
 
-import dark from './dark';
-import iconbutton from './iconbutton';
-import light from './light';
-import { DummyIconButtonStyleProps, DummyIconButtonStyleReturn } from './types';
-
 import {
 	colorMode as defaultColorMode,
 	isRound as defaultIsRound,
 	size as defaultSize,
 	variant as defaultVariant
 } from '../../../common/data/defaultPropValues';
+
+import dark from './dark';
+import iconbutton from './iconbutton';
+import light from './light';
+import { DummyIconButtonStyleProps, DummyIconButtonStyleReturn } from './types';
+
 
 export default memoize((props: DummyIconButtonStyleProps): DummyIconButtonStyleReturn => {
 	const {

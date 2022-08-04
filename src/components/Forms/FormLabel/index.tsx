@@ -4,6 +4,8 @@ import { FormLabel as CUIFormLabel, HStack, Center } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
+import { useTheme } from '../../../common/hooks';
+
 import {
 	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
@@ -14,7 +16,6 @@ import {
 import useStyles from './common/styles';
 import { FormLabelProps } from './types';
 
-import { useTheme } from '../../../common/hooks';
 
 const FormLabel: FC<FormLabelProps> = (props) => {
 	const theme = useTheme();

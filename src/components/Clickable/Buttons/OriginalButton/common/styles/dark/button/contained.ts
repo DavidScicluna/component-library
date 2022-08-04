@@ -1,6 +1,5 @@
 import { darken, lighten } from 'color2k';
 
-import { ButtonDarkStylingProps } from './types';
 
 import { Style } from '../../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../../common/utils';
@@ -8,6 +7,8 @@ import { getHue } from '../../../../../../../../common/utils/color';
 import { Color, ColorHues } from '../../../../../../../../theme/types';
 import { color as defaultColor, size as defaultSize } from '../../../../../common/data/defaultPropValues';
 import { getAmount, getSizeConfig } from '../../../../../common/utils';
+
+import { ButtonDarkStylingProps } from './types';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 

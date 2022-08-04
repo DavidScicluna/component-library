@@ -1,9 +1,10 @@
-import { BadgeDarkStylingProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { getHue } from '../../../../../../common/utils/color';
 import { Color, ColorHues } from '../../../../../../theme/types';
 import { color as defaultColor, isLight as defaultIsLight } from '../../data/defaultPropValues';
+
+import { BadgeDarkStylingProps } from './types';
 
 export default ({ theme, color: colorProp = defaultColor, isLight = defaultIsLight }: BadgeDarkStylingProps): Style => {
 	const shade = getHue({

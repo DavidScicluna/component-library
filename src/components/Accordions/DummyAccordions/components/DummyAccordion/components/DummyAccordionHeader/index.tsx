@@ -4,7 +4,6 @@ import { HStack, VStack, Center, Text } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import { DummyAccordionHeaderProps } from './types';
 
 import { DummyAccordionsContext } from '../../../..';
 import { useTheme } from '../../../../../../../common/hooks';
@@ -19,6 +18,8 @@ import {
 	spacing as defaultSpacing
 } from '../../../../../common/data/defaultPropValues';
 import { DummyAccordionsContext as DummyAccordionsContextType } from '../../../../types';
+
+import { DummyAccordionHeaderProps } from './types';
 
 const DummyAccordionHeader: FC<DummyAccordionHeaderProps> = (props) => {
 	const theme = useTheme();

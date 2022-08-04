@@ -4,7 +4,6 @@ import { HStack, VStack, Center, Text } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import { DummyCardHeaderProps } from './types';
 
 import { DummyCardContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
@@ -13,6 +12,8 @@ import { Space } from '../../../../../theme/types';
 import Skeleton from '../../../../Skeleton';
 import { colorMode as defaultColorMode, spacing as defaultSpacing } from '../../../common/data/defaultPropValues';
 import { DummyCardContext as DummyCardContextType } from '../../types';
+
+import { DummyCardHeaderProps } from './types';
 
 const DummyCardHeader: FC<DummyCardHeaderProps> = (props) => {
 	const theme = useTheme();

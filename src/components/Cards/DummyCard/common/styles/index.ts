@@ -1,10 +1,5 @@
 import { memoize, merge } from 'lodash';
 
-import card from './card';
-import dark from './dark';
-import light from './light';
-import { DummyCardStyleProps, DummyCardStyleReturn } from './types';
-
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -12,6 +7,12 @@ import {
 	isLight as defaultIsLight,
 	variant as defaultVariant
 } from '../../../common/data/defaultPropValues';
+
+import card from './card';
+import dark from './dark';
+import light from './light';
+import { DummyCardStyleProps, DummyCardStyleReturn } from './types';
+
 
 export default memoize((props: DummyCardStyleProps): DummyCardStyleReturn => {
 	const {

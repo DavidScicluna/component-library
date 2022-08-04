@@ -4,7 +4,6 @@ import { Center } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
-import { DummyAccordionProps } from './types';
 
 import { DummyAccordionsContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
@@ -16,6 +15,8 @@ import {
 import { isLight as defaultIsLight } from '../../../OriginalAccordions/components/Accordion/common/data/defaultPropValues';
 import useAccordionStyles from '../../../OriginalAccordions/components/Accordion/common/styles';
 import { DummyAccordionsContext as DummyAccordionsContextType } from '../../types';
+
+import { DummyAccordionProps } from './types';
 
 const DummyAccordion: FC<DummyAccordionProps> = (props) => {
 	const theme = useTheme();

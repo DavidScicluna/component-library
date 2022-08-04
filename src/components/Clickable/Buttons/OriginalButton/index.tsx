@@ -5,10 +5,6 @@ import { useColorMode, Button as CUIButton, HStack, Center } from '@chakra-ui/re
 import merge from 'lodash/merge';
 import { useElementSize } from 'usehooks-ts';
 
-import useStyles from './common/styles';
-import Spinner from './components/Spinner';
-import { ButtonRef, ButtonProps } from './types';
-
 import { useTheme } from '../../../../common/hooks';
 import {
 	color as defaultColor,
@@ -20,6 +16,11 @@ import {
 	variant as defaultVariant
 } from '../common/data/defaultPropValues';
 import { getSizeConfig } from '../common/utils';
+
+import useStyles from './common/styles';
+import Spinner from './components/Spinner';
+import { ButtonRef, ButtonProps } from './types';
+
 
 const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): ReactElement {
 	const theme = useTheme();

@@ -1,5 +1,12 @@
 import { memoize, merge } from 'lodash';
 
+import {
+	color as defaultColor,
+	colorMode as defaultColorMode,
+	isFullWidth as defaultIsFullWidth
+} from '../../../../../common/data/defaultPropValues';
+import { isLight as defaultIsLight, isOpen as defaultIsOpen } from '../data/defaultPropValues';
+
 import accordion from './accordion';
 import active from './active';
 import dark from './dark';
@@ -7,12 +14,6 @@ import disabled from './disabled';
 import light from './light';
 import { AccordionStyleProps, AccordionStyleReturn } from './types';
 
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	isFullWidth as defaultIsFullWidth
-} from '../../../../../common/data/defaultPropValues';
-import { isLight as defaultIsLight, isOpen as defaultIsOpen } from '../data/defaultPropValues';
 
 export default memoize(<D>(props: AccordionStyleProps<D>): AccordionStyleReturn => {
 	const {

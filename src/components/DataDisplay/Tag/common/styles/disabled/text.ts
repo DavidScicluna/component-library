@@ -1,6 +1,7 @@
+import { Style } from '../../../../../../common/types';
+
 import { TagDisabledStylingProps } from './types';
 
-import { Style } from '../../../../../../common/types';
 
 export default ({ theme }: TagDisabledStylingProps): Style => ({
 	borderTopWidth: 0,

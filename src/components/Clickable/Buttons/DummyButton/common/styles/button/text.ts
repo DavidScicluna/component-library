@@ -1,9 +1,10 @@
-import { DummyButtonStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { Radius } from '../../../../../../../theme/types';
 import { size as defaultSize } from '../../../../common/data/defaultPropValues';
 import { getSizeConfig } from '../../../../common/utils';
+
+import { DummyButtonStyleProps } from './types';
 
 export default ({ theme, size = defaultSize }: DummyButtonStyleProps): Style => {
 	const config = getSizeConfig({ size });

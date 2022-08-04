@@ -1,16 +1,17 @@
 import { memoize, merge } from 'lodash';
 
+import {
+	color as defaultColor,
+	colorMode as defaultColorMode,
+	isFullWidth as defaultFullWidth
+} from '../data/defaultPropValues';
+
 import dark from './dark';
 import disabled from './disabled';
 import light from './light';
 import link from './link';
 import { LinkStyleProps, LinkStyleReturn } from './types';
 
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	isFullWidth as defaultFullWidth
-} from '../data/defaultPropValues';
 
 export default memoize((props: LinkStyleProps): LinkStyleReturn => {
 	const {

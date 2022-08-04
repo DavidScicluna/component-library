@@ -1,8 +1,9 @@
-import { DummyButtonStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { isFullWidth as defaultIsFullWidth, size as defaultSize } from '../../../../common/data/defaultPropValues';
 import { getSizeConfig } from '../../../../common/utils';
+
+import { DummyButtonStyleProps } from './types';
 
 export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }: DummyButtonStyleProps): Style => {
 	const config = getSizeConfig({ size });

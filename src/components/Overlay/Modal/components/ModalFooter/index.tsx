@@ -2,11 +2,12 @@ import { FC, useContext } from 'react';
 
 import { ModalFooter as CUIModalFooter, HStack } from '@chakra-ui/react';
 
-import { ModalFooterProps } from './types';
 
 import { ModalContext } from '../..';
 import { colorMode as defaultColorMode, spacing as defaultSpacing } from '../../common/data/defaultPropValues';
 import { ModalContext as ModalContextType } from '../../types';
+
+import { ModalFooterProps } from './types';
 
 const ModalFooter: FC<ModalFooterProps> = ({ renderCancel, renderAction, ...rest }) => {
 	const { colorMode = defaultColorMode, spacing = defaultSpacing } = useContext<ModalContextType>(ModalContext);

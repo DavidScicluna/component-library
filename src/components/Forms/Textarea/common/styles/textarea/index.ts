@@ -1,7 +1,8 @@
-import { TextareaStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { size as defaultSize } from '../../data/defaultPropValues';
+
+import { TextareaStyleProps } from './types';
 
 export default ({ theme, size = defaultSize }: TextareaStyleProps): Style => ({
 	'cursor': 'text',

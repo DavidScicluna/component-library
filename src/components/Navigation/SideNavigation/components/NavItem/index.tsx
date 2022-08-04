@@ -6,9 +6,6 @@ import { Transition } from 'framer-motion';
 import { merge } from 'lodash';
 import { useElementSize } from 'usehooks-ts';
 
-import { isActive as defaultIsActive, isDisabled as defaultIsDisabled } from './common/data/defaultPropValues';
-import useStyles from './common/styles';
-import { NavItemProps } from './types';
 
 import { SideNavigationContext } from '../..';
 import { InternalLink, Fade } from '../../../../..';
@@ -21,6 +18,10 @@ import {
 	mode as defaultMode
 } from '../../common/data/defaultPropValues';
 import { SideNavigationContext as SideNavigationContextType } from '../../types';
+
+import { NavItemProps } from './types';
+import useStyles from './common/styles';
+import { isActive as defaultIsActive, isDisabled as defaultIsDisabled } from './common/data/defaultPropValues';
 
 // TODO: Add children to NavItem
 

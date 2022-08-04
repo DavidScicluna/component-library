@@ -1,6 +1,5 @@
 import { ReactElement } from 'react';
 
-import { Meta, Story } from './types';
 
 import { TagColor, TagProps, TagVariant, Tag as TagComponent, TagDeleteButton, TagLabel } from '../../..';
 import {
@@ -14,6 +13,8 @@ import {
 } from '../../../components/DataDisplay/Tag/common/data/defaultPropValues';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
+
+import { Meta, Story } from './types';
 
 const colorOptions: TagColor[] = [
 	'black',

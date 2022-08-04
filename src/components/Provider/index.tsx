@@ -2,9 +2,10 @@ import { FC } from 'react';
 
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 
+import theme from '../../theme';
+
 import { ProviderProps } from './types';
 
-import theme from '../../theme';
 
 // Importing Main Fonts (Work Sans & Roboto)
 import '@fontsource/work-sans/100.css';

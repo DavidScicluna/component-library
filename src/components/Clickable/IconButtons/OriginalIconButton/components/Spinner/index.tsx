@@ -2,7 +2,6 @@ import { FC, useCallback } from 'react';
 
 import { SpinnerCircularFixed } from 'spinners-react';
 
-import { SpinnerProps } from './types';
 
 import { useTheme } from '../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../common/utils';
@@ -14,6 +13,8 @@ import {
 	variant as defaultVariant
 } from '../../../common/data/defaultPropValues';
 import { getIconFontSize, getSizeConfig } from '../../../common/utils';
+
+import { SpinnerProps } from './types';
 
 const Spinner: FC<SpinnerProps> = (props) => {
 	const theme = useTheme();

@@ -1,6 +1,5 @@
 import { FC, useContext } from 'react';
 
-import { TagDeleteIconButtonProps, TagEvent } from './types';
 
 import { TagContext } from '../..';
 import IconButton from '../../../../Clickable/IconButtons/OriginalIconButton';
@@ -11,6 +10,8 @@ import {
 	variant as defaultVariant
 } from '../../common/data/defaultPropValues';
 import { TagContext as TagContextType } from '../../types';
+
+import { TagDeleteIconButtonProps, TagEvent } from './types';
 
 const TagDeleteIconButton: FC<TagDeleteIconButtonProps> = (props) => {
 	const {

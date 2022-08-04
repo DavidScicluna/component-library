@@ -1,7 +1,8 @@
-import { FormHelperTextDarkStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { getHue } from '../../../../../../common/utils/color';
+
+import { FormHelperTextDarkStyleProps } from './types';
 
 export default ({ theme }: FormHelperTextDarkStyleProps): Style => {
 	const shade = getHue({

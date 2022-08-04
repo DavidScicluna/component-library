@@ -1,12 +1,5 @@
 import { memoize, merge } from 'lodash';
 
-import dark from './dark';
-import disabled from './disabled';
-import group from './group';
-import light from './light';
-import readOnly from './readOnly';
-import { RadioStyleProps, RadioStyleReturn } from './types';
-
 import {
 	colorMode as defaultColorMode,
 	isChecked as defaultIsChecked,
@@ -17,6 +10,14 @@ import {
 	size as defaultSize,
 	variant as defaultVariant
 } from '../data/defaultPropValues';
+
+import dark from './dark';
+import disabled from './disabled';
+import group from './group';
+import light from './light';
+import readOnly from './readOnly';
+import { RadioStyleProps, RadioStyleReturn } from './types';
+
 
 export default memoize((props: RadioStyleProps): RadioStyleReturn => {
 	const {

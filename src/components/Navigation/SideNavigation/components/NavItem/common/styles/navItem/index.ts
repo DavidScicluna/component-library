@@ -1,8 +1,9 @@
-import { NavItemStyleProps } from './types';
 
 import { Style } from '../../../../../../../../common/types';
 import { mode as defaultMode } from '../../../../../common/data/defaultPropValues';
 import { isActive as defaultIsActive } from '../../data/defaultPropValues';
+
+import { NavItemStyleProps } from './types';
 
 export default ({ theme, isActive = defaultIsActive, mode = defaultMode }: NavItemStyleProps): Style => {
 	const transition = 'none';

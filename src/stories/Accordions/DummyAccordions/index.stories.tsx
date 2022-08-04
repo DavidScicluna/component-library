@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { range } from 'lodash';
 
-import { Meta, Story } from './types';
 
 import {
 	AccordionsColor,
@@ -21,6 +20,8 @@ import {
 } from '../../../components/Accordions/common/data/defaultPropValues';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
+
+import { Meta, Story } from './types';
 
 const colorOptions: AccordionsColor[] = [
 	'gray',

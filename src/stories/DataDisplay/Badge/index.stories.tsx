@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { sample } from 'lodash';
 
-import { Meta, Story } from './types';
 
 import { BadgeColor, BadgeProps, BadgeVariant, Badge as BadgeComponent, BadgeIcon, BadgeLabel } from '../../..';
 import icons from '../../../common/data/icons';
@@ -14,6 +13,8 @@ import {
 } from '../../../components/DataDisplay/Badge/common/data/defaultPropValues';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
+
+import { Meta, Story } from './types';
 
 const colorOptions: BadgeColor[] = [
 	'black',

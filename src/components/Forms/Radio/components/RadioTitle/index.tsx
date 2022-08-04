@@ -2,12 +2,13 @@ import { FC, useContext } from 'react';
 
 import { Text } from '@chakra-ui/react';
 
-import { RadioTitleProps } from './types';
 
 import { RadioContext } from '../..';
 import { getHue } from '../../../../../common/utils/color';
 import { colorMode as defaultColorMode } from '../../common/data/defaultPropValues';
 import { RadioContext as RadioContextType } from '../../types';
+
+import { RadioTitleProps } from './types';
 
 const RadioTitle: FC<RadioTitleProps> = (props) => {
 	const { colorMode = defaultColorMode } = useContext<RadioContextType>(RadioContext);

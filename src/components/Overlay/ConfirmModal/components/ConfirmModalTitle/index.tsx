@@ -2,12 +2,13 @@ import { FC, useContext } from 'react';
 
 import { Text } from '@chakra-ui/react';
 
-import { ConfirmModalTitleProps } from './types';
 
 import { ConfirmModalContext } from '../..';
 import { getHue } from '../../../../../common/utils/color';
 import { colorMode as defaultColorMode } from '../../common/data/defaultPropValues';
 import { ConfirmModalContext as ConfirmModalContextType } from '../../types';
+
+import { ConfirmModalTitleProps } from './types';
 
 const ConfirmModalTitle: FC<ConfirmModalTitleProps> = (props) => {
 	const { colorMode = defaultColorMode } = useContext<ConfirmModalContextType>(ConfirmModalContext);

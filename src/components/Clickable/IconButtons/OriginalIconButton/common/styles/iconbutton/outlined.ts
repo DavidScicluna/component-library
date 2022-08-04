@@ -1,9 +1,10 @@
-import { IconButtonStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { Radius } from '../../../../../../../theme/types';
 import { isRound as defaultIsRound, size as defaultSize } from '../../../../common/data/defaultPropValues';
 import { getSizeConfig } from '../../../../common/utils';
+
+import { IconButtonStyleProps } from './types';
 
 export default ({ theme, isRound = defaultIsRound, size = defaultSize }: IconButtonStyleProps): Style => {
 	const config = getSizeConfig({ size });

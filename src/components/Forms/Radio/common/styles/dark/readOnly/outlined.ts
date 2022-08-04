@@ -1,8 +1,9 @@
-import { RadioDarkReadOnlyStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { isChecked as defaultIsChecked } from '../../../data/defaultPropValues';
+
+import { RadioDarkReadOnlyStyleProps } from './types';
 
 export default ({ theme, isChecked = defaultIsChecked }: RadioDarkReadOnlyStyleProps): Style => {
 	const textShade = getHue({

@@ -4,7 +4,6 @@ import { ModalHeader as CUIModalHeader, HStack, VStack, Center } from '@chakra-u
 
 import { useElementSize } from 'usehooks-ts';
 
-import { ModalHeaderProps } from './types';
 
 import { ModalContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
@@ -12,6 +11,8 @@ import { convertREMToPixels, convertStringToNumber } from '../../../../../common
 import { getHue } from '../../../../../common/utils/color';
 import { colorMode as defaultColorMode, spacing as defaultSpacing } from '../../common/data/defaultPropValues';
 import { ModalContext as ModalContextType } from '../../types';
+
+import { ModalHeaderProps } from './types';
 
 const ModalHeader: FC<ModalHeaderProps> = (props) => {
 	const theme = useTheme();

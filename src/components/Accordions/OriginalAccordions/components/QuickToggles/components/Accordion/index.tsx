@@ -4,7 +4,6 @@ import { useConst } from '@chakra-ui/react';
 
 import { Link } from 'react-scroll';
 
-import { AccordionProps } from './types';
 
 import { AccordionsContext } from '../../../..';
 import { useTheme } from '../../../../../../../common/hooks';
@@ -19,6 +18,8 @@ import {
 import { toggleAccordion } from '../../../../common/utils';
 import { AccordionsContext as AccordionsContextType } from '../../../../types';
 import { size as defaultSize } from '../../common/data/defaultPropValues';
+
+import { AccordionProps } from './types';
 
 const Accordion = <D,>(props: AccordionProps<D>): ReactElement => {
 	const theme = useTheme();

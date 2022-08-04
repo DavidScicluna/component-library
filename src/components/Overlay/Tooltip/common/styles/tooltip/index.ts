@@ -1,6 +1,7 @@
+import { Style } from '../../../../../../common/types';
+
 import { TooltipStyleProps } from './types';
 
-import { Style } from '../../../../../../common/types';
 
 export default ({ theme }: TooltipStyleProps): Style => ({
 	'width': 'auto',

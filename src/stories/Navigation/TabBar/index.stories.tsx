@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { range, sample } from 'lodash';
 
-import { Meta, Story } from './types';
 
 import icons from '../../../common/data/icons';
 import Icon from '../../../components/Icon';
@@ -11,6 +10,8 @@ import { RenderProps as TabRenderProps, Tab } from '../../../components/Navigati
 import { TabBarColor, TabBarDirection, TabBarProps } from '../../../components/Navigation/TabBar/types';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
+
+import { Meta, Story } from './types';
 
 const colorDefaultValue: TabBarColor = 'blue';
 const colorOptions: TabBarColor[] = [

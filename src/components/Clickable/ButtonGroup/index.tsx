@@ -2,6 +2,8 @@ import { ReactElement, forwardRef, useCallback } from 'react';
 
 import { ButtonGroup as CUIButtonGroup, Center } from '@chakra-ui/react';
 
+import { useTheme } from '../../../common/hooks';
+
 import {
 	children as defaultChildren,
 	isAttached as defaultIsAttached,
@@ -10,7 +12,6 @@ import {
 } from './common/data/defaultPropValues';
 import { ButtonGroupRef, ButtonGroupProps } from './types';
 
-import { useTheme } from '../../../common/hooks';
 
 const ButtonGroup = forwardRef<ButtonGroupRef, ButtonGroupProps>(function ButtonGroup(props, ref): ReactElement {
 	const theme = useTheme();

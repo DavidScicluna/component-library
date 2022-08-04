@@ -1,6 +1,5 @@
 import { darken, transparentize } from 'color2k';
 
-import { InputLightFocusedStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
@@ -11,6 +10,8 @@ import {
 	isWarning as defaultIsWarning
 } from '../../../data/defaultPropValues';
 import { getAmount } from '../../../utils';
+
+import { InputLightFocusedStyleProps } from './types';
 
 export default ({
 	theme,

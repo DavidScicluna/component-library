@@ -5,8 +5,6 @@ import { useColorMode, HStack, Center } from '@chakra-ui/react';
 import { merge } from 'lodash';
 import { useElementSize } from 'usehooks-ts';
 
-import useStyles from './common/styles';
-import { DummyButtonProps } from './types';
 
 import { useTheme } from '../../../../common/hooks';
 import Skeleton from '../../../Skeleton';
@@ -18,6 +16,9 @@ import {
 	variant as defaultVariant
 } from '../common/data/defaultPropValues';
 import { getSizeConfig } from '../common/utils';
+
+import { DummyButtonProps } from './types';
+import useStyles from './common/styles';
 
 const DummyButton: FC<DummyButtonProps> = (props) => {
 	const theme = useTheme();

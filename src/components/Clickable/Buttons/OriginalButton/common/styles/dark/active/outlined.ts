@@ -1,12 +1,13 @@
 import { lighten } from 'color2k';
 
-import { ButtonDarkActiveStylingProps } from './types';
 
 import { Style } from '../../../../../../../../common/types';
 import { getHue } from '../../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../../theme/types';
 import { color as defaultColor, size as defaultSize } from '../../../../../common/data/defaultPropValues';
 import { getAmount, getSizeConfig } from '../../../../../common/utils';
+
+import { ButtonDarkActiveStylingProps } from './types';
 
 export default ({
 	theme,

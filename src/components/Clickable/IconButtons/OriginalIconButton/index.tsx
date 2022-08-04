@@ -4,10 +4,6 @@ import { useColorMode, IconButton as CUIIconButton, Center } from '@chakra-ui/re
 
 import merge from 'lodash/merge';
 
-import useStyles from './common/styles';
-import Spinner from './components/Spinner';
-import { IconButtonRef, IconButtonProps } from './types';
-
 import { useTheme } from '../../../../common/hooks';
 import {
 	color as defaultColor,
@@ -18,6 +14,11 @@ import {
 	size as defaultSize,
 	variant as defaultVariant
 } from '../common/data/defaultPropValues';
+
+import useStyles from './common/styles';
+import Spinner from './components/Spinner';
+import { IconButtonRef, IconButtonProps } from './types';
+
 
 const IconButton = forwardRef<IconButtonRef, IconButtonProps>(function IconButton(props, ref): ReactElement {
 	const theme = useTheme();

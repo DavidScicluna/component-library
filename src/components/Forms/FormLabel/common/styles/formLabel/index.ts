@@ -1,8 +1,9 @@
-import { FormLabelStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { size as defaultSize } from '../../data/defaultPropValues';
 import { getFontSize } from '../../utils';
+
+import { FormLabelStyleProps } from './types';
 
 export default ({ theme, size = defaultSize }: FormLabelStyleProps): Style => {
 	const fontSize = getFontSize({ size });

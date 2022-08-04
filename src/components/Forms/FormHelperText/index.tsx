@@ -4,6 +4,8 @@ import { FormHelperText as CUIFormHelperText } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
+import { useTheme } from '../../../common/hooks';
+
 import {
 	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
@@ -16,7 +18,6 @@ import {
 import useStyles from './common/styles';
 import { FormHelperTextProps } from './types';
 
-import { useTheme } from '../../../common/hooks';
 
 const FormHelperText: FC<FormHelperTextProps> = (props) => {
 	const theme = useTheme();

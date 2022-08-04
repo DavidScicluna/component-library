@@ -1,8 +1,9 @@
-import { CheckboxDarkReadOnlyStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { isChecked as defaultIsChecked } from '../../../data/defaultPropValues';
+
+import { CheckboxDarkReadOnlyStyleProps } from './types';
 
 export default ({ theme, isChecked = defaultIsChecked }: CheckboxDarkReadOnlyStyleProps): Style => {
 	const textShade = getHue({

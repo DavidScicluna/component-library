@@ -4,7 +4,6 @@ import { VStack } from '@chakra-ui/react';
 
 import { sample } from 'lodash';
 
-import { Meta, Story } from './types';
 
 // import icons from '../../../common/data/icons';
 import RadioComponent from '../../../components/Forms/Radio';
@@ -34,6 +33,8 @@ import {
 // import { RadioColor, RadioProps, RadioRef, RadioSize, Radio as RadioComponent, RadioHeader, RadioBody, RadioFooter } from '../..';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
+
+import { Meta, Story } from './types';
 
 const colorOptions: RadioColor[] = [
 	'pink',

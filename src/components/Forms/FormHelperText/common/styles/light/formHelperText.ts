@@ -1,4 +1,3 @@
-import { FormHelperTextLightStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { getHue } from '../../../../../../common/utils/color';
@@ -8,6 +7,8 @@ import {
 	isWarning as defaultIsWarning,
 	isSuccess as defaultIsSuccess
 } from '../../data/defaultPropValues';
+
+import { FormHelperTextLightStyleProps } from './types';
 
 export default ({
 	theme,

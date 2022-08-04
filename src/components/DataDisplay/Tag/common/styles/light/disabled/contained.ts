@@ -1,8 +1,9 @@
-import { TagLightDisabledStylingProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../theme/types';
+
+import { TagLightDisabledStylingProps } from './types';
 
 export default ({ theme }: TagLightDisabledStylingProps): Style => {
 	const shade = getHue({

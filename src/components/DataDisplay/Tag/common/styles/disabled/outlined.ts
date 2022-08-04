@@ -1,8 +1,9 @@
-import { TagDisabledStylingProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { size as defaultSize } from '../../data/defaultPropValues';
 import { getSizeConfig } from '../../utils';
+
+import { TagDisabledStylingProps } from './types';
 
 export default ({ theme, size = defaultSize }: TagDisabledStylingProps): Style => {
 	const config = getSizeConfig({ size });

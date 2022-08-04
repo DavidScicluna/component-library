@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { Center } from '@chakra-ui/react';
 
-import { Meta, Story } from './types';
 
 import { TooltipColor, TooltipProps, Tooltip as TooltipComponent, DummyButton } from '../../..';
 import {
@@ -11,6 +10,8 @@ import {
 } from '../../../components/Overlay/Tooltip/common/data/defaultPropValues';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
+
+import { Meta, Story } from './types';
 
 const colorOptions: TooltipColor[] = [
 	'black',

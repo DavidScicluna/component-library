@@ -1,4 +1,3 @@
-import { RadioGroupStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
@@ -9,6 +8,8 @@ import {
 	variant as defaultVariant
 } from '../../data/defaultPropValues';
 import { getSizeConfig } from '../../utils';
+
+import { RadioGroupStyleProps } from './types';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 

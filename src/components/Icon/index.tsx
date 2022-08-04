@@ -4,6 +4,8 @@ import { useColorMode, useBoolean, Center } from '@chakra-ui/react';
 
 import { useInterval } from 'usehooks-ts';
 
+import Skeleton from '../Skeleton';
+
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -12,7 +14,6 @@ import {
 import { checkFontStatus } from './common/utils';
 import { IconProps } from './types';
 
-import Skeleton from '../Skeleton';
 
 const Icon: FC<IconProps> = (props) => {
 	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();

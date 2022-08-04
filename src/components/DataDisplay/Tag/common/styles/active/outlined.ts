@@ -1,8 +1,9 @@
-import { TagActiveStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { size as defaultSize } from '../../data/defaultPropValues';
 import { getSizeConfig } from '../../utils';
+
+import { TagActiveStyleProps } from './types';
 
 export default ({ theme, size = defaultSize }: TagActiveStyleProps): Style => {
 	const config = getSizeConfig({ size });

@@ -4,8 +4,6 @@ import { useColorMode } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
-import useStyles from './common/styles';
-import { DummyIconButtonProps } from './types';
 
 import { useTheme } from '../../../../common/hooks';
 import Skeleton from '../../../Skeleton';
@@ -16,6 +14,9 @@ import {
 	size as defaultSize,
 	variant as defaultVariant
 } from '../common/data/defaultPropValues';
+
+import { DummyIconButtonProps } from './types';
+import useStyles from './common/styles';
 
 const DummyIconButton: FC<DummyIconButtonProps> = (props) => {
 	const theme = useTheme();

@@ -1,13 +1,5 @@
 import { memoize, merge } from 'lodash';
 
-import dark from './dark';
-import disabled from './disabled';
-import group from './group';
-import light from './light';
-import readOnly from './readOnly';
-import textarea from './textarea';
-import { TextareaStyleProps, TextareaStyleReturn } from './types';
-
 import {
 	colorMode as defaultColorMode,
 	isError as defaultIsError,
@@ -17,6 +9,15 @@ import {
 	isFullWidth as defaultIsFullWidth,
 	size as defaultSize
 } from '../data/defaultPropValues';
+
+import dark from './dark';
+import disabled from './disabled';
+import group from './group';
+import light from './light';
+import readOnly from './readOnly';
+import textarea from './textarea';
+import { TextareaStyleProps, TextareaStyleReturn } from './types';
+
 
 export default memoize((props: TextareaStyleProps): TextareaStyleReturn => {
 	const {

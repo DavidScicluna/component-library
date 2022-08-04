@@ -1,10 +1,11 @@
 import { lighten } from 'color2k';
 
-import { TabDarkStylingProps } from './types';
 
 import { Style } from '../../../../../../../../../common/types';
 import { getHue } from '../../../../../../../../../common/utils/color';
 import { getAmount } from '../../../utils';
+
+import { TabDarkStylingProps } from './types';
 
 export default ({ theme }: TabDarkStylingProps): Style => {
 	const amount = getAmount();

@@ -1,9 +1,10 @@
-import { CardStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { Radius } from '../../../../../../theme/types';
 import { getSizeConfig } from '../../../../common/utils';
 import { isClickable as defaultIsClickable } from '../../data/defaultPropValues';
+
+import { CardStyleProps } from './types';
 
 export default ({ theme, isClickable = defaultIsClickable }: CardStyleProps): Style => {
 	const config = getSizeConfig();

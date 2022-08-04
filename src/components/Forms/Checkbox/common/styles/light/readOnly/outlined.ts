@@ -1,8 +1,9 @@
-import { CheckboxLightReadOnlyStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { isChecked as defaultIsChecked } from '../../../data/defaultPropValues';
+
+import { CheckboxLightReadOnlyStyleProps } from './types';
 
 export default ({ theme, isChecked = defaultIsChecked }: CheckboxLightReadOnlyStyleProps): Style => {
 	const textShade = getHue({

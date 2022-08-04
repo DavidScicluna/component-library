@@ -1,8 +1,9 @@
-import { NavItemDarkActiveStylingProps } from './types';
 
 import { Style } from '../../../../../../../../../common/types';
 import { getHue } from '../../../../../../../../../common/utils/color';
 import { color as defaultColor } from '../../../../../../common/data/defaultPropValues';
+
+import { NavItemDarkActiveStylingProps } from './types';
 
 export default ({ theme, color = defaultColor }: NavItemDarkActiveStylingProps): Style => {
 	const shade = getHue({ colorMode: 'dark', type: 'color' });

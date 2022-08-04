@@ -2,7 +2,6 @@ import { FC, useCallback } from 'react';
 
 import { SpinnerCircularFixed } from 'spinners-react';
 
-import { SpinnerProps } from './types';
 
 import { useTheme } from '../../../../../../common/hooks';
 import { getColor } from '../../../../../../common/utils/color';
@@ -12,6 +11,8 @@ import {
 	size as defaultSize,
 	variant as defaultVariant
 } from '../../../common/data/defaultPropValues';
+
+import { SpinnerProps } from './types';
 
 const Spinner: FC<SpinnerProps> = (props) => {
 	const theme = useTheme();

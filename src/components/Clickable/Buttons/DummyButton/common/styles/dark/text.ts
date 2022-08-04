@@ -1,7 +1,8 @@
-import { DummyButtonDarkStylingProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
+
+import { DummyButtonDarkStylingProps } from './types';
 
 export default ({ theme }: DummyButtonDarkStylingProps): Style => {
 	const shade = getHue({

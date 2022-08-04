@@ -1,6 +1,5 @@
 import { darken } from 'color2k';
 
-import { TagLightStylingProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../common/utils';
@@ -8,6 +7,8 @@ import { getHue } from '../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../theme/types';
 import { color as defaultColor, size as defaultIsLight } from '../../../data/defaultPropValues';
 import { getAmount, getSizeConfig } from '../../../utils';
+
+import { TagLightStylingProps } from './types';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 

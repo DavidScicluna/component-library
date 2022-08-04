@@ -1,10 +1,5 @@
 import { memoize, merge } from 'lodash';
 
-import badge from './badge';
-import dark from './dark';
-import light from './light';
-import { BadgeStyleProps, BadgeStyleReturn } from './types';
-
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -12,6 +7,12 @@ import {
 	size as defaultSize,
 	variant as defaultVariant
 } from '../data/defaultPropValues';
+
+import badge from './badge';
+import dark from './dark';
+import light from './light';
+import { BadgeStyleProps, BadgeStyleReturn } from './types';
+
 
 export default memoize((props: BadgeStyleProps): BadgeStyleReturn => {
 	const {

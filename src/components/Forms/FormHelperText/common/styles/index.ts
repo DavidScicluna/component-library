@@ -1,11 +1,5 @@
 import { memoize, merge } from 'lodash';
 
-import dark from './dark';
-import disabled from './disabled';
-import formHelperText from './formHelperText';
-import light from './light';
-import { FormHelperTextStyleProps, FormHelperTextStyleReturn } from './types';
-
 import {
 	colorMode as defaultColorMode,
 	isError as defaultIsError,
@@ -13,6 +7,13 @@ import {
 	isSuccess as defaultIsSuccess,
 	size as defaultSize
 } from '../data/defaultPropValues';
+
+import dark from './dark';
+import disabled from './disabled';
+import formHelperText from './formHelperText';
+import light from './light';
+import { FormHelperTextStyleProps, FormHelperTextStyleReturn } from './types';
+
 
 export default memoize((props: FormHelperTextStyleProps): FormHelperTextStyleReturn => {
 	const {

@@ -1,10 +1,11 @@
-import { CardLightDisabledStylingProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../theme/types';
 import { isLight as defaultIsLight } from '../../../../../common/data/defaultPropValues';
 import { getSizeConfig } from '../../../../../common/utils';
+
+import { CardLightDisabledStylingProps } from './types';
 
 export default ({ theme, isLight = defaultIsLight }: CardLightDisabledStylingProps): Style => {
 	const shade = getHue({

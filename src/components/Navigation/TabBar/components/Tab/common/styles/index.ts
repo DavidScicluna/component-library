@@ -1,13 +1,14 @@
 import { merge } from 'lodash';
 
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/data/defaultPropValues';
+import { isActive as defaultIsActive } from '../data/defaultPropValues';
+
 import dark from './dark';
 import disabled from './disabled';
 import light from './light';
 import tab from './tab';
 import { TabStyleProps, TabStyleReturn } from './types';
 
-import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/data/defaultPropValues';
-import { isActive as defaultIsActive } from '../data/defaultPropValues';
 
 export default ({
 	theme,

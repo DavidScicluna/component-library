@@ -2,15 +2,16 @@ import { createContext, FC } from 'react';
 
 import { useColorMode, VStack } from '@chakra-ui/react';
 
-import { accordions as defaultAccordions } from './common/data/defaultPropValues';
-import { DummyAccordionsContext as DummyAccordionsContextType, DummyAccordionsProps } from './types';
-
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
 	isFullWidth as defaultIsFullWidth,
 	spacing as defaultSpacing
 } from '../common/data/defaultPropValues';
+
+import { accordions as defaultAccordions } from './common/data/defaultPropValues';
+import { DummyAccordionsContext as DummyAccordionsContextType, DummyAccordionsProps } from './types';
+
 
 export const DummyAccordionsContext = createContext<DummyAccordionsContextType>({
 	accordions: defaultAccordions,

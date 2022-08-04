@@ -7,9 +7,6 @@ import { capitalize } from 'lodash';
 import merge from 'lodash/merge';
 import { useDebounce, useElementSize } from 'usehooks-ts';
 
-import { isVisible as defaultIsVisible, colorMode as defaultColorMode } from './common/data/defaultPropValues';
-import useStyles from './common/styles';
-import { ArrowProps } from './types';
 
 import { HorizontalScrollContext } from '../..';
 import { useTheme } from '../../../../common/hooks';
@@ -23,6 +20,10 @@ import {
 import Fade from '../../../Transitions/Fade';
 import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
 import { HorizontalScrollContext as HorizontalScrollContextType } from '../../types';
+
+import { ArrowProps } from './types';
+import useStyles from './common/styles';
+import { isVisible as defaultIsVisible, colorMode as defaultColorMode } from './common/data/defaultPropValues';
 
 const Arrow: FC<ArrowProps> = (props) => {
 	const theme = useTheme();

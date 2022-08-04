@@ -4,7 +4,6 @@ import { Box } from '@chakra-ui/react';
 
 import { range } from 'lodash';
 
-import { Meta, Story } from './types';
 
 import { HorizontalScrollProps, HorizontalScroll as HorizontalScrollComponent } from '../..';
 import { isDisabled as defaultIsDisabled } from '../../components/HorizontalScroll/common/data/defaultPropValues';
@@ -12,6 +11,8 @@ import { RenderDividerProps } from '../../components/HorizontalScroll/types';
 import spacing from '../../theme/foundations/spacing';
 import controls from '../common/controls';
 import parameters from '../common/parameters';
+
+import { Meta, Story } from './types';
 
 const renderMapping = Object.assign(
 	{ none: undefined },

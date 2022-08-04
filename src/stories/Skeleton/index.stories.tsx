@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { Box } from '@chakra-ui/react';
 
-import { Meta, Story } from './types';
 
 import { SkeletonColor, SkeletonVariant, SkeletonProps, Skeleton as SkeletonComponent } from '../..';
 import {
@@ -13,6 +12,8 @@ import {
 } from '../../components/Skeleton/common/data/defaultPropValues';
 import controls from '../common/controls';
 import parameters from '../common/parameters';
+
+import { Meta, Story } from './types';
 
 const colorOptions: SkeletonColor[] = [
 	'black',

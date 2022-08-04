@@ -4,6 +4,9 @@ import { useColorMode, HStack } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
+import { useTheme } from '../../../common/hooks';
+import { getColor } from '../../../common/utils/color';
+
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -12,8 +15,6 @@ import {
 import Tab from './components/Tab';
 import { TabBarContext as TabBarContextType, TabBarProps } from './types';
 
-import { useTheme } from '../../../common/hooks';
-import { getColor } from '../../../common/utils/color';
 
 export const TabBarContext = createContext<TabBarContextType>({
 	color: defaultColor,

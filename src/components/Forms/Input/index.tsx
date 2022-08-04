@@ -14,6 +14,11 @@ import {
 import { isEmpty, isNil } from 'lodash';
 import merge from 'lodash/merge';
 
+import { useTheme } from '../../../common/hooks';
+import Collapse from '../../Transitions/Collapse';
+import FormHelperText from '../FormHelperText';
+import FormLabel from '../FormLabel';
+
 import {
 	autoComplete as defaultAutoComplete,
 	colorMode as defaultColorMode,
@@ -31,10 +36,6 @@ import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
 import { InputProps, InputRef, InputPanelRenderProps, Event } from './types';
 
-import { useTheme } from '../../../common/hooks';
-import Collapse from '../../Transitions/Collapse';
-import FormHelperText from '../FormHelperText';
-import FormLabel from '../FormLabel';
 
 const Input = (props: InputProps): ReactElement => {
 	const theme = useTheme();

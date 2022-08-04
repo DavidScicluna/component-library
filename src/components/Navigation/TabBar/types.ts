@@ -1,6 +1,5 @@
 import { ColorMode, StackProps } from '@chakra-ui/react';
 
-import { Tab } from './components/Tab/types';
 
 import { Style } from '../../../common/types';
 import {
@@ -20,6 +19,8 @@ import {
 	BoxOther
 } from '../../../common/types/box';
 import { Color } from '../../../theme/types';
+
+import { Tab } from './components/Tab/types';
 
 export type TabBarColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 

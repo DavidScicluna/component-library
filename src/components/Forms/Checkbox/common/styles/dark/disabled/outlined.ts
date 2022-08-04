@@ -1,7 +1,8 @@
-import { CheckboxDarkDisabledStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
+
+import { CheckboxDarkDisabledStyleProps } from './types';
 
 export default ({ theme }: CheckboxDarkDisabledStyleProps): Style => {
 	const textShade = getHue({

@@ -1,7 +1,8 @@
-import { DummyCardStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { isFullWidth as defaultIsFullWidth } from '../../../../common/data/defaultPropValues';
+
+import { DummyCardStyleProps } from './types';
 
 export default ({ theme, isFullWidth = defaultIsFullWidth }: DummyCardStyleProps): Style => {
 	const transition = 'none';

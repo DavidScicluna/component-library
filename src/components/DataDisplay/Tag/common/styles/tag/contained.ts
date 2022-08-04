@@ -1,8 +1,9 @@
-import { TagStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { isClickable as defaultIsClickable, size as defaultSize } from '../../data/defaultPropValues';
 import { getSizeConfig } from '../../utils';
+
+import { TagStyleProps } from './types';
 
 export default ({ theme, isClickable = defaultIsClickable, size = defaultSize }: TagStyleProps): Style => {
 	const config = getSizeConfig({ size });

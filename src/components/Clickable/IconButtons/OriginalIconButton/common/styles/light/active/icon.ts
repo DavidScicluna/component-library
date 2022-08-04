@@ -1,9 +1,10 @@
-import { IconButtonLightActiveStylingProps } from './types';
 
 import { Style } from '../../../../../../../../common/types';
 import { getHue } from '../../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../../theme/types';
 import { color as defaultColor } from '../../../../../common/data/defaultPropValues';
+
+import { IconButtonLightActiveStylingProps } from './types';
 
 export default ({ theme, color: colorProp = defaultColor }: IconButtonLightActiveStylingProps): Style => {
 	const shade = getHue({

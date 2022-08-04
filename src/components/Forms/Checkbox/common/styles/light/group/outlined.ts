@@ -1,6 +1,5 @@
 import { darken } from 'color2k';
 
-import { CheckboxLightGroupStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
@@ -11,6 +10,8 @@ import {
 	isWarning as defaultIsWarning
 } from '../../../data/defaultPropValues';
 import { getAmount } from '../../../utils';
+
+import { CheckboxLightGroupStyleProps } from './types';
 
 export default ({
 	theme,

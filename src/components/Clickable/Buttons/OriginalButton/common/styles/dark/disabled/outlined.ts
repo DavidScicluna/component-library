@@ -1,4 +1,3 @@
-import { ButtonDarkDisabledStylingProps } from './types';
 
 import { Style } from '../../../../../../../../common/types';
 import { getHue } from '../../../../../../../../common/utils/color';
@@ -9,6 +8,8 @@ import {
 	size as defaultSize
 } from '../../../../../common/data/defaultPropValues';
 import { getSizeConfig } from '../../../../../common/utils';
+
+import { ButtonDarkDisabledStylingProps } from './types';
 
 export default ({
 	theme,

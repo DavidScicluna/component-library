@@ -1,10 +1,11 @@
 import { transparentize } from 'color2k';
 
-import { TextareaLightDisabledStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { getAmount } from '../../../utils';
+
+import { TextareaLightDisabledStyleProps } from './types';
 
 export default ({ theme }: TextareaLightDisabledStyleProps): Style => {
 	const amount = getAmount();

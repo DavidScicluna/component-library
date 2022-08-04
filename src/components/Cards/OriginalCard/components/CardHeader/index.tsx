@@ -4,7 +4,6 @@ import { HStack, VStack, Center } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import { CardHeaderProps } from './types';
 
 import { CardContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
@@ -13,6 +12,8 @@ import { getColor } from '../../../../../common/utils/color';
 import { Space } from '../../../../../theme/types';
 import { colorMode as defaultColorMode, spacing as defaultSpacing } from '../../../common/data/defaultPropValues';
 import { CardContext as CardContextType } from '../../types';
+
+import { CardHeaderProps } from './types';
 
 const CardHeader: FC<CardHeaderProps> = (props) => {
 	const theme = useTheme();

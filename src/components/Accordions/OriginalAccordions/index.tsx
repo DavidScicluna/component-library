@@ -5,6 +5,13 @@ import { useColorMode, VStack } from '@chakra-ui/react';
 import { useDebounce } from 'usehooks-ts';
 
 import {
+	color as defaultColor,
+	colorMode as defaultColorMode,
+	isFullWidth as defaultIsFullWidth,
+	spacing as defaultSpacing
+} from '../common/data/defaultPropValues';
+
+import {
 	accordions as defaultAccordions,
 	isDisabled as defaultIsDisabled,
 	opened as defaultOpened,
@@ -12,12 +19,6 @@ import {
 } from './common/data/defaultPropValues';
 import { AccordionsContext as AccordionsContextType, AccordionsProps, OpenedAccordions } from './types';
 
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	isFullWidth as defaultIsFullWidth,
-	spacing as defaultSpacing
-} from '../common/data/defaultPropValues';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const AccordionsContext = createContext<AccordionsContextType<any>>({

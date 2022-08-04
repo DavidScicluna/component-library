@@ -1,11 +1,12 @@
 import { FC } from 'react';
 
+
+import { Link as RRDLink } from 'react-router-dom';
+
 import { useColorMode, Link as CUILink } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
-import { Link as RRDLink } from 'react-router-dom';
 
-import { InternalProps } from './types';
 
 import { useTheme } from '../../../../common/hooks';
 import {
@@ -15,6 +16,8 @@ import {
 	isFullWidth as defaultIsFullWidth
 } from '../common/data/defaultPropValues';
 import useStyles from '../common/styles';
+
+import { InternalProps } from './types';
 
 const Internal: FC<InternalProps> = (props) => {
 	const theme = useTheme();

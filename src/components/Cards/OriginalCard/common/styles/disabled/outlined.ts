@@ -1,7 +1,8 @@
-import { CardDisabledStylingProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { getSizeConfig } from '../../../../common/utils';
+
+import { CardDisabledStylingProps } from './types';
 
 export default ({ theme }: CardDisabledStylingProps): Style => {
 	const config = getSizeConfig();

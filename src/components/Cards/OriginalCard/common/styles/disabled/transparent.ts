@@ -1,6 +1,7 @@
+import { Style } from '../../../../../../common/types';
+
 import { CardDisabledStylingProps } from './types';
 
-import { Style } from '../../../../../../common/types';
 
 export default ({ theme }: CardDisabledStylingProps): Style => ({
 	borderTopWidth: 0,

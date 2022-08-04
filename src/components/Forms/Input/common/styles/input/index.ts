@@ -1,7 +1,8 @@
-import { InputStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { size as defaultSize } from '../../data/defaultPropValues';
+
+import { InputStyleProps } from './types';
 
 export default ({ theme, size = defaultSize }: InputStyleProps): Style => ({
 	'cursor': 'text',

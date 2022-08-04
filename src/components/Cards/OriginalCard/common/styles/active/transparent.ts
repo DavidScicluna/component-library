@@ -1,6 +1,7 @@
+import { Style } from '../../../../../../common/types';
+
 import { CardActiveStyleProps } from './types';
 
-import { Style } from '../../../../../../common/types';
 
 export default ({ theme }: CardActiveStyleProps): Style => ({
 	borderTopWidth: 0,

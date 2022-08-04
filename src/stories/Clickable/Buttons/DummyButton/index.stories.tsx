@@ -1,6 +1,5 @@
 import { ReactElement } from 'react';
 
-import { Meta, Story } from './types';
 
 import {
 	ButtonColor,
@@ -17,6 +16,8 @@ import {
 } from '../../../../components/Clickable/Buttons/common/data/defaultPropValues';
 import controls from '../../../common/controls';
 import parameters from '../../../common/parameters';
+
+import { Meta, Story } from './types';
 
 const colorOptions: ButtonColor[] = [
 	'black',

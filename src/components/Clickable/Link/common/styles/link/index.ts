@@ -1,8 +1,9 @@
-import { LinkStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
 import { isFullWidth as defaultFullWidth } from '../../data/defaultPropValues';
+
+import { LinkStyleProps } from './types';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 

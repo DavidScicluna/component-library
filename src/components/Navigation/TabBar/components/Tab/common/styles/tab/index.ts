@@ -1,7 +1,8 @@
-import { TabStyleProps } from './types';
 
 import { Style } from '../../../../../../../../common/types';
 import { isActive as defaultIsActive } from '../../data/defaultPropValues';
+
+import { TabStyleProps } from './types';
 
 export default ({ theme, isActive = defaultIsActive }: TabStyleProps): Style => ({
 	'cursor': isActive ? 'default' : 'pointer',

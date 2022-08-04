@@ -1,10 +1,11 @@
 import { darken, transparentize } from 'color2k';
 
-import { TextareaLightGroupStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { getAmount } from '../../../utils';
+
+import { TextareaLightGroupStyleProps } from './types';
 
 export default ({ theme }: TextareaLightGroupStyleProps): Style => {
 	const amount = getAmount();

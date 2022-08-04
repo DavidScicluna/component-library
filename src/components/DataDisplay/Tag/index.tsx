@@ -1,9 +1,11 @@
 import { ReactElement, createContext, forwardRef, useCallback } from 'react';
 
 import { useColorMode, Tag as CUITag, HStack } from '@chakra-ui/react';
-import { dataAttr } from '@chakra-ui/utils';
 
+import { dataAttr } from '@chakra-ui/utils';
 import merge from 'lodash/merge';
+
+import { useTheme } from '../../../common/hooks';
 
 import {
 	color as defaultColor,
@@ -19,7 +21,6 @@ import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
 import { TagContext as TagContextType, TagRef, TagProps } from './types';
 
-import { useTheme } from '../../../common/hooks';
 
 export const TagContext = createContext<TagContextType>({
 	color: defaultColor,

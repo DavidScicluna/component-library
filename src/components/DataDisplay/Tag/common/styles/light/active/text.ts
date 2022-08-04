@@ -1,9 +1,10 @@
-import { TagLightActiveStylingProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../theme/types';
 import { color as defaultColor } from '../../../data/defaultPropValues';
+
+import { TagLightActiveStylingProps } from './types';
 
 export default ({ theme, color: colorProp = defaultColor }: TagLightActiveStylingProps): Style => {
 	const shade = getHue({

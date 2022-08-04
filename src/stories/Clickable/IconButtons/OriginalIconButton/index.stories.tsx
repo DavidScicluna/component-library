@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { sample } from 'lodash';
 
-import { Meta, Story } from './types';
 
 import {
 	IconButtonColor,
@@ -24,6 +23,8 @@ import {
 import Icon from '../../../../components/Icon';
 import controls from '../../../common/controls';
 import parameters from '../../../common/parameters';
+
+import { Meta, Story } from './types';
 
 const childrenDefaultValue: IconType | undefined = sample(icons);
 const childrenOptions: IconType[] = [...icons];

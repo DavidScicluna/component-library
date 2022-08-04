@@ -4,9 +4,6 @@ import { HStack, Center, Text } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import DummyAccordion from './components/DummyAccordion';
-import DummyToggle from './components/DummyToggle';
-import { DummyQuickTogglesProps } from './types';
 
 import { DummyAccordionsContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
@@ -23,6 +20,10 @@ import {
 import { size as defaultSize } from '../../../OriginalAccordions/components/QuickToggles/common/data/defaultPropValues';
 import { accordions as defaultAccordions } from '../../common/data/defaultPropValues';
 import { DummyAccordionsContext as DummyAccordionsContextType } from '../../types';
+
+import { DummyQuickTogglesProps } from './types';
+import DummyToggle from './components/DummyToggle';
+import DummyAccordion from './components/DummyAccordion';
 
 const DummyQuickToggles: FC<DummyQuickTogglesProps> = (props) => {
 	const theme = useTheme();

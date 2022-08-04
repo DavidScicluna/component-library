@@ -4,10 +4,11 @@ import { useConst, ScaleFade as CUIScaleFade } from '@chakra-ui/react';
 
 import { Transition } from 'framer-motion';
 
-import { ScaleFadeProps } from './types';
 
 import { useTheme } from '../../../common/hooks';
 import { getConfig } from '../common/utils';
+
+import { ScaleFadeProps } from './types';
 
 const ScaleFade: FC<ScaleFadeProps> = (props) => {
 	const theme = useTheme();

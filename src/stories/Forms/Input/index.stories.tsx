@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { sample } from 'lodash';
 
-import { Meta, Story } from './types';
 
 import icons from '../../../common/data/icons';
 import InputComponent from '../../../components/Forms/Input';
@@ -30,6 +29,8 @@ import Icon from '../../../components/Icon';
 // import { InputColor, InputProps, InputRef, InputSize, Input as InputComponent, InputHeader, InputBody, InputFooter } from '../..';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
+
+import { Meta, Story } from './types';
 
 const autoCompleteOptions: InputAutoComplete[] = ['on', 'password', 'off'];
 

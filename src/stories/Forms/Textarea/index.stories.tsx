@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { sample } from 'lodash';
 
-import { Meta, Story } from './types';
 
 import icons from '../../../common/data/icons';
 import TextareaComponent from '../../../components/Forms/Textarea';
@@ -32,6 +31,8 @@ import Icon from '../../../components/Icon';
 // import { TextareaColor, TextareaProps, TextareaRef, TextareaSize, Textarea as TextareaComponent, TextareaHeader, TextareaBody, TextareaFooter } from '../..';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
+
+import { Meta, Story } from './types';
 
 const autoCompleteOptions: TextareaAutoComplete[] = ['on', 'password', 'off'];
 

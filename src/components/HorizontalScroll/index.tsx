@@ -5,6 +5,9 @@ import { useColorMode, Box } from '@chakra-ui/react';
 import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 
 import './common/styles/index.css';
+import { useTheme } from '../../common/hooks';
+import { convertStringToNumber } from '../../common/utils';
+
 import { colorMode as defaultColorMode, isDisabled as defaultIsDisabled } from './common/data/defaultPropValues';
 import Child from './components/Child';
 import LeftArrow from './components/LeftArrow';
@@ -15,8 +18,6 @@ import {
 	HorizontalScrollProps
 } from './types';
 
-import { useTheme } from '../../common/hooks';
-import { convertStringToNumber } from '../../common/utils';
 
 export const HorizontalScrollContext = createContext<HorizontalScrollContextType>({
 	colorMode: defaultColorMode,

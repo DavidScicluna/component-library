@@ -4,10 +4,6 @@ import { useColorMode, Center, VStack } from '@chakra-ui/react';
 
 import merge from 'lodash/merge';
 
-import useStyles from './common/styles';
-import DummyCardDivider from './components/DummyCardDivider';
-import { DummyCardContext as DummyCardContextType, DummyCardRef, DummyCardProps } from './types';
-
 import { useTheme } from '../../../common/hooks';
 import {
 	color as defaultColor,
@@ -18,6 +14,11 @@ import {
 	spacing as defaultSpacing,
 	variant as defaultVariant
 } from '../common/data/defaultPropValues';
+
+import useStyles from './common/styles';
+import DummyCardDivider from './components/DummyCardDivider';
+import { DummyCardContext as DummyCardContextType, DummyCardRef, DummyCardProps } from './types';
+
 
 export const DummyCardContext = createContext<DummyCardContextType>({
 	color: defaultColor,

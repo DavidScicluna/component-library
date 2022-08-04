@@ -1,10 +1,11 @@
 import { transparentize } from 'color2k';
 
-import { InputDarkReadOnlyStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { getAmount } from '../../../utils';
+
+import { InputDarkReadOnlyStyleProps } from './types';
 
 export default ({ theme }: InputDarkReadOnlyStyleProps): Style => {
 	const amount = getAmount();

@@ -1,12 +1,5 @@
 import { memoize, merge } from 'lodash';
 
-import active from './active';
-import card from './card';
-import dark from './dark';
-import disabled from './disabled';
-import light from './light';
-import { CardStyleProps, CardStyleReturn } from './types';
-
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -15,6 +8,14 @@ import {
 	variant as defaultVariant
 } from '../../../common/data/defaultPropValues';
 import { isClickable as defaultIsClickable } from '../data/defaultPropValues';
+
+import active from './active';
+import card from './card';
+import dark from './dark';
+import disabled from './disabled';
+import light from './light';
+import { CardStyleProps, CardStyleReturn } from './types';
+
 
 export default memoize((props: CardStyleProps): CardStyleReturn => {
 	const {

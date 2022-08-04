@@ -4,7 +4,6 @@ import { HStack, VStack, Center } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import { AccordionHeaderProps } from './types';
 
 import { AccordionContext } from '../..';
 import { AccordionsContext } from '../../../..';
@@ -17,6 +16,8 @@ import { colorMode as defaultColorMode, spacing as defaultSpacing } from '../../
 import { AccordionsContext as AccordionsContextType } from '../../../../types';
 import { isOpen as defaultIsOpen } from '../../common/data/defaultPropValues';
 import { AccordionContext as AccordionContextType } from '../../types';
+
+import { AccordionHeaderProps } from './types';
 
 const AccordionHeader = <D,>(props: AccordionHeaderProps): ReactElement => {
 	const theme = useTheme();

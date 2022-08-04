@@ -1,6 +1,5 @@
 import { darken } from 'color2k';
 
-import { AccordionLightStylingProps } from './types';
 
 import { Style } from '../../../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../../../common/utils';
@@ -8,6 +7,8 @@ import { getHue } from '../../../../../../../../../common/utils/color';
 import { color as defaultColor } from '../../../../../../../common/data/defaultPropValues';
 import { isLight as defaultIsLight, isOpen as defaultIsOpen } from '../../../data/defaultPropValues';
 import { getAmount, getSizeConfig } from '../../../utils';
+
+import { AccordionLightStylingProps } from './types';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 

@@ -1,6 +1,5 @@
 import { FC, useContext, useCallback } from 'react';
 
-import { DummyCardDividerProps } from './types';
 
 import { DummyCardContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
@@ -12,6 +11,8 @@ import {
 	isLight as defaultIsLight
 } from '../../../common/data/defaultPropValues';
 import { DummyCardContext as DummyCardContextType } from '../../types';
+
+import { DummyCardDividerProps } from './types';
 
 const DummyCardDivider: FC<DummyCardDividerProps> = (props) => {
 	const theme = useTheme();

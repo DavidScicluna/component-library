@@ -1,10 +1,11 @@
-import { AccordionStyleProps } from './types';
 
 import { Style } from '../../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../../common/utils';
 import { Radius } from '../../../../../../../../theme/types';
 import { isFullWidth as defaultIsFullWidth } from '../../../../../../common/data/defaultPropValues';
 import { getSizeConfig } from '../../utils';
+
+import { AccordionStyleProps } from './types';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 

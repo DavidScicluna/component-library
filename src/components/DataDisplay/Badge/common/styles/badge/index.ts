@@ -1,9 +1,10 @@
-import { BadgeStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { Radius } from '../../../../../../theme/types';
 import { size as defaultSize } from '../../data/defaultPropValues';
 import { getSizeConfig } from '../../utils';
+
+import { BadgeStyleProps } from './types';
 
 export default ({ theme, size = defaultSize }: BadgeStyleProps): Style => {
 	const config = getSizeConfig({ size });

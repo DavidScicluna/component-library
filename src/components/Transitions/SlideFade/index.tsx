@@ -4,10 +4,11 @@ import { useConst, SlideFade as CUISlideFade } from '@chakra-ui/react';
 
 import { Transition } from 'framer-motion';
 
-import { SlideFadeProps } from './types';
 
 import { useTheme } from '../../../common/hooks';
 import { getConfig } from '../common/utils';
+
+import { SlideFadeProps } from './types';
 
 const SlideFade: FC<SlideFadeProps> = (props) => {
 	const theme = useTheme();

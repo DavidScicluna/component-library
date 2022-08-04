@@ -1,7 +1,8 @@
-import { DummyCardStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { Radius } from '../../../../../../theme/types';
+
+import { DummyCardStyleProps } from './types';
 
 export default ({ theme }: DummyCardStyleProps): Style => {
 	const radius: Radius = 'none';

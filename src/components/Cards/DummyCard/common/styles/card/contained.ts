@@ -1,8 +1,9 @@
-import { DummyCardStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { Radius } from '../../../../../../theme/types';
 import { getSizeConfig } from '../../../../common/utils';
+
+import { DummyCardStyleProps } from './types';
 
 export default ({ theme }: DummyCardStyleProps): Style => {
 	const config = getSizeConfig();

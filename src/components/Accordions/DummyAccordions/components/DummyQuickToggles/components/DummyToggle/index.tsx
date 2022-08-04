@@ -2,7 +2,6 @@ import { FC, useContext } from 'react';
 
 import { useMediaQuery } from '@chakra-ui/react';
 
-import { DummyToggleProps } from './types';
 
 import { DummyAccordionsContext } from '../../../..';
 import DummyButton from '../../../../../../Clickable/Buttons/DummyButton';
@@ -11,6 +10,8 @@ import Icon from '../../../../../../Icon';
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../common/data/defaultPropValues';
 import { size as defaultSize } from '../../../../../OriginalAccordions/components/QuickToggles/common/data/defaultPropValues';
 import { DummyAccordionsContext as DummyAccordionsContextType } from '../../../../types';
+
+import { DummyToggleProps } from './types';
 
 const DummyToggle: FC<DummyToggleProps> = (props) => {
 	const [isXs] = useMediaQuery('(max-width: 600px)');

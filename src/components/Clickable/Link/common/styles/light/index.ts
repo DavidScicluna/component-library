@@ -1,12 +1,13 @@
 import { darken } from 'color2k';
 
-import { LinkLightStylingProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
 import { getHue } from '../../../../../../common/utils/color';
 import { Color } from '../../../../../../theme/types';
 import { getAmount } from '../../utils';
+
+import { LinkLightStylingProps } from './types';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 

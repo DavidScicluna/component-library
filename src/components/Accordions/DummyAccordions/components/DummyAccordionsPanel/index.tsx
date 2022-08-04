@@ -2,11 +2,12 @@ import { FC, useContext } from 'react';
 
 import { VStack } from '@chakra-ui/react';
 
-import { DummyAccordionsPanelProps } from './types';
 
 import { DummyAccordionsContext } from '../..';
 import { spacing as defaultSpacing } from '../../../common/data/defaultPropValues';
 import { DummyAccordionsContext as DummyAccordionsContextType } from '../../types';
+
+import { DummyAccordionsPanelProps } from './types';
 
 const DummyAccordionsPanel: FC<DummyAccordionsPanelProps> = (props) => {
 	const { accordions = [], spacing: spacingHook = defaultSpacing } =

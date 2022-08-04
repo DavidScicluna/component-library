@@ -1,9 +1,10 @@
-import { CardDarkActiveStylingProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../theme/types';
 import { color as defaultColor, isLight as defaultIsLight } from '../../../../../common/data/defaultPropValues';
+
+import { CardDarkActiveStylingProps } from './types';
 
 export default ({
 	theme,

@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { Box, Text } from '@chakra-ui/react';
 
-import { Meta, Story } from './types';
 
 import { Modal as ModalComponent, ModalProps, ModalBody, ModalFooter, ModalHeader } from '../../..';
 import {
@@ -13,6 +12,8 @@ import {
 import { ModalSize } from '../../../components/Overlay/Modal/types';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
+
+import { Meta, Story } from './types';
 
 const sizeOptions: ModalSize[] = ['full', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'];
 

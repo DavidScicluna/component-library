@@ -1,8 +1,9 @@
-import { NavItemLightActiveStylingProps } from './types';
 
 import { Style } from '../../../../../../../../../common/types';
 import { getHue } from '../../../../../../../../../common/utils/color';
 import { color as defaultColor } from '../../../../../../common/data/defaultPropValues';
+
+import { NavItemLightActiveStylingProps } from './types';
 
 export default ({ theme, color = defaultColor }: NavItemLightActiveStylingProps): Style => {
 	const shade = getHue({ colorMode: 'light', type: 'color' });

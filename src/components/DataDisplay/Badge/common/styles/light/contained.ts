@@ -1,9 +1,10 @@
-import { BadgeLightStylingProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { getHue } from '../../../../../../common/utils/color';
 import { Color, ColorHues } from '../../../../../../theme/types';
 import { color as defaultColor, isLight as defaultIsLight } from '../../data/defaultPropValues';
+
+import { BadgeLightStylingProps } from './types';
 
 export default ({
 	theme,

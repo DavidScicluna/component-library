@@ -1,7 +1,8 @@
-import { TabLightDisabledStylingProps } from './types';
 
 import { Style } from '../../../../../../../../../common/types';
 import { getHue } from '../../../../../../../../../common/utils/color';
+
+import { TabLightDisabledStylingProps } from './types';
 
 export default ({ theme }: TabLightDisabledStylingProps): Style => {
 	const shade = getHue({ colorMode: 'light', type: 'text.secondary' });

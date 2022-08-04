@@ -4,7 +4,6 @@ import { VStack } from '@chakra-ui/react';
 
 import { sample } from 'lodash';
 
-import { Meta, Story } from './types';
 
 // import icons from '../../../common/data/icons';
 import CheckboxComponent from '../../../components/Forms/Checkbox';
@@ -35,6 +34,8 @@ import {
 // import { CheckboxColor, CheckboxProps, CheckboxRef, CheckboxSize, Checkbox as CheckboxComponent, CheckboxHeader, CheckboxBody, CheckboxFooter } from '../..';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
+
+import { Meta, Story } from './types';
 
 const colorOptions: CheckboxColor[] = [
 	'pink',

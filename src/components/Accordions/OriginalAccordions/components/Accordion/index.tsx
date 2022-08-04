@@ -1,21 +1,12 @@
 import { createContext, useContext, ReactElement } from 'react';
 
 import { useConst, Box, VisuallyHidden, Center, VStack } from '@chakra-ui/react';
-import { dataAttr } from '@chakra-ui/utils';
 
+import { dataAttr } from '@chakra-ui/utils';
 import { Transition } from 'framer-motion';
 import { merge } from 'lodash';
 import { useInView } from 'react-cool-inview';
 
-import {
-	isActive as defaultIsActive,
-	isDivisible as defaultIsDivisible,
-	isLight as defaultIsLight,
-	isOpen as defaultIsOpen
-} from './common/data/defaultPropValues';
-import useStyles from './common/styles';
-import AccordionDivider from './components/AccordionDivider';
-import { AccordionContext as AccordionContextType, AccordionProps } from './types';
 
 import { AccordionsContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
@@ -37,6 +28,16 @@ import {
 } from '../../common/data/defaultPropValues';
 import { toggleAccordion } from '../../common/utils';
 import { AccordionsContext as AccordionsContextType } from '../../types';
+
+import { AccordionContext as AccordionContextType, AccordionProps } from './types';
+import AccordionDivider from './components/AccordionDivider';
+import useStyles from './common/styles';
+import {
+	isActive as defaultIsActive,
+	isDivisible as defaultIsDivisible,
+	isLight as defaultIsLight,
+	isOpen as defaultIsOpen
+} from './common/data/defaultPropValues';
 
 export const AccordionContext = createContext<AccordionContextType<unknown>>({
 	isDisabled: defaultIsDisabled,

@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { sample } from 'lodash';
 
-import { Meta, Story } from './types';
 
 import { ButtonGroupProps, ButtonGroupSize, ButtonGroup as ButtonGroupComponent, IconButton, Icon } from '../../..';
 import icons from '../../../common/data/icons';
@@ -13,6 +12,8 @@ import {
 } from '../../../components/Clickable/ButtonGroup/common/data/defaultPropValues';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
+
+import { Meta, Story } from './types';
 
 const sizeOptions: ButtonGroupSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 

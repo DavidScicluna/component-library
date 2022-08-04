@@ -1,12 +1,13 @@
 import { lighten } from 'color2k';
 
-import { TagDarkActiveStylingProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../theme/types';
 import { color as defaultColor, size as defaultSize } from '../../../data/defaultPropValues';
 import { getAmount, getSizeConfig } from '../../../utils';
+
+import { TagDarkActiveStylingProps } from './types';
 
 export default ({ theme, color: colorProp = defaultColor, size = defaultSize }: TagDarkActiveStylingProps): Style => {
 	const amount = getAmount();

@@ -4,6 +4,11 @@ import { useColorMode, FormControl, Radio as CUIRadio, VStack, HStack, Center } 
 
 import { isEmpty, isNil, merge } from 'lodash';
 
+import { useTheme } from '../../../common/hooks';
+import Collapse from '../../Transitions/Collapse';
+import FormHelperText from '../FormHelperText';
+import FormLabel from '../FormLabel';
+
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -22,10 +27,6 @@ import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
 import { RadioContext as RadioContextType, RadioProps, RadioRef, RadioPanelRenderProps } from './types';
 
-import { useTheme } from '../../../common/hooks';
-import Collapse from '../../Transitions/Collapse';
-import FormHelperText from '../FormHelperText';
-import FormLabel from '../FormLabel';
 
 export const RadioContext = createContext<RadioContextType>({ color: defaultColor, colorMode: defaultColorMode });
 

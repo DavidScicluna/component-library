@@ -1,9 +1,10 @@
-import { ButtonDarkActiveStylingProps } from './types';
 
 import { Style } from '../../../../../../../../common/types';
 import { getHue } from '../../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../../theme/types';
 import { color as defaultColor } from '../../../../../common/data/defaultPropValues';
+
+import { ButtonDarkActiveStylingProps } from './types';
 
 export default ({ theme, color: colorProp = defaultColor }: ButtonDarkActiveStylingProps): Style => {
 	const shade = getHue({

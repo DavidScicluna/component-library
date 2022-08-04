@@ -1,9 +1,10 @@
-import { ButtonDarkDisabledStylingProps } from './types';
 
 import { Style } from '../../../../../../../../common/types';
 import { getHue } from '../../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../../theme/types';
 import { color as defaultColor, isLoading as defaultIsLoading } from '../../../../../common/data/defaultPropValues';
+
+import { ButtonDarkDisabledStylingProps } from './types';
 
 export default ({
 	theme,

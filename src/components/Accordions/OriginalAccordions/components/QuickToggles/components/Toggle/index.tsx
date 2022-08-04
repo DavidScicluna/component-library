@@ -2,7 +2,6 @@ import { ReactElement, useContext, useCallback } from 'react';
 
 import { useMediaQuery } from '@chakra-ui/react';
 
-import { ToggleProps } from './types';
 
 import { AccordionsContext } from '../../../..';
 import Button from '../../../../../../Clickable/Buttons/OriginalButton';
@@ -18,6 +17,8 @@ import {
 import { toggleAllAccordions } from '../../../../common/utils';
 import { AccordionsContext as AccordionsContextType } from '../../../../types';
 import { size as defaultSize } from '../../common/data/defaultPropValues';
+
+import { ToggleProps } from './types';
 
 const Toggle = <D,>(props: ToggleProps<D>): ReactElement => {
 	const [isXs] = useMediaQuery('(max-width: 600px)');

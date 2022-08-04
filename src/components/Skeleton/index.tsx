@@ -6,6 +6,14 @@ import { AnimatePresence } from 'framer-motion';
 import { round } from 'lodash';
 import { useElementSize } from 'usehooks-ts';
 
+
+import { useTheme } from '../../common/hooks';
+import { convertStringToNumber } from '../../common/utils';
+import { getColor } from '../../common/utils/color';
+import SlideFade from '../Transitions/SlideFade';
+
+import { SkeletonProps } from './types';
+import { getSkeletonAnimationColor, getSkeletonDuration, getSkeletonDelay } from './common/utils';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -13,13 +21,6 @@ import {
 	isReversed as defaultIsReversed,
 	variant as defaultVariant
 } from './common/data/defaultPropValues';
-import { getSkeletonAnimationColor, getSkeletonDuration, getSkeletonDelay } from './common/utils';
-import { SkeletonProps } from './types';
-
-import { useTheme } from '../../common/hooks';
-import { convertStringToNumber } from '../../common/utils';
-import { getColor } from '../../common/utils/color';
-import SlideFade from '../Transitions/SlideFade';
 
 const Skeleton: FC<SkeletonProps> = (props) => {
 	const theme = useTheme();

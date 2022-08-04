@@ -1,8 +1,9 @@
-import { FormHelperTextStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { size as defaultSize } from '../../data/defaultPropValues';
 import { getFontSize } from '../../utils';
+
+import { FormHelperTextStyleProps } from './types';
 
 export default ({ theme, size = defaultSize }: FormHelperTextStyleProps): Style => {
 	const fontSize = getFontSize({ size });

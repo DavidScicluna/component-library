@@ -1,8 +1,9 @@
-import { DummyIconButtonStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { size as defaultSize } from '../../../../common/data/defaultPropValues';
 import { getIconFontSize, getSizeConfig } from '../../../../common/utils';
+
+import { DummyIconButtonStyleProps } from './types';
 
 export default ({ theme, size = defaultSize }: DummyIconButtonStyleProps): Style => {
 	const config = getSizeConfig({ size });

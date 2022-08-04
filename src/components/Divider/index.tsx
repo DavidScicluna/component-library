@@ -2,10 +2,11 @@ import { ReactElement, forwardRef } from 'react';
 
 import { useColorMode, Box } from '@chakra-ui/react';
 
-import { DividerRef, DividerProps } from './types';
 
 import { useTheme } from '../../common/hooks';
 import { getColor } from '../../common/utils/color';
+
+import { DividerRef, DividerProps } from './types';
 
 const Divider = forwardRef<DividerRef, DividerProps>(function Divider(props, ref): ReactElement {
 	const theme = useTheme();

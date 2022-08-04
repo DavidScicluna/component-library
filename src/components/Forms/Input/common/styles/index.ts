@@ -1,13 +1,5 @@
 import { memoize, merge } from 'lodash';
 
-import dark from './dark';
-import disabled from './disabled';
-import group from './group';
-import input from './input';
-import light from './light';
-import readOnly from './readOnly';
-import { InputStyleProps, InputStyleReturn } from './types';
-
 import {
 	colorMode as defaultColorMode,
 	isError as defaultIsError,
@@ -17,6 +9,15 @@ import {
 	isFullWidth as defaultIsFullWidth,
 	size as defaultSize
 } from '../data/defaultPropValues';
+
+import dark from './dark';
+import disabled from './disabled';
+import group from './group';
+import input from './input';
+import light from './light';
+import readOnly from './readOnly';
+import { InputStyleProps, InputStyleReturn } from './types';
+
 
 export default memoize((props: InputStyleProps): InputStyleReturn => {
 	const {

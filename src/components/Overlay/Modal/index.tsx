@@ -12,18 +12,19 @@ import {
 
 import { useTimeout } from 'usehooks-ts';
 
+
+import { useTheme } from '../../../common/hooks';
+import { convertStringToNumber } from '../../../common/utils';
+import { getHue } from '../../../common/utils/color';
+import Divider from '../../Divider';
+
+import { ModalContext as ModalContextType, ModalProps } from './types';
 import {
 	colorMode as defaultColorMode,
 	isOpen as defaultIsOpen,
 	size as defaultSize,
 	spacing as defaultSpacing
 } from './common/data/defaultPropValues';
-import { ModalContext as ModalContextType, ModalProps } from './types';
-
-import { useTheme } from '../../../common/hooks';
-import { convertStringToNumber } from '../../../common/utils';
-import { getHue } from '../../../common/utils/color';
-import Divider from '../../Divider';
 
 export const ModalContext = createContext<ModalContextType>({ colorMode: 'light' });
 

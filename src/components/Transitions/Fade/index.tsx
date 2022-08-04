@@ -4,10 +4,11 @@ import { useConst, Fade as CUIFade } from '@chakra-ui/react';
 
 import { Transition } from 'framer-motion';
 
-import { FadeProps } from './types';
 
 import { useTheme } from '../../../common/hooks';
 import { getConfig } from '../common/utils';
+
+import { FadeProps } from './types';
 
 const Fade: FC<FadeProps> = (props) => {
 	const theme = useTheme();

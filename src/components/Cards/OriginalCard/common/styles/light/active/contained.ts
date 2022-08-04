@@ -1,12 +1,13 @@
 import { darken } from 'color2k';
 
-import { CardLightActiveStylingProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { Color, ColorHues } from '../../../../../../../theme/types';
 import { color as defaultColor, isLight as defaultIsLight } from '../../../../../common/data/defaultPropValues';
 import { getAmount } from '../../../../../common/utils';
+
+import { CardLightActiveStylingProps } from './types';
 
 export default ({
 	theme,

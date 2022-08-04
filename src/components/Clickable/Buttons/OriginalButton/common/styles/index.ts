@@ -1,12 +1,5 @@
 import { memoize, merge } from 'lodash';
 
-import active from './active';
-import button from './button';
-import dark from './dark';
-import disabled from './disabled';
-import light from './light';
-import { ButtonStyleProps, ButtonStyleReturn } from './types';
-
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -15,6 +8,14 @@ import {
 	size as defaultSize,
 	variant as defaultVariant
 } from '../../../common/data/defaultPropValues';
+
+import active from './active';
+import button from './button';
+import dark from './dark';
+import disabled from './disabled';
+import light from './light';
+import { ButtonStyleProps, ButtonStyleReturn } from './types';
+
 
 export default memoize((props: ButtonStyleProps): ButtonStyleReturn => {
 	const {

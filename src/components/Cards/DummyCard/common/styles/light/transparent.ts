@@ -1,9 +1,10 @@
-import { DummyCardLightStylingProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { getHue } from '../../../../../../common/utils/color';
 import { color as defaultColor, isLight as defaultIsLight } from '../../../../common/data/defaultPropValues';
 import { CardColor } from '../../../../common/types';
+
+import { DummyCardLightStylingProps } from './types';
 
 export default ({
 	theme,

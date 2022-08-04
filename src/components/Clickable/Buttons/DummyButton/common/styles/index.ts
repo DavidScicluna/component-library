@@ -1,16 +1,17 @@
 import { memoize, merge } from 'lodash';
 
-import button from './button';
-import dark from './dark';
-import light from './light';
-import { DummyButtonStyleProps, DummyButtonStyleReturn } from './types';
-
 import {
 	colorMode as defaultColorMode,
 	isFullWidth as defaultIsFullWidth,
 	size as defaultSize,
 	variant as defaultVariant
 } from '../../../common/data/defaultPropValues';
+
+import button from './button';
+import dark from './dark';
+import light from './light';
+import { DummyButtonStyleProps, DummyButtonStyleReturn } from './types';
+
 
 export default memoize((props: DummyButtonStyleProps): DummyButtonStyleReturn => {
 	const {

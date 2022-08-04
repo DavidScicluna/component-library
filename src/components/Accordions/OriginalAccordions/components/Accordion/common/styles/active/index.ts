@@ -1,7 +1,8 @@
-import { AccordionActiveStyleProps } from './types';
 
 import { Style } from '../../../../../../../../common/types';
 import { getSizeConfig } from '../../utils';
+
+import { AccordionActiveStyleProps } from './types';
 
 export default ({ theme }: AccordionActiveStyleProps): Style => {
 	const config = getSizeConfig();

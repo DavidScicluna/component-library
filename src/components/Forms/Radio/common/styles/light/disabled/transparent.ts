@@ -1,7 +1,8 @@
-import { RadioLightDisabledStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
+
+import { RadioLightDisabledStyleProps } from './types';
 
 export default ({ theme }: RadioLightDisabledStyleProps): Style => {
 	const textShade = getHue({

@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 
 import { Box } from '@chakra-ui/react';
 
-import { Meta, Story } from './types';
 
 import {
 	ConfirmModalProps,
@@ -20,6 +19,8 @@ import {
 import { ConfirmModalSize } from '../../../components/Overlay/ConfirmModal/types';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
+
+import { Meta, Story } from './types';
 
 const sizeOptions: ConfirmModalSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 

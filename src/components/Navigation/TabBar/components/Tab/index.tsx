@@ -4,10 +4,6 @@ import { VStack, Text } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
-import { isActive as defaultIsActive, isDisabled as defaultIsDisabled } from './common/data/defaultPropValues';
-import useStyles from './common/styles';
-import ActiveDot from './components/ActiveDot';
-import { TabProps } from './types';
 
 import { TabBarContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
@@ -18,6 +14,11 @@ import {
 	direction as defaultDirection
 } from '../../common/data/defaultPropValues';
 import { TabBarContext as TabBarContextType } from '../../types';
+
+import { TabProps } from './types';
+import ActiveDot from './components/ActiveDot';
+import useStyles from './common/styles';
+import { isActive as defaultIsActive, isDisabled as defaultIsDisabled } from './common/data/defaultPropValues';
 
 const Tab: FC<TabProps> = (props) => {
 	const theme = useTheme();

@@ -1,9 +1,10 @@
-import { CardStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
 import { isFullWidth as defaultIsFullWidth } from '../../../../common/data/defaultPropValues';
 import { isClickable as defaultIsClickable } from '../../data/defaultPropValues';
+
+import { CardStyleProps } from './types';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 

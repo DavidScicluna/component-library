@@ -1,10 +1,11 @@
 import { transparentize } from 'color2k';
 
-import { InputLightDisabledStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { getAmount } from '../../../utils';
+
+import { InputLightDisabledStyleProps } from './types';
 
 export default ({ theme }: InputLightDisabledStyleProps): Style => {
 	const amount = getAmount();

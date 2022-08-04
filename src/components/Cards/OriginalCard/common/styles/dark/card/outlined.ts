@@ -1,6 +1,5 @@
 import { lighten } from 'color2k';
 
-import { CardDarkStylingProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../common/utils';
@@ -9,6 +8,8 @@ import { Color } from '../../../../../../../theme/types';
 import { color as defaultColor, isLight as defaultIsLight } from '../../../../../common/data/defaultPropValues';
 import { getAmount, getSizeConfig } from '../../../../../common/utils';
 import { isClickable as defaultIsClickable } from '../../../data/defaultPropValues';
+
+import { CardDarkStylingProps } from './types';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 

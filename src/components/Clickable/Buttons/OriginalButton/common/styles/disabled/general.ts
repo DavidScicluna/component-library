@@ -1,7 +1,8 @@
-import { ButtonDisabledStylingProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { isLoading as defaultIsLoading } from '../../../../common/data/defaultPropValues';
+
+import { ButtonDisabledStylingProps } from './types';
 
 export default ({ isLoading = defaultIsLoading }: ButtonDisabledStylingProps): Style => ({
 	cursor: 'default',

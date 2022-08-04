@@ -1,12 +1,5 @@
 import { memoize, merge } from 'lodash';
 
-import active from './active';
-import dark from './dark';
-import disabled from './disabled';
-import light from './light';
-import tag from './tag';
-import { TagStyleProps, TagStyleReturn } from './types';
-
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -15,6 +8,14 @@ import {
 	size as defaultSize,
 	variant as defaultVariant
 } from '../data/defaultPropValues';
+
+import active from './active';
+import dark from './dark';
+import disabled from './disabled';
+import light from './light';
+import tag from './tag';
+import { TagStyleProps, TagStyleReturn } from './types';
+
 
 export default memoize((props: TagStyleProps): TagStyleReturn => {
 	const {

@@ -1,9 +1,10 @@
-import { IconButtonStyleProps } from './types';
 
 import { Style } from '../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../common/utils';
 import { size as defaultSize } from '../../../../common/data/defaultPropValues';
 import { getIconFontSize, getSizeConfig } from '../../../../common/utils';
+
+import { IconButtonStyleProps } from './types';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 

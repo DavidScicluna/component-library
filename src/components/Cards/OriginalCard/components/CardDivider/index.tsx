@@ -1,6 +1,5 @@
 import { FC, useContext, useCallback } from 'react';
 
-import { CardDividerProps } from './types';
 
 import { CardContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
@@ -13,6 +12,8 @@ import {
 } from '../../../common/data/defaultPropValues';
 import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
 import { CardContext as CardContextType } from '../../types';
+
+import { CardDividerProps } from './types';
 
 const CardDivider: FC<CardDividerProps> = (props) => {
 	const theme = useTheme();

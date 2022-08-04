@@ -1,7 +1,8 @@
-import { FormLabelLightStyleProps } from './types';
 
 import { Style } from '../../../../../../common/types';
 import { getHue } from '../../../../../../common/utils/color';
+
+import { FormLabelLightStyleProps } from './types';
 
 export default ({ theme }: FormLabelLightStyleProps): Style => {
 	const textShade = getHue({
