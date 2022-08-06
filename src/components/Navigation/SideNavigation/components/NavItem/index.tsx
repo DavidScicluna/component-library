@@ -1,6 +1,6 @@
 import { FC, useContext, useCallback } from 'react';
 
-import { useConst, HStack, Center, Text } from '@chakra-ui/react';
+import { useConst, HStack, Center, Box, Text } from '@chakra-ui/react';
 
 import { Transition } from 'framer-motion';
 import { merge } from 'lodash';
@@ -82,8 +82,14 @@ const NavItem: FC<NavItemProps> = (props) => {
 					</Center>
 				)}
 
-				<Fade in={mode === 'expanded'} unmountOnExit style={{ flex: 1 }} transition={{ enter: { ...config } }}>
-					<Center width={handleTextWidth()}>
+				<Fade
+					in={mode === 'expanded'}
+					unmountOnExit
+					style={{ flex: 1 }}
+					transition={{ enter: { ...config } }}
+					initial={false}
+				>
+					<Box width={handleTextWidth()}>
 						<Text
 							align={mode === 'expanded' ? 'left' : 'center'}
 							fontSize='md'
@@ -95,7 +101,7 @@ const NavItem: FC<NavItemProps> = (props) => {
 						>
 							{title}
 						</Text>
-					</Center>
+					</Box>
 				</Fade>
 
 				{renderRightIcon && (
