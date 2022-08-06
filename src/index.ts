@@ -2,6 +2,7 @@ import fallback from './common/assets/fallback';
 import { useOs, useTheme } from './common/hooks';
 import {
 	getOS,
+	getColorMode,
 	checkIsTouchDevice,
 	convertREMToPixels,
 	convertStringToNumber,
@@ -276,6 +277,7 @@ export const assets = { fallback };
 // Utils
 export const utils = {
 	getOS,
+	getColorMode,
 	checkIsTouchDevice,
 	convertREMToPixels,
 	convertStringToNumber,
