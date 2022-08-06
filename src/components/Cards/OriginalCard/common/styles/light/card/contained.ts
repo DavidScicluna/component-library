@@ -53,38 +53,42 @@ export default ({
 			background: theme.colors[color][shade]
 		},
 
-		'&:hover': {
-			'color': theme.colors.gray[textShade],
+		'&:hover': isClickable
+			? {
+					'color': theme.colors.gray[textShade],
 
-			'&::before': {
-				boxShadow: `0 ${transform}px 0 0 ${darken(theme.colors[color][shade], amount.back)}`,
-				borderColor: darken(theme.colors[color][shade], amount.hover),
-				backgroundColor: darken(theme.colors[color][shade], amount.hover),
-				background: darken(theme.colors[color][shade], amount.hover)
-			},
+					'&::before': {
+						boxShadow: `0 ${transform}px 0 0 ${darken(theme.colors[color][shade], amount.back)}`,
+						borderColor: darken(theme.colors[color][shade], amount.hover),
+						backgroundColor: darken(theme.colors[color][shade], amount.hover),
+						background: darken(theme.colors[color][shade], amount.hover)
+					},
 
-			'&:active': {
-				'color': theme.colors.gray[textShade],
+					'&:active': {
+						'color': theme.colors.gray[textShade],
 
-				'&::before': {
-					boxShadow: 'none',
-					borderColor: darken(theme.colors[color][shade], amount.active),
-					backgroundColor: darken(theme.colors[color][shade], amount.active),
-					background: darken(theme.colors[color][shade], amount.active)
-				}
-			}
-		},
+						'&::before': {
+							boxShadow: 'none',
+							borderColor: darken(theme.colors[color][shade], amount.active),
+							backgroundColor: darken(theme.colors[color][shade], amount.active),
+							background: darken(theme.colors[color][shade], amount.active)
+						}
+					}
+			  }
+			: {},
 
-		'&:active': {
-			'color': theme.colors.gray[textShade],
+		'&:active': isClickable
+			? {
+					'color': theme.colors.gray[textShade],
 
-			'&::before': {
-				boxShadow: 'none',
-				borderColor: darken(theme.colors[color][shade], amount.active),
-				backgroundColor: darken(theme.colors[color][shade], amount.active),
-				background: darken(theme.colors[color][shade], amount.active)
-			}
-		},
+					'&::before': {
+						boxShadow: 'none',
+						borderColor: darken(theme.colors[color][shade], amount.active),
+						backgroundColor: darken(theme.colors[color][shade], amount.active),
+						background: darken(theme.colors[color][shade], amount.active)
+					}
+			  }
+			: {},
 
 		'&:focus-visible': {
 			outline: !isTouchDevice ? `${border}px auto ${theme.colors[color][shade]}` : 'none',

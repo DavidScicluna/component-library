@@ -53,16 +53,7 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 		...rest
 	} = props;
 
-	const style = useStyles({
-		theme,
-		color,
-		colorMode,
-		isFullWidth,
-		isLight,
-		isClickable,
-
-		variant
-	});
+	const style = useStyles({ theme, color, colorMode, isFullWidth, isLight, isClickable, variant });
 
 	return (
 		<CardContext.Provider value={{ color, colorMode, isDisabled, isLight, spacing }}>
