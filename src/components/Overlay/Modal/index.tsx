@@ -78,7 +78,14 @@ const Modal: FC<ModalProps> = (props) => {
 						})}`}
 						borderRadius={size === 'full' || isXs ? 'none' : 'xl'}
 					>
-						<VStack width='100%' divider={<Divider colorMode={colorMode} />} spacing={spacing} p={spacing}>
+						<VStack
+							width='100%'
+							divider={<Divider colorMode={colorMode} />}
+							spacing={spacing}
+							overflowX='hidden'
+							overflowY='auto'
+							p={spacing}
+						>
 							{children}
 						</VStack>
 					</ModalContent>
