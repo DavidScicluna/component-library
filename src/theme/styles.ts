@@ -12,7 +12,19 @@ const styles: Styles = {
 			background: mode('gray.50', 'gray.900')(props),
 			backgroundColor: mode('gray.50', 'gray.900')(props),
 
-			transition: `${transition.duration.normal} ${transition.easing['ease-in-out']}`
+			transition: 'none',
+			transitionProperty: [
+				'background-color',
+				'background-image',
+				'background-position',
+				'border-color',
+				'color',
+				'fill',
+				'stroke',
+				'box-shadow'
+			],
+			transitionDuration: transition.duration.normal,
+			transitionTimingFunction: transition.easing['ease-in-out']
 		},
 		'*, *::before, *::after': {
 			fontFamily: 'body',
@@ -20,7 +32,19 @@ const styles: Styles = {
 			boxShadow: 'none',
 			outline: '0px transparent',
 
-			transition: `${transition.duration.normal} ${transition.easing['ease-in-out']}`
+			transition: 'none',
+			transitionProperty: [
+				'background-color',
+				'background-image',
+				'background-position',
+				'border-color',
+				'color',
+				'fill',
+				'stroke',
+				'box-shadow'
+			],
+			transitionDuration: transition.duration.normal,
+			transitionTimingFunction: transition.easing['ease-in-out']
 		}
 	})
 };
