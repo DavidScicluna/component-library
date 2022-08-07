@@ -28,7 +28,7 @@ type IconPropsPicked = 'icon' | 'category';
 
 type IconButtonPropsPicked = 'aria-label' | 'color' | 'colorMode' | 'onClick' | 'size' | 'variant';
 
-type RenderProps = Pick<IconProps, IconPropsPicked> & Pick<IconButtonProps, IconButtonPropsPicked>;
+type RenderCancelProps = Pick<IconProps, IconPropsPicked> & Pick<IconButtonProps, IconButtonPropsPicked>;
 
 export type ConfirmModalSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -62,9 +62,9 @@ type Omitted =
 
 export type ConfirmModalProps = {
 	colorMode?: ColorMode;
-	renderCancel?: (props: RenderProps) => ReactNode;
+	renderCancel?: (props: RenderCancelProps) => ReactNode;
 	size?: ConfirmModalSize;
 	spacing?: Space;
 } & Omit<CUIModalProps, Omitted>;
 
-export type ConfirmModalContext = Pick<ConfirmModalProps, 'colorMode' | 'spacing'>;
+export type ConfirmModalContext = Pick<ConfirmModalProps, 'colorMode' | 'onClose' | 'spacing'>;
