@@ -5,7 +5,7 @@ import { useMediaQuery } from '@chakra-ui/react';
 import { AccordionsContext } from '../../../..';
 import Button from '../../../../../../Clickable/Buttons/OriginalButton';
 import IconButton from '../../../../../../Clickable/IconButtons/OriginalIconButton';
-import Icon from '../../../../../../Icon';
+import IconButtonIcon from '../../../../../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../common/data/defaultPropValues';
 import {
 	accordions as defaultAccordions,
@@ -47,7 +47,7 @@ const Toggle = <D,>(props: ToggleProps<D>): ReactElement => {
 			size={size}
 			variant='icon'
 		>
-			<Icon icon={hasOpened ? 'playlist_remove' : 'playlist_add_check'} />
+			<IconButtonIcon icon={hasOpened ? 'playlist_remove' : 'playlist_add_check'} />
 		</IconButton>
 	) : (
 		<Button

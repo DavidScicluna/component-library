@@ -2,7 +2,13 @@ import { ReactElement } from 'react';
 
 import { sample } from 'lodash';
 
-import { ButtonGroupProps, ButtonGroupSize, ButtonGroup as ButtonGroupComponent, IconButton, Icon } from '../../..';
+import {
+	ButtonGroupProps,
+	ButtonGroupSize,
+	ButtonGroup as ButtonGroupComponent,
+	IconButton,
+	IconButtonIcon
+} from '../../..';
 import icons from '../../../common/data/icons';
 import {
 	isAttached as defaultIsAttached,
@@ -43,19 +49,19 @@ export default {
 export const ButtonGroup: Story = (props: ButtonGroupProps): ReactElement => (
 	<ButtonGroupComponent {...props}>
 		<IconButton aria-label='IconButton01' color='green' size={props.size}>
-			<Icon icon={sample(icons) || icons[0]} />
+			<IconButtonIcon icon={sample(icons) || icons[0]} />
 		</IconButton>
 		<IconButton aria-label='IconButton02' color='green' size={props.size}>
-			<Icon icon={sample(icons) || icons[50]} />
+			<IconButtonIcon icon={sample(icons) || icons[50]} />
 		</IconButton>
 		<IconButton aria-label='IconButton03' color='green' size={props.size}>
-			<Icon icon={sample(icons) || icons[100]} />
+			<IconButtonIcon icon={sample(icons) || icons[100]} />
 		</IconButton>
 		<IconButton aria-label='IconButton04' color='green' size={props.size}>
-			<Icon icon={sample(icons) || icons[150]} />
+			<IconButtonIcon icon={sample(icons) || icons[150]} />
 		</IconButton>
 		<IconButton aria-label='IconButton04' color='green' size={props.size}>
-			<Icon icon={sample(icons) || icons[200]} />
+			<IconButtonIcon icon={sample(icons) || icons[200]} />
 		</IconButton>
 	</ButtonGroupComponent>
 );

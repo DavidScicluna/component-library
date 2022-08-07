@@ -11,7 +11,7 @@ import { HorizontalScrollContext } from '../..';
 import { useTheme } from '../../../../common/hooks';
 import { getColor } from '../../../../common/utils/color';
 import IconButton from '../../../Clickable/IconButtons/OriginalIconButton';
-import Icon from '../../../Icon';
+import IconButtonIcon from '../../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
 import {
 	getDuration as getTransitionDuration,
 	getEasings as getTransitionEasings
@@ -140,8 +140,7 @@ const Arrow: FC<ArrowProps> = (props) => {
 						variant='icon'
 						sx={{ height: '100%' }}
 					>
-						<Icon
-							colorMode={colorMode}
+						<IconButtonIcon
 							icon={direction === 'left' ? 'chevron_left' : 'chevron_right'}
 							category='outlined'
 						/>

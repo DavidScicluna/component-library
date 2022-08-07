@@ -45,3 +45,5 @@ type Omitted =
 export type IconButtonProps = Omit<CUIIconButtonProps, Omitted> & CommonIconButtonProps;
 
 export type IconButtonRef = HTMLButtonElement | null;
+
+export type IconButtonContext = Pick<IconButtonProps, 'color' | 'colorMode'>;

@@ -77,7 +77,9 @@ import { IconButtonColor, IconButtonSize, IconButtonVariant } from './components
 import DummyIconButton from './components/Clickable/IconButtons/DummyIconButton';
 import { DummyIconButtonProps } from './components/Clickable/IconButtons/DummyIconButton/types';
 import IconButton from './components/Clickable/IconButtons/OriginalIconButton';
+import IconButtonIcon from './components/Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
 import { IconButtonProps, IconButtonRef } from './components/Clickable/IconButtons/OriginalIconButton/types';
+import { IconButtonIconProps } from './components/Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon/types';
 import { LinkProps } from './components/Clickable/Link/common/types';
 import ExternalLink from './components/Clickable/Link/External';
 import InternalLink from './components/Clickable/Link/Internal';
@@ -318,6 +320,7 @@ export {
 	CardFooter,
 	DummyIconButton,
 	IconButton,
+	IconButtonIcon,
 	ExternalLink,
 	InternalLink,
 	DummyButton,
@@ -403,6 +406,7 @@ export type {
 	DummyIconButtonProps,
 	IconButtonProps,
 	IconButtonRef,
+	IconButtonIconProps,
 	LinkProps,
 	InternalLinkProps,
 	ButtonColor,

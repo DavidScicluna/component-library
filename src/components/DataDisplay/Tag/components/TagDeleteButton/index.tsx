@@ -2,7 +2,7 @@ import { FC, useContext } from 'react';
 
 import { TagContext } from '../..';
 import IconButton from '../../../../Clickable/IconButtons/OriginalIconButton';
-import Icon from '../../../../Icon';
+import IconButtonIcon from '../../../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
 import {
 	colorMode as defaultColorMode,
 	size as defaultSize,
@@ -39,7 +39,7 @@ const TagDeleteIconButton: FC<TagDeleteIconButtonProps> = (props) => {
 			variant='icon'
 			sx={{ p: 0.5 }}
 		>
-			<Icon icon='clear' />
+			<IconButtonIcon icon='clear' />
 		</IconButton>
 	);
 };

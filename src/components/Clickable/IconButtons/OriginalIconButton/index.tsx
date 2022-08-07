@@ -1,4 +1,4 @@
-import { ReactElement, forwardRef } from 'react';
+import { ReactElement, createContext, forwardRef } from 'react';
 
 import { useColorMode, IconButton as CUIIconButton, Center } from '@chakra-ui/react';
 
@@ -17,7 +17,12 @@ import {
 
 import useStyles from './common/styles';
 import Spinner from './components/Spinner';
-import { IconButtonRef, IconButtonProps } from './types';
+import { IconButtonContext as IconButtonContextType, IconButtonRef, IconButtonProps } from './types';
+
+export const IconButtonContext = createContext<IconButtonContextType>({
+	color: defaultColor,
+	colorMode: defaultColorMode
+});
 
 const IconButton = forwardRef<IconButtonRef, IconButtonProps>(function IconButton(props, ref): ReactElement {
 	const theme = useTheme();
@@ -39,20 +44,26 @@ const IconButton = forwardRef<IconButtonRef, IconButtonProps>(function IconButto
 	const style = useStyles({ theme, color, colorMode, isLoading, isRound, size, variant });
 
 	return (
-		<CUIIconButton
-			{...rest}
-			ref={ref}
-			tabIndex={0}
-			isDisabled={isLoading || isDisabled}
-			variant='unstyled'
-			sx={merge(style.iconbutton, sx)}
-			_disabled={style.disabled}
-			_active={style.active}
-		>
-			<Center width='inherit' position='relative' zIndex={1}>
-				{isLoading ? <Spinner color={color} colorMode={colorMode} size={size} variant={variant} /> : children}
-			</Center>
-		</CUIIconButton>
+		<IconButtonContext.Provider value={{ color, colorMode }}>
+			<CUIIconButton
+				{...rest}
+				ref={ref}
+				tabIndex={0}
+				isDisabled={isLoading || isDisabled}
+				variant='unstyled'
+				sx={merge(style.iconbutton, sx)}
+				_disabled={style.disabled}
+				_active={style.active}
+			>
+				<Center width='inherit' position='relative' zIndex={1}>
+					{isLoading ? (
+						<Spinner color={color} colorMode={colorMode} size={size} variant={variant} />
+					) : (
+						children
+					)}
+				</Center>
+			</CUIIconButton>
+		</IconButtonContext.Provider>
 	);
 });
 
