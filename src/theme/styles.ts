@@ -22,7 +22,7 @@ const styles: Styles = {
 				'fill',
 				'stroke',
 				'box-shadow'
-			],
+			].join(', '),
 			transitionDuration: transition.duration.normal,
 			transitionTimingFunction: transition.easing['ease-in-out']
 		},
@@ -42,7 +42,7 @@ const styles: Styles = {
 				'fill',
 				'stroke',
 				'box-shadow'
-			],
+			].join(', '),
 			transitionDuration: transition.duration.normal,
 			transitionTimingFunction: transition.easing['ease-in-out']
 		}
