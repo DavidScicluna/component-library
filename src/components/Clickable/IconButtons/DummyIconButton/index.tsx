@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { useColorMode } from '@chakra-ui/react';
+import { useColorMode, Box } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
@@ -22,7 +22,6 @@ const DummyIconButton: FC<DummyIconButtonProps> = (props) => {
 	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const {
-		children,
 		color = defaultColor,
 		colorMode = colorModeHook,
 		isRound = defaultIsRound,
@@ -42,7 +41,7 @@ const DummyIconButton: FC<DummyIconButtonProps> = (props) => {
 				colorMode={colorMode}
 				isLoaded={false}
 			>
-				{children}
+				<Box />
 			</Skeleton>
 		</Skeleton>
 	);
