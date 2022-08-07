@@ -71,24 +71,20 @@ const Modal: FC<ModalProps> = (props) => {
 			>
 				<ModalContext.Provider value={{ colorMode, spacing }}>
 					<ModalOverlay />
-					<ModalContent
+					<VStack
+						as={ModalContent}
+						width='100%'
+						divider={<Divider colorMode={colorMode} />}
 						backgroundColor={`gray.${getHue({
 							colorMode,
 							type: colorMode === 'light' ? 'lightest' : 'darkest'
 						})}`}
 						borderRadius={size === 'full' || isXs ? 'none' : 'xl'}
+						spacing={spacing}
+						p={spacing}
 					>
-						<VStack
-							width='100%'
-							divider={<Divider colorMode={colorMode} />}
-							spacing={spacing}
-							overflowX='hidden'
-							overflowY='auto'
-							p={spacing}
-						>
-							{children}
-						</VStack>
-					</ModalContent>
+						{children}
+					</VStack>
 				</ModalContext.Provider>
 			</CUIModal>
 		)) ||
