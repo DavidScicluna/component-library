@@ -43,7 +43,7 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 		'textTransform': 'uppercase',
 		'whiteSpace': 'nowrap',
 		'textOverflow': 'ellipses',
-		'lineHeight': theme.lineHeights.base,
+		'lineHeight': theme.lineHeights.normal,
 		'letterSpacing': '.6px',
 
 		'WebkitTapHighlightColor': theme.colors.transparent,
