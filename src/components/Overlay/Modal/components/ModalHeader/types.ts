@@ -9,9 +9,9 @@ import { IconProps } from '../../../../Icon/types';
 
 type IconPropsPicked = 'icon' | 'category';
 
-type IconButtonPropsPicked = 'aria-label' | 'color' | 'colorMode' | 'size' | 'variant';
+type IconButtonPropsPicked = 'aria-label' | 'color' | 'colorMode' | 'onClick' | 'size' | 'variant';
 
-type RenderProps = Pick<IconProps, IconPropsPicked> & Pick<IconButtonProps, IconButtonPropsPicked>;
+type RenderCancelProps = Pick<IconProps, IconPropsPicked> & Pick<IconButtonProps, IconButtonPropsPicked>;
 
 type Omitted =
 	// CUI Box Props
@@ -27,6 +27,6 @@ type Omitted =
 export type ModalHeaderProps = {
 	renderTitle: (props: TextProps) => ReactNode;
 	renderSubtitle?: (props: TextProps) => ReactNode;
-	renderCancel?: (props: RenderProps) => ReactNode;
+	renderCancel?: (props: RenderCancelProps) => ReactNode;
 	spacing?: Space;
 } & Omit<CUIModalHeaderProps, Omitted>;

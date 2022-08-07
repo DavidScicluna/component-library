@@ -7,7 +7,7 @@ import { useElementSize } from 'usehooks-ts';
 import { ModalContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../common/utils';
-import { getHue } from '../../../../../common/utils/color';
+import { getColor } from '../../../../../common/utils/color';
 import { colorMode as defaultColorMode, spacing as defaultSpacing } from '../../common/data/defaultPropValues';
 import { ModalContext as ModalContextType } from '../../types';
 
@@ -16,7 +16,11 @@ import { ModalHeaderProps } from './types';
 const ModalHeader: FC<ModalHeaderProps> = (props) => {
 	const theme = useTheme();
 
-	const { colorMode = defaultColorMode, spacing = defaultSpacing } = useContext<ModalContextType>(ModalContext);
+	const {
+		colorMode = defaultColorMode,
+		onClose,
+		spacing = defaultSpacing
+	} = useContext<ModalContextType>(ModalContext);
 
 	const [cancelRef, { width: cancelWidth }] = useElementSize();
 
@@ -36,7 +40,7 @@ const ModalHeader: FC<ModalHeaderProps> = (props) => {
 				{/* Title */}
 				{renderTitle({
 					align: 'left',
-					color: `gray.${getHue({ colorMode, type: 'text.primary' })}`,
+					color: getColor({ theme, colorMode, type: 'text.primary' }),
 					fontSize: 'xl',
 					fontWeight: 'bold',
 					noOfLines: 1
@@ -46,7 +50,7 @@ const ModalHeader: FC<ModalHeaderProps> = (props) => {
 				{renderSubtitle &&
 					renderSubtitle({
 						align: 'left',
-						color: `gray.${getHue({ colorMode, type: 'text.secondary' })}`,
+						color: getColor({ theme, colorMode, type: 'text.secondary' }),
 						fontSize: 'sm',
 						noOfLines: 1
 					})}
@@ -60,6 +64,7 @@ const ModalHeader: FC<ModalHeaderProps> = (props) => {
 						'colorMode': colorMode,
 						'icon': 'close',
 						'category': 'outlined',
+						'onClick': () => onClose(),
 						'variant': 'icon'
 					})}
 				</Center>

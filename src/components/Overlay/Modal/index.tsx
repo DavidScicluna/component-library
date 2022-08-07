@@ -1,21 +1,10 @@
-import { FC, createContext, useCallback, useEffect } from 'react';
+import { FC, createContext } from 'react';
 
-import {
-	useColorMode,
-	useMediaQuery,
-	useBoolean,
-	Modal as CUIModal,
-	ModalOverlay,
-	ModalContent,
-	VStack
-} from '@chakra-ui/react';
+import { useColorMode, useMediaQuery, Modal as CUIModal, ModalOverlay, ModalContent, VStack } from '@chakra-ui/react';
 
-import { useTimeout } from 'usehooks-ts';
-
-import { useTheme } from '../../../common/hooks';
-import { convertStringToNumber } from '../../../common/utils';
-import { getHue } from '../../../common/utils/color';
+import { getColor } from '../../../common/utils/color';
 import Divider from '../../Divider';
+import { useTheme } from '../../../common/hooks';
 
 import { ModalContext as ModalContextType, ModalProps } from './types';
 import {
@@ -25,7 +14,13 @@ import {
 	spacing as defaultSpacing
 } from './common/data/defaultPropValues';
 
-export const ModalContext = createContext<ModalContextType>({ colorMode: 'light' });
+export const ModalContext = createContext<ModalContextType>({
+	colorMode: 'light',
+	onClose: () => {
+		return;
+	},
+	spacing: defaultSpacing
+});
 
 const Modal: FC<ModalProps> = (props) => {
 	const theme = useTheme();
@@ -43,52 +38,31 @@ const Modal: FC<ModalProps> = (props) => {
 		...rest
 	} = props;
 
-	const [isMounted, setIsMounted] = useBoolean();
-
-	const handleCheckIsMounted = useCallback(() => {
-		if (isOpen) {
-			setIsMounted.on();
-		}
-	}, [isOpen]);
-
-	useTimeout(
-		() => setIsMounted.off(),
-		!isOpen ? convertStringToNumber(theme.transition.duration.faster, 'ms') : null
-	);
-
-	useEffect(() => handleCheckIsMounted(), [isOpen]);
-
 	return (
-		(isMounted && (
-			<CUIModal
-				{...rest}
-				isOpen={isOpen}
-				onClose={onClose}
-				isCentered
-				motionPreset='slideInBottom'
-				scrollBehavior='inside'
-				size={size === 'full' || isXs ? 'full' : size}
-			>
-				<ModalContext.Provider value={{ colorMode, spacing }}>
-					<ModalOverlay />
-					<VStack
-						as={ModalContent}
-						width='100%'
-						divider={<Divider colorMode={colorMode} />}
-						backgroundColor={`gray.${getHue({
-							colorMode,
-							type: colorMode === 'light' ? 'lightest' : 'darkest'
-						})}`}
-						borderRadius={size === 'full' || isXs ? 'none' : 'xl'}
-						spacing={spacing}
-						p={spacing}
-					>
-						{children}
-					</VStack>
-				</ModalContext.Provider>
-			</CUIModal>
-		)) ||
-		null
+		<CUIModal
+			{...rest}
+			isOpen={isOpen}
+			onClose={onClose}
+			isCentered
+			motionPreset='slideInBottom'
+			scrollBehavior='inside'
+			size={size === 'full' || isXs ? 'full' : size}
+		>
+			<ModalContext.Provider value={{ colorMode, onClose, spacing }}>
+				<ModalOverlay />
+				<VStack
+					as={ModalContent}
+					width='100%'
+					divider={<Divider colorMode={colorMode} />}
+					backgroundColor={getColor({ theme, colorMode, type: 'background' })}
+					borderRadius={size === 'full' || isXs ? 'none' : 'xl'}
+					spacing={spacing}
+					p={spacing}
+				>
+					{children}
+				</VStack>
+			</ModalContext.Provider>
+		</CUIModal>
 	);
 };
 

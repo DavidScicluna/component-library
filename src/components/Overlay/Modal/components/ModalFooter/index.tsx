@@ -9,11 +9,22 @@ import { ModalContext as ModalContextType } from '../../types';
 import { ModalFooterProps } from './types';
 
 const ModalFooter: FC<ModalFooterProps> = ({ renderCancel, renderAction, ...rest }) => {
-	const { colorMode = defaultColorMode, spacing = defaultSpacing } = useContext<ModalContextType>(ModalContext);
+	const {
+		colorMode = defaultColorMode,
+		onClose,
+		spacing = defaultSpacing
+	} = useContext<ModalContextType>(ModalContext);
 
 	return (
 		<CUIModalFooter as={HStack} width='100%' justifyContent='space-between' spacing={spacing} p={0} m={0} {...rest}>
-			{renderCancel && renderCancel({ color: 'gray', colorMode, size: 'md', variant: 'outlined' })}
+			{renderCancel &&
+				renderCancel({
+					color: 'gray',
+					colorMode,
+					onClick: () => onClose(),
+					size: 'md',
+					variant: 'outlined'
+				})}
 
 			{renderAction && renderAction({ color: 'gray', colorMode, size: 'md', variant: 'contained' })}
 		</CUIModalFooter>

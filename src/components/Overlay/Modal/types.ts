@@ -56,4 +56,4 @@ export type ModalProps = {
 	spacing?: Space;
 } & Omit<CUIModalProps, Omitted>;
 
-export type ModalContext = Pick<ModalProps, 'colorMode' | 'spacing'>;
+export type ModalContext = Pick<ModalProps, 'colorMode' | 'spacing' | 'onClose'>;
