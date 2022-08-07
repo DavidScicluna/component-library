@@ -1,9 +1,10 @@
 import { Style } from '../../../../../../common/types';
 import { Radius } from '../../../../../../theme/types';
+import { isClickable as defaultIsClickable } from '../../data/defaultPropValues';
 
 import { CardStyleProps } from './types';
 
-export default ({ theme }: CardStyleProps): Style => {
+export default ({ theme, isClickable = defaultIsClickable }: CardStyleProps): Style => {
 	const radius: Radius = 'none';
 
 	return {
@@ -23,10 +24,12 @@ export default ({ theme }: CardStyleProps): Style => {
 			borderRadius: theme.radii[radius]
 		},
 
-		'&:active': {
-			borderWidth: 0,
-			borderStyle: 'solid',
-			borderColor: theme.colors.transparent
-		}
+		'&:active': isClickable
+			? {
+					borderWidth: 0,
+					borderStyle: 'solid',
+					borderColor: theme.colors.transparent
+			  }
+			: {}
 	};
 };

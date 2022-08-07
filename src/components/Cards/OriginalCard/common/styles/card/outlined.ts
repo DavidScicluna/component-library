@@ -29,11 +29,13 @@ export default ({ theme, isClickable = defaultIsClickable }: CardStyleProps): St
 			borderRadius: theme.radii[radius]
 		},
 
-		'&:active': {
-			borderTopWidth: `${isClickable ? border : 0}px`,
-			borderBottomWidth: `${isClickable ? border : 0}px`,
-			borderStyle: 'solid',
-			borderColor: theme.colors.transparent
-		}
+		'&:active': isClickable
+			? {
+					borderTopWidth: `${isClickable ? border : 0}px`,
+					borderBottomWidth: `${isClickable ? border : 0}px`,
+					borderStyle: 'solid',
+					borderColor: theme.colors.transparent
+			  }
+			: {}
 	};
 };
