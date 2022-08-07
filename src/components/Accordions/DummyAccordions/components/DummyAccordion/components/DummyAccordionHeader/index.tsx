@@ -72,7 +72,7 @@ const DummyAccordionHeader: FC<DummyAccordionHeaderProps> = (props) => {
 			<HStack ref={actionsRef} spacing={spacing}>
 				{actions && <Center>{actions}</Center>}
 
-				<Icon icon='add' sx={{ color: getColor({ theme, colorMode, type: 'text.secondary' }) }} />
+				<Icon color={getColor({ theme, colorMode, type: 'text.secondary' })} colorMode={colorMode} icon='add' />
 			</HStack>
 		</HStack>
 	);

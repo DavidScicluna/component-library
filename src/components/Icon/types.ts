@@ -1,7 +1,6 @@
 import { ColorMode, CenterProps } from '@chakra-ui/react';
 
 import {
-	BoxColor,
 	BoxGradient,
 	BoxFlexbox,
 	BoxGrid,
@@ -14,15 +13,12 @@ import {
 	BoxOther
 } from '../../common/types/box';
 import { Icon } from '../../common/types/icons';
-import { Color } from '../../theme/types';
-
-export type IconColor = Exclude<Color, 'transparent'>;
+import { SkeletonColor } from '../Skeleton/types';
 
 export type IconCategory = 'filled' | 'outlined';
 
 type Omitted =
 	// CUI Box Props
-	| BoxColor
 	| BoxGradient
 	| BoxFlexbox
 	| BoxGrid
@@ -35,13 +31,11 @@ type Omitted =
 	| BoxOther
 	// CUI Center Props
 	| 'as'
-	| 'children'
-	| 'color'
-	| 'colorMode';
+	| 'children';
 
 export type IconProps = Omit<CenterProps, Omitted> & {
-	color?: IconColor;
 	colorMode?: ColorMode;
 	icon: Icon;
 	category?: IconCategory;
+	skeletonColor?: SkeletonColor;
 };

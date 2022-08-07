@@ -5,12 +5,9 @@ import { useColorMode, useBoolean, Center } from '@chakra-ui/react';
 import { useInterval } from 'usehooks-ts';
 
 import Skeleton from '../Skeleton';
+import { color as defaultSkeletonColor } from '../Skeleton/common/data/defaultPropValues';
 
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	category as defaultCategory
-} from './common/data/defaultPropValues';
+import { colorMode as defaultColorMode, category as defaultCategory } from './common/data/defaultPropValues';
 import { checkFontStatus } from './common/utils';
 import { IconProps } from './types';
 
@@ -18,7 +15,6 @@ const Icon: FC<IconProps> = (props) => {
 	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const {
-		color = defaultColor,
 		colorMode = colorModeHook,
 		category = defaultCategory,
 		w,
@@ -26,6 +22,7 @@ const Icon: FC<IconProps> = (props) => {
 		h,
 		height,
 		icon,
+		skeletonColor = defaultSkeletonColor,
 		...rest
 	} = props;
 
@@ -42,7 +39,7 @@ const Icon: FC<IconProps> = (props) => {
 	useInterval(() => handleCheckFontStatus(), !hasLoaded ? 250 : null);
 
 	return (
-		<Skeleton color={color} colorMode={colorMode} isLoaded={hasLoaded} variant='rectangle'>
+		<Skeleton color={skeletonColor} colorMode={colorMode} isLoaded={hasLoaded} variant='rectangle'>
 			<Center
 				{...rest}
 				as='span'

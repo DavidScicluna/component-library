@@ -64,8 +64,9 @@ const AccordionHeader = <D,>(props: AccordionHeaderProps): ReactElement => {
 				{actions && <Center>{actions}</Center>}
 
 				<Icon
+					color={getColor({ theme, colorMode, type: 'text.secondary' })}
+					colorMode={colorMode}
 					icon={isOpen ? 'remove' : 'add'}
-					sx={{ color: getColor({ theme, colorMode, type: 'text.secondary' }) }}
 				/>
 			</HStack>
 		</HStack>
