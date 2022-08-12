@@ -413,6 +413,7 @@ export type Icon = string &
 		| 'content_cut'
 		| 'content_paste'
 		| 'content_paste_off'
+		| 'contrast'
 		| 'control_camera'
 		| 'control_point'
 		| 'control_point_duplicate'
