@@ -119,6 +119,7 @@ import {
 	CheckboxSize,
 	CheckboxVariant
 } from './components/Forms/Checkbox/types';
+import Form from './components/Forms/Form';
 import Input from './components/Forms/Input';
 import {
 	InputAutoComplete,
@@ -336,6 +337,7 @@ export {
 	Checkbox,
 	CheckboxSubtitle,
 	CheckboxTitle,
+	Form,
 	Input,
 	Radio,
 	RadioSubtitle,
