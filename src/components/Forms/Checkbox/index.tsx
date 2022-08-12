@@ -29,7 +29,11 @@ import {
 	variant as defaultVariant
 } from './common/data/defaultPropValues';
 
-export const CheckboxContext = createContext<CheckboxContextType>({ color: defaultColor, colorMode: defaultColorMode });
+export const CheckboxContext = createContext<CheckboxContextType>({
+	color: defaultColor,
+	colorMode: defaultColorMode,
+	size: defaultSize
+});
 
 const Checkbox: FC<CheckboxProps> = (props) => {
 	const theme = useTheme();
@@ -95,7 +99,7 @@ const Checkbox: FC<CheckboxProps> = (props) => {
 	};
 
 	return (
-		<CheckboxContext.Provider value={{ color, colorMode }}>
+		<CheckboxContext.Provider value={{ color, colorMode, size }}>
 			<VStack
 				as={FormControl}
 				tabIndex={0}

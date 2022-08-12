@@ -80,4 +80,4 @@ export type CheckboxProps = {
 	sx?: { group?: Style; checkbox?: Style; formLabel?: Style; formHelperText?: Style };
 } & Omit<CUICheckboxProps, Omitted>;
 
-export type CheckboxContext = Pick<CheckboxProps, 'color' | 'colorMode'>;
+export type CheckboxContext = Pick<CheckboxProps, 'color' | 'colorMode' | 'size'>;
