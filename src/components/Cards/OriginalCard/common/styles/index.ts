@@ -36,6 +36,8 @@ export default memoize((props: CardStyleProps): CardStyleReturn => {
 			scheme.card[variant]({ theme, color, isClickable, isLight })
 		),
 		active: isClickable ? merge(active[variant]({ theme }), scheme.active[variant]({ theme, color, isLight })) : {},
-		disabled: merge(disabled.general(), disabled[variant]({ theme }), scheme.disabled[variant]({ theme, isLight }))
+		disabled: isClickable
+			? merge(disabled.general(), disabled[variant]({ theme }), scheme.disabled[variant]({ theme, isLight }))
+			: {}
 	};
 });
