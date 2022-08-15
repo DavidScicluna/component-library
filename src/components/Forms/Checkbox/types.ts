@@ -1,4 +1,4 @@
-import { FocusEvent, ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 import { ColorMode, CheckboxProps as CUICheckboxProps } from '@chakra-ui/react';
 
@@ -18,8 +18,6 @@ import {
 } from '../../../common/types/box';
 import { Color } from '../../../theme/types';
 
-export type Event = FocusEvent<HTMLInputElement, Element>;
-
 export type CheckboxRef = HTMLInputElement | null;
 
 export type CheckboxColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray' | 'red' | 'yellow' | 'green'>;
@@ -29,12 +27,14 @@ export type CheckboxSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type CheckboxVariant = 'outlined' | 'transparent';
 
 export type CheckboxPanelRenderProps = {
-	// width: number;
-	// height: number;
-	// fontSize: CheckboxSize;
 	color: CheckboxColor;
 	colorMode?: ColorMode;
+	width: string; // In Pixels
+	height: string; // In Pixels
+	fontSize: string; // In Pixels
 };
+
+export type CheckboxOnChangeProps = { isChecked: boolean };
 
 type Omitted =
 	// CUI Box Props
@@ -60,6 +60,7 @@ type Omitted =
 	| 'spacing'
 	| 'placeholder'
 	| 'tabIndex'
+	| 'onChange'
 	| 'variant'
 	| 'sx';
 
@@ -75,6 +76,7 @@ export type CheckboxProps = {
 	isFullWidth?: boolean;
 	renderLeftPanel?: (props: CheckboxPanelRenderProps) => ReactNode;
 	renderRightPanel?: (props: CheckboxPanelRenderProps) => ReactNode;
+	onChange?: (props: CheckboxOnChangeProps) => void;
 	size?: CheckboxSize;
 	variant?: CheckboxVariant;
 	sx?: { group?: Style; checkbox?: Style; formLabel?: Style; formHelperText?: Style };

@@ -3,13 +3,16 @@ import { FC, useContext } from 'react';
 import { Text } from '@chakra-ui/react';
 
 import { CheckboxContext } from '../..';
-import { getHue } from '../../../../../common/utils/color';
+import { getColor } from '../../../../../common/utils/color';
 import { colorMode as defaultColorMode, size as defaultSize } from '../../common/data/defaultPropValues';
 import { CheckboxContext as CheckboxContextType } from '../../types';
+import { useTheme } from '../../../../../common/hooks';
 
 import { CheckboxSubtitleProps } from './types';
 
 const CheckboxSubtitle: FC<CheckboxSubtitleProps> = (props) => {
+	const theme = useTheme();
+
 	const { colorMode = defaultColorMode, size = defaultSize } = useContext<CheckboxContextType>(CheckboxContext);
 
 	const { children, ...rest } = props;
@@ -17,7 +20,7 @@ const CheckboxSubtitle: FC<CheckboxSubtitleProps> = (props) => {
 	return (
 		<Text
 			align='left'
-			color={`gray.${getHue({ colorMode, type: 'text.secondary' })}`}
+			color={getColor({ theme, colorMode, type: 'text.secondary' })}
 			fontSize={size}
 			lineHeight='normal'
 			noOfLines={1}

@@ -2,7 +2,7 @@ import { FC, createContext, useRef, useCallback } from 'react';
 
 import { useColorMode, FormControl, Checkbox as CUICheckbox, VStack, HStack, Center } from '@chakra-ui/react';
 
-import { isEmpty, isNil, merge } from 'lodash';
+import { debounce, isEmpty, isNil, merge } from 'lodash';
 
 import { useTheme } from '../../../common/hooks';
 import Icon from '../../Icon';
@@ -10,7 +10,7 @@ import Collapse from '../../Transitions/Collapse';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 
-import { CheckboxContext as CheckboxContextType, CheckboxProps, CheckboxRef, CheckboxPanelRenderProps } from './types';
+import { CheckboxContext as CheckboxContextType, CheckboxProps, CheckboxRef } from './types';
 import { getSizeConfig } from './common/utils';
 import useStyles from './common/styles';
 import {
@@ -61,6 +61,7 @@ const Checkbox: FC<CheckboxProps> = (props) => {
 		icon = <Icon icon={isIndeterminate ? 'remove' : 'check'} />,
 		renderLeftPanel,
 		renderRightPanel,
+		onChange,
 		size = defaultSize,
 		variant = defaultVariant,
 		sx,
@@ -82,21 +83,27 @@ const Checkbox: FC<CheckboxProps> = (props) => {
 		variant
 	});
 
-	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
+	const handleReturnSpacing = useCallback(
+		debounce((): number => getSizeConfig({ size }).spacing, 500),
+		[size, getSizeConfig]
+	);
 
-	const handleClick = useCallback((): void => {
+	const handleReturnPanelSize = useCallback(
+		debounce((): number => getSizeConfig({ size }).panel, 500),
+		[size, getSizeConfig]
+	);
+
+	const handleContainerClick = useCallback((): void => {
 		if (checkboxRef && checkboxRef.current) {
 			checkboxRef.current.focus();
 		}
 	}, [checkboxRef]);
 
-	const renderPanelProps: CheckboxPanelRenderProps = {
-		// width: handleReturnPanelSize(),
-		// height: handleReturnPanelSize(),
-		// fontSize: size,
-		color,
-		colorMode
-	};
+	const handleCheckboxClick = useCallback((): void => {
+		if (onChange) {
+			onChange({ isChecked: !isChecked });
+		}
+	}, [onChange, isChecked]);
 
 	return (
 		<CheckboxContext.Provider value={{ color, colorMode, size }}>
@@ -104,7 +111,7 @@ const Checkbox: FC<CheckboxProps> = (props) => {
 				as={FormControl}
 				tabIndex={0}
 				alignItems='flex-start'
-				onClick={handleClick}
+				onClick={handleContainerClick}
 				sx={{ width: isFullWidth ? '100%' : 'auto' }}
 			>
 				{label && (
@@ -126,13 +133,24 @@ const Checkbox: FC<CheckboxProps> = (props) => {
 					aria-disabled={isDisabled}
 					aria-invalid={isError}
 					aria-readonly={isReadOnly}
+					onClick={handleCheckboxClick}
 					spacing={handleReturnSpacing()}
 					sx={merge(style.group, sx?.group || {})}
 					_checked={style.checked}
 					_disabled={style.disabled}
 					_readOnly={style.readOnly}
 				>
-					{renderLeftPanel && <Center flex={1}>{renderLeftPanel({ ...renderPanelProps })}</Center>}
+					{renderLeftPanel && (
+						<Center flex={1}>
+							{renderLeftPanel({
+								width: `${handleReturnPanelSize() || 20}px`,
+								height: `${handleReturnPanelSize() || 20}px`,
+								fontSize: `${handleReturnPanelSize() || 20}px`,
+								color,
+								colorMode
+							})}
+						</Center>
+					)}
 
 					<Center>
 						<CUICheckbox
@@ -147,12 +165,23 @@ const Checkbox: FC<CheckboxProps> = (props) => {
 							isReadOnly={isReadOnly}
 							id={id || name}
 							name={name}
+							onChange={onChange ? (event) => onChange({ isChecked: event.target.checked }) : undefined}
 							variant='unstyled'
 							sx={sx?.checkbox || {}}
 						/>
 					</Center>
 
-					{renderRightPanel && <Center flex={1}>{renderRightPanel({ ...renderPanelProps })}</Center>}
+					{renderRightPanel && (
+						<Center flex={1}>
+							{renderRightPanel({
+								width: `${handleReturnPanelSize() || 20}px`,
+								height: `${handleReturnPanelSize() || 20}px`,
+								fontSize: `${handleReturnPanelSize() || 20}px`,
+								color,
+								colorMode
+							})}
+						</Center>
+					)}
 				</HStack>
 
 				<Collapse in={!(isNil(helper) || isEmpty(helper))} unmountOnExit style={{ width: '100%' }}>
