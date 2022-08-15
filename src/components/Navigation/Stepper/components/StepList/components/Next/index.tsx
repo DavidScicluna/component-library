@@ -10,21 +10,27 @@ import { color as defaultColor, colorMode as defaultColorMode } from '../../../.
 import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
 import { StepperContext } from '../../../..';
 import { StepperContext as StepperContextType } from '../../../../types';
-import Icon from '../../../../../../Icon';
+import { getStatusIcon } from '../Step/common/utils';
 import { useTheme } from '../../../../../../../common/hooks';
+import Icon from '../../../../../../Icon';
 import { getColor } from '../../../../../../../common/utils/color';
 
-import { CancelProps } from './types';
+import { NextProps } from './types';
 
-const Cancel: FC<CancelProps> = ({ isDisabled = defaultIsDisabled }) => {
+const Next: FC<NextProps> = (props) => {
 	const theme = useTheme();
 	const [isMd] = useMediaQuery(`(min-width: ${theme.breakpoints.md})`);
 
+	const { color = defaultColor, colorMode = defaultColorMode } = useContext<StepperContextType>(StepperContext);
+
 	const {
-		color = defaultColor,
-		colorMode = defaultColorMode,
-		onCancel
-	} = useContext<StepperContextType>(StepperContext);
+		isLast = false,
+		hasErrors = false,
+		hasWarnings = false,
+		hasIdle = false,
+		isDisabled = defaultIsDisabled,
+		onNext
+	} = props;
 
 	const style = useStyles({ theme, color, colorMode, status: 'idle' });
 
@@ -33,15 +39,15 @@ const Cancel: FC<CancelProps> = ({ isDisabled = defaultIsDisabled }) => {
 			aria-disabled={isDisabled}
 			width={isMd ? height : '50%'}
 			height={height}
-			onClick={!isDisabled ? () => onCancel() : undefined}
+			onClick={!isDisabled ? () => onNext() : undefined}
 			sx={{
 				...merge(
 					style.step,
 					isMd
 						? {
-								borderRightWidth: '2px',
-								borderRightStyle: 'solid',
-								borderRightColor: getColor({ theme, colorMode, type: 'divider' })
+								borderLeftWidth: '2px',
+								borderLeftStyle: 'solid',
+								borderLeftColor: `gray.${colorMode === 'light' ? 200 : 700}`
 						  }
 						: {}
 				)
@@ -51,13 +57,26 @@ const Cancel: FC<CancelProps> = ({ isDisabled = defaultIsDisabled }) => {
 			<Icon
 				width={theme.fontSizes['4xl']}
 				height={theme.fontSizes['4xl']}
-				icon='close'
+				icon={
+					isLast
+						? hasErrors
+							? getStatusIcon({ status: 'error' })
+							: hasWarnings || hasIdle
+							? getStatusIcon({ status: 'warning' })
+							: 'check'
+						: 'east'
+				}
 				category='outlined'
-				color={getColor({ theme, colorMode, type: 'text.primary' })}
+				color={getColor({
+					theme,
+					colorMode,
+					color: isLast && hasErrors ? 'red' : isLast && (hasWarnings || hasIdle) ? 'yellow' : 'gray',
+					type: isLast && (hasErrors || hasWarnings || hasIdle) ? 'color' : 'text.primary'
+				})}
 				fontSize={theme.fontSizes['4xl']}
 			/>
 		</Center>
 	);
 };
 
-export default Cancel;
+export default Next;
