@@ -9,9 +9,9 @@ import useStyles from '../../common/styles';
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/data/defaultPropValues';
 import { StepperContext } from '../../../..';
 import { StepperContext as StepperContextType } from '../../../../types';
+import Icon from '../../../../../../Icon';
 import { useTheme } from '../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../common/utils/color';
-import Icon from '../../../../../../Icon';
 
 import { CancelProps } from './types';
 
@@ -48,10 +48,12 @@ const Cancel: FC<CancelProps> = ({ isDisabled = false }) => {
 			_disabled={{ ...style.disabled }}
 		>
 			<Icon
+				width={theme.fontSizes['4xl']}
+				height={theme.fontSizes['4xl']}
 				icon='close'
 				category='outlined'
 				color={getColor({ theme, colorMode, type: 'text.primary' })}
-				fontSize='3xl'
+				fontSize={theme.fontSizes['4xl']}
 			/>
 		</Center>
 	);
