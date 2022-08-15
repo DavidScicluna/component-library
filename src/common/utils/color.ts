@@ -43,12 +43,10 @@ export const getHue = memoize(({ colorMode, type }: GetHueProps): ColorHues => {
 	}
 });
 
-type OmittedColors = 'transparent' | 'black' | 'white';
-
 export type GetColorProps = {
 	theme: Theme;
 	colorMode: ColorMode;
-	color?: Exclude<Color, OmittedColors>;
+	color?: Exclude<Color, 'transparent' | 'black' | 'white'>;
 	type: Type;
 };
 
