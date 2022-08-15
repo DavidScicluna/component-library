@@ -23,10 +23,10 @@ const StepDescription: FC<StepDescriptionProps> = (props) => {
 				width='100%'
 				align='left'
 				color={getColor({ theme, colorMode, color, type: 'color' })}
-				fontSize='md'
+				fontSize={['sm', 'md', 'md', 'lg']}
 				fontWeight='semibold'
 				lineHeight='base'
-				noOfLines={1}
+				noOfLines={0}
 			>
 				{`Step ${index + 1} of ${total}`}
 			</Text>
@@ -34,10 +34,10 @@ const StepDescription: FC<StepDescriptionProps> = (props) => {
 				width='100%'
 				align='left'
 				color={getColor({ theme, colorMode, type: 'text.primary' })}
-				fontSize='4xl'
+				fontSize={['3xl', '4xl', '4xl', '5xl']}
 				fontWeight='bold'
 				lineHeight='base'
-				noOfLines={1}
+				noOfLines={0}
 			>
 				{title}
 			</Text>
@@ -46,9 +46,9 @@ const StepDescription: FC<StepDescriptionProps> = (props) => {
 					width='100%'
 					align='left'
 					color={getColor({ theme, colorMode, type: 'text.secondary' })}
-					fontSize='md'
+					fontSize={['sm', 'md', 'md', 'lg']}
 					lineHeight='base'
-					noOfLines={1}
+					noOfLines={0}
 				>
 					{subtitle}
 				</Text>
