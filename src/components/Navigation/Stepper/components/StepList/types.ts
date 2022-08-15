@@ -6,9 +6,9 @@ import { Step as StepType } from './components/Step/types';
 
 export type ScrollContext = ContextType<typeof VisibilityContext>;
 
-export type Step = Omit<StepType, 'index'>[];
+export type Step = Omit<StepType, 'index'>;
 
 export type StepListProps = {
-	children: Omit<Step, 'index'>[];
+	children: Step[];
 	isDisabled?: boolean;
 };
