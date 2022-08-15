@@ -20,7 +20,7 @@ export default ({
 	return {
 		'cursor': isClickable ? 'pointer' : 'default',
 
-		'pointerEvents': isClickable ? 'auto' : 'none',
+		'pointerEvents': 'auto',
 
 		'position': 'relative',
 
