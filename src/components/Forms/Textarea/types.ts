@@ -1,4 +1,4 @@
-import { ReactNode, FocusEvent } from 'react';
+import { ReactNode, FocusEvent as FE } from 'react';
 
 import { ColorMode, TextareaProps as CUITextareaProps } from '@chakra-ui/react';
 
@@ -18,7 +18,7 @@ import {
 } from '../../../common/types/box';
 import { Color } from '../../../theme/types';
 
-export type Event = FocusEvent<HTMLTextAreaElement, Element>;
+export type FocusEvent = FE<HTMLTextAreaElement, Element>;
 
 export type TextareaRef = HTMLTextAreaElement | null;
 
@@ -33,6 +33,9 @@ export type TextareaSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type TextareaPanelRenderProps = {
 	color: TextareaColor;
 	colorMode?: ColorMode;
+	width: string; // In Pixels
+	height: string; // In Pixels
+	fontSize: string; // In Pixels
 };
 
 type Omitted =

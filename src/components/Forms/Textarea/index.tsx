@@ -11,7 +11,7 @@ import {
 	Center
 } from '@chakra-ui/react';
 
-import { isEmpty, isNil } from 'lodash';
+import { debounce, isEmpty, isNil } from 'lodash';
 import merge from 'lodash/merge';
 
 import { useTheme } from '../../../common/hooks';
@@ -35,7 +35,7 @@ import {
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
-import { TextareaProps, TextareaRef, TextareaPanelRenderProps, Event } from './types';
+import { TextareaProps, TextareaRef, FocusEvent } from './types';
 
 const Textarea = (props: TextareaProps): ReactElement => {
 	const theme = useTheme();
@@ -75,7 +75,15 @@ const Textarea = (props: TextareaProps): ReactElement => {
 
 	const style = useStyles({ theme, color, colorMode, isError, isWarning, isSuccess, isFocused, isFullWidth, size });
 
-	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
+	const handleReturnSpacing = useCallback(
+		debounce((): number => getSizeConfig({ size }).spacing, 500),
+		[size, getSizeConfig]
+	);
+
+	const handleReturnPanelSize = useCallback(
+		debounce((): number => getSizeConfig({ size }).panel, 500),
+		[size, getSizeConfig]
+	);
 
 	const handleClick = useCallback((): void => {
 		if (textareaRef && textareaRef.current) {
@@ -84,7 +92,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 	}, [textareaRef]);
 
 	const handleFocus = useCallback(
-		(event: Event): void => {
+		(event: FocusEvent): void => {
 			setIsFocusedHook.on();
 
 			if (onFocus) {
@@ -95,7 +103,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 	);
 
 	const handleBlur = useCallback(
-		(event: Event): void => {
+		(event: FocusEvent): void => {
 			setIsFocusedHook.off();
 
 			if (onBlur) {
@@ -104,8 +112,6 @@ const Textarea = (props: TextareaProps): ReactElement => {
 		},
 		[onBlur]
 	);
-
-	const renderPanelProps: TextareaPanelRenderProps = { color, colorMode };
 
 	return (
 		<VStack
@@ -139,7 +145,17 @@ const Textarea = (props: TextareaProps): ReactElement => {
 				_disabled={style.disabled}
 				_readOnly={style.readOnly}
 			>
-				{renderLeftPanel && <Center>{renderLeftPanel({ ...renderPanelProps })}</Center>}
+				{renderLeftPanel && (
+					<Center>
+						{renderLeftPanel({
+							width: `${handleReturnPanelSize() || 20}px`,
+							height: `${handleReturnPanelSize() || 20}px`,
+							fontSize: `${handleReturnPanelSize() || 20}px`,
+							color,
+							colorMode
+						})}
+					</Center>
+				)}
 
 				<Center flex={1}>
 					<CUITextarea
@@ -160,7 +176,17 @@ const Textarea = (props: TextareaProps): ReactElement => {
 					/>
 				</Center>
 
-				{renderRightPanel && <Center>{renderRightPanel({ ...renderPanelProps })}</Center>}
+				{renderRightPanel && (
+					<Center>
+						{renderRightPanel({
+							width: `${handleReturnPanelSize() || 20}px`,
+							height: `${handleReturnPanelSize() || 20}px`,
+							fontSize: `${handleReturnPanelSize() || 20}px`,
+							color,
+							colorMode
+						})}
+					</Center>
+				)}
 			</HStack>
 
 			<Collapse in={!(isNil(helper) || isEmpty(helper))} unmountOnExit style={{ width: '100%' }}>

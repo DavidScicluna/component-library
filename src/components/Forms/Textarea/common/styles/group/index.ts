@@ -45,15 +45,24 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 		'px': `${theme.space[padding.x]} !important`,
 		'py': `${theme.space[padding.y]} !important`,
 
-		'transition': 'none',
-		'transitionDuration': theme.transition.duration.normal,
-		'transitionTimingFunction': theme.transition.easing['ease-in-out'],
-
 		'& textarea': {
 			minWidth: 'auto',
 			minHeight: `${height}px`,
 			maxWidth: 'none',
 			maxHeight: 'none'
+		},
+
+		'&:focus:not(:focus-visible)': {
+			outline: !isTouchDevice ? '0px transparent' : 'none !important'
+		},
+
+		'&:focus': {
+			boxShadow: 'none',
+			outline: !isTouchDevice ? '0px transparent' : 'none !important'
+		},
+
+		'&:active': {
+			outline: !isTouchDevice ? '0px transparent' : 'none !important'
 		},
 
 		'& svg, .ds-cl-icon': {
@@ -69,19 +78,6 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 			transition: 'none',
 			transitionDuration: theme.transition.duration.normal,
 			transitionTimingFunction: theme.transition.easing['ease-in-out']
-		},
-
-		'&:focus:not(:focus-visible)': {
-			outline: !isTouchDevice ? '0px transparent' : 'none !important'
-		},
-
-		'&:focus': {
-			boxShadow: 'none',
-			outline: !isTouchDevice ? '0px transparent' : 'none !important'
-		},
-
-		'&:active': {
-			outline: !isTouchDevice ? '0px transparent' : 'none !important'
 		}
 	};
 };

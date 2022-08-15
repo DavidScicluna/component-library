@@ -25,7 +25,7 @@ export default ({ theme, size = defaultSize }: TextareaStyleProps): Style => ({
 	'fontWeight': theme.fontWeights.normal,
 	'textTransform': 'none',
 	'whiteSpace': 'nowrap',
-	'lineHeight': theme.lineHeights.normal,
+	'lineHeight': theme.lineHeights.base,
 	'letterSpacing': '.6px',
 
 	'WebkitTapHighlightColor': theme.colors.transparent,
