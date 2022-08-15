@@ -29,12 +29,14 @@ export type RadioSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type RadioVariant = 'outlined' | 'transparent';
 
 export type RadioPanelRenderProps = {
-	// width: number;
-	// height: number;
-	// fontSize: RadioSize;
 	color: RadioColor;
 	colorMode?: ColorMode;
+	width: string; // In Pixels
+	height: string; // In Pixels
+	fontSize: string; // In Pixels
 };
+
+export type RadioOnChangeProps = { isChecked: boolean };
 
 type Omitted =
 	// CUI Box Props
@@ -60,6 +62,7 @@ type Omitted =
 	| 'spacing'
 	| 'placeholder'
 	| 'tabIndex'
+	| 'onChange'
 	| 'variant'
 	| 'sx';
 
@@ -75,9 +78,10 @@ export type RadioProps = {
 	isFullWidth?: boolean;
 	renderLeftPanel?: (props: RadioPanelRenderProps) => ReactNode;
 	renderRightPanel?: (props: RadioPanelRenderProps) => ReactNode;
+	onChange?: (props: RadioOnChangeProps) => void;
 	size?: RadioSize;
 	variant?: RadioVariant;
 	sx?: { group?: Style; radio?: Style; formLabel?: Style; formHelperText?: Style };
 } & Omit<CUIRadioProps, Omitted>;
 
-export type RadioContext = Pick<RadioProps, 'color' | 'colorMode'>;
+export type RadioContext = Pick<RadioProps, 'color' | 'colorMode' | 'size'>;

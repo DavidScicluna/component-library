@@ -55,10 +55,6 @@ export default ({
 		'px': `${theme.space[padding.x]} !important`,
 		'py': `${theme.space[padding.y]} !important`,
 
-		'transition': 'none',
-		'transitionDuration': theme.transition.duration.normal,
-		'transitionTimingFunction': theme.transition.easing['ease-in-out'],
-
 		'& .chakra-radio': {
 			cursor: 'pointer',
 
@@ -79,11 +75,7 @@ export default ({
 			WebkitTapHighlightColor: theme.colors.transparent,
 
 			p: 0,
-			m: 0,
-
-			transition: 'none',
-			transitionDuration: theme.transition.duration.normal,
-			transitionTimingFunction: theme.transition.easing['ease-in-out']
+			m: 0
 		},
 
 		'& .chakra-radio__control': {
@@ -97,11 +89,20 @@ export default ({
 			borderWidth: `${border}px`,
 			borderStyle: 'solid',
 			borderRadius: `${theme.radii.full} !important`,
-			boxShadow: 'none !important',
+			boxShadow: 'none !important'
+		},
 
-			transition: 'none',
-			transitionDuration: theme.transition.duration.normal,
-			transitionTimingFunction: theme.transition.easing['ease-in-out']
+		'&:focus:not(:focus-visible)': {
+			outline: !isTouchDevice ? '0px transparent' : 'none !important'
+		},
+
+		'&:focus': {
+			boxShadow: 'none',
+			outline: !isTouchDevice ? '0px transparent' : 'none !important'
+		},
+
+		'&:active': {
+			outline: !isTouchDevice ? '0px transparent' : 'none !important'
 		},
 
 		'& svg, .ds-cl-icon': {
@@ -117,19 +118,6 @@ export default ({
 			transition: 'none',
 			transitionDuration: theme.transition.duration.normal,
 			transitionTimingFunction: theme.transition.easing['ease-in-out']
-		},
-
-		'&:focus:not(:focus-visible)': {
-			outline: !isTouchDevice ? '0px transparent' : 'none !important'
-		},
-
-		'&:focus': {
-			boxShadow: 'none',
-			outline: !isTouchDevice ? '0px transparent' : 'none !important'
-		},
-
-		'&:active': {
-			outline: !isTouchDevice ? '0px transparent' : 'none !important'
 		}
 	};
 };

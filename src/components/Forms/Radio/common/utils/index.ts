@@ -17,6 +17,7 @@ type Padding = {
 type GetSizeConfigReturn = {
 	padding: Padding;
 	border: number; // In Pixels
+	panel: number; // In Pixels
 	spacing: Space; // In Space (Theme) Values
 	fontSize: FontSize;
 };
@@ -29,6 +30,7 @@ export const getSizeConfig = memoize(({ size = defaultSize }: GetSizeConfigProps
 			return {
 				padding: { x: 1, y: 1 },
 				border: 2,
+				panel: 16,
 				spacing: 1,
 				fontSize: {
 					icon: 14,
@@ -39,6 +41,7 @@ export const getSizeConfig = memoize(({ size = defaultSize }: GetSizeConfigProps
 			return {
 				padding: { x: 1.5, y: 1.5 },
 				border: 2,
+				panel: 18,
 				spacing: 1.5,
 				fontSize: {
 					icon: 17,
@@ -49,6 +52,7 @@ export const getSizeConfig = memoize(({ size = defaultSize }: GetSizeConfigProps
 			return {
 				padding: { x: 2.5, y: 2.5 },
 				border: 2,
+				panel: 24,
 				spacing: 2.5,
 				fontSize: {
 					icon: 23,
@@ -59,6 +63,7 @@ export const getSizeConfig = memoize(({ size = defaultSize }: GetSizeConfigProps
 			return {
 				padding: { x: 3, y: 3 },
 				border: 2,
+				panel: 30,
 				spacing: 3,
 				fontSize: {
 					icon: 26,
@@ -69,6 +74,7 @@ export const getSizeConfig = memoize(({ size = defaultSize }: GetSizeConfigProps
 			return {
 				padding: { x: 2, y: 2 },
 				border: 2,
+				panel: 20,
 				spacing: 2,
 				fontSize: {
 					icon: 20,

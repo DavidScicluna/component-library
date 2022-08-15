@@ -2,7 +2,7 @@ import { FC, createContext, useRef, useCallback } from 'react';
 
 import { useColorMode, FormControl, Radio as CUIRadio, VStack, HStack, Center } from '@chakra-ui/react';
 
-import { isEmpty, isNil, merge } from 'lodash';
+import { debounce, isEmpty, isNil, merge } from 'lodash';
 
 import { useTheme } from '../../../common/hooks';
 import Collapse from '../../Transitions/Collapse';
@@ -25,7 +25,7 @@ import {
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
-import { RadioContext as RadioContextType, RadioProps, RadioRef, RadioPanelRenderProps } from './types';
+import { RadioContext as RadioContextType, RadioProps, RadioRef } from './types';
 
 export const RadioContext = createContext<RadioContextType>({ color: defaultColor, colorMode: defaultColorMode });
 
@@ -53,6 +53,7 @@ const Radio: FC<RadioProps> = (props) => {
 		isFullWidth = defaultIsFullWidth,
 		renderLeftPanel,
 		renderRightPanel,
+		onChange,
 		size = defaultSize,
 		variant = defaultVariant,
 		sx,
@@ -74,29 +75,35 @@ const Radio: FC<RadioProps> = (props) => {
 		variant
 	});
 
-	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
+	const handleReturnSpacing = useCallback(
+		debounce((): number => getSizeConfig({ size }).spacing, 500),
+		[size, getSizeConfig]
+	);
 
-	const handleClick = useCallback((): void => {
+	const handleReturnPanelSize = useCallback(
+		debounce((): number => getSizeConfig({ size }).panel, 500),
+		[size, getSizeConfig]
+	);
+
+	const handleContainerClick = useCallback((): void => {
 		if (radioRef && radioRef.current) {
 			radioRef.current.focus();
 		}
 	}, [radioRef]);
 
-	const renderPanelProps: RadioPanelRenderProps = {
-		// width: handleReturnPanelSize(),
-		// height: handleReturnPanelSize(),
-		// fontSize: size,
-		color,
-		colorMode
-	};
+	const handleCheckboxClick = useCallback((): void => {
+		if (onChange) {
+			onChange({ isChecked: !isChecked });
+		}
+	}, [onChange, isChecked]);
 
 	return (
-		<RadioContext.Provider value={{ color, colorMode }}>
+		<RadioContext.Provider value={{ color, colorMode, size }}>
 			<VStack
 				as={FormControl}
 				tabIndex={0}
 				alignItems='flex-start'
-				onClick={handleClick}
+				onClick={handleContainerClick}
 				sx={{ width: isFullWidth ? '100%' : 'auto' }}
 			>
 				{label && (
@@ -118,13 +125,24 @@ const Radio: FC<RadioProps> = (props) => {
 					aria-disabled={isDisabled}
 					aria-invalid={isError}
 					aria-readonly={isReadOnly}
+					onClick={handleCheckboxClick}
 					spacing={handleReturnSpacing()}
 					sx={merge(style.group, sx?.group || {})}
 					_checked={style.checked}
 					_disabled={style.disabled}
 					_readOnly={style.readOnly}
 				>
-					{renderLeftPanel && <Center flex={1}>{renderLeftPanel({ ...renderPanelProps })}</Center>}
+					{renderLeftPanel && (
+						<Center flex={1}>
+							{renderLeftPanel({
+								width: `${handleReturnPanelSize() || 20}px`,
+								height: `${handleReturnPanelSize() || 20}px`,
+								fontSize: `${handleReturnPanelSize() || 20}px`,
+								color,
+								colorMode
+							})}
+						</Center>
+					)}
 
 					<Center>
 						<CUIRadio
@@ -137,12 +155,23 @@ const Radio: FC<RadioProps> = (props) => {
 							isReadOnly={isReadOnly}
 							id={id || name}
 							name={name}
+							onChange={onChange ? (event) => onChange({ isChecked: event.target.checked }) : undefined}
 							variant='unstyled'
 							sx={sx?.radio || {}}
 						/>
 					</Center>
 
-					{renderRightPanel && <Center flex={1}>{renderRightPanel({ ...renderPanelProps })}</Center>}
+					{renderRightPanel && (
+						<Center flex={1}>
+							{renderRightPanel({
+								width: `${handleReturnPanelSize() || 20}px`,
+								height: `${handleReturnPanelSize() || 20}px`,
+								fontSize: `${handleReturnPanelSize() || 20}px`,
+								color,
+								colorMode
+							})}
+						</Center>
+					)}
 				</HStack>
 
 				<Collapse in={!(isNil(helper) || isEmpty(helper))} unmountOnExit style={{ width: '100%' }}>
