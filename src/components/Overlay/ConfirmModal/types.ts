@@ -20,7 +20,6 @@ import {
 	BoxPseudo,
 	BoxOther
 } from '../../../common/types/box';
-import { Space } from '../../../theme/types';
 import { IconButtonProps } from '../../Clickable/IconButtons/OriginalIconButton/types';
 import { IconProps } from '../../Icon/types';
 
@@ -64,7 +63,6 @@ export type ConfirmModalProps = {
 	colorMode?: ColorMode;
 	renderCancel?: (props: RenderCancelProps) => ReactNode;
 	size?: ConfirmModalSize;
-	spacing?: Space;
 } & Omit<CUIModalProps, Omitted>;
 
-export type ConfirmModalContext = Pick<ConfirmModalProps, 'colorMode' | 'onClose' | 'spacing'>;
+export type ConfirmModalContext = Pick<ConfirmModalProps, 'colorMode' | 'onClose'>;

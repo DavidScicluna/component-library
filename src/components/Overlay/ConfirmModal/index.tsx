@@ -1,25 +1,22 @@
 import { FC, createContext } from 'react';
 
-import { useColorMode, Modal as CUIModal, ModalOverlay, ModalContent, VStack, Center } from '@chakra-ui/react';
+import { useColorMode, Modal as CUIModal, ModalOverlay, ModalContent, Center } from '@chakra-ui/react';
 
 import { useTheme } from '../../../common/hooks';
 import { getColor } from '../../../common/utils/color';
-import Divider from '../../Divider';
 
 import { ConfirmModalContext as ConfirmModalContextType, ConfirmModalProps } from './types';
 import {
 	colorMode as defaultColorMode,
 	isOpen as defaultIsOpen,
-	size as defaultSize,
-	spacing as defaultSpacing
+	size as defaultSize
 } from './common/data/defaultPropValues';
 
 export const ConfirmModalContext = createContext<ConfirmModalContextType>({
 	colorMode: 'light',
 	onClose: () => {
 		return;
-	},
-	spacing: defaultSpacing
+	}
 });
 
 const ConfirmModal: FC<ConfirmModalProps> = (props) => {
@@ -33,7 +30,6 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 		onClose,
 		renderCancel,
 		size = defaultSize,
-		spacing = defaultSpacing,
 		...rest
 	} = props;
 
@@ -44,10 +40,10 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 			onClose={onClose}
 			isCentered
 			motionPreset='slideInBottom'
-			scrollBehavior='inside'
+			scrollBehavior='outside'
 			size={size}
 		>
-			<ConfirmModalContext.Provider value={{ colorMode, onClose, spacing }}>
+			<ConfirmModalContext.Provider value={{ colorMode, onClose }}>
 				<ModalOverlay />
 				<ModalContent
 					position='relative'
@@ -55,7 +51,7 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 					borderRadius='xl'
 				>
 					{renderCancel && (
-						<Center position='absolute' top={theme.space[spacing]} right={theme.space[spacing]}>
+						<Center position='absolute' top={theme.space[2]} right={theme.space[2]}>
 							{renderCancel({
 								'aria-label': 'Close modal?',
 								'color': 'gray',
@@ -68,9 +64,7 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 						</Center>
 					)}
 
-					<VStack width='100%' divider={<Divider colorMode={colorMode} />} spacing={spacing} p={spacing * 2}>
-						{children}
-					</VStack>
+					{children}
 				</ModalContent>
 			</ConfirmModalContext.Provider>
 		</CUIModal>

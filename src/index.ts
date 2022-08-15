@@ -197,6 +197,8 @@ import ConfirmModalBody from './components/Overlay/ConfirmModal/components/Confi
 import { ConfirmModalBodyProps } from './components/Overlay/ConfirmModal/components/ConfirmModalBody/types';
 import ConfirmModalFooter from './components/Overlay/ConfirmModal/components/ConfirmModalFooter';
 import { ConfirmModalFooterProps } from './components/Overlay/ConfirmModal/components/ConfirmModalFooter/types';
+import ConfirmModalStack from './components/Overlay/ConfirmModal/components/ConfirmModalStack';
+import { ConfirmModalStackProps } from './components/Overlay/ConfirmModal/components/ConfirmModalStack/types';
 import ConfirmModalSubtitle from './components/Overlay/ConfirmModal/components/ConfirmModalSubtitle';
 import { ConfirmModalSubtitleProps } from './components/Overlay/ConfirmModal/components/ConfirmModalSubtitle/types';
 import ConfirmModalTitle from './components/Overlay/ConfirmModal/components/ConfirmModalTitle';
@@ -361,6 +363,7 @@ export {
 	ConfirmModal,
 	ConfirmModalBody,
 	ConfirmModalFooter,
+	ConfirmModalStack,
 	ConfirmModalSubtitle,
 	ConfirmModalTitle,
 	Modal,
@@ -497,6 +500,7 @@ export type {
 	IconCategory,
 	ConfirmModalBodyProps,
 	ConfirmModalFooterProps,
+	ConfirmModalStackProps,
 	ConfirmModalSubtitleProps,
 	ConfirmModalTitleProps,
 	ConfirmModalProps,
