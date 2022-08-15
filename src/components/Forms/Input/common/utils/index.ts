@@ -11,9 +11,10 @@ type Padding = {
 
 type GetSizeConfigReturn = {
 	height: number; // In Pixels
-	padding: Padding;
 	border: number; // In Pixels
+	panel: number; // In Pixels
 	spacing: Space; // In Space (Theme) Values
+	padding: Padding;
 };
 
 type GetSizeConfigProps = { size: InputSize };
@@ -23,37 +24,42 @@ export const getSizeConfig = memoize(({ size = defaultSize }: GetSizeConfigProps
 		case 'xs':
 			return {
 				height: 34,
-				padding: { x: 1, y: 0.5 },
 				border: 1,
-				spacing: 1
+				panel: 16,
+				spacing: 0.5,
+				padding: { x: 1, y: 0.5 }
 			};
 		case 'sm':
 			return {
 				height: 42,
-				padding: { x: 1.5, y: 0.75 },
 				border: 1,
-				spacing: 1.5
+				panel: 18,
+				spacing: 0.75,
+				padding: { x: 1.5, y: 0.75 }
 			};
 		case 'lg':
 			return {
 				height: 60,
-				padding: { x: 2.5, y: 1.25 },
 				border: 2,
-				spacing: 2.5
+				panel: 24,
+				spacing: 1.25,
+				padding: { x: 2.5, y: 1.25 }
 			};
 		case 'xl':
 			return {
 				height: 72,
-				padding: { x: 3, y: 1.5 },
 				border: 2,
-				spacing: 3
+				panel: 30,
+				spacing: 1.5,
+				padding: { x: 3, y: 1.5 }
 			};
 		default:
 			return {
 				height: 50,
-				padding: { x: 2, y: 1 },
 				border: 2,
-				spacing: 2
+				panel: 20,
+				spacing: 1,
+				padding: { x: 2, y: 1 }
 			};
 	}
 });

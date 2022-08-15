@@ -1,4 +1,4 @@
-import { ReactNode, FocusEvent } from 'react';
+import { ReactNode, FocusEvent as FE } from 'react';
 
 import { ColorMode, InputProps as CUIInputProps } from '@chakra-ui/react';
 
@@ -18,7 +18,7 @@ import {
 } from '../../../common/types/box';
 import { Color } from '../../../theme/types';
 
-export type Event = FocusEvent<HTMLInputElement, Element>;
+export type FocusEvent = FE<HTMLInputElement, Element>;
 
 export type InputRef = HTMLInputElement | null;
 
@@ -31,6 +31,9 @@ export type InputSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type InputPanelRenderProps = {
 	color: InputColor;
 	colorMode?: ColorMode;
+	width: string; // In Pixels
+	height: string; // In Pixels
+	fontSize: string; // In Pixels
 };
 
 type Omitted =

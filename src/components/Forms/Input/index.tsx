@@ -11,7 +11,7 @@ import {
 	Center
 } from '@chakra-ui/react';
 
-import { isEmpty, isNil } from 'lodash';
+import { debounce, isEmpty, isNil } from 'lodash';
 import merge from 'lodash/merge';
 
 import { useTheme } from '../../../common/hooks';
@@ -34,7 +34,7 @@ import {
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
-import { InputProps, InputRef, InputPanelRenderProps, Event } from './types';
+import { InputProps, InputRef, FocusEvent } from './types';
 
 const Input = (props: InputProps): ReactElement => {
 	const theme = useTheme();
@@ -73,7 +73,15 @@ const Input = (props: InputProps): ReactElement => {
 
 	const style = useStyles({ theme, color, colorMode, isError, isWarning, isSuccess, isFocused, isFullWidth, size });
 
-	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
+	const handleReturnSpacing = useCallback(
+		debounce((): number => getSizeConfig({ size }).spacing, 500),
+		[size, getSizeConfig]
+	);
+
+	const handleReturnPanelSize = useCallback(
+		debounce((): number => getSizeConfig({ size }).panel, 500),
+		[size, getSizeConfig]
+	);
 
 	const handleClick = useCallback((): void => {
 		if (inputRef && inputRef.current) {
@@ -82,7 +90,7 @@ const Input = (props: InputProps): ReactElement => {
 	}, [inputRef]);
 
 	const handleFocus = useCallback(
-		(event: Event): void => {
+		(event: FocusEvent): void => {
 			setIsFocusedHook.on();
 
 			if (onFocus) {
@@ -93,7 +101,7 @@ const Input = (props: InputProps): ReactElement => {
 	);
 
 	const handleBlur = useCallback(
-		(event: Event): void => {
+		(event: FocusEvent): void => {
 			setIsFocusedHook.off();
 
 			if (onBlur) {
@@ -102,8 +110,6 @@ const Input = (props: InputProps): ReactElement => {
 		},
 		[onBlur]
 	);
-
-	const renderPanelProps: InputPanelRenderProps = { color, colorMode };
 
 	return (
 		<VStack
@@ -137,7 +143,17 @@ const Input = (props: InputProps): ReactElement => {
 				_disabled={style.disabled}
 				_readOnly={style.readOnly}
 			>
-				{renderLeftPanel && <Center>{renderLeftPanel({ ...renderPanelProps })}</Center>}
+				{renderLeftPanel && (
+					<Center>
+						{renderLeftPanel({
+							width: `${handleReturnPanelSize() || 20}px`,
+							height: `${handleReturnPanelSize() || 20}px`,
+							fontSize: `${handleReturnPanelSize() || 20}px`,
+							color,
+							colorMode
+						})}
+					</Center>
+				)}
 
 				<Center flex={1}>
 					<CUIInput
@@ -157,7 +173,17 @@ const Input = (props: InputProps): ReactElement => {
 					/>
 				</Center>
 
-				{renderRightPanel && <Center>{renderRightPanel({ ...renderPanelProps })}</Center>}
+				{renderRightPanel && (
+					<Center>
+						{renderRightPanel({
+							width: `${handleReturnPanelSize() || 20}px`,
+							height: `${handleReturnPanelSize() || 20}px`,
+							fontSize: `${handleReturnPanelSize() || 20}px`,
+							color,
+							colorMode
+						})}
+					</Center>
+				)}
 			</HStack>
 
 			<Collapse in={!(isNil(helper) || isEmpty(helper))} unmountOnExit style={{ width: '100%' }}>
