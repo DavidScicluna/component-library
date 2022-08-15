@@ -119,6 +119,14 @@ import {
 	CheckboxSize,
 	CheckboxVariant
 } from './components/Forms/Checkbox/types';
+import Stepper from './components/Navigation/Stepper';
+import { StepperColor, StepperContext, StepperProps, StepperRef } from './components/Navigation/Stepper/types';
+import StepList from './components/Navigation/Stepper/components/StepList';
+import { StepListProps, Step } from './components/Navigation/Stepper/components/StepList/types';
+import StepPanel from './components/Navigation/Stepper/components/StepPanel';
+import { StepPanelProps } from './components/Navigation/Stepper/components/StepPanel/types';
+import StepPanels from './components/Navigation/Stepper/components/StepPanels';
+import { StepPanelsProps } from './components/Navigation/Stepper/components/StepPanels/types';
 import Form from './components/Forms/Form';
 import Input from './components/Forms/Input';
 import {
@@ -337,6 +345,10 @@ export {
 	Checkbox,
 	CheckboxSubtitle,
 	CheckboxTitle,
+	Stepper,
+	StepList,
+	StepPanel,
+	StepPanels,
 	Form,
 	Input,
 	Radio,
@@ -447,6 +459,14 @@ export type {
 	CheckboxRef,
 	CheckboxSize,
 	CheckboxVariant,
+	StepperColor,
+	StepperContext,
+	StepperProps,
+	StepperRef,
+	StepListProps,
+	Step,
+	StepPanelProps,
+	StepPanelsProps,
 	InputAutoComplete,
 	InputColor,
 	InputPanelRenderProps,
