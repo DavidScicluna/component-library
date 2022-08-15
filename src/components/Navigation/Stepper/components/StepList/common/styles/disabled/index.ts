@@ -1,4 +1,4 @@
-import { Style } from '@davidscicluna/component-library';
+import { Style } from '../../../../../../../../common/types';
 
 export default (): Style => ({
 	cursor: 'default',

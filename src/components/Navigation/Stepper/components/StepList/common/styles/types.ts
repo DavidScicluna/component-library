@@ -1,5 +1,5 @@
-import { Theme, Style } from '@davidscicluna/component-library';
-
+import { Style } from '../../../../../../../common/types';
+import { Theme } from '../../../../../../../theme/types';
 import { StepperProps } from '../../../../types';
 import { Step } from '../../components/Step/types';
 

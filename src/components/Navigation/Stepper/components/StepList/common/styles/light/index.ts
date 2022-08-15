@@ -1,15 +1,13 @@
-import { Style, utils } from '@davidscicluna/component-library';
-
 import { darken } from 'color2k';
 
 import { getAmount } from '../../utils';
 import { status as defaultStatus } from '../../../components/Step/common/data/defaultPropValues';
 import { getStatusColor } from '../../../components/Step/common/utils';
-import { color as defaultColor } from '../../../../../../../common/data/defaultPropValues';
+import { color as defaultColor } from '../../../../../common/data/defaultPropValues';
+import { Style } from '../../../../../../../../common/types';
+import { getHue } from '../../../../../../../../common/utils/color';
 
 import { StepLightStylingProps } from './types';
-
-const { getHue } = utils;
 
 export default ({ theme, color: colorProp = defaultColor, status = defaultStatus }: StepLightStylingProps): Style => {
 	const amount = getAmount();

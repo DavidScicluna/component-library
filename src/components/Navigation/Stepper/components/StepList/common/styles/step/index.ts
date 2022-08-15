@@ -1,5 +1,5 @@
-import { Style, Radius } from '@davidscicluna/component-library';
-
+import { Style } from '../../../../../../../../common/types';
+import { Radius } from '../../../../../../../../theme/types';
 import { status as defaultStatus } from '../../../components/Step/common/data/defaultPropValues';
 
 import { StepStyleProps } from './types';
