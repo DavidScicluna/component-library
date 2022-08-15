@@ -1,11 +1,10 @@
-import { IconType } from '@davidscicluna/component-library';
-
 import { memoize } from 'lodash';
 
 import { StepperColor } from '../../../../../../types';
 import { status as defaultStatus } from '../data/defaultPropValues';
 import { Status } from '../../types';
 import { activeStep as defaultActiveStep } from '../../../../../../common/data/defaultPropValues';
+import { Icon } from '../../../../../../../../../common/types/icons';
 
 type GetStatusColorProps = { status: Status; color: StepperColor };
 
@@ -26,7 +25,7 @@ export const getStatusColor = memoize(({ status = defaultStatus, color }: GetSta
 
 type GetStatusIconProps = { status: Status };
 
-export const getStatusIcon = memoize(({ status = defaultStatus }: GetStatusIconProps): IconType => {
+export const getStatusIcon = memoize(({ status = defaultStatus }: GetStatusIconProps): Icon => {
 	switch (status) {
 		case 'error':
 			return 'error_outline';
