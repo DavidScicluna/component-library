@@ -20,9 +20,9 @@ import { size as defaultSize } from '../../../OriginalAccordions/components/Quic
 import { accordions as defaultAccordions } from '../../common/data/defaultPropValues';
 import { DummyAccordionsContext as DummyAccordionsContextType } from '../../types';
 
-import { DummyQuickTogglesProps } from './types';
-import DummyToggle from './components/DummyToggle';
 import DummyAccordion from './components/DummyAccordion';
+import DummyToggle from './components/DummyToggle';
+import { DummyQuickTogglesProps } from './types';
 
 const DummyQuickToggles: FC<DummyQuickTogglesProps> = (props) => {
 	const theme = useTheme();

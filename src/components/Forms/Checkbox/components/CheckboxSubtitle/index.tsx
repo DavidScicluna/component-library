@@ -3,10 +3,10 @@ import { FC, useContext } from 'react';
 import { Text } from '@chakra-ui/react';
 
 import { CheckboxContext } from '../..';
+import { useTheme } from '../../../../../common/hooks';
 import { getColor } from '../../../../../common/utils/color';
 import { colorMode as defaultColorMode, size as defaultSize } from '../../common/data/defaultPropValues';
 import { CheckboxContext as CheckboxContextType } from '../../types';
-import { useTheme } from '../../../../../common/hooks';
 
 import { CheckboxSubtitleProps } from './types';
 

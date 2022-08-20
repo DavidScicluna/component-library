@@ -1,10 +1,10 @@
 import { memoize } from 'lodash';
 
-import { StepperColor } from '../../../../../../types';
-import { status as defaultStatus } from '../data/defaultPropValues';
-import { Status } from '../../types';
-import { activeStep as defaultActiveStep } from '../../../../../../common/data/defaultPropValues';
 import { Icon } from '../../../../../../../../../common/types/icons';
+import { activeStep as defaultActiveStep } from '../../../../../../common/data/defaultPropValues';
+import { StepperColor } from '../../../../../../types';
+import { Status } from '../../types';
+import { status as defaultStatus } from '../data/defaultPropValues';
 
 type GetStatusColorProps = { status: Status; color: StepperColor };
 

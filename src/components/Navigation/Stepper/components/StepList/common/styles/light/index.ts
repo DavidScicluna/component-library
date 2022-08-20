@@ -1,11 +1,11 @@
 import { darken } from 'color2k';
 
-import { getAmount } from '../../utils';
-import { status as defaultStatus } from '../../../components/Step/common/data/defaultPropValues';
-import { getStatusColor } from '../../../components/Step/common/utils';
-import { color as defaultColor } from '../../../../../common/data/defaultPropValues';
 import { Style } from '../../../../../../../../common/types';
 import { getHue } from '../../../../../../../../common/utils/color';
+import { color as defaultColor } from '../../../../../common/data/defaultPropValues';
+import { status as defaultStatus } from '../../../components/Step/common/data/defaultPropValues';
+import { getStatusColor } from '../../../components/Step/common/utils';
+import { getAmount } from '../../utils';
 
 import { StepLightStylingProps } from './types';
 

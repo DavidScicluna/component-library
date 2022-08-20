@@ -2,11 +2,11 @@ import { FC, useContext } from 'react';
 
 import { VStack, Text } from '@chakra-ui/react';
 
-import { StepperContext as StepperContextType } from '../../../../../../types';
 import { StepperContext } from '../../../../../..';
-import { colorMode as defaultColorMode } from '../../../../../../common/data/defaultPropValues';
 import { useTheme } from '../../../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../../../common/utils/color';
+import { colorMode as defaultColorMode } from '../../../../../../common/data/defaultPropValues';
+import { StepperContext as StepperContextType } from '../../../../../../types';
 
 import { StepDescriptionProps } from './types';
 

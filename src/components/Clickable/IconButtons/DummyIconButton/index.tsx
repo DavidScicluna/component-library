@@ -14,8 +14,8 @@ import {
 	variant as defaultVariant
 } from '../common/data/defaultPropValues';
 
-import { DummyIconButtonProps } from './types';
 import useStyles from './common/styles';
+import { DummyIconButtonProps } from './types';
 
 const DummyIconButton: FC<DummyIconButtonProps> = (props) => {
 	const theme = useTheme();

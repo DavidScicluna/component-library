@@ -5,14 +5,14 @@ import { useMediaQuery, Center } from '@chakra-ui/react';
 import { merge } from 'lodash';
 
 import { height } from '../..';
-import useStyles from '../../common/styles';
-import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/data/defaultPropValues';
-import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
 import { StepperContext } from '../../../..';
-import { StepperContext as StepperContextType } from '../../../../types';
-import Icon from '../../../../../../Icon';
 import { useTheme } from '../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../common/utils/color';
+import Icon from '../../../../../../Icon';
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/data/defaultPropValues';
+import { StepperContext as StepperContextType } from '../../../../types';
+import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
+import useStyles from '../../common/styles';
 
 import { CancelProps } from './types';
 

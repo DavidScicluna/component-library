@@ -4,9 +4,9 @@ import { Style } from '../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../common/utils';
 import { getHue } from '../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../theme/types';
-import { isClickable as defaultIsisClickable } from '../../../data/defaultPropValues';
 import { color as defaultColor, isLight as defaultIsLight } from '../../../../../common/data/defaultPropValues';
 import { getAmount, getSizeConfig } from '../../../../../common/utils';
+import { isClickable as defaultIsisClickable } from '../../../data/defaultPropValues';
 
 import { CardDarkStylingProps } from './types';
 

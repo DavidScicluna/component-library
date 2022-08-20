@@ -5,9 +5,9 @@ import { Center } from '@chakra-ui/react';
 import { AnimatePresence } from 'framer-motion';
 
 import { StepperContext } from '../..';
+import Fade from '../../../../Transitions/Fade';
 import { activeStep as defaultActiveStep } from '../../common/data/defaultPropValues';
 import { StepperContext as StepperContextType } from '../../types';
-import Fade from '../../../../Transitions/Fade';
 
 import { StepPanelsProps } from './types';
 

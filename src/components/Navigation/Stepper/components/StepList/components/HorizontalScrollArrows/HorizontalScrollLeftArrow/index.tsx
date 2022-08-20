@@ -4,14 +4,14 @@ import { useBoolean } from '@chakra-ui/react';
 
 import { useDebounce } from 'usehooks-ts';
 
-import { colorMode as defaultColorMode } from '../../../../../common/data/defaultPropValues';
-import { isDisabled as defaultIsDisabled } from '../../../common/data/defaultPropValues';
 import { StepperContext } from '../../../../..';
-import { StepperContext as StepperContextType } from '../../../../../types';
-import HorizontalScrollArrow from '../../../../../../../HorizontalScroll/components/Arrow';
-import { HorizontalScrollArrowProps as HorizontalScrollLeftArrowProps } from '../common/types';
 import { useTheme } from '../../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../../common/utils/color';
+import HorizontalScrollArrow from '../../../../../../../HorizontalScroll/components/Arrow';
+import { colorMode as defaultColorMode } from '../../../../../common/data/defaultPropValues';
+import { StepperContext as StepperContextType } from '../../../../../types';
+import { isDisabled as defaultIsDisabled } from '../../../common/data/defaultPropValues';
+import { HorizontalScrollArrowProps as HorizontalScrollLeftArrowProps } from '../common/types';
 
 const HorizontalScrollLeftArrow: FC<HorizontalScrollLeftArrowProps> = (props) => {
 	const theme = useTheme();

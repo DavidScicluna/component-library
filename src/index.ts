@@ -78,8 +78,8 @@ import DummyIconButton from './components/Clickable/IconButtons/DummyIconButton'
 import { DummyIconButtonProps } from './components/Clickable/IconButtons/DummyIconButton/types';
 import IconButton from './components/Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from './components/Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
-import { IconButtonProps, IconButtonRef } from './components/Clickable/IconButtons/OriginalIconButton/types';
 import { IconButtonIconProps } from './components/Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon/types';
+import { IconButtonProps, IconButtonRef } from './components/Clickable/IconButtons/OriginalIconButton/types';
 import { LinkProps } from './components/Clickable/Link/common/types';
 import ExternalLink from './components/Clickable/Link/External';
 import InternalLink from './components/Clickable/Link/Internal';
@@ -119,14 +119,6 @@ import {
 	CheckboxSize,
 	CheckboxVariant
 } from './components/Forms/Checkbox/types';
-import Stepper from './components/Navigation/Stepper';
-import { StepperColor, StepperContext, StepperProps, StepperRef } from './components/Navigation/Stepper/types';
-import StepList from './components/Navigation/Stepper/components/StepList';
-import { StepListProps, Step } from './components/Navigation/Stepper/components/StepList/types';
-import StepPanel from './components/Navigation/Stepper/components/StepPanel';
-import { StepPanelProps } from './components/Navigation/Stepper/components/StepPanel/types';
-import StepPanels from './components/Navigation/Stepper/components/StepPanels';
-import { StepPanelsProps } from './components/Navigation/Stepper/components/StepPanels/types';
 import Form from './components/Forms/Form';
 import Input from './components/Forms/Input';
 import {
@@ -183,6 +175,14 @@ import {
 	SideNavigationProps,
 	SideNavigationRef
 } from './components/Navigation/SideNavigation/types';
+import Stepper from './components/Navigation/Stepper';
+import StepList from './components/Navigation/Stepper/components/StepList';
+import { StepListProps, Step } from './components/Navigation/Stepper/components/StepList/types';
+import StepPanel from './components/Navigation/Stepper/components/StepPanel';
+import { StepPanelProps } from './components/Navigation/Stepper/components/StepPanel/types';
+import StepPanels from './components/Navigation/Stepper/components/StepPanels';
+import { StepPanelsProps } from './components/Navigation/Stepper/components/StepPanels/types';
+import { StepperColor, StepperContext, StepperProps, StepperRef } from './components/Navigation/Stepper/types';
 import TabBar from './components/Navigation/TabBar';
 import { Tab } from './components/Navigation/TabBar/components/Tab/types';
 import {
@@ -197,6 +197,12 @@ import ConfirmModalBody from './components/Overlay/ConfirmModal/components/Confi
 import { ConfirmModalBodyProps } from './components/Overlay/ConfirmModal/components/ConfirmModalBody/types';
 import ConfirmModalFooter from './components/Overlay/ConfirmModal/components/ConfirmModalFooter';
 import { ConfirmModalFooterProps } from './components/Overlay/ConfirmModal/components/ConfirmModalFooter/types';
+import ConfirmModalIcon from './components/Overlay/ConfirmModal/components/ConfirmModalIcon';
+import {
+	ConfirmModalIconColor,
+	ConfirmModalIconProps,
+	ConfirmModalIconVariant
+} from './components/Overlay/ConfirmModal/components/ConfirmModalIcon/types';
 import ConfirmModalStack from './components/Overlay/ConfirmModal/components/ConfirmModalStack';
 import { ConfirmModalStackProps } from './components/Overlay/ConfirmModal/components/ConfirmModalStack/types';
 import ConfirmModalSubtitle from './components/Overlay/ConfirmModal/components/ConfirmModalSubtitle';
@@ -361,6 +367,7 @@ export {
 	HorizontalScrollArrow,
 	Icon,
 	ConfirmModal,
+	ConfirmModalIcon,
 	ConfirmModalBody,
 	ConfirmModalFooter,
 	ConfirmModalStack,
@@ -498,6 +505,9 @@ export type {
 	HorizontalScrollRef,
 	IconProps,
 	IconCategory,
+	ConfirmModalIconColor,
+	ConfirmModalIconProps,
+	ConfirmModalIconVariant,
 	ConfirmModalBodyProps,
 	ConfirmModalFooterProps,
 	ConfirmModalStackProps,

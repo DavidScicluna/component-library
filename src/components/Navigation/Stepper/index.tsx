@@ -2,12 +2,12 @@ import { ReactElement, createContext, forwardRef } from 'react';
 
 import { useColorMode, VStack } from '@chakra-ui/react';
 
-import { StepperContext as StepperContextType, StepperRef, StepperProps } from './types';
 import {
 	activeStep as defaultActiveStep,
 	color as defaultColor,
 	colorMode as defaultColorMode
 } from './common/data/defaultPropValues';
+import { StepperContext as StepperContextType, StepperRef, StepperProps } from './types';
 
 export const StepperContext = createContext<StepperContextType>({
 	activeStep: defaultActiveStep,

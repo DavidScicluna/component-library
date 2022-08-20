@@ -2,6 +2,7 @@ import { HTMLAttributes } from 'react';
 
 import { CenterProps } from '@chakra-ui/react';
 
+import { NonNullable } from '../../../common/types';
 import {
 	BoxColor,
 	BoxGradient,
@@ -16,7 +17,6 @@ import {
 	BoxPseudo,
 	BoxOther
 } from '../../../common/types/box';
-import { NonNullable } from '../../../common/types';
 
 type Omitted =
 	| BoxColor

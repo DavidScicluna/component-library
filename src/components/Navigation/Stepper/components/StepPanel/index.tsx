@@ -3,9 +3,9 @@ import { FC, useContext } from 'react';
 import { VStack } from '@chakra-ui/react';
 
 import { StepperContext } from '../..';
-import { StepperContext as StepperContextType } from '../../types';
-import { colorMode as defaultColorMode } from '../../common/data/defaultPropValues';
 import Divider from '../../../../Divider';
+import { colorMode as defaultColorMode } from '../../common/data/defaultPropValues';
+import { StepperContext as StepperContextType } from '../../types';
 
 import StepDescription from './components/StepDescription';
 import { StepPanelProps } from './types';

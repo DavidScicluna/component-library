@@ -5,12 +5,12 @@ import { useColorMode, Modal as CUIModal, ModalOverlay, ModalContent, Center } f
 import { useTheme } from '../../../common/hooks';
 import { getColor } from '../../../common/utils/color';
 
-import { ConfirmModalContext as ConfirmModalContextType, ConfirmModalProps } from './types';
 import {
 	colorMode as defaultColorMode,
 	isOpen as defaultIsOpen,
 	size as defaultSize
 } from './common/data/defaultPropValues';
+import { ConfirmModalContext as ConfirmModalContextType, ConfirmModalProps } from './types';
 
 export const ConfirmModalContext = createContext<ConfirmModalContextType>({
 	colorMode: 'light',

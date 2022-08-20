@@ -5,13 +5,13 @@ import { Center } from '@chakra-ui/react';
 import { merge } from 'lodash';
 
 import { ConfirmModalContext } from '../..';
-import { ConfirmModalContext as ConfirmModalContextType } from '../../types';
 import { useTheme } from '../../../../../common/hooks';
 import { colorMode as defaultColorMode } from '../../common/data/defaultPropValues';
+import { ConfirmModalContext as ConfirmModalContextType } from '../../types';
 
-import { ConfirmModalIconProps } from './types';
 import { color as defaultColor, variant as defaultVariant } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
+import { ConfirmModalIconProps } from './types';
 
 const ConfirmModalIcon: FC<ConfirmModalIconProps> = (props) => {
 	const theme = useTheme();

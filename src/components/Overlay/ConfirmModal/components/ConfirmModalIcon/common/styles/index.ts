@@ -3,8 +3,8 @@ import { memoize, merge } from 'lodash';
 import { colorMode as defaultColorMode } from '../../../../common/data/defaultPropValues';
 import { color as defaultColor, variant as defaultVariant } from '../data/defaultPropValues';
 
-import icon from './icon';
 import dark from './dark';
+import icon from './icon';
 import light from './light';
 import { ConfirmModalIconStyleProps, ConfirmModalIconStyleReturn } from './types';
 

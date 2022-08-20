@@ -3,8 +3,8 @@ import { memoize, merge } from 'lodash';
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/data/defaultPropValues';
 import { status as defaultStatus } from '../../components/Step/common/data/defaultPropValues';
 
-import disabled from './disabled';
 import dark from './dark';
+import disabled from './disabled';
 import light from './light';
 import step from './step';
 import { StepStyleProps, StepStyleReturn } from './types';

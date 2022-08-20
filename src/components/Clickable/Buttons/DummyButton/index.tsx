@@ -16,8 +16,8 @@ import {
 } from '../common/data/defaultPropValues';
 import { getSizeConfig } from '../common/utils';
 
-import { DummyButtonProps } from './types';
 import useStyles from './common/styles';
+import { DummyButtonProps } from './types';
 
 const DummyButton: FC<DummyButtonProps> = (props) => {
 	const theme = useTheme();

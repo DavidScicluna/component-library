@@ -20,9 +20,9 @@ import Fade from '../../../Transitions/Fade';
 import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
 import { HorizontalScrollContext as HorizontalScrollContextType } from '../../types';
 
-import { ArrowProps } from './types';
-import useStyles from './common/styles';
 import { isVisible as defaultIsVisible, colorMode as defaultColorMode } from './common/data/defaultPropValues';
+import useStyles from './common/styles';
+import { ArrowProps } from './types';
 
 const Arrow: FC<ArrowProps> = (props) => {
 	const theme = useTheme();

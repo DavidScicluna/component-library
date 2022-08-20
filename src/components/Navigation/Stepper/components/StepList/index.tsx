@@ -5,20 +5,20 @@ import { useMediaQuery, useBoolean, Stack, HStack, Center } from '@chakra-ui/rea
 import { useDebounce, useUpdateEffect } from 'usehooks-ts';
 
 import { StepperContext } from '../../.';
-import { StepperContext as StepperContextType } from '../../types';
-import { activeStep as defaultActiveStep, colorMode as defaultColorMode } from '../../common/data/defaultPropValues';
 import { useTheme } from '../../../../../common/hooks';
-import HorizontalScroll from '../../../../HorizontalScroll';
 import Divider from '../../../../Divider';
+import HorizontalScroll from '../../../../HorizontalScroll';
+import { activeStep as defaultActiveStep, colorMode as defaultColorMode } from '../../common/data/defaultPropValues';
+import { StepperContext as StepperContextType } from '../../types';
 
-import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from './components/HorizontalScrollArrows';
+import { isDisabled as defaultIsDisabled } from './common/data/defaultPropValues';
 import Cancel from './components/Cancel';
+import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from './components/HorizontalScrollArrows';
 import Next from './components/Next';
 import Step from './components/Step';
-import { StepListProps, ScrollContext } from './types';
-import { isDisabled as defaultIsDisabled } from './common/data/defaultPropValues';
 import { getStatus as getStepStatus } from './components/Step/common/utils';
 import { Status } from './components/Step/types';
+import { StepListProps, ScrollContext } from './types';
 
 export const height = '112px';
 

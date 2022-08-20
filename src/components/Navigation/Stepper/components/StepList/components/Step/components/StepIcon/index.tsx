@@ -1,12 +1,12 @@
 import { FC, useContext } from 'react';
 
-import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../../common/data/defaultPropValues';
-import { StepperContext as StepperContextType } from '../../../../../../types';
 import { StepperContext } from '../../../../../..';
-import { getStatusColor, getStatusIcon } from '../../common/utils';
-import Icon from '../../../../../../../../Icon';
 import { useTheme } from '../../../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../../../common/utils/color';
+import Icon from '../../../../../../../../Icon';
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../../common/data/defaultPropValues';
+import { StepperContext as StepperContextType } from '../../../../../../types';
+import { getStatusColor, getStatusIcon } from '../../common/utils';
 
 import { StepIconProps } from './types';
 

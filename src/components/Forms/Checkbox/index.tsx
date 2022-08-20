@@ -10,9 +10,6 @@ import Collapse from '../../Transitions/Collapse';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 
-import { CheckboxContext as CheckboxContextType, CheckboxProps, CheckboxRef } from './types';
-import { getSizeConfig } from './common/utils';
-import useStyles from './common/styles';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -28,6 +25,9 @@ import {
 	size as defaultSize,
 	variant as defaultVariant
 } from './common/data/defaultPropValues';
+import useStyles from './common/styles';
+import { getSizeConfig } from './common/utils';
+import { CheckboxContext as CheckboxContextType, CheckboxProps, CheckboxRef } from './types';
 
 export const CheckboxContext = createContext<CheckboxContextType>({
 	color: defaultColor,

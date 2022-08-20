@@ -9,8 +9,8 @@ import { useTheme } from '../../../../../common/hooks';
 import { size as defaultSize } from '../../common/data/defaultPropValues';
 import { BadgeContext as BadgeContextType } from '../../types';
 
-import { BadgeLabelProps } from './types';
 import useStyles from './styles';
+import { BadgeLabelProps } from './types';
 
 const BadgeLabel: FC<BadgeLabelProps> = (props) => {
 	const theme = useTheme();

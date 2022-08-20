@@ -19,10 +19,10 @@ import {
 import { accordions as defaultAccordions, isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
 import { AccordionsContext as AccordionsContextType } from '../../types';
 
-import { QuickTogglesProps } from './types';
-import Toggle from './components/Toggle';
-import Accordion from './components/Accordion';
 import { size as defaultSize } from './common/data/defaultPropValues';
+import Accordion from './components/Accordion';
+import Toggle from './components/Toggle';
+import { QuickTogglesProps } from './types';
 
 const QuickToggles = <D,>(props: QuickTogglesProps<D>): ReactElement => {
 	const theme = useTheme();

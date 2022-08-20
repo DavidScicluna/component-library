@@ -28,15 +28,15 @@ import {
 import { toggleAccordion } from '../../common/utils';
 import { AccordionsContext as AccordionsContextType } from '../../types';
 
-import { AccordionContext as AccordionContextType, AccordionProps } from './types';
-import AccordionDivider from './components/AccordionDivider';
-import useStyles from './common/styles';
 import {
 	isActive as defaultIsActive,
 	isDivisible as defaultIsDivisible,
 	isLight as defaultIsLight,
 	isOpen as defaultIsOpen
 } from './common/data/defaultPropValues';
+import useStyles from './common/styles';
+import AccordionDivider from './components/AccordionDivider';
+import { AccordionContext as AccordionContextType, AccordionProps } from './types';
 
 export const AccordionContext = createContext<AccordionContextType<unknown>>({
 	isDisabled: defaultIsDisabled,

@@ -8,8 +8,8 @@ import Icon from '../../../../Icon';
 import { colorMode as defaultColorMode, size as defaultSize } from '../../common/data/defaultPropValues';
 import { BadgeContext as BadgeContextType } from '../../types';
 
-import { BadgeIconProps } from './types';
 import useStyles from './styles';
+import { BadgeIconProps } from './types';
 
 const BadgeIcon: FC<BadgeIconProps> = ({ sx, ...rest }) => {
 	const theme = useTheme();
