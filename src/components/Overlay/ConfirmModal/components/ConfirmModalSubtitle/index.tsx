@@ -17,11 +17,11 @@ const ConfirmModalSubtitle: FC<ConfirmModalSubtitleProps> = ({ children, ...rest
 
 	return (
 		<Text
-			align='left'
+			align='center'
 			color={getColor({ theme, colorMode, type: 'text.secondary' })}
 			fontSize='sm'
-			lineHeight='normal'
-			noOfLines={1}
+			lineHeight='base'
+			noOfLines={0}
 			{...rest}
 		>
 			{children}
