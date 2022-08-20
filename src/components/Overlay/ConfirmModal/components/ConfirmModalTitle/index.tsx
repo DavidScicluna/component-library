@@ -17,11 +17,11 @@ const ConfirmModalTitle: FC<ConfirmModalTitleProps> = ({ children, ...rest }) =>
 
 	return (
 		<Text
-			align='left'
+			align='center'
 			color={getColor({ theme, colorMode, type: 'text.primary' })}
-			fontSize='xl'
+			fontSize='2xl'
 			fontWeight='bold'
-			lineHeight='normal'
+			lineHeight='base'
 			noOfLines={1}
 			{...rest}
 		>
