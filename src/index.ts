@@ -84,6 +84,15 @@ import { LinkProps } from './components/Clickable/Link/common/types';
 import ExternalLink from './components/Clickable/Link/External';
 import InternalLink from './components/Clickable/Link/Internal';
 import { InternalProps as InternalLinkProps } from './components/Clickable/Link/Internal/types';
+import CollapsibleCard from './components/CollapsibleCard';
+import { CollapsibleCardColor, CollapsibleCardContext, CollapsibleCardProps } from './components/CollapsibleCard/types';
+import CollapsibleCardBody from './components/CollapsibleCard/components/CollapsibleCardBody';
+import { CollapsibleCardBodyProps } from './components/CollapsibleCard/components/CollapsibleCardBody/types';
+import CollapsibleCardDivider from './components/CollapsibleCard/components/CollapsibleCardDivider';
+import CollapsibleCardFooter from './components/CollapsibleCard/components/CollapsibleCardFooter';
+import { CollapsibleCardFooterProps } from './components/CollapsibleCard/components/CollapsibleCardFooter/types';
+import CollapsibleCardHeader from './components/CollapsibleCard/components/CollapsibleCardHeader';
+import { CollapsibleCardHeaderProps } from './components/CollapsibleCard/components/CollapsibleCardHeader/types';
 import Badge from './components/DataDisplay/Badge';
 import BadgeIcon from './components/DataDisplay/Badge/components/BadgeIcon';
 import { BadgeIconProps } from './components/DataDisplay/Badge/components/BadgeIcon/types';
@@ -182,7 +191,13 @@ import StepPanel from './components/Navigation/Stepper/components/StepPanel';
 import { StepPanelProps } from './components/Navigation/Stepper/components/StepPanel/types';
 import StepPanels from './components/Navigation/Stepper/components/StepPanels';
 import { StepPanelsProps } from './components/Navigation/Stepper/components/StepPanels/types';
-import { StepperColor, StepperContext, StepperProps, StepperRef } from './components/Navigation/Stepper/types';
+import {
+	StepperColor,
+	StepperContext,
+	StepperProps,
+	StepperRef,
+	OnChangeProps as StepperOnChangeProps
+} from './components/Navigation/Stepper/types';
 import TabBar from './components/Navigation/TabBar';
 import { Tab } from './components/Navigation/TabBar/components/Tab/types';
 import {
@@ -282,7 +297,7 @@ export type {
 } from './common/types/box';
 
 // Common Types
-export type { NonNullable, Style, Orientation } from './common/types';
+export type { Undefinable, Nullable, NonNullable, NoUndefinedField, Style, Orientation } from './common/types';
 
 // Icon Types
 export type { Icon as IconType } from './common/types/icons';
@@ -343,6 +358,11 @@ export {
 	DummyButton,
 	Button,
 	ButtonGroup,
+	CollapsibleCard,
+	CollapsibleCardBody,
+	CollapsibleCardDivider,
+	CollapsibleCardFooter,
+	CollapsibleCardHeader,
 	Badge,
 	BadgeIcon,
 	BadgeLabel,
@@ -443,6 +463,12 @@ export type {
 	ButtonGroupProps,
 	ButtonGroupRef,
 	ButtonGroupSize,
+	CollapsibleCardColor,
+	CollapsibleCardContext,
+	CollapsibleCardProps,
+	CollapsibleCardBodyProps,
+	CollapsibleCardFooterProps,
+	CollapsibleCardHeaderProps,
 	BadgeIconProps,
 	BadgeLabelProps,
 	BadgeColor,
@@ -473,6 +499,7 @@ export type {
 	StepperContext,
 	StepperProps,
 	StepperRef,
+	StepperOnChangeProps,
 	StepListProps,
 	Step,
 	StepPanelProps,
