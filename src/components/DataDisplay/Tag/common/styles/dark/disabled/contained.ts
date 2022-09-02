@@ -1,25 +1,26 @@
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
-import { Color } from '../../../../../../../theme/types';
 
 import { TagDarkDisabledStylingProps } from './types';
 
 export default ({ theme }: TagDarkDisabledStylingProps): Style => {
-	const shade = getHue({
+	const colorShade = getHue({
 		colorMode: 'dark',
 		type: 'text.secondary'
 	});
-
-	const color: Color = 'gray';
+	const backgroundShade = getHue({
+		colorMode: 'dark',
+		type: 'background'
+	});
 
 	return {
-		'color': `${theme.colors.gray[900]} !important`,
+		'color': `${theme.colors.gray[backgroundShade]} !important`,
 
 		'&::before': {
 			boxShadow: 'none !important',
-			borderColor: `${theme.colors[color][shade]} !important`,
-			backgroundColor: `${theme.colors[color][shade]} !important`,
-			background: `${theme.colors[color][shade]} !important`
+			borderColor: `${theme.colors.gray[colorShade]} !important`,
+			backgroundColor: `${theme.colors.gray[colorShade]} !important`,
+			background: `${theme.colors.gray[colorShade]} !important`
 		}
 	};
 };

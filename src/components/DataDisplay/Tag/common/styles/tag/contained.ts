@@ -24,11 +24,13 @@ export default ({ theme, isClickable = defaultIsClickable, size = defaultSize }:
 			borderColor: theme.colors.transparent
 		},
 
-		'&:active': {
-			borderTopWidth: `${isClickable ? transform : 0}px`,
-			borderBottomWidth: 0,
-			borderStyle: 'solid',
-			borderColor: theme.colors.transparent
-		}
+		'&:active': isClickable
+			? {
+					borderTopWidth: `${transform}px`,
+					borderBottomWidth: 0,
+					borderStyle: 'solid',
+					borderColor: theme.colors.transparent
+			  }
+			: {}
 	};
 };

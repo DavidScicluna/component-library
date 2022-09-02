@@ -2,7 +2,7 @@ import { darken } from 'color2k';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
-import { Color, ColorHues } from '../../../../../../../theme/types';
+import { Color } from '../../../../../../../theme/types';
 import { color as defaultColor } from '../../../data/defaultPropValues';
 import { getAmount } from '../../../utils';
 
@@ -10,7 +10,8 @@ import { TagLightActiveStylingProps } from './types';
 
 export default ({ theme, color: colorProp = defaultColor }: TagLightActiveStylingProps): Style => {
 	const amount = getAmount();
-	const shade = getHue({
+
+	const colorShade = getHue({
 		colorMode: 'light',
 		type:
 			colorProp === 'black'
@@ -21,38 +22,41 @@ export default ({ theme, color: colorProp = defaultColor }: TagLightActiveStylin
 				? 'text.secondary'
 				: 'color'
 	});
+	const backgroundShade = getHue({
+		colorMode: 'light',
+		type: colorProp === 'white' ? 'darkest' : 'background'
+	});
 
-	const textShade: ColorHues = colorProp === 'white' ? 900 : 50;
 	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
 
 	return {
-		'color': theme.colors.gray[textShade],
+		'color': theme.colors.gray[backgroundShade],
 
 		'&::before': {
 			boxShadow: 'none',
-			borderColor: theme.colors[color][shade],
-			backgroundColor: theme.colors[color][shade],
-			background: theme.colors[color][shade]
+			borderColor: theme.colors[color][colorShade],
+			backgroundColor: theme.colors[color][colorShade],
+			background: theme.colors[color][colorShade]
 		},
 
 		'&:hover': {
-			'color': theme.colors.gray[textShade],
+			'color': theme.colors.gray[backgroundShade],
 
 			'&::before': {
 				boxShadow: 'none',
-				borderColor: darken(theme.colors[color][shade], amount.hover),
-				backgroundColor: darken(theme.colors[color][shade], amount.hover),
-				background: darken(theme.colors[color][shade], amount.hover)
+				borderColor: darken(theme.colors[color][colorShade], amount.hover),
+				backgroundColor: darken(theme.colors[color][colorShade], amount.hover),
+				background: darken(theme.colors[color][colorShade], amount.hover)
 			},
 
 			'&:active': {
-				'color': theme.colors.gray[textShade],
+				'color': theme.colors.gray[backgroundShade],
 
 				'&::before': {
 					boxShadow: 'none',
-					borderColor: darken(theme.colors[color][shade], amount.active),
-					backgroundColor: darken(theme.colors[color][shade], amount.active),
-					background: darken(theme.colors[color][shade], amount.active)
+					borderColor: darken(theme.colors[color][colorShade], amount.active),
+					backgroundColor: darken(theme.colors[color][colorShade], amount.active),
+					background: darken(theme.colors[color][colorShade], amount.active)
 				}
 			}
 		}

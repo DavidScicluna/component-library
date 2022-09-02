@@ -3,7 +3,7 @@ import { darken } from 'color2k';
 import { Style } from '../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../common/utils';
 import { getHue } from '../../../../../../../common/utils/color';
-import { Color, ColorHues } from '../../../../../../../theme/types';
+import { Color } from '../../../../../../../theme/types';
 import {
 	color as defaultColor,
 	isClickable as defaultIsClickable,
@@ -22,7 +22,8 @@ export default ({
 	size = defaultSize
 }: TagLightStylingProps): Style => {
 	const amount = getAmount();
-	const shade = getHue({
+
+	const colorShade = getHue({
 		colorMode: 'light',
 		type:
 			colorProp === 'black'
@@ -33,61 +34,72 @@ export default ({
 				? 'text.secondary'
 				: 'color'
 	});
+	const backgroundShade = getHue({
+		colorMode: 'light',
+		type: colorProp === 'white' ? 'darkest' : 'background'
+	});
 
 	const config = getSizeConfig({ size });
 	const border = config.border;
 	const transform = config.transform;
 	const offset = config.offset;
 
-	const textShade: ColorHues = colorProp === 'white' ? 900 : 50;
 	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
 
 	return {
-		'color': theme.colors.gray[textShade],
+		'color': theme.colors.gray[backgroundShade],
 
 		'&::before': {
-			boxShadow: isClickable ? `0 ${transform}px 0 0 ${darken(theme.colors[color][shade], amount.back)}` : 'none',
-			borderColor: theme.colors[color][shade],
-			backgroundColor: theme.colors[color][shade],
-			background: theme.colors[color][shade]
+			boxShadow: isClickable
+				? `0 ${transform}px 0 0 ${darken(theme.colors[color][colorShade], amount.back)}`
+				: 'none',
+			borderColor: theme.colors[color][colorShade],
+			backgroundColor: theme.colors[color][colorShade],
+			background: theme.colors[color][colorShade]
 		},
 
-		'&:hover': {
-			'color': theme.colors.gray[textShade],
+		'&:hover': isClickable
+			? {
+					'color': theme.colors.gray[backgroundShade],
 
-			'&::before': {
-				boxShadow: `0 ${transform}px 0 0 ${darken(theme.colors[color][shade], amount.back)}`,
-				borderColor: darken(theme.colors[color][shade], amount.hover),
-				backgroundColor: darken(theme.colors[color][shade], amount.hover),
-				background: darken(theme.colors[color][shade], amount.hover)
-			},
+					'&::before': {
+						boxShadow: `0 ${transform}px 0 0 ${darken(theme.colors[color][colorShade], amount.back)}`,
+						borderColor: darken(theme.colors[color][colorShade], amount.hover),
+						backgroundColor: darken(theme.colors[color][colorShade], amount.hover),
+						background: darken(theme.colors[color][colorShade], amount.hover)
+					},
 
-			'&:active': {
-				'color': theme.colors.gray[textShade],
+					'&:active': {
+						'color': theme.colors.gray[backgroundShade],
 
-				'&::before': {
-					boxShadow: 'none',
-					borderColor: darken(theme.colors[color][shade], amount.active),
-					backgroundColor: darken(theme.colors[color][shade], amount.active),
-					background: darken(theme.colors[color][shade], amount.active)
-				}
-			}
-		},
+						'&::before': {
+							boxShadow: 'none',
+							borderColor: darken(theme.colors[color][colorShade], amount.active),
+							backgroundColor: darken(theme.colors[color][colorShade], amount.active),
+							background: darken(theme.colors[color][colorShade], amount.active)
+						}
+					}
+			  }
+			: {},
 
-		'&:active': {
-			'color': theme.colors.gray[textShade],
+		'&:active': isClickable
+			? {
+					'color': theme.colors.gray[backgroundShade],
 
-			'&::before': {
-				boxShadow: 'none',
-				borderColor: darken(theme.colors[color][shade], amount.active),
-				backgroundColor: darken(theme.colors[color][shade], amount.active),
-				background: darken(theme.colors[color][shade], amount.active)
-			}
-		},
+					'&::before': {
+						boxShadow: 'none',
+						borderColor: darken(theme.colors[color][colorShade], amount.active),
+						backgroundColor: darken(theme.colors[color][colorShade], amount.active),
+						background: darken(theme.colors[color][colorShade], amount.active)
+					}
+			  }
+			: {},
 
-		'&:focus-visible': {
-			outline: !isTouchDevice ? `${border}px auto ${theme.colors[color][shade]}` : 'none',
-			outlineOffset: !isTouchDevice ? `${offset}px` : 0
-		}
+		'&:focus-visible': isClickable
+			? {
+					outline: !isTouchDevice ? `${border}px auto ${theme.colors[color][colorShade]}` : 'none',
+					outlineOffset: !isTouchDevice ? `${offset}px` : 0
+			  }
+			: {}
 	};
 };

@@ -1,6 +1,5 @@
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
-import { Color } from '../../../../../../../theme/types';
 
 import { TagLightDisabledStylingProps } from './types';
 
@@ -10,10 +9,8 @@ export default ({ theme }: TagLightDisabledStylingProps): Style => {
 		type: 'text.secondary'
 	});
 
-	const color: Color = 'gray';
-
 	return {
-		'color': `${theme.colors[color][shade]} !important`,
+		'color': `${theme.colors.gray[shade]} !important`,
 
 		'&::before': {
 			boxShadow: 'none !important',

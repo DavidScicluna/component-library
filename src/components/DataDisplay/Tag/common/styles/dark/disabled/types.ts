@@ -1,5 +1,3 @@
 import { TagStyleProps } from '../../types';
 
-type Picked = 'theme' | 'size';
-
-export type TagDarkDisabledStylingProps = Pick<TagStyleProps, Picked>;
+export type TagDarkDisabledStylingProps = Pick<TagStyleProps, 'theme' | 'size'>;

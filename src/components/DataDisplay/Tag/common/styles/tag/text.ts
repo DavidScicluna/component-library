@@ -1,8 +1,9 @@
 import { Style } from '../../../../../../common/types';
+import { isClickable as defaultIsClickable } from '../../data/defaultPropValues';
 
 import { TagStyleProps } from './types';
 
-export default ({ theme }: TagStyleProps): Style => ({
+export default ({ theme, isClickable = defaultIsClickable }: TagStyleProps): Style => ({
 	'borderWidth': 0,
 	'borderStyle': 'solid',
 	'borderColor': theme.colors.transparent,
@@ -18,9 +19,11 @@ export default ({ theme }: TagStyleProps): Style => ({
 		borderColor: theme.colors.transparent
 	},
 
-	'&:active': {
-		borderWidth: 0,
-		borderStyle: 'solid',
-		borderColor: theme.colors.transparent
-	}
+	'&:active': isClickable
+		? {
+				borderWidth: 0,
+				borderStyle: 'solid',
+				borderColor: theme.colors.transparent
+		  }
+		: {}
 });

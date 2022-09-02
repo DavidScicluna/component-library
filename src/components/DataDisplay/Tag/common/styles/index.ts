@@ -35,11 +35,11 @@ export default memoize((props: TagStyleProps): TagStyleReturn => {
 			tag[variant]({ theme, isFullWidth, isClickable, size }),
 			scheme.tag[variant]({ theme, color, isClickable })
 		),
-		active: merge(active[variant]({ theme, size }), scheme.active[variant]({ theme, color, size })),
-		disabled: merge(
-			disabled.general(),
-			disabled[variant]({ theme, size }),
-			scheme.disabled[variant]({ theme, size })
-		)
+		active: isClickable
+			? merge(active[variant]({ theme, size }), scheme.active[variant]({ theme, color, size }))
+			: {},
+		disabled: isClickable
+			? merge(disabled.general(), disabled[variant]({ theme, size }), scheme.disabled[variant]({ theme, size }))
+			: {}
 	};
 });
