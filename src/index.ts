@@ -85,14 +85,19 @@ import ExternalLink from './components/Clickable/Link/External';
 import InternalLink from './components/Clickable/Link/Internal';
 import { InternalProps as InternalLinkProps } from './components/Clickable/Link/Internal/types';
 import CollapsibleCard from './components/CollapsibleCard';
-import { CollapsibleCardColor, CollapsibleCardContext, CollapsibleCardProps } from './components/CollapsibleCard/types';
-import CollapsibleCardBody from './components/CollapsibleCard/components/CollapsibleCardBody';
-import { CollapsibleCardBodyProps } from './components/CollapsibleCard/components/CollapsibleCardBody/types';
-import CollapsibleCardDivider from './components/CollapsibleCard/components/CollapsibleCardDivider';
-import CollapsibleCardFooter from './components/CollapsibleCard/components/CollapsibleCardFooter';
-import { CollapsibleCardFooterProps } from './components/CollapsibleCard/components/CollapsibleCardFooter/types';
-import CollapsibleCardHeader from './components/CollapsibleCard/components/CollapsibleCardHeader';
-import { CollapsibleCardHeaderProps } from './components/CollapsibleCard/components/CollapsibleCardHeader/types';
+import CollapsibleCard from './components/Clickable/CollapsibleCard';
+import {
+	CollapsibleCardColor,
+	CollapsibleCardContext,
+	CollapsibleCardProps
+} from './components/Clickable/CollapsibleCard/types';
+import CollapsibleCardBody from './components/Clickable/CollapsibleCard/components/CollapsibleCardBody';
+import { CollapsibleCardBodyProps } from './components/Clickable/CollapsibleCard/components/CollapsibleCardBody/types';
+import CollapsibleCardDivider from './components/Clickable/CollapsibleCard/components/CollapsibleCardDivider';
+import CollapsibleCardFooter from './components/Clickable/CollapsibleCard/components/CollapsibleCardFooter';
+import { CollapsibleCardFooterProps } from './components/Clickable/CollapsibleCard/components/CollapsibleCardFooter/types';
+import CollapsibleCardHeader from './components/Clickable/CollapsibleCard/components/CollapsibleCardHeader';
+import { CollapsibleCardHeaderProps } from './components/Clickable/CollapsibleCard/components/CollapsibleCardHeader/types';
 import Badge from './components/DataDisplay/Badge';
 import BadgeIcon from './components/DataDisplay/Badge/components/BadgeIcon';
 import { BadgeIconProps } from './components/DataDisplay/Badge/components/BadgeIcon/types';
