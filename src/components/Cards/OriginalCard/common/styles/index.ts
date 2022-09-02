@@ -7,7 +7,7 @@ import {
 	isLight as defaultIsLight,
 	variant as defaultVariant
 } from '../../../common/data/defaultPropValues';
-import { isClickable as defaultIsClickable } from '../data/defaultPropValues';
+import { isClickable as defaultIsClickable, isFixed as defaultIsFixed } from '../data/defaultPropValues';
 
 import active from './active';
 import card from './card';
@@ -21,9 +21,10 @@ export default memoize((props: CardStyleProps): CardStyleReturn => {
 		theme,
 		color = defaultColor,
 		colorMode = defaultColorMode,
-		isFullWidth = defaultIsFullWidth,
-		isLight = defaultIsLight,
 		isClickable = defaultIsClickable,
+		isFullWidth = defaultIsFullWidth,
+		isFixed = defaultIsFixed,
+		isLight = defaultIsLight,
 		variant = defaultVariant
 	} = props;
 
@@ -31,13 +32,17 @@ export default memoize((props: CardStyleProps): CardStyleReturn => {
 
 	return {
 		card: merge(
-			card.general({ theme, isFullWidth, isClickable }),
-			card[variant]({ theme, isFullWidth, isClickable }),
-			scheme.card[variant]({ theme, color, isClickable, isLight })
+			card.general({ theme, isClickable, isFullWidth, isFixed }),
+			card[variant]({ theme, isClickable, isFullWidth }),
+			scheme.card[variant]({ theme, color, isClickable, isFixed, isLight })
 		),
-		active: isClickable ? merge(active[variant]({ theme }), scheme.active[variant]({ theme, color, isLight })) : {},
-		disabled: isClickable
-			? merge(disabled.general(), disabled[variant]({ theme }), scheme.disabled[variant]({ theme, isLight }))
-			: {}
+		active:
+			isClickable && !isFixed
+				? merge(active[variant]({ theme }), scheme.active[variant]({ theme, color, isLight }))
+				: {},
+		disabled:
+			isClickable && !isFixed
+				? merge(disabled.general(), disabled[variant]({ theme }), scheme.disabled[variant]({ theme, isLight }))
+				: {}
 	};
 });

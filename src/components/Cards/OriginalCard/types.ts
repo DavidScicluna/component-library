@@ -6,6 +6,7 @@ export type CardProps = {
 	isActive?: boolean;
 	isDisabled?: boolean;
 	isClickable?: boolean;
+	isFixed?: boolean;
 } & CommonCardProps;
 
 export type CardContext = Pick<CardProps, 'color' | 'colorMode' | 'isDisabled' | 'isLight' | 'spacing'>;

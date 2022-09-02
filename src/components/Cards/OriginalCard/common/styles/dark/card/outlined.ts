@@ -6,7 +6,7 @@ import { getHue } from '../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../theme/types';
 import { color as defaultColor, isLight as defaultIsLight } from '../../../../../common/data/defaultPropValues';
 import { getAmount, getSizeConfig } from '../../../../../common/utils';
-import { isClickable as defaultIsClickable } from '../../../data/defaultPropValues';
+import { isClickable as defaultIsClickable, isFixed as defaultIsFixed } from '../../../data/defaultPropValues';
 
 import { CardDarkStylingProps } from './types';
 
@@ -16,6 +16,7 @@ export default ({
 	theme,
 	color: colorProp = defaultColor,
 	isClickable = defaultIsClickable,
+	isFixed = defaultIsFixed,
 	isLight = defaultIsLight
 }: CardDarkStylingProps): Style => {
 	const amount = getAmount();
@@ -51,24 +52,43 @@ export default ({
 		'color': theme.colors[color][colorShade],
 
 		'&::before': {
-			boxShadow: `0 ${isClickable ? transform : border}px 0 0 ${theme.colors[color][colorShade]}`,
+			boxShadow: `0 ${isClickable && !isFixed ? transform : border}px 0 0 ${theme.colors[color][colorShade]}`,
 			borderColor: theme.colors[color][colorShade],
 			backgroundColor: theme.colors.gray[backgroundShade],
 			background: theme.colors.gray[backgroundShade]
 		},
 
-		'&:hover': isClickable
-			? {
-					'color': lighten(theme.colors[color][colorShade], amount.hover),
+		'&:hover':
+			isClickable && !isFixed
+				? {
+						'color': lighten(theme.colors[color][colorShade], amount.hover),
 
-					'&::before': {
-						boxShadow: `0 ${transform}px 0 0 ${lighten(theme.colors[color][colorShade], amount.hover)}`,
-						borderColor: lighten(theme.colors[color][colorShade], amount.hover),
-						backgroundColor: theme.colors.gray[backgroundShade],
-						background: theme.colors.gray[backgroundShade]
-					},
+						'&::before': {
+							boxShadow: `0 ${transform}px 0 0 ${lighten(theme.colors[color][colorShade], amount.hover)}`,
+							borderColor: lighten(theme.colors[color][colorShade], amount.hover),
+							backgroundColor: theme.colors.gray[backgroundShade],
+							background: theme.colors.gray[backgroundShade]
+						},
 
-					'&:active': {
+						'&:active': {
+							'color': lighten(theme.colors[color][colorShade], amount.active),
+
+							'&::before': {
+								boxShadow: `0 ${border}px 0 0 ${lighten(
+									theme.colors[color][colorShade],
+									amount.active
+								)}`,
+								borderColor: lighten(theme.colors[color][colorShade], amount.active),
+								backgroundColor: theme.colors.gray[backgroundShade],
+								background: theme.colors.gray[backgroundShade]
+							}
+						}
+				  }
+				: {},
+
+		'&:active':
+			isClickable && !isFixed
+				? {
 						'color': lighten(theme.colors[color][colorShade], amount.active),
 
 						'&::before': {
@@ -77,22 +97,8 @@ export default ({
 							backgroundColor: theme.colors.gray[backgroundShade],
 							background: theme.colors.gray[backgroundShade]
 						}
-					}
-			  }
-			: {},
-
-		'&:active': isClickable
-			? {
-					'color': lighten(theme.colors[color][colorShade], amount.active),
-
-					'&::before': {
-						boxShadow: `0 ${border}px 0 0 ${lighten(theme.colors[color][colorShade], amount.active)}`,
-						borderColor: lighten(theme.colors[color][colorShade], amount.active),
-						backgroundColor: theme.colors.gray[backgroundShade],
-						background: theme.colors.gray[backgroundShade]
-					}
-			  }
-			: {},
+				  }
+				: {},
 
 		'&:focus-visible': {
 			outline: !isTouchDevice ? `${border}px auto ${theme.colors[color][colorShade]}` : 'none',

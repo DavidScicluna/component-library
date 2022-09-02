@@ -1,6 +1,6 @@
 import { ReactElement, createContext, forwardRef } from 'react';
 
-import { useColorMode, Center, VStack } from '@chakra-ui/react';
+import { useColorMode, useBoolean, Center, VStack } from '@chakra-ui/react';
 
 import { dataAttr } from '@chakra-ui/utils';
 import merge from 'lodash/merge';
@@ -9,8 +9,8 @@ import { useTheme } from '../../../common/hooks';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
-	isFullWidth as defaultIsFullWidth,
 	isDivisible as defaultIsDivisible,
+	isFullWidth as defaultIsFullWidth,
 	isLight as defaultIsLight,
 	spacing as defaultSpacing,
 	variant as defaultVariant
@@ -19,7 +19,8 @@ import {
 import {
 	isActive as defaultIsActive,
 	isClickable as defaultIsClickable,
-	isDisabled as defaultIsDisabled
+	isDisabled as defaultIsDisabled,
+	isFixed as defaultIsFixed
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import CardDivider from './components/CardDivider';
@@ -29,6 +30,7 @@ export const CardContext = createContext<CardContextType>({
 	color: defaultColor,
 	colorMode: defaultColorMode,
 	isDisabled: defaultIsDisabled,
+	isHovering: false,
 	isLight: defaultIsLight,
 	spacing: defaultSpacing
 });
@@ -42,18 +44,30 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 		color = defaultColor,
 		colorMode = colorModeHook,
 		isActive = defaultIsActive,
-		isFullWidth = defaultIsFullWidth,
-		isDivisible = defaultIsDivisible,
-		isLight = defaultIsLight,
 		isClickable = defaultIsClickable,
+		isDivisible = defaultIsDivisible,
 		isDisabled = defaultIsDisabled,
+		isFullWidth = defaultIsFullWidth,
+		isFixed = defaultIsFixed,
+		isLight = defaultIsLight,
 		spacing = defaultSpacing,
 		variant = defaultVariant,
 		sx,
 		...rest
 	} = props;
 
-	const style = useStyles({ theme, color, colorMode, isFullWidth, isLight, isClickable, variant });
+	const [isHovering, setIsHovering] = useBoolean();
+
+	const style = useStyles({
+		theme,
+		color,
+		colorMode,
+		isClickable,
+		isFullWidth,
+		isFixed: isFixed || isHovering,
+		isLight,
+		variant
+	});
 
 	return (
 		<CardContext.Provider value={{ color, colorMode, isDisabled, isLight, spacing }}>
@@ -72,10 +86,12 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 					position='relative'
 					zIndex={1}
 					flex={1}
-					divider={isDivisible && variant !== 'contained' ? <CardDivider /> : undefined}
-					spacing={spacing}
 					overflowY='hidden'
 					overflowX='hidden'
+					divider={isDivisible && variant !== 'contained' ? <CardDivider /> : undefined}
+					onMouseEnter={() => setIsHovering.on()}
+					onMouseLeave={() => setIsHovering.off()}
+					spacing={spacing}
 				>
 					{children}
 				</VStack>

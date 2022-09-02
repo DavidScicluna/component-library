@@ -1,11 +1,11 @@
 import { Style } from '../../../../../../common/types';
 import { Radius } from '../../../../../../theme/types';
 import { getSizeConfig } from '../../../../common/utils';
-import { isClickable as defaultIsClickable } from '../../data/defaultPropValues';
+import { isClickable as defaultIsClickable, isFixed as defaultIsFixed } from '../../data/defaultPropValues';
 
 import { CardStyleProps } from './types';
 
-export default ({ theme, isClickable = defaultIsClickable }: CardStyleProps): Style => {
+export default ({ theme, isClickable = defaultIsClickable, isFixed = defaultIsFixed }: CardStyleProps): Style => {
 	const config = getSizeConfig();
 	const transform = config.transform;
 	const border = config.border;
@@ -13,7 +13,7 @@ export default ({ theme, isClickable = defaultIsClickable }: CardStyleProps): St
 	const radius: Radius = 'lg';
 
 	return {
-		'borderBottomWidth': `${isClickable ? transform : border}px`,
+		'borderBottomWidth': `${isClickable && !isFixed ? transform : border}px`,
 		'borderStyle': 'solid',
 		'borderColor': theme.colors.transparent,
 		'borderRadius': theme.radii[radius],
@@ -29,13 +29,14 @@ export default ({ theme, isClickable = defaultIsClickable }: CardStyleProps): St
 			borderRadius: theme.radii[radius]
 		},
 
-		'&:active': isClickable
-			? {
-					borderTopWidth: `${isClickable ? border : 0}px`,
-					borderBottomWidth: `${isClickable ? border : 0}px`,
-					borderStyle: 'solid',
-					borderColor: theme.colors.transparent
-			  }
-			: {}
+		'&:active':
+			isClickable && !isFixed
+				? {
+						borderTopWidth: `${border}px`,
+						borderBottomWidth: `${border}px`,
+						borderStyle: 'solid',
+						borderColor: theme.colors.transparent
+				  }
+				: {}
 	};
 };

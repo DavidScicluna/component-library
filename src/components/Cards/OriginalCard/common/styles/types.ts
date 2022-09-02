@@ -2,7 +2,7 @@ import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';
 import { CardProps } from '../../types';
 
-type Picked = 'color' | 'colorMode' | 'isFullWidth' | 'isLight' | 'isClickable' | 'variant';
+type Picked = 'color' | 'colorMode' | 'isClickable' | 'isFullWidth' | 'isFixed' | 'isLight' | 'variant';
 
 export type CardStyleProps = {
 	theme: Theme;

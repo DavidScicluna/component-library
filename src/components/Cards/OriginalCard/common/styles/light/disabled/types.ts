@@ -1,5 +1,3 @@
 import { CardStyleProps } from '../../types';
 
-type Picked = 'theme' | 'isLight';
-
-export type CardLightDisabledStylingProps = Pick<CardStyleProps, Picked>;
+export type CardLightDisabledStylingProps = Pick<CardStyleProps, 'theme' | 'isLight'>;

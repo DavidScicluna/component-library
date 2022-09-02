@@ -1,7 +1,7 @@
 import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
 import { isFullWidth as defaultIsFullWidth } from '../../../../common/data/defaultPropValues';
-import { isClickable as defaultIsClickable } from '../../data/defaultPropValues';
+import { isClickable as defaultIsClickable, isFixed as defaultIsFixed } from '../../data/defaultPropValues';
 
 import { CardStyleProps } from './types';
 
@@ -9,8 +9,9 @@ const isTouchDevice: boolean = checkIsTouchDevice();
 
 export default ({
 	theme,
+	isClickable = defaultIsClickable,
 	isFullWidth = defaultIsFullWidth,
-	isClickable = defaultIsClickable
+	isFixed = defaultIsFixed
 }: CardStyleProps): Style => {
 	const transition = 'none';
 	const transitionProperty = transition;
@@ -18,7 +19,7 @@ export default ({
 	const transitionTimingFunction = transition;
 
 	return {
-		'cursor': isClickable ? 'pointer' : 'default',
+		'cursor': isClickable && !isFixed ? 'pointer' : 'default',
 
 		'pointerEvents': 'auto',
 

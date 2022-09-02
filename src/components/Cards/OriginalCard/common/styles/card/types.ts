@@ -1,5 +1,3 @@
 import { CardStyleProps as AllCardStyleProps } from '../types';
 
-type Picked = 'theme' | 'isFullWidth' | 'isClickable';
-
-export type CardStyleProps = Pick<AllCardStyleProps, Picked>;
+export type CardStyleProps = Pick<AllCardStyleProps, 'theme' | 'isClickable' | 'isFullWidth' | 'isFixed'>;
