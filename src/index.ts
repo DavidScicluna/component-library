@@ -84,7 +84,6 @@ import { LinkProps } from './components/Clickable/Link/common/types';
 import ExternalLink from './components/Clickable/Link/External';
 import InternalLink from './components/Clickable/Link/Internal';
 import { InternalProps as InternalLinkProps } from './components/Clickable/Link/Internal/types';
-import CollapsibleCard from './components/CollapsibleCard';
 import CollapsibleCard from './components/Clickable/CollapsibleCard';
 import {
 	CollapsibleCardColor,
@@ -119,6 +118,7 @@ import { TagLabelProps } from './components/DataDisplay/Tag/components/TagLabel/
 import { TagColor, TagContext, TagProps, TagRef, TagSize, TagVariant } from './components/DataDisplay/Tag/types';
 import Divider from './components/Divider';
 import { DividerProps } from './components/Divider/types';
+import DSProvider from './components/Provider';
 import Checkbox from './components/Forms/Checkbox';
 import CheckboxSubtitle from './components/Forms/Checkbox/components/CheckboxSubtitle';
 import { CheckboxSubtitleProps } from './components/Forms/Checkbox/components/CheckboxSubtitle/types';
@@ -375,6 +375,7 @@ export {
 	TagDeleteButton,
 	TagLabel,
 	Divider,
+	DSProvider,
 	Checkbox,
 	CheckboxSubtitle,
 	CheckboxTitle,
