@@ -91,9 +91,12 @@ export default ({
 				  }
 				: {},
 
-		'&:focus-visible': {
-			outline: !isTouchDevice ? `${border}px auto ${theme.colors[color][shade]}` : 'none',
-			outlineOffset: 0
-		}
+		'&:focus-visible':
+			isClickable && !isFixed
+				? {
+						outline: !isTouchDevice ? `${border}px auto ${theme.colors[color][shade]}` : 'none',
+						outlineOffset: 0
+				  }
+				: {}
 	};
 };
