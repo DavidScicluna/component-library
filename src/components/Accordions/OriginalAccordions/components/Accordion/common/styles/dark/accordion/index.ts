@@ -4,7 +4,11 @@ import { Style } from '../../../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../../../common/utils';
 import { getHue } from '../../../../../../../../../common/utils/color';
 import { color as defaultColor } from '../../../../../../../common/data/defaultPropValues';
-import { isLight as defaultIsLight, isOpen as defaultIsOpen } from '../../../data/defaultPropValues';
+import {
+	isFixed as defaultIsFixed,
+	isLight as defaultIsLight,
+	isOpen as defaultIsOpen
+} from '../../../data/defaultPropValues';
 import { getAmount, getSizeConfig } from '../../../utils';
 
 import { AccordionDarkStylingProps } from './types';
@@ -14,6 +18,7 @@ const isTouchDevice: boolean = checkIsTouchDevice();
 export default ({
 	theme,
 	color = defaultColor,
+	isFixed = defaultIsFixed,
 	isLight = defaultIsLight,
 	isOpen = defaultIsOpen
 }: AccordionDarkStylingProps): Style => {
@@ -43,18 +48,37 @@ export default ({
 			background: theme.colors.gray[backgroundShade]
 		},
 
-		'&:hover': !isOpen
-			? {
-					'color': lighten(theme.colors[color][colorShade], amount.hover),
+		'&:hover':
+			!isOpen && !isFixed
+				? {
+						'color': lighten(theme.colors[color][colorShade], amount.hover),
 
-					'&::before': {
-						boxShadow: `0 ${transform}px 0 0 ${lighten(theme.colors[color][colorShade], amount.hover)}`,
-						borderColor: lighten(theme.colors[color][colorShade], amount.hover),
-						backgroundColor: theme.colors.gray[backgroundShade],
-						background: theme.colors.gray[backgroundShade]
-					},
+						'&::before': {
+							boxShadow: `0 ${transform}px 0 0 ${lighten(theme.colors[color][colorShade], amount.hover)}`,
+							borderColor: lighten(theme.colors[color][colorShade], amount.hover),
+							backgroundColor: theme.colors.gray[backgroundShade],
+							background: theme.colors.gray[backgroundShade]
+						},
 
-					'&:active': {
+						'&:active': {
+							'color': lighten(theme.colors[color][colorShade], amount.active),
+
+							'&::before': {
+								boxShadow: `0 ${border}px 0 0 ${lighten(
+									theme.colors[color][colorShade],
+									amount.active
+								)}`,
+								borderColor: lighten(theme.colors[color][colorShade], amount.active),
+								backgroundColor: theme.colors.gray[backgroundShade],
+								background: theme.colors.gray[backgroundShade]
+							}
+						}
+				  }
+				: {},
+
+		'&:active':
+			!isOpen && !isFixed
+				? {
 						'color': lighten(theme.colors[color][colorShade], amount.active),
 
 						'&::before': {
@@ -63,22 +87,8 @@ export default ({
 							backgroundColor: theme.colors.gray[backgroundShade],
 							background: theme.colors.gray[backgroundShade]
 						}
-					}
-			  }
-			: {},
-
-		'&:active': !isOpen
-			? {
-					'color': lighten(theme.colors[color][colorShade], amount.active),
-
-					'&::before': {
-						boxShadow: `0 ${border}px 0 0 ${lighten(theme.colors[color][colorShade], amount.active)}`,
-						borderColor: lighten(theme.colors[color][colorShade], amount.active),
-						backgroundColor: theme.colors.gray[backgroundShade],
-						background: theme.colors.gray[backgroundShade]
-					}
-			  }
-			: {},
+				  }
+				: {},
 
 		'&:focus-visible': {
 			outline: !isTouchDevice ? `${border}px auto ${theme.colors[color][colorShade]}` : 'none',

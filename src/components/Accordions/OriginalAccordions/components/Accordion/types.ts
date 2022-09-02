@@ -47,6 +47,7 @@ export type AccordionProps<D> = Pick<Accordion<D>, 'id'> &
 		footer?: ReactNode;
 		isActive?: boolean;
 		isDivisible?: boolean;
+		isFixed?: boolean;
 		isLight?: boolean;
 	} & Omit<CenterProps, Omitted>;
 

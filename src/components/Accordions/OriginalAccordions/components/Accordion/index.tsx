@@ -1,6 +1,6 @@
 import { createContext, useContext, ReactElement } from 'react';
 
-import { useConst, Box, VisuallyHidden, Center, VStack } from '@chakra-ui/react';
+import { useBoolean, useConst, Box, VisuallyHidden, Center, VStack } from '@chakra-ui/react';
 
 import { dataAttr } from '@chakra-ui/utils';
 import { Transition } from 'framer-motion';
@@ -31,6 +31,7 @@ import { AccordionsContext as AccordionsContextType } from '../../types';
 import {
 	isActive as defaultIsActive,
 	isDivisible as defaultIsDivisible,
+	isFixed as defaultIsFixed,
 	isLight as defaultIsLight,
 	isOpen as defaultIsOpen
 } from './common/data/defaultPropValues';
@@ -68,15 +69,18 @@ const Accordion = <D,>(props: AccordionProps<D>): ReactElement => {
 		isActive = defaultIsActive,
 		isDisabled = isDisabledHook,
 		isDivisible = defaultIsDivisible,
+		isFixed = defaultIsFixed,
 		isLight = defaultIsLight,
 		spacing = defaultSpacing,
 		sx,
 		...rest
 	} = props;
 
+	const [isHovering, setIsHovering] = useBoolean();
+
 	const isOpen = !isDisabled && opened.some((accordion: unknown) => accordion === id);
 
-	const style = useStyles({ theme, color, colorMode, isFullWidth, isLight, isOpen });
+	const style = useStyles({ theme, color, colorMode, isFullWidth, isFixed: isFixed || isHovering, isLight, isOpen });
 
 	const duration = useConst<number>(getTransitionDuration({ theme, duration: 'slow' }));
 	const easing = useConst<number[]>(getTransitionEasings({ theme }));
@@ -110,7 +114,13 @@ const Accordion = <D,>(props: AccordionProps<D>): ReactElement => {
 						style={{ width: '100%' }}
 						transition={{ enter: { ...config }, exit: { ...config } }}
 					>
-						<VStack width='100%' divider={isDivisible ? <AccordionDivider /> : undefined} spacing={spacing}>
+						<VStack
+							width='100%'
+							divider={isDivisible ? <AccordionDivider /> : undefined}
+							onMouseEnter={() => setIsHovering.on()}
+							onMouseLeave={() => setIsHovering.off()}
+							spacing={spacing}
+						>
 							<VisuallyHidden>
 								<span />
 							</VisuallyHidden>

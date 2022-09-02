@@ -1,5 +1,3 @@
 import { AccordionStyleProps } from '../../types';
 
-type Picked = 'theme' | 'isLight';
-
-export type AccordionDarkDisabledStylingProps = Pick<AccordionStyleProps<unknown>, Picked>;
+export type AccordionDarkDisabledStylingProps = Pick<AccordionStyleProps, 'theme' | 'isLight'>;

@@ -2,13 +2,14 @@ import { Style } from '../../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../../common/utils';
 import { Radius } from '../../../../../../../../theme/types';
 import { isFullWidth as defaultIsFullWidth } from '../../../../../../common/data/defaultPropValues';
+import { isFixed as defaultIsFixed } from '../../data/defaultPropValues';
 import { getSizeConfig } from '../../utils';
 
 import { AccordionStyleProps } from './types';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme, isFullWidth = defaultIsFullWidth }: AccordionStyleProps): Style => {
+export default ({ theme, isFullWidth = defaultIsFullWidth, isFixed = defaultIsFixed }: AccordionStyleProps): Style => {
 	const config = getSizeConfig();
 	const transform = config.transform;
 	const border = config.border;
@@ -21,7 +22,7 @@ export default ({ theme, isFullWidth = defaultIsFullWidth }: AccordionStyleProps
 	const transitionTimingFunction = transition;
 
 	return {
-		'cursor': 'pointer',
+		'cursor': !isFixed ? 'pointer' : 'default',
 
 		'pointerEvents': 'auto',
 
@@ -92,14 +93,16 @@ export default ({ theme, isFullWidth = defaultIsFullWidth }: AccordionStyleProps
 			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
 		},
 
-		'&:active': {
-			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important',
+		'&:active': !isFixed
+			? {
+					outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important',
 
-			borderTopWidth: `${border}px`,
-			borderBottomWidth: `${border}px`,
-			borderStyle: 'solid',
-			borderColor: theme.colors.transparent
-		},
+					borderTopWidth: `${border}px`,
+					borderBottomWidth: `${border}px`,
+					borderStyle: 'solid',
+					borderColor: theme.colors.transparent
+			  }
+			: {},
 
 		'*, *::before, *::after': {
 			transition: transition,

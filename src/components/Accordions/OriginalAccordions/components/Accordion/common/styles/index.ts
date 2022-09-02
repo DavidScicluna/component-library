@@ -5,7 +5,11 @@ import {
 	colorMode as defaultColorMode,
 	isFullWidth as defaultIsFullWidth
 } from '../../../../../common/data/defaultPropValues';
-import { isLight as defaultIsLight, isOpen as defaultIsOpen } from '../data/defaultPropValues';
+import {
+	isFixed as defaultIsFixed,
+	isLight as defaultIsLight,
+	isOpen as defaultIsOpen
+} from '../data/defaultPropValues';
 
 import accordion from './accordion';
 import active from './active';
@@ -14,21 +18,25 @@ import disabled from './disabled';
 import light from './light';
 import { AccordionStyleProps, AccordionStyleReturn } from './types';
 
-export default memoize(<D>(props: AccordionStyleProps<D>): AccordionStyleReturn => {
+export default memoize((props: AccordionStyleProps): AccordionStyleReturn => {
 	const {
 		theme,
 		color = defaultColor,
 		colorMode = defaultColorMode,
-		isLight = defaultIsLight,
 		isFullWidth = defaultIsFullWidth,
+		isFixed = defaultIsFixed,
+		isLight = defaultIsLight,
 		isOpen = defaultIsOpen
 	} = props;
 
 	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
-		accordion: merge(accordion({ theme, isFullWidth }), scheme.accordion({ theme, color, isLight, isOpen })),
-		active: merge(active({ theme }), scheme.active({ theme, color, isLight, isOpen })),
+		accordion: merge(
+			accordion({ theme, isFullWidth, isFixed }),
+			scheme.accordion({ theme, color, isFixed, isLight, isOpen })
+		),
+		active: !isFixed ? merge(active({ theme }), scheme.active({ theme, color, isLight, isOpen })) : {},
 		disabled: {
 			accordion: merge(disabled.accordion({ theme }), scheme.disabled({ theme, isLight })),
 			header: disabled.header()
