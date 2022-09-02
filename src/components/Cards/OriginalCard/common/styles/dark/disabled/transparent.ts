@@ -1,6 +1,5 @@
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
-import { Color } from '../../../../../../../theme/types';
 import { isLight as defaultIsLight } from '../../../../../common/data/defaultPropValues';
 
 import { CardDarkDisabledStylingProps } from './types';
@@ -11,10 +10,8 @@ export default ({ theme, isLight = defaultIsLight }: CardDarkDisabledStylingProp
 		type: isLight ? 'divider' : 'text.secondary'
 	});
 
-	const color: Color = 'gray';
-
 	return {
-		'color': `${theme.colors[color][shade]} !important`,
+		'color': `${theme.colors.gray[shade]} !important`,
 
 		'&::before': {
 			boxShadow: 'none !important',

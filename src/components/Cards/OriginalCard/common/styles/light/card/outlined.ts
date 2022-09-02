@@ -19,7 +19,8 @@ export default ({
 	isLight = defaultIsLight
 }: CardLightStylingProps): Style => {
 	const amount = getAmount();
-	const shade = getHue({
+
+	const colorShade = getHue({
 		colorMode: 'light',
 		type:
 			colorProp === 'black'
@@ -34,6 +35,10 @@ export default ({
 				? 'divider'
 				: 'color'
 	});
+	const backgroundShade = getHue({
+		colorMode: 'light',
+		type: 'background'
+	});
 
 	const config = getSizeConfig();
 	const border = config.border;
@@ -43,34 +48,34 @@ export default ({
 	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
 
 	return {
-		'color': theme.colors[color][shade],
+		'color': theme.colors[color][colorShade],
 
 		'&::before': {
-			boxShadow: `0 ${isClickable ? transform : border}px 0 0 ${theme.colors[color][shade]}`,
-			borderColor: theme.colors[color][shade],
-			backgroundColor: theme.colors.gray[50],
-			background: theme.colors.gray[50]
+			boxShadow: `0 ${isClickable ? transform : border}px 0 0 ${theme.colors[color][colorShade]}`,
+			borderColor: theme.colors[color][colorShade],
+			backgroundColor: theme.colors.gray[backgroundShade],
+			background: theme.colors.gray[backgroundShade]
 		},
 
 		'&:hover': isClickable
 			? {
-					'color': darken(theme.colors[color][shade], amount.hover),
+					'color': darken(theme.colors[color][colorShade], amount.hover),
 
 					'&::before': {
-						boxShadow: `0 ${transform}px 0 0 ${darken(theme.colors[color][shade], amount.hover)}`,
-						borderColor: darken(theme.colors[color][shade], amount.hover),
-						backgroundColor: theme.colors.gray[50],
-						background: theme.colors.gray[50]
+						boxShadow: `0 ${transform}px 0 0 ${darken(theme.colors[color][colorShade], amount.hover)}`,
+						borderColor: darken(theme.colors[color][colorShade], amount.hover),
+						backgroundColor: theme.colors.gray[backgroundShade],
+						background: theme.colors.gray[backgroundShade]
 					},
 
 					'&:active': {
-						'color': darken(theme.colors[color][shade], amount.active),
+						'color': darken(theme.colors[color][colorShade], amount.active),
 
 						'&::before': {
-							boxShadow: `0 ${border}px 0 0 ${darken(theme.colors[color][shade], amount.active)}`,
-							borderColor: darken(theme.colors[color][shade], amount.active),
-							backgroundColor: theme.colors.gray[50],
-							background: theme.colors.gray[50]
+							boxShadow: `0 ${border}px 0 0 ${darken(theme.colors[color][colorShade], amount.active)}`,
+							borderColor: darken(theme.colors[color][colorShade], amount.active),
+							backgroundColor: theme.colors.gray[backgroundShade],
+							background: theme.colors.gray[backgroundShade]
 						}
 					}
 			  }
@@ -78,19 +83,19 @@ export default ({
 
 		'&:active': isClickable
 			? {
-					'color': darken(theme.colors[color][shade], amount.active),
+					'color': darken(theme.colors[color][colorShade], amount.active),
 
 					'&::before': {
-						boxShadow: `0 ${border}px 0 0 ${darken(theme.colors[color][shade], amount.active)}`,
-						borderColor: darken(theme.colors[color][shade], amount.active),
-						backgroundColor: theme.colors.gray[50],
-						background: theme.colors.gray[50]
+						boxShadow: `0 ${border}px 0 0 ${darken(theme.colors[color][colorShade], amount.active)}`,
+						borderColor: darken(theme.colors[color][colorShade], amount.active),
+						backgroundColor: theme.colors.gray[backgroundShade],
+						background: theme.colors.gray[backgroundShade]
 					}
 			  }
 			: {},
 
 		'&:focus-visible': {
-			outline: !isTouchDevice ? `${border}px auto ${theme.colors[color][shade]}` : 'none',
+			outline: !isTouchDevice ? `${border}px auto ${theme.colors[color][colorShade]}` : 'none',
 			outlineOffset: !isTouchDevice ? `${offset}px` : 0
 		}
 	};

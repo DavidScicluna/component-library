@@ -19,6 +19,7 @@ export default ({
 	isLight = defaultIsLight
 }: CardDarkStylingProps): Style => {
 	const amount = getAmount();
+
 	const shade = getHue({
 		colorMode: 'dark',
 		type:
