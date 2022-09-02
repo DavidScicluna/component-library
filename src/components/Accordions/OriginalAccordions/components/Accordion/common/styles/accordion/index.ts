@@ -42,7 +42,7 @@ export default ({ theme, isFullWidth = defaultIsFullWidth }: AccordionStyleProps
 
 		'opacity': 1,
 
-		'outline': !isTouchDevice ? '0px transparent' : 'none !important',
+		'outline': !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important',
 
 		'background': 'none',
 		'borderBottomWidth': `${transform}px`,
@@ -84,16 +84,16 @@ export default ({ theme, isFullWidth = defaultIsFullWidth }: AccordionStyleProps
 		},
 
 		'&:focus:not(:focus-visible)': {
-			outline: !isTouchDevice ? '0px transparent' : 'none !important'
+			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
 		},
 
 		'&:focus': {
 			boxShadow: 'none',
-			outline: !isTouchDevice ? '0px transparent' : 'none !important'
+			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
 		},
 
 		'&:active': {
-			outline: !isTouchDevice ? '0px transparent' : 'none !important',
+			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important',
 
 			borderTopWidth: `${border}px`,
 			borderBottomWidth: `${border}px`,
