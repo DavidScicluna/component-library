@@ -12,9 +12,9 @@ import {
 	isFullWidth as defaultIsFullWidth
 } from '../../../common/data/defaultPropValues';
 import { isLight as defaultIsLight } from '../../../OriginalAccordions/components/Accordion/common/data/defaultPropValues';
-import useAccordionStyles from '../../../OriginalAccordions/components/Accordion/common/styles';
 import { DummyAccordionsContext as DummyAccordionsContextType } from '../../types';
 
+import useStyles from './common/styles';
 import { DummyAccordionProps } from './types';
 
 const DummyAccordion: FC<DummyAccordionProps> = (props) => {
@@ -28,10 +28,10 @@ const DummyAccordion: FC<DummyAccordionProps> = (props) => {
 
 	const { children, isLight = defaultIsLight, sx, ...rest } = props;
 
-	const style = useAccordionStyles({ theme, color, colorMode, isFullWidth, isLight, isOpen: false });
+	const style = useStyles({ theme, color, colorMode, isFullWidth, isLight });
 
 	return (
-		<Center {...rest} as='div' aria-disabled sx={merge(style.accordion, sx)} _disabled={style.disabled.accordion}>
+		<Center {...rest} as='div' aria-disabled sx={merge(style.accordion, sx)}>
 			<Center width='100%' position='relative' zIndex={1}>
 				{children}
 			</Center>
