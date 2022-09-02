@@ -1,11 +1,10 @@
 import { FC, useContext, useCallback } from 'react';
 
-import { Space, useTheme, Icon, utils } from '@davidscicluna/component-library';
-
 import { HStack, VStack, Center } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
+import Icon from '../../../Icon';
 import { CollapsibleCardContext } from '../..';
 import {
 	colorMode as defaultColorMode,
@@ -13,10 +12,12 @@ import {
 	spacing as defaultSpacing
 } from '../../common/data/defaultPropValues';
 import { CollapsibleCardContext as CollapsibleCardContextType } from '../../types';
+import { useTheme } from '../../../../common/hooks';
+import { convertREMToPixels, convertStringToNumber } from '../../../../common/utils';
+import { Space } from '../../../../theme/types';
+import { getColor } from '../../../../common/utils/color';
 
 import { CollapsibleCardHeaderProps } from './types';
-
-const { convertREMToPixels, convertStringToNumber, getColor } = utils;
 
 const CollapsibleCardHeader: FC<CollapsibleCardHeaderProps> = (props) => {
 	const theme = useTheme();
