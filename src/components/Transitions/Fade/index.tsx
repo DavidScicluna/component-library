@@ -6,6 +6,7 @@ import { Transition } from 'framer-motion';
 
 import { useTheme } from '../../../common/hooks';
 import { getConfig } from '../common/utils';
+import { unmountOnExit as defaultUnmountOnExit } from '../common/data/defaultPropValues';
 
 import { FadeProps } from './types';
 
@@ -14,11 +15,15 @@ const Fade: FC<FadeProps> = (props) => {
 
 	const config = useConst<Transition>(getConfig({ theme }));
 
-	const { children, transition, ...rest } = props;
+	const { children, unmountOnExit = defaultUnmountOnExit, transition, ...rest } = props;
 	const { enter = { ...config }, exit = { ...config } } = transition || {};
 
 	return (
-		<CUIFade {...rest} transition={{ enter: enter || { ...config }, exit: exit || { ...config } }}>
+		<CUIFade
+			{...rest}
+			unmountOnExit={unmountOnExit}
+			transition={{ enter: enter || { ...config }, exit: exit || { ...config } }}
+		>
 			{children}
 		</CUIFade>
 	);
