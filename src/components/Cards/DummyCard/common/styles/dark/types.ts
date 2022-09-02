@@ -1,5 +1,3 @@
 import { DummyCardStyleProps } from '../types';
 
-type Picked = 'theme' | 'color' | 'isLight';
-
-export type DummyCardDarkStylingProps = Pick<DummyCardStyleProps, Picked>;
+export type DummyCardDarkStylingProps = Pick<DummyCardStyleProps, 'theme' | 'color' | 'isLight'>;

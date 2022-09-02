@@ -10,17 +10,21 @@ export default ({
 	color: colorProp = defaultColor,
 	isLight = defaultIsLight
 }: DummyCardDarkStylingProps): Style => {
-	const shade = getHue({
+	const colorShade = getHue({
 		colorMode: 'dark',
 		type: isLight ? 'divider' : 'text.secondary'
+	});
+	const backgroundShade = getHue({
+		colorMode: 'dark',
+		type: 'background'
 	});
 
 	const color: CardColor = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
 
 	return {
-		color: `${theme.colors[color][shade]} !important`,
-		borderColor: `${theme.colors[color][shade]} !important`,
-		backgroundColor: `${theme.colors.gray[900]} !important`,
-		background: `${theme.colors.gray[900]} !important`
+		color: `${theme.colors[color][colorShade]} !important`,
+		borderColor: `${theme.colors[color][colorShade]} !important`,
+		backgroundColor: `${theme.colors.gray[backgroundShade]} !important`,
+		background: `${theme.colors.gray[backgroundShade]} !important`
 	};
 };
