@@ -1,5 +1,3 @@
 import { BadgeStyleProps } from '../types';
 
-type Picked = 'theme' | 'color' | 'isLight';
-
-export type BadgeDarkStylingProps = Pick<BadgeStyleProps, Picked>;
+export type BadgeDarkStylingProps = Pick<BadgeStyleProps, 'theme' | 'color' | 'isLight'>;

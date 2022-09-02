@@ -26,7 +26,6 @@ export default ({ theme, color: colorProp = defaultColor, isLight = defaultIsLig
 
 	return {
 		color: theme.colors[color][shade],
-
 		borderColor: theme.colors.transparent,
 		backgroundColor: theme.colors.transparent,
 		background: theme.colors.transparent

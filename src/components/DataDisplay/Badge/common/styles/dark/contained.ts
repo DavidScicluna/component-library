@@ -1,12 +1,12 @@
 import { Style } from '../../../../../../common/types';
 import { getHue } from '../../../../../../common/utils/color';
-import { Color, ColorHues } from '../../../../../../theme/types';
+import { Color } from '../../../../../../theme/types';
 import { color as defaultColor, isLight as defaultIsLight } from '../../data/defaultPropValues';
 
 import { BadgeDarkStylingProps } from './types';
 
 export default ({ theme, color: colorProp = defaultColor, isLight = defaultIsLight }: BadgeDarkStylingProps): Style => {
-	const shade = getHue({
+	const colorShade = getHue({
 		colorMode: 'dark',
 		type:
 			colorProp === 'black'
@@ -21,15 +21,17 @@ export default ({ theme, color: colorProp = defaultColor, isLight = defaultIsLig
 				? 'divider'
 				: 'color'
 	});
+	const backgroundShade = getHue({
+		colorMode: 'dark',
+		type: colorProp === 'black' ? 'lightest' : 'background'
+	});
 
-	const textShade: ColorHues = colorProp === 'black' ? 50 : 900;
 	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
 
 	return {
-		color: theme.colors.gray[textShade],
-
-		borderColor: theme.colors[color][shade],
-		backgroundColor: theme.colors[color][shade],
-		background: theme.colors[color][shade]
+		color: theme.colors.gray[backgroundShade],
+		borderColor: theme.colors[color][colorShade],
+		backgroundColor: theme.colors[color][colorShade],
+		background: theme.colors[color][colorShade]
 	};
 };

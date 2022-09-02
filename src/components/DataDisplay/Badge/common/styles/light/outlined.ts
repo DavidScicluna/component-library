@@ -10,7 +10,7 @@ export default ({
 	color: colorProp = defaultColor,
 	isLight = defaultIsLight
 }: BadgeLightStylingProps): Style => {
-	const shade = getHue({
+	const colorShade = getHue({
 		colorMode: 'light',
 		type:
 			colorProp === 'black'
@@ -25,14 +25,17 @@ export default ({
 				? 'divider'
 				: 'color'
 	});
+	const backgroundShade = getHue({
+		colorMode: 'light',
+		type: 'background'
+	});
 
 	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
 
 	return {
-		color: theme.colors[color][shade],
-
-		borderColor: theme.colors[color][shade],
-		backgroundColor: theme.colors.gray[50],
-		background: theme.colors.gray[50]
+		color: theme.colors[color][colorShade],
+		borderColor: theme.colors[color][colorShade],
+		backgroundColor: theme.colors.gray[backgroundShade],
+		background: theme.colors.gray[backgroundShade]
 	};
 };

@@ -30,7 +30,6 @@ export default ({
 
 	return {
 		color: theme.colors[color][shade],
-
 		borderColor: theme.colors.transparent,
 		backgroundColor: theme.colors.transparent,
 		background: theme.colors.transparent
