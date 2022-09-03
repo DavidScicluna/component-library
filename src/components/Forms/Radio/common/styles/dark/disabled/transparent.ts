@@ -4,7 +4,7 @@ import { getHue } from '../../../../../../../common/utils/color';
 import { RadioDarkDisabledStyleProps } from './types';
 
 export default ({ theme }: RadioDarkDisabledStyleProps): Style => {
-	const textShade = getHue({
+	const colorShade = getHue({
 		colorMode: 'dark',
 		type: 'text.primary'
 	});
@@ -14,13 +14,13 @@ export default ({ theme }: RadioDarkDisabledStyleProps): Style => {
 	});
 
 	return {
-		'color': `${theme.colors.gray[textShade]} !important`,
+		'color': `${theme.colors.gray[colorShade]} !important`,
 		'borderColor': `${theme.colors.transparent} !important`,
 		'backgroundColor': `${theme.colors.transparent} !important`,
 		'background': `${theme.colors.transparent} !important`,
 
 		'& .chakra-radio__control': {
-			color: `${theme.colors.gray[textShade]} !important`,
+			color: `${theme.colors.gray[colorShade]} !important`,
 			borderColor: `${theme.colors.gray[borderShade]} !important`,
 			backgroundColor: `${theme.colors.transparent} !important`,
 			background: `${theme.colors.transparent} !important`

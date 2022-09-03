@@ -19,7 +19,8 @@ export default ({
 	isWarning = defaultIsWarning
 }: RadioLightGroupStyleProps): Style => {
 	const amount = getAmount();
-	const textShade = getHue({
+
+	const colorShade = getHue({
 		colorMode: 'light',
 		type: 'text.primary'
 	});
@@ -31,7 +32,7 @@ export default ({
 	const color: Color = isError ? 'red' : isSuccess ? 'green' : isWarning ? 'yellow' : 'gray';
 
 	return {
-		'color': theme.colors[color][textShade],
+		'color': theme.colors[color][colorShade],
 		'borderColor': theme.colors[color][borderShade],
 		'backgroundColor': theme.colors.transparent,
 		'background': theme.colors.transparent,
@@ -44,7 +45,7 @@ export default ({
 		},
 
 		'&:hover': {
-			'color': darken(theme.colors[color][textShade], amount.hover),
+			'color': darken(theme.colors[color][colorShade], amount.hover),
 			'borderColor': darken(theme.colors[color][borderShade], amount.hover),
 			'backgroundColor': theme.colors.transparent,
 			'background': theme.colors.transparent,
@@ -57,7 +58,7 @@ export default ({
 			},
 
 			'&:focus': {
-				'color': darken(theme.colors[color][textShade], amount.active),
+				'color': darken(theme.colors[color][colorShade], amount.active),
 				'borderColor': darken(theme.colors[color][borderShade], amount.active),
 				'backgroundColor': theme.colors.transparent,
 				'background': theme.colors.transparent,
@@ -71,7 +72,7 @@ export default ({
 			},
 
 			'&:active': {
-				'color': darken(theme.colors[color][textShade], amount.active),
+				'color': darken(theme.colors[color][colorShade], amount.active),
 				'borderColor': darken(theme.colors[color][borderShade], amount.active),
 				'backgroundColor': theme.colors.transparent,
 				'background': theme.colors.transparent,
@@ -86,7 +87,7 @@ export default ({
 		},
 
 		'&:focus': {
-			'color': darken(theme.colors[color][textShade], amount.active),
+			'color': darken(theme.colors[color][colorShade], amount.active),
 			'borderColor': darken(theme.colors[color][borderShade], amount.active),
 			'backgroundColor': theme.colors.transparent,
 			'background': theme.colors.transparent,
@@ -100,7 +101,7 @@ export default ({
 		},
 
 		'&:active': {
-			'color': darken(theme.colors[color][textShade], amount.active),
+			'color': darken(theme.colors[color][colorShade], amount.active),
 			'borderColor': darken(theme.colors[color][borderShade], amount.active),
 			'backgroundColor': theme.colors.transparent,
 			'background': theme.colors.transparent,

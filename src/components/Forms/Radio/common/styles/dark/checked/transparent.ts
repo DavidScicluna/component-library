@@ -20,11 +20,12 @@ export default ({
 	isWarning = defaultIsWarning
 }: RadioDarkCheckedStyleProps): Style => {
 	const amount = getAmount();
+
 	const colorShade = getHue({
 		colorMode: 'dark',
 		type: 'darkest'
 	});
-	const shade = getHue({
+	const radioShade = getHue({
 		colorMode: 'dark',
 		type: 'color'
 	});
@@ -36,85 +37,85 @@ export default ({
 	const color: Color = isError ? 'red' : isSuccess ? 'green' : isWarning ? 'yellow' : colorProp;
 
 	return {
-		'color': theme.colors[color][shade],
+		'color': theme.colors[color][radioShade],
 		'borderColor': theme.colors.transparent,
 		'backgroundColor': theme.colors.transparent,
 		'background': theme.colors.transparent,
 
 		'& .chakra-radio': {
 			color: theme.colors.gray[colorShade],
-			borderColor: theme.colors[color][shade],
+			borderColor: theme.colors[color][radioShade],
 			backgroundColor: theme.colors.transparent,
 			background: theme.colors.transparent
 		},
 
 		'& .chakra-radio__control': {
 			color: theme.colors.gray[colorShade],
-			borderColor: theme.colors[color][shade],
-			backgroundColor: theme.colors[color][shade],
-			background: theme.colors[color][shade]
+			borderColor: theme.colors[color][radioShade],
+			backgroundColor: theme.colors[color][radioShade],
+			background: theme.colors[color][radioShade]
 		},
 
 		'&:hover': {
-			'color': lighten(theme.colors[color][shade], amount.hover),
+			'color': lighten(theme.colors[color][radioShade], amount.hover),
 			'borderColor': theme.colors.transparent,
 			'backgroundColor': transparentize(theme.colors[color][backgroundShade], 0.5),
 			'background': transparentize(theme.colors[color][backgroundShade], 0.5),
 
 			'& .chakra-radio': {
 				color: theme.colors.gray[colorShade],
-				borderColor: lighten(theme.colors[color][shade], amount.hover),
+				borderColor: lighten(theme.colors[color][radioShade], amount.hover),
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
 			},
 
 			'& .chakra-radio__control': {
 				color: theme.colors.gray[colorShade],
-				borderColor: lighten(theme.colors[color][shade], amount.hover),
-				backgroundColor: lighten(theme.colors[color][shade], amount.hover),
-				background: lighten(theme.colors[color][shade], amount.hover)
+				borderColor: lighten(theme.colors[color][radioShade], amount.hover),
+				backgroundColor: lighten(theme.colors[color][radioShade], amount.hover),
+				background: lighten(theme.colors[color][radioShade], amount.hover)
 			},
 
 			'&:active': {
-				'color': lighten(theme.colors[color][shade], amount.active),
+				'color': lighten(theme.colors[color][radioShade], amount.active),
 				'borderColor': theme.colors.transparent,
 				'backgroundColor': transparentize(theme.colors[color][backgroundShade], 0.25),
 				'background': transparentize(theme.colors[color][backgroundShade], 0.25),
 
 				'& .chakra-radio': {
 					color: theme.colors.gray[colorShade],
-					borderColor: lighten(theme.colors[color][shade], amount.active),
+					borderColor: lighten(theme.colors[color][radioShade], amount.active),
 					backgroundColor: theme.colors.transparent,
 					background: theme.colors.transparent
 				},
 
 				'& .chakra-radio__control': {
 					color: theme.colors.gray[colorShade],
-					borderColor: lighten(theme.colors[color][shade], amount.active),
-					backgroundColor: lighten(theme.colors[color][shade], amount.active),
-					background: lighten(theme.colors[color][shade], amount.active)
+					borderColor: lighten(theme.colors[color][radioShade], amount.active),
+					backgroundColor: lighten(theme.colors[color][radioShade], amount.active),
+					background: lighten(theme.colors[color][radioShade], amount.active)
 				}
 			}
 		},
 
 		'&:active': {
-			'color': lighten(theme.colors[color][shade], amount.active),
+			'color': lighten(theme.colors[color][radioShade], amount.active),
 			'borderColor': theme.colors.transparent,
 			'backgroundColor': transparentize(theme.colors[color][backgroundShade], 0.25),
 			'background': transparentize(theme.colors[color][backgroundShade], 0.25),
 
 			'& .chakra-radio': {
 				color: theme.colors.gray[colorShade],
-				borderColor: lighten(theme.colors[color][shade], amount.active),
+				borderColor: lighten(theme.colors[color][radioShade], amount.active),
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
 			},
 
 			'& .chakra-radio__control': {
 				color: theme.colors.gray[colorShade],
-				borderColor: lighten(theme.colors[color][shade], amount.active),
-				backgroundColor: lighten(theme.colors[color][shade], amount.active),
-				background: lighten(theme.colors[color][shade], amount.active)
+				borderColor: lighten(theme.colors[color][radioShade], amount.active),
+				backgroundColor: lighten(theme.colors[color][radioShade], amount.active),
+				background: lighten(theme.colors[color][radioShade], amount.active)
 			}
 		}
 	};
