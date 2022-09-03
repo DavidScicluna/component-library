@@ -5,7 +5,7 @@ import { color as defaultColor } from '../../data/defaultPropValues';
 import { ConfirmModalIconDarkStylingProps } from './types';
 
 export default ({ theme, color = defaultColor }: ConfirmModalIconDarkStylingProps): Style => {
-	const textShade = getHue({
+	const colorShade = getHue({
 		colorMode: 'dark',
 		type: 'background'
 	});
@@ -15,7 +15,7 @@ export default ({ theme, color = defaultColor }: ConfirmModalIconDarkStylingProp
 	});
 
 	return {
-		color: theme.colors.gray[textShade],
+		color: theme.colors.gray[colorShade],
 		borderColor: theme.colors[color][backgroundShade],
 		backgroundColor: theme.colors[color][backgroundShade],
 		background: theme.colors[color][backgroundShade]

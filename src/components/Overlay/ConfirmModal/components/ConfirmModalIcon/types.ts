@@ -46,5 +46,5 @@ type Omitted =
 export type ConfirmModalIconProps = Omit<CenterProps, Omitted> & {
 	renderIcon: (props: RenderIconProps) => ReactNode;
 	color: ConfirmModalIconColor;
-	variant: ConfirmModalIconVariant;
+	variant?: ConfirmModalIconVariant;
 };
