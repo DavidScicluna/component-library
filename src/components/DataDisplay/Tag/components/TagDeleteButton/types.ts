@@ -4,8 +4,6 @@ import { IconButtonProps } from '../../../../Clickable/IconButtons/OriginalIconB
 
 export type TagEvent = MouseEvent<HTMLButtonElement, globalThis.MouseEvent>;
 
-type Omitted = 'aria-label' | 'children' | 'colorMode' | 'onClick' | 'size' | 'variant';
-
 export type TagDeleteIconButtonProps = {
 	onDelete: (event: TagEvent) => void;
-} & Omit<IconButtonProps, Omitted>;
+} & Omit<IconButtonProps, 'aria-label' | 'children' | 'colorMode' | 'onClick' | 'size' | 'variant'>;

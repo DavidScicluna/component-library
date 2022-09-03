@@ -1,9 +1,7 @@
 import { SkeletonProps } from '../../../Skeleton/types';
 import { CommonButtonProps } from '../common/types';
 
-type Omitted = 'color' | 'colorScheme' | 'isReversed' | 'variant';
-
-export type DummyButtonProps = Omit<SkeletonProps, Omitted> & {
+export type DummyButtonProps = Omit<SkeletonProps, 'color' | 'colorScheme' | 'isReversed' | 'variant'> & {
 	hasLeft?: boolean;
 	hasRight?: boolean;
 } & CommonButtonProps;
