@@ -34,7 +34,13 @@ const Arrow: FC<ArrowProps> = (props) => {
 
 	const [iconButtonRef, { width: iconButtonWidth, height: iconButtonHeight }] = useElementSize<HTMLButtonElement>();
 
-	const { direction, isVisible = defaultIsVisible, isDisabled: isDisabledProp = defaultIsDisabled, ...rest } = props;
+	const {
+		direction,
+		isVisible = defaultIsVisible,
+		isDisabled: isDisabledProp = defaultIsDisabled,
+		sx,
+		...rest
+	} = props;
 
 	const duration = useConst<number>(getTransitionDuration({ theme, duration: 'ultra-fast' }));
 	const easing = useConst<number[]>(getTransitionEasings({ theme }));
@@ -79,6 +85,7 @@ const Arrow: FC<ArrowProps> = (props) => {
 				right={direction === 'right' ? 0 : undefined}
 				transform='translateY(-50%)'
 				zIndex={5}
+				sx={{ ...sx }}
 				_before={
 					direction === 'right'
 						? {
