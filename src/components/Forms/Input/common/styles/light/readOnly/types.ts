@@ -1,5 +1,3 @@
 import { InputStyleProps } from '../../types';
 
-type Picked = 'theme';
-
-export type InputLightReadOnlyStyleProps = Pick<InputStyleProps, Picked>;
+export type InputLightReadOnlyStyleProps = Pick<InputStyleProps, 'theme'>;

@@ -8,6 +8,7 @@ import { InputDarkGroupStyleProps } from './types';
 
 export default ({ theme }: InputDarkGroupStyleProps): Style => {
 	const amount = getAmount();
+
 	const textPrimaryShade = getHue({
 		colorMode: 'dark',
 		type: 'text.primary'

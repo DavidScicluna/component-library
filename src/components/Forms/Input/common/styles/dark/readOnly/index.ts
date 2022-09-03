@@ -8,6 +8,7 @@ import { InputDarkReadOnlyStyleProps } from './types';
 
 export default ({ theme }: InputDarkReadOnlyStyleProps): Style => {
 	const amount = getAmount();
+
 	const textPrimaryShade = getHue({
 		colorMode: 'dark',
 		type: 'text.primary'

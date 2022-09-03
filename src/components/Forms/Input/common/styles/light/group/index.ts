@@ -8,6 +8,7 @@ import { InputLightGroupStyleProps } from './types';
 
 export default ({ theme }: InputLightGroupStyleProps): Style => {
 	const amount = getAmount();
+
 	const textPrimaryShade = getHue({
 		colorMode: 'light',
 		type: 'text.primary'

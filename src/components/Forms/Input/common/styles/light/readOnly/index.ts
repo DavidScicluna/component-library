@@ -8,6 +8,7 @@ import { InputLightReadOnlyStyleProps } from './types';
 
 export default ({ theme }: InputLightReadOnlyStyleProps): Style => {
 	const amount = getAmount();
+
 	const textPrimaryShade = getHue({
 		colorMode: 'light',
 		type: 'text.primary'

@@ -8,6 +8,7 @@ import { InputLightDisabledStyleProps } from './types';
 
 export default ({ theme }: InputLightDisabledStyleProps): Style => {
 	const amount = getAmount();
+
 	const textPrimaryShade = getHue({
 		colorMode: 'light',
 		type: 'text.primary'

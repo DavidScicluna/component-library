@@ -20,66 +20,67 @@ export default ({
 	isWarning = defaultIsWarning
 }: InputDarkFocusedStyleProps): Style => {
 	const amount = getAmount();
+
+	const colorShade = getHue({
+		colorMode: 'dark',
+		type: 'color'
+	});
 	const selectionShade = getHue({
 		colorMode: 'dark',
 		type: 'darkest'
-	});
-	const shade = getHue({
-		colorMode: 'dark',
-		type: 'color'
 	});
 
 	const color: Color = isError ? 'red' : isSuccess ? 'green' : isWarning ? 'yellow' : colorProp;
 
 	return {
-		'color': theme.colors[color][shade],
-		'borderColor': theme.colors[color][shade],
+		'color': theme.colors[color][colorShade],
+		'borderColor': theme.colors[color][colorShade],
 		'backgroundColor': theme.colors.transparent,
 		'background': theme.colors.transparent,
 
 		'&:hover': {
-			'color': lighten(theme.colors[color][shade], amount.hover),
-			'borderColor': lighten(theme.colors[color][shade], amount.hover),
+			'color': lighten(theme.colors[color][colorShade], amount.hover),
+			'borderColor': lighten(theme.colors[color][colorShade], amount.hover),
 			'backgroundColor': theme.colors.transparent,
 			'background': theme.colors.transparent,
 
 			'&:focus': {
-				color: lighten(theme.colors[color][shade], amount.active),
-				borderColor: lighten(theme.colors[color][shade], amount.active),
+				color: lighten(theme.colors[color][colorShade], amount.active),
+				borderColor: lighten(theme.colors[color][colorShade], amount.active),
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
 			},
 
 			'&:active': {
-				color: lighten(theme.colors[color][shade], amount.active),
-				borderColor: lighten(theme.colors[color][shade], amount.active),
+				color: lighten(theme.colors[color][colorShade], amount.active),
+				borderColor: lighten(theme.colors[color][colorShade], amount.active),
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
 			}
 		},
 
 		'&:focus': {
-			color: lighten(theme.colors[color][shade], amount.active),
-			borderColor: lighten(theme.colors[color][shade], amount.active),
+			color: lighten(theme.colors[color][colorShade], amount.active),
+			borderColor: lighten(theme.colors[color][colorShade], amount.active),
 			backgroundColor: theme.colors.transparent,
 			background: theme.colors.transparent
 		},
 
 		'&:active': {
-			color: lighten(theme.colors[color][shade], amount.active),
-			borderColor: lighten(theme.colors[color][shade], amount.active),
+			color: lighten(theme.colors[color][colorShade], amount.active),
+			borderColor: lighten(theme.colors[color][colorShade], amount.active),
 			backgroundColor: theme.colors.transparent,
 			background: theme.colors.transparent
 		},
 
 		'& input::selection': {
 			color: theme.colors.gray[selectionShade],
-			backgroundColor: transparentize(theme.colors[color][shade], amount.selection),
-			background: transparentize(theme.colors[color][shade], amount.selection)
+			backgroundColor: transparentize(theme.colors[color][colorShade], amount.selection),
+			background: transparentize(theme.colors[color][colorShade], amount.selection)
 		},
 
 		'& input::placeholder': {
-			color: transparentize(theme.colors[color][shade], amount.placeholder)
+			color: transparentize(theme.colors[color][colorShade], amount.placeholder)
 		}
 	};
 };
