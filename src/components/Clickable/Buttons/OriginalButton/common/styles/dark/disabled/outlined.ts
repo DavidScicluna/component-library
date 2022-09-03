@@ -16,7 +16,7 @@ export default ({
 	isLoading = defaultIsLoading,
 	size = defaultSize
 }: ButtonDarkDisabledStylingProps): Style => {
-	const shade = getHue({
+	const colorShade = getHue({
 		colorMode: 'dark',
 		type:
 			colorProp === 'black'
@@ -27,6 +27,10 @@ export default ({
 				? 'text.secondary'
 				: 'color'
 	});
+	const backgroundShade = getHue({
+		colorMode: 'dark',
+		type: isLoading && colorProp === 'black' ? 'lightest' : 'background'
+	});
 
 	const config = getSizeConfig({ size });
 	const border = config.border;
@@ -34,13 +38,13 @@ export default ({
 	const color: Color = isLoading ? (colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp) : 'gray';
 
 	return {
-		'color': `${theme.colors[color][shade]} !important`,
+		'color': `${theme.colors[color][colorShade]} !important`,
 
 		'&::before': {
-			boxShadow: `0 ${border}px 0 0 ${theme.colors[color][shade]} !important`,
-			borderColor: `${theme.colors[color][shade]} !important`,
-			backgroundColor: `${theme.colors.gray[900]} !important`,
-			background: `${theme.colors.gray[900]} !important`
+			boxShadow: `0 ${border}px 0 0 ${theme.colors[color][colorShade]} !important`,
+			borderColor: `${theme.colors[color][colorShade]} !important`,
+			backgroundColor: `${theme.colors.gray[backgroundShade]} !important`,
+			background: `${theme.colors.gray[backgroundShade]} !important`
 		}
 	};
 };
