@@ -12,6 +12,7 @@ const isTouchDevice: boolean = checkIsTouchDevice();
 
 export default ({ theme, color: colorProp }: LinkLightStylingProps): Style => {
 	const amount = getAmount();
+
 	const shade = getHue({
 		colorMode: 'light',
 		type:

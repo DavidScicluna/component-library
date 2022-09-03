@@ -26,7 +26,7 @@ export default ({ theme, isFullWidth = defaultFullWidth, isString = false }: Lin
 
 	'textDecoration': `${isString ? 'underline' : 'none'} !important`,
 
-	'outline': !isTouchDevice ? '0px transparent' : 'none !important',
+	'outline': !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important',
 
 	'background': 'none',
 
@@ -35,15 +35,15 @@ export default ({ theme, isFullWidth = defaultFullWidth, isString = false }: Lin
 	'transform': 'none',
 
 	'&:focus:not(:focus-visible)': {
-		outline: !isTouchDevice ? '0px transparent' : 'none !important'
+		outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
 	},
 
 	'&:focus': {
 		boxShadow: 'none',
-		outline: !isTouchDevice ? '0px transparent' : 'none !important'
+		outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
 	},
 
 	'&:active': {
-		outline: !isTouchDevice ? '0px transparent' : 'none !important'
+		outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
 	}
 });
