@@ -1,12 +1,12 @@
 import { Style } from '../../../../../../common/types';
 import { getHue } from '../../../../../../common/utils/color';
-import { Color, ColorHues } from '../../../../../../theme/types';
+import { Color } from '../../../../../../theme/types';
 import { color as defaultColor } from '../../data/defaultPropValues';
 
 import { TooltipLightStyleProps } from './types';
 
 export default ({ theme, color: colorProp = defaultColor }: TooltipLightStyleProps): Style => {
-	const shade = getHue({
+	const colorShade = getHue({
 		colorMode: 'dark',
 		type:
 			colorProp === 'black'
@@ -17,21 +17,24 @@ export default ({ theme, color: colorProp = defaultColor }: TooltipLightStylePro
 				? 'divider'
 				: 'color'
 	});
+	const backgroundShade = getHue({
+		colorMode: 'light',
+		type: colorProp === 'white' || colorProp === 'gray' ? 'lightest' : 'background'
+	});
 
-	const textShade: ColorHues = colorProp === 'black' || colorProp === 'gray' ? 50 : 900;
 	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
 
 	return {
-		'color': theme.colors.gray[textShade],
+		'color': theme.colors.gray[backgroundShade],
 
-		'borderColor': theme.colors[color][shade],
-		'backgroundColor': theme.colors[color][shade],
-		'background': theme.colors[color][shade],
+		'borderColor': theme.colors[color][colorShade],
+		'backgroundColor': theme.colors[color][colorShade],
+		'background': theme.colors[color][colorShade],
 
 		'& .chakra-tooltip__arrow': {
-			borderColor: `${theme.colors[color][shade]} !important`,
-			backgroundColor: `${theme.colors[color][shade]} !important`,
-			background: `${theme.colors[color][shade]} !important`
+			borderColor: `${theme.colors[color][colorShade]} !important`,
+			backgroundColor: `${theme.colors[color][colorShade]} !important`,
+			background: `${theme.colors[color][colorShade]} !important`
 		}
 	};
 };
