@@ -6,7 +6,7 @@ import { FormProps } from './types';
 
 const Form: FC<FormProps> = ({ children, ...rest }) => {
 	return (
-		<Center {...rest} as='form'>
+		<Center as='form' width='100%' {...rest}>
 			{children}
 		</Center>
 	);
