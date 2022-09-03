@@ -8,6 +8,7 @@ import { NavItemLightStylingProps } from './types';
 
 export default ({ theme }: NavItemLightStylingProps): Style => {
 	const amount = getAmount();
+
 	const backgroundShade = getHue({ colorMode: 'light', type: 'light' });
 	const primaryColorShade = getHue({ colorMode: 'light', type: 'text.primary' });
 	const secondaryColorShade = getHue({ colorMode: 'light', type: 'text.secondary' });

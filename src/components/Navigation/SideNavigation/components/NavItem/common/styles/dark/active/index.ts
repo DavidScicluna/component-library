@@ -5,17 +5,17 @@ import { color as defaultColor } from '../../../../../../common/data/defaultProp
 import { NavItemDarkActiveStylingProps } from './types';
 
 export default ({ theme, color = defaultColor }: NavItemDarkActiveStylingProps): Style => {
-	const shade = getHue({ colorMode: 'dark', type: 'color' });
-	const textShade = getHue({ colorMode: 'dark', type: 'background' });
+	const colorShade = getHue({ colorMode: 'dark', type: 'background' });
+	const backgroundShade = getHue({ colorMode: 'dark', type: 'color' });
 
 	return {
-		'background': theme.colors[color][shade],
-		'backgroundColor': theme.colors[color][shade],
-		'borderColor': theme.colors[color][shade],
-		'color': theme.colors.gray[textShade],
+		'background': theme.colors[color][backgroundShade],
+		'backgroundColor': theme.colors[color][backgroundShade],
+		'borderColor': theme.colors[color][backgroundShade],
+		'color': theme.colors.gray[colorShade],
 
 		'& svg, .ds-cl-icon': {
-			color: theme.colors.gray[textShade]
+			color: theme.colors.gray[colorShade]
 		}
 	};
 };

@@ -1,5 +1,3 @@
 import { NavItemStyleProps } from '../../types';
 
-type Picked = 'theme' | 'color';
-
-export type NavItemLightActiveStylingProps = Pick<NavItemStyleProps, Picked>;
+export type NavItemLightActiveStylingProps = Pick<NavItemStyleProps, 'theme' | 'color'>;

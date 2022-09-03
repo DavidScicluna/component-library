@@ -8,6 +8,7 @@ import { NavItemDarkStylingProps } from './types';
 
 export default ({ theme }: NavItemDarkStylingProps): Style => {
 	const amount = getAmount();
+
 	const backgroundShade = getHue({ colorMode: 'dark', type: 'dark' });
 	const primaryColorShade = getHue({ colorMode: 'dark', type: 'text.primary' });
 	const secondaryColorShade = getHue({ colorMode: 'dark', type: 'text.secondary' });
