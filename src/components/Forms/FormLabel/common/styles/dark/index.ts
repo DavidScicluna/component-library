@@ -4,7 +4,7 @@ import { getHue } from '../../../../../../common/utils/color';
 import { FormLabelDarkStyleProps } from './types';
 
 export default ({ theme }: FormLabelDarkStyleProps): Style => {
-	const textShade = getHue({
+	const colorShade = getHue({
 		colorMode: 'dark',
 		type: 'text.primary'
 	});
@@ -14,7 +14,7 @@ export default ({ theme }: FormLabelDarkStyleProps): Style => {
 	});
 
 	return {
-		'color': theme.colors.gray[textShade],
+		'color': theme.colors.gray[colorShade],
 
 		'& .ds-cl-required-indicator': {
 			color: theme.colors.red[indicatorShade]
