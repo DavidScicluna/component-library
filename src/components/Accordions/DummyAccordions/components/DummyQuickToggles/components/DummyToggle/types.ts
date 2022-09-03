@@ -1,5 +1,3 @@
 import { DummyQuickTogglesProps } from '../../types';
 
-type Picked = 'color' | 'size';
-
-export type DummyToggleProps = Pick<DummyQuickTogglesProps, Picked>;
+export type DummyToggleProps = Pick<DummyQuickTogglesProps, 'color' | 'size'>;

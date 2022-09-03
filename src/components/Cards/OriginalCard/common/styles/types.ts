@@ -2,11 +2,9 @@ import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';
 import { CardProps } from '../../types';
 
-type Picked = 'color' | 'colorMode' | 'isClickable' | 'isFullWidth' | 'isFixed' | 'isLight' | 'variant';
-
 export type CardStyleProps = {
 	theme: Theme;
-} & Pick<CardProps, Picked>;
+} & Pick<CardProps, 'color' | 'colorMode' | 'isClickable' | 'isFullWidth' | 'isFixed' | 'isLight' | 'variant'>;
 
 export type CardStyleReturn = {
 	card: Style;

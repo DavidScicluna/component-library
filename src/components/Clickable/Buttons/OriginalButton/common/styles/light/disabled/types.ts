@@ -1,5 +1,3 @@
 import { ButtonStyleProps } from '../../types';
 
-type Picked = 'theme' | 'color' | 'isLoading' | 'size';
-
-export type ButtonLightDisabledStylingProps = Pick<ButtonStyleProps, Picked>;
+export type ButtonLightDisabledStylingProps = Pick<ButtonStyleProps, 'theme' | 'color' | 'isLoading' | 'size'>;

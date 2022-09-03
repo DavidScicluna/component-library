@@ -1,5 +1,3 @@
 import { RadioStyleProps } from '../types';
 
-type Picked = 'theme' | 'isFullWidth' | 'size' | 'variant';
-
-export type RadioGroupStyleProps = Pick<RadioStyleProps, Picked>;
+export type RadioGroupStyleProps = Pick<RadioStyleProps, 'theme' | 'isFullWidth' | 'size' | 'variant'>;

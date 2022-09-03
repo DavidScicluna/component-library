@@ -1,5 +1,3 @@
 import { CollapsibleCardStyleProps } from '../../types';
 
-type Picked = 'theme' | 'isLight';
-
-export type CollapsibleCardLightDisabledStylingProps = Pick<CollapsibleCardStyleProps, Picked>;
+export type CollapsibleCardLightDisabledStylingProps = Pick<CollapsibleCardStyleProps, 'theme' | 'isLight'>;

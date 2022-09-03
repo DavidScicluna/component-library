@@ -1,5 +1,3 @@
 import { CheckboxStyleProps } from '../types';
 
-type Picked = 'theme' | 'isFullWidth' | 'size' | 'variant';
-
-export type CheckboxGroupStyleProps = Pick<CheckboxStyleProps, Picked>;
+export type CheckboxGroupStyleProps = Pick<CheckboxStyleProps, 'theme' | 'isFullWidth' | 'size' | 'variant'>;
