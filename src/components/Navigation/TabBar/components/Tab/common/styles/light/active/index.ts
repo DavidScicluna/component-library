@@ -9,49 +9,50 @@ import { TabLightActiveStylingProps } from './types';
 
 export default ({ theme, color = defaultColor }: TabLightActiveStylingProps): Style => {
 	const amount = getAmount();
-	const shade = getHue({ colorMode: 'light', type: 'color' });
-	const textShade = getHue({ colorMode: 'light', type: 'background' });
+
+	const colorShade = getHue({ colorMode: 'light', type: 'background' });
+	const backgroundShade = getHue({ colorMode: 'light', type: 'color' });
 
 	return {
-		'background': theme.colors[color][shade],
-		'backgroundColor': theme.colors[color][shade],
-		'borderColor': theme.colors[color][shade],
-		'color': theme.colors.gray[textShade],
+		'background': theme.colors[color][backgroundShade],
+		'backgroundColor': theme.colors[color][backgroundShade],
+		'borderColor': theme.colors[color][backgroundShade],
+		'color': theme.colors.gray[colorShade],
 
 		'& svg, .ds-cl-icon': {
-			color: theme.colors.gray[textShade]
+			color: theme.colors.gray[colorShade]
 		},
 
 		'&:hover': {
-			'background': darken(theme.colors[color][shade], amount.hover),
-			'backgroundColor': darken(theme.colors[color][shade], amount.hover),
-			'borderColor': darken(theme.colors[color][shade], amount.hover),
-			'color': darken(theme.colors.gray[textShade], amount.hover),
+			'background': darken(theme.colors[color][backgroundShade], amount.hover),
+			'backgroundColor': darken(theme.colors[color][backgroundShade], amount.hover),
+			'borderColor': darken(theme.colors[color][backgroundShade], amount.hover),
+			'color': darken(theme.colors.gray[colorShade], amount.hover),
 
 			'& svg, .ds-cl-icon': {
-				color: darken(theme.colors.gray[textShade], amount.hover)
+				color: darken(theme.colors.gray[colorShade], amount.hover)
 			},
 
 			'&:active': {
-				'background': darken(theme.colors[color][shade], amount.active),
-				'backgroundColor': darken(theme.colors[color][shade], amount.active),
-				'borderColor': darken(theme.colors[color][shade], amount.active),
-				'color': darken(theme.colors.gray[textShade], amount.active),
+				'background': darken(theme.colors[color][backgroundShade], amount.active),
+				'backgroundColor': darken(theme.colors[color][backgroundShade], amount.active),
+				'borderColor': darken(theme.colors[color][backgroundShade], amount.active),
+				'color': darken(theme.colors.gray[colorShade], amount.active),
 
 				'& svg, .ds-cl-icon': {
-					color: darken(theme.colors.gray[textShade], amount.active)
+					color: darken(theme.colors.gray[colorShade], amount.active)
 				}
 			}
 		},
 
 		'&:active': {
-			'background': darken(theme.colors[color][shade], amount.active),
-			'backgroundColor': darken(theme.colors[color][shade], amount.active),
-			'borderColor': darken(theme.colors[color][shade], amount.active),
-			'color': darken(theme.colors.gray[textShade], amount.active),
+			'background': darken(theme.colors[color][backgroundShade], amount.active),
+			'backgroundColor': darken(theme.colors[color][backgroundShade], amount.active),
+			'borderColor': darken(theme.colors[color][backgroundShade], amount.active),
+			'color': darken(theme.colors.gray[colorShade], amount.active),
 
 			'& svg, .ds-cl-icon': {
-				color: darken(theme.colors.gray[textShade], amount.active)
+				color: darken(theme.colors.gray[colorShade], amount.active)
 			}
 		}
 	};

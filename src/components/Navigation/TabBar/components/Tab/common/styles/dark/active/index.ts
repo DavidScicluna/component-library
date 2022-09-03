@@ -9,49 +9,50 @@ import { TabDarkActiveStylingProps } from './types';
 
 export default ({ theme, color = defaultColor }: TabDarkActiveStylingProps): Style => {
 	const amount = getAmount();
-	const shade = getHue({ colorMode: 'dark', type: 'color' });
-	const textShade = getHue({ colorMode: 'dark', type: 'background' });
+
+	const colorShade = getHue({ colorMode: 'dark', type: 'background' });
+	const backgroundShade = getHue({ colorMode: 'dark', type: 'color' });
 
 	return {
-		'background': theme.colors[color][shade],
-		'backgroundColor': theme.colors[color][shade],
-		'borderColor': theme.colors[color][shade],
-		'color': theme.colors.gray[textShade],
+		'background': theme.colors[color][backgroundShade],
+		'backgroundColor': theme.colors[color][backgroundShade],
+		'borderColor': theme.colors[color][backgroundShade],
+		'color': theme.colors.gray[colorShade],
 
 		'& svg, .ds-cl-icon': {
-			color: theme.colors.gray[textShade]
+			color: theme.colors.gray[colorShade]
 		},
 
 		'&:hover': {
-			'background': lighten(theme.colors[color][shade], amount.hover),
-			'backgroundColor': lighten(theme.colors[color][shade], amount.hover),
-			'borderColor': lighten(theme.colors[color][shade], amount.hover),
-			'color': lighten(theme.colors.gray[textShade], amount.hover),
+			'background': lighten(theme.colors[color][backgroundShade], amount.hover),
+			'backgroundColor': lighten(theme.colors[color][backgroundShade], amount.hover),
+			'borderColor': lighten(theme.colors[color][backgroundShade], amount.hover),
+			'color': lighten(theme.colors.gray[colorShade], amount.hover),
 
 			'& svg, .ds-cl-icon': {
-				color: lighten(theme.colors.gray[textShade], amount.hover)
+				color: lighten(theme.colors.gray[colorShade], amount.hover)
 			},
 
 			'&:active': {
-				'background': lighten(theme.colors[color][shade], amount.active),
-				'backgroundColor': lighten(theme.colors[color][shade], amount.active),
-				'borderColor': lighten(theme.colors[color][shade], amount.active),
-				'color': lighten(theme.colors.gray[textShade], amount.active),
+				'background': lighten(theme.colors[color][backgroundShade], amount.active),
+				'backgroundColor': lighten(theme.colors[color][backgroundShade], amount.active),
+				'borderColor': lighten(theme.colors[color][backgroundShade], amount.active),
+				'color': lighten(theme.colors.gray[colorShade], amount.active),
 
 				'& svg, .ds-cl-icon': {
-					color: lighten(theme.colors.gray[textShade], amount.active)
+					color: lighten(theme.colors.gray[colorShade], amount.active)
 				}
 			}
 		},
 
 		'&:active': {
-			'background': lighten(theme.colors[color][shade], amount.active),
-			'backgroundColor': lighten(theme.colors[color][shade], amount.active),
-			'borderColor': lighten(theme.colors[color][shade], amount.active),
-			'color': lighten(theme.colors.gray[textShade], amount.active),
+			'background': lighten(theme.colors[color][backgroundShade], amount.active),
+			'backgroundColor': lighten(theme.colors[color][backgroundShade], amount.active),
+			'borderColor': lighten(theme.colors[color][backgroundShade], amount.active),
+			'color': lighten(theme.colors.gray[colorShade], amount.active),
 
 			'& svg, .ds-cl-icon': {
-				color: lighten(theme.colors.gray[textShade], amount.active)
+				color: lighten(theme.colors.gray[colorShade], amount.active)
 			}
 		}
 	};

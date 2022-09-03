@@ -8,6 +8,7 @@ import { TabDarkStylingProps } from './types';
 
 export default ({ theme }: TabDarkStylingProps): Style => {
 	const amount = getAmount();
+
 	const shade = getHue({ colorMode: 'dark', type: 'text.secondary' });
 
 	return {

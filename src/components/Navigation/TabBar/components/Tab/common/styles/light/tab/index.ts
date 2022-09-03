@@ -8,6 +8,7 @@ import { TabLightStylingProps } from './types';
 
 export default ({ theme }: TabLightStylingProps): Style => {
 	const amount = getAmount();
+
 	const shade = getHue({ colorMode: 'light', type: 'text.secondary' });
 
 	return {

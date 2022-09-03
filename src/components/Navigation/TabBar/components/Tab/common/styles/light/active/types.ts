@@ -1,5 +1,3 @@
 import { TabStyleProps } from '../../types';
 
-type Picked = 'theme' | 'color';
-
-export type TabLightActiveStylingProps = Pick<TabStyleProps, Picked>;
+export type TabLightActiveStylingProps = Pick<TabStyleProps, 'theme' | 'color'>;
