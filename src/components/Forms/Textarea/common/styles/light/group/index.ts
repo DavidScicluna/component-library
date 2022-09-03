@@ -8,6 +8,7 @@ import { TextareaLightGroupStyleProps } from './types';
 
 export default ({ theme }: TextareaLightGroupStyleProps): Style => {
 	const amount = getAmount();
+
 	const textPrimaryShade = getHue({
 		colorMode: 'light',
 		type: 'text.primary'

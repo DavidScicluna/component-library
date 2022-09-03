@@ -8,6 +8,7 @@ import { TextareaLightReadOnlyStyleProps } from './types';
 
 export default ({ theme }: TextareaLightReadOnlyStyleProps): Style => {
 	const amount = getAmount();
+
 	const textPrimaryShade = getHue({
 		colorMode: 'light',
 		type: 'text.primary'

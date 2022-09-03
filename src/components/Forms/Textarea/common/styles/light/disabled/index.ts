@@ -8,6 +8,7 @@ import { TextareaLightDisabledStyleProps } from './types';
 
 export default ({ theme }: TextareaLightDisabledStyleProps): Style => {
 	const amount = getAmount();
+
 	const textPrimaryShade = getHue({
 		colorMode: 'light',
 		type: 'text.primary'

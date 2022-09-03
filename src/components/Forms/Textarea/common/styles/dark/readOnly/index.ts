@@ -8,6 +8,7 @@ import { TextareaDarkReadOnlyStyleProps } from './types';
 
 export default ({ theme }: TextareaDarkReadOnlyStyleProps): Style => {
 	const amount = getAmount();
+
 	const textPrimaryShade = getHue({
 		colorMode: 'dark',
 		type: 'text.primary'
