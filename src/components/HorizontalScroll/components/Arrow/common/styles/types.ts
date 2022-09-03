@@ -9,5 +9,4 @@ export type ArrowStyleProps = {
 export type ArrowStyleReturn = {
 	arrow: Style;
 	pseudo: Style;
-	transition: Style;
 };
