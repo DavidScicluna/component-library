@@ -1,5 +1,3 @@
 import { IconButtonStyleProps } from '../../types';
 
-type Picked = 'theme' | 'color' | 'size';
-
-export type IconButtonLightStylingProps = Pick<IconButtonStyleProps, Picked>;
+export type IconButtonLightStylingProps = Pick<IconButtonStyleProps, 'theme' | 'color' | 'size'>;
