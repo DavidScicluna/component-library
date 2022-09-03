@@ -20,11 +20,12 @@ export default ({
 	isWarning = defaultIsWarning
 }: CheckboxDarkCheckedStyleProps): Style => {
 	const amount = getAmount();
+
 	const colorShade = getHue({
 		colorMode: 'dark',
 		type: 'darkest'
 	});
-	const shade = getHue({
+	const checkboxShade = getHue({
 		colorMode: 'dark',
 		type: 'color'
 	});
@@ -36,85 +37,85 @@ export default ({
 	const color: Color = isError ? 'red' : isSuccess ? 'green' : isWarning ? 'yellow' : colorProp;
 
 	return {
-		'color': theme.colors[color][shade],
-		'borderColor': theme.colors[color][shade],
+		'color': theme.colors[color][checkboxShade],
+		'borderColor': theme.colors[color][checkboxShade],
 		'backgroundColor': transparentize(theme.colors[color][backgroundShade], 0.5),
 		'background': transparentize(theme.colors[color][backgroundShade], 0.5),
 
 		'& .chakra-checkbox': {
 			color: theme.colors.gray[colorShade],
-			borderColor: theme.colors[color][shade],
+			borderColor: theme.colors[color][checkboxShade],
 			backgroundColor: theme.colors.transparent,
 			background: theme.colors.transparent
 		},
 
 		'& .chakra-checkbox__control': {
 			color: theme.colors.gray[colorShade],
-			borderColor: theme.colors[color][shade],
-			backgroundColor: theme.colors[color][shade],
-			background: theme.colors[color][shade]
+			borderColor: theme.colors[color][checkboxShade],
+			backgroundColor: theme.colors[color][checkboxShade],
+			background: theme.colors[color][checkboxShade]
 		},
 
 		'&:hover': {
-			'color': lighten(theme.colors[color][shade], amount.hover),
-			'borderColor': lighten(theme.colors[color][shade], amount.hover),
+			'color': lighten(theme.colors[color][checkboxShade], amount.hover),
+			'borderColor': lighten(theme.colors[color][checkboxShade], amount.hover),
 			'backgroundColor': lighten(transparentize(theme.colors[color][backgroundShade], 0.5), amount.hover),
 			'background': lighten(transparentize(theme.colors[color][backgroundShade], 0.5), amount.hover),
 
 			'& .chakra-checkbox': {
 				color: theme.colors.gray[colorShade],
-				borderColor: lighten(theme.colors[color][shade], amount.hover),
+				borderColor: lighten(theme.colors[color][checkboxShade], amount.hover),
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
 			},
 
 			'& .chakra-checkbox__control': {
 				color: theme.colors.gray[colorShade],
-				borderColor: lighten(theme.colors[color][shade], amount.hover),
-				backgroundColor: lighten(theme.colors[color][shade], amount.hover),
-				background: lighten(theme.colors[color][shade], amount.hover)
+				borderColor: lighten(theme.colors[color][checkboxShade], amount.hover),
+				backgroundColor: lighten(theme.colors[color][checkboxShade], amount.hover),
+				background: lighten(theme.colors[color][checkboxShade], amount.hover)
 			},
 
 			'&:active': {
-				'color': lighten(theme.colors[color][shade], amount.active),
-				'borderColor': lighten(theme.colors[color][shade], amount.active),
+				'color': lighten(theme.colors[color][checkboxShade], amount.active),
+				'borderColor': lighten(theme.colors[color][checkboxShade], amount.active),
 				'backgroundColor': lighten(transparentize(theme.colors[color][backgroundShade], 0.5), amount.active),
 				'background': lighten(transparentize(theme.colors[color][backgroundShade], 0.5), amount.active),
 
 				'& .chakra-checkbox': {
 					color: theme.colors.gray[colorShade],
-					borderColor: lighten(theme.colors[color][shade], amount.active),
+					borderColor: lighten(theme.colors[color][checkboxShade], amount.active),
 					backgroundColor: theme.colors.transparent,
 					background: theme.colors.transparent
 				},
 
 				'& .chakra-checkbox__control': {
 					color: theme.colors.gray[colorShade],
-					borderColor: lighten(theme.colors[color][shade], amount.active),
-					backgroundColor: lighten(theme.colors[color][shade], amount.active),
-					background: lighten(theme.colors[color][shade], amount.active)
+					borderColor: lighten(theme.colors[color][checkboxShade], amount.active),
+					backgroundColor: lighten(theme.colors[color][checkboxShade], amount.active),
+					background: lighten(theme.colors[color][checkboxShade], amount.active)
 				}
 			}
 		},
 
 		'&:active': {
-			'color': lighten(theme.colors[color][shade], amount.active),
-			'borderColor': lighten(theme.colors[color][shade], amount.active),
+			'color': lighten(theme.colors[color][checkboxShade], amount.active),
+			'borderColor': lighten(theme.colors[color][checkboxShade], amount.active),
 			'backgroundColor': lighten(transparentize(theme.colors[color][backgroundShade], 0.5), amount.active),
 			'background': lighten(transparentize(theme.colors[color][backgroundShade], 0.5), amount.active),
 
 			'& .chakra-checkbox': {
 				color: theme.colors.gray[colorShade],
-				borderColor: lighten(theme.colors[color][shade], amount.active),
+				borderColor: lighten(theme.colors[color][checkboxShade], amount.active),
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
 			},
 
 			'& .chakra-checkbox__control': {
 				color: theme.colors.gray[colorShade],
-				borderColor: lighten(theme.colors[color][shade], amount.active),
-				backgroundColor: lighten(theme.colors[color][shade], amount.active),
-				background: lighten(theme.colors[color][shade], amount.active)
+				borderColor: lighten(theme.colors[color][checkboxShade], amount.active),
+				backgroundColor: lighten(theme.colors[color][checkboxShade], amount.active),
+				background: lighten(theme.colors[color][checkboxShade], amount.active)
 			}
 		}
 	};

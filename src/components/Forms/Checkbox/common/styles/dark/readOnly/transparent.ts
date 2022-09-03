@@ -5,7 +5,7 @@ import { isChecked as defaultIsChecked } from '../../../data/defaultPropValues';
 import { CheckboxDarkReadOnlyStyleProps } from './types';
 
 export default ({ theme, isChecked = defaultIsChecked }: CheckboxDarkReadOnlyStyleProps): Style => {
-	const textShade = getHue({
+	const colorShade = getHue({
 		colorMode: 'dark',
 		type: 'text.primary'
 	});
@@ -15,20 +15,20 @@ export default ({ theme, isChecked = defaultIsChecked }: CheckboxDarkReadOnlySty
 	});
 
 	return {
-		'color': `${theme.colors.gray[textShade]} !important`,
+		'color': `${theme.colors.gray[colorShade]} !important`,
 		'borderColor': `${theme.colors.transparent} !important`,
 		'backgroundColor': `${theme.colors.transparent} !important`,
 		'background': `${theme.colors.transparent} !important`,
 
 		'& .chakra-checkbox': {
-			color: `${theme.colors.gray[textShade]} !important`,
+			color: `${theme.colors.gray[colorShade]} !important`,
 			borderColor: `${theme.colors.gray[borderShade]} !important`,
 			backgroundColor: `${isChecked ? theme.colors.gray[borderShade] : theme.colors.transparent} !important`,
 			background: `${isChecked ? theme.colors.gray[borderShade] : theme.colors.transparent} !important`
 		},
 
 		'& .chakra-checkbox__control': {
-			color: `${theme.colors.gray[textShade]} !important`,
+			color: `${theme.colors.gray[colorShade]} !important`,
 			borderColor: `${theme.colors.gray[borderShade]} !important`,
 			backgroundColor: `${isChecked ? theme.colors.gray[borderShade] : theme.colors.transparent} !important`,
 			background: `${isChecked ? theme.colors.gray[borderShade] : theme.colors.transparent} !important`

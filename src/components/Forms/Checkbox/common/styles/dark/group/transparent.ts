@@ -19,7 +19,8 @@ export default ({
 	isWarning = defaultIsWarning
 }: CheckboxDarkGroupStyleProps): Style => {
 	const amount = getAmount();
-	const textShade = getHue({
+
+	const colorShade = getHue({
 		colorMode: 'dark',
 		type: 'text.primary'
 	});
@@ -35,7 +36,7 @@ export default ({
 	const color: Color = isError ? 'red' : isSuccess ? 'green' : isWarning ? 'yellow' : 'gray';
 
 	return {
-		'color': theme.colors[color][textShade],
+		'color': theme.colors[color][colorShade],
 		'borderColor': theme.colors.transparent,
 		'backgroundColor': theme.colors.transparent,
 		'background': theme.colors.transparent,
@@ -48,7 +49,7 @@ export default ({
 		},
 
 		'&:hover': {
-			'color': lighten(theme.colors[color][textShade], amount.hover),
+			'color': lighten(theme.colors[color][colorShade], amount.hover),
 			'borderColor': theme.colors.transparent,
 			'backgroundColor': transparentize(theme.colors[color][backgroundShade], 0.5),
 			'background': transparentize(theme.colors[color][backgroundShade], 0.5),
@@ -61,7 +62,7 @@ export default ({
 			},
 
 			'&:active': {
-				'color': lighten(theme.colors[color][textShade], amount.active),
+				'color': lighten(theme.colors[color][colorShade], amount.active),
 				'borderColor': theme.colors.transparent,
 				'backgroundColor': transparentize(theme.colors[color][backgroundShade], 0.25),
 				'background': transparentize(theme.colors[color][backgroundShade], 0.25),
@@ -76,7 +77,7 @@ export default ({
 		},
 
 		'&:active': {
-			'color': lighten(theme.colors[color][textShade], amount.active),
+			'color': lighten(theme.colors[color][colorShade], amount.active),
 			'borderColor': theme.colors.transparent,
 			'backgroundColor': transparentize(theme.colors[color][backgroundShade], 0.25),
 			'background': transparentize(theme.colors[color][backgroundShade], 0.25),

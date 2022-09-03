@@ -4,7 +4,7 @@ import { getHue } from '../../../../../../../common/utils/color';
 import { CheckboxDarkDisabledStyleProps } from './types';
 
 export default ({ theme }: CheckboxDarkDisabledStyleProps): Style => {
-	const textShade = getHue({
+	const colorShade = getHue({
 		colorMode: 'dark',
 		type: 'text.primary'
 	});
@@ -14,13 +14,13 @@ export default ({ theme }: CheckboxDarkDisabledStyleProps): Style => {
 	});
 
 	return {
-		'color': `${theme.colors.gray[textShade]} !important`,
+		'color': `${theme.colors.gray[colorShade]} !important`,
 		'borderColor': `${theme.colors.gray[borderShade]} !important`,
 		'backgroundColor': `${theme.colors.transparent} !important`,
 		'background': `${theme.colors.transparent} !important`,
 
 		'& .chakra-checkbox__control': {
-			color: `${theme.colors.gray[textShade]} !important`,
+			color: `${theme.colors.gray[colorShade]} !important`,
 			borderColor: `${theme.colors.gray[borderShade]} !important`,
 			backgroundColor: `${theme.colors.transparent} !important`,
 			background: `${theme.colors.transparent} !important`

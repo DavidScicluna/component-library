@@ -1,5 +1,3 @@
 import { CheckboxStyleProps } from '../../types';
 
-type Picked = 'theme';
-
-export type CheckboxLightDisabledStyleProps = Pick<CheckboxStyleProps, Picked>;
+export type CheckboxLightDisabledStyleProps = Pick<CheckboxStyleProps, 'theme'>;
