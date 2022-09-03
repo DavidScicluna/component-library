@@ -1,6 +1,6 @@
 import { ReactElement, createContext, forwardRef } from 'react';
 
-import { useColorMode, useBoolean, Center, VStack } from '@chakra-ui/react';
+import { useColorMode, Center, VStack } from '@chakra-ui/react';
 
 import { dataAttr } from '@chakra-ui/utils';
 import merge from 'lodash/merge';
@@ -30,7 +30,6 @@ export const CardContext = createContext<CardContextType>({
 	color: defaultColor,
 	colorMode: defaultColorMode,
 	isDisabled: defaultIsDisabled,
-	isHovering: false,
 	isLight: defaultIsLight,
 	spacing: defaultSpacing
 });
@@ -56,15 +55,13 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 		...rest
 	} = props;
 
-	const [isHovering, setIsHovering] = useBoolean();
-
 	const style = useStyles({
 		theme,
 		color,
 		colorMode,
 		isClickable,
 		isFullWidth,
-		isFixed: isFixed || isHovering,
+		isFixed,
 		isLight,
 		variant
 	});
@@ -89,8 +86,6 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 					overflowY='hidden'
 					overflowX='hidden'
 					divider={isDivisible && variant !== 'contained' ? <CardDivider /> : undefined}
-					onMouseEnter={() => setIsHovering.on()}
-					onMouseLeave={() => setIsHovering.off()}
 					spacing={spacing}
 				>
 					{children}

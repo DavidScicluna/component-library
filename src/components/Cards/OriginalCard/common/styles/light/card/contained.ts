@@ -53,7 +53,7 @@ export default ({
 
 		'&::before': {
 			boxShadow:
-				isClickable && !isFixed
+				isClickable || isFixed
 					? `0 ${transform}px 0 0 ${darken(theme.colors[color][colorShade], amount.back)}`
 					: 'none',
 			borderColor: theme.colors[color][colorShade],

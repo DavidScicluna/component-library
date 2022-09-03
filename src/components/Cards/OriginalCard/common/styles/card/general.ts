@@ -40,7 +40,7 @@ export default ({
 
 		'opacity': 1,
 
-		'outline': isClickable && !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important',
+		'outline': isClickable && !isFixed && !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important',
 
 		'background': 'none',
 
@@ -71,16 +71,16 @@ export default ({
 		},
 
 		'&:focus:not(:focus-visible)': {
-			outline: isClickable && !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
+			outline: isClickable && !isFixed && !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
 		},
 
 		'&:focus': {
 			boxShadow: 'none',
-			outline: isClickable && !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
+			outline: isClickable && !isFixed && !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
 		},
 
 		'&:active': {
-			outline: isClickable && !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
+			outline: isClickable && !isFixed && !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
 		},
 
 		'*, *::before, *::after': {

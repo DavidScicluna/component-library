@@ -13,7 +13,7 @@ export default ({ theme, isClickable = defaultIsClickable, isFixed = defaultIsFi
 	const radius: Radius = 'lg';
 
 	return {
-		'borderBottomWidth': `${isClickable && !isFixed ? transform : border}px`,
+		'borderBottomWidth': `${isClickable || isFixed ? transform : border}px`,
 		'borderStyle': 'solid',
 		'borderColor': theme.colors.transparent,
 		'borderRadius': theme.radii[radius],

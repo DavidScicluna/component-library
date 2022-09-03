@@ -52,7 +52,7 @@ export default ({
 		'color': theme.colors[color][colorShade],
 
 		'&::before': {
-			boxShadow: `0 ${isClickable && !isFixed ? transform : border}px 0 0 ${theme.colors[color][colorShade]}`,
+			boxShadow: `0 ${isClickable || isFixed ? transform : border}px 0 0 ${theme.colors[color][colorShade]}`,
 			borderColor: theme.colors[color][colorShade],
 			backgroundColor: theme.colors.gray[backgroundShade],
 			background: theme.colors.gray[backgroundShade]
