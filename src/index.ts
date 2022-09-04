@@ -118,7 +118,7 @@ import { TagLabelProps } from './components/DataDisplay/Tag/components/TagLabel/
 import { TagColor, TagContext, TagProps, TagRef, TagSize, TagVariant } from './components/DataDisplay/Tag/types';
 import Divider from './components/Divider';
 import { DividerProps } from './components/Divider/types';
-import DSProvider from './components/Provider';
+import DSCLProvider from './components/Provider';
 import Checkbox from './components/Forms/Checkbox';
 import CheckboxSubtitle from './components/Forms/Checkbox/components/CheckboxSubtitle';
 import { CheckboxSubtitleProps } from './components/Forms/Checkbox/components/CheckboxSubtitle/types';
@@ -134,6 +134,8 @@ import {
 	CheckboxVariant
 } from './components/Forms/Checkbox/types';
 import Form from './components/Forms/Form';
+import ImageEditor from './components/ImageEditor';
+import { ImageEditorColor, ImageEditorContext, ImageEditorProps } from './components/ImageEditor/types';
 import Input from './components/Forms/Input';
 import {
 	InputAutoComplete,
@@ -375,7 +377,7 @@ export {
 	TagDeleteButton,
 	TagLabel,
 	Divider,
-	DSProvider,
+	DSCLProvider,
 	Checkbox,
 	CheckboxSubtitle,
 	CheckboxTitle,
@@ -384,6 +386,7 @@ export {
 	StepPanel,
 	StepPanels,
 	Form,
+	ImageEditor,
 	Input,
 	Radio,
 	RadioSubtitle,
@@ -510,6 +513,9 @@ export type {
 	Step,
 	StepPanelProps,
 	StepPanelsProps,
+	ImageEditorColor,
+	ImageEditorContext,
+	ImageEditorProps,
 	InputAutoComplete,
 	InputColor,
 	InputPanelRenderProps,

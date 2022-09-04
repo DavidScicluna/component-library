@@ -1,5 +1,4 @@
-import { IconType } from '@davidscicluna/component-library';
-
+import { Icon as IconType } from '../../../../common/types/icons';
 import { ImageEditorModeCropID, ImageEditorModeCropValue } from '../../types';
 
 export type ModeButton<I, V> = {
