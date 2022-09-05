@@ -10,6 +10,7 @@ import Divider from '../../../../Divider';
 import HorizontalScroll from '../../../../HorizontalScroll';
 import { activeStep as defaultActiveStep, colorMode as defaultColorMode } from '../../common/data/defaultPropValues';
 import { StepperContext as StepperContextType } from '../../types';
+import { convertStringToNumber } from '../../../../../common/utils';
 
 import { isDisabled as defaultIsDisabled } from './common/data/defaultPropValues';
 import Cancel from './components/Cancel';
@@ -20,6 +21,7 @@ import { getStatus as getStepStatus } from './components/Step/common/utils';
 import { Status } from './components/Step/types';
 import { StepListProps, ScrollContext } from './types';
 
+export const width = '112px';
 export const height = '112px';
 
 const StepList: FC<StepListProps> = ({ children = [], isDisabled = defaultIsDisabled }) => {
@@ -99,7 +101,7 @@ const StepList: FC<StepListProps> = ({ children = [], isDisabled = defaultIsDisa
 			{isMd ? (
 				<>
 					<Cancel isDisabled={isDisabled} />
-					<Center width='calc(100% - 200px)'>
+					<Center width={`calc(100% - ${convertStringToNumber(width, 'px') * 2}px)`}>
 						<HorizontalScroll
 							colorMode={colorMode}
 							LeftArrow={<HorizontalScrollLeftArrow scroll={scrollDebounced} isDisabled={isDisabled} />}

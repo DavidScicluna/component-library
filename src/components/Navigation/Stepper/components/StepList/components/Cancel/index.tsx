@@ -4,7 +4,7 @@ import { useMediaQuery, Center } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
-import { height } from '../..';
+import { width, height } from '../..';
 import { StepperContext } from '../../../..';
 import { useTheme } from '../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../common/utils/color';
@@ -31,8 +31,12 @@ const Cancel: FC<CancelProps> = ({ isDisabled = defaultIsDisabled }) => {
 	return (
 		<Center
 			aria-disabled={isDisabled}
-			width={isMd ? height : '50%'}
+			minWidth={isMd ? width : '50%'}
+			width={isMd ? width : '50%'}
+			maxWidth={isMd ? width : '50%'}
+			minHeight={height}
 			height={height}
+			maxHeight={height}
 			onClick={!isDisabled ? () => onCancel() : undefined}
 			sx={{
 				...merge(
@@ -51,10 +55,10 @@ const Cancel: FC<CancelProps> = ({ isDisabled = defaultIsDisabled }) => {
 			<Icon
 				width={theme.fontSizes['4xl']}
 				height={theme.fontSizes['4xl']}
+				fontSize={theme.fontSizes['4xl']}
+				color={getColor({ theme, colorMode, type: 'text.primary' })}
 				icon='close'
 				category='outlined'
-				color={getColor({ theme, colorMode, type: 'text.primary' })}
-				fontSize={theme.fontSizes['4xl']}
 			/>
 		</Center>
 	);

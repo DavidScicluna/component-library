@@ -17,10 +17,12 @@ const StepIcon: FC<StepIconProps> = ({ status }) => {
 
 	return (
 		<Icon
+			width={theme.fontSizes['3xl']}
+			height={theme.fontSizes['3xl']}
+			fontSize={theme.fontSizes['3xl']}
+			color={getColor({ theme, colorMode, color: getStatusColor({ status, color }), type: 'color' })}
 			icon={getStatusIcon({ status })}
 			category='outlined'
-			color={getColor({ theme, colorMode, color: getStatusColor({ status, color }), type: 'color' })}
-			fontSize='3xl'
 		/>
 	);
 };

@@ -12,6 +12,10 @@ import { colorMode as defaultColorMode } from '../../../../../common/data/defaul
 import { StepperContext as StepperContextType } from '../../../../../types';
 import { isDisabled as defaultIsDisabled } from '../../../common/data/defaultPropValues';
 import { HorizontalScrollArrowProps as HorizontalScrollRightArrowProps } from '../common/types';
+import { height } from '../../..';
+import { convertStringToNumber } from '../../../../../../../../common/utils';
+
+const border = 2;
 
 const HorizontalScrollRightArrow: FC<HorizontalScrollRightArrowProps> = (props) => {
 	const theme = useTheme();
@@ -46,11 +50,19 @@ const HorizontalScrollRightArrow: FC<HorizontalScrollRightArrowProps> = (props) 
 			isDisabled={isDisabled}
 			onClick={() => handleScrollNext()}
 			sx={{
+				'height': `calc(100% - ${border * 2}px)`,
+				'minHeight': height,
+
 				'borderBottomWidth': '2px',
 				'borderBottomStyle': 'solid',
 				'borderBottomColor': getColor({ theme, colorMode, type: 'divider' }),
 
-				'&::before': { borderBottom: 'none' }
+				'&::before': {
+					height: `calc(100% - ${border * 2}px)`,
+					minHeight: `${convertStringToNumber(height, 'px') - 2}px`,
+
+					borderBottom: 'none'
+				}
 			}}
 		/>
 	);

@@ -4,7 +4,7 @@ import { useMediaQuery, Center } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
-import { height } from '../..';
+import { width, height } from '../..';
 import { StepperContext } from '../../../..';
 import { useTheme } from '../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../common/utils/color';
@@ -37,8 +37,12 @@ const Next: FC<NextProps> = (props) => {
 	return (
 		<Center
 			aria-disabled={isDisabled}
-			width={isMd ? height : '50%'}
+			minWidth={isMd ? width : '50%'}
+			width={isMd ? width : '50%'}
+			maxWidth={isMd ? width : '50%'}
+			minHeight={height}
 			height={height}
+			maxHeight={height}
 			onClick={!isDisabled ? () => onNext() : undefined}
 			sx={{
 				...merge(
@@ -57,6 +61,13 @@ const Next: FC<NextProps> = (props) => {
 			<Icon
 				width={theme.fontSizes['4xl']}
 				height={theme.fontSizes['4xl']}
+				fontSize={theme.fontSizes['4xl']}
+				color={getColor({
+					theme,
+					colorMode,
+					color: isLast && hasErrors ? 'red' : isLast && (hasWarnings || hasIdle) ? 'yellow' : 'gray',
+					type: isLast && (hasErrors || hasWarnings || hasIdle) ? 'color' : 'text.primary'
+				})}
 				icon={
 					isLast
 						? hasErrors
@@ -67,13 +78,6 @@ const Next: FC<NextProps> = (props) => {
 						: 'east'
 				}
 				category='outlined'
-				color={getColor({
-					theme,
-					colorMode,
-					color: isLast && hasErrors ? 'red' : isLast && (hasWarnings || hasIdle) ? 'yellow' : 'gray',
-					type: isLast && (hasErrors || hasWarnings || hasIdle) ? 'color' : 'text.primary'
-				})}
-				fontSize={theme.fontSizes['4xl']}
 			/>
 		</Center>
 	);
