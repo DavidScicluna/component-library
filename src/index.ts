@@ -159,6 +159,19 @@ import {
 	RadioSize,
 	RadioVariant
 } from './components/Forms/Radio/types';
+import Tabs from './components/Navigation/Tabs';
+import {
+	TabsColor,
+	TabsContext,
+	TabsProps,
+	TabsRef,
+	TabsSize,
+	OnChangeProps as TabsOnChangeProps
+} from './components/Navigation/Tabs/types';
+import TabList from './components/Navigation/Tabs/components/TabList';
+import { TabListProps } from './components/Navigation/Tabs/components/TabList/types';
+import TabPanels from './components/Navigation/Tabs/components/TabPanels';
+import { TabPanelsProps } from './components/Navigation/Tabs/components/TabPanels/types';
 import Textarea from './components/Forms/Textarea';
 import {
 	TextareaAutoComplete,
@@ -391,6 +404,9 @@ export {
 	Radio,
 	RadioSubtitle,
 	RadioTitle,
+	Tabs,
+	TabList,
+	TabPanels,
 	Textarea,
 	HorizontalScroll,
 	HorizontalScrollArrow,
@@ -531,6 +547,14 @@ export type {
 	RadioRef,
 	RadioSize,
 	RadioVariant,
+	TabsColor,
+	TabsContext,
+	TabsProps,
+	TabsRef,
+	TabsSize,
+	TabsOnChangeProps,
+	TabListProps,
+	TabPanelsProps,
 	TextareaAutoComplete,
 	TextareaColor,
 	TextareaPanelRenderProps,
