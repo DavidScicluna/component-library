@@ -65,7 +65,7 @@ const Step: FC<StepProps> = (props) => {
 				<StepDescription index={index} title={title} subtitle={subtitle} />
 			</VStack>
 
-			<Fade in={status !== 'idle' && status !== 'active'} unmountOnExit>
+			<Fade in={status !== 'idle' && status !== 'active'}>
 				<Center ref={stepIconRef}>
 					<StepIcon status={status} />
 				</Center>

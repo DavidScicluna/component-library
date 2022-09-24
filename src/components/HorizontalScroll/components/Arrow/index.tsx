@@ -69,12 +69,7 @@ const Arrow: FC<ArrowProps> = (props) => {
 	}, [iconButtonHeight]);
 
 	return (
-		<Fade
-			in={isVisible}
-			unmountOnExit
-			style={{ height: '100%' }}
-			transition={{ enter: { ...config }, exit: { ...config } }}
-		>
+		<Fade in={isVisible} style={{ height: '100%' }} transition={{ enter: { ...config }, exit: { ...config } }}>
 			<Center
 				width={`${debouncedWidth * 2}px`}
 				height='100%'

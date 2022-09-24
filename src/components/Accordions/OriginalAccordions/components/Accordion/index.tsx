@@ -110,7 +110,6 @@ const Accordion = <D,>(props: AccordionProps<D>): ReactElement => {
 
 					<Collapse
 						in={isOpen && inView}
-						unmountOnExit
 						style={{ width: '100%' }}
 						transition={{ enter: { ...config }, exit: { ...config } }}
 					>

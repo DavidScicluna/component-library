@@ -174,7 +174,7 @@ const Radio: FC<RadioProps> = (props) => {
 					)}
 				</HStack>
 
-				<Collapse in={!(isNil(helper) || isEmpty(helper))} unmountOnExit style={{ width: '100%' }}>
+				<Collapse in={!(isNil(helper) || isEmpty(helper))} style={{ width: '100%' }}>
 					<FormHelperText
 						colorMode={colorMode}
 						isDisabled={isDisabled}
