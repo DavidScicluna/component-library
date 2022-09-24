@@ -31,13 +31,7 @@ const External: FC<ExternalProps> = (props) => {
 	const style = useStyles({ theme, color, colorMode, isFullWidth, isString: typeof children === 'string' });
 
 	return (
-		<CUILink
-			{...rest}
-			aria-disabled={isDisabled}
-			isExternal
-			sx={merge(style.link, sx)}
-			_disabled={merge(style.disabled, sx)}
-		>
+		<CUILink {...rest} aria-disabled={isDisabled} isExternal sx={merge(style.link, sx)} _disabled={style.disabled}>
 			{children}
 		</CUILink>
 	);

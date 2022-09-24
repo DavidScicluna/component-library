@@ -39,7 +39,7 @@ const Internal: FC<InternalProps> = (props) => {
 			as={RRDLink}
 			aria-disabled={isDisabled}
 			sx={merge(style.link, sx)}
-			_disabled={merge(style.disabled, sx)}
+			_disabled={style.disabled}
 		>
 			{children}
 		</CUILink>
