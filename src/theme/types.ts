@@ -33,6 +33,10 @@ export type FontSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' 
 
 export type FontSizes = Record<FontSize, string>;
 
+export type LineHeight = 'base' | 'none' | 'normal' | 'short' | 'shorter' | 'tall' | 'taller';
+
+export type LineHeights = Record<LineHeight, number | string>;
+
 export type Radius = 'none' | 'xs' | 'sm' | 'base' | 'lg' | 'xl' | 'full';
 
 export type Radii = Record<Radius, string>;
@@ -138,7 +142,10 @@ export type Transition = {
 	duration: Durations;
 };
 
-export type Theme = { colors: Colors; radii: Radii; space: Spacing; transition: Transition } & Omit<
-	CUITheme,
-	'colors' | 'radii' | 'space' | 'transition'
->;
+export type Theme = {
+	colors: Colors;
+	lineHeights: LineHeights;
+	radii: Radii;
+	space: Spacing;
+	transition: Transition;
+} & Omit<CUITheme, 'colors' | 'lineHeights' | 'radii' | 'space' | 'transition'>;
