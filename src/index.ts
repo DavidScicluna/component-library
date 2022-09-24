@@ -284,6 +284,8 @@ export type {
 	Fonts,
 	FontSize,
 	FontSizes,
+	LineHeight,
+	LineHeights,
 	Radius,
 	Radii,
 	Space,
