@@ -1,4 +1,4 @@
-import { FC, createContext } from 'react';
+import { ReactElement, createContext, forwardRef } from 'react';
 
 import { useColorMode, HStack } from '@chakra-ui/react';
 
@@ -13,7 +13,7 @@ import {
 	direction as defaultDirection
 } from './common/data/defaultPropValues';
 import Tab from './components/Tab';
-import { TabBarContext as TabBarContextType, TabBarProps } from './types';
+import { TabBarContext as TabBarContextType, TabBarRef, TabBarProps } from './types';
 
 export const TabBarContext = createContext<TabBarContextType>({
 	color: defaultColor,
@@ -21,7 +21,7 @@ export const TabBarContext = createContext<TabBarContextType>({
 	direction: defaultDirection
 });
 
-const TabBar: FC<TabBarProps> = (props) => {
+const TabBar = forwardRef<TabBarRef, TabBarProps>(function TabBar(props, ref): ReactElement {
 	const theme = useTheme();
 	const { colorMode: colorModeHook = 'light' } = useColorMode();
 
@@ -40,9 +40,10 @@ const TabBar: FC<TabBarProps> = (props) => {
 	return (
 		<TabBarContext.Provider value={{ color, colorMode, direction }}>
 			<HStack
+				{...rest}
+				ref={ref}
 				width='100%'
 				justify='space-between'
-				{...rest}
 				spacing={0}
 				sx={{
 					...merge(
@@ -73,6 +74,6 @@ const TabBar: FC<TabBarProps> = (props) => {
 			</HStack>
 		</TabBarContext.Provider>
 	);
-};
+});
 
 export default TabBar;

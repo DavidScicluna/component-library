@@ -21,6 +21,8 @@ import { Color } from '../../../theme/types';
 
 import { Tab } from './components/Tab/types';
 
+export type TabBarRef = HTMLDivElement | null;
+
 export type TabBarColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 
 export type TabBarDirection = 'top' | 'bottom';
@@ -59,7 +61,5 @@ export type TabBarProps = {
 	onChange: (index: number) => void;
 	sx?: Style;
 } & Omit<StackProps, Omitted>;
-
-export type TabBarRef = HTMLDivElement | null;
 
 export type TabBarContext = Pick<TabBarProps, 'color' | 'colorMode' | 'direction'>;
