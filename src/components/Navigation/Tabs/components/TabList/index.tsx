@@ -1,6 +1,6 @@
 import { FC, useContext, useState, useCallback } from 'react';
 
-import { TabList as CUITabList } from '@chakra-ui/react';
+import { TabList as CUITabList, Box } from '@chakra-ui/react';
 
 import { useDebounce } from 'usehooks-ts';
 
@@ -13,12 +13,13 @@ import {
 import { TabsContext } from '../../.';
 import { TabsContext as TabsContextType } from '../../types';
 import HorizontalScroll from '../../../../HorizontalScroll';
+import Divider from '../../../../Divider';
 
 import { TabListProps, ScrollContext } from './types';
 import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from './components/HorizontalScrollArrows';
 import Tab from './components/Tab';
 
-const TabList: FC<TabListProps> = ({ children, ...rest }) => {
+const TabList: FC<TabListProps> = ({ tabs = [], ...rest }) => {
 	const {
 		activeTab = defaultActiveTab,
 		colorMode = defaultColorMode,
@@ -41,15 +42,18 @@ const TabList: FC<TabListProps> = ({ children, ...rest }) => {
 		[scrollDebounced]
 	);
 
-	const handleTabClick = (index: number): void => {
-		if (activeTab !== index) {
-			if (onChange) {
-				onChange({ index });
-			}
+	const handleTabClick = useCallback(
+		(index: number): void => {
+			if (activeTab !== index) {
+				if (onChange) {
+					onChange({ index });
+				}
 
-			handleScrollToStep(index);
-		}
-	};
+				handleScrollToStep(index);
+			}
+		},
+		[activeTab, onChange, handleScrollToStep]
+	);
 
 	return (
 		<CUITabList
@@ -61,26 +65,34 @@ const TabList: FC<TabListProps> = ({ children, ...rest }) => {
 				'& .react-horizontal-scrolling-menu--item': isFitted ? { width: '100%' } : {}
 			}}
 		>
-			<HorizontalScroll
-				width='100%'
-				height='100%'
-				colorMode={colorMode}
-				LeftArrow={<HorizontalScrollLeftArrow scroll={scrollDebounced} />}
-				RightArrow={<HorizontalScrollRightArrow scroll={scrollDebounced} />}
-				isDisabled={isDisabled}
-				onInit={(scroll) => setScroll(scroll)}
-				onUpdate={(scroll) => setScroll(scroll)}
-			>
-				{children.map((tab, index) => (
-					<Tab
-						{...tab}
-						key={`ds-cl-tabs-tab-${index}`}
-						panelId={`ds-cl-tabs-tab-${index}`}
-						isSelected={tab.isSelected || index === activeTab}
-						onClick={() => handleTabClick(index)}
-					/>
-				))}
-			</HorizontalScroll>
+			<Box width='100%' height='100%' display='grid' alignItems='flex-end' justifyContent='stretch'>
+				<Box gridRow={1} gridColumn={1}>
+					<HorizontalScroll
+						width='100%'
+						height='100%'
+						colorMode={colorMode}
+						LeftArrow={<HorizontalScrollLeftArrow scroll={scrollDebounced} />}
+						RightArrow={<HorizontalScrollRightArrow scroll={scrollDebounced} />}
+						isDisabled={isDisabled}
+						onInit={(scroll) => setScroll(scroll)}
+						onUpdate={(scroll) => setScroll(scroll)}
+					>
+						{tabs.map((tab, index) => (
+							<Tab
+								{...tab}
+								key={`ds-cl-tabs-tab-${index}`}
+								panelId={`ds-cl-tabs-tab-${index}`}
+								isSelected={tab.isSelected || index === activeTab}
+								onClick={() => handleTabClick(index)}
+							/>
+						))}
+					</HorizontalScroll>
+				</Box>
+
+				<Box gridRow={1} gridColumn={1}>
+					<Divider />
+				</Box>
+			</Box>
 		</CUITabList>
 	);
 };

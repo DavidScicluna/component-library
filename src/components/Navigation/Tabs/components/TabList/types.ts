@@ -46,4 +46,4 @@ type Omitted =
 	| BoxOther
 	| 'children';
 
-export type TabListProps = Omit<CUITabListProps, Omitted> & { children: Tab[] };
+export type TabListProps = Omit<CUITabListProps, Omitted> & { tabs: Tab[] };
