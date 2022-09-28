@@ -168,6 +168,8 @@ import {
 	TabsSize,
 	OnChangeProps as TabsOnChangeProps
 } from './components/Navigation/Tabs/types';
+import DummyTabList from './components/Navigation/Tabs/components/DummyTabList';
+import { DummyTabListProps } from './components/Navigation/Tabs/components/DummyTabList/types';
 import TabList from './components/Navigation/Tabs/components/TabList';
 import { TabListProps } from './components/Navigation/Tabs/components/TabList/types';
 import TabPanels from './components/Navigation/Tabs/components/TabPanels';
@@ -407,6 +409,7 @@ export {
 	RadioSubtitle,
 	RadioTitle,
 	Tabs,
+	DummyTabList,
 	TabList,
 	TabPanels,
 	Textarea,
@@ -555,6 +558,7 @@ export type {
 	TabsRef,
 	TabsSize,
 	TabsOnChangeProps,
+	DummyTabListProps,
 	TabListProps,
 	TabPanelsProps,
 	TextareaAutoComplete,
