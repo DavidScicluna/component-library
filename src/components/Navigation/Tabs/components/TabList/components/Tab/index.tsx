@@ -16,11 +16,11 @@ import {
 	size as defaultSize
 } from '../../../../common/data/defaultPropValues';
 import { useTheme } from '../../../../../../../common/hooks';
+import { getSizeConfig } from '../../../../common/utils';
 
 import { isActive as defaultIsActive, isSelected as defaultIsSelected } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { TabProps } from './types';
-import { getSizeConfig } from './common/utils';
 
 const Tab: FC<TabProps> = (props) => {
 	const theme = useTheme();

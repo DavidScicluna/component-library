@@ -2,7 +2,7 @@ import { Style } from '../../../../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../../../../common/utils';
 import { Radius } from '../../../../../../../../../../theme/types';
 import { isFitted as defaultIsFitted, size as defaultSize } from '../../../../../../../common/data/defaultPropValues';
-import { getSizeConfig } from '../../utils';
+import { getSizeConfig } from '../../../../../../../common/utils';
 
 import { TabStyleProps } from './types';
 

@@ -2,7 +2,7 @@ import { darken } from 'color2k';
 
 import { isSelected as defaultIsSelected } from '../../../data/defaultPropValues';
 import { color as defaultColor } from '../../../../../../../../common/data/defaultPropValues';
-import { getAmount } from '../../../utils';
+import { getAmount } from '../../../../../../../../common/utils';
 import { getHue } from '../../../../../../../../../../../common/utils/color';
 import { Style } from '../../../../../../../../../../../common/types';
 import { Color } from '../../../../../../../../../../../theme/types';
