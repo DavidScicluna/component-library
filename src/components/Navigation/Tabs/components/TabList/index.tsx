@@ -90,7 +90,7 @@ const TabList: FC<TabListProps> = ({ tabs = [], ...rest }) => {
 				</Box>
 
 				<Box gridRow={1} gridColumn={1}>
-					<Divider />
+					<Divider colorMode={colorMode} />
 				</Box>
 			</Box>
 		</CUITabList>
