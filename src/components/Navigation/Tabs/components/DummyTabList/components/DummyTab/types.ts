@@ -53,7 +53,6 @@ type Omitted =
 	| BoxPseudo
 	| BoxOther
 	| 'children'
-	| 'isDisabled'
-	| 'isSelected';
+	| 'isDisabled';
 
 export type DummyTabProps = Omit<CUITabProps, Omitted> & DummyTab;

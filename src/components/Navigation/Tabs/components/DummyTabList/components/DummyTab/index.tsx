@@ -17,6 +17,7 @@ import { useTheme } from '../../../../../../../common/hooks';
 import { getSizeConfig } from '../../../../common/utils';
 import Skeleton from '../../../../../../Skeleton';
 
+import { isSelected as defaultIsSelected } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { DummyTabProps } from './types';
 
@@ -32,26 +33,19 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
-	const { label, renderLeft, renderRight, sx, ...rest } = props;
+	const { label, renderLeft, renderRight, isSelected = defaultIsSelected, sx, ...rest } = props;
 
-	const style = useStyles({ theme, colorMode, isFullWidth: isFitted, size });
+	const style = useStyles({ theme, color, colorMode, isFullWidth: isFitted, isSelected, size });
 
 	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
 
 	return (
 		<CUITab {...rest} aria-disabled isDisabled sx={merge(style.tab, sx)}>
-			<HStack
-				className='ds-cl-tabs-dummy-tab-stack'
-				width='100%'
-				alignItems='inherit'
-				justifyContent='inherit'
-				spacing={handleReturnSpacing()}
-			>
+			<HStack width='100%' alignItems='inherit' justifyContent='inherit' spacing={handleReturnSpacing()}>
 				{renderLeft && renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
 
 				<Center ref={childrenRef} as='span'>
-					{/* TODO: Maybe pass down color to tab with active tab and set border to color also */}
-					<Skeleton colorMode={colorMode} isLoaded={false} variant='text'>
+					<Skeleton color={isSelected ? color : 'gray'} colorMode={colorMode} isLoaded={false} variant='text'>
 						{label}
 					</Skeleton>
 				</Center>
