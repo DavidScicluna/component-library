@@ -1,10 +1,12 @@
 import { memoize, merge } from 'lodash';
 
 import {
+	color as defaultColor,
 	colorMode as defaultColorMode,
 	isFitted as defaultIsFitted,
 	size as defaultSize
 } from '../../../../../../common/data/defaultPropValues';
+import { isSelected as defaultIsSelected } from '../data/defaultPropValues';
 
 import dark from './dark';
 import light from './light';
@@ -12,11 +14,18 @@ import tab from './tab';
 import { DummyTabStyleProps, DummyTabStyleReturn } from './types';
 
 export default memoize((props: DummyTabStyleProps): DummyTabStyleReturn => {
-	const { theme, colorMode = defaultColorMode, isFullWidth = defaultIsFitted, size = defaultSize } = props;
+	const {
+		theme,
+		color = defaultColor,
+		colorMode = defaultColorMode,
+		isFullWidth = defaultIsFitted,
+		isSelected = defaultIsSelected,
+		size = defaultSize
+	} = props;
 
 	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
-		tab: merge(tab({ theme, isFullWidth, size }), scheme({ theme }))
+		tab: merge(tab({ theme, isFullWidth, size }), scheme({ theme, color, isSelected }))
 	};
 });

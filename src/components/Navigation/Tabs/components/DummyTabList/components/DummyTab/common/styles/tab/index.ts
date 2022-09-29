@@ -64,8 +64,6 @@ export default ({ theme, isFullWidth = defaultIsFitted, size = defaultSize }: Du
 		'transitionDuration': transitionDuration,
 		'transitionTimingFunction': transitionTimingFunction,
 
-		'& .ds-cl-tabs-dummy-tab-stack': { opacity: 0.5 },
-
 		'& svg, .ds-cl-icon': {
 			userSelect: 'none',
 
