@@ -2,16 +2,24 @@ import { FC, useContext } from 'react';
 
 import { TabList as CUIDummyTabList, Box, HStack } from '@chakra-ui/react';
 
-import { colorMode as defaultColorMode, isFitted as defaultIsFitted } from '../../common/data/defaultPropValues';
+import {
+	activeTab as defaultActiveTab,
+	colorMode as defaultColorMode,
+	isFitted as defaultIsFitted
+} from '../../common/data/defaultPropValues';
 import { TabsContext } from '../..';
 import { TabsContext as TabsContextType } from '../../types';
 import Divider from '../../../../Divider';
 
 import { DummyTabListProps } from './types';
-import Tab from './components/DummyTab';
+import DummyTab from './components/DummyTab';
 
 const DummyTabList: FC<DummyTabListProps> = ({ tabs = [], ...rest }) => {
-	const { colorMode = defaultColorMode, isFitted = defaultIsFitted } = useContext<TabsContextType>(TabsContext);
+	const {
+		activeTab = defaultActiveTab,
+		colorMode = defaultColorMode,
+		isFitted = defaultIsFitted
+	} = useContext<TabsContextType>(TabsContext);
 
 	return (
 		<CUIDummyTabList
@@ -27,10 +35,11 @@ const DummyTabList: FC<DummyTabListProps> = ({ tabs = [], ...rest }) => {
 				<Box gridRow={1} gridColumn={1}>
 					<HStack>
 						{tabs.map((tab, index) => (
-							<Tab
+							<DummyTab
 								{...tab}
 								key={`ds-cl-tabs-dummy-tab-${index}`}
 								panelId={`ds-cl-tabs-dummy-tab-${index}`}
+								isSelected={index === activeTab}
 							/>
 						))}
 					</HStack>
