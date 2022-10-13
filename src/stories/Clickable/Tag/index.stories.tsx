@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 
-import { TagColor, TagProps, TagVariant, Tag as TagComponent, TagDeleteButton, TagLabel } from '../../..';
+import { TagColor, TagProps, TagVariant, Tag as TagComponent, TagDeleteIconButton, TagLabel } from '../../..';
 import {
 	color as defaultColor,
 	isActive as defaultIsActive,
@@ -102,6 +102,6 @@ export default {
 export const Tag: Story = (props: TagProps): ReactElement => (
 	<TagComponent {...props}>
 		<TagLabel>Hello I am a Tag</TagLabel>
-		<TagDeleteButton onDelete={() => console.log('Deleted')} />
+		<TagDeleteIconButton onDelete={() => console.log('Deleted')} />
 	</TagComponent>
 );

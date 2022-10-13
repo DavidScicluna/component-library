@@ -111,8 +111,8 @@ import {
 	BadgeVariant
 } from './components/DataDisplay/Badge/types';
 import Tag from './components/DataDisplay/Tag';
-import TagDeleteButton from './components/DataDisplay/Tag/components/TagDeleteButton';
-import { TagDeleteIconButtonProps } from './components/DataDisplay/Tag/components/TagDeleteButton/types';
+import TagDeleteIconButton from './components/DataDisplay/Tag/components/TagDeleteIconButton';
+import { TagDeleteIconButtonProps } from './components/DataDisplay/Tag/components/TagDeleteIconButton/types';
 import TagLabel from './components/DataDisplay/Tag/components/TagLabel';
 import { TagLabelProps } from './components/DataDisplay/Tag/components/TagLabel/types';
 import { TagColor, TagContext, TagProps, TagRef, TagSize, TagVariant } from './components/DataDisplay/Tag/types';
@@ -172,6 +172,7 @@ import DummyTabList from './components/Navigation/Tabs/components/DummyTabList';
 import { DummyTabListProps } from './components/Navigation/Tabs/components/DummyTabList/types';
 import TabList from './components/Navigation/Tabs/components/TabList';
 import { TabListProps } from './components/Navigation/Tabs/components/TabList/types';
+import { Tab as TabListTab } from './components/Navigation/Tabs/components/TabList/components/Tab/types';
 import TabPanels from './components/Navigation/Tabs/components/TabPanels';
 import { TabPanelsProps } from './components/Navigation/Tabs/components/TabPanels/types';
 import Textarea from './components/Forms/Textarea';
@@ -221,7 +222,7 @@ import {
 	OnChangeProps as StepperOnChangeProps
 } from './components/Navigation/Stepper/types';
 import TabBar from './components/Navigation/TabBar';
-import { Tab } from './components/Navigation/TabBar/components/Tab/types';
+import { Tab as TabBarTab } from './components/Navigation/TabBar/components/Tab/types';
 import {
 	TabBarColor,
 	TabBarContext,
@@ -391,7 +392,7 @@ export {
 	BadgeIcon,
 	BadgeLabel,
 	Tag,
-	TagDeleteButton,
+	TagDeleteIconButton,
 	TagLabel,
 	Divider,
 	DSCLProvider,
@@ -560,6 +561,7 @@ export type {
 	TabsOnChangeProps,
 	DummyTabListProps,
 	TabListProps,
+	TabListTab,
 	TabPanelsProps,
 	TextareaAutoComplete,
 	TextareaColor,
@@ -601,7 +603,7 @@ export type {
 	SideNavigationMode,
 	SideNavigationProps,
 	SideNavigationRef,
-	Tab,
+	TabBarTab,
 	TabBarColor,
 	TabBarContext,
 	TabBarDirection,
