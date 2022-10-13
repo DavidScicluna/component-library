@@ -28,6 +28,8 @@ export type InputColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gra
 
 export type InputSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
+export type InputVariant = 'outlined' | 'transparent';
+
 export type InputPanelRenderProps = {
 	color: InputColor;
 	colorMode?: ColorMode;
@@ -75,5 +77,6 @@ export type InputProps = {
 	renderLeftPanel?: (props: InputPanelRenderProps) => ReactNode;
 	renderRightPanel?: (props: InputPanelRenderProps) => ReactNode;
 	size?: InputSize;
+	variant?: InputVariant;
 	sx?: { group?: Style; input?: Style; formLabel?: Style; formHelperText?: Style };
 } & Omit<CUIInputProps, Omitted>;

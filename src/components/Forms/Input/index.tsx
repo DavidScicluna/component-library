@@ -1,4 +1,4 @@
-import { ReactElement, useRef, useCallback } from 'react';
+import { ReactElement, forwardRef, useRef, useCallback } from 'react';
 
 import {
 	useColorMode,
@@ -30,13 +30,14 @@ import {
 	isReadOnly as defaultIsReadOnly,
 	isRequired as defaultIsRequired,
 	isFullWidth as defaultIsFullWidth,
-	size as defaultSize
+	size as defaultSize,
+	variant as defaultVariant
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
 import { InputProps, InputRef, FocusEvent } from './types';
 
-const Input = (props: InputProps): ReactElement => {
+const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): ReactElement {
 	const theme = useTheme();
 	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
@@ -63,6 +64,7 @@ const Input = (props: InputProps): ReactElement => {
 		onFocus,
 		onBlur,
 		size = defaultSize,
+		variant = defaultVariant,
 		sx,
 		...rest
 	} = props;
@@ -71,7 +73,18 @@ const Input = (props: InputProps): ReactElement => {
 
 	const isFocused: boolean = isFocusedProp || isFocusedHook;
 
-	const style = useStyles({ theme, color, colorMode, isError, isWarning, isSuccess, isFocused, isFullWidth, size });
+	const style = useStyles({
+		theme,
+		color,
+		colorMode,
+		isError,
+		isWarning,
+		isSuccess,
+		isFocused,
+		isFullWidth,
+		size,
+		variant
+	});
 
 	const handleReturnSpacing = useCallback(
 		debounce((): number => getSizeConfig({ size }).spacing, 500),
@@ -114,6 +127,7 @@ const Input = (props: InputProps): ReactElement => {
 	return (
 		<VStack
 			as={FormControl}
+			ref={ref}
 			tabIndex={0}
 			alignItems='flex-start'
 			onClick={handleClick}
@@ -202,6 +216,6 @@ const Input = (props: InputProps): ReactElement => {
 			</Collapse>
 		</VStack>
 	);
-};
+});
 
 export default Input;

@@ -1,6 +1,6 @@
 import { ColorMode } from '@chakra-ui/react';
 
-import { InputAutoComplete, InputSize } from '../../types';
+import { InputAutoComplete, InputSize, InputVariant } from '../../types';
 
 export const autoComplete: InputAutoComplete = 'off';
 
@@ -16,3 +16,5 @@ export const isRequired = false;
 export const isFullWidth = true;
 
 export const size: InputSize = 'md';
+
+export const variant: InputVariant = 'outlined';
