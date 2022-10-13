@@ -7,7 +7,8 @@ import {
 	isWarning as defaultIsWarning,
 	isFocused as defaultIsFocused,
 	isFullWidth as defaultIsFullWidth,
-	size as defaultSize
+	size as defaultSize,
+	variant as defaultVariant
 } from '../data/defaultPropValues';
 
 import dark from './dark';
@@ -28,7 +29,8 @@ export default memoize((props: InputStyleProps): InputStyleReturn => {
 		isWarning = defaultIsWarning,
 		isFocused = defaultIsFocused,
 		isFullWidth = defaultIsFullWidth,
-		size = defaultSize
+		size = defaultSize,
+		variant = defaultVariant
 	} = props;
 
 	const scheme = colorMode === 'light' ? light : dark;
@@ -37,17 +39,17 @@ export default memoize((props: InputStyleProps): InputStyleReturn => {
 		group: merge(
 			group({ theme, isFullWidth, size }),
 			isError || isSuccess || isWarning || isFocused
-				? scheme.focused({
+				? scheme[variant].focused({
 						theme,
 						color,
 						isError,
 						isSuccess,
 						isWarning
 				  })
-				: scheme.group({ theme })
+				: scheme[variant].group({ theme })
 		),
-		disabled: merge(disabled(), scheme.disabled({ theme })),
-		readOnly: merge(readOnly(), scheme.readOnly({ theme })),
+		disabled: merge(disabled(), scheme[variant].disabled({ theme })),
+		readOnly: merge(readOnly(), scheme[variant].readOnly({ theme })),
 		input: input({ theme, size })
 	};
 });

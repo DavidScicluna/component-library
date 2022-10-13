@@ -2,7 +2,16 @@ import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';
 import { InputProps } from '../../types';
 
-type Picked = 'color' | 'colorMode' | 'isError' | 'isWarning' | 'isSuccess' | 'isFocused' | 'isFullWidth' | 'size';
+type Picked =
+	| 'color'
+	| 'colorMode'
+	| 'isError'
+	| 'isWarning'
+	| 'isSuccess'
+	| 'isFocused'
+	| 'isFullWidth'
+	| 'size'
+	| 'variant';
 
 export type InputStyleProps = {
 	theme: Theme;

@@ -33,11 +33,5 @@ export default ({ theme, size = defaultSize }: InputStyleProps): Style => ({
 	'p': 0,
 	'm': 0,
 
-	'transition': 'none',
-	'transitionDuration': theme.transition.duration.normal,
-	'transitionTimingFunction': theme.transition.easing['ease-in-out'],
-
-	'&:focus': {
-		boxShadow: 'none'
-	}
+	'&:focus': { boxShadow: 'none' }
 });

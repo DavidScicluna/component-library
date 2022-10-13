@@ -16,6 +16,11 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 
 	const radius: Radius = size === 'xs' || size === 'sm' ? 'xs' : size === 'lg' || size === 'xl' ? 'lg' : 'base';
 
+	const transition = 'none';
+	const transitionProperty = transition;
+	const transitionDuration = transition;
+	const transitionTimingFunction = transition;
+
 	return {
 		'cursor': 'text',
 
@@ -45,6 +50,11 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 		'px': `${theme.space[padding.x]} !important`,
 		'py': `${theme.space[padding.y]} !important`,
 
+		'transition': transition,
+		'transitionProperty': transitionProperty,
+		'transitionDuration': transitionDuration,
+		'transitionTimingFunction': transitionTimingFunction,
+
 		'&:focus:not(:focus-visible)': {
 			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
 		},
@@ -56,21 +66,13 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 
 		'&:active': {
 			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
+		},
+
+		'*, *::before, *::after': {
+			transition,
+			transitionProperty,
+			transitionDuration,
+			transitionTimingFunction
 		}
-
-		// '& svg, .ds-cl-icon': {
-		// 	width: theme.fontSizes[size],
-		// 	height: theme.fontSizes[size],
-		// 	maxWidth: theme.fontSizes[size],
-		// 	maxHeight: theme.fontSizes[size],
-
-		// 	fontSize: theme.fontSizes[size],
-
-		// 	userSelect: 'none',
-
-		// 	transition: 'none',
-		// 	transitionDuration: theme.transition.duration.normal,
-		// 	transitionTimingFunction: theme.transition.easing['ease-in-out']
-		// },
 	};
 };
