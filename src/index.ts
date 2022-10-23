@@ -257,6 +257,8 @@ import ModalFooter from './components/Overlay/Modal/components/ModalFooter';
 import { ModalFooterProps } from './components/Overlay/Modal/components/ModalFooter/types';
 import ModalHeader from './components/Overlay/Modal/components/ModalHeader';
 import { ModalHeaderProps } from './components/Overlay/Modal/components/ModalHeader/types';
+import ModalStack from './components/Overlay/Modal/components/ModalStack';
+import { ModalStackProps } from './components/Overlay/Modal/components/ModalStack/types';
 import { ModalProps } from './components/Overlay/Modal/types';
 import Tooltip from './components/Overlay/Tooltip';
 import { TooltipColor, TooltipProps, TooltipRef } from './components/Overlay/Tooltip/types';
@@ -431,6 +433,7 @@ export {
 	ModalBody,
 	ModalFooter,
 	ModalHeader,
+	ModalStack,
 	Skeleton,
 	SideNavigation,
 	NavGroup,
@@ -592,6 +595,7 @@ export type {
 	ModalBodyProps,
 	ModalFooterProps,
 	ModalHeaderProps,
+	ModalStackProps,
 	ModalProps,
 	TooltipColor,
 	TooltipProps,

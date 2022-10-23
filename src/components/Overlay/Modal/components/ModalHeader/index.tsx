@@ -52,6 +52,7 @@ const ModalHeader: FC<ModalHeaderProps> = (props) => {
 						align: 'left',
 						color: getColor({ theme, colorMode, type: 'text.secondary' }),
 						fontSize: 'sm',
+						fontWeight: 'normal',
 						noOfLines: 1
 					})}
 			</VStack>

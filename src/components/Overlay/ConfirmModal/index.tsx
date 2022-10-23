@@ -13,7 +13,7 @@ import {
 import { ConfirmModalContext as ConfirmModalContextType, ConfirmModalProps } from './types';
 
 export const ConfirmModalContext = createContext<ConfirmModalContextType>({
-	colorMode: 'light',
+	colorMode: defaultColorMode,
 	onClose: () => {
 		return;
 	}

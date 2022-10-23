@@ -1,10 +1,8 @@
 import { FC, createContext } from 'react';
 
-import { useColorMode, useMediaQuery, Modal as CUIModal, ModalOverlay, ModalContent, VStack } from '@chakra-ui/react';
+import { useColorMode, useMediaQuery, Modal as CUIModal, ModalOverlay } from '@chakra-ui/react';
 
 import { useTheme } from '../../../common/hooks';
-import { getColor } from '../../../common/utils/color';
-import Divider from '../../Divider';
 
 import {
 	colorMode as defaultColorMode,
@@ -16,9 +14,8 @@ import { ModalContext as ModalContextType, ModalProps } from './types';
 
 export const ModalContext = createContext<ModalContextType>({
 	colorMode: 'light',
-	onClose: () => {
-		return;
-	},
+	onClose: () => undefined,
+	size: defaultSize,
 	spacing: defaultSpacing
 });
 
@@ -26,7 +23,7 @@ const Modal: FC<ModalProps> = (props) => {
 	const theme = useTheme();
 	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
-	const [isXs] = useMediaQuery('(max-width: 600px)');
+	const [isSm] = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
 	const {
 		children,
@@ -46,21 +43,12 @@ const Modal: FC<ModalProps> = (props) => {
 			isCentered
 			motionPreset='slideInBottom'
 			scrollBehavior='inside'
-			size={size === 'full' || isXs ? 'full' : size}
+			size={size === 'full' || isSm ? 'full' : size}
 		>
-			<ModalContext.Provider value={{ colorMode, onClose, spacing }}>
+			<ModalContext.Provider value={{ colorMode, onClose, size, spacing }}>
 				<ModalOverlay />
-				<VStack
-					as={ModalContent}
-					width='100%'
-					divider={<Divider colorMode={colorMode} />}
-					backgroundColor={getColor({ theme, colorMode, type: 'background' })}
-					borderRadius={size === 'full' || isXs ? 'none' : 'xl'}
-					spacing={spacing}
-					p={spacing}
-				>
-					{children}
-				</VStack>
+
+				{children}
 			</ModalContext.Provider>
 		</CUIModal>
 	);

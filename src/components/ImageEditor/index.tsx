@@ -7,6 +7,7 @@ import { debounce } from 'lodash';
 
 import { Nullable } from '../../common/types';
 import Modal from '../Overlay/Modal';
+import ModalStack from '../Overlay/Modal/components/ModalStack';
 import ModalHeader from '../Overlay/Modal/components/ModalHeader';
 import IconButton from '../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
@@ -111,51 +112,53 @@ const ImageEditor: FC<ImageEditorProps> = (props) => {
 	return (
 		<ImageEditorContext.Provider value={{ color, colorMode, mode, zoom }}>
 			<Modal colorMode={colorMode} isOpen={isOpen} onClose={handleClose} size='4xl'>
-				<ModalHeader
-					renderTitle={(props) => <Text {...props}>{title}</Text>}
-					renderCancel={({ icon, category, ...rest }) => (
-						<IconButton {...rest}>
-							<IconButtonIcon icon={icon} category={category} />
-						</IconButton>
-					)}
-				/>
-				<Center
-					width='100%'
-					height='50vh'
-					position='relative'
-					borderRadius='lg'
-					overflowX='hidden'
-					overflowY='hidden'
-				>
-					<Cropper
-						image={image}
-						crop={crop}
-						zoom={zoom}
-						rotation={rotation}
-						aspect={cropValue
-							.split(':')
-							.map((item) => Number(item))
-							.reduce((a, b) => a / b)}
-						showGrid
-						onCropChange={setCrop}
-						onRotationChange={setRotation}
-						onCropComplete={handleCropComplete}
-						onZoomChange={setZoom}
+				<ModalStack>
+					<ModalHeader
+						renderTitle={(props) => <Text {...props}>{title}</Text>}
+						renderCancel={({ icon, category, ...rest }) => (
+							<IconButton {...rest}>
+								<IconButtonIcon icon={icon} category={category} />
+							</IconButton>
+						)}
 					/>
-				</Center>
-				<Mode
-					cropID={cropID}
-					cropValue={cropValue}
-					rotation={rotation}
-					onCrop={handleCrop}
-					onRotate={handleRotation}
-				/>
-				<Actions
-					onSelectTool={handleSelectMode}
-					onZoom={handleZoom}
-					onCancel={handleClose}
-					onSave={handleCropImage}
-				/>
+					<Center
+						width='100%'
+						height='50vh'
+						position='relative'
+						borderRadius='lg'
+						overflowX='hidden'
+						overflowY='hidden'
+					>
+						<Cropper
+							image={image}
+							crop={crop}
+							zoom={zoom}
+							rotation={rotation}
+							aspect={cropValue
+								.split(':')
+								.map((item) => Number(item))
+								.reduce((a, b) => a / b)}
+							showGrid
+							onCropChange={setCrop}
+							onRotationChange={setRotation}
+							onCropComplete={handleCropComplete}
+							onZoomChange={setZoom}
+						/>
+					</Center>
+					<Mode
+						cropID={cropID}
+						cropValue={cropValue}
+						rotation={rotation}
+						onCrop={handleCrop}
+						onRotate={handleRotation}
+					/>
+					<Actions
+						onSelectTool={handleSelectMode}
+						onZoom={handleZoom}
+						onCancel={handleClose}
+						onSave={handleCropImage}
+					/>
+				</ModalStack>
 			</Modal>
 		</ImageEditorContext.Provider>
 	);

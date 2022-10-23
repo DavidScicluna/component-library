@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 
 import { Box, Text } from '@chakra-ui/react';
 
-import { Modal as ModalComponent, ModalProps, ModalBody, ModalFooter, ModalHeader } from '../../..';
+import { Modal as ModalComponent, ModalProps, ModalStack, ModalBody, ModalFooter, ModalHeader } from '../../..';
 import {
 	isOpen as defaultIsOpen,
 	size as defaultSize,
@@ -43,17 +43,19 @@ export default {
 
 export const Modal: Story = (props: ModalProps): ReactElement => (
 	<ModalComponent {...props}>
-		<ModalHeader
-			renderTitle={(props) => <Text {...props}>Title</Text>}
-			renderSubtitle={(props) => <Text {...props}>Subtitle</Text>}
-			renderCancel={() => <Box width='42px' height='42px' backgroundColor='red.300' borderRadius='base' />}
-		/>
-		<ModalBody>
-			<Box width='100%' p={4} backgroundColor='red.400' borderRadius='base' />
-		</ModalBody>
-		<ModalFooter
-			renderCancel={() => <Box width='87.7px' height='42px' backgroundColor='red.500' borderRadius='base' />}
-			renderAction={() => <Box width='87.7px' height='42px' backgroundColor='red.600' borderRadius='base' />}
-		/>
+		<ModalStack>
+			<ModalHeader
+				renderTitle={(props) => <Text {...props}>Title</Text>}
+				renderSubtitle={(props) => <Text {...props}>Subtitle</Text>}
+				renderCancel={() => <Box width='42px' height='42px' backgroundColor='red.300' borderRadius='base' />}
+			/>
+			<ModalBody>
+				<Box width='100%' p={4} backgroundColor='red.400' borderRadius='base' />
+			</ModalBody>
+			<ModalFooter
+				renderCancel={() => <Box width='87.7px' height='42px' backgroundColor='red.500' borderRadius='base' />}
+				renderAction={() => <Box width='87.7px' height='42px' backgroundColor='red.600' borderRadius='base' />}
+			/>
+		</ModalStack>
 	</ModalComponent>
 );
