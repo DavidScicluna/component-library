@@ -6,6 +6,7 @@ import {
 	ButtonGroupProps,
 	ButtonGroupSize,
 	ButtonGroup as ButtonGroupComponent,
+	ButtonGroupItem,
 	IconButton,
 	IconButtonIcon
 } from '../../..';
@@ -48,20 +49,30 @@ export default {
 
 export const ButtonGroup: Story = (props: ButtonGroupProps): ReactElement => (
 	<ButtonGroupComponent {...props}>
-		<IconButton aria-label='IconButton01' color='green' size={props.size}>
-			<IconButtonIcon icon={sample(icons) || icons[0]} />
-		</IconButton>
-		<IconButton aria-label='IconButton02' color='green' size={props.size}>
-			<IconButtonIcon icon={sample(icons) || icons[50]} />
-		</IconButton>
-		<IconButton aria-label='IconButton03' color='green' size={props.size}>
-			<IconButtonIcon icon={sample(icons) || icons[100]} />
-		</IconButton>
-		<IconButton aria-label='IconButton04' color='green' size={props.size}>
-			<IconButtonIcon icon={sample(icons) || icons[150]} />
-		</IconButton>
-		<IconButton aria-label='IconButton04' color='green' size={props.size}>
-			<IconButtonIcon icon={sample(icons) || icons[200]} />
-		</IconButton>
+		<ButtonGroupItem index={0} total={5}>
+			<IconButton aria-label='IconButton01' color='green' size={props.size}>
+				<IconButtonIcon icon={sample(icons) || icons[0]} />
+			</IconButton>
+		</ButtonGroupItem>
+		<ButtonGroupItem index={1} total={5}>
+			<IconButton aria-label='IconButton02' color='green' size={props.size}>
+				<IconButtonIcon icon={sample(icons) || icons[50]} />
+			</IconButton>
+		</ButtonGroupItem>
+		<ButtonGroupItem index={2} total={5}>
+			<IconButton aria-label='IconButton03' color='green' size={props.size}>
+				<IconButtonIcon icon={sample(icons) || icons[100]} />
+			</IconButton>
+		</ButtonGroupItem>
+		<ButtonGroupItem index={3} total={5}>
+			<IconButton aria-label='IconButton04' color='green' size={props.size}>
+				<IconButtonIcon icon={sample(icons) || icons[150]} />
+			</IconButton>
+		</ButtonGroupItem>
+		<ButtonGroupItem index={4} total={5}>
+			<IconButton aria-label='IconButton04' color='green' size={props.size}>
+				<IconButtonIcon icon={sample(icons) || icons[200]} />
+			</IconButton>
+		</ButtonGroupItem>
 	</ButtonGroupComponent>
 );
