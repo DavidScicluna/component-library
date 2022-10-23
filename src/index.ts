@@ -64,6 +64,8 @@ import { CardHeaderProps } from './components/Cards/OriginalCard/components/Card
 import { CardContext, CardProps, CardRef } from './components/Cards/OriginalCard/types';
 import ButtonGroup from './components/Clickable/ButtonGroup';
 import { ButtonGroupProps, ButtonGroupRef, ButtonGroupSize } from './components/Clickable/ButtonGroup/types';
+import ButtonGroupItem from './components/Clickable/ButtonGroup/components/ButtonGroupItem';
+import { ButtonGroupItemProps } from './components/Clickable/ButtonGroup/components/ButtonGroupItem/types';
 import { ButtonColor, ButtonSize, ButtonVariant } from './components/Clickable/Buttons/common/types';
 import DummyButton from './components/Clickable/Buttons/DummyButton';
 import { DummyButtonProps } from './components/Clickable/Buttons/DummyButton/types';
@@ -383,6 +385,7 @@ export {
 	DummyButton,
 	Button,
 	ButtonGroup,
+	ButtonGroupItem,
 	CollapsibleCard,
 	CollapsibleCardBody,
 	CollapsibleCardDivider,
@@ -494,6 +497,7 @@ export type {
 	ButtonGroupProps,
 	ButtonGroupRef,
 	ButtonGroupSize,
+	ButtonGroupItemProps,
 	CollapsibleCardColor,
 	CollapsibleCardContext,
 	CollapsibleCardProps,
