@@ -6,4 +6,4 @@ export const isDisabled = false;
 
 export const opened: OpenedAccordions<unknown> = [];
 
-export const setOpened = () => console.log('');
+export const setOpened = () => undefined;

@@ -18,6 +18,7 @@ import { ActionsProps } from './types';
 
 const Actions: FC<ActionsProps> = ({ onSelectTool, onZoom, onCancel, onSave }) => {
 	const theme = useTheme();
+
 	const [isMd] = useMediaQuery(`(min-width: ${theme.breakpoints.md})`);
 
 	const { colorMode = defaultColorMode } = useContext<ImageEditorContextType>(ImageEditorContext);

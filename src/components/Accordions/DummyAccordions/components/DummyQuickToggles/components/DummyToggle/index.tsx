@@ -9,17 +9,20 @@ import Icon from '../../../../../../Icon';
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../common/data/defaultPropValues';
 import { size as defaultSize } from '../../../../../OriginalAccordions/components/QuickToggles/common/data/defaultPropValues';
 import { DummyAccordionsContext as DummyAccordionsContextType } from '../../../../types';
+import { useTheme } from '../../../../../../../common/hooks';
 
 import { DummyToggleProps } from './types';
 
 const DummyToggle: FC<DummyToggleProps> = (props) => {
-	const [isXs] = useMediaQuery('(max-width: 600px)');
+	const theme = useTheme();
+
+	const [isSm] = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
 	const { colorMode = defaultColorMode } = useContext<DummyAccordionsContextType>(DummyAccordionsContext);
 
 	const { color = defaultColor, size = defaultSize } = props;
 
-	return isXs ? (
+	return isSm ? (
 		<DummyIconButton aria-label='Dummy Show all' color={color} colorMode={colorMode} size={size} variant='icon'>
 			<Icon icon='playlist_add_check' />
 		</DummyIconButton>

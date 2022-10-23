@@ -16,11 +16,14 @@ import {
 import { toggleAllAccordions } from '../../../../common/utils';
 import { AccordionsContext as AccordionsContextType } from '../../../../types';
 import { size as defaultSize } from '../../common/data/defaultPropValues';
+import { useTheme } from '../../../../../../../common/hooks';
 
 import { ToggleProps } from './types';
 
 const Toggle = <D,>(props: ToggleProps<D>): ReactElement => {
-	const [isXs] = useMediaQuery('(max-width: 600px)');
+	const theme = useTheme();
+
+	const [isSm] = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
 	const {
 		accordions = defaultAccordions,
@@ -37,7 +40,7 @@ const Toggle = <D,>(props: ToggleProps<D>): ReactElement => {
 		setOpened(toggleAllAccordions({ accordions, opened: opened.length }));
 	}, [accordions, opened]);
 
-	return isXs ? (
+	return isSm ? (
 		<IconButton
 			aria-label={hasOpened ? 'Hide all' : 'Show all'}
 			color={color}

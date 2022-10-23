@@ -19,6 +19,7 @@ import { NextProps } from './types';
 
 const Next: FC<NextProps> = (props) => {
 	const theme = useTheme();
+
 	const [isMd] = useMediaQuery(`(min-width: ${theme.breakpoints.md})`);
 
 	const { color = defaultColor, colorMode = defaultColorMode } = useContext<StepperContextType>(StepperContext);

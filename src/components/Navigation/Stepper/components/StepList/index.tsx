@@ -26,6 +26,7 @@ export const height = '112px';
 
 const StepList: FC<StepListProps> = ({ children = [], isDisabled = defaultIsDisabled }) => {
 	const theme = useTheme();
+
 	const [isMd] = useMediaQuery(`(min-width: ${theme.breakpoints.md})`);
 
 	const {

@@ -18,6 +18,7 @@ import { CancelProps } from './types';
 
 const Cancel: FC<CancelProps> = ({ isDisabled = defaultIsDisabled }) => {
 	const theme = useTheme();
+
 	const [isMd] = useMediaQuery(`(min-width: ${theme.breakpoints.md})`);
 
 	const {

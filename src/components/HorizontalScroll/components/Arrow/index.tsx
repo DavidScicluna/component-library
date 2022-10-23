@@ -27,7 +27,7 @@ import { ArrowProps } from './types';
 const Arrow: FC<ArrowProps> = (props) => {
 	const theme = useTheme();
 
-	const [isXs] = useMediaQuery('(max-width: 600px)');
+	const [isSm] = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
 	const { colorMode = defaultColorMode, isDisabled: isDisabledHook = defaultIsDisabled } =
 		useContext<HorizontalScrollContextType>(HorizontalScrollContext);
@@ -129,7 +129,7 @@ const Arrow: FC<ArrowProps> = (props) => {
 						aria-label={`${capitalize(direction)} Arrow Button`}
 						colorMode={colorMode}
 						isDisabled={isDisabled}
-						size={isXs ? 'sm' : 'md'}
+						size={isSm ? 'sm' : 'md'}
 						variant='icon'
 						sx={{ height: '100%' }}
 					>
