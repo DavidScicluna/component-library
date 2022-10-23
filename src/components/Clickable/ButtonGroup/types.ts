@@ -49,3 +49,5 @@ export type ButtonGroupProps = {
 	children?: ReactElement[];
 	size?: ButtonGroupSize;
 } & Omit<CUIButtonGroupProps, Omitted>;
+
+export type ButtonGroupContext = Pick<ButtonGroupProps, 'isAttached' | 'size'>;

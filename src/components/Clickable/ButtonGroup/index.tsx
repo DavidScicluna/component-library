@@ -1,8 +1,6 @@
-import { ReactElement, forwardRef, useCallback } from 'react';
+import { ReactElement, createContext, forwardRef } from 'react';
 
-import { ButtonGroup as CUIButtonGroup, Center } from '@chakra-ui/react';
-
-import { useTheme } from '../../../common/hooks';
+import { ButtonGroup as CUIButtonGroup } from '@chakra-ui/react';
 
 import {
 	children as defaultChildren,
@@ -10,11 +8,14 @@ import {
 	size as defaultSize,
 	spacing as defaultSpacing
 } from './common/data/defaultPropValues';
-import { ButtonGroupRef, ButtonGroupProps } from './types';
+import { ButtonGroupContext as ButtonGroupContextType, ButtonGroupRef, ButtonGroupProps } from './types';
+
+export const ButtonGroupContext = createContext<ButtonGroupContextType>({
+	isAttached: defaultIsAttached,
+	size: defaultSize
+});
 
 const ButtonGroup = forwardRef<ButtonGroupRef, ButtonGroupProps>(function ButtonGroup(props, ref): ReactElement {
-	const theme = useTheme();
-
 	const {
 		children = defaultChildren,
 		isAttached = defaultIsAttached,
@@ -23,45 +24,12 @@ const ButtonGroup = forwardRef<ButtonGroupRef, ButtonGroupProps>(function Button
 		...rest
 	} = props;
 
-	const handleGetRadius = useCallback((): string => {
-		switch (size) {
-			case 'xs':
-			case 'sm':
-				return theme.radii.xs;
-			case 'lg':
-			case 'xl':
-				return theme.radii.lg;
-			default:
-				return theme.radii.base;
-		}
-	}, [theme, size]);
-
-	const handleReturnRadius = useCallback(
-		(index: number): string => {
-			const radius = handleGetRadius();
-
-			if (index === 0) {
-				return `${radius} 0 0 ${radius} !important`;
-			} else if (index === children.length - 1) {
-				return `0 ${radius} ${radius} 0 !important`;
-			} else {
-				return '0px !important';
-			}
-		},
-		[children, handleGetRadius]
-	);
-
 	return (
-		<CUIButtonGroup {...rest} ref={ref} isAttached={isAttached} spacing={spacing}>
-			{children.map((child, index: number) => (
-				<Center
-					key={index}
-					sx={isAttached ? { '*, *::before, *::after': { borderRadius: handleReturnRadius(index) } } : {}}
-				>
-					{child}
-				</Center>
-			))}
-		</CUIButtonGroup>
+		<ButtonGroupContext.Provider value={{ isAttached, size }}>
+			<CUIButtonGroup {...rest} ref={ref} isAttached={isAttached} spacing={spacing}>
+				{children}
+			</CUIButtonGroup>
+		</ButtonGroupContext.Provider>
 	);
 });
 
