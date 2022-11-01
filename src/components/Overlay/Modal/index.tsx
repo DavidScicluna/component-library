@@ -1,8 +1,9 @@
 import { FC, createContext } from 'react';
 
-import { useColorMode, useMediaQuery, Modal as CUIModal, ModalOverlay } from '@chakra-ui/react';
+import { useColorMode, useMediaQuery, Modal as CUIModal, ModalOverlay, ModalContent } from '@chakra-ui/react';
 
 import { useTheme } from '../../../common/hooks';
+import { getColor } from '../../../common/utils/color';
 
 import {
 	colorMode as defaultColorMode,
@@ -48,7 +49,13 @@ const Modal: FC<ModalProps> = (props) => {
 			<ModalContext.Provider value={{ colorMode, onClose, size, spacing }}>
 				<ModalOverlay />
 
-				{children}
+				<ModalContent
+					height='100%'
+					backgroundColor={getColor({ theme, colorMode, type: 'background' })}
+					borderRadius={size === 'full' || isSm ? 'none' : 'xl'}
+				>
+					{children}
+				</ModalContent>
 			</ModalContext.Provider>
 		</CUIModal>
 	);

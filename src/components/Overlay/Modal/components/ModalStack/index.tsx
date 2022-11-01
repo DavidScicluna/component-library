@@ -1,6 +1,6 @@
 import { FC, useContext } from 'react';
 
-import { useMediaQuery, ModalContent, VStack } from '@chakra-ui/react';
+import { useMediaQuery, VStack } from '@chakra-ui/react';
 
 import {
 	colorMode as defaultColorMode,
@@ -27,22 +27,18 @@ const ModalStack: FC<ModalStackProps> = ({ children, isDivisible = true, p, ...r
 	} = useContext<ModalContextType>(ModalContext);
 
 	return (
-		<ModalContent
+		<VStack
+			{...rest}
+			width='100%'
+			height='100%'
+			divider={isDivisible ? <Divider colorMode={colorMode} /> : undefined}
 			backgroundColor={getColor({ theme, colorMode, type: 'background' })}
 			borderRadius={size === 'full' || isSm ? 'none' : 'xl'}
+			spacing={spacing}
+			p={p || spacing}
 		>
-			<VStack
-				{...rest}
-				width='100%'
-				divider={isDivisible ? <Divider colorMode={colorMode} /> : undefined}
-				backgroundColor={getColor({ theme, colorMode, type: 'background' })}
-				borderRadius={size === 'full' || isSm ? 'none' : 'xl'}
-				spacing={spacing}
-				p={p || spacing}
-			>
-				{children}
-			</VStack>
-		</ModalContent>
+			{children}
+		</VStack>
 	);
 };
 
