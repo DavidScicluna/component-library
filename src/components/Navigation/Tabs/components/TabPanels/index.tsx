@@ -1,6 +1,6 @@
 import { FC, useContext } from 'react';
 
-import { useConst, TabPanels as CUITabPanels, TabPanel, Center } from '@chakra-ui/react';
+import { useConst, TabPanels as CUITabPanels, TabPanel } from '@chakra-ui/react';
 
 import { Transition, AnimatePresence } from 'framer-motion';
 
@@ -31,7 +31,7 @@ const TabPanels: FC<TabPanelsProps> = ({ children, ...rest }) => {
 			{children.map((panel, index) => (
 				<TabPanel key={`ds-cl-tabs-tab-panel-${index}`} width='100%' p={0}>
 					<Fade in={activeTab === index} transition={{ enter: { ...config }, exit: { ...config } }}>
-						<Center width='100%'>{panel}</Center>
+						{panel}
 					</Fade>
 				</TabPanel>
 			))}
