@@ -1,4 +1,4 @@
-import { ReactElement, useRef, useCallback } from 'react';
+import { ReactElement, useRef, useCallback, useEffect } from 'react';
 
 import {
 	useColorMode,
@@ -106,6 +106,8 @@ const Textarea = (props: TextareaProps): ReactElement => {
 			onBlur(event);
 		}
 	};
+
+	useEffect(() => (isFocused ? handleContainerClick() : undefined), [isFocused]);
 
 	return (
 		<VStack
