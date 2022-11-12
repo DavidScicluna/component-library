@@ -40,9 +40,10 @@ type Omitted =
 export type SideNavigationProps = Omit<StackProps, Omitted> & {
 	color: SideNavigationColor;
 	colorMode?: ColorMode;
+	isDrawer?: boolean;
 	mode?: SideNavigationMode;
 };
 
 export type SideNavigationRef = HTMLDivElement | null;
 
-export type SideNavigationContext = Pick<SideNavigationProps, 'color' | 'colorMode' | 'mode'>;
+export type SideNavigationContext = Pick<SideNavigationProps, 'color' | 'colorMode' | 'isDrawer' | 'mode'>;

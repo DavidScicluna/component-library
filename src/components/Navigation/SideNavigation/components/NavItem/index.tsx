@@ -1,6 +1,6 @@
 import { FC, useContext, useCallback } from 'react';
 
-import { useConst, HStack, Center, Box, Text } from '@chakra-ui/react';
+import { useConst, HStack, Center, Text } from '@chakra-ui/react';
 
 import { Transition } from 'framer-motion';
 import { merge } from 'lodash';
@@ -14,6 +14,7 @@ import { getDelay as getTransitionDelay } from '../../../../Transitions/common/u
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
+	isDrawer as defaultIsDrawer,
 	mode as defaultMode
 } from '../../common/data/defaultPropValues';
 import { SideNavigationContext as SideNavigationContextType } from '../../types';
@@ -30,6 +31,7 @@ const NavItem: FC<NavItemProps> = (props) => {
 	const {
 		color = defaultColor,
 		colorMode = defaultColorMode,
+		isDrawer = defaultIsDrawer,
 		mode = defaultMode
 	} = useContext<SideNavigationContextType>(SideNavigationContext);
 
@@ -50,7 +52,7 @@ const NavItem: FC<NavItemProps> = (props) => {
 
 	const style = useStyles({ theme, color, colorMode, isActive, mode });
 
-	const delay = useConst<number>(getTransitionDelay({ theme, duration: 'ultra-slow' }));
+	const delay = useConst<number>(getTransitionDelay({ theme, duration: 'slow' }) * 2);
 	const config = useConst<Transition>({ delay });
 
 	const handleTextWidth = useCallback((): string => {
@@ -83,25 +85,21 @@ const NavItem: FC<NavItemProps> = (props) => {
 				)}
 
 				<Fade
-					in={mode === 'expanded'}
-					unmountOnExit
-					style={{ flex: 1 }}
-					transition={{ enter: { ...config } }}
-					initial={false}
+					in={isDrawer || mode === 'expanded'}
+					transition={isDrawer ? { enter: { duration: 0 }, exit: { duration: 0 } } : { enter: { ...config } }}
+					style={{ width: handleTextWidth(), flex: 1 }}
 				>
-					<Box width={handleTextWidth()}>
-						<Text
-							align={mode === 'expanded' ? 'left' : 'center'}
-							fontSize='md'
-							fontWeight='semibold'
-							textTransform='uppercase'
-							lineHeight='base'
-							letterSpacing='.6px'
-							noOfLines={1}
-						>
-							{title}
-						</Text>
-					</Box>
+					<Text
+						align={mode === 'expanded' ? 'left' : 'center'}
+						fontSize='md'
+						fontWeight='semibold'
+						textTransform='uppercase'
+						lineHeight='base'
+						letterSpacing='.6px'
+						noOfLines={1}
+					>
+						{title}
+					</Text>
 				</Fade>
 
 				{renderRightIcon && (
