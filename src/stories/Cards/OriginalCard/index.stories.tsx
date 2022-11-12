@@ -25,7 +25,8 @@ import {
 } from '../../../components/Cards/common/data/defaultPropValues';
 import {
 	isClickable as defaultIsClickable,
-	isDisabled as defaultIsDisabled
+	isDisabled as defaultIsDisabled,
+	isFixed as defaultIsFixed
 } from '../../../components/Cards/OriginalCard/common/data/defaultPropValues';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
@@ -86,6 +87,13 @@ export default {
 			name: 'Light',
 			type: 'boolean',
 			defaultValue: defaultIsLight,
+			// description: '',
+			control: 'boolean'
+		},
+		isFixed: {
+			name: 'Fixed',
+			type: 'boolean',
+			defaultValue: defaultIsFixed,
 			// description: '',
 			control: 'boolean'
 		},
