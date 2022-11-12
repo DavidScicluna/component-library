@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 
-import { useColorMode, Center, Skeleton as CUISkeleton } from '@chakra-ui/react';
+import { useColorMode, Box, Skeleton as CUISkeleton } from '@chakra-ui/react';
 
 import { AnimatePresence } from 'framer-motion';
 import { round } from 'lodash';
@@ -32,6 +32,9 @@ const Skeleton: FC<SkeletonProps> = (props) => {
 		children,
 		color = defaultColor,
 		colorMode = colorModeHook,
+		borderRadius,
+		startColor,
+		endColor,
 		isLoaded = defaultIsLoaded,
 		isReversed = defaultIsReversed,
 		transition,
@@ -41,11 +44,13 @@ const Skeleton: FC<SkeletonProps> = (props) => {
 	} = props;
 
 	const handleReturnSpeed = useCallback((): number => {
-		if (speed) {
-			return speed;
+		const defaultSpeed: number = convertStringToNumber(theme.transition.duration['slower'] || '750ms', 'ms') / 1000;
+
+		if (typeof speed === 'number') {
+			return String(speed).length > 0 ? speed : defaultSpeed;
 		}
 
-		return convertStringToNumber(theme.transition.duration['slower'] || '750ms', 'ms') / 1000;
+		return defaultSpeed;
 	}, [theme, speed, convertStringToNumber]);
 
 	const handleReturnDuration = useCallback((): number => {
@@ -57,7 +62,7 @@ const Skeleton: FC<SkeletonProps> = (props) => {
 	}, [theme, getSkeletonDelay]);
 
 	return (
-		<Center ref={childrenRef} width='auto' height='auto'>
+		<Box {...rest} ref={childrenRef}>
 			<AnimatePresence exitBeforeEnter initial={false}>
 				{isLoaded && (
 					<SlideFade
@@ -71,7 +76,6 @@ const Skeleton: FC<SkeletonProps> = (props) => {
 								exit: { duration: handleReturnDuration(), delay: handleReturnDelay() }
 							}
 						}
-						unmountOnExit
 						style={{ width: '100%', height: '100%' }}
 					>
 						{children}
@@ -88,45 +92,52 @@ const Skeleton: FC<SkeletonProps> = (props) => {
 							enter: { duration: handleReturnDuration(), delay: handleReturnDelay() },
 							exit: { duration: handleReturnDuration(), delay: handleReturnDelay() }
 						}}
-						unmountOnExit
 						style={{ width: '100%', height: '100%' }}
 					>
 						<CUISkeleton
 							borderRadius={
+								borderRadius ||
 								theme.radii[variant === 'rectangle' ? 'base' : variant === 'text' ? 'xs' : 'full']
 							}
+							isLoaded={false}
 							fadeDuration={0}
 							speed={handleReturnSpeed()}
-							startColor={getSkeletonAnimationColor({
-								color,
-								colorMode,
-								hex: getColor({
-									theme,
+							startColor={
+								startColor ||
+								getSkeletonAnimationColor({
+									color,
 									colorMode,
-									color: color === 'white' || color === 'black' ? 'gray' : color,
-									type: color === 'white' ? 'lightest' : color === 'black' ? 'darkest' : 'divider'
-								}),
-								type: 'start'
-							})}
-							endColor={getSkeletonAnimationColor({
-								color,
-								colorMode,
-								hex: getColor({
-									theme,
+									hex: getColor({
+										theme,
+										colorMode,
+										color: color === 'white' || color === 'black' ? 'gray' : color,
+										type: color === 'white' ? 'lightest' : color === 'black' ? 'darkest' : 'divider'
+									}),
+									type: 'start'
+								})
+							}
+							endColor={
+								endColor ||
+								getSkeletonAnimationColor({
+									color,
 									colorMode,
-									color: color === 'white' || color === 'black' ? 'gray' : color,
-									type: color === 'white' ? 'lightest' : color === 'black' ? 'darkest' : 'divider'
-								}),
-								type: 'end'
-							})}
-							{...rest}
+									hex: getColor({
+										theme,
+										colorMode,
+										color: color === 'white' || color === 'black' ? 'gray' : color,
+										type: color === 'white' ? 'lightest' : color === 'black' ? 'darkest' : 'divider'
+									}),
+									type: 'end'
+								})
+							}
+							sx={{ width: '100%', height: '100%' }}
 						>
 							{children}
 						</CUISkeleton>
 					</SlideFade>
 				)}
 			</AnimatePresence>
-		</Center>
+		</Box>
 	);
 };
 
