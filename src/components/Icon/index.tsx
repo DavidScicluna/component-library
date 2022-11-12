@@ -50,8 +50,6 @@ const Icon: FC<IconProps> = (props) => {
 				height={height}
 				maxWidth={w || width || '24px'}
 				maxHeight={h || height || '24px'}
-				overflowX='hidden'
-				overflowY='hidden'
 				whiteSpace='nowrap'
 			>
 				{icon}
