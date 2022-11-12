@@ -1,5 +1,5 @@
 import fallback from './common/assets/fallback';
-import { useOs, useTheme } from './common/hooks';
+import { useDebounce, useOs, useTheme } from './common/hooks';
 import {
 	getOS,
 	getColorMode,
@@ -172,6 +172,7 @@ import {
 } from './components/Navigation/Tabs/types';
 import DummyTabList from './components/Navigation/Tabs/components/DummyTabList';
 import { DummyTabListProps } from './components/Navigation/Tabs/components/DummyTabList/types';
+import { DummyTab as DummyTabListDummyTab } from './components/Navigation/Tabs/components/DummyTabList/components/DummyTab/types';
 import TabList from './components/Navigation/Tabs/components/TabList';
 import { TabListProps } from './components/Navigation/Tabs/components/TabList/types';
 import { Tab as TabListTab } from './components/Navigation/Tabs/components/TabList/components/Tab/types';
@@ -332,7 +333,7 @@ export type { Undefinable, Nullable, NonNullable, NoUndefinedField, Style, Orien
 export type { Icon as IconType } from './common/types/icons';
 
 // Hooks
-export { useOs, useTheme };
+export { useDebounce, useOs, useTheme };
 
 // Assets
 export const assets = { fallback };
@@ -567,6 +568,7 @@ export type {
 	TabsSize,
 	TabsOnChangeProps,
 	DummyTabListProps,
+	DummyTabListDummyTab,
 	TabListProps,
 	TabListTab,
 	TabPanelsProps,
