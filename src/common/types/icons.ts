@@ -1337,6 +1337,7 @@ export type Icon = string &
 		| 'query_builder'
 		| 'query_stats'
 		| 'question_answer'
+		| 'question_mark'
 		| 'queue'
 		| 'queue_music'
 		| 'queue_play_next'
