@@ -2,8 +2,6 @@ import { FC, useContext, useState } from 'react';
 
 import { Center } from '@chakra-ui/react';
 
-import { useDebounce } from 'usehooks-ts';
-
 import {
 	colorMode as defaultColorMode,
 	mode as defaultMode,
@@ -12,6 +10,7 @@ import {
 import { ImageEditorContext as ImageEditorContextType } from '../../../../types';
 import { ImageEditorContext, maxZoom, minZoom } from '../../../..';
 import HorizontalScroll from '../../../../../HorizontalScroll';
+import { useDebounce } from '../../../../../../common/hooks';
 
 import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from './components/HorizontalScrollArrows';
 import Tool from './components/Tool';
@@ -25,7 +24,7 @@ const Toolbar: FC<ToolbarProps> = ({ onSelectTool, onZoom }) => {
 	} = useContext<ImageEditorContextType>(ImageEditorContext);
 
 	const [scroll, setScroll] = useState<ScrollContext>({} as ScrollContext);
-	const scrollDebounced = useDebounce(scroll, 250);
+	const scrollDebounced = useDebounce(scroll, 'ultra-fast');
 
 	return (
 		<HorizontalScroll

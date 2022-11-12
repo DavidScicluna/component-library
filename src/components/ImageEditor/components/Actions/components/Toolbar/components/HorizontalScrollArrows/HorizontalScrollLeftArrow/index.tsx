@@ -2,13 +2,11 @@ import { FC, useContext, useEffect } from 'react';
 
 import { useBoolean } from '@chakra-ui/react';
 
-import { useDebounce } from 'usehooks-ts';
-
 import { colorMode as defaultColorMode } from '../../../../../../../../../common/data/defaultPropValues';
 import { HorizontalScrollArrowProps as HorizontalScrollLeftArrowProps } from '../common/types';
 import { ImageEditorContext } from '../../../../../../..';
 import { ImageEditorContext as ImageEditorContextType } from '../../../../../../../types';
-import { useTheme } from '../../../../../../../../../common/hooks';
+import { useDebounce, useTheme } from '../../../../../../../../../common/hooks';
 import HorizontalScrollArrow from '../../../../../../../../HorizontalScroll/components/Arrow';
 import { getColor } from '../../../../../../../../../common/utils/color';
 
@@ -27,7 +25,7 @@ const HorizontalScrollLeftArrow: FC<HorizontalScrollLeftArrowProps> = (props) =>
 	} = scroll || {};
 
 	const [isVisible, setIsVisible] = useBoolean(true);
-	const debouncedIsVisible = useDebounce<boolean>(isVisible, 250);
+	const debouncedIsVisible = useDebounce<boolean>(isVisible, 'ultra-fast');
 
 	const handleScrollPrev = () => {
 		const prevItem = getPrevItem();

@@ -2,8 +2,6 @@ import { FC, useContext, useEffect } from 'react';
 
 import { useBoolean } from '@chakra-ui/react';
 
-import { useDebounce } from 'usehooks-ts';
-
 import { TabsContext } from '../../../../..';
 import { TabsContext as TabContextType } from '../../../../../types';
 import {
@@ -12,7 +10,7 @@ import {
 } from '../../../../../common/data/defaultPropValues';
 import { HorizontalScrollArrowProps as HorizontalScrollLeftArrowProps } from '../common/types';
 import HorizontalScrollArrow from '../../../../../../../HorizontalScroll/components/Arrow';
-import { useTheme } from '../../../../../../../../common/hooks';
+import { useDebounce, useTheme } from '../../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../../common/utils/color';
 
 // const border = 2;
@@ -32,7 +30,7 @@ const HorizontalScrollLeftArrow: FC<HorizontalScrollLeftArrowProps> = (props) =>
 	} = scroll || {};
 
 	const [isVisible, setIsVisible] = useBoolean(true);
-	const debouncedIsVisible = useDebounce<boolean>(isVisible, 250);
+	const debouncedIsVisible = useDebounce<boolean>(isVisible, 'ultra-fast');
 
 	const handleScrollPrev = () => {
 		const prevItem = getPrevItem();

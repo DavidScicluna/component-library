@@ -2,14 +2,13 @@ import { ReactElement, createContext, useState } from 'react';
 
 import { useColorMode, VStack } from '@chakra-ui/react';
 
-import { useDebounce } from 'usehooks-ts';
-
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
 	isFullWidth as defaultIsFullWidth,
 	spacing as defaultSpacing
 } from '../common/data/defaultPropValues';
+import { useDebounce } from '../../../common/hooks';
 
 import {
 	accordions as defaultAccordions,
@@ -34,7 +33,7 @@ const Accordions = <D,>(props: AccordionsProps<D>): ReactElement => {
 	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const [opened, setOpened] = useState<OpenedAccordions<D>>([]);
-	const debouncedOpened = useDebounce<OpenedAccordions<D>>(opened, 500);
+	const debouncedOpened = useDebounce<OpenedAccordions<D>>(opened);
 
 	const {
 		children,

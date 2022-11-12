@@ -2,10 +2,10 @@ import { FC, useContext, useState, useCallback } from 'react';
 
 import { useMediaQuery, useBoolean, Stack, HStack, Center } from '@chakra-ui/react';
 
-import { useDebounce, useUpdateEffect } from 'usehooks-ts';
+import { useUpdateEffect } from 'usehooks-ts';
 
 import { StepperContext } from '../../.';
-import { useTheme } from '../../../../../common/hooks';
+import { useDebounce, useTheme } from '../../../../../common/hooks';
 import Divider from '../../../../Divider';
 import HorizontalScroll from '../../../../HorizontalScroll';
 import { activeStep as defaultActiveStep, colorMode as defaultColorMode } from '../../common/data/defaultPropValues';
@@ -37,16 +37,16 @@ const StepList: FC<StepListProps> = ({ children = [], isDisabled = defaultIsDisa
 	} = useContext<StepperContextType>(StepperContext);
 
 	const [scroll, setScroll] = useState<ScrollContext>({} as ScrollContext);
-	const scrollDebounced = useDebounce(scroll, 250);
+	const scrollDebounced = useDebounce(scroll, 'ultra-fast');
 
 	const [hasErrors, setHasErrors] = useBoolean();
-	const hasErrorsDebounced = useDebounce(hasErrors, 250);
+	const hasErrorsDebounced = useDebounce(hasErrors);
 
 	const [hasWarnings, setHasWarnings] = useBoolean();
-	const hasWarningsDebounced = useDebounce(hasWarnings, 250);
+	const hasWarningsDebounced = useDebounce(hasWarnings);
 
 	const [hasIdle, setHasIdle] = useBoolean();
-	const hasIdleDebounced = useDebounce(hasIdle, 250);
+	const hasIdleDebounced = useDebounce(hasIdle);
 
 	const handleCheckStatuses = useCallback((): void => {
 		setHasErrors[children.some((step) => step.status === 'error') ? 'on' : 'off']();

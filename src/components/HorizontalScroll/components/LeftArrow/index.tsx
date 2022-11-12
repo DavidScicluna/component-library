@@ -1,24 +1,18 @@
 import { FC, useContext, useEffect } from 'react';
 
-import { useConst, useBoolean } from '@chakra-ui/react';
+import { useBoolean } from '@chakra-ui/react';
 
 import { VisibilityContext } from 'react-horizontal-scrolling-menu';
-import { useDebounce } from 'usehooks-ts';
 
-import { useTheme } from '../../../../common/hooks';
-import { convertStringToNumber } from '../../../../common/utils';
+import { useDebounce } from '../../../../common/hooks';
 import Arrow from '../Arrow';
 
 const LeftArrow: FC = () => {
-	const theme = useTheme();
-
 	const { isFirstItemVisible, scrollPrev, visibleItemsWithoutSeparators, initComplete } =
 		useContext(VisibilityContext);
 
-	const duration = useConst<number>(convertStringToNumber(theme.transition.duration.normal, 'ms'));
-
 	const [isVisible, setIsVisible] = useBoolean();
-	const debouncedIsVisible = useDebounce<boolean>(isVisible, duration);
+	const debouncedIsVisible = useDebounce<boolean>(isVisible, 'ultra-fast');
 
 	useEffect(() => {
 		if (visibleItemsWithoutSeparators.length) {

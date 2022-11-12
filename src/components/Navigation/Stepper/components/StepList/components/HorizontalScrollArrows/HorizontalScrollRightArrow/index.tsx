@@ -2,10 +2,8 @@ import { FC, useContext, useEffect } from 'react';
 
 import { useBoolean } from '@chakra-ui/react';
 
-import { useDebounce } from 'usehooks-ts';
-
 import { StepperContext } from '../../../../..';
-import { useTheme } from '../../../../../../../../common/hooks';
+import { useDebounce, useTheme } from '../../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../../common/utils/color';
 import HorizontalScrollArrow from '../../../../../../../HorizontalScroll/components/Arrow';
 import { colorMode as defaultColorMode } from '../../../../../common/data/defaultPropValues';
@@ -26,7 +24,7 @@ const HorizontalScrollRightArrow: FC<HorizontalScrollRightArrowProps> = (props) 
 	const { getNextItem, isLastItemVisible = false, scrollToItem, visibleItemsWithoutSeparators = [] } = scroll || {};
 
 	const [isVisible, setIsVisible] = useBoolean(true);
-	const debouncedIsVisible = useDebounce<boolean>(isVisible, 250);
+	const debouncedIsVisible = useDebounce<boolean>(isVisible, 'ultra-fast');
 
 	const handleScrollNext = (): void => {
 		const nextItem = getNextItem();

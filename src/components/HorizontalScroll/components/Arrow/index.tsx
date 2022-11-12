@@ -5,10 +5,10 @@ import { useMediaQuery, useConst, Center } from '@chakra-ui/react';
 import { Transition } from 'framer-motion';
 import { capitalize } from 'lodash';
 import merge from 'lodash/merge';
-import { useDebounce, useElementSize } from 'usehooks-ts';
+import { useElementSize } from 'usehooks-ts';
 
 import { HorizontalScrollContext } from '../..';
-import { useTheme } from '../../../../common/hooks';
+import { useDebounce, useTheme } from '../../../../common/hooks';
 import { getColor } from '../../../../common/utils/color';
 import IconButton from '../../../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
@@ -48,9 +48,9 @@ const Arrow: FC<ArrowProps> = (props) => {
 	const config = useConst<Transition>({ duration, easing });
 
 	const [width, setWidth] = useState<number>(iconButtonWidth);
-	const debouncedWidth = useDebounce<number>(width, 500);
+	const debouncedWidth = useDebounce<number>(width, 'ultra-fast');
 	const [height, setHeight] = useState<number>(iconButtonHeight);
-	const debouncedHeight = useDebounce<number>(height, 500);
+	const debouncedHeight = useDebounce<number>(height, 'ultra-fast');
 
 	const isDisabled: boolean = isDisabledHook || isDisabledProp;
 
