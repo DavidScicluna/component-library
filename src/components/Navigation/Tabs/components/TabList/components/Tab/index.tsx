@@ -5,6 +5,7 @@ import { Tab as CUITab, HStack, Center } from '@chakra-ui/react';
 import merge from 'lodash/merge';
 import { dataAttr } from '@chakra-ui/utils';
 import { useElementSize } from 'usehooks-ts';
+import { omit } from 'lodash';
 
 import { TabsContext } from '../../../..';
 import { TabsContext as TabsContextType } from '../../../../types';
@@ -52,7 +53,7 @@ const Tab: FC<TabProps> = (props) => {
 
 	return (
 		<CUITab
-			{...rest}
+			{...omit({ ...rest }, 'panelId')}
 			aria-disabled={isTabDisabled || isDisabled}
 			data-active={dataAttr(isActive)}
 			isDisabled={isTabDisabled || isDisabled}
