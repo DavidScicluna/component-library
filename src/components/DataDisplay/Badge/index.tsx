@@ -1,4 +1,4 @@
-import { ReactElement, createContext, forwardRef, useCallback } from 'react';
+import { ReactElement, createContext, forwardRef } from 'react';
 
 import { useColorMode, Badge as CUIBadge, HStack } from '@chakra-ui/react';
 
@@ -42,7 +42,7 @@ const Badge = forwardRef<BadgeRef, BadgeProps>(function Badge(props, ref): React
 
 	const style = useStyles({ theme, color, colorMode, isLight, size, variant });
 
-	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
+	const handleReturnSpacing = (): number => getSizeConfig({ size }).spacing;
 
 	return (
 		<BadgeContext.Provider value={{ color, colorMode, isLight, size, variant }}>

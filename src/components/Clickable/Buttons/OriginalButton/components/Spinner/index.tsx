@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react';
+import { FC } from 'react';
 
 import { SpinnerCircularFixed } from 'spinners-react';
 
@@ -18,7 +18,7 @@ const Spinner: FC<SpinnerProps> = (props) => {
 
 	const { color = defaultColor, colorMode = defaultColorMode, size = defaultSize, variant = defaultVariant } = props;
 
-	const handleReturnPrimaryColorRGBA = useCallback((): string => {
+	const handleReturnPrimaryColorRGBA = (): string => {
 		switch (variant) {
 			case 'outlined':
 			case 'text':
@@ -50,20 +50,20 @@ const Spinner: FC<SpinnerProps> = (props) => {
 							: 'darkest'
 				});
 		}
-	}, [theme, color, colorMode, variant]);
+	};
 
-	const handleReturnSecondaryColorRGBA = useCallback((): string => {
+	const handleReturnSecondaryColorRGBA = (): string => {
 		return getColor({
 			theme,
 			colorMode: color === 'black' ? 'dark' : color === 'white' ? 'light' : colorMode,
 			type: 'divider',
 			color: color === 'black' || color === 'white' ? 'gray' : color
 		});
-	}, [theme, color, colorMode, variant]);
+	};
 
-	const handleReturnSize = useCallback((): string => {
+	const handleReturnSize = (): string => {
 		return theme.fontSizes[size];
-	}, [theme, size]);
+	};
 
 	return (
 		<SpinnerCircularFixed

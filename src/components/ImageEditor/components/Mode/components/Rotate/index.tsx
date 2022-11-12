@@ -1,5 +1,5 @@
 /* eslint-disable import/namespace */
-import { FC, useContext, useCallback } from 'react';
+import { FC, useContext } from 'react';
 
 import { useBoolean, HStack, Center, Slider, SliderTrack, SliderFilledTrack, SliderThumb } from '@chakra-ui/react';
 
@@ -32,20 +32,17 @@ const Rotate: FC<RotateProps> = ({ rotation = defaultRotation, onRotate }) => {
 
 	const [isHoveringThumb, setIsHoveringThumb] = useBoolean();
 
-	const handleRotate = useCallback(
-		(direction: 'left' | 'right'): void => {
-			if ((rotation >= 0 && rotation < 90) || (rotation > 270 && rotation <= 360)) {
-				onRotate({ deg: direction === 'left' ? 270 : 90 });
-			} else if (rotation >= 90 && rotation < 180) {
-				onRotate({ deg: direction === 'left' ? 0 : 180 });
-			} else if (rotation >= 180 && rotation < 270) {
-				onRotate({ deg: direction === 'left' ? 90 : 270 });
-			} else {
-				onRotate({ deg: direction === 'left' ? 180 : 360 });
-			}
-		},
-		[rotation]
-	);
+	const handleRotate = (direction: 'left' | 'right'): void => {
+		if ((rotation >= 0 && rotation < 90) || (rotation > 270 && rotation <= 360)) {
+			onRotate({ deg: direction === 'left' ? 270 : 90 });
+		} else if (rotation >= 90 && rotation < 180) {
+			onRotate({ deg: direction === 'left' ? 0 : 180 });
+		} else if (rotation >= 180 && rotation < 270) {
+			onRotate({ deg: direction === 'left' ? 90 : 270 });
+		} else {
+			onRotate({ deg: direction === 'left' ? 180 : 360 });
+		}
+	};
 
 	return (
 		<HStack

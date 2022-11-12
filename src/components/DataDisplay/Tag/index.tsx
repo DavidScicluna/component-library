@@ -1,4 +1,4 @@
-import { ReactElement, createContext, forwardRef, useCallback } from 'react';
+import { ReactElement, createContext, forwardRef } from 'react';
 
 import { useColorMode, Tag as CUITag, HStack } from '@chakra-ui/react';
 
@@ -49,7 +49,7 @@ const Tag = forwardRef<TagRef, TagProps>(function Tag(props, ref): ReactElement 
 
 	const style = useStyles({ theme, color, colorMode, isFullWidth, isClickable, size, variant });
 
-	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
+	const handleReturnSpacing = (): number => getSizeConfig({ size }).spacing;
 
 	return (
 		<TagContext.Provider value={{ color, colorMode, isDisabled, size, variant }}>

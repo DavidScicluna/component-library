@@ -1,4 +1,4 @@
-import { FC, useContext, useCallback } from 'react';
+import { FC, useContext } from 'react';
 
 import { TabList as CUIDummyTabList, Box, HStack } from '@chakra-ui/react';
 
@@ -32,7 +32,7 @@ const DummyTabList: FC<DummyTabListProps> = ({ tabs = [], renderLeft, renderRigh
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 	const [rightRef, { width: rightWidth }] = useElementSize();
 
-	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
+	const handleReturnSpacing = (): number => getSizeConfig({ size }).spacing;
 
 	return (
 		<CUIDummyTabList

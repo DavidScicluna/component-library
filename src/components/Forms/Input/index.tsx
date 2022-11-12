@@ -96,33 +96,27 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 		[size, getSizeConfig]
 	);
 
-	const handleClick = useCallback((): void => {
+	const handleContainerClick = (): void => {
 		if (inputRef && inputRef.current) {
 			inputRef.current.focus();
 		}
-	}, [inputRef]);
+	};
 
-	const handleFocus = useCallback(
-		(event: FocusEvent): void => {
-			setIsFocusedHook.on();
+	const handleFocus = (event: FocusEvent): void => {
+		setIsFocusedHook.on();
 
-			if (onFocus) {
-				onFocus(event);
-			}
-		},
-		[onFocus]
-	);
+		if (onFocus) {
+			onFocus(event);
+		}
+	};
 
-	const handleBlur = useCallback(
-		(event: FocusEvent): void => {
-			setIsFocusedHook.off();
+	const handleBlur = (event: FocusEvent): void => {
+		setIsFocusedHook.off();
 
-			if (onBlur) {
-				onBlur(event);
-			}
-		},
-		[onBlur]
-	);
+		if (onBlur) {
+			onBlur(event);
+		}
+	};
 
 	return (
 		<VStack
@@ -130,7 +124,7 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 			ref={ref}
 			tabIndex={0}
 			alignItems='flex-start'
-			onClick={handleClick}
+			onClick={handleContainerClick}
 			sx={{ width: isFullWidth ? '100%' : 'auto' }}
 		>
 			{label && (

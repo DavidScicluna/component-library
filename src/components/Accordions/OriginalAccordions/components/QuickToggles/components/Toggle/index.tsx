@@ -1,4 +1,4 @@
-import { ReactElement, useContext, useCallback } from 'react';
+import { ReactElement, useContext } from 'react';
 
 import { useMediaQuery } from '@chakra-ui/react';
 
@@ -36,9 +36,9 @@ const Toggle = <D,>(props: ToggleProps<D>): ReactElement => {
 
 	const hasOpened = accordions.length === opened.length;
 
-	const handleClick = useCallback(() => {
+	const handleClick = () => {
 		setOpened(toggleAllAccordions({ accordions, opened: opened.length }));
-	}, [accordions, opened]);
+	};
 
 	return isSm ? (
 		<IconButton

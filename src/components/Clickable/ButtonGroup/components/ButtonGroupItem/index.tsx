@@ -1,4 +1,4 @@
-import { FC, useContext, useCallback } from 'react';
+import { FC, useContext } from 'react';
 
 import { Box } from '@chakra-ui/react';
 
@@ -17,7 +17,7 @@ const ButtonGroupItem: FC<ButtonGroupItemProps> = ({ children, index = 0, total 
 	const { isAttached = defaultIsAttached, size = defaultSize } =
 		useContext<ButtonGroupContextType>(ButtonGroupContext);
 
-	const handleGetRadius = useCallback((): string => {
+	const handleGetRadius = (): string => {
 		switch (size) {
 			case 'xs':
 			case 'sm':
@@ -28,22 +28,19 @@ const ButtonGroupItem: FC<ButtonGroupItemProps> = ({ children, index = 0, total 
 			default:
 				return theme.radii.base;
 		}
-	}, [theme, size]);
+	};
 
-	const handleReturnRadius = useCallback(
-		(index: number): string => {
-			const radius = handleGetRadius();
+	const handleReturnRadius = (index: number): string => {
+		const radius = handleGetRadius();
 
-			if (index === 0) {
-				return `${radius} 0 0 ${radius} !important`;
-			} else if (index === total) {
-				return `0 ${radius} ${radius} 0 !important`;
-			} else {
-				return '0px !important';
-			}
-		},
-		[children, handleGetRadius]
-	);
+		if (index === 0) {
+			return `${radius} 0 0 ${radius} !important`;
+		} else if (index === total) {
+			return `0 ${radius} ${radius} 0 !important`;
+		} else {
+			return '0px !important';
+		}
+	};
 
 	return (
 		<Box

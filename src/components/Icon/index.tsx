@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react';
+import { FC } from 'react';
 
 import { useColorMode, useBoolean, Center } from '@chakra-ui/react';
 
@@ -28,13 +28,13 @@ const Icon: FC<IconProps> = (props) => {
 
 	const [hasLoaded, setHasLoaded] = useBoolean(checkFontStatus({ category }));
 
-	const handleCheckFontStatus = useCallback((): void => {
+	const handleCheckFontStatus = (): void => {
 		if (checkFontStatus({ category })) {
 			setHasLoaded.on();
 		} else {
 			setHasLoaded.off();
 		}
-	}, [category]);
+	};
 
 	useInterval(() => handleCheckFontStatus(), !hasLoaded ? 250 : null);
 

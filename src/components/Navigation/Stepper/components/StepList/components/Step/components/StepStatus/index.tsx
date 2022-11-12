@@ -1,4 +1,4 @@
-import { FC, useContext, useCallback } from 'react';
+import { FC, useContext } from 'react';
 
 import { Text } from '@chakra-ui/react';
 
@@ -16,7 +16,7 @@ const StepStatus: FC<StatusProps> = ({ status }) => {
 
 	const { color = defaultColor, colorMode = defaultColorMode } = useContext<StepperContextType>(StepperContext);
 
-	const handleReturnLabel = useCallback((): string => {
+	const handleReturnLabel = (): string => {
 		switch (status) {
 			case 'success':
 				return 'complete';
@@ -29,7 +29,7 @@ const StepStatus: FC<StatusProps> = ({ status }) => {
 			default:
 				return 'not done yet';
 		}
-	}, [status]);
+	};
 
 	return (
 		<Text

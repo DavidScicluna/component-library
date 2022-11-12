@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react';
+import { FC } from 'react';
 
 import { useColorMode, Box, Skeleton as CUISkeleton } from '@chakra-ui/react';
 
@@ -43,7 +43,7 @@ const Skeleton: FC<SkeletonProps> = (props) => {
 		...rest
 	} = props;
 
-	const handleReturnSpeed = useCallback((): number => {
+	const handleReturnSpeed = (): number => {
 		const defaultSpeed: number = convertStringToNumber(theme.transition.duration['slower'] || '750ms', 'ms') / 1000;
 
 		if (typeof speed === 'number') {
@@ -51,15 +51,15 @@ const Skeleton: FC<SkeletonProps> = (props) => {
 		}
 
 		return defaultSpeed;
-	}, [theme, speed, convertStringToNumber]);
+	};
 
-	const handleReturnDuration = useCallback((): number => {
+	const handleReturnDuration = (): number => {
 		return getSkeletonDuration({ theme });
-	}, [theme, getSkeletonDuration]);
+	};
 
-	const handleReturnDelay = useCallback((): number => {
+	const handleReturnDelay = (): number => {
 		return getSkeletonDelay({ theme });
-	}, [theme, getSkeletonDelay]);
+	};
 
 	return (
 		<Box {...rest} ref={childrenRef}>

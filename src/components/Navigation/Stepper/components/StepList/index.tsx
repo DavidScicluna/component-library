@@ -1,4 +1,4 @@
-import { FC, useContext, useState, useCallback } from 'react';
+import { FC, useContext, useState } from 'react';
 
 import { useMediaQuery, useBoolean, Stack, HStack, Center } from '@chakra-ui/react';
 
@@ -48,22 +48,19 @@ const StepList: FC<StepListProps> = ({ children = [], isDisabled = defaultIsDisa
 	const [hasIdle, setHasIdle] = useBoolean();
 	const hasIdleDebounced = useDebounce(hasIdle);
 
-	const handleCheckStatuses = useCallback((): void => {
+	const handleCheckStatuses = (): void => {
 		setHasErrors[children.some((step) => step.status === 'error') ? 'on' : 'off']();
 		setHasWarnings[children.some((step) => step.status === 'warning') ? 'on' : 'off']();
 		setHasIdle[children.some((step) => step.status === 'idle') ? 'on' : 'off']();
-	}, [children]);
+	};
 
-	const handleScrollToStep = useCallback(
-		(index: number): void => {
-			const scrollElement = scrollDebounced?.getItemElementByIndex(index);
+	const handleScrollToStep = (index: number): void => {
+		const scrollElement = scrollDebounced?.getItemElementByIndex(index);
 
-			if (scrollElement) {
-				scrollDebounced?.scrollToItem?.(scrollElement, 'smooth', 'center', 'nearest');
-			}
-		},
-		[scrollDebounced]
-	);
+		if (scrollElement) {
+			scrollDebounced?.scrollToItem?.(scrollElement, 'smooth', 'center', 'nearest');
+		}
+	};
 
 	const handleNext = (): void => {
 		if (activeStep === children.length - 1) {

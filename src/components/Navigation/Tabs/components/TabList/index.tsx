@@ -1,4 +1,4 @@
-import { FC, useContext, useState, useCallback } from 'react';
+import { FC, useContext, useState } from 'react';
 
 import { TabList as CUITabList, Box, HStack } from '@chakra-ui/react';
 
@@ -40,29 +40,23 @@ const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest
 	const [scroll, setScroll] = useState<ScrollContext>({} as ScrollContext);
 	const scrollDebounced = useDebounce(scroll, 'ultra-fast');
 
-	const handleScrollToStep = useCallback(
-		(index: number): void => {
-			const scrollElement = scrollDebounced?.getItemElementByIndex(index);
+	const handleScrollToStep = (index: number): void => {
+		const scrollElement = scrollDebounced?.getItemElementByIndex(index);
 
-			if (scrollElement) {
-				scrollDebounced?.scrollToItem?.(scrollElement, 'smooth', 'center', 'nearest');
+		if (scrollElement) {
+			scrollDebounced?.scrollToItem?.(scrollElement, 'smooth', 'center', 'nearest');
+		}
+	};
+
+	const handleTabClick = (index: number): void => {
+		if (activeTab !== index) {
+			if (onChange) {
+				onChange({ index });
 			}
-		},
-		[scrollDebounced]
-	);
 
-	const handleTabClick = useCallback(
-		(index: number): void => {
-			if (activeTab !== index) {
-				if (onChange) {
-					onChange({ index });
-				}
-
-				handleScrollToStep(index);
-			}
-		},
-		[activeTab, onChange, handleScrollToStep]
-	);
+			handleScrollToStep(index);
+		}
+	};
 
 	return (
 		<CUITabList

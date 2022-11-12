@@ -1,4 +1,4 @@
-import { FC, createContext, useCallback } from 'react';
+import { FC, createContext } from 'react';
 
 import { useColorMode, useBoolean, useConst, Box, VStack, VisuallyHidden, Center } from '@chakra-ui/react';
 
@@ -78,18 +78,15 @@ const CollapsibleCard: FC<CollapsibleCardProps> = (props) => {
 
 	const config = useConst<Transition>({ duration, easing });
 
-	const handleToggle = useCallback(
-		(event: MouseEvent) => {
-			if (isOpen ? isOpen && !isHovering : true) {
-				onOpen();
-			}
+	const handleToggle = (event: MouseEvent) => {
+		if (isOpen ? isOpen && !isHovering : true) {
+			onOpen();
+		}
 
-			if (onClick) {
-				onClick(event);
-			}
-		},
-		[isOpen, isHovering, onClick]
-	);
+		if (onClick) {
+			onClick(event);
+		}
+	};
 
 	return (
 		<CollapsibleCardContext.Provider value={{ color, colorMode, isDisabled, isFullWidth, isOpen }}>

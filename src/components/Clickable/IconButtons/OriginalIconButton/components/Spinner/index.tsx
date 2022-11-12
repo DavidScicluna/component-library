@@ -1,9 +1,8 @@
-import { FC, useCallback } from 'react';
+import { FC } from 'react';
 
 import { SpinnerCircularFixed } from 'spinners-react';
 
 import { useTheme } from '../../../../../../common/hooks';
-import { convertREMToPixels, convertStringToNumber } from '../../../../../../common/utils';
 import { getColor } from '../../../../../../common/utils/color';
 import {
 	color as defaultColor,
@@ -11,7 +10,7 @@ import {
 	size as defaultSize,
 	variant as defaultVariant
 } from '../../../common/data/defaultPropValues';
-import { getIconFontSize, getSizeConfig } from '../../../common/utils';
+import { getIconFontSize } from '../../../common/utils';
 
 import { SpinnerProps } from './types';
 
@@ -20,7 +19,7 @@ const Spinner: FC<SpinnerProps> = (props) => {
 
 	const { color = defaultColor, colorMode = defaultColorMode, size = defaultSize, variant = defaultVariant } = props;
 
-	const handleReturnPrimaryColorRGBA = useCallback((): string => {
+	const handleReturnPrimaryColorRGBA = (): string => {
 		switch (variant) {
 			case 'outlined':
 			case 'icon':
@@ -52,20 +51,20 @@ const Spinner: FC<SpinnerProps> = (props) => {
 							: 'darkest'
 				});
 		}
-	}, [theme, color, colorMode, variant]);
+	};
 
-	const handleReturnSecondaryColorRGBA = useCallback((): string => {
+	const handleReturnSecondaryColorRGBA = (): string => {
 		return getColor({
 			theme,
 			colorMode: color === 'black' ? 'dark' : color === 'white' ? 'light' : colorMode,
 			type: 'divider',
 			color: color === 'black' || color === 'white' ? 'gray' : color
 		});
-	}, [theme, color, colorMode, variant]);
+	};
 
-	const handleReturnSize = useCallback((): number => {
-		return convertREMToPixels(convertStringToNumber(getIconFontSize({ size }), 'px'));
-	}, [size, getSizeConfig]);
+	const handleReturnSize = (): string => {
+		return getIconFontSize({ size });
+	};
 
 	return (
 		<SpinnerCircularFixed

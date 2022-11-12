@@ -65,22 +65,22 @@ const ImageEditor: FC<ImageEditorProps> = (props) => {
 
 	const [area, setArea] = useState<Nullable<Area>>(null);
 
-	const handleSelectMode = useCallback(({ mode }: HandleSelectToolProps) => {
+	const handleSelectMode = ({ mode }: HandleSelectToolProps) => {
 		setMode(mode);
-	}, []);
+	};
 
-	const handleCrop = useCallback(({ id, value }: HandleCropProps) => {
+	const handleCrop = ({ id, value }: HandleCropProps) => {
 		setCropID(id);
 		setCropValue(value);
-	}, []);
+	};
 
-	const handleRotation = useCallback(({ deg }: HandleRotateProps) => {
+	const handleRotation = ({ deg }: HandleRotateProps) => {
 		setRotation(deg);
-	}, []);
+	};
 
-	const handleZoom = useCallback(({ value }: HandleZoomProps) => {
+	const handleZoom = ({ value }: HandleZoomProps) => {
 		setZoom(value);
-	}, []);
+	};
 
 	const handleCropComplete = useCallback(
 		debounce((_croppedArea, croppedAreaPixels) => {
@@ -89,7 +89,7 @@ const ImageEditor: FC<ImageEditorProps> = (props) => {
 		[]
 	);
 
-	const handleCropImage = useCallback(async () => {
+	const handleCropImage = async () => {
 		if (area) {
 			const croppedImage = await getBase64Image({
 				src: image,
@@ -103,7 +103,7 @@ const ImageEditor: FC<ImageEditorProps> = (props) => {
 				onClose();
 			}
 		}
-	}, [image, area, rotation]);
+	};
 
 	const handleClose = (): void => {
 		onClose();

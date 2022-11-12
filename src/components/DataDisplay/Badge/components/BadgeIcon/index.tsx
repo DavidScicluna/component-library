@@ -1,4 +1,4 @@
-import { FC, useContext, useCallback } from 'react';
+import { FC, useContext } from 'react';
 
 import { merge } from 'lodash';
 
@@ -18,9 +18,9 @@ const BadgeIcon: FC<BadgeIconProps> = ({ sx, ...rest }) => {
 
 	const style = useStyles({ theme, size });
 
-	const handleReturnSize = useCallback((): string => {
+	const handleReturnSize = (): string => {
 		return theme.fontSizes[size];
-	}, [theme, size]);
+	};
 
 	return (
 		<Icon

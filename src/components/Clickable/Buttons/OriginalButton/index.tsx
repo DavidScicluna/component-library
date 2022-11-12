@@ -1,4 +1,4 @@
-import { ReactElement, forwardRef, useCallback } from 'react';
+import { ReactElement, forwardRef } from 'react';
 
 import { useColorMode, Button as CUIButton, HStack, Center } from '@chakra-ui/react';
 
@@ -44,7 +44,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): R
 
 	const style = useStyles({ theme, color, colorMode, isFullWidth, isLoading, size, variant });
 
-	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
+	const handleReturnSpacing = (): number => getSizeConfig({ size }).spacing;
 
 	return (
 		<CUIButton

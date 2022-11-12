@@ -1,4 +1,4 @@
-import { FC, useContext, useCallback } from 'react';
+import { FC, useContext } from 'react';
 
 import { CardContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
@@ -24,7 +24,7 @@ const CardDivider: FC<CardDividerProps> = (props) => {
 		isLight = defaultIsLight
 	} = useContext<CardContextType>(CardContext);
 
-	const handleReturnType = useCallback((): GetColorProps['type'] => {
+	const handleReturnType = (): GetColorProps['type'] => {
 		if (isDisabled) {
 			return isLight ? 'divider' : 'text.secondary';
 		} else {
@@ -37,7 +37,7 @@ const CardDivider: FC<CardDividerProps> = (props) => {
 					return isLight ? 'divider' : color === 'gray' ? 'text.secondary' : 'color';
 			}
 		}
-	}, [isDisabled, isLight, color]);
+	};
 
 	return (
 		<Divider

@@ -85,17 +85,17 @@ const Radio: FC<RadioProps> = (props) => {
 		[size, getSizeConfig]
 	);
 
-	const handleContainerClick = useCallback((): void => {
+	const handleContainerClick = (): void => {
 		if (radioRef && radioRef.current) {
 			radioRef.current.focus();
 		}
-	}, [radioRef]);
+	};
 
-	const handleCheckboxClick = useCallback((): void => {
+	const handleCheckboxClick = (): void => {
 		if (onChange) {
 			onChange({ isChecked: !isChecked });
 		}
-	}, [onChange, isChecked]);
+	};
 
 	return (
 		<RadioContext.Provider value={{ color, colorMode, size }}>

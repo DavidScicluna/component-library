@@ -93,17 +93,17 @@ const Checkbox: FC<CheckboxProps> = (props) => {
 		[size, getSizeConfig]
 	);
 
-	const handleContainerClick = useCallback((): void => {
+	const handleContainerClick = (): void => {
 		if (checkboxRef && checkboxRef.current) {
 			checkboxRef.current.focus();
 		}
-	}, [checkboxRef]);
+	};
 
-	const handleCheckboxClick = useCallback((): void => {
+	const handleCheckboxClick = (): void => {
 		if (onChange) {
 			onChange({ isChecked: !isChecked });
 		}
-	}, [onChange, isChecked]);
+	};
 
 	return (
 		<CheckboxContext.Provider value={{ color, colorMode, size }}>

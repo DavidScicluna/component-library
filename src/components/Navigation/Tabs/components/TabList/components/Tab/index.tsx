@@ -1,4 +1,4 @@
-import { FC, useContext, useCallback } from 'react';
+import { FC, useContext } from 'react';
 
 import { Tab as CUITab, HStack, Center } from '@chakra-ui/react';
 
@@ -49,7 +49,7 @@ const Tab: FC<TabProps> = (props) => {
 
 	const style = useStyles({ theme, color, colorMode, isFullWidth: isFitted, isSelected, size });
 
-	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
+	const handleReturnSpacing = (): number => getSizeConfig({ size }).spacing;
 
 	return (
 		<CUITab

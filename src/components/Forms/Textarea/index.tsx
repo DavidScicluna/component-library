@@ -85,40 +85,34 @@ const Textarea = (props: TextareaProps): ReactElement => {
 		[size, getSizeConfig]
 	);
 
-	const handleClick = useCallback((): void => {
+	const handleContainerClick = (): void => {
 		if (textareaRef && textareaRef.current) {
 			textareaRef.current.focus();
 		}
-	}, [textareaRef]);
+	};
 
-	const handleFocus = useCallback(
-		(event: FocusEvent): void => {
-			setIsFocusedHook.on();
+	const handleFocus = (event: FocusEvent): void => {
+		setIsFocusedHook.on();
 
-			if (onFocus) {
-				onFocus(event);
-			}
-		},
-		[onFocus]
-	);
+		if (onFocus) {
+			onFocus(event);
+		}
+	};
 
-	const handleBlur = useCallback(
-		(event: FocusEvent): void => {
-			setIsFocusedHook.off();
+	const handleBlur = (event: FocusEvent): void => {
+		setIsFocusedHook.off();
 
-			if (onBlur) {
-				onBlur(event);
-			}
-		},
-		[onBlur]
-	);
+		if (onBlur) {
+			onBlur(event);
+		}
+	};
 
 	return (
 		<VStack
 			as={FormControl}
 			tabIndex={0}
 			alignItems='flex-start'
-			onClick={handleClick}
+			onClick={handleContainerClick}
 			sx={{ width: isFullWidth ? '100%' : 'auto' }}
 		>
 			{label && (

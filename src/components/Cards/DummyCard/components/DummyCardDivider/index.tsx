@@ -1,4 +1,4 @@
-import { FC, useContext, useCallback } from 'react';
+import { FC, useContext } from 'react';
 
 import { DummyCardContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
@@ -22,7 +22,7 @@ const DummyCardDivider: FC<DummyCardDividerProps> = (props) => {
 		isLight = defaultIsLight
 	} = useContext<DummyCardContextType>(DummyCardContext);
 
-	const handleReturnType = useCallback((): GetColorProps['type'] => {
+	const handleReturnType = (): GetColorProps['type'] => {
 		switch (color) {
 			case 'black':
 				return 'darkest';
@@ -31,7 +31,7 @@ const DummyCardDivider: FC<DummyCardDividerProps> = (props) => {
 			default:
 				return isLight ? 'divider' : color === 'gray' ? 'text.secondary' : 'color';
 		}
-	}, [isLight, color]);
+	};
 
 	return (
 		<Divider
