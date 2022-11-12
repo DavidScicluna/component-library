@@ -50,7 +50,7 @@ const Modal: FC<ModalProps> = (props) => {
 				<ModalOverlay />
 
 				<ModalContent
-					height='100%'
+					height='inherit'
 					backgroundColor={getColor({ theme, colorMode, type: 'background' })}
 					borderRadius={size === 'full' || isSm ? 'none' : 'xl'}
 				>
