@@ -1,4 +1,4 @@
-import { ReactElement, forwardRef, useRef, useCallback } from 'react';
+import { ReactElement, forwardRef, useRef, useCallback, useEffect } from 'react';
 
 import {
 	useColorMode,
@@ -117,6 +117,8 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 			onBlur(event);
 		}
 	};
+
+	useEffect(() => (isFocused ? handleContainerClick() : undefined), [isFocused]);
 
 	return (
 		<VStack
