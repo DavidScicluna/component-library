@@ -5,8 +5,6 @@ import { getSizeConfig } from '../../../utils';
 
 import { CollapsibleCardDarkDisabledStylingProps } from './types';
 
-// TODO: replace ALL theme.colors.gray[900] with background Shade
-
 export default ({ theme, isLight = defaultIsLight }: CollapsibleCardDarkDisabledStylingProps): Style => {
 	const colorShade = getHue({
 		colorMode: 'dark',

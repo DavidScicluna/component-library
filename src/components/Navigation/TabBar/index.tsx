@@ -36,7 +36,6 @@ const TabBar = forwardRef<TabBarRef, TabBarProps>(function TabBar(props, ref): R
 		...rest
 	} = props;
 
-	// TODO: Add context and pass colorMode
 	return (
 		<TabBarContext.Provider value={{ color, colorMode, direction }}>
 			<HStack
