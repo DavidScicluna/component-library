@@ -1,4 +1,4 @@
-import { ContextType } from 'react';
+import { ReactNode, ContextType } from 'react';
 
 import { TabListProps as CUITabListProps } from '@chakra-ui/react';
 
@@ -22,10 +22,17 @@ import {
 	BoxPseudo,
 	BoxOther
 } from '../../../../../common/types/box';
+import { TabsProps } from '../../types';
 
 import { Tab } from './components/Tab/types';
 
 export type ScrollContext = ContextType<typeof VisibilityContext>;
+
+export type RenderProps = {
+	width?: number; // In Pixels
+	height?: number; // In Pixels
+	// size?: ButtonSize;
+} & Pick<TabsProps, 'color' | 'colorMode'>;
 
 type Omitted =
 	| BoxMargin
@@ -46,4 +53,8 @@ type Omitted =
 	| BoxOther
 	| 'children';
 
-export type TabListProps = Omit<CUITabListProps, Omitted> & { tabs: Tab[] };
+export type TabListProps = Omit<CUITabListProps, Omitted> & {
+	tabs: Tab[];
+	renderLeft?: (props: RenderProps) => ReactNode;
+	renderRight?: (props: RenderProps) => ReactNode;
+};
