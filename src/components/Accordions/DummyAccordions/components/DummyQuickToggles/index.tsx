@@ -36,7 +36,7 @@ const DummyQuickToggles: FC<DummyQuickTogglesProps> = (props) => {
 
 	const [borderRef, { width: borderWidth }] = useElementSize();
 	const [textRef, { width: textWidth }] = useElementSize();
-	const [toggleRef, { width: toggleWidth, height: toggleHeight }] = useElementSize();
+	const [toggleRef, { width: toggleWidth }] = useElementSize();
 
 	const { color = colorHook, spacing = spacingHook, size = defaultSize } = props;
 
@@ -58,8 +58,8 @@ const DummyQuickToggles: FC<DummyQuickTogglesProps> = (props) => {
 			alignItems='stretch'
 			justifyContent='stretch'
 			divider={
-				<Center ref={borderRef} border='none'>
-					<Divider colorMode={colorMode} orientation='vertical' height={`${toggleHeight}px`} />
+				<Center ref={borderRef} alignItems='stretch' justifyContent='stretch' border='none'>
+					<Divider colorMode={colorMode} orientation='vertical' />
 				</Center>
 			}
 			spacing={spacing}

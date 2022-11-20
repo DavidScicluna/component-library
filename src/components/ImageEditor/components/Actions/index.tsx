@@ -23,8 +23,6 @@ const Actions: FC<ActionsProps> = ({ onSelectTool, onZoom, onCancel, onSave }) =
 
 	const { colorMode = defaultColorMode } = useContext<ImageEditorContextType>(ImageEditorContext);
 
-	const [stackRef, { height: stackHeight }] = useElementSize();
-
 	const [cancelRef, { width: cancelWidth }] = useElementSize();
 	const [saveRef, { width: saveWidth }] = useElementSize();
 
@@ -36,11 +34,10 @@ const Actions: FC<ActionsProps> = ({ onSelectTool, onZoom, onCancel, onSave }) =
 
 	return isMd ? (
 		<HStack
-			ref={stackRef}
 			width='100%'
-			alignItems='center'
+			alignItems='stretch'
 			justifyContent='space-between'
-			divider={<Divider colorMode={colorMode} orientation='vertical' height={`${stackHeight}px`} />}
+			divider={<Divider colorMode={colorMode} orientation='vertical' />}
 			spacing={4}
 		>
 			<Center ref={cancelRef}>

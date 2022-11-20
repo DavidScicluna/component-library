@@ -22,8 +22,6 @@ const Divider = forwardRef<DividerRef, DividerProps>(function Divider(props, ref
 			minWidth={orientation === 'horizontal' ? '100%' : '2px'}
 			maxWidth={orientation === 'horizontal' ? '100%' : '2px'}
 			height={orientation === 'horizontal' ? '2px' : 'auto'}
-			minHeight={orientation === 'horizontal' ? '2px' : 'auto'}
-			maxHeight={orientation === 'horizontal' ? '2px' : 'auto'}
 			backgroundColor={getColor({ theme, colorMode, type: 'divider' })}
 			border='none'
 			flex={orientation === 'vertical' ? 1 : undefined}

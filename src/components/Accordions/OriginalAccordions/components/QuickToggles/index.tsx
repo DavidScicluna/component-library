@@ -58,7 +58,11 @@ const QuickToggles = <D,>(props: QuickTogglesProps<D>): ReactElement => {
 			width='100%'
 			alignItems='stretch'
 			justifyContent='stretch'
-			divider={<Divider ref={borderRef} colorMode={colorMode} orientation='vertical' />}
+			divider={
+				<Center ref={borderRef} alignItems='stretch' justifyContent='stretch' border='none'>
+					<Divider colorMode={colorMode} orientation='vertical' />
+				</Center>
+			}
 			spacing={spacing}
 		>
 			<HStack

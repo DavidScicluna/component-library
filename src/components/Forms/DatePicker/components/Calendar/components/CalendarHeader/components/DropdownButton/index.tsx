@@ -71,7 +71,7 @@ const DropdownButton = forwardRef<DropdownButtonRef, DropdownButtonProps>(functi
 			arrowShadowColor={border}
 			isOpen={isPopperOpen}
 			placement='bottom-start'
-			// gutter={gutter}
+			gutter={8}
 			onOpen={() => onPopperOpen()}
 			onClose={() => onPopperClose()}
 		>

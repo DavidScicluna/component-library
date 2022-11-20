@@ -136,8 +136,9 @@ const StepList: FC<StepListProps> = ({ children = [], isDisabled = defaultIsDisa
 				<>
 					<HStack
 						width='100%'
+						alignItems='stretch'
 						justifyContent='stretch'
-						divider={<Divider colorMode={colorMode} orientation='vertical' height={height} />}
+						divider={<Divider colorMode={colorMode} orientation='vertical' />}
 						spacing={0}
 					>
 						<Cancel isDisabled={isDisabled} />

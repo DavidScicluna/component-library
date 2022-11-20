@@ -27,7 +27,6 @@ const Rotate: FC<RotateProps> = ({ rotation = defaultRotation, onRotate }) => {
 	const { color = defaultColor, colorMode = defaultColorMode } =
 		useContext<ImageEditorContextType>(ImageEditorContext);
 
-	const [stackRef, { height: stackHeight }] = useElementSize();
 	const [buttonsRef, { width: buttonsWidth }] = useElementSize();
 
 	const [isHoveringThumb, setIsHoveringThumb] = useBoolean();
@@ -46,11 +45,10 @@ const Rotate: FC<RotateProps> = ({ rotation = defaultRotation, onRotate }) => {
 
 	return (
 		<HStack
-			ref={stackRef}
 			width='100%'
-			alignItems='center'
-			justifyContent='center'
-			divider={<Divider colorMode={colorMode} orientation='vertical' height={`${stackHeight}px`} />}
+			alignItems='stretch'
+			justifyContent='stretch'
+			divider={<Divider colorMode={colorMode} orientation='vertical' />}
 			spacing={4}
 		>
 			<Center
