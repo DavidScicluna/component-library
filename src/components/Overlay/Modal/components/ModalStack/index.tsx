@@ -30,10 +30,11 @@ const ModalStack: FC<ModalStackProps> = ({ children, isDivisible = true, p, ...r
 		<VStack
 			{...rest}
 			width='100%'
-			height='100%'
+			height='auto'
 			divider={isDivisible ? <Divider colorMode={colorMode} /> : undefined}
 			backgroundColor={getColor({ theme, colorMode, type: 'background' })}
 			borderRadius={size === 'full' || isSm ? 'none' : 'xl'}
+			overflow='hidden'
 			spacing={spacing}
 			p={p || spacing}
 		>
