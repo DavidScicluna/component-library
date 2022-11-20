@@ -135,6 +135,15 @@ import {
 	CheckboxSize,
 	CheckboxVariant
 } from './components/Forms/Checkbox/types';
+import DatePicker from './components/Forms/DatePicker';
+import {
+	DatePickerColor,
+	DatePickerContext,
+	DatePickerDate,
+	DatePickerProps,
+	DatePickerRenderButtonProps,
+	DatePickerVariant
+} from './components/Forms/DatePicker/types';
 import Form from './components/Forms/Form';
 import ImageEditor from './components/ImageEditor';
 import { ImageEditorColor, ImageEditorContext, ImageEditorProps } from './components/ImageEditor/types';
@@ -405,6 +414,7 @@ export {
 	Checkbox,
 	CheckboxSubtitle,
 	CheckboxTitle,
+	DatePicker,
 	Stepper,
 	StepList,
 	StepPanel,
@@ -543,6 +553,12 @@ export type {
 	Step,
 	StepPanelProps,
 	StepPanelsProps,
+	DatePickerColor,
+	DatePickerContext,
+	DatePickerDate,
+	DatePickerProps,
+	DatePickerRenderButtonProps,
+	DatePickerVariant,
 	ImageEditorColor,
 	ImageEditorContext,
 	ImageEditorProps,
