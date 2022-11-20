@@ -142,6 +142,23 @@ export type Transition = {
 	duration: Durations;
 };
 
+export type ZIndice =
+	| 'hide'
+	| 'auto'
+	| 'base'
+	| 'docked'
+	| 'dropdown'
+	| 'sticky'
+	| 'banner'
+	| 'overlay'
+	| 'modal'
+	| 'popover'
+	| 'skipLink'
+	| 'toast'
+	| 'tooltip';
+
+export type ZIndices = Record<ZIndice, string | number>;
+
 export type Theme = {
 	colors: Colors;
 	lineHeights: LineHeights;
