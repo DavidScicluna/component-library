@@ -27,7 +27,7 @@ const TabPanels: FC<TabPanelsProps> = ({ children, ...rest }) => {
 	const config = useConst<Transition>({ duration, easing });
 
 	return (
-		<CUITabPanels {...rest} as={AnimatePresence} width='100%' exitBeforeEnter initial={false}>
+		<CUITabPanels {...rest} as={AnimatePresence} width='100%' mode='wait' initial={false}>
 			{children.map((panel, index) => (
 				<TabPanel key={`ds-cl-tabs-tab-panel-${index}`} width='100%' p={0}>
 					<Fade in={activeTab === index} transition={{ enter: { ...config }, exit: { ...config } }}>

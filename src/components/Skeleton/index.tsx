@@ -63,7 +63,7 @@ const Skeleton: FC<SkeletonProps> = (props) => {
 
 	return (
 		<Box {...rest} ref={childrenRef}>
-			<AnimatePresence exitBeforeEnter initial={false}>
+			<AnimatePresence mode='wait' initial={false}>
 				{isLoaded && (
 					<SlideFade
 						key='skeleton_children_visible'

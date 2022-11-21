@@ -15,7 +15,7 @@ const StepPanels: FC<StepPanelsProps> = ({ children, ...rest }) => {
 	const { activeStep = defaultActiveStep } = useContext<StepperContextType>(StepperContext);
 
 	return (
-		<Center {...rest} as={AnimatePresence} width='100%' exitBeforeEnter initial={false}>
+		<Center {...rest} as={AnimatePresence} width='100%' mode='wait' initial={false}>
 			{children.map(
 				(step, index) =>
 					activeStep === index && (
