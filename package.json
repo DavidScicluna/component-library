@@ -28,6 +28,8 @@
 		"@emotion/styled": "^11.10.4",
 		"@remix-run/router": "^1.0.2",
 		"color2k": "^2.0.0",
+		"dayjs": "^1.11.6",
+		"dayzed": "^3.2.3",
 		"framer-motion": "^7.6.1",
 		"lodash": "^4.17.21",
 		"react": "^18.2.0",
