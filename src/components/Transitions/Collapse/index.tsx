@@ -19,7 +19,11 @@ const Collapse: FC<CollapseProps> = (props) => {
 	const { enter = { ...config }, exit = { ...config } } = transition || {};
 
 	return (
-		<CUICollapse {...rest} unmountOnExit={unmountOnExit} transition={{ enter, exit }}>
+		<CUICollapse
+			{...rest}
+			unmountOnExit={unmountOnExit}
+			transition={{ enter: enter || { ...config }, exit: exit || { ...config } }}
+		>
 			{children}
 		</CUICollapse>
 	);

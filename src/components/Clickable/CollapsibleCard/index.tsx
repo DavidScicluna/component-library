@@ -3,14 +3,14 @@ import { FC, createContext } from 'react';
 import { useColorMode, useBoolean, useConst, Box, VStack, VisuallyHidden, Center } from '@chakra-ui/react';
 
 import { dataAttr } from '@chakra-ui/utils';
-import { Transition } from 'framer-motion';
 import { merge } from 'lodash';
 import { useInView } from 'react-cool-inview';
 
 import { useTheme } from '../../../common/hooks';
 import {
 	getDuration as getTransitionDuration,
-	getEasings as getTransitionEasings
+	getEasings as getTransitionEasings,
+	getConfig as getTransitionConfig
 } from '../../Transitions/common/utils';
 import Collapse from '../../Transitions/Collapse';
 
@@ -73,10 +73,9 @@ const CollapsibleCard: FC<CollapsibleCardProps> = (props) => {
 
 	const style = useStyles({ theme, color, colorMode, isFullWidth, isFixed: isFixed || isHovering, isLight, isOpen });
 
-	const duration = useConst<number>(getTransitionDuration({ theme, duration: 'slow' }));
-	const easing = useConst<number[]>(getTransitionEasings({ theme }));
-
-	const config = useConst<Transition>({ duration, easing });
+	const duration = useConst(getTransitionDuration({ theme, duration: 'slow' }));
+	const easing = useConst(getTransitionEasings({ theme }));
+	const config = useConst({ ...getTransitionConfig({ theme }), duration, easing });
 
 	const handleToggle = (event: MouseEvent) => {
 		if (isOpen ? isOpen && !isHovering : true) {

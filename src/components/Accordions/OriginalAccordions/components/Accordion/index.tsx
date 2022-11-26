@@ -3,7 +3,6 @@ import { createContext, useContext, ReactElement } from 'react';
 import { useBoolean, useConst, Box, VisuallyHidden, Center, VStack } from '@chakra-ui/react';
 
 import { dataAttr } from '@chakra-ui/utils';
-import { Transition } from 'framer-motion';
 import { merge } from 'lodash';
 import { useInView } from 'react-cool-inview';
 
@@ -12,7 +11,7 @@ import { useTheme } from '../../../../../common/hooks';
 import Collapse from '../../../../Transitions/Collapse';
 import {
 	getDuration as getTransitionDuration,
-	getEasings as getTransitionEasings
+	getConfig as getTransitionConfig
 } from '../../../../Transitions/common/utils';
 import {
 	color as defaultColor,
@@ -82,10 +81,8 @@ const Accordion = <D,>(props: AccordionProps<D>): ReactElement => {
 
 	const style = useStyles({ theme, color, colorMode, isFullWidth, isFixed: isFixed || isHovering, isLight, isOpen });
 
-	const duration = useConst<number>(getTransitionDuration({ theme, duration: 'slow' }));
-	const easing = useConst<number[]>(getTransitionEasings({ theme }));
-
-	const config = useConst<Transition>({ duration, easing });
+	const duration = useConst(getTransitionDuration({ theme, duration: 'slower' }));
+	const config = useConst({ ...getTransitionConfig({ theme }), duration });
 
 	return (
 		<AccordionContext.Provider value={{ isDisabled, isLight, isOpen }}>

@@ -2,7 +2,6 @@ import { FC, useContext, useState, useEffect } from 'react';
 
 import { useMediaQuery, useConst, Center } from '@chakra-ui/react';
 
-import { Transition } from 'framer-motion';
 import { capitalize } from 'lodash';
 import merge from 'lodash/merge';
 import { useElementSize } from 'usehooks-ts';
@@ -14,7 +13,8 @@ import IconButton from '../../../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
 import {
 	getDuration as getTransitionDuration,
-	getEasings as getTransitionEasings
+	getEasings as getTransitionEasings,
+	getConfig as getTransitionConfig
 } from '../../../Transitions/common/utils';
 import Fade from '../../../Transitions/Fade';
 import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
@@ -42,10 +42,9 @@ const Arrow: FC<ArrowProps> = (props) => {
 		...rest
 	} = props;
 
-	const duration = useConst<number>(getTransitionDuration({ theme, duration: 'ultra-fast' }));
-	const easing = useConst<number[]>(getTransitionEasings({ theme }));
-
-	const config = useConst<Transition>({ duration, easing });
+	const duration = useConst(getTransitionDuration({ theme, duration: 'ultra-fast' }));
+	const easing = useConst(getTransitionEasings({ theme }));
+	const config = useConst({ ...getTransitionConfig({ theme }), duration, easing });
 
 	const [width, setWidth] = useState<number>(iconButtonWidth);
 	const debouncedWidth = useDebounce<number>(width, 'ultra-fast');

@@ -2,7 +2,6 @@ import { FC, useContext, useCallback } from 'react';
 
 import { useConst, HStack, Center, Text } from '@chakra-ui/react';
 
-import { Transition } from 'framer-motion';
 import { merge } from 'lodash';
 import { useElementSize } from 'usehooks-ts';
 
@@ -10,7 +9,7 @@ import { SideNavigationContext } from '../..';
 import { InternalLink, Fade } from '../../../../..';
 import { useTheme } from '../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../common/utils';
-import { getDelay as getTransitionDelay } from '../../../../Transitions/common/utils';
+import { getDelay as getTransitionDelay, getConfig as getTransitionConfig } from '../../../../Transitions/common/utils';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -52,8 +51,8 @@ const NavItem: FC<NavItemProps> = (props) => {
 
 	const style = useStyles({ theme, color, colorMode, isActive, mode });
 
-	const delay = useConst<number>(getTransitionDelay({ theme, duration: 'slow' }) * 2);
-	const config = useConst<Transition>({ delay });
+	const delay = useConst(getTransitionDelay({ theme, duration: 'slow' }) * 2);
+	const config = useConst({ ...getTransitionConfig({ theme }), delay });
 
 	const handleTextWidth = useCallback((): string => {
 		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'));
