@@ -93,7 +93,7 @@ const Accordion = <D,>(props: AccordionProps<D>): ReactElement => {
 				aria-disabled={isDisabled}
 				tabIndex={0}
 				data-active={dataAttr(isActive)}
-				onClick={() => setOpened(toggleAccordion({ id, opened }))}
+				onClick={!isHovering ? () => setOpened(toggleAccordion({ id, opened })) : undefined}
 				sx={merge(style.accordion, sx)}
 				_disabled={style.disabled.accordion}
 				_active={style.active}
