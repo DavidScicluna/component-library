@@ -9,14 +9,17 @@ import { AccordionsContext as AccordionsContextType } from '../../types';
 import { AccordionsPanelProps } from './types';
 
 const AccordionsPanel = <D,>(props: AccordionsPanelProps<D>): ReactElement => {
-	const { accordions = [], spacing: spacingHook = defaultSpacing } =
-		useContext<AccordionsContextType<D>>(AccordionsContext);
+	const {
+		accordions = [],
+		opened = [],
+		spacing: spacingHook = defaultSpacing
+	} = useContext<AccordionsContextType<D>>(AccordionsContext);
 
 	const { children, spacing = spacingHook, ...rest } = props;
 
 	return (
 		<VStack {...rest} width='100%' spacing={spacing}>
-			{children({ accordions })}
+			{children({ accordions, opened })}
 		</VStack>
 	);
 };
