@@ -112,6 +112,8 @@ import {
 	BadgeSize,
 	BadgeVariant
 } from './components/DataDisplay/Badge/types';
+import Headline from './components/DataDisplay/Headline';
+import { HeadlineColor, HeadlineProps } from './components/DataDisplay/Headline/types';
 import Tag from './components/DataDisplay/Tag';
 import TagDeleteIconButton from './components/DataDisplay/Tag/components/TagDeleteIconButton';
 import { TagDeleteIconButtonProps } from './components/DataDisplay/Tag/components/TagDeleteIconButton/types';
@@ -406,6 +408,7 @@ export {
 	Badge,
 	BadgeIcon,
 	BadgeLabel,
+	Headline,
 	Tag,
 	TagDeleteIconButton,
 	TagLabel,
@@ -526,6 +529,8 @@ export type {
 	BadgeRef,
 	BadgeSize,
 	BadgeVariant,
+	HeadlineColor,
+	HeadlineProps,
 	TagDeleteIconButtonProps,
 	TagLabelProps,
 	TagColor,
