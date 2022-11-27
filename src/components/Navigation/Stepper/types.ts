@@ -4,7 +4,7 @@ import { Color } from '../../../theme/types';
 
 export type StepperRef = HTMLDivElement | null;
 
-export type StepperColor = Exclude<Color, 'transparent' | 'black' | 'white'>;
+export type StepperColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 
 export type OnChangeProps = { index: number };
 
