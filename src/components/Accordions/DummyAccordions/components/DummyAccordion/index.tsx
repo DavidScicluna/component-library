@@ -1,18 +1,12 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { Center } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
-import { DummyAccordionsContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	isFullWidth as defaultIsFullWidth
-} from '../../../common/data/defaultPropValues';
 import { isLight as defaultIsLight } from '../../../OriginalAccordions/components/Accordion/common/data/defaultPropValues';
-import { DummyAccordionsContext as DummyAccordionsContextType } from '../../types';
+import { useDummyAccordionsContext } from '../../common/hooks';
 
 import useStyles from './common/styles';
 import { DummyAccordionProps } from './types';
@@ -20,11 +14,7 @@ import { DummyAccordionProps } from './types';
 const DummyAccordion: FC<DummyAccordionProps> = (props) => {
 	const theme = useTheme();
 
-	const {
-		color = defaultColor,
-		colorMode = defaultColorMode,
-		isFullWidth = defaultIsFullWidth
-	} = useContext<DummyAccordionsContextType>(DummyAccordionsContext);
+	const { color, colorMode, isFullWidth } = useDummyAccordionsContext();
 
 	const { children, isLight = defaultIsLight, sx, ...rest } = props;
 

@@ -2,14 +2,13 @@ import { FC, useContext } from 'react';
 
 import { useMediaQuery } from '@chakra-ui/react';
 
-import { DummyAccordionsContext } from '../../../..';
 import DummyButton from '../../../../../../Clickable/Buttons/DummyButton';
 import DummyIconButton from '../../../../../../Clickable/IconButtons/DummyIconButton';
 import Icon from '../../../../../../Icon';
-import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../common/data/defaultPropValues';
+import { color as defaultColor } from '../../../../../common/data/defaultPropValues';
 import { size as defaultSize } from '../../../../../OriginalAccordions/components/QuickToggles/common/data/defaultPropValues';
-import { DummyAccordionsContext as DummyAccordionsContextType } from '../../../../types';
 import { useTheme } from '../../../../../../../common/hooks';
+import { useDummyAccordionsContext } from '../../../../common/hooks';
 
 import { DummyToggleProps } from './types';
 
@@ -18,7 +17,7 @@ const DummyToggle: FC<DummyToggleProps> = (props) => {
 
 	const [isSm] = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
-	const { colorMode = defaultColorMode } = useContext<DummyAccordionsContextType>(DummyAccordionsContext);
+	const { colorMode } = useDummyAccordionsContext();
 
 	const { color = defaultColor, size = defaultSize } = props;
 

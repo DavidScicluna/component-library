@@ -1,30 +1,24 @@
-import { FC, useContext, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 
 import { HStack, VStack, Center, Text } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import { DummyAccordionsContext } from '../../../..';
 import { useTheme } from '../../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../../common/utils';
 import { getColor } from '../../../../../../../common/utils/color';
 import { Space } from '../../../../../../../theme/types';
 import Icon from '../../../../../../Icon';
 import Skeleton from '../../../../../../Skeleton';
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	spacing as defaultSpacing
-} from '../../../../../common/data/defaultPropValues';
-import { DummyAccordionsContext as DummyAccordionsContextType } from '../../../../types';
+import { spacing as defaultSpacing } from '../../../../../common/data/defaultPropValues';
+import { useDummyAccordionsContext } from '../../../../common/hooks';
 
 import { DummyAccordionHeaderProps } from './types';
 
 const DummyAccordionHeader: FC<DummyAccordionHeaderProps> = (props) => {
 	const theme = useTheme();
 
-	const { color = defaultColor, colorMode = defaultColorMode } =
-		useContext<DummyAccordionsContextType>(DummyAccordionsContext);
+	const { color, colorMode } = useDummyAccordionsContext();
 
 	const [actionsRef, { width: actionsWidth }] = useElementSize();
 

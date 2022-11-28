@@ -1,24 +1,17 @@
-import { FC, useContext, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 
 import { HStack, Center, Text } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import { DummyAccordionsContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../common/utils';
 import { getColor } from '../../../../../common/utils/color';
 import { Space } from '../../../../../theme/types';
 import Divider from '../../../../Divider';
 import HorizontalScroll from '../../../../HorizontalScroll';
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	spacing as defaultSpacing
-} from '../../../common/data/defaultPropValues';
 import { size as defaultSize } from '../../../OriginalAccordions/components/QuickToggles/common/data/defaultPropValues';
-import { accordions as defaultAccordions } from '../../common/data/defaultPropValues';
-import { DummyAccordionsContext as DummyAccordionsContextType } from '../../types';
+import { useDummyAccordionsContext } from '../../common/hooks';
 
 import DummyAccordion from './components/DummyAccordion';
 import DummyToggle from './components/DummyToggle';
@@ -27,12 +20,7 @@ import { DummyQuickTogglesProps } from './types';
 const DummyQuickToggles: FC<DummyQuickTogglesProps> = (props) => {
 	const theme = useTheme();
 
-	const {
-		accordions = defaultAccordions,
-		color: colorHook = defaultColor,
-		colorMode = defaultColorMode,
-		spacing: spacingHook = defaultSpacing
-	} = useContext<DummyAccordionsContextType>(DummyAccordionsContext);
+	const { accordions, color: colorHook, colorMode, spacing: spacingHook } = useDummyAccordionsContext();
 
 	const [borderRef, { width: borderWidth }] = useElementSize();
 	const [textRef, { width: textWidth }] = useElementSize();
