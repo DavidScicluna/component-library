@@ -2,6 +2,8 @@ import { ReactElement, createContext, forwardRef } from 'react';
 
 import { useColorMode, VStack } from '@chakra-ui/react';
 
+import { method as defaultMethod } from '../../../common/data/defaultPropValues';
+
 import {
 	activeStep as defaultActiveStep,
 	color as defaultColor,
@@ -13,9 +15,9 @@ export const StepperContext = createContext<StepperContextType>({
 	activeStep: defaultActiveStep,
 	color: defaultColor,
 	colorMode: defaultColorMode,
-	onChange: () => undefined,
-	onCancel: () => undefined,
-	onSubmit: () => undefined
+	onChange: defaultMethod,
+	onCancel: defaultMethod,
+	onSubmit: defaultMethod
 });
 
 const Stepper = forwardRef<StepperRef, StepperProps>(function Stepper(props, ref): ReactElement {
