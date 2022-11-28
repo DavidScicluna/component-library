@@ -1,20 +1,15 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { Box } from '@chakra-ui/react';
 
-import { TabBarContext } from '../../../..';
 import { useTheme } from '../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../common/utils/color';
-import {
-	colorMode as defaultColorMode,
-	direction as defaultDirection
-} from '../../../../common/data/defaultPropValues';
-import { TabBarContext as TabBarContextType } from '../../../../types';
+import { useTabBarContext } from '../../../../common/hooks';
 
 const ActiveDot: FC = () => {
 	const theme = useTheme();
 
-	const { colorMode = defaultColorMode, direction = defaultDirection } = useContext<TabBarContextType>(TabBarContext);
+	const { colorMode, direction } = useTabBarContext();
 
 	return (
 		<Box

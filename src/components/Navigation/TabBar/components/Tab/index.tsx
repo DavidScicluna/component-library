@@ -1,18 +1,12 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { VStack, Text } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
-import { TabBarContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import SlideFade from '../../../../Transitions/SlideFade';
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	direction as defaultDirection
-} from '../../common/data/defaultPropValues';
-import { TabBarContext as TabBarContextType } from '../../types';
+import { useTabBarContext } from '../../common/hooks';
 
 import { isActive as defaultIsActive, isDisabled as defaultIsDisabled } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
@@ -22,11 +16,7 @@ import { TabProps } from './types';
 const Tab: FC<TabProps> = (props) => {
 	const theme = useTheme();
 
-	const {
-		color = defaultColor,
-		colorMode = defaultColorMode,
-		direction = defaultDirection
-	} = useContext<TabBarContextType>(TabBarContext);
+	const { color, colorMode, direction } = useTabBarContext();
 
 	const {
 		renderIcon,
