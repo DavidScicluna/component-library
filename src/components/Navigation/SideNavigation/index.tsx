@@ -13,6 +13,7 @@ import { SideNavigationContext as SideNavigationContextType, SideNavigationRef, 
 export const SideNavigationContext = createContext<SideNavigationContextType>({
 	color: defaultColor,
 	colorMode: defaultColorMode,
+	isDrawer: defaultIsDrawer,
 	mode: defaultMode
 });
 

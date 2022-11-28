@@ -1,38 +1,24 @@
-import { FC, useContext, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 
 import { useConst, HStack, Center, Text } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 import { useElementSize } from 'usehooks-ts';
 
-import { SideNavigationContext } from '../..';
 import { InternalLink, Fade } from '../../../../..';
 import { useTheme } from '../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../common/utils';
 import { getDelay as getTransitionDelay, getConfig as getTransitionConfig } from '../../../../Transitions/common/utils';
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	isDrawer as defaultIsDrawer,
-	mode as defaultMode
-} from '../../common/data/defaultPropValues';
-import { SideNavigationContext as SideNavigationContextType } from '../../types';
+import { useSideNavigationContext } from '../../common/hooks';
 
 import { isActive as defaultIsActive, isDisabled as defaultIsDisabled } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { NavItemProps } from './types';
 
-// TODO: Add children to NavItem
-
 const NavItem: FC<NavItemProps> = (props) => {
 	const theme = useTheme();
 
-	const {
-		color = defaultColor,
-		colorMode = defaultColorMode,
-		isDrawer = defaultIsDrawer,
-		mode = defaultMode
-	} = useContext<SideNavigationContextType>(SideNavigationContext);
+	const { color, colorMode, isDrawer, mode } = useSideNavigationContext();
 
 	const [leftIcon, { width: leftIconWidth }] = useElementSize();
 	const [rightIcon, { width: rightIconWidth }] = useElementSize();

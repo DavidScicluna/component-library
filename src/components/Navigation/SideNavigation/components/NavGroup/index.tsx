@@ -1,20 +1,17 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { VStack, Text } from '@chakra-ui/react';
 
-import { SideNavigationContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import { getColor } from '../../../../../common/utils/color';
-import { colorMode as defaultColorMode, mode as defaultMode } from '../../common/data/defaultPropValues';
-import { SideNavigationContext as SideNavigationContextType } from '../../types';
+import { useSideNavigationContext } from '../../common/hooks';
 
 import { NavGroupProps } from './types';
 
 const NavGroup: FC<NavGroupProps> = ({ children, title, ...rest }) => {
 	const theme = useTheme();
 
-	const { colorMode = defaultColorMode, mode = defaultMode } =
-		useContext<SideNavigationContextType>(SideNavigationContext);
+	const { colorMode, mode } = useSideNavigationContext();
 
 	return (
 		<VStack
