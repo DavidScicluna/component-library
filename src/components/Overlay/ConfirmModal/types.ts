@@ -22,6 +22,9 @@ import {
 } from '../../../common/types/box';
 import { IconButtonProps } from '../../Clickable/IconButtons/OriginalIconButton/types';
 import { IconProps } from '../../Icon/types';
+import { Color } from '../../../theme/types';
+
+export type ConfirmModalColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 
 type IconPropsPicked = 'icon' | 'category';
 
@@ -60,9 +63,10 @@ type Omitted =
 	| 'variant';
 
 export type ConfirmModalProps = {
+	color?: ConfirmModalColor;
 	colorMode?: ColorMode;
 	renderCancel?: (props: RenderCancelProps) => ReactNode;
 	size?: ConfirmModalSize;
 } & Omit<CUIModalProps, Omitted>;
 
-export type ConfirmModalContext = Pick<ConfirmModalProps, 'colorMode' | 'onClose'>;
+export type ConfirmModalContext = Pick<ConfirmModalProps, 'color' | 'colorMode' | 'onClose'>;

@@ -4,8 +4,10 @@ import { useColorMode, Modal as CUIModal, ModalOverlay, ModalContent, Center } f
 
 import { useTheme } from '../../../common/hooks';
 import { getColor } from '../../../common/utils/color';
+import { method as defaultOnClose } from '../../../common/data/defaultPropValues';
 
 import {
+	color as defaultColor,
 	colorMode as defaultColorMode,
 	isOpen as defaultIsOpen,
 	size as defaultSize
@@ -13,10 +15,9 @@ import {
 import { ConfirmModalContext as ConfirmModalContextType, ConfirmModalProps } from './types';
 
 export const ConfirmModalContext = createContext<ConfirmModalContextType>({
+	color: defaultColor,
 	colorMode: defaultColorMode,
-	onClose: () => {
-		return;
-	}
+	onClose: defaultOnClose
 });
 
 const ConfirmModal: FC<ConfirmModalProps> = (props) => {
@@ -25,6 +26,7 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 
 	const {
 		children,
+		color = defaultColor,
 		colorMode = colorModeHook,
 		isOpen = defaultIsOpen,
 		onClose,
@@ -43,7 +45,7 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 			scrollBehavior='outside'
 			size={size}
 		>
-			<ConfirmModalContext.Provider value={{ colorMode, onClose }}>
+			<ConfirmModalContext.Provider value={{ color, colorMode, onClose }}>
 				<ModalOverlay />
 				<ModalContent
 					position='relative'

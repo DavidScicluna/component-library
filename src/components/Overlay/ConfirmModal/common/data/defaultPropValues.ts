@@ -1,7 +1,9 @@
 import { ColorMode } from '@chakra-ui/react';
 
 import { Space } from '../../../../../theme/types';
-import { ConfirmModalSize } from '../../types';
+import { ConfirmModalColor, ConfirmModalSize } from '../../types';
+
+export const color: ConfirmModalColor = 'blue';
 
 export const colorMode: ColorMode = 'light';
 

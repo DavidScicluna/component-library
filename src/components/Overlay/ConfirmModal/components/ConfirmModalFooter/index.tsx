@@ -1,15 +1,14 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { ModalFooter, HStack } from '@chakra-ui/react';
 
-import { ConfirmModalContext } from '../..';
-import { colorMode as defaultColorMode, spacing as defaultSpacing } from '../../common/data/defaultPropValues';
-import { ConfirmModalContext as ConfirmModalContextType } from '../../types';
+import { spacing as defaultSpacing } from '../../common/data/defaultPropValues';
+import { useConfirmModalContext } from '../../common/hooks';
 
 import { ConfirmModalFooterProps } from './types';
 
 const ConfirmModalFooter: FC<ConfirmModalFooterProps> = (props) => {
-	const { colorMode = defaultColorMode, onClose } = useContext<ConfirmModalContextType>(ConfirmModalContext);
+	const { color, colorMode, onClose } = useConfirmModalContext();
 
 	const { renderCancel, renderAction, spacing = defaultSpacing, ...rest } = props;
 
@@ -20,13 +19,19 @@ const ConfirmModalFooter: FC<ConfirmModalFooterProps> = (props) => {
 					color: 'gray',
 					colorMode,
 					isFullWidth: true,
-					onClick: () => onClose(),
+					onClick: typeof onClose === 'function' ? () => onClose() : undefined,
 					size: 'md',
 					variant: 'outlined'
 				})}
 
 			{renderAction &&
-				renderAction({ color: 'gray', colorMode, isFullWidth: true, size: 'md', variant: 'contained' })}
+				renderAction({
+					color,
+					colorMode,
+					isFullWidth: true,
+					size: 'md',
+					variant: 'contained'
+				})}
 		</ModalFooter>
 	);
 };
