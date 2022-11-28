@@ -32,6 +32,7 @@ const Modal: FC<ModalProps> = (props) => {
 
 	const {
 		children,
+		color = defaultColor,
 		colorMode = colorModeHook,
 		isOpen = defaultIsOpen,
 		onClose,
@@ -70,7 +71,7 @@ const Modal: FC<ModalProps> = (props) => {
 			scrollBehavior='inside'
 			size={size === 'full' || isSm ? 'full' : size}
 		>
-			<ModalContext.Provider value={{ colorMode, onClose, size, spacing }}>
+			<ModalContext.Provider value={{ color, colorMode, onClose, size, spacing }}>
 				<ModalOverlay />
 
 				<ModalContent
