@@ -8,7 +8,7 @@ export type StepperColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'g
 
 export type OnChangeProps = { index: number };
 
-export type StepperProps = Omit<StackProps, 'onChange'> & {
+export type StepperProps = Omit<StackProps, 'color' | 'colorMode' | 'onChange'> & {
 	activeStep: number;
 	color?: StepperColor;
 	colorMode?: ColorMode;

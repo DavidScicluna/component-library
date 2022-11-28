@@ -1,19 +1,17 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { useMediaQuery, Center } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
 import { width, height } from '../..';
-import { StepperContext } from '../../../..';
 import { useTheme } from '../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../common/utils/color';
 import Icon from '../../../../../../Icon';
-import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/data/defaultPropValues';
-import { StepperContext as StepperContextType } from '../../../../types';
 import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
 import useStyles from '../../common/styles';
 import { getStatusIcon } from '../Step/common/utils';
+import { useStepperContext } from '../../../../common/hooks';
 
 import { NextProps } from './types';
 
@@ -22,7 +20,7 @@ const Next: FC<NextProps> = (props) => {
 
 	const [isMd] = useMediaQuery(`(min-width: ${theme.breakpoints.md})`);
 
-	const { color = defaultColor, colorMode = defaultColorMode } = useContext<StepperContextType>(StepperContext);
+	const { color, colorMode } = useStepperContext();
 
 	const {
 		isLast = false,

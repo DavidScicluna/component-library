@@ -1,18 +1,16 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { Center } from '@chakra-ui/react';
 
 import { AnimatePresence } from 'framer-motion';
 
-import { StepperContext } from '../..';
 import Fade from '../../../../Transitions/Fade';
-import { activeStep as defaultActiveStep } from '../../common/data/defaultPropValues';
-import { StepperContext as StepperContextType } from '../../types';
+import { useStepperContext } from '../../common/hooks';
 
 import { StepPanelsProps } from './types';
 
 const StepPanels: FC<StepPanelsProps> = ({ children, ...rest }) => {
-	const { activeStep = defaultActiveStep } = useContext<StepperContextType>(StepperContext);
+	const { activeStep } = useStepperContext();
 
 	return (
 		<Center {...rest} as={AnimatePresence} width='100%' mode='wait' initial={false}>

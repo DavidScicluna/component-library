@@ -1,19 +1,17 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { VStack, Text } from '@chakra-ui/react';
 
-import { StepperContext } from '../../../../../..';
 import { useTheme } from '../../../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../../../common/utils/color';
-import { colorMode as defaultColorMode } from '../../../../../../common/data/defaultPropValues';
-import { StepperContext as StepperContextType } from '../../../../../../types';
+import { useStepperContext } from '../../../../../../common/hooks';
 
 import { StepDescriptionProps } from './types';
 
 const StepDescription: FC<StepDescriptionProps> = ({ index, title, subtitle }) => {
 	const theme = useTheme();
 
-	const { colorMode = defaultColorMode } = useContext<StepperContextType>(StepperContext);
+	const { colorMode } = useStepperContext();
 
 	return (
 		<VStack width='100%' alignItems='inherit' spacing={0}>

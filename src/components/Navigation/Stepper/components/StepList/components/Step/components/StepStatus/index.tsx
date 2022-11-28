@@ -1,20 +1,18 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { Text } from '@chakra-ui/react';
 
-import { StepperContext } from '../../../../../..';
 import { useTheme } from '../../../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../../../common/utils/color';
-import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../../common/data/defaultPropValues';
-import { StepperContext as StepperContextType } from '../../../../../../types';
 import { getStatusColor } from '../../common/utils';
+import { useStepperContext } from '../../../../../../common/hooks';
 
 import { StatusProps } from './types';
 
 const StepStatus: FC<StatusProps> = ({ status }) => {
 	const theme = useTheme();
 
-	const { color = defaultColor, colorMode = defaultColorMode } = useContext<StepperContextType>(StepperContext);
+	const { color, colorMode } = useStepperContext();
 
 	const handleReturnLabel = (): string => {
 		switch (status) {

@@ -1,19 +1,17 @@
-import { FC, useContext, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 
 import { HStack, VStack, Center } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
 import { height } from '../..';
-import { StepperContext } from '../../../..';
 import { useTheme } from '../../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../../common/utils';
 import { Space } from '../../../../../../../theme/types';
 import Fade from '../../../../../../Transitions/Fade';
-import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/data/defaultPropValues';
-import { StepperContext as StepperContextType } from '../../../../types';
 import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
 import useStyles from '../../common/styles';
+import { useStepperContext } from '../../../../common/hooks';
 
 import { status as defaultStatus } from './common/data/defaultPropValues';
 import StepDescription from './components/StepDescription';
@@ -26,7 +24,7 @@ const spacing: Space = 4;
 const Step: FC<StepProps> = (props) => {
 	const theme = useTheme();
 
-	const { color = defaultColor, colorMode = defaultColorMode } = useContext<StepperContextType>(StepperContext);
+	const { color, colorMode } = useStepperContext();
 
 	const [stepIconRef, { width: stepIconWidth = 0 }] = useElementSize();
 

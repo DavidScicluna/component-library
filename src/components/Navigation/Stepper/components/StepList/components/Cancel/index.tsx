@@ -1,18 +1,16 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { useMediaQuery, Center } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
 import { width, height } from '../..';
-import { StepperContext } from '../../../..';
 import { useTheme } from '../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../common/utils/color';
 import Icon from '../../../../../../Icon';
-import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/data/defaultPropValues';
-import { StepperContext as StepperContextType } from '../../../../types';
 import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
 import useStyles from '../../common/styles';
+import { useStepperContext } from '../../../../common/hooks';
 
 import { CancelProps } from './types';
 
@@ -21,11 +19,7 @@ const Cancel: FC<CancelProps> = ({ isDisabled = defaultIsDisabled }) => {
 
 	const [isMd] = useMediaQuery(`(min-width: ${theme.breakpoints.md})`);
 
-	const {
-		color = defaultColor,
-		colorMode = defaultColorMode,
-		onCancel
-	} = useContext<StepperContextType>(StepperContext);
+	const { color, colorMode, onCancel } = useStepperContext();
 
 	const style = useStyles({ theme, color, colorMode, status: 'idle' });
 
@@ -38,7 +32,7 @@ const Cancel: FC<CancelProps> = ({ isDisabled = defaultIsDisabled }) => {
 			minHeight={height}
 			height={height}
 			maxHeight={height}
-			onClick={!isDisabled ? () => onCancel() : undefined}
+			onClick={!isDisabled && typeof onCancel === 'function' ? () => onCancel() : undefined}
 			sx={{
 				...merge(
 					style.step,

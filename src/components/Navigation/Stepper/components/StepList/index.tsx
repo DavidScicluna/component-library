@@ -1,16 +1,14 @@
-import { FC, useContext, useState } from 'react';
+import { FC, useState } from 'react';
 
 import { useMediaQuery, useBoolean, Stack, HStack, Center } from '@chakra-ui/react';
 
 import { useUpdateEffect } from 'usehooks-ts';
 
-import { StepperContext } from '../../.';
 import { useDebounce, useTheme } from '../../../../../common/hooks';
 import Divider from '../../../../Divider';
 import HorizontalScroll from '../../../../HorizontalScroll';
-import { activeStep as defaultActiveStep, colorMode as defaultColorMode } from '../../common/data/defaultPropValues';
-import { StepperContext as StepperContextType } from '../../types';
 import { convertStringToNumber } from '../../../../../common/utils';
+import { useStepperContext } from '../../common/hooks';
 
 import { isDisabled as defaultIsDisabled } from './common/data/defaultPropValues';
 import Cancel from './components/Cancel';
@@ -29,12 +27,7 @@ const StepList: FC<StepListProps> = ({ children = [], isDisabled = defaultIsDisa
 
 	const [isMd] = useMediaQuery(`(min-width: ${theme.breakpoints.md})`);
 
-	const {
-		activeStep = defaultActiveStep,
-		colorMode = defaultColorMode,
-		onChange,
-		onSubmit
-	} = useContext<StepperContextType>(StepperContext);
+	const { activeStep, colorMode, onChange, onSubmit } = useStepperContext();
 
 	const [scroll, setScroll] = useState<ScrollContext>({} as ScrollContext);
 	const scrollDebounced = useDebounce(scroll, 'ultra-fast');
@@ -69,16 +62,20 @@ const StepList: FC<StepListProps> = ({ children = [], isDisabled = defaultIsDisa
 
 				const index: number = children.findIndex((step) => step.status === status);
 
-				onChange({ index });
+				if (typeof onChange === 'function') {
+					onChange({ index });
+				}
 
 				handleScrollToStep(index);
-			} else {
+			} else if (typeof onSubmit === 'function') {
 				onSubmit();
 			}
 		} else {
 			const index = activeStep + 1;
 
-			onChange({ index });
+			if (typeof onChange === 'function') {
+				onChange({ index });
+			}
 
 			handleScrollToStep(index);
 		}
@@ -86,7 +83,9 @@ const StepList: FC<StepListProps> = ({ children = [], isDisabled = defaultIsDisa
 
 	const handleStepClick = (index: number): void => {
 		if (activeStep !== index) {
-			onChange({ index });
+			if (typeof onChange === 'function') {
+				onChange({ index });
+			}
 
 			handleScrollToStep(index);
 		}

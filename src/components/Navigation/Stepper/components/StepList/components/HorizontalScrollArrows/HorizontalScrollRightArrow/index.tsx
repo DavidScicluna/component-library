@@ -1,24 +1,22 @@
-import { FC, useContext, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 
 import { useBoolean } from '@chakra-ui/react';
 
-import { StepperContext } from '../../../../..';
 import { useDebounce, useTheme } from '../../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../../common/utils/color';
 import HorizontalScrollArrow from '../../../../../../../HorizontalScroll/components/Arrow';
-import { colorMode as defaultColorMode } from '../../../../../common/data/defaultPropValues';
-import { StepperContext as StepperContextType } from '../../../../../types';
 import { isDisabled as defaultIsDisabled } from '../../../common/data/defaultPropValues';
 import { HorizontalScrollArrowProps as HorizontalScrollRightArrowProps } from '../common/types';
 import { height } from '../../..';
 import { convertStringToNumber } from '../../../../../../../../common/utils';
+import { useStepperContext } from '../../../../../common/hooks';
 
 const border = 2;
 
 const HorizontalScrollRightArrow: FC<HorizontalScrollRightArrowProps> = (props) => {
 	const theme = useTheme();
 
-	const { colorMode = defaultColorMode } = useContext<StepperContextType>(StepperContext);
+	const { colorMode } = useStepperContext();
 
 	const { scroll, isDisabled = defaultIsDisabled } = props;
 	const { getNextItem, isLastItemVisible = false, scrollToItem, visibleItemsWithoutSeparators = [] } = scroll || {};
