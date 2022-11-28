@@ -1,4 +1,4 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { Tab as CUITab, HStack, Center } from '@chakra-ui/react';
 
@@ -6,17 +6,10 @@ import merge from 'lodash/merge';
 import { useElementSize } from 'usehooks-ts';
 import { omit } from 'lodash';
 
-import { TabsContext } from '../../../..';
-import { TabsContext as TabsContextType } from '../../../../types';
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	isFitted as defaultIsFitted,
-	size as defaultSize
-} from '../../../../common/data/defaultPropValues';
 import { useTheme } from '../../../../../../../common/hooks';
 import { getSizeConfig } from '../../../../common/utils';
 import Skeleton from '../../../../../../Skeleton';
+import { useTabsContext } from '../../../../common/hooks';
 
 import { isSelected as defaultIsSelected } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
@@ -25,12 +18,7 @@ import { DummyTabProps } from './types';
 const DummyTab: FC<DummyTabProps> = (props) => {
 	const theme = useTheme();
 
-	const {
-		color = defaultColor,
-		colorMode = defaultColorMode,
-		isFitted = defaultIsFitted,
-		size = defaultSize
-	} = useContext<TabsContextType>(TabsContext);
+	const { color, colorMode, isFitted, size } = useTabsContext();
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 

@@ -1,4 +1,4 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { Tab as CUITab, HStack, Center } from '@chakra-ui/react';
 
@@ -7,17 +7,10 @@ import { dataAttr } from '@chakra-ui/utils';
 import { useElementSize } from 'usehooks-ts';
 import { omit } from 'lodash';
 
-import { TabsContext } from '../../../..';
-import { TabsContext as TabsContextType } from '../../../../types';
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	isDisabled as defaultIsDisabled,
-	isFitted as defaultIsFitted,
-	size as defaultSize
-} from '../../../../common/data/defaultPropValues';
+import { isDisabled as defaultIsDisabled } from '../../../../common/data/defaultPropValues';
 import { useTheme } from '../../../../../../../common/hooks';
 import { getSizeConfig } from '../../../../common/utils';
+import { useTabsContext } from '../../../../common/hooks';
 
 import { isActive as defaultIsActive, isSelected as defaultIsSelected } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
@@ -26,13 +19,7 @@ import { TabProps } from './types';
 const Tab: FC<TabProps> = (props) => {
 	const theme = useTheme();
 
-	const {
-		color = defaultColor,
-		colorMode = defaultColorMode,
-		isDisabled: isTabDisabled = defaultIsDisabled,
-		isFitted = defaultIsFitted,
-		size = defaultSize
-	} = useContext<TabsContextType>(TabsContext);
+	const { color, colorMode, isDisabled: isTabDisabled, isFitted, size } = useTabsContext();
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 

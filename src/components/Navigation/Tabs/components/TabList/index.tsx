@@ -1,35 +1,20 @@
-import { FC, useContext, useState } from 'react';
+import { FC, useState } from 'react';
 
 import { TabList as CUITabList, Box, HStack } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import {
-	activeTab as defaultActiveTab,
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	isDisabled as defaultIsDisabled,
-	isFitted as defaultIsFitted
-} from '../../common/data/defaultPropValues';
-import { TabsContext } from '../../.';
-import { TabsContext as TabsContextType } from '../../types';
 import HorizontalScroll from '../../../../HorizontalScroll';
 import Divider from '../../../../Divider';
 import { useDebounce } from '../../../../../common/hooks';
+import { useTabsContext } from '../../common/hooks';
 
 import { TabListProps, ScrollContext } from './types';
 import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from './components/HorizontalScrollArrows';
 import Tab from './components/Tab';
 
 const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest }) => {
-	const {
-		activeTab = defaultActiveTab,
-		color = defaultColor,
-		colorMode = defaultColorMode,
-		isDisabled = defaultIsDisabled,
-		isFitted = defaultIsFitted,
-		onChange
-	} = useContext<TabsContextType>(TabsContext);
+	const { activeTab, color, colorMode, isDisabled, isFitted, onChange } = useTabsContext();
 
 	const [gridRef, { width: gridWidth }] = useElementSize();
 
@@ -50,7 +35,7 @@ const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest
 
 	const handleTabClick = (index: number): void => {
 		if (activeTab !== index) {
-			if (onChange) {
+			if (onChange && typeof onChange === 'function') {
 				onChange({ index });
 			}
 

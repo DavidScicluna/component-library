@@ -1,12 +1,9 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { useConst, TabPanels as CUITabPanels, TabPanel } from '@chakra-ui/react';
 
 import { AnimatePresence } from 'framer-motion';
 
-import { TabsContext } from '../../.';
-import { TabsContext as TabsContextType } from '../../types';
-import { activeTab as defaultActiveTab } from '../../common/data/defaultPropValues';
 import {
 	getDuration as getTransitionDuration,
 	getEasings as getTransitionEasings,
@@ -14,13 +11,14 @@ import {
 } from '../../../../Transitions/common/utils';
 import { useTheme } from '../../../../../common/hooks';
 import Fade from '../../../../Transitions/Fade';
+import { useTabsContext } from '../../common/hooks';
 
 import { TabPanelsProps } from './types';
 
 const TabPanels: FC<TabPanelsProps> = ({ children, ...rest }) => {
 	const theme = useTheme();
 
-	const { activeTab = defaultActiveTab } = useContext<TabsContextType>(TabsContext);
+	const { activeTab } = useTabsContext();
 
 	const duration = useConst(getTransitionDuration({ theme, duration: 'slow' }));
 	const easing = useConst(getTransitionEasings({ theme }));
@@ -29,11 +27,16 @@ const TabPanels: FC<TabPanelsProps> = ({ children, ...rest }) => {
 	return (
 		<CUITabPanels {...rest} as={AnimatePresence} width='100%' mode='wait' initial={false}>
 			{children.map((panel, index) => (
-				<TabPanel key={`ds-cl-tabs-tab-panel-${index}`} width='100%' p={0}>
-					<Fade in={activeTab === index} transition={{ enter: { ...config }, exit: { ...config } }}>
+				<Fade
+					key={`ds-cl-tabs-tab-panel-${index}`}
+					in={activeTab === index}
+					transition={{ enter: { ...config }, exit: { ...config } }}
+					style={{ width: '100%' }}
+				>
+					<TabPanel width='100%' p={0}>
 						{panel}
-					</Fade>
-				</TabPanel>
+					</TabPanel>
+				</Fade>
 			))}
 		</CUITabPanels>
 	);
