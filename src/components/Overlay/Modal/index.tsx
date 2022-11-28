@@ -5,8 +5,10 @@ import { useColorMode, useMediaQuery, Modal as CUIModal, ModalOverlay, ModalCont
 import { useTheme } from '../../../common/hooks';
 import { getColor } from '../../../common/utils/color';
 import { convertREMToPixels, convertStringToNumber } from '../../../common/utils';
+import { method as defaultOnClose } from '../../../common/data/defaultPropValues';
 
 import {
+	color as defaultColor,
 	colorMode as defaultColorMode,
 	isOpen as defaultIsOpen,
 	size as defaultSize,
@@ -15,8 +17,9 @@ import {
 import { ModalContext as ModalContextType, ModalProps } from './types';
 
 export const ModalContext = createContext<ModalContextType>({
-	colorMode: 'light',
-	onClose: () => undefined,
+	color: defaultColor,
+	colorMode: defaultColorMode,
+	onClose: defaultOnClose,
 	size: defaultSize,
 	spacing: defaultSpacing
 });

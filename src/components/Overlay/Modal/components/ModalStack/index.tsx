@@ -1,17 +1,11 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { useMediaQuery, VStack } from '@chakra-ui/react';
 
-import {
-	colorMode as defaultColorMode,
-	size as defaultSize,
-	spacing as defaultSpacing
-} from '../../common/data/defaultPropValues';
 import Divider from '../../../../Divider';
 import { getColor } from '../../../../../common/utils/color';
 import { useTheme } from '../../../../../common/hooks';
-import { ModalContext } from '../..';
-import { ModalContext as ModalContextType } from '../../types';
+import { useModalContext } from '../../common/hooks';
 
 import { ModalStackProps } from './types';
 
@@ -20,11 +14,7 @@ const ModalStack: FC<ModalStackProps> = ({ children, isDivisible = true, p, ...r
 
 	const [isSm] = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
-	const {
-		colorMode = defaultColorMode,
-		size = defaultSize,
-		spacing = defaultSpacing
-	} = useContext<ModalContextType>(ModalContext);
+	const { colorMode, size, spacing } = useModalContext();
 
 	return (
 		<VStack

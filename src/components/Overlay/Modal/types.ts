@@ -18,7 +18,9 @@ import {
 	BoxPseudo,
 	BoxOther
 } from '../../../common/types/box';
-import { Space } from '../../../theme/types';
+import { Color, Space } from '../../../theme/types';
+
+export type ModalColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 
 export type ModalSize = 'full' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl';
 
@@ -51,9 +53,10 @@ type Omitted =
 	| 'variant';
 
 export type ModalProps = {
+	color?: ModalColor;
 	colorMode?: ColorMode;
 	size?: ModalSize;
 	spacing?: Space;
 } & Omit<CUIModalProps, Omitted>;
 
-export type ModalContext = Pick<ModalProps, 'colorMode' | 'onClose' | 'size' | 'spacing'>;
+export type ModalContext = Pick<ModalProps, 'color' | 'colorMode' | 'onClose' | 'size' | 'spacing'>;
