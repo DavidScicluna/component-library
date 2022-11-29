@@ -1,27 +1,15 @@
-import { ReactElement, useContext } from 'react';
+import { ReactElement } from 'react';
 
-import { CollapsibleCardContext } from '../..';
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	isDisabled as defaultIsDisabled,
-	isLight as defaultIsLight
-} from '../../common/data/defaultPropValues';
-import { CollapsibleCardContext as CollapsibleCardContextType } from '../../types';
 import { DividerProps as CollapsibleCardDividerProps } from '../../../../Divider/types';
 import { useTheme } from '../../../../../common/hooks';
 import Divider from '../../../../Divider';
 import { getColor } from '../../../../../common/utils/color';
+import { useCollapsibleCardContext } from '../../common/hooks';
 
 const CollapsibleCardDivider = (props: CollapsibleCardDividerProps): ReactElement => {
 	const theme = useTheme();
 
-	const {
-		color = defaultColor,
-		colorMode = defaultColorMode,
-		isDisabled = defaultIsDisabled,
-		isLight = defaultIsLight
-	} = useContext<CollapsibleCardContextType>(CollapsibleCardContext);
+	const { color, colorMode, isDisabled, isLight } = useCollapsibleCardContext();
 
 	return (
 		<Divider

@@ -35,7 +35,9 @@ export const CollapsibleCardContext = createContext<CollapsibleCardContextType>(
 	colorMode: defaultColorMode,
 	isDisabled: defaultIsDisabled,
 	isFullWidth: defaultIsFullWidth,
-	isOpen: defaultIsOpen
+	isLight: defaultIsLight,
+	isOpen: defaultIsOpen,
+	spacing: defaultSpacing
 });
 
 // TODO: Add other card variants
@@ -88,7 +90,9 @@ const CollapsibleCard: FC<CollapsibleCardProps> = (props) => {
 	};
 
 	return (
-		<CollapsibleCardContext.Provider value={{ color, colorMode, isDisabled, isFullWidth, isOpen }}>
+		<CollapsibleCardContext.Provider
+			value={{ color, colorMode, isDisabled, isFullWidth, isLight, isOpen, spacing }}
+		>
 			<Box
 				{...rest}
 				ref={ref}

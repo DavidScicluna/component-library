@@ -1,32 +1,22 @@
-import { FC, useContext, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 
 import { HStack, VStack, Center } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
 import Icon from '../../../../Icon';
-import { CollapsibleCardContext } from '../..';
-import {
-	colorMode as defaultColorMode,
-	isOpen as defaultIsOpen,
-	spacing as defaultSpacing
-} from '../../common/data/defaultPropValues';
-import { CollapsibleCardContext as CollapsibleCardContextType } from '../../types';
 import { useTheme } from '../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../common/utils';
 import { Space } from '../../../../../theme/types';
 import { getColor } from '../../../../../common/utils/color';
+import { useCollapsibleCardContext } from '../../common/hooks';
 
 import { CollapsibleCardHeaderProps } from './types';
 
 const CollapsibleCardHeader: FC<CollapsibleCardHeaderProps> = (props) => {
 	const theme = useTheme();
 
-	const {
-		colorMode = defaultColorMode,
-		isOpen = defaultIsOpen,
-		spacing: spacingHook = defaultSpacing
-	} = useContext<CollapsibleCardContextType>(CollapsibleCardContext);
+	const { colorMode, isOpen, spacing: spacingHook } = useCollapsibleCardContext();
 
 	const [actionsRef, { width: actionsWidth }] = useElementSize();
 
