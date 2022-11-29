@@ -1,19 +1,12 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { VStack } from '@chakra-ui/react';
 
 import dayjs from 'dayjs';
 
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	format as defaultFormat,
-	spacing as defaultSpacing
-} from '../../common/data/defaultPropValues';
-import { DatePickerContext } from '../..';
-import { DatePickerContext as DatePickerContextType } from '../../types';
 import Divider from '../../../../Divider';
 import Input from '../../../Input';
+import { useDatePickerContext } from '../../common/hooks';
 
 import CalendarHeader from './components/CalendarHeader';
 import CalendarWeekdays from './components/CalendarWeekdays';
@@ -21,13 +14,7 @@ import { CalendarProps } from './types';
 import CalendarDays from './components/CalendarDays';
 
 const Calendar: FC<CalendarProps> = ({ calendar }) => {
-	const {
-		color = defaultColor,
-		colorMode = defaultColorMode,
-		date,
-		format = defaultFormat,
-		spacing = defaultSpacing
-	} = useContext<DatePickerContextType>(DatePickerContext);
+	const { color, colorMode, date, format, spacing } = useDatePickerContext();
 
 	return (
 		<VStack width='100%' divider={<Divider colorMode={colorMode} />} spacing={spacing}>

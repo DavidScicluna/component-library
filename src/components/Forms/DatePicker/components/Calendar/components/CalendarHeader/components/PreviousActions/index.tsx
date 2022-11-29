@@ -1,16 +1,15 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { useBoolean, HStack } from '@chakra-ui/react';
 
-import { DatePickerContext } from '../../../../../..';
 import { colorMode as defaultColorMode } from '../../../../../../common/data/defaultPropValues';
-import { DatePickerContext as DatePickerContextType } from '../../../../../../types';
 import Tooltip from '../../../../../../../../Overlay/Tooltip';
 import IconButton from '../../../../../../../../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../../../../../../../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
+import { useDatePickerContext } from '../../../../../../common/hooks';
 
 const PreviousActions: FC = () => {
-	const { colorMode = defaultColorMode, dayzed } = useContext<DatePickerContextType>(DatePickerContext);
+	const { colorMode = defaultColorMode, dayzed } = useDatePickerContext();
 	const { getBackProps, calendars = [] } = dayzed || {};
 
 	const [isHoveringYear, setIsHoveringYear] = useBoolean();

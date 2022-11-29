@@ -1,10 +1,8 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { HStack } from '@chakra-ui/react';
 
-import { spacing as defaultSpacing } from '../../../../common/data/defaultPropValues';
-import { DatePickerContext } from '../../../..';
-import { DatePickerContext as DatePickerContextType } from '../../../../types';
+import { useDatePickerContext } from '../../../../common/hooks';
 
 import Month from './components/Month';
 import Year from './components/Year';
@@ -13,7 +11,7 @@ import PreviousActions from './components/PreviousActions';
 import { CalendarHeaderProps } from './types';
 
 const CalendarHeader: FC<CalendarHeaderProps> = ({ calendar }) => {
-	const { spacing = defaultSpacing } = useContext<DatePickerContextType>(DatePickerContext);
+	const { spacing } = useDatePickerContext();
 
 	return (
 		<HStack width='100%' alignItems='center' justifyContent='space-between' spacing={spacing}>

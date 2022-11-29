@@ -21,6 +21,7 @@ import Calendar from './components/Calendar';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
+	date as defaultDate,
 	format as defaultFormat,
 	spacing as defaultSpacing
 	// variant as defaultVariant
@@ -30,8 +31,8 @@ import { DatePickerContext as DatePickerContextType, DatePickerProps, DatePicker
 export const DatePickerContext = createContext<DatePickerContextType>({
 	color: defaultColor,
 	colorMode: defaultColorMode,
+	date: defaultDate,
 	format: defaultFormat,
-	date: new Date(),
 	spacing: defaultSpacing
 });
 

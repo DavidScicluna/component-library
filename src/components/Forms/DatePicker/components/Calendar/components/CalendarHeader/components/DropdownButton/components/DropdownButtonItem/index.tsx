@@ -1,17 +1,12 @@
-import { FC, useContext, useEffect, useRef } from 'react';
+import { FC, useEffect, useRef } from 'react';
 
 import { Center } from '@chakra-ui/react';
 
 import { dataAttr } from '@chakra-ui/utils';
 import { merge } from 'lodash';
 
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode
-} from '../../../../../../../../common/data/defaultPropValues';
-import { DatePickerContext } from '../../../../../../../..';
-import { DatePickerContext as DatePickerContextType } from '../../../../../../../../types';
 import { useTheme } from '../../../../../../../../../../../common/hooks';
+import { useDatePickerContext } from '../../../../../../../../common/hooks';
 
 import {
 	isActive as defaultIsActive,
@@ -26,7 +21,7 @@ const DropdownButtonItem: FC<DropdownButtonItemProps> = (props) => {
 
 	const ref = useRef<DropdownButtonItemRef>(null);
 
-	const { color = defaultColor, colorMode = defaultColorMode } = useContext<DatePickerContextType>(DatePickerContext);
+	const { color, colorMode } = useDatePickerContext();
 
 	const {
 		children,

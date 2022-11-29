@@ -1,18 +1,17 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { SimpleGrid } from '@chakra-ui/react';
 
 import { compact } from 'lodash';
 
-import { DatePickerContext } from '../../../..';
-import { DatePickerContext as DatePickerContextType } from '../../../../types';
 import CalendarDay from '../CalendarDay';
 import { getVariant } from '../CalendarDay/common/utils';
+import { useDatePickerContext } from '../../../../common/hooks';
 
 import { CalendarDaysProps } from './types';
 
 const CalendarDays: FC<CalendarDaysProps> = ({ calendar }) => {
-	const { date: selectedDate, dayzed } = useContext<DatePickerContextType>(DatePickerContext);
+	const { date: selectedDate, dayzed } = useDatePickerContext();
 	const { getDateProps } = dayzed || {};
 	const { weeks = [], month, year } = calendar;
 

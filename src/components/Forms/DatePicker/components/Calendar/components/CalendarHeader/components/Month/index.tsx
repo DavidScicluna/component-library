@@ -1,4 +1,4 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { useConst } from '@chakra-ui/react';
 
@@ -7,13 +7,12 @@ import dayjs, { Dayjs } from 'dayjs';
 import DropdownButton from '../DropdownButton';
 import DropdownButtonItem from '../DropdownButton/components/DropdownButtonItem';
 import months from '../../../../../../common/data/months';
-import { DatePickerContext } from '../../../../../..';
-import { DatePickerContext as DatePickerContextType } from '../../../../../../types';
+import { useDatePickerContext } from '../../../../../../common/hooks';
 
 import { MonthProps } from './types';
 
 const Month: FC<MonthProps> = ({ calendar }) => {
-	const { dayzed } = useContext<DatePickerContextType>(DatePickerContext);
+	const { dayzed } = useDatePickerContext();
 	const { getBackProps, getForwardProps, calendars = [] } = dayzed || {};
 
 	const { month, year } = calendar;

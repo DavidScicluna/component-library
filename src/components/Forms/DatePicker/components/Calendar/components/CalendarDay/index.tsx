@@ -1,14 +1,12 @@
-import { ReactElement, forwardRef, useContext } from 'react';
+import { ReactElement, forwardRef } from 'react';
 
 import { Center, Button as CUIButton } from '@chakra-ui/react';
 
 import merge from 'lodash/merge';
 import { dataAttr } from '@chakra-ui/utils';
 
-import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/data/defaultPropValues';
-import { DatePickerContext } from '../../../..';
-import { DatePickerContext as DatePickerContextType } from '../../../../types';
 import { useTheme } from '../../../../../../../common/hooks';
+import { useDatePickerContext } from '../../../../common/hooks';
 
 import { variant as defaultVariant } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
@@ -17,7 +15,7 @@ import { CalendarDayRef, CalendarDayProps } from './types';
 const CalendarDay = forwardRef<CalendarDayRef, CalendarDayProps>(function CalendarDay(props, ref): ReactElement {
 	const theme = useTheme();
 
-	const { color = defaultColor, colorMode = defaultColorMode } = useContext<DatePickerContextType>(DatePickerContext);
+	const { color, colorMode } = useDatePickerContext();
 
 	const {
 		children,

@@ -1,20 +1,18 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { SimpleGrid, Text } from '@chakra-ui/react';
 
-import { DatePickerContext } from '../../../..';
-import { colorMode as defaultColorMode } from '../../../../common/data/defaultPropValues';
-import { DatePickerContext as DatePickerContextType } from '../../../../types';
 import { short as weekdays } from '../../../../common/data/weekdays';
 import { useTheme } from '../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../common/utils/color';
+import { useDatePickerContext } from '../../../../common/hooks';
 
 import { CalendarWeekdaysProps } from './types';
 
 const CalendarWeekdays: FC<CalendarWeekdaysProps> = ({ calendar }) => {
 	const theme = useTheme();
 
-	const { colorMode = defaultColorMode } = useContext<DatePickerContextType>(DatePickerContext);
+	const { colorMode } = useDatePickerContext();
 	const { month, year } = calendar;
 
 	return (
