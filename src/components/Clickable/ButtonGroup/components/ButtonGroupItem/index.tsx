@@ -1,21 +1,18 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { Box } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
 import { useTheme } from '../../../../../common/hooks';
-import { ButtonGroupContext as ButtonGroupContextType } from '../../types';
-import { ButtonGroupContext } from '../..';
-import { isAttached as defaultIsAttached, size as defaultSize } from '../../common/data/defaultPropValues';
+import { useButtonGroupContext } from '../../common/hooks';
 
 import { ButtonGroupItemProps } from './types';
 
 const ButtonGroupItem: FC<ButtonGroupItemProps> = ({ children, index = 0, total = 0, sx, ...rest }) => {
 	const theme = useTheme();
 
-	const { isAttached = defaultIsAttached, size = defaultSize } =
-		useContext<ButtonGroupContextType>(ButtonGroupContext);
+	const { isAttached, size } = useButtonGroupContext();
 
 	const handleGetRadius = (): string => {
 		switch (size) {
