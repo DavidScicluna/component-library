@@ -8,7 +8,11 @@ import './common/styles/index.css';
 import { useTheme } from '../../common/hooks';
 import { convertStringToNumber } from '../../common/utils';
 
-import { colorMode as defaultColorMode, isDisabled as defaultIsDisabled } from './common/data/defaultPropValues';
+import {
+	color as defaultColor,
+	colorMode as defaultColorMode,
+	isDisabled as defaultIsDisabled
+} from './common/data/defaultPropValues';
 import Child from './components/Child';
 import LeftArrow from './components/LeftArrow';
 import RightArrow from './components/RightArrow';
@@ -19,6 +23,7 @@ import {
 } from './types';
 
 export const HorizontalScrollContext = createContext<HorizontalScrollContextType>({
+	color: defaultColor,
 	colorMode: defaultColorMode,
 	isDisabled: defaultIsDisabled
 });
@@ -33,6 +38,7 @@ const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(
 	const {
 		children,
 		apiRef,
+		color = defaultColor,
 		colorMode = colorModeHook,
 		isDisabled = defaultIsDisabled,
 		renderDivider,
@@ -53,7 +59,7 @@ const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(
 	} = props;
 
 	return (
-		<HorizontalScrollContext.Provider value={{ colorMode, isDisabled }}>
+		<HorizontalScrollContext.Provider value={{ color, colorMode, isDisabled }}>
 			<Box ref={ref} width='100%' {...rest}>
 				<ScrollMenu
 					apiRef={apiRef}

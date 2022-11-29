@@ -1,4 +1,4 @@
-import { FC, useContext, useState, useEffect } from 'react';
+import { FC, useState, useEffect } from 'react';
 
 import { useMediaQuery, useConst, Center } from '@chakra-ui/react';
 
@@ -6,7 +6,6 @@ import { capitalize } from 'lodash';
 import merge from 'lodash/merge';
 import { useElementSize } from 'usehooks-ts';
 
-import { HorizontalScrollContext } from '../..';
 import { useDebounce, useTheme } from '../../../../common/hooks';
 import { getColor } from '../../../../common/utils/color';
 import IconButton from '../../../Clickable/IconButtons/OriginalIconButton';
@@ -18,9 +17,9 @@ import {
 } from '../../../Transitions/common/utils';
 import Fade from '../../../Transitions/Fade';
 import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
-import { HorizontalScrollContext as HorizontalScrollContextType } from '../../types';
+import { useHorizontalScrollContext } from '../../common/hooks';
 
-import { isVisible as defaultIsVisible, colorMode as defaultColorMode } from './common/data/defaultPropValues';
+import { isVisible as defaultIsVisible } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { ArrowProps } from './types';
 
@@ -29,8 +28,7 @@ const Arrow: FC<ArrowProps> = (props) => {
 
 	const [isSm] = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
-	const { colorMode = defaultColorMode, isDisabled: isDisabledHook = defaultIsDisabled } =
-		useContext<HorizontalScrollContextType>(HorizontalScrollContext);
+	const { color, colorMode, isDisabled: isDisabledHook } = useHorizontalScrollContext();
 
 	const [iconButtonRef, { width: iconButtonWidth, height: iconButtonHeight }] = useElementSize<HTMLButtonElement>();
 
@@ -117,7 +115,7 @@ const Arrow: FC<ArrowProps> = (props) => {
 						backgroundColor: getColor({
 							theme,
 							colorMode,
-							color: 'gray',
+							color,
 							type: colorMode === 'light' ? 'lightest' : 'darkest'
 						})
 					}}
@@ -126,6 +124,7 @@ const Arrow: FC<ArrowProps> = (props) => {
 						{...rest}
 						ref={iconButtonRef}
 						aria-label={`${capitalize(direction)} Arrow Button`}
+						color={color}
 						colorMode={colorMode}
 						isDisabled={isDisabled}
 						size={isSm ? 'sm' : 'md'}

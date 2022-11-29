@@ -18,8 +18,11 @@ import {
 	BoxPseudo,
 	BoxOther
 } from '../../common/types/box';
+import { Color } from '../../theme/types';
 
 export type HorizontalScrollRef = HTMLDivElement | null;
+
+export type HorizontalScrollColor = Exclude<Color, 'transparent' | 'black' | 'white'>;
 
 export type RenderDividerProps = { padding?: string };
 
@@ -49,9 +52,10 @@ type OmittedRHSMHorizontalScrollProps =
 
 export type HorizontalScrollProps = Omit<BoxProps, OmittedBoxProps> & {
 	children: ReactNode[];
+	color?: HorizontalScrollColor;
 	colorMode?: ColorMode;
 	isDisabled?: boolean;
 	renderDivider?: (props: RenderDividerProps) => ReactNode;
 } & Omit<RHSMHorizontalScrollProps, OmittedRHSMHorizontalScrollProps>;
 
-export type HorizontalScrollContext = Pick<HorizontalScrollProps, 'colorMode' | 'isDisabled'>;
+export type HorizontalScrollContext = Pick<HorizontalScrollProps, 'color' | 'colorMode' | 'isDisabled'>;
