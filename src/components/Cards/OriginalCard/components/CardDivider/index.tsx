@@ -1,28 +1,16 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
-import { CardContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import { GetColorProps, getColor } from '../../../../../common/utils/color';
 import Divider from '../../../../Divider';
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	isLight as defaultIsLight
-} from '../../../common/data/defaultPropValues';
-import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
-import { CardContext as CardContextType } from '../../types';
+import { useCardContext } from '../../common/hooks';
 
 import { CardDividerProps } from './types';
 
 const CardDivider: FC<CardDividerProps> = (props) => {
 	const theme = useTheme();
 
-	const {
-		color = defaultColor,
-		colorMode = defaultColorMode,
-		isDisabled = defaultIsDisabled,
-		isLight = defaultIsLight
-	} = useContext<CardContextType>(CardContext);
+	const { color, colorMode, isDisabled, isLight } = useCardContext();
 
 	const handleReturnType = (): GetColorProps['type'] => {
 		if (isDisabled) {

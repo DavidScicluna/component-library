@@ -1,24 +1,21 @@
-import { FC, useContext, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 
 import { HStack, VStack, Center } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import { CardContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../common/utils';
 import { getColor } from '../../../../../common/utils/color';
 import { Space } from '../../../../../theme/types';
-import { colorMode as defaultColorMode, spacing as defaultSpacing } from '../../../common/data/defaultPropValues';
-import { CardContext as CardContextType } from '../../types';
+import { useCardContext } from '../../common/hooks';
 
 import { CardHeaderProps } from './types';
 
 const CardHeader: FC<CardHeaderProps> = (props) => {
 	const theme = useTheme();
 
-	const { colorMode = defaultColorMode, spacing: spacingHook = defaultSpacing } =
-		useContext<CardContextType>(CardContext);
+	const { colorMode, spacing: spacingHook } = useCardContext();
 
 	const [actionsRef, { width: actionsWidth }] = useElementSize();
 
