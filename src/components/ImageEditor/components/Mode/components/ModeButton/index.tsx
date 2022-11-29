@@ -1,25 +1,22 @@
 /* eslint-disable import/namespace */
-import { ReactElement, useContext } from 'react';
+import { ReactElement } from 'react';
 
 import { Text } from '@chakra-ui/react';
 
-import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/data/defaultPropValues';
-import { ImageEditorContext as ImageEditorContextType } from '../../../../types';
-import { ImageEditorContext } from '../../../..';
 import Card from '../../../../../Cards/OriginalCard';
 import CardBody from '../../../../../Cards/components/CardBody';
 import CardFooter from '../../../../../Cards/components/CardFooter';
 import { useTheme } from '../../../../../../common/hooks';
 import { getColor } from '../../../../../../common/utils/color';
 import Icon from '../../../../../Icon';
+import { useImageEditorContext } from '../../../../common/hooks';
 
 import { ModeButtonProps } from './types';
 
 const ModeButton = <V, I>(props: ModeButtonProps<V, I>): ReactElement => {
 	const theme = useTheme();
 
-	const { color = defaultColor, colorMode = defaultColorMode } =
-		useContext<ImageEditorContextType>(ImageEditorContext);
+	const { color, colorMode } = useImageEditorContext();
 
 	const { title, icon, isSelected = false, isDisabled = false, onSelect } = props;
 

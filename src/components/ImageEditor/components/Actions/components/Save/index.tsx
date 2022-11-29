@@ -1,15 +1,12 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import Button from '../../../../../Clickable/Buttons/OriginalButton';
-import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/data/defaultPropValues';
-import { ImageEditorContext as ImageEditorContextType } from '../../../../types';
-import { ImageEditorContext } from '../../../..';
+import { useImageEditorContext } from '../../../../common/hooks';
 
 import { SaveProps } from './types';
 
 const Save: FC<SaveProps> = ({ onSave }) => {
-	const { color = defaultColor, colorMode = defaultColorMode } =
-		useContext<ImageEditorContextType>(ImageEditorContext);
+	const { color, colorMode } = useImageEditorContext();
 
 	return (
 		<Button color={color} colorMode={colorMode} isFullWidth onClick={() => onSave()}>

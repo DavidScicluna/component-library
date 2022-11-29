@@ -1,27 +1,18 @@
-import { FC, useContext, useState } from 'react';
+import { FC, useState } from 'react';
 
 import { Center } from '@chakra-ui/react';
 
-import {
-	colorMode as defaultColorMode,
-	mode as defaultMode,
-	zoom as defaultZoom
-} from '../../../../common/data/defaultPropValues';
-import { ImageEditorContext as ImageEditorContextType } from '../../../../types';
-import { ImageEditorContext, maxZoom, minZoom } from '../../../..';
+import { maxZoom, minZoom } from '../../../..';
 import HorizontalScroll from '../../../../../HorizontalScroll';
 import { useDebounce } from '../../../../../../common/hooks';
+import { useImageEditorContext } from '../../../../common/hooks';
 
 import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from './components/HorizontalScrollArrows';
 import Tool from './components/Tool';
 import { ScrollContext, ToolbarProps } from './types';
 
 const Toolbar: FC<ToolbarProps> = ({ onSelectTool, onZoom }) => {
-	const {
-		colorMode = defaultColorMode,
-		mode = defaultMode,
-		zoom = defaultZoom
-	} = useContext<ImageEditorContextType>(ImageEditorContext);
+	const { colorMode, mode, zoom } = useImageEditorContext();
 
 	const [scroll, setScroll] = useState<ScrollContext>({} as ScrollContext);
 	const scrollDebounced = useDebounce(scroll, 'ultra-fast');

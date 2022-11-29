@@ -1,31 +1,25 @@
 /* eslint-disable import/namespace */
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { useBoolean, HStack, Center, Slider, SliderTrack, SliderFilledTrack, SliderThumb } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	rotation as defaultRotation
-} from '../../../../common/data/defaultPropValues';
+import { rotation as defaultRotation } from '../../../../common/data/defaultPropValues';
 import ModeButton from '../ModeButton';
-import { ImageEditorContext as ImageEditorContextType } from '../../../../types';
-import { ImageEditorContext } from '../../../..';
 import { useTheme } from '../../../../../../common/hooks';
 import Divider from '../../../../../Divider';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../common/utils';
 import { getColor } from '../../../../../../common/utils/color';
 import Tooltip from '../../../../../Overlay/Tooltip';
+import { useImageEditorContext } from '../../../../common/hooks';
 
 import { RotateProps } from './types';
 
 const Rotate: FC<RotateProps> = ({ rotation = defaultRotation, onRotate }) => {
 	const theme = useTheme();
 
-	const { color = defaultColor, colorMode = defaultColorMode } =
-		useContext<ImageEditorContextType>(ImageEditorContext);
+	const { color, colorMode } = useImageEditorContext();
 
 	const [buttonsRef, { width: buttonsWidth }] = useElementSize();
 

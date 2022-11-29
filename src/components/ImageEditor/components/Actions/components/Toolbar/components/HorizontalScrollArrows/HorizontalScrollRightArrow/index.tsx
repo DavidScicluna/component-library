@@ -1,19 +1,17 @@
-import { FC, useContext, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 
 import { useBoolean } from '@chakra-ui/react';
 
-import { colorMode as defaultColorMode } from '../../../../../../../../../common/data/defaultPropValues';
 import { HorizontalScrollArrowProps as HorizontalScrollRightArrowProps } from '../common/types';
-import { ImageEditorContext } from '../../../../../../..';
-import { ImageEditorContext as ImageEditorContextType } from '../../../../../../../types';
 import { useDebounce, useTheme } from '../../../../../../../../../common/hooks';
 import HorizontalScrollArrow from '../../../../../../../../HorizontalScroll/components/Arrow';
 import { getColor } from '../../../../../../../../../common/utils/color';
+import { useImageEditorContext } from '../../../../../../../common/hooks';
 
 const HorizontalScrollRightArrow: FC<HorizontalScrollRightArrowProps> = (props) => {
 	const theme = useTheme();
 
-	const { colorMode = defaultColorMode } = useContext<ImageEditorContextType>(ImageEditorContext);
+	const { colorMode } = useImageEditorContext();
 
 	const { scroll } = props;
 	const { getNextItem, isLastItemVisible = false, scrollToItem, visibleItemsWithoutSeparators = [] } = scroll || {};

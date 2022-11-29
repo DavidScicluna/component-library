@@ -1,15 +1,13 @@
-import { FC, useContext, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 
 import { useMediaQuery, HStack, VStack, Center } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import { colorMode as defaultColorMode } from '../../common/data/defaultPropValues';
-import { ImageEditorContext as ImageEditorContextType } from '../../types';
-import { ImageEditorContext } from '../../';
 import { useTheme } from '../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../common/utils';
 import Divider from '../../../Divider';
+import { useImageEditorContext } from '../../common/hooks';
 
 import Cancel from './components/Cancel';
 import Toolbar from './components/Toolbar';
@@ -21,7 +19,7 @@ const Actions: FC<ActionsProps> = ({ onSelectTool, onZoom, onCancel, onSave }) =
 
 	const [isMd] = useMediaQuery(`(min-width: ${theme.breakpoints.md})`);
 
-	const { colorMode = defaultColorMode } = useContext<ImageEditorContextType>(ImageEditorContext);
+	const { colorMode } = useImageEditorContext();
 
 	const [cancelRef, { width: cancelWidth }] = useElementSize();
 	const [saveRef, { width: saveWidth }] = useElementSize();
