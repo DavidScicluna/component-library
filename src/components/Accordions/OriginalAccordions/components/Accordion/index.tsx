@@ -1,4 +1,4 @@
-import { createContext, useContext, ReactElement } from 'react';
+import { createContext, ReactElement } from 'react';
 
 import { useBoolean, useConst, Box, VisuallyHidden, Center, VStack } from '@chakra-ui/react';
 
@@ -6,26 +6,16 @@ import { dataAttr } from '@chakra-ui/utils';
 import { merge } from 'lodash';
 import { useInView } from 'react-cool-inview';
 
-import { AccordionsContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import Collapse from '../../../../Transitions/Collapse';
 import {
 	getDuration as getTransitionDuration,
 	getConfig as getTransitionConfig
 } from '../../../../Transitions/common/utils';
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	spacing as defaultSpacing,
-	isFullWidth as defaultIsFullWidth
-} from '../../../common/data/defaultPropValues';
-import {
-	isDisabled as defaultIsDisabled,
-	opened as defaultOpened,
-	setOpened as defaultSetOpened
-} from '../../common/data/defaultPropValues';
+import { spacing as defaultSpacing } from '../../../common/data/defaultPropValues';
+import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
 import { toggleAccordion } from '../../common/utils';
-import { AccordionsContext as AccordionsContextType } from '../../types';
+import { useAccordionsContext } from '../../common/hooks';
 
 import {
 	isActive as defaultIsActive,
@@ -52,13 +42,13 @@ const Accordion = <D,>(props: AccordionProps<D>): ReactElement => {
 	});
 
 	const {
-		color = defaultColor,
-		colorMode = defaultColorMode,
-		isDisabled: isDisabledHook = defaultIsDisabled,
-		isFullWidth = defaultIsFullWidth,
-		opened = defaultOpened,
-		setOpened = defaultSetOpened
-	} = useContext<AccordionsContextType<D>>(AccordionsContext);
+		color,
+		colorMode,
+		isDisabled: isDisabledHook,
+		isFullWidth,
+		opened,
+		onSetOpened
+	} = useAccordionsContext<D>();
 
 	const {
 		id,
@@ -93,7 +83,7 @@ const Accordion = <D,>(props: AccordionProps<D>): ReactElement => {
 				aria-disabled={isDisabled}
 				tabIndex={0}
 				data-active={dataAttr(isActive)}
-				onClick={!isHovering ? () => setOpened(toggleAccordion({ id, opened })) : undefined}
+				onClick={!isHovering ? () => onSetOpened(toggleAccordion({ id, opened })) : undefined}
 				sx={merge(style.accordion, sx)}
 				_disabled={style.disabled.accordion}
 				_active={style.active}

@@ -1,22 +1,16 @@
-import { ReactElement, useContext } from 'react';
+import { ReactElement } from 'react';
 
 import { useMediaQuery } from '@chakra-ui/react';
 
-import { AccordionsContext } from '../../../..';
 import Button from '../../../../../../Clickable/Buttons/OriginalButton';
 import IconButton from '../../../../../../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../../../../../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
-import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../common/data/defaultPropValues';
-import {
-	accordions as defaultAccordions,
-	isDisabled as defaultIsDisabled,
-	opened as defaultOpened,
-	setOpened as defaultSetOpened
-} from '../../../../common/data/defaultPropValues';
+import { color as defaultColor } from '../../../../../common/data/defaultPropValues';
+import { isDisabled as defaultIsDisabled } from '../../../../common/data/defaultPropValues';
 import { toggleAllAccordions } from '../../../../common/utils';
-import { AccordionsContext as AccordionsContextType } from '../../../../types';
 import { size as defaultSize } from '../../common/data/defaultPropValues';
 import { useTheme } from '../../../../../../../common/hooks';
+import { useAccordionsContext } from '../../../../common/hooks';
 
 import { ToggleProps } from './types';
 
@@ -25,19 +19,16 @@ const Toggle = <D,>(props: ToggleProps<D>): ReactElement => {
 
 	const [isSm] = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
-	const {
-		accordions = defaultAccordions,
-		colorMode = defaultColorMode,
-		opened = defaultOpened,
-		setOpened = defaultSetOpened
-	} = useContext<AccordionsContextType<D>>(AccordionsContext);
+	const { accordions, colorMode, opened, onSetOpened } = useAccordionsContext<D>();
 
 	const { color = defaultColor, isDisabled = defaultIsDisabled, size = defaultSize } = props;
 
 	const hasOpened = accordions.length === opened.length;
 
 	const handleClick = () => {
-		setOpened(toggleAllAccordions({ accordions, opened: opened.length }));
+		if (typeof onSetOpened === 'function') {
+			onSetOpened(toggleAllAccordions({ accordions, opened: opened.length }));
+		}
 	};
 
 	return isSm ? (

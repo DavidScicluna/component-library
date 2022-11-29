@@ -1,33 +1,24 @@
-import { ReactElement, useContext } from 'react';
+import { ReactElement } from 'react';
 
 import { useConst } from '@chakra-ui/react';
 
 import { Link } from 'react-scroll';
 
-import { AccordionsContext } from '../../../..';
 import { useTheme } from '../../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../../common/utils';
 import Button from '../../../../../../Clickable/Buttons/OriginalButton';
-import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../common/data/defaultPropValues';
-import {
-	isDisabled as defaultIsDisabled,
-	opened as defaultOpened,
-	setOpened as defaultSetOpened
-} from '../../../../common/data/defaultPropValues';
+import { color as defaultColor } from '../../../../../common/data/defaultPropValues';
+import { isDisabled as defaultIsDisabled } from '../../../../common/data/defaultPropValues';
 import { toggleAccordion } from '../../../../common/utils';
-import { AccordionsContext as AccordionsContextType } from '../../../../types';
 import { size as defaultSize } from '../../common/data/defaultPropValues';
+import { useAccordionsContext } from '../../../../common/hooks';
 
 import { AccordionProps } from './types';
 
 const Accordion = <D,>(props: AccordionProps<D>): ReactElement => {
 	const theme = useTheme();
 
-	const {
-		colorMode = defaultColorMode,
-		opened = defaultOpened,
-		setOpened = defaultSetOpened
-	} = useContext<AccordionsContextType<D>>(AccordionsContext);
+	const { colorMode, opened, onSetOpened } = useAccordionsContext<D>();
 
 	const { id, title, color = defaultColor, isDisabled = defaultIsDisabled, size = defaultSize } = props;
 
@@ -39,7 +30,9 @@ const Accordion = <D,>(props: AccordionProps<D>): ReactElement => {
 			<Button
 				color={color}
 				colorMode={colorMode}
-				onClick={() => setOpened(toggleAccordion({ opened, id }))}
+				onClick={
+					typeof onSetOpened === 'function' ? () => onSetOpened(toggleAccordion({ opened, id })) : undefined
+				}
 				isDisabled={isDisabled}
 				size={size}
 				variant='text'

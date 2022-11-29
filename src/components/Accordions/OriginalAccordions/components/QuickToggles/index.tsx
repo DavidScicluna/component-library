@@ -1,23 +1,16 @@
-import { ReactElement, useContext, useCallback } from 'react';
+import { ReactElement, useCallback } from 'react';
 
 import { HStack, Center, Text } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import { AccordionsContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../common/utils';
 import { getColor } from '../../../../../common/utils/color';
 import { Space } from '../../../../../theme/types';
 import Divider from '../../../../Divider';
 import HorizontalScroll from '../../../../HorizontalScroll';
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	spacing as defaultSpacing
-} from '../../../common/data/defaultPropValues';
-import { accordions as defaultAccordions, isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
-import { AccordionsContext as AccordionsContextType } from '../../types';
+import { useAccordionsContext } from '../../common/hooks';
 
 import { size as defaultSize } from './common/data/defaultPropValues';
 import Accordion from './components/Accordion';
@@ -28,12 +21,12 @@ const QuickToggles = <D,>(props: QuickTogglesProps<D>): ReactElement => {
 	const theme = useTheme();
 
 	const {
-		accordions = defaultAccordions,
-		color: colorHook = defaultColor,
-		colorMode = defaultColorMode,
-		isDisabled: isDisabledHook = defaultIsDisabled,
-		spacing: spacingHook = defaultSpacing
-	} = useContext<AccordionsContextType<D>>(AccordionsContext);
+		accordions,
+		color: colorHook,
+		colorMode,
+		isDisabled: isDisabledHook,
+		spacing: spacingHook
+	} = useAccordionsContext<D>();
 
 	const [borderRef, { width: borderWidth }] = useElementSize();
 	const [textRef, { width: textWidth }] = useElementSize();

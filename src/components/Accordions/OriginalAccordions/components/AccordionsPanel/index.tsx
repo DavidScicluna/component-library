@@ -1,19 +1,13 @@
-import { ReactElement, useContext } from 'react';
+import { ReactElement } from 'react';
 
 import { VStack } from '@chakra-ui/react';
 
-import { AccordionsContext } from '../..';
-import { spacing as defaultSpacing } from '../../../common/data/defaultPropValues';
-import { AccordionsContext as AccordionsContextType } from '../../types';
+import { useAccordionsContext } from '../../common/hooks';
 
 import { AccordionsPanelProps } from './types';
 
 const AccordionsPanel = <D,>(props: AccordionsPanelProps<D>): ReactElement => {
-	const {
-		accordions = [],
-		opened = [],
-		spacing: spacingHook = defaultSpacing
-	} = useContext<AccordionsContextType<D>>(AccordionsContext);
+	const { accordions, opened, spacing: spacingHook } = useAccordionsContext<D>();
 
 	const { children, spacing = spacingHook, ...rest } = props;
 

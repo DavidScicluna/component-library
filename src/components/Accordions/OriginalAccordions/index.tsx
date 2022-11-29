@@ -9,12 +9,12 @@ import {
 	spacing as defaultSpacing
 } from '../common/data/defaultPropValues';
 import { useDebounce } from '../../../common/hooks';
+import { method as defaultOnSetOpened } from '../../../common/data/defaultPropValues';
 
 import {
 	accordions as defaultAccordions,
 	isDisabled as defaultIsDisabled,
-	opened as defaultOpened,
-	setOpened as defaultSetOpened
+	opened as defaultOpened
 } from './common/data/defaultPropValues';
 import { AccordionsContext as AccordionsContextType, AccordionsProps, OpenedAccordions } from './types';
 
@@ -26,7 +26,7 @@ export const AccordionsContext = createContext<AccordionsContextType<any>>({
 	colorMode: defaultColorMode,
 	isDisabled: defaultIsDisabled,
 	isFullWidth: defaultIsFullWidth,
-	setOpened: defaultSetOpened
+	onSetOpened: defaultOnSetOpened
 });
 
 const Accordions = <D,>(props: AccordionsProps<D>): ReactElement => {
