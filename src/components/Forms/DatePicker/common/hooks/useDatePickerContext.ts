@@ -1,7 +1,5 @@
 import { useContext } from 'react';
 
-import { RenderProps as DayzedRenderProps } from 'dayzed';
-
 import { DatePickerContext } from '../..';
 import { DatePickerContext as DatePickerContextType } from '../../types';
 import { NoUndefinedField } from '../../../../../common/types';
@@ -14,9 +12,8 @@ import {
 	// variant as defaultVariant
 } from '../data/defaultPropValues';
 
-type UseDatePickerContextReturn = NoUndefinedField<Omit<DatePickerContextType, 'dayzed'>> & {
-	dayzed?: DayzedRenderProps;
-};
+type UseDatePickerContextReturn = NoUndefinedField<Omit<DatePickerContextType, 'dayzed'>> &
+	Pick<DatePickerContextType, 'date' | 'dayzed'>;
 
 const useDatePickerContext = (): UseDatePickerContextReturn => {
 	const {

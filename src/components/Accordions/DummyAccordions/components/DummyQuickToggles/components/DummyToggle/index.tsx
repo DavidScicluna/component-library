@@ -1,4 +1,4 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { useMediaQuery } from '@chakra-ui/react';
 

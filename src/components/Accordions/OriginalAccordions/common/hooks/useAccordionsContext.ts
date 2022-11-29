@@ -6,7 +6,8 @@ import { NoUndefinedField } from '../../../../../common/types';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
-	isFullWidth as defaultIsFullWidth
+	isFullWidth as defaultIsFullWidth,
+	spacing as defaultSpacing
 } from '../../../common/data/defaultPropValues';
 import { method as defaultOnSetOpened } from '../../../../../common/data/defaultPropValues';
 import {
@@ -15,18 +16,22 @@ import {
 	opened as defaultOpened
 } from '../data/defaultPropValues';
 
-const useAccordionsContext = <D>(): NoUndefinedField<AccordionsContextType<D>> => {
+type UseAccordionsContextReturn<D> = NoUndefinedField<Omit<AccordionsContextType<D>, 'accordions'>> &
+	Pick<AccordionsContextType<D>, 'accordions'>;
+
+const useAccordionsContext = <D>(): UseAccordionsContextReturn<D> => {
 	const {
-		opened = defaultOpened,
 		accordions = defaultAccordions,
 		color = defaultColor,
 		colorMode = defaultColorMode,
 		isDisabled = defaultIsDisabled,
 		isFullWidth = defaultIsFullWidth,
-		onSetOpened = defaultOnSetOpened
+		opened = defaultOpened,
+		onSetOpened = defaultOnSetOpened,
+		spacing = defaultSpacing
 	} = useContext<AccordionsContextType<D>>(AccordionsContext);
 
-	return { opened, accordions, color, colorMode, isDisabled, isFullWidth, onSetOpened };
+	return { accordions, color, colorMode, isDisabled, isFullWidth, opened, onSetOpened, spacing };
 };
 
 export default useAccordionsContext;

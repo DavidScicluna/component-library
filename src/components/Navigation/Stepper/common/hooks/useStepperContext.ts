@@ -13,10 +13,13 @@ const useStepperContext = (): NoUndefinedField<StepperContextType> => {
 	const {
 		activeStep = defaultActiveStep,
 		color = defaultColor,
-		colorMode = defaultColorMode
+		colorMode = defaultColorMode,
+		onCancel,
+		onChange,
+		onSubmit
 	} = useContext<StepperContextType>(StepperContext);
 
-	return { activeStep, color, colorMode };
+	return { activeStep, color, colorMode, onCancel, onChange, onSubmit };
 };
 
 export default useStepperContext;

@@ -20,13 +20,14 @@ import { AccordionsContext as AccordionsContextType, AccordionsProps, OpenedAcco
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const AccordionsContext = createContext<AccordionsContextType<any>>({
-	opened: defaultOpened,
 	accordions: defaultAccordions,
 	color: defaultColor,
 	colorMode: defaultColorMode,
 	isDisabled: defaultIsDisabled,
 	isFullWidth: defaultIsFullWidth,
-	onSetOpened: defaultOnSetOpened
+	opened: defaultOpened,
+	onSetOpened: defaultOnSetOpened,
+	spacing: defaultSpacing
 });
 
 const Accordions = <D,>(props: AccordionsProps<D>): ReactElement => {
@@ -49,14 +50,14 @@ const Accordions = <D,>(props: AccordionsProps<D>): ReactElement => {
 	return (
 		<AccordionsContext.Provider
 			value={{
-				opened: debouncedOpened,
 				accordions,
 				color,
 				colorMode,
 				isDisabled,
 				isFullWidth,
-				spacing,
-				setOpened
+				opened: debouncedOpened,
+				onSetOpened: setOpened,
+				spacing
 			}}
 		>
 			<VStack width='100%' spacing={spacing} {...rest}>

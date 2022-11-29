@@ -1,27 +1,31 @@
 import { memoize } from 'lodash';
 
 import { Icon } from '../../../../../../../../../common/types/icons';
+import { Color } from '../../../../../../../../../theme/types';
 import { activeStep as defaultActiveStep } from '../../../../../../common/data/defaultPropValues';
 import { StepperColor } from '../../../../../../types';
 import { Status } from '../../types';
 import { status as defaultStatus } from '../data/defaultPropValues';
 
 type GetStatusColorProps = { status: Status; color: StepperColor };
+type GetStatusColorReturn = Exclude<Color, 'transparent' | 'black' | 'white'>;
 
-export const getStatusColor = memoize(({ status = defaultStatus, color }: GetStatusColorProps): StepperColor => {
-	switch (status) {
-		case 'success':
-			return 'green';
-		case 'error':
-			return 'red';
-		case 'active':
-			return color;
-		case 'warning':
-			return 'yellow';
-		default:
-			return 'gray';
+export const getStatusColor = memoize(
+	({ status = defaultStatus, color }: GetStatusColorProps): GetStatusColorReturn => {
+		switch (status) {
+			case 'success':
+				return 'green';
+			case 'error':
+				return 'red';
+			case 'active':
+				return color;
+			case 'warning':
+				return 'yellow';
+			default:
+				return 'gray';
+		}
 	}
-});
+);
 
 type GetStatusIconProps = { status: Status };
 

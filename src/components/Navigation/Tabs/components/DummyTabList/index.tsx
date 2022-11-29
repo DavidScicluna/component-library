@@ -1,4 +1,4 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { TabList as CUIDummyTabList, Box, HStack } from '@chakra-ui/react';
 
