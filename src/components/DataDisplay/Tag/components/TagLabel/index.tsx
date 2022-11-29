@@ -1,18 +1,16 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { Center } from '@chakra-ui/react';
 
-import { TagContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
-import { size as defaultSize } from '../../common/data/defaultPropValues';
-import { TagContext as TagContextType } from '../../types';
+import { useTagContext } from '../../common/hooks';
 
 import { TagLabelProps } from './types';
 
 const TagLabel: FC<TagLabelProps> = (props) => {
 	const theme = useTheme();
 
-	const { size = defaultSize } = useContext<TagContextType>(TagContext);
+	const { size } = useTagContext();
 
 	const { children, ...rest } = props;
 

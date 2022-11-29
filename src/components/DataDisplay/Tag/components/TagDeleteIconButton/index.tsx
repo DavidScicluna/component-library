@@ -1,24 +1,13 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
-import { TagContext } from '../..';
 import IconButton from '../../../../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../../../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
-import {
-	colorMode as defaultColorMode,
-	size as defaultSize,
-	variant as defaultVariant
-} from '../../common/data/defaultPropValues';
-import { TagContext as TagContextType } from '../../types';
+import { useTagContext } from '../../common/hooks';
 
 import { TagDeleteIconButtonProps, TagEvent } from './types';
 
 const TagDeleteIconButton: FC<TagDeleteIconButtonProps> = (props) => {
-	const {
-		colorMode = defaultColorMode,
-		isDisabled: isDisabledContext,
-		size = defaultSize,
-		variant = defaultVariant
-	} = useContext<TagContextType>(TagContext);
+	const { colorMode, isDisabled: isDisabledContext, size, variant } = useTagContext();
 
 	const { isDisabled: isDisabledProp = false, onDelete, ...rest } = props;
 
