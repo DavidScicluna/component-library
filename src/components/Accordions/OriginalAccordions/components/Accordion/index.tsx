@@ -30,6 +30,7 @@ import { AccordionContext as AccordionContextType, AccordionProps } from './type
 
 export const AccordionContext = createContext<AccordionContextType<unknown>>({
 	isDisabled: defaultIsDisabled,
+	isLight: defaultIsLight,
 	isOpen: defaultIsOpen
 });
 
@@ -83,7 +84,11 @@ const Accordion = <D,>(props: AccordionProps<D>): ReactElement => {
 				aria-disabled={isDisabled}
 				tabIndex={0}
 				data-active={dataAttr(isActive)}
-				onClick={!isHovering ? () => onSetOpened(toggleAccordion({ id, opened })) : undefined}
+				onClick={
+					!isHovering && typeof onSetOpened === 'function'
+						? () => onSetOpened(toggleAccordion({ id, opened }))
+						: undefined
+				}
 				sx={merge(style.accordion, sx)}
 				_disabled={style.disabled.accordion}
 				_active={style.active}

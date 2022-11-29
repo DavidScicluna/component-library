@@ -1,18 +1,16 @@
-import { useContext, useCallback, ReactElement } from 'react';
+import { useCallback, ReactElement } from 'react';
 
 import { HStack, VStack, Center } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import { AccordionContext } from '../..';
 import { useTheme } from '../../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../../common/utils';
 import { getColor } from '../../../../../../../common/utils/color';
 import { Space } from '../../../../../../../theme/types';
 import Icon from '../../../../../../Icon';
-import { isOpen as defaultIsOpen } from '../../common/data/defaultPropValues';
-import { AccordionContext as AccordionContextType } from '../../types';
 import { useAccordionsContext } from '../../../../common/hooks';
+import { useAccordionContext } from '../../common/hooks';
 
 import { AccordionHeaderProps } from './types';
 
@@ -20,7 +18,7 @@ const AccordionHeader = <D,>(props: AccordionHeaderProps): ReactElement => {
 	const theme = useTheme();
 
 	const { colorMode, spacing: spacingHook } = useAccordionsContext<D>();
-	const { isOpen = defaultIsOpen } = useContext<AccordionContextType<D>>(AccordionContext);
+	const { isOpen } = useAccordionContext<D>();
 
 	const [actionsRef, { width: actionsWidth }] = useElementSize();
 
