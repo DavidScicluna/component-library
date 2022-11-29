@@ -1,13 +1,11 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { Center } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
-import { BadgeContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
-import { size as defaultSize } from '../../common/data/defaultPropValues';
-import { BadgeContext as BadgeContextType } from '../../types';
+import { useBadgeContext } from '../../common/hooks';
 
 import useStyles from './styles';
 import { BadgeLabelProps } from './types';
@@ -15,7 +13,7 @@ import { BadgeLabelProps } from './types';
 const BadgeLabel: FC<BadgeLabelProps> = (props) => {
 	const theme = useTheme();
 
-	const { size = defaultSize } = useContext<BadgeContextType>(BadgeContext);
+	const { size } = useBadgeContext();
 
 	const { children, sx, ...rest } = props;
 

@@ -1,12 +1,10 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
 import { merge } from 'lodash';
 
-import { BadgeContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import Icon from '../../../../Icon';
-import { colorMode as defaultColorMode, size as defaultSize } from '../../common/data/defaultPropValues';
-import { BadgeContext as BadgeContextType } from '../../types';
+import { useBadgeContext } from '../../common/hooks';
 
 import useStyles from './styles';
 import { BadgeIconProps } from './types';
@@ -14,7 +12,7 @@ import { BadgeIconProps } from './types';
 const BadgeIcon: FC<BadgeIconProps> = ({ sx, ...rest }) => {
 	const theme = useTheme();
 
-	const { colorMode = defaultColorMode, size = defaultSize } = useContext<BadgeContextType>(BadgeContext);
+	const { colorMode, size } = useBadgeContext();
 
 	const style = useStyles({ theme, size });
 
