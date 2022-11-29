@@ -1,24 +1,21 @@
-import { FC, useContext, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 
 import { HStack, VStack, Center, Text } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import { DummyCardContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../common/utils';
 import { Space } from '../../../../../theme/types';
 import Skeleton from '../../../../Skeleton';
-import { colorMode as defaultColorMode, spacing as defaultSpacing } from '../../../common/data/defaultPropValues';
-import { DummyCardContext as DummyCardContextType } from '../../types';
+import { useDummyCardContext } from '../../common/hooks';
 
 import { DummyCardHeaderProps } from './types';
 
 const DummyCardHeader: FC<DummyCardHeaderProps> = (props) => {
 	const theme = useTheme();
 
-	const { colorMode = defaultColorMode, spacing: spacingHook = defaultSpacing } =
-		useContext<DummyCardContextType>(DummyCardContext);
+	const { colorMode, spacing: spacingHook } = useDummyCardContext();
 
 	const [actionsRef, { width: actionsWidth }] = useElementSize();
 

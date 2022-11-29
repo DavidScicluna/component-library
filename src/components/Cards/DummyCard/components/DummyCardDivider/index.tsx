@@ -1,26 +1,16 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
-import { DummyCardContext } from '../..';
 import { useTheme } from '../../../../../common/hooks';
 import { getColor, GetColorProps } from '../../../../../common/utils/color';
 import Divider from '../../../../Divider';
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	isLight as defaultIsLight
-} from '../../../common/data/defaultPropValues';
-import { DummyCardContext as DummyCardContextType } from '../../types';
+import { useDummyCardContext } from '../../common/hooks';
 
 import { DummyCardDividerProps } from './types';
 
 const DummyCardDivider: FC<DummyCardDividerProps> = (props) => {
 	const theme = useTheme();
 
-	const {
-		color = defaultColor,
-		colorMode = defaultColorMode,
-		isLight = defaultIsLight
-	} = useContext<DummyCardContextType>(DummyCardContext);
+	const { color, colorMode, isLight } = useDummyCardContext();
 
 	const handleReturnType = (): GetColorProps['type'] => {
 		switch (color) {
