@@ -27,7 +27,11 @@ import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
 import { RadioContext as RadioContextType, RadioProps, RadioRef } from './types';
 
-export const RadioContext = createContext<RadioContextType>({ color: defaultColor, colorMode: defaultColorMode });
+export const RadioContext = createContext<RadioContextType>({
+	color: defaultColor,
+	colorMode: defaultColorMode,
+	size: defaultSize
+});
 
 const Radio: FC<RadioProps> = (props) => {
 	const theme = useTheme();
