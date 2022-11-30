@@ -2,7 +2,6 @@ import { FC } from 'react';
 
 import { useColorMode, Box, Skeleton as CUISkeleton } from '@chakra-ui/react';
 
-import { AnimatePresence } from 'framer-motion';
 import { round } from 'lodash';
 import { useElementSize } from 'usehooks-ts';
 
@@ -10,6 +9,7 @@ import { useTheme } from '../../common/hooks';
 import { convertStringToNumber } from '../../common/utils';
 import { getColor } from '../../common/utils/color';
 import SlideFade from '../Transitions/SlideFade';
+import AnimatePresence from '../Transitions/AnimatePresence';
 
 import {
 	color as defaultColor,
@@ -63,7 +63,7 @@ const Skeleton: FC<SkeletonProps> = (props) => {
 
 	return (
 		<Box {...rest} ref={childrenRef}>
-			<AnimatePresence mode='wait' initial={false}>
+			<AnimatePresence>
 				{isLoaded && (
 					<SlideFade
 						key='skeleton_children_visible'

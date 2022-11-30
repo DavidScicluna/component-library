@@ -276,6 +276,8 @@ import Tooltip from './components/Overlay/Tooltip';
 import { TooltipColor, TooltipProps, TooltipRef } from './components/Overlay/Tooltip/types';
 import Skeleton from './components/Skeleton';
 import { SkeletonColor, SkeletonProps, SkeletonVariant } from './components/Skeleton/types';
+import AnimatePresence from './components/Transitions/AnimatePresence';
+import { AnimatePresenceProps } from './components/Transitions/AnimatePresence/types';
 import Collapse from './components/Transitions/Collapse';
 import { CollapseProps } from './components/Transitions/Collapse/types';
 import {
@@ -454,6 +456,7 @@ export {
 	NavItem,
 	TabBar,
 	Tooltip,
+	AnimatePresence,
 	Collapse,
 	Fade,
 	ScaleFade,
@@ -640,6 +643,7 @@ export type {
 	TabBarDirection,
 	TabBarProps,
 	TabBarRef,
+	AnimatePresenceProps,
 	CollapseProps,
 	FadeProps,
 	ScaleFadeProps,
