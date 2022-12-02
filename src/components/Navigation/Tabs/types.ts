@@ -16,7 +16,9 @@ type Omitted =
 	| 'colorScheme'
 	| 'defaultIndex'
 	| 'index'
+	| 'isLazy'
 	| 'isManual'
+	| 'lazyBehavior'
 	| 'onChange'
 	| 'size'
 	| 'variant';

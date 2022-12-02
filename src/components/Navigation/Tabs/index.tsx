@@ -11,8 +11,6 @@ import {
 	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	isFitted as defaultIsFitted,
-	isLazy as defaultIsLazy,
-	lazyBehavior as defaultLazyBehavior,
 	size as defaultSize
 } from './common/data/defaultPropValues';
 
@@ -36,8 +34,6 @@ const Tabs = forwardRef<TabsRef, TabsProps>(function Tabs(props, ref): ReactElem
 		colorMode = colorModeHook,
 		isDisabled = defaultIsDisabled,
 		isFitted = defaultIsFitted,
-		isLazy = defaultIsLazy,
-		lazyBehavior = defaultLazyBehavior,
 		onChange,
 		size = defaultSize,
 		...rest
@@ -50,8 +46,8 @@ const Tabs = forwardRef<TabsRef, TabsProps>(function Tabs(props, ref): ReactElem
 				ref={ref}
 				index={activeTab}
 				isFitted={isFitted}
-				isLazy={isLazy}
-				lazyBehavior={lazyBehavior}
+				isLazy={false}
+				lazyBehavior='unmount'
 				variant='unstyled'
 			>
 				{children}
