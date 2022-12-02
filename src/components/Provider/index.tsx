@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 
 import theme from '../../theme';
+import TransitionsProvider from '../Transitions/TransitionsProvider';
 
 import { ProviderProps } from './types';
 
@@ -62,7 +63,7 @@ const Provider: FC<ProviderProps> = ({ children }) => {
 	return (
 		<ChakraProvider theme={theme} resetCSS>
 			<ColorModeScript initialColorMode={theme.config.initialColorMode} />
-			{children}
+			<TransitionsProvider>{children}</TransitionsProvider>
 		</ChakraProvider>
 	);
 };
