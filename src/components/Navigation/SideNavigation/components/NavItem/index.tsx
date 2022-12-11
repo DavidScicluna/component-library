@@ -64,6 +64,7 @@ const NavItem: FC<NavItemProps> = (props) => {
 				label={title}
 				gutter={36}
 				shouldWrapChildren
+				sx={{ width: '100%' }}
 			>
 				<HStack
 					{...rest}
