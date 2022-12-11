@@ -5,7 +5,7 @@ import { NavItemProps } from '../../types';
 
 export type NavItemStyleProps = Pick<SideNavigationProps, 'color' | 'colorMode' | 'mode'> & {
 	theme: Theme;
-} & Pick<NavItemProps, 'isActive'>;
+} & Pick<NavItemProps, 'isActive' | 'isChildActive'>;
 
 export type NavItemStyleReturn = {
 	navItem: Style;

@@ -5,7 +5,7 @@ import {
 	colorMode as defaultColorMode,
 	mode as defaultMode
 } from '../../../../common/data/defaultPropValues';
-import { isActive as defaultIsActive } from '../data/defaultPropValues';
+import { isActive as defaultIsActive, isChildActive as defaultIsChildActive } from '../data/defaultPropValues';
 
 import dark from './dark';
 import disabled from './disabled';
@@ -19,13 +19,17 @@ export default memoize((props: NavItemStyleProps): NavItemStyleReturn => {
 		color = defaultColor,
 		colorMode = defaultColorMode,
 		isActive = defaultIsActive,
+		isChildActive = defaultIsChildActive,
 		mode = defaultMode
 	} = props;
 
 	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
-		navItem: merge(navItem({ theme, isActive, mode }), scheme[isActive ? 'active' : 'navItem']({ theme, color })),
+		navItem: merge(
+			navItem({ theme, isActive, mode }),
+			scheme[isActive ? 'active' : isChildActive ? 'childActive' : 'navItem']({ theme, color })
+		),
 		disabled: disabled()
 	};
 });

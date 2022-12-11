@@ -64,6 +64,7 @@ type Omitted =
 
 export type NavItemProps = Omit<StackProps, Omitted> & {
 	isActive?: boolean;
+	isChildActive?: boolean;
 	isDisabled?: boolean;
 	spacing?: Space;
 } & NavItem;
