@@ -33,7 +33,7 @@ const TabPanels: FC<TabPanelsProps> = ({ children, ...rest }) => {
 	const { activeTab } = useTabsContext();
 
 	return (
-		<CUITabPanels {...rest} width='100%' display='grid' gridTemplateColumns='minmax(0, 1fr)'>
+		<CUITabPanels {...rest} width='100%' display='grid' gridTemplateColumns='100%' gridTemplateRows='100%'>
 			<AnimatePresence>
 				{children.map((panel, index) => (
 					<TabPanel
