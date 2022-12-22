@@ -55,7 +55,12 @@ const NavItem: FC<NavItemProps> = (props) => {
 	}, [theme, spacing, leftIconWidth, rightIconWidth]);
 
 	return (
-		<InternalLink to={{ ...path }} isDisabled={isActive || isDisabled} isFullWidth sx={{ opacity: 1 }}>
+		<InternalLink
+			to={{ ...path }}
+			isDisabled={isActive || isDisabled}
+			isFullWidth
+			sx={{ 'opacity': 1, '& span': { width: '100%' } }}
+		>
 			<Tooltip
 				aria-label={`Navigate to ${title} (tooltip)`}
 				colorMode={colorMode}
@@ -64,7 +69,6 @@ const NavItem: FC<NavItemProps> = (props) => {
 				label={title}
 				gutter={36}
 				shouldWrapChildren
-				sx={{ width: '100%' }}
 			>
 				<HStack
 					{...rest}
