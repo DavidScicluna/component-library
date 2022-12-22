@@ -1,6 +1,8 @@
 import { FC } from 'react';
 
-import { useColorMode, VStack } from '@chakra-ui/react';
+import { useColorMode, HStack, VStack, Box } from '@chakra-ui/react';
+
+import { useElementSize } from 'usehooks-ts';
 
 import { useTheme } from '../../../common/hooks';
 import { getColor } from '../../../common/utils/color';
@@ -12,44 +14,69 @@ const Headline: FC<HeadlineProps> = (props) => {
 	const theme = useTheme();
 	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
+	const [leftRef, { width: leftWidth }] = useElementSize();
+	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
+	const [rightRef, { width: rightWidth }] = useElementSize();
+
 	const {
 		color = defaultColor,
 		colorMode = colorModeHook,
 		renderCaption,
 		renderTitle,
 		renderSubtitle,
+		renderLeft,
+		renderRight,
 		spacing = 0.5,
 		...rest
 	} = props;
 
 	return (
-		<VStack {...rest} width='100%' alignItems='flex-start' spacing={spacing}>
-			{renderCaption &&
-				renderCaption({
-					align: 'left',
-					color: getColor({ theme, colorMode, color, type: 'color' }),
-					fontSize: ['xs', 'xs', 'sm', 'sm', 'sm', 'sm'],
-					lineHeight: 'shorter',
-					textTransform: 'uppercase'
-				})}
+		<HStack {...rest} width='100%' spacing={0}>
+			{renderLeft && (
+				<Box ref={leftRef}>
+					{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+				</Box>
+			)}
 
-			{renderTitle({
-				align: 'left',
-				color: getColor({ theme, colorMode, type: 'text.primary' }),
-				fontSize: ['4xl', '4xl', '5xl', '5xl', '6xl', '6xl'],
-				fontWeight: 'bold',
-				lineHeight: 'shorter'
-			})}
+			<VStack
+				ref={childrenRef}
+				width={`calc(100% - ${(renderLeft ? leftWidth : 0) + (renderRight ? rightWidth : 0)}px)`}
+				alignItems='flex-start'
+				spacing={spacing}
+			>
+				{renderCaption &&
+					renderCaption({
+						align: 'left',
+						color: getColor({ theme, colorMode, color, type: 'color' }),
+						fontSize: ['xs', 'xs', 'sm', 'sm', 'sm', 'sm'],
+						lineHeight: 'shorter',
+						textTransform: 'uppercase'
+					})}
 
-			{/* Subtitle */}
-			{renderSubtitle &&
-				renderSubtitle({
+				{renderTitle({
 					align: 'left',
-					color: getColor({ theme, colorMode, type: 'text.secondary' }),
-					fontSize: ['xs', 'xs', 'sm', 'sm', 'sm', 'sm'],
+					color: getColor({ theme, colorMode, type: 'text.primary' }),
+					fontSize: ['4xl', '4xl', '5xl', '5xl', '6xl', '6xl'],
+					fontWeight: 'bold',
 					lineHeight: 'shorter'
 				})}
-		</VStack>
+
+				{/* Subtitle */}
+				{renderSubtitle &&
+					renderSubtitle({
+						align: 'left',
+						color: getColor({ theme, colorMode, type: 'text.secondary' }),
+						fontSize: ['xs', 'xs', 'sm', 'sm', 'sm', 'sm'],
+						lineHeight: 'shorter'
+					})}
+			</VStack>
+
+			{renderRight && (
+				<Box ref={rightRef}>
+					{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+				</Box>
+			)}
+		</HStack>
 	);
 };
 

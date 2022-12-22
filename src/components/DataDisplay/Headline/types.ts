@@ -18,6 +18,12 @@ import { Color } from '../../../theme/types';
 
 export type HeadlineColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 
+export type HeadlineRenderProps = {
+	width?: number; // In Pixels
+	height?: number; // In Pixels
+	// size?: ButtonSize;
+} & Pick<HeadlineProps, 'color' | 'colorMode'>;
+
 type Omitted =
 	| BoxColor
 	| BoxGradient
@@ -38,4 +44,6 @@ export type HeadlineProps = Omit<StackProps, Omitted> & {
 	renderCaption?: (props: TextProps) => ReactNode;
 	renderTitle: (props: TextProps) => ReactNode;
 	renderSubtitle?: (props: TextProps) => ReactNode;
+	renderLeft?: (props: HeadlineRenderProps) => ReactNode;
+	renderRight?: (props: HeadlineRenderProps) => ReactNode;
 };
