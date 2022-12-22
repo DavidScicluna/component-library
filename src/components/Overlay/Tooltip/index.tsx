@@ -1,4 +1,4 @@
-import { ReactElement, forwardRef } from 'react';
+import { ReactElement, forwardRef, Fragment } from 'react';
 
 import { useColorMode, Tooltip as CUITooltip } from '@chakra-ui/react';
 
@@ -36,25 +36,21 @@ const Tooltip = forwardRef<TooltipRef, TooltipProps>(function Tooltip(props, ref
 
 	const style = useStyles({ theme, color, colorMode });
 
-	return (
-		<>
-			{!isTouchDevice ? (
-				<CUITooltip
-					{...rest}
-					ref={ref}
-					arrowSize={arrowSize}
-					closeDelay={closeDelay}
-					openDelay={openDelay}
-					hasArrow
-					gutter={gutter}
-					sx={merge(style.tooltip, sx)}
-				>
-					{children}
-				</CUITooltip>
-			) : (
-				children
-			)}
-		</>
+	return !isTouchDevice ? (
+		<CUITooltip
+			{...rest}
+			ref={ref}
+			arrowSize={arrowSize}
+			closeDelay={closeDelay}
+			openDelay={openDelay}
+			hasArrow
+			gutter={gutter}
+			sx={merge(style.tooltip, sx)}
+		>
+			{children}
+		</CUITooltip>
+	) : (
+		<Fragment>{children}</Fragment>
 	);
 });
 
