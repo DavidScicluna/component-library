@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 
-import { TabList as CUITabList, Box, HStack } from '@chakra-ui/react';
+import { TabList as CUITabList, Grid, GridItem, Box, HStack } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
@@ -15,8 +15,6 @@ import Tab from './components/Tab';
 
 const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest }) => {
 	const { activeTab, color, colorMode, isDisabled, isFitted, onChange } = useTabsContext();
-
-	const [gridRef, { width: gridWidth }] = useElementSize();
 
 	const [leftRef, { width: leftWidth }] = useElementSize();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
@@ -53,8 +51,16 @@ const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest
 				'& .react-horizontal-scrolling-menu--item': isFitted ? { width: '100%' } : {}
 			}}
 		>
-			<Box ref={gridRef} width='100%' height='100%' display='grid' alignItems='flex-end' justifyContent='stretch'>
-				<Box width={`${gridWidth}px`} gridRow={1} gridColumn={1}>
+			<Grid
+				width='100%'
+				height='100%'
+				position='relative'
+				templateRows='minmax(100%, 1fr)'
+				templateColumns='minmax(100%, 1fr)'
+				alignItems='center'
+				justifyItems='center'
+			>
+				<GridItem width='100%' height='100%' position='relative' zIndex={1}>
 					<HStack width='100%' spacing={0}>
 						{renderLeft && (
 							<Box ref={leftRef}>
@@ -94,12 +100,12 @@ const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest
 							</Box>
 						)}
 					</HStack>
-				</Box>
+				</GridItem>
 
-				<Box width={`${gridWidth}px`} gridRow={1} gridColumn={1}>
+				<GridItem width='100%' height='100%' position='relative' bottom='4px'>
 					<Divider colorMode={colorMode} />
-				</Box>
-			</Box>
+				</GridItem>
+			</Grid>
 		</CUITabList>
 	);
 };

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { TabList as CUIDummyTabList, Box, HStack } from '@chakra-ui/react';
+import { TabList as CUIDummyTabList, Grid, GridItem, Box, HStack } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
@@ -30,8 +30,16 @@ const DummyTabList: FC<DummyTabListProps> = ({ tabs = [], renderLeft, renderRigh
 				'& .react-horizontal-scrolling-menu--item': isFitted ? { width: '100%' } : {}
 			}}
 		>
-			<Box width='100%' height='100%' display='grid' alignItems='flex-end' justifyContent='stretch'>
-				<Box gridRow={1} gridColumn={1}>
+			<Grid
+				width='100%'
+				height='100%'
+				position='relative'
+				templateRows='minmax(100%, 1fr)'
+				templateColumns='minmax(100%, 1fr)'
+				alignItems='center'
+				justifyItems='center'
+			>
+				<GridItem width='100%' height='100%' position='relative' zIndex={1}>
 					<HStack width='100%' spacing={0}>
 						{renderLeft && (
 							<Box ref={leftRef}>
@@ -60,12 +68,12 @@ const DummyTabList: FC<DummyTabListProps> = ({ tabs = [], renderLeft, renderRigh
 							</Box>
 						)}
 					</HStack>
-				</Box>
+				</GridItem>
 
-				<Box gridRow={1} gridColumn={1}>
+				<GridItem width='100%' height='100%' position='relative' bottom='4px'>
 					<Divider colorMode={colorMode} />
-				</Box>
-			</Box>
+				</GridItem>
+			</Grid>
 		</CUIDummyTabList>
 	);
 };
