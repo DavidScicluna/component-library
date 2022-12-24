@@ -59,7 +59,7 @@ const NavItem: FC<NavItemProps> = (props) => {
 			to={{ ...path }}
 			isDisabled={isActive || isDisabled}
 			isFullWidth
-			sx={{ 'opacity': 1, '& span': { width: '100%' } }}
+			sx={{ 'opacity': 1, '& span': mode === 'expanded' ? { width: '100%' } : {} }}
 		>
 			<Tooltip
 				aria-label={`Navigate to ${title} (tooltip)`}
