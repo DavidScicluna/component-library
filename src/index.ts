@@ -54,13 +54,16 @@ import DummyCard from './components/Cards/DummyCard';
 import DummyCardDivider from './components/Cards/DummyCard/components/DummyCardDivider';
 import { DummyCardDividerProps } from './components/Cards/DummyCard/components/DummyCardDivider/types';
 import DummyCardHeader from './components/Cards/DummyCard/components/DummyCardHeader';
-import { DummyCardHeaderProps } from './components/Cards/DummyCard/components/DummyCardHeader/types';
+import {
+	DummyCardHeaderRenderProps,
+	DummyCardHeaderProps
+} from './components/Cards/DummyCard/components/DummyCardHeader/types';
 import { DummyCardContext, DummyCardProps, DummyCardRef } from './components/Cards/DummyCard/types';
 import Card from './components/Cards/OriginalCard';
 import CardDivider from './components/Cards/OriginalCard/components/CardDivider';
 import { CardDividerProps } from './components/Cards/OriginalCard/components/CardDivider/types';
 import CardHeader from './components/Cards/OriginalCard/components/CardHeader';
-import { CardHeaderProps } from './components/Cards/OriginalCard/components/CardHeader/types';
+import { CardHeaderRenderProps, CardHeaderProps } from './components/Cards/OriginalCard/components/CardHeader/types';
 import { CardContext, CardProps, CardRef } from './components/Cards/OriginalCard/types';
 import ButtonGroup from './components/Clickable/ButtonGroup';
 import { ButtonGroupProps, ButtonGroupRef, ButtonGroupSize } from './components/Clickable/ButtonGroup/types';
@@ -172,6 +175,25 @@ import {
 	RadioSize,
 	RadioVariant
 } from './components/Forms/Radio/types';
+import Rating from './components/Forms/Rating';
+import {
+	RatingColor,
+	RatingIcons,
+	RatingOnChangeProps,
+	RatingProps,
+	RatingSize,
+	RatingVariant
+} from './components/Forms/Rating/types';
+import Textarea from './components/Forms/Textarea';
+import {
+	TextareaAutoComplete,
+	TextareaColor,
+	TextareaPanelRenderProps,
+	TextareaProps,
+	TextareaRef,
+	TextareaResize,
+	TextareaSize
+} from './components/Forms/Textarea/types';
 import Tabs from './components/Navigation/Tabs';
 import {
 	TabsColor,
@@ -189,16 +211,6 @@ import { TabListProps } from './components/Navigation/Tabs/components/TabList/ty
 import { Tab as TabListTab } from './components/Navigation/Tabs/components/TabList/components/Tab/types';
 import TabPanels from './components/Navigation/Tabs/components/TabPanels';
 import { TabPanelsProps } from './components/Navigation/Tabs/components/TabPanels/types';
-import Textarea from './components/Forms/Textarea';
-import {
-	TextareaAutoComplete,
-	TextareaColor,
-	TextareaPanelRenderProps,
-	TextareaProps,
-	TextareaRef,
-	TextareaResize,
-	TextareaSize
-} from './components/Forms/Textarea/types';
 import HorizontalScroll from './components/HorizontalScroll';
 import HorizontalScrollArrow from './components/HorizontalScroll/components/Arrow';
 import { ArrowProps as HorizontalScrollArrowProps } from './components/HorizontalScroll/components/Arrow/types';
@@ -430,11 +442,12 @@ export {
 	Radio,
 	RadioSubtitle,
 	RadioTitle,
+	Rating,
+	Textarea,
 	Tabs,
 	DummyTabList,
 	TabList,
 	TabPanels,
-	Textarea,
 	HorizontalScroll,
 	HorizontalScrollArrow,
 	Icon,
@@ -489,11 +502,13 @@ export type {
 	CardBodyProps,
 	CardFooterProps,
 	DummyCardDividerProps,
+	DummyCardHeaderRenderProps,
 	DummyCardHeaderProps,
 	DummyCardContext,
 	DummyCardProps,
 	DummyCardRef,
 	CardDividerProps,
+	CardHeaderRenderProps,
 	CardHeaderProps,
 	CardContext,
 	CardProps,
@@ -585,6 +600,19 @@ export type {
 	RadioRef,
 	RadioSize,
 	RadioVariant,
+	RatingColor,
+	RatingIcons,
+	RatingOnChangeProps,
+	RatingProps,
+	RatingSize,
+	RatingVariant,
+	TextareaAutoComplete,
+	TextareaColor,
+	TextareaPanelRenderProps,
+	TextareaProps,
+	TextareaRef,
+	TextareaResize,
+	TextareaSize,
 	TabsColor,
 	TabsContext,
 	TabsProps,
@@ -596,13 +624,6 @@ export type {
 	TabListProps,
 	TabListTab,
 	TabPanelsProps,
-	TextareaAutoComplete,
-	TextareaColor,
-	TextareaPanelRenderProps,
-	TextareaProps,
-	TextareaRef,
-	TextareaResize,
-	TextareaSize,
 	HorizontalScrollArrowProps,
 	HorizontalScrollContext,
 	HorizontalScrollProps,
