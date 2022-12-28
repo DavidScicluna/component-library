@@ -1,9 +1,10 @@
-import { FC, createContext, useState, useEffect } from 'react';
+import { FC, createContext, useState } from 'react';
 
 import { useColorMode, useDisclosure, HStack, Text } from '@chakra-ui/react';
 
 import dayjs from 'dayjs';
 import { useDayzed } from 'dayzed';
+import { useUpdateEffect } from 'usehooks-ts';
 
 import { useDebounce } from '../../../common/hooks';
 import Modal from '../../Overlay/Modal';
@@ -91,7 +92,7 @@ const DatePicker: FC<DatePickerProps> = (props) => {
 
 	const { calendars = [] } = dayzed;
 
-	useEffect(() => handleReset(), [isDatePickerOpen, value]);
+	useUpdateEffect(() => handleReset(), [isDatePickerOpen, value]);
 
 	return (
 		<DatePickerContext.Provider

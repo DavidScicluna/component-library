@@ -127,6 +127,7 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 			tabIndex={0}
 			alignItems='flex-start'
 			onClick={handleContainerClick}
+			spacing={handleReturnSpacing()}
 			sx={{ width: isFullWidth ? '100%' : 'auto' }}
 		>
 			{label && (

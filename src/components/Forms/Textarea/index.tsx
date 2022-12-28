@@ -115,6 +115,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 			tabIndex={0}
 			alignItems='flex-start'
 			onClick={handleContainerClick}
+			spacing={handleReturnSpacing()}
 			sx={{ width: isFullWidth ? '100%' : 'auto' }}
 		>
 			{label && (
