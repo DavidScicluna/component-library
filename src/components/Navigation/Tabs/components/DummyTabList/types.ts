@@ -24,7 +24,7 @@ import { TabsProps } from '../../types';
 
 import { DummyTab } from './components/DummyTab/types';
 
-export type RenderProps = {
+export type DummyTabListRenderProps = {
 	width?: number; // In Pixels
 	height?: number; // In Pixels
 	// size?: ButtonSize;
@@ -51,6 +51,6 @@ type Omitted =
 
 export type DummyTabListProps = Omit<CUITabListProps, Omitted> & {
 	tabs: DummyTab[];
-	renderLeft?: (props: RenderProps) => ReactNode;
-	renderRight?: (props: RenderProps) => ReactNode;
+	renderLeft?: (props: DummyTabListRenderProps) => ReactNode;
+	renderRight?: (props: DummyTabListRenderProps) => ReactNode;
 };

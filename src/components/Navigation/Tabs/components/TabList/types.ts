@@ -28,7 +28,7 @@ import { Tab } from './components/Tab/types';
 
 export type ScrollContext = ContextType<typeof VisibilityContext>;
 
-export type RenderProps = {
+export type TabListRenderProps = {
 	width?: number; // In Pixels
 	height?: number; // In Pixels
 	// size?: ButtonSize;
@@ -55,6 +55,6 @@ type Omitted =
 
 export type TabListProps = Omit<CUITabListProps, Omitted> & {
 	tabs: Tab[];
-	renderLeft?: (props: RenderProps) => ReactNode;
-	renderRight?: (props: RenderProps) => ReactNode;
+	renderLeft?: (props: TabListRenderProps) => ReactNode;
+	renderRight?: (props: TabListRenderProps) => ReactNode;
 };
