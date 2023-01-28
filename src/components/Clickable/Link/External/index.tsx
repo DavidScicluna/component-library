@@ -12,7 +12,7 @@ import {
 	isFullWidth as defaultIsFullWidth
 } from '../common/data/defaultPropValues';
 import useStyles from '../common/styles';
-import { LinkProps as ExternalProps } from '../common/types';
+import { LinkProps as ExternalProps, LinkMouseEvent as ExternalMouseEvent } from '../common/types';
 
 const External: FC<ExternalProps> = (props) => {
 	const theme = useTheme();
@@ -24,14 +24,32 @@ const External: FC<ExternalProps> = (props) => {
 		colorMode = colorModeHook,
 		isDisabled = defaultIsDisabled,
 		isFullWidth = defaultIsFullWidth,
+		onClick,
 		sx,
 		...rest
 	} = props;
 
 	const style = useStyles({ theme, color, colorMode, isFullWidth, isString: typeof children === 'string' });
 
+	const handleClick = (event: ExternalMouseEvent): void => {
+		if (isDisabled) {
+			event.preventDefault();
+		}
+
+		if (onClick) {
+			onClick;
+		}
+	};
+
 	return (
-		<CUILink {...rest} aria-disabled={isDisabled} isExternal sx={merge(style.link, sx)} _disabled={style.disabled}>
+		<CUILink
+			{...rest}
+			aria-disabled={isDisabled}
+			isExternal
+			onClick={handleClick}
+			sx={merge(style.link, sx)}
+			_disabled={style.disabled}
+		>
 			{children}
 		</CUILink>
 	);
