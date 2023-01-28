@@ -65,7 +65,7 @@ const NavItem: FC<NavItemProps> = (props) => {
 				aria-label={`Navigate to ${title} (tooltip)`}
 				colorMode={colorMode}
 				isOpen={mode === 'collapsed' && !isDisabled && isHovering}
-				placement='left'
+				placement='right'
 				label={title}
 				gutter={36}
 				shouldWrapChildren
