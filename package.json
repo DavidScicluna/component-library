@@ -103,5 +103,5 @@
 		"react-router-dom": "^6.4.0"
 	},
 	"license": "MIT",
-	"packageManager": "yarn@3.2.4"
+	"packageManager": "yarn@3.3.1"
 }
