@@ -1,3 +1,5 @@
+import { MouseEvent as ME } from 'react';
+
 import { IconButtonProps as CUIIconButtonProps } from '@chakra-ui/react';
 
 import {
@@ -16,6 +18,8 @@ import {
 	BoxOther
 } from '../../../../common/types/box';
 import { CommonIconButtonProps } from '../common/types';
+
+export type IconButtonMouseEvent = ME<HTMLButtonElement, globalThis.MouseEvent>;
 
 type Omitted =
 	// CUI Box Props

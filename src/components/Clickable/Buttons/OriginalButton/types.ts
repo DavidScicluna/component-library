@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, MouseEvent as ME } from 'react';
 
 import { ButtonProps as CUIButtonProps } from '@chakra-ui/react';
 
@@ -18,6 +18,8 @@ import {
 	BoxOther
 } from '../../../../common/types/box';
 import { CommonButtonProps } from '../common/types';
+
+export type ButtonMouseEvent = ME<HTMLButtonElement, globalThis.MouseEvent>;
 
 export type RenderProps = {
 	width?: number; // In Pixels

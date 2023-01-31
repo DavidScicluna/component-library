@@ -74,6 +74,7 @@ import DummyButton from './components/Clickable/Buttons/DummyButton';
 import { DummyButtonProps } from './components/Clickable/Buttons/DummyButton/types';
 import Button from './components/Clickable/Buttons/OriginalButton';
 import {
+	ButtonMouseEvent,
 	ButtonProps,
 	ButtonRef,
 	RenderProps as ButtonRenderProps
@@ -84,7 +85,12 @@ import { DummyIconButtonProps } from './components/Clickable/IconButtons/DummyIc
 import IconButton from './components/Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from './components/Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
 import { IconButtonIconProps } from './components/Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon/types';
-import { IconButtonProps, IconButtonRef } from './components/Clickable/IconButtons/OriginalIconButton/types';
+import {
+	IconButtonContext,
+	IconButtonMouseEvent,
+	IconButtonProps,
+	IconButtonRef
+} from './components/Clickable/IconButtons/OriginalIconButton/types';
 import { LinkProps } from './components/Clickable/Link/common/types';
 import ExternalLink from './components/Clickable/Link/External';
 import InternalLink from './components/Clickable/Link/Internal';
@@ -517,6 +523,8 @@ export type {
 	IconButtonSize,
 	IconButtonVariant,
 	DummyIconButtonProps,
+	IconButtonContext,
+	IconButtonMouseEvent,
 	IconButtonProps,
 	IconButtonRef,
 	IconButtonIconProps,
@@ -524,6 +532,7 @@ export type {
 	InternalLinkProps,
 	ButtonColor,
 	DummyButtonProps,
+	ButtonMouseEvent,
 	ButtonProps,
 	ButtonRef,
 	ButtonSize,
