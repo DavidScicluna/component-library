@@ -1,7 +1,6 @@
 {
-	"name": "component-library",
+	"name": "@davidscicluna/component-library",
 	"version": "1.0.0",
-	"private": true,
 	"repository": "https://github.com/DavidScicluna/component-library.git",
 	"author": {
 		"name": "David Scicluna",
@@ -14,9 +13,10 @@
 	"scripts": {
 		"lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
 		"format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json}\" --config ./.prettierrc",
-		"cleanup": "rimraf node_modules && rimraf build && yarn cache clean --all",
-		"prebuild": "yarn run cleanup && yarn && yarn run lint --fix",
-		"build": "yarn run prebuild && yarn rollup -c",
+		"cleanup": "rimraf node_modules && rimraf build && npm cache clean --all",
+		"prebuild": "npm run cleanup && npm && npm run lint --fix",
+		"build": "npm run prebuild && npm rollup -c",
+		"publish": "npm publish --access public",
 		"storybook": "BROWSER=none start-storybook -p 6006",
 		"build-storybook": "build-storybook"
 	},
@@ -98,5 +98,5 @@
 		"react-router-dom": "^6.4.0"
 	},
 	"license": "MIT",
-	"packageManager": "yarn@3.3.1"
+	"packageManager": "npm@3.3.1"
 }
