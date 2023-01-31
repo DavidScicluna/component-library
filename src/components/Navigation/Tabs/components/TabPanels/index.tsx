@@ -33,25 +33,26 @@ const TabPanels: FC<TabPanelsProps> = ({ children, ...rest }) => {
 	const { activeTab } = useTabsContext();
 
 	return (
-		<CUITabPanels {...rest} width='100%' display='grid' gridTemplateColumns='100%' gridTemplateRows='100%'>
-			<AnimatePresence>
-				{children.map((panel, index) => (
-					<TabPanel
-						as={TabPanelFade}
-						key={`ds-cl-tabs-panels-${index}-panel`}
-						width='100%'
-						height='100%'
-						display='block !important'
-						gridRowStart={1}
-						gridColumnStart={1}
-						layout
-						in={activeTab === index}
-						p={0}
-					>
-						{panel}
-					</TabPanel>
-				))}
-			</AnimatePresence>
+		<CUITabPanels
+			{...rest}
+			width='100%'
+			// display='grid' gridTemplateColumns='100%' gridTemplateRows='100%'
+		>
+			{children.map((panel, index) => (
+				<TabPanel
+					key={`ds-cl-tabs-panels-${index}-panel`}
+					width='100%'
+					height='100%'
+					// display='block !important'
+					// gridRowStart={1}
+					// gridColumnStart={1}
+					p={0}
+				>
+					<AnimatePresence>
+						<TabPanelFade in={activeTab === index}>{panel}</TabPanelFade>
+					</AnimatePresence>
+				</TabPanel>
+			))}
 		</CUITabPanels>
 	);
 };

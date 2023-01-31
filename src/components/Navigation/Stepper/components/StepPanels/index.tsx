@@ -33,25 +33,28 @@ const StepPanels: FC<StepPanelsProps> = ({ children, ...rest }) => {
 	const { activeStep } = useStepperContext();
 
 	return (
-		<Box {...rest} width='100%' display='grid' gridTemplateColumns='minmax(0, 1fr)'>
-			<AnimatePresence>
-				{children.map((step, index) => (
-					<Box
-						as={StepPanelFade}
-						key={`ds-cl-stepper-panels-${index}-panel`}
-						width='100%'
-						height='100%'
-						display='block !important'
-						gridRowStart={1}
-						gridColumnStart={1}
-						layout
-						in={activeStep === index}
-						p={0}
-					>
-						{step}
-					</Box>
-				))}
-			</AnimatePresence>
+		<Box
+			{...rest}
+			as={AnimatePresence}
+			width='100%'
+			// display='grid' gridTemplateColumns='100%' gridTemplateRows='100%'
+		>
+			{children.map((step, index) => (
+				<Box
+					as={StepPanelFade}
+					key={`ds-cl-stepper-panels-${index}-panel`}
+					width='100%'
+					height='100%'
+					// display='block !important'
+					// gridRowStart={1}
+					// gridColumnStart={1}
+					layout
+					in={activeStep === index}
+					p={0}
+				>
+					{step}
+				</Box>
+			))}
 		</Box>
 	);
 };
