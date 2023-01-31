@@ -80,6 +80,8 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 				_active={style.active}
 			>
 				<VStack
+					width='100%'
+					height='100%'
 					position='relative'
 					zIndex={1}
 					flex={1}

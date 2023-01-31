@@ -56,6 +56,8 @@ const DummyCard = forwardRef<DummyCardRef, DummyCardProps>(function DummyCard(pr
 		<DummyCardContext.Provider value={{ color, colorMode, isLight, spacing }}>
 			<Center {...rest} ref={ref} as='div' aria-disabled sx={merge(style.card, sx)}>
 				<VStack
+					width='100%'
+					height='100%'
 					position='relative'
 					zIndex={1}
 					flex={1}
