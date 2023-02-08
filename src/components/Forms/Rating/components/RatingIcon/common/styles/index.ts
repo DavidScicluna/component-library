@@ -11,8 +11,8 @@ import { isHovering as defaultIsHovering } from '../data/defaultPropValues';
 
 import dark from './dark';
 import disabled from './disabled';
-import rating from './rating';
 import light from './light';
+import rating from './rating';
 import readOnly from './readOnly';
 import { RatingIconStyleProps, RatingIconStyleReturn } from './types';
 

@@ -8,8 +8,8 @@ import { useElementSize } from 'usehooks-ts';
 import { useTheme } from '../../common/hooks';
 import { convertStringToNumber } from '../../common/utils';
 import { getColor } from '../../common/utils/color';
-import SlideFade from '../Transitions/SlideFade';
 import AnimatePresence from '../Transitions/AnimatePresence';
+import SlideFade from '../Transitions/SlideFade';
 
 import {
 	color as defaultColor,

@@ -20,9 +20,9 @@ import {
 	BoxPseudo,
 	BoxOther
 } from '../../../common/types/box';
+import { Color } from '../../../theme/types';
 import { IconButtonProps } from '../../Clickable/IconButtons/OriginalIconButton/types';
 import { IconProps } from '../../Icon/types';
-import { Color } from '../../../theme/types';
 
 export type ConfirmModalColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 

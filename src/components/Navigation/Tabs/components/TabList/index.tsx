@@ -4,14 +4,14 @@ import { TabList as CUITabList, Grid, GridItem, Box, HStack } from '@chakra-ui/r
 
 import { useElementSize } from 'usehooks-ts';
 
-import HorizontalScroll from '../../../../HorizontalScroll';
-import Divider from '../../../../Divider';
 import { useDebounce } from '../../../../../common/hooks';
+import Divider from '../../../../Divider';
+import HorizontalScroll from '../../../../HorizontalScroll';
 import { useTabsContext } from '../../common/hooks';
 
-import { TabListProps, ScrollContext } from './types';
 import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from './components/HorizontalScrollArrows';
 import Tab from './components/Tab';
+import { TabListProps, ScrollContext } from './types';
 
 const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest }) => {
 	const { activeTab, color, colorMode, isDisabled, isFitted, onChange } = useTabsContext();

@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 
 import { TabProps as CUITabProps } from '@chakra-ui/react';
 
+import { Style } from '../../../../../../../common/types';
 import {
 	BoxMargin,
 	BoxPadding,
@@ -21,7 +22,6 @@ import {
 	BoxOther
 } from '../../../../../../../common/types/box';
 import { TabsProps } from '../../../../types';
-import { Style } from '../../../../../../../common/types';
 
 export type RenderProps = Pick<TabsProps, 'color' | 'colorMode' | 'size'> & {
 	width?: number; // In Pixels

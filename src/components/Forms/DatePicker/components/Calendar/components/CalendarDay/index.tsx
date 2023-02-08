@@ -2,8 +2,8 @@ import { ReactElement, forwardRef } from 'react';
 
 import { Center, Button as CUIButton } from '@chakra-ui/react';
 
-import merge from 'lodash/merge';
 import { dataAttr } from '@chakra-ui/utils';
+import merge from 'lodash/merge';
 
 import { useTheme } from '../../../../../../../common/hooks';
 import { useDatePickerContext } from '../../../../common/hooks';

@@ -4,9 +4,9 @@ import { SimpleGrid } from '@chakra-ui/react';
 
 import { compact } from 'lodash';
 
+import { useDatePickerContext } from '../../../../common/hooks';
 import CalendarDay from '../CalendarDay';
 import { getVariant } from '../CalendarDay/common/utils';
-import { useDatePickerContext } from '../../../../common/hooks';
 
 import { CalendarDaysProps } from './types';
 

@@ -1,9 +1,9 @@
 import { lighten } from 'color2k';
 
-import { getAmount } from '../../../utils';
-import { color as defaultColor } from '../../../../../../../../common/data/defaultPropValues';
 import { Style } from '../../../../../../../../../../../common/types';
 import { getHue } from '../../../../../../../../../../../common/utils/color';
+import { color as defaultColor } from '../../../../../../../../common/data/defaultPropValues';
+import { getAmount } from '../../../utils';
 
 import { CalendarDayDarkActiveStylingProps } from './types';
 

@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 
 import { SideNavigationContext } from '../..';
-import { SideNavigationContext as SideNavigationContextType } from '../../types';
 import { NoUndefinedField } from '../../../../../common/types';
+import { SideNavigationContext as SideNavigationContextType } from '../../types';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,

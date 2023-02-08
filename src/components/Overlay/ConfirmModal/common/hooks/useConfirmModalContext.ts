@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 
-import { method as defaultOnClose } from '../../../../../common/data/defaultPropValues';
 import { ConfirmModalContext } from '../..';
+import { method as defaultOnClose } from '../../../../../common/data/defaultPropValues';
+import { NoUndefinedField } from '../../../../../common/types';
 import { ConfirmModalContext as ConfirmModalContextType } from '../../types';
 import { color as defaultColor, colorMode as defaultColorMode } from '../data/defaultPropValues';
-import { NoUndefinedField } from '../../../../../common/types';
 
 const useConfirmModalContext = (): NoUndefinedField<ConfirmModalContextType> => {
 	const {

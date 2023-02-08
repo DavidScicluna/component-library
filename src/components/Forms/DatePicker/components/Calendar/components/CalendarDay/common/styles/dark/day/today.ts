@@ -1,10 +1,10 @@
 import { lighten } from 'color2k';
 
-import { getAmount, getSizeConfig } from '../../../utils';
-import { color as defaultColor } from '../../../../../../../../common/data/defaultPropValues';
 import { Style } from '../../../../../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../../../../../common/utils';
 import { getHue } from '../../../../../../../../../../../common/utils/color';
+import { color as defaultColor } from '../../../../../../../../common/data/defaultPropValues';
+import { getAmount, getSizeConfig } from '../../../utils';
 
 import { CalendarDayDarkStylingProps } from './types';
 

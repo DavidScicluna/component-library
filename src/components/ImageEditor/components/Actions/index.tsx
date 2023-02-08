@@ -10,8 +10,8 @@ import Divider from '../../../Divider';
 import { useImageEditorContext } from '../../common/hooks';
 
 import Cancel from './components/Cancel';
-import Toolbar from './components/Toolbar';
 import Save from './components/Save';
+import Toolbar from './components/Toolbar';
 import { ActionsProps } from './types';
 
 const Actions: FC<ActionsProps> = ({ onSelectTool, onZoom, onCancel, onSave }) => {

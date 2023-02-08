@@ -5,6 +5,7 @@ import { Center } from '@chakra-ui/react';
 import { dataAttr } from '@chakra-ui/utils';
 import { merge } from 'lodash';
 
+import { useTheme } from '../../../../../common/hooks';
 import Icon from '../../../../Icon';
 import {
 	color as defaultColor,
@@ -16,7 +17,6 @@ import {
 	isReadOnly as defaultIsReadOnly,
 	size as defaultSize
 } from '../../common/data/defaultPropValues';
-import { useTheme } from '../../../../../common/hooks';
 
 import { isActive as defaultIsActive, isHovering as defaultIsHovering } from './common/data/defaultPropValues';
 import useStyles from './common/styles';

@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 
 import { TabBarContext } from '../..';
+import { NoUndefinedField } from '../../../../../common/types';
 import { TabBarContext as TabBarContextType } from '../../types';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
 	direction as defaultDirection
 } from '../data/defaultPropValues';
-import { NoUndefinedField } from '../../../../../common/types';
 
 const useTabBarContext = (): NoUndefinedField<TabBarContextType> => {
 	const {

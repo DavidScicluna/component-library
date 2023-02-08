@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 
-import { method as defaultOnChange } from '../../../../../common/data/defaultPropValues';
 import { TabsContext } from '../..';
-import { TabsContext as TabsContextType } from '../../types';
+import { method as defaultOnChange } from '../../../../../common/data/defaultPropValues';
 import { NoUndefinedField } from '../../../../../common/types';
+import { TabsContext as TabsContextType } from '../../types';
 import {
 	activeTab as defaultActiveTab,
 	color as defaultColor,

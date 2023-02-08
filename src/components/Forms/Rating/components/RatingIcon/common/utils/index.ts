@@ -1,8 +1,8 @@
 import { memoize } from 'lodash';
 
-import { RatingSize } from '../../../../types';
-import { size as defaultSize } from '../../../../common/data/defaultPropValues';
 import { Space } from '../../../../../../../theme/types';
+import { size as defaultSize } from '../../../../common/data/defaultPropValues';
+import { RatingSize } from '../../../../types';
 
 type Padding = {
 	x: Space; // In Space (Theme) Values

@@ -1,8 +1,8 @@
 import { lighten } from 'color2k';
 
 import { Style } from '../../../../../../../../../../../../../../../common/types';
-import { getHue } from '../../../../../../../../../../../../../../../common/utils/color';
 import { checkIsTouchDevice } from '../../../../../../../../../../../../../../../common/utils';
+import { getHue } from '../../../../../../../../../../../../../../../common/utils/color';
 import { getAmount, getSizeConfig } from '../../../utils';
 
 import { DropdownButtonItemDarkStylingProps } from './types';

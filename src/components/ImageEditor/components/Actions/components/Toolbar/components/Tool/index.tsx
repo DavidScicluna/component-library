@@ -2,9 +2,9 @@ import { FC } from 'react';
 
 import { useBoolean } from '@chakra-ui/react';
 
-import Tooltip from '../../../../../../../Overlay/Tooltip';
 import IconButton from '../../../../../../../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../../../../../../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
+import Tooltip from '../../../../../../../Overlay/Tooltip';
 import { useImageEditorContext } from '../../../../../../common/hooks';
 
 import { ToolProps } from './types';

@@ -8,10 +8,10 @@ import Divider from '../../../../Divider';
 import Input from '../../../Input';
 import { useDatePickerContext } from '../../common/hooks';
 
+import CalendarDays from './components/CalendarDays';
 import CalendarHeader from './components/CalendarHeader';
 import CalendarWeekdays from './components/CalendarWeekdays';
 import { CalendarProps } from './types';
-import CalendarDays from './components/CalendarDays';
 
 const Calendar: FC<CalendarProps> = ({ calendar }) => {
 	const { color, colorMode, date, format, spacing } = useDatePickerContext();

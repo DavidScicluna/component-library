@@ -8,9 +8,9 @@ import { useElementSize } from 'usehooks-ts';
 import { InternalLink, Fade } from '../../../../..';
 import { useTheme } from '../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../common/utils';
+import Tooltip from '../../../../Overlay/Tooltip';
 import { getDelay as getTransitionDelay, getConfig as getTransitionConfig } from '../../../../Transitions/common/utils';
 import { useSideNavigationContext } from '../../common/hooks';
-import Tooltip from '../../../../Overlay/Tooltip';
 
 import {
 	isActive as defaultIsActive,

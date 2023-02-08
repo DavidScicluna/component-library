@@ -1,5 +1,5 @@
-import { ModeButton } from '../../../../types';
 import { ImageEditorModeCropID, ImageEditorModeCropValue } from '../../../../../../types';
+import { ModeButton } from '../../../../types';
 
 const crops: ModeButton<ImageEditorModeCropID, ImageEditorModeCropValue>[] = [
 	{

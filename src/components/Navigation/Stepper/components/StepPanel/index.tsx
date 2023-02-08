@@ -2,8 +2,8 @@ import { FC } from 'react';
 
 import { VStack, Text } from '@chakra-ui/react';
 
-import Divider from '../../../../Divider';
 import Headline from '../../../../DataDisplay/Headline';
+import Divider from '../../../../Divider';
 import { useStepperContext } from '../../common/hooks';
 
 import { StepPanelProps } from './types';

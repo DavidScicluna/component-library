@@ -5,9 +5,9 @@ import { useMediaQuery, useBoolean, Stack, HStack, Center } from '@chakra-ui/rea
 import { useUpdateEffect } from 'usehooks-ts';
 
 import { useDebounce, useTheme } from '../../../../../common/hooks';
+import { convertStringToNumber } from '../../../../../common/utils';
 import Divider from '../../../../Divider';
 import HorizontalScroll from '../../../../HorizontalScroll';
-import { convertStringToNumber } from '../../../../../common/utils';
 import { useStepperContext } from '../../common/hooks';
 
 import { isDisabled as defaultIsDisabled } from './common/data/defaultPropValues';

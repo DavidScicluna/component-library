@@ -24,8 +24,8 @@ import {
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
-import { RatingProps } from './types';
 import RatingIcon from './components/RatingIcon';
+import { RatingProps } from './types';
 
 const Rating: FC<RatingProps> = (props) => {
 	const theme = useTheme();

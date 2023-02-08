@@ -3,7 +3,6 @@ import { darken } from 'color2k';
 import { Style } from '../../../../../../../../../common/types';
 import { getHue } from '../../../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../../../theme/types';
-import { getAmount } from '../../../utils';
 import {
 	color as defaultColor,
 	isError as defaultIsError,
@@ -11,6 +10,7 @@ import {
 	isSuccess as defaultIsSuccess
 } from '../../../../../../common/data/defaultPropValues';
 import { isHovering as defaultIsHovering } from '../../../data/defaultPropValues';
+import { getAmount } from '../../../utils';
 
 import { RatingIconLightStyleProps } from './types';
 

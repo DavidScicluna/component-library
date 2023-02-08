@@ -9,9 +9,9 @@ import { convertREMToPixels, convertStringToNumber } from '../../../../../../../
 import Button from '../../../../../../Clickable/Buttons/OriginalButton';
 import { color as defaultColor } from '../../../../../common/data/defaultPropValues';
 import { isDisabled as defaultIsDisabled } from '../../../../common/data/defaultPropValues';
+import { useAccordionsContext } from '../../../../common/hooks';
 import { toggleAccordion } from '../../../../common/utils';
 import { size as defaultSize } from '../../common/data/defaultPropValues';
-import { useAccordionsContext } from '../../../../common/hooks';
 
 import { AccordionProps } from './types';
 

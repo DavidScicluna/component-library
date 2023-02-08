@@ -5,14 +5,14 @@ import { useBoolean, HStack, Center, Slider, SliderTrack, SliderFilledTrack, Sli
 
 import { useElementSize } from 'usehooks-ts';
 
-import { rotation as defaultRotation } from '../../../../common/data/defaultPropValues';
-import ModeButton from '../ModeButton';
 import { useTheme } from '../../../../../../common/hooks';
-import Divider from '../../../../../Divider';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../common/utils';
 import { getColor } from '../../../../../../common/utils/color';
+import Divider from '../../../../../Divider';
 import Tooltip from '../../../../../Overlay/Tooltip';
+import { rotation as defaultRotation } from '../../../../common/data/defaultPropValues';
 import { useImageEditorContext } from '../../../../common/hooks';
+import ModeButton from '../ModeButton';
 
 import { RotateProps } from './types';
 

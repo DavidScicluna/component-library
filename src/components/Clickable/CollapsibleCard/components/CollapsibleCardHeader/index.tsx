@@ -4,11 +4,11 @@ import { HStack, VStack, Center } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import Icon from '../../../../Icon';
 import { useTheme } from '../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../common/utils';
-import { Space } from '../../../../../theme/types';
 import { getColor } from '../../../../../common/utils/color';
+import { Space } from '../../../../../theme/types';
+import Icon from '../../../../Icon';
 import { useCollapsibleCardContext } from '../../common/hooks';
 
 import { CollapsibleCardHeaderProps } from './types';

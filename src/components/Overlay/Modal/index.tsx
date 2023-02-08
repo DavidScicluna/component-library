@@ -2,10 +2,10 @@ import { FC, createContext, useCallback } from 'react';
 
 import { useColorMode, useMediaQuery, Modal as CUIModal, ModalOverlay, ModalContent } from '@chakra-ui/react';
 
-import { useTheme } from '../../../common/hooks';
-import { getColor } from '../../../common/utils/color';
-import { convertREMToPixels, convertStringToNumber } from '../../../common/utils';
 import { method as defaultOnClose } from '../../../common/data/defaultPropValues';
+import { useTheme } from '../../../common/hooks';
+import { convertREMToPixels, convertStringToNumber } from '../../../common/utils';
+import { getColor } from '../../../common/utils/color';
 
 import {
 	color as defaultColor,

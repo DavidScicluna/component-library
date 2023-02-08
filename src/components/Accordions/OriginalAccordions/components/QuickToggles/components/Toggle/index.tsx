@@ -2,15 +2,15 @@ import { ReactElement } from 'react';
 
 import { useMediaQuery } from '@chakra-ui/react';
 
+import { useTheme } from '../../../../../../../common/hooks';
 import Button from '../../../../../../Clickable/Buttons/OriginalButton';
 import IconButton from '../../../../../../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../../../../../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
 import { color as defaultColor } from '../../../../../common/data/defaultPropValues';
 import { isDisabled as defaultIsDisabled } from '../../../../common/data/defaultPropValues';
+import { useAccordionsContext } from '../../../../common/hooks';
 import { toggleAllAccordions } from '../../../../common/utils';
 import { size as defaultSize } from '../../common/data/defaultPropValues';
-import { useTheme } from '../../../../../../../common/hooks';
-import { useAccordionsContext } from '../../../../common/hooks';
 
 import { ToggleProps } from './types';
 

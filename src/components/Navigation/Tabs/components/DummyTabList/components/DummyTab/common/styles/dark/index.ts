@@ -1,8 +1,8 @@
-import { getHue } from '../../../../../../../../../../common/utils/color';
 import { Style } from '../../../../../../../../../../common/types';
+import { getHue } from '../../../../../../../../../../common/utils/color';
+import { Color } from '../../../../../../../../../../theme/types';
 import { color as defaultColor } from '../../../../../../../common/data/defaultPropValues';
 import { isSelected as defaultIsSelected } from '../../data/defaultPropValues';
-import { Color } from '../../../../../../../../../../theme/types';
 
 import { DummyTabDarkStylingProps } from './types';
 

@@ -8,8 +8,8 @@ import {
 } from '../../common/data/defaultPropValues';
 import { useImageEditorContext } from '../../common/hooks';
 
-import Rotate from './components/Rotate';
 import Crop from './components/Crop';
+import Rotate from './components/Rotate';
 import { ModeProps } from './types';
 
 const Mode: FC<ModeProps> = (props) => {

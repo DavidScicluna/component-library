@@ -2,14 +2,14 @@ import { FC, useEffect } from 'react';
 
 import { useBoolean } from '@chakra-ui/react';
 
+import { height } from '../../..';
 import { useDebounce, useTheme } from '../../../../../../../../common/hooks';
+import { convertStringToNumber } from '../../../../../../../../common/utils';
 import { getColor } from '../../../../../../../../common/utils/color';
 import HorizontalScrollArrow from '../../../../../../../HorizontalScroll/components/Arrow';
+import { useStepperContext } from '../../../../../common/hooks';
 import { isDisabled as defaultIsDisabled } from '../../../common/data/defaultPropValues';
 import { HorizontalScrollArrowProps as HorizontalScrollLeftArrowProps } from '../common/types';
-import { convertStringToNumber } from '../../../../../../../../common/utils';
-import { height } from '../../..';
-import { useStepperContext } from '../../../../../common/hooks';
 
 const border = 2;
 

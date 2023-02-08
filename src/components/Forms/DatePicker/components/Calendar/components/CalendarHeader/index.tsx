@@ -5,9 +5,9 @@ import { HStack } from '@chakra-ui/react';
 import { useDatePickerContext } from '../../../../common/hooks';
 
 import Month from './components/Month';
-import Year from './components/Year';
 import NextActions from './components/NextActions';
 import PreviousActions from './components/PreviousActions';
+import Year from './components/Year';
 import { CalendarHeaderProps } from './types';
 
 const CalendarHeader: FC<CalendarHeaderProps> = ({ calendar }) => {

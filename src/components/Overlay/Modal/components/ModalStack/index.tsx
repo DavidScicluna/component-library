@@ -2,9 +2,9 @@ import { FC } from 'react';
 
 import { useMediaQuery, VStack } from '@chakra-ui/react';
 
-import Divider from '../../../../Divider';
-import { getColor } from '../../../../../common/utils/color';
 import { useTheme } from '../../../../../common/hooks';
+import { getColor } from '../../../../../common/utils/color';
+import Divider from '../../../../Divider';
 import { useModalContext } from '../../common/hooks';
 
 import { ModalStackProps } from './types';

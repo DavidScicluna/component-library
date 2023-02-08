@@ -5,11 +5,11 @@ import { TabList as CUIDummyTabList, Grid, GridItem, Box, HStack } from '@chakra
 import { useElementSize } from 'usehooks-ts';
 
 import Divider from '../../../../Divider';
-import { getSizeConfig } from '../../common/utils';
 import { useTabsContext } from '../../common/hooks';
+import { getSizeConfig } from '../../common/utils';
 
-import { DummyTabListProps } from './types';
 import DummyTab from './components/DummyTab';
+import { DummyTabListProps } from './types';
 
 const DummyTabList: FC<DummyTabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest }) => {
 	const { activeTab, color, colorMode, isFitted, size } = useTabsContext();

@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 
 import { ModalContext } from '../..';
+import { method as defaultOnClose } from '../../../../../common/data/defaultPropValues';
+import { NoUndefinedField } from '../../../../../common/types';
 import { ModalContext as ModalContextType } from '../../types';
 import {
 	color as defaultColor,
@@ -8,8 +10,6 @@ import {
 	size as defaultSize,
 	spacing as defaultSpacing
 } from '../data/defaultPropValues';
-import { method as defaultOnClose } from '../../../../../common/data/defaultPropValues';
-import { NoUndefinedField } from '../../../../../common/types';
 
 const useModalContext = (): NoUndefinedField<ModalContextType> => {
 	const {

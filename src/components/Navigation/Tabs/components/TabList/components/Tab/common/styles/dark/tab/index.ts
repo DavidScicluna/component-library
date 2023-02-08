@@ -1,12 +1,12 @@
 import { lighten } from 'color2k';
 
-import { isSelected as defaultIsSelected } from '../../../data/defaultPropValues';
-import { color as defaultColor, size as defaultSize } from '../../../../../../../../common/data/defaultPropValues';
-import { getAmount, getSizeConfig } from '../../../../../../../../common/utils';
+import { Style } from '../../../../../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../../../../../common/utils';
 import { getHue } from '../../../../../../../../../../../common/utils/color';
-import { Style } from '../../../../../../../../../../../common/types';
 import { Color } from '../../../../../../../../../../../theme/types';
+import { color as defaultColor, size as defaultSize } from '../../../../../../../../common/data/defaultPropValues';
+import { getAmount, getSizeConfig } from '../../../../../../../../common/utils';
+import { isSelected as defaultIsSelected } from '../../../data/defaultPropValues';
 
 import { TabDarkStylingProps } from './types';
 

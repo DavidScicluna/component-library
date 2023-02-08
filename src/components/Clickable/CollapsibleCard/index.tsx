@@ -7,12 +7,12 @@ import { merge } from 'lodash';
 import { useInView } from 'react-cool-inview';
 
 import { useTheme } from '../../../common/hooks';
+import Collapse from '../../Transitions/Collapse';
 import {
 	getDuration as getTransitionDuration,
 	getEasings as getTransitionEasings,
 	getConfig as getTransitionConfig
 } from '../../Transitions/common/utils';
-import Collapse from '../../Transitions/Collapse';
 
 import {
 	color as defaultColor,

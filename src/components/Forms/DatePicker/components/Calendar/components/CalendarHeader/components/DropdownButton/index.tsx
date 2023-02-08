@@ -17,15 +17,15 @@ import { merge } from 'lodash';
 import { useElementSize, useUpdateEffect } from 'usehooks-ts';
 
 import { useTheme } from '../../../../../../../../../common/hooks';
-import { getColor } from '../../../../../../../../../common/utils/color';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../../../../common/utils';
-import ScaleFade from '../../../../../../../../Transitions/ScaleFade';
+import { getColor } from '../../../../../../../../../common/utils/color';
 import Icon from '../../../../../../../../Icon';
+import ScaleFade from '../../../../../../../../Transitions/ScaleFade';
 import { useDatePickerContext } from '../../../../../../common/hooks';
 
 import useStyles from './common/styles';
-import { DropdownButtonRef, DropdownButtonProps } from './types';
 import { getSizeConfig } from './common/utils';
+import { DropdownButtonRef, DropdownButtonProps } from './types';
 
 const DropdownButton = forwardRef<DropdownButtonRef, DropdownButtonProps>(function DropdownButton(
 	props,

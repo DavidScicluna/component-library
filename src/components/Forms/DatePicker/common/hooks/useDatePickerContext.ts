@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 
 import { DatePickerContext } from '../..';
-import { DatePickerContext as DatePickerContextType } from '../../types';
 import { NoUndefinedField } from '../../../../../common/types';
+import { DatePickerContext as DatePickerContextType } from '../../types';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,

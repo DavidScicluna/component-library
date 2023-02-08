@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 
 import { DummyAccordionsContext } from '../..';
-import { DummyAccordionsContext as DummyAccordionsContextType } from '../../types';
 import { NoUndefinedField } from '../../../../../common/types';
 import {
 	color as defaultColor,
@@ -10,6 +9,7 @@ import {
 	spacing as defaultSpacing
 } from '../../../common/data/defaultPropValues';
 import { accordions as defaultAccordions } from '../../common/data/defaultPropValues';
+import { DummyAccordionsContext as DummyAccordionsContextType } from '../../types';
 
 const useDummyAccordionsContext = (): NoUndefinedField<DummyAccordionsContextType> => {
 	const {

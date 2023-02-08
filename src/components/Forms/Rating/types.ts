@@ -2,6 +2,7 @@ import { FocusEvent } from 'react';
 
 import { ColorMode, StackProps } from '@chakra-ui/react';
 
+import { IconType } from '../../..';
 import { Style } from '../../../common/types';
 import {
 	BoxPadding,
@@ -17,7 +18,6 @@ import {
 	BoxOther
 } from '../../../common/types/box';
 import { Color } from '../../../theme/types';
-import { IconType } from '../../..';
 
 export type Event = FocusEvent<HTMLInputElement, Element>;
 

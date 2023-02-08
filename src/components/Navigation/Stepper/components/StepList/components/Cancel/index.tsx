@@ -8,9 +8,9 @@ import { width, height } from '../..';
 import { useTheme } from '../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../common/utils/color';
 import Icon from '../../../../../../Icon';
+import { useStepperContext } from '../../../../common/hooks';
 import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
 import useStyles from '../../common/styles';
-import { useStepperContext } from '../../../../common/hooks';
 
 import { CancelProps } from './types';
 

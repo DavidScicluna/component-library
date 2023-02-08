@@ -5,8 +5,8 @@ import { useConst, ScaleFade as CUIScaleFade } from '@chakra-ui/react';
 import { Transition } from 'framer-motion';
 
 import { useTheme } from '../../../common/hooks';
-import { getConfig } from '../common/utils';
 import { unmountOnExit as defaultUnmountOnExit } from '../common/data/defaultPropValues';
+import { getConfig } from '../common/utils';
 
 import { ScaleFadeProps } from './types';
 

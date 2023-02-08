@@ -1,9 +1,9 @@
 import { ReactElement } from 'react';
 
-import { DividerProps as CollapsibleCardDividerProps } from '../../../../Divider/types';
 import { useTheme } from '../../../../../common/hooks';
-import Divider from '../../../../Divider';
 import { getColor } from '../../../../../common/utils/color';
+import Divider from '../../../../Divider';
+import { DividerProps as CollapsibleCardDividerProps } from '../../../../Divider/types';
 import { useCollapsibleCardContext } from '../../common/hooks';
 
 const CollapsibleCardDivider = (props: CollapsibleCardDividerProps): ReactElement => {

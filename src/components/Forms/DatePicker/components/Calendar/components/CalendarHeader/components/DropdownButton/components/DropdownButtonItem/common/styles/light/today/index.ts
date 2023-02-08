@@ -1,10 +1,10 @@
 import { darken } from 'color2k';
 
 import { Style } from '../../../../../../../../../../../../../../../common/types';
-import { getHue } from '../../../../../../../../../../../../../../../common/utils/color';
 import { checkIsTouchDevice } from '../../../../../../../../../../../../../../../common/utils';
-import { getAmount, getSizeConfig } from '../../../utils';
+import { getHue } from '../../../../../../../../../../../../../../../common/utils/color';
 import { color as defaultColor } from '../../../../../../../../../../../../common/data/defaultPropValues';
+import { getAmount, getSizeConfig } from '../../../utils';
 
 import { DropdownButtonItemLightTodayStylingProps } from './types';
 

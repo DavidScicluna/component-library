@@ -2,16 +2,16 @@ import { FC } from 'react';
 
 import { useConst, Box } from '@chakra-ui/react';
 
+import { useTheme } from '../../../../../common/hooks';
+import AnimatePresence from '../../../../Transitions/AnimatePresence';
 import {
 	getDuration as getTransitionDuration,
 	getEasings as getTransitionEasings,
 	getConfig as getTransitionConfig
 } from '../../../../Transitions/common/utils';
-import { useStepperContext } from '../../common/hooks';
-import { useTheme } from '../../../../../common/hooks';
-import AnimatePresence from '../../../../Transitions/AnimatePresence';
-import { FadeProps } from '../../../../Transitions/Fade/types';
 import Fade from '../../../../Transitions/Fade';
+import { FadeProps } from '../../../../Transitions/Fade/types';
+import { useStepperContext } from '../../common/hooks';
 
 import { StepPanelsProps } from './types';
 

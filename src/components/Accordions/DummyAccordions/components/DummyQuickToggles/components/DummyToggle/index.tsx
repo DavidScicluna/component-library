@@ -2,12 +2,12 @@ import { FC } from 'react';
 
 import { useMediaQuery } from '@chakra-ui/react';
 
+import { useTheme } from '../../../../../../../common/hooks';
 import DummyButton from '../../../../../../Clickable/Buttons/DummyButton';
 import DummyIconButton from '../../../../../../Clickable/IconButtons/DummyIconButton';
 import Icon from '../../../../../../Icon';
 import { color as defaultColor } from '../../../../../common/data/defaultPropValues';
 import { size as defaultSize } from '../../../../../OriginalAccordions/components/QuickToggles/common/data/defaultPropValues';
-import { useTheme } from '../../../../../../../common/hooks';
 import { useDummyAccordionsContext } from '../../../../common/hooks';
 
 import { DummyToggleProps } from './types';

@@ -9,9 +9,9 @@ import { useTheme } from '../../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../../common/utils';
 import { Space } from '../../../../../../../theme/types';
 import Fade from '../../../../../../Transitions/Fade';
+import { useStepperContext } from '../../../../common/hooks';
 import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
 import useStyles from '../../common/styles';
-import { useStepperContext } from '../../../../common/hooks';
 
 import { status as defaultStatus } from './common/data/defaultPropValues';
 import StepDescription from './components/StepDescription';

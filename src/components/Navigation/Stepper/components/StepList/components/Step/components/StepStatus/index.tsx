@@ -4,8 +4,8 @@ import { Text } from '@chakra-ui/react';
 
 import { useTheme } from '../../../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../../../common/utils/color';
-import { getStatusColor } from '../../common/utils';
 import { useStepperContext } from '../../../../../../common/hooks';
+import { getStatusColor } from '../../common/utils';
 
 import { StatusProps } from './types';
 

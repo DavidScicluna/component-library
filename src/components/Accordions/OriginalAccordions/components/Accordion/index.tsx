@@ -14,8 +14,8 @@ import {
 } from '../../../../Transitions/common/utils';
 import { spacing as defaultSpacing } from '../../../common/data/defaultPropValues';
 import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
-import { toggleAccordion } from '../../common/utils';
 import { useAccordionsContext } from '../../common/hooks';
+import { toggleAccordion } from '../../common/utils';
 
 import {
 	isActive as defaultIsActive,

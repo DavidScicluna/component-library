@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
 import { AccordionsContext } from '../..';
-import { AccordionsContext as AccordionsContextType } from '../../types';
+import { method as defaultOnSetOpened } from '../../../../../common/data/defaultPropValues';
 import { NoUndefinedField } from '../../../../../common/types';
 import {
 	color as defaultColor,
@@ -9,7 +9,7 @@ import {
 	isFullWidth as defaultIsFullWidth,
 	spacing as defaultSpacing
 } from '../../../common/data/defaultPropValues';
-import { method as defaultOnSetOpened } from '../../../../../common/data/defaultPropValues';
+import { AccordionsContext as AccordionsContextType } from '../../types';
 import {
 	accordions as defaultAccordions,
 	isDisabled as defaultIsDisabled,

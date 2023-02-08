@@ -7,18 +7,17 @@ import { useDayzed } from 'dayzed';
 import { useUpdateEffect } from 'usehooks-ts';
 
 import { useDebounce } from '../../../common/hooks';
-import Modal from '../../Overlay/Modal';
-import ModalStack from '../../Overlay/Modal/components/ModalStack';
-import ModalHeader from '../../Overlay/Modal/components/ModalHeader';
+import Button from '../../Clickable/Buttons/OriginalButton';
 import IconButton from '../../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
-import ModalBody from '../../Overlay/Modal/components/ModalBody';
 import Divider from '../../Divider';
+import Modal from '../../Overlay/Modal';
+import ModalBody from '../../Overlay/Modal/components/ModalBody';
 import ModalFooter from '../../Overlay/Modal/components/ModalFooter';
-import Button from '../../Clickable/Buttons/OriginalButton';
+import ModalHeader from '../../Overlay/Modal/components/ModalHeader';
+import ModalStack from '../../Overlay/Modal/components/ModalStack';
 import Fade from '../../Transitions/Fade';
 
-import Calendar from './components/Calendar';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -27,6 +26,7 @@ import {
 	spacing as defaultSpacing
 	// variant as defaultVariant
 } from './common/data/defaultPropValues';
+import Calendar from './components/Calendar';
 import { DatePickerContext as DatePickerContextType, DatePickerProps, DatePickerDate } from './types';
 
 export const DatePickerContext = createContext<DatePickerContextType>({

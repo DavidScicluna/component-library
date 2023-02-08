@@ -2,11 +2,11 @@ import { FC, useEffect } from 'react';
 
 import { useBoolean } from '@chakra-ui/react';
 
-import { HorizontalScrollArrowProps as HorizontalScrollLeftArrowProps } from '../common/types';
 import { useDebounce, useTheme } from '../../../../../../../../../common/hooks';
-import HorizontalScrollArrow from '../../../../../../../../HorizontalScroll/components/Arrow';
 import { getColor } from '../../../../../../../../../common/utils/color';
+import HorizontalScrollArrow from '../../../../../../../../HorizontalScroll/components/Arrow';
 import { useImageEditorContext } from '../../../../../../../common/hooks';
+import { HorizontalScrollArrowProps as HorizontalScrollLeftArrowProps } from '../common/types';
 
 const HorizontalScrollLeftArrow: FC<HorizontalScrollLeftArrowProps> = (props) => {
 	const theme = useTheme();

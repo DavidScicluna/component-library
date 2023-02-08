@@ -2,14 +2,14 @@ import { FC } from 'react';
 
 import { Tab as CUITab, HStack, Center } from '@chakra-ui/react';
 
+import { omit } from 'lodash';
 import merge from 'lodash/merge';
 import { useElementSize } from 'usehooks-ts';
-import { omit } from 'lodash';
 
 import { useTheme } from '../../../../../../../common/hooks';
-import { getSizeConfig } from '../../../../common/utils';
 import Skeleton from '../../../../../../Skeleton';
 import { useTabsContext } from '../../../../common/hooks';
+import { getSizeConfig } from '../../../../common/utils';
 
 import { isSelected as defaultIsSelected } from './common/data/defaultPropValues';
 import useStyles from './common/styles';

@@ -3,15 +3,15 @@ import { FC, useContext, useEffect } from 'react';
 import { useBoolean } from '@chakra-ui/react';
 
 import { TabsContext } from '../../../../..';
-import { TabsContext as TabContextType } from '../../../../../types';
+import { useDebounce, useTheme } from '../../../../../../../../common/hooks';
+import { getColor } from '../../../../../../../../common/utils/color';
+import HorizontalScrollArrow from '../../../../../../../HorizontalScroll/components/Arrow';
 import {
 	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled
 } from '../../../../../common/data/defaultPropValues';
+import { TabsContext as TabContextType } from '../../../../../types';
 import { HorizontalScrollArrowProps as HorizontalScrollLeftArrowProps } from '../common/types';
-import HorizontalScrollArrow from '../../../../../../../HorizontalScroll/components/Arrow';
-import { useDebounce, useTheme } from '../../../../../../../../common/hooks';
-import { getColor } from '../../../../../../../../common/utils/color';
 
 // const border = 2;
 

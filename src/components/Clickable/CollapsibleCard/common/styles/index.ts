@@ -9,8 +9,8 @@ import {
 	isOpen as defaultIsOpen
 } from '../data/defaultPropValues';
 
-import card from './card';
 import active from './active';
+import card from './card';
 import dark from './dark';
 import disabled from './disabled';
 import light from './light';

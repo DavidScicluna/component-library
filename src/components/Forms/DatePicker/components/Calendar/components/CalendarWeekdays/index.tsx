@@ -2,9 +2,9 @@ import { FC } from 'react';
 
 import { SimpleGrid, Text } from '@chakra-ui/react';
 
-import { short as weekdays } from '../../../../common/data/weekdays';
 import { useTheme } from '../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../common/utils/color';
+import { short as weekdays } from '../../../../common/data/weekdays';
 import { useDatePickerContext } from '../../../../common/hooks';
 
 import { CalendarWeekdaysProps } from './types';

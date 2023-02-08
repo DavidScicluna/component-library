@@ -2,14 +2,14 @@ import { ReactElement, createContext, useState } from 'react';
 
 import { useColorMode, VStack } from '@chakra-ui/react';
 
+import { method as defaultOnSetOpened } from '../../../common/data/defaultPropValues';
+import { useDebounce } from '../../../common/hooks';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
 	isFullWidth as defaultIsFullWidth,
 	spacing as defaultSpacing
 } from '../common/data/defaultPropValues';
-import { useDebounce } from '../../../common/hooks';
-import { method as defaultOnSetOpened } from '../../../common/data/defaultPropValues';
 
 import {
 	accordions as defaultAccordions,

@@ -2,10 +2,10 @@ import { FC } from 'react';
 
 import { useBoolean, HStack } from '@chakra-ui/react';
 
-import { colorMode as defaultColorMode } from '../../../../../../common/data/defaultPropValues';
-import Tooltip from '../../../../../../../../Overlay/Tooltip';
 import IconButton from '../../../../../../../../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../../../../../../../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
+import Tooltip from '../../../../../../../../Overlay/Tooltip';
+import { colorMode as defaultColorMode } from '../../../../../../common/data/defaultPropValues';
 import { useDatePickerContext } from '../../../../../../common/hooks';
 
 const PreviousActions: FC = () => {

@@ -2,15 +2,15 @@ import { FC } from 'react';
 
 import { Tab as CUITab, HStack, Center } from '@chakra-ui/react';
 
-import merge from 'lodash/merge';
 import { dataAttr } from '@chakra-ui/utils';
-import { useElementSize } from 'usehooks-ts';
 import { omit } from 'lodash';
+import merge from 'lodash/merge';
+import { useElementSize } from 'usehooks-ts';
 
-import { isDisabled as defaultIsDisabled } from '../../../../common/data/defaultPropValues';
 import { useTheme } from '../../../../../../../common/hooks';
-import { getSizeConfig } from '../../../../common/utils';
+import { isDisabled as defaultIsDisabled } from '../../../../common/data/defaultPropValues';
 import { useTabsContext } from '../../../../common/hooks';
+import { getSizeConfig } from '../../../../common/utils';
 
 import { isActive as defaultIsActive, isSelected as defaultIsSelected } from './common/data/defaultPropValues';
 import useStyles from './common/styles';

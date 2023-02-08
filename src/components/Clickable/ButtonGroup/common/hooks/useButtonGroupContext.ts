@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 
 import { ButtonGroupContext } from '../..';
-import { ButtonGroupContext as ButtonGroupContextType } from '../../types';
 import { NoUndefinedField } from '../../../../../common/types';
+import { ButtonGroupContext as ButtonGroupContextType } from '../../types';
 import { isAttached as defaultIsAttached, size as defaultSize } from '../data/defaultPropValues';
 
 const useButtonGroupContext = (): NoUndefinedField<ButtonGroupContextType> => {

@@ -4,7 +4,6 @@ import { useColorMode, Tabs as CUITabs } from '@chakra-ui/react';
 
 import { method as defaultOnChange } from '../../../common/data/defaultPropValues';
 
-import { TabsContext as TabsContextType, TabsRef, TabsProps } from './types';
 import {
 	activeTab as defaultActiveTab,
 	color as defaultColor,
@@ -13,6 +12,7 @@ import {
 	isFitted as defaultIsFitted,
 	size as defaultSize
 } from './common/data/defaultPropValues';
+import { TabsContext as TabsContextType, TabsRef, TabsProps } from './types';
 
 export const TabsContext = createContext<TabsContextType>({
 	activeTab: defaultActiveTab,

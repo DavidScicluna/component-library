@@ -3,8 +3,8 @@ import { FC, useState } from 'react';
 import { Center } from '@chakra-ui/react';
 
 import { maxZoom, minZoom } from '../../../..';
-import HorizontalScroll from '../../../../../HorizontalScroll';
 import { useDebounce } from '../../../../../../common/hooks';
+import HorizontalScroll from '../../../../../HorizontalScroll';
 import { useImageEditorContext } from '../../../../common/hooks';
 
 import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from './components/HorizontalScrollArrows';

@@ -3,11 +3,11 @@ import { ReactElement } from 'react';
 
 import { Text } from '@chakra-ui/react';
 
-import Card from '../../../../../Cards/OriginalCard';
-import CardBody from '../../../../../Cards/components/CardBody';
-import CardFooter from '../../../../../Cards/components/CardFooter';
 import { useTheme } from '../../../../../../common/hooks';
 import { getColor } from '../../../../../../common/utils/color';
+import CardBody from '../../../../../Cards/components/CardBody';
+import CardFooter from '../../../../../Cards/components/CardFooter';
+import Card from '../../../../../Cards/OriginalCard';
 import Icon from '../../../../../Icon';
 import { useImageEditorContext } from '../../../../common/hooks';
 
