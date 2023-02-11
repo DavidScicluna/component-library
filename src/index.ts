@@ -306,6 +306,8 @@ import {
 } from './components/Transitions/common/utils';
 import Fade from './components/Transitions/Fade';
 import { FadeProps } from './components/Transitions/Fade/types';
+import PageTransition from './components/Transitions/PageTransition';
+import { PageTransitionProps } from './components/Transitions/PageTransition/types';
 import ScaleFade from './components/Transitions/ScaleFade';
 import { ScaleFadeProps } from './components/Transitions/ScaleFade/types';
 import Slide from './components/Transitions/Slide';
@@ -478,6 +480,7 @@ export {
 	AnimatePresence,
 	Collapse,
 	Fade,
+	PageTransition,
 	ScaleFade,
 	Slide,
 	SlideFade
@@ -676,6 +679,7 @@ export type {
 	AnimatePresenceProps,
 	CollapseProps,
 	FadeProps,
+	PageTransitionProps,
 	ScaleFadeProps,
 	SlideProps,
 	SlideFadeProps
