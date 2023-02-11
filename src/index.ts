@@ -108,6 +108,8 @@ import { LinkProps } from './components/Clickable/Link/common/types';
 import ExternalLink from './components/Clickable/Link/External';
 import InternalLink from './components/Clickable/Link/Internal';
 import { InternalProps as InternalLinkProps } from './components/Clickable/Link/Internal/types';
+import ScrollToTop from './components/Clickable/ScrollToTop';
+import { ScrollToTopProps } from './components/Clickable/ScrollToTop/types';
 import Badge from './components/DataDisplay/Badge';
 import BadgeIcon from './components/DataDisplay/Badge/components/BadgeIcon';
 import { BadgeIconProps } from './components/DataDisplay/Badge/components/BadgeIcon/types';
@@ -429,6 +431,7 @@ export {
 	CollapsibleCardDivider,
 	CollapsibleCardFooter,
 	CollapsibleCardHeader,
+	ScrollToTop,
 	Badge,
 	BadgeIcon,
 	BadgeLabel,
@@ -554,6 +557,7 @@ export type {
 	CollapsibleCardBodyProps,
 	CollapsibleCardFooterProps,
 	CollapsibleCardHeaderProps,
+	ScrollToTopProps,
 	BadgeIconProps,
 	BadgeLabelProps,
 	BadgeColor,
