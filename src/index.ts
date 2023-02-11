@@ -6,7 +6,8 @@ import {
 	checkIsTouchDevice,
 	convertREMToPixels,
 	convertStringToNumber,
-	convertEasingsToArray
+	convertEasingsToArray,
+	getFontSizeHeight
 } from './common/utils';
 import { getHue, getColor } from './common/utils/color';
 import { AccordionsColor } from './components/Accordions/common/types';
@@ -383,6 +384,7 @@ export const utils = {
 	convertREMToPixels,
 	convertStringToNumber,
 	convertEasingsToArray,
+	getFontSizeHeight,
 	getHue,
 	getColor,
 	getTransitionDelay,

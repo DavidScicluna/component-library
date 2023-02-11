@@ -2,6 +2,7 @@ import { ColorMode } from '@chakra-ui/react';
 
 import { memoize } from 'lodash';
 
+import { FontSize, LineHeight, Theme } from '../../theme/types';
 import { OS } from '../types';
 
 /**
@@ -62,6 +63,17 @@ export const convertREMToPixels = memoize((rem: number): number => {
  */
 export const convertStringToNumber = memoize((string: string, cut: string): number => {
 	return Number(string.replace(cut, ''));
+});
+
+type GetFontSizeHeightProps = { theme: Theme; fontSize?: FontSize; lineHeight?: LineHeight };
+
+export const getFontSizeHeight = memoize((props: GetFontSizeHeightProps): number => {
+	const { theme, fontSize = 'md', lineHeight = 'base' } = props;
+
+	return (
+		convertREMToPixels(convertStringToNumber(theme.fontSizes[fontSize], 'rem')) *
+		Number(theme.lineHeights[lineHeight])
+	);
 });
 
 type ConvertEasingsToArrayProps = { easing: string };
