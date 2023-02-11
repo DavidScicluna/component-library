@@ -279,6 +279,8 @@ import { ConfirmModalSubtitleProps } from './components/Overlay/ConfirmModal/com
 import ConfirmModalTitle from './components/Overlay/ConfirmModal/components/ConfirmModalTitle';
 import { ConfirmModalTitleProps } from './components/Overlay/ConfirmModal/components/ConfirmModalTitle/types';
 import { ConfirmModalProps } from './components/Overlay/ConfirmModal/types';
+import Glass from './components/Overlay/Glass';
+import { GlassProps, GlassRef } from './components/Overlay/Glass/types';
 import Modal from './components/Overlay/Modal';
 import ModalBody from './components/Overlay/Modal/components/ModalBody';
 import { ModalBodyProps } from './components/Overlay/Modal/components/ModalBody/types';
@@ -466,6 +468,7 @@ export {
 	ConfirmModalStack,
 	ConfirmModalSubtitle,
 	ConfirmModalTitle,
+	Glass,
 	Modal,
 	ModalBody,
 	ModalFooter,
@@ -651,6 +654,8 @@ export type {
 	ConfirmModalSubtitleProps,
 	ConfirmModalTitleProps,
 	ConfirmModalProps,
+	GlassProps,
+	GlassRef,
 	ModalBodyProps,
 	ModalFooterProps,
 	ModalHeaderProps,
