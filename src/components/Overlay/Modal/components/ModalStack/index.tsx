@@ -21,6 +21,7 @@ const ModalStack: FC<ModalStackProps> = ({ children, isDivisible = true, p, ...r
 			{...rest}
 			width='100%'
 			height='auto'
+			minHeight={size === 'full' || isSm ? 'inherit' : undefined}
 			divider={isDivisible ? <Divider colorMode={colorMode} /> : undefined}
 			backgroundColor={getColor({ theme, colorMode, type: 'background' })}
 			borderRadius={size === 'full' || isSm ? 'none' : 'xl'}
