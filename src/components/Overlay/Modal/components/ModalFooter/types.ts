@@ -6,7 +6,7 @@ import { BoxTypography, BoxFlexbox, BoxGrid, BoxPosition, BoxShadow, BoxOther } 
 import { Space } from '../../../../../theme/types';
 import { ButtonProps } from '../../../../Clickable/Buttons/OriginalButton/types';
 
-type ButtonPropsPicked = 'color' | 'colorMode' | 'size' | 'variant';
+type ButtonPropsPicked = 'color' | 'colorMode' | 'isFullWidth' | 'size' | 'variant';
 
 type RenderProps = Pick<ButtonProps, ButtonPropsPicked>;
 
