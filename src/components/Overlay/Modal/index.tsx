@@ -2,6 +2,8 @@ import { FC, createContext, useCallback } from 'react';
 
 import { useColorMode, useMediaQuery, Modal as CUIModal, ModalOverlay, ModalContent } from '@chakra-ui/react';
 
+import { useWindowSize } from 'rooks';
+
 import { method as defaultOnClose } from '../../../common/data/defaultPropValues';
 import { useTheme } from '../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../common/utils';
@@ -30,6 +32,8 @@ const Modal: FC<ModalProps> = (props) => {
 
 	const [isSm] = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
+	const { innerHeight: windowHeight } = useWindowSize();
+
 	const {
 		children,
 		color = defaultColor,
@@ -52,12 +56,14 @@ const Modal: FC<ModalProps> = (props) => {
 	}, [theme, size, spacing]);
 
 	const handleCalculateHeight = useCallback((): string => {
+		const height = windowHeight ? `${windowHeight}px` : '100vh';
+
 		if (size !== 'full') {
 			const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'));
 
-			return `calc(100vh - ${spacingWidth * 2}px)`;
+			return `calc(${height} - ${spacingWidth * 2}px)`;
 		} else {
-			return '100vh';
+			return height;
 		}
 	}, [theme, size, spacing]);
 
