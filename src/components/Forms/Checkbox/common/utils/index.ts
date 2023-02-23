@@ -1,4 +1,4 @@
-import { memoize } from 'lodash';
+import memoize from 'memoizee';
 
 import { Space } from '../../../../../theme/types';
 import { CheckboxSize } from '../../types';

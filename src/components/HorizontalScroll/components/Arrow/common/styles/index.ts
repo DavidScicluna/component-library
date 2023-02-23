@@ -1,4 +1,4 @@
-import { memoize } from 'lodash';
+import memoize from 'memoizee';
 
 import { colorMode as defaultColorMode } from '../data/defaultPropValues';
 

@@ -1,4 +1,4 @@
-import { memoize } from 'lodash';
+import memoize from 'memoizee';
 
 import { FontSize } from '../../../../../theme/types';
 import { FormHelperTextSize } from '../../types';

@@ -1,4 +1,4 @@
-import { memoize } from 'lodash';
+import memoize from 'memoizee';
 
 import { Space } from '../../../../../../../theme/types';
 import { size as defaultSize } from '../../../../common/data/defaultPropValues';

@@ -1,4 +1,4 @@
-import { memoize } from 'lodash';
+import memoize from 'memoizee';
 
 import { Icon } from '../../../../../../../../../common/types/icons';
 import { Color } from '../../../../../../../../../theme/types';

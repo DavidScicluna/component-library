@@ -1,4 +1,4 @@
-import { memoize } from 'lodash';
+import memoize from 'memoizee';
 
 import { IconProps } from '../../types';
 import { category as defaultCategory } from '../data/defaultPropValues';

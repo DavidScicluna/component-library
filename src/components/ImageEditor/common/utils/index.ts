@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { Area } from 'react-easy-crop/types';
 
-import { memoize } from 'lodash';
+import memoize from 'memoizee';
 
 // import { memoize } from 'lodash';
 

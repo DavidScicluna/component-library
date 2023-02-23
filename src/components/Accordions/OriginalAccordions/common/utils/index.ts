@@ -1,4 +1,4 @@
-import { memoize } from 'lodash';
+import memoize from 'memoizee';
 
 import { Accordion, OpenedAccordion, OpenedAccordions } from '../../types';
 

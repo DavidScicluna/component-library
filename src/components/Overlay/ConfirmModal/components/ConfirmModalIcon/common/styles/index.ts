@@ -1,4 +1,5 @@
-import { memoize, merge } from 'lodash';
+import { merge } from 'lodash';
+import memoize from 'memoizee';
 
 import { colorMode as defaultColorMode } from '../../../../common/data/defaultPropValues';
 import { color as defaultColor, variant as defaultVariant } from '../data/defaultPropValues';
