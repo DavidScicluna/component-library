@@ -9,6 +9,10 @@ export type NonNullable<T> = Exclude<T, null | undefined>; // Remove null and un
 
 export type NoUndefinedField<T> = { [P in keyof T]-?: NoUndefinedField<NonNullable<T[P]>> }; // Remove null and undefined from all keys type
 
+export type PickEnum<T, K extends T> = {
+	[P in keyof K]: P extends K ? P : never;
+};
+
 // Common Component Types
 export type Style = SystemStyleObject;
 

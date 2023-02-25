@@ -365,7 +365,15 @@ export type {
 } from './common/types/box';
 
 // Common Types
-export type { Undefinable, Nullable, NonNullable, NoUndefinedField, Style, Orientation } from './common/types';
+export type {
+	Undefinable,
+	Nullable,
+	NonNullable,
+	NoUndefinedField,
+	PickEnum,
+	Style,
+	Orientation
+} from './common/types';
 
 // Icon Types
 export type { Icon as IconType } from './common/types/icons';
