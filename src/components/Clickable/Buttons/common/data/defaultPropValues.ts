@@ -9,6 +9,7 @@ export const colorMode: ColorMode = 'light';
 export const isDisabled = false;
 export const isFullWidth = false;
 export const isLoading = false;
+export const isRound = false;
 
 export const size: ButtonSize = 'md';
 

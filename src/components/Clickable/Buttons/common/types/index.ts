@@ -15,6 +15,7 @@ export type CommonButtonProps = {
 	color?: ButtonColor;
 	colorMode?: ColorMode;
 	isFullWidth?: boolean;
+	isRound?: boolean;
 	size?: ButtonSize;
 	variant?: ButtonVariant;
 };
