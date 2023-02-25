@@ -11,6 +11,7 @@ import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
 	isFullWidth as defaultIsFullWidth,
+	isRound as defaultIsRound,
 	size as defaultSize,
 	variant as defaultVariant
 } from '../common/data/defaultPropValues';
@@ -32,13 +33,14 @@ const DummyButton: FC<DummyButtonProps> = (props) => {
 		hasLeft = false,
 		hasRight = false,
 		isFullWidth = defaultIsFullWidth,
+		isRound = defaultIsRound,
 		size = defaultSize,
 		variant = defaultVariant,
 		sx,
 		...rest
 	} = props;
 
-	const style = useStyles({ theme, colorMode, isFullWidth, size, variant });
+	const style = useStyles({ theme, colorMode, isFullWidth, isRound, size, variant });
 
 	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
 

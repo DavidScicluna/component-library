@@ -4,6 +4,7 @@ import memoize from 'memoizee';
 import {
 	colorMode as defaultColorMode,
 	isFullWidth as defaultIsFullWidth,
+	isRound as defaultIsRound,
 	size as defaultSize,
 	variant as defaultVariant
 } from '../../../common/data/defaultPropValues';
@@ -18,6 +19,7 @@ export default memoize((props: DummyButtonStyleProps): DummyButtonStyleReturn =>
 		theme,
 		colorMode = defaultColorMode,
 		isFullWidth = defaultIsFullWidth,
+		isRound = defaultIsRound,
 		size = defaultSize,
 		variant = defaultVariant
 	} = props;
@@ -26,8 +28,8 @@ export default memoize((props: DummyButtonStyleProps): DummyButtonStyleReturn =>
 
 	return {
 		button: merge(
-			button.general({ theme, isFullWidth, size }),
-			button[variant]({ theme, isFullWidth, size }),
+			button.general({ theme, isFullWidth, isRound, size }),
+			button[variant]({ theme, isFullWidth, isRound, size }),
 			variant !== 'contained' ? scheme[variant]({ theme }) : {}
 		)
 	};
