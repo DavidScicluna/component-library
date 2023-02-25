@@ -93,6 +93,11 @@ import {
 	CollapsibleCardContext,
 	CollapsibleCardProps
 } from './components/Clickable/CollapsibleCard/types';
+import CloseIconButton from './components/Clickable/IconButtons/CloseIconButton';
+import {
+	CloseIconButtonIconType,
+	CloseIconButtonProps
+} from './components/Clickable/IconButtons/CloseIconButton/types';
 import { IconButtonColor, IconButtonSize, IconButtonVariant } from './components/Clickable/IconButtons/common/types';
 import DummyIconButton from './components/Clickable/IconButtons/DummyIconButton';
 import { DummyIconButtonProps } from './components/Clickable/IconButtons/DummyIconButton/types';
@@ -427,6 +432,7 @@ export {
 	CardDivider,
 	CardHeader,
 	CardFooter,
+	CloseIconButton,
 	DummyIconButton,
 	IconButton,
 	IconButtonIcon,
@@ -538,6 +544,8 @@ export type {
 	CardContext,
 	CardProps,
 	CardRef,
+	CloseIconButtonIconType,
+	CloseIconButtonProps,
 	IconButtonColor,
 	IconButtonSize,
 	IconButtonVariant,
