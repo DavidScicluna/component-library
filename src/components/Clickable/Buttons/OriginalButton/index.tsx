@@ -12,6 +12,7 @@ import {
 	isDisabled as defaultIsDisabled,
 	isFullWidth as defaultIsFullWidth,
 	isLoading as defaultIsLoading,
+	isRound as defaultIsRound,
 	size as defaultSize,
 	variant as defaultVariant
 } from '../common/data/defaultPropValues';
@@ -36,13 +37,14 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): R
 		isDisabled = defaultIsDisabled,
 		isFullWidth = defaultIsFullWidth,
 		isLoading = defaultIsLoading,
+		isRound = defaultIsRound,
 		size = defaultSize,
 		variant = defaultVariant,
 		sx,
 		...rest
 	} = props;
 
-	const style = useStyles({ theme, color, colorMode, isFullWidth, isLoading, size, variant });
+	const style = useStyles({ theme, color, colorMode, isFullWidth, isLoading, isRound, size, variant });
 
 	const handleReturnSpacing = (): number => getSizeConfig({ size }).spacing;
 

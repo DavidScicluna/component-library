@@ -4,7 +4,7 @@ import { ButtonProps } from '../../types';
 
 export type ButtonStyleProps = {
 	theme: Theme;
-} & Pick<ButtonProps, 'color' | 'colorMode' | 'isFullWidth' | 'isLoading' | 'size' | 'variant'>;
+} & Pick<ButtonProps, 'color' | 'colorMode' | 'isFullWidth' | 'isLoading' | 'isRound' | 'size' | 'variant'>;
 
 export type ButtonStyleReturn = {
 	button: Style;

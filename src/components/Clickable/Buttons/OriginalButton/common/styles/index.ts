@@ -6,6 +6,7 @@ import {
 	colorMode as defaultColorMode,
 	isFullWidth as defaultIsFullWidth,
 	isLoading as defaultIsLoading,
+	isRound as defaultIsRound,
 	size as defaultSize,
 	variant as defaultVariant
 } from '../../../common/data/defaultPropValues';
@@ -24,6 +25,7 @@ export default memoize((props: ButtonStyleProps): ButtonStyleReturn => {
 		colorMode = defaultColorMode,
 		isFullWidth = defaultIsFullWidth,
 		isLoading = defaultIsLoading,
+		isRound = defaultIsRound,
 		size = defaultSize,
 		variant = defaultVariant
 	} = props;
@@ -32,8 +34,8 @@ export default memoize((props: ButtonStyleProps): ButtonStyleReturn => {
 
 	return {
 		button: merge(
-			button.general({ theme, isFullWidth, size }),
-			button[variant]({ theme, isFullWidth, size }),
+			button.general({ theme, isFullWidth, isRound, size }),
+			button[variant]({ theme, isFullWidth, isRound, size }),
 			scheme.button[variant]({ theme, color, size })
 		),
 		active: merge(active[variant]({ theme, size }), scheme.active[variant]({ theme, color, size })),
