@@ -1,8 +1,7 @@
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, FormEvent as FE } from 'react';
 
 import { CenterProps } from '@chakra-ui/react';
 
-import { NonNullable } from '../../../common/types';
 import {
 	BoxColor,
 	BoxGradient,
@@ -18,6 +17,8 @@ import {
 	BoxOther
 } from '../../../common/types/box';
 
+export type FormEvent = FE<HTMLDivElement> & FE<HTMLFormElement>;
+
 type Omitted =
 	| BoxColor
 	| BoxGradient
@@ -31,8 +32,9 @@ type Omitted =
 	| BoxFilter
 	| BoxPseudo
 	| BoxOther
-	| 'as';
+	| 'as'
+	| 'onSubmit';
 
 export type FormProps = Omit<CenterProps, Omitted> & {
-	onSubmit: NonNullable<HTMLAttributes<HTMLFormElement>['onSubmit']>;
-} & Omit<HTMLAttributes<HTMLFormElement>, 'onSubmit'>;
+	onSubmit: (event: FormEvent) => void;
+} & Omit<HTMLAttributes<HTMLFormElement>, Omitted>;

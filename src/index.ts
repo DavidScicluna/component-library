@@ -163,6 +163,7 @@ import {
 	DatePickerVariant
 } from './components/Forms/DatePicker/types';
 import Form from './components/Forms/Form';
+import { FormEvent, FormProps } from './components/Forms/Form/types';
 import Input from './components/Forms/Input';
 import {
 	InputChangeEvent,
@@ -628,6 +629,8 @@ export type {
 	ImageEditorColor,
 	ImageEditorContext,
 	ImageEditorProps,
+	FormEvent,
+	FormProps,
 	InputChangeEvent,
 	InputFocusEvent,
 	InputAutoComplete,

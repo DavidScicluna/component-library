@@ -1,14 +1,21 @@
 import { FC } from 'react';
 
-import { Center } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
-import { FormProps } from './types';
+import { FormProps, FormEvent } from './types';
 
-const Form: FC<FormProps> = ({ children, ...rest }) => {
+const Form: FC<FormProps> = ({ children, onSubmit, ...rest }) => {
+	const handleSubmit = (event: FormEvent): void => {
+		event.preventDefault();
+		event.stopPropagation();
+
+		onSubmit(event);
+	};
+
 	return (
-		<Center as='form' width='100%' {...rest}>
+		<Box as='form' width='100%' onSubmit={handleSubmit} {...rest}>
 			{children}
-		</Center>
+		</Box>
 	);
 };
 
