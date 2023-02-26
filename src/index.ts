@@ -165,12 +165,15 @@ import {
 import Form from './components/Forms/Form';
 import Input from './components/Forms/Input';
 import {
+	InputChangeEvent,
+	InputFocusEvent,
 	InputAutoComplete,
 	InputColor,
 	InputPanelRenderProps,
 	InputProps,
 	InputRef,
-	InputSize
+	InputSize,
+	InputVariant
 } from './components/Forms/Input/types';
 import Radio from './components/Forms/Radio';
 import RadioSubtitle from './components/Forms/Radio/components/RadioSubtitle';
@@ -197,13 +200,16 @@ import {
 } from './components/Forms/Rating/types';
 import Textarea from './components/Forms/Textarea';
 import {
+	TextareaChangeEvent,
+	TextareaFocusEvent,
 	TextareaAutoComplete,
 	TextareaColor,
 	TextareaPanelRenderProps,
 	TextareaProps,
 	TextareaRef,
 	TextareaResize,
-	TextareaSize
+	TextareaSize,
+	TextareaVariant
 } from './components/Forms/Textarea/types';
 import HorizontalScroll from './components/HorizontalScroll';
 import HorizontalScrollArrow from './components/HorizontalScroll/components/Arrow';
@@ -622,12 +628,15 @@ export type {
 	ImageEditorColor,
 	ImageEditorContext,
 	ImageEditorProps,
+	InputChangeEvent,
+	InputFocusEvent,
 	InputAutoComplete,
 	InputColor,
 	InputPanelRenderProps,
 	InputProps,
 	InputRef,
 	InputSize,
+	InputVariant,
 	RadioSubtitleProps,
 	RadioTitleProps,
 	RadioColor,
@@ -643,6 +652,8 @@ export type {
 	RatingProps,
 	RatingSize,
 	RatingVariant,
+	TextareaChangeEvent,
+	TextareaFocusEvent,
 	TextareaAutoComplete,
 	TextareaColor,
 	TextareaPanelRenderProps,
@@ -650,6 +661,7 @@ export type {
 	TextareaRef,
 	TextareaResize,
 	TextareaSize,
+	TextareaVariant,
 	TabsColor,
 	TabsContext,
 	TabsProps,
