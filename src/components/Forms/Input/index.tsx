@@ -35,7 +35,7 @@ import {
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
-import { InputProps, InputRef, FocusEvent } from './types';
+import { InputProps, InputRef, InputFocusEvent } from './types';
 
 const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): ReactElement {
 	const theme = useTheme();
@@ -102,7 +102,7 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 		}
 	};
 
-	const handleFocus = (event: FocusEvent): void => {
+	const handleFocus = (event: InputFocusEvent): void => {
 		setIsFocusedHook.on();
 
 		if (onFocus) {
@@ -110,7 +110,7 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 		}
 	};
 
-	const handleBlur = (event: FocusEvent): void => {
+	const handleBlur = (event: InputFocusEvent): void => {
 		setIsFocusedHook.off();
 
 		if (onBlur) {

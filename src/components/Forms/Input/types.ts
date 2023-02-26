@@ -1,4 +1,4 @@
-import { ReactNode, FocusEvent as FE } from 'react';
+import { ReactNode, ChangeEvent as CE, FocusEvent as FE } from 'react';
 
 import { ColorMode, InputProps as CUIInputProps } from '@chakra-ui/react';
 
@@ -18,7 +18,9 @@ import {
 } from '../../../common/types/box';
 import { Color } from '../../../theme/types';
 
-export type FocusEvent = FE<HTMLInputElement, Element>;
+export type InputChangeEvent = CE<HTMLInputElement>;
+
+export type InputFocusEvent = FE<HTMLInputElement, Element>;
 
 export type InputRef = HTMLInputElement | null;
 
