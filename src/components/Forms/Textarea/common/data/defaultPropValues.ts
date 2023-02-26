@@ -1,6 +1,6 @@
 import { ColorMode } from '@chakra-ui/react';
 
-import { TextareaAutoComplete, TextareaResize, TextareaSize } from '../../types';
+import { TextareaAutoComplete, TextareaResize, TextareaSize, TextareaVariant } from '../../types';
 
 export const autoComplete: TextareaAutoComplete = 'off';
 
@@ -18,3 +18,5 @@ export const isFullWidth = true;
 export const resize: TextareaResize = 'none';
 
 export const size: TextareaSize = 'md';
+
+export const variant: TextareaVariant = 'outlined';

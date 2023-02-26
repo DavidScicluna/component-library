@@ -31,11 +31,12 @@ import {
 	isRequired as defaultIsRequired,
 	isFullWidth as defaultIsFullWidth,
 	resize as defaultResize,
-	size as defaultSize
+	size as defaultSize,
+	variant as defaultVariant
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
-import { TextareaProps, TextareaRef, FocusEvent } from './types';
+import { TextareaProps, TextareaRef, TextareaFocusEvent } from './types';
 
 const Textarea = (props: TextareaProps): ReactElement => {
 	const theme = useTheme();
@@ -64,6 +65,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 		onFocus,
 		onBlur,
 		size = defaultSize,
+		variant = defaultVariant,
 		resize = defaultResize,
 		sx,
 		...rest
@@ -73,7 +75,18 @@ const Textarea = (props: TextareaProps): ReactElement => {
 
 	const isFocused: boolean = isFocusedProp || isFocusedHook;
 
-	const style = useStyles({ theme, color, colorMode, isError, isWarning, isSuccess, isFocused, isFullWidth, size });
+	const style = useStyles({
+		theme,
+		color,
+		colorMode,
+		isError,
+		isWarning,
+		isSuccess,
+		isFocused,
+		isFullWidth,
+		size,
+		variant
+	});
 
 	const handleReturnSpacing = useCallback(
 		debounce((): number => getSizeConfig({ size }).spacing, 500),
@@ -91,7 +104,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 		}
 	};
 
-	const handleFocus = (event: FocusEvent): void => {
+	const handleFocus = (event: TextareaFocusEvent): void => {
 		setIsFocusedHook.on();
 
 		if (onFocus) {
@@ -99,7 +112,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 		}
 	};
 
-	const handleBlur = (event: FocusEvent): void => {
+	const handleBlur = (event: TextareaFocusEvent): void => {
 		setIsFocusedHook.off();
 
 		if (onBlur) {
