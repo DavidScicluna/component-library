@@ -22,7 +22,7 @@ export type Event = FocusEvent<HTMLInputElement, Element>;
 
 export type RadioRef = HTMLInputElement | null;
 
-export type RadioColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray' | 'red' | 'yellow' | 'green'>;
+export type RadioColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 
 export type RadioSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 

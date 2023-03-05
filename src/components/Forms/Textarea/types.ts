@@ -26,7 +26,7 @@ export type TextareaRef = HTMLTextAreaElement | null;
 
 export type TextareaAutoComplete = 'on' | 'password' | 'off';
 
-export type TextareaColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray' | 'red' | 'yellow' | 'green'>;
+export type TextareaColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 
 export type TextareaResize = 'horizontal' | 'vertical' | 'none';
 

@@ -20,7 +20,7 @@ import { Color } from '../../../theme/types';
 
 export type CheckboxRef = HTMLInputElement | null;
 
-export type CheckboxColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray' | 'red' | 'yellow' | 'green'>;
+export type CheckboxColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 
 export type CheckboxSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 

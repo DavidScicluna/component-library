@@ -11,7 +11,7 @@ import { ModalProps } from '../../Overlay/Modal/types';
 
 export type DatePickerDate = Undefinable<DateObj['date']>;
 
-export type DatePickerColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray' | 'red' | 'yellow' | 'green'>;
+export type DatePickerColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 
 export type DatePickerVariant = 'single' | 'range';
 

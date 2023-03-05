@@ -26,7 +26,7 @@ export type InputRef = HTMLInputElement | null;
 
 export type InputAutoComplete = 'on' | 'password' | 'off';
 
-export type InputColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray' | 'red' | 'yellow' | 'green'>;
+export type InputColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 
 export type InputSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
