@@ -199,6 +199,8 @@ import {
 	RatingSize,
 	RatingVariant
 } from './components/Forms/Rating/types';
+import SearchBar from './components/Forms/SearchBar';
+import { SearchBarProps } from './components/Forms/SearchBar/types';
 import Textarea from './components/Forms/Textarea';
 import {
 	TextareaChangeEvent,
@@ -482,6 +484,7 @@ export {
 	RadioSubtitle,
 	RadioTitle,
 	Rating,
+	SearchBar,
 	Textarea,
 	Tabs,
 	DummyTabList,
@@ -663,6 +666,7 @@ export type {
 	RatingProps,
 	RatingSize,
 	RatingVariant,
+	SearchBarProps,
 	TextareaChangeEvent,
 	TextareaFocusEvent,
 	TextareaAutoComplete,
