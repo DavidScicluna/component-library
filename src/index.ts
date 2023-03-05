@@ -46,6 +46,8 @@ import {
 	AccordionsContext,
 	AccordionsProps
 } from './components/Accordions/OriginalAccordions/types';
+import Alert from './components/Alert';
+import { AlertColor, AlertDuration, AlertProps, AlertStatus } from './components/Alert/types';
 import { CardColor, CardVariant } from './components/Cards/common/types';
 import CardBody from './components/Cards/components/CardBody';
 import { CardBodyProps } from './components/Cards/components/CardBody/types';
@@ -438,6 +440,7 @@ export {
 	DummyCard,
 	DummyCardDivider,
 	DummyCardHeader,
+	Alert,
 	Card,
 	CardBody,
 	CardDivider,
@@ -541,6 +544,10 @@ export type {
 	AccordionType,
 	AccordionsContext,
 	AccordionsProps,
+	AlertColor,
+	AlertDuration,
+	AlertProps,
+	AlertStatus,
 	CardColor,
 	CardVariant,
 	CardBodyProps,
