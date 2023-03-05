@@ -222,6 +222,8 @@ import {
 } from './components/HorizontalScroll/types';
 import Icon from './components/Icon';
 import { IconProps, IconCategory } from './components/Icon/types';
+import Image from './components/Image';
+import { ImageEvent, ImageProps, ImageRef, ImageSrc, ImageSrcMode } from './components/Image/types';
 import ImageEditor from './components/ImageEditor';
 import { ImageEditorColor, ImageEditorContext, ImageEditorProps } from './components/ImageEditor/types';
 import SideNavigation from './components/Navigation/SideNavigation';
@@ -473,6 +475,7 @@ export {
 	StepPanel,
 	StepPanels,
 	Form,
+	Image,
 	ImageEditor,
 	Input,
 	Radio,
@@ -626,6 +629,11 @@ export type {
 	DatePickerProps,
 	DatePickerRenderButtonProps,
 	DatePickerVariant,
+	ImageEvent,
+	ImageProps,
+	ImageRef,
+	ImageSrc,
+	ImageSrcMode,
 	ImageEditorColor,
 	ImageEditorContext,
 	ImageEditorProps,
