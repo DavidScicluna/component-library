@@ -312,6 +312,24 @@ import { ModalHeaderProps } from './components/Overlay/Modal/components/ModalHea
 import ModalStack from './components/Overlay/Modal/components/ModalStack';
 import { ModalStackProps } from './components/Overlay/Modal/components/ModalStack/types';
 import { ModalProps } from './components/Overlay/Modal/types';
+import StateLabel from './components/Overlay/StateLabel';
+import StateLabelActions from './components/Overlay/StateLabel/components/StateLabelActions';
+import { StateLabelActionsProps } from './components/Overlay/StateLabel/components/StateLabelActions/types';
+import StateLabelBody from './components/Overlay/StateLabel/components/StateLabelBody';
+import { StateLabelBodyProps } from './components/Overlay/StateLabel/components/StateLabelBody/types';
+import StateLabelIcon from './components/Overlay/StateLabel/components/StateLabelIcon';
+import {
+	StateLabelIconProps,
+	StateLabelIconRenderIconProps,
+	StateLabelIconVariant
+} from './components/Overlay/StateLabel/components/StateLabelIcon/types';
+import StateLabelStack from './components/Overlay/StateLabel/components/StateLabelStack';
+import { StateLabelStackProps } from './components/Overlay/StateLabel/components/StateLabelStack/types';
+import StateLabelSubtitle from './components/Overlay/StateLabel/components/StateLabelSubtitle';
+import { StateLabelSubtitleProps } from './components/Overlay/StateLabel/components/StateLabelSubtitle/types';
+import StateLabelTitle from './components/Overlay/StateLabel/components/StateLabelTitle';
+import { StateLabelTitleProps } from './components/Overlay/StateLabel/components/StateLabelTitle/types';
+import { StateLabelColor, StateLabelContext, StateLabelProps } from './components/Overlay/StateLabel/types';
 import StateOverlay from './components/Overlay/StateOverlay';
 import { StateOverlayProps, StateOverlayState } from './components/Overlay/StateOverlay/types';
 import Tooltip from './components/Overlay/Tooltip';
@@ -518,6 +536,13 @@ export {
 	NavGroup,
 	NavItem,
 	TabBar,
+	StateLabel,
+	StateLabelActions,
+	StateLabelBody,
+	StateLabelIcon,
+	StateLabelStack,
+	StateLabelSubtitle,
+	StateLabelTitle,
 	StateOverlay,
 	Tooltip,
 	Spinner,
@@ -723,6 +748,17 @@ export type {
 	ModalHeaderProps,
 	ModalStackProps,
 	ModalProps,
+	StateLabelActionsProps,
+	StateLabelBodyProps,
+	StateLabelIconProps,
+	StateLabelIconRenderIconProps,
+	StateLabelIconVariant,
+	StateLabelStackProps,
+	StateLabelSubtitleProps,
+	StateLabelTitleProps,
+	StateLabelColor,
+	StateLabelContext,
+	StateLabelProps,
 	StateOverlayProps,
 	StateOverlayState,
 	TooltipColor,
