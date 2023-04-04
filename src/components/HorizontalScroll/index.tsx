@@ -65,7 +65,9 @@ const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(
 					apiRef={apiRef}
 					LeftArrow={LeftArrowProp}
 					RightArrow={RightArrowProp}
-					transitionDuration={convertStringToNumber(theme.transition.duration['ultra-slow'], 'ms')}
+					transitionDuration={convertStringToNumber(theme.transition.duration['slow'], 'ms')}
+					transitionBehavior='smooth'
+					transitionEase={(t) => (t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1)}
 					itemClassName={itemClassName}
 					separatorClassName={separatorClassName}
 					wrapperClassName={wrapperClassName}
