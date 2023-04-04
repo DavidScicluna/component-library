@@ -1,9 +1,9 @@
 // eslint-disable-next-line import/no-unresolved
 import { Area } from 'react-easy-crop/types';
 
-import memoize from 'memoizee';
+import memoize from 'micro-memoize';
 
-// import { memoize } from 'lodash';
+// import memoize  from 'micro-memoize';
 
 // import { ImageEditorModeCropValue } from '../../types';
 // import { cropValue as defaultCropValue } from '../data/defaultPropValues';

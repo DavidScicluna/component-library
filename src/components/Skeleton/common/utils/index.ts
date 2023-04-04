@@ -1,5 +1,5 @@
 import { darken, lighten } from 'color2k';
-import memoize from 'memoizee';
+import memoize from 'micro-memoize';
 
 import { convertStringToNumber } from '../../../../common/utils';
 import { Duration, Theme } from '../../../../theme/types';

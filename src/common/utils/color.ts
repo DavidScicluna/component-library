@@ -1,6 +1,6 @@
 import { ColorMode } from '@chakra-ui/react';
 
-import memoize from 'memoizee';
+import memoize from 'micro-memoize';
 
 import { Theme, ColorHues, Color } from '../../theme/types';
 

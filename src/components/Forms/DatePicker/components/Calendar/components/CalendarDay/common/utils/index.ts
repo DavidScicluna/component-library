@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import memoize from 'memoizee';
+import memoize from 'micro-memoize';
 
 import { Space } from '../../../../../../../../../theme/types';
 import { CalendarDayVariant } from '../../types';

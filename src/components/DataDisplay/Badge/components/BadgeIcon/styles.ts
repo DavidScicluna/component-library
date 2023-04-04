@@ -1,4 +1,4 @@
-import memoize from 'memoizee';
+import memoize from 'micro-memoize';
 
 import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';

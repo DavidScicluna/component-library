@@ -1,4 +1,4 @@
-import memoize from 'memoizee';
+import memoize from 'micro-memoize';
 
 import { Icon } from '../../../../../../../../../common/types/icons';
 import { Color } from '../../../../../../../../../theme/types';

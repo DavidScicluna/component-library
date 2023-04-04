@@ -1,4 +1,4 @@
-import memoize from 'memoizee';
+import memoize from 'micro-memoize';
 
 import { IconProps } from '../../types';
 import { category as defaultCategory } from '../data/defaultPropValues';

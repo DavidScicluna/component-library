@@ -1,4 +1,4 @@
-import memoize from 'memoizee';
+import memoize from 'micro-memoize';
 
 import { Space } from '../../../../../theme/types';
 import { InputSize } from '../../types';

@@ -1,4 +1,4 @@
-import { memoize } from 'lodash';
+import memoize from 'micro-memoize';
 
 import { IconType } from '../../../..';
 import { AlertColor, AlertDuration, AlertStatus } from '../../types';

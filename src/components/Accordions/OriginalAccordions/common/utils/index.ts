@@ -1,4 +1,4 @@
-import memoize from 'memoizee';
+import memoize from 'micro-memoize';
 
 import { Accordion, OpenedAccordion, OpenedAccordions } from '../../types';
 

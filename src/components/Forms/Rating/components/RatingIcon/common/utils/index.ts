@@ -1,4 +1,4 @@
-import memoize from 'memoizee';
+import memoize from 'micro-memoize';
 
 import { Space } from '../../../../../../../theme/types';
 import { size as defaultSize } from '../../../../common/data/defaultPropValues';
