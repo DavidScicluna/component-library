@@ -2,7 +2,7 @@ import { FC, useCallback } from 'react';
 
 import { useBoolean } from '@chakra-ui/react';
 
-import { debounce } from 'lodash';
+import { capitalize, debounce } from 'lodash';
 import { useWindowSize, useEventListener } from 'usehooks-ts';
 
 import Tooltip from '../../Overlay/Tooltip';
@@ -16,7 +16,7 @@ import { ScrollToTopProps } from './types';
 const ScrollToTop: FC<ScrollToTopProps> = (props) => {
 	const { height: windowHeight = 0 } = useWindowSize();
 
-	const { color, colorMode, onClick, onMouseEnter, onMouseLeave, ...rest } = props;
+	const { color, colorMode, label = 'Scroll to the top', onClick, onMouseEnter, onMouseLeave, ...rest } = props;
 
 	const [isVisible, setIsVisible] = useBoolean();
 	const [isHovering, setIsHovering] = useBoolean();
@@ -66,14 +66,14 @@ const ScrollToTop: FC<ScrollToTopProps> = (props) => {
 		<ScaleFade in={isVisible}>
 			<Tooltip
 				colorMode={colorMode}
-				aria-label='Scroll to top'
-				label='Scroll to the top'
+				aria-label={label}
+				label={capitalize(label)}
 				placement='left'
 				isOpen={isHovering}
 			>
 				<IconButton
 					{...rest}
-					aria-label='Scroll to top'
+					aria-label={label}
 					color={color}
 					colorMode={colorMode}
 					onClick={handleClick}
