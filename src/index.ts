@@ -317,6 +317,8 @@ import { TooltipColor, TooltipProps, TooltipRef } from './components/Overlay/Too
 import DSCLProvider from './components/Provider';
 import Skeleton from './components/Skeleton';
 import { SkeletonColor, SkeletonProps, SkeletonVariant } from './components/Skeleton/types';
+import Spinner from './components/Spinner';
+import { SpinnerColor, SpinnerMode, SpinnerProps } from './components/Spinner/types';
 import AnimatePresence from './components/Transitions/AnimatePresence';
 import { AnimatePresenceProps } from './components/Transitions/AnimatePresence/types';
 import Collapse from './components/Transitions/Collapse';
@@ -737,6 +739,9 @@ export type {
 	TabBarDirection,
 	TabBarProps,
 	TabBarRef,
+	SpinnerColor,
+	SpinnerMode,
+	SpinnerProps,
 	AnimatePresenceProps,
 	CollapseProps,
 	FadeProps,
