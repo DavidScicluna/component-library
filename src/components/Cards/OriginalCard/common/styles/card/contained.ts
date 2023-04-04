@@ -24,6 +24,7 @@ export default ({ theme, isClickable = defaultIsClickable, isFixed = defaultIsFi
 			borderTopWidth: `${border}px`,
 			borderLeftWidth: `${border}px`,
 			borderRightWidth: `${border}px`,
+			borderBottomWidth: '0px',
 			borderStyle: 'solid',
 			borderColor: theme.colors.transparent,
 			borderRadius: theme.radii[radius]
@@ -33,7 +34,7 @@ export default ({ theme, isClickable = defaultIsClickable, isFixed = defaultIsFi
 			isClickable && !isFixed
 				? {
 						borderTopWidth: `${transform}px`,
-						borderBottomWidth: 0,
+						borderBottomWidth: '0px',
 						borderStyle: 'solid',
 						borderColor: theme.colors.transparent
 				  }

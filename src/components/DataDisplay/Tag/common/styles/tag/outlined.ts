@@ -20,6 +20,7 @@ export default ({ theme, isClickable = defaultIsClickable, size = defaultSize }:
 			borderTopWidth: `${border}px`,
 			borderLeftWidth: `${border}px`,
 			borderRightWidth: `${border}px`,
+			borderBottomWidth: '0px',
 			borderStyle: 'solid',
 			borderColor: theme.colors.transparent
 		},

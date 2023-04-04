@@ -47,8 +47,8 @@ const TabBar = forwardRef<TabBarRef, TabBarProps>(function TabBar(props, ref): R
 				sx={{
 					...merge(
 						{
-							borderTopWidth: direction === 'bottom' ? '2px' : 0,
-							borderBottomWidth: direction === 'top' ? '2px' : 0,
+							borderTopWidth: `${direction === 'bottom' ? 2 : 0}px`,
+							borderBottomWidth: `${direction === 'top' ? 2 : 0}px`,
 							borderColor: getColor({ theme, colorMode, type: 'divider' }),
 							borderStyle: 'solid'
 						},

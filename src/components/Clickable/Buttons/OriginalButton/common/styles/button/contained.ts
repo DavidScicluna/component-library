@@ -30,6 +30,7 @@ export default ({ theme, isRound = defaultIsRound, size = defaultSize }: ButtonS
 			borderTopWidth: `${border}px`,
 			borderLeftWidth: `${border}px`,
 			borderRightWidth: `${border}px`,
+			borderBottomWidth: '0px',
 			borderStyle: 'solid',
 			borderColor: theme.colors.transparent,
 			borderRadius: theme.radii[radius]
@@ -37,7 +38,7 @@ export default ({ theme, isRound = defaultIsRound, size = defaultSize }: ButtonS
 
 		'&:active': {
 			borderTopWidth: `${transform}px`,
-			borderBottomWidth: 0,
+			borderBottomWidth: '0px',
 			borderStyle: 'solid',
 			borderColor: theme.colors.transparent
 		}

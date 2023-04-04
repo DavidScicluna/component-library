@@ -9,7 +9,7 @@ export default ({ theme }: CardDisabledStylingProps): Style => {
 
 	return {
 		borderTopWidth: `${transform}px`,
-		borderBottomWidth: 0,
+		borderBottomWidth: '0px',
 		borderStyle: 'solid',
 		borderColor: theme.colors.transparent
 	};

@@ -74,6 +74,7 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, isFixed = defaultIsFi
 			borderTopWidth: `${border}px`,
 			borderLeftWidth: `${border}px`,
 			borderRightWidth: `${border}px`,
+			borderBottomWidth: '0px',
 			borderStyle: 'solid',
 			borderColor: theme.colors.transparent,
 			borderRadius: theme.radii[radius],

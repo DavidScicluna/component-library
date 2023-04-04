@@ -10,7 +10,7 @@ export default ({ theme, size = defaultSize }: TagDisabledStylingProps): Style =
 
 	return {
 		borderTopWidth: `${transform}px`,
-		borderBottomWidth: 0,
+		borderBottomWidth: '0px',
 		borderStyle: 'solid',
 		borderColor: theme.colors.transparent
 	};

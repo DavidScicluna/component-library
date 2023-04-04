@@ -30,6 +30,7 @@ export default ({ theme, isRound = defaultIsRound, size = defaultSize }: IconBut
 			borderTopWidth: `${border}px`,
 			borderLeftWidth: `${border}px`,
 			borderRightWidth: `${border}px`,
+			borderBottomWidth: '0px',
 			borderStyle: 'solid',
 			borderColor: theme.colors.transparent,
 			borderRadius: theme.radii[radius]
