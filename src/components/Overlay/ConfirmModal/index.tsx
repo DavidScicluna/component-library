@@ -2,7 +2,7 @@ import { FC, createContext } from 'react';
 
 import { useColorMode, Modal as CUIModal, ModalOverlay, ModalContent, Center } from '@chakra-ui/react';
 
-import { method as defaultOnClose } from '../../../common/data/defaultPropValues';
+import { method as defaultOnClose } from '../../../common/default/props';
 import { useTheme } from '../../../common/hooks';
 import { getColor } from '../../../common/utils/color';
 

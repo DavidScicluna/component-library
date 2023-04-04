@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
 import { ModalContext } from '../..';
-import { method as defaultOnClose } from '../../../../../common/data/defaultPropValues';
+import { method as defaultOnClose } from '../../../../../common/default/props';
 import { NoUndefinedField } from '../../../../../common/types';
 import { ModalContext as ModalContextType } from '../../types';
 import {

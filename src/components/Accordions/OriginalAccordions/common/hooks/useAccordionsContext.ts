@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
 import { AccordionsContext } from '../..';
-import { method as defaultOnSetOpened } from '../../../../../common/data/defaultPropValues';
+import { method as defaultOnSetOpened } from '../../../../../common/default/props';
 import { NoUndefinedField } from '../../../../../common/types';
 import {
 	color as defaultColor,

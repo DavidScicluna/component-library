@@ -3,7 +3,7 @@ import { ReactElement, useEffect, forwardRef } from 'react';
 import { useColorMode, useBoolean, Center, Image as CUIImage, ImageProps as CUIImageProps } from '@chakra-ui/react';
 
 import fallback from '../../common/assets/fallback';
-import { colorMode as defaultColorMode } from '../../common/data/defaultPropValues';
+import { colorMode as defaultColorMode } from '../../common/default/props';
 import { Style } from '../../common/types';
 import Glass from '../Overlay/Glass';
 import Fade from '../Transitions/Fade';

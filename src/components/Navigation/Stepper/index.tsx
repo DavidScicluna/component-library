@@ -2,7 +2,7 @@ import { ReactElement, createContext, forwardRef } from 'react';
 
 import { useColorMode, VStack } from '@chakra-ui/react';
 
-import { method as defaultMethod } from '../../../common/data/defaultPropValues';
+import { method as defaultMethod } from '../../../common/default/props';
 
 import {
 	activeStep as defaultActiveStep,

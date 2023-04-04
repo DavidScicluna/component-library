@@ -6,8 +6,8 @@ import { transparentize } from 'color2k';
 import { round, sample } from 'lodash';
 import { useCountdown, useElementSize, useUpdateEffect } from 'usehooks-ts';
 
-import { colorMode as defaultColorMode } from '../../common/data/defaultPropValues';
 import { errorTitles, errorEmojis, successTitles, successEmojis } from '../../common/data/strings';
+import { colorMode as defaultColorMode } from '../../common/default/props';
 import { useTheme } from '../../common/hooks';
 import { Undefinable } from '../../common/types';
 import { convertREMToPixels, convertStringToNumber } from '../../common/utils';

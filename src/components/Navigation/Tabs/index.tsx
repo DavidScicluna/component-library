@@ -2,7 +2,7 @@ import { ReactElement, createContext, forwardRef } from 'react';
 
 import { useColorMode, Tabs as CUITabs } from '@chakra-ui/react';
 
-import { method as defaultOnChange } from '../../../common/data/defaultPropValues';
+import { method as defaultOnChange } from '../../../common/default/props';
 
 import {
 	activeTab as defaultActiveTab,

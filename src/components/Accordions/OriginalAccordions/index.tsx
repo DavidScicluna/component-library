@@ -2,7 +2,7 @@ import { ReactElement, createContext, useState } from 'react';
 
 import { useColorMode, VStack } from '@chakra-ui/react';
 
-import { method as defaultOnSetOpened } from '../../../common/data/defaultPropValues';
+import { method as defaultOnSetOpened } from '../../../common/default/props';
 import { useDebounce } from '../../../common/hooks';
 import {
 	color as defaultColor,

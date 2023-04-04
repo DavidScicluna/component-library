@@ -4,7 +4,7 @@ import { useColorMode, useMediaQuery, Modal as CUIModal, ModalOverlay, ModalCont
 
 import { useWindowSize } from 'rooks';
 
-import { method as defaultOnClose } from '../../../common/data/defaultPropValues';
+import { method as defaultOnClose } from '../../../common/default/props';
 import { useTheme } from '../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../common/utils';
 import { getColor } from '../../../common/utils/color';

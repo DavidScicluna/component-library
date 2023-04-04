@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
 import { TabsContext } from '../..';
-import { method as defaultOnChange } from '../../../../../common/data/defaultPropValues';
+import { method as defaultOnChange } from '../../../../../common/default/props';
 import { NoUndefinedField } from '../../../../../common/types';
 import { TabsContext as TabsContextType } from '../../types';
 import {
