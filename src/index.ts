@@ -312,6 +312,8 @@ import { ModalHeaderProps } from './components/Overlay/Modal/components/ModalHea
 import ModalStack from './components/Overlay/Modal/components/ModalStack';
 import { ModalStackProps } from './components/Overlay/Modal/components/ModalStack/types';
 import { ModalProps } from './components/Overlay/Modal/types';
+import StateOverlay from './components/Overlay/StateOverlay';
+import { StateOverlayProps, StateOverlayState } from './components/Overlay/StateOverlay/types';
 import Tooltip from './components/Overlay/Tooltip';
 import { TooltipColor, TooltipProps, TooltipRef } from './components/Overlay/Tooltip/types';
 import DSCLProvider from './components/Provider';
@@ -516,7 +518,9 @@ export {
 	NavGroup,
 	NavItem,
 	TabBar,
+	StateOverlay,
 	Tooltip,
+	Spinner,
 	AnimatePresence,
 	Collapse,
 	Fade,
@@ -719,6 +723,8 @@ export type {
 	ModalHeaderProps,
 	ModalStackProps,
 	ModalProps,
+	StateOverlayProps,
+	StateOverlayState,
 	TooltipColor,
 	TooltipProps,
 	TooltipRef,
