@@ -14,7 +14,7 @@ const StateLabelActions: FC<StateLabelActionsProps> = (props) => {
 
 	return (
 		<HStack p={0} m={0} spacing={spacing} {...rest}>
-			{renderActions({ color, colorMode })}
+			{renderActions({ color, colorMode, variant: 'text' })}
 		</HStack>
 	);
 };
