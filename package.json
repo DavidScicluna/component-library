@@ -1,6 +1,6 @@
 {
 	"name": "@davidscicluna/component-library",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"repository": "https://github.com/DavidScicluna/component-library.git",
 	"author": {
 		"name": "David Scicluna",
@@ -10,13 +10,16 @@
 	"main": "build/index.js",
 	"module": "build/index.esm.js",
 	"types": "build/index.d.ts",
+	"files": [
+		"build"
+	],
 	"scripts": {
 		"lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
 		"format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json}\" --config ./.prettierrc",
 		"cleanup": "rimraf node_modules && yarn cache clean --all",
 		"prebuild": "yarn run cleanup && yarn install && yarn run lint --fix && sudo yarn run format && rimraf build",
 		"build": "yarn run prebuild && yarn run rollup -c",
-		"publish": "npm login && npm publish --access public",
+		"publish": "yarn npm login && yarn npm publish --access public",
 		"storybook": "BROWSER=none storybook dev -p 6006",
 		"build-storybook": "storybook build"
 	},
