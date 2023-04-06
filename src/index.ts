@@ -47,6 +47,7 @@ import {
 	AccordionsProps
 } from './components/Accordions/OriginalAccordions/types';
 import Alert from './components/Alert';
+import { convertDurationToMS } from './components/Alert/common/utils';
 import { AlertColor, AlertDuration, AlertProps, AlertStatus } from './components/Alert/types';
 import { CardColor, CardVariant } from './components/Cards/common/types';
 import CardBody from './components/Cards/components/CardBody';
@@ -432,6 +433,7 @@ export const utils = {
 	convertREMToPixels,
 	convertStringToNumber,
 	convertEasingsToArray,
+	convertDurationToMS,
 	getFontSizeHeight,
 	getHue,
 	getColor,
