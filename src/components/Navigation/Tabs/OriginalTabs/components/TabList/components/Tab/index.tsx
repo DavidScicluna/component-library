@@ -44,7 +44,14 @@ const Tab: FC<TabProps> = (props) => {
 
 	const [isHovering, setIsHovering] = useBoolean();
 
-	const style = useStyles({ theme, color, colorMode, isFullWidth: isFitted, isSelected, size });
+	const style = useStyles({
+		theme,
+		color,
+		colorMode,
+		isFullWidth: isFitted,
+		isSelected: isActive || isSelected,
+		size
+	});
 
 	const handleReturnSpacing = (): number => getSizeConfig({ size }).spacing;
 

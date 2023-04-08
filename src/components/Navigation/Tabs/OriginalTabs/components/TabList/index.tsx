@@ -7,11 +7,12 @@ import { useElementSize } from 'usehooks-ts';
 import { useDebounce, useTheme } from '../../../../../../common/hooks';
 import { getColor } from '../../../../../../common/utils/color';
 import HorizontalScroll from '../../../../../HorizontalScroll';
+import { HorizontalScrollAPIContext } from '../../../../../HorizontalScroll/types';
 import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from '../../../components/HorizontalScrollArrows';
 import { useTabsContext } from '../../common/hooks';
 
 import Tab from './components/Tab';
-import { TabListProps, ScrollContext } from './types';
+import { TabListProps } from './types';
 
 const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest }) => {
 	const theme = useTheme();
@@ -22,8 +23,8 @@ const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 	const [rightRef, { width: rightWidth }] = useElementSize();
 
-	const [scroll, setScroll] = useState<ScrollContext>({} as ScrollContext);
-	const scrollDebounced = useDebounce<ScrollContext>(scroll, 'ultra-fast');
+	const [scroll, setScroll] = useState<HorizontalScrollAPIContext>({} as HorizontalScrollAPIContext);
+	const scrollDebounced = useDebounce<HorizontalScrollAPIContext>(scroll, 'ultra-fast');
 
 	const handleChildrenWidth = useCallback((): string => {
 		return `calc(100% - ${(renderLeft ? leftWidth : 0) + (renderRight ? rightWidth : 0)}px)`;

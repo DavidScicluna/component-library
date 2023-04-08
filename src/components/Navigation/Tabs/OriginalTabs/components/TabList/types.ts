@@ -1,8 +1,6 @@
-import { ReactNode, ContextType } from 'react';
+import { ReactNode } from 'react';
 
 import { TabListProps as CUITabListProps } from '@chakra-ui/react';
-
-import { VisibilityContext } from 'react-horizontal-scrolling-menu';
 
 import {
 	BoxMargin,
@@ -25,8 +23,6 @@ import {
 import { TabsProps } from '../../types';
 
 import { Tab } from './components/Tab/types';
-
-export type ScrollContext = ContextType<typeof VisibilityContext>;
 
 export type TabListRenderProps = {
 	width?: number; // In Pixels

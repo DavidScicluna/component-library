@@ -1,8 +1,8 @@
-import { ReactNode } from 'react';
+import { ReactNode, ContextType } from 'react';
 
 import { ColorMode, BoxProps } from '@chakra-ui/react';
 
-import { Props as RHSMHorizontalScrollProps } from 'react-horizontal-scrolling-menu';
+import { Props as RHSMHorizontalScrollProps, VisibilityContext } from 'react-horizontal-scrolling-menu';
 
 import {
 	BoxColor,
@@ -19,6 +19,8 @@ import {
 	BoxOther
 } from '../../common/types/box';
 import { Color } from '../../theme/types';
+
+export type HorizontalScrollAPIContext = ContextType<typeof VisibilityContext>;
 
 export type HorizontalScrollRef = HTMLDivElement | null;
 
