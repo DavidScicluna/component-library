@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { TabListProps as CUITabListProps } from '@chakra-ui/react';
+import { TabListProps as CUIDummyTabListProps } from '@chakra-ui/react';
 
 import {
 	BoxMargin,
@@ -19,8 +19,8 @@ import {
 	BoxFilter,
 	BoxPseudo,
 	BoxOther
-} from '../../../../../common/types/box';
-import { TabsProps } from '../../types';
+} from '../../../../../../common/types/box';
+import { DummyTabsProps } from '../../types';
 
 import { DummyTab } from './components/DummyTab/types';
 
@@ -28,7 +28,7 @@ export type DummyTabListRenderProps = {
 	width?: number; // In Pixels
 	height?: number; // In Pixels
 	// size?: ButtonSize;
-} & Pick<TabsProps, 'color' | 'colorMode'>;
+} & Pick<DummyTabsProps, 'color' | 'colorMode'>;
 
 type Omitted =
 	| BoxMargin
@@ -49,7 +49,7 @@ type Omitted =
 	| BoxOther
 	| 'children';
 
-export type DummyTabListProps = Omit<CUITabListProps, Omitted> & {
+export type DummyTabListProps = Omit<CUIDummyTabListProps, Omitted> & {
 	tabs: DummyTab[];
 	renderLeft?: (props: DummyTabListRenderProps) => ReactNode;
 	renderRight?: (props: DummyTabListRenderProps) => ReactNode;
