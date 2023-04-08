@@ -1,7 +1,6 @@
-import { Style } from '../../../../../../../../../../common/types';
-import { Radius } from '../../../../../../../../../../theme/types';
-import { isFitted as defaultIsFitted, size as defaultSize } from '../../../../../../../common/data/defaultPropValues';
-import { getSizeConfig } from '../../../../../../../common/utils';
+import { Style } from '../../../../../../../../../../../common/types';
+import { isFitted as defaultIsFitted, size as defaultSize } from '../../../../../../../../common/default/props';
+import { getSizeConfig } from '../../../../../../../../common/utils';
 
 import { DummyTabStyleProps } from './types';
 
@@ -9,9 +8,6 @@ export default ({ theme, isFullWidth = defaultIsFitted, size = defaultSize }: Du
 	const config = getSizeConfig({ size });
 	const height = config.height;
 	const padding = config.padding;
-	const border = config.border;
-
-	const radius: Radius = 'none';
 
 	const transition = 'none';
 	const transitionProperty = transition;
@@ -23,26 +19,24 @@ export default ({ theme, isFullWidth = defaultIsFitted, size = defaultSize }: Du
 
 		'position': 'relative',
 
-		'pointerEvents': 'none',
-
 		'width': isFullWidth ? '100%' : 'auto',
-		'height': `${height}px`,
+		'height': 'auto',
 
 		'minWidth': 'auto',
-		'minHeight': 'auto',
+		'minHeight': `${height}px`,
 		'maxWidth': 'none',
 		'maxHeight': 'none',
 
-		'display': 'inline-flex',
+		'display': 'flex',
+		'alignItems': 'stretch',
+		'justifyContent': 'stretch',
+
+		'pointerEvents': 'none',
 
 		'userSelect': 'none',
 		'willChange': 'auto',
 
 		'opacity': 1,
-
-		'borderBottomWidth': `${border}px`,
-		'borderStyle': 'solid',
-		'borderRadius': theme.radii[radius],
 
 		'fontSize': theme.fontSizes[size],
 		'fontWeight': theme.fontWeights.semibold,
@@ -63,6 +57,8 @@ export default ({ theme, isFullWidth = defaultIsFitted, size = defaultSize }: Du
 		'transitionProperty': transitionProperty,
 		'transitionDuration': transitionDuration,
 		'transitionTimingFunction': transitionTimingFunction,
+
+		'& .ds-cl-dummytabs-dummytab-stack': { opacity: 0.5 },
 
 		'& svg, .ds-cl-icon': {
 			userSelect: 'none',

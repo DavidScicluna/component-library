@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
-import { TabProps as CUITabProps } from '@chakra-ui/react';
+import { TabProps as CUIDummyTabProps } from '@chakra-ui/react';
 
-import { Style } from '../../../../../../../common/types';
+import { Style } from '../../../../../../../../common/types';
 import {
 	BoxMargin,
 	BoxPadding,
@@ -20,18 +20,20 @@ import {
 	BoxFilter,
 	BoxPseudo,
 	BoxOther
-} from '../../../../../../../common/types/box';
-import { TabsProps } from '../../../../types';
+} from '../../../../../../../../common/types/box';
+import { DummyTabsProps } from '../../../../types';
 
-export type RenderProps = Pick<TabsProps, 'color' | 'colorMode' | 'size'> & {
+export type DummyTabRenderProps = Pick<DummyTabsProps, 'color' | 'colorMode' | 'size'> & {
 	width?: number; // In Pixels
 	height?: number; // In Pixels
 };
 
 export type DummyTab = {
 	label: string;
-	renderLeft?: (props: RenderProps) => ReactNode;
-	renderRight?: (props: RenderProps) => ReactNode;
+	renderLeft?: (props: DummyTabRenderProps) => ReactNode;
+	renderRight?: (props: DummyTabRenderProps) => ReactNode;
+	isActive?: boolean;
+	isSelected?: boolean;
 	sx?: Style;
 };
 
@@ -53,6 +55,8 @@ type Omitted =
 	| BoxPseudo
 	| BoxOther
 	| 'children'
-	| 'isDisabled';
+	| 'isDisabled'
+	| 'isSelected'
+	| 'onSelect';
 
-export type DummyTabProps = Omit<CUITabProps, Omitted> & DummyTab;
+export type DummyTabProps = Omit<CUIDummyTabProps, Omitted> & DummyTab;

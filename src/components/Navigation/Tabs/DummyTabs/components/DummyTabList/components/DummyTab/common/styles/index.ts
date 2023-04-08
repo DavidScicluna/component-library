@@ -6,8 +6,8 @@ import {
 	colorMode as defaultColorMode,
 	isFitted as defaultIsFitted,
 	size as defaultSize
-} from '../../../../../../common/data/defaultPropValues';
-import { isSelected as defaultIsSelected } from '../data/defaultPropValues';
+} from '../../../../../../../common/default/props';
+import { isSelected as defaultIsSelected } from '../default/props';
 
 import dark from './dark';
 import light from './light';
@@ -27,6 +27,6 @@ export default memoize((props: DummyTabStyleProps): DummyTabStyleReturn => {
 	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
-		tab: merge(tab({ theme, isFullWidth, size }), scheme({ theme, color, isSelected }))
+		tab: merge(tab({ theme, isFullWidth, size }), scheme({ theme, color, isSelected, size }))
 	};
 });
