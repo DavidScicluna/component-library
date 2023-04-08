@@ -309,7 +309,12 @@ import {
 	TabRenderProps as TabListTabRenderProps
 } from './components/Navigation/Tabs/OriginalTabs/components/TabList/components/Tab/types';
 import { TabListProps, TabListRenderProps } from './components/Navigation/Tabs/OriginalTabs/components/TabList/types';
-import { TabsContext, TabsProps, TabsRef } from './components/Navigation/Tabs/OriginalTabs/types';
+import {
+	TabsContext,
+	TabsProps,
+	TabsRef,
+	OnChangeProps as TabsOnChangeProps
+} from './components/Navigation/Tabs/OriginalTabs/types';
 import ConfirmModal from './components/Overlay/ConfirmModal';
 import { useConfirmModalContext } from './components/Overlay/ConfirmModal/common/hooks';
 import ConfirmModalBody from './components/Overlay/ConfirmModal/components/ConfirmModalBody';
@@ -781,6 +786,7 @@ export type {
 	TabsProps,
 	TabsRef,
 	TabsSize,
+	TabsOnChangeProps,
 	TabListProps,
 	TabListRenderProps,
 	TabListTab,
