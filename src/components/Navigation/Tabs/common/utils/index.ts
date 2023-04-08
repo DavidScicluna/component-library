@@ -1,6 +1,6 @@
 import { Space } from '../../../../../theme/types';
-import { TabsSize } from '../../types';
-import { size as defaultSize } from '../data/defaultPropValues';
+import { size as defaultSize } from '../default/props';
+import { TabsSize } from '../types';
 
 type Padding = {
 	x: Space; // In Space (Theme) Values
