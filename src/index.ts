@@ -284,24 +284,32 @@ import {
 	TabBarProps,
 	TabBarRef
 } from './components/Navigation/TabBar/types';
-import Tabs from './components/Navigation/Tabs/OriginalTabs';
-import { useTabsContext } from './components/Navigation/Tabs/OriginalTabs/common/hooks';
-import DummyTabList from './components/Navigation/Tabs/components/DummyTabList';
-import { DummyTab as DummyTabListDummyTab } from './components/Navigation/Tabs/components/DummyTabList/components/DummyTab/types';
-import { DummyTabListProps } from './components/Navigation/Tabs/components/DummyTabList/types';
-import TabList from './components/Navigation/Tabs/OriginalTabs/components/TabList';
-import { Tab as TabListTab } from './components/Navigation/Tabs/OriginalTabs/components/TabList/components/Tab/types';
-import { TabListProps } from './components/Navigation/Tabs/OriginalTabs/components/TabList/types';
+import { TabsColor, TabsSize } from './components/Navigation/Tabs/common/types';
 import TabPanels from './components/Navigation/Tabs/components/TabPanels';
 import { TabPanelsProps } from './components/Navigation/Tabs/components/TabPanels/types';
+import DummyTabs from './components/Navigation/Tabs/DummyTabs';
+import { useDummyTabsContext } from './components/Navigation/Tabs/DummyTabs/common/hooks';
+import DummyTabList from './components/Navigation/Tabs/DummyTabs/components/DummyTabList';
+import DummyTab from './components/Navigation/Tabs/DummyTabs/components/DummyTabList/components/DummyTab';
 import {
-	TabsColor,
-	TabsContext,
-	TabsProps,
-	TabsRef,
-	TabsSize,
-	OnChangeProps as TabsOnChangeProps
-} from './components/Navigation/Tabs/OriginalTabs/types';
+	DummyTab as DummyTabListTab,
+	DummyTabRenderProps as DummyTabListTabRenderProps
+} from './components/Navigation/Tabs/DummyTabs/components/DummyTabList/components/DummyTab/types';
+import {
+	DummyTabListProps,
+	DummyTabListRenderProps
+} from './components/Navigation/Tabs/DummyTabs/components/DummyTabList/types';
+import { DummyTabsContext, DummyTabsProps, DummyTabsRef } from './components/Navigation/Tabs/DummyTabs/types';
+import Tabs from './components/Navigation/Tabs/OriginalTabs';
+import { useTabsContext } from './components/Navigation/Tabs/OriginalTabs/common/hooks';
+import TabList from './components/Navigation/Tabs/OriginalTabs/components/TabList';
+import {
+	Tab as TabListTab,
+	TabMouseEvent as TabListTabMouseEvent,
+	TabRenderProps as TabListTabRenderProps
+} from './components/Navigation/Tabs/OriginalTabs/components/TabList/components/Tab/types';
+import { TabListProps, TabListRenderProps } from './components/Navigation/Tabs/OriginalTabs/components/TabList/types';
+import { TabsContext, TabsProps, TabsRef } from './components/Navigation/Tabs/OriginalTabs/types';
 import ConfirmModal from './components/Overlay/ConfirmModal';
 import { useConfirmModalContext } from './components/Overlay/ConfirmModal/common/hooks';
 import ConfirmModalBody from './components/Overlay/ConfirmModal/components/ConfirmModalBody';
@@ -465,6 +473,7 @@ export {
 	useStepperContext,
 	useTabBarContext,
 	useTabsContext,
+	useDummyTabsContext,
 	useConfirmModalContext,
 	useModalContext,
 	useStateLabelContext
@@ -562,9 +571,11 @@ export {
 	SearchBar,
 	Textarea,
 	Tabs,
+	DummyTabs,
 	DummyTabList,
-	TabList,
+	DummyTab,
 	TabPanels,
+	TabList,
 	HorizontalScroll,
 	HorizontalScrollArrow,
 	Icon,
@@ -770,11 +781,18 @@ export type {
 	TabsProps,
 	TabsRef,
 	TabsSize,
-	TabsOnChangeProps,
-	DummyTabListProps,
-	DummyTabListDummyTab,
 	TabListProps,
+	TabListRenderProps,
 	TabListTab,
+	DummyTabListTab,
+	DummyTabListTabRenderProps,
+	DummyTabListProps,
+	DummyTabListRenderProps,
+	DummyTabsContext,
+	DummyTabsProps,
+	DummyTabsRef,
+	TabListTabMouseEvent,
+	TabListTabRenderProps,
 	TabPanelsProps,
 	HorizontalScrollArrowProps,
 	HorizontalScrollContext,
