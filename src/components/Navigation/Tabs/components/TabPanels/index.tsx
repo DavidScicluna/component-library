@@ -11,7 +11,7 @@ import {
 } from '../../../../Transitions/common/utils';
 import Fade from '../../../../Transitions/Fade';
 import { FadeProps } from '../../../../Transitions/Fade/types';
-import { useTabsContext } from '../../common/hooks';
+import { useTabsContext } from '../../OriginalTabs/common/hooks';
 
 import { TabPanelsProps } from './types';
 
@@ -33,21 +33,9 @@ const TabPanels: FC<TabPanelsProps> = ({ children, ...rest }) => {
 	const { activeTab } = useTabsContext();
 
 	return (
-		<CUITabPanels
-			{...rest}
-			width='100%'
-			// display='grid' gridTemplateColumns='100%' gridTemplateRows='100%'
-		>
+		<CUITabPanels {...rest} width='100%'>
 			{children.map((panel, index) => (
-				<TabPanel
-					key={`ds-cl-tabs-panels-${index}-panel`}
-					width='100%'
-					height='100%'
-					// display='block !important'
-					// gridRowStart={1}
-					// gridColumnStart={1}
-					p={0}
-				>
+				<TabPanel key={`ds-cl-tabs-panels-${index}-panel`} width='100%' height='100%' p={0}>
 					<AnimatePresence>
 						<TabPanelFade in={activeTab === index}>{panel}</TabPanelFade>
 					</AnimatePresence>
