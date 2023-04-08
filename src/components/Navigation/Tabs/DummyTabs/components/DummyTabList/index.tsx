@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 
-import { TabList as CUIDummyTabList, HStack, Box } from '@chakra-ui/react';
+import { TabList as CUIDummyTabList, HStack, Box, Center } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
@@ -41,9 +41,9 @@ const DummyTabList: FC<DummyTabListProps> = ({ tabs = [], renderLeft, renderRigh
 		>
 			<HStack width='100%' height='100%' alignItems='stretch' justifyContent='stretch' spacing={0}>
 				{renderLeft && (
-					<Box ref={leftRef}>
+					<Center ref={leftRef} width='100%' height='100%'>
 						{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
-					</Box>
+					</Center>
 				)}
 
 				<Box ref={childrenRef} width={handleChildrenWidth()} height='100%'>
@@ -66,9 +66,9 @@ const DummyTabList: FC<DummyTabListProps> = ({ tabs = [], renderLeft, renderRigh
 				</Box>
 
 				{renderRight && (
-					<Box ref={rightRef}>
+					<Center ref={rightRef} width='100%' height='100%'>
 						{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
-					</Box>
+					</Center>
 				)}
 			</HStack>
 		</CUIDummyTabList>
