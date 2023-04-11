@@ -143,6 +143,63 @@ import {
 } from './components/DataDisplay/Badge/types';
 import Headline from './components/DataDisplay/Headline';
 import { HeadlineColor, HeadlineProps } from './components/DataDisplay/Headline/types';
+import { HorizontalGridColor, HorizontalGridColorMode } from './components/DataDisplay/HorizontalGrids/common/types';
+import DummyHorizontalGrid from './components/DataDisplay/HorizontalGrids/DummyHorizontalGrid';
+import { useDummyHorizontalGridContext } from './components/DataDisplay/HorizontalGrids/DummyHorizontalGrid/common/hooks';
+import DummyHorizontalGridBody from './components/DataDisplay/HorizontalGrids/DummyHorizontalGrid/components/DummyHorizontalGridBody';
+import { DummyHorizontalGridBodyProps } from './components/DataDisplay/HorizontalGrids/DummyHorizontalGrid/components/DummyHorizontalGridBody/types';
+import DummyHorizontalGridFooter from './components/DataDisplay/HorizontalGrids/DummyHorizontalGrid/components/DummyHorizontalGridFooter';
+import { DummyHorizontalGridFooterProps } from './components/DataDisplay/HorizontalGrids/DummyHorizontalGrid/components/DummyHorizontalGridFooter/types';
+import DummyHorizontalGridHeader from './components/DataDisplay/HorizontalGrids/DummyHorizontalGrid/components/DummyHorizontalGridHeader';
+import { DummyHorizontalGridHeaderProps } from './components/DataDisplay/HorizontalGrids/DummyHorizontalGrid/components/DummyHorizontalGridHeader/types';
+import DummyHorizontalGridScroll from './components/DataDisplay/HorizontalGrids/DummyHorizontalGrid/components/DummyHorizontalGridScroll';
+import { DummyHorizontalGridScrollProps } from './components/DataDisplay/HorizontalGrids/DummyHorizontalGrid/components/DummyHorizontalGridScroll/types';
+import {
+	DummyHorizontalGridContext,
+	DummyHorizontalGridProps
+} from './components/DataDisplay/HorizontalGrids/DummyHorizontalGrid/types';
+import DummyHorizontalGridTabbed from './components/DataDisplay/HorizontalGrids/DummyHorizontalGridTabbed';
+import { useDummyHorizontalGridTabbedContext } from './components/DataDisplay/HorizontalGrids/DummyHorizontalGridTabbed/common/hooks';
+import DummyHorizontalGridTabbedBody from './components/DataDisplay/HorizontalGrids/DummyHorizontalGridTabbed/components/DummyHorizontalGridTabbedBody';
+import { DummyHorizontalGridTabbedBodyProps } from './components/DataDisplay/HorizontalGrids/DummyHorizontalGridTabbed/components/DummyHorizontalGridTabbedBody/types';
+import DummyHorizontalGridTabbedFooter from './components/DataDisplay/HorizontalGrids/DummyHorizontalGridTabbed/components/DummyHorizontalGridTabbedFooter';
+import { DummyHorizontalGridTabbedFooterProps } from './components/DataDisplay/HorizontalGrids/DummyHorizontalGridTabbed/components/DummyHorizontalGridTabbedFooter/types';
+import DummyHorizontalGridTabbedHeader from './components/DataDisplay/HorizontalGrids/DummyHorizontalGridTabbed/components/DummyHorizontalGridTabbedHeader';
+import { DummyHorizontalGridTabbedHeaderProps } from './components/DataDisplay/HorizontalGrids/DummyHorizontalGridTabbed/components/DummyHorizontalGridTabbedHeader/types';
+import DummyHorizontalGridTabbedScroll from './components/DataDisplay/HorizontalGrids/DummyHorizontalGridTabbed/components/DummyHorizontalGridTabbedScroll';
+import { DummyHorizontalGridTabbedScrollProps } from './components/DataDisplay/HorizontalGrids/DummyHorizontalGridTabbed/components/DummyHorizontalGridTabbedScroll/types';
+import {
+	DummyHorizontalGridTabbedContext,
+	DummyHorizontalGridTabbedProps
+} from './components/DataDisplay/HorizontalGrids/DummyHorizontalGridTabbed/types';
+import HorizontalGrid from './components/DataDisplay/HorizontalGrids/HorizontalGrid';
+import { useHorizontalGridContext } from './components/DataDisplay/HorizontalGrids/HorizontalGrid/common/hooks';
+import HorizontalGridBody from './components/DataDisplay/HorizontalGrids/HorizontalGrid/components/HorizontalGridBody';
+import { HorizontalGridBodyProps } from './components/DataDisplay/HorizontalGrids/HorizontalGrid/components/HorizontalGridBody/types';
+import HorizontalGridFooter from './components/DataDisplay/HorizontalGrids/HorizontalGrid/components/HorizontalGridFooter';
+import { HorizontalGridFooterProps } from './components/DataDisplay/HorizontalGrids/HorizontalGrid/components/HorizontalGridFooter/types';
+import HorizontalGridHeader from './components/DataDisplay/HorizontalGrids/HorizontalGrid/components/HorizontalGridHeader';
+import { HorizontalGridHeaderProps } from './components/DataDisplay/HorizontalGrids/HorizontalGrid/components/HorizontalGridHeader/types';
+import HorizontalGridScroll from './components/DataDisplay/HorizontalGrids/HorizontalGrid/components/HorizontalGridScroll';
+import { HorizontalGridScrollProps } from './components/DataDisplay/HorizontalGrids/HorizontalGrid/components/HorizontalGridScroll/types';
+import {
+	HorizontalGridContext,
+	HorizontalGridProps
+} from './components/DataDisplay/HorizontalGrids/HorizontalGrid/types';
+import HorizontalGridTabbed from './components/DataDisplay/HorizontalGrids/HorizontalGridTabbed';
+import { useHorizontalGridTabbedContext } from './components/DataDisplay/HorizontalGrids/HorizontalGridTabbed/common/hooks';
+import HorizontalGridTabbedBody from './components/DataDisplay/HorizontalGrids/HorizontalGridTabbed/components/HorizontalGridTabbedBody';
+import { HorizontalGridTabbedBodyProps } from './components/DataDisplay/HorizontalGrids/HorizontalGridTabbed/components/HorizontalGridTabbedBody/types';
+import HorizontalGridTabbedFooter from './components/DataDisplay/HorizontalGrids/HorizontalGridTabbed/components/HorizontalGridTabbedFooter';
+import { HorizontalGridTabbedFooterProps } from './components/DataDisplay/HorizontalGrids/HorizontalGridTabbed/components/HorizontalGridTabbedFooter/types';
+import HorizontalGridTabbedHeader from './components/DataDisplay/HorizontalGrids/HorizontalGridTabbed/components/HorizontalGridTabbedHeader';
+import { HorizontalGridTabbedHeaderProps } from './components/DataDisplay/HorizontalGrids/HorizontalGridTabbed/components/HorizontalGridTabbedHeader/types';
+import HorizontalGridTabbedScroll from './components/DataDisplay/HorizontalGrids/HorizontalGridTabbed/components/HorizontalGridTabbedScroll';
+import { HorizontalGridTabbedScrollProps } from './components/DataDisplay/HorizontalGrids/HorizontalGridTabbed/components/HorizontalGridTabbedScroll/types';
+import {
+	HorizontalGridTabbedContext,
+	HorizontalGridTabbedProps
+} from './components/DataDisplay/HorizontalGrids/HorizontalGridTabbed/types';
 import Tag from './components/DataDisplay/Tag';
 import { useTagContext } from './components/DataDisplay/Tag/common/hooks';
 import TagDeleteIconButton from './components/DataDisplay/Tag/components/TagDeleteIconButton';
@@ -235,6 +292,7 @@ import { useHorizontalScrollContext } from './components/HorizontalScroll/common
 import HorizontalScrollArrow from './components/HorizontalScroll/components/Arrow';
 import { ArrowProps as HorizontalScrollArrowProps } from './components/HorizontalScroll/components/Arrow/types';
 import {
+	HorizontalScrollAPIContext,
 	HorizontalScrollContext,
 	HorizontalScrollProps,
 	HorizontalScrollRef
@@ -469,6 +527,10 @@ export {
 	useIconButtonContext,
 	useBadgeContext,
 	useTagContext,
+	useDummyHorizontalGridContext,
+	useDummyHorizontalGridTabbedContext,
+	useHorizontalGridContext,
+	useHorizontalGridTabbedContext,
 	useCheckboxContext,
 	useDatePickerContext,
 	useRadioContext,
@@ -552,6 +614,26 @@ export {
 	BadgeIcon,
 	BadgeLabel,
 	Headline,
+	DummyHorizontalGrid,
+	DummyHorizontalGridBody,
+	DummyHorizontalGridFooter,
+	DummyHorizontalGridHeader,
+	DummyHorizontalGridScroll,
+	DummyHorizontalGridTabbed,
+	DummyHorizontalGridTabbedBody,
+	DummyHorizontalGridTabbedFooter,
+	DummyHorizontalGridTabbedHeader,
+	DummyHorizontalGridTabbedScroll,
+	HorizontalGrid,
+	HorizontalGridBody,
+	HorizontalGridFooter,
+	HorizontalGridHeader,
+	HorizontalGridScroll,
+	HorizontalGridTabbed,
+	HorizontalGridTabbedBody,
+	HorizontalGridTabbedFooter,
+	HorizontalGridTabbedHeader,
+	HorizontalGridTabbedScroll,
 	Tag,
 	TagDeleteIconButton,
 	TagLabel,
@@ -703,6 +785,32 @@ export type {
 	BadgeVariant,
 	HeadlineColor,
 	HeadlineProps,
+	HorizontalGridColor,
+	HorizontalGridColorMode,
+	DummyHorizontalGridBodyProps,
+	DummyHorizontalGridFooterProps,
+	DummyHorizontalGridHeaderProps,
+	DummyHorizontalGridScrollProps,
+	DummyHorizontalGridContext,
+	DummyHorizontalGridProps,
+	DummyHorizontalGridTabbedBodyProps,
+	DummyHorizontalGridTabbedFooterProps,
+	DummyHorizontalGridTabbedHeaderProps,
+	DummyHorizontalGridTabbedScrollProps,
+	DummyHorizontalGridTabbedContext,
+	DummyHorizontalGridTabbedProps,
+	HorizontalGridBodyProps,
+	HorizontalGridFooterProps,
+	HorizontalGridHeaderProps,
+	HorizontalGridScrollProps,
+	HorizontalGridContext,
+	HorizontalGridProps,
+	HorizontalGridTabbedBodyProps,
+	HorizontalGridTabbedFooterProps,
+	HorizontalGridTabbedHeaderProps,
+	HorizontalGridTabbedScrollProps,
+	HorizontalGridTabbedContext,
+	HorizontalGridTabbedProps,
 	TagDeleteIconButtonProps,
 	TagLabelProps,
 	TagColor,
@@ -801,6 +909,7 @@ export type {
 	TabListTabRenderProps,
 	TabPanelsProps,
 	HorizontalScrollArrowProps,
+	HorizontalScrollAPIContext,
 	HorizontalScrollContext,
 	HorizontalScrollProps,
 	HorizontalScrollRef,
