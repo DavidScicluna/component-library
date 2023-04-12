@@ -1,6 +1,8 @@
-import { FC, useEffect } from 'react';
+import { FC, useContext, useEffect } from 'react';
 
 import { useBoolean } from '@chakra-ui/react';
+
+import { VisibilityContext as ScrollContext } from 'react-horizontal-scrolling-menu';
 
 import { height } from '../../..';
 import { useDebounce, useTheme } from '../../../../../../../../common/hooks';
@@ -8,49 +10,50 @@ import { convertStringToNumber } from '../../../../../../../../common/utils';
 import { getColor } from '../../../../../../../../common/utils/color';
 import HorizontalScrollArrow from '../../../../../../../HorizontalScroll/components/Arrow';
 import { useStepperContext } from '../../../../../common/hooks';
-import { isDisabled as defaultIsDisabled } from '../../../common/data/defaultPropValues';
-import { HorizontalScrollArrowProps as HorizontalScrollLeftArrowProps } from '../common/types';
 
 const border = 2;
 
-const HorizontalScrollLeftArrow: FC<HorizontalScrollLeftArrowProps> = (props) => {
+const HorizontalScrollLeftArrow: FC = () => {
 	const theme = useTheme();
 
 	const { colorMode } = useStepperContext();
 
-	const { scroll, isDisabled = defaultIsDisabled } = props;
+	const scroll = useContext(ScrollContext);
 	const {
 		getPrevItem,
-		isFirstItemVisible = false,
 		scrollToItem,
-		visibleItemsWithoutSeparators = [],
-		initComplete = false
+		initComplete = false,
+		isFirstItemVisible = false,
+		visibleElements = []
 	} = scroll || {};
 
-	const [isVisible, setIsVisible] = useBoolean(true);
+	const [isVisible, setIsVisible] = useBoolean();
 	const debouncedIsVisible = useDebounce<boolean>(isVisible, 'ultra-fast');
 
-	const handleScrollPrev = () => {
-		const prevItem = getPrevItem();
-		scrollToItem(prevItem?.entry?.target, 'smooth', 'center', 'nearest');
-	};
-
-	useEffect(() => {
-		if (visibleItemsWithoutSeparators.length) {
+	const handleCheckIsVisible = (): void => {
+		if (visibleElements.length) {
 			if (!initComplete || (initComplete && isFirstItemVisible)) {
 				setIsVisible.off();
 			} else {
 				setIsVisible.on();
 			}
 		}
-	}, [initComplete, visibleItemsWithoutSeparators, isFirstItemVisible]);
+	};
+
+	const handleScrollPrev = (): void => {
+		const prevItem = getPrevItem();
+		scrollToItem(prevItem?.entry?.target, 'smooth', 'nearest', 'nearest');
+	};
+
+	useEffect(() => {
+		handleCheckIsVisible();
+	}, [isFirstItemVisible, visibleElements]);
 
 	return (
 		<HorizontalScrollArrow
 			direction='left'
 			isVisible={debouncedIsVisible}
-			isDisabled={isDisabled}
-			onClick={() => handleScrollPrev()}
+			onClick={handleScrollPrev}
 			sx={{
 				'height': `calc(100% - ${border * 2}px)`,
 				'minHeight': height,

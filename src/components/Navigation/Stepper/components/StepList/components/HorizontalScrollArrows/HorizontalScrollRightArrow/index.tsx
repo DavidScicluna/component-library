@@ -1,6 +1,8 @@
-import { FC, useEffect } from 'react';
+import { FC, useContext, useEffect } from 'react';
 
 import { useBoolean } from '@chakra-ui/react';
+
+import { VisibilityContext as ScrollContext } from 'react-horizontal-scrolling-menu';
 
 import { height } from '../../..';
 import { useDebounce, useTheme } from '../../../../../../../../common/hooks';
@@ -8,43 +10,44 @@ import { convertStringToNumber } from '../../../../../../../../common/utils';
 import { getColor } from '../../../../../../../../common/utils/color';
 import HorizontalScrollArrow from '../../../../../../../HorizontalScroll/components/Arrow';
 import { useStepperContext } from '../../../../../common/hooks';
-import { isDisabled as defaultIsDisabled } from '../../../common/data/defaultPropValues';
-import { HorizontalScrollArrowProps as HorizontalScrollRightArrowProps } from '../common/types';
 
 const border = 2;
 
-const HorizontalScrollRightArrow: FC<HorizontalScrollRightArrowProps> = (props) => {
+const HorizontalScrollRightArrow: FC = () => {
 	const theme = useTheme();
 
 	const { colorMode } = useStepperContext();
 
-	const { scroll, isDisabled = defaultIsDisabled } = props;
-	const { getNextItem, isLastItemVisible = false, scrollToItem, visibleItemsWithoutSeparators = [] } = scroll || {};
+	const scroll = useContext(ScrollContext);
+	const { getNextItem, scrollToItem, initComplete = false, isLastItemVisible = false, visibleElements = [] } = scroll;
 
-	const [isVisible, setIsVisible] = useBoolean(true);
+	const [isVisible, setIsVisible] = useBoolean();
 	const debouncedIsVisible = useDebounce<boolean>(isVisible, 'ultra-fast');
 
-	const handleScrollNext = (): void => {
-		const nextItem = getNextItem();
-		scrollToItem(nextItem?.entry?.target, 'smooth', 'center', 'nearest');
-	};
-
-	useEffect(() => {
-		if (visibleItemsWithoutSeparators.length) {
-			if (isLastItemVisible) {
+	const handleCheckIsVisible = (): void => {
+		if (visibleElements.length) {
+			if (!initComplete || (initComplete && isLastItemVisible)) {
 				setIsVisible.off();
 			} else {
 				setIsVisible.on();
 			}
 		}
-	}, [visibleItemsWithoutSeparators, isLastItemVisible]);
+	};
+
+	const handleScrollNext = (): void => {
+		const nextItem = getNextItem();
+		scrollToItem(nextItem?.entry?.target, 'smooth', 'nearest', 'nearest');
+	};
+
+	useEffect(() => {
+		handleCheckIsVisible();
+	}, [isLastItemVisible, visibleElements]);
 
 	return (
 		<HorizontalScrollArrow
 			direction='right'
 			isVisible={debouncedIsVisible}
-			isDisabled={isDisabled}
-			onClick={() => handleScrollNext()}
+			onClick={handleScrollNext}
 			sx={{
 				'height': `calc(100% - ${border * 2}px)`,
 				'minHeight': height,
