@@ -8,7 +8,6 @@ import { height } from '../..';
 import { useTheme } from '../../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../../common/utils';
 import { Space } from '../../../../../../../theme/types';
-import Fade from '../../../../../../Transitions/Fade';
 import { useStepperContext } from '../../../../common/hooks';
 import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
 import useStyles from '../../common/styles';
@@ -53,7 +52,7 @@ const Step: FC<StepProps> = (props) => {
 			_disabled={{ ...style.disabled }}
 		>
 			<VStack
-				width={status !== 'idle' && status !== 'active' ? handleContentWidth() : '100%'}
+				width={handleContentWidth()}
 				height='100%'
 				alignItems='flex-start'
 				justifyContent='center'
@@ -63,11 +62,9 @@ const Step: FC<StepProps> = (props) => {
 				<StepDescription index={index} title={title} subtitle={subtitle} />
 			</VStack>
 
-			<Fade in={status !== 'idle' && status !== 'active'}>
-				<Center ref={stepIconRef}>
-					<StepIcon status={status} />
-				</Center>
-			</Fade>
+			<Center ref={stepIconRef}>
+				<StepIcon status={status} />
+			</Center>
 		</HStack>
 	);
 };

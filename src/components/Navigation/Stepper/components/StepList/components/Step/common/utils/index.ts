@@ -31,12 +31,16 @@ type GetStatusIconProps = { status: Status };
 
 export const getStatusIcon = memoize(({ status = defaultStatus }: GetStatusIconProps): Icon => {
 	switch (status) {
+		case 'success':
+			return 'check_circle_outline';
 		case 'error':
 			return 'error_outline';
+		case 'active':
+			return 'adjust';
 		case 'warning':
 			return 'warning_amber';
 		default:
-			return 'done';
+			return 'pending';
 	}
 });
 
