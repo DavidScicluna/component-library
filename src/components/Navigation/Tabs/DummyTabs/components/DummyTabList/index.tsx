@@ -1,7 +1,8 @@
-import { FC, useCallback } from 'react';
+import { FC } from 'react';
 
-import { TabList as CUIDummyTabList, HStack, Box, Center } from '@chakra-ui/react';
+import { TabList as CUIDummyTabList, Grid, GridItem, Center } from '@chakra-ui/react';
 
+import { compact } from 'lodash';
 import { useElementSize } from 'usehooks-ts';
 
 import { useTheme } from '../../../../../../common/hooks';
@@ -18,13 +19,7 @@ const DummyTabList: FC<DummyTabListProps> = ({ tabs = [], renderLeft, renderRigh
 
 	const { activeTab, color, colorMode, isFitted } = useDummyTabsContext();
 
-	const [leftRef, { width: leftWidth }] = useElementSize();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
-	const [rightRef, { width: rightWidth }] = useElementSize();
-
-	const handleChildrenWidth = useCallback((): string => {
-		return `calc(100% - ${(renderLeft ? leftWidth : 0) + (renderRight ? rightWidth : 0)}px)`;
-	}, [renderLeft, renderRight]);
 
 	return (
 		<CUIDummyTabList
@@ -39,14 +34,27 @@ const DummyTabList: FC<DummyTabListProps> = ({ tabs = [], renderLeft, renderRigh
 				'& .react-horizontal-scrolling-menu--item': isFitted ? { width: '100%' } : {}
 			}}
 		>
-			<HStack width='100%' height='100%' alignItems='stretch' justifyContent='stretch' spacing={0}>
+			<Grid
+				width='100%'
+				height='100%'
+				templateColumns={compact([renderLeft ? 'auto' : null, '1fr', renderRight ? 'auto' : null]).join(' ')}
+				templateRows='1fr'
+				autoFlow='row'
+				justifyContent='stretch'
+				alignContent='stretch'
+				justifyItems='stretch'
+				alignItems='stretch'
+				gap={0}
+			>
 				{renderLeft && (
-					<Center ref={leftRef} width='100%' height='100%'>
-						{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
-					</Center>
+					<GridItem>
+						<Center width='100%' height='100%'>
+							{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+						</Center>
+					</GridItem>
 				)}
 
-				<Box ref={childrenRef} width={handleChildrenWidth()} height='100%'>
+				<GridItem ref={childrenRef}>
 					<HorizontalScroll
 						width='100%'
 						height='100%'
@@ -63,14 +71,16 @@ const DummyTabList: FC<DummyTabListProps> = ({ tabs = [], renderLeft, renderRigh
 							/>
 						))}
 					</HorizontalScroll>
-				</Box>
+				</GridItem>
 
 				{renderRight && (
-					<Center ref={rightRef} width='100%' height='100%'>
-						{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
-					</Center>
+					<GridItem>
+						<Center width='100%' height='100%'>
+							{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+						</Center>
+					</GridItem>
 				)}
-			</HStack>
+			</Grid>
 		</CUIDummyTabList>
 	);
 };
