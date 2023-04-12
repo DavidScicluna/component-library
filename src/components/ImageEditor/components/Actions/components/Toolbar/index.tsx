@@ -23,8 +23,8 @@ const Toolbar: FC<ToolbarProps> = ({ onSelectTool, onZoom }) => {
 			LeftArrow={<HorizontalScrollLeftArrow scroll={scrollDebounced} />}
 			RightArrow={<HorizontalScrollRightArrow scroll={scrollDebounced} />}
 			renderDivider={({ padding }) => <Center padding={padding} />}
-			onInit={(scroll) => setScroll(scroll)}
-			onUpdate={(scroll) => setScroll(scroll)}
+			onInit={setScroll}
+			onUpdate={setScroll}
 			sx={{ '& .wrapperContainer': { alignItems: 'center', justifyContent: 'center' } }}
 		>
 			<Tool
