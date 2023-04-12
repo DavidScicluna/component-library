@@ -60,8 +60,8 @@ const HorizontalGridTabbedHeader: FC<HorizontalGridTabbedHeaderProps> = (props) 
 						<HorizontalGridArrows
 							isLeftDisabled={debouncedIsLeftArrowDisabled || !scroll}
 							isRightDisabled={debouncedIsRightArrowDisabled || !scroll}
-							onLeftClick={scrollPrev}
-							onRightClick={scrollNext}
+							onLeftClick={() => scrollPrev()}
+							onRightClick={() => scrollNext()}
 							arrowProps={{ ...arrowProps, color, colorMode }}
 						/>
 					</HStack>
