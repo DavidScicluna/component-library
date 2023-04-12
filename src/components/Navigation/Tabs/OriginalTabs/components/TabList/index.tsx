@@ -1,7 +1,8 @@
-import { FC, useState, useCallback } from 'react';
+import { FC, useState } from 'react';
 
-import { TabList as CUITabList, HStack, Box, Center } from '@chakra-ui/react';
+import { TabList as CUITabList, Grid, GridItem, Center } from '@chakra-ui/react';
 
+import { compact } from 'lodash';
 import { useElementSize } from 'usehooks-ts';
 
 import { useDebounce, useTheme } from '../../../../../../common/hooks';
@@ -19,16 +20,10 @@ const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest
 
 	const { activeTab, color, colorMode, isDisabled, isFitted, onChange } = useTabsContext();
 
-	const [leftRef, { width: leftWidth }] = useElementSize();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
-	const [rightRef, { width: rightWidth }] = useElementSize();
 
 	const [scroll, setScroll] = useState<HorizontalScrollAPIContext>({} as HorizontalScrollAPIContext);
 	const scrollDebounced = useDebounce<HorizontalScrollAPIContext>(scroll, 'ultra-fast');
-
-	const handleChildrenWidth = useCallback((): string => {
-		return `calc(100% - ${(renderLeft ? leftWidth : 0) + (renderRight ? rightWidth : 0)}px)`;
-	}, [renderLeft, renderRight]);
 
 	const handleScrollToTab = (index: number): void => {
 		if (scrollDebounced) {
@@ -63,14 +58,27 @@ const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest
 				'& .react-horizontal-scrolling-menu--item': isFitted ? { width: '100%' } : {}
 			}}
 		>
-			<HStack width='100%' height='100%' alignItems='stretch' justifyContent='stretch' spacing={0}>
+			<Grid
+				width='100%'
+				height='100%'
+				templateColumns={compact([renderLeft ? 'auto' : null, '1fr', renderRight ? 'auto' : null]).join(' ')}
+				templateRows='1fr'
+				autoFlow='row'
+				justifyContent='stretch'
+				alignContent='stretch'
+				justifyItems='stretch'
+				alignItems='stretch'
+				gap={0}
+			>
 				{renderLeft && (
-					<Center ref={leftRef} width='100%' height='100%'>
-						{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
-					</Center>
+					<GridItem>
+						<Center width='100%' height='100%'>
+							{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+						</Center>
+					</GridItem>
 				)}
 
-				<Box ref={childrenRef} width={handleChildrenWidth()} height='100%'>
+				<GridItem ref={childrenRef}>
 					<HorizontalScroll
 						width='100%'
 						height='100%'
@@ -78,8 +86,8 @@ const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest
 						LeftArrow={HorizontalScrollLeftArrow}
 						RightArrow={HorizontalScrollRightArrow}
 						isDisabled={isDisabled}
-						onInit={(scroll) => setScroll(scroll)}
-						onUpdate={(scroll) => setScroll(scroll)}
+						onInit={setScroll}
+						onUpdate={setScroll}
 					>
 						{tabs.map((tab, index) => (
 							<Tab
@@ -92,14 +100,16 @@ const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest
 							/>
 						))}
 					</HorizontalScroll>
-				</Box>
+				</GridItem>
 
 				{renderRight && (
-					<Center ref={rightRef} width='100%' height='100%'>
-						{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
-					</Center>
+					<GridItem>
+						<Center width='100%' height='100%'>
+							{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+						</Center>
+					</GridItem>
 				)}
-			</HStack>
+			</Grid>
 		</CUITabList>
 	);
 };
