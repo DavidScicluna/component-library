@@ -8,6 +8,7 @@ import { useDebounce, useTheme } from '../../../../../common/hooks';
 import { convertStringToNumber } from '../../../../../common/utils';
 import Divider from '../../../../Divider';
 import HorizontalScroll from '../../../../HorizontalScroll';
+import { HorizontalScrollAPIContext } from '../../../../HorizontalScroll/types';
 import { useStepperContext } from '../../common/hooks';
 
 import { isDisabled as defaultIsDisabled } from './common/data/defaultPropValues';
@@ -17,7 +18,7 @@ import Next from './components/Next';
 import Step from './components/Step';
 import { getStatus as getStepStatus } from './components/Step/common/utils';
 import { Status } from './components/Step/types';
-import { StepListProps, ScrollContext } from './types';
+import { StepListProps } from './types';
 
 export const width = '112px';
 export const height = '112px';
@@ -29,8 +30,8 @@ const StepList: FC<StepListProps> = ({ children = [], isDisabled = defaultIsDisa
 
 	const { activeStep, colorMode, onChange, onSubmit } = useStepperContext();
 
-	const [scroll, setScroll] = useState<ScrollContext>({} as ScrollContext);
-	const scrollDebounced = useDebounce(scroll, 'ultra-fast');
+	const [scroll, setScroll] = useState<HorizontalScrollAPIContext>({} as HorizontalScrollAPIContext);
+	const scrollDebounced = useDebounce<HorizontalScrollAPIContext>(scroll, 'ultra-fast');
 
 	const [hasErrors, setHasErrors] = useBoolean();
 	const hasErrorsDebounced = useDebounce(hasErrors);
@@ -48,10 +49,12 @@ const StepList: FC<StepListProps> = ({ children = [], isDisabled = defaultIsDisa
 	};
 
 	const handleScrollToStep = (index: number): void => {
-		const scrollElement = scrollDebounced?.getItemElementByIndex(index);
+		if (scrollDebounced) {
+			const scrollElement = scrollDebounced.getItemByIndex(index);
 
-		if (scrollElement) {
-			scrollDebounced?.scrollToItem?.(scrollElement, 'smooth', 'center', 'nearest');
+			if (scrollElement) {
+				scrollDebounced.scrollToItem?.(scrollElement, 'smooth', 'center', 'nearest');
+			}
 		}
 	};
 
@@ -100,15 +103,17 @@ const StepList: FC<StepListProps> = ({ children = [], isDisabled = defaultIsDisa
 					<Cancel isDisabled={isDisabled} />
 					<Center width={`calc(100% - ${convertStringToNumber(width, 'px') * 2}px)`}>
 						<HorizontalScroll
+							width='100%'
+							height='100%'
 							colorMode={colorMode}
-							LeftArrow={<HorizontalScrollLeftArrow scroll={scrollDebounced} isDisabled={isDisabled} />}
-							RightArrow={<HorizontalScrollRightArrow scroll={scrollDebounced} isDisabled={isDisabled} />}
+							LeftArrow={HorizontalScrollLeftArrow}
+							RightArrow={HorizontalScrollRightArrow}
 							renderDivider={() => (
 								<Divider colorMode={colorMode} orientation='vertical' height={height} />
 							)}
 							isDisabled={isDisabled}
-							onInit={(scroll) => setScroll(scroll)}
-							onUpdate={(scroll) => setScroll(scroll)}
+							onInit={setScroll}
+							onUpdate={setScroll}
 						>
 							{children.map((step, index) => (
 								<Step
@@ -152,15 +157,17 @@ const StepList: FC<StepListProps> = ({ children = [], isDisabled = defaultIsDisa
 					</HStack>
 					<Center width='100%'>
 						<HorizontalScroll
+							width='100%'
+							height='100%'
 							colorMode={colorMode}
+							LeftArrow={HorizontalScrollLeftArrow}
+							RightArrow={HorizontalScrollRightArrow}
 							renderDivider={() => (
 								<Divider colorMode={colorMode} orientation='vertical' height={height} />
 							)}
-							LeftArrow={<HorizontalScrollLeftArrow scroll={scrollDebounced} isDisabled={isDisabled} />}
-							RightArrow={<HorizontalScrollRightArrow scroll={scrollDebounced} isDisabled={isDisabled} />}
 							isDisabled={isDisabled}
-							onInit={(scroll) => setScroll(scroll)}
-							onUpdate={(scroll) => setScroll(scroll)}
+							onInit={setScroll}
+							onUpdate={setScroll}
 						>
 							{children.map((step, index) => (
 								<Step
