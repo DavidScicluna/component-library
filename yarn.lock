@@ -2666,6 +2666,7 @@ __metadata:
     "@rollup/plugin-image": ^3.0.2
     "@rollup/plugin-node-resolve": ^15.0.1
     "@rollup/plugin-strip": ^3.0.2
+    "@rollup/plugin-typescript": ^11.1.0
     "@storybook/addon-essentials": ^7.0.2
     "@storybook/addon-interactions": ^7.0.2
     "@storybook/addon-links": ^7.0.2
@@ -2708,7 +2709,6 @@ __metadata:
     rollup-plugin-gzip: ^3.1.0
     rollup-plugin-peer-deps-external: ^2.2.4
     rollup-plugin-postcss: ^4.0.2
-    rollup-plugin-typescript2: ^0.34.1
     rooks: ^7.10.0
     spinners-react: ^1.0.7
     storybook: ^7.0.2
@@ -3539,13 +3539,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/pluginutils@npm:^4.1.2":
-  version: 4.2.1
-  resolution: "@rollup/pluginutils@npm:4.2.1"
+"@rollup/plugin-typescript@npm:^11.1.0":
+  version: 11.1.0
+  resolution: "@rollup/plugin-typescript@npm:11.1.0"
   dependencies:
-    estree-walker: ^2.0.1
-    picomatch: ^2.2.2
-  checksum: 6bc41f22b1a0f1efec3043899e4d3b6b1497b3dea4d94292d8f83b4cf07a1073ecbaedd562a22d11913ff7659f459677b01b09e9598a98936e746780ecc93a12
+    "@rollup/pluginutils": ^5.0.1
+    resolve: ^1.22.1
+  peerDependencies:
+    rollup: ^2.14.0||^3.0.0
+    tslib: "*"
+    typescript: ">=3.7.0"
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+    tslib:
+      optional: true
+  checksum: 64ed5abbae392032fb190a5d3a29beb73f968919aed964ed5545e2732de6a1670f97131785e9376c06f784ae61545c5ad47352c126f3830aaa16b669bee2e9b9
   languageName: node
   linkType: hard
 
@@ -8085,7 +8094,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"estree-walker@npm:^2.0.1, estree-walker@npm:^2.0.2":
+"estree-walker@npm:^2.0.2":
   version: 2.0.2
   resolution: "estree-walker@npm:2.0.2"
   checksum: 6151e6f9828abe2259e57f5fd3761335bb0d2ebd76dc1a01048ccee22fabcfef3c0859300f6d83ff0d1927849368775ec5a6d265dde2f6de5a1be1721cd94efc
@@ -11716,7 +11725,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.2.2, picomatch@npm:^2.2.3, picomatch@npm:^2.3.0, picomatch@npm:^2.3.1":
+"picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.2.3, picomatch@npm:^2.3.0, picomatch@npm:^2.3.1":
   version: 2.3.1
   resolution: "picomatch@npm:2.3.1"
   checksum: 050c865ce81119c4822c45d3c84f1ced46f93a0126febae20737bd05ca20589c564d6e9226977df859ed5e03dc73f02584a2b0faad36e896936238238b0446cf
@@ -13111,22 +13120,6 @@ __metadata:
   peerDependencies:
     postcss: 8.x
   checksum: 67875e024fa36ba4bd43604dc50d02eabba0c93626cc372588260ae42aae3f98015ea1b0c3a78bcbd345ebea465ef636e5cb0f60dbc8b2e94fbe2514384395f0
-  languageName: node
-  linkType: hard
-
-"rollup-plugin-typescript2@npm:^0.34.1":
-  version: 0.34.1
-  resolution: "rollup-plugin-typescript2@npm:0.34.1"
-  dependencies:
-    "@rollup/pluginutils": ^4.1.2
-    find-cache-dir: ^3.3.2
-    fs-extra: ^10.0.0
-    semver: ^7.3.7
-    tslib: ^2.4.0
-  peerDependencies:
-    rollup: ">=1.26.3"
-    typescript: ">=2.4.0"
-  checksum: 107e66b9ab1aaf4b237564e500ea9de9f2d3f0a81be5139dc753fc76bbf00a1a2230eb1ec59145d2dfc4c4da9be8211f1f3e1370007efe1e24ce45a00905e558
   languageName: node
   linkType: hard
 

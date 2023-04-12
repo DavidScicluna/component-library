@@ -5,10 +5,10 @@ import eslint from '@rollup/plugin-eslint';
 import image from '@rollup/plugin-image';
 import resolve from '@rollup/plugin-node-resolve';
 import strip from '@rollup/plugin-strip';
+import typescript from '@rollup/plugin-typescript';
 import gzip from 'rollup-plugin-gzip';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
-import typescript from 'rollup-plugin-typescript2';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const pj = require('./package.json');
@@ -36,9 +36,8 @@ export default {
 		// dynamicImportVars(),
 		eslint(),
 		typescript({
-			useTsconfigDeclarationDir: true,
-			rollupCommonJSResolveHack: false,
-			clean: true
+			include: ['src/**/*'],
+			exclude: ['.vscode', '.storybook', '.yarn', 'build', 'node_modules', 'stories']
 		}),
 		postcss({ extensions: ['.css'] }),
 		image(),
