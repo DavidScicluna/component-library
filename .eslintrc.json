@@ -36,7 +36,8 @@
 		"plugin:react/recommended",
 		"plugin:jsx-a11y/recommended",
 		"plugin:react-hooks/recommended",
-		"plugin:@typescript-eslint/recommended"
+		"plugin:@typescript-eslint/recommended",
+		"plugin:storybook/recommended"
 	],
 	"plugins": ["import"],
 	"rules": {

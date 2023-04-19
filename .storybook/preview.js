@@ -1,4 +1,7 @@
 import Provider from '../src/components/Provider';
+import theme from '../src/theme';
+
+// import { ChakraProviderDecorator } from '@chakra-ui/storybook-addon/dist/feature/decorator/ChakraProviderDecorator';
 
 // Importing Main Fonts (Work Sans & Roboto)
 import '@fontsource/work-sans/100.css';
@@ -49,6 +52,10 @@ import '@fontsource/roboto-mono/700-italic.css';
 import '@fontsource/material-icons';
 import '@fontsource/material-icons-outlined';
 
+export const parameters = {
+	chakra: { theme }
+};
+
 export const decorators = [
 	(Story) => (
 		<Provider>
@@ -56,3 +63,5 @@ export const decorators = [
 		</Provider>
 	)
 ];
+
+// export const decorators = [ChakraProviderDecorator];
