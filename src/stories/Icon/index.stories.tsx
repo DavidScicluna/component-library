@@ -1,8 +1,8 @@
 import { ReactElement } from 'react';
 
-import { sample } from 'lodash';
+import { sample } from 'lodash-es';
 
-import { Icon as IconComponent,IconCategory, IconProps, IconType } from '../..';
+import { Icon as IconComponent, IconCategory, IconProps, IconType } from '../..';
 import icons from '../../common/data/icons';
 import controls from '../common/controls';
 import parameters from '../common/parameters';

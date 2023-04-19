@@ -1,8 +1,8 @@
 import { ReactElement } from 'react';
 
-import { Text,VStack } from '@chakra-ui/react';
+import { Text, VStack } from '@chakra-ui/react';
 
-import { range, toString } from 'lodash';
+import { range, toString } from 'lodash-es';
 
 import {
 	Accordion,

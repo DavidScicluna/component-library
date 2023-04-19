@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 
-import { range, sample } from 'lodash';
+import { range, sample } from 'lodash-es';
 
 import icons from '../../../common/data/icons';
 import Icon from '../../../components/Icon';

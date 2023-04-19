@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { SimpleGrid } from '@chakra-ui/react';
 
-import { compact } from 'lodash';
+import { compact } from 'lodash-es';
 
 import { useDatePickerContext } from '../../../../common/hooks';
 import CalendarDay from '../CalendarDay';

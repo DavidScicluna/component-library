@@ -1,8 +1,8 @@
-import { createContext, FC, useCallback,useRef } from 'react';
+import { createContext, FC, useCallback, useRef } from 'react';
 
-import { Center,Checkbox as CUICheckbox, FormControl, HStack, useColorMode, VStack } from '@chakra-ui/react';
+import { Center, Checkbox as CUICheckbox, FormControl, HStack, useColorMode, VStack } from '@chakra-ui/react';
 
-import { debounce, isEmpty, isNil, merge } from 'lodash';
+import { debounce, isEmpty, isNil, merge } from 'lodash-es';
 
 import { useTheme } from '../../../common/hooks';
 import Icon from '../../Icon';

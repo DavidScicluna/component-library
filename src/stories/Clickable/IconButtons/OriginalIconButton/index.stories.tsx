@@ -1,13 +1,14 @@
 import { ReactElement } from 'react';
 
-import { sample } from 'lodash';
+import { sample } from 'lodash-es';
 
 import {
 	IconButton as IconButtonComponent,
 	IconButtonColor,
 	IconButtonProps,
 	IconButtonSize,
-	IconButtonVariant} from '../../../..';
+	IconButtonVariant
+} from '../../../..';
 import icons from '../../../../common/data/icons';
 import { Icon as IconType } from '../../../../common/types/icons';
 import {

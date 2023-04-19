@@ -4,13 +4,14 @@ import { useInView } from 'react-cool-inview';
 import { Box, Center, useBoolean, useConst, VisuallyHidden, VStack } from '@chakra-ui/react';
 import { dataAttr } from '@chakra-ui/utils';
 
-import { merge } from 'lodash';
+import { merge } from 'lodash-es';
 
 import { useTheme } from '../../../../../common/hooks';
 import Collapse from '../../../../Transitions/Collapse';
 import {
 	getConfig as getTransitionConfig,
-	getDuration as getTransitionDuration} from '../../../../Transitions/common/utils';
+	getDuration as getTransitionDuration
+} from '../../../../Transitions/common/utils';
 import { spacing as defaultSpacing } from '../../../common/data/defaultPropValues';
 import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
 import { useAccordionsContext } from '../../common/hooks';

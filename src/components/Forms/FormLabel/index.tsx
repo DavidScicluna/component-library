@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import { Center,FormLabel as CUIFormLabel, HStack } from '@chakra-ui/react';
+import { Center, FormLabel as CUIFormLabel, HStack } from '@chakra-ui/react';
 
-import { merge } from 'lodash';
+import { merge } from 'lodash-es';
 
 import { useTheme } from '../../../common/hooks';
 

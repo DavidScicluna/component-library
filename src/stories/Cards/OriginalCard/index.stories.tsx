@@ -1,8 +1,8 @@
 import { ReactElement } from 'react';
 
-import { Text,VStack } from '@chakra-ui/react';
+import { Text, VStack } from '@chakra-ui/react';
 
-import { range } from 'lodash';
+import { range } from 'lodash-es';
 
 import {
 	Card as CardComponent,

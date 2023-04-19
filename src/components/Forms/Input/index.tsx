@@ -1,4 +1,4 @@
-import { forwardRef, ReactElement, useCallback, useEffect,useRef } from 'react';
+import { forwardRef, ReactElement, useCallback, useEffect, useRef } from 'react';
 
 import {
 	Center,
@@ -8,10 +8,11 @@ import {
 	InputGroup,
 	useBoolean,
 	useColorMode,
-	VStack} from '@chakra-ui/react';
+	VStack
+} from '@chakra-ui/react';
 
-import { debounce, isEmpty, isNil } from 'lodash';
-import merge from 'lodash/merge';
+import { debounce, isEmpty, isNil } from 'lodash-es';
+import merge from 'lodash-es/merge';
 
 import { useTheme } from '../../../common/hooks';
 import Collapse from '../../Transitions/Collapse';
@@ -34,7 +35,7 @@ import {
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
-import { InputFocusEvent,InputProps, InputRef } from './types';
+import { InputFocusEvent, InputProps, InputRef } from './types';
 
 const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): ReactElement {
 	const theme = useTheme();

@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import { Box,useColorMode } from '@chakra-ui/react';
+import { Box, useColorMode } from '@chakra-ui/react';
 
-import { merge } from 'lodash';
+import { merge } from 'lodash-es';
 
 import { useTheme } from '../../../../common/hooks';
 import Skeleton from '../../../Skeleton';

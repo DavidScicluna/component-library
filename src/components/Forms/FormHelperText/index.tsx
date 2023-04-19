@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { FormHelperText as CUIFormHelperText } from '@chakra-ui/react';
 
-import { merge } from 'lodash';
+import { merge } from 'lodash-es';
 
 import { useTheme } from '../../../common/hooks';
 

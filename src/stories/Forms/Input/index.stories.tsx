@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 
-import { sample } from 'lodash';
+import { sample } from 'lodash-es';
 
 import icons from '../../../common/data/icons';
 import InputComponent from '../../../components/Forms/Input';
@@ -21,7 +21,8 @@ import {
 	InputColor,
 	InputPanelRenderProps,
 	InputProps,
-	InputSize} from '../../../components/Forms/Input/types';
+	InputSize
+} from '../../../components/Forms/Input/types';
 import Icon from '../../../components/Icon';
 // eslint-disable-next-line max-len
 // import { InputColor, InputProps, InputRef, InputSize, Input as InputComponent, InputHeader, InputBody, InputFooter } from '../..';

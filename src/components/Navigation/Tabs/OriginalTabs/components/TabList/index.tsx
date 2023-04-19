@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
 
-import { Center,Grid, GridItem, TabList as CUITabList } from '@chakra-ui/react';
+import { Center, Grid, GridItem, TabList as CUITabList } from '@chakra-ui/react';
 
-import { compact } from 'lodash';
+import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { useDebounce, useTheme } from '../../../../../../common/hooks';

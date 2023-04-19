@@ -1,8 +1,8 @@
-import { forwardRef, Fragment,ReactElement } from 'react';
+import { forwardRef, Fragment, ReactElement } from 'react';
 
-import { Tooltip as CUITooltip,useColorMode } from '@chakra-ui/react';
+import { Tooltip as CUITooltip, useColorMode } from '@chakra-ui/react';
 
-import { merge } from 'lodash';
+import { merge } from 'lodash-es';
 
 import { useTheme } from '../../../common/hooks';
 import { checkIsTouchDevice, convertStringToNumber } from '../../../common/utils';
@@ -14,7 +14,7 @@ import {
 	gutter as defaultGutter
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
-import { TooltipProps,TooltipRef } from './types';
+import { TooltipProps, TooltipRef } from './types';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 

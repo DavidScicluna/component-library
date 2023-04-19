@@ -1,8 +1,8 @@
-import { FC, useCallback,useState } from 'react';
+import { FC, useCallback, useState } from 'react';
 
-import { FormControl, HStack,useColorMode, VStack } from '@chakra-ui/react';
+import { FormControl, HStack, useColorMode, VStack } from '@chakra-ui/react';
 
-import { debounce, includes, isEmpty, isNil, merge, range } from 'lodash';
+import { debounce, includes, isEmpty, isNil, merge, range } from 'lodash-es';
 
 import { useTheme } from '../../../common/hooks';
 import Collapse from '../../Transitions/Collapse';

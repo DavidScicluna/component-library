@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 
-import { sample } from 'lodash';
+import { sample } from 'lodash-es';
 
 import {
 	ButtonGroup as ButtonGroupComponent,

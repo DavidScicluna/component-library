@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { Box } from '@chakra-ui/react';
 
-import { merge } from 'lodash';
+import { merge } from 'lodash-es';
 
 import { useTheme } from '../../../../../common/hooks';
 import { useButtonGroupContext } from '../../common/hooks';

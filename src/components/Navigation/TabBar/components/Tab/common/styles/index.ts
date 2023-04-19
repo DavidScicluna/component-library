@@ -1,4 +1,4 @@
-import { merge } from 'lodash';
+import { merge } from 'lodash-es';
 
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/data/defaultPropValues';
 import { isActive as defaultIsActive } from '../data/defaultPropValues';

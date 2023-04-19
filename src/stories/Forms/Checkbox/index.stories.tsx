@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 
 import { VStack } from '@chakra-ui/react';
 
-import { sample } from 'lodash';
+import { sample } from 'lodash-es';
 
 // import icons from '../../../common/data/icons';
 import CheckboxComponent from '../../../components/Forms/Checkbox';
@@ -26,7 +26,8 @@ import {
 	CheckboxProps,
 	// CheckboxPanelRenderProps,
 	CheckboxSize,
-	CheckboxVariant} from '../../../components/Forms/Checkbox/types';
+	CheckboxVariant
+} from '../../../components/Forms/Checkbox/types';
 // import Icon from '../../../components/Icon';
 // eslint-disable-next-line max-len
 // import { CheckboxColor, CheckboxProps, CheckboxRef, CheckboxSize, Checkbox as CheckboxComponent, CheckboxHeader, CheckboxBody, CheckboxFooter } from '../..';

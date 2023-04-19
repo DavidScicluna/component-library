@@ -1,8 +1,8 @@
-import { forwardRef,ReactElement } from 'react';
+import { forwardRef, ReactElement } from 'react';
 
-import { Button as CUIButton, Center,HStack, useColorMode } from '@chakra-ui/react';
+import { Button as CUIButton, Center, HStack, useColorMode } from '@chakra-ui/react';
 
-import merge from 'lodash/merge';
+import merge from 'lodash-es/merge';
 import { useElementSize } from 'usehooks-ts';
 
 import { useTheme } from '../../../../common/hooks';
@@ -20,7 +20,7 @@ import { getSizeConfig } from '../common/utils';
 
 import useStyles from './common/styles';
 import Spinner from './components/Spinner';
-import { ButtonProps,ButtonRef } from './types';
+import { ButtonProps, ButtonRef } from './types';
 
 const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): ReactElement {
 	const theme = useTheme();

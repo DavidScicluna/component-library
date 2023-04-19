@@ -1,4 +1,4 @@
-import { range } from 'lodash';
+import { range } from 'lodash-es';
 
 type Year = number;
 type Years = Year[];

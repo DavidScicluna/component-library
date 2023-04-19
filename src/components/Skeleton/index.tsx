@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import { Box, Skeleton as CUISkeleton,useColorMode } from '@chakra-ui/react';
+import { Box, Skeleton as CUISkeleton, useColorMode } from '@chakra-ui/react';
 
-import { round } from 'lodash';
+import { round } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { useTheme } from '../../common/hooks';
@@ -18,7 +18,7 @@ import {
 	isReversed as defaultIsReversed,
 	variant as defaultVariant
 } from './common/data/defaultPropValues';
-import { getSkeletonAnimationColor, getSkeletonDelay,getSkeletonDuration } from './common/utils';
+import { getSkeletonAnimationColor, getSkeletonDelay, getSkeletonDuration } from './common/utils';
 import { SkeletonProps } from './types';
 
 const Skeleton: FC<SkeletonProps> = (props) => {

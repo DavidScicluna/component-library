@@ -1,4 +1,4 @@
-import { merge } from 'lodash';
+import { merge } from 'lodash-es';
 import memoize from 'micro-memoize';
 
 import { colorMode as defaultColorMode, size as defaultSize } from '../data/defaultPropValues';

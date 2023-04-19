@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 
-import { sample } from 'lodash';
+import { sample } from 'lodash-es';
 
 import {
 	DummyIconButton as DummyIconButtonComponent,
@@ -9,7 +9,8 @@ import {
 	IconButtonColor,
 	IconButtonSize,
 	IconButtonVariant,
-	IconType} from '../../../..';
+	IconType
+} from '../../../..';
 import icons from '../../../../common/data/icons';
 import {
 	color as defaultColor,

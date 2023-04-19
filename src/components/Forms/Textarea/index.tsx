@@ -1,4 +1,4 @@
-import { ReactElement, useCallback, useEffect,useRef } from 'react';
+import { ReactElement, useCallback, useEffect, useRef } from 'react';
 
 import {
 	Center,
@@ -8,10 +8,11 @@ import {
 	Textarea as CUITextarea,
 	useBoolean,
 	useColorMode,
-	VStack} from '@chakra-ui/react';
+	VStack
+} from '@chakra-ui/react';
 
-import { debounce, isEmpty, isNil } from 'lodash';
-import merge from 'lodash/merge';
+import { debounce, isEmpty, isNil } from 'lodash-es';
+import merge from 'lodash-es/merge';
 
 import { useTheme } from '../../../common/hooks';
 import Collapse from '../../Transitions/Collapse';
@@ -35,7 +36,7 @@ import {
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
-import { TextareaFocusEvent,TextareaProps, TextareaRef } from './types';
+import { TextareaFocusEvent, TextareaProps, TextareaRef } from './types';
 
 const Textarea = (props: TextareaProps): ReactElement => {
 	const theme = useTheme();

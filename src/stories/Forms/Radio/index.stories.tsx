@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 
 import { VStack } from '@chakra-ui/react';
 
-import { sample } from 'lodash';
+import { sample } from 'lodash-es';
 
 // import icons from '../../../common/data/icons';
 import RadioComponent from '../../../components/Forms/Radio';
@@ -25,7 +25,8 @@ import {
 	RadioProps,
 	// RadioPanelRenderProps,
 	RadioSize,
-	RadioVariant} from '../../../components/Forms/Radio/types';
+	RadioVariant
+} from '../../../components/Forms/Radio/types';
 // import Icon from '../../../components/Icon';
 // eslint-disable-next-line max-len
 // import { RadioColor, RadioProps, RadioRef, RadioSize, Radio as RadioComponent, RadioHeader, RadioBody, RadioFooter } from '../..';

@@ -1,8 +1,8 @@
-import { createContext, forwardRef,ReactElement } from 'react';
+import { createContext, forwardRef, ReactElement } from 'react';
 
-import { Badge as CUIBadge, HStack,useColorMode } from '@chakra-ui/react';
+import { Badge as CUIBadge, HStack, useColorMode } from '@chakra-ui/react';
 
-import { merge } from 'lodash';
+import { merge } from 'lodash-es';
 
 import { useTheme } from '../../../common/hooks';
 
@@ -15,7 +15,7 @@ import {
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
-import { BadgeContext as BadgeContextType, BadgeProps,BadgeRef } from './types';
+import { BadgeContext as BadgeContextType, BadgeProps, BadgeRef } from './types';
 
 export const BadgeContext = createContext<BadgeContextType>({
 	color: defaultColor,

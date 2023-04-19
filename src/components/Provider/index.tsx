@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 
-import { merge } from 'lodash';
+import { merge } from 'lodash-es';
 
 import defaultTheme from '../../theme';
 import TransitionsProvider from '../Transitions/TransitionsProvider';

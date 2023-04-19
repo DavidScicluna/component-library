@@ -3,7 +3,7 @@ import { FC, useEffect, useRef } from 'react';
 import { Center } from '@chakra-ui/react';
 import { dataAttr } from '@chakra-ui/utils';
 
-import { merge } from 'lodash';
+import { merge } from 'lodash-es';
 
 import { useTheme } from '../../../../../../../../../../../common/hooks';
 import { useDatePickerContext } from '../../../../../../../../common/hooks';

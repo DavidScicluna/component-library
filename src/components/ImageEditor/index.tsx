@@ -1,9 +1,9 @@
-import { createContext, FC, useCallback,useState } from 'react';
+import { createContext, FC, useCallback, useState } from 'react';
 import Cropper, { Area } from 'react-easy-crop';
 
-import { Center, Text,useColorMode } from '@chakra-ui/react';
+import { Center, Text, useColorMode } from '@chakra-ui/react';
 
-import { debounce } from 'lodash';
+import { debounce } from 'lodash-es';
 
 import { Nullable } from '../../common/types';
 import IconButton from '../Clickable/IconButtons/OriginalIconButton';
@@ -31,7 +31,8 @@ import {
 	ImageEditorMode,
 	ImageEditorModeCropID,
 	ImageEditorModeCropValue,
-	ImageEditorProps} from './types';
+	ImageEditorProps
+} from './types';
 
 export const minZoom = 1;
 export const maxZoom = 5;

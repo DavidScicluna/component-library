@@ -1,4 +1,4 @@
-import { forwardRef, ReactElement, useCallback,useState } from 'react';
+import { forwardRef, ReactElement, useCallback, useState } from 'react';
 
 import {
 	Button as CUIButton,
@@ -10,9 +10,10 @@ import {
 	PopoverTrigger,
 	useBoolean,
 	useDisclosure,
-	VStack} from '@chakra-ui/react';
+	VStack
+} from '@chakra-ui/react';
 
-import { merge } from 'lodash';
+import { merge } from 'lodash-es';
 import { useElementSize, useUpdateEffect } from 'usehooks-ts';
 
 import { useTheme } from '../../../../../../../../../common/hooks';
@@ -24,7 +25,7 @@ import { useDatePickerContext } from '../../../../../../common/hooks';
 
 import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
-import { DropdownButtonProps,DropdownButtonRef } from './types';
+import { DropdownButtonProps, DropdownButtonRef } from './types';
 
 const DropdownButton = forwardRef<DropdownButtonRef, DropdownButtonProps>(function DropdownButton(
 	props,

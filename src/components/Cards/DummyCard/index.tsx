@@ -1,8 +1,8 @@
-import { createContext, forwardRef,ReactElement } from 'react';
+import { createContext, forwardRef, ReactElement } from 'react';
 
 import { Center, useColorMode, VStack } from '@chakra-ui/react';
 
-import merge from 'lodash/merge';
+import merge from 'lodash-es/merge';
 
 import { useTheme } from '../../../common/hooks';
 import {
@@ -17,7 +17,7 @@ import {
 
 import useStyles from './common/styles';
 import DummyCardDivider from './components/DummyCardDivider';
-import { DummyCardContext as DummyCardContextType, DummyCardProps,DummyCardRef } from './types';
+import { DummyCardContext as DummyCardContextType, DummyCardProps, DummyCardRef } from './types';
 
 export const DummyCardContext = createContext<DummyCardContextType>({
 	color: defaultColor,

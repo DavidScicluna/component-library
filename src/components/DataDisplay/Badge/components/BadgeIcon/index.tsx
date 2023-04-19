@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { merge } from 'lodash';
+import { merge } from 'lodash-es';
 
 import { useTheme } from '../../../../../common/hooks';
 import Icon from '../../../../Icon';

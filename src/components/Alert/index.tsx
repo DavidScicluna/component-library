@@ -1,12 +1,12 @@
-import { FC, useCallback, useEffect,useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 
-import { Center, HStack, Progress, Text,useColorMode, useConst, VStack } from '@chakra-ui/react';
+import { Center, HStack, Progress, Text, useColorMode, useConst, VStack } from '@chakra-ui/react';
 
 import { transparentize } from 'color2k';
-import { round, sample } from 'lodash';
+import { round, sample } from 'lodash-es';
 import { useCountdown, useElementSize, useUpdateEffect } from 'usehooks-ts';
 
-import { errorEmojis, errorTitles, successEmojis,successTitles } from '../../common/data/strings';
+import { errorEmojis, errorTitles, successEmojis, successTitles } from '../../common/data/strings';
 import { colorMode as defaultColorMode } from '../../common/default/props';
 import { useTheme } from '../../common/hooks';
 import { Undefinable } from '../../common/types';

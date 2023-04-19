@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 
-import { sample } from 'lodash';
+import { sample } from 'lodash-es';
 
 import icons from '../../../common/data/icons';
 import TextareaComponent from '../../../components/Forms/Textarea';
@@ -23,7 +23,8 @@ import {
 	TextareaPanelRenderProps,
 	TextareaProps,
 	TextareaResize,
-	TextareaSize} from '../../../components/Forms/Textarea/types';
+	TextareaSize
+} from '../../../components/Forms/Textarea/types';
 import Icon from '../../../components/Icon';
 // eslint-disable-next-line max-len
 // import { TextareaColor, TextareaProps, TextareaRef, TextareaSize, Textarea as TextareaComponent, TextareaHeader, TextareaBody, TextareaFooter } from '../..';
