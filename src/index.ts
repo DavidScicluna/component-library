@@ -504,7 +504,7 @@ export type {
 	Nullable,
 	NonNullable,
 	NoUndefinedField,
-	PickEnum,
+	PickFrom,
 	Style,
 	Orientation
 } from './common/types';

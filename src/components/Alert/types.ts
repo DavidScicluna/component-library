@@ -1,9 +1,9 @@
 import { ColorMode } from '@chakra-ui/react';
 
-import { Nullable, PickEnum } from '../../common/types';
+import { Nullable, PickFrom } from '../../common/types';
 import { Color } from '../../theme/types';
 
-export type AlertColor = PickEnum<Color, 'red' | 'blue' | 'green' | 'yellow'>;
+export type AlertColor = PickFrom<Color, 'red' | 'blue' | 'green' | 'yellow'>;
 
 export type AlertDuration =
 	| 5
