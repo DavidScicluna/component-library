@@ -1,21 +1,20 @@
 import { StackProps } from '@chakra-ui/react';
 
 import {
-	BoxColor,
-	BoxGradient,
-	BoxTypography,
-	BoxLayout,
-	BoxFlexbox,
-	BoxGrid,
 	BoxBackground,
-	BoxBorders,
 	BoxBorderRadius,
-	BoxPosition,
-	BoxShadow,
+	BoxBorders,
+	BoxColor,
 	BoxFilter,
+	BoxFlexbox,
+	BoxGradient,
+	BoxGrid,
+	BoxLayout,
+	BoxOther,
+	BoxPosition,
 	BoxPseudo,
-	BoxOther
-} from '../../../../../common/types/box';
+	BoxShadow,
+	BoxTypography} from '../../../../../common/types/box';
 
 type Omitted =
 	| BoxColor

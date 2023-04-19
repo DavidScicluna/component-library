@@ -3,7 +3,7 @@ import { FC, useCallback } from 'react';
 import { useBoolean } from '@chakra-ui/react';
 
 import { capitalize, debounce } from 'lodash';
-import { useWindowSize, useEventListener } from 'usehooks-ts';
+import { useEventListener,useWindowSize } from 'usehooks-ts';
 
 import Tooltip from '../../Overlay/Tooltip';
 import ScaleFade from '../../Transitions/ScaleFade';

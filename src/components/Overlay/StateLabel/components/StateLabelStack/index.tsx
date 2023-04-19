@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { VStack } from '@chakra-ui/react';
 
-import { spacing as defaultSpacing, padding as defaultPadding } from '../../common/default/props';
+import { padding as defaultPadding,spacing as defaultSpacing } from '../../common/default/props';
 
 import { StateLabelStackProps } from './types';
 

@@ -1,24 +1,24 @@
 import { ReactElement } from 'react';
 
-import { VStack, Text } from '@chakra-ui/react';
+import { Text,VStack } from '@chakra-ui/react';
 
 import { range } from 'lodash';
 
 import {
+	Card as CardComponent,
+	CardBody,
 	CardColor,
+	CardFooter,
+	CardHeader,
 	CardProps,
 	CardVariant,
-	Card as CardComponent,
-	CardHeader,
-	CardBody,
-	CardFooter,
 	DummyButton,
 	Skeleton
 } from '../../..';
 import {
 	color as defaultColor,
-	isFullWidth as defaultIsFullWidth,
 	isDivisible as defaultIsDivisible,
+	isFullWidth as defaultIsFullWidth,
 	isLight as defaultIsLight,
 	spacing as defaultSpacing,
 	variant as defaultVariant

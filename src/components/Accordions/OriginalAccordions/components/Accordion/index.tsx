@@ -1,17 +1,16 @@
 import { createContext, ReactElement } from 'react';
-
-import { useBoolean, useConst, Box, VisuallyHidden, Center, VStack } from '@chakra-ui/react';
-
-import { dataAttr } from '@chakra-ui/utils';
-import { merge } from 'lodash';
 import { useInView } from 'react-cool-inview';
+
+import { Box, Center, useBoolean, useConst, VisuallyHidden, VStack } from '@chakra-ui/react';
+import { dataAttr } from '@chakra-ui/utils';
+
+import { merge } from 'lodash';
 
 import { useTheme } from '../../../../../common/hooks';
 import Collapse from '../../../../Transitions/Collapse';
 import {
-	getDuration as getTransitionDuration,
-	getConfig as getTransitionConfig
-} from '../../../../Transitions/common/utils';
+	getConfig as getTransitionConfig,
+	getDuration as getTransitionDuration} from '../../../../Transitions/common/utils';
 import { spacing as defaultSpacing } from '../../../common/data/defaultPropValues';
 import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
 import { useAccordionsContext } from '../../common/hooks';

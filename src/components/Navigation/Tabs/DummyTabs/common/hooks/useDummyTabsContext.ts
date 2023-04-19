@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 
-import { DummyTabsContext } from '../..';
 import { NoUndefinedField } from '../../../../../../common/types';
 import {
 	activeTab as defaultActiveTab,
@@ -9,6 +8,7 @@ import {
 	isFitted as defaultIsFitted,
 	size as defaultSize
 } from '../../../common/default/props';
+import { DummyTabsContext } from '../..';
 import { DummyTabsContext as DummyTabsContextType } from '../../types';
 
 const useDummyTabsContext = (): NoUndefinedField<DummyTabsContextType> => {

@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 
-import { useColorMode, HStack, Center } from '@chakra-ui/react';
+import { Center,HStack, useColorMode } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 import { useElementSize } from 'usehooks-ts';

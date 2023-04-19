@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { useConst, Fade as CUIFade } from '@chakra-ui/react';
+import { Fade as CUIFade,useConst } from '@chakra-ui/react';
 
 import { Transition } from 'framer-motion';
 

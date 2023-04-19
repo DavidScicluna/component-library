@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
-import { CollapsibleCardContext } from '../..';
 import { NoUndefinedField } from '../../../../../common/types';
+import { CollapsibleCardContext } from '../..';
 import { CollapsibleCardContext as CollapsibleCardContextType } from '../../types';
 import {
 	color as defaultColor,

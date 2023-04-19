@@ -8,14 +8,14 @@ import { sample } from 'lodash';
 import CheckboxComponent from '../../../components/Forms/Checkbox';
 import {
 	isChecked as defaultIsChecked,
-	isIndeterminate as defaultIsIndeterminate,
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
-	isWarning as defaultIsWarning,
-	isSuccess as defaultIsSuccess,
+	isFullWidth as defaultIsFullWidth,
+	isIndeterminate as defaultIsIndeterminate,
 	isReadOnly as defaultIsReadOnly,
 	isRequired as defaultIsRequired,
-	isFullWidth as defaultIsFullWidth,
+	isSuccess as defaultIsSuccess,
+	isWarning as defaultIsWarning,
 	size as defaultSize,
 	variant as defaultVariant
 } from '../../../components/Forms/Checkbox/common/data/defaultPropValues';
@@ -23,11 +23,10 @@ import CheckboxSubtitle from '../../../components/Forms/Checkbox/components/Chec
 import CheckboxTitle from '../../../components/Forms/Checkbox/components/CheckboxTitle';
 import {
 	CheckboxColor,
+	CheckboxProps,
 	// CheckboxPanelRenderProps,
 	CheckboxSize,
-	CheckboxVariant,
-	CheckboxProps
-} from '../../../components/Forms/Checkbox/types';
+	CheckboxVariant} from '../../../components/Forms/Checkbox/types';
 // import Icon from '../../../components/Icon';
 // eslint-disable-next-line max-len
 // import { CheckboxColor, CheckboxProps, CheckboxRef, CheckboxSize, Checkbox as CheckboxComponent, CheckboxHeader, CheckboxBody, CheckboxFooter } from '../..';

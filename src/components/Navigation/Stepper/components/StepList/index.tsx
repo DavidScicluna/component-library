@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 
-import { useMediaQuery, useBoolean, Stack, HStack, Center } from '@chakra-ui/react';
+import { Center,HStack, Stack, useBoolean, useMediaQuery } from '@chakra-ui/react';
 
 import { useUpdateEffect } from 'usehooks-ts';
 

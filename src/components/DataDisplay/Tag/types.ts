@@ -1,20 +1,19 @@
 import { ColorMode, TagProps as CUITagProps } from '@chakra-ui/react';
 
 import {
-	BoxPadding,
-	BoxColor,
-	BoxGradient,
-	BoxTypography,
-	BoxLayout,
-	BoxFlexbox,
-	BoxGrid,
 	BoxBackground,
-	BoxBorders,
 	BoxBorderRadius,
+	BoxBorders,
+	BoxColor,
 	BoxFilter,
+	BoxFlexbox,
+	BoxGradient,
+	BoxGrid,
+	BoxLayout,
+	BoxOther,
+	BoxPadding,
 	BoxPseudo,
-	BoxOther
-} from '../../../common/types/box';
+	BoxTypography} from '../../../common/types/box';
 import { Color } from '../../../theme/types';
 
 export type TagRef = HTMLSpanElement | null;

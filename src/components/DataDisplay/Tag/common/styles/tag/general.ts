@@ -2,8 +2,8 @@ import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
 import { Radius } from '../../../../../../theme/types';
 import {
-	isFullWidth as defaultIsFullWidth,
 	isClickable as defaultIsClickable,
+	isFullWidth as defaultIsFullWidth,
 	size as defaultSize
 } from '../../data/defaultPropValues';
 import { getSizeConfig } from '../../utils';

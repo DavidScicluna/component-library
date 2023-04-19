@@ -1,9 +1,9 @@
-import { FC, createContext, useState, useCallback } from 'react';
+import { createContext, FC, useCallback,useState } from 'react';
+import Cropper, { Area } from 'react-easy-crop';
 
-import { useColorMode, Center, Text } from '@chakra-ui/react';
+import { Center, Text,useColorMode } from '@chakra-ui/react';
 
 import { debounce } from 'lodash';
-import Cropper, { Area } from 'react-easy-crop';
 
 import { Nullable } from '../../common/types';
 import IconButton from '../Clickable/IconButtons/OriginalIconButton';
@@ -15,9 +15,9 @@ import ModalStack from '../Overlay/Modal/components/ModalStack';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
-	mode as defaultMode,
 	cropID as defaultCropID,
 	cropValue as defaultCropValue,
+	mode as defaultMode,
 	rotation as defaultRotation,
 	zoom as defaultZoom
 } from './common/data/defaultPropValues';
@@ -28,11 +28,10 @@ import Mode from './components/Mode';
 import { OnCropProps as HandleCropProps, OnRotateProps as HandleRotateProps } from './components/Mode/types';
 import {
 	ImageEditorContext as ImageEditorContextType,
-	ImageEditorProps,
 	ImageEditorMode,
 	ImageEditorModeCropID,
-	ImageEditorModeCropValue
-} from './types';
+	ImageEditorModeCropValue,
+	ImageEditorProps} from './types';
 
 export const minZoom = 1;
 export const maxZoom = 5;

@@ -1,14 +1,14 @@
 import { FC } from 'react';
 
-import { useMediaQuery, Center } from '@chakra-ui/react';
+import { Center,useMediaQuery } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
-import { width, height } from '../..';
 import { useTheme } from '../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../common/utils/color';
 import Icon from '../../../../../../Icon';
 import { useStepperContext } from '../../../../common/hooks';
+import { height,width } from '../..';
 import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
 import useStyles from '../../common/styles';
 import { getStatusIcon } from '../Step/common/utils';

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Tab as CUIDummyTab, HStack, Center, VStack } from '@chakra-ui/react';
+import { Center, HStack, Tab as CUIDummyTab, VStack } from '@chakra-ui/react';
 
 import { omit } from 'lodash';
 import merge from 'lodash/merge';

@@ -2,21 +2,20 @@ import { ColorMode, StackProps } from '@chakra-ui/react';
 
 import { Style } from '../../../common/types';
 import {
-	BoxMargin,
-	BoxPadding,
-	BoxColor,
-	BoxGradient,
-	BoxTypography,
-	BoxFlexbox,
-	BoxGrid,
 	BoxBackground,
-	BoxBorders,
 	BoxBorderRadius,
-	BoxShadow,
+	BoxBorders,
+	BoxColor,
 	BoxFilter,
+	BoxFlexbox,
+	BoxGradient,
+	BoxGrid,
+	BoxMargin,
+	BoxOther,
+	BoxPadding,
 	BoxPseudo,
-	BoxOther
-} from '../../../common/types/box';
+	BoxShadow,
+	BoxTypography} from '../../../common/types/box';
 import { Color } from '../../../theme/types';
 
 import { Tab } from './components/Tab/types';

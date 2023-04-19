@@ -1,7 +1,7 @@
 import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
 import { Radius } from '../../../../../../theme/types';
-import { isFullWidth as defaultIsFullWidth, isFixed as defaultIsFixed } from '../../data/defaultPropValues';
+import { isFixed as defaultIsFixed,isFullWidth as defaultIsFullWidth } from '../../data/defaultPropValues';
 import { getSizeConfig } from '../../utils';
 
 import { CollapsibleCardStyleProps } from './types';

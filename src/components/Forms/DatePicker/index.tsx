@@ -1,6 +1,6 @@
-import { FC, createContext, useState } from 'react';
+import { createContext, FC, useState } from 'react';
 
-import { useColorMode, useDisclosure, HStack, Text } from '@chakra-ui/react';
+import { HStack, Text,useColorMode, useDisclosure } from '@chakra-ui/react';
 
 import dayjs from 'dayjs';
 import { useDayzed } from 'dayzed';
@@ -27,7 +27,7 @@ import {
 	// variant as defaultVariant
 } from './common/data/defaultPropValues';
 import Calendar from './components/Calendar';
-import { DatePickerContext as DatePickerContextType, DatePickerProps, DatePickerDate } from './types';
+import { DatePickerContext as DatePickerContextType, DatePickerDate,DatePickerProps } from './types';
 
 export const DatePickerContext = createContext<DatePickerContextType>({
 	color: defaultColor,

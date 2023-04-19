@@ -1,4 +1,4 @@
-import { Styles, StyleFunctionProps, mode } from '@chakra-ui/theme-tools';
+import { mode,StyleFunctionProps, Styles } from '@chakra-ui/theme-tools';
 import { Dict } from '@chakra-ui/utils';
 
 import colors from './foundations/colors';

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
-import { TabBarContext } from '../..';
 import { NoUndefinedField } from '../../../../../common/types';
+import { TabBarContext } from '../..';
 import { TabBarContext as TabBarContextType } from '../../types';
 import {
 	color as defaultColor,

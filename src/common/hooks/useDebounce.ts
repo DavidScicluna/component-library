@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect,useState } from 'react';
 
 import { Duration } from '../../theme/types';
 import { convertStringToNumber } from '../utils';

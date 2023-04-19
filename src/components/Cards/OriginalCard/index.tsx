@@ -1,8 +1,8 @@
-import { ReactElement, createContext, forwardRef } from 'react';
+import { createContext, forwardRef,ReactElement } from 'react';
 
-import { useColorMode, Center, VStack } from '@chakra-ui/react';
-
+import { Center, useColorMode, VStack } from '@chakra-ui/react';
 import { dataAttr } from '@chakra-ui/utils';
+
 import merge from 'lodash/merge';
 
 import { useTheme } from '../../../common/hooks';
@@ -24,7 +24,7 @@ import {
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import CardDivider from './components/CardDivider';
-import { CardContext as CardContextType, CardRef, CardProps } from './types';
+import { CardContext as CardContextType, CardProps,CardRef } from './types';
 
 export const CardContext = createContext<CardContextType>({
 	color: defaultColor,

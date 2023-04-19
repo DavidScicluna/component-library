@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 
-import { TabsContext } from '../..';
 import { method as defaultOnChange } from '../../../../../../common/default/props';
 import { NoUndefinedField } from '../../../../../../common/types';
 import {
@@ -11,6 +10,7 @@ import {
 	isFitted as defaultIsFitted,
 	size as defaultSize
 } from '../../../common/default/props';
+import { TabsContext } from '../..';
 import { TabsContext as TabsContextType } from '../../types';
 
 const useTabsContext = (): NoUndefinedField<TabsContextType> => {

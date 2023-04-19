@@ -2,18 +2,17 @@ import { CenterProps } from '@chakra-ui/react';
 
 import { Nullable } from '../../../common/types';
 import {
-	BoxColor,
-	BoxGradient,
-	BoxTypography,
-	BoxFlexbox,
-	BoxGrid,
 	BoxBackground,
 	BoxBorders,
-	BoxShadow,
+	BoxColor,
 	BoxFilter,
+	BoxFlexbox,
+	BoxGradient,
+	BoxGrid,
+	BoxOther,
 	BoxPseudo,
-	BoxOther
-} from '../../../common/types/box';
+	BoxShadow,
+	BoxTypography} from '../../../common/types/box';
 import { Space } from '../../../theme/types';
 
 type Omitted =

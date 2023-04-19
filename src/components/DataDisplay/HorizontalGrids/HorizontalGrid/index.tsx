@@ -1,4 +1,4 @@
-import { FC, createContext, useState } from 'react';
+import { createContext, FC, useState } from 'react';
 
 import { method as defaultMethod } from '../../../../common/default/props';
 import { useDebounce } from '../../../../common/hooks';

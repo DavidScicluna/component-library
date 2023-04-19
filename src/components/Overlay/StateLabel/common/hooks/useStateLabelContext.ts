@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 
-import { StateLabelContext } from '../..';
 import {} from '../../../../../common/default/props';
 import { NoUndefinedField } from '../../../../../common/types';
+import { StateLabelContext } from '../..';
 import { StateLabelContext as StateLabelContextType } from '../../types';
 import { color as defaultColor, colorMode as defaultColorMode } from '../default/props';
 

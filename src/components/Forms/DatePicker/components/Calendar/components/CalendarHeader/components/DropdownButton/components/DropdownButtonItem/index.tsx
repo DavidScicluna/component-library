@@ -1,8 +1,8 @@
 import { FC, useEffect, useRef } from 'react';
 
 import { Center } from '@chakra-ui/react';
-
 import { dataAttr } from '@chakra-ui/utils';
+
 import { merge } from 'lodash';
 
 import { useTheme } from '../../../../../../../../../../../common/hooks';

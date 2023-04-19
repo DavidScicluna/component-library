@@ -1,7 +1,7 @@
 import { ColorMode } from '@chakra-ui/react';
 
 import { getColorMode } from '../../../common/utils';
-import { Radius, FontSize, Space } from '../../../theme/types';
+import { FontSize, Radius, Space } from '../../../theme/types';
 
 const borderRadiusDefaultValue: Radius = 'none';
 const borderRadiusOptions: Radius[] = ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'];

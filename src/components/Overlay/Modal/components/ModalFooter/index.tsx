@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { useMediaQuery, ModalFooter as CUIModalFooter, Stack } from '@chakra-ui/react';
+import { ModalFooter as CUIModalFooter, Stack,useMediaQuery } from '@chakra-ui/react';
 
 import { useTheme } from '../../../../../common/hooks';
 import { useModalContext } from '../../common/hooks';

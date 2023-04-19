@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { StackProps } from '@chakra-ui/react';
 
-import { BoxTypography, BoxFlexbox, BoxGrid, BoxPosition, BoxShadow, BoxOther } from '../../../../../common/types/box';
+import { BoxFlexbox, BoxGrid, BoxOther,BoxPosition, BoxShadow, BoxTypography } from '../../../../../common/types/box';
 import { ButtonProps } from '../../../../Clickable/Buttons/OriginalButton/types';
 import { StateLabelContext } from '../../types';
 

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { useColorMode, HStack, VStack, Box } from '@chakra-ui/react';
+import { Box,HStack, useColorMode, VStack } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 

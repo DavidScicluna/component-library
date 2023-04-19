@@ -1,15 +1,14 @@
-import { ReactElement, useRef, useCallback, useEffect } from 'react';
+import { ReactElement, useCallback, useEffect,useRef } from 'react';
 
 import {
-	useColorMode,
-	useBoolean,
+	Center,
 	FormControl,
+	HStack,
 	InputGroup,
 	Textarea as CUITextarea,
-	VStack,
-	HStack,
-	Center
-} from '@chakra-ui/react';
+	useBoolean,
+	useColorMode,
+	VStack} from '@chakra-ui/react';
 
 import { debounce, isEmpty, isNil } from 'lodash';
 import merge from 'lodash/merge';
@@ -24,19 +23,19 @@ import {
 	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
-	isSuccess as defaultIsSuccess,
-	isWarning as defaultIsWarning,
 	isFocused as defaultIsFocused,
+	isFullWidth as defaultIsFullWidth,
 	isReadOnly as defaultIsReadOnly,
 	isRequired as defaultIsRequired,
-	isFullWidth as defaultIsFullWidth,
+	isSuccess as defaultIsSuccess,
+	isWarning as defaultIsWarning,
 	resize as defaultResize,
 	size as defaultSize,
 	variant as defaultVariant
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
-import { TextareaProps, TextareaRef, TextareaFocusEvent } from './types';
+import { TextareaFocusEvent,TextareaProps, TextareaRef } from './types';
 
 const Textarea = (props: TextareaProps): ReactElement => {
 	const theme = useTheme();

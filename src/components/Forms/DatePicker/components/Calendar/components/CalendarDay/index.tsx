@@ -1,8 +1,8 @@
-import { ReactElement, forwardRef } from 'react';
+import { forwardRef,ReactElement } from 'react';
 
-import { Center, Button as CUIButton } from '@chakra-ui/react';
-
+import { Button as CUIButton,Center } from '@chakra-ui/react';
 import { dataAttr } from '@chakra-ui/utils';
+
 import merge from 'lodash/merge';
 
 import { useTheme } from '../../../../../../../common/hooks';
@@ -10,7 +10,7 @@ import { useDatePickerContext } from '../../../../common/hooks';
 
 import { variant as defaultVariant } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
-import { CalendarDayRef, CalendarDayProps } from './types';
+import { CalendarDayProps,CalendarDayRef } from './types';
 
 const CalendarDay = forwardRef<CalendarDayRef, CalendarDayProps>(function CalendarDay(props, ref): ReactElement {
 	const theme = useTheme();

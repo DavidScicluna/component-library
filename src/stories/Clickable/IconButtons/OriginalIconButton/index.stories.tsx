@@ -3,12 +3,11 @@ import { ReactElement } from 'react';
 import { sample } from 'lodash';
 
 import {
+	IconButton as IconButtonComponent,
 	IconButtonColor,
 	IconButtonProps,
 	IconButtonSize,
-	IconButtonVariant,
-	IconButton as IconButtonComponent
-} from '../../../..';
+	IconButtonVariant} from '../../../..';
 import icons from '../../../../common/data/icons';
 import { Icon as IconType } from '../../../../common/types/icons';
 import {

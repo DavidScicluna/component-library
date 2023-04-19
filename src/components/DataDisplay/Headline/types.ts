@@ -3,17 +3,16 @@ import { ReactNode } from 'react';
 import { ColorMode, StackProps, TextProps } from '@chakra-ui/react';
 
 import {
-	BoxColor,
-	BoxGradient,
-	BoxTypography,
-	BoxFlexbox,
-	BoxGrid,
 	BoxBackground,
-	BoxShadow,
+	BoxColor,
 	BoxFilter,
+	BoxFlexbox,
+	BoxGradient,
+	BoxGrid,
+	BoxOther,
 	BoxPseudo,
-	BoxOther
-} from '../../../common/types/box';
+	BoxShadow,
+	BoxTypography} from '../../../common/types/box';
 import { Color } from '../../../theme/types';
 
 export type HeadlineColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;

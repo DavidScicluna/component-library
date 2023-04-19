@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { VStack, Text } from '@chakra-ui/react';
+import { Text,VStack } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 

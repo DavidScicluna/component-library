@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
 import { Center } from '@chakra-ui/react';
-
 import { dataAttr } from '@chakra-ui/utils';
+
 import { merge } from 'lodash';
 
 import { useTheme } from '../../../../../common/hooks';
@@ -12,9 +12,9 @@ import {
 	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
+	isReadOnly as defaultIsReadOnly,
 	isSuccess as defaultIsSuccess,
 	isWarning as defaultIsWarning,
-	isReadOnly as defaultIsReadOnly,
 	size as defaultSize
 } from '../../common/data/defaultPropValues';
 

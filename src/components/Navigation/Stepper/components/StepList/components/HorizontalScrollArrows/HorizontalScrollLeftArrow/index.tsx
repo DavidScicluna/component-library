@@ -1,15 +1,14 @@
 import { FC, useContext, useEffect } from 'react';
+import { VisibilityContext as ScrollContext } from 'react-horizontal-scrolling-menu';
 
 import { useBoolean } from '@chakra-ui/react';
 
-import { VisibilityContext as ScrollContext } from 'react-horizontal-scrolling-menu';
-
-import { height } from '../../..';
 import { useDebounce, useTheme } from '../../../../../../../../common/hooks';
 import { convertStringToNumber } from '../../../../../../../../common/utils';
 import { getColor } from '../../../../../../../../common/utils/color';
 import HorizontalScrollArrow from '../../../../../../../HorizontalScroll/components/Arrow';
 import { useStepperContext } from '../../../../../common/hooks';
+import { height } from '../../..';
 
 const border = 2;
 

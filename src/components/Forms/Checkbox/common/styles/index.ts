@@ -5,9 +5,9 @@ import {
 	colorMode as defaultColorMode,
 	isChecked as defaultIsChecked,
 	isError as defaultIsError,
+	isFullWidth as defaultIsFullWidth,
 	isSuccess as defaultIsSuccess,
 	isWarning as defaultIsWarning,
-	isFullWidth as defaultIsFullWidth,
 	size as defaultSize,
 	variant as defaultVariant
 } from '../data/defaultPropValues';

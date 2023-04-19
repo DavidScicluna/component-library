@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
-import { ImageEditorContext } from '../..';
 import { NoUndefinedField } from '../../../../common/types';
+import { ImageEditorContext } from '../..';
 import { ImageEditorContext as ImageEditorContextType } from '../../types';
 import {
 	color as defaultColor,

@@ -4,10 +4,10 @@ import memoize from 'micro-memoize';
 import {
 	colorMode as defaultColorMode,
 	isError as defaultIsError,
-	isSuccess as defaultIsSuccess,
-	isWarning as defaultIsWarning,
 	isFocused as defaultIsFocused,
 	isFullWidth as defaultIsFullWidth,
+	isSuccess as defaultIsSuccess,
+	isWarning as defaultIsWarning,
 	size as defaultSize,
 	variant as defaultVariant
 } from '../data/defaultPropValues';

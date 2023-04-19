@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Center, Box } from '@chakra-ui/react';
+import { Box,Center } from '@chakra-ui/react';
 
 import HorizontalScroll from '../../../../../HorizontalScroll';
 import { useHorizontalGridContext } from '../../common/hooks';

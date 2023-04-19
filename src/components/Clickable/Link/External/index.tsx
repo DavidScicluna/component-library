@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { useColorMode, Link as CUILink } from '@chakra-ui/react';
+import { Link as CUILink,useColorMode } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
@@ -12,7 +12,7 @@ import {
 	isFullWidth as defaultIsFullWidth
 } from '../common/data/defaultPropValues';
 import useStyles from '../common/styles';
-import { LinkProps as ExternalProps, LinkMouseEvent as ExternalMouseEvent } from '../common/types';
+import { LinkMouseEvent as ExternalMouseEvent,LinkProps as ExternalProps } from '../common/types';
 
 const External: FC<ExternalProps> = (props) => {
 	const theme = useTheme();

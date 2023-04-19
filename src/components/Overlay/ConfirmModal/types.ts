@@ -3,23 +3,22 @@ import { ReactNode } from 'react';
 import { ColorMode, ModalProps as CUIModalProps } from '@chakra-ui/react';
 
 import {
-	BoxMargin,
-	BoxPadding,
-	BoxColor,
-	BoxGradient,
-	BoxTypography,
-	BoxLayout,
-	BoxFlexbox,
-	BoxGrid,
 	BoxBackground,
-	BoxBorders,
 	BoxBorderRadius,
-	BoxPosition,
-	BoxShadow,
+	BoxBorders,
+	BoxColor,
 	BoxFilter,
+	BoxFlexbox,
+	BoxGradient,
+	BoxGrid,
+	BoxLayout,
+	BoxMargin,
+	BoxOther,
+	BoxPadding,
+	BoxPosition,
 	BoxPseudo,
-	BoxOther
-} from '../../../common/types/box';
+	BoxShadow,
+	BoxTypography} from '../../../common/types/box';
 import { Color } from '../../../theme/types';
 import { IconButtonProps } from '../../Clickable/IconButtons/OriginalIconButton/types';
 import { IconProps } from '../../Icon/types';

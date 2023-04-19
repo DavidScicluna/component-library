@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { ModalHeaderProps as CUIModalHeaderProps, TextProps } from '@chakra-ui/react';
 
-import { BoxTypography, BoxFlexbox, BoxGrid, BoxPosition, BoxShadow, BoxOther } from '../../../../../common/types/box';
+import { BoxFlexbox, BoxGrid, BoxOther,BoxPosition, BoxShadow, BoxTypography } from '../../../../../common/types/box';
 import { Space } from '../../../../../theme/types';
 import { IconButtonProps } from '../../../../Clickable/IconButtons/OriginalIconButton/types';
 import { IconProps } from '../../../../Icon/types';

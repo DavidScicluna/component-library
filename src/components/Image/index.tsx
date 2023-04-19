@@ -1,6 +1,6 @@
-import { ReactElement, useEffect, forwardRef } from 'react';
+import { forwardRef,ReactElement, useEffect } from 'react';
 
-import { useColorMode, useBoolean, Center, Image as CUIImage, ImageProps as CUIImageProps } from '@chakra-ui/react';
+import { Center, Image as CUIImage, ImageProps as CUIImageProps,useBoolean, useColorMode } from '@chakra-ui/react';
 
 import fallback from '../../common/assets/fallback';
 import { colorMode as defaultColorMode } from '../../common/default/props';
@@ -8,7 +8,7 @@ import { Style } from '../../common/types';
 import Glass from '../Overlay/Glass';
 import Fade from '../Transitions/Fade';
 
-import { ImageRef, ImageProps, ImageEvent } from './types';
+import { ImageEvent,ImageProps, ImageRef } from './types';
 
 const p: CUIImageProps = {
 	align: 'center',

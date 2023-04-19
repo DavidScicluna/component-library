@@ -1,21 +1,20 @@
-import { ReactNode, ChangeEvent as CE, FocusEvent as FE } from 'react';
+import { ChangeEvent as CE, FocusEvent as FE,ReactNode } from 'react';
 
 import { ColorMode, InputProps as CUIInputProps } from '@chakra-ui/react';
 
 import { Style } from '../../../common/types';
 import {
-	BoxPadding,
-	BoxColor,
-	BoxGradient,
-	BoxTypography,
 	BoxBackground,
-	BoxBorders,
 	BoxBorderRadius,
-	BoxShadow,
+	BoxBorders,
+	BoxColor,
 	BoxFilter,
+	BoxGradient,
+	BoxOther,
+	BoxPadding,
 	BoxPseudo,
-	BoxOther
-} from '../../../common/types/box';
+	BoxShadow,
+	BoxTypography} from '../../../common/types/box';
 import { Color } from '../../../theme/types';
 
 export type InputChangeEvent = CE<HTMLInputElement>;

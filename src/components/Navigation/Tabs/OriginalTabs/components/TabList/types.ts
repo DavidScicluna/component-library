@@ -3,23 +3,22 @@ import { ReactNode } from 'react';
 import { TabListProps as CUITabListProps } from '@chakra-ui/react';
 
 import {
-	BoxMargin,
-	BoxPadding,
-	BoxColor,
-	BoxGradient,
-	BoxTypography,
-	BoxLayout,
-	BoxFlexbox,
-	BoxGrid,
 	BoxBackground,
-	BoxBorders,
 	BoxBorderRadius,
-	BoxPosition,
-	BoxShadow,
+	BoxBorders,
+	BoxColor,
 	BoxFilter,
+	BoxFlexbox,
+	BoxGradient,
+	BoxGrid,
+	BoxLayout,
+	BoxMargin,
+	BoxOther,
+	BoxPadding,
+	BoxPosition,
 	BoxPseudo,
-	BoxOther
-} from '../../../../../../common/types/box';
+	BoxShadow,
+	BoxTypography} from '../../../../../../common/types/box';
 import { TabsProps } from '../../types';
 
 import { Tab } from './components/Tab/types';

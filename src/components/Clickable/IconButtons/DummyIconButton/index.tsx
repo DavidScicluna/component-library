@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { useColorMode, Box } from '@chakra-ui/react';
+import { Box,useColorMode } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 

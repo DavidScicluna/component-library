@@ -1,4 +1,4 @@
-import { ReactElement, createContext, forwardRef } from 'react';
+import { createContext, forwardRef,ReactElement } from 'react';
 
 import { ButtonGroup as CUIButtonGroup } from '@chakra-ui/react';
 
@@ -8,7 +8,7 @@ import {
 	size as defaultSize,
 	spacing as defaultSpacing
 } from './common/data/defaultPropValues';
-import { ButtonGroupContext as ButtonGroupContextType, ButtonGroupRef, ButtonGroupProps } from './types';
+import { ButtonGroupContext as ButtonGroupContextType, ButtonGroupProps,ButtonGroupRef } from './types';
 
 export const ButtonGroupContext = createContext<ButtonGroupContextType>({
 	isAttached: defaultIsAttached,

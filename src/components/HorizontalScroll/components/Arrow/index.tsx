@@ -1,6 +1,6 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useEffect,useState } from 'react';
 
-import { useMediaQuery, useConst, Center } from '@chakra-ui/react';
+import { Center,useConst, useMediaQuery } from '@chakra-ui/react';
 
 import { capitalize } from 'lodash';
 import merge from 'lodash/merge';
@@ -11,10 +11,9 @@ import { getColor } from '../../../../common/utils/color';
 import IconButton from '../../../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
 import {
+	getConfig as getTransitionConfig,
 	getDuration as getTransitionDuration,
-	getEasings as getTransitionEasings,
-	getConfig as getTransitionConfig
-} from '../../../Transitions/common/utils';
+	getEasings as getTransitionEasings} from '../../../Transitions/common/utils';
 import Fade from '../../../Transitions/Fade';
 import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
 import { useHorizontalScrollContext } from '../../common/hooks';

@@ -1,18 +1,18 @@
 import { ReactElement } from 'react';
 
-import { VStack, Text } from '@chakra-ui/react';
+import { Text,VStack } from '@chakra-ui/react';
 
 import { range, toString } from 'lodash';
 
 import {
-	AccordionsColor,
-	AccordionsProps,
-	Accordions as AccordionsComponent,
-	AccordionsPanel,
 	Accordion,
-	AccordionHeader,
 	AccordionBody,
 	AccordionFooter,
+	AccordionHeader,
+	Accordions as AccordionsComponent,
+	AccordionsColor,
+	AccordionsPanel,
+	AccordionsProps,
 	AccordionsQuickToggles,
 	DummyButton,
 	Skeleton

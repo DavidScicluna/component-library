@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 
-import { DummyCardContext } from '../..';
 import { NoUndefinedField } from '../../../../../common/types';
 import {
 	color as defaultColor,
@@ -8,6 +7,7 @@ import {
 	isLight as defaultIsLight,
 	spacing as defaultSpacing
 } from '../../../common/data/defaultPropValues';
+import { DummyCardContext } from '../..';
 import { DummyCardContext as DummyCardContextType } from '../../types';
 
 const useDummyCardContext = (): NoUndefinedField<DummyCardContextType> => {

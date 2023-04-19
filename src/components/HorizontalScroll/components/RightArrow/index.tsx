@@ -1,8 +1,7 @@
 import { FC, useContext, useEffect } from 'react';
+import { VisibilityContext } from 'react-horizontal-scrolling-menu';
 
 import { useBoolean } from '@chakra-ui/react';
-
-import { VisibilityContext } from 'react-horizontal-scrolling-menu';
 
 import { useDebounce } from '../../../../common/hooks';
 import Arrow from '../Arrow';

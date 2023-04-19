@@ -1,13 +1,13 @@
 import { ReactElement } from 'react';
 
-import { TagColor, TagProps, TagVariant, Tag as TagComponent, TagDeleteIconButton, TagLabel } from '../../..';
+import { Tag as TagComponent, TagColor, TagDeleteIconButton, TagLabel,TagProps, TagVariant } from '../../..';
 import {
 	color as defaultColor,
 	isActive as defaultIsActive,
-	isFullWidth as defaultIsFullWidth,
 	isClickable as defaultIsClickable,
 	// isFixed as defaultIsFixed,
 	isDisabled as defaultIsDisabled,
+	isFullWidth as defaultIsFullWidth,
 	variant as defaultVariant
 } from '../../../components/DataDisplay/Tag/common/data/defaultPropValues';
 import controls from '../../common/controls';

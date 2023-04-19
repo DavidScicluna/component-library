@@ -4,7 +4,7 @@ import { Box } from '@chakra-ui/react';
 
 import { range } from 'lodash';
 
-import { HorizontalScrollProps, HorizontalScroll as HorizontalScrollComponent } from '../..';
+import { HorizontalScroll as HorizontalScrollComponent,HorizontalScrollProps } from '../..';
 import { isDisabled as defaultIsDisabled } from '../../components/HorizontalScroll/common/data/defaultPropValues';
 import { RenderDividerProps } from '../../components/HorizontalScroll/types';
 import spacing from '../../theme/foundations/spacing';

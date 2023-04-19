@@ -1,8 +1,7 @@
 import { ReactElement } from 'react';
+import { Link } from 'react-scroll';
 
 import { useConst } from '@chakra-ui/react';
-
-import { Link } from 'react-scroll';
 
 import { useTheme } from '../../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../../common/utils';

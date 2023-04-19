@@ -1,10 +1,10 @@
 import { FC } from 'react';
 
-import { useConst, Text } from '@chakra-ui/react';
+import { Text,useConst } from '@chakra-ui/react';
 
 import { sample } from 'lodash';
 
-import { errorTitles, errorEmojis } from '../../../../../common/data/strings';
+import { errorEmojis,errorTitles } from '../../../../../common/data/strings';
 import { useTheme } from '../../../../../common/hooks';
 import { getColor } from '../../../../../common/utils/color';
 import { useStateLabelContext } from '../../common/hooks';

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { useConst, ScaleFade as CUIScaleFade } from '@chakra-ui/react';
+import { ScaleFade as CUIScaleFade,useConst } from '@chakra-ui/react';
 
 import { Transition } from 'framer-motion';
 

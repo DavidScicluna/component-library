@@ -1,7 +1,7 @@
 /* eslint-disable import/namespace */
 import { FC } from 'react';
 
-import { useBoolean, HStack, Center, Slider, SliderTrack, SliderFilledTrack, SliderThumb } from '@chakra-ui/react';
+import { Center, HStack, Slider, SliderFilledTrack, SliderThumb,SliderTrack, useBoolean } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 

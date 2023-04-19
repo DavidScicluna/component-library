@@ -8,21 +8,20 @@ import {
 	autoComplete as defaultAutoComplete,
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
-	isWarning as defaultIsWarning,
-	isSuccess as defaultIsSuccess,
 	isFocused as defaultIsFocused,
+	isFullWidth as defaultIsFullWidth,
 	isReadOnly as defaultIsReadOnly,
 	isRequired as defaultIsRequired,
-	isFullWidth as defaultIsFullWidth,
+	isSuccess as defaultIsSuccess,
+	isWarning as defaultIsWarning,
 	size as defaultSize
 } from '../../../components/Forms/Input/common/data/defaultPropValues';
 import {
 	InputAutoComplete,
 	InputColor,
 	InputPanelRenderProps,
-	InputSize,
-	InputProps
-} from '../../../components/Forms/Input/types';
+	InputProps,
+	InputSize} from '../../../components/Forms/Input/types';
 import Icon from '../../../components/Icon';
 // eslint-disable-next-line max-len
 // import { InputColor, InputProps, InputRef, InputSize, Input as InputComponent, InputHeader, InputBody, InputFooter } from '../..';

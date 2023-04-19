@@ -1,15 +1,15 @@
 import { FC, useCallback } from 'react';
 
-import { useBoolean, useConst, HStack, Center, Text } from '@chakra-ui/react';
+import { Center, HStack, Text,useBoolean, useConst } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 import { useElementSize } from 'usehooks-ts';
 
-import { InternalLink, Fade } from '../../../../..';
+import { Fade,InternalLink } from '../../../../..';
 import { useTheme } from '../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../common/utils';
 import Tooltip from '../../../../Overlay/Tooltip';
-import { getDelay as getTransitionDelay, getConfig as getTransitionConfig } from '../../../../Transitions/common/utils';
+import { getConfig as getTransitionConfig,getDelay as getTransitionDelay } from '../../../../Transitions/common/utils';
 import { useSideNavigationContext } from '../../common/hooks';
 
 import {

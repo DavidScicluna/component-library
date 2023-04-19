@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
-import { BadgeContext } from '../..';
 import { NoUndefinedField } from '../../../../../common/types';
+import { BadgeContext } from '../..';
 import { BadgeContext as BadgeContextType } from '../../types';
 import {
 	color as defaultColor,

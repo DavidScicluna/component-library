@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { useBoolean, HStack } from '@chakra-ui/react';
+import { HStack,useBoolean } from '@chakra-ui/react';
 
 import IconButton from '../../../../../../../../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../../../../../../../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';

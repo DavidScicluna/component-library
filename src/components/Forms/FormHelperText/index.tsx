@@ -10,9 +10,9 @@ import {
 	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
-	isWarning as defaultIsWarning,
-	isSuccess as defaultIsSuccess,
 	isReadOnly as defaultIsReadOnly,
+	isSuccess as defaultIsSuccess,
+	isWarning as defaultIsWarning,
 	size as defaultSize
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';

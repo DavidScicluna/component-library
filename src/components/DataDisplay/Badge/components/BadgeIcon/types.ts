@@ -1,16 +1,15 @@
 import {
+	BoxBackground,
+	BoxBorderRadius,
+	BoxBorders,
+	BoxColor,
+	BoxFilter,
+	BoxGradient,
 	BoxMargin,
 	BoxPadding,
-	BoxColor,
-	BoxGradient,
-	BoxTypography,
-	BoxBackground,
-	BoxBorders,
-	BoxBorderRadius,
 	BoxPosition,
 	BoxShadow,
-	BoxFilter
-} from '../../../../../common/types/box';
+	BoxTypography} from '../../../../../common/types/box';
 import { IconProps } from '../../../../Icon/types';
 
 type Omitted =

@@ -4,8 +4,8 @@ import memoize from 'micro-memoize';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
-	isRound as defaultIsRound,
 	isLoading as defaultIsLoading,
+	isRound as defaultIsRound,
 	size as defaultSize,
 	variant as defaultVariant
 } from '../../../common/data/defaultPropValues';

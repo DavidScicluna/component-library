@@ -6,9 +6,8 @@ import { Color } from '../../../../../../../../../theme/types';
 import {
 	color as defaultColor,
 	isError as defaultIsError,
-	isWarning as defaultIsWarning,
-	isSuccess as defaultIsSuccess
-} from '../../../../../../common/data/defaultPropValues';
+	isSuccess as defaultIsSuccess,
+	isWarning as defaultIsWarning} from '../../../../../../common/data/defaultPropValues';
 import { isHovering as defaultIsHovering } from '../../../data/defaultPropValues';
 import { getAmount } from '../../../utils';
 

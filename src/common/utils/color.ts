@@ -2,7 +2,7 @@ import { ColorMode } from '@chakra-ui/react';
 
 import memoize from 'micro-memoize';
 
-import { Theme, ColorHues, Color } from '../../theme/types';
+import { Color,ColorHues, Theme } from '../../theme/types';
 
 type Type =
 	| 'background'

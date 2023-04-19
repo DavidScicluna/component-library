@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 
-import { ModalHeader as CUIModalHeader, HStack, VStack, Center } from '@chakra-ui/react';
+import { Center,HStack, ModalHeader as CUIModalHeader, VStack } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 

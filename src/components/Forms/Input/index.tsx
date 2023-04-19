@@ -1,15 +1,14 @@
-import { ReactElement, forwardRef, useRef, useCallback, useEffect } from 'react';
+import { forwardRef, ReactElement, useCallback, useEffect,useRef } from 'react';
 
 import {
-	useColorMode,
-	useBoolean,
+	Center,
 	FormControl,
-	InputGroup,
-	Input as CUIInput,
-	VStack,
 	HStack,
-	Center
-} from '@chakra-ui/react';
+	Input as CUIInput,
+	InputGroup,
+	useBoolean,
+	useColorMode,
+	VStack} from '@chakra-ui/react';
 
 import { debounce, isEmpty, isNil } from 'lodash';
 import merge from 'lodash/merge';
@@ -24,18 +23,18 @@ import {
 	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
-	isSuccess as defaultIsSuccess,
-	isWarning as defaultIsWarning,
 	isFocused as defaultIsFocused,
+	isFullWidth as defaultIsFullWidth,
 	isReadOnly as defaultIsReadOnly,
 	isRequired as defaultIsRequired,
-	isFullWidth as defaultIsFullWidth,
+	isSuccess as defaultIsSuccess,
+	isWarning as defaultIsWarning,
 	size as defaultSize,
 	variant as defaultVariant
 } from './common/data/defaultPropValues';
 import useStyles from './common/styles';
 import { getSizeConfig } from './common/utils';
-import { InputProps, InputRef, InputFocusEvent } from './types';
+import { InputFocusEvent,InputProps, InputRef } from './types';
 
 const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): ReactElement {
 	const theme = useTheme();

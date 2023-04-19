@@ -3,20 +3,19 @@ import { ReactNode } from 'react';
 import { CenterProps } from '@chakra-ui/react';
 
 import {
-	BoxColor,
-	BoxGradient,
-	BoxTypography,
-	BoxFlexbox,
-	BoxGrid,
 	BoxBackground,
-	BoxBorders,
 	BoxBorderRadius,
-	BoxPosition,
-	BoxShadow,
+	BoxBorders,
+	BoxColor,
 	BoxFilter,
+	BoxFlexbox,
+	BoxGradient,
+	BoxGrid,
+	BoxOther,
+	BoxPosition,
 	BoxPseudo,
-	BoxOther
-} from '../../../../../common/types/box';
+	BoxShadow,
+	BoxTypography} from '../../../../../common/types/box';
 import { Color } from '../../../../../theme/types';
 import { ConfirmModalProps } from '../../types';
 

@@ -2,15 +2,14 @@ import { BoxProps, ColorMode } from '@chakra-ui/react';
 
 import { Orientation } from '../../common/types';
 import {
-	BoxTypography,
+	BoxBorders,
+	BoxFilter,
 	BoxFlexbox,
 	BoxGrid,
-	BoxBorders,
-	BoxShadow,
-	BoxFilter,
+	BoxOther,
 	BoxPseudo,
-	BoxOther
-} from '../../common/types/box';
+	BoxShadow,
+	BoxTypography} from '../../common/types/box';
 
 export type DividerRef = HTMLHRElement | null;
 

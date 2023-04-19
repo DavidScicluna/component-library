@@ -4,11 +4,11 @@ import { range } from 'lodash';
 
 import {
 	AccordionsColor,
-	DummyAccordionsProps,
-	DummyAccordions as DummyAccordionsComponent,
-	DummyAccordionsPanel,
 	DummyAccordion,
 	DummyAccordionHeader,
+	DummyAccordions as DummyAccordionsComponent,
+	DummyAccordionsPanel,
+	DummyAccordionsProps,
 	DummyAccordionsQuickToggles,
 	DummyButton
 } from '../../..';

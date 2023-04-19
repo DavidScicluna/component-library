@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 
-import { AccordionContext } from '../..';
 import { NoUndefinedField } from '../../../../../../../common/types';
 import { isDisabled as defaultIsDisabled } from '../../../../common/data/defaultPropValues';
+import { AccordionContext } from '../..';
 import { AccordionContext as AccordionContextType } from '../../types';
 import { isLight as defaultIsLight, isOpen as defaultIsOpen } from '../data/defaultPropValues';
 

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { VStack, HStack } from '@chakra-ui/react';
+import { HStack,VStack } from '@chakra-ui/react';
 
 import DummyCardHeader from '../../../../../Cards/DummyCard/components/DummyCardHeader';
 import DummyTabList from '../../../../../Navigation/Tabs/DummyTabs/components/DummyTabList';

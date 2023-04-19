@@ -3,9 +3,8 @@ import { getHue } from '../../../../../../common/utils/color';
 import { Color } from '../../../../../../theme/types';
 import {
 	isError as defaultIsError,
-	isWarning as defaultIsWarning,
-	isSuccess as defaultIsSuccess
-} from '../../data/defaultPropValues';
+	isSuccess as defaultIsSuccess,
+	isWarning as defaultIsWarning} from '../../data/defaultPropValues';
 
 import { FormHelperTextDarkStyleProps } from './types';
 

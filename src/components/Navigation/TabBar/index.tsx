@@ -1,6 +1,6 @@
-import { ReactElement, createContext, forwardRef } from 'react';
+import { createContext, forwardRef,ReactElement } from 'react';
 
-import { useColorMode, HStack } from '@chakra-ui/react';
+import { HStack,useColorMode } from '@chakra-ui/react';
 
 import { merge } from 'lodash';
 
@@ -13,7 +13,7 @@ import {
 	direction as defaultDirection
 } from './common/data/defaultPropValues';
 import Tab from './components/Tab';
-import { TabBarContext as TabBarContextType, TabBarRef, TabBarProps } from './types';
+import { TabBarContext as TabBarContextType, TabBarProps,TabBarRef } from './types';
 
 export const TabBarContext = createContext<TabBarContextType>({
 	color: defaultColor,

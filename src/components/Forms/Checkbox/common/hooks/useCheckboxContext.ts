@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
-import { CheckboxContext } from '../..';
 import { NoUndefinedField } from '../../../../../common/types';
+import { CheckboxContext } from '../..';
 import { CheckboxContext as CheckboxContextType } from '../../types';
 import { color as defaultColor, colorMode as defaultColorMode, size as defaultSize } from '../data/defaultPropValues';
 

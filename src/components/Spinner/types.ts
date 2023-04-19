@@ -1,6 +1,6 @@
 import { ColorMode } from '@chakra-ui/react';
 
-import { SpinnerCircularProps, SpinnerCircularFixedProps } from 'spinners-react';
+import { SpinnerCircularFixedProps,SpinnerCircularProps } from 'spinners-react';
 
 import { Color, FontSize } from '../../theme/types';
 

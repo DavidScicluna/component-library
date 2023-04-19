@@ -1,4 +1,4 @@
-import { WithCSSVar, useTheme } from '@chakra-ui/react';
+import { useTheme,WithCSSVar } from '@chakra-ui/react';
 
 import { Theme } from '../../theme/types';
 

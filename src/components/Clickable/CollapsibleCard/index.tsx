@@ -1,18 +1,17 @@
-import { FC, createContext } from 'react';
-
-import { useColorMode, useBoolean, useConst, Box, VStack, VisuallyHidden, Center } from '@chakra-ui/react';
-
-import { dataAttr } from '@chakra-ui/utils';
-import { merge } from 'lodash';
+import { createContext,FC } from 'react';
 import { useInView } from 'react-cool-inview';
+
+import { Box, Center,useBoolean, useColorMode, useConst, VisuallyHidden, VStack } from '@chakra-ui/react';
+import { dataAttr } from '@chakra-ui/utils';
+
+import { merge } from 'lodash';
 
 import { useTheme } from '../../../common/hooks';
 import Collapse from '../../Transitions/Collapse';
 import {
+	getConfig as getTransitionConfig,
 	getDuration as getTransitionDuration,
-	getEasings as getTransitionEasings,
-	getConfig as getTransitionConfig
-} from '../../Transitions/common/utils';
+	getEasings as getTransitionEasings} from '../../Transitions/common/utils';
 
 import {
 	color as defaultColor,
@@ -20,8 +19,8 @@ import {
 	isActive as defaultIsActive,
 	isDisabled as defaultIsDisabled,
 	isDivisible as defaultIsDivisible,
-	isFullWidth as defaultIsFullWidth,
 	isFixed as defaultIsFixed,
+	isFullWidth as defaultIsFullWidth,
 	isLight as defaultIsLight,
 	isOpen as defaultIsOpen,
 	spacing as defaultSpacing

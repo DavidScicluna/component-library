@@ -1,10 +1,8 @@
-import { ReactElement, createContext, forwardRef } from 'react';
-
-import { useColorMode, Box } from '@chakra-ui/react';
-
+import { createContext, forwardRef,ReactElement } from 'react';
 import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 
-import './common/styles/index.css';
+import { Box,useColorMode } from '@chakra-ui/react';
+
 import { useTheme } from '../../common/hooks';
 import { convertStringToNumber } from '../../common/utils';
 
@@ -18,9 +16,10 @@ import LeftArrow from './components/LeftArrow';
 import RightArrow from './components/RightArrow';
 import {
 	HorizontalScrollContext as HorizontalScrollContextType,
-	HorizontalScrollRef,
-	HorizontalScrollProps
-} from './types';
+	HorizontalScrollProps,
+	HorizontalScrollRef} from './types';
+
+import './common/styles/index.css';
 
 export const HorizontalScrollContext = createContext<HorizontalScrollContextType>({
 	color: defaultColor,

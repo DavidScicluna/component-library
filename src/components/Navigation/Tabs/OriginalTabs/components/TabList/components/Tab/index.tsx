@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import { useBoolean, Tab as CUITab, HStack, Center, VStack } from '@chakra-ui/react';
-
+import { Center, HStack, Tab as CUITab, useBoolean, VStack } from '@chakra-ui/react';
 import { dataAttr } from '@chakra-ui/utils';
+
 import { omit } from 'lodash';
 import merge from 'lodash/merge';
 import { useElementSize } from 'usehooks-ts';
@@ -17,7 +17,7 @@ import { useTabsContext } from '../../../../common/hooks';
 
 import { isActive as defaultIsActive, isSelected as defaultIsSelected } from './common/default/props';
 import useStyles from './common/styles';
-import { TabProps, TabMouseEvent } from './types';
+import { TabMouseEvent,TabProps } from './types';
 
 const Tab: FC<TabProps> = (props) => {
 	const theme = useTheme();

@@ -1,13 +1,12 @@
 import { ReactElement } from 'react';
 
 import {
+	Button as ButtonComponent,
 	ButtonColor,
-	ButtonSize,
-	ButtonVariant,
 	ButtonProps,
 	ButtonRenderProps,
-	Button as ButtonComponent
-} from '../../../..';
+	ButtonSize,
+	ButtonVariant} from '../../../..';
 import icons from '../../../../common/data/icons';
 import {
 	color as defaultColor,

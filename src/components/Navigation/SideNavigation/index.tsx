@@ -1,4 +1,4 @@
-import { ReactElement, createContext, forwardRef } from 'react';
+import { createContext, forwardRef,ReactElement } from 'react';
 
 import { useColorMode, VStack } from '@chakra-ui/react';
 
@@ -8,7 +8,7 @@ import {
 	isDrawer as defaultIsDrawer,
 	mode as defaultMode
 } from './common/data/defaultPropValues';
-import { SideNavigationContext as SideNavigationContextType, SideNavigationRef, SideNavigationProps } from './types';
+import { SideNavigationContext as SideNavigationContextType, SideNavigationProps,SideNavigationRef } from './types';
 
 export const SideNavigationContext = createContext<SideNavigationContextType>({
 	color: defaultColor,

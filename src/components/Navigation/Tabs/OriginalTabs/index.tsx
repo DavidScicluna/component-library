@@ -1,6 +1,6 @@
-import { ReactElement, createContext, forwardRef } from 'react';
+import { createContext, forwardRef,ReactElement } from 'react';
 
-import { useColorMode, Tabs as CUITabs } from '@chakra-ui/react';
+import { Tabs as CUITabs,useColorMode } from '@chakra-ui/react';
 
 import { method as defaultOnChange } from '../../../../common/default/props';
 import {
@@ -12,7 +12,7 @@ import {
 	size as defaultSize
 } from '../common/default/props';
 
-import { TabsContext as TabsContextType, TabsRef, TabsProps } from './types';
+import { TabsContext as TabsContextType, TabsProps,TabsRef } from './types';
 
 export const TabsContext = createContext<TabsContextType>({
 	activeTab: defaultActiveTab,

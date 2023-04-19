@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { useConst, Slide as CUISlide } from '@chakra-ui/react';
+import { Slide as CUISlide,useConst } from '@chakra-ui/react';
 
 import { Transition } from 'framer-motion';
 

@@ -1,14 +1,14 @@
 import { FC, useCallback } from 'react';
 
-import { HStack, VStack, Center } from '@chakra-ui/react';
+import { Center,HStack, VStack } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import { height } from '../..';
 import { useTheme } from '../../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../../common/utils';
 import { Space } from '../../../../../../../theme/types';
 import { useStepperContext } from '../../../../common/hooks';
+import { height } from '../..';
 import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
 import useStyles from '../../common/styles';
 

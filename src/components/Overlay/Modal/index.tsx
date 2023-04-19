@@ -1,6 +1,6 @@
-import { FC, createContext, useCallback } from 'react';
+import { createContext, FC, useCallback } from 'react';
 
-import { useColorMode, useMediaQuery, Modal as CUIModal, ModalOverlay, ModalContent } from '@chakra-ui/react';
+import { Modal as CUIModal, ModalContent,ModalOverlay, useColorMode, useMediaQuery } from '@chakra-ui/react';
 
 import { useWindowSize } from 'rooks';
 

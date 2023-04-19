@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { ModalFooter, HStack } from '@chakra-ui/react';
+import { HStack,ModalFooter } from '@chakra-ui/react';
 
 import { spacing as defaultSpacing } from '../../common/data/defaultPropValues';
 import { useConfirmModalContext } from '../../common/hooks';

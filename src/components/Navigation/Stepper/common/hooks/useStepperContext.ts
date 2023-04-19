@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
-import { StepperContext } from '../..';
 import { NoUndefinedField } from '../../../../../common/types';
+import { StepperContext } from '../..';
 import { StepperContext as StepperContextType } from '../../types';
 import {
 	activeStep as defaultActiveStep,

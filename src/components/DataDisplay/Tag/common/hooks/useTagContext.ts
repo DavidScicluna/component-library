@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
-import { TagContext } from '../..';
 import { NoUndefinedField } from '../../../../../common/types';
+import { TagContext } from '../..';
 import { TagContext as TagContextType } from '../../types';
 import {
 	color as defaultColor,

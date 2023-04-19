@@ -1,19 +1,18 @@
 import { ColorMode, SkeletonProps as CUISkeletonProps, SlideFadeProps } from '@chakra-ui/react';
 
 import {
-	BoxColor,
-	BoxGradient,
-	BoxTypography,
-	BoxFlexbox,
-	BoxGrid,
 	BoxBackground,
 	BoxBorders,
-	BoxPosition,
-	BoxShadow,
+	BoxColor,
 	BoxFilter,
+	BoxFlexbox,
+	BoxGradient,
+	BoxGrid,
+	BoxOther,
+	BoxPosition,
 	BoxPseudo,
-	BoxOther
-} from '../../common/types/box';
+	BoxShadow,
+	BoxTypography} from '../../common/types/box';
 import { Color } from '../../theme/types';
 
 export type SkeletonColor = Exclude<Color, 'transparent'>;

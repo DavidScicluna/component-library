@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 
-import { useBoolean, VStack, HStack } from '@chakra-ui/react';
+import { HStack,useBoolean, VStack } from '@chakra-ui/react';
 
 import { useDebounce } from '../../../../../../common/hooks';
 import CardHeader from '../../../../../Cards/OriginalCard/components/CardHeader';

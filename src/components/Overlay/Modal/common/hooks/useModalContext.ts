@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 
-import { ModalContext } from '../..';
 import { method as defaultOnClose } from '../../../../../common/default/props';
 import { NoUndefinedField } from '../../../../../common/types';
+import { ModalContext } from '../..';
 import { ModalContext as ModalContextType } from '../../types';
 import {
 	color as defaultColor,

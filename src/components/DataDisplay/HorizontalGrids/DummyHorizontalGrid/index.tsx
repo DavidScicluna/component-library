@@ -1,4 +1,4 @@
-import { FC, createContext } from 'react';
+import { createContext,FC } from 'react';
 
 import DummyCard from '../../../Cards/DummyCard';
 import { color as defaultColor, colorMode as defaultColorMode } from '../common/default/props';

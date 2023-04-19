@@ -1,6 +1,6 @@
-import { FC, createContext, useRef, useCallback } from 'react';
+import { createContext, FC, useCallback,useRef } from 'react';
 
-import { useColorMode, FormControl, Checkbox as CUICheckbox, VStack, HStack, Center } from '@chakra-ui/react';
+import { Center,Checkbox as CUICheckbox, FormControl, HStack, useColorMode, VStack } from '@chakra-ui/react';
 
 import { debounce, isEmpty, isNil, merge } from 'lodash';
 
@@ -14,14 +14,14 @@ import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
 	isChecked as defaultIsChecked,
-	isIndeterminate as defaultIsIndeterminate,
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
-	isSuccess as defaultIsSuccess,
-	isWarning as defaultIsWarning,
+	isFullWidth as defaultIsFullWidth,
+	isIndeterminate as defaultIsIndeterminate,
 	isReadOnly as defaultIsReadOnly,
 	isRequired as defaultIsRequired,
-	isFullWidth as defaultIsFullWidth,
+	isSuccess as defaultIsSuccess,
+	isWarning as defaultIsWarning,
 	size as defaultSize,
 	variant as defaultVariant
 } from './common/data/defaultPropValues';

@@ -3,10 +3,10 @@ import { ReactElement } from 'react';
 import { sample } from 'lodash';
 
 import {
-	ButtonGroupProps,
-	ButtonGroupSize,
 	ButtonGroup as ButtonGroupComponent,
 	ButtonGroupItem,
+	ButtonGroupProps,
+	ButtonGroupSize,
 	IconButton,
 	IconButtonIcon
 } from '../../..';

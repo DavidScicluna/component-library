@@ -1,6 +1,6 @@
-import { ReactElement, createContext, forwardRef } from 'react';
+import { createContext, forwardRef,ReactElement } from 'react';
 
-import { useColorMode, IconButton as CUIIconButton, Center } from '@chakra-ui/react';
+import { Center,IconButton as CUIIconButton, useColorMode } from '@chakra-ui/react';
 
 import merge from 'lodash/merge';
 
@@ -17,7 +17,7 @@ import {
 
 import useStyles from './common/styles';
 import Spinner from './components/Spinner';
-import { IconButtonContext as IconButtonContextType, IconButtonRef, IconButtonProps } from './types';
+import { IconButtonContext as IconButtonContextType, IconButtonProps,IconButtonRef } from './types';
 
 export const IconButtonContext = createContext<IconButtonContextType>({
 	color: defaultColor,

@@ -4,8 +4,8 @@ import memoize from 'micro-memoize';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
-	isFullWidth as defaultIsFullWidth,
 	isFixed as defaultIsFixed,
+	isFullWidth as defaultIsFullWidth,
 	isLight as defaultIsLight,
 	isOpen as defaultIsOpen
 } from '../data/defaultPropValues';

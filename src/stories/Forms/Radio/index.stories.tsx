@@ -10,11 +10,11 @@ import {
 	isChecked as defaultIsChecked,
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
-	isWarning as defaultIsWarning,
-	isSuccess as defaultIsSuccess,
+	isFullWidth as defaultIsFullWidth,
 	isReadOnly as defaultIsReadOnly,
 	isRequired as defaultIsRequired,
-	isFullWidth as defaultIsFullWidth,
+	isSuccess as defaultIsSuccess,
+	isWarning as defaultIsWarning,
 	size as defaultSize,
 	variant as defaultVariant
 } from '../../../components/Forms/Radio/common/data/defaultPropValues';
@@ -22,11 +22,10 @@ import RadioSubtitle from '../../../components/Forms/Radio/components/RadioSubti
 import RadioTitle from '../../../components/Forms/Radio/components/RadioTitle';
 import {
 	RadioColor,
+	RadioProps,
 	// RadioPanelRenderProps,
 	RadioSize,
-	RadioVariant,
-	RadioProps
-} from '../../../components/Forms/Radio/types';
+	RadioVariant} from '../../../components/Forms/Radio/types';
 // import Icon from '../../../components/Icon';
 // eslint-disable-next-line max-len
 // import { RadioColor, RadioProps, RadioRef, RadioSize, Radio as RadioComponent, RadioHeader, RadioBody, RadioFooter } from '../..';

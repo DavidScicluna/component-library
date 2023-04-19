@@ -1,18 +1,17 @@
 import { ColorMode, StackProps } from '@chakra-ui/react';
 
 import {
-	BoxMargin,
-	BoxPadding,
 	BoxColor,
-	BoxGradient,
-	BoxTypography,
-	BoxFlexbox,
-	BoxGrid,
-	BoxShadow,
 	BoxFilter,
+	BoxFlexbox,
+	BoxGradient,
+	BoxGrid,
+	BoxMargin,
+	BoxOther,
+	BoxPadding,
 	BoxPseudo,
-	BoxOther
-} from '../../../common/types/box';
+	BoxShadow,
+	BoxTypography} from '../../../common/types/box';
 import { Color } from '../../../theme/types';
 
 export type SideNavigationColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;

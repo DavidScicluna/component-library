@@ -4,15 +4,14 @@ import { GridProps } from '@chakra-ui/react';
 
 import {
 	BoxColor,
-	BoxGradient,
-	BoxFlexbox,
-	BoxGrid,
-	BoxPosition,
-	BoxShadow,
 	BoxFilter,
+	BoxFlexbox,
+	BoxGradient,
+	BoxGrid,
+	BoxOther,
+	BoxPosition,
 	BoxPseudo,
-	BoxOther
-} from '../../../common/types/box';
+	BoxShadow} from '../../../common/types/box';
 
 export type StateOverlayState = 'error' | 'empty' | 'loading' | 'default';
 

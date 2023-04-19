@@ -4,9 +4,8 @@ import {
 	ButtonColor,
 	ButtonSize,
 	ButtonVariant,
-	DummyButtonProps,
-	DummyButton as DummyButtonComponent
-} from '../../../..';
+	DummyButton as DummyButtonComponent,
+	DummyButtonProps} from '../../../..';
 import {
 	color as defaultColor,
 	isFullWidth as defaultIsFullWidth,

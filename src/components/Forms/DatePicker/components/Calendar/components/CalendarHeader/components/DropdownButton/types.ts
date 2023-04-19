@@ -3,20 +3,19 @@ import { ReactNode } from 'react';
 import { ButtonProps as CUIButtonProps } from '@chakra-ui/react';
 
 import {
-	BoxPadding,
-	BoxColor,
-	BoxGradient,
-	BoxTypography,
-	BoxLayout,
-	BoxFlexbox,
-	BoxGrid,
 	BoxBackground,
 	BoxBorders,
-	BoxShadow,
+	BoxColor,
 	BoxFilter,
+	BoxFlexbox,
+	BoxGradient,
+	BoxGrid,
+	BoxLayout,
+	BoxOther,
+	BoxPadding,
 	BoxPseudo,
-	BoxOther
-} from '../../../../../../../../../common/types/box';
+	BoxShadow,
+	BoxTypography} from '../../../../../../../../../common/types/box';
 
 type Omitted =
 	// CUI Box Props

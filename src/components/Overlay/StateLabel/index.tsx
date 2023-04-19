@@ -1,13 +1,12 @@
-import { FC, createContext } from 'react';
+import { createContext,FC } from 'react';
 
 import { useColorMode, VStack } from '@chakra-ui/react';
 
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
-	spacing as defaultSpacing,
-	padding as defaultPadding
-} from './common/default/props';
+	padding as defaultPadding,
+	spacing as defaultSpacing} from './common/default/props';
 import { StateLabelContext as StateLabelContextType, StateLabelProps } from './types';
 
 export const StateLabelContext = createContext<StateLabelContextType>({

@@ -1,19 +1,18 @@
 import { CenterProps } from '@chakra-ui/react';
 
 import {
-	BoxColor,
-	BoxGradient,
-	BoxFlexbox,
-	BoxGrid,
 	BoxBackground,
-	BoxBorders,
 	BoxBorderRadius,
-	BoxPosition,
-	BoxShadow,
+	BoxBorders,
+	BoxColor,
 	BoxFilter,
+	BoxFlexbox,
+	BoxGradient,
+	BoxGrid,
+	BoxOther,
+	BoxPosition,
 	BoxPseudo,
-	BoxOther
-} from '../../../../../common/types/box';
+	BoxShadow} from '../../../../../common/types/box';
 import { IconProps } from '../../../../Icon/types';
 import { StateLabelContext } from '../../types';
 
