@@ -1,7 +1,7 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta as StorybookMeta, StoryFn as StorybookStory } from '@storybook/react';
 
 import { DummyIconButton } from '../../../..';
 
-export type Meta = ComponentMeta<typeof DummyIconButton>;
+export type Meta = StorybookMeta<typeof DummyIconButton>;
 
-export type Story = ComponentStory<typeof DummyIconButton>;
+export type Story = StorybookStory<typeof DummyIconButton>;

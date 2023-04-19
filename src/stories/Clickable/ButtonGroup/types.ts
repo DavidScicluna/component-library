@@ -1,7 +1,7 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta as StorybookMeta, StoryFn as StorybookStory } from '@storybook/react';
 
 import ButtonGroup from '../../../components/Clickable/ButtonGroup';
 
-export type Meta = ComponentMeta<typeof ButtonGroup>;
+export type Meta = StorybookMeta<typeof ButtonGroup>;
 
-export type Story = ComponentStory<typeof ButtonGroup>;
+export type Story = StorybookStory<typeof ButtonGroup>;

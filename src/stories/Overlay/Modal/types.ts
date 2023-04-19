@@ -1,7 +1,7 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta as StorybookMeta, StoryFn as StorybookStory } from '@storybook/react';
 
 import Modal from '../../../components/Overlay/Modal';
 
-export type Meta = ComponentMeta<typeof Modal>;
+export type Meta = StorybookMeta<typeof Modal>;
 
-export type Story = ComponentStory<typeof Modal>;
+export type Story = StorybookStory<typeof Modal>;

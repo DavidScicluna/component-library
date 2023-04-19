@@ -1,7 +1,7 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta as StorybookMeta, StoryFn as StorybookStory } from '@storybook/react';
 
 import { Tooltip } from '../../..';
 
-export type Meta = ComponentMeta<typeof Tooltip>;
+export type Meta = StorybookMeta<typeof Tooltip>;
 
-export type Story = ComponentStory<typeof Tooltip>;
+export type Story = StorybookStory<typeof Tooltip>;

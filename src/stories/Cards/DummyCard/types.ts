@@ -1,7 +1,7 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta as StorybookMeta, StoryFn as StorybookStory } from '@storybook/react';
 
 import { DummyCard } from '../../..';
 
-export type Meta = ComponentMeta<typeof DummyCard>;
+export type Meta = StorybookMeta<typeof DummyCard>;
 
-export type Story = ComponentStory<typeof DummyCard>;
+export type Story = StorybookStory<typeof DummyCard>;

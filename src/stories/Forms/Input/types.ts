@@ -1,7 +1,7 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta as StorybookMeta, StoryFn as StorybookStory } from '@storybook/react';
 
 import Input from '../../../components/Forms/Input';
 
-export type Meta = ComponentMeta<typeof Input>;
+export type Meta = StorybookMeta<typeof Input>;
 
-export type Story = ComponentStory<typeof Input>;
+export type Story = StorybookStory<typeof Input>;

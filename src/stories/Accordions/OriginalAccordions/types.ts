@@ -1,7 +1,7 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta as StorybookMeta, StoryFn as StorybookStory } from '@storybook/react';
 
 import { Accordions } from '../../..';
 
-export type Meta = ComponentMeta<typeof Accordions>;
+export type Meta = StorybookMeta<typeof Accordions>;
 
-export type Story = ComponentStory<typeof Accordions>;
+export type Story = StorybookStory<typeof Accordions>;

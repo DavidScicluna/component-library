@@ -1,7 +1,7 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta as StorybookMeta, StoryFn as StorybookStory } from '@storybook/react';
 
 import Textarea from '../../../components/Forms/Textarea';
 
-export type Meta = ComponentMeta<typeof Textarea>;
+export type Meta = StorybookMeta<typeof Textarea>;
 
-export type Story = ComponentStory<typeof Textarea>;
+export type Story = StorybookStory<typeof Textarea>;
