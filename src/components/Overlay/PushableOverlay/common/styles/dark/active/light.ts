@@ -1,9 +1,9 @@
-import { darken, lighten } from 'color2k';
+import { darken } from 'color2k';
 
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../theme/types';
-import { active, back } from '../../../default/amount';
+import { back } from '../../../default/amount';
 import { color as defaultColor } from '../../../default/props';
 import { transform } from '../../../default/sizes';
 
@@ -28,9 +28,9 @@ export default ({ theme, color: colorProp = defaultColor }: PushableOverlayDarkA
 			content: '""',
 
 			color: theme.colors[color][colorShade],
-			borderColor: lighten(theme.colors[color][backgroundShade], active),
-			backgroundColor: lighten(theme.colors[color][backgroundShade], active),
-			background: lighten(theme.colors[color][backgroundShade], active),
+			borderColor: theme.colors[color][backgroundShade],
+			backgroundColor: theme.colors[color][backgroundShade],
+			background: theme.colors[color][backgroundShade],
 			boxShadow: `0 ${transform.active}px 0 0 ${darken(theme.colors[color][backgroundShade], back)}`
 		}
 	};

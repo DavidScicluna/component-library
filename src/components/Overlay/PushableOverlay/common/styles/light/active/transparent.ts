@@ -1,9 +1,6 @@
-import { darken } from 'color2k';
-
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../theme/types';
-import { active } from '../../../default/amount';
 import { color as defaultColor } from '../../../default/props';
 
 import { PushableOverlayLightActiveStylingProps } from './types';
@@ -21,12 +18,12 @@ export default ({ theme, color: colorProp = defaultColor }: PushableOverlayLight
 	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
 
 	return {
-		'color': darken(theme.colors[color][colorShade], active),
+		'color': theme.colors[color][colorShade],
 
 		'&::before': {
 			content: '""',
 
-			color: darken(theme.colors[color][colorShade], active),
+			color: theme.colors[color][colorShade],
 			borderColor: theme.colors.gray[backgroundShade],
 			backgroundColor: theme.colors.gray[backgroundShade],
 			background: theme.colors.gray[backgroundShade]

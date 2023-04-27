@@ -33,6 +33,6 @@ export default memoize((props: PushableOverlayStyleProps): PushableOverlayStyleR
 			scheme.pushable[variant]({ theme, color })
 		),
 		active: merge(active.general(), active[variant](), scheme.active[variant]({ theme, color })),
-		disabled: merge(disabled.general(), disabled[variant]())
+		disabled: merge(disabled.general(), disabled[variant](), scheme.disabled[variant]({ theme, color }))
 	};
 });

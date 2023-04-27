@@ -2,16 +2,17 @@ import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../theme/types';
 import { color as defaultColor } from '../../../default/props';
+import { transform } from '../../../default/sizes';
 
-import { PushableOverlayDarkActiveStylingProps } from './types';
+import { PushableOverlayLightDisabledStylingProps } from './types';
 
-export default ({ theme, color: colorProp = defaultColor }: PushableOverlayDarkActiveStylingProps): Style => {
+export default ({ theme, color: colorProp = defaultColor }: PushableOverlayLightDisabledStylingProps): Style => {
 	const colorShade = getHue({
-		colorMode: 'dark',
+		colorMode: 'light',
 		type: colorProp === 'black' ? 'darker' : colorProp === 'white' ? 'lighter' : 'color'
 	});
 	const backgroundShade = getHue({
-		colorMode: 'dark',
+		colorMode: 'light',
 		type: 'background'
 	});
 
@@ -24,9 +25,10 @@ export default ({ theme, color: colorProp = defaultColor }: PushableOverlayDarkA
 			content: '""',
 
 			color: theme.colors[color][colorShade],
-			borderColor: theme.colors.gray[backgroundShade],
+			borderColor: theme.colors[color][colorShade],
 			backgroundColor: theme.colors.gray[backgroundShade],
-			background: theme.colors.gray[backgroundShade]
+			background: theme.colors.gray[backgroundShade],
+			boxShadow: `0 ${transform.active}px 0 0 ${theme.colors[color][colorShade]}`
 		}
 	};
 };

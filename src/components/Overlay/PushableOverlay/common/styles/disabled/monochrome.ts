@@ -1,7 +1,7 @@
 import { Style } from '../../../../../../common/types';
-import { border } from '../../default/sizes';
+import { transform } from '../../default/sizes';
 
 export default (): Style => ({
-	borderTopWidth: `${border}px`,
-	borderBottomWidth: `${border}px`
+	borderTopWidth: `${transform.hover}px`,
+	borderBottomWidth: `${transform.active}px`
 });

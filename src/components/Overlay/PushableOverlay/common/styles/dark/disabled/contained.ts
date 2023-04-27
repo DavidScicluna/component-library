@@ -7,15 +7,15 @@ import { back } from '../../../default/amount';
 import { color as defaultColor } from '../../../default/props';
 import { transform } from '../../../default/sizes';
 
-import { PushableOverlayLightActiveStylingProps } from './types';
+import { PushableOverlayDarkDisabledStylingProps } from './types';
 
-export default ({ theme, color: colorProp = defaultColor }: PushableOverlayLightActiveStylingProps): Style => {
+export default ({ theme, color: colorProp = defaultColor }: PushableOverlayDarkDisabledStylingProps): Style => {
 	const colorShade = getHue({
-		colorMode: 'light',
+		colorMode: 'dark',
 		type: colorProp === 'white' ? 'darkest' : 'background'
 	});
 	const backgroundShade = getHue({
-		colorMode: 'light',
+		colorMode: 'dark',
 		type: colorProp === 'black' ? 'darker' : colorProp === 'white' ? 'lighter' : 'color'
 	});
 

@@ -18,14 +18,6 @@ export default ({ theme, borderRadius = defaultBorderRadius }: PushableOverlaySt
 
 		'position': 'relative',
 
-		'width': 'auto',
-		'height': 'auto',
-
-		'minWidth': 'auto',
-		'minHeight': 'auto',
-		'maxWidth': 'none',
-		'maxHeight': 'none',
-
 		'userSelect': 'none',
 		'willChange': 'auto',
 

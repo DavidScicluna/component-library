@@ -48,8 +48,7 @@ type Omitted =
 	| BoxShadow
 	| BoxFilter
 	| BoxPseudo
-	| BoxOther
-	| 'as';
+	| BoxOther;
 
 export type PushableOverlayProps = Omit<BoxProps, Omitted> & {
 	borderRadius?: Radius;

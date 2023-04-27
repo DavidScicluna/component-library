@@ -2,9 +2,9 @@ import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { transform } from '../../../default/sizes';
 
-import { PushableOverlayLightActiveStylingProps } from './types';
+import { PushableOverlayLightDisabledStylingProps } from './types';
 
-export default ({ theme }: PushableOverlayLightActiveStylingProps): Style => {
+export default ({ theme }: PushableOverlayLightDisabledStylingProps): Style => {
 	const colorShade = getHue({
 		colorMode: 'light',
 		type: 'text.primary'
