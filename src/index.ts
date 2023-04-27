@@ -1,5 +1,5 @@
 import fallback from './common/assets/fallback';
-import { useDebounce, useOs, useTheme } from './common/hooks';
+import { useDebounce, useOs, useProviderContext as useDSCLProviderContext, useTheme } from './common/hooks';
 import {
 	checkIsTouchDevice,
 	convertEasingsToArray,
@@ -7,8 +7,9 @@ import {
 	convertStringToNumber,
 	getColorMode,
 	getFontSizeHeight,
-	getOS} from './common/utils';
-import { getColor,getHue } from './common/utils/color';
+	getOS
+} from './common/utils';
+import { getColor, getHue } from './common/utils/color';
 import { AccordionsColor } from './components/Accordions/common/types';
 import DummyAccordions from './components/Accordions/DummyAccordions';
 import { useDummyAccordionsContext } from './components/Accordions/DummyAccordions/common/hooks';
@@ -63,14 +64,15 @@ import { DummyCardDividerProps } from './components/Cards/DummyCard/components/D
 import DummyCardHeader from './components/Cards/DummyCard/components/DummyCardHeader';
 import {
 	DummyCardHeaderProps,
-	DummyCardHeaderRenderProps} from './components/Cards/DummyCard/components/DummyCardHeader/types';
+	DummyCardHeaderRenderProps
+} from './components/Cards/DummyCard/components/DummyCardHeader/types';
 import { DummyCardContext, DummyCardProps, DummyCardRef } from './components/Cards/DummyCard/types';
 import Card from './components/Cards/OriginalCard';
 import { useCardContext } from './components/Cards/OriginalCard/common/hooks';
 import CardDivider from './components/Cards/OriginalCard/components/CardDivider';
 import { CardDividerProps } from './components/Cards/OriginalCard/components/CardDivider/types';
 import CardHeader from './components/Cards/OriginalCard/components/CardHeader';
-import { CardHeaderProps,CardHeaderRenderProps } from './components/Cards/OriginalCard/components/CardHeader/types';
+import { CardHeaderProps, CardHeaderRenderProps } from './components/Cards/OriginalCard/components/CardHeader/types';
 import { CardContext, CardProps, CardRef } from './components/Cards/OriginalCard/types';
 import ButtonGroup from './components/Clickable/ButtonGroup';
 import { useButtonGroupContext } from './components/Clickable/ButtonGroup/common/hooks';
@@ -296,7 +298,7 @@ import {
 	HorizontalScrollRef
 } from './components/HorizontalScroll/types';
 import Icon from './components/Icon';
-import { IconCategory,IconProps } from './components/Icon/types';
+import { IconCategory, IconProps } from './components/Icon/types';
 import Image from './components/Image';
 import { ImageEvent, ImageProps, ImageRef, ImageSrc, ImageSrcMode } from './components/Image/types';
 import ImageEditor from './components/ImageEditor';
@@ -318,7 +320,7 @@ import {
 import Stepper from './components/Navigation/Stepper';
 import { useStepperContext } from './components/Navigation/Stepper/common/hooks';
 import StepList from './components/Navigation/Stepper/components/StepList';
-import { Step,StepListProps } from './components/Navigation/Stepper/components/StepList/types';
+import { Step, StepListProps } from './components/Navigation/Stepper/components/StepList/types';
 import StepPanel from './components/Navigation/Stepper/components/StepPanel';
 import { StepPanelProps } from './components/Navigation/Stepper/components/StepPanel/types';
 import StepPanels from './components/Navigation/Stepper/components/StepPanels';
@@ -328,7 +330,8 @@ import {
 	StepperColor,
 	StepperContext,
 	StepperProps,
-	StepperRef} from './components/Navigation/Stepper/types';
+	StepperRef
+} from './components/Navigation/Stepper/types';
 import TabBar from './components/Navigation/TabBar';
 import { useTabBarContext } from './components/Navigation/TabBar/common/hooks';
 import { Tab as TabBarTab } from './components/Navigation/TabBar/components/Tab/types';
@@ -368,7 +371,8 @@ import {
 	OnChangeProps as TabsOnChangeProps,
 	TabsContext,
 	TabsProps,
-	TabsRef} from './components/Navigation/Tabs/OriginalTabs/types';
+	TabsRef
+} from './components/Navigation/Tabs/OriginalTabs/types';
 import ConfirmModal from './components/Overlay/ConfirmModal';
 import { useConfirmModalContext } from './components/Overlay/ConfirmModal/common/hooks';
 import ConfirmModalBody from './components/Overlay/ConfirmModal/components/ConfirmModalBody';
@@ -401,6 +405,12 @@ import { ModalHeaderProps } from './components/Overlay/Modal/components/ModalHea
 import ModalStack from './components/Overlay/Modal/components/ModalStack';
 import { ModalStackProps } from './components/Overlay/Modal/components/ModalStack/types';
 import { ModalProps } from './components/Overlay/Modal/types';
+import PushableOverlay from './components/Overlay/PushableOverlay';
+import {
+	PushableOverlayProps,
+	PushableOverlayRef,
+	PushableOverlayVariant
+} from './components/Overlay/PushableOverlay/common/types';
 import StateLabel from './components/Overlay/StateLabel';
 import { useStateLabelContext } from './components/Overlay/StateLabel/common/hooks';
 import StateLabelActions from './components/Overlay/StateLabel/components/StateLabelActions';
@@ -437,7 +447,8 @@ import {
 	getConfig as getTransitionConfig,
 	getDelay as getTransitionDelay,
 	getDuration as getTransitionDuration,
-	getEasings as getTransitionEasings} from './components/Transitions/common/utils';
+	getEasings as getTransitionEasings
+} from './components/Transitions/common/utils';
 import Fade from './components/Transitions/Fade';
 import { FadeProps } from './components/Transitions/Fade/types';
 import PageTransition from './components/Transitions/PageTransition';
@@ -470,7 +481,8 @@ export type {
 	Space,
 	Spacing,
 	Theme,
-	Transition} from './theme/types';
+	Transition
+} from './theme/types';
 
 // Box Types
 export type {
@@ -489,7 +501,8 @@ export type {
 	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from './common/types/box';
+	BoxTypography
+} from './common/types/box';
 
 // Common Types
 export type {
@@ -499,13 +512,14 @@ export type {
 	Orientation,
 	PickFrom,
 	Style,
-	Undefinable} from './common/types';
+	Undefinable
+} from './common/types';
 
 // Icon Types
 export type { Icon as IconType } from './common/types/icons';
 
 // Hooks
-export { useDebounce, useOs, useTheme };
+export { useDebounce, useDSCLProviderContext, useOs, useTheme };
 
 // Context Hooks
 export {
@@ -535,7 +549,8 @@ export {
 	useStepperContext,
 	useTabBarContext,
 	useTabsContext,
-	useTagContext};
+	useTagContext
+};
 
 // Assets
 export const assets = { fallback };
@@ -659,6 +674,7 @@ export {
 	NavGroup,
 	NavItem,
 	PageTransition,
+	PushableOverlay,
 	Radio,
 	RadioSubtitle,
 	RadioTitle,
@@ -691,7 +707,8 @@ export {
 	TagDeleteIconButton,
 	TagLabel,
 	Textarea,
-	Tooltip};
+	Tooltip
+};
 
 // Components Types
 export type {
@@ -872,6 +889,9 @@ export type {
 	NavItemProps,
 	NavItemType,
 	PageTransitionProps,
+	PushableOverlayProps,
+	PushableOverlayRef,
+	PushableOverlayVariant,
 	RadioColor,
 	RadioContext,
 	RadioPanelRenderProps,
@@ -963,4 +983,5 @@ export type {
 	TextareaVariant,
 	TooltipColor,
 	TooltipProps,
-	TooltipRef};
+	TooltipRef
+};

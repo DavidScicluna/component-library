@@ -1,11 +1,12 @@
 import { ColorMode } from '@chakra-ui/react';
 
+import { AppColor } from '../../../../../../common/types';
 import { Radius } from '../../../../../../theme/types';
-import { PushableOverlayColor, PushableOverlayVariant } from '../../types';
+import { PushableOverlayVariant } from '../../types';
 
 export const borderRadius: Radius = 'base';
 
-export const color: PushableOverlayColor = 'gray';
+export const color: AppColor = 'gray';
 
 export const colorMode: ColorMode = 'light';
 

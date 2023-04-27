@@ -1,6 +1,6 @@
 import { BoxProps, ColorMode } from '@chakra-ui/react';
 
-import { Nullable } from '../../../../../common/types';
+import { AppColor, Nullable } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -17,11 +17,7 @@ import {
 	BoxShadow,
 	BoxTypography
 } from '../../../../../common/types/box';
-import { Color, Radius } from '../../../../../theme/types';
-
-export type PushableOverlayType = 'pushable' | 'shadow' | 'front';
-
-export type PushableOverlayColor = Exclude<Color, 'transparent'>;
+import { Radius } from '../../../../../theme/types';
 
 export type PushableOverlayVariant = 'contained' | 'light' | 'outlined' | 'monochrome';
 
@@ -57,7 +53,7 @@ type Omitted =
 
 export type PushableOverlayProps = Omit<BoxProps, Omitted> & {
 	borderRadius?: Radius;
-	color?: PushableOverlayColor;
+	color?: AppColor;
 	colorMode?: ColorMode;
 	isActive?: boolean;
 	isDisabled?: boolean;
