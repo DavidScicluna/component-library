@@ -1,6 +1,6 @@
-import { Color } from '../../theme/types';
+import { AppColors } from '../types';
 
-export const colors: Color[] = [
+export const colors: AppColors = [
 	'red',
 	'pink',
 	'purple',

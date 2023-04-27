@@ -1,5 +1,7 @@
 import { SystemStyleObject } from '@chakra-ui/react';
 
+import { Color } from '../../theme/types';
+
 // Utility Types
 export type Undefinable<T> = T | undefined; // Adds undefined to type
 
@@ -14,6 +16,9 @@ export type PickFrom<T, K extends T> = {
 };
 
 // Common Component Types
+export type AppColor = Exclude<Color, 'transparent'>;
+export type AppColors = AppColor[];
+
 export type Style = SystemStyleObject;
 
 export type Orientation = 'vertical' | 'horizontal';
