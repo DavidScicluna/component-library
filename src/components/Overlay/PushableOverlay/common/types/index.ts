@@ -19,7 +19,7 @@ import {
 } from '../../../../../common/types/box';
 import { Radius } from '../../../../../theme/types';
 
-export type PushableOverlayVariant = 'contained' | 'light' | 'outlined' | 'monochrome';
+export type PushableOverlayVariant = 'contained' | 'light' | 'outlined' | 'monochrome' | 'transparent';
 
 type BoxLayoutExcluded =
 	| 'w'
