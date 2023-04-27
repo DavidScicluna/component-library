@@ -2,7 +2,7 @@ import { ColorMode } from '@chakra-ui/react';
 
 import memoize from 'micro-memoize';
 
-import { Color,ColorHues, Theme } from '../../theme/types';
+import { Color, ColorHues, Theme } from '../../theme/types';
 
 type Type =
 	| 'background'
@@ -10,10 +10,13 @@ type Type =
 	| 'text.secondary'
 	| 'divider'
 	| 'light'
+	| 'lighter'
 	| 'lightest'
 	| 'dark'
+	| 'darker'
 	| 'darkest'
-	| 'color';
+	| 'color'
+	| 'default';
 
 export type GetHueProps = {
 	colorMode: ColorMode;
@@ -27,18 +30,24 @@ export const getHue = memoize(({ colorMode, type }: GetHueProps): ColorHues => {
 		case 'text.primary':
 			return colorMode === 'light' ? 900 : 50;
 		case 'text.secondary':
-			return colorMode === 'light' ? 400 : 500;
+			return colorMode === 'light' ? 500 : 400;
 		case 'divider':
 			return colorMode === 'light' ? 200 : 700;
 		case 'light':
+			return 200;
+		case 'lighter':
 			return 100;
 		case 'lightest':
 			return 50;
 		case 'dark':
+			return 700;
+		case 'darker':
 			return 800;
 		case 'darkest':
 			return 900;
 		case 'color':
+			return colorMode === 'light' ? 600 : 300;
+		case 'default':
 			return colorMode === 'light' ? 500 : 400;
 	}
 });
@@ -52,6 +61,5 @@ export type GetColorProps = {
 
 export const getColor = memoize(({ theme, colorMode, color: colorProp, type }: GetColorProps): string => {
 	const color: Color = colorProp || 'gray';
-
 	return theme.colors[color][getHue({ type, colorMode })];
 });
