@@ -1,95 +1,96 @@
-import { FC, useCallback } from 'react';
+import { FC, useMemo } from 'react';
 
-import { Center, HStack, useColorMode } from '@chakra-ui/react';
+import { Button as CUIButton, Center, Grid, GridItem } from '@chakra-ui/react';
 
-import { merge } from 'lodash-es';
+import { compact, merge } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
-import { useTheme } from '../../../../common/hooks';
+import { useProviderContext, useTheme } from '../../../../common/hooks';
+import { Radius } from '../../../../theme/types';
 import Skeleton from '../../../Skeleton';
 import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
+	isCompact as defaultIsCompact,
 	isFullWidth as defaultIsFullWidth,
 	isRound as defaultIsRound,
 	size as defaultSize,
 	variant as defaultVariant
-} from '../common/data/defaultPropValues';
-import { getSizeConfig } from '../common/utils';
+} from '../common/default/props';
+import useStyles from '../common/styles';
+import { getSizeConfig, GetSizeConfigReturn, getVariantRadius } from '../common/utils';
 
-import useStyles from './common/styles';
 import { DummyButtonProps } from './types';
 
 const DummyButton: FC<DummyButtonProps> = (props) => {
 	const theme = useTheme();
-	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
-	const [childrenRef, { height: childrenHeight }] = useElementSize();
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
+
+	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const {
 		children,
 		color = defaultColor,
-		colorMode = colorModeHook,
-		hasLeft = false,
-		hasRight = false,
+		colorMode = defaultColorMode,
+		isCompact = defaultIsCompact,
 		isFullWidth = defaultIsFullWidth,
 		isRound = defaultIsRound,
+		renderLeft,
+		renderRight,
 		size = defaultSize,
 		variant = defaultVariant,
 		sx,
 		...rest
 	} = props;
 
-	const style = useStyles({ theme, colorMode, isFullWidth, isRound, size, variant });
+	const radius = useMemo((): Radius => {
+		return getVariantRadius({ isCompact, isRound, variant });
+	}, [isCompact, isRound, variant]);
+	const config = useMemo((): GetSizeConfigReturn => {
+		return getSizeConfig({ isCompact, size });
+	}, [isCompact, size]);
 
-	const handleReturnSpacing = useCallback((): number => getSizeConfig({ size }).spacing, [size, getSizeConfig]);
+	const style = useStyles({ theme, isCompact, isFullWidth, size });
 
 	return (
-		<Skeleton {...rest} color={color} colorMode={colorMode} isLoaded={false} sx={merge(style.button, sx)}>
-			<HStack
-				width='inherit'
-				position='relative'
-				zIndex={1}
-				align='center'
-				justify='center'
-				flex={1}
-				spacing={handleReturnSpacing()}
-			>
-				{hasLeft && (
-					<Skeleton
-						className='ds-cl-dummy-button-skeleton-icon'
-						width={`${childrenHeight}px`}
-						height={`${childrenHeight}px`}
-						color={color}
-						colorMode={colorMode}
-						isLoaded={false}
-					/>
-				)}
+		<Skeleton {...rest} color={color} colorMode={colorMode} borderRadius={radius} isLoaded={false}>
+			<CUIButton isDisabled variant='unstyled' sx={merge(style.button, sx)} _disabled={style.disabled}>
+				<Grid
+					width='100%'
+					height='100%'
+					templateColumns={compact([renderLeft ? 'auto' : null, '1fr', renderRight ? 'auto' : null]).join(
+						' '
+					)}
+					templateRows='1fr'
+					templateAreas='. . .'
+					alignItems='center'
+					alignContent='center'
+					justifyContent='center'
+					borderRadius={radius}
+					gap={config.spacing}
+					px={config.padding.x}
+					py={config.padding.y}
+				>
+					{renderLeft ? (
+						<GridItem>
+							{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+						</GridItem>
+					) : null}
 
-				{children && (
-					<Center ref={childrenRef} as='span'>
-						<Skeleton
-							className='ds-cl-dummy-button-skeleton-icon'
-							color={color}
-							colorMode={colorMode}
-							isLoaded={false}
-						>
-							{children}
-						</Skeleton>
-					</Center>
-				)}
+					{children ? (
+						<GridItem>
+							<Center ref={childrenRef} as='span' width='100%' height='100%'>
+								{children}
+							</Center>
+						</GridItem>
+					) : null}
 
-				{hasRight && (
-					<Skeleton
-						className='ds-cl-dummy-button-skeleton-icon'
-						width={`${childrenHeight}px`}
-						height={`${childrenHeight}px`}
-						color={color}
-						colorMode={colorMode}
-						isLoaded={false}
-					/>
-				)}
-			</HStack>
+					{renderRight ? (
+						<GridItem>
+							{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+						</GridItem>
+					) : null}
+				</Grid>
+			</CUIButton>
 		</Skeleton>
 	);
 };
