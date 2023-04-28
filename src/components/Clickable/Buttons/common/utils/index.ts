@@ -11,7 +11,7 @@ import {
 import { CommonButtonProps } from '../types';
 
 type Padding = Record<'x' | 'y', Space>; // In Space (Theme) Values
-type GetSizeConfigReturn = {
+export type GetSizeConfigReturn = {
 	padding: Padding;
 	fontSize: FontSize; // In FontSize (Theme) Values
 	spacing: Space; // In Space (Theme) Values
