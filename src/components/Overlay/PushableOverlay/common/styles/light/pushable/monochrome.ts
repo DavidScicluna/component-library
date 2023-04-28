@@ -38,12 +38,12 @@ export default ({ theme }: PushableOverlayLightStylingProps): Style => {
 		},
 
 		'&:hover': {
-			'color': theme.colors.gray[colorShade],
+			'color': darken(theme.colors.gray[colorShade], hover),
 
 			'&::before': {
 				content: '""',
 
-				color: theme.colors.gray[colorShade],
+				color: darken(theme.colors.gray[colorShade], hover),
 				borderColor: darken(theme.colors.gray[borderShade], hover),
 				backgroundColor: theme.colors.gray[backgroundShade],
 				background: theme.colors.gray[backgroundShade],
@@ -51,12 +51,12 @@ export default ({ theme }: PushableOverlayLightStylingProps): Style => {
 			},
 
 			'&:active': {
-				'color': theme.colors.gray[colorShade],
+				'color': darken(theme.colors.gray[colorShade], active),
 
 				'&::before': {
 					content: '""',
 
-					color: theme.colors.gray[colorShade],
+					color: darken(theme.colors.gray[colorShade], active),
 					borderColor: darken(theme.colors.gray[borderShade], active),
 					backgroundColor: theme.colors.gray[backgroundShade],
 					background: theme.colors.gray[backgroundShade],
@@ -66,12 +66,12 @@ export default ({ theme }: PushableOverlayLightStylingProps): Style => {
 		},
 
 		'&:active': {
-			'color': theme.colors.gray[colorShade],
+			'color': darken(theme.colors.gray[colorShade], active),
 
 			'&::before': {
 				content: '""',
 
-				color: theme.colors.gray[colorShade],
+				color: darken(theme.colors.gray[colorShade], active),
 				borderColor: darken(theme.colors.gray[borderShade], active),
 				backgroundColor: theme.colors.gray[backgroundShade],
 				background: theme.colors.gray[backgroundShade],

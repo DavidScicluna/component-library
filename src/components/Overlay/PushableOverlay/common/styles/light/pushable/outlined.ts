@@ -38,12 +38,12 @@ export default ({ theme, color: colorProp = defaultColor }: PushableOverlayLight
 		},
 
 		'&:hover': {
-			'color': theme.colors[color][colorShade],
+			'color': darken(theme.colors[color][colorShade], hover),
 
 			'&::before': {
 				content: '""',
 
-				color: theme.colors[color][colorShade],
+				color: darken(theme.colors[color][colorShade], hover),
 				borderColor: darken(theme.colors[color][colorShade], hover),
 				backgroundColor: theme.colors.gray[backgroundShade],
 				background: theme.colors.gray[backgroundShade],
@@ -51,12 +51,12 @@ export default ({ theme, color: colorProp = defaultColor }: PushableOverlayLight
 			},
 
 			'&:active': {
-				'color': theme.colors[color][colorShade],
+				'color': darken(theme.colors[color][colorShade], active),
 
 				'&::before': {
 					content: '""',
 
-					color: theme.colors[color][colorShade],
+					color: darken(theme.colors[color][colorShade], active),
 					borderColor: darken(theme.colors[color][colorShade], active),
 					backgroundColor: theme.colors.gray[backgroundShade],
 					background: theme.colors.gray[backgroundShade],
@@ -66,12 +66,12 @@ export default ({ theme, color: colorProp = defaultColor }: PushableOverlayLight
 		},
 
 		'&:active': {
-			'color': theme.colors[color][colorShade],
+			'color': darken(theme.colors[color][colorShade], active),
 
 			'&::before': {
 				content: '""',
 
-				color: theme.colors[color][colorShade],
+				color: darken(theme.colors[color][colorShade], active),
 				borderColor: darken(theme.colors[color][colorShade], active),
 				backgroundColor: theme.colors.gray[backgroundShade],
 				background: theme.colors.gray[backgroundShade],

@@ -21,6 +21,7 @@ const PushableOverlay = forwardRef<PushableOverlayRef, PushableOverlayProps>(fun
 	ref
 ): ReactElement {
 	const theme = useTheme();
+
 	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const {

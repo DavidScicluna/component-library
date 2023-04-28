@@ -26,7 +26,8 @@ export default ({ theme, color: colorProp = defaultColor }: PushableOverlayDarkD
 			color: theme.colors[color][colorShade],
 			borderColor: theme.colors.gray[backgroundShade],
 			backgroundColor: theme.colors.gray[backgroundShade],
-			background: theme.colors.gray[backgroundShade]
+			background: theme.colors.gray[backgroundShade],
+			boxShadow: 'none'
 		}
 	};
 };
