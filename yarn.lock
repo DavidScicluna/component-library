@@ -2712,12 +2712,12 @@ __metadata:
     react-horizontal-scrolling-menu: ^4.0.1
     react-router-dom: ^6.10.0
     react-scroll: ^1.8.9
+    react-spinners: ^0.13.8
     rollup: 2.79.1
     rollup-plugin-gzip: ^3.1.0
     rollup-plugin-peer-deps-external: ^2.2.4
     rollup-plugin-postcss: ^4.0.2
     rooks: ^7.10.0
-    spinners-react: ^1.0.7
     storybook: ^7.0.6
     tslib: ^2.5.0
     typescript: ^5.0.3
@@ -13020,6 +13020,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-spinners@npm:^0.13.8":
+  version: 0.13.8
+  resolution: "react-spinners@npm:0.13.8"
+  peerDependencies:
+    react: ^16.0.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+  checksum: cb58f916bbf00c4f7fc33c1a75a8c0f91a98a42af26944340a0e29e4b3a97937a03f0292bc444eb5f5f0bea099344b580f9c04a81524246dadbf0571bdb57e62
+  languageName: node
+  linkType: hard
+
 "react-style-singleton@npm:^2.2.1":
   version: 2.2.1
   resolution: "react-style-singleton@npm:2.2.1"
@@ -13879,18 +13889,6 @@ __metadata:
   version: 3.0.13
   resolution: "spdx-license-ids@npm:3.0.13"
   checksum: 3469d85c65f3245a279fa11afc250c3dca96e9e847f2f79d57f466940c5bb8495da08a542646086d499b7f24a74b8d0b42f3fc0f95d50ff99af1f599f6360ad7
-  languageName: node
-  linkType: hard
-
-"spinners-react@npm:^1.0.7":
-  version: 1.0.7
-  resolution: "spinners-react@npm:1.0.7"
-  peerDependencies:
-    "@types/react": ^16.x || ^17.x || ^18.x
-    "@types/react-dom": ^16.x || ^17.x || ^18.x
-    react: ^16.x || ^17.x || ^18.x
-    react-dom: ^16.x || ^17.x || ^18.x
-  checksum: a06c67b89118721fd5042ef8927e193924de18701ee65724fc3bf158733a332ad1a06179e650c87ab16ea9af09a92a425131d1b53f0a8bc059588a7231fb3d31
   languageName: node
   linkType: hard
 

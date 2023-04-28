@@ -1,15 +1,10 @@
-import { ColorMode } from '@chakra-ui/react';
+import { FontSize } from '../../theme/types';
 
-import { SpinnerCircularFixedProps,SpinnerCircularProps } from 'spinners-react';
+export type SpinnerMode = 'sync' | 'pulse';
 
-import { Color, FontSize } from '../../theme/types';
-
-export type SpinnerColor = Exclude<Color, 'transparent'>;
-export type SpinnerMode = 'fixed' | 'default';
-
-export type SpinnerProps = Omit<SpinnerCircularProps, 'color' | 'secondaryColor' | 'size'> & {
-	color?: SpinnerColor;
-	colorMode?: ColorMode;
+export type SpinnerProps = {
+	color?: string;
+	speed?: number;
 	mode?: SpinnerMode;
 	size?: FontSize;
-} & Omit<SpinnerCircularFixedProps, 'color' | 'secondaryColor' | 'size'>;
+};

@@ -42,8 +42,8 @@
 		"react-horizontal-scrolling-menu": "^4.0.1",
 		"react-router-dom": "^6.10.0",
 		"react-scroll": "^1.8.9",
+		"react-spinners": "^0.13.8",
 		"rooks": "^7.10.0",
-		"spinners-react": "^1.0.7",
 		"usehooks-ts": "^2.9.1",
 		"uuid": "^9.0.0"
 	},

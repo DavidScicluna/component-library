@@ -1,75 +1,25 @@
 import { FC, useMemo } from 'react';
-
-import { useColorMode } from '@chakra-ui/react';
-
-import { SpinnerCircular, SpinnerCircularFixed } from 'spinners-react';
+import { PulseLoader, SyncLoader } from 'react-spinners';
 
 import { useTheme } from '../../common/hooks';
-import { getColor } from '../../common/utils/color';
+import { convertREMToPixels, convertStringToNumber } from '../../common/utils';
 
 import { SpinnerProps } from './types';
 
 const Spinner: FC<SpinnerProps> = (props) => {
 	const theme = useTheme();
-	const { colorMode: colorModeHook = 'light' } = useColorMode();
 
-	const {
-		color = 'blue',
-		colorMode = colorModeHook,
-		mode = 'default',
-		thickness = 160,
-		speed = 140,
-		size = 'xl',
-		...rest
-	} = props;
+	const { color, speed = 0.75, mode = 'sync', size = 'xl' } = props;
 
-	const mainColor = useMemo(() => {
-		return getColor({
-			theme,
-			colorMode,
-			color: color === 'black' || color === 'white' ? 'gray' : color,
-			type:
-				color === 'black'
-					? 'darkest'
-					: color === 'white'
-					? 'lightest'
-					: color === 'gray'
-					? 'text.secondary'
-					: 'color'
-		});
-	}, [color, colorMode]);
-	const secondaryColor = useMemo(() => {
-		return getColor({
-			theme,
-			colorMode: color === 'black' ? 'dark' : color === 'white' ? 'light' : colorMode,
-			color: color === 'black' || color === 'white' ? 'gray' : color,
-			type: colorMode
-		});
-	}, [color, colorMode]);
+	const fontSize = useMemo((): number => {
+		return convertREMToPixels(convertStringToNumber(theme.fontSizes[size], 'rem')) / 4;
+	}, [size]);
 
 	switch (mode) {
-		case 'fixed':
-			return (
-				<SpinnerCircularFixed
-					{...rest}
-					color={mainColor}
-					secondaryColor={secondaryColor}
-					thickness={thickness}
-					speed={speed}
-					size={theme.fontSizes[size]}
-				/>
-			);
-		default:
-			return (
-				<SpinnerCircular
-					{...rest}
-					color={mainColor}
-					secondaryColor={secondaryColor}
-					thickness={thickness}
-					speed={speed}
-					size={theme.fontSizes[size]}
-				/>
-			);
+		case 'sync':
+			return <SyncLoader color={color} speedMultiplier={speed} loading size={fontSize} />;
+		case 'pulse':
+			return <PulseLoader color={color} speedMultiplier={speed} loading size={fontSize} />;
 	}
 };
 
