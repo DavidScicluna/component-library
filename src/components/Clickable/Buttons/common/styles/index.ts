@@ -7,6 +7,7 @@ import {
 	size as defaultSize
 } from '../default/props';
 
+import active from './active';
 import button from './button';
 import disabled from './disabled';
 import { ButtonStyleProps, ButtonStyleReturn } from './types';
@@ -22,6 +23,7 @@ export default memoize((props: ButtonStyleProps): ButtonStyleReturn => {
 
 	return {
 		button: button({ theme, isCompact, isFullWidth, size }),
+		active: active(),
 		disabled: disabled({ isLoading })
 	};
 });

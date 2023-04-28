@@ -10,5 +10,6 @@ export type ButtonStyleProps = Pick<ButtonProps, Picked> & {
 
 export type ButtonStyleReturn = {
 	button: Style;
+	active: Style;
 	disabled: Style;
 };
