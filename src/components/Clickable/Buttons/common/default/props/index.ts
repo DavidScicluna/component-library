@@ -1,11 +1,7 @@
-import { ColorMode } from '@chakra-ui/react';
+import { ButtonSize, ButtonVariant } from '../../types';
 
-import { ButtonColor, ButtonSize, ButtonVariant } from '../types';
-
-export const color: ButtonColor = 'gray';
-
-export const colorMode: ColorMode = 'light';
-
+export const isActive = false;
+export const isCompact = false;
 export const isDisabled = false;
 export const isFullWidth = false;
 export const isLoading = false;
