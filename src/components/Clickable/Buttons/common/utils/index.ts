@@ -1,89 +1,74 @@
-import { Space } from '../../../../../theme/types';
-import { size as defaultSize } from '../data/defaultPropValues';
-import { ButtonSize } from '../types';
+import memoize from 'micro-memoize';
 
-type Padding = {
-	x: Space; // In Space (Theme) Values
-	y: Space; // In Space (Theme) Values
-};
+import { NoUndefinedField } from '../../../../../common/types';
+import { FontSize, Radius, Space } from '../../../../../theme/types';
+import {
+	isCompact as defaultIsCompact,
+	isRound as defaultIsRound,
+	size as defaultSize,
+	variant as defaultVariant
+} from '../default/props';
+import { CommonButtonProps } from '../types';
 
-type Variants = {
-	contained: number; // In Pixels
-	outlined: number; // In Pixels
-	text: number; // In Pixels
-};
-
+type Padding = Record<'x' | 'y', Space>; // In Space (Theme) Values
 type GetSizeConfigReturn = {
-	height: number; // In Pixels
 	padding: Padding;
-	border: number; // In Pixels
+	fontSize: FontSize; // In FontSize (Theme) Values
 	spacing: Space; // In Space (Theme) Values
-	transform: Variants;
-	offset: Variants;
 };
+type GetSizeConfigProps = Pick<CommonButtonProps, 'isCompact' | 'size'>;
 
-type GetSizeConfigProps = { size: ButtonSize };
+export const getSizeConfig = memoize((props: NoUndefinedField<GetSizeConfigProps>): GetSizeConfigReturn => {
+	const { isCompact = defaultIsCompact, size = defaultSize } = props;
 
-export const getSizeConfig = ({ size = defaultSize }: GetSizeConfigProps): GetSizeConfigReturn => {
 	switch (size) {
 		case 'xs':
 			return {
-				height: 30,
-				padding: { x: 1, y: 0 },
-				border: 1,
-				spacing: 1,
-				transform: { contained: 3, outlined: 3, text: 0 },
-				offset: { contained: 2, outlined: 2, text: 0 }
+				// height: isCompact ? 22 : 30,
+				padding: { x: isCompact ? 1 : 2, y: isCompact ? 0.25 : 1 },
+				fontSize: 'xs',
+				spacing: isCompact ? 1 : 2
 			};
 		case 'sm':
 			return {
-				height: 36,
-				padding: { x: 1.5, y: 0 },
-				border: 1,
-				spacing: 1.5,
-				transform: { contained: 3, outlined: 3, text: 0 },
-				offset: { contained: 2, outlined: 2, text: 0 }
+				// height: isCompact ? 26 : 36,
+				padding: { x: isCompact ? 1.25 : 2.5, y: isCompact ? 0.5 : 1.25 },
+				fontSize: 'sm',
+				spacing: isCompact ? 1.25 : 2.5
 			};
 		case 'lg':
 			return {
-				height: 50,
-				padding: { x: 2.5, y: 0 },
-				border: 2,
-				spacing: 2.5,
-				transform: { contained: 4, outlined: 4, text: 0 },
-				offset: { contained: 4, outlined: 4, text: 0 }
+				// height: isCompact ? 34 : 50,
+				padding: { x: isCompact ? 1.75 : 3.5, y: isCompact ? 1 : 1.75 },
+				fontSize: 'lg',
+				spacing: isCompact ? 1.75 : 3.5
 			};
 		case 'xl':
 			return {
-				height: 60,
-				padding: { x: 3, y: 0 },
-				border: 2,
-				spacing: 3,
-				transform: { contained: 4, outlined: 4, text: 0 },
-				offset: { contained: 4, outlined: 4, text: 0 }
+				// height: isCompact ? 40 : 60,
+				padding: { x: isCompact ? 2 : 4, y: isCompact ? 1.25 : 2 },
+				fontSize: 'xl',
+				spacing: isCompact ? 2 : 4
 			};
 		default:
 			return {
-				height: 42,
-				padding: { x: 2, y: 0 },
-				border: 2,
-				spacing: 2,
-				transform: { contained: 4, outlined: 4, text: 0 },
-				offset: { contained: 4, outlined: 4, text: 0 }
+				// height: isCompact ? 30 : 42,
+				padding: { x: isCompact ? 1.5 : 3, y: isCompact ? 0.75 : 1.5 },
+				fontSize: 'md',
+				spacing: isCompact ? 1.5 : 3
 			};
 	}
-};
+});
 
-type GetAmountReturn = {
-	back: number;
-	hover: number;
-	active: number;
-};
+type GetVariantRadiusProps = Pick<CommonButtonProps, 'isCompact' | 'isRound' | 'variant'>;
 
-export const getAmount = (): GetAmountReturn => {
-	return {
-		back: 0.15,
-		hover: 0.05,
-		active: 0.1
-	};
-};
+export const getVariantRadius = memoize((props: GetVariantRadiusProps): Radius => {
+	const { isCompact = defaultIsCompact, isRound = defaultIsRound, variant = defaultVariant } = props;
+
+	switch (variant) {
+		case 'text':
+			return 'none';
+		default:
+			return isRound ? 'full' : isCompact ? 'xs' : 'base';
+	}
+});
