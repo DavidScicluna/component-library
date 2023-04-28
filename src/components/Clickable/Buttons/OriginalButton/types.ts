@@ -1,4 +1,4 @@
-import { MouseEvent as ME,ReactNode } from 'react';
+import { MouseEvent as ME } from 'react';
 
 import { ButtonProps as CUIButtonProps } from '@chakra-ui/react';
 
@@ -15,16 +15,11 @@ import {
 	BoxPadding,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../../common/types/box';
+	BoxTypography
+} from '../../../../common/types/box';
 import { CommonButtonProps } from '../common/types';
 
 export type ButtonMouseEvent = ME<HTMLButtonElement, globalThis.MouseEvent>;
-
-export type RenderProps = {
-	width?: number; // In Pixels
-	height?: number; // In Pixels
-	// size?: ButtonSize;
-} & Pick<CommonButtonProps, 'color' | 'colorMode'>;
 
 type Omitted =
 	// CUI Box Props
@@ -55,9 +50,6 @@ type Omitted =
 	| 'spinnerPlacement'
 	| 'variant';
 
-export type ButtonProps = Omit<CUIButtonProps, Omitted> & {
-	renderLeft?: (props: RenderProps) => ReactNode;
-	renderRight?: (props: RenderProps) => ReactNode;
-} & CommonButtonProps;
+export type ButtonProps = Omit<CUIButtonProps, Omitted> & CommonButtonProps;
 
 export type ButtonRef = HTMLButtonElement | null;
