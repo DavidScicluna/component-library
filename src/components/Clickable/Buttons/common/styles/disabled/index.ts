@@ -1,5 +1,5 @@
-import { Style } from '../../../../../../../common/types';
-import { isLoading as defaultIsLoading } from '../../../../common/data/defaultPropValues';
+import { Style } from '../../../../../../common/types';
+import { isLoading as defaultIsLoading } from '../../default/props';
 
 import { ButtonDisabledStylingProps } from './types';
 

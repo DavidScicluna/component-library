@@ -1,6 +1,11 @@
 module.exports = {
 	stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-	addons: ['@storybook/addon-links', '@storybook/addon-essentials', '@storybook/addon-interactions'],
+	addons: [
+		'@storybook/addon-links',
+		'@storybook/addon-essentials',
+		'@storybook/addon-interactions',
+		'@storybook/addon-a11y'
+	],
 	framework: '@storybook/react-webpack5',
 	// unpins Storybook's dependence on Emotion 10 so that build can compile successfully
 	features: { emotionAlias: false },

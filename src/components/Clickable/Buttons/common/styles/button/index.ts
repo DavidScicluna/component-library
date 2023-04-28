@@ -1,13 +1,21 @@
-import { Style } from '../../../../../../../common/types';
-import { isFullWidth as defaultIsFullWidth, size as defaultSize } from '../../../../common/data/defaultPropValues';
-import { getSizeConfig } from '../../../../common/utils';
+import { Style } from '../../../../../../common/types';
+import {
+	isCompact as defaultIsCompact,
+	isFullWidth as defaultIsFullWidth,
+	size as defaultSize
+} from '../../default/props';
+import { getSizeConfig } from '../../utils';
 
-import { DummyButtonStyleProps } from './types';
+import { ButtonStyleProps } from './types';
 
-export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }: DummyButtonStyleProps): Style => {
-	const config = getSizeConfig({ size });
-	const height = config.height;
-	const padding = config.padding;
+export default ({
+	theme,
+	isCompact = defaultIsCompact,
+	isFullWidth = defaultIsFullWidth,
+	size = defaultSize
+}: ButtonStyleProps): Style => {
+	const config = getSizeConfig({ isCompact, size });
+	const fontSize = config.fontSize;
 
 	const transition = 'none';
 	const transitionProperty = transition;
@@ -15,14 +23,12 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 	const transitionTimingFunction = transition;
 
 	return {
-		'cursor': 'default',
-
-		'pointerEvents': 'none',
+		'cursor': 'pointer',
 
 		'position': 'relative',
 
 		'width': isFullWidth ? '100%' : 'auto',
-		'height': `${height}px`,
+		'height': 'auto',
 
 		'minWidth': 'auto',
 		'minHeight': 'auto',
@@ -34,31 +40,35 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 		'userSelect': 'none',
 		'willChange': 'auto',
 
+		'pointerEvents': 'auto',
+
 		'opacity': 1,
 
 		'background': 'none',
+		'border': 'none',
 
-		'fontSize': theme.fontSizes[size],
+		'fontSize': theme.fontSizes[fontSize],
 		'fontWeight': theme.fontWeights.semibold,
 		'textTransform': 'uppercase',
 		'whiteSpace': 'nowrap',
 		'textOverflow': 'ellipses',
-		'lineHeight': theme.lineHeights.normal,
+		'lineHeight': theme.lineHeights.shorter,
 		'letterSpacing': '.6px',
 
 		'WebkitTapHighlightColor': theme.colors.transparent,
 
 		'transform': 'none',
 
-		'px': `${theme.space[padding.x]} !important`,
-		'py': `${theme.space[padding.y]} !important`,
-
 		'transition': transition,
 		'transitionProperty': transitionProperty,
 		'transitionDuration': transitionDuration,
 		'transitionTimingFunction': transitionTimingFunction,
 
-		'& .ds-cl-dummy-button-skeleton-icon': {
+		'&:focus': {
+			boxShadow: 'none'
+		},
+
+		'& svg, .ds-cl-icon': {
 			userSelect: 'none',
 
 			transition,
