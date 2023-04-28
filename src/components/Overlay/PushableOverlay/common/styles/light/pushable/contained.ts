@@ -15,7 +15,7 @@ const isTouchDevice: boolean = checkIsTouchDevice();
 export default ({ theme, color: colorProp = defaultColor }: PushableOverlayLightStylingProps): Style => {
 	const colorShade = getHue({
 		colorMode: 'light',
-		type: colorProp === 'white' ? 'darkest' : 'background'
+		type: colorProp === 'black' ? 'lightest' : colorProp === 'white' ? 'darkest' : 'background'
 	});
 	const backgroundShade = getHue({
 		colorMode: 'light',

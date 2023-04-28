@@ -12,11 +12,18 @@ import { PushableOverlayDarkActiveStylingProps } from './types';
 export default ({ theme, color: colorProp = defaultColor }: PushableOverlayDarkActiveStylingProps): Style => {
 	const colorShade = getHue({
 		colorMode: 'dark',
-		type: colorProp === 'black' ? 'light' : 'dark'
+		type: colorProp === 'black' ? 'light' : colorProp === 'white' ? 'dark' : 'darkest'
 	});
 	const backgroundShade = getHue({
 		colorMode: 'dark',
-		type: colorProp === 'black' ? 'dark' : colorProp === 'gray' ? 'default' : 'light'
+		type:
+			colorProp === 'black'
+				? 'dark'
+				: colorProp === 'white'
+				? 'light'
+				: colorProp === 'gray'
+				? 'default'
+				: 'light'
 	});
 
 	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;

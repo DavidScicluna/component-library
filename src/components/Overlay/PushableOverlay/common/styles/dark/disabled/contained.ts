@@ -12,7 +12,7 @@ import { PushableOverlayDarkDisabledStylingProps } from './types';
 export default ({ theme, color: colorProp = defaultColor }: PushableOverlayDarkDisabledStylingProps): Style => {
 	const colorShade = getHue({
 		colorMode: 'dark',
-		type: colorProp === 'white' ? 'darkest' : 'background'
+		type: colorProp === 'black' ? 'lightest' : colorProp === 'white' ? 'darkest' : 'background'
 	});
 	const backgroundShade = getHue({
 		colorMode: 'dark',
