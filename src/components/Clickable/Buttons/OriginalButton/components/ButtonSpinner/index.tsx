@@ -4,7 +4,7 @@ import { useTheme } from '../../../../../../common/hooks';
 import { getColor } from '../../../../../../common/utils/color';
 import Spinner from '../../../../../Spinner';
 
-import { ButtonSpinnerProps } from './types';
+import { ButtonSpinnerProps } from './common/types';
 
 const ButtonSpinner: FC<ButtonSpinnerProps> = (props) => {
 	const theme = useTheme();
