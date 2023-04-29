@@ -2,6 +2,7 @@ import { forwardRef, ReactElement } from 'react';
 
 import { useBoolean } from '@chakra-ui/react';
 
+import { useProviderContext } from '../../../../common/hooks';
 import Tooltip from '../../../Overlay/Tooltip';
 import IconButton from '../OriginalIconButton';
 import { IconButtonMouseEvent } from '../OriginalIconButton/common/types';
@@ -13,11 +14,14 @@ const ClearIconButton = forwardRef<ClearIconButtonRef, ClearIconButtonProps>(fun
 	props,
 	ref
 ): ReactElement {
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
+
 	const {
-		colorMode,
+		color = defaultColor,
+		colorMode = defaultColorMode,
 		'aria-label': aria = 'Clear Button',
 		hasTooltip = true,
-		label = 'Clear Button',
+		label = 'Clear',
 		placement = 'top',
 		onClick,
 		onMouseEnter,
@@ -68,6 +72,7 @@ const ClearIconButton = forwardRef<ClearIconButtonRef, ClearIconButtonProps>(fun
 				{...rest}
 				ref={ref}
 				aria-label={aria}
+				color={color}
 				colorMode={colorMode}
 				onClick={handleClick}
 				onMouseEnter={handleMouseEnter}
