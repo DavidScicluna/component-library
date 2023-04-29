@@ -14,6 +14,7 @@ import { AppColors } from '../../../../common/types';
 import {
 	isCompact as defaultIsCompact,
 	isFullWidth as defaultIsFullWidth,
+	isRound as defaultIsRound,
 	size as defaultSize,
 	variant as defaultVariant
 } from '../../../../components/Clickable/Buttons/common/default/props';
@@ -87,6 +88,13 @@ export default {
 			name: 'FullWidth',
 			type: 'boolean',
 			defaultValue: defaultIsFullWidth,
+			// description: '',
+			control: 'boolean'
+		},
+		isRound: {
+			name: 'Round',
+			type: 'boolean',
+			defaultValue: defaultIsRound,
 			// description: '',
 			control: 'boolean'
 		},

@@ -9,6 +9,7 @@ import {
 	isDisabled as defaultIsDisabled,
 	isFullWidth as defaultIsFullWidth,
 	isLoading as defaultIsLoading,
+	isRound as defaultIsRound,
 	size as defaultSize,
 	variant as defaultVariant
 } from '../../../../components/Clickable/Buttons/common/default/props';
@@ -72,6 +73,13 @@ export default {
 			control: 'select'
 		},
 		colorMode: { ...controls.theme.colorMode },
+		isActive: {
+			name: 'Active',
+			type: 'boolean',
+			defaultValue: false,
+			// description: '',
+			control: 'boolean'
+		},
 		isCompact: {
 			name: 'Compact',
 			type: 'boolean',
@@ -100,10 +108,10 @@ export default {
 			// description: '',
 			control: 'boolean'
 		},
-		isActive: {
-			name: 'Active',
+		isRound: {
+			name: 'Round',
 			type: 'boolean',
-			defaultValue: false,
+			defaultValue: defaultIsRound,
 			// description: '',
 			control: 'boolean'
 		},
