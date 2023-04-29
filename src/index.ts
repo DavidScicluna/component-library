@@ -149,7 +149,7 @@ import ExternalLink from './components/Clickable/Link/External';
 import InternalLink from './components/Clickable/Link/Internal';
 import { InternalProps as InternalLinkProps } from './components/Clickable/Link/Internal/types';
 import ScrollToTop from './components/Clickable/ScrollToTop';
-import { ScrollToTopProps } from './components/Clickable/ScrollToTop/types';
+import { ScrollToTopIconType, ScrollToTopProps, ScrollToTopRef } from './components/Clickable/ScrollToTop/common/types';
 import Badge from './components/DataDisplay/Badge';
 import { useBadgeContext } from './components/DataDisplay/Badge/common/hooks';
 import BadgeIcon from './components/DataDisplay/Badge/components/BadgeIcon';
@@ -951,7 +951,9 @@ export type {
 	RatingSize,
 	RatingVariant,
 	ScaleFadeProps,
+	ScrollToTopIconType,
 	ScrollToTopProps,
+	ScrollToTopRef,
 	SearchBarProps,
 	SideNavigationColor,
 	SideNavigationContext,

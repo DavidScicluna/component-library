@@ -1,22 +1,38 @@
-import { FC, useCallback } from 'react';
+import { forwardRef, ReactElement, useCallback } from 'react';
 
 import { useBoolean } from '@chakra-ui/react';
 
-import { capitalize, debounce } from 'lodash-es';
+import { debounce } from 'lodash-es';
 import { useEventListener, useWindowSize } from 'usehooks-ts';
 
+import { useProviderContext } from '../../../common/hooks';
 import Tooltip from '../../Overlay/Tooltip';
 import ScaleFade from '../../Transitions/ScaleFade';
 import IconButton from '../IconButtons/OriginalIconButton';
+import { IconButtonMouseEvent } from '../IconButtons/OriginalIconButton/common/types';
 import IconButtonIcon from '../IconButtons/OriginalIconButton/components/IconButtonIcon';
-import { IconButtonMouseEvent } from '../IconButtons/OriginalIconButton/types';
 
-import { ScrollToTopProps } from './types';
+import { ScrollToTopProps, ScrollToTopRef } from './common/types';
 
-const ScrollToTop: FC<ScrollToTopProps> = (props) => {
+const ScrollToTop = forwardRef<ScrollToTopRef, ScrollToTopProps>(function ScrollToTop(props, ref): ReactElement {
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
+
 	const { height: windowHeight = 0 } = useWindowSize();
 
-	const { color, colorMode, label = 'Scroll to the top', onClick, onMouseEnter, onMouseLeave, ...rest } = props;
+	const {
+		color = defaultColor,
+		colorMode = defaultColorMode,
+		'aria-label': aria = 'Scroll to the top Button',
+		hasTooltip = true,
+		label = 'Scroll to the top',
+		placement = 'left',
+		onClick,
+		onMouseEnter,
+		onMouseLeave,
+		icon = 'keyboard_double_arrow_up',
+		category = 'filled',
+		...rest
+	} = props;
 
 	const [isVisible, setIsVisible] = useBoolean();
 	const [isHovering, setIsHovering] = useBoolean();
@@ -30,7 +46,9 @@ const ScrollToTop: FC<ScrollToTopProps> = (props) => {
 	};
 
 	const handleMouseEnter = (event: IconButtonMouseEvent): void => {
-		setIsHovering.on();
+		if (hasTooltip) {
+			setIsHovering.on();
+		}
 
 		if (onMouseEnter) {
 			onMouseEnter(event);
@@ -38,7 +56,9 @@ const ScrollToTop: FC<ScrollToTopProps> = (props) => {
 	};
 
 	const handleMouseLeave = (event: IconButtonMouseEvent): void => {
-		setIsHovering.off();
+		if (hasTooltip) {
+			setIsHovering.off();
+		}
 
 		if (onMouseLeave) {
 			onMouseLeave(event);
@@ -66,25 +86,27 @@ const ScrollToTop: FC<ScrollToTopProps> = (props) => {
 		<ScaleFade in={isVisible}>
 			<Tooltip
 				colorMode={colorMode}
-				aria-label={label}
-				label={capitalize(label)}
-				placement='left'
-				isOpen={isHovering}
+				aria-label={`${aria} (tooltip)`}
+				label={label}
+				placement={placement}
+				isOpen={hasTooltip && isHovering}
+				isDisabled={!hasTooltip}
 			>
 				<IconButton
 					{...rest}
-					aria-label={label}
+					ref={ref}
+					aria-label={aria}
 					color={color}
 					colorMode={colorMode}
 					onClick={handleClick}
 					onMouseEnter={handleMouseEnter}
 					onMouseLeave={handleMouseLeave}
 				>
-					<IconButtonIcon icon='keyboard_double_arrow_up' category='outlined' />
+					<IconButtonIcon icon={icon} category={category} />
 				</IconButton>
 			</Tooltip>
 		</ScaleFade>
 	);
-};
+});
 
 export default ScrollToTop;
