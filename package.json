@@ -30,6 +30,7 @@
 		"@emotion/react": "^11.10.6",
 		"@emotion/styled": "^11.10.6",
 		"color2k": "^2.0.2",
+		"compressorjs": "^1.2.1",
 		"dayjs": "^1.11.7",
 		"dayzed": "^3.2.3",
 		"framer-motion": "^10.10.0",
