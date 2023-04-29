@@ -1,5 +1,5 @@
-import { SkeletonProps } from '../../../Skeleton/types';
-import { CommonButtonProps } from '../common/types';
+import { SkeletonProps } from '../../../../../Skeleton/types';
+import { CommonButtonProps } from '../../../common/types';
 
 type Omitted = 'color' | 'colorScheme' | 'isReversed' | 'variant';
 

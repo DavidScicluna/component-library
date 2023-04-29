@@ -18,7 +18,7 @@ import {
 import useStyles from '../common/styles';
 import { getSizeConfig, GetSizeConfigReturn, getVariantRadius } from '../common/utils';
 
-import { DummyButtonProps } from './types';
+import { DummyButtonProps } from './common/types';
 
 const DummyButton: FC<DummyButtonProps> = (props) => {
 	const theme = useTheme();
@@ -49,7 +49,7 @@ const DummyButton: FC<DummyButtonProps> = (props) => {
 		return getSizeConfig({ isCompact, size });
 	}, [isCompact, size]);
 
-	const style = useStyles({ theme, isCompact, isFullWidth, size });
+	const style = useStyles({ theme, isCompact, isFullWidth, isLoading: true, size });
 
 	return (
 		<Skeleton {...rest} color={color} colorMode={colorMode} borderRadius={radius} isLoaded={false}>
