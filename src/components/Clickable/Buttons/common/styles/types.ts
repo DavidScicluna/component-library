@@ -1,11 +1,10 @@
 import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';
-import { ButtonProps } from '../../OriginalButton/types';
+import { CommonButtonProps } from '../types';
 
-type Picked = 'isCompact' | 'isFullWidth' | 'isLoading' | 'size';
-
-export type ButtonStyleProps = Pick<ButtonProps, Picked> & {
+export type ButtonStyleProps = Pick<CommonButtonProps, 'isCompact' | 'isFullWidth' | 'size'> & {
 	theme: Theme;
+	isLoading?: boolean;
 };
 
 export type ButtonStyleReturn = {

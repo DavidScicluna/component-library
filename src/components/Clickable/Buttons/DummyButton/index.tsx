@@ -52,7 +52,7 @@ const DummyButton: FC<DummyButtonProps> = (props) => {
 	const style = useStyles({ theme, isCompact, isFullWidth, isLoading: true, size });
 
 	return (
-		<Box width={isFullWidth ? 'fit-content' : 'auto'}>
+		<Box width={isFullWidth ? '100%' : 'fit-content'}>
 			<Skeleton {...rest} color={color} colorMode={colorMode} borderRadius={radius} isLoaded={false}>
 				<CUIButton isDisabled variant='unstyled' sx={merge(style.button, sx)} _disabled={style.disabled}>
 					<Grid
