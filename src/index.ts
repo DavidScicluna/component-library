@@ -79,16 +79,11 @@ import { useButtonGroupContext } from './components/Clickable/ButtonGroup/common
 import ButtonGroupItem from './components/Clickable/ButtonGroup/components/ButtonGroupItem';
 import { ButtonGroupItemProps } from './components/Clickable/ButtonGroup/components/ButtonGroupItem/types';
 import { ButtonGroupProps, ButtonGroupRef, ButtonGroupSize } from './components/Clickable/ButtonGroup/types';
-import { ButtonColor, ButtonSize, ButtonVariant } from './components/Clickable/Buttons/common/types';
+import { ButtonRenderProps, ButtonSize, ButtonVariant } from './components/Clickable/Buttons/common/types';
 import DummyButton from './components/Clickable/Buttons/DummyButton';
-import { DummyButtonProps } from './components/Clickable/Buttons/DummyButton/types';
+import { DummyButtonProps } from './components/Clickable/Buttons/DummyButton/common/types';
 import Button from './components/Clickable/Buttons/OriginalButton';
-import {
-	ButtonMouseEvent,
-	ButtonProps,
-	ButtonRef,
-	RenderProps as ButtonRenderProps
-} from './components/Clickable/Buttons/OriginalButton/types';
+import { ButtonMouseEvent, ButtonProps, ButtonRef } from './components/Clickable/Buttons/OriginalButton/common/types';
 import CollapsibleCard from './components/Clickable/CollapsibleCard';
 import { useCollapsibleCardContext } from './components/Clickable/CollapsibleCard/common/hooks';
 import CollapsibleCardBody from './components/Clickable/CollapsibleCard/components/CollapsibleCardBody';
@@ -103,6 +98,18 @@ import {
 	CollapsibleCardContext,
 	CollapsibleCardProps
 } from './components/Clickable/CollapsibleCard/types';
+import FileButton from './components/Clickable/FileButton';
+import {
+	FileButtonBlob,
+	FileButtonBlobs,
+	FileButtonChangeEvent,
+	FileButtonChildrenProps,
+	FileButtonError,
+	FileButtonErrors,
+	FileButtonMouseEvent,
+	FileButtonProps,
+	FileInputRef
+} from './components/Clickable/FileButton/common/types';
 import CloseIconButton from './components/Clickable/IconButtons/CloseIconButton';
 import {
 	CloseIconButtonIconType,
@@ -438,7 +445,7 @@ import DSCLProvider from './components/Provider';
 import Skeleton from './components/Skeleton';
 import { SkeletonColor, SkeletonProps, SkeletonVariant } from './components/Skeleton/types';
 import Spinner from './components/Spinner';
-import { SpinnerColor, SpinnerMode, SpinnerProps } from './components/Spinner/types';
+import { SpinnerMode, SpinnerProps } from './components/Spinner/types';
 import AnimatePresence from './components/Transitions/AnimatePresence';
 import { AnimatePresenceProps } from './components/Transitions/AnimatePresence/types';
 import Collapse from './components/Transitions/Collapse';
@@ -644,6 +651,7 @@ export {
 	DummyTabs,
 	ExternalLink,
 	Fade,
+	FileButton,
 	Form,
 	Glass,
 	Headline,
@@ -737,7 +745,6 @@ export type {
 	BadgeRef,
 	BadgeSize,
 	BadgeVariant,
-	ButtonColor,
 	ButtonGroupItemProps,
 	ButtonGroupProps,
 	ButtonGroupRef,
@@ -826,6 +833,15 @@ export type {
 	DummyTabsProps,
 	DummyTabsRef,
 	FadeProps,
+	FileButtonBlob,
+	FileButtonBlobs,
+	FileButtonChangeEvent,
+	FileButtonChildrenProps,
+	FileButtonError,
+	FileButtonErrors,
+	FileButtonMouseEvent,
+	FileButtonProps,
+	FileInputRef,
 	FormEvent,
 	FormProps,
 	GlassProps,
@@ -920,7 +936,6 @@ export type {
 	SkeletonVariant,
 	SlideFadeProps,
 	SlideProps,
-	SpinnerColor,
 	SpinnerMode,
 	SpinnerProps,
 	StateLabelActionsProps,
