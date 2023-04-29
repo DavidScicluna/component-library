@@ -4,22 +4,24 @@ import { sample } from 'lodash-es';
 
 import {
 	IconButton as IconButtonComponent,
-	IconButtonColor,
+	IconButtonIcon,
 	IconButtonProps,
 	IconButtonSize,
 	IconButtonVariant
 } from '../../../..';
 import icons from '../../../../common/data/icons';
+import { color as defaultColor } from '../../../../common/default/props';
+import { AppColors } from '../../../../common/types';
 import { Icon as IconType } from '../../../../common/types/icons';
 import {
-	color as defaultColor,
+	isActive as defaultIsActive,
+	isCompact as defaultIsCompact,
 	isDisabled as defaultIsDisabled,
 	isLoading as defaultIsLoading,
 	isRound as defaultIsRound,
 	size as defaultSize,
 	variant as defaultVariant
-} from '../../../../components/Clickable/IconButtons/common/data/defaultPropValues';
-import Icon from '../../../../components/Icon';
+} from '../../../../components/Clickable/IconButtons/common/default/props';
 import controls from '../../../common/controls';
 import parameters from '../../../common/parameters';
 
@@ -31,12 +33,12 @@ const childrenMapping = Object.assign(
 	{},
 	...icons.map((icon) => {
 		return {
-			[icon]: <Icon icon={icon} />
+			[icon]: <IconButtonIcon icon={icon} />
 		};
 	})
 );
 
-const colorOptions: IconButtonColor[] = [
+const colorOptions: AppColors = [
 	'black',
 	'white',
 	'gray',
@@ -59,7 +61,7 @@ const colorOptions: IconButtonColor[] = [
 
 const sizeOptions: IconButtonSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
-const variantOptions: IconButtonVariant[] = ['contained', 'outlined', 'icon'];
+const variantOptions: IconButtonVariant[] = ['light', 'contained', 'outlined', 'monochrome', 'icon'];
 
 export default {
 	title: 'Clickable/IconButtons/Icon Button',
@@ -82,6 +84,20 @@ export default {
 			control: 'select'
 		},
 		colorMode: { ...controls.theme.colorMode },
+		isActive: {
+			name: 'Active',
+			type: 'boolean',
+			defaultValue: defaultIsActive,
+			// description: '',
+			control: 'boolean'
+		},
+		isCompact: {
+			name: 'Compact',
+			type: 'boolean',
+			defaultValue: defaultIsCompact,
+			// description: '',
+			control: 'boolean'
+		},
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
@@ -93,13 +109,6 @@ export default {
 			name: 'Loading',
 			type: 'boolean',
 			defaultValue: defaultIsLoading,
-			// description: '',
-			control: 'boolean'
-		},
-		isActive: {
-			name: 'Active',
-			type: 'boolean',
-			defaultValue: false,
 			// description: '',
 			control: 'boolean'
 		},
