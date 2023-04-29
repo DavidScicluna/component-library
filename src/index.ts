@@ -98,6 +98,12 @@ import {
 	CollapsibleCardContext,
 	CollapsibleCardProps
 } from './components/Clickable/CollapsibleCard/types';
+import CopyButton from './components/Clickable/CopyButton';
+import {
+	CopyButtonChildrenProps,
+	CopyButtonMouseEvent,
+	CopyButtonProps
+} from './components/Clickable/CopyButton/common/types';
 import FileButton from './components/Clickable/FileButton';
 import {
 	FileButtonBlob,
@@ -623,6 +629,7 @@ export {
 	ConfirmModalStack,
 	ConfirmModalSubtitle,
 	ConfirmModalTitle,
+	CopyButton,
 	DatePicker,
 	Divider,
 	DSCLProvider,
@@ -792,6 +799,9 @@ export type {
 	ConfirmModalStackProps,
 	ConfirmModalSubtitleProps,
 	ConfirmModalTitleProps,
+	CopyButtonChildrenProps,
+	CopyButtonMouseEvent,
+	CopyButtonProps,
 	DatePickerColor,
 	DatePickerContext,
 	DatePickerDate,
