@@ -15,8 +15,9 @@ import {
 	BoxPadding,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../../common/types/box';
-import { CommonIconButtonProps } from '../common/types';
+	BoxTypography
+} from '../../../../../../common/types/box';
+import { CommonIconButtonProps } from '../../../common/types';
 
 export type IconButtonMouseEvent = ME<HTMLButtonElement, globalThis.MouseEvent>;
 
@@ -49,4 +50,4 @@ export type IconButtonProps = Omit<CUIIconButtonProps, Omitted> & CommonIconButt
 
 export type IconButtonRef = HTMLButtonElement | null;
 
-export type IconButtonContext = Pick<IconButtonProps, 'color' | 'colorMode'>;
+export type IconButtonContext = Pick<IconButtonProps, 'color' | 'colorMode' | 'size'>;

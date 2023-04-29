@@ -121,19 +121,22 @@ import {
 	CloseIconButtonIconType,
 	CloseIconButtonProps
 } from './components/Clickable/IconButtons/CloseIconButton/types';
-import { IconButtonColor, IconButtonSize, IconButtonVariant } from './components/Clickable/IconButtons/common/types';
+import { IconButtonSize, IconButtonVariant } from './components/Clickable/IconButtons/common/types';
 import DummyIconButton from './components/Clickable/IconButtons/DummyIconButton';
-import { DummyIconButtonProps } from './components/Clickable/IconButtons/DummyIconButton/types';
+import { useDummyIconButtonContext } from './components/Clickable/IconButtons/DummyIconButton/common/hooks';
+import { DummyIconButtonProps } from './components/Clickable/IconButtons/DummyIconButton/common/types';
+import DummyIconButtonIcon from './components/Clickable/IconButtons/DummyIconButton/components/DummyIconButtonIcon';
+import { DummyIconButtonIconProps } from './components/Clickable/IconButtons/DummyIconButton/components/DummyIconButtonIcon/common/types';
 import IconButton from './components/Clickable/IconButtons/OriginalIconButton';
 import { useIconButtonContext } from './components/Clickable/IconButtons/OriginalIconButton/common/hooks';
-import IconButtonIcon from './components/Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
-import { IconButtonIconProps } from './components/Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon/types';
 import {
 	IconButtonContext,
 	IconButtonMouseEvent,
 	IconButtonProps,
 	IconButtonRef
-} from './components/Clickable/IconButtons/OriginalIconButton/types';
+} from './components/Clickable/IconButtons/OriginalIconButton/common/types';
+import IconButtonIcon from './components/Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
+import { IconButtonIconProps } from './components/Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon/common/types';
 import { LinkProps } from './components/Clickable/Link/common/types';
 import ExternalLink from './components/Clickable/Link/External';
 import InternalLink from './components/Clickable/Link/Internal';
@@ -549,6 +552,7 @@ export {
 	useDummyCardContext,
 	useDummyHorizontalGridContext,
 	useDummyHorizontalGridTabbedContext,
+	useDummyIconButtonContext,
 	useDummyTabsContext,
 	useHorizontalGridContext,
 	useHorizontalGridTabbedContext,
@@ -653,6 +657,7 @@ export {
 	DummyHorizontalGridTabbedHeader,
 	DummyHorizontalGridTabbedScroll,
 	DummyIconButton,
+	DummyIconButtonIcon,
 	DummyTab,
 	DummyTabList,
 	DummyTabs,
@@ -834,6 +839,7 @@ export type {
 	DummyHorizontalGridTabbedHeaderProps,
 	DummyHorizontalGridTabbedProps,
 	DummyHorizontalGridTabbedScrollProps,
+	DummyIconButtonIconProps,
 	DummyIconButtonProps,
 	DummyTabListProps,
 	DummyTabListRenderProps,
@@ -877,7 +883,6 @@ export type {
 	HorizontalScrollContext,
 	HorizontalScrollProps,
 	HorizontalScrollRef,
-	IconButtonColor,
 	IconButtonContext,
 	IconButtonIconProps,
 	IconButtonMouseEvent,
