@@ -1,28 +1,24 @@
 import { ReactElement } from 'react';
 
-import {
-	Button as ButtonComponent,
-	ButtonColor,
-	ButtonProps,
-	ButtonRenderProps,
-	ButtonSize,
-	ButtonVariant} from '../../../..';
+import { Button as ButtonComponent, ButtonProps, ButtonRenderProps, ButtonSize, ButtonVariant } from '../../../..';
 import icons from '../../../../common/data/icons';
+import { color as defaultColor } from '../../../../common/default/props';
+import { AppColors } from '../../../../common/types';
 import {
-	color as defaultColor,
+	isCompact as defaultIsCompact,
 	isDisabled as defaultIsDisabled,
 	isFullWidth as defaultIsFullWidth,
 	isLoading as defaultIsLoading,
 	size as defaultSize,
 	variant as defaultVariant
-} from '../../../../components/Clickable/Buttons/common/data/defaultPropValues';
+} from '../../../../components/Clickable/Buttons/common/default/props';
 import Icon from '../../../../components/Icon';
 import controls from '../../../common/controls';
 import parameters from '../../../common/parameters';
 
 import { Meta, Story } from './types';
 
-const colorOptions: ButtonColor[] = [
+const colorOptions: AppColors = [
 	'black',
 	'white',
 	'gray',
@@ -54,7 +50,7 @@ const renderMapping = Object.assign(
 
 const sizeOptions: ButtonSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
-const variantOptions: ButtonVariant[] = ['contained', 'outlined', 'text'];
+const variantOptions: ButtonVariant[] = ['text', 'light', 'contained', 'outlined', 'monochrome'];
 
 export default {
 	title: 'Clickable/Buttons/Button',
@@ -76,6 +72,13 @@ export default {
 			control: 'select'
 		},
 		colorMode: { ...controls.theme.colorMode },
+		isCompact: {
+			name: 'Compact',
+			type: 'boolean',
+			defaultValue: defaultIsCompact,
+			// description: '',
+			control: 'boolean'
+		},
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
@@ -140,4 +143,6 @@ export default {
 	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
-export const Button: Story = (props: ButtonProps): ReactElement => <ButtonComponent {...props} />;
+export const Button: Story = {
+	render: (props: ButtonProps): ReactElement => <ButtonComponent {...props} />
+};
