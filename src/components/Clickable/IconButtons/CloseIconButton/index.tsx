@@ -2,6 +2,7 @@ import { forwardRef, ReactElement } from 'react';
 
 import { useBoolean } from '@chakra-ui/react';
 
+import { useProviderContext } from '../../../../common/hooks';
 import Tooltip from '../../../Overlay/Tooltip';
 import IconButton from '../OriginalIconButton';
 import { IconButtonMouseEvent } from '../OriginalIconButton/common/types';
@@ -13,11 +14,14 @@ const CloseIconButton = forwardRef<CloseIconButtonRef, CloseIconButtonProps>(fun
 	props,
 	ref
 ): ReactElement {
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
+
 	const {
-		colorMode,
+		color = defaultColor,
+		colorMode = defaultColorMode,
 		'aria-label': aria = 'Close Button',
 		hasTooltip = true,
-		label = 'Close Button',
+		label = 'Close',
 		placement = 'top',
 		onClick,
 		onMouseEnter,
@@ -68,6 +72,7 @@ const CloseIconButton = forwardRef<CloseIconButtonRef, CloseIconButtonProps>(fun
 				{...rest}
 				ref={ref}
 				aria-label={aria}
+				color={color}
 				colorMode={colorMode}
 				onClick={handleClick}
 				onMouseEnter={handleMouseEnter}
