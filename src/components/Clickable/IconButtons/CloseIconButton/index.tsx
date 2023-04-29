@@ -1,15 +1,18 @@
-import { FC } from 'react';
+import { forwardRef, ReactElement } from 'react';
 
 import { useBoolean } from '@chakra-ui/react';
 
 import Tooltip from '../../../Overlay/Tooltip';
 import IconButton from '../OriginalIconButton';
+import { IconButtonMouseEvent } from '../OriginalIconButton/common/types';
 import IconButtonIcon from '../OriginalIconButton/components/IconButtonIcon';
-import { IconButtonMouseEvent } from '../OriginalIconButton/types';
 
-import { CloseIconButtonProps } from './types';
+import { CloseIconButtonProps, CloseIconButtonRef } from './common/types';
 
-const CloseIconButton: FC<CloseIconButtonProps> = (props) => {
+const CloseIconButton = forwardRef<CloseIconButtonRef, CloseIconButtonProps>(function CloseIconButton(
+	props,
+	ref
+): ReactElement {
 	const {
 		colorMode,
 		'aria-label': aria = 'Close Button',
@@ -27,15 +30,15 @@ const CloseIconButton: FC<CloseIconButtonProps> = (props) => {
 	const [isHovering, setIsHovering] = useBoolean();
 
 	const handleClick = (event: IconButtonMouseEvent): void => {
-		setIsHovering.off();
-
 		if (onClick) {
 			onClick(event);
 		}
 	};
 
 	const handleMouseEnter = (event: IconButtonMouseEvent): void => {
-		setIsHovering.on();
+		if (hasTooltip) {
+			setIsHovering.on();
+		}
 
 		if (onMouseEnter) {
 			onMouseEnter(event);
@@ -43,7 +46,9 @@ const CloseIconButton: FC<CloseIconButtonProps> = (props) => {
 	};
 
 	const handleMouseLeave = (event: IconButtonMouseEvent): void => {
-		setIsHovering.off();
+		if (hasTooltip) {
+			setIsHovering.off();
+		}
 
 		if (onMouseLeave) {
 			onMouseLeave(event);
@@ -61,6 +66,7 @@ const CloseIconButton: FC<CloseIconButtonProps> = (props) => {
 		>
 			<IconButton
 				{...rest}
+				ref={ref}
 				aria-label={aria}
 				colorMode={colorMode}
 				onClick={handleClick}
@@ -71,6 +77,6 @@ const CloseIconButton: FC<CloseIconButtonProps> = (props) => {
 			</IconButton>
 		</Tooltip>
 	);
-};
+});
 
 export default CloseIconButton;
