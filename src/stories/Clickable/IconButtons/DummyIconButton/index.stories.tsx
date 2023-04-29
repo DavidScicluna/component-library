@@ -4,19 +4,21 @@ import { sample } from 'lodash-es';
 
 import {
 	DummyIconButton as DummyIconButtonComponent,
+	DummyIconButtonIcon,
 	DummyIconButtonProps,
-	Icon,
-	IconButtonColor,
 	IconButtonSize,
 	IconButtonVariant,
 	IconType
 } from '../../../..';
 import icons from '../../../../common/data/icons';
+import { color as defaultColor } from '../../../../common/default/props';
+import { AppColors } from '../../../../common/types';
 import {
-	color as defaultColor,
+	isCompact as defaultIsCompact,
+	isRound as defaultIsRound,
 	size as defaultSize,
 	variant as defaultVariant
-} from '../../../../components/Clickable/IconButtons/common/data/defaultPropValues';
+} from '../../../../components/Clickable/IconButtons/common/default/props';
 import controls from '../../../common/controls';
 import parameters from '../../../common/parameters';
 
@@ -28,12 +30,12 @@ const childrenMapping = Object.assign(
 	{},
 	...icons.map((icon) => {
 		return {
-			[icon]: <Icon icon={icon} />
+			[icon]: <DummyIconButtonIcon icon={icon} />
 		};
 	})
 );
 
-const colorOptions: IconButtonColor[] = [
+const colorOptions: AppColors = [
 	'black',
 	'white',
 	'gray',
@@ -56,7 +58,7 @@ const colorOptions: IconButtonColor[] = [
 
 const sizeOptions: IconButtonSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
-const variantOptions: IconButtonVariant[] = ['contained', 'outlined', 'icon'];
+const variantOptions: IconButtonVariant[] = ['light', 'contained', 'outlined', 'monochrome', 'icon'];
 
 export default {
 	title: 'Clickable/IconButtons/DummyIcon Button',
@@ -79,6 +81,20 @@ export default {
 			control: 'select'
 		},
 		colorMode: { ...controls.theme.colorMode },
+		isCompact: {
+			name: 'Compact',
+			type: 'boolean',
+			defaultValue: defaultIsCompact,
+			// description: '',
+			control: 'boolean'
+		},
+		isRound: {
+			name: 'Round',
+			type: 'boolean',
+			defaultValue: defaultIsRound,
+			// description: '',
+			control: 'boolean'
+		},
 		size: {
 			name: 'Size',
 			type: 'string',
