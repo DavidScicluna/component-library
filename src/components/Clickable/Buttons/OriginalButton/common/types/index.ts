@@ -16,8 +16,8 @@ import {
 	BoxPseudo,
 	BoxShadow,
 	BoxTypography
-} from '../../../../common/types/box';
-import { CommonButtonProps } from '../common/types';
+} from '../../../../../../common/types/box';
+import { CommonButtonProps } from '../../../common/types';
 
 export type ButtonMouseEvent = ME<HTMLButtonElement, globalThis.MouseEvent>;
 

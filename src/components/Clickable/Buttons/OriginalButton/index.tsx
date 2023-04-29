@@ -22,8 +22,8 @@ import {
 import useStyles from '../common/styles';
 import { getSizeConfig, GetSizeConfigReturn, getVariantRadius } from '../common/utils';
 
+import { ButtonProps, ButtonRef } from './common/types';
 import ButtonSpinner from './components/ButtonSpinner';
-import { ButtonProps, ButtonRef } from './types';
 
 const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): ReactElement {
 	const theme = useTheme();
