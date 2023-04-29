@@ -1,101 +1,66 @@
-import { Space } from '../../../../../theme/types';
-import { size as defaultSize } from '../data/defaultPropValues';
-import { IconButtonSize } from '../types';
+import memoize from 'micro-memoize';
 
-type Variants = {
-	contained: number; // In Pixels
-	outlined: number; // In Pixels
-	icon: number; // In Pixels
+import { NoUndefinedField } from '../../../../../common/types';
+import { Radius, Space } from '../../../../../theme/types';
+import {
+	isCompact as defaultIsCompact,
+	isRound as defaultIsRound,
+	size as defaultSize,
+	variant as defaultVariant
+} from '../default/props';
+import { CommonIconButtonProps } from '../types';
+
+export type GetSizeConfigReturn = {
+	padding: Space;
 };
+type GetSizeConfigProps = Pick<CommonIconButtonProps, 'isCompact' | 'size'>;
 
-type GetSizeConfigReturn = {
-	width: number; // In Pixels
-	height: number; // In Pixels
-	padding: Space; // In Space (Theme) Values
-	border: number; // In Pixels
-	transform: Variants;
-	offset: Variants;
-};
+export const getSizeConfig = memoize((props: NoUndefinedField<GetSizeConfigProps>): GetSizeConfigReturn => {
+	const { isCompact = defaultIsCompact, size = defaultSize } = props;
 
-type GetSizeConfigProps = { size: IconButtonSize };
-
-export const getSizeConfig = ({ size = defaultSize }: GetSizeConfigProps): GetSizeConfigReturn => {
 	switch (size) {
 		case 'xs':
 			return {
-				width: 30,
-				height: 30,
-				padding: 1,
-				border: 1,
-				transform: { contained: 3, outlined: 3, icon: 0 },
-				offset: { contained: 2, outlined: 2, icon: 0 }
+				// width: isCompact ? 22 : 30,
+				// height: isCompact ? 22 : 30,
+				padding: isCompact ? 0.25 : 1
 			};
 		case 'sm':
 			return {
-				width: 36,
-				height: 36,
-				padding: 1.5,
-				border: 1,
-				transform: { contained: 3, outlined: 3, icon: 0 },
-				offset: { contained: 2, outlined: 2, icon: 0 }
+				// width: isCompact ? 26 : 36,
+				// height: isCompact ? 26 : 36,
+				padding: isCompact ? 0.5 : 1.25
 			};
 		case 'lg':
 			return {
-				width: 50,
-				height: 50,
-				padding: 2.5,
-				border: 2,
-				transform: { contained: 4, outlined: 4, icon: 0 },
-				offset: { contained: 4, outlined: 4, icon: 0 }
+				// width: isCompact ? 34 : 50,
+				// height: isCompact ? 34 : 50,
+				padding: isCompact ? 1 : 1.75
 			};
 		case 'xl':
 			return {
-				width: 60,
-				height: 60,
-				padding: 3,
-				border: 2,
-				transform: { contained: 4, outlined: 4, icon: 0 },
-				offset: { contained: 4, outlined: 4, icon: 0 }
+				// width: isCompact ? 40 : 60,
+				// height: isCompact ? 40 : 60,
+				padding: isCompact ? 1.25 : 2
 			};
 		default:
 			return {
-				width: 42,
-				height: 42,
-				padding: 2,
-				border: 2,
-				transform: { contained: 4, outlined: 4, icon: 0 },
-				offset: { contained: 4, outlined: 4, icon: 0 }
+				// width: isCompact ? 30 : 42,
+				// height: isCompact ? 30 : 42,
+				padding: isCompact ? 0.75 : 1.5
 			};
 	}
-};
+});
 
-type GetAmountReturn = {
-	back: number;
-	hover: number;
-	active: number;
-};
+type GetVariantRadiusProps = Pick<CommonIconButtonProps, 'isCompact' | 'isRound' | 'variant'>;
 
-export const getAmount = (): GetAmountReturn => {
-	return {
-		back: 0.15,
-		hover: 0.05,
-		active: 0.1
-	};
-};
+export const getVariantRadius = memoize((props: GetVariantRadiusProps): Radius => {
+	const { isCompact = defaultIsCompact, isRound = defaultIsRound, variant = defaultVariant } = props;
 
-type GetIconFontSizeProps = { size: IconButtonSize };
-
-export const getIconFontSize = ({ size = defaultSize }: GetIconFontSizeProps): string => {
-	switch (size) {
-		case 'xs':
-			return '18px';
-		case 'sm':
-			return '21px';
-		case 'lg':
-			return '27px';
-		case 'xl':
-			return '30px';
+	switch (variant) {
+		case 'icon':
+			return 'none';
 		default:
-			return '24px';
+			return isRound ? 'full' : isCompact ? 'xs' : 'base';
 	}
-};
+});
