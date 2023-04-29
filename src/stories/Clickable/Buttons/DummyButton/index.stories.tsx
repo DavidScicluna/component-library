@@ -1,23 +1,28 @@
 import { ReactElement } from 'react';
 
 import {
-	ButtonColor,
+	ButtonRenderProps,
 	ButtonSize,
 	ButtonVariant,
 	DummyButton as DummyButtonComponent,
-	DummyButtonProps} from '../../../..';
+	DummyButtonProps,
+	Icon
+} from '../../../..';
+import icons from '../../../../common/data/icons';
+import { color as defaultColor } from '../../../../common/default/props';
+import { AppColors } from '../../../../common/types';
 import {
-	color as defaultColor,
+	isCompact as defaultIsCompact,
 	isFullWidth as defaultIsFullWidth,
 	size as defaultSize,
 	variant as defaultVariant
-} from '../../../../components/Clickable/Buttons/common/data/defaultPropValues';
+} from '../../../../components/Clickable/Buttons/common/default/props';
 import controls from '../../../common/controls';
 import parameters from '../../../common/parameters';
 
 import { Meta, Story } from './types';
 
-const colorOptions: ButtonColor[] = [
+const colorOptions: AppColors = [
 	'black',
 	'white',
 	'gray',
@@ -40,7 +45,16 @@ const colorOptions: ButtonColor[] = [
 
 const sizeOptions: ButtonSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
-const variantOptions: ButtonVariant[] = ['contained', 'outlined', 'text'];
+const variantOptions: ButtonVariant[] = ['text', 'light', 'contained', 'outlined', 'monochrome'];
+
+const renderMapping = Object.assign(
+	{ none: undefined },
+	...icons.map((icon) => {
+		return {
+			[icon]: ({ colorMode }: ButtonRenderProps) => <Icon colorMode={colorMode} icon={icon} />
+		};
+	})
+);
 
 export default {
 	title: 'Clickable/Buttons/DummyButton',
@@ -62,6 +76,13 @@ export default {
 			control: 'select'
 		},
 		colorMode: { ...controls.theme.colorMode },
+		isCompact: {
+			name: 'Compact',
+			type: 'boolean',
+			defaultValue: defaultIsCompact,
+			// description: '',
+			control: 'boolean'
+		},
 		isFullWidth: {
 			name: 'FullWidth',
 			type: 'boolean',
@@ -69,19 +90,21 @@ export default {
 			// description: '',
 			control: 'boolean'
 		},
-		hasLeft: {
-			name: 'Has left',
-			type: 'boolean',
-			defaultValue: false,
+		renderLeft: {
+			name: 'Left Element',
+			defaultValue: 'none',
 			// description: '',
-			control: 'boolean'
+			options: ['none', ...icons],
+			mapping: { ...renderMapping },
+			control: 'select'
 		},
-		hasRight: {
-			name: 'Has right',
-			type: 'boolean',
-			defaultValue: false,
+		renderRight: {
+			name: 'Right Element',
+			defaultValue: 'none',
 			// description: '',
-			control: 'boolean'
+			options: ['none', ...icons],
+			mapping: { ...renderMapping },
+			control: 'select'
 		},
 		size: {
 			name: 'Size',
@@ -103,4 +126,6 @@ export default {
 	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
-export const DummyButton: Story = (props: DummyButtonProps): ReactElement => <DummyButtonComponent {...props} />;
+export const DummyButton: Story = {
+	render: (props: DummyButtonProps): ReactElement => <DummyButtonComponent {...props} />
+};
