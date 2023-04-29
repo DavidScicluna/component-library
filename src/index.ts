@@ -116,11 +116,18 @@ import {
 	FileButtonProps,
 	FileInputRef
 } from './components/Clickable/FileButton/common/types';
+import ClearIconButton from './components/Clickable/IconButtons/ClearIconButton';
+import {
+	ClearIconButtonIconType,
+	ClearIconButtonProps,
+	ClearIconButtonRef
+} from './components/Clickable/IconButtons/ClearIconButton/common/types';
 import CloseIconButton from './components/Clickable/IconButtons/CloseIconButton';
 import {
 	CloseIconButtonIconType,
-	CloseIconButtonProps
-} from './components/Clickable/IconButtons/CloseIconButton/types';
+	CloseIconButtonProps,
+	CloseIconButtonRef
+} from './components/Clickable/IconButtons/CloseIconButton/common/types';
 import { IconButtonSize, IconButtonVariant } from './components/Clickable/IconButtons/common/types';
 import DummyIconButton from './components/Clickable/IconButtons/DummyIconButton';
 import { useDummyIconButtonContext } from './components/Clickable/IconButtons/DummyIconButton/common/hooks';
@@ -454,7 +461,7 @@ import DSCLProvider from './components/Provider';
 import Skeleton from './components/Skeleton';
 import { SkeletonColor, SkeletonProps, SkeletonVariant } from './components/Skeleton/types';
 import Spinner from './components/Spinner';
-import { SpinnerMode, SpinnerProps } from './components/Spinner/types';
+import { SpinnerMode, SpinnerProps } from './components/Spinner/common/types';
 import AnimatePresence from './components/Transitions/AnimatePresence';
 import { AnimatePresenceProps } from './components/Transitions/AnimatePresence/types';
 import Collapse from './components/Transitions/Collapse';
@@ -619,6 +626,7 @@ export {
 	Checkbox,
 	CheckboxSubtitle,
 	CheckboxTitle,
+	ClearIconButton,
 	CloseIconButton,
 	Collapse,
 	CollapsibleCard,
@@ -786,8 +794,12 @@ export type {
 	CheckboxSubtitleProps,
 	CheckboxTitleProps,
 	CheckboxVariant,
+	ClearIconButtonIconType,
+	ClearIconButtonProps,
+	ClearIconButtonRef,
 	CloseIconButtonIconType,
 	CloseIconButtonProps,
+	CloseIconButtonRef,
 	CollapseProps,
 	CollapsibleCardBodyProps,
 	CollapsibleCardColor,
