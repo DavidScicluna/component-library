@@ -9,7 +9,7 @@ import defaultTheme from '../../theme';
 import { Theme } from '../../theme/types';
 import TransitionsProvider from '../Transitions/TransitionsProvider';
 
-import { ProviderContext as ProviderContextType, ProviderProps } from './types';
+import { ProviderContext as ProviderContextType, ProviderProps } from './common/types';
 
 export const ProviderContext = createContext<ProviderContextType>({ color: defaultColor, colorMode: defaultColorMode });
 
