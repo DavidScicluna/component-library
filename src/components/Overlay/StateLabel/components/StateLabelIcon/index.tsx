@@ -10,7 +10,7 @@ import { useStateLabelContext } from '../../common/hooks';
 
 import { variant as defaultVariant } from './common/default/props';
 import useStyles from './common/styles';
-import { StateLabelIconProps } from './types';
+import { StateLabelIconProps } from './common/types';
 
 const StateLabelIcon: FC<StateLabelIconProps> = (props) => {
 	const theme = useTheme();

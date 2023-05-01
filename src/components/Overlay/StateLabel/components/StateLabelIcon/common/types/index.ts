@@ -12,9 +12,10 @@ import {
 	BoxOther,
 	BoxPosition,
 	BoxPseudo,
-	BoxShadow} from '../../../../../common/types/box';
-import { IconProps } from '../../../../Icon/types';
-import { StateLabelContext } from '../../types';
+	BoxShadow
+} from '../../../../../../../common/types/box';
+import { IconProps } from '../../../../../../Icon/types';
+import { StateLabelContext } from '../../../../common/types';
 
 export type StateLabelIconVariant = 'contained' | 'outlined' | 'transparent';
 
