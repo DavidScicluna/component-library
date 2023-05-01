@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 
-import { Center,HStack, ModalHeader as CUIModalHeader, VStack } from '@chakra-ui/react';
+import { Center, HStack, ModalHeader as CUIModalHeader, VStack } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
@@ -9,16 +9,16 @@ import { convertREMToPixels, convertStringToNumber } from '../../../../../common
 import { getColor } from '../../../../../common/utils/color';
 import { useModalContext } from '../../common/hooks';
 
-import { ModalHeaderProps } from './types';
+import { ModalHeaderProps } from './common/types';
 
 const ModalHeader: FC<ModalHeaderProps> = (props) => {
 	const theme = useTheme();
 
-	const { colorMode, onClose, spacing } = useModalContext();
+	const { colorMode, onClose, spacing: defaultSpacing } = useModalContext();
 
 	const [cancelRef, { width: cancelWidth }] = useElementSize();
 
-	const { renderTitle, renderSubtitle, renderCancel, ...rest } = props;
+	const { renderTitle, renderSubtitle, renderCancel, spacing = defaultSpacing, ...rest } = props;
 
 	const handleCalculateTextWidth = useCallback((): number => {
 		return cancelWidth + convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'));
@@ -54,7 +54,7 @@ const ModalHeader: FC<ModalHeaderProps> = (props) => {
 			{renderCancel && (
 				<Center ref={cancelRef}>
 					{renderCancel({
-						'aria-label': 'Close modal?',
+						'aria-label': 'Close Modal',
 						'color': 'gray',
 						'colorMode': colorMode,
 						'icon': 'close',
