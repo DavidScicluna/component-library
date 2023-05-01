@@ -2,13 +2,20 @@ import { ReactElement } from 'react';
 
 import { Box, Text } from '@chakra-ui/react';
 
-import { Modal as ModalComponent, ModalBody, ModalFooter, ModalHeader,ModalProps, ModalStack } from '../../..';
+import {
+	Modal as ModalComponent,
+	ModalBody,
+	ModalFooter,
+	ModalHeader,
+	ModalProps,
+	ModalSize,
+	ModalStack
+} from '../../..';
 import {
 	isOpen as defaultIsOpen,
 	size as defaultSize,
 	spacing as defaultSpacing
-} from '../../../components/Overlay/Modal/common/data/defaultPropValues';
-import { ModalSize } from '../../../components/Overlay/Modal/types';
+} from '../../../components/Overlay/Modal/common/default/props';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
 
