@@ -1,21 +1,26 @@
-import { createContext,FC } from 'react';
+import { createContext, FC } from 'react';
 
 import DummyCard from '../../../Cards/DummyCard';
-import { color as defaultColor, colorMode as defaultColorMode } from '../common/default/props';
+import {
+	color as defaultColor,
+	colorMode as defaultColorMode,
+	spacing as defaultSpacing
+} from '../common/default/props';
 
-import { DummyHorizontalGridContext as DummyHorizontalGridContextType, DummyHorizontalGridProps } from './types';
+import { DummyHorizontalGridContext as DummyHorizontalGridContextType, DummyHorizontalGridProps } from './common/types';
 
 export const DummyHorizontalGridContext = createContext<DummyHorizontalGridContextType>({
 	color: defaultColor,
-	colorMode: defaultColorMode
+	colorMode: defaultColorMode,
+	spacing: defaultSpacing
 });
 
 const DummyHorizontalGrid: FC<DummyHorizontalGridProps> = (props) => {
-	const { children, color = defaultColor, colorMode = defaultColorMode, ...rest } = props;
+	const { children, color = defaultColor, colorMode = defaultColorMode, spacing = defaultSpacing, ...rest } = props;
 
 	return (
-		<DummyHorizontalGridContext.Provider value={{ color, colorMode }}>
-			<DummyCard {...rest} color={color} colorMode={colorMode}>
+		<DummyHorizontalGridContext.Provider value={{ color, colorMode, spacing }}>
+			<DummyCard {...rest} color={color} colorMode={colorMode} spacing={spacing}>
 				{children}
 			</DummyCard>
 		</DummyHorizontalGridContext.Provider>

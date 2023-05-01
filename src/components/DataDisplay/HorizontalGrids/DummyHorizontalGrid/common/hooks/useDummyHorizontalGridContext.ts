@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
 import { DummyHorizontalGridContext } from '../..';
-import { DummyHorizontalGridContext as DummyHorizontalGridContextType } from '../../types';
+import { DummyHorizontalGridContext as DummyHorizontalGridContextType } from '../types';
 
 const useDummyHorizontalGridContext = (): DummyHorizontalGridContextType => {
 	const context = useContext<DummyHorizontalGridContextType>(DummyHorizontalGridContext);
