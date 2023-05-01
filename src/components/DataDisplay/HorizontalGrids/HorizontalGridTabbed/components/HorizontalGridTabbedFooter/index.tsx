@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { Center } from '@chakra-ui/react';
 
-import { HorizontalGridTabbedFooterProps } from './types';
+import { HorizontalGridTabbedFooterProps } from './common/types';
 
 const HorizontalGridTabbedFooter: FC<HorizontalGridTabbedFooterProps> = ({ children, ...rest }) => {
 	return (
