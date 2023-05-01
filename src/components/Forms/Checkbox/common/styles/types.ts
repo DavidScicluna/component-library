@@ -1,6 +1,6 @@
 import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';
-import { CheckboxProps } from '../../types';
+import { CheckboxProps } from '../types';
 
 type Picked =
 	| 'color'

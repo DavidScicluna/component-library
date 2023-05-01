@@ -24,10 +24,10 @@ import {
 	isWarning as defaultIsWarning,
 	size as defaultSize,
 	variant as defaultVariant
-} from './common/data/defaultPropValues';
+} from './common/default/props';
 import useStyles from './common/styles';
+import { CheckboxContext as CheckboxContextType, CheckboxProps, CheckboxRef } from './common/types';
 import { getSizeConfig } from './common/utils';
-import { CheckboxContext as CheckboxContextType, CheckboxProps, CheckboxRef } from './types';
 
 export const CheckboxContext = createContext<CheckboxContextType>({
 	color: defaultColor,

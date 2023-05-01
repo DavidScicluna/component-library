@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
-import { CheckboxProps as CUICheckboxProps,ColorMode } from '@chakra-ui/react';
+import { CheckboxProps as CUICheckboxProps, ColorMode } from '@chakra-ui/react';
 
-import { Style } from '../../../common/types';
+import { Nullable, Style } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -14,10 +14,9 @@ import {
 	BoxPadding,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../common/types/box';
-import { Color } from '../../../theme/types';
-
-export type CheckboxRef = HTMLInputElement | null;
+	BoxTypography
+} from '../../../../../common/types/box';
+import { Color } from '../../../../../theme/types';
 
 export type CheckboxColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 
@@ -25,9 +24,7 @@ export type CheckboxSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type CheckboxVariant = 'outlined' | 'transparent';
 
-export type CheckboxPanelRenderProps = {
-	color: CheckboxColor;
-	colorMode?: ColorMode;
+export type CheckboxPanelRenderProps = Pick<CheckboxProps, 'color' | 'colorMode'> & {
 	width: string; // In Pixels
 	height: string; // In Pixels
 	fontSize: string; // In Pixels
@@ -63,7 +60,7 @@ type Omitted =
 	| 'variant'
 	| 'sx';
 
-export type CheckboxProps = {
+export type CheckboxProps = Omit<CUICheckboxProps, Omitted> & {
 	color: CheckboxColor;
 	colorMode?: ColorMode;
 	label?: string;
@@ -79,6 +76,8 @@ export type CheckboxProps = {
 	size?: CheckboxSize;
 	variant?: CheckboxVariant;
 	sx?: { group?: Style; checkbox?: Style; formLabel?: Style; formHelperText?: Style };
-} & Omit<CUICheckboxProps, Omitted>;
+};
+
+export type CheckboxRef = Nullable<HTMLInputElement>;
 
 export type CheckboxContext = Pick<CheckboxProps, 'color' | 'colorMode' | 'size'>;

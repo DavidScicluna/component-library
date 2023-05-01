@@ -1,11 +1,7 @@
 import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
 import { Radius } from '../../../../../../theme/types';
-import {
-	isFullWidth as defaultIsFullWidth,
-	size as defaultSize,
-	variant as defaultVariant
-} from '../../data/defaultPropValues';
+import { isFullWidth as defaultIsFullWidth, size as defaultSize, variant as defaultVariant } from '../../default/props';
 import { getSizeConfig } from '../../utils';
 
 import { CheckboxGroupStyleProps } from './types';

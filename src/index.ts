@@ -227,10 +227,6 @@ import Divider from './components/Divider';
 import { DividerProps } from './components/Divider/types';
 import Checkbox from './components/Forms/Checkbox';
 import { useCheckboxContext } from './components/Forms/Checkbox/common/hooks';
-import CheckboxSubtitle from './components/Forms/Checkbox/components/CheckboxSubtitle';
-import { CheckboxSubtitleProps } from './components/Forms/Checkbox/components/CheckboxSubtitle/types';
-import CheckboxTitle from './components/Forms/Checkbox/components/CheckboxTitle';
-import { CheckboxTitleProps } from './components/Forms/Checkbox/components/CheckboxTitle/types';
 import {
 	CheckboxColor,
 	CheckboxContext,
@@ -239,7 +235,11 @@ import {
 	CheckboxRef,
 	CheckboxSize,
 	CheckboxVariant
-} from './components/Forms/Checkbox/types';
+} from './components/Forms/Checkbox/common/types';
+import CheckboxSubtitle from './components/Forms/Checkbox/components/CheckboxSubtitle';
+import { CheckboxSubtitleProps } from './components/Forms/Checkbox/components/CheckboxSubtitle/common/types';
+import CheckboxTitle from './components/Forms/Checkbox/components/CheckboxTitle';
+import { CheckboxTitleProps } from './components/Forms/Checkbox/components/CheckboxTitle/common/types';
 import DatePicker from './components/Forms/DatePicker';
 import { useDatePickerContext } from './components/Forms/DatePicker/common/hooks';
 import {

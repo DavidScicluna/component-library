@@ -10,7 +10,7 @@ import {
 	isWarning as defaultIsWarning,
 	size as defaultSize,
 	variant as defaultVariant
-} from '../data/defaultPropValues';
+} from '../default/props';
 
 import dark from './dark';
 import disabled from './disabled';

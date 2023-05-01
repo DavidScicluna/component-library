@@ -1,6 +1,6 @@
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
-import { isChecked as defaultIsChecked } from '../../../data/defaultPropValues';
+import { isChecked as defaultIsChecked } from '../../../default/props';
 
 import { CheckboxLightReadOnlyStyleProps } from './types';
 
