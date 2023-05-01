@@ -9,7 +9,7 @@ import {
 	size as defaultSize
 } from '../../../common/default/props';
 import { DummyTabsContext } from '../..';
-import { DummyTabsContext as DummyTabsContextType } from '../../types';
+import { DummyTabsContext as DummyTabsContextType } from '../types';
 
 const useDummyTabsContext = (): NoUndefinedField<DummyTabsContextType> => {
 	const {

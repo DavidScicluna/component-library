@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { TabProps as CUIDummyTabProps } from '@chakra-ui/react';
 
-import { Style } from '../../../../../../../../common/types';
+import { Style } from '../../../../../../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -19,8 +19,9 @@ import {
 	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../../../../../../common/types/box';
-import { DummyTabsProps } from '../../../../types';
+	BoxTypography
+} from '../../../../../../../../../../common/types/box';
+import { DummyTabsProps } from '../../../../../../common/types';
 
 export type DummyTabRenderProps = Pick<DummyTabsProps, 'color' | 'colorMode' | 'size'> & {
 	width?: number; // In Pixels

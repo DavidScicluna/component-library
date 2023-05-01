@@ -1,7 +1,8 @@
-import { createContext, forwardRef,ReactElement } from 'react';
+import { createContext, forwardRef, ReactElement } from 'react';
 
-import { Tabs as CUIDummyTabs,useColorMode } from '@chakra-ui/react';
+import { Tabs as CUIDummyTabs } from '@chakra-ui/react';
 
+import { useProviderContext } from '../../../../common/hooks';
 import {
 	activeTab as defaultActiveTab,
 	color as defaultColor,
@@ -10,7 +11,7 @@ import {
 	size as defaultSize
 } from '../common/default/props';
 
-import { DummyTabsContext as DummyTabsContextType, DummyTabsProps,DummyTabsRef } from './types';
+import { DummyTabsContext as DummyTabsContextType, DummyTabsProps, DummyTabsRef } from './common/types';
 
 export const DummyTabsContext = createContext<DummyTabsContextType>({
 	activeTab: defaultActiveTab,
@@ -21,13 +22,13 @@ export const DummyTabsContext = createContext<DummyTabsContextType>({
 });
 
 const DummyTabs = forwardRef<DummyTabsRef, DummyTabsProps>(function DummyTabs(props, ref): ReactElement {
-	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
+	const { colorMode: defaultColorMode } = useProviderContext();
 
 	const {
 		children,
 		activeTab = defaultActiveTab,
 		color = defaultColor,
-		colorMode = colorModeHook,
+		colorMode = defaultColorMode,
 		isFitted = defaultIsFitted,
 		size = defaultSize,
 		...rest

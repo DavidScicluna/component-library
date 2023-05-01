@@ -11,8 +11,8 @@ import HorizontalScroll from '../../../../../HorizontalScroll';
 import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from '../../../components/HorizontalScrollArrows';
 import { useDummyTabsContext } from '../../common/hooks';
 
+import { DummyTabListProps } from './common/types';
 import Tab from './components/DummyTab';
-import { DummyTabListProps } from './types';
 
 const DummyTabList: FC<DummyTabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest }) => {
 	const theme = useTheme();

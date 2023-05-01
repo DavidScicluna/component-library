@@ -16,7 +16,7 @@ import { useDummyTabsContext } from '../../../../common/hooks';
 
 import { isActive as defaultIsActive, isSelected as defaultIsSelected } from './common/default/props';
 import useStyles from './common/styles';
-import { DummyTabProps } from './types';
+import { DummyTabProps } from './common/types';
 
 const DummyTab: FC<DummyTabProps> = (props) => {
 	const theme = useTheme();

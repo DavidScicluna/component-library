@@ -18,10 +18,10 @@ import {
 	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../../../../common/types/box';
-import { DummyTabsProps } from '../../types';
-
-import { DummyTab } from './components/DummyTab/types';
+	BoxTypography
+} from '../../../../../../../../common/types/box';
+import { DummyTabsProps } from '../../../../common/types';
+import { DummyTab } from '../../components/DummyTab/common/types';
 
 export type DummyTabListRenderProps = {
 	width?: number; // In Pixels
