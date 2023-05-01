@@ -4,8 +4,8 @@ import memoize from 'micro-memoize';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode
-} from '../../../../../../../../../../common/data/defaultPropValues';
-import { isToday as defaultIsToday } from '../data/defaultPropValues';
+} from '../../../../../../../../../../common/default/props';
+import { isToday as defaultIsToday } from '../default/props';
 
 import active from './active';
 import dark from './dark';

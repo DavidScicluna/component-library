@@ -15,7 +15,8 @@ import {
 	BoxPadding,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../../../../../common/types/box';
+	BoxTypography
+} from '../../../../../../../../../common/types/box';
 
 export type CalendarDayVariant = 'selected' | 'today' | 'disabled' | 'normal';
 

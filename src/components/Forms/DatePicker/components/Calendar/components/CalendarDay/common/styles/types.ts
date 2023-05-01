@@ -1,7 +1,7 @@
 import { Style } from '../../../../../../../../../common/types';
 import { Theme } from '../../../../../../../../../theme/types';
-import { DatePickerProps } from '../../../../../../types';
-import { CalendarDayProps } from '../../types';
+import { DatePickerProps } from '../../../../../../common/types';
+import { CalendarDayProps } from '../types';
 
 export type CalendarDayStyleProps = Pick<DatePickerProps, 'color' | 'colorMode'> & {
 	theme: Theme;

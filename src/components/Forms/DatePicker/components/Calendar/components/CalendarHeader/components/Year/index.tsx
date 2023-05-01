@@ -9,7 +9,7 @@ import { useDatePickerContext } from '../../../../../../common/hooks';
 import DropdownButton from '../DropdownButton';
 import DropdownButtonItem from '../DropdownButton/components/DropdownButtonItem';
 
-import { YearProps } from './types';
+import { YearProps } from './common/types';
 
 const Year: FC<YearProps> = ({ calendar }) => {
 	const { dayzed } = useDatePickerContext();

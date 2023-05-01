@@ -24,8 +24,8 @@ import ScaleFade from '../../../../../../../../Transitions/ScaleFade';
 import { useDatePickerContext } from '../../../../../../common/hooks';
 
 import useStyles from './common/styles';
+import { DropdownButtonProps, DropdownButtonRef } from './common/types';
 import { getSizeConfig } from './common/utils';
-import { DropdownButtonProps, DropdownButtonRef } from './types';
 
 const DropdownButton = forwardRef<DropdownButtonRef, DropdownButtonProps>(function DropdownButton(
 	props,

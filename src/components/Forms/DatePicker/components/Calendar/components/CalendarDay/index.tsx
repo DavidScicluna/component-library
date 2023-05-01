@@ -8,9 +8,9 @@ import merge from 'lodash-es/merge';
 import { useTheme } from '../../../../../../../common/hooks';
 import { useDatePickerContext } from '../../../../common/hooks';
 
-import { variant as defaultVariant } from './common/data/defaultPropValues';
+import { variant as defaultVariant } from './common/default/props';
 import useStyles from './common/styles';
-import { CalendarDayProps, CalendarDayRef } from './types';
+import { CalendarDayProps, CalendarDayRef } from './common/types';
 
 const CalendarDay = forwardRef<CalendarDayRef, CalendarDayProps>(function CalendarDay(props, ref): ReactElement {
 	const theme = useTheme();

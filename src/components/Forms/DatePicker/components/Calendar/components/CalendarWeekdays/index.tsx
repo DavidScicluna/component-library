@@ -7,7 +7,7 @@ import { getColor } from '../../../../../../../common/utils/color';
 import { short as weekdays } from '../../../../common/data/weekdays';
 import { useDatePickerContext } from '../../../../common/hooks';
 
-import { CalendarWeekdaysProps } from './types';
+import { CalendarWeekdaysProps } from './common/types';
 
 const CalendarWeekdays: FC<CalendarWeekdaysProps> = ({ calendar }) => {
 	const theme = useTheme();

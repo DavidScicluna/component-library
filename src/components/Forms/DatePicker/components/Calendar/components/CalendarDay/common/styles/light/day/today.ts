@@ -3,7 +3,7 @@ import { darken } from 'color2k';
 import { Style } from '../../../../../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../../../../../common/utils';
 import { getHue } from '../../../../../../../../../../../common/utils/color';
-import { color as defaultColor } from '../../../../../../../../common/data/defaultPropValues';
+import { color as defaultColor } from '../../../../../../../../common/default/props';
 import { getAmount, getSizeConfig } from '../../../utils';
 
 import { CalendarDayLightStylingProps } from './types';

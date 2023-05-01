@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import memoize from 'micro-memoize';
 
 import { Space } from '../../../../../../../../../theme/types';
-import { CalendarDayVariant } from '../../types';
+import { CalendarDayVariant } from '../types';
 
 type GetSizeConfigReturn = {
 	width: number; // In Pixels

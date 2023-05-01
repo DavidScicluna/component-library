@@ -8,7 +8,7 @@ import { useDatePickerContext } from '../../../../common/hooks';
 import CalendarDay from '../CalendarDay';
 import { getVariant } from '../CalendarDay/common/utils';
 
-import { CalendarDaysProps } from './types';
+import { CalendarDaysProps } from './common/types';
 
 const CalendarDays: FC<CalendarDaysProps> = ({ calendar }) => {
 	const { date: selectedDate, dayzed } = useDatePickerContext();

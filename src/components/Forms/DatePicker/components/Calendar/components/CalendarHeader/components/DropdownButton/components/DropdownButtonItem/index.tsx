@@ -12,9 +12,9 @@ import {
 	isActive as defaultIsActive,
 	isDisabled as defaultIsDisabled,
 	isToday as defaultIsToday
-} from './common/data/defaultPropValues';
+} from './common/default/props';
 import useStyles from './common/styles';
-import { DropdownButtonItemProps, DropdownButtonItemRef } from './types';
+import { DropdownButtonItemProps, DropdownButtonItemRef } from './common/types';
 
 const DropdownButtonItem: FC<DropdownButtonItemProps> = (props) => {
 	const theme = useTheme();

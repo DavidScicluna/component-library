@@ -1,6 +1,6 @@
 import { Style } from '../../../../../../../../../../../common/types';
 import { Theme } from '../../../../../../../../../../../theme/types';
-import { DatePickerProps } from '../../../../../../../../types';
+import { DatePickerProps } from '../../../../../../../../common/types';
 
 export type DropdownButtonStyleProps = Pick<DatePickerProps, 'color' | 'colorMode'> & {
 	theme: Theme;
