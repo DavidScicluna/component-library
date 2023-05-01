@@ -9,7 +9,7 @@ import { useTheme } from '../../../../../common/hooks';
 import { getColor } from '../../../../../common/utils/color';
 import { useStateLabelContext } from '../../common/hooks';
 
-import { StateLabelTitleProps } from './types';
+import { StateLabelTitleProps } from './common/types';
 
 const StateLabelTitle: FC<StateLabelTitleProps> = (props) => {
 	const theme = useTheme();
