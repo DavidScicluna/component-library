@@ -1,9 +1,15 @@
 import { ReactElement } from 'react';
 
-import { Button as ButtonComponent, ButtonProps, ButtonRenderProps, ButtonSize, ButtonVariant } from '../../../..';
+import {
+	Button as ButtonComponent,
+	ButtonColor,
+	ButtonProps,
+	ButtonRenderProps,
+	ButtonSize,
+	ButtonVariant
+} from '../../../..';
 import icons from '../../../../common/data/icons';
 import { color as defaultColor } from '../../../../common/default/props';
-import { AppColors } from '../../../../common/types';
 import {
 	isCompact as defaultIsCompact,
 	isDisabled as defaultIsDisabled,
@@ -19,7 +25,7 @@ import parameters from '../../../common/parameters';
 
 import { Meta, Story } from './types';
 
-const colorOptions: AppColors = [
+const colorOptions: ButtonColor[] = [
 	'black',
 	'white',
 	'gray',
@@ -151,6 +157,4 @@ export default {
 	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
-export const Button: Story = {
-	render: (props: ButtonProps): ReactElement => <ButtonComponent {...props} />
-};
+export const Button: Story = (props: ButtonProps): ReactElement => <ButtonComponent {...props} />;

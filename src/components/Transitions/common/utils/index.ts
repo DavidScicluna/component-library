@@ -1,7 +1,7 @@
 import { Transition, Tween } from 'framer-motion';
 
 import { convertEasingsToArray, convertStringToNumber } from '../../../../common/utils';
-import { Duration, Ease,Theme } from '../../../../theme/types';
+import { Duration, Ease, Theme } from '../../../../theme/types';
 
 type GetDelayDurationProps = { theme: Theme; duration?: Duration };
 

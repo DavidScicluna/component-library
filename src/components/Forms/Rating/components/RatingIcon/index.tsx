@@ -5,11 +5,10 @@ import { dataAttr } from '@chakra-ui/utils';
 
 import { merge } from 'lodash-es';
 
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../common/default/props';
 import { useTheme } from '../../../../../common/hooks';
 import Icon from '../../../../Icon';
 import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
 	isReadOnly as defaultIsReadOnly,

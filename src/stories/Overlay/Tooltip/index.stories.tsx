@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 
 import { Center } from '@chakra-ui/react';
 
-import { DummyButton,Tooltip as TooltipComponent, TooltipColor, TooltipProps } from '../../..';
+import { DummyButton, Tooltip as TooltipComponent, TooltipColor, TooltipProps } from '../../..';
 import {
 	color as defaultColor,
 	gutter as defaultGutter

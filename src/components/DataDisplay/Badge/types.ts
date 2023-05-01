@@ -1,4 +1,4 @@
-import { BadgeProps as CUIBadgeProps,ColorMode } from '@chakra-ui/react';
+import { BadgeProps as CUIBadgeProps, ColorMode } from '@chakra-ui/react';
 
 import {
 	BoxBackground,
@@ -13,7 +13,8 @@ import {
 	BoxOther,
 	BoxPadding,
 	BoxPseudo,
-	BoxTypography} from '../../../common/types/box';
+	BoxTypography
+} from '../../../common/types/box';
 import { Color, FontSize } from '../../../theme/types';
 
 export type BadgeRef = HTMLSpanElement | null;

@@ -12,7 +12,8 @@ import {
 	BoxOther,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../../common/types/box';
+	BoxTypography
+} from '../../../../common/types/box';
 import { Color, Space } from '../../../../theme/types';
 
 export type AccordionsColor = Exclude<Color, 'transparent' | 'black' | 'white'>;

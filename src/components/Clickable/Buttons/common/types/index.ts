@@ -2,7 +2,9 @@ import { ReactNode } from 'react';
 
 import { ColorMode } from '@chakra-ui/react';
 
-import { AppColor } from '../../../../../common/types';
+import { Color } from '../../../../../theme/types';
+
+export type ButtonColor = Exclude<Color, 'transparent'>;
 
 export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -15,7 +17,7 @@ export type ButtonRenderProps = {
 
 export type CommonButtonProps = {
 	children?: ReactNode;
-	color?: AppColor;
+	color?: ButtonColor;
 	colorMode?: ColorMode;
 	isCompact?: boolean;
 	isFullWidth?: boolean;

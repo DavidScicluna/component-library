@@ -4,6 +4,7 @@ import { sample } from 'lodash-es';
 
 import {
 	IconButton as IconButtonComponent,
+	IconButtonColor,
 	IconButtonIcon,
 	IconButtonProps,
 	IconButtonSize,
@@ -11,7 +12,6 @@ import {
 } from '../../../..';
 import icons from '../../../../common/data/icons';
 import { color as defaultColor } from '../../../../common/default/props';
-import { AppColors } from '../../../../common/types';
 import { Icon as IconType } from '../../../../common/types/icons';
 import {
 	isActive as defaultIsActive,
@@ -38,7 +38,7 @@ const childrenMapping = Object.assign(
 	})
 );
 
-const colorOptions: AppColors = [
+const colorOptions: IconButtonColor[] = [
 	'black',
 	'white',
 	'gray',

@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 
 import { CenterProps } from '@chakra-ui/react';
 
+import { AppColor } from '../../../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -17,10 +18,7 @@ import {
 	BoxShadow,
 	BoxTypography
 } from '../../../../../../../common/types/box';
-import { Color } from '../../../../../../../theme/types';
 import { ConfirmModalProps } from '../../../../common/types';
-
-export type ConfirmModalIconColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 
 export type ConfirmModalIconVariant = 'contained' | 'outlined' | 'transparent';
 
@@ -45,6 +43,6 @@ type Omitted =
 
 export type ConfirmModalIconProps = Omit<CenterProps, Omitted> & {
 	renderIcon: (props: ConfirmModalIconRenderIconProps) => ReactNode;
-	color: ConfirmModalIconColor;
+	color: AppColor;
 	variant?: ConfirmModalIconVariant;
 };

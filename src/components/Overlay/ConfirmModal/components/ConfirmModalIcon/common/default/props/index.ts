@@ -1,5 +1,3 @@
-import { ConfirmModalIconColor, ConfirmModalIconVariant } from '../../types';
-
-export const color: ConfirmModalIconColor = 'blue';
+import { ConfirmModalIconVariant } from '../../types';
 
 export const variant: ConfirmModalIconVariant = 'contained';

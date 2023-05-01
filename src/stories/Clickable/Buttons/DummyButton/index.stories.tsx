@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
 
 import {
+	ButtonColor,
 	ButtonRenderProps,
 	ButtonSize,
 	ButtonVariant,
@@ -10,7 +11,6 @@ import {
 } from '../../../..';
 import icons from '../../../../common/data/icons';
 import { color as defaultColor } from '../../../../common/default/props';
-import { AppColors } from '../../../../common/types';
 import {
 	isCompact as defaultIsCompact,
 	isFullWidth as defaultIsFullWidth,
@@ -23,7 +23,7 @@ import parameters from '../../../common/parameters';
 
 import { Meta, Story } from './types';
 
-const colorOptions: AppColors = [
+const colorOptions: ButtonColor[] = [
 	'black',
 	'white',
 	'gray',
@@ -134,6 +134,4 @@ export default {
 	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
-export const DummyButton: Story = {
-	render: (props: DummyButtonProps): ReactElement => <DummyButtonComponent {...props} />
-};
+export const DummyButton: Story = (props: DummyButtonProps): ReactElement => <DummyButtonComponent {...props} />;

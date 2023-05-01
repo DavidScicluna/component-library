@@ -6,12 +6,12 @@ import {
 	Icon,
 	Input as InputComponent,
 	InputAutoComplete,
-	InputColor,
 	InputPanelRenderProps,
 	InputProps,
 	InputSize
 } from '../../..';
 import icons from '../../../common/data/icons';
+import { AppColor, AppColors } from '../../../common/types';
 import {
 	autoComplete as defaultAutoComplete,
 	isDisabled as defaultIsDisabled,
@@ -31,7 +31,7 @@ import { Meta, Story } from './types';
 
 const autoCompleteOptions: InputAutoComplete[] = ['on', 'password', 'off'];
 
-const colorOptions: InputColor[] = [
+const colorOptions: AppColors = [
 	'pink',
 	'purple',
 	'deep_purple',
@@ -45,7 +45,7 @@ const colorOptions: InputColor[] = [
 	'orange',
 	'deep_orange'
 ];
-const defaultColor: InputColor = sample(colorOptions) || colorOptions[0];
+const defaultColor: AppColor = sample(colorOptions) || colorOptions[0];
 
 const renderMapping = Object.assign(
 	{ none: undefined },

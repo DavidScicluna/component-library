@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { CenterProps,ColorMode } from '@chakra-ui/react';
+import { CenterProps, ColorMode } from '@chakra-ui/react';
 
 import {
 	BoxBackground,
@@ -15,7 +15,8 @@ import {
 	BoxOther,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../../common/types/box';
+	BoxTypography
+} from '../../../../common/types/box';
 import { Color, Space } from '../../../../theme/types';
 
 export type CardColor = Exclude<Color, 'transparent'>;

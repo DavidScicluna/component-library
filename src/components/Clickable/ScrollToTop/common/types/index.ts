@@ -1,4 +1,4 @@
-import { IconCategory, IconType } from '../../../../../..';
+import { IconCategory, IconType } from '../../../../..';
 import { PickFrom } from '../../../../../common/types';
 import { TooltipProps } from '../../../../Overlay/Tooltip/types';
 import { IconButtonProps, IconButtonRef } from '../../../IconButtons/OriginalIconButton/common/types';

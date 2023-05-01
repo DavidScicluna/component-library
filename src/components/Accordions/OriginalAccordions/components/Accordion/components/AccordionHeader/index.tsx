@@ -1,6 +1,6 @@
-import { ReactElement,useCallback } from 'react';
+import { ReactElement, useCallback } from 'react';
 
-import { Center,HStack, VStack } from '@chakra-ui/react';
+import { Center, HStack, VStack } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 

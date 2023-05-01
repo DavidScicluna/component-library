@@ -1,7 +1,7 @@
 import { merge } from 'lodash-es';
 import memoize from 'micro-memoize';
 
-import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/default/props';
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../../../common/default/props';
 import { variant as defaultVariant } from '../default/props';
 
 import dark from './dark';

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { useTheme } from '../../../../../common/hooks';
-import { getColor,GetColorProps } from '../../../../../common/utils/color';
+import { getColor, GetColorProps } from '../../../../../common/utils/color';
 import Divider from '../../../../Divider';
 import { useCardContext } from '../../common/hooks';
 

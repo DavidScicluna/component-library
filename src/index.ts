@@ -79,7 +79,7 @@ import { useButtonGroupContext } from './components/Clickable/ButtonGroup/common
 import { ButtonGroupContext, ButtonGroupProps, ButtonGroupRef } from './components/Clickable/ButtonGroup/common/types';
 import ButtonGroupItem from './components/Clickable/ButtonGroup/components/ButtonGroupItem';
 import { ButtonGroupItemProps } from './components/Clickable/ButtonGroup/components/ButtonGroupItem/common/types';
-import { ButtonRenderProps, ButtonSize, ButtonVariant } from './components/Clickable/Buttons/common/types';
+import { ButtonColor, ButtonRenderProps, ButtonSize, ButtonVariant } from './components/Clickable/Buttons/common/types';
 import DummyButton from './components/Clickable/Buttons/DummyButton';
 import { DummyButtonProps } from './components/Clickable/Buttons/DummyButton/common/types';
 import Button from './components/Clickable/Buttons/OriginalButton';
@@ -128,7 +128,7 @@ import {
 	CloseIconButtonProps,
 	CloseIconButtonRef
 } from './components/Clickable/IconButtons/CloseIconButton/common/types';
-import { IconButtonSize, IconButtonVariant } from './components/Clickable/IconButtons/common/types';
+import { IconButtonColor, IconButtonSize, IconButtonVariant } from './components/Clickable/IconButtons/common/types';
 import DummyIconButton from './components/Clickable/IconButtons/DummyIconButton';
 import { useDummyIconButtonContext } from './components/Clickable/IconButtons/DummyIconButton/common/hooks';
 import { DummyIconButtonProps } from './components/Clickable/IconButtons/DummyIconButton/common/types';
@@ -410,7 +410,6 @@ import {
 } from './components/Overlay/ConfirmModal/components/ConfirmModalFooter/common/types';
 import ConfirmModalIcon from './components/Overlay/ConfirmModal/components/ConfirmModalIcon';
 import {
-	ConfirmModalIconColor,
 	ConfirmModalIconProps,
 	ConfirmModalIconRenderIconProps,
 	ConfirmModalIconVariant
@@ -774,6 +773,7 @@ export type {
 	BadgeRef,
 	BadgeSize,
 	BadgeVariant,
+	ButtonColor,
 	ButtonGroupContext,
 	ButtonGroupItemProps,
 	ButtonGroupProps,
@@ -820,7 +820,6 @@ export type {
 	ConfirmModalFooterProps,
 	ConfirmModalFooterRenderCancelProps,
 	ConfirmModalFooterRenderProps,
-	ConfirmModalIconColor,
 	ConfirmModalIconProps,
 	ConfirmModalIconRenderIconProps,
 	ConfirmModalIconVariant,
@@ -907,6 +906,7 @@ export type {
 	HorizontalScrollProps,
 	HorizontalScrollRef,
 	HorizontalScrollRenderDividerProps,
+	IconButtonColor,
 	IconButtonContext,
 	IconButtonIconProps,
 	IconButtonMouseEvent,

@@ -9,7 +9,8 @@ import {
 	BoxPadding,
 	BoxPosition,
 	BoxShadow,
-	BoxTypography} from '../../../../../common/types/box';
+	BoxTypography
+} from '../../../../../common/types/box';
 import { IconProps } from '../../../../Icon/types';
 
 type Omitted =

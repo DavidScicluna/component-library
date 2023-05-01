@@ -1,11 +1,13 @@
 import { useContext } from 'react';
 
-import { method as defaultOnChange } from '../../../../../../common/default/props';
+import {
+	color as defaultColor,
+	colorMode as defaultColorMode,
+	method as defaultOnChange
+} from '../../../../../../common/default/props';
 import { NoUndefinedField } from '../../../../../../common/types';
 import {
 	activeTab as defaultActiveTab,
-	color as defaultColor,
-	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	isFitted as defaultIsFitted,
 	size as defaultSize

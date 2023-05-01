@@ -2,7 +2,6 @@ import { CheckboxSize, CheckboxVariant } from '../../types';
 
 export const isChecked = false;
 export const isIndeterminate = false;
-
 export const isDisabled = false;
 export const isError = false;
 export const isWarning = false;

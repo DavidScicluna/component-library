@@ -19,7 +19,8 @@ import {
 	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../../../common/types/box';
+	BoxTypography
+} from '../../../../../common/types/box';
 import { Space } from '../../../../../theme/types';
 import { SideNavigationProps } from '../../types';
 

@@ -6,13 +6,13 @@ import {
 	DummyIconButton as DummyIconButtonComponent,
 	DummyIconButtonIcon,
 	DummyIconButtonProps,
+	IconButtonColor,
 	IconButtonSize,
 	IconButtonVariant,
 	IconType
 } from '../../../..';
 import icons from '../../../../common/data/icons';
 import { color as defaultColor } from '../../../../common/default/props';
-import { AppColors } from '../../../../common/types';
 import {
 	isCompact as defaultIsCompact,
 	isRound as defaultIsRound,
@@ -35,7 +35,7 @@ const childrenMapping = Object.assign(
 	})
 );
 
-const colorOptions: AppColors = [
+const colorOptions: IconButtonColor[] = [
 	'black',
 	'white',
 	'gray',

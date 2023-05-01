@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Collapse as CUICollapse,useConst } from '@chakra-ui/react';
+import { Collapse as CUICollapse, useConst } from '@chakra-ui/react';
 
 import { Transition } from 'framer-motion';
 

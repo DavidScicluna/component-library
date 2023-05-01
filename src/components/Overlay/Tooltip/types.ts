@@ -16,7 +16,8 @@ import {
 	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../common/types/box';
+	BoxTypography
+} from '../../../common/types/box';
 import { Color } from '../../../theme/types';
 
 export type TooltipRef = HTMLDivElement | null;

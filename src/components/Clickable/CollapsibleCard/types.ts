@@ -1,6 +1,6 @@
-import { MouseEvent as ME,ReactNode } from 'react';
+import { MouseEvent as ME, ReactNode } from 'react';
 
-import { BoxProps,ColorMode } from '@chakra-ui/react';
+import { BoxProps, ColorMode } from '@chakra-ui/react';
 
 import {
 	BoxBackground,
@@ -15,7 +15,8 @@ import {
 	BoxOther,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../common/types/box';
+	BoxTypography
+} from '../../../common/types/box';
 import { Color, Space } from '../../../theme/types';
 
 export type MouseEvent = ME<HTMLDivElement, globalThis.MouseEvent>;

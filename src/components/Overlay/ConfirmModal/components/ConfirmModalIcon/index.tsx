@@ -4,10 +4,11 @@ import { Center } from '@chakra-ui/react';
 
 import { merge } from 'lodash-es';
 
+import { color as defaultColor } from '../../../../../common/default/props';
 import { useTheme } from '../../../../../common/hooks';
 import { useConfirmModalContext } from '../../common/hooks';
 
-import { color as defaultColor, variant as defaultVariant } from './common/default/props';
+import { variant as defaultVariant } from './common/default/props';
 import useStyles from './common/styles';
 import { ConfirmModalIconProps } from './common/types';
 

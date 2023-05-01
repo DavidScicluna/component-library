@@ -6,13 +6,13 @@ import { sample } from 'lodash-es';
 
 import {
 	Checkbox as CheckboxComponent,
-	CheckboxColor,
 	CheckboxProps,
 	CheckboxSize,
 	CheckboxSubtitle,
 	CheckboxTitle,
 	CheckboxVariant
 } from '../../..';
+import { AppColor, AppColors } from '../../../common/types';
 // import icons from '../../../common/data/icons';
 import {
 	isChecked as defaultIsChecked,
@@ -32,7 +32,7 @@ import parameters from '../../common/parameters';
 
 import { Meta, Story } from './types';
 
-const colorOptions: CheckboxColor[] = [
+const colorOptions: AppColors = [
 	'pink',
 	'purple',
 	'deep_purple',
@@ -46,7 +46,7 @@ const colorOptions: CheckboxColor[] = [
 	'orange',
 	'deep_orange'
 ];
-const defaultColor: CheckboxColor = sample(colorOptions) || colorOptions[0];
+const defaultColor: AppColor = sample(colorOptions) || colorOptions[0];
 
 const renderMapping = Object.assign(
 	{ none: undefined },

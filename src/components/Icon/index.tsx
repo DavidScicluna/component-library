@@ -1,13 +1,13 @@
 import { FC } from 'react';
 
-import { Center,useBoolean, useColorMode } from '@chakra-ui/react';
+import { Center, useBoolean, useColorMode } from '@chakra-ui/react';
 
 import { useInterval } from 'usehooks-ts';
 
 import Skeleton from '../Skeleton';
 import { color as defaultSkeletonColor } from '../Skeleton/common/data/defaultPropValues';
 
-import { category as defaultCategory,colorMode as defaultColorMode } from './common/data/defaultPropValues';
+import { category as defaultCategory, colorMode as defaultColorMode } from './common/data/defaultPropValues';
 import { checkFontStatus } from './common/utils';
 import { IconProps } from './types';
 

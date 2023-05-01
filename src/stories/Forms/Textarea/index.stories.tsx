@@ -5,13 +5,13 @@ import { sample } from 'lodash-es';
 import {
 	Textarea as TextareaComponent,
 	TextareaAutoComplete,
-	TextareaColor,
 	TextareaPanelRenderProps,
 	TextareaProps,
 	TextareaResize,
 	TextareaSize
 } from '../../..';
 import icons from '../../../common/data/icons';
+import { AppColor, AppColors } from '../../../common/types';
 import {
 	autoComplete as defaultAutoComplete,
 	isDisabled as defaultIsDisabled,
@@ -33,7 +33,7 @@ import { Meta, Story } from './types';
 
 const autoCompleteOptions: TextareaAutoComplete[] = ['on', 'password', 'off'];
 
-const colorOptions: TextareaColor[] = [
+const colorOptions: AppColors = [
 	'pink',
 	'purple',
 	'deep_purple',
@@ -47,7 +47,7 @@ const colorOptions: TextareaColor[] = [
 	'orange',
 	'deep_orange'
 ];
-const defaultColor: TextareaColor = sample(colorOptions) || colorOptions[0];
+const defaultColor: AppColor = sample(colorOptions) || colorOptions[0];
 
 const renderMapping = Object.assign(
 	{ none: undefined },

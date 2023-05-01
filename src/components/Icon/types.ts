@@ -1,4 +1,4 @@
-import { CenterProps,ColorMode } from '@chakra-ui/react';
+import { CenterProps, ColorMode } from '@chakra-ui/react';
 
 import {
 	BoxBackground,
@@ -10,7 +10,8 @@ import {
 	BoxGrid,
 	BoxOther,
 	BoxPseudo,
-	BoxShadow} from '../../common/types/box';
+	BoxShadow
+} from '../../common/types/box';
 import { Icon } from '../../common/types/icons';
 import { SkeletonColor } from '../Skeleton/types';
 

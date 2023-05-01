@@ -4,4 +4,4 @@ const errorEmojis: string[] = ['😔', '😣', '😖', '🥺', '😭'];
 const successTitles: string[] = ['Yay', 'Yippee', 'Huzza', 'Hip-hip', 'Whoopee', 'Hurray'];
 const successEmojis: string[] = ['😀', '🤓', '😊', '😎', '🥳'];
 
-export { errorEmojis, errorTitles, successEmojis,successTitles };
+export { errorEmojis, errorTitles, successEmojis, successTitles };

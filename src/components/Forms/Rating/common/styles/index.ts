@@ -1,8 +1,8 @@
 import { merge } from 'lodash-es';
 import memoize from 'micro-memoize';
 
+import { colorMode as defaultColorMode } from '../../../../../common/default/props';
 import {
-	colorMode as defaultColorMode,
 	isError as defaultIsError,
 	isFullWidth as defaultIsFullWidth,
 	isSuccess as defaultIsSuccess,

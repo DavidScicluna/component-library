@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 
 import { Box } from '@chakra-ui/react';
 
-import { Skeleton as SkeletonComponent,SkeletonColor, SkeletonProps, SkeletonVariant } from '../..';
+import { Skeleton as SkeletonComponent, SkeletonColor, SkeletonProps, SkeletonVariant } from '../..';
 import {
 	color as defaultColor,
 	isLoaded as defaultIsLoaded,

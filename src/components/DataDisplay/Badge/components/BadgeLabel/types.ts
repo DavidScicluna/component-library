@@ -17,7 +17,8 @@ import {
 	BoxPadding,
 	BoxPosition,
 	BoxPseudo,
-	BoxShadow} from '../../../../../common/types/box';
+	BoxShadow
+} from '../../../../../common/types/box';
 
 type Omitted =
 	// CUI Box Props

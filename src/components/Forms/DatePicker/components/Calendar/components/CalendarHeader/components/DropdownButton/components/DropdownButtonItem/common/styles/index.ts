@@ -4,7 +4,7 @@ import memoize from 'micro-memoize';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode
-} from '../../../../../../../../../../common/default/props';
+} from '../../../../../../../../../../../../../common/default/props';
 import { isToday as defaultIsToday } from '../default/props';
 
 import active from './active';

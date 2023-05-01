@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { useConst } from '@chakra-ui/react';
 
-import { MotionConfig,Transition } from 'framer-motion';
+import { MotionConfig, Transition } from 'framer-motion';
 
 import { useTheme } from '../../../common/hooks';
 import { getConfig } from '../common/utils';

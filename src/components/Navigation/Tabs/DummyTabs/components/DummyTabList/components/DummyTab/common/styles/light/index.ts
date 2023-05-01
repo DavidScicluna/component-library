@@ -1,10 +1,11 @@
 import { darken } from 'color2k';
 
+import { color as defaultColor } from '../../../../../../../../../../../common/default/props';
 import { Style } from '../../../../../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../../../../../common/utils';
 import { getHue } from '../../../../../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../../../../../theme/types';
-import { color as defaultColor, size as defaultSize } from '../../../../../../../../common/default/props';
+import { size as defaultSize } from '../../../../../../../../common/default/props';
 import { getAmount, getSizeConfig } from '../../../../../../../../common/utils';
 import { isSelected as defaultIsSelected } from '../../default/props';
 
