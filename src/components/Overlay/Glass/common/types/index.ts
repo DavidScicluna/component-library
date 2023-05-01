@@ -1,6 +1,6 @@
 import { CenterProps } from '@chakra-ui/react';
 
-import { Nullable } from '../../../common/types';
+import { Nullable } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorders,
@@ -12,8 +12,9 @@ import {
 	BoxOther,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../common/types/box';
-import { Space } from '../../../theme/types';
+	BoxTypography
+} from '../../../../../common/types/box';
+import { Space } from '../../../../../theme/types';
 
 type Omitted =
 	| BoxColor

@@ -1,10 +1,10 @@
-import { forwardRef,ReactElement } from 'react';
+import { forwardRef, ReactElement } from 'react';
 
 import { Center } from '@chakra-ui/react';
 
 import { useTheme } from '../../../common/hooks';
 
-import { GlassProps,GlassRef } from './types';
+import { GlassProps, GlassRef } from './common/types';
 
 const Glass = forwardRef<GlassRef, GlassProps>(function Glass(props, ref): ReactElement {
 	const theme = useTheme();

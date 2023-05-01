@@ -419,7 +419,7 @@ import { ConfirmModalSubtitleProps } from './components/Overlay/ConfirmModal/com
 import ConfirmModalTitle from './components/Overlay/ConfirmModal/components/ConfirmModalTitle';
 import { ConfirmModalTitleProps } from './components/Overlay/ConfirmModal/components/ConfirmModalTitle/common/types';
 import Glass from './components/Overlay/Glass';
-import { GlassProps, GlassRef } from './components/Overlay/Glass/types';
+import { GlassProps, GlassRef } from './components/Overlay/Glass/common/types';
 import Modal from './components/Overlay/Modal';
 import { useModalContext } from './components/Overlay/Modal/common/hooks';
 import { ModalColor, ModalContext, ModalProps, ModalSize } from './components/Overlay/Modal/common/types';
