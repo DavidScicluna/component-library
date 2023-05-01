@@ -223,13 +223,6 @@ import {
 	HorizontalGridTabbedContext,
 	HorizontalGridTabbedProps
 } from './components/DataDisplay/HorizontalGrids/HorizontalGridTabbed/types';
-import Tag from './components/DataDisplay/Tag';
-import { useTagContext } from './components/DataDisplay/Tag/common/hooks';
-import TagDeleteIconButton from './components/DataDisplay/Tag/components/TagDeleteIconButton';
-import { TagDeleteIconButtonProps } from './components/DataDisplay/Tag/components/TagDeleteIconButton/types';
-import TagLabel from './components/DataDisplay/Tag/components/TagLabel';
-import { TagLabelProps } from './components/DataDisplay/Tag/components/TagLabel/types';
-import { TagColor, TagContext, TagProps, TagRef, TagSize, TagVariant } from './components/DataDisplay/Tag/types';
 import Divider from './components/Divider';
 import { DividerProps } from './components/Divider/types';
 import Checkbox from './components/Forms/Checkbox';
@@ -589,8 +582,7 @@ export {
 	useStateLabelContext,
 	useStepperContext,
 	useTabBarContext,
-	useTabsContext,
-	useTagContext
+	useTabsContext
 };
 
 // Assets
@@ -748,9 +740,6 @@ export {
 	TabList,
 	TabPanels,
 	Tabs,
-	Tag,
-	TagDeleteIconButton,
-	TagLabel,
 	Textarea,
 	Tooltip
 };
@@ -1036,14 +1025,6 @@ export type {
 	TabsProps,
 	TabsRef,
 	TabsSize,
-	TagColor,
-	TagContext,
-	TagDeleteIconButtonProps,
-	TagLabelProps,
-	TagProps,
-	TagRef,
-	TagSize,
-	TagVariant,
 	TextareaAutoComplete,
 	TextareaChangeEvent,
 	TextareaColor,
