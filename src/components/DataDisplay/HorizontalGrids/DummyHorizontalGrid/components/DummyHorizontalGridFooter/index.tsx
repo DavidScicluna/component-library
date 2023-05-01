@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { Center } from '@chakra-ui/react';
 
-import { DummyHorizontalGridFooterProps } from './types';
+import { DummyHorizontalGridFooterProps } from './common/types';
 
 const DummyHorizontalGridFooter: FC<DummyHorizontalGridFooterProps> = ({ children, ...rest }) => {
 	return (
