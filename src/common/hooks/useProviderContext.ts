@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
 import { ProviderContext } from '../../components/Provider';
-import { ProviderContext as ProviderContextType } from '../../components/Provider/types';
+import { ProviderContext as ProviderContextType } from '../../components/Provider/common/types';
 import { color as defaultColor, colorMode as defaultColorMode } from '../default/props';
 import { NoUndefinedField } from '../types';
 
