@@ -1,6 +1,6 @@
 import { ColorMode } from '@chakra-ui/react';
 
-import { Space } from '../../../../../theme/types';
+import { Space } from '../../../../../../theme/types';
 import { ModalColor, ModalSize } from '../../types';
 
 export const color: ModalColor = 'blue';
