@@ -7,9 +7,9 @@ import { merge } from 'lodash-es';
 import { useTheme } from '../../../../../common/hooks';
 import { useConfirmModalContext } from '../../common/hooks';
 
-import { color as defaultColor, variant as defaultVariant } from './common/data/defaultPropValues';
+import { color as defaultColor, variant as defaultVariant } from './common/default/props';
 import useStyles from './common/styles';
-import { ConfirmModalIconProps } from './types';
+import { ConfirmModalIconProps } from './common/types';
 
 const ConfirmModalIcon: FC<ConfirmModalIconProps> = (props) => {
 	const theme = useTheme();

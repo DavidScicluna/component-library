@@ -15,15 +15,16 @@ import {
 	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../../../common/types/box';
-import { Color } from '../../../../../theme/types';
-import { ConfirmModalProps } from '../../types';
+	BoxTypography
+} from '../../../../../../../common/types/box';
+import { Color } from '../../../../../../../theme/types';
+import { ConfirmModalProps } from '../../../../common/types';
 
 export type ConfirmModalIconColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 
 export type ConfirmModalIconVariant = 'contained' | 'outlined' | 'transparent';
 
-export type RenderIconProps = Pick<ConfirmModalProps, 'colorMode'>;
+export type ConfirmModalIconRenderIconProps = Pick<ConfirmModalProps, 'colorMode'>;
 
 type Omitted =
 	| BoxColor
@@ -43,7 +44,7 @@ type Omitted =
 	| 'as';
 
 export type ConfirmModalIconProps = Omit<CenterProps, Omitted> & {
-	renderIcon: (props: RenderIconProps) => ReactNode;
+	renderIcon: (props: ConfirmModalIconRenderIconProps) => ReactNode;
 	color: ConfirmModalIconColor;
 	variant?: ConfirmModalIconVariant;
 };

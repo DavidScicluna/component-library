@@ -1,6 +1,6 @@
 import { Style } from '../../../../../../../../common/types';
 import { getHue } from '../../../../../../../../common/utils/color';
-import { color as defaultColor } from '../../data/defaultPropValues';
+import { color as defaultColor } from '../../default/props';
 
 import { ConfirmModalIconDarkStylingProps } from './types';
 
