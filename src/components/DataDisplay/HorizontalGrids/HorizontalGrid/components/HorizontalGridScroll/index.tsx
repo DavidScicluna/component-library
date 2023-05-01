@@ -1,14 +1,16 @@
 import { FC } from 'react';
 
-import { Box,Center } from '@chakra-ui/react';
+import { Box, Center } from '@chakra-ui/react';
 
 import HorizontalScroll from '../../../../../HorizontalScroll';
 import { useHorizontalGridContext } from '../../common/hooks';
 
-import { HorizontalGridScrollProps } from './types';
+import { HorizontalGridScrollProps } from './common/types';
 
-const HorizontalGridScroll: FC<HorizontalGridScrollProps> = ({ children, spacing = 2 }) => {
-	const { colorMode, onSetScroll } = useHorizontalGridContext();
+const HorizontalGridScroll: FC<HorizontalGridScrollProps> = (props) => {
+	const { colorMode, onSetScroll, spacing: defaultSpacing } = useHorizontalGridContext();
+
+	const { children, spacing = defaultSpacing } = props;
 
 	return (
 		<HorizontalScroll
