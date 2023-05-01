@@ -2,9 +2,9 @@ import { FC } from 'react';
 
 import { VStack } from '@chakra-ui/react';
 
-import { padding as defaultPadding,spacing as defaultSpacing } from '../../common/default/props';
+import { padding as defaultPadding, spacing as defaultSpacing } from '../../common/default/props';
 
-import { StateLabelStackProps } from './types';
+import { StateLabelStackProps } from './common/types';
 
 const StateLabelStack: FC<StateLabelStackProps> = (props) => {
 	const { children, spacing = defaultSpacing, p = defaultPadding, ...rest } = props;
