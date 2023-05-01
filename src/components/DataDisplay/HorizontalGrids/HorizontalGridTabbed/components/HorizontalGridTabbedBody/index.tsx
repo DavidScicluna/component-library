@@ -3,7 +3,7 @@ import { FC, Fragment } from 'react';
 import CardBody from '../../../../../Cards/components/CardBody';
 import TabPanels from '../../../../../Navigation/Tabs/components/TabPanels';
 
-import { HorizontalGridTabbedBodyProps } from './types';
+import { HorizontalGridTabbedBodyProps } from './common/types';
 
 const HorizontalGridTabbedBody: FC<HorizontalGridTabbedBodyProps> = ({ children, ...rest }) => {
 	return (
