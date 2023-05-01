@@ -305,14 +305,14 @@ import {
 } from './components/Forms/Textarea/types';
 import HorizontalScroll from './components/HorizontalScroll';
 import { useHorizontalScrollContext } from './components/HorizontalScroll/common/hooks';
-import HorizontalScrollArrow from './components/HorizontalScroll/components/Arrow';
-import { ArrowProps as HorizontalScrollArrowProps } from './components/HorizontalScroll/components/Arrow/types';
 import {
 	HorizontalScrollAPIContext,
 	HorizontalScrollContext,
 	HorizontalScrollProps,
 	HorizontalScrollRef
-} from './components/HorizontalScroll/types';
+} from './components/HorizontalScroll/common/types';
+import HorizontalScrollArrow from './components/HorizontalScroll/components/Arrow';
+import { ArrowProps as HorizontalScrollArrowProps } from './components/HorizontalScroll/components/Arrow/common/types';
 import Icon from './components/Icon';
 import { IconCategory, IconProps } from './components/Icon/types';
 import Image from './components/Image';

@@ -1,8 +1,9 @@
-import { ContextType,ReactNode } from 'react';
+import { ContextType, ReactNode } from 'react';
 import { Props as RHSMHorizontalScrollProps, VisibilityContext } from 'react-horizontal-scrolling-menu';
 
-import { BoxProps,ColorMode } from '@chakra-ui/react';
+import { BoxProps, ColorMode } from '@chakra-ui/react';
 
+import { Nullable } from '../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -15,12 +16,11 @@ import {
 	BoxOther,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../common/types/box';
-import { Color } from '../../theme/types';
+	BoxTypography
+} from '../../../../common/types/box';
+import { Color } from '../../../../theme/types';
 
 export type HorizontalScrollAPIContext = ContextType<typeof VisibilityContext>;
-
-export type HorizontalScrollRef = HTMLDivElement | null;
 
 export type HorizontalScrollColor = Exclude<Color, 'transparent' | 'black' | 'white'>;
 
@@ -57,5 +57,7 @@ export type HorizontalScrollProps = Omit<BoxProps, OmittedBoxProps> & {
 	isDisabled?: boolean;
 	renderDivider?: (props: RenderDividerProps) => ReactNode;
 } & Omit<RHSMHorizontalScrollProps, OmittedRHSMHorizontalScrollProps>;
+
+export type HorizontalScrollRef = Nullable<HTMLDivElement>;
 
 export type HorizontalScrollContext = Pick<HorizontalScrollProps, 'color' | 'colorMode' | 'isDisabled'>;
