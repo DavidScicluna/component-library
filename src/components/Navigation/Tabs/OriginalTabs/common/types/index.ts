@@ -1,4 +1,4 @@
-import { CommonTabsProps } from '../common/types';
+import { CommonTabsProps } from '../../../common/types';
 
 export type TabsRef = HTMLDivElement | null;
 

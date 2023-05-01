@@ -11,7 +11,7 @@ import {
 	size as defaultSize
 } from '../../../common/default/props';
 import { TabsContext } from '../..';
-import { TabsContext as TabsContextType } from '../../types';
+import { TabsContext as TabsContextType } from '../types';
 
 const useTabsContext = (): NoUndefinedField<TabsContextType> => {
 	const {

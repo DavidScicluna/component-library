@@ -17,7 +17,7 @@ import { useTabsContext } from '../../../../common/hooks';
 
 import { isActive as defaultIsActive, isSelected as defaultIsSelected } from './common/default/props';
 import useStyles from './common/styles';
-import { TabMouseEvent, TabProps } from './types';
+import { TabMouseEvent, TabProps } from './common/types';
 
 const Tab: FC<TabProps> = (props) => {
 	const theme = useTheme();

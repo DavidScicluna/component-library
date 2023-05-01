@@ -18,16 +18,16 @@ import {
 	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../../../../common/types/box';
-import { TabsProps } from '../../types';
+	BoxTypography
+} from '../../../../../../../../common/types/box';
+import { TabsProps } from '../../../../common/types';
+import { Tab } from '../../components/Tab/common/types';
 
-import { Tab } from './components/Tab/types';
-
-export type TabListRenderProps = {
+export type TabListRenderProps = Pick<TabsProps, 'color' | 'colorMode'> & {
 	width?: number; // In Pixels
 	height?: number; // In Pixels
 	// size?: ButtonSize;
-} & Pick<TabsProps, 'color' | 'colorMode'>;
+};
 
 type Omitted =
 	| BoxMargin

@@ -8,12 +8,12 @@ import { useElementSize } from 'usehooks-ts';
 import { useDebounce, useTheme } from '../../../../../../common/hooks';
 import { getColor } from '../../../../../../common/utils/color';
 import HorizontalScroll from '../../../../../HorizontalScroll';
-import { HorizontalScrollAPIContext } from '../../../../../HorizontalScroll/types';
+import { HorizontalScrollAPIContext } from '../../../../../HorizontalScroll/common/types';
 import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from '../../../components/HorizontalScrollArrows';
 import { useTabsContext } from '../../common/hooks';
 
+import { TabListProps } from './common/types';
 import Tab from './components/Tab';
-import { TabListProps } from './types';
 
 const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest }) => {
 	const theme = useTheme();

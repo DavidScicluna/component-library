@@ -1,8 +1,8 @@
-import { MouseEvent as ME,ReactNode } from 'react';
+import { MouseEvent as ME, ReactNode } from 'react';
 
 import { TabProps as CUITabProps } from '@chakra-ui/react';
 
-import { Style } from '../../../../../../../../common/types';
+import { Style } from '../../../../../../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -19,8 +19,9 @@ import {
 	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../../../../../../common/types/box';
-import { TabsProps } from '../../../../types';
+	BoxTypography
+} from '../../../../../../../../../../common/types/box';
+import { TabsProps } from '../../../../../../common/types';
 
 export type TabMouseEvent = ME<HTMLButtonElement, globalThis.MouseEvent>;
 
