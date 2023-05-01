@@ -3,7 +3,7 @@ import { createContext, FC, useState } from 'react';
 import { method as defaultMethod } from '../../../../common/default/props';
 import { useDebounce } from '../../../../common/hooks';
 import Card from '../../../Cards/OriginalCard/';
-import { HorizontalScrollAPIContext } from '../../../HorizontalScroll/types';
+import { HorizontalScrollAPIContext } from '../../../HorizontalScroll/common/types';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,

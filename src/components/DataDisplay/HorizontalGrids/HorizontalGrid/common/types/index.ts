@@ -1,5 +1,5 @@
 import { CardProps } from '../../../../../Cards/OriginalCard/types';
-import { HorizontalScrollAPIContext } from '../../../../../HorizontalScroll/types';
+import { HorizontalScrollAPIContext } from '../../../../../HorizontalScroll/common/types';
 import { CommonHorizontalGridProps } from '../../../common/types';
 
 export type HorizontalGridProps = Omit<CardProps, 'color' | 'colorMode'> & CommonHorizontalGridProps;
