@@ -1,13 +1,16 @@
-import { createContext,FC } from 'react';
+import { createContext, FC } from 'react';
 
-import { useColorMode, VStack } from '@chakra-ui/react';
+import { VStack } from '@chakra-ui/react';
+
+import { useProviderContext } from '../../../common/hooks';
 
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
 	padding as defaultPadding,
-	spacing as defaultSpacing} from './common/default/props';
-import { StateLabelContext as StateLabelContextType, StateLabelProps } from './types';
+	spacing as defaultSpacing
+} from './common/default/props';
+import { StateLabelContext as StateLabelContextType, StateLabelProps } from './common/types';
 
 export const StateLabelContext = createContext<StateLabelContextType>({
 	color: defaultColor,
@@ -15,9 +18,16 @@ export const StateLabelContext = createContext<StateLabelContextType>({
 });
 
 const StateLabel: FC<StateLabelProps> = (props) => {
-	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
-	const { children, color, colorMode = colorModeHook, spacing = defaultSpacing, p = defaultPadding, ...rest } = props;
+	const {
+		children,
+		color = defaultColor,
+		colorMode = defaultColorMode,
+		spacing = defaultSpacing,
+		p = defaultPadding,
+		...rest
+	} = props;
 
 	return (
 		<StateLabelContext.Provider value={{ color, colorMode }}>

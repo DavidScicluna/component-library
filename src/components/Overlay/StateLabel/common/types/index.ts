@@ -1,5 +1,6 @@
 import { ColorMode, StackProps } from '@chakra-ui/react';
 
+import { AppColor } from '../../../../../common/types';
 import {
 	BoxColor,
 	BoxFilter,
@@ -10,10 +11,8 @@ import {
 	BoxOther,
 	BoxPosition,
 	BoxPseudo,
-	BoxShadow} from '../../../common/types/box';
-import { Color } from '../../../theme/types';
-
-export type StateLabelColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
+	BoxShadow
+} from '../../../../../common/types/box';
 
 type Omitted =
 	| BoxColor
@@ -29,7 +28,7 @@ type Omitted =
 	| 'as';
 
 export type StateLabelProps = Omit<StackProps, Omitted> & {
-	color?: StateLabelColor;
+	color?: AppColor;
 	colorMode?: ColorMode;
 };
 

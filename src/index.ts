@@ -449,25 +449,25 @@ import {
 } from './components/Overlay/PushableOverlay/common/types';
 import StateLabel from './components/Overlay/StateLabel';
 import { useStateLabelContext } from './components/Overlay/StateLabel/common/hooks';
+import { StateLabelContext, StateLabelProps } from './components/Overlay/StateLabel/common/types';
 import StateLabelActions from './components/Overlay/StateLabel/components/StateLabelActions';
-import { StateLabelActionsProps } from './components/Overlay/StateLabel/components/StateLabelActions/types';
+import { StateLabelActionsProps } from './components/Overlay/StateLabel/components/StateLabelActions/common/types';
 import StateLabelBody from './components/Overlay/StateLabel/components/StateLabelBody';
-import { StateLabelBodyProps } from './components/Overlay/StateLabel/components/StateLabelBody/types';
+import { StateLabelBodyProps } from './components/Overlay/StateLabel/components/StateLabelBody/common/types';
 import StateLabelIcon from './components/Overlay/StateLabel/components/StateLabelIcon';
 import {
 	StateLabelIconProps,
 	StateLabelIconRenderIconProps,
 	StateLabelIconVariant
-} from './components/Overlay/StateLabel/components/StateLabelIcon/types';
+} from './components/Overlay/StateLabel/components/StateLabelIcon/common/types';
 import StateLabelStack from './components/Overlay/StateLabel/components/StateLabelStack';
-import { StateLabelStackProps } from './components/Overlay/StateLabel/components/StateLabelStack/types';
+import { StateLabelStackProps } from './components/Overlay/StateLabel/components/StateLabelStack/common/types';
 import StateLabelSubtitle from './components/Overlay/StateLabel/components/StateLabelSubtitle';
-import { StateLabelSubtitleProps } from './components/Overlay/StateLabel/components/StateLabelSubtitle/types';
+import { StateLabelSubtitleProps } from './components/Overlay/StateLabel/components/StateLabelSubtitle/common/types';
 import StateLabelTitle from './components/Overlay/StateLabel/components/StateLabelTitle';
-import { StateLabelTitleProps } from './components/Overlay/StateLabel/components/StateLabelTitle/types';
-import { StateLabelColor, StateLabelContext, StateLabelProps } from './components/Overlay/StateLabel/types';
+import { StateLabelTitleProps } from './components/Overlay/StateLabel/components/StateLabelTitle/common/types';
 import StateOverlay from './components/Overlay/StateOverlay';
-import { StateOverlayProps, StateOverlayState } from './components/Overlay/StateOverlay/types';
+import { StateOverlayProps, StateOverlayState } from './components/Overlay/StateOverlay/common/types';
 import Tooltip from './components/Overlay/Tooltip';
 import { TooltipColor, TooltipProps, TooltipRef } from './components/Overlay/Tooltip/types';
 import DSCLProvider from './components/Provider';
@@ -987,7 +987,6 @@ export type {
 	SpinnerProps,
 	StateLabelActionsProps,
 	StateLabelBodyProps,
-	StateLabelColor,
 	StateLabelContext,
 	StateLabelIconProps,
 	StateLabelIconRenderIconProps,
