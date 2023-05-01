@@ -1,31 +1,34 @@
-import { createContext, forwardRef,ReactElement } from 'react';
+import { createContext, forwardRef, ReactElement } from 'react';
 
 import { ButtonGroup as CUIButtonGroup } from '@chakra-ui/react';
 
 import {
 	children as defaultChildren,
 	isAttached as defaultIsAttached,
-	size as defaultSize,
+	isCompact as defaultIsCompact,
+	isRound as defaultIsRound,
 	spacing as defaultSpacing
-} from './common/data/defaultPropValues';
-import { ButtonGroupContext as ButtonGroupContextType, ButtonGroupProps,ButtonGroupRef } from './types';
+} from './common/default/props';
+import { ButtonGroupContext as ButtonGroupContextType, ButtonGroupProps, ButtonGroupRef } from './common/types';
 
 export const ButtonGroupContext = createContext<ButtonGroupContextType>({
 	isAttached: defaultIsAttached,
-	size: defaultSize
+	isCompact: defaultIsCompact,
+	isRound: defaultIsRound
 });
 
 const ButtonGroup = forwardRef<ButtonGroupRef, ButtonGroupProps>(function ButtonGroup(props, ref): ReactElement {
 	const {
 		children = defaultChildren,
 		isAttached = defaultIsAttached,
-		size = defaultSize,
+		isCompact = defaultIsCompact,
+		isRound = defaultIsRound,
 		spacing = defaultSpacing,
 		...rest
 	} = props;
 
 	return (
-		<ButtonGroupContext.Provider value={{ isAttached, size }}>
+		<ButtonGroupContext.Provider value={{ isAttached, isCompact, isRound }}>
 			<CUIButtonGroup {...rest} ref={ref} isAttached={isAttached} spacing={spacing}>
 				{children}
 			</CUIButtonGroup>

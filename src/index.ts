@@ -76,9 +76,9 @@ import { CardHeaderProps, CardHeaderRenderProps } from './components/Cards/Origi
 import { CardContext, CardProps, CardRef } from './components/Cards/OriginalCard/types';
 import ButtonGroup from './components/Clickable/ButtonGroup';
 import { useButtonGroupContext } from './components/Clickable/ButtonGroup/common/hooks';
+import { ButtonGroupContext, ButtonGroupProps, ButtonGroupRef } from './components/Clickable/ButtonGroup/common/types';
 import ButtonGroupItem from './components/Clickable/ButtonGroup/components/ButtonGroupItem';
-import { ButtonGroupItemProps } from './components/Clickable/ButtonGroup/components/ButtonGroupItem/types';
-import { ButtonGroupProps, ButtonGroupRef, ButtonGroupSize } from './components/Clickable/ButtonGroup/types';
+import { ButtonGroupItemProps } from './components/Clickable/ButtonGroup/components/ButtonGroupItem/common/types';
 import { ButtonRenderProps, ButtonSize, ButtonVariant } from './components/Clickable/Buttons/common/types';
 import DummyButton from './components/Clickable/Buttons/DummyButton';
 import { DummyButtonProps } from './components/Clickable/Buttons/DummyButton/common/types';
@@ -765,10 +765,10 @@ export type {
 	BadgeRef,
 	BadgeSize,
 	BadgeVariant,
+	ButtonGroupContext,
 	ButtonGroupItemProps,
 	ButtonGroupProps,
 	ButtonGroupRef,
-	ButtonGroupSize,
 	ButtonMouseEvent,
 	ButtonProps,
 	ButtonRef,

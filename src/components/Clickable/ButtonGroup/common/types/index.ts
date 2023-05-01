@@ -1,7 +1,8 @@
-import { ReactElement } from 'react';
+import { ReactNode } from 'react';
 
 import { ButtonGroupProps as CUIButtonGroupProps } from '@chakra-ui/react';
 
+import { Nullable } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorders,
@@ -15,11 +16,8 @@ import {
 	BoxPadding,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../common/types/box';
-
-export type ButtonGroupRef = HTMLDivElement | null;
-
-export type ButtonGroupSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+	BoxTypography
+} from '../../../../../common/types/box';
 
 type Omitted =
 	// CUI Box Props
@@ -44,9 +42,12 @@ type Omitted =
 	| 'size'
 	| 'variant';
 
-export type ButtonGroupProps = {
-	children?: ReactElement[];
-	size?: ButtonGroupSize;
-} & Omit<CUIButtonGroupProps, Omitted>;
+export type ButtonGroupProps = Omit<CUIButtonGroupProps, Omitted> & {
+	children?: ReactNode[];
+	isCompact?: boolean;
+	isRound?: boolean;
+};
 
-export type ButtonGroupContext = Pick<ButtonGroupProps, 'isAttached' | 'size'>;
+export type ButtonGroupRef = Nullable<HTMLDivElement>;
+
+export type ButtonGroupContext = Pick<ButtonGroupProps, 'isAttached' | 'isCompact' | 'isRound'>;
