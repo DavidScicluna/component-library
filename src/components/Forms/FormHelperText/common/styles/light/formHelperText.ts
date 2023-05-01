@@ -4,7 +4,8 @@ import { Color } from '../../../../../../theme/types';
 import {
 	isError as defaultIsError,
 	isSuccess as defaultIsSuccess,
-	isWarning as defaultIsWarning} from '../../data/defaultPropValues';
+	isWarning as defaultIsWarning
+} from '../../default/props';
 
 import { FormHelperTextLightStyleProps } from './types';
 

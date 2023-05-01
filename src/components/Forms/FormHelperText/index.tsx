@@ -14,9 +14,9 @@ import {
 	isSuccess as defaultIsSuccess,
 	isWarning as defaultIsWarning,
 	size as defaultSize
-} from './common/data/defaultPropValues';
+} from './common/default/props';
 import useStyles from './common/styles';
-import { FormHelperTextProps } from './types';
+import { FormHelperTextProps } from './common/types';
 
 const FormHelperText: FC<FormHelperTextProps> = (props) => {
 	const theme = useTheme();

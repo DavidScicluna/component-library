@@ -7,7 +7,7 @@ import {
 	isSuccess as defaultIsSuccess,
 	isWarning as defaultIsWarning,
 	size as defaultSize
-} from '../data/defaultPropValues';
+} from '../default/props';
 
 import dark from './dark';
 import disabled from './disabled';

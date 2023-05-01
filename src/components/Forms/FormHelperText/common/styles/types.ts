@@ -1,6 +1,6 @@
 import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';
-import { FormHelperTextProps } from '../../types';
+import { FormHelperTextProps } from '../types';
 
 export type FormHelperTextStyleProps = {
 	theme: Theme;

@@ -1,5 +1,5 @@
 import { Style } from '../../../../../../common/types';
-import { size as defaultSize } from '../../data/defaultPropValues';
+import { size as defaultSize } from '../../default/props';
 import { getFontSize } from '../../utils';
 
 import { FormHelperTextStyleProps } from './types';

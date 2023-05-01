@@ -1,6 +1,6 @@
 import { ColorMode } from '@chakra-ui/react';
 
-import { Style } from '../../../common/types';
+import { Style } from '../../../../../common/types';
 
 export type FormHelperTextSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
