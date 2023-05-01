@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { ModalBody, VStack } from '@chakra-ui/react';
 
-import { ConfirmModalBodyProps } from './types';
+import { ConfirmModalBodyProps } from './common/types';
 
 const ConfirmModalBody: FC<ConfirmModalBodyProps> = ({ children, ...rest }) => {
 	return (
