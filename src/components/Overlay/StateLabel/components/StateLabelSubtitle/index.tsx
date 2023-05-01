@@ -6,7 +6,7 @@ import { useTheme } from '../../../../../common/hooks';
 import { getColor } from '../../../../../common/utils/color';
 import { useStateLabelContext } from '../../common/hooks';
 
-import { StateLabelSubtitleProps } from './types';
+import { StateLabelSubtitleProps } from './common/types';
 
 const StateLabelSubtitle: FC<StateLabelSubtitleProps> = ({ children, ...rest }) => {
 	const theme = useTheme();
