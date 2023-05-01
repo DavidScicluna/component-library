@@ -29,7 +29,7 @@ export const ModalContext = createContext<ModalContextType>({
 const Modal: FC<ModalProps> = (props) => {
 	const theme = useTheme();
 
-	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
+	const { colorMode: defaultColorMode } = useProviderContext();
 
 	const [isSm] = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
