@@ -3,8 +3,8 @@ import { FC } from 'react';
 import ButtonGroup from '../../../../Clickable/ButtonGroup';
 import ButtonGroupItem from '../../../../Clickable/ButtonGroup/components/ButtonGroupItem';
 
+import { DummyHorizontalGridArrowsProps } from './common/types';
 import DummyHorizontalGridArrow from './components/DummyHorizontalGridArrow';
-import { DummyHorizontalGridArrowsProps } from './types';
 
 const DummyHorizontalGridArrows: FC<DummyHorizontalGridArrowsProps> = ({ dummyArrowProps }) => {
 	return (

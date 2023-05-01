@@ -2,8 +2,7 @@ import { FC } from 'react';
 
 import DummyIconButton from '../../../../../../Clickable/IconButtons/DummyIconButton';
 import IconButtonIcon from '../../../../../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
-
-import { DummyHorizontalGridArrowProps } from './types';
+import { DummyHorizontalGridArrowProps } from '../../common/types';
 
 const DummyHorizontalGridArrow: FC<DummyHorizontalGridArrowProps> = (props) => {
 	const { direction, ...rest } = props;
