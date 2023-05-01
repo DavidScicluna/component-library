@@ -1,6 +1,6 @@
 import { Style } from '../../../../../../common/types';
 import { Theme } from '../../../../../../theme/types';
-import { ArrowProps } from '../../types';
+import { ArrowProps } from '../types';
 
 export type ArrowStyleProps = {
 	theme: Theme;

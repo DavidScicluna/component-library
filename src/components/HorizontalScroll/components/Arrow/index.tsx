@@ -16,12 +16,12 @@ import {
 	getEasings as getTransitionEasings
 } from '../../../Transitions/common/utils';
 import Fade from '../../../Transitions/Fade';
-import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
+import { isDisabled as defaultIsDisabled } from '../../common/default/props';
 import { useHorizontalScrollContext } from '../../common/hooks';
 
-import { isVisible as defaultIsVisible } from './common/data/defaultPropValues';
+import { isVisible as defaultIsVisible } from './common/default/props';
 import useStyles from './common/styles';
-import { ArrowProps } from './types';
+import { ArrowProps } from './common/types';
 
 const Arrow: FC<ArrowProps> = (props) => {
 	const theme = useTheme();
