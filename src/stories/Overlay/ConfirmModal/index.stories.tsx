@@ -7,6 +7,7 @@ import {
 	ConfirmModalBody,
 	ConfirmModalFooter,
 	ConfirmModalProps,
+	ConfirmModalSize,
 	ConfirmModalSubtitle,
 	ConfirmModalTitle
 } from '../../..';
@@ -14,8 +15,7 @@ import {
 	isOpen as defaultIsOpen,
 	size as defaultSize,
 	spacing as defaultSpacing
-} from '../../../components/Overlay/ConfirmModal/common/data/defaultPropValues';
-import { ConfirmModalSize } from '../../../components/Overlay/ConfirmModal/types';
+} from '../../../components/Overlay/ConfirmModal/common/default/props';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
 
