@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 import { DummyCardProps } from '../../../../../Cards/DummyCard/types';
-import { DummyTabsProps } from '../../../../../Navigation/Tabs/DummyTabs/types';
+import { DummyTabsProps } from '../../../../../Navigation/Tabs/DummyTabs/common/types';
 import { CommonHorizontalGridProps } from '../../../common/types';
 
 export type DummyHorizontalGridTabbedProps = CommonHorizontalGridProps & {

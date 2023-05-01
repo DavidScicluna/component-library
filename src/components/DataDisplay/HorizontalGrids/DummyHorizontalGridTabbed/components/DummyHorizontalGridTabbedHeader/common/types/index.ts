@@ -19,7 +19,7 @@ import {
 } from '../../../../../../../../common/types/box';
 import { Space } from '../../../../../../../../theme/types';
 import { DummyCardHeaderProps } from '../../../../../../../Cards/DummyCard/components/DummyCardHeader/types';
-import { DummyTabListProps } from '../../../../../../../Navigation/Tabs/DummyTabs/components/DummyTabList/types';
+import { DummyTabListProps } from '../../../../../../../Navigation/Tabs/DummyTabs/components/DummyTabList/common/types';
 import { DummyHorizontalGridArrowsProps } from '../../../../../components/DummyHorizontalGridArrows/common/types';
 
 type Omitted =

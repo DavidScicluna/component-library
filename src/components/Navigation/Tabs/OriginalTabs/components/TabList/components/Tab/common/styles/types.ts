@@ -1,7 +1,7 @@
 import { Style } from '../../../../../../../../../../common/types';
 import { Theme } from '../../../../../../../../../../theme/types';
-import { TabsProps } from '../../../../../../types';
-import { TabProps } from '../../types';
+import { TabsProps } from '../../../../../../common/types';
+import { TabProps } from '../types';
 
 export type TabStyleProps = Pick<TabsProps, 'color' | 'colorMode' | 'size'> & {
 	theme: Theme;
