@@ -263,7 +263,7 @@ import {
 	InputRef,
 	InputSize,
 	InputVariant
-} from './components/Forms/Input/types';
+} from './components/Forms/Input/common/types';
 import Radio from './components/Forms/Radio';
 import { useRadioContext } from './components/Forms/Radio/common/hooks';
 import RadioSubtitle from './components/Forms/Radio/components/RadioSubtitle';

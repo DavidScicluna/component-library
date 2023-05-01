@@ -1,8 +1,8 @@
-import { ChangeEvent as CE, FocusEvent as FE,ReactNode } from 'react';
+import { ChangeEvent as CE, FocusEvent as FE, ReactNode } from 'react';
 
 import { ColorMode, InputProps as CUIInputProps } from '@chakra-ui/react';
 
-import { Style } from '../../../common/types';
+import { Nullable, Style } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -14,14 +14,13 @@ import {
 	BoxPadding,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../common/types/box';
-import { Color } from '../../../theme/types';
+	BoxTypography
+} from '../../../../../common/types/box';
+import { Color } from '../../../../../theme/types';
 
 export type InputChangeEvent = CE<HTMLInputElement>;
 
 export type InputFocusEvent = FE<HTMLInputElement, Element>;
-
-export type InputRef = HTMLInputElement | null;
 
 export type InputAutoComplete = 'on' | 'password' | 'off';
 
@@ -81,3 +80,5 @@ export type InputProps = {
 	variant?: InputVariant;
 	sx?: { group?: Style; input?: Style; formLabel?: Style; formHelperText?: Style };
 } & Omit<CUIInputProps, Omitted>;
+
+export type InputRef = Nullable<HTMLInputElement>;

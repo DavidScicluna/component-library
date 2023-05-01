@@ -1,27 +1,17 @@
 import { forwardRef, ReactElement, useCallback, useEffect, useRef } from 'react';
 
-import {
-	Center,
-	FormControl,
-	HStack,
-	Input as CUIInput,
-	InputGroup,
-	useBoolean,
-	useColorMode,
-	VStack
-} from '@chakra-ui/react';
+import { Center, FormControl, HStack, Input as CUIInput, InputGroup, useBoolean, VStack } from '@chakra-ui/react';
 
 import { debounce, isEmpty, isNil } from 'lodash-es';
 import merge from 'lodash-es/merge';
 
-import { useTheme } from '../../../common/hooks';
+import { useProviderContext, useTheme } from '../../../common/hooks';
 import Collapse from '../../Transitions/Collapse';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 
 import {
 	autoComplete as defaultAutoComplete,
-	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
 	isFocused as defaultIsFocused,
@@ -32,21 +22,22 @@ import {
 	isWarning as defaultIsWarning,
 	size as defaultSize,
 	variant as defaultVariant
-} from './common/data/defaultPropValues';
+} from './common/default/props';
 import useStyles from './common/styles';
+import { InputFocusEvent, InputProps, InputRef } from './common/types';
 import { getSizeConfig } from './common/utils';
-import { InputFocusEvent, InputProps, InputRef } from './types';
 
 const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): ReactElement {
 	const theme = useTheme();
-	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
+
+	const { colorMode: defaultColorMode } = useProviderContext();
 
 	const inputRef = useRef<InputRef>(null);
 
 	const {
 		autoComplete = defaultAutoComplete,
 		color,
-		colorMode = colorModeHook,
+		colorMode = defaultColorMode,
 		id,
 		name,
 		label,

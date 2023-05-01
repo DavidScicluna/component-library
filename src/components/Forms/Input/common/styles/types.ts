@@ -1,6 +1,6 @@
 import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';
-import { InputProps } from '../../types';
+import { InputProps } from '../types';
 
 type Picked =
 	| 'color'
