@@ -6,7 +6,7 @@ import { useTheme } from '../../../../../common/hooks';
 import { getColor } from '../../../../../common/utils/color';
 import { useConfirmModalContext } from '../../common/hooks';
 
-import { ConfirmModalSubtitleProps } from './types';
+import { ConfirmModalSubtitleProps } from './common/types';
 
 const ConfirmModalSubtitle: FC<ConfirmModalSubtitleProps> = ({ children, ...rest }) => {
 	const theme = useTheme();
