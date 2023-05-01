@@ -2,8 +2,16 @@ import { ReactElement } from 'react';
 
 import { sample } from 'lodash-es';
 
+import {
+	Icon,
+	Input as InputComponent,
+	InputAutoComplete,
+	InputColor,
+	InputPanelRenderProps,
+	InputProps,
+	InputSize
+} from '../../..';
 import icons from '../../../common/data/icons';
-import InputComponent from '../../../components/Forms/Input';
 import {
 	autoComplete as defaultAutoComplete,
 	isDisabled as defaultIsDisabled,
@@ -15,17 +23,7 @@ import {
 	isSuccess as defaultIsSuccess,
 	isWarning as defaultIsWarning,
 	size as defaultSize
-} from '../../../components/Forms/Input/common/data/defaultPropValues';
-import {
-	InputAutoComplete,
-	InputColor,
-	InputPanelRenderProps,
-	InputProps,
-	InputSize
-} from '../../../components/Forms/Input/types';
-import Icon from '../../../components/Icon';
-// eslint-disable-next-line max-len
-// import { InputColor, InputProps, InputRef, InputSize, Input as InputComponent, InputHeader, InputBody, InputFooter } from '../..';
+} from '../../../components/Forms/Input/common/default/props';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
 
