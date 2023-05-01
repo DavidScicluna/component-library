@@ -1,18 +1,20 @@
 import { FC } from 'react';
 
-import { ModalFooter as CUIModalFooter, Stack,useMediaQuery } from '@chakra-ui/react';
+import { ModalFooter as CUIModalFooter, Stack, useMediaQuery } from '@chakra-ui/react';
 
 import { useTheme } from '../../../../../common/hooks';
 import { useModalContext } from '../../common/hooks';
 
-import { ModalFooterProps } from './types';
+import { ModalFooterProps } from './common/types';
 
-const ModalFooter: FC<ModalFooterProps> = ({ renderCancel, renderAction, ...rest }) => {
+const ModalFooter: FC<ModalFooterProps> = (props) => {
 	const theme = useTheme();
 
 	const [isSm] = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
-	const { color, colorMode, onClose, spacing } = useModalContext();
+	const { color, colorMode, onClose, spacing: defaultSpacing } = useModalContext();
+
+	const { renderCancel, renderAction, spacing = defaultSpacing, ...rest } = props;
 
 	return (
 		<CUIModalFooter
