@@ -11,7 +11,8 @@ import {
 	BoxOther,
 	BoxPosition,
 	BoxPseudo,
-	BoxShadow} from '../../../common/types/box';
+	BoxShadow
+} from '../../../../../common/types/box';
 
 export type StateOverlayState = 'error' | 'empty' | 'loading' | 'default';
 

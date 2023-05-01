@@ -5,7 +5,7 @@ import { Grid, GridItem } from '@chakra-ui/react';
 import Fade from '../../Transitions/Fade';
 import Glass from '../Glass';
 
-import { StateOverlayProps } from './types';
+import { StateOverlayProps } from './common/types';
 
 const StateOverlay: FC<StateOverlayProps> = (props) => {
 	const {
