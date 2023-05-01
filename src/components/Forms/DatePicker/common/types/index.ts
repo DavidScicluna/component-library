@@ -4,10 +4,10 @@ import { ColorMode } from '@chakra-ui/react';
 
 import { DateObj, Props as DayzedProps, RenderProps as DayzedRenderProps } from 'dayzed';
 
-import { Undefinable } from '../../../common/types';
-import { Color } from '../../../theme/types';
-import { ButtonProps } from '../../Clickable/Buttons/OriginalButton/types';
-import { ModalProps } from '../../Overlay/Modal/types';
+import { Undefinable } from '../../../../../common/types';
+import { Color } from '../../../../../theme/types';
+import { ButtonProps } from '../../../../Clickable/Buttons/OriginalButton/common/types';
+import { ModalProps } from '../../../../Overlay/Modal/common/types';
 
 export type DatePickerDate = Undefinable<DateObj['date']>;
 

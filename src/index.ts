@@ -249,7 +249,7 @@ import {
 	DatePickerProps,
 	DatePickerRenderButtonProps,
 	DatePickerVariant
-} from './components/Forms/DatePicker/types';
+} from './components/Forms/DatePicker/common/types';
 import Form from './components/Forms/Form';
 import { FormEvent, FormProps } from './components/Forms/Form/types';
 import Input from './components/Forms/Input';

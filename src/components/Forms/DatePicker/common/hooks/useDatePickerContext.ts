@@ -2,7 +2,6 @@ import { useContext } from 'react';
 
 import { NoUndefinedField } from '../../../../../common/types';
 import { DatePickerContext } from '../..';
-import { DatePickerContext as DatePickerContextType } from '../../types';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -10,7 +9,8 @@ import {
 	format as defaultFormat,
 	spacing as defaultSpacing
 	// variant as defaultVariant
-} from '../data/defaultPropValues';
+} from '../default/props';
+import { DatePickerContext as DatePickerContextType } from '../types';
 
 type UseDatePickerContextReturn = NoUndefinedField<Omit<DatePickerContextType, 'dayzed'>> &
 	Pick<DatePickerContextType, 'date' | 'dayzed'>;

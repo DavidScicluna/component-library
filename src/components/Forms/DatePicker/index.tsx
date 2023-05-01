@@ -1,12 +1,12 @@
 import { createContext, FC, useState } from 'react';
 
-import { HStack, Text,useColorMode, useDisclosure } from '@chakra-ui/react';
+import { HStack, Text, useDisclosure } from '@chakra-ui/react';
 
 import dayjs from 'dayjs';
 import { useDayzed } from 'dayzed';
 import { useUpdateEffect } from 'usehooks-ts';
 
-import { useDebounce } from '../../../common/hooks';
+import { useDebounce, useProviderContext } from '../../../common/hooks';
 import Button from '../../Clickable/Buttons/OriginalButton';
 import IconButton from '../../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
@@ -25,9 +25,9 @@ import {
 	format as defaultFormat,
 	spacing as defaultSpacing
 	// variant as defaultVariant
-} from './common/data/defaultPropValues';
+} from './common/default/props';
+import { DatePickerContext as DatePickerContextType, DatePickerDate, DatePickerProps } from './common/types';
 import Calendar from './components/Calendar';
-import { DatePickerContext as DatePickerContextType, DatePickerDate,DatePickerProps } from './types';
 
 export const DatePickerContext = createContext<DatePickerContextType>({
 	color: defaultColor,
@@ -38,13 +38,13 @@ export const DatePickerContext = createContext<DatePickerContextType>({
 });
 
 const DatePicker: FC<DatePickerProps> = (props) => {
-	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
+	const { colorMode: defaultColorMode } = useProviderContext();
 
 	const { isOpen: isDatePickerOpen, onOpen: onDatePickerOpen, onClose: onDatePickerClose } = useDisclosure();
 
 	const {
-		color = defaultColor,
-		colorMode = colorModeHook,
+		color,
+		colorMode = defaultColorMode,
 		renderButton,
 		onSetDate,
 		format = defaultFormat,
