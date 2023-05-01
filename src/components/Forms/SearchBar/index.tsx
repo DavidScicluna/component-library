@@ -9,9 +9,9 @@ import Divider from '../../Divider';
 import Icon from '../../Icon';
 import Form from '../Form';
 import Input from '../Input';
-import { InputChangeEvent } from '../Input/types';
+import { InputChangeEvent } from '../Input/common/types';
 
-import { SearchBarProps } from './types';
+import { SearchBarProps } from './common/types';
 
 const SearchBar: FC<SearchBarProps> = (props) => {
 	const {

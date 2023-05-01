@@ -289,7 +289,11 @@ import {
 	RatingVariant
 } from './components/Forms/Rating/types';
 import SearchBar from './components/Forms/SearchBar';
-import { SearchBarProps } from './components/Forms/SearchBar/types';
+import {
+	SearchBarProps,
+	SearchBarRenderClearProps,
+	SearchBarRenderSubmitProps
+} from './components/Forms/SearchBar/common/types';
 import Textarea from './components/Forms/Textarea';
 import {
 	TextareaAutoComplete,
@@ -975,6 +979,8 @@ export type {
 	ScrollToTopProps,
 	ScrollToTopRef,
 	SearchBarProps,
+	SearchBarRenderClearProps,
+	SearchBarRenderSubmitProps,
 	SideNavigationColor,
 	SideNavigationContext,
 	SideNavigationMode,

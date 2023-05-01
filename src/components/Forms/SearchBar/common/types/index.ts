@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
 
-import { ButtonProps } from '../../Clickable/Buttons/OriginalButton/types';
-import { IconButtonIconProps } from '../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon/types';
-import { IconButtonProps } from '../../Clickable/IconButtons/OriginalIconButton/types';
-import { InputProps } from '../Input/types';
+import { ButtonProps } from '../../../../Clickable/Buttons/OriginalButton/common/types';
+import { IconButtonProps } from '../../../../Clickable/IconButtons/OriginalIconButton/common/types';
+import { IconButtonIconProps } from '../../../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon/common/types';
+import { InputProps } from '../../../Input/common/types';
 
 type SearchBarRenderClearPickedProps = 'colorMode' | 'onClick' | 'variant';
 type SearchBarRenderSubmitPickedProps =
@@ -15,9 +15,9 @@ type SearchBarRenderSubmitPickedProps =
 	| 'type'
 	| 'variant';
 
-type SearchBarRenderClearProps = Pick<IconButtonIconProps, 'icon' | 'category'> &
+export type SearchBarRenderClearProps = Pick<IconButtonIconProps, 'icon' | 'category'> &
 	Pick<IconButtonProps, SearchBarRenderClearPickedProps>;
-type SearchBarRenderSubmitProps = Pick<ButtonProps, SearchBarRenderSubmitPickedProps>;
+export type SearchBarRenderSubmitProps = Pick<ButtonProps, SearchBarRenderSubmitPickedProps>;
 
 type Omitted =
 	| 'label'
