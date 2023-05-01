@@ -1,10 +1,10 @@
 import { createContext, FC, useCallback, useRef } from 'react';
 
-import { Center, Checkbox as CUICheckbox, FormControl, HStack, useColorMode, VStack } from '@chakra-ui/react';
+import { Center, Checkbox as CUICheckbox, FormControl, HStack, VStack } from '@chakra-ui/react';
 
 import { debounce, isEmpty, isNil, merge } from 'lodash-es';
 
-import { useTheme } from '../../../common/hooks';
+import { useProviderContext, useTheme } from '../../../common/hooks';
 import Icon from '../../Icon';
 import Collapse from '../../Transitions/Collapse';
 import FormHelperText from '../FormHelperText';
@@ -37,13 +37,14 @@ export const CheckboxContext = createContext<CheckboxContextType>({
 
 const Checkbox: FC<CheckboxProps> = (props) => {
 	const theme = useTheme();
-	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
+
+	const { colorMode: defaultColorMode } = useProviderContext();
 
 	const checkboxRef = useRef<CheckboxRef>(null);
 
 	const {
 		color,
-		colorMode = colorModeHook,
+		colorMode = defaultColorMode,
 		id,
 		name,
 		label,
