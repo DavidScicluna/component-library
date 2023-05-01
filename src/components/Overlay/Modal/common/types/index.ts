@@ -16,8 +16,9 @@ import {
 	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../common/types/box';
-import { Color, Space } from '../../../theme/types';
+	BoxTypography
+} from '../../../../../common/types/box';
+import { Color, Space } from '../../../../../theme/types';
 
 export type ModalColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 

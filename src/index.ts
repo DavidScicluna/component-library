@@ -419,15 +419,22 @@ import Glass from './components/Overlay/Glass';
 import { GlassProps, GlassRef } from './components/Overlay/Glass/types';
 import Modal from './components/Overlay/Modal';
 import { useModalContext } from './components/Overlay/Modal/common/hooks';
+import { ModalColor, ModalContext, ModalProps, ModalSize } from './components/Overlay/Modal/common/types';
 import ModalBody from './components/Overlay/Modal/components/ModalBody';
-import { ModalBodyProps } from './components/Overlay/Modal/components/ModalBody/types';
+import { ModalBodyProps } from './components/Overlay/Modal/components/ModalBody/common/types';
 import ModalFooter from './components/Overlay/Modal/components/ModalFooter';
-import { ModalFooterProps } from './components/Overlay/Modal/components/ModalFooter/types';
+import {
+	ModalFooterProps,
+	ModalFooterRenderCancelProps,
+	ModalFooterRenderProps
+} from './components/Overlay/Modal/components/ModalFooter/common/types';
 import ModalHeader from './components/Overlay/Modal/components/ModalHeader';
-import { ModalHeaderProps } from './components/Overlay/Modal/components/ModalHeader/types';
+import {
+	ModalHeaderProps,
+	ModalHeaderRenderCancelProps
+} from './components/Overlay/Modal/components/ModalHeader/common/types';
 import ModalStack from './components/Overlay/Modal/components/ModalStack';
-import { ModalStackProps } from './components/Overlay/Modal/components/ModalStack/types';
-import { ModalProps } from './components/Overlay/Modal/types';
+import { ModalStackProps } from './components/Overlay/Modal/components/ModalStack/common/types';
 import PushableOverlay from './components/Overlay/PushableOverlay';
 import {
 	PushableOverlayProps,
@@ -924,9 +931,15 @@ export type {
 	InternalLinkProps,
 	LinkProps,
 	ModalBodyProps,
+	ModalColor,
+	ModalContext,
 	ModalFooterProps,
+	ModalFooterRenderCancelProps,
+	ModalFooterRenderProps,
 	ModalHeaderProps,
+	ModalHeaderRenderCancelProps,
 	ModalProps,
+	ModalSize,
 	ModalStackProps,
 	NavGroupProps,
 	NavItemProps,

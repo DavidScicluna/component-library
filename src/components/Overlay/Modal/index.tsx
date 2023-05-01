@@ -1,11 +1,11 @@
-import { createContext, FC, useCallback } from 'react';
+import { createContext, FC, useMemo } from 'react';
 
-import { Modal as CUIModal, ModalContent,ModalOverlay, useColorMode, useMediaQuery } from '@chakra-ui/react';
+import { Modal as CUIModal, ModalContent, ModalOverlay, useMediaQuery } from '@chakra-ui/react';
 
 import { useWindowSize } from 'rooks';
 
 import { method as defaultOnClose } from '../../../common/default/props';
-import { useTheme } from '../../../common/hooks';
+import { useProviderContext, useTheme } from '../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../common/utils';
 import { getColor } from '../../../common/utils/color';
 
@@ -15,8 +15,8 @@ import {
 	isOpen as defaultIsOpen,
 	size as defaultSize,
 	spacing as defaultSpacing
-} from './common/data/defaultPropValues';
-import { ModalContext as ModalContextType, ModalProps } from './types';
+} from './common/default/props';
+import { ModalContext as ModalContextType, ModalProps } from './common/types';
 
 export const ModalContext = createContext<ModalContextType>({
 	color: defaultColor,
@@ -28,7 +28,8 @@ export const ModalContext = createContext<ModalContextType>({
 
 const Modal: FC<ModalProps> = (props) => {
 	const theme = useTheme();
-	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
+
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const [isSm] = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
@@ -37,7 +38,7 @@ const Modal: FC<ModalProps> = (props) => {
 	const {
 		children,
 		color = defaultColor,
-		colorMode = colorModeHook,
+		colorMode = defaultColorMode,
 		isOpen = defaultIsOpen,
 		onClose,
 		size = defaultSize,
@@ -45,27 +46,25 @@ const Modal: FC<ModalProps> = (props) => {
 		...rest
 	} = props;
 
-	const handleCalculateWidth = useCallback((): string => {
-		if (size !== 'full') {
-			const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'));
-
-			return `calc(100% - ${spacingWidth * 2}px)`;
-		} else {
+	const width = useMemo((): string => {
+		if (size === 'full' || isSm) {
 			return '100%';
+		} else {
+			const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'));
+			return `calc(100% - ${spacingWidth * 2}px)`;
 		}
-	}, [theme, size, spacing]);
+	}, [isSm, size, spacing]);
 
-	const handleCalculateHeight = useCallback((): string => {
+	const height = useMemo((): string => {
 		const height = windowHeight ? `${windowHeight}px` : '100vh';
 
-		if (size !== 'full') {
-			const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'));
-
-			return `calc(${height} - ${spacingWidth * 2}px)`;
-		} else {
+		if (size === 'full' || isSm) {
 			return height;
+		} else {
+			const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'));
+			return `calc(${height} - ${spacingWidth * 2}px)`;
 		}
-	}, [theme, size, spacing]);
+	}, [isSm, size, spacing]);
 
 	return (
 		<CUIModal
@@ -81,8 +80,8 @@ const Modal: FC<ModalProps> = (props) => {
 				<ModalOverlay />
 
 				<ModalContent
-					width={handleCalculateWidth()}
-					maxHeight={handleCalculateHeight()}
+					width={width}
+					maxHeight={height}
 					backgroundColor={getColor({ theme, colorMode, type: 'background' })}
 					borderRadius={size === 'full' || isSm ? 'none' : 'xl'}
 					m={0}
