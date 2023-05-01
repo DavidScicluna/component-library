@@ -15,10 +15,12 @@ import {
 	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../../../../common/types/box';
-import { CardHeaderProps } from '../../../../../Cards/OriginalCard/components/CardHeader/types';
-import { TabListProps } from '../../../../../Navigation/Tabs/OriginalTabs/components/TabList/types';
-import { HorizontalGridArrowsProps } from '../../../components/HorizontalGridArrows/types';
+	BoxTypography
+} from '../../../../../../../../common/types/box';
+import { Space } from '../../../../../../../../theme/types';
+import { CardHeaderProps } from '../../../../../../../Cards/OriginalCard/components/CardHeader/types';
+import { TabListProps } from '../../../../../../../Navigation/Tabs/OriginalTabs/components/TabList/types';
+import { HorizontalGridArrowsProps } from '../../../../../components/HorizontalGridArrows/common/types';
 
 type Omitted =
 	| BoxMargin
@@ -38,9 +40,11 @@ type Omitted =
 	| BoxOther
 	| 'as'
 	| 'children'
-	| 'direction';
+	| 'direction'
+	| 'spacing';
 
 export type HorizontalGridTabbedHeaderProps = Omit<StackProps, Omitted> & {
 	cardHeaderProps: CardHeaderProps;
 	tabListProps: TabListProps;
+	spacing?: Space;
 } & Pick<HorizontalGridArrowsProps, 'arrowProps'>;

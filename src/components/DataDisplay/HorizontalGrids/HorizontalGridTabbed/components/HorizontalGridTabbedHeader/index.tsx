@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 
-import { HStack,useBoolean, VStack } from '@chakra-ui/react';
+import { HStack, useBoolean, VStack } from '@chakra-ui/react';
 
 import { useDebounce } from '../../../../../../common/hooks';
 import CardHeader from '../../../../../Cards/OriginalCard/components/CardHeader';
@@ -8,10 +8,10 @@ import TabList from '../../../../../Navigation/Tabs/OriginalTabs/components/TabL
 import HorizontalGridArrows from '../../../components/HorizontalGridArrows';
 import { useHorizontalGridTabbedContext } from '../../common/hooks';
 
-import { HorizontalGridTabbedHeaderProps } from './types';
+import { HorizontalGridTabbedHeaderProps } from './common/types';
 
 const HorizontalGridTabbedHeader: FC<HorizontalGridTabbedHeaderProps> = (props) => {
-	const { color, colorMode, scroll } = useHorizontalGridTabbedContext();
+	const { color, colorMode, scroll, spacing: defaultSpacing } = useHorizontalGridTabbedContext();
 	const {
 		scrollPrev,
 		scrollNext,
@@ -21,7 +21,7 @@ const HorizontalGridTabbedHeader: FC<HorizontalGridTabbedHeaderProps> = (props) 
 		visibleElements = []
 	} = scroll;
 
-	const { cardHeaderProps, tabListProps, arrowProps, spacing = 2, ...rest } = props;
+	const { cardHeaderProps, tabListProps, arrowProps, spacing = defaultSpacing, ...rest } = props;
 
 	const [isLeftArrowDisabled, setIsLeftArrowDisabled] = useBoolean(true);
 	const debouncedIsLeftArrowDisabled = useDebounce<boolean>(isLeftArrowDisabled, 'ultra-fast');
