@@ -4,8 +4,16 @@ import { VStack } from '@chakra-ui/react';
 
 import { sample } from 'lodash-es';
 
+import {
+	Radio as RadioComponent,
+	RadioColor,
+	RadioProps,
+	RadioSize,
+	RadioSubtitle,
+	RadioTitle,
+	RadioVariant
+} from '../../..';
 // import icons from '../../../common/data/icons';
-import RadioComponent from '../../../components/Forms/Radio';
 import {
 	isChecked as defaultIsChecked,
 	isDisabled as defaultIsDisabled,
@@ -17,19 +25,7 @@ import {
 	isWarning as defaultIsWarning,
 	size as defaultSize,
 	variant as defaultVariant
-} from '../../../components/Forms/Radio/common/data/defaultPropValues';
-import RadioSubtitle from '../../../components/Forms/Radio/components/RadioSubtitle';
-import RadioTitle from '../../../components/Forms/Radio/components/RadioTitle';
-import {
-	RadioColor,
-	RadioProps,
-	// RadioPanelRenderProps,
-	RadioSize,
-	RadioVariant
-} from '../../../components/Forms/Radio/types';
-// import Icon from '../../../components/Icon';
-// eslint-disable-next-line max-len
-// import { RadioColor, RadioProps, RadioRef, RadioSize, Radio as RadioComponent, RadioHeader, RadioBody, RadioFooter } from '../..';
+} from '../../../components/Forms/Radio/common/default/props';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
 
