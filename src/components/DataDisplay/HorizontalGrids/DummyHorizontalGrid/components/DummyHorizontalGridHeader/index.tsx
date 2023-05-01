@@ -6,21 +6,24 @@ import DummyCardHeader from '../../../../../Cards/DummyCard/components/DummyCard
 import DummyArrows from '../../../components/DummyHorizontalGridArrows';
 import { useDummyHorizontalGridContext } from '../../common/hooks';
 
-import { DummyHorizontalGridHeaderProps } from './types';
+import { DummyHorizontalGridHeaderProps } from './common/types';
 
-const DummyHorizontalGridHeader: FC<DummyHorizontalGridHeaderProps> = ({ actions, dummyArrowProps, ...rest }) => {
-	const { color, colorMode } = useDummyHorizontalGridContext();
+const DummyHorizontalGridHeader: FC<DummyHorizontalGridHeaderProps> = (props) => {
+	const { color, colorMode, spacing: defaultSpacing } = useDummyHorizontalGridContext();
+
+	const { actions, dummyArrowProps, spacing = defaultSpacing, ...rest } = props;
 
 	return (
 		<DummyCardHeader
 			{...rest}
 			actions={
-				<HStack spacing={2}>
+				<HStack spacing={spacing}>
 					{actions}
 
 					<DummyArrows dummyArrowProps={{ ...dummyArrowProps, color, colorMode }} />
 				</HStack>
 			}
+			spacing={spacing}
 		/>
 	);
 };
