@@ -1,8 +1,8 @@
-import { ChangeEvent as CE, FocusEvent as FE,ReactNode } from 'react';
+import { ChangeEvent as CE, FocusEvent as FE, ReactNode } from 'react';
 
 import { ColorMode, TextareaProps as CUITextareaProps } from '@chakra-ui/react';
 
-import { Style } from '../../../common/types';
+import { Nullable, Style } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -14,14 +14,13 @@ import {
 	BoxPadding,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../common/types/box';
-import { Color } from '../../../theme/types';
+	BoxTypography
+} from '../../../../../common/types/box';
+import { Color } from '../../../../../theme/types';
 
 export type TextareaChangeEvent = CE<HTMLInputElement>;
 
 export type TextareaFocusEvent = FE<HTMLTextAreaElement, Element>;
-
-export type TextareaRef = HTMLTextAreaElement | null;
 
 export type TextareaAutoComplete = 'on' | 'password' | 'off';
 
@@ -67,7 +66,7 @@ type Omitted =
 	| 'variant'
 	| 'sx';
 
-export type TextareaProps = {
+export type TextareaProps = Omit<CUITextareaProps, Omitted> & {
 	autoComplete?: TextareaAutoComplete;
 	color: TextareaColor;
 	colorMode?: ColorMode;
@@ -84,4 +83,6 @@ export type TextareaProps = {
 	size?: TextareaSize;
 	variant?: TextareaVariant;
 	sx?: { group?: Style; textarea?: Style; formLabel?: Style; formHelperText?: Style };
-} & Omit<CUITextareaProps, Omitted>;
+};
+
+export type TextareaRef = Nullable<HTMLTextAreaElement>;

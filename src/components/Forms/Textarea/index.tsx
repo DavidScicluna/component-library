@@ -1,27 +1,17 @@
-import { ReactElement, useCallback, useEffect, useRef } from 'react';
+import { ReactElement, useCallback, useEffect, useMemo, useRef } from 'react';
 
-import {
-	Center,
-	FormControl,
-	HStack,
-	InputGroup,
-	Textarea as CUITextarea,
-	useBoolean,
-	useColorMode,
-	VStack
-} from '@chakra-ui/react';
+import { Center, FormControl, HStack, InputGroup, Textarea as CUITextarea, useBoolean, VStack } from '@chakra-ui/react';
 
 import { debounce, isEmpty, isNil } from 'lodash-es';
 import merge from 'lodash-es/merge';
 
-import { useTheme } from '../../../common/hooks';
+import { useProviderContext, useTheme } from '../../../common/hooks';
 import Collapse from '../../Transitions/Collapse';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 
 import {
 	autoComplete as defaultAutoComplete,
-	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
 	isFocused as defaultIsFocused,
@@ -33,21 +23,22 @@ import {
 	resize as defaultResize,
 	size as defaultSize,
 	variant as defaultVariant
-} from './common/data/defaultPropValues';
+} from './common/default/props';
 import useStyles from './common/styles';
+import { TextareaFocusEvent, TextareaProps, TextareaRef } from './common/types';
 import { getSizeConfig } from './common/utils';
-import { TextareaFocusEvent, TextareaProps, TextareaRef } from './types';
 
 const Textarea = (props: TextareaProps): ReactElement => {
 	const theme = useTheme();
-	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
+
+	const { colorMode: defaultColorMode } = useProviderContext();
 
 	const textareaRef = useRef<TextareaRef>(null);
 
 	const {
 		autoComplete = defaultAutoComplete,
 		color,
-		colorMode = colorModeHook,
+		colorMode = defaultColorMode,
 		id,
 		name,
 		label,
@@ -73,7 +64,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
-	const isFocused: boolean = isFocusedProp || isFocusedHook;
+	const isFocused = useMemo((): boolean => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
 
 	const style = useStyles({
 		theme,

@@ -306,7 +306,7 @@ import {
 	TextareaResize,
 	TextareaSize,
 	TextareaVariant
-} from './components/Forms/Textarea/types';
+} from './components/Forms/Textarea/common/types';
 import HorizontalScroll from './components/HorizontalScroll';
 import { useHorizontalScrollContext } from './components/HorizontalScroll/common/hooks';
 import {

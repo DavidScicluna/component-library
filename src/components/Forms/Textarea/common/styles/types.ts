@@ -1,6 +1,6 @@
 import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';
-import { TextareaProps } from '../../types';
+import { TextareaProps } from '../types';
 
 type Picked =
 	| 'color'

@@ -1,10 +1,6 @@
-import { ColorMode } from '@chakra-ui/react';
-
 import { TextareaAutoComplete, TextareaResize, TextareaSize, TextareaVariant } from '../../types';
 
 export const autoComplete: TextareaAutoComplete = 'off';
-
-export const colorMode: ColorMode = 'light';
 
 export const isDisabled = false;
 export const isError = false;
