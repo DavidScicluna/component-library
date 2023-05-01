@@ -1,4 +1,4 @@
-import { forwardRef, ReactElement, useCallback, useEffect, useRef } from 'react';
+import { forwardRef, ReactElement, useCallback, useEffect, useMemo, useRef } from 'react';
 
 import { Center, FormControl, HStack, Input as CUIInput, InputGroup, useBoolean, VStack } from '@chakra-ui/react';
 
@@ -62,7 +62,7 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
-	const isFocused: boolean = isFocusedProp || isFocusedHook;
+	const isFocused = useMemo((): boolean => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
 
 	const style = useStyles({
 		theme,

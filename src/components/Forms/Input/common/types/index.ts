@@ -63,7 +63,7 @@ type Omitted =
 	| 'variant'
 	| 'sx';
 
-export type InputProps = {
+export type InputProps = Omit<CUIInputProps, Omitted> & {
 	autoComplete?: InputAutoComplete;
 	color: InputColor;
 	colorMode?: ColorMode;
@@ -79,6 +79,6 @@ export type InputProps = {
 	size?: InputSize;
 	variant?: InputVariant;
 	sx?: { group?: Style; input?: Style; formLabel?: Style; formHelperText?: Style };
-} & Omit<CUIInputProps, Omitted>;
+};
 
 export type InputRef = Nullable<HTMLInputElement>;
