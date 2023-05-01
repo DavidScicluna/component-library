@@ -309,7 +309,8 @@ import {
 	HorizontalScrollAPIContext,
 	HorizontalScrollContext,
 	HorizontalScrollProps,
-	HorizontalScrollRef
+	HorizontalScrollRef,
+	HorizontalScrollRenderDividerProps
 } from './components/HorizontalScroll/common/types';
 import HorizontalScrollArrow from './components/HorizontalScroll/components/Arrow';
 import { ArrowProps as HorizontalScrollArrowProps } from './components/HorizontalScroll/components/Arrow/common/types';
@@ -907,6 +908,7 @@ export type {
 	HorizontalScrollContext,
 	HorizontalScrollProps,
 	HorizontalScrollRef,
+	HorizontalScrollRenderDividerProps,
 	IconButtonContext,
 	IconButtonIconProps,
 	IconButtonMouseEvent,

@@ -24,7 +24,7 @@ export type HorizontalScrollAPIContext = ContextType<typeof VisibilityContext>;
 
 export type HorizontalScrollColor = Exclude<Color, 'transparent' | 'black' | 'white'>;
 
-export type RenderDividerProps = { padding?: string };
+export type HorizontalScrollRenderDividerProps = { padding?: string };
 
 type OmittedBoxProps =
 	| BoxColor
@@ -55,7 +55,7 @@ export type HorizontalScrollProps = Omit<BoxProps, OmittedBoxProps> & {
 	color?: HorizontalScrollColor;
 	colorMode?: ColorMode;
 	isDisabled?: boolean;
-	renderDivider?: (props: RenderDividerProps) => ReactNode;
+	renderDivider?: (props: HorizontalScrollRenderDividerProps) => ReactNode;
 } & Omit<RHSMHorizontalScrollProps, OmittedRHSMHorizontalScrollProps>;
 
 export type HorizontalScrollRef = Nullable<HTMLDivElement>;

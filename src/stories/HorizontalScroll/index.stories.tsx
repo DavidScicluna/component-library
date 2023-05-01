@@ -4,9 +4,12 @@ import { Box } from '@chakra-ui/react';
 
 import { range } from 'lodash-es';
 
-import { HorizontalScroll as HorizontalScrollComponent, HorizontalScrollProps } from '../..';
-import { isDisabled as defaultIsDisabled } from '../../components/HorizontalScroll/common/data/defaultPropValues';
-import { RenderDividerProps } from '../../components/HorizontalScroll/types';
+import {
+	HorizontalScroll as HorizontalScrollComponent,
+	HorizontalScrollProps,
+	HorizontalScrollRenderDividerProps
+} from '../..';
+import { isDisabled as defaultIsDisabled } from '../../components/HorizontalScroll/common/default/props';
 import spacing from '../../theme/foundations/spacing';
 import controls from '../common/controls';
 import parameters from '../common/parameters';
@@ -17,7 +20,7 @@ const renderMapping = Object.assign(
 	{ none: undefined },
 	...Object.entries(spacing).map(([key, value]) => {
 		return {
-			[key]: ({ padding }: RenderDividerProps) => <Box p={value || padding} />
+			[key]: ({ padding }: HorizontalScrollRenderDividerProps) => <Box p={value || padding} />
 		};
 	})
 );
