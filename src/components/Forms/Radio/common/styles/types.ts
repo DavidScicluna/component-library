@@ -1,6 +1,6 @@
 import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';
-import { RadioProps } from '../../types';
+import { RadioProps } from '../types';
 
 type Picked =
 	| 'color'

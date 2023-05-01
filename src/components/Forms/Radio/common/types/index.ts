@@ -2,7 +2,7 @@ import { FocusEvent, ReactNode } from 'react';
 
 import { ColorMode, RadioProps as CUIRadioProps } from '@chakra-ui/react';
 
-import { Style } from '../../../common/types';
+import { Nullable, Style } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -14,12 +14,11 @@ import {
 	BoxPadding,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../common/types/box';
-import { Color } from '../../../theme/types';
+	BoxTypography
+} from '../../../../../common/types/box';
+import { Color } from '../../../../../theme/types';
 
-export type Event = FocusEvent<HTMLInputElement, Element>;
-
-export type RadioRef = HTMLInputElement | null;
+export type RadioEvent = FocusEvent<HTMLInputElement, Element>;
 
 export type RadioColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 
@@ -27,9 +26,7 @@ export type RadioSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type RadioVariant = 'outlined' | 'transparent';
 
-export type RadioPanelRenderProps = {
-	color: RadioColor;
-	colorMode?: ColorMode;
+export type RadioPanelRenderProps = Pick<RadioProps, 'color' | 'colorMode'> & {
 	width: string; // In Pixels
 	height: string; // In Pixels
 	fontSize: string; // In Pixels
@@ -82,5 +79,7 @@ export type RadioProps = {
 	variant?: RadioVariant;
 	sx?: { group?: Style; radio?: Style; formLabel?: Style; formHelperText?: Style };
 } & Omit<CUIRadioProps, Omitted>;
+
+export type RadioRef = Nullable<HTMLInputElement>;
 
 export type RadioContext = Pick<RadioProps, 'color' | 'colorMode' | 'size'>;

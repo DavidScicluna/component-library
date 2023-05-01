@@ -22,10 +22,10 @@ import {
 	isWarning as defaultIsWarning,
 	size as defaultSize,
 	variant as defaultVariant
-} from './common/data/defaultPropValues';
+} from './common/default/props';
 import useStyles from './common/styles';
+import { RadioContext as RadioContextType, RadioProps, RadioRef } from './common/types';
 import { getSizeConfig } from './common/utils';
-import { RadioContext as RadioContextType, RadioProps, RadioRef } from './types';
 
 export const RadioContext = createContext<RadioContextType>({
 	color: defaultColor,

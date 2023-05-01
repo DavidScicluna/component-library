@@ -1,8 +1,8 @@
 import memoize from 'micro-memoize';
 
 import { Space } from '../../../../../theme/types';
-import { RadioSize } from '../../types';
-import { size as defaultSize } from '../data/defaultPropValues';
+import { size as defaultSize } from '../default/props';
+import { RadioSize } from '../types';
 
 type FontSize = {
 	icon: number; // In Pixels

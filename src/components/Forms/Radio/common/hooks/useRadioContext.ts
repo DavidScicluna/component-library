@@ -2,8 +2,8 @@ import { useContext } from 'react';
 
 import { NoUndefinedField } from '../../../../../common/types';
 import { RadioContext } from '../..';
-import { RadioContext as RadioContextType } from '../../types';
-import { color as defaultColor, colorMode as defaultColorMode, size as defaultSize } from '../data/defaultPropValues';
+import { color as defaultColor, colorMode as defaultColorMode, size as defaultSize } from '../default/props';
+import { RadioContext as RadioContextType } from '../types';
 
 const useRadioContext = (): NoUndefinedField<RadioContextType> => {
 	const {

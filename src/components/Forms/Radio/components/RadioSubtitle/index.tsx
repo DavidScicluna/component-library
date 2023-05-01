@@ -6,7 +6,7 @@ import { useTheme } from '../../../../../common/hooks';
 import { getColor } from '../../../../../common/utils/color';
 import { useRadioContext } from '../../common/hooks';
 
-import { RadioSubtitleProps } from './types';
+import { RadioSubtitleProps } from './common/types';
 
 const RadioSubtitle: FC<RadioSubtitleProps> = (props) => {
 	const theme = useTheme();

@@ -266,10 +266,6 @@ import {
 } from './components/Forms/Input/common/types';
 import Radio from './components/Forms/Radio';
 import { useRadioContext } from './components/Forms/Radio/common/hooks';
-import RadioSubtitle from './components/Forms/Radio/components/RadioSubtitle';
-import { RadioSubtitleProps } from './components/Forms/Radio/components/RadioSubtitle/types';
-import RadioTitle from './components/Forms/Radio/components/RadioTitle';
-import { RadioTitleProps } from './components/Forms/Radio/components/RadioTitle/types';
 import {
 	RadioColor,
 	RadioContext,
@@ -278,7 +274,11 @@ import {
 	RadioRef,
 	RadioSize,
 	RadioVariant
-} from './components/Forms/Radio/types';
+} from './components/Forms/Radio/common/types';
+import RadioSubtitle from './components/Forms/Radio/components/RadioSubtitle';
+import { RadioSubtitleProps } from './components/Forms/Radio/components/RadioSubtitle/common/types';
+import RadioTitle from './components/Forms/Radio/components/RadioTitle';
+import { RadioTitleProps } from './components/Forms/Radio/components/RadioTitle/common/types';
 import Rating from './components/Forms/Rating';
 import {
 	RatingColor,
