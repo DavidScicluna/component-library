@@ -2,8 +2,16 @@ import { ReactElement } from 'react';
 
 import { sample } from 'lodash-es';
 
+import {
+	Textarea as TextareaComponent,
+	TextareaAutoComplete,
+	TextareaColor,
+	TextareaPanelRenderProps,
+	TextareaProps,
+	TextareaResize,
+	TextareaSize
+} from '../../..';
 import icons from '../../../common/data/icons';
-import TextareaComponent from '../../../components/Forms/Textarea';
 import {
 	autoComplete as defaultAutoComplete,
 	isDisabled as defaultIsDisabled,
@@ -16,18 +24,8 @@ import {
 	isWarning as defaultIsWarning,
 	resize as defaultResize,
 	size as defaultSize
-} from '../../../components/Forms/Textarea/common/data/defaultPropValues';
-import {
-	TextareaAutoComplete,
-	TextareaColor,
-	TextareaPanelRenderProps,
-	TextareaProps,
-	TextareaResize,
-	TextareaSize
-} from '../../../components/Forms/Textarea/types';
+} from '../../../components/Forms/Textarea/common/default/props';
 import Icon from '../../../components/Icon';
-// eslint-disable-next-line max-len
-// import { TextareaColor, TextareaProps, TextareaRef, TextareaSize, Textarea as TextareaComponent, TextareaHeader, TextareaBody, TextareaFooter } from '../..';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
 
