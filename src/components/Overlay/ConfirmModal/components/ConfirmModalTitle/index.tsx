@@ -4,15 +4,14 @@ import { Text } from '@chakra-ui/react';
 
 import { useTheme } from '../../../../../common/hooks';
 import { getColor } from '../../../../../common/utils/color';
-import { colorMode as defaultColorMode } from '../../common/data/defaultPropValues';
 import { useConfirmModalContext } from '../../common/hooks';
 
-import { ConfirmModalTitleProps } from './types';
+import { ConfirmModalTitleProps } from './common/types';
 
 const ConfirmModalTitle: FC<ConfirmModalTitleProps> = ({ children, ...rest }) => {
 	const theme = useTheme();
 
-	const { colorMode = defaultColorMode } = useConfirmModalContext();
+	const { colorMode } = useConfirmModalContext();
 
 	return (
 		<Text
