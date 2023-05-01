@@ -1,17 +1,22 @@
-import { createContext,FC } from 'react';
+import { createContext, FC } from 'react';
 
 import DummyCard from '../../../Cards/DummyCard';
 import DummyTabs from '../../../Navigation/Tabs/DummyTabs';
-import { color as defaultColor, colorMode as defaultColorMode } from '../common/default/props';
+import {
+	color as defaultColor,
+	colorMode as defaultColorMode,
+	spacing as defaultSpacing
+} from '../common/default/props';
 
 import {
 	DummyHorizontalGridTabbedContext as DummyHorizontalGridTabbedContextType,
 	DummyHorizontalGridTabbedProps
-} from './types';
+} from './common/types';
 
 export const DummyHorizontalGridTabbedContext = createContext<DummyHorizontalGridTabbedContextType>({
 	color: defaultColor,
-	colorMode: defaultColorMode
+	colorMode: defaultColorMode,
+	spacing: defaultSpacing
 });
 
 const DummyHorizontalGridTabbed: FC<DummyHorizontalGridTabbedProps> = (props) => {
@@ -20,11 +25,12 @@ const DummyHorizontalGridTabbed: FC<DummyHorizontalGridTabbedProps> = (props) =>
 		color = defaultColor,
 		colorMode = defaultColorMode,
 		dummyTabsProps = {},
-		dummyCardProps = {}
+		dummyCardProps = {},
+		spacing = defaultSpacing
 	} = props;
 
 	return (
-		<DummyHorizontalGridTabbedContext.Provider value={{ color, colorMode }}>
+		<DummyHorizontalGridTabbedContext.Provider value={{ color, colorMode, spacing }}>
 			<DummyTabs
 				{...dummyTabsProps}
 				color={color !== 'white' && color !== 'black' && color !== 'gray' ? color : dummyTabsProps.color}
