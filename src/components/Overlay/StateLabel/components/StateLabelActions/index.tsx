@@ -5,7 +5,7 @@ import { HStack } from '@chakra-ui/react';
 import { spacing as defaultSpacing } from '../../common/default/props';
 import { useStateLabelContext } from '../../common/hooks';
 
-import { StateLabelActionsProps } from './types';
+import { StateLabelActionsProps } from './common/types';
 
 const StateLabelActions: FC<StateLabelActionsProps> = (props) => {
 	const { color, colorMode } = useStateLabelContext();
