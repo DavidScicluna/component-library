@@ -2,12 +2,12 @@ import { useContext } from 'react';
 
 import { NoUndefinedField } from '../../../../common/types';
 import { HorizontalScrollContext } from '../..';
-import { HorizontalScrollContext as HorizontalScrollContextType } from '../../types';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled
-} from '../data/defaultPropValues';
+} from '../default/props';
+import { HorizontalScrollContext as HorizontalScrollContextType } from '../types';
 
 const useHorizontalScrollContext = (): NoUndefinedField<HorizontalScrollContextType> => {
 	const {
