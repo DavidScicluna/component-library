@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { VStack } from '@chakra-ui/react';
 
-import { StateLabelBodyProps } from './types';
+import { StateLabelBodyProps } from './common/types';
 
 const StateLabelBody: FC<StateLabelBodyProps> = ({ children, ...rest }) => {
 	return (
