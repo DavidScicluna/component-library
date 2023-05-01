@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 
-import { Center,HStack, VStack } from '@chakra-ui/react';
+import { Center, HStack, VStack } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
@@ -9,14 +9,14 @@ import { convertREMToPixels, convertStringToNumber } from '../../../../../../../
 import { Space } from '../../../../../../../theme/types';
 import { useStepperContext } from '../../../../common/hooks';
 import { height } from '../..';
-import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
+import { isDisabled as defaultIsDisabled } from '../../common/default/props';
 import useStyles from '../../common/styles';
 
-import { status as defaultStatus } from './common/data/defaultPropValues';
+import { status as defaultStatus } from './common/default/props';
+import { StepProps } from './common/types';
 import StepDescription from './components/StepDescription';
 import StepIcon from './components/StepIcon';
 import StepStatus from './components/StepStatus';
-import { StepProps } from './types';
 
 const spacing: Space = 4;
 

@@ -2,8 +2,8 @@ import { darken } from 'color2k';
 
 import { Style } from '../../../../../../../../common/types';
 import { getHue } from '../../../../../../../../common/utils/color';
-import { color as defaultColor } from '../../../../../common/data/defaultPropValues';
-import { status as defaultStatus } from '../../../components/Step/common/data/defaultPropValues';
+import { color as defaultColor } from '../../../../../common/default/props';
+import { status as defaultStatus } from '../../../components/Step/common/default/props';
 import { getStatusColor } from '../../../components/Step/common/utils';
 import { getAmount } from '../../utils';
 

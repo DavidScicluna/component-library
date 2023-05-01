@@ -2,10 +2,10 @@ import memoize from 'micro-memoize';
 
 import { Icon } from '../../../../../../../../../common/types/icons';
 import { Color } from '../../../../../../../../../theme/types';
-import { activeStep as defaultActiveStep } from '../../../../../../common/data/defaultPropValues';
-import { StepperColor } from '../../../../../../types';
-import { Status } from '../../types';
-import { status as defaultStatus } from '../data/defaultPropValues';
+import { activeStep as defaultActiveStep } from '../../../../../../common/default/props';
+import { StepperColor } from '../../../../../../common/types';
+import { status as defaultStatus } from '../default/props';
+import { Status } from '../types';
 
 type GetStatusColorProps = { status: Status; color: StepperColor };
 type GetStatusColorReturn = Exclude<Color, 'transparent' | 'black' | 'white'>;

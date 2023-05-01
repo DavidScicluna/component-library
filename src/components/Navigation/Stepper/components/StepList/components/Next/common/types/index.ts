@@ -1,4 +1,4 @@
-import { StepListProps } from '../../types';
+import { StepListProps } from '../../../../common/types';
 
 export type NextProps = Pick<StepListProps, 'isDisabled'> & {
 	isLast?: boolean;

@@ -2,12 +2,12 @@ import { useContext } from 'react';
 
 import { NoUndefinedField } from '../../../../../common/types';
 import { StepperContext } from '../..';
-import { StepperContext as StepperContextType } from '../../types';
 import {
 	activeStep as defaultActiveStep,
 	color as defaultColor,
 	colorMode as defaultColorMode
-} from '../data/defaultPropValues';
+} from '../default/props';
+import { StepperContext as StepperContextType } from '../types';
 
 const useStepperContext = (): NoUndefinedField<StepperContextType> => {
 	const {

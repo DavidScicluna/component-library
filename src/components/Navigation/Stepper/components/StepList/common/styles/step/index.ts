@@ -1,6 +1,6 @@
 import { Style } from '../../../../../../../../common/types';
 import { Radius } from '../../../../../../../../theme/types';
-import { status as defaultStatus } from '../../../components/Step/common/data/defaultPropValues';
+import { status as defaultStatus } from '../../../components/Step/common/default/props';
 
 import { StepStyleProps } from './types';
 

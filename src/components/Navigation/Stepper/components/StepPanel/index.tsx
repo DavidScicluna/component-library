@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
-import { Text,VStack } from '@chakra-ui/react';
+import { Text, VStack } from '@chakra-ui/react';
 
 import Headline from '../../../../DataDisplay/Headline';
 import Divider from '../../../../Divider';
 import { useStepperContext } from '../../common/hooks';
 
-import { StepPanelProps } from './types';
+import { StepPanelProps } from './common/types';
 
 const StepPanel: FC<StepPanelProps> = (props) => {
 	const { color, colorMode } = useStepperContext();

@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
-import { Text,VStack } from '@chakra-ui/react';
+import { Text, VStack } from '@chakra-ui/react';
 
 import { useTheme } from '../../../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../../../common/utils/color';
 import { useStepperContext } from '../../../../../../common/hooks';
 
-import { StepDescriptionProps } from './types';
+import { StepDescriptionProps } from './common/types';
 
 const StepDescription: FC<StepDescriptionProps> = ({ index, title, subtitle }) => {
 	const theme = useTheme();

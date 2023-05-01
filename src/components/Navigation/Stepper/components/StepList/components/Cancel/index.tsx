@@ -9,10 +9,10 @@ import { getColor } from '../../../../../../../common/utils/color';
 import Icon from '../../../../../../Icon';
 import { useStepperContext } from '../../../../common/hooks';
 import { height, width } from '../..';
-import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
+import { isDisabled as defaultIsDisabled } from '../../common/default/props';
 import useStyles from '../../common/styles';
 
-import { CancelProps } from './types';
+import { CancelProps } from './common/types';
 
 const Cancel: FC<CancelProps> = ({ isDisabled = defaultIsDisabled }) => {
 	const theme = useTheme();

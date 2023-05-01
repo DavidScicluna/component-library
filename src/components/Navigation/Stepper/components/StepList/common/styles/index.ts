@@ -1,8 +1,8 @@
 import { merge } from 'lodash-es';
 import memoize from 'micro-memoize';
 
-import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/data/defaultPropValues';
-import { status as defaultStatus } from '../../components/Step/common/data/defaultPropValues';
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/default/props';
+import { status as defaultStatus } from '../../components/Step/common/default/props';
 
 import dark from './dark';
 import disabled from './disabled';

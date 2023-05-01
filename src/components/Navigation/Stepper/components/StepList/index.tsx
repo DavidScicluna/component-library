@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 
-import { Center,HStack, Stack, useBoolean, useMediaQuery } from '@chakra-ui/react';
+import { Center, HStack, Stack, useBoolean, useMediaQuery } from '@chakra-ui/react';
 
 import { useUpdateEffect } from 'usehooks-ts';
 
@@ -8,17 +8,17 @@ import { useDebounce, useTheme } from '../../../../../common/hooks';
 import { convertStringToNumber } from '../../../../../common/utils';
 import Divider from '../../../../Divider';
 import HorizontalScroll from '../../../../HorizontalScroll';
-import { HorizontalScrollAPIContext } from '../../../../HorizontalScroll/types';
+import { HorizontalScrollAPIContext } from '../../../../HorizontalScroll/common/types';
 import { useStepperContext } from '../../common/hooks';
 
-import { isDisabled as defaultIsDisabled } from './common/data/defaultPropValues';
+import { isDisabled as defaultIsDisabled } from './common/default/props';
+import { StepListProps } from './common/types';
 import Cancel from './components/Cancel';
 import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from './components/HorizontalScrollArrows';
 import Next from './components/Next';
 import Step from './components/Step';
+import { Status } from './components/Step/common/types';
 import { getStatus as getStepStatus } from './components/Step/common/utils';
-import { Status } from './components/Step/types';
-import { StepListProps } from './types';
 
 export const width = '112px';
 export const height = '112px';

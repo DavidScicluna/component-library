@@ -1,3 +1,3 @@
-import { StepProps } from '../../types';
+import { StepProps } from '../../../../common/types';
 
 export type StatusProps = Pick<StepProps, 'status'>;

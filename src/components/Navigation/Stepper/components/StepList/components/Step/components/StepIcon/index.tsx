@@ -6,7 +6,7 @@ import Icon from '../../../../../../../../Icon';
 import { useStepperContext } from '../../../../../../common/hooks';
 import { getStatusColor, getStatusIcon } from '../../common/utils';
 
-import { StepIconProps } from './types';
+import { StepIconProps } from './common/types';
 
 const StepIcon: FC<StepIconProps> = ({ status }) => {
 	const theme = useTheme();

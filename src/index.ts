@@ -340,19 +340,19 @@ import {
 } from './components/Navigation/SideNavigation/types';
 import Stepper from './components/Navigation/Stepper';
 import { useStepperContext } from './components/Navigation/Stepper/common/hooks';
-import StepList from './components/Navigation/Stepper/components/StepList';
-import { Step, StepListProps } from './components/Navigation/Stepper/components/StepList/types';
-import StepPanel from './components/Navigation/Stepper/components/StepPanel';
-import { StepPanelProps } from './components/Navigation/Stepper/components/StepPanel/types';
-import StepPanels from './components/Navigation/Stepper/components/StepPanels';
-import { StepPanelsProps } from './components/Navigation/Stepper/components/StepPanels/types';
 import {
 	OnChangeProps as StepperOnChangeProps,
 	StepperColor,
 	StepperContext,
 	StepperProps,
 	StepperRef
-} from './components/Navigation/Stepper/types';
+} from './components/Navigation/Stepper/common/types';
+import StepList from './components/Navigation/Stepper/components/StepList';
+import { Step, StepListProps } from './components/Navigation/Stepper/components/StepList/common/types';
+import StepPanel from './components/Navigation/Stepper/components/StepPanel';
+import { StepPanelProps } from './components/Navigation/Stepper/components/StepPanel/common/types';
+import StepPanels from './components/Navigation/Stepper/components/StepPanels';
+import { StepPanelsProps } from './components/Navigation/Stepper/components/StepPanels/common/types';
 import TabBar from './components/Navigation/TabBar';
 import { useTabBarContext } from './components/Navigation/TabBar/common/hooks';
 import { Tab as TabBarTab } from './components/Navigation/TabBar/components/Tab/types';

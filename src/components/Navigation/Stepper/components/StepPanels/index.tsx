@@ -1,18 +1,19 @@
 import { FC } from 'react';
 
-import { Box,useConst } from '@chakra-ui/react';
+import { Box, useConst } from '@chakra-ui/react';
 
 import { useTheme } from '../../../../../common/hooks';
 import AnimatePresence from '../../../../Transitions/AnimatePresence';
 import {
 	getConfig as getTransitionConfig,
 	getDuration as getTransitionDuration,
-	getEasings as getTransitionEasings} from '../../../../Transitions/common/utils';
+	getEasings as getTransitionEasings
+} from '../../../../Transitions/common/utils';
 import Fade from '../../../../Transitions/Fade';
 import { FadeProps } from '../../../../Transitions/Fade/types';
 import { useStepperContext } from '../../common/hooks';
 
-import { StepPanelsProps } from './types';
+import { StepPanelsProps } from './common/types';
 
 const StepPanelFade: FC<FadeProps> = ({ children, ...rest }) => {
 	const theme = useTheme();

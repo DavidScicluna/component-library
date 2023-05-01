@@ -1,4 +1,4 @@
-import { Step as StepType } from './components/Step/types';
+import { Step as StepType } from '../../components/Step/common/types';
 
 export type Step = Omit<StepType, 'index'>;
 

@@ -7,7 +7,7 @@ import { getColor } from '../../../../../../../../../common/utils/color';
 import { useStepperContext } from '../../../../../../common/hooks';
 import { getStatusColor } from '../../common/utils';
 
-import { StatusProps } from './types';
+import { StatusProps } from './common/types';
 
 const StepStatus: FC<StatusProps> = ({ status }) => {
 	const theme = useTheme();

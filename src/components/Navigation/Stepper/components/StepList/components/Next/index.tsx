@@ -9,11 +9,11 @@ import { getColor } from '../../../../../../../common/utils/color';
 import Icon from '../../../../../../Icon';
 import { useStepperContext } from '../../../../common/hooks';
 import { height, width } from '../..';
-import { isDisabled as defaultIsDisabled } from '../../common/data/defaultPropValues';
+import { isDisabled as defaultIsDisabled } from '../../common/default/props';
 import useStyles from '../../common/styles';
 import { getStatusIcon } from '../Step/common/utils';
 
-import { NextProps } from './types';
+import { NextProps } from './common/types';
 
 const Next: FC<NextProps> = (props) => {
 	const theme = useTheme();
