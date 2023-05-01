@@ -5,7 +5,7 @@ import {
 	isError as defaultIsError,
 	isSuccess as defaultIsSuccess,
 	isWarning as defaultIsWarning
-} from '../../data/defaultPropValues';
+} from '../../default/props';
 
 import { RatingLightStyleProps } from './types';
 

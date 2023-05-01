@@ -1,6 +1,6 @@
 import { CenterProps } from '@chakra-ui/react';
 
-import { RatingProps } from '../../types';
+import { RatingProps } from '../../../../common/types';
 
 type Picked =
 	| 'color'

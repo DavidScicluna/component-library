@@ -16,11 +16,11 @@ import {
 	isSuccess as defaultIsSuccess,
 	isWarning as defaultIsWarning,
 	size as defaultSize
-} from '../../common/data/defaultPropValues';
+} from '../../common/default/props';
 
-import { isActive as defaultIsActive, isHovering as defaultIsHovering } from './common/data/defaultPropValues';
+import { isActive as defaultIsActive, isHovering as defaultIsHovering } from './common/default/props';
 import useStyles from './common/styles';
-import { RatingIconProps } from './types';
+import { RatingIconProps } from './common/types';
 
 const RatingIcon: FC<RatingIconProps> = (props) => {
 	const theme = useTheme();

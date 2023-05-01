@@ -7,8 +7,8 @@ import {
 	isSuccess as defaultIsSuccess,
 	isWarning as defaultIsWarning,
 	size as defaultSize
-} from '../../../../common/data/defaultPropValues';
-import { isHovering as defaultIsHovering } from '../data/defaultPropValues';
+} from '../../../../common/default/props';
+import { isHovering as defaultIsHovering } from '../default/props';
 
 import dark from './dark';
 import disabled from './disabled';

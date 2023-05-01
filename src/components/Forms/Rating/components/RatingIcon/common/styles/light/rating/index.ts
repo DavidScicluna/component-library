@@ -7,8 +7,9 @@ import {
 	color as defaultColor,
 	isError as defaultIsError,
 	isSuccess as defaultIsSuccess,
-	isWarning as defaultIsWarning} from '../../../../../../common/data/defaultPropValues';
-import { isHovering as defaultIsHovering } from '../../../data/defaultPropValues';
+	isWarning as defaultIsWarning
+} from '../../../../../../common/default/props';
+import { isHovering as defaultIsHovering } from '../../../default/props';
 import { getAmount } from '../../../utils';
 
 import { RatingIconLightStyleProps } from './types';

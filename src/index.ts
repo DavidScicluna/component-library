@@ -287,7 +287,7 @@ import {
 	RatingProps,
 	RatingSize,
 	RatingVariant
-} from './components/Forms/Rating/types';
+} from './components/Forms/Rating/common/types';
 import SearchBar from './components/Forms/SearchBar';
 import {
 	SearchBarProps,

@@ -1,17 +1,15 @@
 import { FC, useCallback, useState } from 'react';
 
-import { FormControl, HStack, useColorMode, VStack } from '@chakra-ui/react';
+import { FormControl, HStack, VStack } from '@chakra-ui/react';
 
 import { debounce, includes, isEmpty, isNil, merge, range } from 'lodash-es';
 
-import { useTheme } from '../../../common/hooks';
+import { useProviderContext, useTheme } from '../../../common/hooks';
 import Collapse from '../../Transitions/Collapse';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 
 import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
 	isFullWidth as defaultIsFullWidth,
@@ -21,19 +19,20 @@ import {
 	isWarning as defaultIsWarning,
 	size as defaultSize,
 	variant as defaultVariant
-} from './common/data/defaultPropValues';
+} from './common/default/props';
 import useStyles from './common/styles';
+import { RatingProps } from './common/types';
 import { getSizeConfig } from './common/utils';
 import RatingIcon from './components/RatingIcon';
-import { RatingProps } from './types';
 
 const Rating: FC<RatingProps> = (props) => {
 	const theme = useTheme();
-	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
+
+	const { colorMode: defaultColorMode } = useProviderContext();
 
 	const {
-		color = defaultColor,
-		colorMode = colorModeHook,
+		color,
+		colorMode = defaultColorMode,
 		id,
 		name,
 		label,

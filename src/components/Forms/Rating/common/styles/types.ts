@@ -1,6 +1,6 @@
 import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';
-import { RatingProps } from '../../types';
+import { RatingProps } from '../types';
 
 type Picked = 'colorMode' | 'isError' | 'isWarning' | 'isSuccess' | 'isFullWidth' | 'size' | 'variant';
 

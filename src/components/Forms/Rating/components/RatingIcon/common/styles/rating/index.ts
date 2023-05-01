@@ -1,6 +1,6 @@
 import { Style } from '../../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../../common/utils';
-import { size as defaultSize } from '../../../../../common/data/defaultPropValues';
+import { size as defaultSize } from '../../../../../common/default/props';
 import { getSizeConfig } from '../../utils';
 
 import { RatingIconStyleProps } from './types';

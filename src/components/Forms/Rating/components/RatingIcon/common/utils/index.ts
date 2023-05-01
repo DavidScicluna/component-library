@@ -1,8 +1,8 @@
 import memoize from 'micro-memoize';
 
 import { Space } from '../../../../../../../theme/types';
-import { size as defaultSize } from '../../../../common/data/defaultPropValues';
-import { RatingSize } from '../../../../types';
+import { size as defaultSize } from '../../../../common/default/props';
+import { RatingSize } from '../../../../common/types';
 
 type Padding = {
 	x: Space; // In Space (Theme) Values
