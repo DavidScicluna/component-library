@@ -12,8 +12,9 @@ import {
 	BoxOther,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../common/types/box';
-import { Color } from '../../../theme/types';
+	BoxTypography
+} from '../../../../../common/types/box';
+import { Color } from '../../../../../theme/types';
 
 export type HeadlineColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 

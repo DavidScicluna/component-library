@@ -165,7 +165,7 @@ import {
 	BadgeVariant
 } from './components/DataDisplay/Badge/types';
 import Headline from './components/DataDisplay/Headline';
-import { HeadlineColor, HeadlineProps } from './components/DataDisplay/Headline/types';
+import { HeadlineColor, HeadlineProps } from './components/DataDisplay/Headline/common/types';
 import { HorizontalGridColor, HorizontalGridColorMode } from './components/DataDisplay/HorizontalGrids/common/types';
 import DummyHorizontalGrid from './components/DataDisplay/HorizontalGrids/DummyHorizontalGrid';
 import { useDummyHorizontalGridContext } from './components/DataDisplay/HorizontalGrids/DummyHorizontalGrid/common/hooks';

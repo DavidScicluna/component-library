@@ -1,18 +1,19 @@
 import { FC } from 'react';
 
-import { Box,HStack, useColorMode, VStack } from '@chakra-ui/react';
+import { Box, HStack, VStack } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import { useTheme } from '../../../common/hooks';
+import { useProviderContext, useTheme } from '../../../common/hooks';
 import { getColor } from '../../../common/utils/color';
 
-import { color as defaultColor, colorMode as defaultColorMode } from './common/data/defaultPropValues';
-import { HeadlineProps } from './types';
+import { color as defaultColor } from './common/default/props';
+import { HeadlineProps } from './common/types';
 
 const Headline: FC<HeadlineProps> = (props) => {
 	const theme = useTheme();
-	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
+
+	const { colorMode: defaultColorMode } = useProviderContext();
 
 	const [leftRef, { width: leftWidth }] = useElementSize();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
@@ -20,7 +21,7 @@ const Headline: FC<HeadlineProps> = (props) => {
 
 	const {
 		color = defaultColor,
-		colorMode = colorModeHook,
+		colorMode = defaultColorMode,
 		renderCaption,
 		renderTitle,
 		renderSubtitle,
