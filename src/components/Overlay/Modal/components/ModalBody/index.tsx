@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { ModalBody as CUIModalBody } from '@chakra-ui/react';
 
-import { ModalBodyProps } from './types';
+import { ModalBodyProps } from './common/types';
 
 const ModalBody: FC<ModalBodyProps> = ({ children, ...rest }) => {
 	return (
