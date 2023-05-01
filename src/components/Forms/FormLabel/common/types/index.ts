@@ -16,7 +16,8 @@ import {
 	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../common/types/box';
+	BoxTypography
+} from '../../../../../common/types/box';
 
 export type FormLabelSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 

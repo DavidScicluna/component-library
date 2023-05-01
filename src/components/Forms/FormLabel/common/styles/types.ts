@@ -1,6 +1,6 @@
 import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';
-import { FormLabelProps } from '../../types';
+import { FormLabelProps } from '../types';
 
 export type FormLabelStyleProps = {
 	theme: Theme;

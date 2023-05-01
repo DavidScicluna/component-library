@@ -1,8 +1,8 @@
 import memoize from 'micro-memoize';
 
 import { FontSize } from '../../../../../theme/types';
-import { FormLabelSize } from '../../types';
-import { size as defaultSize } from '../data/defaultPropValues';
+import { size as defaultSize } from '../default/props';
+import { FormLabelSize } from '../types';
 
 type GetFontSizeProps = { size: FormLabelSize };
 

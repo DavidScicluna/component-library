@@ -12,9 +12,9 @@ import {
 	isReadOnly as defaultIsReadOnly,
 	isRequired as defaultIsRequired,
 	size as defaultSize
-} from './common/data/defaultPropValues';
+} from './common/default/props';
 import useStyles from './common/styles';
-import { FormLabelProps } from './types';
+import { FormLabelProps } from './common/types';
 
 const FormLabel: FC<FormLabelProps> = (props) => {
 	const theme = useTheme();
