@@ -17,6 +17,7 @@ import {
 	BoxShadow,
 	BoxTypography
 } from '../../../../../../../common/types/box';
+import { Space } from '../../../../../../../theme/types';
 
 type Omitted =
 	| BoxMargin
@@ -38,4 +39,5 @@ type Omitted =
 
 export type ModalStackProps = Omit<StackProps, Omitted> & {
 	isDivisible?: boolean;
+	spacing?: Space;
 };

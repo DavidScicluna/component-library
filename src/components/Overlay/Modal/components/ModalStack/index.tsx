@@ -9,12 +9,14 @@ import { useModalContext } from '../../common/hooks';
 
 import { ModalStackProps } from './common/types';
 
-const ModalStack: FC<ModalStackProps> = ({ children, isDivisible = true, p, ...rest }) => {
+const ModalStack: FC<ModalStackProps> = (props) => {
 	const theme = useTheme();
 
 	const [isSm] = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
-	const { colorMode, size, spacing } = useModalContext();
+	const { colorMode, size, spacing: defaultSpacing } = useModalContext();
+
+	const { children, isDivisible = true, p, spacing = defaultSpacing, ...rest } = props;
 
 	return (
 		<VStack
