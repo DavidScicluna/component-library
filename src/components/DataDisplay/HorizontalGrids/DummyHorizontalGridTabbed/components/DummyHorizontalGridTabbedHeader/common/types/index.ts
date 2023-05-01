@@ -15,10 +15,12 @@ import {
 	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../../../../common/types/box';
-import { DummyCardHeaderProps } from '../../../../../Cards/DummyCard/components/DummyCardHeader/types';
-import { DummyTabListProps } from '../../../../../Navigation/Tabs/DummyTabs/components/DummyTabList/types';
-import { DummyHorizontalGridArrowsProps } from '../../../components/DummyHorizontalGridArrows/types';
+	BoxTypography
+} from '../../../../../../../../common/types/box';
+import { Space } from '../../../../../../../../theme/types';
+import { DummyCardHeaderProps } from '../../../../../../../Cards/DummyCard/components/DummyCardHeader/types';
+import { DummyTabListProps } from '../../../../../../../Navigation/Tabs/DummyTabs/components/DummyTabList/types';
+import { DummyHorizontalGridArrowsProps } from '../../../../../components/DummyHorizontalGridArrows/common/types';
 
 type Omitted =
 	| BoxMargin
@@ -38,9 +40,11 @@ type Omitted =
 	| BoxOther
 	| 'as'
 	| 'children'
-	| 'direction';
+	| 'direction'
+	| 'spacing';
 
 export type DummyHorizontalGridTabbedHeaderProps = Omit<StackProps, Omitted> & {
 	dummyCardHeaderProps: DummyCardHeaderProps;
 	dummyTabListProps: DummyTabListProps;
+	spacing?: Space;
 } & Pick<DummyHorizontalGridArrowsProps, 'dummyArrowProps'>;
