@@ -2,6 +2,7 @@ import { MouseEvent as ME } from 'react';
 
 import { ButtonProps as CUIButtonProps } from '@chakra-ui/react';
 
+import { Nullable } from '../../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorders,
@@ -52,4 +53,4 @@ type Omitted =
 
 export type ButtonProps = Omit<CUIButtonProps, Omitted> & CommonButtonProps;
 
-export type ButtonRef = HTMLButtonElement | null;
+export type ButtonRef = Nullable<HTMLButtonElement>;

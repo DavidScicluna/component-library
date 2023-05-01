@@ -2,6 +2,7 @@ import { MouseEvent as ME } from 'react';
 
 import { IconButtonProps as CUIIconButtonProps } from '@chakra-ui/react';
 
+import { Nullable } from '../../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorders,
@@ -48,6 +49,6 @@ type Omitted =
 
 export type IconButtonProps = Omit<CUIIconButtonProps, Omitted> & CommonIconButtonProps;
 
-export type IconButtonRef = HTMLButtonElement | null;
+export type IconButtonRef = Nullable<HTMLButtonElement>;
 
 export type IconButtonContext = Pick<IconButtonProps, 'color' | 'colorMode' | 'size'>;
