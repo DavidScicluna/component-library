@@ -3,7 +3,7 @@ import { FocusEvent } from 'react';
 import { ColorMode, StackProps } from '@chakra-ui/react';
 
 import { IconType } from '../../../../..';
-import { Style } from '../../../../../common/types';
+import { AppColor, Style } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -17,11 +17,8 @@ import {
 	BoxShadow,
 	BoxTypography
 } from '../../../../../common/types/box';
-import { Color } from '../../../../../theme/types';
 
-export type Event = FocusEvent<HTMLInputElement, Element>;
-
-export type RatingColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
+export type RatingEvent = FocusEvent<HTMLInputElement, Element>;
 
 export type RatingIcons = { active: IconType; default: IconType };
 
@@ -51,7 +48,7 @@ type Omitted =
 	| 'sx';
 
 export type RatingProps = Omit<StackProps, Omitted> & {
-	color: RatingColor;
+	color: AppColor;
 	colorMode?: ColorMode;
 	id?: string;
 	name?: string;

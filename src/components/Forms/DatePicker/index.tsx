@@ -6,6 +6,7 @@ import dayjs from 'dayjs';
 import { useDayzed } from 'dayzed';
 import { useUpdateEffect } from 'usehooks-ts';
 
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../common/default/props';
 import { useDebounce, useProviderContext } from '../../../common/hooks';
 import Button from '../../Clickable/Buttons/OriginalButton';
 import IconButton from '../../Clickable/IconButtons/OriginalIconButton';
@@ -19,8 +20,6 @@ import ModalStack from '../../Overlay/Modal/components/ModalStack';
 import Fade from '../../Transitions/Fade';
 
 import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
 	date as defaultDate,
 	format as defaultFormat,
 	spacing as defaultSpacing
@@ -38,12 +37,12 @@ export const DatePickerContext = createContext<DatePickerContextType>({
 });
 
 const DatePicker: FC<DatePickerProps> = (props) => {
-	const { colorMode: defaultColorMode } = useProviderContext();
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const { isOpen: isDatePickerOpen, onOpen: onDatePickerOpen, onClose: onDatePickerClose } = useDisclosure();
 
 	const {
-		color,
+		color = defaultColor,
 		colorMode = defaultColorMode,
 		renderButton,
 		onSetDate,

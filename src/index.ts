@@ -165,7 +165,7 @@ import {
 	BadgeVariant
 } from './components/DataDisplay/Badge/types';
 import Headline from './components/DataDisplay/Headline';
-import { HeadlineColor, HeadlineProps } from './components/DataDisplay/Headline/common/types';
+import { HeadlineProps } from './components/DataDisplay/Headline/common/types';
 import { HorizontalGridColor, HorizontalGridColorMode } from './components/DataDisplay/HorizontalGrids/common/types';
 import DummyHorizontalGrid from './components/DataDisplay/HorizontalGrids/DummyHorizontalGrid';
 import { useDummyHorizontalGridContext } from './components/DataDisplay/HorizontalGrids/DummyHorizontalGrid/common/hooks';
@@ -228,7 +228,6 @@ import { DividerProps } from './components/Divider/types';
 import Checkbox from './components/Forms/Checkbox';
 import { useCheckboxContext } from './components/Forms/Checkbox/common/hooks';
 import {
-	CheckboxColor,
 	CheckboxContext,
 	CheckboxPanelRenderProps,
 	CheckboxProps,
@@ -243,7 +242,6 @@ import { CheckboxTitleProps } from './components/Forms/Checkbox/components/Check
 import DatePicker from './components/Forms/DatePicker';
 import { useDatePickerContext } from './components/Forms/DatePicker/common/hooks';
 import {
-	DatePickerColor,
 	DatePickerContext,
 	DatePickerDate,
 	DatePickerProps,
@@ -256,7 +254,6 @@ import Input from './components/Forms/Input';
 import {
 	InputAutoComplete,
 	InputChangeEvent,
-	InputColor,
 	InputFocusEvent,
 	InputPanelRenderProps,
 	InputProps,
@@ -281,7 +278,7 @@ import RadioTitle from './components/Forms/Radio/components/RadioTitle';
 import { RadioTitleProps } from './components/Forms/Radio/components/RadioTitle/common/types';
 import Rating from './components/Forms/Rating';
 import {
-	RatingColor,
+	RatingEvent,
 	RatingIcons,
 	RatingOnChangeProps,
 	RatingProps,
@@ -298,7 +295,6 @@ import Textarea from './components/Forms/Textarea';
 import {
 	TextareaAutoComplete,
 	TextareaChangeEvent,
-	TextareaColor,
 	TextareaFocusEvent,
 	TextareaPanelRenderProps,
 	TextareaProps,
@@ -363,7 +359,7 @@ import {
 	TabBarProps,
 	TabBarRef
 } from './components/Navigation/TabBar/types';
-import { TabsColor, TabsSize } from './components/Navigation/Tabs/common/types';
+import { TabsSize } from './components/Navigation/Tabs/common/types';
 import TabPanels from './components/Navigation/Tabs/components/TabPanels';
 import { TabPanelsProps } from './components/Navigation/Tabs/components/TabPanels/common/types';
 import DummyTabs from './components/Navigation/Tabs/DummyTabs';
@@ -400,7 +396,6 @@ import {
 import ConfirmModal from './components/Overlay/ConfirmModal';
 import { useConfirmModalContext } from './components/Overlay/ConfirmModal/common/hooks';
 import {
-	ConfirmModalColor,
 	ConfirmModalContext,
 	ConfirmModalProps,
 	ConfirmModalSize
@@ -430,7 +425,7 @@ import Glass from './components/Overlay/Glass';
 import { GlassProps, GlassRef } from './components/Overlay/Glass/common/types';
 import Modal from './components/Overlay/Modal';
 import { useModalContext } from './components/Overlay/Modal/common/hooks';
-import { ModalColor, ModalContext, ModalProps, ModalSize } from './components/Overlay/Modal/common/types';
+import { ModalContext, ModalProps, ModalSize } from './components/Overlay/Modal/common/types';
 import ModalBody from './components/Overlay/Modal/components/ModalBody';
 import { ModalBodyProps } from './components/Overlay/Modal/components/ModalBody/common/types';
 import ModalFooter from './components/Overlay/Modal/components/ModalFooter';
@@ -799,7 +794,6 @@ export type {
 	CardProps,
 	CardRef,
 	CardVariant,
-	CheckboxColor,
 	CheckboxContext,
 	CheckboxPanelRenderProps,
 	CheckboxProps,
@@ -822,7 +816,6 @@ export type {
 	CollapsibleCardHeaderProps,
 	CollapsibleCardProps,
 	ConfirmModalBodyProps,
-	ConfirmModalColor,
 	ConfirmModalContext,
 	ConfirmModalFooterProps,
 	ConfirmModalFooterRenderCancelProps,
@@ -839,7 +832,6 @@ export type {
 	CopyButtonChildrenProps,
 	CopyButtonMouseEvent,
 	CopyButtonProps,
-	DatePickerColor,
 	DatePickerContext,
 	DatePickerDate,
 	DatePickerProps,
@@ -894,7 +886,6 @@ export type {
 	FormProps,
 	GlassProps,
 	GlassRef,
-	HeadlineColor,
 	HeadlineProps,
 	HorizontalGridBodyProps,
 	HorizontalGridColor,
@@ -935,7 +926,6 @@ export type {
 	ImageSrcMode,
 	InputAutoComplete,
 	InputChangeEvent,
-	InputColor,
 	InputFocusEvent,
 	InputPanelRenderProps,
 	InputProps,
@@ -945,7 +935,6 @@ export type {
 	InternalLinkProps,
 	LinkProps,
 	ModalBodyProps,
-	ModalColor,
 	ModalContext,
 	ModalFooterProps,
 	ModalFooterRenderCancelProps,
@@ -971,7 +960,7 @@ export type {
 	RadioSubtitleProps,
 	RadioTitleProps,
 	RadioVariant,
-	RatingColor,
+	RatingEvent,
 	RatingIcons,
 	RatingOnChangeProps,
 	RatingProps,
@@ -1030,7 +1019,6 @@ export type {
 	TabListTabMouseEvent,
 	TabListTabRenderProps,
 	TabPanelsProps,
-	TabsColor,
 	TabsContext,
 	TabsOnChangeProps,
 	TabsProps,
@@ -1038,7 +1026,6 @@ export type {
 	TabsSize,
 	TextareaAutoComplete,
 	TextareaChangeEvent,
-	TextareaColor,
 	TextareaFocusEvent,
 	TextareaPanelRenderProps,
 	TextareaProps,

@@ -2,7 +2,7 @@ import { ChangeEvent as CE, FocusEvent as FE, ReactNode } from 'react';
 
 import { ColorMode, InputProps as CUIInputProps } from '@chakra-ui/react';
 
-import { Nullable, Style } from '../../../../../common/types';
+import { AppColor, Nullable, Style } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -16,7 +16,6 @@ import {
 	BoxShadow,
 	BoxTypography
 } from '../../../../../common/types/box';
-import { Color } from '../../../../../theme/types';
 
 export type InputChangeEvent = CE<HTMLInputElement>;
 
@@ -24,15 +23,11 @@ export type InputFocusEvent = FE<HTMLInputElement, Element>;
 
 export type InputAutoComplete = 'on' | 'password' | 'off';
 
-export type InputColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
-
 export type InputSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type InputVariant = 'outlined' | 'transparent';
 
-export type InputPanelRenderProps = {
-	color: InputColor;
-	colorMode?: ColorMode;
+export type InputPanelRenderProps = Pick<InputProps, 'color' | 'colorMode'> & {
 	width: string; // In Pixels
 	height: string; // In Pixels
 	fontSize: string; // In Pixels
@@ -65,7 +60,7 @@ type Omitted =
 
 export type InputProps = Omit<CUIInputProps, Omitted> & {
 	autoComplete?: InputAutoComplete;
-	color: InputColor;
+	color: AppColor;
 	colorMode?: ColorMode;
 	label?: string;
 	helper?: string;

@@ -1,10 +1,4 @@
-import { ColorMode } from '@chakra-ui/react';
-
-import { CheckboxColor, CheckboxSize, CheckboxVariant } from '../../types';
-
-export const color: CheckboxColor = 'blue';
-
-export const colorMode: ColorMode = 'light';
+import { CheckboxSize, CheckboxVariant } from '../../types';
 
 export const isChecked = false;
 export const isIndeterminate = false;

@@ -3,7 +3,7 @@ import { Props as RHSMHorizontalScrollProps, VisibilityContext } from 'react-hor
 
 import { BoxProps, ColorMode } from '@chakra-ui/react';
 
-import { Nullable } from '../../../../common/types';
+import { AppColor, Nullable } from '../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -18,11 +18,8 @@ import {
 	BoxShadow,
 	BoxTypography
 } from '../../../../common/types/box';
-import { Color } from '../../../../theme/types';
 
 export type HorizontalScrollAPIContext = ContextType<typeof VisibilityContext>;
-
-export type HorizontalScrollColor = Exclude<Color, 'transparent' | 'black' | 'white'>;
 
 export type HorizontalScrollRenderDividerProps = { padding?: string };
 
@@ -52,7 +49,7 @@ type OmittedRHSMHorizontalScrollProps =
 
 export type HorizontalScrollProps = Omit<BoxProps, OmittedBoxProps> & {
 	children: ReactNode[];
-	color?: HorizontalScrollColor;
+	color?: AppColor;
 	colorMode?: ColorMode;
 	isDisabled?: boolean;
 	renderDivider?: (props: HorizontalScrollRenderDividerProps) => ReactNode;

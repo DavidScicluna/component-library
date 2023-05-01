@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { CheckboxProps as CUICheckboxProps, ColorMode } from '@chakra-ui/react';
 
-import { Nullable, Style } from '../../../../../common/types';
+import { AppColor, Nullable, Style } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -16,9 +16,6 @@ import {
 	BoxShadow,
 	BoxTypography
 } from '../../../../../common/types/box';
-import { Color } from '../../../../../theme/types';
-
-export type CheckboxColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 
 export type CheckboxSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -61,7 +58,7 @@ type Omitted =
 	| 'sx';
 
 export type CheckboxProps = Omit<CUICheckboxProps, Omitted> & {
-	color: CheckboxColor;
+	color: AppColor;
 	colorMode?: ColorMode;
 	label?: string;
 	helper?: string;

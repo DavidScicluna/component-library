@@ -1,5 +1,6 @@
 import { ColorMode, ModalProps as CUIModalProps } from '@chakra-ui/react';
 
+import { AppColor } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -18,9 +19,7 @@ import {
 	BoxShadow,
 	BoxTypography
 } from '../../../../../common/types/box';
-import { Color, Space } from '../../../../../theme/types';
-
-export type ModalColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
+import { Space } from '../../../../../theme/types';
 
 export type ModalSize = 'full' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl';
 
@@ -53,7 +52,7 @@ type Omitted =
 	| 'variant';
 
 export type ModalProps = {
-	color?: ModalColor;
+	color?: AppColor;
 	colorMode?: ColorMode;
 	size?: ModalSize;
 	spacing?: Space;

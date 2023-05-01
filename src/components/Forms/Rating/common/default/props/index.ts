@@ -1,10 +1,4 @@
-import { ColorMode } from '@chakra-ui/react';
-
-import { RatingColor, RatingSize, RatingVariant } from '../../types';
-
-export const color: RatingColor = 'blue';
-
-export const colorMode: ColorMode = 'light';
+import { RatingSize, RatingVariant } from '../../types';
 
 export const isDisabled = false;
 export const isError = false;

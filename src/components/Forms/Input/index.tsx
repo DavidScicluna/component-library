@@ -30,13 +30,13 @@ import { getSizeConfig } from './common/utils';
 const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): ReactElement {
 	const theme = useTheme();
 
-	const { colorMode: defaultColorMode } = useProviderContext();
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const inputRef = useRef<InputRef>(null);
 
 	const {
 		autoComplete = defaultAutoComplete,
-		color,
+		color = defaultColor,
 		colorMode = defaultColorMode,
 		id,
 		name,

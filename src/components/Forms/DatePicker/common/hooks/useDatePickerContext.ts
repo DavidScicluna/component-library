@@ -1,10 +1,9 @@
 import { useContext } from 'react';
 
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../common/default/props';
 import { NoUndefinedField } from '../../../../../common/types';
 import { DatePickerContext } from '../..';
 import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
 	date as defaultDate,
 	format as defaultFormat,
 	spacing as defaultSpacing

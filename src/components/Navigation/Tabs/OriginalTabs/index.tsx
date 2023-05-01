@@ -2,12 +2,14 @@ import { createContext, forwardRef, ReactElement } from 'react';
 
 import { Tabs as CUITabs } from '@chakra-ui/react';
 
-import { method as defaultOnChange } from '../../../../common/default/props';
+import {
+	color as defaultColor,
+	colorMode as defaultColorMode,
+	method as defaultOnChange
+} from '../../../../common/default/props';
 import { useProviderContext } from '../../../../common/hooks';
 import {
 	activeTab as defaultActiveTab,
-	color as defaultColor,
-	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	isFitted as defaultIsFitted,
 	size as defaultSize
@@ -26,7 +28,7 @@ export const TabsContext = createContext<TabsContextType>({
 });
 
 const Tabs = forwardRef<TabsRef, TabsProps>(function Tabs(props, ref): ReactElement {
-	const { colorMode: defaultColorMode } = useProviderContext();
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const {
 		children,

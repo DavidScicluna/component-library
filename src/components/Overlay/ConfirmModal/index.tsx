@@ -2,17 +2,15 @@ import { createContext, FC } from 'react';
 
 import { Center, Modal as CUIModal, ModalContent, ModalOverlay } from '@chakra-ui/react';
 
-import { method as defaultOnClose } from '../../../common/default/props';
-import { useProviderContext, useTheme } from '../../../common/hooks';
-import { getColor } from '../../../common/utils/color';
-
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
-	isOpen as defaultIsOpen,
-	size as defaultSize,
-	spacing as defaultSpacing
-} from './common/default/props';
+	method as defaultOnClose
+} from '../../../common/default/props';
+import { useProviderContext, useTheme } from '../../../common/hooks';
+import { getColor } from '../../../common/utils/color';
+
+import { isOpen as defaultIsOpen, size as defaultSize, spacing as defaultSpacing } from './common/default/props';
 import { ConfirmModalContext as ConfirmModalContextType, ConfirmModalProps } from './common/types';
 
 export const ConfirmModalContext = createContext<ConfirmModalContextType>({
@@ -25,7 +23,7 @@ export const ConfirmModalContext = createContext<ConfirmModalContextType>({
 const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 	const theme = useTheme();
 
-	const { colorMode: defaultColorMode } = useProviderContext();
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const {
 		children,

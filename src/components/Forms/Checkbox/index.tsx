@@ -4,6 +4,7 @@ import { Center, Checkbox as CUICheckbox, FormControl, HStack, VStack } from '@c
 
 import { debounce, isEmpty, isNil, merge } from 'lodash-es';
 
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../common/default/props';
 import { useProviderContext, useTheme } from '../../../common/hooks';
 import Icon from '../../Icon';
 import Collapse from '../../Transitions/Collapse';
@@ -11,8 +12,6 @@ import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 
 import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
 	isChecked as defaultIsChecked,
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
@@ -38,12 +37,12 @@ export const CheckboxContext = createContext<CheckboxContextType>({
 const Checkbox: FC<CheckboxProps> = (props) => {
 	const theme = useTheme();
 
-	const { colorMode: defaultColorMode } = useProviderContext();
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const checkboxRef = useRef<CheckboxRef>(null);
 
 	const {
-		color,
+		color = defaultColor,
 		colorMode = defaultColorMode,
 		id,
 		name,

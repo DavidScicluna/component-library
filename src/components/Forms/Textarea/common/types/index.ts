@@ -2,7 +2,7 @@ import { ChangeEvent as CE, FocusEvent as FE, ReactNode } from 'react';
 
 import { ColorMode, TextareaProps as CUITextareaProps } from '@chakra-ui/react';
 
-import { Nullable, Style } from '../../../../../common/types';
+import { AppColor, Nullable, Style } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -16,7 +16,6 @@ import {
 	BoxShadow,
 	BoxTypography
 } from '../../../../../common/types/box';
-import { Color } from '../../../../../theme/types';
 
 export type TextareaChangeEvent = CE<HTMLInputElement>;
 
@@ -24,17 +23,13 @@ export type TextareaFocusEvent = FE<HTMLTextAreaElement, Element>;
 
 export type TextareaAutoComplete = 'on' | 'password' | 'off';
 
-export type TextareaColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
-
 export type TextareaResize = 'horizontal' | 'vertical' | 'none';
 
 export type TextareaSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type TextareaVariant = 'outlined' | 'transparent';
 
-export type TextareaPanelRenderProps = {
-	color: TextareaColor;
-	colorMode?: ColorMode;
+export type TextareaPanelRenderProps = Pick<TextareaProps, 'color' | 'colorMode'> & {
 	width: string; // In Pixels
 	height: string; // In Pixels
 	fontSize: string; // In Pixels
@@ -68,7 +63,7 @@ type Omitted =
 
 export type TextareaProps = Omit<CUITextareaProps, Omitted> & {
 	autoComplete?: TextareaAutoComplete;
-	color: TextareaColor;
+	color: AppColor;
 	colorMode?: ColorMode;
 	label?: string;
 	helper?: string;

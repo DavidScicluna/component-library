@@ -7,13 +7,12 @@ import { useElementSize } from 'usehooks-ts';
 import { useProviderContext, useTheme } from '../../../common/hooks';
 import { getColor } from '../../../common/utils/color';
 
-import { color as defaultColor } from './common/default/props';
 import { HeadlineProps } from './common/types';
 
 const Headline: FC<HeadlineProps> = (props) => {
 	const theme = useTheme();
 
-	const { colorMode: defaultColorMode } = useProviderContext();
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const [leftRef, { width: leftWidth }] = useElementSize();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();

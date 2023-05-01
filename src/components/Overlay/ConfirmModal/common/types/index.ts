@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 
 import { ColorMode, ModalProps as CUIModalProps } from '@chakra-ui/react';
 
+import { AppColor } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -20,11 +21,9 @@ import {
 	BoxShadow,
 	BoxTypography
 } from '../../../../../common/types/box';
-import { Color, Space } from '../../../../../theme/types';
+import { Space } from '../../../../../theme/types';
 import { CloseIconButtonProps } from '../../../../Clickable/IconButtons/CloseIconButton/common/types';
 import { IconProps } from '../../../../Icon/types';
-
-export type ConfirmModalColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 
 type IconPropsPicked = 'icon' | 'category';
 
@@ -63,7 +62,7 @@ type Omitted =
 	| 'variant';
 
 export type ConfirmModalProps = {
-	color?: ConfirmModalColor;
+	color?: AppColor;
 	colorMode?: ColorMode;
 	renderCancel?: (props: RenderCancelProps) => ReactNode;
 	size?: ConfirmModalSize;

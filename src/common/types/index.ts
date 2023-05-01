@@ -16,7 +16,7 @@ export type PickFrom<T, K extends T> = {
 };
 
 // Common Component Types
-export type AppColor = Exclude<Color, 'transparent'>;
+export type AppColor = Exclude<Color, 'transparent' | 'black' | 'white'>;
 export type AppColors = AppColor[];
 
 export type Style = SystemStyleObject;

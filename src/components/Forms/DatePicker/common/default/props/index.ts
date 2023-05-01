@@ -1,11 +1,5 @@
-import { ColorMode } from '@chakra-ui/react';
-
 import { Space } from '../../../../../../theme/types';
-import { DatePickerColor, DatePickerVariant } from '../../types';
-
-export const color: DatePickerColor = 'blue';
-
-export const colorMode: ColorMode = 'light';
+import { DatePickerVariant } from '../../types';
 
 export const date = new Date();
 

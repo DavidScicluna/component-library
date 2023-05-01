@@ -28,10 +28,10 @@ import RatingIcon from './components/RatingIcon';
 const Rating: FC<RatingProps> = (props) => {
 	const theme = useTheme();
 
-	const { colorMode: defaultColorMode } = useProviderContext();
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const {
-		color,
+		color = defaultColor,
 		colorMode = defaultColorMode,
 		id,
 		name,

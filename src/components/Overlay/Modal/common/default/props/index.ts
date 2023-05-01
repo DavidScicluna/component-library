@@ -1,11 +1,5 @@
-import { ColorMode } from '@chakra-ui/react';
-
 import { Space } from '../../../../../../theme/types';
-import { ModalColor, ModalSize } from '../../types';
-
-export const color: ModalColor = 'blue';
-
-export const colorMode: ColorMode = 'light';
+import { ModalSize } from '../../types';
 
 export const isOpen = false;
 

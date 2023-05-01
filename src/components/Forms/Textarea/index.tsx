@@ -31,13 +31,13 @@ import { getSizeConfig } from './common/utils';
 const Textarea = (props: TextareaProps): ReactElement => {
 	const theme = useTheme();
 
-	const { colorMode: defaultColorMode } = useProviderContext();
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const textareaRef = useRef<TextareaRef>(null);
 
 	const {
 		autoComplete = defaultAutoComplete,
-		color,
+		color = defaultColor,
 		colorMode = defaultColorMode,
 		id,
 		name,

@@ -3,14 +3,11 @@ import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 
 import { Box } from '@chakra-ui/react';
 
+import { color as defaultColor, colorMode as defaultColorMode } from '../../common/default/props';
 import { useProviderContext, useTheme } from '../../common/hooks';
 import { convertStringToNumber } from '../../common/utils';
 
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	isDisabled as defaultIsDisabled
-} from './common/default/props';
+import { isDisabled as defaultIsDisabled } from './common/default/props';
 import {
 	HorizontalScrollContext as HorizontalScrollContextType,
 	HorizontalScrollProps,
@@ -34,7 +31,7 @@ const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(
 ): ReactElement {
 	const theme = useTheme();
 
-	const { colorMode: defaultColorMode } = useProviderContext();
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const {
 		children,
