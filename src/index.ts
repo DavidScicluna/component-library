@@ -398,23 +398,33 @@ import {
 } from './components/Navigation/Tabs/OriginalTabs/types';
 import ConfirmModal from './components/Overlay/ConfirmModal';
 import { useConfirmModalContext } from './components/Overlay/ConfirmModal/common/hooks';
+import {
+	ConfirmModalColor,
+	ConfirmModalContext,
+	ConfirmModalProps,
+	ConfirmModalSize
+} from './components/Overlay/ConfirmModal/common/types';
 import ConfirmModalBody from './components/Overlay/ConfirmModal/components/ConfirmModalBody';
-import { ConfirmModalBodyProps } from './components/Overlay/ConfirmModal/components/ConfirmModalBody/types';
+import { ConfirmModalBodyProps } from './components/Overlay/ConfirmModal/components/ConfirmModalBody/common/types';
 import ConfirmModalFooter from './components/Overlay/ConfirmModal/components/ConfirmModalFooter';
-import { ConfirmModalFooterProps } from './components/Overlay/ConfirmModal/components/ConfirmModalFooter/types';
+import {
+	ConfirmModalFooterProps,
+	ConfirmModalFooterRenderCancelProps,
+	ConfirmModalFooterRenderProps
+} from './components/Overlay/ConfirmModal/components/ConfirmModalFooter/common/types';
 import ConfirmModalIcon from './components/Overlay/ConfirmModal/components/ConfirmModalIcon';
 import {
 	ConfirmModalIconColor,
 	ConfirmModalIconProps,
+	ConfirmModalIconRenderIconProps,
 	ConfirmModalIconVariant
-} from './components/Overlay/ConfirmModal/components/ConfirmModalIcon/types';
+} from './components/Overlay/ConfirmModal/components/ConfirmModalIcon/common/types';
 import ConfirmModalStack from './components/Overlay/ConfirmModal/components/ConfirmModalStack';
-import { ConfirmModalStackProps } from './components/Overlay/ConfirmModal/components/ConfirmModalStack/types';
+import { ConfirmModalStackProps } from './components/Overlay/ConfirmModal/components/ConfirmModalStack/common/types';
 import ConfirmModalSubtitle from './components/Overlay/ConfirmModal/components/ConfirmModalSubtitle';
-import { ConfirmModalSubtitleProps } from './components/Overlay/ConfirmModal/components/ConfirmModalSubtitle/types';
+import { ConfirmModalSubtitleProps } from './components/Overlay/ConfirmModal/components/ConfirmModalSubtitle/common/types';
 import ConfirmModalTitle from './components/Overlay/ConfirmModal/components/ConfirmModalTitle';
-import { ConfirmModalTitleProps } from './components/Overlay/ConfirmModal/components/ConfirmModalTitle/types';
-import { ConfirmModalProps } from './components/Overlay/ConfirmModal/types';
+import { ConfirmModalTitleProps } from './components/Overlay/ConfirmModal/components/ConfirmModalTitle/common/types';
 import Glass from './components/Overlay/Glass';
 import { GlassProps, GlassRef } from './components/Overlay/Glass/types';
 import Modal from './components/Overlay/Modal';
@@ -815,11 +825,17 @@ export type {
 	CollapsibleCardHeaderProps,
 	CollapsibleCardProps,
 	ConfirmModalBodyProps,
+	ConfirmModalColor,
+	ConfirmModalContext,
 	ConfirmModalFooterProps,
+	ConfirmModalFooterRenderCancelProps,
+	ConfirmModalFooterRenderProps,
 	ConfirmModalIconColor,
 	ConfirmModalIconProps,
+	ConfirmModalIconRenderIconProps,
 	ConfirmModalIconVariant,
 	ConfirmModalProps,
+	ConfirmModalSize,
 	ConfirmModalStackProps,
 	ConfirmModalSubtitleProps,
 	ConfirmModalTitleProps,

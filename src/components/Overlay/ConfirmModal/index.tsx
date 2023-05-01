@@ -1,6 +1,6 @@
-import { createContext,FC } from 'react';
+import { createContext, FC } from 'react';
 
-import { Center,Modal as CUIModal, ModalContent, ModalOverlay, useColorMode } from '@chakra-ui/react';
+import { Center, Modal as CUIModal, ModalContent, ModalOverlay, useColorMode } from '@chakra-ui/react';
 
 import { method as defaultOnClose } from '../../../common/default/props';
 import { useTheme } from '../../../common/hooks';
@@ -10,14 +10,16 @@ import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
 	isOpen as defaultIsOpen,
-	size as defaultSize
-} from './common/data/defaultPropValues';
-import { ConfirmModalContext as ConfirmModalContextType, ConfirmModalProps } from './types';
+	size as defaultSize,
+	spacing as defaultSpacing
+} from './common/default/props';
+import { ConfirmModalContext as ConfirmModalContextType, ConfirmModalProps } from './common/types';
 
 export const ConfirmModalContext = createContext<ConfirmModalContextType>({
 	color: defaultColor,
 	colorMode: defaultColorMode,
-	onClose: defaultOnClose
+	onClose: defaultOnClose,
+	spacing: defaultSpacing
 });
 
 const ConfirmModal: FC<ConfirmModalProps> = (props) => {
@@ -32,6 +34,7 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 		onClose,
 		renderCancel,
 		size = defaultSize,
+		spacing = defaultSpacing,
 		...rest
 	} = props;
 
@@ -45,7 +48,7 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 			scrollBehavior='outside'
 			size={size}
 		>
-			<ConfirmModalContext.Provider value={{ color, colorMode, onClose }}>
+			<ConfirmModalContext.Provider value={{ color, colorMode, onClose, spacing }}>
 				<ModalOverlay />
 				<ModalContent
 					position='relative'
@@ -55,7 +58,7 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 					{renderCancel && (
 						<Center position='absolute' top={theme.space[2]} right={theme.space[2]}>
 							{renderCancel({
-								'aria-label': 'Close modal?',
+								'aria-label': 'Close Modal',
 								'color': 'gray',
 								'colorMode': colorMode,
 								'icon': 'close',

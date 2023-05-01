@@ -18,10 +18,11 @@ import {
 	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../common/types/box';
-import { Color } from '../../../theme/types';
-import { IconButtonProps } from '../../Clickable/IconButtons/OriginalIconButton/types';
-import { IconProps } from '../../Icon/types';
+	BoxTypography
+} from '../../../../../common/types/box';
+import { Color, Space } from '../../../../../theme/types';
+import { CloseIconButtonProps } from '../../../../Clickable/IconButtons/CloseIconButton/common/types';
+import { IconProps } from '../../../../Icon/types';
 
 export type ConfirmModalColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 
@@ -29,7 +30,7 @@ type IconPropsPicked = 'icon' | 'category';
 
 type IconButtonPropsPicked = 'aria-label' | 'color' | 'colorMode' | 'onClick' | 'size' | 'variant';
 
-type RenderCancelProps = Pick<IconProps, IconPropsPicked> & Pick<IconButtonProps, IconButtonPropsPicked>;
+type RenderCancelProps = Pick<IconProps, IconPropsPicked> & Pick<CloseIconButtonProps, IconButtonPropsPicked>;
 
 export type ConfirmModalSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -66,6 +67,7 @@ export type ConfirmModalProps = {
 	colorMode?: ColorMode;
 	renderCancel?: (props: RenderCancelProps) => ReactNode;
 	size?: ConfirmModalSize;
+	spacing?: Space;
 } & Omit<CUIModalProps, Omitted>;
 
-export type ConfirmModalContext = Pick<ConfirmModalProps, 'color' | 'colorMode' | 'onClose'>;
+export type ConfirmModalContext = Pick<ConfirmModalProps, 'color' | 'colorMode' | 'onClose' | 'spacing'>;
