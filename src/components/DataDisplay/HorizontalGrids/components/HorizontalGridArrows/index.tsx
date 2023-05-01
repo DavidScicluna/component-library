@@ -3,8 +3,8 @@ import { FC } from 'react';
 import ButtonGroup from '../../../../Clickable/ButtonGroup';
 import ButtonGroupItem from '../../../../Clickable/ButtonGroup/components/ButtonGroupItem';
 
+import { HorizontalGridArrowsProps } from './common/types';
 import HorizontalGridArrow from './components/HorizontalGridArrow';
-import { HorizontalGridArrowsProps } from './types';
 
 const HorizontalGridArrows: FC<HorizontalGridArrowsProps> = (props) => {
 	const { isLeftDisabled, isRightDisabled, onLeftClick, onRightClick, arrowProps = {} } = props;

@@ -5,8 +5,7 @@ import { useBoolean } from '@chakra-ui/react';
 import IconButton from '../../../../../../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../../../../../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
 import Tooltip from '../../../../../../Overlay/Tooltip';
-
-import { HorizontalGridArrowProps } from './types';
+import { HorizontalGridArrowProps } from '../../common/types';
 
 const HorizontalGridArrow: FC<HorizontalGridArrowProps> = (props) => {
 	const { color, colorMode, direction, isDisabled = false, ...rest } = props;
