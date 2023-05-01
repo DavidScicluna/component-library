@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { Box } from '@chakra-ui/react';
 
-import { FormEvent,FormProps } from './types';
+import { FormEvent, FormProps } from './common/types';
 
 const Form: FC<FormProps> = ({ children, onSubmit, ...rest }) => {
 	const handleSubmit = (event: FormEvent): void => {

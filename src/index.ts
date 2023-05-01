@@ -251,7 +251,7 @@ import {
 	DatePickerVariant
 } from './components/Forms/DatePicker/common/types';
 import Form from './components/Forms/Form';
-import { FormEvent, FormProps } from './components/Forms/Form/types';
+import { FormEvent, FormProps } from './components/Forms/Form/common/types';
 import Input from './components/Forms/Input';
 import {
 	InputAutoComplete,

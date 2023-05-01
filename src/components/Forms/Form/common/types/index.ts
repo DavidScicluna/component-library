@@ -1,4 +1,4 @@
-import { FormEvent as FE,HTMLAttributes } from 'react';
+import { FormEvent as FE, HTMLAttributes } from 'react';
 
 import { CenterProps } from '@chakra-ui/react';
 
@@ -14,7 +14,8 @@ import {
 	BoxOther,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../common/types/box';
+	BoxTypography
+} from '../../../../../common/types/box';
 
 export type FormEvent = FE<HTMLDivElement> & FE<HTMLFormElement>;
 
