@@ -7,7 +7,7 @@ import { getColor } from '../../../../../common/utils/color';
 import Divider from '../../../../Divider';
 import { useModalContext } from '../../common/hooks';
 
-import { ModalStackProps } from './types';
+import { ModalStackProps } from './common/types';
 
 const ModalStack: FC<ModalStackProps> = ({ children, isDivisible = true, p, ...rest }) => {
 	const theme = useTheme();
