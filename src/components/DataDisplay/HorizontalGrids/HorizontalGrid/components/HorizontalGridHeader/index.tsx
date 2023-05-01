@@ -1,16 +1,16 @@
 import { FC, useEffect } from 'react';
 
-import { HStack,useBoolean } from '@chakra-ui/react';
+import { HStack, useBoolean } from '@chakra-ui/react';
 
 import { useDebounce } from '../../../../../../common/hooks';
 import CardHeader from '../../../../../Cards/OriginalCard/components/CardHeader';
 import HorizontalGridArrows from '../../../components/HorizontalGridArrows';
 import { useHorizontalGridContext } from '../../common/hooks';
 
-import { HorizontalGridHeaderProps } from './types';
+import { HorizontalGridHeaderProps } from './common/types';
 
-const HorizontalGridHeader: FC<HorizontalGridHeaderProps> = ({ actions, arrowProps, ...rest }) => {
-	const { color, colorMode, scroll } = useHorizontalGridContext();
+const HorizontalGridHeader: FC<HorizontalGridHeaderProps> = (props) => {
+	const { color, colorMode, scroll, spacing: defaultSpacing } = useHorizontalGridContext();
 	const {
 		scrollPrev,
 		scrollNext,
@@ -19,6 +19,8 @@ const HorizontalGridHeader: FC<HorizontalGridHeaderProps> = ({ actions, arrowPro
 		isLastItemVisible = false,
 		visibleElements = []
 	} = scroll;
+
+	const { actions, arrowProps, spacing = defaultSpacing, ...rest } = props;
 
 	const [isLeftArrowDisabled, setIsLeftArrowDisabled] = useBoolean(true);
 	const debouncedIsLeftArrowDisabled = useDebounce<boolean>(isLeftArrowDisabled, 'ultra-fast');
@@ -49,8 +51,9 @@ const HorizontalGridHeader: FC<HorizontalGridHeaderProps> = ({ actions, arrowPro
 	return (
 		<CardHeader
 			{...rest}
+			spacing={spacing}
 			actions={
-				<HStack spacing={2}>
+				<HStack spacing={spacing}>
 					{actions}
 
 					<HorizontalGridArrows
