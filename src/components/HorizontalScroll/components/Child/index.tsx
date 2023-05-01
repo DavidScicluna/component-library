@@ -4,7 +4,7 @@ import { Center } from '@chakra-ui/react';
 
 import { useTheme } from '../../../../common/hooks';
 
-import { ChildProps } from './types';
+import { ChildProps } from './common/types';
 
 const Child: FC<ChildProps> = ({ children, renderDivider, isLast = false }) => {
 	const theme = useTheme();

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { HorizontalScrollProps } from '../../types';
+import { HorizontalScrollProps } from '../../../../common/types';
 
 export type ChildProps = {
 	children: ReactNode;
