@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import CardBody from '../../../../../Cards/components/CardBody';
 
-import { DummyHorizontalGridBodyProps } from './types';
+import { DummyHorizontalGridBodyProps } from './common/types';
 
 const DummyHorizontalGridBody: FC<DummyHorizontalGridBodyProps> = ({ children, ...rest }) => {
 	return (
