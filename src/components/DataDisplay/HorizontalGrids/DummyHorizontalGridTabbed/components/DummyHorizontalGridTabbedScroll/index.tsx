@@ -2,9 +2,15 @@ import { FC } from 'react';
 
 import { HStack } from '@chakra-ui/react';
 
-import { DummyHorizontalGridTabbedScrollProps } from './types';
+import { useDummyHorizontalGridTabbedContext } from '../../common/hooks';
 
-const DummyHorizontalGridTabbedScroll: FC<DummyHorizontalGridTabbedScrollProps> = ({ children, spacing = 2 }) => {
+import { DummyHorizontalGridTabbedScrollProps } from './common/types';
+
+const DummyHorizontalGridTabbedScroll: FC<DummyHorizontalGridTabbedScrollProps> = (props) => {
+	const { spacing: defaultSpacing } = useDummyHorizontalGridTabbedContext();
+
+	const { children, spacing = defaultSpacing } = props;
+
 	return (
 		<HStack width='fit-content' alignItems='stretch' justifyContent='stretch' spacing={spacing}>
 			{children}
