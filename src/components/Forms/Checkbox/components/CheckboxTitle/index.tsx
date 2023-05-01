@@ -6,7 +6,7 @@ import { useTheme } from '../../../../../common/hooks';
 import { getColor } from '../../../../../common/utils/color';
 import { useCheckboxContext } from '../../common/hooks';
 
-import { CheckboxTitleProps } from './types';
+import { CheckboxTitleProps } from './common/types';
 
 const CheckboxTitle: FC<CheckboxTitleProps> = (props) => {
 	const theme = useTheme();
