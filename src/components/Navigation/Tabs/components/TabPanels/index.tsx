@@ -1,18 +1,19 @@
 import { FC } from 'react';
 
-import { TabPanel,TabPanels as CUITabPanels, useConst } from '@chakra-ui/react';
+import { TabPanel, TabPanels as CUITabPanels, useConst } from '@chakra-ui/react';
 
 import { useTheme } from '../../../../../common/hooks';
 import AnimatePresence from '../../../../Transitions/AnimatePresence';
 import {
 	getConfig as getTransitionConfig,
 	getDuration as getTransitionDuration,
-	getEasings as getTransitionEasings} from '../../../../Transitions/common/utils';
+	getEasings as getTransitionEasings
+} from '../../../../Transitions/common/utils';
 import Fade from '../../../../Transitions/Fade';
 import { FadeProps } from '../../../../Transitions/Fade/types';
 import { useTabsContext } from '../../OriginalTabs/common/hooks';
 
-import { TabPanelsProps } from './types';
+import { TabPanelsProps } from './common/types';
 
 const TabPanelFade: FC<FadeProps> = ({ children, ...rest }) => {
 	const theme = useTheme();

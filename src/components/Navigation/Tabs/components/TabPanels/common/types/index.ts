@@ -18,7 +18,8 @@ import {
 	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
-	BoxTypography} from '../../../../../common/types/box';
+	BoxTypography
+} from '../../../../../../../common/types/box';
 
 type Omitted =
 	| BoxMargin
