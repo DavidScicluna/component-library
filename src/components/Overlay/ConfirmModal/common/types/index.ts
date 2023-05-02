@@ -23,7 +23,7 @@ import {
 } from '../../../../../common/types/box';
 import { Space } from '../../../../../theme/types';
 import { CloseIconButtonProps } from '../../../../Clickable/IconButtons/CloseIconButton/common/types';
-import { IconProps } from '../../../../Icon/types';
+import { IconProps } from '../../../../Icon/common/types';
 
 type IconPropsPicked = 'icon' | 'category';
 

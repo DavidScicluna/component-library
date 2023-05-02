@@ -1,7 +1,7 @@
 import memoize from 'micro-memoize';
 
-import { IconProps } from '../../types';
-import { category as defaultCategory } from '../data/defaultPropValues';
+import { category as defaultCategory } from '../default/props';
+import { IconProps } from '../types';
 
 type CheckFontStatusProps = Pick<IconProps, 'category'>;
 

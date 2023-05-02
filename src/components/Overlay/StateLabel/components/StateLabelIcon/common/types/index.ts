@@ -14,7 +14,7 @@ import {
 	BoxPseudo,
 	BoxShadow
 } from '../../../../../../../common/types/box';
-import { IconProps } from '../../../../../../Icon/types';
+import { IconProps } from '../../../../../../Icon/common/types';
 import { StateLabelContext } from '../../../../common/types';
 
 export type StateLabelIconVariant = 'contained' | 'outlined' | 'transparent';

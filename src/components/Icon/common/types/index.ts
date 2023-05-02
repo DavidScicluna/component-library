@@ -11,9 +11,9 @@ import {
 	BoxOther,
 	BoxPseudo,
 	BoxShadow
-} from '../../common/types/box';
-import { Icon } from '../../common/types/icons';
-import { SkeletonColor } from '../Skeleton/types';
+} from '../../../../common/types/box';
+import { Icon } from '../../../../common/types/icons';
+import { SkeletonColor } from '../../../Skeleton/types';
 
 export type IconCategory = 'filled' | 'outlined';
 

@@ -315,7 +315,7 @@ import {
 import HorizontalScrollArrow from './components/HorizontalScroll/components/Arrow';
 import { ArrowProps as HorizontalScrollArrowProps } from './components/HorizontalScroll/components/Arrow/common/types';
 import Icon from './components/Icon';
-import { IconCategory, IconProps } from './components/Icon/types';
+import { IconCategory, IconProps } from './components/Icon/common/types';
 import Image from './components/Image';
 import { ImageEvent, ImageProps, ImageRef, ImageSrc, ImageSrcMode } from './components/Image/common/types';
 import ImageEditor from './components/ImageEditor';
