@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { Center } from '@chakra-ui/react';
 
-import { CardFooterProps } from './types';
+import { CardFooterProps } from './common/types';
 
 const CardFooter: FC<CardFooterProps> = ({ children, ...rest }) => {
 	return (
