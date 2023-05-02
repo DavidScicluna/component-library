@@ -1,7 +1,7 @@
 import { ColorMode } from '@chakra-ui/react';
 
-import { Nullable, PickFrom } from '../../common/types';
-import { Color } from '../../theme/types';
+import { Nullable, PickFrom } from '../../../../common/types';
+import { Color } from '../../../../theme/types';
 
 export type AlertColor = PickFrom<Color, 'red' | 'blue' | 'green' | 'yellow'>;
 

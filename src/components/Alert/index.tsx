@@ -17,9 +17,9 @@ import IconButton from '../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
 import Icon from '../Icon';
 
-import { duration as defaultDuration } from './common/data/defaultPropValues';
+import { duration as defaultDuration } from './common/default/props';
+import { AlertProps } from './common/types';
 import { getStatusColor, getStatusIcon } from './common/utils';
-import { AlertProps } from './types';
 
 const spacing: Space = 2;
 
@@ -61,7 +61,7 @@ const Alert: FC<AlertProps> = (props) => {
 	});
 
 	const [color, setColor] = useState<string>(
-		getColor({ theme, colorMode, color: getStatusColor({ status }), type: 'color' })
+		getColor({ theme, colorMode, color: getStatusColor(status), type: 'color' })
 	);
 	const [background, setBackground] = useState<string>(getColor({ theme, colorMode, type: 'background' }));
 
@@ -83,7 +83,7 @@ const Alert: FC<AlertProps> = (props) => {
 	}, [colorMode]);
 
 	useUpdateEffect(() => {
-		setColor(getColor({ theme, colorMode, color: getStatusColor({ status }), type: 'color' }));
+		setColor(getColor({ theme, colorMode, color: getStatusColor(status), type: 'color' }));
 	}, [status, colorMode]);
 
 	useEffect(() => {
@@ -130,7 +130,7 @@ const Alert: FC<AlertProps> = (props) => {
 					width={theme.fontSizes['4xl']}
 					height={theme.fontSizes['4xl']}
 					fontSize={theme.fontSizes['4xl']}
-					icon={getStatusIcon({ status })}
+					icon={getStatusIcon(status)}
 					color={color}
 				/>
 
