@@ -18,11 +18,9 @@ import {
 import {
 	color as defaultColor,
 	isDivisible as defaultIsDivisible,
-	isFullWidth as defaultIsFullWidth,
-	isLight as defaultIsLight,
 	spacing as defaultSpacing,
 	variant as defaultVariant
-} from '../../../components/Cards/common/data/defaultPropValues';
+} from '../../../components/Cards/common/default/props';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
 
@@ -49,7 +47,7 @@ const colorOptions: CardColor[] = [
 	'deep_orange'
 ];
 
-const variantOptions: CardVariant[] = ['contained', 'outlined', 'transparent'];
+const variantOptions: CardVariant[] = ['transparent', 'contained', 'light', 'outlined', 'monochrome'];
 
 export default {
 	title: 'Cards/Dummy Card',
@@ -71,22 +69,8 @@ export default {
 			// description: '',
 			control: 'boolean'
 		},
-		isLight: {
-			name: 'Light',
-			type: 'boolean',
-			defaultValue: defaultIsLight,
-			// description: '',
-			control: 'boolean'
-		},
-		isFullWidth: {
-			name: 'FullWidth',
-			type: 'boolean',
-			defaultValue: defaultIsFullWidth,
-			// description: '',
-			control: 'boolean'
-		},
 		spacing: { ...controls.theme.spacing, defaultValue: defaultSpacing },
-		padding: { ...controls.theme.padding, defaultValue: 2 },
+		padding: { ...controls.theme.padding, defaultValue: defaultSpacing },
 		margin: { ...controls.theme.margin },
 		variant: {
 			name: 'Variant',
