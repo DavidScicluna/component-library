@@ -1,56 +1,25 @@
 import { ReactNode } from 'react';
 
-import { CenterProps, ColorMode } from '@chakra-ui/react';
+import { ColorMode } from '@chakra-ui/react';
 
-import {
-	BoxBackground,
-	BoxBorderRadius,
-	BoxBorders,
-	BoxColor,
-	BoxFilter,
-	BoxFlexbox,
-	BoxGradient,
-	BoxGrid,
-	BoxLayout,
-	BoxOther,
-	BoxPseudo,
-	BoxShadow,
-	BoxTypography
-} from '../../../../common/types/box';
+import { BoxPseudo } from '../../../../common/types/box';
 import { Color, Space } from '../../../../theme/types';
+import { PushableOverlayProps } from '../../../Overlay/PushableOverlay/common/types';
 
 export type CardColor = Exclude<Color, 'transparent'>;
 
-export type CardVariant = 'contained' | 'outlined' | 'transparent';
+export type CardVariant = 'contained' | 'light' | 'outlined' | 'monochrome' | 'transparent';
 
-type Omitted =
-	// CUI Box Props
-	| BoxColor
-	| BoxGradient
-	| BoxTypography
-	| BoxLayout
-	| BoxFlexbox
-	| BoxGrid
-	| BoxBackground
-	| BoxBorders
-	| BoxBorderRadius
-	| BoxShadow
-	| BoxFilter
-	| BoxPseudo
-	| BoxOther
-	// CUI Center Props
-	| 'as'
-	| 'children'
-	| 'color'
-	| 'colorScheme';
+type Omitted = BoxPseudo | 'as' | 'tabIndex' | 'borderRadius' | 'isPushable' | 'variant';
 
-export type CommonCardProps = Omit<CenterProps, Omitted> & {
+export type CommonCardProps = Omit<PushableOverlayProps, Omitted> & {
 	children: ReactNode;
 	color?: CardColor;
 	colorMode?: ColorMode;
+	isClickable?: boolean;
+	isDisabled?: boolean;
 	isDivisible?: boolean;
-	isLight?: boolean;
-	isFullWidth?: boolean;
+	isFixed?: boolean;
 	spacing?: Space;
 	variant?: CardVariant;
 };
