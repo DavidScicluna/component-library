@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { Center } from '@chakra-ui/react';
 
-import { CardBodyProps } from './types';
+import { CardBodyProps } from './common/types';
 
 const CardBody: FC<CardBodyProps> = ({ children, ...rest }) => {
 	return (
