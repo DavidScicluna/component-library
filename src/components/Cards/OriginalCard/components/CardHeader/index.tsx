@@ -10,7 +10,7 @@ import { getColor } from '../../../../../common/utils/color';
 import { Space } from '../../../../../theme/types';
 import { useCardContext } from '../../common/hooks';
 
-import { CardHeaderProps } from './types';
+import { CardHeaderProps } from './common/types';
 
 const CardHeader: FC<CardHeaderProps> = (props) => {
 	const theme = useTheme();
