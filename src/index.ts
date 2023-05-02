@@ -225,7 +225,7 @@ import { HorizontalGridTabbedHeaderProps } from './components/DataDisplay/Horizo
 import HorizontalGridTabbedScroll from './components/DataDisplay/HorizontalGrids/HorizontalGridTabbed/components/HorizontalGridTabbedScroll';
 import { HorizontalGridTabbedScrollProps } from './components/DataDisplay/HorizontalGrids/HorizontalGridTabbed/components/HorizontalGridTabbedScroll/common/types';
 import Divider from './components/Divider';
-import { DividerProps } from './components/Divider/types';
+import { DividerProps } from './components/Divider/common/types';
 import Checkbox from './components/Forms/Checkbox';
 import { useCheckboxContext } from './components/Forms/Checkbox/common/hooks';
 import {
