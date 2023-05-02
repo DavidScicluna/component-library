@@ -1,17 +1,16 @@
 import { createContext, FC, useCallback, useRef } from 'react';
 
-import { Center, FormControl, HStack, Radio as CUIRadio, useColorMode, VStack } from '@chakra-ui/react';
+import { Center, FormControl, HStack, Radio as CUIRadio, VStack } from '@chakra-ui/react';
 
 import { debounce, isEmpty, isNil, merge } from 'lodash-es';
 
-import { useTheme } from '../../../common/hooks';
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../common/default/props';
+import { useProviderContext, useTheme } from '../../../common/hooks';
 import Collapse from '../../Transitions/Collapse';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 
 import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
 	isChecked as defaultIsChecked,
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
@@ -35,13 +34,14 @@ export const RadioContext = createContext<RadioContextType>({
 
 const Radio: FC<RadioProps> = (props) => {
 	const theme = useTheme();
-	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
+
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const radioRef = useRef<RadioRef>(null);
 
 	const {
-		color,
-		colorMode = colorModeHook,
+		color = defaultColor,
+		colorMode = defaultColorMode,
 		id,
 		name,
 		label,

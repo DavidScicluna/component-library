@@ -265,7 +265,6 @@ import {
 import Radio from './components/Forms/Radio';
 import { useRadioContext } from './components/Forms/Radio/common/hooks';
 import {
-	RadioColor,
 	RadioContext,
 	RadioPanelRenderProps,
 	RadioProps,
@@ -949,7 +948,6 @@ export type {
 	PushableOverlayProps,
 	PushableOverlayRef,
 	PushableOverlayVariant,
-	RadioColor,
 	RadioContext,
 	RadioPanelRenderProps,
 	RadioProps,

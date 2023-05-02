@@ -2,7 +2,7 @@ import { FocusEvent, ReactNode } from 'react';
 
 import { ColorMode, RadioProps as CUIRadioProps } from '@chakra-ui/react';
 
-import { Nullable, Style } from '../../../../../common/types';
+import { AppColor, Nullable, Style } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -16,11 +16,8 @@ import {
 	BoxShadow,
 	BoxTypography
 } from '../../../../../common/types/box';
-import { Color } from '../../../../../theme/types';
 
 export type RadioEvent = FocusEvent<HTMLInputElement, Element>;
-
-export type RadioColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 
 export type RadioSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -63,7 +60,7 @@ type Omitted =
 	| 'sx';
 
 export type RadioProps = {
-	color: RadioColor;
+	color: AppColor;
 	colorMode?: ColorMode;
 	label?: string;
 	helper?: string;
