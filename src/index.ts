@@ -339,7 +339,6 @@ import Stepper from './components/Navigation/Stepper';
 import { useStepperContext } from './components/Navigation/Stepper/common/hooks';
 import {
 	OnChangeProps as StepperOnChangeProps,
-	StepperColor,
 	StepperContext,
 	StepperProps,
 	StepperRef
@@ -1000,7 +999,6 @@ export type {
 	StepListProps,
 	StepPanelProps,
 	StepPanelsProps,
-	StepperColor,
 	StepperContext,
 	StepperOnChangeProps,
 	StepperProps,

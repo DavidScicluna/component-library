@@ -1,14 +1,15 @@
 import { createContext, forwardRef, ReactElement } from 'react';
 
-import { useColorMode, VStack } from '@chakra-ui/react';
-
-import { method as defaultMethod } from '../../../common/default/props';
+import { VStack } from '@chakra-ui/react';
 
 import {
-	activeStep as defaultActiveStep,
 	color as defaultColor,
-	colorMode as defaultColorMode
-} from './common/default/props';
+	colorMode as defaultColorMode,
+	method as defaultMethod
+} from '../../../common/default/props';
+import { useProviderContext } from '../../../common/hooks';
+
+import { activeStep as defaultActiveStep } from './common/default/props';
 import { StepperContext as StepperContextType, StepperProps, StepperRef } from './common/types';
 
 export const StepperContext = createContext<StepperContextType>({
@@ -21,13 +22,13 @@ export const StepperContext = createContext<StepperContextType>({
 });
 
 const Stepper = forwardRef<StepperRef, StepperProps>(function Stepper(props, ref): ReactElement {
-	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const {
 		children,
 		activeStep = defaultActiveStep,
 		color = defaultColor,
-		colorMode = colorModeHook,
+		colorMode = defaultColorMode,
 		onChange,
 		onCancel,
 		onSubmit,
