@@ -1,39 +1,40 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 
 import { useTheme } from '../../../../../common/hooks';
-import { getColor, GetColorProps } from '../../../../../common/utils/color';
+import { getColor } from '../../../../../common/utils/color';
 import Divider from '../../../../Divider';
 import { useDummyCardContext } from '../../common/hooks';
 
-import { DummyCardDividerProps } from './types';
+import { DummyCardDividerProps } from './common/types';
 
 const DummyCardDivider: FC<DummyCardDividerProps> = (props) => {
 	const theme = useTheme();
 
-	const { color, colorMode, isLight } = useDummyCardContext();
+	const { color, colorMode, variant } = useDummyCardContext();
 
-	const handleReturnType = (): GetColorProps['type'] => {
-		switch (color) {
-			case 'black':
-				return 'darkest';
-			case 'white':
-				return 'lightest';
+	const background = useMemo((): string => {
+		switch (variant) {
+			case 'transparent':
+			case 'monochrome':
+				return getColor({ theme, colorMode, color: 'gray', type: 'divider' });
+			case 'outlined':
+				return getColor({
+					theme,
+					colorMode,
+					color: color === 'black' || color === 'white' ? 'gray' : color,
+					type: color === 'black' ? 'darker' : color === 'white' ? 'lighter' : 'color'
+				});
 			default:
-				return isLight ? 'divider' : color === 'gray' ? 'text.secondary' : 'color';
+				return getColor({
+					theme,
+					colorMode,
+					color: 'gray',
+					type: color === 'black' ? 'lightest' : color === 'white' ? 'darkest' : 'background'
+				});
 		}
-	};
+	}, [color, colorMode, variant]);
 
-	return (
-		<Divider
-			{...props}
-			backgroundColor={getColor({
-				theme,
-				colorMode,
-				color: color === 'black' || color === 'white' ? 'gray' : color,
-				type: handleReturnType()
-			})}
-		/>
-	);
+	return <Divider {...props} background={background} backgroundColor={background} />;
 };
 
 export default DummyCardDivider;
