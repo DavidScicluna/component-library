@@ -11,5 +11,7 @@ export const colorMode: ColorMode = 'light';
 
 export const isActive = false;
 export const isDisabled = false;
+export const isFixed = false;
+export const isPushable = true;
 
 export const variant: PushableOverlayVariant = 'contained';

@@ -2,7 +2,7 @@ import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';
 import { PushableOverlayProps } from '../types';
 
-type Picked = 'borderRadius' | 'color' | 'colorMode' | 'variant';
+type Picked = 'borderRadius' | 'color' | 'colorMode' | 'isActive' | 'isDisabled' | 'isFixed' | 'isPushable' | 'variant';
 
 export type PushableOverlayStyleProps = Pick<PushableOverlayProps, Picked> & {
 	theme: Theme;

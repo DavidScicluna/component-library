@@ -5,6 +5,10 @@ import {
 	borderRadius as defaultBorderRadius,
 	color as defaultColor,
 	colorMode as defaultColorMode,
+	isActive as defaultIsActive,
+	isDisabled as defaultIsDisabled,
+	isFixed as defaultIsFixed,
+	isPushable as defaultIsPushable,
 	variant as defaultVariant
 } from '../default/props';
 
@@ -21,6 +25,10 @@ export default memoize((props: PushableOverlayStyleProps): PushableOverlayStyleR
 		borderRadius = defaultBorderRadius,
 		color = defaultColor,
 		colorMode = defaultColorMode,
+		isActive = defaultIsActive,
+		isDisabled = defaultIsDisabled,
+		isFixed = defaultIsFixed,
+		isPushable = defaultIsPushable,
 		variant = defaultVariant
 	} = props;
 
@@ -28,11 +36,17 @@ export default memoize((props: PushableOverlayStyleProps): PushableOverlayStyleR
 
 	return {
 		pushable: merge(
-			pushable.general({ theme, borderRadius }),
-			pushable[variant](),
-			scheme.pushable[variant]({ theme, color })
+			pushable.general({ theme, borderRadius, isPushable }),
+			isPushable ? pushable[variant]({ theme, isFixed }) : {},
+			scheme.pushable[variant]({ theme, color, isFixed, isPushable })
 		),
-		active: merge(active.general(), active[variant](), scheme.active[variant]({ theme, color })),
-		disabled: merge(disabled.general(), disabled[variant](), scheme.disabled[variant]({ theme, color }))
+		active:
+			isPushable && !isFixed && isActive
+				? merge(active.general(), active[variant](), scheme.active[variant]({ theme, color }))
+				: {},
+		disabled:
+			isPushable && isDisabled
+				? merge(disabled.general(), disabled[variant](), scheme.disabled[variant]({ theme, color }))
+				: {}
 	};
 });

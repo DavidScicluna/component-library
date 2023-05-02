@@ -4,13 +4,18 @@ import { Style } from '../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../common/utils';
 import { getHue } from '../../../../../../../common/utils/color';
 import { active, hover } from '../../../default/amount';
+import { isFixed as defaultIsFixed, isPushable as defaultIsPushable } from '../../../default/props';
 import { border, offset, transform } from '../../../default/sizes';
 
 import { PushableOverlayDarkStylingProps } from './types';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme }: PushableOverlayDarkStylingProps): Style => {
+export default ({
+	theme,
+	isFixed = defaultIsFixed,
+	isPushable = defaultIsPushable
+}: PushableOverlayDarkStylingProps): Style => {
 	const colorShade = getHue({
 		colorMode: 'dark',
 		type: 'text.primary'
@@ -34,54 +39,66 @@ export default ({ theme }: PushableOverlayDarkStylingProps): Style => {
 			borderColor: theme.colors.gray[borderShade],
 			backgroundColor: theme.colors.gray[backgroundShade],
 			background: theme.colors.gray[backgroundShade],
-			boxShadow: `0 ${transform.default}px 0 0 ${theme.colors.gray[borderShade]}`
+			boxShadow: isPushable ? `0 ${transform.default}px 0 0 ${theme.colors.gray[borderShade]}` : 'none'
 		},
 
-		'&:hover': {
-			'color': lighten(theme.colors.gray[colorShade], hover),
+		'&:hover':
+			isPushable && !isFixed
+				? {
+						'color': lighten(theme.colors.gray[colorShade], hover),
 
-			'&::before': {
-				content: '""',
+						'&::before': {
+							content: '""',
 
-				color: lighten(theme.colors.gray[colorShade], hover),
-				borderColor: lighten(theme.colors.gray[borderShade], hover),
-				backgroundColor: theme.colors.gray[backgroundShade],
-				background: theme.colors.gray[backgroundShade],
-				boxShadow: `0 ${transform.hover}px 0 0 ${lighten(theme.colors.gray[borderShade], hover)}`
-			},
+							color: lighten(theme.colors.gray[colorShade], hover),
+							borderColor: lighten(theme.colors.gray[borderShade], hover),
+							backgroundColor: theme.colors.gray[backgroundShade],
+							background: theme.colors.gray[backgroundShade],
+							boxShadow: `0 ${transform.hover}px 0 0 ${lighten(theme.colors.gray[borderShade], hover)}`
+						},
 
-			'&:active': {
-				'color': lighten(theme.colors.gray[colorShade], active),
+						'&:active': {
+							'color': lighten(theme.colors.gray[colorShade], active),
 
-				'&::before': {
-					content: '""',
+							'&::before': {
+								content: '""',
 
-					color: lighten(theme.colors.gray[colorShade], active),
-					borderColor: lighten(theme.colors.gray[borderShade], active),
-					backgroundColor: theme.colors.gray[backgroundShade],
-					background: theme.colors.gray[backgroundShade],
-					boxShadow: `0 ${transform.active}px 0 0 ${lighten(theme.colors.gray[borderShade], active)}`
-				}
-			}
-		},
+								color: lighten(theme.colors.gray[colorShade], active),
+								borderColor: lighten(theme.colors.gray[borderShade], active),
+								backgroundColor: theme.colors.gray[backgroundShade],
+								background: theme.colors.gray[backgroundShade],
+								boxShadow: `0 ${transform.active}px 0 0 ${lighten(
+									theme.colors.gray[borderShade],
+									active
+								)}`
+							}
+						}
+				  }
+				: {},
 
-		'&:active': {
-			'color': lighten(theme.colors.gray[colorShade], active),
+		'&:active':
+			isPushable && !isFixed
+				? {
+						'color': lighten(theme.colors.gray[colorShade], active),
 
-			'&::before': {
-				content: '""',
+						'&::before': {
+							content: '""',
 
-				color: lighten(theme.colors.gray[colorShade], active),
-				borderColor: lighten(theme.colors.gray[borderShade], active),
-				backgroundColor: theme.colors.gray[backgroundShade],
-				background: theme.colors.gray[backgroundShade],
-				boxShadow: `0 ${transform.active}px 0 0 ${lighten(theme.colors.gray[borderShade], active)}`
-			}
-		},
+							color: lighten(theme.colors.gray[colorShade], active),
+							borderColor: lighten(theme.colors.gray[borderShade], active),
+							backgroundColor: theme.colors.gray[backgroundShade],
+							background: theme.colors.gray[backgroundShade],
+							boxShadow: `0 ${transform.active}px 0 0 ${lighten(theme.colors.gray[borderShade], active)}`
+						}
+				  }
+				: {},
 
-		'&:focus-visible': {
-			outline: !isTouchDevice ? `${border}px auto ${theme.colors.gray[borderShade]}` : 'none',
-			outlineOffset: !isTouchDevice ? `${offset}px` : 0
-		}
+		'&:focus-visible':
+			isPushable && !isFixed
+				? {
+						outline: !isTouchDevice ? `${border}px auto ${theme.colors.gray[borderShade]}` : 'none',
+						outlineOffset: !isTouchDevice ? `${offset}px` : 0
+				  }
+				: {}
 	};
 };

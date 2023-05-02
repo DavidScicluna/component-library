@@ -1,20 +1,29 @@
 import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
-import { borderRadius as defaultBorderRadius } from '../../default/props';
+import {
+	borderRadius as defaultBorderRadius,
+	isFixed as defaultIsFixed,
+	isPushable as defaultIsPushable
+} from '../../default/props';
 import { border } from '../../default/sizes';
 
 import { PushableOverlayStyleProps } from './types';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme, borderRadius = defaultBorderRadius }: PushableOverlayStyleProps): Style => {
+export default ({
+	theme,
+	borderRadius = defaultBorderRadius,
+	isFixed = defaultIsFixed,
+	isPushable = defaultIsPushable
+}: PushableOverlayStyleProps): Style => {
 	const transition = 'none';
 	const transitionProperty = transition;
 	const transitionDuration = transition;
 	const transitionTimingFunction = transition;
 
 	return {
-		'cursor': 'pointer',
+		'cursor': isPushable && !isFixed ? 'pointer' : 'default',
 
 		'position': 'relative',
 
@@ -25,9 +34,10 @@ export default ({ theme, borderRadius = defaultBorderRadius }: PushableOverlaySt
 
 		'opacity': 1,
 
-		'outline': !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important',
+		'outline': isPushable && !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important',
 
 		'background': 'none',
+		'borderWidth': '0px',
 		'borderStyle': 'solid',
 		'borderColor': theme.colors.transparent,
 		'borderRadius': theme.radii[borderRadius],
@@ -64,17 +74,22 @@ export default ({ theme, borderRadius = defaultBorderRadius }: PushableOverlaySt
 			transitionTimingFunction
 		},
 
-		'&:active': {
-			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
-		},
+		'&:active':
+			isPushable && !isFixed
+				? { outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important' }
+				: {},
 
-		'&:focus:not(:focus-visible)': {
-			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
-		},
+		'&:focus:not(:focus-visible)':
+			isPushable && !isFixed
+				? { outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important' }
+				: {},
 
-		'&:focus': {
-			boxShadow: 'none',
-			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
-		}
+		'&:focus':
+			isPushable && !isFixed
+				? {
+						boxShadow: 'none',
+						outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
+				  }
+				: {}
 	};
 };

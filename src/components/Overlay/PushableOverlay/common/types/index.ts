@@ -13,7 +13,6 @@ import {
 	BoxLayout,
 	BoxOther,
 	BoxPosition,
-	BoxPseudo,
 	BoxShadow,
 	BoxTypography
 } from '../../../../../common/types/box';
@@ -49,7 +48,6 @@ type Omitted =
 	| BoxPosition
 	| BoxShadow
 	| BoxFilter
-	| BoxPseudo
 	| BoxOther;
 
 export type PushableOverlayProps = Omit<BoxProps, Omitted> & {
@@ -58,6 +56,8 @@ export type PushableOverlayProps = Omit<BoxProps, Omitted> & {
 	colorMode?: ColorMode;
 	isActive?: boolean;
 	isDisabled?: boolean;
+	isFixed?: boolean;
+	isPushable?: boolean;
 	variant?: PushableOverlayVariant;
 };
 

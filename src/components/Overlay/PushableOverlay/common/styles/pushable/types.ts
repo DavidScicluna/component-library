@@ -1,3 +1,5 @@
 import { PushableOverlayStyleProps as AllPushableOverlayStyleProps } from '../types';
 
-export type PushableOverlayStyleProps = Pick<AllPushableOverlayStyleProps, 'theme' | 'borderRadius'>;
+type Picked = 'theme' | 'borderRadius' | 'isFixed' | 'isPushable';
+
+export type PushableOverlayStyleProps = Pick<AllPushableOverlayStyleProps, Picked>;

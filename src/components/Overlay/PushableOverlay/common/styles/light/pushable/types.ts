@@ -1,3 +1,5 @@
 import { PushableOverlayStyleProps } from '../../types';
 
-export type PushableOverlayLightStylingProps = Pick<PushableOverlayStyleProps, 'theme' | 'color'>;
+type Picked = 'theme' | 'color' | 'isFixed' | 'isPushable';
+
+export type PushableOverlayLightStylingProps = Pick<PushableOverlayStyleProps, Picked>;

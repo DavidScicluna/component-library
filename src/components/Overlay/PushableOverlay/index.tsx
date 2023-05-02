@@ -11,6 +11,8 @@ import {
 	borderRadius as defaultBorderRadius,
 	isActive as defaultIsActive,
 	isDisabled as defaultIsDisabled,
+	isFixed as defaultIsFixed,
+	isPushable as defaultIsPushable,
 	variant as defaultVariant
 } from './common/default/props';
 import useStyles from './common/styles';
@@ -31,22 +33,36 @@ const PushableOverlay = forwardRef<PushableOverlayRef, PushableOverlayProps>(fun
 		colorMode = defaultColorMode,
 		isActive = defaultIsActive,
 		isDisabled = defaultIsDisabled,
+		isFixed = defaultIsFixed,
+		isPushable = defaultIsPushable,
 		variant = defaultVariant,
 		sx,
+		_active,
+		_disabled,
 		...rest
 	} = props;
 
-	const style = useStyles({ theme, borderRadius, color, colorMode, variant });
+	const style = useStyles({
+		theme,
+		borderRadius,
+		color,
+		colorMode,
+		isActive,
+		isDisabled,
+		isFixed,
+		isPushable,
+		variant
+	});
 
 	return (
 		<Box
 			{...rest}
 			ref={ref}
-			aria-disabled={isDisabled}
-			data-active={dataAttr(isActive)}
+			aria-disabled={isPushable && isDisabled}
+			data-active={dataAttr(isPushable && !isFixed && isActive)}
 			sx={merge(style.pushable, sx)}
-			_disabled={style.disabled}
-			_active={style.active}
+			_active={merge(style.active, _active)}
+			_disabled={merge(style.disabled, _disabled)}
 		>
 			<Box width='100%' height='100%' position='relative' zIndex={1}>
 				{children}
