@@ -1,14 +1,13 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 
-import { Center, HStack, Progress, Text, useColorMode, useConst, VStack } from '@chakra-ui/react';
+import { Center, HStack, Progress, Text,  useConst, VStack } from '@chakra-ui/react';
 
 import { transparentize } from 'color2k';
 import { round, sample } from 'lodash-es';
 import { useCountdown, useElementSize, useUpdateEffect } from 'usehooks-ts';
 
 import { errorEmojis, errorTitles, successEmojis, successTitles } from '../../common/data/strings';
-import { colorMode as defaultColorMode } from '../../common/default/props';
-import { useTheme } from '../../common/hooks';
+import { useProviderContext, useTheme } from '../../common/hooks';
 import { Undefinable } from '../../common/types';
 import { convertREMToPixels, convertStringToNumber } from '../../common/utils';
 import { getColor } from '../../common/utils/color';
@@ -25,12 +24,13 @@ const spacing: Space = 2;
 
 const Alert: FC<AlertProps> = (props) => {
 	const theme = useTheme();
-	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
+
+	const { colorMode: defaultColorMode } = useProviderContext();
 
 	const [contentRef, { height: contentHeight }] = useElementSize();
 	const [closeRef, { width: closeWidth }] = useElementSize();
 
-	const { colorMode = colorModeHook, duration, title, description, onClose, status } = props;
+	const { colorMode = defaultColorMode, duration, title, description, onClose, status } = props;
 
 	const sampledTitle = useConst<Undefinable<string>>(
 		status === 'error'
