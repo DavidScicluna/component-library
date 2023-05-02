@@ -16,6 +16,7 @@ const p: CUIImageProps = {
 	loading: 'lazy'
 };
 
+// TODO: Maybe replace position styling to grid
 const Image = forwardRef<ImageRef, ImageProps>(function Image(props, ref): ReactElement {
 	const { colorMode: defaultColorMode } = useProviderContext();
 

@@ -10,7 +10,6 @@ import { getConfig as getTransitionConfig, getDuration as getTransitionDuration 
 
 import { PageTransitionProps } from './types';
 
-// TODO: Maybe move it to component-lib
 const PageTransition: FC<PageTransitionProps> = ({ children }) => {
 	const theme = useTheme();
 
