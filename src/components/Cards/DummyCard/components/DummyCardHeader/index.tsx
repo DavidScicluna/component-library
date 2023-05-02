@@ -10,7 +10,7 @@ import { Space } from '../../../../../theme/types';
 import Skeleton from '../../../../Skeleton';
 import { useDummyCardContext } from '../../common/hooks';
 
-import { DummyCardHeaderProps } from './types';
+import { DummyCardHeaderProps } from './common/types';
 
 const DummyCardHeader: FC<DummyCardHeaderProps> = (props) => {
 	const theme = useTheme();
