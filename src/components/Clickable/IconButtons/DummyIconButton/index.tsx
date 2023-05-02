@@ -7,6 +7,7 @@ import { merge } from 'lodash-es';
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/default/props';
 import { useProviderContext, useTheme } from '../../../../common/hooks';
 import { Radius } from '../../../../theme/types';
+import PushableOverlay from '../../../Overlay/PushableOverlay';
 import Skeleton from '../../../Skeleton';
 import {
 	isCompact as defaultIsCompact,
@@ -58,11 +59,23 @@ const DummyIconButton: FC<DummyIconButtonProps> = (props) => {
 						aria-label='Dummy Button'
 						isDisabled
 						variant='unstyled'
-						p={config.padding}
 						sx={merge(style.iconbutton, sx)}
 						_disabled={style.disabled}
+						_active={style.active}
 					>
-						{children}
+						<PushableOverlay
+							width='100%'
+							height='100%'
+							borderRadius={radius}
+							color={color}
+							colorMode={colorMode}
+							isDisabled
+							isPushable={false}
+							variant={variant === 'icon' ? 'transparent' : variant}
+							p={config.padding}
+						>
+							{children}
+						</PushableOverlay>
 					</CUIIconButton>
 				</Skeleton>
 			</Box>
