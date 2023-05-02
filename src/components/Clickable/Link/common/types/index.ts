@@ -1,14 +1,9 @@
 import { MouseEvent } from 'react';
 
-import { ColorMode, LinkProps as CUILinkProps } from '@chakra-ui/react';
-
-import { Color } from '../../../../../theme/types';
+import { LinkProps as CUILinkProps } from '@chakra-ui/react';
 
 export type LinkMouseEvent = MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>;
 
-export type LinkProps = {
-	color?: Color;
-	colorMode?: ColorMode;
+export type LinkProps = Omit<CUILinkProps, 'colorScheme' | 'isExternal' | 'size' | 'variant'> & {
 	isDisabled?: boolean;
-	isFullWidth?: boolean;
-} & Omit<CUILinkProps, 'colorScheme' | 'isExternal' | 'size' | 'variant'>;
+};

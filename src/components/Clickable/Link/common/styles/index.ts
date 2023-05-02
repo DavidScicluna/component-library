@@ -1,34 +1,12 @@
-import { merge } from 'lodash-es';
 import memoize from 'micro-memoize';
 
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	isFullWidth as defaultFullWidth
-} from '../data/defaultPropValues';
-
-import dark from './dark';
 import disabled from './disabled';
-import light from './light';
 import link from './link';
 import { LinkStyleProps, LinkStyleReturn } from './types';
 
-export default memoize((props: LinkStyleProps): LinkStyleReturn => {
-	const {
-		theme,
-		color = defaultColor,
-		colorMode = defaultColorMode,
-		isFullWidth = defaultFullWidth,
-		isString = false
-	} = props;
-
-	const scheme = colorMode === 'light' ? light : dark;
-
+export default memoize(({ theme }: LinkStyleProps): LinkStyleReturn => {
 	return {
-		link: merge(
-			link({ theme, isFullWidth, isString }),
-			isString && color !== 'transparent' ? scheme({ theme, color }) : {}
-		),
+		link: link({ theme }),
 		disabled: disabled()
 	};
 });

@@ -122,10 +122,8 @@ import {
 } from './components/Clickable/IconButtons/OriginalIconButton/common/types';
 import IconButtonIcon from './components/Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
 import { IconButtonIconProps } from './components/Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon/common/types';
+import Link from './components/Clickable/Link';
 import { LinkProps } from './components/Clickable/Link/common/types';
-import ExternalLink from './components/Clickable/Link/External';
-import InternalLink from './components/Clickable/Link/Internal';
-import { InternalProps as InternalLinkProps } from './components/Clickable/Link/Internal/types';
 import ScrollToTop from './components/Clickable/ScrollToTop';
 import { ScrollToTopIconType, ScrollToTopProps, ScrollToTopRef } from './components/Clickable/ScrollToTop/common/types';
 import Badge from './components/DataDisplay/Badge';
@@ -683,7 +681,6 @@ export {
 	DummyTab,
 	DummyTabList,
 	DummyTabs,
-	ExternalLink,
 	Fade,
 	FileButton,
 	Form,
@@ -707,7 +704,7 @@ export {
 	Image,
 	ImageEditor,
 	Input,
-	InternalLink,
+	Link,
 	Modal,
 	ModalBody,
 	ModalFooter,
@@ -935,7 +932,6 @@ export type {
 	InputRef,
 	InputSize,
 	InputVariant,
-	InternalLinkProps,
 	LinkProps,
 	ModalBodyProps,
 	ModalContext,

@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { Location } from 'react-router-dom';
 
 import { StackProps } from '@chakra-ui/react';
 
