@@ -1,80 +1,71 @@
 import { createContext, forwardRef, ReactElement } from 'react';
 
-import { Center, useColorMode, VStack } from '@chakra-ui/react';
-import { dataAttr } from '@chakra-ui/utils';
+import { VStack } from '@chakra-ui/react';
 
 import merge from 'lodash-es/merge';
 
-import { useTheme } from '../../../common/hooks';
+import { useProviderContext, useTheme } from '../../../common/hooks';
+import PushableOverlay from '../../Overlay/PushableOverlay';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
-	isDivisible as defaultIsDivisible,
-	isFullWidth as defaultIsFullWidth,
-	isLight as defaultIsLight,
-	spacing as defaultSpacing,
-	variant as defaultVariant
-} from '../common/data/defaultPropValues';
-
-import {
 	isActive as defaultIsActive,
 	isClickable as defaultIsClickable,
 	isDisabled as defaultIsDisabled,
-	isFixed as defaultIsFixed
-} from './common/data/defaultPropValues';
-import useStyles from './common/styles';
+	isDivisible as defaultIsDivisible,
+	isFixed as defaultIsFixed,
+	spacing as defaultSpacing,
+	variant as defaultVariant
+} from '../common/default/props';
+import useStyles from '../common/styles';
+
+import { CardContext as CardContextType, CardProps, CardRef } from './common/types';
 import CardDivider from './components/CardDivider';
-import { CardContext as CardContextType, CardProps, CardRef } from './types';
 
 export const CardContext = createContext<CardContextType>({
 	color: defaultColor,
 	colorMode: defaultColorMode,
-	isDisabled: defaultIsDisabled,
-	isLight: defaultIsLight,
-	spacing: defaultSpacing
+	spacing: defaultSpacing,
+	variant: defaultVariant
 });
 
 const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElement {
 	const theme = useTheme();
-	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
+
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const {
 		children,
 		color = defaultColor,
-		colorMode = colorModeHook,
+		colorMode = defaultColorMode,
 		isActive = defaultIsActive,
 		isClickable = defaultIsClickable,
 		isDivisible = defaultIsDivisible,
 		isDisabled = defaultIsDisabled,
-		isFullWidth = defaultIsFullWidth,
 		isFixed = defaultIsFixed,
-		isLight = defaultIsLight,
 		spacing = defaultSpacing,
 		variant = defaultVariant,
 		sx,
 		...rest
 	} = props;
 
-	const style = useStyles({
-		theme,
-		color,
-		colorMode,
-		isClickable,
-		isFullWidth,
-		isFixed,
-		isLight,
-		variant
-	});
+	const style = useStyles({ theme, isClickable, isDisabled, isFixed });
 
 	return (
-		<CardContext.Provider value={{ color, colorMode, isDisabled, isLight, spacing }}>
-			<Center
+		<CardContext.Provider value={{ color, colorMode, spacing, variant }}>
+			<PushableOverlay
 				{...rest}
 				ref={ref}
-				as='div'
-				aria-disabled={isClickable && isDisabled}
-				data-active={dataAttr(isClickable && isActive)}
+				as={isClickable ? 'button' : 'div'}
 				tabIndex={0}
+				borderRadius={variant === 'transparent' ? 'none' : 'xl'}
+				color={color}
+				colorMode={colorMode}
+				isActive={isClickable && !isFixed && isActive}
+				isDisabled={isClickable && isDisabled}
+				isFixed={isClickable && isFixed}
+				isPushable={isClickable}
+				variant={variant}
 				sx={merge(style.card, sx)}
 				_disabled={style.disabled}
 				_active={style.active}
@@ -82,17 +73,14 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 				<VStack
 					width='100%'
 					height='100%'
-					position='relative'
-					zIndex={1}
-					flex={1}
 					overflowY='hidden'
 					overflowX='hidden'
-					divider={isDivisible && variant !== 'contained' ? <CardDivider /> : undefined}
+					divider={isDivisible ? <CardDivider /> : undefined}
 					spacing={spacing}
 				>
 					{children}
 				</VStack>
-			</Center>
+			</PushableOverlay>
 		</CardContext.Provider>
 	);
 });
