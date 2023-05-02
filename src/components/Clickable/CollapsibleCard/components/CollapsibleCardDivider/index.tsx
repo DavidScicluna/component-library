@@ -3,7 +3,7 @@ import { ReactElement } from 'react';
 import { useTheme } from '../../../../../common/hooks';
 import { getColor } from '../../../../../common/utils/color';
 import Divider from '../../../../Divider';
-import { DividerProps as CollapsibleCardDividerProps } from '../../../../Divider/types';
+import { DividerProps as CollapsibleCardDividerProps } from '../../../../Divider/common/types';
 import { useCollapsibleCardContext } from '../../common/hooks';
 
 const CollapsibleCardDivider = (props: CollapsibleCardDividerProps): ReactElement => {

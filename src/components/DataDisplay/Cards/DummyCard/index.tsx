@@ -1,10 +1,10 @@
 import { createContext, forwardRef, ReactElement } from 'react';
 
-import { useColorMode, VStack } from '@chakra-ui/react';
+import { VStack } from '@chakra-ui/react';
 
 import { merge } from 'lodash-es';
 
-import { useTheme } from '../../../../common/hooks';
+import { useProviderContext, useTheme } from '../../../../common/hooks';
 import PushableOverlay from '../../../Overlay/PushableOverlay';
 import {
 	color as defaultColor,
@@ -27,12 +27,13 @@ export const DummyCardContext = createContext<DummyCardContextType>({
 
 const DummyCard = forwardRef<DummyCardRef, DummyCardProps>(function DummyCard(props, ref): ReactElement {
 	const theme = useTheme();
-	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
+
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const {
 		children,
 		color = defaultColor,
-		colorMode = colorModeHook,
+		colorMode = defaultColorMode,
 		isDivisible = defaultIsDivisible,
 		spacing = defaultSpacing,
 		variant = defaultVariant,

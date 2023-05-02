@@ -3,7 +3,7 @@ import { ReactElement } from 'react';
 import { useTheme } from '../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../common/utils/color';
 import Divider from '../../../../../../Divider';
-import { DividerProps } from '../../../../../../Divider/types';
+import { DividerProps } from '../../../../../../Divider/common/types';
 import { useAccordionsContext } from '../../../../common/hooks';
 import { useAccordionContext } from '../../common/hooks';
 
