@@ -1,14 +1,14 @@
 import { forwardRef, ReactElement, useEffect } from 'react';
 
-import { Center, Image as CUIImage, ImageProps as CUIImageProps, useBoolean, useColorMode } from '@chakra-ui/react';
+import { Center, Image as CUIImage, ImageProps as CUIImageProps, useBoolean } from '@chakra-ui/react';
 
 import fallback from '../../common/assets/fallback';
-import { colorMode as defaultColorMode } from '../../common/default/props';
+import { useProviderContext } from '../../common/hooks';
 import { Style } from '../../common/types';
 import Glass from '../Overlay/Glass';
 import Fade from '../Transitions/Fade';
 
-import { ImageEvent, ImageProps, ImageRef } from './types';
+import { ImageEvent, ImageProps, ImageRef } from './common/types';
 
 const p: CUIImageProps = {
 	align: 'center',
@@ -17,11 +17,11 @@ const p: CUIImageProps = {
 };
 
 const Image = forwardRef<ImageRef, ImageProps>(function Image(props, ref): ReactElement {
-	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
+	const { colorMode: defaultColorMode } = useProviderContext();
 
 	const {
 		alt,
-		colorMode = colorModeHook,
+		colorMode = defaultColorMode,
 		borderRadius = 'base',
 		fit = 'cover',
 		onError,

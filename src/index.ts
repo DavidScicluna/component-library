@@ -317,7 +317,7 @@ import { ArrowProps as HorizontalScrollArrowProps } from './components/Horizonta
 import Icon from './components/Icon';
 import { IconCategory, IconProps } from './components/Icon/types';
 import Image from './components/Image';
-import { ImageEvent, ImageProps, ImageRef, ImageSrc, ImageSrcMode } from './components/Image/types';
+import { ImageEvent, ImageProps, ImageRef, ImageSrc, ImageSrcMode } from './components/Image/common/types';
 import ImageEditor from './components/ImageEditor';
 import { useImageEditorContext } from './components/ImageEditor/common/hooks';
 import { ImageEditorColor, ImageEditorContext, ImageEditorProps } from './components/ImageEditor/types';

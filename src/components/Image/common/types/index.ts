@@ -2,7 +2,7 @@ import { SyntheticEvent } from 'react';
 
 import { ColorMode, ImageProps as CUIImageProps } from '@chakra-ui/react';
 
-import { Nullable, Undefinable } from '../../common/types';
+import { Nullable, Undefinable } from '../../../../common/types';
 import {
 	BoxBackground,
 	BoxColor,
@@ -13,9 +13,7 @@ import {
 	BoxPseudo,
 	BoxShadow,
 	BoxTypography
-} from '../../common/types/box';
-
-export type ImageRef = Nullable<HTMLDivElement>;
+} from '../../../../common/types/box';
 
 export type ImageEvent = SyntheticEvent<HTMLImageElement, Event>;
 
@@ -58,3 +56,5 @@ export type ImageProps = Omit<CUIImageProps, Omitted> & {
 	onLoad?: (event: ImageEvent, mode: ImageSrcMode) => void;
 	src: ImageSrc;
 };
+
+export type ImageRef = Nullable<HTMLDivElement>;
