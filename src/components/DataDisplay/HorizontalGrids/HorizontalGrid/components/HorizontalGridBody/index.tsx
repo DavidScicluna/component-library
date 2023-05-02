@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import CardBody from '../../../../../Cards/components/CardBody';
+import CardBody from '../../../../../DataDisplay/Cards/components/CardBody';
 
 import { HorizontalGridBodyProps } from './common/types';
 

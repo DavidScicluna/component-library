@@ -20,7 +20,7 @@ import {
 	isDivisible as defaultIsDivisible,
 	spacing as defaultSpacing,
 	variant as defaultVariant
-} from '../../../components/Cards/common/default/props';
+} from '../../../components/DataDisplay/Cards/common/default/props';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
 

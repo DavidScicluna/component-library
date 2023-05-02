@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { HStack } from '@chakra-ui/react';
 
-import DummyCardHeader from '../../../../../Cards/DummyCard/components/DummyCardHeader';
+import DummyCardHeader from '../../../../../DataDisplay/Cards/DummyCard/components/DummyCardHeader';
 import DummyArrows from '../../../components/DummyHorizontalGridArrows';
 import { useDummyHorizontalGridContext } from '../../common/hooks';
 

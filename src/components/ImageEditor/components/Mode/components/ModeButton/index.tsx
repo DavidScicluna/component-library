@@ -5,9 +5,9 @@ import { Text } from '@chakra-ui/react';
 
 import { useTheme } from '../../../../../../common/hooks';
 import { getColor } from '../../../../../../common/utils/color';
-import CardBody from '../../../../../Cards/components/CardBody';
-import CardFooter from '../../../../../Cards/components/CardFooter';
-import Card from '../../../../../Cards/OriginalCard';
+import CardBody from '../../../../../DataDisplay/Cards/components/CardBody';
+import CardFooter from '../../../../../DataDisplay/Cards/components/CardFooter';
+import Card from '../../../../../DataDisplay/Cards/OriginalCard';
 import Icon from '../../../../../Icon';
 import { useImageEditorContext } from '../../../../common/hooks';
 

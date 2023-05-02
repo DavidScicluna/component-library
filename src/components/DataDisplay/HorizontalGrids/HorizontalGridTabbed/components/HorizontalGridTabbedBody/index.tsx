@@ -1,6 +1,6 @@
 import { FC, Fragment } from 'react';
 
-import CardBody from '../../../../../Cards/components/CardBody';
+import CardBody from '../../../../../DataDisplay/Cards/components/CardBody';
 import TabPanels from '../../../../../Navigation/Tabs/components/TabPanels';
 
 import { HorizontalGridTabbedBodyProps } from './common/types';

@@ -3,7 +3,7 @@ import { FC, useEffect } from 'react';
 import { HStack, useBoolean, VStack } from '@chakra-ui/react';
 
 import { useDebounce } from '../../../../../../common/hooks';
-import CardHeader from '../../../../../Cards/OriginalCard/components/CardHeader';
+import CardHeader from '../../../../../DataDisplay/Cards/OriginalCard/components/CardHeader';
 import TabList from '../../../../../Navigation/Tabs/OriginalTabs/components/TabList';
 import HorizontalGridArrows from '../../../components/HorizontalGridArrows';
 import { useHorizontalGridTabbedContext } from '../../common/hooks';

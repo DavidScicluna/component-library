@@ -1,6 +1,6 @@
 import { createContext, FC } from 'react';
 
-import DummyCard from '../../../Cards/DummyCard';
+import DummyCard from '../../../DataDisplay/Cards/DummyCard';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,

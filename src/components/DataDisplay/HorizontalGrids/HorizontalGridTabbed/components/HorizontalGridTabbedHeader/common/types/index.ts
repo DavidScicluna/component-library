@@ -18,7 +18,7 @@ import {
 	BoxTypography
 } from '../../../../../../../../common/types/box';
 import { Space } from '../../../../../../../../theme/types';
-import { CardHeaderProps } from '../../../../../../../Cards/OriginalCard/components/CardHeader/common/types';
+import { CardHeaderProps } from '../../../../../../../DataDisplay/Cards/OriginalCard/components/CardHeader/common/types';
 import { TabListProps } from '../../../../../../../Navigation/Tabs/OriginalTabs/components/TabList/common/types';
 import { HorizontalGridArrowsProps } from '../../../../../components/HorizontalGridArrows/common/types';
 

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { DummyCardProps } from '../../../../../Cards/DummyCard/common/types';
+import { DummyCardProps } from '../../../../../DataDisplay/Cards/DummyCard/common/types';
 import { DummyTabsProps } from '../../../../../Navigation/Tabs/DummyTabs/common/types';
 import { CommonHorizontalGridProps } from '../../../common/types';
 
