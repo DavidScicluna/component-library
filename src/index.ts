@@ -50,30 +50,30 @@ import {
 	AccordionsProps
 } from './components/Accordions/OriginalAccordions/types';
 import Alert from './components/Alert';
+import { AlertColor, AlertDuration, AlertProps, AlertStatus } from './components/Alert/common/types';
 import { convertDurationToMS } from './components/Alert/common/utils';
-import { AlertColor, AlertDuration, AlertProps, AlertStatus } from './components/Alert/types';
 import { CardColor, CardVariant } from './components/Cards/common/types';
 import CardBody from './components/Cards/components/CardBody';
-import { CardBodyProps } from './components/Cards/components/CardBody/types';
+import { CardBodyProps } from './components/Cards/components/CardBody/common/types';
 import CardFooter from './components/Cards/components/CardFooter';
-import { CardFooterProps } from './components/Cards/components/CardFooter/types';
+import { CardFooterProps } from './components/Cards/components/CardFooter/common/types';
 import DummyCard from './components/Cards/DummyCard';
 import { useDummyCardContext } from './components/Cards/DummyCard/common/hooks';
+import { DummyCardContext, DummyCardProps, DummyCardRef } from './components/Cards/DummyCard/common/types';
 import DummyCardDivider from './components/Cards/DummyCard/components/DummyCardDivider';
-import { DummyCardDividerProps } from './components/Cards/DummyCard/components/DummyCardDivider/types';
+import { DummyCardDividerProps } from './components/Cards/DummyCard/components/DummyCardDivider/common/types';
 import DummyCardHeader from './components/Cards/DummyCard/components/DummyCardHeader';
 import {
 	DummyCardHeaderProps,
 	DummyCardHeaderRenderProps
-} from './components/Cards/DummyCard/components/DummyCardHeader/types';
-import { DummyCardContext, DummyCardProps, DummyCardRef } from './components/Cards/DummyCard/types';
+} from './components/Cards/DummyCard/components/DummyCardHeader/common/types';
 import Card from './components/Cards/OriginalCard';
 import { useCardContext } from './components/Cards/OriginalCard/common/hooks';
+import { CardContext, CardProps, CardRef } from './components/Cards/OriginalCard/common/types';
 import CardDivider from './components/Cards/OriginalCard/components/CardDivider';
-import { CardDividerProps } from './components/Cards/OriginalCard/components/CardDivider/types';
+import { CardDividerProps } from './components/Cards/OriginalCard/components/CardDivider/common/types';
 import CardHeader from './components/Cards/OriginalCard/components/CardHeader';
-import { CardHeaderProps, CardHeaderRenderProps } from './components/Cards/OriginalCard/components/CardHeader/types';
-import { CardContext, CardProps, CardRef } from './components/Cards/OriginalCard/types';
+import { CardHeaderProps, CardHeaderRenderProps } from './components/Cards/OriginalCard/components/CardHeader/common/types';
 import ButtonGroup from './components/Clickable/ButtonGroup';
 import { useButtonGroupContext } from './components/Clickable/ButtonGroup/common/hooks';
 import { ButtonGroupContext, ButtonGroupProps, ButtonGroupRef } from './components/Clickable/ButtonGroup/common/types';
