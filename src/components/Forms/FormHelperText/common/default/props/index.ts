@@ -1,8 +1,4 @@
-import { ColorMode } from '@chakra-ui/react';
-
 import { FormHelperTextSize } from '../../types';
-
-export const colorMode: ColorMode = 'light';
 
 export const isDisabled = false;
 export const isError = false;
