@@ -4,10 +4,10 @@ import { Center, FormLabel as CUIFormLabel, HStack } from '@chakra-ui/react';
 
 import { merge } from 'lodash-es';
 
+import { colorMode as defaultColorMode } from '../../../common/default/props';
 import { useTheme } from '../../../common/hooks';
 
 import {
-	colorMode as defaultColorMode,
 	isDisabled as defaultIsDisabled,
 	isReadOnly as defaultIsReadOnly,
 	isRequired as defaultIsRequired,
