@@ -1,12 +1,8 @@
 import { useContext } from 'react';
 
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../../common/default/props';
 import { NoUndefinedField } from '../../../../../../common/types';
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	spacing as defaultSpacing,
-	variant as defaultVariant
-} from '../../../common/default/props';
+import { spacing as defaultSpacing, variant as defaultVariant } from '../../../common/default/props';
 import { DummyCardContext } from '../..';
 import { DummyCardContext as DummyCardContextType } from '../types';
 

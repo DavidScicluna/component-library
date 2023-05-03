@@ -1,11 +1,5 @@
-import { ColorMode } from '@chakra-ui/react';
-
 import { Space } from '../../../../../../theme/types';
-import { CardColor, CardVariant } from '../../types';
-
-export const color: CardColor = 'gray';
-
-export const colorMode: ColorMode = 'light';
+import { CardVariant } from '../../types';
 
 export const isActive = false;
 export const isClickable = false;

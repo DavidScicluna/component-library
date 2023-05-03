@@ -4,11 +4,10 @@ import { VStack } from '@chakra-ui/react';
 
 import { merge } from 'lodash-es';
 
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/default/props';
 import { useProviderContext, useTheme } from '../../../../common/hooks';
 import PushableOverlay from '../../../Overlay/PushableOverlay';
 import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
 	isDivisible as defaultIsDivisible,
 	spacing as defaultSpacing,
 	variant as defaultVariant
@@ -25,6 +24,7 @@ export const DummyCardContext = createContext<DummyCardContextType>({
 	variant: defaultVariant
 });
 
+// TODO: Test out Dummy components props ... test if they contain props that should be only for original components
 const DummyCard = forwardRef<DummyCardRef, DummyCardProps>(function DummyCard(props, ref): ReactElement {
 	const theme = useTheme();
 
