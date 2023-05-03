@@ -1,7 +1,7 @@
+import { color as defaultColor } from '../../../../../../../common/default/props';
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../theme/types';
-import { color as defaultColor } from '../../../default/props';
 
 import { PushableOverlayLightDisabledStylingProps } from './types';
 

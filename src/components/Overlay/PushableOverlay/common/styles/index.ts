@@ -1,10 +1,9 @@
 import { merge } from 'lodash-es';
 import memoize from 'micro-memoize';
 
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../common/default/props';
 import {
 	borderRadius as defaultBorderRadius,
-	color as defaultColor,
-	colorMode as defaultColorMode,
 	isActive as defaultIsActive,
 	isDisabled as defaultIsDisabled,
 	isFixed as defaultIsFixed,
