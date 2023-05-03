@@ -1,13 +1,13 @@
 import memoize from 'micro-memoize';
 
+import { AppColor } from '../../../../../../../../../common/types';
 import { Icon } from '../../../../../../../../../common/types/icons';
 import { Color } from '../../../../../../../../../theme/types';
 import { activeStep as defaultActiveStep } from '../../../../../../common/default/props';
-import { StepperColor } from '../../../../../../common/types';
 import { status as defaultStatus } from '../default/props';
 import { Status } from '../types';
 
-type GetStatusColorProps = { status: Status; color: StepperColor };
+type GetStatusColorProps = { status: Status; color: AppColor };
 type GetStatusColorReturn = Exclude<Color, 'transparent' | 'black' | 'white'>;
 
 export const getStatusColor = memoize(
