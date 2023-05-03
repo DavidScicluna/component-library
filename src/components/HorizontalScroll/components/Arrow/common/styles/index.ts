@@ -1,6 +1,6 @@
 import memoize from 'micro-memoize';
 
-import { colorMode as defaultColorMode } from '../default/props';
+import { colorMode as defaultColorMode } from '../../../../../../common/default/props';
 
 import dark from './dark';
 import light from './light';
