@@ -9,4 +9,4 @@ export const isFixed = false;
 
 export const spacing: Space = 2;
 
-export const variant: CardVariant = 'outlined';
+export const variant: CardVariant = 'monochrome';
