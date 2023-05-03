@@ -4,15 +4,8 @@ import { VStack } from '@chakra-ui/react';
 
 import { sample } from 'lodash-es';
 
-import {
-	Radio as RadioComponent,
-	RadioColor,
-	RadioProps,
-	RadioSize,
-	RadioSubtitle,
-	RadioTitle,
-	RadioVariant
-} from '../../..';
+import { Radio as RadioComponent, RadioProps, RadioSize, RadioSubtitle, RadioTitle, RadioVariant } from '../../..';
+import { AppColor, AppColors } from '../../../common/types';
 // import icons from '../../../common/data/icons';
 import {
 	isChecked as defaultIsChecked,
@@ -31,7 +24,7 @@ import parameters from '../../common/parameters';
 
 import { Meta, Story } from './types';
 
-const colorOptions: RadioColor[] = [
+const colorOptions: AppColors = [
 	'pink',
 	'purple',
 	'deep_purple',
@@ -45,7 +38,7 @@ const colorOptions: RadioColor[] = [
 	'orange',
 	'deep_orange'
 ];
-const defaultColor: RadioColor = sample(colorOptions) || colorOptions[0];
+const defaultColor: AppColor = sample(colorOptions) || colorOptions[0];
 
 const renderMapping = Object.assign(
 	{ none: undefined },

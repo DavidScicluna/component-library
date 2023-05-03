@@ -15,6 +15,9 @@ export type PickFrom<T, K extends T> = {
 	[P in keyof K]: P extends K ? P : never;
 };
 
+// Common Hook Types
+export type UseBooleanToggles = Record<'on' | 'off' | 'toggle', () => void>;
+
 // Common Component Types
 export type AppColor = Exclude<Color, 'transparent' | 'black' | 'white'>;
 export type AppColors = AppColor[];

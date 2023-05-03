@@ -40,7 +40,7 @@ const Icon: FC<IconProps> = (props) => {
 	useInterval(() => handleCheckFontStatus(), !hasLoaded ? 250 : null);
 
 	return (
-		<Skeleton color={skeletonColor} colorMode={colorMode} isLoaded={hasLoaded} variant='rectangle'>
+		<Skeleton color={skeletonColor} colorMode={colorMode} isLoaded={hasLoaded} variant='circle'>
 			<Center
 				{...rest}
 				as='span'

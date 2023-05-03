@@ -1,6 +1,6 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 
-import { Center, HStack, Progress, Text,  useConst, VStack } from '@chakra-ui/react';
+import { Center, HStack, Progress, Text, useConst, VStack } from '@chakra-ui/react';
 
 import { transparentize } from 'color2k';
 import { round, sample } from 'lodash-es';
