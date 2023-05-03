@@ -11,6 +11,8 @@ import {
 	CardFooter,
 	CardHeader,
 	CardProps,
+	CardSubtitle,
+	CardTitle,
 	CardVariant,
 	DummyButton,
 	Skeleton
@@ -116,13 +118,13 @@ export default {
 } as Meta;
 
 export const Card: Story = (props: CardProps): ReactElement => (
-	<CardComponent {...props}>
+	<CardComponent {...props} width='100%'>
 		<CardHeader
-			renderTitle={(props) => <Text {...props}>Title</Text>}
-			renderSubtitle={(props) => <Text {...props}>Subtitle</Text>}
+			renderTitle={() => <CardTitle>Card Title</CardTitle>}
+			renderSubtitle={() => <CardSubtitle>Card Subtitle</CardSubtitle>}
 			actions={
 				<DummyButton color='light_blue' colorMode={props.colorMode} size='xs'>
-					Dummy Card Action
+					Action
 				</DummyButton>
 			}
 		/>

@@ -8,6 +8,8 @@ import {
 	CardBody,
 	CardColor,
 	CardFooter,
+	CardSubtitle,
+	CardTitle,
 	CardVariant,
 	DummyButton,
 	DummyCard as DummyCardComponent,
@@ -85,13 +87,13 @@ export default {
 } as Meta;
 
 export const DummyCard: Story = (props: DummyCardProps): ReactElement => (
-	<DummyCardComponent {...props}>
+	<DummyCardComponent {...props} width='100%'>
 		<DummyCardHeader
-			renderTitle={(props) => <Text {...props}>Title</Text>}
-			renderSubtitle={(props) => <Text {...props}>renderSubtitle</Text>}
+			renderTitle={() => <CardTitle>Card Title</CardTitle>}
+			renderSubtitle={() => <CardSubtitle>Card Subtitle</CardSubtitle>}
 			actions={
 				<DummyButton color='blue' colorMode={props.colorMode} size='xs'>
-					Dummy Card Action
+					Action
 				</DummyButton>
 			}
 		/>
