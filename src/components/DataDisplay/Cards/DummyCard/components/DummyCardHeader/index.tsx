@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 
-import { Box, Center, HStack, Text, VStack } from '@chakra-ui/react';
+import { Box, Center, HStack, VStack } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
@@ -23,15 +23,7 @@ const DummyCardHeader: FC<DummyCardHeaderProps> = (props) => {
 
 	const [actionsRef, { width: actionsWidth }] = useElementSize();
 
-	const {
-		renderLeft,
-		renderRight,
-		hasTitle = true,
-		hasSubtitle = false,
-		actions,
-		spacing = spacingHook,
-		...rest
-	} = props;
+	const { renderLeft, renderRight, renderTitle, renderSubtitle, actions, spacing = spacingHook, ...rest } = props;
 
 	const handleCalculateTextWidth = useCallback((): string => {
 		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem'));
@@ -51,25 +43,32 @@ const DummyCardHeader: FC<DummyCardHeaderProps> = (props) => {
 				ref={childrenRef}
 				width={`calc(100% - ${(renderLeft ? leftWidth : 0) + (renderRight ? rightWidth : 0)}px)`}
 				alignItems='center'
-				justifyContent={hasTitle ? 'space-between' : 'flex-end'}
+				justifyContent={renderTitle ? 'space-between' : 'flex-end'}
 				spacing={spacing}
 				{...rest}
 			>
-				{hasTitle && (
+				{renderTitle && (
 					<VStack width={handleCalculateTextWidth()} alignItems='flex-start' spacing={0.5}>
 						{/* Title */}
 						<Skeleton colorMode={colorMode} isLoaded={false} variant='text'>
-							<Text align='left' fontSize='xl' fontWeight='bold' lineHeight='normal' noOfLines={1}>
-								Card Title
-							</Text>
+							{renderTitle({
+								align: 'left',
+								fontSize: 'xl',
+								fontWeight: 'bold',
+								lineHeight: 'normal',
+								noOfLines: 1
+							})}
 						</Skeleton>
 
 						{/* Subtitle */}
-						{hasSubtitle && (
+						{renderSubtitle && (
 							<Skeleton colorMode={colorMode} isLoaded={false} variant='text'>
-								<Text align='left' fontSize='sm' lineHeight='normal' noOfLines={1}>
-									This is the Card Header Subtitle
-								</Text>
+								{renderSubtitle({
+									align: 'left',
+									fontSize: 'sm',
+									lineHeight: 'normal',
+									noOfLines: 1
+								})}
 							</Skeleton>
 						)}
 					</VStack>

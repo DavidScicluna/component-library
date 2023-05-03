@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { StackProps } from '@chakra-ui/react';
+import { StackProps, TextProps } from '@chakra-ui/react';
 
 import { CommonCardProps } from '../../../../../common/types';
 
@@ -13,7 +13,7 @@ export type DummyCardHeaderRenderProps = Pick<CommonCardProps, 'color' | 'colorM
 export type DummyCardHeaderProps = Omit<StackProps, 'children' | 'direction'> & {
 	renderLeft?: (props: DummyCardHeaderRenderProps) => ReactNode;
 	renderRight?: (props: DummyCardHeaderRenderProps) => ReactNode;
-	hasTitle?: boolean;
-	hasSubtitle?: boolean;
+	renderTitle?: (props: TextProps) => ReactNode;
+	renderSubtitle?: (props: TextProps) => ReactNode;
 	actions?: ReactNode;
 };
