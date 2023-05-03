@@ -62,20 +62,6 @@ import DummyButton from './components/Clickable/Buttons/DummyButton';
 import { DummyButtonProps } from './components/Clickable/Buttons/DummyButton/common/types';
 import Button from './components/Clickable/Buttons/OriginalButton';
 import { ButtonMouseEvent, ButtonProps, ButtonRef } from './components/Clickable/Buttons/OriginalButton/common/types';
-import CollapsibleCard from './components/Clickable/CollapsibleCard';
-import { useCollapsibleCardContext } from './components/Clickable/CollapsibleCard/common/hooks';
-import CollapsibleCardBody from './components/Clickable/CollapsibleCard/components/CollapsibleCardBody';
-import { CollapsibleCardBodyProps } from './components/Clickable/CollapsibleCard/components/CollapsibleCardBody/types';
-import CollapsibleCardDivider from './components/Clickable/CollapsibleCard/components/CollapsibleCardDivider';
-import CollapsibleCardFooter from './components/Clickable/CollapsibleCard/components/CollapsibleCardFooter';
-import { CollapsibleCardFooterProps } from './components/Clickable/CollapsibleCard/components/CollapsibleCardFooter/types';
-import CollapsibleCardHeader from './components/Clickable/CollapsibleCard/components/CollapsibleCardHeader';
-import { CollapsibleCardHeaderProps } from './components/Clickable/CollapsibleCard/components/CollapsibleCardHeader/types';
-import {
-	CollapsibleCardColor,
-	CollapsibleCardContext,
-	CollapsibleCardProps
-} from './components/Clickable/CollapsibleCard/types';
 import CopyButton from './components/Clickable/CopyButton';
 import {
 	CopyButtonChildrenProps,
@@ -165,6 +151,34 @@ import {
 	CardHeaderProps,
 	CardHeaderRenderProps
 } from './components/DataDisplay/Cards/OriginalCard/components/CardHeader/common/types';
+import { CollapsibleCardColor, CollapsibleCardVariant } from './components/DataDisplay/CollapsibleCards/common/types';
+import DummyCollapsibleCard from './components/DataDisplay/CollapsibleCards/DummyCollapsibleCard';
+import {
+	DummyCollapsibleCardProps,
+	DummyCollapsibleCardRef,
+	DummyCollapsibleCardRenderProps
+} from './components/DataDisplay/CollapsibleCards/DummyCollapsibleCard/common/types';
+import CollapsibleCard from './components/DataDisplay/CollapsibleCards/OriginalCollapsibleCard';
+import { useCollapsibleCardContext } from './components/DataDisplay/CollapsibleCards/OriginalCollapsibleCard/common/hooks';
+import {
+	CollapsibleCardContext,
+	CollapsibleCardMouseEvent,
+	CollapsibleCardProps,
+	CollapsibleCardRef
+} from './components/DataDisplay/CollapsibleCards/OriginalCollapsibleCard/common/types';
+import CollapsibleCardBody from './components/DataDisplay/CollapsibleCards/OriginalCollapsibleCard/components/CollapsibleCardBody';
+import { CollapsibleCardBodyProps } from './components/DataDisplay/CollapsibleCards/OriginalCollapsibleCard/components/CollapsibleCardBody/common/types';
+import CollapsibleCardDivider from './components/DataDisplay/CollapsibleCards/OriginalCollapsibleCard/components/CollapsibleCardDivider';
+import { CollapsibleCardDividerProps } from './components/DataDisplay/CollapsibleCards/OriginalCollapsibleCard/components/CollapsibleCardDivider/common/types';
+import CollapsibleCardFooter from './components/DataDisplay/CollapsibleCards/OriginalCollapsibleCard/components/CollapsibleCardFooter';
+import { CollapsibleCardFooterProps } from './components/DataDisplay/CollapsibleCards/OriginalCollapsibleCard/components/CollapsibleCardFooter/common/types';
+import CollapsibleCardHeader from './components/DataDisplay/CollapsibleCards/OriginalCollapsibleCard/components/CollapsibleCardHeader';
+import {
+	CollapsibleCardHeaderProps,
+	CollapsibleCardHeaderRenderProps
+} from './components/DataDisplay/CollapsibleCards/OriginalCollapsibleCard/components/CollapsibleCardHeader/common/types';
+import CollapsibleCardStack from './components/DataDisplay/CollapsibleCards/OriginalCollapsibleCard/components/CollapsibleCardStack';
+import { CollapsibleCardStackProps } from './components/DataDisplay/CollapsibleCards/OriginalCollapsibleCard/components/CollapsibleCardStack/common/types';
 import Headline from './components/DataDisplay/Headline';
 import { HeadlineProps } from './components/DataDisplay/Headline/common/types';
 import { HorizontalGridColor, HorizontalGridColorMode } from './components/DataDisplay/HorizontalGrids/common/types';
@@ -644,6 +658,7 @@ export {
 	CollapsibleCardDivider,
 	CollapsibleCardFooter,
 	CollapsibleCardHeader,
+	CollapsibleCardStack,
 	ConfirmModal,
 	ConfirmModalBody,
 	ConfirmModalFooter,
@@ -664,6 +679,7 @@ export {
 	DummyCard,
 	DummyCardDivider,
 	DummyCardHeader,
+	DummyCollapsibleCard,
 	DummyHorizontalGrid,
 	DummyHorizontalGridBody,
 	DummyHorizontalGridFooter,
@@ -810,9 +826,15 @@ export type {
 	CollapsibleCardBodyProps,
 	CollapsibleCardColor,
 	CollapsibleCardContext,
+	CollapsibleCardDividerProps,
 	CollapsibleCardFooterProps,
 	CollapsibleCardHeaderProps,
+	CollapsibleCardHeaderRenderProps,
+	CollapsibleCardMouseEvent,
 	CollapsibleCardProps,
+	CollapsibleCardRef,
+	CollapsibleCardStackProps,
+	CollapsibleCardVariant,
 	ConfirmModalBodyProps,
 	ConfirmModalContext,
 	ConfirmModalFooterProps,
@@ -848,6 +870,9 @@ export type {
 	DummyCardHeaderRenderProps,
 	DummyCardProps,
 	DummyCardRef,
+	DummyCollapsibleCardProps,
+	DummyCollapsibleCardRef,
+	DummyCollapsibleCardRenderProps,
 	DummyHorizontalGridBodyProps,
 	DummyHorizontalGridContext,
 	DummyHorizontalGridFooterProps,
