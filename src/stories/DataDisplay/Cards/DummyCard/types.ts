@@ -1,6 +1,6 @@
 import { Meta as StorybookMeta, StoryFn as StorybookStory } from '@storybook/react';
 
-import { DummyCard } from '../../..';
+import { DummyCard } from '../../../..';
 
 export type Meta = StorybookMeta<typeof DummyCard>;
 

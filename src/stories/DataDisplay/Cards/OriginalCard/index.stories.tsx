@@ -5,24 +5,27 @@ import { Text, VStack } from '@chakra-ui/react';
 import { range } from 'lodash-es';
 
 import {
+	Card as CardComponent,
 	CardBody,
 	CardColor,
 	CardFooter,
+	CardHeader,
+	CardProps,
 	CardVariant,
 	DummyButton,
-	DummyCard as DummyCardComponent,
-	DummyCardHeader,
-	DummyCardProps,
 	Skeleton
-} from '../../..';
+} from '../../../..';
+import { color as defaultColor } from '../../../../common/default/props';
 import {
-	color as defaultColor,
+	isClickable as defaultIsClickable,
+	isDisabled as defaultIsDisabled,
 	isDivisible as defaultIsDivisible,
+	isFixed as defaultIsFixed,
 	spacing as defaultSpacing,
 	variant as defaultVariant
-} from '../../../components/DataDisplay/Cards/common/default/props';
-import controls from '../../common/controls';
-import parameters from '../../common/parameters';
+} from '../../../../components/DataDisplay/Cards/common/default/props';
+import controls from '../../../common/controls';
+import parameters from '../../../common/parameters';
 
 import { Meta, Story } from './types';
 
@@ -35,8 +38,8 @@ const colorOptions: CardColor[] = [
 	'purple',
 	'deep_purple',
 	'indigo',
-	'blue',
 	'light_blue',
+	'blue',
 	'cyan',
 	'teal',
 	'green',
@@ -50,8 +53,8 @@ const colorOptions: CardColor[] = [
 const variantOptions: CardVariant[] = ['transparent', 'contained', 'light', 'outlined', 'monochrome'];
 
 export default {
-	title: 'Cards/Dummy Card',
-	component: DummyCardComponent,
+	title: 'Data Display/Cards/Card',
+	component: CardComponent,
 	argTypes: {
 		color: {
 			name: 'Color',
@@ -62,10 +65,38 @@ export default {
 			control: 'select'
 		},
 		colorMode: { ...controls.theme.colorMode },
+		isDisabled: {
+			name: 'Disabled',
+			type: 'boolean',
+			defaultValue: defaultIsDisabled,
+			// description: '',
+			control: 'boolean'
+		},
 		isDivisible: {
 			name: 'Divisible',
 			type: 'boolean',
 			defaultValue: defaultIsDivisible,
+			// description: '',
+			control: 'boolean'
+		},
+		isFixed: {
+			name: 'Fixed',
+			type: 'boolean',
+			defaultValue: defaultIsFixed,
+			// description: '',
+			control: 'boolean'
+		},
+		isClickable: {
+			name: 'Clickable',
+			type: 'boolean',
+			defaultValue: defaultIsClickable,
+			// description: '',
+			control: 'boolean'
+		},
+		isActive: {
+			name: 'Active',
+			type: 'boolean',
+			defaultValue: false,
 			// description: '',
 			control: 'boolean'
 		},
@@ -84,13 +115,13 @@ export default {
 	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
-export const DummyCard: Story = (props: DummyCardProps): ReactElement => (
-	<DummyCardComponent {...props}>
-		<DummyCardHeader
-			hasTitle
-			hasSubtitle
+export const Card: Story = (props: CardProps): ReactElement => (
+	<CardComponent {...props}>
+		<CardHeader
+			renderTitle={(props) => <Text {...props}>Title</Text>}
+			renderSubtitle={(props) => <Text {...props}>Subtitle</Text>}
 			actions={
-				<DummyButton color='blue' colorMode={props.colorMode} size='xs'>
+				<DummyButton color='light_blue' colorMode={props.colorMode} size='xs'>
 					Dummy Card Action
 				</DummyButton>
 			}
@@ -113,9 +144,9 @@ export const DummyCard: Story = (props: DummyCardProps): ReactElement => (
 			</VStack>
 		</CardBody>
 		<CardFooter>
-			<DummyButton color='blue' colorMode={props.colorMode} isFullWidth size='xs' variant='text'>
+			<DummyButton color='light_blue' colorMode={props.colorMode} isFullWidth size='xs' variant='text'>
 				This is the Dummy Card Footer Action
 			</DummyButton>
 		</CardFooter>
-	</DummyCardComponent>
+	</CardComponent>
 );
