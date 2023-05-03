@@ -1,85 +1,66 @@
-import { FC, useCallback } from 'react';
+import { FC } from 'react';
 
-import { Box, Center, HStack, VStack } from '@chakra-ui/react';
+import { Grid, GridItem, VStack } from '@chakra-ui/react';
 
+import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
-import { useTheme } from '../../../../../../common/hooks';
-import { convertREMToPixels, convertStringToNumber } from '../../../../../../common/utils';
-import { getColor } from '../../../../../../common/utils/color';
-import { Space } from '../../../../../../theme/types';
 import { useCardContext } from '../../common/hooks';
 
 import { CardHeaderProps } from './common/types';
 
 const CardHeader: FC<CardHeaderProps> = (props) => {
-	const theme = useTheme();
+	const { color, colorMode, spacing: defaultSpacing } = useCardContext();
 
-	const { color, colorMode, spacing: spacingHook } = useCardContext();
-
-	const [leftRef, { width: leftWidth }] = useElementSize();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
-	const [rightRef, { width: rightWidth }] = useElementSize();
 
-	const [actionsRef, { width: actionsWidth }] = useElementSize();
-
-	const { renderLeft, renderRight, renderTitle, renderSubtitle, actions, spacing = spacingHook, ...rest } = props;
-
-	const handleCalculateTextWidth = useCallback((): string => {
-		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem'));
-
-		return `calc(100% - ${actions ? actionsWidth + spacingWidth : 0}px)`;
-	}, [theme, spacing, actionsWidth]);
+	const { renderLeft, renderRight, renderTitle, renderSubtitle, actions, spacing = defaultSpacing } = props;
 
 	return (
-		<HStack width='100%' spacing={spacing} {...rest}>
-			{renderLeft && (
-				<Box ref={leftRef}>
-					{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
-				</Box>
-			)}
+		<Grid
+			width='100%'
+			templateColumns={compact([renderLeft ? 'auto' : null, '1fr', renderRight ? 'auto' : null]).join(' ')}
+			templateRows='1fr'
+			alignItems='center'
+			alignContent='space-between'
+			justifyContent='space-between'
+			gap={spacing}
+		>
+			{renderLeft ? (
+				<GridItem>{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}</GridItem>
+			) : null}
 
-			<HStack
-				ref={childrenRef}
-				width={`calc(100% - ${(renderLeft ? leftWidth : 0) + (renderRight ? rightWidth : 0)}px)`}
-				alignItems='center'
-				justifyContent={renderTitle ? 'space-between' : 'flex-end'}
-				spacing={spacing}
-				{...rest}
-			>
-				{renderTitle && (
-					<VStack width={handleCalculateTextWidth()} alignItems='flex-start' spacing={0.5}>
-						{/* Title */}
-						{renderTitle({
-							align: 'left',
-							color: getColor({ theme, colorMode, type: 'text.primary' }),
-							fontSize: 'xl',
-							fontWeight: 'bold',
-							lineHeight: 'normal',
-							noOfLines: 1
-						})}
+			<GridItem>
+				<Grid
+					ref={childrenRef}
+					width='100%'
+					templateColumns={compact([renderTitle ? 'auto' : null, actions ? 'auto' : null]).join(' ')}
+					templateRows='1fr'
+					alignItems='center'
+					alignContent='space-between'
+					justifyContent='space-between'
+					gap={spacing}
+				>
+					{renderTitle ? (
+						<GridItem>
+							<VStack width='100%' alignItems='flex-start' justifyContent='center' spacing={0.5}>
+								{/* Title */}
+								{renderTitle()}
 
-						{/* Subtitle */}
-						{renderSubtitle &&
-							renderSubtitle({
-								align: 'left',
-								color: getColor({ theme, colorMode, type: 'text.secondary' }),
-								fontSize: 'sm',
-								lineHeight: 'normal',
-								noOfLines: 1
-							})}
-					</VStack>
-				)}
+								{/* Subtitle */}
+								{renderSubtitle ? renderSubtitle() : null}
+							</VStack>
+						</GridItem>
+					) : null}
 
-				{actions && <Center ref={actionsRef}>{actions}</Center>}
-			</HStack>
+					{actions ? <GridItem>{actions}</GridItem> : null}
+				</Grid>
+			</GridItem>
 
-			{renderRight && (
-				<Box ref={rightRef}>
-					{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
-				</Box>
-			)}
-		</HStack>
+			{renderRight ? (
+				<GridItem>{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}</GridItem>
+			) : null}
+		</Grid>
 	);
 };
 

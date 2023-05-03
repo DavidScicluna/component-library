@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 
-import { StackProps, TextProps } from '@chakra-ui/react';
-
+import { Space } from '../../../../../../../../theme/types';
 import { CommonCardProps } from '../../../../../common/types';
 
 export type CardHeaderRenderProps = Pick<CommonCardProps, 'color' | 'colorMode'> & {
@@ -10,10 +9,11 @@ export type CardHeaderRenderProps = Pick<CommonCardProps, 'color' | 'colorMode'>
 	// size?: ButtonSize;
 };
 
-export type CardHeaderProps = Omit<StackProps, 'children' | 'direction'> & {
+export type CardHeaderProps = {
 	renderLeft?: (props: CardHeaderRenderProps) => ReactNode;
 	renderRight?: (props: CardHeaderRenderProps) => ReactNode;
-	renderTitle?: (props: TextProps) => ReactNode;
-	renderSubtitle?: (props: TextProps) => ReactNode;
+	renderTitle?: () => ReactNode;
+	renderSubtitle?: () => ReactNode;
 	actions?: ReactNode;
+	spacing?: Space;
 };
