@@ -446,6 +446,8 @@ import {
 	HoverOverlayProps,
 	HoverOverlayRef
 } from './components/Overlay/HoverOverlay/common/types';
+import LoadingOverlay from './components/Overlay/LoadingOverlay';
+import { LoadingOverlayProps, LoadingOverlayRef } from './components/Overlay/LoadingOverlay/common/types';
 import Modal from './components/Overlay/Modal';
 import { useModalContext } from './components/Overlay/Modal/common/hooks';
 import { ModalContext, ModalProps, ModalSize } from './components/Overlay/Modal/common/types';
@@ -733,6 +735,7 @@ export {
 	ImageEditor,
 	Input,
 	Link,
+	LoadingOverlay,
 	Modal,
 	ModalBody,
 	ModalFooter,
@@ -976,6 +979,8 @@ export type {
 	InputSize,
 	InputVariant,
 	LinkProps,
+	LoadingOverlayProps,
+	LoadingOverlayRef,
 	ModalBodyProps,
 	ModalContext,
 	ModalFooterProps,
