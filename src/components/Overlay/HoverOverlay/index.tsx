@@ -1,0 +1,35 @@
+import { forwardRef, ReactElement } from 'react';
+
+import { Center, useBoolean } from '@chakra-ui/react';
+
+import { HoverOverlayMouseEvent, HoverOverlayProps, HoverOverlayRef } from './common/types';
+
+const HoverOverlay = forwardRef<HoverOverlayRef, HoverOverlayProps>(function HoverOverlay(props, ref): ReactElement {
+	const { children, onMouseEnter, onMouseLeave, ...rest } = props;
+
+	const [isHovering, setIsHovering] = useBoolean();
+
+	const handleMouseEnter = (event: HoverOverlayMouseEvent): void => {
+		setIsHovering.on();
+
+		if (onMouseEnter) {
+			onMouseEnter(event);
+		}
+	};
+
+	const handleMouseLeave = (event: HoverOverlayMouseEvent): void => {
+		setIsHovering.off();
+
+		if (onMouseLeave) {
+			onMouseLeave(event);
+		}
+	};
+
+	return (
+		<Center {...rest} ref={ref} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+			{children({ isHovering })}
+		</Center>
+	);
+});
+
+export default HoverOverlay;

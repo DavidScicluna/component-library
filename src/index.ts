@@ -435,6 +435,13 @@ import ConfirmModalTitle from './components/Overlay/ConfirmModal/components/Conf
 import { ConfirmModalTitleProps } from './components/Overlay/ConfirmModal/components/ConfirmModalTitle/common/types';
 import Glass from './components/Overlay/Glass';
 import { GlassProps, GlassRef } from './components/Overlay/Glass/common/types';
+import HoverOverlay from './components/Overlay/HoverOverlay';
+import {
+	HoverOverlayChildrenProps,
+	HoverOverlayMouseEvent,
+	HoverOverlayProps,
+	HoverOverlayRef
+} from './components/Overlay/HoverOverlay/common/types';
 import Modal from './components/Overlay/Modal';
 import { useModalContext } from './components/Overlay/Modal/common/hooks';
 import { ModalContext, ModalProps, ModalSize } from './components/Overlay/Modal/common/types';
@@ -712,6 +719,7 @@ export {
 	HorizontalGridTabbedScroll,
 	HorizontalScroll,
 	HorizontalScrollArrow,
+	HoverOverlay,
 	Icon,
 	IconButton,
 	IconButtonIcon,
@@ -929,6 +937,10 @@ export type {
 	HorizontalScrollProps,
 	HorizontalScrollRef,
 	HorizontalScrollRenderDividerProps,
+	HoverOverlayChildrenProps,
+	HoverOverlayMouseEvent,
+	HoverOverlayProps,
+	HoverOverlayRef,
 	IconButtonColor,
 	IconButtonContext,
 	IconButtonIconProps,
