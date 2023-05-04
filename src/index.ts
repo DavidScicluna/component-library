@@ -131,6 +131,10 @@ import CardBody from './components/DataDisplay/Cards/components/CardBody';
 import { CardBodyProps } from './components/DataDisplay/Cards/components/CardBody/common/types';
 import CardFooter from './components/DataDisplay/Cards/components/CardFooter';
 import { CardFooterProps } from './components/DataDisplay/Cards/components/CardFooter/common/types';
+import CardSubtitle from './components/DataDisplay/Cards/components/CardSubtitle';
+import { CardSubtitleProps } from './components/DataDisplay/Cards/components/CardSubtitle/common/types';
+import CardTitle from './components/DataDisplay/Cards/components/CardTitle';
+import { CardTitleProps } from './components/DataDisplay/Cards/components/CardTitle/common/types';
 import DummyCard from './components/DataDisplay/Cards/DummyCard';
 import { useDummyCardContext } from './components/DataDisplay/Cards/DummyCard/common/hooks';
 import { DummyCardContext, DummyCardProps, DummyCardRef } from './components/DataDisplay/Cards/DummyCard/common/types';
@@ -654,6 +658,8 @@ export {
 	CardDivider,
 	CardFooter,
 	CardHeader,
+	CardSubtitle,
+	CardTitle,
 	Checkbox,
 	CheckboxSubtitle,
 	CheckboxTitle,
@@ -815,6 +821,8 @@ export type {
 	CardHeaderRenderProps,
 	CardProps,
 	CardRef,
+	CardSubtitleProps,
+	CardTitleProps,
 	CardVariant,
 	CheckboxContext,
 	CheckboxPanelRenderProps,
