@@ -66,7 +66,7 @@ const DummyCollapsibleCard = forwardRef<DummyCollapsibleCardRef, DummyCollapsibl
 				_disabled={style.disabled}
 				_active={style.active}
 			>
-				<HStack width='100%' spacing={spacing} {...rest}>
+				<HStack width='100%' spacing={spacing}>
 					{renderLeft && (
 						<Box ref={leftRef}>
 							{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
@@ -79,7 +79,6 @@ const DummyCollapsibleCard = forwardRef<DummyCollapsibleCardRef, DummyCollapsibl
 						alignItems='center'
 						justifyContent={renderTitle ? 'space-between' : 'flex-end'}
 						spacing={spacing}
-						{...rest}
 					>
 						{renderTitle && (
 							<VStack width={handleCalculateTextWidth()} alignItems='flex-start' spacing={0.5}>

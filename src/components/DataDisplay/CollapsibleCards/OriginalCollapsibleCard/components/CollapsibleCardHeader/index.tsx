@@ -16,7 +16,7 @@ import { CollapsibleCardHeaderProps } from './common/types';
 const CollapsibleCardHeader: FC<CollapsibleCardHeaderProps> = (props) => {
 	const theme = useTheme();
 
-	const { color, colorMode, isOpen, spacing: spacingHook } = useCollapsibleCardContext();
+	const { color, colorMode, isOpen, spacing: defaultSpacing } = useCollapsibleCardContext();
 
 	const [leftRef, { width: leftWidth }] = useElementSize();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
@@ -24,7 +24,7 @@ const CollapsibleCardHeader: FC<CollapsibleCardHeaderProps> = (props) => {
 
 	const [actionsRef, { width: actionsWidth }] = useElementSize();
 
-	const { renderLeft, renderRight, renderTitle, renderSubtitle, actions, spacing = spacingHook, ...rest } = props;
+	const { renderLeft, renderRight, renderTitle, renderSubtitle, actions, spacing = defaultSpacing, ...rest } = props;
 
 	const handleCalculateTextWidth = useCallback((): string => {
 		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem'));
