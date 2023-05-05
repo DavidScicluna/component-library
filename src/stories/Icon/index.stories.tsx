@@ -2,8 +2,10 @@ import { ReactElement } from 'react';
 
 import { sample } from 'lodash-es';
 
-import { Icon as IconComponent, IconCategory, IconProps, IconType } from '../..';
+import { Icon as IconComponent, IconCategory, IconColor, IconProps, IconType, IconVariant } from '../..';
 import icons from '../../common/data/icons';
+import { color as defaultColor } from '../../common/default/props';
+import { variant as defaultVariant } from '../../components/Icon/common/default/props';
 import controls from '../common/controls';
 import parameters from '../common/parameters';
 
@@ -14,6 +16,29 @@ const childrenOptions: IconType[] = [...icons];
 
 const categoryDefaultValue: IconCategory = 'filled';
 const categoryOptions: IconCategory[] = ['filled', 'outlined'];
+
+const colorOptions: IconColor[] = [
+	'black',
+	'white',
+	'gray',
+	'red',
+	'pink',
+	'purple',
+	'deep_purple',
+	'indigo',
+	'light_blue',
+	'blue',
+	'cyan',
+	'teal',
+	'green',
+	'light_green',
+	'lime',
+	'yellow',
+	'orange',
+	'deep_orange'
+];
+
+const variantOptions: IconVariant[] = ['transparent', 'contained', 'light', 'outlined', 'monochrome'];
 
 export default {
 	title: 'Icon',
@@ -26,13 +51,15 @@ export default {
 			options: childrenOptions,
 			control: 'select'
 		},
-		color: { ...controls.common.color },
+		color: {
+			name: 'Color',
+			type: 'string',
+			defaultValue: defaultColor,
+			// description: '',
+			options: [...colorOptions],
+			control: 'select'
+		},
 		colorMode: { ...controls.theme.colorMode },
-		backgroundColor: { ...controls.common.backgroundColor },
-		borderRadius: { ...controls.theme.borderRadius },
-		fontSize: { ...controls.theme.fontSize },
-		padding: { ...controls.theme.padding },
-		margin: { ...controls.theme.margin },
 		category: {
 			name: 'Category',
 			type: 'string',
@@ -40,11 +67,21 @@ export default {
 			// description: '',
 			options: categoryOptions,
 			control: 'radio'
+		},
+		borderRadius: { ...controls.theme.borderRadius },
+		fontSize: { ...controls.theme.fontSize },
+		padding: { ...controls.theme.padding },
+		margin: { ...controls.theme.margin },
+		variant: {
+			name: 'Variant',
+			type: 'string',
+			defaultValue: defaultVariant,
+			// description: '',
+			options: [...variantOptions],
+			control: 'select'
 		}
 	},
 	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
-export const Icon: Story = (props: IconProps): ReactElement => (
-	<IconComponent {...props} sx={{ background: props.backgroundColor, color: props.color }} />
-);
+export const Icon: Story = (props: IconProps): ReactElement => <IconComponent {...props} />;
