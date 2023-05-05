@@ -1,6 +1,6 @@
 import { forwardRef, ReactElement } from 'react';
 
-import { Center } from '@chakra-ui/react';
+import { Box, Center } from '@chakra-ui/react';
 
 import { merge } from 'lodash-es';
 
@@ -38,25 +38,28 @@ const Icon = forwardRef<IconRef, IconProps>(function Icon(props, ref): ReactElem
 	const style = useStyles({ theme, color, colorMode, variant });
 
 	return (
-		<Skeleton color={color} colorMode={colorMode} isLoaded={hasIconLoaded[category]} variant='circle'>
-			<Center
-				{...rest}
-				ref={ref}
-				as='span'
-				className={`material-icons${category === 'outlined' ? '-outlined' : ''} ds-cl-icon`}
-				w={w || width}
-				width={w || width}
-				h={h || height}
-				height={h || height}
-				maxWidth={maxW || maxWidth || w || width}
-				maxHeight={maxH || maxHeight || h || height}
-				whiteSpace='nowrap'
-				textOverflow='ellipsis'
-				sx={merge(style.icon, sx)}
-			>
-				{icon}
-			</Center>
-		</Skeleton>
+		<Box
+			w={w || width}
+			width={w || width}
+			h={h || height}
+			height={h || height}
+			maxWidth={maxW || maxWidth || w || width}
+			maxHeight={maxH || maxHeight || h || height}
+		>
+			<Skeleton color={color} colorMode={colorMode} isLoaded={hasIconLoaded[category]} variant='circle'>
+				<Center
+					{...rest}
+					ref={ref}
+					as='span'
+					className={`material-icons${category === 'outlined' ? '-outlined' : ''} ds-cl-icon`}
+					width='100%'
+					height='100%'
+					sx={merge(style.icon, sx)}
+				>
+					{icon}
+				</Center>
+			</Skeleton>
+		</Box>
 	);
 });
 
