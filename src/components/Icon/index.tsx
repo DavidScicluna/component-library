@@ -1,62 +1,63 @@
-import { FC } from 'react';
+import { forwardRef, ReactElement } from 'react';
 
-import { Center, useBoolean } from '@chakra-ui/react';
+import { Center } from '@chakra-ui/react';
 
-import { useInterval } from 'usehooks-ts';
+import { merge } from 'lodash-es';
 
-import { useProviderContext } from '../../common/hooks';
+import { useTheme } from '../../common/hooks';
+import { useProviderContext } from '../Provider/common/hooks';
 import Skeleton from '../Skeleton';
-import { color as defaultSkeletonColor } from '../Skeleton/common/data/defaultPropValues';
 
-import { category as defaultCategory } from './common/default/props';
-import { IconProps } from './common/types';
-import { checkFontStatus } from './common/utils';
+import { category as defaultCategory, variant as defaultVariant } from './common/default/props';
+import useStyles from './common/styles';
+import { IconProps, IconRef } from './common/types';
 
-const Icon: FC<IconProps> = (props) => {
-	const { colorMode: defaultColorMode } = useProviderContext();
+const Icon = forwardRef<IconRef, IconProps>(function Icon(props, ref): ReactElement {
+	const theme = useTheme();
+
+	const { color: defaultColor, colorMode: defaultColorMode, hasIconLoaded } = useProviderContext();
 
 	const {
+		color = defaultColor,
 		colorMode = defaultColorMode,
 		category = defaultCategory,
-		w,
-		width,
-		h,
-		height,
+		w = '24px',
+		width = '24px',
+		h = '24px',
+		height = '24px',
+		maxW = '24px',
+		maxWidth = '24px',
+		maxH = '24px',
+		maxHeight = '24px',
 		icon,
-		skeletonColor = defaultSkeletonColor,
+		variant = defaultVariant,
+		sx,
 		...rest
 	} = props;
 
-	const [hasLoaded, setHasLoaded] = useBoolean(checkFontStatus({ category }));
-
-	const handleCheckFontStatus = (): void => {
-		if (checkFontStatus({ category })) {
-			setHasLoaded.on();
-		} else {
-			setHasLoaded.off();
-		}
-	};
-
-	useInterval(() => handleCheckFontStatus(), !hasLoaded ? 250 : null);
+	const style = useStyles({ theme, color, colorMode, variant });
 
 	return (
-		<Skeleton color={skeletonColor} colorMode={colorMode} isLoaded={hasLoaded} variant='circle'>
+		<Skeleton color={color} colorMode={colorMode} isLoaded={hasIconLoaded[category]} variant='circle'>
 			<Center
 				{...rest}
+				ref={ref}
 				as='span'
 				className={`material-icons${category === 'outlined' ? '-outlined' : ''} ds-cl-icon`}
-				w={w}
-				width={width}
-				h={h}
-				height={height}
-				maxWidth={w || width || '24px'}
-				maxHeight={h || height || '24px'}
+				w={w || width}
+				width={w || width}
+				h={h || height}
+				height={h || height}
+				maxWidth={maxW || maxWidth || w || width}
+				maxHeight={maxH || maxHeight || h || height}
 				whiteSpace='nowrap'
+				textOverflow='ellipsis'
+				sx={merge(style.icon, sx)}
 			>
 				{icon}
 			</Center>
 		</Skeleton>
 	);
-};
+});
 
 export default Icon;
