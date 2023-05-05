@@ -5,9 +5,10 @@ import { IconButton as CUIIconButton } from '@chakra-ui/react';
 import merge from 'lodash-es/merge';
 
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/default/props';
-import { useProviderContext, useTheme } from '../../../../common/hooks';
+import { useTheme } from '../../../../common/hooks';
 import { Radius } from '../../../../theme/types';
 import PushableOverlay from '../../../Overlay/PushableOverlay';
+import { useProviderContext } from '../../../Provider/common/hooks';
 import {
 	isActive as defaultIsActive,
 	isCompact as defaultIsCompact,

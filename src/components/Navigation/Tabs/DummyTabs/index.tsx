@@ -3,7 +3,7 @@ import { createContext, forwardRef, ReactElement } from 'react';
 import { Tabs as CUIDummyTabs } from '@chakra-ui/react';
 
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/default/props';
-import { useProviderContext } from '../../../../common/hooks';
+import { useProviderContext } from '../../../Provider/common/hooks';
 import {
 	activeTab as defaultActiveTab,
 	isFitted as defaultIsFitted,

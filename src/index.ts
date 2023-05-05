@@ -1,5 +1,5 @@
 import fallback from './common/assets/fallback';
-import { useDebounce, useOs, useProviderContext as useDSCLProviderContext, useTheme } from './common/hooks';
+import { useDebounce, useOs, useTheme } from './common/hooks';
 import {
 	checkIsTouchDevice,
 	convertEasingsToArray,
@@ -496,6 +496,8 @@ import { StateOverlayProps, StateOverlayState } from './components/Overlay/State
 import Tooltip from './components/Overlay/Tooltip';
 import { TooltipColor, TooltipProps, TooltipRef } from './components/Overlay/Tooltip/types';
 import DSCLProvider from './components/Provider';
+import { useProviderContext as useDSCLProviderContext } from './components/Provider/common/hooks';
+import { ProviderContext, ProviderProps } from './components/Provider/common/types';
 import Skeleton from './components/Skeleton';
 import { SkeletonColor, SkeletonProps, SkeletonVariant } from './components/Skeleton/types';
 import Spinner from './components/Spinner';
@@ -995,6 +997,8 @@ export type {
 	NavItemProps,
 	NavItemType,
 	PageTransitionProps,
+	ProviderContext,
+	ProviderProps,
 	PushableOverlayProps,
 	PushableOverlayRef,
 	PushableOverlayVariant,

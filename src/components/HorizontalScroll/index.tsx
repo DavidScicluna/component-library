@@ -4,8 +4,9 @@ import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 import { Box } from '@chakra-ui/react';
 
 import { color as defaultColor, colorMode as defaultColorMode } from '../../common/default/props';
-import { useProviderContext, useTheme } from '../../common/hooks';
+import { useTheme } from '../../common/hooks';
 import { convertStringToNumber } from '../../common/utils';
+import { useProviderContext } from '../Provider/common/hooks';
 
 import { isDisabled as defaultIsDisabled } from './common/default/props';
 import {

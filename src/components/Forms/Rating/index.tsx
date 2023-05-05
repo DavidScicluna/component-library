@@ -4,7 +4,8 @@ import { FormControl, HStack, VStack } from '@chakra-ui/react';
 
 import { debounce, includes, isEmpty, isNil, merge, range } from 'lodash-es';
 
-import { useProviderContext, useTheme } from '../../../common/hooks';
+import { useTheme } from '../../../common/hooks';
+import { useProviderContext } from '../../Provider/common/hooks';
 import Collapse from '../../Transitions/Collapse';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';

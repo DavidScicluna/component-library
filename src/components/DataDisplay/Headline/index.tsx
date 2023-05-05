@@ -4,8 +4,9 @@ import { Box, HStack, VStack } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import { useProviderContext, useTheme } from '../../../common/hooks';
+import { useTheme } from '../../../common/hooks';
 import { getColor } from '../../../common/utils/color';
+import { useProviderContext } from '../../Provider/common/hooks';
 
 import { HeadlineProps } from './common/types';
 

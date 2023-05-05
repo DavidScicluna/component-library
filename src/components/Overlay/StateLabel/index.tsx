@@ -3,7 +3,7 @@ import { createContext, FC } from 'react';
 import { VStack } from '@chakra-ui/react';
 
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../common/default/props';
-import { useProviderContext } from '../../../common/hooks';
+import { useProviderContext } from '../../Provider/common/hooks';
 
 import { padding as defaultPadding, spacing as defaultSpacing } from './common/default/props';
 import { StateLabelContext as StateLabelContextType, StateLabelProps } from './common/types';

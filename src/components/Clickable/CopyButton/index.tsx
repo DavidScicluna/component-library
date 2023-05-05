@@ -5,8 +5,9 @@ import { useBoolean } from '@chakra-ui/react';
 
 import { useCopyToClipboard } from 'usehooks-ts';
 
-import { useProviderContext, useTheme } from '../../../common/hooks';
+import { useTheme } from '../../../common/hooks';
 import { convertStringToNumber } from '../../../common/utils';
+import { useProviderContext } from '../../Provider/common/hooks';
 
 import { CopyButtonProps } from './common/types';
 

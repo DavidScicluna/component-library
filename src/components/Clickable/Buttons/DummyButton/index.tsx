@@ -5,9 +5,10 @@ import { Box, Button as CUIButton, Center, Grid, GridItem } from '@chakra-ui/rea
 import { compact, merge } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
-import { useProviderContext, useTheme } from '../../../../common/hooks';
+import { useTheme } from '../../../../common/hooks';
 import { Radius } from '../../../../theme/types';
 import PushableOverlay from '../../../Overlay/PushableOverlay';
+import { useProviderContext } from '../../../Provider/common/hooks';
 import Skeleton from '../../../Skeleton';
 import {
 	isCompact as defaultIsCompact,

@@ -5,8 +5,8 @@ import { useBoolean } from '@chakra-ui/react';
 import { debounce } from 'lodash-es';
 import { useEventListener, useWindowSize } from 'usehooks-ts';
 
-import { useProviderContext } from '../../../common/hooks';
 import Tooltip from '../../Overlay/Tooltip';
+import { useProviderContext } from '../../Provider/common/hooks';
 import ScaleFade from '../../Transitions/ScaleFade';
 import IconButton from '../IconButtons/OriginalIconButton';
 import { IconButtonMouseEvent } from '../IconButtons/OriginalIconButton/common/types';

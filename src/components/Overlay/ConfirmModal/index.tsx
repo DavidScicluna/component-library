@@ -7,8 +7,9 @@ import {
 	colorMode as defaultColorMode,
 	method as defaultOnClose
 } from '../../../common/default/props';
-import { useProviderContext, useTheme } from '../../../common/hooks';
+import { useTheme } from '../../../common/hooks';
 import { getColor } from '../../../common/utils/color';
+import { useProviderContext } from '../../Provider/common/hooks';
 
 import { isOpen as defaultIsOpen, size as defaultSize, spacing as defaultSpacing } from './common/default/props';
 import { ConfirmModalContext as ConfirmModalContextType, ConfirmModalProps } from './common/types';

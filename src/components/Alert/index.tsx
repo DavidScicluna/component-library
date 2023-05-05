@@ -7,7 +7,7 @@ import { round, sample } from 'lodash-es';
 import { useCountdown, useElementSize, useUpdateEffect } from 'usehooks-ts';
 
 import { errorEmojis, errorTitles, successEmojis, successTitles } from '../../common/data/strings';
-import { useProviderContext, useTheme } from '../../common/hooks';
+import { useTheme } from '../../common/hooks';
 import { Undefinable } from '../../common/types';
 import { convertREMToPixels, convertStringToNumber } from '../../common/utils';
 import { getColor } from '../../common/utils/color';
@@ -15,6 +15,7 @@ import { Space } from '../../theme/types';
 import IconButton from '../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
 import Icon from '../Icon';
+import { useProviderContext } from '../Provider/common/hooks';
 
 import { duration as defaultDuration } from './common/default/props';
 import { AlertProps } from './common/types';

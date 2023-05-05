@@ -4,7 +4,7 @@ import { VisuallyHiddenInput } from '@chakra-ui/react';
 
 import Compressor from 'compressorjs';
 
-import { useProviderContext } from '../../../common/hooks';
+import { useProviderContext } from '../../Provider/common/hooks';
 
 import {
 	FileButtonBlob,

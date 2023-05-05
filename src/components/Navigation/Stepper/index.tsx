@@ -7,7 +7,7 @@ import {
 	colorMode as defaultColorMode,
 	method as defaultMethod
 } from '../../../common/default/props';
-import { useProviderContext } from '../../../common/hooks';
+import { useProviderContext } from '../../Provider/common/hooks';
 
 import { activeStep as defaultActiveStep } from './common/default/props';
 import { StepperContext as StepperContextType, StepperProps, StepperRef } from './common/types';

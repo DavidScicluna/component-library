@@ -7,7 +7,7 @@ import { useDayzed } from 'dayzed';
 import { useUpdateEffect } from 'usehooks-ts';
 
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../common/default/props';
-import { useDebounce, useProviderContext } from '../../../common/hooks';
+import { useDebounce } from '../../../common/hooks';
 import Button from '../../Clickable/Buttons/OriginalButton';
 import IconButton from '../../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
@@ -17,6 +17,7 @@ import ModalBody from '../../Overlay/Modal/components/ModalBody';
 import ModalFooter from '../../Overlay/Modal/components/ModalFooter';
 import ModalHeader from '../../Overlay/Modal/components/ModalHeader';
 import ModalStack from '../../Overlay/Modal/components/ModalStack';
+import { useProviderContext } from '../../Provider/common/hooks';
 import Fade from '../../Transitions/Fade';
 
 import {

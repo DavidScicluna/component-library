@@ -5,11 +5,12 @@ import { Box, Center, HStack, VStack } from '@chakra-ui/react';
 import { merge } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
-import { useProviderContext, useTheme } from '../../../../common/hooks';
+import { useTheme } from '../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../common/utils';
 import { Space } from '../../../../theme/types';
 import Icon from '../../../Icon';
 import PushableOverlay from '../../../Overlay/PushableOverlay';
+import { useProviderContext } from '../../../Provider/common/hooks';
 import Skeleton from '../../../Skeleton';
 import { spacing as defaultSpacing, variant as defaultVariant } from '../common/default/props';
 import useStyles from '../common/styles';

@@ -5,7 +5,8 @@ import { dataAttr } from '@chakra-ui/utils';
 
 import { merge } from 'lodash-es';
 
-import { useProviderContext, useTheme } from '../../../common/hooks';
+import { useTheme } from '../../../common/hooks';
+import { useProviderContext } from '../../Provider/common/hooks';
 
 import {
 	borderRadius as defaultBorderRadius,

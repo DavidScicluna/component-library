@@ -2,8 +2,9 @@ import { forwardRef, ReactElement } from 'react';
 
 import { Box } from '@chakra-ui/react';
 
-import { useProviderContext, useTheme } from '../../common/hooks';
+import { useTheme } from '../../common/hooks';
 import { getColor } from '../../common/utils/color';
+import { useProviderContext } from '../Provider/common/hooks';
 
 import { DividerProps, DividerRef } from './common/types';
 

@@ -7,7 +7,7 @@ import {
 	colorMode as defaultColorMode,
 	method as defaultOnChange
 } from '../../../../common/default/props';
-import { useProviderContext } from '../../../../common/hooks';
+import { useProviderContext } from '../../../Provider/common/hooks';
 import {
 	activeTab as defaultActiveTab,
 	isDisabled as defaultIsDisabled,

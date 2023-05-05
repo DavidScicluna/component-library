@@ -5,8 +5,9 @@ import { Center, Checkbox as CUICheckbox, FormControl, HStack, VStack } from '@c
 import { debounce, isEmpty, isNil, merge } from 'lodash-es';
 
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../common/default/props';
-import { useProviderContext, useTheme } from '../../../common/hooks';
+import { useTheme } from '../../../common/hooks';
 import Icon from '../../Icon';
+import { useProviderContext } from '../../Provider/common/hooks';
 import Collapse from '../../Transitions/Collapse';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';

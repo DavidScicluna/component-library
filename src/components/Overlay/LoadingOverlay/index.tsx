@@ -4,8 +4,9 @@ import { Center, Grid, GridItem } from '@chakra-ui/react';
 
 import { transparentize } from 'color2k';
 
-import { useProviderContext, useTheme } from '../../../common/hooks';
+import { useTheme } from '../../../common/hooks';
 import { getColor } from '../../../common/utils/color';
+import { useProviderContext } from '../../Provider/common/hooks';
 import Fade from '../../Transitions/Fade';
 import Glass from '../Glass';
 

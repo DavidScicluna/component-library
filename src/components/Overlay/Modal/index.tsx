@@ -9,9 +9,10 @@ import {
 	colorMode as defaultColorMode,
 	method as defaultOnClose
 } from '../../../common/default/props';
-import { useProviderContext, useTheme } from '../../../common/hooks';
+import { useTheme } from '../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../common/utils';
 import { getColor } from '../../../common/utils/color';
+import { useProviderContext } from '../../Provider/common/hooks';
 
 import { isOpen as defaultIsOpen, size as defaultSize, spacing as defaultSpacing } from './common/default/props';
 import { ModalContext as ModalContextType, ModalProps } from './common/types';
