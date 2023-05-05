@@ -25,8 +25,6 @@ export default ({
 	return {
 		'cursor': 'pointer',
 
-		'position': 'relative',
-
 		'width': isFullWidth ? '100%' : 'auto',
 		'height': 'auto',
 
@@ -34,8 +32,6 @@ export default ({
 		'minHeight': 'auto',
 		'maxWidth': 'none',
 		'maxHeight': 'none',
-
-		'display': 'inline-flex',
 
 		'userSelect': 'none',
 		'willChange': 'auto',

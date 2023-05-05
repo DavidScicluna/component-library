@@ -11,8 +11,6 @@ export default ({ theme }: IconButtonStyleProps): Style => {
 	return {
 		'cursor': 'pointer',
 
-		'position': 'relative',
-
 		'width': 'auto',
 		'height': 'auto',
 
@@ -20,8 +18,6 @@ export default ({ theme }: IconButtonStyleProps): Style => {
 		'minHeight': 'auto',
 		'maxWidth': 'none',
 		'maxHeight': 'none',
-
-		'display': 'inline-flex',
 
 		'userSelect': 'none',
 		'willChange': 'auto',

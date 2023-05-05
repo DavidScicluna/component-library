@@ -18,10 +18,6 @@ export default ({
 
 		'pointerEvents': 'auto',
 
-		'position': 'relative',
-
-		'display': 'inline-flex',
-
 		'userSelect': 'none',
 		'willChange': 'auto',
 

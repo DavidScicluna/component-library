@@ -14,10 +14,6 @@ export default ({ theme, isClickable = defaultIsClickable, isFixed = defaultIsFi
 
 		'pointerEvents': 'auto',
 
-		'position': 'relative',
-
-		'display': 'inline-flex',
-
 		'userSelect': 'none',
 		'willChange': 'auto',
 
