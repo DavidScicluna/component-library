@@ -9,13 +9,16 @@ import { useProviderContext } from '../Provider/common/hooks';
 import Skeleton from '../Skeleton';
 
 import { category as defaultCategory, variant as defaultVariant } from './common/default/props';
+import { useCheckIconFontStatus } from './common/hooks';
 import useStyles from './common/styles';
 import { IconProps, IconRef } from './common/types';
 
 const Icon = forwardRef<IconRef, IconProps>(function Icon(props, ref): ReactElement {
 	const theme = useTheme();
 
-	const { color: defaultColor, colorMode: defaultColorMode, hasIconLoaded } = useProviderContext();
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
+
+	const hasIconLoaded = useCheckIconFontStatus();
 
 	const {
 		color = defaultColor,
