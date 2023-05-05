@@ -11,7 +11,10 @@ import TransitionsProvider from '../Transitions/TransitionsProvider';
 
 import { ProviderContext as ProviderContextType, ProviderProps } from './common/types';
 
-export const ProviderContext = createContext<ProviderContextType>({ color: defaultColor, colorMode: defaultColorMode });
+export const ProviderContext = createContext<ProviderContextType>({
+	color: defaultColor,
+	colorMode: defaultColorMode
+});
 
 const Provider: FC<ProviderProps> = (props) => {
 	// TODO: Maybe place day/light colormode cycle directly here and pass down to ProviderContext
