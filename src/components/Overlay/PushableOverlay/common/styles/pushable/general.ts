@@ -25,6 +25,8 @@ export default ({
 	return {
 		'cursor': isPushable && !isFixed ? 'pointer' : 'default',
 
+		'position': 'relative',
+
 		'userSelect': 'none',
 		'willChange': 'auto',
 
