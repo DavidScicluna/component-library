@@ -22,7 +22,7 @@ export type IconColor = Exclude<Color, 'transparent'>;
 
 export type IconCategory = 'filled' | 'outlined';
 
-export type IconVariant = 'contained' | 'light' | 'outlined' | 'monochrome' | 'transparent';
+export type IconVariant = 'contained' | 'light' | 'outlined' | 'monochrome' | 'transparent' | 'unstyled';
 
 type Omitted =
 	// CUI Box Props

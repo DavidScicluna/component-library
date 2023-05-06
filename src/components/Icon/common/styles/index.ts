@@ -15,6 +15,6 @@ export default memoize((props: IconStyleProps): IconStyleReturn => {
 	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
-		icon: merge(icon({ theme }), scheme[variant]({ theme, color }))
+		icon: merge(icon({ theme }), variant !== 'unstyled' ? scheme[variant]({ theme, color }) : {})
 	};
 });
