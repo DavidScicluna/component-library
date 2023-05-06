@@ -9,10 +9,10 @@ import { convertREMToPixels, convertStringToNumber } from '../../../../common/ut
 import Divider from '../../../Divider';
 import { useImageEditorContext } from '../../common/hooks';
 
+import { ActionsProps } from './common/types';
 import Cancel from './components/Cancel';
 import Save from './components/Save';
 import Toolbar from './components/Toolbar';
-import { ActionsProps } from './types';
 
 const Actions: FC<ActionsProps> = ({ onSelectTool, onZoom, onCancel, onSave }) => {
 	const theme = useTheme();
@@ -24,6 +24,7 @@ const Actions: FC<ActionsProps> = ({ onSelectTool, onZoom, onCancel, onSave }) =
 	const [cancelRef, { width: cancelWidth }] = useElementSize();
 	const [saveRef, { width: saveWidth }] = useElementSize();
 
+	// TODO: Replace all handleWidth useCallback with usememo instead
 	const handleScrollWidth = useCallback(() => {
 		const spacing = convertREMToPixels(convertStringToNumber(theme.space[2], 'rem') * 4);
 

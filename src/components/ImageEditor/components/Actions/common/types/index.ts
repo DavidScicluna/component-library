@@ -1,4 +1,4 @@
-import { ImageEditorMode } from '../../types';
+import { ImageEditorMode } from '../../../../common/types';
 
 export type OnSelectToolProps = { mode: ImageEditorMode };
 
