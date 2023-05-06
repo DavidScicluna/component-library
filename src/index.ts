@@ -503,7 +503,7 @@ import { SkeletonColor, SkeletonProps, SkeletonVariant } from './components/Skel
 import Spinner from './components/Spinner';
 import { SpinnerMode, SpinnerProps } from './components/Spinner/common/types';
 import AnimatePresence from './components/Transitions/AnimatePresence';
-import { AnimatePresenceProps } from './components/Transitions/AnimatePresence/types';
+import { AnimatePresenceProps } from './components/Transitions/AnimatePresence/common/types';
 import Collapse from './components/Transitions/Collapse';
 import { CollapseProps } from './components/Transitions/Collapse/common/types';
 import {

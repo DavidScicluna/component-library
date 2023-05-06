@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { AnimatePresence as AP } from 'framer-motion';
 
-import { AnimatePresenceProps } from './types';
+import { AnimatePresenceProps } from './common/types';
 
 const AnimatePresence: FC<AnimatePresenceProps> = ({ children, ...rest }) => {
 	return (
