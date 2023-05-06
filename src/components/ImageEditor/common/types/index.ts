@@ -1,8 +1,6 @@
 import { ColorMode } from '@chakra-ui/react';
 
-import { Color } from '../../theme/types';
-
-export type ImageEditorColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
+import { AppColor } from '../../../../common/types';
 
 export type ImageEditorMode = 'crop' | 'rotate';
 
@@ -23,7 +21,7 @@ export type ImageEditorModeCropValue =
 	| '9:16';
 
 export type ImageEditorProps = {
-	color?: ImageEditorColor;
+	color?: AppColor;
 	colorMode?: ColorMode;
 	title: string;
 	image: string;

@@ -1,38 +1,41 @@
 import { createContext, FC, useCallback, useState } from 'react';
 import Cropper, { Area } from 'react-easy-crop';
 
-import { Center, Text, useColorMode } from '@chakra-ui/react';
+import { Center, Text } from '@chakra-ui/react';
 
 import { debounce } from 'lodash-es';
 
+import { color as defaultColor, colorMode as defaultColorMode } from '../../common/default/props';
 import { Nullable } from '../../common/types';
 import IconButton from '../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
 import Modal from '../Overlay/Modal';
 import ModalHeader from '../Overlay/Modal/components/ModalHeader';
 import ModalStack from '../Overlay/Modal/components/ModalStack';
+import { useProviderContext } from '../Provider/common/hooks';
 
 import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
 	cropID as defaultCropID,
 	cropValue as defaultCropValue,
 	mode as defaultMode,
 	rotation as defaultRotation,
 	zoom as defaultZoom
-} from './common/data/defaultPropValues';
-import { getBase64Image } from './common/utils';
-import Actions from './components/Actions';
-import { OnSelectToolProps as HandleSelectToolProps, OnZoomProps as HandleZoomProps } from './components/Actions/types';
-import Mode from './components/Mode';
-import { OnCropProps as HandleCropProps, OnRotateProps as HandleRotateProps } from './components/Mode/types';
+} from './common/default/props';
 import {
 	ImageEditorContext as ImageEditorContextType,
 	ImageEditorMode,
 	ImageEditorModeCropID,
 	ImageEditorModeCropValue,
 	ImageEditorProps
-} from './types';
+} from './common/types';
+import { getBase64Image } from './common/utils';
+import Actions from './components/Actions';
+import {
+	OnSelectToolProps as HandleSelectToolProps,
+	OnZoomProps as HandleZoomProps
+} from './components/Actions/common/types';
+import Mode from './components/Mode';
+import { OnCropProps as HandleCropProps, OnRotateProps as HandleRotateProps } from './components/Mode/common/types';
 
 export const minZoom = 1;
 export const maxZoom = 5;
@@ -50,9 +53,9 @@ export const ImageEditorContext = createContext<ImageEditorContextType>({
  */
 
 const ImageEditor: FC<ImageEditorProps> = (props) => {
-	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
-	const { color = defaultColor, colorMode = colorModeHook, title, image, isOpen, onClose, onCrop } = props;
+	const { color = defaultColor, colorMode = defaultColorMode, title, image, isOpen, onClose, onCrop } = props;
 
 	const [mode, setMode] = useState<ImageEditorMode>(defaultMode);
 
@@ -65,31 +68,31 @@ const ImageEditor: FC<ImageEditorProps> = (props) => {
 
 	const [area, setArea] = useState<Nullable<Area>>(null);
 
-	const handleSelectMode = ({ mode }: HandleSelectToolProps) => {
+	const handleSelectMode = ({ mode }: HandleSelectToolProps): void => {
 		setMode(mode);
 	};
 
-	const handleCrop = ({ id, value }: HandleCropProps) => {
+	const handleCrop = ({ id, value }: HandleCropProps): void => {
 		setCropID(id);
 		setCropValue(value);
 	};
 
-	const handleRotation = ({ deg }: HandleRotateProps) => {
+	const handleRotation = ({ deg }: HandleRotateProps): void => {
 		setRotation(deg);
 	};
 
-	const handleZoom = ({ value }: HandleZoomProps) => {
+	const handleZoom = ({ value }: HandleZoomProps): void => {
 		setZoom(value);
 	};
 
 	const handleCropComplete = useCallback(
-		debounce((_croppedArea, croppedAreaPixels) => {
+		debounce((_croppedArea, croppedAreaPixels): void => {
 			setArea(croppedAreaPixels);
 		}, 500),
 		[]
 	);
 
-	const handleCropImage = async () => {
+	const handleCropImage = async (): Promise<void> => {
 		if (area) {
 			const croppedImage = await getBase64Image({
 				src: image,
@@ -123,7 +126,7 @@ const ImageEditor: FC<ImageEditorProps> = (props) => {
 					/>
 					<Center
 						width='100%'
-						height='50vh'
+						minHeight='50vh'
 						position='relative'
 						borderRadius='lg'
 						overflowX='hidden'

@@ -338,7 +338,7 @@ import Image from './components/Image';
 import { ImageEvent, ImageProps, ImageRef, ImageSrc, ImageSrcMode } from './components/Image/common/types';
 import ImageEditor from './components/ImageEditor';
 import { useImageEditorContext } from './components/ImageEditor/common/hooks';
-import { ImageEditorColor, ImageEditorContext, ImageEditorProps } from './components/ImageEditor/types';
+import { ImageEditorContext, ImageEditorProps } from './components/ImageEditor/common/types';
 import SideNavigation from './components/Navigation/SideNavigation';
 import { useSideNavigationContext } from './components/Navigation/SideNavigation/common/hooks';
 import NavGroup from './components/Navigation/SideNavigation/components/NavGroup';
@@ -963,7 +963,6 @@ export type {
 	IconProps,
 	IconRef,
 	IconVariant,
-	ImageEditorColor,
 	ImageEditorContext,
 	ImageEditorProps,
 	ImageEvent,
