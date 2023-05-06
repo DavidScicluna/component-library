@@ -7,9 +7,9 @@ import HorizontalScroll from '../../../../../HorizontalScroll';
 import { maxZoom, minZoom } from '../../../..';
 import { useImageEditorContext } from '../../../../common/hooks';
 
+import { ScrollContext, ToolbarProps } from './common/types';
 import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from './components/HorizontalScrollArrows';
 import Tool from './components/Tool';
-import { ScrollContext, ToolbarProps } from './types';
 
 const Toolbar: FC<ToolbarProps> = ({ onSelectTool, onZoom }) => {
 	const { colorMode, mode, zoom } = useImageEditorContext();

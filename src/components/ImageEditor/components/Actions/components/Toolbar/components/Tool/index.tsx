@@ -7,7 +7,7 @@ import IconButtonIcon from '../../../../../../../Clickable/IconButtons/OriginalI
 import Tooltip from '../../../../../../../Overlay/Tooltip';
 import { useImageEditorContext } from '../../../../../../common/hooks';
 
-import { ToolProps } from './types';
+import { ToolProps } from './common/types';
 
 const Tool: FC<ToolProps> = (props) => {
 	const { color, colorMode } = useImageEditorContext();

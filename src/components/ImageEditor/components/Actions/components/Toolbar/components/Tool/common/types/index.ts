@@ -1,4 +1,4 @@
-import { Icon as IconType } from '../../../../../../../../common/types/icons';
+import { Icon as IconType } from '../../../../../../../../../../common/types/icons';
 
 export type Tool = {
 	title: string;
