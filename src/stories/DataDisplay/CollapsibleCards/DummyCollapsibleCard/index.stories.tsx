@@ -1,8 +1,11 @@
 import { ReactElement } from 'react';
 
+import { Text } from '@chakra-ui/react';
+
 import {
 	CollapsibleCardColor,
 	CollapsibleCardVariant,
+	DummyButton,
 	DummyCollapsibleCard as DummyCollapsibleCardComponent,
 	DummyCollapsibleCardProps
 } from '../../../..';
@@ -68,5 +71,15 @@ export default {
 } as Meta;
 
 export const DummyCollapsibleCard: Story = (props: DummyCollapsibleCardProps): ReactElement => (
-	<DummyCollapsibleCardComponent {...props} />
+	<DummyCollapsibleCardComponent
+		{...props}
+		width='100%'
+		renderTitle={(props) => <Text {...props}>Title</Text>}
+		renderSubtitle={(props) => <Text {...props}>renderSubtitle</Text>}
+		actions={
+			<DummyButton color='blue' colorMode={props.colorMode} size='xs'>
+				Action
+			</DummyButton>
+		}
+	/>
 );

@@ -58,7 +58,7 @@ const renderMapping = Object.assign(
 );
 
 export default {
-	title: 'Clickable/Buttons/DummyButton',
+	title: 'Clickable/Buttons/Dummy Button',
 	component: DummyButtonComponent,
 	argTypes: {
 		children: {
