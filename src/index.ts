@@ -515,7 +515,7 @@ import {
 import Fade from './components/Transitions/Fade';
 import { FadeProps } from './components/Transitions/Fade/types';
 import PageTransition from './components/Transitions/PageTransition';
-import { PageTransitionProps } from './components/Transitions/PageTransition/types';
+import { PageTransitionProps } from './components/Transitions/PageTransition/common/types';
 import ScaleFade from './components/Transitions/ScaleFade';
 import { ScaleFadeProps } from './components/Transitions/ScaleFade/common/types';
 import Slide from './components/Transitions/Slide';

@@ -8,7 +8,7 @@ import { useTheme } from '../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../common/utils';
 import { getConfig as getTransitionConfig, getDuration as getTransitionDuration } from '../common/utils';
 
-import { PageTransitionProps } from './types';
+import { PageTransitionProps } from './common/types';
 
 const PageTransition: FC<PageTransitionProps> = ({ children }) => {
 	const theme = useTheme();
