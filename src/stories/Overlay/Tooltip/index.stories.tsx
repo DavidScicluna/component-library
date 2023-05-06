@@ -3,10 +3,8 @@ import { ReactElement } from 'react';
 import { Center } from '@chakra-ui/react';
 
 import { DummyButton, Tooltip as TooltipComponent, TooltipColor, TooltipProps } from '../../..';
-import {
-	color as defaultColor,
-	gutter as defaultGutter
-} from '../../../components/Overlay/Tooltip/common/data/defaultPropValues';
+import { color as defaultColor } from '../../../common/default/props';
+import { gutter as defaultGutter } from '../../../components/Overlay/Tooltip/common/default/props';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
 
