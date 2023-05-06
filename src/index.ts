@@ -513,7 +513,7 @@ import {
 	getEasings as getTransitionEasings
 } from './components/Transitions/common/utils';
 import Fade from './components/Transitions/Fade';
-import { FadeProps } from './components/Transitions/Fade/types';
+import { FadeProps } from './components/Transitions/Fade/common/types';
 import PageTransition from './components/Transitions/PageTransition';
 import { PageTransitionProps } from './components/Transitions/PageTransition/common/types';
 import ScaleFade from './components/Transitions/ScaleFade';
