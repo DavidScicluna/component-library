@@ -521,7 +521,7 @@ import { ScaleFadeProps } from './components/Transitions/ScaleFade/types';
 import Slide from './components/Transitions/Slide';
 import { SlideProps } from './components/Transitions/Slide/types';
 import SlideFade from './components/Transitions/SlideFade';
-import { SlideFadeProps } from './components/Transitions/SlideFade/types';
+import { SlideFadeProps } from './components/Transitions/SlideFade/common/types';
 import theme from './theme';
 
 // Theme Types
