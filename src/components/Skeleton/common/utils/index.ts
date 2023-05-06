@@ -1,17 +1,16 @@
 import { darken, lighten } from 'color2k';
 import memoize from 'micro-memoize';
 
-import { convertStringToNumber } from '../../../../common/utils';
-import { Duration, Theme } from '../../../../theme/types';
-import { color as defaultColor, colorMode as defaultColorMode } from '../../common/data/defaultPropValues';
-import { SkeletonProps } from '../../types';
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/default/props';
+import { Undefinable } from '../../../../common/types';
+import { SkeletonProps } from '../types';
 
 type GetSkeletonAnimationColorProps = {
 	hex: string;
 	type: 'start' | 'end';
 } & Pick<SkeletonProps, 'color' | 'colorMode'>;
 
-export const getSkeletonAnimationColor = memoize((props: GetSkeletonAnimationColorProps): string => {
+export const getSkeletonAnimationColor = memoize((props: GetSkeletonAnimationColorProps): Undefinable<string> => {
 	const { color = defaultColor, colorMode = defaultColorMode, hex, type } = props;
 
 	const opacity = type === 'start' ? 0 : 0.1;
@@ -31,18 +30,4 @@ export const getSkeletonAnimationColor = memoize((props: GetSkeletonAnimationCol
 				return lighten(hex, opacity);
 		}
 	}
-});
-
-export type GetSkeletonDurationDelayProps = { theme: Theme; duration?: Duration };
-
-export const getSkeletonDuration = memoize((props: GetSkeletonDurationDelayProps): number => {
-	const { theme, duration = 'normal' } = props;
-
-	return convertStringToNumber(theme.transition.duration[duration] || '250ms', 'ms') / 1000;
-});
-
-export const getSkeletonDelay = memoize((props: GetSkeletonDurationDelayProps): number => {
-	const { theme, duration = 'faster' } = props;
-
-	return convertStringToNumber(theme.transition.duration[duration] || '100ms', 'ms') / 1000;
 });
