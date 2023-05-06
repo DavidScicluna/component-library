@@ -1,5 +1,5 @@
-import { Icon as IconType } from '../../../../common/types/icons';
-import { ImageEditorModeCropID, ImageEditorModeCropValue } from '../../types';
+import { Icon as IconType } from '../../../../../../common/types/icons';
+import { ImageEditorModeCropID, ImageEditorModeCropValue } from '../../../../common/types';
 
 export type ModeButton<I, V> = {
 	id: I;

@@ -1,16 +1,15 @@
-/* eslint-disable import/namespace */
 import { FC } from 'react';
 
 import {
 	cropID as defaultCropID,
 	cropValue as defaultCropValue,
 	rotation as defaultRotation
-} from '../../common/data/defaultPropValues';
+} from '../../common/default/props';
 import { useImageEditorContext } from '../../common/hooks';
 
+import { ModeProps } from './common/types';
 import Crop from './components/Crop';
 import Rotate from './components/Rotate';
-import { ModeProps } from './types';
 
 const Mode: FC<ModeProps> = (props) => {
 	const { mode } = useImageEditorContext();
