@@ -70,6 +70,8 @@ export default {
 		},
 		borderRadius: { ...controls.theme.borderRadius },
 		fontSize: { ...controls.theme.fontSize },
+		width: { ...controls.common.width },
+		height: { ...controls.common.height },
 		padding: { ...controls.theme.padding },
 		margin: { ...controls.theme.margin },
 		variant: {
