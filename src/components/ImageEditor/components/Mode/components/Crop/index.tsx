@@ -2,12 +2,12 @@ import { FC } from 'react';
 
 import { HStack } from '@chakra-ui/react';
 
-import { cropID as defaultCropID, cropValue as defaultCropValue } from '../../../../common/data/defaultPropValues';
-import { ImageEditorModeCropValue } from '../../../../types';
+import { cropID as defaultCropID, cropValue as defaultCropValue } from '../../../../common/default/props';
+import { ImageEditorModeCropValue } from '../../../../common/types';
 import ModeButton from '../ModeButton';
 
 import crops from './common/data/crops';
-import { CropProps } from './types';
+import { CropProps } from './common/types';
 
 const Crop: FC<CropProps> = ({ cropID = defaultCropID, cropValue = defaultCropValue, onCrop }) => {
 	return (
