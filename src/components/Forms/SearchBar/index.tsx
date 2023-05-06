@@ -78,7 +78,14 @@ const SearchBar: FC<SearchBarProps> = (props) => {
 				isReadOnly={isReadOnly}
 				onChange={(event: InputChangeEvent) => handleQuery(event.target.value)}
 				renderLeftPanel={({ color, colorMode, ...rest }) => (
-					<Icon {...rest} colorMode={colorMode} icon='search' category='outlined' skeletonColor={color} />
+					<Icon
+						{...rest}
+						color={color}
+						colorMode={colorMode}
+						icon='search'
+						category='outlined'
+						variant='transparent'
+					/>
 				)}
 				renderRightPanel={
 					renderSubmit && onSubmit

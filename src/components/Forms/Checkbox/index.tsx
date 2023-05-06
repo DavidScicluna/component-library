@@ -59,7 +59,9 @@ const Checkbox: FC<CheckboxProps> = (props) => {
 		isReadOnly = defaultIsReadOnly,
 		isRequired = defaultIsRequired,
 		isFullWidth = defaultIsFullWidth,
-		icon = <Icon icon={isIndeterminate ? 'remove' : 'check'} />,
+		icon = (
+			<Icon color={color} colorMode={colorMode} icon={isIndeterminate ? 'remove' : 'check'} variant='unstyled' />
+		),
 		renderLeftPanel,
 		renderRightPanel,
 		onChange,
