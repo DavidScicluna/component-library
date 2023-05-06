@@ -1,4 +1,4 @@
-import { ModeButton } from '../../types';
+import { ModeButton } from '../../../../common/types';
 
 export type ModeButtonProps<I, V> = {
 	isSelected?: boolean;

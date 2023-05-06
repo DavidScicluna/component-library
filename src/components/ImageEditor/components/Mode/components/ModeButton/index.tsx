@@ -11,7 +11,7 @@ import Card from '../../../../../DataDisplay/Cards/OriginalCard';
 import Icon from '../../../../../Icon';
 import { useImageEditorContext } from '../../../../common/hooks';
 
-import { ModeButtonProps } from './types';
+import { ModeButtonProps } from './common/types';
 
 const ModeButton = <V, I>(props: ModeButtonProps<V, I>): ReactElement => {
 	const theme = useTheme();
@@ -24,28 +24,17 @@ const ModeButton = <V, I>(props: ModeButtonProps<V, I>): ReactElement => {
 		<Card
 			color={isSelected ? color : 'gray'}
 			colorMode={colorMode}
-			isLight={!isSelected}
 			isDivisible={false}
 			isDisabled={isDisabled}
 			isClickable
-			isFullWidth={false}
 			onClick={onSelect ? () => onSelect() : undefined}
-			variant='transparent'
+			variant={!isSelected ? 'monochrome' : 'transparent'}
 			p={2}
 			spacing={0.5}
 			sx={{ height: '100%' }}
 		>
 			<CardBody>
-				<Icon
-					color={getColor({
-						theme,
-						colorMode,
-						color: isSelected ? color : 'gray',
-						type: isSelected ? 'color' : 'text.secondary'
-					})}
-					colorMode={colorMode}
-					icon={icon}
-				/>
+				<Icon color={isSelected ? color : 'gray'} colorMode={colorMode} icon={icon} variant='transparent' />
 			</CardBody>
 			<CardFooter>
 				<Text
