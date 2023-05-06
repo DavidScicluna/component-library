@@ -1,6 +1,6 @@
 import { createContext, FC, useMemo } from 'react';
 
-import { Box, IconButton as CUIIconButton } from '@chakra-ui/react';
+import { IconButton as CUIIconButton } from '@chakra-ui/react';
 
 import { merge } from 'lodash-es';
 
@@ -54,32 +54,30 @@ const DummyIconButton: FC<DummyIconButtonProps> = (props) => {
 
 	return (
 		<DummyIconButtonContext.Provider value={{ color, colorMode, size }}>
-			<Box width='fit-content'>
-				<Skeleton {...rest} color={color} colorMode={colorMode} borderRadius={radius} isLoaded={false}>
-					<CUIIconButton
-						aria-label='Dummy Button'
+			<Skeleton {...rest} color={color} colorMode={colorMode} borderRadius={radius} isLoaded={false}>
+				<CUIIconButton
+					aria-label='Dummy Button'
+					isDisabled
+					variant='unstyled'
+					sx={merge(style.iconbutton, sx)}
+					_disabled={style.disabled}
+					_active={style.active}
+				>
+					<PushableOverlay
+						width='100%'
+						height='100%'
+						borderRadius={radius}
+						color={color}
+						colorMode={colorMode}
 						isDisabled
-						variant='unstyled'
-						sx={merge(style.iconbutton, sx)}
-						_disabled={style.disabled}
-						_active={style.active}
+						isPushable={false}
+						variant={variant === 'icon' ? 'transparent' : variant}
+						p={config.padding}
 					>
-						<PushableOverlay
-							width='100%'
-							height='100%'
-							borderRadius={radius}
-							color={color}
-							colorMode={colorMode}
-							isDisabled
-							isPushable={false}
-							variant={variant === 'icon' ? 'transparent' : variant}
-							p={config.padding}
-						>
-							{children}
-						</PushableOverlay>
-					</CUIIconButton>
-				</Skeleton>
-			</Box>
+						{children}
+					</PushableOverlay>
+				</CUIIconButton>
+			</Skeleton>
 		</DummyIconButtonContext.Provider>
 	);
 };
