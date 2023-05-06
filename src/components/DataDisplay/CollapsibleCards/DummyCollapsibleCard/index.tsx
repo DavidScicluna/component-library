@@ -111,8 +111,8 @@ const DummyCollapsibleCard = forwardRef<DummyCollapsibleCardRef, DummyCollapsibl
 						<HStack ref={actionsRef} spacing={spacing}>
 							{actions && <Center>{actions}</Center>}
 
-							<Skeleton colorMode={colorMode} isLoaded={false} variant='circle'>
-								<Icon color='gray' colorMode={colorMode} icon='add' variant='monochrome' />
+							<Skeleton color='gray' colorMode={colorMode} isLoaded={false} variant='circle'>
+								<Icon color='gray' colorMode={colorMode} icon='add' variant='unstyled' />
 							</Skeleton>
 						</HStack>
 					</HStack>

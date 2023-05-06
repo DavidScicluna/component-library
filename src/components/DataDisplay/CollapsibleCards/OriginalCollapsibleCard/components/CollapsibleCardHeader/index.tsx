@@ -75,7 +75,13 @@ const CollapsibleCardHeader: FC<CollapsibleCardHeaderProps> = (props) => {
 				<HStack ref={actionsRef} spacing={spacing}>
 					{actions && <Center>{actions}</Center>}
 
-					<Icon color='gray' colorMode={colorMode} icon={isOpen ? 'remove' : 'add'} variant='monochrome' />
+					<Icon
+						color='gray'
+						colorMode={colorMode}
+						icon={isOpen ? 'remove' : 'add'}
+						variant='unstyled'
+						sx={{ color: getColor({ theme, colorMode, type: 'text.primary' }) }}
+					/>
 				</HStack>
 			</HStack>
 
