@@ -1,6 +1,6 @@
 import { FC, useMemo } from 'react';
 
-import { Box, Button as CUIButton, Center, Grid, GridItem } from '@chakra-ui/react';
+import { Button as CUIButton, Center, Grid, GridItem } from '@chakra-ui/react';
 
 import { compact, merge } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
@@ -54,66 +54,63 @@ const DummyButton: FC<DummyButtonProps> = (props) => {
 	const style = useStyles({ theme, isCompact, isFullWidth, isLoading: true, size });
 
 	return (
-		<Box width={isFullWidth ? '100%' : 'fit-content'}>
-			<Skeleton {...rest} color={color} colorMode={colorMode} borderRadius={radius} isLoaded={false}>
-				<CUIButton
+		<Skeleton {...rest} color={color} colorMode={colorMode} borderRadius={radius} isLoaded={false}>
+			<CUIButton
+				isDisabled
+				variant='unstyled'
+				sx={merge(style.button, sx)}
+				_disabled={style.disabled}
+				_active={style.active}
+			>
+				<PushableOverlay
+					width='100%'
+					height='100%'
+					borderRadius={radius}
+					color={color}
+					colorMode={colorMode}
 					isDisabled
-					variant='unstyled'
-					sx={merge(style.button, sx)}
-					_disabled={style.disabled}
-					_active={style.active}
+					isPushable={false}
+					variant={variant === 'text' ? 'transparent' : variant}
+					px={config.padding.x}
+					py={config.padding.y}
 				>
-					<PushableOverlay
+					<Grid
 						width='100%'
 						height='100%'
-						borderRadius={radius}
-						color={color}
-						colorMode={colorMode}
-						isDisabled
-						isPushable={false}
-						variant={variant === 'text' ? 'transparent' : variant}
-						px={config.padding.x}
-						py={config.padding.y}
+						templateColumns={compact([
+							renderLeft ? 'auto' : null,
+							'auto',
+							renderRight ? 'auto' : null
+						]).join(' ')}
+						templateRows='1fr'
+						alignItems='center'
+						alignContent='center'
+						justifyContent='center'
+						gap={config.spacing}
 					>
-						<Grid
-							width='100%'
-							height='100%'
-							templateColumns={compact([
-								renderLeft ? 'auto' : null,
-								'auto',
-								renderRight ? 'auto' : null
-							]).join(' ')}
-							templateRows='1fr'
-							templateAreas='. . .'
-							alignItems='center'
-							alignContent='center'
-							justifyContent='center'
-							gap={config.spacing}
-						>
-							{renderLeft ? (
-								<GridItem>
-									{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
-								</GridItem>
-							) : null}
+						{renderLeft ? (
+							<GridItem>
+								{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+							</GridItem>
+						) : null}
 
-							{children ? (
-								<GridItem>
-									<Center ref={childrenRef} as='span' width='100%' height='100%'>
-										{children}
-									</Center>
-								</GridItem>
-							) : null}
+						{children ? (
+							<GridItem>
+								<Center ref={childrenRef} as='span' width='100%' height='100%'>
+									{children}
+								</Center>
+							</GridItem>
+						) : null}
 
-							{renderRight ? (
-								<GridItem>
-									{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
-								</GridItem>
-							) : null}
-						</Grid>
-					</PushableOverlay>
-				</CUIButton>
-			</Skeleton>
-		</Box>
+						{renderRight ? (
+							<GridItem>
+								{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+							</GridItem>
+						) : null}
+					</Grid>
+				</PushableOverlay>
+			</CUIButton>
+		</Skeleton>
 	);
 };
 
