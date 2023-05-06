@@ -128,11 +128,13 @@ const Alert: FC<AlertProps> = (props) => {
 				</Center>
 
 				<Icon
+					color={getStatusColor(status)}
+					colorMode={colorMode}
 					width={theme.fontSizes['4xl']}
 					height={theme.fontSizes['4xl']}
 					fontSize={theme.fontSizes['4xl']}
 					icon={getStatusIcon(status)}
-					color={color}
+					variant='transparent'
 				/>
 
 				<VStack ref={contentRef} alignItems='flex-start' justifyContent='center' spacing={0.5}>

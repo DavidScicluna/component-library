@@ -1,12 +1,15 @@
-import { FC } from 'react';
+import { forwardRef, ReactElement } from 'react';
 
 import Icon from '../../../../../Icon';
 import { useIconButtonFontSize } from '../../../common/hooks';
 import { useDummyIconButtonContext } from '../../common/hooks';
 
-import { DummyIconButtonIconProps } from './common/types';
+import { DummyIconButtonIconProps, DummyIconButtonIconRef } from './common/types';
 
-const DummyIconButtonIcon: FC<DummyIconButtonIconProps> = (props) => {
+const DummyIconButtonIcon = forwardRef<DummyIconButtonIconRef, DummyIconButtonIconProps>(function DummyIconButtonIcon(
+	props,
+	ref
+): ReactElement {
 	const { color, colorMode, size } = useDummyIconButtonContext();
 
 	const fontSize = useIconButtonFontSize({ size });
@@ -14,13 +17,15 @@ const DummyIconButtonIcon: FC<DummyIconButtonIconProps> = (props) => {
 	return (
 		<Icon
 			{...props}
+			ref={ref}
+			color={color}
+			colorMode={colorMode}
 			width={`${fontSize}px`}
 			height={`${fontSize}px`}
 			fontSize={`${fontSize}px`}
-			colorMode={colorMode}
-			skeletonColor={color}
+			variant='unstyled'
 		/>
 	);
-};
+});
 
 export default DummyIconButtonIcon;
