@@ -10,11 +10,11 @@ import { convertREMToPixels, convertStringToNumber } from '../../../../../../com
 import { getColor } from '../../../../../../common/utils/color';
 import Divider from '../../../../../Divider';
 import Tooltip from '../../../../../Overlay/Tooltip';
-import { rotation as defaultRotation } from '../../../../common/data/defaultPropValues';
+import { rotation as defaultRotation } from '../../../../common/default/props';
 import { useImageEditorContext } from '../../../../common/hooks';
 import ModeButton from '../ModeButton';
 
-import { RotateProps } from './types';
+import { RotateProps } from './common/types';
 
 const Rotate: FC<RotateProps> = ({ rotation = defaultRotation, onRotate }) => {
 	const theme = useTheme();
