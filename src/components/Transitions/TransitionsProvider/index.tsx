@@ -7,7 +7,7 @@ import { MotionConfig, Transition } from 'framer-motion';
 import { useTheme } from '../../../common/hooks';
 import { getConfig } from '../common/utils';
 
-import { TransitionsProviderProps } from './types';
+import { TransitionsProviderProps } from './common/types';
 
 const TransitionsProvider: FC<TransitionsProviderProps> = ({ children, ...rest }) => {
 	const theme = useTheme();
