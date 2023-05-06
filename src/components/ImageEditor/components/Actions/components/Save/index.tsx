@@ -3,7 +3,7 @@ import { FC } from 'react';
 import Button from '../../../../../Clickable/Buttons/OriginalButton';
 import { useImageEditorContext } from '../../../../common/hooks';
 
-import { SaveProps } from './types';
+import { SaveProps } from './common/types';
 
 const Save: FC<SaveProps> = ({ onSave }) => {
 	const { color, colorMode } = useImageEditorContext();
