@@ -1,4 +1,4 @@
-import { SkeletonProps } from '../../../../../Skeleton/types';
+import { SkeletonProps } from '../../../../../Skeleton/common/types';
 import { CommonButtonProps } from '../../../common/types';
 
 type Omitted = 'color' | 'colorScheme' | '_firstLetter' | 'isReversed' | 'variant';

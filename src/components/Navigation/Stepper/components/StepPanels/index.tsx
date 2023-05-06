@@ -10,7 +10,7 @@ import {
 	getEasings as getTransitionEasings
 } from '../../../../Transitions/common/utils';
 import Fade from '../../../../Transitions/Fade';
-import { FadeProps } from '../../../../Transitions/Fade/types';
+import { FadeProps } from '../../../../Transitions/Fade/common/types';
 import { useStepperContext } from '../../common/hooks';
 
 import { StepPanelsProps } from './common/types';
