@@ -3,12 +3,13 @@ import { ReactElement } from 'react';
 import { Box } from '@chakra-ui/react';
 
 import { Skeleton as SkeletonComponent, SkeletonColor, SkeletonProps, SkeletonVariant } from '../..';
+import { color as defaultColor } from '../../common/default/props';
 import {
-	color as defaultColor,
+	isAnimated as defaultIsAnimated,
 	isLoaded as defaultIsLoaded,
 	isReversed as defaultIsReversed,
 	variant as defaultVariant
-} from '../../components/Skeleton/common/data/defaultPropValues';
+} from '../../components/Skeleton/common/default/props';
 import controls from '../common/controls';
 import parameters from '../common/parameters';
 
@@ -50,6 +51,13 @@ export default {
 			control: 'select'
 		},
 		colorMode: { ...controls.theme.colorMode },
+		isAnimated: {
+			name: 'Animated',
+			type: 'boolean',
+			defaultValue: defaultIsAnimated,
+			// description: '',
+			control: 'boolean'
+		},
 		isLoaded: {
 			name: 'Loaded',
 			type: 'boolean',
@@ -64,7 +72,9 @@ export default {
 			// description: '',
 			control: 'boolean'
 		},
-		padding: { ...controls.theme.padding, defaultValue: 6 },
+		width: { ...controls.common.width },
+		height: { ...controls.common.height },
+		padding: { ...controls.theme.padding },
 		margin: { ...controls.theme.margin },
 		variant: {
 			name: 'Variant',
@@ -82,7 +92,7 @@ export const Skeleton: Story = ({ padding, ...rest }: SkeletonProps): ReactEleme
 	<SkeletonComponent {...rest}>
 		<Box
 			p={padding}
-			backgroundColor={`yellow.${rest.colorMode === 'light' ? 500 : 400}`}
+			backgroundColor={`${rest.color}.${rest.colorMode === 'light' ? 500 : 400}`}
 			borderRadius={rest.variant === 'rectangle' ? 'base' : rest.variant === 'text' ? 'xs' : 'full'}
 		/>
 	</SkeletonComponent>
