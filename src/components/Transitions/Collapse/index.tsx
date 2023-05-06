@@ -5,10 +5,10 @@ import { Collapse as CUICollapse, useConst } from '@chakra-ui/react';
 import { Transition } from 'framer-motion';
 
 import { useTheme } from '../../../common/hooks';
-import { unmountOnExit as defaultUnmountOnExit } from '../common/data/defaultPropValues';
+import { unmountOnExit as defaultUnmountOnExit } from '../common/default/props';
 import { getConfig } from '../common/utils';
 
-import { CollapseProps } from './types';
+import { CollapseProps } from './common/types';
 
 const Collapse: FC<CollapseProps> = (props) => {
 	const theme = useTheme();

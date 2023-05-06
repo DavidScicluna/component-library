@@ -505,7 +505,7 @@ import { SpinnerMode, SpinnerProps } from './components/Spinner/common/types';
 import AnimatePresence from './components/Transitions/AnimatePresence';
 import { AnimatePresenceProps } from './components/Transitions/AnimatePresence/types';
 import Collapse from './components/Transitions/Collapse';
-import { CollapseProps } from './components/Transitions/Collapse/types';
+import { CollapseProps } from './components/Transitions/Collapse/common/types';
 import {
 	getConfig as getTransitionConfig,
 	getDelay as getTransitionDelay,
