@@ -5,6 +5,13 @@ const width = {
 	control: 'text'
 };
 
+const height = {
+	name: 'Height',
+	type: 'string',
+	// description: '',
+	control: 'text'
+};
+
 const color = {
 	name: 'Color',
 	type: 'string',
@@ -19,4 +26,4 @@ const backgroundColor = {
 	control: 'color'
 };
 
-export default { width, color, backgroundColor };
+export default { width, height, color, backgroundColor };
