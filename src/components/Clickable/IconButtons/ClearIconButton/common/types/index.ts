@@ -1,6 +1,6 @@
 import { IconCategory, IconType } from '../../../../../..';
 import { PickFrom } from '../../../../../../common/types';
-import { TooltipProps } from '../../../../../Overlay/Tooltip/types';
+import { TooltipProps } from '../../../../../Overlay/Tooltip/common/types';
 import { IconButtonProps, IconButtonRef } from '../../../OriginalIconButton/common/types';
 
 type Picked = 'clear' | 'backspace' | 'delete' | 'delete_forever' | 'delete_outline';
