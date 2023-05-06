@@ -5,10 +5,10 @@ import { Slide as CUISlide, useConst } from '@chakra-ui/react';
 import { Transition } from 'framer-motion';
 
 import { useTheme } from '../../../common/hooks';
-import { unmountOnExit as defaultUnmountOnExit } from '../common/data/defaultPropValues';
+import { unmountOnExit as defaultUnmountOnExit } from '../common/default/props';
 import { getConfig } from '../common/utils';
 
-import { SlideProps } from './types';
+import { SlideProps } from './common/types';
 
 const Slide: FC<SlideProps> = (props) => {
 	const theme = useTheme();

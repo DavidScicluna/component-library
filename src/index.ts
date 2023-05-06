@@ -519,7 +519,7 @@ import { PageTransitionProps } from './components/Transitions/PageTransition/typ
 import ScaleFade from './components/Transitions/ScaleFade';
 import { ScaleFadeProps } from './components/Transitions/ScaleFade/types';
 import Slide from './components/Transitions/Slide';
-import { SlideProps } from './components/Transitions/Slide/types';
+import { SlideProps } from './components/Transitions/Slide/common/types';
 import SlideFade from './components/Transitions/SlideFade';
 import { SlideFadeProps } from './components/Transitions/SlideFade/common/types';
 import theme from './theme';
