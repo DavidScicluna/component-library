@@ -93,7 +93,6 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): R
 						(isLoading && renderLeft) || renderRight ? 'auto' : null
 					]).join(' ')}
 					templateRows='1fr'
-					templateAreas='. . .'
 					alignItems='center'
 					alignContent='center'
 					justifyContent='center'
