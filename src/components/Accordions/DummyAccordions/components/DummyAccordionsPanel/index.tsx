@@ -4,12 +4,12 @@ import { VStack } from '@chakra-ui/react';
 
 import { useDummyAccordionsContext } from '../../common/hooks';
 
-import { DummyAccordionsPanelProps } from './types';
+import { DummyAccordionsPanelProps } from './common/types';
 
 const DummyAccordionsPanel: FC<DummyAccordionsPanelProps> = (props) => {
-	const { accordions, spacing: spacingHook } = useDummyAccordionsContext();
+	const { accordions, spacing: defaultSpacing } = useDummyAccordionsContext();
 
-	const { children, spacing = spacingHook, ...rest } = props;
+	const { children, spacing = defaultSpacing, ...rest } = props;
 
 	return (
 		<VStack {...rest} width='100%' spacing={spacing}>
