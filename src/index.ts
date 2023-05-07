@@ -337,20 +337,6 @@ import {
 	SideNavigationProps,
 	SideNavigationRef
 } from './components/Navigation/SideNavigation/types';
-import Stepper from './components/Navigation/Stepper';
-import { useStepperContext } from './components/Navigation/Stepper/common/hooks';
-import {
-	OnChangeProps as StepperOnChangeProps,
-	StepperContext,
-	StepperProps,
-	StepperRef
-} from './components/Navigation/Stepper/common/types';
-import StepList from './components/Navigation/Stepper/components/StepList';
-import { Step, StepListProps } from './components/Navigation/Stepper/components/StepList/common/types';
-import StepPanel from './components/Navigation/Stepper/components/StepPanel';
-import { StepPanelProps } from './components/Navigation/Stepper/components/StepPanel/common/types';
-import StepPanels from './components/Navigation/Stepper/components/StepPanels';
-import { StepPanelsProps } from './components/Navigation/Stepper/components/StepPanels/common/types';
 import TabBar from './components/Navigation/TabBar';
 import { useTabBarContext } from './components/Navigation/TabBar/common/hooks';
 import { Tab as TabBarTab } from './components/Navigation/TabBar/components/Tab/types';
@@ -590,7 +576,6 @@ export {
 	useRadioContext,
 	useSideNavigationContext,
 	useStateLabelContext,
-	useStepperContext,
 	useTabBarContext,
 	useTabsContext
 };
@@ -742,10 +727,6 @@ export {
 	StateLabelSubtitle,
 	StateLabelTitle,
 	StateOverlay,
-	StepList,
-	StepPanel,
-	StepPanels,
-	Stepper,
 	TabBar,
 	TabList,
 	TabPanels,
@@ -1015,14 +996,6 @@ export type {
 	StateLabelTitleProps,
 	StateOverlayProps,
 	StateOverlayState,
-	Step,
-	StepListProps,
-	StepPanelProps,
-	StepPanelsProps,
-	StepperContext,
-	StepperOnChangeProps,
-	StepperProps,
-	StepperRef,
 	TabBarColor,
 	TabBarContext,
 	TabBarDirection,
