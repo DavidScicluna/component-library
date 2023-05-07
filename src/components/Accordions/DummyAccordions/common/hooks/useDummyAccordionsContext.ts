@@ -7,7 +7,10 @@ import { DummyAccordionsContext } from '../..';
 import { accordions as defaultAccordions } from '../../common/default/props';
 import { DummyAccordionsContext as DummyAccordionsContextType } from '../types';
 
-const useDummyAccordionsContext = (): NoUndefinedField<DummyAccordionsContextType> => {
+type UseDummyAccordionsContextReturn = NoUndefinedField<Omit<DummyAccordionsContextType, 'accordions'>> &
+	Pick<DummyAccordionsContextType, 'accordions'>;
+
+const useDummyAccordionsContext = (): UseDummyAccordionsContextReturn => {
 	const {
 		accordions = defaultAccordions,
 		color = defaultColor,

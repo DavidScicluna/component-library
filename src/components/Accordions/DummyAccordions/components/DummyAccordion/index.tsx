@@ -15,7 +15,7 @@ const DummyAccordion: FC<DummyAccordionProps> = (props) => {
 	return (
 		<DummyCollapsibleCard
 			{...props}
-			id={id}
+			id={id.toString()}
 			width='100%'
 			color={color}
 			colorMode={colorMode}
