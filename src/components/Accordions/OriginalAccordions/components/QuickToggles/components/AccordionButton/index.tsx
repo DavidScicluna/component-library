@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, useMemo } from 'react';
 import { Link } from 'react-scroll';
 
 import { useConst } from '@chakra-ui/react';
@@ -16,12 +16,22 @@ import { AccordionButtonProps } from './common/types';
 const AccordionButton = <D,>(props: AccordionButtonProps<D>): ReactElement => {
 	const theme = useTheme();
 
-	const { color: defaultColor, colorMode, opened, onSetOpened } = useAccordionsContext<D>();
+	const { color: defaultColor, colorMode, opened, onSetOpened, spacing: defaultSpacing } = useAccordionsContext<D>();
 
-	const { id, title, color = defaultColor, isDisabled = defaultIsDisabled, size = defaultSize } = props;
+	const {
+		id,
+		title,
+		color = defaultColor,
+		isDisabled = defaultIsDisabled,
+		size = defaultSize,
+		spacing = defaultSpacing
+	} = props;
 
-	const offset = useConst<number>(Math.abs(convertREMToPixels(convertStringToNumber(theme.space[2], 'rem'))) * -1);
 	const delay = useConst<number>(convertStringToNumber(theme.transition.duration.slow, 'ms'));
+
+	const offset = useMemo<number>(() => {
+		return Math.abs(convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'))) * 2;
+	}, [spacing, defaultSpacing]);
 
 	const handleClick = () => {
 		if (typeof onSetOpened === 'function') {
@@ -30,7 +40,7 @@ const AccordionButton = <D,>(props: AccordionButtonProps<D>): ReactElement => {
 	};
 
 	return (
-		<Link to={!isDisabled ? id.toLowerCase() : ''} spy smooth isDynamic={false} offset={offset} delay={delay}>
+		<Link to={!isDisabled ? id.toLowerCase() : ''} spy smooth isDynamic={false} offset={-offset} delay={delay}>
 			<Button
 				color={color}
 				colorMode={colorMode}
