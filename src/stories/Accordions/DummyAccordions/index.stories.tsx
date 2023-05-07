@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 
 import { range } from 'lodash-es';
 
@@ -74,6 +74,15 @@ export const DummyAccordions: Story = (props: DummyAccordionsProps): ReactElemen
 						id={accordion.id}
 						title={`${accordion.title} Title`}
 						subtitle={`${accordion.title} Subtitle`}
+						actions={
+							<DummyButton
+								color={props.color === 'gray' ? 'orange' : props.color}
+								colorMode={props.colorMode}
+								size='xs'
+							>
+								Dummy Action
+							</DummyButton>
+						}
 						p={props.padding}
 					/>
 				))

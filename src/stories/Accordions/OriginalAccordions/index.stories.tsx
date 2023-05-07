@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 
 import { Text, VStack } from '@chakra-ui/react';
 
@@ -94,7 +94,7 @@ export const Accordions: Story = (props: AccordionsProps<unknown>): ReactElement
 								colorMode={props.colorMode}
 								size='xs'
 							>
-								Dummy Card Action
+								Dummy Action
 							</DummyButton>
 						}
 						footer={
