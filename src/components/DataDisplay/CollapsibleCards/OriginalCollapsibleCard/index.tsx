@@ -1,6 +1,6 @@
 import { createContext, forwardRef, ReactElement } from 'react';
 
-import { useBoolean, VStack } from '@chakra-ui/react';
+import { useBoolean, VisuallyHidden, VStack } from '@chakra-ui/react';
 
 import merge from 'lodash-es/merge';
 
@@ -50,6 +50,7 @@ const CollapsibleCard = forwardRef<CollapsibleCardRef, CollapsibleCardProps>(fun
 
 	const {
 		children,
+		id = '',
 		color = defaultColor,
 		colorMode = defaultColorMode,
 		isActive = defaultIsActive,
@@ -102,6 +103,10 @@ const CollapsibleCard = forwardRef<CollapsibleCardRef, CollapsibleCardProps>(fun
 				_disabled={style.disabled}
 				_active={style.active}
 			>
+				<VisuallyHidden sx={{ position: 'absolute', top: 0 }}>
+					<span id={id.toLowerCase()} />
+				</VisuallyHidden>
+
 				<VStack width='100%' height='100%' spacing={0}>
 					{children}
 				</VStack>
