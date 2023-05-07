@@ -33,11 +33,11 @@ const Headline: FC<HeadlineProps> = (props) => {
 
 	return (
 		<HStack {...rest} width='100%' spacing={0}>
-			{renderLeft && (
+			{renderLeft ? (
 				<Box ref={leftRef}>
 					{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
 				</Box>
-			)}
+			) : null}
 
 			<VStack
 				ref={childrenRef}
@@ -45,14 +45,15 @@ const Headline: FC<HeadlineProps> = (props) => {
 				alignItems='flex-start'
 				spacing={spacing}
 			>
-				{renderCaption &&
-					renderCaption({
-						align: 'left',
-						color: getColor({ theme, colorMode, color, type: 'color' }),
-						fontSize: ['xs', 'xs', 'sm', 'sm', 'sm', 'sm'],
-						lineHeight: 'shorter',
-						textTransform: 'uppercase'
-					})}
+				{renderCaption
+					? renderCaption({
+							align: 'left',
+							color: getColor({ theme, colorMode, color, type: 'color' }),
+							fontSize: ['xs', 'xs', 'sm', 'sm', 'sm', 'sm'],
+							lineHeight: 'shorter',
+							textTransform: 'uppercase'
+					  })
+					: null}
 
 				{renderTitle({
 					align: 'left',
@@ -63,20 +64,21 @@ const Headline: FC<HeadlineProps> = (props) => {
 				})}
 
 				{/* Subtitle */}
-				{renderSubtitle &&
-					renderSubtitle({
-						align: 'left',
-						color: getColor({ theme, colorMode, type: 'text.secondary' }),
-						fontSize: ['xs', 'xs', 'sm', 'sm', 'sm', 'sm'],
-						lineHeight: 'shorter'
-					})}
+				{renderSubtitle
+					? renderSubtitle({
+							align: 'left',
+							color: getColor({ theme, colorMode, type: 'text.secondary' }),
+							fontSize: ['xs', 'xs', 'sm', 'sm', 'sm', 'sm'],
+							lineHeight: 'shorter'
+					  })
+					: null}
 			</VStack>
 
-			{renderRight && (
+			{renderRight ? (
 				<Box ref={rightRef}>
 					{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
 				</Box>
-			)}
+			) : null}
 		</HStack>
 	);
 };

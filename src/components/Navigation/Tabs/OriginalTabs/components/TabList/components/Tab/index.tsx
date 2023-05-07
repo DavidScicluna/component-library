@@ -103,13 +103,15 @@ const Tab: FC<TabProps> = (props) => {
 				<Divider backgroundColor={theme.colors.transparent} />
 
 				<HStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={handleReturnSpacing()}>
-					{renderLeft && renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+					{renderLeft ? renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight }) : null}
 
 					<Center ref={childrenRef} as='span' flex={1}>
 						{label}
 					</Center>
 
-					{renderRight && renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+					{renderRight
+						? renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })
+						: null}
 				</HStack>
 
 				<ScaleFade in={isActive || isSelected || isHovering} unmountOnExit={false} initialScale={0.75}>

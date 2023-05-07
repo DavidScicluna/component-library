@@ -1,6 +1,6 @@
 import { forwardRef, ReactElement, useCallback } from 'react';
 
-import { Box, Center, HStack, VStack } from '@chakra-ui/react';
+import { Box, HStack, VStack } from '@chakra-ui/react';
 
 import { merge } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
@@ -68,11 +68,11 @@ const DummyCollapsibleCard = forwardRef<DummyCollapsibleCardRef, DummyCollapsibl
 				_active={style.active}
 			>
 				<HStack width='100%' spacing={spacing}>
-					{renderLeft && (
+					{renderLeft ? (
 						<Box ref={leftRef}>
 							{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
 						</Box>
-					)}
+					) : null}
 
 					<HStack
 						ref={childrenRef}
@@ -81,7 +81,7 @@ const DummyCollapsibleCard = forwardRef<DummyCollapsibleCardRef, DummyCollapsibl
 						justifyContent={renderTitle ? 'space-between' : 'flex-end'}
 						spacing={spacing}
 					>
-						{renderTitle && (
+						{renderTitle ? (
 							<VStack width={handleCalculateTextWidth()} alignItems='flex-start' spacing={0.5}>
 								{/* Title */}
 								<Skeleton colorMode={colorMode} isLoaded={false} variant='text'>
@@ -95,7 +95,7 @@ const DummyCollapsibleCard = forwardRef<DummyCollapsibleCardRef, DummyCollapsibl
 								</Skeleton>
 
 								{/* Subtitle */}
-								{renderSubtitle && (
+								{renderSubtitle ? (
 									<Skeleton colorMode={colorMode} isLoaded={false} variant='text'>
 										{renderSubtitle({
 											align: 'left',
@@ -104,12 +104,12 @@ const DummyCollapsibleCard = forwardRef<DummyCollapsibleCardRef, DummyCollapsibl
 											noOfLines: 1
 										})}
 									</Skeleton>
-								)}
+								) : null}
 							</VStack>
-						)}
+						) : null}
 
 						<HStack ref={actionsRef} spacing={spacing}>
-							{actions && <Center>{actions}</Center>}
+							{actions}
 
 							<Skeleton color='gray' colorMode={colorMode} isLoaded={false} variant='circle'>
 								<Icon color='gray' colorMode={colorMode} icon='add' variant='unstyled' />
@@ -117,11 +117,11 @@ const DummyCollapsibleCard = forwardRef<DummyCollapsibleCardRef, DummyCollapsibl
 						</HStack>
 					</HStack>
 
-					{renderRight && (
+					{renderRight ? (
 						<Box ref={rightRef}>
 							{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
 						</Box>
-					)}
+					) : null}
 				</HStack>
 			</PushableOverlay>
 		);

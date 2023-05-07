@@ -41,17 +41,18 @@ const ModalHeader: FC<ModalHeaderProps> = (props) => {
 				})}
 
 				{/* Subtitle */}
-				{renderSubtitle &&
-					renderSubtitle({
-						align: 'left',
-						color: getColor({ theme, colorMode, type: 'text.secondary' }),
-						fontSize: 'sm',
-						fontWeight: 'normal',
-						noOfLines: 1
-					})}
+				{renderSubtitle
+					? renderSubtitle({
+							align: 'left',
+							color: getColor({ theme, colorMode, type: 'text.secondary' }),
+							fontSize: 'sm',
+							fontWeight: 'normal',
+							noOfLines: 1
+					  })
+					: null}
 			</VStack>
 
-			{renderCancel && (
+			{renderCancel ? (
 				<Center ref={cancelRef}>
 					{renderCancel({
 						'aria-label': 'Close Modal',
@@ -63,7 +64,7 @@ const ModalHeader: FC<ModalHeaderProps> = (props) => {
 						'variant': 'icon'
 					})}
 				</Center>
-			)}
+			) : null}
 		</CUIModalHeader>
 	);
 };

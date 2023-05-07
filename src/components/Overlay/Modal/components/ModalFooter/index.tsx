@@ -28,24 +28,26 @@ const ModalFooter: FC<ModalFooterProps> = (props) => {
 			m={0}
 			{...rest}
 		>
-			{renderCancel &&
-				renderCancel({
-					color: 'gray',
-					colorMode,
-					isFullWidth: isSm || !renderAction,
-					onClick: typeof onClose === 'function' ? () => onClose() : undefined,
-					size: 'md',
-					variant: 'outlined'
-				})}
+			{renderCancel
+				? renderCancel({
+						color: 'gray',
+						colorMode,
+						isFullWidth: isSm || !renderAction,
+						onClick: typeof onClose === 'function' ? () => onClose() : undefined,
+						size: 'md',
+						variant: 'outlined'
+				  })
+				: null}
 
-			{renderAction &&
-				renderAction({
-					color,
-					colorMode,
-					isFullWidth: isSm || !renderCancel,
-					size: 'md',
-					variant: 'contained'
-				})}
+			{renderAction
+				? renderAction({
+						color,
+						colorMode,
+						isFullWidth: isSm || !renderCancel,
+						size: 'md',
+						variant: 'contained'
+				  })
+				: null}
 		</CUIModalFooter>
 	);
 };

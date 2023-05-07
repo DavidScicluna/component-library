@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 
-import { Box, Center, HStack, VStack } from '@chakra-ui/react';
+import { Box, HStack, VStack } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
@@ -34,11 +34,11 @@ const CollapsibleCardHeader: FC<CollapsibleCardHeaderProps> = (props) => {
 
 	return (
 		<HStack width='100%' spacing={spacing} {...rest}>
-			{renderLeft && (
+			{renderLeft ? (
 				<Box ref={leftRef}>
 					{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
 				</Box>
-			)}
+			) : null}
 
 			<HStack
 				ref={childrenRef}
@@ -48,7 +48,7 @@ const CollapsibleCardHeader: FC<CollapsibleCardHeaderProps> = (props) => {
 				spacing={spacing}
 				{...rest}
 			>
-				{renderTitle && (
+				{renderTitle ? (
 					<VStack width={handleCalculateTextWidth()} alignItems='flex-start' spacing={0.5}>
 						{/* Title */}
 						{renderTitle({
@@ -61,19 +61,20 @@ const CollapsibleCardHeader: FC<CollapsibleCardHeaderProps> = (props) => {
 						})}
 
 						{/* Subtitle */}
-						{renderSubtitle &&
-							renderSubtitle({
-								align: 'left',
-								color: getColor({ theme, colorMode, type: 'text.secondary' }),
-								fontSize: 'sm',
-								lineHeight: 'normal',
-								noOfLines: 1
-							})}
+						{renderSubtitle
+							? renderSubtitle({
+									align: 'left',
+									color: getColor({ theme, colorMode, type: 'text.secondary' }),
+									fontSize: 'sm',
+									lineHeight: 'normal',
+									noOfLines: 1
+							  })
+							: null}
 					</VStack>
-				)}
+				) : null}
 
 				<HStack ref={actionsRef} spacing={spacing}>
-					{actions && <Center>{actions}</Center>}
+					{actions}
 
 					<Icon
 						color='gray'
@@ -85,11 +86,11 @@ const CollapsibleCardHeader: FC<CollapsibleCardHeaderProps> = (props) => {
 				</HStack>
 			</HStack>
 
-			{renderRight && (
+			{renderRight ? (
 				<Box ref={rightRef}>
 					{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
 				</Box>
-			)}
+			) : null}
 		</HStack>
 	);
 };

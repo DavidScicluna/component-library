@@ -55,7 +55,7 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 					backgroundColor={getColor({ theme, colorMode, type: 'background' })}
 					borderRadius='xl'
 				>
-					{renderCancel && (
+					{renderCancel ? (
 						<Center position='absolute' top={theme.space[2]} right={theme.space[2]}>
 							{renderCancel({
 								'aria-label': 'Close Modal',
@@ -67,7 +67,7 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 								'variant': 'icon'
 							})}
 						</Center>
-					)}
+					) : null}
 
 					{children}
 				</ModalContent>

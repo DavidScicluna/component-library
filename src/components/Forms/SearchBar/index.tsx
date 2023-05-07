@@ -96,14 +96,15 @@ const SearchBar: FC<SearchBarProps> = (props) => {
 									divider={<Divider colorMode={colorMode} orientation='vertical' />}
 									spacing={1}
 								>
-									{hasClear &&
-										renderClear({
-											colorMode,
-											icon: 'clear',
-											category: 'outlined',
-											onClick: handleClear,
-											variant: 'icon'
-										})}
+									{hasClear
+										? renderClear({
+												colorMode,
+												icon: 'clear',
+												category: 'outlined',
+												onClick: handleClear,
+												variant: 'icon'
+										  })
+										: null}
 
 									{renderSubmit({
 										children: 'Submit',
@@ -117,14 +118,15 @@ const SearchBar: FC<SearchBarProps> = (props) => {
 								</HStack>
 						  )
 						: ({ colorMode }) =>
-								hasClear &&
-								renderClear({
-									colorMode,
-									icon: 'clear',
-									category: 'outlined',
-									onClick: handleClear,
-									variant: 'icon'
-								})
+								hasClear
+									? renderClear({
+											colorMode,
+											icon: 'clear',
+											category: 'outlined',
+											onClick: handleClear,
+											variant: 'icon'
+									  })
+									: null
 				}
 				type='text'
 				value={query}

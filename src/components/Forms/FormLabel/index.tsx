@@ -46,11 +46,11 @@ const FormLabel: FC<FormLabelProps> = (props) => {
 		>
 			<Center as='label'>{children}</Center>
 
-			{isRequired && (
+			{isRequired ? (
 				<Center as='span' className='ds-cl-required-indicator'>
 					*
 				</Center>
-			)}
+			) : null}
 		</CUIFormLabel>
 	);
 };

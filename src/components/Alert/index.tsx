@@ -160,7 +160,7 @@ const Alert: FC<AlertProps> = (props) => {
 				</VStack>
 			</HStack>
 
-			{onClose && (
+			{onClose ? (
 				<Center ref={closeRef}>
 					<IconButton
 						aria-label='Alert Close Button'
@@ -171,7 +171,7 @@ const Alert: FC<AlertProps> = (props) => {
 						<IconButtonIcon icon='close' />
 					</IconButton>
 				</Center>
-			)}
+			) : null}
 		</HStack>
 	);
 };

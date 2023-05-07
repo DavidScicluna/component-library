@@ -123,7 +123,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 			spacing={handleReturnSpacing()}
 			sx={{ width: isFullWidth ? '100%' : 'auto' }}
 		>
-			{label && (
+			{label ? (
 				<FormLabel
 					colorMode={colorMode}
 					id={id || name}
@@ -135,7 +135,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 				>
 					{label}
 				</FormLabel>
-			)}
+			) : null}
 
 			<HStack
 				as={InputGroup}
@@ -147,7 +147,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 				_disabled={style.disabled}
 				_readOnly={style.readOnly}
 			>
-				{renderLeftPanel && (
+				{renderLeftPanel ? (
 					<Center>
 						{renderLeftPanel({
 							width: `${handleReturnPanelSize() || 20}px`,
@@ -157,7 +157,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 							colorMode
 						})}
 					</Center>
-				)}
+				) : null}
 
 				<Center flex={1}>
 					<CUITextarea
@@ -178,7 +178,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 					/>
 				</Center>
 
-				{renderRightPanel && (
+				{renderRightPanel ? (
 					<Center>
 						{renderRightPanel({
 							width: `${handleReturnPanelSize() || 20}px`,
@@ -188,7 +188,7 @@ const Textarea = (props: TextareaProps): ReactElement => {
 							colorMode
 						})}
 					</Center>
-				)}
+				) : null}
 			</HStack>
 
 			<Collapse in={!(isNil(helper) || isEmpty(helper))} style={{ width: '100%' }}>

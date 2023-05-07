@@ -122,7 +122,7 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 			spacing={handleReturnSpacing()}
 			sx={{ width: isFullWidth ? '100%' : 'auto' }}
 		>
-			{label && (
+			{label ? (
 				<FormLabel
 					colorMode={colorMode}
 					id={id || name}
@@ -134,7 +134,7 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 				>
 					{label}
 				</FormLabel>
-			)}
+			) : null}
 
 			<HStack
 				as={InputGroup}
@@ -146,7 +146,7 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 				_disabled={style.disabled}
 				_readOnly={style.readOnly}
 			>
-				{renderLeftPanel && (
+				{renderLeftPanel ? (
 					<Center>
 						{renderLeftPanel({
 							width: `${handleReturnPanelSize() || 20}px`,
@@ -156,7 +156,7 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 							colorMode
 						})}
 					</Center>
-				)}
+				) : null}
 
 				<Center flex={1}>
 					<CUIInput
@@ -176,7 +176,7 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 					/>
 				</Center>
 
-				{renderRightPanel && (
+				{renderRightPanel ? (
 					<Center>
 						{renderRightPanel({
 							width: `${handleReturnPanelSize() || 20}px`,
@@ -186,7 +186,7 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 							colorMode
 						})}
 					</Center>
-				)}
+				) : null}
 			</HStack>
 
 			<Collapse in={!(isNil(helper) || isEmpty(helper))} style={{ width: '100%' }}>

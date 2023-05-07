@@ -70,13 +70,13 @@ const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest
 				alignItems='stretch'
 				gap={0}
 			>
-				{renderLeft && (
+				{renderLeft ? (
 					<GridItem>
 						<Center width='100%' height='100%'>
 							{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
 						</Center>
 					</GridItem>
-				)}
+				) : null}
 
 				<GridItem ref={childrenRef}>
 					<HorizontalScroll
@@ -102,13 +102,13 @@ const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest
 					</HorizontalScroll>
 				</GridItem>
 
-				{renderRight && (
+				{renderRight ? (
 					<GridItem>
 						<Center width='100%' height='100%'>
 							{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
 						</Center>
 					</GridItem>
-				)}
+				) : null}
 			</Grid>
 		</CUITabList>
 	);

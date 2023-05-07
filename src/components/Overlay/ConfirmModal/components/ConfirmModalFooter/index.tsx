@@ -13,24 +13,26 @@ const ConfirmModalFooter: FC<ConfirmModalFooterProps> = (props) => {
 
 	return (
 		<ModalFooter as={HStack} width='100%' justifyContent='space-between' p={0} m={0} spacing={spacing} {...rest}>
-			{renderCancel &&
-				renderCancel({
-					color: 'gray',
-					colorMode,
-					isFullWidth: true,
-					onClick: typeof onClose === 'function' ? () => onClose() : undefined,
-					size: 'md',
-					variant: 'outlined'
-				})}
+			{renderCancel
+				? renderCancel({
+						color: 'gray',
+						colorMode,
+						isFullWidth: true,
+						onClick: typeof onClose === 'function' ? () => onClose() : undefined,
+						size: 'md',
+						variant: 'outlined'
+				  })
+				: null}
 
-			{renderAction &&
-				renderAction({
-					color,
-					colorMode,
-					isFullWidth: true,
-					size: 'md',
-					variant: 'contained'
-				})}
+			{renderAction
+				? renderAction({
+						color,
+						colorMode,
+						isFullWidth: true,
+						size: 'md',
+						variant: 'contained'
+				  })
+				: null}
 		</ModalFooter>
 	);
 };

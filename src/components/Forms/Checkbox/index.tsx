@@ -118,7 +118,7 @@ const Checkbox: FC<CheckboxProps> = (props) => {
 				spacing={handleReturnSpacing()}
 				sx={{ width: isFullWidth ? '100%' : 'auto' }}
 			>
-				{label && (
+				{label ? (
 					<FormLabel
 						colorMode={colorMode}
 						id={id || name}
@@ -130,7 +130,7 @@ const Checkbox: FC<CheckboxProps> = (props) => {
 					>
 						{label}
 					</FormLabel>
-				)}
+				) : null}
 
 				<HStack
 					aria-checked={isChecked}
@@ -144,7 +144,7 @@ const Checkbox: FC<CheckboxProps> = (props) => {
 					_disabled={style.disabled}
 					_readOnly={style.readOnly}
 				>
-					{renderLeftPanel && (
+					{renderLeftPanel ? (
 						<Center flex={1}>
 							{renderLeftPanel({
 								width: `${handleReturnPanelSize() || 20}px`,
@@ -154,7 +154,7 @@ const Checkbox: FC<CheckboxProps> = (props) => {
 								colorMode
 							})}
 						</Center>
-					)}
+					) : null}
 
 					<Center>
 						<CUICheckbox
@@ -175,7 +175,7 @@ const Checkbox: FC<CheckboxProps> = (props) => {
 						/>
 					</Center>
 
-					{renderRightPanel && (
+					{renderRightPanel ? (
 						<Center flex={1}>
 							{renderRightPanel({
 								width: `${handleReturnPanelSize() || 20}px`,
@@ -185,7 +185,7 @@ const Checkbox: FC<CheckboxProps> = (props) => {
 								colorMode
 							})}
 						</Center>
-					)}
+					) : null}
 				</HStack>
 
 				<Collapse in={!(isNil(helper) || isEmpty(helper))} style={{ width: '100%' }}>

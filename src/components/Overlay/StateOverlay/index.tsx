@@ -21,7 +21,7 @@ const StateOverlay: FC<StateOverlayProps> = (props) => {
 
 	return (
 		<Grid {...rest} templateColumns='1fr' alignItems='center' justifyContent='center' gap={0}>
-			{renderEmpty && (
+			{renderEmpty ? (
 				<GridItem as={Fade} zIndex={1} rowStart={1} colStart={1} in={state === 'empty'}>
 					{hasGlass ? (
 						<Glass width='100%' height='100%'>
@@ -31,9 +31,9 @@ const StateOverlay: FC<StateOverlayProps> = (props) => {
 						renderEmpty({ state })
 					)}
 				</GridItem>
-			)}
+			) : null}
 
-			{renderError && (
+			{renderError ? (
 				<GridItem as={Fade} zIndex={1} rowStart={1} colStart={1} in={state === 'error'}>
 					{hasGlass ? (
 						<Glass width='100%' height='100%'>
@@ -43,9 +43,9 @@ const StateOverlay: FC<StateOverlayProps> = (props) => {
 						renderError({ state })
 					)}
 				</GridItem>
-			)}
+			) : null}
 
-			{renderSpinner && (
+			{renderSpinner ? (
 				<GridItem as={Fade} zIndex={1} rowStart={1} colStart={1} in={state === 'loading'}>
 					{hasGlass ? (
 						<Glass width='100%' height='100%'>
@@ -55,7 +55,7 @@ const StateOverlay: FC<StateOverlayProps> = (props) => {
 						renderSpinner({ state })
 					)}
 				</GridItem>
-			)}
+			) : null}
 
 			<GridItem
 				as={Fade}

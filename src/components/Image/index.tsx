@@ -116,7 +116,7 @@ const Image = forwardRef<ImageRef, ImageProps>(function Image(props, ref): React
 			</Center>
 
 			{/* Boring image */}
-			{!!boring && (
+			{boring ? (
 				<Center as={Fade} in={isBoringVisible} sx={{ ...sx }}>
 					<CUIImage
 						{...rest}
@@ -129,10 +129,10 @@ const Image = forwardRef<ImageRef, ImageProps>(function Image(props, ref): React
 						sx={{ ...sx }}
 					/>
 				</Center>
-			)}
+			) : null}
 
 			{/* Thumbnail image */}
-			{!!thumbnail && (
+			{thumbnail ? (
 				<Center as={Fade} in={isThumbnailVisible} sx={{ ...sx }}>
 					<Center sx={{ ...sx, position: 'relative' }}>
 						<Glass zIndex={1} sx={{ ...sx }} />
@@ -148,10 +148,10 @@ const Image = forwardRef<ImageRef, ImageProps>(function Image(props, ref): React
 						/>
 					</Center>
 				</Center>
-			)}
+			) : null}
 
 			{/* Full image */}
-			{!!full && (
+			{full ? (
 				<Center as={Fade} in={isFullVisible} sx={{ ...sx }}>
 					<CUIImage
 						{...rest}
@@ -164,7 +164,7 @@ const Image = forwardRef<ImageRef, ImageProps>(function Image(props, ref): React
 						sx={{ ...sx }}
 					/>
 				</Center>
-			)}
+			) : null}
 		</Center>
 	);
 });

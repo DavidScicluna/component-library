@@ -66,7 +66,7 @@ const Rating: FC<RatingProps> = (props) => {
 
 	return (
 		<VStack as={FormControl} tabIndex={0} alignItems='flex-start' sx={{ width: isFullWidth ? '100%' : 'auto' }}>
-			{label && (
+			{label ? (
 				<FormLabel
 					colorMode={colorMode}
 					id={id || name}
@@ -78,7 +78,7 @@ const Rating: FC<RatingProps> = (props) => {
 				>
 					{label}
 				</FormLabel>
-			)}
+			) : null}
 
 			<HStack
 				{...rest}

@@ -64,7 +64,7 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 				<Divider backgroundColor={theme.colors.transparent} />
 
 				<HStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={handleReturnSpacing()}>
-					{renderLeft && renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+					{renderLeft ? renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight }) : null}
 
 					<Center ref={childrenRef} as='span' flex={1}>
 						<Skeleton
@@ -79,7 +79,9 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 						</Skeleton>
 					</Center>
 
-					{renderRight && renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+					{renderRight
+						? renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })
+						: null}
 				</HStack>
 
 				<ScaleFade in={isActive || isSelected} unmountOnExit={false} initialScale={0.75}>
