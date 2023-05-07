@@ -1,28 +1,24 @@
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
 import { range } from 'lodash-es';
 
 import {
-	AccordionsColor,
 	DummyAccordion,
-	DummyAccordionHeader,
 	DummyAccordions as DummyAccordionsComponent,
 	DummyAccordionsPanel,
 	DummyAccordionsProps,
 	DummyAccordionsQuickToggles,
 	DummyButton
 } from '../../..';
-import {
-	color as defaultColor,
-	isFullWidth as defaultIsFullWidth,
-	spacing as defaultSpacing
-} from '../../../components/Accordions/common/data/defaultPropValues';
+import { color as defaultColor } from '../../../common/default/props';
+import { AppColors } from '../../../common/types';
+import { spacing as defaultSpacing } from '../../../components/Accordions/common/default/props';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
 
 import { Meta, Story } from './types';
 
-const colorOptions: AccordionsColor[] = [
+const colorOptions: AppColors = [
 	'gray',
 	'red',
 	'pink',
@@ -54,13 +50,6 @@ export default {
 			control: 'select'
 		},
 		colorMode: { ...controls.theme.colorMode },
-		isFullWidth: {
-			name: 'FullWidth',
-			type: 'boolean',
-			defaultValue: defaultIsFullWidth,
-			// description: '',
-			control: 'boolean'
-		},
 		spacing: { ...controls.theme.spacing, defaultValue: defaultSpacing },
 		padding: { ...controls.theme.padding, defaultValue: 2 }
 		// margin: { ...controls.theme.margin },
@@ -69,26 +58,24 @@ export default {
 } as Meta;
 
 export const DummyAccordions: Story = (props: DummyAccordionsProps): ReactElement => (
-	<DummyAccordionsComponent {...props} color='gray' accordions={range(0, 15)} p={0}>
+	<DummyAccordionsComponent
+		{...props}
+		color='gray'
+		accordions={range(0, 15).map((accordion) => ({ id: accordion, title: '', subtitle: '' }))}
+		p={0}
+	>
 		<DummyAccordionsQuickToggles color={props.color === 'gray' ? 'orange' : props.color} spacing={2} />
 
 		<DummyAccordionsPanel>
 			{({ accordions }) =>
 				accordions.map((accordion) => (
-					<DummyAccordion key={accordion} p={props.padding}>
-						<DummyAccordionHeader
-							hasSubtitle
-							actions={
-								<DummyButton
-									color={props.color === 'gray' ? 'orange' : props.color}
-									colorMode={props.colorMode}
-									size='xs'
-								>
-									Dummy Card Action
-								</DummyButton>
-							}
-						/>
-					</DummyAccordion>
+					<DummyAccordion
+						key={accordion.id}
+						id={accordion.id}
+						title={`${accordion.title} Title`}
+						subtitle={`${accordion.title} Subtitle`}
+						p={props.padding}
+					/>
 				))
 			}
 		</DummyAccordionsPanel>
