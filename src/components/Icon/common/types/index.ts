@@ -3,7 +3,6 @@ import { CenterProps, ColorMode } from '@chakra-ui/react';
 import { Nullable } from '../../../../common/types';
 import {
 	BoxBackground,
-	BoxBorderRadius,
 	BoxBorders,
 	BoxColor,
 	BoxFilter,
@@ -32,7 +31,6 @@ type Omitted =
 	| BoxGrid
 	| BoxBackground
 	| BoxBorders
-	| BoxBorderRadius
 	| BoxPosition
 	| BoxShadow
 	| BoxFilter
