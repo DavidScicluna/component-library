@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
 import { Text, VStack } from '@chakra-ui/react';
 
@@ -6,29 +6,23 @@ import { range, toString } from 'lodash-es';
 
 import {
 	Accordion,
-	AccordionBody,
-	AccordionFooter,
-	AccordionHeader,
 	Accordions as AccordionsComponent,
-	AccordionsColor,
 	AccordionsPanel,
 	AccordionsProps,
 	AccordionsQuickToggles,
 	DummyButton,
 	Skeleton
 } from '../../..';
-import {
-	color as defaultColor,
-	isFullWidth as defaultIsFullWidth,
-	spacing as defaultSpacing
-} from '../../../components/Accordions/common/data/defaultPropValues';
-import { isDisabled as defaultIsDisabled } from '../../../components/Accordions/OriginalAccordions/common/data/defaultPropValues';
+import { color as defaultColor } from '../../../common/default/props';
+import { AppColors } from '../../../common/types';
+import { spacing as defaultSpacing } from '../../../components/Accordions/common/default/props';
+import { isDisabled as defaultIsDisabled } from '../../../components/Accordions/OriginalAccordions/common/default/props';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
 
 import { Meta, Story } from './types';
 
-const colorOptions: AccordionsColor[] = [
+const colorOptions: AppColors = [
 	'gray',
 	'red',
 	'pink',
@@ -67,13 +61,6 @@ export default {
 			// description: '',
 			control: 'boolean'
 		},
-		isFullWidth: {
-			name: 'FullWidth',
-			type: 'boolean',
-			defaultValue: defaultIsFullWidth,
-			// description: '',
-			control: 'boolean'
-		},
 		spacing: { ...controls.theme.spacing, defaultValue: defaultSpacing },
 		padding: { ...controls.theme.padding, defaultValue: 2 }
 		// margin: { ...controls.theme.margin },
@@ -91,63 +78,55 @@ export const Accordions: Story = (props: AccordionsProps<unknown>): ReactElement
 		p={0}
 	>
 		<AccordionsQuickToggles color={props.color === 'gray' ? 'deep_orange' : props.color} spacing={2} />
-
 		<AccordionsPanel>
 			{({ accordions }) =>
 				accordions.map((accordion) => (
 					<Accordion
 						key={accordion.id}
 						id={accordion.id}
-						header={
-							<AccordionHeader
-								renderTitle={(props) => <Text {...props}>{`${accordion.title} Title`}</Text>}
-								renderSubtitle={(props) => <Text {...props}>{`${accordion.title} Subtitle`}</Text>}
-								actions={
-									<DummyButton
-										color={props.color === 'gray' ? 'orange' : props.color}
-										colorMode={props.colorMode}
-										size='xs'
-									>
-										Dummy Card Action
-									</DummyButton>
-								}
-							/>
-						}
-						body={
-							<AccordionBody>
-								<VStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={2}>
-									{range(2).map((_dummy, index) => (
-										<Skeleton
-											key={index}
-											colorMode={props.colorMode}
-											isLoaded={false}
-											variant='text'
-											sx={{ width: '100%', flex: 1 }}
-										>
-											<Text width='100%' align='left' fontSize='md' noOfLines={1}>
-												Dummy Text
-											</Text>
-										</Skeleton>
-									))}
-								</VStack>
-							</AccordionBody>
+						title={`${accordion.title} Title`}
+						subtitle={`${accordion.title} Subtitle`}
+						isOpen={false}
+						onOpen={() => undefined}
+						actions={
+							<DummyButton
+								color={props.color === 'gray' ? 'orange' : props.color}
+								colorMode={props.colorMode}
+								size='xs'
+							>
+								Dummy Card Action
+							</DummyButton>
 						}
 						footer={
-							<AccordionFooter>
-								<DummyButton
-									color={props.color === 'gray' ? 'orange' : props.color}
-									colorMode={props.colorMode}
-									isFullWidth
-									size='xs'
-									variant='text'
-								>
-									This is the Dummy Card Footer Action
-								</DummyButton>
-							</AccordionFooter>
+							<DummyButton
+								color={props.color === 'gray' ? 'orange' : props.color}
+								colorMode={props.colorMode}
+								isFullWidth
+								size='xs'
+								variant='text'
+							>
+								Footer Action
+							</DummyButton>
 						}
 						spacing={2}
 						p={props.padding}
-					/>
+					>
+						<VStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={2}>
+							{range(2).map((_dummy, index) => (
+								<Skeleton
+									key={index}
+									colorMode={props.colorMode}
+									isLoaded={false}
+									variant='text'
+									sx={{ width: '100%', flex: 1 }}
+								>
+									<Text width='100%' align='left' fontSize='md' noOfLines={1}>
+										Dummy Text
+									</Text>
+								</Skeleton>
+							))}
+						</VStack>
+					</Accordion>
 				))
 			}
 		</AccordionsPanel>
