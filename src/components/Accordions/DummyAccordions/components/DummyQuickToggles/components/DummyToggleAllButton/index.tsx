@@ -9,10 +9,10 @@ import { DummyToggleAllButtonProps } from './common/types';
 const DummyToggleAllButton = (props: DummyToggleAllButtonProps): ReactElement => {
 	const { color: defaultColor, colorMode } = useDummyAccordionsContext();
 
-	const { color = defaultColor, size = defaultSize } = props;
+	const { color = defaultColor, size = defaultSize, ...rest } = props;
 
 	return (
-		<DummyButton color={color} colorMode={colorMode} size={size} variant='text'>
+		<DummyButton {...rest} color={color} colorMode={colorMode} size={size} variant='text'>
 			Close all
 		</DummyButton>
 	);
