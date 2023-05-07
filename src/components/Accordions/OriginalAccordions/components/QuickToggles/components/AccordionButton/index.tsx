@@ -6,36 +6,38 @@ import { useConst } from '@chakra-ui/react';
 import { useTheme } from '../../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../../common/utils';
 import Button from '../../../../../../Clickable/Buttons/OriginalButton';
-import { color as defaultColor } from '../../../../../common/data/defaultPropValues';
-import { isDisabled as defaultIsDisabled } from '../../../../common/data/defaultPropValues';
+import { isDisabled as defaultIsDisabled } from '../../../../common/default/props';
 import { useAccordionsContext } from '../../../../common/hooks';
 import { toggleAccordion } from '../../../../common/utils';
-import { size as defaultSize } from '../../common/data/defaultPropValues';
+import { size as defaultSize } from '../../common/default/props';
 
-import { AccordionProps } from './types';
+import { AccordionButtonProps } from './common/types';
 
-const Accordion = <D,>(props: AccordionProps<D>): ReactElement => {
+const AccordionButton = <D,>(props: AccordionButtonProps<D>): ReactElement => {
 	const theme = useTheme();
 
-	const { colorMode, opened, onSetOpened } = useAccordionsContext<D>();
+	const { color: defaultColor, colorMode, opened, onSetOpened } = useAccordionsContext<D>();
 
 	const { id, title, color = defaultColor, isDisabled = defaultIsDisabled, size = defaultSize } = props;
 
 	const offset = useConst<number>(Math.abs(convertREMToPixels(convertStringToNumber(theme.space[2], 'rem'))) * -1);
 	const delay = useConst<number>(convertStringToNumber(theme.transition.duration.slow, 'ms'));
 
+	const handleClick = () => {
+		if (typeof onSetOpened === 'function') {
+			onSetOpened(toggleAccordion({ opened, id }));
+		}
+	};
+
 	return (
 		<Link to={!isDisabled ? id.toLowerCase() : ''} spy smooth isDynamic={false} offset={offset} delay={delay}>
 			<Button
 				color={color}
 				colorMode={colorMode}
-				onClick={
-					typeof onSetOpened === 'function' ? () => onSetOpened(toggleAccordion({ opened, id })) : undefined
-				}
+				onClick={handleClick}
 				isDisabled={isDisabled}
 				size={size}
 				variant='text'
-				sx={{ p: 0 }}
 			>
 				{title}
 			</Button>
@@ -43,4 +45,4 @@ const Accordion = <D,>(props: AccordionProps<D>): ReactElement => {
 	);
 };
 
-export default Accordion;
+export default AccordionButton;
