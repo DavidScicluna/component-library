@@ -1,24 +1,21 @@
-import { ReactElement, useCallback } from 'react';
+import { ReactElement } from 'react';
 
-import { Center, HStack, Text } from '@chakra-ui/react';
-
-import { useElementSize } from 'usehooks-ts';
+import { Grid, GridItem, useMediaQuery } from '@chakra-ui/react';
 
 import { useTheme } from '../../../../../common/hooks';
-import { convertREMToPixels, convertStringToNumber } from '../../../../../common/utils';
-import { getColor } from '../../../../../common/utils/color';
-import { Space } from '../../../../../theme/types';
 import Divider from '../../../../Divider';
-import HorizontalScroll from '../../../../HorizontalScroll';
 import { useAccordionsContext } from '../../common/hooks';
 
 import { size as defaultSize } from './common/default/props';
 import { QuickTogglesProps } from './common/types';
 import AccordionButton from './components/AccordionButton';
 import ToggleAllButton from './components/ToggleAllButton';
+import ToggleButtons from './components/ToggleButtons';
 
 const QuickToggles = <D,>(props: QuickTogglesProps<D>): ReactElement => {
 	const theme = useTheme();
+
+	const [isMd] = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
 
 	const {
 		accordions,
@@ -28,10 +25,6 @@ const QuickToggles = <D,>(props: QuickTogglesProps<D>): ReactElement => {
 		spacing: defaultSpacing
 	} = useAccordionsContext<D>();
 
-	const [borderRef, { width: borderWidth }] = useElementSize();
-	const [textRef, { width: textWidth }] = useElementSize();
-	const [toggleRef, { width: toggleWidth }] = useElementSize();
-
 	const {
 		color = defaultColor,
 		isDisabled = defaultIsDisabled,
@@ -39,67 +32,18 @@ const QuickToggles = <D,>(props: QuickTogglesProps<D>): ReactElement => {
 		size = defaultSize
 	} = props;
 
-	const handleAccordionsWidth = useCallback((): string => {
-		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem') * 2);
-
-		return `calc(100% - ${toggleWidth + spacingWidth + borderWidth}px)`;
-	}, [theme.space, toggleWidth, borderWidth, spacing]);
-
-	const handleScrollWidth = useCallback((): string => {
-		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem'));
-
-		return `calc(100% - ${textWidth + spacingWidth}px)`;
-	}, [theme.space, textWidth, spacing]);
-
 	return (
-		<HStack
+		<Grid
 			width='100%'
+			templateColumns={isMd ? '100%' : 'minmax(0, 1fr) min-content min-content'}
+			templateRows={isMd ? 'repeat(3, max-content)' : 'minmax(0, 1fr)'}
 			alignItems='stretch'
+			justifyItems='stretch'
 			justifyContent='stretch'
-			divider={
-				<Center ref={borderRef} alignItems='stretch' justifyContent='stretch' border='none'>
-					<Divider colorMode={colorMode} orientation='vertical' />
-				</Center>
-			}
-			spacing={spacing}
+			gap={spacing}
 		>
-			<HStack
-				width='100%'
-				maxWidth={handleAccordionsWidth()}
-				flex={1}
-				alignItems='stretch'
-				justifyContent='stretch'
-				spacing={spacing}
-			>
-				<Center ref={textRef}>
-					<Text
-						align='left'
-						color={getColor({ theme, colorMode, type: 'text.secondary' })}
-						fontSize={size}
-						whiteSpace='nowrap'
-						noOfLines={0}
-					>
-						Jump to:
-					</Text>
-				</Center>
-
-				{/* <Center > */}
-				<HorizontalScroll
-					maxWidth={handleScrollWidth()}
-					height='100%'
-					colorMode={colorMode}
-					isDisabled={isDisabled}
-					renderDivider={() => (
-						<Text
-							align='left'
-							color={getColor({ theme, colorMode, type: 'text.secondary' })}
-							fontSize='md'
-							userSelect='none'
-						>
-							•
-						</Text>
-					)}
-				>
+			<GridItem>
+				<ToggleButtons size={size} spacing={spacing}>
 					{accordions.map((accordion) => (
 						<AccordionButton
 							{...accordion}
@@ -107,16 +51,20 @@ const QuickToggles = <D,>(props: QuickTogglesProps<D>): ReactElement => {
 							color={color}
 							isDisabled={isDisabled}
 							size={size}
+							spacing={spacing}
 						/>
 					))}
-				</HorizontalScroll>
-				{/* </Center> */}
-			</HStack>
+				</ToggleButtons>
+			</GridItem>
 
-			<Center ref={toggleRef}>
-				<ToggleAllButton color={color} isDisabled={isDisabled} size={size} />
-			</Center>
-		</HStack>
+			<GridItem>
+				<Divider colorMode={colorMode} orientation={isMd ? 'horizontal' : 'vertical'} />
+			</GridItem>
+
+			<GridItem>
+				<ToggleAllButton color={color} isDisabled={isDisabled} isFullWidth={isMd} size={size} />
+			</GridItem>
+		</Grid>
 	);
 };
 
