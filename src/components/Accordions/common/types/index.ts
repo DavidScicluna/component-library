@@ -1,5 +1,6 @@
 import { ColorMode, StackProps } from '@chakra-ui/react';
 
+import { AppColor } from '../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -14,9 +15,7 @@ import {
 	BoxShadow,
 	BoxTypography
 } from '../../../../common/types/box';
-import { Color, Space } from '../../../../theme/types';
-
-export type AccordionsColor = Exclude<Color, 'transparent' | 'black' | 'white'>;
+import { Space } from '../../../../theme/types';
 
 type Omitted =
 	// CUI Box Props
@@ -39,8 +38,7 @@ type Omitted =
 	| 'spacing';
 
 export type CommonAccordionsProps = Omit<StackProps, Omitted> & {
-	color?: AccordionsColor;
+	color?: AppColor;
 	colorMode?: ColorMode;
-	isFullWidth?: boolean;
 	spacing?: Space;
 };
