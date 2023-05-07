@@ -1,7 +1,9 @@
+import { ReactNode } from 'react';
+
 import { ColorMode } from '@chakra-ui/react';
 
 import { Nullable, PickFrom } from '../../../../common/types';
-import { Color } from '../../../../theme/types';
+import { Color, Space } from '../../../../theme/types';
 
 export type AlertColor = PickFrom<Color, 'red' | 'blue' | 'green' | 'yellow'>;
 
@@ -43,8 +45,10 @@ export type AlertStatus = 'info' | 'warning' | 'success' | 'error';
 export type AlertProps = {
 	colorMode?: ColorMode;
 	duration: Nullable<AlertDuration>;
-	title?: string;
+	label?: string;
 	description: string;
+	actions?: ReactNode;
 	onClose?: () => void;
+	spacing?: Space;
 	status: AlertStatus;
 };
