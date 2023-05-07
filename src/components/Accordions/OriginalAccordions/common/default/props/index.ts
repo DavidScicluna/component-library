@@ -5,4 +5,4 @@ export const accordions: Accordion<any>[] = [];
 
 export const isDisabled = false;
 
-export const opened: OpenedAccordions<any> = [];
+export const opened: OpenedAccordions = [];
