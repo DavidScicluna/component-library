@@ -1,48 +1,46 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createContext, ReactElement, useState } from 'react';
 
-import { useColorMode, VStack } from '@chakra-ui/react';
+import { VStack } from '@chakra-ui/react';
 
-import { method as defaultOnSetOpened } from '../../../common/default/props';
-import { useDebounce } from '../../../common/hooks';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
-	isFullWidth as defaultIsFullWidth,
-	spacing as defaultSpacing
-} from '../common/data/defaultPropValues';
+	method as defaultOnSetOpened
+} from '../../../common/default/props';
+import { useDebounce } from '../../../common/hooks';
+import { useProviderContext } from '../../Provider/common/hooks';
+import { spacing as defaultSpacing } from '../common/default/props';
 
 import {
 	accordions as defaultAccordions,
 	isDisabled as defaultIsDisabled,
 	opened as defaultOpened
-} from './common/data/defaultPropValues';
-import { AccordionsContext as AccordionsContextType, AccordionsProps, OpenedAccordions } from './types';
+} from './common/default/props';
+import { AccordionsContext as AccordionsContextType, AccordionsProps, OpenedAccordions } from './common/types';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const AccordionsContext = createContext<AccordionsContextType<any>>({
 	accordions: defaultAccordions,
 	color: defaultColor,
 	colorMode: defaultColorMode,
 	isDisabled: defaultIsDisabled,
-	isFullWidth: defaultIsFullWidth,
 	opened: defaultOpened,
 	onSetOpened: defaultOnSetOpened,
 	spacing: defaultSpacing
 });
 
 const Accordions = <D,>(props: AccordionsProps<D>): ReactElement => {
-	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
-	const [opened, setOpened] = useState<OpenedAccordions<D>>([]);
-	const debouncedOpened = useDebounce<OpenedAccordions<D>>(opened);
+	const [opened, setOpened] = useState<OpenedAccordions>([]);
+	const debouncedOpened = useDebounce<OpenedAccordions>(opened);
 
 	const {
 		children,
 		accordions = defaultAccordions,
 		color = defaultColor,
-		colorMode = colorModeHook,
+		colorMode = defaultColorMode,
 		isDisabled = defaultIsDisabled,
-		isFullWidth = defaultIsFullWidth,
 		spacing = defaultSpacing,
 		...rest
 	} = props;
@@ -54,13 +52,12 @@ const Accordions = <D,>(props: AccordionsProps<D>): ReactElement => {
 				color,
 				colorMode,
 				isDisabled,
-				isFullWidth,
 				opened: debouncedOpened,
 				onSetOpened: setOpened,
 				spacing
 			}}
 		>
-			<VStack width='100%' spacing={spacing} {...rest}>
+			<VStack {...rest} spacing={spacing}>
 				{children}
 			</VStack>
 		</AccordionsContext.Provider>
