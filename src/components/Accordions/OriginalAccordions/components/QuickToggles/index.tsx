@@ -12,27 +12,32 @@ import Divider from '../../../../Divider';
 import HorizontalScroll from '../../../../HorizontalScroll';
 import { useAccordionsContext } from '../../common/hooks';
 
-import { size as defaultSize } from './common/data/defaultPropValues';
-import Accordion from './components/Accordion';
-import Toggle from './components/Toggle';
-import { QuickTogglesProps } from './types';
+import { size as defaultSize } from './common/default/props';
+import { QuickTogglesProps } from './common/types';
+import AccordionButton from './components/AccordionButton';
+import ToggleAllButton from './components/ToggleAllButton';
 
 const QuickToggles = <D,>(props: QuickTogglesProps<D>): ReactElement => {
 	const theme = useTheme();
 
 	const {
 		accordions,
-		color: colorHook,
+		color: defaultColor,
 		colorMode,
-		isDisabled: isDisabledHook,
-		spacing: spacingHook
+		isDisabled: defaultIsDisabled,
+		spacing: defaultSpacing
 	} = useAccordionsContext<D>();
 
 	const [borderRef, { width: borderWidth }] = useElementSize();
 	const [textRef, { width: textWidth }] = useElementSize();
 	const [toggleRef, { width: toggleWidth }] = useElementSize();
 
-	const { color = colorHook, isDisabled = isDisabledHook, spacing = spacingHook, size = defaultSize } = props;
+	const {
+		color = defaultColor,
+		isDisabled = defaultIsDisabled,
+		spacing = defaultSpacing,
+		size = defaultSize
+	} = props;
 
 	const handleAccordionsWidth = useCallback((): string => {
 		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem') * 2);
@@ -84,20 +89,19 @@ const QuickToggles = <D,>(props: QuickTogglesProps<D>): ReactElement => {
 					height='100%'
 					colorMode={colorMode}
 					isDisabled={isDisabled}
-					renderDivider={({ padding }) => (
+					renderDivider={() => (
 						<Text
 							align='left'
 							color={getColor({ theme, colorMode, type: 'text.secondary' })}
 							fontSize='md'
 							userSelect='none'
-							px={padding}
 						>
 							•
 						</Text>
 					)}
 				>
 					{accordions.map((accordion) => (
-						<Accordion
+						<AccordionButton
 							{...accordion}
 							key={accordion.id}
 							color={color}
@@ -110,7 +114,7 @@ const QuickToggles = <D,>(props: QuickTogglesProps<D>): ReactElement => {
 			</HStack>
 
 			<Center ref={toggleRef}>
-				<Toggle color={color} isDisabled={isDisabled} size={size} />
+				<ToggleAllButton color={color} isDisabled={isDisabled} size={size} />
 			</Center>
 		</HStack>
 	);
