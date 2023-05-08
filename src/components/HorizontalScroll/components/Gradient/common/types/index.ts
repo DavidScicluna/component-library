@@ -1,6 +1,6 @@
-type GradientDirection = 'left' | 'right';
+import { HorizontalScrollArrowDirection } from '../../../../common/types';
 
 export type GradientProps = {
-	direction: GradientDirection;
+	direction: HorizontalScrollArrowDirection;
 	isVisible?: boolean;
 };

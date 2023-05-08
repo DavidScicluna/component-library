@@ -20,11 +20,13 @@ import {
 } from '../../../../common/types/box';
 import { Space } from '../../../../theme/types';
 
+export type HorizontalScrollArrowDirection = 'left' | 'right';
+
 export type HorizontalScrollAPIContext = ContextType<typeof VisibilityContext>;
 
 export type HorizontalScrollRenderDividerProps = { padding?: string };
 
-export type HorizontalScrollVariant = 'left' | 'right' | 'overlay';
+export type HorizontalScrollVariant = HorizontalScrollArrowDirection | 'overlay';
 
 type OmittedBoxProps =
 	| BoxColor

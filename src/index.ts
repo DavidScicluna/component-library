@@ -310,6 +310,7 @@ import HorizontalScroll from './components/HorizontalScroll';
 import { useHorizontalScrollContext } from './components/HorizontalScroll/common/hooks';
 import {
 	HorizontalScrollAPIContext,
+	HorizontalScrollArrowDirection,
 	HorizontalScrollContext,
 	HorizontalScrollProps,
 	HorizontalScrollRef,
@@ -901,6 +902,7 @@ export type {
 	HorizontalGridTabbedProps,
 	HorizontalGridTabbedScrollProps,
 	HorizontalScrollAPIContext,
+	HorizontalScrollArrowDirection,
 	HorizontalScrollArrowProps,
 	HorizontalScrollArrowRef,
 	HorizontalScrollContext,
