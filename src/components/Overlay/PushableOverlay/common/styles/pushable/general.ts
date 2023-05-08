@@ -54,6 +54,10 @@ export default ({
 		'&::before': {
 			content: '""',
 
+			display: 'flex',
+			alignItems: 'center',
+			justifyContent: 'center',
+
 			position: 'absolute',
 
 			top: 0,

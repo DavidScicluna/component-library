@@ -1,6 +1,6 @@
 import { forwardRef, ReactElement } from 'react';
 
-import { Box } from '@chakra-ui/react';
+import { Box, Center } from '@chakra-ui/react';
 import { dataAttr } from '@chakra-ui/utils';
 
 import { merge } from 'lodash-es';
@@ -65,9 +65,9 @@ const PushableOverlay = forwardRef<PushableOverlayRef, PushableOverlayProps>(fun
 			_active={merge(style.active, _active)}
 			_disabled={merge(style.disabled, _disabled)}
 		>
-			<Box width='100%' height='100%' position='relative' zIndex={1}>
+			<Center width='100%' height='100%' position='relative' zIndex={1}>
 				{children}
-			</Box>
+			</Center>
 		</Box>
 	);
 });
