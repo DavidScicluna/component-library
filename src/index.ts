@@ -313,10 +313,16 @@ import {
 	HorizontalScrollContext,
 	HorizontalScrollProps,
 	HorizontalScrollRef,
-	HorizontalScrollRenderDividerProps
+	HorizontalScrollRenderDividerProps,
+	HorizontalScrollVariant
 } from './components/HorizontalScroll/common/types';
 import HorizontalScrollArrow from './components/HorizontalScroll/components/Arrow';
-import { ArrowProps as HorizontalScrollArrowProps } from './components/HorizontalScroll/components/Arrow/common/types';
+import {
+	ArrowProps as HorizontalScrollArrowProps,
+	ArrowRef as HorizontalScrollArrowRef
+} from './components/HorizontalScroll/components/Arrow/common/types';
+import HorizontalScrollOverlayArrow from './components/HorizontalScroll/components/OverlayArrow';
+import { OverlayArrowProps as HorizontalScrollOverlayArrowProps } from './components/HorizontalScroll/components/OverlayArrow/common/types';
 import Icon from './components/Icon';
 import { IconCategory, IconColor, IconProps, IconRef, IconVariant } from './components/Icon/common/types';
 import Image from './components/Image';
@@ -689,6 +695,7 @@ export {
 	HorizontalGridTabbedScroll,
 	HorizontalScroll,
 	HorizontalScrollArrow,
+	HorizontalScrollOverlayArrow,
 	HoverOverlay,
 	Icon,
 	IconButton,
@@ -895,10 +902,13 @@ export type {
 	HorizontalGridTabbedScrollProps,
 	HorizontalScrollAPIContext,
 	HorizontalScrollArrowProps,
+	HorizontalScrollArrowRef,
 	HorizontalScrollContext,
+	HorizontalScrollOverlayArrowProps,
 	HorizontalScrollProps,
 	HorizontalScrollRef,
 	HorizontalScrollRenderDividerProps,
+	HorizontalScrollVariant,
 	HoverOverlayChildrenProps,
 	HoverOverlayMouseEvent,
 	HoverOverlayProps,

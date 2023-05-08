@@ -18,10 +18,13 @@ import {
 	BoxShadow,
 	BoxTypography
 } from '../../../../common/types/box';
+import { Space } from '../../../../theme/types';
 
 export type HorizontalScrollAPIContext = ContextType<typeof VisibilityContext>;
 
 export type HorizontalScrollRenderDividerProps = { padding?: string };
+
+export type HorizontalScrollVariant = 'left' | 'right' | 'overlay';
 
 type OmittedBoxProps =
 	| BoxColor
@@ -43,18 +46,26 @@ type OmittedBoxProps =
 type OmittedRHSMHorizontalScrollProps =
 	| 'children'
 	| 'Arrow'
+	| 'LeftArrow'
+	| 'RightArrow'
 	| 'transitionDuration'
 	| 'transitionBehavior'
 	| 'transitionEase';
 
 export type HorizontalScrollProps = Omit<BoxProps, OmittedBoxProps> & {
 	children: ReactNode[];
+	LeftArrow?: ReactNode;
+	RightArrow?: ReactNode;
 	color?: AppColor;
 	colorMode?: ColorMode;
 	isDisabled?: boolean;
 	renderDivider?: (props: HorizontalScrollRenderDividerProps) => ReactNode;
+	spacing?: Space;
+	variant?: HorizontalScrollVariant;
 } & Omit<RHSMHorizontalScrollProps, OmittedRHSMHorizontalScrollProps>;
 
 export type HorizontalScrollRef = Nullable<HTMLDivElement>;
 
-export type HorizontalScrollContext = Pick<HorizontalScrollProps, 'color' | 'colorMode' | 'isDisabled'>;
+export type HorizontalScrollContext = Pick<HorizontalScrollProps, 'color' | 'colorMode' | 'isDisabled' | 'spacing'> & {
+	arrowsWidth?: number;
+};
