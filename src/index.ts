@@ -307,7 +307,7 @@ import {
 	TextareaVariant
 } from './components/Forms/Textarea/common/types';
 import HorizontalScroll from './components/HorizontalScroll';
-import { useHorizontalScrollContext } from './components/HorizontalScroll/common/hooks';
+import { useHorizontalScrollArrowState, useHorizontalScrollContext } from './components/HorizontalScroll/common/hooks';
 import {
 	HorizontalScrollAPIContext,
 	HorizontalScrollArrowDirection,
@@ -576,6 +576,7 @@ export {
 	useDummyTabsContext,
 	useHorizontalGridContext,
 	useHorizontalGridTabbedContext,
+	useHorizontalScrollArrowState,
 	useHorizontalScrollContext,
 	useIconButtonContext,
 	useImageEditorContext,

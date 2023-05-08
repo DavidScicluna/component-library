@@ -1,32 +1,15 @@
-import { FC, useContext, useEffect } from 'react';
+import { FC, useContext } from 'react';
 import { VisibilityContext } from 'react-horizontal-scrolling-menu';
 
-import { useBoolean } from '@chakra-ui/react';
-
-import { useDebounce } from '../../../../common/hooks';
+import { useHorizontalScrollArrowState } from '../../common/hooks';
 import Gradient from '../Gradient';
 
 const RightGradient: FC = () => {
-	const { initComplete = false, isLastItemVisible = false, visibleElements = [] } = useContext(VisibilityContext);
+	const scroll = useContext(VisibilityContext);
 
-	const [isVisible, setIsVisible] = useBoolean();
-	const debouncedIsVisible = useDebounce<boolean>(isVisible, 'ultra-fast');
+	const { isVisible } = useHorizontalScrollArrowState({ direction: 'right', scroll });
 
-	const handleCheckIsVisible = (): void => {
-		if (visibleElements.length) {
-			if (!initComplete || (initComplete && isLastItemVisible)) {
-				setIsVisible.off();
-			} else {
-				setIsVisible.on();
-			}
-		}
-	};
-
-	useEffect(() => {
-		handleCheckIsVisible();
-	}, [isLastItemVisible, visibleElements]);
-
-	return <Gradient direction='right' isVisible={debouncedIsVisible} />;
+	return <Gradient direction='right' isVisible={isVisible} />;
 };
 
 export default RightGradient;

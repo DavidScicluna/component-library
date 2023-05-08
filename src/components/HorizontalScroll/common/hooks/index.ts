@@ -1,3 +1,4 @@
+import useHorizontalScrollArrowState from './useHorizontalScrollArrowState';
 import useHorizontalScrollContext from './useHorizontalScrollContext';
 
-export { useHorizontalScrollContext };
+export { useHorizontalScrollArrowState, useHorizontalScrollContext };
