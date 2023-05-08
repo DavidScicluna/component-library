@@ -4,26 +4,18 @@ import { Box } from '@chakra-ui/react';
 
 import { range } from 'lodash-es';
 
+import { HorizontalScroll as HorizontalScrollComponent, HorizontalScrollProps, HorizontalScrollVariant } from '../..';
 import {
-	HorizontalScroll as HorizontalScrollComponent,
-	HorizontalScrollProps,
-	HorizontalScrollRenderDividerProps
-} from '../..';
-import { isDisabled as defaultIsDisabled } from '../../components/HorizontalScroll/common/default/props';
-import spacing from '../../theme/foundations/spacing';
+	isDisabled as defaultIsDisabled,
+	spacing as defaultSpacing,
+	variant as defaultVariant
+} from '../../components/HorizontalScroll/common/default/props';
 import controls from '../common/controls';
 import parameters from '../common/parameters';
 
 import { Meta, Story } from './types';
 
-const renderMapping = Object.assign(
-	{ none: undefined },
-	...Object.entries(spacing).map(([key, value]) => {
-		return {
-			[key]: ({ padding }: HorizontalScrollRenderDividerProps) => <Box p={value || padding} />
-		};
-	})
-);
+const variantOptions: HorizontalScrollVariant[] = ['right', 'left', 'overlay'];
 
 export default {
 	title: 'HorizontalScroll',
@@ -38,20 +30,21 @@ export default {
 			// description: '',
 			control: 'boolean'
 		},
-		renderDivider: {
-			name: 'Spacing',
-			defaultValue: '1',
+		spacing: { ...controls.theme.spacing, defaultValue: defaultSpacing },
+		variant: {
+			name: 'Variant',
+			type: 'string',
+			defaultValue: defaultVariant,
 			// description: '',
-			options: ['none', ...Object.keys(spacing)],
-			mapping: { ...renderMapping },
-			control: 'select'
+			options: [...variantOptions],
+			control: 'radio'
 		}
 	},
 	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
 export const HorizontalScroll: Story = (props: HorizontalScrollProps): ReactElement => (
-	<HorizontalScrollComponent {...props}>
+	<HorizontalScrollComponent {...props} renderDivider={() => <Box p={props.spacing} />}>
 		{range(0, 50).map((_dummy, index) => (
 			<Box key={index} p={5} backgroundColor='teal.400' borderRadius='base' />
 		))}
