@@ -1,28 +1,33 @@
-import { FC, useContext, useEffect } from 'react';
-import { VisibilityContext } from 'react-horizontal-scrolling-menu';
+import { FC, useEffect } from 'react';
 
 import { useBoolean } from '@chakra-ui/react';
 
 import { useDebounce } from '../../../../common/hooks';
 import Arrow from '../Arrow';
 
-const RightArrow: FC = () => {
-	const { isLastItemVisible, scrollNext, visibleItemsWithoutSeparators } = useContext(VisibilityContext);
+import { RightArrowProps } from './common/types';
 
-	const [isVisible, setIsVisible] = useBoolean();
-	const debouncedIsVisible = useDebounce<boolean>(isVisible, 'ultra-fast');
+const RightArrow: FC<RightArrowProps> = ({ scroll }) => {
+	const { scrollNext, initComplete = false, isLastItemVisible = false, visibleElements = [] } = scroll || {};
 
-	useEffect(() => {
-		if (visibleItemsWithoutSeparators.length) {
-			if (isLastItemVisible) {
-				setIsVisible.off();
+	const [isDisabled, setIsDisabled] = useBoolean();
+	const debouncedIsDisabled = useDebounce<boolean>(isDisabled, 'ultra-fast');
+
+	const handleCheckIsDisabled = (): void => {
+		if (visibleElements.length) {
+			if (!initComplete || (initComplete && isLastItemVisible)) {
+				setIsDisabled.on();
 			} else {
-				setIsVisible.on();
+				setIsDisabled.off();
 			}
 		}
-	}, [visibleItemsWithoutSeparators, isLastItemVisible]);
+	};
 
-	return <Arrow direction='right' isVisible={debouncedIsVisible} onClick={() => scrollNext()} />;
+	useEffect(() => {
+		handleCheckIsDisabled();
+	}, [isLastItemVisible, visibleElements]);
+
+	return <Arrow direction='right' isDisabled={debouncedIsDisabled} onClick={() => scrollNext()} />;
 };
 
 export default RightArrow;
