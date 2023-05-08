@@ -1,12 +1,11 @@
-import { MouseEvent } from 'react';
+import { IconButtonProps, IconButtonRef } from '../../../../../Clickable/IconButtons/OriginalIconButton/common/types';
 
-import { IconButtonProps } from '../../../../../Clickable/IconButtons/OriginalIconButton/common/types';
+type ArrowDirection = 'left' | 'right';
 
-export type Event = MouseEvent<HTMLButtonElement, globalThis.MouseEvent>;
+type Omitted = 'children' | 'aria-label' | 'color' | 'colorMode' | 'variant';
 
-type Direction = 'left' | 'right';
-
-export type ArrowProps = Omit<IconButtonProps, 'children' | 'aria-label'> & {
-	direction: Direction;
-	isVisible?: boolean;
+export type ArrowProps = Omit<IconButtonProps, Omitted> & {
+	direction: ArrowDirection;
 };
+
+export type ArrowRef = IconButtonRef;
