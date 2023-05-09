@@ -1,32 +1,31 @@
-import { FC } from 'react';
-
-import { merge } from 'lodash-es';
+import { FC, useMemo } from 'react';
 
 import { useTheme } from '../../../../../common/hooks';
+import { getFontSizeHeight } from '../../../../../common/utils';
 import Icon from '../../../Icon';
+import { lineHeight as defaultLineHeight } from '../../common/default/sizes';
 import { useBadgeContext } from '../../common/hooks';
 
-import useStyles from './styles';
-import { BadgeIconProps } from './types';
+import { BadgeIconProps } from './common/types';
 
-const BadgeIcon: FC<BadgeIconProps> = ({ sx, ...rest }) => {
+const BadgeIcon: FC<BadgeIconProps> = (props) => {
 	const theme = useTheme();
 
-	const { colorMode, size } = useBadgeContext();
+	const { color, colorMode, size } = useBadgeContext();
 
-	const style = useStyles({ theme, size });
-
-	const handleReturnSize = (): string => {
-		return theme.fontSizes[size];
-	};
+	const fontSize = useMemo(() => {
+		return getFontSizeHeight({ theme, fontSize: size, lineHeight: defaultLineHeight });
+	}, [size]);
 
 	return (
 		<Icon
-			{...rest}
+			{...props}
+			color={color}
 			colorMode={colorMode}
-			width={handleReturnSize()}
-			height={handleReturnSize()}
-			sx={{ ...merge(style, sx) }}
+			width={`${fontSize}px`}
+			height={`${fontSize}px`}
+			fontSize={`${fontSize}px`}
+			variant='unstyled'
 		/>
 	);
 };
