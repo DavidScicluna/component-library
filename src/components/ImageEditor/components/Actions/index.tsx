@@ -25,6 +25,7 @@ const Actions: FC<ActionsProps> = ({ onSelectTool, onZoom, onCancel, onSave }) =
 	const [saveRef, { width: saveWidth }] = useElementSize();
 
 	// TODO: Replace all handleWidth useCallback with usememo instead
+	// TODO: Maybe investigate whether to replace flex with grid to remove width calculation
 	const handleScrollWidth = useCallback(() => {
 		const spacing = convertREMToPixels(convertStringToNumber(theme.space[2], 'rem') * 4);
 

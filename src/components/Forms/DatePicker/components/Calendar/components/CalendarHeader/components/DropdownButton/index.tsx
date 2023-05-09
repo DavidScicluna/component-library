@@ -93,10 +93,11 @@ const DropdownButton = forwardRef<DropdownButtonRef, DropdownButtonProps>(functi
 								width={theme.fontSizes.md}
 								height={theme.fontSizes.md}
 								fontSize={theme.fontSizes.md}
+								color='gray'
 								colorMode={colorMode}
-								color={getColor({ theme, colorMode, type: 'text.secondary' })}
 								icon='chevron_right'
 								category='outlined'
+								variant='transparent'
 								sx={{ transform: `rotate(${isPopperOpen ? 90 : 360}deg)` }}
 							/>
 						</ScaleFade>

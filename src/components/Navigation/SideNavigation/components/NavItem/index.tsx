@@ -5,7 +5,7 @@ import { Center, HStack, Text, useBoolean, useConst } from '@chakra-ui/react';
 import { merge } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
-import { Fade, InternalLink } from '../../../../..';
+import { Fade } from '../../../../..';
 import { useTheme } from '../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../common/utils';
 import Tooltip from '../../../../Overlay/Tooltip';
@@ -30,7 +30,6 @@ const NavItem: FC<NavItemProps> = (props) => {
 
 	const {
 		title,
-		path,
 		renderLeftIcon,
 		renderRightIcon,
 		isActive = defaultIsActive,
@@ -55,77 +54,68 @@ const NavItem: FC<NavItemProps> = (props) => {
 	}, [theme, spacing, leftIconWidth, rightIconWidth]);
 
 	return (
-		<InternalLink
-			to={{ ...path }}
-			isDisabled={isActive || isDisabled}
-			isFullWidth
-			sx={{ 'opacity': 1, '& span': mode === 'expanded' ? { width: '100%' } : {} }}
+		<Tooltip
+			aria-label={`Navigate to ${title} (tooltip)`}
+			colorMode={colorMode}
+			isOpen={mode === 'collapsed' && !isDisabled && isHovering}
+			placement='right'
+			label={title}
+			gutter={36}
+			shouldWrapChildren
 		>
-			<Tooltip
-				aria-label={`Navigate to ${title} (tooltip)`}
-				colorMode={colorMode}
-				isOpen={mode === 'collapsed' && !isDisabled && isHovering}
-				placement='right'
-				label={title}
-				gutter={36}
-				shouldWrapChildren
+			<HStack
+				{...rest}
+				width='100%'
+				aria-disabled={isDisabled}
+				alignItems='center'
+				justifyContent='stretch'
+				onMouseEnter={() => setIsHovering.on()}
+				onMouseLeave={() => setIsHovering.off()}
+				spacing={spacing}
+				sx={{ ...merge(style.navItem, sx) }}
+				_disabled={{ ...style.disabled }}
 			>
-				<HStack
-					{...rest}
-					width='100%'
-					aria-disabled={isDisabled}
-					alignItems='center'
-					justifyContent='stretch'
-					onMouseEnter={() => setIsHovering.on()}
-					onMouseLeave={() => setIsHovering.off()}
-					spacing={spacing}
-					sx={{ ...merge(style.navItem, sx) }}
-					_disabled={{ ...style.disabled }}
+				{renderLeftIcon ? (
+					<Center ref={leftIcon}>
+						{renderLeftIcon({
+							width: theme.fontSizes['3xl'],
+							height: theme.fontSizes['3xl'],
+							color,
+							colorMode
+						})}
+					</Center>
+				) : null}
+
+				<Fade
+					in={isDrawer || mode === 'expanded'}
+					transition={isDrawer ? { enter: { duration: 0 }, exit: { duration: 0 } } : { enter: { ...config } }}
+					style={{ width: handleTextWidth(), flex: 1 }}
 				>
-					{renderLeftIcon && (
-						<Center ref={leftIcon}>
-							{renderLeftIcon({
-								width: theme.fontSizes['3xl'],
-								height: theme.fontSizes['3xl'],
-								color,
-								colorMode
-							})}
-						</Center>
-					)}
-
-					<Fade
-						in={isDrawer || mode === 'expanded'}
-						transition={
-							isDrawer ? { enter: { duration: 0 }, exit: { duration: 0 } } : { enter: { ...config } }
-						}
-						style={{ width: handleTextWidth(), flex: 1 }}
+					<Text
+						align={mode === 'expanded' ? 'left' : 'center'}
+						fontSize='md'
+						fontWeight='semibold'
+						textTransform='uppercase'
+						lineHeight='base'
+						letterSpacing='.6px'
+						noOfLines={1}
 					>
-						<Text
-							align={mode === 'expanded' ? 'left' : 'center'}
-							fontSize='md'
-							fontWeight='semibold'
-							textTransform='uppercase'
-							lineHeight='base'
-							letterSpacing='.6px'
-							noOfLines={1}
-						>
-							{title}
-						</Text>
-					</Fade>
+						{title}
+					</Text>
+				</Fade>
 
-					{renderRightIcon && (
-						<Center ref={rightIcon}>
-							{renderRightIcon({
-								width: theme.fontSizes['3xl'],
-								height: theme.fontSizes['3xl'],
-								color,
-								colorMode
-							})}
-						</Center>
-					)}
-				</HStack>
-			</Tooltip>
-		</InternalLink>
+				{renderRightIcon ? (
+					<Center ref={rightIcon}>
+						{renderRightIcon({
+							width: theme.fontSizes['3xl'],
+							height: theme.fontSizes['3xl'],
+							color,
+							colorMode
+						})}
+					</Center>
+				) : null}
+			</HStack>
+		</Tooltip>
 	);
 };
 
