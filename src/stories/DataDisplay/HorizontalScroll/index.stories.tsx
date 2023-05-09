@@ -4,21 +4,25 @@ import { Box } from '@chakra-ui/react';
 
 import { range } from 'lodash-es';
 
-import { HorizontalScroll as HorizontalScrollComponent, HorizontalScrollProps, HorizontalScrollVariant } from '../..';
+import {
+	HorizontalScroll as HorizontalScrollComponent,
+	HorizontalScrollProps,
+	HorizontalScrollVariant
+} from '../../..';
 import {
 	isDisabled as defaultIsDisabled,
 	spacing as defaultSpacing,
 	variant as defaultVariant
-} from '../../components/DataDisplay/HorizontalScroll/common/default/props';
-import controls from '../common/controls';
-import parameters from '../common/parameters';
+} from '../../../components/DataDisplay/HorizontalScroll/common/default/props';
+import controls from '../../common/controls';
+import parameters from '../../common/parameters';
 
 import { Meta, Story } from './types';
 
 const variantOptions: HorizontalScrollVariant[] = ['right', 'left', 'overlay', 'hidden'];
 
 export default {
-	title: 'HorizontalScroll',
+	title: 'Data Display/Horizontal Scroll',
 	component: HorizontalScrollComponent,
 	argTypes: {
 		colorMode: { ...controls.theme.colorMode },

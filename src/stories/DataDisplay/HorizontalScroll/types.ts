@@ -1,6 +1,6 @@
 import { Meta as StorybookMeta, StoryFn as StorybookStory } from '@storybook/react';
 
-import { HorizontalScroll } from '../..';
+import { HorizontalScroll } from '../../..';
 
 export type Meta = StorybookMeta<typeof HorizontalScroll>;
 
