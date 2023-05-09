@@ -99,10 +99,6 @@ import ScrollToTop from './components/Clickable/ScrollToTop';
 import { ScrollToTopIconType, ScrollToTopProps, ScrollToTopRef } from './components/Clickable/ScrollToTop/common/types';
 import Badge from './components/DataDisplay/Badge';
 import { useBadgeContext } from './components/DataDisplay/Badge/common/hooks';
-import BadgeIcon from './components/DataDisplay/Badge/components/BadgeIcon';
-import { BadgeIconProps } from './components/DataDisplay/Badge/components/BadgeIcon/types';
-import BadgeLabel from './components/DataDisplay/Badge/components/BadgeLabel';
-import { BadgeLabelProps } from './components/DataDisplay/Badge/components/BadgeLabel/types';
 import {
 	BadgeColor,
 	BadgeContext,
@@ -110,7 +106,13 @@ import {
 	BadgeRef,
 	BadgeSize,
 	BadgeVariant
-} from './components/DataDisplay/Badge/types';
+} from './components/DataDisplay/Badge/common/types';
+import BadgeCloseIconButton from './components/DataDisplay/Badge/components/BadgeCloseIconButton';
+import { BadgeCloseIconButtonProps } from './components/DataDisplay/Badge/components/BadgeCloseIconButton/common/types';
+import BadgeIcon from './components/DataDisplay/Badge/components/BadgeIcon';
+import { BadgeIconProps } from './components/DataDisplay/Badge/components/BadgeIcon/common/types';
+import BadgeLabel from './components/DataDisplay/Badge/components/BadgeLabel';
+import { BadgeLabelProps } from './components/DataDisplay/Badge/components/BadgeLabel/common/types';
 import { CardColor, CardVariant } from './components/DataDisplay/Cards/common/types';
 import CardBody from './components/DataDisplay/Cards/components/CardBody';
 import { CardBodyProps } from './components/DataDisplay/Cards/components/CardBody/common/types';
@@ -227,6 +229,33 @@ import HorizontalGridTabbedHeader from './components/DataDisplay/HorizontalGrids
 import { HorizontalGridTabbedHeaderProps } from './components/DataDisplay/HorizontalGrids/HorizontalGridTabbed/components/HorizontalGridTabbedHeader/common/types';
 import HorizontalGridTabbedScroll from './components/DataDisplay/HorizontalGrids/HorizontalGridTabbed/components/HorizontalGridTabbedScroll';
 import { HorizontalGridTabbedScrollProps } from './components/DataDisplay/HorizontalGrids/HorizontalGridTabbed/components/HorizontalGridTabbedScroll/common/types';
+import HorizontalScroll from './components/DataDisplay/HorizontalScroll';
+import {
+	useGetHorizontalScrollAPIContext,
+	useHorizontalScrollArrowState,
+	useHorizontalScrollContext,
+	useSetHorizontalScrollAPIContext
+} from './components/DataDisplay/HorizontalScroll/common/hooks';
+import {
+	HorizontalScrollAPIContext,
+	HorizontalScrollArrowDirection,
+	HorizontalScrollContext,
+	HorizontalScrollProps,
+	HorizontalScrollRef,
+	HorizontalScrollRenderDividerProps,
+	HorizontalScrollVariant
+} from './components/DataDisplay/HorizontalScroll/common/types';
+import HorizontalScrollArrow from './components/DataDisplay/HorizontalScroll/components/Arrow';
+import {
+	ArrowProps as HorizontalScrollArrowProps,
+	ArrowRef as HorizontalScrollArrowRef
+} from './components/DataDisplay/HorizontalScroll/components/Arrow/common/types';
+import HorizontalScrollOverlayArrow from './components/DataDisplay/HorizontalScroll/components/OverlayArrow';
+import { OverlayArrowProps as HorizontalScrollOverlayArrowProps } from './components/DataDisplay/HorizontalScroll/components/OverlayArrow/common/types';
+import Icon from './components/DataDisplay/Icon';
+import { IconCategory, IconColor, IconProps, IconRef, IconVariant } from './components/DataDisplay/Icon/common/types';
+import Image from './components/DataDisplay/Image';
+import { ImageEvent, ImageProps, ImageRef, ImageSrc, ImageSrcMode } from './components/DataDisplay/Image/common/types';
 import Divider from './components/Divider';
 import { DividerProps } from './components/Divider/common/types';
 import Checkbox from './components/Forms/Checkbox';
@@ -306,33 +335,6 @@ import {
 	TextareaSize,
 	TextareaVariant
 } from './components/Forms/Textarea/common/types';
-import HorizontalScroll from './components/DataDisplay/HorizontalScroll';
-import {
-	useGetHorizontalScrollAPIContext,
-	useHorizontalScrollArrowState,
-	useHorizontalScrollContext,
-	useSetHorizontalScrollAPIContext
-} from './components/DataDisplay/HorizontalScroll/common/hooks';
-import {
-	HorizontalScrollAPIContext,
-	HorizontalScrollArrowDirection,
-	HorizontalScrollContext,
-	HorizontalScrollProps,
-	HorizontalScrollRef,
-	HorizontalScrollRenderDividerProps,
-	HorizontalScrollVariant
-} from './components/DataDisplay/HorizontalScroll/common/types';
-import HorizontalScrollArrow from './components/DataDisplay/HorizontalScroll/components/Arrow';
-import {
-	ArrowProps as HorizontalScrollArrowProps,
-	ArrowRef as HorizontalScrollArrowRef
-} from './components/DataDisplay/HorizontalScroll/components/Arrow/common/types';
-import HorizontalScrollOverlayArrow from './components/DataDisplay/HorizontalScroll/components/OverlayArrow';
-import { OverlayArrowProps as HorizontalScrollOverlayArrowProps } from './components/DataDisplay/HorizontalScroll/components/OverlayArrow/common/types';
-import Icon from './components/DataDisplay/Icon';
-import { IconCategory, IconColor, IconProps, IconRef, IconVariant } from './components/DataDisplay/Icon/common/types';
-import Image from './components/DataDisplay/Image';
-import { ImageEvent, ImageProps, ImageRef, ImageSrc, ImageSrcMode } from './components/DataDisplay/Image/common/types';
 import ImageEditor from './components/ImageEditor';
 import { useImageEditorContext } from './components/ImageEditor/common/hooks';
 import { ImageEditorContext, ImageEditorProps } from './components/ImageEditor/common/types';
@@ -628,6 +630,7 @@ export {
 	Alert,
 	AnimatePresence,
 	Badge,
+	BadgeCloseIconButton,
 	BadgeIcon,
 	BadgeLabel,
 	Button,
@@ -765,6 +768,7 @@ export type {
 	AlertProps,
 	AlertStatus,
 	AnimatePresenceProps,
+	BadgeCloseIconButtonProps,
 	BadgeColor,
 	BadgeContext,
 	BadgeIconProps,
