@@ -4,6 +4,7 @@ import { sample } from 'lodash-es';
 
 import {
 	Badge as BadgeComponent,
+	BadgeCloseIconButton,
 	BadgeColor,
 	BadgeIcon,
 	BadgeLabel,
@@ -143,5 +144,6 @@ export const Badge: Story = (props: BadgeProps): ReactElement => (
 	<BadgeComponent {...props}>
 		<BadgeIcon icon={icon} />
 		<BadgeLabel>Hello I am a Badge</BadgeLabel>
+		<BadgeCloseIconButton />
 	</BadgeComponent>
 );
