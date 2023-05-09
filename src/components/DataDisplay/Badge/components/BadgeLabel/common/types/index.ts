@@ -1,7 +1,6 @@
-import { ReactNode } from 'react';
+import { TextProps } from '@chakra-ui/react';
 
-import { CenterProps } from '@chakra-ui/react';
-
+import { PickFrom } from '../../../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -17,8 +16,9 @@ import {
 	BoxPadding,
 	BoxPosition,
 	BoxPseudo,
-	BoxShadow
-} from '../../../../../common/types/box';
+	BoxShadow,
+	BoxTypography
+} from '../../../../../../../common/types/box';
 
 type Omitted =
 	// CUI Box Props
@@ -29,6 +29,7 @@ type Omitted =
 	| BoxLayout
 	| BoxFlexbox
 	| BoxGrid
+	| PickFrom<BoxTypography, 'fontSize'>
 	| BoxBackground
 	| BoxBorders
 	| BoxBorderRadius
@@ -37,9 +38,6 @@ type Omitted =
 	| BoxFilter
 	| BoxPseudo
 	| BoxOther
-	// CUI Center Props
-	| 'children';
+	| 'as';
 
-export type BadgeLabelProps = {
-	children: ReactNode;
-} & Omit<CenterProps, Omitted>;
+export type BadgeLabelProps = Omit<TextProps, Omitted>;

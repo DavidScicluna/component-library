@@ -1,28 +1,38 @@
 import { FC } from 'react';
 
-import { Center } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
 
-import { merge } from 'lodash-es';
-
-import { useTheme } from '../../../../../common/hooks';
+import { lineHeight as defaultLineHeight } from '../../common/default/sizes';
 import { useBadgeContext } from '../../common/hooks';
 
-import useStyles from './styles';
-import { BadgeLabelProps } from './types';
+import { BadgeLabelProps } from './common/types';
 
 const BadgeLabel: FC<BadgeLabelProps> = (props) => {
-	const theme = useTheme();
-
 	const { size } = useBadgeContext();
 
-	const { children, sx, ...rest } = props;
-
-	const style = useStyles({ theme, size });
+	const {
+		children,
+		fontWeight = 'semibold',
+		textTransform = 'capitalize',
+		lineHeight = defaultLineHeight,
+		letterSpacing = '.6px',
+		...rest
+	} = props;
 
 	return (
-		<Center {...rest} as='span' sx={{ ...merge(style, sx) }}>
+		<Text
+			{...rest}
+			as='span'
+			fontSize={size}
+			fontWeight={fontWeight}
+			textTransform={textTransform}
+			whiteSpace='nowrap'
+			textOverflow='ellipses'
+			lineHeight={lineHeight}
+			letterSpacing={letterSpacing}
+		>
 			{children}
-		</Center>
+		</Text>
 	);
 };
 
