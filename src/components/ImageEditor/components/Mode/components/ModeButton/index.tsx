@@ -8,7 +8,7 @@ import { getColor } from '../../../../../../common/utils/color';
 import CardBody from '../../../../../DataDisplay/Cards/components/CardBody';
 import CardFooter from '../../../../../DataDisplay/Cards/components/CardFooter';
 import Card from '../../../../../DataDisplay/Cards/OriginalCard';
-import Icon from '../../../../../Icon';
+import Icon from '../../../../../DataDisplay/Icon';
 import { useImageEditorContext } from '../../../../common/hooks';
 
 import { ModeButtonProps } from './common/types';

@@ -11,7 +11,7 @@ import {
 	BoxShadow,
 	BoxTypography
 } from '../../../../../common/types/box';
-import { IconProps } from '../../../../Icon/common/types';
+import { IconProps } from '../../../Icon/common/types';
 
 type Omitted =
 	// CUI Box Props

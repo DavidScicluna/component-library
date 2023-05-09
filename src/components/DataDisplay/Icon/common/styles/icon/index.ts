@@ -1,4 +1,4 @@
-import { Style } from '../../../../../common/types';
+import { Style } from '../../../../../../common/types';
 import { border } from '../../default/sizes';
 
 import { IconStyleProps } from './types';

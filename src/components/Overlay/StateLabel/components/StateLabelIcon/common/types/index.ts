@@ -1,4 +1,4 @@
-import { IconProps, IconRef } from '../../../../../../Icon/common/types';
+import { IconProps, IconRef } from '../../../../../../DataDisplay/Icon/common/types';
 
 export type StateLabelIconProps = Omit<IconProps, 'color' | 'colorMode'>;
 

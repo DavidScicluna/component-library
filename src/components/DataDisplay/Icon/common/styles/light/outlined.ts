@@ -1,7 +1,7 @@
-import { color as defaultColor } from '../../../../../common/default/props';
-import { Style } from '../../../../../common/types';
-import { getHue } from '../../../../../common/utils/color';
-import { Color } from '../../../../../theme/types';
+import { color as defaultColor } from '../../../../../../common/default/props';
+import { Style } from '../../../../../../common/types';
+import { getHue } from '../../../../../../common/utils/color';
+import { Color } from '../../../../../../theme/types';
 
 import { IconLightStylingProps } from './types';
 
@@ -19,7 +19,7 @@ export default ({ theme, color: colorProp = defaultColor }: IconLightStylingProp
 
 	return {
 		color: theme.colors[color][colorShade],
-		borderColor: theme.colors.gray[backgroundShade],
+		borderColor: theme.colors[color][colorShade],
 		backgroundColor: theme.colors.gray[backgroundShade],
 		background: theme.colors.gray[backgroundShade]
 	};

@@ -1,6 +1,6 @@
 import { CenterProps, ColorMode } from '@chakra-ui/react';
 
-import { Nullable } from '../../../../common/types';
+import { Nullable } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorders,
@@ -13,9 +13,9 @@ import {
 	BoxPosition,
 	BoxPseudo,
 	BoxShadow
-} from '../../../../common/types/box';
-import { Icon } from '../../../../common/types/icons';
-import { Color } from '../../../../theme/types';
+} from '../../../../../common/types/box';
+import { Icon } from '../../../../../common/types/icons';
+import { Color } from '../../../../../theme/types';
 
 export type IconColor = Exclude<Color, 'transparent'>;
 

@@ -329,8 +329,8 @@ import {
 } from './components/DataDisplay/HorizontalScroll/components/Arrow/common/types';
 import HorizontalScrollOverlayArrow from './components/DataDisplay/HorizontalScroll/components/OverlayArrow';
 import { OverlayArrowProps as HorizontalScrollOverlayArrowProps } from './components/DataDisplay/HorizontalScroll/components/OverlayArrow/common/types';
-import Icon from './components/Icon';
-import { IconCategory, IconColor, IconProps, IconRef, IconVariant } from './components/Icon/common/types';
+import Icon from './components/DataDisplay/Icon';
+import { IconCategory, IconColor, IconProps, IconRef, IconVariant } from './components/DataDisplay/Icon/common/types';
 import Image from './components/Image';
 import { ImageEvent, ImageProps, ImageRef, ImageSrc, ImageSrcMode } from './components/Image/common/types';
 import ImageEditor from './components/ImageEditor';

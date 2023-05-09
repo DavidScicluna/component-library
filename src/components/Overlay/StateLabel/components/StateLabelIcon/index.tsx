@@ -1,6 +1,6 @@
 import { forwardRef, ReactElement } from 'react';
 
-import Icon from '../../../../Icon';
+import Icon from '../../../../DataDisplay/Icon';
 import { useStateLabelContext } from '../../common/hooks';
 
 import { StateLabelIconProps, StateLabelIconRef } from './common/types';

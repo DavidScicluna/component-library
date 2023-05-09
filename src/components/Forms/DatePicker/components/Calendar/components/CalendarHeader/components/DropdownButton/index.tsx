@@ -19,7 +19,7 @@ import { useElementSize, useUpdateEffect } from 'usehooks-ts';
 import { useTheme } from '../../../../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../../../../common/utils';
 import { getColor } from '../../../../../../../../../common/utils/color';
-import Icon from '../../../../../../../../Icon';
+import Icon from '../../../../../../../../DataDisplay/Icon';
 import ScaleFade from '../../../../../../../../Transitions/ScaleFade';
 import { useDatePickerContext } from '../../../../../../common/hooks';
 

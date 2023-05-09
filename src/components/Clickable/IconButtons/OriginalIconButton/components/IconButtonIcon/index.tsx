@@ -1,6 +1,6 @@
 import { forwardRef, ReactElement } from 'react';
 
-import Icon from '../../../../../Icon';
+import Icon from '../../../../../DataDisplay/Icon';
 import { useIconButtonFontSize } from '../../../common/hooks';
 import { useIconButtonContext } from '../../common/hooks';
 

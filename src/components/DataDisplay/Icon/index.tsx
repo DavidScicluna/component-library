@@ -4,9 +4,9 @@ import { Center } from '@chakra-ui/react';
 
 import { merge } from 'lodash-es';
 
-import { useTheme } from '../../common/hooks';
-import { useProviderContext } from '../Provider/common/hooks';
-import Skeleton from '../Skeleton';
+import { useTheme } from '../../../common/hooks';
+import { useProviderContext } from '../../Provider/common/hooks';
+import Skeleton from '../../Skeleton';
 
 import { category as defaultCategory, variant as defaultVariant } from './common/default/props';
 import { useCheckIconFontStatus } from './common/hooks';

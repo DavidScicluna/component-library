@@ -14,7 +14,7 @@ import { getColor } from '../../common/utils/color';
 import { Space } from '../../theme/types';
 import IconButton from '../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
-import Icon from '../Icon';
+import Icon from '../DataDisplay/Icon';
 import { useProviderContext } from '../Provider/common/hooks';
 
 import { duration as defaultDuration, spacing as defaultSpacing } from './common/default/props';

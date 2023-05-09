@@ -2,7 +2,7 @@ import { useBoolean } from '@chakra-ui/react';
 
 import { useInterval } from 'usehooks-ts';
 
-import { IconCategory } from '../../../Icon/common/types';
+import { IconCategory } from '../types';
 
 type useCheckIconFontStatusReturn = Record<IconCategory, boolean>;
 

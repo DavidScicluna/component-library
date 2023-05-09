@@ -25,7 +25,7 @@ import {
 	resize as defaultResize,
 	size as defaultSize
 } from '../../../components/Forms/Textarea/common/default/props';
-import Icon from '../../../components/Icon';
+import Icon from '../../../components/DataDisplay/Icon';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
 

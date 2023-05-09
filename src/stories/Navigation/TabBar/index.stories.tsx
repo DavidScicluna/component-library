@@ -3,7 +3,7 @@ import { ReactElement } from 'react';
 import { range, sample } from 'lodash-es';
 
 import icons from '../../../common/data/icons';
-import Icon from '../../../components/Icon';
+import Icon from '../../../components/DataDisplay/Icon';
 import TabBarComponent from '../../../components/Navigation/TabBar';
 import { RenderProps as TabRenderProps, Tab } from '../../../components/Navigation/TabBar/components/Tab/types';
 import { TabBarColor, TabBarDirection, TabBarProps } from '../../../components/Navigation/TabBar/types';

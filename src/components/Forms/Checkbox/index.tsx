@@ -6,7 +6,7 @@ import { debounce, isEmpty, isNil, merge } from 'lodash-es';
 
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../common/default/props';
 import { useTheme } from '../../../common/hooks';
-import Icon from '../../Icon';
+import Icon from '../../DataDisplay/Icon';
 import { useProviderContext } from '../../Provider/common/hooks';
 import Collapse from '../../Transitions/Collapse';
 import FormHelperText from '../FormHelperText';

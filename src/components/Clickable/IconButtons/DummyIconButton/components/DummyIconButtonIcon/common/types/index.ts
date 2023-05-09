@@ -1,5 +1,5 @@
 import { BoxLayout, BoxMargin, BoxPadding, BoxTypography } from '../../../../../../../../common/types/box';
-import { IconProps, IconRef } from '../../../../../../../Icon/common/types';
+import { IconProps, IconRef } from '../../../../../../../DataDisplay/Icon/common/types';
 
 type Omitted =
 	| BoxMargin

@@ -19,7 +19,7 @@ import {
 	size as defaultSize,
 	variant as defaultVariant
 } from '../../../../components/Clickable/Buttons/common/default/props';
-import Icon from '../../../../components/Icon';
+import Icon from '../../../../components/DataDisplay/Icon';
 import controls from '../../../common/controls';
 import parameters from '../../../common/parameters';
 

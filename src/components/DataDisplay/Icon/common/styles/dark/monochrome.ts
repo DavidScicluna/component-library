@@ -1,19 +1,19 @@
-import { Style } from '../../../../../common/types';
-import { getHue } from '../../../../../common/utils/color';
+import { Style } from '../../../../../../common/types';
+import { getHue } from '../../../../../../common/utils/color';
 
-import { IconLightStylingProps } from './types';
+import { IconDarkStylingProps } from './types';
 
-export default ({ theme }: IconLightStylingProps): Style => {
+export default ({ theme }: IconDarkStylingProps): Style => {
 	const colorShade = getHue({
-		colorMode: 'light',
+		colorMode: 'dark',
 		type: 'text.primary'
 	});
 	const borderShade = getHue({
-		colorMode: 'light',
+		colorMode: 'dark',
 		type: 'divider'
 	});
 	const backgroundShade = getHue({
-		colorMode: 'light',
+		colorMode: 'dark',
 		type: 'background'
 	});
 
