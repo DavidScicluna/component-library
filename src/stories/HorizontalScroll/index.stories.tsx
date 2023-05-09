@@ -9,7 +9,7 @@ import {
 	isDisabled as defaultIsDisabled,
 	spacing as defaultSpacing,
 	variant as defaultVariant
-} from '../../components/HorizontalScroll/common/default/props';
+} from '../../components/DataDisplay/HorizontalScroll/common/default/props';
 import controls from '../common/controls';
 import parameters from '../common/parameters';
 

@@ -8,7 +8,7 @@ import { useTheme } from '../../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../../common/utils';
 import { getColor } from '../../../../../../../common/utils/color';
 import { Space } from '../../../../../../../theme/types';
-import HorizontalScroll from '../../../../../../HorizontalScroll';
+import HorizontalScroll from '../../../../../../DataDisplay/HorizontalScroll';
 import { useDummyAccordionsContext } from '../../../../common/hooks';
 
 import { DummyToggleButtonsProps } from './common/types';

@@ -306,13 +306,13 @@ import {
 	TextareaSize,
 	TextareaVariant
 } from './components/Forms/Textarea/common/types';
-import HorizontalScroll from './components/HorizontalScroll';
+import HorizontalScroll from './components/DataDisplay/HorizontalScroll';
 import {
 	useGetHorizontalScrollAPIContext,
 	useHorizontalScrollArrowState,
 	useHorizontalScrollContext,
 	useSetHorizontalScrollAPIContext
-} from './components/HorizontalScroll/common/hooks';
+} from './components/DataDisplay/HorizontalScroll/common/hooks';
 import {
 	HorizontalScrollAPIContext,
 	HorizontalScrollArrowDirection,
@@ -321,14 +321,14 @@ import {
 	HorizontalScrollRef,
 	HorizontalScrollRenderDividerProps,
 	HorizontalScrollVariant
-} from './components/HorizontalScroll/common/types';
-import HorizontalScrollArrow from './components/HorizontalScroll/components/Arrow';
+} from './components/DataDisplay/HorizontalScroll/common/types';
+import HorizontalScrollArrow from './components/DataDisplay/HorizontalScroll/components/Arrow';
 import {
 	ArrowProps as HorizontalScrollArrowProps,
 	ArrowRef as HorizontalScrollArrowRef
-} from './components/HorizontalScroll/components/Arrow/common/types';
-import HorizontalScrollOverlayArrow from './components/HorizontalScroll/components/OverlayArrow';
-import { OverlayArrowProps as HorizontalScrollOverlayArrowProps } from './components/HorizontalScroll/components/OverlayArrow/common/types';
+} from './components/DataDisplay/HorizontalScroll/components/Arrow/common/types';
+import HorizontalScrollOverlayArrow from './components/DataDisplay/HorizontalScroll/components/OverlayArrow';
+import { OverlayArrowProps as HorizontalScrollOverlayArrowProps } from './components/DataDisplay/HorizontalScroll/components/OverlayArrow/common/types';
 import Icon from './components/Icon';
 import { IconCategory, IconColor, IconProps, IconRef, IconVariant } from './components/Icon/common/types';
 import Image from './components/Image';

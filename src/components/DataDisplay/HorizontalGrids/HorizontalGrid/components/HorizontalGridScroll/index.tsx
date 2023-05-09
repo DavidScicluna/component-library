@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { Box } from '@chakra-ui/react';
 
-import HorizontalScroll from '../../../../../HorizontalScroll';
+import HorizontalScroll from '../../../../HorizontalScroll';
 import { useHorizontalGridContext } from '../../common/hooks';
 
 import { HorizontalGridScrollProps } from './common/types';

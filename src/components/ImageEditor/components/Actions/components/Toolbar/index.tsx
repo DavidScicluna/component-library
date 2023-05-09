@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { Box } from '@chakra-ui/react';
 
-import HorizontalScroll from '../../../../../HorizontalScroll';
+import HorizontalScroll from '../../../../../DataDisplay/HorizontalScroll';
 import { maxZoom, minZoom } from '../../../..';
 import { useImageEditorContext } from '../../../../common/hooks';
 

@@ -7,8 +7,8 @@ import { useElementSize } from 'usehooks-ts';
 
 import { useTheme } from '../../../../../../common/hooks';
 import { getColor } from '../../../../../../common/utils/color';
-import HorizontalScroll from '../../../../../HorizontalScroll';
-import { useSetHorizontalScrollAPIContext } from '../../../../../HorizontalScroll/common/hooks';
+import HorizontalScroll from '../../../../../DataDisplay/HorizontalScroll';
+import { useSetHorizontalScrollAPIContext } from '../../../../../DataDisplay/HorizontalScroll/common/hooks';
 import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from '../../../components/HorizontalScrollArrows';
 import { useTabsContext } from '../../common/hooks';
 

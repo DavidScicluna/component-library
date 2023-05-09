@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 import { CardProps } from '../../../../../DataDisplay/Cards/OriginalCard/common/types';
-import { HorizontalScrollAPIContext } from '../../../../../HorizontalScroll/common/types';
+import { HorizontalScrollAPIContext } from '../../../../HorizontalScroll/common/types';
 import { TabsProps } from '../../../../../Navigation/Tabs/OriginalTabs/common/types';
 import { CommonHorizontalGridProps } from '../../../common/types';
 

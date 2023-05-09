@@ -2,7 +2,7 @@ import { createContext, FC } from 'react';
 
 import { method as defaultMethod } from '../../../../common/default/props';
 import Card from '../../../DataDisplay/Cards/OriginalCard';
-import { useSetHorizontalScrollAPIContext } from '../../../HorizontalScroll/common/hooks';
+import { useSetHorizontalScrollAPIContext } from '../../HorizontalScroll/common/hooks';
 import Tabs from '../../../Navigation/Tabs/OriginalTabs';
 import {
 	color as defaultColor,

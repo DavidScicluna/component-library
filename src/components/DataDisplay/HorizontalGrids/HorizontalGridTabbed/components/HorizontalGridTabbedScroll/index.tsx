@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { Center } from '@chakra-ui/react';
 
-import HorizontalScroll from '../../../../../HorizontalScroll';
+import HorizontalScroll from '../../../../HorizontalScroll';
 import { useHorizontalGridTabbedContext } from '../../common/hooks';
 
 import { HorizontalGridTabbedScrollProps } from './common/types';

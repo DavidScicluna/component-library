@@ -5,8 +5,8 @@ import { getColor } from '../../../../../../../../../common/utils/color';
 import {
 	useGetHorizontalScrollAPIContext,
 	useHorizontalScrollArrowState
-} from '../../../../../../../../HorizontalScroll/common/hooks';
-import HorizontalScrollOverlayArrow from '../../../../../../../../HorizontalScroll/components/OverlayArrow';
+} from '../../../../../../../../DataDisplay/HorizontalScroll/common/hooks';
+import HorizontalScrollOverlayArrow from '../../../../../../../../DataDisplay/HorizontalScroll/components/OverlayArrow';
 import { useImageEditorContext } from '../../../../../../../common/hooks';
 
 const HorizontalScrollLeftArrow: FC = () => {

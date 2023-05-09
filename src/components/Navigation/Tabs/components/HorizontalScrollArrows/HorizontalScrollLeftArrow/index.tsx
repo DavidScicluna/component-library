@@ -3,8 +3,8 @@ import { FC } from 'react';
 import {
 	useGetHorizontalScrollAPIContext,
 	useHorizontalScrollArrowState
-} from '../../../../../HorizontalScroll/common/hooks';
-import HorizontalScrollOverlayArrow from '../../../../../HorizontalScroll/components/OverlayArrow';
+} from '../../../../../DataDisplay/HorizontalScroll/common/hooks';
+import HorizontalScrollOverlayArrow from '../../../../../DataDisplay/HorizontalScroll/components/OverlayArrow';
 
 const HorizontalScrollLeftArrow: FC = () => {
 	const scroll = useGetHorizontalScrollAPIContext();

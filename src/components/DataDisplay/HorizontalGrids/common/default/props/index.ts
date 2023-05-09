@@ -1,5 +1,5 @@
 import { Space } from '../../../../../../theme/types';
-import { HorizontalScrollAPIContext } from '../../../../../HorizontalScroll/common/types';
+import { HorizontalScrollAPIContext } from '../../../../HorizontalScroll/common/types';
 import { HorizontalGridColor, HorizontalGridColorMode } from '../../types';
 
 export const color: HorizontalGridColor = 'gray';
