@@ -1,10 +1,11 @@
 import { Style } from '../../../../../../common/types';
 import { Theme } from '../../../../../../theme/types';
-import { ArrowProps } from '../types';
+import { HorizontalScrollProps } from '../../../../common/types';
+import { OverlayArrowProps } from '../types';
 
-export type ArrowStyleProps = {
+export type ArrowStyleProps = Pick<OverlayArrowProps, 'direction'> & {
 	theme: Theme;
-} & Pick<ArrowProps, 'colorMode' | 'direction'>;
+} & Pick<HorizontalScrollProps, 'colorMode'>;
 
 export type ArrowStyleReturn = {
 	arrow: Style;

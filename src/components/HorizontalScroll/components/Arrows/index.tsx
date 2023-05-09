@@ -12,8 +12,8 @@ const Arrows = forwardRef<ArrowsRef, ArrowsProps>(function Arrows(props, ref): R
 
 	return (
 		<HStack ref={ref} width='100%' height='100%' alignItems='stretch' justifyContent='stretch' spacing={0}>
-			{LeftArrow ? LeftArrow : <DefaultLeftArrow scroll={scroll} />}
-			{RightArrow ? RightArrow : <DefaultRightArrow scroll={scroll} />}
+			{LeftArrow ? <>{LeftArrow}</> : <DefaultLeftArrow scroll={scroll} />}
+			{RightArrow ? <>{RightArrow}</> : <DefaultRightArrow scroll={scroll} />}
 		</HStack>
 	);
 });

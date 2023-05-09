@@ -26,7 +26,7 @@ export type HorizontalScrollAPIContext = ContextType<typeof VisibilityContext>;
 
 export type HorizontalScrollRenderDividerProps = { padding?: string };
 
-export type HorizontalScrollVariant = HorizontalScrollArrowDirection | 'overlay';
+export type HorizontalScrollVariant = HorizontalScrollArrowDirection | 'overlay' | 'hidden';
 
 type OmittedBoxProps =
 	| BoxColor
@@ -48,16 +48,12 @@ type OmittedBoxProps =
 type OmittedRHSMHorizontalScrollProps =
 	| 'children'
 	| 'Arrow'
-	| 'LeftArrow'
-	| 'RightArrow'
 	| 'transitionDuration'
 	| 'transitionBehavior'
 	| 'transitionEase';
 
 export type HorizontalScrollProps = Omit<BoxProps, OmittedBoxProps> & {
 	children: ReactNode[];
-	LeftArrow?: ReactNode;
-	RightArrow?: ReactNode;
 	color?: AppColor;
 	colorMode?: ColorMode;
 	isDisabled?: boolean;

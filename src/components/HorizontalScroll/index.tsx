@@ -1,4 +1,4 @@
-import { createContext, forwardRef, ReactElement, useState } from 'react';
+import { createContext, forwardRef, ReactElement } from 'react';
 import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 
 import { Grid, GridItem, useConst } from '@chakra-ui/react';
@@ -7,7 +7,7 @@ import { useElementSize } from 'usehooks-ts';
 import { v4 as uuid } from 'uuid';
 
 import { color as defaultColor, colorMode as defaultColorMode } from '../../common/default/props';
-import { useDebounce, useTheme } from '../../common/hooks';
+import { useTheme } from '../../common/hooks';
 import { convertStringToNumber } from '../../common/utils';
 import { useProviderContext } from '../Provider/common/hooks';
 
@@ -16,6 +16,7 @@ import {
 	spacing as defaultSpacing,
 	variant as defaultVariant
 } from './common/default/props';
+import { useSetHorizontalScrollAPIContext } from './common/hooks';
 import {
 	HorizontalScrollAPIContext,
 	HorizontalScrollContext as HorizontalScrollContextType,
@@ -48,8 +49,7 @@ const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(
 
 	const [arrowsRef, { width: arrowsWidth }] = useElementSize();
 
-	const [scroll, setScroll] = useState<HorizontalScrollAPIContext>({} as HorizontalScrollAPIContext);
-	const scrollDebounced = useDebounce<HorizontalScrollAPIContext>(scroll, 'ultra-fast');
+	const [scroll, setScroll] = useSetHorizontalScrollAPIContext();
 
 	const {
 		children,
@@ -113,18 +113,13 @@ const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(
 			>
 				{variant === 'left' ? (
 					<GridItem>
-						<Arrows
-							ref={arrowsRef}
-							scroll={scrollDebounced}
-							LeftArrow={LeftArrow}
-							RightArrow={RightArrow}
-						/>
+						<Arrows ref={arrowsRef} scroll={scroll} LeftArrow={LeftArrow} RightArrow={RightArrow} />
 					</GridItem>
 				) : null}
 
 				<GridItem
 					sx={
-						variant !== 'overlay'
+						variant !== 'overlay' && variant !== 'hidden'
 							? {
 									'& .react-horizontal-scrolling-menu--arrow-right':
 										variant === 'left' ? { display: 'none' } : {},
@@ -180,12 +175,7 @@ const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(
 
 				{variant === 'right' ? (
 					<GridItem>
-						<Arrows
-							ref={arrowsRef}
-							scroll={scrollDebounced}
-							LeftArrow={LeftArrow}
-							RightArrow={RightArrow}
-						/>
+						<Arrows ref={arrowsRef} scroll={scroll} LeftArrow={LeftArrow} RightArrow={RightArrow} />
 					</GridItem>
 				) : null}
 			</Grid>
