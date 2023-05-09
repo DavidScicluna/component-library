@@ -43,7 +43,7 @@ export default [
 			typescript({
 				tsconfig: './tsconfig.json',
 				include: ['src/**/*'],
-				exclude: ['.vscode', '.storybook', '.yarn', 'build', 'node_modules', 'stories']
+				exclude: ['.vscode', '.storybook', '.yarn', 'build', 'node_modules', 'src/stories']
 			}),
 			image(),
 			gzip(),
