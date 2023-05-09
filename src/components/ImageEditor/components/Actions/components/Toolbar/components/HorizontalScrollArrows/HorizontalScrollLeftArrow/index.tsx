@@ -1,49 +1,33 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 
-import { useBoolean } from '@chakra-ui/react';
-
-import { useDebounce, useTheme } from '../../../../../../../../../common/hooks';
+import { useTheme } from '../../../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../../../common/utils/color';
-import HorizontalScrollArrow from '../../../../../../../../HorizontalScroll/components/Arrow';
+import {
+	useGetHorizontalScrollAPIContext,
+	useHorizontalScrollArrowState
+} from '../../../../../../../../HorizontalScroll/common/hooks';
+import HorizontalScrollOverlayArrow from '../../../../../../../../HorizontalScroll/components/OverlayArrow';
 import { useImageEditorContext } from '../../../../../../../common/hooks';
-import { HorizontalScrollArrowProps as HorizontalScrollLeftArrowProps } from '../common/types';
 
-const HorizontalScrollLeftArrow: FC<HorizontalScrollLeftArrowProps> = (props) => {
+const HorizontalScrollLeftArrow: FC = () => {
 	const theme = useTheme();
 
 	const { colorMode } = useImageEditorContext();
 
-	const { scroll } = props;
-	const {
-		getPrevItem,
-		isFirstItemVisible = false,
-		scrollToItem,
-		visibleItemsWithoutSeparators = [],
-		initComplete = false
-	} = scroll || {};
+	const scroll = useGetHorizontalScrollAPIContext();
+	const { getPrevItem, scrollToItem } = scroll || {};
 
-	const [isVisible, setIsVisible] = useBoolean(true);
-	const debouncedIsVisible = useDebounce<boolean>(isVisible, 'ultra-fast');
+	const { isVisible } = useHorizontalScrollArrowState({ direction: 'left', scroll });
 
 	const handleScrollPrev = () => {
 		const prevItem = getPrevItem();
 		scrollToItem(prevItem?.entry?.target, 'smooth', 'center', 'nearest');
 	};
 
-	useEffect(() => {
-		if (visibleItemsWithoutSeparators.length) {
-			if (!initComplete || (initComplete && isFirstItemVisible)) {
-				setIsVisible.off();
-			} else {
-				setIsVisible.on();
-			}
-		}
-	}, [initComplete, visibleItemsWithoutSeparators, isFirstItemVisible]);
-
 	return (
-		<HorizontalScrollArrow
+		<HorizontalScrollOverlayArrow
 			direction='left'
-			isVisible={debouncedIsVisible}
+			isVisible={isVisible}
 			onClick={() => handleScrollPrev()}
 			sx={{
 				'borderBottomWidth': '2px',

@@ -59,6 +59,7 @@ const ToggleButtons = <D,>(props: ToggleButtonsProps<D>): ReactElement => {
 						•
 					</Text>
 				)}
+				variant='right'
 			>
 				{children}
 			</HorizontalScroll>

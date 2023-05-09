@@ -1,31 +1,26 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
-import { Center } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
-import { useDebounce } from '../../../../../../common/hooks';
 import HorizontalScroll from '../../../../../HorizontalScroll';
 import { maxZoom, minZoom } from '../../../..';
 import { useImageEditorContext } from '../../../../common/hooks';
 
-import { ScrollContext, ToolbarProps } from './common/types';
+import { ToolbarProps } from './common/types';
 import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from './components/HorizontalScrollArrows';
 import Tool from './components/Tool';
 
 const Toolbar: FC<ToolbarProps> = ({ onSelectTool, onZoom }) => {
 	const { colorMode, mode, zoom } = useImageEditorContext();
 
-	const [scroll, setScroll] = useState<ScrollContext>({} as ScrollContext);
-	const scrollDebounced = useDebounce(scroll, 'ultra-fast');
-
 	return (
 		<HorizontalScroll
+			width='100%'
+			height='100%'
 			colorMode={colorMode}
-			LeftArrow={<HorizontalScrollLeftArrow scroll={scrollDebounced} />}
-			RightArrow={<HorizontalScrollRightArrow scroll={scrollDebounced} />}
-			renderDivider={({ padding }) => <Center padding={padding} />}
-			onInit={setScroll}
-			onUpdate={setScroll}
-			sx={{ '& .wrapperContainer': { alignItems: 'center', justifyContent: 'center' } }}
+			LeftArrow={HorizontalScrollLeftArrow}
+			RightArrow={HorizontalScrollRightArrow}
+			renderDivider={({ padding }) => <Box padding={padding} />}
 		>
 			<Tool
 				title='Crop'

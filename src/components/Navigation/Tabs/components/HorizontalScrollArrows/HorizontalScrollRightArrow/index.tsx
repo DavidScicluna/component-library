@@ -1,38 +1,23 @@
-import { FC, useContext, useEffect } from 'react';
-import { VisibilityContext as ScrollContext } from 'react-horizontal-scrolling-menu';
+import { FC } from 'react';
 
-import { useBoolean } from '@chakra-ui/react';
-
-import { useDebounce } from '../../../../../../common/hooks';
-import HorizontalScrollArrow from '../../../../../HorizontalScroll/components/Arrow';
+import {
+	useGetHorizontalScrollAPIContext,
+	useHorizontalScrollArrowState
+} from '../../../../../HorizontalScroll/common/hooks';
+import HorizontalScrollOverlayArrow from '../../../../../HorizontalScroll/components/OverlayArrow';
 
 const HorizontalScrollRightArrow: FC = () => {
-	const scroll = useContext(ScrollContext);
-	const { getNextItem, scrollToItem, initComplete = false, isLastItemVisible = false, visibleElements = [] } = scroll;
+	const scroll = useGetHorizontalScrollAPIContext();
+	const { getNextItem, scrollToItem } = scroll || {};
 
-	const [isVisible, setIsVisible] = useBoolean();
-	const debouncedIsVisible = useDebounce<boolean>(isVisible, 'ultra-fast');
-
-	const handleCheckIsVisible = (): void => {
-		if (visibleElements.length) {
-			if (!initComplete || (initComplete && isLastItemVisible)) {
-				setIsVisible.off();
-			} else {
-				setIsVisible.on();
-			}
-		}
-	};
+	const { isVisible } = useHorizontalScrollArrowState({ direction: 'right', scroll });
 
 	const handleScrollNext = (): void => {
 		const nextItem = getNextItem();
 		scrollToItem(nextItem?.entry?.target, 'smooth', 'nearest', 'nearest');
 	};
 
-	useEffect(() => {
-		handleCheckIsVisible();
-	}, [isLastItemVisible, visibleElements]);
-
-	return <HorizontalScrollArrow direction='right' isVisible={debouncedIsVisible} onClick={handleScrollNext} />;
+	return <HorizontalScrollOverlayArrow direction='right' isVisible={isVisible} onClick={handleScrollNext} />;
 };
 
 export default HorizontalScrollRightArrow;

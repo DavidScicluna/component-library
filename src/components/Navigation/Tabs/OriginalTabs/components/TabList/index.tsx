@@ -1,14 +1,14 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
 import { Center, Grid, GridItem, TabList as CUITabList } from '@chakra-ui/react';
 
 import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
-import { useDebounce, useTheme } from '../../../../../../common/hooks';
+import { useTheme } from '../../../../../../common/hooks';
 import { getColor } from '../../../../../../common/utils/color';
 import HorizontalScroll from '../../../../../HorizontalScroll';
-import { HorizontalScrollAPIContext } from '../../../../../HorizontalScroll/common/types';
+import { useSetHorizontalScrollAPIContext } from '../../../../../HorizontalScroll/common/hooks';
 import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from '../../../components/HorizontalScrollArrows';
 import { useTabsContext } from '../../common/hooks';
 
@@ -22,15 +22,14 @@ const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
-	const [scroll, setScroll] = useState<HorizontalScrollAPIContext>({} as HorizontalScrollAPIContext);
-	const scrollDebounced = useDebounce<HorizontalScrollAPIContext>(scroll, 'ultra-fast');
+	const [scroll, setScroll] = useSetHorizontalScrollAPIContext();
 
 	const handleScrollToTab = (index: number): void => {
-		if (scrollDebounced) {
-			const scrollElement = scrollDebounced.getItemByIndex(index);
+		if (scroll) {
+			const scrollElement = scroll.getItemByIndex(index);
 
 			if (scrollElement) {
-				scrollDebounced.scrollToItem?.(scrollElement, 'smooth', 'center', 'nearest');
+				scroll.scrollToItem?.(scrollElement, 'smooth', 'center', 'nearest');
 			}
 		}
 	};

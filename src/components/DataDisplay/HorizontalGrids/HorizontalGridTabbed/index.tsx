@@ -1,9 +1,8 @@
-import { createContext, FC, useState } from 'react';
+import { createContext, FC } from 'react';
 
 import { method as defaultMethod } from '../../../../common/default/props';
-import { useDebounce } from '../../../../common/hooks';
 import Card from '../../../DataDisplay/Cards/OriginalCard';
-import { HorizontalScrollAPIContext } from '../../../HorizontalScroll/common/types';
+import { useSetHorizontalScrollAPIContext } from '../../../HorizontalScroll/common/hooks';
 import Tabs from '../../../Navigation/Tabs/OriginalTabs';
 import {
 	color as defaultColor,
@@ -26,8 +25,7 @@ export const HorizontalGridTabbedContext = createContext<HorizontalGridTabbedCon
 });
 
 const HorizontalGridTabbed: FC<HorizontalGridTabbedProps> = (props) => {
-	const [scroll, setScroll] = useState<HorizontalScrollAPIContext>(defaultScroll);
-	const scrollDebounced = useDebounce(scroll, 'ultra-fast');
+	const [scroll, setScroll] = useSetHorizontalScrollAPIContext();
 
 	const {
 		children,
@@ -40,7 +38,7 @@ const HorizontalGridTabbed: FC<HorizontalGridTabbedProps> = (props) => {
 
 	return (
 		<HorizontalGridTabbedContext.Provider
-			value={{ color, colorMode, scroll: scrollDebounced, onSetScroll: (scroll) => setScroll(scroll), spacing }}
+			value={{ color, colorMode, scroll, onSetScroll: (scroll) => setScroll(scroll), spacing }}
 		>
 			<Tabs
 				{...tabsProps}

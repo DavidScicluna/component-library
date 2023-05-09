@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Box, Center } from '@chakra-ui/react';
+import { Center } from '@chakra-ui/react';
 
 import HorizontalScroll from '../../../../../HorizontalScroll';
 import { useHorizontalGridTabbedContext } from '../../common/hooks';
@@ -16,10 +16,9 @@ const HorizontalGridTabbedScroll: FC<HorizontalGridTabbedScrollProps> = (props) 
 		<HorizontalScroll
 			colorMode={colorMode}
 			renderDivider={() => <Center mr={spacing} />}
-			LeftArrow={<Box />}
-			RightArrow={<Box />}
 			onInit={onSetScroll}
 			onUpdate={onSetScroll}
+			variant='hidden'
 		>
 			{children}
 		</HorizontalScroll>

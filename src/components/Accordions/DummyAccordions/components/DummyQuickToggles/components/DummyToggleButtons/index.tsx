@@ -59,6 +59,7 @@ const DummyToggleButtons: FC<DummyToggleButtonsProps> = (props) => {
 						•
 					</Text>
 				)}
+				variant='right'
 			>
 				{children}
 			</HorizontalScroll>

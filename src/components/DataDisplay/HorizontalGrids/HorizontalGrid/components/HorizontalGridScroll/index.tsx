@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Box, Center } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
 import HorizontalScroll from '../../../../../HorizontalScroll';
 import { useHorizontalGridContext } from '../../common/hooks';
@@ -15,11 +15,10 @@ const HorizontalGridScroll: FC<HorizontalGridScrollProps> = (props) => {
 	return (
 		<HorizontalScroll
 			colorMode={colorMode}
-			renderDivider={() => <Center mr={spacing} />}
-			LeftArrow={<Box />}
-			RightArrow={<Box />}
+			renderDivider={() => <Box mr={spacing} />}
 			onInit={onSetScroll}
 			onUpdate={onSetScroll}
+			variant='hidden'
 		>
 			{children}
 		</HorizontalScroll>

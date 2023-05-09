@@ -1,9 +1,8 @@
-import { createContext, FC, useState } from 'react';
+import { createContext, FC } from 'react';
 
 import { method as defaultMethod } from '../../../../common/default/props';
-import { useDebounce } from '../../../../common/hooks';
 import Card from '../../../DataDisplay/Cards/OriginalCard/';
-import { HorizontalScrollAPIContext } from '../../../HorizontalScroll/common/types';
+import { useSetHorizontalScrollAPIContext } from '../../../HorizontalScroll/common/hooks';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
@@ -22,14 +21,13 @@ export const HorizontalGridContext = createContext<HorizontalGridContextType>({
 });
 
 const HorizontalGrid: FC<HorizontalGridProps> = (props) => {
-	const [scroll, setScroll] = useState<HorizontalScrollAPIContext>(defaultScroll);
-	const scrollDebounced = useDebounce(scroll, 'ultra-fast');
+	const [scroll, setScroll] = useSetHorizontalScrollAPIContext();
 
 	const { children, color = defaultColor, colorMode = defaultColorMode, spacing = defaultSpacing, ...rest } = props;
 
 	return (
 		<HorizontalGridContext.Provider
-			value={{ color, colorMode, scroll: scrollDebounced, onSetScroll: (scroll) => setScroll(scroll), spacing }}
+			value={{ color, colorMode, scroll, onSetScroll: (scroll) => setScroll(scroll), spacing }}
 		>
 			<Card {...rest} color={color} colorMode={colorMode}>
 				{children}

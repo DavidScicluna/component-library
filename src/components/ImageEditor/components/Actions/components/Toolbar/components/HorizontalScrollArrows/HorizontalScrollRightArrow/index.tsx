@@ -1,43 +1,33 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 
-import { useBoolean } from '@chakra-ui/react';
-
-import { useDebounce, useTheme } from '../../../../../../../../../common/hooks';
+import { useTheme } from '../../../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../../../common/utils/color';
-import HorizontalScrollArrow from '../../../../../../../../HorizontalScroll/components/Arrow';
+import {
+	useGetHorizontalScrollAPIContext,
+	useHorizontalScrollArrowState
+} from '../../../../../../../../HorizontalScroll/common/hooks';
+import HorizontalScrollOverlayArrow from '../../../../../../../../HorizontalScroll/components/OverlayArrow';
 import { useImageEditorContext } from '../../../../../../../common/hooks';
-import { HorizontalScrollArrowProps as HorizontalScrollRightArrowProps } from '../common/types';
 
-const HorizontalScrollRightArrow: FC<HorizontalScrollRightArrowProps> = (props) => {
+const HorizontalScrollRightArrow: FC = () => {
 	const theme = useTheme();
 
 	const { colorMode } = useImageEditorContext();
 
-	const { scroll } = props;
-	const { getNextItem, isLastItemVisible = false, scrollToItem, visibleItemsWithoutSeparators = [] } = scroll || {};
+	const scroll = useGetHorizontalScrollAPIContext();
+	const { getNextItem, scrollToItem } = scroll || {};
 
-	const [isVisible, setIsVisible] = useBoolean(true);
-	const debouncedIsVisible = useDebounce<boolean>(isVisible, 'ultra-fast');
+	const { isVisible } = useHorizontalScrollArrowState({ direction: 'right', scroll });
 
 	const handleScrollNext = (): void => {
 		const nextItem = getNextItem();
 		scrollToItem(nextItem?.entry?.target, 'smooth', 'center', 'nearest');
 	};
 
-	useEffect(() => {
-		if (visibleItemsWithoutSeparators.length) {
-			if (isLastItemVisible) {
-				setIsVisible.off();
-			} else {
-				setIsVisible.on();
-			}
-		}
-	}, [visibleItemsWithoutSeparators, isLastItemVisible]);
-
 	return (
-		<HorizontalScrollArrow
+		<HorizontalScrollOverlayArrow
 			direction='right'
-			isVisible={debouncedIsVisible}
+			isVisible={isVisible}
 			onClick={() => handleScrollNext()}
 			sx={{
 				'borderBottomWidth': '2px',
