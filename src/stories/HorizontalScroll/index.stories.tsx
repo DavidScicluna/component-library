@@ -15,7 +15,7 @@ import parameters from '../common/parameters';
 
 import { Meta, Story } from './types';
 
-const variantOptions: HorizontalScrollVariant[] = ['right', 'left', 'overlay'];
+const variantOptions: HorizontalScrollVariant[] = ['right', 'left', 'overlay', 'hidden'];
 
 export default {
 	title: 'HorizontalScroll',
