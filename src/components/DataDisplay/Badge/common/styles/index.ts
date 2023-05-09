@@ -1,32 +1,18 @@
-import { merge } from 'lodash-es';
 import memoize from 'micro-memoize';
 
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	isLight as defaultIsLight,
-	size as defaultSize,
-	variant as defaultVariant
-} from '../data/defaultPropValues';
+import { isClickable as defaultIsClickable, isFullWidth as defaultIsFullWidth } from '../default/props';
 
+import active from './active';
 import badge from './badge';
-import dark from './dark';
-import light from './light';
+import disabled from './disabled';
 import { BadgeStyleProps, BadgeStyleReturn } from './types';
 
 export default memoize((props: BadgeStyleProps): BadgeStyleReturn => {
-	const {
-		theme,
-		color = defaultColor,
-		colorMode = defaultColorMode,
-		isLight = defaultIsLight,
-		size = defaultSize,
-		variant = defaultVariant
-	} = props;
-
-	const scheme = colorMode === 'light' ? light : dark;
+	const { theme, isClickable = defaultIsClickable, isFullWidth = defaultIsFullWidth } = props;
 
 	return {
-		badge: merge(badge({ theme, size }), scheme[variant]({ theme, color, isLight }))
+		badge: badge({ theme, isClickable, isFullWidth }),
+		active: active(),
+		disabled: disabled()
 	};
 });

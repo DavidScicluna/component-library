@@ -1,47 +1,66 @@
 import { Style } from '../../../../../../common/types';
-import { Radius } from '../../../../../../theme/types';
-import { size as defaultSize } from '../../data/defaultPropValues';
-import { getSizeConfig } from '../../utils';
+import { isClickable as defaultIsClickable, isFullWidth as defaultIsFullWidth } from '../../default/props';
 
 import { BadgeStyleProps } from './types';
 
-export default ({ theme, size = defaultSize }: BadgeStyleProps): Style => {
-	const config = getSizeConfig({ size });
-	const border = config.border;
-	const padding = config.padding;
-
-	const radius: Radius =
-		size === 'xs' || size === 'sm'
-			? 'xs'
-			: size === 'md' || size === 'lg'
-			? 'base'
-			: size === '3xl' || size === '4xl'
-			? 'xl'
-			: 'lg';
+export default ({
+	theme,
+	isClickable = defaultIsClickable,
+	isFullWidth = defaultIsFullWidth
+}: BadgeStyleProps): Style => {
+	const transition = 'none';
+	const transitionProperty = transition;
+	const transitionDuration = transition;
+	const transitionTimingFunction = transition;
 
 	return {
-		cursor: 'default',
+		'cursor': isClickable ? 'pointer' : 'default',
 
-		pointerEvents: 'none',
+		'width': isFullWidth ? '100%' : 'auto',
+		'height': 'auto',
 
-		width: 'auto',
-		height: 'auto',
+		'minWidth': 'auto',
+		'minHeight': 'auto',
+		'maxWidth': 'none',
+		'maxHeight': 'none',
 
-		minWidth: 'auto',
-		minHeight: 'auto',
-		maxWidth: 'none',
-		maxHeight: 'none',
+		'userSelect': 'none',
+		'willChange': 'auto',
 
-		display: 'inline-flex',
+		'pointerEvents': isClickable ? 'auto' : 'none',
 
-		userSelect: 'none',
+		'opacity': 1,
 
-		borderWidth: `${border}px`,
-		borderStyle: 'solid',
-		borderColor: theme.colors.transparent,
-		borderRadius: theme.radii[radius],
+		'background': 'none',
+		'border': 'none',
 
-		px: `${theme.space[padding.x]} !important`,
-		py: `${theme.space[padding.y]} !important`
+		'WebkitTapHighlightColor': theme.colors.transparent,
+
+		'transform': 'none',
+
+		'transition': transition,
+		'transitionProperty': transitionProperty,
+		'transitionDuration': transitionDuration,
+		'transitionTimingFunction': transitionTimingFunction,
+
+		'&:focus': {
+			boxShadow: 'none'
+		},
+
+		'& svg, .ds-cl-icon': {
+			userSelect: 'none',
+
+			transition,
+			transitionProperty,
+			transitionDuration,
+			transitionTimingFunction
+		},
+
+		'*, *::before, *::after': {
+			transition,
+			transitionProperty,
+			transitionDuration,
+			transitionTimingFunction
+		}
 	};
 };
