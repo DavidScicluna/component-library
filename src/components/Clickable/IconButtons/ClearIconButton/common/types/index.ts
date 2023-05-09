@@ -7,10 +7,11 @@ type Picked = 'clear' | 'backspace' | 'delete' | 'delete_forever' | 'delete_outl
 
 export type ClearIconButtonIconType = PickFrom<IconType, Picked>;
 
-export type ClearIconButtonProps = Omit<IconButtonProps, 'children'> & {
-	hasTooltip?: boolean;
-	icon?: ClearIconButtonIconType;
-	category?: IconCategory;
+export type ClearIconButtonProps = Omit<IconButtonProps, 'children' | 'aria-label'> & {
+	'aria-label'?: string;
+	'hasTooltip'?: boolean;
+	'icon'?: ClearIconButtonIconType;
+	'category'?: IconCategory;
 } & Pick<TooltipProps, 'label' | 'placement'>;
 
 export type ClearIconButtonRef = IconButtonRef;

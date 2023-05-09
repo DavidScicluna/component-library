@@ -7,10 +7,11 @@ type Picked = 'close' | 'cancel' | 'highlight_off' | 'disabled_by_default' | 'ca
 
 export type CloseIconButtonIconType = PickFrom<IconType, Picked>;
 
-export type CloseIconButtonProps = Omit<IconButtonProps, 'children'> & {
-	hasTooltip?: boolean;
-	icon?: CloseIconButtonIconType;
-	category?: IconCategory;
+export type CloseIconButtonProps = Omit<IconButtonProps, 'children' | 'aria-label'> & {
+	'aria-label'?: string;
+	'hasTooltip'?: boolean;
+	'icon'?: CloseIconButtonIconType;
+	'category'?: IconCategory;
 } & Pick<TooltipProps, 'label' | 'placement'>;
 
 export type CloseIconButtonRef = IconButtonRef;
