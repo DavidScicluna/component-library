@@ -1,71 +1,74 @@
 import memoize from 'micro-memoize';
 
-import { Space } from '../../../../../theme/types';
-import { BadgeSize } from '../../types';
-import { size as defaultSize } from '../data/defaultPropValues';
+import { NoUndefinedField } from '../../../../../common/types';
+import { FontSize, Radius, Space } from '../../../../../theme/types';
+import {
+	isCompact as defaultIsCompact,
+	isRound as defaultIsRound,
+	size as defaultSize,
+	variant as defaultVariant
+} from '../default/props';
+import { BadgeProps } from '../types';
 
-type Padding = {
-	x: Space; // In Space (Theme) Values
-	y: Space; // In Space (Theme) Values
-};
-
-type GetSizeConfigReturn = {
+type Padding = Record<'x' | 'y', Space>; // In Space (Theme) Values
+export type GetSizeConfigReturn = {
 	padding: Padding;
-	border: number; // In Pixels
+	fontSize: FontSize; // In FontSize (Theme) Values
 	spacing: Space; // In Space (Theme) Values
 };
+type GetSizeConfigProps = Pick<BadgeProps, 'isCompact' | 'size'>;
 
-type GetSizeConfigProps = { size: BadgeSize };
+export const getSizeConfig = memoize((props: NoUndefinedField<GetSizeConfigProps>): GetSizeConfigReturn => {
+	const { isCompact = defaultIsCompact, size = defaultSize } = props;
 
-export const getSizeConfig = memoize(({ size = defaultSize }: GetSizeConfigProps): GetSizeConfigReturn => {
 	switch (size) {
 		case 'xs':
 			return {
-				padding: { x: 1, y: 0 },
-				border: 1,
-				spacing: 1
+				// height: isCompact ? 22 : 30,
+				padding: { x: isCompact ? 1 : 2, y: isCompact ? 0.25 : 1 },
+				fontSize: 'xs',
+				spacing: isCompact ? 1 : 2
 			};
 		case 'sm':
 			return {
-				padding: { x: 1.5, y: 0 },
-				border: 1,
-				spacing: 1.5
+				// height: isCompact ? 26 : 36,
+				padding: { x: isCompact ? 1.25 : 2.5, y: isCompact ? 0.5 : 1.25 },
+				fontSize: 'sm',
+				spacing: isCompact ? 1.25 : 2.5
 			};
 		case 'md':
 			return {
-				padding: { x: 2, y: 0 },
-				border: 2,
-				spacing: 2
+				// height: isCompact ? 30 : 42,
+				padding: { x: isCompact ? 1.5 : 3, y: isCompact ? 0.75 : 1.5 },
+				fontSize: 'md',
+				spacing: isCompact ? 1.5 : 3
 			};
 		case 'lg':
 			return {
-				padding: { x: 2.5, y: 0 },
-				border: 2,
-				spacing: 2.5
-			};
-		case '2xl':
-			return {
-				padding: { x: 3.5, y: 0 },
-				border: 3,
-				spacing: 3.5
-			};
-		case '3xl':
-			return {
-				padding: { x: 4, y: 0 },
-				border: 4,
-				spacing: 4
-			};
-		case '4xl':
-			return {
-				padding: { x: 4.5, y: 0 },
-				border: 4,
-				spacing: 4.5
+				// height: isCompact ? 34 : 50,
+				padding: { x: isCompact ? 1.75 : 3.5, y: isCompact ? 1 : 1.75 },
+				fontSize: 'lg',
+				spacing: isCompact ? 1.75 : 3.5
 			};
 		default:
 			return {
-				padding: { x: 3, y: 0 },
-				border: 2,
-				spacing: 3
+				// height: isCompact ? 40 : 60,
+				padding: { x: isCompact ? 2 : 4, y: isCompact ? 1.25 : 2 },
+				fontSize: 'xl',
+				spacing: isCompact ? 2 : 4
 			};
+	}
+});
+
+type GetVariantRadiusProps = Pick<BadgeProps, 'isCompact' | 'isRound' | 'variant'>;
+
+export const getVariantRadius = memoize((props: GetVariantRadiusProps): Radius => {
+	const { isCompact = defaultIsCompact, isRound = defaultIsRound, variant = defaultVariant } = props;
+
+	switch (variant) {
+		case 'text':
+			return 'none';
+		default:
+			return isRound ? 'full' : isCompact ? 'xs' : 'base';
 	}
 });
