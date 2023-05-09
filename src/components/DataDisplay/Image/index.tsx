@@ -2,11 +2,11 @@ import { forwardRef, ReactElement, useEffect } from 'react';
 
 import { Center, Image as CUIImage, ImageProps as CUIImageProps, useBoolean } from '@chakra-ui/react';
 
-import fallback from '../../common/assets/fallback';
-import { Style } from '../../common/types';
-import Glass from '../Overlay/Glass';
-import { useProviderContext } from '../Provider/common/hooks';
-import Fade from '../Transitions/Fade';
+import fallback from '../../../common/assets/fallback';
+import { Style } from '../../../common/types';
+import Glass from '../../Overlay/Glass';
+import { useProviderContext } from '../../Provider/common/hooks';
+import Fade from '../../Transitions/Fade';
 
 import { ImageEvent, ImageProps, ImageRef } from './common/types';
 
