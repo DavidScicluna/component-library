@@ -2,14 +2,29 @@ import { ReactElement } from 'react';
 
 import { sample } from 'lodash-es';
 
-import { Badge as BadgeComponent, BadgeColor, BadgeIcon, BadgeLabel, BadgeProps, BadgeVariant } from '../../..';
+import {
+	Badge as BadgeComponent,
+	BadgeColor,
+	BadgeIcon,
+	BadgeLabel,
+	BadgeProps,
+	BadgeSize,
+	BadgeVariant
+} from '../../..';
 import icons from '../../../common/data/icons';
+import { color as defaultColor } from '../../../common/default/props';
 import { Icon } from '../../../common/types/icons';
 import {
-	color as defaultColor,
-	isLight as defaultIsLight,
+	isActive as defaultIsActive,
+	isClickable as defaultIsClickable,
+	isCompact as defaultIsCompact,
+	isDisabled as defaultIsDisabled,
+	isFixed as defaultIsFixed,
+	isFullWidth as defaultIsFullWidth,
+	isRound as defaultIsRound,
+	size as defaultSize,
 	variant as defaultVariant
-} from '../../../components/DataDisplay/Badge/common/data/defaultPropValues';
+} from '../../../components/DataDisplay/Badge/common/default/props';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
 
@@ -38,7 +53,9 @@ const colorOptions: BadgeColor[] = [
 
 const icon: Icon = sample(icons) || icons[0];
 
-const variantOptions: BadgeVariant[] = ['contained', 'outlined', 'text'];
+const sizeOptions: BadgeSize[] = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', '8xl', '9xl'];
+
+const variantOptions: BadgeVariant[] = ['text', 'light', 'contained', 'outlined', 'monochrome'];
 
 export default {
 	title: 'Data Display/Badge',
@@ -53,12 +70,62 @@ export default {
 			control: 'select'
 		},
 		colorMode: { ...controls.theme.colorMode },
-		isLight: {
-			name: 'Light',
+		isActive: {
+			name: 'Active',
 			type: 'boolean',
-			defaultValue: defaultIsLight,
+			defaultValue: defaultIsActive,
 			// description: '',
 			control: 'boolean'
+		},
+		isClickable: {
+			name: 'Clickable',
+			type: 'boolean',
+			defaultValue: defaultIsClickable,
+			// description: '',
+			control: 'boolean'
+		},
+		isCompact: {
+			name: 'Compact',
+			type: 'boolean',
+			defaultValue: defaultIsCompact,
+			// description: '',
+			control: 'boolean'
+		},
+		isDisabled: {
+			name: 'Disabled',
+			type: 'boolean',
+			defaultValue: defaultIsDisabled,
+			// description: '',
+			control: 'boolean'
+		},
+		isFixed: {
+			name: 'Fixed',
+			type: 'boolean',
+			defaultValue: defaultIsFixed,
+			// description: '',
+			control: 'boolean'
+		},
+		isFullWidth: {
+			name: 'FullWidth',
+			type: 'boolean',
+			defaultValue: defaultIsFullWidth,
+			// description: '',
+			control: 'boolean'
+		},
+		isRound: {
+			name: 'Round',
+			type: 'boolean',
+			defaultValue: defaultIsRound,
+			// description: '',
+			control: 'boolean'
+		},
+		size: {
+			name: 'Size',
+			type: 'string',
+			defaultValue: defaultSize,
+			// description: '',
+			options: [...sizeOptions],
+			control: 'select'
 		},
 		variant: {
 			name: 'Variant',
