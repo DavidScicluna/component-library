@@ -2,12 +2,12 @@ import { ReactElement } from 'react';
 
 import { sample } from 'lodash-es';
 
-import { Icon as IconComponent, IconCategory, IconColor, IconProps, IconType, IconVariant } from '../..';
-import icons from '../../common/data/icons';
-import { color as defaultColor } from '../../common/default/props';
-import { variant as defaultVariant } from '../../components/DataDisplay/Icon/common/default/props';
-import controls from '../common/controls';
-import parameters from '../common/parameters';
+import { Icon as IconComponent, IconCategory, IconColor, IconProps, IconType, IconVariant } from '../../..';
+import icons from '../../../common/data/icons';
+import { color as defaultColor } from '../../../common/default/props';
+import { variant as defaultVariant } from '../../../components/DataDisplay/Icon/common/default/props';
+import controls from '../../common/controls';
+import parameters from '../../common/parameters';
 
 import { Meta, Story } from './types';
 
@@ -41,7 +41,7 @@ const colorOptions: IconColor[] = [
 const variantOptions: IconVariant[] = ['transparent', 'contained', 'light', 'outlined', 'monochrome'];
 
 export default {
-	title: 'Icon',
+	title: 'Data Display/Icon',
 	component: IconComponent,
 	argTypes: {
 		icon: {
