@@ -15,8 +15,8 @@ import {
 	BoxPseudo,
 	BoxShadow,
 	BoxTypography
-} from '../../../../common/types/box';
-import { Color, Radius } from '../../../../theme/types';
+} from '../../../../../common/types/box';
+import { Color, Radius } from '../../../../../theme/types';
 
 export type SkeletonColor = Exclude<Color, 'transparent'>;
 

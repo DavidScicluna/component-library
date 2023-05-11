@@ -5,12 +5,12 @@ import { Grid, GridItem, Skeleton as CUISkeleton } from '@chakra-ui/react';
 import { round } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
-import { useTheme } from '../../common/hooks';
-import { convertStringToNumber } from '../../common/utils';
-import { getColor } from '../../common/utils/color';
-import { useProviderContext } from '../Provider/common/hooks';
-import AnimatePresence from '../Transitions/AnimatePresence';
-import SlideFade from '../Transitions/SlideFade';
+import { useTheme } from '../../../common/hooks';
+import { convertStringToNumber } from '../../../common/utils';
+import { getColor } from '../../../common/utils/color';
+import { useProviderContext } from '../../Provider/common/hooks';
+import AnimatePresence from '../../Transitions/AnimatePresence';
+import SlideFade from '../../Transitions/SlideFade';
 
 import {
 	isAnimated as defaultIsAnimated,

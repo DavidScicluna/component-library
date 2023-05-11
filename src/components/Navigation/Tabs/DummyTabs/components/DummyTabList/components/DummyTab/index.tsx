@@ -9,7 +9,7 @@ import { useElementSize } from 'usehooks-ts';
 import { useTheme } from '../../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../../common/utils/color';
 import Divider from '../../../../../../../Divider';
-import Skeleton from '../../../../../../../Skeleton';
+import Skeleton from '../../../../../../../Feedback/Skeleton';
 import ScaleFade from '../../../../../../../Transitions/ScaleFade';
 import { getSizeConfig } from '../../../../../common/utils';
 import { useDummyTabsContext } from '../../../../common/hooks';

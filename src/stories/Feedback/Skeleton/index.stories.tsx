@@ -9,7 +9,7 @@ import {
 	isLoaded as defaultIsLoaded,
 	isReversed as defaultIsReversed,
 	variant as defaultVariant
-} from '../../../components/Skeleton/common/default/props';
+} from '../../../components/Feedback/Skeleton/common/default/props';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
 

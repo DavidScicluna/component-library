@@ -5,7 +5,7 @@ import { Grid, GridItem, VStack } from '@chakra-ui/react';
 import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
-import Skeleton from '../../../../../Skeleton';
+import Skeleton from '../../../../../Feedback/Skeleton';
 import { useDummyCardContext } from '../../common/hooks';
 
 import { DummyCardHeaderProps } from './common/types';

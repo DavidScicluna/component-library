@@ -6,7 +6,7 @@ import { merge } from 'lodash-es';
 
 import { useTheme } from '../../../common/hooks';
 import { useProviderContext } from '../../Provider/common/hooks';
-import Skeleton from '../../Skeleton';
+import Skeleton from '../../Feedback/Skeleton';
 
 import { category as defaultCategory, variant as defaultVariant } from './common/default/props';
 import { dimensions as defaultDimensions } from './common/default/sizes';

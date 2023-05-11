@@ -479,8 +479,8 @@ import { TooltipColor, TooltipProps, TooltipRef } from './components/Overlay/Too
 import DSCLProvider from './components/Provider';
 import { useProviderContext as useDSCLProviderContext } from './components/Provider/common/hooks';
 import { ProviderContext, ProviderProps } from './components/Provider/common/types';
-import Skeleton from './components/Skeleton';
-import { SkeletonColor, SkeletonProps, SkeletonVariant } from './components/Skeleton/common/types';
+import Skeleton from './components/Feedback/Skeleton';
+import { SkeletonColor, SkeletonProps, SkeletonVariant } from './components/Feedback/Skeleton/common/types';
 import Spinner from './components/Spinner';
 import { SpinnerMode, SpinnerProps } from './components/Spinner/common/types';
 import AnimatePresence from './components/Transitions/AnimatePresence';

@@ -1,8 +1,8 @@
 import { darken, lighten } from 'color2k';
 import memoize from 'micro-memoize';
 
-import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/default/props';
-import { Undefinable } from '../../../../common/types';
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../common/default/props';
+import { Undefinable } from '../../../../../common/types';
 import { SkeletonProps } from '../types';
 
 type GetSkeletonAnimationColorProps = {
