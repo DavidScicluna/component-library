@@ -1,8 +1,8 @@
 import { FC, useMemo } from 'react';
 import { PuffLoader, PulseLoader, SyncLoader } from 'react-spinners';
 
-import { useTheme } from '../../common/hooks';
-import { convertREMToPixels, convertStringToNumber } from '../../common/utils';
+import { useTheme } from '../../../common/hooks';
+import { convertREMToPixels, convertStringToNumber } from '../../../common/utils';
 
 import { SpinnerProps } from './common/types';
 

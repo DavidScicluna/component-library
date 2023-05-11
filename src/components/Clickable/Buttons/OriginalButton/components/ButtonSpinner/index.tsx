@@ -2,7 +2,7 @@ import { FC, useMemo } from 'react';
 
 import { useTheme } from '../../../../../../common/hooks';
 import { getColor } from '../../../../../../common/utils/color';
-import Spinner from '../../../../../Spinner';
+import Spinner from '../../../../../Feedback/Spinner';
 
 import { ButtonSpinnerProps } from './common/types';
 

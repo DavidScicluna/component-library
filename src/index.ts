@@ -481,8 +481,8 @@ import { useProviderContext as useDSCLProviderContext } from './components/Provi
 import { ProviderContext, ProviderProps } from './components/Provider/common/types';
 import Skeleton from './components/Feedback/Skeleton';
 import { SkeletonColor, SkeletonProps, SkeletonVariant } from './components/Feedback/Skeleton/common/types';
-import Spinner from './components/Spinner';
-import { SpinnerMode, SpinnerProps } from './components/Spinner/common/types';
+import Spinner from './components/Feedback/Spinner';
+import { SpinnerMode, SpinnerProps } from './components/Feedback/Spinner/common/types';
 import AnimatePresence from './components/Transitions/AnimatePresence';
 import { AnimatePresenceProps } from './components/Transitions/AnimatePresence/common/types';
 import Collapse from './components/Transitions/Collapse';

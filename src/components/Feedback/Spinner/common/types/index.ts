@@ -1,4 +1,4 @@
-import { FontSize } from '../../../../theme/types';
+import { FontSize } from '../../../../../theme/types';
 
 export type SpinnerMode = 'puff' | 'sync' | 'pulse';
 
