@@ -7,10 +7,9 @@ import {
 	isSuccess as defaultIsSuccess,
 	isWarning as defaultIsWarning,
 	size as defaultSize
-} from '../default/props';
+} from '../../../FormControl/common/default/props';
 
 import dark from './dark';
-import disabled from './disabled';
 import formHelperText from './formHelperText';
 import light from './light';
 import { FormHelperTextStyleProps, FormHelperTextStyleReturn } from './types';
@@ -28,11 +27,6 @@ export default memoize((props: FormHelperTextStyleProps): FormHelperTextStyleRet
 	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
-		formHelperText: merge(
-			formHelperText({ theme, size }),
-			scheme.formHelperText({ theme, isError, isWarning, isSuccess })
-		),
-		disabled: disabled(),
-		readOnly: scheme.readOnly({ theme })
+		formHelperText: merge(formHelperText({ theme, size }), scheme({ theme, isError, isWarning, isSuccess }))
 	};
 });

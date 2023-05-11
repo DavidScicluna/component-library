@@ -1,13 +1,12 @@
 import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';
+import { FormControlProps } from '../../../FormControl/common/types';
 import { FormHelperTextProps } from '../types';
 
-export type FormHelperTextStyleProps = {
+export type FormHelperTextStyleProps = Pick<FormControlProps, 'colorMode' | 'size'> & {
 	theme: Theme;
-} & Pick<FormHelperTextProps, 'colorMode' | 'isError' | 'isWarning' | 'isSuccess' | 'size'>;
+} & Pick<FormHelperTextProps, 'isError' | 'isWarning' | 'isSuccess'>;
 
 export type FormHelperTextStyleReturn = {
 	formHelperText: Style;
-	disabled: Style;
-	readOnly: Style;
 };

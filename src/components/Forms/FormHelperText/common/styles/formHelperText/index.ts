@@ -1,27 +1,29 @@
 import { Style } from '../../../../../../common/types';
-import { size as defaultSize } from '../../default/props';
-import { getFontSize } from '../../utils';
+import { size as defaultSize } from '../../../../FormControl/common/default/props';
 
 import { FormHelperTextStyleProps } from './types';
 
 export default ({ theme, size = defaultSize }: FormHelperTextStyleProps): Style => {
-	const fontSize = getFontSize({ size });
+	const transition = 'none';
+	const transitionProperty = transition;
+	const transitionDuration = transition;
+	const transitionTimingFunction = transition;
 
 	return {
 		userSelect: 'none',
 
-		fontSize: theme.fontSizes[fontSize],
+		fontSize: theme.fontSizes[size],
 		fontWeight: theme.fontWeights.normal,
+		whiteSpace: 'wrap',
 		textTransform: 'none',
-		lineHeight: theme.lineHeights.normal,
-
-		opacity: 1,
+		lineHeight: theme.lineHeights.shorter,
 
 		m: 0,
 		p: 0,
 
-		transition: 'none',
-		transitionDuration: theme.transition.duration.normal,
-		transitionTimingFunction: theme.transition.easing['ease-in-out']
+		transition: transition,
+		transitionProperty: transitionProperty,
+		transitionDuration: transitionDuration,
+		transitionTimingFunction: transitionTimingFunction
 	};
 };
