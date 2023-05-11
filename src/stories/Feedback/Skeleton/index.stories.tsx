@@ -2,16 +2,16 @@ import { ReactElement } from 'react';
 
 import { Box } from '@chakra-ui/react';
 
-import { Skeleton as SkeletonComponent, SkeletonColor, SkeletonProps, SkeletonVariant } from '../..';
-import { color as defaultColor } from '../../common/default/props';
+import { Skeleton as SkeletonComponent, SkeletonColor, SkeletonProps, SkeletonVariant } from '../../..';
+import { color as defaultColor } from '../../../common/default/props';
 import {
 	isAnimated as defaultIsAnimated,
 	isLoaded as defaultIsLoaded,
 	isReversed as defaultIsReversed,
 	variant as defaultVariant
-} from '../../components/Skeleton/common/default/props';
-import controls from '../common/controls';
-import parameters from '../common/parameters';
+} from '../../../components/Skeleton/common/default/props';
+import controls from '../../common/controls';
+import parameters from '../../common/parameters';
 
 import { Meta, Story } from './types';
 
@@ -39,7 +39,7 @@ const colorOptions: SkeletonColor[] = [
 const typeOptions: SkeletonVariant[] = ['rectangle', 'circle', 'text'];
 
 export default {
-	title: 'Skeleton',
+	title: 'Feedback/Skeleton',
 	component: SkeletonComponent,
 	argTypes: {
 		color: {
