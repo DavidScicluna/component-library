@@ -1,12 +1,12 @@
 import memoize from 'micro-memoize';
 
 import { FontSize } from '../../../../../theme/types';
-import { size as defaultSize } from '../default/props';
-import { FormLabelSize } from '../types';
+import { size as defaultSize } from '../../../FormControl/common/default/props';
+import { FormControlProps } from '../../../FormControl/common/types';
 
-type GetFontSizeProps = { size: FormLabelSize };
+type GetFormLabelFontSizeProps = Pick<FormControlProps, 'size'>;
 
-export const getFontSize = memoize(({ size = defaultSize }: GetFontSizeProps): FontSize => {
+export const getFormLabelFontSize = memoize(({ size = defaultSize }: GetFormLabelFontSizeProps): FontSize => {
 	switch (size) {
 		case 'xs':
 			return 'sm';

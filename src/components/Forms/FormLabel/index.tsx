@@ -1,58 +1,51 @@
-import { FC } from 'react';
+import { forwardRef, ReactElement } from 'react';
 
-import { Center, FormLabel as CUIFormLabel, HStack } from '@chakra-ui/react';
+import { Box, FormLabel as CUIFormLabel } from '@chakra-ui/react';
 
 import { merge } from 'lodash-es';
 
-import { colorMode as defaultColorMode } from '../../../common/default/props';
 import { useTheme } from '../../../common/hooks';
+import { useFormControlContext } from '../FormControl/common/hooks';
 
-import {
-	isDisabled as defaultIsDisabled,
-	isReadOnly as defaultIsReadOnly,
-	isRequired as defaultIsRequired,
-	size as defaultSize
-} from './common/default/props';
 import useStyles from './common/styles';
-import { FormLabelProps } from './common/types';
+import { FormLabelProps, FormLabelRef } from './common/types';
 
-const FormLabel: FC<FormLabelProps> = (props) => {
+const FormLabel = forwardRef<FormLabelRef, FormLabelProps>(function FormLabel(props, ref): ReactElement {
 	const theme = useTheme();
+
+	const {
+		colorMode: defaultColorMode,
+		isError: defaultIsError,
+		isWarning: defaultIsWarning,
+		isRequired: defaultIsRequired,
+		isSuccess: defaultIsSuccess,
+		size
+	} = useFormControlContext();
 
 	const {
 		children,
 		colorMode = defaultColorMode,
-		id,
-		isDisabled = defaultIsDisabled,
-		isReadOnly = defaultIsReadOnly,
+		isError = defaultIsError,
+		isWarning = defaultIsWarning,
 		isRequired = defaultIsRequired,
-		size = defaultSize,
-		sx
+		isSuccess = defaultIsSuccess,
+		sx,
+		...rest
 	} = props;
 
-	const style = useStyles({ theme, colorMode, size });
+	const style = useStyles({ theme, colorMode, isError, isWarning, isSuccess, size });
 
 	return (
-		<CUIFormLabel
-			as={HStack}
-			aria-disabled={isDisabled}
-			aria-readonly={isReadOnly}
-			aria-required={isRequired}
-			display='inline-flex'
-			htmlFor={id}
-			spacing={0.75}
-			sx={merge(style.formLabel, sx)}
-			_disabled={style.disabled}
-		>
-			<Center as='label'>{children}</Center>
+		<CUIFormLabel {...rest} ref={ref} aria-required={isRequired} sx={merge(style.formLabel, sx)}>
+			{children}
 
 			{isRequired ? (
-				<Center as='span' className='ds-cl-required-indicator'>
-					*
-				</Center>
+				<Box as='span' className='ds-cl-form-label-required-indicator'>
+					{' *'}
+				</Box>
 			) : null}
 		</CUIFormLabel>
 	);
-};
+});
 
 export default FormLabel;

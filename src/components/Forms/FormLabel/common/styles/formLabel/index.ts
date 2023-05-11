@@ -1,29 +1,32 @@
 import { Style } from '../../../../../../common/types';
-import { size as defaultSize } from '../../default/props';
-import { getFontSize } from '../../utils';
+import { size as defaultSize } from '../../../../FormControl/common/default/props';
+import { getFormLabelFontSize } from '../../utils';
 
 import { FormLabelStyleProps } from './types';
 
 export default ({ theme, size = defaultSize }: FormLabelStyleProps): Style => {
-	const fontSize = getFontSize({ size });
+	const fontSize = getFormLabelFontSize({ size });
+
+	const transition = 'none';
+	const transitionProperty = transition;
+	const transitionDuration = transition;
+	const transitionTimingFunction = transition;
 
 	return {
 		userSelect: 'none',
 
 		fontSize: theme.fontSizes[fontSize],
 		fontWeight: theme.fontWeights.semibold,
+		whiteSpace: 'wrap',
 		textTransform: 'capitalize',
-		whiteSpace: 'nowrap',
-		lineHeight: theme.lineHeights.normal,
-		letterSpacing: '.8px',
-
-		opacity: 1,
+		lineHeight: theme.lineHeights.shorter,
 
 		m: 0,
 		p: 0,
 
-		transition: 'none',
-		transitionDuration: theme.transition.duration.normal,
-		transitionTimingFunction: theme.transition.easing['ease-in-out']
+		transition: transition,
+		transitionProperty: transitionProperty,
+		transitionDuration: transitionDuration,
+		transitionTimingFunction: transitionTimingFunction
 	};
 };

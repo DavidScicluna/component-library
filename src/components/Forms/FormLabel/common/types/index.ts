@@ -1,5 +1,6 @@
-import { ColorMode, FormLabelProps as CUIFormLabelProps } from '@chakra-ui/react';
+import { FormLabelProps as CUIFormLabelProps } from '@chakra-ui/react';
 
+import { Nullable } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -18,11 +19,9 @@ import {
 	BoxShadow,
 	BoxTypography
 } from '../../../../../common/types/box';
-
-export type FormLabelSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+import { FormControlProps } from '../../../FormControl/common/types';
 
 type Omitted =
-	// CUI Box Props
 	| BoxMargin
 	| BoxPadding
 	| BoxColor
@@ -39,15 +38,15 @@ type Omitted =
 	| BoxFilter
 	| BoxPseudo
 	| BoxOther
-	// CUI Form Label Props
+	| 'children'
 	| 'as'
-	| 'colorScheme'
-	| 'isInvalid';
+	| 'htmlFor';
 
-export type FormLabelProps = {
-	colorMode?: ColorMode;
-	isDisabled?: boolean;
-	isReadOnly?: boolean;
-	isRequired?: boolean;
-	size?: FormLabelSize;
-} & Omit<CUIFormLabelProps, Omitted>;
+type Picked = 'colorMode' | 'isRequired' | 'isError' | 'isSuccess' | 'isWarning';
+
+export type FormLabelProps = Omit<CUIFormLabelProps, Omitted> & {
+	children?: Nullable<string>;
+	htmlFor: string;
+} & Pick<FormControlProps, Picked>;
+
+export type FormLabelRef = Nullable<HTMLLabelElement>;
