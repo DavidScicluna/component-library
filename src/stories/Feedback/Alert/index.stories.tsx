@@ -4,9 +4,9 @@ import { HStack } from '@chakra-ui/react';
 
 import { capitalize } from 'lodash-es';
 
-import { Alert as AlertComponent, AlertProps, AlertStatus, DummyButton } from '../..';
-import controls from '../common/controls';
-import parameters from '../common/parameters';
+import { Alert as AlertComponent, AlertProps, AlertStatus, DummyButton } from '../../..';
+import controls from '../../common/controls';
+import parameters from '../../common/parameters';
 
 import { Meta, Story } from './types';
 
@@ -14,7 +14,7 @@ const defaultStatus: AlertStatus = 'info';
 const statusOptions: AlertStatus[] = ['info', 'warning', 'success', 'error'];
 
 export default {
-	title: 'Alert',
+	title: 'Feedback/Alert',
 	component: AlertComponent,
 	argTypes: {
 		colorMode: { ...controls.theme.colorMode },
