@@ -34,9 +34,9 @@ import {
 	QuickTogglesProps as AccordionsQuickTogglesProps,
 	QuickTogglesSize as AccordionsQuickTogglesSize
 } from './components/Accordions/OriginalAccordions/components/QuickToggles/common/types';
-import Alert from './components/Alert';
-import { AlertColor, AlertDuration, AlertProps, AlertStatus } from './components/Alert/common/types';
-import { convertDurationToMS } from './components/Alert/common/utils';
+import Alert from './components/Feedback/Alert';
+import { AlertColor, AlertDuration, AlertProps, AlertStatus } from './components/Feedback/Alert/common/types';
+import { convertDurationToMS } from './components/Feedback/Alert/common/utils';
 import ButtonGroup from './components/Clickable/ButtonGroup';
 import { useButtonGroupContext } from './components/Clickable/ButtonGroup/common/hooks';
 import { ButtonGroupContext, ButtonGroupProps, ButtonGroupRef } from './components/Clickable/ButtonGroup/common/types';

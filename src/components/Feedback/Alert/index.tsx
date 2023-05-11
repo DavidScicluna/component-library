@@ -6,16 +6,16 @@ import { transparentize } from 'color2k';
 import { round, sample } from 'lodash-es';
 import { useCountdown, useElementSize } from 'usehooks-ts';
 
-import { errorEmojis, errorTitles, successEmojis, successTitles } from '../../common/data/strings';
-import { useTheme } from '../../common/hooks';
-import { Undefinable } from '../../common/types';
-import { convertREMToPixels, convertStringToNumber } from '../../common/utils';
-import { getColor } from '../../common/utils/color';
-import { Space } from '../../theme/types';
-import IconButton from '../Clickable/IconButtons/OriginalIconButton';
-import IconButtonIcon from '../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
-import Icon from '../DataDisplay/Icon';
-import { useProviderContext } from '../Provider/common/hooks';
+import { errorEmojis, errorTitles, successEmojis, successTitles } from '../../../common/data/strings';
+import { useTheme } from '../../../common/hooks';
+import { Undefinable } from '../../../common/types';
+import { convertREMToPixels, convertStringToNumber } from '../../../common/utils';
+import { getColor } from '../../../common/utils/color';
+import { Space } from '../../../theme/types';
+import IconButton from '../../Clickable/IconButtons/OriginalIconButton';
+import IconButtonIcon from '../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
+import Icon from '../../DataDisplay/Icon';
+import { useProviderContext } from '../../Provider/common/hooks';
 
 import { duration as defaultDuration, spacing as defaultSpacing } from './common/default/props';
 import { AlertProps } from './common/types';

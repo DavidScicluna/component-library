@@ -1,6 +1,6 @@
 import memoize from 'micro-memoize';
 
-import { IconType } from '../../../..';
+import { IconType } from '../../../../..';
 import { duration as defaultDuration } from '../default/props';
 import { AlertColor, AlertDuration, AlertStatus } from '../types';
 
