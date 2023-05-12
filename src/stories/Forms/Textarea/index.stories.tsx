@@ -1,31 +1,34 @@
 import { ReactElement } from 'react';
 
+import { VStack } from '@chakra-ui/react';
+
 import { sample } from 'lodash-es';
 
 import {
+	FormControl,
+	FormControlSize,
+	FormDescription,
+	FormHelperText,
+	FormLabel,
 	Textarea as TextareaComponent,
 	TextareaAutoComplete,
-	TextareaPanelRenderProps,
 	TextareaProps,
-	TextareaResize,
-	TextareaSize
+	TextareaRenderProps,
+	TextareaResize
 } from '../../..';
 import icons from '../../../common/data/icons';
 import { AppColor, AppColors } from '../../../common/types';
 import Icon from '../../../components/DataDisplay/Icon';
 import {
-	autoComplete as defaultAutoComplete,
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
 	isFocused as defaultIsFocused,
-	isFullWidth as defaultIsFullWidth,
 	isReadOnly as defaultIsReadOnly,
 	isRequired as defaultIsRequired,
 	isSuccess as defaultIsSuccess,
 	isWarning as defaultIsWarning,
-	resize as defaultResize,
 	size as defaultSize
-} from '../../../components/Forms/Textarea/common/default/props';
+} from '../../../components/Forms/FormControl/common/default/props';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
 
@@ -53,14 +56,14 @@ const renderMapping = Object.assign(
 	{ none: undefined },
 	...icons.map((icon) => {
 		return {
-			[icon]: ({ colorMode }: TextareaPanelRenderProps) => <Icon colorMode={colorMode} icon={icon} />
+			[icon]: ({ colorMode }: TextareaRenderProps) => <Icon colorMode={colorMode} icon={icon} />
 		};
 	})
 );
 
 const resizeOptions: TextareaResize[] = ['horizontal', 'vertical', 'none'];
 
-const sizeOptions: TextareaSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
+const sizeOptions: FormControlSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 export default {
 	title: 'Forms/Textarea',
@@ -69,7 +72,7 @@ export default {
 		autoComplete: {
 			name: 'AutoComplete',
 			type: 'string',
-			defaultValue: defaultAutoComplete,
+			defaultValue: 'off',
 			// description: '',
 			options: [...autoCompleteOptions],
 			control: 'radio'
@@ -83,24 +86,10 @@ export default {
 			control: 'select'
 		},
 		colorMode: { ...controls.theme.colorMode },
-		label: {
-			name: 'Label',
-			type: 'string',
-			defaultValue: 'Hello I am a Label',
-			// description: '',
-			control: 'text'
-		},
 		placeholder: {
 			name: 'Placeholder',
 			type: 'string',
 			defaultValue: 'Hello I am a placeholder',
-			// description: '',
-			control: 'text'
-		},
-		helper: {
-			name: 'Helper',
-			type: 'string',
-			defaultValue: 'Hello I am the helper text',
 			// description: '',
 			control: 'text'
 		},
@@ -153,14 +142,7 @@ export default {
 			// description: '',
 			control: 'boolean'
 		},
-		isFullWidth: {
-			name: 'FullWidth',
-			type: 'boolean',
-			defaultValue: defaultIsFullWidth,
-			// description: '',
-			control: 'boolean'
-		},
-		renderLeftPanel: {
+		renderLeft: {
 			name: 'Left Element',
 			defaultValue: 'none',
 			// description: '',
@@ -168,7 +150,7 @@ export default {
 			mapping: { ...renderMapping },
 			control: 'select'
 		},
-		renderRightPanel: {
+		renderRight: {
 			name: 'Right Element',
 			defaultValue: 'none',
 			// description: '',
@@ -179,7 +161,7 @@ export default {
 		resize: {
 			name: 'Resize',
 			type: 'string',
-			defaultValue: defaultResize,
+			defaultValue: 'none',
 			// description: '',
 			options: [...resizeOptions],
 			control: 'select'
@@ -196,4 +178,24 @@ export default {
 	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
-export const Textarea: Story = (props: TextareaProps): ReactElement => <TextareaComponent {...props} />;
+export const Textarea: Story = (props: TextareaProps): ReactElement => (
+	<FormControl
+		color={props.color}
+		colorMode={props.colorMode}
+		isDisabled={props.isDisabled}
+		isError={props.isError}
+		isFocused={props.isFocused}
+		isReadOnly={props.isReadOnly}
+		isRequired={props.isRequired}
+		isSuccess={props.isSuccess}
+		isWarning={props.isWarning}
+		size={props.size}
+	>
+		<VStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={0}>
+			<FormLabel htmlFor='123'>Label</FormLabel>
+			<FormDescription>Description</FormDescription>
+		</VStack>
+		<TextareaComponent {...props} id='123' />
+		<FormHelperText>Helper Text</FormHelperText>
+	</FormControl>
+);
