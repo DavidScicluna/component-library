@@ -34,9 +34,6 @@ import {
 	QuickTogglesProps as AccordionsQuickTogglesProps,
 	QuickTogglesSize as AccordionsQuickTogglesSize
 } from './components/Accordions/OriginalAccordions/components/QuickToggles/common/types';
-import Alert from './components/Feedback/Alert';
-import { AlertColor, AlertDuration, AlertProps, AlertStatus } from './components/Feedback/Alert/common/types';
-import { convertDurationToMS } from './components/Feedback/Alert/common/utils';
 import ButtonGroup from './components/Clickable/ButtonGroup';
 import { useButtonGroupContext } from './components/Clickable/ButtonGroup/common/hooks';
 import { ButtonGroupContext, ButtonGroupProps, ButtonGroupRef } from './components/Clickable/ButtonGroup/common/types';
@@ -258,6 +255,13 @@ import Image from './components/DataDisplay/Image';
 import { ImageEvent, ImageProps, ImageRef, ImageSrc, ImageSrcMode } from './components/DataDisplay/Image/common/types';
 import Divider from './components/Divider';
 import { DividerProps } from './components/Divider/common/types';
+import Alert from './components/Feedback/Alert';
+import { AlertColor, AlertDuration, AlertProps, AlertStatus } from './components/Feedback/Alert/common/types';
+import { convertDurationToMS } from './components/Feedback/Alert/common/utils';
+import Skeleton from './components/Feedback/Skeleton';
+import { SkeletonColor, SkeletonProps, SkeletonVariant } from './components/Feedback/Skeleton/common/types';
+import Spinner from './components/Feedback/Spinner';
+import { SpinnerMode, SpinnerProps } from './components/Feedback/Spinner/common/types';
 import Checkbox from './components/Forms/Checkbox';
 import { useCheckboxContext } from './components/Forms/Checkbox/common/hooks';
 import {
@@ -283,16 +287,28 @@ import {
 } from './components/Forms/DatePicker/common/types';
 import Form from './components/Forms/Form';
 import { FormEvent, FormProps } from './components/Forms/Form/common/types';
+import FormControl from './components/Forms/FormControl';
+import { useFormControlContext } from './components/Forms/FormControl/common/hooks';
+import {
+	FormControlContext,
+	FormControlProps,
+	FormControlRef,
+	FormControlSize
+} from './components/Forms/FormControl/common/types';
+import FormDescription from './components/Forms/FormDescription';
+import { FormDescriptionProps, FormDescriptionRef } from './components/Forms/FormDescription/common/types';
+import FormHelperText from './components/Forms/FormHelperText';
+import { FormHelperTextProps, FormHelperTextRef } from './components/Forms/FormHelperText/common/types';
+import FormLabel from './components/Forms/FormLabel';
+import { FormLabelProps, FormLabelRef } from './components/Forms/FormLabel/common/types';
 import Input from './components/Forms/Input';
 import {
 	InputAutoComplete,
 	InputChangeEvent,
 	InputFocusEvent,
-	InputPanelRenderProps,
 	InputProps,
 	InputRef,
-	InputSize,
-	InputVariant
+	InputRenderProps
 } from './components/Forms/Input/common/types';
 import Radio from './components/Forms/Radio';
 import { useRadioContext } from './components/Forms/Radio/common/hooks';
@@ -328,12 +344,10 @@ import {
 	TextareaAutoComplete,
 	TextareaChangeEvent,
 	TextareaFocusEvent,
-	TextareaPanelRenderProps,
 	TextareaProps,
 	TextareaRef,
-	TextareaResize,
-	TextareaSize,
-	TextareaVariant
+	TextareaRenderProps,
+	TextareaResize
 } from './components/Forms/Textarea/common/types';
 import ImageEditor from './components/ImageEditor';
 import { useImageEditorContext } from './components/ImageEditor/common/hooks';
@@ -479,10 +493,6 @@ import { TooltipColor, TooltipProps, TooltipRef } from './components/Overlay/Too
 import DSCLProvider from './components/Provider';
 import { useProviderContext as useDSCLProviderContext } from './components/Provider/common/hooks';
 import { ProviderContext, ProviderProps } from './components/Provider/common/types';
-import Skeleton from './components/Feedback/Skeleton';
-import { SkeletonColor, SkeletonProps, SkeletonVariant } from './components/Feedback/Skeleton/common/types';
-import Spinner from './components/Feedback/Spinner';
-import { SpinnerMode, SpinnerProps } from './components/Feedback/Spinner/common/types';
 import AnimatePresence from './components/Transitions/AnimatePresence';
 import { AnimatePresenceProps } from './components/Transitions/AnimatePresence/common/types';
 import Collapse from './components/Transitions/Collapse';
@@ -581,6 +591,7 @@ export {
 	useDummyHorizontalGridTabbedContext,
 	useDummyIconButtonContext,
 	useDummyTabsContext,
+	useFormControlContext,
 	useGetHorizontalScrollAPIContext,
 	useHorizontalGridContext,
 	useHorizontalGridTabbedContext,
@@ -894,7 +905,21 @@ export type {
 	FileButtonMouseEvent,
 	FileButtonProps,
 	FileInputRef,
+	FormControl,
+	FormControlContext,
+	FormControlProps,
+	FormControlRef,
+	FormControlSize,
+	FormDescription,
+	FormDescriptionProps,
+	FormDescriptionRef,
 	FormEvent,
+	FormHelperText,
+	FormHelperTextProps,
+	FormHelperTextRef,
+	FormLabel,
+	FormLabelProps,
+	FormLabelRef,
 	FormProps,
 	GlassProps,
 	GlassRef,
@@ -950,11 +975,9 @@ export type {
 	InputAutoComplete,
 	InputChangeEvent,
 	InputFocusEvent,
-	InputPanelRenderProps,
 	InputProps,
 	InputRef,
-	InputSize,
-	InputVariant,
+	InputRenderProps,
 	LinkProps,
 	LoadingOverlayProps,
 	LoadingOverlayRef,
@@ -1040,12 +1063,10 @@ export type {
 	TextareaAutoComplete,
 	TextareaChangeEvent,
 	TextareaFocusEvent,
-	TextareaPanelRenderProps,
 	TextareaProps,
 	TextareaRef,
+	TextareaRenderProps,
 	TextareaResize,
-	TextareaSize,
-	TextareaVariant,
 	TooltipColor,
 	TooltipProps,
 	TooltipRef
