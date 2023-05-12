@@ -1,62 +1,56 @@
-import { forwardRef, ReactElement, useCallback, useEffect, useMemo, useRef } from 'react';
+import { forwardRef, ReactElement, useEffect, useMemo, useRef } from 'react';
 
-import { Center, FormControl, HStack, Input as CUIInput, InputGroup, useBoolean, VStack } from '@chakra-ui/react';
+import { Box, Grid, GridItem, Input as CUIInput, InputGroup, useBoolean } from '@chakra-ui/react';
 
-import { debounce, isEmpty, isNil } from 'lodash-es';
+import { compact } from 'lodash-es';
 import merge from 'lodash-es/merge';
+import { useElementSize } from 'usehooks-ts';
 
 import { useTheme } from '../../../common/hooks';
-import { useProviderContext } from '../../Provider/common/hooks';
-import Collapse from '../../Transitions/Collapse';
-import FormHelperText from '../FormHelperText';
-import FormLabel from '../FormLabel';
+import { useFormControlContext } from '../FormControl/common/hooks';
 
-import {
-	autoComplete as defaultAutoComplete,
-	isDisabled as defaultIsDisabled,
-	isError as defaultIsError,
-	isFocused as defaultIsFocused,
-	isFullWidth as defaultIsFullWidth,
-	isReadOnly as defaultIsReadOnly,
-	isRequired as defaultIsRequired,
-	isSuccess as defaultIsSuccess,
-	isWarning as defaultIsWarning,
-	size as defaultSize,
-	variant as defaultVariant
-} from './common/default/props';
 import useStyles from './common/styles';
 import { InputFocusEvent, InputProps, InputRef } from './common/types';
-import { getSizeConfig } from './common/utils';
+import { getSizeConfig, GetSizeConfigReturn } from './common/utils';
 
 const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): ReactElement {
 	const theme = useTheme();
 
-	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
+	const {
+		color: defaultColor,
+		colorMode: defaultColorMode,
+		isDisabled: defaultIsDisabled,
+		isError: defaultIsError,
+		isFocused: defaultIsFocused,
+		isReadOnly: defaultIsReadOnly,
+		isRequired: defaultIsRequired,
+		isSuccess: defaultIsSuccess,
+		isWarning: defaultIsWarning,
+		size: defaultSize
+	} = useFormControlContext();
 
 	const inputRef = useRef<InputRef>(null);
 
+	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
+
 	const {
-		autoComplete = defaultAutoComplete,
+		autoComplete = 'off',
 		color = defaultColor,
 		colorMode = defaultColorMode,
 		id,
 		name,
-		label,
-		helper,
+		renderLeft,
+		renderRight,
 		isDisabled = defaultIsDisabled,
 		isError = defaultIsError,
-		isWarning = defaultIsWarning,
-		isSuccess = defaultIsSuccess,
 		isFocused: isFocusedProp = defaultIsFocused,
 		isReadOnly = defaultIsReadOnly,
 		isRequired = defaultIsRequired,
-		isFullWidth = defaultIsFullWidth,
-		renderLeftPanel,
-		renderRightPanel,
+		isSuccess = defaultIsSuccess,
+		isWarning = defaultIsWarning,
 		onFocus,
 		onBlur,
 		size = defaultSize,
-		variant = defaultVariant,
 		sx,
 		...rest
 	} = props;
@@ -65,31 +59,14 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 
 	const isFocused = useMemo((): boolean => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
 
-	const style = useStyles({
-		theme,
-		color,
-		colorMode,
-		isError,
-		isWarning,
-		isSuccess,
-		isFocused,
-		isFullWidth,
-		size,
-		variant
-	});
+	const config = useMemo((): GetSizeConfigReturn => {
+		return getSizeConfig({ size });
+	}, [size]);
 
-	const handleReturnSpacing = useCallback(
-		debounce((): number => getSizeConfig({ size }).spacing, 500),
-		[size, getSizeConfig]
-	);
-
-	const handleReturnPanelSize = useCallback(
-		debounce((): number => getSizeConfig({ size }).panel, 500),
-		[size, getSizeConfig]
-	);
+	const style = useStyles({ theme, color, colorMode, isError, isWarning, isSuccess, isFocused });
 
 	const handleContainerClick = (): void => {
-		if (inputRef && inputRef.current) {
+		if (isFocused && inputRef && inputRef.current) {
 			inputRef.current.focus();
 		}
 	};
@@ -110,55 +87,33 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 		}
 	};
 
-	useEffect(() => (isFocused ? handleContainerClick() : undefined), [isFocused]);
+	useEffect(() => handleContainerClick(), [isFocused]);
 
 	return (
-		<VStack
-			as={FormControl}
+		<Grid
 			ref={ref}
-			tabIndex={0}
-			alignItems='flex-start'
-			onClick={handleContainerClick}
-			spacing={handleReturnSpacing()}
-			sx={{ width: isFullWidth ? '100%' : 'auto' }}
+			as={InputGroup}
+			aria-disabled={isDisabled}
+			aria-invalid={isError}
+			aria-readonly={isReadOnly}
+			templateColumns={compact([renderLeft ? 'auto' : null, '1fr', renderRight ? 'auto' : null]).join(' ')}
+			templateRows='1fr'
+			alignItems='center'
+			alignContent='center'
+			justifyContent='center'
+			gap={config.spacing}
+			px={config.padding.x}
+			py={config.padding.y}
+			sx={merge(style.group, sx)}
+			_disabled={style.disabled}
+			_readOnly={style.readOnly}
 		>
-			{label ? (
-				<FormLabel
-					colorMode={colorMode}
-					id={id || name}
-					isDisabled={isDisabled}
-					isReadOnly={isReadOnly}
-					isRequired={isRequired}
-					size={size}
-					sx={sx?.formLabel}
-				>
-					{label}
-				</FormLabel>
+			{renderLeft ? (
+				<GridItem>{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}</GridItem>
 			) : null}
 
-			<HStack
-				as={InputGroup}
-				aria-disabled={isDisabled}
-				aria-invalid={isError}
-				aria-readonly={isReadOnly}
-				spacing={handleReturnSpacing()}
-				sx={merge(style.group, sx?.group || {})}
-				_disabled={style.disabled}
-				_readOnly={style.readOnly}
-			>
-				{renderLeftPanel ? (
-					<Center>
-						{renderLeftPanel({
-							width: `${handleReturnPanelSize() || 20}px`,
-							height: `${handleReturnPanelSize() || 20}px`,
-							fontSize: `${handleReturnPanelSize() || 20}px`,
-							color,
-							colorMode
-						})}
-					</Center>
-				) : null}
-
-				<Center flex={1}>
+			<GridItem>
+				<Box ref={childrenRef} as='span' width='100%' height='100%'>
 					<CUIInput
 						{...rest}
 						ref={inputRef}
@@ -172,38 +127,15 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 						onFocus={handleFocus}
 						onBlur={handleBlur}
 						variant='unstyled'
-						sx={merge(style.input, sx?.input || {})}
+						sx={merge(style.input, sx || {})}
 					/>
-				</Center>
+				</Box>
+			</GridItem>
 
-				{renderRightPanel ? (
-					<Center>
-						{renderRightPanel({
-							width: `${handleReturnPanelSize() || 20}px`,
-							height: `${handleReturnPanelSize() || 20}px`,
-							fontSize: `${handleReturnPanelSize() || 20}px`,
-							color,
-							colorMode
-						})}
-					</Center>
-				) : null}
-			</HStack>
-
-			<Collapse in={!(isNil(helper) || isEmpty(helper))} style={{ width: '100%' }}>
-				<FormHelperText
-					colorMode={colorMode}
-					isDisabled={isDisabled}
-					isError={isError}
-					isWarning={isWarning}
-					isSuccess={isSuccess}
-					isReadOnly={isReadOnly}
-					size={size}
-					sx={sx?.formHelperText || {}}
-				>
-					{helper}
-				</FormHelperText>
-			</Collapse>
-		</VStack>
+			{renderRight ? (
+				<GridItem>{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}</GridItem>
+			) : null}
+		</Grid>
 	);
 });
 
