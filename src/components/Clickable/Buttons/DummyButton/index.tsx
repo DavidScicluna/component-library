@@ -7,9 +7,9 @@ import { useElementSize } from 'usehooks-ts';
 
 import { useTheme } from '../../../../common/hooks';
 import { Radius } from '../../../../theme/types';
+import Skeleton from '../../../Feedback/Skeleton';
 import PushableOverlay from '../../../Overlay/PushableOverlay';
 import { useProviderContext } from '../../../Provider/common/hooks';
-import Skeleton from '../../../Feedback/Skeleton';
 import {
 	isCompact as defaultIsCompact,
 	isFullWidth as defaultIsFullWidth,

@@ -7,9 +7,9 @@ import { merge } from 'lodash-es';
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/default/props';
 import { useTheme } from '../../../../common/hooks';
 import { Radius } from '../../../../theme/types';
+import Skeleton from '../../../Feedback/Skeleton';
 import PushableOverlay from '../../../Overlay/PushableOverlay';
 import { useProviderContext } from '../../../Provider/common/hooks';
-import Skeleton from '../../../Feedback/Skeleton';
 import {
 	isCompact as defaultIsCompact,
 	isRound as defaultIsRound,

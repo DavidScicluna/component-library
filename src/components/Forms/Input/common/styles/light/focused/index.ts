@@ -1,6 +1,6 @@
 import { darken, transparentize } from 'color2k';
 
-import {color as defaultColor} from '../../../../../../../common/default/props'
+import { color as defaultColor } from '../../../../../../../common/default/props';
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../theme/types';
