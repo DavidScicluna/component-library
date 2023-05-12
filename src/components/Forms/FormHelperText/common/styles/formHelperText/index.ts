@@ -1,9 +1,12 @@
 import { Style } from '../../../../../../common/types';
 import { size as defaultSize } from '../../../../FormControl/common/default/props';
+import { getFormHelperTextFontSize } from '../../utils';
 
 import { FormHelperTextStyleProps } from './types';
 
 export default ({ theme, size = defaultSize }: FormHelperTextStyleProps): Style => {
+	const fontSize = getFormHelperTextFontSize({ theme, size });
+
 	const transition = 'none';
 	const transitionProperty = transition;
 	const transitionDuration = transition;
@@ -12,7 +15,7 @@ export default ({ theme, size = defaultSize }: FormHelperTextStyleProps): Style 
 	return {
 		userSelect: 'none',
 
-		fontSize: theme.fontSizes[size],
+		fontSize,
 		fontWeight: theme.fontWeights.normal,
 		whiteSpace: 'wrap',
 		textTransform: 'none',
