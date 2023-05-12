@@ -5,12 +5,10 @@ import { colorMode as defaultColorMode } from '../../../../../common/default/pro
 import {
 	isError as defaultIsError,
 	isFocused as defaultIsFocused,
-	isFullWidth as defaultIsFullWidth,
 	isSuccess as defaultIsSuccess,
 	isWarning as defaultIsWarning,
-	size as defaultSize,
-	variant as defaultVariant
-} from '../default/props';
+	size as defaultSize
+} from '../../../FormControl/common/default/props';
 
 import dark from './dark';
 import disabled from './disabled';
@@ -29,28 +27,20 @@ export default memoize((props: InputStyleProps): InputStyleReturn => {
 		isSuccess = defaultIsSuccess,
 		isWarning = defaultIsWarning,
 		isFocused = defaultIsFocused,
-		isFullWidth = defaultIsFullWidth,
-		size = defaultSize,
-		variant = defaultVariant
+		size = defaultSize
 	} = props;
 
 	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
 		group: merge(
-			group({ theme, isFullWidth, size }),
+			group({ theme }),
 			isError || isSuccess || isWarning || isFocused
-				? scheme[variant].focused({
-						theme,
-						color,
-						isError,
-						isSuccess,
-						isWarning
-				  })
-				: scheme[variant].group({ theme })
+				? scheme.focused({ theme, color, isError, isSuccess, isWarning })
+				: scheme.group({ theme })
 		),
-		disabled: merge(disabled(), scheme[variant].disabled({ theme })),
-		readOnly: merge(readOnly(), scheme[variant].readOnly({ theme })),
+		disabled: merge(disabled(), scheme.disabled({ theme })),
+		readOnly: merge(readOnly(), scheme.readOnly({ theme })),
 		input: input({ theme, size })
 	};
 });

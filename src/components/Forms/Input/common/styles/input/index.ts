@@ -1,5 +1,5 @@
 import { Style } from '../../../../../../common/types';
-import { size as defaultSize } from '../../default/props';
+import { size as defaultSize } from '../../../../FormControl/common/default/props';
 
 import { InputStyleProps } from './types';
 

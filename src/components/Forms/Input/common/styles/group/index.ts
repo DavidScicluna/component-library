@@ -1,21 +1,12 @@
 import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
-import { Radius } from '../../../../../../theme/types';
-import { isFullWidth as defaultIsFullWidth, size as defaultSize } from '../../default/props';
-import { getSizeConfig } from '../../utils';
+import { border } from '../../default/sizes';
 
 import { InputGroupStyleProps } from './types';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }: InputGroupStyleProps): Style => {
-	const config = getSizeConfig({ size });
-	const height = config.height;
-	const border = config.border;
-	const padding = config.padding;
-
-	const radius: Radius = size === 'xs' || size === 'sm' ? 'xs' : size === 'lg' || size === 'xl' ? 'lg' : 'base';
-
+export default ({ theme }: InputGroupStyleProps): Style => {
 	const transition = 'none';
 	const transitionProperty = transition;
 	const transitionDuration = transition;
@@ -24,18 +15,6 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 	return {
 		'cursor': 'text',
 
-		'width': isFullWidth ? '100%' : 'auto',
-		'height': `${height}px`,
-
-		'minWidth': 'auto',
-		'minHeight': 'auto',
-		'maxWidth': 'none',
-		'maxHeight': 'none',
-
-		'display': 'flex',
-		'alignItems': 'center',
-		'justifyContent': 'center',
-
 		'userSelect': 'none',
 
 		'opacity': 1,
@@ -43,12 +22,9 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 		'outline': !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important',
 		'borderStyle': 'solid',
 		'borderWidth': `${border}px`,
-		'borderRadius': theme.radii[radius],
+		'borderRadius': theme.radii.base,
 
 		'WebkitTapHighlightColor': theme.colors.transparent,
-
-		'px': `${theme.space[padding.x]} !important`,
-		'py': `${theme.space[padding.y]} !important`,
 
 		'transition': transition,
 		'transitionProperty': transitionProperty,
@@ -66,6 +42,15 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 
 		'&:active': {
 			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
+		},
+
+		'& svg, .ds-cl-icon': {
+			userSelect: 'none',
+
+			transition,
+			transitionProperty,
+			transitionDuration,
+			transitionTimingFunction
 		},
 
 		'*, *::before, *::after': {

@@ -1,3 +1,3 @@
 import { InputStyleProps } from '../types';
 
-export type InputGroupStyleProps = Pick<InputStyleProps, 'theme' | 'isFullWidth' | 'size'>;
+export type InputGroupStyleProps = Pick<InputStyleProps, 'theme'>;
