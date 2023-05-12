@@ -2,8 +2,7 @@ import { forwardRef, ReactElement, useMemo } from 'react';
 
 import { Button as CUIButton, Center, Grid, GridItem } from '@chakra-ui/react';
 
-import { compact } from 'lodash-es';
-import merge from 'lodash-es/merge';
+import { compact, merge } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { useTheme } from '../../../../common/hooks';

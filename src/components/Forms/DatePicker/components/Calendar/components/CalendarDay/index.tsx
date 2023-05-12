@@ -3,7 +3,7 @@ import { forwardRef, ReactElement } from 'react';
 import { Button as CUIButton, Center } from '@chakra-ui/react';
 import { dataAttr } from '@chakra-ui/utils';
 
-import merge from 'lodash-es/merge';
+import { merge } from 'lodash-es';
 
 import { useTheme } from '../../../../../../../common/hooks';
 import { useDatePickerContext } from '../../../../common/hooks';

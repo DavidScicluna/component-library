@@ -2,7 +2,7 @@ import { createContext, forwardRef, ReactElement } from 'react';
 
 import { useBoolean, VisuallyHidden, VStack } from '@chakra-ui/react';
 
-import merge from 'lodash-es/merge';
+import { merge } from 'lodash-es';
 
 import {
 	color as defaultColor,

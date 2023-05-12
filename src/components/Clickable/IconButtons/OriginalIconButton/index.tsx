@@ -2,7 +2,7 @@ import { createContext, forwardRef, ReactElement, useMemo } from 'react';
 
 import { IconButton as CUIIconButton } from '@chakra-ui/react';
 
-import merge from 'lodash-es/merge';
+import { merge } from 'lodash-es';
 
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/default/props';
 import { useTheme } from '../../../../common/hooks';

@@ -2,8 +2,7 @@ import { forwardRef, ReactElement, useMemo } from 'react';
 
 import { useMediaQuery } from '@chakra-ui/react';
 
-import { capitalize } from 'lodash-es';
-import merge from 'lodash-es/merge';
+import { capitalize, merge } from 'lodash-es';
 
 import { useTheme } from '../../../../../common/hooks';
 import IconButton from '../../../../Clickable/IconButtons/OriginalIconButton';

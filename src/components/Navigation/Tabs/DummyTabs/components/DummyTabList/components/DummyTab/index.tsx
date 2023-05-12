@@ -2,8 +2,7 @@ import { FC } from 'react';
 
 import { Center, HStack, Tab as CUIDummyTab, VStack } from '@chakra-ui/react';
 
-import { omit } from 'lodash-es';
-import merge from 'lodash-es/merge';
+import { merge, omit } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { useTheme } from '../../../../../../../../common/hooks';
