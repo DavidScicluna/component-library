@@ -45,6 +45,19 @@ export const checkIsTouchDevice = memoize((): boolean => {
 });
 
 /**
+ *
+ * This method will convert a PX size to REM size
+ *
+ * @param rem - number: px size
+ * @returns - number: Converted REM size from PX size
+ */
+export const convertPixelsToREM = memoize((px: number): number => {
+	const base = 16;
+
+	return (1 / base) * px;
+});
+
+/**
  * This method will convert a REM size to PX size
  *
  * @param rem - number: REM size
