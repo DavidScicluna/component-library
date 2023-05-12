@@ -19,9 +19,16 @@ const SearchBar: FC<SearchBarProps> = (props) => {
 		colorMode,
 		renderClear,
 		renderSubmit,
+		w,
+		width,
+		h,
+		height,
+		maxW,
+		maxWidth,
+		maxH,
+		maxHeight,
 		initialQuery = '',
 		isDisabled = false,
-		isFullWidth = false,
 		isReadOnly = false,
 		onClear,
 		onFilter,
@@ -67,17 +74,34 @@ const SearchBar: FC<SearchBarProps> = (props) => {
 	useUpdateEffect(() => handleQuery(initialQuery), [initialQuery]);
 
 	return (
-		<Form width={isFullWidth ? '100%' : 'auto'} onSubmit={handleSubmit}>
+		<Form
+			w={w}
+			width={width}
+			h={h}
+			height={height}
+			maxW={maxW}
+			maxWidth={maxWidth}
+			maxH={maxH}
+			maxHeight={maxHeight}
+			onSubmit={handleSubmit}
+		>
 			<Input
 				{...rest}
+				w={w}
+				width={width}
+				h={h}
+				height={height}
+				maxW={maxW}
+				maxWidth={maxWidth}
+				maxH={maxH}
+				maxHeight={maxHeight}
 				color={color}
 				colorMode={colorMode}
 				autoComplete='off'
 				isDisabled={isDisabled}
-				isFullWidth={isFullWidth}
 				isReadOnly={isReadOnly}
 				onChange={(event: InputChangeEvent) => handleQuery(event.target.value)}
-				renderLeftPanel={({ color, colorMode, ...rest }) => (
+				renderLeft={({ color, colorMode, ...rest }) => (
 					<Icon
 						{...rest}
 						color={color}
@@ -87,7 +111,7 @@ const SearchBar: FC<SearchBarProps> = (props) => {
 						variant='transparent'
 					/>
 				)}
-				renderRightPanel={
+				renderRight={
 					renderSubmit && onSubmit
 						? ({ colorMode }) => (
 								<HStack
