@@ -1,21 +1,24 @@
 import { ChangeEvent as CE, FocusEvent as FE, ReactNode } from 'react';
 
-import { ColorMode, InputProps as CUIInputProps } from '@chakra-ui/react';
+import { InputProps as CUIInputProps } from '@chakra-ui/react';
 
-import { AppColor, Nullable, Style } from '../../../../../common/types';
+import { Nullable } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
 	BoxBorders,
 	BoxColor,
 	BoxFilter,
+	BoxFlexbox,
 	BoxGradient,
+	BoxGrid,
 	BoxOther,
-	BoxPadding,
+	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
 	BoxTypography
 } from '../../../../../common/types/box';
+import { FormControlProps } from '../../../FormControl/common/types';
 
 export type InputChangeEvent = CE<HTMLInputElement>;
 
@@ -23,25 +26,22 @@ export type InputFocusEvent = FE<HTMLInputElement, Element>;
 
 export type InputAutoComplete = 'on' | 'password' | 'off';
 
-export type InputSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-
-export type InputVariant = 'outlined' | 'transparent';
-
-export type InputPanelRenderProps = Pick<InputProps, 'color' | 'colorMode'> & {
-	width: string; // In Pixels
-	height: string; // In Pixels
-	fontSize: string; // In Pixels
+export type InputRenderProps = Pick<InputProps, 'color' | 'colorMode'> & {
+	width: number; // In Pixels
+	height: number; // In Pixels
 };
 
 type Omitted =
 	// CUI Box Props
-	| BoxPadding
 	| BoxColor
 	| BoxGradient
 	| BoxTypography
+	| BoxFlexbox
+	| BoxGrid
 	| BoxBackground
 	| BoxBorders
 	| BoxBorderRadius
+	| BoxPosition
 	| BoxShadow
 	| BoxFilter
 	| BoxPseudo
@@ -54,26 +54,32 @@ type Omitted =
 	| 'focusBorderColor'
 	| 'htmlSize'
 	| 'isInvalid'
+	| 'isDisabled'
+	| 'isError'
+	| 'isFocused'
+	| 'isReadOnly'
+	| 'isRequired'
+	| 'isSuccess'
+	| 'isWarning'
 	| 'size'
-	| 'variant'
-	| 'sx';
+	| 'variant';
+
+type Picked =
+	| 'color'
+	| 'colorMode'
+	| 'isDisabled'
+	| 'isError'
+	| 'isFocused'
+	| 'isReadOnly'
+	| 'isRequired'
+	| 'isSuccess'
+	| 'isWarning'
+	| 'size';
 
 export type InputProps = Omit<CUIInputProps, Omitted> & {
 	autoComplete?: InputAutoComplete;
-	color: AppColor;
-	colorMode?: ColorMode;
-	label?: string;
-	helper?: string;
-	isError?: boolean;
-	isWarning?: boolean;
-	isSuccess?: boolean;
-	isFocused?: boolean;
-	isFullWidth?: boolean;
-	renderLeftPanel?: (props: InputPanelRenderProps) => ReactNode;
-	renderRightPanel?: (props: InputPanelRenderProps) => ReactNode;
-	size?: InputSize;
-	variant?: InputVariant;
-	sx?: { group?: Style; input?: Style; formLabel?: Style; formHelperText?: Style };
-};
+	renderLeft?: (props: InputRenderProps) => ReactNode;
+	renderRight?: (props: InputRenderProps) => ReactNode;
+} & Pick<FormControlProps, Picked>;
 
 export type InputRef = Nullable<HTMLInputElement>;
