@@ -21,7 +21,7 @@ export default ({ theme }: TextareaLightReadOnlyStyleProps): Style => {
 	});
 	const backgroundShade = getHue({
 		colorMode: 'light',
-		type: 'light'
+		type: 'lighter'
 	});
 
 	return {

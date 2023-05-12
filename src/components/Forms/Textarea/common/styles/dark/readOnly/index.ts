@@ -21,7 +21,7 @@ export default ({ theme }: TextareaDarkReadOnlyStyleProps): Style => {
 	});
 	const backgroundShade = getHue({
 		colorMode: 'dark',
-		type: 'dark'
+		type: 'darker'
 	});
 
 	return {
