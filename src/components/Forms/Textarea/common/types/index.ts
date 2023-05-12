@@ -1,21 +1,26 @@
 import { ChangeEvent as CE, FocusEvent as FE, ReactNode } from 'react';
 
-import { ColorMode, TextareaProps as CUITextareaProps } from '@chakra-ui/react';
+import { TextareaProps as CUITextareaProps } from '@chakra-ui/react';
 
-import { AppColor, Nullable, Style } from '../../../../../common/types';
+import { Nullable } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
 	BoxBorders,
 	BoxColor,
 	BoxFilter,
+	BoxFlexbox,
 	BoxGradient,
+	BoxGrid,
+	BoxMargin,
 	BoxOther,
 	BoxPadding,
+	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
 	BoxTypography
 } from '../../../../../common/types/box';
+import { FormControlProps } from '../../../FormControl/common/types';
 
 export type TextareaChangeEvent = CE<HTMLInputElement>;
 
@@ -25,25 +30,24 @@ export type TextareaAutoComplete = 'on' | 'password' | 'off';
 
 export type TextareaResize = 'horizontal' | 'vertical' | 'none';
 
-export type TextareaSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-
-export type TextareaVariant = 'outlined' | 'transparent';
-
-export type TextareaPanelRenderProps = Pick<TextareaProps, 'color' | 'colorMode'> & {
-	width: string; // In Pixels
-	height: string; // In Pixels
-	fontSize: string; // In Pixels
+export type TextareaRenderProps = Pick<TextareaProps, 'color' | 'colorMode'> & {
+	width: number; // In Pixels
+	height: number; // In Pixels
 };
 
 type Omitted =
 	// CUI Box Props
+	| BoxMargin
 	| BoxPadding
 	| BoxColor
 	| BoxGradient
 	| BoxTypography
+	| BoxFlexbox
+	| BoxGrid
 	| BoxBackground
 	| BoxBorders
 	| BoxBorderRadius
+	| BoxPosition
 	| BoxShadow
 	| BoxFilter
 	| BoxPseudo
@@ -56,28 +60,34 @@ type Omitted =
 	| 'focusBorderColor'
 	| 'htmlSize'
 	| 'isInvalid'
+	| 'isDisabled'
+	| 'isError'
+	| 'isFocused'
+	| 'isReadOnly'
+	| 'isRequired'
+	| 'isSuccess'
+	| 'isWarning'
 	| 'resize'
 	| 'size'
-	| 'variant'
-	| 'sx';
+	| 'variant';
+
+type Picked =
+	| 'color'
+	| 'colorMode'
+	| 'isDisabled'
+	| 'isError'
+	| 'isFocused'
+	| 'isReadOnly'
+	| 'isRequired'
+	| 'isSuccess'
+	| 'isWarning'
+	| 'size';
 
 export type TextareaProps = Omit<CUITextareaProps, Omitted> & {
 	autoComplete?: TextareaAutoComplete;
-	color: AppColor;
-	colorMode?: ColorMode;
-	label?: string;
-	helper?: string;
-	isError?: boolean;
-	isWarning?: boolean;
-	isSuccess?: boolean;
-	isFocused?: boolean;
-	isFullWidth?: boolean;
-	renderLeftPanel?: (props: TextareaPanelRenderProps) => ReactNode;
-	renderRightPanel?: (props: TextareaPanelRenderProps) => ReactNode;
+	renderLeft?: (props: TextareaRenderProps) => ReactNode;
+	renderRight?: (props: TextareaRenderProps) => ReactNode;
 	resize?: TextareaResize;
-	size?: TextareaSize;
-	variant?: TextareaVariant;
-	sx?: { group?: Style; textarea?: Style; formLabel?: Style; formHelperText?: Style };
-};
+} & Pick<FormControlProps, Picked>;
 
 export type TextareaRef = Nullable<HTMLTextAreaElement>;
