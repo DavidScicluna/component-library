@@ -1,64 +1,56 @@
-import { ReactElement, useCallback, useEffect, useMemo, useRef } from 'react';
+import { forwardRef, ReactElement, useEffect, useMemo, useRef } from 'react';
 
-import { Center, FormControl, HStack, InputGroup, Textarea as CUITextarea, useBoolean, VStack } from '@chakra-ui/react';
+import { Box, Grid, GridItem, InputGroup, Textarea as CUITextarea, useBoolean } from '@chakra-ui/react';
 
-import { debounce, isEmpty, isNil } from 'lodash-es';
-import merge from 'lodash-es/merge';
+import { compact, merge } from 'lodash-es';
+import { useElementSize } from 'usehooks-ts';
 
 import { useTheme } from '../../../common/hooks';
-import { useProviderContext } from '../../Provider/common/hooks';
-import Collapse from '../../Transitions/Collapse';
-import FormHelperText from '../FormHelperText';
-import FormLabel from '../FormLabel';
+import { useFormControlContext } from '../FormControl/common/hooks';
 
-import {
-	autoComplete as defaultAutoComplete,
-	isDisabled as defaultIsDisabled,
-	isError as defaultIsError,
-	isFocused as defaultIsFocused,
-	isFullWidth as defaultIsFullWidth,
-	isReadOnly as defaultIsReadOnly,
-	isRequired as defaultIsRequired,
-	isSuccess as defaultIsSuccess,
-	isWarning as defaultIsWarning,
-	resize as defaultResize,
-	size as defaultSize,
-	variant as defaultVariant
-} from './common/default/props';
 import useStyles from './common/styles';
 import { TextareaFocusEvent, TextareaProps, TextareaRef } from './common/types';
-import { getSizeConfig } from './common/utils';
+import { getSizeConfig, GetSizeConfigReturn } from './common/utils';
 
-const Textarea = (props: TextareaProps): ReactElement => {
+const Textarea = forwardRef<TextareaRef, TextareaProps>(function Textarea(props, ref): ReactElement {
 	const theme = useTheme();
 
-	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
+	const {
+		color: defaultColor,
+		colorMode: defaultColorMode,
+		isDisabled: defaultIsDisabled,
+		isError: defaultIsError,
+		isFocused: defaultIsFocused,
+		isReadOnly: defaultIsReadOnly,
+		isRequired: defaultIsRequired,
+		isSuccess: defaultIsSuccess,
+		isWarning: defaultIsWarning,
+		size: defaultSize
+	} = useFormControlContext();
 
 	const textareaRef = useRef<TextareaRef>(null);
 
+	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
+
 	const {
-		autoComplete = defaultAutoComplete,
+		autoComplete = 'off',
 		color = defaultColor,
 		colorMode = defaultColorMode,
 		id,
 		name,
-		label,
-		helper,
+		renderLeft,
+		renderRight,
 		isDisabled = defaultIsDisabled,
 		isError = defaultIsError,
-		isWarning = defaultIsWarning,
-		isSuccess = defaultIsSuccess,
 		isFocused: isFocusedProp = defaultIsFocused,
 		isReadOnly = defaultIsReadOnly,
 		isRequired = defaultIsRequired,
-		isFullWidth = defaultIsFullWidth,
-		renderLeftPanel,
-		renderRightPanel,
+		isSuccess = defaultIsSuccess,
+		isWarning = defaultIsWarning,
 		onFocus,
 		onBlur,
 		size = defaultSize,
-		variant = defaultVariant,
-		resize = defaultResize,
+		resize = 'none',
 		sx,
 		...rest
 	} = props;
@@ -67,31 +59,14 @@ const Textarea = (props: TextareaProps): ReactElement => {
 
 	const isFocused = useMemo((): boolean => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
 
-	const style = useStyles({
-		theme,
-		color,
-		colorMode,
-		isError,
-		isWarning,
-		isSuccess,
-		isFocused,
-		isFullWidth,
-		size,
-		variant
-	});
+	const config = useMemo((): GetSizeConfigReturn => {
+		return getSizeConfig({ size });
+	}, [size]);
 
-	const handleReturnSpacing = useCallback(
-		debounce((): number => getSizeConfig({ size }).spacing, 500),
-		[size, getSizeConfig]
-	);
-
-	const handleReturnPanelSize = useCallback(
-		debounce((): number => getSizeConfig({ size }).panel, 500),
-		[size, getSizeConfig]
-	);
+	const style = useStyles({ theme, color, colorMode, isError, isSuccess, isWarning, isFocused, size });
 
 	const handleContainerClick = (): void => {
-		if (textareaRef && textareaRef.current) {
+		if (isFocused && textareaRef && textareaRef.current) {
 			textareaRef.current.focus();
 		}
 	};
@@ -112,54 +87,33 @@ const Textarea = (props: TextareaProps): ReactElement => {
 		}
 	};
 
-	useEffect(() => (isFocused ? handleContainerClick() : undefined), [isFocused]);
+	useEffect(() => handleContainerClick(), [isFocused]);
 
 	return (
-		<VStack
-			as={FormControl}
-			tabIndex={0}
-			alignItems='flex-start'
-			onClick={handleContainerClick}
-			spacing={handleReturnSpacing()}
-			sx={{ width: isFullWidth ? '100%' : 'auto' }}
+		<Grid
+			ref={ref}
+			as={InputGroup}
+			aria-disabled={isDisabled}
+			aria-invalid={isError}
+			aria-readonly={isReadOnly}
+			templateColumns={compact([renderLeft ? 'auto' : null, '1fr', renderRight ? 'auto' : null]).join(' ')}
+			templateRows='1fr'
+			alignItems='stretch'
+			alignContent='stretch'
+			justifyContent='stretch'
+			gap={config.spacing}
+			px={config.padding.x}
+			py={config.padding.y}
+			sx={merge(style.group, sx)}
+			_disabled={style.disabled}
+			_readOnly={style.readOnly}
 		>
-			{label ? (
-				<FormLabel
-					colorMode={colorMode}
-					id={id || name}
-					isDisabled={isDisabled}
-					isReadOnly={isReadOnly}
-					isRequired={isRequired}
-					size={size}
-					sx={sx?.formLabel}
-				>
-					{label}
-				</FormLabel>
+			{renderLeft ? (
+				<GridItem>{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}</GridItem>
 			) : null}
 
-			<HStack
-				as={InputGroup}
-				aria-disabled={isDisabled}
-				aria-invalid={isError}
-				aria-readonly={isReadOnly}
-				spacing={handleReturnSpacing()}
-				sx={merge(style.group, sx?.group || {})}
-				_disabled={style.disabled}
-				_readOnly={style.readOnly}
-			>
-				{renderLeftPanel ? (
-					<Center>
-						{renderLeftPanel({
-							width: `${handleReturnPanelSize() || 20}px`,
-							height: `${handleReturnPanelSize() || 20}px`,
-							fontSize: `${handleReturnPanelSize() || 20}px`,
-							color,
-							colorMode
-						})}
-					</Center>
-				) : null}
-
-				<Center flex={1}>
+			<GridItem>
+				<Box ref={childrenRef} as='span' width='100%' height='100%'>
 					<CUITextarea
 						{...rest}
 						ref={textareaRef}
@@ -174,39 +128,16 @@ const Textarea = (props: TextareaProps): ReactElement => {
 						onBlur={handleBlur}
 						resize={resize}
 						variant='unstyled'
-						sx={merge(style.textarea, sx?.textarea || {})}
+						sx={style.textarea}
 					/>
-				</Center>
+				</Box>
+			</GridItem>
 
-				{renderRightPanel ? (
-					<Center>
-						{renderRightPanel({
-							width: `${handleReturnPanelSize() || 20}px`,
-							height: `${handleReturnPanelSize() || 20}px`,
-							fontSize: `${handleReturnPanelSize() || 20}px`,
-							color,
-							colorMode
-						})}
-					</Center>
-				) : null}
-			</HStack>
-
-			<Collapse in={!(isNil(helper) || isEmpty(helper))} style={{ width: '100%' }}>
-				<FormHelperText
-					colorMode={colorMode}
-					isDisabled={isDisabled}
-					isError={isError}
-					isWarning={isWarning}
-					isSuccess={isSuccess}
-					isReadOnly={isReadOnly}
-					size={size}
-					sx={sx?.formHelperText || {}}
-				>
-					{helper}
-				</FormHelperText>
-			</Collapse>
-		</VStack>
+			{renderRight ? (
+				<GridItem>{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}</GridItem>
+			) : null}
+		</Grid>
 	);
-};
+});
 
 export default Textarea;
