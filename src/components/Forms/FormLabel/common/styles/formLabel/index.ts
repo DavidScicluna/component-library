@@ -1,12 +1,9 @@
 import { Style } from '../../../../../../common/types';
 import { size as defaultSize } from '../../../../FormControl/common/default/props';
-import { getFormLabelFontSize } from '../../utils';
 
 import { FormLabelStyleProps } from './types';
 
 export default ({ theme, size = defaultSize }: FormLabelStyleProps): Style => {
-	const fontSize = getFormLabelFontSize({ size });
-
 	const transition = 'none';
 	const transitionProperty = transition;
 	const transitionDuration = transition;
@@ -15,7 +12,7 @@ export default ({ theme, size = defaultSize }: FormLabelStyleProps): Style => {
 	return {
 		userSelect: 'none',
 
-		fontSize: theme.fontSizes[fontSize],
+		fontSize: theme.fontSizes[size],
 		fontWeight: theme.fontWeights.semibold,
 		whiteSpace: 'wrap',
 		textTransform: 'capitalize',
