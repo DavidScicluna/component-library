@@ -1,35 +1,19 @@
 import { Style } from '../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../common/utils';
-import { Radius } from '../../../../../../theme/types';
-import { isFullWidth as defaultIsFullWidth, size as defaultSize } from '../../default/props';
-import { getSizeConfig } from '../../utils';
+import { border } from '../../default/sizes';
 
 import { TextareaGroupStyleProps } from './types';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }: TextareaGroupStyleProps): Style => {
-	const config = getSizeConfig({ size });
-	const height = config.height;
-	const border = config.border;
-	const padding = config.padding;
-
-	const radius: Radius = size === 'xs' || size === 'sm' ? 'xs' : size === 'lg' || size === 'xl' ? 'lg' : 'base';
+export default ({ theme }: TextareaGroupStyleProps): Style => {
+	const transition = 'none';
+	const transitionProperty = transition;
+	const transitionDuration = transition;
+	const transitionTimingFunction = transition;
 
 	return {
 		'cursor': 'text',
-
-		'width': isFullWidth ? '100%' : 'auto',
-		'height': 'auto',
-
-		'minWidth': 'auto',
-		'minHeight': 'auto',
-		'maxWidth': 'none',
-		'maxHeight': 'none',
-
-		'display': 'flex',
-		'alignItems': 'center',
-		'justifyContent': 'center',
 
 		'userSelect': 'none',
 
@@ -38,19 +22,14 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 		'outline': !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important',
 		'borderStyle': 'solid',
 		'borderWidth': `${border}px`,
-		'borderRadius': theme.radii[radius],
+		'borderRadius': theme.radii.base,
 
 		'WebkitTapHighlightColor': theme.colors.transparent,
 
-		'px': `${theme.space[padding.x]} !important`,
-		'py': `${theme.space[padding.y]} !important`,
-
-		'& textarea': {
-			minWidth: 'auto',
-			minHeight: `${height}px`,
-			maxWidth: 'none',
-			maxHeight: 'none'
-		},
+		'transition': transition,
+		'transitionProperty': transitionProperty,
+		'transitionDuration': transitionDuration,
+		'transitionTimingFunction': transitionTimingFunction,
 
 		'&:focus:not(:focus-visible)': {
 			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
@@ -66,18 +45,19 @@ export default ({ theme, isFullWidth = defaultIsFullWidth, size = defaultSize }:
 		},
 
 		'& svg, .ds-cl-icon': {
-			width: theme.fontSizes[size],
-			height: theme.fontSizes[size],
-			maxWidth: theme.fontSizes[size],
-			maxHeight: theme.fontSizes[size],
-
-			fontSize: theme.fontSizes[size],
-
 			userSelect: 'none',
 
-			transition: 'none',
-			transitionDuration: theme.transition.duration.normal,
-			transitionTimingFunction: theme.transition.easing['ease-in-out']
+			transition,
+			transitionProperty,
+			transitionDuration,
+			transitionTimingFunction
+		},
+
+		'*, *::before, *::after': {
+			transition,
+			transitionProperty,
+			transitionDuration,
+			transitionTimingFunction
 		}
 	};
 };

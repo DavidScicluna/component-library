@@ -1,16 +1,16 @@
 import { Style } from '../../../../../../common/types';
-import { size as defaultSize } from '../../default/props';
+import { size as defaultSize } from '../../../../FormControl/common/default/props';
 
 import { TextareaStyleProps } from './types';
 
 export default ({ theme, size = defaultSize }: TextareaStyleProps): Style => ({
 	'cursor': 'text',
 
-	'width': 'auto',
-	'height': 'auto',
+	'width': '100%',
+	'height': '100%',
 
-	'minWidth': 'auto',
-	'minHeight': 'auto',
+	'minWidth': '100%',
+	'minHeight': '100%',
 	'maxWidth': 'none',
 	'maxHeight': 'none',
 
@@ -33,11 +33,5 @@ export default ({ theme, size = defaultSize }: TextareaStyleProps): Style => ({
 	'p': 0,
 	'm': 0,
 
-	'transition': 'none',
-	'transitionDuration': theme.transition.duration.normal,
-	'transitionTimingFunction': theme.transition.easing['ease-in-out'],
-
-	'&:focus': {
-		boxShadow: 'none'
-	}
+	'&:focus': { boxShadow: 'none' }
 });
