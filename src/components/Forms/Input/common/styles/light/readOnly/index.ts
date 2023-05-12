@@ -21,7 +21,7 @@ export default ({ theme }: InputLightReadOnlyStyleProps): Style => {
 	});
 	const backgroundShade = getHue({
 		colorMode: 'light',
-		type: 'light'
+		type: 'lighter'
 	});
 
 	return {
