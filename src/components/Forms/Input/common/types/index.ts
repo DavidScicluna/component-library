@@ -12,7 +12,9 @@ import {
 	BoxFlexbox,
 	BoxGradient,
 	BoxGrid,
+	BoxMargin,
 	BoxOther,
+	BoxPadding,
 	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
@@ -33,6 +35,8 @@ export type InputRenderProps = Pick<InputProps, 'color' | 'colorMode'> & {
 
 type Omitted =
 	// CUI Box Props
+	| BoxMargin
+	| BoxPadding
 	| BoxColor
 	| BoxGradient
 	| BoxTypography

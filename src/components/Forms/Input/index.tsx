@@ -63,7 +63,7 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 		return getSizeConfig({ size });
 	}, [size]);
 
-	const style = useStyles({ theme, color, colorMode, isError, isWarning, isSuccess, isFocused });
+	const style = useStyles({ theme, color, colorMode, isError, isSuccess, isWarning, isFocused, size });
 
 	const handleContainerClick = (): void => {
 		if (isFocused && inputRef && inputRef.current) {
@@ -98,9 +98,9 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 			aria-readonly={isReadOnly}
 			templateColumns={compact([renderLeft ? 'auto' : null, '1fr', renderRight ? 'auto' : null]).join(' ')}
 			templateRows='1fr'
-			alignItems='center'
-			alignContent='center'
-			justifyContent='center'
+			alignItems='stretch'
+			alignContent='stretch'
+			justifyContent='stretch'
 			gap={config.spacing}
 			px={config.padding.x}
 			py={config.padding.y}
@@ -127,7 +127,7 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 						onFocus={handleFocus}
 						onBlur={handleBlur}
 						variant='unstyled'
-						sx={merge(style.input, sx || {})}
+						sx={style.input}
 					/>
 				</Box>
 			</GridItem>

@@ -6,11 +6,11 @@ import { InputStyleProps } from './types';
 export default ({ theme, size = defaultSize }: InputStyleProps): Style => ({
 	'cursor': 'text',
 
-	'width': 'auto',
-	'height': 'auto',
+	'width': '100%',
+	'height': '100%',
 
-	'minWidth': 'auto',
-	'minHeight': 'auto',
+	'minWidth': '100%',
+	'minHeight': '100%',
 	'maxWidth': 'none',
 	'maxHeight': 'none',
 
