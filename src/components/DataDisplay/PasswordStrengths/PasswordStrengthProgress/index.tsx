@@ -54,7 +54,7 @@ const PasswordStrengthProgress: FC<PasswordStrengthProgressProps> = (props) => {
 			sx={{
 				'transition': 'none',
 				'& div': { backgroundImage: 'none', backgroundColor: color },
-				'*, *::before, *::after': { transition: 'none' }
+				'& *, *::before, *::after': { transition: 'none' }
 			}}
 		/>
 	);

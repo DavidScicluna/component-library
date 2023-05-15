@@ -28,7 +28,7 @@ const BadgeCloseIconButton: FC<BadgeCloseIconButtonProps> = (props) => {
 			size={size}
 			variant='icon'
 			sx={{
-				'*, *::before, *::after': {
+				'& *, *::before, *::after': {
 					background: theme.colors.transparent,
 					backgroundColor: theme.colors.transparent,
 					borderColor: theme.colors.transparent

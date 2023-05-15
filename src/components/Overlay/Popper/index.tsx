@@ -68,7 +68,7 @@ const Popper: FC<PopperProps> = (props) => {
 				borderStyle='solid'
 				borderColor={border}
 				boxShadow='none'
-				sx={{ 'boxShadow': 'none', '*, *::before, *::after': { boxShadow: 'none' } }}
+				sx={{ 'boxShadow': 'none', '& *, *::before, *::after': { boxShadow: 'none' } }}
 			>
 				<PopoverArrow
 					background={`${background} !important`}

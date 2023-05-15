@@ -28,7 +28,7 @@ const ButtonGroupItem: FC<ButtonGroupItemProps> = ({ children, index = 0, total 
 	}, [isRound, isCompact]);
 
 	return (
-		<Box {...rest} sx={merge(isAttached ? { '*, *::before, *::after': { borderRadius: radius } } : {}, sx)}>
+		<Box {...rest} sx={merge(isAttached ? { '& *, *::before, *::after': { borderRadius: radius } } : {}, sx)}>
 			{children}
 		</Box>
 	);
