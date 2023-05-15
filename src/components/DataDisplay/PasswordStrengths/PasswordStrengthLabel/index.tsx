@@ -39,7 +39,13 @@ const PasswordStrengthLabel = forwardRef<PasswordStrengthLabelRef, PasswordStren
 				<Text align='center' color={color} fontSize={fontSize} textTransform='capitalize' whiteSpace='nowrap'>
 					{strength}
 				</Text>
-				<PasswordStrengthProgress colorMode={colorMode} password={password} strength={strength} />
+				<PasswordStrengthProgress
+					width='100%'
+					height={theme.space[1]}
+					colorMode={colorMode}
+					password={password}
+					strength={strength}
+				/>
 			</HStack>
 		);
 	}

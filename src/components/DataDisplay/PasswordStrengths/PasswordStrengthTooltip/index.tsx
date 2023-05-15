@@ -62,6 +62,7 @@ const PasswordStrengthTooltip: FC<PasswordStrengthTooltipProps> = (props) => {
 				</Text>
 
 				<PasswordStrengthProgress
+					width='100%'
 					height={theme.space[2]}
 					colorMode={colorMode}
 					password={password}

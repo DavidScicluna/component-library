@@ -16,14 +16,7 @@ const PasswordStrengthProgress: FC<PasswordStrengthProgressProps> = (props) => {
 
 	const { colorMode: defaultColorMode } = useProviderContext();
 
-	const {
-		width = '100%',
-		height = theme.space['0.5'],
-		colorMode = defaultColorMode,
-		password,
-		strength,
-		...rest
-	} = props;
+	const { colorMode = defaultColorMode, password, strength, ...rest } = props;
 
 	const [color, setColor] = useState(
 		getColor({ theme, colorMode, color: getPasswordStrengthColor(strength), type: 'color' })
@@ -36,8 +29,6 @@ const PasswordStrengthProgress: FC<PasswordStrengthProgressProps> = (props) => {
 	return (
 		<Progress
 			{...rest}
-			width={width}
-			height={height}
 			borderRadius='full'
 			background={getColor({ theme, colorMode, type: 'divider' })}
 			value={
