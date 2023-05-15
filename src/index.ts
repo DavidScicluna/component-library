@@ -1,5 +1,5 @@
 import fallback from './common/assets/fallback';
-import { useDebounce, useOs, useTheme } from './common/hooks';
+import { useBoolean, useConst, useDebounce, useOs, useTheme } from './common/hooks';
 import {
 	checkIsTouchDevice,
 	convertEasingsToArray,
@@ -254,6 +254,15 @@ import Icon from './components/DataDisplay/Icon';
 import { IconCategory, IconColor, IconProps, IconRef, IconVariant } from './components/DataDisplay/Icon/common/types';
 import Image from './components/DataDisplay/Image';
 import { ImageEvent, ImageProps, ImageRef, ImageSrc, ImageSrcMode } from './components/DataDisplay/Image/common/types';
+import { getPasswordStrength } from './components/DataDisplay/PasswordStrengths/common/utils';
+import PasswordStrengthLabel from './components/DataDisplay/PasswordStrengths/PasswordStrengthLabel';
+import {
+	PasswordStrengthLabelProps,
+	PasswordStrengthLabelRef,
+	PasswordStrengthLabelSize
+} from './components/DataDisplay/PasswordStrengths/PasswordStrengthLabel/common/types';
+import PasswordStrengthTooltip from './components/DataDisplay/PasswordStrengths/PasswordStrengthTooltip';
+import { PasswordStrengthTooltipProps } from './components/DataDisplay/PasswordStrengths/PasswordStrengthTooltip/common/types';
 import Divider from './components/Divider';
 import { DividerProps } from './components/Divider/common/types';
 import Alert from './components/Feedback/Alert';
@@ -311,6 +320,16 @@ import {
 	InputRef,
 	InputRenderProps
 } from './components/Forms/Input/common/types';
+import NumberInput from './components/Forms/NumberInput';
+import {
+	NumberInputChangeEvent,
+	NumberInputFocusEvent,
+	NumberInputProps,
+	NumberInputRef,
+	NumberInputRenderProps
+} from './components/Forms/NumberInput/common/types';
+import PasswordInput from './components/Forms/PasswordInput';
+import { PasswordInputProps, PasswordInputRef } from './components/Forms/PasswordInput/common/types';
 import Radio from './components/Forms/Radio';
 import { useRadioContext } from './components/Forms/Radio/common/hooks';
 import {
@@ -466,6 +485,8 @@ import {
 } from './components/Overlay/Modal/components/ModalHeader/common/types';
 import ModalStack from './components/Overlay/Modal/components/ModalStack';
 import { ModalStackProps } from './components/Overlay/Modal/components/ModalStack/common/types';
+import Popper from './components/Overlay/Popper';
+import { PopperProps } from './components/Overlay/Popper/common/types';
 import PushableOverlay from './components/Overlay/PushableOverlay';
 import {
 	PushableOverlayProps,
@@ -574,7 +595,7 @@ export type {
 export type { Icon as IconType } from './common/types/icons';
 
 // Hooks
-export { useDebounce, useDSCLProviderContext, useOs, useTheme };
+export { useBoolean, useConst, useDebounce, useDSCLProviderContext, useOs, useTheme };
 
 // Context Hooks
 export {
@@ -628,7 +649,8 @@ export const utils = {
 	getTransitionDelay,
 	getTransitionDuration,
 	getTransitionEasings,
-	getTransitionConfig
+	getTransitionConfig,
+	getPasswordStrength
 };
 
 // Theme
@@ -741,7 +763,12 @@ export {
 	ModalStack,
 	NavGroup,
 	NavItem,
+	NumberInput,
 	PageTransition,
+	PasswordInput,
+	PasswordStrengthLabel,
+	PasswordStrengthTooltip,
+	Popper,
 	PushableOverlay,
 	Radio,
 	RadioSubtitle,
@@ -996,7 +1023,19 @@ export type {
 	NavGroupProps,
 	NavItemProps,
 	NavItemType,
+	NumberInputChangeEvent,
+	NumberInputFocusEvent,
+	NumberInputProps,
+	NumberInputRef,
+	NumberInputRenderProps,
 	PageTransitionProps,
+	PasswordInputProps,
+	PasswordInputRef,
+	PasswordStrengthLabelProps,
+	PasswordStrengthLabelRef,
+	PasswordStrengthLabelSize,
+	PasswordStrengthTooltipProps,
+	PopperProps,
 	ProviderContext,
 	ProviderProps,
 	PushableOverlayProps,
