@@ -90,13 +90,6 @@ export default {
 			// description: '',
 			control: 'text'
 		},
-		helper: {
-			name: 'Helper',
-			type: 'string',
-			defaultValue: 'Hello I am the helper text',
-			// description: '',
-			control: 'text'
-		},
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
