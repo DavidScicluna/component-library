@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import { TabPanel, TabPanels as CUITabPanels, useConst } from '@chakra-ui/react';
+import { TabPanel, TabPanels as CUITabPanels } from '@chakra-ui/react';
 
-import { useTheme } from '../../../../../common/hooks';
+import { useConst, useTheme } from '../../../../../common/hooks';
 import AnimatePresence from '../../../../Transitions/AnimatePresence';
 import {
 	getConfig as getTransitionConfig,

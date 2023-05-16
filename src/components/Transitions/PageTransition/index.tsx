@@ -1,10 +1,8 @@
 import { FC } from 'react';
 
-import { useConst } from '@chakra-ui/react';
-
 import { motion, Transition } from 'framer-motion';
 
-import { useTheme } from '../../../common/hooks';
+import { useConst, useTheme } from '../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../common/utils';
 import { getConfig as getTransitionConfig, getDuration as getTransitionDuration } from '../common/utils';
 

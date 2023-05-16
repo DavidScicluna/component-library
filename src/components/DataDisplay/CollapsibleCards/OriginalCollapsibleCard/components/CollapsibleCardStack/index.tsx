@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import { useConst, VisuallyHidden, VStack } from '@chakra-ui/react';
+import { VisuallyHidden, VStack } from '@chakra-ui/react';
 
-import { useTheme } from '../../../../../../common/hooks';
+import { useConst, useTheme } from '../../../../../../common/hooks';
 import Collapse from '../../../../../Transitions/Collapse';
 import {
 	getConfig as getTransitionConfig,

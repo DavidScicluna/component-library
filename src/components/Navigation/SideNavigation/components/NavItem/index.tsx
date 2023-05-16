@@ -1,12 +1,12 @@
 import { FC, useCallback } from 'react';
 
-import { Center, HStack, Text, useConst } from '@chakra-ui/react';
+import { Center, HStack, Text } from '@chakra-ui/react';
 
 import { merge } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { Fade } from '../../../../..';
-import { useBoolean, useTheme } from '../../../../../common/hooks';
+import { useBoolean, useConst, useTheme } from '../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../common/utils';
 import Tooltip from '../../../../Overlay/Tooltip';
 import { getConfig as getTransitionConfig, getDelay as getTransitionDelay } from '../../../../Transitions/common/utils';
