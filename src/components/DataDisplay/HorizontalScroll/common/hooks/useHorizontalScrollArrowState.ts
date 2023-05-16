@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
 
-import { useBoolean } from '@chakra-ui/react';
-
-import { useDebounce } from '../../../../../common/hooks';
+import { useBoolean, useDebounce } from '../../../../../common/hooks';
 import { HorizontalScrollAPIContext, HorizontalScrollArrowDirection } from '../types';
 
 type UseHorizontalScrollArrowStateProps = {

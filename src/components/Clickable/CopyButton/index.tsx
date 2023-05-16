@@ -1,11 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { FC } from 'react';
 
-import { useBoolean } from '@chakra-ui/react';
-
 import { useCopyToClipboard } from 'usehooks-ts';
 
-import { useTheme } from '../../../common/hooks';
+import { useBoolean, useTheme } from '../../../common/hooks';
 import { convertStringToNumber } from '../../../common/utils';
 import { useProviderContext } from '../../Provider/common/hooks';
 

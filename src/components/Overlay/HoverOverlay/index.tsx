@@ -1,6 +1,8 @@
 import { forwardRef, ReactElement } from 'react';
 
-import { Center, useBoolean } from '@chakra-ui/react';
+import { Center } from '@chakra-ui/react';
+
+import { useBoolean } from '../../../common/hooks';
 
 import { HoverOverlayMouseEvent, HoverOverlayProps, HoverOverlayRef } from './common/types';
 

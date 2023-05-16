@@ -1,8 +1,9 @@
 import { forwardRef, ReactElement, useEffect } from 'react';
 
-import { Center, Image as CUIImage, ImageProps as CUIImageProps, useBoolean } from '@chakra-ui/react';
+import { Center, Image as CUIImage, ImageProps as CUIImageProps } from '@chakra-ui/react';
 
 import fallback from '../../../common/assets/fallback';
+import { useBoolean } from '../../../common/hooks';
 import { Style } from '../../../common/types';
 import Glass from '../../Overlay/Glass';
 import { useProviderContext } from '../../Provider/common/hooks';

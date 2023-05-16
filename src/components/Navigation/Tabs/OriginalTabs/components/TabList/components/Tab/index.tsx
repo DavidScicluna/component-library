@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
-import { Center, HStack, Tab as CUITab, useBoolean, VStack } from '@chakra-ui/react';
+import { Center, HStack, Tab as CUITab, VStack } from '@chakra-ui/react';
 import { dataAttr } from '@chakra-ui/utils';
 
 import { merge, omit } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
-import { useTheme } from '../../../../../../../../common/hooks';
+import { useBoolean, useTheme } from '../../../../../../../../common/hooks';
 import { getColor } from '../../../../../../../../common/utils/color';
 import Divider from '../../../../../../../Divider';
 import ScaleFade from '../../../../../../../Transitions/ScaleFade';

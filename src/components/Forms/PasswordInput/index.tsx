@@ -1,7 +1,6 @@
 import { forwardRef, ReactElement, useMemo } from 'react';
 
-import { useBoolean } from '@chakra-ui/react';
-
+import { useBoolean } from '../../../common/hooks';
 import IconButton from '../../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
 import Input from '../Input';

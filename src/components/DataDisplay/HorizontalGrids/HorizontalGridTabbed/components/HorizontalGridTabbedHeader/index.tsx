@@ -1,8 +1,8 @@
 import { FC, useEffect } from 'react';
 
-import { HStack, useBoolean, VStack } from '@chakra-ui/react';
+import { HStack, VStack } from '@chakra-ui/react';
 
-import { useDebounce } from '../../../../../../common/hooks';
+import { useBoolean, useDebounce } from '../../../../../../common/hooks';
 import CardHeader from '../../../../../DataDisplay/Cards/OriginalCard/components/CardHeader';
 import TabList from '../../../../../Navigation/Tabs/OriginalTabs/components/TabList';
 import HorizontalGridArrows from '../../../components/HorizontalGridArrows';

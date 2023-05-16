@@ -1,8 +1,8 @@
 import { FC, useEffect } from 'react';
 
-import { HStack, useBoolean } from '@chakra-ui/react';
+import { HStack } from '@chakra-ui/react';
 
-import { useDebounce } from '../../../../../../common/hooks';
+import { useBoolean, useDebounce } from '../../../../../../common/hooks';
 import CardHeader from '../../../../../DataDisplay/Cards/OriginalCard/components/CardHeader';
 import HorizontalGridArrows from '../../../components/HorizontalGridArrows';
 import { useHorizontalGridContext } from '../../common/hooks';

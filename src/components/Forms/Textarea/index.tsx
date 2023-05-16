@@ -1,11 +1,11 @@
 import { forwardRef, ReactElement, useEffect, useMemo, useRef } from 'react';
 
-import { Box, Grid, GridItem, InputGroup, Textarea as CUITextarea, useBoolean } from '@chakra-ui/react';
+import { Box, Grid, GridItem, InputGroup, Textarea as CUITextarea } from '@chakra-ui/react';
 
 import { compact, merge } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
-import { useTheme } from '../../../common/hooks';
+import { useBoolean, useTheme } from '../../../common/hooks';
 import { useFormControlContext } from '../FormControl/common/hooks';
 
 import useStyles from './common/styles';

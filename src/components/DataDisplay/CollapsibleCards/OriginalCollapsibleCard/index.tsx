@@ -1,6 +1,6 @@
 import { createContext, forwardRef, ReactElement } from 'react';
 
-import { useBoolean, VisuallyHidden, VStack } from '@chakra-ui/react';
+import { VisuallyHidden, VStack } from '@chakra-ui/react';
 
 import { merge } from 'lodash-es';
 
@@ -9,7 +9,7 @@ import {
 	colorMode as defaultColorMode,
 	method as defaultMethod
 } from '../../../../common/default/props';
-import { useTheme } from '../../../../common/hooks';
+import { useBoolean, useTheme } from '../../../../common/hooks';
 import PushableOverlay from '../../../Overlay/PushableOverlay';
 import { useProviderContext } from '../../../Provider/common/hooks';
 import {

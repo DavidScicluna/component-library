@@ -1,11 +1,11 @@
 /* eslint-disable import/namespace */
 import { FC } from 'react';
 
-import { Center, HStack, Slider, SliderFilledTrack, SliderThumb, SliderTrack, useBoolean } from '@chakra-ui/react';
+import { Center, HStack, Slider, SliderFilledTrack, SliderThumb, SliderTrack } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import { useTheme } from '../../../../../../common/hooks';
+import { useBoolean, useTheme } from '../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../common/utils';
 import { getColor } from '../../../../../../common/utils/color';
 import Divider from '../../../../../Divider';

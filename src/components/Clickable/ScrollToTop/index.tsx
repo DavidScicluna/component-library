@@ -1,10 +1,9 @@
 import { forwardRef, ReactElement, useCallback } from 'react';
 
-import { useBoolean } from '@chakra-ui/react';
-
 import { debounce } from 'lodash-es';
 import { useEventListener, useWindowSize } from 'usehooks-ts';
 
+import { useBoolean } from '../../../common/hooks';
 import Tooltip from '../../Overlay/Tooltip';
 import { useProviderContext } from '../../Provider/common/hooks';
 import ScaleFade from '../../Transitions/ScaleFade';

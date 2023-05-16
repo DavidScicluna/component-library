@@ -1,7 +1,6 @@
 import { forwardRef, ReactElement } from 'react';
 
-import { useBoolean } from '@chakra-ui/react';
-
+import { useBoolean } from '../../../../common/hooks';
 import Tooltip from '../../../Overlay/Tooltip';
 import { useProviderContext } from '../../../Provider/common/hooks';
 import IconButton from '../OriginalIconButton';

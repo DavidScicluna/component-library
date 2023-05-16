@@ -1,6 +1,7 @@
 import { MouseEvent as ME, ReactNode } from 'react';
 
-import { Nullable, UseBooleanToggles } from '../../../../../../common/types';
+import { UseBooleanToggles } from '../../../../../../common/hooks/useBoolean';
+import { Nullable } from '../../../../../../common/types';
 import { CommonCollapsibleCardProps } from '../../../common/types';
 
 export type CollapsibleCardMouseEvent = ME<HTMLDivElement, globalThis.MouseEvent>;

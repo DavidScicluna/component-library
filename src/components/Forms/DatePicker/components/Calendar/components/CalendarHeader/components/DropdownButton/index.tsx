@@ -8,7 +8,6 @@ import {
 	PopoverArrow,
 	PopoverContent,
 	PopoverTrigger,
-	useBoolean,
 	useDisclosure,
 	VStack
 } from '@chakra-ui/react';
@@ -16,7 +15,7 @@ import {
 import { merge } from 'lodash-es';
 import { useElementSize, useUpdateEffect } from 'usehooks-ts';
 
-import { useTheme } from '../../../../../../../../../common/hooks';
+import { useBoolean, useTheme } from '../../../../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../../../../common/utils';
 import { getColor } from '../../../../../../../../../common/utils/color';
 import Icon from '../../../../../../../../DataDisplay/Icon';
