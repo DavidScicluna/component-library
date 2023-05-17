@@ -1,31 +1,17 @@
 import { Style } from '../../../../../../common/types';
-import { checkIsTouchDevice } from '../../../../../../common/utils';
-import { Radius } from '../../../../../../theme/types';
-import { isFullWidth as defaultIsFullWidth, size as defaultSize, variant as defaultVariant } from '../../default/props';
-import { getSizeConfig } from '../../utils';
 
 import { CheckboxGroupStyleProps } from './types';
 
-const isTouchDevice: boolean = checkIsTouchDevice();
-
-export default ({
-	theme,
-	isFullWidth = defaultIsFullWidth,
-	size = defaultSize,
-	variant = defaultVariant
-}: CheckboxGroupStyleProps): Style => {
-	const config = getSizeConfig({ size });
-	const border = config.border;
-	const padding = config.padding;
-	const checkboxFontSize = config.fontSize.checkbox;
-	const iconFontSize = config.fontSize.icon;
-
-	const radius: Radius = size === 'xs' || size === 'sm' ? 'xs' : size === 'lg' || size === 'xl' ? 'lg' : 'base';
+export default ({ theme }: CheckboxGroupStyleProps): Style => {
+	const transition = 'none';
+	const transitionProperty = transition;
+	const transitionDuration = transition;
+	const transitionTimingFunction = transition;
 
 	return {
 		'cursor': 'pointer',
 
-		'width': isFullWidth ? '100%' : 'auto',
+		'width': 'auto',
 		'height': 'auto',
 
 		'minWidth': 'auto',
@@ -33,43 +19,36 @@ export default ({
 		'maxWidth': 'none',
 		'maxHeight': 'none',
 
-		'display': 'flex',
-		'alignItems': 'center',
-		'justifyContent': 'center',
-
 		'userSelect': 'none',
+		'willChange': 'auto',
+
+		'pointerEvents': 'auto',
 
 		'opacity': 1,
 
-		'outline': !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important',
-		'borderStyle': 'solid',
-		'borderWidth': variant !== 'transparent' ? `${border}px` : 0,
-		'borderRadius': theme.radii[radius],
+		'background': 'none',
+		'border': 'none',
 
 		'WebkitTapHighlightColor': theme.colors.transparent,
 
-		'px': `${theme.space[padding.x]} !important`,
-		'py': `${theme.space[padding.y]} !important`,
+		'transform': 'none',
 
-		'transition': 'none',
-		'transitionDuration': theme.transition.duration.normal,
-		'transitionTimingFunction': theme.transition.easing['ease-in-out'],
+		'transition': transition,
+		'transitionProperty': transitionProperty,
+		'transitionDuration': transitionDuration,
+		'transitionTimingFunction': transitionTimingFunction,
 
 		'& .chakra-checkbox': {
 			cursor: 'pointer',
 
-			width: `${checkboxFontSize}px`,
-			height: `${checkboxFontSize}px`,
-
-			minWidth: 'auto',
-			minHeight: 'auto',
-			maxWidth: 'none',
-			maxHeight: 'none',
+			width: 'auto',
+			height: 'auto',
 
 			userSelect: 'none',
 
-			border: 'none',
-			borderRadius: theme.radii.xs,
+			color: 'inherit !important',
+			background: 'none !important',
+			border: 'none !important',
 			boxShadow: 'none !important',
 
 			WebkitTapHighlightColor: theme.colors.transparent,
@@ -77,55 +56,45 @@ export default ({
 			p: 0,
 			m: 0,
 
-			transition: 'none',
-			transitionDuration: theme.transition.duration.normal,
-			transitionTimingFunction: theme.transition.easing['ease-in-out']
+			transition,
+			transitionProperty,
+			transitionDuration,
+			transitionTimingFunction
 		},
 
 		'& .chakra-checkbox__control': {
 			cursor: 'pointer',
 
-			width: 'inherit',
-			height: 'inherit',
+			width: 'auto',
+			height: 'auto',
 
 			userSelect: 'none',
 
-			borderWidth: `${border}px`,
-			borderStyle: 'solid',
-			borderRadius: theme.radii.xs,
+			color: 'inherit !important',
+			background: 'none !important',
+			border: 'none !important',
 			boxShadow: 'none !important',
 
-			transition: 'none',
-			transitionDuration: theme.transition.duration.normal,
-			transitionTimingFunction: theme.transition.easing['ease-in-out']
+			transition,
+			transitionProperty,
+			transitionDuration,
+			transitionTimingFunction
 		},
 
 		'& svg, .ds-cl-icon': {
-			width: `${iconFontSize}px`,
-			height: `${iconFontSize}px`,
-			maxWidth: `${iconFontSize}px`,
-			maxHeight: `${iconFontSize}px`,
-
-			fontSize: `${iconFontSize}px`,
-
 			userSelect: 'none',
 
-			transition: 'none',
-			transitionDuration: theme.transition.duration.normal,
-			transitionTimingFunction: theme.transition.easing['ease-in-out']
+			transition,
+			transitionProperty,
+			transitionDuration,
+			transitionTimingFunction
 		},
 
-		'&:focus:not(:focus-visible)': {
-			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
-		},
-
-		'&:focus': {
-			boxShadow: 'none',
-			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
-		},
-
-		'&:active': {
-			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
+		'*, *::before, *::after': {
+			transition,
+			transitionProperty,
+			transitionDuration,
+			transitionTimingFunction
 		}
 	};
 };
