@@ -1,6 +1,6 @@
-import { createContext, forwardRef, ReactElement, useMemo, useRef } from 'react';
+import { createContext, forwardRef, ReactElement, useMemo } from 'react';
 
-import { Center, Checkbox as CUICheckbox, Grid, GridItem } from '@chakra-ui/react';
+import { Center, Grid, GridItem, useCheckbox } from '@chakra-ui/react';
 
 import { compact, merge } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
@@ -48,15 +48,13 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 		size: defaultSize
 	} = useFormControlContext();
 
-	const checkboxRef = useRef<CheckboxRef>(null);
+	const { getCheckboxProps, getInputProps, getLabelProps, htmlProps } = useCheckbox();
 
-	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
+	const [checkboxRef, { width: checkboxWidth, height: checkboxHeight }] = useElementSize();
 
 	const {
 		color = defaultColor,
 		colorMode = defaultColorMode,
-		id,
-		name,
 		renderLeft,
 		renderRight,
 		defaultChecked = defaultIsChecked,
@@ -102,6 +100,8 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 	return (
 		<CheckboxContext.Provider value={{ color, colorMode, size }}>
 			<Center
+				{...htmlProps}
+				{...rest}
 				ref={ref}
 				aria-checked={isChecked}
 				aria-disabled={isDisabled}
@@ -132,40 +132,37 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 					>
 						{renderLeft ? (
 							<GridItem>
-								{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+								{renderLeft({ color, colorMode, width: checkboxWidth, height: checkboxHeight })}
 							</GridItem>
 						) : null}
 
 						<GridItem>
-							<Center ref={childrenRef} as='span' width='100%' height='100%'>
-								<CUICheckbox
-									{...rest}
-									ref={checkboxRef}
+							<Center
+								{...getCheckboxProps()}
+								ref={checkboxRef}
+								width='100%'
+								height='100%'
+								aria-checked={isIndeterminate || isChecked}
+								aria-disabled={isDisabled}
+								aria-invalid={isError}
+								aria-required={isRequired}
+								onChange={handleCheckboxClick}
+							>
+								<input {...getInputProps({})} hidden />
+								<Icon
+									{...getLabelProps()}
+									width={fontSize}
+									height={fontSize}
+									fontSize={fontSize}
+									color={isError ? 'red' : isSuccess ? 'green' : isWarning ? 'yellow' : color}
+									colorMode={colorMode}
 									icon={
-										<Icon
-											width={fontSize}
-											height={fontSize}
-											fontSize={fontSize}
-											color={isError ? 'red' : isSuccess ? 'green' : isWarning ? 'yellow' : color}
-											colorMode={colorMode}
-											icon={
-												isIndeterminate
-													? 'indeterminate_check_box'
-													: isChecked
-													? 'check_box'
-													: 'check_box_outline_blank'
-											}
-											variant='unstyled'
-										/>
+										isIndeterminate
+											? 'indeterminate_check_box'
+											: isChecked
+											? 'check_box'
+											: 'check_box_outline_blank'
 									}
-									isChecked={isChecked}
-									isIndeterminate={isIndeterminate}
-									isDisabled={isDisabled}
-									isRequired={isRequired}
-									isInvalid={isError}
-									id={id || name}
-									name={name}
-									onChange={onChange ? (event) => onChange(event.target.checked) : undefined}
 									variant='unstyled'
 								/>
 							</Center>
@@ -173,7 +170,7 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 
 						{renderRight ? (
 							<GridItem>
-								{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+								{renderRight({ color, colorMode, width: checkboxWidth, height: checkboxHeight })}
 							</GridItem>
 						) : null}
 					</Grid>
