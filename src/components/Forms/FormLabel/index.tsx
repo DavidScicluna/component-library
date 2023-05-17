@@ -5,6 +5,7 @@ import { Box, FormLabel as CUIFormLabel } from '@chakra-ui/react';
 import { merge } from 'lodash-es';
 
 import { useTheme } from '../../../common/hooks';
+import { useProviderContext } from '../../Provider/common/hooks';
 import { useFormControlContext } from '../FormControl/common/hooks';
 
 import useStyles from './common/styles';
@@ -13,8 +14,10 @@ import { FormLabelProps, FormLabelRef } from './common/types';
 const FormLabel = forwardRef<FormLabelRef, FormLabelProps>(function FormLabel(props, ref): ReactElement {
 	const theme = useTheme();
 
+	const { colorMode: appColorMode } = useProviderContext();
+
 	const {
-		colorMode: defaultColorMode,
+		colorMode: defaultColorMode = appColorMode,
 		isError: defaultIsError,
 		isWarning: defaultIsWarning,
 		isRequired: defaultIsRequired,

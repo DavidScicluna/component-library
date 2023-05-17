@@ -5,6 +5,7 @@ import { FormLabel } from '@chakra-ui/react';
 import { merge } from 'lodash-es';
 
 import { useTheme } from '../../../common/hooks';
+import { useProviderContext } from '../../Provider/common/hooks';
 import Collapse from '../../Transitions/Collapse';
 import { useFormControlContext } from '../FormControl/common/hooks';
 
@@ -17,7 +18,9 @@ const FormDescription = forwardRef<FormDescriptionRef, FormDescriptionProps>(fun
 ): ReactElement {
 	const theme = useTheme();
 
-	const { colorMode: defaultColorMode, size } = useFormControlContext();
+	const { colorMode: appColorMode } = useProviderContext();
+
+	const { colorMode: defaultColorMode = appColorMode, size } = useFormControlContext();
 
 	const { children, colorMode = defaultColorMode, sx, ...rest } = props;
 

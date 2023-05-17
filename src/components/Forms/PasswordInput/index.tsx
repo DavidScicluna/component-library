@@ -48,7 +48,7 @@ const PasswordInput = forwardRef<PasswordInputRef, PasswordInputProps>(function 
 					onClick={handleVisibility}
 					size={size}
 					variant='icon'
-					sx={{ 'p': 0.5, '& *, *::before, *::after': { p: 0 } }}
+					sx={{ 'p': 0.5, '& *, *::before, *::after': { p: '0px !important' } }}
 				>
 					<IconButtonIcon icon={isVisible ? 'visibility_off' : 'visibility'} />
 				</IconButton>
