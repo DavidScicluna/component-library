@@ -1,18 +1,8 @@
 import { Style } from '../../../../../../../../common/types';
-import { checkIsTouchDevice } from '../../../../../../../../common/utils';
-import { size as defaultSize } from '../../../../../common/default/props';
-import { getSizeConfig } from '../../utils';
 
 import { RatingIconStyleProps } from './types';
 
-const isTouchDevice: boolean = checkIsTouchDevice();
-
-export default ({ theme, size = defaultSize }: RatingIconStyleProps): Style => {
-	const config = getSizeConfig({ size });
-
-	const padding = config.padding;
-	const fontSize = config.fontSize;
-
+export default ({ theme }: RatingIconStyleProps): Style => {
 	const transition = 'none';
 	const transitionProperty = transition;
 	const transitionDuration = transition;
@@ -21,7 +11,7 @@ export default ({ theme, size = defaultSize }: RatingIconStyleProps): Style => {
 	return {
 		'cursor': 'pointer',
 
-		'width': '100%',
+		'width': 'auto',
 		'height': 'auto',
 
 		'minWidth': 'auto',
@@ -30,15 +20,18 @@ export default ({ theme, size = defaultSize }: RatingIconStyleProps): Style => {
 		'maxHeight': 'none',
 
 		'userSelect': 'none',
+		'willChange': 'auto',
+
+		'pointerEvents': 'auto',
 
 		'opacity': 1,
 
-		'outline': !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important',
+		'background': 'none',
+		'border': 'none',
 
 		'WebkitTapHighlightColor': theme.colors.transparent,
 
-		'px': `${theme.space[padding.x]} !important`,
-		'py': `${theme.space[padding.y]} !important`,
+		'transform': 'none',
 
 		'transition': transition,
 		'transitionProperty': transitionProperty,
@@ -49,40 +42,24 @@ export default ({ theme, size = defaultSize }: RatingIconStyleProps): Style => {
 			transform: 'scale(1.15)'
 		},
 
-		'&:focus:not(:focus-visible)': {
-			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
-		},
-
 		'&:focus': {
-			boxShadow: 'none',
-			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
-		},
-
-		'&:active': {
-			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'
+			boxShadow: 'none'
 		},
 
 		'& svg, .ds-cl-icon': {
-			width: `${fontSize}px`,
-			height: `${fontSize}px`,
-			maxWidth: `${fontSize}px`,
-			maxHeight: `${fontSize}px`,
-
-			fontSize: `${fontSize}px`,
-
 			userSelect: 'none',
 
-			transition: transition,
-			transitionProperty: transitionProperty,
-			transitionDuration: transitionDuration,
-			transitionTimingFunction: transitionTimingFunction
+			transition,
+			transitionProperty,
+			transitionDuration,
+			transitionTimingFunction
 		},
 
 		'*, *::before, *::after': {
-			transition: transition,
-			transitionProperty: transitionProperty,
-			transitionDuration: transitionDuration,
-			transitionTimingFunction: transitionTimingFunction
+			transition,
+			transitionProperty,
+			transitionDuration,
+			transitionTimingFunction
 		}
 	};
 };

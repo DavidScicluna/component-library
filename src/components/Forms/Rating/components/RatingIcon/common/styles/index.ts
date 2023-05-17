@@ -1,43 +1,18 @@
-import { merge } from 'lodash-es';
 import memoize from 'micro-memoize';
 
-import { colorMode as defaultColorMode } from '../../../../../../../common/default/props';
-import {
-	isError as defaultIsError,
-	isSuccess as defaultIsSuccess,
-	isWarning as defaultIsWarning,
-	size as defaultSize
-} from '../../../../common/default/props';
-import { isHovering as defaultIsHovering } from '../default/props';
-
-import dark from './dark';
+import active from './active';
 import disabled from './disabled';
-import light from './light';
 import rating from './rating';
 import readOnly from './readOnly';
 import { RatingIconStyleProps, RatingIconStyleReturn } from './types';
 
 export default memoize((props: RatingIconStyleProps): RatingIconStyleReturn => {
-	const {
-		theme,
-		color,
-		colorMode = defaultColorMode,
-		isError = defaultIsError,
-		isHovering = defaultIsHovering,
-		isSuccess = defaultIsSuccess,
-		isWarning = defaultIsWarning,
-		size = defaultSize
-	} = props;
-
-	const scheme = colorMode === 'light' ? light : dark;
+	const { theme } = props;
 
 	return {
-		rating: merge(
-			rating({ theme, size }),
-			scheme.rating({ theme, color, isError, isHovering, isSuccess, isWarning })
-		),
-		active: scheme.active({ theme, color }),
-		disabled: merge(disabled(), scheme.disabled({ theme })),
-		readOnly: merge(readOnly(), scheme.readOnly({ theme }))
+		rating: rating({ theme }),
+		active: active(),
+		disabled: disabled(),
+		readOnly: readOnly()
 	};
 });
