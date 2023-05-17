@@ -12,6 +12,7 @@ import {
 	BoxFlexbox,
 	BoxGradient,
 	BoxGrid,
+	BoxLayout,
 	BoxMargin,
 	BoxOther,
 	BoxPadding,
@@ -42,6 +43,7 @@ type Omitted =
 	| BoxColor
 	| BoxGradient
 	| BoxTypography
+	| BoxLayout
 	| BoxFlexbox
 	| BoxGrid
 	| BoxBackground
