@@ -83,7 +83,7 @@
 							// React Packages
 							["^react"],
 
-							// Mantine Packages
+							// Chakra UI Packages
 							["^@chakra-ui"],
 
 							// External packages.
