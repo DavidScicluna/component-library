@@ -19,7 +19,7 @@ import {
 	BoxPseudo,
 	BoxShadow,
 	BoxTypography
-} from '../../../../../../../common/types/box';
+} from '../../../../../../../../common/types/box';
 
 type Omitted =
 	| BoxMargin
