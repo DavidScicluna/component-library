@@ -95,6 +95,7 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 		<Grid
 			ref={ref}
 			as={InputGroup}
+			aria-required={isRequired}
 			aria-disabled={isDisabled}
 			aria-invalid={isError}
 			aria-readonly={isReadOnly}
