@@ -1,18 +1,18 @@
 import { FC, Fragment } from 'react';
 
 import CardBody from '../../../../../DataDisplay/Cards/components/CardBody';
-import TabPanels from '../../../../../Navigation/Tabs/components/TabPanels';
+import DummyTabPanels from '../../../../../Navigation/Tabs/DummyTabs/components/DummyTabPanels';
 
 import { DummyHorizontalGridTabbedBodyProps } from './common/types';
 
 const DummyHorizontalGridTabbedBody: FC<DummyHorizontalGridTabbedBodyProps> = ({ children, ...rest }) => {
 	return (
 		<CardBody {...rest}>
-			<TabPanels>
+			<DummyTabPanels>
 				{children.map((panel, index) => (
 					<Fragment key={index}>{panel}</Fragment>
 				))}
-			</TabPanels>
+			</DummyTabPanels>
 		</CardBody>
 	);
 };
