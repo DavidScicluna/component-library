@@ -333,10 +333,9 @@ import Radio from './components/Forms/Radio';
 import { useRadioContext } from './components/Forms/Radio/common/hooks';
 import {
 	RadioContext,
-	RadioPanelRenderProps,
 	RadioProps,
 	RadioRef,
-	RadioSize,
+	RadioRenderProps,
 	RadioVariant
 } from './components/Forms/Radio/common/types';
 import RadioSubtitle from './components/Forms/Radio/components/RadioSubtitle';
@@ -1040,10 +1039,9 @@ export type {
 	PushableOverlayRef,
 	PushableOverlayVariant,
 	RadioContext,
-	RadioPanelRenderProps,
 	RadioProps,
 	RadioRef,
-	RadioSize,
+	RadioRenderProps,
 	RadioSubtitleProps,
 	RadioTitleProps,
 	RadioVariant,

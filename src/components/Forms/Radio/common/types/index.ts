@@ -1,81 +1,67 @@
-import { FocusEvent, ReactNode } from 'react';
+import { ReactNode } from 'react';
 
-import { ColorMode, RadioProps as CUIRadioProps } from '@chakra-ui/react';
+import { CenterProps } from '@chakra-ui/react';
 
-import { AppColor, Nullable, Style } from '../../../../../common/types';
+import { Nullable } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
 	BoxBorders,
 	BoxColor,
 	BoxFilter,
+	BoxFlexbox,
 	BoxGradient,
+	BoxGrid,
+	BoxLayout,
+	BoxMargin,
 	BoxOther,
 	BoxPadding,
+	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
 	BoxTypography
 } from '../../../../../common/types/box';
-
-export type RadioEvent = FocusEvent<HTMLInputElement, Element>;
-
-export type RadioSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+import { FormControlProps } from '../../../FormControl/common/types';
 
 export type RadioVariant = 'outlined' | 'transparent';
 
-export type RadioPanelRenderProps = Pick<RadioProps, 'color' | 'colorMode'> & {
-	width: string; // In Pixels
-	height: string; // In Pixels
-	fontSize: string; // In Pixels
+export type RadioRenderProps = Pick<RadioProps, 'color' | 'colorMode'> & {
+	width: number; // In Pixels
+	height: number; // In Pixels
 };
-
-export type RadioOnChangeProps = { isChecked: boolean };
 
 type Omitted =
 	// CUI Box Props
+	| BoxMargin
 	| BoxPadding
 	| BoxColor
 	| BoxGradient
 	| BoxTypography
+	| BoxLayout
+	| BoxFlexbox
+	| BoxGrid
 	| BoxBackground
 	| BoxBorders
 	| BoxBorderRadius
+	| BoxPosition
 	| BoxShadow
 	| BoxFilter
 	| BoxPseudo
 	| BoxOther
-	// CUI Input Props
 	| 'as'
-	| 'children'
-	| 'colorScheme'
-	| 'iconColor'
-	| 'iconSize'
-	| 'isRequired'
-	| 'size'
-	| 'spacing'
-	| 'placeholder'
-	| 'tabIndex'
-	| 'onChange'
-	| 'variant'
-	| 'sx';
+	| 'children';
 
-export type RadioProps = {
-	color: AppColor;
-	colorMode?: ColorMode;
-	label?: string;
-	helper?: string;
-	isError?: boolean;
-	isWarning?: boolean;
-	isSuccess?: boolean;
-	isRequired?: boolean;
-	isFullWidth?: boolean;
-	renderLeftPanel?: (props: RadioPanelRenderProps) => ReactNode;
-	renderRightPanel?: (props: RadioPanelRenderProps) => ReactNode;
-	onChange?: (props: RadioOnChangeProps) => void;
-	size?: RadioSize;
+type Picked = 'color' | 'colorMode' | 'isDisabled' | 'isError' | 'isRequired' | 'isSuccess' | 'isWarning' | 'size';
+
+export type RadioProps = Pick<FormControlProps, Picked> & {
+	isChecked?: boolean;
+	isCompact?: boolean;
+	isRound?: boolean;
+	renderLeft?: (props: RadioRenderProps) => ReactNode;
+	renderRight?: (props: RadioRenderProps) => ReactNode;
+	onChange?: (isChecked: boolean) => void;
 	variant?: RadioVariant;
-	sx?: { group?: Style; radio?: Style; formLabel?: Style; formHelperText?: Style };
-} & Omit<CUIRadioProps, Omitted>;
+} & Omit<CenterProps, Omitted>;
 
 export type RadioRef = Nullable<HTMLInputElement>;
 

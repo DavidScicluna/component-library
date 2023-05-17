@@ -1,31 +1,29 @@
-import { createContext, FC, useCallback, useRef } from 'react';
+import { createContext, forwardRef, ReactElement, useMemo } from 'react';
 
-import { Center, FormControl, HStack, Radio as CUIRadio, VStack } from '@chakra-ui/react';
+import { Center, Grid, GridItem, useRadio } from '@chakra-ui/react';
 
-import { debounce, isEmpty, isNil, merge } from 'lodash-es';
+import { compact, merge } from 'lodash-es';
+import { useElementSize } from 'usehooks-ts';
 
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../common/default/props';
 import { useTheme } from '../../../common/hooks';
+import { getFontSizeHeight } from '../../../common/utils';
+import { Radius } from '../../../theme/types';
+import Icon from '../../DataDisplay/Icon';
+import PushableOverlay from '../../Overlay/PushableOverlay';
 import { useProviderContext } from '../../Provider/common/hooks';
-import Collapse from '../../Transitions/Collapse';
-import FormHelperText from '../FormHelperText';
-import FormLabel from '../FormLabel';
+import { size as defaultSize } from '../FormControl/common/default/props';
+import { useFormControlContext } from '../FormControl/common/hooks';
 
 import {
 	isChecked as defaultIsChecked,
-	isDisabled as defaultIsDisabled,
-	isError as defaultIsError,
-	isFullWidth as defaultIsFullWidth,
-	isReadOnly as defaultIsReadOnly,
-	isRequired as defaultIsRequired,
-	isSuccess as defaultIsSuccess,
-	isWarning as defaultIsWarning,
-	size as defaultSize,
+	isCompact as defaultIsCompact,
+	isRound as defaultIsRound,
 	variant as defaultVariant
 } from './common/default/props';
 import useStyles from './common/styles';
 import { RadioContext as RadioContextType, RadioProps, RadioRef } from './common/types';
-import { getSizeConfig } from './common/utils';
+import { getSizeConfig, GetSizeConfigReturn, getVariantRadius } from './common/utils';
 
 export const RadioContext = createContext<RadioContextType>({
 	color: defaultColor,
@@ -33,31 +31,40 @@ export const RadioContext = createContext<RadioContextType>({
 	size: defaultSize
 });
 
-const Radio: FC<RadioProps> = (props) => {
+const Radio = forwardRef<RadioRef, RadioProps>(function Radio(props, ref): ReactElement {
 	const theme = useTheme();
 
-	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
+	const { color: appColor, colorMode: appColorMode } = useProviderContext();
 
-	const radioRef = useRef<RadioRef>(null);
+	const {
+		color: defaultColor = appColor,
+		colorMode: defaultColorMode = appColorMode,
+		isDisabled: defaultIsDisabled,
+		isError: defaultIsError,
+		isRequired: defaultIsRequired,
+		isSuccess: defaultIsSuccess,
+		isWarning: defaultIsWarning,
+		size: defaultSize
+	} = useFormControlContext();
+
+	const { getInputProps, getRadioProps, htmlProps, getLabelProps } = useRadio();
+
+	const [radioRef, { width: radioWidth, height: radioHeight }] = useElementSize();
 
 	const {
 		color = defaultColor,
 		colorMode = defaultColorMode,
-		id,
-		name,
-		label,
-		helper,
+		renderLeft,
+		renderRight,
 		defaultChecked = defaultIsChecked,
 		isChecked: isCheckedProp = defaultIsChecked,
+		isCompact = defaultIsCompact,
 		isDisabled = defaultIsDisabled,
 		isError = defaultIsError,
-		isWarning = defaultIsWarning,
-		isSuccess = defaultIsSuccess,
-		isReadOnly = defaultIsReadOnly,
 		isRequired = defaultIsRequired,
-		isFullWidth = defaultIsFullWidth,
-		renderLeftPanel,
-		renderRightPanel,
+		isRound = defaultIsRound,
+		isSuccess = defaultIsSuccess,
+		isWarning = defaultIsWarning,
 		onChange,
 		size = defaultSize,
 		variant = defaultVariant,
@@ -65,138 +72,103 @@ const Radio: FC<RadioProps> = (props) => {
 		...rest
 	} = props;
 
-	const isChecked: boolean = defaultChecked || isCheckedProp;
+	const isChecked = useMemo((): boolean => {
+		return defaultChecked || isCheckedProp;
+	}, [defaultChecked, isCheckedProp]);
 
-	const style = useStyles({
-		theme,
-		color,
-		colorMode,
-		isChecked,
-		isError,
-		isWarning,
-		isSuccess,
-		isFullWidth,
-		size,
-		variant
-	});
+	const radius = useMemo((): Radius => {
+		return getVariantRadius({ isCompact, isRound, variant });
+	}, [isCompact, isRound, variant]);
+	const config = useMemo((): GetSizeConfigReturn => {
+		return getSizeConfig({ isCompact, size });
+	}, [isCompact, size]);
 
-	const handleReturnSpacing = useCallback(
-		debounce((): number => getSizeConfig({ size }).spacing, 500),
-		[size, getSizeConfig]
-	);
+	const fontSize = useMemo((): string => {
+		return `${getFontSizeHeight({ theme, fontSize: size, lineHeight: 'shorter' })}px`;
+	}, [theme, size]);
 
-	const handleReturnPanelSize = useCallback(
-		debounce((): number => getSizeConfig({ size }).panel, 500),
-		[size, getSizeConfig]
-	);
+	const style = useStyles({ theme });
 
-	const handleContainerClick = (): void => {
-		if (radioRef && radioRef.current) {
-			radioRef.current.focus();
-		}
-	};
-
-	const handleCheckboxClick = (): void => {
+	const handleRadioClick = (): void => {
 		if (onChange) {
-			onChange({ isChecked: !isChecked });
+			onChange(!isChecked);
 		}
 	};
 
 	return (
 		<RadioContext.Provider value={{ color, colorMode, size }}>
-			<VStack
-				as={FormControl}
-				tabIndex={0}
-				alignItems='flex-start'
-				onClick={handleContainerClick}
-				spacing={handleReturnSpacing()}
-				sx={{ width: isFullWidth ? '100%' : 'auto' }}
+			<Center
+				{...htmlProps}
+				{...rest}
+				ref={ref}
+				aria-checked={isChecked}
+				aria-disabled={isDisabled}
+				aria-invalid={isError}
+				onClick={handleRadioClick}
+				sx={merge(style.group, sx)}
+				_disabled={style.disabled}
 			>
-				{label ? (
-					<FormLabel
-						colorMode={colorMode}
-						id={id || name}
-						isDisabled={isDisabled}
-						isRequired={isRequired}
-						isReadOnly={isReadOnly}
-						size={size}
-						sx={sx?.formLabel}
-					>
-						{label}
-					</FormLabel>
-				) : null}
-
-				<HStack
-					aria-checked={isChecked}
-					aria-disabled={isDisabled}
-					aria-invalid={isError}
-					aria-readonly={isReadOnly}
-					onClick={handleCheckboxClick}
-					spacing={handleReturnSpacing()}
-					sx={merge(style.group, sx?.group || {})}
-					_checked={style.checked}
-					_disabled={style.disabled}
-					_readOnly={style.readOnly}
+				<PushableOverlay
+					width='100%'
+					height='100%'
+					borderRadius={radius}
+					color={isError ? 'red' : isSuccess ? 'green' : isWarning ? 'yellow' : color}
+					colorMode={colorMode}
+					isDisabled={isDisabled}
+					variant={variant}
+					p={config.padding}
 				>
-					{renderLeftPanel ? (
-						<Center flex={1}>
-							{renderLeftPanel({
-								width: `${handleReturnPanelSize() || 20}px`,
-								height: `${handleReturnPanelSize() || 20}px`,
-								fontSize: `${handleReturnPanelSize() || 20}px`,
-								color,
-								colorMode
-							})}
-						</Center>
-					) : null}
-
-					<Center>
-						<CUIRadio
-							{...rest}
-							ref={radioRef}
-							isChecked={isChecked}
-							isDisabled={isDisabled}
-							isRequired={isRequired}
-							isInvalid={isError}
-							isReadOnly={isReadOnly}
-							id={id || name}
-							name={name}
-							onChange={onChange ? (event) => onChange({ isChecked: event.target.checked }) : undefined}
-							variant='unstyled'
-							sx={sx?.radio || {}}
-						/>
-					</Center>
-
-					{renderRightPanel ? (
-						<Center flex={1}>
-							{renderRightPanel({
-								width: `${handleReturnPanelSize() || 20}px`,
-								height: `${handleReturnPanelSize() || 20}px`,
-								fontSize: `${handleReturnPanelSize() || 20}px`,
-								color,
-								colorMode
-							})}
-						</Center>
-					) : null}
-				</HStack>
-
-				<Collapse in={!(isNil(helper) || isEmpty(helper))} style={{ width: '100%' }}>
-					<FormHelperText
-						colorMode={colorMode}
-						isDisabled={isDisabled}
-						isError={isError}
-						isWarning={isWarning}
-						isSuccess={isSuccess}
-						isReadOnly={isReadOnly}
-						size={size}
-						sx={sx?.formHelperText || {}}
+					<Grid
+						templateColumns={compact([renderLeft ? 'auto' : null, '1fr', renderRight ? 'auto' : null]).join(
+							' '
+						)}
+						templateRows='1fr'
+						alignItems='stretch'
+						alignContent='stretch'
+						justifyContent='stretch'
+						gap={config.spacing}
 					>
-						{helper}
-					</FormHelperText>
-				</Collapse>
-			</VStack>
+						{renderLeft ? (
+							<GridItem>
+								{renderLeft({ color, colorMode, width: radioWidth, height: radioHeight })}
+							</GridItem>
+						) : null}
+
+						<GridItem>
+							<Center
+								{...getRadioProps()}
+								ref={radioRef}
+								width='100%'
+								height='100%'
+								aria-checked={isChecked}
+								aria-disabled={isDisabled}
+								aria-invalid={isError}
+								aria-required={isRequired}
+							>
+								<input {...getInputProps({})} hidden />
+								<Icon
+									{...getLabelProps()}
+									width={fontSize}
+									height={fontSize}
+									fontSize={fontSize}
+									color={isError ? 'red' : isSuccess ? 'green' : isWarning ? 'yellow' : color}
+									colorMode={colorMode}
+									icon={isChecked ? 'radio_button_checked' : 'radio_button_unchecked'}
+									variant='unstyled'
+								/>
+							</Center>
+						</GridItem>
+
+						{renderRight ? (
+							<GridItem>
+								{renderRight({ color, colorMode, width: radioWidth, height: radioHeight })}
+							</GridItem>
+						) : null}
+					</Grid>
+				</PushableOverlay>
+			</Center>
 		</RadioContext.Provider>
 	);
-};
+});
 
 export default Radio;

@@ -1,97 +1,57 @@
 import memoize from 'micro-memoize';
 
-import { Space } from '../../../../../theme/types';
-import { size as defaultSize } from '../default/props';
-import { RadioSize } from '../types';
+import { Radius, Space } from '../../../../../theme/types';
+import { size as defaultSize } from '../../../FormControl/common/default/props';
+import { isCompact as defaultIsCompact, isRound as defaultIsRound, variant as defaultVariant } from '../default/props';
+import { RadioProps } from '../types';
 
-type FontSize = {
-	icon: number; // In Pixels
-	radio: number; // In Pixels
-};
-
-type Padding = {
-	x: Space; // In Space (Theme) Values
-	y: Space; // In Space (Theme) Values
-};
-
-type GetSizeConfigReturn = {
-	padding: Padding;
-	border: number; // In Pixels
-	panel: number; // In Pixels
+type GetSizeConfigProps = Pick<RadioProps, 'isCompact' | 'size'>;
+export type GetSizeConfigReturn = {
 	spacing: Space; // In Space (Theme) Values
-	fontSize: FontSize;
+	padding: Space; // In Space (Theme) Values
 };
 
-type GetSizeConfigProps = { size: RadioSize };
+export const getSizeConfig = memoize(
+	({ isCompact = defaultIsCompact, size = defaultSize }: GetSizeConfigProps): GetSizeConfigReturn => {
+		switch (size) {
+			case 'xs':
+				return {
+					padding: isCompact ? 0.25 : 1,
+					spacing: isCompact ? 0.25 : 1
+				};
+			case 'sm':
+				return {
+					padding: isCompact ? 0.5 : 1.25,
+					spacing: isCompact ? 0.5 : 1.25
+				};
+			case 'lg':
+				return {
+					padding: isCompact ? 1 : 1.75,
+					spacing: isCompact ? 1 : 1.75
+				};
+			case 'xl':
+				return {
+					padding: isCompact ? 1.25 : 2,
+					spacing: isCompact ? 1.25 : 2
+				};
+			default:
+				return {
+					padding: isCompact ? 0.75 : 1.5,
+					spacing: isCompact ? 0.75 : 1.5
+				};
+		}
+	}
+);
 
-export const getSizeConfig = memoize(({ size = defaultSize }: GetSizeConfigProps): GetSizeConfigReturn => {
-	switch (size) {
-		case 'xs':
-			return {
-				padding: { x: 1, y: 1 },
-				border: 2,
-				panel: 16,
-				spacing: 1,
-				fontSize: {
-					icon: 14,
-					radio: 18
-				}
-			};
-		case 'sm':
-			return {
-				padding: { x: 1.5, y: 1.5 },
-				border: 2,
-				panel: 18,
-				spacing: 1.5,
-				fontSize: {
-					icon: 17,
-					radio: 21
-				}
-			};
-		case 'lg':
-			return {
-				padding: { x: 2.5, y: 2.5 },
-				border: 2,
-				panel: 24,
-				spacing: 2.5,
-				fontSize: {
-					icon: 23,
-					radio: 27
-				}
-			};
-		case 'xl':
-			return {
-				padding: { x: 3, y: 3 },
-				border: 2,
-				panel: 30,
-				spacing: 3,
-				fontSize: {
-					icon: 26,
-					radio: 30
-				}
-			};
+type GetVariantRadiusProps = Pick<RadioProps, 'isCompact' | 'isRound' | 'variant'>;
+
+export const getVariantRadius = memoize((props: GetVariantRadiusProps): Radius => {
+	const { isCompact = defaultIsCompact, isRound = defaultIsRound, variant = defaultVariant } = props;
+
+	switch (variant) {
+		case 'transparent':
+			return 'none';
 		default:
-			return {
-				padding: { x: 2, y: 2 },
-				border: 2,
-				panel: 20,
-				spacing: 2,
-				fontSize: {
-					icon: 20,
-					radio: 24
-				}
-			};
+			return isRound ? 'full' : isCompact ? 'xs' : 'base';
 	}
 });
-
-type GetAmountReturn = {
-	hover: number;
-	active: number;
-};
-
-export const getAmount = (): GetAmountReturn => {
-	return {
-		hover: 0.05,
-		active: 0.1
-	};
-};
