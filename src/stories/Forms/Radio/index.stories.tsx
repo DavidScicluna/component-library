@@ -1,22 +1,30 @@
 import { ReactElement } from 'react';
 
-import { VStack } from '@chakra-ui/react';
+import { Center, VStack } from '@chakra-ui/react';
 
-import { sample } from 'lodash-es';
-
-import { Radio as RadioComponent, RadioProps, RadioSize, RadioSubtitle, RadioTitle, RadioVariant } from '../../..';
-import { AppColor, AppColors } from '../../../common/types';
-// import icons from '../../../common/data/icons';
 import {
-	isChecked as defaultIsChecked,
+	FormControlSize,
+	Radio as RadioComponent,
+	RadioProps,
+	RadioSubtitle,
+	RadioTitle,
+	RadioVariant
+} from '../../..';
+import { color as defaultColor } from '../../../common/default/props';
+import { AppColors } from '../../../common/types';
+import {
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
-	isFullWidth as defaultIsFullWidth,
 	isReadOnly as defaultIsReadOnly,
 	isRequired as defaultIsRequired,
 	isSuccess as defaultIsSuccess,
 	isWarning as defaultIsWarning,
-	size as defaultSize,
+	size as defaultSize
+} from '../../../components/Forms/FormControl/common/default/props';
+import {
+	isChecked as defaultIsChecked,
+	isCompact as defaultIsCompact,
+	isRound as defaultIsRound,
 	variant as defaultVariant
 } from '../../../components/Forms/Radio/common/default/props';
 import controls from '../../common/controls';
@@ -25,6 +33,8 @@ import parameters from '../../common/parameters';
 import { Meta, Story } from './types';
 
 const colorOptions: AppColors = [
+	'gray',
+	'red',
 	'pink',
 	'purple',
 	'deep_purple',
@@ -33,12 +43,13 @@ const colorOptions: AppColors = [
 	'light_blue',
 	'cyan',
 	'teal',
+	'green',
 	'light_green',
 	'lime',
+	'yellow',
 	'orange',
 	'deep_orange'
 ];
-const defaultColor: AppColor = sample(colorOptions) || colorOptions[0];
 
 const renderMapping = Object.assign(
 	{ none: undefined },
@@ -52,7 +63,7 @@ const renderMapping = Object.assign(
 	}
 );
 
-const sizeOptions: RadioSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
+const sizeOptions: FormControlSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 const variantOptions: RadioVariant[] = ['outlined', 'transparent'];
 
@@ -69,24 +80,24 @@ export default {
 			control: 'select'
 		},
 		colorMode: { ...controls.theme.colorMode },
-		label: {
-			name: 'Label',
-			type: 'string',
-			defaultValue: 'Hello I am a Label',
-			// description: '',
-			control: 'text'
-		},
-		helper: {
-			name: 'Helper',
-			type: 'string',
-			defaultValue: 'Hello I am the helper text',
-			// description: '',
-			control: 'text'
-		},
 		isChecked: {
 			name: 'Checked',
 			type: 'boolean',
 			defaultValue: defaultIsChecked,
+			// description: '',
+			control: 'boolean'
+		},
+		isCompact: {
+			name: 'Compact',
+			type: 'boolean',
+			defaultValue: defaultIsCompact,
+			// description: '',
+			control: 'boolean'
+		},
+		isRound: {
+			name: 'Round',
+			type: 'boolean',
+			defaultValue: defaultIsRound,
 			// description: '',
 			control: 'boolean'
 		},
@@ -132,14 +143,7 @@ export default {
 			// description: '',
 			control: 'boolean'
 		},
-		isFullWidth: {
-			name: 'FullWidth',
-			type: 'boolean',
-			defaultValue: defaultIsFullWidth,
-			// description: '',
-			control: 'boolean'
-		},
-		renderLeftPanel: {
+		renderLeft: {
 			name: 'Left Element',
 			defaultValue: 'none',
 			// description: '',
@@ -147,7 +151,7 @@ export default {
 			mapping: { ...renderMapping },
 			control: 'select'
 		},
-		renderRightPanel: {
+		renderRight: {
 			name: 'Right Element',
 			defaultValue: 'none',
 			// description: '',
@@ -175,4 +179,8 @@ export default {
 	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
-export const Radio: Story = (props: RadioProps): ReactElement => <RadioComponent {...props} />;
+export const Radio: Story = (props: RadioProps): ReactElement => (
+	<Center>
+		<RadioComponent {...props} />
+	</Center>
+);
