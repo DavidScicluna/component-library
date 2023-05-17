@@ -1,32 +1,34 @@
 import { ReactElement } from 'react';
 
-import { VStack } from '@chakra-ui/react';
+import { Center, VStack } from '@chakra-ui/react';
 
 import { sample } from 'lodash-es';
 
 import {
 	Checkbox as CheckboxComponent,
 	CheckboxProps,
-	CheckboxSize,
 	CheckboxSubtitle,
 	CheckboxTitle,
-	CheckboxVariant
+	CheckboxVariant,
+	FormControlSize
 } from '../../..';
 import { AppColor, AppColors } from '../../../common/types';
-// import icons from '../../../common/data/icons';
 import {
 	isChecked as defaultIsChecked,
+	isCompact as defaultIsCompact,
+	isIndeterminate as defaultIsIndeterminate,
+	isRound as defaultIsRound,
+	variant as defaultVariant
+} from '../../../components/Forms/Checkbox/common/default/props';
+import {
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
-	isFullWidth as defaultIsFullWidth,
-	isIndeterminate as defaultIsIndeterminate,
 	isReadOnly as defaultIsReadOnly,
 	isRequired as defaultIsRequired,
 	isSuccess as defaultIsSuccess,
 	isWarning as defaultIsWarning,
-	size as defaultSize,
-	variant as defaultVariant
-} from '../../../components/Forms/Checkbox/common/default/props';
+	size as defaultSize
+} from '../../../components/Forms/FormControl/common/default/props';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
 
@@ -60,7 +62,7 @@ const renderMapping = Object.assign(
 	}
 );
 
-const sizeOptions: CheckboxSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
+const sizeOptions: FormControlSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 const variantOptions: CheckboxVariant[] = ['outlined', 'transparent'];
 
@@ -77,24 +79,24 @@ export default {
 			control: 'select'
 		},
 		colorMode: { ...controls.theme.colorMode },
-		label: {
-			name: 'Label',
-			type: 'string',
-			defaultValue: 'Hello I am a Label',
-			// description: '',
-			control: 'text'
-		},
-		helper: {
-			name: 'Helper',
-			type: 'string',
-			defaultValue: 'Hello I am the helper text',
-			// description: '',
-			control: 'text'
-		},
 		isChecked: {
 			name: 'Checked',
 			type: 'boolean',
 			defaultValue: defaultIsChecked,
+			// description: '',
+			control: 'boolean'
+		},
+		isCompact: {
+			name: 'Compact',
+			type: 'boolean',
+			defaultValue: defaultIsCompact,
+			// description: '',
+			control: 'boolean'
+		},
+		isRound: {
+			name: 'Round',
+			type: 'boolean',
+			defaultValue: defaultIsRound,
 			// description: '',
 			control: 'boolean'
 		},
@@ -147,14 +149,7 @@ export default {
 			// description: '',
 			control: 'boolean'
 		},
-		isFullWidth: {
-			name: 'FullWidth',
-			type: 'boolean',
-			defaultValue: defaultIsFullWidth,
-			// description: '',
-			control: 'boolean'
-		},
-		renderLeftPanel: {
+		renderLeft: {
 			name: 'Left Element',
 			defaultValue: 'none',
 			// description: '',
@@ -162,7 +157,7 @@ export default {
 			mapping: { ...renderMapping },
 			control: 'select'
 		},
-		renderRightPanel: {
+		renderRight: {
 			name: 'Right Element',
 			defaultValue: 'none',
 			// description: '',
@@ -190,4 +185,8 @@ export default {
 	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
-export const Checkbox: Story = (props: CheckboxProps): ReactElement => <CheckboxComponent {...props} />;
+export const Checkbox: Story = (props: CheckboxProps): ReactElement => (
+	<Center>
+		<CheckboxComponent {...props} />
+	</Center>
+);
