@@ -41,6 +41,7 @@ const Radio = forwardRef<RadioRef, RadioProps>(function Radio(props, ref): React
 		colorMode: defaultColorMode = appColorMode,
 		isDisabled: defaultIsDisabled,
 		isError: defaultIsError,
+		isReadOnly: defaultIsReadOnly,
 		isRequired: defaultIsRequired,
 		isSuccess: defaultIsSuccess,
 		isWarning: defaultIsWarning,
@@ -61,6 +62,7 @@ const Radio = forwardRef<RadioRef, RadioProps>(function Radio(props, ref): React
 		isCompact = defaultIsCompact,
 		isDisabled = defaultIsDisabled,
 		isError = defaultIsError,
+		isReadOnly = defaultIsReadOnly,
 		isRequired = defaultIsRequired,
 		isRound = defaultIsRound,
 		isSuccess = defaultIsSuccess,
@@ -90,7 +92,7 @@ const Radio = forwardRef<RadioRef, RadioProps>(function Radio(props, ref): React
 	const style = useStyles({ theme });
 
 	const handleRadioClick = (): void => {
-		if (onChange) {
+		if (!isReadOnly && onChange) {
 			onChange(!isChecked);
 		}
 	};
@@ -101,6 +103,7 @@ const Radio = forwardRef<RadioRef, RadioProps>(function Radio(props, ref): React
 				{...htmlProps}
 				{...rest}
 				ref={ref}
+				aria-readonly={isReadOnly}
 				aria-checked={isChecked}
 				aria-disabled={isDisabled}
 				aria-invalid={isError}

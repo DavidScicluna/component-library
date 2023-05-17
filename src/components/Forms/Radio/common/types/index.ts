@@ -51,7 +51,16 @@ type Omitted =
 	| 'as'
 	| 'children';
 
-type Picked = 'color' | 'colorMode' | 'isDisabled' | 'isError' | 'isRequired' | 'isSuccess' | 'isWarning' | 'size';
+type Picked =
+	| 'color'
+	| 'colorMode'
+	| 'isDisabled'
+	| 'isError'
+	| 'isReadOnly'
+	| 'isRequired'
+	| 'isSuccess'
+	| 'isWarning'
+	| 'size';
 
 export type RadioProps = Pick<FormControlProps, Picked> & {
 	isChecked?: boolean;
