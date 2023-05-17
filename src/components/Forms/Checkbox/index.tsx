@@ -42,6 +42,7 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 		colorMode: defaultColorMode = appColorMode,
 		isDisabled: defaultIsDisabled,
 		isError: defaultIsError,
+		isReadOnly: defaultIsReadOnly,
 		isRequired: defaultIsRequired,
 		isSuccess: defaultIsSuccess,
 		isWarning: defaultIsWarning,
@@ -63,6 +64,7 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 		isDisabled = defaultIsDisabled,
 		isError = defaultIsError,
 		isIndeterminate = defaultIsIndeterminate,
+		isReadOnly = defaultIsReadOnly,
 		isRequired = defaultIsRequired,
 		isRound = defaultIsRound,
 		isSuccess = defaultIsSuccess,
@@ -92,7 +94,7 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 	const style = useStyles({ theme });
 
 	const handleCheckboxClick = (): void => {
-		if (onChange) {
+		if (!isReadOnly && onChange) {
 			onChange(!isChecked);
 		}
 	};
@@ -103,6 +105,8 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 				{...htmlProps}
 				{...rest}
 				ref={ref}
+				aria-readonly={isReadOnly}
+				aria-required={isRequired}
 				aria-checked={isChecked}
 				aria-disabled={isDisabled}
 				aria-invalid={isError}
