@@ -1,131 +1,82 @@
-import { FC, useCallback, useState } from 'react';
+import { forwardRef, ReactElement, useState } from 'react';
 
-import { FormControl, HStack, VStack } from '@chakra-ui/react';
+import { HStack } from '@chakra-ui/react';
 
-import { debounce, includes, isEmpty, isNil, merge, range } from 'lodash-es';
+import { range } from 'lodash-es';
 
-import { useTheme } from '../../../common/hooks';
+import { Undefinable } from '../../../common/types';
 import { useProviderContext } from '../../Provider/common/hooks';
-import Collapse from '../../Transitions/Collapse';
-import FormHelperText from '../FormHelperText';
-import FormLabel from '../FormLabel';
+import { useFormControlContext } from '../FormControl/common/hooks';
 
-import {
-	isDisabled as defaultIsDisabled,
-	isError as defaultIsError,
-	isFullWidth as defaultIsFullWidth,
-	isReadOnly as defaultIsReadOnly,
-	isRequired as defaultIsRequired,
-	isSuccess as defaultIsSuccess,
-	isWarning as defaultIsWarning,
-	size as defaultSize,
-	variant as defaultVariant
-} from './common/default/props';
-import useStyles from './common/styles';
-import { RatingProps } from './common/types';
-import { getSizeConfig } from './common/utils';
+import { RatingProps, RatingRef } from './common/types';
 import RatingIcon from './components/RatingIcon';
 
-const Rating: FC<RatingProps> = (props) => {
-	const theme = useTheme();
+const Rating = forwardRef<RatingRef, RatingProps>(function Rating(props, ref): ReactElement {
+	const { color: appColor, colorMode: appColorMode } = useProviderContext();
 
-	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
+	const {
+		color: defaultColor = appColor,
+		colorMode: defaultColorMode = appColorMode,
+		isDisabled: defaultIsDisabled,
+		isError: defaultIsError,
+		isRequired: defaultIsRequired,
+		isReadOnly: defaultIsReadOnly,
+		isSuccess: defaultIsSuccess,
+		isWarning: defaultIsWarning,
+		size: defaultSize
+	} = useFormControlContext();
 
 	const {
 		color = defaultColor,
 		colorMode = defaultColorMode,
-		id,
-		name,
-		label,
-		helper,
 		icons,
+		hasTrailingHover = true,
 		isDisabled = defaultIsDisabled,
 		isError = defaultIsError,
-		isWarning = defaultIsWarning,
-		isSuccess = defaultIsSuccess,
-		isReadOnly = defaultIsReadOnly,
 		isRequired = defaultIsRequired,
-		isFullWidth = defaultIsFullWidth,
-		ratings = 10,
+		isReadOnly = defaultIsReadOnly,
+		isSuccess = defaultIsSuccess,
+		isWarning = defaultIsWarning,
+		count = 10,
 		onChange,
 		size = defaultSize,
-		variant = defaultVariant,
 		value,
-		sx,
 		...rest
 	} = props;
 
-	const [hovering, setHovering] = useState<number>();
-
-	const style = useStyles({ theme, colorMode, isError, isWarning, isSuccess, isFullWidth, size, variant });
-
-	const handleReturnSpacing = useCallback(
-		debounce((): number => getSizeConfig({ size }).spacing, 500),
-		[size, getSizeConfig]
-	);
+	const [hovering, setHovering] = useState<Undefinable<number>>(undefined);
 
 	return (
-		<VStack as={FormControl} tabIndex={0} alignItems='flex-start' sx={{ width: isFullWidth ? '100%' : 'auto' }}>
-			{label ? (
-				<FormLabel
+		<HStack
+			{...rest}
+			ref={ref}
+			aria-readonly={isReadOnly}
+			aria-required={isRequired}
+			aria-disabled={isDisabled}
+			aria-invalid={isError}
+		>
+			{range(count).map((rating, index) => (
+				<RatingIcon
+					key={index}
+					color={color}
 					colorMode={colorMode}
-					id={id || name}
-					isDisabled={isDisabled}
-					isRequired={isRequired}
-					isReadOnly={isReadOnly}
-					size={size}
-					sx={sx?.formLabel}
-				>
-					{label}
-				</FormLabel>
-			) : null}
-
-			<HStack
-				{...rest}
-				width='100%'
-				alignItems='center'
-				justifyContent='space-between'
-				spacing={handleReturnSpacing()}
-				sx={merge(style.group, sx?.group || {})}
-			>
-				{range(ratings).map((rating, index) => (
-					<RatingIcon
-						key={index}
-						color={color}
-						colorMode={colorMode}
-						icons={icons}
-						isActive={includes(value, rating)}
-						isDisabled={isDisabled}
-						isError={isError}
-						isHovering={rating <= (hovering || -1)}
-						isSuccess={isSuccess}
-						isWarning={isWarning}
-						isReadOnly={isReadOnly}
-						onClick={onChange ? () => onChange({ rating }) : undefined}
-						onMouseEnter={() => setHovering(rating)}
-						onMouseLeave={() => setHovering(undefined)}
-						size={size}
-						sx={sx?.rating}
-					/>
-				))}
-			</HStack>
-
-			<Collapse in={!(isNil(helper) || isEmpty(helper))} style={{ width: '100%' }}>
-				<FormHelperText
-					colorMode={colorMode}
+					icons={icons}
+					isActive={value ? rating <= value : false}
 					isDisabled={isDisabled}
 					isError={isError}
-					isWarning={isWarning}
-					isSuccess={isSuccess}
+					isRequired={isRequired}
 					isReadOnly={isReadOnly}
+					isSuccess={isSuccess}
+					isWarning={isWarning}
+					isHovering={!isReadOnly && hasTrailingHover && hovering ? rating <= hovering : false}
+					onClick={!isReadOnly && onChange ? () => onChange(rating) : undefined}
+					onMouseEnter={hasTrailingHover && !isReadOnly ? () => setHovering(rating) : undefined}
+					onMouseLeave={hasTrailingHover && !isReadOnly ? () => setHovering(undefined) : undefined}
 					size={size}
-					sx={sx?.formHelperText || {}}
-				>
-					{helper}
-				</FormHelperText>
-			</Collapse>
-		</VStack>
+				/>
+			))}
+		</HStack>
 	);
-};
+});
 
 export default Rating;

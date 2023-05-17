@@ -343,14 +343,7 @@ import { RadioSubtitleProps } from './components/Forms/Radio/components/RadioSub
 import RadioTitle from './components/Forms/Radio/components/RadioTitle';
 import { RadioTitleProps } from './components/Forms/Radio/components/RadioTitle/common/types';
 import Rating from './components/Forms/Rating';
-import {
-	RatingEvent,
-	RatingIcons,
-	RatingOnChangeProps,
-	RatingProps,
-	RatingSize,
-	RatingVariant
-} from './components/Forms/Rating/common/types';
+import { RatingIcons, RatingProps, RatingRef } from './components/Forms/Rating/common/types';
 import SearchBar from './components/Forms/SearchBar';
 import {
 	SearchBarProps,
@@ -1045,12 +1038,9 @@ export type {
 	RadioSubtitleProps,
 	RadioTitleProps,
 	RadioVariant,
-	RatingEvent,
 	RatingIcons,
-	RatingOnChangeProps,
 	RatingProps,
-	RatingSize,
-	RatingVariant,
+	RatingRef,
 	ScaleFadeProps,
 	ScrollToTopIconType,
 	ScrollToTopProps,
