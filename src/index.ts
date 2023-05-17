@@ -276,10 +276,9 @@ import Checkbox from './components/Forms/Checkbox';
 import { useCheckboxContext } from './components/Forms/Checkbox/common/hooks';
 import {
 	CheckboxContext,
-	CheckboxPanelRenderProps,
 	CheckboxProps,
 	CheckboxRef,
-	CheckboxSize,
+	CheckboxRenderProps,
 	CheckboxVariant
 } from './components/Forms/Checkbox/common/types';
 import CheckboxSubtitle from './components/Forms/Checkbox/components/CheckboxSubtitle';
@@ -845,10 +844,9 @@ export type {
 	CardTitleProps,
 	CardVariant,
 	CheckboxContext,
-	CheckboxPanelRenderProps,
 	CheckboxProps,
 	CheckboxRef,
-	CheckboxSize,
+	CheckboxRenderProps,
 	CheckboxSubtitleProps,
 	CheckboxTitleProps,
 	CheckboxVariant,

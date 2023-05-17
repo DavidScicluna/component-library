@@ -1,43 +1,49 @@
 import { ReactNode } from 'react';
 
-import { CheckboxProps as CUICheckboxProps, ColorMode } from '@chakra-ui/react';
+import { CheckboxProps as CUICheckboxProps } from '@chakra-ui/react';
 
-import { AppColor, Nullable, Style } from '../../../../../common/types';
+import { Nullable } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
 	BoxBorders,
 	BoxColor,
 	BoxFilter,
+	BoxFlexbox,
 	BoxGradient,
+	BoxGrid,
+	BoxLayout,
+	BoxMargin,
 	BoxOther,
 	BoxPadding,
+	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
 	BoxTypography
 } from '../../../../../common/types/box';
-
-export type CheckboxSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+import { FormControlProps } from '../../../FormControl/common/types';
 
 export type CheckboxVariant = 'outlined' | 'transparent';
 
-export type CheckboxPanelRenderProps = Pick<CheckboxProps, 'color' | 'colorMode'> & {
-	width: string; // In Pixels
-	height: string; // In Pixels
-	fontSize: string; // In Pixels
+export type CheckboxRenderProps = Pick<CheckboxProps, 'color' | 'colorMode'> & {
+	width: number; // In Pixels
+	height: number; // In Pixels
 };
-
-export type CheckboxOnChangeProps = { isChecked: boolean };
 
 type Omitted =
 	// CUI Box Props
+	| BoxMargin
 	| BoxPadding
 	| BoxColor
 	| BoxGradient
 	| BoxTypography
+	| BoxLayout
+	| BoxFlexbox
+	| BoxGrid
 	| BoxBackground
 	| BoxBorders
 	| BoxBorderRadius
+	| BoxPosition
 	| BoxShadow
 	| BoxFilter
 	| BoxPseudo
@@ -46,34 +52,34 @@ type Omitted =
 	| 'as'
 	| 'children'
 	| 'colorScheme'
+	| 'icon'
 	| 'iconColor'
 	| 'iconSize'
+	| 'isInvalid'
+	| 'isDisabled'
+	| 'isError'
+	| 'isFocused'
+	| 'isReadOnly'
 	| 'isRequired'
+	| 'isSuccess'
+	| 'isWarning'
 	| 'size'
 	| 'spacing'
 	| 'placeholder'
 	| 'tabIndex'
 	| 'onChange'
-	| 'variant'
-	| 'sx';
+	| 'variant';
+
+type Picked = 'color' | 'colorMode' | 'isDisabled' | 'isError' | 'isRequired' | 'isSuccess' | 'isWarning' | 'size';
 
 export type CheckboxProps = Omit<CUICheckboxProps, Omitted> & {
-	color: AppColor;
-	colorMode?: ColorMode;
-	label?: string;
-	helper?: string;
-	isError?: boolean;
-	isWarning?: boolean;
-	isSuccess?: boolean;
-	isRequired?: boolean;
-	isFullWidth?: boolean;
-	renderLeftPanel?: (props: CheckboxPanelRenderProps) => ReactNode;
-	renderRightPanel?: (props: CheckboxPanelRenderProps) => ReactNode;
-	onChange?: (props: CheckboxOnChangeProps) => void;
-	size?: CheckboxSize;
+	isCompact?: boolean;
+	isRound?: boolean;
+	renderLeft?: (props: CheckboxRenderProps) => ReactNode;
+	renderRight?: (props: CheckboxRenderProps) => ReactNode;
+	onChange?: (isChecked: boolean) => void;
 	variant?: CheckboxVariant;
-	sx?: { group?: Style; checkbox?: Style; formLabel?: Style; formHelperText?: Style };
-};
+} & Pick<FormControlProps, Picked>;
 
 export type CheckboxRef = Nullable<HTMLInputElement>;
 

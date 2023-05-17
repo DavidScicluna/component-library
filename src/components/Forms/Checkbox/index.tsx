@@ -1,33 +1,30 @@
-import { createContext, FC, useCallback, useRef } from 'react';
+import { createContext, forwardRef, ReactElement, useMemo, useRef } from 'react';
 
-import { Center, Checkbox as CUICheckbox, FormControl, HStack, VStack } from '@chakra-ui/react';
+import { Center, Checkbox as CUICheckbox, Grid, GridItem } from '@chakra-ui/react';
 
-import { debounce, isEmpty, isNil, merge } from 'lodash-es';
+import { compact, merge } from 'lodash-es';
+import { useElementSize } from 'usehooks-ts';
 
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../common/default/props';
 import { useTheme } from '../../../common/hooks';
+import { getFontSizeHeight } from '../../../common/utils';
+import { Radius } from '../../../theme/types';
 import Icon from '../../DataDisplay/Icon';
+import PushableOverlay from '../../Overlay/PushableOverlay';
 import { useProviderContext } from '../../Provider/common/hooks';
-import Collapse from '../../Transitions/Collapse';
-import FormHelperText from '../FormHelperText';
-import FormLabel from '../FormLabel';
+import { size as defaultSize } from '../FormControl/common/default/props';
+import { useFormControlContext } from '../FormControl/common/hooks';
 
 import {
 	isChecked as defaultIsChecked,
-	isDisabled as defaultIsDisabled,
-	isError as defaultIsError,
-	isFullWidth as defaultIsFullWidth,
+	isCompact as defaultIsCompact,
 	isIndeterminate as defaultIsIndeterminate,
-	isReadOnly as defaultIsReadOnly,
-	isRequired as defaultIsRequired,
-	isSuccess as defaultIsSuccess,
-	isWarning as defaultIsWarning,
-	size as defaultSize,
+	isRound as defaultIsRound,
 	variant as defaultVariant
 } from './common/default/props';
 import useStyles from './common/styles';
 import { CheckboxContext as CheckboxContextType, CheckboxProps, CheckboxRef } from './common/types';
-import { getSizeConfig } from './common/utils';
+import { getSizeConfig, GetSizeConfigReturn, getVariantRadius } from './common/utils';
 
 export const CheckboxContext = createContext<CheckboxContextType>({
 	color: defaultColor,
@@ -35,35 +32,43 @@ export const CheckboxContext = createContext<CheckboxContextType>({
 	size: defaultSize
 });
 
-const Checkbox: FC<CheckboxProps> = (props) => {
+const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props, ref): ReactElement {
 	const theme = useTheme();
 
-	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
+	const { color: appColor, colorMode: appColorMode } = useProviderContext();
+
+	const {
+		color: defaultColor = appColor,
+		colorMode: defaultColorMode = appColorMode,
+		isDisabled: defaultIsDisabled,
+		isError: defaultIsError,
+		isRequired: defaultIsRequired,
+		isSuccess: defaultIsSuccess,
+		isWarning: defaultIsWarning,
+		size: defaultSize
+	} = useFormControlContext();
 
 	const checkboxRef = useRef<CheckboxRef>(null);
+
+	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const {
 		color = defaultColor,
 		colorMode = defaultColorMode,
 		id,
 		name,
-		label,
-		helper,
+		renderLeft,
+		renderRight,
 		defaultChecked = defaultIsChecked,
 		isChecked: isCheckedProp = defaultIsChecked,
-		isIndeterminate = defaultIsIndeterminate,
+		isCompact = defaultIsCompact,
 		isDisabled = defaultIsDisabled,
 		isError = defaultIsError,
-		isWarning = defaultIsWarning,
-		isSuccess = defaultIsSuccess,
-		isReadOnly = defaultIsReadOnly,
+		isIndeterminate = defaultIsIndeterminate,
 		isRequired = defaultIsRequired,
-		isFullWidth = defaultIsFullWidth,
-		icon = (
-			<Icon color={color} colorMode={colorMode} icon={isIndeterminate ? 'remove' : 'check'} variant='unstyled' />
-		),
-		renderLeftPanel,
-		renderRightPanel,
+		isRound = defaultIsRound,
+		isSuccess = defaultIsSuccess,
+		isWarning = defaultIsWarning,
 		onChange,
 		size = defaultSize,
 		variant = defaultVariant,
@@ -71,140 +76,111 @@ const Checkbox: FC<CheckboxProps> = (props) => {
 		...rest
 	} = props;
 
-	const isChecked: boolean = defaultChecked || isIndeterminate || isCheckedProp;
+	const isChecked = useMemo((): boolean => {
+		return defaultChecked || isIndeterminate || isCheckedProp;
+	}, [defaultChecked, isIndeterminate, isCheckedProp]);
 
-	const style = useStyles({
-		theme,
-		color,
-		colorMode,
-		isChecked,
-		isError,
-		isWarning,
-		isSuccess,
-		isFullWidth,
-		size,
-		variant
-	});
+	const radius = useMemo((): Radius => {
+		return getVariantRadius({ isCompact, isRound, variant });
+	}, [isCompact, isRound, variant]);
+	const config = useMemo((): GetSizeConfigReturn => {
+		return getSizeConfig({ isCompact, size });
+	}, [isCompact, size]);
 
-	const handleReturnSpacing = useCallback(
-		debounce((): number => getSizeConfig({ size }).spacing, 500),
-		[size, getSizeConfig]
-	);
+	const fontSize = useMemo((): string => {
+		return `${getFontSizeHeight({ theme, fontSize: size, lineHeight: 'shorter' })}px`;
+	}, [theme, size]);
 
-	const handleReturnPanelSize = useCallback(
-		debounce((): number => getSizeConfig({ size }).panel, 500),
-		[size, getSizeConfig]
-	);
-
-	const handleContainerClick = (): void => {
-		if (checkboxRef && checkboxRef.current) {
-			checkboxRef.current.focus();
-		}
-	};
+	const style = useStyles({ theme });
 
 	const handleCheckboxClick = (): void => {
 		if (onChange) {
-			onChange({ isChecked: !isChecked });
+			onChange(!isChecked);
 		}
 	};
 
 	return (
 		<CheckboxContext.Provider value={{ color, colorMode, size }}>
-			<VStack
-				as={FormControl}
-				tabIndex={0}
-				alignItems='flex-start'
-				onClick={handleContainerClick}
-				spacing={handleReturnSpacing()}
-				sx={{ width: isFullWidth ? '100%' : 'auto' }}
+			<Center
+				ref={ref}
+				aria-checked={isChecked}
+				aria-disabled={isDisabled}
+				aria-invalid={isError}
+				onClick={handleCheckboxClick}
+				sx={merge(style.group, sx)}
+				_disabled={style.disabled}
 			>
-				{label ? (
-					<FormLabel
-						colorMode={colorMode}
-						id={id || name}
-						isDisabled={isDisabled}
-						isRequired={isRequired}
-						isReadOnly={isReadOnly}
-						size={size}
-						sx={sx?.formLabel}
-					>
-						{label}
-					</FormLabel>
-				) : null}
-
-				<HStack
-					aria-checked={isChecked}
-					aria-disabled={isDisabled}
-					aria-invalid={isError}
-					aria-readonly={isReadOnly}
-					onClick={handleCheckboxClick}
-					spacing={handleReturnSpacing()}
-					sx={merge(style.group, sx?.group || {})}
-					_checked={style.checked}
-					_disabled={style.disabled}
-					_readOnly={style.readOnly}
+				<PushableOverlay
+					width='100%'
+					height='100%'
+					borderRadius={radius}
+					color={isError ? 'red' : isSuccess ? 'green' : isWarning ? 'yellow' : color}
+					colorMode={colorMode}
+					isDisabled={isDisabled}
+					variant={variant}
+					p={config.padding}
 				>
-					{renderLeftPanel ? (
-						<Center flex={1}>
-							{renderLeftPanel({
-								width: `${handleReturnPanelSize() || 20}px`,
-								height: `${handleReturnPanelSize() || 20}px`,
-								fontSize: `${handleReturnPanelSize() || 20}px`,
-								color,
-								colorMode
-							})}
-						</Center>
-					) : null}
-
-					<Center>
-						<CUICheckbox
-							{...rest}
-							ref={checkboxRef}
-							icon={icon}
-							isChecked={isChecked}
-							isIndeterminate={isIndeterminate}
-							isDisabled={isDisabled}
-							isRequired={isRequired}
-							isInvalid={isError}
-							isReadOnly={isReadOnly}
-							id={id || name}
-							name={name}
-							onChange={onChange ? (event) => onChange({ isChecked: event.target.checked }) : undefined}
-							variant='unstyled'
-							sx={sx?.checkbox || {}}
-						/>
-					</Center>
-
-					{renderRightPanel ? (
-						<Center flex={1}>
-							{renderRightPanel({
-								width: `${handleReturnPanelSize() || 20}px`,
-								height: `${handleReturnPanelSize() || 20}px`,
-								fontSize: `${handleReturnPanelSize() || 20}px`,
-								color,
-								colorMode
-							})}
-						</Center>
-					) : null}
-				</HStack>
-
-				<Collapse in={!(isNil(helper) || isEmpty(helper))} style={{ width: '100%' }}>
-					<FormHelperText
-						colorMode={colorMode}
-						isDisabled={isDisabled}
-						isError={isError}
-						isWarning={isWarning}
-						isSuccess={isSuccess}
-						isReadOnly={isReadOnly}
-						size={size}
-						sx={sx?.formHelperText || {}}
+					<Grid
+						templateColumns={compact([renderLeft ? 'auto' : null, '1fr', renderRight ? 'auto' : null]).join(
+							' '
+						)}
+						templateRows='1fr'
+						alignItems='stretch'
+						alignContent='stretch'
+						justifyContent='stretch'
+						gap={config.spacing}
 					>
-						{helper}
-					</FormHelperText>
-				</Collapse>
-			</VStack>
+						{renderLeft ? (
+							<GridItem>
+								{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+							</GridItem>
+						) : null}
+
+						<GridItem>
+							<Center ref={childrenRef} as='span' width='100%' height='100%'>
+								<CUICheckbox
+									{...rest}
+									ref={checkboxRef}
+									icon={
+										<Icon
+											width={fontSize}
+											height={fontSize}
+											fontSize={fontSize}
+											color={isError ? 'red' : isSuccess ? 'green' : isWarning ? 'yellow' : color}
+											colorMode={colorMode}
+											icon={
+												isIndeterminate
+													? 'indeterminate_check_box'
+													: isChecked
+													? 'check_box'
+													: 'check_box_outline_blank'
+											}
+											variant='unstyled'
+										/>
+									}
+									isChecked={isChecked}
+									isIndeterminate={isIndeterminate}
+									isDisabled={isDisabled}
+									isRequired={isRequired}
+									isInvalid={isError}
+									id={id || name}
+									name={name}
+									onChange={onChange ? (event) => onChange(event.target.checked) : undefined}
+									variant='unstyled'
+								/>
+							</Center>
+						</GridItem>
+
+						{renderRight ? (
+							<GridItem>
+								{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+							</GridItem>
+						) : null}
+					</Grid>
+				</PushableOverlay>
+			</Center>
 		</CheckboxContext.Provider>
 	);
-};
+});
 
 export default Checkbox;
