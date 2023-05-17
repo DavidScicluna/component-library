@@ -2,8 +2,6 @@ import { ReactElement } from 'react';
 
 import { Center, VStack } from '@chakra-ui/react';
 
-import { sample } from 'lodash-es';
-
 import {
 	Checkbox as CheckboxComponent,
 	CheckboxProps,
@@ -12,7 +10,8 @@ import {
 	CheckboxVariant,
 	FormControlSize
 } from '../../..';
-import { AppColor, AppColors } from '../../../common/types';
+import { color as defaultColor } from '../../../common/default/props';
+import { AppColors } from '../../../common/types';
 import {
 	isChecked as defaultIsChecked,
 	isCompact as defaultIsCompact,
@@ -35,6 +34,8 @@ import parameters from '../../common/parameters';
 import { Meta, Story } from './types';
 
 const colorOptions: AppColors = [
+	'gray',
+	'red',
 	'pink',
 	'purple',
 	'deep_purple',
@@ -43,12 +44,13 @@ const colorOptions: AppColors = [
 	'light_blue',
 	'cyan',
 	'teal',
+	'green',
 	'light_green',
 	'lime',
+	'yellow',
 	'orange',
 	'deep_orange'
 ];
-const defaultColor: AppColor = sample(colorOptions) || colorOptions[0];
 
 const renderMapping = Object.assign(
 	{ none: undefined },

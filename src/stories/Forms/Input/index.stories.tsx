@@ -2,8 +2,6 @@ import { ReactElement } from 'react';
 
 import { VStack } from '@chakra-ui/react';
 
-import { sample } from 'lodash-es';
-
 import {
 	FormControl,
 	FormControlSize,
@@ -17,7 +15,8 @@ import {
 	InputRenderProps
 } from '../../..';
 import icons from '../../../common/data/icons';
-import { AppColor, AppColors } from '../../../common/types';
+import { color as defaultColor } from '../../../common/default/props';
+import { AppColors } from '../../../common/types';
 import {
 	isDisabled as defaultIsDisabled,
 	isError as defaultIsError,
@@ -36,6 +35,8 @@ import { Meta, Story } from './types';
 const autoCompleteOptions: InputAutoComplete[] = ['on', 'password', 'off'];
 
 const colorOptions: AppColors = [
+	'gray',
+	'red',
 	'pink',
 	'purple',
 	'deep_purple',
@@ -44,12 +45,13 @@ const colorOptions: AppColors = [
 	'light_blue',
 	'cyan',
 	'teal',
+	'green',
 	'light_green',
 	'lime',
+	'yellow',
 	'orange',
 	'deep_orange'
 ];
-const defaultColor: AppColor = sample(colorOptions) || colorOptions[0];
 
 const renderMapping = Object.assign(
 	{ none: undefined },
