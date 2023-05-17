@@ -10,12 +10,11 @@ type Picked =
 	| 'isError'
 	| 'isWarning'
 	| 'isSuccess'
-	| 'isRequired'
 	| 'isReadOnly'
-	| 'isFullWidth'
+	| 'isRequired'
 	| 'size';
 
 export type RatingIconProps = Pick<RatingProps, Picked> & {
 	isActive?: boolean;
 	isHovering?: boolean;
-} & Pick<CenterProps, 'onClick' | 'onMouseEnter' | 'onMouseLeave' | 'sx'>;
+} & Pick<CenterProps, 'onClick' | 'onMouseEnter' | 'onMouseLeave'>;

@@ -1,46 +1,54 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 
 import { Center } from '@chakra-ui/react';
 import { dataAttr } from '@chakra-ui/utils';
 
-import { merge } from 'lodash-es';
-
-import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../common/default/props';
 import { useTheme } from '../../../../../common/hooks';
+import { getFontSizeHeight } from '../../../../../common/utils';
 import Icon from '../../../../DataDisplay/Icon';
-import {
-	isDisabled as defaultIsDisabled,
-	isError as defaultIsError,
-	isReadOnly as defaultIsReadOnly,
-	isSuccess as defaultIsSuccess,
-	isWarning as defaultIsWarning,
-	size as defaultSize
-} from '../../common/default/props';
+import { useProviderContext } from '../../../../Provider/common/hooks';
+import { useFormControlContext } from '../../../FormControl/common/hooks';
 
-import { isActive as defaultIsActive, isHovering as defaultIsHovering } from './common/default/props';
 import useStyles from './common/styles';
 import { RatingIconProps } from './common/types';
 
 const RatingIcon: FC<RatingIconProps> = (props) => {
 	const theme = useTheme();
 
+	const { color: appColor, colorMode: appColorMode } = useProviderContext();
+
+	const {
+		color: defaultColor = appColor,
+		colorMode: defaultColorMode = appColorMode,
+		isDisabled: defaultIsDisabled,
+		isError: defaultIsError,
+		isReadOnly: defaultIsReadOnly,
+		isSuccess: defaultIsSuccess,
+		isWarning: defaultIsWarning,
+		size: defaultSize
+	} = useFormControlContext();
+
 	const {
 		color = defaultColor,
 		colorMode = defaultColorMode,
 		icons,
-		isActive = defaultIsActive,
+		isActive = false,
+		isHovering = false,
 		isDisabled = defaultIsDisabled,
 		isError = defaultIsError,
-		isHovering = defaultIsHovering,
 		isSuccess = defaultIsSuccess,
 		isWarning = defaultIsWarning,
 		isReadOnly = defaultIsReadOnly,
 		size = defaultSize,
-		sx,
 		...rest
 	} = props;
+	const { default: icon = 'star_outline', active = 'star', hover = 'star' } = icons || {};
 
-	const style = useStyles({ theme, color, colorMode, isError, isHovering, isWarning, isSuccess, size });
+	const fontSize = useMemo((): string => {
+		return `${getFontSizeHeight({ theme, fontSize: size, lineHeight: 'shorter' })}px`;
+	}, [theme, size]);
+
+	const style = useStyles({ theme });
 
 	return (
 		<Center
@@ -49,12 +57,31 @@ const RatingIcon: FC<RatingIconProps> = (props) => {
 			aria-disabled={isDisabled}
 			aria-invalid={isError}
 			aria-readonly={isReadOnly}
-			sx={merge(style.rating, sx || {})}
+			sx={style.rating}
 			_active={style.active}
 			_disabled={style.disabled}
 			_readOnly={style.readOnly}
 		>
-			<Icon icon={isActive ? icons?.active || 'star' : icons?.default || 'star_outline'} category='outlined' />
+			<Icon
+				width={fontSize}
+				height={fontSize}
+				fontSize={fontSize}
+				color={
+					isError
+						? 'red'
+						: isSuccess
+						? 'green'
+						: isWarning
+						? 'yellow'
+						: isActive || isHovering
+						? color
+						: 'gray'
+				}
+				colorMode={colorMode}
+				icon={isActive ? active : isHovering ? hover : icon}
+				category='outlined'
+				variant='transparent'
+			/>
 		</Center>
 	);
 };
