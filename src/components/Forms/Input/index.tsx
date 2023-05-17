@@ -6,6 +6,7 @@ import { compact, merge } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { useBoolean, useTheme } from '../../../common/hooks';
+import { useProviderContext } from '../../Provider/common/hooks';
 import { useFormControlContext } from '../FormControl/common/hooks';
 
 import useStyles from './common/styles';
@@ -15,9 +16,11 @@ import { getSizeConfig, GetSizeConfigReturn } from './common/utils';
 const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): ReactElement {
 	const theme = useTheme();
 
+	const { color: appColor, colorMode: appColorMode } = useProviderContext();
+
 	const {
-		color: defaultColor,
-		colorMode: defaultColorMode,
+		color: defaultColor = appColor,
+		colorMode: defaultColorMode = appColorMode,
 		isDisabled: defaultIsDisabled,
 		isError: defaultIsError,
 		isFocused: defaultIsFocused,
