@@ -96,6 +96,7 @@ const Textarea = forwardRef<TextareaRef, TextareaProps>(function Textarea(props,
 		<Grid
 			ref={ref}
 			as={InputGroup}
+			aria-required={isRequired}
 			aria-disabled={isDisabled}
 			aria-invalid={isError}
 			aria-readonly={isReadOnly}
