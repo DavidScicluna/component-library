@@ -19,14 +19,6 @@ const SearchBar: FC<SearchBarProps> = (props) => {
 		colorMode,
 		renderClear,
 		renderSubmit,
-		w,
-		width,
-		h,
-		height,
-		maxW,
-		maxWidth,
-		maxH,
-		maxHeight,
 		initialQuery = '',
 		isDisabled = false,
 		isReadOnly = false,
@@ -74,27 +66,9 @@ const SearchBar: FC<SearchBarProps> = (props) => {
 	useUpdateEffect(() => handleQuery(initialQuery), [initialQuery]);
 
 	return (
-		<Form
-			w={w}
-			width={width}
-			h={h}
-			height={height}
-			maxW={maxW}
-			maxWidth={maxWidth}
-			maxH={maxH}
-			maxHeight={maxHeight}
-			onSubmit={handleSubmit}
-		>
+		<Form onSubmit={handleSubmit}>
 			<Input
 				{...rest}
-				w={w}
-				width={width}
-				h={h}
-				height={height}
-				maxW={maxW}
-				maxWidth={maxWidth}
-				maxH={maxH}
-				maxHeight={maxHeight}
 				color={color}
 				colorMode={colorMode}
 				autoComplete='off'
