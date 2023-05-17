@@ -387,8 +387,6 @@ import {
 	TabBarRef
 } from './components/Navigation/TabBar/types';
 import { TabsSize } from './components/Navigation/Tabs/common/types';
-import TabPanels from './components/Navigation/Tabs/components/TabPanels';
-import { TabPanelsProps } from './components/Navigation/Tabs/components/TabPanels/common/types';
 import DummyTabs from './components/Navigation/Tabs/DummyTabs';
 import { useDummyTabsContext } from './components/Navigation/Tabs/DummyTabs/common/hooks';
 import { DummyTabsContext, DummyTabsProps, DummyTabsRef } from './components/Navigation/Tabs/DummyTabs/common/types';
@@ -402,6 +400,8 @@ import {
 	DummyTab as DummyTabListTab,
 	DummyTabRenderProps as DummyTabListTabRenderProps
 } from './components/Navigation/Tabs/DummyTabs/components/DummyTabList/components/DummyTab/common/types';
+import DummyTabPanels from './components/Navigation/Tabs/DummyTabs/components/DummyTabPanels';
+import { DummyTabPanelsProps } from './components/Navigation/Tabs/DummyTabs/components/DummyTabPanels/common/types';
 import Tabs from './components/Navigation/Tabs/OriginalTabs';
 import { useTabsContext } from './components/Navigation/Tabs/OriginalTabs/common/hooks';
 import {
@@ -420,6 +420,8 @@ import {
 	TabMouseEvent as TabListTabMouseEvent,
 	TabRenderProps as TabListTabRenderProps
 } from './components/Navigation/Tabs/OriginalTabs/components/TabList/components/Tab/common/types';
+import TabPanels from './components/Navigation/Tabs/OriginalTabs/components/TabPanels';
+import { TabPanelsProps } from './components/Navigation/Tabs/OriginalTabs/components/TabPanels/common/types';
 import ConfirmModal from './components/Overlay/ConfirmModal';
 import { useConfirmModalContext } from './components/Overlay/ConfirmModal/common/hooks';
 import {
@@ -715,6 +717,7 @@ export {
 	DummyIconButtonIcon,
 	DummyTab,
 	DummyTabList,
+	DummyTabPanels,
 	DummyTabs,
 	Fade,
 	FileButton,
@@ -915,6 +918,7 @@ export type {
 	DummyTabListRenderProps,
 	DummyTabListTab,
 	DummyTabListTabRenderProps,
+	DummyTabPanelsProps,
 	DummyTabsContext,
 	DummyTabsProps,
 	DummyTabsRef,
