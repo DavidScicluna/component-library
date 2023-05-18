@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 
 import { Center, HStack, Tab as CUITab, VStack } from '@chakra-ui/react';
 import { dataAttr } from '@chakra-ui/utils';
@@ -43,6 +43,10 @@ const Tab: FC<TabProps> = (props) => {
 
 	const [isHovering, setIsHovering] = useBoolean();
 
+	const spacing = useMemo(() => {
+		return getSizeConfig({ size }).spacing;
+	}, [size]);
+
 	const style = useStyles({
 		theme,
 		color,
@@ -51,8 +55,6 @@ const Tab: FC<TabProps> = (props) => {
 		isSelected: isActive || isSelected,
 		size
 	});
-
-	const handleReturnSpacing = (): number => getSizeConfig({ size }).spacing;
 
 	const handleClick = (event: TabMouseEvent): void => {
 		onSelect(index);
@@ -101,7 +103,7 @@ const Tab: FC<TabProps> = (props) => {
 			>
 				<Divider backgroundColor={theme.colors.transparent} />
 
-				<HStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={handleReturnSpacing()}>
+				<HStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={spacing}>
 					{renderLeft ? renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight }) : null}
 
 					<Center ref={childrenRef} as='span' flex={1}>
