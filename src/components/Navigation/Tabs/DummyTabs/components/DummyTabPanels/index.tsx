@@ -14,7 +14,7 @@ const DummyTabPanels: FC<DummyTabPanelsProps> = ({ children, ...rest }) => {
 	return (
 		<CUITabPanels {...rest} width='100%'>
 			{children.map((panel, index) => (
-				<TabPanel key={`ds-cl-dummy-tab-panels-${index}-dummy-panel`} width='100%' height='100%' p={0}>
+				<TabPanel key={`ds-cl-dummy-tab-panels-${index}-panel`} width='100%' height='100%' p={0}>
 					<AnimatePresence>
 						<TabPanelFade in={activeTab === index}>{panel}</TabPanelFade>
 					</AnimatePresence>
