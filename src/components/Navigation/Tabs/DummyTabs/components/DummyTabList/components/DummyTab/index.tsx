@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 
 import { Center, HStack, Tab as CUIDummyTab, VStack } from '@chakra-ui/react';
 
@@ -34,12 +34,18 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 		...rest
 	} = props;
 
-	const mainColor = getColor({
-		theme,
-		colorMode,
-		color: isActive || isSelected ? color : 'gray',
-		type: isActive || isSelected ? 'color' : 'text.secondary'
-	});
+	const mainColor = useMemo<string>((): string => {
+		return getColor({
+			theme,
+			colorMode,
+			color: isActive || isSelected ? color : 'gray',
+			type: isActive || isSelected ? 'color' : 'text.secondary'
+		});
+	}, [color, colorMode, isActive, isSelected]);
+	const spacing = useMemo<number>((): number => {
+		return getSizeConfig({ size }).spacing;
+	}, [size]);
+
 	const style = useStyles({
 		theme,
 		color,
@@ -48,8 +54,6 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 		isSelected: isActive || isSelected,
 		size
 	});
-
-	const handleReturnSpacing = (): number => getSizeConfig({ size }).spacing;
 
 	return (
 		<CUIDummyTab {...omit({ ...rest }, 'panelId')} isDisabled isSelected={isSelected} sx={merge(style.tab, sx)}>
@@ -62,7 +66,7 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 			>
 				<Divider backgroundColor={theme.colors.transparent} />
 
-				<HStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={handleReturnSpacing()}>
+				<HStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={spacing}>
 					{renderLeft ? renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight }) : null}
 
 					<Center ref={childrenRef} as='span' flex={1}>

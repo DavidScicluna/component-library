@@ -5,8 +5,9 @@ import { Style } from '../../../../../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../../../../../common/utils';
 import { getHue } from '../../../../../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../../../../../theme/types';
+import { active, hover } from '../../../../../../../../common/default/amount';
 import { size as defaultSize } from '../../../../../../../../common/default/props';
-import { getAmount, getSizeConfig } from '../../../../../../../../common/utils';
+import { getSizeConfig } from '../../../../../../../../common/utils';
 import { isSelected as defaultIsSelected } from '../../default/props';
 
 import { DummyTabLightStylingProps } from './types';
@@ -19,8 +20,6 @@ export default ({
 	isSelected = defaultIsSelected,
 	size = defaultSize
 }: DummyTabLightStylingProps): Style => {
-	const amount = getAmount();
-
 	const colorShade = getHue({
 		colorMode: 'light',
 		type: isSelected ? 'color' : 'text.secondary'
@@ -42,13 +41,13 @@ export default ({
 		'background': theme.colors.transparent,
 
 		'&:hover': {
-			'color': darken(theme.colors[color][colorShade], amount.hover),
+			'color': darken(theme.colors[color][colorShade], hover),
 			'borderColor': theme.colors.transparent,
 			'backgroundColor': theme.colors.transparent,
 			'background': theme.colors.transparent,
 
 			'&:active': {
-				color: darken(theme.colors[color][colorShade], amount.active),
+				color: darken(theme.colors[color][colorShade], active),
 				borderColor: theme.colors.transparent,
 				backgroundColor: theme.colors.transparent,
 				background: theme.colors.transparent
@@ -56,7 +55,7 @@ export default ({
 		},
 
 		'&:active': {
-			color: darken(theme.colors[color][colorShade], amount.active),
+			color: darken(theme.colors[color][colorShade], active),
 			borderColor: theme.colors.transparent,
 			backgroundColor: theme.colors.transparent,
 			background: theme.colors.transparent
