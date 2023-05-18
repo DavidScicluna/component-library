@@ -1,4 +1,5 @@
 import fallback from './common/assets/fallback';
+import { color as defaultColor, colorMode as defaultColorMode, method as defaultMethod } from './common/default/props';
 import { useBoolean, useConst, useDebounce, useOs, useTheme } from './common/hooks';
 import {
 	checkIsTouchDevice,
@@ -376,16 +377,31 @@ import {
 	SideNavigationProps,
 	SideNavigationRef
 } from './components/Navigation/SideNavigation/types';
-import TabBar from './components/Navigation/TabBar';
-import { useTabBarContext } from './components/Navigation/TabBar/common/hooks';
-import { Tab as TabBarTab } from './components/Navigation/TabBar/components/Tab/types';
+import { TabBarSize } from './components/Navigation/TabBars/common/types';
+import DummyTabBar from './components/Navigation/TabBars/DummyTabBar';
+import { useDummyTabBarContext } from './components/Navigation/TabBars/DummyTabBar/common/hooks';
 import {
-	TabBarColor,
-	TabBarContext,
-	TabBarDirection,
-	TabBarProps,
-	TabBarRef
-} from './components/Navigation/TabBar/types';
+	DummyTabBarContext,
+	DummyTabBarProps,
+	DummyTabBarRef
+} from './components/Navigation/TabBars/DummyTabBar/common/types';
+import DummyTabBarList from './components/Navigation/TabBars/DummyTabBar/components/DummyTabBarList';
+import {
+	DummyTabBarListProps,
+	DummyTabBarListRenderProps
+} from './components/Navigation/TabBars/DummyTabBar/components/DummyTabBarList/common/types';
+import DummyTabBarPanels from './components/Navigation/TabBars/DummyTabBar/components/DummyTabBarPanels';
+import { DummyTabBarPanelsProps } from './components/Navigation/TabBars/DummyTabBar/components/DummyTabBarPanels/common/types';
+import TabBar from './components/Navigation/TabBars/OriginalTabBar';
+import { useTabBarContext } from './components/Navigation/TabBars/OriginalTabBar/common/hooks';
+import { TabBarContext, TabBarProps, TabBarRef } from './components/Navigation/TabBars/OriginalTabBar/common/types';
+import TabBarList from './components/Navigation/TabBars/OriginalTabBar/components/TabBarList';
+import {
+	TabBarListProps,
+	TabBarRenderProps
+} from './components/Navigation/TabBars/OriginalTabBar/components/TabBarList/common/types';
+import TabBarPanels from './components/Navigation/TabBars/OriginalTabBar/components/TabBarPanels';
+import { TabBarPanelsProps } from './components/Navigation/TabBars/OriginalTabBar/components/TabBarPanels/common/types';
 import { TabsSize } from './components/Navigation/Tabs/common/types';
 import DummyTabs from './components/Navigation/Tabs/DummyTabs';
 import { useDummyTabsContext } from './components/Navigation/Tabs/DummyTabs/common/hooks';
@@ -575,10 +591,13 @@ export type {
 
 // Common Types
 export type {
+	AppColor,
+	AppColors,
 	NonNullable,
 	NoUndefinedField,
 	Nullable,
 	Orientation,
+	OS,
 	PickFrom,
 	Style,
 	Undefinable
@@ -605,6 +624,7 @@ export {
 	useDummyHorizontalGridContext,
 	useDummyHorizontalGridTabbedContext,
 	useDummyIconButtonContext,
+	useDummyTabBarContext,
 	useDummyTabsContext,
 	useFormControlContext,
 	useGetHorizontalScrollAPIContext,
@@ -622,6 +642,9 @@ export {
 	useTabBarContext,
 	useTabsContext
 };
+
+// Defaults
+export const defaults = { props: { defaultColor, defaultColorMode, defaultMethod } };
 
 // Assets
 export const assets = { fallback };
@@ -716,6 +739,9 @@ export {
 	DummyIconButton,
 	DummyIconButtonIcon,
 	DummyTab,
+	DummyTabBar,
+	DummyTabBarList,
+	DummyTabBarPanels,
 	DummyTabList,
 	DummyTabPanels,
 	DummyTabs,
@@ -785,6 +811,8 @@ export {
 	StateLabelTitle,
 	StateOverlay,
 	TabBar,
+	TabBarList,
+	TabBarPanels,
 	TabList,
 	TabPanels,
 	Tabs,
@@ -914,6 +942,12 @@ export type {
 	DummyHorizontalGridTabbedScrollProps,
 	DummyIconButtonIconProps,
 	DummyIconButtonProps,
+	DummyTabBarContext,
+	DummyTabBarListProps,
+	DummyTabBarListRenderProps,
+	DummyTabBarPanelsProps,
+	DummyTabBarProps,
+	DummyTabBarRef,
 	DummyTabListProps,
 	DummyTabListRenderProps,
 	DummyTabListTab,
@@ -1074,12 +1108,13 @@ export type {
 	StateLabelTitleProps,
 	StateOverlayProps,
 	StateOverlayState,
-	TabBarColor,
 	TabBarContext,
-	TabBarDirection,
+	TabBarListProps,
+	TabBarPanelsProps,
 	TabBarProps,
 	TabBarRef,
-	TabBarTab,
+	TabBarRenderProps,
+	TabBarSize,
 	TabListProps,
 	TabListRenderProps,
 	TabListTab,
