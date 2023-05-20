@@ -25,6 +25,6 @@ export default memoize((props: DummyTabStyleProps): DummyTabStyleReturn => {
 	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
-		tab: merge(tab({ theme, size }), scheme({ theme, color, isSelected, size }))
+		tab: merge(tab({ theme, size }), scheme({ theme, color, isSelected }))
 	};
 });

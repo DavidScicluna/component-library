@@ -11,7 +11,7 @@ import { getColor } from '../../../../../../../../common/utils/color';
 import Divider from '../../../../../../../Divider';
 import ScaleFade from '../../../../../../../Transitions/ScaleFade';
 import { isDisabled as defaultIsDisabled } from '../../../../../common/default/props';
-import { getSizeConfig } from '../../../../../common/utils';
+import { getSizeConfig, GetSizeConfigReturn } from '../../../../../common/utils';
 import { useTabBarContext } from '../../../../common/hooks';
 
 import { isActive as defaultIsActive, isSelected as defaultIsSelected } from './common/default/props';
@@ -44,8 +44,8 @@ const Tab: FC<TabProps> = (props) => {
 
 	const [isHovering, setIsHovering] = useBoolean();
 
-	const spacing = useMemo(() => {
-		return getSizeConfig({ size }).spacing;
+	const config = useMemo<GetSizeConfigReturn>(() => {
+		return getSizeConfig({ size });
 	}, [size]);
 
 	const style = useStyles({ theme, color, colorMode, isSelected: isActive || isSelected, size });
@@ -84,6 +84,8 @@ const Tab: FC<TabProps> = (props) => {
 			onClick={handleClick}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
+			px={config.padding.x}
+			py={config.padding.y}
 			sx={merge(style.tab, sx)}
 			_disabled={style.disabled}
 			_active={style.active}
@@ -106,14 +108,14 @@ const Tab: FC<TabProps> = (props) => {
 					/>
 				</ScaleFade>
 
-				<VStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={spacing}>
+				<VStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={config.spacing.y}>
 					{renderIcon ? (
 						<Center width='100%'>
 							{renderIcon({ color, colorMode, width: childrenWidth, height: childrenHeight })}
 						</Center>
 					) : null}
 
-					<HStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={spacing}>
+					<HStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={config.spacing.x}>
 						{renderLeft
 							? renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })
 							: null}

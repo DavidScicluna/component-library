@@ -1,17 +1,12 @@
 import { Style } from '../../../../../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../../../../../common/utils';
 import { size as defaultSize } from '../../../../../../../../common/default/props';
-import { getSizeConfig } from '../../../../../../../../common/utils';
 
 import { TabStyleProps } from './types';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
 export default ({ theme, size = defaultSize }: TabStyleProps): Style => {
-	const config = getSizeConfig({ size });
-	const height = config.height;
-	const padding = config.padding;
-
 	const transition = 'none';
 	const transitionProperty = transition;
 	const transitionDuration = transition;
@@ -26,7 +21,7 @@ export default ({ theme, size = defaultSize }: TabStyleProps): Style => {
 		'height': 'auto',
 
 		'minWidth': 'auto',
-		'minHeight': `${height}px`,
+		'minHeight': 'auto',
 		'maxWidth': 'none',
 		'maxHeight': 'none',
 
@@ -52,9 +47,6 @@ export default ({ theme, size = defaultSize }: TabStyleProps): Style => {
 		'WebkitTapHighlightColor': theme.colors.transparent,
 
 		'transform': 'none',
-
-		'px': `${theme.space[padding.x]} !important`,
-		'py': `${theme.space[padding.y]} !important`,
 
 		'transition': transition,
 		'transitionProperty': transitionProperty,

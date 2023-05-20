@@ -6,8 +6,7 @@ import { checkIsTouchDevice } from '../../../../../../../../../../../common/util
 import { getHue } from '../../../../../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../../../../../theme/types';
 import { active, hover } from '../../../../../../../../common/default/amount';
-import { size as defaultSize } from '../../../../../../../../common/default/props';
-import { getSizeConfig } from '../../../../../../../../common/utils';
+import { offset } from '../../../../../../../../common/default/sizes';
 import { isSelected as defaultIsSelected } from '../../default/props';
 
 import { DummyTabLightStylingProps } from './types';
@@ -17,8 +16,7 @@ const isTouchDevice: boolean = checkIsTouchDevice();
 export default ({
 	theme,
 	color: colorProp = defaultColor,
-	isSelected = defaultIsSelected,
-	size = defaultSize
+	isSelected = defaultIsSelected
 }: DummyTabLightStylingProps): Style => {
 	const colorShade = getHue({
 		colorMode: 'light',
@@ -28,9 +26,6 @@ export default ({
 		colorMode: 'light',
 		type: 'color'
 	});
-
-	const config = getSizeConfig({ size });
-	const border = config.border;
 
 	const color: Color = isSelected ? colorProp : 'gray';
 
@@ -62,7 +57,7 @@ export default ({
 		},
 
 		'&:focus-visible': {
-			outline: !isTouchDevice ? `${border}px auto ${theme.colors[color][borderShade]}` : 'none',
+			outline: !isTouchDevice ? `${offset}px auto ${theme.colors[color][borderShade]}` : 'none',
 			outlineOffset: 0
 		}
 	};
