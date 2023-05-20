@@ -12,15 +12,11 @@ export default ({ theme }: IconDarkStylingProps): Style => {
 		colorMode: 'dark',
 		type: 'divider'
 	});
-	const backgroundShade = getHue({
-		colorMode: 'dark',
-		type: 'background'
-	});
 
 	return {
 		color: theme.colors.gray[colorShade],
 		borderColor: theme.colors.gray[borderShade],
-		backgroundColor: theme.colors.gray[backgroundShade],
-		background: theme.colors.gray[backgroundShade]
+		backgroundColor: theme.colors.transparent,
+		background: theme.colors.transparent
 	};
 };
