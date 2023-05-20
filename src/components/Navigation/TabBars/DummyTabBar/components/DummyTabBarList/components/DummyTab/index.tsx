@@ -26,7 +26,7 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 
 	const {
 		label,
-		renderTop,
+		renderIcon,
 		renderLeft,
 		renderRight,
 		isActive = defaultIsActive,
@@ -63,7 +63,11 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 				</ScaleFade>
 
 				<VStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={spacing}>
-					{renderTop ? renderTop({ color, colorMode, width: childrenWidth, height: childrenHeight }) : null}
+					{renderIcon ? (
+						<Center width='100%'>
+							{renderIcon({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+						</Center>
+					) : null}
 
 					<HStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={spacing}>
 						{renderLeft
