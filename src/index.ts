@@ -421,8 +421,8 @@ import { DummyTabPanelsProps } from './components/Navigation/Tabs/DummyTabs/comp
 import Tabs from './components/Navigation/Tabs/OriginalTabs';
 import { useTabsContext } from './components/Navigation/Tabs/OriginalTabs/common/hooks';
 import {
-	OnChangeProps as TabsOnChangeProps,
 	TabsContext,
+	TabsOnChangeProps,
 	TabsProps,
 	TabsRef
 } from './components/Navigation/Tabs/OriginalTabs/common/types';
@@ -1110,6 +1110,7 @@ export type {
 	StateOverlayState,
 	TabBarContext,
 	TabBarListProps,
+	TabBarOnChangeProps,
 	TabBarPanelsProps,
 	TabBarProps,
 	TabBarRef,
