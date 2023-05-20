@@ -1,11 +1,11 @@
 import { Nullable } from '../../../../../../common/types';
 import { CommonTabBarProps } from '../../../common/types';
 
-export type OnChangeProps = { index: number };
+export type TabBarOnChangeProps = { index: number };
 
 export type TabBarProps = CommonTabBarProps & {
 	isDisabled?: boolean;
-	onChange?: (props: OnChangeProps) => void;
+	onChange?: (props: TabBarOnChangeProps) => void;
 };
 
 export type TabBarRef = Nullable<HTMLDivElement>;

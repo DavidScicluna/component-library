@@ -30,7 +30,7 @@ export type DummyTabRenderProps = Pick<DummyTabBarProps, 'color' | 'colorMode' |
 
 export type DummyTab = {
 	label: string;
-	renderTop?: (props: DummyTabRenderProps) => ReactNode;
+	renderIcon?: (props: DummyTabRenderProps) => ReactNode;
 	renderLeft?: (props: DummyTabRenderProps) => ReactNode;
 	renderRight?: (props: DummyTabRenderProps) => ReactNode;
 	isActive?: boolean;

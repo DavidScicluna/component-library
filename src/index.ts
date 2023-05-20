@@ -394,7 +394,12 @@ import DummyTabBarPanels from './components/Navigation/TabBars/DummyTabBar/compo
 import { DummyTabBarPanelsProps } from './components/Navigation/TabBars/DummyTabBar/components/DummyTabBarPanels/common/types';
 import TabBar from './components/Navigation/TabBars/OriginalTabBar';
 import { useTabBarContext } from './components/Navigation/TabBars/OriginalTabBar/common/hooks';
-import { TabBarContext, TabBarProps, TabBarRef } from './components/Navigation/TabBars/OriginalTabBar/common/types';
+import {
+	TabBarContext,
+	TabBarOnChangeProps,
+	TabBarProps,
+	TabBarRef
+} from './components/Navigation/TabBars/OriginalTabBar/common/types';
 import TabBarList from './components/Navigation/TabBars/OriginalTabBar/components/TabBarList';
 import {
 	TabBarListProps,
