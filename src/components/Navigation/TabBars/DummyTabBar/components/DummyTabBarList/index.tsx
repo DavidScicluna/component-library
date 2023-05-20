@@ -26,9 +26,9 @@ const DummyTabBarList: FC<DummyTabBarListProps> = ({ tabs = [], renderLeft, rend
 			{...rest}
 			width='100%'
 			height='100%'
-			borderBottomWidth='2px'
-			borderBottomStyle='solid'
-			borderBottomColor={getColor({ theme, colorMode, type: 'divider' })}
+			borderTopWidth='2px'
+			borderTopStyle='solid'
+			borderTopColor={getColor({ theme, colorMode, type: 'divider' })}
 			sx={{
 				'& .react-horizontal-scrolling-menu--inner-wrapper': { width: '100%' },
 				'& .react-horizontal-scrolling-menu--item': { width: '100%' }

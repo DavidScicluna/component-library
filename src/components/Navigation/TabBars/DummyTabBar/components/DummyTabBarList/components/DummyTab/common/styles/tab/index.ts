@@ -15,7 +15,7 @@ export default ({ theme, size = defaultSize }: DummyTabStyleProps): Style => {
 		'position': 'relative',
 
 		'width': '100%',
-		'height': 'auto',
+		'height': '100%',
 
 		'minWidth': 'auto',
 		'minHeight': 'auto',
@@ -44,6 +44,9 @@ export default ({ theme, size = defaultSize }: DummyTabStyleProps): Style => {
 		'WebkitTapHighlightColor': theme.colors.transparent,
 
 		'transform': 'none',
+
+		'p': 0,
+		'm': 0,
 
 		'transition': transition,
 		'transitionProperty': transitionProperty,
