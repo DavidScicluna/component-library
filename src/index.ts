@@ -169,6 +169,37 @@ import {
 } from './components/DataDisplay/CollapsibleCards/OriginalCollapsibleCard/components/CollapsibleCardHeader/common/types';
 import CollapsibleCardStack from './components/DataDisplay/CollapsibleCards/OriginalCollapsibleCard/components/CollapsibleCardStack';
 import { CollapsibleCardStackProps } from './components/DataDisplay/CollapsibleCards/OriginalCollapsibleCard/components/CollapsibleCardStack/common/types';
+import ColorSwitcher from './components/DataDisplay/ColorSwitcher';
+import { useColorSwitcherContext } from './components/DataDisplay/ColorSwitcher/common/hooks';
+import {
+	ColorSwitcherContext,
+	ColorSwitcherOnChangeProps,
+	ColorSwitcherProps,
+	ColorSwitcherVariant
+} from './components/DataDisplay/ColorSwitcher/common/types';
+import ColorSwitcherGrid from './components/DataDisplay/ColorSwitcher/components/ColorSwitcherGrid';
+import {
+	ColorSwitcherGridProps,
+	ColorSwitcherGridRef,
+	ColorSwitcherGridRenderItemProps
+} from './components/DataDisplay/ColorSwitcher/components/ColorSwitcherGrid/common/types';
+import ColorSwitcherGridItem from './components/DataDisplay/ColorSwitcher/components/ColorSwitcherGrid/components/ColorSwitcherGridItem';
+import {
+	ColorSwitcherGridItemProps,
+	ColorSwitcherGridItemRef
+} from './components/DataDisplay/ColorSwitcher/components/ColorSwitcherGrid/components/ColorSwitcherGridItem/common/types';
+import ColorSwitcherScroll from './components/DataDisplay/ColorSwitcher/components/ColorSwitcherScroll';
+import {
+	ColorSwitcherScrollProps,
+	ColorSwitcherScrollRef,
+	ColorSwitcherScrollRenderItemProps
+} from './components/DataDisplay/ColorSwitcher/components/ColorSwitcherScroll/common/types';
+import ColorSwitcherScrollItem from './components/DataDisplay/ColorSwitcher/components/ColorSwitcherScroll/components/ColorSwitcherScrollItem';
+import {
+	ColorSwitcherScrollItemMouseEvent,
+	ColorSwitcherScrollItemProps,
+	ColorSwitcherScrollItemRef
+} from './components/DataDisplay/ColorSwitcher/components/ColorSwitcherScroll/components/ColorSwitcherScrollItem/common/types';
 import Headline from './components/DataDisplay/Headline';
 import { HeadlineProps } from './components/DataDisplay/Headline/common/types';
 import { HorizontalGridColor, HorizontalGridColorMode } from './components/DataDisplay/HorizontalGrids/common/types';
@@ -622,6 +653,7 @@ export {
 	useCardContext,
 	useCheckboxContext,
 	useCollapsibleCardContext,
+	useColorSwitcherContext,
 	useConfirmModalContext,
 	useDatePickerContext,
 	useDummyAccordionsContext,
@@ -711,6 +743,11 @@ export {
 	CollapsibleCardFooter,
 	CollapsibleCardHeader,
 	CollapsibleCardStack,
+	ColorSwitcher,
+	ColorSwitcherGrid,
+	ColorSwitcherGridItem,
+	ColorSwitcherScroll,
+	ColorSwitcherScrollItem,
 	ConfirmModal,
 	ConfirmModalBody,
 	ConfirmModalFooter,
@@ -897,6 +934,21 @@ export type {
 	CollapsibleCardRef,
 	CollapsibleCardStackProps,
 	CollapsibleCardVariant,
+	ColorSwitcherContext,
+	ColorSwitcherGridItemProps,
+	ColorSwitcherGridItemRef,
+	ColorSwitcherGridProps,
+	ColorSwitcherGridRef,
+	ColorSwitcherGridRenderItemProps,
+	ColorSwitcherOnChangeProps,
+	ColorSwitcherProps,
+	ColorSwitcherScrollItemMouseEvent,
+	ColorSwitcherScrollItemProps,
+	ColorSwitcherScrollItemRef,
+	ColorSwitcherScrollProps,
+	ColorSwitcherScrollRef,
+	ColorSwitcherScrollRenderItemProps,
+	ColorSwitcherVariant,
 	ConfirmModalBodyProps,
 	ConfirmModalContext,
 	ConfirmModalFooterProps,
