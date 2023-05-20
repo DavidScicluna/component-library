@@ -91,8 +91,6 @@ const Tab: FC<TabProps> = (props) => {
 			onClick={handleClick}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
-			px={config.padding.x}
-			py={config.padding.y}
 			sx={merge(style.tab, sx)}
 			_disabled={style.disabled}
 			_active={style.active}
@@ -104,9 +102,18 @@ const Tab: FC<TabProps> = (props) => {
 				justifyContent='space-between'
 				spacing={0}
 			>
-				<Divider backgroundColor={theme.colors.transparent} />
+				<Center width='100%' px={config.padding.x}>
+					<Divider backgroundColor={theme.colors.transparent} />
+				</Center>
 
-				<HStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={config.spacing}>
+				<HStack
+					width='100%'
+					alignItems='stretch'
+					justifyContent='stretch'
+					spacing={config.spacing}
+					px={config.padding.x}
+					py={config.padding.y}
+				>
 					{renderLeft ? renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight }) : null}
 
 					<Center ref={childrenRef} as='span' flex={1}>
@@ -119,14 +126,16 @@ const Tab: FC<TabProps> = (props) => {
 				</HStack>
 
 				<ScaleFade in={isActive || isSelected || isHovering} unmountOnExit={false} initialScale={0.75}>
-					<Divider
-						backgroundColor={getColor({
-							theme,
-							colorMode,
-							color: isActive || isSelected ? color : 'gray',
-							type: isActive || isSelected ? 'color' : 'text.secondary'
-						})}
-					/>
+					<Center width='100%' px={config.padding.x}>
+						<Divider
+							backgroundColor={getColor({
+								theme,
+								colorMode,
+								color: isActive || isSelected ? color : 'gray',
+								type: isActive || isSelected ? 'color' : 'text.secondary'
+							})}
+						/>
+					</Center>
 				</ScaleFade>
 			</VStack>
 		</CUITab>
