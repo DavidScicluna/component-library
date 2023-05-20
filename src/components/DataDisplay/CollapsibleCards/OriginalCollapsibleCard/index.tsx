@@ -35,7 +35,7 @@ export const CollapsibleCardContext = createContext<CollapsibleCardContextType>(
 	colorMode: defaultColorMode,
 	isDivisible: defaultIsDivisible,
 	isOpen: false,
-	onHover: { on: defaultMethod, off: defaultMethod, toggle: defaultMethod },
+	onHover: { on: defaultMethod, off: defaultMethod },
 	spacing: defaultSpacing,
 	variant: defaultVariant
 });
