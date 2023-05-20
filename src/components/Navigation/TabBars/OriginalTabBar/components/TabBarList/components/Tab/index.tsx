@@ -84,8 +84,6 @@ const Tab: FC<TabProps> = (props) => {
 			onClick={handleClick}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
-			px={config.padding.x}
-			py={config.padding.y}
 			sx={merge(style.tab, sx)}
 			_disabled={style.disabled}
 			_active={style.active}
@@ -98,17 +96,26 @@ const Tab: FC<TabProps> = (props) => {
 				spacing={0}
 			>
 				<ScaleFade in={isActive || isSelected || isHovering} unmountOnExit={false} initialScale={0.75}>
-					<Divider
-						backgroundColor={getColor({
-							theme,
-							colorMode,
-							color: isActive || isSelected ? color : 'gray',
-							type: isActive || isSelected ? 'color' : 'text.secondary'
-						})}
-					/>
+					<Center width='100%' px={config.padding.x}>
+						<Divider
+							backgroundColor={getColor({
+								theme,
+								colorMode,
+								color: isActive || isSelected ? color : 'gray',
+								type: isActive || isSelected ? 'color' : 'text.secondary'
+							})}
+						/>
+					</Center>
 				</ScaleFade>
 
-				<VStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={config.spacing.y}>
+				<VStack
+					width='100%'
+					alignItems='stretch'
+					justifyContent='stretch'
+					spacing={config.spacing.y}
+					px={config.padding.x}
+					py={config.padding.y}
+				>
 					{renderIcon ? (
 						<Center width='100%'>
 							{renderIcon({ color, colorMode, width: childrenWidth, height: childrenHeight })}
@@ -130,7 +137,9 @@ const Tab: FC<TabProps> = (props) => {
 					</HStack>
 				</VStack>
 
-				<Divider backgroundColor={theme.colors.transparent} />
+				<Center width='100%' px={config.padding.x}>
+					<Divider backgroundColor={theme.colors.transparent} />
+				</Center>
 			</VStack>
 		</CUITab>
 	);
