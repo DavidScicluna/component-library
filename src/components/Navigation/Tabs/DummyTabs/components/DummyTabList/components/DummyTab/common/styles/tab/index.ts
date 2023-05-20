@@ -15,7 +15,7 @@ export default ({ theme, isFullWidth = defaultIsFitted, size = defaultSize }: Du
 		'position': 'relative',
 
 		'width': isFullWidth ? '100%' : 'auto',
-		'height': 'auto',
+		'height': '100%',
 
 		'minWidth': 'auto',
 		'minHeight': 'auto',

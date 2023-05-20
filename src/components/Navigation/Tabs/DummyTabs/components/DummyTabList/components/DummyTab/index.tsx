@@ -56,14 +56,7 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 	});
 
 	return (
-		<CUIDummyTab
-			{...omit({ ...rest }, 'panelId')}
-			isDisabled
-			isSelected={isSelected}
-			px={config.padding.x}
-			py={config.padding.y}
-			sx={merge(style.tab, sx)}
-		>
+		<CUIDummyTab {...omit({ ...rest }, 'panelId')} isDisabled isSelected={isSelected} sx={merge(style.tab, sx)}>
 			<VStack
 				className='ds-cl-dummytabs-dummytab-stack'
 				width='100%'
@@ -71,9 +64,18 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 				justifyContent='space-between'
 				spacing={0}
 			>
-				<Divider backgroundColor={theme.colors.transparent} />
+				<Center width='100%' px={config.padding.x}>
+					<Divider backgroundColor={theme.colors.transparent} />
+				</Center>
 
-				<HStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={config.spacing}>
+				<HStack
+					width='100%'
+					alignItems='stretch'
+					justifyContent='stretch'
+					spacing={config.spacing}
+					px={config.padding.x}
+					py={config.padding.y}
+				>
 					{renderLeft ? renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight }) : null}
 
 					<Center ref={childrenRef} as='span' flex={1}>
@@ -95,7 +97,9 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 				</HStack>
 
 				<ScaleFade in={isActive || isSelected} unmountOnExit={false} initialScale={0.75}>
-					<Divider backgroundColor={mainColor} />
+					<Center width='100%' px={config.padding.x}>
+						<Divider backgroundColor={mainColor} />
+					</Center>
 				</ScaleFade>
 			</VStack>
 		</CUIDummyTab>
