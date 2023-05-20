@@ -11,7 +11,7 @@ import { getColor } from '../../../../../../../../common/utils/color';
 import Divider from '../../../../../../../Divider';
 import ScaleFade from '../../../../../../../Transitions/ScaleFade';
 import { isDisabled as defaultIsDisabled } from '../../../../../common/default/props';
-import { getSizeConfig } from '../../../../../common/utils';
+import { getSizeConfig, GetSizeConfigReturn } from '../../../../../common/utils';
 import { useTabsContext } from '../../../../common/hooks';
 
 import { isActive as defaultIsActive, isSelected as defaultIsSelected } from './common/default/props';
@@ -43,8 +43,9 @@ const Tab: FC<TabProps> = (props) => {
 
 	const [isHovering, setIsHovering] = useBoolean();
 
-	const spacing = useMemo(() => {
-		return getSizeConfig({ size }).spacing;
+	// TODO: Go over all useMemo and check we are passing down a type
+	const config = useMemo<GetSizeConfigReturn>(() => {
+		return getSizeConfig({ size });
 	}, [size]);
 
 	const style = useStyles({
@@ -90,6 +91,8 @@ const Tab: FC<TabProps> = (props) => {
 			onClick={handleClick}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
+			px={config.padding.x}
+			py={config.padding.y}
 			sx={merge(style.tab, sx)}
 			_disabled={style.disabled}
 			_active={style.active}
@@ -103,7 +106,7 @@ const Tab: FC<TabProps> = (props) => {
 			>
 				<Divider backgroundColor={theme.colors.transparent} />
 
-				<HStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={spacing}>
+				<HStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={config.spacing}>
 					{renderLeft ? renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight }) : null}
 
 					<Center ref={childrenRef} as='span' flex={1}>

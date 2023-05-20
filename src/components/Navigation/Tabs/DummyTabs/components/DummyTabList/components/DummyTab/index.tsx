@@ -10,7 +10,7 @@ import { getColor } from '../../../../../../../../common/utils/color';
 import Divider from '../../../../../../../Divider';
 import Skeleton from '../../../../../../../Feedback/Skeleton';
 import ScaleFade from '../../../../../../../Transitions/ScaleFade';
-import { getSizeConfig } from '../../../../../common/utils';
+import { getSizeConfig, GetSizeConfigReturn } from '../../../../../common/utils';
 import { useDummyTabsContext } from '../../../../common/hooks';
 
 import { isActive as defaultIsActive, isSelected as defaultIsSelected } from './common/default/props';
@@ -42,8 +42,8 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 			type: isActive || isSelected ? 'color' : 'text.secondary'
 		});
 	}, [color, colorMode, isActive, isSelected]);
-	const spacing = useMemo<number>((): number => {
-		return getSizeConfig({ size }).spacing;
+	const config = useMemo<GetSizeConfigReturn>(() => {
+		return getSizeConfig({ size });
 	}, [size]);
 
 	const style = useStyles({
@@ -56,7 +56,14 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 	});
 
 	return (
-		<CUIDummyTab {...omit({ ...rest }, 'panelId')} isDisabled isSelected={isSelected} sx={merge(style.tab, sx)}>
+		<CUIDummyTab
+			{...omit({ ...rest }, 'panelId')}
+			isDisabled
+			isSelected={isSelected}
+			px={config.padding.x}
+			py={config.padding.y}
+			sx={merge(style.tab, sx)}
+		>
 			<VStack
 				className='ds-cl-dummytabs-dummytab-stack'
 				width='100%'
@@ -66,7 +73,7 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 			>
 				<Divider backgroundColor={theme.colors.transparent} />
 
-				<HStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={spacing}>
+				<HStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={config.spacing}>
 					{renderLeft ? renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight }) : null}
 
 					<Center ref={childrenRef} as='span' flex={1}>

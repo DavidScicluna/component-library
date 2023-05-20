@@ -28,7 +28,7 @@ export default memoize((props: TabStyleProps): TabStyleReturn => {
 	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
-		tab: merge(tab({ theme, isFullWidth, size }), scheme.tab({ theme, color, isSelected, size })),
+		tab: merge(tab({ theme, isFullWidth, size }), scheme.tab({ theme, color, isSelected })),
 		active: isSelected ? merge(active(), scheme.active({ theme, color, isSelected })) : {},
 		disabled: merge(disabled(), scheme.disabled({ theme }))
 	};
