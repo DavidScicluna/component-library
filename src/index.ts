@@ -397,6 +397,8 @@ import { useImageEditorContext } from './components/ImageEditor/common/hooks';
 import { ImageEditorContext, ImageEditorProps } from './components/ImageEditor/common/types';
 import ErrorBoundary from './components/Lazy/ErrorBoundary';
 import { ErrorBoundaryProps, ErrorBoundaryState } from './components/Lazy/ErrorBoundary/common/types';
+import Suspense from './components/Lazy/Suspense';
+import { SuspenseProps } from './components/Lazy/Suspense/common/types';
 import SideNavigation from './components/Navigation/SideNavigation';
 import { useSideNavigationContext } from './components/Navigation/SideNavigation/common/hooks';
 import NavGroup from './components/Navigation/SideNavigation/components/NavGroup';
@@ -857,6 +859,7 @@ export {
 	StateLabelSubtitle,
 	StateLabelTitle,
 	StateOverlay,
+	Suspense,
 	TabBar,
 	TabBarList,
 	TabBarPanels,
@@ -1172,6 +1175,7 @@ export type {
 	StateLabelTitleProps,
 	StateOverlayProps,
 	StateOverlayState,
+	SuspenseProps,
 	TabBarContext,
 	TabBarListProps,
 	TabBarOnChangeProps,
