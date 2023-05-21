@@ -1,4 +1,5 @@
-import useCheckColorMode from './useCheckColorMode';
+import useGetColor from './useGetColor';
+import useGetColorMode from './useGetColorMode';
 import useProviderContext from './useProviderContext';
 
-export { useCheckColorMode, useProviderContext };
+export { useGetColor, useGetColorMode, useProviderContext };
