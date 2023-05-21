@@ -19,12 +19,12 @@ export type PickFrom<T, K extends T> = {
 export type AppColor = Exclude<Color, 'transparent' | 'black' | 'white'>;
 export type AppColors = AppColor[];
 
-export type AppLightColorMode = 'light' | 'dark';
-export type AppFullColorMode = AppLightColorMode | 'system';
+export type AppColorMode = 'light' | 'dark';
+export type AppFullColorMode = AppColorMode | 'system';
 
 export type CommonThemeProps = {
 	color?: AppColor;
-	colorMode?: AppLightColorMode;
+	colorMode?: AppColorMode;
 };
 
 export type Style = SystemStyleObject;

@@ -562,7 +562,7 @@ import { StateOverlayProps, StateOverlayState } from './components/Overlay/State
 import Tooltip from './components/Overlay/Tooltip';
 import { TooltipColor, TooltipProps, TooltipRef } from './components/Overlay/Tooltip/common/types';
 import DSCLProvider from './components/Provider';
-import { useCheckColorMode, useProviderContext as useDSCLProviderContext } from './components/Provider/common/hooks';
+import { useGetColorMode, useProviderContext as useDSCLProviderContext } from './components/Provider/common/hooks';
 import { ProviderContext, ProviderProps } from './components/Provider/common/types';
 import AnimatePresence from './components/Transitions/AnimatePresence';
 import { AnimatePresenceProps } from './components/Transitions/AnimatePresence/common/types';
@@ -632,9 +632,9 @@ export type {
 // Common Types
 export type {
 	AppColor,
+	AppColorMode,
 	AppColors,
 	AppFullColorMode,
-	AppLightColorMode,
 	NonNullable,
 	NoUndefinedField,
 	Nullable,
@@ -649,7 +649,7 @@ export type {
 export type { Icon as IconType } from './common/types/icons';
 
 // Hooks
-export { useBoolean, useCheckColorMode, useConst, useDebounce, useOs, useTheme };
+export { useBoolean, useConst, useDebounce, useGetColorMode, useOs, useTheme };
 
 // Context Hooks
 export {
