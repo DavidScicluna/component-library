@@ -1,10 +1,9 @@
-import { ChakraProviderProps, ColorMode } from '@chakra-ui/react';
+import { ChakraProviderProps } from '@chakra-ui/react';
 
-import { AppColor } from '../../../../common/types';
+import { AppFullColorMode, CommonThemeProps } from '../../../../common/types';
 
 export type ProviderProps = ChakraProviderProps & {
-	color?: AppColor;
-	colorMode?: ColorMode;
-};
+	colorMode?: AppFullColorMode;
+} & Pick<CommonThemeProps, 'color'>;
 
 export type ProviderContext = Pick<ProviderProps, 'color' | 'colorMode'>;

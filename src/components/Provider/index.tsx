@@ -1,6 +1,6 @@
 import { createContext, FC } from 'react';
 
-import { ChakraProvider, ColorModeScript, useColorMode, useConst } from '@chakra-ui/react';
+import { ChakraProvider, ColorModeScript, useConst } from '@chakra-ui/react';
 
 import { merge } from 'lodash-es';
 
@@ -9,6 +9,7 @@ import defaultTheme from '../../theme';
 import { Theme } from '../../theme/types';
 import TransitionsProvider from '../Transitions/TransitionsProvider';
 
+import { useCheckColorMode } from './common/hooks';
 import { ProviderContext as ProviderContextType, ProviderProps } from './common/types';
 
 export const ProviderContext = createContext<ProviderContextType>({
@@ -17,12 +18,11 @@ export const ProviderContext = createContext<ProviderContextType>({
 });
 
 const Provider: FC<ProviderProps> = (props) => {
-	// TODO: Maybe place day/light colormode cycle directly here and pass down to ProviderContext
-	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
-
-	const { children, color = defaultColor, colorMode = colorModeHook, theme: themeProp } = props;
+	const { children, color = defaultColor, colorMode: colorModeProp = defaultColorMode, theme: themeProp } = props;
 
 	const theme = useConst<Theme>(merge(defaultTheme, themeProp) as Theme);
+
+	const colorMode = useCheckColorMode({ colorMode: colorModeProp });
 
 	// TODO: Remove console.log
 	console.log(theme);
