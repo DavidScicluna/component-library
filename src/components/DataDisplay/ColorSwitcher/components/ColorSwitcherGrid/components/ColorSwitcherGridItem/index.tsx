@@ -24,6 +24,10 @@ const ColorSwitcherGridItem = forwardRef<ColorSwitcherGridItemRef, ColorSwitcher
 
 		const { color = defaultColor, colorMode = defaultColorMode, isActive = false, onChange, ...rest } = props;
 
+		const handleChange = (): void => {
+			onChange({ color });
+		};
+
 		return (
 			<Card
 				{...rest}
@@ -32,7 +36,7 @@ const ColorSwitcherGridItem = forwardRef<ColorSwitcherGridItemRef, ColorSwitcher
 				color={isActive ? color : 'gray'}
 				colorMode={colorMode}
 				isClickable
-				onClick={onChange}
+				onClick={handleChange}
 				variant={isActive ? 'outlined' : 'monochrome'}
 				p={2}
 			>

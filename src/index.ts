@@ -202,7 +202,7 @@ import {
 } from './components/DataDisplay/ColorSwitcher/components/ColorSwitcherScroll/components/ColorSwitcherScrollItem/common/types';
 import Headline from './components/DataDisplay/Headline';
 import { HeadlineProps } from './components/DataDisplay/Headline/common/types';
-import { HorizontalGridColor, HorizontalGridColorMode } from './components/DataDisplay/HorizontalGrids/common/types';
+import { HorizontalGridColor } from './components/DataDisplay/HorizontalGrids/common/types';
 import DummyHorizontalGrid from './components/DataDisplay/HorizontalGrids/DummyHorizontalGrid';
 import { useDummyHorizontalGridContext } from './components/DataDisplay/HorizontalGrids/DummyHorizontalGrid/common/hooks';
 import {
@@ -1051,7 +1051,6 @@ export type {
 	HeadlineProps,
 	HorizontalGridBodyProps,
 	HorizontalGridColor,
-	HorizontalGridColorMode,
 	HorizontalGridContext,
 	HorizontalGridFooterProps,
 	HorizontalGridHeaderProps,

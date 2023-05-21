@@ -1,11 +1,8 @@
 import { createContext, FC } from 'react';
 
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/default/props';
 import DummyCard from '../../../DataDisplay/Cards/DummyCard';
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	spacing as defaultSpacing
-} from '../common/default/props';
+import { spacing as defaultSpacing } from '../common/default/props';
 
 import { DummyHorizontalGridContext as DummyHorizontalGridContextType, DummyHorizontalGridProps } from './common/types';
 

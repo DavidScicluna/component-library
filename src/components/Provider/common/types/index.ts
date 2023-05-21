@@ -6,4 +6,4 @@ export type ProviderProps = ChakraProviderProps & {
 	colorMode?: AppFullColorMode;
 } & Pick<CommonThemeProps, 'color'>;
 
-export type ProviderContext = Pick<ProviderProps, 'color' | 'colorMode'>;
+export type ProviderContext = Pick<ProviderProps, 'color'> & Pick<CommonThemeProps, 'colorMode'>;

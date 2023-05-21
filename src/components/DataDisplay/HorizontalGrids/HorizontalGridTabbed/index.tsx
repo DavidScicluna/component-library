@@ -1,15 +1,14 @@
 import { createContext, FC } from 'react';
 
-import { method as defaultMethod } from '../../../../common/default/props';
-import Card from '../../../DataDisplay/Cards/OriginalCard';
-import Tabs from '../../../Navigation/Tabs/OriginalTabs';
-import { useSetHorizontalScrollAPIContext } from '../../HorizontalScroll/common/hooks';
 import {
 	color as defaultColor,
 	colorMode as defaultColorMode,
-	scroll as defaultScroll,
-	spacing as defaultSpacing
-} from '../common/default/props';
+	method as defaultMethod
+} from '../../../../common/default/props';
+import Card from '../../../DataDisplay/Cards/OriginalCard';
+import Tabs from '../../../Navigation/Tabs/OriginalTabs';
+import { useSetHorizontalScrollAPIContext } from '../../HorizontalScroll/common/hooks';
+import { scroll as defaultScroll, spacing as defaultSpacing } from '../common/default/props';
 
 import {
 	HorizontalGridTabbedContext as HorizontalGridTabbedContextType,
