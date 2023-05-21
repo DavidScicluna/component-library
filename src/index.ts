@@ -562,7 +562,11 @@ import { StateOverlayProps, StateOverlayState } from './components/Overlay/State
 import Tooltip from './components/Overlay/Tooltip';
 import { TooltipColor, TooltipProps, TooltipRef } from './components/Overlay/Tooltip/common/types';
 import DSCLProvider from './components/Provider';
-import { useGetColorMode, useProviderContext as useDSCLProviderContext } from './components/Provider/common/hooks';
+import {
+	useGetColor,
+	useGetColorMode,
+	useProviderContext as useDSCLProviderContext
+} from './components/Provider/common/hooks';
 import { ProviderContext, ProviderProps } from './components/Provider/common/types';
 import AnimatePresence from './components/Transitions/AnimatePresence';
 import { AnimatePresenceProps } from './components/Transitions/AnimatePresence/common/types';
@@ -649,7 +653,7 @@ export type {
 export type { Icon as IconType } from './common/types/icons';
 
 // Hooks
-export { useBoolean, useConst, useDebounce, useGetColorMode, useOs, useTheme };
+export { useBoolean, useConst, useDebounce, useGetColor, useGetColorMode, useOs, useTheme };
 
 // Context Hooks
 export {
@@ -687,6 +691,7 @@ export {
 	useTabsContext
 };
 
+// TODO: Maybe move default/amounts & default/sizes to common & export them  
 // Defaults
 export const defaults = { props: { defaultColor, defaultColorMode, defaultMethod } };
 
