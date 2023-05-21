@@ -20,16 +20,19 @@ const PageTransition: FC<PageTransitionProps> = ({ children }) => {
 		<motion.div
 			initial={{
 				width: '100%',
+				height: '100%',
 				filter: `blur(${blur}px)`,
 				opacity: 0
 			}}
 			animate={{
 				width: '100%',
+				height: '100%',
 				filter: 'blur(0px)',
 				opacity: 1
 			}}
 			exit={{
 				width: '100%',
+				height: '100%',
 				filter: `blur(${blur}px)`,
 				opacity: 0
 			}}
