@@ -2,6 +2,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRef } from 'react';
 
+import { Nullable } from '../types';
+
 type UseConstParamsFn<T> = () => T;
 type UseConstParams<T> = T | UseConstParamsFn<T>;
 
@@ -16,7 +18,7 @@ type UseConstParams<T> = T | UseConstParamsFn<T>;
  * @see Docs https://chakra-ui.com/docs/hooks/use-const
  */
 const useConst = <T extends any>(params: UseConstParams<T>): T => {
-	const ref = useRef<T | null>(null);
+	const ref = useRef<Nullable<T>>(null);
 
 	if (ref.current === null) {
 		ref.current = typeof params === 'function' ? (params as UseConstParamsFn<T>)() : params;
