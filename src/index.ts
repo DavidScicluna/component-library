@@ -395,6 +395,8 @@ import {
 import ImageEditor from './components/ImageEditor';
 import { useImageEditorContext } from './components/ImageEditor/common/hooks';
 import { ImageEditorContext, ImageEditorProps } from './components/ImageEditor/common/types';
+import ErrorBoundary from './components/Lazy/ErrorBoundary';
+import { ErrorBoundaryProps, ErrorBoundaryState } from './components/Lazy/ErrorBoundary/common/types';
 import SideNavigation from './components/Navigation/SideNavigation';
 import { useSideNavigationContext } from './components/Navigation/SideNavigation/common/hooks';
 import NavGroup from './components/Navigation/SideNavigation/components/NavGroup';
@@ -789,6 +791,7 @@ export {
 	DummyTabList,
 	DummyTabPanels,
 	DummyTabs,
+	ErrorBoundary,
 	Fade,
 	FileButton,
 	Form,
@@ -1015,6 +1018,8 @@ export type {
 	DummyTabsContext,
 	DummyTabsProps,
 	DummyTabsRef,
+	ErrorBoundaryProps,
+	ErrorBoundaryState,
 	FadeProps,
 	FileButtonBlob,
 	FileButtonBlobs,
