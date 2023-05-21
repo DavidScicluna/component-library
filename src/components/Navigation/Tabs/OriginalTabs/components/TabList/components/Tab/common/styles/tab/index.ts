@@ -48,6 +48,9 @@ export default ({ theme, isFullWidth = defaultIsFitted, size = defaultSize }: Ta
 
 		'transform': 'none',
 
+		'p': 0,
+		'm': 0,
+
 		'transition': transition,
 		'transitionProperty': transitionProperty,
 		'transitionDuration': transitionDuration,
