@@ -690,8 +690,9 @@ export {
 	useTabBarContext,
 	useTabsContext
 };
+import { memoizeDebounce } from './common/scripts';
 
-// TODO: Maybe move default/amounts & default/sizes to common & export them  
+// TODO: Maybe move default/amounts & default/sizes to common & export them
 // Defaults
 export const defaults = { props: { defaultColor, defaultColorMode, defaultMethod } };
 
@@ -717,6 +718,8 @@ export const utils = {
 	getTransitionConfig,
 	getPasswordStrength
 };
+
+export const scripts = { memoizeDebounce };
 
 // Theme
 export { theme };
