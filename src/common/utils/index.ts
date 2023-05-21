@@ -1,9 +1,7 @@
-import { ColorMode } from '@chakra-ui/react';
-
 import memoize from 'micro-memoize';
 
 import { FontSize, LineHeight, Theme } from '../../theme/types';
-import { OS } from '../types';
+import { AppLightColorMode, OS } from '../types';
 
 /**
  * This method will get the OS type of the user's device
@@ -101,7 +99,7 @@ export const convertEasingsToArray = memoize(({ easing }: ConvertEasingsToArrayP
 		.map((number) => Number(number));
 });
 
-export const getColorMode = memoize((): ColorMode => {
+export const getColorMode = memoize((): AppLightColorMode => {
 	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 		return 'dark';
 	} else {

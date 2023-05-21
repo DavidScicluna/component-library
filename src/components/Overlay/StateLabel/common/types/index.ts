@@ -1,6 +1,6 @@
-import { ColorMode, StackProps } from '@chakra-ui/react';
+import { StackProps } from '@chakra-ui/react';
 
-import { AppColor } from '../../../../../common/types';
+import { CommonThemeProps } from '../../../../../common/types';
 import {
 	BoxColor,
 	BoxFilter,
@@ -27,9 +27,6 @@ type Omitted =
 	| BoxOther
 	| 'as';
 
-export type StateLabelProps = Omit<StackProps, Omitted> & {
-	color?: AppColor;
-	colorMode?: ColorMode;
-};
+export type StateLabelProps = Omit<StackProps, Omitted> & CommonThemeProps;
 
 export type StateLabelContext = Pick<StateLabelProps, 'color' | 'colorMode'>;

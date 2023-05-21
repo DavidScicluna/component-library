@@ -1,6 +1,6 @@
-import { ColorMode, TabsProps as CUITabsProps } from '@chakra-ui/react';
+import { TabsProps as CUITabsProps } from '@chakra-ui/react';
 
-import { AppColor } from '../../../../../common/types';
+import { CommonThemeProps } from '../../../../../common/types';
 
 export type TabsSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -19,7 +19,6 @@ type Omitted =
 
 export type CommonTabsProps = Omit<CUITabsProps, Omitted> & {
 	activeTab?: number;
-	color?: AppColor;
-	colorMode?: ColorMode;
+
 	size?: TabsSize;
-};
+} & CommonThemeProps;

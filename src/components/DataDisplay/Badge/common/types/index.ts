@@ -1,6 +1,6 @@
-import { BadgeProps as CUIBadgeProps, ColorMode } from '@chakra-ui/react';
+import { BadgeProps as CUIBadgeProps } from '@chakra-ui/react';
 
-import { Nullable } from '../../../../../common/types';
+import { CommonThemeProps, Nullable } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -55,14 +55,14 @@ type Omitted =
 
 export type BadgeProps = Omit<CUIBadgeProps, Omitted> & {
 	color?: BadgeColor;
-	colorMode?: ColorMode;
 	isClickable?: boolean;
 	isCompact?: boolean;
 	isFullWidth?: boolean;
 	isRound?: boolean;
 	size?: BadgeSize;
 	variant?: BadgeVariant;
-} & Pick<PushableOverlayProps, 'isActive' | 'isDisabled' | 'isFixed'>;
+} & Pick<PushableOverlayProps, 'isActive' | 'isDisabled' | 'isFixed'> &
+	Pick<CommonThemeProps, 'colorMode'>;
 
 export type BadgeRef = Nullable<HTMLSpanElement>;
 

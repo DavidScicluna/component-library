@@ -1,6 +1,6 @@
-import { ColorMode, ModalProps as CUIModalProps } from '@chakra-ui/react';
+import { ModalProps as CUIModalProps } from '@chakra-ui/react';
 
-import { AppColor } from '../../../../../common/types';
+import { CommonThemeProps } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -51,9 +51,7 @@ type Omitted =
 	| 'trapFocus'
 	| 'variant';
 
-export type ModalProps = {
-	color?: AppColor;
-	colorMode?: ColorMode;
+export type ModalProps = CommonThemeProps & {
 	size?: ModalSize;
 	spacing?: Space;
 } & Omit<CUIModalProps, Omitted>;

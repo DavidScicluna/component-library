@@ -1,5 +1,6 @@
-import { ColorMode, StackProps } from '@chakra-ui/react';
+import { StackProps } from '@chakra-ui/react';
 
+import { CommonThemeProps } from '../../../common/types';
 import {
 	BoxColor,
 	BoxFilter,
@@ -39,10 +40,9 @@ type Omitted =
 
 export type SideNavigationProps = Omit<StackProps, Omitted> & {
 	color: SideNavigationColor;
-	colorMode?: ColorMode;
 	isDrawer?: boolean;
 	mode?: SideNavigationMode;
-};
+} & Pick<CommonThemeProps, 'colorMode'>;
 
 export type SideNavigationRef = HTMLDivElement | null;
 

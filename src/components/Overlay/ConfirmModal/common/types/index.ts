@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
-import { ColorMode, ModalProps as CUIModalProps } from '@chakra-ui/react';
+import { ModalProps as CUIModalProps } from '@chakra-ui/react';
 
-import { AppColor } from '../../../../../common/types';
+import { CommonThemeProps } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -61,9 +61,7 @@ type Omitted =
 	| 'trapFocus'
 	| 'variant';
 
-export type ConfirmModalProps = {
-	color?: AppColor;
-	colorMode?: ColorMode;
+export type ConfirmModalProps = CommonThemeProps & {
 	renderCancel?: (props: RenderCancelProps) => ReactNode;
 	size?: ConfirmModalSize;
 	spacing?: Space;

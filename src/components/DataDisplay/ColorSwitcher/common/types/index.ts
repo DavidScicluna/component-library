@@ -1,18 +1,14 @@
 import { ReactNode } from 'react';
 
-import { ColorMode } from '@chakra-ui/react';
+import { AppColors, CommonThemeProps } from '../../../../../common/types';
 
-import { AppColor, AppColors } from '../../../../../common/types';
-
-export type ColorSwitcherOnChangeProps = { color: AppColor };
+export type ColorSwitcherOnChangeProps = Pick<CommonThemeProps, 'color'>;
 
 export type ColorSwitcherVariant = 'grid' | 'scroll';
 
-export type ColorSwitcherProps = {
+export type ColorSwitcherProps = CommonThemeProps & {
 	children: ReactNode;
-	color: AppColor;
 	colors?: AppColors;
-	colorMode?: ColorMode;
 	onChange: (props: ColorSwitcherOnChangeProps) => void;
 	variant?: ColorSwitcherVariant;
 };

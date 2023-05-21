@@ -1,6 +1,6 @@
-import { CenterProps, ColorMode } from '@chakra-ui/react';
+import { CenterProps } from '@chakra-ui/react';
 
-import { Nullable } from '../../../../../common/types';
+import { CommonThemeProps, Nullable } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorders,
@@ -43,10 +43,9 @@ type Omitted =
 
 export type IconProps = Omit<CenterProps, Omitted> & {
 	color?: IconColor;
-	colorMode?: ColorMode;
 	icon: Icon;
 	category?: IconCategory;
 	variant?: IconVariant;
-};
+} & Pick<CommonThemeProps, 'colorMode'>;
 
 export type IconRef = Nullable<HTMLSpanElement>;

@@ -1,6 +1,6 @@
-import { ColorMode, TooltipProps as CUITooltipProps } from '@chakra-ui/react';
+import { TooltipProps as CUITooltipProps } from '@chakra-ui/react';
 
-import { Nullable } from '../../../../../common/types';
+import { CommonThemeProps, Nullable } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -61,10 +61,9 @@ type Omitted =
 export type TooltipProps = Omit<CUITooltipProps, Omitted> & {
 	'aria-label': string;
 	'color'?: TooltipColor;
-	'colorMode'?: ColorMode;
 	'isOpen': boolean;
 	// 'closeDelay'?: number;
 	// 'openDelay'?: number;
-};
+} & Pick<CommonThemeProps, 'colorMode'>;
 
 export type TooltipRef = Nullable<HTMLDivElement>;

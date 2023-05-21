@@ -1,5 +1,6 @@
-import { ColorMode, SkeletonProps as CUISkeletonProps } from '@chakra-ui/react';
+import { SkeletonProps as CUISkeletonProps } from '@chakra-ui/react';
 
+import { CommonThemeProps } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -50,9 +51,8 @@ type Omitted =
 
 export type SkeletonProps = Omit<CUISkeletonProps, Omitted> & {
 	color?: SkeletonColor;
-	colorMode?: ColorMode;
 	borderRadius?: Radius;
 	isAnimated?: boolean;
 	isReversed?: boolean;
 	variant?: SkeletonVariant;
-};
+} & Pick<CommonThemeProps, 'colorMode'>;

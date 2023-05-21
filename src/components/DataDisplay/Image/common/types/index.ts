@@ -1,8 +1,8 @@
 import { SyntheticEvent } from 'react';
 
-import { ColorMode, ImageProps as CUIImageProps } from '@chakra-ui/react';
+import { ImageProps as CUIImageProps } from '@chakra-ui/react';
 
-import { Nullable, Undefinable } from '../../../../../common/types';
+import { CommonThemeProps, Nullable, Undefinable } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxColor,
@@ -51,10 +51,9 @@ type Omitted =
 
 export type ImageProps = Omit<CUIImageProps, Omitted> & {
 	alt: string;
-	colorMode?: ColorMode;
 	onError?: (event: ImageEvent, mode: ImageSrcMode) => void;
 	onLoad?: (event: ImageEvent, mode: ImageSrcMode) => void;
 	src: ImageSrc;
-};
+} & Pick<CommonThemeProps, 'colorMode'>;
 
 export type ImageRef = Nullable<HTMLDivElement>;

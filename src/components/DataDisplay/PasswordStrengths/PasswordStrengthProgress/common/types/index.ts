@@ -1,5 +1,6 @@
-import { ColorMode, ProgressProps } from '@chakra-ui/react';
+import { ProgressProps } from '@chakra-ui/react';
 
+import { CommonThemeProps } from '../../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -38,7 +39,6 @@ type Omitted =
 	| 'value';
 
 export type PasswordStrengthProgressProps = Omit<ProgressProps, Omitted> & {
-	colorMode?: ColorMode;
 	password: string;
 	strength: Strength;
-};
+} & Pick<CommonThemeProps, 'colorMode'>;

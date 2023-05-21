@@ -1,5 +1,4 @@
-import { ColorMode } from '@chakra-ui/react';
-
+import { CommonThemeProps } from '../../../../../common/types';
 import { BoxPseudo } from '../../../../../common/types/box';
 import { Color, Space } from '../../../../../theme/types';
 import { PushableOverlayProps } from '../../../../Overlay/PushableOverlay/common/types';
@@ -12,11 +11,11 @@ type Omitted = BoxPseudo | 'as' | 'tabIndex' | 'borderRadius' | 'isPushable' | '
 
 export type CommonCollapsibleCardProps = Omit<PushableOverlayProps, Omitted> & {
 	color?: CollapsibleCardColor;
-	colorMode?: ColorMode;
+
 	isClickable?: boolean;
 	isDisabled?: boolean;
 	isDivisible?: boolean;
 	isFixed?: boolean;
 	spacing?: Space;
 	variant?: CollapsibleCardVariant;
-};
+} & Pick<CommonThemeProps, 'colorMode'>;

@@ -1,6 +1,6 @@
-import { ColorMode, FormControlProps as CUIFormControlProps, StackProps } from '@chakra-ui/react';
+import { FormControlProps as CUIFormControlProps, StackProps } from '@chakra-ui/react';
 
-import { AppColor, Nullable } from '../../../../../common/types';
+import { CommonThemeProps, Nullable } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -47,14 +47,13 @@ type OmittedStackProps =
 	| 'size';
 
 export type FormControlProps = Omit<CUIFormControlProps, OmittedBoxProps | 'label'> & {
-	color?: AppColor;
-	colorMode?: ColorMode;
 	isError?: boolean;
 	isWarning?: boolean;
 	isSuccess?: boolean;
 	isFocused?: boolean;
 	size?: FormControlSize;
-} & Omit<StackProps, OmittedStackProps>;
+} & Omit<StackProps, OmittedStackProps> &
+	CommonThemeProps;
 
 export type FormControlRef = Nullable<HTMLInputElement>;
 

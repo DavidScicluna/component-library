@@ -1,8 +1,6 @@
-import { ColorMode } from '@chakra-ui/react';
-
-import { AppColor } from '../../types';
+import { AppColor, AppFullColorMode } from '../../types';
 
 export const color: AppColor = 'gray';
-export const colorMode: ColorMode = 'light';
+export const colorMode: AppFullColorMode = 'light';
 
 export const method = () => undefined;

@@ -1,8 +1,6 @@
 import { ReactNode } from 'react';
 
-import { ColorMode } from '@chakra-ui/react';
-
-import { Nullable, PickFrom } from '../../../../../common/types';
+import { CommonThemeProps, Nullable, PickFrom } from '../../../../../common/types';
 import { Color, Space } from '../../../../../theme/types';
 
 export type AlertColor = PickFrom<Color, 'red' | 'blue' | 'green' | 'yellow'>;
@@ -42,8 +40,7 @@ export type AlertDuration =
 
 export type AlertStatus = 'info' | 'warning' | 'success' | 'error';
 
-export type AlertProps = {
-	colorMode?: ColorMode;
+export type AlertProps = Pick<CommonThemeProps, 'colorMode'> & {
 	duration: Nullable<AlertDuration>;
 	label?: string;
 	description: string;

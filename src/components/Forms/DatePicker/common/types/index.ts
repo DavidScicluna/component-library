@@ -1,10 +1,8 @@
 import { ReactNode } from 'react';
 
-import { ColorMode } from '@chakra-ui/react';
-
 import { DateObj, Props as DayzedProps, RenderProps as DayzedRenderProps } from 'dayzed';
 
-import { AppColor, Undefinable } from '../../../../../common/types';
+import { CommonThemeProps, Undefinable } from '../../../../../common/types';
 import { ButtonProps } from '../../../../Clickable/Buttons/OriginalButton/common/types';
 import { ModalProps } from '../../../../Overlay/Modal/common/types';
 
@@ -17,14 +15,13 @@ export type DatePickerRenderButtonProps = Pick<ButtonProps, 'color' | 'colorMode
 type Omitted = 'children' | 'render' | 'selected' | 'onDateSelected';
 
 export type DatePickerProps = Omit<DayzedProps, Omitted> & {
-	color?: AppColor;
-	colorMode?: ColorMode;
 	renderButton: (props: DatePickerRenderButtonProps) => ReactNode;
 	onSetDate: (date: Date) => void;
 	format?: string;
 	value?: Date;
 	variant?: DatePickerVariant;
-} & Pick<ModalProps, 'spacing'>;
+} & Pick<ModalProps, 'spacing'> &
+	CommonThemeProps;
 
 export type DatePickerContext = Pick<DatePickerProps, 'color' | 'colorMode' | 'format' | 'spacing'> & {
 	date: DatePickerDate;

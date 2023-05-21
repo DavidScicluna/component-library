@@ -629,6 +629,8 @@ export type {
 export type {
 	AppColor,
 	AppColors,
+	AppFullColorMode,
+	AppLightColorMode,
 	NonNullable,
 	NoUndefinedField,
 	Nullable,

@@ -1,8 +1,6 @@
 import { ChangeEvent as CE, MouseEvent as ME, ReactNode } from 'react';
 
-import { ColorMode } from '@chakra-ui/react';
-
-import { AppColor, Nullable } from '../../../../../common/types';
+import { CommonThemeProps, Nullable } from '../../../../../common/types';
 
 export type FileButtonChangeEvent = CE<HTMLInputElement>;
 export type FileButtonMouseEvent = ME<unknown>;
@@ -17,10 +15,9 @@ export type FileButtonChildrenProps = Pick<FileButtonProps, 'color' | 'colorMode
 	onClick: (event: FileButtonMouseEvent) => void;
 };
 
-export type FileButtonProps = {
+export type FileButtonProps = CommonThemeProps & {
 	children: (props: FileButtonChildrenProps) => ReactNode;
-	color?: AppColor;
-	colorMode?: ColorMode;
+
 	accept?: string;
 	isMultiple?: boolean;
 	onSuccess: (event: FileButtonChangeEvent, blobs: FileButtonBlobs) => void;

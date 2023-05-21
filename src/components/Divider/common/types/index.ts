@@ -1,6 +1,6 @@
-import { BoxProps, ColorMode } from '@chakra-ui/react';
+import { BoxProps } from '@chakra-ui/react';
 
-import { Nullable, Orientation } from '../../../../common/types';
+import { CommonThemeProps, Nullable, Orientation } from '../../../../common/types';
 import {
 	BoxBorders,
 	BoxFilter,
@@ -14,8 +14,7 @@ import {
 
 type Omitted = BoxTypography | BoxFlexbox | BoxGrid | BoxBorders | BoxShadow | BoxFilter | BoxPseudo | BoxOther;
 
-export type DividerProps = {
-	colorMode?: ColorMode;
+export type DividerProps = Pick<CommonThemeProps, 'colorMode'> & {
 	orientation?: Orientation;
 } & Omit<BoxProps, Omitted>;
 

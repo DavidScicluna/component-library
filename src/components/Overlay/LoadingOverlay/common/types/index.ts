@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
-import { BoxProps, ColorMode } from '@chakra-ui/react';
+import { BoxProps } from '@chakra-ui/react';
 
-import { AppColor, Nullable } from '../../../../../common/types';
+import { CommonThemeProps, Nullable } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -43,11 +43,10 @@ type Omitted =
 
 export type LoadingOverlayProps = Omit<BoxProps, Omitted> & {
 	renderSpinner: () => ReactNode;
-	color?: AppColor;
-	colorMode?: ColorMode;
+
 	isLoading: boolean;
 	hasGlass?: boolean;
 	hasBackdrop?: boolean;
-};
+} & CommonThemeProps;
 
 export type LoadingOverlayRef = Nullable<HTMLDivElement>;

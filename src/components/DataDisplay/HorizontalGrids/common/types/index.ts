@@ -1,12 +1,9 @@
-import { ColorMode } from '@chakra-ui/react';
-
+import { CommonThemeProps } from '../../../../../common/types';
 import { Color, Space } from '../../../../../theme/types';
 
 export type HorizontalGridColor = Exclude<Color, 'transparent'>;
-export type HorizontalGridColorMode = ColorMode;
 
-export type CommonHorizontalGridProps = {
+export type CommonHorizontalGridProps = Pick<CommonThemeProps, 'colorMode'> & {
 	color?: HorizontalGridColor;
-	colorMode?: HorizontalGridColorMode;
 	spacing?: Space;
 };

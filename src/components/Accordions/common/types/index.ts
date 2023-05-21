@@ -1,6 +1,6 @@
-import { ColorMode, StackProps } from '@chakra-ui/react';
+import { StackProps } from '@chakra-ui/react';
 
-import { AppColor } from '../../../../common/types';
+import { CommonThemeProps } from '../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -38,7 +38,5 @@ type Omitted =
 	| 'spacing';
 
 export type CommonAccordionsProps = Omit<StackProps, Omitted> & {
-	color?: AppColor;
-	colorMode?: ColorMode;
 	spacing?: Space;
-};
+} & CommonThemeProps;

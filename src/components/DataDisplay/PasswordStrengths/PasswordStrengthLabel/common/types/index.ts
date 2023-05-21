@@ -1,6 +1,6 @@
-import { ColorMode, StackProps } from '@chakra-ui/react';
+import { StackProps } from '@chakra-ui/react';
 
-import { Nullable } from '../../../../../../common/types';
+import { CommonThemeProps, Nullable } from '../../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -38,9 +38,8 @@ type Omitted =
 	| 'direction';
 
 export type PasswordStrengthLabelProps = Omit<StackProps, Omitted> & {
-	colorMode?: ColorMode;
 	password: string;
 	size?: PasswordStrengthLabelSize;
-};
+} & Pick<CommonThemeProps, 'colorMode'>;
 
 export type PasswordStrengthLabelRef = Nullable<HTMLDivElement>;

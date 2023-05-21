@@ -1,6 +1,6 @@
-import { BoxProps, ColorMode } from '@chakra-ui/react';
+import { BoxProps } from '@chakra-ui/react';
 
-import { Nullable } from '../../../../../common/types';
+import { CommonThemeProps, Nullable } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -53,12 +53,11 @@ type Omitted =
 export type PushableOverlayProps = Omit<BoxProps, Omitted> & {
 	borderRadius?: Radius;
 	color?: PushableOverlayColor;
-	colorMode?: ColorMode;
 	isActive?: boolean;
 	isDisabled?: boolean;
 	isFixed?: boolean;
 	isPushable?: boolean;
 	variant?: PushableOverlayVariant;
-};
+} & Pick<CommonThemeProps, 'colorMode'>;
 
 export type PushableOverlayRef = Nullable<HTMLDivElement>;
