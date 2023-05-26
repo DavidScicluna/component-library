@@ -7,14 +7,12 @@ import { useMediaMatch } from 'rooks';
 import { useLocalStorage } from 'usehooks-ts';
 
 import { colorMode as defaultColorMode } from '../../../../common/default/props';
-import { useDebounce } from '../../../../common/hooks';
 import { AppColorMode, AppFullColorMode } from '../../../../common/types';
 
 const useGetColorMode = (initialColorMode: AppFullColorMode): AppColorMode => {
 	const [_, setLSThemeFullColorMode] = useLocalStorage<AppColorMode>('ds-cl-theme-color-mode', defaultColorMode);
 
 	const [colorMode, setColorMode] = useState<AppColorMode>(defaultColorMode);
-	const colorModeDebounced = useDebounce(colorMode, 'ultra-slow');
 
 	const { setColorMode: setCUIColorMode } = useColorMode();
 
@@ -22,9 +20,7 @@ const useGetColorMode = (initialColorMode: AppFullColorMode): AppColorMode => {
 
 	const handleSetColorMode = (): void => {
 		if (initialColorMode === 'system') {
-			const colorMode: AppFullColorMode = initialColorMode;
-			const updatedColorMode: AppFullColorMode =
-				colorMode === 'system' ? (isDarkMode ? 'dark' : 'light') : colorMode;
+			const updatedColorMode: AppFullColorMode = isDarkMode ? 'dark' : 'light';
 
 			setColorMode(updatedColorMode);
 			setCUIColorMode(updatedColorMode);
@@ -38,7 +34,7 @@ const useGetColorMode = (initialColorMode: AppFullColorMode): AppColorMode => {
 
 	useEffect(() => handleSetColorMode(), [initialColorMode, isDarkMode]);
 
-	return colorModeDebounced;
+	return colorMode;
 };
 
 export default useGetColorMode;
