@@ -1,17 +1,16 @@
 import fallback from './common/assets/fallback';
 import { color as defaultColor, colorMode as defaultColorMode, method as defaultMethod } from './common/default/props';
-import { useBoolean, useConst, useDebounce, useOs, useTheme } from './common/hooks';
+import { useBoolean, useConst, useDebounce, useGetColor, useGetThemeAppearance, useOs, useTheme } from './common/hooks';
 import {
 	checkIsTouchDevice,
 	convertEasingsToArray,
 	convertPixelsToREM,
 	convertREMToPixels,
 	convertStringToNumber,
-	getColorMode,
 	getFontSizeHeight,
 	getOS
 } from './common/utils';
-import { getColor, getHue } from './common/utils/color';
+import { getColor, getColorMode, getHue } from './common/utils/color';
 import DummyAccordions from './components/Accordions/DummyAccordions';
 import { useDummyAccordionsContext } from './components/Accordions/DummyAccordions/common/hooks';
 import { DummyAccordionsContext, DummyAccordionsProps } from './components/Accordions/DummyAccordions/common/types';
@@ -563,8 +562,8 @@ import Tooltip from './components/Overlay/Tooltip';
 import { TooltipColor, TooltipProps, TooltipRef } from './components/Overlay/Tooltip/common/types';
 import DSCLProvider from './components/Provider';
 import {
-	useGetColor,
-	useGetColorMode,
+	useGetColor as useGetAppColor,
+	useGetColorMode as useGetAppColorMode,
 	useProviderContext as useDSCLProviderContext
 } from './components/Provider/common/hooks';
 import { ProviderContext, ProviderProps } from './components/Provider/common/types';
@@ -653,7 +652,17 @@ export type {
 export type { Icon as IconType } from './common/types/icons';
 
 // Hooks
-export { useBoolean, useConst, useDebounce, useGetColor, useGetColorMode, useOs, useTheme };
+export {
+	useBoolean,
+	useConst,
+	useDebounce,
+	useGetAppColor,
+	useGetAppColorMode,
+	useGetColor,
+	useGetThemeAppearance,
+	useOs,
+	useTheme
+};
 
 // Context Hooks
 export {
