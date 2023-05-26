@@ -9,6 +9,7 @@ import { useTheme } from '../../../../../../common/hooks';
 import { getColor } from '../../../../../../common/utils/color';
 import HorizontalScroll from '../../../../../DataDisplay/HorizontalScroll';
 import { useSetHorizontalScrollAPIContext } from '../../../../../DataDisplay/HorizontalScroll/common/hooks';
+import { border } from '../../../common/default/sizes';
 import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from '../../../components/HorizontalScrollArrows';
 import { useTabsContext } from '../../common/hooks';
 
@@ -49,7 +50,7 @@ const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest
 			{...rest}
 			width='100%'
 			height='100%'
-			borderBottomWidth='2px'
+			borderBottomWidth={`${border.default}px`}
 			borderBottomStyle='solid'
 			borderBottomColor={getColor({ theme, colorMode, type: 'divider' })}
 			sx={{
