@@ -11,6 +11,7 @@ import { getColor } from '../../../../../../../../common/utils/color';
 import Divider from '../../../../../../../Divider';
 import ScaleFade from '../../../../../../../Transitions/ScaleFade';
 import { isDisabled as defaultIsDisabled } from '../../../../../common/default/props';
+import { border } from '../../../../../common/default/sizes';
 import { getSizeConfig, GetSizeConfigReturn } from '../../../../../common/utils';
 import { useTabBarContext } from '../../../../common/hooks';
 
@@ -98,11 +99,13 @@ const Tab: FC<TabProps> = (props) => {
 				<ScaleFade in={isActive || isSelected || isHovering} unmountOnExit={false} initialScale={0.75}>
 					<Center width='100%' px={config.padding.x}>
 						<Divider
+							width='100%'
+							height={`${border.tab}px`}
 							backgroundColor={getColor({
 								theme,
 								colorMode,
 								color: isActive || isSelected ? color : 'gray',
-								type: isActive || isSelected ? 'color' : 'text.secondary'
+								type: isActive || isSelected ? 'color' : 'default'
 							})}
 						/>
 					</Center>
@@ -138,7 +141,7 @@ const Tab: FC<TabProps> = (props) => {
 				</VStack>
 
 				<Center width='100%' px={config.padding.x}>
-					<Divider backgroundColor={theme.colors.transparent} />
+					<Divider width='100%' height={`${border.tab}px`} backgroundColor={theme.colors.transparent} />
 				</Center>
 			</VStack>
 		</CUITab>
