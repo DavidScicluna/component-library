@@ -1,7 +1,7 @@
 import memoize from 'micro-memoize';
 
 import { FontSize, LineHeight, Theme } from '../../theme/types';
-import { AppColorMode, OS } from '../types';
+import { OS } from '../types';
 
 /**
  * This method will get the OS type of the user's device
@@ -97,12 +97,4 @@ export const convertEasingsToArray = memoize(({ easing }: ConvertEasingsToArrayP
 		.replaceAll(' ', '')
 		.split(',')
 		.map((number) => Number(number));
-});
-
-export const getColorMode = memoize((): AppColorMode => {
-	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-		return 'dark';
-	} else {
-		return 'light';
-	}
 });
