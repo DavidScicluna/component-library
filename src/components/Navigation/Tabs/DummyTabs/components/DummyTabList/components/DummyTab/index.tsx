@@ -10,6 +10,7 @@ import { getColor } from '../../../../../../../../common/utils/color';
 import Divider from '../../../../../../../Divider';
 import Skeleton from '../../../../../../../Feedback/Skeleton';
 import ScaleFade from '../../../../../../../Transitions/ScaleFade';
+import { border } from '../../../../../common/default/sizes';
 import { getSizeConfig, GetSizeConfigReturn } from '../../../../../common/utils';
 import { useDummyTabsContext } from '../../../../common/hooks';
 
@@ -34,12 +35,12 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 		...rest
 	} = props;
 
-	const mainColor = useMemo<string>((): string => {
+	const mainColor = useMemo<string>(() => {
 		return getColor({
 			theme,
 			colorMode,
 			color: isActive || isSelected ? color : 'gray',
-			type: isActive || isSelected ? 'color' : 'text.secondary'
+			type: isActive || isSelected ? 'color' : 'default'
 		});
 	}, [color, colorMode, isActive, isSelected]);
 	const config = useMemo<GetSizeConfigReturn>(() => {
@@ -65,7 +66,7 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 				spacing={0}
 			>
 				<Center width='100%' px={config.padding.x}>
-					<Divider backgroundColor={theme.colors.transparent} />
+					<Divider width='100%' height={`${border.tab}px`} backgroundColor={theme.colors.transparent} />
 				</Center>
 
 				<HStack
@@ -98,7 +99,7 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 
 				<ScaleFade in={isActive || isSelected} unmountOnExit={false} initialScale={0.75}>
 					<Center width='100%' px={config.padding.x}>
-						<Divider backgroundColor={mainColor} />
+						<Divider width='100%' height={`${border.tab}px`} backgroundColor={mainColor} />
 					</Center>
 				</ScaleFade>
 			</VStack>

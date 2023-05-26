@@ -8,6 +8,7 @@ import { useElementSize } from 'usehooks-ts';
 import { useTheme } from '../../../../../../common/hooks';
 import { getColor } from '../../../../../../common/utils/color';
 import HorizontalScroll from '../../../../../DataDisplay/HorizontalScroll';
+import { border } from '../../../common/default/sizes';
 import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from '../../../components/HorizontalScrollArrows';
 import { useDummyTabsContext } from '../../common/hooks';
 
@@ -26,7 +27,7 @@ const DummyTabList: FC<DummyTabListProps> = ({ tabs = [], renderLeft, renderRigh
 			{...rest}
 			width='100%'
 			height='100%'
-			borderBottomWidth='2px'
+			borderBottomWidth={`${border.default}px`}
 			borderBottomStyle='solid'
 			borderBottomColor={getColor({ theme, colorMode, type: 'divider' })}
 			sx={{
