@@ -5,9 +5,7 @@ import { useGetColorMode } from '../../common/hooks';
 
 import { ColorModeScriptProps } from './common/types';
 
-const ColorModeScript: FC<ColorModeScriptProps> = (props) => {
-	const { initialColorMode = defaultColorMode, onSetColorMode } = props;
-
+const ColorModeScript: FC<ColorModeScriptProps> = ({ initialColorMode = defaultColorMode, onSetColorMode }) => {
 	const updatedColorMode = useGetColorMode(initialColorMode);
 
 	useEffect(() => onSetColorMode(updatedColorMode), [updatedColorMode]);
