@@ -5,9 +5,7 @@ import { useGetColor } from '../../common/hooks';
 
 import { ColorScriptProps } from './common/types';
 
-const ColorScript: FC<ColorScriptProps> = (props) => {
-	const { initialColor = defaultColor } = props;
-
+const ColorScript: FC<ColorScriptProps> = ({ initialColor = defaultColor }) => {
 	useGetColor(initialColor);
 
 	return null;
