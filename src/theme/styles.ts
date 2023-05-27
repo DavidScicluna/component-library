@@ -2,7 +2,6 @@ import { mode, StyleFunctionProps, Styles } from '@chakra-ui/theme-tools';
 import { Dict } from '@chakra-ui/utils';
 
 import colors from './foundations/colors';
-import transition from './foundations/transition';
 
 const styles: Styles = {
 	global: (props: StyleFunctionProps | Dict<unknown>) => ({
@@ -15,18 +14,22 @@ const styles: Styles = {
 			backgroundColor: mode(colors.gray[50], colors.gray[900])(props),
 
 			transition: 'none',
-			transitionProperty: [
-				'background-color',
-				'background-image',
-				'background-position',
-				'border-color',
-				'color',
-				'fill',
-				'stroke',
-				'box-shadow'
-			].join(', '),
-			transitionDuration: transition.duration.normal,
-			transitionTimingFunction: transition.easing['ease-in-out']
+			transitionProperty: 'none',
+			transitionDuration: 'none',
+			transitionTimingFunction: 'none'
+			// transition: 'none',
+			// transitionProperty: [
+			// 	'background-color',
+			// 	'background-image',
+			// 	'background-position',
+			// 	'border-color',
+			// 	'color',
+			// 	'fill',
+			// 	'stroke',
+			// 	'box-shadow'
+			// ].join(', '),
+			// transitionDuration: transition.duration.normal,
+			// transitionTimingFunction: transition.easing['ease-in-out']
 		},
 		'*, *::before, *::after': {
 			fontFamily: 'body',
@@ -35,18 +38,22 @@ const styles: Styles = {
 			outline: `0px ${colors.transparent}`,
 
 			transition: 'none',
-			transitionProperty: [
-				'background-color',
-				'background-image',
-				'background-position',
-				'border-color',
-				'color',
-				'fill',
-				'stroke',
-				'box-shadow'
-			].join(', '),
-			transitionDuration: transition.duration.normal,
-			transitionTimingFunction: transition.easing['ease-in-out']
+			transitionProperty: 'none',
+			transitionDuration: 'none',
+			transitionTimingFunction: 'none'
+			// transition: 'none',
+			// transitionProperty: [
+			// 	'background-color',
+			// 	'background-image',
+			// 	'background-position',
+			// 	'border-color',
+			// 	'color',
+			// 	'fill',
+			// 	'stroke',
+			// 	'box-shadow'
+			// ].join(', '),
+			// transitionDuration: transition.duration.normal,
+			// transitionTimingFunction: transition.easing['ease-in-out']
 		}
 	})
 };
