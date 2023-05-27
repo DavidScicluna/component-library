@@ -1,7 +1,7 @@
 import { useDSCLProviderContext } from '../..';
-import { CommonThemeProps } from '../types';
+import { CommonThemeProps, NoUndefinedField } from '../types';
 
-const useGetThemeAppearance = (): CommonThemeProps => {
+const useGetThemeAppearance = (): NoUndefinedField<CommonThemeProps> => {
 	const { color, colorMode } = useDSCLProviderContext();
 
 	return { color, colorMode };

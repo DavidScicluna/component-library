@@ -12,7 +12,7 @@ const CheckboxSubtitle: FC<CheckboxSubtitleProps> = (props) => {
 
 	const { children, ...rest } = props;
 
-	const color = useGetColor({ colorMode, type: 'text.secondary' });
+	const color = useGetColor({ color: 'gray', colorMode, type: 'text.secondary' });
 
 	return (
 		<Text align='left' color={color} fontSize={size} lineHeight='normal' noOfLines={1} {...rest}>

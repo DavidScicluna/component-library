@@ -12,7 +12,7 @@ const RadioTitle: FC<RadioTitleProps> = (props) => {
 
 	const { children, ...rest } = props;
 
-	const color = useGetColor({ colorMode, type: 'text.primary' });
+	const color = useGetColor({ color: 'gray', colorMode, type: 'text.primary' });
 
 	return (
 		<Text

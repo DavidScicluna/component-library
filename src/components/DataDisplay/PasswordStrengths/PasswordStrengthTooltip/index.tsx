@@ -31,8 +31,8 @@ const PasswordStrengthTooltip: FC<PasswordStrengthTooltipProps> = (props) => {
 
 	const [strength, setStrength] = useState(getPasswordStrength(password));
 
-	const textPrimaryColor = useGetColor({ colorMode, type: 'text.primary' });
-	const textSecondaryColor = useGetColor({ colorMode, type: 'text.secondary' });
+	const textPrimaryColor = useGetColor({ color: 'gray', colorMode, type: 'text.primary' });
+	const textSecondaryColor = useGetColor({ color: 'gray', colorMode, type: 'text.secondary' });
 
 	const handleCheckHasType = (type: StrengthType): boolean => {
 		switch (type) {

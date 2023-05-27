@@ -1,4 +1,4 @@
-import { getColorMode } from '../../../common/utils';
+import { getColorMode } from '../../../common/utils/color';
 import colors from '../../../theme/foundations/colors';
 
 const backgroundsDefaultValue = getColorMode();

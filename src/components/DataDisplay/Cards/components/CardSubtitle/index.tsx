@@ -8,7 +8,7 @@ import { useGetColor } from '../../../../../common/hooks';
 import { CardSubtitleProps } from './common/types';
 
 const CardSubtitle: FC<CardSubtitleProps> = ({ children, colorMode = defaultColorMode }) => {
-	const color = useGetColor({ colorMode, type: 'text.secondary' });
+	const color = useGetColor({ color: 'gray', colorMode, type: 'text.secondary' });
 
 	return (
 		<Text align='left' color={color} fontSize='sm' lineHeight='normal' noOfLines={1}>

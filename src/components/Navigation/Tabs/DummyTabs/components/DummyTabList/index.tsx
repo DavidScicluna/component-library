@@ -19,7 +19,7 @@ const DummyTabList: FC<DummyTabListProps> = ({ tabs = [], renderLeft, renderRigh
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
-	const borderColor = useGetColor({ colorMode, type: 'divider' });
+	const borderColor = useGetColor({ color: 'gray', colorMode, type: 'divider' });
 
 	return (
 		<CUIDummyTabList

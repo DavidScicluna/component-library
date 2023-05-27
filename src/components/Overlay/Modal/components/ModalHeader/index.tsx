@@ -19,8 +19,8 @@ const ModalHeader: FC<ModalHeaderProps> = (props) => {
 
 	const { renderTitle, renderSubtitle, renderCancel, spacing = defaultSpacing, ...rest } = props;
 
-	const textPrimaryColor = useGetColor({ colorMode, type: 'text.primary' });
-	const textSecondaryColor = useGetColor({ colorMode, type: 'text.secondary' });
+	const textPrimaryColor = useGetColor({ color: 'gray', colorMode, type: 'text.primary' });
+	const textSecondaryColor = useGetColor({ color: 'gray', colorMode, type: 'text.secondary' });
 
 	const handleCalculateTextWidth = useCallback((): number => {
 		return cancelWidth + convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'));

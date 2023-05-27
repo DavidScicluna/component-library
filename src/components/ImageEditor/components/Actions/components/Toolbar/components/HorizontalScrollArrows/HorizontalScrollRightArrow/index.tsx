@@ -16,7 +16,7 @@ const HorizontalScrollRightArrow: FC = () => {
 
 	const { isVisible } = useHorizontalScrollArrowState({ direction: 'right', scroll });
 
-	const borderColor = useGetColor({ colorMode, type: 'divider' });
+	const borderColor = useGetColor({ color: 'gray', colorMode, type: 'divider' });
 
 	const handleScrollNext = (): void => {
 		const nextItem = getNextItem();

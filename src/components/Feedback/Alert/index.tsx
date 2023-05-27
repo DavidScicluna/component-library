@@ -68,10 +68,10 @@ const Alert: FC<AlertProps> = (props) => {
 	});
 
 	const color = useGetColor({ color: getStatusColor(status), colorMode, type: 'color' });
-	const textPrimaryColor = useGetColor({ colorMode, type: 'text.primary' });
-	const textSecondaryColor = useGetColor({ colorMode, type: 'text.secondary' });
-	const borderColor = useGetColor({ colorMode, type: 'divider' });
-	const background = useGetColor({ colorMode, type: 'background' });
+	const textPrimaryColor = useGetColor({ color: 'gray', colorMode, type: 'text.primary' });
+	const textSecondaryColor = useGetColor({ color: 'gray', colorMode, type: 'text.secondary' });
+	const borderColor = useGetColor({ color: 'gray', colorMode, type: 'divider' });
+	const background = useGetColor({ color: 'gray', colorMode, type: 'background' });
 
 	const contentWidth = useMemo((): string => {
 		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem')) * 2;

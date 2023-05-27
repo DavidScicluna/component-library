@@ -17,7 +17,7 @@ const ModalStack: FC<ModalStackProps> = (props) => {
 
 	const { children, isDivisible = true, p, spacing = defaultSpacing, ...rest } = props;
 
-	const background = useGetColor({ colorMode, type: 'background' });
+	const background = useGetColor({ color: 'gray', colorMode, type: 'background' });
 
 	return (
 		<VStack

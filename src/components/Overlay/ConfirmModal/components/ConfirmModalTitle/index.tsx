@@ -10,7 +10,7 @@ import { ConfirmModalTitleProps } from './common/types';
 const ConfirmModalTitle: FC<ConfirmModalTitleProps> = ({ children, ...rest }) => {
 	const { colorMode } = useConfirmModalContext();
 
-	const color = useGetColor({ colorMode, type: 'text.primary' });
+	const color = useGetColor({ color: 'gray', colorMode, type: 'text.primary' });
 
 	return (
 		<Text align='center' color={color} fontSize='2xl' fontWeight='bold' lineHeight='base' noOfLines={1} {...rest}>

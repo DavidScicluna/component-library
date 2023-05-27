@@ -10,7 +10,7 @@ import { StateLabelSubtitleProps } from './common/types';
 const StateLabelSubtitle: FC<StateLabelSubtitleProps> = ({ children, ...rest }) => {
 	const { colorMode } = useStateLabelContext();
 
-	const color = useGetColor({ colorMode, type: 'text.secondary' });
+	const color = useGetColor({ color: 'gray', colorMode, type: 'text.secondary' });
 
 	return (
 		<Text align='center' color={color} fontSize={['xs', 'sm']} lineHeight='base' noOfLines={0} {...rest}>

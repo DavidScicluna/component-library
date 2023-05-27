@@ -25,8 +25,8 @@ const CollapsibleCardHeader: FC<CollapsibleCardHeaderProps> = (props) => {
 
 	const { renderLeft, renderRight, renderTitle, renderSubtitle, actions, spacing = defaultSpacing, ...rest } = props;
 
-	const textPrimaryColor = useGetColor({ colorMode, type: 'text.primary' });
-	const textSecondaryColor = useGetColor({ colorMode, type: 'text.secondary' });
+	const textPrimaryColor = useGetColor({ color: 'gray', colorMode, type: 'text.primary' });
+	const textSecondaryColor = useGetColor({ color: 'gray', colorMode, type: 'text.secondary' });
 
 	const handleCalculateTextWidth = useCallback((): string => {
 		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem'));

@@ -24,7 +24,7 @@ const Rotate: FC<RotateProps> = ({ rotation = defaultRotation, onRotate }) => {
 
 	const [isHoveringThumb, setIsHoveringThumb] = useBoolean();
 
-	const background = useGetColor({ colorMode, type: 'divider' });
+	const background = useGetColor({ color: 'gray', colorMode, type: 'divider' });
 	const backgroundColor = useGetColor({ color, colorMode, type: 'color' });
 
 	const handleRotate = (direction: 'left' | 'right'): void => {

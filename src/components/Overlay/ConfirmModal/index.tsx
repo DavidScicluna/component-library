@@ -37,7 +37,7 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 		...rest
 	} = props;
 
-	const background = useGetColor({ colorMode, type: 'background' });
+	const background = useGetColor({ color: 'gray', colorMode, type: 'background' });
 
 	return (
 		<CUIModal

@@ -10,7 +10,7 @@ import { NavGroupProps } from './types';
 const NavGroup: FC<NavGroupProps> = ({ children, title, ...rest }) => {
 	const { colorMode, mode } = useSideNavigationContext();
 
-	const color = useGetColor({ colorMode, type: 'text.primary' });
+	const color = useGetColor({ color: 'gray', colorMode, type: 'text.primary' });
 
 	return (
 		<VStack

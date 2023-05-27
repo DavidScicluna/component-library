@@ -29,8 +29,8 @@ const Headline: FC<HeadlineProps> = (props) => {
 	} = props;
 
 	const captionColor = useGetColor({ color, colorMode, type: 'color' });
-	const titleColor = useGetColor({ colorMode, type: 'text.primary' });
-	const subtitleColor = useGetColor({ colorMode, type: 'text.secondary' });
+	const titleColor = useGetColor({ color: 'gray', colorMode, type: 'text.primary' });
+	const subtitleColor = useGetColor({ color: 'gray', colorMode, type: 'text.secondary' });
 
 	return (
 		<HStack {...rest} width='100%' spacing={0}>

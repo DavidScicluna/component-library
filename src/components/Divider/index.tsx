@@ -12,7 +12,7 @@ const Divider = forwardRef<DividerRef, DividerProps>(function Divider(props, ref
 
 	const { colorMode = defaultColorMode, orientation = 'horizontal', ...rest } = props;
 
-	const background = useGetColor({ colorMode, type: 'divider' });
+	const background = useGetColor({ color: 'gray', colorMode, type: 'divider' });
 
 	return (
 		<Box

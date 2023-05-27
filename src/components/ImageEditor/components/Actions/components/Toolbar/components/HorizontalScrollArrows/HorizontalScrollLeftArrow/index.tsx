@@ -16,7 +16,7 @@ const HorizontalScrollLeftArrow: FC = () => {
 
 	const { isVisible } = useHorizontalScrollArrowState({ direction: 'left', scroll });
 
-	const borderColor = useGetColor({ colorMode, type: 'divider' });
+	const borderColor = useGetColor({ color: 'gray', colorMode, type: 'divider' });
 
 	const handleScrollPrev = () => {
 		const prevItem = getPrevItem();

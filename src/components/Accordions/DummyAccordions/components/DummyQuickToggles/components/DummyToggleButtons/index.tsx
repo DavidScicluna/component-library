@@ -23,7 +23,7 @@ const DummyToggleButtons: FC<DummyToggleButtonsProps> = (props) => {
 
 	const { children, size, spacing = defaultSpacing } = props;
 
-	const textSecondaryColor = useGetColor({ colorMode, type: 'text.secondary' });
+	const textSecondaryColor = useGetColor({ color: 'gray', colorMode, type: 'text.secondary' });
 
 	const horizontalScrollWidth = useMemo((): string => {
 		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem'));

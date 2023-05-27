@@ -44,7 +44,7 @@ const Modal: FC<ModalProps> = (props) => {
 		...rest
 	} = props;
 
-	const background = useGetColor({ colorMode, type: 'background' });
+	const background = useGetColor({ color: 'gray', colorMode, type: 'background' });
 
 	const width = useMemo((): string => {
 		if (size === 'full' || isSm) {

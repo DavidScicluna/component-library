@@ -41,8 +41,8 @@ const DropdownButton = forwardRef<DropdownButtonRef, DropdownButtonProps>(functi
 
 	const [isHovering, setIsHovering] = useBoolean();
 
-	const border = useGetColor({ colorMode, type: 'divider' });
-	const background = useGetColor({ colorMode, type: 'background' });
+	const border = useGetColor({ color: 'gray', colorMode, type: 'divider' });
+	const background = useGetColor({ color: 'gray', colorMode, type: 'background' });
 
 	const style = useStyles({ theme, color, colorMode, isActive: isPopperOpen });
 

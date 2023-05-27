@@ -22,7 +22,7 @@ const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest
 
 	const [scroll, setScroll] = useSetHorizontalScrollAPIContext();
 
-	const borderColor = useGetColor({ colorMode, type: 'divider' });
+	const borderColor = useGetColor({ color: 'gray', colorMode, type: 'divider' });
 
 	const handleScrollToTab = (index: number): void => {
 		if (scroll) {

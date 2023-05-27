@@ -28,8 +28,8 @@ const Popper: FC<PopperProps> = (props) => {
 
 	const { isOpen: isPopperOpen, onOpen: onPopperOpen, onClose: onPopperClose } = useDisclosure();
 
-	const border = useGetColor({ colorMode, type: 'divider' });
-	const background = useGetColor({ colorMode, type: 'background' });
+	const border = useGetColor({ color: 'gray', colorMode, type: 'divider' });
+	const background = useGetColor({ color: 'gray', colorMode, type: 'background' });
 
 	const arrowSize = useConst<number>(convertREMToPixels(convertStringToNumber(theme.space[1.5], 'rem')));
 

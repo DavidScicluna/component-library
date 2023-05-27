@@ -12,7 +12,7 @@ const CalendarWeekdays: FC<CalendarWeekdaysProps> = ({ calendar }) => {
 	const { colorMode } = useDatePickerContext();
 	const { month, year } = calendar;
 
-	const color = useGetColor({ colorMode, type: 'text.primary' });
+	const color = useGetColor({ color: 'gray', colorMode, type: 'text.primary' });
 
 	return (
 		<SimpleGrid width='100%' columns={7} alignItems='center' justifyContent='space-between' spacing={1}>

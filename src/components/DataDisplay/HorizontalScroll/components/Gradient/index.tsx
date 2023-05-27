@@ -13,7 +13,7 @@ import { GradientProps } from './common/types';
 const Gradient: FC<GradientProps> = ({ direction, isVisible = false }) => {
 	const { colorMode, arrowsWidth } = useHorizontalScrollContext();
 
-	const background = useGetColor({ colorMode, type: 'background' });
+	const background = useGetColor({ color: 'gray', colorMode, type: 'background' });
 
 	return (
 		<Box as={Fade} width={arrowsWidth * 2} height='100%' in={isVisible}>

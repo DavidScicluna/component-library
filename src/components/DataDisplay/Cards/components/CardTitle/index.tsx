@@ -8,7 +8,7 @@ import { useGetColor } from '../../../../../common/hooks';
 import { CardTitleProps } from './common/types';
 
 const CardTitle: FC<CardTitleProps> = ({ children, colorMode = defaultColorMode }) => {
-	const color = useGetColor({ colorMode, type: 'text.primary' });
+	const color = useGetColor({ color: 'gray', colorMode, type: 'text.primary' });
 
 	return (
 		<Text align='left' color={color} fontSize='xl' fontWeight='bold' lineHeight='normal' noOfLines={1}>

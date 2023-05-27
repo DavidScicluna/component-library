@@ -19,7 +19,7 @@ const DummyTabBarList: FC<DummyTabBarListProps> = ({ tabs = [], renderLeft, rend
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
-	const borderColor = useGetColor({ colorMode, type: 'divider' });
+	const borderColor = useGetColor({ color: 'gray', colorMode, type: 'divider' });
 
 	return (
 		<TabList

@@ -10,7 +10,7 @@ import { ConfirmModalSubtitleProps } from './common/types';
 const ConfirmModalSubtitle: FC<ConfirmModalSubtitleProps> = ({ children, ...rest }) => {
 	const { colorMode } = useConfirmModalContext();
 
-	const color = useGetColor({ colorMode, type: 'text.secondary' });
+	const color = useGetColor({ color: 'gray', colorMode, type: 'text.secondary' });
 
 	return (
 		<Text align='center' color={color} fontSize='sm' lineHeight='base' noOfLines={0} {...rest}>
