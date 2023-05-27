@@ -5,8 +5,7 @@ import { Center, Grid, GridItem, TabList as CUITabList } from '@chakra-ui/react'
 import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
-import { useTheme } from '../../../../../../common/hooks';
-import { getColor } from '../../../../../../common/utils/color';
+import { useGetColor } from '../../../../../../common/hooks';
 import HorizontalScroll from '../../../../../DataDisplay/HorizontalScroll';
 import { useSetHorizontalScrollAPIContext } from '../../../../../DataDisplay/HorizontalScroll/common/hooks';
 import { border } from '../../../common/default/sizes';
@@ -17,13 +16,13 @@ import { TabListProps } from './common/types';
 import Tab from './components/Tab';
 
 const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest }) => {
-	const theme = useTheme();
-
 	const { activeTab, color, colorMode, isDisabled, isFitted, onChange } = useTabsContext();
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const [scroll, setScroll] = useSetHorizontalScrollAPIContext();
+
+	const borderColor = useGetColor({ colorMode, type: 'divider' });
 
 	const handleScrollToTab = (index: number): void => {
 		if (scroll) {
@@ -52,7 +51,7 @@ const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest
 			height='100%'
 			borderBottomWidth={`${border.default}px`}
 			borderBottomStyle='solid'
-			borderBottomColor={getColor({ theme, colorMode, type: 'divider' })}
+			borderBottomColor={borderColor}
 			sx={{
 				'& .react-horizontal-scrolling-menu--inner-wrapper': { width: '100%' },
 				'& .react-horizontal-scrolling-menu--item': isFitted ? { width: '100%' } : {}

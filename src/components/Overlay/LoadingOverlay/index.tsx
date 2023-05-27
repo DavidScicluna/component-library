@@ -1,11 +1,8 @@
-import { forwardRef, ReactElement, useMemo } from 'react';
+import { forwardRef, ReactElement } from 'react';
 
 import { Center, Grid, GridItem } from '@chakra-ui/react';
 
-import { transparentize } from 'color2k';
-
-import { useTheme } from '../../../common/hooks';
-import { getColor } from '../../../common/utils/color';
+import { useGetColor, useTheme } from '../../../common/hooks';
 import { useProviderContext } from '../../Provider/common/hooks';
 import Fade from '../../Transitions/Fade';
 import Glass from '../Glass';
@@ -31,19 +28,7 @@ const LoadingOverlay = forwardRef<LoadingOverlayRef, LoadingOverlayProps>(functi
 		...rest
 	} = props;
 
-	const background = useMemo((): string => {
-		return hasBackdrop
-			? transparentize(
-					getColor({
-						theme,
-						colorMode,
-						color,
-						type: colorMode === 'light' ? 'darkest' : 'lightest'
-					}),
-					0.5
-			  )
-			: (theme.colors.transparent as string);
-	}, [hasBackdrop, color, colorMode]);
+	const background = useGetColor({ color, colorMode, type: colorMode === 'light' ? 'darkest' : 'lightest' });
 
 	return (
 		<Grid
@@ -58,11 +43,19 @@ const LoadingOverlay = forwardRef<LoadingOverlayRef, LoadingOverlayProps>(functi
 		>
 			<GridItem as={Fade} zIndex={1} rowStart={1} colStart={1} in={isLoading}>
 				{hasGlass ? (
-					<Glass width='100%' height='100%' sx={{ background }}>
+					<Glass
+						width='100%'
+						height='100%'
+						sx={{ background: hasBackdrop ? background : theme.colors.transparent }}
+					>
 						{renderSpinner()}
 					</Glass>
 				) : (
-					<Center width='100%' height='100%' sx={{ background }}>
+					<Center
+						width='100%'
+						height='100%'
+						sx={{ background: hasBackdrop ? background : theme.colors.transparent }}
+					>
 						{renderSpinner()}
 					</Center>
 				)}

@@ -4,8 +4,7 @@ import { Box } from '@chakra-ui/react';
 
 import { capitalize, startCase } from 'lodash-es';
 
-import { useTheme } from '../../../../../../../common/hooks';
-import { getColor } from '../../../../../../../common/utils/color';
+import { useGetColor, useTheme } from '../../../../../../../common/hooks';
 import ScaleFade from '../../../../../../Transitions/ScaleFade';
 import CardBody from '../../../../../Cards/components/CardBody';
 import CardTitle from '../../../../../Cards/components/CardTitle';
@@ -24,9 +23,7 @@ const ColorSwitcherGridItem = forwardRef<ColorSwitcherGridItemRef, ColorSwitcher
 
 		const { color = defaultColor, colorMode = defaultColorMode, isActive = false, onChange, ...rest } = props;
 
-		const handleChange = (): void => {
-			onChange({ color });
-		};
+		const background = useGetColor({ color, colorMode, type: 'color' });
 
 		return (
 			<Card
@@ -36,7 +33,7 @@ const ColorSwitcherGridItem = forwardRef<ColorSwitcherGridItemRef, ColorSwitcher
 				color={isActive ? color : 'gray'}
 				colorMode={colorMode}
 				isClickable
-				onClick={handleChange}
+				onClick={() => onChange({ color })}
 				variant={isActive ? 'outlined' : 'monochrome'}
 				p={2}
 			>
@@ -59,12 +56,7 @@ const ColorSwitcherGridItem = forwardRef<ColorSwitcherGridItemRef, ColorSwitcher
 					}
 				/>
 				<CardBody>
-					<Box
-						width='100%'
-						height={theme.fontSizes['8xl']}
-						background={getColor({ theme, colorMode, color, type: 'color' })}
-						borderRadius='base'
-					/>
+					<Box width='100%' height={theme.fontSizes['8xl']} background={background} borderRadius='base' />
 				</CardBody>
 			</Card>
 		);

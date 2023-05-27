@@ -2,8 +2,7 @@ import { FC } from 'react';
 
 import { useMediaQuery, VStack } from '@chakra-ui/react';
 
-import { useTheme } from '../../../../../common/hooks';
-import { getColor } from '../../../../../common/utils/color';
+import { useGetColor, useTheme } from '../../../../../common/hooks';
 import Divider from '../../../../Divider';
 import { useModalContext } from '../../common/hooks';
 
@@ -18,6 +17,8 @@ const ModalStack: FC<ModalStackProps> = (props) => {
 
 	const { children, isDivisible = true, p, spacing = defaultSpacing, ...rest } = props;
 
+	const background = useGetColor({ colorMode, type: 'background' });
+
 	return (
 		<VStack
 			{...rest}
@@ -25,7 +26,7 @@ const ModalStack: FC<ModalStackProps> = (props) => {
 			height='auto'
 			minHeight={size === 'full' || isSm ? 'inherit' : undefined}
 			divider={isDivisible ? <Divider colorMode={colorMode} /> : undefined}
-			backgroundColor={getColor({ theme, colorMode, type: 'background' })}
+			backgroundColor={background}
 			borderRadius={size === 'full' || isSm ? 'none' : 'xl'}
 			overflow='hidden'
 			spacing={spacing}

@@ -4,9 +4,8 @@ import { Box, HStack, VStack } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import { useTheme } from '../../../../../../common/hooks';
+import { useGetColor, useTheme } from '../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../common/utils';
-import { getColor } from '../../../../../../common/utils/color';
 import { Space } from '../../../../../../theme/types';
 import Icon from '../../../../Icon';
 import { useCollapsibleCardContext } from '../../common/hooks';
@@ -25,6 +24,9 @@ const CollapsibleCardHeader: FC<CollapsibleCardHeaderProps> = (props) => {
 	const [actionsRef, { width: actionsWidth }] = useElementSize();
 
 	const { renderLeft, renderRight, renderTitle, renderSubtitle, actions, spacing = defaultSpacing, ...rest } = props;
+
+	const textPrimaryColor = useGetColor({ colorMode, type: 'text.primary' });
+	const textSecondaryColor = useGetColor({ colorMode, type: 'text.secondary' });
 
 	const handleCalculateTextWidth = useCallback((): string => {
 		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem'));
@@ -53,7 +55,7 @@ const CollapsibleCardHeader: FC<CollapsibleCardHeaderProps> = (props) => {
 						{/* Title */}
 						{renderTitle({
 							align: 'left',
-							color: getColor({ theme, colorMode, type: 'text.primary' }),
+							color: textPrimaryColor,
 							fontSize: 'xl',
 							fontWeight: 'bold',
 							lineHeight: 'normal',
@@ -64,7 +66,7 @@ const CollapsibleCardHeader: FC<CollapsibleCardHeaderProps> = (props) => {
 						{renderSubtitle
 							? renderSubtitle({
 									align: 'left',
-									color: getColor({ theme, colorMode, type: 'text.secondary' }),
+									color: textSecondaryColor,
 									fontSize: 'sm',
 									lineHeight: 'normal',
 									noOfLines: 1
@@ -81,7 +83,7 @@ const CollapsibleCardHeader: FC<CollapsibleCardHeaderProps> = (props) => {
 						colorMode={colorMode}
 						icon={isOpen ? 'remove' : 'add'}
 						variant='unstyled'
-						sx={{ color: getColor({ theme, colorMode, type: 'text.primary' }) }}
+						sx={{ color: textPrimaryColor }}
 					/>
 				</HStack>
 			</HStack>

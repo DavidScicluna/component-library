@@ -7,8 +7,7 @@ import {
 	colorMode as defaultColorMode,
 	method as defaultOnClose
 } from '../../../common/default/props';
-import { useTheme } from '../../../common/hooks';
-import { getColor } from '../../../common/utils/color';
+import { useGetColor, useTheme } from '../../../common/hooks';
 import { useProviderContext } from '../../Provider/common/hooks';
 
 import { isOpen as defaultIsOpen, size as defaultSize, spacing as defaultSpacing } from './common/default/props';
@@ -38,6 +37,8 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 		...rest
 	} = props;
 
+	const background = useGetColor({ colorMode, type: 'background' });
+
 	return (
 		<CUIModal
 			{...rest}
@@ -50,11 +51,7 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 		>
 			<ConfirmModalContext.Provider value={{ color, colorMode, onClose, spacing }}>
 				<ModalOverlay />
-				<ModalContent
-					position='relative'
-					backgroundColor={getColor({ theme, colorMode, type: 'background' })}
-					borderRadius='xl'
-				>
+				<ModalContent position='relative' backgroundColor={background} borderRadius='xl'>
 					{renderCancel ? (
 						<Center position='absolute' top={theme.space[2]} right={theme.space[2]}>
 							{renderCancel({

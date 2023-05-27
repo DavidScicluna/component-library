@@ -2,18 +2,17 @@ import { FC } from 'react';
 
 import { SimpleGrid, Text } from '@chakra-ui/react';
 
-import { useTheme } from '../../../../../../../common/hooks';
-import { getColor } from '../../../../../../../common/utils/color';
+import { useGetColor } from '../../../../../../../common/hooks';
 import { short as weekdays } from '../../../../common/data/weekdays';
 import { useDatePickerContext } from '../../../../common/hooks';
 
 import { CalendarWeekdaysProps } from './common/types';
 
 const CalendarWeekdays: FC<CalendarWeekdaysProps> = ({ calendar }) => {
-	const theme = useTheme();
-
 	const { colorMode } = useDatePickerContext();
 	const { month, year } = calendar;
+
+	const color = useGetColor({ colorMode, type: 'text.primary' });
 
 	return (
 		<SimpleGrid width='100%' columns={7} alignItems='center' justifyContent='space-between' spacing={1}>
@@ -21,7 +20,7 @@ const CalendarWeekdays: FC<CalendarWeekdaysProps> = ({ calendar }) => {
 				<Text
 					key={`ds-cl-DatePicker-${weekday}-${month}-${year}`}
 					align='center'
-					color={getColor({ theme, colorMode, type: 'text.primary' })}
+					color={color}
 					fontWeight='semibold'
 					fontSize='sm'
 					textTransform='uppercase'

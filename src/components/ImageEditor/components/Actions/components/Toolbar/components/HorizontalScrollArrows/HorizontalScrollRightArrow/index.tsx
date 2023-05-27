@@ -1,7 +1,6 @@
 import { FC } from 'react';
 
-import { useTheme } from '../../../../../../../../../common/hooks';
-import { getColor } from '../../../../../../../../../common/utils/color';
+import { useGetColor } from '../../../../../../../../../common/hooks';
 import {
 	useGetHorizontalScrollAPIContext,
 	useHorizontalScrollArrowState
@@ -10,14 +9,14 @@ import HorizontalScrollOverlayArrow from '../../../../../../../../DataDisplay/Ho
 import { useImageEditorContext } from '../../../../../../../common/hooks';
 
 const HorizontalScrollRightArrow: FC = () => {
-	const theme = useTheme();
-
 	const { colorMode } = useImageEditorContext();
 
 	const scroll = useGetHorizontalScrollAPIContext();
 	const { getNextItem, scrollToItem } = scroll || {};
 
 	const { isVisible } = useHorizontalScrollArrowState({ direction: 'right', scroll });
+
+	const borderColor = useGetColor({ colorMode, type: 'divider' });
 
 	const handleScrollNext = (): void => {
 		const nextItem = getNextItem();
@@ -32,7 +31,7 @@ const HorizontalScrollRightArrow: FC = () => {
 			sx={{
 				'borderBottomWidth': '2px',
 				'borderBottomStyle': 'solid',
-				'borderBottomColor': getColor({ theme, colorMode, type: 'divider' }),
+				'borderBottomColor': borderColor,
 
 				'&::before': { borderBottom: 'none' }
 			}}

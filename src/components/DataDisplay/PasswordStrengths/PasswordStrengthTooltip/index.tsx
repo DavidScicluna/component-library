@@ -5,8 +5,7 @@ import { HStack, Text, VStack } from '@chakra-ui/react';
 import { capitalize } from 'lodash-es';
 import { useUpdateEffect } from 'usehooks-ts';
 
-import { useTheme } from '../../../../common/hooks';
-import { getColor } from '../../../../common/utils/color';
+import { useGetColor, useTheme } from '../../../../common/hooks';
 import Popper from '../../../Overlay/Popper';
 import { useProviderContext } from '../../../Provider/common/hooks';
 import Icon from '../../Icon';
@@ -32,6 +31,9 @@ const PasswordStrengthTooltip: FC<PasswordStrengthTooltipProps> = (props) => {
 
 	const [strength, setStrength] = useState(getPasswordStrength(password));
 
+	const textPrimaryColor = useGetColor({ colorMode, type: 'text.primary' });
+	const textSecondaryColor = useGetColor({ colorMode, type: 'text.secondary' });
+
 	const handleCheckHasType = (type: StrengthType): boolean => {
 		switch (type) {
 			case 'lowercase':
@@ -50,12 +52,7 @@ const PasswordStrengthTooltip: FC<PasswordStrengthTooltipProps> = (props) => {
 	return (
 		<Popper {...rest} color={color} colorMode={colorMode}>
 			<VStack width='100%' height='100%' alignItems='stretch' justifyContent='stretch' spacing={2} p={2}>
-				<Text
-					align='left'
-					color={getColor({ theme, colorMode, type: 'text.primary' })}
-					fontSize='md'
-					fontWeight='semibold'
-				>
+				<Text align='left' color={textPrimaryColor} fontSize='md' fontWeight='semibold'>
 					{password.length >= 8
 						? `${capitalize(strength)} Password`
 						: 'Password must be have atleast 8 characters'}
@@ -70,12 +67,7 @@ const PasswordStrengthTooltip: FC<PasswordStrengthTooltipProps> = (props) => {
 				/>
 
 				<VStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={1}>
-					<Text
-						align='left'
-						color={getColor({ theme, colorMode, type: 'text.secondary' })}
-						fontSize='sm'
-						fontWeight='normal'
-					>
+					<Text align='left' color={textSecondaryColor} fontSize='sm' fontWeight='normal'>
 						It would be best to have:
 					</Text>
 
@@ -95,7 +87,7 @@ const PasswordStrengthTooltip: FC<PasswordStrengthTooltipProps> = (props) => {
 								/>
 								<Text
 									align='left'
-									color={getColor({ theme, colorMode, type: 'text.secondary' })}
+									color={textSecondaryColor}
 									fontSize='sm'
 									fontWeight='normal'
 									textTransform='capitalize'

@@ -1,36 +1,26 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
 import { Progress } from '@chakra-ui/react';
 
-import { useUpdateEffect } from 'usehooks-ts';
-
-import { useTheme } from '../../../../common/hooks';
-import { getColor } from '../../../../common/utils/color';
+import { useGetColor } from '../../../../common/hooks';
 import { useProviderContext } from '../../../Provider/common/hooks';
 import { getPasswordStrengthColor } from '../common/utils';
 
 import { PasswordStrengthProgressProps } from './common/types';
 
 const PasswordStrengthProgress: FC<PasswordStrengthProgressProps> = (props) => {
-	const theme = useTheme();
-
 	const { colorMode: defaultColorMode } = useProviderContext();
 
 	const { colorMode = defaultColorMode, password, strength, ...rest } = props;
 
-	const [color, setColor] = useState(
-		getColor({ theme, colorMode, color: getPasswordStrengthColor(strength), type: 'color' })
-	);
-
-	useUpdateEffect(() => {
-		setColor(getColor({ theme, colorMode, color: getPasswordStrengthColor(strength), type: 'color' }));
-	}, [strength]);
+	const color = useGetColor({ color: getPasswordStrengthColor(strength), colorMode, type: 'color' });
+	const background = useGetColor({ colorMode, type: 'divider' });
 
 	return (
 		<Progress
 			{...rest}
 			borderRadius='full'
-			background={getColor({ theme, colorMode, type: 'divider' })}
+			background={background}
 			value={
 				password.length >= 8
 					? strength === 'weak'

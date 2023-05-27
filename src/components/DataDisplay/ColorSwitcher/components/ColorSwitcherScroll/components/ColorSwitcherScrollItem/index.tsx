@@ -4,8 +4,7 @@ import { Center } from '@chakra-ui/react';
 
 import { capitalize, startCase } from 'lodash-es';
 
-import { useBoolean, useTheme } from '../../../../../../../common/hooks';
-import { getColor } from '../../../../../../../common/utils/color';
+import { useBoolean, useGetColor } from '../../../../../../../common/hooks';
 import Tooltip from '../../../../../../Overlay/Tooltip';
 import ScaleFade from '../../../../../../Transitions/ScaleFade';
 import Icon from '../../../../../Icon';
@@ -19,8 +18,6 @@ import {
 
 const ColorSwitcherScrollItem = forwardRef<ColorSwitcherScrollItemRef, ColorSwitcherScrollItemProps>(
 	function ColorSwitcherScrollItem(props, ref): ReactElement {
-		const theme = useTheme();
-
 		const { color: defaultColor, colorMode: defaultColorMode } = useColorSwitcherContext();
 
 		const {
@@ -37,6 +34,8 @@ const ColorSwitcherScrollItem = forwardRef<ColorSwitcherScrollItemRef, ColorSwit
 		} = props;
 
 		const [isHovering, setIsHovering] = useBoolean();
+
+		const background = useGetColor({ color, colorMode, type: 'color' });
 
 		const handleClick = (event: ColorSwitcherScrollItemMouseEvent): void => {
 			onChange({ color });
@@ -81,7 +80,7 @@ const ColorSwitcherScrollItem = forwardRef<ColorSwitcherScrollItemRef, ColorSwit
 					onClick={handleClick}
 					onMouseEnter={handleMouseEnter}
 					onMouseLeave={handleMouseLeave}
-					background={getColor({ theme, colorMode, color, type: 'color' })}
+					background={background}
 				>
 					<ScaleFade in={isActive} unmountOnExit={false}>
 						<Icon

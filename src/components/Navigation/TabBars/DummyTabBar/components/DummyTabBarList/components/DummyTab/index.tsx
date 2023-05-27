@@ -5,8 +5,7 @@ import { Center, HStack, Tab as CUIDummyTab, VStack } from '@chakra-ui/react';
 import { merge, omit } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
-import { useTheme } from '../../../../../../../../common/hooks';
-import { getColor } from '../../../../../../../../common/utils/color';
+import { useGetColor, useTheme } from '../../../../../../../../common/hooks';
 import Divider from '../../../../../../../Divider';
 import Skeleton from '../../../../../../../Feedback/Skeleton';
 import ScaleFade from '../../../../../../../Transitions/ScaleFade';
@@ -36,14 +35,12 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 		...rest
 	} = props;
 
-	const mainColor = useMemo<string>((): string => {
-		return getColor({
-			theme,
-			colorMode,
-			color: isActive || isSelected ? color : 'gray',
-			type: isActive || isSelected ? 'color' : 'default'
-		});
-	}, [color, colorMode, isActive, isSelected]);
+	const borderColor = useGetColor({
+		color: isActive || isSelected ? color : 'gray',
+		colorMode,
+		type: isActive || isSelected ? 'color' : 'default'
+	});
+
 	const config = useMemo<GetSizeConfigReturn>(() => {
 		return getSizeConfig({ size });
 	}, [size]);
@@ -61,7 +58,7 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 			>
 				<ScaleFade in={isActive || isSelected} unmountOnExit={false} initialScale={0.75}>
 					<Center width='100%' px={config.padding.x}>
-						<Divider width='100%' height={`${border.tab}px`} backgroundColor={mainColor} />
+						<Divider width='100%' height={`${border.tab}px`} backgroundColor={borderColor} />
 					</Center>
 				</ScaleFade>
 
@@ -88,8 +85,8 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 							<Skeleton
 								color={isSelected ? color : 'gray'}
 								colorMode={colorMode}
-								startColor={mainColor}
-								endColor={mainColor}
+								startColor={borderColor}
+								endColor={borderColor}
 								isLoaded={false}
 								variant='text'
 							>

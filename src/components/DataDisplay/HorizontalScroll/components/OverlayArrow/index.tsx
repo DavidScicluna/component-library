@@ -5,8 +5,7 @@ import { Center } from '@chakra-ui/react';
 import { merge } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
-import { useTheme } from '../../../../../common/hooks';
-import { getColor } from '../../../../../common/utils/color';
+import { useGetColor, useTheme } from '../../../../../common/hooks';
 import Fade from '../../../../Transitions/Fade';
 import { useHorizontalScrollContext } from '../../common/hooks';
 import Arrow from '../Arrow';
@@ -22,6 +21,8 @@ const OverlayArrow: FC<OverlayArrowProps> = (props) => {
 	const [iconButtonRef, { width: iconButtonWidth, height: iconButtonHeight }] = useElementSize<HTMLButtonElement>();
 
 	const { direction, isVisible = false, sx, ...rest } = props;
+
+	const background = useGetColor({ color, colorMode, type: colorMode === 'light' ? 'lightest' : 'darkest' });
 
 	const style = useStyles({ theme, colorMode, direction });
 
@@ -63,17 +64,7 @@ const OverlayArrow: FC<OverlayArrowProps> = (props) => {
 					: undefined
 			}
 		>
-			<Center
-				height='100%'
-				sx={{
-					backgroundColor: getColor({
-						theme,
-						colorMode,
-						color,
-						type: colorMode === 'light' ? 'lightest' : 'darkest'
-					})
-				}}
-			>
+			<Center height='100%' sx={{ background, backgroundColor: background }}>
 				<Arrow {...rest} ref={iconButtonRef} direction={direction} />
 			</Center>
 		</Center>

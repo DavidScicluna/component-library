@@ -6,8 +6,7 @@ import { dataAttr } from '@chakra-ui/utils';
 import { merge, omit } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
-import { useBoolean, useTheme } from '../../../../../../../../common/hooks';
-import { getColor } from '../../../../../../../../common/utils/color';
+import { useBoolean, useGetColor, useTheme } from '../../../../../../../../common/hooks';
 import Divider from '../../../../../../../Divider';
 import ScaleFade from '../../../../../../../Transitions/ScaleFade';
 import { isDisabled as defaultIsDisabled } from '../../../../../common/default/props';
@@ -44,6 +43,12 @@ const Tab: FC<TabProps> = (props) => {
 	} = props;
 
 	const [isHovering, setIsHovering] = useBoolean();
+
+	const borderColor = useGetColor({
+		color: isActive || isSelected ? color : 'gray',
+		colorMode,
+		type: isActive || isSelected ? 'color' : 'default'
+	});
 
 	const config = useMemo<GetSizeConfigReturn>(() => {
 		return getSizeConfig({ size });
@@ -98,16 +103,7 @@ const Tab: FC<TabProps> = (props) => {
 			>
 				<ScaleFade in={isActive || isSelected || isHovering} unmountOnExit={false} initialScale={0.75}>
 					<Center width='100%' px={config.padding.x}>
-						<Divider
-							width='100%'
-							height={`${border.tab}px`}
-							backgroundColor={getColor({
-								theme,
-								colorMode,
-								color: isActive || isSelected ? color : 'gray',
-								type: isActive || isSelected ? 'color' : 'default'
-							})}
-						/>
+						<Divider width='100%' height={`${border.tab}px`} backgroundColor={borderColor} />
 					</Center>
 				</ScaleFade>
 

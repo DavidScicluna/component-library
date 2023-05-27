@@ -7,10 +7,9 @@ import { round, sample } from 'lodash-es';
 import { useCountdown, useElementSize } from 'usehooks-ts';
 
 import { errorEmojis, errorTitles, successEmojis, successTitles } from '../../../common/data/strings';
-import { useTheme } from '../../../common/hooks';
+import { useGetColor, useTheme } from '../../../common/hooks';
 import { Undefinable } from '../../../common/types';
 import { convertREMToPixels, convertStringToNumber } from '../../../common/utils';
-import { getColor } from '../../../common/utils/color';
 import { Space } from '../../../theme/types';
 import IconButton from '../../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
@@ -68,13 +67,11 @@ const Alert: FC<AlertProps> = (props) => {
 		intervalMs: 1000
 	});
 
-	const color = useMemo<string>(() => {
-		return getColor({ theme, colorMode, color: getStatusColor(status), type: 'color' });
-	}, [colorMode, status]);
-
-	const background = useMemo<string>(() => {
-		return getColor({ theme, colorMode, type: 'background' });
-	}, [colorMode]);
+	const color = useGetColor({ color: getStatusColor(status), colorMode, type: 'color' });
+	const textPrimaryColor = useGetColor({ colorMode, type: 'text.primary' });
+	const textSecondaryColor = useGetColor({ colorMode, type: 'text.secondary' });
+	const borderColor = useGetColor({ colorMode, type: 'divider' });
+	const background = useGetColor({ colorMode, type: 'background' });
 
 	const contentWidth = useMemo((): string => {
 		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem')) * 2;
@@ -104,7 +101,7 @@ const Alert: FC<AlertProps> = (props) => {
 			borderRadius='base'
 			borderWidth='2px'
 			borderStyle='solid'
-			borderColor={getColor({ theme, colorMode, type: 'divider' })}
+			borderColor={borderColor}
 			background={background}
 			gap={spacing}
 			py={spacing}
@@ -118,7 +115,7 @@ const Alert: FC<AlertProps> = (props) => {
 							width={theme.space['0.5']}
 							height='auto'
 							borderRadius='full'
-							background={getColor({ theme, colorMode, type: 'divider' })}
+							background={borderColor}
 							value={duration ? round((count / duration) * 100) : 100}
 							sx={{ '& div': { backgroundImage: 'none', backgroundColor: color } }}
 						/>
@@ -143,7 +140,7 @@ const Alert: FC<AlertProps> = (props) => {
 							<Text
 								maxWidth='100%'
 								align='left'
-								color={getColor({ theme, colorMode, type: 'text.primary' })}
+								color={textPrimaryColor}
 								fontSize='xl'
 								fontWeight='bold'
 								lineHeight='shorter'
@@ -154,7 +151,7 @@ const Alert: FC<AlertProps> = (props) => {
 							<Text
 								maxWidth='100%'
 								align='left'
-								color={getColor({ theme, colorMode, type: 'text.secondary' })}
+								color={textSecondaryColor}
 								fontSize='sm'
 								lineHeight='shorter'
 							>

@@ -5,8 +5,7 @@ import { Center, Grid, GridItem, TabList } from '@chakra-ui/react';
 import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
-import { useTheme } from '../../../../../../common/hooks';
-import { getColor } from '../../../../../../common/utils/color';
+import { useGetColor } from '../../../../../../common/hooks';
 import HorizontalScroll from '../../../../../DataDisplay/HorizontalScroll';
 import { border } from '../../../common/default/sizes';
 import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from '../../../components/HorizontalScrollArrows';
@@ -16,11 +15,11 @@ import { DummyTabBarListProps } from './common/types';
 import Tab from './components/DummyTab';
 
 const DummyTabBarList: FC<DummyTabBarListProps> = ({ tabs = [], renderLeft, renderRight, ...rest }) => {
-	const theme = useTheme();
-
 	const { activeTab, color, colorMode } = useDummyTabBarContext();
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
+
+	const borderColor = useGetColor({ colorMode, type: 'divider' });
 
 	return (
 		<TabList
@@ -29,7 +28,7 @@ const DummyTabBarList: FC<DummyTabBarListProps> = ({ tabs = [], renderLeft, rend
 			height='100%'
 			borderTopWidth={`${border.default}px`}
 			borderTopStyle='solid'
-			borderTopColor={getColor({ theme, colorMode, type: 'divider' })}
+			borderTopColor={borderColor}
 			sx={{
 				'& .react-horizontal-scrolling-menu--inner-wrapper': { width: '100%' },
 				'& .react-horizontal-scrolling-menu--item': { width: '100%' }

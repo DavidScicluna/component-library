@@ -3,22 +3,15 @@ import { FC } from 'react';
 import { Text } from '@chakra-ui/react';
 
 import { colorMode as defaultColorMode } from '../../../../../common/default/props';
-import { useTheme } from '../../../../../common/hooks';
-import { getColor } from '../../../../../common/utils/color';
+import { useGetColor } from '../../../../../common/hooks';
 
 import { CardSubtitleProps } from './common/types';
 
 const CardSubtitle: FC<CardSubtitleProps> = ({ children, colorMode = defaultColorMode }) => {
-	const theme = useTheme();
+	const color = useGetColor({ colorMode, type: 'text.secondary' });
 
 	return (
-		<Text
-			align='left'
-			color={getColor({ theme, colorMode, type: 'text.secondary' })}
-			fontSize='sm'
-			lineHeight='normal'
-			noOfLines={1}
-		>
+		<Text align='left' color={color} fontSize='sm' lineHeight='normal' noOfLines={1}>
 			{children}
 		</Text>
 	);

@@ -9,9 +9,8 @@ import {
 	colorMode as defaultColorMode,
 	method as defaultOnClose
 } from '../../../common/default/props';
-import { useTheme } from '../../../common/hooks';
+import { useGetColor, useTheme } from '../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../common/utils';
-import { getColor } from '../../../common/utils/color';
 import { useProviderContext } from '../../Provider/common/hooks';
 
 import { isOpen as defaultIsOpen, size as defaultSize, spacing as defaultSpacing } from './common/default/props';
@@ -44,6 +43,8 @@ const Modal: FC<ModalProps> = (props) => {
 		spacing = defaultSpacing,
 		...rest
 	} = props;
+
+	const background = useGetColor({ colorMode, type: 'background' });
 
 	const width = useMemo((): string => {
 		if (size === 'full' || isSm) {
@@ -81,7 +82,7 @@ const Modal: FC<ModalProps> = (props) => {
 				<ModalContent
 					width={width}
 					maxHeight={height}
-					backgroundColor={getColor({ theme, colorMode, type: 'background' })}
+					backgroundColor={background}
 					borderRadius={size === 'full' || isSm ? 'none' : 'xl'}
 					m={0}
 				>

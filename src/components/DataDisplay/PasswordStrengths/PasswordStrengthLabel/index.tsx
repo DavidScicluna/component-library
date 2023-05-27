@@ -4,9 +4,8 @@ import { HStack, Text } from '@chakra-ui/react';
 
 import { useUpdateEffect } from 'usehooks-ts';
 
-import { useTheme } from '../../../../common/hooks';
+import { useGetColor, useTheme } from '../../../../common/hooks';
 import { convertPixelsToREM, convertREMToPixels, convertStringToNumber } from '../../../../common/utils';
-import { getColor } from '../../../../common/utils/color';
 import { useProviderContext } from '../../../Provider/common/hooks';
 import { getPasswordStrength, getPasswordStrengthColor } from '../common/utils';
 import PasswordStrengthProgress from '../PasswordStrengthProgress';
@@ -23,9 +22,8 @@ const PasswordStrengthLabel = forwardRef<PasswordStrengthLabelRef, PasswordStren
 
 		const [strength, setStrength] = useState(getPasswordStrength(password));
 
-		const color = useMemo<string>(() => {
-			return getColor({ theme, colorMode, color: getPasswordStrengthColor(strength), type: 'color' });
-		}, [colorMode, strength]);
+		const color = useGetColor({ color: getPasswordStrengthColor(strength), colorMode, type: 'color' });
+
 		const fontSize = useMemo<string>(() => {
 			return `${convertPixelsToREM(
 				convertREMToPixels(convertStringToNumber(theme.fontSizes[size], 'rem')) - 2

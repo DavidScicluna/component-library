@@ -2,23 +2,22 @@ import { FC } from 'react';
 
 import { Text } from '@chakra-ui/react';
 
-import { useTheme } from '../../../../../common/hooks';
-import { getColor } from '../../../../../common/utils/color';
+import { useGetColor } from '../../../../../common/hooks';
 import { useCheckboxContext } from '../../common/hooks';
 
 import { CheckboxTitleProps } from './common/types';
 
 const CheckboxTitle: FC<CheckboxTitleProps> = (props) => {
-	const theme = useTheme();
-
 	const { colorMode, size } = useCheckboxContext();
 
 	const { children, ...rest } = props;
 
+	const color = useGetColor({ colorMode, type: 'text.primary' });
+
 	return (
 		<Text
 			align='left'
-			color={getColor({ theme, colorMode, type: 'text.primary' })}
+			color={color}
 			fontSize={size}
 			fontWeight='semibold'
 			lineHeight='normal'

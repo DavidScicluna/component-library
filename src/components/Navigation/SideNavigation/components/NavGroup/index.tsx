@@ -2,16 +2,15 @@ import { FC } from 'react';
 
 import { Text, VStack } from '@chakra-ui/react';
 
-import { useTheme } from '../../../../../common/hooks';
-import { getColor } from '../../../../../common/utils/color';
+import { useGetColor } from '../../../../../common/hooks';
 import { useSideNavigationContext } from '../../common/hooks';
 
 import { NavGroupProps } from './types';
 
 const NavGroup: FC<NavGroupProps> = ({ children, title, ...rest }) => {
-	const theme = useTheme();
-
 	const { colorMode, mode } = useSideNavigationContext();
+
+	const color = useGetColor({ colorMode, type: 'text.primary' });
 
 	return (
 		<VStack
@@ -23,7 +22,7 @@ const NavGroup: FC<NavGroupProps> = ({ children, title, ...rest }) => {
 		>
 			<Text
 				align={mode === 'expanded' ? 'left' : 'center'}
-				color={getColor({ theme, colorMode, type: 'text.primary' })}
+				color={color}
 				fontSize='sm'
 				fontWeight='semibold'
 				textTransform='uppercase'

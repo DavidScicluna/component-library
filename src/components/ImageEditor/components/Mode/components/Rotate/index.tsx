@@ -5,9 +5,8 @@ import { Center, HStack, Slider, SliderFilledTrack, SliderThumb, SliderTrack } f
 
 import { useElementSize } from 'usehooks-ts';
 
-import { useBoolean, useTheme } from '../../../../../../common/hooks';
+import { useBoolean, useGetColor, useTheme } from '../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../common/utils';
-import { getColor } from '../../../../../../common/utils/color';
 import Divider from '../../../../../Divider';
 import Tooltip from '../../../../../Overlay/Tooltip';
 import { rotation as defaultRotation } from '../../../../common/default/props';
@@ -24,6 +23,9 @@ const Rotate: FC<RotateProps> = ({ rotation = defaultRotation, onRotate }) => {
 	const [buttonsRef, { width: buttonsWidth }] = useElementSize();
 
 	const [isHoveringThumb, setIsHoveringThumb] = useBoolean();
+
+	const background = useGetColor({ colorMode, type: 'divider' });
+	const backgroundColor = useGetColor({ color, colorMode, type: 'color' });
 
 	const handleRotate = (direction: 'left' | 'right'): void => {
 		if ((rotation >= 0 && rotation < 90) || (rotation > 270 && rotation <= 360)) {
@@ -58,8 +60,8 @@ const Rotate: FC<RotateProps> = ({ rotation = defaultRotation, onRotate }) => {
 					onChange={(value) => onRotate({ deg: value })}
 					value={rotation}
 				>
-					<SliderTrack height={theme.space[1]} background={getColor({ theme, colorMode, type: 'divider' })}>
-						<SliderFilledTrack background={getColor({ theme, colorMode, color, type: 'divider' })} />
+					<SliderTrack height={theme.space[1]} background={background}>
+						<SliderFilledTrack background={background} />
 					</SliderTrack>
 					<Tooltip
 						aria-label='Slider thumb rotation degrees (tooltip)'
@@ -70,7 +72,7 @@ const Rotate: FC<RotateProps> = ({ rotation = defaultRotation, onRotate }) => {
 						<SliderThumb
 							width={theme.fontSizes.xl}
 							height={theme.fontSizes.xl}
-							backgroundColor={getColor({ theme, colorMode, color, type: 'color' })}
+							backgroundColor={backgroundColor}
 							boxShadow='none'
 							onMouseEnter={() => setIsHoveringThumb.on()}
 							onMouseLeave={() => setIsHoveringThumb.off()}

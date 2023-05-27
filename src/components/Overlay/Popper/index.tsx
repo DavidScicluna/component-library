@@ -1,10 +1,9 @@
-import { FC, useMemo } from 'react';
+import { FC } from 'react';
 
 import { Center, Popover, PopoverArrow, PopoverContent, PopoverTrigger, useDisclosure } from '@chakra-ui/react';
 
-import { useConst, useTheme } from '../../../common/hooks';
+import { useConst, useGetColor, useTheme } from '../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../common/utils';
-import { getColor } from '../../../common/utils/color';
 import { useProviderContext } from '../../Provider/common/hooks';
 
 import { PopperProps } from './common/types';
@@ -29,12 +28,8 @@ const Popper: FC<PopperProps> = (props) => {
 
 	const { isOpen: isPopperOpen, onOpen: onPopperOpen, onClose: onPopperClose } = useDisclosure();
 
-	const background = useMemo<string>(() => {
-		return getColor({ theme, colorMode, type: 'background' });
-	}, [colorMode]);
-	const border = useMemo<string>(() => {
-		return getColor({ theme, colorMode, type: 'divider' });
-	}, [colorMode]);
+	const border = useGetColor({ colorMode, type: 'divider' });
+	const background = useGetColor({ colorMode, type: 'background' });
 
 	const arrowSize = useConst<number>(convertREMToPixels(convertStringToNumber(theme.space[1.5], 'rem')));
 

@@ -1,4 +1,4 @@
-import { forwardRef, ReactElement, useCallback, useState } from 'react';
+import { forwardRef, ReactElement, useCallback } from 'react';
 
 import {
 	Button as CUIButton,
@@ -13,11 +13,10 @@ import {
 } from '@chakra-ui/react';
 
 import { merge } from 'lodash-es';
-import { useElementSize, useUpdateEffect } from 'usehooks-ts';
+import { useElementSize } from 'usehooks-ts';
 
-import { useBoolean, useTheme } from '../../../../../../../../../common/hooks';
+import { useBoolean, useGetColor, useTheme } from '../../../../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../../../../common/utils';
-import { getColor } from '../../../../../../../../../common/utils/color';
 import Icon from '../../../../../../../../DataDisplay/Icon';
 import ScaleFade from '../../../../../../../../Transitions/ScaleFade';
 import { useDatePickerContext } from '../../../../../../common/hooks';
@@ -42,8 +41,8 @@ const DropdownButton = forwardRef<DropdownButtonRef, DropdownButtonProps>(functi
 
 	const [isHovering, setIsHovering] = useBoolean();
 
-	const [background, setBackground] = useState<string>(getColor({ theme, colorMode, type: 'background' }));
-	const [border, setBorder] = useState<string>(getColor({ theme, colorMode, type: 'divider' }));
+	const border = useGetColor({ colorMode, type: 'divider' });
+	const background = useGetColor({ colorMode, type: 'background' });
 
 	const style = useStyles({ theme, color, colorMode, isActive: isPopperOpen });
 
@@ -58,9 +57,6 @@ const DropdownButton = forwardRef<DropdownButtonRef, DropdownButtonProps>(functi
 			return '100%';
 		}
 	}, [theme, getSizeConfig, childrenWidth]);
-
-	useUpdateEffect(() => setBackground(getColor({ theme, colorMode, type: 'background' })), [colorMode]);
-	useUpdateEffect(() => setBorder(getColor({ theme, colorMode, type: 'divider' })), [colorMode]);
 
 	return (
 		<Popover

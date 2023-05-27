@@ -4,15 +4,12 @@ import { Box, HStack, VStack } from '@chakra-ui/react';
 
 import { useElementSize } from 'usehooks-ts';
 
-import { useTheme } from '../../../common/hooks';
-import { getColor } from '../../../common/utils/color';
+import { useGetColor } from '../../../common/hooks';
 import { useProviderContext } from '../../Provider/common/hooks';
 
 import { HeadlineProps } from './common/types';
 
 const Headline: FC<HeadlineProps> = (props) => {
-	const theme = useTheme();
-
 	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const [leftRef, { width: leftWidth }] = useElementSize();
@@ -31,6 +28,10 @@ const Headline: FC<HeadlineProps> = (props) => {
 		...rest
 	} = props;
 
+	const captionColor = useGetColor({ color, colorMode, type: 'color' });
+	const titleColor = useGetColor({ colorMode, type: 'text.primary' });
+	const subtitleColor = useGetColor({ colorMode, type: 'text.secondary' });
+
 	return (
 		<HStack {...rest} width='100%' spacing={0}>
 			{renderLeft ? (
@@ -48,7 +49,7 @@ const Headline: FC<HeadlineProps> = (props) => {
 				{renderCaption
 					? renderCaption({
 							align: 'left',
-							color: getColor({ theme, colorMode, color, type: 'color' }),
+							color: captionColor,
 							fontSize: ['xs', 'xs', 'sm', 'sm', 'sm', 'sm'],
 							lineHeight: 'shorter',
 							textTransform: 'uppercase'
@@ -57,7 +58,7 @@ const Headline: FC<HeadlineProps> = (props) => {
 
 				{renderTitle({
 					align: 'left',
-					color: getColor({ theme, colorMode, type: 'text.primary' }),
+					color: titleColor,
 					fontSize: ['4xl', '4xl', '5xl', '5xl', '6xl', '6xl'],
 					fontWeight: 'bold',
 					lineHeight: 'shorter'
@@ -67,7 +68,7 @@ const Headline: FC<HeadlineProps> = (props) => {
 				{renderSubtitle
 					? renderSubtitle({
 							align: 'left',
-							color: getColor({ theme, colorMode, type: 'text.secondary' }),
+							color: subtitleColor,
 							fontSize: ['xs', 'xs', 'sm', 'sm', 'sm', 'sm'],
 							lineHeight: 'shorter'
 					  })

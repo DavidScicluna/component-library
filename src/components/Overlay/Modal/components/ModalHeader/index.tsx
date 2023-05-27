@@ -4,9 +4,8 @@ import { Center, HStack, ModalHeader as CUIModalHeader, VStack } from '@chakra-u
 
 import { useElementSize } from 'usehooks-ts';
 
-import { useTheme } from '../../../../../common/hooks';
+import { useGetColor, useTheme } from '../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../common/utils';
-import { getColor } from '../../../../../common/utils/color';
 import { useModalContext } from '../../common/hooks';
 
 import { ModalHeaderProps } from './common/types';
@@ -19,6 +18,9 @@ const ModalHeader: FC<ModalHeaderProps> = (props) => {
 	const [cancelRef, { width: cancelWidth }] = useElementSize();
 
 	const { renderTitle, renderSubtitle, renderCancel, spacing = defaultSpacing, ...rest } = props;
+
+	const textPrimaryColor = useGetColor({ colorMode, type: 'text.primary' });
+	const textSecondaryColor = useGetColor({ colorMode, type: 'text.secondary' });
 
 	const handleCalculateTextWidth = useCallback((): number => {
 		return cancelWidth + convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'));
@@ -34,7 +36,7 @@ const ModalHeader: FC<ModalHeaderProps> = (props) => {
 				{/* Title */}
 				{renderTitle({
 					align: 'left',
-					color: getColor({ theme, colorMode, type: 'text.primary' }),
+					color: textPrimaryColor,
 					fontSize: 'xl',
 					fontWeight: 'bold',
 					noOfLines: 1
@@ -44,7 +46,7 @@ const ModalHeader: FC<ModalHeaderProps> = (props) => {
 				{renderSubtitle
 					? renderSubtitle({
 							align: 'left',
-							color: getColor({ theme, colorMode, type: 'text.secondary' }),
+							color: textSecondaryColor,
 							fontSize: 'sm',
 							fontWeight: 'normal',
 							noOfLines: 1

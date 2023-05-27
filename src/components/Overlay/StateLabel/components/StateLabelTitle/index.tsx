@@ -5,15 +5,12 @@ import { Text, useConst } from '@chakra-ui/react';
 import { sample } from 'lodash-es';
 
 import { errorEmojis, errorTitles } from '../../../../../common/data/strings';
-import { useTheme } from '../../../../../common/hooks';
-import { getColor } from '../../../../../common/utils/color';
+import { useGetColor } from '../../../../../common/hooks';
 import { useStateLabelContext } from '../../common/hooks';
 
 import { StateLabelTitleProps } from './common/types';
 
 const StateLabelTitle: FC<StateLabelTitleProps> = (props) => {
-	const theme = useTheme();
-
 	const { colorMode } = useStateLabelContext();
 
 	const sampledTitle = useConst<string>(sample(errorTitles) || errorTitles[0]);
@@ -23,10 +20,12 @@ const StateLabelTitle: FC<StateLabelTitleProps> = (props) => {
 
 	const { children = defaultTitle, ...rest } = props;
 
+	const color = useGetColor({ colorMode, type: 'text.primary' });
+
 	return (
 		<Text
 			align='center'
-			color={getColor({ theme, colorMode, type: 'text.primary' })}
+			color={color}
 			fontSize={['xl', '2xl']}
 			fontWeight='bold'
 			lineHeight='base'
