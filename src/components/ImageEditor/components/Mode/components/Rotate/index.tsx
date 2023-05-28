@@ -5,9 +5,10 @@ import { Center, HStack, Slider, SliderFilledTrack, SliderThumb, SliderTrack } f
 
 import { useElementSize } from 'usehooks-ts';
 
-import { useBoolean, useGetColor, useTheme } from '../../../../../../common/hooks';
+import { useGetColor, useTheme } from '../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../common/utils';
 import Divider from '../../../../../Divider';
+import HoverOverlay from '../../../../../Overlay/HoverOverlay';
 import Tooltip from '../../../../../Overlay/Tooltip';
 import { rotation as defaultRotation } from '../../../../common/default/props';
 import { useImageEditorContext } from '../../../../common/hooks';
@@ -21,8 +22,6 @@ const Rotate: FC<RotateProps> = ({ rotation = defaultRotation, onRotate }) => {
 	const { color, colorMode } = useImageEditorContext();
 
 	const [buttonsRef, { width: buttonsWidth }] = useElementSize();
-
-	const [isHoveringThumb, setIsHoveringThumb] = useBoolean();
 
 	const background = useGetColor({ color: 'gray', colorMode, type: 'divider' });
 	const backgroundColor = useGetColor({ color, colorMode, type: 'color' });
@@ -63,21 +62,23 @@ const Rotate: FC<RotateProps> = ({ rotation = defaultRotation, onRotate }) => {
 					<SliderTrack height={theme.space[1]} background={background}>
 						<SliderFilledTrack background={background} />
 					</SliderTrack>
-					<Tooltip
-						aria-label='Slider thumb rotation degrees (tooltip)'
-						placement='top'
-						isOpen={isHoveringThumb}
-						label={`${rotation}°`}
-					>
-						<SliderThumb
-							width={theme.fontSizes.xl}
-							height={theme.fontSizes.xl}
-							backgroundColor={backgroundColor}
-							boxShadow='none'
-							onMouseEnter={() => setIsHoveringThumb.on()}
-							onMouseLeave={() => setIsHoveringThumb.off()}
-						/>
-					</Tooltip>
+					<HoverOverlay>
+						{({ isHovering }) => (
+							<Tooltip
+								aria-label='Slider thumb rotation degrees (tooltip)'
+								placement='top'
+								isOpen={isHovering}
+								label={`${rotation}°`}
+							>
+								<SliderThumb
+									width={theme.fontSizes.xl}
+									height={theme.fontSizes.xl}
+									backgroundColor={backgroundColor}
+									boxShadow='none'
+								/>
+							</Tooltip>
+						)}
+					</HoverOverlay>
 				</Slider>
 			</Center>
 

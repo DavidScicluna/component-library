@@ -5,8 +5,8 @@ import { Center, HStack, Text } from '@chakra-ui/react';
 import { merge } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
-import { Fade } from '../../../../..';
-import { useBoolean, useConst, useTheme } from '../../../../../common/hooks';
+import { Fade, HoverOverlay } from '../../../../..';
+import { useConst, useTheme } from '../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../common/utils';
 import Tooltip from '../../../../Overlay/Tooltip';
 import { getConfig as getTransitionConfig, getDelay as getTransitionDelay } from '../../../../Transitions/common/utils';
@@ -40,8 +40,6 @@ const NavItem: FC<NavItemProps> = (props) => {
 		...rest
 	} = props;
 
-	const [isHovering, setIsHovering] = useBoolean();
-
 	const style = useStyles({ theme, color, colorMode, isActive, isChildActive, mode });
 
 	const delay = useConst(getTransitionDelay({ theme, duration: 'slow' }) * 2);
@@ -54,68 +52,72 @@ const NavItem: FC<NavItemProps> = (props) => {
 	}, [theme, spacing, leftIconWidth, rightIconWidth]);
 
 	return (
-		<Tooltip
-			aria-label={`Navigate to ${title} (tooltip)`}
-			colorMode={colorMode}
-			isOpen={mode === 'collapsed' && !isDisabled && isHovering}
-			placement='right'
-			label={title}
-			gutter={36}
-			shouldWrapChildren
-		>
-			<HStack
-				{...rest}
-				width='100%'
-				aria-disabled={isDisabled}
-				alignItems='center'
-				justifyContent='stretch'
-				onMouseEnter={() => setIsHovering.on()}
-				onMouseLeave={() => setIsHovering.off()}
-				spacing={spacing}
-				sx={{ ...merge(style.navItem, sx) }}
-				_disabled={{ ...style.disabled }}
-			>
-				{renderLeftIcon ? (
-					<Center ref={leftIcon}>
-						{renderLeftIcon({
-							width: theme.fontSizes['3xl'],
-							height: theme.fontSizes['3xl'],
-							color,
-							colorMode
-						})}
-					</Center>
-				) : null}
-
-				<Fade
-					in={isDrawer || mode === 'expanded'}
-					transition={isDrawer ? { enter: { duration: 0 }, exit: { duration: 0 } } : { enter: { ...config } }}
-					style={{ width: handleTextWidth(), flex: 1 }}
+		<HoverOverlay>
+			{({ isHovering }) => (
+				<Tooltip
+					aria-label={`Navigate to ${title} (tooltip)`}
+					colorMode={colorMode}
+					isOpen={mode === 'collapsed' && !isDisabled && isHovering}
+					placement='right'
+					label={title}
+					gutter={36}
+					shouldWrapChildren
 				>
-					<Text
-						align={mode === 'expanded' ? 'left' : 'center'}
-						fontSize='md'
-						fontWeight='semibold'
-						textTransform='uppercase'
-						lineHeight='base'
-						letterSpacing='.6px'
-						noOfLines={1}
+					<HStack
+						{...rest}
+						width='100%'
+						aria-disabled={isDisabled}
+						alignItems='center'
+						justifyContent='stretch'
+						spacing={spacing}
+						sx={{ ...merge(style.navItem, sx) }}
+						_disabled={{ ...style.disabled }}
 					>
-						{title}
-					</Text>
-				</Fade>
+						{renderLeftIcon ? (
+							<Center ref={leftIcon}>
+								{renderLeftIcon({
+									width: theme.fontSizes['3xl'],
+									height: theme.fontSizes['3xl'],
+									color,
+									colorMode
+								})}
+							</Center>
+						) : null}
 
-				{renderRightIcon ? (
-					<Center ref={rightIcon}>
-						{renderRightIcon({
-							width: theme.fontSizes['3xl'],
-							height: theme.fontSizes['3xl'],
-							color,
-							colorMode
-						})}
-					</Center>
-				) : null}
-			</HStack>
-		</Tooltip>
+						<Fade
+							in={isDrawer || mode === 'expanded'}
+							transition={
+								isDrawer ? { enter: { duration: 0 }, exit: { duration: 0 } } : { enter: { ...config } }
+							}
+							style={{ width: handleTextWidth(), flex: 1 }}
+						>
+							<Text
+								align={mode === 'expanded' ? 'left' : 'center'}
+								fontSize='md'
+								fontWeight='semibold'
+								textTransform='uppercase'
+								lineHeight='base'
+								letterSpacing='.6px'
+								noOfLines={1}
+							>
+								{title}
+							</Text>
+						</Fade>
+
+						{renderRightIcon ? (
+							<Center ref={rightIcon}>
+								{renderRightIcon({
+									width: theme.fontSizes['3xl'],
+									height: theme.fontSizes['3xl'],
+									color,
+									colorMode
+								})}
+							</Center>
+						) : null}
+					</HStack>
+				</Tooltip>
+			)}
+		</HoverOverlay>
 	);
 };
 
