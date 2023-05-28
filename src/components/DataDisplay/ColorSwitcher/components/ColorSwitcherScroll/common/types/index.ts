@@ -7,7 +7,7 @@ export type ColorSwitcherScrollRenderItemProps = Pick<ColorSwitcherContext, 'col
 	isActive?: boolean;
 };
 
-export type ColorSwitcherScrollProps = Omit<HorizontalScrollProps, 'colorMode' | 'renderDivider'> & {
+export type ColorSwitcherScrollProps = Omit<HorizontalScrollProps, 'children' | 'colorMode' | 'renderDivider'> & {
 	renderItem: (props: ColorSwitcherScrollRenderItemProps) => ReactNode;
 };
 

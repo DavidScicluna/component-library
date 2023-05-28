@@ -68,6 +68,7 @@ const ColorSwitcherScrollItem = forwardRef<ColorSwitcherScrollItemRef, ColorSwit
 		return (
 			<Tooltip
 				aria-label={`${color} (tooltip)`}
+				color='gray'
 				colorMode={colorMode}
 				label={startCase(capitalize(color))}
 				placement={placement}
@@ -77,6 +78,7 @@ const ColorSwitcherScrollItem = forwardRef<ColorSwitcherScrollItemRef, ColorSwit
 				<Center
 					{...rest}
 					ref={ref}
+					cursor={isActive ? 'default' : 'pointer'}
 					onClick={handleClick}
 					onMouseEnter={handleMouseEnter}
 					onMouseLeave={handleMouseLeave}

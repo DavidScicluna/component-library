@@ -16,9 +16,9 @@ const ColorSwitcherScroll = forwardRef<ColorSwitcherScrollRef, ColorSwitcherScro
 
 	const { renderItem, ...rest } = props;
 
-	const handleChange = ({ color }: ColorSwitcherOnChangeProps): void => {
+	const handleChange = (props: ColorSwitcherOnChangeProps): void => {
 		if (typeof onChange === 'function') {
-			onChange(color);
+			onChange(props);
 		}
 	};
 
@@ -35,7 +35,7 @@ const ColorSwitcherScroll = forwardRef<ColorSwitcherScrollRef, ColorSwitcherScro
 						color: c,
 						colorMode,
 						isActive: c === color,
-						onChange: () => handleChange({ color: c })
+						onChange: handleChange
 					})}
 				</Fragment>
 			))}
