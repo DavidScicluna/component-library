@@ -2,9 +2,8 @@ import { FC } from 'react';
 
 import { Box } from '@chakra-ui/react';
 
-import { transparentize } from 'color2k';
-
 import { useGetColor } from '../../../../../common/hooks';
+import LinearGradient from '../../../../Overlay/LinearGradient';
 import Fade from '../../../../Transitions/Fade';
 import { useHorizontalScrollContext } from '../../common/hooks';
 
@@ -17,13 +16,11 @@ const Gradient: FC<GradientProps> = ({ direction, isVisible = false }) => {
 
 	return (
 		<Box as={Fade} width={arrowsWidth * 2} height='100%' in={isVisible}>
-			<Box
+			<LinearGradient
 				width='100%'
 				height='100%'
-				background={`linear-gradient(${direction === 'left' ? 90 : 270}deg, ${transparentize(
-					background,
-					0
-				)} 0%, ${transparentize(background, 1)} 100%)`}
+				degrees={direction === 'left' ? 90 : 270}
+				background={background}
 			/>
 		</Box>
 	);
