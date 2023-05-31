@@ -16,7 +16,7 @@ const Arrow = forwardRef<ArrowRef, ArrowProps>(function Arrow(props, ref): React
 
 	const [isSm] = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
-	const { color, colorMode, isDisabled: isDisabledHook } = useHorizontalScrollContext();
+	const { colorMode, isDisabled: isDisabledHook } = useHorizontalScrollContext();
 
 	const { direction, isDisabled: isDisabledProp, size = isSm ? 'sm' : 'md', sx, ...rest } = props;
 
@@ -29,7 +29,7 @@ const Arrow = forwardRef<ArrowRef, ArrowProps>(function Arrow(props, ref): React
 			{...rest}
 			ref={ref}
 			aria-label={`${capitalize(direction)} Arrow Button`}
-			color={color}
+			color='gray'
 			colorMode={colorMode}
 			isDisabled={isDisabled}
 			size={size}
