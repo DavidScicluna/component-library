@@ -1,10 +1,11 @@
-import { FC, useMemo } from 'react';
+import { createContext, FC, useMemo } from 'react';
 
 import { Button as CUIButton, Center, Grid, GridItem } from '@chakra-ui/react';
 
 import { compact, merge } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/default/props';
 import { useTheme } from '../../../../common/hooks';
 import { Radius } from '../../../../theme/types';
 import Skeleton from '../../../Feedback/Skeleton';
@@ -20,7 +21,12 @@ import {
 import useStyles from '../common/styles';
 import { getSizeConfig, GetSizeConfigReturn, getVariantRadius } from '../common/utils';
 
-import { DummyButtonProps } from './common/types';
+import { DummyButtonContext as DummyButtonContextType, DummyButtonProps } from './common/types';
+
+export const DummyButtonContext = createContext<DummyButtonContextType>({
+	color: defaultColor,
+	colorMode: defaultColorMode
+});
 
 const DummyButton: FC<DummyButtonProps> = (props) => {
 	const theme = useTheme();
@@ -54,64 +60,66 @@ const DummyButton: FC<DummyButtonProps> = (props) => {
 	const style = useStyles({ theme, isCompact, isFullWidth, isLoading: true, size });
 
 	return (
-		<Skeleton {...rest} color={color} colorMode={colorMode} borderRadius={radius} isLoaded={false}>
-			<CUIButton
-				isDisabled
-				variant='unstyled'
-				sx={merge(style.button, sx)}
-				_disabled={style.disabled}
-				_active={style.active}
-			>
-				<PushableOverlay
-					width='100%'
-					height='100%'
-					borderRadius={radius}
-					color={color}
-					colorMode={colorMode}
+		<DummyButtonContext.Provider value={{ color, colorMode, size }}>
+			<Skeleton {...rest} color={color} colorMode={colorMode} borderRadius={radius} isLoaded={false}>
+				<CUIButton
 					isDisabled
-					isPushable={false}
-					variant={variant === 'text' ? 'transparent' : variant}
-					px={config.padding.x}
-					py={config.padding.y}
+					variant='unstyled'
+					sx={merge(style.button, sx)}
+					_disabled={style.disabled}
+					_active={style.active}
 				>
-					<Grid
+					<PushableOverlay
 						width='100%'
 						height='100%'
-						templateColumns={compact([
-							renderLeft ? 'auto' : null,
-							'auto',
-							renderRight ? 'auto' : null
-						]).join(' ')}
-						templateRows='1fr'
-						alignItems='center'
-						alignContent='center'
-						justifyItems='center'
-						justifyContent='center'
-						gap={config.spacing}
+						borderRadius={radius}
+						color={color}
+						colorMode={colorMode}
+						isDisabled
+						isPushable={false}
+						variant={variant === 'text' ? 'transparent' : variant}
+						px={config.padding.x}
+						py={config.padding.y}
 					>
-						{renderLeft ? (
-							<GridItem>
-								{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
-							</GridItem>
-						) : null}
+						<Grid
+							width='100%'
+							height='100%'
+							templateColumns={compact([
+								renderLeft ? 'auto' : null,
+								'auto',
+								renderRight ? 'auto' : null
+							]).join(' ')}
+							templateRows='1fr'
+							alignItems='center'
+							alignContent='center'
+							justifyItems='center'
+							justifyContent='center'
+							gap={config.spacing}
+						>
+							{renderLeft ? (
+								<GridItem>
+									{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+								</GridItem>
+							) : null}
 
-						{children ? (
-							<GridItem>
-								<Center ref={childrenRef} as='span' width='100%' height='100%'>
-									{children}
-								</Center>
-							</GridItem>
-						) : null}
+							{children ? (
+								<GridItem>
+									<Center ref={childrenRef} as='span' width='100%' height='100%'>
+										{children}
+									</Center>
+								</GridItem>
+							) : null}
 
-						{renderRight ? (
-							<GridItem>
-								{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
-							</GridItem>
-						) : null}
-					</Grid>
-				</PushableOverlay>
-			</CUIButton>
-		</Skeleton>
+							{renderRight ? (
+								<GridItem>
+									{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+								</GridItem>
+							) : null}
+						</Grid>
+					</PushableOverlay>
+				</CUIButton>
+			</Skeleton>
+		</DummyButtonContext.Provider>
 	);
 };
 

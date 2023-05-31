@@ -4,3 +4,5 @@ import { CommonButtonProps } from '../../../common/types';
 type Omitted = 'color' | 'colorScheme' | '_firstLetter' | 'isReversed' | 'variant';
 
 export type DummyButtonProps = Omit<SkeletonProps, Omitted> & CommonButtonProps;
+
+export type DummyButtonContext = Pick<DummyButtonProps, 'color' | 'colorMode' | 'size'>;
