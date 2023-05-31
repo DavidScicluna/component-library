@@ -5,6 +5,9 @@
 .react-horizontal-scrolling-menu--scroll-container {
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none; /* Firefox */
+
+	position: relative;
+	z-index: 0;
 }
 
 .react-horizontal-scrolling-menu--inner-wrapper {
