@@ -513,6 +513,8 @@ import {
 	HoverOverlayProps,
 	HoverOverlayRef
 } from './components/Overlay/HoverOverlay/common/types';
+import LinearGradient from './components/Overlay/LinearGradient';
+import { LinearGradientProps, LinearGradientRef } from './components/Overlay/LinearGradient/common/types';
 import LoadingOverlay from './components/Overlay/LoadingOverlay';
 import { LoadingOverlayProps, LoadingOverlayRef } from './components/Overlay/LoadingOverlay/common/types';
 import Modal from './components/Overlay/Modal';
@@ -841,6 +843,7 @@ export {
 	Image,
 	ImageEditor,
 	Input,
+	LinearGradient,
 	Link,
 	LoadingOverlay,
 	Modal,
@@ -1119,6 +1122,8 @@ export type {
 	InputProps,
 	InputRef,
 	InputRenderProps,
+	LinearGradientProps,
+	LinearGradientRef,
 	LinkProps,
 	LoadingOverlayProps,
 	LoadingOverlayRef,
