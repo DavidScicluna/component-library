@@ -40,11 +40,29 @@ import { useButtonGroupContext } from './components/Clickable/ButtonGroup/common
 import { ButtonGroupContext, ButtonGroupProps, ButtonGroupRef } from './components/Clickable/ButtonGroup/common/types';
 import ButtonGroupItem from './components/Clickable/ButtonGroup/components/ButtonGroupItem';
 import { ButtonGroupItemProps } from './components/Clickable/ButtonGroup/components/ButtonGroupItem/common/types';
+import { useButtonFontSize } from './components/Clickable/Buttons/common/hooks';
 import { ButtonColor, ButtonRenderProps, ButtonSize, ButtonVariant } from './components/Clickable/Buttons/common/types';
 import DummyButton from './components/Clickable/Buttons/DummyButton';
-import { DummyButtonProps } from './components/Clickable/Buttons/DummyButton/common/types';
+import { useDummyButtonContext } from './components/Clickable/Buttons/DummyButton/common/hooks';
+import { DummyButtonContext, DummyButtonProps } from './components/Clickable/Buttons/DummyButton/common/types';
+import DummyButtonIcon from './components/Clickable/Buttons/DummyButton/components/DummyButtonIcon';
+import {
+	DummyButtonIconProps,
+	DummyButtonIconRef
+} from './components/Clickable/Buttons/DummyButton/components/DummyButtonIcon/common/types';
 import Button from './components/Clickable/Buttons/OriginalButton';
-import { ButtonMouseEvent, ButtonProps, ButtonRef } from './components/Clickable/Buttons/OriginalButton/common/types';
+import { useButtonContext } from './components/Clickable/Buttons/OriginalButton/common/hooks';
+import {
+	ButtonContext,
+	ButtonMouseEvent,
+	ButtonProps,
+	ButtonRef
+} from './components/Clickable/Buttons/OriginalButton/common/types';
+import ButtonIcon from './components/Clickable/Buttons/OriginalButton/components/ButtonIcon';
+import {
+	ButtonIconProps,
+	ButtonIconRef
+} from './components/Clickable/Buttons/OriginalButton/components/ButtonIcon/common/types';
 import CopyButton from './components/Clickable/CopyButton';
 import {
 	CopyButtonChildrenProps,
@@ -75,6 +93,7 @@ import {
 	CloseIconButtonProps,
 	CloseIconButtonRef
 } from './components/Clickable/IconButtons/CloseIconButton/common/types';
+import { useIconButtonFontSize } from './components/Clickable/IconButtons/common/hooks';
 import { IconButtonColor, IconButtonSize, IconButtonVariant } from './components/Clickable/IconButtons/common/types';
 import DummyIconButton from './components/Clickable/IconButtons/DummyIconButton';
 import { useDummyIconButtonContext } from './components/Clickable/IconButtons/DummyIconButton/common/hooks';
@@ -656,12 +675,15 @@ export type { Icon as IconType } from './common/types/icons';
 // Hooks
 export {
 	useBoolean,
+	useButtonFontSize,
 	useConst,
 	useDebounce,
 	useGetAppColor,
 	useGetAppColorMode,
 	useGetColor,
 	useGetThemeAppearance,
+	useHorizontalScrollArrowState,
+	useIconButtonFontSize,
 	useOs,
 	useTheme
 };
@@ -670,6 +692,7 @@ export {
 export {
 	useAccordionsContext,
 	useBadgeContext,
+	useButtonContext,
 	useButtonGroupContext,
 	useCardContext,
 	useCheckboxContext,
@@ -679,6 +702,7 @@ export {
 	useDatePickerContext,
 	useDSCLProviderContext,
 	useDummyAccordionsContext,
+	useDummyButtonContext,
 	useDummyCardContext,
 	useDummyHorizontalGridContext,
 	useDummyHorizontalGridTabbedContext,
@@ -689,7 +713,6 @@ export {
 	useGetHorizontalScrollAPIContext,
 	useHorizontalGridContext,
 	useHorizontalGridTabbedContext,
-	useHorizontalScrollArrowState,
 	useHorizontalScrollContext,
 	useIconButtonContext,
 	useImageEditorContext,
@@ -750,6 +773,7 @@ export {
 	Button,
 	ButtonGroup,
 	ButtonGroupItem,
+	ButtonIcon,
 	Card,
 	CardBody,
 	CardDivider,
@@ -790,6 +814,7 @@ export {
 	DummyAccordionsPanel,
 	DummyAccordionsQuickToggles,
 	DummyButton,
+	DummyButtonIcon,
 	DummyCard,
 	DummyCardDivider,
 	DummyCardHeader,
@@ -915,10 +940,13 @@ export type {
 	BadgeSize,
 	BadgeVariant,
 	ButtonColor,
+	ButtonContext,
 	ButtonGroupContext,
 	ButtonGroupItemProps,
 	ButtonGroupProps,
 	ButtonGroupRef,
+	ButtonIconProps,
+	ButtonIconRef,
 	ButtonMouseEvent,
 	ButtonProps,
 	ButtonRef,
@@ -1004,6 +1032,9 @@ export type {
 	DummyAccordionsPanelProps,
 	DummyAccordionsProps,
 	DummyAccordionsQuickTogglesProps,
+	DummyButtonContext,
+	DummyButtonIconProps,
+	DummyButtonIconRef,
 	DummyButtonProps,
 	DummyCardContext,
 	DummyCardDividerProps,
