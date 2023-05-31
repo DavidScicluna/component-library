@@ -54,3 +54,5 @@ type Omitted =
 export type ButtonProps = Omit<CUIButtonProps, Omitted> & CommonButtonProps;
 
 export type ButtonRef = Nullable<HTMLButtonElement>;
+
+export type ButtonContext = Pick<ButtonProps, 'color' | 'colorMode' | 'size'>;

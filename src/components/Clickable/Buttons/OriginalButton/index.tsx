@@ -1,10 +1,11 @@
-import { forwardRef, ReactElement, useMemo } from 'react';
+import { createContext, forwardRef, ReactElement, useMemo } from 'react';
 
 import { Button as CUIButton, Center, Grid, GridItem } from '@chakra-ui/react';
 
 import { compact, merge } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
+import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/default/props';
 import { useTheme } from '../../../../common/hooks';
 import { Radius } from '../../../../theme/types';
 import PushableOverlay from '../../../Overlay/PushableOverlay';
@@ -22,8 +23,13 @@ import {
 import useStyles from '../common/styles';
 import { getSizeConfig, GetSizeConfigReturn, getVariantRadius } from '../common/utils';
 
-import { ButtonProps, ButtonRef } from './common/types';
+import { ButtonContext as ButtonContextType, ButtonProps, ButtonRef } from './common/types';
 import ButtonSpinner from './components/ButtonSpinner';
+
+export const ButtonContext = createContext<ButtonContextType>({
+	color: defaultColor,
+	colorMode: defaultColorMode
+});
 
 const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): ReactElement {
 	const theme = useTheme();
@@ -60,74 +66,76 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): R
 	const style = useStyles({ theme, isCompact, isFullWidth, isLoading, size });
 
 	return (
-		<CUIButton
-			{...rest}
-			ref={ref}
-			tabIndex={0}
-			isActive={isActive || isLoading}
-			isDisabled={isDisabled}
-			variant='unstyled'
-			sx={merge(style.button, sx)}
-			_disabled={style.disabled}
-			_active={style.active}
-		>
-			<PushableOverlay
-				width='100%'
-				height='100%'
-				borderRadius={radius}
-				color={color}
-				colorMode={colorMode}
+		<ButtonContext.Provider value={{ color, colorMode, size }}>
+			<CUIButton
+				{...rest}
+				ref={ref}
+				tabIndex={0}
 				isActive={isActive || isLoading}
 				isDisabled={isDisabled}
-				variant={variant === 'text' ? 'transparent' : variant}
-				px={config.padding.x}
-				py={config.padding.y}
+				variant='unstyled'
+				sx={merge(style.button, sx)}
+				_disabled={style.disabled}
+				_active={style.active}
 			>
-				<Grid
+				<PushableOverlay
 					width='100%'
 					height='100%'
-					templateColumns={compact([
-						(isLoading && !renderLeft) || renderLeft ? 'auto' : null,
-						'auto',
-						(isLoading && renderLeft) || renderRight ? 'auto' : null
-					]).join(' ')}
-					templateRows='1fr'
-					alignItems='center'
-					alignContent='center'
-					justifyItems='center'
-					justifyContent='center'
-					gap={config.spacing}
+					borderRadius={radius}
+					color={color}
+					colorMode={colorMode}
+					isActive={isActive || isLoading}
+					isDisabled={isDisabled}
+					variant={variant === 'text' ? 'transparent' : variant}
+					px={config.padding.x}
+					py={config.padding.y}
 				>
-					{isLoading && !renderLeft ? (
-						<GridItem>
-							<ButtonSpinner color={color} colorMode={colorMode} size={size} variant={variant} />
-						</GridItem>
-					) : renderLeft ? (
-						<GridItem>
-							{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
-						</GridItem>
-					) : null}
+					<Grid
+						width='100%'
+						height='100%'
+						templateColumns={compact([
+							(isLoading && !renderLeft) || renderLeft ? 'auto' : null,
+							'auto',
+							(isLoading && renderLeft) || renderRight ? 'auto' : null
+						]).join(' ')}
+						templateRows='1fr'
+						alignItems='center'
+						alignContent='center'
+						justifyItems='center'
+						justifyContent='center'
+						gap={config.spacing}
+					>
+						{isLoading && !renderLeft ? (
+							<GridItem>
+								<ButtonSpinner color={color} colorMode={colorMode} size={size} variant={variant} />
+							</GridItem>
+						) : renderLeft ? (
+							<GridItem>
+								{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+							</GridItem>
+						) : null}
 
-					{children ? (
-						<GridItem>
-							<Center ref={childrenRef} as='span' width='100%' height='100%'>
-								{children}
-							</Center>
-						</GridItem>
-					) : null}
+						{children ? (
+							<GridItem>
+								<Center ref={childrenRef} as='span' width='100%' height='100%'>
+									{children}
+								</Center>
+							</GridItem>
+						) : null}
 
-					{isLoading && renderLeft ? (
-						<GridItem>
-							<ButtonSpinner color={color} colorMode={colorMode} size={size} variant={variant} />
-						</GridItem>
-					) : renderRight ? (
-						<GridItem>
-							{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
-						</GridItem>
-					) : null}
-				</Grid>
-			</PushableOverlay>
-		</CUIButton>
+						{isLoading && renderLeft ? (
+							<GridItem>
+								<ButtonSpinner color={color} colorMode={colorMode} size={size} variant={variant} />
+							</GridItem>
+						) : renderRight ? (
+							<GridItem>
+								{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+							</GridItem>
+						) : null}
+					</Grid>
+				</PushableOverlay>
+			</CUIButton>
+		</ButtonContext.Provider>
 	);
 });
 
