@@ -20,7 +20,16 @@ const StateOverlay: FC<StateOverlayProps> = (props) => {
 	} = props;
 
 	return (
-		<Grid {...rest} templateColumns='1fr' alignItems='center' justifyContent='center' gap={0}>
+		<Grid
+			{...rest}
+			templateColumns='1fr'
+			templateRows='1fr'
+			alignItems='stretch'
+			alignContent='stretch'
+			justifyItems='stretch'
+			justifyContent='stretch'
+			gap={0}
+		>
 			{renderEmpty ? (
 				<GridItem as={Fade} zIndex={1} rowStart={1} colStart={1} in={state === 'empty'}>
 					{hasGlass ? (
@@ -57,13 +66,7 @@ const StateOverlay: FC<StateOverlayProps> = (props) => {
 				</GridItem>
 			) : null}
 
-			<GridItem
-				as={Fade}
-				zIndex={0}
-				gridRowStart={1}
-				gridColumnStart={1}
-				in={hasContentAlwaysVisible || state === 'default'}
-			>
+			<GridItem as={Fade} rowStart={1} colStart={1} in={hasContentAlwaysVisible || state === 'default'}>
 				{renderContent({ state })}
 			</GridItem>
 		</Grid>

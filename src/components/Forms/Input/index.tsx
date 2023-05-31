@@ -103,6 +103,7 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 			templateRows='1fr'
 			alignItems='stretch'
 			alignContent='stretch'
+			justifyItems='stretch'
 			justifyContent='stretch'
 			gap={config.spacing}
 			px={config.padding.x}

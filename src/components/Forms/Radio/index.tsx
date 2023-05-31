@@ -128,6 +128,7 @@ const Radio = forwardRef<RadioRef, RadioProps>(function Radio(props, ref): React
 						templateRows='1fr'
 						alignItems='stretch'
 						alignContent='stretch'
+						justifyItems='stretch'
 						justifyContent='stretch'
 						gap={config.spacing}
 					>

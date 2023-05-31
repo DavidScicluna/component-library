@@ -104,6 +104,7 @@ const Textarea = forwardRef<TextareaRef, TextareaProps>(function Textarea(props,
 			templateRows='1fr'
 			alignItems='stretch'
 			alignContent='stretch'
+			justifyItems='stretch'
 			justifyContent='stretch'
 			gap={config.spacing}
 			px={config.padding.x}

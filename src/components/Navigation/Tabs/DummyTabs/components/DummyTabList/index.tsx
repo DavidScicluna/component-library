@@ -40,10 +40,10 @@ const DummyTabList: FC<DummyTabListProps> = ({ tabs = [], renderLeft, renderRigh
 				templateColumns={compact([renderLeft ? 'auto' : null, '1fr', renderRight ? 'auto' : null]).join(' ')}
 				templateRows='1fr'
 				autoFlow='row'
-				justifyContent='stretch'
+				alignItems='stretch'
 				alignContent='stretch'
 				justifyItems='stretch'
-				alignItems='stretch'
+				justifyContent='stretch'
 				gap={0}
 			>
 				{renderLeft ? (

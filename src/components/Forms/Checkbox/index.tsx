@@ -131,6 +131,7 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 						templateRows='1fr'
 						alignItems='stretch'
 						alignContent='stretch'
+						justifyItems='stretch'
 						justifyContent='stretch'
 						gap={config.spacing}
 					>

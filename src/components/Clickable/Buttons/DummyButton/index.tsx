@@ -85,6 +85,7 @@ const DummyButton: FC<DummyButtonProps> = (props) => {
 						templateRows='1fr'
 						alignItems='center'
 						alignContent='center'
+						justifyItems='center'
 						justifyContent='center'
 						gap={config.spacing}
 					>

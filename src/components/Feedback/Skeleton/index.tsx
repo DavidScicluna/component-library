@@ -94,9 +94,10 @@ const Skeleton: FC<SkeletonProps> = (props) => {
 				ref={childrenRef}
 				templateColumns='1fr'
 				templateRows='1fr'
-				alignItems='center'
-				alignContent='center'
-				justifyContent='center'
+				alignItems='stretch'
+				alignContent='stretch'
+				justifyItems='stretch'
+				justifyContent='stretch'
 				gap={0}
 			>
 				<GridItem

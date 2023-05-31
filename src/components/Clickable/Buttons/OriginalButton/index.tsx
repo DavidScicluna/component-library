@@ -94,6 +94,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): R
 					templateRows='1fr'
 					alignItems='center'
 					alignContent='center'
+					justifyItems='center'
 					justifyContent='center'
 					gap={config.spacing}
 				>

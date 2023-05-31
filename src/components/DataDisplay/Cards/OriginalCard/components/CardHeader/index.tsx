@@ -23,6 +23,7 @@ const CardHeader: FC<CardHeaderProps> = (props) => {
 			templateRows='1fr'
 			alignItems='center'
 			alignContent='space-between'
+			justifyItems='space-between'
 			justifyContent='space-between'
 			gap={spacing}
 		>
@@ -38,6 +39,7 @@ const CardHeader: FC<CardHeaderProps> = (props) => {
 					templateRows='1fr'
 					alignItems='center'
 					alignContent='space-between'
+					justifyItems='space-between'
 					justifyContent='space-between'
 					gap={spacing}
 				>
