@@ -1,5 +1,3 @@
-import { ReactNode } from 'react';
-
 import { ButtonGroupProps as CUIButtonGroupProps } from '@chakra-ui/react';
 
 import { Nullable } from '../../../../../common/types';
@@ -36,14 +34,12 @@ type Omitted =
 	| BoxOther
 	// CUI Button Group Props
 	| 'as'
-	| 'children'
 	| 'colorScheme'
 	| 'isDisabled'
 	| 'size'
 	| 'variant';
 
 export type ButtonGroupProps = Omit<CUIButtonGroupProps, Omitted> & {
-	children?: ReactNode[];
 	isCompact?: boolean;
 	isRound?: boolean;
 };
