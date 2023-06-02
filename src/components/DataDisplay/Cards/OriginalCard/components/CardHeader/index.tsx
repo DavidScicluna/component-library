@@ -47,10 +47,10 @@ const CardHeader: FC<CardHeaderProps> = (props) => {
 						<GridItem>
 							<VStack width='100%' alignItems='flex-start' justifyContent='center' spacing={0.5}>
 								{/* Title */}
-								{renderTitle()}
+								{renderTitle({ color: 'gray', colorMode })}
 
 								{/* Subtitle */}
-								{renderSubtitle ? renderSubtitle() : null}
+								{renderSubtitle ? renderSubtitle({ color: 'gray', colorMode }) : null}
 							</VStack>
 						</GridItem>
 					) : null}
