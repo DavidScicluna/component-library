@@ -38,6 +38,7 @@ const CloseIconButton = forwardRef<CloseIconButtonRef, CloseIconButtonProps>(fun
 		<HoverOverlay>
 			{({ isHovering }) => (
 				<Tooltip
+					color='gray'
 					colorMode={colorMode}
 					aria-label={`${aria} (tooltip)`}
 					label={label}
