@@ -49,13 +49,13 @@ const DummyCardHeader: FC<DummyCardHeaderProps> = (props) => {
 							<VStack width='100%' alignItems='flex-start' justifyContent='center' spacing={0.5}>
 								{/* Title */}
 								<Skeleton colorMode={colorMode} isLoaded={false} variant='text'>
-									{renderTitle()}
+									{renderTitle({ color: 'gray', colorMode })}
 								</Skeleton>
 
 								{/* Subtitle */}
 								{renderSubtitle ? (
 									<Skeleton colorMode={colorMode} isLoaded={false} variant='text'>
-										{renderSubtitle()}
+										{renderSubtitle({ color: 'gray', colorMode })}
 									</Skeleton>
 								) : null}
 							</VStack>

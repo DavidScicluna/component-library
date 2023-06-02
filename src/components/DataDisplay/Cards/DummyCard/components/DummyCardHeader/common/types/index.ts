@@ -3,7 +3,9 @@ import { ReactNode } from 'react';
 import { Space } from '../../../../../../../../theme/types';
 import { CommonCardProps } from '../../../../../common/types';
 
-export type DummyCardHeaderRenderProps = Pick<CommonCardProps, 'color' | 'colorMode'> & {
+export type DummyCardHeaderCommonRenderProps = Pick<CommonCardProps, 'color' | 'colorMode'>;
+
+export type DummyCardHeaderRenderProps = DummyCardHeaderCommonRenderProps & {
 	width?: number; // In Pixels
 	height?: number; // In Pixels
 	// size?: ButtonSize;
@@ -12,8 +14,8 @@ export type DummyCardHeaderRenderProps = Pick<CommonCardProps, 'color' | 'colorM
 export type DummyCardHeaderProps = {
 	renderLeft?: (props: DummyCardHeaderRenderProps) => ReactNode;
 	renderRight?: (props: DummyCardHeaderRenderProps) => ReactNode;
-	renderTitle?: () => ReactNode;
-	renderSubtitle?: () => ReactNode;
+	renderTitle?: (props: DummyCardHeaderCommonRenderProps) => ReactNode;
+	renderSubtitle?: (props: DummyCardHeaderCommonRenderProps) => ReactNode;
 	actions?: ReactNode;
 	spacing?: Space;
 };
