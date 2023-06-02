@@ -7,11 +7,11 @@ import { useGetColor } from '../../../../../common/hooks';
 
 import { CardTitleProps } from './common/types';
 
-const CardTitle: FC<CardTitleProps> = ({ children, colorMode = defaultColorMode }) => {
+const CardTitle: FC<CardTitleProps> = ({ children, colorMode = defaultColorMode, ...rest }) => {
 	const color = useGetColor({ color: 'gray', colorMode, type: 'text.primary' });
 
 	return (
-		<Text align='left' color={color} fontSize='xl' fontWeight='bold' lineHeight='normal' noOfLines={1}>
+		<Text align='left' color={color} fontSize='xl' fontWeight='bold' lineHeight='normal' noOfLines={1} {...rest}>
 			{children}
 		</Text>
 	);
