@@ -107,7 +107,7 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 
 	const style = useStyles({ theme });
 
-	const handleCheckboxClick = (): void => {
+	const handleCheckboxChange = (): void => {
 		if (!isReadOnly && onChange) {
 			onChange(!isChecked);
 		}
@@ -125,7 +125,7 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 				aria-checked={isChecked}
 				aria-disabled={isDisabled}
 				aria-invalid={isInvalid}
-				onClick={handleCheckboxClick}
+				onChange={handleCheckboxChange}
 				sx={merge(style.group, sx)}
 				_disabled={style.disabled}
 			>
@@ -166,7 +166,7 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 								aria-disabled={isDisabled}
 								aria-invalid={isInvalid}
 								aria-required={isRequired}
-								onChange={handleCheckboxClick}
+								onChange={handleCheckboxChange}
 							>
 								<input {...getInputProps({})} hidden />
 								<Icon
