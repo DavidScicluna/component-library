@@ -7,6 +7,14 @@ import { useTheme } from '../../../../../common/hooks';
 import { getFontSizeHeight } from '../../../../../common/utils';
 import Icon from '../../../../DataDisplay/Icon';
 import { useProviderContext } from '../../../../Provider/common/hooks';
+import {
+	isDisabled as defaultIsDisabled,
+	isError as defaultIsError,
+	isReadOnly as defaultIsReadOnly,
+	isSuccess as defaultIsSuccess,
+	isWarning as defaultIsWarning,
+	size as defaultSize
+} from '../../../FormControl/common/default/props';
 import { useFormControlContext } from '../../../FormControl/common/hooks';
 
 import useStyles from './common/styles';
@@ -15,31 +23,31 @@ import { RatingIconProps } from './common/types';
 const RatingIcon: FC<RatingIconProps> = (props) => {
 	const theme = useTheme();
 
-	const { color: appColor, colorMode: appColorMode } = useProviderContext();
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const {
-		color: defaultColor = appColor,
-		colorMode: defaultColorMode = appColorMode,
-		isDisabled: defaultIsDisabled,
-		isError: defaultIsError,
-		isReadOnly: defaultIsReadOnly,
-		isSuccess: defaultIsSuccess,
-		isWarning: defaultIsWarning,
-		size: defaultSize
+		color: formControlColor,
+		colorMode: formControlColorMode,
+		isDisabled: formControlIsDisabled,
+		isError: formControlIsError,
+		isReadOnly: formControlIsReadOnly,
+		isSuccess: formControlIsSuccess,
+		isWarning: formControlIsWarning,
+		size: formControlSize
 	} = useFormControlContext();
 
 	const {
-		color = defaultColor,
-		colorMode = defaultColorMode,
+		color = formControlColor || defaultColor,
+		colorMode = formControlColorMode || defaultColorMode,
 		icons,
 		isActive = false,
 		isHovering = false,
-		isDisabled = defaultIsDisabled,
-		isError = defaultIsError,
-		isSuccess = defaultIsSuccess,
-		isWarning = defaultIsWarning,
-		isReadOnly = defaultIsReadOnly,
-		size = defaultSize,
+		isDisabled = formControlIsDisabled || defaultIsDisabled,
+		isError = formControlIsError || defaultIsError,
+		isReadOnly = formControlIsReadOnly || defaultIsReadOnly,
+		isSuccess = formControlIsSuccess || defaultIsSuccess,
+		isWarning = formControlIsWarning || defaultIsWarning,
+		size = formControlSize || defaultSize,
 		...rest
 	} = props;
 	const { default: icon = 'star_outline', active = 'star', hover = 'star' } = icons || {};
