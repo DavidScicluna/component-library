@@ -7,6 +7,12 @@ import { merge } from 'lodash-es';
 import { useTheme } from '../../../common/hooks';
 import { useProviderContext } from '../../Provider/common/hooks';
 import Collapse from '../../Transitions/Collapse';
+import {
+	isError as defaultIsError,
+	isSuccess as defaultIsSuccess,
+	isWarning as defaultIsWarning,
+	size as defaultSize
+} from '../FormControl/common/default/props';
 import { useFormControlContext } from '../FormControl/common/hooks';
 
 import useStyles from './common/styles';
@@ -18,22 +24,23 @@ const FormHelperText = forwardRef<FormHelperTextRef, FormHelperTextProps>(functi
 ): ReactElement {
 	const theme = useTheme();
 
-	const { colorMode: appColorMode } = useProviderContext();
+	const { colorMode: defaultColorMode } = useProviderContext();
 
 	const {
-		colorMode: defaultColorMode = appColorMode,
-		isError: defaultIsError,
-		isWarning: defaultIsWarning,
-		isSuccess: defaultIsSuccess,
-		size
+		colorMode: formControlColorMode,
+		isError: formControlIsError,
+		isWarning: formControlIsWarning,
+		isSuccess: formControlIsSuccess,
+		size: formControlSize
 	} = useFormControlContext();
 
 	const {
 		children,
-		colorMode = defaultColorMode,
-		isError = defaultIsError,
-		isWarning = defaultIsWarning,
-		isSuccess = defaultIsSuccess,
+		colorMode = formControlColorMode || defaultColorMode,
+		isError = formControlIsError || defaultIsError,
+		isWarning = formControlIsWarning || defaultIsWarning,
+		isSuccess = formControlIsSuccess || defaultIsSuccess,
+		size = formControlSize || defaultSize,
 		sx,
 		...rest
 	} = props;

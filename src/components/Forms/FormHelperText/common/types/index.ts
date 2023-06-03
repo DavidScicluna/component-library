@@ -41,7 +41,7 @@ type Omitted =
 	| 'children'
 	| 'as';
 
-type Picked = 'colorMode' | 'isError' | 'isSuccess' | 'isWarning';
+type Picked = 'colorMode' | 'isError' | 'isSuccess' | 'isWarning' | 'size';
 
 export type FormHelperTextProps = Omit<CUIFormHelperTextProps, Omitted> & {
 	children?: Nullable<string>;
