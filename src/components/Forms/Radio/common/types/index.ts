@@ -49,7 +49,8 @@ type Omitted =
 	| BoxPseudo
 	| BoxOther
 	| 'as'
-	| 'children';
+	| 'children'
+	| 'onChange';
 
 type Picked =
 	| 'color'

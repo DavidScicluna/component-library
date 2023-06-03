@@ -104,7 +104,7 @@ const Radio = forwardRef<RadioRef, RadioProps>(function Radio(props, ref): React
 
 	const style = useStyles({ theme });
 
-	const handleRadioClick = (): void => {
+	const handleRadioChange = (): void => {
 		if (!isReadOnly && onChange) {
 			onChange(!isChecked);
 		}
@@ -121,7 +121,7 @@ const Radio = forwardRef<RadioRef, RadioProps>(function Radio(props, ref): React
 				aria-checked={isChecked}
 				aria-disabled={isDisabled}
 				aria-invalid={isInvalid}
-				onClick={handleRadioClick}
+				onChange={handleRadioChange}
 				sx={merge(style.group, sx)}
 				_disabled={style.disabled}
 			>
