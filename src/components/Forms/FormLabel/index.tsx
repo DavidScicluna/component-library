@@ -6,6 +6,13 @@ import { merge } from 'lodash-es';
 
 import { useTheme } from '../../../common/hooks';
 import { useProviderContext } from '../../Provider/common/hooks';
+import {
+	isError as defaultIsError,
+	isRequired as defaultIsRequired,
+	isSuccess as defaultIsSuccess,
+	isWarning as defaultIsWarning,
+	size as defaultSize
+} from '../FormControl/common/default/props';
 import { useFormControlContext } from '../FormControl/common/hooks';
 
 import useStyles from './common/styles';
@@ -14,24 +21,25 @@ import { FormLabelProps, FormLabelRef } from './common/types';
 const FormLabel = forwardRef<FormLabelRef, FormLabelProps>(function FormLabel(props, ref): ReactElement {
 	const theme = useTheme();
 
-	const { colorMode: appColorMode } = useProviderContext();
+	const { colorMode: defaultColorMode } = useProviderContext();
 
 	const {
-		colorMode: defaultColorMode = appColorMode,
-		isError: defaultIsError,
-		isWarning: defaultIsWarning,
-		isRequired: defaultIsRequired,
-		isSuccess: defaultIsSuccess,
-		size
+		colorMode: formControlColorMode,
+		isError: formControlIsError,
+		isRequired: formControlIsRequired,
+		isWarning: formControlIsWarning,
+		isSuccess: formControlIsSuccess,
+		size: formControlSize
 	} = useFormControlContext();
 
 	const {
 		children,
-		colorMode = defaultColorMode,
-		isError = defaultIsError,
-		isWarning = defaultIsWarning,
-		isRequired = defaultIsRequired,
-		isSuccess = defaultIsSuccess,
+		colorMode = formControlColorMode || defaultColorMode,
+		isError = formControlIsError || defaultIsError,
+		isRequired = formControlIsRequired || defaultIsRequired,
+		isWarning = formControlIsWarning || defaultIsWarning,
+		isSuccess = formControlIsSuccess || defaultIsSuccess,
+		size = formControlSize || defaultSize,
 		sx,
 		...rest
 	} = props;

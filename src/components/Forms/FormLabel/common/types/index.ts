@@ -42,7 +42,7 @@ type Omitted =
 	| 'as'
 	| 'htmlFor';
 
-type Picked = 'colorMode' | 'isRequired' | 'isError' | 'isSuccess' | 'isWarning';
+type Picked = 'colorMode' | 'isRequired' | 'isError' | 'isSuccess' | 'isWarning' | 'size';
 
 export type FormLabelProps = Omit<CUIFormLabelProps, Omitted> & {
 	children?: Nullable<string>;
