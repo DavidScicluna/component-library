@@ -82,7 +82,7 @@ const Switch = forwardRef<SwitchRef, SwitchProps>(function Switch(props, ref): R
 
 	const style = useStyles({ theme });
 
-	const handleSwitchClick = (): void => {
+	const handleSwitchChange = (): void => {
 		if (!isReadOnly && onChange) {
 			onChange(!isChecked);
 		}
@@ -100,7 +100,7 @@ const Switch = forwardRef<SwitchRef, SwitchProps>(function Switch(props, ref): R
 			aria-checked={isChecked}
 			aria-disabled={isDisabled}
 			aria-invalid={isInvalid}
-			onClick={handleSwitchClick}
+			onChange={handleSwitchChange}
 			sx={merge(style.group, sx)}
 			_disabled={style.disabled}
 		>
