@@ -49,8 +49,6 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 		size: defaultSize
 	} = useFormControlContext();
 
-	const { getCheckboxProps, getInputProps, getLabelProps, htmlProps } = useCheckbox();
-
 	const [checkboxRef, { width: checkboxWidth, height: checkboxHeight }] = useElementSize();
 
 	const {
@@ -61,11 +59,11 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 		defaultChecked = defaultIsChecked,
 		isChecked: isCheckedProp = defaultIsChecked,
 		isCompact = defaultIsCompact,
-		isDisabled = defaultIsDisabled,
+		isDisabled: isDisabledProp = defaultIsDisabled,
 		isError = defaultIsError,
-		isIndeterminate = defaultIsIndeterminate,
-		isReadOnly = defaultIsReadOnly,
-		isRequired = defaultIsRequired,
+		isIndeterminate: isIndeterminateProp = defaultIsIndeterminate,
+		isReadOnly: isReadOnlyProp = defaultIsReadOnly,
+		isRequired: isRequiredProp = defaultIsRequired,
 		isRound = defaultIsRound,
 		isSuccess = defaultIsSuccess,
 		isWarning = defaultIsWarning,
@@ -76,9 +74,17 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 		...rest
 	} = props;
 
-	const isChecked = useMemo((): boolean => {
-		return defaultChecked || isIndeterminate || isCheckedProp;
-	}, [defaultChecked, isIndeterminate, isCheckedProp]);
+	const { state, getRootProps, getCheckboxProps, getInputProps, getLabelProps, htmlProps } = useCheckbox({
+		isChecked: defaultChecked || isIndeterminateProp || isCheckedProp,
+		isDisabled: isDisabledProp,
+		isFocusable: true,
+		isIndeterminate: isIndeterminateProp,
+		isInvalid: isError,
+		isReadOnly: isReadOnlyProp,
+		isRequired: isRequiredProp
+	});
+
+	const { isChecked, isDisabled, isIndeterminate, isInvalid, isReadOnly, isRequired } = state;
 
 	const radius = useMemo((): Radius => {
 		return getVariantRadius({ isCompact, isRound, variant });
@@ -102,6 +108,7 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 	return (
 		<CheckboxContext.Provider value={{ color, colorMode, size }}>
 			<Center
+				{...getRootProps()}
 				{...htmlProps}
 				{...rest}
 				ref={ref}
@@ -109,7 +116,7 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 				aria-required={isRequired}
 				aria-checked={isChecked}
 				aria-disabled={isDisabled}
-				aria-invalid={isError}
+				aria-invalid={isInvalid}
 				onClick={handleCheckboxClick}
 				sx={merge(style.group, sx)}
 				_disabled={style.disabled}
@@ -118,7 +125,7 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 					width='100%'
 					height='100%'
 					borderRadius={radius}
-					color={isError ? 'red' : isSuccess ? 'green' : isWarning ? 'yellow' : color}
+					color={isInvalid ? 'red' : isSuccess ? 'green' : isWarning ? 'yellow' : color}
 					colorMode={colorMode}
 					isDisabled={isDisabled}
 					variant={variant}
@@ -149,7 +156,7 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 								height='100%'
 								aria-checked={isIndeterminate || isChecked}
 								aria-disabled={isDisabled}
-								aria-invalid={isError}
+								aria-invalid={isInvalid}
 								aria-required={isRequired}
 								onChange={handleCheckboxClick}
 							>
@@ -159,7 +166,7 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 									width={fontSize}
 									height={fontSize}
 									fontSize={fontSize}
-									color={isError ? 'red' : isSuccess ? 'green' : isWarning ? 'yellow' : color}
+									color={isInvalid ? 'red' : isSuccess ? 'green' : isWarning ? 'yellow' : color}
 									colorMode={colorMode}
 									icon={
 										isIndeterminate
