@@ -1,6 +1,6 @@
 import { forwardRef, ReactElement } from 'react';
 
-import { Box, Center } from '@chakra-ui/react';
+import { Center, Grid, GridItem } from '@chakra-ui/react';
 import { dataAttr } from '@chakra-ui/utils';
 
 import { merge } from 'lodash-es';
@@ -56,19 +56,26 @@ const PushableOverlay = forwardRef<PushableOverlayRef, PushableOverlayProps>(fun
 	});
 
 	return (
-		<Box
+		<Grid
 			{...rest}
 			ref={ref}
 			aria-disabled={isPushable && isDisabled}
 			data-active={dataAttr(isPushable && !isFixed && isActive)}
+			templateColumns='1fr'
+			templateRows='1fr'
+			alignItems='stretch'
+			alignContent='stretch'
+			justifyItems='stretch'
+			justifyContent='stretch'
+			gap={0}
 			sx={merge(style.pushable, sx)}
 			_active={merge(style.active, _active)}
 			_disabled={merge(style.disabled, _disabled)}
 		>
-			<Center width='100%' height='100%' position='relative' zIndex={1}>
+			<GridItem as={Center} zIndex={1}>
 				{children}
-			</Center>
-		</Box>
+			</GridItem>
+		</Grid>
 	);
 });
 
