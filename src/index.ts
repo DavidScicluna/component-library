@@ -400,6 +400,8 @@ import {
 	SearchBarRenderClearProps,
 	SearchBarRenderSubmitProps
 } from './components/Forms/SearchBar/common/types';
+import Switch from './components/Forms/Switch';
+import { SwitchProps, SwitchRef, SwitchRenderProps } from './components/Forms/Switch/common/types';
 import Textarea from './components/Forms/Textarea';
 import {
 	TextareaAutoComplete,
@@ -906,6 +908,7 @@ export {
 	StateLabelTitle,
 	StateOverlay,
 	Suspense,
+	Switch,
 	TabBar,
 	TabBarList,
 	TabBarPanels,
@@ -1229,6 +1232,9 @@ export type {
 	StateOverlayProps,
 	StateOverlayState,
 	SuspenseProps,
+	SwitchProps,
+	SwitchRef,
+	SwitchRenderProps,
 	TabBarContext,
 	TabBarListProps,
 	TabBarOnChangeProps,
