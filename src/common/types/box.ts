@@ -279,6 +279,7 @@ export type BoxPseudo =
 	| '_mediaReduceMotion'
 	| '_dark'
 	| '_light'
+	| '_firstLetter'
 	| '_rtl'
 	| '_ltr';
 
