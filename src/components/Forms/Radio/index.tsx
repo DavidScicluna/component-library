@@ -48,8 +48,6 @@ const Radio = forwardRef<RadioRef, RadioProps>(function Radio(props, ref): React
 		size: defaultSize
 	} = useFormControlContext();
 
-	const { getInputProps, getRadioProps, htmlProps, getLabelProps } = useRadio();
-
 	const [radioRef, { width: radioWidth, height: radioHeight }] = useElementSize();
 
 	const {
@@ -60,10 +58,10 @@ const Radio = forwardRef<RadioRef, RadioProps>(function Radio(props, ref): React
 		defaultChecked = defaultIsChecked,
 		isChecked: isCheckedProp = defaultIsChecked,
 		isCompact = defaultIsCompact,
-		isDisabled = defaultIsDisabled,
+		isDisabled: isDisabledProp = defaultIsDisabled,
 		isError = defaultIsError,
-		isReadOnly = defaultIsReadOnly,
-		isRequired = defaultIsRequired,
+		isReadOnly: isReadOnlyProp = defaultIsReadOnly,
+		isRequired: isRequiredProp = defaultIsRequired,
 		isRound = defaultIsRound,
 		isSuccess = defaultIsSuccess,
 		isWarning = defaultIsWarning,
@@ -74,9 +72,16 @@ const Radio = forwardRef<RadioRef, RadioProps>(function Radio(props, ref): React
 		...rest
 	} = props;
 
-	const isChecked = useMemo((): boolean => {
-		return defaultChecked || isCheckedProp;
-	}, [defaultChecked, isCheckedProp]);
+	const { state, getRootProps, getRadioProps, getInputProps, getLabelProps, htmlProps } = useRadio({
+		isChecked: defaultChecked || isCheckedProp,
+		isDisabled: isDisabledProp,
+		isFocusable: true,
+		isInvalid: isError,
+		isReadOnly: isReadOnlyProp,
+		isRequired: isRequiredProp
+	});
+
+	const { isChecked, isDisabled, isInvalid, isReadOnly, isRequired } = state;
 
 	const radius = useMemo((): Radius => {
 		return getVariantRadius({ isCompact, isRound, variant });
@@ -100,13 +105,14 @@ const Radio = forwardRef<RadioRef, RadioProps>(function Radio(props, ref): React
 	return (
 		<RadioContext.Provider value={{ color, colorMode, size }}>
 			<Center
+				{...getRootProps()}
 				{...htmlProps}
 				{...rest}
 				ref={ref}
 				aria-readonly={isReadOnly}
 				aria-checked={isChecked}
 				aria-disabled={isDisabled}
-				aria-invalid={isError}
+				aria-invalid={isInvalid}
 				onClick={handleRadioClick}
 				sx={merge(style.group, sx)}
 				_disabled={style.disabled}
@@ -115,7 +121,7 @@ const Radio = forwardRef<RadioRef, RadioProps>(function Radio(props, ref): React
 					width='100%'
 					height='100%'
 					borderRadius={radius}
-					color={isError ? 'red' : isSuccess ? 'green' : isWarning ? 'yellow' : color}
+					color={isInvalid ? 'red' : isSuccess ? 'green' : isWarning ? 'yellow' : color}
 					colorMode={colorMode}
 					isDisabled={isDisabled}
 					variant={variant}
@@ -146,7 +152,7 @@ const Radio = forwardRef<RadioRef, RadioProps>(function Radio(props, ref): React
 								height='100%'
 								aria-checked={isChecked}
 								aria-disabled={isDisabled}
-								aria-invalid={isError}
+								aria-invalid={isInvalid}
 								aria-required={isRequired}
 							>
 								<input {...getInputProps({})} hidden />
@@ -155,7 +161,7 @@ const Radio = forwardRef<RadioRef, RadioProps>(function Radio(props, ref): React
 									width={fontSize}
 									height={fontSize}
 									fontSize={fontSize}
-									color={isError ? 'red' : isSuccess ? 'green' : isWarning ? 'yellow' : color}
+									color={isInvalid ? 'red' : isSuccess ? 'green' : isWarning ? 'yellow' : color}
 									colorMode={colorMode}
 									icon={isChecked ? 'radio_button_checked' : 'radio_button_unchecked'}
 									variant='unstyled'
