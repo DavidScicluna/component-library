@@ -7,6 +7,16 @@ import { useElementSize } from 'usehooks-ts';
 
 import { useBoolean, useTheme } from '../../../common/hooks';
 import { useProviderContext } from '../../Provider/common/hooks';
+import {
+	isDisabled as defaultIsDisabled,
+	isError as defaultIsError,
+	isFocused as defaultIsFocused,
+	isReadOnly as defaultIsReadOnly,
+	isRequired as defaultIsRequired,
+	isSuccess as defaultIsSuccess,
+	isWarning as defaultIsWarning,
+	size as defaultSize
+} from '../FormControl/common/default/props';
 import { useFormControlContext } from '../FormControl/common/hooks';
 
 import useStyles from './common/styles';
@@ -16,19 +26,19 @@ import { getSizeConfig, GetSizeConfigReturn } from './common/utils';
 const Textarea = forwardRef<TextareaRef, TextareaProps>(function Textarea(props, ref): ReactElement {
 	const theme = useTheme();
 
-	const { color: appColor, colorMode: appColorMode } = useProviderContext();
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const {
-		color: defaultColor = appColor,
-		colorMode: defaultColorMode = appColorMode,
-		isDisabled: defaultIsDisabled,
-		isError: defaultIsError,
-		isFocused: defaultIsFocused,
-		isReadOnly: defaultIsReadOnly,
-		isRequired: defaultIsRequired,
-		isSuccess: defaultIsSuccess,
-		isWarning: defaultIsWarning,
-		size: defaultSize
+		color: formControlColor,
+		colorMode: formControlColorMode,
+		isDisabled: formControlIsDisabled,
+		isError: formControlIsError,
+		isFocused: formControlIsFocused,
+		isReadOnly: formControlIsReadOnly,
+		isRequired: formControlIsRequired,
+		isSuccess: formControlIsSuccess,
+		isWarning: formControlIsWarning,
+		size: formControlSize
 	} = useFormControlContext();
 
 	const textareaRef = useRef<TextareaRef>(null);
@@ -37,22 +47,22 @@ const Textarea = forwardRef<TextareaRef, TextareaProps>(function Textarea(props,
 
 	const {
 		autoComplete = 'off',
-		color = defaultColor,
-		colorMode = defaultColorMode,
+		color = formControlColor || defaultColor,
+		colorMode = formControlColorMode || defaultColorMode,
 		id,
 		name,
 		renderLeft,
 		renderRight,
-		isDisabled = defaultIsDisabled,
-		isError = defaultIsError,
-		isFocused: isFocusedProp = defaultIsFocused,
-		isReadOnly = defaultIsReadOnly,
-		isRequired = defaultIsRequired,
-		isSuccess = defaultIsSuccess,
-		isWarning = defaultIsWarning,
+		isDisabled = formControlIsDisabled || defaultIsDisabled,
+		isError = formControlIsError || defaultIsError,
+		isFocused: isFocusedProp = formControlIsFocused || defaultIsFocused,
+		isReadOnly = formControlIsReadOnly || defaultIsReadOnly,
+		isRequired = formControlIsRequired || defaultIsRequired,
+		isSuccess = formControlIsSuccess || defaultIsSuccess,
+		isWarning = formControlIsWarning || defaultIsWarning,
 		onFocus,
 		onBlur,
-		size = defaultSize,
+		size = formControlSize || defaultSize,
 		resize = 'none',
 		sx,
 		...rest
