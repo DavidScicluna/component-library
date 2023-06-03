@@ -47,7 +47,8 @@ type Omitted =
 	| BoxPseudo
 	| BoxOther
 	| 'as'
-	| 'children';
+	| 'children'
+	| 'onChange';
 
 type Picked =
 	| 'color'
@@ -65,7 +66,7 @@ export type SwitchProps = Pick<FormControlProps, Picked> & {
 	renderOffLabel?: (props: SwitchRenderProps) => ReactNode;
 	renderThumbIcon?: (props: SwitchRenderProps) => ReactNode;
 	isChecked?: boolean;
-	onChange?: (isActive: boolean) => void;
+	onChange?: (isChecked: boolean) => void;
 } & Omit<CenterProps, Omitted>;
 
 export type SwitchRef = Nullable<HTMLDivElement>;

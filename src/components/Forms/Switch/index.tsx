@@ -8,6 +8,15 @@ import { useElementSize } from 'usehooks-ts';
 import { useTheme } from '../../../common/hooks';
 import PushableOverlay from '../../Overlay/PushableOverlay';
 import { useProviderContext } from '../../Provider/common/hooks';
+import {
+	isDisabled as defaultIsDisabled,
+	isError as defaultIsError,
+	isReadOnly as defaultIsReadOnly,
+	isRequired as defaultIsRequired,
+	isSuccess as defaultIsSuccess,
+	isWarning as defaultIsWarning,
+	size as defaultSize
+} from '../FormControl/common/default/props';
 import { useFormControlContext } from '../FormControl/common/hooks';
 
 import { isChecked as defaultIsChecked } from './common/default/props';
@@ -19,38 +28,38 @@ import SwitchThumb from './components/SwitchThumb';
 const Switch = forwardRef<SwitchRef, SwitchProps>(function Switch(props, ref): ReactElement {
 	const theme = useTheme();
 
-	const { color: appColor, colorMode: appColorMode } = useProviderContext();
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const {
-		color: defaultColor = appColor,
-		colorMode: defaultColorMode = appColorMode,
-		isDisabled: defaultIsDisabled,
-		isError: defaultIsError,
-		isReadOnly: defaultIsReadOnly,
-		isRequired: defaultIsRequired,
-		isSuccess: defaultIsSuccess,
-		isWarning: defaultIsWarning,
-		size: defaultSize
+		color: formControlColor,
+		colorMode: formControlColorMode,
+		isDisabled: formControlIsDisabled,
+		isError: formControlIsError,
+		isReadOnly: formControlIsReadOnly,
+		isRequired: formControlIsRequired,
+		isSuccess: formControlIsSuccess,
+		isWarning: formControlIsWarning,
+		size: formControlSize
 	} = useFormControlContext();
 
 	const [trackRef, { width: trackWidth, height: trackHeight }] = useElementSize();
 
 	const {
-		color = defaultColor,
-		colorMode = defaultColorMode,
+		color = formControlColor || defaultColor,
+		colorMode = formControlColorMode || defaultColorMode,
 		renderOnLabel,
 		renderOffLabel,
 		renderThumbIcon,
 		defaultChecked = defaultIsChecked,
 		isChecked: isCheckedProp = defaultIsChecked,
-		isDisabled: isDisabledProp = defaultIsDisabled,
-		isError = defaultIsError,
-		isReadOnly: isReadOnlyProp = defaultIsReadOnly,
-		isRequired: isRequiredProp = defaultIsRequired,
-		isSuccess = defaultIsSuccess,
-		isWarning = defaultIsWarning,
+		isDisabled: isDisabledProp = formControlIsDisabled || defaultIsDisabled,
+		isError = formControlIsError || defaultIsError,
+		isReadOnly: isReadOnlyProp = formControlIsReadOnly || defaultIsReadOnly,
+		isRequired: isRequiredProp = formControlIsRequired || defaultIsRequired,
+		isSuccess = formControlIsSuccess || defaultIsSuccess,
+		isWarning = formControlIsWarning || defaultIsWarning,
 		onChange,
-		size = defaultSize,
+		size = formControlSize || defaultSize,
 		sx,
 		...rest
 	} = props;
