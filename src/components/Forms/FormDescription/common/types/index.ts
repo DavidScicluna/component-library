@@ -43,6 +43,6 @@ type Omitted =
 
 export type FormDescriptionProps = Omit<FormLabelProps, Omitted> & {
 	children?: Nullable<string>;
-} & Pick<FormControlProps, 'colorMode'>;
+} & Pick<FormControlProps, 'colorMode' | 'size'>;
 
 export type FormDescriptionRef = Nullable<HTMLLabelElement>;
