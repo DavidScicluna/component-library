@@ -11,7 +11,7 @@ const CardSubtitle: FC<CardSubtitleProps> = ({ children, colorMode = defaultColo
 	const color = useGetColor({ color: 'gray', colorMode, type: 'text.secondary' });
 
 	return (
-		<Text align='left' color={color} fontSize='sm' lineHeight='normal' noOfLines={1} {...rest}>
+		<Text align='left' fontSize='sm' lineHeight='normal' noOfLines={1} {...rest} color={color}>
 			{children}
 		</Text>
 	);

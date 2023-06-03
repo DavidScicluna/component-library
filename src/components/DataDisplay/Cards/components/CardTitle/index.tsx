@@ -11,7 +11,7 @@ const CardTitle: FC<CardTitleProps> = ({ children, colorMode = defaultColorMode,
 	const color = useGetColor({ color: 'gray', colorMode, type: 'text.primary' });
 
 	return (
-		<Text align='left' color={color} fontSize='xl' fontWeight='bold' lineHeight='normal' noOfLines={1} {...rest}>
+		<Text align='left' fontSize='xl' fontWeight='bold' lineHeight='normal' noOfLines={1} {...rest} color={color}>
 			{children}
 		</Text>
 	);
