@@ -12,7 +12,15 @@ import { Radius } from '../../../theme/types';
 import Icon from '../../DataDisplay/Icon';
 import PushableOverlay from '../../Overlay/PushableOverlay';
 import { useProviderContext } from '../../Provider/common/hooks';
-import { size as defaultSize } from '../FormControl/common/default/props';
+import {
+	isDisabled as defaultIsDisabled,
+	isError as defaultIsError,
+	isReadOnly as defaultIsReadOnly,
+	isRequired as defaultIsRequired,
+	isSuccess as defaultIsSuccess,
+	isWarning as defaultIsWarning,
+	size as defaultSize
+} from '../FormControl/common/default/props';
 import { useFormControlContext } from '../FormControl/common/hooks';
 
 import {
@@ -34,39 +42,39 @@ export const RadioContext = createContext<RadioContextType>({
 const Radio = forwardRef<RadioRef, RadioProps>(function Radio(props, ref): ReactElement {
 	const theme = useTheme();
 
-	const { color: appColor, colorMode: appColorMode } = useProviderContext();
+	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const {
-		color: defaultColor = appColor,
-		colorMode: defaultColorMode = appColorMode,
-		isDisabled: defaultIsDisabled,
-		isError: defaultIsError,
-		isReadOnly: defaultIsReadOnly,
-		isRequired: defaultIsRequired,
-		isSuccess: defaultIsSuccess,
-		isWarning: defaultIsWarning,
-		size: defaultSize
+		color: formControlColor,
+		colorMode: formControlColorMode,
+		isDisabled: formControlIsDisabled,
+		isError: formControlIsError,
+		isReadOnly: formControlIsReadOnly,
+		isRequired: formControlIsRequired,
+		isSuccess: formControlIsSuccess,
+		isWarning: formControlIsWarning,
+		size: formControlSize
 	} = useFormControlContext();
 
 	const [radioRef, { width: radioWidth, height: radioHeight }] = useElementSize();
 
 	const {
-		color = defaultColor,
-		colorMode = defaultColorMode,
+		color = formControlColor || defaultColor,
+		colorMode = formControlColorMode || defaultColorMode,
 		renderLeft,
 		renderRight,
 		defaultChecked = defaultIsChecked,
 		isChecked: isCheckedProp = defaultIsChecked,
 		isCompact = defaultIsCompact,
-		isDisabled: isDisabledProp = defaultIsDisabled,
-		isError = defaultIsError,
-		isReadOnly: isReadOnlyProp = defaultIsReadOnly,
-		isRequired: isRequiredProp = defaultIsRequired,
+		isDisabled: isDisabledProp = formControlIsDisabled || defaultIsDisabled,
+		isError = formControlIsError || defaultIsError,
+		isReadOnly: isReadOnlyProp = formControlIsReadOnly || defaultIsReadOnly,
+		isRequired: isRequiredProp = formControlIsRequired || defaultIsRequired,
 		isRound = defaultIsRound,
-		isSuccess = defaultIsSuccess,
-		isWarning = defaultIsWarning,
+		isSuccess = formControlIsSuccess || defaultIsSuccess,
+		isWarning = formControlIsWarning || defaultIsWarning,
 		onChange,
-		size = defaultSize,
+		size = formControlSize || defaultSize,
 		variant = defaultVariant,
 		sx,
 		...rest
