@@ -109,7 +109,13 @@ const Tab: FC<TabProps> = (props) => {
 				spacing={0}
 			>
 				<Center width='100%' px={config.padding.x}>
-					<Divider width='100%' height={`${border.tab}px`} backgroundColor={theme.colors.transparent} />
+					<Divider
+						width='100%'
+						height={`${border.tab}px`}
+						backgroundColor={theme.colors.transparent}
+						borderEndStartRadius='full'
+						borderEndEndRadius='full'
+					/>
 				</Center>
 
 				<HStack
@@ -133,7 +139,13 @@ const Tab: FC<TabProps> = (props) => {
 
 				<ScaleFade in={isActive || isSelected || isHovering} unmountOnExit={false} initialScale={0.75}>
 					<Center width='100%' px={config.padding.x}>
-						<Divider width='100%' height={`${border.tab}px`} backgroundColor={borderColor} />
+						<Divider
+							width='100%'
+							height={`${border.tab}px`}
+							backgroundColor={borderColor}
+							borderEndStartRadius='full'
+							borderEndEndRadius='full'
+						/>
 					</Center>
 				</ScaleFade>
 			</VStack>
