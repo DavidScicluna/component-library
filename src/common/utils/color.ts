@@ -60,7 +60,8 @@ export type GetColorProps = {
 
 export const getColor = memoize(({ theme, colorMode, color: colorProp, type }: GetColorProps): string => {
 	const color: Color = colorProp || 'gray';
-	return theme.colors[color][getHue({ type, colorMode })];
+	const hue: ColorHues = getHue({ type, colorMode });
+	return theme.colors[color][hue];
 });
 
 export const getColorMode = memoize((): AppColorMode => {
