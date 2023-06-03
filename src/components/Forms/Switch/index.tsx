@@ -114,7 +114,7 @@ const Switch = forwardRef<SwitchRef, SwitchProps>(function Switch(props, ref): R
 				colorMode={colorMode}
 				isDisabled={isDisabled}
 				isFixed={isReadOnly}
-				variant='contained'
+				variant={isInvalid || isSuccess || isWarning || isChecked ? 'contained' : 'light'}
 				p={config.padding}
 			>
 				<input className='ds-cl-switch-input' {...getInputProps({}, ref)} />
