@@ -13,7 +13,7 @@ const ConfirmModalSubtitle: FC<ConfirmModalSubtitleProps> = ({ children, ...rest
 	const color = useGetColor({ color: 'gray', colorMode, type: 'text.secondary' });
 
 	return (
-		<Text align='center' color={color} fontSize='sm' lineHeight='base' noOfLines={0} {...rest}>
+		<Text align='center' fontSize='md' lineHeight='base' noOfLines={0} {...rest} color={color}>
 			{children}
 		</Text>
 	);
