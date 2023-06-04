@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { HStack, ModalFooter } from '@chakra-ui/react';
+import { ModalFooter, VStack } from '@chakra-ui/react';
 
 import { useConfirmModalContext } from '../../common/hooks';
 
@@ -12,7 +12,17 @@ const ConfirmModalFooter: FC<ConfirmModalFooterProps> = (props) => {
 	const { renderCancel, renderAction, spacing = defaultSpacing, ...rest } = props;
 
 	return (
-		<ModalFooter as={HStack} width='100%' justifyContent='space-between' p={0} m={0} spacing={spacing} {...rest}>
+		<ModalFooter as={VStack} width='100%' justifyContent='space-between' p={0} m={0} spacing={spacing} {...rest}>
+			{renderAction
+				? renderAction({
+						color,
+						colorMode,
+						isFullWidth: true,
+						size: 'md',
+						variant: 'contained'
+				  })
+				: null}
+
 			{renderCancel
 				? renderCancel({
 						color: 'gray',
@@ -21,16 +31,6 @@ const ConfirmModalFooter: FC<ConfirmModalFooterProps> = (props) => {
 						onClick: typeof onClose === 'function' ? () => onClose() : undefined,
 						size: 'md',
 						variant: 'outlined'
-				  })
-				: null}
-
-			{renderAction
-				? renderAction({
-						color,
-						colorMode,
-						isFullWidth: true,
-						size: 'md',
-						variant: 'contained'
 				  })
 				: null}
 		</ModalFooter>
