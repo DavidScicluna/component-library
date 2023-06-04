@@ -1,6 +1,8 @@
-import { createContext, FC } from 'react';
+import { createContext, FC, useMemo } from 'react';
 
 import { Center, Modal as CUIModal, ModalContent, ModalOverlay } from '@chakra-ui/react';
+
+import { useWindowSize } from 'rooks';
 
 import {
 	color as defaultColor,
@@ -8,6 +10,7 @@ import {
 	method as defaultOnClose
 } from '../../../common/default/props';
 import { useGetColor, useTheme } from '../../../common/hooks';
+import { convertREMToPixels, convertStringToNumber } from '../../../common/utils';
 import { useProviderContext } from '../../Provider/common/hooks';
 
 import { isOpen as defaultIsOpen, size as defaultSize, spacing as defaultSpacing } from './common/default/props';
@@ -17,6 +20,7 @@ export const ConfirmModalContext = createContext<ConfirmModalContextType>({
 	color: defaultColor,
 	colorMode: defaultColorMode,
 	onClose: defaultOnClose,
+	size: defaultSize,
 	spacing: defaultSpacing
 });
 
@@ -24,6 +28,8 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 	const theme = useTheme();
 
 	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
+
+	const { innerHeight: windowHeight } = useWindowSize();
 
 	const {
 		children,
@@ -39,6 +45,18 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 
 	const background = useGetColor({ color: 'gray', colorMode, type: 'background' });
 
+	const width = useMemo((): string => {
+		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'));
+		return `calc(100% - ${spacingWidth * 2}px)`;
+	}, [size, spacing]);
+
+	const height = useMemo((): string => {
+		const height = windowHeight ? `${windowHeight}px` : '100vh';
+		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'));
+
+		return `calc(${height} - ${spacingWidth * 2}px)`;
+	}, [size, spacing]);
+
 	return (
 		<CUIModal
 			{...rest}
@@ -49,9 +67,16 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 			scrollBehavior='outside'
 			size={size}
 		>
-			<ConfirmModalContext.Provider value={{ color, colorMode, onClose, spacing }}>
+			<ConfirmModalContext.Provider value={{ color, colorMode, onClose, size, spacing }}>
 				<ModalOverlay />
-				<ModalContent position='relative' backgroundColor={background} borderRadius='xl'>
+				<ModalContent
+					width={width}
+					maxHeight={height}
+					position='relative'
+					backgroundColor={background}
+					borderRadius='xl'
+					m={0}
+				>
 					{renderCancel ? (
 						<Center position='absolute' top={theme.space[2]} right={theme.space[2]}>
 							{renderCancel({

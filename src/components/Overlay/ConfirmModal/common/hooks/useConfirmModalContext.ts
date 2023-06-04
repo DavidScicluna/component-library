@@ -7,7 +7,7 @@ import {
 } from '../../../../../common/default/props';
 import { NoUndefinedField } from '../../../../../common/types';
 import { ConfirmModalContext } from '../..';
-import { spacing as defaultSpacing } from '../default/props';
+import { size as defaultSize, spacing as defaultSpacing } from '../default/props';
 import { ConfirmModalContext as ConfirmModalContextType } from '../types';
 
 const useConfirmModalContext = (): NoUndefinedField<ConfirmModalContextType> => {
@@ -15,10 +15,11 @@ const useConfirmModalContext = (): NoUndefinedField<ConfirmModalContextType> => 
 		color = defaultColor,
 		colorMode = defaultColorMode,
 		onClose = defaultOnClose,
+		size = defaultSize,
 		spacing = defaultSpacing
 	} = useContext<ConfirmModalContextType>(ConfirmModalContext);
 
-	return { color, colorMode, onClose, spacing };
+	return { color, colorMode, onClose, size, spacing };
 };
 
 export default useConfirmModalContext;

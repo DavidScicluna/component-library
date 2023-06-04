@@ -67,4 +67,4 @@ export type ConfirmModalProps = CommonThemeProps & {
 	spacing?: Space;
 } & Omit<CUIModalProps, Omitted>;
 
-export type ConfirmModalContext = Pick<ConfirmModalProps, 'color' | 'colorMode' | 'onClose' | 'spacing'>;
+export type ConfirmModalContext = Pick<ConfirmModalProps, 'color' | 'colorMode' | 'onClose' | 'size' | 'spacing'>;
