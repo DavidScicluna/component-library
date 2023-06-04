@@ -35,7 +35,6 @@ type Omitted =
 	| BoxFilter
 	| BoxPseudo
 	| BoxOther
-	| 'as'
 	| 'direction'
 	| 'divider'
 	| 'spacing';
