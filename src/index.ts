@@ -149,6 +149,8 @@ import {
 	DummyCardHeaderProps,
 	DummyCardHeaderRenderProps
 } from './components/DataDisplay/Cards/DummyCard/components/DummyCardHeader/common/types';
+import DummyCardStack from './components/DataDisplay/Cards/DummyCard/components/DummyCardStack';
+import { DummyCardStackProps } from './components/DataDisplay/Cards/DummyCard/components/DummyCardStack/common/types';
 import Card from './components/DataDisplay/Cards/OriginalCard';
 import { useCardContext } from './components/DataDisplay/Cards/OriginalCard/common/hooks';
 import { CardContext, CardProps, CardRef } from './components/DataDisplay/Cards/OriginalCard/common/types';
@@ -159,6 +161,8 @@ import {
 	CardHeaderProps,
 	CardHeaderRenderProps
 } from './components/DataDisplay/Cards/OriginalCard/components/CardHeader/common/types';
+import CardStack from './components/DataDisplay/Cards/OriginalCard/components/CardStack';
+import { CardStackProps } from './components/DataDisplay/Cards/OriginalCard/components/CardStack/common/types';
 import { CollapsibleCardColor, CollapsibleCardVariant } from './components/DataDisplay/CollapsibleCards/common/types';
 import DummyCollapsibleCard from './components/DataDisplay/CollapsibleCards/DummyCollapsibleCard';
 import {
@@ -516,8 +520,7 @@ import {
 import ConfirmModalIcon from './components/Overlay/ConfirmModal/components/ConfirmModalIcon';
 import {
 	ConfirmModalIconProps,
-	ConfirmModalIconRenderIconProps,
-	ConfirmModalIconVariant
+	ConfirmModalIconRef
 } from './components/Overlay/ConfirmModal/components/ConfirmModalIcon/common/types';
 import ConfirmModalStack from './components/Overlay/ConfirmModal/components/ConfirmModalStack';
 import { ConfirmModalStackProps } from './components/Overlay/ConfirmModal/components/ConfirmModalStack/common/types';
@@ -781,6 +784,7 @@ export {
 	CardDivider,
 	CardFooter,
 	CardHeader,
+	CardStack,
 	CardSubtitle,
 	CardTitle,
 	Checkbox,
@@ -820,6 +824,7 @@ export {
 	DummyCard,
 	DummyCardDivider,
 	DummyCardHeader,
+	DummyCardStack,
 	DummyCollapsibleCard,
 	DummyHorizontalGrid,
 	DummyHorizontalGridBody,
@@ -965,6 +970,7 @@ export type {
 	CardHeaderRenderProps,
 	CardProps,
 	CardRef,
+	CardStackProps,
 	CardSubtitleProps,
 	CardTitleProps,
 	CardVariant,
@@ -1015,8 +1021,7 @@ export type {
 	ConfirmModalFooterRenderCancelProps,
 	ConfirmModalFooterRenderProps,
 	ConfirmModalIconProps,
-	ConfirmModalIconRenderIconProps,
-	ConfirmModalIconVariant,
+	ConfirmModalIconRef,
 	ConfirmModalProps,
 	ConfirmModalSize,
 	ConfirmModalStackProps,
@@ -1045,6 +1050,7 @@ export type {
 	DummyCardHeaderRenderProps,
 	DummyCardProps,
 	DummyCardRef,
+	DummyCardStackProps,
 	DummyCollapsibleCardProps,
 	DummyCollapsibleCardRef,
 	DummyCollapsibleCardRenderProps,
