@@ -35,6 +35,9 @@ type Omitted =
 	| BoxFilter
 	| BoxPseudo
 	| BoxOther
+	| 'as'
+	| 'direction'
+	| 'divider'
 	| 'spacing';
 
 export type ModalStackProps = Omit<StackProps, Omitted> & {
