@@ -5,4 +5,4 @@ export type CardProps = CommonCardProps;
 
 export type CardRef = Nullable<HTMLDivElement>;
 
-export type CardContext = Pick<CardProps, 'color' | 'colorMode' | 'spacing' | 'variant'>;
+export type CardContext = Pick<CardProps, 'color' | 'colorMode' | 'isDivisible' | 'spacing' | 'variant'>;

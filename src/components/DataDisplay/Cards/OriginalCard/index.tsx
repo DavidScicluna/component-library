@@ -1,7 +1,5 @@
 import { createContext, forwardRef, ReactElement } from 'react';
 
-import { VStack } from '@chakra-ui/react';
-
 import { merge } from 'lodash-es';
 
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/default/props';
@@ -20,11 +18,11 @@ import {
 import useStyles from '../common/styles';
 
 import { CardContext as CardContextType, CardProps, CardRef } from './common/types';
-import CardDivider from './components/CardDivider';
 
 export const CardContext = createContext<CardContextType>({
 	color: defaultColor,
 	colorMode: defaultColorMode,
+	isDivisible: defaultIsDivisible,
 	spacing: defaultSpacing,
 	variant: defaultVariant
 });
@@ -52,7 +50,7 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 	const style = useStyles({ theme, isClickable, isDisabled, isFixed });
 
 	return (
-		<CardContext.Provider value={{ color, colorMode, spacing, variant }}>
+		<CardContext.Provider value={{ color, colorMode, isDivisible, spacing, variant }}>
 			<PushableOverlay
 				{...rest}
 				ref={ref}
@@ -70,16 +68,7 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 				_disabled={style.disabled}
 				_active={style.active}
 			>
-				<VStack
-					width='100%'
-					height='100%'
-					overflowY='hidden'
-					overflowX='hidden'
-					divider={isDivisible ? <CardDivider /> : undefined}
-					spacing={spacing}
-				>
-					{children}
-				</VStack>
+				{children}
 			</PushableOverlay>
 		</CardContext.Provider>
 	);
