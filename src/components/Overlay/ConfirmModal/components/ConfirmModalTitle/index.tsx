@@ -13,7 +13,7 @@ const ConfirmModalTitle: FC<ConfirmModalTitleProps> = ({ children, ...rest }) =>
 	const color = useGetColor({ color: 'gray', colorMode, type: 'text.primary' });
 
 	return (
-		<Text align='center' color={color} fontSize='2xl' fontWeight='bold' lineHeight='base' noOfLines={1} {...rest}>
+		<Text align='center' fontSize='4xl' fontWeight='bold' lineHeight='base' noOfLines={1} {...rest} color={color}>
 			{children}
 		</Text>
 	);
