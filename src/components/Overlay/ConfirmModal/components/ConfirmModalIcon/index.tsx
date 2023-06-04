@@ -1,31 +1,17 @@
-import { FC } from 'react';
+import { forwardRef, ReactElement } from 'react';
 
-import { Center } from '@chakra-ui/react';
-
-import { merge } from 'lodash-es';
-
-import { color as defaultColor } from '../../../../../common/default/props';
-import { useTheme } from '../../../../../common/hooks';
+import Icon from '../../../../DataDisplay/Icon';
 import { useConfirmModalContext } from '../../common/hooks';
 
-import { variant as defaultVariant } from './common/default/props';
-import useStyles from './common/styles';
-import { ConfirmModalIconProps } from './common/types';
+import { ConfirmModalIconProps, ConfirmModalIconRef } from './common/types';
 
-const ConfirmModalIcon: FC<ConfirmModalIconProps> = (props) => {
-	const theme = useTheme();
+const ConfirmModalIcon = forwardRef<ConfirmModalIconRef, ConfirmModalIconProps>(function ConfirmModalIcon(
+	props,
+	ref
+): ReactElement {
+	const { color, colorMode } = useConfirmModalContext();
 
-	const { colorMode } = useConfirmModalContext();
-
-	const { renderIcon, color = defaultColor, variant = defaultVariant, sx, ...rest } = props;
-
-	const style = useStyles({ theme, color, colorMode, variant });
-
-	return (
-		<Center {...rest} sx={merge(style.icon, sx)}>
-			{renderIcon({ colorMode })}
-		</Center>
-	);
-};
+	return <Icon {...props} ref={ref} color={color} colorMode={colorMode} />;
+});
 
 export default ConfirmModalIcon;
