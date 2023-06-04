@@ -1,6 +1,6 @@
 import { createContext, FC, useMemo } from 'react';
 
-import { Modal as CUIModal, ModalContent, ModalOverlay, useMediaQuery } from '@chakra-ui/react';
+import { Modal as CUIModal, ModalContent, ModalOverlay } from '@chakra-ui/react';
 
 import { useWindowSize } from 'rooks';
 
@@ -29,8 +29,6 @@ const Modal: FC<ModalProps> = (props) => {
 
 	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
-	const [isSm] = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
-
 	const { innerHeight: windowHeight } = useWindowSize();
 
 	const {
@@ -47,24 +45,24 @@ const Modal: FC<ModalProps> = (props) => {
 	const background = useGetColor({ color: 'gray', colorMode, type: 'background' });
 
 	const width = useMemo((): string => {
-		if (size === 'full' || isSm) {
+		if (size === 'full') {
 			return '100%';
 		} else {
 			const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'));
 			return `calc(100% - ${spacingWidth * 2}px)`;
 		}
-	}, [isSm, size, spacing]);
+	}, [size, spacing]);
 
 	const height = useMemo((): string => {
 		const height = windowHeight ? `${windowHeight}px` : '100vh';
 
-		if (size === 'full' || isSm) {
+		if (size === 'full') {
 			return height;
 		} else {
 			const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'));
 			return `calc(${height} - ${spacingWidth * 2}px)`;
 		}
-	}, [isSm, size, spacing]);
+	}, [size, spacing]);
 
 	return (
 		<CUIModal
@@ -74,16 +72,15 @@ const Modal: FC<ModalProps> = (props) => {
 			isCentered
 			motionPreset='slideInBottom'
 			scrollBehavior='inside'
-			size={size === 'full' || isSm ? 'full' : size}
+			size={size}
 		>
 			<ModalContext.Provider value={{ color, colorMode, onClose, size, spacing }}>
 				<ModalOverlay />
-
 				<ModalContent
 					width={width}
 					maxHeight={height}
 					backgroundColor={background}
-					borderRadius={size === 'full' || isSm ? 'none' : 'xl'}
+					borderRadius={size === 'full' ? 'none' : 'xl'}
 					m={0}
 				>
 					{children}
