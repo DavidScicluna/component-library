@@ -5,4 +5,4 @@ export type DummyCardProps = Omit<CommonCardProps, 'isActive' | 'isDisabled' | '
 
 export type DummyCardRef = Nullable<HTMLDivElement>;
 
-export type DummyCardContext = Pick<DummyCardProps, 'color' | 'colorMode' | 'spacing' | 'variant'>;
+export type DummyCardContext = Pick<DummyCardProps, 'color' | 'colorMode' | 'isDivisible' | 'spacing' | 'variant'>;

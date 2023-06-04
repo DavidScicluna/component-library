@@ -1,7 +1,5 @@
 import { createContext, forwardRef, ReactElement } from 'react';
 
-import { VStack } from '@chakra-ui/react';
-
 import { merge } from 'lodash-es';
 
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/default/props';
@@ -16,11 +14,11 @@ import {
 import useStyles from '../common/styles';
 
 import { DummyCardContext as DummyCardContextType, DummyCardProps, DummyCardRef } from './common/types';
-import DummyCardDivider from './components/DummyCardDivider';
 
 export const DummyCardContext = createContext<DummyCardContextType>({
 	color: defaultColor,
 	colorMode: defaultColorMode,
+	isDivisible: defaultIsDivisible,
 	spacing: defaultSpacing,
 	variant: defaultVariant
 });
@@ -45,7 +43,7 @@ const DummyCard = forwardRef<DummyCardRef, DummyCardProps>(function DummyCard(pr
 	const style = useStyles({ theme, isClickable: false, isDisabled: true, isFixed: false });
 
 	return (
-		<DummyCardContext.Provider value={{ color, colorMode, spacing, variant }}>
+		<DummyCardContext.Provider value={{ color, colorMode, isDivisible, spacing, variant }}>
 			<PushableOverlay
 				{...rest}
 				ref={ref}
@@ -61,16 +59,7 @@ const DummyCard = forwardRef<DummyCardRef, DummyCardProps>(function DummyCard(pr
 				_disabled={style.disabled}
 				_active={style.active}
 			>
-				<VStack
-					width='100%'
-					height='100%'
-					overflowY='hidden'
-					overflowX='hidden'
-					divider={isDivisible ? <DummyCardDivider /> : undefined}
-					spacing={spacing}
-				>
-					{children}
-				</VStack>
+				{children}
 			</PushableOverlay>
 		</DummyCardContext.Provider>
 	);
