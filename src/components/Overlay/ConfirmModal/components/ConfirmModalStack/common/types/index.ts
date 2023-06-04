@@ -10,14 +10,17 @@ import {
 	BoxGradient,
 	BoxGrid,
 	BoxLayout,
+	BoxMargin,
 	BoxOther,
 	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
 	BoxTypography
 } from '../../../../../../../common/types/box';
+import { Space } from '../../../../../../../theme/types';
 
 type Omitted =
+	| BoxMargin
 	| BoxColor
 	| BoxGradient
 	| BoxTypography
@@ -34,6 +37,9 @@ type Omitted =
 	| BoxOther
 	| 'as'
 	| 'direction'
-	| 'divider';
+	| 'divider'
+	| 'spacing';
 
-export type ConfirmModalStackProps = Omit<StackProps, Omitted>;
+export type ConfirmModalStackProps = Omit<StackProps, Omitted> & {
+	spacing?: Space;
+};
