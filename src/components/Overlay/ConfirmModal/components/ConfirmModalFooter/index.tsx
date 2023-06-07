@@ -30,7 +30,7 @@ const ConfirmModalFooter: FC<ConfirmModalFooterProps> = (props) => {
 						isFullWidth: true,
 						onClick: typeof onClose === 'function' ? () => onClose() : undefined,
 						size: 'md',
-						variant: 'outlined'
+						variant: 'monochrome'
 				  })
 				: null}
 		</ModalFooter>
