@@ -120,15 +120,15 @@ const Tab: FC<TabProps> = (props) => {
 
 				<HStack
 					width='100%'
-					alignItems='stretch'
-					justifyContent='stretch'
+					alignItems='center'
+					justifyContent='center'
 					spacing={config.spacing}
 					px={config.padding.x}
 					py={config.padding.y}
 				>
 					{renderLeft ? renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight }) : null}
 
-					<Center ref={childrenRef} as='span' flex={1}>
+					<Center ref={childrenRef} as='span'>
 						{label}
 					</Center>
 
