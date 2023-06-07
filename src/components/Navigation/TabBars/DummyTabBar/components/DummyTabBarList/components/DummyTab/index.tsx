@@ -82,12 +82,12 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 						</Center>
 					) : null}
 
-					<HStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={config.spacing.x}>
+					<HStack width='100%' alignItems='center' justifyContent='center' spacing={config.spacing.x}>
 						{renderLeft
 							? renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })
 							: null}
 
-						<Center ref={childrenRef} as='span' flex={1}>
+						<Center ref={childrenRef} as='span'>
 							<Skeleton
 								color={isSelected ? color : 'gray'}
 								colorMode={colorMode}
