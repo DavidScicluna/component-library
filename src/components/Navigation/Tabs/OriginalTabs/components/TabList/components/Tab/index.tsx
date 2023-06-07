@@ -113,8 +113,8 @@ const Tab: FC<TabProps> = (props) => {
 						width='100%'
 						height={`${border.tab}px`}
 						backgroundColor={theme.colors.transparent}
-						borderEndStartRadius='full'
-						borderEndEndRadius='full'
+						borderStartStartRadius='full'
+						borderStartEndRadius='full'
 					/>
 				</Center>
 
@@ -143,8 +143,8 @@ const Tab: FC<TabProps> = (props) => {
 							width='100%'
 							height={`${border.tab}px`}
 							backgroundColor={borderColor}
-							borderEndStartRadius='full'
-							borderEndEndRadius='full'
+							borderStartStartRadius='full'
+							borderStartEndRadius='full'
 						/>
 					</Center>
 				</ScaleFade>
