@@ -670,6 +670,7 @@ export type {
 	Orientation,
 	OS,
 	PickFrom,
+	Readonly,
 	Style,
 	Undefinable
 } from './common/types';
