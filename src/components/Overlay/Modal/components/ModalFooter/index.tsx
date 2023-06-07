@@ -35,7 +35,7 @@ const ModalFooter: FC<ModalFooterProps> = (props) => {
 						isFullWidth: isSm || !renderAction,
 						onClick: typeof onClose === 'function' ? () => onClose() : undefined,
 						size: 'md',
-						variant: 'outlined'
+						variant: 'monochrome'
 				  })
 				: null}
 
