@@ -19,6 +19,5 @@ type Omitted =
 
 export type CommonTabsProps = Omit<CUITabsProps, Omitted> & {
 	activeTab?: number;
-
 	size?: TabsSize;
 } & CommonThemeProps;

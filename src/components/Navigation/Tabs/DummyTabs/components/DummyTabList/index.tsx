@@ -7,8 +7,9 @@ import { useElementSize } from 'usehooks-ts';
 
 import { useGetColor } from '../../../../../../common/hooks';
 import HorizontalScroll from '../../../../../DataDisplay/HorizontalScroll';
+import LeftOverlayArrow from '../../../../../DataDisplay/HorizontalScroll/components/LeftOverlayArrow';
+import RightOverlayArrow from '../../../../../DataDisplay/HorizontalScroll/components/RightOverlayArrow';
 import { border } from '../../../common/default/sizes';
-import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from '../../../components/HorizontalScrollArrows';
 import { useDummyTabsContext } from '../../common/hooks';
 
 import { DummyTabListProps } from './common/types';
@@ -26,9 +27,10 @@ const DummyTabList: FC<DummyTabListProps> = ({ tabs = [], renderLeft, renderRigh
 			{...rest}
 			width='100%'
 			height='100%'
+			borderTopWidth={`${border.default}px`}
 			borderBottomWidth={`${border.default}px`}
-			borderBottomStyle='solid'
-			borderBottomColor={borderColor}
+			borderStyle='solid'
+			borderColor={borderColor}
 			sx={{
 				'& .react-horizontal-scrolling-menu--inner-wrapper': { width: '100%' },
 				'& .react-horizontal-scrolling-menu--item': isFitted ? { width: '100%' } : {}
@@ -59,8 +61,8 @@ const DummyTabList: FC<DummyTabListProps> = ({ tabs = [], renderLeft, renderRigh
 						width='100%'
 						height='100%'
 						colorMode={colorMode}
-						LeftArrow={HorizontalScrollLeftArrow}
-						RightArrow={HorizontalScrollRightArrow}
+						LeftArrow={<LeftOverlayArrow scrollAmount='single' />}
+						RightArrow={<RightOverlayArrow scrollAmount='single' />}
 					>
 						{tabs.map((tab, index) => (
 							<Tab

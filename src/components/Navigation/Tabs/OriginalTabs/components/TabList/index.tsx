@@ -8,15 +8,16 @@ import { useElementSize } from 'usehooks-ts';
 import { useGetColor } from '../../../../../../common/hooks';
 import HorizontalScroll from '../../../../../DataDisplay/HorizontalScroll';
 import { useSetHorizontalScrollAPIContext } from '../../../../../DataDisplay/HorizontalScroll/common/hooks';
+import LeftOverlayArrow from '../../../../../DataDisplay/HorizontalScroll/components/LeftOverlayArrow';
+import RightOverlayArrow from '../../../../../DataDisplay/HorizontalScroll/components/RightOverlayArrow';
 import { border } from '../../../common/default/sizes';
-import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from '../../../components/HorizontalScrollArrows';
 import { useTabsContext } from '../../common/hooks';
 
 import { TabListProps } from './common/types';
 import Tab from './components/Tab';
 
 const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest }) => {
-	const { activeTab, color, colorMode, isDisabled, isFitted, onChange } = useTabsContext();
+	const { activeTab, color, colorMode, isFitted, onChange } = useTabsContext();
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
@@ -49,9 +50,10 @@ const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest
 			{...rest}
 			width='100%'
 			height='100%'
+			borderTopWidth={`${border.default}px`}
 			borderBottomWidth={`${border.default}px`}
-			borderBottomStyle='solid'
-			borderBottomColor={borderColor}
+			borderStyle='solid'
+			borderColor={borderColor}
 			sx={{
 				'& .react-horizontal-scrolling-menu--inner-wrapper': { width: '100%' },
 				'& .react-horizontal-scrolling-menu--item': isFitted ? { width: '100%' } : {}
@@ -82,9 +84,8 @@ const TabList: FC<TabListProps> = ({ tabs = [], renderLeft, renderRight, ...rest
 						width='100%'
 						height='100%'
 						colorMode={colorMode}
-						LeftArrow={HorizontalScrollLeftArrow}
-						RightArrow={HorizontalScrollRightArrow}
-						isDisabled={isDisabled}
+						LeftArrow={<LeftOverlayArrow scrollAmount='single' />}
+						RightArrow={<RightOverlayArrow scrollAmount='single' />}
 						onInit={setScroll}
 						onUpdate={setScroll}
 					>
