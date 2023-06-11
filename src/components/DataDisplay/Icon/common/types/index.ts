@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 import { CenterProps } from '@chakra-ui/react';
 
 import { CommonThemeProps, Nullable } from '../../../../../common/types';
@@ -38,12 +40,12 @@ type Omitted =
 	| BoxOther
 	// CUI Center Props
 	| 'as'
-	| 'children'
 	| 'className';
 
 export type IconProps = Omit<CenterProps, Omitted> & {
+	children?: ReactNode;
 	color?: IconColor;
-	icon: Icon;
+	icon?: Icon;
 	category?: IconCategory;
 	variant?: IconVariant;
 } & Pick<CommonThemeProps, 'colorMode'>;

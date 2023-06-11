@@ -19,9 +19,9 @@ const Icon = forwardRef<IconRef, IconProps>(function Icon(props, ref): ReactElem
 	const { color: defaultColor, colorMode: defaultColorMode, iconFontStatus: hasIconLoaded } = useProviderContext();
 
 	const {
+		children,
 		color = defaultColor,
 		colorMode = defaultColorMode,
-		category = defaultCategory,
 		w,
 		width,
 		h,
@@ -31,6 +31,7 @@ const Icon = forwardRef<IconRef, IconProps>(function Icon(props, ref): ReactElem
 		maxH,
 		maxHeight,
 		icon,
+		category = defaultCategory,
 		variant = defaultVariant,
 		sx,
 		...rest
@@ -41,21 +42,32 @@ const Icon = forwardRef<IconRef, IconProps>(function Icon(props, ref): ReactElem
 	const dimensions = useConst<string>(`${defaultDimensions}px`);
 
 	return (
-		<Skeleton color={color} colorMode={colorMode} isLoaded={hasIconLoaded[category]} variant='circle'>
+		<Skeleton
+			color={color}
+			colorMode={colorMode}
+			isLoaded={!children && icon ? hasIconLoaded[category] : true}
+			variant='circle'
+		>
 			<Center
 				{...rest}
 				ref={ref}
 				as='span'
-				className={`material-icons${category === 'outlined' ? '-outlined' : ''} ds-cl-icon`}
+				className={[
+					!children && icon
+						? `material-icons${(props.category || defaultCategory) === 'outlined' ? '-outlined' : ''}`
+						: null,
+					'ds-cl-icon'
+				].join(' ')}
 				w={w || width || dimensions}
 				width={w || width || dimensions}
 				h={h || height || dimensions}
 				height={h || height || dimensions}
 				maxWidth={maxW || maxWidth || w || width || dimensions}
 				maxHeight={maxH || maxHeight || h || height || dimensions}
+				lineHeight='normal'
 				sx={variant !== 'unstyled' ? merge(style.icon, sx) : sx}
 			>
-				{icon}
+				{children || icon || null}
 			</Center>
 		</Skeleton>
 	);
