@@ -436,6 +436,29 @@ import {
 	SideNavigationProps,
 	SideNavigationRef
 } from './components/Navigation/SideNavigation/types';
+import { StepperSize, StepperVariant } from './components/Navigation/Stepper/common/types';
+import Stepper from './components/Navigation/Stepper/OriginalStepper';
+import { useStepperContext } from './components/Navigation/Stepper/OriginalStepper/common/hooks';
+import {
+	StepperContext,
+	StepperOnChangeProps,
+	StepperProps,
+	StepperRef
+} from './components/Navigation/Stepper/OriginalStepper/common/types';
+import StepList from './components/Navigation/Stepper/OriginalStepper/components/StepList';
+import {
+	StepListProps,
+	StepListRenderProps
+} from './components/Navigation/Stepper/OriginalStepper/components/StepList/common/types';
+import {
+	Step,
+	Steps,
+	StepStatus
+} from './components/Navigation/Stepper/OriginalStepper/components/StepList/components/Step/common/types';
+import StepPanels from './components/Navigation/Stepper/OriginalStepper/components/StepPanels';
+import { StepPanelsProps } from './components/Navigation/Stepper/OriginalStepper/components/StepPanels/common/types';
+import StepProgress from './components/Navigation/Stepper/OriginalStepper/components/StepProgress';
+import { StepProgressProps } from './components/Navigation/Stepper/OriginalStepper/components/StepProgress/common/types';
 import { TabBarSize } from './components/Navigation/TabBars/common/types';
 import DummyTabBar from './components/Navigation/TabBars/DummyTabBar';
 import { useDummyTabBarContext } from './components/Navigation/TabBars/DummyTabBar/common/hooks';
@@ -727,6 +750,7 @@ export {
 	useSetHorizontalScrollAPIContext,
 	useSideNavigationContext,
 	useStateLabelContext,
+	useStepperContext,
 	useTabBarContext,
 	useTabsContext
 };
@@ -913,6 +937,10 @@ export {
 	StateLabelSubtitle,
 	StateLabelTitle,
 	StateOverlay,
+	StepList,
+	StepPanels,
+	Stepper,
+	StepProgress,
 	Suspense,
 	Switch,
 	TabBar,
@@ -1238,6 +1266,19 @@ export type {
 	StateLabelTitleProps,
 	StateOverlayProps,
 	StateOverlayState,
+	Step,
+	StepListProps,
+	StepListRenderProps,
+	StepPanelsProps,
+	StepperContext,
+	StepperOnChangeProps,
+	StepperProps,
+	StepperRef,
+	StepperSize,
+	StepperVariant,
+	StepProgressProps,
+	Steps,
+	StepStatus,
 	SuspenseProps,
 	SwitchProps,
 	SwitchRef,
