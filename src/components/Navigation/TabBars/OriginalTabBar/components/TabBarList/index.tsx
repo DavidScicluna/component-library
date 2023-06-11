@@ -8,15 +8,16 @@ import { useElementSize } from 'usehooks-ts';
 import { useGetColor } from '../../../../../../common/hooks';
 import HorizontalScroll from '../../../../../DataDisplay/HorizontalScroll';
 import { useSetHorizontalScrollAPIContext } from '../../../../../DataDisplay/HorizontalScroll/common/hooks';
+import LeftOverlayArrow from '../../../../../DataDisplay/HorizontalScroll/components/LeftOverlayArrow';
+import RightOverlayArrow from '../../../../../DataDisplay/HorizontalScroll/components/RightOverlayArrow';
 import { border } from '../../../common/default/sizes';
-import { HorizontalScrollLeftArrow, HorizontalScrollRightArrow } from '../../../components/HorizontalScrollArrows';
 import { useTabBarContext } from '../../common/hooks';
 
 import { TabBarListProps } from './common/types';
 import Tab from './components/Tab';
 
 const TabBarList: FC<TabBarListProps> = ({ tabs = [], renderLeft, renderRight, ...rest }) => {
-	const { activeTab, color, colorMode, isDisabled, onChange } = useTabBarContext();
+	const { activeTab, color, colorMode, onChange } = useTabBarContext();
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
@@ -82,9 +83,8 @@ const TabBarList: FC<TabBarListProps> = ({ tabs = [], renderLeft, renderRight, .
 						width='100%'
 						height='100%'
 						colorMode={colorMode}
-						LeftArrow={HorizontalScrollLeftArrow}
-						RightArrow={HorizontalScrollRightArrow}
-						isDisabled={isDisabled}
+						LeftArrow={<LeftOverlayArrow scrollAmount='single' />}
+						RightArrow={<RightOverlayArrow scrollAmount='single' />}
 						onInit={setScroll}
 						onUpdate={setScroll}
 					>
