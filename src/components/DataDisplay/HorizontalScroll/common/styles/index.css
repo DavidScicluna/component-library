@@ -22,6 +22,7 @@
 	justify-content: stretch;
 
 	overflow-y: hidden;
+	overflow-x: hidden;
 }
 
 .react-horizontal-scrolling-menu--arrow-left,
