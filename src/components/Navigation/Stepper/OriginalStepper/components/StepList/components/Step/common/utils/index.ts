@@ -9,7 +9,7 @@ import { StepStatus } from '../types';
 type GetStatusColorProps = { status: StepStatus; color: AppColor };
 type GetStatusColorReturn = AppColor;
 
-export const getStatusColor = memoize(
+export const getStepStatusColor = memoize(
 	({ status = defaultStatus, color }: GetStatusColorProps): GetStatusColorReturn => {
 		switch (status) {
 			case 'success':
@@ -28,7 +28,7 @@ export const getStatusColor = memoize(
 
 type GetStatusIconProps = { status: StepStatus };
 
-export const getStatusIcon = memoize(({ status = defaultStatus }: GetStatusIconProps): Icon => {
+export const getStepStatusIcon = memoize(({ status = defaultStatus }: GetStatusIconProps): Icon => {
 	switch (status) {
 		case 'success':
 			return 'check_circle_outline';
@@ -45,7 +45,7 @@ export const getStatusIcon = memoize(({ status = defaultStatus }: GetStatusIconP
 
 type GetStatusProps = { activeStep: number; index: number; status: StepStatus };
 
-export const getStatus = memoize((props: GetStatusProps): StepStatus => {
+export const getStepStatus = memoize((props: GetStatusProps): StepStatus => {
 	const { activeStep = defaultActiveStep, index, status = defaultStatus } = props;
 
 	if (activeStep === index) {

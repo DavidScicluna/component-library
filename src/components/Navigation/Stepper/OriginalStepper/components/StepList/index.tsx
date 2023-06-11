@@ -14,6 +14,7 @@ import { useStepperContext } from '../../common/hooks';
 
 import { StepListProps } from './common/types';
 import Step from './components/Step';
+import { getStepStatus } from './components/Step/common/utils';
 
 const StepList: FC<StepListProps> = (props) => {
 	const { activeStep, color, colorMode, isFitted, onChange, variant } = useStepperContext();
@@ -92,6 +93,7 @@ const StepList: FC<StepListProps> = (props) => {
 							key={`ds-cl-stepper-step-${index}`}
 							panelId={`ds-cl-stepper-step-${index}`}
 							index={index}
+							status={getStepStatus({ activeStep, index, status: step.status })}
 							isSelected={step.isSelected || index === activeStep}
 							onSelect={handleStepClick}
 						/>

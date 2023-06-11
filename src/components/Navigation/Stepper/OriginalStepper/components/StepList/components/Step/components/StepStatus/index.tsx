@@ -6,7 +6,7 @@ import { useGetColor } from '../../../../../../../../../../common/hooks';
 import { getSizeConfig, GetSizeConfigReturn } from '../../../../../../../common/utils';
 import { useStepperContext } from '../../../../../../common/hooks';
 import { steps as defaultSteps } from '../../common/default/props';
-import { getStatusColor } from '../../common/utils';
+import { getStepStatusColor } from '../../common/utils';
 
 import { StatusProps } from './common/types';
 import StepSubStepIcon from './components/StepSubStepIcon';
@@ -14,7 +14,7 @@ import StepSubStepIcon from './components/StepSubStepIcon';
 const StepStatus: FC<StatusProps> = ({ status, steps = defaultSteps }) => {
 	const { color, colorMode, size } = useStepperContext();
 
-	const textColor = useGetColor({ color: getStatusColor({ status, color }), colorMode, type: 'color' });
+	const textColor = useGetColor({ color: getStepStatusColor({ status, color }), colorMode, type: 'color' });
 
 	const label = useMemo((): string => {
 		switch (status) {

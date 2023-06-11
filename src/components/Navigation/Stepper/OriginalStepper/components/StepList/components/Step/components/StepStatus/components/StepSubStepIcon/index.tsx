@@ -3,7 +3,7 @@ import { FC, useMemo } from 'react';
 import { useTheme } from '../../../../../../../../../../../../common/hooks';
 import Icon from '../../../../../../../../../../../DataDisplay/Icon';
 import { useStepperContext } from '../../../../../../../../common/hooks';
-import { getStatusColor } from '../../../../common/utils';
+import { getStepStatusColor } from '../../../../common/utils';
 
 import { StepSubStepIconProps } from './common/types';
 
@@ -12,7 +12,7 @@ const StepSubStepIcon: FC<StepSubStepIconProps> = ({ status }) => {
 
 	const { color, colorMode } = useStepperContext();
 
-	const iconColor = useMemo(() => getStatusColor({ status, color }), [status]);
+	const iconColor = useMemo(() => getStepStatusColor({ status, color }), [status]);
 
 	return (
 		// TODO: Go over all Icon and pass type
