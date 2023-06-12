@@ -29,7 +29,7 @@ export const getSizeConfig = ({ size = defaultSize }: GetSizeConfigProps): GetSi
 			return {
 				// minWidth: 336,
 				// maxWidth: 441,
-				titleFontSize: 12,
+				titleFontSize: 14,
 				subtitleFontSize: 10,
 				statusFontSize: 6,
 				icon: { width: 32, height: 32, fontSize: 'md' },
@@ -40,7 +40,7 @@ export const getSizeConfig = ({ size = defaultSize }: GetSizeConfigProps): GetSi
 			return {
 				// minWidth: 340,
 				// maxWidth: 445,
-				titleFontSize: 14,
+				titleFontSize: 16,
 				subtitleFontSize: 12,
 				statusFontSize: 8,
 				icon: { width: 40, height: 40, fontSize: 'xl' },
@@ -51,7 +51,7 @@ export const getSizeConfig = ({ size = defaultSize }: GetSizeConfigProps): GetSi
 			return {
 				// minWidth: 348,
 				// maxWidth: 453,
-				titleFontSize: 18,
+				titleFontSize: 20,
 				subtitleFontSize: 16,
 				statusFontSize: 12,
 				icon: { width: 52, height: 52, fontSize: '2xl' },
@@ -62,7 +62,7 @@ export const getSizeConfig = ({ size = defaultSize }: GetSizeConfigProps): GetSi
 			return {
 				// minWidth: 352,
 				// maxWidth: 457,
-				titleFontSize: 20,
+				titleFontSize: 22,
 				subtitleFontSize: 18,
 				statusFontSize: 14,
 				icon: { width: 56, height: 56, fontSize: '3xl' },
@@ -73,7 +73,7 @@ export const getSizeConfig = ({ size = defaultSize }: GetSizeConfigProps): GetSi
 			return {
 				// minWidth: 344,
 				// maxWidth: 449,
-				titleFontSize: 16,
+				titleFontSize: 18,
 				subtitleFontSize: 14,
 				statusFontSize: 10,
 				icon: { width: 46, height: 46, fontSize: '2xl' },
