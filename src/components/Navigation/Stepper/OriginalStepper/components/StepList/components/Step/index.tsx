@@ -22,9 +22,10 @@ import {
 import useStyles from './common/styles';
 import { StepMouseEvent, StepProps } from './common/types';
 import StepIcon from './components/StepIcon';
-import StepLabel from './components/StepLabel';
 import StepStatus from './components/StepStatus';
 import StepStatusIcon from './components/StepStatusIcon';
+import StepSubtitle from './components/StepSubtitle';
+import StepTitle from './components/StepTitle';
 
 const Step: FC<StepProps> = (props) => {
 	const theme = useTheme();
@@ -137,7 +138,8 @@ const Step: FC<StepProps> = (props) => {
 
 					<VStack alignItems='flex-start' justifyContent='center' spacing={0.5}>
 						<StepStatus status={status} steps={steps} />
-						<StepLabel index={index} title={title} subtitle={subtitle} hasIcon={hasIcon} />
+						<StepTitle index={index} title={title} hasIcon={hasIcon} />
+						{subtitle ? <StepSubtitle subtitle={subtitle} /> : null}
 					</VStack>
 				</HStack>
 
