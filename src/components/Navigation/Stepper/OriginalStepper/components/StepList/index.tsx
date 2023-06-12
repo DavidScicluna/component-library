@@ -5,11 +5,11 @@ import { Center, Grid, GridItem } from '@chakra-ui/react';
 import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
-import { useGetColor } from '../../../../../../common/hooks';
 import HorizontalScroll from '../../../../../DataDisplay/HorizontalScroll';
 import { useSetHorizontalScrollAPIContext } from '../../../../../DataDisplay/HorizontalScroll/common/hooks';
 import LeftOverlayArrow from '../../../../../DataDisplay/HorizontalScroll/components/LeftOverlayArrow';
 import RightOverlayArrow from '../../../../../DataDisplay/HorizontalScroll/components/RightOverlayArrow';
+import Divider from '../../../../../Divider';
 import { useStepperContext } from '../../common/hooks';
 
 import { StepListProps } from './common/types';
@@ -17,15 +17,13 @@ import Step from './components/Step';
 import { getStepStatus } from './components/Step/common/utils';
 
 const StepList: FC<StepListProps> = (props) => {
-	const { activeStep, color, colorMode, isFitted, onChange, variant } = useStepperContext();
+	const { activeStep, color, colorMode, isFitted, onChange } = useStepperContext();
 
 	const { steps = [], renderLeft, renderRight, ...rest } = props;
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const [scroll, setScroll] = useSetHorizontalScrollAPIContext();
-
-	const borderColor = useGetColor({ color: 'gray', colorMode, type: 'divider' });
 
 	const handleScrollToStep = (index: number): void => {
 		if (scroll) {
@@ -60,10 +58,6 @@ const StepList: FC<StepListProps> = (props) => {
 			justifyItems='stretch'
 			justifyContent='stretch'
 			gap={0}
-			borderTopWidth={`${variant === 'outlined' ? 2 : 0}px`}
-			borderBottomWidth={`${variant === 'outlined' ? 2 : 0}px`}
-			borderStyle='solid'
-			borderColor={borderColor}
 			sx={{
 				'& .react-horizontal-scrolling-menu--inner-wrapper': { width: '100%' },
 				'& .react-horizontal-scrolling-menu--item': isFitted ? { width: '100%' } : {}
@@ -86,6 +80,11 @@ const StepList: FC<StepListProps> = (props) => {
 					RightArrow={RightOverlayArrow}
 					onInit={setScroll}
 					onUpdate={setScroll}
+					renderDivider={() => (
+						<Center height='100%' alignItems='stretch' justifyContent='stretch'>
+							<Divider colorMode={colorMode} orientation='vertical' />
+						</Center>
+					)}
 				>
 					{steps.map((step, index) => (
 						<Step
