@@ -11,4 +11,4 @@ export const isFitted = false;
 
 export const size: StepperSize = 'md';
 
-export const variant: StepperVariant = 'transparent';
+export const variant: StepperVariant = 'dot';

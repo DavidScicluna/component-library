@@ -20,7 +20,7 @@ import {
 
 export type StepperSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export type StepperVariant = 'outlined' | 'transparent';
+export type StepperVariant = 'dot' | 'icon';
 
 type Omitted =
 	| BoxColor

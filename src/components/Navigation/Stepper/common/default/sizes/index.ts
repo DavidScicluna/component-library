@@ -3,4 +3,4 @@ export const border = {
 	tab: 4
 };
 
-export const offset = border.default * 2;
+// export const offset = border.default * 2;
