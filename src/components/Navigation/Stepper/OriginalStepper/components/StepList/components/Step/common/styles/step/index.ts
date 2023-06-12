@@ -1,12 +1,11 @@
 import { Style } from '../../../../../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../../../../../common/utils';
-import { variant as defaultVariant } from '../../../../../../../../common/default/props';
 
 import { StepStyleProps } from './types';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-export default ({ theme, variant = defaultVariant }: StepStyleProps): Style => {
+export default ({ theme }: StepStyleProps): Style => {
 	const transition = 'none';
 	const transitionProperty = transition;
 	const transitionDuration = transition;
@@ -29,9 +28,6 @@ export default ({ theme, variant = defaultVariant }: StepStyleProps): Style => {
 		'WebkitTapHighlightColor': theme.colors.transparent,
 
 		'transform': 'none',
-
-		'borderWidth': `${variant === 'outlined' ? 2 : 0}px`,
-		'borderStyle': 'solid',
 
 		'p': 0,
 		'm': 0,

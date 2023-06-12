@@ -5,7 +5,7 @@ import Icon from '../../../../../../../../../DataDisplay/Icon';
 import { IconVariant } from '../../../../../../../../../DataDisplay/Icon/common/types';
 import { getSizeConfig, GetSizeConfigReturn } from '../../../../../../../common/utils';
 import { useStepperContext } from '../../../../../../common/hooks';
-import { getStepStatusIcon, getStepStatusColor } from '../../common/utils';
+import { getStepStatusColor, getStepStatusIcon } from '../../common/utils';
 
 import { StepIconProps } from './common/types';
 
@@ -15,7 +15,7 @@ const StepIcon: FC<StepIconProps> = ({ index, status }) => {
 	const { color, colorMode, size } = useStepperContext();
 
 	const iconColor = useMemo(() => getStepStatusColor({ status, color }), [status]);
-	const iconType = useMemo(() => getStepStatusIcon({ status }), [status]);
+	const iconType = useMemo(() => getStepStatusIcon({ status, variant: 'dot' }), [status]);
 
 	const iconVariant = useMemo<IconVariant>(() => {
 		switch (status) {

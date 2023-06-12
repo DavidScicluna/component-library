@@ -1,51 +1,51 @@
 import memoize from 'micro-memoize';
 
-import { AppColor } from '../../../../../../../../../../common/types';
+import { AppColor, NoUndefinedField } from '../../../../../../../../../../common/types';
 import { Icon } from '../../../../../../../../../../common/types/icons';
-import { activeStep as defaultActiveStep } from '../../../../../../../common/default/props';
+import { activeStep as defaultActiveStep, variant as defaultVariant } from '../../../../../../../common/default/props';
+import { StepperProps } from '../../../../../../common/types';
 import { status as defaultStatus } from '../default/props';
-import { StepStatus } from '../types';
+import { StepProps, StepStatus } from '../types';
 
-type GetStatusColorProps = { status: StepStatus; color: AppColor };
-type GetStatusColorReturn = AppColor;
+type GetStepStatusColorProps = NoUndefinedField<Pick<StepperProps, 'color'>> & Pick<StepProps, 'status'>;
 
-export const getStepStatusColor = memoize(
-	({ status = defaultStatus, color }: GetStatusColorProps): GetStatusColorReturn => {
+export const getStepStatusColor = memoize(({ status = defaultStatus, color }: GetStepStatusColorProps): AppColor => {
+	switch (status) {
+		case 'success':
+			return 'green';
+		case 'error':
+			return 'red';
+		case 'active':
+			return color;
+		case 'warning':
+			return 'yellow';
+		default:
+			return 'gray';
+	}
+});
+
+type GetStepStatusIconProps = Pick<StepperProps, 'variant'> & Pick<StepProps, 'status'>;
+
+export const getStepStatusIcon = memoize(
+	({ status = defaultStatus, variant = defaultVariant }: GetStepStatusIconProps): Icon => {
 		switch (status) {
 			case 'success':
-				return 'green';
+				return variant === 'dot' ? 'check' : 'check_circle_outline';
 			case 'error':
-				return 'red';
+				return variant === 'dot' ? 'error' : 'error_outline';
 			case 'active':
-				return color;
+				return variant === 'dot' ? 'circle' : 'radio_button_checked';
 			case 'warning':
-				return 'yellow';
+				return variant === 'dot' ? 'warning' : 'warning_amber';
 			default:
-				return 'gray';
+				return 'radio_button_unchecked';
 		}
 	}
 );
 
-type GetStatusIconProps = { status: StepStatus };
+type GetStepStatusProps = Pick<StepperProps, 'activeStep'> & Pick<StepProps, 'index' | 'status'>;
 
-export const getStepStatusIcon = memoize(({ status = defaultStatus }: GetStatusIconProps): Icon => {
-	switch (status) {
-		case 'success':
-			return 'check_circle_outline';
-		case 'error':
-			return 'error_outline';
-		case 'active':
-			return 'adjust';
-		case 'warning':
-			return 'warning_amber';
-		default:
-			return 'pending';
-	}
-});
-
-type GetStatusProps = { activeStep: number; index: number; status: StepStatus };
-
-export const getStepStatus = memoize((props: GetStatusProps): StepStatus => {
+export const getStepStatus = memoize((props: GetStepStatusProps): StepStatus => {
 	const { activeStep = defaultActiveStep, index, status = defaultStatus } = props;
 
 	if (activeStep === index) {

@@ -14,7 +14,6 @@ import { getSizeConfig, GetSizeConfigReturn } from '../../../../../common/utils'
 import { useStepperContext } from '../../../../common/hooks';
 
 import {
-	hasIcon as defaultHasIcon,
 	isActive as defaultIsActive,
 	isSelected as defaultIsSelected,
 	steps as defaultSteps
@@ -30,7 +29,15 @@ import StepTitle from './components/StepTitle';
 const Step: FC<StepProps> = (props) => {
 	const theme = useTheme();
 
-	const { color, colorMode, isDisabled: isStepDisabled, isConsecutively, isFitted, size } = useStepperContext();
+	const {
+		color,
+		colorMode,
+		isDisabled: isStepDisabled,
+		isConsecutively,
+		isFitted,
+		size,
+		variant
+	} = useStepperContext();
 
 	const {
 		index,
@@ -39,7 +46,6 @@ const Step: FC<StepProps> = (props) => {
 		isActive = defaultIsActive,
 		isDisabled = defaultIsDisabled,
 		isSelected = defaultIsSelected,
-		hasIcon = defaultHasIcon,
 		onSelect,
 		onClick,
 		onMouseEnter,
@@ -134,16 +140,16 @@ const Step: FC<StepProps> = (props) => {
 					justifyContent='flex-start'
 					spacing={config.spacing}
 				>
-					{hasIcon ? <StepIcon index={index} status={status} /> : null}
+					{variant === 'dot' ? <StepIcon index={index} status={status} /> : null}
 
 					<VStack alignItems='flex-start' justifyContent='center' spacing={0.5}>
 						<StepStatus status={status} steps={steps} />
-						<StepTitle index={index} title={title} hasIcon={hasIcon} />
+						<StepTitle index={index} title={title} hasIcon={variant === 'icon'} />
 						{subtitle ? <StepSubtitle subtitle={subtitle} /> : null}
 					</VStack>
 				</HStack>
 
-				{!hasIcon ? <StepStatusIcon status={status} /> : null}
+				{variant === 'icon' ? <StepStatusIcon status={status} /> : null}
 			</HStack>
 
 			<ScaleFade in={isActive || isSelected || isHovering} unmountOnExit={false} initialScale={0.75}>

@@ -3,7 +3,7 @@ import { Theme } from '../../../../../../../../../../theme/types';
 import { StepperProps } from '../../../../../../common/types';
 import { StepProps } from '../types';
 
-export type StepStyleProps = Pick<StepperProps, 'color' | 'colorMode' | 'isConsecutively' | 'variant'> & {
+export type StepStyleProps = Pick<StepperProps, 'color' | 'colorMode' | 'isConsecutively'> & {
 	theme: Theme;
 } & Pick<StepProps, 'isSelected'>;
 

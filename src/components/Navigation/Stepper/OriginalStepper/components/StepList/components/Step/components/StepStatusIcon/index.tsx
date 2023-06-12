@@ -14,7 +14,7 @@ const StepStatusIcon: FC<StepStatusIconProps> = ({ status }) => {
 	const { color, colorMode, size } = useStepperContext();
 
 	const iconColor = useMemo(() => getStepStatusColor({ status, color }), [status]);
-	const iconType = useMemo(() => getStepStatusIcon({ status }), [status]);
+	const iconType = useMemo(() => getStepStatusIcon({ status, variant: 'icon' }), [status]);
 
 	// TODO: Go over all useMemo and check we are passing down a type
 	const { icon } = useMemo<GetSizeConfigReturn>(() => {

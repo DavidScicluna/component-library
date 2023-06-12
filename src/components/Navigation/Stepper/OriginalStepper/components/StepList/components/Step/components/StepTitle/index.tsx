@@ -28,7 +28,7 @@ const StepTitle: FC<StepTitleProps> = ({ index, title, hasIcon = false }) => {
 			letterSpacing='.6px'
 			noOfLines={1}
 		>
-			{hasIcon ? title : `${index + 1}. ${title}`}
+			{hasIcon ? `${index + 1}. ${title}` : title}
 		</Text>
 	);
 };

@@ -33,7 +33,6 @@ export type Step = {
 	isActive?: boolean;
 	isDisabled?: boolean;
 	isSelected?: boolean;
-	hasIcon?: boolean;
 	status: StepStatus;
 	steps?: Steps;
 	sx?: Style;
