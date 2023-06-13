@@ -532,8 +532,12 @@ import { useConfirmModalContext } from './components/Overlay/ConfirmModal/common
 import {
 	ConfirmModalContext,
 	ConfirmModalProps,
+	ConfirmModalRenderBackdropProps,
+	ConfirmModalRenderCancelProps,
 	ConfirmModalSize
 } from './components/Overlay/ConfirmModal/common/types';
+import ConfirmModalBackdrop from './components/Overlay/ConfirmModal/components/ConfirmModalBackdrop';
+import { ConfirmModalBackdropProps } from './components/Overlay/ConfirmModal/components/ConfirmModalBackdrop/common/types';
 import ConfirmModalBody from './components/Overlay/ConfirmModal/components/ConfirmModalBody';
 import { ConfirmModalBodyProps } from './components/Overlay/ConfirmModal/components/ConfirmModalBody/common/types';
 import ConfirmModalFooter from './components/Overlay/ConfirmModal/components/ConfirmModalFooter';
@@ -833,6 +837,7 @@ export {
 	ColorSwitcherScroll,
 	ColorSwitcherScrollItem,
 	ConfirmModal,
+	ConfirmModalBackdrop,
 	ConfirmModalBody,
 	ConfirmModalFooter,
 	ConfirmModalIcon,
@@ -1049,6 +1054,7 @@ export type {
 	ColorSwitcherScrollRef,
 	ColorSwitcherScrollRenderItemProps,
 	ColorSwitcherVariant,
+	ConfirmModalBackdropProps,
 	ConfirmModalBodyProps,
 	ConfirmModalContext,
 	ConfirmModalFooterProps,
@@ -1057,6 +1063,8 @@ export type {
 	ConfirmModalIconProps,
 	ConfirmModalIconRef,
 	ConfirmModalProps,
+	ConfirmModalRenderBackdropProps,
+	ConfirmModalRenderCancelProps,
 	ConfirmModalSize,
 	ConfirmModalStackProps,
 	ConfirmModalSubtitleProps,

@@ -25,11 +25,10 @@ import { Space } from '../../../../../theme/types';
 import { CloseIconButtonProps } from '../../../../Clickable/IconButtons/CloseIconButton/common/types';
 import { IconProps } from '../../../../DataDisplay/Icon/common/types';
 
-type IconPropsPicked = 'icon' | 'category';
+export type ConfirmModalRenderBackdropProps = Pick<CloseIconButtonProps, 'color' | 'colorMode'>;
 
-type IconButtonPropsPicked = 'aria-label' | 'color' | 'colorMode' | 'onClick' | 'size' | 'variant';
-
-type RenderCancelProps = Pick<IconProps, IconPropsPicked> & Pick<CloseIconButtonProps, IconButtonPropsPicked>;
+export type ConfirmModalRenderCancelProps = Pick<IconProps, 'icon' | 'category'> &
+	Pick<CloseIconButtonProps, 'aria-label' | 'color' | 'colorMode' | 'onClick' | 'size' | 'variant'>;
 
 export type ConfirmModalSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -62,9 +61,13 @@ type Omitted =
 	| 'variant';
 
 export type ConfirmModalProps = CommonThemeProps & {
-	renderCancel?: (props: RenderCancelProps) => ReactNode;
+	renderBackdrop?: (props: ConfirmModalRenderBackdropProps) => ReactNode;
+	renderCancel?: (props: ConfirmModalRenderCancelProps) => ReactNode;
+	hasBackdrop?: boolean;
 	size?: ConfirmModalSize;
 	spacing?: Space;
 } & Omit<CUIModalProps, Omitted>;
 
-export type ConfirmModalContext = Pick<ConfirmModalProps, 'color' | 'colorMode' | 'onClose' | 'size' | 'spacing'>;
+type Picked = 'color' | 'colorMode' | 'isOpen' | 'onClose' | 'size' | 'spacing';
+
+export type ConfirmModalContext = Pick<ConfirmModalProps, Picked>;
