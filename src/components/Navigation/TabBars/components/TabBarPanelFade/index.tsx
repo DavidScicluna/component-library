@@ -12,7 +12,7 @@ import { FadeProps as TabBarPanelFadeProps } from '../../../../Transitions/Fade/
 const TabBarPanelFade: FC<TabBarPanelFadeProps> = ({ children, ...rest }) => {
 	const theme = useTheme();
 
-	const duration = useConst(getTransitionDuration({ theme, duration: 'ultra-fast' }));
+	const duration = useConst(getTransitionDuration({ theme }));
 	const easing = useConst(getTransitionEasings({ theme }));
 	const config = useConst({ ...getTransitionConfig({ theme }), duration, easing });
 
