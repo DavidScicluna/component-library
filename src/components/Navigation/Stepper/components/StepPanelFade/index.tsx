@@ -12,7 +12,7 @@ import { FadeProps as StepPanelFadeProps } from '../../../../Transitions/Fade/co
 const StepPanelFade: FC<StepPanelFadeProps> = ({ children, ...rest }) => {
 	const theme = useTheme();
 
-	const duration = useConst(getTransitionDuration({ theme, duration: 'slow' }));
+	const duration = useConst(getTransitionDuration({ theme, duration: 'ultra-fast' }));
 	const easing = useConst(getTransitionEasings({ theme }));
 	const config = useConst({ ...getTransitionConfig({ theme }), duration, easing });
 
