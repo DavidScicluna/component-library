@@ -1,5 +1,3 @@
-import { ReactNode } from 'react';
-
 import { GridProps } from '@chakra-ui/react';
 
 import {
@@ -37,7 +35,6 @@ type Omitted =
 	| BoxShadow
 	| BoxFilter
 	| BoxPseudo
-	| BoxOther
-	| 'children';
+	| BoxOther;
 
-export type StepPanelsProps = Omit<GridProps, Omitted> & { children: ReactNode[] };
+export type StepPanelsProps = Omit<GridProps, Omitted>;

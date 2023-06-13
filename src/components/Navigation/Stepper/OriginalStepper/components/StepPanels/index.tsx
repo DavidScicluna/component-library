@@ -16,6 +16,7 @@ const StepPanels: FC<StepPanelsProps> = ({ children, ...rest }) => {
 			<Grid
 				{...rest}
 				width='100%'
+				height='100%'
 				templateColumns='1fr'
 				templateRows='1fr'
 				alignItems='stretch'
@@ -23,17 +24,21 @@ const StepPanels: FC<StepPanelsProps> = ({ children, ...rest }) => {
 				justifyContent='stretch'
 				gap={0}
 			>
-				{children.map((panel, index) => (
-					<GridItem
-						as={StepPanelFade}
-						key={`ds-cl-stepper-panels-${index}-panel`}
-						rowStart={1}
-						colStart={1}
-						in={activeStep === index}
-					>
-						{panel}
-					</GridItem>
-				))}
+				{children && Array.isArray(children)
+					? children.map((panel, index) => (
+							<GridItem
+								as={StepPanelFade}
+								key={`ds-cl-stepper-panels-${index}-panel`}
+								tabIndex={index}
+								rowStart={1}
+								colStart={1}
+								in={activeStep === index}
+								p={0}
+							>
+								{panel}
+							</GridItem>
+					  ))
+					: null}
 			</Grid>
 		</AnimatePresence>
 	);
