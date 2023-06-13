@@ -1,9 +1,8 @@
 import { FC } from 'react';
 
-import { ModalOverlay } from '@chakra-ui/react';
+import { Center, ModalOverlay } from '@chakra-ui/react';
 
 import { useTheme } from '../../../../../common/hooks';
-import Fade from '../../../../Transitions/Fade';
 import BackdropOverlay from '../../../BackdropOverlay';
 import { useModalContext } from '../../common/hooks';
 
@@ -12,23 +11,20 @@ import { ModalBackdropProps } from './common/types';
 const ModalBackdrop: FC<ModalBackdropProps> = (props) => {
 	const theme = useTheme();
 
-	const { color, colorMode, isOpen } = useModalContext();
+	const { colorMode, isOpen } = useModalContext();
 
 	return (
-		<Fade in={isOpen}>
+		<Center width='100vw' height='100vh' position='fixed' top={0} left={0} z-index={theme.zIndices.modal}>
 			<BackdropOverlay
 				{...props}
 				as={ModalOverlay}
-				color={color}
+				color='gray'
 				colorMode={colorMode}
-				position='fixed'
-				top={0}
-				left={0}
-				width='100vw'
-				height='100vh'
-				z-index={theme.zIndices.modal}
+				width='inherit'
+				height='inherit'
+				opacity={isOpen ? 1 : 0}
 			/>
-		</Fade>
+		</Center>
 	);
 };
 
