@@ -7,19 +7,20 @@ import {
 } from '../../../../../common/default/props';
 import { NoUndefinedField } from '../../../../../common/types';
 import { ModalContext } from '../..';
-import { size as defaultSize, spacing as defaultSpacing } from '../default/props';
+import { isOpen as defaultIsOpen, size as defaultSize, spacing as defaultSpacing } from '../default/props';
 import { ModalContext as ModalContextType } from '../types';
 
 const useModalContext = (): NoUndefinedField<ModalContextType> => {
 	const {
 		color = defaultColor,
 		colorMode = defaultColorMode,
+		isOpen = defaultIsOpen,
 		onClose = defaultOnClose,
 		size = defaultSize,
 		spacing = defaultSpacing
 	} = useContext<ModalContextType>(ModalContext);
 
-	return { color, colorMode, onClose, size, spacing };
+	return { color, colorMode, isOpen, onClose, size, spacing };
 };
 
 export default useModalContext;

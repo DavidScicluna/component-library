@@ -1,6 +1,6 @@
 import { createContext, FC, useMemo } from 'react';
 
-import { Modal as CUIModal, ModalContent, ModalOverlay } from '@chakra-ui/react';
+import { Modal as CUIModal, ModalContent } from '@chakra-ui/react';
 
 import { useWindowSize } from 'rooks';
 
@@ -13,12 +13,19 @@ import { useGetColor, useTheme } from '../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../common/utils';
 import { useProviderContext } from '../../Provider/common/hooks';
 
-import { isOpen as defaultIsOpen, size as defaultSize, spacing as defaultSpacing } from './common/default/props';
+import {
+	hasBackdrop as defaultHasBackdrop,
+	isOpen as defaultIsOpen,
+	size as defaultSize,
+	spacing as defaultSpacing
+} from './common/default/props';
 import { ModalContext as ModalContextType, ModalProps } from './common/types';
+import ModalBackdrop from './components/ModalBackdrop';
 
 export const ModalContext = createContext<ModalContextType>({
 	color: defaultColor,
 	colorMode: defaultColorMode,
+	isOpen: defaultIsOpen,
 	onClose: defaultOnClose,
 	size: defaultSize,
 	spacing: defaultSpacing
@@ -36,7 +43,9 @@ const Modal: FC<ModalProps> = (props) => {
 		color = defaultColor,
 		colorMode = defaultColorMode,
 		isOpen = defaultIsOpen,
+		hasBackdrop = defaultHasBackdrop,
 		onClose,
+		renderBackdrop,
 		size = defaultSize,
 		spacing = defaultSpacing,
 		...rest
@@ -74,8 +83,13 @@ const Modal: FC<ModalProps> = (props) => {
 			scrollBehavior='inside'
 			size={size}
 		>
-			<ModalContext.Provider value={{ color, colorMode, onClose, size, spacing }}>
-				<ModalOverlay />
+			<ModalContext.Provider value={{ color, colorMode, isOpen, onClose, size, spacing }}>
+				{hasBackdrop && renderBackdrop ? (
+					renderBackdrop({ color, colorMode })
+				) : hasBackdrop ? (
+					<ModalBackdrop />
+				) : null}
+
 				<ModalContent
 					width={width}
 					maxHeight={height}

@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 import { ModalProps as CUIModalProps } from '@chakra-ui/react';
 
 import { CommonThemeProps } from '../../../../../common/types';
@@ -22,6 +24,8 @@ import {
 import { Space } from '../../../../../theme/types';
 
 export type ModalSize = 'full' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl';
+
+export type ModalRenderBackdropProps = Pick<ModalProps, 'color' | 'colorMode'>;
 
 type Omitted =
 	// CUI Box Props
@@ -52,8 +56,10 @@ type Omitted =
 	| 'variant';
 
 export type ModalProps = CommonThemeProps & {
+	renderBackdrop?: (props: ModalRenderBackdropProps) => ReactNode;
+	hasBackdrop?: boolean;
 	size?: ModalSize;
 	spacing?: Space;
 } & Omit<CUIModalProps, Omitted>;
 
-export type ModalContext = Pick<ModalProps, 'color' | 'colorMode' | 'onClose' | 'size' | 'spacing'>;
+export type ModalContext = Pick<ModalProps, 'color' | 'colorMode' | 'isOpen' | 'onClose' | 'size' | 'spacing'>;

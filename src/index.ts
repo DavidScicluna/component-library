@@ -572,7 +572,9 @@ import LoadingOverlay from './components/Overlay/LoadingOverlay';
 import { LoadingOverlayProps, LoadingOverlayRef } from './components/Overlay/LoadingOverlay/common/types';
 import Modal from './components/Overlay/Modal';
 import { useModalContext } from './components/Overlay/Modal/common/hooks';
-import { ModalContext, ModalProps, ModalSize } from './components/Overlay/Modal/common/types';
+import { ModalContext, ModalProps, ModalRenderBackdropProps, ModalSize } from './components/Overlay/Modal/common/types';
+import ModalBackdrop from './components/Overlay/Modal/components/ModalBackdrop';
+import { ModalBackdropProps } from './components/Overlay/Modal/components/ModalBackdrop/common/types';
 import ModalBody from './components/Overlay/Modal/components/ModalBody';
 import { ModalBodyProps } from './components/Overlay/Modal/components/ModalBody/common/types';
 import ModalFooter from './components/Overlay/Modal/components/ModalFooter';
@@ -912,6 +914,7 @@ export {
 	Link,
 	LoadingOverlay,
 	Modal,
+	ModalBackdrop,
 	ModalBody,
 	ModalFooter,
 	ModalHeader,
@@ -1209,6 +1212,7 @@ export type {
 	LinkProps,
 	LoadingOverlayProps,
 	LoadingOverlayRef,
+	ModalBackdropProps,
 	ModalBodyProps,
 	ModalContext,
 	ModalFooterProps,
@@ -1217,6 +1221,7 @@ export type {
 	ModalHeaderProps,
 	ModalHeaderRenderCancelProps,
 	ModalProps,
+	ModalRenderBackdropProps,
 	ModalSize,
 	ModalStackProps,
 	NavGroupProps,
