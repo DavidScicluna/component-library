@@ -18,6 +18,7 @@ type Picked =
 	| 'colorMode'
 	| 'isConsecutively'
 	| 'isDisabled'
+	| 'isDivisible'
 	| 'isFitted'
 	// | 'orientation'
 	| 'onChange'

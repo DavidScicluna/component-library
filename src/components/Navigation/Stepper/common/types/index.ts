@@ -40,6 +40,7 @@ export type CommonStepperProps = Omit<BoxProps, Omitted> & {
 	children: ReactNode;
 	activeStep?: number;
 	totalSteps?: number;
+	isDivisible?: boolean;
 	isFitted?: boolean;
 	// orientation?: StepperOrientation;
 	size?: StepperSize;

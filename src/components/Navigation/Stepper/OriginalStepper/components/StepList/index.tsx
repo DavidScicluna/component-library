@@ -17,7 +17,7 @@ import Step from './components/Step';
 import { getStepStatus } from './components/Step/common/utils';
 
 const StepList: FC<StepListProps> = (props) => {
-	const { activeStep, color, colorMode, isFitted, onChange } = useStepperContext();
+	const { activeStep, color, colorMode, isDivisible, isFitted, onChange } = useStepperContext();
 
 	const { steps = [], renderLeft, renderRight, ...rest } = props;
 
@@ -80,11 +80,15 @@ const StepList: FC<StepListProps> = (props) => {
 					RightArrow={RightOverlayArrow}
 					onInit={setScroll}
 					onUpdate={setScroll}
-					renderDivider={() => (
-						<Center height='100%' alignItems='stretch' justifyContent='stretch'>
-							<Divider colorMode={colorMode} orientation='vertical' />
-						</Center>
-					)}
+					renderDivider={
+						isDivisible
+							? () => (
+									<Center height='100%' alignItems='stretch' justifyContent='stretch'>
+										<Divider colorMode={colorMode} orientation='vertical' />
+									</Center>
+							  )
+							: undefined
+					}
 				>
 					{steps.map((step, index) => (
 						<Step
