@@ -525,6 +525,8 @@ import {
 } from './components/Navigation/Tabs/OriginalTabs/components/TabList/components/Tab/common/types';
 import TabPanels from './components/Navigation/Tabs/OriginalTabs/components/TabPanels';
 import { TabPanelsProps } from './components/Navigation/Tabs/OriginalTabs/components/TabPanels/common/types';
+import BackdropOverlay from './components/Overlay/BackdropOverlay';
+import { BackdropOverlayProps, BackdropOverlayRef } from './components/Overlay/BackdropOverlay/common/types';
 import ConfirmModal from './components/Overlay/ConfirmModal';
 import { useConfirmModalContext } from './components/Overlay/ConfirmModal/common/hooks';
 import {
@@ -796,6 +798,7 @@ export {
 	AccordionsQuickToggles,
 	Alert,
 	AnimatePresence,
+	BackdropOverlay,
 	Badge,
 	BadgeCloseIconButton,
 	BadgeIcon,
@@ -967,6 +970,8 @@ export type {
 	AlertProps,
 	AlertStatus,
 	AnimatePresenceProps,
+	BackdropOverlayProps,
+	BackdropOverlayRef,
 	BadgeCloseIconButtonProps,
 	BadgeColor,
 	BadgeContext,
