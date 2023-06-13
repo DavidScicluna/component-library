@@ -1,6 +1,4 @@
-import { ReactNode } from 'react';
-
-import { TabPanelsProps as CUITabPanelsProps } from '@chakra-ui/react';
+import { GridProps } from '@chakra-ui/react';
 
 import {
 	BoxBackground,
@@ -37,7 +35,6 @@ type Omitted =
 	| BoxShadow
 	| BoxFilter
 	| BoxPseudo
-	| BoxOther
-	| 'children';
+	| BoxOther;
 
-export type DummyTabPanelsProps = Omit<CUITabPanelsProps, Omitted> & { children: ReactNode[] };
+export type DummyTabPanelsProps = Omit<GridProps, Omitted>;
