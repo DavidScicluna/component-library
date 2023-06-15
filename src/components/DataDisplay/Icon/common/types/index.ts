@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { CenterProps } from '@chakra-ui/react';
 
-import { CommonThemeProps, Nullable } from '../../../../../common/types';
+import { CommonThemeProps, Nullable, PickFrom } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorders,
@@ -14,14 +14,15 @@ import {
 	BoxOther,
 	BoxPosition,
 	BoxPseudo,
-	BoxShadow
+	BoxShadow,
+	BoxTypography
 } from '../../../../../common/types/box';
 import { Icon } from '../../../../../common/types/icons';
 import { Color } from '../../../../../theme/types';
 
 export type IconColor = Exclude<Color, 'transparent'>;
 
-export type IconCategory = 'filled' | 'outlined';
+export type IconCategory = 'filled' | 'outlined' | 'twoTone';
 
 export type IconVariant = 'contained' | 'light' | 'outlined' | 'monochrome' | 'transparent' | 'unstyled';
 
@@ -38,6 +39,17 @@ type Omitted =
 	| BoxFilter
 	| BoxPseudo
 	| BoxOther
+	| PickFrom<
+			BoxTypography,
+			| 'fontFamily'
+			| 'fontWeight'
+			| 'lineHeight'
+			| 'letterSpacing'
+			| 'textAlign'
+			| 'fontStyle'
+			| 'textTransform'
+			| 'textDecoration'
+	  >
 	// CUI Center Props
 	| 'as'
 	| 'className';

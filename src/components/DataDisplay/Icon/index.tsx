@@ -2,7 +2,7 @@ import { forwardRef, ReactElement } from 'react';
 
 import { Center, useConst } from '@chakra-ui/react';
 
-import { merge } from 'lodash-es';
+import { compact, merge } from 'lodash-es';
 
 import { useTheme } from '../../../common/hooks';
 import Skeleton from '../../Feedback/Skeleton';
@@ -52,18 +52,18 @@ const Icon = forwardRef<IconRef, IconProps>(function Icon(props, ref): ReactElem
 				{...rest}
 				ref={ref}
 				as='span'
-				className={[
-					!children && icon
-						? `material-icons${(props.category || defaultCategory) === 'outlined' ? '-outlined' : ''}`
-						: null,
-					'ds-cl-icon'
-				].join(' ')}
+				className='ds-cl-icon'
 				w={w || width || dimensions}
 				width={w || width || dimensions}
 				h={h || height || dimensions}
 				height={h || height || dimensions}
 				maxWidth={maxW || maxWidth || w || width || dimensions}
 				maxHeight={maxH || maxHeight || h || height || dimensions}
+				fontFamily={`'${compact([
+					'Material Icons',
+					category === 'outlined' ? 'Outlined' : null,
+					category === 'twoTone' ? 'Two Tone' : null
+				]).join(' ')}', sans-serif`}
 				lineHeight='normal'
 				sx={variant !== 'unstyled' ? merge(style.icon, sx) : sx}
 			>

@@ -32,6 +32,7 @@ const Provider: FC<ProviderProps> = (props) => {
 
 	const [hasFilledIconLoaded, setHasFilledIconLoaded] = useBoolean();
 	const [hasOutlinedIconLoaded, setHasOutlinedIconLoaded] = useBoolean();
+	const [hasTwoToneIconLoaded, setHasTwoToneIconLoaded] = useBoolean();
 
 	// TODO: Remove console.log
 	console.log(theme);
@@ -48,12 +49,17 @@ const Provider: FC<ProviderProps> = (props) => {
 				<IconFontScript
 					onSetHasFilledIconLoaded={setHasFilledIconLoaded}
 					onSetHasOutlinedIconLoaded={setHasOutlinedIconLoaded}
+					onSetHasTwoToneIconLoaded={setHasTwoToneIconLoaded}
 				/>
 				<ProviderContext.Provider
 					value={{
 						color,
 						colorMode,
-						iconFontStatus: { filled: hasFilledIconLoaded, outlined: hasOutlinedIconLoaded }
+						iconFontStatus: {
+							filled: hasFilledIconLoaded,
+							outlined: hasOutlinedIconLoaded,
+							twoTone: hasTwoToneIconLoaded
+						}
 					}}
 				>
 					{children}

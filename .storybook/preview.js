@@ -51,6 +51,7 @@ import '@fontsource/roboto-mono/700-italic.css';
 // Importing Material UI Icons
 import '@fontsource/material-icons';
 import '@fontsource/material-icons-outlined';
+import '@fontsource/material-icons-two-tone';
 
 export const parameters = {
 	chakra: { theme }

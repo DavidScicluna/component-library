@@ -15,7 +15,7 @@ const childrenDefaultValue: IconType | undefined = sample(icons);
 const childrenOptions: IconType[] = [...icons];
 
 const categoryDefaultValue: IconCategory = 'filled';
-const categoryOptions: IconCategory[] = ['filled', 'outlined'];
+const categoryOptions: IconCategory[] = ['filled', 'outlined', 'twoTone'];
 
 const colorOptions: IconColor[] = [
 	'black',

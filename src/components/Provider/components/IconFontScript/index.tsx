@@ -4,8 +4,10 @@ import { useGetIconFontStatus } from '../../common/hooks';
 
 import { IconFontScriptProps } from './common/types';
 
-const IconFontScript: FC<IconFontScriptProps> = ({ onSetHasFilledIconLoaded, onSetHasOutlinedIconLoaded }) => {
-	const { filled, outlined } = useGetIconFontStatus();
+const IconFontScript: FC<IconFontScriptProps> = (props) => {
+	const { filled, outlined, twoTone } = useGetIconFontStatus();
+
+	const { onSetHasFilledIconLoaded, onSetHasOutlinedIconLoaded, onSetHasTwoToneIconLoaded } = props;
 
 	useEffect(() => {
 		if (filled) {
@@ -22,6 +24,14 @@ const IconFontScript: FC<IconFontScriptProps> = ({ onSetHasFilledIconLoaded, onS
 			onSetHasOutlinedIconLoaded.off();
 		}
 	}, [outlined]);
+
+	useEffect(() => {
+		if (twoTone) {
+			onSetHasTwoToneIconLoaded.on();
+		} else {
+			onSetHasTwoToneIconLoaded.off();
+		}
+	}, [twoTone]);
 
 	return null;
 };
