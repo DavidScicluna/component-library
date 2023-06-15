@@ -14,7 +14,7 @@ const ModalBackdrop: FC<ModalBackdropProps> = (props) => {
 	const { colorMode, isOpen } = useModalContext();
 
 	return (
-		<Center width='100vw' height='100vh' position='fixed' top={0} left={0} z-index={theme.zIndices.modal}>
+		<Center width='100vw' height='100vh' position='fixed' top={0} left={0} zIndex={theme.zIndices.modal}>
 			<BackdropOverlay
 				{...props}
 				as={ModalOverlay}
