@@ -66,11 +66,15 @@ const Icon = forwardRef<IconRef, IconProps>(function Icon(props, ref): ReactElem
 				height={h || height || dimensions}
 				maxWidth={maxW || maxWidth || w || width || dimensions}
 				maxHeight={maxH || maxHeight || h || height || dimensions}
-				fontFamily={`'${compact([
-					'Material Icons',
-					category === 'outlined' ? 'Outlined' : null,
-					category === 'twoTone' ? 'Two Tone' : null
-				]).join(' ')}', sans-serif`}
+				fontFamily={
+					!children && icon
+						? `'${compact([
+								'Material Icons',
+								category === 'outlined' ? 'Outlined' : null,
+								category === 'twoTone' ? 'Two Tone' : null
+						  ]).join(' ')}', sans-serif`
+						: undefined
+				}
 				fontWeight='normal'
 				lineHeight='normal'
 				letterSpacing='normal'
