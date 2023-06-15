@@ -52,7 +52,14 @@ const Icon = forwardRef<IconRef, IconProps>(function Icon(props, ref): ReactElem
 				{...rest}
 				ref={ref}
 				as='span'
-				className='ds-cl-icon'
+				className={compact([
+					!children && icon
+						? `material-icons${
+								category === 'outlined' ? '-outlined' : category === 'twoTone' ? '-two-tone' : ''
+						  }`
+						: null,
+					'ds-cl-icon'
+				]).join(' ')}
 				w={w || width || dimensions}
 				width={w || width || dimensions}
 				h={h || height || dimensions}
@@ -64,7 +71,11 @@ const Icon = forwardRef<IconRef, IconProps>(function Icon(props, ref): ReactElem
 					category === 'outlined' ? 'Outlined' : null,
 					category === 'twoTone' ? 'Two Tone' : null
 				]).join(' ')}', sans-serif`}
+				fontWeight='normal'
 				lineHeight='normal'
+				letterSpacing='normal'
+				textTransform='none'
+				textDecoration='none'
 				sx={variant !== 'unstyled' ? merge(style.icon, sx) : sx}
 			>
 				{children || icon || null}
