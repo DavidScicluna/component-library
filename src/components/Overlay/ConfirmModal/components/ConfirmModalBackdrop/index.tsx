@@ -22,6 +22,7 @@ const ConfirmModalBackdrop: FC<ConfirmModalBackdropProps> = (props) => {
 				colorMode={colorMode}
 				width='inherit'
 				height='inherit'
+				backdropFilter={`blur(${theme.space[1]})`}
 				opacity={isOpen ? 1 : 0}
 			/>
 		</Center>

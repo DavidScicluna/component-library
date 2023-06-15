@@ -24,7 +24,7 @@ const BackdropOverlay = forwardRef<BackdropOverlayRef, BackdropOverlayProps>(fun
 			ref={ref}
 			data-aria-hidden='true'
 			aria-hidden='true'
-			background={transparentize(background, 0.5)}
+			background={transparentize(background, 0.75)}
 			{...rest}
 		/>
 	);
