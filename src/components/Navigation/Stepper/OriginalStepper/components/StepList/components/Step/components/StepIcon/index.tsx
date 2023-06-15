@@ -22,7 +22,7 @@ const StepIcon: FC<StepIconProps> = ({ index, status }) => {
 			case 'success':
 			case 'error':
 			case 'warning':
-				return 'light';
+				return 'outlined';
 			case 'active':
 				return 'contained';
 			default:
@@ -46,6 +46,7 @@ const StepIcon: FC<StepIconProps> = ({ index, status }) => {
 			icon={iconType}
 			category='outlined'
 			variant={iconVariant}
+			sx={status === 'idle' || status === 'active' ? { fontWeight: theme.fontWeights.semibold } : undefined}
 		>
 			{status === 'idle' || status === 'active' ? index + 1 : undefined}
 		</Icon>

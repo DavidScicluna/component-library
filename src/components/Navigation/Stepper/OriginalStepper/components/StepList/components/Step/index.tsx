@@ -101,8 +101,7 @@ const Step: FC<StepProps> = (props) => {
 			aria-disabled={isStepDisabled || isDisabled}
 			data-active={dataAttr(isConsecutively || isActive || isSelected)}
 			width={isFitted ? '100%' : 'auto'}
-			// minWidth={config.minWidth}
-			// maxWidth={!isFitted ? config.maxWidth : 'auto'}
+			minWidth={isFitted ? '100%' : '256px'}
 			alignItems='stretch'
 			alignContent='stretch'
 			justifyContent='space-between'
