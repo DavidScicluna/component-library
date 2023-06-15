@@ -2678,6 +2678,7 @@ __metadata:
     "@emotion/styled": ^11.11.0
     "@fontsource/material-icons": ^5.0.2
     "@fontsource/material-icons-outlined": ^5.0.2
+    "@fontsource/material-icons-two-tone": ^5.0.3
     "@fontsource/roboto-mono": ^5.0.2
     "@fontsource/roboto-slab": ^5.0.2
     "@fontsource/work-sans": ^5.0.2
@@ -2749,6 +2750,7 @@ __metadata:
     "@emotion/styled": ^11.10.6
     "@fontsource/material-icons": ^4.5.4
     "@fontsource/material-icons-outlined": ^4.5.4
+    "@fontsource/material-icons-two-tone": ^5.0.3
     "@fontsource/roboto-mono": ^4.5.10
     "@fontsource/roboto-slab": ^4.5.11
     "@fontsource/work-sans": ^4.5.14
@@ -3143,6 +3145,13 @@ __metadata:
   version: 5.0.2
   resolution: "@fontsource/material-icons-outlined@npm:5.0.2"
   checksum: e0f2e592c03b66fc93dade657f8502f81090c6e07fe87dfd2ad9a2b156ad7cd49e2c51720bb35d8057dc5d6ef8933339358d57eedfc04db8b1f41ab6767de13d
+  languageName: node
+  linkType: hard
+
+"@fontsource/material-icons-two-tone@npm:^5.0.3":
+  version: 5.0.3
+  resolution: "@fontsource/material-icons-two-tone@npm:5.0.3"
+  checksum: 89f624e138b8847eef311cfc68cda9536fabf986018105f83ae4773a8e5f6325e6092371b3c2e6cfa21906537ed6edb6a230b4e626ffd872f60e14a28802f7b7
   languageName: node
   linkType: hard
 
