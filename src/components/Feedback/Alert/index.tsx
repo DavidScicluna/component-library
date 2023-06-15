@@ -24,7 +24,6 @@ const Alert: FC<AlertProps> = (props) => {
 	const { colorMode: defaultColorMode } = useProviderContext();
 
 	const [contentRef, { height: contentHeight }] = useElementSize();
-	const [progressRef, { width: progressWidth }] = useElementSize();
 	const [iconRef, { width: iconWidth }] = useElementSize();
 
 	const {
@@ -84,8 +83,8 @@ const Alert: FC<AlertProps> = (props) => {
 	const maxWidth = useMemo((): string => {
 		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem')) * 2;
 
-		return `calc(100% - ${progressWidth + iconWidth + spacingWidth}px)`;
-	}, [progressWidth, iconWidth]);
+		return `calc(100% - ${iconWidth + spacingWidth}px)`;
+	}, [iconWidth, spacing]);
 
 	useEffectOnce(() => {
 		resetCountdown();
@@ -127,7 +126,7 @@ const Alert: FC<AlertProps> = (props) => {
 					justifyContent='stretch'
 					spacing={spacing}
 				>
-					<Box ref={progressRef} position='absolute' top='50%' left={left} transform='rotate(-90deg)'>
+					<Box position='absolute' top='50%' left={left} transform='rotate(-90deg)'>
 						<Progress
 							width={`${contentHeight}px`}
 							height={theme.space['0.5']}
@@ -157,7 +156,14 @@ const Alert: FC<AlertProps> = (props) => {
 						/>
 					</Center>
 
-					<VStack maxWidth={maxWidth} alignItems='flex-start' justifyContent='center' spacing={spacing}>
+					<VStack
+						maxWidth={maxWidth}
+						flex={1}
+						alignItems='flex-start'
+						justifyContent='center'
+						flexWrap='wrap'
+						spacing={spacing}
+					>
 						<VStack maxWidth='100%' alignItems='flex-start' justifyContent='center' spacing={0}>
 							<Text
 								maxWidth='100%'
