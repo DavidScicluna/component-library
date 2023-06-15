@@ -1,18 +1,16 @@
-import { FC, useEffect, useMemo } from 'react';
+import { FC, useMemo } from 'react';
 
-import { Center, Grid, GridItem, HStack, Progress, Text, useConst, VStack } from '@chakra-ui/react';
+import { Box, Center, Grid, GridItem, HStack, Progress, Text, useConst, VStack } from '@chakra-ui/react';
 
 import { transparentize } from 'color2k';
 import { round, sample } from 'lodash-es';
-import { useCountdown, useElementSize } from 'usehooks-ts';
+import { useCountdown, useEffectOnce, useElementSize } from 'usehooks-ts';
 
 import { errorEmojis, errorTitles, successEmojis, successTitles } from '../../../common/data/strings';
 import { useGetColor, useTheme } from '../../../common/hooks';
 import { Undefinable } from '../../../common/types';
 import { convertREMToPixels, convertStringToNumber } from '../../../common/utils';
 import { Space } from '../../../theme/types';
-import IconButton from '../../Clickable/IconButtons/OriginalIconButton';
-import IconButtonIcon from '../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
 import Icon from '../../DataDisplay/Icon';
 import { useProviderContext } from '../../Provider/common/hooks';
 
@@ -25,11 +23,13 @@ const Alert: FC<AlertProps> = (props) => {
 
 	const { colorMode: defaultColorMode } = useProviderContext();
 
+	const [contentRef, { height: contentHeight }] = useElementSize();
 	const [progressRef, { width: progressWidth }] = useElementSize();
 	const [iconRef, { width: iconWidth }] = useElementSize();
 
 	const {
 		colorMode = defaultColorMode,
+		renderCancel,
 		duration,
 		label,
 		description,
@@ -72,22 +72,32 @@ const Alert: FC<AlertProps> = (props) => {
 	const textSecondaryColor = useGetColor({ color: 'gray', colorMode, type: 'text.secondary' });
 	const borderColor = useGetColor({ color: 'gray', colorMode, type: 'divider' });
 	const background = useGetColor({ color: 'gray', colorMode, type: 'background' });
+	const shadow = useGetColor({ color: 'gray', colorMode, type: colorMode === 'light' ? 'darkest' : 'lightest' });
 
-	const contentWidth = useMemo((): string => {
+	const left = useMemo(() => {
+		const height = convertREMToPixels(convertStringToNumber(theme.space['0.5'], 'rem')) / 2;
+		const width = contentHeight / 2;
+
+		return `-${width + height}px`;
+	}, [contentHeight]);
+
+	const maxWidth = useMemo((): string => {
 		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem')) * 2;
 
 		return `calc(100% - ${progressWidth + iconWidth + spacingWidth}px)`;
 	}, [progressWidth, iconWidth]);
 
-	useEffect(() => {
+	useEffectOnce(() => {
+		resetCountdown();
+
 		if (duration) {
 			startCountdown();
 		}
 
 		return () => {
-			setTimeout(() => resetCountdown(), 0);
+			resetCountdown();
 		};
-	}, []);
+	});
 
 	return (
 		<Grid
@@ -97,7 +107,7 @@ const Alert: FC<AlertProps> = (props) => {
 			alignItems='stretch'
 			justifyItems='stretch'
 			justifyContent='stretch'
-			boxShadow={`0px 5px 20px 0px ${transparentize(background, 0.5)}`}
+			boxShadow={`0px 5px 20px 0px ${transparentize(shadow, 0.85)}`}
 			borderRadius='base'
 			borderWidth='2px'
 			borderStyle='solid'
@@ -109,19 +119,30 @@ const Alert: FC<AlertProps> = (props) => {
 			sx={{ 'transition': 'none', '& *, *::before, *::after': { transition: 'none' } }}
 		>
 			<GridItem>
-				<HStack flex={1} alignItems='stretch' justifyContent='stretch' spacing={spacing}>
-					<Center ref={progressRef} alignItems='stretch' justifyContent='stretch'>
+				<HStack
+					ref={contentRef}
+					flex={1}
+					position='relative'
+					alignItems='stretch'
+					justifyContent='stretch'
+					spacing={spacing}
+				>
+					<Box ref={progressRef} position='absolute' top='50%' left={left} transform='rotate(-90deg)'>
 						<Progress
-							width={theme.space['0.5']}
-							height='auto'
+							width={`${contentHeight}px`}
+							height={theme.space['0.5']}
 							borderRadius='full'
 							background={borderColor}
 							value={duration ? round((count / duration) * 100) : 100}
-							sx={{ '& div': { backgroundImage: 'none', backgroundColor: color } }}
+							sx={{
+								'& div': { backgroundImage: 'none', backgroundColor: color },
+								'transition': 'none',
+								'& *, *::before, *::after': { transition: 'none' }
+							}}
 						/>
-					</Center>
+					</Box>
 
-					<Center ref={iconRef}>
+					<Center ref={iconRef} ml={spacing}>
 						<Icon
 							color={getStatusColor(status)}
 							colorMode={colorMode}
@@ -129,13 +150,14 @@ const Alert: FC<AlertProps> = (props) => {
 							height='auto'
 							fontSize={theme.fontSizes['4xl']}
 							icon={getStatusIcon(status)}
+							category='outlined'
 							borderRadius='full'
-							p={1}
+							p={2}
 							variant='contained'
 						/>
 					</Center>
 
-					<VStack maxWidth={contentWidth} alignItems='flex-start' justifyContent='center' spacing={spacing}>
+					<VStack maxWidth={maxWidth} alignItems='flex-start' justifyContent='center' spacing={spacing}>
 						<VStack maxWidth='100%' alignItems='flex-start' justifyContent='center' spacing={0}>
 							<Text
 								maxWidth='100%'
@@ -164,16 +186,17 @@ const Alert: FC<AlertProps> = (props) => {
 				</HStack>
 			</GridItem>
 
-			{onClose ? (
+			{renderCancel && onClose ? (
 				<GridItem>
-					<IconButton
-						aria-label='Alert Close Button'
-						colorMode={colorMode}
-						// onClick={() => onClose()}
-						variant='icon'
-					>
-						<IconButtonIcon icon='close' />
-					</IconButton>
+					{renderCancel({
+						'aria-label': 'Close Alert',
+						'color': 'gray',
+						'colorMode': colorMode,
+						'icon': 'close',
+						'category': 'outlined',
+						'onClick': () => onClose(),
+						'variant': 'icon'
+					})}
 				</GridItem>
 			) : null}
 		</Grid>

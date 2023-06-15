@@ -2,6 +2,8 @@ import { ReactNode } from 'react';
 
 import { CommonThemeProps, Nullable, PickFrom } from '../../../../../common/types';
 import { Color, Space } from '../../../../../theme/types';
+import { CloseIconButtonProps } from '../../../../Clickable/IconButtons/CloseIconButton/common/types';
+import { IconProps } from '../../../../DataDisplay/Icon/common/types';
 
 export type AlertColor = PickFrom<Color, 'red' | 'blue' | 'green' | 'yellow'>;
 
@@ -40,8 +42,12 @@ export type AlertDuration =
 
 export type AlertStatus = 'info' | 'warning' | 'success' | 'error';
 
+export type AlertRenderCancelProps = Pick<IconProps, 'icon' | 'category'> &
+	Pick<CloseIconButtonProps, 'aria-label' | 'color' | 'colorMode' | 'onClick' | 'size' | 'variant'>;
+
 export type AlertProps = Pick<CommonThemeProps, 'colorMode'> & {
-	duration: Nullable<AlertDuration>;
+	renderCancel?: (props: AlertRenderCancelProps) => ReactNode;
+	duration: Nullable<number>;
 	label?: string;
 	description: string;
 	actions?: ReactNode;
