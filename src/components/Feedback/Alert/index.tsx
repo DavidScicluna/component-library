@@ -29,7 +29,7 @@ const Alert: FC<AlertProps> = (props) => {
 
 	const {
 		colorMode = defaultColorMode,
-		renderCancel,
+		renderClose,
 		duration,
 		label,
 		description,
@@ -186,9 +186,9 @@ const Alert: FC<AlertProps> = (props) => {
 				</HStack>
 			</GridItem>
 
-			{renderCancel && onClose ? (
+			{renderClose && onClose ? (
 				<GridItem>
-					{renderCancel({
+					{renderClose({
 						'aria-label': 'Close Alert',
 						'color': 'gray',
 						'colorMode': colorMode,

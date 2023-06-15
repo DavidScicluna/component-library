@@ -42,11 +42,11 @@ export type AlertDuration =
 
 export type AlertStatus = 'info' | 'warning' | 'success' | 'error';
 
-export type AlertRenderCancelProps = Pick<IconProps, 'icon' | 'category'> &
+export type AlertRenderCloseProps = Pick<IconProps, 'icon' | 'category'> &
 	Pick<CloseIconButtonProps, 'aria-label' | 'color' | 'colorMode' | 'onClick' | 'size' | 'variant'>;
 
 export type AlertProps = Pick<CommonThemeProps, 'colorMode'> & {
-	renderCancel?: (props: AlertRenderCancelProps) => ReactNode;
+	renderClose?: (props: AlertRenderCloseProps) => ReactNode;
 	duration: Nullable<number>;
 	label?: string;
 	description: string;
