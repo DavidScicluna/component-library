@@ -216,15 +216,17 @@ const Alert: FC<AlertProps> = (props) => {
 
 			{renderClose && onClose ? (
 				<GridItem>
-					{renderClose({
-						'aria-label': 'Close Alert',
-						'color': 'gray',
-						'colorMode': colorMode,
-						'icon': 'close',
-						'category': 'outlined',
-						'onClick': () => onClose(),
-						'variant': 'icon'
-					})}
+					<Center>
+						{renderClose({
+							'aria-label': 'Close Alert',
+							'color': 'gray',
+							'colorMode': colorMode,
+							'icon': 'close',
+							'category': 'outlined',
+							'onClick': () => onClose(),
+							'variant': 'icon'
+						})}
+					</Center>
 				</GridItem>
 			) : null}
 		</Grid>
