@@ -42,6 +42,8 @@ export type AlertDuration =
 
 export type AlertStatus = 'info' | 'warning' | 'success' | 'error';
 
+export type AlertActionsPosition = 'right' | 'bottom';
+
 export type AlertRenderCloseProps = Pick<IconProps, 'icon' | 'category'> &
 	Pick<CloseIconButtonProps, 'aria-label' | 'color' | 'colorMode' | 'onClick' | 'size' | 'variant'>;
 
@@ -51,6 +53,7 @@ export type AlertProps = Pick<CommonThemeProps, 'colorMode'> & {
 	label?: string;
 	description: string;
 	actions?: ReactNode;
+	actionsPosition?: AlertActionsPosition;
 	onClose?: () => void;
 	spacing?: Space;
 	status: AlertStatus;

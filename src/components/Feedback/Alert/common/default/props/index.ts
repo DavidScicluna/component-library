@@ -1,5 +1,7 @@
 import { Space } from '../../../../../../theme/types';
-import { AlertDuration } from '../../types';
+import { AlertActionsPosition, AlertDuration } from '../../types';
+
+export const actionsPosition: AlertActionsPosition = 'right';
 
 export const duration: AlertDuration = 12.5;
 

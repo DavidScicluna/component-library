@@ -320,7 +320,13 @@ import { PasswordStrengthTooltipProps } from './components/DataDisplay/PasswordS
 import Divider from './components/Divider';
 import { DividerProps } from './components/Divider/common/types';
 import Alert from './components/Feedback/Alert';
-import { AlertColor, AlertDuration, AlertProps, AlertStatus } from './components/Feedback/Alert/common/types';
+import {
+	AlertActionsPosition,
+	AlertColor,
+	AlertDuration,
+	AlertProps,
+	AlertStatus
+} from './components/Feedback/Alert/common/types';
 import { convertDurationToMS } from './components/Feedback/Alert/common/utils';
 import Skeleton from './components/Feedback/Skeleton';
 import { SkeletonColor, SkeletonProps, SkeletonVariant } from './components/Feedback/Skeleton/common/types';
@@ -973,6 +979,7 @@ export type {
 	AccordionsQuickTogglesProps,
 	AccordionsQuickTogglesSize,
 	AccordionType,
+	AlertActionsPosition,
 	AlertColor,
 	AlertDuration,
 	AlertProps,

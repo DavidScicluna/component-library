@@ -14,7 +14,11 @@ import { Space } from '../../../theme/types';
 import Icon from '../../DataDisplay/Icon';
 import { useProviderContext } from '../../Provider/common/hooks';
 
-import { duration as defaultDuration, spacing as defaultSpacing } from './common/default/props';
+import {
+	actionsPosition as defaultActionsPosition,
+	duration as defaultDuration,
+	spacing as defaultSpacing
+} from './common/default/props';
 import { AlertProps } from './common/types';
 import { getStatusColor, getStatusIcon } from './common/utils';
 
@@ -25,6 +29,7 @@ const Alert: FC<AlertProps> = (props) => {
 
 	const [contentRef, { height: contentHeight }] = useElementSize();
 	const [iconRef, { width: iconWidth }] = useElementSize();
+	const [actionsRef, { width: actionsWidth }] = useElementSize();
 
 	const {
 		colorMode = defaultColorMode,
@@ -33,6 +38,7 @@ const Alert: FC<AlertProps> = (props) => {
 		label,
 		description,
 		actions,
+		actionsPosition = defaultActionsPosition,
 		onClose,
 		spacing = defaultSpacing,
 		status
@@ -80,11 +86,16 @@ const Alert: FC<AlertProps> = (props) => {
 		return `-${width + height}px`;
 	}, [contentHeight]);
 
-	const maxWidth = useMemo((): string => {
+	const contentMaxWidth = useMemo((): string => {
 		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem')) * 2;
 
 		return `calc(100% - ${iconWidth + spacingWidth}px)`;
 	}, [iconWidth, spacing]);
+	const textMaxWidth = useMemo((): string => {
+		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem')) * 2;
+
+		return `calc(100% - ${actionsWidth + spacingWidth}px)`;
+	}, [actionsWidth, spacing]);
 
 	useEffectOnce(() => {
 		resetCountdown();
@@ -156,39 +167,50 @@ const Alert: FC<AlertProps> = (props) => {
 						/>
 					</Center>
 
-					<VStack
-						maxWidth={maxWidth}
+					<HStack
+						maxWidth={contentMaxWidth}
 						flex={1}
-						alignItems='flex-start'
-						justifyContent='center'
+						alignItems='stretch'
+						justifyContent='space-between'
 						flexWrap='wrap'
 						spacing={spacing}
 					>
-						<VStack maxWidth='100%' alignItems='flex-start' justifyContent='center' spacing={0}>
-							<Text
-								maxWidth='100%'
-								align='left'
-								color={textPrimaryColor}
-								fontSize='xl'
-								fontWeight='bold'
-								lineHeight='shorter'
-							>
-								{label || defaultLabel}
-							</Text>
+						<VStack
+							maxWidth={textMaxWidth}
+							flex={1}
+							alignItems='flex-start'
+							justifyContent='center'
+							flexWrap='wrap'
+							spacing={spacing}
+						>
+							<VStack maxWidth='100%' alignItems='flex-start' justifyContent='center' spacing={0}>
+								<Text
+									maxWidth='100%'
+									align='left'
+									color={textPrimaryColor}
+									fontSize='xl'
+									fontWeight='bold'
+									lineHeight='shorter'
+								>
+									{label || defaultLabel}
+								</Text>
 
-							<Text
-								maxWidth='100%'
-								align='left'
-								color={textSecondaryColor}
-								fontSize='sm'
-								lineHeight='shorter'
-							>
-								{description}
-							</Text>
+								<Text
+									maxWidth='100%'
+									align='left'
+									color={textSecondaryColor}
+									fontSize='sm'
+									lineHeight='shorter'
+								>
+									{description}
+								</Text>
+							</VStack>
+
+							{actionsPosition === 'bottom' && actions ? actions : null}
 						</VStack>
 
-						{actions}
-					</VStack>
+						{actionsPosition === 'right' && actions ? <Center ref={actionsRef}>{actions}</Center> : null}
+					</HStack>
 				</HStack>
 			</GridItem>
 

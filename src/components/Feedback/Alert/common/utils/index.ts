@@ -20,7 +20,7 @@ export const getStatusColor = memoize((status: AlertStatus): AlertColor => {
 export const getStatusIcon = memoize((status: AlertStatus): IconType => {
 	switch (status) {
 		case 'success':
-			return 'check_circle';
+			return 'check';
 		case 'info':
 			return 'info';
 		case 'error':
