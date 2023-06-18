@@ -22,7 +22,7 @@ const ModalBackdrop: FC<ModalBackdropProps> = (props) => {
 				colorMode={colorMode}
 				width='inherit'
 				height='inherit'
-				backdropFilter={`blur(${theme.space[1]})`}
+				backdropFilter={`blur(${theme.space[1.5]})`}
 				opacity={isOpen ? 1 : 0}
 			/>
 		</Center>
