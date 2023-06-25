@@ -12,10 +12,7 @@ import {
 	BoxFlexbox,
 	BoxGradient,
 	BoxGrid,
-	BoxLayout,
-	BoxMargin,
 	BoxOther,
-	BoxPadding,
 	BoxPosition,
 	BoxPseudo,
 	BoxShadow,
@@ -27,12 +24,9 @@ export type HoverOverlayMouseEvent = ME<HTMLDivElement, globalThis.MouseEvent>;
 export type HoverOverlayChildrenProps = { isHovering: boolean };
 
 type Omitted =
-	| BoxMargin
-	| BoxPadding
 	| BoxColor
 	| BoxGradient
 	| BoxTypography
-	| BoxLayout
 	| BoxFlexbox
 	| BoxGrid
 	| BoxBackground

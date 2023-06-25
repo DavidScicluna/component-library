@@ -28,7 +28,7 @@ const HoverOverlay = forwardRef<HoverOverlayRef, HoverOverlayProps>(function Hov
 	};
 
 	return (
-		<Center {...rest} ref={ref} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+		<Center {...rest} ref={ref} overflow='overlay' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
 			{children({ isHovering })}
 		</Center>
 	);
