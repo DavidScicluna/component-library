@@ -39,6 +39,7 @@ const LoadingOverlay = forwardRef<LoadingOverlayRef, LoadingOverlayProps>(functi
 			alignItems='stretch'
 			justifyItems='stretch'
 			justifyContent='stretch'
+			overflow='overlay'
 			gap={0}
 		>
 			<GridItem as={Fade} zIndex={1} rowStart={1} colStart={1} in={isLoading}>
