@@ -1,5 +1,6 @@
 import { darken, transparentize } from 'color2k';
 
+import { active, hover, placeholder, selection } from '../../../../../../../common/default/amount';
 import { color as defaultColor } from '../../../../../../../common/default/props';
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
@@ -9,7 +10,6 @@ import {
 	isSuccess as defaultIsSuccess,
 	isWarning as defaultIsWarning
 } from '../../../../../FormControl/common/default/props';
-import { active, hover, placeholder, selection } from '../../../default/amount';
 
 import { TextareaLightFocusedStyleProps } from './types';
 

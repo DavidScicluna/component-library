@@ -1,9 +1,9 @@
 import { lighten } from 'color2k';
 
+import { active, hover } from '../../../../../../../common/default/amount';
 import { Style } from '../../../../../../../common/types';
 import { checkIsTouchDevice } from '../../../../../../../common/utils';
 import { getHue } from '../../../../../../../common/utils/color';
-import { active, hover } from '../../../default/amount';
 import { isFixed as defaultIsFixed, isPushable as defaultIsPushable } from '../../../default/props';
 import { border, offset, transform } from '../../../default/sizes';
 

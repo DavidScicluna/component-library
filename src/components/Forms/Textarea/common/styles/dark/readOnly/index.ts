@@ -1,8 +1,8 @@
 import { transparentize } from 'color2k';
 
+import { placeholder } from '../../../../../../../common/default/amount';
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
-import { placeholder } from '../../../default/amount';
 
 import { TextareaDarkReadOnlyStyleProps } from './types';
 

@@ -1,10 +1,10 @@
 import { darken } from 'color2k';
 
+import { back } from '../../../../../../../common/default/amount';
 import { color as defaultColor } from '../../../../../../../common/default/props';
 import { Style } from '../../../../../../../common/types';
 import { getHue } from '../../../../../../../common/utils/color';
 import { Color } from '../../../../../../../theme/types';
-import { back } from '../../../default/amount';
 import { transform } from '../../../default/sizes';
 
 import { PushableOverlayLightDisabledStylingProps } from './types';
