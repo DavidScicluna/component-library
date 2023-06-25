@@ -1,14 +1,15 @@
-import { FC } from 'react';
+import { forwardRef, ReactElement } from 'react';
 
 import { Grid, GridItem } from '@chakra-ui/react';
 
 import Fade from '../../Transitions/Fade';
 import Glass from '../Glass';
 
-import { StateOverlayProps } from './common/types';
+import { StateOverlayProps, StateOverlayRef } from './common/types';
 
-const StateOverlay: FC<StateOverlayProps> = (props) => {
+const StateOverlay = forwardRef<StateOverlayRef, StateOverlayProps>(function StateOverlay(props, ref): ReactElement {
 	const {
+		renderSuccess,
 		renderEmpty,
 		renderError,
 		renderSpinner,
@@ -22,6 +23,7 @@ const StateOverlay: FC<StateOverlayProps> = (props) => {
 	return (
 		<Grid
 			{...rest}
+			ref={ref}
 			templateColumns='1fr'
 			templateRows='1fr'
 			alignItems='stretch'
@@ -30,6 +32,18 @@ const StateOverlay: FC<StateOverlayProps> = (props) => {
 			justifyContent='stretch'
 			gap={0}
 		>
+			{renderSuccess ? (
+				<GridItem as={Fade} zIndex={1} rowStart={1} colStart={1} in={state === 'success'}>
+					{hasGlass ? (
+						<Glass width='100%' height='100%'>
+							{renderSuccess({ state })}
+						</Glass>
+					) : (
+						renderSuccess({ state })
+					)}
+				</GridItem>
+			) : null}
+
 			{renderEmpty ? (
 				<GridItem as={Fade} zIndex={1} rowStart={1} colStart={1} in={state === 'empty'}>
 					{hasGlass ? (
@@ -71,6 +85,6 @@ const StateOverlay: FC<StateOverlayProps> = (props) => {
 			</GridItem>
 		</Grid>
 	);
-};
+});
 
 export default StateOverlay;

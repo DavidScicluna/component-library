@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 
 import { GridProps } from '@chakra-ui/react';
 
+import { Nullable } from '../../../../../common/types';
 import {
 	BoxColor,
 	BoxFilter,
@@ -14,7 +15,7 @@ import {
 	BoxShadow
 } from '../../../../../common/types/box';
 
-export type StateOverlayState = 'error' | 'empty' | 'loading' | 'default';
+export type StateOverlayState = 'success' | 'error' | 'empty' | 'loading' | 'default';
 
 export type StateOverlayRenderProps = Pick<StateOverlayProps, 'state'>;
 
@@ -32,6 +33,7 @@ type Omitted =
 	| 'children';
 
 export type StateOverlayProps = Omit<GridProps, Omitted> & {
+	renderSuccess?: (props: StateOverlayRenderProps) => ReactNode;
 	renderError?: (props: StateOverlayRenderProps) => ReactNode;
 	renderEmpty?: (props: StateOverlayRenderProps) => ReactNode;
 	renderSpinner?: (props: StateOverlayRenderProps) => ReactNode;
@@ -40,3 +42,5 @@ export type StateOverlayProps = Omit<GridProps, Omitted> & {
 	hasContentAlwaysVisible?: boolean;
 	state: StateOverlayState;
 };
+
+export type StateOverlayRef = Nullable<HTMLDivElement>;
