@@ -1,6 +1,6 @@
 import { StackProps } from '@chakra-ui/react';
 
-import { CommonThemeProps } from '../../../../../common/types';
+import { CommonThemeProps, Nullable } from '../../../../../common/types';
 import {
 	BoxColor,
 	BoxFilter,
@@ -28,5 +28,7 @@ type Omitted =
 	| 'as';
 
 export type StateLabelProps = Omit<StackProps, Omitted> & CommonThemeProps;
+
+export type StateLabelRef = Nullable<HTMLDivElement>;
 
 export type StateLabelContext = Pick<StateLabelProps, 'color' | 'colorMode'>;
