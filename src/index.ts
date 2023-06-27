@@ -1,4 +1,11 @@
 import fallback from './common/assets/fallback';
+import {
+	active as activeAmount,
+	back as backAmount,
+	hover as hoverAmount,
+	placeholder as placeholderAmount,
+	selection as selectionAmount
+} from './common/default/amount';
 import { color as defaultColor, colorMode as defaultColorMode, method as defaultMethod } from './common/default/props';
 import { useBoolean, useConst, useDebounce, useGetColor, useGetThemeAppearance, useOs, useTheme } from './common/hooks';
 import {
@@ -318,7 +325,7 @@ import {
 import PasswordStrengthTooltip from './components/DataDisplay/PasswordStrengths/PasswordStrengthTooltip';
 import { PasswordStrengthTooltipProps } from './components/DataDisplay/PasswordStrengths/PasswordStrengthTooltip/common/types';
 import Divider from './components/Divider';
-import { DividerProps } from './components/Divider/common/types';
+import { DividerProps, DividerVariant } from './components/Divider/common/types';
 import Alert from './components/Feedback/Alert';
 import {
 	AlertActionsPosition,
@@ -572,6 +579,13 @@ import {
 	HoverOverlayProps,
 	HoverOverlayRef
 } from './components/Overlay/HoverOverlay/common/types';
+import Indicator from './components/Overlay/Indicator';
+import {
+	IndicatorPosition,
+	IndicatorProps,
+	IndicatorRef,
+	IndicatorRenderIndicatorProps
+} from './components/Overlay/Indicator/common/types';
 import LinearGradient from './components/Overlay/LinearGradient';
 import { LinearGradientProps, LinearGradientRef } from './components/Overlay/LinearGradient/common/types';
 import LoadingOverlay from './components/Overlay/LoadingOverlay';
@@ -606,7 +620,7 @@ import {
 } from './components/Overlay/PushableOverlay/common/types';
 import StateLabel from './components/Overlay/StateLabel';
 import { useStateLabelContext } from './components/Overlay/StateLabel/common/hooks';
-import { StateLabelContext, StateLabelProps } from './components/Overlay/StateLabel/common/types';
+import { StateLabelContext, StateLabelProps, StateLabelRef } from './components/Overlay/StateLabel/common/types';
 import StateLabelActions from './components/Overlay/StateLabel/components/StateLabelActions';
 import { StateLabelActionsProps } from './components/Overlay/StateLabel/components/StateLabelActions/common/types';
 import StateLabelBody from './components/Overlay/StateLabel/components/StateLabelBody';
@@ -620,7 +634,12 @@ import { StateLabelSubtitleProps } from './components/Overlay/StateLabel/compone
 import StateLabelTitle from './components/Overlay/StateLabel/components/StateLabelTitle';
 import { StateLabelTitleProps } from './components/Overlay/StateLabel/components/StateLabelTitle/common/types';
 import StateOverlay from './components/Overlay/StateOverlay';
-import { StateOverlayProps, StateOverlayState } from './components/Overlay/StateOverlay/common/types';
+import {
+	StateOverlayProps,
+	StateOverlayRef,
+	StateOverlayRenderProps,
+	StateOverlayState
+} from './components/Overlay/StateOverlay/common/types';
 import Tooltip from './components/Overlay/Tooltip';
 import { TooltipColor, TooltipProps, TooltipRef } from './components/Overlay/Tooltip/common/types';
 import DSCLProvider from './components/Provider';
@@ -772,7 +791,10 @@ import { memoizeDebounce } from './common/scripts';
 
 // TODO: Maybe move default/amounts & default/sizes to common & export them
 // Defaults
-export const defaults = { props: { defaultColor, defaultColorMode, defaultMethod } };
+export const defaults = {
+	amount: { backAmount, hoverAmount, activeAmount, selectionAmount, placeholderAmount },
+	props: { defaultColor, defaultColorMode, defaultMethod }
+};
 
 // Assets
 export const assets = { fallback };
@@ -915,6 +937,7 @@ export {
 	IconButtonIcon,
 	Image,
 	ImageEditor,
+	Indicator,
 	Input,
 	LinearGradient,
 	Link,
@@ -1088,6 +1111,7 @@ export type {
 	DatePickerRenderButtonProps,
 	DatePickerVariant,
 	DividerProps,
+	DividerVariant,
 	DummyAccordionsContext,
 	DummyAccordionsPanelProps,
 	DummyAccordionsProps,
@@ -1208,6 +1232,10 @@ export type {
 	ImageRef,
 	ImageSrc,
 	ImageSrcMode,
+	IndicatorPosition,
+	IndicatorProps,
+	IndicatorRef,
+	IndicatorRenderIndicatorProps,
 	InputAutoComplete,
 	InputChangeEvent,
 	InputFocusEvent,
@@ -1286,10 +1314,13 @@ export type {
 	StateLabelContext,
 	StateLabelIconProps,
 	StateLabelProps,
+	StateLabelRef,
 	StateLabelStackProps,
 	StateLabelSubtitleProps,
 	StateLabelTitleProps,
 	StateOverlayProps,
+	StateOverlayRef,
+	StateOverlayRenderProps,
 	StateOverlayState,
 	Step,
 	StepListProps,
