@@ -7,7 +7,7 @@ import { useBoolean } from '../../../common/hooks';
 import { HoverOverlayMouseEvent, HoverOverlayProps, HoverOverlayRef } from './common/types';
 
 const HoverOverlay = forwardRef<HoverOverlayRef, HoverOverlayProps>(function HoverOverlay(props, ref): ReactElement {
-	const { children, onMouseEnter, onMouseLeave, ...rest } = props;
+	const { children, display = 'inline-block', onMouseEnter, onMouseLeave, ...rest } = props;
 
 	const [isHovering, setIsHovering] = useBoolean();
 
@@ -28,7 +28,7 @@ const HoverOverlay = forwardRef<HoverOverlayRef, HoverOverlayProps>(function Hov
 	};
 
 	return (
-		<Center {...rest} ref={ref} overflow='overlay' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+		<Center {...rest} ref={ref} display={display} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
 			{children({ isHovering })}
 		</Center>
 	);
