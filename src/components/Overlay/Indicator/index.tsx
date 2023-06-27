@@ -27,27 +27,27 @@ const Indicator = forwardRef<IndicatorRef, IndicatorProps>(function Indicator(pr
 	}, [position, offset]);
 
 	return (
-		<Center {...rest} ref={ref} display='inline-block'>
-			<Grid
-				templateColumns='1fr'
-				templateRows='1fr'
-				alignItems='stretch'
-				justifyItems='stretch'
-				justifyContent='stretch'
-				gap={0}
-			>
-				{renderIndicator ? (
-					<GridItem rowStart={1} colStart={1} zIndex={1} position='relative'>
-						<Center {...indicatorPosition} position='absolute'>
-							{renderIndicator({ color, colorMode })}
-						</Center>
-					</GridItem>
-				) : null}
-				<GridItem rowStart={1} colStart={1}>
-					{children}
+		<Grid
+			{...rest}
+			ref={ref}
+			templateColumns='1fr'
+			templateRows='1fr'
+			alignItems='stretch'
+			justifyItems='stretch'
+			justifyContent='stretch'
+			gap={0}
+		>
+			{renderIndicator ? (
+				<GridItem rowStart={1} colStart={1} zIndex={1} position='relative'>
+					<Center {...indicatorPosition} position='absolute'>
+						{renderIndicator({ color, colorMode })}
+					</Center>
 				</GridItem>
-			</Grid>
-		</Center>
+			) : null}
+			<GridItem rowStart={1} colStart={1}>
+				{children}
+			</GridItem>
+		</Grid>
 	);
 });
 
