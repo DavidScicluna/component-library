@@ -25,8 +25,10 @@ import useStyles from './common/styles';
 import { DropdownButtonProps, DropdownButtonRef } from './common/types';
 import { getSizeConfig } from './common/utils';
 
-const DropdownButton = forwardRef<DropdownButtonRef, DropdownButtonProps>(
-	function DropdownButton(props, ref): ReactElement {
+const DropdownButton = forwardRef<DropdownButtonRef, DropdownButtonProps>(function DropdownButton(
+	props,
+	ref
+): ReactElement {
 	const theme = useTheme();
 
 	const { isOpen: isPopperOpen, onOpen: onPopperOpen, onClose: onPopperClose } = useDisclosure();

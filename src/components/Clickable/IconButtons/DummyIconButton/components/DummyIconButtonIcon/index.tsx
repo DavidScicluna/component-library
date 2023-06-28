@@ -6,8 +6,10 @@ import { useDummyIconButtonContext } from '../../common/hooks';
 
 import { DummyIconButtonIconProps, DummyIconButtonIconRef } from './common/types';
 
-const DummyIconButtonIcon = forwardRef<DummyIconButtonIconRef, DummyIconButtonIconProps>(
-	function DummyIconButtonIcon(props, ref): ReactElement {
+const DummyIconButtonIcon = forwardRef<DummyIconButtonIconRef, DummyIconButtonIconProps>(function DummyIconButtonIcon(
+	props,
+	ref
+): ReactElement {
 	const { color, colorMode, size } = useDummyIconButtonContext();
 
 	const fontSize = useIconButtonFontSize({ size });

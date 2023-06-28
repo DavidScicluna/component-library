@@ -9,8 +9,10 @@ import IconButtonIcon from '../OriginalIconButton/components/IconButtonIcon';
 
 import { CloseIconButtonProps, CloseIconButtonRef } from './common/types';
 
-const CloseIconButton = forwardRef<CloseIconButtonRef, CloseIconButtonProps>(
-	function CloseIconButton(props, ref): ReactElement {
+const CloseIconButton = forwardRef<CloseIconButtonRef, CloseIconButtonProps>(function CloseIconButton(
+	props,
+	ref
+): ReactElement {
 	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const {

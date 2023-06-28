@@ -9,8 +9,10 @@ import { useProviderContext } from '../../Provider/common/hooks';
 
 import { BackdropOverlayProps, BackdropOverlayRef } from './common/types';
 
-const BackdropOverlay = forwardRef<BackdropOverlayRef, BackdropOverlayProps>(
-	function BackdropOverlay(props, ref): ReactElement {
+const BackdropOverlay = forwardRef<BackdropOverlayRef, BackdropOverlayProps>(function BackdropOverlay(
+	props,
+	ref
+): ReactElement {
 	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const { color = defaultColor, colorMode = defaultColorMode, ...rest } = props;

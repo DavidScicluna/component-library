@@ -40,8 +40,10 @@ export const CollapsibleCardContext = createContext<CollapsibleCardContextType>(
 	variant: defaultVariant
 });
 
-const CollapsibleCard = forwardRef<CollapsibleCardRef, CollapsibleCardProps>(
-	function CollapsibleCard(props, ref): ReactElement {
+const CollapsibleCard = forwardRef<CollapsibleCardRef, CollapsibleCardProps>(function CollapsibleCard(
+	props,
+	ref
+): ReactElement {
 	const theme = useTheme();
 
 	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();

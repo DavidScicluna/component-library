@@ -13,8 +13,10 @@ import { useFormControlContext } from '../FormControl/common/hooks';
 import useStyles from './common/styles';
 import { FormDescriptionProps, FormDescriptionRef } from './common/types';
 
-const FormDescription = forwardRef<FormDescriptionRef, FormDescriptionProps>(
-	function FormDescription(props, ref): ReactElement {
+const FormDescription = forwardRef<FormDescriptionRef, FormDescriptionProps>(function FormDescription(
+	props,
+	ref
+): ReactElement {
 	const theme = useTheme();
 
 	const { colorMode: defaultColorMode } = useProviderContext();

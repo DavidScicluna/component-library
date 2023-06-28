@@ -2,7 +2,7 @@ import { ReactElement, useState } from 'react';
 
 import { range } from 'lodash-es';
 
-import { AppColors,  } from '../../..';
+import { AppColors } from '../../..';
 // import { AppColors, Icon, StepList, StepPanels, Steps as StepsComponent, StepsProps, StepsSize } from '../../..';
 import { color as defaultColor } from '../../../common/default/props';
 import {
@@ -90,8 +90,6 @@ export default {
 } as Meta;
 
 export const Stepper: Story = (props: StepperProps): ReactElement => {
-	
-
 	const [activeStep, setActiveStep] = useState<number>(props.activeStep || 0);
 
 	return (

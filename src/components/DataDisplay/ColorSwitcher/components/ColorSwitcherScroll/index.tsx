@@ -8,8 +8,10 @@ import { ColorSwitcherOnChangeProps } from '../../common/types';
 
 import { ColorSwitcherScrollProps, ColorSwitcherScrollRef } from './common/types';
 
-const ColorSwitcherScroll = forwardRef<ColorSwitcherScrollRef, ColorSwitcherScrollProps>(
-	function ColorSwitcherScroll(props, ref): ReactElement {
+const ColorSwitcherScroll = forwardRef<ColorSwitcherScrollRef, ColorSwitcherScrollProps>(function ColorSwitcherScroll(
+	props,
+	ref
+): ReactElement {
 	const { color, colors, colorMode, onChange } = useColorSwitcherContext();
 
 	const { renderItem, ...rest } = props;

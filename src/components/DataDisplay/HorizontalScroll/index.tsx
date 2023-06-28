@@ -39,8 +39,10 @@ export const HorizontalScrollContext = createContext<HorizontalScrollContextType
 	spacing: defaultSpacing
 });
 
-const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(
-	function HorizontalScroll(props, ref): ReactElement {
+const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(function HorizontalScroll(
+	props,
+	ref
+): ReactElement {
 	const theme = useTheme();
 
 	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();

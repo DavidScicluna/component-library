@@ -17,8 +17,10 @@ export const SideNavigationContext = createContext<SideNavigationContextType>({
 	mode: defaultMode
 });
 
-const SideNavigation = forwardRef<SideNavigationRef, SideNavigationProps>(
-	function SideNavigation(props, ref): ReactElement {
+const SideNavigation = forwardRef<SideNavigationRef, SideNavigationProps>(function SideNavigation(
+	props,
+	ref
+): ReactElement {
 	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const {

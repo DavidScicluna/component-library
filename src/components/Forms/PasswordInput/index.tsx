@@ -7,8 +7,10 @@ import Input from '../Input';
 
 import { PasswordInputProps, PasswordInputRef } from './common/types';
 
-const PasswordInput = forwardRef<PasswordInputRef, PasswordInputProps>(
-	function PasswordInput(props, ref): ReactElement {
+const PasswordInput = forwardRef<PasswordInputRef, PasswordInputProps>(function PasswordInput(
+	props,
+	ref
+): ReactElement {
 	const { color, colorMode, isVisible: isVisibleProp, onVisibilityChange, size, ...rest } = props;
 
 	const [isVisibleHook, setIsVisibleHook] = useBoolean();

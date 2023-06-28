@@ -18,8 +18,10 @@ import { useFormControlContext } from '../FormControl/common/hooks';
 import useStyles from './common/styles';
 import { FormHelperTextProps, FormHelperTextRef } from './common/types';
 
-const FormHelperText = forwardRef<FormHelperTextRef, FormHelperTextProps>(
-	function FormHelperText(props, ref): ReactElement {
+const FormHelperText = forwardRef<FormHelperTextRef, FormHelperTextProps>(function FormHelperText(
+	props,
+	ref
+): ReactElement {
 	const theme = useTheme();
 
 	const { colorMode: defaultColorMode } = useProviderContext();
