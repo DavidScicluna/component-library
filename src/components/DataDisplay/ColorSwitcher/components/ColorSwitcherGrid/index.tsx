@@ -7,10 +7,8 @@ import { ColorSwitcherOnChangeProps } from '../../common/types';
 
 import { ColorSwitcherGridProps, ColorSwitcherGridRef } from './common/types';
 
-const ColorSwitcherGrid = forwardRef<ColorSwitcherGridRef, ColorSwitcherGridProps>(function ColorSwitcherGrid(
-	props,
-	ref
-): ReactElement {
+const ColorSwitcherGrid = forwardRef<ColorSwitcherGridRef, ColorSwitcherGridProps>(
+	function ColorSwitcherGrid(props, ref): ReactElement {
 	const { color, colors, colorMode, onChange } = useColorSwitcherContext();
 
 	const { renderItem, columns = [1, 2, 3], spacing = 2, ...rest } = props;

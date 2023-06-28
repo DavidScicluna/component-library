@@ -65,11 +65,15 @@ const Step: FC<StepProps> = (props) => {
 	});
 
 	// TODO: Go over all useMemo and check we are passing down a type
-	const config = useMemo<GetSizeConfigReturn>(() => {
-		return getSizeConfig({ size });
-	}, [size]);
+	const config = useMemo<GetSizeConfigReturn>(() => getSizeConfig({ size }), [size]);
 
-	const style = useStyles({ theme, color, colorMode, isConsecutively, isSelected: isActive || isSelected });
+	const style = useStyles({
+		theme,
+		color,
+		colorMode,
+		isConsecutively,
+		isSelected: isActive || isSelected
+	});
 
 	const handleClick = (event: StepMouseEvent): void => {
 		onSelect(index);

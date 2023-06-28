@@ -71,11 +71,18 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 
 	const isFocused = useMemo((): boolean => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
 
-	const config = useMemo((): GetSizeConfigReturn => {
-		return getSizeConfig({ size });
-	}, [size]);
+	const config = useMemo((): GetSizeConfigReturn => getSizeConfig({ size }), [size]);
 
-	const style = useStyles({ theme, color, colorMode, isError, isSuccess, isWarning, isFocused, size });
+	const style = useStyles({
+		theme,
+		color,
+		colorMode,
+		isError,
+		isSuccess,
+		isWarning,
+		isFocused,
+		size
+	});
 
 	const handleContainerClick = (): void => {
 		if (isFocused && inputRef && inputRef.current) {
@@ -123,7 +130,14 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 			_readOnly={style.readOnly}
 		>
 			{renderLeft ? (
-				<GridItem>{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}</GridItem>
+				<GridItem>
+					{renderLeft({
+						color,
+						colorMode,
+						width: childrenWidth,
+						height: childrenHeight
+					})}
+				</GridItem>
 			) : null}
 
 			<GridItem>
@@ -147,7 +161,14 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref): React
 			</GridItem>
 
 			{renderRight ? (
-				<GridItem>{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}</GridItem>
+				<GridItem>
+					{renderRight({
+						color,
+						colorMode,
+						width: childrenWidth,
+						height: childrenHeight
+					})}
+				</GridItem>
 			) : null}
 		</Grid>
 	);

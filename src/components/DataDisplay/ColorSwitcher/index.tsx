@@ -23,7 +23,14 @@ const ColorSwitcher: FC<ColorSwitcherProps> = (props) => {
 	const { children, color = defaultColor, colors = defaultColors, colorMode = defaultColorMode, onChange } = props;
 
 	return (
-		<ColorSwitcherContext.Provider value={{ color, colors, colorMode, onChange }}>
+		<ColorSwitcherContext.Provider
+			value={{
+				color,
+				colors,
+				colorMode,
+				onChange
+			}}
+		>
 			<>{children}</>
 		</ColorSwitcherContext.Provider>
 	);

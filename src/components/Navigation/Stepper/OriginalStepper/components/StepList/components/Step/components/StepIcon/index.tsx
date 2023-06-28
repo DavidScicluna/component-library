@@ -31,9 +31,7 @@ const StepIcon: FC<StepIconProps> = ({ index, status }) => {
 	}, [status]);
 
 	// TODO: Go over all useMemo and check we are passing down a type
-	const { icon } = useMemo<GetSizeConfigReturn>(() => {
-		return getSizeConfig({ size });
-	}, [size]);
+	const { icon } = useMemo<GetSizeConfigReturn>(() => getSizeConfig({ size }), [size]);
 
 	return (
 		<Icon

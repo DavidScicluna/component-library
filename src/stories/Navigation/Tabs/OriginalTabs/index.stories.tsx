@@ -99,7 +99,10 @@ export const Tabs: Story = (props: TabsProps): ReactElement => {
 			<TabPanels>
 				{tabs.map((tab) => (
 					<div key={tab}>
-						<h1>Tab {tab}</h1>
+						<h1>
+							Tab
+							{tab}
+						</h1>
 					</div>
 				))}
 			</TabPanels>

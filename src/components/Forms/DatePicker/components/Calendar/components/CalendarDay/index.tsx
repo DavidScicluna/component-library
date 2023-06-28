@@ -25,7 +25,12 @@ const CalendarDay = forwardRef<CalendarDayRef, CalendarDayProps>(function Calend
 		...rest
 	} = props;
 
-	const style = useStyles({ theme, color, colorMode, variant });
+	const style = useStyles({
+		theme,
+		color,
+		colorMode,
+		variant
+	});
 
 	return (
 		<Center width='100%'>

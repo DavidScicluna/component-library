@@ -1,10 +1,8 @@
 import { Style } from '../../../../../../../../../../../common/types';
 
-export default (): Style => {
-	return {
-		'cursor': 'default',
-		'pointerEvents': 'none',
+export default (): Style => ({
+	'cursor': 'default',
+	'pointerEvents': 'none',
 
-		'& .ds-cl-tabs-tab-stack': { opacity: 1 }
-	};
-};
+	'& .ds-cl-tabs-tab-stack': { opacity: 1 }
+});

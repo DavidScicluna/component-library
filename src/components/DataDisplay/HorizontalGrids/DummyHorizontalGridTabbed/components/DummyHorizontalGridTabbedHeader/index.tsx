@@ -2,8 +2,8 @@ import { FC } from 'react';
 
 import { HStack, VStack } from '@chakra-ui/react';
 
-import DummyCardHeader from '../../../../../DataDisplay/Cards/DummyCard/components/DummyCardHeader';
 import DummyTabList from '../../../../../Navigation/Tabs/DummyTabs/components/DummyTabList';
+import DummyCardHeader from '../../../../Cards/DummyCard/components/DummyCardHeader';
 import DummyArrows from '../../../components/DummyHorizontalGridArrows';
 import { useDummyHorizontalGridTabbedContext } from '../../common/hooks';
 

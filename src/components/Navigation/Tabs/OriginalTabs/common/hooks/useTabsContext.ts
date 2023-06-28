@@ -26,7 +26,15 @@ const useTabsContext = (): NoUndefinedField<TabsContextType> => {
 		size = defaultSize
 	} = useContext<TabsContextType>(TabsContext);
 
-	return { activeTab, color, colorMode, isDisabled, isFitted, onChange, size };
+	return {
+		activeTab,
+		color,
+		colorMode,
+		isDisabled,
+		isFitted,
+		onChange,
+		size
+	};
 };
 
 export default useTabsContext;

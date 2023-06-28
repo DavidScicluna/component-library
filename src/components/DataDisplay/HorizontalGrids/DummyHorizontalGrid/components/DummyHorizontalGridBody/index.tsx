@@ -1,15 +1,13 @@
 import { FC } from 'react';
 
-import CardBody from '../../../../../DataDisplay/Cards/components/CardBody';
+import CardBody from '../../../../Cards/components/CardBody';
 
 import { DummyHorizontalGridBodyProps } from './common/types';
 
-const DummyHorizontalGridBody: FC<DummyHorizontalGridBodyProps> = ({ children, ...rest }) => {
-	return (
-		<CardBody {...rest} alignItems='stretch' justifyContent='stretch'>
-			{children}
-		</CardBody>
-	);
-};
+const DummyHorizontalGridBody: FC<DummyHorizontalGridBodyProps> = ({ children, ...rest }) => (
+	<CardBody {...rest} alignItems='stretch' justifyContent='stretch'>
+		{children}
+	</CardBody>
+);
 
 export default DummyHorizontalGridBody;

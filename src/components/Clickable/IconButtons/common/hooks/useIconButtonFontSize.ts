@@ -9,9 +9,10 @@ type UseIconButtonFontSizeProps = Pick<CommonIconButtonProps, 'size'>;
 const useIconButtonFontSize = ({ size }: UseIconButtonFontSizeProps): number => {
 	const theme = useTheme();
 
-	const fontSize = useMemo((): number => {
-		return getFontSizeHeight({ theme, fontSize: size, lineHeight: 'shorter' });
-	}, [theme, size]);
+	const fontSize = useMemo(
+		(): number => getFontSizeHeight({ theme, fontSize: size, lineHeight: 'shorter' }),
+		[theme, size]
+	);
 
 	return fontSize;
 };

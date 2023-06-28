@@ -1,7 +1,7 @@
 import { FC, useMemo } from 'react';
 
 import { useTheme } from '../../../../../../../../../../common/hooks';
-import Icon from '../../../../../../../../../DataDisplay/Icon/';
+import Icon from '../../../../../../../../../DataDisplay/Icon';
 import { getSizeConfig, GetSizeConfigReturn } from '../../../../../../../common/utils';
 import { useStepperContext } from '../../../../../../common/hooks';
 import { getStepStatusColor, getStepStatusIcon } from '../../common/utils';
@@ -17,9 +17,7 @@ const StepStatusIcon: FC<StepStatusIconProps> = ({ status }) => {
 	const iconType = useMemo(() => getStepStatusIcon({ status, variant: 'icon' }), [status]);
 
 	// TODO: Go over all useMemo and check we are passing down a type
-	const { icon } = useMemo<GetSizeConfigReturn>(() => {
-		return getSizeConfig({ size });
-	}, [size]);
+	const { icon } = useMemo<GetSizeConfigReturn>(() => getSizeConfig({ size }), [size]);
 
 	return (
 		<Icon

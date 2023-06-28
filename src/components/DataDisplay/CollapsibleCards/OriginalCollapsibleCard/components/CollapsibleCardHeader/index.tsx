@@ -38,7 +38,12 @@ const CollapsibleCardHeader: FC<CollapsibleCardHeaderProps> = (props) => {
 		<HStack width='100%' spacing={spacing} {...rest}>
 			{renderLeft ? (
 				<Box ref={leftRef}>
-					{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+					{renderLeft({
+						color,
+						colorMode,
+						width: childrenWidth,
+						height: childrenHeight
+					})}
 				</Box>
 			) : null}
 
@@ -90,7 +95,12 @@ const CollapsibleCardHeader: FC<CollapsibleCardHeaderProps> = (props) => {
 
 			{renderRight ? (
 				<Box ref={rightRef}>
-					{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+					{renderRight({
+						color,
+						colorMode,
+						width: childrenWidth,
+						height: childrenHeight
+					})}
 				</Box>
 			) : null}
 		</HStack>

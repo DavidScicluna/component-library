@@ -1,8 +1,8 @@
 import { createContext, FC } from 'react';
 
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/default/props';
-import DummyCard from '../../../DataDisplay/Cards/DummyCard';
 import DummyTabs from '../../../Navigation/Tabs/DummyTabs';
+import DummyCard from '../../Cards/DummyCard';
 import { spacing as defaultSpacing } from '../common/default/props';
 
 import {

@@ -18,8 +18,8 @@ import {
 	BoxTypography
 } from '../../../../../../../../common/types/box';
 import { Space } from '../../../../../../../../theme/types';
-import { DummyCardHeaderProps } from '../../../../../../../DataDisplay/Cards/DummyCard/components/DummyCardHeader/common/types';
 import { DummyTabListProps } from '../../../../../../../Navigation/Tabs/DummyTabs/components/DummyTabList/common/types';
+import { DummyCardHeaderProps } from '../../../../../../Cards/DummyCard/components/DummyCardHeader/common/types';
 import { DummyHorizontalGridArrowsProps } from '../../../../../components/DummyHorizontalGridArrows/common/types';
 
 type Omitted =

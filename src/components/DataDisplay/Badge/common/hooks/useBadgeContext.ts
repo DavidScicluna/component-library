@@ -14,7 +14,12 @@ const useBadgeContext = (): NoUndefinedField<BadgeContextType> => {
 		variant = defaultVariant
 	} = useContext<BadgeContextType>(BadgeContext);
 
-	return { color, colorMode, size, variant };
+	return {
+		color,
+		colorMode,
+		size,
+		variant
+	};
 };
 
 export default useBadgeContext;

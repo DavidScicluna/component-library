@@ -9,10 +9,8 @@ import { useProviderContext } from '../../Provider/common/hooks';
 
 import { LinearGradientProps, LinearGradientRef } from './common/types';
 
-const LinearGradient = forwardRef<LinearGradientRef, LinearGradientProps>(function LinearGradient(
-	props,
-	ref
-): ReactElement {
+const LinearGradient = forwardRef<LinearGradientRef, LinearGradientProps>(
+	function LinearGradient(props, ref): ReactElement {
 	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const { color = defaultColor, colorMode = defaultColorMode, degrees, ...rest } = props;

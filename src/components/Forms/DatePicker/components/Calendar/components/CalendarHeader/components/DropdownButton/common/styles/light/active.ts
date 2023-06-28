@@ -23,8 +23,8 @@ export default ({ theme, color = defaultColor }: DropdownButtonLightStylingProps
 	});
 
 	const config = getSizeConfig();
-	const border = config.border;
-	const offset = config.offset;
+	const { border } = config;
+	const { offset } = config;
 
 	return {
 		'color': theme.colors[color][colorShade],

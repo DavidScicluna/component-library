@@ -37,17 +37,16 @@ export const getPasswordStrength = memoize((password: string): Strength => {
 
 	if (password.length < 8) {
 		return 'weak';
-	} else {
-		switch (strength) {
-			case 2:
-				return 'average';
-			case 3:
-				return 'strong';
-			case 4:
-				return 'excellent';
-			default:
-				return 'weak';
-		}
+	}
+	switch (strength) {
+		case 2:
+			return 'average';
+		case 3:
+			return 'strong';
+		case 4:
+			return 'excellent';
+		default:
+			return 'weak';
 	}
 });
 

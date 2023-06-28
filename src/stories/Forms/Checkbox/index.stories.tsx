@@ -52,17 +52,15 @@ const colorOptions: AppColors = [
 	'deep_orange'
 ];
 
-const renderMapping = Object.assign(
-	{ none: undefined },
-	{
-		panel: () => (
-			<VStack width='100%' alignItems='flex-start' justifyContent='center' spacing={0}>
-				<CheckboxTitle>I am a Title</CheckboxTitle>
-				<CheckboxSubtitle>I am a Subtitle</CheckboxSubtitle>
-			</VStack>
-		)
-	}
-);
+const renderMapping = {
+	none: undefined,
+	panel: () => (
+		<VStack width='100%' alignItems='flex-start' justifyContent='center' spacing={0}>
+			<CheckboxTitle>I am a Title</CheckboxTitle>
+			<CheckboxSubtitle>I am a Subtitle</CheckboxSubtitle>
+		</VStack>
+	)
+};
 
 const sizeOptions: FormControlSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 

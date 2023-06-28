@@ -26,7 +26,7 @@ export default ({ theme }: DropdownButtonItemLightStylingProps): Style => {
 	});
 
 	const config = getSizeConfig();
-	const border = config.border;
+	const { border } = config;
 
 	return {
 		'color': theme.colors.gray[secondaryShade],

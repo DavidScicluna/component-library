@@ -15,7 +15,7 @@ export default ({
 	size = defaultSize
 }: ButtonStyleProps): Style => {
 	const config = getSizeConfig({ isCompact, size });
-	const fontSize = config.fontSize;
+	const { fontSize } = config;
 
 	const transition = 'none';
 	const transitionProperty = transition;
@@ -55,10 +55,10 @@ export default ({
 
 		'transform': 'none',
 
-		'transition': transition,
-		'transitionProperty': transitionProperty,
-		'transitionDuration': transitionDuration,
-		'transitionTimingFunction': transitionTimingFunction,
+		transition,
+		transitionProperty,
+		transitionDuration,
+		transitionTimingFunction,
 
 		'&:focus': {
 			boxShadow: 'none'

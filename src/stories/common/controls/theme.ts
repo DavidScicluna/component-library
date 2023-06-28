@@ -63,7 +63,12 @@ const spacing = {
 	type: 'number',
 	defaultValue: spaceDefaultValue,
 	// description: '',
-	control: { type: 'range', min: spaceMin, max: spaceMax, step: spaceStep }
+	control: {
+		type: 'range',
+		min: spaceMin,
+		max: spaceMax,
+		step: spaceStep
+	}
 };
 
 const padding = {
@@ -71,7 +76,12 @@ const padding = {
 	type: 'number',
 	defaultValue: spaceDefaultValue,
 	// description: '',
-	control: { type: 'range', min: spaceMin, max: spaceMax, step: spaceStep }
+	control: {
+		type: 'range',
+		min: spaceMin,
+		max: spaceMax,
+		step: spaceStep
+	}
 };
 
 const margin = {
@@ -79,7 +89,19 @@ const margin = {
 	type: 'number',
 	defaultValue: spaceDefaultValue,
 	// description: '',
-	control: { type: 'range', min: spaceMin, max: spaceMax, step: spaceStep }
+	control: {
+		type: 'range',
+		min: spaceMin,
+		max: spaceMax,
+		step: spaceStep
+	}
 };
 
-export default { borderRadius, colorMode, fontSize, spacing, padding, margin };
+export default {
+	borderRadius,
+	colorMode,
+	fontSize,
+	spacing,
+	padding,
+	margin
+};

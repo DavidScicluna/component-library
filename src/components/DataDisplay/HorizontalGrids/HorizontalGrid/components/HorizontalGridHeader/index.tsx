@@ -3,7 +3,7 @@ import { FC, useEffect } from 'react';
 import { HStack } from '@chakra-ui/react';
 
 import { useBoolean, useDebounce } from '../../../../../../common/hooks';
-import CardHeader from '../../../../../DataDisplay/Cards/OriginalCard/components/CardHeader';
+import CardHeader from '../../../../Cards/OriginalCard/components/CardHeader';
 import HorizontalGridArrows from '../../../components/HorizontalGridArrows';
 import { useHorizontalGridContext } from '../../common/hooks';
 

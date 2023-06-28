@@ -16,7 +16,7 @@ import { useColorSwitcherContext } from '../../../../common/hooks';
 import { ColorSwitcherGridItemProps, ColorSwitcherGridItemRef } from './common/types';
 
 const ColorSwitcherGridItem = forwardRef<ColorSwitcherGridItemRef, ColorSwitcherGridItemProps>(
-	function ColorSwitcherGridItem(props, ref): ReactElement {
+	function  ColorSwitcherGridItem(props, ref): ReactElement {
 		const theme = useTheme();
 
 		const { color: defaultColor, colorMode: defaultColorMode } = useColorSwitcherContext();

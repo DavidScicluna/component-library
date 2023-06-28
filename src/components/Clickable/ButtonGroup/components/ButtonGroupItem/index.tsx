@@ -20,11 +20,11 @@ const ButtonGroupItem: FC<ButtonGroupItemProps> = ({ children, index = 0, total 
 
 		if (index === 0) {
 			return `${radius} 0 0 ${radius} !important`;
-		} else if (index === t) {
-			return `0 ${radius} ${radius} 0 !important`;
-		} else {
-			return '0px !important';
 		}
+		if (index === t) {
+			return `0 ${radius} ${radius} 0 !important`;
+		}
+		return '0px !important';
 	}, [isRound, isCompact]);
 
 	return (

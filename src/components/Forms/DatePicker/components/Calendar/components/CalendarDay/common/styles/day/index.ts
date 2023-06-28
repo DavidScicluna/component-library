@@ -8,9 +8,9 @@ const isTouchDevice: boolean = checkIsTouchDevice();
 
 export default ({ theme }: CalendarDayStyleProps): Style => {
 	const config = getSizeConfig();
-	const width = config.width;
-	const height = config.height;
-	const border = config.border;
+	const { width } = config;
+	const { height } = config;
+	const { border } = config;
 
 	return {
 		'cursor': 'pointer',

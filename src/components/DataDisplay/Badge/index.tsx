@@ -57,15 +57,18 @@ const Badge = forwardRef<BadgeRef, BadgeProps>(function Badge(props, ref): React
 
 	const style = useStyles({ theme, isClickable, isFullWidth });
 
-	const radius = useMemo((): Radius => {
-		return getVariantRadius({ isRound, variant });
-	}, [isCompact, isRound, variant]);
-	const config = useMemo((): GetSizeConfigReturn => {
-		return getSizeConfig({ isCompact, size });
-	}, [isCompact, size]);
+	const radius = useMemo((): Radius => getVariantRadius({ isRound, variant }), [isCompact, isRound, variant]);
+	const config = useMemo((): GetSizeConfigReturn => getSizeConfig({ isCompact, size }), [isCompact, size]);
 
 	return (
-		<BadgeContext.Provider value={{ color, colorMode, size, variant }}>
+		<BadgeContext.Provider
+			value={{
+				color,
+				colorMode,
+				size,
+				variant
+			}}
+		>
 			<CUIBadge
 				{...rest}
 				ref={ref}

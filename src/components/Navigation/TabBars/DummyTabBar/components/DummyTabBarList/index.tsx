@@ -50,7 +50,12 @@ const DummyTabBarList: FC<DummyTabBarListProps> = ({ tabs = [], renderLeft, rend
 				{renderLeft ? (
 					<GridItem>
 						<Center width='100%' height='100%'>
-							{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+							{renderLeft({
+								color,
+								colorMode,
+								width: childrenWidth,
+								height: childrenHeight
+							})}
 						</Center>
 					</GridItem>
 				) : null}
@@ -77,7 +82,12 @@ const DummyTabBarList: FC<DummyTabBarListProps> = ({ tabs = [], renderLeft, rend
 				{renderRight ? (
 					<GridItem>
 						<Center width='100%' height='100%'>
-							{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+							{renderRight({
+								color,
+								colorMode,
+								width: childrenWidth,
+								height: childrenHeight
+							})}
 						</Center>
 					</GridItem>
 				) : null}

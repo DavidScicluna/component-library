@@ -25,15 +25,16 @@ const Divider = forwardRef<DividerRef, DividerProps>(function Divider(props, ref
 
 	const borderColor = useGetColor({ color, colorMode, type: 'divider' });
 
-	const styles = useMemo<Style>(() => {
-		return {
+	const styles = useMemo<Style>(
+		() => ({
 			flex: '1 1 0%',
 
 			borderTopWidth: orientation === 'horizontal' ? `${size}px` : '0px',
 			borderTopStyle: variant,
 			borderTopColor: borderColor
-		};
-	}, [size]);
+		}),
+		[size]
+	);
 
 	return (
 		<Box

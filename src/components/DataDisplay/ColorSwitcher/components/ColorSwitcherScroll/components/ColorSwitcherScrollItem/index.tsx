@@ -18,7 +18,7 @@ import {
 } from './common/types';
 
 const ColorSwitcherScrollItem = forwardRef<ColorSwitcherScrollItemRef, ColorSwitcherScrollItemProps>(
-	function ColorSwitcherScrollItem(props, ref): ReactElement {
+	function ColorSwitcherScrollItem(props, ref): ReactElement  {
 		const { color: defaultColor, colorMode: defaultColorMode } = useColorSwitcherContext();
 
 		const {

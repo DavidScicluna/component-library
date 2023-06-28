@@ -32,9 +32,7 @@ const StepStatus: FC<StatusProps> = ({ status, steps = defaultSteps }) => {
 	}, [status]);
 
 	// TODO: Go over all useMemo and check we are passing down a type
-	const { statusFontSize, spacing } = useMemo<GetSizeConfigReturn>(() => {
-		return getSizeConfig({ size });
-	}, [size]);
+	const { statusFontSize, spacing } = useMemo<GetSizeConfigReturn>(() => getSizeConfig({ size }), [size]);
 
 	return (
 		<HStack alignItems='center' justifyContent='center' spacing={spacing}>

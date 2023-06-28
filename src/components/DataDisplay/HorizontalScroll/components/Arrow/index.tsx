@@ -20,9 +20,10 @@ const Arrow = forwardRef<ArrowRef, ArrowProps>(function Arrow(props, ref): React
 
 	const { direction, isDisabled: isDisabledProp, size = isSm ? 'sm' : 'md', sx, ...rest } = props;
 
-	const isDisabled = useMemo<boolean>((): boolean => {
-		return isDisabledProp || isDisabledHook;
-	}, [isDisabledProp, isDisabledHook]);
+	const isDisabled = useMemo<boolean>(
+		(): boolean => isDisabledProp || isDisabledHook,
+		[isDisabledProp, isDisabledHook]
+	);
 
 	return (
 		<IconButton

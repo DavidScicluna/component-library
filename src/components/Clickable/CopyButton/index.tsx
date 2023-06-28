@@ -33,7 +33,16 @@ const CopyButton: FC<CopyButtonProps> = (props) => {
 		);
 	};
 
-	return <>{children({ color, colorMode, isCopied, onCopy: handleCopy })}</>;
+	return (
+		<>
+			{children({
+				color,
+				colorMode,
+				isCopied,
+				onCopy: handleCopy
+			})}
+		</>
+	);
 };
 
 export default CopyButton;

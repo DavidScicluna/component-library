@@ -94,16 +94,16 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 
 	const { isChecked, isDisabled, isIndeterminate, isInvalid, isReadOnly, isRequired } = state;
 
-	const radius = useMemo((): Radius => {
-		return getVariantRadius({ isCompact, isRound, variant });
-	}, [isCompact, isRound, variant]);
-	const config = useMemo((): GetSizeConfigReturn => {
-		return getSizeConfig({ isCompact, size });
-	}, [isCompact, size]);
+	const radius = useMemo(
+		(): Radius => getVariantRadius({ isCompact, isRound, variant }),
+		[isCompact, isRound, variant]
+	);
+	const config = useMemo((): GetSizeConfigReturn => getSizeConfig({ isCompact, size }), [isCompact, size]);
 
-	const fontSize = useMemo((): string => {
-		return `${getFontSizeHeight({ theme, fontSize: size, lineHeight: 'shorter' })}px`;
-	}, [theme, size]);
+	const fontSize = useMemo(
+		(): string => `${getFontSizeHeight({ theme, fontSize: size, lineHeight: 'shorter' })}px`,
+		[theme, size]
+	);
 
 	const style = useStyles({ theme });
 
@@ -152,7 +152,12 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 					>
 						{renderLeft ? (
 							<GridItem>
-								{renderLeft({ color, colorMode, width: checkboxWidth, height: checkboxHeight })}
+								{renderLeft({
+									color,
+									colorMode,
+									width: checkboxWidth,
+									height: checkboxHeight
+								})}
 							</GridItem>
 						) : null}
 
@@ -190,7 +195,12 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>(function Checkbox(props,
 
 						{renderRight ? (
 							<GridItem>
-								{renderRight({ color, colorMode, width: checkboxWidth, height: checkboxHeight })}
+								{renderRight({
+									color,
+									colorMode,
+									width: checkboxWidth,
+									height: checkboxHeight
+								})}
 							</GridItem>
 						) : null}
 					</Grid>

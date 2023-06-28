@@ -13,9 +13,7 @@ const BadgeIcon: FC<BadgeIconProps> = (props) => {
 
 	const { color, colorMode, size } = useBadgeContext();
 
-	const fontSize = useMemo(() => {
-		return getFontSizeHeight({ theme, fontSize: size, lineHeight: defaultLineHeight });
-	}, [size]);
+	const fontSize = useMemo(() => getFontSizeHeight({ theme, fontSize: size, lineHeight: defaultLineHeight }), [size]);
 
 	return (
 		<Icon

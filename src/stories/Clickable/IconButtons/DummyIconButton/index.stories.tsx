@@ -28,11 +28,9 @@ const childrenDefaultValue: IconType | undefined = sample(icons);
 const childrenOptions: IconType[] = [...icons];
 const childrenMapping = Object.assign(
 	{},
-	...icons.map((icon) => {
-		return {
-			[icon]: <DummyIconButtonIcon icon={icon} />
-		};
-	})
+	...icons.map((icon) => ({
+		[icon]: <DummyIconButtonIcon icon={icon} />
+	}))
 );
 
 const colorOptions: IconButtonColor[] = [

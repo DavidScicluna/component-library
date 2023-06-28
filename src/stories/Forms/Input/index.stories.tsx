@@ -55,11 +55,9 @@ const colorOptions: AppColors = [
 
 const renderMapping = Object.assign(
 	{ none: undefined },
-	...icons.map((icon) => {
-		return {
-			[icon]: ({ colorMode }: InputRenderProps) => <Icon colorMode={colorMode} icon={icon} />
-		};
-	})
+	...icons.map((icon) => ({
+		[icon]: ({ colorMode }: InputRenderProps) => <Icon colorMode={colorMode} icon={icon} />
+	}))
 );
 
 const sizeOptions: FormControlSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];

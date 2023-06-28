@@ -48,10 +48,10 @@ export default ({ theme, isFullWidth = defaultIsFitted, size = defaultSize }: Du
 		'p': 0,
 		'm': 0,
 
-		'transition': transition,
-		'transitionProperty': transitionProperty,
-		'transitionDuration': transitionDuration,
-		'transitionTimingFunction': transitionTimingFunction,
+		transition,
+		transitionProperty,
+		transitionDuration,
+		transitionTimingFunction,
 
 		'& .ds-cl-dummytabs-dummytab-stack': { opacity: 0.5 },
 

@@ -8,7 +8,6 @@ import { FormControlProps } from '../../../FormControl/common/types';
 type GetFormHelperTextFontSizeProps = Pick<FormControlProps, 'size'> & { theme: Theme };
 
 export const getFormHelperTextFontSize = memoize(
-	({ theme, size = defaultSize }: GetFormHelperTextFontSizeProps): string => {
-		return `${convertPixelsToREM(convertREMToPixels(convertStringToNumber(theme.fontSizes[size], 'rem')) - 2)}rem`;
-	}
+	({ theme, size = defaultSize }: GetFormHelperTextFontSizeProps): string =>
+		`${convertPixelsToREM(convertREMToPixels(convertStringToNumber(theme.fontSizes[size], 'rem')) - 2)}rem`
 );

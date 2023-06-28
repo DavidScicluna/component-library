@@ -14,7 +14,12 @@ const useDummyTabBarContext = (): NoUndefinedField<DummyTabBarContextType> => {
 		size = defaultSize
 	} = useContext<DummyTabBarContextType>(DummyTabBarContext);
 
-	return { activeTab, color, colorMode, size };
+	return {
+		activeTab,
+		color,
+		colorMode,
+		size
+	};
 };
 
 export default useDummyTabBarContext;

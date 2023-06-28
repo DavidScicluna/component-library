@@ -4,12 +4,10 @@ import { Center } from '@chakra-ui/react';
 
 import { DummyHorizontalGridFooterProps } from './common/types';
 
-const DummyHorizontalGridFooter: FC<DummyHorizontalGridFooterProps> = ({ children, ...rest }) => {
-	return (
-		<Center {...rest} width='100%'>
-			{children}
-		</Center>
-	);
-};
+const DummyHorizontalGridFooter: FC<DummyHorizontalGridFooterProps> = ({ children, ...rest }) => (
+	<Center {...rest} width='100%'>
+		{children}
+	</Center>
+);
 
 export default DummyHorizontalGridFooter;

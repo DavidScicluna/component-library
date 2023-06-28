@@ -91,16 +91,16 @@ const Radio = forwardRef<RadioRef, RadioProps>(function Radio(props, ref): React
 
 	const { isChecked, isDisabled, isInvalid, isReadOnly, isRequired } = state;
 
-	const radius = useMemo((): Radius => {
-		return getVariantRadius({ isCompact, isRound, variant });
-	}, [isCompact, isRound, variant]);
-	const config = useMemo((): GetSizeConfigReturn => {
-		return getSizeConfig({ isCompact, size });
-	}, [isCompact, size]);
+	const radius = useMemo(
+		(): Radius => getVariantRadius({ isCompact, isRound, variant }),
+		[isCompact, isRound, variant]
+	);
+	const config = useMemo((): GetSizeConfigReturn => getSizeConfig({ isCompact, size }), [isCompact, size]);
 
-	const fontSize = useMemo((): string => {
-		return `${getFontSizeHeight({ theme, fontSize: size, lineHeight: 'shorter' })}px`;
-	}, [theme, size]);
+	const fontSize = useMemo(
+		(): string => `${getFontSizeHeight({ theme, fontSize: size, lineHeight: 'shorter' })}px`,
+		[theme, size]
+	);
 
 	const style = useStyles({ theme });
 
@@ -148,7 +148,12 @@ const Radio = forwardRef<RadioRef, RadioProps>(function Radio(props, ref): React
 					>
 						{renderLeft ? (
 							<GridItem>
-								{renderLeft({ color, colorMode, width: radioWidth, height: radioHeight })}
+								{renderLeft({
+									color,
+									colorMode,
+									width: radioWidth,
+									height: radioHeight
+								})}
 							</GridItem>
 						) : null}
 
@@ -179,7 +184,12 @@ const Radio = forwardRef<RadioRef, RadioProps>(function Radio(props, ref): React
 
 						{renderRight ? (
 							<GridItem>
-								{renderRight({ color, colorMode, width: radioWidth, height: radioHeight })}
+								{renderRight({
+									color,
+									colorMode,
+									width: radioWidth,
+									height: radioHeight
+								})}
 							</GridItem>
 						) : null}
 					</Grid>

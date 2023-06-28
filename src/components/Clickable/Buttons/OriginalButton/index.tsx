@@ -56,14 +56,19 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): R
 		...rest
 	} = props;
 
-	const radius = useMemo((): Radius => {
-		return getVariantRadius({ isCompact, isRound, variant });
-	}, [isCompact, isRound, variant]);
-	const config = useMemo((): GetSizeConfigReturn => {
-		return getSizeConfig({ isCompact, size });
-	}, [isCompact, size]);
+	const radius = useMemo(
+		(): Radius => getVariantRadius({ isCompact, isRound, variant }),
+		[isCompact, isRound, variant]
+	);
+	const config = useMemo((): GetSizeConfigReturn => getSizeConfig({ isCompact, size }), [isCompact, size]);
 
-	const style = useStyles({ theme, isCompact, isFullWidth, isLoading, size });
+	const style = useStyles({
+		theme,
+		isCompact,
+		isFullWidth,
+		isLoading,
+		size
+	});
 
 	return (
 		<ButtonContext.Provider value={{ color, colorMode, size }}>
@@ -111,7 +116,12 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): R
 							</GridItem>
 						) : renderLeft ? (
 							<GridItem>
-								{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+								{renderLeft({
+									color,
+									colorMode,
+									width: childrenWidth,
+									height: childrenHeight
+								})}
 							</GridItem>
 						) : null}
 
@@ -129,7 +139,12 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(props, ref): R
 							</GridItem>
 						) : renderRight ? (
 							<GridItem>
-								{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+								{renderRight({
+									color,
+									colorMode,
+									width: childrenWidth,
+									height: childrenHeight
+								})}
 							</GridItem>
 						) : null}
 					</Grid>

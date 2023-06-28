@@ -4,7 +4,7 @@ import { color as defaultColor, colorMode as defaultColorMode } from '../../../.
 import { NoUndefinedField } from '../../../../../common/types';
 import { spacing as defaultSpacing } from '../../../common/default/props';
 import { DummyAccordionsContext } from '../..';
-import { accordions as defaultAccordions } from '../../common/default/props';
+import { accordions as defaultAccordions } from '../default/props';
 import { DummyAccordionsContext as DummyAccordionsContextType } from '../types';
 
 type UseDummyAccordionsContextReturn = NoUndefinedField<Omit<DummyAccordionsContextType, 'accordions'>> &
@@ -18,7 +18,12 @@ const useDummyAccordionsContext = (): UseDummyAccordionsContextReturn => {
 		spacing = defaultSpacing
 	} = useContext<DummyAccordionsContextType>(DummyAccordionsContext);
 
-	return { accordions, color, colorMode, spacing };
+	return {
+		accordions,
+		color,
+		colorMode,
+		spacing
+	};
 };
 
 export default useDummyAccordionsContext;

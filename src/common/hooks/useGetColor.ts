@@ -13,9 +13,16 @@ const useGetColor = (props: UseGetColorProps): string => {
 
 	const { color = defaultColor, colorMode = defaultColorMode, type } = props;
 
-	const string = useMemo<string>(() => {
-		return getColor({ theme, colorMode, color, type });
-	}, [color, colorMode, type]);
+	const string = useMemo<string>(
+		() =>
+			getColor({
+				theme,
+				colorMode,
+				color,
+				type
+			}),
+		[color, colorMode, type]
+	);
 
 	return string;
 };

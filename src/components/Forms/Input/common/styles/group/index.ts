@@ -26,10 +26,10 @@ export default ({ theme }: InputGroupStyleProps): Style => {
 
 		'WebkitTapHighlightColor': theme.colors.transparent,
 
-		'transition': transition,
-		'transitionProperty': transitionProperty,
-		'transitionDuration': transitionDuration,
-		'transitionTimingFunction': transitionTimingFunction,
+		transition,
+		transitionProperty,
+		transitionDuration,
+		transitionTimingFunction,
 
 		'&:focus:not(:focus-visible)': {
 			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'

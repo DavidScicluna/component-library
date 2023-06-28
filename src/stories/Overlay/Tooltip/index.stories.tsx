@@ -103,12 +103,10 @@ export default {
 	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
-export const Tooltip: Story = (props: TooltipProps): ReactElement => {
-	return (
-		<Center p={6}>
-			<TooltipComponent {...props} aria-label='Story Tooltip' shouldWrapChildren>
-				<DummyButton>Hello I am a Button</DummyButton>
-			</TooltipComponent>
-		</Center>
-	);
-};
+export const Tooltip: Story = (props: TooltipProps): ReactElement => (
+	<Center p={6}>
+		<TooltipComponent {...props} aria-label='Story Tooltip' shouldWrapChildren>
+			<DummyButton>Hello I am a Button</DummyButton>
+		</TooltipComponent>
+	</Center>
+);

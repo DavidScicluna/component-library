@@ -18,7 +18,7 @@ export default ({ theme }: CalendarDayLightStylingProps): Style => {
 	});
 
 	const config = getSizeConfig();
-	const border = config.border;
+	const { border } = config;
 
 	return {
 		'color': theme.colors.gray[shade],

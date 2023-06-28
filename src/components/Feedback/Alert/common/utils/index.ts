@@ -30,6 +30,4 @@ export const getStatusIcon = memoize((status: AlertStatus): IconType => {
 	}
 });
 
-export const convertDurationToMS = memoize((duration: AlertDuration = defaultDuration): number => {
-	return duration * 1000;
-});
+export const convertDurationToMS = memoize((duration: AlertDuration = defaultDuration): number => duration * 1000);

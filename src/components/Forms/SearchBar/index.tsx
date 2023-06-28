@@ -5,8 +5,8 @@ import { HStack } from '@chakra-ui/react';
 import { useUpdateEffect } from 'usehooks-ts';
 
 import { useDebounce } from '../../../common/hooks';
-import Icon from '../../DataDisplay/Icon';
 import Divider from '../../DataDisplay/Divider';
+import Icon from '../../DataDisplay/Icon';
 import Form from '../Form';
 import Input from '../Input';
 import { InputChangeEvent } from '../Input/common/types';

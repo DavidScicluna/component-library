@@ -24,7 +24,14 @@ const useTabBarContext = (): NoUndefinedField<TabBarContextType> => {
 		size = defaultSize
 	} = useContext<TabBarContextType>(TabBarContext);
 
-	return { activeTab, color, colorMode, isDisabled, onChange, size };
+	return {
+		activeTab,
+		color,
+		colorMode,
+		isDisabled,
+		onChange,
+		size
+	};
 };
 
 export default useTabBarContext;

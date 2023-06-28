@@ -18,9 +18,10 @@ const Accordion = <D,>(props: AccordionProps<D>): ReactElement => {
 
 	const { children, id, title, subtitle, actions, footer, isDisabled = defaultIsDisabled, onClick, ...rest } = props;
 
-	const isOpen = useMemo<boolean>((): boolean => {
-		return !isDisabled && opened.some((accordion: unknown) => accordion === id);
-	}, [isDisabled, opened]);
+	const isOpen = useMemo<boolean>(
+		(): boolean => !isDisabled && opened.some((accordion: unknown) => accordion === id),
+		[isDisabled, opened]
+	);
 
 	const handleClick = (event: CollapsibleCardMouseEvent): void => {
 		if (typeof onSetOpened === 'function') {

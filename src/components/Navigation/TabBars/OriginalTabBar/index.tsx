@@ -40,7 +40,16 @@ const TabBar = forwardRef<TabBarRef, TabBarProps>(function TabBar(props, ref): R
 	} = props;
 
 	return (
-		<TabBarContext.Provider value={{ activeTab, color, colorMode, isDisabled, onChange, size }}>
+		<TabBarContext.Provider
+			value={{
+				activeTab,
+				color,
+				colorMode,
+				isDisabled,
+				onChange,
+				size
+			}}
+		>
 			<CUITabs
 				{...rest}
 				ref={ref}

@@ -5,11 +5,11 @@ import { Center, Grid, GridItem } from '@chakra-ui/react';
 import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
+import Divider from '../../../../../DataDisplay/Divider';
 import HorizontalScroll from '../../../../../DataDisplay/HorizontalScroll';
 import { useSetHorizontalScrollAPIContext } from '../../../../../DataDisplay/HorizontalScroll/common/hooks';
 import LeftOverlayArrow from '../../../../../DataDisplay/HorizontalScroll/components/LeftOverlayArrow';
 import RightOverlayArrow from '../../../../../DataDisplay/HorizontalScroll/components/RightOverlayArrow';
-import Divider from '../../../../../DataDisplay/Divider';
 import { useStepperContext } from '../../common/hooks';
 
 import { StepListProps } from './common/types';
@@ -66,7 +66,12 @@ const StepList: FC<StepListProps> = (props) => {
 			{renderLeft ? (
 				<GridItem>
 					<Center width='100%' height='100%'>
-						{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+						{renderLeft({
+							color,
+							colorMode,
+							width: childrenWidth,
+							height: childrenHeight
+						})}
 					</Center>
 				</GridItem>
 			) : null}
@@ -107,7 +112,12 @@ const StepList: FC<StepListProps> = (props) => {
 			{renderRight ? (
 				<GridItem>
 					<Center width='100%' height='100%'>
-						{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+						{renderRight({
+							color,
+							colorMode,
+							width: childrenWidth,
+							height: childrenHeight
+						})}
 					</Center>
 				</GridItem>
 			) : null}

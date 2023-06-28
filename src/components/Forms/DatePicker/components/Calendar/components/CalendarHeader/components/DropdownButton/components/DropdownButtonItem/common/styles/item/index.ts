@@ -9,8 +9,8 @@ const isTouchDevice: boolean = checkIsTouchDevice();
 export default ({ theme }: DropdownButtonItemStyleProps): Style => {
 	const config = getSizeConfig();
 
-	const border = config.border;
-	const padding = config.padding;
+	const { border } = config;
+	const { padding } = config;
 
 	const transition = 'none';
 	const transitionProperty = transition;
@@ -64,10 +64,10 @@ export default ({ theme }: DropdownButtonItemStyleProps): Style => {
 		'px': `${theme.space[padding.x]} !important`,
 		'py': `${theme.space[padding.y]} !important`,
 
-		'transition': transition,
-		'transitionProperty': transitionProperty,
-		'transitionDuration': transitionDuration,
-		'transitionTimingFunction': transitionTimingFunction,
+		transition,
+		transitionProperty,
+		transitionDuration,
+		transitionTimingFunction,
 
 		'&:focus:not(:focus-visible)': {
 			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'

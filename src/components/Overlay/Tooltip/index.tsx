@@ -1,4 +1,4 @@
-import { forwardRef, Fragment, ReactElement } from 'react';
+import { forwardRef,  ReactElement } from 'react';
 
 import { Tooltip as CUITooltip } from '@chakra-ui/react';
 
@@ -14,7 +14,7 @@ import { TooltipProps, TooltipRef } from './common/types';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
-const Tooltip = forwardRef<TooltipRef, TooltipProps>(function Tooltip(props, ref): ReactElement {
+const Tooltip = forwardRef<TooltipRef, TooltipProps>(function Tooltip (props, ref): ReactElement {
 	const theme = useTheme();
 
 	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
@@ -47,7 +47,7 @@ const Tooltip = forwardRef<TooltipRef, TooltipProps>(function Tooltip(props, ref
 			{children}
 		</CUITooltip>
 	) : (
-		<Fragment>{children}</Fragment>
+		<>{children}</>
 	);
 });
 

@@ -50,11 +50,9 @@ const variantOptions: ButtonVariant[] = ['text', 'light', 'contained', 'outlined
 
 const renderMapping = Object.assign(
 	{ none: undefined },
-	...icons.map((icon) => {
-		return {
-			[icon]: ({ colorMode }: ButtonRenderProps) => <Icon colorMode={colorMode} icon={icon} />
-		};
-	})
+	...icons.map((icon) => ({
+		[icon]: ({ colorMode }: ButtonRenderProps) => <Icon colorMode={colorMode} icon={icon} />
+	}))
 );
 
 export default {

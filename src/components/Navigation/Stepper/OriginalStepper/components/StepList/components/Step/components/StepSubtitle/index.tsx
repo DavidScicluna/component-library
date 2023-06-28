@@ -14,9 +14,7 @@ const StepSubtitle: FC<StepSubtitleProps> = ({ subtitle }) => {
 	const color = useGetColor({ color: 'gray', colorMode, type: 'text.secondary' });
 
 	// TODO: Go over all useMemo and check we are passing down a type
-	const { subtitleFontSize } = useMemo<GetSizeConfigReturn>(() => {
-		return getSizeConfig({ size });
-	}, [size]);
+	const { subtitleFontSize } = useMemo<GetSizeConfigReturn>(() => getSizeConfig({ size }), [size]);
 
 	return (
 		<Text align='left' color={color} fontSize={`${subtitleFontSize}px`} lineHeight='normal' noOfLines={1}>

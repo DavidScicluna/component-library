@@ -50,14 +50,19 @@ const DummyButton: FC<DummyButtonProps> = (props) => {
 		...rest
 	} = props;
 
-	const radius = useMemo((): Radius => {
-		return getVariantRadius({ isCompact, isRound, variant });
-	}, [isCompact, isRound, variant]);
-	const config = useMemo((): GetSizeConfigReturn => {
-		return getSizeConfig({ isCompact, size });
-	}, [isCompact, size]);
+	const radius = useMemo(
+		(): Radius => getVariantRadius({ isCompact, isRound, variant }),
+		[isCompact, isRound, variant]
+	);
+	const config = useMemo((): GetSizeConfigReturn => getSizeConfig({ isCompact, size }), [isCompact, size]);
 
-	const style = useStyles({ theme, isCompact, isFullWidth, isLoading: true, size });
+	const style = useStyles({
+		theme,
+		isCompact,
+		isFullWidth,
+		isLoading: true,
+		size
+	});
 
 	return (
 		<DummyButtonContext.Provider value={{ color, colorMode, size }}>
@@ -98,7 +103,12 @@ const DummyButton: FC<DummyButtonProps> = (props) => {
 						>
 							{renderLeft ? (
 								<GridItem>
-									{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+									{renderLeft({
+										color,
+										colorMode,
+										width: childrenWidth,
+										height: childrenHeight
+									})}
 								</GridItem>
 							) : null}
 
@@ -112,7 +122,12 @@ const DummyButton: FC<DummyButtonProps> = (props) => {
 
 							{renderRight ? (
 								<GridItem>
-									{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+									{renderRight({
+										color,
+										colorMode,
+										width: childrenWidth,
+										height: childrenHeight
+									})}
 								</GridItem>
 							) : null}
 						</Grid>

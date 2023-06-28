@@ -44,7 +44,14 @@ const FormLabel = forwardRef<FormLabelRef, FormLabelProps>(function FormLabel(pr
 		...rest
 	} = props;
 
-	const style = useStyles({ theme, colorMode, isError, isWarning, isSuccess, size });
+	const style = useStyles({
+		theme,
+		colorMode,
+		isError,
+		isWarning,
+		isSuccess,
+		size
+	});
 
 	return (
 		<CUIFormLabel {...rest} ref={ref} aria-required={isRequired} sx={merge(style.formLabel, sx)}>

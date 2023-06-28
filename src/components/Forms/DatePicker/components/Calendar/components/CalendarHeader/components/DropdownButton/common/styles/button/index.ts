@@ -8,9 +8,9 @@ const isTouchDevice: boolean = checkIsTouchDevice();
 
 export default ({ theme }: DropdownButtonStyleProps): Style => {
 	const config = getSizeConfig();
-	const height = config.height;
-	const border = config.border;
-	const padding = config.padding;
+	const { height } = config;
+	const { border } = config;
+	const { padding } = config;
 
 	const transition = 'none';
 	const transitionProperty = transition;

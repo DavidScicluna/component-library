@@ -17,9 +17,7 @@ const SwitchThumb: FC<SwitchThumbProps> = (props) => {
 
 	const thumbColor = useGetColor({ color: 'gray', colorMode, type: 'background' });
 
-	const config = useMemo((): GetSizeConfigReturn => {
-		return getSizeConfig({ size });
-	}, [size]);
+	const config = useMemo((): GetSizeConfigReturn => getSizeConfig({ size }), [size]);
 
 	return (
 		<Center
@@ -37,7 +35,13 @@ const SwitchThumb: FC<SwitchThumbProps> = (props) => {
 			borderRadius='full'
 		>
 			{renderThumbIcon
-				? renderThumbIcon({ color, colorMode, width: thumbWidth, height: thumbHeight, isChecked })
+				? renderThumbIcon({
+						color,
+						colorMode,
+						width: thumbWidth,
+						height: thumbHeight,
+						isChecked
+				  })
 				: null}
 		</Center>
 	);

@@ -28,7 +28,14 @@ const DummyTabBar = forwardRef<DummyTabBarRef, DummyTabBarProps>(function DummyT
 	} = props;
 
 	return (
-		<DummyTabBarContext.Provider value={{ activeTab, color, colorMode, size }}>
+		<DummyTabBarContext.Provider
+			value={{
+				activeTab,
+				color,
+				colorMode,
+				size
+			}}
+		>
 			<Tabs
 				{...rest}
 				ref={ref}

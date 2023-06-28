@@ -43,12 +43,8 @@ const DummyIconButton: FC<DummyIconButtonProps> = (props) => {
 		...rest
 	} = props;
 
-	const radius = useMemo((): Radius => {
-		return getVariantRadius({ isRound, variant });
-	}, [isCompact, isRound, variant]);
-	const config = useMemo((): GetSizeConfigReturn => {
-		return getSizeConfig({ isCompact, size });
-	}, [isCompact, size]);
+	const radius = useMemo((): Radius => getVariantRadius({ isRound, variant }), [isCompact, isRound, variant]);
+	const config = useMemo((): GetSizeConfigReturn => getSizeConfig({ isCompact, size }), [isCompact, size]);
 
 	const style = useStyles({ theme });
 

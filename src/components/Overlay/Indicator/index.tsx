@@ -22,9 +22,10 @@ const Indicator = forwardRef<IndicatorRef, IndicatorProps>(function Indicator(pr
 		...rest
 	} = props;
 
-	const indicatorPosition = useMemo<CenterProps>(() => {
-		return getIndicatorPosition({ position, offset });
-	}, [position, offset]);
+	const indicatorPosition = useMemo<CenterProps>(
+		() => getIndicatorPosition({ position, offset }),
+		[position, offset]
+	);
 
 	return (
 		<Grid

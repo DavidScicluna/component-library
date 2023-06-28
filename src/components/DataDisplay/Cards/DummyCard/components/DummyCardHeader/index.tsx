@@ -29,7 +29,14 @@ const DummyCardHeader: FC<DummyCardHeaderProps> = (props) => {
 			gap={spacing}
 		>
 			{renderLeft ? (
-				<GridItem>{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}</GridItem>
+				<GridItem>
+					{renderLeft({
+						color,
+						colorMode,
+						width: childrenWidth,
+						height: childrenHeight
+					})}
+				</GridItem>
 			) : null}
 
 			<GridItem>
@@ -67,7 +74,14 @@ const DummyCardHeader: FC<DummyCardHeaderProps> = (props) => {
 			</GridItem>
 
 			{renderRight ? (
-				<GridItem>{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}</GridItem>
+				<GridItem>
+					{renderRight({
+						color,
+						colorMode,
+						width: childrenWidth,
+						height: childrenHeight
+					})}
+				</GridItem>
 			) : null}
 		</Grid>
 	);

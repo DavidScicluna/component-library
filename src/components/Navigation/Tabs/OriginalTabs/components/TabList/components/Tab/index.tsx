@@ -50,9 +50,7 @@ const Tab: FC<TabProps> = (props) => {
 	});
 
 	// TODO: Go over all useMemo and check we are passing down a type
-	const config = useMemo<GetSizeConfigReturn>(() => {
-		return getSizeConfig({ size });
-	}, [size]);
+	const config = useMemo<GetSizeConfigReturn>(() => getSizeConfig({ size }), [size]);
 
 	const style = useStyles({
 		theme,
@@ -126,14 +124,26 @@ const Tab: FC<TabProps> = (props) => {
 					px={config.padding.x}
 					py={config.padding.y}
 				>
-					{renderLeft ? renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight }) : null}
+					{renderLeft
+						? renderLeft({
+								color,
+								colorMode,
+								width: childrenWidth,
+								height: childrenHeight
+						  })
+						: null}
 
 					<Center ref={childrenRef} as='span'>
 						{label}
 					</Center>
 
 					{renderRight
-						? renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })
+						? renderRight({
+								color,
+								colorMode,
+								width: childrenWidth,
+								height: childrenHeight
+						  })
 						: null}
 				</HStack>
 

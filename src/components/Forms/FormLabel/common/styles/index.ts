@@ -27,6 +27,14 @@ export default memoize((props: FormLabelStyleProps): FormLabelStyleReturn => {
 	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
-		formLabel: merge(formlabel({ theme, size }), scheme({ theme, isError, isWarning, isSuccess }))
+		formLabel: merge(
+			formlabel({ theme, size }),
+			scheme({
+				theme,
+				isError,
+				isWarning,
+				isSuccess
+			})
+		)
 	};
 });

@@ -47,10 +47,23 @@ const Card = forwardRef<CardRef, CardProps>(function Card(props, ref): ReactElem
 		...rest
 	} = props;
 
-	const style = useStyles({ theme, isClickable, isDisabled, isFixed });
+	const style = useStyles({
+		theme,
+		isClickable,
+		isDisabled,
+		isFixed
+	});
 
 	return (
-		<CardContext.Provider value={{ color, colorMode, isDivisible, spacing, variant }}>
+		<CardContext.Provider
+			value={{
+				color,
+				colorMode,
+				isDivisible,
+				spacing,
+				variant
+			}}
+		>
 			<PushableOverlay
 				{...rest}
 				ref={ref}

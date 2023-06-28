@@ -29,9 +29,10 @@ const AccordionButton = <D,>(props: AccordionButtonProps<D>): ReactElement => {
 
 	const delay = useConst<number>(convertStringToNumber(theme.transition.duration.slow, 'ms'));
 
-	const offset = useMemo<number>(() => {
-		return Math.abs(convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'))) * 2;
-	}, [spacing, defaultSpacing]);
+	const offset = useMemo<number>(
+		() => Math.abs(convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'))) * 2,
+		[spacing, defaultSpacing]
+	);
 
 	const handleClick = () => {
 		if (typeof onSetOpened === 'function') {

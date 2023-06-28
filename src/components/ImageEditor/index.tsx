@@ -113,7 +113,14 @@ const ImageEditor: FC<ImageEditorProps> = (props) => {
 	};
 
 	return (
-		<ImageEditorContext.Provider value={{ color, colorMode, mode, zoom }}>
+		<ImageEditorContext.Provider
+			value={{
+				color,
+				colorMode,
+				mode,
+				zoom
+			}}
+		>
 			<Modal colorMode={colorMode} isOpen={isOpen} onClose={handleClose} size='4xl'>
 				<ModalStack>
 					<ModalHeader

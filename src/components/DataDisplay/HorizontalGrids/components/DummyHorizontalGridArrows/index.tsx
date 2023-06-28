@@ -6,17 +6,15 @@ import ButtonGroupItem from '../../../../Clickable/ButtonGroup/components/Button
 import { DummyHorizontalGridArrowsProps } from './common/types';
 import DummyHorizontalGridArrow from './components/DummyHorizontalGridArrow';
 
-const DummyHorizontalGridArrows: FC<DummyHorizontalGridArrowsProps> = ({ dummyArrowProps }) => {
-	return (
-		<ButtonGroup isAttached spacing={1}>
-			<ButtonGroupItem index={0} total={1}>
-				<DummyHorizontalGridArrow {...dummyArrowProps} direction='left' />
-			</ButtonGroupItem>
-			<ButtonGroupItem index={1} total={1}>
-				<DummyHorizontalGridArrow {...dummyArrowProps} direction='right' />
-			</ButtonGroupItem>
-		</ButtonGroup>
-	);
-};
+const DummyHorizontalGridArrows: FC<DummyHorizontalGridArrowsProps> = ({ dummyArrowProps }) => (
+	<ButtonGroup isAttached spacing={1}>
+		<ButtonGroupItem index={0} total={1}>
+			<DummyHorizontalGridArrow {...dummyArrowProps} direction='left' />
+		</ButtonGroupItem>
+		<ButtonGroupItem index={1} total={1}>
+			<DummyHorizontalGridArrow {...dummyArrowProps} direction='right' />
+		</ButtonGroupItem>
+	</ButtonGroup>
+);
 
 export default DummyHorizontalGridArrows;

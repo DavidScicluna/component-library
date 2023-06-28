@@ -27,6 +27,14 @@ export default memoize((props: FormHelperTextStyleProps): FormHelperTextStyleRet
 	const scheme = colorMode === 'light' ? light : dark;
 
 	return {
-		formHelperText: merge(formHelperText({ theme, size }), scheme({ theme, isError, isWarning, isSuccess }))
+		formHelperText: merge(
+			formHelperText({ theme, size }),
+			scheme({
+				theme,
+				isError,
+				isWarning,
+				isSuccess
+			})
+		)
 	};
 });

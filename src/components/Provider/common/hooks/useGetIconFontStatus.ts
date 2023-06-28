@@ -11,15 +11,14 @@ import {
 
 type useGetIconFontStatusReturn = Record<IconCategory, boolean>;
 
-const checkFontStatus = (category: IconCategory): boolean => {
-	return !!document.fonts.check(
+const checkFontStatus = (category: IconCategory): boolean =>
+	!!document.fonts.check(
 		`1rem '${compact([
 			'Material Icons',
 			category === 'outlined' ? 'Outlined' : null,
 			category === 'twoTone' ? 'Two Tone' : null
 		]).join(' ')}', sans-serif`
 	);
-};
 
 const useGetIconFontStatus = (): useGetIconFontStatusReturn => {
 	const [hasFilledIconsLoaded, setHasFilledIconsLoaded] = useBoolean(defaultHasFilledIconLoaded);

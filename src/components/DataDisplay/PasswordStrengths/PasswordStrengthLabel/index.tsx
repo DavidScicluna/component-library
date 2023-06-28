@@ -24,11 +24,11 @@ const PasswordStrengthLabel = forwardRef<PasswordStrengthLabelRef, PasswordStren
 
 		const color = useGetColor({ color: getPasswordStrengthColor(strength), colorMode, type: 'color' });
 
-		const fontSize = useMemo<string>(() => {
-			return `${convertPixelsToREM(
-				convertREMToPixels(convertStringToNumber(theme.fontSizes[size], 'rem')) - 2
-			)}rem`;
-		}, [size]);
+		const fontSize = useMemo<string>(
+			() =>
+				`${convertPixelsToREM(convertREMToPixels(convertStringToNumber(theme.fontSizes[size], 'rem')) - 2)}rem`,
+			[size]
+		);
 
 		useUpdateEffect(() => setStrength(getPasswordStrength(password)), [password]);
 

@@ -39,10 +39,8 @@ export const HorizontalScrollContext = createContext<HorizontalScrollContextType
 	spacing: defaultSpacing
 });
 
-const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(function HorizontalScroll(
-	props,
-	ref
-): ReactElement {
+const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(
+	function HorizontalScroll(props, ref): ReactElement {
 	const theme = useTheme();
 
 	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
@@ -95,7 +93,15 @@ const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(
 	};
 
 	return (
-		<HorizontalScrollContext.Provider value={{ color, colorMode, arrowsWidth, isDisabled, spacing }}>
+		<HorizontalScrollContext.Provider
+			value={{
+				color,
+				colorMode,
+				arrowsWidth,
+				isDisabled,
+				spacing
+			}}
+		>
 			<Grid
 				{...rest}
 				ref={ref}
@@ -145,7 +151,7 @@ const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(
 								? RightGradient
 								: null
 						}
-						transitionDuration={convertStringToNumber(theme.transition.duration['slow'], 'ms')}
+						transitionDuration={convertStringToNumber(theme.transition.duration.slow, 'ms')}
 						transitionBehavior='smooth'
 						transitionEase={(t) => (t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1)}
 						itemClassName={itemClassName}

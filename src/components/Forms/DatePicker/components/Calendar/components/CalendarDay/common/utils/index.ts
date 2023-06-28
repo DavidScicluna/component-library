@@ -12,27 +12,23 @@ type GetSizeConfigReturn = {
 	offset: number; // In Pixels;
 };
 
-export const getSizeConfig = (): GetSizeConfigReturn => {
-	return {
-		width: 42,
-		height: 42,
-		border: 2,
-		spacing: 2,
-		offset: 4
-	};
-};
+export const getSizeConfig = (): GetSizeConfigReturn => ({
+	width: 42,
+	height: 42,
+	border: 2,
+	spacing: 2,
+	offset: 4
+});
 
 type GetAmountReturn = {
 	hover: number;
 	active: number;
 };
 
-export const getAmount = (): GetAmountReturn => {
-	return {
-		hover: 0.05,
-		active: 0.1
-	};
-};
+export const getAmount = (): GetAmountReturn => ({
+	hover: 0.05,
+	active: 0.1
+});
 
 type GetVariantProps = {
 	date: Date;
@@ -47,11 +43,12 @@ export const getVariant = memoize(({ date: d, selectedDate, selectedMonth }: Get
 
 	if (date.month() !== selectedMonth) {
 		return 'disabled';
-	} else if (selected.isSame(date, 'day')) {
-		return 'selected';
-	} else if (today.isSame(date, 'day')) {
-		return 'today';
-	} else {
-		return 'normal';
 	}
+	if (selected.isSame(date, 'day')) {
+		return 'selected';
+	}
+	if (today.isSame(date, 'day')) {
+		return 'today';
+	}
+	return 'normal';
 });

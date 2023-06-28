@@ -9,10 +9,8 @@ import Glass from '../Glass';
 
 import { LoadingOverlayProps, LoadingOverlayRef } from './common/types';
 
-const LoadingOverlay = forwardRef<LoadingOverlayRef, LoadingOverlayProps>(function LoadingOverlay(
-	props,
-	ref
-): ReactElement {
+const LoadingOverlay = forwardRef<LoadingOverlayRef, LoadingOverlayProps>(
+	function LoadingOverlay(props, ref): ReactElement {
 	const theme = useTheme();
 
 	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();

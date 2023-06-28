@@ -17,10 +17,8 @@ export const SideNavigationContext = createContext<SideNavigationContextType>({
 	mode: defaultMode
 });
 
-const SideNavigation = forwardRef<SideNavigationRef, SideNavigationProps>(function SideNavigation(
-	props,
-	ref
-): ReactElement {
+const SideNavigation = forwardRef<SideNavigationRef, SideNavigationProps>(
+	function SideNavigation(props, ref): ReactElement {
 	const { colorMode: colorModeHook = defaultColorMode } = useColorMode();
 
 	const {
@@ -33,7 +31,14 @@ const SideNavigation = forwardRef<SideNavigationRef, SideNavigationProps>(functi
 	} = props;
 
 	return (
-		<SideNavigationContext.Provider value={{ color, colorMode, isDrawer, mode: isDrawer ? 'expanded' : mode }}>
+		<SideNavigationContext.Provider
+			value={{
+				color,
+				colorMode,
+				isDrawer,
+				mode: isDrawer ? 'expanded' : mode
+			}}
+		>
 			<VStack {...rest} ref={ref} width='100%' alignItems='stretch' justifyContent='stretch'>
 				{children}
 			</VStack>

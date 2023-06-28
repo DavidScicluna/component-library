@@ -10,7 +10,7 @@ export interface MemoizeDebouncedFunction<F extends AnyFunction> extends Debounc
 	cancel: (...args: Parameters<F>) => void;
 }
 
-/**Combines Lodash's debounce with memoize to allow for debouncing
+/** Combines Lodash's debounce with memoize to allow for debouncing
  * based on parameters passed to the function during runtime.
  *
  * @param func The function to debounce.
@@ -34,13 +34,9 @@ const memoizeDebounce = <F extends AnyFunction>(
 		return debounceMemo(...args)(...args);
 	}
 
-	const flush: MemoizeDebouncedFunction<F>['flush'] = (...args) => {
-		return debounceMemo(...args).flush();
-	};
+	const flush: MemoizeDebouncedFunction<F>['flush'] = (...args) => debounceMemo(...args).flush();
 
-	const cancel: MemoizeDebouncedFunction<F>['cancel'] = (...args) => {
-		return debounceMemo(...args).cancel();
-	};
+	const cancel: MemoizeDebouncedFunction<F>['cancel'] = (...args) => debounceMemo(...args).cancel();
 
 	wrappedFunction.flush = flush;
 	wrappedFunction.cancel = cancel;

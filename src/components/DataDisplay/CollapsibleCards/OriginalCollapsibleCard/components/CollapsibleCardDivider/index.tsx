@@ -16,7 +16,12 @@ const CollapsibleCardDivider: FC<CollapsibleCardDividerProps> = (props) => {
 		switch (variant) {
 			case 'transparent':
 			case 'monochrome':
-				return getColor({ theme, colorMode, color: 'gray', type: 'divider' });
+				return getColor({
+					theme,
+					colorMode,
+					color: 'gray',
+					type: 'divider'
+				});
 			case 'outlined':
 				return getColor({
 					theme,

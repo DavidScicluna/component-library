@@ -22,7 +22,12 @@ export default memoize((props: ButtonStyleProps): ButtonStyleReturn => {
 	} = props;
 
 	return {
-		button: button({ theme, isCompact, isFullWidth, size }),
+		button: button({
+			theme,
+			isCompact,
+			isFullWidth,
+			size
+		}),
 		active: active(),
 		disabled: disabled({ isLoading })
 	};

@@ -36,7 +36,13 @@ export default memoize((props: TextareaStyleProps): TextareaStyleReturn => {
 		group: merge(
 			group({ theme }),
 			isError || isSuccess || isWarning || isFocused
-				? scheme.focused({ theme, color, isError, isSuccess, isWarning })
+				? scheme.focused({
+						theme,
+						color,
+						isError,
+						isSuccess,
+						isWarning
+				  })
 				: scheme.group({ theme })
 		),
 		disabled: merge(disabled(), scheme.disabled({ theme })),

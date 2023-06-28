@@ -41,10 +41,10 @@ export default ({
 		'p': 0,
 		'm': 0,
 
-		'transition': transition,
-		'transitionProperty': transitionProperty,
-		'transitionDuration': transitionDuration,
-		'transitionTimingFunction': transitionTimingFunction,
+		transition,
+		transitionProperty,
+		transitionDuration,
+		transitionTimingFunction,
 
 		'&:focus': {
 			boxShadow: 'none'

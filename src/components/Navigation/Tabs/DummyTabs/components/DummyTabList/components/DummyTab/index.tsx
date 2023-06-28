@@ -40,9 +40,7 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 		type: isActive || isSelected ? 'color' : 'default'
 	});
 
-	const config = useMemo<GetSizeConfigReturn>(() => {
-		return getSizeConfig({ size });
-	}, [size]);
+	const config = useMemo<GetSizeConfigReturn>(() => getSizeConfig({ size }), [size]);
 
 	const style = useStyles({
 		theme,
@@ -80,7 +78,14 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 					px={config.padding.x}
 					py={config.padding.y}
 				>
-					{renderLeft ? renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight }) : null}
+					{renderLeft
+						? renderLeft({
+								color,
+								colorMode,
+								width: childrenWidth,
+								height: childrenHeight
+						  })
+						: null}
 
 					<Center ref={childrenRef} as='span'>
 						<Skeleton
@@ -96,7 +101,12 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 					</Center>
 
 					{renderRight
-						? renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })
+						? renderRight({
+								color,
+								colorMode,
+								width: childrenWidth,
+								height: childrenHeight
+						  })
 						: null}
 				</HStack>
 

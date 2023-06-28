@@ -19,7 +19,13 @@ const useCardContext = (): NoUndefinedField<CardContextType> => {
 		variant = defaultVariant
 	} = useContext<CardContextType>(CardContext);
 
-	return { color, colorMode, isDivisible, spacing, variant };
+	return {
+		color,
+		colorMode,
+		isDivisible,
+		spacing,
+		variant
+	};
 };
 
 export default useCardContext;

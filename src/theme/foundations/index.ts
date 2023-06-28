@@ -7,4 +7,13 @@ import spacing from './spacing';
 import transition from './transition';
 import zIndices from './zIndices';
 
-export default { colors, fonts, fontSizes, lineHeights, radii, space: spacing, transition, zIndices };
+export default {
+	colors,
+	fonts,
+	fontSizes,
+	lineHeights,
+	radii,
+	space: spacing,
+	transition,
+	zIndices
+};

@@ -75,19 +75,17 @@ export default {
 	parameters: { backgrounds: { ...parameters.backgrounds } }
 } as Meta;
 
-export const Indicator: Story = (props: IndicatorProps): ReactElement => {
-	return (
-		<Center p={6}>
-			<IndicatorComponent
-				{...props}
-				renderIndicator={(props) => (
-					<Badge {...props} isCompact size='xs'>
-						<BadgeLabel>Badge</BadgeLabel>
-					</Badge>
-				)}
-			>
-				<DummyButton>Hello I am a Button</DummyButton>
-			</IndicatorComponent>
-		</Center>
-	);
-};
+export const Indicator: Story = (props: IndicatorProps): ReactElement => (
+	<Center p={6}>
+		<IndicatorComponent
+			{...props}
+			renderIndicator={(props) => (
+				<Badge {...props} isCompact size='xs'>
+					<BadgeLabel>Badge</BadgeLabel>
+				</Badge>
+			)}
+		>
+			<DummyButton>Hello I am a Button</DummyButton>
+		</IndicatorComponent>
+	</Center>
+);

@@ -51,10 +51,10 @@ export default ({ theme, size = defaultSize }: TabStyleProps): Style => {
 		'p': 0,
 		'm': 0,
 
-		'transition': transition,
-		'transitionProperty': transitionProperty,
-		'transitionDuration': transitionDuration,
-		'transitionTimingFunction': transitionTimingFunction,
+		transition,
+		transitionProperty,
+		transitionDuration,
+		transitionTimingFunction,
 
 		'& .ds-cl-tab-bar-tab-stack': { opacity: 1 },
 

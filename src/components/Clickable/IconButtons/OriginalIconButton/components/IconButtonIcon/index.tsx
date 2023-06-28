@@ -6,10 +6,8 @@ import { useIconButtonContext } from '../../common/hooks';
 
 import { IconButtonIconProps, IconButtonIconRef } from './common/types';
 
-const IconButtonIcon = forwardRef<IconButtonIconRef, IconButtonIconProps>(function IconButtonIcon(
-	props,
-	ref
-): ReactElement {
+const IconButtonIcon = forwardRef<IconButtonIconRef, IconButtonIconProps>(
+	function IconButtonIcon(props, ref): ReactElement {
 	const { color, colorMode, size } = useIconButtonContext();
 
 	const fontSize = useIconButtonFontSize({ size });

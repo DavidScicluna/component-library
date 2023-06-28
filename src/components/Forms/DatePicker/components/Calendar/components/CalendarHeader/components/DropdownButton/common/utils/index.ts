@@ -13,24 +13,20 @@ type GetSizeConfigReturn = {
 	offset: number; // In Pixels;
 };
 
-export const getSizeConfig = (): GetSizeConfigReturn => {
-	return {
-		height: 36,
-		padding: { x: 1.5, y: 0 },
-		border: 2,
-		spacing: 1.5,
-		offset: 4
-	};
-};
+export const getSizeConfig = (): GetSizeConfigReturn => ({
+	height: 36,
+	padding: { x: 1.5, y: 0 },
+	border: 2,
+	spacing: 1.5,
+	offset: 4
+});
 
 type GetAmountReturn = {
 	hover: number;
 	active: number;
 };
 
-export const getAmount = (): GetAmountReturn => {
-	return {
-		hover: 0.05,
-		active: 0.1
-	};
-};
+export const getAmount = (): GetAmountReturn => ({
+	hover: 0.05,
+	active: 0.1
+});

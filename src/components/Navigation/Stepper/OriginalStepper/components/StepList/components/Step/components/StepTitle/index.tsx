@@ -14,9 +14,7 @@ const StepTitle: FC<StepTitleProps> = ({ index, title, hasIcon = false }) => {
 	const color = useGetColor({ color: 'gray', colorMode, type: 'text.primary' });
 
 	// TODO: Go over all useMemo and check we are passing down a type
-	const { titleFontSize } = useMemo<GetSizeConfigReturn>(() => {
-		return getSizeConfig({ size });
-	}, [size]);
+	const { titleFontSize } = useMemo<GetSizeConfigReturn>(() => getSizeConfig({ size }), [size]);
 
 	return (
 		<Text

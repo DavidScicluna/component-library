@@ -32,7 +32,12 @@ const DropdownButtonItem: FC<DropdownButtonItemProps> = (props) => {
 		...rest
 	} = props;
 
-	const style = useStyles({ theme, color, colorMode, isToday });
+	const style = useStyles({
+		theme,
+		color,
+		colorMode,
+		isToday
+	});
 
 	useEffect(() => {
 		if (ref && ref.current && isActive) {

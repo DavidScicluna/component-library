@@ -28,7 +28,14 @@ const CardHeader: FC<CardHeaderProps> = (props) => {
 			gap={spacing}
 		>
 			{renderLeft ? (
-				<GridItem>{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}</GridItem>
+				<GridItem>
+					{renderLeft({
+						color,
+						colorMode,
+						width: childrenWidth,
+						height: childrenHeight
+					})}
+				</GridItem>
 			) : null}
 
 			<GridItem>
@@ -60,7 +67,14 @@ const CardHeader: FC<CardHeaderProps> = (props) => {
 			</GridItem>
 
 			{renderRight ? (
-				<GridItem>{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}</GridItem>
+				<GridItem>
+					{renderRight({
+						color,
+						colorMode,
+						width: childrenWidth,
+						height: childrenHeight
+					})}
+				</GridItem>
 			) : null}
 		</Grid>
 	);

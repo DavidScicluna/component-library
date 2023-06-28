@@ -29,7 +29,14 @@ const DummyAccordions: FC<DummyAccordionsProps> = (props) => {
 	} = props;
 
 	return (
-		<DummyAccordionsContext.Provider value={{ accordions, color, colorMode, spacing }}>
+		<DummyAccordionsContext.Provider
+			value={{
+				accordions,
+				color,
+				colorMode,
+				spacing
+			}}
+		>
 			<VStack width='100%' spacing={spacing} {...rest}>
 				{children}
 			</VStack>

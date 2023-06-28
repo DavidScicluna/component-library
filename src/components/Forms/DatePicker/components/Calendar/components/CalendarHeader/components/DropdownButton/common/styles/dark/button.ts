@@ -22,8 +22,8 @@ export default ({ theme }: DropdownButtonDarkStylingProps): Style => {
 	});
 
 	const config = getSizeConfig();
-	const border = config.border;
-	const offset = config.offset;
+	const { border } = config;
+	const { offset } = config;
 
 	return {
 		'color': theme.colors.gray[colorShade],

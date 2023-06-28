@@ -25,10 +25,8 @@ import useStyles from './common/styles';
 import { DropdownButtonProps, DropdownButtonRef } from './common/types';
 import { getSizeConfig } from './common/utils';
 
-const DropdownButton = forwardRef<DropdownButtonRef, DropdownButtonProps>(function DropdownButton(
-	props,
-	ref
-): ReactElement {
+const DropdownButton = forwardRef<DropdownButtonRef, DropdownButtonProps>(
+	function DropdownButton(props, ref): ReactElement {
 	const theme = useTheme();
 
 	const { isOpen: isPopperOpen, onOpen: onPopperOpen, onClose: onPopperClose } = useDisclosure();
@@ -44,7 +42,12 @@ const DropdownButton = forwardRef<DropdownButtonRef, DropdownButtonProps>(functi
 	const border = useGetColor({ color: 'gray', colorMode, type: 'divider' });
 	const background = useGetColor({ color: 'gray', colorMode, type: 'background' });
 
-	const style = useStyles({ theme, color, colorMode, isActive: isPopperOpen });
+	const style = useStyles({
+		theme,
+		color,
+		colorMode,
+		isActive: isPopperOpen
+	});
 
 	const handleReturnSpacing = (): number => getSizeConfig().spacing;
 
@@ -53,9 +56,8 @@ const DropdownButton = forwardRef<DropdownButtonRef, DropdownButtonProps>(functi
 			const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[getSizeConfig().spacing], 'rem'));
 
 			return `calc(100% - ${childrenWidth + spacingWidth}px)`;
-		} else {
-			return '100%';
 		}
+		return '100%';
 	}, [theme, getSizeConfig, childrenWidth]);
 
 	return (

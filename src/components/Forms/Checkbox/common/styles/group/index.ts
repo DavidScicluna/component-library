@@ -33,10 +33,10 @@ export default ({ theme }: CheckboxGroupStyleProps): Style => {
 
 		'transform': 'none',
 
-		'transition': transition,
-		'transitionProperty': transitionProperty,
-		'transitionDuration': transitionDuration,
-		'transitionTimingFunction': transitionTimingFunction,
+		transition,
+		transitionProperty,
+		transitionDuration,
+		transitionTimingFunction,
 
 		'& .chakra-checkbox': {
 			cursor: 'pointer',

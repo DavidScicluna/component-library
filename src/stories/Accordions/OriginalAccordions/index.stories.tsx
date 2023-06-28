@@ -72,9 +72,11 @@ export const Accordions: Story = (props: AccordionsProps<unknown>): ReactElement
 	<AccordionsComponent
 		{...props}
 		color='gray'
-		accordions={range(0, 15).map((_dummy, index) => {
-			return { id: toString(index), title: `Accordion ${++index}`, data: {} };
-		})}
+		accordions={range(0, 15).map((_dummy, index) => ({
+			id: toString(index),
+			title: `Accordion ${++index}`,
+			data: {}
+		}))}
 		p={0}
 	>
 		<AccordionsQuickToggles color={props.color === 'gray' ? 'deep_orange' : props.color} spacing={2} />

@@ -7,22 +7,20 @@ import { Duration, Ease, Theme } from '../../../../theme/types';
 type GetDelayDurationProps = { theme: Theme; duration?: Duration };
 
 export const getDelay = memoize(
-	({ theme, duration = 'normal' }: GetDelayDurationProps): NonNullable<Transition['delay']> => {
-		return convertStringToNumber(theme.transition.duration[duration], 'ms') / 1000;
-	}
+	({ theme, duration = 'normal' }: GetDelayDurationProps): NonNullable<Transition['delay']> =>
+		convertStringToNumber(theme.transition.duration[duration], 'ms') / 1000
 );
 
 export const getDuration = memoize(
-	({ theme, duration = 'normal' }: GetDelayDurationProps): NonNullable<Tween['duration']> => {
-		return convertStringToNumber(theme.transition.duration[duration], 'ms') / 1000;
-	}
+	({ theme, duration = 'normal' }: GetDelayDurationProps): NonNullable<Tween['duration']> =>
+		convertStringToNumber(theme.transition.duration[duration], 'ms') / 1000
 );
 
 type GetEasingsProps = { theme: Theme; easing?: Ease };
 
-export const getEasings = memoize(({ theme, easing = 'ease-in-out' }: GetEasingsProps): number[] => {
-	return convertEasingsToArray({ easing: theme.transition.easing[easing] });
-});
+export const getEasings = memoize(({ theme, easing = 'ease-in-out' }: GetEasingsProps): number[] =>
+	convertEasingsToArray({ easing: theme.transition.easing[easing] })
+);
 
 type GetConfigProps = { theme: Theme };
 

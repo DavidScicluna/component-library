@@ -22,9 +22,10 @@ const ModalHeader: FC<ModalHeaderProps> = (props) => {
 	const textPrimaryColor = useGetColor({ color: 'gray', colorMode, type: 'text.primary' });
 	const textSecondaryColor = useGetColor({ color: 'gray', colorMode, type: 'text.secondary' });
 
-	const handleCalculateTextWidth = useCallback((): number => {
-		return cancelWidth + convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'));
-	}, [theme.space, spacing, cancelWidth]);
+	const handleCalculateTextWidth = useCallback(
+		(): number => cancelWidth + convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem')),
+		[theme.space, spacing, cancelWidth]
+	);
 
 	return (
 		<CUIModalHeader as={HStack} width='100%' justifyContent='space-between' p={0} m={0} {...rest}>
@@ -59,7 +60,7 @@ const ModalHeader: FC<ModalHeaderProps> = (props) => {
 					{renderCancel({
 						'aria-label': 'Close Modal',
 						'color': 'gray',
-						'colorMode': colorMode,
+						colorMode,
 						'icon': 'close',
 						'category': 'outlined',
 						'onClick': typeof onClose === 'function' ? () => onClose() : undefined,

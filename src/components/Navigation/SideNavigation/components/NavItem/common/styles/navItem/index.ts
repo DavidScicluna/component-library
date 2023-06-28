@@ -33,10 +33,10 @@ export default ({ theme, isActive = defaultIsActive, mode = defaultMode }: NavIt
 		'px': theme.space[mode === 'expanded' ? 2 : 1],
 		'py': theme.space[1],
 
-		'transition': transition,
-		'transitionProperty': transitionProperty,
-		'transitionDuration': transitionDuration,
-		'transitionTimingFunction': transitionTimingFunction,
+		transition,
+		transitionProperty,
+		transitionDuration,
+		transitionTimingFunction,
 
 		'&:focus': { boxShadow: 'none' },
 

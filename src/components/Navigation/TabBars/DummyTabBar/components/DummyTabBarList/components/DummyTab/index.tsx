@@ -41,11 +41,15 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 		type: isActive || isSelected ? 'color' : 'default'
 	});
 
-	const config = useMemo<GetSizeConfigReturn>(() => {
-		return getSizeConfig({ size });
-	}, [size]);
+	const config = useMemo<GetSizeConfigReturn>(() => getSizeConfig({ size }), [size]);
 
-	const style = useStyles({ theme, color, colorMode, isSelected: isActive || isSelected, size });
+	const style = useStyles({
+		theme,
+		color,
+		colorMode,
+		isSelected: isActive || isSelected,
+		size
+	});
 
 	return (
 		<CUIDummyTab {...omit({ ...rest }, 'panelId')} isDisabled isSelected={isSelected} sx={merge(style.tab, sx)}>
@@ -78,13 +82,23 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 				>
 					{renderIcon ? (
 						<Center width='100%'>
-							{renderIcon({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+							{renderIcon({
+								color,
+								colorMode,
+								width: childrenWidth,
+								height: childrenHeight
+							})}
 						</Center>
 					) : null}
 
 					<HStack width='100%' alignItems='center' justifyContent='center' spacing={config.spacing.x}>
 						{renderLeft
-							? renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })
+							? renderLeft({
+									color,
+									colorMode,
+									width: childrenWidth,
+									height: childrenHeight
+							  })
 							: null}
 
 						<Center ref={childrenRef} as='span'>
@@ -101,7 +115,12 @@ const DummyTab: FC<DummyTabProps> = (props) => {
 						</Center>
 
 						{renderRight
-							? renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })
+							? renderRight({
+									color,
+									colorMode,
+									width: childrenWidth,
+									height: childrenHeight
+							  })
 							: null}
 					</HStack>
 				</VStack>

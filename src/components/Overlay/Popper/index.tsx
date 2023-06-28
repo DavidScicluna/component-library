@@ -50,7 +50,7 @@ const Popper: FC<PopperProps> = (props) => {
 					colorMode,
 					isOpen: isOpen || isPopperOpen,
 					onOpen: onPopperOpen,
-					onClose: onClose ? onClose : onPopperClose
+					onClose: onClose || onPopperClose
 				})}
 			</PopoverTrigger>
 			<PopoverContent

@@ -76,9 +76,7 @@ const Switch = forwardRef<SwitchRef, SwitchProps>(function Switch(props, ref): R
 
 	const { isChecked, isDisabled, isHovered, isInvalid, isReadOnly, isRequired } = state;
 
-	const config = useMemo((): GetSizeConfigReturn => {
-		return getSizeConfig({ size });
-	}, [size]);
+	const config = useMemo((): GetSizeConfigReturn => getSizeConfig({ size }), [size]);
 
 	const style = useStyles({ theme });
 

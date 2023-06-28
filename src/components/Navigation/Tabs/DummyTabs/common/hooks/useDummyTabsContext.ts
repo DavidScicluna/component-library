@@ -19,7 +19,13 @@ const useDummyTabsContext = (): NoUndefinedField<DummyTabsContextType> => {
 		size = defaultSize
 	} = useContext<DummyTabsContextType>(DummyTabsContext);
 
-	return { activeTab, color, colorMode, isFitted, size };
+	return {
+		activeTab,
+		color,
+		colorMode,
+		isFitted,
+		size
+	};
 };
 
 export default useDummyTabsContext;

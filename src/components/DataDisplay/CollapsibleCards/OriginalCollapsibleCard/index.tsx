@@ -40,10 +40,8 @@ export const CollapsibleCardContext = createContext<CollapsibleCardContextType>(
 	variant: defaultVariant
 });
 
-const CollapsibleCard = forwardRef<CollapsibleCardRef, CollapsibleCardProps>(function CollapsibleCard(
-	props,
-	ref
-): ReactElement {
+const CollapsibleCard = forwardRef<CollapsibleCardRef, CollapsibleCardProps>(
+	function CollapsibleCard(props, ref): ReactElement {
 	const theme = useTheme();
 
 	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
@@ -69,7 +67,12 @@ const CollapsibleCard = forwardRef<CollapsibleCardRef, CollapsibleCardProps>(fun
 
 	const [isHovering, setIsHovering] = useBoolean();
 
-	const style = useStyles({ theme, isClickable, isDisabled, isFixed });
+	const style = useStyles({
+		theme,
+		isClickable,
+		isDisabled,
+		isFixed
+	});
 
 	const handleToggle = (event: CollapsibleCardMouseEvent) => {
 		if (isOpen ? isOpen && !isHovering : true) {
@@ -83,7 +86,15 @@ const CollapsibleCard = forwardRef<CollapsibleCardRef, CollapsibleCardProps>(fun
 
 	return (
 		<CollapsibleCardContext.Provider
-			value={{ color, colorMode, isDivisible, isOpen, onHover: setIsHovering, spacing, variant }}
+			value={{
+				color,
+				colorMode,
+				isDivisible,
+				isOpen,
+				onHover: setIsHovering,
+				spacing,
+				variant
+			}}
 		>
 			<PushableOverlay
 				{...rest}

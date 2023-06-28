@@ -19,7 +19,7 @@ export default ({ theme, color = defaultColor }: CalendarDayDarkStylingProps): S
 	});
 
 	const config = getSizeConfig();
-	const border = config.border;
+	const { border } = config;
 
 	return {
 		'color': theme.colors[color][shade],

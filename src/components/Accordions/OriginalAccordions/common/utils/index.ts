@@ -10,9 +10,8 @@ type ToggleAccordionProps = {
 export const toggleAccordion = memoize(({ id, opened = [] }: ToggleAccordionProps): OpenedAccordions => {
 	if (opened.some((accordion) => accordion === id)) {
 		return opened.filter((accordion) => accordion !== id);
-	} else {
-		return [...opened, id];
 	}
+	return [...opened, id];
 });
 
 type ToggleAllAccordionsProps<D> = {
@@ -24,8 +23,7 @@ export const toggleAllAccordions = memoize(
 	<D>({ accordions = [], opened = 0 }: ToggleAllAccordionsProps<D>): OpenedAccordions => {
 		if (accordions.length === opened) {
 			return [];
-		} else {
-			return accordions.map((accordion) => accordion.id);
 		}
+		return accordions.map((accordion) => accordion.id);
 	}
 );

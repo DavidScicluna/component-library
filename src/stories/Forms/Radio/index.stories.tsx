@@ -51,17 +51,15 @@ const colorOptions: AppColors = [
 	'deep_orange'
 ];
 
-const renderMapping = Object.assign(
-	{ none: undefined },
-	{
-		panel: () => (
-			<VStack width='100%' alignItems='flex-start' justifyContent='center' spacing={0}>
-				<RadioTitle>I am a Title</RadioTitle>
-				<RadioSubtitle>I am a Subtitle</RadioSubtitle>
-			</VStack>
-		)
-	}
-);
+const renderMapping = {
+	none: undefined,
+	panel: () => (
+		<VStack width='100%' alignItems='flex-start' justifyContent='center' spacing={0}>
+			<RadioTitle>I am a Title</RadioTitle>
+			<RadioSubtitle>I am a Subtitle</RadioSubtitle>
+		</VStack>
+	)
+};
 
 const sizeOptions: FormControlSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 

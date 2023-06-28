@@ -35,9 +35,26 @@ export default memoize((props: PushableOverlayStyleProps): PushableOverlayStyleR
 
 	return {
 		pushable: merge(
-			pushable.general({ theme, borderRadius, isFixed, isPushable }),
-			isPushable ? pushable[variant]({ theme, borderRadius, isFixed, isPushable }) : {},
-			scheme.pushable[variant]({ theme, color, isFixed, isPushable })
+			pushable.general({
+				theme,
+				borderRadius,
+				isFixed,
+				isPushable
+			}),
+			isPushable
+				? pushable[variant]({
+						theme,
+						borderRadius,
+						isFixed,
+						isPushable
+				  })
+				: {},
+			scheme.pushable[variant]({
+				theme,
+				color,
+				isFixed,
+				isPushable
+			})
 		),
 		active:
 			isPushable && !isFixed && isActive

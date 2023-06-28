@@ -32,18 +32,17 @@ import memoize from 'micro-memoize';
 // 	}
 // });
 
-const createImage = memoize((url: string): Promise<HTMLImageElement> => {
-	return new Promise((resolve, reject) => {
-		const image = new Image();
-		image.addEventListener('load', () => resolve(image));
-		image.addEventListener('error', (error) => reject(error));
-		image.src = url;
-	});
-});
+const createImage = memoize(
+	(url: string): Promise<HTMLImageElement> =>
+		new Promise((resolve, reject) => {
+			const image = new Image();
+			image.addEventListener('load', () => resolve(image));
+			image.addEventListener('error', (error) => reject(error));
+			image.src = url;
+		})
+);
 
-const getRadianAngle = memoize((rotation: number): number => {
-	return (rotation * Math.PI) / 180;
-});
+const getRadianAngle = memoize((rotation: number): number => (rotation * Math.PI) / 180);
 
 type GetBase64ImageProps = {
 	src: string;

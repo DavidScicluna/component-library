@@ -19,7 +19,13 @@ const useDummyCardContext = (): NoUndefinedField<DummyCardContextType> => {
 		variant = defaultVariant
 	} = useContext<DummyCardContextType>(DummyCardContext);
 
-	return { color, colorMode, isDivisible, spacing, variant };
+	return {
+		color,
+		colorMode,
+		isDivisible,
+		spacing,
+		variant
+	};
 };
 
 export default useDummyCardContext;

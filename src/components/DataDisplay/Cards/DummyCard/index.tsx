@@ -40,10 +40,23 @@ const DummyCard = forwardRef<DummyCardRef, DummyCardProps>(function DummyCard(pr
 		...rest
 	} = props;
 
-	const style = useStyles({ theme, isClickable: false, isDisabled: true, isFixed: false });
+	const style = useStyles({
+		theme,
+		isClickable: false,
+		isDisabled: true,
+		isFixed: false
+	});
 
 	return (
-		<DummyCardContext.Provider value={{ color, colorMode, isDivisible, spacing, variant }}>
+		<DummyCardContext.Provider
+			value={{
+				color,
+				colorMode,
+				isDivisible,
+				spacing,
+				variant
+			}}
+		>
 			<PushableOverlay
 				{...rest}
 				ref={ref}

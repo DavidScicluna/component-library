@@ -56,10 +56,9 @@ const Modal: FC<ModalProps> = (props) => {
 	const width = useMemo((): string => {
 		if (size === 'full') {
 			return '100%';
-		} else {
-			const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'));
-			return `calc(100% - ${spacingWidth * 2}px)`;
 		}
+		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'));
+		return `calc(100% - ${spacingWidth * 2}px)`;
 	}, [size, spacing]);
 
 	const height = useMemo((): string => {
@@ -67,10 +66,9 @@ const Modal: FC<ModalProps> = (props) => {
 
 		if (size === 'full') {
 			return height;
-		} else {
-			const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'));
-			return `calc(${height} - ${spacingWidth * 2}px)`;
 		}
+		const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing], 'rem'));
+		return `calc(${height} - ${spacingWidth * 2}px)`;
 	}, [size, spacing]);
 
 	return (
@@ -83,7 +81,16 @@ const Modal: FC<ModalProps> = (props) => {
 			scrollBehavior='inside'
 			size={size}
 		>
-			<ModalContext.Provider value={{ color, colorMode, isOpen, onClose, size, spacing }}>
+			<ModalContext.Provider
+				value={{
+					color,
+					colorMode,
+					isOpen,
+					onClose,
+					size,
+					spacing
+				}}
+			>
 				{hasBackdrop && renderBackdrop ? (
 					renderBackdrop({ color, colorMode })
 				) : hasBackdrop ? (

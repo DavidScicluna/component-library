@@ -18,7 +18,12 @@ const useSideNavigationContext = (): NoUndefinedField<SideNavigationContextType>
 		mode = defaultMode
 	} = useContext<SideNavigationContextType>(SideNavigationContext);
 
-	return { color, colorMode, isDrawer, mode };
+	return {
+		color,
+		colorMode,
+		isDrawer,
+		mode
+	};
 };
 
 export default useSideNavigationContext;

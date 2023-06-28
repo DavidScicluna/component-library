@@ -19,9 +19,9 @@ const StepSubStepIcon: FC<StepSubStepIconProps> = ({ status }) => {
 		<Icon
 			color={iconColor}
 			colorMode={colorMode}
-			width={theme.fontSizes['lg']}
-			height={theme.fontSizes['lg']}
-			fontSize={theme.fontSizes['lg']}
+			width={theme.fontSizes.lg}
+			height={theme.fontSizes.lg}
+			fontSize={theme.fontSizes.lg}
 			icon='circle'
 			category={status === 'active' || status === 'success' ? 'filled' : 'outlined'}
 			variant='transparent'

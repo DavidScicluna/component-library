@@ -32,10 +32,10 @@ export default ({ theme }: StepStyleProps): Style => {
 		'p': 0,
 		'm': 0,
 
-		'transition': transition,
-		'transitionProperty': transitionProperty,
-		'transitionDuration': transitionDuration,
-		'transitionTimingFunction': transitionTimingFunction,
+		transition,
+		transitionProperty,
+		transitionDuration,
+		transitionTimingFunction,
 
 		'&:focus:not(:focus-visible)': {
 			outline: !isTouchDevice ? `0px ${theme.colors.transparent}` : 'none !important'

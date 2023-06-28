@@ -43,7 +43,17 @@ const Tabs = forwardRef<TabsRef, TabsProps>(function Tabs(props, ref): ReactElem
 	} = props;
 
 	return (
-		<TabsContext.Provider value={{ activeTab, color, colorMode, isDisabled, isFitted, onChange, size }}>
+		<TabsContext.Provider
+			value={{
+				activeTab,
+				color,
+				colorMode,
+				isDisabled,
+				isFitted,
+				onChange,
+				size
+			}}
+		>
 			<CUITabs
 				{...rest}
 				ref={ref}

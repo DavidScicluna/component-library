@@ -14,11 +14,13 @@ const BadgeCloseIconButton: FC<BadgeCloseIconButtonProps> = (props) => {
 
 	const { color = defaultColor, ...rest } = props;
 
-	const size = useMemo((): IconButtonSize => {
-		return defaultSize === 'xs' || defaultSize === 'sm' || defaultSize === 'md' || defaultSize === 'lg'
-			? defaultSize
-			: 'xl';
-	}, [defaultSize]);
+	const size = useMemo(
+		(): IconButtonSize =>
+			defaultSize === 'xs' || defaultSize === 'sm' || defaultSize === 'md' || defaultSize === 'lg'
+				? defaultSize
+				: 'xl',
+		[defaultSize]
+	);
 
 	return (
 		<CloseIconButton

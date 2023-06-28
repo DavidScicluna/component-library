@@ -9,10 +9,8 @@ import IconButtonIcon from '../OriginalIconButton/components/IconButtonIcon';
 
 import { ClearIconButtonProps, ClearIconButtonRef } from './common/types';
 
-const ClearIconButton = forwardRef<ClearIconButtonRef, ClearIconButtonProps>(function ClearIconButton(
-	props,
-	ref
-): ReactElement {
+const ClearIconButton = forwardRef<ClearIconButtonRef, ClearIconButtonProps>(
+	function ClearIconButton(props, ref): ReactElement {
 	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();
 
 	const {

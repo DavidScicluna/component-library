@@ -8,6 +8,7 @@ import {
 } from './common/default/amount';
 import { color as defaultColor, colorMode as defaultColorMode, method as defaultMethod } from './common/default/props';
 import { useBoolean, useConst, useDebounce, useGetColor, useGetThemeAppearance, useOs, useTheme } from './common/hooks';
+import { memoizeDebounce } from './common/scripts';
 import {
 	checkIsTouchDevice,
 	convertEasingsToArray,
@@ -229,6 +230,13 @@ import {
 	ColorSwitcherScrollItemProps,
 	ColorSwitcherScrollItemRef
 } from './components/DataDisplay/ColorSwitcher/components/ColorSwitcherScroll/components/ColorSwitcherScrollItem/common/types';
+import Divider from './components/DataDisplay/Divider';
+import {
+	DividerPlacement,
+	DividerProps,
+	DividerRef,
+	DividerVariant
+} from './components/DataDisplay/Divider/common/types';
 import Headline from './components/DataDisplay/Headline';
 import { HeadlineProps } from './components/DataDisplay/Headline/common/types';
 import { HorizontalGridColor } from './components/DataDisplay/HorizontalGrids/common/types';
@@ -324,13 +332,6 @@ import {
 } from './components/DataDisplay/PasswordStrengths/PasswordStrengthLabel/common/types';
 import PasswordStrengthTooltip from './components/DataDisplay/PasswordStrengths/PasswordStrengthTooltip';
 import { PasswordStrengthTooltipProps } from './components/DataDisplay/PasswordStrengths/PasswordStrengthTooltip/common/types';
-import Divider from './components/DataDisplay/Divider';
-import {
-	DividerPlacement,
-	DividerProps,
-	DividerRef,
-	DividerVariant
-} from './components/DataDisplay/Divider/common/types';
 import Alert from './components/Feedback/Alert';
 import {
 	AlertActionsPosition,
@@ -784,12 +785,17 @@ export {
 	useTabBarContext,
 	useTabsContext
 };
-import { memoizeDebounce } from './common/scripts';
 
 // TODO: Maybe move default/amounts & default/sizes to common & export them
 // Defaults
 export const defaults = {
-	amount: { backAmount, hoverAmount, activeAmount, selectionAmount, placeholderAmount },
+	amount: {
+		backAmount,
+		hoverAmount,
+		activeAmount,
+		selectionAmount,
+		placeholderAmount
+	},
 	props: { defaultColor, defaultColorMode, defaultMethod }
 };
 

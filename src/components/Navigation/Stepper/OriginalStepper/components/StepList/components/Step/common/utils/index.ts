@@ -50,16 +50,15 @@ export const getStepStatus = memoize((props: GetStepStatusProps): StepStatus => 
 
 	if (activeStep === index) {
 		return 'active';
-	} else {
-		switch (status) {
-			case 'success':
-				return 'success';
-			case 'error':
-				return 'error';
-			case 'warning':
-				return 'warning';
-			default:
-				return 'idle';
-		}
+	}
+	switch (status) {
+		case 'success':
+			return 'success';
+		case 'error':
+			return 'error';
+		case 'warning':
+			return 'warning';
+		default:
+			return 'idle';
 	}
 });

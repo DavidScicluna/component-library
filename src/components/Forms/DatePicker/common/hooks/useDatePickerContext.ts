@@ -24,7 +24,14 @@ const useDatePickerContext = (): UseDatePickerContextReturn => {
 		...rest
 	} = useContext<DatePickerContextType>(DatePickerContext);
 
-	return { ...rest, color, colorMode, date, format, spacing };
+	return {
+		...rest,
+		color,
+		colorMode,
+		date,
+		format,
+		spacing
+	};
 };
 
 export default useDatePickerContext;

@@ -4,12 +4,10 @@ import { Center } from '@chakra-ui/react';
 
 import { CardBodyProps } from './common/types';
 
-const CardBody: FC<CardBodyProps> = ({ children, ...rest }) => {
-	return (
-		<Center {...rest} width='100%'>
-			{children}
-		</Center>
-	);
-};
+const CardBody: FC<CardBodyProps> = ({ children, ...rest }) => (
+	<Center {...rest} width='100%'>
+		{children}
+	</Center>
+);
 
 export default CardBody;

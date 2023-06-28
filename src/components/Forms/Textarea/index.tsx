@@ -72,11 +72,18 @@ const Textarea = forwardRef<TextareaRef, TextareaProps>(function Textarea(props,
 
 	const isFocused = useMemo((): boolean => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
 
-	const config = useMemo((): GetSizeConfigReturn => {
-		return getSizeConfig({ size });
-	}, [size]);
+	const config = useMemo((): GetSizeConfigReturn => getSizeConfig({ size }), [size]);
 
-	const style = useStyles({ theme, color, colorMode, isError, isSuccess, isWarning, isFocused, size });
+	const style = useStyles({
+		theme,
+		color,
+		colorMode,
+		isError,
+		isSuccess,
+		isWarning,
+		isFocused,
+		size
+	});
 
 	const handleContainerClick = (): void => {
 		if (isFocused && textareaRef && textareaRef.current) {
@@ -124,7 +131,14 @@ const Textarea = forwardRef<TextareaRef, TextareaProps>(function Textarea(props,
 			_readOnly={style.readOnly}
 		>
 			{renderLeft ? (
-				<GridItem>{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}</GridItem>
+				<GridItem>
+					{renderLeft({
+						color,
+						colorMode,
+						width: childrenWidth,
+						height: childrenHeight
+					})}
+				</GridItem>
 			) : null}
 
 			<GridItem>
@@ -149,7 +163,14 @@ const Textarea = forwardRef<TextareaRef, TextareaProps>(function Textarea(props,
 			</GridItem>
 
 			{renderRight ? (
-				<GridItem>{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}</GridItem>
+				<GridItem>
+					{renderRight({
+						color,
+						colorMode,
+						width: childrenWidth,
+						height: childrenHeight
+					})}
+				</GridItem>
 			) : null}
 		</Grid>
 	);

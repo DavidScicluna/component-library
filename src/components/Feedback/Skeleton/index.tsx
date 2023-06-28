@@ -42,47 +42,51 @@ const Skeleton: FC<SkeletonProps> = (props) => {
 		...rest
 	} = props;
 
-	const defaultStartColor = useMemo(() => {
-		return getSkeletonAnimationColor({
-			color,
-			colorMode,
-			hex: getColor({
-				theme,
+	const defaultStartColor = useMemo(
+		() =>
+			getSkeletonAnimationColor({
+				color,
 				colorMode,
-				color: color === 'white' || color === 'black' ? 'gray' : color,
-				type: color === 'white' ? 'lightest' : color === 'black' ? 'darkest' : 'divider'
+				hex: getColor({
+					theme,
+					colorMode,
+					color: color === 'white' || color === 'black' ? 'gray' : color,
+					type: color === 'white' ? 'lightest' : color === 'black' ? 'darkest' : 'divider'
+				}),
+				type: 'start'
 			}),
-			type: 'start'
-		});
-	}, [color, colorMode]);
+		[color, colorMode]
+	);
 
-	const defaultEndColor = useMemo(() => {
-		return getSkeletonAnimationColor({
-			color,
-			colorMode,
-			hex: getColor({
-				theme,
+	const defaultEndColor = useMemo(
+		() =>
+			getSkeletonAnimationColor({
+				color,
 				colorMode,
-				color: color === 'white' || color === 'black' ? 'gray' : color,
-				type: color === 'white' ? 'lightest' : color === 'black' ? 'darkest' : 'divider'
+				hex: getColor({
+					theme,
+					colorMode,
+					color: color === 'white' || color === 'black' ? 'gray' : color,
+					type: color === 'white' ? 'lightest' : color === 'black' ? 'darkest' : 'divider'
+				}),
+				type: 'end'
 			}),
-			type: 'end'
-		});
-	}, [color, colorMode]);
+		[color, colorMode]
+	);
 
-	const defaultBorderRadius = useMemo(() => {
-		return theme.radii[variant === 'rectangle' ? 'base' : variant === 'text' ? 'xs' : 'full'];
-	}, [variant]);
+	const defaultBorderRadius = useMemo(
+		() => theme.radii[variant === 'rectangle' ? 'base' : variant === 'text' ? 'xs' : 'full'],
+		[variant]
+	);
 
 	const speed = useMemo((): number => {
 		if (isAnimated) {
 			const defaultSpeed: number =
-				convertStringToNumber(theme.transition.duration['slower'] || '750ms', 'ms') / 1000;
+				convertStringToNumber(theme.transition.duration.slower || '750ms', 'ms') / 1000;
 
 			return defaultSpeed;
-		} else {
-			return 0;
 		}
+		return 0;
 	}, [isAnimated]);
 
 	return (

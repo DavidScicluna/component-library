@@ -26,4 +26,9 @@ const backgroundColor = {
 	control: 'color'
 };
 
-export default { width, height, color, backgroundColor };
+export default {
+	width,
+	height,
+	color,
+	backgroundColor
+};

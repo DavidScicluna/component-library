@@ -52,9 +52,10 @@ const RatingIcon: FC<RatingIconProps> = (props) => {
 	} = props;
 	const { default: icon = 'star_outline', active = 'star', hover = 'star' } = icons || {};
 
-	const fontSize = useMemo((): string => {
-		return `${getFontSizeHeight({ theme, fontSize: size, lineHeight: 'shorter' })}px`;
-	}, [theme, size]);
+	const fontSize = useMemo(
+		(): string => `${getFontSizeHeight({ theme, fontSize: size, lineHeight: 'shorter' })}px`,
+		[theme, size]
+	);
 
 	const style = useStyles({ theme });
 

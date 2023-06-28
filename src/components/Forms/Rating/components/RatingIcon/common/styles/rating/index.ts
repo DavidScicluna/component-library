@@ -33,10 +33,10 @@ export default ({ theme }: RatingIconStyleProps): Style => {
 
 		'transform': 'none',
 
-		'transition': transition,
-		'transitionProperty': transitionProperty,
-		'transitionDuration': transitionDuration,
-		'transitionTimingFunction': transitionTimingFunction,
+		transition,
+		transitionProperty,
+		transitionDuration,
+		transitionTimingFunction,
 
 		'&:hover': {
 			transform: 'scale(1.15)'

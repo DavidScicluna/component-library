@@ -1,6 +1,6 @@
 import { Style } from '../../../../../common/types';
 import { Theme } from '../../../../../theme/types';
-import { TooltipProps } from '../../common/types';
+import { TooltipProps } from '../types';
 
 export type TooltipStyleProps = {
 	theme: Theme;

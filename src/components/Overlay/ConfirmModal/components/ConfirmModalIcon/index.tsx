@@ -5,10 +5,8 @@ import { useConfirmModalContext } from '../../common/hooks';
 
 import { ConfirmModalIconProps, ConfirmModalIconRef } from './common/types';
 
-const ConfirmModalIcon = forwardRef<ConfirmModalIconRef, ConfirmModalIconProps>(function ConfirmModalIcon(
-	props,
-	ref
-): ReactElement {
+const ConfirmModalIcon = forwardRef<ConfirmModalIconRef, ConfirmModalIconProps>(
+	function ConfirmModalIcon(props, ref): ReactElement  {
 	const { color, colorMode } = useConfirmModalContext();
 
 	return <Icon {...props} ref={ref} color={color} colorMode={colorMode} />;

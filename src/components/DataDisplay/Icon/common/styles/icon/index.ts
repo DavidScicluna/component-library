@@ -30,9 +30,9 @@ export default ({ theme }: IconStyleProps): Style => {
 
 		transform: 'none',
 
-		transition: transition,
-		transitionProperty: transitionProperty,
-		transitionDuration: transitionDuration,
-		transitionTimingFunction: transitionTimingFunction
+		transition,
+		transitionProperty,
+		transitionDuration,
+		transitionTimingFunction
 	};
 };

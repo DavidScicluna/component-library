@@ -20,7 +20,14 @@ const useModalContext = (): NoUndefinedField<ModalContextType> => {
 		spacing = defaultSpacing
 	} = useContext<ModalContextType>(ModalContext);
 
-	return { color, colorMode, isOpen, onClose, size, spacing };
+	return {
+		color,
+		colorMode,
+		isOpen,
+		onClose,
+		size,
+		spacing
+	};
 };
 
 export default useModalContext;

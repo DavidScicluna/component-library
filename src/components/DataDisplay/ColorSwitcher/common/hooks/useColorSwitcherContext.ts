@@ -18,7 +18,12 @@ const useColorSwitcherContext = (): NoUndefinedField<ColorSwitcherContextType> =
 		onChange = defaultOnChange
 	} = useContext<ColorSwitcherContextType>(ColorSwitcherContext);
 
-	return { color, colors, colorMode, onChange };
+	return {
+		color,
+		colors,
+		colorMode,
+		onChange
+	};
 };
 
 export default useColorSwitcherContext;

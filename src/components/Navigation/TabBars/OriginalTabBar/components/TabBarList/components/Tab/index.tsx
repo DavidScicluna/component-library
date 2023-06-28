@@ -50,11 +50,15 @@ const Tab: FC<TabProps> = (props) => {
 		type: isActive || isSelected ? 'color' : 'default'
 	});
 
-	const config = useMemo<GetSizeConfigReturn>(() => {
-		return getSizeConfig({ size });
-	}, [size]);
+	const config = useMemo<GetSizeConfigReturn>(() => getSizeConfig({ size }), [size]);
 
-	const style = useStyles({ theme, color, colorMode, isSelected: isActive || isSelected, size });
+	const style = useStyles({
+		theme,
+		color,
+		colorMode,
+		isSelected: isActive || isSelected,
+		size
+	});
 
 	const handleClick = (event: TabMouseEvent): void => {
 		onSelect(index);
@@ -123,13 +127,23 @@ const Tab: FC<TabProps> = (props) => {
 				>
 					{renderIcon ? (
 						<Center width='100%'>
-							{renderIcon({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+							{renderIcon({
+								color,
+								colorMode,
+								width: childrenWidth,
+								height: childrenHeight
+							})}
 						</Center>
 					) : null}
 
 					<HStack width='100%' alignItems='center' justifyContent='center' spacing={config.spacing.x}>
 						{renderLeft
-							? renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })
+							? renderLeft({
+									color,
+									colorMode,
+									width: childrenWidth,
+									height: childrenHeight
+							  })
 							: null}
 
 						<Center ref={childrenRef} as='span'>
@@ -137,7 +151,12 @@ const Tab: FC<TabProps> = (props) => {
 						</Center>
 
 						{renderRight
-							? renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })
+							? renderRight({
+									color,
+									colorMode,
+									width: childrenWidth,
+									height: childrenHeight
+							  })
 							: null}
 					</HStack>
 				</VStack>

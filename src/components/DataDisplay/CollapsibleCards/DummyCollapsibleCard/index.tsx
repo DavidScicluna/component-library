@@ -43,7 +43,12 @@ const DummyCollapsibleCard = forwardRef<DummyCollapsibleCardRef, DummyCollapsibl
 			...rest
 		} = props;
 
-		const style = useStyles({ theme, isClickable: false, isDisabled: true, isFixed: false });
+		const style = useStyles({
+			theme,
+			isClickable: false,
+			isDisabled: true,
+			isFixed: false
+		});
 
 		const handleCalculateTextWidth = useCallback((): string => {
 			const spacingWidth = convertREMToPixels(convertStringToNumber(theme.space[spacing as Space], 'rem'));
@@ -70,7 +75,12 @@ const DummyCollapsibleCard = forwardRef<DummyCollapsibleCardRef, DummyCollapsibl
 				<HStack width='100%' spacing={spacing}>
 					{renderLeft ? (
 						<Box ref={leftRef}>
-							{renderLeft({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+							{renderLeft({
+								color,
+								colorMode,
+								width: childrenWidth,
+								height: childrenHeight
+							})}
 						</Box>
 					) : null}
 
@@ -119,7 +129,12 @@ const DummyCollapsibleCard = forwardRef<DummyCollapsibleCardRef, DummyCollapsibl
 
 					{renderRight ? (
 						<Box ref={rightRef}>
-							{renderRight({ color, colorMode, width: childrenWidth, height: childrenHeight })}
+							{renderRight({
+								color,
+								colorMode,
+								width: childrenWidth,
+								height: childrenHeight
+							})}
 						</Box>
 					) : null}
 				</HStack>

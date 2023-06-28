@@ -5,8 +5,8 @@ import {
 	colorMode as defaultColorMode,
 	method as defaultMethod
 } from '../../../../common/default/props';
-import Card from '../../../DataDisplay/Cards/OriginalCard';
 import Tabs from '../../../Navigation/Tabs/OriginalTabs';
+import Card from '../../Cards/OriginalCard';
 import { useSetHorizontalScrollAPIContext } from '../../HorizontalScroll/common/hooks';
 import { scroll as defaultScroll, spacing as defaultSpacing } from '../common/default/props';
 
@@ -37,7 +37,13 @@ const HorizontalGridTabbed: FC<HorizontalGridTabbedProps> = (props) => {
 
 	return (
 		<HorizontalGridTabbedContext.Provider
-			value={{ color, colorMode, scroll, onSetScroll: (scroll) => setScroll(scroll), spacing }}
+			value={{
+				color,
+				colorMode,
+				scroll,
+				onSetScroll: (scroll) => setScroll(scroll),
+				spacing
+			}}
 		>
 			<Tabs
 				{...tabsProps}

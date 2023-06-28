@@ -220,7 +220,7 @@ const Alert: FC<AlertProps> = (props) => {
 						{renderClose({
 							'aria-label': 'Close Alert',
 							'color': 'gray',
-							'colorMode': colorMode,
+							colorMode,
 							'icon': 'close',
 							'category': 'outlined',
 							'onClick': () => onClose(),

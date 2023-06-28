@@ -5,7 +5,7 @@ import {
 	colorMode as defaultColorMode,
 	method as defaultMethod
 } from '../../../../common/default/props';
-import Card from '../../../DataDisplay/Cards/OriginalCard/';
+import Card from '../../Cards/OriginalCard';
 import { useSetHorizontalScrollAPIContext } from '../../HorizontalScroll/common/hooks';
 import { scroll as defaultScroll, spacing as defaultSpacing } from '../common/default/props';
 
@@ -26,7 +26,13 @@ const HorizontalGrid: FC<HorizontalGridProps> = (props) => {
 
 	return (
 		<HorizontalGridContext.Provider
-			value={{ color, colorMode, scroll, onSetScroll: (scroll) => setScroll(scroll), spacing }}
+			value={{
+				color,
+				colorMode,
+				scroll,
+				onSetScroll: (scroll) => setScroll(scroll),
+				spacing
+			}}
 		>
 			<Card {...rest} color={color} colorMode={colorMode}>
 				{children}

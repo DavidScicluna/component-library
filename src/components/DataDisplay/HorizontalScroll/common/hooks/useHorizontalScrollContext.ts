@@ -19,7 +19,13 @@ const useHorizontalScrollContext = (): NoUndefinedField<HorizontalScrollContextT
 		spacing = defaultSpacing
 	} = useContext<HorizontalScrollContextType>(HorizontalScrollContext);
 
-	return { color, colorMode, arrowsWidth, isDisabled, spacing };
+	return {
+		color,
+		colorMode,
+		arrowsWidth,
+		isDisabled,
+		spacing
+	};
 };
 
 export default useHorizontalScrollContext;

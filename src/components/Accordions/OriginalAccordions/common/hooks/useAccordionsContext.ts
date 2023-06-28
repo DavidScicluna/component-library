@@ -29,7 +29,15 @@ const useAccordionsContext = <D>(): UseAccordionsContextReturn<D> => {
 		spacing = defaultSpacing
 	} = useContext<AccordionsContextType<D>>(AccordionsContext);
 
-	return { accordions, color, colorMode, isDisabled, opened, onSetOpened, spacing };
+	return {
+		accordions,
+		color,
+		colorMode,
+		isDisabled,
+		opened,
+		onSetOpened,
+		spacing
+	};
 };
 
 export default useAccordionsContext;

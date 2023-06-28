@@ -34,7 +34,15 @@ const DummyTabs = forwardRef<DummyTabsRef, DummyTabsProps>(function DummyTabs(pr
 	} = props;
 
 	return (
-		<DummyTabsContext.Provider value={{ activeTab, color, colorMode, isFitted, size }}>
+		<DummyTabsContext.Provider
+			value={{
+				activeTab,
+				color,
+				colorMode,
+				isFitted,
+				size
+			}}
+		>
 			<CUIDummyTabs
 				{...rest}
 				ref={ref}

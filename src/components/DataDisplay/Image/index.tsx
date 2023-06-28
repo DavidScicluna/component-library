@@ -37,7 +37,12 @@ const Image = forwardRef<ImageRef, ImageProps>(function Image(props, ref): React
 	const [isThumbnailVisible, setIsThumbnailVisible] = useBoolean();
 	const [isBoringVisible, setIsBoringVisible] = useBoolean();
 
-	const sx: Style = { width: '100%', height: '100%', position: 'absolute', borderRadius };
+	const sx: Style = {
+		width: '100%',
+		height: '100%',
+		position: 'absolute',
+		borderRadius
+	};
 
 	const handleBoringError = (event: ImageEvent): void => {
 		setIsBoringVisible.off();

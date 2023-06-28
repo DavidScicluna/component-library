@@ -56,11 +56,9 @@ const colorOptions: AppColors = [
 
 const renderMapping = Object.assign(
 	{ none: undefined },
-	...icons.map((icon) => {
-		return {
-			[icon]: ({ colorMode }: TextareaRenderProps) => <Icon colorMode={colorMode} icon={icon} />
-		};
-	})
+	...icons.map((icon) => ({
+		[icon]: ({ colorMode }: TextareaRenderProps) => <Icon colorMode={colorMode} icon={icon} />
+	}))
 );
 
 const resizeOptions: TextareaResize[] = ['horizontal', 'vertical', 'none'];

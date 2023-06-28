@@ -37,7 +37,12 @@ const Icon = forwardRef<IconRef, IconProps>(function Icon(props, ref): ReactElem
 		...rest
 	} = props;
 
-	const style = useStyles({ theme, color, colorMode, variant });
+	const style = useStyles({
+		theme,
+		color,
+		colorMode,
+		variant
+	});
 
 	const dimensions = useConst<string>(`${defaultDimensions}px`);
 

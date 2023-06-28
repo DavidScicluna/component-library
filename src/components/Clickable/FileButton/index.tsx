@@ -58,7 +58,7 @@ const FileButton: FC<FileButtonProps> = (props) => {
 	};
 
 	const handleChange = async (event: FileButtonChangeEvent) => {
-		const files = event.target.files;
+		const { files } = event.target;
 
 		const blobs: FileButtonBlobs = [];
 		const errors: FileButtonErrors = [];

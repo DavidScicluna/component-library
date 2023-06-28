@@ -20,7 +20,14 @@ const useCollapsibleCardContext = (): NoUndefinedField<CollapsibleCardContextTyp
 		...rest
 	} = useContext<CollapsibleCardContextType>(CollapsibleCardContext);
 
-	return { color, colorMode, isDivisible, spacing, variant, ...rest };
+	return {
+		color,
+		colorMode,
+		isDivisible,
+		spacing,
+		variant,
+		...rest
+	};
 };
 
 export default useCollapsibleCardContext;

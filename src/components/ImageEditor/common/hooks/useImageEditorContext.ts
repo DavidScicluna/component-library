@@ -14,7 +14,12 @@ const useImageEditorContext = (): NoUndefinedField<ImageEditorContextType> => {
 		zoom = defaultZoom
 	} = useContext<ImageEditorContextType>(ImageEditorContext);
 
-	return { color, colorMode, mode, zoom };
+	return {
+		color,
+		colorMode,
+		mode,
+		zoom
+	};
 };
 
 export default useImageEditorContext;

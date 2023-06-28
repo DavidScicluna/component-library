@@ -11,11 +11,13 @@ const Spinner: FC<SpinnerProps> = (props) => {
 
 	const { color, speed = 0.75, mode = 'sync', size = 'xl' } = props;
 
-	const fontSize = useMemo((): number => {
-		return typeof size === 'number'
-			? size
-			: convertREMToPixels(convertStringToNumber(theme.fontSizes[size], 'rem')) / 4;
-	}, [size]);
+	const fontSize = useMemo(
+		(): number =>
+			typeof size === 'number'
+				? size
+				: convertREMToPixels(convertStringToNumber(theme.fontSizes[size], 'rem')) / 4,
+		[size]
+	);
 
 	switch (mode) {
 		case 'puff':

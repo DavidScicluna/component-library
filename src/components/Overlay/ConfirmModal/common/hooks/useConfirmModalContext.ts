@@ -20,7 +20,14 @@ const useConfirmModalContext = (): NoUndefinedField<ConfirmModalContextType> => 
 		spacing = defaultSpacing
 	} = useContext<ConfirmModalContextType>(ConfirmModalContext);
 
-	return { color, colorMode, isOpen, onClose, size, spacing };
+	return {
+		color,
+		colorMode,
+		isOpen,
+		onClose,
+		size,
+		spacing
+	};
 };
 
 export default useConfirmModalContext;

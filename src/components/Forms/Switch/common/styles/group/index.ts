@@ -33,10 +33,10 @@ export default ({ theme }: SwitchGroupStyleProps): Style => {
 
 		'transform': 'none',
 
-		'transition': transition,
-		'transitionProperty': transitionProperty,
-		'transitionDuration': transitionDuration,
-		'transitionTimingFunction': transitionTimingFunction,
+		transition,
+		transitionProperty,
+		transitionDuration,
+		transitionTimingFunction,
 
 		'& .chakra-switch': {
 			cursor: 'pointer',

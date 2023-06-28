@@ -21,9 +21,9 @@ export default ({ theme, size = defaultSize }: FormLabelStyleProps): Style => {
 		m: 0,
 		p: 0,
 
-		transition: transition,
-		transitionProperty: transitionProperty,
-		transitionDuration: transitionDuration,
-		transitionTimingFunction: transitionTimingFunction
+		transition,
+		transitionProperty,
+		transitionDuration,
+		transitionTimingFunction
 	};
 };

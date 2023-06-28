@@ -40,7 +40,14 @@ const NavItem: FC<NavItemProps> = (props) => {
 		...rest
 	} = props;
 
-	const style = useStyles({ theme, color, colorMode, isActive, isChildActive, mode });
+	const style = useStyles({
+		theme,
+		color,
+		colorMode,
+		isActive,
+		isChildActive,
+		mode
+	});
 
 	const delay = useConst(getTransitionDelay({ theme, duration: 'slow' }) * 2);
 	const config = useConst({ ...getTransitionConfig({ theme }), delay });

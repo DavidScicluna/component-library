@@ -19,10 +19,8 @@ import {
 import useStyles from './common/styles';
 import { PushableOverlayProps, PushableOverlayRef } from './common/types';
 
-const PushableOverlay = forwardRef<PushableOverlayRef, PushableOverlayProps>(function PushableOverlay(
-	props,
-	ref
-): ReactElement {
+const PushableOverlay = forwardRef<PushableOverlayRef, PushableOverlayProps>(
+	function PushableOverlay(props, ref): ReactElement {
 	const theme = useTheme();
 
 	const { color: defaultColor, colorMode: defaultColorMode } = useProviderContext();

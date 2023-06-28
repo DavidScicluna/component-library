@@ -76,7 +76,16 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 			scrollBehavior='outside'
 			size={size}
 		>
-			<ConfirmModalContext.Provider value={{ color, colorMode, isOpen, onClose, size, spacing }}>
+			<ConfirmModalContext.Provider
+				value={{
+					color,
+					colorMode,
+					isOpen,
+					onClose,
+					size,
+					spacing
+				}}
+			>
 				{hasBackdrop && renderBackdrop ? (
 					renderBackdrop({ color, colorMode })
 				) : hasBackdrop ? (
@@ -96,7 +105,7 @@ const ConfirmModal: FC<ConfirmModalProps> = (props) => {
 							{renderCancel({
 								'aria-label': 'Close Modal',
 								'color': 'gray',
-								'colorMode': colorMode,
+								colorMode,
 								'icon': 'close',
 								'category': 'outlined',
 								'onClick': () => onClose(),
