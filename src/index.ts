@@ -386,14 +386,6 @@ import {
 	InputRef,
 	InputRenderProps
 } from './components/Forms/Input/common/types';
-import NumberInput from './components/Forms/NumberInput';
-import {
-	NumberInputChangeEvent,
-	NumberInputFocusEvent,
-	NumberInputProps,
-	NumberInputRef,
-	NumberInputRenderProps
-} from './components/Forms/NumberInput/common/types';
 import PasswordInput from './components/Forms/PasswordInput';
 import { PasswordInputProps, PasswordInputRef } from './components/Forms/PasswordInput/common/types';
 import Radio from './components/Forms/Radio';
@@ -950,7 +942,6 @@ export {
 	ModalStack,
 	NavGroup,
 	NavItem,
-	NumberInput,
 	PageTransition,
 	PasswordInput,
 	PasswordStrengthLabel,
@@ -1262,11 +1253,6 @@ export type {
 	NavGroupProps,
 	NavItemProps,
 	NavItemType,
-	NumberInputChangeEvent,
-	NumberInputFocusEvent,
-	NumberInputProps,
-	NumberInputRef,
-	NumberInputRenderProps,
 	PageTransitionProps,
 	PasswordInputProps,
 	PasswordInputRef,
