@@ -1,6 +1,6 @@
 import { Meta as StorybookMeta, StoryFn as StorybookStory } from '@storybook/react';
 
-import Divider from '../../../components/Divider';
+import Divider from '../../../components/DataDisplay/Divider';
 
 export type Meta = StorybookMeta<typeof Divider>;
 

@@ -2,9 +2,9 @@ import { forwardRef, ReactElement, useMemo } from 'react';
 
 import { Box, Center } from '@chakra-ui/react';
 
-import { useGetColor } from '../../common/hooks';
-import { Style } from '../../common/types';
-import { useProviderContext } from '../Provider/common/hooks';
+import { useGetColor } from '../../../common/hooks';
+import { Style } from '../../../common/types';
+import { useProviderContext } from '../../Provider/common/hooks';
 
 import { DividerProps, DividerRef } from './common/types';
 

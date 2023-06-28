@@ -1,6 +1,6 @@
 import { BoxProps } from '@chakra-ui/react';
 
-import { CommonThemeProps, Nullable, Orientation } from '../../../../common/types';
+import { CommonThemeProps, Nullable, Orientation } from '../../../../../common/types';
 import {
 	BoxBackground,
 	BoxBorderRadius,
@@ -18,8 +18,8 @@ import {
 	BoxPseudo,
 	BoxShadow,
 	BoxTypography
-} from '../../../../common/types/box';
-import { Spacing } from '../../../../theme/types';
+} from '../../../../../common/types/box';
+import { Spacing } from '../../../../../theme/types';
 
 export type DividerPlacement = 'left' | 'center' | 'right';
 

@@ -6,7 +6,7 @@ import { merge, omit } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { useGetColor, useTheme } from '../../../../../../../../common/hooks';
-import Divider from '../../../../../../../Divider';
+import Divider from '../../../../../../../DataDisplay/Divider';
 import Skeleton from '../../../../../../../Feedback/Skeleton';
 import ScaleFade from '../../../../../../../Transitions/ScaleFade';
 import { border } from '../../../../../common/default/sizes';

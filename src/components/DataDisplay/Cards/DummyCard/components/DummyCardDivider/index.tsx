@@ -2,7 +2,7 @@ import { FC, useMemo } from 'react';
 
 import { useTheme } from '../../../../../../common/hooks';
 import { getColor } from '../../../../../../common/utils/color';
-import Divider from '../../../../../Divider';
+import Divider from '../../../../Divider';
 import { useDummyCardContext } from '../../common/hooks';
 
 import { DummyCardDividerProps } from './common/types';

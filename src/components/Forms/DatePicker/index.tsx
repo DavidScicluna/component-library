@@ -11,7 +11,7 @@ import { useDebounce } from '../../../common/hooks';
 import Button from '../../Clickable/Buttons/OriginalButton';
 import IconButton from '../../Clickable/IconButtons/OriginalIconButton';
 import IconButtonIcon from '../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon';
-import Divider from '../../Divider';
+import Divider from '../../DataDisplay/Divider';
 import Modal from '../../Overlay/Modal';
 import ModalBody from '../../Overlay/Modal/components/ModalBody';
 import ModalFooter from '../../Overlay/Modal/components/ModalFooter';

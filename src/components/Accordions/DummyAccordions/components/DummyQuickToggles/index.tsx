@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { Grid, GridItem, useMediaQuery } from '@chakra-ui/react';
 
 import { useTheme } from '../../../../../common/hooks';
-import Divider from '../../../../Divider';
+import Divider from '../../../../DataDisplay/Divider';
 import { useDummyAccordionsContext } from '../../common/hooks';
 
 import { size as defaultSize } from './common/default/props';

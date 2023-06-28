@@ -9,7 +9,7 @@ import HorizontalScroll from '../../../../../DataDisplay/HorizontalScroll';
 import { useSetHorizontalScrollAPIContext } from '../../../../../DataDisplay/HorizontalScroll/common/hooks';
 import LeftOverlayArrow from '../../../../../DataDisplay/HorizontalScroll/components/LeftOverlayArrow';
 import RightOverlayArrow from '../../../../../DataDisplay/HorizontalScroll/components/RightOverlayArrow';
-import Divider from '../../../../../Divider';
+import Divider from '../../../../../DataDisplay/Divider';
 import { useStepperContext } from '../../common/hooks';
 
 import { StepListProps } from './common/types';

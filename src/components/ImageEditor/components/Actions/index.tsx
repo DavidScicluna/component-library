@@ -6,7 +6,7 @@ import { useElementSize } from 'usehooks-ts';
 
 import { useTheme } from '../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../common/utils';
-import Divider from '../../../Divider';
+import Divider from '../../../DataDisplay/Divider';
 import { useImageEditorContext } from '../../common/hooks';
 
 import { ActionsProps } from './common/types';

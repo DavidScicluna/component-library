@@ -6,7 +6,7 @@ import { useUpdateEffect } from 'usehooks-ts';
 
 import { useDebounce } from '../../../common/hooks';
 import Icon from '../../DataDisplay/Icon';
-import Divider from '../../Divider';
+import Divider from '../../DataDisplay/Divider';
 import Form from '../Form';
 import Input from '../Input';
 import { InputChangeEvent } from '../Input/common/types';

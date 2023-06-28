@@ -324,8 +324,13 @@ import {
 } from './components/DataDisplay/PasswordStrengths/PasswordStrengthLabel/common/types';
 import PasswordStrengthTooltip from './components/DataDisplay/PasswordStrengths/PasswordStrengthTooltip';
 import { PasswordStrengthTooltipProps } from './components/DataDisplay/PasswordStrengths/PasswordStrengthTooltip/common/types';
-import Divider from './components/Divider';
-import { DividerPlacement, DividerProps, DividerRef, DividerVariant } from './components/Divider/common/types';
+import Divider from './components/DataDisplay/Divider';
+import {
+	DividerPlacement,
+	DividerProps,
+	DividerRef,
+	DividerVariant
+} from './components/DataDisplay/Divider/common/types';
 import Alert from './components/Feedback/Alert';
 import {
 	AlertActionsPosition,

@@ -4,7 +4,7 @@ import { VStack } from '@chakra-ui/react';
 
 import dayjs from 'dayjs';
 
-import Divider from '../../../../Divider';
+import Divider from '../../../../DataDisplay/Divider';
 import Input from '../../../Input';
 import { useDatePickerContext } from '../../common/hooks';
 

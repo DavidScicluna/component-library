@@ -7,7 +7,7 @@ import { merge, omit } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { useBoolean, useGetColor, useTheme } from '../../../../../../../../common/hooks';
-import Divider from '../../../../../../../Divider';
+import Divider from '../../../../../../../DataDisplay/Divider';
 import ScaleFade from '../../../../../../../Transitions/ScaleFade';
 import { isDisabled as defaultIsDisabled } from '../../../../../common/default/props';
 import { border } from '../../../../../common/default/sizes';

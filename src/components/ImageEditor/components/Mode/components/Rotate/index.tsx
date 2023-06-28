@@ -7,7 +7,7 @@ import { useElementSize } from 'usehooks-ts';
 
 import { useGetColor, useTheme } from '../../../../../../common/hooks';
 import { convertREMToPixels, convertStringToNumber } from '../../../../../../common/utils';
-import Divider from '../../../../../Divider';
+import Divider from '../../../../../DataDisplay/Divider';
 import HoverOverlay from '../../../../../Overlay/HoverOverlay';
 import Tooltip from '../../../../../Overlay/Tooltip';
 import { rotation as defaultRotation } from '../../../../common/default/props';

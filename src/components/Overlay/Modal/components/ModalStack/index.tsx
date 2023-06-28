@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { VStack } from '@chakra-ui/react';
 
 import { useGetColor } from '../../../../../common/hooks';
-import Divider from '../../../../Divider';
+import Divider from '../../../../DataDisplay/Divider';
 import { useModalContext } from '../../common/hooks';
 
 import { ModalStackProps } from './common/types';
