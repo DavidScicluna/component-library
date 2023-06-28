@@ -325,7 +325,7 @@ import {
 import PasswordStrengthTooltip from './components/DataDisplay/PasswordStrengths/PasswordStrengthTooltip';
 import { PasswordStrengthTooltipProps } from './components/DataDisplay/PasswordStrengths/PasswordStrengthTooltip/common/types';
 import Divider from './components/Divider';
-import { DividerProps, DividerVariant } from './components/Divider/common/types';
+import { DividerPlacement, DividerProps, DividerRef, DividerVariant } from './components/Divider/common/types';
 import Alert from './components/Feedback/Alert';
 import {
 	AlertActionsPosition,
@@ -1101,7 +1101,9 @@ export type {
 	DatePickerProps,
 	DatePickerRenderButtonProps,
 	DatePickerVariant,
+	DividerPlacement,
 	DividerProps,
+	DividerRef,
 	DividerVariant,
 	DummyAccordionsContext,
 	DummyAccordionsPanelProps,
