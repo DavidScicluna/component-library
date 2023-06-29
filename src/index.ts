@@ -645,7 +645,10 @@ import {
 	useGetColorMode as useGetAppColorMode,
 	useProviderContext as useDSCLProviderContext
 } from './components/Provider/common/hooks';
-import { ProviderContext, ProviderProps } from './components/Provider/common/types';
+import {
+	ProviderContext as DSCLProviderContext,
+	ProviderProps as DSCLProviderProps
+} from './components/Provider/common/types';
 import AnimatePresence from './components/Transitions/AnimatePresence';
 import { AnimatePresenceProps } from './components/Transitions/AnimatePresence/common/types';
 import Collapse from './components/Transitions/Collapse';
@@ -1110,6 +1113,8 @@ export type {
 	DividerProps,
 	DividerRef,
 	DividerVariant,
+	DSCLProviderContext,
+	DSCLProviderProps,
 	DummyAccordionsContext,
 	DummyAccordionsPanelProps,
 	DummyAccordionsProps,
@@ -1268,8 +1273,6 @@ export type {
 	PasswordStrengthLabelSize,
 	PasswordStrengthTooltipProps,
 	PopperProps,
-	ProviderContext,
-	ProviderProps,
 	PushableOverlayProps,
 	PushableOverlayRef,
 	PushableOverlayVariant,
