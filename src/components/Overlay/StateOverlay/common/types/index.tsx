@@ -15,7 +15,7 @@ import {
 	BoxShadow
 } from '../../../../../common/types/box';
 
-export type StateOverlayState = 'success' | 'error' | 'empty' | 'loading' | 'default';
+export type StateOverlayState = 'success' | 'error' | 'empty' | 'loading' | 'dummy' | 'default';
 
 export type StateOverlayRenderProps = Pick<StateOverlayProps, 'state'>;
 
@@ -37,6 +37,7 @@ export type StateOverlayProps = Omit<GridProps, Omitted> & {
 	renderError?: (props: StateOverlayRenderProps) => ReactNode;
 	renderEmpty?: (props: StateOverlayRenderProps) => ReactNode;
 	renderSpinner?: (props: StateOverlayRenderProps) => ReactNode;
+	renderDummy?: (props: StateOverlayRenderProps) => ReactNode;
 	renderContent: (props: StateOverlayRenderProps) => ReactNode;
 	hasGlass?: boolean;
 	hasContentAlwaysVisible?: boolean;
