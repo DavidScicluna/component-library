@@ -24,7 +24,9 @@ const ColorSwitcherScrollItem = forwardRef<ColorSwitcherScrollItemRef, ColorSwit
 		const {
 			color = defaultColor,
 			colorMode = defaultColorMode,
+			'aria-label': aria = startCase(capitalize(color)),
 			hasTooltip = true,
+			label = startCase(capitalize(color)),
 			placement = 'top',
 			isActive = false,
 			onChange,
@@ -46,10 +48,10 @@ const ColorSwitcherScrollItem = forwardRef<ColorSwitcherScrollItemRef, ColorSwit
 			<HoverOverlay>
 				{({ isHovering }) => (
 					<Tooltip
-						aria-label={`${color} (tooltip)`}
+						aria-label={`${aria} (tooltip)`}
 						color='gray'
 						colorMode={colorMode}
-						label={startCase(capitalize(color))}
+						label={label}
 						placement={placement}
 						isOpen={hasTooltip && isHovering}
 						isDisabled={!hasTooltip}
@@ -57,6 +59,7 @@ const ColorSwitcherScrollItem = forwardRef<ColorSwitcherScrollItemRef, ColorSwit
 						<Center
 							{...rest}
 							ref={ref}
+							aria-label={aria}
 							cursor={isActive ? 'default' : 'pointer'}
 							onClick={handleClick}
 							background={background}

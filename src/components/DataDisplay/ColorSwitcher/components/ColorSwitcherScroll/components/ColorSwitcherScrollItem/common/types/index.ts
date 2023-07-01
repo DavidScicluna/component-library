@@ -43,6 +43,6 @@ export type ColorSwitcherScrollItemProps = Pick<ColorSwitcherContext, 'color' | 
 	isActive?: boolean;
 	hasTooltip?: boolean;
 } & Omit<CenterProps, Omitted> &
-	Pick<TooltipProps, 'placement'>;
+	Pick<TooltipProps, 'label' | 'placement'>;
 
 export type ColorSwitcherScrollItemRef = Nullable<HTMLDivElement>;
