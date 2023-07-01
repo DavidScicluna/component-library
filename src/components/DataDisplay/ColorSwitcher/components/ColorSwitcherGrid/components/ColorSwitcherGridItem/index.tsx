@@ -21,7 +21,14 @@ const ColorSwitcherGridItem = forwardRef<ColorSwitcherGridItemRef, ColorSwitcher
 
 		const { color: defaultColor, colorMode: defaultColorMode } = useColorSwitcherContext();
 
-		const { color = defaultColor, colorMode = defaultColorMode, isActive = false, onChange, ...rest } = props;
+		const {
+			color = defaultColor,
+			colorMode = defaultColorMode,
+			title = startCase(capitalize(color)),
+			isActive = false,
+			onChange,
+			...rest
+		} = props;
 
 		const background = useGetColor({ color, colorMode, type: 'color' });
 
@@ -40,7 +47,7 @@ const ColorSwitcherGridItem = forwardRef<ColorSwitcherGridItemRef, ColorSwitcher
 				<CardHeader
 					renderTitle={() => (
 						<CardTitle fontSize='md' fontWeight='medium'>
-							{startCase(capitalize(color))}
+							{title}
 						</CardTitle>
 					)}
 					actions={

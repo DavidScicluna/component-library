@@ -14,6 +14,7 @@ type Omitted =
 	| 'variant';
 
 export type ColorSwitcherGridItemProps = Pick<ColorSwitcherContext, 'color' | 'colorMode' | 'onChange'> & {
+	title?: string;
 	isActive?: boolean;
 } & Omit<CardProps, Omitted>;
 
