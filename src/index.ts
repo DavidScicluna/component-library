@@ -8,6 +8,7 @@ import {
 } from './common/default/amount';
 import { color as defaultColor, colorMode as defaultColorMode, method as defaultMethod } from './common/default/props';
 import { useBoolean, useConst, useDebounce, useGetColor, useGetThemeAppearance, useOs, useTheme } from './common/hooks';
+import { localStorageColorKey, localStorageColorModeKey } from './common/keys';
 import {
 	checkIsTouchDevice,
 	convertEasingsToArray,
@@ -795,6 +796,9 @@ export const defaults = {
 	amount: { backAmount, hoverAmount, activeAmount, selectionAmount, placeholderAmount },
 	props: { defaultColor, defaultColorMode, defaultMethod }
 };
+
+// Keys
+export const keys = { localStorageColorKey, localStorageColorModeKey };
 
 // Assets
 export const assets = { fallback };
