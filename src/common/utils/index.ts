@@ -9,7 +9,7 @@ import { OS } from '../types';
  * @returns OS - 'undetermined' | 'macos' | 'ios' | 'windows' | 'android' | 'linux'
  */
 export const getOS = memoize((): OS => {
-	const { userAgent } = window.navigator;
+	const { userAgent = '' } = globalThis?.window?.navigator || {};
 	const macosPlatforms = /(Macintosh)|(MacIntel)|(MacPPC)|(Mac68K)/i;
 	const windowsPlatforms = /(Win32)|(Win64)|(Windows)|(WinCE)/i;
 	const iosPlatforms = /(iPhone)|(iPad)|(iPod)/i;
@@ -39,7 +39,7 @@ export const getOS = memoize((): OS => {
  * @returns boolean: Either its a touch device or not
  */
 export const checkIsTouchDevice = memoize((): boolean => {
-	return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+	return !!globalThis?.window?.ontouchstart || globalThis?.navigator?.maxTouchPoints > 0 || false;
 });
 
 /**

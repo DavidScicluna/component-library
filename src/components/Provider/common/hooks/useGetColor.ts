@@ -5,8 +5,8 @@ import { AppColor } from '../../../../common/types';
 
 const useGetColor = (defaultColor: AppColor): AppColor => {
 	const handleSetColorMode = (): void => {
-		localStorage.removeItem(localStorageColorKey);
-		localStorage.setItem(localStorageColorKey, defaultColor);
+		globalThis?.localStorage?.removeItem(localStorageColorKey);
+		globalThis?.localStorage?.setItem(localStorageColorKey, defaultColor);
 	};
 
 	useEffect(() => handleSetColorMode(), [defaultColor]);

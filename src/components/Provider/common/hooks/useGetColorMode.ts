@@ -16,7 +16,7 @@ const useGetColorMode = (initialColorMode: AppFullColorMode): AppColorMode => {
 	const isDarkMode = useMediaMatch('(prefers-color-scheme: dark)');
 
 	const handleSetColorMode = (): void => {
-		localStorage.removeItem(localStorageColorModeKey);
+		globalThis?.localStorage?.removeItem(localStorageColorModeKey);
 
 		if (initialColorMode === 'system') {
 			const updatedColorMode: AppFullColorMode = isDarkMode ? 'dark' : 'light';
@@ -24,12 +24,12 @@ const useGetColorMode = (initialColorMode: AppFullColorMode): AppColorMode => {
 			setColorMode(updatedColorMode);
 			setCUIColorMode(updatedColorMode);
 
-			localStorage.setItem(localStorageColorModeKey, updatedColorMode);
+			globalThis?.localStorage?.setItem(localStorageColorModeKey, updatedColorMode);
 		} else {
 			setColorMode(initialColorMode);
 			setCUIColorMode(initialColorMode);
 
-			localStorage.setItem(localStorageColorModeKey, initialColorMode);
+			globalThis?.localStorage?.setItem(localStorageColorModeKey, initialColorMode);
 		}
 	};
 

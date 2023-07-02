@@ -65,7 +65,7 @@ export const getColor = memoize(({ theme, colorMode, color: colorProp, type }: G
 });
 
 export const getColorMode = memoize((): AppColorMode => {
-	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+	if (globalThis?.window?.matchMedia && globalThis?.window?.matchMedia('(prefers-color-scheme: dark)')?.matches) {
 		return 'dark';
 	} else {
 		return 'light';
