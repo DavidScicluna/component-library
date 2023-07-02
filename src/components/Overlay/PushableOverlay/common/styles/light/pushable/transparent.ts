@@ -23,10 +23,6 @@ export default ({
 		colorMode: 'light',
 		type: colorProp === 'black' ? 'darker' : colorProp === 'white' ? 'lighter' : 'color'
 	});
-	const backgroundShade = getHue({
-		colorMode: 'light',
-		type: 'background'
-	});
 
 	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
 
@@ -37,9 +33,9 @@ export default ({
 			content: '""',
 
 			color: theme.colors[color][colorShade],
-			borderColor: theme.colors.gray[backgroundShade],
-			backgroundColor: theme.colors.gray[backgroundShade],
-			background: theme.colors.gray[backgroundShade]
+			borderColor: theme.colors.transparent,
+			backgroundColor: theme.colors.transparent,
+			background: theme.colors.transparent
 		},
 
 		'&:hover':
@@ -51,9 +47,9 @@ export default ({
 							content: '""',
 
 							color: darken(theme.colors[color][colorShade], hover),
-							borderColor: theme.colors.gray[backgroundShade],
-							backgroundColor: theme.colors.gray[backgroundShade],
-							background: theme.colors.gray[backgroundShade]
+							borderColor: theme.colors.transparent,
+							backgroundColor: theme.colors.transparent,
+							background: theme.colors.transparent
 						},
 
 						'&:active': {
@@ -63,9 +59,9 @@ export default ({
 								content: '""',
 
 								color: darken(theme.colors[color][colorShade], active),
-								borderColor: theme.colors.gray[backgroundShade],
-								backgroundColor: theme.colors.gray[backgroundShade],
-								background: theme.colors.gray[backgroundShade]
+								borderColor: theme.colors.transparent,
+								backgroundColor: theme.colors.transparent,
+								background: theme.colors.transparent
 							}
 						}
 				  }
@@ -80,9 +76,9 @@ export default ({
 							content: '""',
 
 							color: darken(theme.colors[color][colorShade], active),
-							borderColor: theme.colors.gray[backgroundShade],
-							backgroundColor: theme.colors.gray[backgroundShade],
-							background: theme.colors.gray[backgroundShade]
+							borderColor: theme.colors.transparent,
+							backgroundColor: theme.colors.transparent,
+							background: theme.colors.transparent
 						}
 				  }
 				: {},

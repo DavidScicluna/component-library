@@ -10,10 +10,6 @@ export default ({ theme, color: colorProp = defaultColor }: PushableOverlayLight
 		colorMode: 'light',
 		type: colorProp === 'black' ? 'darker' : colorProp === 'white' ? 'lighter' : 'color'
 	});
-	const backgroundShade = getHue({
-		colorMode: 'light',
-		type: 'background'
-	});
 
 	const color: Color = colorProp === 'black' || colorProp === 'white' ? 'gray' : colorProp;
 
@@ -24,9 +20,9 @@ export default ({ theme, color: colorProp = defaultColor }: PushableOverlayLight
 			content: '""',
 
 			color: theme.colors[color][colorShade],
-			borderColor: theme.colors.gray[backgroundShade],
-			backgroundColor: theme.colors.gray[backgroundShade],
-			background: theme.colors.gray[backgroundShade],
+			borderColor: theme.colors.transparent,
+			backgroundColor: theme.colors.transparent,
+			background: theme.colors.transparent,
 			boxShadow: 'none'
 		}
 	};
