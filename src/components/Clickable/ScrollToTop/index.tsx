@@ -37,7 +37,7 @@ const ScrollToTop = forwardRef<ScrollToTopRef, ScrollToTopProps>(function Scroll
 	const [isHovering, setIsHovering] = useBoolean();
 
 	const handleClick = (event: IconButtonMouseEvent): void => {
-		window.scrollTo(0, 0);
+		globalThis?.window.scrollTo(0, 0);
 
 		if (onClick) {
 			onClick(event);
@@ -66,7 +66,7 @@ const ScrollToTop = forwardRef<ScrollToTopRef, ScrollToTopProps>(function Scroll
 
 	const handleScroll = useCallback(
 		debounce(() => {
-			const scroll = window.scrollY;
+			const scroll = globalThis?.window?.scrollY || 0;
 
 			if (scroll < windowHeight) {
 				setIsVisible.off();
@@ -76,7 +76,7 @@ const ScrollToTop = forwardRef<ScrollToTopRef, ScrollToTopProps>(function Scroll
 				setIsHovering.off();
 			}
 		}, 1000),
-		[window.scrollY, windowHeight]
+		[globalThis?.window?.scrollY, windowHeight]
 	);
 
 	useEventListener('scroll', () => handleScroll());
