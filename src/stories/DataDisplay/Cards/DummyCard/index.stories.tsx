@@ -8,13 +8,14 @@ import {
 	CardBody,
 	CardColor,
 	CardFooter,
-	CardSubtitle,
-	CardTitle,
 	CardVariant,
 	DummyButton,
 	DummyCard as DummyCardComponent,
 	DummyCardHeader,
 	DummyCardProps,
+	DummyCardStack,
+	DummyCardSubtitle,
+	DummyCardTitle,
 	Skeleton
 } from '../../../..';
 import { color as defaultColor } from '../../../../common/default/props';
@@ -88,36 +89,38 @@ export default {
 
 export const DummyCard: Story = (props: DummyCardProps): ReactElement => (
 	<DummyCardComponent {...props} width='100%'>
-		<DummyCardHeader
-			renderTitle={() => <CardTitle>Card Title</CardTitle>}
-			renderSubtitle={() => <CardSubtitle>Card Subtitle</CardSubtitle>}
-			actions={
-				<DummyButton color='blue' colorMode={props.colorMode} size='xs'>
-					Action
+		<DummyCardStack>
+			<DummyCardHeader
+				renderTitle={() => <DummyCardTitle>Card Title</DummyCardTitle>}
+				renderSubtitle={() => <DummyCardSubtitle>Card Subtitle</DummyCardSubtitle>}
+				actions={
+					<DummyButton color='blue' colorMode={props.colorMode} size='xs'>
+						Action
+					</DummyButton>
+				}
+			/>
+			<CardBody>
+				<VStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={2}>
+					{range(2).map((_dummy, index) => (
+						<Skeleton
+							key={index}
+							colorMode={props.colorMode}
+							isLoaded={false}
+							variant='text'
+							sx={{ width: '100%', flex: 1 }}
+						>
+							<Text width='100%' align='left' fontSize='md' noOfLines={1}>
+								Dummy Text
+							</Text>
+						</Skeleton>
+					))}
+				</VStack>
+			</CardBody>
+			<CardFooter>
+				<DummyButton color='blue' colorMode={props.colorMode} isFullWidth size='xs' variant='text'>
+					This is the Dummy Card Footer Action
 				</DummyButton>
-			}
-		/>
-		<CardBody>
-			<VStack width='100%' alignItems='stretch' justifyContent='stretch' spacing={2}>
-				{range(2).map((_dummy, index) => (
-					<Skeleton
-						key={index}
-						colorMode={props.colorMode}
-						isLoaded={false}
-						variant='text'
-						sx={{ width: '100%', flex: 1 }}
-					>
-						<Text width='100%' align='left' fontSize='md' noOfLines={1}>
-							Dummy Text
-						</Text>
-					</Skeleton>
-				))}
-			</VStack>
-		</CardBody>
-		<CardFooter>
-			<DummyButton color='blue' colorMode={props.colorMode} isFullWidth size='xs' variant='text'>
-				This is the Dummy Card Footer Action
-			</DummyButton>
-		</CardFooter>
+			</CardFooter>
+		</DummyCardStack>
 	</DummyCardComponent>
 );
