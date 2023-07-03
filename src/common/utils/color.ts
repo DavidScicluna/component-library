@@ -3,7 +3,7 @@ import memoize from 'micro-memoize';
 import { Color, ColorHues, Theme } from '../../theme/types';
 import { AppColor, AppColorMode } from '../types';
 
-type Type =
+export type GetHueType =
 	| 'background'
 	| 'text.primary'
 	| 'text.secondary'
@@ -19,7 +19,7 @@ type Type =
 
 export type GetHueProps = {
 	colorMode: AppColorMode;
-	type: Type;
+	type: GetHueType;
 };
 
 export const getHue = memoize(({ colorMode, type }: GetHueProps): ColorHues => {
@@ -55,7 +55,7 @@ export type GetColorProps = {
 	theme: Theme;
 	colorMode: AppColorMode;
 	color?: AppColor;
-	type: Type;
+	type: GetHueType;
 };
 
 export const getColor = memoize(({ theme, colorMode, color: colorProp, type }: GetColorProps): string => {
