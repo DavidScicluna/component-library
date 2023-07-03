@@ -143,10 +143,6 @@ import CardBody from './components/DataDisplay/Cards/components/CardBody';
 import { CardBodyProps } from './components/DataDisplay/Cards/components/CardBody/common/types';
 import CardFooter from './components/DataDisplay/Cards/components/CardFooter';
 import { CardFooterProps } from './components/DataDisplay/Cards/components/CardFooter/common/types';
-import CardSubtitle from './components/DataDisplay/Cards/components/CardSubtitle';
-import { CardSubtitleProps } from './components/DataDisplay/Cards/components/CardSubtitle/common/types';
-import CardTitle from './components/DataDisplay/Cards/components/CardTitle';
-import { CardTitleProps } from './components/DataDisplay/Cards/components/CardTitle/common/types';
 import DummyCard from './components/DataDisplay/Cards/DummyCard';
 import { useDummyCardContext } from './components/DataDisplay/Cards/DummyCard/common/hooks';
 import { DummyCardContext, DummyCardProps, DummyCardRef } from './components/DataDisplay/Cards/DummyCard/common/types';
@@ -159,6 +155,10 @@ import {
 } from './components/DataDisplay/Cards/DummyCard/components/DummyCardHeader/common/types';
 import DummyCardStack from './components/DataDisplay/Cards/DummyCard/components/DummyCardStack';
 import { DummyCardStackProps } from './components/DataDisplay/Cards/DummyCard/components/DummyCardStack/common/types';
+import DummyCardSubtitle from './components/DataDisplay/Cards/DummyCard/components/DummyCardSubtitle';
+import { DummyCardSubtitleProps } from './components/DataDisplay/Cards/DummyCard/components/DummyCardSubtitle/common/types';
+import DummyCardTitle from './components/DataDisplay/Cards/DummyCard/components/DummyCardTitle';
+import { DummyCardTitleProps } from './components/DataDisplay/Cards/DummyCard/components/DummyCardTitle/common/types';
 import Card from './components/DataDisplay/Cards/OriginalCard';
 import { useCardContext } from './components/DataDisplay/Cards/OriginalCard/common/hooks';
 import { CardContext, CardProps, CardRef } from './components/DataDisplay/Cards/OriginalCard/common/types';
@@ -171,6 +171,10 @@ import {
 } from './components/DataDisplay/Cards/OriginalCard/components/CardHeader/common/types';
 import CardStack from './components/DataDisplay/Cards/OriginalCard/components/CardStack';
 import { CardStackProps } from './components/DataDisplay/Cards/OriginalCard/components/CardStack/common/types';
+import CardSubtitle from './components/DataDisplay/Cards/OriginalCard/components/CardSubtitle';
+import { CardSubtitleProps } from './components/DataDisplay/Cards/OriginalCard/components/CardSubtitle/common/types';
+import CardTitle from './components/DataDisplay/Cards/OriginalCard/components/CardTitle';
+import { CardTitleProps } from './components/DataDisplay/Cards/OriginalCard/components/CardTitle/common/types';
 import { CollapsibleCardColor, CollapsibleCardVariant } from './components/DataDisplay/CollapsibleCards/common/types';
 import DummyCollapsibleCard from './components/DataDisplay/CollapsibleCards/DummyCollapsibleCard';
 import {
@@ -892,6 +896,8 @@ export {
 	DummyCardDivider,
 	DummyCardHeader,
 	DummyCardStack,
+	DummyCardSubtitle,
+	DummyCardTitle,
 	DummyCollapsibleCard,
 	DummyHorizontalGrid,
 	DummyHorizontalGridBody,
@@ -1134,6 +1140,8 @@ export type {
 	DummyCardProps,
 	DummyCardRef,
 	DummyCardStackProps,
+	DummyCardSubtitleProps,
+	DummyCardTitleProps,
 	DummyCollapsibleCardProps,
 	DummyCollapsibleCardRef,
 	DummyCollapsibleCardRenderProps,
