@@ -17,7 +17,7 @@ const Calendar: FC<CalendarProps> = ({ calendar }) => {
 	const { color, colorMode, date, format, spacing } = useDatePickerContext();
 
 	return (
-		<VStack width='100%' divider={<Divider colorMode={colorMode} />} spacing={spacing}>
+		<VStack width='100%' divider={<Divider color='gray' colorMode={colorMode} />} spacing={spacing}>
 			<VStack width='100%' spacing={spacing}>
 				<CalendarHeader calendar={calendar} />
 

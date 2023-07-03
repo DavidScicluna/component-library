@@ -40,7 +40,7 @@ const DummyQuickToggles: FC<DummyQuickTogglesProps> = (props) => {
 			</GridItem>
 
 			<GridItem>
-				<Divider colorMode={colorMode} orientation={isMd ? 'horizontal' : 'vertical'} />
+				<Divider color='gray' colorMode={colorMode} orientation={isMd ? 'horizontal' : 'vertical'} />
 			</GridItem>
 
 			<GridItem>

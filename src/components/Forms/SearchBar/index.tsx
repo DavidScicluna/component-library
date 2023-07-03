@@ -75,9 +75,11 @@ const SearchBar: FC<SearchBarProps> = (props) => {
 				isDisabled={isDisabled}
 				isReadOnly={isReadOnly}
 				onChange={(event: InputChangeEvent) => handleQuery(event.target.value)}
-				renderLeft={({ color, colorMode, ...rest }) => (
+				renderLeft={({ color, colorMode, height }) => (
 					<Icon
-						{...rest}
+						width={`${height}px`}
+						height={`${height}px`}
+						fontSize={`${height}px`}
 						color={color}
 						colorMode={colorMode}
 						icon='search'
@@ -91,7 +93,7 @@ const SearchBar: FC<SearchBarProps> = (props) => {
 								<HStack
 									alignItems='stretch'
 									justifyContent='stretch'
-									divider={<Divider colorMode={colorMode} orientation='vertical' />}
+									divider={<Divider color='gray' colorMode={colorMode} orientation='vertical' />}
 									spacing={1}
 								>
 									{hasClear

@@ -58,7 +58,7 @@ const QuickToggles = <D,>(props: QuickTogglesProps<D>): ReactElement => {
 			</GridItem>
 
 			<GridItem>
-				<Divider colorMode={colorMode} orientation={isMd ? 'horizontal' : 'vertical'} />
+				<Divider color='gray' colorMode={colorMode} orientation={isMd ? 'horizontal' : 'vertical'} />
 			</GridItem>
 
 			<GridItem>

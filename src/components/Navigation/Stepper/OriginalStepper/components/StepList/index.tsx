@@ -84,7 +84,7 @@ const StepList: FC<StepListProps> = (props) => {
 						isDivisible
 							? () => (
 									<Center height='100%' alignItems='stretch' justifyContent='stretch'>
-										<Divider colorMode={colorMode} orientation='vertical' />
+										<Divider color='gray' colorMode={colorMode} orientation='vertical' />
 									</Center>
 							  )
 							: undefined

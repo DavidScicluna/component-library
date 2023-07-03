@@ -43,7 +43,7 @@ const Rotate: FC<RotateProps> = ({ rotation = defaultRotation, onRotate }) => {
 			width='100%'
 			alignItems='stretch'
 			justifyContent='stretch'
-			divider={<Divider colorMode={colorMode} orientation='vertical' />}
+			divider={<Divider color='gray' colorMode={colorMode} orientation='vertical' />}
 			spacing={4}
 		>
 			<Center

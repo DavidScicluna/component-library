@@ -110,11 +110,11 @@ const Tab: FC<TabProps> = (props) => {
 			>
 				<Center width='100%' px={config.padding.x}>
 					<Divider
-						width='100%'
-						height={`${border.tab}px`}
-						backgroundColor={theme.colors.transparent}
+						color='gray'
+						borderColor={theme.colors.transparent}
 						borderStartStartRadius='full'
 						borderStartEndRadius='full'
+						size={border.tab}
 					/>
 				</Center>
 
@@ -140,11 +140,11 @@ const Tab: FC<TabProps> = (props) => {
 				<ScaleFade in={isActive || isSelected || isHovering} unmountOnExit={false} initialScale={0.75}>
 					<Center width='100%' px={config.padding.x}>
 						<Divider
-							width='100%'
-							height={`${border.tab}px`}
-							backgroundColor={borderColor}
+							color='gray'
+							borderColor={borderColor}
 							borderStartStartRadius='full'
 							borderStartEndRadius='full'
+							size={border.tab}
 						/>
 					</Center>
 				</ScaleFade>

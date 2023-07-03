@@ -37,7 +37,7 @@ const Actions: FC<ActionsProps> = ({ onSelectTool, onZoom, onCancel, onSave }) =
 			width='100%'
 			alignItems='stretch'
 			justifyContent='space-between'
-			divider={<Divider colorMode={colorMode} orientation='vertical' />}
+			divider={<Divider color='gray' colorMode={colorMode} orientation='vertical' />}
 			spacing={4}
 		>
 			<Center ref={cancelRef}>
@@ -55,7 +55,7 @@ const Actions: FC<ActionsProps> = ({ onSelectTool, onZoom, onCancel, onSave }) =
 			width='100%'
 			alignItems='center'
 			justifyContent='space-between'
-			divider={<Divider colorMode={colorMode} />}
+			divider={<Divider color='gray' colorMode={colorMode} />}
 			spacing={4}
 		>
 			<Center width='100%'>
