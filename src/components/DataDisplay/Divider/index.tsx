@@ -36,7 +36,7 @@ const Divider = forwardRef<DividerRef, DividerProps>(function Divider(props, ref
 			borderTopStyle: variant,
 			borderTopColor: borderColor || defaultBorderColor
 		};
-	}, [size]);
+	}, [borderColor, defaultBorderColor, size, orientation, variant]);
 
 	return (
 		<Box
