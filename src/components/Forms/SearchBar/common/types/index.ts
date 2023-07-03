@@ -5,7 +5,7 @@ import { IconButtonProps } from '../../../../Clickable/IconButtons/OriginalIconB
 import { IconButtonIconProps } from '../../../../Clickable/IconButtons/OriginalIconButton/components/IconButtonIcon/common/types';
 import { InputProps } from '../../../Input/common/types';
 
-type SearchBarRenderClearPickedProps = 'colorMode' | 'onClick' | 'variant';
+type SearchBarRenderClearPickedProps = 'color' | 'colorMode' | 'onClick' | 'variant';
 type SearchBarRenderSubmitPickedProps =
 	| 'children'
 	| 'color'

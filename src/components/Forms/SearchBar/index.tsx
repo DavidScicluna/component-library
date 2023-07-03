@@ -1,12 +1,13 @@
 import { FC, useState } from 'react';
 
-import { HStack } from '@chakra-ui/react';
+import { Center, HStack } from '@chakra-ui/react';
 
 import { useUpdateEffect } from 'usehooks-ts';
 
 import { useDebounce } from '../../../common/hooks';
 import Divider from '../../DataDisplay/Divider';
 import Icon from '../../DataDisplay/Icon';
+import Fade from '../../Transitions/Fade';
 import Form from '../Form';
 import Input from '../Input';
 import { InputChangeEvent } from '../Input/common/types';
@@ -31,7 +32,7 @@ const SearchBar: FC<SearchBarProps> = (props) => {
 	const [query, setQuery] = useState(initialQuery);
 	const debouncedQuery = useDebounce(query, 'slow');
 
-	const hasClear = !(isDisabled || isReadOnly) && query.length > 0 && renderClear;
+	const hasClear = !(isDisabled || isReadOnly) && query.length > 0 && renderClear && onClear;
 
 	const handleClear = (): void => {
 		setQuery('');
@@ -75,17 +76,19 @@ const SearchBar: FC<SearchBarProps> = (props) => {
 				isDisabled={isDisabled}
 				isReadOnly={isReadOnly}
 				onChange={(event: InputChangeEvent) => handleQuery(event.target.value)}
-				renderLeft={({ color, colorMode, height }) => (
-					<Icon
-						width={`${height}px`}
-						height={`${height}px`}
-						fontSize={`${height}px`}
-						color={color}
-						colorMode={colorMode}
-						icon='search'
-						category='outlined'
-						variant='transparent'
-					/>
+				renderLeft={({ colorMode, height }) => (
+					<Center width='100%' height='100%'>
+						<Icon
+							width={`${height}px`}
+							height={`${height}px`}
+							fontSize={`${height}px`}
+							color='gray'
+							colorMode={colorMode}
+							icon='search'
+							category='outlined'
+							variant='transparent'
+						/>
+					</Center>
 				)}
 				renderRight={
 					renderSubmit && onSubmit
@@ -96,15 +99,18 @@ const SearchBar: FC<SearchBarProps> = (props) => {
 									divider={<Divider color='gray' colorMode={colorMode} orientation='vertical' />}
 									spacing={1}
 								>
-									{hasClear
-										? renderClear({
+									{renderClear && onClear ? (
+										<Fade in={!!hasClear} unmountOnExit={false}>
+											{renderClear({
+												color: 'gray',
 												colorMode,
 												icon: 'clear',
 												category: 'outlined',
 												onClick: handleClear,
 												variant: 'icon'
-										  })
-										: null}
+											})}
+										</Fade>
+									) : null}
 
 									{renderSubmit({
 										children: 'Submit',
@@ -117,16 +123,20 @@ const SearchBar: FC<SearchBarProps> = (props) => {
 									})}
 								</HStack>
 						  )
-						: ({ colorMode }) =>
-								hasClear
-									? renderClear({
-											colorMode,
-											icon: 'clear',
-											category: 'outlined',
-											onClick: handleClear,
-											variant: 'icon'
-									  })
-									: null
+						: renderClear && onClear
+						? ({ colorMode }) => (
+								<Fade in={!!hasClear} unmountOnExit={false}>
+									{renderClear({
+										color: 'gray',
+										colorMode,
+										icon: 'clear',
+										category: 'outlined',
+										onClick: handleClear,
+										variant: 'icon'
+									})}
+								</Fade>
+						  )
+						: undefined
 				}
 				type='text'
 				value={query}
