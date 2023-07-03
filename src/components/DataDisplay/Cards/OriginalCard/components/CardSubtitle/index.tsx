@@ -6,36 +6,15 @@ import { useGetColor } from '../../../../../../common/hooks';
 import { useCardContext } from '../../common/hooks';
 
 import { CardSubtitleProps } from './common/types';
+import { getCardSubtitleColor, getCardSubtitleColorType } from './common/utils';
 
 const CardSubtitle: FC<CardSubtitleProps> = ({ children, ...rest }) => {
 	const { color, colorMode, variant } = useCardContext();
 
 	const textColor = useGetColor({
-		color:
-			variant === 'contained' || variant === 'monochrome' || color === 'black' || color === 'white'
-				? 'gray'
-				: color,
+		color: getCardSubtitleColor({ color, colorMode, variant }),
 		colorMode,
-		type:
-			variant === 'contained'
-				? colorMode === 'light'
-					? 'darkest'
-					: 'lightest'
-				: variant === 'light'
-				? color === 'black'
-					? colorMode === 'light'
-						? 'dark'
-						: 'light'
-					: color === 'white'
-					? colorMode === 'light'
-						? 'light'
-						: 'dark'
-					: colorMode === 'light'
-					? 'lightest'
-					: 'darkest'
-				: variant === 'monochrome'
-				? 'text.secondary'
-				: 'color'
+		type: getCardSubtitleColorType({ color, colorMode, variant })
 	});
 
 	return (
