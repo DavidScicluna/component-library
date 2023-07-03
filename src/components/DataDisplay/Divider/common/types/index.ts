@@ -35,7 +35,7 @@ type Omitted =
 	| BoxFlexbox
 	| BoxGrid
 	| BoxBackground
-	| BoxBorders
+	| Exclude<BoxBorders, 'borderColor'>
 	| BoxBorderRadius
 	| BoxPosition
 	| BoxShadow

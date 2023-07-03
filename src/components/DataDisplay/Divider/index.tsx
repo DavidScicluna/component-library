@@ -15,6 +15,7 @@ const Divider = forwardRef<DividerRef, DividerProps>(function Divider(props, ref
 		children,
 		color = defaultColor,
 		colorMode = defaultColorMode,
+		borderColor,
 		placement = 'center',
 		size = 2,
 		spacing = 2,
@@ -23,7 +24,7 @@ const Divider = forwardRef<DividerRef, DividerProps>(function Divider(props, ref
 		...rest
 	} = props;
 
-	const borderColor = useGetColor({ color, colorMode, type: 'divider' });
+	const defaultBorderColor = useGetColor({ color, colorMode, type: 'divider' });
 
 	const styles = useMemo<Style>(() => {
 		return {
@@ -33,7 +34,7 @@ const Divider = forwardRef<DividerRef, DividerProps>(function Divider(props, ref
 				.map((w) => `${w}px`)
 				.join(' ')} !important`,
 			borderTopStyle: variant,
-			borderTopColor: borderColor
+			borderTopColor: borderColor || defaultBorderColor
 		};
 	}, [size]);
 
@@ -51,7 +52,7 @@ const Divider = forwardRef<DividerRef, DividerProps>(function Divider(props, ref
 					? {
 							borderWidth: `${[0, 0, 0, size].map((w) => `${w}px`).join(' ')} !important`,
 							borderLeftStyle: variant,
-							borderLeftColor: borderColor
+							borderLeftColor: borderColor || defaultBorderColor
 					  }
 					: undefined
 			}
