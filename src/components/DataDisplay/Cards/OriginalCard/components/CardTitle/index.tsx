@@ -6,36 +6,15 @@ import { useGetColor } from '../../../../../../common/hooks';
 import { useCardContext } from '../../common/hooks';
 
 import { CardTitleProps } from './common/types';
+import { getCardTitleColor, getCardTitleColorType } from './common/utils';
 
 const CardTitle: FC<CardTitleProps> = ({ children, ...rest }) => {
 	const { color, colorMode, variant } = useCardContext();
 
 	const textColor = useGetColor({
-		color:
-			variant === 'contained' || variant === 'monochrome' || color === 'black' || color === 'white'
-				? 'gray'
-				: color,
+		color: getCardTitleColor({ color, colorMode, variant }),
 		colorMode,
-		type:
-			variant === 'contained'
-				? colorMode === 'light'
-					? 'darkest'
-					: 'lightest'
-				: variant === 'light'
-				? color === 'black'
-					? colorMode === 'light'
-						? 'dark'
-						: 'light'
-					: color === 'white'
-					? colorMode === 'light'
-						? 'light'
-						: 'dark'
-					: colorMode === 'light'
-					? 'lightest'
-					: 'darkest'
-				: variant === 'monochrome'
-				? 'text.primary'
-				: 'color'
+		type: getCardTitleColorType({ color, colorMode, variant })
 	});
 
 	return (
