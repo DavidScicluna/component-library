@@ -54,7 +54,7 @@ const Divider = forwardRef<DividerRef, DividerProps>(function Divider(props, ref
 							borderLeftStyle: variant,
 							borderLeftColor: borderColor || defaultBorderColor
 					  }
-					: undefined
+					: { border: 'none !important' }
 			}
 			_before={
 				orientation === 'horizontal' && (placement === 'right' || placement === 'center')
