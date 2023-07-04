@@ -31,6 +31,7 @@ const Arrow = forwardRef<ArrowRef, ArrowProps>(function Arrow(props, ref): React
 			aria-label={`${capitalize(direction)} Arrow Button`}
 			color='gray'
 			colorMode={colorMode}
+			isCompact
 			isDisabled={isDisabled}
 			size={size}
 			variant='icon'

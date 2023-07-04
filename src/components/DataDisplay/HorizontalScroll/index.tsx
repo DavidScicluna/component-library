@@ -39,6 +39,7 @@ export const HorizontalScrollContext = createContext<HorizontalScrollContextType
 	spacing: defaultSpacing
 });
 
+// Rename to Carousel
 const HorizontalScroll = forwardRef<HorizontalScrollRef, HorizontalScrollProps>(function HorizontalScroll(
 	props,
 	ref
