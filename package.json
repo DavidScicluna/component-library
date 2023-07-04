@@ -18,7 +18,8 @@
 		"format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json}\" --config ./.prettierrc",
 		"cleanup": "rimraf node_modules && yarn cache clean --all",
 		"prebuild": "yarn run cleanup && yarn install && yarn run lint --fix && sudo yarn run format && rimraf build",
-		"build": "yarn run prebuild && yarn run rollup -c",
+		"build": "yarn run rollup -c",
+		"fresh-build": "yarn run prebuild && yarn run build",
 		"publish": "yarn npm login && yarn npm publish --access public",
 		"storybook": "storybook dev --no-open -p 6006",
 		"build-storybook": "storybook build"
@@ -110,12 +111,6 @@
 		"@chakra-ui/utils": "^2.0.14",
 		"@emotion/react": "^11.10.6",
 		"@emotion/styled": "^11.10.6",
-		"@fontsource/material-icons": "^4.5.4",
-		"@fontsource/material-icons-outlined": "^4.5.4",
-		"@fontsource/material-icons-two-tone": "^5.0.3",
-		"@fontsource/roboto-mono": "^4.5.10",
-		"@fontsource/roboto-slab": "^4.5.11",
-		"@fontsource/work-sans": "^4.5.14",
 		"framer-motion": "^10.10.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
