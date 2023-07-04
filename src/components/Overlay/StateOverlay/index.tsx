@@ -81,7 +81,12 @@ const StateOverlay = forwardRef<StateOverlayRef, StateOverlayProps>(function Sta
 				</GridItem>
 			) : null}
 
-			<GridItem as={Fade} rowStart={1} colStart={1} in={hasContentAlwaysVisible || state === 'default'}>
+			<GridItem
+				as={Fade}
+				rowStart={1}
+				colStart={1}
+				in={state === 'default' || (hasContentAlwaysVisible && state === 'dummy') || state === 'loading'}
+			>
 				{renderDummy && (state === 'dummy' || state === 'loading')
 					? renderDummy({ state })
 					: renderContent({ state })}
