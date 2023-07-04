@@ -39,7 +39,7 @@
 		"plugin:react-hooks/recommended",
 		"plugin:@typescript-eslint/recommended"
 	],
-	"plugins": ["import", "simple-import-sort"],
+	"plugins": ["jsx-a11y", "import", "simple-import-sort"],
 	"rules": {
 		"jsx-a11y/href-no-hash": "off",
 		"react/react-in-jsx-scope": "off",
