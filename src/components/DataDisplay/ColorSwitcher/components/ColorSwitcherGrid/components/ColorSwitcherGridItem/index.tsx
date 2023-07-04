@@ -7,9 +7,9 @@ import { capitalize, startCase } from 'lodash-es';
 import { useGetColor, useTheme } from '../../../../../../../common/hooks';
 import ScaleFade from '../../../../../../Transitions/ScaleFade';
 import CardBody from '../../../../../Cards/components/CardBody';
-import CardTitle from '../../../../../Cards/components/CardTitle';
 import Card from '../../../../../Cards/OriginalCard';
 import CardHeader from '../../../../../Cards/OriginalCard/components/CardHeader';
+import CardTitle from '../../../../../Cards/OriginalCard/components/CardTitle';
 import Icon from '../../../../../Icon';
 import { useColorSwitcherContext } from '../../../../common/hooks';
 

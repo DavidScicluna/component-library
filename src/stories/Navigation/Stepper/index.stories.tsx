@@ -2,7 +2,7 @@ import { ReactElement, useState } from 'react';
 
 import { range } from 'lodash-es';
 
-import { AppColors, useTheme } from '../../..';
+import { AppColors } from '../../..';
 // import { AppColors, Icon, StepList, StepPanels, Steps as StepsComponent, StepsProps, StepsSize } from '../../..';
 import { color as defaultColor } from '../../../common/default/props';
 import {
@@ -16,7 +16,7 @@ import StepperComponent from '../../../components/Navigation/Stepper/OriginalSte
 import { StepperProps } from '../../../components/Navigation/Stepper/OriginalStepper/common/types';
 import StepList from '../../../components/Navigation/Stepper/OriginalStepper/components/StepList';
 import StepPanels from '../../../components/Navigation/Stepper/OriginalStepper/components/StepPanels';
-import StepProgress from '../../../components/Navigation/Stepper/OriginalStepper/components/StepProgress';
+// import StepProgress from '../../../components/Navigation/Stepper/OriginalStepper/components/StepProgress';
 import controls from '../../common/controls';
 import parameters from '../../common/parameters';
 
@@ -90,7 +90,7 @@ export default {
 } as Meta;
 
 export const Stepper: Story = (props: StepperProps): ReactElement => {
-	const theme = useTheme();
+	// const theme = useTheme();
 
 	const [activeStep, setActiveStep] = useState<number>(props.activeStep || 0);
 
