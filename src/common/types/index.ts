@@ -31,8 +31,18 @@ export type CommonThemeProps = {
 	colorMode?: AppColorMode;
 };
 
+// TODO: Remove
 export type Style = SystemStyleObject;
 
 export type Orientation = 'vertical' | 'horizontal';
 
 export type OS = 'undetermined' | 'macos' | 'ios' | 'windows' | 'android' | 'linux';
+
+export type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+export type Breakpoints = Breakpoint[];
+
+export type ResponsiveArrayValue<D> = [D?, D?, D?, D?, D?, D?];
+export type ResponsiveObjectValue<D> = Record<Breakpoint, D>;
+export type ResponsiveValue<D> = ResponsiveArrayValue<D> | ResponsiveObjectValue<D> | D;
+
+export type Space = number;
