@@ -2,7 +2,7 @@ import { isArray, isObject } from 'lodash-es';
 import memoize from 'micro-memoize';
 
 import { FontSize, LineHeight, Theme } from '../../theme/types';
-import { Breakpoint, OS, ResponsiveValue } from '../types';
+import { Breakpoint, OS, ResponsiveArrayValue, ResponsiveObjectValue, ResponsiveValue } from '../types';
 
 /**
  * This method will get the OS type of the user's device
@@ -98,28 +98,13 @@ export const convertEasingsToArray = memoize(({ easing }: ConvertEasingsToArrayP
 );
 
 /**
- * This method will check which type the responsive value is if its an array, object or default value
+ * This method will return the appropriate responsive value depending on current dimensions of the users device
  *
  * @param value - ResponsiveValue
- * @returns - 'array' | 'object' | 'default'
- */
-export const checkResponsiveValue = memoize(<D>(value: ResponsiveValue<D>): 'array' | 'object' | 'default' => {
-	if (isArray(value)) {
-		return 'array';
-	} else if (isObject(value)) {
-		return 'object';
-	} else {
-		return 'default';
-	}
-});
-
-/**
- * This method will return the appropriate item depending on current dimensions of the users device
- *
- * @param value - ResponsiveValue
- * @returns - The item with the array or object that aligns with the breakpoint
+ * @returns - The responsive value within the array or object that aligns with the breakpoint
  */
 export const getResponsiveValue = memoize(<D>(value: ResponsiveValue<D>): D => {
+	const status = isArray(value) ? 'array' : isObject(value) ? 'object' : 'default';
 	const breakpoint: Breakpoint = globalThis?.window?.matchMedia('(min-width: 1536px)')
 		? '2xl'
 		: globalThis?.window?.matchMedia('(min-width: 1280px)')
@@ -132,56 +117,49 @@ export const getResponsiveValue = memoize(<D>(value: ResponsiveValue<D>): D => {
 		? 'sm'
 		: 'xs';
 
-	if (isArray(value)) {
-		switch (value.length) {
+	if (status === 'array') {
+		const v = value as ResponsiveArrayValue<D>;
+		switch (v.length) {
 			case 1:
-				return value[0] as D;
+				return v[0] as D;
 			case 2:
-				return (breakpoint === 'xs' ? value[0] : value[1]) as D;
+				return (breakpoint === 'xs' ? v[0] : v[1]) as D;
 			case 3:
-				return (breakpoint === 'xs' ? value[0] : breakpoint === 'sm' ? value[1] : value[2]) as D;
+				return (breakpoint === 'xs' ? v[0] : breakpoint === 'sm' ? v[1] : v[2]) as D;
 			case 4:
 				return (
-					breakpoint === 'xs'
-						? value[0]
-						: breakpoint === 'sm'
-						? value[1]
-						: breakpoint === 'md'
-						? value[2]
-						: value[3]
+					breakpoint === 'xs' ? v[0] : breakpoint === 'sm' ? v[1] : breakpoint === 'md' ? v[2] : v[3]
 				) as D;
 			case 5:
 				return (
 					breakpoint === 'xs'
-						? value[0]
+						? v[0]
 						: breakpoint === 'sm'
-						? value[1]
+						? v[1]
 						: breakpoint === 'md'
-						? value[2]
+						? v[2]
 						: breakpoint === 'lg'
-						? value[3]
-						: value[4]
+						? v[3]
+						: v[4]
 				) as D;
 			case 6:
 				return (
 					breakpoint === 'xs'
-						? value[0]
+						? v[0]
 						: breakpoint === 'sm'
-						? value[1]
+						? v[1]
 						: breakpoint === 'md'
-						? value[2]
+						? v[2]
 						: breakpoint === 'lg'
-						? value[3]
+						? v[3]
 						: breakpoint === 'xl'
-						? value[4]
-						: value[5]
+						? v[4]
+						: v[5]
 				) as D;
 		}
-	} else if (isObject(value)) {
-		return value[breakpoint];
-	} else {
-		return value;
+	} else if (status === 'object') {
+		const v = value as ResponsiveObjectValue<D>;
+		return v[breakpoint];
 	}
-
 	return value as D;
 });
