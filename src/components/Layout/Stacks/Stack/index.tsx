@@ -3,9 +3,10 @@ import { forwardRef, Fragment, ReactElement, useMemo } from 'react';
 import classNames from 'classnames';
 import { isArray } from 'lodash-es';
 
+import { useGetResponsiveValue } from '../../../../common/hooks';
 import { Space } from '../../../../common/types';
 import { AlignItems, FlexDirection, FlexWrap, JustifyContent } from '../../../../common/types/flexbox&grid';
-import { checkResponsiveValue, getResponsiveValue } from '../../../../common/utils';
+import { getResponsiveValue } from '../../../../common/utils';
 import {
 	getAlignItemsClassName,
 	getFlexDirectionClassName,
@@ -24,44 +25,25 @@ const Stack = forwardRef<StackRef, StackProps>(function Stack(props, ref): React
 		direction = 'row',
 		divider,
 		justifyContent = 'stretch',
-		spacing = 2,
+		spacing: s = 2,
 		wrap = 'nowrap',
 		...rest
 	} = props;
 
-	const directionClassName = useMemo(() => {
-		return getFlexDirectionClassName(
-			checkResponsiveValue<FlexDirection>(direction) !== 'default'
-				? getResponsiveValue<FlexDirection>(direction)
-				: (direction as FlexDirection)
-		);
+	const directionClassName = useMemo<string>(() => {
+		return getFlexDirectionClassName(getResponsiveValue<FlexDirection>(direction));
 	}, [direction]);
-	const alignItemsClassName = useMemo(() => {
-		return getAlignItemsClassName(
-			checkResponsiveValue<AlignItems>(alignItems) !== 'default'
-				? getResponsiveValue<AlignItems>(alignItems)
-				: (alignItems as AlignItems)
-		);
+	const alignItemsClassName = useMemo<string>(() => {
+		return getAlignItemsClassName(getResponsiveValue<AlignItems>(alignItems));
 	}, [alignItems]);
-	const justifyContentClassName = useMemo(() => {
-		return getJustifyContentClassName(
-			checkResponsiveValue<JustifyContent>(justifyContent) !== 'default'
-				? getResponsiveValue<JustifyContent>(justifyContent)
-				: (justifyContent as JustifyContent)
-		);
+	const justifyContentClassName = useMemo<string>(() => {
+		return getJustifyContentClassName(getResponsiveValue<JustifyContent>(justifyContent));
 	}, [justifyContent]);
-	const wrapClassName = useMemo(() => {
-		return getFlexWrapClassName(
-			checkResponsiveValue<FlexWrap>(wrap) !== 'default' ? getResponsiveValue<FlexWrap>(wrap) : (wrap as FlexWrap)
-		);
+	const wrapClassName = useMemo<string>(() => {
+		return getFlexWrapClassName(getResponsiveValue<FlexWrap>(wrap));
 	}, [wrap]);
-	const spacingClassName = useMemo(() => {
-		const s =
-			checkResponsiveValue<Space>(spacing) !== 'default'
-				? getResponsiveValue<Space>(spacing)
-				: (spacing as Space);
-		return `gap-${s}`;
-	}, [spacing]);
+
+	const spacing = useGetResponsiveValue<Space>(s);
 
 	return (
 		<Box
@@ -73,7 +55,7 @@ const Stack = forwardRef<StackRef, StackProps>(function Stack(props, ref): React
 				wrapClassName,
 				alignItemsClassName,
 				justifyContentClassName,
-				spacingClassName,
+				`gap-${spacing}`,
 				{ [className]: !!className }
 			)}
 		>
