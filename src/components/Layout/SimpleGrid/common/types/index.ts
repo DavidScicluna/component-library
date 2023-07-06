@@ -1,8 +1,11 @@
 import { ResponsiveValue, Space } from '../../../../../common/types';
 import { BoxProps, BoxRef } from '../../../Box/common/types';
 
+export type SimpleGridColumn = number;
+export type SimpleGridColumns = SimpleGridColumn[];
+
 export type SimpleGridProps = BoxProps & {
-	columns: ResponsiveValue<number>;
+	columns: ResponsiveValue<SimpleGridColumn>;
 	spacing?: ResponsiveValue<Space>;
 };
 

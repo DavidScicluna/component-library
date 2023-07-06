@@ -1,36 +1,24 @@
-import { forwardRef, ReactElement, useMemo } from 'react';
+import { forwardRef, ReactElement } from 'react';
 
 import classNames from 'classnames';
 
+import { useGetResponsiveValue } from '../../../common/hooks';
 import { Space } from '../../../common/types';
-import { checkResponsiveValue, getResponsiveValue } from '../../../common/utils';
 import Box from '../Box';
 
-import { SimpleGridProps, SimpleGridRef } from './common/types';
+import { SimpleGridColumn, SimpleGridProps, SimpleGridRef } from './common/types';
 
 const SimpleGrid = forwardRef<SimpleGridRef, SimpleGridProps>(function SimpleGrid(props, ref): ReactElement {
-	const { children, className = '', columns, spacing = 2, ...rest } = props;
+	const { children, className = '', columns: cols, spacing: s = 2, ...rest } = props;
 
-	const columnsClassName = useMemo(() => {
-		const cols =
-			checkResponsiveValue<Space>(columns) !== 'default'
-				? getResponsiveValue<Space>(columns)
-				: (columns as Space);
-		return `grid-cols-${cols}`;
-	}, [columns]);
-	const spacingClassName = useMemo(() => {
-		const s =
-			checkResponsiveValue<Space>(spacing) !== 'default'
-				? getResponsiveValue<Space>(spacing)
-				: (spacing as Space);
-		return `gap-${s}`;
-	}, [spacing]);
+	const columns = useGetResponsiveValue<SimpleGridColumn>(cols);
+	const spacing = useGetResponsiveValue<Space>(s);
 
 	return (
 		<Box
 			{...rest}
 			ref={ref}
-			className={classNames('grid', columnsClassName, spacingClassName, {
+			className={classNames('grid', `grid-cols-${columns}`, `gap-${spacing}`, {
 				[className]: !!className
 			})}
 		>
