@@ -3,6 +3,7 @@ import { forwardRef, Fragment, ReactElement, useMemo } from 'react';
 import classNames from 'classnames';
 import { isArray } from 'lodash-es';
 
+import { Space } from '../../../../common/types';
 import { AlignItems, FlexDirection, FlexWrap, JustifyContent } from '../../../../common/types/flexbox&grid';
 import { checkResponsiveValue, getResponsiveValue } from '../../../../common/utils';
 import {
@@ -54,6 +55,13 @@ const Stack = forwardRef<StackRef, StackProps>(function Stack(props, ref): React
 			checkResponsiveValue<FlexWrap>(wrap) !== 'default' ? getResponsiveValue<FlexWrap>(wrap) : (wrap as FlexWrap)
 		);
 	}, [wrap]);
+	const spacingClassName = useMemo(() => {
+		const s =
+			checkResponsiveValue<Space>(spacing) !== 'default'
+				? getResponsiveValue<Space>(spacing)
+				: (spacing as Space);
+		return `gap-${s}`;
+	}, [spacing]);
 
 	return (
 		<Box
@@ -65,7 +73,7 @@ const Stack = forwardRef<StackRef, StackProps>(function Stack(props, ref): React
 				wrapClassName,
 				alignItemsClassName,
 				justifyContentClassName,
-				`gap-${spacing}`,
+				spacingClassName,
 				{ [className]: !!className }
 			)}
 		>
