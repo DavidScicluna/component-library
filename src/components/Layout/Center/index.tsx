@@ -1,4 +1,4 @@
-import { forwardRef, ReactElement } from 'react';
+import { ElementType, forwardRef, ReactElement } from 'react';
 
 import classNames from 'classnames';
 
@@ -8,7 +8,10 @@ import Box from '../Box';
 
 import { CenterProps, CenterRef } from './common/types';
 
-const Center = forwardRef<CenterRef, CenterProps>(function Center(props, ref): ReactElement {
+const Center = forwardRef(function Center<Element extends ElementType>(
+	props: CenterProps<Element>,
+	ref: CenterRef<Element>
+): ReactElement {
 	const { children, className = '', spacing: s = 2, ...rest } = props;
 
 	const spacing = useGetResponsiveValue<Space>(s);
@@ -24,9 +27,7 @@ const Center = forwardRef<CenterRef, CenterProps>(function Center(props, ref): R
 				'items-center',
 				'justify-center',
 				`gap-${spacing}`,
-				{
-					[className]: !!className
-				}
+				{ [className]: !!className }
 			)}
 		>
 			{children}
