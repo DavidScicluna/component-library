@@ -1,4 +1,4 @@
-import { forwardRef, ReactElement, useMemo } from 'react';
+import { ElementType, forwardRef, ReactElement, useMemo } from 'react';
 
 import classNames from 'classnames';
 
@@ -7,7 +7,10 @@ import Box from '../Box';
 
 import { AspectRatioProps, AspectRatioRatio, AspectRatioRef } from './common/types';
 
-const AspectRatio = forwardRef<AspectRatioRef, AspectRatioProps>(function AspectRatio(props, ref): ReactElement {
+const AspectRatio = forwardRef(function AspectRatio<Element extends ElementType>(
+	props: AspectRatioProps<Element>,
+	ref: AspectRatioRef<Element>
+): ReactElement {
 	const { children, className = '', ratio: r = 'square', ...rest } = props;
 
 	const ratioClassName = useMemo<string>(() => {
@@ -20,7 +23,11 @@ const AspectRatio = forwardRef<AspectRatioRef, AspectRatioProps>(function Aspect
 	}, [r]);
 
 	return (
-		<Box {...rest} ref={ref} className={classNames(ratioClassName, { [className]: !!className })}>
+		<Box
+			{...(rest as AspectRatioProps<Element>)}
+			ref={ref}
+			className={classNames(ratioClassName, { [className]: !!className })}
+		>
 			{children}
 		</Box>
 	);
