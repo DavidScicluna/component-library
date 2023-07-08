@@ -18,7 +18,7 @@ const Center = forwardRef(function Center<Element extends ElementType>(
 
 	return (
 		<Box
-			{...rest}
+			{...(rest as CenterProps<Element>)}
 			ref={ref}
 			className={classNames(
 				'flex',
