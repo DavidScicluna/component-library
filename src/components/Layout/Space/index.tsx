@@ -1,4 +1,4 @@
-import { forwardRef, ReactElement } from 'react';
+import { ElementType, forwardRef, ReactElement } from 'react';
 
 import classNames from 'classnames';
 
@@ -7,7 +7,10 @@ import Box from '../Box';
 
 import { SpaceDimension, SpaceProps, SpaceRef } from './common/types';
 
-const Space = forwardRef<SpaceRef, SpaceProps>(function Space(props, ref): ReactElement {
+const Space = forwardRef(function Space<Element extends ElementType>(
+	props: SpaceProps<Element>,
+	ref: SpaceRef<Element>
+): ReactElement {
 	const { className = '', width: w = 0, height: h = 0, ...rest } = props;
 
 	const width = useGetResponsiveValue<SpaceDimension>(w);
@@ -15,7 +18,7 @@ const Space = forwardRef<SpaceRef, SpaceProps>(function Space(props, ref): React
 
 	return (
 		<Box
-			{...rest}
+			{...(rest as SpaceProps<Element>)}
 			ref={ref}
 			className={classNames({
 				[`w-${width}`]: !!w,
