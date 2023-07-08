@@ -1,14 +1,18 @@
-import { forwardRef, ReactElement } from 'react';
+import { ElementType, forwardRef, ReactElement } from 'react';
 
 import Stack from '../Stack';
+import { StackProps } from '../Stack/common/types';
 
 import { VStackProps, VStackRef } from './common/types';
 
-const VStack = forwardRef<VStackRef, VStackProps>(function VStack(props, ref): ReactElement {
+const VStack = forwardRef(function VStack<Element extends ElementType>(
+	props: VStackProps<Element>,
+	ref: VStackRef<Element>
+): ReactElement {
 	const { children, ...rest } = props;
 
 	return (
-		<Stack {...rest} ref={ref} direction='column'>
+		<Stack {...(rest as StackProps<Element>)} ref={ref} direction='column'>
 			{children}
 		</Stack>
 	);
