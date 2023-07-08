@@ -1,4 +1,4 @@
-import { forwardRef, Fragment, ReactElement, useMemo } from 'react';
+import { ElementType, forwardRef, Fragment, ReactElement, useMemo } from 'react';
 
 import classNames from 'classnames';
 import { isArray } from 'lodash-es';
@@ -17,7 +17,10 @@ import Box from '../../Box';
 
 import { StackProps, StackRef } from './common/types';
 
-const Stack = forwardRef<StackRef, StackProps>(function Stack(props, ref): ReactElement {
+const Stack = forwardRef(function Stack<Element extends ElementType>(
+	props: StackProps<Element>,
+	ref: StackRef<Element>
+): ReactElement {
 	const {
 		children,
 		className = '',
@@ -47,7 +50,7 @@ const Stack = forwardRef<StackRef, StackProps>(function Stack(props, ref): React
 
 	return (
 		<Box
-			{...rest}
+			{...(rest as StackProps<Element>)}
 			ref={ref}
 			className={classNames(
 				'flex',
@@ -68,7 +71,7 @@ const Stack = forwardRef<StackRef, StackProps>(function Stack(props, ref): React
 							</Fragment>
 					  ))
 					: children
-				: null}
+				: undefined}
 		</Box>
 	);
 });
