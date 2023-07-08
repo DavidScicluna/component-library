@@ -1,4 +1,4 @@
-import { forwardRef, ReactElement } from 'react';
+import { ElementType, forwardRef, ReactElement } from 'react';
 
 import classNames from 'classnames';
 
@@ -8,7 +8,10 @@ import Box from '../Box';
 
 import { SimpleGridColumn, SimpleGridProps, SimpleGridRef } from './common/types';
 
-const SimpleGrid = forwardRef<SimpleGridRef, SimpleGridProps>(function SimpleGrid(props, ref): ReactElement {
+const SimpleGrid = forwardRef(function SimpleGrid<Element extends ElementType>(
+	props: SimpleGridProps<Element>,
+	ref: SimpleGridRef<Element>
+): ReactElement {
 	const { children, className = '', columns: cols, spacing: s = 2, ...rest } = props;
 
 	const columns = useGetResponsiveValue<SimpleGridColumn>(cols);
@@ -16,7 +19,7 @@ const SimpleGrid = forwardRef<SimpleGridRef, SimpleGridProps>(function SimpleGri
 
 	return (
 		<Box
-			{...rest}
+			{...(rest as SimpleGridProps<Element>)}
 			ref={ref}
 			className={classNames('grid', `grid-cols-${columns}`, `gap-${spacing}`, {
 				[className]: !!className
