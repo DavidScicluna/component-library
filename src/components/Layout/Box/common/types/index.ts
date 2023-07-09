@@ -1,12 +1,11 @@
 import { ElementType } from 'react';
 
-import { Nullable } from '../../../../../common/types';
 import {
 	__DEFAULT_POLYMORPHIC_ELEMENT__,
-	__DEFAULT_POLYMORPHIC_OBJECT__,
-	PolymorphicComponentProps,
-	PolymorphicRef
-} from '../../../../../common/types/polymorphic';
+	__DEFAULT_POLYMORPHIC_OBJECT__
+} from '../../../../../common/default/constants';
+import { Nullable } from '../../../../../common/types';
+import { PolymorphicComponentProps, PolymorphicRef } from '../../../../../common/types/polymorphic';
 
 export type BoxProps<
 	Element extends ElementType = typeof __DEFAULT_POLYMORPHIC_ELEMENT__,
