@@ -1,8 +1,6 @@
 import { ComponentPropsWithoutRef, ComponentPropsWithRef, ElementType, HTMLAttributes } from 'react';
 
-// TODO: Maybe move to default/constants
-export const __DEFAULT_POLYMORPHIC_ELEMENT__: ElementType = 'div';
-export const __DEFAULT_POLYMORPHIC_OBJECT__ = {};
+import { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_OBJECT__ } from '../default/constants';
 
 export type PolymorphicRef<Element extends ElementType = typeof __DEFAULT_POLYMORPHIC_ELEMENT__> =
 	ComponentPropsWithRef<Element>['ref'];
