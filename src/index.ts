@@ -667,30 +667,6 @@ import Slide from './components/Transitions/Slide';
 import { SlideProps } from './components/Transitions/Slide/common/types';
 import SlideFade from './components/Transitions/SlideFade';
 import { SlideFadeProps } from './components/Transitions/SlideFade/common/types';
-import theme from './theme';
-
-// Theme Types
-export type {
-	Color,
-	ColorHues,
-	Colors,
-	Duration,
-	Durations,
-	Ease,
-	Easings,
-	Font,
-	Fonts,
-	FontSize,
-	FontSizes,
-	LineHeight,
-	LineHeights,
-	Radii,
-	Radius,
-	Space,
-	Spacing,
-	Theme,
-	Transition
-} from './theme/types';
 
 // Box Types
 export type {
