@@ -8,7 +8,6 @@ import {
 } from './common/default/amount';
 import { color as defaultColor, colorMode as defaultColorMode, method as defaultMethod } from './common/default/props';
 import { useBoolean, useConst, useDebounce, useGetColor, useGetThemeAppearance, useOs, useTheme } from './common/hooks';
-import { memoizeDebounce } from './common/scripts';
 import {
 	checkIsTouchDevice,
 	convertEasingsToArray,
@@ -798,7 +797,7 @@ export const utils = {
 	getPasswordStrength
 };
 
-export const scripts = { memoizeDebounce };
+// export const scripts = { };
 
 // Theme
 export { theme };
