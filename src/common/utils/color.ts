@@ -1,9 +1,9 @@
 import memoize from 'micro-memoize';
 
-import { Color, ColorHues, Theme } from '../../theme/types';
-import { AppColor, AppColorMode } from '../types';
+import theme from '../theme';
+import { Color, ColorHue, ColorMode } from '../types/theme';
 
-type Type =
+export type ColorHueType =
 	| 'background'
 	| 'text.primary'
 	| 'text.secondary'
@@ -17,21 +17,28 @@ type Type =
 	| 'color'
 	| 'default';
 
-export type GetHueProps = {
-	colorMode: AppColorMode;
-	type: Type;
+export type GetColorHueProps = {
+	colorMode: ColorMode;
+	type: ColorHueType;
 };
 
-export const getHue = memoize(({ colorMode, type }: GetHueProps): ColorHues => {
+/**
+ * This method will return the appropriate color hue depending on the colorMode & type params passed
+ *
+ * @param colorMode - light | dark
+ * @param type - background | text.primary | text.secondary | divider | light | lighter | lightest | dark | darker | darkest | color | default
+ * @returns - 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950
+ */
+export const getColorHue = memoize(({ colorMode, type }: GetColorHueProps): ColorHue => {
 	switch (type) {
 		case 'background':
-			return colorMode === 'light' ? 50 : 900;
+			return colorMode === 'light' ? 50 : 950;
 		case 'text.primary':
-			return colorMode === 'light' ? 900 : 50;
+			return colorMode === 'light' ? 950 : 50;
 		case 'text.secondary':
-			return colorMode === 'light' ? 500 : 400;
+			return colorMode === 'light' ? 600 : 400;
 		case 'divider':
-			return colorMode === 'light' ? 200 : 700;
+			return colorMode === 'light' ? 200 : 800;
 		case 'light':
 			return 200;
 		case 'lighter':
@@ -39,33 +46,44 @@ export const getHue = memoize(({ colorMode, type }: GetHueProps): ColorHues => {
 		case 'lightest':
 			return 50;
 		case 'dark':
-			return 700;
-		case 'darker':
 			return 800;
-		case 'darkest':
+		case 'darker':
 			return 900;
+		case 'darkest':
+			return 950;
 		case 'color':
-			return colorMode === 'light' ? 600 : 300;
+			return colorMode === 'light' ? 600 : 400;
 		case 'default':
-			return colorMode === 'light' ? 500 : 400;
+			return 500;
 	}
 });
 
 export type GetColorProps = {
-	theme: Theme;
-	colorMode: AppColorMode;
-	color?: AppColor;
-	type: Type;
+	color: Color;
+	colorMode: ColorMode;
+	type: ColorHueType;
 };
 
-export const getColor = memoize(({ theme, colorMode, color: colorProp, type }: GetColorProps): string => {
-	const color: Color = colorProp || 'gray';
-	const hue: ColorHues = getHue({ type, colorMode });
+/**
+ * This method will return the appropriate hex color depending on the color, colorMode & type params passed
+ *
+ * @param color - transparent | black | white | gray | red | pink | purple | deep_purple | indigo | blue | light_blue | cyan | teal | green | light_green | lime | yellow | orange | deep_orange
+ * @param colorMode - light | dark
+ * @param type - background | text.primary | text.secondary | divider | light | lighter | lightest | dark | darker | darkest | color | default
+ * @returns - Hex Color
+ */
+export const getColor = memoize(({ color, colorMode, type }: GetColorProps): string => {
+	const hue = getColorHue({ colorMode, type });
 	return theme.colors[color][hue];
 });
 
-export const getColorMode = memoize((): AppColorMode => {
-	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+/**
+ * This method will return the appropriate colorMode depending on the user os settings
+ *
+ * @returns - light | dark
+ */
+export const getColorMode = memoize((): ColorMode => {
+	if (globalThis?.window?.matchMedia && globalThis?.window?.matchMedia('(prefers-color-scheme: dark)')?.matches) {
 		return 'dark';
 	}
 	return 'light';
