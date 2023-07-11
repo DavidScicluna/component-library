@@ -1,7 +1,5 @@
 import Provider from '../src/components/Provider';
-import theme from '../src/theme';
-
-// import { ChakraProviderDecorator } from '@chakra-ui/storybook-addon/dist/feature/decorator/ChakraProviderDecorator';
+import { getColor, getColorMode } from '../src/common/utils/color';
 
 // Importing Main Fonts (Work Sans & Roboto)
 import '@fontsource/work-sans/100.css';
@@ -53,16 +51,28 @@ import '@fontsource/material-icons';
 import '@fontsource/material-icons-outlined';
 import '@fontsource/material-icons-two-tone';
 
-export const parameters = {
-	chakra: { theme }
-};
-
-export const decorators = [
-	(Story) => (
-		<Provider>
+const DSCLProvider = (Story, context) => {
+	// TODO: Remove
+	console.log(context);
+	return (
+		<Provider color='blue' colorMode={context?.parameters?.backgrounds?.default}>
 			<Story />
 		</Provider>
-	)
-];
+	);
+};
 
-// export const decorators = [ChakraProviderDecorator];
+const preview = {
+	parameters: {
+		backgrounds: {
+			default: getColorMode(),
+			values: [
+				// TODO: eventually use getColor
+				{ name: 'light', value: getColor({ color: 'gray', colorMode: 'light', type: 'background' }) },
+				{ name: 'dark', value: getColor({ color: 'gray', colorMode: 'dark', type: 'background' }) }
+			]
+		}
+	},
+	decorators: [DSCLProvider]
+};
+
+export default preview;
