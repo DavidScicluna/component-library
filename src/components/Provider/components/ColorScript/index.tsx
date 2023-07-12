@@ -1,12 +1,14 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 
-import { color as defaultColor } from '../../../../common/default/props';
+import { __DEFAULT_APP_COLOR__ } from '../../../../common/constants/props';
 import { useGetColor } from '../../common/hooks';
 
-import { ColorScriptProps } from './common/types';
+import type { ColorScriptProps } from './common/types';
 
-const ColorScript: FC<ColorScriptProps> = ({ initialColor = defaultColor }) => {
-	useGetColor(initialColor);
+const ColorScript: FC<ColorScriptProps> = ({ initialColor = __DEFAULT_APP_COLOR__, onSetColor }) => {
+	const updatedColor = useGetColor(initialColor);
+
+	useEffect(() => onSetColor(updatedColor), [updatedColor]);
 
 	return null;
 };
