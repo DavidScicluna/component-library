@@ -2,7 +2,7 @@ import { FC, useEffect } from 'react';
 
 import { useGetIconFontStatus } from '../../common/hooks';
 
-import { IconFontScriptProps } from './common/types';
+import type { IconFontScriptProps } from './common/types';
 
 const IconFontScript: FC<IconFontScriptProps> = (props) => {
 	const { filled, outlined, twoTone } = useGetIconFontStatus();
