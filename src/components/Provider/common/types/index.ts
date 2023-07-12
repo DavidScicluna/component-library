@@ -1,14 +1,15 @@
-import { ChakraProviderProps } from '@chakra-ui/react';
+import { ReactNode } from 'react';
 
-import { AppFullColorMode, CommonThemeProps } from '../../../../common/types';
-import { IconCategory } from '../../../DataDisplay/Icon/common/types';
+import { Transition } from 'framer-motion';
 
-export type IconFontStatus = Record<IconCategory, boolean>;
+import type { ColorMode, CommonThemeProps } from '../../../../common/types/theme';
+import type { IconCategory } from '../../../DataDisplay/Icon/common/types';
 
-export type ProviderProps = ChakraProviderProps & {
-	colorMode?: AppFullColorMode;
-} & Pick<CommonThemeProps, 'color'>;
+export type ProviderProps = Pick<CommonThemeProps, 'color'> & {
+	children: ReactNode;
+	colorMode?: ColorMode;
+};
 
-export type ProviderContext = Pick<ProviderProps, 'color'> & {
-	iconFontStatus: IconFontStatus;
-} & Pick<CommonThemeProps, 'colorMode'>;
+export type ProviderContext = CommonThemeProps
+export type TransitionsContext = { config?: Transition; delay?: number; duration?: number };
+export type IconFontContext = Record<IconCategory, boolean>;

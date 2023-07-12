@@ -1,71 +1,80 @@
 import { createContext, FC, useState } from 'react';
 
-import { ChakraProvider, ColorModeScript as CUIColorModeScript, useConst } from '@chakra-ui/react';
-
-import { merge } from 'lodash-es';
-
-import { color as defaultColor, colorMode as defaultColorMode } from '../../common/default/props';
+import {
+	__DEFAULT_APP_COLOR__,
+	__DEFAULT_APP_COLORMODE__,
+	__DEFAULT_HAS_FILLEDICON_LOADED__,
+	__DEFAULT_HAS_OUTLINEDICON_LOADED__,
+	__DEFAULT_HAS_TWOTONEICON_LOADED__
+} from '../../common/constants/props';
 import { useBoolean } from '../../common/hooks';
-import { AppColorMode } from '../../common/types';
-import defaultTheme from '../../theme';
-import { Theme } from '../../theme/types';
-import TransitionsProvider from '../Transitions/TransitionsProvider';
+import type { AppColor, AppColorMode } from '../../common/types/theme';
 
-import { iconFontStatus as defaultIconFontStatus } from './common/default/props';
-import { ProviderContext as ProviderContextType, ProviderProps } from './common/types';
+// import TransitionsProvider from '../Transitions/TransitionsProvider';
+import type {
+	IconFontContext as IconFontContextType,
+	ProviderContext as ProviderContextType,
+	ProviderProps
+	// TransitionsContext as TransitionsContextType
+} from './common/types';
 import ColorModeScript from './components/ColorModeScript';
 import ColorScript from './components/ColorScript';
 import IconFontScript from './components/IconFontScript';
 
+import './common/styles/index.css';
+
 export const ProviderContext = createContext<ProviderContextType>({
-	color: defaultColor,
-	colorMode: defaultColorMode,
-	iconFontStatus: defaultIconFontStatus
+	color: __DEFAULT_APP_COLOR__,
+	colorMode: __DEFAULT_APP_COLORMODE__
+});
+// export const TransitionsContext = createContext<TransitionsContextType>({
+// 	color: __DEFAULT_APP_COLOR__,
+// 	colorMode: __DEFAULT_APP_COLORMODE__
+// });
+export const IconFontContext = createContext<IconFontContextType>({
+	filled: __DEFAULT_HAS_FILLEDICON_LOADED__,
+	outlined: __DEFAULT_HAS_OUTLINEDICON_LOADED__,
+	twoTone: __DEFAULT_HAS_TWOTONEICON_LOADED__
 });
 
 const Provider: FC<ProviderProps> = (props) => {
-	const { children, color = defaultColor, colorMode: initialColorMode = defaultColorMode, theme: themeProp } = props;
+	const {
+		children,
+		color: initialColor = __DEFAULT_APP_COLOR__,
+		colorMode: initialColorMode = __DEFAULT_APP_COLORMODE__
+	} = props;
 
-	const theme = useConst<Theme>(merge(defaultTheme, themeProp) as Theme);
+	const [color, setColor] = useState<AppColor>(__DEFAULT_APP_COLOR__);
+	const [colorMode, setColorMode] = useState<AppColorMode>(__DEFAULT_APP_COLORMODE__);
 
-	const [colorMode, setColorMode] = useState<AppColorMode>(defaultColorMode);
-
-	const [hasFilledIconLoaded, setHasFilledIconLoaded] = useBoolean();
-	const [hasOutlinedIconLoaded, setHasOutlinedIconLoaded] = useBoolean();
-	const [hasTwoToneIconLoaded, setHasTwoToneIconLoaded] = useBoolean();
-
-	// TODO: Remove console.log
-	console.log(theme);
+	const [hasFilledIconLoaded, setHasFilledIconLoaded] = useBoolean(__DEFAULT_HAS_FILLEDICON_LOADED__);
+	const [hasOutlinedIconLoaded, setHasOutlinedIconLoaded] = useBoolean(__DEFAULT_HAS_OUTLINEDICON_LOADED__);
+	const [hasTwoToneIconLoaded, setHasTwoToneIconLoaded] = useBoolean(__DEFAULT_HAS_TWOTONEICON_LOADED__);
 
 	return (
-		<ChakraProvider theme={theme} resetCSS>
-			<CUIColorModeScript type='cookie' initialColorMode={initialColorMode} />
-			<TransitionsProvider>
-				<ColorScript initialColor={color} />
-				<ColorModeScript
-					initialColorMode={initialColorMode}
-					onSetColorMode={(colorMode) => setColorMode(colorMode)}
-				/>
-				<IconFontScript
-					onSetHasFilledIconLoaded={setHasFilledIconLoaded}
-					onSetHasOutlinedIconLoaded={setHasOutlinedIconLoaded}
-					onSetHasTwoToneIconLoaded={setHasTwoToneIconLoaded}
-				/>
-				<ProviderContext.Provider
-					value={{
-						color,
-						colorMode,
-						iconFontStatus: {
-							filled: hasFilledIconLoaded,
-							outlined: hasOutlinedIconLoaded,
-							twoTone: hasTwoToneIconLoaded
-						}
-					}}
-				>
-					{children}
-				</ProviderContext.Provider>
-			</TransitionsProvider>
-		</ChakraProvider>
+		<ProviderContext.Provider value={{ color, colorMode }}>
+			{/* <TransitionsProvider> */}
+			<ColorScript initialColor={initialColor} onSetColor={(color) => setColor(color)} />
+			<ColorModeScript
+				initialColorMode={initialColorMode}
+				onSetColorMode={(colorMode) => setColorMode(colorMode)}
+			/>
+			<IconFontScript
+				onSetHasFilledIconLoaded={setHasFilledIconLoaded}
+				onSetHasOutlinedIconLoaded={setHasOutlinedIconLoaded}
+				onSetHasTwoToneIconLoaded={setHasTwoToneIconLoaded}
+			/>
+			<IconFontContext.Provider
+				value={{
+					filled: hasFilledIconLoaded,
+					outlined: hasOutlinedIconLoaded,
+					twoTone: hasTwoToneIconLoaded
+				}}
+			>
+				{children}
+			</IconFontContext.Provider>
+			{/* </TransitionsProvider> */}
+		</ProviderContext.Provider>
 	);
 };
 
