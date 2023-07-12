@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 
-import { __DEFAULT_APP_COLORMODE__ } from '../../../../common/constants/props';
+import { __DEFAULT_APP_COLORMODE__ } from '../../../../common/constants';
 import { useGetColorMode } from '../../common/hooks';
 
 import type { ColorModeScriptProps } from './common/types';

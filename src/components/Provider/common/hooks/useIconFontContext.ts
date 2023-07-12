@@ -4,7 +4,7 @@ import {
 	__DEFAULT_HAS_FILLEDICON_LOADED__,
 	__DEFAULT_HAS_OUTLINEDICON_LOADED__,
 	__DEFAULT_HAS_TWOTONEICON_LOADED__
-} from '../../../../common/constants/props';
+} from '../../../../common/constants';
 import type { NoUndefinedField } from '../../../../common/types';
 import { IconFontContext } from '../..';
 import { IconFontContext as IconFontContextType } from '../types';

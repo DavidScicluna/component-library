@@ -10,6 +10,6 @@ export type ProviderProps = Pick<CommonThemeProps, 'color'> & {
 	colorMode?: ColorMode;
 };
 
-export type ProviderContext = CommonThemeProps
+export type ProviderContext = CommonThemeProps;
 export type TransitionsContext = { config?: Transition; delay?: number; duration?: number };
 export type IconFontContext = Record<IconCategory, boolean>;

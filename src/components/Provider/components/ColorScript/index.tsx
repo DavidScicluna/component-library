@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 
-import { __DEFAULT_APP_COLOR__ } from '../../../../common/constants/props';
+import { __DEFAULT_APP_COLOR__ } from '../../../../common/constants';
 import { useGetColor } from '../../common/hooks';
 
 import type { ColorScriptProps } from './common/types';
