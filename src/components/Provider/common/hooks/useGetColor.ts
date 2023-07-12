@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 
-import { localStorageColorKey } from '../../../../common/keys';
-import { AppColor } from '../../../../common/types';
+import { __KEY_LOCALSTORAGE_COLOR__ } from '../../../../common/keys';
+import type { AppColor } from '../../../../common/types/theme';
 
 const useGetColor = (defaultColor: AppColor): AppColor => {
 	const handleSetColorMode = (): void => {
-		localStorage.removeItem(localStorageColorKey);
-		localStorage.setItem(localStorageColorKey, defaultColor);
+		localStorage.removeItem(__KEY_LOCALSTORAGE_COLOR__);
+		localStorage.setItem(__KEY_LOCALSTORAGE_COLOR__, defaultColor);
 	};
 
 	useEffect(() => handleSetColorMode(), [defaultColor]);
