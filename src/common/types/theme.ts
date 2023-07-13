@@ -1,10 +1,11 @@
+// TODO: Replace all types to have Theme included in the name
+
 export type AppColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 export type AppColors = AppColor[];
 
-export type AppColorMode = ColorMode | 'system';
+export type AppColorMode = Exclude<ColorMode, 'system'>;
 
 export type Color =
-	| 'transparent'
 	| 'black'
 	| 'white'
 	| 'gray'
@@ -29,7 +30,7 @@ export type ColorsObj = Record<Color, string | Record<ColorHue, string>>;
 export type ColorHue = 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950;
 export type ColorHues = ColorHue[];
 
-export type ColorMode = 'light' | 'dark';
+export type ColorMode = 'light' | 'system' | 'dark';
 
 export type CommonThemeProps = Partial<{
 	color: AppColor;
@@ -51,6 +52,14 @@ export type EasingsObj = Record<Ease, string>;
 export type Duration = 'ultra-fast' | 'faster' | 'fast' | 'normal' | 'slow' | 'slower' | 'ultra-slow';
 export type DurationsArr = Duration[];
 export type DurationsObj = Record<Duration, string>;
+
+export type FontSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl';
+export type FontSizesArr = FontSize[];
+export type FontSizesObj = Record<FontSize, string>;
+
+export type LineHeight = 'base' | 'none' | 'normal' | 'short' | 'shorter' | 'tall' | 'taller';
+export type LineHeightsArr = LineHeight[];
+export type LineHeightsObj = Record<LineHeight, number | string>;
 
 export type Space =
 	| 0
@@ -152,306 +161,6 @@ export type Space =
 	| 24
 	| 24.25
 	| 24.5
-	| 24.75
-	| 25
-	| 25.25
-	| 25.5
-	| 25.75
-	| 26
-	| 26.25
-	| 26.5
-	| 26.75
-	| 27
-	| 27.25
-	| 27.5
-	| 27.75
-	| 28
-	| 28.25
-	| 28.5
-	| 28.75
-	| 29
-	| 29.25
-	| 29.5
-	| 29.75
-	| 30
-	| 30.25
-	| 30.5
-	| 30.75
-	| 31
-	| 31.25
-	| 31.5
-	| 31.75
-	| 32
-	| 32.25
-	| 32.5
-	| 32.75
-	| 33
-	| 33.25
-	| 33.5
-	| 33.75
-	| 34
-	| 34.25
-	| 34.5
-	| 34.75
-	| 35
-	| 35.25
-	| 35.5
-	| 35.75
-	| 36
-	| 36.25
-	| 36.5
-	| 36.75
-	| 37
-	| 37.25
-	| 37.5
-	| 37.75
-	| 38
-	| 38.25
-	| 38.5
-	| 38.75
-	| 39
-	| 39.25
-	| 39.5
-	| 39.75
-	| 40
-	| 40.25
-	| 40.5
-	| 40.75
-	| 41
-	| 41.25
-	| 41.5
-	| 41.75
-	| 42
-	| 42.25
-	| 42.5
-	| 42.75
-	| 43
-	| 43.25
-	| 43.5
-	| 43.75
-	| 44
-	| 44.25
-	| 44.5
-	| 44.75
-	| 45
-	| 45.25
-	| 45.5
-	| 45.75
-	| 46
-	| 46.25
-	| 46.5
-	| 46.75
-	| 47
-	| 47.25
-	| 47.5
-	| 47.75
-	| 48
-	| 48.25
-	| 48.5
-	| 48.75
-	| 49
-	| 49.25
-	| 49.5
-	| 49.75
-	| 50
-	| 50.25
-	| 50.5
-	| 50.75
-	| 51
-	| 51.25
-	| 51.5
-	| 51.75
-	| 52
-	| 52.25
-	| 52.5
-	| 52.75
-	| 53
-	| 53.25
-	| 53.5
-	| 53.75
-	| 54
-	| 54.25
-	| 54.5
-	| 54.75
-	| 55
-	| 55.25
-	| 55.5
-	| 55.75
-	| 56
-	| 56.25
-	| 56.5
-	| 56.75
-	| 57
-	| 57.25
-	| 57.5
-	| 57.75
-	| 58
-	| 58.25
-	| 58.5
-	| 58.75
-	| 59
-	| 59.25
-	| 59.5
-	| 59.75
-	| 60
-	| 60.25
-	| 60.5
-	| 60.75
-	| 61
-	| 61.25
-	| 61.5
-	| 61.75
-	| 62
-	| 62.25
-	| 62.5
-	| 62.75
-	| 63
-	| 63.25
-	| 63.5
-	| 63.75
-	| 64
-	| 64.25
-	| 64.5
-	| 64.75
-	| 65
-	| 65.25
-	| 65.5
-	| 65.75
-	| 66
-	| 66.25
-	| 66.5
-	| 66.75
-	| 67
-	| 67.25
-	| 67.5
-	| 67.75
-	| 68
-	| 68.25
-	| 68.5
-	| 68.75
-	| 69
-	| 69.25
-	| 69.5
-	| 69.75
-	| 70
-	| 70.25
-	| 70.5
-	| 70.75
-	| 71
-	| 71.25
-	| 71.5
-	| 71.75
-	| 72
-	| 72.25
-	| 72.5
-	| 72.75
-	| 73
-	| 73.25
-	| 73.5
-	| 73.75
-	| 74
-	| 74.25
-	| 74.5
-	| 74.75
-	| 75
-	| 75.25
-	| 75.5
-	| 75.75
-	| 76
-	| 76.25
-	| 76.5
-	| 76.75
-	| 77
-	| 77.25
-	| 77.5
-	| 77.75
-	| 78
-	| 78.25
-	| 78.5
-	| 78.75
-	| 79
-	| 79.25
-	| 79.5
-	| 79.75
-	| 80
-	| 80.25
-	| 80.5
-	| 80.75
-	| 81
-	| 81.25
-	| 81.5
-	| 81.75
-	| 82
-	| 82.25
-	| 82.5
-	| 82.75
-	| 83
-	| 83.25
-	| 83.5
-	| 83.75
-	| 84
-	| 84.25
-	| 84.5
-	| 84.75
-	| 85
-	| 85.25
-	| 85.5
-	| 85.75
-	| 86
-	| 86.25
-	| 86.5
-	| 86.75
-	| 87
-	| 87.25
-	| 87.5
-	| 87.75
-	| 88
-	| 88.25
-	| 88.5
-	| 88.75
-	| 89
-	| 89.25
-	| 89.5
-	| 89.75
-	| 90
-	| 90.25
-	| 90.5
-	| 90.75
-	| 91
-	| 91.25
-	| 91.5
-	| 91.75
-	| 92
-	| 92.25
-	| 92.5
-	| 92.75
-	| 93
-	| 93.25
-	| 93.5
-	| 93.75
-	| 94
-	| 94.25
-	| 94.5
-	| 94.75
-	| 95
-	| 95.25
-	| 95.5
-	| 95.75
-	| 96
-	| 96.25
-	| 96.5
-	| 96.75
-	| 97
-	| 97.25
-	| 97.5
-	| 97.75
-	| 98
-	| 98.25
-	| 98.5
-	| 98.75
-	| 99
-	| 99.25
-	| 99.5
-	| 99.75;
+	| 24.75;
 export type SpacingArr = Space[];
 export type SpacingObj = Record<Space, string>;

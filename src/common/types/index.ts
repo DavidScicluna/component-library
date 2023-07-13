@@ -1,6 +1,5 @@
 import { Breakpoint } from './theme';
 
-// Utility Types
 export type Undefinable<T> = T | undefined; // Adds undefined to type
 
 export type Nullable<T> = T | null; // Adds null to type
@@ -18,8 +17,6 @@ export type Readonly<T> = {
 };
 
 export type Orientation = 'vertical' | 'horizontal';
-
-export type OS = 'undetermined' | 'macos' | 'ios' | 'windows' | 'android' | 'linux';
 
 export type ResponsiveArrayValue<D> = [D?, D?, D?, D?, D?, D?];
 export type ResponsiveObjectValue<D> = Record<Breakpoint, D>;
