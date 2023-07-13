@@ -1,7 +1,7 @@
-import { Icon } from '../types/icons';
+import { Icons } from '../types/icons';
 
 // All Material Design Icons
-const icons: Icon[] = [
+const icons: Icons = [
 	'10k',
 	'10mp',
 	'11mp',

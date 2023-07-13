@@ -1,6 +1,6 @@
-import { AppColors } from '../types';
+import { AppColors } from '../types/theme';
 
-export const colors: AppColors = [
+const colors: AppColors = [
 	'red',
 	'pink',
 	'purple',
@@ -17,3 +17,5 @@ export const colors: AppColors = [
 	'orange',
 	'deep_orange'
 ];
+
+export default colors;
