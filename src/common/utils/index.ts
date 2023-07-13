@@ -1,8 +1,8 @@
 import { isArray, isObject } from 'lodash-es';
 import memoize from 'micro-memoize';
 
-import { FontSize, LineHeight, Theme } from '../../theme/types';
-import { Breakpoint, OS, ResponsiveArrayValue, ResponsiveObjectValue, ResponsiveValue } from '../types';
+import { OS, ResponsiveArrayValue, ResponsiveObjectValue, ResponsiveValue } from '../types';
+import { Breakpoint, FontSize, LineHeight } from '../types/theme';
 
 /**
  * This method will get the OS type of the user's device

@@ -1,7 +1,9 @@
 import memoize from 'micro-memoize';
 
+import classes from '../classes';
 import theme from '../theme';
-import { Color, ColorHue, ColorMode } from '../types/theme';
+import { ClassType } from '../types/classes';
+import { AppColorMode, Color, ColorHue } from '../types/theme';
 
 export type ColorHueType =
 	| 'background'
@@ -18,7 +20,7 @@ export type ColorHueType =
 	| 'default';
 
 export type GetColorHueProps = {
-	colorMode: ColorMode;
+	colorMode: AppColorMode;
 	type: ColorHueType;
 };
 
@@ -58,10 +60,10 @@ export const getColorHue = memoize(({ colorMode, type }: GetColorHueProps): Colo
 	}
 });
 
-export type GetColorProps = {
+export type GetColorHexProps = {
 	color: Color;
-	colorMode: ColorMode;
-	type: ColorHueType;
+	colorMode: AppColorMode;
+	hueType: ColorHueType;
 };
 
 /**
@@ -69,12 +71,38 @@ export type GetColorProps = {
  *
  * @param color - transparent | black | white | gray | red | pink | purple | deep_purple | indigo | blue | light_blue | cyan | teal | green | light_green | lime | yellow | orange | deep_orange
  * @param colorMode - light | dark
- * @param type - background | text.primary | text.secondary | divider | light | lighter | lightest | dark | darker | darkest | color | default
+ * @param hueType - background | text.primary | text.secondary | divider | light | lighter | lightest | dark | darker | darkest | color | default
  * @returns - Hex Color
  */
-export const getColor = memoize(({ color, colorMode, type }: GetColorProps): string => {
-	const hue = getColorHue({ colorMode, type });
+export const getColorHex = memoize(({ color, colorMode, hueType }: GetColorHexProps): string => {
+	const hue = getColorHue({ colorMode, type: hueType });
 	return theme.colors[color][hue];
+});
+
+export type GetColorClassProps = {
+	color: Color;
+	colorMode: AppColorMode;
+	hueType: ColorHueType;
+	classType: ClassType;
+};
+
+/**
+ * This method will return the appropriate hex color depending on the color, colorMode & type params passed
+ *
+ * @param color - transparent | black | white | gray | red | pink | purple | deep_purple | indigo | blue | light_blue | cyan | teal | green | light_green | lime | yellow | orange | deep_orange
+ * @param colorMode - light | dark
+ * @param hueType - background | text.primary | text.secondary | divider | light | lighter | lightest | dark | darker | darkest | color | default
+ * @param classType - 'bg' | 'text'
+ * @returns - Classname
+ */
+export const getColorClass = memoize(({ color, colorMode, hueType, classType }: GetColorClassProps): string => {
+	const hue = getColorHue({ colorMode, type: hueType });
+	switch (classType) {
+		case 'bg':
+			return classes.backgrounds.color[color][hue];
+		case 'text':
+			return classes.typography.color[color][hue];
+	}
 });
 
 /**
@@ -82,7 +110,7 @@ export const getColor = memoize(({ color, colorMode, type }: GetColorProps): str
  *
  * @returns - light | dark
  */
-export const getColorMode = memoize((): ColorMode => {
+export const getColorMode = memoize((): AppColorMode => {
 	if (globalThis?.window?.matchMedia && globalThis?.window?.matchMedia('(prefers-color-scheme: dark)')?.matches) {
 		return 'dark';
 	}
