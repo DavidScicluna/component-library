@@ -13,7 +13,6 @@ const borderRadius: RadiiObj = {
 };
 
 const colors: ColorsObj = {
-	transparent: 'transparent',
 	black: '#000000',
 	white: '#FFFFFF',
 	gray: {
@@ -242,7 +241,7 @@ const transitionDuration: DurationsObj = {
 	'ultra-slow': '1000ms'
 };
 
-const spacing: SpacingObj = range(0, 100, 0.25)
+const spacing: SpacingObj = range(0, 25, 0.25)
 	.map((num) => ({ key: num, value: `${(1 / 16) * (num * 8)}rem` }))
 	.reduce((obj, item) => ({ ...obj, [item.key || 0]: item.value }), {}) as SpacingObj;
 
