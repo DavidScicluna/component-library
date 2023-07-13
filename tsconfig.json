@@ -24,6 +24,6 @@
 		"strict": true,
 		"target": "es5"
 	},
-	"include": ["src/**/*"],
+	"include": ["**/*"],
 	"exclude": [".vscode", ".storybook", ".yarn", "build", "node_modules", "**/**.png", "**/**.svg", "**/**.css"]
 }
