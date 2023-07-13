@@ -17,7 +17,7 @@ export default {
 		spacing: {
 			name: 'Spacing (0-24 | .0, .25, .5 or .75)',
 			type: 'number',
-			defaultValue: '',
+			defaultValue: 2,
 			// description: '',
 			control: { type: 'number' }
 		}
@@ -30,7 +30,7 @@ export const Center: CenterStory = (props: CenterProps<any>): ReactElement => {
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
 	const background = useGetColor({ colorType: 'appColor', hueType: 'color', classType: 'bg' });
 
-	const padding = classes.spacing.p[6];
+	const padding = classes.spacing.p[4];
 
 	return (
 		<CenterComponent {...props} className={classNames('w-full', radius, text, background, padding)}>
