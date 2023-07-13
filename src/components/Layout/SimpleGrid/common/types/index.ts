@@ -1,9 +1,10 @@
 import { ElementType } from 'react';
 
-import { ResponsiveValue, Space } from '../../../../../common/types';
-import { BoxProps, BoxRef } from '../../../Box/common/types';
+import type { ResponsiveValue } from '../../../../../common/types';
+import type { Space } from '../../../../../common/types/theme';
+import type { BoxProps, BoxRef } from '../../../Box/common/types';
 
-export type SimpleGridColumn = number;
+export type SimpleGridColumn = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 export type SimpleGridColumns = SimpleGridColumn[];
 
 export type SimpleGridProps<Element extends ElementType> = BoxProps<
