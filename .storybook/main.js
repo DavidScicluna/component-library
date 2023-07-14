@@ -7,5 +7,6 @@ module.exports = {
 		'@storybook/addon-a11y',
 		{ name: '@storybook/addon-styling', options: { postCss: true } }
 	],
+	typescript: true,
 	framework: '@storybook/react-webpack5'
 };

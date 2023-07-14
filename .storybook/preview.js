@@ -1,5 +1,9 @@
 import Provider from '../src/components/Provider';
-import { getColor, getColorMode } from '../src/common/utils/color';
+import { getColorHex, getColorMode } from '../src/common/utils/color';
+
+import { __DEFAULT_APP_COLOR__ } from '../src/common/constants';
+import colors from '../src/common/data/colors';
+import { capitalize } from 'lodash-es';
 
 // Importing Main Fonts (Work Sans & Roboto)
 import '@fontsource/work-sans/100.css';
@@ -52,23 +56,39 @@ import '@fontsource/material-icons-outlined';
 import '@fontsource/material-icons-two-tone';
 
 const DSCLProvider = (Story, context) => {
-	// TODO: Remove
 	console.log(context);
 	return (
-		<Provider color='blue' colorMode={context?.parameters?.backgrounds?.default}>
+		<Provider
+			color={context?.globals?.color}
+			colorMode={context?.globals?.backgrounds?.value === '#f8fafc' ? 'light' : 'dark'}
+		>
 			<Story />
 		</Provider>
 	);
 };
 
 const preview = {
+	globalTypes: {
+		color: {
+			description: 'Select the app color',
+			defaultValue: __DEFAULT_APP_COLOR__,
+			toolbar: {
+				title: 'Color',
+				icon: 'circle',
+				items: colors.map((color) => ({
+					title: capitalize(color),
+					value: color
+				})),
+				dynamicTitle: true
+			}
+		}
+	},
 	parameters: {
 		backgrounds: {
 			default: getColorMode(),
 			values: [
-				// TODO: eventually use getColor
-				{ name: 'light', value: getColor({ color: 'gray', colorMode: 'light', type: 'background' }) },
-				{ name: 'dark', value: getColor({ color: 'gray', colorMode: 'dark', type: 'background' }) }
+				{ name: 'light', value: getColorHex({ color: 'gray', colorMode: 'light', hueType: 'background' }) },
+				{ name: 'dark', value: getColorHex({ color: 'gray', colorMode: 'dark', hueType: 'background' }) }
 			]
 		}
 	},
