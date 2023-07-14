@@ -1,8 +1,9 @@
 import { ElementType, ReactNode } from 'react';
 
-import { ResponsiveValue, Space } from '../../../../../../common/types';
-import { AlignItems, FlexDirection, FlexWrap, JustifyContent } from '../../../../../../common/types/flexbox&grid';
-import { BoxProps, BoxRef } from '../../../../Box/common/types';
+import type { ResponsiveValue } from '../../../../../../common/types';
+import type { AlignItems, FlexDirection, FlexWrap, JustifyContent } from '../../../../../../common/types/classes';
+import type { Space } from '../../../../../../common/types/theme';
+import type { BoxProps, BoxRef } from '../../../../Box/common/types';
 
 export type StackProps<Element extends ElementType> = BoxProps<
 	Element,
