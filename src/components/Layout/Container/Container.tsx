@@ -2,6 +2,7 @@ import { ElementType, forwardRef, ReactElement, useMemo } from 'react';
 
 import classNames from 'classnames';
 
+import { __DEFAULT_CLASSNAME__ } from '../../../common/constants';
 import { getResponsiveValue } from '../../../common/utils';
 import Box from '../Box';
 
@@ -18,7 +19,7 @@ const Container = forwardRef(function Container<Element extends ElementType>(
 ): ReactElement {
 	const {
 		children,
-		className = '',
+		className = __DEFAULT_CLASSNAME__,
 		centerContent = __DEFAULT_CONTAINER_CENTER_CONTENT__,
 		isFluid = __DEFAULT_CONTAINER_IS_FLUID__,
 		size = __DEFAULT_CONTAINER_SIZE__,
