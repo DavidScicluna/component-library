@@ -6,6 +6,11 @@ import classNames from 'classnames';
 import classes from '../../../common/classes';
 import { useGetColor } from '../../../common/hooks';
 
+import {
+	__DEFAULT_CONTAINER_CENTER_CONTENT__,
+	__DEFAULT_CONTAINER_IS_FLUID__,
+	__DEFAULT_CONTAINER_SIZE__
+} from './common/constants';
 import { ContainerProps } from './common/types';
 import { ContainerStory, ContainerStoryMeta } from './common/types/story';
 import ContainerComponent from '.';
@@ -17,21 +22,21 @@ export default {
 		centerContent: {
 			name: 'Center Content',
 			type: 'boolean',
-			defaultValue: false,
+			defaultValue: __DEFAULT_CONTAINER_CENTER_CONTENT__,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isFluid: {
 			name: 'Fluid',
 			type: 'boolean',
-			defaultValue: false,
+			defaultValue: __DEFAULT_CONTAINER_IS_FLUID__,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: '2xl',
+			defaultValue: __DEFAULT_CONTAINER_SIZE__,
 			// description: '',
 			options: ['sm', 'md', 'lg', 'xl', '2xl'],
 			control: { type: 'radio' }
