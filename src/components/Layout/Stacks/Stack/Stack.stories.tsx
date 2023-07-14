@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { range } from 'lodash-es';
 
 import classes from '../../../../common/classes';
+import { __DEFAULT_SPACING__ } from '../../../../common/constants';
 import { useGetColor } from '../../../../common/hooks';
 import { AlignItemsArr, FlexDirectionArr, FlexWrapArr, JustifyContentArr } from '../../../../common/types/classes';
 import Center from '../../Center';
@@ -13,7 +14,6 @@ import {
 	__DEFAULT_STACK_ALIGNITEMS__,
 	__DEFAULT_STACK_DIRECTION__,
 	__DEFAULT_STACK_JUSTIFYCONTENT__,
-	__DEFAULT_STACK_SPACING__,
 	__DEFAULT_STACK_WRAP__
 } from './common/constants';
 import { StackProps } from './common/types';
@@ -68,7 +68,7 @@ export default {
 		spacing: {
 			name: 'Spacing (0-24 | .0, .25, .5 or .75)',
 			type: 'number',
-			defaultValue: __DEFAULT_STACK_SPACING__,
+			defaultValue: __DEFAULT_SPACING__,
 			// description: '',
 			control: { type: 'number' }
 		}

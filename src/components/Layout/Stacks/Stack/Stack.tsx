@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { isArray } from 'lodash-es';
 
 import classes from '../../../../common/classes';
-import { __DEFAULT_CLASSNAME__ } from '../../../../common/constants/props';
+import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '../../../../common/constants';
 import { useGetResponsiveValue } from '../../../../common/hooks';
 import type { AlignItems, FlexDirection, FlexWrap, JustifyContent } from '../../../../common/types/classes';
 import type { Space } from '../../../../common/types/theme';
@@ -15,7 +15,6 @@ import {
 	__DEFAULT_STACK_ALIGNITEMS__,
 	__DEFAULT_STACK_DIRECTION__,
 	__DEFAULT_STACK_JUSTIFYCONTENT__,
-	__DEFAULT_STACK_SPACING__,
 	__DEFAULT_STACK_WRAP__
 } from './common/constants';
 import type { StackProps, StackRef } from './common/types';
@@ -31,7 +30,7 @@ const Stack = forwardRef(function Stack<Element extends ElementType>(
 		direction = __DEFAULT_STACK_DIRECTION__,
 		divider,
 		justifyContent = __DEFAULT_STACK_JUSTIFYCONTENT__,
-		spacing: s = __DEFAULT_STACK_SPACING__,
+		spacing: s = __DEFAULT_SPACING__,
 		wrap = __DEFAULT_STACK_WRAP__,
 		...rest
 	} = props;
