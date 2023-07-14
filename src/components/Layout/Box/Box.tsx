@@ -1,8 +1,8 @@
 import { ElementType, forwardRef, ReactElement } from 'react';
 
-import { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_OBJECT__ } from '../../../common/default/constants';
+import { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_OBJECT__ } from '../../../common/constants';
 
-import { BoxProps, BoxRef } from './common/types';
+import type { BoxProps, BoxRef } from './common/types';
 
 const Box = forwardRef(function Box<
 	Element extends ElementType = typeof __DEFAULT_POLYMORPHIC_ELEMENT__,
