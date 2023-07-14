@@ -1,6 +1,6 @@
 import { ElementType } from 'react';
 
-import { StackProps, StackRef } from '../../../Stack/common/types';
+import type { StackProps, StackRef } from '../../../Stack/common/types';
 
 export type HStackProps<Element extends ElementType> = Omit<StackProps<Element>, 'direction'>;
 

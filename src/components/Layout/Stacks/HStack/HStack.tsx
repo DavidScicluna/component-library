@@ -1,9 +1,9 @@
 import { ElementType, forwardRef, ReactElement } from 'react';
 
 import Stack from '../Stack';
-import { StackProps } from '../Stack/common/types';
+import type { StackProps } from '../Stack/common/types';
 
-import { HStackProps, HStackRef } from './common/types';
+import type { HStackProps, HStackRef } from './common/types';
 
 const HStack = forwardRef(function HStack<Element extends ElementType>(
 	props: HStackProps<Element>,
