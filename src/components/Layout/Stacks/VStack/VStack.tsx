@@ -1,9 +1,9 @@
 import { ElementType, forwardRef, ReactElement } from 'react';
 
 import Stack from '../Stack';
-import { StackProps } from '../Stack/common/types';
+import type { StackProps } from '../Stack/common/types';
 
-import { VStackProps, VStackRef } from './common/types';
+import type { VStackProps, VStackRef } from './common/types';
 
 const VStack = forwardRef(function VStack<Element extends ElementType>(
 	props: VStackProps<Element>,
