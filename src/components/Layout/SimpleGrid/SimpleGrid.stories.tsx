@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { range } from 'lodash-es';
 
 import classes from '../../../common/classes';
+import { __DEFAULT_SPACING__ } from '../../../common/constants';
 import { useGetColor } from '../../../common/hooks';
 import Center from '../Center';
 
@@ -27,7 +28,7 @@ export default {
 		spacing: {
 			name: 'Spacing (0-24 | .0, .25, .5 or .75)',
 			type: 'number',
-			defaultValue: 2,
+			defaultValue: __DEFAULT_SPACING__,
 			// description: '',
 			control: { type: 'number' }
 		}
