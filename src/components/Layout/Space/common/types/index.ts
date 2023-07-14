@@ -1,9 +1,10 @@
 import { ElementType } from 'react';
 
-import { ResponsiveValue } from '../../../../../common/types';
-import { BoxProps, BoxRef } from '../../../Box/common/types';
+import type { ResponsiveValue } from '../../../../../common/types';
+import { Space } from '../../../../../common/types/theme';
+import type { BoxProps, BoxRef } from '../../../Box/common/types';
 
-export type SpaceDimension = number;
+export type SpaceDimension = Space;
 
 export type SpaceProps<Element extends ElementType> = BoxProps<
 	Element,
