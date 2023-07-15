@@ -23,7 +23,7 @@ export default {
 			defaultValue: false,
 			// description: '',
 			options: range(1, 13),
-			control: { type: 'radio' }
+			control: { type: 'select' }
 		},
 		spacing: {
 			name: 'Spacing (0-24 | .0, .25, .5 or .75)',
