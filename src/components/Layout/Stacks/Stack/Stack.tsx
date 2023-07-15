@@ -12,9 +12,9 @@ import { getResponsiveValue } from '../../../../common/utils';
 import Box from '../../Box';
 
 import {
-	__DEFAULT_STACK_ALIGNITEMS__,
+	__DEFAULT_STACK_ALIGN_ITEMS__,
 	__DEFAULT_STACK_DIRECTION__,
-	__DEFAULT_STACK_JUSTIFYCONTENT__,
+	__DEFAULT_STACK_JUSTIFY_CONTENT__,
 	__DEFAULT_STACK_WRAP__
 } from './common/constants';
 import type { StackProps, StackRef } from './common/types';
@@ -26,10 +26,10 @@ const Stack = forwardRef(function Stack<Element extends ElementType>(
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
-		alignItems = __DEFAULT_STACK_ALIGNITEMS__,
+		alignItems = __DEFAULT_STACK_ALIGN_ITEMS__,
 		direction = __DEFAULT_STACK_DIRECTION__,
 		divider,
-		justifyContent = __DEFAULT_STACK_JUSTIFYCONTENT__,
+		justifyContent = __DEFAULT_STACK_JUSTIFY_CONTENT__,
 		spacing: s = __DEFAULT_SPACING__,
 		wrap = __DEFAULT_STACK_WRAP__,
 		...rest

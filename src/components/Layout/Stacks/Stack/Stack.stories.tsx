@@ -11,9 +11,9 @@ import { AlignItemsArr, FlexDirectionArr, FlexWrapArr, JustifyContentArr } from 
 import Center from '../../Center';
 
 import {
-	__DEFAULT_STACK_ALIGNITEMS__,
+	__DEFAULT_STACK_ALIGN_ITEMS__,
 	__DEFAULT_STACK_DIRECTION__,
-	__DEFAULT_STACK_JUSTIFYCONTENT__,
+	__DEFAULT_STACK_JUSTIFY_CONTENT__,
 	__DEFAULT_STACK_WRAP__
 } from './common/constants';
 import { StackProps } from './common/types';
@@ -27,7 +27,7 @@ export default {
 		alignItems: {
 			name: 'Align Items',
 			type: 'string',
-			defaultValue: __DEFAULT_STACK_ALIGNITEMS__,
+			defaultValue: __DEFAULT_STACK_ALIGN_ITEMS__,
 			// description: '',
 			options: ['center', 'baseline', 'flex-start', 'flex-end', 'stretch'] as AlignItemsArr,
 			control: { type: 'radio' }
@@ -51,7 +51,7 @@ export default {
 		justifyContent: {
 			name: 'Justify Content',
 			type: 'string',
-			defaultValue: __DEFAULT_STACK_JUSTIFYCONTENT__,
+			defaultValue: __DEFAULT_STACK_JUSTIFY_CONTENT__,
 			// description: '',
 			options: [
 				'center',
