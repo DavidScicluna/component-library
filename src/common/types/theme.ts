@@ -57,9 +57,38 @@ export type FontSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' 
 export type FontSizesArr = FontSize[];
 export type FontSizesObj = Record<FontSize, string>;
 
-export type LineHeight = 'base' | 'none' | 'normal' | 'short' | 'shorter' | 'tall' | 'taller';
+export type FontWeight =
+	| 'thin'
+	| 'extralight'
+	| 'light'
+	| 'normal'
+	| 'medium'
+	| 'semibold'
+	| 'bold'
+	| 'extrabold'
+	| 'black';
+export type FontWeightsArr = FontWeight[];
+export type FontWeightsObj = Record<FontWeight, string>;
+
+export type TextAlign = 'left' | 'center' | 'right' | 'justify' | 'start' | 'end';
+export type TextAlignsArr = TextAlign[];
+export type TextAlignsObj = Record<TextAlign, string>;
+
+export type TextTransform = 'uppercase' | 'lowercase' | 'capitalize' | 'normal';
+export type TextTransformsArr = TextTransform[];
+export type TextTransformsObj = Record<TextTransform, string>;
+
+export type LineHeight = 'none' | 'tight' | 'snug' | 'normal' | 'relaxed' | 'loose' | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 export type LineHeightsArr = LineHeight[];
-export type LineHeightsObj = Record<LineHeight, number | string>;
+export type LineHeightsObj = Record<LineHeight, string>;
+
+export type Whitespace = 'normal' | 'nowrap' | 'pre' | 'pre-line' | 'pre-wrap' | 'break-spaces';
+export type WhitespacesArr = Whitespace[];
+export type WhitespacesObj = Record<Whitespace, string>;
+
+export type WordBreak = 'normal' | 'words' | 'all' | 'keep';
+export type WordBreaksArr = WordBreak[];
+export type WordBreaksObj = Record<WordBreak, string>;
 
 export type Space =
 	| 0
