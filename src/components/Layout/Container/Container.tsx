@@ -7,7 +7,7 @@ import { getResponsiveValue } from '../../../common/utils';
 import Box from '../Box';
 
 import {
-	__DEFAULT_CONTAINER_CENTER_CONTENT__,
+	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
 	__DEFAULT_CONTAINER_IS_FLUID__,
 	__DEFAULT_CONTAINER_SIZE__
 } from './common/constants';
@@ -20,7 +20,7 @@ const Container = forwardRef(function Container<Element extends ElementType>(
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
-		centerContent = __DEFAULT_CONTAINER_CENTER_CONTENT__,
+		isContentCentered = __DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
 		isFluid = __DEFAULT_CONTAINER_IS_FLUID__,
 		size = __DEFAULT_CONTAINER_SIZE__,
 		...rest
@@ -47,7 +47,7 @@ const Container = forwardRef(function Container<Element extends ElementType>(
 			{...(rest as ContainerProps<Element>)}
 			ref={ref}
 			className={classNames('container', {
-				'mx-auto': centerContent,
+				'mx-auto': isContentCentered,
 				'w-full': isFluid,
 				[sizeClassName]: !isFluid,
 				[className]: !!className

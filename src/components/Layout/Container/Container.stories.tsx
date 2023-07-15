@@ -7,11 +7,11 @@ import classes from '../../../common/classes';
 import { useGetColor } from '../../../common/hooks';
 
 import {
-	__DEFAULT_CONTAINER_CENTER_CONTENT__,
+	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
 	__DEFAULT_CONTAINER_IS_FLUID__,
 	__DEFAULT_CONTAINER_SIZE__
 } from './common/constants';
-import { ContainerProps } from './common/types';
+import { ContainerProps, ContainerSizes } from './common/types';
 import { ContainerStory, ContainerStoryMeta } from './common/types/story';
 import ContainerComponent from '.';
 
@@ -19,10 +19,10 @@ export default {
 	title: 'Layout/Container',
 	component: ContainerComponent,
 	argTypes: {
-		centerContent: {
+		isContentCentered: {
 			name: 'Center Content',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CONTAINER_CENTER_CONTENT__,
+			defaultValue: __DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
 			// description: '',
 			control: { type: 'boolean' }
 		},
@@ -38,7 +38,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_CONTAINER_SIZE__,
 			// description: '',
-			options: ['sm', 'md', 'lg', 'xl', '2xl'],
+			options: ['sm', 'md', 'lg', 'xl', '2xl'] as ContainerSizes,
 			control: { type: 'radio' }
 		}
 	}
