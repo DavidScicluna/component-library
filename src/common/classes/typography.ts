@@ -1,4 +1,22 @@
-import { ColorsObj } from '../types/theme';
+import {
+	ColorsObj,
+	FontSizesObj,
+	FontWeightsObj,
+	LineHeightsObj,
+	TextAlignsObj,
+	TextTransformsObj,
+	WhitespacesObj,
+	WordBreaksObj
+} from '../types/theme';
+
+const align: TextAlignsObj = {
+	center: 'text-center',
+	left: 'text-left',
+	right: 'text-right',
+	justify: 'text-justify',
+	start: 'text-start',
+	end: 'text-end'
+};
 
 const color: ColorsObj = {
 	black: 'text-black',
@@ -213,4 +231,72 @@ const color: ColorsObj = {
 	}
 };
 
-export default { color };
+const fontSize: FontSizesObj = {
+	'xs': 'text-xs',
+	'sm': 'text-sm',
+	'md': 'text-base',
+	'lg': 'text-lg',
+	'xl': 'text-xl',
+	'2xl': 'text-2xl',
+	'3xl': 'text-3xl',
+	'4xl': 'text-4xl',
+	'5xl': 'text-5xl',
+	'6xl': 'text-6xl',
+	'7xl': 'text-7xl',
+	'8xl': 'text-8xl',
+	'9xl': 'text-9xl'
+};
+
+const fontWeight: FontWeightsObj = {
+	black: 'font-black',
+	bold: 'font-bold',
+	thin: 'font-thin',
+	extralight: 'font-extralight',
+	light: 'font-light',
+	normal: 'font-normal',
+	medium: 'font-medium',
+	semibold: 'font-semibold',
+	extrabold: 'font-extrabold'
+};
+
+const lineHeight: LineHeightsObj = {
+	3: 'leading-3',
+	4: 'leading-4',
+	5: 'leading-5',
+	6: 'leading-6',
+	7: 'leading-7',
+	8: 'leading-8',
+	9: 'leading-9',
+	10: 'leading-10',
+	none: 'leading-none',
+	tight: 'leading-tight',
+	snug: 'leading-snug',
+	normal: 'leading-normal',
+	relaxed: 'leading-relaxed',
+	loose: 'leading-loose'
+};
+
+const transform: TextTransformsObj = {
+	uppercase: 'uppercase',
+	lowercase: 'lowercase',
+	capitalize: 'capitalize',
+	normal: 'normal-case'
+};
+
+const whitespace: WhitespacesObj = {
+	'normal': 'whitespace-normal',
+	'nowrap': 'whitespace-nowrap',
+	'pre': 'whitespace-pre',
+	'pre-line': 'whitespace-pre-line',
+	'pre-wrap': 'whitespace-pre-wrap',
+	'break-spaces': 'whitespace-break-spaces'
+};
+
+const wordBreak: WordBreaksObj = {
+	normal: 'break-normal',
+	words: 'break-words',
+	all: 'break-all',
+	keep: 'break-keep'
+};
+
+export default { align, color, fontSize, fontWeight, lineHeight, transform, whitespace, wordBreak };
