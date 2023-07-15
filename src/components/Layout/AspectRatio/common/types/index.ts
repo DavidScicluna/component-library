@@ -4,6 +4,7 @@ import type { ResponsiveValue } from '../../../../../common/types';
 import type { BoxProps, BoxRef } from '../../../Box/common/types';
 
 export type AspectRatioRatio = 'auto' | 'square' | 'video' | 'widescreen' | 'portrait' | 'standard' | 'vertical';
+export type AspectRatioRatios = AspectRatioRatio[];
 
 export type AspectRatioProps<Element extends ElementType> = BoxProps<
 	Element,

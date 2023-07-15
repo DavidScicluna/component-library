@@ -8,7 +8,7 @@ import { useGetColor } from '../../../common/hooks';
 import Center from '../Center';
 
 import { __DEFAULT_ASPECT_RATIO_RATIO__ } from './common/constants';
-import { AspectRatioProps } from './common/types';
+import { AspectRatioProps, AspectRatioRatios } from './common/types';
 import { AspectRatioStory, AspectRatioStoryMeta } from './common/types/story';
 import AspectRatioComponent from '.';
 
@@ -21,7 +21,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_ASPECT_RATIO_RATIO__,
 			// description: '',
-			options: ['auto', 'square', 'video', 'widescreen', 'portrait', 'standard', 'vertical'],
+			options: ['auto', 'square', 'video', 'widescreen', 'portrait', 'standard', 'vertical'] as AspectRatioRatios,
 			control: { type: 'radio' }
 		}
 	}
