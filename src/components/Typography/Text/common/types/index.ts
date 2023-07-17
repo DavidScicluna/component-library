@@ -3,7 +3,6 @@ import type {
 	FontSize,
 	FontWeight,
 	LineHeight,
-	Space,
 	TextAlign,
 	TextTransform,
 	Whitespace,
@@ -13,10 +12,7 @@ import type { BoxProps, BoxRef } from '../../../../Layout/Box/common/types';
 
 export type TextElementType = 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
-export type TextProps<Element extends TextElementType> = Omit<
-	BoxProps<Element, { spacing?: ResponsiveValue<Space> }>,
-	'children'
-> & {
+type TextOtherProps = {
 	children?: string;
 	align?: ResponsiveValue<TextAlign>;
 	fontSize?: ResponsiveValue<FontSize>;
@@ -28,5 +24,7 @@ export type TextProps<Element extends TextElementType> = Omit<
 	whitespace?: ResponsiveValue<Whitespace>;
 	wordBreak?: ResponsiveValue<WordBreak>;
 };
+
+export type TextProps<Element extends TextElementType> = Omit<BoxProps<Element, TextOtherProps>, 'children'>;
 
 export type TextRef<Element extends TextElementType> = BoxRef<Element>;
