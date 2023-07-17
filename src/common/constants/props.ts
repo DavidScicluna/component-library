@@ -8,7 +8,7 @@ import {
 	__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__,
 	__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__
 } from '../keys';
-import { AppColor, AppColorMode, Space } from '../types/theme';
+import { AppColor, AppColorMode, Duration, Ease, Space } from '../types/theme';
 
 export const __DEFAULT_APP_COLOR__: AppColor = (localStorage.getItem(__KEY_LOCALSTORAGE_APP_COLOR__) ||
 	sample(colors) ||
@@ -27,6 +27,9 @@ export const __DEFAULT_HAS_TWOTONEICON_LOADED__ = (sessionStorage.getItem(
 ) || false) as boolean;
 
 export const __DEFAULT_CLASSNAME__ = '';
+
+export const __DEFAULT_DURATION__: Duration = 'normal';
+export const __DEFAULT_EASING__: Ease = 'ease-in-out';
 
 export const __DEFAULT_SPACING__: Space = 2;
 
