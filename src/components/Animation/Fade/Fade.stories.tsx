@@ -1,0 +1,43 @@
+import { ReactElement } from 'react';
+
+import classNames from 'classnames';
+
+import classes from '../../../common/classes';
+import { useGetColor } from '../../../common/hooks';
+import Center from '../../Layout/Center';
+import { __DEFAULT_TRANSITION_IN__ } from '../common/constants';
+
+import { FadeProps } from './common/types';
+import { FadeStory, FadeStoryMeta } from './common/types/story';
+import FadeComponent from '.';
+
+export default {
+	title: 'Animation/Fade',
+	component: FadeComponent,
+	argTypes: {
+		in: {
+			name: 'Animate',
+			type: 'boolean',
+			defaultValue: __DEFAULT_TRANSITION_IN__,
+			// description: '',
+			control: { type: 'boolean' }
+		}
+		// transition,
+		// transitionEnd,
+	}
+} as FadeStoryMeta;
+
+export const Fade: FadeStory = (props: FadeProps): ReactElement => {
+	const radius = classes.borders.radius.base;
+
+	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
+	const background = useGetColor({ colorType: 'appColor', hueType: 'color', classType: 'bg' });
+
+	const padding = classes.spacing.p[4];
+
+	return (
+		<FadeComponent {...props}>
+			<Center className={classNames('w-20', 'h-20', radius, text, background, padding)} />
+		</FadeComponent>
+	);
+};
