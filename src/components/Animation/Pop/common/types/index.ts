@@ -7,7 +7,8 @@ export type PopProps = CommonAnimationProps & {
 	 */
 	initialScale?: number;
 	/**
-	 * If `true`, the element will transition back to exit state
+	 * If `true`, the element will be transitioned back to the offset when it leaves.
+	 * Otherwise, it'll only fade out
 	 * @default true
 	 */
 	isReversed?: boolean;

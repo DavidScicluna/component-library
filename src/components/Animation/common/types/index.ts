@@ -2,7 +2,7 @@ import type { HTMLMotionProps, Target, TargetAndTransition, Transition } from 'f
 
 import { Nullable } from '../../../../common/types';
 
-export type CommonAnimationProps = Omit<HTMLMotionProps<'div'>, 'transition'> & {
+export type CommonAnimationProps = TransitionProps & {
 	/**
 	 * If `true`, the element will unmount when `in={false}` and animation is done
 	 */
@@ -11,7 +11,7 @@ export type CommonAnimationProps = Omit<HTMLMotionProps<'div'>, 'transition'> & 
 	 * Show the component; triggers when enter or exit states
 	 */
 	in?: boolean;
-} & TransitionProps;
+} & Omit<HTMLMotionProps<'div'>, 'custom' | 'animate' | 'initial' | 'exit' | 'transition' | 'variants'>;
 
 export type CommonAnimationRef = Nullable<HTMLDivElement>;
 
@@ -31,26 +31,6 @@ export type TransitionProps = {
 	 */
 	transitionEnd?: TransitionEndConfig;
 };
-
-export type TransitionName =
-	| 'fade'
-	| 'skew-up'
-	| 'skew-down'
-	| 'rotate-right'
-	| 'rotate-left'
-	| 'slide-down'
-	| 'slide-up'
-	| 'slide-right'
-	| 'slide-left'
-	| 'scale-y'
-	| 'scale-x'
-	| 'scale'
-	| 'pop'
-	| 'pop-top-left'
-	| 'pop-top-right'
-	| 'pop-bottom-left'
-	| 'pop-bottom-right';
-export type Transitions = Record<TransitionName, WithMotionState<object>>;
 
 type TargetResolver<P = object> = (props: P & TransitionProps) => TargetAndTransition;
 type Variant<P = object> = TargetAndTransition | TargetResolver<P>;
