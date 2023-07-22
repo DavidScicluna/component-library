@@ -3,14 +3,15 @@ import { forwardRef, ReactElement } from 'react';
 import { motion } from 'framer-motion';
 import { pick } from 'lodash-es';
 
-import AnimatePresence from '../AnimatePresence';
 import {
 	__DEFAULT_TRANSITION__,
 	__DEFAULT_TRANSITION_CONFIG__,
 	__DEFAULT_TRANSITION_END__,
 	__DEFAULT_TRANSITION_IN__,
 	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
-} from '../common/constants';
+} from '@components/Animation/common/constants';
+
+import AnimatePresence from '../AnimatePresence';
 
 import {
 	__DEFAULT_SLIDE_IS_REVERSED__,

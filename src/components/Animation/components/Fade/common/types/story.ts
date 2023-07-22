@@ -1,6 +1,6 @@
 import { Meta as StorybookMeta, StoryFn as StorybookStory } from '@storybook/react';
 
-import Fade from '../..';
+import Fade from '../../Fade';
 
 export type FadeStoryMeta = StorybookMeta<typeof Fade>;
 

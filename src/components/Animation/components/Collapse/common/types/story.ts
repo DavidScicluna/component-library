@@ -1,6 +1,6 @@
 import { Meta as StorybookMeta, StoryFn as StorybookStory } from '@storybook/react';
 
-import Collapse from '../..';
+import Collapse from '../../Collapse';
 
 export type CollapseStoryMeta = StorybookMeta<typeof Collapse>;
 

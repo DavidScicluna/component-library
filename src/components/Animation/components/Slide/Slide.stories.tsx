@@ -2,10 +2,11 @@ import { ReactElement } from 'react';
 
 import classNames from 'classnames';
 
-import classes from '../../../common/classes';
-import { useGetColor } from '../../../common/hooks';
-import Center from '../../Layout/Center';
-import { __DEFAULT_TRANSITION_IN__ } from '../common/constants';
+import classes from '@common/classes';
+import { useGetColor } from '@common/hooks';
+
+import { __DEFAULT_TRANSITION_IN__ } from '@components/Animation/common/constants';
+import Center from '@components/Layout/Center';
 
 import { SlideProps } from './common/types';
 import { SlideStory, SlideStoryMeta } from './common/types/story';
