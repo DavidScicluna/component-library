@@ -1,10 +1,9 @@
-import { BoxProps } from '@chakra-ui/react';
+import { ElementType } from 'react';
 
-import { CommonThemeProps, Nullable } from '../../../../../common/types';
-import { BoxFlexbox, BoxGrid, BoxOther, BoxPseudo, BoxShadow, BoxTypography } from '../../../../../common/types/box';
+import { CommonThemeProps } from '@common/types/theme';
 
-type Omitted = BoxTypography | BoxFlexbox | BoxGrid | BoxShadow | BoxPseudo | BoxOther | 'children';
+import { BoxProps, BoxRef } from '@components/Layout/Box/common/types';
 
-export type BackdropOverlayProps = Omit<BoxProps, Omitted> & CommonThemeProps;
+export type BackdropOverlayProps<Element extends ElementType> = BoxProps<Element> & CommonThemeProps;
 
-export type BackdropOverlayRef = Nullable<HTMLDivElement>;
+export type BackdropOverlayRef<Element extends ElementType> = BoxRef<Element>;
