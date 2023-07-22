@@ -1,13 +1,16 @@
-import { forwardRef, ReactElement } from 'react';
+import { ElementType, forwardRef, ReactElement } from 'react';
 
-import { Center } from '@chakra-ui/react';
+import Box from '@components/Layout/Box';
 
 import { useBoolean } from '../../../common/hooks';
 
 import { HoverOverlayMouseEvent, HoverOverlayProps, HoverOverlayRef } from './common/types';
 
-const HoverOverlay = forwardRef<HoverOverlayRef, HoverOverlayProps>(function HoverOverlay(props, ref): ReactElement {
-	const { children, display = 'inline-block', onMouseEnter, onMouseLeave, ...rest } = props;
+const HoverOverlay = forwardRef(function HoverOverlay<Element extends ElementType>(
+	props: HoverOverlayProps<Element>,
+	ref: HoverOverlayRef<Element>
+): ReactElement {
+	const { children, onMouseEnter, onMouseLeave, ...rest } = props;
 
 	const [isHovering, setIsHovering] = useBoolean();
 
@@ -28,9 +31,14 @@ const HoverOverlay = forwardRef<HoverOverlayRef, HoverOverlayProps>(function Hov
 	};
 
 	return (
-		<Center {...rest} ref={ref} display={display} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-			{children({ isHovering })}
-		</Center>
+		<Box
+			{...(rest as HoverOverlayProps<Element>)}
+			ref={ref}
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}
+		>
+			{children(isHovering)}
+		</Box>
 	);
 });
 
