@@ -7,11 +7,7 @@ import { useGetColor } from '../../../common/hooks';
 import Center from '../../Layout/Center';
 import { __DEFAULT_TRANSITION_IN__ } from '../common/constants';
 
-import {
-	__DEFAULT_COLLAPSE_ENDING_HEIGHT__,
-	__DEFAULT_COLLAPSE_IS_OPACITY_ANIMATED__,
-	__DEFAULT_COLLAPSE_STARTING_HEIGHT__
-} from './common/constants';
+import { __DEFAULT_COLLAPSE_IS_OPACITY_ANIMATED__ } from './common/constants';
 import { CollapseProps } from './common/types';
 import { CollapseStory, CollapseStoryMeta } from './common/types/story';
 import CollapseComponent from '.';
@@ -33,20 +29,6 @@ export default {
 			defaultValue: __DEFAULT_COLLAPSE_IS_OPACITY_ANIMATED__,
 			// description: '',
 			control: { type: 'boolean' }
-		},
-		startingHeight: {
-			name: 'Starting Height',
-			type: 'number',
-			defaultValue: __DEFAULT_COLLAPSE_STARTING_HEIGHT__,
-			// description: '',
-			control: { type: 'number' }
-		},
-		endingHeight: {
-			name: 'Ending Height',
-			type: 'number',
-			defaultValue: __DEFAULT_COLLAPSE_ENDING_HEIGHT__,
-			// description: '',
-			control: { type: 'number' }
 		}
 		// transition,
 		// transitionEnd,

@@ -1,12 +1,31 @@
+import { PickFrom } from '../../../../../common/types';
 import { CommonAnimationProps, CommonAnimationRef } from '../../../common/types';
 
-// TODO: Go over all props and set a comment
-export type CollapseProps = CommonAnimationProps & {
+export type CollapseAxis = 'x' | 'y';
+
+export type CollapseXAxisProps = {
 	/**
-	 * If `true`, the opacity of the content will be animated
-	 * @default true
+	 * On which direction should the animation animate either on the x axis or y axis
+	 * @default "y"
 	 */
-	isOpacityAnimated?: boolean;
+	axis: PickFrom<CollapseAxis, 'x'>;
+	/**
+	 * The width you want the content in its collapsed state.
+	 * @default 0
+	 */
+	startingWidth?: number | string;
+	/**
+	 * The width you want the content in its expanded state.
+	 * @default "auto"
+	 */
+	endingWidth?: number | string;
+};
+export type CollapseYAxisProps = {
+	/**
+	 * On which direction should the animation animate either on the x axis or y axis
+	 * @default "y"
+	 */
+	axis: PickFrom<CollapseAxis, 'y'>;
 	/**
 	 * The height you want the content in its collapsed state.
 	 * @default 0
@@ -18,5 +37,14 @@ export type CollapseProps = CommonAnimationProps & {
 	 */
 	endingHeight?: number | string;
 };
+
+// TODO: Go over all props and set a comment
+export type CollapseProps = CommonAnimationProps & {
+	/**
+	 * If `true`, the opacity of the content will be animated
+	 * @default true
+	 */
+	isOpacityAnimated?: boolean;
+} & (CollapseXAxisProps | CollapseYAxisProps);
 
 export type CollapseRef = CommonAnimationRef;
