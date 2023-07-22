@@ -36,8 +36,10 @@ export const Fade: FadeStory = (props: FadeProps): ReactElement => {
 	const padding = classes.spacing.p[4];
 
 	return (
-		<FadeComponent {...props}>
-			<Center className={classNames('w-20', 'h-20', radius, text, background, padding)} />
-		</FadeComponent>
+		<Center className={classNames('w-auto')}>
+			<FadeComponent {...props}>
+				<Center className={classNames('w-20', 'h-20', radius, text, background, padding)} />
+			</FadeComponent>
+		</Center>
 	);
 };

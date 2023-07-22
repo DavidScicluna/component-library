@@ -62,8 +62,10 @@ export const Collapse: CollapseStory = (props: CollapseProps): ReactElement => {
 	const padding = classes.spacing.p[4];
 
 	return (
-		<CollapseComponent {...props}>
-			<Center className={classNames('w-20', 'h-20', radius, text, background, padding)} />
-		</CollapseComponent>
+		<Center className={classNames('w-auto')}>
+			<CollapseComponent {...props}>
+				<Center className={classNames('w-20', 'h-20', radius, text, background, padding)} />
+			</CollapseComponent>
+		</Center>
 	);
 };
