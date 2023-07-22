@@ -1,9 +1,9 @@
 import memoize from 'micro-memoize';
 
-import classes from '../classes';
-import theme from '../theme';
-import { ClassType } from '../types/classes';
-import { AppColorMode, Color, ColorHue } from '../types/theme';
+import classes from '@common/classes';
+import theme from '@common/theme';
+import { ClassType } from '@common/types/classes';
+import { AppColorMode, Color, ColorHue } from '@common/types/theme';
 
 export type ColorHueType =
 	| 'background'

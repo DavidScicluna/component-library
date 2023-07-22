@@ -1,11 +1,11 @@
 import memoize from 'micro-memoize';
 
-import { __DEFAULT_DURATION__, __DEFAULT_EASING__ } from '../constants';
-import theme from '../theme';
-import { AnimationConfig, AnimationDelay, AnimationDuration, AnimationEasing } from '../types/animation';
-import { Duration, Ease } from '../types/theme';
+import { __DEFAULT_DURATION__, __DEFAULT_EASING__ } from '@common/constants';
+import theme from '@common/theme';
+import { AnimationConfig, AnimationDelay, AnimationDuration, AnimationEasing } from '@common/types/animation';
+import { Duration, Ease } from '@common/types/theme';
 
-import { convertEasingsToArray, convertStringToNumber } from '.';
+import { convertStringToNumber } from '.';
 
 export const getAnimationDelay = memoize((delay: Duration = __DEFAULT_DURATION__): AnimationDelay => {
 	return convertStringToNumber(theme.transitionDuration[delay], 'ms') / 1000;
@@ -16,7 +16,13 @@ export const getAnimationDuration = memoize((duration: Duration = __DEFAULT_DURA
 });
 
 export const getAnimationEasings = memoize((easing: Ease = __DEFAULT_EASING__): AnimationEasing => {
-	return convertEasingsToArray({ easing: theme.transitionTimingFunction[easing] });
+	return theme.transitionTimingFunction[easing]
+		.replaceAll('cubic-bezier', '')
+		.replaceAll('(', '')
+		.replaceAll(')', '')
+		.replaceAll(' ', '')
+		.split(',')
+		.map((number) => Number(number));
 });
 
 export const getAnimationConfig = memoize((): AnimationConfig => {

@@ -1,5 +1,4 @@
 // TODO: Replace all types to have Theme included in the name
-
 export type AppColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 export type AppColors = AppColor[];
 
@@ -68,7 +67,7 @@ export type FontWeight =
 	| 'extrabold'
 	| 'black';
 export type FontWeightsArr = FontWeight[];
-export type FontWeightsObj = Record<FontWeight, string>;
+export type FontWeightsObj = Record<FontWeight, number>;
 
 export type TextAlign = 'left' | 'center' | 'right' | 'justify' | 'start' | 'end';
 export type TextAlignsArr = TextAlign[];
@@ -80,7 +79,7 @@ export type TextTransformsObj = Record<TextTransform, string>;
 
 export type LineHeight = 'none' | 'tight' | 'snug' | 'normal' | 'relaxed' | 'loose' | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 export type LineHeightsArr = LineHeight[];
-export type LineHeightsObj = Record<LineHeight, string>;
+export type LineHeightsObj = Record<LineHeight, string | number>;
 
 export type Whitespace = 'normal' | 'nowrap' | 'pre' | 'pre-line' | 'pre-wrap' | 'break-spaces';
 export type WhitespacesArr = Whitespace[];

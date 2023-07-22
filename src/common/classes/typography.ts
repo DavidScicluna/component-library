@@ -7,7 +7,7 @@ import {
 	TextTransformsObj,
 	WhitespacesObj,
 	WordBreaksObj
-} from '../types/theme';
+} from '@common/types/theme';
 
 const align: TextAlignsObj = {
 	center: 'text-center',

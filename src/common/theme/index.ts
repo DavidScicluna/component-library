@@ -1,6 +1,15 @@
 import { range } from 'lodash-es';
 
-import { ColorsObj, DurationsObj, EasingsObj, RadiiObj, SpacingObj } from '../types/theme';
+import {
+	ColorsObj,
+	DurationsObj,
+	EasingsObj,
+	FontSizesObj,
+	FontWeightsObj,
+	LineHeightsObj,
+	RadiiObj,
+	SpacingObj
+} from '@common/types/theme';
 
 const borderRadius: RadiiObj = {
 	none: '0',
@@ -225,6 +234,51 @@ const colors: ColorsObj = {
 	}
 };
 
+const fontSizes: FontSizesObj = {
+	'xs': '0.75rem' /* 12px */,
+	'sm': '0.875rem' /* 14px */,
+	'lg': '1rem' /* 16px */,
+	'xl': '1.125rem' /* 18px */,
+	'md': '1.25rem' /* 20px */,
+	'2xl': '1.5rem' /* 24px */,
+	'3xl': '1.875rem' /* 30px */,
+	'4xl': '2.25rem' /* 36px */,
+	'5xl': '3rem' /* 48px */,
+	'6xl': '3.75rem' /* 60px */,
+	'7xl': '4.5rem' /* 72px */,
+	'8xl': '6rem' /* 96px */,
+	'9xl': '8rem' /* 128px */
+};
+
+const fontWeights: FontWeightsObj = {
+	thin: 100,
+	extralight: 200,
+	light: 300,
+	normal: 400,
+	medium: 500,
+	semibold: 600,
+	bold: 700,
+	extrabold: 800,
+	black: 900
+};
+
+const lineHeights: LineHeightsObj = {
+	3: '.75rem' /* 12px */,
+	4: '1rem' /* 16px */,
+	5: '1.25rem' /* 20px */,
+	6: '1.5rem' /* 24px */,
+	7: '1.75rem' /* 28px */,
+	8: '2rem' /* 32px */,
+	9: '2.25rem' /* 36px */,
+	10: '2.5rem' /* 40px */,
+	none: 1,
+	tight: 1.25,
+	snug: 1.375,
+	normal: 1.5,
+	relaxed: 1.625,
+	loose: 2
+};
+
 const transitionTimingFunction: EasingsObj = {
 	'ease-in': 'cubic-bezier(0.55,0.06,0.68,0.19)',
 	'ease-out': 'cubic-bezier(0.22,0.61,0.36,1)',
@@ -248,11 +302,14 @@ const spacing: SpacingObj = range(0, 25, 0.25)
 export default {
 	borderRadius,
 	colors,
+	fontSizes,
+	fontWeights,
 	fontFamily: {
 		sans: ['Work Sans', 'sans-serif'],
 		serif: ['Roboto Slab', 'serif'],
 		monospace: ['Roboto Mono', 'monospace']
 	},
+	lineHeights,
 	transitionTimingFunction,
 	transitionDuration,
 	transitionProperty: {

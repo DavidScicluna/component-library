@@ -13,7 +13,7 @@ import {
 	JustifyContentObj,
 	JustifyItemsObj,
 	JustifySelfObj
-} from '../types/classes';
+} from '@common/types/classes';
 
 const alignContent: AlignContentObj = {
 	normal: 'content-normal',

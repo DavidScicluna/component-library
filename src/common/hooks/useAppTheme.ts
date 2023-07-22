@@ -1,6 +1,7 @@
-import { useProviderContext } from '../../components/Provider/common/hooks';
-import type { NoUndefinedField } from '../types';
-import type { CommonThemeProps } from '../types/theme';
+import type { NoUndefinedField } from '@common/types';
+import type { CommonThemeProps } from '@common/types/theme';
+
+import { useProviderContext } from '@components/Provider/common/hooks';
 
 const useAppTheme = (): NoUndefinedField<CommonThemeProps> => {
 	const { color, colorMode } = useProviderContext();

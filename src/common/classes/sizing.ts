@@ -1,4 +1,4 @@
-import { SpacingObj } from '../types/theme';
+import { SpacingObj } from '@common/types/theme';
 
 const w: SpacingObj = {
 	0: 'w-0',

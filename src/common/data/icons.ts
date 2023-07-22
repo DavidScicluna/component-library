@@ -1,4 +1,4 @@
-import { Icons } from '../types/icons';
+import { Icons } from '@common/types/icons';
 
 // All Material Design Icons
 const icons: Icons = [

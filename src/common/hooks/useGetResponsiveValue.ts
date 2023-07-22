@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
-import { ResponsiveValue } from '../types';
-import { getResponsiveValue } from '../utils';
+import { ResponsiveValue } from '@common/types';
+import { getResponsiveValue } from '@common/utils';
 
 /**
  * This hook will return the appropriate responsive value depending on current dimensions of the users device

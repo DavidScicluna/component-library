@@ -1,14 +1,14 @@
 import { sample } from 'lodash-es';
 
-import colors from '../data/colors';
+import colors from '@common/data/colors';
 import {
 	__KEY_LOCALSTORAGE_APP_COLOR__,
 	__KEY_LOCALSTORAGE_APP_COLORMODE__,
 	__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__,
 	__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__,
 	__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__
-} from '../keys';
-import { AppColor, AppColorMode, Duration, Ease, Space } from '../types/theme';
+} from '@common/keys';
+import { AppColor, AppColorMode, Duration, Ease, Space } from '@common/types/theme';
 
 export const __DEFAULT_APP_COLOR__: AppColor = (localStorage.getItem(__KEY_LOCALSTORAGE_APP_COLOR__) ||
 	sample(colors) ||

@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 
-import { ClassType } from '../types/classes';
-import { CommonThemeProps } from '../types/theme';
-import { ColorHueType, getColorClass, getColorHex } from '../utils/color';
+import { ClassType } from '@common/types/classes';
+import { CommonThemeProps } from '@common/types/theme';
+import { ColorHueType, getColorClass, getColorHex } from '@common/utils/color';
 
 import { useAppTheme } from '.';
 
