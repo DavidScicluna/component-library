@@ -11,7 +11,6 @@ import {
 	__DEFAULT_TRANSITION_IN__,
 	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
 } from '../common/constants';
-import transitions from '../common/data/transitions';
 import { TransitionProps, Variants } from '../common/types';
 
 import { FadeProps, FadeRef } from './common/types';
@@ -34,12 +33,12 @@ const Fade = forwardRef<FadeRef, FadeProps>(function Fade(props, ref): ReactElem
 
 	const variants = useConst<Variants<TransitionProps>>({
 		enter: ({ transition = __DEFAULT_TRANSITION__, transitionEnd = __DEFAULT_TRANSITION_END__ } = {}) => ({
-			...transitions.fade.enter,
+			opacity: 1,
 			transition: { ...transition.enter },
 			transitionEnd: { ...transitionEnd.enter }
 		}),
 		exit: ({ transition = __DEFAULT_TRANSITION__, transitionEnd = __DEFAULT_TRANSITION_END__ } = {}) => ({
-			...transitions.fade.exit,
+			opacity: 0,
 			transition: { ...transition.exit },
 			transitionEnd: { ...transitionEnd.exit }
 		})
