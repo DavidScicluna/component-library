@@ -1,11 +1,16 @@
 import { CommonAnimationProps, CommonAnimationRef } from '../../../common/types';
 
-export type PopXAxis = 'left' | 'right';
-export type PopYAxis = 'top' | 'bottom';
-
 export type PopProps = CommonAnimationProps & {
-	xAxis?: Partial<PopXAxis>;
-	yAxis?: Partial<PopYAxis>;
+	/**
+	 * The initial scale of the element
+	 * @default 0.95
+	 */
+	initialScale?: number;
+	/**
+	 * If `true`, the element will transition back to exit state
+	 * @default true
+	 */
+	isReversed?: boolean;
 };
 
 export type PopRef = CommonAnimationRef;

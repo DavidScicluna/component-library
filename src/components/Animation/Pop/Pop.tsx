@@ -10,17 +10,17 @@ import {
 	__DEFAULT_TRANSITION_IN__,
 	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
 } from '../common/constants';
-import transitions from '../common/data/transitions';
-import { TransitionName, TransitionProps, Variants } from '../common/types';
+import { TransitionProps, Variants } from '../common/types';
 
+import { __DEFAULT_POP_INITIAL_SCALE__, __DEFAULT_POP_IS_REVERSED__ } from './common/constants';
 import { PopProps, PopRef } from './common/types';
 
 const config = __DEFAULT_TRANSITION_CONFIG__;
 
 const Pop = forwardRef<PopRef, PopProps>(function Pop(props, ref): ReactElement {
 	const {
-		xAxis,
-		yAxis,
+		initialScale = __DEFAULT_POP_INITIAL_SCALE__,
+		isReversed = __DEFAULT_POP_IS_REVERSED__,
 		in: isOpen = __DEFAULT_TRANSITION_IN__,
 		unmountOnExit = __DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__,
 		transition,
@@ -36,17 +36,22 @@ const Pop = forwardRef<PopRef, PopProps>(function Pop(props, ref): ReactElement 
 	const variants = useMemo<Variants<TransitionProps>>(() => {
 		return {
 			enter: ({ transition = __DEFAULT_TRANSITION__, transitionEnd = __DEFAULT_TRANSITION_END__ } = {}) => ({
-				...transitions[(!!xAxis && !!yAxis ? `pop-${yAxis}-${xAxis}` : 'pop') as TransitionName].enter,
+				opacity: 1,
+				scale: 1,
+				transformOrigin: 'center center',
 				transition: { ...transition.enter },
 				transitionEnd: { ...transitionEnd.enter }
 			}),
 			exit: ({ transition = __DEFAULT_TRANSITION__, transitionEnd = __DEFAULT_TRANSITION_END__ } = {}) => ({
-				...transitions[(!!xAxis && !!yAxis ? `pop-${yAxis}-${xAxis}` : 'pop') as TransitionName].exit,
-				transition: { ...transition.exit },
-				transitionEnd: { ...transitionEnd.exit }
+				...(isReversed
+					? { scale: initialScale, transitionEnd: { ...transitionEnd.exit } }
+					: { transitionEnd: { pop: initialScale, ...transitionEnd.exit } }),
+				opacity: 0,
+				transformOrigin: 'center center',
+				transition: { ...transition.exit }
 			})
 		};
-	}, [xAxis, yAxis]);
+	}, [initialScale, isReversed]);
 
 	return (
 		<AnimatePresence custom={custom}>

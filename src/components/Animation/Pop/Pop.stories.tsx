@@ -7,7 +7,8 @@ import { useGetColor } from '../../../common/hooks';
 import Center from '../../Layout/Center';
 import { __DEFAULT_TRANSITION_IN__ } from '../common/constants';
 
-import { PopProps, PopXAxis, PopYAxis } from './common/types';
+import { __DEFAULT_POP_INITIAL_SCALE__, __DEFAULT_POP_IS_REVERSED__ } from './common/constants';
+import { PopProps } from './common/types';
 import { PopStory, PopStoryMeta } from './common/types/story';
 import PopComponent from '.';
 
@@ -22,21 +23,19 @@ export default {
 			// description: '',
 			control: { type: 'boolean' }
 		},
-		xaxis: {
-			name: 'X-Axis',
-			type: 'string',
-			defaultValue: 'default',
+		initialScale: {
+			name: 'Initial Scale',
+			type: 'number',
+			defaultValue: __DEFAULT_POP_INITIAL_SCALE__,
 			// description: '',
-			options: ['none', 'left', 'right'] as ('none' | PopXAxis)[],
-			control: { type: 'radio' }
+			control: { type: 'number' }
 		},
-		yaxis: {
-			name: 'Y-Axis',
-			type: 'string',
-			defaultValue: 'default',
+		isReversed: {
+			name: 'Reversed',
+			type: 'boolean',
+			defaultValue: __DEFAULT_POP_IS_REVERSED__,
 			// description: '',
-			options: ['none', 'top', 'bottom'] as ('none' | PopYAxis)[],
-			control: { type: 'radio' }
+			control: { type: 'boolean' }
 		}
 		// transition,
 		// transitionEnd,
@@ -52,8 +51,10 @@ export const Pop: PopStory = (props: PopProps): ReactElement => {
 	const padding = classes.spacing.p[4];
 
 	return (
-		<PopComponent {...props}>
-			<Center className={classNames('w-20', 'h-20', radius, text, background, padding)} />
-		</PopComponent>
+		<Center className={classNames('w-auto')}>
+			<PopComponent {...props}>
+				<Center className={classNames('w-20', 'h-20', radius, text, background, padding)} />
+			</PopComponent>
+		</Center>
 	);
 };
