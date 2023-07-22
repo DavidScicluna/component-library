@@ -10,16 +10,17 @@ import {
 	__DEFAULT_TRANSITION_IN__,
 	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
 } from '../common/constants';
-import transitions from '../common/data/transitions';
 import { TransitionProps, Variants } from '../common/types';
 
+import { __DEFAULT_SCALE_INITIAL_SCALE__, __DEFAULT_SCALE_IS_REVERSED__ } from './common/constants';
 import { ScaleProps, ScaleRef } from './common/types';
 
 const config = __DEFAULT_TRANSITION_CONFIG__;
 
 const Scale = forwardRef<ScaleRef, ScaleProps>(function Scale(props, ref): ReactElement {
 	const {
-		axis,
+		initialScale = __DEFAULT_SCALE_INITIAL_SCALE__,
+		isReversed = __DEFAULT_SCALE_IS_REVERSED__,
 		in: isOpen = __DEFAULT_TRANSITION_IN__,
 		unmountOnExit = __DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__,
 		transition,
@@ -35,17 +36,22 @@ const Scale = forwardRef<ScaleRef, ScaleProps>(function Scale(props, ref): React
 	const variants = useMemo<Variants<TransitionProps>>(() => {
 		return {
 			enter: ({ transition = __DEFAULT_TRANSITION__, transitionEnd = __DEFAULT_TRANSITION_END__ } = {}) => ({
-				...transitions[axis === 'x' ? 'scale-x' : axis === 'y' ? 'scale-y' : 'scale'].enter,
+				opacity: 1,
+				scale: 1,
+				transformOrigin: 'center',
 				transition: { ...transition.enter },
 				transitionEnd: { ...transitionEnd.enter }
 			}),
 			exit: ({ transition = __DEFAULT_TRANSITION__, transitionEnd = __DEFAULT_TRANSITION_END__ } = {}) => ({
-				...transitions[axis === 'x' ? 'scale-x' : axis === 'y' ? 'scale-y' : 'scale'].exit,
-				transition: { ...transition.exit },
-				transitionEnd: { ...transitionEnd.exit }
+				...(isReversed
+					? { scale: initialScale, transitionEnd: { ...transitionEnd.exit } }
+					: { transitionEnd: { scale: initialScale, ...transitionEnd.exit } }),
+				opacity: 0,
+				transformOrigin: 'center',
+				transition: { ...transition.exit }
 			})
 		};
-	}, [axis]);
+	}, [initialScale, isReversed]);
 
 	return (
 		<AnimatePresence custom={custom}>
