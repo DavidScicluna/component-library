@@ -1,37 +1,13 @@
-import { CenterProps } from '@chakra-ui/react';
+import { ElementType } from 'react';
 
-import { Nullable } from '../../../../../common/types';
-import {
-	BoxBackground,
-	BoxBorders,
-	BoxColor,
-	BoxFilter,
-	BoxFlexbox,
-	BoxGradient,
-	BoxGrid,
-	BoxOther,
-	BoxPseudo,
-	BoxShadow,
-	BoxTypography
-} from '../../../../../common/types/box';
-import { Space } from '../../../../../theme/types';
+import { Space } from '@common/types/theme';
 
-type Omitted =
-	| BoxColor
-	| BoxGradient
-	| BoxTypography
-	| BoxFlexbox
-	| BoxGrid
-	| BoxBackground
-	| BoxBorders
-	| BoxShadow
-	| BoxFilter
-	| BoxPseudo
-	| BoxOther
-	| 'backdropFilter';
+import { BoxProps, BoxRef } from '@components/Layout/Box/common/types';
 
-export type GlassProps = Omit<CenterProps, Omitted> & {
-	size?: Space;
+export type GlassSize = Space;
+
+export type GlassProps<Element extends ElementType> = BoxProps<Element> & {
+	size?: GlassSize;
 };
 
-export type GlassRef = Nullable<HTMLDivElement>;
+export type GlassRef<Element extends ElementType> = BoxRef<Element>;
