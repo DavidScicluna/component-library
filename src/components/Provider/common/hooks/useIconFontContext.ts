@@ -6,7 +6,7 @@ import {
 	__DEFAULT_HAS_TWOTONEICON_LOADED__
 } from '../../../../common/constants';
 import type { NoUndefinedField } from '../../../../common/types';
-import { IconFontContext } from '../..';
+import { IconFontContext } from '../../Provider';
 import { IconFontContext as IconFontContextType } from '../types';
 
 const useIconFontContext = (): NoUndefinedField<IconFontContextType> => {

@@ -17,7 +17,6 @@ import { AnimationConfig } from '../../common/types/animation';
 import type { AppColor, AppColorMode } from '../../common/types/theme';
 import { getAnimationConfig } from '../../common/utils/animation';
 
-// import TransitionsProvider from '../Transitions/TransitionsProvider';
 import type {
 	AnimationContext as AnimationContextType,
 	IconFontContext as IconFontContextType,

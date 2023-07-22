@@ -6,7 +6,7 @@ import {
 	__DEFAULT_ANIMATION_EASING__
 } from '../../../../common/constants';
 import type { NoUndefinedField } from '../../../../common/types';
-import { AnimationContext } from '../..';
+import { AnimationContext } from '../../Provider';
 import { AnimationContext as AnimationContextType } from '../types';
 
 const useAnimationContext = (): NoUndefinedField<AnimationContextType> => {
