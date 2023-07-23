@@ -5,14 +5,15 @@ import {
 	__DEFAULT_HAS_FILLEDICON_LOADED__,
 	__DEFAULT_HAS_OUTLINEDICON_LOADED__,
 	__DEFAULT_HAS_TWOTONEICON_LOADED__
-} from '../../../../common/constants';
-import { useBoolean } from '../../../../common/hooks';
+} from '@common/constants';
+import { useBoolean } from '@common/hooks';
 import {
 	__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__,
 	__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__,
 	__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__
-} from '../../../../common/keys';
-import type { IconCategory } from '../../../DataDisplay/Icon/common/types';
+} from '@common/keys';
+
+import { IconCategory } from '@components/DataDisplay/Icon/common/types';
 
 type useGetIconFontStatusReturn = Record<IconCategory, boolean>;
 

@@ -11,11 +11,11 @@ import {
 	__DEFAULT_HAS_FILLEDICON_LOADED__,
 	__DEFAULT_HAS_OUTLINEDICON_LOADED__,
 	__DEFAULT_HAS_TWOTONEICON_LOADED__
-} from '../../common/constants';
-import { useBoolean, useConst } from '../../common/hooks';
-import { AnimationConfig } from '../../common/types/animation';
-import type { AppColor, AppColorMode } from '../../common/types/theme';
-import { getAnimationConfig } from '../../common/utils/animation';
+} from '@common/constants';
+import { useBoolean, useConst } from '@common/hooks';
+import { AnimationConfig } from '@common/types/animation';
+import { AppColor, AppColorMode } from '@common/types/theme';
+import { getAnimationConfig } from '@common/utils/animation';
 
 import type {
 	AnimationContext as AnimationContextType,
