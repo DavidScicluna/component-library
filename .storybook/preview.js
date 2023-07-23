@@ -1,8 +1,8 @@
-import Provider from '../src/components/Provider';
-import { getColorHex, getColorMode } from '../src/common/utils/color';
+import Provider from '@components/Provider';
+import { getColorHex, getColorMode } from '@common/utils/color';
 
-import { __DEFAULT_APP_COLOR__ } from '../src/common/constants';
-import colors from '../src/common/data/colors';
+import { __DEFAULT_APP_COLOR__ } from '@common/constants';
+import colors from '@common/data/colors';
 import { capitalize } from 'lodash-es';
 
 // Importing Main Fonts (Work Sans & Roboto)
