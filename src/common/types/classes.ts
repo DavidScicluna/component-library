@@ -1,3 +1,5 @@
+// TODO: Sort types like they are sorted in classes folder
+
 export type ClassType = 'bg' | 'text';
 
 export type AlignContent =
@@ -20,6 +22,14 @@ export type AlignItemsObj = Record<AlignItems, string>;
 export type AlignSelf = 'auto' | 'start' | 'end' | 'center' | 'stretch' | 'baseline';
 export type AlignSelfArr = AlignSelf[];
 export type AlignSelfObj = Record<AlignSelf, string>;
+
+export type Blur = 'none' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
+export type BlurArr = Blur[];
+export type BlurObj = Record<Blur, string>;
+
+export type BackdropBlur = 'none' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
+export type BackdropBlurArr = BackdropBlur[];
+export type BackdropBlurObj = Record<BackdropBlur, string>;
 
 export type JustifyContent =
 	| 'normal'
@@ -104,3 +114,46 @@ export type GridTemplateColumnsObj = Record<GridTemplateColumns, string>;
 export type GridTemplateRows = GridRow | 'none';
 export type GridTemplateRowsArr = GridTemplateRows[];
 export type GridTemplateRowsObj = Record<GridTemplateRows, string>;
+
+export type Saturate = 0 | 50 | 100 | 150 | 200;
+export type SaturateArr = Saturate[];
+export type SaturateObj = Record<Saturate, string>;
+
+export type ZIndex =
+	| 0
+	| 1
+	| 2
+	| 3
+	| 4
+	| 5
+	| 6
+	| 7
+	| 8
+	| 9
+	| 10
+	| 11
+	| 12
+	| 13
+	| 14
+	| 15
+	| 16
+	| 17
+	| 18
+	| 19
+	| 20
+	| 21
+	| 22
+	| 23
+	| 24
+	| 25
+	| 30
+	| 40
+	| 50
+	| 75
+	| 100
+	| 250
+	| 500
+	| 1000
+	| 'auto';
+export type ZIndexArr = ZIndex[];
+export type ZIndexObj = Record<ZIndex, string | number>;
