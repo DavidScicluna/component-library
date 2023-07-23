@@ -1,4 +1,4 @@
-import type { AppColor } from '../../../../../../common/types/theme';
+import type { AppColor } from '@common/types/theme';
 
 export type ColorScriptProps = {
 	initialColor: AppColor;
