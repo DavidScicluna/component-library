@@ -14,7 +14,7 @@
 		"build"
 	],
 	"scripts": {
-		"lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
+		"lint": "eslint \"./**/*.{js,jsx,ts,tsx}\"",
 		"format": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\" --config ./.prettierrc",
 		"cleanup": "rimraf node_modules && yarn cache clean --all",
 		"prebuild": "yarn run cleanup && yarn install && yarn run lint --fix && sudo yarn run format && rimraf build",
@@ -102,6 +102,7 @@
 		"rollup-plugin-terser": "^7.0.2",
 		"storybook": "^7.1.0",
 		"tailwindcss": "^3.3.3",
+		"tsconfig-paths-webpack-plugin": "^4.1.0",
 		"tslib": "^2.6.0",
 		"typescript": "^5.1.6"
 	},
