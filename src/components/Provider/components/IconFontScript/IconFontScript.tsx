@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 
-import { useGetIconFontStatus } from '../../common/hooks';
+import { useGetIconFontStatus } from '@components/Provider/common/hooks';
 
 import type { IconFontScriptProps } from './common/types';
 
