@@ -9,8 +9,8 @@ import { __DEFAULT_TRANSITION_IN__ } from '@components/Animation/common/constant
 import Center from '@components/Layout/Center';
 
 import { __DEFAULT_COLLAPSE_IS_OPACITY_ANIMATED__ } from './common/constants';
-import { CollapseProps } from './common/types';
-import { CollapseStory, CollapseStoryMeta } from './common/types/story';
+import type { CollapseProps } from './common/types';
+import type { CollapseStory, CollapseStoryMeta } from './common/types/story';
 import CollapseComponent from '.';
 
 export default {

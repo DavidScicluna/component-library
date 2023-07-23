@@ -5,7 +5,7 @@ import Box from '@components/Layout/Box';
 import { useTheme } from '../../../common/hooks';
 
 import { __DEFAULT_GLASS_SIZE__ } from './common/constants';
-import { GlassProps, GlassRef } from './common/types';
+import type { GlassProps, GlassRef } from './common/types';
 
 const Glass = forwardRef(function Glass<Element extends ElementType>(
 	props: GlassProps<Element>,

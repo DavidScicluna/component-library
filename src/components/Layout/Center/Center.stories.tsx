@@ -7,8 +7,8 @@ import classes from '@common/classes';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
-import { CenterProps } from './common/types';
-import { CenterStory, CenterStoryMeta } from './common/types/story';
+import type { CenterProps } from './common/types';
+import type { CenterStory, CenterStoryMeta } from './common/types/story';
 import CenterComponent from '.';
 
 export default {

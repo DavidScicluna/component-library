@@ -1,6 +1,6 @@
 import { ElementType } from 'react';
 
-import { StackProps, StackRef } from '@components/Layout/Stacks/Stack/common/types';
+import type { StackProps, StackRef } from '@components/Layout/Stacks/Stack/common/types';
 
 export type VStackProps<Element extends ElementType> = Omit<StackProps<Element>, 'direction'>;
 

@@ -5,11 +5,11 @@ import {
 	__DEFAULT_ANIMATION_DURATION__,
 	__DEFAULT_ANIMATION_EASING__
 } from '@common/constants';
-import { NoUndefinedField } from '@common/types';
+import type { NoUndefinedField } from '@common/types';
 
 import { AnimationContext } from '@components/Provider/Provider';
 
-import { AnimationContext as AnimationContextType } from '../types';
+import type { AnimationContext as AnimationContextType } from '../types';
 
 const useAnimationContext = (): NoUndefinedField<AnimationContextType> => {
 	const {

@@ -1,4 +1,4 @@
-import { CollapseAxis } from '../types';
+import type { CollapseAxis } from '../types';
 
 export const __DEFAULT_COLLAPSE_AXIS__: CollapseAxis = 'y';
 export const __DEFAULT_COLLAPSE_IS_OPACITY_ANIMATED__ = true;

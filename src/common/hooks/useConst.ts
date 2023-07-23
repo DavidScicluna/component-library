@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRef } from 'react';
 
-import { Nullable } from '@common/types';
+import type { Nullable } from '@common/types';
 
 type UseConstParamsFn<T> = () => T;
 type UseConstParams<T> = T | UseConstParamsFn<T>;

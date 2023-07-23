@@ -14,7 +14,7 @@ import {
 import AnimatePresence from '../AnimatePresence';
 
 import { __DEFAULT_PAGE_TRANSITION_BLUR__ } from './common/constants';
-import { PageTransitionProps, PageTransitionRef } from './common/types';
+import type { PageTransitionProps, PageTransitionRef } from './common/types';
 
 const config = __DEFAULT_TRANSITION_CONFIG__;
 

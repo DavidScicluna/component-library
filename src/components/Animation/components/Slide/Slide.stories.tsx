@@ -8,8 +8,8 @@ import { useGetColor } from '@common/hooks';
 import { __DEFAULT_TRANSITION_IN__ } from '@components/Animation/common/constants';
 import Center from '@components/Layout/Center';
 
-import { SlideProps } from './common/types';
-import { SlideStory, SlideStoryMeta } from './common/types/story';
+import type { SlideProps } from './common/types';
+import type { SlideStory, SlideStoryMeta } from './common/types/story';
 import SlideComponent from '.';
 
 export default {

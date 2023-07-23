@@ -1,8 +1,8 @@
 import { ElementType } from 'react';
 
-import { Space } from '@common/types/theme';
+import type { Space } from '@common/types/theme';
 
-import { BoxProps, BoxRef } from '@components/Layout/Box/common/types';
+import type { BoxProps, BoxRef } from '@components/Layout/Box/common/types';
 
 export type GlassSize = Space;
 

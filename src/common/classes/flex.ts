@@ -1,4 +1,4 @@
-import { AlignItemsObj, FlexDirectionObj, FlexWrapObj, JustifyContentObj } from '@common/types/classes';
+import type { AlignItemsObj, FlexDirectionObj, FlexWrapObj, JustifyContentObj } from '@common/types/classes';
 
 const alignItems: AlignItemsObj = {
 	'flex-start': 'items-start',

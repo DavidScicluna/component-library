@@ -8,8 +8,8 @@ import { useGetColor } from '@common/hooks';
 import { __DEFAULT_TRANSITION_IN__ } from '@components/Animation/common/constants';
 import Center from '@components/Layout/Center';
 
-import { FadeProps } from './common/types';
-import { FadeStory, FadeStoryMeta } from './common/types/story';
+import type { FadeProps } from './common/types';
+import type { FadeStory, FadeStoryMeta } from './common/types/story';
 import FadeComponent from '.';
 
 export default {

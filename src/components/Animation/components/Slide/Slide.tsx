@@ -18,7 +18,7 @@ import {
 	__DEFAULT_SLIDE_OFFSET_X__,
 	__DEFAULT_SLIDE_OFFSET_Y__
 } from './common/constants';
-import { SlideProps, SlideRef } from './common/types';
+import type { SlideProps, SlideRef } from './common/types';
 
 const config = { ...__DEFAULT_TRANSITION_CONFIG__, initial: 'initial' };
 

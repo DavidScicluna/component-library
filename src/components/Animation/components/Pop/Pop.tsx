@@ -14,7 +14,7 @@ import {
 import AnimatePresence from '../AnimatePresence';
 
 import { __DEFAULT_POP_INITIAL_SCALE__, __DEFAULT_POP_IS_REVERSED__ } from './common/constants';
-import { PopProps, PopRef } from './common/types';
+import type { PopProps, PopRef } from './common/types';
 
 const config = __DEFAULT_TRANSITION_CONFIG__;
 

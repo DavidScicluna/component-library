@@ -5,11 +5,11 @@ import {
 	__DEFAULT_HAS_OUTLINEDICON_LOADED__,
 	__DEFAULT_HAS_TWOTONEICON_LOADED__
 } from '@common/constants';
-import { NoUndefinedField } from '@common/types';
+import type { NoUndefinedField } from '@common/types';
 
 import { IconFontContext } from '@components/Provider/Provider';
 
-import { IconFontContext as IconFontContextType } from '../types';
+import type { IconFontContext as IconFontContextType } from '../types';
 
 const useIconFontContext = (): NoUndefinedField<IconFontContextType> => {
 	const {

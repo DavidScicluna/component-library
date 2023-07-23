@@ -1,4 +1,4 @@
-import { RadiiObj } from '@common/types/theme';
+import type { RadiiObj } from '@common/types/theme';
 
 const radius: RadiiObj = {
 	none: 'rounded-none',

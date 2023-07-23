@@ -6,8 +6,8 @@ import { isArray } from 'lodash-es';
 import classes from '@common/classes';
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import { AlignItems, FlexDirection, FlexWrap, JustifyContent } from '@common/types/classes';
-import { Space } from '@common/types/theme';
+import type { AlignItems, FlexDirection, FlexWrap, JustifyContent } from '@common/types/classes';
+import type { Space } from '@common/types/theme';
 import { getResponsiveValue } from '@common/utils';
 
 import Box from '@components/Layout/Box';

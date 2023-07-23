@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactElement } from 'react';
 
-import {
+import type {
 	FontSizesArr,
 	FontWeightsArr,
 	LineHeightsArr,
@@ -22,8 +22,8 @@ import {
 	__DEFAULT_TEXT_WHITESPACE__,
 	__DEFAULT_TEXT_WORD_BREAK__
 } from './common/constants';
-import { TextProps } from './common/types';
-import { TextStory, TextStoryMeta } from './common/types/story';
+import type { TextProps } from './common/types';
+import type { TextStory, TextStoryMeta } from './common/types/story';
 import TextComponent from '.';
 
 export default {

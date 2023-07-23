@@ -1,4 +1,4 @@
-import { ContainerSize } from '../types';
+import type { ContainerSize } from '../types';
 
 export const __DEFAULT_CONTAINER_IS_CONTENT_CENTERED__ = true;
 export const __DEFAULT_CONTAINER_IS_FLUID__ = false;

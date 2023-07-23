@@ -10,8 +10,8 @@ import { useGetColor } from '@common/hooks';
 
 import Center from '../Center';
 
-import { SimpleGridProps } from './common/types';
-import { SimpleGridStory, SimpleGridStoryMeta } from './common/types/story';
+import type { SimpleGridProps } from './common/types';
+import type { SimpleGridStory, SimpleGridStoryMeta } from './common/types/story';
 import SimpleGridComponent from '.';
 
 export default {

@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { ResponsiveValue } from '@common/types';
+import type { ResponsiveValue } from '@common/types';
 import { getResponsiveValue } from '@common/utils';
 
 /**

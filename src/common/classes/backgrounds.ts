@@ -1,4 +1,4 @@
-import { ColorsObj } from '@common/types/theme';
+import type { ColorsObj } from '@common/types/theme';
 
 const color: ColorsObj = {
 	black: 'bg-black',

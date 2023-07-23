@@ -21,7 +21,7 @@ import {
 	__DEFAULT_COLLAPSE_STARTING_HEIGHT__,
 	__DEFAULT_COLLAPSE_STARTING_WIDTH__
 } from './common/constants';
-import { CollapseProps, CollapseRef } from './common/types';
+import type { CollapseProps, CollapseRef } from './common/types';
 
 const config = __DEFAULT_TRANSITION_CONFIG__;
 

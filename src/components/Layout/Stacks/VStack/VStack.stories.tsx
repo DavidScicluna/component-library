@@ -7,7 +7,7 @@ import { range } from 'lodash-es';
 import classes from '@common/classes';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import { AlignItemsArr, FlexWrapArr, JustifyContentArr } from '@common/types/classes';
+import type { AlignItemsArr, FlexWrapArr, JustifyContentArr } from '@common/types/classes';
 
 import Center from '@components/Layout/Center';
 
@@ -17,8 +17,8 @@ import {
 	__DEFAULT_STACK_WRAP__
 } from '../Stack/common/constants';
 
-import { VStackProps } from './common/types';
-import { VStackStory, VStackStoryMeta } from './common/types/story';
+import type { VStackProps } from './common/types';
+import type { VStackStory, VStackStoryMeta } from './common/types/story';
 import VStackComponent from '.';
 
 export default {

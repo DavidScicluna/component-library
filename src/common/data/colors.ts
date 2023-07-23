@@ -1,4 +1,4 @@
-import { AppColors } from '@common/types/theme';
+import type { AppColors } from '@common/types/theme';
 
 const colors: AppColors = [
 	'red',

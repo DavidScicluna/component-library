@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import theme from '@common/theme';
-import { Duration } from '@common/types/theme';
+import type { Duration } from '@common/types/theme';
 import { convertStringToNumber } from '@common/utils';
 
 // https://usehooks-ts.com/react-hook/use-debounce

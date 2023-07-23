@@ -5,8 +5,8 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import { Undefinable } from '@common/types';
-import {
+import type { Undefinable } from '@common/types';
+import type {
 	AlignSelf,
 	GridColumnSpan,
 	GridColumnStartEnd,
@@ -19,7 +19,7 @@ import { getResponsiveValue } from '@common/utils';
 import Box from '@components/Layout/Box';
 
 import { __DEFAULT_GRID_ITEM_ALIGN_SELF__, __DEFAULT_GRID_ITEM_JUSTIFY_SELF__ } from './common/constants';
-import { GridItemProps, GridItemRef } from './common/types';
+import type { GridItemProps, GridItemRef } from './common/types';
 
 const GridItem = forwardRef(function Grid<Element extends ElementType>(
 	props: GridItemProps<Element>,

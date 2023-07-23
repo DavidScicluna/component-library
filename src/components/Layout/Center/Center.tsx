@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import { Space } from '@common/types/theme';
+import type { Space } from '@common/types/theme';
 
 import Box from '../Box';
 

@@ -67,7 +67,7 @@ export type FontWeight =
 	| 'extrabold'
 	| 'black';
 export type FontWeightsArr = FontWeight[];
-export type FontWeightsObj = Record<FontWeight, number>;
+export type FontWeightsObj = Record<FontWeight, string | number>;
 
 export type TextAlign = 'left' | 'center' | 'right' | 'justify' | 'start' | 'end';
 export type TextAlignsArr = TextAlign[];

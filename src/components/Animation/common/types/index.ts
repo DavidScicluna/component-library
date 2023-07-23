@@ -1,6 +1,6 @@
 import type { HTMLMotionProps, Target, TargetAndTransition, Transition } from 'framer-motion';
 
-import { Nullable } from '@common/types';
+import type { Nullable } from '@common/types';
 
 export type CommonAnimationProps = TransitionProps & {
 	/**

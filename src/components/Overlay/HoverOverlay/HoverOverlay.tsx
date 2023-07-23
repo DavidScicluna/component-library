@@ -4,7 +4,7 @@ import Box from '@components/Layout/Box';
 
 import { useBoolean } from '../../../common/hooks';
 
-import { HoverOverlayMouseEvent, HoverOverlayProps, HoverOverlayRef } from './common/types';
+import type { HoverOverlayMouseEvent, HoverOverlayProps, HoverOverlayRef } from './common/types';
 
 const HoverOverlay = forwardRef(function HoverOverlay<Element extends ElementType>(
 	props: HoverOverlayProps<Element>,

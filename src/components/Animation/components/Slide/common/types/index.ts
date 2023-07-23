@@ -1,4 +1,4 @@
-import { CommonAnimationProps, CommonAnimationRef } from '@components/Animation/common/types';
+import type { CommonAnimationProps, CommonAnimationRef } from '@components/Animation/common/types';
 
 export type SlideProps = CommonAnimationProps & {
 	/**

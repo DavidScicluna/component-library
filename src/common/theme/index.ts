@@ -1,6 +1,6 @@
 import { range } from 'lodash-es';
 
-import {
+import type {
 	ColorsObj,
 	DurationsObj,
 	EasingsObj,

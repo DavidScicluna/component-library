@@ -11,8 +11,8 @@ import {
 	__DEFAULT_CONTAINER_IS_FLUID__,
 	__DEFAULT_CONTAINER_SIZE__
 } from './common/constants';
-import { ContainerProps, ContainerSizes } from './common/types';
-import { ContainerStory, ContainerStoryMeta } from './common/types/story';
+import type { ContainerProps, ContainerSizes } from './common/types';
+import type { ContainerStory, ContainerStoryMeta } from './common/types/story';
 import ContainerComponent from '.';
 
 export default {

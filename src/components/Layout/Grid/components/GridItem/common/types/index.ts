@@ -1,7 +1,7 @@
 import { ElementType } from 'react';
 
-import { ResponsiveValue } from '@common/types';
-import {
+import type { ResponsiveValue } from '@common/types';
+import type {
 	AlignSelf,
 	GridColumnSpan,
 	GridColumnStartEnd,
@@ -10,7 +10,7 @@ import {
 	JustifySelf
 } from '@common/types/classes';
 
-import { BoxProps, BoxRef } from '@components/Layout/Box/common/types';
+import type { BoxProps, BoxRef } from '@components/Layout/Box/common/types';
 
 type GridItemOtherProps = {
 	alignSelf?: ResponsiveValue<AlignSelf>;

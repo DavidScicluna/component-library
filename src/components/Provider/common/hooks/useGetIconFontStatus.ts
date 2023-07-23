@@ -13,7 +13,7 @@ import {
 	__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__
 } from '@common/keys';
 
-import { IconCategory } from '@components/DataDisplay/Icon/common/types';
+import type { IconCategory } from '@components/DataDisplay/Icon/common/types';
 
 type useGetIconFontStatusReturn = Record<IconCategory, boolean>;
 

@@ -1,8 +1,8 @@
 import { ElementType } from 'react';
 
-import { CommonThemeProps } from '@common/types/theme';
+import type { CommonThemeProps } from '@common/types/theme';
 
-import { BoxProps, BoxRef } from '@components/Layout/Box/common/types';
+import type { BoxProps, BoxRef } from '@components/Layout/Box/common/types';
 
 export type BackdropOverlayProps<Element extends ElementType> = BoxProps<Element> & CommonThemeProps;
 

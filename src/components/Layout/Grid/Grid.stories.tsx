@@ -7,7 +7,7 @@ import { range } from 'lodash-es';
 import classes from '@common/classes';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import {
+import type {
 	AlignContentArr,
 	AlignItemsArr,
 	GridAutoArr,
@@ -28,8 +28,8 @@ import {
 	__DEFAULT_GRID_TEMPLATE_COLUMNS__,
 	__DEFAULT_GRID_TEMPLATE_ROWS__
 } from './common/constants';
-import { GridProps } from './common/types';
-import { GridStory, GridStoryMeta } from './common/types/story';
+import type { GridProps } from './common/types';
+import type { GridStory, GridStoryMeta } from './common/types/story';
 import GridItem from './components/GridItem';
 import GridComponent from '.';
 

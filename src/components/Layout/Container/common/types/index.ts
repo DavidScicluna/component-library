@@ -1,9 +1,9 @@
 import { ElementType } from 'react';
 
-import { ResponsiveValue } from '@common/types';
-import { Breakpoint } from '@common/types/theme';
+import type { ResponsiveValue } from '@common/types';
+import type { Breakpoint } from '@common/types/theme';
 
-import { BoxProps, BoxRef } from '@components/Layout/Box/common/types';
+import type { BoxProps, BoxRef } from '@components/Layout/Box/common/types';
 
 export type ContainerSize = Exclude<Breakpoint, 'xs'>;
 export type ContainerSizes = ContainerSize[];

@@ -9,8 +9,8 @@ import { __DEFAULT_TRANSITION_IN__ } from '@components/Animation/common/constant
 import Center from '@components/Layout/Center';
 
 import { __DEFAULT_POP_INITIAL_SCALE__, __DEFAULT_POP_IS_REVERSED__ } from './common/constants';
-import { PopProps } from './common/types';
-import { PopStory, PopStoryMeta } from './common/types/story';
+import type { PopProps } from './common/types';
+import type { PopStory, PopStoryMeta } from './common/types/story';
 import PopComponent from '.';
 
 export default {

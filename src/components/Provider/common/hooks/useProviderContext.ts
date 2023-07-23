@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 
 import { __DEFAULT_APP_COLOR__, __DEFAULT_APP_COLORMODE__ } from '@common/constants';
-import { NoUndefinedField } from '@common/types';
+import type { NoUndefinedField } from '@common/types';
 
 import { ProviderContext } from '@components/Provider/Provider';
 
-import { ProviderContext as ProviderContextType } from '../types';
+import type { ProviderContext as ProviderContextType } from '../types';
 
 const useProviderContext = (): NoUndefinedField<ProviderContextType> => {
 	const { color = __DEFAULT_APP_COLOR__, colorMode = __DEFAULT_APP_COLORMODE__ } =

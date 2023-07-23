@@ -7,8 +7,8 @@ import classes from '../../../common/classes';
 import { useGetColor } from '../../../common/hooks';
 
 import { __DEFAULT_GLASS_SIZE__ } from './common/constants';
-import { GlassProps } from './common/types';
-import { GlassStory, GlassStoryMeta } from './common/types/story';
+import type { GlassProps } from './common/types';
+import type { GlassStory, GlassStoryMeta } from './common/types/story';
 import GlassComponent from '.';
 
 export default {

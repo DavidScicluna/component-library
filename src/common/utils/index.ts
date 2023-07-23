@@ -2,8 +2,8 @@ import { isArray, isObject } from 'lodash-es';
 import memoize from 'micro-memoize';
 
 import theme from '@common/theme';
-import { ResponsiveArrayValue, ResponsiveObjectValue, ResponsiveValue } from '@common/types';
-import { Breakpoint, FontSize, LineHeight } from '@common/types/theme';
+import type { ResponsiveArrayValue, ResponsiveObjectValue, ResponsiveValue } from '@common/types';
+import type { Breakpoint, FontSize, LineHeight } from '@common/types/theme';
 
 /**
  * This method will check whether the user's device is a touch screen or not

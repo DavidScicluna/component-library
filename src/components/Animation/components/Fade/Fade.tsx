@@ -13,7 +13,7 @@ import {
 
 import AnimatePresence from '../AnimatePresence';
 
-import { FadeProps, FadeRef } from './common/types';
+import type { FadeProps, FadeRef } from './common/types';
 
 const config = __DEFAULT_TRANSITION_CONFIG__;
 

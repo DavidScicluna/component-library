@@ -2,8 +2,8 @@ import memoize from 'micro-memoize';
 
 import { __DEFAULT_DURATION__, __DEFAULT_EASING__ } from '@common/constants';
 import theme from '@common/theme';
-import { AnimationConfig, AnimationDelay, AnimationDuration, AnimationEasing } from '@common/types/animation';
-import { Duration, Ease } from '@common/types/theme';
+import type { AnimationConfig, AnimationDelay, AnimationDuration, AnimationEasing } from '@common/types/animation';
+import type { Duration, Ease } from '@common/types/theme';
 
 import { convertStringToNumber } from '.';
 

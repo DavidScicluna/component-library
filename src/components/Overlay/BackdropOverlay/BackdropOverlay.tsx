@@ -7,7 +7,7 @@ import { useGetColor } from '../../../common/hooks';
 import Box from '../../Layout/Box';
 import { useProviderContext } from '../../Provider/common/hooks';
 
-import { BackdropOverlayProps, BackdropOverlayRef } from './common/types';
+import type { BackdropOverlayProps, BackdropOverlayRef } from './common/types';
 
 const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends ElementType>(
 	props: BackdropOverlayProps<Element>,

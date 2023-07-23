@@ -1,5 +1,5 @@
 import theme from '@common/theme';
-import { AnimationDelay, AnimationDuration, AnimationEasing } from '@common/types/animation';
+import type { AnimationDelay, AnimationDuration, AnimationEasing } from '@common/types/animation';
 import { convertEasingsToArray, convertStringToNumber } from '@common/utils';
 
 import { __DEFAULT_DURATION__, __DEFAULT_EASING__ } from './props';

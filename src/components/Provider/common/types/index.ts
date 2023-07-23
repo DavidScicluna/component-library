@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
 
-import { AnimationDelay, AnimationDuration, AnimationEasing } from '@common/types/animation';
-import { ColorMode, CommonThemeProps } from '@common/types/theme';
+import type { AnimationDelay, AnimationDuration, AnimationEasing } from '@common/types/animation';
+import type { ColorMode, CommonThemeProps } from '@common/types/theme';
 
-import { IconCategory } from '@components/DataDisplay/Icon/common/types';
+import type { IconCategory } from '@components/DataDisplay/Icon/common/types';
 
 export type ProviderProps = Pick<CommonThemeProps, 'color'> & {
 	children: ReactNode;

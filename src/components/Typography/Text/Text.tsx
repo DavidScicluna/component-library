@@ -5,7 +5,15 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import { FontSize, FontWeight, LineHeight, TextAlign, TextTransform, Whitespace, WordBreak } from '@common/types/theme';
+import type {
+	FontSize,
+	FontWeight,
+	LineHeight,
+	TextAlign,
+	TextTransform,
+	Whitespace,
+	WordBreak
+} from '@common/types/theme';
 import { getResponsiveValue } from '@common/utils';
 
 import Box from '@components/Layout/Box';
@@ -50,7 +58,7 @@ const Text = forwardRef(function Text<Element extends TextElementType>(
 		const fs = getResponsiveValue<FontSize>(fontSize);
 		return classes.typography.fontSize[fs];
 	}, [fontSize]);
-	const fontWeightClassName = useMemo<number>(() => {
+	const fontWeightClassName = useMemo<string | number>(() => {
 		const fw = getResponsiveValue<FontWeight>(fontWeight);
 		return classes.typography.fontWeight[fw];
 	}, [fontWeight]);

@@ -7,7 +7,7 @@ import { range } from 'lodash-es';
 import classes from '@common/classes';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import { AlignItemsArr, FlexDirectionArr, FlexWrapArr, JustifyContentArr } from '@common/types/classes';
+import type { AlignItemsArr, FlexDirectionArr, FlexWrapArr, JustifyContentArr } from '@common/types/classes';
 
 import Center from '@components/Layout/Center';
 
@@ -17,8 +17,8 @@ import {
 	__DEFAULT_STACK_JUSTIFY_CONTENT__,
 	__DEFAULT_STACK_WRAP__
 } from './common/constants';
-import { StackProps } from './common/types';
-import { StackStory, StackStoryMeta } from './common/types/story';
+import type { StackProps } from './common/types';
+import type { StackStory, StackStoryMeta } from './common/types/story';
 import StackComponent from '.';
 
 export default {

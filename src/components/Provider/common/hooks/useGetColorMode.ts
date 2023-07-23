@@ -4,7 +4,7 @@ import { useMediaMatch } from 'rooks';
 
 import { __DEFAULT_APP_COLORMODE__ } from '@common/constants';
 import { __KEY_LOCALSTORAGE_APP_COLORMODE__ } from '@common/keys';
-import { AppColorMode, ColorMode } from '@common/types/theme';
+import type { AppColorMode, ColorMode } from '@common/types/theme';
 
 const useGetColorMode = (initialColorMode: ColorMode): AppColorMode => {
 	const isDarkMode = useMediaMatch('(prefers-color-scheme: dark)');

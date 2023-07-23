@@ -8,7 +8,7 @@ import {
 	__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__,
 	__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__
 } from '@common/keys';
-import { AppColor, AppColorMode, Duration, Ease, Space } from '@common/types/theme';
+import type { AppColor, AppColorMode, Duration, Ease, Space } from '@common/types/theme';
 
 export const __DEFAULT_APP_COLOR__: AppColor = (localStorage.getItem(__KEY_LOCALSTORAGE_APP_COLOR__) ||
 	sample(colors) ||

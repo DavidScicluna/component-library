@@ -5,8 +5,8 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import { Undefinable } from '@common/types';
-import {
+import type { Undefinable } from '@common/types';
+import type {
 	AlignContent,
 	AlignItems,
 	GridAuto,
@@ -16,7 +16,7 @@ import {
 	JustifyContent,
 	JustifyItems
 } from '@common/types/classes';
-import { Space } from '@common/types/theme';
+import type { Space } from '@common/types/theme';
 import { getResponsiveValue } from '@common/utils';
 
 import Box from '../Box';

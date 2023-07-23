@@ -5,8 +5,8 @@ import classNames from 'classnames';
 
 import classes from '../../../common/classes';
 
-import { BackdropOverlayProps } from './common/types';
-import { BackdropOverlayStory, BackdropOverlayStoryMeta } from './common/types/story';
+import type { BackdropOverlayProps } from './common/types';
+import type { BackdropOverlayStory, BackdropOverlayStoryMeta } from './common/types/story';
 import BackdropOverlayComponent from '.';
 
 export default {
