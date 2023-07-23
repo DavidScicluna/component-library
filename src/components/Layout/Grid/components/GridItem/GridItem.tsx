@@ -11,12 +11,17 @@ import type {
 	GridColumnStartEnd,
 	GridRowSpan,
 	GridRowStartEnd,
-	JustifySelf
+	JustifySelf,
+	ZIndex
 } from '@common/types/classes';
 
 import Box from '@components/Layout/Box';
 
-import { __DEFAULT_GRID_ITEM_ALIGN_SELF__, __DEFAULT_GRID_ITEM_JUSTIFY_SELF__ } from './common/constants';
+import {
+	__DEFAULT_GRID_ITEM_ALIGN_SELF__,
+	__DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
+	__DEFAULT_GRID_ITEM_ZINDEX__
+} from './common/constants';
 import type { GridItemProps, GridItemRef } from './common/types';
 
 const GridItem = forwardRef(function Grid<Element extends ElementType>(
@@ -34,6 +39,7 @@ const GridItem = forwardRef(function Grid<Element extends ElementType>(
 		rowSpan,
 		rowStart,
 		rowEnd,
+		zIndex = __DEFAULT_GRID_ITEM_ZINDEX__,
 		...rest
 	} = props;
 
@@ -48,6 +54,8 @@ const GridItem = forwardRef(function Grid<Element extends ElementType>(
 	const rowStartClassName = useGetClass<Undefinable<GridRowStartEnd>>(rowStart, ['grid', 'rowStart']);
 	const rowEndClassName = useGetClass<Undefinable<GridRowStartEnd>>(rowEnd, ['grid', 'rowEnd']);
 
+	const zIndexClassName = useGetClass<Undefinable<ZIndex>>(zIndex, ['layout', 'zIndex']);
+
 	return (
 		<Box
 			{...(rest as GridItemProps<Element>)}
@@ -61,6 +69,7 @@ const GridItem = forwardRef(function Grid<Element extends ElementType>(
 				rowSpanClassName,
 				rowStartClassName,
 				rowEndClassName,
+				zIndexClassName,
 				{ [className]: !!className }
 			)}
 		>

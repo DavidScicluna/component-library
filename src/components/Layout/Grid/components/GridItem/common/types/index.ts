@@ -7,7 +7,8 @@ import type {
 	GridColumnStartEnd,
 	GridRowSpan,
 	GridRowStartEnd,
-	JustifySelf
+	JustifySelf,
+	ZIndex
 } from '@common/types/classes';
 
 import type { BoxProps, BoxRef } from '@components/Layout/Box/common/types';
@@ -22,6 +23,7 @@ type GridItemOtherProps = {
 	rowSpan?: ResponsiveValue<GridRowSpan>;
 	rowStart?: ResponsiveValue<GridRowStartEnd>;
 	rowEnd?: ResponsiveValue<GridRowStartEnd>;
+	zIndex?: ResponsiveValue<ZIndex>;
 };
 
 export type GridItemProps<Element extends ElementType> = BoxProps<Element, GridItemOtherProps>;
