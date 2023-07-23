@@ -9,7 +9,7 @@ import {
 	TextTransformsArr,
 	WhitespacesArr,
 	WordBreaksArr
-} from '../../../common/types/theme';
+} from '@common/types/theme';
 
 import {
 	__DEFAULT_TEXT_ALIGN__,

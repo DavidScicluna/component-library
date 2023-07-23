@@ -2,20 +2,13 @@ import { forwardRef, ReactElement, useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import classes from '../../../common/classes';
-import { __DEFAULT_CLASSNAME__ } from '../../../common/constants';
-import { useGetResponsiveValue } from '../../../common/hooks';
-import {
-	FontSize,
-	FontWeight,
-	LineHeight,
-	TextAlign,
-	TextTransform,
-	Whitespace,
-	WordBreak
-} from '../../../common/types/theme';
-import { getResponsiveValue } from '../../../common/utils';
-import Box from '../../Layout/Box';
+import classes from '@common/classes';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { useGetResponsiveValue } from '@common/hooks';
+import { FontSize, FontWeight, LineHeight, TextAlign, TextTransform, Whitespace, WordBreak } from '@common/types/theme';
+import { getResponsiveValue } from '@common/utils';
+
+import Box from '@components/Layout/Box';
 
 import {
 	__DEFAULT_TEXT_ALIGN__,
@@ -31,7 +24,7 @@ import {
 import type { TextElementType, TextProps, TextRef } from './common/types';
 
 const Text = forwardRef(function Text<Element extends TextElementType>(
-	props: TextProps<Element>,
+	props: TextProps<TextElementType>,
 	ref: TextRef<Element>
 ): ReactElement {
 	const {
@@ -57,11 +50,11 @@ const Text = forwardRef(function Text<Element extends TextElementType>(
 		const fs = getResponsiveValue<FontSize>(fontSize);
 		return classes.typography.fontSize[fs];
 	}, [fontSize]);
-	const fontWeightClassName = useMemo<string>(() => {
+	const fontWeightClassName = useMemo<number>(() => {
 		const fw = getResponsiveValue<FontWeight>(fontWeight);
 		return classes.typography.fontWeight[fw];
 	}, [fontWeight]);
-	const lineHeightClassName = useMemo<string>(() => {
+	const lineHeightClassName = useMemo<string | number>(() => {
 		const lh = getResponsiveValue<LineHeight>(lineHeight);
 		return classes.typography.lineHeight[lh];
 	}, [lineHeight]);
@@ -83,7 +76,7 @@ const Text = forwardRef(function Text<Element extends TextElementType>(
 
 	return (
 		<Box
-			{...rest}
+			{...(rest as TextProps<Element>)}
 			ref={ref}
 			className={classNames(
 				alignClassName,

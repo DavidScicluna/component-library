@@ -6,7 +6,7 @@ import type {
 	TextTransform,
 	Whitespace,
 	WordBreak
-} from '../../../../../common/types/theme';
+} from '@common/types/theme';
 
 export const __DEFAULT_TEXT_ALIGN__: TextAlign = 'left';
 export const __DEFAULT_TEXT_FONT_SIZE__: FontSize = 'md';

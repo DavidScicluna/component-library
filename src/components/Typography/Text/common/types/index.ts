@@ -1,19 +1,11 @@
-import type { ResponsiveValue } from '../../../../../common/types';
-import type {
-	FontSize,
-	FontWeight,
-	LineHeight,
-	TextAlign,
-	TextTransform,
-	Whitespace,
-	WordBreak
-} from '../../../../../common/types/theme';
-import type { BoxProps, BoxRef } from '../../../../Layout/Box/common/types';
+import { ResponsiveValue } from '@common/types';
+import { FontSize, FontWeight, LineHeight, TextAlign, TextTransform, Whitespace, WordBreak } from '@common/types/theme';
+
+import { BoxProps, BoxRef } from '@components/Layout/Box/common/types';
 
 export type TextElementType = 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 type TextOtherProps = {
-	children?: string;
 	align?: ResponsiveValue<TextAlign>;
 	fontSize?: ResponsiveValue<FontSize>;
 	fontWeight?: ResponsiveValue<FontWeight>;
@@ -25,6 +17,8 @@ type TextOtherProps = {
 	wordBreak?: ResponsiveValue<WordBreak>;
 };
 
-export type TextProps<Element extends TextElementType> = Omit<BoxProps<Element, TextOtherProps>, 'children'>;
+export type TextProps<Element extends TextElementType> = Omit<BoxProps<Element, TextOtherProps>, 'children'> & {
+	children?: string;
+};
 
 export type TextRef<Element extends TextElementType> = BoxRef<Element>;
