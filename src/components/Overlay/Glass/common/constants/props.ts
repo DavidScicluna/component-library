@@ -1,3 +1,3 @@
-import type { GlassSize } from '../types';
+import type { GlassBlur } from '../types';
 
-export const __DEFAULT_GLASS_SIZE__: GlassSize = 2;
+export const __DEFAULT_GLASS_BLUR__: GlassBlur = 'base';

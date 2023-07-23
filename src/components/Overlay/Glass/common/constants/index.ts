@@ -1,3 +1,3 @@
-import { __DEFAULT_GLASS_SIZE__ } from './props';
+import { __DEFAULT_GLASS_BLUR__ } from './props';
 
-export { __DEFAULT_GLASS_SIZE__ };
+export { __DEFAULT_GLASS_BLUR__ };

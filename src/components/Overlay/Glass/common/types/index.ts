@@ -1,13 +1,13 @@
-import { ElementType } from 'react';
-
-import type { Space } from '@common/types/theme';
+import { ResponsiveValue } from '@common/types';
+import { BackdropBlur } from '@common/types/classes';
+import { CommonThemeProps } from '@common/types/theme';
 
 import type { BoxProps, BoxRef } from '@components/Layout/Box/common/types';
 
-export type GlassSize = Space;
+export type GlassBlur = BackdropBlur;
 
-export type GlassProps<Element extends ElementType> = BoxProps<Element> & {
-	size?: GlassSize;
-};
+type GlassOtherProps = CommonThemeProps & { blur?: ResponsiveValue<GlassBlur> };
 
-export type GlassRef<Element extends ElementType> = BoxRef<Element>;
+export type GlassProps = BoxProps<'div', GlassOtherProps>;
+
+export type GlassRef = BoxRef<'div'>;
