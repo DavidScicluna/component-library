@@ -11,14 +11,18 @@ import { getResponsiveValue } from '@common/utils';
  * @param value - ResponsiveValue
  * @returns - The responsive value within the array or object that aligns with the breakpoint
  */
-const useGetClass = <D>(responsiveValue: ResponsiveValue<D>, keys: string[] = []) => {
-	const value = useMemo(() => getResponsiveValue<D>(responsiveValue), [responsiveValue]);
+const useGetClass = <D>(responsiveValue: ResponsiveValue<D>, keys: string[] = []): string => {
+	const value = useMemo<D>(() => getResponsiveValue<D>(responsiveValue), [responsiveValue]);
 
-	if (keys.length > 0) {
-		return pickFromObj(classes, [...keys, value as string]);
-	} else {
-		return value;
-	}
+	const className = useMemo<string>(() => {
+		if (keys.length > 0) {
+			return pickFromObj(classes, [...keys, value as string]) as string;
+		} else {
+			return value as string;
+		}
+	}, [value]);
+
+	return className;
 };
 
 export default useGetClass;
