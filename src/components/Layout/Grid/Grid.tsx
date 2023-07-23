@@ -90,7 +90,7 @@ const Grid = forwardRef(function Grid<Element extends ElementType>(
 				templateColumnsClassName,
 				templateRowsClassName,
 				{
-					[spacingClassName as string]: !columnSpacing && !rowSpacing,
+					[spacingClassName]: !columnSpacing && !rowSpacing,
 					[className]: !!className
 				}
 			)}

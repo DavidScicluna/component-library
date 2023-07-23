@@ -29,8 +29,8 @@ const Space = forwardRef(function Space<Element extends ElementType>(
 			{...(rest as SpaceProps<Element>)}
 			ref={ref}
 			className={classNames({
-				[widthClassName as string]: !!width,
-				[heightClassName as string]: !!heightClassName,
+				[widthClassName]: !!width,
+				[heightClassName]: !!heightClassName,
 				[className]: !!className
 			})}
 		/>
