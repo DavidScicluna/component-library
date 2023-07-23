@@ -4,9 +4,9 @@ import { ReactElement } from 'react';
 import classNames from 'classnames';
 import { range } from 'lodash-es';
 
-import classes from '../../../common/classes';
-import { __DEFAULT_SPACING__ } from '../../../common/constants';
-import { useGetColor } from '../../../common/hooks';
+import classes from '@common/classes';
+import { __DEFAULT_SPACING__ } from '@common/constants';
+import { useGetColor } from '@common/hooks';
 import {
 	AlignContentArr,
 	AlignItemsArr,
@@ -16,7 +16,8 @@ import {
 	GridTemplateRowsArr,
 	JustifyContentArr,
 	JustifyItemsArr
-} from '../../../common/types/classes';
+} from '@common/types/classes';
+
 import Center from '../Center';
 
 import {

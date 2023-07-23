@@ -4,14 +4,16 @@ import { ReactElement } from 'react';
 import classNames from 'classnames';
 import { range } from 'lodash-es';
 
-import classes from '../../../../common/classes';
-import { useGetColor } from '../../../../common/hooks';
-import { AlignItemsArr, FlexWrapArr, JustifyContentArr } from '../../../../common/types/classes';
-import Center from '../../Center';
+import classes from '@common/classes';
+import { __DEFAULT_SPACING__ } from '@common/constants';
+import { useGetColor } from '@common/hooks';
+import { AlignItemsArr, FlexWrapArr, JustifyContentArr } from '@common/types/classes';
+
+import Center from '@components/Layout/Center';
+
 import {
-	__DEFAULT_STACK_ALIGNITEMS__,
-	__DEFAULT_STACK_JUSTIFYCONTENT__,
-	__DEFAULT_STACK_SPACING__,
+	__DEFAULT_STACK_ALIGN_ITEMS__,
+	__DEFAULT_STACK_JUSTIFY_CONTENT__,
 	__DEFAULT_STACK_WRAP__
 } from '../Stack/common/constants';
 
@@ -26,7 +28,7 @@ export default {
 		alignItems: {
 			name: 'Align Items',
 			type: 'string',
-			defaultValue: __DEFAULT_STACK_ALIGNITEMS__,
+			defaultValue: __DEFAULT_STACK_ALIGN_ITEMS__,
 			// description: '',
 			options: ['center', 'baseline', 'flex-start', 'flex-end', 'stretch'] as AlignItemsArr,
 			control: { type: 'radio' }
@@ -42,7 +44,7 @@ export default {
 		justifyContent: {
 			name: 'Justify Content',
 			type: 'string',
-			defaultValue: __DEFAULT_STACK_JUSTIFYCONTENT__,
+			defaultValue: __DEFAULT_STACK_JUSTIFY_CONTENT__,
 			// description: '',
 			options: [
 				'center',
@@ -59,7 +61,7 @@ export default {
 		spacing: {
 			name: 'Spacing (0-24 | .0, .25, .5 or .75)',
 			type: 'number',
-			defaultValue: __DEFAULT_STACK_SPACING__,
+			defaultValue: __DEFAULT_SPACING__,
 			// description: '',
 			control: { type: 'number' }
 		}

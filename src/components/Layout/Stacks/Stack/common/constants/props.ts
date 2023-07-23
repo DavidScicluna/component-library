@@ -1,4 +1,4 @@
-import { AlignItems, FlexDirection, FlexWrap, JustifyContent } from '../../../../../../common/types/classes';
+import { AlignItems, FlexDirection, FlexWrap, JustifyContent } from '@common/types/classes';
 
 export const __DEFAULT_STACK_ALIGN_ITEMS__: AlignItems = 'stretch';
 export const __DEFAULT_STACK_DIRECTION__: FlexDirection = 'row';

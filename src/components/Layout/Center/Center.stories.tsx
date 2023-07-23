@@ -3,9 +3,9 @@ import { ReactElement } from 'react';
 
 import classNames from 'classnames';
 
-import classes from '../../../common/classes';
-import { __DEFAULT_SPACING__ } from '../../../common/constants';
-import { useGetColor } from '../../../common/hooks';
+import classes from '@common/classes';
+import { __DEFAULT_SPACING__ } from '@common/constants';
+import { useGetColor } from '@common/hooks';
 
 import { CenterProps } from './common/types';
 import { CenterStory, CenterStoryMeta } from './common/types/story';

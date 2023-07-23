@@ -1,6 +1,6 @@
 import { Meta as StorybookMeta, StoryFn as StorybookStory } from '@storybook/react';
 
-import SimpleGrid from '../..';
+import SimpleGrid from '../../SimpleGrid';
 
 export type SimpleGridStoryMeta = StorybookMeta<typeof SimpleGrid>;
 

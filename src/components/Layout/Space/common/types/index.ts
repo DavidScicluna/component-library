@@ -1,8 +1,9 @@
 import { ElementType } from 'react';
 
-import type { ResponsiveValue } from '../../../../../common/types';
-import { Space } from '../../../../../common/types/theme';
-import type { BoxProps, BoxRef } from '../../../Box/common/types';
+import { ResponsiveValue } from '@common/types';
+import { Space } from '@common/types/theme';
+
+import { BoxProps, BoxRef } from '@components/Layout/Box/common/types';
 
 export type SpaceDimension = Space;
 

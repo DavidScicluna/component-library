@@ -2,11 +2,12 @@ import { ElementType, forwardRef, ReactElement, useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import classes from '../../../common/classes';
-import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '../../../common/constants';
-import { useGetResponsiveValue } from '../../../common/hooks';
-import type { Space } from '../../../common/types/theme';
-import { getResponsiveValue } from '../../../common/utils';
+import classes from '@common/classes';
+import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
+import { useGetResponsiveValue } from '@common/hooks';
+import { Space } from '@common/types/theme';
+import { getResponsiveValue } from '@common/utils';
+
 import Box from '../Box';
 
 import type { SimpleGridColumn, SimpleGridProps, SimpleGridRef } from './common/types';

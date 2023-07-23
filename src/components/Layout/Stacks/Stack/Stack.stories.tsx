@@ -4,11 +4,12 @@ import { ReactElement } from 'react';
 import classNames from 'classnames';
 import { range } from 'lodash-es';
 
-import classes from '../../../../common/classes';
-import { __DEFAULT_SPACING__ } from '../../../../common/constants';
-import { useGetColor } from '../../../../common/hooks';
-import { AlignItemsArr, FlexDirectionArr, FlexWrapArr, JustifyContentArr } from '../../../../common/types/classes';
-import Center from '../../Center';
+import classes from '@common/classes';
+import { __DEFAULT_SPACING__ } from '@common/constants';
+import { useGetColor } from '@common/hooks';
+import { AlignItemsArr, FlexDirectionArr, FlexWrapArr, JustifyContentArr } from '@common/types/classes';
+
+import Center from '@components/Layout/Center';
 
 import {
 	__DEFAULT_STACK_ALIGN_ITEMS__,

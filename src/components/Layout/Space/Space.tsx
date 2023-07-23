@@ -2,9 +2,10 @@ import { ElementType, forwardRef, ReactElement } from 'react';
 
 import classNames from 'classnames';
 
-import classes from '../../../common/classes';
-import { __DEFAULT_CLASSNAME__ } from '../../../common/constants';
-import { useGetResponsiveValue } from '../../../common/hooks';
+import classes from '@common/classes';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { useGetResponsiveValue } from '@common/hooks';
+
 import Box from '../Box';
 
 import { __DEFAULT_SPACE_HEIGHT__, __DEFAULT_SPACE_WIDTH__ } from './common/constants';

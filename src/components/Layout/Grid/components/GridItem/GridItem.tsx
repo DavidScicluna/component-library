@@ -2,10 +2,10 @@ import { ElementType, forwardRef, ReactElement, useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import classes from '../../../../../common/classes';
-import { __DEFAULT_CLASSNAME__ } from '../../../../../common/constants';
-import { useGetResponsiveValue } from '../../../../../common/hooks';
-import { Undefinable } from '../../../../../common/types';
+import classes from '@common/classes';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { useGetResponsiveValue } from '@common/hooks';
+import { Undefinable } from '@common/types';
 import {
 	AlignSelf,
 	GridColumnSpan,
@@ -13,9 +13,10 @@ import {
 	GridRowSpan,
 	GridRowStartEnd,
 	JustifySelf
-} from '../../../../../common/types/classes';
-import { getResponsiveValue } from '../../../../../common/utils';
-import Box from '../../../Box';
+} from '@common/types/classes';
+import { getResponsiveValue } from '@common/utils';
+
+import Box from '@components/Layout/Box';
 
 import { __DEFAULT_GRID_ITEM_ALIGN_SELF__, __DEFAULT_GRID_ITEM_JUSTIFY_SELF__ } from './common/constants';
 import { GridItemProps, GridItemRef } from './common/types';

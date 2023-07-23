@@ -4,9 +4,10 @@ import { ReactElement } from 'react';
 import classNames from 'classnames';
 import { range } from 'lodash-es';
 
-import classes from '../../../common/classes';
-import { __DEFAULT_SPACING__ } from '../../../common/constants';
-import { useGetColor } from '../../../common/hooks';
+import classes from '@common/classes';
+import { __DEFAULT_SPACING__ } from '@common/constants';
+import { useGetColor } from '@common/hooks';
+
 import Center from '../Center';
 
 import { SimpleGridProps } from './common/types';

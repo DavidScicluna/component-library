@@ -1,6 +1,6 @@
 import { Meta as StorybookMeta, StoryFn as StorybookStory } from '@storybook/react';
 
-import VStack from '../..';
+import VStack from '../../VStack';
 
 export type VStackStoryMeta = StorybookMeta<typeof VStack>;
 

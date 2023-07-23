@@ -2,8 +2,9 @@ import { ElementType, forwardRef, ReactElement, useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '../../../common/constants';
-import { getResponsiveValue } from '../../../common/utils';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { getResponsiveValue } from '@common/utils';
+
 import Box from '../Box';
 
 import { __DEFAULT_ASPECT_RATIO_RATIO__ } from './common/constants';

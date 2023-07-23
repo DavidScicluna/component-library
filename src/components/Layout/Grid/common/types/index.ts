@@ -1,6 +1,6 @@
 import { ElementType } from 'react';
 
-import type { ResponsiveValue } from '../../../../../common/types';
+import { ResponsiveValue } from '@common/types';
 import {
 	AlignContent,
 	AlignItems,
@@ -10,9 +10,10 @@ import {
 	GridTemplateRows,
 	JustifyContent,
 	JustifyItems
-} from '../../../../../common/types/classes';
-import type { Space } from '../../../../../common/types/theme';
-import type { BoxProps, BoxRef } from '../../../Box/common/types';
+} from '@common/types/classes';
+import { Space } from '@common/types/theme';
+
+import { BoxProps, BoxRef } from '@components/Layout/Box/common/types';
 
 type GridOtherProps = {
 	alignContent?: ResponsiveValue<AlignContent>;

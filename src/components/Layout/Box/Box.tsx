@@ -1,6 +1,6 @@
 import { ElementType, forwardRef, ReactElement } from 'react';
 
-import { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_OBJECT__ } from '../../../common/constants';
+import { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_OBJECT__ } from '@common/constants';
 
 import type { BoxProps, BoxRef } from './common/types';
 

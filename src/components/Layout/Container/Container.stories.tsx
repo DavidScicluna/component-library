@@ -3,8 +3,8 @@ import { ReactElement } from 'react';
 
 import classNames from 'classnames';
 
-import classes from '../../../common/classes';
-import { useGetColor } from '../../../common/hooks';
+import classes from '@common/classes';
+import { useGetColor } from '@common/hooks';
 
 import {
 	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,

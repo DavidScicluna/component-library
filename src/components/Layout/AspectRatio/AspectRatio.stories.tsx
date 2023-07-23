@@ -3,8 +3,9 @@ import { ReactElement } from 'react';
 
 import classNames from 'classnames';
 
-import classes from '../../../common/classes';
-import { useGetColor } from '../../../common/hooks';
+import classes from '@common/classes';
+import { useGetColor } from '@common/hooks';
+
 import Center from '../Center';
 
 import { __DEFAULT_ASPECT_RATIO_RATIO__ } from './common/constants';
