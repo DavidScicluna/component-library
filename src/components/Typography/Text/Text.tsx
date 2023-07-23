@@ -1,10 +1,9 @@
-import { forwardRef, ReactElement, useMemo } from 'react';
+import { forwardRef, ReactElement } from 'react';
 
 import classNames from 'classnames';
 
-import classes from '@common/classes';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
+import { useGetClass, useGetResponsiveValue } from '@common/hooks';
 import type {
 	FontSize,
 	FontWeight,
@@ -14,7 +13,6 @@ import type {
 	Whitespace,
 	WordBreak
 } from '@common/types/theme';
-import { getResponsiveValue } from '@common/utils';
 
 import Box from '@components/Layout/Box';
 
@@ -50,34 +48,13 @@ const Text = forwardRef(function Text<Element extends TextElementType>(
 		...rest
 	} = props;
 
-	const alignClassName = useMemo<string>(() => {
-		const ta = getResponsiveValue<TextAlign>(align);
-		return classes.typography.align[ta];
-	}, [align]);
-	const fontSizeClassName = useMemo<string>(() => {
-		const fs = getResponsiveValue<FontSize>(fontSize);
-		return classes.typography.fontSize[fs];
-	}, [fontSize]);
-	const fontWeightClassName = useMemo<string | number>(() => {
-		const fw = getResponsiveValue<FontWeight>(fontWeight);
-		return classes.typography.fontWeight[fw];
-	}, [fontWeight]);
-	const lineHeightClassName = useMemo<string | number>(() => {
-		const lh = getResponsiveValue<LineHeight>(lineHeight);
-		return classes.typography.lineHeight[lh];
-	}, [lineHeight]);
-	const transformClassName = useMemo<string>(() => {
-		const t = getResponsiveValue<TextTransform>(transform);
-		return classes.typography.transform[t];
-	}, [transform]);
-	const whitespaceClassName = useMemo<string>(() => {
-		const w = getResponsiveValue<Whitespace>(whitespace);
-		return classes.typography.whitespace[w];
-	}, [whitespace]);
-	const wordBreakClassName = useMemo<string>(() => {
-		const wb = getResponsiveValue<WordBreak>(wordBreak);
-		return classes.typography.wordBreak[wb];
-	}, [wordBreak]);
+	const alignClassName = useGetClass<TextAlign>(align, ['typography', 'align']);
+	const fontSizeClassName = useGetClass<FontSize>(fontSize, ['typography', 'fontSize']);
+	const fontWeightClassName = useGetClass<FontWeight>(fontWeight, ['typography', 'fontWeight']);
+	const lineHeightClassName = useGetClass<LineHeight>(lineHeight, ['typography', 'lineHeight']);
+	const transformClassName = useGetClass<TextTransform>(transform, ['typography', 'transform']);
+	const whitespaceClassName = useGetClass<Whitespace>(whitespace, ['typography', 'whitespace']);
+	const wordBreakClassName = useGetClass<WordBreak>(wordBreak, ['typography', 'wordBreak']);
 
 	const isItalic = useGetResponsiveValue<boolean>(italic);
 	const isOverflown = useGetResponsiveValue<boolean>(overflown);

@@ -27,6 +27,7 @@ const Container = forwardRef(function Container<Element extends ElementType>(
 		...rest
 	} = props;
 
+	// TODO: Move to classes & replace with useGetClass
 	const sizeClassName = useMemo<string>(() => {
 		const s = getResponsiveValue<ContainerSize>(size);
 		switch (s) {

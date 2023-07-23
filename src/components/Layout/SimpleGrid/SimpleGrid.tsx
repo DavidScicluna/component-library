@@ -2,9 +2,8 @@ import { ElementType, forwardRef, ReactElement, useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import classes from '@common/classes';
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
+import { useGetClass } from '@common/hooks';
 import type { Space } from '@common/types/theme';
 import { getResponsiveValue } from '@common/utils';
 
@@ -16,8 +15,9 @@ const SimpleGrid = forwardRef(function SimpleGrid<Element extends ElementType>(
 	props: SimpleGridProps<Element>,
 	ref: SimpleGridRef<Element>
 ): ReactElement {
-	const { children, className = __DEFAULT_CLASSNAME__, columns, spacing: s = __DEFAULT_SPACING__, ...rest } = props;
+	const { children, className = __DEFAULT_CLASSNAME__, columns, spacing = __DEFAULT_SPACING__, ...rest } = props;
 
+	// TODO: Move to classes & replace with useGetClass
 	const columnsClassName = useMemo<string>(() => {
 		const cols = getResponsiveValue<SimpleGridColumn>(columns);
 		switch (cols) {
@@ -48,13 +48,13 @@ const SimpleGrid = forwardRef(function SimpleGrid<Element extends ElementType>(
 		}
 	}, [columns]);
 
-	const spacing = useGetResponsiveValue<Space>(s);
+	const spacingClassName = useGetClass<Space>(spacing, ['spacing', 'gap']);
 
 	return (
 		<Box
 			{...(rest as SimpleGridProps<Element>)}
 			ref={ref}
-			className={classNames('grid', columnsClassName, classes.spacing.gap[spacing], {
+			className={classNames('grid', columnsClassName, spacingClassName, {
 				[className]: !!className
 			})}
 		>

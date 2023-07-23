@@ -2,9 +2,8 @@ import { ElementType, forwardRef, ReactElement } from 'react';
 
 import classNames from 'classnames';
 
-import classes from '@common/classes';
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
+import { useGetClass } from '@common/hooks';
 import type { Space } from '@common/types/theme';
 
 import Box from '../Box';
@@ -15,9 +14,9 @@ const Center = forwardRef(function Center<Element extends ElementType>(
 	props: CenterProps<Element>,
 	ref: CenterRef<Element>
 ): ReactElement {
-	const { children, className = __DEFAULT_CLASSNAME__, spacing: s = __DEFAULT_SPACING__, ...rest } = props;
+	const { children, className = __DEFAULT_CLASSNAME__, spacing = __DEFAULT_SPACING__, ...rest } = props;
 
-	const spacing = useGetResponsiveValue<Space>(s);
+	const spacingClassName = useGetClass<Space>(spacing, ['spacing', 'gap']);
 
 	return (
 		<Box
@@ -29,7 +28,7 @@ const Center = forwardRef(function Center<Element extends ElementType>(
 				'flex-nowrap',
 				'items-center',
 				'justify-center',
-				classes.spacing.gap[spacing],
+				spacingClassName,
 				{ [className]: !!className }
 			)}
 		>

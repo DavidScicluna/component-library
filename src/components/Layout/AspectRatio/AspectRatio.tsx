@@ -16,6 +16,7 @@ const AspectRatio = forwardRef(function AspectRatio<Element extends ElementType>
 ): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, ratio = __DEFAULT_ASPECT_RATIO_RATIO__, ...rest } = props;
 
+	// TODO: Move to classes & replace with useGetClass
 	const ratioClassName = useMemo<string>(() => {
 		const r = getResponsiveValue<AspectRatioRatio>(ratio);
 		switch (r) {

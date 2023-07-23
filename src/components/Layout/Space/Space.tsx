@@ -2,9 +2,8 @@ import { ElementType, forwardRef, ReactElement } from 'react';
 
 import classNames from 'classnames';
 
-import classes from '@common/classes';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
+import { useGetClass } from '@common/hooks';
 
 import Box from '../Box';
 
@@ -17,21 +16,21 @@ const Space = forwardRef(function Space<Element extends ElementType>(
 ): ReactElement {
 	const {
 		className = __DEFAULT_CLASSNAME__,
-		width: w = __DEFAULT_SPACE_WIDTH__,
-		height: h = __DEFAULT_SPACE_HEIGHT__,
+		width = __DEFAULT_SPACE_WIDTH__,
+		height = __DEFAULT_SPACE_HEIGHT__,
 		...rest
 	} = props;
 
-	const width = useGetResponsiveValue<SpaceDimension>(w);
-	const height = useGetResponsiveValue<SpaceDimension>(h);
+	const widthClassName = useGetClass<SpaceDimension>(width, ['sizing', 'w']);
+	const heightClassName = useGetClass<SpaceDimension>(height, ['sizing', 'h']);
 
 	return (
 		<Box
 			{...(rest as SpaceProps<Element>)}
 			ref={ref}
 			className={classNames({
-				[classes.sizing.w[width]]: !!w,
-				[classes.sizing.h[height]]: !!h,
+				[widthClassName as string]: !!width,
+				[heightClassName as string]: !!heightClassName,
 				[className]: !!className
 			})}
 		/>

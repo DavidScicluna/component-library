@@ -1,10 +1,9 @@
-import { ElementType, forwardRef, ReactElement, useMemo } from 'react';
+import { ElementType, forwardRef, ReactElement } from 'react';
 
 import classNames from 'classnames';
 
-import classes from '@common/classes';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
+import { useGetClass } from '@common/hooks';
 import type { Undefinable } from '@common/types';
 import type {
 	AlignSelf,
@@ -14,7 +13,6 @@ import type {
 	GridRowStartEnd,
 	JustifySelf
 } from '@common/types/classes';
-import { getResponsiveValue } from '@common/utils';
 
 import Box from '@components/Layout/Box';
 
@@ -28,52 +26,35 @@ const GridItem = forwardRef(function Grid<Element extends ElementType>(
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
-		alignSelf: as = __DEFAULT_GRID_ITEM_ALIGN_SELF__,
+		alignSelf = __DEFAULT_GRID_ITEM_ALIGN_SELF__,
 		columnSpan,
 		columnStart,
 		columnEnd,
-		justifySelf: js = __DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
+		justifySelf = __DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
 		rowSpan,
 		rowStart,
 		rowEnd,
 		...rest
 	} = props;
 
-	const alignSelf = useGetResponsiveValue<AlignSelf>(as);
-	const justifySelf = useGetResponsiveValue<JustifySelf>(js);
+	const alignSelfClassName = useGetClass<AlignSelf>(alignSelf, ['grid', 'alignSelf']);
+	const justifySelfClassName = useGetClass<JustifySelf>(justifySelf, ['grid', 'justifySelf']);
 
-	const columnSpanClassName = useMemo<string>(() => {
-		const cs = getResponsiveValue<Undefinable<GridColumnSpan>>(columnSpan);
-		return cs ? classes.grid.columnSpan[cs] : '';
-	}, [columnSpan]);
-	const columnStartClassName = useMemo<string>(() => {
-		const cs = getResponsiveValue<Undefinable<GridColumnStartEnd>>(columnStart);
-		return cs ? classes.grid.columnStart[cs] : '';
-	}, [columnStart]);
-	const columnEndClassName = useMemo<string>(() => {
-		const ce = getResponsiveValue<Undefinable<GridColumnStartEnd>>(columnEnd);
-		return ce ? classes.grid.columnEnd[ce] : '';
-	}, [columnEnd]);
-	const rowSpanClassName = useMemo<string>(() => {
-		const rs = getResponsiveValue<Undefinable<GridRowSpan>>(rowSpan);
-		return rs ? classes.grid.rowSpan[rs] : '';
-	}, [rowSpan]);
-	const rowStartClassName = useMemo<string>(() => {
-		const rs = getResponsiveValue<Undefinable<GridRowStartEnd>>(rowStart);
-		return rs ? classes.grid.rowStart[rs] : '';
-	}, [rowStart]);
-	const rowEndClassName = useMemo<string>(() => {
-		const re = getResponsiveValue<Undefinable<GridRowStartEnd>>(rowEnd);
-		return re ? classes.grid.rowEnd[re] : '';
-	}, [rowEnd]);
+	const columnSpanClassName = useGetClass<Undefinable<GridColumnSpan>>(columnSpan, ['grid', 'columnSpan']);
+	const columnStartClassName = useGetClass<Undefinable<GridColumnStartEnd>>(columnStart, ['grid', 'columnStart']);
+	const columnEndClassName = useGetClass<Undefinable<GridColumnStartEnd>>(columnEnd, ['grid', 'columnEnd']);
+
+	const rowSpanClassName = useGetClass<Undefinable<GridRowSpan>>(rowSpan, ['grid', 'rowSpan']);
+	const rowStartClassName = useGetClass<Undefinable<GridRowStartEnd>>(rowStart, ['grid', 'rowStart']);
+	const rowEndClassName = useGetClass<Undefinable<GridRowStartEnd>>(rowEnd, ['grid', 'rowEnd']);
 
 	return (
 		<Box
 			{...(rest as GridItemProps<Element>)}
 			ref={ref}
 			className={classNames(
-				classes.grid.alignSelf[alignSelf],
-				classes.grid.justifySelf[justifySelf],
+				alignSelfClassName,
+				justifySelfClassName,
 				columnSpanClassName,
 				columnStartClassName,
 				columnEndClassName,

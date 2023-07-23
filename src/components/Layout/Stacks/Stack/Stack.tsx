@@ -1,14 +1,12 @@
-import { ElementType, forwardRef, Fragment, ReactElement, useMemo } from 'react';
+import { ElementType, forwardRef, Fragment, ReactElement } from 'react';
 
 import classNames from 'classnames';
 import { isArray } from 'lodash-es';
 
-import classes from '@common/classes';
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
+import { useGetClass } from '@common/hooks';
 import type { AlignItems, FlexDirection, FlexWrap, JustifyContent } from '@common/types/classes';
 import type { Space } from '@common/types/theme';
-import { getResponsiveValue } from '@common/utils';
 
 import Box from '@components/Layout/Box';
 
@@ -31,25 +29,17 @@ const Stack = forwardRef(function Stack<Element extends ElementType>(
 		direction = __DEFAULT_STACK_DIRECTION__,
 		divider,
 		justifyContent = __DEFAULT_STACK_JUSTIFY_CONTENT__,
-		spacing: s = __DEFAULT_SPACING__,
+		spacing = __DEFAULT_SPACING__,
 		wrap = __DEFAULT_STACK_WRAP__,
 		...rest
 	} = props;
 
-	const alignItemsClassName = useMemo<string>(() => {
-		return classes.flex.alignItems[getResponsiveValue<AlignItems>(alignItems)];
-	}, [alignItems]);
-	const directionClassName = useMemo<string>(() => {
-		return classes.flex.direction[getResponsiveValue<FlexDirection>(direction)];
-	}, [direction]);
-	const justifyContentClassName = useMemo<string>(() => {
-		return classes.flex.justifyContent[getResponsiveValue<JustifyContent>(justifyContent)];
-	}, [justifyContent]);
-	const wrapClassName = useMemo<string>(() => {
-		return classes.flex.wrap[getResponsiveValue<FlexWrap>(wrap)];
-	}, [wrap]);
+	const alignItemsClassName = useGetClass<AlignItems>(alignItems, ['flex', 'alignItems']);
+	const directionClassName = useGetClass<FlexDirection>(direction, ['flex', 'direction']);
+	const justifyContentClassName = useGetClass<JustifyContent>(justifyContent, ['flex', 'justifyContent']);
+	const wrapClassName = useGetClass<FlexWrap>(wrap, ['flex', 'wrap']);
 
-	const spacing = useGetResponsiveValue<Space>(s);
+	const spacingClassName = useGetClass<Space>(spacing, ['spacing', 'gap']);
 
 	return (
 		<Box
@@ -61,7 +51,7 @@ const Stack = forwardRef(function Stack<Element extends ElementType>(
 				wrapClassName,
 				alignItemsClassName,
 				justifyContentClassName,
-				classes.spacing.gap[spacing],
+				spacingClassName,
 				{ [className]: !!className }
 			)}
 		>
