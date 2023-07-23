@@ -1,4 +1,4 @@
-import type { AppColorMode, ColorMode } from '../../../../../../common/types/theme';
+import type { AppColorMode, ColorMode } from '@common/types/theme';
 
 export type ColorModeScriptProps = {
 	initialColorMode: ColorMode;
