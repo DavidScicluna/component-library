@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import { BackdropBlurArr } from '@common/types/classes';
 
-import Center from '@components/Layout/Center';
+import Center from '@components/Layout/components/Center';
 
 import classes from '../../../common/classes';
 import { useGetColor } from '../../../common/hooks';

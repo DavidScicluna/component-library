@@ -6,7 +6,7 @@ import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 
 import { __DEFAULT_TRANSITION_IN__ } from '@components/Animation/common/constants';
-import Center from '@components/Layout/Center';
+import Center from '@components/Layout/components/Center';
 
 import type { FadeProps } from './common/types';
 import type { FadeStory, FadeStoryMeta } from './common/types/story';

@@ -6,7 +6,7 @@ import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 
 import { __DEFAULT_TRANSITION_IN__ } from '@components/Animation/common/constants';
-import Center from '@components/Layout/Center';
+import Center from '@components/Layout/components/Center';
 
 import { __DEFAULT_POP_INITIAL_SCALE__, __DEFAULT_POP_IS_REVERSED__ } from './common/constants';
 import type { PopProps } from './common/types';
