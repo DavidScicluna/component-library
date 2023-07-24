@@ -10,10 +10,10 @@ body,
 *,
 *::before,
 *::after {
-	font-family: 'Work Sans, sans-serif';
+	font-family: 'Work Sans', sans-serif;
 
 	transition: none;
 	transition-property: none;
-	transition-duration: none;
-	transition-timing-function: none;
+	transition-duration: 0ms;
+	transition-timing-function: linear;
 }
