@@ -1,6 +1,6 @@
 import { ElementType, MouseEvent, ReactNode } from 'react';
 
-import type { BoxProps, BoxRef } from '@components/Layout/Box/common/types';
+import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
 export type HoverOverlayMouseEvent = MouseEvent<HTMLDivElement, globalThis.MouseEvent>;
 

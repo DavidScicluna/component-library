@@ -14,7 +14,7 @@ import type {
 	WordBreak
 } from '@common/types/theme';
 
-import Box from '@components/Layout/Box';
+import Box from '@components/Box';
 
 import {
 	__DEFAULT_TEXT_ALIGN__,

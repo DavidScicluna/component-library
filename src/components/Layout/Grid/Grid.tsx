@@ -17,7 +17,7 @@ import type {
 } from '@common/types/classes';
 import type { Space } from '@common/types/theme';
 
-import Box from '../Box';
+import Box from '../../Box';
 
 import {
 	__DEFAULT_GRID_ALIGN_CONTENT__,

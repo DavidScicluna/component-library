@@ -13,7 +13,7 @@ import type {
 } from '@common/types/classes';
 import type { Space } from '@common/types/theme';
 
-import type { BoxProps, BoxRef } from '@components/Layout/Box/common/types';
+import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
 type GridOtherProps = {
 	alignContent?: ResponsiveValue<AlignContent>;

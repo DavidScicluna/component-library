@@ -4,7 +4,7 @@ import { transparentize } from 'color2k';
 import { merge } from 'lodash-es';
 
 import { useGetColor } from '../../../common/hooks';
-import Box from '../../Layout/Box';
+import Box from '../../Box';
 import { useProviderContext } from '../../Provider/common/hooks';
 
 import type { BackdropOverlayProps, BackdropOverlayRef } from './common/types';

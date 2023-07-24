@@ -15,7 +15,7 @@ import type {
 	ZIndex
 } from '@common/types/classes';
 
-import Box from '@components/Layout/Box';
+import Box from '@components/Box';
 
 import {
 	__DEFAULT_GRID_ITEM_ALIGN_SELF__,

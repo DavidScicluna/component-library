@@ -4,7 +4,7 @@ import type { ResponsiveValue } from '@common/types';
 import type { AlignItems, FlexDirection, FlexWrap, JustifyContent } from '@common/types/classes';
 import type { Space } from '@common/types/theme';
 
-import type { BoxProps, BoxRef } from '@components/Layout/Box/common/types';
+import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
 type StackOtherProps = {
 	alignItems?: ResponsiveValue<AlignItems>;

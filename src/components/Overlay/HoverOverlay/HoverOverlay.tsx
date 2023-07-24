@@ -1,6 +1,6 @@
 import { ElementType, forwardRef, ReactElement } from 'react';
 
-import Box from '@components/Layout/Box';
+import Box from '@components/Box';
 
 import { useBoolean } from '../../../common/hooks';
 

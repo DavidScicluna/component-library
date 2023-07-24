@@ -7,7 +7,7 @@ import { useGetClass } from '@common/hooks';
 import type { Space } from '@common/types/theme';
 import { getResponsiveValue } from '@common/utils';
 
-import Box from '../Box';
+import Box from '../../Box';
 
 import type { SimpleGridColumn, SimpleGridProps, SimpleGridRef } from './common/types';
 
