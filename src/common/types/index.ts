@@ -1,3 +1,5 @@
+import { CSSObject } from '@emotion/react';
+
 import { Breakpoint } from './theme';
 
 export type Undefinable<T> = T | undefined; // Adds undefined to type
@@ -21,3 +23,5 @@ export type Orientation = 'vertical' | 'horizontal';
 export type ResponsiveArrayValue<D> = [D?, D?, D?, D?, D?, D?];
 export type ResponsiveObjectValue<D> = Record<Breakpoint, D>;
 export type ResponsiveValue<D> = ResponsiveArrayValue<D> | ResponsiveObjectValue<D> | D;
+
+export type Style = CSSObject;

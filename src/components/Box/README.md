@@ -18,10 +18,10 @@ export default function RockOnButton() {
 
 ### Props
 
-| Name | Type                       | Default | Description                                                                                                            |
-| ---- | -------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `as` | `React - ElementType`      | `div`   | The component used for the root node. Either a string to use an HTML element or a component.                           |
-| `sx` | `Emotion SerializedStyles` | `{}`    | The system prop that allows [emotion css](https://emotion.sh/docs/introduction) objects to be passed down to as styles |
+| Name | Type                  | Default | Description                                                                                                            |
+| ---- | --------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `as` | `React - ElementType` | `div`   | The component used for the root node. Either a string to use an HTML element or a component.                           |
+| `sx` | `Emotion CSSObject`   | `{}`    | The system prop that allows [emotion css](https://emotion.sh/docs/introduction) objects to be passed down to as styles |
 
 ## Related components
 
