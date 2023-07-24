@@ -1,5 +1,7 @@
 import { ComponentPropsWithoutRef, ComponentPropsWithRef, ElementType, HTMLAttributes } from 'react';
 
+import { SerializedStyles } from '@emotion/react';
+
 import { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_OBJECT__ } from '@common/constants';
 
 export type PolymorphicRef<Element extends ElementType = typeof __DEFAULT_POLYMORPHIC_ELEMENT__> =
@@ -9,6 +11,7 @@ type PolymorphicProps<Element extends ElementType = typeof __DEFAULT_POLYMORPHIC
 	PolymorphicRef<Element>
 > & {
 	as?: Element;
+	sx?: SerializedStyles;
 } & ComponentPropsWithoutRef<Element>;
 
 export type PolymorphicComponentProps<
