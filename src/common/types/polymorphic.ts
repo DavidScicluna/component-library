@@ -10,7 +10,13 @@ export type PolymorphicRef<Element extends ElementType = typeof __DEFAULT_POLYMO
 type PolymorphicProps<Element extends ElementType = typeof __DEFAULT_POLYMORPHIC_ELEMENT__> = HTMLAttributes<
 	PolymorphicRef<Element>
 > & {
+	/**
+	 * The component used for the root node. Either a string to use an HTML element or a component.
+	 */
 	as?: Element;
+	/**
+	 * The system prop that allows [emotion css](https://emotion.sh/docs/introduction) objects to be passed down to as styles
+	 */
 	sx?: SerializedStyles;
 } & ComponentPropsWithoutRef<Element>;
 
