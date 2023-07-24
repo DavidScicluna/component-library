@@ -3,8 +3,9 @@ import { ElementType, forwardRef, ReactElement } from 'react';
 import { transparentize } from 'color2k';
 import { merge } from 'lodash-es';
 
+import Box from '@components/Box';
+
 import { useGetColor } from '../../../common/hooks';
-import Box from '../../Box';
 import { useProviderContext } from '../../Provider/common/hooks';
 
 import type { BackdropOverlayProps, BackdropOverlayRef } from './common/types';

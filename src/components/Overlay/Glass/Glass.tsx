@@ -7,8 +7,8 @@ import { useGetClass, useGetColor } from '@common/hooks';
 import { Saturate } from '@common/types/classes';
 
 import Box from '@components/Box';
-import Grid from '@components/Layout/Grid';
-import GridItem from '@components/Layout/Grid/components/GridItem';
+import Grid from '@components/Layout/components/Grid';
+import GridItem from '@components/Layout/components/Grid/components/GridItem';
 import { useProviderContext } from '@components/Provider/common/hooks';
 
 import { __DEFAULT_GLASS_BLUR__ } from './common/constants';

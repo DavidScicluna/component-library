@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { getResponsiveValue } from '@common/utils';
 
-import Box from '../../Box';
+import Box from '@components/Box';
 
 import { __DEFAULT_ASPECT_RATIO_RATIO__ } from './common/constants';
 import type { AspectRatioProps, AspectRatioRatio, AspectRatioRef } from './common/types';

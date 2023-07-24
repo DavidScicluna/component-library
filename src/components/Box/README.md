@@ -7,7 +7,7 @@ Box is the most abstract component on top of which all other components are buil
 ```jsx
 import { Box } from '@davidscicluna/component-library';
 
-export default function RockOnButton() {
+export default function Button() {
 	return (
 		<Box as='button' sx={{ color: 'red' }}>
 			I am a button!

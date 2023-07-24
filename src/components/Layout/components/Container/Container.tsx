@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { getResponsiveValue } from '@common/utils';
 
-import Box from '../../Box';
+import Box from '@components/Box';
 
 import {
 	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,

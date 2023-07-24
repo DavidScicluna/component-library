@@ -6,7 +6,7 @@ import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetClass } from '@common/hooks';
 import type { Space } from '@common/types/theme';
 
-import Box from '../../../Box';
+import Box from '@components/Box';
 
 import type { CenterProps, CenterRef } from './common/types';
 

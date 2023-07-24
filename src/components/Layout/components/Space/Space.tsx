@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetClass } from '@common/hooks';
 
-import Box from '../../Box';
+import Box from '@components/Box';
 
 import { __DEFAULT_SPACE_HEIGHT__, __DEFAULT_SPACE_WIDTH__ } from './common/constants';
 import type { SpaceDimension, SpaceProps, SpaceRef } from './common/types';
