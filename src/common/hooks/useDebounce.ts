@@ -5,7 +5,6 @@ import type { Duration } from '@common/types/theme';
 import { convertStringToNumber } from '@common/utils';
 
 // https://usehooks-ts.com/react-hook/use-debounce
-
 const useDebounce = <T>(value: T, delay: Duration = 'normal'): T => {
 	const [debouncedValue, setDebouncedValue] = useState<T>(value);
 

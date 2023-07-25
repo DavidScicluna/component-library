@@ -38,7 +38,7 @@ const hasProperty = memoize(<Obj, Prop extends Primitives>(obj: Obj, prop: Prop)
 });
 
 const pickFromObj = memoize(
-	<Obj, Prop extends string, Props extends ReadonlyArray<Prop>, Result extends Util<Obj, Props>>(
+	<Obj, Prop extends string, Props extends ReadonlyArray<Prop>, _Result extends Util<Obj, Props>>(
 		obj: ValuesUnion<Obj>,
 		props: [...Props]
 		// ..._: Validator<IsAllowed<Result>>

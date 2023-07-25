@@ -13,9 +13,6 @@ type UseConstParams<T> = T | UseConstParamsFn<T>;
  * Even if `useMemo` is provided an empty array as its final argument, it doesn't offer
  * a guarantee that it won't re-run for performance reasons later on. By using `useConst`
  * you can ensure that initializers don't execute twice or more.
- *
- * Based on Chakra UI useConst hook
- * @see Docs https://chakra-ui.com/docs/hooks/use-const
  */
 const useConst = <T extends any>(params: UseConstParams<T>): T => {
 	const ref = useRef<Nullable<T>>(null);
