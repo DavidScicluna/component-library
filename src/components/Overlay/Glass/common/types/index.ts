@@ -11,13 +11,13 @@ type GlassElementType = typeof __DEFAULT_POLYMORPHIC_ELEMENT__;
 
 type GlassOtherProps = CommonThemeProps & {
 	/**
-	 * The amount of blurring to be applied
+	 * The amount of the blur effect to be applied ("base", "none", "sm", "lg", "xl", "md", "2xl", "3xl")
 	 *
 	 * @default 'base'
 	 */
 	blur?: ResponsiveValue<GlassBlur>;
 	/**
-	 * Whether the blur effect has a background color applied
+	 * If `true` a background depending on color & colorMode will be shown alongside the blur effect
 	 *
 	 * @default true
 	 */
