@@ -1,3 +1,4 @@
+import { __DEFAULT_POLYMORPHIC_ELEMENT__ } from '@common/constants';
 import { ResponsiveValue } from '@common/types';
 import { BackdropBlur } from '@common/types/classes';
 import { CommonThemeProps } from '@common/types/theme';
@@ -6,8 +7,23 @@ import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
 export type GlassBlur = BackdropBlur;
 
-type GlassOtherProps = CommonThemeProps & { blur?: ResponsiveValue<GlassBlur> };
+type GlassElementType = typeof __DEFAULT_POLYMORPHIC_ELEMENT__;
 
-export type GlassProps = BoxProps<'div', GlassOtherProps>;
+type GlassOtherProps = CommonThemeProps & {
+	/**
+	 * The amount of blurring to be applied
+	 *
+	 * @default 'base'
+	 */
+	blur?: ResponsiveValue<GlassBlur>;
+	/**
+	 * Whether the blur effect has a background color applied
+	 *
+	 * @default true
+	 */
+	hasBackground?: boolean;
+};
 
-export type GlassRef = BoxRef<'div'>;
+export type GlassProps = BoxProps<GlassElementType, GlassOtherProps>;
+
+export type GlassRef = BoxRef<GlassElementType>;

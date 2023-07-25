@@ -11,7 +11,7 @@ import Grid from '@components/Layout/components/Grid';
 import GridItem from '@components/Layout/components/Grid/components/GridItem';
 import { useProviderContext } from '@components/Provider/common/hooks';
 
-import { __DEFAULT_GLASS_BLUR__ } from './common/constants';
+import { __DEFAULT_GLASS_BLUR__, __DEFAULT_GLASS_HAS_BACKGROUND__ } from './common/constants';
 import type { GlassBlur, GlassProps, GlassRef } from './common/types';
 
 const Glass = forwardRef<GlassRef, GlassProps>(function Glass(props, ref): ReactElement {
@@ -22,6 +22,7 @@ const Glass = forwardRef<GlassRef, GlassProps>(function Glass(props, ref): React
 		color = __DEFAULT_GLASS_COLOR__,
 		colorMode = __DEFAULT_GLASS_COLORMODE__,
 		blur = __DEFAULT_GLASS_BLUR__,
+		hasBackground = __DEFAULT_GLASS_HAS_BACKGROUND__,
 		...rest
 	} = props;
 
@@ -45,7 +46,7 @@ const Glass = forwardRef<GlassRef, GlassProps>(function Glass(props, ref): React
 			<GridItem rowStart={1} columnStart={1} zIndex={1}>
 				<Box
 					className={classNames('w-full', 'h-full', backdropBlurClassName, saturateClassName)}
-					style={{ background: transparentize(background, 0.5) }}
+					style={hasBackground ? { background: transparentize(background, 0.5) } : undefined}
 				/>
 			</GridItem>
 

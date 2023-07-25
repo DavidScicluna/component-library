@@ -9,7 +9,7 @@ import Center from '@components/Layout/components/Center';
 import classes from '../../../common/classes';
 import { useGetColor } from '../../../common/hooks';
 
-import { __DEFAULT_GLASS_BLUR__ } from './common/constants';
+import { __DEFAULT_GLASS_BLUR__, __DEFAULT_GLASS_HAS_BACKGROUND__ } from './common/constants';
 import type { GlassProps } from './common/types';
 import type { GlassStory, GlassStoryMeta } from './common/types/story';
 import GlassComponent from '.';
@@ -25,6 +25,13 @@ export default {
 			// description: '',
 			options: ['none', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl'] as BackdropBlurArr,
 			control: { type: 'radio' }
+		},
+		hasBackground: {
+			name: 'Has Background',
+			type: 'boolean',
+			defaultValue: __DEFAULT_GLASS_HAS_BACKGROUND__,
+			// description: '',
+			control: { type: 'boolean' }
 		}
 	}
 } as GlassStoryMeta;
