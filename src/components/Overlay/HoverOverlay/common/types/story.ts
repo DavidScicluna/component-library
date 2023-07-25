@@ -1,6 +1,6 @@
 import { Meta as StorybookMeta, StoryFn as StorybookStory } from '@storybook/react';
 
-import HoverOverlay from '../..';
+import HoverOverlay from '../../HoverOverlay';
 
 export type HoverOverlayStoryMeta = StorybookMeta<typeof HoverOverlay>;
 
