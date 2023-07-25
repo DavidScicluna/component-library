@@ -1,3 +1,4 @@
+export const __KEY_LOCALSTORAGE_COLOR__ = 'ds_cl_theme_default_color';
 export const __KEY_LOCALSTORAGE_APP_COLOR__ = 'ds_cl_theme_app_color';
 export const __KEY_LOCALSTORAGE_APP_COLORMODE__ = 'ds_cl_theme_color_mode';
 

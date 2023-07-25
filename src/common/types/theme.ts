@@ -27,11 +27,17 @@ export type ColorsArr = Color[];
 export type ColorsObj = Record<Color, string | Record<ColorHue, string>>;
 
 export type ColorHue = 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950;
-export type ColorHues = ColorHue[];
+export type ColorHuesArr = ColorHue[];
+export type ColorHuesObj = Record<ColorHue, string>;
 
 export type ColorMode = 'light' | 'system' | 'dark';
 
 export type CommonThemeProps = Partial<{
+	color: Color;
+	colorMode: AppColorMode;
+}>;
+
+export type CommonAppThemeProps = Partial<{
 	color: AppColor;
 	colorMode: AppColorMode;
 }>;

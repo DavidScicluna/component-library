@@ -7,27 +7,33 @@ import { ColorHueType, getColorClass, getColorHex } from '@common/utils/color';
 import { useAppTheme } from '.';
 
 type UseGetColorProps = CommonThemeProps & {
-	colorType: 'default' | 'color' | 'appColor';
+	colorType: 'default' | 'color';
 	hueType: ColorHueType;
 	classType?: ClassType;
 };
 
 const useGetColor = (props: UseGetColorProps): string => {
-	const { color: defaultColor, colorMode: defaultColorMode } = useAppTheme();
+	const { color: __DEFAULT_COLOR__, colorMode: __DEFAULT_COLORMODE__ } = useAppTheme();
 
-	const { color = defaultColor, colorMode = defaultColorMode, colorType = 'default', hueType, classType } = props;
+	const {
+		color = __DEFAULT_COLOR__,
+		colorMode = __DEFAULT_COLORMODE__,
+		colorType = 'default',
+		hueType,
+		classType
+	} = props;
 
 	const string = useMemo<string>(() => {
 		if (classType) {
 			return getColorClass({
-				color: colorType === 'default' ? 'gray' : colorType === 'appColor' ? defaultColor : color,
+				color: colorType === 'default' ? 'gray' : color,
 				colorMode,
 				hueType,
 				classType
 			});
 		} else {
 			return getColorHex({
-				color: colorType === 'default' ? 'gray' : colorType === 'appColor' ? defaultColor : color,
+				color: colorType === 'default' ? 'gray' : color,
 				colorMode,
 				hueType
 			});

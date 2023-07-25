@@ -1,16 +1,16 @@
 import { ReactNode } from 'react';
 
 import type { AnimationDelay, AnimationDuration, AnimationEasing } from '@common/types/animation';
-import type { ColorMode, CommonThemeProps } from '@common/types/theme';
+import type { ColorMode, CommonAppThemeProps } from '@common/types/theme';
 
 import type { IconCategory } from '@components/DataDisplay/Icon/common/types';
 
-export type ProviderProps = Pick<CommonThemeProps, 'color'> & {
+export type ProviderProps = Pick<CommonAppThemeProps, 'color'> & {
 	children: ReactNode;
 	colorMode?: ColorMode;
 };
 
-export type ProviderContext = CommonThemeProps;
+export type ProviderContext = CommonAppThemeProps;
 export type AnimationContext = {
 	delay?: AnimationDelay;
 	duration?: AnimationDuration;
