@@ -9,24 +9,21 @@ import { Saturate } from '@common/types/classes';
 import Box from '@components/Box';
 import Grid from '@components/Layout/components/Grid';
 import GridItem from '@components/Layout/components/Grid/components/GridItem';
-import { useProviderContext } from '@components/Provider/common/hooks';
 
 import { __DEFAULT_GLASS_BLUR__, __DEFAULT_GLASS_HAS_BACKGROUND__ } from './common/constants';
 import type { GlassBlur, GlassProps, GlassRef } from './common/types';
 
 const Glass = forwardRef<GlassRef, GlassProps>(function Glass(props, ref): ReactElement {
-	const { color: __DEFAULT_GLASS_COLOR__, colorMode: __DEFAULT_GLASS_COLORMODE__ } = useProviderContext();
-
 	const {
 		children,
-		color = __DEFAULT_GLASS_COLOR__,
-		colorMode = __DEFAULT_GLASS_COLORMODE__,
+		color,
+		colorMode,
 		blur = __DEFAULT_GLASS_BLUR__,
 		hasBackground = __DEFAULT_GLASS_HAS_BACKGROUND__,
 		...rest
 	} = props;
 
-	const background = useGetColor({ color, colorMode, colorType: 'color', hueType: 'background' });
+	const background = useGetColor({ color, colorMode, colorType: color ? 'color' : 'default', hueType: 'background' });
 
 	const backdropBlurClassName = useGetClass<GlassBlur>(blur, ['filters', 'backdropBlur']);
 	const saturateClassName = useGetClass<Saturate>(100, ['filters', 'saturate']);
