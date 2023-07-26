@@ -1,6 +1,7 @@
-import { ElementType, forwardRef, ReactElement } from 'react';
+/** @jsxRuntime classic /
+/* @jsx jsx */
 
-import { css } from '@emotion/react';
+import { ElementType, forwardRef, ReactElement } from 'react';
 
 import {
 	__DEFAULT_POLYMORPHIC_ELEMENT__,
@@ -22,7 +23,7 @@ const Box = forwardRef(function Box<
 	} = props;
 
 	return (
-		<Component ref={ref} {...rest} css={css(sx)}>
+		<Component {...rest} ref={ref} css={sx}>
 			{children}
 		</Component>
 	);
