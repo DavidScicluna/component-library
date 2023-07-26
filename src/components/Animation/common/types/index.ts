@@ -1,6 +1,6 @@
 import type { Target, TargetAndTransition, Transition } from 'framer-motion';
 
-import type { MotionBoxProps, MotionBoxRef } from '@components/Animation/components/MotionBox/common/types';
+import type { MotionBoxProps, MotionBoxRef } from '@components/Animation';
 
 type OmittedCommonAnimationProps = 'custom' | 'animate' | 'initial' | 'exit' | 'transition' | 'variants';
 

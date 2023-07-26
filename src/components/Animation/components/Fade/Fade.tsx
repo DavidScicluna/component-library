@@ -2,18 +2,20 @@ import { forwardRef, ReactElement } from 'react';
 
 import { pick } from 'lodash-es';
 
-import {
-	__DEFAULT_TRANSITION__,
-	__DEFAULT_TRANSITION_CONFIG__,
-	__DEFAULT_TRANSITION_END__,
-	__DEFAULT_TRANSITION_IN__,
-	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
-} from '@components/Animation/common/constants';
+import { constants } from '@components/Animation';
 
 import AnimatePresence from '../AnimatePresence';
 import MotionBox from '../MotionBox';
 
 import type { FadeProps, FadeRef } from './common/types';
+
+const {
+	__DEFAULT_TRANSITION__,
+	__DEFAULT_TRANSITION_CONFIG__,
+	__DEFAULT_TRANSITION_END__,
+	__DEFAULT_TRANSITION_IN__,
+	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
+} = constants;
 
 const config = __DEFAULT_TRANSITION_CONFIG__;
 

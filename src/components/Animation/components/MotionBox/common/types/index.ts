@@ -2,7 +2,7 @@ import { MotionProps } from 'framer-motion';
 
 import { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
-import { TransitionProps } from '@components/Animation/common/types';
+import type { TransitionProps } from '@components/Animation';
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
 type MotionBoxElement = PolymorphicDefaultElement;

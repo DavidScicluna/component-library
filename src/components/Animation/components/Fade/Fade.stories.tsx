@@ -5,12 +5,14 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 
-import { __DEFAULT_TRANSITION_IN__ } from '@components/Animation/common/constants';
+import { constants } from '@components/Animation';
 import { Center } from '@components/Layout';
 
 import type { FadeProps } from './common/types';
 import type { FadeStory, FadeStoryMeta } from './common/types/story';
 import FadeComponent from '.';
+
+const { __DEFAULT_TRANSITION_IN__ } = constants;
 
 export default {
 	title: 'Animation/Fade',

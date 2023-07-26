@@ -5,13 +5,15 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 
-import { __DEFAULT_TRANSITION_IN__ } from '@components/Animation/common/constants';
+import { constants } from '@components/Animation';
 import { Center } from '@components/Layout';
 
 import { __DEFAULT_POP_INITIAL_SCALE__, __DEFAULT_POP_IS_REVERSED__ } from './common/constants';
 import type { PopProps } from './common/types';
 import type { PopStory, PopStoryMeta } from './common/types/story';
 import PopComponent from '.';
+
+const { __DEFAULT_TRANSITION_IN__ } = constants;
 
 export default {
 	title: 'Animation/Pop',
