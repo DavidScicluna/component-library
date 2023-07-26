@@ -1,13 +1,13 @@
 import { ReactElement } from 'react';
 
-import { AnimatePresence as AP } from 'framer-motion';
+import { AnimatePresence as FMAnimatePresence } from 'framer-motion';
 
 import type { AnimatePresenceProps } from './common/types';
 
 const AnimatePresence = ({ children, ...rest }: AnimatePresenceProps): ReactElement => (
-	<AP mode='wait' initial={false} {...rest}>
+	<FMAnimatePresence mode='wait' initial={false} {...rest}>
 		{children}
-	</AP>
+	</FMAnimatePresence>
 );
 
 export default AnimatePresence;

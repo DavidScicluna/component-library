@@ -1,8 +1,8 @@
-import { HTMLMotionProps } from 'framer-motion';
-
 import type { AnimationEasing } from '@common/types/animation';
 import type { Ease, EasingsArr } from '@common/types/theme';
 import { getAnimationDuration, getAnimationEasings } from '@common/utils/animation';
+
+import { MotionBoxProps } from '@components/Animation/components/MotionBox/common/types';
 
 export const __DEFAULT_TRANSITION_IN__ = false;
 export const __DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__ = true;
@@ -27,7 +27,7 @@ export const __DEFAULT_TRANSITION_END__ = {
 	exit: {}
 };
 
-export const __DEFAULT_TRANSITION_CONFIG__: HTMLMotionProps<'div'> = {
+export const __DEFAULT_TRANSITION_CONFIG__: MotionBoxProps = {
 	initial: 'exit',
 	animate: 'enter',
 	exit: 'exit'

@@ -1,6 +1,5 @@
 import { forwardRef, ReactElement } from 'react';
 
-import { motion } from 'framer-motion';
 import { pick } from 'lodash-es';
 
 import {
@@ -12,6 +11,7 @@ import {
 } from '@components/Animation/common/constants';
 
 import AnimatePresence from '../AnimatePresence';
+import MotionBox from '../MotionBox';
 
 import {
 	__DEFAULT_SLIDE_IS_REVERSED__,
@@ -73,7 +73,7 @@ const Slide = forwardRef<SlideRef, SlideProps>(function Slide(props, ref): React
 	return (
 		<AnimatePresence custom={custom}>
 			{isVisible ? (
-				<motion.div {...rest} {...config} ref={ref} custom={custom} animate={animate} variants={variants} />
+				<MotionBox {...rest} {...config} ref={ref} custom={custom} animate={animate} variants={variants} />
 			) : null}
 		</AnimatePresence>
 	);

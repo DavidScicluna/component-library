@@ -1,6 +1,5 @@
 import { forwardRef, ReactElement } from 'react';
 
-import { motion } from 'framer-motion';
 import { pick } from 'lodash-es';
 
 import {
@@ -12,6 +11,7 @@ import {
 } from '@components/Animation/common/constants';
 
 import AnimatePresence from '../AnimatePresence';
+import MotionBox from '../MotionBox';
 
 import {
 	__DEFAULT_COLLAPSE_AXIS__,
@@ -83,7 +83,7 @@ const Collapse = forwardRef<CollapseRef, CollapseProps>(function Collapse(props,
 	return (
 		<AnimatePresence custom={custom}>
 			{isVisible ? (
-				<motion.div
+				<MotionBox
 					{...rest}
 					{...config}
 					ref={ref}

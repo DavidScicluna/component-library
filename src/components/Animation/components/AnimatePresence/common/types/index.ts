@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
-import { AnimatePresenceProps as APProps } from 'framer-motion';
+import { AnimatePresenceProps as FMAnimatePresenceProps } from 'framer-motion';
 
-export type AnimatePresenceProps = APProps & {
+export type AnimatePresenceProps = FMAnimatePresenceProps & {
 	children: ReactNode;
 };

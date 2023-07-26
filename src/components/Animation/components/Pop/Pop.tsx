@@ -1,6 +1,5 @@
 import { forwardRef, ReactElement } from 'react';
 
-import { motion } from 'framer-motion';
 import { pick } from 'lodash-es';
 
 import {
@@ -12,6 +11,7 @@ import {
 } from '@components/Animation/common/constants';
 
 import AnimatePresence from '../AnimatePresence';
+import MotionBox from '../MotionBox';
 
 import { __DEFAULT_POP_INITIAL_SCALE__, __DEFAULT_POP_IS_REVERSED__ } from './common/constants';
 import type { PopProps, PopRef } from './common/types';
@@ -56,7 +56,7 @@ const Pop = forwardRef<PopRef, PopProps>(function Pop(props, ref): ReactElement 
 	return (
 		<AnimatePresence custom={custom}>
 			{isVisible ? (
-				<motion.div {...rest} {...config} ref={ref} custom={custom} animate={animate} variants={variants} />
+				<MotionBox {...rest} {...config} ref={ref} custom={custom} animate={animate} variants={variants} />
 			) : null}
 		</AnimatePresence>
 	);

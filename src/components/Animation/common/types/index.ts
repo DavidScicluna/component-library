@@ -1,8 +1,10 @@
-import type { HTMLMotionProps, Target, TargetAndTransition, Transition } from 'framer-motion';
+import type { Target, TargetAndTransition, Transition } from 'framer-motion';
 
-import type { Nullable } from '@common/types';
+import type { MotionBoxProps, MotionBoxRef } from '@components/Animation/components/MotionBox/common/types';
 
-export type CommonAnimationProps = TransitionProps & {
+type OmittedCommonAnimationProps = 'custom' | 'animate' | 'initial' | 'exit' | 'transition' | 'variants';
+
+export type CommonAnimationProps = Omit<MotionBoxProps, OmittedCommonAnimationProps> & {
 	/**
 	 * If `true`, the element will unmount when `in={false}` and animation is done
 	 */
@@ -11,9 +13,9 @@ export type CommonAnimationProps = TransitionProps & {
 	 * Show the component; triggers when enter or exit states
 	 */
 	in?: boolean;
-} & Omit<HTMLMotionProps<'div'>, 'custom' | 'animate' | 'initial' | 'exit' | 'transition' | 'variants'>;
+};
 
-export type CommonAnimationRef = Nullable<HTMLDivElement>;
+export type CommonAnimationRef = MotionBoxRef;
 
 type WithMotionState<P> = Partial<Record<'enter' | 'exit', P>>;
 
@@ -40,5 +42,3 @@ export type Variants<P = object> = {
 	exit: Variant<P>;
 	initial?: Variant<P>;
 };
-
-export type SlideDirection = 'top' | 'left' | 'bottom' | 'right';
