@@ -2,7 +2,9 @@ import { ComponentPropsWithoutRef, ComponentPropsWithRef, ElementType, HTMLAttri
 
 import { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_OBJECT__ } from '@common/constants';
 
-import { Style } from '.';
+import { PickFrom, Style } from '.';
+
+export type PolymorphicDefaultElement = PickFrom<ElementType, 'div'>;
 
 type PolymorphicProps<Element extends ElementType = typeof __DEFAULT_POLYMORPHIC_ELEMENT__> = HTMLAttributes<
 	PolymorphicRef<Element>

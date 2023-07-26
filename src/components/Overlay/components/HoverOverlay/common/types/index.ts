@@ -1,14 +1,14 @@
 import { MouseEvent, ReactNode } from 'react';
 
-import { __DEFAULT_POLYMORPHIC_ELEMENT__ } from '@common/constants';
+import { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
 export type HoverOverlayMouseEvent = MouseEvent<HTMLDivElement, globalThis.MouseEvent>;
 
-type HoverOverlayElementType = typeof __DEFAULT_POLYMORPHIC_ELEMENT__;
+type HoverOverlayElement = PolymorphicDefaultElement;
 
-export type HoverOverlayProps = Omit<BoxProps<HoverOverlayElementType>, 'children'> & {
+export type HoverOverlayProps = Omit<BoxProps<HoverOverlayElement>, 'children'> & {
 	/**
 	 * This method will return a react component and will pass down a boolean value if the container is being hovered or not
 	 *
@@ -18,4 +18,4 @@ export type HoverOverlayProps = Omit<BoxProps<HoverOverlayElementType>, 'childre
 	children: (isHovering: boolean) => ReactNode;
 };
 
-export type HoverOverlayRef = BoxRef<HoverOverlayElementType>;
+export type HoverOverlayRef = BoxRef<HoverOverlayElement>;

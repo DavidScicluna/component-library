@@ -1,4 +1,6 @@
-import type { ResponsiveValue } from '@common/types';
+import { ElementType } from 'react';
+
+import type { PickFrom, ResponsiveValue } from '@common/types';
 import type {
 	FontSize,
 	FontWeight,
@@ -13,7 +15,7 @@ import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
 import { __DEFAULT_TEXT_ELEMENT__ } from '../constants';
 
-export type TextElementType = 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+export type TextElement = PickFrom<ElementType, 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'>;
 
 type TextOtherProps = {
 	align?: ResponsiveValue<TextAlign>;
@@ -27,11 +29,11 @@ type TextOtherProps = {
 	wordBreak?: ResponsiveValue<WordBreak>;
 };
 
-export type TextProps<Element extends TextElementType = typeof __DEFAULT_TEXT_ELEMENT__> = Omit<
+export type TextProps<Element extends TextElement = typeof __DEFAULT_TEXT_ELEMENT__> = Omit<
 	BoxProps<Element, TextOtherProps>,
 	'children'
 > & {
 	children?: string;
 };
 
-export type TextRef<Element extends TextElementType = typeof __DEFAULT_TEXT_ELEMENT__> = BoxRef<Element>;
+export type TextRef<Element extends TextElement = typeof __DEFAULT_TEXT_ELEMENT__> = BoxRef<Element>;

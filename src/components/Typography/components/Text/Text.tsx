@@ -28,10 +28,10 @@ import {
 	__DEFAULT_TEXT_WHITESPACE__,
 	__DEFAULT_TEXT_WORD_BREAK__
 } from './common/constants';
-import type { TextElementType, TextProps, TextRef } from './common/types';
+import type { TextElement, TextProps, TextRef } from './common/types';
 
-const Text = forwardRef(function Text<Element extends TextElementType = typeof __DEFAULT_TEXT_ELEMENT__>(
-	props: TextProps<TextElementType>,
+const Text = forwardRef(function Text<Element extends TextElement = typeof __DEFAULT_TEXT_ELEMENT__>(
+	props: TextProps<Element>,
 	ref: TextRef<Element>
 ): ReactElement {
 	const {
