@@ -12,23 +12,10 @@ import BackdropOverlayComponent from '.';
 export default {
 	title: 'Overlay/BackdropOverlay',
 	component: BackdropOverlayComponent
-	// argTypes: {
-	// 	size: {
-	// 		name: 'Size (0-24 | .0, .25, .5 or .75)',
-	// 		type: 'number',
-	// 		defaultValue: __DEFAULT_BACKDROPOVERLAY_SIZE__,
-	// 		// description: '',
-	// 		control: { type: 'number' }
-	// 	}
-	// }
 } as BackdropOverlayStoryMeta;
 
-export const BackdropOverlay: BackdropOverlayStory = (props: BackdropOverlayProps<any>): ReactElement => {
+export const BackdropOverlay: BackdropOverlayStory = (props: BackdropOverlayProps): ReactElement => {
 	const padding = classes.spacing.p[4];
 
-	return (
-		<BackdropOverlayComponent {...props} className={classNames('w-full', 'h-full', padding)}>
-			<h6>Hello</h6>
-		</BackdropOverlayComponent>
-	);
+	return <BackdropOverlayComponent {...props} className={classNames('w-full', 'h-full', padding)} />;
 };

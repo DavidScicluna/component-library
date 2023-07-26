@@ -1,0 +1,1 @@
+export const __DEFAULT_BACKDROP_OVERLAY_AMOUNT__ = 0.5;
