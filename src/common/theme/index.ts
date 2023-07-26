@@ -1,6 +1,6 @@
 import { range } from 'lodash-es';
 
-import { ZIndexObj } from '@common/types/classes';
+import { BackdropBlurObj, BlurObj, ZIndexObj } from '@common/types/classes';
 import type {
 	ColorsObj,
 	DurationsObj,
@@ -11,6 +11,40 @@ import type {
 	RadiiObj,
 	SpacingObj
 } from '@common/types/theme';
+
+const backdropBlur: BackdropBlurObj = {
+	'none': '0px',
+	'xs': '2px',
+	'sm': '4px',
+	'md': '8px',
+	'lg': '12px',
+	'xl': '16px',
+	'2xl': '20px',
+	'3xl': '24px',
+	'4xl': '30px',
+	'5xl': '40px',
+	'6xl': '50px',
+	'7xl': '60px',
+	'8xl': '70px',
+	'9xl': '80px'
+};
+
+const blur: BlurObj = {
+	'none': '0px',
+	'xs': '2px',
+	'sm': '4px',
+	'md': '8px',
+	'lg': '12px',
+	'xl': '16px',
+	'2xl': '20px',
+	'3xl': '24px',
+	'4xl': '30px',
+	'5xl': '40px',
+	'6xl': '50px',
+	'7xl': '60px',
+	'8xl': '70px',
+	'9xl': '80px'
+};
 
 const borderRadius: RadiiObj = {
 	none: '0',
@@ -339,6 +373,8 @@ const zIndex: ZIndexObj = {
 };
 
 export default {
+	backdropBlur,
+	blur,
 	borderRadius,
 	colors,
 	fontSizes,

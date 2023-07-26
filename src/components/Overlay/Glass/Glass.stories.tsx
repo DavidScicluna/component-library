@@ -24,7 +24,22 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_GLASS_BLUR__,
 			// description: '',
-			options: ['none', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl'] as BackdropBlurArr,
+			options: [
+				'none',
+				'xs',
+				'sm',
+				'md',
+				'lg',
+				'xl',
+				'2xl',
+				'3xl',
+				'4xl',
+				'5xl',
+				'6xl',
+				'7xl',
+				'8xl',
+				'9xl'
+			] as BackdropBlurArr,
 			control: { type: 'radio' }
 		},
 		hasBackground: {

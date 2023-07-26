@@ -23,11 +23,39 @@ export type AlignSelf = 'auto' | 'start' | 'end' | 'center' | 'stretch' | 'basel
 export type AlignSelfArr = AlignSelf[];
 export type AlignSelfObj = Record<AlignSelf, string>;
 
-export type Blur = 'none' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
+export type Blur =
+	| 'none'
+	| 'xs'
+	| 'sm'
+	| 'md'
+	| 'lg'
+	| 'xl'
+	| '2xl'
+	| '3xl'
+	| '4xl'
+	| '5xl'
+	| '6xl'
+	| '7xl'
+	| '8xl'
+	| '9xl';
 export type BlurArr = Blur[];
 export type BlurObj = Record<Blur, string>;
 
-export type BackdropBlur = 'none' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
+export type BackdropBlur =
+	| 'none'
+	| 'xs'
+	| 'sm'
+	| 'md'
+	| 'lg'
+	| 'xl'
+	| '2xl'
+	| '3xl'
+	| '4xl'
+	| '5xl'
+	| '6xl'
+	| '7xl'
+	| '8xl'
+	| '9xl';
 export type BackdropBlurArr = BackdropBlur[];
 export type BackdropBlurObj = Record<BackdropBlur, string>;
 

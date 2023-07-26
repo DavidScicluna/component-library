@@ -14,7 +14,7 @@ export default function Component() {
 
 ### Props
 
-| Name            | Type                                                                 | Default | Description                                                                                   |
-| --------------- | -------------------------------------------------------------------- | ------- | --------------------------------------------------------------------------------------------- |
-| `blur`          | `BackdropBlur ("base", "none", "sm", "lg", "xl", "md", "2xl", "3xl") | `base`  | The amount of the blur effect to be applied                                                   |
-| `hasBackground` | `boolean`                                                            | `true`  | If `true` a background depending on color & colorMode will be shown alongside the blur effect |
+| Name            | Type                                                                                                          | Default | Description                                                                                   |
+| --------------- | ------------------------------------------------------------------------------------------------------------- | ------- | --------------------------------------------------------------------------------------------- |
+| `blur`          | `BackdropBlur` (`none`, `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl`, `8xl`, `9xl`) | `md`    | The amount of the blur effect to be applied                                                   |
+| `hasBackground` | `boolean`                                                                                                     | `true`  | If `true` a background depending on color & colorMode will be shown alongside the blur effect |
