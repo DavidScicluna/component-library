@@ -3,16 +3,17 @@ import { ElementType, forwardRef, ReactElement, useMemo } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { useGetResponsiveValue } from '@common/hooks';
 import { getResponsiveValue } from '@common/utils';
 
 import Box from '@components/Box';
 
 import {
+	__DEFAULT_CONTAINER_BREAKPOINT__,
 	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
-	__DEFAULT_CONTAINER_IS_FLUID__,
-	__DEFAULT_CONTAINER_SIZE__
+	__DEFAULT_CONTAINER_IS_FLUID__
 } from './common/constants';
-import type { ContainerProps, ContainerRef, ContainerSize } from './common/types';
+import type { ContainerBreakpoint, ContainerProps, ContainerRef } from './common/types';
 
 const Container = forwardRef(function Container<Element extends ElementType>(
 	props: ContainerProps<Element>,
@@ -21,15 +22,15 @@ const Container = forwardRef(function Container<Element extends ElementType>(
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
-		isContentCentered = __DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
-		isFluid = __DEFAULT_CONTAINER_IS_FLUID__,
-		size = __DEFAULT_CONTAINER_SIZE__,
+		breakpoint = __DEFAULT_CONTAINER_BREAKPOINT__,
+		isContentCentered: centered = __DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
+		isFluid: fluid = __DEFAULT_CONTAINER_IS_FLUID__,
 		...rest
 	} = props;
 
 	// TODO: Move to classes & replace with useGetClass
-	const sizeClassName = useMemo<string>(() => {
-		const s = getResponsiveValue<ContainerSize>(size);
+	const breakpointClassName = useMemo<string>(() => {
+		const s = getResponsiveValue<ContainerBreakpoint>(breakpoint);
 		switch (s) {
 			case 'sm':
 				return 'max-w-screen-sm';
@@ -42,7 +43,10 @@ const Container = forwardRef(function Container<Element extends ElementType>(
 			default:
 				return 'max-w-screen-2xl';
 		}
-	}, [size]);
+	}, [breakpoint]);
+
+	const isContentCentered = useGetResponsiveValue<boolean>(centered);
+	const isFluid = useGetResponsiveValue<boolean>(fluid);
 
 	return (
 		<Box
@@ -51,7 +55,7 @@ const Container = forwardRef(function Container<Element extends ElementType>(
 			className={classNames('container', {
 				'mx-auto': isContentCentered,
 				'w-full': isFluid,
-				[sizeClassName]: !isFluid,
+				[breakpointClassName]: !isFluid,
 				[className]: !!className
 			})}
 		>

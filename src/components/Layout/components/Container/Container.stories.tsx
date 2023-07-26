@@ -9,11 +9,11 @@ import { useGetColor } from '@common/hooks';
 import Text from '@components/Typography/components/Text';
 
 import {
+	__DEFAULT_CONTAINER_BREAKPOINT__,
 	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
-	__DEFAULT_CONTAINER_IS_FLUID__,
-	__DEFAULT_CONTAINER_SIZE__
+	__DEFAULT_CONTAINER_IS_FLUID__
 } from './common/constants';
-import type { ContainerProps, ContainerSizes } from './common/types';
+import type { ContainerBreakpoints, ContainerProps } from './common/types';
 import type { ContainerStory, ContainerStoryMeta } from './common/types/story';
 import ContainerComponent from '.';
 
@@ -21,6 +21,14 @@ export default {
 	title: 'Layout/Container',
 	component: ContainerComponent,
 	argTypes: {
+		breakpoint: {
+			name: 'Breakpoint',
+			type: 'string',
+			defaultValue: __DEFAULT_CONTAINER_BREAKPOINT__,
+			// description: '',
+			options: ['sm', 'md', 'lg', 'xl', '2xl'] as ContainerBreakpoints,
+			control: { type: 'radio' }
+		},
 		isContentCentered: {
 			name: 'Center Content',
 			type: 'boolean',
@@ -34,14 +42,6 @@ export default {
 			defaultValue: __DEFAULT_CONTAINER_IS_FLUID__,
 			// description: '',
 			control: { type: 'boolean' }
-		},
-		size: {
-			name: 'Size',
-			type: 'string',
-			defaultValue: __DEFAULT_CONTAINER_SIZE__,
-			// description: '',
-			options: ['sm', 'md', 'lg', 'xl', '2xl'] as ContainerSizes,
-			control: { type: 'radio' }
 		}
 	}
 } as ContainerStoryMeta;

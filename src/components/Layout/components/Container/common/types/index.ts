@@ -5,13 +5,13 @@ import type { Breakpoint } from '@common/types/theme';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
-export type ContainerSize = Exclude<Breakpoint, 'xs'>;
-export type ContainerSizes = ContainerSize[];
+export type ContainerBreakpoint = Exclude<Breakpoint, 'xs'>;
+export type ContainerBreakpoints = ContainerBreakpoint[];
 
 type ContainerOtherProps = {
-	isContentCentered?: boolean;
+	breakpoint?: ResponsiveValue<ContainerBreakpoint>;
+	isContentCentered?: ResponsiveValue<boolean>;
 	isFluid?: ResponsiveValue<boolean>;
-	size?: ResponsiveValue<ContainerSize>;
 };
 
 export type ContainerProps<Element extends ElementType> = BoxProps<Element, ContainerOtherProps>;
