@@ -5,6 +5,8 @@ import classNames from 'classnames';
 
 import { useGetColor } from '@common/hooks';
 
+import Text from '@components/Typography/components/Text';
+
 import classes from '../../../common/classes';
 
 import type { HoverOverlayProps } from './common/types';
@@ -20,14 +22,16 @@ export const HoverOverlay: HoverOverlayStory = (props: HoverOverlayProps): React
 	const radius = classes.borders.radius.base;
 
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
-	const background = useGetColor({ colorType: 'appColor', hueType: 'color', classType: 'bg' });
+	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
 
 	const padding = classes.spacing.p[4];
 
 	return (
-		<HoverOverlayComponent {...props} className={classNames('w-full', radius, text, background, padding)}>
+		<HoverOverlayComponent {...props} className={classNames('w-full', radius, background, padding)}>
 			{(isHovering) => (
-				<h6>{`Currently ${isHovering ? 'hovering the element!' : 'not hovering the element'}`}</h6>
+				<Text align='center' color={text}>
+					{`Currently ${isHovering ? 'hovering the element!' : 'not hovering the element'}`}
+				</Text>
 			)}
 		</HoverOverlayComponent>
 	);

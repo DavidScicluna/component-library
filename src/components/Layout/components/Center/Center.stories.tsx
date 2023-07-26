@@ -7,6 +7,8 @@ import classes from '@common/classes';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
+import Text from '@components/Typography/components/Text';
+
 import type { CenterProps } from './common/types';
 import type { CenterStory, CenterStoryMeta } from './common/types/story';
 import CenterComponent from '.';
@@ -29,14 +31,18 @@ export const Center: CenterStory = (props: CenterProps<any>): ReactElement => {
 	const radius = classes.borders.radius.base;
 
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
-	const background = useGetColor({ colorType: 'appColor', hueType: 'color', classType: 'bg' });
+	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
 
 	const padding = classes.spacing.p[4];
 
 	return (
-		<CenterComponent {...props} className={classNames('w-full', radius, text, background, padding)}>
-			<h6>Hello</h6>
-			<h6>Hello</h6>
+		<CenterComponent {...props} className={classNames('w-full', radius, background, padding)}>
+			<Text align='center' color={text}>
+				Hello
+			</Text>
+			<Text align='center' color={text}>
+				Hello
+			</Text>
 		</CenterComponent>
 	);
 };

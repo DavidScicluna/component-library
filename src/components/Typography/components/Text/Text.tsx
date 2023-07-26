@@ -18,6 +18,7 @@ import Box from '@components/Box';
 
 import {
 	__DEFAULT_TEXT_ALIGN__,
+	__DEFAULT_TEXT_ELEMENT__,
 	__DEFAULT_TEXT_FONT_SIZE__,
 	__DEFAULT_TEXT_FONT_WEIGHT__,
 	__DEFAULT_TEXT_IS_ITALIC__,
@@ -29,7 +30,7 @@ import {
 } from './common/constants';
 import type { TextElementType, TextProps, TextRef } from './common/types';
 
-const Text = forwardRef(function Text<Element extends TextElementType>(
+const Text = forwardRef(function Text<Element extends TextElementType = typeof __DEFAULT_TEXT_ELEMENT__>(
 	props: TextProps<TextElementType>,
 	ref: TextRef<Element>
 ): ReactElement {

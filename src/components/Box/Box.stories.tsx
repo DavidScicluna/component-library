@@ -7,6 +7,8 @@ import classes from '@common/classes';
 import { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
+import Text from '@components/Typography/components/Text';
+
 import type { BoxProps } from './common/types';
 import type { BoxStory, BoxStoryMeta } from './common/types/story';
 import BoxComponent from '.';
@@ -38,13 +40,15 @@ export const Box: BoxStory = (props: BoxProps<any>): ReactElement => {
 	const radius = classes.borders.radius.base;
 
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
-	const background = useGetColor({ colorType: 'appColor', hueType: 'color', classType: 'bg' });
+	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
 
 	const padding = classes.spacing.p[4];
 
 	return (
-		<BoxComponent {...props} className={classNames('w-full', radius, text, background, padding)}>
-			<h6>Hello</h6>
+		<BoxComponent {...props} className={classNames('w-full', radius, background, padding)}>
+			<Text align='center' color={text}>
+				Hello
+			</Text>
 		</BoxComponent>
 	);
 };

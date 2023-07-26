@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { BackdropBlurArr } from '@common/types/classes';
 
 import Center from '@components/Layout/components/Center';
+import Text from '@components/Typography/components/Text';
 
 import classes from '../../../common/classes';
 import { useGetColor } from '../../../common/hooks';
@@ -40,14 +41,16 @@ export const Glass: GlassStory = (props: GlassProps): ReactElement => {
 	const radius = classes.borders.radius.base;
 
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
-	const background = useGetColor({ colorType: 'appColor', hueType: 'color', classType: 'bg' });
+	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
 
 	const padding = classes.spacing.p[4];
 
 	return (
 		<GlassComponent {...props} className={classNames('w-full', radius)}>
-			<Center className={classNames('w-full', text, background, padding)}>
-				<h6>Hello</h6>
+			<Center className={classNames('w-full', background, padding)}>
+				<Text align='center' color={text}>
+					Hello
+				</Text>
 			</Center>
 		</GlassComponent>
 	);

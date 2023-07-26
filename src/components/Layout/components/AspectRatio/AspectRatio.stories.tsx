@@ -6,6 +6,8 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 
+import Text from '@components/Typography/components/Text';
+
 import Center from '../Center';
 
 import { __DEFAULT_ASPECT_RATIO_RATIO__ } from './common/constants';
@@ -32,17 +34,13 @@ export const AspectRatio: AspectRatioStory = (props: AspectRatioProps<any>): Rea
 	const radius = classes.borders.radius.base;
 
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
-	const background = useGetColor({ colorType: 'appColor', hueType: 'color', classType: 'bg' });
+	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
 
 	const padding = classes.spacing.p[4];
 
 	return (
-		<AspectRatioComponent
-			{...props}
-			as={Center}
-			className={classNames('w-full', radius, text, background, padding)}
-		>
-			<h6>
+		<AspectRatioComponent {...props} as={Center} className={classNames('w-full', radius, background, padding)}>
+			<Text align='center' color={text}>
 				{props.ratio === 'portrait'
 					? '4/5'
 					: props.ratio === 'square'
@@ -54,7 +52,7 @@ export const AspectRatio: AspectRatioStory = (props: AspectRatioProps<any>): Rea
 					: props.ratio === 'video' || props.ratio === 'widescreen'
 					? '16/9'
 					: 'Auto'}
-			</h6>
+			</Text>
 		</AspectRatioComponent>
 	);
 };
