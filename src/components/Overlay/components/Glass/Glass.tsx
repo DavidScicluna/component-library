@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { transparentize } from 'color2k';
 
 import { useGetClass, useGetColor } from '@common/hooks';
-import { Saturate } from '@common/types/classes';
+import type { Saturate } from '@common/types/classes';
 
 import Box from '@components/Box';
 import Grid from '@components/Layout/components/Grid';
@@ -43,7 +43,7 @@ const Glass = forwardRef<GlassRef, GlassProps>(function Glass(props, ref): React
 			<GridItem rowStart={1} columnStart={1} zIndex={1}>
 				<Box
 					className={classNames('w-full', 'h-full', backdropBlurClassName, saturateClassName)}
-					style={hasBackground ? { background: transparentize(background, 0.5) } : undefined}
+					sx={hasBackground ? { background: transparentize(background, 0.5) } : undefined}
 				/>
 			</GridItem>
 

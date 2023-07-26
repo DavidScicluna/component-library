@@ -2,13 +2,12 @@ import { ReactElement } from 'react';
 
 import classNames from 'classnames';
 
+import classes from '@common/classes';
+import { useGetColor } from '@common/hooks';
 import { BackdropBlurArr } from '@common/types/classes';
 
 import Center from '@components/Layout/components/Center';
 import Text from '@components/Typography/components/Text';
-
-import classes from '../../../common/classes';
-import { useGetColor } from '../../../common/hooks';
 
 import { __DEFAULT_GLASS_BLUR__, __DEFAULT_GLASS_HAS_BACKGROUND__ } from './common/constants';
 import type { GlassProps } from './common/types';

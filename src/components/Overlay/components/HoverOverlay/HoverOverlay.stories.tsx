@@ -3,11 +3,10 @@ import { ReactElement } from 'react';
 
 import classNames from 'classnames';
 
+import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 
 import Text from '@components/Typography/components/Text';
-
-import classes from '../../../common/classes';
 
 import type { HoverOverlayProps } from './common/types';
 import type { HoverOverlayStory, HoverOverlayStoryMeta } from './common/types/story';

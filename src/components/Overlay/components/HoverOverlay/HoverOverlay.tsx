@@ -1,8 +1,8 @@
 import { forwardRef, ReactElement } from 'react';
 
-import Box from '@components/Box';
+import { useBoolean } from '@common/hooks';
 
-import { useBoolean } from '../../../common/hooks';
+import Box from '@components/Box';
 
 import type { HoverOverlayMouseEvent, HoverOverlayProps, HoverOverlayRef } from './common/types';
 

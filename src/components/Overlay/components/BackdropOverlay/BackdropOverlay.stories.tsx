@@ -3,7 +3,7 @@ import { ReactElement } from 'react';
 
 import classNames from 'classnames';
 
-import classes from '../../../common/classes';
+import classes from '@common/classes';
 
 import type { BackdropOverlayProps } from './common/types';
 import type { BackdropOverlayStory, BackdropOverlayStoryMeta } from './common/types/story';
