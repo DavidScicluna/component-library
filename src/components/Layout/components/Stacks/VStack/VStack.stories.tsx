@@ -9,7 +9,7 @@ import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 import type { AlignItemsArr, FlexWrapArr, JustifyContentArr } from '@common/types/classes';
 
-import Center from '@components/Layout/components/Center';
+import { Center } from '@components/Layout';
 
 import {
 	__DEFAULT_STACK_ALIGN_ITEMS__,

@@ -6,7 +6,7 @@ import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 
 import { __DEFAULT_TRANSITION_IN__ } from '@components/Animation/common/constants';
-import Center from '@components/Layout/components/Center';
+import { Center } from '@components/Layout';
 
 import type { SlideProps } from './common/types';
 import type { SlideStory, SlideStoryMeta } from './common/types/story';

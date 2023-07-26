@@ -6,7 +6,7 @@ import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 import { BackdropBlurArr } from '@common/types/classes';
 
-import Center from '@components/Layout/components/Center';
+import { Center } from '@components/Layout';
 import Text from '@components/Typography/components/Text';
 
 import { __DEFAULT_GLASS_BLUR__, __DEFAULT_GLASS_HAS_BACKGROUND__ } from './common/constants';

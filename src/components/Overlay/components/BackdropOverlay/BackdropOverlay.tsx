@@ -7,8 +7,7 @@ import { merge } from 'lodash-es';
 import { useGetColor } from '@common/hooks';
 
 import Box from '@components/Box';
-import Grid from '@components/Layout/components/Grid';
-import GridItem from '@components/Layout/components/Grid/components/GridItem';
+import { Grid, GridItem } from '@components/Layout';
 
 import { __DEFAULT_BACKDROP_OVERLAY_AMOUNT__ } from './common/constants';
 import type { BackdropOverlayProps, BackdropOverlayRef } from './common/types';
