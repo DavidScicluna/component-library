@@ -45,6 +45,12 @@ export default {
 			options: ['left', 'center', 'right', 'justify', 'start', 'end'] as TextAlignsArr,
 			control: { type: 'radio' }
 		},
+		color: {
+			name: 'Color',
+			type: 'string',
+			// description: '',
+			control: { type: 'color' }
+		},
 		fontSize: {
 			name: 'Font Size',
 			type: 'string',
@@ -135,12 +141,5 @@ export default {
 } as TextStoryMeta;
 
 export const Text: TextStory = (props: TextProps<any>): ReactElement => {
-	// const radius = classes.borders.radius.base;
-
-	// const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
-	// const background = useGetColor({ colorType: 'appColor', hueType: 'color', classType: 'bg' });
-
-	// const padding = classes.spacing.p[4];
-
 	return <TextComponent {...props} />;
 };
