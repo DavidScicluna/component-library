@@ -1,13 +1,13 @@
 import memoize from 'micro-memoize';
 
-import { __DEFAULT_DURATION__, __DEFAULT_EASING__ } from '@common/constants';
+import { __DEFAULT_DELAY__, __DEFAULT_DURATION__, __DEFAULT_EASING__ } from '@common/constants';
 import theme from '@common/theme';
 import type { AnimationConfig, AnimationDelay, AnimationDuration, AnimationEasing } from '@common/types/animation';
-import type { Duration, Ease } from '@common/types/theme';
+import type { Delay, Duration, Ease } from '@common/types/theme';
 
 import { convertStringToNumber } from '.';
 
-export const getAnimationDelay = memoize((delay: Duration = __DEFAULT_DURATION__): AnimationDelay => {
+export const getAnimationDelay = memoize((delay: Delay = __DEFAULT_DELAY__): AnimationDelay => {
 	return convertStringToNumber(theme.transitionDuration[delay], 'ms') / 1000;
 });
 

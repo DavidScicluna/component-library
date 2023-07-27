@@ -54,6 +54,10 @@ export type Ease = 'ease-in' | 'ease-out' | 'ease-in-out';
 export type EasingsArr = Ease[];
 export type EasingsObj = Record<Ease, string>;
 
+export type Delay = 'ultra-fast' | 'faster' | 'fast' | 'normal' | 'slow' | 'slower' | 'ultra-slow';
+export type DelaysArr = Delay[];
+export type DelaysObj = Record<Delay, string>;
+
 export type Duration = 'ultra-fast' | 'faster' | 'fast' | 'normal' | 'slow' | 'slower' | 'ultra-slow';
 export type DurationsArr = Duration[];
 export type DurationsObj = Record<Duration, string>;
