@@ -2,21 +2,18 @@ import { forwardRef, ReactElement } from 'react';
 
 import { pick } from 'lodash-es';
 
-import { constants } from '@components/Animation';
-
-import AnimatePresence from '../AnimatePresence';
-import MotionBox from '../MotionBox';
-
-import { __DEFAULT_POP_INITIAL_SCALE__, __DEFAULT_POP_IS_REVERSED__ } from './common/constants';
-import type { PopProps, PopRef } from './common/types';
-
-const {
+import {
 	__DEFAULT_TRANSITION__,
 	__DEFAULT_TRANSITION_CONFIG__,
 	__DEFAULT_TRANSITION_END__,
 	__DEFAULT_TRANSITION_IN__,
 	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
-} = constants;
+} from '../../common/constants';
+import AnimatePresence from '../AnimatePresence';
+import MotionBox from '../MotionBox';
+
+import { __DEFAULT_POP_INITIAL_SCALE__, __DEFAULT_POP_IS_REVERSED__ } from './common/constants';
+import type { PopProps, PopRef } from './common/types';
 
 const config = __DEFAULT_TRANSITION_CONFIG__;
 

@@ -5,14 +5,13 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 
-import { constants } from '@components/Animation';
 import { Center } from '@components/Layout';
+
+import { __DEFAULT_TRANSITION_IN__ } from '../../common/constants';
 
 import type { SlideProps } from './common/types';
 import type { SlideStory, SlideStoryMeta } from './common/types/story';
 import SlideComponent from '.';
-
-const { __DEFAULT_TRANSITION_IN__ } = constants;
 
 export default {
 	title: 'Animation/Slide',
