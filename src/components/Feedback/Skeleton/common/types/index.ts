@@ -1,58 +1,20 @@
-import { SkeletonProps as CUISkeletonProps } from '@chakra-ui/react';
+import { ElementType } from 'react';
 
-import { CommonThemeProps } from '../../../../../common/types';
-import {
-	BoxBackground,
-	BoxBorderRadius,
-	BoxBorders,
-	BoxColor,
-	BoxFilter,
-	BoxFlexbox,
-	BoxGradient,
-	BoxGrid,
-	BoxLayout,
-	BoxOther,
-	BoxPosition,
-	BoxPseudo,
-	BoxShadow,
-	BoxTypography
-} from '../../../../../common/types/box';
-import { Color, Radius } from '../../../../../theme/types';
+// import type { ResponsiveValue } from '@common/types';
+import type { AppColor, CommonAppThemeProps } from '@common/types/theme';
 
-export type SkeletonColor = Exclude<Color, 'transparent'>;
+import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
 export type SkeletonVariant = 'rectangle' | 'circle' | 'text';
 
-type Omitted =
-	// Box Props
-	| BoxColor
-	| BoxGradient
-	| BoxTypography
-	| BoxLayout
-	| BoxFlexbox
-	| BoxGrid
-	| BoxBackground
-	| BoxBorders
-	| BoxBorderRadius
-	| BoxPosition
-	| BoxShadow
-	| BoxFilter
-	| BoxPseudo
-	| BoxOther
-	// CUI Skeleton Props
-	| 'as'
-	| 'color'
-	| 'colorScheme'
-	| 'fadeDuration'
-	| 'speed'
-	| 'size'
-	| 'variant'
-	| '_firstLetter';
-
-export type SkeletonProps = Omit<CUISkeletonProps, Omitted> & {
-	color?: SkeletonColor;
-	borderRadius?: Radius;
+type SkeletonOtherProps = CommonAppThemeProps & {
+	startColor?: AppColor;
+	endColor?: AppColor;
 	isAnimated?: boolean;
-	isReversed?: boolean;
+	isLoaded?: boolean;
 	variant?: SkeletonVariant;
-} & Pick<CommonThemeProps, 'colorMode'>;
+};
+
+export type SkeletonProps<Element extends ElementType> = BoxProps<Element, SkeletonOtherProps>;
+
+export type SkeletonRef<Element extends ElementType> = BoxRef<Element>;
