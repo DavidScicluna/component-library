@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { round } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_DURATION__, __DEFAULT_EASING__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__, __DEFAULT_DURATION__, __DEFAULT_EASING__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetClass, useGetColor } from '@common/hooks';
 import type { Duration, Ease, Radius } from '@common/types/theme';
 
@@ -12,11 +12,7 @@ import { AnimatePresence, Slide } from '@components/Animation';
 import Box from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
 
-import {
-	__DEFAULT_SKELETON_IS_ANIMATED__,
-	__DEFAULT_SKELETON_IS_LOADED__,
-	__DEFAULT_SKELETON_VARIANT__
-} from './common/constants';
+import { __DEFAULT_SKELETON_IS_ANIMATED__, __DEFAULT_SKELETON_IS_LOADED__ } from './common/constants';
 import type { SkeletonProps, SkeletonRef } from './common/types';
 
 const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
@@ -32,7 +28,7 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 		colorMode,
 		isAnimated = __DEFAULT_SKELETON_IS_ANIMATED__,
 		isLoaded = __DEFAULT_SKELETON_IS_LOADED__,
-		variant = __DEFAULT_SKELETON_VARIANT__,
+		radius = __DEFAULT_RADIUS__,
 		...rest
 	} = props;
 
@@ -44,10 +40,7 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 		hueType: 'divider'
 	});
 
-	const radiusClassName = useGetClass<Radius>(
-		variant === 'rectangle' ? 'base' : variant === 'circle' ? 'full' : 'xs',
-		['borders', 'radius']
-	);
+	const radiusClassName = useGetClass<Radius>(radius, ['borders', 'radius']);
 
 	const easeClassName = useGetClass<Ease>(__DEFAULT_EASING__, ['transitions', 'ease']);
 	const durationClassName = useGetClass<Duration>(__DEFAULT_DURATION__, ['transitions', 'duration']);
@@ -72,23 +65,25 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 					justifyContent='stretch'
 					spacing={0}
 				>
-					<GridItem rowStart={1} columnStart={1} zIndex={1}>
-						<Slide
-							key='skeleton_children_visible'
-							className={classNames('w-full', 'h-full')}
-							in={isLoaded}
-							offsetY={offsetY}
-							unmountOnExit={false}
-						>
-							{children}
-						</Slide>
-					</GridItem>
+					{children ? (
+						<GridItem rowStart={1} columnStart={1} zIndex={1}>
+							<Slide
+								key='skeleton_children_visible'
+								className={classNames('w-full', 'h-full')}
+								in={isLoaded}
+								offsetY={offsetY}
+								unmountOnExit={false}
+							>
+								{children}
+							</Slide>
+						</GridItem>
+					) : null}
 
 					<GridItem rowStart={1} columnStart={1}>
 						<Slide
 							key='skeleton_children_hidden'
 							className={classNames('w-full', 'h-full')}
-							in={!isLoaded}
+							in={children ? !isLoaded : true}
 							offsetY={offsetY}
 							unmountOnExit={false}
 						>

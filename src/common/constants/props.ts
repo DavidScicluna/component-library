@@ -9,7 +9,7 @@ import {
 	__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__,
 	__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__
 } from '@common/keys';
-import type { AppColor, AppColorMode, Color, Delay, Duration, Ease, Space } from '@common/types/theme';
+import type { AppColor, AppColorMode, Color, Delay, Duration, Ease, Radius, Space } from '@common/types/theme';
 
 export const __DEFAULT_COLOR__: Color = (localStorage.getItem(__KEY_LOCALSTORAGE_COLOR__) || 'gray') as Color;
 export const __DEFAULT_APP_COLOR__: AppColor = (localStorage.getItem(__KEY_LOCALSTORAGE_APP_COLOR__) ||
@@ -35,5 +35,7 @@ export const __DEFAULT_DURATION__: Duration = 'normal';
 export const __DEFAULT_EASING__: Ease = 'ease-in-out';
 
 export const __DEFAULT_SPACING__: Space = 2;
+
+export const __DEFAULT_RADIUS__: Radius = 'base';
 
 export const __DEFAULT_METHOD__ = () => undefined;

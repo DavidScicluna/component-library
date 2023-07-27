@@ -4,17 +4,15 @@ import { ReactElement } from 'react';
 import classNames from 'classnames';
 
 import classes from '@common/classes';
+import { __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
+import { RadiiArr } from '@common/types/theme';
 
 import { Center } from '@components/Layout';
 import Text from '@components/Typography/components/Text';
 
-import {
-	__DEFAULT_SKELETON_IS_ANIMATED__,
-	__DEFAULT_SKELETON_IS_LOADED__,
-	__DEFAULT_SKELETON_VARIANT__
-} from './common/constants';
-import type { SkeletonProps, SkeletonVariant } from './common/types';
+import { __DEFAULT_SKELETON_IS_ANIMATED__, __DEFAULT_SKELETON_IS_LOADED__ } from './common/constants';
+import type { SkeletonProps } from './common/types';
 import type { SkeletonStory, SkeletonStoryMeta } from './common/types/story';
 import SkeletonComponent from '.';
 
@@ -36,12 +34,12 @@ export default {
 			// description: '',
 			control: { type: 'boolean' }
 		},
-		variant: {
-			name: 'Variant',
+		radius: {
+			name: 'Radius',
 			type: 'string',
-			defaultValue: __DEFAULT_SKELETON_VARIANT__,
+			defaultValue: __DEFAULT_RADIUS__,
 			// description: '',
-			options: ['rectangle', 'circle', 'text'] as SkeletonVariant[],
+			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as RadiiArr,
 			control: { type: 'radio' }
 		}
 	}
