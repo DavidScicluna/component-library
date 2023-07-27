@@ -73,7 +73,7 @@ const Grid = forwardRef(function Grid<Element extends ElementType>(
 	const spacingClassName = useGetClass<Space>(spacing, ['spacing', 'gap']);
 
 	return (
-		<Box
+		<Box<Element>
 			{...(rest as GridProps<Element>)}
 			ref={ref}
 			className={classNames(

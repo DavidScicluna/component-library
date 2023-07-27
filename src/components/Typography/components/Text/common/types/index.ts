@@ -29,11 +29,9 @@ type TextOtherProps = {
 	wordBreak?: ResponsiveValue<WordBreak>;
 };
 
-export type TextProps<Element extends TextElement = typeof __DEFAULT_TEXT_ELEMENT__> = Omit<
-	BoxProps<Element, TextOtherProps>,
-	'children'
-> & {
-	children?: string;
-};
+export type TextProps<Element extends TextElement = typeof __DEFAULT_TEXT_ELEMENT__> = BoxProps<
+	Element,
+	TextOtherProps
+>;
 
 export type TextRef<Element extends TextElement = typeof __DEFAULT_TEXT_ELEMENT__> = BoxRef<Element>;

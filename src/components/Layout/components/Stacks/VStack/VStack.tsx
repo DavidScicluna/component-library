@@ -12,7 +12,7 @@ const VStack = forwardRef(function VStack<Element extends ElementType>(
 	const { children, ...rest } = props;
 
 	return (
-		<Stack {...(rest as StackProps<Element>)} ref={ref} direction='column'>
+		<Stack<Element> {...(rest as StackProps<Element>)} ref={ref} direction='column'>
 			{children}
 		</Stack>
 	);

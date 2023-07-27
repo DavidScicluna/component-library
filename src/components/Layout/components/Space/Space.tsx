@@ -25,7 +25,7 @@ const Space = forwardRef(function Space<Element extends ElementType>(
 	const heightClassName = useGetClass<SpaceDimension>(height, ['sizing', 'h']);
 
 	return (
-		<Box
+		<Box<Element>
 			{...(rest as SpaceProps<Element>)}
 			ref={ref}
 			className={classNames({

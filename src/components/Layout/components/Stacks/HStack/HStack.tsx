@@ -12,7 +12,7 @@ const HStack = forwardRef(function HStack<Element extends ElementType>(
 	const { children, ...rest } = props;
 
 	return (
-		<Stack {...(rest as StackProps<Element>)} ref={ref} direction='row'>
+		<Stack<Element> {...(rest as StackProps<Element>)} ref={ref} direction='row'>
 			{children}
 		</Stack>
 	);

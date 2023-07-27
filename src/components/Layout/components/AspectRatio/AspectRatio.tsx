@@ -38,7 +38,7 @@ const AspectRatio = forwardRef(function AspectRatio<Element extends ElementType>
 	}, [ratio]);
 
 	return (
-		<Box
+		<Box<Element>
 			{...(rest as AspectRatioProps<Element>)}
 			ref={ref}
 			className={classNames(ratioClassName, { [className]: !!className })}

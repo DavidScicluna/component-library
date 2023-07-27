@@ -51,7 +51,7 @@ const SimpleGrid = forwardRef(function SimpleGrid<Element extends ElementType>(
 	const spacingClassName = useGetClass<Space>(spacing, ['spacing', 'gap']);
 
 	return (
-		<Box
+		<Box<Element>
 			{...(rest as SimpleGridProps<Element>)}
 			ref={ref}
 			className={classNames('grid', columnsClassName, spacingClassName, {

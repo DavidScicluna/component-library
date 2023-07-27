@@ -19,7 +19,7 @@ const Center = forwardRef(function Center<Element extends ElementType>(
 	const spacingClassName = useGetClass<Space>(spacing, ['spacing', 'gap']);
 
 	return (
-		<Box
+		<Box<Element>
 			{...(rest as CenterProps<Element>)}
 			ref={ref}
 			className={classNames(

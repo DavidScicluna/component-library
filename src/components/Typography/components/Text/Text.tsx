@@ -61,7 +61,7 @@ const Text = forwardRef(function Text<Element extends TextElement = typeof __DEF
 	const isOverflown = useGetResponsiveValue<boolean>(overflown);
 
 	return (
-		<Box
+		<Box<Element>
 			{...(rest as TextProps<Element>)}
 			ref={ref}
 			className={classNames(

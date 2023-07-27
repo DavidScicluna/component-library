@@ -57,7 +57,7 @@ const GridItem = forwardRef(function Grid<Element extends ElementType>(
 	const zIndexClassName = useGetClass<Undefinable<ZIndex>>(zIndex, ['layout', 'zIndex']);
 
 	return (
-		<Box
+		<Box<Element>
 			{...(rest as GridItemProps<Element>)}
 			ref={ref}
 			className={classNames(

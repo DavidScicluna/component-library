@@ -49,7 +49,7 @@ const Container = forwardRef(function Container<Element extends ElementType>(
 	const isFluid = useGetResponsiveValue<boolean>(fluid);
 
 	return (
-		<Box
+		<Box<Element>
 			{...(rest as ContainerProps<Element>)}
 			ref={ref}
 			className={classNames('container', {

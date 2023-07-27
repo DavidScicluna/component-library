@@ -42,7 +42,7 @@ const Stack = forwardRef(function Stack<Element extends ElementType>(
 	const spacingClassName = useGetClass<Space>(spacing, ['spacing', 'gap']);
 
 	return (
-		<Box
+		<Box<Element>
 			{...(rest as StackProps<Element>)}
 			ref={ref}
 			className={classNames(
@@ -57,7 +57,7 @@ const Stack = forwardRef(function Stack<Element extends ElementType>(
 		>
 			{children
 				? isArray(children)
-					? children.map((child, index) => (
+					? children.map((child, index: number) => (
 							<Fragment key={typeof child.key !== 'undefined' ? child.key : index}>
 								{child}
 								{divider && index + 1 !== children.length ? divider : null}
