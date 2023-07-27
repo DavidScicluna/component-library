@@ -3,6 +3,7 @@ import { range } from 'lodash-es';
 import { BackdropBlurObj, BlurObj, ZIndexObj } from '@common/types/classes';
 import type {
 	ColorsObj,
+	DelaysObj,
 	DurationsObj,
 	EasingsObj,
 	FontSizesObj,
@@ -315,9 +316,20 @@ const lineHeights: LineHeightsObj = {
 };
 
 const transitionTimingFunction: EasingsObj = {
+	'linear': 'linear',
 	'ease-in': 'cubic-bezier(0.55,0.06,0.68,0.19)',
 	'ease-out': 'cubic-bezier(0.22,0.61,0.36,1)',
 	'ease-in-out': 'cubic-bezier(0.65,0.05,0.36,1)'
+};
+
+const transitionDelay: DelaysObj = {
+	'ultra-fast': '50ms',
+	'faster': '100ms',
+	'fast': '200ms',
+	'normal': '250ms',
+	'slow': '500ms',
+	'slower': '750ms',
+	'ultra-slow': '1000ms'
 };
 
 const transitionDuration: DurationsObj = {
@@ -386,14 +398,8 @@ export default {
 	},
 	lineHeights,
 	transitionTimingFunction,
+	transitionDelay,
 	transitionDuration,
-	transitionProperty: {
-		common: 'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform',
-		colors: 'background-color, border-color, color, fill, stroke',
-		dimensions: 'width, height',
-		position: 'left, right, top, bottom',
-		background: 'background-color, background-image, background-position'
-	},
 	spacing,
 	zIndex
 };

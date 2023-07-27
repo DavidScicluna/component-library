@@ -50,7 +50,7 @@ export type Radius = 'none' | 'xs' | 'sm' | 'base' | 'lg' | 'xl' | 'full';
 export type RadiiArr = Radius[];
 export type RadiiObj = Record<Radius, string>;
 
-export type Ease = 'ease-in' | 'ease-out' | 'ease-in-out';
+export type Ease = 'linear' | 'ease-in' | 'ease-out' | 'ease-in-out';
 export type EasingsArr = Ease[];
 export type EasingsObj = Record<Ease, string>;
 

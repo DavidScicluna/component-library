@@ -6,6 +6,7 @@ import grid from './grid';
 import layout from './layout';
 import sizing from './sizing';
 import spacing from './spacing';
+import transitions from './transitions';
 import typography from './typography';
 
-export default { backgrounds, borders, flex, filters, grid, layout, sizing, spacing, typography };
+export default { backgrounds, borders, flex, filters, grid, layout, sizing, spacing, transitions, typography };
