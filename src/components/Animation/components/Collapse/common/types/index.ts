@@ -9,7 +9,7 @@ export type CollapseXAxisProps = {
 	 * On which direction should the animation animate either on the x axis or y axis
 	 * @default "y"
 	 */
-	axis: PickFrom<CollapseAxis, 'x'>;
+	axis?: PickFrom<CollapseAxis, 'x'>;
 	/**
 	 * The width you want the content in its collapsed state.
 	 * @default 0
