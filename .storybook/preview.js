@@ -1,7 +1,9 @@
+import { createContext, useContext } from 'react';
+
 import Provider from '@components/Provider';
 import { getColorHex, getColorMode } from '@common/utils/color';
 
-import { __DEFAULT_APP_COLOR__ } from '@common/constants';
+import { __DEFAULT_APP_COLOR__, __DEFAULT_APP_COLORMODE__ } from '@common/constants';
 import colors from '@common/data/colors';
 import { capitalize } from 'lodash-es';
 
@@ -55,15 +57,23 @@ import '@fontsource/material-icons';
 import '@fontsource/material-icons-outlined';
 import '@fontsource/material-icons-two-tone';
 
+const StorybookContext = createContext({ color: __DEFAULT_APP_COLOR__, colorMode: __DEFAULT_APP_COLORMODE__ });
+
+export const useStorybookContext = () => {
+	const { color, colorMode } = useContext(StorybookContext);
+	return { color, colorMode };
+};
+
 const DSCLProvider = (Story, context) => {
-	console.log(context);
+	const color = context?.globals?.color;
+	const colorMode = context?.globals?.backgrounds?.value === '#f8fafc' ? 'light' : 'dark';
+
 	return (
-		<Provider
-			color={context?.globals?.color}
-			colorMode={context?.globals?.backgrounds?.value === '#f8fafc' ? 'light' : 'dark'}
-		>
-			<Story />
-		</Provider>
+		<StorybookContext.Provider value={{ color, colorMode }}>
+			<Provider color={color} colorMode={colorMode}>
+				<Story />
+			</Provider>
+		</StorybookContext.Provider>
 	);
 };
 
@@ -75,10 +85,16 @@ const preview = {
 			toolbar: {
 				title: 'Color',
 				icon: 'circle',
-				items: colors.map((color) => ({
-					title: capitalize(color),
-					value: color
-				})),
+				items: [
+					...colors.map((color) => ({
+						title: capitalize(color),
+						value: color
+					})),
+					{
+						title: 'Gray',
+						value: undefined
+					}
+				],
 				dynamicTitle: true
 			}
 		}

@@ -11,6 +11,8 @@ import { RadiiArr } from '@common/types/theme';
 import { Center } from '@components/Layout';
 import Text from '@components/Typography/components/Text';
 
+import { useStorybookContext } from '../../../../.storybook/preview';
+
 import { __DEFAULT_SKELETON_IS_ANIMATED__, __DEFAULT_SKELETON_IS_LOADED__ } from './common/constants';
 import type { SkeletonProps } from './common/types';
 import type { SkeletonStory, SkeletonStoryMeta } from './common/types/story';
@@ -46,6 +48,8 @@ export default {
 } as SkeletonStoryMeta;
 
 export const Skeleton: SkeletonStory = (props: SkeletonProps<any>): ReactElement => {
+	const { color, colorMode } = useStorybookContext();
+
 	const radius = classes.borders.radius.base;
 
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
@@ -54,7 +58,7 @@ export const Skeleton: SkeletonStory = (props: SkeletonProps<any>): ReactElement
 	const padding = classes.spacing.p[4];
 
 	return (
-		<SkeletonComponent {...props} className={classNames('w-full', radius)} color='blue'>
+		<SkeletonComponent {...props} className={classNames('w-full', radius)} color={color} colorMode={colorMode}>
 			<Center className={classNames('w-full', 'h-40', background, padding)}>
 				<Text align='center' color={text}>
 					Hello
