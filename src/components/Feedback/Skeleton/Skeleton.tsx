@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { round } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_DURATION__, __DEFAULT_EASING__, __DEFAULT_RADIUS__ } from '@common/constants';
+import { __DEFAULT_DURATION__, __DEFAULT_EASING__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetClass, useGetColor } from '@common/hooks';
 import type { Duration, Ease, Radius } from '@common/types/theme';
 
@@ -23,7 +23,6 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
 		isAnimated = __DEFAULT_SKELETON_IS_ANIMATED__,
@@ -48,11 +47,7 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 	const offsetY = useMemo(() => round(gridHeight / 2), [gridHeight]);
 
 	return (
-		<Box<Element>
-			{...(rest as SkeletonProps<Element>)}
-			ref={ref}
-			className={classNames('overflow-hidden', radiusClassName, { [className]: !!className })}
-		>
+		<Box<Element> {...(rest as SkeletonProps<Element>)} ref={ref}>
 			<AnimatePresence>
 				<Grid
 					ref={gridRef}
@@ -91,7 +86,9 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 								className={classNames(
 									'w-full',
 									'h-full',
+									'overflow-hidden',
 									colorClassName,
+									radiusClassName,
 									easeClassName,
 									durationClassName,
 									{
