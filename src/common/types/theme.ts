@@ -5,6 +5,7 @@ export type AppColors = AppColor[];
 export type AppColorMode = Exclude<ColorMode, 'system'>;
 
 export type Color =
+	| 'transparent'
 	| 'black'
 	| 'white'
 	| 'gray'

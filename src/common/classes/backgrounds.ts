@@ -1,6 +1,7 @@
 import type { ColorsObj } from '@common/types/theme';
 
 const color: ColorsObj = {
+	transparent: 'bg-transparent',
 	black: 'bg-black',
 	white: 'bg-white',
 	gray: {

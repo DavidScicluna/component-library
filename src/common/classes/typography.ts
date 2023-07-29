@@ -19,6 +19,7 @@ const align: TextAlignsObj = {
 };
 
 const color: ColorsObj = {
+	transparent: 'text-transparent',
 	black: 'text-black',
 	white: 'text-white',
 	gray: {
