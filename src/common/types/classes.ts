@@ -1,6 +1,6 @@
 // TODO: Sort types like they are sorted in classes folder
 
-export type ClassType = 'bg' | 'text';
+export type ClassType = 'bg' | 'text' | 'border' | 'outline';
 
 export type AlignContent =
 	| 'normal'
@@ -58,6 +58,14 @@ export type BackdropBlur =
 	| '9xl';
 export type BackdropBlurArr = BackdropBlur[];
 export type BackdropBlurObj = Record<BackdropBlur, string>;
+
+export type BorderWidth = 0 | 1 | 2 | 4 | 8;
+export type BorderWidthArr = BorderWidth[];
+export type BorderWidthObj = Record<BorderWidth, string>;
+
+export type BorderStyle = 'solid' | 'dashed' | 'dotted' | 'double' | 'hidden' | 'none';
+export type BorderStyleArr = BorderStyle[];
+export type BorderStyleObj = Record<BorderStyle, string>;
 
 export type JustifyContent =
 	| 'normal'
@@ -142,6 +150,18 @@ export type GridTemplateColumnsObj = Record<GridTemplateColumns, string>;
 export type GridTemplateRows = GridRow | 'none';
 export type GridTemplateRowsArr = GridTemplateRows[];
 export type GridTemplateRowsObj = Record<GridTemplateRows, string>;
+
+export type OutlineWidth = 0 | 1 | 2 | 4 | 8;
+export type OutlineWidthArr = OutlineWidth[];
+export type OutlineWidthObj = Record<OutlineWidth, string>;
+
+export type OutlineStyle = 'none' | 'solid' | 'dashed' | 'dotted' | 'double';
+export type OutlineStyleArr = OutlineStyle[];
+export type OutlineStyleObj = Record<OutlineStyle, string>;
+
+export type OutlineOffset = 0 | 1 | 2 | 4 | 8;
+export type OutlineOffsetArr = OutlineOffset[];
+export type OutlineOffsetObj = Record<OutlineOffset, string>;
 
 export type Saturate = 0 | 50 | 100 | 150 | 200;
 export type SaturateArr = Saturate[];

@@ -102,6 +102,10 @@ export const getColorClass = memoize(({ color, colorMode, hueType, classType }: 
 			return classes.backgrounds.color[color][hue];
 		case 'text':
 			return classes.typography.color[color][hue];
+		case 'border':
+			return classes.borders.borderColor[color][hue];
+		case 'outline':
+			return classes.borders.outlineColor[color][hue];
 	}
 });
 
