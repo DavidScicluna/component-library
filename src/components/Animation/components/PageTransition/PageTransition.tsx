@@ -1,6 +1,6 @@
 import { forwardRef, ReactElement } from 'react';
 
-import { pick } from 'lodash-es';
+import { omit, pick } from 'lodash-es';
 
 import {
 	__DEFAULT_TRANSITION__,
@@ -40,6 +40,9 @@ const variants = {
 	})
 };
 
+const pickedProps = ['blur', 'transition', 'transitionEnd'];
+const omittedProps = ['blur', 'transition', 'transitionEnd'];
+
 const PageTransition = forwardRef<PageTransitionRef, PageTransitionProps>(function PageTransition(
 	props,
 	ref
@@ -53,12 +56,19 @@ const PageTransition = forwardRef<PageTransitionRef, PageTransitionProps>(functi
 	const animate = isOpen || unmountOnExit ? 'enter' : 'exit';
 	const isVisible = unmountOnExit ? isOpen && unmountOnExit : true;
 
-	const custom = pick({ ...rest }, ['blur', 'transition', 'transitionEnd']);
+	const custom = pick({ ...rest }, pickedProps);
 
 	return (
 		<AnimatePresence custom={custom}>
 			{isVisible ? (
-				<MotionBox {...rest} {...config} ref={ref} custom={custom} animate={animate} variants={variants} />
+				<MotionBox
+					{...omit({ ...rest }, omittedProps)}
+					{...config}
+					ref={ref}
+					custom={custom}
+					animate={animate}
+					variants={variants}
+				/>
 			) : null}
 		</AnimatePresence>
 	);

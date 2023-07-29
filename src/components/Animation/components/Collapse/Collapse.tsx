@@ -1,6 +1,6 @@
 import { forwardRef, ReactElement } from 'react';
 
-import { pick } from 'lodash-es';
+import { omit, pick } from 'lodash-es';
 
 import {
 	__DEFAULT_TRANSITION__,
@@ -57,6 +57,27 @@ const variants = {
 	})
 };
 
+const pickedProps = [
+	'axis',
+	'transition',
+	'transitionEnd',
+	'startingWidth',
+	'endingWidth',
+	'startingHeight',
+	'endingHeight',
+	'isOpacityAnimated'
+];
+const omittedProps = [
+	'axis',
+	'transition',
+	'transitionEnd',
+	'startingWidth',
+	'endingWidth',
+	'startingHeight',
+	'endingHeight',
+	'isOpacityAnimated'
+];
+
 const Collapse = forwardRef<CollapseRef, CollapseProps>(function Collapse(props, ref): ReactElement {
 	const {
 		in: isOpen = __DEFAULT_TRANSITION_IN__,
@@ -68,22 +89,13 @@ const Collapse = forwardRef<CollapseRef, CollapseProps>(function Collapse(props,
 	const animate = isOpen || unmountOnExit ? 'enter' : 'exit';
 	const isVisible = unmountOnExit ? isOpen && unmountOnExit : true;
 
-	const custom = pick({ ...rest }, [
-		'axis',
-		'transition',
-		'transitionEnd',
-		'startingWidth',
-		'endingWidth',
-		'startingHeight',
-		'endingHeight',
-		'isOpacityAnimated'
-	]);
+	const custom = pick({ ...rest }, pickedProps);
 
 	return (
 		<AnimatePresence custom={custom}>
 			{isVisible ? (
 				<MotionBox
-					{...rest}
+					{...omit({ ...rest }, omittedProps)}
 					{...config}
 					ref={ref}
 					custom={custom}
