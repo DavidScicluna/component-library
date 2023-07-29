@@ -1,4 +1,3 @@
-import { compact } from 'lodash-es';
 import { useInterval } from 'usehooks-ts';
 
 import {
@@ -12,19 +11,15 @@ import {
 	__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__,
 	__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__
 } from '@common/keys';
+import { getIconFontFamily } from '@common/utils';
 
 import type { IconCategory } from '@components/DataDisplay/Icon/common/types';
 
 type useGetIconFontStatusReturn = Record<IconCategory, boolean>;
 
-const checkFontStatus = (category: IconCategory): boolean =>
-	!!document.fonts.check(
-		`1rem '${compact([
-			'Material Icons',
-			category === 'outlined' ? 'Outlined' : null,
-			category === 'twoTone' ? 'Two Tone' : null
-		]).join(' ')}', sans-serif`
-	);
+const checkFontStatus = (category: IconCategory): boolean => {
+	return document.fonts.check(`1rem ${getIconFontFamily(category)}`);
+};
 
 const useGetIconFontStatus = (): useGetIconFontStatusReturn => {
 	const [hasFilledIconsLoaded, setHasFilledIconsLoaded] = useBoolean(__DEFAULT_HAS_FILLEDICON_LOADED__);
