@@ -1,65 +1,24 @@
-import { ReactNode } from 'react';
+import type { ElementType } from 'react';
 
-import { CenterProps } from '@chakra-ui/react';
+import type { PickFrom } from '@common/types';
+import type { CommonAppThemeProps } from '@common/types/theme';
 
-import { CommonThemeProps, Nullable, PickFrom } from '../../../../../common/types';
-import {
-	BoxBackground,
-	BoxBorders,
-	BoxColor,
-	BoxFilter,
-	BoxFlexbox,
-	BoxGradient,
-	BoxGrid,
-	BoxOther,
-	BoxPosition,
-	BoxPseudo,
-	BoxShadow,
-	BoxTypography
-} from '../../../../../common/types/box';
-import { Icon } from '../../../../../common/types/icons';
-import { Color } from '../../../../../theme/types';
+import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
-export type IconColor = Exclude<Color, 'transparent'>;
+import type { IconType } from '../../../../../common/types/icons';
+
+export type IconElement = PickFrom<ElementType, 'span'>;
 
 export type IconCategory = 'filled' | 'outlined' | 'twoTone';
 
 export type IconVariant = 'contained' | 'light' | 'outlined' | 'monochrome' | 'transparent' | 'unstyled';
 
-type Omitted =
-	// CUI Box Props
-	| BoxColor
-	| BoxGradient
-	| BoxFlexbox
-	| BoxGrid
-	| BoxBackground
-	| BoxBorders
-	| BoxPosition
-	| BoxShadow
-	| BoxFilter
-	| BoxPseudo
-	| BoxOther
-	| PickFrom<
-			BoxTypography,
-			| 'fontFamily'
-			| 'fontWeight'
-			| 'lineHeight'
-			| 'letterSpacing'
-			| 'textAlign'
-			| 'fontStyle'
-			| 'textTransform'
-			| 'textDecoration'
-	  >
-	// CUI Center Props
-	| 'as'
-	| 'className';
-
-export type IconProps = Omit<CenterProps, Omitted> & {
-	children?: ReactNode;
-	color?: IconColor;
-	icon?: Icon;
+type IconOtherProps = CommonAppThemeProps & {
+	icon?: IconType;
 	category?: IconCategory;
 	variant?: IconVariant;
-} & Pick<CommonThemeProps, 'colorMode'>;
+};
 
-export type IconRef = Nullable<HTMLSpanElement>;
+export type IconProps<Element extends IconElement> = BoxProps<Element, IconOtherProps>;
+
+export type IconRef<Element extends IconElement> = BoxRef<Element>;
