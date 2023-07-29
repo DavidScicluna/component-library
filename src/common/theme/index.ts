@@ -58,6 +58,7 @@ const borderRadius: RadiiObj = {
 };
 
 const colors: ColorsObj = {
+	transparent: 'transparent',
 	black: '#000000',
 	white: '#FFFFFF',
 	gray: {

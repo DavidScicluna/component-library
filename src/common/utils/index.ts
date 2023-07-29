@@ -1,9 +1,19 @@
-import { isArray, isObject } from 'lodash-es';
+import { compact, isArray, isObject } from 'lodash-es';
 import memoize from 'micro-memoize';
 
 import theme from '@common/theme';
 import type { ResponsiveArrayValue, ResponsiveObjectValue, ResponsiveValue } from '@common/types';
 import type { Breakpoint, FontSize, LineHeight } from '@common/types/theme';
+
+import type { IconCategory } from '@components/DataDisplay/Icon/common/types';
+
+export const getIconFontFamily = memoize((category: IconCategory): string => {
+	return `'${compact([
+		'Material Icons',
+		category === 'outlined' ? 'Outlined' : null,
+		category === 'twoTone' ? 'Two Tone' : null
+	]).join(' ')}', sans-serif`;
+});
 
 /**
  * This method will check whether the user's device is a touch screen or not

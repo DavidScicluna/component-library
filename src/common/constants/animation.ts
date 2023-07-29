@@ -2,7 +2,7 @@ import theme from '@common/theme';
 import type { AnimationDelay, AnimationDuration, AnimationEasing } from '@common/types/animation';
 import { convertStringToNumber } from '@common/utils';
 
-import { __DEFAULT_DELAY__, __DEFAULT_DURATION__, __DEFAULT_EASING__ } from './props';
+import { __DEFAULT_DELAY__, __DEFAULT_DURATION__, __DEFAULT_EASING__ } from './classes';
 
 export const __DEFAULT_ANIMATION_DELAY__: AnimationDelay =
 	convertStringToNumber(theme.transitionDuration[__DEFAULT_DELAY__], 'ms') / 1000;
