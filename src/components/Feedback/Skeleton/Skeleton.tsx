@@ -1,15 +1,16 @@
-import type { ElementType, ReactElement} from 'react';
-import { forwardRef, useMemo } from 'react';
+import type { ElementType, ReactElement } from 'react';
+import { forwardRef } from 'react';
 
 import classNames from 'classnames';
-import { round } from 'lodash-es';
-import { useElementSize } from 'usehooks-ts';
+import type { Transition } from 'framer-motion';
 
 import { __DEFAULT_DURATION__, __DEFAULT_EASING__, __DEFAULT_RADIUS__ } from '@common/constants';
-import { useGetClass, useGetColor } from '@common/hooks';
+import { useConst, useGetClass, useGetColor } from '@common/hooks';
+import type { AnimationConfig } from '@common/types/animation';
 import type { Duration, Ease, Radius } from '@common/types/theme';
+import { getAnimationConfig, getAnimationDuration } from '@common/utils/animation';
 
-import { AnimatePresence, Slide } from '@components/Animation';
+import { Fade } from '@components/Animation';
 import Box from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
 
@@ -20,8 +21,6 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 	props: SkeletonProps<Element>,
 	ref: SkeletonRef<Element>
 ): ReactElement {
-	const [gridRef, { height: gridHeight }] = useElementSize();
-
 	const {
 		children,
 		color,
@@ -40,67 +39,64 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 		hueType: 'divider'
 	});
 
-	const radiusClassName = useGetClass<Radius>(radius, ['borders', 'radius']);
+	const radiusClassName = useGetClass<Radius>(radius, ['borders', 'borderRadius']);
 
 	const easeClassName = useGetClass<Ease>(__DEFAULT_EASING__, ['transitions', 'ease']);
 	const durationClassName = useGetClass<Duration>(__DEFAULT_DURATION__, ['transitions', 'duration']);
 
-	const offsetY = useMemo(() => round(gridHeight / 2), [gridHeight]);
+	const duration = useConst<number>(getAnimationDuration('ultra-fast'));
+	const config = useConst<AnimationConfig>(getAnimationConfig());
+	const transition = useConst<Transition>({ enter: { ...config, duration }, exit: { ...config, duration } });
 
 	return (
 		<Box<Element> {...(rest as SkeletonProps<Element>)} ref={ref}>
-			<AnimatePresence>
-				<Grid
-					ref={gridRef}
-					className={classNames('w-full', 'h-full')}
-					templateColumns={1}
-					templateRows={1}
-					alignItems='stretch'
-					alignContent='stretch'
-					justifyItems='stretch'
-					justifyContent='stretch'
-					spacing={0}
-				>
-					{children ? (
-						<GridItem rowStart={1} columnStart={1} zIndex={1}>
-							<Slide
-								key='skeleton_children_visible'
-								className={classNames('w-full', 'h-full')}
-								in={isLoaded}
-								offsetY={offsetY}
-								unmountOnExit={false}
-							>
-								{children}
-							</Slide>
-						</GridItem>
-					) : null}
-
-					<GridItem rowStart={1} columnStart={1}>
-						<Slide
-							key='skeleton_children_hidden'
+			<Grid
+				className={classNames('w-full', 'h-full')}
+				templateColumns={1}
+				templateRows={1}
+				alignItems='stretch'
+				alignContent='stretch'
+				justifyItems='stretch'
+				justifyContent='stretch'
+				spacing={0}
+			>
+				{children ? (
+					<GridItem rowStart={1} columnStart={1} zIndex={1}>
+						<Fade
 							className={classNames('w-full', 'h-full')}
-							in={children ? !isLoaded : true}
-							offsetY={offsetY}
+							in={isLoaded}
+							transition={transition}
 							unmountOnExit={false}
 						>
-							<Box
-								className={classNames(
-									'w-full',
-									'h-full',
-									'overflow-hidden',
-									colorClassName,
-									radiusClassName,
-									easeClassName,
-									durationClassName,
-									{
-										['animate-pulse']: isAnimated
-									}
-								)}
-							/>
-						</Slide>
+							{children}
+						</Fade>
 					</GridItem>
-				</Grid>
-			</AnimatePresence>
+				) : null}
+
+				<GridItem rowStart={1} columnStart={1}>
+					<Fade
+						className={classNames('w-full', 'h-full')}
+						in={children ? !isLoaded : true}
+						transition={transition}
+						unmountOnExit={false}
+					>
+						<Box
+							className={classNames(
+								'w-full',
+								'h-full',
+								'overflow-hidden',
+								colorClassName,
+								radiusClassName,
+								easeClassName,
+								durationClassName,
+								{
+									['animate-pulse']: isAnimated
+								}
+							)}
+						/>
+					</Fade>
+				</GridItem>
+			</Grid>
 		</Box>
 	);
 });
