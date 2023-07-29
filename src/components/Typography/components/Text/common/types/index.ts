@@ -1,4 +1,4 @@
-import { ElementType } from 'react';
+import type { ElementType } from 'react';
 
 import type { PickFrom, ResponsiveValue } from '@common/types';
 import type {
@@ -13,7 +13,7 @@ import type {
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
-import { __DEFAULT_TEXT_ELEMENT__ } from '../constants';
+import type { __DEFAULT_TEXT_ELEMENT__ } from '../constants';
 
 export type TextElement = PickFrom<ElementType, 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'>;
 

@@ -1,4 +1,5 @@
-import { forwardRef, ReactElement } from 'react';
+import type { ReactElement } from 'react';
+import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
@@ -16,9 +17,10 @@ import type {
 
 import Box from '@components/Box';
 
+import type {
+	__DEFAULT_TEXT_ELEMENT__} from './common/constants';
 import {
 	__DEFAULT_TEXT_ALIGN__,
-	__DEFAULT_TEXT_ELEMENT__,
 	__DEFAULT_TEXT_FONT_SIZE__,
 	__DEFAULT_TEXT_FONT_WEIGHT__,
 	__DEFAULT_TEXT_IS_ITALIC__,

@@ -1,7 +1,7 @@
-import { ResponsiveValue } from '@common/types';
-import { BackdropBlur } from '@common/types/classes';
-import { PolymorphicDefaultElement } from '@common/types/polymorphic';
-import { CommonAppThemeProps } from '@common/types/theme';
+import type { ResponsiveValue } from '@common/types';
+import type { BackdropBlur } from '@common/types/classes';
+import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
+import type { CommonAppThemeProps } from '@common/types/theme';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 

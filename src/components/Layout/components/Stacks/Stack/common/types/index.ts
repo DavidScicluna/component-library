@@ -1,4 +1,4 @@
-import { ElementType, ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
 
 import type { ResponsiveValue } from '@common/types';
 import type { AlignItems, FlexDirection, FlexWrap, JustifyContent } from '@common/types/classes';

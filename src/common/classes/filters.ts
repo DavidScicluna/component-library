@@ -1,4 +1,4 @@
-import { BackdropBlurObj, BlurObj, SaturateObj } from '@common/types/classes';
+import type { BackdropBlurObj, BlurObj, SaturateObj } from '@common/types/classes';
 
 const blur: BlurObj = {
 	'none': 'blur-none',

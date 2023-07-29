@@ -1,4 +1,5 @@
-import { ElementType, forwardRef, Fragment, ReactElement } from 'react';
+import type { ElementType, ReactElement } from 'react';
+import { forwardRef, Fragment } from 'react';
 
 import classNames from 'classnames';
 import { isArray } from 'lodash-es';

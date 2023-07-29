@@ -1,4 +1,4 @@
-import { UseBooleanToggles } from '@common/hooks/useBoolean';
+import type { UseBooleanToggles } from '@common/hooks/useBoolean';
 
 export type IconFontScriptProps = {
 	onSetHasFilledIconLoaded: UseBooleanToggles;

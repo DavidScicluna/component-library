@@ -1,4 +1,4 @@
-import { CommonAnimationProps, CommonAnimationRef } from '@components/Animation';
+import type { CommonAnimationProps, CommonAnimationRef } from '@components/Animation';
 
 export type FadeProps = CommonAnimationProps;
 

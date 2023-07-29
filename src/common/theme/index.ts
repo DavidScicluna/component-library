@@ -1,6 +1,6 @@
 import { range } from 'lodash-es';
 
-import { BackdropBlurObj, BlurObj, ZIndexObj } from '@common/types/classes';
+import type { BackdropBlurObj, BlurObj, ZIndexObj } from '@common/types/classes';
 import type {
 	ColorsObj,
 	DelaysObj,

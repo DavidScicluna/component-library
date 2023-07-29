@@ -1,6 +1,6 @@
-import { MouseEvent, ReactNode } from 'react';
+import type { MouseEvent, ReactNode } from 'react';
 
-import { PolymorphicDefaultElement } from '@common/types/polymorphic';
+import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 

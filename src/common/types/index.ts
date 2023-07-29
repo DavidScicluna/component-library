@@ -1,6 +1,6 @@
-import { CSSObject } from '@emotion/react';
+import type { CSSObject } from '@emotion/react';
 
-import { Breakpoint } from './theme';
+import type { Breakpoint } from './theme';
 
 export type Undefinable<T> = T | undefined; // Adds undefined to type
 

@@ -1,6 +1,6 @@
-import { ElementType } from 'react';
+import type { ElementType } from 'react';
 
-import { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_OBJECT__ } from '@common/constants';
+import type { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_OBJECT__ } from '@common/constants';
 import type { Nullable } from '@common/types';
 import type { PolymorphicComponentProps, PolymorphicRef } from '@common/types/polymorphic';
 

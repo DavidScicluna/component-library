@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
 import classNames from 'classnames';
 
 import classes from '@common/classes';
 import { __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import { RadiiArr } from '@common/types/theme';
+import type { RadiiArr } from '@common/types/theme';
 
 import { Center } from '@components/Layout';
 import Text from '@components/Typography/components/Text';

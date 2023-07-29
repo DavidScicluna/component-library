@@ -1,4 +1,4 @@
-import { ForwardedRef, ReactElement, RefAttributes } from 'react';
+import type { ForwardedRef, ReactElement, RefAttributes } from 'react';
 
 declare module 'react' {
 	// eslint-disable-next-line @typescript-eslint/ban-types

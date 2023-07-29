@@ -1,11 +1,13 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
 
-import { ElementType, forwardRef, ReactElement } from 'react';
+import type { ElementType, ReactElement } from 'react';
+import { forwardRef } from 'react';
 
+import type {
+	__DEFAULT_POLYMORPHIC_OBJECT__} from '@common/constants';
 import {
 	__DEFAULT_POLYMORPHIC_ELEMENT__,
-	__DEFAULT_POLYMORPHIC_OBJECT__,
 	__DEFAULT_POLYMORPHIC_SX__
 } from '@common/constants';
 

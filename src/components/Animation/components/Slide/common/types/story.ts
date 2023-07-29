@@ -1,6 +1,6 @@
-import { Meta as StorybookMeta, StoryFn as StorybookStory } from '@storybook/react';
+import type { Meta as StorybookMeta, StoryFn as StorybookStory } from '@storybook/react';
 
-import Slide from '../..';
+import type Slide from '../..';
 
 export type SlideStoryMeta = StorybookMeta<typeof Slide>;
 

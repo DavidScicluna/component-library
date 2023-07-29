@@ -1,4 +1,4 @@
-import { DelaysObj, DurationsObj, EasingsObj } from '@common/types/theme';
+import type { DelaysObj, DurationsObj, EasingsObj } from '@common/types/theme';
 
 const ease: EasingsObj = {
 	'linear': 'ease-linear',

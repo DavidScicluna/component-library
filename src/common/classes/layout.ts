@@ -1,4 +1,4 @@
-import { ZIndexObj } from '@common/types/classes';
+import type { ZIndexObj } from '@common/types/classes';
 
 const zIndex: ZIndexObj = {
 	0: 'z-0',

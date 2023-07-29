@@ -1,8 +1,8 @@
-import { ComponentPropsWithoutRef, ComponentPropsWithRef, ElementType, HTMLAttributes } from 'react';
+import type { ComponentPropsWithoutRef, ComponentPropsWithRef, ElementType, HTMLAttributes } from 'react';
 
-import { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_OBJECT__ } from '@common/constants';
+import type { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_OBJECT__ } from '@common/constants';
 
-import { PickFrom, Style } from '.';
+import type { PickFrom, Style } from '.';
 
 export type PolymorphicDefaultElement = PickFrom<ElementType, 'div'>;
 

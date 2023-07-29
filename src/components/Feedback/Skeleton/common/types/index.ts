@@ -1,4 +1,4 @@
-import { ElementType } from 'react';
+import type { ElementType } from 'react';
 
 // import type { ResponsiveValue } from '@common/types';
 import type { CommonAppThemeProps, Radius } from '@common/types/theme';

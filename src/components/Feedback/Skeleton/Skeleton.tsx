@@ -1,4 +1,5 @@
-import { ElementType, forwardRef, ReactElement, useMemo } from 'react';
+import type { ElementType, ReactElement} from 'react';
+import { forwardRef, useMemo } from 'react';
 
 import classNames from 'classnames';
 import { round } from 'lodash-es';

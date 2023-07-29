@@ -1,10 +1,10 @@
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
 import classNames from 'classnames';
 
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
-import { BackdropBlurArr } from '@common/types/classes';
+import type { BackdropBlurArr } from '@common/types/classes';
 
 import { Center } from '@components/Layout';
 import Text from '@components/Typography/components/Text';

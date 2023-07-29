@@ -1,4 +1,4 @@
-import { ElementType } from 'react';
+import type { ElementType } from 'react';
 
 import type { StackProps, StackRef } from '@components/Layout';
 

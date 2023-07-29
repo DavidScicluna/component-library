@@ -1,6 +1,6 @@
-import { Meta as StorybookMeta, StoryFn as StorybookStory } from '@storybook/react';
+import type { Meta as StorybookMeta, StoryFn as StorybookStory } from '@storybook/react';
 
-import Container from '../../Container';
+import type Container from '../../Container';
 
 export type ContainerStoryMeta = StorybookMeta<typeof Container>;
 

@@ -1,4 +1,5 @@
-import { ElementType, forwardRef, ReactElement } from 'react';
+import type { ElementType, ReactElement } from 'react';
+import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 

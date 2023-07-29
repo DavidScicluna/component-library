@@ -1,4 +1,5 @@
-import { forwardRef, ReactElement } from 'react';
+import type { ReactElement } from 'react';
+import { forwardRef } from 'react';
 
 import { omit, pick } from 'lodash-es';
 

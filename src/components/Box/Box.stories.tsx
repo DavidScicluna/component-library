@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ElementType, ReactElement } from 'react';
+import type { ElementType, ReactElement } from 'react';
 
 import classNames from 'classnames';
 

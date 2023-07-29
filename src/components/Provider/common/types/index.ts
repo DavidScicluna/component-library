@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import type { AnimationDelay, AnimationDuration, AnimationEasing } from '@common/types/animation';
 import type { ColorMode, CommonAppThemeProps } from '@common/types/theme';

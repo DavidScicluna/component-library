@@ -2,7 +2,7 @@ import type { AnimationEasing } from '@common/types/animation';
 import type { Ease, EasingsArr } from '@common/types/theme';
 import { getAnimationDuration, getAnimationEasings } from '@common/utils/animation';
 
-import { MotionBoxProps } from '@components/Animation';
+import type { MotionBoxProps } from '@components/Animation';
 
 export const __DEFAULT_TRANSITION_IN__ = false;
 export const __DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__ = true;

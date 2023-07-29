@@ -1,4 +1,4 @@
-import { Transition } from 'framer-motion';
+import type { Transition } from 'framer-motion';
 
 export type AnimationDelay = number;
 export type AnimationDuration = number;

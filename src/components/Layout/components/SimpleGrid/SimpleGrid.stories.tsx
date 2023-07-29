@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
 import classNames from 'classnames';
 import { range } from 'lodash-es';
