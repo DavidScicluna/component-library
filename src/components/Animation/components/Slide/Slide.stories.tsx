@@ -30,7 +30,7 @@ export default {
 } as SlideStoryMeta;
 
 export const Slide: SlideStory = (props: SlideProps): ReactElement => {
-	const radius = classes.borders.radius.base;
+	const radius = classes.borders.borderRadius.base;
 
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
 	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });

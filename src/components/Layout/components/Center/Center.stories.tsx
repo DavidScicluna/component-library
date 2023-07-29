@@ -28,7 +28,7 @@ export default {
 } as CenterStoryMeta;
 
 export const Center: CenterStory = (props: CenterProps<any>): ReactElement => {
-	const radius = classes.borders.radius.base;
+	const radius = classes.borders.borderRadius.base;
 
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
 	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
