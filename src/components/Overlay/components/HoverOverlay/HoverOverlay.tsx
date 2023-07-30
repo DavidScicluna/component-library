@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { useBoolean } from '@common/hooks';
@@ -7,7 +7,10 @@ import Box from '@components/Box';
 
 import type { HoverOverlayMouseEvent, HoverOverlayProps, HoverOverlayRef } from './common/types';
 
-const HoverOverlay = forwardRef<HoverOverlayRef, HoverOverlayProps>(function HoverOverlay(props, ref): ReactElement {
+const HoverOverlay = forwardRef(function HoverOverlay<Element extends ElementType>(
+	props: HoverOverlayProps<Element>,
+	ref: HoverOverlayRef<Element>
+): ReactElement {
 	const { children, onMouseEnter, onMouseLeave, ...rest } = props;
 
 	const [isHovering, setIsHovering] = useBoolean();
@@ -29,7 +32,12 @@ const HoverOverlay = forwardRef<HoverOverlayRef, HoverOverlayProps>(function Hov
 	};
 
 	return (
-		<Box {...rest} ref={ref} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+		<Box<Element>
+			{...(rest as HoverOverlayProps<Element>)}
+			ref={ref}
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}
+		>
 			{children(isHovering)}
 		</Box>
 	);

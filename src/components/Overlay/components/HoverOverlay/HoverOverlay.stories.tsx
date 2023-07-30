@@ -17,7 +17,7 @@ export default {
 	component: HoverOverlayComponent
 } as HoverOverlayStoryMeta;
 
-export const HoverOverlay: HoverOverlayStory = (props: HoverOverlayProps): ReactElement => {
+export const HoverOverlay: HoverOverlayStory = (props: HoverOverlayProps<any>): ReactElement => {
 	const radius = classes.borders.borderRadius.base;
 
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
