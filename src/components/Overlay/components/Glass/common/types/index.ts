@@ -1,13 +1,12 @@
+import type { ElementType } from 'react';
+
 import type { ResponsiveValue } from '@common/types';
 import type { BackdropBlur } from '@common/types/classes';
-import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 import type { CommonAppThemeProps } from '@common/types/theme';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
 export type GlassBlur = BackdropBlur;
-
-type GlassElement = PolymorphicDefaultElement;
 
 type GlassOtherProps = CommonAppThemeProps & {
 	/**
@@ -24,6 +23,6 @@ type GlassOtherProps = CommonAppThemeProps & {
 	hasBackground?: boolean;
 };
 
-export type GlassProps = BoxProps<GlassElement, GlassOtherProps>;
+export type GlassProps<Element extends ElementType> = BoxProps<Element, GlassOtherProps>;
 
-export type GlassRef = BoxRef<GlassElement>;
+export type GlassRef<Element extends ElementType> = BoxRef<Element>;

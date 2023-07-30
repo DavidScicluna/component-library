@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ReactElement } from 'react';
 
 import classNames from 'classnames';
@@ -53,7 +54,8 @@ export default {
 	}
 } as GlassStoryMeta;
 
-export const Glass: GlassStory = (props: GlassProps): ReactElement => {
+// TODO: MAybe replace any with default polymorphic element type
+export const Glass: GlassStory = (props: GlassProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.borderRadius.base;

@@ -1,19 +1,21 @@
-import type { ReactElement } from 'react';
+import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import classNames from 'classnames';
 import { transparentize } from 'color2k';
 
-import { useGetClass, useGetColor } from '@common/hooks';
-import type { Saturate } from '@common/types/classes';
+import { useGetColor } from '@common/hooks';
 
 import Box from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
 
 import { __DEFAULT_GLASS_BLUR__, __DEFAULT_GLASS_HAS_BACKGROUND__ } from './common/constants';
-import type { GlassBlur, GlassProps, GlassRef } from './common/types';
+import { useGetGlassClasses } from './common/hooks';
+import type { GlassProps, GlassRef } from './common/types';
 
-const Glass = forwardRef<GlassRef, GlassProps>(function Glass(props, ref): ReactElement {
+const Glass = forwardRef(function Glass<Element extends ElementType>(
+	props: GlassProps<Element>,
+	ref: GlassRef<Element>
+): ReactElement {
 	const {
 		children,
 		color,
@@ -25,12 +27,11 @@ const Glass = forwardRef<GlassRef, GlassProps>(function Glass(props, ref): React
 
 	const background = useGetColor({ color, colorMode, colorType: color ? 'color' : 'default', hueType: 'background' });
 
-	const backdropBlurClassName = useGetClass<GlassBlur>(blur, ['filters', 'backdropBlur']);
-	const saturateClassName = useGetClass<Saturate>(100, ['filters', 'saturate']);
+	const classes = useGetGlassClasses({ blur });
 
 	return (
-		<Grid
-			{...rest}
+		<Grid<Element>
+			{...(rest as GlassProps<Element>)}
 			ref={ref}
 			templateColumns={1}
 			templateRows={1}
@@ -42,7 +43,7 @@ const Glass = forwardRef<GlassRef, GlassProps>(function Glass(props, ref): React
 		>
 			<GridItem rowStart={1} columnStart={1} zIndex={1}>
 				<Box
-					className={classNames('w-full', 'h-full', backdropBlurClassName, saturateClassName)}
+					className={classes}
 					sx={hasBackground ? { background: transparentize(background, 0.5) } : undefined}
 				/>
 			</GridItem>
