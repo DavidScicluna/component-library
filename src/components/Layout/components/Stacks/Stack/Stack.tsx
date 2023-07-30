@@ -5,9 +5,6 @@ import classNames from 'classnames';
 import { isArray } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
-import { useGetClass } from '@common/hooks';
-import type { AlignItems, FlexDirection, FlexWrap, JustifyContent } from '@common/types/classes';
-import type { Space } from '@common/types/theme';
 
 import Box from '@components/Box';
 
@@ -17,6 +14,7 @@ import {
 	__DEFAULT_STACK_JUSTIFY_CONTENT__,
 	__DEFAULT_STACK_WRAP__
 } from './common/constants';
+import { useGetStackClasses } from './common/hooks';
 import type { StackProps, StackRef } from './common/types';
 
 const Stack = forwardRef(function Stack<Element extends ElementType>(
@@ -35,26 +33,13 @@ const Stack = forwardRef(function Stack<Element extends ElementType>(
 		...rest
 	} = props;
 
-	const alignItemsClassName = useGetClass<AlignItems>(alignItems, ['flex', 'alignItems']);
-	const directionClassName = useGetClass<FlexDirection>(direction, ['flex', 'direction']);
-	const justifyContentClassName = useGetClass<JustifyContent>(justifyContent, ['flex', 'justifyContent']);
-	const wrapClassName = useGetClass<FlexWrap>(wrap, ['flex', 'wrap']);
-
-	const spacingClassName = useGetClass<Space>(spacing, ['spacing', 'gap']);
+	const classes = useGetStackClasses({ alignItems, direction, justifyContent, spacing, wrap });
 
 	return (
 		<Box<Element>
 			{...(rest as StackProps<Element>)}
 			ref={ref}
-			className={classNames(
-				'flex',
-				directionClassName,
-				wrapClassName,
-				alignItemsClassName,
-				justifyContentClassName,
-				spacingClassName,
-				{ [className]: !!className }
-			)}
+			className={classNames(classes, { [className]: !!className })}
 		>
 			{children
 				? isArray(children)
