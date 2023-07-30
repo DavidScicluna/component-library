@@ -1,15 +1,15 @@
-import type { ElementType, ReactElement} from 'react';
-import { forwardRef, useMemo } from 'react';
+import type { ElementType, ReactElement } from 'react';
+import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { getResponsiveValue } from '@common/utils';
 
 import Box from '@components/Box';
 
 import { __DEFAULT_ASPECT_RATIO_RATIO__ } from './common/constants';
-import type { AspectRatioProps, AspectRatioRatio, AspectRatioRef } from './common/types';
+import { useGetAspectRatioClasses } from './common/hooks';
+import type { AspectRatioProps, AspectRatioRef } from './common/types';
 
 const AspectRatio = forwardRef(function AspectRatio<Element extends ElementType>(
 	props: AspectRatioProps<Element>,
@@ -17,32 +17,13 @@ const AspectRatio = forwardRef(function AspectRatio<Element extends ElementType>
 ): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, ratio = __DEFAULT_ASPECT_RATIO_RATIO__, ...rest } = props;
 
-	// TODO: Move to classes & replace with useGetClass
-	const ratioClassName = useMemo<string>(() => {
-		const r = getResponsiveValue<AspectRatioRatio>(ratio);
-		switch (r) {
-			case 'auto':
-				return 'aspect-auto';
-			case 'portrait':
-				return 'aspect-[4/5]';
-			case 'standard':
-				return 'aspect-[4/3]';
-			case 'vertical':
-				return 'aspect-[9/16]';
-			case 'video':
-				return 'aspect-video';
-			case 'widescreen':
-				return 'aspect-[16/9]';
-			default:
-				return 'aspect-square';
-		}
-	}, [ratio]);
+	const classes = useGetAspectRatioClasses({ ratio });
 
 	return (
 		<Box<Element>
 			{...(rest as AspectRatioProps<Element>)}
 			ref={ref}
-			className={classNames(ratioClassName, { [className]: !!className })}
+			className={classNames(classes, { [className]: !!className })}
 		>
 			{children}
 		</Box>
