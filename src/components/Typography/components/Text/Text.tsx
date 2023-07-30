@@ -4,21 +4,11 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useGetClass, useGetResponsiveValue } from '@common/hooks';
-import type {
-	FontSize,
-	FontWeight,
-	LineHeight,
-	TextAlign,
-	TextTransform,
-	Whitespace,
-	WordBreak
-} from '@common/types/theme';
+import { useGetResponsiveValue } from '@common/hooks';
 
 import Box from '@components/Box';
 
-import type {
-	__DEFAULT_TEXT_ELEMENT__} from './common/constants';
+import type { __DEFAULT_TEXT_ELEMENT__ } from './common/constants';
 import {
 	__DEFAULT_TEXT_ALIGN__,
 	__DEFAULT_TEXT_FONT_SIZE__,
@@ -30,6 +20,7 @@ import {
 	__DEFAULT_TEXT_WHITESPACE__,
 	__DEFAULT_TEXT_WORD_BREAK__
 } from './common/constants';
+import { useGetTextClasses } from './common/hooks';
 import type { TextElement, TextProps, TextRef } from './common/types';
 
 const Text = forwardRef(function Text<Element extends TextElement = typeof __DEFAULT_TEXT_ELEMENT__>(
@@ -51,36 +42,26 @@ const Text = forwardRef(function Text<Element extends TextElement = typeof __DEF
 		...rest
 	} = props;
 
-	const alignClassName = useGetClass<TextAlign>(align, ['typography', 'align']);
-	const fontSizeClassName = useGetClass<FontSize>(fontSize, ['typography', 'fontSize']);
-	const fontWeightClassName = useGetClass<FontWeight>(fontWeight, ['typography', 'fontWeight']);
-	const lineHeightClassName = useGetClass<LineHeight>(lineHeight, ['typography', 'lineHeight']);
-	const transformClassName = useGetClass<TextTransform>(transform, ['typography', 'transform']);
-	const whitespaceClassName = useGetClass<Whitespace>(whitespace, ['typography', 'whitespace']);
-	const wordBreakClassName = useGetClass<WordBreak>(wordBreak, ['typography', 'wordBreak']);
-
 	const isItalic = useGetResponsiveValue<boolean>(italic);
 	const isOverflown = useGetResponsiveValue<boolean>(overflown);
+
+	const classes = useGetTextClasses({
+		align,
+		fontSize,
+		fontWeight,
+		lineHeight,
+		transform,
+		isItalic,
+		isOverflown,
+		whitespace,
+		wordBreak
+	});
 
 	return (
 		<Box<Element>
 			{...(rest as TextProps<Element>)}
 			ref={ref}
-			className={classNames(
-				alignClassName,
-				fontSizeClassName,
-				fontWeightClassName,
-				lineHeightClassName,
-				transformClassName,
-				whitespaceClassName,
-				wordBreakClassName,
-				{
-					['italic']: isItalic,
-					['not-italic']: !isItalic,
-					['truncate']: isOverflown,
-					[className]: !!className
-				}
-			)}
+			className={classNames(classes, { [className]: !!className })}
 		>
 			{children}
 		</Box>
