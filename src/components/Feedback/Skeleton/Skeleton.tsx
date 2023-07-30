@@ -4,10 +4,9 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 import type { Transition } from 'framer-motion';
 
-import { __DEFAULT_DURATION__, __DEFAULT_EASING__, __DEFAULT_RADIUS__ } from '@common/constants';
-import { useConst, useGetClass, useGetColor } from '@common/hooks';
+import { __DEFAULT_RADIUS__ } from '@common/constants';
+import { useConst } from '@common/hooks';
 import type { AnimationConfig } from '@common/types/animation';
-import type { Duration, Ease, Radius } from '@common/types/theme';
 import { getAnimationConfig, getAnimationDuration } from '@common/utils/animation';
 
 import { Fade } from '@components/Animation';
@@ -15,6 +14,7 @@ import Box from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
 
 import { __DEFAULT_SKELETON_IS_ANIMATED__, __DEFAULT_SKELETON_IS_LOADED__ } from './common/constants';
+import { useGetSkeletonClasses } from './common/hooks';
 import type { SkeletonProps, SkeletonRef } from './common/types';
 
 const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
@@ -31,18 +31,7 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 		...rest
 	} = props;
 
-	const colorClassName = useGetColor({
-		color: color,
-		colorMode,
-		colorType: color ? 'color' : 'default',
-		classType: 'bg',
-		hueType: 'divider'
-	});
-
-	const radiusClassName = useGetClass<Radius>(radius, ['borders', 'borderRadius']);
-
-	const easeClassName = useGetClass<Ease>(__DEFAULT_EASING__, ['transitions', 'ease']);
-	const durationClassName = useGetClass<Duration>(__DEFAULT_DURATION__, ['transitions', 'duration']);
+	const classes = useGetSkeletonClasses({ color, colorMode, radius });
 
 	const duration = useConst<number>(getAnimationDuration('ultra-fast'));
 	const config = useConst<AnimationConfig>(getAnimationConfig());
@@ -51,7 +40,7 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 	return (
 		<Box<Element> {...(rest as SkeletonProps<Element>)} ref={ref}>
 			<Grid
-				className={classNames('w-full', 'h-full')}
+				className={classes.common}
 				templateColumns={1}
 				templateRows={1}
 				alignItems='stretch'
@@ -62,12 +51,7 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 			>
 				{children ? (
 					<GridItem rowStart={1} columnStart={1} zIndex={1}>
-						<Fade
-							className={classNames('w-full', 'h-full')}
-							in={isLoaded}
-							transition={transition}
-							unmountOnExit={false}
-						>
+						<Fade className={classes.common} in={isLoaded} transition={transition} unmountOnExit={false}>
 							{children}
 						</Fade>
 					</GridItem>
@@ -75,24 +59,13 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 
 				<GridItem rowStart={1} columnStart={1}>
 					<Fade
-						className={classNames('w-full', 'h-full')}
+						className={classes.common}
 						in={children ? !isLoaded : true}
 						transition={transition}
 						unmountOnExit={false}
 					>
 						<Box
-							className={classNames(
-								'w-full',
-								'h-full',
-								'overflow-hidden',
-								colorClassName,
-								radiusClassName,
-								easeClassName,
-								durationClassName,
-								{
-									['animate-pulse']: isAnimated
-								}
-							)}
+							className={classNames(classes.common, classes.skeleton, { ['animate-pulse']: isAnimated })}
 						/>
 					</Fade>
 				</GridItem>
