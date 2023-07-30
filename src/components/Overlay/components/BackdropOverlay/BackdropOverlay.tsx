@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import classNames from 'classnames';
@@ -13,17 +13,17 @@ import { Grid, GridItem } from '@components/Layout';
 import { __DEFAULT_BACKDROP_OVERLAY_AMOUNT__ } from './common/constants';
 import type { BackdropOverlayProps, BackdropOverlayRef } from './common/types';
 
-const BackdropOverlay = forwardRef<BackdropOverlayRef, BackdropOverlayProps>(function BackdropOverlay(
-	props,
-	ref
+const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends ElementType>(
+	props: BackdropOverlayProps<Element>,
+	ref: BackdropOverlayRef<Element>
 ): ReactElement {
 	const { children, color, colorMode, amount = __DEFAULT_BACKDROP_OVERLAY_AMOUNT__, sx, ...rest } = props;
 
 	const background = useGetColor({ color, colorMode, colorType: color ? 'color' : 'default', hueType: 'background' });
 
 	return (
-		<Grid
-			{...rest}
+		<Grid<Element>
+			{...(rest as BackdropOverlayProps<Element>)}
 			ref={ref}
 			data-aria-hidden='true'
 			aria-hidden='true'

@@ -16,7 +16,7 @@ export default {
 	component: BackdropOverlayComponent
 } as BackdropOverlayStoryMeta;
 
-export const BackdropOverlay: BackdropOverlayStory = (props: BackdropOverlayProps): ReactElement => {
+export const BackdropOverlay: BackdropOverlayStory = (props: BackdropOverlayProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const padding = classes.spacing.p[4];

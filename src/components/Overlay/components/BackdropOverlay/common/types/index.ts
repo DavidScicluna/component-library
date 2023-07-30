@@ -1,9 +1,8 @@
-import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
+import type { ElementType } from 'react';
+
 import type { CommonAppThemeProps } from '@common/types/theme';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
-
-type BackdropOverlayElement = PolymorphicDefaultElement;
 
 type BackdropOverlayOtherProps = CommonAppThemeProps & {
 	/**
@@ -14,6 +13,6 @@ type BackdropOverlayOtherProps = CommonAppThemeProps & {
 	amount?: number;
 };
 
-export type BackdropOverlayProps = BoxProps<BackdropOverlayElement, BackdropOverlayOtherProps>;
+export type BackdropOverlayProps<Element extends ElementType> = BoxProps<Element, BackdropOverlayOtherProps>;
 
-export type BackdropOverlayRef = BoxRef<BackdropOverlayElement>;
+export type BackdropOverlayRef<Element extends ElementType> = BoxRef<Element>;
