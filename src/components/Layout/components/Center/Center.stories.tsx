@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ReactElement } from 'react';
 
 import classNames from 'classnames';
@@ -6,6 +5,7 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import Text from '@components/Typography/components/Text';
 
@@ -27,7 +27,7 @@ export default {
 	}
 } as CenterStoryMeta;
 
-export const Center: CenterStory = (props: CenterProps<any>): ReactElement => {
+export const Center: CenterStory = (props: CenterProps<PolymorphicDefaultElement>): ReactElement => {
 	const radius = classes.borders.borderRadius.base;
 
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });

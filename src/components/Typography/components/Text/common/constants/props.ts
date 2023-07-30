@@ -8,10 +8,6 @@ import type {
 	WordBreak
 } from '@common/types/theme';
 
-import type { TextElementType } from '../types';
-
-export const __DEFAULT_TEXT_ELEMENT__: TextElementType = 'p';
-
 export const __DEFAULT_TEXT_ALIGN__: TextAlign = 'left';
 export const __DEFAULT_TEXT_FONT_SIZE__: FontSize = 'md';
 export const __DEFAULT_TEXT_FONT_WEIGHT__: FontWeight = 'normal';

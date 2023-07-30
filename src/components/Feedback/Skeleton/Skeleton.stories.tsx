@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ReactElement } from 'react';
 
 import classNames from 'classnames';
@@ -6,6 +5,7 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 import type { RadiiArr } from '@common/types/theme';
 
 import { Center } from '@components/Layout';
@@ -47,7 +47,7 @@ export default {
 	}
 } as SkeletonStoryMeta;
 
-export const Skeleton: SkeletonStory = (props: SkeletonProps<any>): ReactElement => {
+export const Skeleton: SkeletonStory = (props: SkeletonProps<PolymorphicDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.borderRadius.base;

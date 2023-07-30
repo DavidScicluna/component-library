@@ -13,8 +13,7 @@ import type {
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
-import type { __DEFAULT_TEXT_ELEMENT__ } from '../constants';
-
+export type TextDefaultElement = 'p';
 export type TextElement = PickFrom<ElementType, 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'>;
 
 type TextOtherProps = {
@@ -29,9 +28,6 @@ type TextOtherProps = {
 	wordBreak?: ResponsiveValue<WordBreak>;
 };
 
-export type TextProps<Element extends TextElement = typeof __DEFAULT_TEXT_ELEMENT__> = BoxProps<
-	Element,
-	TextOtherProps
->;
+export type TextProps<Element extends TextElement = TextDefaultElement> = BoxProps<Element, TextOtherProps>;
 
-export type TextRef<Element extends TextElement = typeof __DEFAULT_TEXT_ELEMENT__> = BoxRef<Element>;
+export type TextRef<Element extends TextElement = TextDefaultElement> = BoxRef<Element>;

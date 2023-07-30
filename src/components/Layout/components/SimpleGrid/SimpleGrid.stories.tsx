@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ReactElement } from 'react';
 
 import classNames from 'classnames';
@@ -7,6 +6,7 @@ import { range } from 'lodash-es';
 import classes from '@common/classes';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import Center from '../Center';
 
@@ -36,7 +36,7 @@ export default {
 	}
 } as SimpleGridStoryMeta;
 
-export const SimpleGrid: SimpleGridStory = (props: SimpleGridProps<any>): ReactElement => {
+export const SimpleGrid: SimpleGridStory = (props: SimpleGridProps<PolymorphicDefaultElement>): ReactElement => {
 	const radius = classes.borders.borderRadius.base;
 
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });

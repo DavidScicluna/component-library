@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ElementType, ReactElement } from 'react';
 
 import classNames from 'classnames';
@@ -6,6 +5,7 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import Text from '@components/Typography/components/Text';
 
@@ -36,7 +36,7 @@ export default {
 	}
 } as BoxStoryMeta;
 
-export const Box: BoxStory = (props: BoxProps<any>): ReactElement => {
+export const Box: BoxStory = (props: BoxProps<PolymorphicDefaultElement>): ReactElement => {
 	const radius = classes.borders.borderRadius.base;
 
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });

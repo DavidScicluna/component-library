@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ReactElement } from 'react';
 
 import classNames from 'classnames';
@@ -8,6 +7,7 @@ import classes from '@common/classes';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 import type { AlignItemsArr, FlexWrapArr, JustifyContentArr } from '@common/types/classes';
+import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import { Center } from '@components/Layout';
 
@@ -68,7 +68,7 @@ export default {
 	}
 } as HStackStoryMeta;
 
-export const HStack: HStackStory = (props: HStackProps<any>): ReactElement => {
+export const HStack: HStackStory = (props: HStackProps<PolymorphicDefaultElement>): ReactElement => {
 	const radius = classes.borders.borderRadius.base;
 
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });

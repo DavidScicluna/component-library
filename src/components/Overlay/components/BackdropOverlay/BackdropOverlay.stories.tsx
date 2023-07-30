@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ReactElement } from 'react';
 
 import classNames from 'classnames';
 
 import classes from '@common/classes';
+import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
@@ -16,7 +16,9 @@ export default {
 	component: BackdropOverlayComponent
 } as BackdropOverlayStoryMeta;
 
-export const BackdropOverlay: BackdropOverlayStory = (props: BackdropOverlayProps<any>): ReactElement => {
+export const BackdropOverlay: BackdropOverlayStory = (
+	props: BackdropOverlayProps<PolymorphicDefaultElement>
+): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const padding = classes.spacing.p[4];

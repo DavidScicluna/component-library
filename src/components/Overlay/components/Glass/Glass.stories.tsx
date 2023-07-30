@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ReactElement } from 'react';
 
 import classNames from 'classnames';
@@ -6,6 +5,7 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 import type { BackdropBlurArr } from '@common/types/classes';
+import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import { Center } from '@components/Layout';
 import Text from '@components/Typography/components/Text';
@@ -55,7 +55,7 @@ export default {
 } as GlassStoryMeta;
 
 // TODO: MAybe replace any with default polymorphic element type
-export const Glass: GlassStory = (props: GlassProps<any>): ReactElement => {
+export const Glass: GlassStory = (props: GlassProps<PolymorphicDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.borderRadius.base;

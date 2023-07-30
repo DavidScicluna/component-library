@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ReactElement } from 'react';
 
 import type {
@@ -22,7 +21,7 @@ import {
 	__DEFAULT_TEXT_WHITESPACE__,
 	__DEFAULT_TEXT_WORD_BREAK__
 } from './common/constants';
-import type { TextProps } from './common/types';
+import type { TextDefaultElement, TextProps } from './common/types';
 import type { TextStory, TextStoryMeta } from './common/types/story';
 import TextComponent from '.';
 
@@ -140,6 +139,6 @@ export default {
 	}
 } as TextStoryMeta;
 
-export const Text: TextStory = (props: TextProps<any>): ReactElement => {
+export const Text: TextStory = (props: TextProps<TextDefaultElement>): ReactElement => {
 	return <TextComponent {...props} />;
 };

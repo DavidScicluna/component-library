@@ -8,7 +8,6 @@ import { useGetResponsiveValue } from '@common/hooks';
 
 import Box from '@components/Box';
 
-import type { __DEFAULT_TEXT_ELEMENT__ } from './common/constants';
 import {
 	__DEFAULT_TEXT_ALIGN__,
 	__DEFAULT_TEXT_FONT_SIZE__,
@@ -21,9 +20,9 @@ import {
 	__DEFAULT_TEXT_WORD_BREAK__
 } from './common/constants';
 import { useGetTextClasses } from './common/hooks';
-import type { TextElement, TextProps, TextRef } from './common/types';
+import type { TextDefaultElement, TextElement, TextProps, TextRef } from './common/types';
 
-const Text = forwardRef(function Text<Element extends TextElement = typeof __DEFAULT_TEXT_ELEMENT__>(
+const Text = forwardRef(function Text<Element extends TextElement = TextDefaultElement>(
 	props: TextProps<Element>,
 	ref: TextRef<Element>
 ): ReactElement {

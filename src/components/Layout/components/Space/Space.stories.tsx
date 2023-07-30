@@ -1,10 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ReactElement } from 'react';
 
 import classNames from 'classnames';
 
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import Text from '@components/Typography/components/Text';
 
@@ -36,7 +36,7 @@ export default {
 	}
 } as SpaceStoryMeta;
 
-export const Space: SpaceStory = (props: SpaceProps<any>): ReactElement => {
+export const Space: SpaceStory = (props: SpaceProps<PolymorphicDefaultElement>): ReactElement => {
 	const radius = classes.borders.borderRadius.base;
 
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });

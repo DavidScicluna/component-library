@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ReactElement } from 'react';
 
 import classNames from 'classnames';
@@ -6,6 +5,7 @@ import { sample } from 'lodash-es';
 
 import classes from '@common/classes';
 import icons from '@common/data/icons';
+import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import { Center } from '@components/Layout';
 
@@ -47,7 +47,7 @@ export default {
 	}
 } as IconStoryMeta;
 
-export const Icon: IconStory = (props: IconProps<any>): ReactElement => {
+export const Icon: IconStory = (props: IconProps<PolymorphicDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const fontSize = classes.typography.fontSize['6xl'];

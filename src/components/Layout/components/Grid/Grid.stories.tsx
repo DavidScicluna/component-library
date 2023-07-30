@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ReactElement } from 'react';
 
 import classNames from 'classnames';
@@ -17,6 +16,7 @@ import type {
 	JustifyContentArr,
 	JustifyItemsArr
 } from '@common/types/classes';
+import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import Center from '../Center';
 
@@ -149,7 +149,7 @@ export default {
 	}
 } as GridStoryMeta;
 
-export const Grid: GridStory = (props: GridProps<any>): ReactElement => {
+export const Grid: GridStory = (props: GridProps<PolymorphicDefaultElement>): ReactElement => {
 	const radius = classes.borders.borderRadius.base;
 
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
