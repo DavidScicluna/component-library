@@ -4,19 +4,6 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
-import { useGetClass } from '@common/hooks';
-import type { Undefinable } from '@common/types';
-import type {
-	AlignContent,
-	AlignItems,
-	GridAuto,
-	GridAutoFlow,
-	GridTemplateColumns,
-	GridTemplateRows,
-	JustifyContent,
-	JustifyItems
-} from '@common/types/classes';
-import type { Space } from '@common/types/theme';
 
 import Box from '@components/Box';
 
@@ -28,6 +15,7 @@ import {
 	__DEFAULT_GRID_TEMPLATE_COLUMNS__,
 	__DEFAULT_GRID_TEMPLATE_ROWS__
 } from './common/constants';
+import { useGetGridClasses } from './common/hooks';
 import type { GridProps, GridRef } from './common/types';
 
 const Grid = forwardRef(function Grid<Element extends ElementType>(
@@ -52,49 +40,26 @@ const Grid = forwardRef(function Grid<Element extends ElementType>(
 		...rest
 	} = props;
 
-	const autoColumnsClassName = useGetClass<Undefinable<GridAuto>>(autoColumns, ['grid', 'autoColumns']);
-	const autoFlowClassName = useGetClass<Undefinable<GridAutoFlow>>(autoFlow, ['grid', 'autoFlow']);
-	const autoRowsClassName = useGetClass<Undefinable<GridAuto>>(autoRows, ['grid', 'autoRows']);
-
-	const alignContentClassName = useGetClass<AlignContent>(alignContent, ['grid', 'alignContent']);
-	const alignItemsClassName = useGetClass<AlignItems>(alignItems, ['grid', 'alignItems']);
-
-	const justifyContentClassName = useGetClass<JustifyContent>(justifyContent, ['grid', 'justifyContent']);
-	const justifyItemsClassName = useGetClass<JustifyItems>(justifyItems, ['grid', 'justifyItems']);
-
-	const columnSpacingClassName = useGetClass<Undefinable<Space>>(columnSpacing, ['spacing', 'gapY']);
-	const rowSpacingClassName = useGetClass<Undefinable<Space>>(rowSpacing, ['spacing', 'gapX']);
-
-	const templateColumnsClassName = useGetClass<Undefinable<GridTemplateColumns>>(templateColumns, [
-		'grid',
-		'templateColumns'
-	]);
-	const templateRowsClassName = useGetClass<Undefinable<GridTemplateRows>>(templateRows, ['grid', 'templateColumns']);
-
-	const spacingClassName = useGetClass<Space>(spacing, ['spacing', 'gap']);
+	const classes = useGetGridClasses({
+		alignContent,
+		alignItems,
+		autoColumns,
+		autoFlow,
+		autoRows,
+		columnSpacing,
+		justifyContent,
+		justifyItems,
+		rowSpacing,
+		templateColumns,
+		templateRows,
+		spacing
+	});
 
 	return (
 		<Box<Element>
 			{...(rest as GridProps<Element>)}
 			ref={ref}
-			className={classNames(
-				'grid',
-				alignContentClassName,
-				alignItemsClassName,
-				justifyContentClassName,
-				justifyItemsClassName,
-				autoColumnsClassName,
-				autoFlowClassName,
-				autoRowsClassName,
-				columnSpacingClassName,
-				rowSpacingClassName,
-				templateColumnsClassName,
-				templateRowsClassName,
-				{
-					[spacingClassName]: !columnSpacing && !rowSpacing,
-					[className]: !!className
-				}
-			)}
+			className={classNames(classes, { [className]: !!className })}
 		>
 			{children}
 		</Box>
