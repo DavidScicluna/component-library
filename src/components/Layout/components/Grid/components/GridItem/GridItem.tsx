@@ -4,25 +4,15 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useGetClass } from '@common/hooks';
-import type { Undefinable } from '@common/types';
-import type {
-	AlignSelf,
-	GridColumnSpan,
-	GridColumnStartEnd,
-	GridRowSpan,
-	GridRowStartEnd,
-	JustifySelf,
-	ZIndex
-} from '@common/types/classes';
 
 import Box from '@components/Box';
 
 import {
 	__DEFAULT_GRID_ITEM_ALIGN_SELF__,
 	__DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
-	__DEFAULT_GRID_ITEM_ZINDEX__
+	__DEFAULT_GRID_ITEM_Z_INDEX__
 } from './common/constants';
+import { useGetGridItemClasses } from './common/hooks';
 import type { GridItemProps, GridItemRef } from './common/types';
 
 const GridItem = forwardRef(function Grid<Element extends ElementType>(
@@ -40,39 +30,27 @@ const GridItem = forwardRef(function Grid<Element extends ElementType>(
 		rowSpan,
 		rowStart,
 		rowEnd,
-		zIndex = __DEFAULT_GRID_ITEM_ZINDEX__,
+		zIndex = __DEFAULT_GRID_ITEM_Z_INDEX__,
 		...rest
 	} = props;
 
-	const alignSelfClassName = useGetClass<AlignSelf>(alignSelf, ['grid', 'alignSelf']);
-	const justifySelfClassName = useGetClass<JustifySelf>(justifySelf, ['grid', 'justifySelf']);
-
-	const columnSpanClassName = useGetClass<Undefinable<GridColumnSpan>>(columnSpan, ['grid', 'columnSpan']);
-	const columnStartClassName = useGetClass<Undefinable<GridColumnStartEnd>>(columnStart, ['grid', 'columnStart']);
-	const columnEndClassName = useGetClass<Undefinable<GridColumnStartEnd>>(columnEnd, ['grid', 'columnEnd']);
-
-	const rowSpanClassName = useGetClass<Undefinable<GridRowSpan>>(rowSpan, ['grid', 'rowSpan']);
-	const rowStartClassName = useGetClass<Undefinable<GridRowStartEnd>>(rowStart, ['grid', 'rowStart']);
-	const rowEndClassName = useGetClass<Undefinable<GridRowStartEnd>>(rowEnd, ['grid', 'rowEnd']);
-
-	const zIndexClassName = useGetClass<Undefinable<ZIndex>>(zIndex, ['layout', 'zIndex']);
+	const classes = useGetGridItemClasses({
+		alignSelf,
+		columnSpan,
+		columnStart,
+		columnEnd,
+		justifySelf,
+		rowSpan,
+		rowStart,
+		rowEnd,
+		zIndex
+	});
 
 	return (
 		<Box<Element>
 			{...(rest as GridItemProps<Element>)}
 			ref={ref}
-			className={classNames(
-				alignSelfClassName,
-				justifySelfClassName,
-				columnSpanClassName,
-				columnStartClassName,
-				columnEndClassName,
-				rowSpanClassName,
-				rowStartClassName,
-				rowEndClassName,
-				zIndexClassName,
-				{ [className]: !!className }
-			)}
+			className={classNames(classes, { [className]: !!className })}
 		>
 			{children}
 		</Box>
