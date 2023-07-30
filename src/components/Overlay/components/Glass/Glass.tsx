@@ -27,11 +27,11 @@ const Glass = forwardRef(function Glass<Element extends ElementType>(
 
 	const background = useGetColor({ color, colorMode, colorType: color ? 'color' : 'default', hueType: 'background' });
 
-	const classes = useGetGlassClasses({ blur });
+	const classes = useGetGlassClasses<Element>({ blur });
 
 	return (
 		<Grid<Element>
-			{...(rest as GlassProps<Element>)}
+			{...rest}
 			ref={ref}
 			templateColumns={1}
 			templateRows={1}

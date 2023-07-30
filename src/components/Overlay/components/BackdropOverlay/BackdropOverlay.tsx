@@ -23,7 +23,7 @@ const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends Elem
 
 	return (
 		<Grid<Element>
-			{...(rest as BackdropOverlayProps<Element>)}
+			{...rest}
 			ref={ref}
 			data-aria-hidden='true'
 			aria-hidden='true'

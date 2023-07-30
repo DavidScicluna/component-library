@@ -5,13 +5,14 @@ import classNames from 'classnames';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetClass } from '@common/hooks';
+import type { ClassName } from '@common/types';
 import type { Space } from '@common/types/theme';
 import { getResponsiveValue } from '@common/utils';
 
 import type { SimpleGridColumn, SimpleGridProps } from '../types';
 
 type UseGetSimpleGridClassesProps<Element extends ElementType> = Pick<SimpleGridProps<Element>, 'columns' | 'spacing'>;
-type UseGetSimpleGridClassesReturn = string;
+type UseGetSimpleGridClassesReturn = ClassName;
 
 const useGetSimpleGridClasses = <Element extends ElementType>(
 	props: UseGetSimpleGridClassesProps<Element>

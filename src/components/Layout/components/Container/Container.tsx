@@ -32,14 +32,10 @@ const Container = forwardRef(function Container<Element extends ElementType>(
 	const isContentCentered = useGetResponsiveValue<boolean>(centered);
 	const isFluid = useGetResponsiveValue<boolean>(fluid);
 
-	const classes = useGetContainerClasses({ breakpoint, isContentCentered, isFluid });
+	const classes = useGetContainerClasses<Element>({ breakpoint, isContentCentered, isFluid });
 
 	return (
-		<Box<Element>
-			{...(rest as ContainerProps<Element>)}
-			ref={ref}
-			className={classNames(classes, { [className]: !!className })}
-		>
+		<Box<Element> {...rest} ref={ref} className={classNames(classes, { [className]: !!className })}>
 			{children}
 		</Box>
 	);

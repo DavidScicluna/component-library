@@ -33,14 +33,10 @@ const Stack = forwardRef(function Stack<Element extends ElementType>(
 		...rest
 	} = props;
 
-	const classes = useGetStackClasses({ alignItems, direction, justifyContent, spacing, wrap });
+	const classes = useGetStackClasses<Element>({ alignItems, direction, justifyContent, spacing, wrap });
 
 	return (
-		<Box<Element>
-			{...(rest as StackProps<Element>)}
-			ref={ref}
-			className={classNames(classes, { [className]: !!className })}
-		>
+		<Box<Element> {...rest} ref={ref} className={classNames(classes, { [className]: !!className })}>
 			{children
 				? isArray(children)
 					? children.map((child, index: number) => (

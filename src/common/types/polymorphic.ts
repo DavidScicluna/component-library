@@ -17,7 +17,8 @@ type PolymorphicProps<Element extends ElementType = typeof __DEFAULT_POLYMORPHIC
 	 * The system prop that allows [emotion css](https://emotion.sh/docs/introduction) objects to be passed down to as styles
 	 */
 	sx?: Style;
-} & ComponentPropsWithoutRef<Element>;
+};
+// & ComponentPropsWithoutRef<Element>;
 
 export type PolymorphicComponentProps<
 	Element extends ElementType = typeof __DEFAULT_POLYMORPHIC_ELEMENT__,

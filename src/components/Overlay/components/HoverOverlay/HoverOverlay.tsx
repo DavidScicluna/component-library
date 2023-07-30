@@ -32,12 +32,7 @@ const HoverOverlay = forwardRef(function HoverOverlay<Element extends ElementTyp
 	};
 
 	return (
-		<Box<Element>
-			{...(rest as HoverOverlayProps<Element>)}
-			ref={ref}
-			onMouseEnter={handleMouseEnter}
-			onMouseLeave={handleMouseLeave}
-		>
+		<Box<Element> {...rest} ref={ref} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
 			{children(isHovering)}
 		</Box>
 	);

@@ -45,7 +45,7 @@ const Text = forwardRef(function Text<Element extends TextElement = typeof __DEF
 	const isItalic = useGetResponsiveValue<boolean>(italic);
 	const isOverflown = useGetResponsiveValue<boolean>(overflown);
 
-	const classes = useGetTextClasses({
+	const classes = useGetTextClasses<Element>({
 		align,
 		fontSize,
 		fontWeight,
@@ -58,11 +58,7 @@ const Text = forwardRef(function Text<Element extends TextElement = typeof __DEF
 	});
 
 	return (
-		<Box<Element>
-			{...(rest as TextProps<Element>)}
-			ref={ref}
-			className={classNames(classes, { [className]: !!className })}
-		>
+		<Box<Element> {...rest} ref={ref} className={classNames(classes, { [className]: !!className })}>
 			{children}
 		</Box>
 	);

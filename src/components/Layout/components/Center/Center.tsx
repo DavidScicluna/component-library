@@ -16,14 +16,10 @@ const Center = forwardRef(function Center<Element extends ElementType>(
 ): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, spacing = __DEFAULT_SPACING__, ...rest } = props;
 
-	const classes = useGetCenterClasses({ spacing });
+	const classes = useGetCenterClasses<Element>({ spacing });
 
 	return (
-		<Box<Element>
-			{...(rest as CenterProps<Element>)}
-			ref={ref}
-			className={classNames(classes, { [className]: !!className })}
-		>
+		<Box<Element> {...rest} ref={ref} className={classNames(classes, { [className]: !!className })}>
 			{children}
 		</Box>
 	);

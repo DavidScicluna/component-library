@@ -22,15 +22,9 @@ const Space = forwardRef(function Space<Element extends ElementType>(
 		...rest
 	} = props;
 
-	const classes = useGetSpaceClasses({ width, height });
+	const classes = useGetSpaceClasses<Element>({ width, height });
 
-	return (
-		<Box<Element>
-			{...(rest as SpaceProps<Element>)}
-			ref={ref}
-			className={classNames(classes, { [className]: !!className })}
-		/>
-	);
+	return <Box<Element> {...rest} ref={ref} className={classNames(classes, { [className]: !!className })} />;
 });
 
 export default Space;

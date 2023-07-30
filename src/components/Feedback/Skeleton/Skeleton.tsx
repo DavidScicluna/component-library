@@ -31,46 +31,44 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 		...rest
 	} = props;
 
-	const classes = useGetSkeletonClasses({ color, colorMode, radius });
+	const classes = useGetSkeletonClasses<Element>({ color, colorMode, radius });
 
 	const duration = useConst<number>(getAnimationDuration('ultra-fast'));
 	const config = useConst<AnimationConfig>(getAnimationConfig());
 	const transition = useConst<Transition>({ enter: { ...config, duration }, exit: { ...config, duration } });
 
 	return (
-		<Box<Element> {...(rest as SkeletonProps<Element>)} ref={ref}>
-			<Grid
-				className={classes.common}
-				templateColumns={1}
-				templateRows={1}
-				alignItems='stretch'
-				alignContent='stretch'
-				justifyItems='stretch'
-				justifyContent='stretch'
-				spacing={0}
-			>
-				{children ? (
-					<GridItem rowStart={1} columnStart={1} zIndex={1}>
-						<Fade className={classes.common} in={isLoaded} transition={transition} unmountOnExit={false}>
-							{children}
-						</Fade>
-					</GridItem>
-				) : null}
-
-				<GridItem rowStart={1} columnStart={1}>
-					<Fade
-						className={classes.common}
-						in={children ? !isLoaded : true}
-						transition={transition}
-						unmountOnExit={false}
-					>
-						<Box
-							className={classNames(classes.common, classes.skeleton, { ['animate-pulse']: isAnimated })}
-						/>
+		<Grid<Element>
+			{...rest}
+			ref={ref}
+			className={classes.common}
+			templateColumns={1}
+			templateRows={1}
+			alignItems='stretch'
+			alignContent='stretch'
+			justifyItems='stretch'
+			justifyContent='stretch'
+			spacing={0}
+		>
+			{children ? (
+				<GridItem rowStart={1} columnStart={1} zIndex={1}>
+					<Fade className={classes.common} in={isLoaded} transition={transition} unmountOnExit={false}>
+						{children}
 					</Fade>
 				</GridItem>
-			</Grid>
-		</Box>
+			) : null}
+
+			<GridItem rowStart={1} columnStart={1}>
+				<Fade
+					className={classes.common}
+					in={children ? !isLoaded : true}
+					transition={transition}
+					unmountOnExit={false}
+				>
+					<Box className={classNames(classes.common, classes.skeleton, { ['animate-pulse']: isAnimated })} />
+				</Fade>
+			</GridItem>
+		</Grid>
 	);
 });
 

@@ -35,12 +35,12 @@ const Icon = forwardRef(function Icon<Element extends IconElement>(
 
 	const hasIcon = !children && !!icon;
 
-	const classes = useGetIconClasses({ color, colorMode, category, variant });
+	const classes = useGetIconClasses<Element>({ color, colorMode, category, variant });
 
 	return (
 		<Skeleton color={color} colorMode={colorMode} isLoaded={hasIcon ? fonts[category] : true} radius='full'>
 			<Center<Element>
-				{...(rest as IconProps<Element>)}
+				{...rest}
 				ref={ref}
 				// TODO: Maybe add classnames to all component for example 'ds-cl-icon', 'ds-cl-box', etc
 				className={classNames(classes, 'ds-cl-icon', {

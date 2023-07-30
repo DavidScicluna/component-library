@@ -17,14 +17,10 @@ const AspectRatio = forwardRef(function AspectRatio<Element extends ElementType>
 ): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, ratio = __DEFAULT_ASPECT_RATIO_RATIO__, ...rest } = props;
 
-	const classes = useGetAspectRatioClasses({ ratio });
+	const classes = useGetAspectRatioClasses<Element>({ ratio });
 
 	return (
-		<Box<Element>
-			{...(rest as AspectRatioProps<Element>)}
-			ref={ref}
-			className={classNames(classes, { [className]: !!className })}
-		>
+		<Box<Element> {...rest} ref={ref} className={classNames(classes, { [className]: !!className })}>
 			{children}
 		</Box>
 	);

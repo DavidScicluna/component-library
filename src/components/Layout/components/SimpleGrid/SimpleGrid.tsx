@@ -16,14 +16,10 @@ const SimpleGrid = forwardRef(function SimpleGrid<Element extends ElementType>(
 ): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, columns, spacing = __DEFAULT_SPACING__, ...rest } = props;
 
-	const classes = useGetSimpleGridClasses({ columns, spacing });
+	const classes = useGetSimpleGridClasses<Element>({ columns, spacing });
 
 	return (
-		<Box<Element>
-			{...(rest as SimpleGridProps<Element>)}
-			ref={ref}
-			className={classNames(classes, { [className]: !!className })}
-		>
+		<Box<Element> {...rest} ref={ref} className={classNames(classes, { [className]: !!className })}>
 			{children}
 		</Box>
 	);

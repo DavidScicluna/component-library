@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetClass } from '@common/hooks';
-import type { Undefinable } from '@common/types';
+import type { ClassName, Undefinable } from '@common/types';
 import type {
 	AlignContent,
 	AlignItems,
@@ -42,7 +42,7 @@ type UseGetGridClassesProps<Element extends ElementType> = Pick<
 	| 'templateRows'
 	| 'spacing'
 >;
-type UseGetGridClassesReturn = string;
+type UseGetGridClassesReturn = ClassName;
 
 const useGetGridClasses = <Element extends ElementType>(
 	props: UseGetGridClassesProps<Element>

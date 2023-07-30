@@ -34,7 +34,7 @@ const GridItem = forwardRef(function Grid<Element extends ElementType>(
 		...rest
 	} = props;
 
-	const classes = useGetGridItemClasses({
+	const classes = useGetGridItemClasses<Element>({
 		alignSelf,
 		columnSpan,
 		columnStart,
@@ -47,11 +47,7 @@ const GridItem = forwardRef(function Grid<Element extends ElementType>(
 	});
 
 	return (
-		<Box<Element>
-			{...(rest as GridItemProps<Element>)}
-			ref={ref}
-			className={classNames(classes, { [className]: !!className })}
-		>
+		<Box<Element> {...rest} ref={ref} className={classNames(classes, { [className]: !!className })}>
 			{children}
 		</Box>
 	);

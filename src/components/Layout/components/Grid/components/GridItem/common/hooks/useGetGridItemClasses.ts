@@ -3,7 +3,7 @@ import type { ElementType } from 'react';
 import classNames from 'classnames';
 
 import { useGetClass } from '@common/hooks';
-import type { Undefinable } from '@common/types';
+import type { ClassName, Undefinable } from '@common/types';
 import type {
 	AlignSelf,
 	GridColumnSpan,
@@ -33,7 +33,7 @@ type UseGetGridItemClassesProps<Element extends ElementType> = Pick<
 	| 'rowEnd'
 	| 'zIndex'
 >;
-type UseGetGridItemClassesReturn = string;
+type UseGetGridItemClassesReturn = ClassName;
 
 const useGetGridItemClasses = <Element extends ElementType>(
 	props: UseGetGridItemClassesProps<Element>
