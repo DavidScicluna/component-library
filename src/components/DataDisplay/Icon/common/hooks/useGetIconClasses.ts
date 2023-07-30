@@ -6,6 +6,7 @@ import classes from '@common/classes';
 import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__ } from '@common/constants';
 import { __DEFAULT_COLOR__ } from '@common/constants/props';
 import { useAppTheme } from '@common/hooks';
+import type { ClassName } from '@common/types';
 import { getColorHue } from '@common/utils/color';
 
 import { __DEFAULT_ICON_CATEGORY__, __DEFAULT_ICON_VARIANT__ } from '../constants';
@@ -15,7 +16,7 @@ type UseGetIconClassesProps<Element extends IconElement> = Pick<
 	IconProps<Element>,
 	'color' | 'colorMode' | 'category' | 'variant'
 >;
-type UseGetIconClassesReturn = string;
+type UseGetIconClassesReturn = ClassName;
 
 const useGetIconClasses = <Element extends IconElement>(
 	props: UseGetIconClassesProps<Element>

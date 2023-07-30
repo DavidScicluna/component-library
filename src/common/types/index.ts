@@ -24,4 +24,6 @@ export type ResponsiveArrayValue<D> = [D?, D?, D?, D?, D?, D?];
 export type ResponsiveObjectValue<D> = Record<Breakpoint, D>;
 export type ResponsiveValue<D> = ResponsiveArrayValue<D> | ResponsiveObjectValue<D> | D;
 
+export type ClassName = string;
+
 export type Style = CSSObject;

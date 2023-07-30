@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { __DEFAULT_DURATION__, __DEFAULT_EASING__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { __DEFAULT_COLOR__ } from '@common/constants/props';
 import { useAppTheme, useConst, useGetClass, useGetColor } from '@common/hooks';
+import type { ClassName } from '@common/types';
 import type { Duration, Ease, Radius } from '@common/types/theme';
 
 import type { SkeletonProps } from '../types';
@@ -13,7 +14,7 @@ type UseGetSkeletonClassesProps<Element extends ElementType> = Pick<
 	SkeletonProps<Element>,
 	'color' | 'colorMode' | 'radius'
 >;
-type UseGetSkeletonClassesReturn = Record<'common' | 'skeleton', string>;
+type UseGetSkeletonClassesReturn = Record<'common' | 'skeleton', ClassName>;
 
 const useGetSkeletonClasses = <Element extends ElementType>(
 	props: UseGetSkeletonClassesProps<Element>
