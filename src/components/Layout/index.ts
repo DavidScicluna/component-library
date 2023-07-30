@@ -10,11 +10,16 @@ import Center from './components/Center';
 import type { CenterProps, CenterRef } from './components/Center/common/types';
 import Container from './components/Container';
 import {
+	__DEFAULT_CONTAINER_BREAKPOINT__,
 	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
-	__DEFAULT_CONTAINER_IS_FLUID__,
-	__DEFAULT_CONTAINER_SIZE__
+	__DEFAULT_CONTAINER_IS_FLUID__
 } from './components/Container/common/constants';
-import type { ContainerProps, ContainerRef, ContainerSize, ContainerSizes } from './components/Container/common/types';
+import type {
+	ContainerBreakpoint,
+	ContainerBreakpoints,
+	ContainerProps,
+	ContainerRef
+} from './components/Container/common/types';
 import Grid from './components/Grid';
 import {
 	__DEFAULT_GRID_ALIGN_CONTENT__,
@@ -29,7 +34,7 @@ import GridItem from './components/Grid/components/GridItem';
 import {
 	__DEFAULT_GRID_ITEM_ALIGN_SELF__,
 	__DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
-	__DEFAULT_GRID_ITEM_ZINDEX__
+	__DEFAULT_GRID_ITEM_Z_INDEX__
 } from './components/Grid/components/GridItem/common/constants';
 import type { GridItemProps, GridItemRef } from './components/Grid/components/GridItem/common/types';
 import SimpleGrid from './components/SimpleGrid';
@@ -59,7 +64,7 @@ export const defaults = {
 	__DEFAULT_ASPECT_RATIO_RATIO__,
 	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
 	__DEFAULT_CONTAINER_IS_FLUID__,
-	__DEFAULT_CONTAINER_SIZE__,
+	__DEFAULT_CONTAINER_BREAKPOINT__,
 	__DEFAULT_GRID_ALIGN_CONTENT__,
 	__DEFAULT_GRID_ALIGN_ITEMS__,
 	__DEFAULT_GRID_JUSTIFY_CONTENT__,
@@ -68,7 +73,7 @@ export const defaults = {
 	__DEFAULT_GRID_TEMPLATE_ROWS__,
 	__DEFAULT_GRID_ITEM_ALIGN_SELF__,
 	__DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
-	__DEFAULT_GRID_ITEM_ZINDEX__,
+	__DEFAULT_GRID_ITEM_Z_INDEX__,
 	__DEFAULT_SPACE_HEIGHT__,
 	__DEFAULT_SPACE_WIDTH__,
 	__DEFAULT_STACK_ALIGN_ITEMS__,
@@ -88,10 +93,10 @@ export type {
 	AspectRatioRef,
 	CenterProps,
 	CenterRef,
+	ContainerBreakpoint,
+	ContainerBreakpoints,
 	ContainerProps,
 	ContainerRef,
-	ContainerSize,
-	ContainerSizes,
 	GridItemProps,
 	GridItemRef,
 	GridProps,
