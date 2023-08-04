@@ -1,7 +1,10 @@
 import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
 import { omit, pick } from 'lodash-es';
+
+import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import {
 	__DEFAULT_TRANSITION__,
@@ -21,6 +24,7 @@ import {
 	__DEFAULT_COLLAPSE_STARTING_HEIGHT__,
 	__DEFAULT_COLLAPSE_STARTING_WIDTH__
 } from './common/constants';
+import otherProps from './common/keys';
 import type { CollapseProps, CollapseRef } from './common/types';
 
 const config = __DEFAULT_TRANSITION_CONFIG__;
@@ -58,29 +62,9 @@ const variants = {
 	})
 };
 
-const pickedProps = [
-	'axis',
-	'transition',
-	'transitionEnd',
-	'startingWidth',
-	'endingWidth',
-	'startingHeight',
-	'endingHeight',
-	'isOpacityAnimated'
-];
-const omittedProps = [
-	'axis',
-	'transition',
-	'transitionEnd',
-	'startingWidth',
-	'endingWidth',
-	'startingHeight',
-	'endingHeight',
-	'isOpacityAnimated'
-];
-
 const Collapse = forwardRef<CollapseRef, CollapseProps>(function Collapse(props, ref): ReactElement {
 	const {
+		className = __DEFAULT_CLASSNAME__,
 		in: isOpen = __DEFAULT_TRANSITION_IN__,
 		unmountOnExit = __DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__,
 		style,
@@ -90,15 +74,16 @@ const Collapse = forwardRef<CollapseRef, CollapseProps>(function Collapse(props,
 	const animate = isOpen || unmountOnExit ? 'enter' : 'exit';
 	const isVisible = unmountOnExit ? isOpen && unmountOnExit : true;
 
-	const custom = pick({ ...rest }, pickedProps);
+	const custom = pick({ ...rest }, otherProps);
 
 	return (
 		<AnimatePresence custom={custom}>
 			{isVisible ? (
 				<MotionBox
-					{...omit({ ...rest }, omittedProps)}
+					{...omit({ ...rest }, otherProps)}
 					{...config}
 					ref={ref}
+					className={classNames(`${__DEFAULT_CLASS_PREFIX__}-collapse`, { [className]: !!className })}
 					custom={custom}
 					animate={animate}
 					variants={variants}

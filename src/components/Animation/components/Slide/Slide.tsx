@@ -1,7 +1,10 @@
 import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
 import { omit, pick } from 'lodash-es';
+
+import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import {
 	__DEFAULT_TRANSITION__,
@@ -18,6 +21,7 @@ import {
 	__DEFAULT_SLIDE_OFFSET_X__,
 	__DEFAULT_SLIDE_OFFSET_Y__
 } from './common/constants';
+import otherProps from './common/keys';
 import type { SlideProps, SlideRef } from './common/types';
 
 const config = { ...__DEFAULT_TRANSITION_CONFIG__, initial: 'initial' };
@@ -58,11 +62,9 @@ const variants = {
 	})
 };
 
-const pickedProps = ['offsetX', 'offsetY', 'transition', 'transitionEnd', 'isReversed'];
-const omittedProps = ['offsetX', 'offsetY', 'transition', 'transitionEnd', 'isReversed'];
-
 const Slide = forwardRef<SlideRef, SlideProps>(function Slide(props, ref): ReactElement {
 	const {
+		className = __DEFAULT_CLASSNAME__,
 		in: isOpen = __DEFAULT_TRANSITION_IN__,
 		unmountOnExit = __DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__,
 		...rest
@@ -71,15 +73,16 @@ const Slide = forwardRef<SlideRef, SlideProps>(function Slide(props, ref): React
 	const animate = isOpen || unmountOnExit ? 'enter' : 'exit';
 	const isVisible = unmountOnExit ? isOpen && unmountOnExit : true;
 
-	const custom = pick({ ...rest }, pickedProps);
+	const custom = pick({ ...rest }, otherProps);
 
 	return (
 		<AnimatePresence custom={custom}>
 			{isVisible ? (
 				<MotionBox
-					{...omit({ ...rest }, omittedProps)}
+					{...omit({ ...rest }, otherProps)}
 					{...config}
 					ref={ref}
+					className={classNames(`${__DEFAULT_CLASS_PREFIX__}-slide`, { [className]: !!className })}
 					custom={custom}
 					animate={animate}
 					variants={variants}

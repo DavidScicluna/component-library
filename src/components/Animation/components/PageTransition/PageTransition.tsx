@@ -1,7 +1,10 @@
 import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
 import { omit, pick } from 'lodash-es';
+
+import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import {
 	__DEFAULT_TRANSITION__,
@@ -14,6 +17,7 @@ import AnimatePresence from '../AnimatePresence';
 import MotionBox from '../MotionBox';
 
 import { __DEFAULT_PAGE_TRANSITION_BLUR__ } from './common/constants';
+import otherProps from './common/keys';
 import type { PageTransitionProps, PageTransitionRef } from './common/types';
 
 const config = __DEFAULT_TRANSITION_CONFIG__;
@@ -41,14 +45,12 @@ const variants = {
 	})
 };
 
-const pickedProps = ['blur', 'transition', 'transitionEnd'];
-const omittedProps = ['blur', 'transition', 'transitionEnd'];
-
 const PageTransition = forwardRef<PageTransitionRef, PageTransitionProps>(function PageTransition(
 	props,
 	ref
 ): ReactElement {
 	const {
+		className = __DEFAULT_CLASSNAME__,
 		in: isOpen = __DEFAULT_TRANSITION_IN__,
 		unmountOnExit = __DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__,
 		...rest
@@ -57,15 +59,16 @@ const PageTransition = forwardRef<PageTransitionRef, PageTransitionProps>(functi
 	const animate = isOpen || unmountOnExit ? 'enter' : 'exit';
 	const isVisible = unmountOnExit ? isOpen && unmountOnExit : true;
 
-	const custom = pick({ ...rest }, pickedProps);
+	const custom = pick({ ...rest }, otherProps);
 
 	return (
 		<AnimatePresence custom={custom}>
 			{isVisible ? (
 				<MotionBox
-					{...omit({ ...rest }, omittedProps)}
+					{...omit({ ...rest }, otherProps)}
 					{...config}
 					ref={ref}
+					className={classNames(`${__DEFAULT_CLASS_PREFIX__}-page-transition`, { [className]: !!className })}
 					custom={custom}
 					animate={animate}
 					variants={variants}

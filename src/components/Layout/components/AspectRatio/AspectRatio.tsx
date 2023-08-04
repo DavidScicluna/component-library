@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import Box from '@components/Box';
 
@@ -20,7 +20,11 @@ const AspectRatio = forwardRef(function AspectRatio<Element extends ElementType>
 	const classes = useGetAspectRatioClasses<Element>({ ratio });
 
 	return (
-		<Box<Element> {...rest} ref={ref} className={classNames(classes, { [className]: !!className })}>
+		<Box<Element>
+			{...rest}
+			ref={ref}
+			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-aspect-ratio`, classes, { [className]: !!className })}
+		>
 			{children}
 		</Box>
 	);

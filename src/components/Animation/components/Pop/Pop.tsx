@@ -1,7 +1,10 @@
 import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
 import { omit, pick } from 'lodash-es';
+
+import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import {
 	__DEFAULT_TRANSITION__,
@@ -14,6 +17,7 @@ import AnimatePresence from '../AnimatePresence';
 import MotionBox from '../MotionBox';
 
 import { __DEFAULT_POP_INITIAL_SCALE__, __DEFAULT_POP_IS_REVERSED__ } from './common/constants';
+import otherProps from './common/keys';
 import type { PopProps, PopRef } from './common/types';
 
 const config = __DEFAULT_TRANSITION_CONFIG__;
@@ -41,11 +45,9 @@ const variants = {
 	})
 };
 
-const pickedProps = ['transition', 'transitionEnd', 'initialScale', 'isReversed'];
-const omittedProps = ['transition', 'transitionEnd', 'initialScale', 'isReversed'];
-
 const Pop = forwardRef<PopRef, PopProps>(function Pop(props, ref): ReactElement {
 	const {
+		className = __DEFAULT_CLASSNAME__,
 		in: isOpen = __DEFAULT_TRANSITION_IN__,
 		unmountOnExit = __DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__,
 		...rest
@@ -54,15 +56,16 @@ const Pop = forwardRef<PopRef, PopProps>(function Pop(props, ref): ReactElement 
 	const animate = isOpen || unmountOnExit ? 'enter' : 'exit';
 	const isVisible = unmountOnExit ? isOpen && unmountOnExit : true;
 
-	const custom = pick({ ...rest }, pickedProps);
+	const custom = pick({ ...rest }, otherProps);
 
 	return (
 		<AnimatePresence custom={custom}>
 			{isVisible ? (
 				<MotionBox
-					{...omit({ ...rest }, omittedProps)}
+					{...omit({ ...rest }, otherProps)}
 					{...config}
 					ref={ref}
+					className={classNames(`${__DEFAULT_CLASS_PREFIX__}-pop`, { [className]: !!className })}
 					custom={custom}
 					animate={animate}
 					variants={variants}

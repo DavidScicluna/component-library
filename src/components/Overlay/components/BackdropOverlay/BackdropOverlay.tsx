@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { transparentize } from 'color2k';
 import { merge } from 'lodash-es';
 
+import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import Box from '@components/Box';
@@ -17,7 +18,15 @@ const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends Elem
 	props: BackdropOverlayProps<Element>,
 	ref: BackdropOverlayRef<Element>
 ): ReactElement {
-	const { children, color, colorMode, amount = __DEFAULT_BACKDROP_OVERLAY_AMOUNT__, sx, ...rest } = props;
+	const {
+		children,
+		className = __DEFAULT_CLASSNAME__,
+		color,
+		colorMode,
+		amount = __DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
+		sx,
+		...rest
+	} = props;
 
 	const background = useGetColor({ color, colorMode, colorType: color ? 'color' : 'default', hueType: 'background' });
 
@@ -25,6 +34,7 @@ const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends Elem
 		<Grid<Element>
 			{...rest}
 			ref={ref}
+			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-backdrop-overlay`, { [className]: !!className })}
 			data-aria-hidden='true'
 			aria-hidden='true'
 			templateColumns={1}

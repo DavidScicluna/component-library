@@ -4,7 +4,7 @@ import { forwardRef, Fragment } from 'react';
 import classNames from 'classnames';
 import { isArray } from 'lodash-es';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
+import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
 
 import Box from '@components/Box';
 
@@ -36,7 +36,11 @@ const Stack = forwardRef(function Stack<Element extends ElementType>(
 	const classes = useGetStackClasses<Element>({ alignItems, direction, justifyContent, spacing, wrap });
 
 	return (
-		<Box<Element> {...rest} ref={ref} className={classNames(classes, { [className]: !!className })}>
+		<Box<Element>
+			{...rest}
+			ref={ref}
+			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-stack`, classes, { [className]: !!className })}
+		>
 			{children
 				? isArray(children)
 					? children.map((child, index: number) => (

@@ -1,6 +1,9 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
+import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 
 import Box from '@components/Box';
@@ -11,7 +14,7 @@ const HoverOverlay = forwardRef(function HoverOverlay<Element extends ElementTyp
 	props: HoverOverlayProps<Element>,
 	ref: HoverOverlayRef<Element>
 ): ReactElement {
-	const { children, onMouseEnter, onMouseLeave, ...rest } = props;
+	const { children, className = __DEFAULT_CLASSNAME__, onMouseEnter, onMouseLeave, ...rest } = props;
 
 	const [isHovering, setIsHovering] = useBoolean();
 
@@ -32,7 +35,13 @@ const HoverOverlay = forwardRef(function HoverOverlay<Element extends ElementTyp
 	};
 
 	return (
-		<Box<Element> {...rest} ref={ref} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+		<Box<Element>
+			{...rest}
+			ref={ref}
+			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-hover-overlay`, { [className]: !!className })}
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}
+		>
 			{children(isHovering)}
 		</Box>
 	);

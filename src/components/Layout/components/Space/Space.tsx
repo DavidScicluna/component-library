@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import Box from '@components/Box';
 
@@ -24,7 +24,13 @@ const Space = forwardRef(function Space<Element extends ElementType>(
 
 	const classes = useGetSpaceClasses<Element>({ width, height });
 
-	return <Box<Element> {...rest} ref={ref} className={classNames(classes, { [className]: !!className })} />;
+	return (
+		<Box<Element>
+			{...rest}
+			ref={ref}
+			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-space`, classes, { [className]: !!className })}
+		/>
+	);
 });
 
 export default Space;

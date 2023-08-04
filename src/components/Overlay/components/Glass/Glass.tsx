@@ -1,8 +1,10 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
 import { transparentize } from 'color2k';
 
+import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import Box from '@components/Box';
@@ -18,6 +20,7 @@ const Glass = forwardRef(function Glass<Element extends ElementType>(
 ): ReactElement {
 	const {
 		children,
+		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
 		blur = __DEFAULT_GLASS_BLUR__,
@@ -33,6 +36,7 @@ const Glass = forwardRef(function Glass<Element extends ElementType>(
 		<Grid<Element>
 			{...rest}
 			ref={ref}
+			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-glass`, { [className]: !!className })}
 			templateColumns={1}
 			templateRows={1}
 			alignItems='stretch'

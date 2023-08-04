@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 
 import Box from '@components/Box';
@@ -35,7 +35,11 @@ const Container = forwardRef(function Container<Element extends ElementType>(
 	const classes = useGetContainerClasses<Element>({ breakpoint, isContentCentered, isFluid });
 
 	return (
-		<Box<Element> {...rest} ref={ref} className={classNames(classes, { [className]: !!className })}>
+		<Box<Element>
+			{...rest}
+			ref={ref}
+			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-container`, classes, { [className]: !!className })}
+		>
 			{children}
 		</Box>
 	);

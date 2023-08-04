@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 import type { Transition } from 'framer-motion';
 
-import { __DEFAULT_RADIUS__ } from '@common/constants';
+import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useConst } from '@common/hooks';
 import type { AnimationConfig } from '@common/types/animation';
 import { getAnimationConfig, getAnimationDuration } from '@common/utils/animation';
@@ -23,6 +23,7 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 ): ReactElement {
 	const {
 		children,
+		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
 		isAnimated = __DEFAULT_SKELETON_IS_ANIMATED__,
@@ -41,7 +42,7 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 		<Grid<Element>
 			{...rest}
 			ref={ref}
-			className={classes.common}
+			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-skeleton`, classes.common, { [className]: !!className })}
 			templateColumns={1}
 			templateRows={1}
 			alignItems='stretch'
