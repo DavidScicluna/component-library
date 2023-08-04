@@ -4,13 +4,13 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import type {
-	__DEFAULT_POLYMORPHIC_OBJECT__} from '@common/constants';
-import {
-	__DEFAULT_POLYMORPHIC_ELEMENT__,
-	__DEFAULT_POLYMORPHIC_SX__
-} from '@common/constants';
+import { merge, omit, pick } from 'lodash-es';
 
+import type { __DEFAULT_POLYMORPHIC_OBJECT__ } from '@common/constants';
+import { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
+
+import { otherProps } from './common/constants/props';
+import { useGetBoxStyles } from './common/hooks';
 import type { BoxProps, BoxRef } from './common/types';
 
 const Box = forwardRef(function Box<
@@ -24,8 +24,10 @@ const Box = forwardRef(function Box<
 		...rest
 	} = props;
 
+	const styles = useGetBoxStyles(pick({ ...rest }, otherProps));
+
 	return (
-		<Component {...rest} ref={ref} css={sx}>
+		<Component {...omit({ ...rest }, otherProps)} ref={ref} css={merge(styles, sx)}>
 			{children}
 		</Component>
 	);
