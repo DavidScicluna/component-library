@@ -23,10 +23,8 @@ export const HoverOverlay: HoverOverlayStory = (props: HoverOverlayProps<Polymor
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
 	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
 
-	const padding = classes.spacing.p[4];
-
 	return (
-		<HoverOverlayComponent {...props} className={classNames('w-full', radius, background, padding)}>
+		<HoverOverlayComponent {...props} className={classNames(radius, background)} w='100%' p={4}>
 			{(isHovering) => (
 				<Text align='center' color={text}>
 					{`Currently ${isHovering ? 'hovering the element!' : 'not hovering the element'}`}

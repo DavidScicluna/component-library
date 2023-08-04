@@ -1,8 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
-
-import classes from '@common/classes';
 import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import { useStorybookContext } from '../../../../../.storybook/preview';
@@ -21,14 +18,5 @@ export const BackdropOverlay: BackdropOverlayStory = (
 ): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
-	const padding = classes.spacing.p[4];
-
-	return (
-		<BackdropOverlayComponent
-			{...props}
-			className={classNames('w-full', 'h-full', padding)}
-			color={color}
-			colorMode={colorMode}
-		/>
-	);
+	return <BackdropOverlayComponent {...props} color={color} colorMode={colorMode} w='100%' h='100%' p={4} />;
 };

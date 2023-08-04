@@ -42,11 +42,9 @@ export const Space: SpaceStory = (props: SpaceProps<PolymorphicDefaultElement>):
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
 	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
 
-	const padding = classes.spacing.p[4];
-
 	return (
 		<Center spacing={0}>
-			<Center className={classNames(radius, background, padding)}>
+			<Center className={classNames(radius, background)} p={4}>
 				<Text align='center' color={text}>
 					Hello
 				</Text>
@@ -54,7 +52,7 @@ export const Space: SpaceStory = (props: SpaceProps<PolymorphicDefaultElement>):
 
 			<SpaceComponent {...props} />
 
-			<Center className={classNames(radius, background, padding)}>
+			<Center className={classNames(radius, background)} p={4}>
 				<Text align='center' color={text}>
 					Hello
 				</Text>

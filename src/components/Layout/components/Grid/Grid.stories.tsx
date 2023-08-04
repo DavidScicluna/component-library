@@ -155,13 +155,11 @@ export const Grid: GridStory = (props: GridProps<PolymorphicDefaultElement>): Re
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
 	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
 
-	const padding = classes.spacing.p[4];
-
 	return (
 		<GridComponent {...props}>
 			{range(1, 11).map((num) => (
 				<GridItem key={num}>
-					<Center className={classNames(radius, text, background, padding)}>{`Item ${num}`}</Center>
+					<Center className={classNames(radius, text, background)} p={4}>{`Item ${num}`}</Center>
 				</GridItem>
 			))}
 		</GridComponent>

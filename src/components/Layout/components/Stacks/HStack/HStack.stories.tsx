@@ -74,12 +74,10 @@ export const HStack: HStackStory = (props: HStackProps<PolymorphicDefaultElement
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
 	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
 
-	const padding = classes.spacing.p[4];
-
 	return (
 		<HStackComponent {...props}>
 			{range(1, 11).map((num) => (
-				<Center key={num} className={classNames(radius, text, background, padding)}>
+				<Center key={num} className={classNames(radius, text, background)} p={4}>
 					{`Item ${num}`}
 				</Center>
 			))}

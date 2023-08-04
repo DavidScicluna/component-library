@@ -42,12 +42,10 @@ export const SimpleGrid: SimpleGridStory = (props: SimpleGridProps<PolymorphicDe
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
 	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
 
-	const padding = classes.spacing.p[4];
-
 	return (
 		<SimpleGridComponent {...props}>
 			{range(1, 13).map((num) => (
-				<Center key={num} className={classNames(radius, text, background, padding)}>
+				<Center key={num} className={classNames(radius, text, background)} p={4}>
 					{`Column ${num}`}
 				</Center>
 			))}

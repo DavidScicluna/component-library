@@ -54,15 +54,16 @@ export const Icon: IconStory = (props: IconProps<PolymorphicDefaultElement>): Re
 
 	const radius = classes.borders.borderRadius.base;
 
-	const padding = classes.spacing.p[4];
-
 	return (
-		<Center className={classNames('w-auto')}>
+		<Center w='auto' p={4}>
 			<IconComponent
 				{...props}
-				className={classNames('w-auto', 'h-auto', fontSize, radius, padding)}
+				className={classNames(fontSize, radius)}
 				color={color}
 				colorMode={colorMode}
+				w='auto'
+				h='auto'
+				p={4}
 			/>
 		</Center>
 	);

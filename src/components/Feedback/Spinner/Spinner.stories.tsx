@@ -1,8 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
-
-import classes from '@common/classes';
 import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import { Center } from '@components/Layout';
@@ -58,12 +55,8 @@ export default {
 	}
 } as SpinnerStoryMeta;
 
-export const Spinner: SpinnerStory = (props: SpinnerProps<PolymorphicDefaultElement>): ReactElement => {
-	const padding = classes.spacing.p[4];
-
-	return (
-		<Center className={classNames('w-auto')}>
-			<SpinnerComponent {...props} className={classNames('w-full', padding)} />;
-		</Center>
-	);
-};
+export const Spinner: SpinnerStory = (props: SpinnerProps<PolymorphicDefaultElement>): ReactElement => (
+	<Center w='auto'>
+		<SpinnerComponent {...props} w='100%' p={4} />;
+	</Center>
+);

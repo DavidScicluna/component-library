@@ -52,10 +52,8 @@ export const Container: ContainerStory = (props: ContainerProps<PolymorphicDefau
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
 	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
 
-	const padding = classes.spacing.p[4];
-
 	return (
-		<ContainerComponent {...props} className={classNames(radius, background, padding)}>
+		<ContainerComponent {...props} className={classNames(radius, background)} p={4}>
 			<Text align='center' color={text}>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
 				dolore magna aliqua. Ac felis donec et odio pellentesque diam volutpat commodo sed. Id porta nibh

@@ -33,10 +33,8 @@ export const Center: CenterStory = (props: CenterProps<PolymorphicDefaultElement
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
 	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
 
-	const padding = classes.spacing.p[4];
-
 	return (
-		<CenterComponent {...props} className={classNames('w-full', radius, background, padding)}>
+		<CenterComponent {...props} className={classNames(radius, background)} w='100%' p={4}>
 			<Text align='center' color={text}>
 				Hello
 			</Text>
