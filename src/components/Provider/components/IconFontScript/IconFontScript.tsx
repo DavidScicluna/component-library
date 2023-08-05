@@ -1,4 +1,4 @@
-import type { FC} from 'react';
+import type { FC } from 'react';
 import { useEffect } from 'react';
 
 import { useGetIconFontStatus } from '@components/Provider/common/hooks';

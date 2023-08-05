@@ -1,4 +1,4 @@
-import type { FC} from 'react';
+import type { FC } from 'react';
 import { useEffect } from 'react';
 
 import { __DEFAULT_APP_COLORMODE__ } from '@common/constants';

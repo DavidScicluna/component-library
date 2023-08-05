@@ -1,4 +1,4 @@
-import type { FC} from 'react';
+import type { FC } from 'react';
 import { createContext, useState } from 'react';
 
 import { MotionConfig } from 'framer-motion';
