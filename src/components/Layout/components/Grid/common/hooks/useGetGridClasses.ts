@@ -75,11 +75,14 @@ const useGetGridClasses = <Element extends ElementType>(
 	const columnSpacingClassName = useGetClass<Undefinable<Space>>(columnSpacing, ['spacing', 'gapY']);
 	const rowSpacingClassName = useGetClass<Undefinable<Space>>(rowSpacing, ['spacing', 'gapX']);
 
-	const templateColumnsClassName = useGetClass<Undefinable<GridTemplateColumns>>(templateColumns, [
-		'grid',
-		'templateColumns'
-	]);
-	const templateRowsClassName = useGetClass<Undefinable<GridTemplateRows>>(templateRows, ['grid', 'templateColumns']);
+	const templateColumnsClassName = useGetClass<Undefinable<GridTemplateColumns>>(
+		typeof templateColumns === 'number' ? templateColumns : __DEFAULT_GRID_TEMPLATE_COLUMNS__,
+		['grid', 'templateColumns']
+	);
+	const templateRowsClassName = useGetClass<Undefinable<GridTemplateRows>>(
+		typeof templateRows === 'number' ? templateRows : __DEFAULT_GRID_TEMPLATE_ROWS__,
+		['grid', 'templateRows']
+	);
 
 	const spacingClassName = useGetClass<Space>(spacing, ['spacing', 'gap']);
 
@@ -94,9 +97,11 @@ const useGetGridClasses = <Element extends ElementType>(
 		autoRowsClassName,
 		columnSpacingClassName,
 		rowSpacingClassName,
-		templateColumnsClassName,
-		templateRowsClassName,
-		{ [spacingClassName]: !columnSpacing && !rowSpacing }
+		{
+			[templateColumnsClassName]: typeof templateColumns !== 'string',
+			[templateRowsClassName]: typeof templateRows !== 'string',
+			[spacingClassName]: !columnSpacing && !rowSpacing
+		}
 	);
 };
 

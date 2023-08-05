@@ -25,8 +25,8 @@ type GridOtherProps = {
 	justifyContent?: ResponsiveValue<JustifyContent>;
 	justifyItems?: ResponsiveValue<JustifyItems>;
 	rowSpacing?: ResponsiveValue<Space>;
-	templateColumns?: ResponsiveValue<GridTemplateColumns>;
-	templateRows?: ResponsiveValue<GridTemplateRows>;
+	templateColumns?: ResponsiveValue<GridTemplateColumns | string>;
+	templateRows?: ResponsiveValue<GridTemplateRows | string>;
 	spacing?: ResponsiveValue<Space>;
 };
 
