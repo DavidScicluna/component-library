@@ -1,6 +1,53 @@
-// TODO: Sort types like they are sorted in classes folder
+import type { PickFrom } from '.';
+import type { Color, ColorHue } from './theme';
 
 export type ClassType = 'bg' | 'text' | 'border' | 'outline';
+
+/**
+ * Backgrounds
+ */
+export type BackgroundColor =
+	| `${PickFrom<ClassType, 'bg'>}-${Exclude<Color, 'transparent' | 'black' | 'white'>}-${ColorHue}`
+	| `${PickFrom<ClassType, 'bg'>}-${PickFrom<Color, 'transparent' | 'black' | 'white'>}`;
+
+/**
+ * Borders
+ */
+
+/**
+ * Filters
+ */
+
+/**
+ * Flex
+ */
+
+/**
+ * Grid
+ */
+
+/**
+ * Layout
+ */
+
+/**
+ * Sizing
+ */
+
+/**
+ * Spacing
+ */
+
+/**
+ * Transitions
+ */
+
+/**
+ * Typography
+ */
+export type TextColor =
+	| `${PickFrom<ClassType, 'text'>}-${Exclude<Color, 'transparent' | 'black' | 'white'>}-${ColorHue}`
+	| `${PickFrom<ClassType, 'text'>}-${PickFrom<Color, 'transparent' | 'black' | 'white'>}`;
 
 export type AlignContent =
 	| 'normal'

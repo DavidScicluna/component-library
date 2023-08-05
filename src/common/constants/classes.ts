@@ -1,6 +1,8 @@
 import type { BorderStyle, BorderWidth, OutlineOffset, OutlineStyle, OutlineWidth } from '@common/types/classes';
 import type { Delay, Duration, Ease, Radius, Space } from '@common/types/theme';
 
+export const __DEFAULT_CLASS_PREFIX__ = 'ds-cl';
+
 export const __DEFAULT_BORDER_WIDTH__: BorderWidth = 2;
 export const __DEFAULT_BORDER_STYLE__: BorderStyle = 'solid';
 

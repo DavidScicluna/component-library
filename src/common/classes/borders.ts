@@ -14,6 +14,34 @@ const borderWidth: BorderWidthObj = {
 	4: 'border-4',
 	8: 'border-8'
 };
+const borderLeftWidth: BorderWidthObj = {
+	0: 'border-l-0',
+	1: 'border-l',
+	2: 'border-l-2',
+	4: 'border-l-4',
+	8: 'border-l-8'
+};
+const borderTopWidth: BorderWidthObj = {
+	0: 'border-t-0',
+	1: 'border-t',
+	2: 'border-t-2',
+	4: 'border-t-4',
+	8: 'border-t-8'
+};
+const borderRightWidth: BorderWidthObj = {
+	0: 'border-r-0',
+	1: 'border-r',
+	2: 'border-r-2',
+	4: 'border-r-4',
+	8: 'border-r-8'
+};
+const borderBottomWidth: BorderWidthObj = {
+	0: 'border-b-0',
+	1: 'border-b',
+	2: 'border-b-2',
+	4: 'border-b-4',
+	8: 'border-b-8'
+};
 
 const borderStyle: BorderStyleObj = {
 	solid: 'border-solid',
@@ -488,6 +516,10 @@ const outlineColor: ColorsObj = {
 
 export default {
 	borderWidth,
+	borderLeftWidth,
+	borderTopWidth,
+	borderRightWidth,
+	borderBottomWidth,
 	borderStyle,
 	borderColor,
 	borderRadius,

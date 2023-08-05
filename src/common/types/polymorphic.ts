@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef, ComponentPropsWithRef, ElementType, HTMLAttributes } from 'react';
+import type { ComponentPropsWithRef, ElementType, HTMLAttributes } from 'react';
 
 import type { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_OBJECT__ } from '@common/constants';
 

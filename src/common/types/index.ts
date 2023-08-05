@@ -19,6 +19,7 @@ export type Readonly<T> = {
 };
 
 export type Orientation = 'vertical' | 'horizontal';
+export type Orientations = Orientation[];
 
 export type ResponsiveArrayValue<D> = [D?, D?, D?, D?, D?, D?];
 export type ResponsiveObjectValue<D> = Record<Breakpoint, D>;
