@@ -2,6 +2,7 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import classNames from 'classnames';
+import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
@@ -30,14 +31,16 @@ const Text = forwardRef(function Text<Element extends TextElement = TextDefaultE
 		children,
 		className = __DEFAULT_CLASSNAME__,
 		align = __DEFAULT_TEXT_ALIGN__,
+		color,
 		fontSize = __DEFAULT_TEXT_FONT_SIZE__,
 		fontWeight = __DEFAULT_TEXT_FONT_WEIGHT__,
 		lineHeight = __DEFAULT_TEXT_LINE_HEIGHT__,
-		transform = __DEFAULT_TEXT_TRANSFORM__,
+		textTransform = __DEFAULT_TEXT_TRANSFORM__,
 		isItalic: italic = __DEFAULT_TEXT_IS_ITALIC__,
 		isOverflown: overflown = __DEFAULT_TEXT_IS_OVERFLOWN__,
 		whitespace = __DEFAULT_TEXT_WHITESPACE__,
 		wordBreak = __DEFAULT_TEXT_WORD_BREAK__,
+		sx,
 		...rest
 	} = props;
 
@@ -46,10 +49,11 @@ const Text = forwardRef(function Text<Element extends TextElement = TextDefaultE
 
 	const classes = useGetTextClasses<Element>({
 		align,
+		color,
 		fontSize,
 		fontWeight,
 		lineHeight,
-		transform,
+		textTransform,
 		isItalic,
 		isOverflown,
 		whitespace,
@@ -61,6 +65,7 @@ const Text = forwardRef(function Text<Element extends TextElement = TextDefaultE
 			{...rest}
 			ref={ref}
 			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-text`, classes, { [className]: !!className })}
+			sx={color.includes('#') ? merge({ color }, sx) : sx}
 		>
 			{children}
 		</Box>

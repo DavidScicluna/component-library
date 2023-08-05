@@ -98,8 +98,8 @@ export default {
 			options: ['none', 'tight', 'snug', 'normal', 'relaxed', 'loose', 3, 4, 5, 6, 7, 8, 9, 10] as LineHeightsArr,
 			control: { type: 'radio' }
 		},
-		transform: {
-			name: 'Transform',
+		textTransform: {
+			name: 'Text Transform',
 			type: 'string',
 			defaultValue: __DEFAULT_TEXT_TRANSFORM__,
 			// description: '',

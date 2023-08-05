@@ -28,10 +28,11 @@ import type { TextElement, TextProps } from '../types';
 type UseGetTextClassesProps<Element extends TextElement> = Pick<
 	TextProps<Element>,
 	| 'align'
+	| 'color'
 	| 'fontSize'
 	| 'fontWeight'
 	| 'lineHeight'
-	| 'transform'
+	| 'textTransform'
 	| 'isItalic'
 	| 'isOverflown'
 	| 'whitespace'
@@ -44,10 +45,11 @@ const useGetTextClasses = <Element extends TextElement>(
 ): UseGetTextClassesReturn => {
 	const {
 		align = __DEFAULT_TEXT_ALIGN__,
+		color: colorClassName,
 		fontSize = __DEFAULT_TEXT_FONT_SIZE__,
 		fontWeight = __DEFAULT_TEXT_FONT_WEIGHT__,
 		lineHeight = __DEFAULT_TEXT_LINE_HEIGHT__,
-		transform = __DEFAULT_TEXT_TRANSFORM__,
+		textTransform = __DEFAULT_TEXT_TRANSFORM__,
 		isItalic = __DEFAULT_TEXT_IS_ITALIC__,
 		isOverflown = __DEFAULT_TEXT_IS_OVERFLOWN__,
 		whitespace = __DEFAULT_TEXT_WHITESPACE__,
@@ -58,19 +60,21 @@ const useGetTextClasses = <Element extends TextElement>(
 	const fontSizeClassName = useGetClass<FontSize>(fontSize, ['typography', 'fontSize']);
 	const fontWeightClassName = useGetClass<FontWeight>(fontWeight, ['typography', 'fontWeight']);
 	const lineHeightClassName = useGetClass<LineHeight>(lineHeight, ['typography', 'lineHeight']);
-	const transformClassName = useGetClass<TextTransform>(transform, ['typography', 'transform']);
+	const textTransformClassName = useGetClass<TextTransform>(textTransform, ['typography', 'transform']);
 	const whitespaceClassName = useGetClass<Whitespace>(whitespace, ['typography', 'whitespace']);
 	const wordBreakClassName = useGetClass<WordBreak>(wordBreak, ['typography', 'wordBreak']);
 
 	return classNames(
 		alignClassName,
+		colorClassName,
 		fontSizeClassName,
 		fontWeightClassName,
 		lineHeightClassName,
-		transformClassName,
+		textTransformClassName,
 		whitespaceClassName,
 		wordBreakClassName,
 		{
+			[colorClassName]: !colorClassName.includes('#'),
 			['italic']: isItalic,
 			['not-italic']: !isItalic,
 			['truncate']: isOverflown

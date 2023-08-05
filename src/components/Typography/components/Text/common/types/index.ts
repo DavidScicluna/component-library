@@ -1,6 +1,7 @@
 import type { ElementType } from 'react';
 
 import type { PickFrom, ResponsiveValue } from '@common/types';
+import type { TextColor } from '@common/types/classes';
 import type {
 	FontSize,
 	FontWeight,
@@ -18,10 +19,11 @@ export type TextElement = PickFrom<ElementType, 'p' | 'h1' | 'h2' | 'h3' | 'h4' 
 
 type TextOtherProps = {
 	align?: ResponsiveValue<TextAlign>;
+	color: TextColor | string;
 	fontSize?: ResponsiveValue<FontSize>;
 	fontWeight?: ResponsiveValue<FontWeight>;
 	lineHeight?: ResponsiveValue<LineHeight>;
-	transform?: ResponsiveValue<TextTransform>;
+	textTransform?: ResponsiveValue<TextTransform>;
 	isItalic?: ResponsiveValue<boolean>;
 	isOverflown?: ResponsiveValue<boolean>;
 	whitespace?: ResponsiveValue<Whitespace>;
