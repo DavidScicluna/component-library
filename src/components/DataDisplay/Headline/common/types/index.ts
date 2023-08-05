@@ -1,45 +1,21 @@
-import { ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
 
-import { StackProps, TextProps } from '@chakra-ui/react';
+import type { CommonAppThemeProps, Space } from '@common/types/theme';
 
-import { CommonThemeProps } from '../../../../../common/types';
-import {
-	BoxBackground,
-	BoxColor,
-	BoxFilter,
-	BoxFlexbox,
-	BoxGradient,
-	BoxGrid,
-	BoxOther,
-	BoxPseudo,
-	BoxShadow,
-	BoxTypography
-} from '../../../../../common/types/box';
+import type { BoxProps, BoxRef } from '@components/Box/common/types';
+import type { TextProps } from '@components/Typography/components/Text/common/types';
 
-export type HeadlineRenderProps = Pick<HeadlineProps, 'color' | 'colorMode'> & {
-	width?: number; // In Pixels
-	height?: number; // In Pixels
-	// size?: ButtonSize;
-};
+export type HeadlineRenderProps = { w: string; h: string };
 
-type Omitted =
-	| BoxColor
-	| BoxGradient
-	| BoxTypography
-	| BoxFlexbox
-	| BoxGrid
-	| BoxBackground
-	| BoxShadow
-	| BoxFilter
-	| BoxPseudo
-	| BoxOther
-	| 'as'
-	| 'direction';
-
-export type HeadlineProps = Omit<StackProps, Omitted> & {
+type HeadlineOtherProps = CommonAppThemeProps & {
+	renderLeft?: (props: HeadlineRenderProps) => ReactNode;
+	renderRight?: (props: HeadlineRenderProps) => ReactNode;
 	renderCaption?: (props: TextProps) => ReactNode;
 	renderTitle: (props: TextProps) => ReactNode;
 	renderSubtitle?: (props: TextProps) => ReactNode;
-	renderLeft?: (props: HeadlineRenderProps) => ReactNode;
-	renderRight?: (props: HeadlineRenderProps) => ReactNode;
-} & CommonThemeProps;
+	spacing?: Space;
+};
+
+export type HeadlineProps<Element extends ElementType> = BoxProps<Element, HeadlineOtherProps>;
+
+export type HeadlineRef<Element extends ElementType> = BoxRef<Element>;
