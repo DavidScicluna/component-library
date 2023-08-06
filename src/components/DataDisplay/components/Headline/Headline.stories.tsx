@@ -5,7 +5,7 @@ import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 import { Center } from '@components/Layout';
 import Text from '@components/Typography/components/Text';
 
-import { useStorybookContext } from '../../../../.storybook/preview';
+import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import type { HeadlineProps } from './common/types';
 import type { HeadlineStory, HeadlineStoryMeta } from './common/types/story';

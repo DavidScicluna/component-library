@@ -4,7 +4,7 @@ import { __DEFAULT_BORDER_WIDTH__, __DEFAULT_SPACING__ } from '@common/constants
 import type { Orientations } from '@common/types';
 import type { BorderWidthArr } from '@common/types/classes';
 
-import { useStorybookContext } from '../../../../.storybook/preview';
+import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import {
 	__DEFAULT_DIVIDER_ORIENTATION__,

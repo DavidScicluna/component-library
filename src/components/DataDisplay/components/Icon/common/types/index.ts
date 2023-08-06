@@ -1,11 +1,10 @@
 import type { ElementType } from 'react';
 
 import type { PickFrom } from '@common/types';
+import type { IconType } from '@common/types/icons';
 import type { CommonAppThemeProps } from '@common/types/theme';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
-
-import type { IconType } from '../../../../../common/types/icons';
 
 export type IconElement = PickFrom<ElementType, 'span'>;
 

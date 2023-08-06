@@ -5,10 +5,9 @@ import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { useGetColor } from '@common/hooks';
 
 import { Grid, GridItem, VStack } from '@components/Layout';
-
-import { useGetColor } from '../../../common/hooks';
 
 import type { HeadlineProps, HeadlineRef } from './common/types';
 
