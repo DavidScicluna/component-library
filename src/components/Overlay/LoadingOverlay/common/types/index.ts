@@ -1,52 +1,17 @@
-import { ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
 
-import { BoxProps } from '@chakra-ui/react';
+import type { CommonAppThemeProps } from '@common/types/theme';
 
-import { CommonThemeProps, Nullable } from '../../../../../common/types';
-import {
-	BoxBackground,
-	BoxBorderRadius,
-	BoxBorders,
-	BoxColor,
-	BoxFilter,
-	BoxFlexbox,
-	BoxGradient,
-	BoxGrid,
-	BoxLayout,
-	BoxMargin,
-	BoxOther,
-	BoxPadding,
-	BoxPosition,
-	BoxPseudo,
-	BoxShadow,
-	BoxTypography
-} from '../../../../../common/types/box';
+import type { BoxProps, BoxRef } from '@components/Box/common/types';
+import type { GlassProps } from '@components/Overlay/components/Glass/common/types';
 
-type Omitted =
-	| BoxMargin
-	| BoxPadding
-	| BoxColor
-	| BoxGradient
-	| BoxTypography
-	| BoxLayout
-	| BoxFlexbox
-	| BoxGrid
-	| BoxBackground
-	| BoxBorders
-	| BoxBorderRadius
-	| BoxPosition
-	| BoxShadow
-	| BoxFilter
-	| BoxPseudo
-	| BoxOther
-	| 'as';
-
-export type LoadingOverlayProps = Omit<BoxProps, Omitted> & {
+type LoadingOverlayOtherProps<Element extends ElementType> = CommonAppThemeProps & {
 	renderSpinner: () => ReactNode;
-
 	isLoading: boolean;
 	hasGlass?: boolean;
 	hasBackdrop?: boolean;
-} & CommonThemeProps;
+} & Pick<GlassProps<Element>, 'blur'>;
 
-export type LoadingOverlayRef = Nullable<HTMLDivElement>;
+export type LoadingOverlayProps<Element extends ElementType> = BoxProps<Element, LoadingOverlayOtherProps<Element>>;
+
+export type LoadingOverlayRef<Element extends ElementType> = BoxRef<Element>;
