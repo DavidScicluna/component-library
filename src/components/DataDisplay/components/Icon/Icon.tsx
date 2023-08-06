@@ -7,7 +7,7 @@ import { merge } from 'lodash-es';
 import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { getIconFontFamily } from '@common/utils';
 
-import Skeleton from '@components/Feedback/Skeleton';
+import { Skeleton } from '@components/Feedback';
 import { Center } from '@components/Layout';
 import useIconFontContext from '@components/Provider/common/hooks/useIconFontContext';
 
