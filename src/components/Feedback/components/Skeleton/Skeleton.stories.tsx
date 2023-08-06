@@ -11,7 +11,7 @@ import type { RadiiArr } from '@common/types/theme';
 import { Center } from '@components/Layout';
 import Text from '@components/Typography/components/Text';
 
-import { useStorybookContext } from '../../../../.storybook/preview';
+import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import { __DEFAULT_SKELETON_IS_ANIMATED__, __DEFAULT_SKELETON_IS_LOADED__ } from './common/constants';
 import type { SkeletonProps } from './common/types';

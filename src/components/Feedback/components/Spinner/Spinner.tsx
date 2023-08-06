@@ -10,12 +10,11 @@ import {
 	__DEFAULT_CLASSNAME__,
 	__DEFAULT_RADIUS__
 } from '@common/constants';
+import { useTheme } from '@common/hooks';
+import { convertREMToPixels, convertStringToNumber } from '@common/utils';
 import { getAnimationDuration } from '@common/utils/animation';
 
 import Box from '@components/Box';
-
-import { useTheme } from '../../../common/hooks';
-import { convertREMToPixels, convertStringToNumber } from '../../../common/utils';
 
 import {
 	__DEFAULT_SPINNER_IS_VISIBLE__,
