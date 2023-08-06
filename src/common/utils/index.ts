@@ -5,7 +5,7 @@ import theme from '@common/theme';
 import type { ResponsiveArrayValue, ResponsiveObjectValue, ResponsiveValue } from '@common/types';
 import type { Breakpoint, FontSize, LineHeight } from '@common/types/theme';
 
-import type { IconCategory } from '@components/DataDisplay/Icon/common/types';
+import type { IconCategory } from '@components/DataDisplay';
 
 export const getIconFontFamily = memoize((category: IconCategory): string => {
 	return `'${compact([

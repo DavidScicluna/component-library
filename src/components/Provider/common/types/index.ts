@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import type { AnimationDelay, AnimationDuration, AnimationEasing } from '@common/types/animation';
 import type { ColorMode, CommonAppThemeProps } from '@common/types/theme';
 
-import type { IconCategory } from '@components/DataDisplay/Icon/common/types';
+import type { IconCategory } from '@components/DataDisplay';
 
 export type ProviderProps = Pick<CommonAppThemeProps, 'color'> & {
 	children: ReactNode;

@@ -13,7 +13,7 @@ import {
 } from '@common/keys';
 import { getIconFontFamily } from '@common/utils';
 
-import type { IconCategory } from '@components/DataDisplay/Icon/common/types';
+import type { IconCategory } from '@components/DataDisplay';
 
 type useGetIconFontStatusReturn = Record<IconCategory, boolean>;
 
