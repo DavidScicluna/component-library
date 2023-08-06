@@ -16,6 +16,12 @@ type GlassOtherProps = CommonAppThemeProps & {
 	 */
 	blur?: ResponsiveValue<GlassBlur>;
 	/**
+	 * If `true` the blur will be a backdrop filter blur else it will be a normal blur
+	 *
+	 * @default true
+	 */
+	isBackdrop?: boolean;
+	/**
 	 * If `true` a background depending on color & colorMode will be shown alongside the blur effect
 	 *
 	 * @default true

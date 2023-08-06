@@ -12,7 +12,11 @@ import Text from '@components/Typography/components/Text';
 
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
-import { __DEFAULT_GLASS_BLUR__, __DEFAULT_GLASS_HAS_BACKGROUND__ } from './common/constants';
+import {
+	__DEFAULT_GLASS_BLUR__,
+	__DEFAULT_GLASS_HAS_BACKGROUND__,
+	__DEFAULT_GLASS_IS_BACKDROP__
+} from './common/constants';
 import type { GlassProps } from './common/types';
 import type { GlassStory, GlassStoryMeta } from './common/types/story';
 import GlassComponent from '.';
@@ -43,6 +47,13 @@ export default {
 				'9xl'
 			] as BackdropBlurArr,
 			control: { type: 'radio' }
+		},
+		isBackdrop: {
+			name: 'Backdrop',
+			type: 'boolean',
+			defaultValue: __DEFAULT_GLASS_IS_BACKDROP__,
+			// description: '',
+			control: { type: 'boolean' }
 		},
 		hasBackground: {
 			name: 'Has Background',

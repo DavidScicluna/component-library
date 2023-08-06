@@ -10,7 +10,11 @@ import { useGetColor } from '@common/hooks';
 import Box from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
 
-import { __DEFAULT_GLASS_BLUR__, __DEFAULT_GLASS_HAS_BACKGROUND__ } from './common/constants';
+import {
+	__DEFAULT_GLASS_BLUR__,
+	__DEFAULT_GLASS_HAS_BACKGROUND__,
+	__DEFAULT_GLASS_IS_BACKDROP__
+} from './common/constants';
 import { useGetGlassClasses } from './common/hooks';
 import type { GlassProps, GlassRef } from './common/types';
 
@@ -24,13 +28,14 @@ const Glass = forwardRef(function Glass<Element extends ElementType>(
 		color,
 		colorMode,
 		blur = __DEFAULT_GLASS_BLUR__,
+		isBackdrop = __DEFAULT_GLASS_IS_BACKDROP__,
 		hasBackground = __DEFAULT_GLASS_HAS_BACKGROUND__,
 		...rest
 	} = props;
 
 	const background = useGetColor({ color, colorMode, colorType: color ? 'color' : 'default', hueType: 'background' });
 
-	const classes = useGetGlassClasses<Element>({ blur });
+	const classes = useGetGlassClasses<Element>({ blur, isBackdrop });
 
 	return (
 		<Grid<Element>
