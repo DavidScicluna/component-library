@@ -3,7 +3,6 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 import { transparentize } from 'color2k';
-import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
@@ -24,7 +23,6 @@ const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends Elem
 		color,
 		colorMode,
 		amount = __DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
-		sx,
 		...rest
 	} = props;
 
@@ -48,7 +46,7 @@ const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends Elem
 			<GridItem rowStart={1} columnStart={1}>
 				<Box
 					className={classNames('w-full', 'h-full')}
-					sx={merge({ background: transparentize(background, amount) }, sx)}
+					sx={{ background: transparentize(background, amount) }}
 				/>
 			</GridItem>
 
