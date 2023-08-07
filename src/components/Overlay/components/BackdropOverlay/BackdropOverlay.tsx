@@ -43,7 +43,7 @@ const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends Elem
 			justifyContent='stretch'
 			spacing={0}
 		>
-			<GridItem rowStart={1} columnStart={1}>
+			<GridItem columnStart={1} rowStart={1}>
 				<Box
 					className={classNames('w-full', 'h-full')}
 					sx={{ background: transparentize(background, amount) }}
@@ -51,7 +51,7 @@ const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends Elem
 			</GridItem>
 
 			{children ? (
-				<GridItem rowStart={1} columnStart={1} zIndex={1}>
+				<GridItem columnStart={1} rowStart={1} zIndex={1}>
 					{children}
 				</GridItem>
 			) : null}

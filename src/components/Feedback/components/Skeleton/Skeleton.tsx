@@ -52,14 +52,14 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 			spacing={0}
 		>
 			{children ? (
-				<GridItem rowStart={1} columnStart={1} zIndex={1}>
+				<GridItem columnStart={1} rowStart={1} zIndex={1}>
 					<Fade className={classes.common} in={isLoaded} transition={transition} unmountOnExit={false}>
 						{children}
 					</Fade>
 				</GridItem>
 			) : null}
 
-			<GridItem rowStart={1} columnStart={1}>
+			<GridItem columnStart={1} rowStart={1}>
 				<Fade
 					className={classes.common}
 					in={children ? !isLoaded : true}

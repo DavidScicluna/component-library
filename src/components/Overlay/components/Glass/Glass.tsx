@@ -50,14 +50,14 @@ const Glass = forwardRef(function Glass<Element extends ElementType>(
 			justifyContent='stretch'
 			spacing={0}
 		>
-			<GridItem rowStart={1} columnStart={1} zIndex={1}>
+			<GridItem columnStart={1} rowStart={1} zIndex={1}>
 				<Box
 					className={classes}
 					sx={hasBackground ? { background: transparentize(background, 0.5) } : undefined}
 				/>
 			</GridItem>
 
-			<GridItem rowStart={1} columnStart={1}>
+			<GridItem columnStart={1} rowStart={1}>
 				{children}
 			</GridItem>
 		</Grid>
