@@ -1,46 +1,27 @@
-import { ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
 
-import { GridProps } from '@chakra-ui/react';
+import type { CommonAppThemeProps } from '@common/types/theme';
 
-import { Nullable } from '../../../../../common/types';
-import {
-	BoxColor,
-	BoxFilter,
-	BoxFlexbox,
-	BoxGradient,
-	BoxGrid,
-	BoxOther,
-	BoxPosition,
-	BoxPseudo,
-	BoxShadow
-} from '../../../../../common/types/box';
+import type { BoxProps, BoxRef } from '@components/Box/common/types';
+import type { GlassProps } from '@components/Overlay/components/Glass/common/types';
 
 export type StateOverlayState = 'success' | 'error' | 'empty' | 'loading' | 'default';
 
-export type StateOverlayRenderProps = Pick<StateOverlayProps, 'state'>;
-
-type Omitted =
-	| BoxColor
-	| BoxGradient
-	| BoxFlexbox
-	| BoxGrid
-	| BoxPosition
-	| BoxShadow
-	| BoxFilter
-	| BoxPseudo
-	| BoxOther
-	| 'as'
-	| 'children';
-
-export type StateOverlayProps = Omit<GridProps, Omitted> & {
-	renderSuccess?: (props: StateOverlayRenderProps) => ReactNode;
-	renderError?: (props: StateOverlayRenderProps) => ReactNode;
-	renderEmpty?: (props: StateOverlayRenderProps) => ReactNode;
-	renderSpinner?: (props: StateOverlayRenderProps) => ReactNode;
-	renderContent: (props: StateOverlayRenderProps) => ReactNode;
+type StateOverlayOtherProps<Element extends ElementType> = CommonAppThemeProps & {
+	renderSuccess?: (state: StateOverlayState) => ReactNode;
+	renderError?: (state: StateOverlayState) => ReactNode;
+	renderEmpty?: (state: StateOverlayState) => ReactNode;
+	renderSpinner?: (state: StateOverlayState) => ReactNode;
 	hasGlass?: boolean;
-	hasContentAlwaysVisible?: boolean;
+	isAlwaysVisible?: boolean;
 	state: StateOverlayState;
+} & Pick<GlassProps<Element>, 'blur'>;
+
+export type StateOverlayProps<Element extends ElementType> = Omit<
+	BoxProps<Element, StateOverlayOtherProps<Element>>,
+	'children'
+> & {
+	children: (state: StateOverlayState) => ReactNode;
 };
 
-export type StateOverlayRef = Nullable<HTMLDivElement>;
+export type StateOverlayRef<Element extends ElementType> = BoxRef<Element>;
