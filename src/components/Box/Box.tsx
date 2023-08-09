@@ -16,7 +16,7 @@ import {
 } from '@common/constants';
 
 import { useGetBoxStyles } from './common/hooks';
-import otherProps from './common/keys';
+import { __KEYS_BOX__ } from './common/keys';
 import type { BoxProps, BoxRef } from './common/types';
 
 const Box = forwardRef(function Box<
@@ -31,11 +31,11 @@ const Box = forwardRef(function Box<
 		...rest
 	} = props;
 
-	const styles = useGetBoxStyles(pick({ ...rest }, otherProps));
+	const styles = useGetBoxStyles(pick({ ...rest }, __KEYS_BOX__));
 
 	return (
 		<Component
-			{...omit({ ...rest }, otherProps)}
+			{...omit({ ...rest }, __KEYS_BOX__)}
 			ref={ref}
 			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-box`, { [className]: !!className })}
 			css={merge(styles, sx)}

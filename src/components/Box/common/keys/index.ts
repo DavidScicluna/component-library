@@ -1,6 +1,6 @@
 import type { BoxOtherProps } from '../types';
 
-const otherProps: (keyof BoxOtherProps)[] = [
+export const __KEYS_BOX__: (keyof BoxOtherProps)[] = [
 	'w',
 	'minW',
 	'maxW',
@@ -22,5 +22,3 @@ const otherProps: (keyof BoxOtherProps)[] = [
 	'mr',
 	'mb'
 ];
-
-export default otherProps;

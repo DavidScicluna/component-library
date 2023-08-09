@@ -11,7 +11,7 @@ import Text from '@components/Typography/components/Text';
 
 import type { BoxProps } from './common/types';
 import type { BoxStory, BoxStoryMeta } from './common/types/story';
-import BoxComponent from '.';
+import { Box as BoxComponent } from '.';
 
 export default {
 	title: 'Box',
