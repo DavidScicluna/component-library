@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 
-import Box from '@components/Box';
+import { Box } from '@components/Box';
 
 import type { MotionBoxProps, MotionBoxRef } from './common/types';
 

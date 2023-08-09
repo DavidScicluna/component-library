@@ -13,11 +13,11 @@ import {
 	__DEFAULT_TRANSITION_IN__,
 	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
 } from '../../common/constants';
-import AnimatePresence from '../AnimatePresence';
-import MotionBox from '../MotionBox';
+import { AnimatePresence } from '../AnimatePresence';
+import { MotionBox } from '../MotionBox';
 
 import { __DEFAULT_POP_INITIAL_SCALE__, __DEFAULT_POP_IS_REVERSED__ } from './common/constants';
-import otherProps from './common/keys';
+import { __KEYS_POP__ } from './common/keys';
 import type { PopProps, PopRef } from './common/types';
 
 const config = __DEFAULT_TRANSITION_CONFIG__;
@@ -56,13 +56,13 @@ const Pop = forwardRef<PopRef, PopProps>(function Pop(props, ref): ReactElement 
 	const animate = isOpen || unmountOnExit ? 'enter' : 'exit';
 	const isVisible = unmountOnExit ? isOpen && unmountOnExit : true;
 
-	const custom = pick({ ...rest }, otherProps);
+	const custom = pick({ ...rest }, __KEYS_POP__);
 
 	return (
 		<AnimatePresence custom={custom}>
 			{isVisible ? (
 				<MotionBox
-					{...omit({ ...rest }, otherProps)}
+					{...omit({ ...rest }, __KEYS_POP__)}
 					{...config}
 					ref={ref}
 					className={classNames(`${__DEFAULT_CLASS_PREFIX__}-pop`, { [className]: !!className })}

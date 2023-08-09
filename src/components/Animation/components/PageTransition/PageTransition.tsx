@@ -13,11 +13,11 @@ import {
 	__DEFAULT_TRANSITION_IN__,
 	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
 } from '../../common/constants';
-import AnimatePresence from '../AnimatePresence';
-import MotionBox from '../MotionBox';
+import { AnimatePresence } from '../AnimatePresence';
+import { MotionBox } from '../MotionBox';
 
 import { __DEFAULT_PAGE_TRANSITION_BLUR__ } from './common/constants';
-import otherProps from './common/keys';
+import { __KEYS_PAGE_TRANSITION__ } from './common/keys';
 import type { PageTransitionProps, PageTransitionRef } from './common/types';
 
 const config = __DEFAULT_TRANSITION_CONFIG__;
@@ -59,13 +59,13 @@ const PageTransition = forwardRef<PageTransitionRef, PageTransitionProps>(functi
 	const animate = isOpen || unmountOnExit ? 'enter' : 'exit';
 	const isVisible = unmountOnExit ? isOpen && unmountOnExit : true;
 
-	const custom = pick({ ...rest }, otherProps);
+	const custom = pick({ ...rest }, __KEYS_PAGE_TRANSITION__);
 
 	return (
 		<AnimatePresence custom={custom}>
 			{isVisible ? (
 				<MotionBox
-					{...omit({ ...rest }, otherProps)}
+					{...omit({ ...rest }, __KEYS_PAGE_TRANSITION__)}
 					{...config}
 					ref={ref}
 					className={classNames(`${__DEFAULT_CLASS_PREFIX__}-page-transition`, { [className]: !!className })}

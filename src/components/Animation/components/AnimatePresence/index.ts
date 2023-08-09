@@ -1,3 +1,8 @@
+import type { AnimatePresenceProps } from './common/types';
 import AnimatePresence from './AnimatePresence';
 
-export default AnimatePresence;
+// Components
+export { AnimatePresence };
+
+// Component Types
+export type { AnimatePresenceProps };

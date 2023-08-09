@@ -13,8 +13,8 @@ import {
 	__DEFAULT_TRANSITION_IN__,
 	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
 } from '../../common/constants';
-import AnimatePresence from '../AnimatePresence';
-import MotionBox from '../MotionBox';
+import { AnimatePresence } from '../AnimatePresence';
+import { MotionBox } from '../MotionBox';
 
 import {
 	__DEFAULT_COLLAPSE_AXIS__,
@@ -24,7 +24,7 @@ import {
 	__DEFAULT_COLLAPSE_STARTING_HEIGHT__,
 	__DEFAULT_COLLAPSE_STARTING_WIDTH__
 } from './common/constants';
-import otherProps from './common/keys';
+import { __KEYS_COLLAPSE__, __KEYS_COLLAPSE_X_AXIS__, __KEYS_COLLAPSE_Y_AXIS__ } from './common/keys';
 import type { CollapseProps, CollapseRef } from './common/types';
 
 const config = __DEFAULT_TRANSITION_CONFIG__;
@@ -74,13 +74,17 @@ const Collapse = forwardRef<CollapseRef, CollapseProps>(function Collapse(props,
 	const animate = isOpen || unmountOnExit ? 'enter' : 'exit';
 	const isVisible = unmountOnExit ? isOpen && unmountOnExit : true;
 
-	const custom = pick({ ...rest }, otherProps);
+	const custom = pick({ ...rest }, [...__KEYS_COLLAPSE__, ...__KEYS_COLLAPSE_X_AXIS__, ...__KEYS_COLLAPSE_Y_AXIS__]);
 
 	return (
 		<AnimatePresence custom={custom}>
 			{isVisible ? (
 				<MotionBox
-					{...omit({ ...rest }, otherProps)}
+					{...omit({ ...rest }, [
+						...__KEYS_COLLAPSE__,
+						...__KEYS_COLLAPSE_X_AXIS__,
+						...__KEYS_COLLAPSE_Y_AXIS__
+					])}
 					{...config}
 					ref={ref}
 					className={classNames(`${__DEFAULT_CLASS_PREFIX__}-collapse`, { [className]: !!className })}

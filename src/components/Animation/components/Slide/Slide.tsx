@@ -13,15 +13,15 @@ import {
 	__DEFAULT_TRANSITION_IN__,
 	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
 } from '../../common/constants';
-import AnimatePresence from '../AnimatePresence';
-import MotionBox from '../MotionBox';
+import { AnimatePresence } from '../AnimatePresence';
+import { MotionBox } from '../MotionBox';
 
 import {
 	__DEFAULT_SLIDE_IS_REVERSED__,
 	__DEFAULT_SLIDE_OFFSET_X__,
 	__DEFAULT_SLIDE_OFFSET_Y__
 } from './common/constants';
-import otherProps from './common/keys';
+import { __KEYS_SLIDE__ } from './common/keys';
 import type { SlideProps, SlideRef } from './common/types';
 
 const config = { ...__DEFAULT_TRANSITION_CONFIG__, initial: 'initial' };
@@ -73,13 +73,13 @@ const Slide = forwardRef<SlideRef, SlideProps>(function Slide(props, ref): React
 	const animate = isOpen || unmountOnExit ? 'enter' : 'exit';
 	const isVisible = unmountOnExit ? isOpen && unmountOnExit : true;
 
-	const custom = pick({ ...rest }, otherProps);
+	const custom = pick({ ...rest }, __KEYS_SLIDE__);
 
 	return (
 		<AnimatePresence custom={custom}>
 			{isVisible ? (
 				<MotionBox
-					{...omit({ ...rest }, otherProps)}
+					{...omit({ ...rest }, __KEYS_SLIDE__)}
 					{...config}
 					ref={ref}
 					className={classNames(`${__DEFAULT_CLASS_PREFIX__}-slide`, { [className]: !!className })}

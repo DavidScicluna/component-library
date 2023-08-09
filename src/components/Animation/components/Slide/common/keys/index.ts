@@ -1,5 +1,3 @@
 import type { SlideProps } from '../types';
 
-const otherProps: (keyof SlideProps)[] = ['offsetX', 'offsetY', 'transition', 'transitionEnd', 'isReversed'];
-
-export default otherProps;
+export const __KEYS_SLIDE__: (keyof SlideProps)[] = ['offsetX', 'offsetY', 'transition', 'transitionEnd', 'isReversed'];

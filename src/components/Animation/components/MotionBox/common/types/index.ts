@@ -5,7 +5,7 @@ import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 import type { TransitionProps } from '@components/Animation';
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
-type MotionBoxElement = PolymorphicDefaultElement;
+export type MotionBoxElement = PolymorphicDefaultElement;
 
 export type MotionBoxProps = BoxProps<MotionBoxElement, TransitionProps & MotionProps>;
 

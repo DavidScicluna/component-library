@@ -2,7 +2,7 @@ import type { Target, TargetAndTransition, Transition } from 'framer-motion';
 
 import type { MotionBoxProps, MotionBoxRef } from '@components/Animation';
 
-type OmittedCommonAnimationProps = 'custom' | 'animate' | 'initial' | 'exit' | 'transition' | 'variants';
+type OmittedCommonAnimationProps = 'custom' | 'animate' | 'initial' | 'exit' | 'variants';
 
 export type CommonAnimationProps = Omit<MotionBoxProps, OmittedCommonAnimationProps> & {
 	/**

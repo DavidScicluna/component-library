@@ -11,7 +11,7 @@ import { __DEFAULT_TRANSITION_IN__ } from '../../common/constants';
 
 import type { SlideProps } from './common/types';
 import type { SlideStory, SlideStoryMeta } from './common/types/story';
-import SlideComponent from '.';
+import { Slide as SlideComponent } from '.';
 
 export default {
 	title: 'Animation/Slide',

@@ -13,10 +13,10 @@ import {
 	__DEFAULT_TRANSITION_IN__,
 	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
 } from '../../common/constants';
-import AnimatePresence from '../AnimatePresence';
-import MotionBox from '../MotionBox';
+import { AnimatePresence } from '../AnimatePresence';
+import { MotionBox } from '../MotionBox';
 
-import otherProps from './common/keys';
+import { __KEYS_FADE__ } from './common/keys';
 import type { FadeProps, FadeRef } from './common/types';
 
 const config = __DEFAULT_TRANSITION_CONFIG__;
@@ -45,13 +45,13 @@ const Fade = forwardRef<FadeRef, FadeProps>(function Fade(props, ref): ReactElem
 	const animate = isOpen || unmountOnExit ? 'enter' : 'exit';
 	const isVisible = unmountOnExit ? isOpen && unmountOnExit : true;
 
-	const custom = pick({ ...rest }, otherProps);
+	const custom = pick({ ...rest }, __KEYS_FADE__);
 
 	return (
 		<AnimatePresence custom={custom}>
 			{isVisible ? (
 				<MotionBox
-					{...omit({ ...rest }, otherProps)}
+					{...omit({ ...rest }, __KEYS_FADE__)}
 					{...config}
 					ref={ref}
 					className={classNames(`${__DEFAULT_CLASS_PREFIX__}-fade`, { [className]: !!className })}

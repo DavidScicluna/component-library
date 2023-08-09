@@ -12,7 +12,7 @@ import { __DEFAULT_TRANSITION_IN__ } from '../../common/constants';
 import { __DEFAULT_POP_INITIAL_SCALE__, __DEFAULT_POP_IS_REVERSED__ } from './common/constants';
 import type { PopProps } from './common/types';
 import type { PopStory, PopStoryMeta } from './common/types/story';
-import PopComponent from '.';
+import { Pop as PopComponent } from '.';
 
 export default {
 	title: 'Animation/Pop',

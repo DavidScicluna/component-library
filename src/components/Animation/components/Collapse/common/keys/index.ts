@@ -1,7 +1,5 @@
 import type { CollapseProps, CollapseXAxisProps, CollapseYAxisProps } from '../types';
 
-const otherProps: (keyof CollapseProps)[] = ['axis', 'transition', 'transitionEnd', 'isOpacityAnimated'];
-const otherXAxisProps: (keyof CollapseXAxisProps)[] = ['startingWidth', 'endingWidth'];
-const otherYAxisProps: (keyof CollapseYAxisProps)[] = ['startingHeight', 'endingHeight'];
-
-export default [...otherProps, ...otherXAxisProps, ...otherYAxisProps];
+export const __KEYS_COLLAPSE__: (keyof CollapseProps)[] = ['axis', 'transition', 'transitionEnd', 'isOpacityAnimated'];
+export const __KEYS_COLLAPSE_X_AXIS__: (keyof CollapseXAxisProps)[] = ['startingWidth', 'endingWidth'];
+export const __KEYS_COLLAPSE_Y_AXIS__: (keyof CollapseYAxisProps)[] = ['startingHeight', 'endingHeight'];

@@ -1,5 +1,3 @@
 import type { FadeProps } from '../types';
 
-const otherProps: (keyof FadeProps)[] = ['transition', 'transitionEnd'];
-
-export default otherProps;
+export const __KEYS_FADE__: (keyof FadeProps)[] = ['transition', 'transitionEnd'];

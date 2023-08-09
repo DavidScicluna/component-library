@@ -1,81 +1,58 @@
-import {
-	__DEFAULT_TRANSITION__,
-	__DEFAULT_TRANSITION_CONFIG__,
-	__DEFAULT_TRANSITION_EASINGS__,
-	__DEFAULT_TRANSITION_END__,
-	__DEFAULT_TRANSITION_IN__,
-	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
-} from './common/constants';
+import * as commonConstants from './common/constants';
 import type {
-	CommonAnimationProps,
-	CommonAnimationRef,
 	TransitionConfig,
 	TransitionDelay,
 	TransitionEndConfig,
 	TransitionProps,
 	Variants as TransitionVariants
 } from './common/types';
-import AnimatePresence from './components/AnimatePresence';
-import type { AnimatePresenceProps } from './components/AnimatePresence/common/types';
-import Collapse from './components/Collapse';
-import {
-	__DEFAULT_COLLAPSE_AXIS__,
-	__DEFAULT_COLLAPSE_ENDING_HEIGHT__,
-	__DEFAULT_COLLAPSE_ENDING_WIDTH__,
-	__DEFAULT_COLLAPSE_IS_OPACITY_ANIMATED__,
-	__DEFAULT_COLLAPSE_STARTING_HEIGHT__,
-	__DEFAULT_COLLAPSE_STARTING_WIDTH__
-} from './components/Collapse/common/constants';
+import type { AnimatePresenceProps } from './components/AnimatePresence';
+import { AnimatePresence } from './components/AnimatePresence';
 import type {
 	CollapseAxis,
 	CollapseProps,
 	CollapseRef,
 	CollapseXAxisProps,
 	CollapseYAxisProps
-} from './components/Collapse/common/types';
-import Fade from './components/Fade';
-import type { FadeProps, FadeRef } from './components/Fade/common/types';
-import MotionBox from './components/MotionBox';
-import type { MotionBoxProps, MotionBoxRef } from './components/MotionBox/common/types';
-import PageTransition from './components/PageTransition';
-import { __DEFAULT_PAGE_TRANSITION_BLUR__ } from './components/PageTransition/common/constants';
-import type { PageTransitionProps, PageTransitionRef } from './components/PageTransition/common/types';
-import Pop from './components/Pop';
-import { __DEFAULT_POP_INITIAL_SCALE__, __DEFAULT_POP_IS_REVERSED__ } from './components/Pop/common/constants';
-import type { PopProps, PopRef } from './components/Pop/common/types';
-import Slide from './components/Slide';
+} from './components/Collapse';
+import { Collapse, constants as collapseConstants, keys as collapseKeys } from './components/Collapse';
+import type { FadeProps, FadeRef } from './components/Fade';
+import { Fade, keys as fadeKeys } from './components/Fade';
+import type { MotionBoxElement, MotionBoxProps, MotionBoxRef } from './components/MotionBox';
+import { MotionBox } from './components/MotionBox';
+import type { PageTransitionProps, PageTransitionRef } from './components/PageTransition';
 import {
-	__DEFAULT_SLIDE_IS_REVERSED__,
-	__DEFAULT_SLIDE_OFFSET_X__,
-	__DEFAULT_SLIDE_OFFSET_Y__
-} from './components/Slide/common/constants';
-import type { SlideProps, SlideRef } from './components/Slide/common/types';
+	constants as pageTransitionConstants,
+	keys as pageTransitionKeys,
+	PageTransition
+} from './components/PageTransition';
+import type { PopProps, PopRef } from './components/Pop';
+import { constants as popConstants, keys as popKeys, Pop } from './components/Pop';
+import type { SlideProps, SlideRef } from './components/Slide';
+import { constants as slideConstants, keys as slideKeys, Slide } from './components/Slide';
 
+// Constants
 export const constants = {
-	__DEFAULT_TRANSITION__,
-	__DEFAULT_TRANSITION_CONFIG__,
-	__DEFAULT_TRANSITION_EASINGS__,
-	__DEFAULT_TRANSITION_END__,
-	__DEFAULT_TRANSITION_IN__,
-	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__,
-	__DEFAULT_COLLAPSE_AXIS__,
-	__DEFAULT_COLLAPSE_ENDING_HEIGHT__,
-	__DEFAULT_COLLAPSE_ENDING_WIDTH__,
-	__DEFAULT_COLLAPSE_IS_OPACITY_ANIMATED__,
-	__DEFAULT_COLLAPSE_STARTING_HEIGHT__,
-	__DEFAULT_COLLAPSE_STARTING_WIDTH__,
-	__DEFAULT_PAGE_TRANSITION_BLUR__,
-	__DEFAULT_POP_INITIAL_SCALE__,
-	__DEFAULT_POP_IS_REVERSED__,
-	__DEFAULT_SLIDE_IS_REVERSED__,
-	__DEFAULT_SLIDE_OFFSET_X__,
-	__DEFAULT_SLIDE_OFFSET_Y__
+	...commonConstants,
+	...collapseConstants,
+	...pageTransitionConstants,
+	...popConstants,
+	...slideConstants
+};
+
+// Keys
+export const keys = {
+	...collapseKeys,
+	...fadeKeys,
+	...pageTransitionKeys,
+	...popKeys,
+	...slideKeys
 };
 
 // Components
 export { AnimatePresence, Collapse, Fade, MotionBox, PageTransition, Pop, Slide };
 
-// Layout Components Types
+// Component Types
 export type {
 	AnimatePresenceProps,
 	CollapseAxis,
@@ -83,10 +60,9 @@ export type {
 	CollapseRef,
 	CollapseXAxisProps,
 	CollapseYAxisProps,
-	CommonAnimationProps,
-	CommonAnimationRef,
 	FadeProps,
 	FadeRef,
+	MotionBoxElement,
 	MotionBoxProps,
 	MotionBoxRef,
 	PageTransitionProps,
