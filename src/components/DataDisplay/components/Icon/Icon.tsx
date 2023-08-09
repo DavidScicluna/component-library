@@ -13,9 +13,9 @@ import useIconFontContext from '@components/Provider/common/hooks/useIconFontCon
 
 import { __DEFAULT_ICON_CATEGORY__, __DEFAULT_ICON_VARIANT__ } from './common/constants';
 import { useGetIconClasses } from './common/hooks';
-import type { IconElement, IconProps, IconRef } from './common/types';
+import type { IconDefaultElement, IconElement, IconProps, IconRef } from './common/types';
 
-const Icon = forwardRef(function Icon<Element extends IconElement>(
+const Icon = forwardRef(function Icon<Element extends IconElement = IconDefaultElement>(
 	props: IconProps<Element>,
 	ref: IconRef<Element>
 ): ReactElement {

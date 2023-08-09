@@ -5,16 +5,15 @@ import { sample } from 'lodash-es';
 
 import classes from '@common/classes';
 import icons from '@common/data/icons';
-import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import { Center } from '@components/Layout';
 
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import { __DEFAULT_ICON_CATEGORY__, __DEFAULT_ICON_VARIANT__ } from './common/constants';
-import type { IconCategory, IconProps, IconVariant } from './common/types';
+import type { IconCategory, IconDefaultElement, IconProps, IconVariant } from './common/types';
 import type { IconStory, IconStoryMeta } from './common/types/story';
-import IconComponent from '.';
+import { Icon as IconComponent } from '.';
 
 export default {
 	title: 'Data Display/Icon',
@@ -47,7 +46,7 @@ export default {
 	}
 } as IconStoryMeta;
 
-export const Icon: IconStory = (props: IconProps<PolymorphicDefaultElement>): ReactElement => {
+export const Icon: IconStory = (props: IconProps<IconDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const fontSize = classes.typography.fontSize['6xl'];

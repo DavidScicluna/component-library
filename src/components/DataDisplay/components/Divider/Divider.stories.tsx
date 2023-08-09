@@ -13,7 +13,7 @@ import {
 } from './common/constants';
 import type { DividerDefaultElement, DividerPlacement, DividerProps, DividerVariant } from './common/types';
 import type { DividerStory, DividerStoryMeta } from './common/types/story';
-import DividerComponent from '.';
+import { Divider as DividerComponent } from '.';
 
 export default {
 	title: 'Data Display/Divider',

@@ -9,7 +9,7 @@ import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import type { HeadlineProps } from './common/types';
 import type { HeadlineStory, HeadlineStoryMeta } from './common/types/story';
-import HeadlineComponent from '.';
+import { Headline as HeadlineComponent } from '.';
 
 export default {
 	title: 'Data Display/Headline',
