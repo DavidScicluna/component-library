@@ -23,7 +23,7 @@ import {
 } from './common/constants';
 import type { TextDefaultElement, TextProps } from './common/types';
 import type { TextStory, TextStoryMeta } from './common/types/story';
-import TextComponent from '.';
+import { Text as TextComponent } from '.';
 
 export default {
 	title: 'Typography/Text',
