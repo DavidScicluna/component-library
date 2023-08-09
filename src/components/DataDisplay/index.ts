@@ -1,10 +1,3 @@
-import Divider from './components/Divider';
-import {
-	__DEFAULT_DIVIDER_ORIENTATION__,
-	__DEFAULT_DIVIDER_PLACEMENT__,
-	__DEFAULT_DIVIDER_VARIANT__
-} from './components/Divider/common/constants';
-import { useGetDividerClasses, useGetDividerStyles } from './components/Divider/common/hooks';
 import type {
 	DividerDefaultElement,
 	DividerElement,
@@ -12,22 +5,20 @@ import type {
 	DividerProps,
 	DividerRef,
 	DividerVariant
-} from './components/Divider/common/types';
-import Headline from './components/Headline';
-import type { HeadlineProps, HeadlineRef, HeadlineRenderProps } from './components/Headline/common/types';
-import Icon from './components/Icon';
-import { __DEFAULT_ICON_CATEGORY__, __DEFAULT_ICON_VARIANT__ } from './components/Icon/common/constants';
-import { useGetIconClasses } from './components/Icon/common/hooks';
-import type { IconCategory, IconElement, IconProps, IconRef, IconVariant } from './components/Icon/common/types';
+} from './components/Divider';
+import {
+	constants as dividerConstants,
+	Divider,
+	useGetDividerClasses,
+	useGetDividerStyles
+} from './components/Divider';
+import type { HeadlineProps, HeadlineRef, HeadlineRenderProps } from './components/Headline';
+import { Headline } from './components/Headline';
+import type { IconCategory, IconDefaultElement, IconElement, IconProps, IconRef, IconVariant } from './components/Icon';
+import { constants as iconConstants, Icon, useGetIconClasses } from './components/Icon';
 
 // Constants
-export const constants = {
-	__DEFAULT_DIVIDER_ORIENTATION__,
-	__DEFAULT_DIVIDER_PLACEMENT__,
-	__DEFAULT_DIVIDER_VARIANT__,
-	__DEFAULT_ICON_CATEGORY__,
-	__DEFAULT_ICON_VARIANT__
-};
+export const constants = { ...dividerConstants, ...iconConstants };
 
 // Hooks
 export { useGetDividerClasses, useGetDividerStyles, useGetIconClasses };
@@ -35,7 +26,7 @@ export { useGetDividerClasses, useGetDividerStyles, useGetIconClasses };
 // Components
 export { Divider, Headline, Icon };
 
-// Components Types
+// Component Types
 export type {
 	DividerDefaultElement,
 	DividerElement,
@@ -47,6 +38,7 @@ export type {
 	HeadlineRef,
 	HeadlineRenderProps,
 	IconCategory,
+	IconDefaultElement,
 	IconElement,
 	IconProps,
 	IconRef,

@@ -11,7 +11,7 @@ import {
 	__DEFAULT_SPACING__
 } from '@common/constants';
 
-import Box from '@components/Box';
+import { Box } from '@components/Box';
 import { Center } from '@components/Layout';
 
 import {
