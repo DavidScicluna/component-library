@@ -19,7 +19,7 @@ import {
 
 import type { VStackProps } from './common/types';
 import type { VStackStory, VStackStoryMeta } from './common/types/story';
-import VStackComponent from '.';
+import { VStack as VStackComponent } from '.';
 
 export default {
 	title: 'Layout/Stacks/VStack',

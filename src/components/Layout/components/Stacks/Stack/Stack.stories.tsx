@@ -19,7 +19,7 @@ import {
 } from './common/constants';
 import type { StackProps } from './common/types';
 import type { StackStory, StackStoryMeta } from './common/types/story';
-import StackComponent from '.';
+import { Stack as StackComponent } from '.';
 
 export default {
 	title: 'Layout/Stacks/Stack',

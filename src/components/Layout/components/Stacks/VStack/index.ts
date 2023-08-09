@@ -1,3 +1,8 @@
+import type { VStackProps, VStackRef } from './common/types';
 import VStack from './VStack';
 
-export default VStack;
+// Components
+export { VStack };
+
+// Component Types
+export type { VStackProps, VStackRef };

@@ -18,7 +18,7 @@ import type {
 } from '@common/types/classes';
 import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
-import Center from '../Center';
+import { Center } from '../Center';
 
 import {
 	__DEFAULT_GRID_ALIGN_CONTENT__,
@@ -30,8 +30,8 @@ import {
 } from './common/constants';
 import type { GridProps } from './common/types';
 import type { GridStory, GridStoryMeta } from './common/types/story';
-import GridItem from './components/GridItem';
-import GridComponent from '.';
+import { GridItem } from './components/GridItem';
+import { Grid as GridComponent } from '.';
 
 export default {
 	title: 'Layout/Grid',

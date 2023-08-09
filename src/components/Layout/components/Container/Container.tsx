@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 
-import Box from '@components/Box';
+import { Box } from '@components/Box';
 
 import {
 	__DEFAULT_CONTAINER_BREAKPOINT__,

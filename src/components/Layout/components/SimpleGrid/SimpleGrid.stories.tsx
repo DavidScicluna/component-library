@@ -8,11 +8,11 @@ import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
-import Center from '../Center';
+import { Center } from '../Center';
 
 import type { SimpleGridProps } from './common/types';
 import type { SimpleGridStory, SimpleGridStoryMeta } from './common/types/story';
-import SimpleGridComponent from '.';
+import { SimpleGrid as SimpleGridComponent } from '.';
 
 export default {
 	title: 'Layout/SimpleGrid',

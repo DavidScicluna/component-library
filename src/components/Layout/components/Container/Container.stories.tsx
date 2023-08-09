@@ -15,7 +15,7 @@ import {
 } from './common/constants';
 import type { ContainerBreakpoints, ContainerProps } from './common/types';
 import type { ContainerStory, ContainerStoryMeta } from './common/types/story';
-import ContainerComponent from '.';
+import { Container as ContainerComponent } from '.';
 
 export default {
 	title: 'Layout/Container',

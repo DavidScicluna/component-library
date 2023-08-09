@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 
-import Stack from '../Stack';
+import { Stack } from '../Stack';
 
 import type { VStackProps, VStackRef } from './common/types';
 

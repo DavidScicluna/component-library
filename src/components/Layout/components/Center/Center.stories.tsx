@@ -11,7 +11,7 @@ import Text from '@components/Typography/components/Text';
 
 import type { CenterProps } from './common/types';
 import type { CenterStory, CenterStoryMeta } from './common/types/story';
-import CenterComponent from '.';
+import { Center as CenterComponent } from '.';
 
 export default {
 	title: 'Layout/Center',

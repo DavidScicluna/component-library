@@ -8,12 +8,12 @@ import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import Text from '@components/Typography/components/Text';
 
-import Center from '../Center';
+import { Center } from '../Center';
 
 import { __DEFAULT_SPACE_HEIGHT__, __DEFAULT_SPACE_WIDTH__ } from './common/constants';
 import type { SpaceProps } from './common/types';
 import type { SpaceStory, SpaceStoryMeta } from './common/types/story';
-import SpaceComponent from '.';
+import { Space as SpaceComponent } from '.';
 
 export default {
 	title: 'Layout/Space',

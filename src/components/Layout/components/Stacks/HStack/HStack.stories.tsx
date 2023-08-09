@@ -19,7 +19,7 @@ import {
 
 import type { HStackProps } from './common/types';
 import type { HStackStory, HStackStoryMeta } from './common/types/story';
-import HStackComponent from '.';
+import { HStack as HStackComponent } from '.';
 
 export default {
 	title: 'Layout/Stacks/HStack',

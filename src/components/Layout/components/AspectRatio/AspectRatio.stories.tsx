@@ -8,12 +8,12 @@ import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import Text from '@components/Typography/components/Text';
 
-import Center from '../Center';
+import { Center } from '../Center';
 
 import { __DEFAULT_ASPECT_RATIO_RATIO__ } from './common/constants';
 import type { AspectRatioProps, AspectRatioRatios } from './common/types';
 import type { AspectRatioStory, AspectRatioStoryMeta } from './common/types/story';
-import AspectRatioComponent from '.';
+import { AspectRatio as AspectRatioComponent } from '.';
 
 export default {
 	title: 'Layout/AspectRatio',
