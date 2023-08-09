@@ -10,7 +10,7 @@ import type { AnimationConfig } from '@common/types/animation';
 import { getAnimationConfig, getAnimationDuration } from '@common/utils/animation';
 
 import { Fade } from '@components/Animation';
-import Box from '@components/Box';
+import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
 
 import { __DEFAULT_SKELETON_IS_ANIMATED__, __DEFAULT_SKELETON_IS_LOADED__ } from './common/constants';

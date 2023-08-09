@@ -1,16 +1,5 @@
-import Skeleton from './components/Skeleton';
-import {
-	__DEFAULT_SKELETON_IS_ANIMATED__,
-	__DEFAULT_SKELETON_IS_LOADED__
-} from './components/Skeleton/common/constants';
-import { useGetSkeletonClasses } from './components/Skeleton/common/hooks';
-import type { SkeletonProps, SkeletonRef } from './components/Skeleton/common/types';
-import Spinner from './components/Spinner';
-import {
-	__DEFAULT_SPINNER_IS_VISIBLE__,
-	__DEFAULT_SPINNER_SIZE__,
-	__DEFAULT_SPINNER_VARIANT__
-} from './components/Spinner/common/constants';
+import type { SkeletonProps, SkeletonRef } from './components/Skeleton';
+import { constants as skeletonConstants, Skeleton, useGetSkeletonClasses } from './components/Skeleton';
 import type {
 	SpinnerBarsVariant,
 	SpinnerColorRingVariant,
@@ -24,16 +13,11 @@ import type {
 	SpinnerTailSpinVariant,
 	SpinnerThreeDotsVariant,
 	SpinnerVariant
-} from './components/Spinner/common/types';
+} from './components/Spinner';
+import { constants as spinnerConstants, Spinner } from './components/Spinner';
 
 // Constants
-export const constants = {
-	__DEFAULT_SPINNER_IS_VISIBLE__,
-	__DEFAULT_SPINNER_SIZE__,
-	__DEFAULT_SPINNER_VARIANT__,
-	__DEFAULT_SKELETON_IS_ANIMATED__,
-	__DEFAULT_SKELETON_IS_LOADED__
-};
+export const constants = { ...spinnerConstants, ...skeletonConstants };
 
 // Hooks
 export { useGetSkeletonClasses };
@@ -41,7 +25,7 @@ export { useGetSkeletonClasses };
 // Components
 export { Skeleton, Spinner };
 
-// Components Types
+// Component Types
 export type {
 	SkeletonProps,
 	SkeletonRef,

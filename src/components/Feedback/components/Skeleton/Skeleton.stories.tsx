@@ -16,7 +16,7 @@ import { useStorybookContext } from '../../../../../.storybook/preview';
 import { __DEFAULT_SKELETON_IS_ANIMATED__, __DEFAULT_SKELETON_IS_LOADED__ } from './common/constants';
 import type { SkeletonProps } from './common/types';
 import type { SkeletonStory, SkeletonStoryMeta } from './common/types/story';
-import SkeletonComponent from '.';
+import { Skeleton as SkeletonComponent } from '.';
 
 export default {
 	title: 'Feedback/Skeleton',

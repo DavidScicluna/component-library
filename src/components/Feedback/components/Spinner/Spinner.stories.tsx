@@ -7,7 +7,7 @@ import { Center } from '@components/Layout';
 import { __DEFAULT_SPINNER_SIZE__, __DEFAULT_SPINNER_VARIANT__ } from './common/constants';
 import type { SpinnerProps, SpinnerSize, SpinnerVariant } from './common/types';
 import type { SpinnerStory, SpinnerStoryMeta } from './common/types/story';
-import SpinnerComponent from '.';
+import { Spinner as SpinnerComponent } from '.';
 
 export default {
 	title: 'Feedback/Spinner',
