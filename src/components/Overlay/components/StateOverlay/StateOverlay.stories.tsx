@@ -8,7 +8,7 @@ import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import { Spinner } from '@components/Feedback';
 import { Center } from '@components/Layout';
-import Text from '@components/Typography/components/Text';
+import { Text } from '@components/Typography';
 
 import {
 	__DEFAULT_STATE_OVERLAY_HAS_GLASS__,
@@ -17,7 +17,7 @@ import {
 } from './common/constants';
 import type { StateOverlayProps, StateOverlayState } from './common/types';
 import type { StateOverlayStory, StateOverlayStoryMeta } from './common/types/story';
-import StateOverlayComponent from '.';
+import { StateOverlay as StateOverlayComponent } from '.';
 
 export default {
 	title: 'Overlay/StateOverlay',

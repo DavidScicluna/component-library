@@ -8,7 +8,7 @@ import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constan
 import { Fade } from '@components/Animation';
 import { Center, Grid, GridItem } from '@components/Layout';
 
-import Glass from '../components/Glass';
+import { Glass } from '../Glass';
 
 import {
 	__DEFAULT_STATE_OVERLAY_HAS_GLASS__,
