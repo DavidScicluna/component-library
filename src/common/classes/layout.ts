@@ -35,6 +35,15 @@ const zIndex: ZIndexObj = {
 	250: 'z-250',
 	500: 'z-500',
 	1000: 'z-1000',
+	dropdown: 'z-dropdown',
+	sticky: 'z-sticky',
+	banner: 'z-banner',
+	overlay: 'z-overlay',
+	modal: 'z-modal',
+	popover: 'z-popover',
+	skipLink: 'z-skipLink',
+	toast: 'z-toast',
+	tooltip: 'z-tooltip',
 	auto: 'z-auto'
 };
 

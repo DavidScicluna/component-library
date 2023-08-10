@@ -249,6 +249,15 @@ export type ZIndex =
 	| 250
 	| 500
 	| 1000
+	| 'dropdown'
+	| 'sticky'
+	| 'banner'
+	| 'overlay'
+	| 'modal'
+	| 'popover'
+	| 'skipLink'
+	| 'toast'
+	| 'tooltip'
 	| 'auto';
 export type ZIndexArr = ZIndex[];
 export type ZIndexObj = Record<ZIndex, string | number>;
