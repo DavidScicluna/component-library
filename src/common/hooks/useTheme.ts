@@ -1,6 +1,7 @@
 import theme from '@common/theme';
 import type { ZIndexObj } from '@common/types/classes';
 import type {
+	BreakpointsObj,
 	ColorsObj,
 	DelaysObj,
 	DurationsObj,
@@ -17,6 +18,7 @@ import useConst from './useConst';
 type UseThemeReturn = {
 	borderRadius: RadiiObj;
 	colors: ColorsObj;
+	container: BreakpointsObj;
 	fontSizes: FontSizesObj;
 	fontWeights: FontWeightsObj;
 	lineHeights: LineHeightsObj;
@@ -33,6 +35,7 @@ const useTheme = (): UseThemeReturn => {
 	const {
 		borderRadius,
 		colors,
+		container,
 		fontSizes,
 		fontWeights,
 		lineHeights,
@@ -46,6 +49,7 @@ const useTheme = (): UseThemeReturn => {
 	return {
 		borderRadius,
 		colors,
+		container,
 		fontSizes,
 		fontWeights,
 		lineHeights,
