@@ -6,11 +6,11 @@ import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
-import Text from '@components/Typography/components/Text';
+import { Text } from '@components/Typography/components/Text';
 
 import type { HoverOverlayProps } from './common/types';
 import type { HoverOverlayStory, HoverOverlayStoryMeta } from './common/types/story';
-import HoverOverlayComponent from '.';
+import { HoverOverlay as HoverOverlayComponent } from '.';
 
 export default {
 	title: 'Overlay/HoverOverlay',

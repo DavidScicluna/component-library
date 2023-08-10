@@ -1,3 +1,8 @@
+import type { HoverOverlayMouseEvent, HoverOverlayProps, HoverOverlayRef } from './common/types';
 import HoverOverlay from './HoverOverlay';
 
-export default HoverOverlay;
+// Components
+export { HoverOverlay };
+
+// Component Types
+export type { HoverOverlayMouseEvent, HoverOverlayProps, HoverOverlayRef };
