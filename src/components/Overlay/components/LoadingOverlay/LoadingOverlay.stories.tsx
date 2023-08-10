@@ -8,7 +8,7 @@ import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import { Spinner } from '@components/Feedback';
 import { Center } from '@components/Layout';
-import Text from '@components/Typography/components/Text';
+import { Text } from '@components/Typography/components/Text';
 
 import {
 	__DEFAULT_LOADING_OVERLAY_HAS_BACKDROP__,
@@ -17,7 +17,7 @@ import {
 } from './common/constants';
 import type { LoadingOverlayProps } from './common/types';
 import type { LoadingOverlayStory, LoadingOverlayStoryMeta } from './common/types/story';
-import LoadingOverlayComponent from '.';
+import { LoadingOverlay as LoadingOverlayComponent } from '.';
 
 export default {
 	title: 'Overlay/LoadingOverlay',

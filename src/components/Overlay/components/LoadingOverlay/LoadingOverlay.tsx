@@ -8,8 +8,8 @@ import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constan
 import { Fade } from '@components/Animation';
 import { Center, Grid, GridItem } from '@components/Layout';
 
-import BackdropOverlay from '../BackdropOverlay';
-import Glass from '../Glass';
+import { BackdropOverlay } from '../BackdropOverlay';
+import { Glass } from '../Glass';
 
 import {
 	__DEFAULT_LOADING_OVERLAY_HAS_BACKDROP__,
