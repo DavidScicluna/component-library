@@ -10,9 +10,9 @@ export type GlassBlur = BackdropBlur;
 
 type GlassOtherProps = CommonAppThemeProps & {
 	/**
-	 * The amount of the blur effect to be applied ("base", "none", "sm", "lg", "xl", "md", "2xl", "3xl")
+	 * The amount of the blur effect to be applied ("none", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "8xl", "9xl")
 	 *
-	 * @default 'base'
+	 * @default 'md'
 	 */
 	blur?: ResponsiveValue<GlassBlur>;
 	/**
