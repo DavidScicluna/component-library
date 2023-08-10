@@ -14,6 +14,7 @@ export default function Component() {
 
 ### Props
 
-| Name     | Type     | Default | Description                                                                    |
-| -------- | -------- | ------- | ------------------------------------------------------------------------------ |
-| `amount` | `number` | `0.5`   | The amount to increase the transparency by, given as a decimal between 0 and 1 |
+| Name     | Type                                                                                                          | Default | Description                                                                    |
+| -------- | ------------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------ |
+| `amount` | `number`                                                                                                      | `0.5`   | The amount to increase the transparency by, given as a decimal between 0 and 1 |
+| `blur`   | `BackdropBlur` ("none", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "8xl", "9xl") | `md`    | The amount of the blur effect to be applied.                                   |

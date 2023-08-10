@@ -1,32 +1,37 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import classNames from 'classnames';
-import { transparentize } from 'color2k';
 
 import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useGetColor } from '@common/hooks';
 
-import Box from '@components/Box';
+import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
 
-import { __DEFAULT_BACKDROP_OVERLAY_AMOUNT__ } from './common/constants';
-import type { BackdropOverlayProps, BackdropOverlayRef } from './common/types';
+import { __DEFAULT_BACKDROP_OVERLAY_AMOUNT__, __DEFAULT_BACKDROP_OVERLAY_BLUR__ } from './common/constants';
+import { useGetBackdropOverlayClasses, useGetBackdropOverlayStyles } from './common/hooks';
+import type {
+	BackdropOverlayDefaultElement,
+	BackdropOverlayElement,
+	BackdropOverlayProps,
+	BackdropOverlayRef
+} from './common/types';
 
-const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends ElementType>(
-	props: BackdropOverlayProps<Element>,
-	ref: BackdropOverlayRef<Element>
-): ReactElement {
+const BackdropOverlay = forwardRef(function BackdropOverlay<
+	Element extends BackdropOverlayElement = BackdropOverlayDefaultElement
+>(props: BackdropOverlayProps<Element>, ref: BackdropOverlayRef<Element>): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
 		amount = __DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
+		blur = __DEFAULT_BACKDROP_OVERLAY_BLUR__,
 		...rest
 	} = props;
 
-	const background = useGetColor({ color, colorMode, colorType: color ? 'color' : 'default', hueType: 'background' });
+	const classes = useGetBackdropOverlayClasses({ blur });
+	const styles = useGetBackdropOverlayStyles({ color, colorMode, amount });
 
 	return (
 		<Grid<Element>
@@ -44,10 +49,7 @@ const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends Elem
 			spacing={0}
 		>
 			<GridItem columnStart={1} rowStart={1}>
-				<Box
-					className={classNames('w-full', 'h-full')}
-					sx={{ background: transparentize(background, amount) }}
-				/>
+				<Box className={classes} sx={styles} />
 			</GridItem>
 
 			{children ? (
