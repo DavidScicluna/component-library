@@ -4,11 +4,10 @@ import classNames from 'classnames';
 
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
-import type { BackdropBlurArr } from '@common/types/classes';
 import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import { Center } from '@components/Layout';
-import Text from '@components/Typography/components/Text';
+import { Text } from '@components/Typography/components/Text';
 
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
@@ -17,9 +16,9 @@ import {
 	__DEFAULT_GLASS_HAS_BACKGROUND__,
 	__DEFAULT_GLASS_IS_BACKDROP__
 } from './common/constants';
-import type { GlassProps } from './common/types';
+import type { GlassBlur, GlassProps } from './common/types';
 import type { GlassStory, GlassStoryMeta } from './common/types/story';
-import GlassComponent from '.';
+import { Glass as GlassComponent } from '.';
 
 export default {
 	title: 'Overlay/Glass',
@@ -45,7 +44,7 @@ export default {
 				'7xl',
 				'8xl',
 				'9xl'
-			] as BackdropBlurArr,
+			] as GlassBlur[],
 			control: { type: 'radio' }
 		},
 		isBackdrop: {
