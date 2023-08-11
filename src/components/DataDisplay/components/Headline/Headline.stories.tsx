@@ -3,8 +3,9 @@ import type { ReactElement } from 'react';
 import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import { Center } from '@components/Layout';
-import Text from '@components/Typography/components/Text';
+import { Text } from '@components/Typography/components/Text';
 
+// eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import type { HeadlineProps } from './common/types';

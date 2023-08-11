@@ -8,6 +8,7 @@ import icons from '@common/data/icons';
 
 import { Center } from '@components/Layout';
 
+// eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import { __DEFAULT_ICON_CATEGORY__, __DEFAULT_ICON_VARIANT__ } from './common/constants';

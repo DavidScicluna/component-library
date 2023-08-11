@@ -4,6 +4,7 @@ import { __DEFAULT_BORDER_WIDTH__, __DEFAULT_SPACING__ } from '@common/constants
 import type { Orientations } from '@common/types';
 import type { BorderWidthArr } from '@common/types/classes';
 
+// eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import {
