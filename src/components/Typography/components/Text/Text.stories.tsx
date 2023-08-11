@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react';
 
+import type { TextLineClampArr } from '@common/types/classes';
 import type {
 	FontSizesArr,
 	FontWeightsArr,
@@ -88,6 +89,13 @@ export default {
 				'extrabold',
 				'black'
 			] as FontWeightsArr,
+			control: { type: 'radio' }
+		},
+		lineClamp: {
+			name: 'Line Clamp',
+			type: 'string',
+			// description: '',
+			options: ['none', 1, 2, 3, 4, 5, 6] as TextLineClampArr,
 			control: { type: 'radio' }
 		},
 		lineHeight: {

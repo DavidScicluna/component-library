@@ -1,3 +1,4 @@
+import type { TextLineClampObj } from '@common/types/classes';
 import type {
 	ColorsObj,
 	FontSizesObj,
@@ -260,6 +261,16 @@ const fontWeight: FontWeightsObj = {
 	extrabold: 'font-extrabold'
 };
 
+const lineClamp: TextLineClampObj = {
+	none: 'line-clamp-none',
+	1: 'line-clamp-1',
+	2: 'line-clamp-2',
+	3: 'line-clamp-3',
+	4: 'line-clamp-4',
+	5: 'line-clamp-5',
+	6: 'line-clamp-6'
+};
+
 const lineHeight: LineHeightsObj = {
 	3: 'leading-3',
 	4: 'leading-4',
@@ -300,4 +311,4 @@ const wordBreak: WordBreaksObj = {
 	keep: 'break-keep'
 };
 
-export default { align, color, fontSize, fontWeight, lineHeight, transform, whitespace, wordBreak };
+export default { align, color, fontSize, fontWeight, lineClamp, lineHeight, transform, whitespace, wordBreak };

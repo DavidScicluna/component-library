@@ -49,6 +49,10 @@ export type TextColor =
 	| `${PickFrom<ClassType, 'text'>}-${Exclude<Color, 'transparent' | 'black' | 'white'>}-${ColorHue}`
 	| `${PickFrom<ClassType, 'text'>}-${PickFrom<Color, 'transparent' | 'black' | 'white'>}`;
 
+export type TextLineClamp = 'none' | 1 | 2 | 3 | 4 | 5 | 6;
+export type TextLineClampArr = TextLineClamp[];
+export type TextLineClampObj = Record<TextLineClamp, string>;
+
 export type AlignContent =
 	| 'normal'
 	| 'center'

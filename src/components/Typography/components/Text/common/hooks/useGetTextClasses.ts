@@ -1,7 +1,8 @@
 import classNames from 'classnames';
 
 import { useGetClass } from '@common/hooks';
-import type { ClassName } from '@common/types';
+import type { ClassName, Undefinable } from '@common/types';
+import type { TextLineClamp } from '@common/types/classes';
 import type {
 	FontSize,
 	FontWeight,
@@ -31,6 +32,7 @@ type UseGetTextClassesProps<Element extends TextElement> = Pick<
 	| 'color'
 	| 'fontSize'
 	| 'fontWeight'
+	| 'lineClamp'
 	| 'lineHeight'
 	| 'textTransform'
 	| 'isItalic'
@@ -48,6 +50,7 @@ const useGetTextClasses = <Element extends TextElement>(
 		color: colorClassName,
 		fontSize = __DEFAULT_TEXT_FONT_SIZE__,
 		fontWeight = __DEFAULT_TEXT_FONT_WEIGHT__,
+		lineClamp,
 		lineHeight = __DEFAULT_TEXT_LINE_HEIGHT__,
 		textTransform = __DEFAULT_TEXT_TRANSFORM__,
 		isItalic = __DEFAULT_TEXT_IS_ITALIC__,
@@ -59,6 +62,7 @@ const useGetTextClasses = <Element extends TextElement>(
 	const alignClassName = useGetClass<TextAlign>(align, ['typography', 'align']);
 	const fontSizeClassName = useGetClass<FontSize>(fontSize, ['typography', 'fontSize']);
 	const fontWeightClassName = useGetClass<FontWeight>(fontWeight, ['typography', 'fontWeight']);
+	const lineClampClassName = useGetClass<Undefinable<TextLineClamp>>(lineClamp, ['typography', 'lineClamp']);
 	const lineHeightClassName = useGetClass<LineHeight>(lineHeight, ['typography', 'lineHeight']);
 	const textTransformClassName = useGetClass<TextTransform>(textTransform, ['typography', 'transform']);
 	const whitespaceClassName = useGetClass<Whitespace>(whitespace, ['typography', 'whitespace']);
@@ -75,6 +79,7 @@ const useGetTextClasses = <Element extends TextElement>(
 		wordBreakClassName,
 		{
 			[colorClassName]: !colorClassName.includes('#'),
+			[lineClampClassName]: !!lineClamp,
 			['italic']: isItalic,
 			['not-italic']: !isItalic,
 			['truncate']: isOverflown

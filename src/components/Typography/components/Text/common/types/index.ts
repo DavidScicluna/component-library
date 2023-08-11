@@ -1,7 +1,7 @@
 import type { ElementType } from 'react';
 
 import type { PickFrom, ResponsiveValue } from '@common/types';
-import type { TextColor } from '@common/types/classes';
+import type { TextColor, TextLineClamp } from '@common/types/classes';
 import type {
 	FontSize,
 	FontWeight,
@@ -22,6 +22,7 @@ type TextOtherProps = {
 	color: TextColor | string;
 	fontSize?: ResponsiveValue<FontSize>;
 	fontWeight?: ResponsiveValue<FontWeight>;
+	lineClamp?: ResponsiveValue<TextLineClamp>;
 	lineHeight?: ResponsiveValue<LineHeight>;
 	textTransform?: ResponsiveValue<TextTransform>;
 	isItalic?: ResponsiveValue<boolean>;
