@@ -49,7 +49,7 @@ const BackdropOverlay = forwardRef(function BackdropOverlay<
 			spacing={0}
 		>
 			<GridItem columnStart={1} rowStart={1}>
-				<Box className={classes} sx={styles} />
+				<Box className={classes} w='100%' h='100%' sx={styles} />
 			</GridItem>
 
 			{children ? (

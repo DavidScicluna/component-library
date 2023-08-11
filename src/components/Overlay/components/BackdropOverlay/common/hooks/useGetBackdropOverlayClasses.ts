@@ -21,10 +21,7 @@ const useGetBackdropOverlayClasses = <Element extends BackdropOverlayElement>(
 	const backdropBlurClassName = useGetClass<BackdropOverlayBlur>(blur, ['filters', 'backdropBlur']);
 	const saturateClassName = useGetClass<Saturate>(100, ['filters', 'saturate']);
 
-	return classNames('w-full', 'h-full', {
-		[backdropBlurClassName]: !!blur,
-		[saturateClassName]: !!blur
-	});
+	return classNames({ [backdropBlurClassName]: !!blur, [saturateClassName]: !!blur });
 };
 
 export default useGetBackdropOverlayClasses;

@@ -17,7 +17,12 @@ const useGetBackdropOverlayStyles = <Element extends BackdropOverlayElement>(
 ): UseGetBackdropOverlayStylesReturn => {
 	const { color, colorMode, amount: a = __DEFAULT_BACKDROP_OVERLAY_AMOUNT__ } = props;
 
-	const background = useGetColor({ color, colorMode, colorType: color ? 'color' : 'default', hueType: 'background' });
+	const background = useGetColor({
+		color,
+		colorMode,
+		colorType: color ? 'color' : 'default',
+		hueType: colorMode === 'light' ? 'dark' : 'dark'
+	});
 	const amount = useGetResponsiveValue<number>(a);
 
 	return { background: transparentize(background, amount) };

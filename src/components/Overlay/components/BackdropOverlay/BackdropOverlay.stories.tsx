@@ -1,5 +1,12 @@
 import type { ReactElement } from 'react';
 
+import classNames from 'classnames';
+
+import { useGetColor } from '@common/hooks';
+
+import { Center } from '@components/Layout';
+import { Text } from '@components/Typography';
+
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
@@ -43,5 +50,16 @@ export const BackdropOverlay: BackdropOverlayStory = (
 ): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
-	return <BackdropOverlayComponent {...props} color={color} colorMode={colorMode} w='100%' h='100%' p={4} />;
+	const text = useGetColor({ color, colorMode, colorType: 'default', hueType: 'background', classType: 'text' });
+	const background = useGetColor({ color, colorMode, colorType: 'color', hueType: 'color', classType: 'bg' });
+
+	return (
+		<BackdropOverlayComponent {...props} color={color} colorMode={colorMode} w='100%' h='100%'>
+			<Center className={classNames(background)} p={4} m={4}>
+				<Text align='center' color={text}>
+					Hello
+				</Text>
+			</Center>
+		</BackdropOverlayComponent>
+	);
 };
