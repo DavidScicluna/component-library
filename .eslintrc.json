@@ -39,7 +39,7 @@
 		"plugin:react-hooks/recommended",
 		"plugin:@typescript-eslint/recommended"
 	],
-	"plugins": ["react", "jsx-a11y", "import", "simple-import-sort"],
+	"plugins": ["react", "jsx-a11y", "import", "import-path", "simple-import-sort"],
 	"rules": {
 		"@typescript-eslint/consistent-type-imports": "error",
 		// "no-unused-vars": "warn",
@@ -50,6 +50,7 @@
 		"react/react-in-jsx-scope": "off",
 		"react/prop-types": "off",
 		"react-hooks/exhaustive-deps": "off",
+		"import-path/parent-depth": ["error", 2],
 		"simple-import-sort/imports": "error",
 		"simple-import-sort/exports": "error",
 		"import/no-unresolved": "off",

@@ -1,11 +1,12 @@
 import type { ReactElement } from 'react';
 
+// eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import { __DEFAULT_BACKDROP_OVERLAY_BLUR__ } from './common/constants';
 import type { BackdropOverlayBlur, BackdropOverlayDefaultElement, BackdropOverlayProps } from './common/types';
 import type { BackdropOverlayStory, BackdropOverlayStoryMeta } from './common/types/story';
-import BackdropOverlayComponent from '.';
+import { BackdropOverlay as BackdropOverlayComponent } from '.';
 
 export default {
 	title: 'Overlay/BackdropOverlay',

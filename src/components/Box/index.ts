@@ -13,10 +13,10 @@ import type {
 } from './common/types';
 import Box from './Box';
 
-// Constants
+// Keys
 export const keys = { __KEYS_BOX__ };
 
-// Keys
+// Hooks
 export { useGetBoxStyles };
 
 // Components
