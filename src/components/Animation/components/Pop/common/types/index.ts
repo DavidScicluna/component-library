@@ -1,4 +1,4 @@
-import type { CommonAnimationProps, CommonAnimationRef } from '@components/Animation';
+import type { CommonAnimationProps, CommonAnimationRef } from '@components/Animation/common/types';
 
 export type PopProps = CommonAnimationProps & {
 	/**

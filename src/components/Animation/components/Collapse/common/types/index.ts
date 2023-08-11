@@ -1,6 +1,6 @@
 import type { PickFrom } from '@common/types';
 
-import type { CommonAnimationProps, CommonAnimationRef } from '@components/Animation';
+import type { CommonAnimationProps, CommonAnimationRef } from '@components/Animation/common/types';
 
 export type CollapseAxis = 'x' | 'y';
 
