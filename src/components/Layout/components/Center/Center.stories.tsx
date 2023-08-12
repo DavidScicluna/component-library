@@ -3,12 +3,12 @@ import type { ReactElement } from 'react';
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
-import Text from '@components/Typography/components/Text';
+import { Text } from '@components/Typography/components/Text';
 
+import { __DEFAULT_CENTER_SPACING__ } from './common/constants';
 import type { CenterProps } from './common/types';
 import type { CenterStory, CenterStoryMeta } from './common/types/story';
 import { Center as CenterComponent } from '.';
@@ -20,7 +20,7 @@ export default {
 		spacing: {
 			name: 'Spacing (0-24 | .0, .25, .5 or .75)',
 			type: 'number',
-			defaultValue: __DEFAULT_SPACING__,
+			defaultValue: __DEFAULT_CENTER_SPACING__,
 			// description: '',
 			control: { type: 'number' }
 		}

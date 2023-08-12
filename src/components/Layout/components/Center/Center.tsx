@@ -3,10 +3,11 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
+import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__,  } from '@common/constants';
 
 import { Box } from '@components/Box';
 
+import { __DEFAULT_CENTER_SPACING__ } from './common/constants';
 import { useGetCenterClasses } from './common/hooks';
 import type { CenterProps, CenterRef } from './common/types';
 
@@ -14,7 +15,7 @@ const Center = forwardRef(function Center<Element extends ElementType>(
 	props: CenterProps<Element>,
 	ref: CenterRef<Element>
 ): ReactElement {
-	const { children, className = __DEFAULT_CLASSNAME__, spacing = __DEFAULT_SPACING__, ...rest } = props;
+	const { children, className = __DEFAULT_CLASSNAME__, spacing = __DEFAULT_CENTER_SPACING__, ...rest } = props;
 
 	const classes = useGetCenterClasses<Element>({ spacing });
 
