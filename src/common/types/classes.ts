@@ -1,7 +1,7 @@
 import type { PickFrom } from '.';
 import type { Color, ColorHue } from './theme';
 
-export type ClassType = 'bg' | 'text' | 'border' | 'outline';
+export type ClassType = 'shadow' | 'bg' | 'text' | 'border' | 'outline';
 
 /**
  * Backgrounds
@@ -13,6 +13,18 @@ export type BackgroundColor =
 /**
  * Borders
  */
+
+/**
+ * Effects
+ */
+
+export type BoxShadow = 'base' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'inner' | 'none';
+export type BoxShadowArr = BoxShadow[];
+export type BoxShadowObj = Record<BoxShadow, string>;
+
+export type BoxShadowColor =
+	| `${PickFrom<ClassType, 'shadow'>}-${Exclude<Color, 'transparent' | 'black' | 'white'>}-${ColorHue}`
+	| `${PickFrom<ClassType, 'shadow'>}-${PickFrom<Color, 'transparent' | 'black' | 'white'>}`;
 
 /**
  * Filters
