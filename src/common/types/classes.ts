@@ -13,11 +13,37 @@ export type BackgroundColor =
 /**
  * Borders
  */
+export type BorderWidth = 0 | 1 | 2 | 4 | 8;
+export type BorderWidthArr = BorderWidth[];
+export type BorderWidthObj = Record<BorderWidth, string>;
+
+export type BorderStyle = 'solid' | 'dashed' | 'dotted' | 'double' | 'hidden' | 'none';
+export type BorderStyleArr = BorderStyle[];
+export type BorderStyleObj = Record<BorderStyle, string>;
+
+export type BorderColor =
+	| `${PickFrom<ClassType, 'border'>}-${Exclude<Color, 'transparent' | 'black' | 'white'>}-${ColorHue}`
+	| `${PickFrom<ClassType, 'border'>}-${PickFrom<Color, 'transparent' | 'black' | 'white'>}`;
+
+export type OutlineWidth = 0 | 1 | 2 | 4 | 8;
+export type OutlineWidthArr = OutlineWidth[];
+export type OutlineWidthObj = Record<OutlineWidth, string>;
+
+export type OutlineStyle = 'none' | 'solid' | 'dashed' | 'dotted' | 'double';
+export type OutlineStyleArr = OutlineStyle[];
+export type OutlineStyleObj = Record<OutlineStyle, string>;
+
+export type OutlineColor =
+	| `${PickFrom<ClassType, 'outline'>}-${Exclude<Color, 'transparent' | 'black' | 'white'>}-${ColorHue}`
+	| `${PickFrom<ClassType, 'outline'>}-${PickFrom<Color, 'transparent' | 'black' | 'white'>}`;
+
+export type OutlineOffset = 0 | 1 | 2 | 4 | 8;
+export type OutlineOffsetArr = OutlineOffset[];
+export type OutlineOffsetObj = Record<OutlineOffset, string>;
 
 /**
  * Effects
  */
-
 export type BoxShadow = 'base' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'inner' | 'none';
 export type BoxShadowArr = BoxShadow[];
 export type BoxShadowObj = Record<BoxShadow, string>;
@@ -29,96 +55,6 @@ export type BoxShadowColor =
 /**
  * Filters
  */
-
-/**
- * Flex
- */
-
-/**
- * Grid
- */
-
-/**
- * Layout
- */
-export type MinWidth = 0 | 'full' | 'min' | 'max' | 'fit';
-export type MinWidthArr = MinWidth[];
-export type MinWidthObj = Record<MinWidth, string>;
-
-export type MaxWidth =
-	| 0
-	| 'none'
-	| 'xs'
-	| 'sm'
-	| 'md'
-	| 'lg'
-	| 'xl'
-	| '2xl'
-	| '3xl'
-	| '4xl'
-	| '5xl'
-	| '6xl'
-	| '7xl'
-	| 'full'
-	| 'min'
-	| 'max'
-	| 'fit'
-	| 'prose';
-export type MaxWidthArr = MaxWidth[];
-export type MaxWidthObj = Record<MaxWidth, string>;
-
-export type MinHeight = 0 | 'full' | 'screen' | 'min' | 'max' | 'fit';
-export type MinHeightArr = MinHeight[];
-export type MinHeightObj = Record<MinHeight, string>;
-
-export type MaxHeight = 0 | 'none' | 'full' | 'screen' | 'min' | 'max' | 'fit';
-export type MaxHeightArr = MaxHeight[];
-export type MaxHeightObj = Record<MaxHeight, string>;
-
-/**
- * Sizing
- */
-
-/**
- * Spacing
- */
-
-/**
- * Transitions
- */
-
-/**
- * Typography
- */
-export type TextColor =
-	| `${PickFrom<ClassType, 'text'>}-${Exclude<Color, 'transparent' | 'black' | 'white'>}-${ColorHue}`
-	| `${PickFrom<ClassType, 'text'>}-${PickFrom<Color, 'transparent' | 'black' | 'white'>}`;
-
-export type TextLineClamp = 'none' | 1 | 2 | 3 | 4 | 5 | 6;
-export type TextLineClampArr = TextLineClamp[];
-export type TextLineClampObj = Record<TextLineClamp, string>;
-
-export type AlignContent =
-	| 'normal'
-	| 'center'
-	| 'start'
-	| 'end'
-	| 'between'
-	| 'around'
-	| 'evenly'
-	| 'baseline'
-	| 'stretch';
-export type AlignContentArr = AlignContent[];
-export type AlignContentObj = Record<AlignContent, string>;
-
-export type AlignItems = 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch';
-export type AlignItemsArr = AlignItems[];
-export type AlignItemsObj = Record<AlignItems, string>;
-
-export type AlignSelf = 'auto' | 'start' | 'end' | 'center' | 'stretch' | 'baseline';
-export type AlignSelfArr = AlignSelf[];
-export type AlignSelfObj = Record<AlignSelf, string>;
-
 export type Blur =
 	| 'none'
 	| 'xs'
@@ -155,13 +91,16 @@ export type BackdropBlur =
 export type BackdropBlurArr = BackdropBlur[];
 export type BackdropBlurObj = Record<BackdropBlur, string>;
 
-export type BorderWidth = 0 | 1 | 2 | 4 | 8;
-export type BorderWidthArr = BorderWidth[];
-export type BorderWidthObj = Record<BorderWidth, string>;
+export type Saturate = 0 | 50 | 100 | 150 | 200;
+export type SaturateArr = Saturate[];
+export type SaturateObj = Record<Saturate, string>;
 
-export type BorderStyle = 'solid' | 'dashed' | 'dotted' | 'double' | 'hidden' | 'none';
-export type BorderStyleArr = BorderStyle[];
-export type BorderStyleObj = Record<BorderStyle, string>;
+/**
+ * Flex
+ */
+export type AlignItems = 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch';
+export type AlignItemsArr = AlignItems[];
+export type AlignItemsObj = Record<AlignItems, string>;
 
 export type JustifyContent =
 	| 'normal'
@@ -174,6 +113,38 @@ export type JustifyContent =
 	| 'stretch';
 export type JustifyContentArr = JustifyContent[];
 export type JustifyContentObj = Record<JustifyContent, string>;
+
+export type FlexColumn = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+export type FlexColumnArr = FlexColumn[];
+export type FlexColumnObj = Record<FlexColumn, string>;
+
+export type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse';
+export type FlexDirectionArr = FlexDirection[];
+export type FlexDirectionObj = Record<FlexDirection, string>;
+
+export type FlexWrap = 'wrap' | 'wrap-reverse' | 'nowrap';
+export type FlexWrapArr = FlexWrap[];
+export type FlexWrapObj = Record<FlexWrap, string>;
+
+/**
+ * Grid
+ */
+export type AlignContent =
+	| 'normal'
+	| 'center'
+	| 'start'
+	| 'end'
+	| 'between'
+	| 'around'
+	| 'evenly'
+	| 'baseline'
+	| 'stretch';
+export type AlignContentArr = AlignContent[];
+export type AlignContentObj = Record<AlignContent, string>;
+
+export type AlignSelf = 'auto' | 'start' | 'end' | 'center' | 'stretch' | 'baseline';
+export type AlignSelfArr = AlignSelf[];
+export type AlignSelfObj = Record<AlignSelf, string>;
 
 export type JustifyItems = 'start' | 'end' | 'center' | 'stretch';
 export type JustifyItemsArr = JustifyItems[];
@@ -194,18 +165,6 @@ export type PlaceItemsObj = Record<PlaceItems, string>;
 export type PlaceSelf = 'auto' | 'start' | 'end' | 'center' | 'stretch';
 export type PlaceSelfArr = PlaceSelf[];
 export type PlaceSelfObj = Record<PlaceSelf, string>;
-
-export type FlexColumn = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-export type FlexColumnArr = FlexColumn[];
-export type FlexColumnObj = Record<FlexColumn, string>;
-
-export type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse';
-export type FlexDirectionArr = FlexDirection[];
-export type FlexDirectionObj = Record<FlexDirection, string>;
-
-export type FlexWrap = 'wrap' | 'wrap-reverse' | 'nowrap';
-export type FlexWrapArr = FlexWrap[];
-export type FlexWrapObj = Record<FlexWrap, string>;
 
 export type GridColumn = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 export type GridColumnArr = GridColumn[];
@@ -247,21 +206,42 @@ export type GridTemplateRows = GridRow | 'none';
 export type GridTemplateRowsArr = GridTemplateRows[];
 export type GridTemplateRowsObj = Record<GridTemplateRows, string>;
 
-export type OutlineWidth = 0 | 1 | 2 | 4 | 8;
-export type OutlineWidthArr = OutlineWidth[];
-export type OutlineWidthObj = Record<OutlineWidth, string>;
+/**
+ * Layout
+ */
+export type MinWidth = 0 | 'full' | 'min' | 'max' | 'fit';
+export type MinWidthArr = MinWidth[];
+export type MinWidthObj = Record<MinWidth, string>;
 
-export type OutlineStyle = 'none' | 'solid' | 'dashed' | 'dotted' | 'double';
-export type OutlineStyleArr = OutlineStyle[];
-export type OutlineStyleObj = Record<OutlineStyle, string>;
+export type MaxWidth =
+	| 0
+	| 'none'
+	| 'xs'
+	| 'sm'
+	| 'md'
+	| 'lg'
+	| 'xl'
+	| '2xl'
+	| '3xl'
+	| '4xl'
+	| '5xl'
+	| '6xl'
+	| '7xl'
+	| 'full'
+	| 'min'
+	| 'max'
+	| 'fit'
+	| 'prose';
+export type MaxWidthArr = MaxWidth[];
+export type MaxWidthObj = Record<MaxWidth, string>;
 
-export type OutlineOffset = 0 | 1 | 2 | 4 | 8;
-export type OutlineOffsetArr = OutlineOffset[];
-export type OutlineOffsetObj = Record<OutlineOffset, string>;
+export type MinHeight = 0 | 'full' | 'screen' | 'min' | 'max' | 'fit';
+export type MinHeightArr = MinHeight[];
+export type MinHeightObj = Record<MinHeight, string>;
 
-export type Saturate = 0 | 50 | 100 | 150 | 200;
-export type SaturateArr = Saturate[];
-export type SaturateObj = Record<Saturate, string>;
+export type MaxHeight = 0 | 'none' | 'full' | 'screen' | 'min' | 'max' | 'fit';
+export type MaxHeightArr = MaxHeight[];
+export type MaxHeightObj = Record<MaxHeight, string>;
 
 export type ZIndex =
 	| 0
@@ -310,3 +290,26 @@ export type ZIndex =
 	| 'auto';
 export type ZIndexArr = ZIndex[];
 export type ZIndexObj = Record<ZIndex, string | number>;
+
+/**
+ * Sizing
+ */
+
+/**
+ * Spacing
+ */
+
+/**
+ * Transitions
+ */
+
+/**
+ * Typography
+ */
+export type TextColor =
+	| `${PickFrom<ClassType, 'text'>}-${Exclude<Color, 'transparent' | 'black' | 'white'>}-${ColorHue}`
+	| `${PickFrom<ClassType, 'text'>}-${PickFrom<Color, 'transparent' | 'black' | 'white'>}`;
+
+export type TextLineClamp = 'none' | 1 | 2 | 3 | 4 | 5 | 6;
+export type TextLineClampArr = TextLineClamp[];
+export type TextLineClampObj = Record<TextLineClamp, string>;
