@@ -1,14 +1,7 @@
-import { ModalBodyProps as CUIModalBodyProps } from '@chakra-ui/react';
+import type { ElementType } from 'react';
 
-import {
-	BoxFlexbox,
-	BoxGrid,
-	BoxOther,
-	BoxPosition,
-	BoxShadow,
-	BoxTypography
-} from '../../../../../../../common/types/box';
+import type { CenterProps, CenterRef } from '@components/Layout';
 
-type Omitted = BoxTypography | BoxFlexbox | BoxGrid | BoxPosition | BoxShadow | BoxOther;
+export type ModalBodyProps<Element extends ElementType> = Omit<CenterProps<Element>, 'w' | 'h'>;
 
-export type ModalBodyProps = Omit<CUIModalBodyProps, Omitted>;
+export type ModalBodyRef<Element extends ElementType> = CenterRef<Element>;
