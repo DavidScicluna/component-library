@@ -41,7 +41,13 @@ const Divider = forwardRef(function Divider<Element extends DividerElement = Div
 	} = props;
 
 	const classes = useGetDividerClasses({ color, colorMode, orientation, placement, size, variant });
-	const styles = useGetDividerStyles({ orientation, placement, size, spacing });
+	const styles = useGetDividerStyles({
+		hasChildren: orientation === 'horizontal' && !!children,
+		orientation,
+		placement,
+		size,
+		spacing
+	});
 
 	return (
 		<Box<Element>

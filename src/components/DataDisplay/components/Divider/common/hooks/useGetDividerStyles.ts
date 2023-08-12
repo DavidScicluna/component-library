@@ -10,10 +10,11 @@ import { getResponsiveValue } from '@common/utils';
 import { __DEFAULT_DIVIDER_ORIENTATION__, __DEFAULT_DIVIDER_PLACEMENT__ } from '../constants';
 import type { DividerElement, DividerProps } from '../types';
 
-type UseGetDividerStylesProps<Element extends DividerElement> = Pick<
-	DividerProps<Element>,
-	'orientation' | 'placement' | 'size' | 'spacing'
->;
+type PickedDividerProps = 'orientation' | 'placement' | 'size' | 'spacing';
+
+type UseGetDividerStylesProps<Element extends DividerElement> = Pick<DividerProps<Element>, PickedDividerProps> & {
+	hasChildren: boolean;
+};
 type UseGetDividerStylesReturn = Style;
 
 const useGetDividerStyles = <Element extends DividerElement>(
@@ -22,6 +23,7 @@ const useGetDividerStyles = <Element extends DividerElement>(
 	const theme = useTheme();
 
 	const {
+		hasChildren = false,
 		orientation = __DEFAULT_DIVIDER_ORIENTATION__,
 		placement = __DEFAULT_DIVIDER_PLACEMENT__,
 		size = __DEFAULT_BORDER_WIDTH__,
@@ -50,7 +52,7 @@ const useGetDividerStyles = <Element extends DividerElement>(
 						borderStyle: 'inherit',
 						borderColor: 'inherit',
 
-						marginRight: spacing
+						marginRight: hasChildren ? spacing : undefined
 				  }
 				: {},
 		'&::after':
@@ -64,7 +66,7 @@ const useGetDividerStyles = <Element extends DividerElement>(
 						borderStyle: 'inherit',
 						borderColor: 'inherit',
 
-						marginLeft: spacing
+						marginLeft: hasChildren ? spacing : undefined
 				  }
 				: {}
 	};
