@@ -6,10 +6,11 @@ import type { ResponsiveValue } from '@common/types';
 import { getResponsiveValue } from '@common/utils';
 
 /**
- * This hook will return the appropriate responsive value depending on current dimensions of the users device
+ * This hook will return the appropriate class from the classes object depending on the value & keys passed
  *
- * @param value - ResponsiveValue
- * @returns - The responsive value within the array or object that aligns with the breakpoint
+ * @param responsiveValue - ResponsiveValue
+ * @param keys - An array of keys to be used to traverse the deep classes object
+ * @returns - The class from the classes object
  */
 const useGetClass = <D>(responsiveValue: ResponsiveValue<D>, keys: string[] = []): string => {
 	const value = useMemo<D>(() => getResponsiveValue<D>(responsiveValue), [responsiveValue]);
