@@ -1,65 +1,86 @@
-import { ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
 
-import { ModalProps as CUIModalProps } from '@chakra-ui/react';
+import type { PickFrom, ResponsiveValue } from '@common/types';
+import type { CommonAppThemeProps, Space } from '@common/types/theme';
 
-import { CommonThemeProps } from '../../../../../common/types';
-import {
-	BoxBackground,
-	BoxBorderRadius,
-	BoxBorders,
-	BoxColor,
-	BoxFilter,
-	BoxFlexbox,
-	BoxGradient,
-	BoxGrid,
-	BoxLayout,
-	BoxMargin,
-	BoxOther,
-	BoxPadding,
-	BoxPosition,
-	BoxPseudo,
-	BoxShadow,
-	BoxTypography
-} from '../../../../../common/types/box';
-import { Space } from '../../../../../theme/types';
+import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box/common/types';
 
-export type ModalSize = 'full' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl';
+export type ModalSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | 'full';
 
+export type ModalRenderTriggerProps = Pick<ModalProps, 'color' | 'colorMode'> & {
+	/**
+	 * If `true`, the modal will be open
+	 */
+	isOpen: boolean;
+	/**
+	 * Callback invoked to open the modal
+	 */
+	onOpen: () => void;
+	// /**
+	//  * Callback invoked to close the modal
+	//  */
+	// onClose: () => void;
+};
 export type ModalRenderBackdropProps = Pick<ModalProps, 'color' | 'colorMode'>;
 
-type Omitted =
-	// CUI Box Props
-	| BoxMargin
-	| BoxPadding
-	| BoxColor
-	| BoxGradient
-	| BoxTypography
-	| BoxLayout
-	| BoxFlexbox
-	| BoxGrid
-	| BoxBackground
-	| BoxBorders
-	| BoxBorderRadius
-	| BoxPosition
-	| BoxShadow
-	| BoxFilter
-	| BoxPseudo
-	| BoxOther
-	// CUI Modal Props
-	| 'as'
-	| 'colorScheme'
-	| 'id'
-	| 'isCentered'
-	| 'motionPreset'
-	| 'size'
-	| 'trapFocus'
-	| 'variant';
+export type ModalDefaultElement = 'dialog';
+export type ModalElement = PickFrom<ElementType, 'dialog'>;
 
-export type ModalProps = CommonThemeProps & {
+type ModalOtherProps = CommonAppThemeProps & {
+	renderTrigger: (props: ModalRenderTriggerProps) => ReactNode;
 	renderBackdrop?: (props: ModalRenderBackdropProps) => ReactNode;
+	/**
+	 * If `true`, the modal will close when the Esc key is pressed
+	 * @default true
+	 */
+	closeOnEsc?: boolean;
+	/**
+	 * If `true`, the modal will close when the overlay is clicked
+	 * @default true
+	 */
+	closeOnOverlayClick?: boolean;
+	/**
+	 * If `true`, the modal will render without a backdrop behind the modal
+	 * @default true
+	 */
 	hasBackdrop?: boolean;
-	size?: ModalSize;
-	spacing?: Space;
-} & Omit<CUIModalProps, Omitted>;
+	/**
+	 * Callback invoked to close the modal
+	 */
+	onClose?: () => void;
+	/**
+	 * Callback fired when all exiting nodes have completed animating out
+	 */
+	onCloseComplete?: () => void;
+	/**
+	 * Callback fired when the escape key is pressed and focus is within modal
+	 */
+	onEsc?: () => void;
+	/**
+	 * Callback fired when the overlay is clicked
+	 */
+	onOverlayClick?: () => void;
+	/**
+	 * Callback invoked to open the modal
+	 */
+	onOpen?: () => void;
+	/**
+	 * The size of the Modal
+	 * @default "xl"
+	 */
+	size?: ResponsiveValue<ModalSize>;
+	spacing?: ResponsiveValue<Space>;
+};
 
-export type ModalContext = Pick<ModalProps, 'color' | 'colorMode' | 'isOpen' | 'onClose' | 'size' | 'spacing'>;
+export type ModalProps<Element extends ModalElement = ModalDefaultElement> = Omit<
+	BoxProps<Element, ModalOtherProps>,
+	keyof BoxOtherProps
+>;
+export type ModalRef<Element extends ModalElement = ModalDefaultElement> = BoxRef<Element>;
+
+export type ModalContext<Element extends ModalElement = ModalDefaultElement> = {
+	/**
+	 * If `true`, the modal will be open
+	 */
+	isOpen: boolean;
+} & Pick<ModalProps<Element>, 'color' | 'colorMode' | 'onClose' | 'size' | 'spacing'>;

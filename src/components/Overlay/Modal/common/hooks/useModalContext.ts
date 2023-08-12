@@ -1,33 +1,28 @@
 import { useContext } from 'react';
 
-import {
-	color as defaultColor,
-	colorMode as defaultColorMode,
-	method as defaultOnClose
-} from '../../../../../common/default/props';
-import { NoUndefinedField } from '../../../../../common/types';
-import { ModalContext } from '../..';
-import { isOpen as defaultIsOpen, size as defaultSize, spacing as defaultSpacing } from '../default/props';
-import { ModalContext as ModalContextType } from '../types';
+import { __DEFAULT_METHOD__, __DEFAULT_SPACING__ } from '@common/constants';
+import { useGetResponsiveValue } from '@common/hooks';
+import type { Space } from '@common/types/theme';
 
-const useModalContext = (): NoUndefinedField<ModalContextType> => {
+import { ModalContext } from '../../Modal';
+import { __DEFAULT_MODAL_IS_OPEN__, __DEFAULT_MODAL_SIZE__ } from '../constants';
+import type { ModalContext as ModalContextType, ModalSize } from '../types';
+
+const useModalContext = () => {
 	const {
-		color = defaultColor,
-		colorMode = defaultColorMode,
-		isOpen = defaultIsOpen,
-		onClose = defaultOnClose,
-		size = defaultSize,
-		spacing = defaultSpacing
-	} = useContext<ModalContextType>(ModalContext);
-
-	return {
 		color,
 		colorMode,
-		isOpen,
-		onClose,
-		size,
-		spacing
-	};
+		isOpen = __DEFAULT_MODAL_IS_OPEN__,
+		onClose = __DEFAULT_METHOD__,
+		size: si = __DEFAULT_MODAL_SIZE__,
+		spacing: sp = __DEFAULT_SPACING__
+	} = useContext<ModalContextType>(ModalContext);
+
+	const size = useGetResponsiveValue<ModalSize>(si);
+
+	const spacing = useGetResponsiveValue<Space>(sp);
+
+	return { color, colorMode, isOpen, onClose, size, spacing };
 };
 
 export default useModalContext;
