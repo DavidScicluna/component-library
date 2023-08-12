@@ -1,10 +1,9 @@
 import type { ElementType } from 'react';
-import { useMemo } from 'react';
 
 import classNames from 'classnames';
 
+import { useGetClass } from '@common/hooks';
 import type { ClassName } from '@common/types';
-import { getResponsiveValue } from '@common/utils';
 
 import {
 	__DEFAULT_CONTAINER_BREAKPOINT__,
@@ -28,22 +27,7 @@ const useGetContainerClasses = <Element extends ElementType>(
 		isFluid = __DEFAULT_CONTAINER_IS_FLUID__
 	} = props;
 
-	// TODO: Move to classes & replace with useGetClass
-	const breakpointClassName = useMemo<string>(() => {
-		const s = getResponsiveValue<ContainerBreakpoint>(breakpoint);
-		switch (s) {
-			case 'sm':
-				return 'max-w-screen-sm';
-			case 'md':
-				return 'max-w-screen-md';
-			case 'lg':
-				return 'max-w-screen-lg';
-			case 'xl':
-				return 'max-w-screen-xl';
-			default:
-				return 'max-w-screen-2xl';
-		}
-	}, [breakpoint]);
+	const breakpointClassName = useGetClass<ContainerBreakpoint>(breakpoint, ['layout', 'maxWidthContainer']);
 
 	return classNames('container', {
 		'mx-auto': isContentCentered,
