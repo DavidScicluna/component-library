@@ -29,6 +29,39 @@ export type BackgroundColor =
 /**
  * Layout
  */
+export type MinWidth = 0 | 'full' | 'min' | 'max' | 'fit';
+export type MinWidthArr = MinWidth[];
+export type MinWidthObj = Record<MinWidth, string>;
+
+export type MaxWidth =
+	| 0
+	| 'none'
+	| 'xs'
+	| 'sm'
+	| 'md'
+	| 'lg'
+	| 'xl'
+	| '2xl'
+	| '3xl'
+	| '4xl'
+	| '5xl'
+	| '6xl'
+	| '7xl'
+	| 'full'
+	| 'min'
+	| 'max'
+	| 'fit'
+	| 'prose';
+export type MaxWidthArr = MaxWidth[];
+export type MaxWidthObj = Record<MaxWidth, string>;
+
+export type MinHeight = 0 | 'full' | 'screen' | 'min' | 'max' | 'fit';
+export type MinHeightArr = MinHeight[];
+export type MinHeightObj = Record<MinHeight, string>;
+
+export type MaxHeight = 0 | 'none' | 'full' | 'screen' | 'min' | 'max' | 'fit';
+export type MaxHeightArr = MaxHeight[];
+export type MaxHeightObj = Record<MaxHeight, string>;
 
 /**
  * Sizing
