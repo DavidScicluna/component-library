@@ -1,4 +1,11 @@
-import { BoxLayout, BoxPosition } from '../../../../../../../common/types/box';
-import { BackdropOverlayProps } from '../../../../../BackdropOverlay/common/types';
+import type {
+	BackdropOverlayElement,
+	BackdropOverlayProps,
+	BackdropOverlayRef
+} from '@components/Overlay/components/BackdropOverlay/common/types';
 
-export type ConfirmModalBackdropProps = Omit<BackdropOverlayProps, BoxLayout | BoxPosition>;
+export type ConfirmModalBackdropElement = BackdropOverlayElement;
+
+export type ConfirmModalBackdropProps<Element extends ConfirmModalBackdropElement> = BackdropOverlayProps<Element>;
+
+export type ConfirmModalBackdropRef<Element extends ConfirmModalBackdropElement> = BackdropOverlayRef<Element>;
