@@ -31,8 +31,6 @@ const ModalHeader = forwardRef(function ModalHeader<Element extends ElementType>
 			{...rest}
 			ref={ref}
 			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-modal-header`, { [className]: !!className })}
-			w='100%'
-			h='auto'
 			templateColumns='1fr auto'
 			templateRows={1}
 			alignItems='stretch'

@@ -21,7 +21,7 @@ const ModalSubtitle = forwardRef(function ModalSubtitle<
 >(props: ModalSubtitleProps<Element>, ref: ModalSubtitleRef<Element>): ReactElement {
 	const { colorMode } = useModalContext();
 
-	const __DEFAULT_MODAL_TITLE_COLOR__ = useGetColor({
+	const __DEFAULT_MODAL_SUBTITLE_COLOR__ = useGetColor({
 		color: 'gray',
 		colorMode,
 		colorType: 'default',
@@ -33,7 +33,7 @@ const ModalSubtitle = forwardRef(function ModalSubtitle<
 		children,
 		className = __DEFAULT_CLASSNAME__,
 		align = 'left',
-		color = __DEFAULT_MODAL_TITLE_COLOR__,
+		color = __DEFAULT_MODAL_SUBTITLE_COLOR__,
 		fontSize = 'sm',
 		fontWeight = 'normal',
 		lineClamp = 1,

@@ -7,7 +7,7 @@ export type ModalFooterRenderProps = any;
 // export type ModalFooterRenderCancelProps = Pick<ButtonProps, 'onClick'> & ModalFooterRenderProps;
 export type ModalFooterRenderCancelProps = any;
 
-export type ModalFooterProps<Element extends ElementType> = Omit<StackProps<Element>, 'children' | 'w' | 'h'> & {
+export type ModalFooterProps<Element extends ElementType> = Omit<StackProps<Element>, 'children'> & {
 	renderCancel?: (props: ModalFooterRenderCancelProps) => ReactNode;
 	renderAction?: (props: ModalFooterRenderProps) => ReactNode;
 };

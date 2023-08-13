@@ -21,6 +21,9 @@ const ModalStack = forwardRef(function ModalStack<Element extends ElementType>(
 		children,
 		className = __DEFAULT_CLASSNAME__,
 		isDivisible = true,
+		alignItems = 'stretch',
+		justifyContent = 'stretch',
+		divider = isDivisible ? <Divider colorMode={colorMode} /> : undefined,
 		spacing = __DEFAULT_MODAL_STACK_SPACING__,
 		...rest
 	} = props;
@@ -32,8 +35,9 @@ const ModalStack = forwardRef(function ModalStack<Element extends ElementType>(
 			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-modal-stack`, { [className]: !!className })}
 			w='100%'
 			h='100%'
-			// minHeight={size === 'full' ? 'inherit' : undefined}
-			divider={isDivisible ? <Divider colorMode={colorMode} /> : undefined}
+			alignItems={alignItems}
+			justifyContent={justifyContent}
+			divider={divider}
 			spacing={spacing}
 		>
 			{children}

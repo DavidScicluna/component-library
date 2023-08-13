@@ -7,7 +7,7 @@ import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box/common/typ
 
 export type ModalSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | 'full';
 
-export type ModalRenderTriggerProps = Pick<ModalProps, 'color' | 'colorMode'> & {
+export type ModalRenderTriggerProps<Element extends ModalElement = ModalDefaultElement> = {
 	/**
 	 * If `true`, the modal will be open
 	 */
@@ -16,12 +16,11 @@ export type ModalRenderTriggerProps = Pick<ModalProps, 'color' | 'colorMode'> & 
 	 * Callback invoked to open the modal
 	 */
 	onOpen: () => void;
-	// /**
-	//  * Callback invoked to close the modal
-	//  */
-	// onClose: () => void;
-};
-export type ModalRenderBackdropProps = Pick<ModalProps, 'color' | 'colorMode'>;
+} & Pick<ModalProps<Element>, 'color' | 'colorMode'>;
+export type ModalRenderBackdropProps<Element extends ModalElement = ModalDefaultElement> = Pick<
+	ModalProps<Element>,
+	'color' | 'colorMode'
+>;
 
 export type ModalDefaultElement = 'dialog';
 export type ModalElement = PickFrom<ElementType, 'dialog'>;
