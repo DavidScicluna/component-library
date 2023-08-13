@@ -12,7 +12,7 @@ import type {
 } from './ConfirmModalBackdrop';
 import { ConfirmModalBackdrop } from './ConfirmModalBackdrop';
 import type { ConfirmModalBodyProps, ConfirmModalBodyRef } from './ConfirmModalBody';
-import { ConfirmModalBody } from './ConfirmModalBody';
+import { ConfirmModalBody, constants as confirmModalBodyConstants } from './ConfirmModalBody';
 import type { ConfirmModalContainerProps, ConfirmModalContainerRef } from './ConfirmModalContainer';
 import { ConfirmModalContainer } from './ConfirmModalContainer';
 import type {
@@ -43,10 +43,10 @@ import type {
 	ConfirmModalTransitionRef,
 	ConfirmModalTransitionVariant
 } from './ConfirmModalTransition';
-import { ConfirmModalTransition, constants as ConfirmModalTransitionConstants } from './ConfirmModalTransition';
+import { ConfirmModalTransition, constants as confirmModalTransitionConstants } from './ConfirmModalTransition';
 
 // Constants
-export const constants = { ...ConfirmModalTransitionConstants };
+export const constants = { ...confirmModalBodyConstants, ...confirmModalTransitionConstants };
 
 // Components
 export {

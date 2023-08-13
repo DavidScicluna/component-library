@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import { createContext, forwardRef } from 'react';
+import React, { createContext, forwardRef } from 'react';
 
 import { __DEFAULT_METHOD__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';

@@ -39,6 +39,16 @@ const ConfirmModalActions = forwardRef(function ConfirmModalActions<Element exte
 			justifyContent={justifyContent}
 			spacing={spacing}
 		>
+			{renderAction
+				? renderAction({
+						color,
+						colorMode,
+						isFullWidth: isSm || !renderCancel,
+						size: 'md',
+						variant: 'contained'
+				  })
+				: null}
+
 			{renderCancel
 				? renderCancel({
 						color: 'gray',
@@ -47,16 +57,6 @@ const ConfirmModalActions = forwardRef(function ConfirmModalActions<Element exte
 						onClick: typeof onClose === 'function' ? () => onClose() : undefined,
 						size: 'md',
 						variant: 'monochrome'
-				  })
-				: null}
-
-			{renderAction
-				? renderAction({
-						color,
-						colorMode,
-						isFullWidth: isSm || !renderCancel,
-						size: 'md',
-						variant: 'contained'
 				  })
 				: null}
 		</VStack>

@@ -19,9 +19,15 @@ import type {
 const ConfirmModalIcon = forwardRef(function ConfirmModalIcon<
 	Element extends ConfirmModalIconElement = ConfirmModalIconDefaultElement
 >(props: ConfirmModalIconProps<Element>, ref: ConfirmModalIconRef<Element>): ReactElement {
-	const { color, colorMode } = useConfirmModalContext();
+	const { color: __DEFAULT_CONFIRM_MODAL_COLOR__, colorMode: __DEFAULT_CONFIRM_MODAL_COLORMODE__ } =
+		useConfirmModalContext();
 
-	const { className = __DEFAULT_CLASSNAME__, ...rest } = props;
+	const {
+		className = __DEFAULT_CLASSNAME__,
+		color = __DEFAULT_CONFIRM_MODAL_COLOR__,
+		colorMode = __DEFAULT_CONFIRM_MODAL_COLORMODE__,
+		...rest
+	} = props;
 
 	return (
 		<Icon

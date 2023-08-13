@@ -1,6 +1,10 @@
 import type { ReactElement } from 'react';
 
+import { sample } from 'lodash-es';
+
 import { __DEFAULT_SPACING__ } from '@common/constants';
+import colors from '@common/data/colors';
+import type { AppColor } from '@common/types/theme';
 
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
@@ -24,8 +28,10 @@ import {
 	ConfirmModalTitle
 } from '.';
 
+const __DEFAULT_CONFIRM_MODAL_STORY_COLOR__: AppColor = sample(colors) || 'blue';
+
 export default {
-	title: 'Overlay/Confirm Modal',
+	title: 'Overlay/ConfirmModal',
 	component: ConfirmModalComponent,
 	argTypes: {
 		closeOnEsc: {
@@ -78,8 +84,14 @@ export const ConfirmModal: ConfirmModalStory = (props: ConfirmModalProps<Confirm
 			colorMode={colorMode}
 			renderTrigger={({ onOpen }) => <button onClick={onOpen}>click</button>}
 		>
-			<ConfirmModalStack>
-				<ConfirmModalIcon />
+			<ConfirmModalStack alignItems='center' justifyContent='center'>
+				<ConfirmModalIcon
+					color={!color ? __DEFAULT_CONFIRM_MODAL_STORY_COLOR__ : color}
+					icon='check'
+					size='4xl'
+					variant='contained'
+					p={2}
+				/>
 				<ConfirmModalBody>
 					<ConfirmModalTitle>ConfirmModal Title</ConfirmModalTitle>
 					<ConfirmModalSubtitle>ConfirmModal Subtitle</ConfirmModalSubtitle>

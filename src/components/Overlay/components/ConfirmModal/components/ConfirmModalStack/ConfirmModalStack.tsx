@@ -6,7 +6,8 @@ import classNames from 'classnames';
 import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { VStack } from '@components/Layout';
-import { useModalContext } from '@components/Overlay/components/Modal/common/hooks';
+
+import { useConfirmModalContext } from '../../common/hooks';
 
 import type { ConfirmModalStackProps, ConfirmModalStackRef } from './common/types';
 
@@ -14,7 +15,7 @@ const ConfirmModalStack = forwardRef(function ConfirmModalStack<Element extends 
 	props: ConfirmModalStackProps<Element>,
 	ref: ConfirmModalStackRef<Element>
 ): ReactElement {
-	const { spacing: __DEFAULT_CONFIRM_MODAL_STACK_SPACING__ } = useModalContext();
+	const { spacing: __DEFAULT_CONFIRM_MODAL_STACK_SPACING__ } = useConfirmModalContext();
 
 	const {
 		children,
