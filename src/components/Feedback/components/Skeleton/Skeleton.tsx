@@ -42,7 +42,7 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 		<Grid<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-skeleton`, classes.common, { [className]: !!className })}
+			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-skeleton`, { [className]: !!className })}
 			templateColumns={1}
 			templateRows={1}
 			alignItems='stretch'
@@ -53,20 +53,15 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 		>
 			{children ? (
 				<GridItem columnStart={1} rowStart={1} zIndex={1}>
-					<Fade className={classes.common} in={isLoaded} transition={transition} unmountOnExit={false}>
+					<Fade w='100%' h='100%' in={isLoaded} transition={transition} unmountOnExit={false}>
 						{children}
 					</Fade>
 				</GridItem>
 			) : null}
 
 			<GridItem columnStart={1} rowStart={1}>
-				<Fade
-					className={classes.common}
-					in={children ? !isLoaded : true}
-					transition={transition}
-					unmountOnExit={false}
-				>
-					<Box className={classNames(classes.common, classes.skeleton, { ['animate-pulse']: isAnimated })} />
+				<Fade w='100%' h='100%' in={children ? !isLoaded : true} transition={transition} unmountOnExit={false}>
+					<Box className={classNames(classes, { ['animate-pulse']: isAnimated })} />
 				</Fade>
 			</GridItem>
 		</Grid>
