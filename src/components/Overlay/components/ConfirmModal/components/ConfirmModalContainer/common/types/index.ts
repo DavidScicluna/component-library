@@ -3,7 +3,7 @@ import type {
 	ConfirmModalElement,
 	ConfirmModalProps,
 	ConfirmModalRef
-} from '@components/Overlay/ConfirmModal/common/types';
+} from '@components/Overlay/components/ConfirmModal/common/types';
 
 type PickedConfirmModalProps =
 	| 'children'

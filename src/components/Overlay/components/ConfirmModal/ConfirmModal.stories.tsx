@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 
 // eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../.storybook/preview';
+import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import {
 	__DEFAULT_CONFIRM_MODAL_CLOSE_ON_ESC__,
