@@ -1,14 +1,7 @@
-import { ModalBodyProps } from '@chakra-ui/react';
+import type { ElementType } from 'react';
 
-import {
-	BoxFlexbox,
-	BoxGrid,
-	BoxOther,
-	BoxPosition,
-	BoxShadow,
-	BoxTypography
-} from '../../../../../../../common/types/box';
+import type { VStackProps, VStackRef } from '@components/Layout';
 
-type Omitted = BoxTypography | BoxFlexbox | BoxGrid | BoxPosition | BoxShadow | BoxOther;
+export type ConfirmModalBodyProps<Element extends ElementType> = Omit<VStackProps<Element>, 'divider'>;
 
-export type ConfirmModalBodyProps = Omit<ModalBodyProps, Omitted>;
+export type ConfirmModalBodyRef<Element extends ElementType> = VStackRef<Element>;
