@@ -1,39 +1,11 @@
-import { TextProps } from '@chakra-ui/react';
+import type { TextDefaultElement, TextElement, TextProps, TextRef } from '@components/Typography';
 
-import {
-	BoxBackground,
-	BoxBorderRadius,
-	BoxBorders,
-	BoxColor,
-	BoxFilter,
-	BoxFlexbox,
-	BoxGradient,
-	BoxGrid,
-	BoxLayout,
-	BoxMargin,
-	BoxOther,
-	BoxPadding,
-	BoxPosition,
-	BoxPseudo,
-	BoxShadow
-} from '../../../../../../../common/types/box';
-import { ConfirmModalProps } from '../../../../common/types';
+export type ConfirmModalSubtitleDefaultElement = TextDefaultElement;
+export type ConfirmModalSubtitleElement = TextElement;
 
-type Omitted =
-	| BoxMargin
-	| BoxPadding
-	| BoxColor
-	| BoxGradient
-	| BoxLayout
-	| BoxFlexbox
-	| BoxGrid
-	| BoxBackground
-	| BoxBorders
-	| BoxBorderRadius
-	| BoxPosition
-	| BoxShadow
-	| BoxFilter
-	| BoxPseudo
-	| BoxOther;
+export type ConfirmModalSubtitleProps<
+	Element extends ConfirmModalSubtitleElement = ConfirmModalSubtitleDefaultElement
+> = Partial<TextProps<Element>>;
 
-export type ConfirmModalSubtitleProps = Omit<TextProps, Omitted> & Pick<ConfirmModalProps, 'color' | 'colorMode'>;
+export type ConfirmModalSubtitleRef<Element extends ConfirmModalSubtitleElement = ConfirmModalSubtitleDefaultElement> =
+	TextRef<Element>;
