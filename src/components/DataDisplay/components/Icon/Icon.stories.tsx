@@ -11,8 +11,13 @@ import { Center } from '@components/Layout';
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
-import { __DEFAULT_ICON_CATEGORY__, __DEFAULT_ICON_VARIANT__ } from './common/constants';
-import type { IconCategory, IconDefaultElement, IconProps, IconVariant } from './common/types';
+import {
+	__DEFAULT_ICON_CATEGORY__,
+	__DEFAULT_ICON_RADIUS__,
+	__DEFAULT_ICON_SIZE__,
+	__DEFAULT_ICON_VARIANT__
+} from './common/constants';
+import type { IconCategory, IconDefaultElement, IconProps, IconRadius, IconSize, IconVariant } from './common/types';
 import type { IconStory, IconStoryMeta } from './common/types/story';
 import { Icon as IconComponent } from '.';
 
@@ -34,6 +39,36 @@ export default {
 			defaultValue: __DEFAULT_ICON_CATEGORY__,
 			// description: '',
 			options: ['filled', 'outlined', 'twoTone'] as IconCategory[],
+			control: { type: 'radio' }
+		},
+		radius: {
+			name: 'Radius',
+			type: 'string',
+			defaultValue: __DEFAULT_ICON_RADIUS__,
+			// description: '',
+			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as IconRadius[],
+			control: { type: 'radio' }
+		},
+		size: {
+			name: 'Size',
+			type: 'string',
+			defaultValue: __DEFAULT_ICON_SIZE__,
+			// description: '',
+			options: [
+				'xs',
+				'sm',
+				'md',
+				'lg',
+				'xl',
+				'2xl',
+				'3xl',
+				'4xl',
+				'5xl',
+				'6xl',
+				'7xl',
+				'8xl',
+				'9xl'
+			] as IconSize[],
 			control: { type: 'radio' }
 		},
 		variant: {

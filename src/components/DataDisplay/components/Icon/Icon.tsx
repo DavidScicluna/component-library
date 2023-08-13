@@ -11,7 +11,12 @@ import { Skeleton } from '@components/Feedback';
 import { Center } from '@components/Layout';
 import useIconFontContext from '@components/Provider/common/hooks/useIconFontContext';
 
-import { __DEFAULT_ICON_CATEGORY__, __DEFAULT_ICON_VARIANT__ } from './common/constants';
+import {
+	__DEFAULT_ICON_CATEGORY__,
+	__DEFAULT_ICON_RADIUS__,
+	__DEFAULT_ICON_SIZE__,
+	__DEFAULT_ICON_VARIANT__
+} from './common/constants';
 import { useGetIconClasses } from './common/hooks';
 import type { IconDefaultElement, IconElement, IconProps, IconRef } from './common/types';
 
@@ -24,10 +29,14 @@ const Icon = forwardRef(function Icon<Element extends IconElement = IconDefaultE
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
+		w = 'auto',
+		h = 'auto',
 		color,
 		colorMode,
 		icon,
 		category = __DEFAULT_ICON_CATEGORY__,
+		radius = __DEFAULT_ICON_RADIUS__,
+		size = __DEFAULT_ICON_SIZE__,
 		variant = __DEFAULT_ICON_VARIANT__,
 		sx,
 		...rest
@@ -35,7 +44,7 @@ const Icon = forwardRef(function Icon<Element extends IconElement = IconDefaultE
 
 	const hasIcon = !children && !!icon;
 
-	const classes = useGetIconClasses<Element>({ color, colorMode, category, variant });
+	const classes = useGetIconClasses<Element>({ color, colorMode, radius, size, variant });
 
 	return (
 		<Skeleton color={color} colorMode={colorMode} isLoaded={hasIcon ? fonts[category] : true} radius='full'>
@@ -45,6 +54,8 @@ const Icon = forwardRef(function Icon<Element extends IconElement = IconDefaultE
 				className={classNames(`${__DEFAULT_CLASS_PREFIX__}-icon`, classes, {
 					[className]: !!className
 				})}
+				w={w}
+				h={h}
 				sx={
 					hasIcon
 						? merge(
@@ -56,11 +67,6 @@ const Icon = forwardRef(function Icon<Element extends IconElement = IconDefaultE
 						  )
 						: sx
 				}
-				// fontWeight='normal'
-				// lineHeight='normal'
-				// letterSpacing='normal'
-				// textTransform='none'
-				// textDecoration='none'
 			>
 				{children || icon || null}
 			</Center>

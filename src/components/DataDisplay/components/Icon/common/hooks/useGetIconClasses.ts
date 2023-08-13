@@ -7,14 +7,16 @@ import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__ } from '@common/cons
 import { __DEFAULT_COLOR__ } from '@common/constants/props';
 import { useAppTheme } from '@common/hooks';
 import type { ClassName } from '@common/types';
+import type { LineHeight } from '@common/types/theme';
+import { getClass } from '@common/utils/classes';
 import { getColorHue } from '@common/utils/color';
 
-import { __DEFAULT_ICON_CATEGORY__, __DEFAULT_ICON_VARIANT__ } from '../constants';
-import type { IconElement, IconProps } from '../types';
+import { __DEFAULT_ICON_RADIUS__, __DEFAULT_ICON_SIZE__, __DEFAULT_ICON_VARIANT__ } from '../constants';
+import type { IconElement, IconProps, IconRadius, IconSize } from '../types';
 
 type UseGetIconClassesProps<Element extends IconElement> = Pick<
 	IconProps<Element>,
-	'color' | 'colorMode' | 'category' | 'variant'
+	'color' | 'colorMode' | 'radius' | 'size' | 'variant'
 >;
 type UseGetIconClassesReturn = ClassName;
 
@@ -26,16 +28,30 @@ const useGetIconClasses = <Element extends IconElement>(
 	const {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_ICON_COLORMODE__,
-		category = __DEFAULT_ICON_CATEGORY__,
+		radius = __DEFAULT_ICON_RADIUS__,
+		size = __DEFAULT_ICON_SIZE__,
 		variant = __DEFAULT_ICON_VARIANT__
 	} = props;
 
 	const rootClasses = useMemo<string>(() => {
-		return classNames('cursor-default', 'select-none', 'will-change-auto', 'pointer-events-none', {
-			[classes.borders.borderWidth[__DEFAULT_BORDER_WIDTH__]]: variant !== 'unstyled',
-			[classes.borders.borderStyle[__DEFAULT_BORDER_STYLE__]]: variant !== 'unstyled'
-		});
-	}, [category, variant]);
+		const fontSizeClassName = getClass<IconSize>(size, ['typography', 'fontSize']);
+		const lineHeightClassName = getClass<LineHeight>('none', ['typography', 'lineHeight']);
+		const radiusClassName = getClass<IconRadius>(radius, ['borders', 'borderRadius']);
+
+		return classNames(
+			'cursor-default',
+			'select-none',
+			'will-change-auto',
+			'pointer-events-none',
+			fontSizeClassName,
+			lineHeightClassName,
+			radiusClassName,
+			{
+				[classes.borders.borderWidth[__DEFAULT_BORDER_WIDTH__]]: variant !== 'unstyled',
+				[classes.borders.borderStyle[__DEFAULT_BORDER_STYLE__]]: variant !== 'unstyled'
+			}
+		);
+	}, [size, radius, variant]);
 
 	const containedClasses = useMemo<string>(() => {
 		const colorHue = getColorHue({ colorMode, type: 'background' });
