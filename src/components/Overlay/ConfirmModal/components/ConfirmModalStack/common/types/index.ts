@@ -1,44 +1,7 @@
-import { StackProps } from '@chakra-ui/react';
+import type { ElementType } from 'react';
 
-import {
-	BoxBackground,
-	BoxBorderRadius,
-	BoxBorders,
-	BoxColor,
-	BoxFilter,
-	BoxFlexbox,
-	BoxGradient,
-	BoxGrid,
-	BoxLayout,
-	BoxMargin,
-	BoxOther,
-	BoxPosition,
-	BoxPseudo,
-	BoxShadow,
-	BoxTypography
-} from '../../../../../../../common/types/box';
-import { Space } from '../../../../../../../theme/types';
+import type { VStackProps, VStackRef } from '@components/Layout';
 
-type Omitted =
-	| BoxMargin
-	| BoxColor
-	| BoxGradient
-	| BoxTypography
-	| BoxLayout
-	| BoxFlexbox
-	| BoxGrid
-	| BoxBackground
-	| BoxBorders
-	| BoxBorderRadius
-	| BoxPosition
-	| BoxShadow
-	| BoxFilter
-	| BoxPseudo
-	| BoxOther
-	| 'direction'
-	| 'divider'
-	| 'spacing';
+export type ConfirmModalStackProps<Element extends ElementType> = Omit<VStackProps<Element>, 'w' | 'h' | 'divider'>;
 
-export type ConfirmModalStackProps = Omit<StackProps, Omitted> & {
-	spacing?: Space;
-};
+export type ConfirmModalStackRef<Element extends ElementType> = VStackRef<Element>;
