@@ -6,7 +6,7 @@ import { useGetColor } from '@common/hooks';
 import { Text } from '@components/Typography';
 
 // eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../.storybook/preview';
+import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import {
 	__DEFAULT_MODAL_CLOSE_ON_ESC__,

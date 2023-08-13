@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
-import { useModalContext } from '@components/Overlay/Modal/common/hooks';
+import { useModalContext } from '@components/Overlay/components/Modal/common/hooks';
 import { Text } from '@components/Typography';
 
 import type {

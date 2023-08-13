@@ -7,7 +7,7 @@ import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constan
 
 import { Divider } from '@components/DataDisplay';
 import { VStack } from '@components/Layout';
-import { useModalContext } from '@components/Overlay/Modal/common/hooks';
+import { useModalContext } from '@components/Overlay/components/Modal/common/hooks';
 
 import type { ModalStackProps, ModalStackRef } from './common/types';
 

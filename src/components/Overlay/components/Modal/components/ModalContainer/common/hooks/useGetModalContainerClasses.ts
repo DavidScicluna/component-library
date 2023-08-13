@@ -5,7 +5,7 @@ import type { ClassName } from '@common/types';
 import type { BoxShadow, MaxHeight, MaxWidth, ZIndex } from '@common/types/classes';
 import type { Radius, Space } from '@common/types/theme';
 
-import { useModalContext } from '@components/Overlay/Modal/common/hooks';
+import { useModalContext } from '@components/Overlay/components/Modal/common/hooks';
 
 type UseGetModalContainerClassesReturn = Record<'container' | 'backdrop' | 'content', ClassName>;
 

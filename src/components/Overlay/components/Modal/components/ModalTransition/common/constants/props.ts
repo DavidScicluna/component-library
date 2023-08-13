@@ -2,7 +2,7 @@ import { getAnimationDuration } from '@common/utils/animation';
 
 // TODO: Go over all /common/constants and extract them from root constants object instead of directly import
 import { __DEFAULT_TRANSITION_EASINGS__ } from '@components/Animation/common/constants';
-import { __DEFAULT_MODAL_DURATION__ } from '@components/Overlay/Modal/common/constants';
+import { __DEFAULT_MODAL_DURATION__ } from '@components/Overlay/components/Modal/common/constants';
 
 import type { ModalTransitionVariant } from '../types';
 

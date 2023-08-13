@@ -1,4 +1,9 @@
-import type { ModalDefaultElement, ModalElement, ModalProps, ModalRef } from '@components/Overlay/Modal/common/types';
+import type {
+	ModalDefaultElement,
+	ModalElement,
+	ModalProps,
+	ModalRef
+} from '@components/Overlay/components/Modal/common/types';
 
 type PickedModalProps =
 	| 'children'
