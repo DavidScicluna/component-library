@@ -1,73 +1,90 @@
-import { ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
 
-import { ModalProps as CUIModalProps } from '@chakra-ui/react';
+import type { PickFrom, ResponsiveValue } from '@common/types';
+import type { CommonAppThemeProps, Space } from '@common/types/theme';
 
-import { CommonThemeProps } from '../../../../../common/types';
-import {
-	BoxBackground,
-	BoxBorderRadius,
-	BoxBorders,
-	BoxColor,
-	BoxFilter,
-	BoxFlexbox,
-	BoxGradient,
-	BoxGrid,
-	BoxLayout,
-	BoxMargin,
-	BoxOther,
-	BoxPadding,
-	BoxPosition,
-	BoxPseudo,
-	BoxShadow,
-	BoxTypography
-} from '../../../../../common/types/box';
-import { Space } from '../../../../../theme/types';
-import { CloseIconButtonProps } from '../../../../Clickable/IconButtons/CloseIconButton/common/types';
-import { IconProps } from '../../../../DataDisplay/Icon/common/types';
-
-export type ConfirmModalRenderBackdropProps = Pick<CloseIconButtonProps, 'color' | 'colorMode'>;
-
-export type ConfirmModalRenderCancelProps = Pick<IconProps, 'icon' | 'category'> &
-	Pick<CloseIconButtonProps, 'aria-label' | 'color' | 'colorMode' | 'onClick' | 'size' | 'variant'>;
+import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
 export type ConfirmModalSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-type Omitted =
-	// CUI Box Props
-	| BoxMargin
-	| BoxPadding
-	| BoxColor
-	| BoxGradient
-	| BoxTypography
-	| BoxLayout
-	| BoxFlexbox
-	| BoxGrid
-	| BoxBackground
-	| BoxBorders
-	| BoxBorderRadius
-	| BoxPosition
-	| BoxShadow
-	| BoxFilter
-	| BoxPseudo
-	| BoxOther
-	// CUI Confirm Modal Props
-	| 'as'
-	| 'colorScheme'
-	| 'id'
-	| 'isCentered'
-	| 'motionPreset'
-	| 'size'
-	| 'trapFocus'
-	| 'variant';
+export type ConfirmModalRenderTriggerProps<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = {
+	/**
+	 * If `true`, the modal will be open
+	 */
+	isOpen: boolean;
+	/**
+	 * Callback invoked to open the modal
+	 */
+	onOpen: () => void;
+} & Pick<ConfirmModalProps<Element>, 'color' | 'colorMode'>;
+export type ConfirmModalRenderBackdropProps<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = Pick<
+	ConfirmModalProps<Element>,
+	'color' | 'colorMode'
+>;
+export type ConfirmModalRenderCancelProps<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = Pick<
+	ConfirmModalProps<Element>,
+	'color' | 'colorMode'
+>;
 
-export type ConfirmModalProps = CommonThemeProps & {
+export type ConfirmModalDefaultElement = 'dialog';
+export type ConfirmModalElement = PickFrom<ElementType, 'dialog'>;
+
+type ConfirmModalOtherProps = CommonAppThemeProps & {
+	renderTrigger: (props: ConfirmModalRenderTriggerProps) => ReactNode;
 	renderBackdrop?: (props: ConfirmModalRenderBackdropProps) => ReactNode;
 	renderCancel?: (props: ConfirmModalRenderCancelProps) => ReactNode;
+	/**
+	 * If `true`, the modal will close when the Esc key is pressed
+	 * @default true
+	 */
+	closeOnEsc?: boolean;
+	/**
+	 * If `true`, the modal will close when the overlay is clicked
+	 * @default true
+	 */
+	closeOnOverlayClick?: boolean;
+	/**
+	 * If `true`, the modal will render without a backdrop behind the modal
+	 * @default true
+	 */
 	hasBackdrop?: boolean;
-	size?: ConfirmModalSize;
-	spacing?: Space;
-} & Omit<CUIModalProps, Omitted>;
+	/**
+	 * Callback invoked to close the modal
+	 */
+	onClose?: () => void;
+	/**
+	 * Callback fired when all exiting nodes have completed animating out
+	 */
+	onCloseComplete?: () => void;
+	/**
+	 * Callback fired when the escape key is pressed and focus is within modal
+	 */
+	onEsc?: () => void;
+	/**
+	 * Callback fired when the overlay is clicked
+	 */
+	onOverlayClick?: () => void;
+	/**
+	 * Callback invoked to open the modal
+	 */
+	onOpen?: () => void;
+	/**
+	 * The size of the Modal
+	 * @default "xl"
+	 */
+	size?: ResponsiveValue<ConfirmModalSize>;
+	spacing?: ResponsiveValue<Space>;
+};
 
-type Picked = 'color' | 'colorMode' | 'isOpen' | 'onClose' | 'size' | 'spacing';
+export type ConfirmModalProps<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = Omit<
+	BoxProps<Element, ConfirmModalOtherProps>,
+	keyof BoxOtherProps
+>;
+export type ConfirmModalRef<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = BoxRef<Element>;
 
-export type ConfirmModalContext = Pick<ConfirmModalProps, Picked>;
+export type ConfirmModalContext<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = {
+	/**
+	 * If `true`, the ConfirmModal will be open
+	 */
+	isOpen: boolean;
+} & Pick<ConfirmModalProps<Element>, 'color' | 'colorMode' | 'onClose' | 'size' | 'spacing'>;

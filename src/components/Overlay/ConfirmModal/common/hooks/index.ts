@@ -1,3 +1,4 @@
 import useConfirmModalContext from './useConfirmModalContext';
+import useConfirmModalIsMounted from './useConfirmModalIsMounted';
 
-export { useConfirmModalContext };
+export { useConfirmModalContext, useConfirmModalIsMounted };
