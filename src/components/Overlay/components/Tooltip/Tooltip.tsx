@@ -37,7 +37,7 @@ const Tooltip = forwardRef(function Tooltip<Element extends ElementType>(
 	props: TooltipProps<Element>,
 	ref: TooltipRef<Element>
 ): ReactElement {
-	const arrowRef = useRef(null);
+	const arrowRef = useRef<SVGSVGElement>(null);
 
 	const {
 		children,

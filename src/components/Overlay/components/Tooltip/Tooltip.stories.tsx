@@ -3,8 +3,8 @@ import type { ReactElement } from 'react';
 import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 // eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../.storybook/preview';
-import { HoverOverlay } from '../components/HoverOverlay';
+import { useStorybookContext } from '../../../../../.storybook/preview';
+import { HoverOverlay } from '../HoverOverlay';
 
 import {
 	__DEFAULT_TOOLTIP_CLOSE_DELAY__,

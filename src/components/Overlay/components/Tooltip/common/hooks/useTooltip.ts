@@ -1,4 +1,4 @@
-import type { ElementType } from 'react';
+import type { ElementType, RefObject } from 'react';
 
 import {
 	arrow,
@@ -38,7 +38,7 @@ type UseTooltipProps<Element extends ElementType> = Pick<
 	| 'placement'
 	| 'onClose'
 	| 'onOpen'
-> & { arrowRef: any };
+> & { arrowRef: RefObject<SVGSVGElement> };
 
 const useTooltip = <Element extends ElementType>(props: UseTooltipProps<Element>) => {
 	const {
