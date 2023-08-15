@@ -1,69 +1,101 @@
-import { TooltipProps as CUITooltipProps } from '@chakra-ui/react';
+import type { ElementType, ReactNode } from 'react';
 
-import { CommonThemeProps, Nullable } from '../../../../../common/types';
-import {
-	BoxBackground,
-	BoxBorderRadius,
-	BoxBorders,
-	BoxColor,
-	BoxFilter,
-	BoxFlexbox,
-	BoxGradient,
-	BoxGrid,
-	BoxLayout,
-	BoxMargin,
-	BoxOther,
-	BoxPadding,
-	BoxPosition,
-	BoxPseudo,
-	BoxShadow,
-	BoxTypography
-} from '../../../../../common/types/box';
-import { Color } from '../../../../../theme/types';
+import type { CommonAppThemeProps } from '@common/types/theme';
 
-export type TooltipColor = Exclude<Color, 'transparent'>;
+import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
-type Omitted =
-	// CUI Box Props
-	| BoxMargin
-	| BoxPadding
-	| BoxColor
-	| BoxGradient
-	| BoxTypography
-	| BoxLayout
-	| BoxFlexbox
-	| BoxGrid
-	| BoxBackground
-	| BoxBorders
-	| BoxBorderRadius
-	| BoxPosition
-	| BoxShadow
-	| BoxFilter
-	| BoxPseudo
-	| BoxOther
-	// CUI Tooltip Props
-	| 'as'
-	| 'aria-label'
-	| 'arrowPadding'
-	| 'arrowShadowColor'
-	// | 'closeDelay'
-	| 'colorScheme'
-	| 'direction'
-	| 'hasArrow'
-	| 'isOpen'
-	| 'modifiers'
-	| 'offset'
-	// | 'openDelay'
-	| 'portalProps'
-	| 'size'
-	| 'variant';
+export type TooltipPlacement =
+	| 'top'
+	| 'top-start'
+	| 'top-end'
+	| 'right'
+	| 'right-start'
+	| 'right-end'
+	| 'bottom'
+	| 'bottom-start'
+	| 'bottom-end'
+	| 'left'
+	| 'left-start'
+	| 'left-end';
 
-export type TooltipProps = Omit<CUITooltipProps, Omitted> & {
-	'aria-label': string;
-	'color'?: TooltipColor;
-	'isOpen': boolean;
-	// 'closeDelay'?: number;
-	// 'openDelay'?: number;
-} & Pick<CommonThemeProps, 'colorMode'>;
+export type TooltipOtherProps = CommonAppThemeProps & {
+	children: ReactNode;
+	/**
+	 * Delay (in ms) before hiding the tooltip
+	 * @default 0
+	 */
+	closeDelay?: number;
+	/**
+	 * Delay (in ms) before showing the tooltip
+	 * @default 0
+	 */
+	openDelay?: number;
+	/**
+	 * If true, the tooltip will hide on click
+	 * @default true
+	 */
+	closeOnClick?: boolean;
+	/**
+	 * If true, the tooltip will hide on pressing Esc key
+	 * @default true
+	 */
+	closeOnEsc?: boolean;
+	/**
+	 * If true, the tooltip will hide while the mouse is down
+	 * @default true
+	 */
+	closeOnMouseDown?: boolean;
+	/**
+	 * If true, the tooltip will hide while the mouse is up
+	 * @default true
+	 */
+	closeOnMouseUp?: boolean;
+	/**
+	 * If true, the tooltip will be initially shown
+	 * @default false
+	 */
+	defaultIsOpen?: boolean;
+	/**
+	 * The distance or margin between the trigger and the tooltip.
+	 * @default 8
+	 */
+	gutter?: number;
+	/**
+	 * If true, the tooltip will not be shown
+	 * @default false
+	 */
+	isDisabled?: boolean;
+	/**
+	 * If true, the tooltip will be shown (in controlled mode)
+	 */
+	isOpen: boolean;
+	/**
+	 * The label of the tooltip
+	 */
+	label?: string;
+	/**
+	 * Callback to run when the tooltip hides
+	 */
+	onClose?: () => void;
+	/**
+	 * Callback fired when all exiting nodes have completed animating out
+	 */
+	onCloseComplete?: () => void;
+	/**
+	 * Callback to run when the tooltip shows
+	 */
+	onOpen?: () => void;
+	/**
+	 * Callback fired when the escape key is pressed and focus is within modal
+	 */
+	onEsc?: () => void;
+	/**
+	 * The placement of the tooltip relative to its reference.
+	 * @default 'top'
+	 */
+	placement?: TooltipPlacement;
+};
 
-export type TooltipRef = Nullable<HTMLDivElement>;
+export type TooltipProps<Element extends ElementType> = Omit<BoxProps<Element, TooltipOtherProps>, keyof BoxOtherProps>;
+
+export type TooltipRef<Element extends ElementType> = BoxRef<Element>;
