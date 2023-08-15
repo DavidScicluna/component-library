@@ -1,7 +1,7 @@
 import type { PickFrom } from '.';
 import type { Color, ColorHue } from './theme';
 
-export type ClassType = 'shadow' | 'bg' | 'text' | 'border' | 'outline';
+export type ClassType = 'shadow' | 'fill' | 'bg' | 'text' | 'border' | 'outline';
 
 /**
  * Backgrounds
@@ -359,6 +359,13 @@ export type ZIndexObj = Record<ZIndex, string | number>;
 /**
  * Spacing
  */
+
+/**
+ * SVG
+ */
+export type FillColor =
+	| `${PickFrom<ClassType, 'fill'>}-${Exclude<Color, 'transparent' | 'black' | 'white'>}-${ColorHue}`
+	| `${PickFrom<ClassType, 'fill'>}-${PickFrom<Color, 'transparent' | 'black' | 'white'>}`;
 
 /**
  * Transitions
