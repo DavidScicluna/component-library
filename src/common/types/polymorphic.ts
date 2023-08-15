@@ -1,10 +1,15 @@
-import type { ComponentPropsWithRef, ElementType, HTMLAttributes } from 'react';
+import type { ComponentPropsWithRef, ElementType, HTMLAttributes, MouseEvent } from 'react';
 
 import type { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_OBJECT__ } from '@common/constants';
 
 import type { PickFrom, Style } from '.';
 
 export type PolymorphicDefaultElement = PickFrom<ElementType, 'div'>;
+
+export type PolymorphicMouseEvent<Element extends ElementType = typeof __DEFAULT_POLYMORPHIC_ELEMENT__> = MouseEvent<
+	PolymorphicRef<Element>,
+	globalThis.MouseEvent
+>;
 
 type PolymorphicProps<Element extends ElementType = typeof __DEFAULT_POLYMORPHIC_ELEMENT__> = HTMLAttributes<
 	PolymorphicRef<Element>
