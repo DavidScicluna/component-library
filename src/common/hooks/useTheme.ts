@@ -15,7 +15,7 @@ import type {
 
 import useConst from './useConst';
 
-type UseThemeReturn = {
+interface UseThemeReturn {
 	borderRadius: RadiiObj;
 	colors: ColorsObj;
 	container: BreakpointsObj;
@@ -29,7 +29,7 @@ type UseThemeReturn = {
 	};
 	spacing: SpacingObj;
 	zIndex: ZIndexObj;
-};
+}
 
 const useTheme = (): UseThemeReturn => {
 	const {

@@ -13,7 +13,7 @@ import type {
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
-type GridItemOtherProps = {
+interface GridItemOtherProps {
 	alignSelf?: ResponsiveValue<AlignSelf>;
 	// area?: ResponsiveValue<>;
 	columnSpan?: ResponsiveValue<GridColumnSpan>;
@@ -24,7 +24,7 @@ type GridItemOtherProps = {
 	rowStart?: ResponsiveValue<GridRowStartEnd>;
 	rowEnd?: ResponsiveValue<GridRowStartEnd>;
 	zIndex?: ResponsiveValue<ZIndex>;
-};
+}
 
 export type GridItemProps<Element extends ElementType> = BoxProps<Element, GridItemOtherProps>;
 

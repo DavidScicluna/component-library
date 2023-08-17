@@ -18,7 +18,7 @@ export type TooltipPlacement =
 	| 'left-start'
 	| 'left-end';
 
-export type TooltipOtherProps = CommonAppThemeProps & {
+export interface TooltipOtherProps extends CommonAppThemeProps {
 	children: ReactNode;
 	/**
 	 * Delay (in ms) before hiding the tooltip
@@ -94,7 +94,7 @@ export type TooltipOtherProps = CommonAppThemeProps & {
 	 * @default 'top'
 	 */
 	placement?: TooltipPlacement;
-};
+}
 
 export type TooltipProps<Element extends ElementType> = Omit<BoxProps<Element, TooltipOtherProps>, keyof BoxOtherProps>;
 

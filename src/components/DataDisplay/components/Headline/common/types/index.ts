@@ -7,14 +7,14 @@ import type { TextProps } from '@components/Typography/components/Text/common/ty
 
 export type HeadlineRenderProps = { w: string; h: string };
 
-type HeadlineOtherProps = CommonAppThemeProps & {
+interface HeadlineOtherProps extends CommonAppThemeProps {
 	renderLeft?: (props: HeadlineRenderProps) => ReactNode;
 	renderRight?: (props: HeadlineRenderProps) => ReactNode;
 	renderCaption?: (props: TextProps) => ReactNode;
 	renderTitle: (props: TextProps) => ReactNode;
 	renderSubtitle?: (props: TextProps) => ReactNode;
 	spacing?: Space;
-};
+}
 
 export type HeadlineProps<Element extends ElementType> = BoxProps<Element, HeadlineOtherProps>;
 

@@ -15,7 +15,7 @@ import type { Space } from '@common/types/theme';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
-type GridOtherProps = {
+interface GridOtherProps {
 	alignContent?: ResponsiveValue<AlignContent>;
 	alignItems?: ResponsiveValue<AlignItems>;
 	autoColumns?: ResponsiveValue<GridAuto>;
@@ -28,7 +28,7 @@ type GridOtherProps = {
 	templateColumns?: ResponsiveValue<GridTemplateColumns | string>;
 	templateRows?: ResponsiveValue<GridTemplateRows | string>;
 	spacing?: ResponsiveValue<Space>;
-};
+}
 
 export type GridProps<Element extends ElementType> = BoxProps<Element, GridOtherProps>;
 

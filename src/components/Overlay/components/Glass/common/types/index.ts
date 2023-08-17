@@ -8,7 +8,7 @@ import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
 export type GlassBlur = BackdropBlur;
 
-type GlassOtherProps = CommonAppThemeProps & {
+interface GlassOtherProps extends CommonAppThemeProps {
 	/**
 	 * The amount of the blur effect to be applied ("none", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "8xl", "9xl")
 	 *
@@ -27,7 +27,7 @@ type GlassOtherProps = CommonAppThemeProps & {
 	 * @default true
 	 */
 	hasBackground?: boolean;
-};
+}
 
 export type GlassProps<Element extends ElementType> = BoxProps<Element, GlassOtherProps>;
 

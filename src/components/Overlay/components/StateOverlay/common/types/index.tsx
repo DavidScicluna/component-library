@@ -7,7 +7,9 @@ import type { GlassProps } from '@components/Overlay/components/Glass/common/typ
 
 export type StateOverlayState = 'success' | 'error' | 'empty' | 'loading' | 'default';
 
-type StateOverlayOtherProps<Element extends ElementType> = CommonAppThemeProps & {
+interface StateOverlayOtherProps<Element extends ElementType>
+	extends CommonAppThemeProps,
+		Pick<GlassProps<Element>, 'blur'> {
 	renderSuccess?: (state: StateOverlayState) => ReactNode;
 	renderError?: (state: StateOverlayState) => ReactNode;
 	renderEmpty?: (state: StateOverlayState) => ReactNode;
@@ -15,7 +17,7 @@ type StateOverlayOtherProps<Element extends ElementType> = CommonAppThemeProps &
 	hasGlass?: boolean;
 	isAlwaysVisible?: boolean;
 	state: StateOverlayState;
-} & Pick<GlassProps<Element>, 'blur'>;
+}
 
 export type StateOverlayProps<Element extends ElementType> = Omit<
 	BoxProps<Element, StateOverlayOtherProps<Element>>,

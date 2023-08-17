@@ -13,13 +13,13 @@ export type DividerPlacement = 'left' | 'center' | 'right';
 
 export type DividerVariant = 'dotted' | 'dashed' | 'solid';
 
-type DividerOtherProps = CommonAppThemeProps & {
+interface DividerOtherProps extends CommonAppThemeProps {
 	orientation?: ResponsiveValue<Orientation>;
 	placement?: ResponsiveValue<DividerPlacement>;
 	size?: ResponsiveValue<BorderWidth>;
 	spacing?: ResponsiveValue<Space>;
 	variant?: ResponsiveValue<DividerVariant>;
-};
+}
 
 export type DividerProps<Element extends DividerElement> = Omit<
 	BoxProps<Element, DividerOtherProps>,

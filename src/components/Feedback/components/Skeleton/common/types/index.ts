@@ -4,11 +4,11 @@ import type { CommonAppThemeProps, Radius } from '@common/types/theme';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
-type SkeletonOtherProps = CommonAppThemeProps & {
+interface SkeletonOtherProps extends CommonAppThemeProps {
 	isAnimated?: boolean;
 	isLoaded?: boolean;
 	radius?: Radius;
-};
+}
 
 export type SkeletonProps<Element extends ElementType> = BoxProps<Element, SkeletonOtherProps>;
 

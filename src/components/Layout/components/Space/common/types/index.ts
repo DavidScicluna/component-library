@@ -7,10 +7,10 @@ import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
 export type SpaceDimension = Space;
 
-type SpaceOtherProps = {
+interface SpaceOtherProps {
 	width?: ResponsiveValue<SpaceDimension>;
 	height?: ResponsiveValue<SpaceDimension>;
-};
+}
 
 export type SpaceProps<Element extends ElementType> = BoxProps<Element, SpaceOtherProps>;
 

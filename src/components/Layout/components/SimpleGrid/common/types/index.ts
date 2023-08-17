@@ -8,10 +8,10 @@ import type { BoxProps, BoxRef } from '@components/Box/common/types';
 export type SimpleGridColumn = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 export type SimpleGridColumns = SimpleGridColumn[];
 
-type SimpleGridOtherProps = {
+interface SimpleGridOtherProps {
 	columns: ResponsiveValue<SimpleGridColumn>;
 	spacing?: ResponsiveValue<Space>;
-};
+}
 
 export type SimpleGridProps<Element extends ElementType> = BoxProps<Element, SimpleGridOtherProps>;
 

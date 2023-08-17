@@ -17,7 +17,7 @@ export type IconSize = FontSize;
 
 export type IconVariant = 'contained' | 'light' | 'outlined' | 'monochrome' | 'transparent' | 'unstyled';
 
-type IconOtherProps = CommonAppThemeProps & {
+interface IconOtherProps extends CommonAppThemeProps {
 	/**
 	 * The icon key from the list of google material icons
 	 */
@@ -42,7 +42,7 @@ type IconOtherProps = CommonAppThemeProps & {
 	 * @default 'unstyled'
 	 */
 	variant?: IconVariant;
-};
+}
 
 export type IconProps<Element extends IconElement = IconDefaultElement> = BoxProps<Element, IconOtherProps>;
 
