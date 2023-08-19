@@ -1,5 +1,7 @@
+import type { ElementType } from 'react';
+
 import type { CommonAnimationProps, CommonAnimationRef } from '@components/Animation/common/types';
 
-export type PageTransitionProps = CommonAnimationProps & { blur?: number };
+export type PageTransitionProps<Element extends ElementType> = CommonAnimationProps<Element> & { blur?: number };
 
-export type PageTransitionRef = CommonAnimationRef;
+export type PageTransitionRef<Element extends ElementType> = CommonAnimationRef<Element>;

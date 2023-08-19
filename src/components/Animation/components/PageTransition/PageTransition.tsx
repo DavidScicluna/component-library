@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import classNames from 'classnames';
@@ -7,11 +7,11 @@ import { omit, pick } from 'lodash-es';
 import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import {
-	__DEFAULT_TRANSITION__,
-	__DEFAULT_TRANSITION_CONFIG__,
-	__DEFAULT_TRANSITION_END__,
-	__DEFAULT_TRANSITION_IN__,
-	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
+	__DEFAULT_ANIMATION_IN__,
+	__DEFAULT_ANIMATION_TRANSITION__,
+	__DEFAULT_ANIMATION_TRANSITION_CONFIG__,
+	__DEFAULT_ANIMATION_TRANSITION_END__,
+	__DEFAULT_ANIMATION_UNMOUNT_ON_EXIT__
 } from '../../common/constants';
 import { AnimatePresence } from '../AnimatePresence';
 import { MotionBox } from '../MotionBox';
@@ -20,10 +20,13 @@ import { __DEFAULT_PAGE_TRANSITION_BLUR__ } from './common/constants';
 import { __KEYS_PAGE_TRANSITION__ } from './common/keys';
 import type { PageTransitionProps, PageTransitionRef } from './common/types';
 
-const config = __DEFAULT_TRANSITION_CONFIG__;
+const config = __DEFAULT_ANIMATION_TRANSITION_CONFIG__;
 
 const variants = {
-	enter: ({ transition = __DEFAULT_TRANSITION__, transitionEnd = __DEFAULT_TRANSITION_END__ } = {}) => ({
+	enter: ({
+		transition = __DEFAULT_ANIMATION_TRANSITION__,
+		transitionEnd = __DEFAULT_ANIMATION_TRANSITION_END__
+	} = {}) => ({
 		width: '100%',
 		height: '100%',
 		filter: 'blur(0px)',
@@ -33,8 +36,8 @@ const variants = {
 	}),
 	exit: ({
 		blur = __DEFAULT_PAGE_TRANSITION_BLUR__,
-		transition = __DEFAULT_TRANSITION__,
-		transitionEnd = __DEFAULT_TRANSITION_END__
+		transition = __DEFAULT_ANIMATION_TRANSITION__,
+		transitionEnd = __DEFAULT_ANIMATION_TRANSITION_END__
 	} = {}) => ({
 		width: '100%',
 		height: '100%',
@@ -45,14 +48,14 @@ const variants = {
 	})
 };
 
-const PageTransition = forwardRef<PageTransitionRef, PageTransitionProps>(function PageTransition(
-	props,
-	ref
+const PageTransition = forwardRef(function PageTransition<Element extends ElementType>(
+	props: PageTransitionProps<Element>,
+	ref: PageTransitionRef<Element>
 ): ReactElement {
 	const {
 		className = __DEFAULT_CLASSNAME__,
-		in: isOpen = __DEFAULT_TRANSITION_IN__,
-		unmountOnExit = __DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__,
+		in: isOpen = __DEFAULT_ANIMATION_IN__,
+		unmountOnExit = __DEFAULT_ANIMATION_UNMOUNT_ON_EXIT__,
 		...rest
 	} = props;
 
@@ -64,7 +67,7 @@ const PageTransition = forwardRef<PageTransitionRef, PageTransitionProps>(functi
 	return (
 		<AnimatePresence custom={custom}>
 			{isVisible ? (
-				<MotionBox
+				<MotionBox<Element>
 					{...omit({ ...rest }, __KEYS_PAGE_TRANSITION__)}
 					{...config}
 					ref={ref}
