@@ -4,14 +4,15 @@ import classNames from 'classnames';
 
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import { Center } from '@components/Layout';
 
-import { __DEFAULT_TRANSITION_IN__ } from '../../common/constants';
+import { __DEFAULT_ANIMATION_IN__ } from '../../common/constants';
 
 import type { FadeProps } from './common/types';
 import type { FadeStory, FadeStoryMeta } from './common/types/story';
-import FadeComponent from '.';
+import { Fade as FadeComponent } from '.';
 
 export default {
 	title: 'Animation/Fade',
@@ -20,7 +21,7 @@ export default {
 		in: {
 			name: 'Animate',
 			type: 'boolean',
-			defaultValue: __DEFAULT_TRANSITION_IN__,
+			defaultValue: __DEFAULT_ANIMATION_IN__,
 			// description: '',
 			control: { type: 'boolean' }
 		}
@@ -29,7 +30,7 @@ export default {
 	}
 } as FadeStoryMeta;
 
-export const Fade: FadeStory = (props: FadeProps): ReactElement => {
+export const Fade: FadeStory = (props: FadeProps<PolymorphicDefaultElement>): ReactElement => {
 	const radius = classes.borders.borderRadius.base;
 
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
