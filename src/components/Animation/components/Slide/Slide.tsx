@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import classNames from 'classnames';
@@ -7,11 +7,11 @@ import { omit, pick } from 'lodash-es';
 import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import {
-	__DEFAULT_TRANSITION__,
-	__DEFAULT_TRANSITION_CONFIG__,
-	__DEFAULT_TRANSITION_END__,
-	__DEFAULT_TRANSITION_IN__,
-	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
+	__DEFAULT_ANIMATION_IN__,
+	__DEFAULT_ANIMATION_TRANSITION__,
+	__DEFAULT_ANIMATION_TRANSITION_CONFIG__,
+	__DEFAULT_ANIMATION_TRANSITION_END__,
+	__DEFAULT_ANIMATION_UNMOUNT_ON_EXIT__
 } from '../../common/constants';
 import { AnimatePresence } from '../AnimatePresence';
 import { MotionBox } from '../MotionBox';
@@ -24,14 +24,14 @@ import {
 import { __KEYS_SLIDE__ } from './common/keys';
 import type { SlideProps, SlideRef } from './common/types';
 
-const config = { ...__DEFAULT_TRANSITION_CONFIG__, initial: 'initial' };
+const config = { ...__DEFAULT_ANIMATION_TRANSITION_CONFIG__, initial: 'initial' };
 
 const variants = {
 	initial: ({
 		offsetX = __DEFAULT_SLIDE_OFFSET_X__,
 		offsetY = __DEFAULT_SLIDE_OFFSET_Y__,
-		transition = __DEFAULT_TRANSITION__,
-		transitionEnd = __DEFAULT_TRANSITION_END__
+		transition = __DEFAULT_ANIMATION_TRANSITION__,
+		transitionEnd = __DEFAULT_ANIMATION_TRANSITION_END__
 	}) => ({
 		opacity: 0,
 		x: offsetX,
@@ -39,7 +39,10 @@ const variants = {
 		transition: { ...transition.enter },
 		transitionEnd: { ...transitionEnd.enter }
 	}),
-	enter: ({ transition = __DEFAULT_TRANSITION__, transitionEnd = __DEFAULT_TRANSITION_END__ } = {}) => ({
+	enter: ({
+		transition = __DEFAULT_ANIMATION_TRANSITION__,
+		transitionEnd = __DEFAULT_ANIMATION_TRANSITION_END__
+	} = {}) => ({
 		opacity: 1,
 		x: 0,
 		y: 0,
@@ -49,8 +52,8 @@ const variants = {
 	exit: ({
 		offsetX = __DEFAULT_SLIDE_OFFSET_X__,
 		offsetY = __DEFAULT_SLIDE_OFFSET_Y__,
-		transition = __DEFAULT_TRANSITION__,
-		transitionEnd = __DEFAULT_TRANSITION_END__,
+		transition = __DEFAULT_ANIMATION_TRANSITION__,
+		transitionEnd = __DEFAULT_ANIMATION_TRANSITION_END__,
 		isReversed = __DEFAULT_SLIDE_IS_REVERSED__
 	} = {}) => ({
 		...(isReversed
@@ -62,11 +65,14 @@ const variants = {
 	})
 };
 
-const Slide = forwardRef<SlideRef, SlideProps>(function Slide(props, ref): ReactElement {
+const Slide = forwardRef(function Slide<Element extends ElementType>(
+	props: SlideProps<Element>,
+	ref: SlideRef<Element>
+): ReactElement {
 	const {
 		className = __DEFAULT_CLASSNAME__,
-		in: isOpen = __DEFAULT_TRANSITION_IN__,
-		unmountOnExit = __DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__,
+		in: isOpen = __DEFAULT_ANIMATION_IN__,
+		unmountOnExit = __DEFAULT_ANIMATION_UNMOUNT_ON_EXIT__,
 		...rest
 	} = props;
 
@@ -78,7 +84,7 @@ const Slide = forwardRef<SlideRef, SlideProps>(function Slide(props, ref): React
 	return (
 		<AnimatePresence custom={custom}>
 			{isVisible ? (
-				<MotionBox
+				<MotionBox<Element>
 					{...omit({ ...rest }, __KEYS_SLIDE__)}
 					{...config}
 					ref={ref}
