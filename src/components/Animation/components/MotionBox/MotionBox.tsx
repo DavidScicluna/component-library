@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import classNames from 'classnames';
@@ -14,11 +14,14 @@ import type { MotionBoxProps, MotionBoxRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const CustomBox: any = motion(Box);
 
-const MotionBox = forwardRef<MotionBoxRef, MotionBoxProps>(function MotionBox(props, ref): ReactElement {
+const MotionBox = forwardRef(function MotionBox<Element extends ElementType>(
+	props: MotionBoxProps<Element>,
+	ref: MotionBoxRef<Element>
+): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, ...rest } = props;
 
 	return (
-		<CustomBox
+		<CustomBox<Element>
 			{...rest}
 			ref={ref}
 			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-motion-box`, { [className]: !!className })}
