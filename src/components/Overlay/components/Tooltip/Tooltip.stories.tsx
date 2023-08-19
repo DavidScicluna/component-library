@@ -10,8 +10,6 @@ import {
 	__DEFAULT_TOOLTIP_CLOSE_DELAY__,
 	__DEFAULT_TOOLTIP_CLOSE_ON_CLICK__,
 	__DEFAULT_TOOLTIP_CLOSE_ON_ESC__,
-	__DEFAULT_TOOLTIP_CLOSE_ON_MOUSE_DOWN__,
-	__DEFAULT_TOOLTIP_CLOSE_ON_MOUSE_UP__,
 	__DEFAULT_TOOLTIP_DEFAULT_IS_OPEN__,
 	__DEFAULT_TOOLTIP_GUTTER__,
 	__DEFAULT_TOOLTIP_IS_DISABLED__,
@@ -55,20 +53,6 @@ export default {
 			// description: '',
 			control: { type: 'boolean' }
 		},
-		closeOnMouseDown: {
-			name: 'Close On Mouse Down',
-			type: 'boolean',
-			defaultValue: __DEFAULT_TOOLTIP_CLOSE_ON_MOUSE_DOWN__,
-			// description: '',
-			control: { type: 'boolean' }
-		},
-		closeOnMouseUp: {
-			name: 'Close On Mouse Up',
-			type: 'boolean',
-			defaultValue: __DEFAULT_TOOLTIP_CLOSE_ON_MOUSE_UP__,
-			// description: '',
-			control: { type: 'boolean' }
-		},
 		defaultIsOpen: {
 			name: 'Default Open',
 			type: 'boolean',
@@ -105,7 +89,7 @@ export default {
 			control: { type: 'text' }
 		},
 		placement: {
-			name: 'Label',
+			name: 'Placement',
 			type: 'string',
 			defaultValue: __DEFAULT_TOOLTIP_PLACEMENT__,
 			// description: '',

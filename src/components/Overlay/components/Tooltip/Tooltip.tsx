@@ -1,24 +1,21 @@
 import type { ElementType, ReactElement } from 'react';
-import React, { cloneElement, forwardRef, isValidElement, useRef } from 'react';
+import React, { cloneElement, forwardRef, useEffect } from 'react';
 
-import { FloatingArrow, FloatingPortal, useMergeRefs } from '@floating-ui/react';
+import { Tooltip as AriakitTooltip, TooltipAnchor, TooltipArrow, useTooltipStore } from '@ariakit/react';
+
 import classNames from 'classnames';
-import { useKey } from 'rooks';
 
 import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__ } from '@common/constants';
-import type { PolymorphicMouseEvent } from '@common/types/polymorphic';
-import { checkIsTouchDevice } from '@common/utils';
+import { useConst, useTheme } from '@common/hooks';
+import { checkIsTouchDevice, convertREMToPixels, convertStringToNumber } from '@common/utils';
 
 import { AnimatePresence } from '@components/Animation';
 import { Box } from '@components/Box';
-import { Center } from '@components/Layout';
 
 import {
 	__DEFAULT_TOOLTIP_CLOSE_DELAY__,
 	__DEFAULT_TOOLTIP_CLOSE_ON_CLICK__,
 	__DEFAULT_TOOLTIP_CLOSE_ON_ESC__,
-	__DEFAULT_TOOLTIP_CLOSE_ON_MOUSE_DOWN__,
-	__DEFAULT_TOOLTIP_CLOSE_ON_MOUSE_UP__,
 	__DEFAULT_TOOLTIP_DEFAULT_IS_OPEN__,
 	// __DEFAULT_TOOLTIP_DURATION__,
 	__DEFAULT_TOOLTIP_GUTTER__,
@@ -28,8 +25,9 @@ import {
 	__DEFAULT_TOOLTIP_OPEN_DELAY__,
 	__DEFAULT_TOOLTIP_PLACEMENT__
 } from './common/constants';
-import { useGetTooltipClasses, useTooltip } from './common/hooks';
+import { useTooltipClasses } from './common/hooks';
 import type { TooltipProps, TooltipRef } from './common/types';
+import { TooltipTransition } from './components';
 
 const isTouchDevice: boolean = checkIsTouchDevice();
 
@@ -37,7 +35,7 @@ const Tooltip = forwardRef(function Tooltip<Element extends ElementType>(
 	props: TooltipProps<Element>,
 	ref: TooltipRef<Element>
 ): ReactElement {
-	const arrowRef = useRef<SVGSVGElement>(null);
+	const theme = useTheme();
 
 	const {
 		children,
@@ -48,110 +46,89 @@ const Tooltip = forwardRef(function Tooltip<Element extends ElementType>(
 		openDelay = __DEFAULT_TOOLTIP_OPEN_DELAY__,
 		closeOnClick = __DEFAULT_TOOLTIP_CLOSE_ON_CLICK__,
 		closeOnEsc = __DEFAULT_TOOLTIP_CLOSE_ON_ESC__,
-		closeOnMouseDown = __DEFAULT_TOOLTIP_CLOSE_ON_MOUSE_DOWN__,
-		closeOnMouseUp = __DEFAULT_TOOLTIP_CLOSE_ON_MOUSE_UP__,
 		defaultIsOpen = __DEFAULT_TOOLTIP_DEFAULT_IS_OPEN__,
 		gutter = __DEFAULT_TOOLTIP_GUTTER__,
 		isDisabled = __DEFAULT_TOOLTIP_IS_DISABLED__,
 		isOpen = __DEFAULT_TOOLTIP_IS_OPEN__,
 		label = __DEFAULT_TOOLTIP_LABEL__,
 		onClose = __DEFAULT_METHOD__,
-		onCloseComplete = __DEFAULT_METHOD__,
 		onOpen = __DEFAULT_METHOD__,
-		onEsc = __DEFAULT_METHOD__,
-		onClick = __DEFAULT_METHOD__,
-		onMouseDown = __DEFAULT_METHOD__,
-		onMouseUp = __DEFAULT_METHOD__,
 		placement = __DEFAULT_TOOLTIP_PLACEMENT__,
 		...rest
 	} = props;
 
-	const { getReferenceProps, getFloatingProps, context } = useTooltip<Element>({
-		arrowRef,
-		closeDelay,
-		openDelay,
-		defaultIsOpen,
-		gutter,
-		isOpen,
-		isDisabled,
-		onClose,
-		onOpen,
-		placement
+	const tooltip = useTooltipStore({
+		animated: true,
+		defaultOpen: defaultIsOpen,
+		hideTimeout: closeDelay,
+		open: isOpen,
+		placement,
+		showTimeout: openDelay,
+		type: 'label'
 	});
 
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const triggerRef = useMergeRefs([context.refs.setReference, ref, (children as any).ref]);
-	const contentRef = useMergeRefs([context.refs.setFloating, ref]);
+	const classes = useTooltipClasses<Element>({ color, colorMode });
 
-	const classes = useGetTooltipClasses<Element>({ color, colorMode });
+	const arrowSize = useConst<number>(convertREMToPixels(convertStringToNumber(theme.spacing[1.5], 'rem')));
 
-	const handleCloseOnClick = (event: PolymorphicMouseEvent<Element>): void => {
-		if (onClick) {
-			onClick(event);
-		}
-		if (onClose) {
+	const handleOnOpen = (): void => {
+		if (isOpen && onOpen) {
+			onOpen();
+		} else if (!isOpen && onClose) {
 			onClose();
 		}
 	};
 
-	const handleCloseOnMouseDown = (event: PolymorphicMouseEvent<Element>): void => {
-		if (onMouseDown) {
-			onMouseDown(event);
-		}
-		if (onClose) {
-			onClose();
-		}
-	};
-
-	const handleCloseOnMouseUp = (event: PolymorphicMouseEvent<Element>): void => {
-		if (onMouseUp) {
-			onMouseUp(event);
-		}
-		if (onClose) {
-			onClose();
-		}
-	};
-
-	const handleEscapeClick = (): void => {
-		if (onClose) {
-			onClose();
-		}
-		if (onEsc) {
-			onEsc();
-		}
-	};
-
-	useKey(['Escape'], handleEscapeClick, { when: isOpen && closeOnEsc });
+	useEffect(() => handleOnOpen(), [isOpen]);
 
 	// TODO: Add transition
 	return (
-		<AnimatePresence onExitComplete={onCloseComplete}>
-			<>
-				{isValidElement(children)
-					? cloneElement(children, getReferenceProps({ ...children.props, ref: triggerRef }))
-					: children}
-
-				<FloatingPortal>
-					{!isTouchDevice && context.open ? (
-						<Box<Element>
-							{...rest}
-							{...getFloatingProps()}
-							ref={contentRef}
-							className={classNames(`${__DEFAULT_CLASS_PREFIX__}-tooltip`, classes.tooltip, {
-								[className]: !!className
-							})}
-							onClick={isOpen && closeOnClick ? handleCloseOnClick : undefined}
-							onMouseDown={isOpen && closeOnMouseDown ? handleCloseOnMouseDown : undefined}
-							onMouseUp={isOpen && closeOnMouseUp ? handleCloseOnMouseUp : undefined}
-							style={context.floatingStyles}
-						>
-							<FloatingArrow ref={arrowRef} className={classes.arrow} context={context} />
-							<Center className={classes.content}>{label}</Center>
+		<>
+			<TooltipAnchor
+				render={(props) => cloneElement(children, props)}
+				store={tooltip}
+				accessibleWhenDisabled={false}
+				disabled={isDisabled}
+				focusable
+				showOnHover
+			/>
+			<AnimatePresence>
+				{!isTouchDevice && (defaultIsOpen || isOpen) && !isDisabled ? (
+					<AriakitTooltip
+						ref={ref}
+						className={classNames(`${__DEFAULT_CLASS_PREFIX__}-tooltip`, classes.tooltip, {
+							[className]: !!className
+						})}
+						render={(props) => (
+							<TooltipTransition<Element> {...props} {...rest} style={{ position: 'initial' }} />
+						)}
+						store={tooltip}
+						accessibleWhenDisabled={false}
+						alwaysVisible
+						arrowPadding={0}
+						autoFocusOnHide={false}
+						autoFocusOnShow={false}
+						backdrop={false}
+						disabled={isDisabled}
+						// disablePointerEventsOnApproach
+						fitViewport
+						fixed={false}
+						flip
+						focusable
+						gutter={gutter}
+						hideOnEscape={closeOnEsc}
+						hideOnHoverOutside
+						hideOnInteractOutside={closeOnClick}
+						slide
+					>
+						<TooltipArrow className={classes.arrow} store={tooltip} size={arrowSize} />
+						<Box className={classes.content} as='span'>
+							{label}
 						</Box>
-					) : null}
-				</FloatingPortal>
-			</>
-		</AnimatePresence>
+					</AriakitTooltip>
+				) : null}
+			</AnimatePresence>
+		</>
 	);
 });
 

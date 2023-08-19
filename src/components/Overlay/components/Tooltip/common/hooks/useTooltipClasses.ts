@@ -13,7 +13,7 @@ import { getColorHue } from '@common/utils/color';
 import type { TooltipProps } from '../types';
 
 type UseGetTooltipClassesProps<Element extends ElementType> = Pick<TooltipProps<Element>, 'color' | 'colorMode'>;
-type UseGetTooltipClassesReturn = Record<'tooltip' | 'content' | 'arrow', ClassName>;
+type UseGetTooltipClassesReturn = Record<'tooltip' | 'arrow' | 'content', ClassName>;
 
 const useGetTooltipClasses = <Element extends ElementType>(
 	props: UseGetTooltipClassesProps<Element>
@@ -22,39 +22,34 @@ const useGetTooltipClasses = <Element extends ElementType>(
 
 	const { color = __DEFAULT_COLOR__, colorMode = __DEFAULT_ICON_COLORMODE__ } = props;
 
+	// TODO: Move all classes into classes object & replace all local classes with classes or useGetClass
 	const tooltipRootClasses = useConst<ClassName>(
-		classNames('cursor-default', 'select-none', 'will-change-auto', 'pointer-events-none')
-	);
-
-	const contentRootClasses = useConst<ClassName>(
 		classNames(
-			classes.layout.width.auto,
-			classes.layout.maxWidth.xs,
-			classes.layout.height.auto,
-			classes.typography.fontSize.xs,
-			classes.typography.fontWeight.medium,
+			'cursor-default',
+			'select-none',
+			'will-change-auto',
+			'pointer-events-none',
 			classes.borders.borderWidth[__DEFAULT_BORDER_WIDTH__],
 			classes.borders.borderStyle[__DEFAULT_BORDER_STYLE__],
 			classes.borders.borderRadius.xs,
-			classes.effects.shadow.base,
+			classes.effects.shadow.sm,
 			classes.spacing.px[1],
 			classes.spacing.py[0.5]
 		)
 	);
 
-	const contentColorClasses = useMemo<ClassName>(() => {
-		const colorHue = getColorHue({ colorMode, type: 'background' });
+	const tooltipColorClasses = useMemo<ClassName>(() => {
+		const shadowHue = getColorHue({ colorMode, type: colorMode === 'light' ? 'midlight' : 'midDark' });
 		const backgroundHue = getColorHue({ colorMode, type: colorMode === 'light' ? 'dark' : 'light' });
 
 		return classNames(
-			classes.typography.color.gray[colorHue],
 			classes.borders.borderColor[color][backgroundHue],
 			classes.backgrounds.color[color][backgroundHue],
-			classes.effects.color[color][colorHue]
+			classes.effects.color[color][shadowHue]
 		);
 	}, [color, colorMode]);
 
-	const arrowRootClasses = useConst<ClassName>(classNames('w-[10px]', 'h-[10px]'));
+	const arrowRootClasses = useConst<ClassName>(classNames('!w-[12px]', '!h-[12px]', '!stroke-0'));
 
 	const arrowColorClasses = useMemo<ClassName>(() => {
 		const fillHue = getColorHue({ colorMode, type: colorMode === 'light' ? 'dark' : 'light' });
@@ -62,10 +57,25 @@ const useGetTooltipClasses = <Element extends ElementType>(
 		return classNames(classes.svg.fill[color][fillHue]);
 	}, [color, colorMode]);
 
+	const contentRootClasses = useConst<ClassName>(
+		classNames(
+			classes.typography.fontSize.xs,
+			classes.typography.fontWeight.medium,
+			classes.typography.wordBreak.all,
+			classes.typography.lineClamp[5]
+		)
+	);
+
+	const contentColorClasses = useMemo<ClassName>(() => {
+		const colorHue = getColorHue({ colorMode, type: 'background' });
+
+		return classNames(classes.typography.color.gray[colorHue]);
+	}, [color, colorMode]);
+
 	return {
-		tooltip: tooltipRootClasses,
-		content: classNames(contentRootClasses, contentColorClasses),
-		arrow: classNames(arrowRootClasses, arrowColorClasses)
+		tooltip: classNames(tooltipRootClasses, tooltipColorClasses),
+		arrow: classNames(arrowRootClasses, arrowColorClasses),
+		content: classNames(contentRootClasses, contentColorClasses)
 	};
 };
 

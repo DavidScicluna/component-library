@@ -1,4 +1,4 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ElementType, ReactElement } from 'react';
 
 import type { CommonAppThemeProps } from '@common/types/theme';
 
@@ -19,7 +19,7 @@ export type TooltipPlacement =
 	| 'left-end';
 
 export interface TooltipOtherProps extends CommonAppThemeProps {
-	children: ReactNode;
+	children: ReactElement;
 	/**
 	 * Delay (in ms) before hiding the tooltip
 	 * @default 0
@@ -40,16 +40,6 @@ export interface TooltipOtherProps extends CommonAppThemeProps {
 	 * @default true
 	 */
 	closeOnEsc?: boolean;
-	/**
-	 * If true, the tooltip will hide while the mouse is down
-	 * @default true
-	 */
-	closeOnMouseDown?: boolean;
-	/**
-	 * If true, the tooltip will hide while the mouse is up
-	 * @default true
-	 */
-	closeOnMouseUp?: boolean;
 	/**
 	 * If true, the tooltip will be initially shown
 	 * @default false
@@ -78,17 +68,9 @@ export interface TooltipOtherProps extends CommonAppThemeProps {
 	 */
 	onClose?: () => void;
 	/**
-	 * Callback fired when all exiting nodes have completed animating out
-	 */
-	onCloseComplete?: () => void;
-	/**
 	 * Callback to run when the tooltip shows
 	 */
 	onOpen?: () => void;
-	/**
-	 * Callback fired when the escape key is pressed and focus is within modal
-	 */
-	onEsc?: () => void;
 	/**
 	 * The placement of the tooltip relative to its reference.
 	 * @default 'top'

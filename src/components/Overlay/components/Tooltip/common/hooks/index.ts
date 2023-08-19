@@ -1,4 +1,3 @@
-import useGetTooltipClasses from './useGetTooltipClasses';
-import useTooltip from './useTooltip';
+import useTooltipClasses from './useTooltipClasses';
 
-export { useGetTooltipClasses, useTooltip };
+export { useTooltipClasses };
