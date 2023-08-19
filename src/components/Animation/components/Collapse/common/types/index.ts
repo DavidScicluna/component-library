@@ -1,3 +1,5 @@
+import type { ElementType } from 'react';
+
 import type { PickFrom } from '@common/types';
 
 import type { CommonAnimationProps, CommonAnimationRef } from '@components/Animation/common/types';
@@ -40,7 +42,7 @@ export type CollapseYAxisProps = {
 };
 
 // TODO: Go over all props and set a comment
-export type CollapseProps = CommonAnimationProps & {
+export type CollapseProps<Element extends ElementType> = CommonAnimationProps<Element> & {
 	/**
 	 * If `true`, the opacity of the content will be animated
 	 * @default true
@@ -48,4 +50,4 @@ export type CollapseProps = CommonAnimationProps & {
 	isOpacityAnimated?: boolean;
 } & (CollapseXAxisProps | CollapseYAxisProps);
 
-export type CollapseRef = CommonAnimationRef;
+export type CollapseRef<Element extends ElementType> = CommonAnimationRef<Element>;

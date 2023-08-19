@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import classNames from 'classnames';
@@ -7,11 +7,11 @@ import { omit, pick } from 'lodash-es';
 import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import {
-	__DEFAULT_TRANSITION__,
-	__DEFAULT_TRANSITION_CONFIG__,
-	__DEFAULT_TRANSITION_END__,
-	__DEFAULT_TRANSITION_IN__,
-	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
+	__DEFAULT_ANIMATION_IN__,
+	__DEFAULT_ANIMATION_TRANSITION__,
+	__DEFAULT_ANIMATION_TRANSITION_CONFIG__,
+	__DEFAULT_ANIMATION_TRANSITION_END__,
+	__DEFAULT_ANIMATION_UNMOUNT_ON_EXIT__
 } from '../../common/constants';
 import { AnimatePresence } from '../AnimatePresence';
 import { MotionBox } from '../MotionBox';
@@ -27,13 +27,13 @@ import {
 import { __KEYS_COLLAPSE__, __KEYS_COLLAPSE_X_AXIS__, __KEYS_COLLAPSE_Y_AXIS__ } from './common/keys';
 import type { CollapseProps, CollapseRef } from './common/types';
 
-const config = __DEFAULT_TRANSITION_CONFIG__;
+const config = __DEFAULT_ANIMATION_TRANSITION_CONFIG__;
 
 const variants = {
 	enter: ({
 		axis = __DEFAULT_COLLAPSE_AXIS__,
-		transition = __DEFAULT_TRANSITION__,
-		transitionEnd = __DEFAULT_TRANSITION_END__,
+		transition = __DEFAULT_ANIMATION_TRANSITION__,
+		transitionEnd = __DEFAULT_ANIMATION_TRANSITION_END__,
 		endingWidth = __DEFAULT_COLLAPSE_ENDING_WIDTH__,
 		endingHeight = __DEFAULT_COLLAPSE_ENDING_HEIGHT__,
 		isOpacityAnimated = __DEFAULT_COLLAPSE_IS_OPACITY_ANIMATED__
@@ -47,8 +47,8 @@ const variants = {
 	}),
 	exit: ({
 		axis = __DEFAULT_COLLAPSE_AXIS__,
-		transition = __DEFAULT_TRANSITION__,
-		transitionEnd = __DEFAULT_TRANSITION_END__,
+		transition = __DEFAULT_ANIMATION_TRANSITION__,
+		transitionEnd = __DEFAULT_ANIMATION_TRANSITION_END__,
 		startingWidth = __DEFAULT_COLLAPSE_STARTING_WIDTH__,
 		startingHeight = __DEFAULT_COLLAPSE_STARTING_HEIGHT__,
 		isOpacityAnimated = __DEFAULT_COLLAPSE_IS_OPACITY_ANIMATED__
@@ -62,11 +62,14 @@ const variants = {
 	})
 };
 
-const Collapse = forwardRef<CollapseRef, CollapseProps>(function Collapse(props, ref): ReactElement {
+const Collapse = forwardRef(function Collapse<Element extends ElementType>(
+	props: CollapseProps<Element>,
+	ref: CollapseRef<Element>
+): ReactElement {
 	const {
 		className = __DEFAULT_CLASSNAME__,
-		in: isOpen = __DEFAULT_TRANSITION_IN__,
-		unmountOnExit = __DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__,
+		in: isOpen = __DEFAULT_ANIMATION_IN__,
+		unmountOnExit = __DEFAULT_ANIMATION_UNMOUNT_ON_EXIT__,
 		style,
 		...rest
 	} = props;
@@ -79,7 +82,7 @@ const Collapse = forwardRef<CollapseRef, CollapseProps>(function Collapse(props,
 	return (
 		<AnimatePresence custom={custom}>
 			{isVisible ? (
-				<MotionBox
+				<MotionBox<Element>
 					{...omit({ ...rest }, [
 						...__KEYS_COLLAPSE__,
 						...__KEYS_COLLAPSE_X_AXIS__,

@@ -4,15 +4,16 @@ import classNames from 'classnames';
 
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
 import { Center } from '@components/Layout';
 
-import { __DEFAULT_TRANSITION_IN__ } from '../../common/constants';
+import { __DEFAULT_ANIMATION_IN__ } from '../../common/constants';
 
 import { __DEFAULT_COLLAPSE_IS_OPACITY_ANIMATED__ } from './common/constants';
 import type { CollapseProps } from './common/types';
 import type { CollapseStory, CollapseStoryMeta } from './common/types/story';
-import CollapseComponent from '.';
+import { Collapse as CollapseComponent } from '.';
 
 export default {
 	title: 'Animation/Collapse',
@@ -21,7 +22,7 @@ export default {
 		in: {
 			name: 'Animate',
 			type: 'boolean',
-			defaultValue: __DEFAULT_TRANSITION_IN__,
+			defaultValue: __DEFAULT_ANIMATION_IN__,
 			// description: '',
 			control: { type: 'boolean' }
 		},
@@ -37,7 +38,7 @@ export default {
 	}
 } as CollapseStoryMeta;
 
-export const Collapse: CollapseStory = (props: CollapseProps): ReactElement => {
+export const Collapse: CollapseStory = (props: CollapseProps<PolymorphicDefaultElement>): ReactElement => {
 	const radius = classes.borders.borderRadius.base;
 
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
