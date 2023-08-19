@@ -4,7 +4,7 @@ import type {
 	TransitionDelay,
 	TransitionEndConfig,
 	TransitionProps,
-	Variants as TransitionVariants
+	TransitionVariants
 } from './common/types';
 import type { AnimatePresenceProps } from './components/AnimatePresence';
 import { AnimatePresence } from './components/AnimatePresence';

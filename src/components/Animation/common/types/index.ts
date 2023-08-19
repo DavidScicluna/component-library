@@ -1,21 +1,28 @@
+import type { ElementType } from 'react';
+
 import type { Target, TargetAndTransition, Transition } from 'framer-motion';
 
 import type { MotionBoxProps, MotionBoxRef } from '@components/Animation';
 
 type OmittedCommonAnimationProps = 'custom' | 'animate' | 'initial' | 'exit' | 'variants';
 
-export type CommonAnimationProps = Omit<MotionBoxProps, OmittedCommonAnimationProps> & {
+export type CommonAnimationProps<Element extends ElementType> = Omit<
+	MotionBoxProps<Element>,
+	OmittedCommonAnimationProps
+> & {
 	/**
 	 * If `true`, the element will unmount when `in={false}` and animation is done
+	 * @default true
 	 */
 	unmountOnExit?: boolean;
 	/**
-	 * Show the component; triggers when enter or exit states
+	 * If `true`, the animation will animate in, if `false` the animation will animate out
+	 * @default false
 	 */
 	in?: boolean;
 };
 
-export type CommonAnimationRef = MotionBoxRef;
+export type CommonAnimationRef<Element extends ElementType> = MotionBoxRef<Element>;
 
 type WithMotionState<P> = Partial<Record<'enter' | 'exit', P>>;
 
@@ -35,10 +42,10 @@ export type TransitionProps = {
 };
 
 type TargetResolver<P = object> = (props: P & TransitionProps) => TargetAndTransition;
-type Variant<P = object> = TargetAndTransition | TargetResolver<P>;
+type TransitionVariant<P = object> = TargetAndTransition | TargetResolver<P>;
 
-export type Variants<P = object> = {
-	enter: Variant<P>;
-	exit: Variant<P>;
-	initial?: Variant<P>;
+export type TransitionVariants<P = object> = {
+	enter: TransitionVariant<P>;
+	exit: TransitionVariant<P>;
+	initial?: TransitionVariant<P>;
 };
