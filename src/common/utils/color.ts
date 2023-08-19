@@ -10,6 +10,10 @@ export type ColorHueType =
 	| 'text.primary'
 	| 'text.secondary'
 	| 'divider'
+	| 'midlight'
+	| 'midLighter'
+	| 'midDark'
+	| 'midDarker'
 	| 'light'
 	| 'lighter'
 	| 'lightest'
@@ -41,12 +45,20 @@ export const getColorHue = memoize(({ colorMode, type }: GetColorHueProps): Colo
 			return colorMode === 'light' ? 600 : 400;
 		case 'divider':
 			return colorMode === 'light' ? 200 : 800;
+		case 'midlight':
+			return 400;
+		case 'midLighter':
+			return 300;
 		case 'light':
 			return 200;
 		case 'lighter':
 			return 100;
 		case 'lightest':
 			return 50;
+		case 'midDark':
+			return 600;
+		case 'midDarker':
+			return 700;
 		case 'dark':
 			return 800;
 		case 'darker':
@@ -98,6 +110,10 @@ export type GetColorClassProps = {
 export const getColorClass = memoize(({ color, colorMode, hueType, classType }: GetColorClassProps): string => {
 	const hue = getColorHue({ colorMode, type: hueType });
 	switch (classType) {
+		case 'shadow':
+			return classes.effects.color[color][hue];
+		case 'fill':
+			return classes.svg.fill[color][hue];
 		case 'bg':
 			return classes.backgrounds.color[color][hue];
 		case 'text':
