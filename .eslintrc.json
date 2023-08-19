@@ -89,6 +89,9 @@
 							// React Packages
 							["^react"],
 
+							// Ariakit Packages
+							["^@ariakit"],
+
 							// External packages.
 							["^@?\\w"],
 
