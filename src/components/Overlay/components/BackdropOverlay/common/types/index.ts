@@ -11,7 +11,7 @@ export type BackdropOverlayElement = PickFrom<ElementType, 'div'>;
 
 export type BackdropOverlayBlur = BackdropBlur;
 
-interface BackdropOverlayOtherProps extends CommonAppThemeProps {
+type BackdropOverlayOtherProps = CommonAppThemeProps & {
 	/**
 	 * The amount to increase the transparency by, given as a decimal between 0 and 1
 	 *
@@ -24,7 +24,7 @@ interface BackdropOverlayOtherProps extends CommonAppThemeProps {
 	 * @default 'none'
 	 */
 	blur?: ResponsiveValue<BackdropOverlayBlur>;
-}
+};
 
 export type BackdropOverlayProps<Element extends BackdropOverlayElement = BackdropOverlayDefaultElement> = BoxProps<
 	Element,

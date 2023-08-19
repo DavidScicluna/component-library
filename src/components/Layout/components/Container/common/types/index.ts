@@ -8,11 +8,11 @@ import type { BoxProps, BoxRef } from '@components/Box/common/types';
 export type ContainerBreakpoint = Exclude<Breakpoint, 'xs'>;
 export type ContainerBreakpoints = ContainerBreakpoint[];
 
-interface ContainerOtherProps {
+type ContainerOtherProps = {
 	breakpoint?: ResponsiveValue<ContainerBreakpoint>;
 	isContentCentered?: ResponsiveValue<boolean>;
 	isFluid?: ResponsiveValue<boolean>;
-}
+};
 
 export type ContainerProps<Element extends ElementType> = BoxProps<Element, ContainerOtherProps>;
 

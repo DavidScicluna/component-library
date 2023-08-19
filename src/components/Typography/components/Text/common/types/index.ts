@@ -17,7 +17,7 @@ import type { BoxProps, BoxRef } from '@components/Box/common/types';
 export type TextDefaultElement = 'p';
 export type TextElement = PickFrom<ElementType, 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'>;
 
-interface TextOtherProps {
+type TextOtherProps = {
 	align?: ResponsiveValue<TextAlign>;
 	color: TextColor | string;
 	fontSize?: ResponsiveValue<FontSize>;
@@ -29,7 +29,7 @@ interface TextOtherProps {
 	isOverflown?: ResponsiveValue<boolean>;
 	whitespace?: ResponsiveValue<Whitespace>;
 	wordBreak?: ResponsiveValue<WordBreak>;
-}
+};
 
 export type TextProps<Element extends TextElement = TextDefaultElement> = BoxProps<Element, TextOtherProps>;
 

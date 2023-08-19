@@ -29,7 +29,7 @@ export type ConfirmModalRenderCancelProps<Element extends ConfirmModalElement = 
 export type ConfirmModalDefaultElement = 'dialog';
 export type ConfirmModalElement = PickFrom<ElementType, 'dialog'>;
 
-interface ConfirmModalOtherProps extends CommonAppThemeProps {
+type ConfirmModalOtherProps = CommonAppThemeProps & {
 	renderTrigger: (props: ConfirmModalRenderTriggerProps) => ReactNode;
 	renderBackdrop?: (props: ConfirmModalRenderBackdropProps) => ReactNode;
 	renderCancel?: (props: ConfirmModalRenderCancelProps) => ReactNode;
@@ -74,7 +74,7 @@ interface ConfirmModalOtherProps extends CommonAppThemeProps {
 	 */
 	size?: ResponsiveValue<ConfirmModalSize>;
 	spacing?: ResponsiveValue<Space>;
-}
+};
 
 export type ConfirmModalProps<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = Omit<
 	BoxProps<Element, ConfirmModalOtherProps>,

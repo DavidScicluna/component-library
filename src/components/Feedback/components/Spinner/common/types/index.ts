@@ -18,46 +18,46 @@ export type SpinnerVariant =
 	| 'tail_spin'
 	| 'three_dots';
 
-export interface SpinnerBarsVariant {
+export type SpinnerBarsVariant = {
 	color: string;
 	variant?: PickFrom<SpinnerVariant, 'bars'>;
-}
-export interface SpinnerColorRingVariant {
+};
+export type SpinnerColorRingVariant = {
 	colors: [string, string, string, string, string];
 	variant?: PickFrom<SpinnerVariant, 'color_ring'>;
-}
-export interface SpinnerOvalVariant {
+};
+export type SpinnerOvalVariant = {
 	color: string;
 	secondaryColor: string;
 	strokeWidth?: string | number;
 	strokeWidthSecondary?: string | number;
 	variant?: PickFrom<SpinnerVariant, 'oval'>;
-}
-export interface SpinnerPuffVariant {
+};
+export type SpinnerPuffVariant = {
 	color: string;
 	radius?: Radius;
 	variant?: PickFrom<SpinnerVariant, 'puff'>;
-}
-export interface SpinnerRingsVariant {
+};
+export type SpinnerRingsVariant = {
 	color: string;
 	radius?: Radius;
 	variant?: PickFrom<SpinnerVariant, 'rings'>;
-}
-export interface SpinnerRotatingLinesVariant {
+};
+export type SpinnerRotatingLinesVariant = {
 	strokeColor: string;
 	strokeWidth?: string;
 	variant?: PickFrom<SpinnerVariant, 'rotating_lines'>;
-}
-export interface SpinnerTailSpinVariant {
+};
+export type SpinnerTailSpinVariant = {
 	color: string;
 	radius?: Radius;
 	variant?: PickFrom<SpinnerVariant, 'tail_spin'>;
-}
-export interface SpinnerThreeDotsVariant {
+};
+export type SpinnerThreeDotsVariant = {
 	color: string;
 	radius?: Radius;
 	variant?: PickFrom<SpinnerVariant, 'three_dots'>;
-}
+};
 
 type SpinnerOtherProps = {
 	isVisible?: boolean;

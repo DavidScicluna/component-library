@@ -12,7 +12,7 @@ export type BoxHeight = Style['height'];
 export type BoxMinHeight = Style['minHeight'];
 export type BoxMaxHeight = Style['maxHeight'];
 
-export interface BoxOtherProps {
+export type BoxOtherProps = {
 	w?: ResponsiveValue<BoxWidth>;
 	minW?: ResponsiveValue<BoxMinWidth>;
 	maxW?: ResponsiveValue<BoxMaxWidth>;
@@ -33,7 +33,7 @@ export interface BoxOtherProps {
 	mt?: ResponsiveValue<Space>;
 	mr?: ResponsiveValue<Space>;
 	mb?: ResponsiveValue<Space>;
-}
+};
 
 export type BoxProps<
 	Element extends ElementType = typeof __DEFAULT_POLYMORPHIC_ELEMENT__,

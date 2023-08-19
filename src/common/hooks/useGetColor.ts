@@ -7,11 +7,11 @@ import { getColorClass, getColorHex } from '@common/utils/color';
 
 import { useAppTheme } from '.';
 
-interface UseGetColorProps extends CommonThemeProps {
+type UseGetColorProps = CommonThemeProps & {
 	colorType: 'default' | 'color';
 	hueType: ColorHueType;
 	classType?: ClassType;
-}
+};
 
 const useGetColor = (props: UseGetColorProps): string => {
 	const { color: __DEFAULT_COLOR__, colorMode: __DEFAULT_COLORMODE__ } = useAppTheme();

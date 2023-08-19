@@ -6,7 +6,7 @@ import type { Space } from '@common/types/theme';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
-interface StackOtherProps {
+type StackOtherProps = {
 	alignItems?: ResponsiveValue<AlignItems>;
 	direction?: ResponsiveValue<FlexDirection>;
 	divider?: ReactNode;
@@ -14,7 +14,7 @@ interface StackOtherProps {
 	// shouldWrapChildren; TODO: Check if needed & Also check overlay component should have display-block
 	spacing?: ResponsiveValue<Space>;
 	wrap?: ResponsiveValue<FlexWrap>;
-}
+};
 
 export type StackProps<Element extends ElementType> = BoxProps<Element, StackOtherProps>;
 

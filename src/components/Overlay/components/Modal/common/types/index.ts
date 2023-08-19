@@ -25,7 +25,7 @@ export type ModalRenderBackdropProps<Element extends ModalElement = ModalDefault
 export type ModalDefaultElement = 'dialog';
 export type ModalElement = PickFrom<ElementType, 'dialog'>;
 
-interface ModalOtherProps extends CommonAppThemeProps {
+type ModalOtherProps = CommonAppThemeProps & {
 	renderTrigger: (props: ModalRenderTriggerProps) => ReactNode;
 	renderBackdrop?: (props: ModalRenderBackdropProps) => ReactNode;
 	/**
@@ -69,7 +69,7 @@ interface ModalOtherProps extends CommonAppThemeProps {
 	 */
 	size?: ResponsiveValue<ModalSize>;
 	spacing?: ResponsiveValue<Space>;
-}
+};
 
 export type ModalProps<Element extends ModalElement = ModalDefaultElement> = Omit<
 	BoxProps<Element, ModalOtherProps>,
