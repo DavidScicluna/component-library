@@ -39,13 +39,13 @@ const useGetTooltipClasses = <Element extends ElementType>(
 	);
 
 	const tooltipColorClasses = useMemo<ClassName>(() => {
-		const shadowHue = getColorHue({ colorMode, type: colorMode === 'light' ? 'midlight' : 'midDark' });
 		const backgroundHue = getColorHue({ colorMode, type: colorMode === 'light' ? 'dark' : 'light' });
+		const shadowHue = getColorHue({ colorMode, type: colorMode === 'light' ? 'midlight' : 'midDark' });
 
 		return classNames(
 			classes.borders.borderColor[color][backgroundHue],
 			classes.backgrounds.color[color][backgroundHue],
-			classes.effects.color[color][shadowHue]
+			classes.effects.color[color][color !== 'gray' ? backgroundHue : shadowHue]
 		);
 	}, [color, colorMode]);
 
