@@ -1,6 +1,8 @@
+import type { ElementType } from 'react';
+
 import type { CommonAnimationProps, CommonAnimationRef } from '@components/Animation/common/types';
 
-export type PopProps = CommonAnimationProps & {
+export type PopProps<Element extends ElementType> = CommonAnimationProps<Element> & {
 	/**
 	 * The initial scale of the element
 	 * @default 0.95
@@ -14,4 +16,4 @@ export type PopProps = CommonAnimationProps & {
 	isReversed?: boolean;
 };
 
-export type PopRef = CommonAnimationRef;
+export type PopRef<Element extends ElementType> = CommonAnimationRef<Element>;
