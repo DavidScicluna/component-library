@@ -6,7 +6,7 @@ import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 
-import Text from '@components/Typography/components/Text';
+import { Text } from '@components/Typography/components/Text';
 
 import { Center } from '../Center';
 
