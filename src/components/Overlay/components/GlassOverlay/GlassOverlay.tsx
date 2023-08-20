@@ -11,37 +11,37 @@ import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
-	__DEFAULT_GLASS_BLUR__,
-	__DEFAULT_GLASS_HAS_BACKGROUND__,
-	__DEFAULT_GLASS_IS_BACKDROP__
+	__DEFAULT_GLASS_OVERLAY_BLUR__,
+	__DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__,
+	__DEFAULT_GLASS_OVERLAY_IS_BACKDROP__
 } from './common/constants';
-import { useGetGlassClasses } from './common/hooks';
-import type { GlassProps, GlassRef } from './common/types';
+import { useGlassOverlayClasses } from './common/hooks';
+import type { GlassOverlayProps, GlassOverlayRef } from './common/types';
 
-const Glass = forwardRef(function Glass<Element extends ElementType>(
-	props: GlassProps<Element>,
-	ref: GlassRef<Element>
+const GlassOverlay = forwardRef(function GlassOverlay<Element extends ElementType>(
+	props: GlassOverlayProps<Element>,
+	ref: GlassOverlayRef<Element>
 ): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		blur = __DEFAULT_GLASS_BLUR__,
-		isBackdrop = __DEFAULT_GLASS_IS_BACKDROP__,
-		hasBackground = __DEFAULT_GLASS_HAS_BACKGROUND__,
+		blur = __DEFAULT_GLASS_OVERLAY_BLUR__,
+		isBackdrop = __DEFAULT_GLASS_OVERLAY_IS_BACKDROP__,
+		hasBackground = __DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__,
 		...rest
 	} = props;
 
 	const background = useGetColor({ color, colorMode, colorType: color ? 'color' : 'default', hueType: 'background' });
 
-	const classes = useGetGlassClasses<Element>({ blur, isBackdrop });
+	const classes = useGlassOverlayClasses<Element>({ blur, isBackdrop });
 
 	return (
 		<Grid<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-glass`, { [className]: !!className })}
+			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-glassoverlay`, { [className]: !!className })}
 			templateColumns={1}
 			templateRows={1}
 			alignItems='stretch'
@@ -64,4 +64,4 @@ const Glass = forwardRef(function Glass<Element extends ElementType>(
 	);
 });
 
-export default Glass;
+export default GlassOverlay;

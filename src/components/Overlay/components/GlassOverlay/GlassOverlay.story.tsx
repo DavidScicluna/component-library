@@ -13,22 +13,22 @@ import { Text } from '@components/Typography/components/Text';
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import {
-	__DEFAULT_GLASS_BLUR__,
-	__DEFAULT_GLASS_HAS_BACKGROUND__,
-	__DEFAULT_GLASS_IS_BACKDROP__
+	__DEFAULT_GLASS_OVERLAY_BLUR__,
+	__DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__,
+	__DEFAULT_GLASS_OVERLAY_IS_BACKDROP__
 } from './common/constants';
-import type { GlassBlur, GlassProps } from './common/types';
-import type { GlassStory, GlassStoryMeta } from './common/types/story';
-import { Glass as GlassComponent } from '.';
+import type { GlassOverlayBlur, GlassOverlayProps } from './common/types';
+import type { GlassOverlayStory, GlassOverlayStoryMeta } from './common/types/story';
+import { GlassOverlay as GlassOverlayComponent } from '.';
 
 export default {
-	title: 'Overlay/Glass',
-	component: GlassComponent,
+	title: 'Overlay/GlassOverlay',
+	component: GlassOverlayoCmponent,
 	argTypes: {
 		blur: {
 			name: 'Blur',
 			type: 'string',
-			defaultValue: __DEFAULT_GLASS_BLUR__,
+			defaultValue: __DEFAULT_GLASS_OVERLAY_BLUR__,
 			// description: '',
 			options: [
 				'none',
@@ -45,28 +45,28 @@ export default {
 				'7xl',
 				'8xl',
 				'9xl'
-			] as GlassBlur[],
+			] as GlassOverlayBlur[],
 			control: { type: 'radio' }
 		},
 		isBackdrop: {
 			name: 'Backdrop',
 			type: 'boolean',
-			defaultValue: __DEFAULT_GLASS_IS_BACKDROP__,
+			defaultValue: __DEFAULT_GLASS_OVERLAY_IS_BACKDROP__,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		hasBackground: {
 			name: 'Has Background',
 			type: 'boolean',
-			defaultValue: __DEFAULT_GLASS_HAS_BACKGROUND__,
+			defaultValue: __DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__,
 			// description: '',
 			control: { type: 'boolean' }
 		}
 	}
-} as GlassStoryMeta;
+} as GlassOverlayStoryMeta;
 
 // TODO: MAybe replace any with default polymorphic element type
-export const Glass: GlassStory = (props: GlassProps<PolymorphicDefaultElement>): ReactElement => {
+export const GlassOverlay: GlassOverlayStory = (props: GlassOverlayProps<PolymorphicDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.borderRadius.base;
@@ -75,12 +75,12 @@ export const Glass: GlassStory = (props: GlassProps<PolymorphicDefaultElement>):
 	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
 
 	return (
-		<GlassComponent {...props} className={classNames(radius)} color={color} colorMode={colorMode} w='100%'>
+		<GlassOverlayComponent {...props} className={classNames(radius)} color={color} colorMode={colorMode} w='100%'>
 			<Center className={classNames(background)} w='100%' p={4}>
 				<Text align='center' color={text}>
 					Hello
 				</Text>
 			</Center>
-		</GlassComponent>
+		</GlassOverlayComponent>
 	);
 };

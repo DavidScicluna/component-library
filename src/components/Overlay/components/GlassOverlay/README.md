@@ -1,14 +1,14 @@
-# Glass
+# GlassOverlay
 
-Glass is a component that adds the [Glassmorphism](https://www.freecodecamp.org/news/glassmorphism-how-to-create-a-glass-card-in-figma/#:~:text=Glassmorphism%20is%20a%20style%20which,and%20feel%20to%20its%20elements.) effect as an overlay on top of another component
+GlassOverlay is a component that adds the [Glassmorphism](https://www.freecodecamp.org/news/glassmorphism-how-to-create-a-glass-card-in-figma/#:~:text=Glassmorphism%20is%20a%20style%20which,and%20feel%20to%20its%20elements.) effect as an overlay on top of another component
 
 ## Usage
 
 ```jsx
-import { Glass } from '@davidscicluna/component-library';
+import { GlassOverlay } from '@davidscicluna/component-library';
 
 export default function Component() {
-	return <Glass>Hello you cannot see me!</Glass>;
+	return <GlassOverlay>Hello you cannot see me!</GlassOverlay>;
 }
 ```
 

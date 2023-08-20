@@ -6,15 +6,15 @@ import type { CommonAppThemeProps } from '@common/types/theme';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
-export type GlassBlur = BackdropBlur;
+export type GlassOverlayBlur = BackdropBlur;
 
-type GlassOtherProps = CommonAppThemeProps & {
+type GlassOverlayOtherProps = CommonAppThemeProps & {
 	/**
 	 * The amount of the blur effect to be applied ("none", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "8xl", "9xl")
 	 *
 	 * @default 'md'
 	 */
-	blur?: ResponsiveValue<GlassBlur>;
+	blur?: ResponsiveValue<GlassOverlayBlur>;
 	/**
 	 * If `true` the blur will be a backdrop filter blur else it will be a normal blur
 	 *
@@ -29,6 +29,6 @@ type GlassOtherProps = CommonAppThemeProps & {
 	hasBackground?: boolean;
 };
 
-export type GlassProps<Element extends ElementType> = BoxProps<Element, GlassOtherProps>;
+export type GlassOverlayProps<Element extends ElementType> = BoxProps<Element, GlassOverlayOtherProps>;
 
-export type GlassRef<Element extends ElementType> = BoxRef<Element>;
+export type GlassOverlayRef<Element extends ElementType> = BoxRef<Element>;
