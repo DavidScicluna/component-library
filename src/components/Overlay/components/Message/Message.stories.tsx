@@ -9,7 +9,7 @@ import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
 import type { AppColor, RadiiArr } from '@common/types/theme';
 
 // eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../.storybook/preview';
+import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import { __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_SIZE__, __DEFAULT_MESSAGE_VARIANT__ } from './common/constants';
 import type { MessageProps, MessageVariant } from './common/types';
