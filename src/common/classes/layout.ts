@@ -4,6 +4,7 @@ import type {
 	MaxWidthObj,
 	MinHeightObj,
 	MinWidthObj,
+	PositionObj,
 	WidthObj,
 	ZIndexObj
 } from '@common/types/classes';
@@ -125,6 +126,14 @@ const maxHeight: MaxHeightObj = {
 	fit: 'max-h-fit'
 };
 
+const position: PositionObj = {
+	static: 'static',
+	fixed: 'fixed',
+	absolute: 'absolute',
+	relative: 'relative',
+	sticky: 'sticky'
+};
+
 const zIndex: ZIndexObj = {
 	0: 'z-0',
 	1: 'z-1',
@@ -180,5 +189,6 @@ export default {
 	height,
 	minHeight,
 	maxHeight,
+	position,
 	zIndex
 };

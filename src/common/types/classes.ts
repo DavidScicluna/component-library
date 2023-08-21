@@ -351,6 +351,10 @@ export type MaxHeight = 0 | 'none' | 'full' | 'screen' | 'min' | 'max' | 'fit';
 export type MaxHeightArr = MaxHeight[];
 export type MaxHeightObj = Record<MaxHeight, string>;
 
+export type Position = 'static' | 'fixed' | 'absolute' | 'relative' | 'sticky';
+export type PositionArr = Position[];
+export type PositionObj = Record<Position, string>;
+
 export type ZIndex =
 	| 0
 	| 1
