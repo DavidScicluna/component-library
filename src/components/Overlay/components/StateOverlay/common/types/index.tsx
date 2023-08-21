@@ -3,7 +3,7 @@ import type { ElementType, ReactNode } from 'react';
 import type { CommonAppThemeProps } from '@common/types/theme';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
-import type { GlassProps } from '@components/Overlay/components/Glass/common/types';
+import type { GlassOverlayProps } from '@components/Overlay/components/GlassOverlay';
 
 export type StateOverlayState = 'success' | 'error' | 'empty' | 'loading' | 'default';
 
@@ -15,7 +15,7 @@ type StateOverlayOtherProps<Element extends ElementType> = CommonAppThemeProps &
 	hasGlass?: boolean;
 	isAlwaysVisible?: boolean;
 	state: StateOverlayState;
-} & Pick<GlassProps<Element>, 'blur'>;
+} & Pick<GlassOverlayProps<Element>, 'blur'>;
 
 export type StateOverlayProps<Element extends ElementType> = Omit<
 	BoxProps<Element, StateOverlayOtherProps<Element>>,

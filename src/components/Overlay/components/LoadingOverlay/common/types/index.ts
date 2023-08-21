@@ -3,7 +3,7 @@ import type { ElementType, ReactNode } from 'react';
 import type { CommonAppThemeProps } from '@common/types/theme';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
-import type { GlassProps } from '@components/Overlay/components/Glass/common/types';
+import type { GlassProps } from '@components/Overlay/components/GlassOverlay/common/types';
 
 type LoadingOverlayOtherProps<Element extends ElementType> = CommonAppThemeProps & {
 	renderSpinner: () => ReactNode;

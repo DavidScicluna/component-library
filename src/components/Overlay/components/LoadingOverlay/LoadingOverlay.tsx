@@ -9,7 +9,7 @@ import { Fade } from '@components/Animation';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import { BackdropOverlay } from '../BackdropOverlay';
-import { Glass } from '../Glass';
+import { Glass } from '../GlassOverlay';
 
 import {
 	__DEFAULT_LOADING_OVERLAY_HAS_BACKDROP__,
