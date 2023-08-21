@@ -12,12 +12,12 @@ import { getColorHue } from '@common/utils/color';
 
 import type { TooltipProps } from '../types';
 
-type UseGetTooltipClassesProps<Element extends ElementType> = Pick<TooltipProps<Element>, 'color' | 'colorMode'>;
-type UseGetTooltipClassesReturn = Record<'tooltip' | 'arrow' | 'content', ClassName>;
+type UseTooltipClassesProps<Element extends ElementType> = Pick<TooltipProps<Element>, 'color' | 'colorMode'>;
+type UseTooltipClassesReturn = Record<'tooltip' | 'arrow' | 'content', ClassName>;
 
-const useGetTooltipClasses = <Element extends ElementType>(
-	props: UseGetTooltipClassesProps<Element>
-): UseGetTooltipClassesReturn => {
+const useTooltipClasses = <Element extends ElementType>(
+	props: UseTooltipClassesProps<Element>
+): UseTooltipClassesReturn => {
 	const { colorMode: __DEFAULT_ICON_COLORMODE__ } = useAppTheme();
 
 	const { color = __DEFAULT_COLOR__, colorMode = __DEFAULT_ICON_COLORMODE__ } = props;
@@ -25,7 +25,7 @@ const useGetTooltipClasses = <Element extends ElementType>(
 	// TODO: Move all classes into classes object & replace all local classes with classes or useGetClass
 	const tooltipRootClasses = useConst<ClassName>(
 		classNames(
-			'cursor-default',
+			classes.interactivity.cursor.default,
 			'select-none',
 			'will-change-auto',
 			'pointer-events-none',
@@ -79,4 +79,4 @@ const useGetTooltipClasses = <Element extends ElementType>(
 	};
 };
 
-export default useGetTooltipClasses;
+export default useTooltipClasses;
