@@ -52,6 +52,10 @@ export type BoxShadowColor =
 	| `${PickFrom<ClassType, 'shadow'>}-${Exclude<Color, 'transparent' | 'black' | 'white'>}-${ColorHue}`
 	| `${PickFrom<ClassType, 'shadow'>}-${PickFrom<Color, 'transparent' | 'black' | 'white'>}`;
 
+export type Opacity = 0 | 5 | 10 | 20 | 25 | 30 | 40 | 50 | 60 | 70 | 75 | 80 | 90 | 95 | 100;
+export type OpacityArr = Opacity[];
+export type OpacityObj = Record<Opacity, string>;
+
 /**
  * Filters
  */

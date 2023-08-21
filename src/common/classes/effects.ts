@@ -1,4 +1,4 @@
-import type { BoxShadowObj } from '@common/types/classes';
+import type { BoxShadowObj, OpacityObj } from '@common/types/classes';
 import type { ColorsObj } from '@common/types/theme';
 
 const color: ColorsObj = {
@@ -226,4 +226,22 @@ const shadow: BoxShadowObj = {
 	'none': 'shadow-none'
 };
 
-export default { color, shadow };
+const opacity: OpacityObj = {
+	0: 'opacity-0',
+	5: 'opacity-5',
+	10: 'opacity-10',
+	20: 'opacity-20',
+	25: 'opacity-25',
+	30: 'opacity-30',
+	40: 'opacity-40',
+	50: 'opacity-50',
+	60: 'opacity-60',
+	70: 'opacity-70',
+	75: 'opacity-75',
+	80: 'opacity-80',
+	90: 'opacity-90',
+	95: 'opacity-95',
+	100: 'opacity-100'
+};
+
+export default { color, shadow, opacity };
