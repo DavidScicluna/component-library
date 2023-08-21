@@ -4,6 +4,7 @@ import effects from './effects';
 import filters from './filters';
 import flex from './flex';
 import grid from './grid';
+import interactivity from './interactivity';
 import layout from './layout';
 import sizing from './sizing';
 import spacing from './spacing';
@@ -18,6 +19,7 @@ export default {
 	flex,
 	filters,
 	grid,
+	interactivity,
 	layout,
 	sizing,
 	spacing,
