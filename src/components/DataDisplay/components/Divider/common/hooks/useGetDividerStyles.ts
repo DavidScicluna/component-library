@@ -3,8 +3,7 @@ import { useMemo } from 'react';
 import { __DEFAULT_BORDER_WIDTH__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useTheme } from '@common/hooks';
 import type { Style } from '@common/types';
-import type { BorderWidth } from '@common/types/classes';
-import type { Space } from '@common/types/theme';
+import type { BorderWidth, Space } from '@common/types/theme';
 import { getResponsiveValue } from '@common/utils';
 
 import { __DEFAULT_DIVIDER_ORIENTATION__, __DEFAULT_DIVIDER_PLACEMENT__ } from '../constants';

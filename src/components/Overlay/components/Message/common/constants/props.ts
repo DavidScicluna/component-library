@@ -1,6 +1,5 @@
 import { __DEFAULT_BORDER_WIDTH__ } from '@common/constants';
-import type { BorderWidth } from '@common/types/classes';
-import type { Radius } from '@common/types/theme';
+import type { BorderWidth, Radius } from '@common/types/theme';
 
 import type { MessageVariant } from '../types';
 

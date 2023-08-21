@@ -4,9 +4,8 @@ import { sample } from 'lodash-es';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import colors from '@common/data/colors';
-import type { BorderWidthArr } from '@common/types/classes';
 import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
-import type { AppColor, RadiiArr } from '@common/types/theme';
+import type { AppColor, BorderWidthArr, RadiiArr } from '@common/types/theme';
 
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';

@@ -13,10 +13,6 @@ export type BackgroundColor =
 /**
  * Borders
  */
-export type BorderWidth = 0 | 1 | 2 | 4 | 8;
-export type BorderWidthArr = BorderWidth[];
-export type BorderWidthObj = Record<BorderWidth, string>;
-
 export type BorderStyle = 'solid' | 'dashed' | 'dotted' | 'double' | 'hidden' | 'none';
 export type BorderStyleArr = BorderStyle[];
 export type BorderStyleObj = Record<BorderStyle, string>;

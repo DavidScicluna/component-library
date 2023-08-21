@@ -1,5 +1,5 @@
-import type { BorderStyle, BorderWidth, OutlineOffset, OutlineStyle, OutlineWidth } from '@common/types/classes';
-import type { Delay, Duration, Ease, Radius, Space } from '@common/types/theme';
+import type { BorderStyle, OutlineOffset, OutlineStyle, OutlineWidth } from '@common/types/classes';
+import type { BorderWidth, Delay, Duration, Ease, Radius, Space } from '@common/types/theme';
 
 export const __DEFAULT_CLASS_PREFIX__ = 'ds-cl';
 

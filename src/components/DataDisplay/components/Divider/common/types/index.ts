@@ -1,8 +1,7 @@
 import type { ElementType } from 'react';
 
 import type { Orientation, PickFrom, ResponsiveValue } from '@common/types';
-import type { BorderWidth } from '@common/types/classes';
-import type { CommonAppThemeProps, Space } from '@common/types/theme';
+import type { BorderWidth, CommonAppThemeProps, Space } from '@common/types/theme';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box/common/types';
 

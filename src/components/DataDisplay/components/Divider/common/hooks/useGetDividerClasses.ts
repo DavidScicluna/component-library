@@ -3,7 +3,8 @@ import classNames from 'classnames';
 import { __DEFAULT_BORDER_WIDTH__ } from '@common/constants';
 import { useGetClass, useGetColor } from '@common/hooks';
 import type { ClassName } from '@common/types';
-import type { BorderStyle, BorderWidth, JustifyContent } from '@common/types/classes';
+import type { BorderStyle, JustifyContent } from '@common/types/classes';
+import type { BorderWidth } from '@common/types/theme';
 
 import {
 	__DEFAULT_DIVIDER_ORIENTATION__,

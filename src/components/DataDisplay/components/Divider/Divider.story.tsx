@@ -2,7 +2,7 @@ import type { ReactElement } from 'react';
 
 import { __DEFAULT_BORDER_WIDTH__, __DEFAULT_SPACING__ } from '@common/constants';
 import type { Orientations } from '@common/types';
-import type { BorderWidthArr } from '@common/types/classes';
+import type { BorderWidthArr } from '@common/types/theme';
 
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';

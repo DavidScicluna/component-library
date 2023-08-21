@@ -7,8 +7,8 @@ import classes from '@common/classes';
 import { __DEFAULT_COLOR__ } from '@common/constants/props';
 import { useAppTheme } from '@common/hooks';
 import type { ClassName } from '@common/types';
-import type { BorderStyle, BorderWidth } from '@common/types/classes';
-import type { Radius } from '@common/types/theme';
+import type { BorderStyle } from '@common/types/classes';
+import type { BorderWidth, Radius } from '@common/types/theme';
 import { getClass } from '@common/utils/classes';
 import { getColorHue } from '@common/utils/color';
 

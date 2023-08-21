@@ -2,6 +2,7 @@ import { range } from 'lodash-es';
 
 import type { BackdropBlurObj, BlurObj, ZIndexObj } from '@common/types/classes';
 import type {
+	BorderWidthObj,
 	BreakpointsObj,
 	ColorsObj,
 	DelaysObj,
@@ -56,6 +57,18 @@ const borderRadius: RadiiObj = {
 	lg: '15px',
 	xl: '20px',
 	full: '9999px'
+};
+
+const borderWidth: BorderWidthObj = {
+	'0': '0px',
+	'1': '1px',
+	'2': '2px',
+	'3': '3px',
+	'4': '4px',
+	'5': '5px',
+	'6': '6px',
+	'7': '7px',
+	'8': '8px'
 };
 
 const colors: ColorsObj = {
@@ -408,6 +421,7 @@ export default {
 	backdropBlur,
 	blur,
 	borderRadius,
+	borderWidth,
 	colors,
 	container,
 	fontSizes,

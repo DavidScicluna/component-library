@@ -1,8 +1,8 @@
 import type { ElementType } from 'react';
 
 import type { PickFrom } from '@common/types';
-import type { BorderStyle, BorderWidth } from '@common/types/classes';
-import type { CommonAppThemeProps, Radius } from '@common/types/theme';
+import type { BorderStyle } from '@common/types/classes';
+import type { BorderWidth, CommonAppThemeProps, Radius } from '@common/types/theme';
 
 import type { VStackProps, VStackRef } from '@components/Layout';
 
