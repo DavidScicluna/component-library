@@ -17,7 +17,7 @@ import {
 	__DEFAULT_ICON_SIZE__,
 	__DEFAULT_ICON_VARIANT__
 } from './common/constants';
-import { useGetIconClasses } from './common/hooks';
+import { useIconClasses } from './common/hooks';
 import type { IconDefaultElement, IconElement, IconProps, IconRef } from './common/types';
 
 const Icon = forwardRef(function Icon<Element extends IconElement = IconDefaultElement>(
@@ -44,7 +44,7 @@ const Icon = forwardRef(function Icon<Element extends IconElement = IconDefaultE
 
 	const hasIcon = !children && !!icon;
 
-	const classes = useGetIconClasses<Element>({ color, colorMode, radius, size, variant });
+	const classes = useIconClasses<Element>({ color, colorMode, radius, size, variant });
 
 	return (
 		<Skeleton color={color} colorMode={colorMode} isLoaded={hasIcon ? fonts[category] : true} radius='full'>

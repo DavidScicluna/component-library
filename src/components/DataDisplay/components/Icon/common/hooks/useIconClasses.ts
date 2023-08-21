@@ -14,15 +14,13 @@ import { getColorHue } from '@common/utils/color';
 import { __DEFAULT_ICON_RADIUS__, __DEFAULT_ICON_SIZE__, __DEFAULT_ICON_VARIANT__ } from '../constants';
 import type { IconElement, IconProps, IconRadius, IconSize } from '../types';
 
-type UseGetIconClassesProps<Element extends IconElement> = Pick<
+type UseIconClassesProps<Element extends IconElement> = Pick<
 	IconProps<Element>,
 	'color' | 'colorMode' | 'radius' | 'size' | 'variant'
 >;
-type UseGetIconClassesReturn = ClassName;
+type UseIconClassesReturn = ClassName;
 
-const useGetIconClasses = <Element extends IconElement>(
-	props: UseGetIconClassesProps<Element>
-): UseGetIconClassesReturn => {
+const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<Element>): UseIconClassesReturn => {
 	const { colorMode: __DEFAULT_ICON_COLORMODE__ } = useAppTheme();
 
 	const {
@@ -39,7 +37,7 @@ const useGetIconClasses = <Element extends IconElement>(
 		const radiusClassName = getClass<IconRadius>(radius, ['borders', 'borderRadius']);
 
 		return classNames(
-			'cursor-default',
+			classes.interactivity.cursor.default,
 			'select-none',
 			'will-change-auto',
 			'pointer-events-none',
@@ -115,4 +113,4 @@ const useGetIconClasses = <Element extends IconElement>(
 	});
 };
 
-export default useGetIconClasses;
+export default useIconClasses;

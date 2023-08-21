@@ -1,3 +1,3 @@
-import useGetIconClasses from './useGetIconClasses';
+import useIconClasses from './useIconClasses';
 
-export { useGetIconClasses };
+export { useIconClasses };
