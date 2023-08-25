@@ -17,7 +17,7 @@ const blur: BlurObj = {
 	'9xl': 'blur-9xl'
 };
 
-const backdropBlur: BackdropBlurObj = {
+const backdrop_blur: BackdropBlurObj = {
 	'none': 'backdrop-blur-none',
 	'xs': 'backdrop-blur-xs',
 	'sm': 'backdrop-blur-sm',
@@ -42,4 +42,4 @@ const saturate: SaturateObj = {
 	200: 'saturate-200'
 };
 
-export default { blur, backdropBlur, saturate };
+export default { blur, backdrop_blur, saturate };

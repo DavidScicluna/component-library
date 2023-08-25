@@ -39,12 +39,9 @@ const cursor: CursorObj = {
 	'zoom-out': 'cursor-zoom-out'
 };
 
-const pointerEvents: PointerEventsObj = {
+const pointer_events: PointerEventsObj = {
 	none: 'pointer-events-none',
 	auto: 'pointer-events-auto'
 };
 
-export default {
-	cursor,
-	pointerEvents
-};
+export default { cursor, pointer_events };

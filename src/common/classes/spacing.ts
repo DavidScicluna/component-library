@@ -1545,7 +1545,7 @@ const gap: SpacingObj = {
 	24.75: 'gap-24.75'
 };
 
-const gapX: SpacingObj = {
+const gap_x: SpacingObj = {
 	0: 'gap-x-0',
 	0.25: 'gap-x-0.25',
 	0.5: 'gap-x-0.5',
@@ -1648,7 +1648,7 @@ const gapX: SpacingObj = {
 	24.75: 'gap-x-24.75'
 };
 
-const gapY: SpacingObj = {
+const gap_y: SpacingObj = {
 	0: 'gap-y-0',
 	0.25: 'gap-y-0.25',
 	0.5: 'gap-y-0.5',
@@ -1751,7 +1751,7 @@ const gapY: SpacingObj = {
 	24.75: 'gap-y-24.75'
 };
 
-const spaceX: SpacingObj = {
+const space_x: SpacingObj = {
 	0: 'space-x-0',
 	0.25: 'space-x-0.25',
 	0.5: 'space-x-0.5',
@@ -1854,7 +1854,7 @@ const spaceX: SpacingObj = {
 	24.75: 'space-x-24.75'
 };
 
-const spaceY: SpacingObj = {
+const space_y: SpacingObj = {
 	0: 'space-y-0',
 	0.25: 'space-y-0.25',
 	0.5: 'space-y-0.5',
@@ -1957,4 +1957,4 @@ const spaceY: SpacingObj = {
 	24.75: 'space-y-24.75'
 };
 
-export default { p, px, py, pt, pr, pb, pl, m, mx, my, mt, mr, mb, ml, gap, gapX, gapY, spaceX, spaceY };
+export default { p, px, py, pt, pr, pb, pl, m, mx, my, mt, mr, mb, ml, gap, gap_x, gap_y, space_x, space_y };

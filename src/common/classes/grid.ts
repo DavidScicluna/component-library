@@ -15,7 +15,7 @@ import type {
 	JustifySelfObj
 } from '@common/types/classes';
 
-const alignContent: AlignContentObj = {
+const align_content: AlignContentObj = {
 	normal: 'content-normal',
 	center: 'content-center',
 	start: 'content-start',
@@ -27,7 +27,7 @@ const alignContent: AlignContentObj = {
 	stretch: 'content-stretch'
 };
 
-const alignItems: AlignItemsObj = {
+const align_items: AlignItemsObj = {
 	'flex-start': 'items-start',
 	'flex-end': 'items-end',
 	'center': 'items-center',
@@ -35,7 +35,7 @@ const alignItems: AlignItemsObj = {
 	'stretch': 'items-stretch'
 };
 
-const alignSelf: AlignSelfObj = {
+const align_self: AlignSelfObj = {
 	center: 'self-center',
 	start: 'self-start',
 	end: 'self-end',
@@ -44,14 +44,14 @@ const alignSelf: AlignSelfObj = {
 	auto: 'self-auto'
 };
 
-const autoColumns: GridAutoObj = {
+const auto_columns: GridAutoObj = {
 	auto: 'auto-cols-auto',
 	min: 'auto-cols-min',
 	max: 'auto-cols-max',
 	fr: 'auto-cols-fr'
 };
 
-const autoFlow: GridAutoFlowObj = {
+const auto_flow: GridAutoFlowObj = {
 	'col': 'grid-flow-col',
 	'row': 'grid-flow-row',
 	'dense': 'grid-flow-dense',
@@ -59,14 +59,14 @@ const autoFlow: GridAutoFlowObj = {
 	'col-dense': 'grid-flow-col-dense'
 };
 
-const autoRows: GridAutoObj = {
+const auto_rows: GridAutoObj = {
 	auto: 'auto-rows-auto',
 	min: 'auto-rows-min',
 	max: 'auto-rows-max',
 	fr: 'auto-rows-fr'
 };
 
-const columnSpan: GridColumnSpanObj = {
+const column_span: GridColumnSpanObj = {
 	1: 'col-span-1',
 	2: 'col-span-2',
 	3: 'col-span-3',
@@ -83,7 +83,7 @@ const columnSpan: GridColumnSpanObj = {
 	full: 'col-span-full'
 };
 
-const columnStart: GridColumnStartEndObj = {
+const column_start: GridColumnStartEndObj = {
 	1: 'col-start-1',
 	2: 'col-start-2',
 	3: 'col-start-3',
@@ -100,7 +100,7 @@ const columnStart: GridColumnStartEndObj = {
 	auto: 'col-start-auto'
 };
 
-const columnEnd: GridColumnStartEndObj = {
+const column_end: GridColumnStartEndObj = {
 	1: 'col-end-1',
 	2: 'col-end-2',
 	3: 'col-end-3',
@@ -117,7 +117,7 @@ const columnEnd: GridColumnStartEndObj = {
 	auto: 'col-end-auto'
 };
 
-const justifyContent: JustifyContentObj = {
+const justify_content: JustifyContentObj = {
 	'normal': 'justify-normal',
 	'flex-start': 'justify-start',
 	'flex-end': 'justify-end',
@@ -128,14 +128,14 @@ const justifyContent: JustifyContentObj = {
 	'stretch': 'justify-stretch'
 };
 
-const justifyItems: JustifyItemsObj = {
+const justify_items: JustifyItemsObj = {
 	center: 'justify-items-center',
 	start: 'justify-items-start',
 	end: 'justify-items-end',
 	stretch: 'justify-items-stretch'
 };
 
-const justifySelf: JustifySelfObj = {
+const justify_self: JustifySelfObj = {
 	center: 'justify-self-center',
 	start: 'justify-self-start',
 	end: 'justify-self-end',
@@ -143,7 +143,7 @@ const justifySelf: JustifySelfObj = {
 	auto: 'justify-self-auto'
 };
 
-const rowSpan: GridRowSpanObj = {
+const row_span: GridRowSpanObj = {
 	1: 'row-span-1',
 	2: 'row-span-2',
 	3: 'row-span-3',
@@ -154,7 +154,7 @@ const rowSpan: GridRowSpanObj = {
 	full: 'row-span-full'
 };
 
-const rowStart: GridRowStartEndObj = {
+const row_start: GridRowStartEndObj = {
 	1: 'row-start-1',
 	2: 'row-start-2',
 	3: 'row-start-3',
@@ -165,7 +165,7 @@ const rowStart: GridRowStartEndObj = {
 	auto: 'row-start-auto'
 };
 
-const rowEnd: GridRowStartEndObj = {
+const row_end: GridRowStartEndObj = {
 	1: 'row-end-1',
 	2: 'row-end-2',
 	3: 'row-end-3',
@@ -176,7 +176,7 @@ const rowEnd: GridRowStartEndObj = {
 	auto: 'row-end-auto'
 };
 
-const templateColumns: GridTemplateColumnsObj = {
+const template_columns: GridTemplateColumnsObj = {
 	1: 'grid-cols-1',
 	2: 'grid-cols-2',
 	3: 'grid-cols-3',
@@ -192,7 +192,7 @@ const templateColumns: GridTemplateColumnsObj = {
 	none: 'grid-cols-none'
 };
 
-const templateRows: GridTemplateRowsObj = {
+const template_rows: GridTemplateRowsObj = {
 	1: 'grid-rows-1',
 	2: 'grid-rows-2',
 	3: 'grid-rows-3',
@@ -203,21 +203,21 @@ const templateRows: GridTemplateRowsObj = {
 };
 
 export default {
-	alignContent,
-	alignItems,
-	alignSelf,
-	autoColumns,
-	autoFlow,
-	autoRows,
-	columnSpan,
-	columnStart,
-	columnEnd,
-	justifyContent,
-	justifyItems,
-	justifySelf,
-	rowSpan,
-	rowStart,
-	rowEnd,
-	templateColumns,
-	templateRows
+	align_content,
+	align_items,
+	align_self,
+	auto_columns,
+	auto_flow,
+	auto_rows,
+	column_span,
+	column_start,
+	column_end,
+	justify_content,
+	justify_items,
+	justify_self,
+	row_span,
+	row_start,
+	row_end,
+	template_columns,
+	template_rows
 };

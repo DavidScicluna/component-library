@@ -1,6 +1,6 @@
 import type { AlignItemsObj, FlexDirectionObj, FlexWrapObj, JustifyContentObj } from '@common/types/classes';
 
-const alignItems: AlignItemsObj = {
+const align_items: AlignItemsObj = {
 	'flex-start': 'items-start',
 	'flex-end': 'items-end',
 	'center': 'items-center',
@@ -21,7 +21,7 @@ const wrap: FlexWrapObj = {
 	'nowrap': 'flex-nowrap'
 };
 
-const justifyContent: JustifyContentObj = {
+const justify_content: JustifyContentObj = {
 	'normal': 'justify-normal',
 	'flex-start': 'justify-start',
 	'flex-end': 'justify-end',
@@ -32,4 +32,4 @@ const justifyContent: JustifyContentObj = {
 	'stretch': 'justify-stretch'
 };
 
-export default { alignItems, direction, wrap, justifyContent };
+export default { align_items, direction, wrap, justify_content };
