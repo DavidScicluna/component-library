@@ -1,7 +1,7 @@
 import type { BorderStyleObj, OutlineOffsetObj, OutlineStyleObj, OutlineWidthObj } from '@common/types/classes';
 import type { BorderWidthObj, ColorsObj, RadiiObj } from '@common/types/theme';
 
-const borderWidth: BorderWidthObj = {
+const border_width: BorderWidthObj = {
 	0: 'border-0',
 	1: 'border',
 	2: 'border-2',
@@ -12,7 +12,68 @@ const borderWidth: BorderWidthObj = {
 	7: 'border-7',
 	8: 'border-8'
 };
-const borderXWidth: BorderWidthObj = {
+
+const hover_border_width: BorderWidthObj = {
+	0: 'hover:border-0',
+	1: 'hover:border',
+	2: 'hover:border-2',
+	3: 'hover:border-3',
+	4: 'hover:border-4',
+	5: 'hover:border-5',
+	6: 'hover:border-6',
+	7: 'hover:border-7',
+	8: 'hover:border-8'
+};
+
+const focus_border_width: BorderWidthObj = {
+	0: 'focus:border-0',
+	1: 'focus:border',
+	2: 'focus:border-2',
+	3: 'focus:border-3',
+	4: 'focus:border-4',
+	5: 'focus:border-5',
+	6: 'focus:border-6',
+	7: 'focus:border-7',
+	8: 'focus:border-8'
+};
+
+const active_border_width: BorderWidthObj = {
+	0: 'active:border-0',
+	1: 'active:border',
+	2: 'active:border-2',
+	3: 'active:border-3',
+	4: 'active:border-4',
+	5: 'active:border-5',
+	6: 'active:border-6',
+	7: 'active:border-7',
+	8: 'active:border-8'
+};
+
+const before_border_width: BorderWidthObj = {
+	0: 'before:border-0',
+	1: 'before:border',
+	2: 'before:border-2',
+	3: 'before:border-3',
+	4: 'before:border-4',
+	5: 'before:border-5',
+	6: 'before:border-6',
+	7: 'before:border-7',
+	8: 'before:border-8'
+};
+
+const after_border_width: BorderWidthObj = {
+	0: 'after:border-0',
+	1: 'after:border',
+	2: 'after:border-2',
+	3: 'after:border-3',
+	4: 'after:border-4',
+	5: 'after:border-5',
+	6: 'after:border-6',
+	7: 'after:border-7',
+	8: 'after:border-8'
+};
+
+const border_x_width: BorderWidthObj = {
 	0: 'border-x-0',
 	1: 'border-x',
 	2: 'border-x-2',
@@ -23,7 +84,68 @@ const borderXWidth: BorderWidthObj = {
 	7: 'border-x-7',
 	8: 'border-x-8'
 };
-const borderYWidth: BorderWidthObj = {
+
+const hover_border_x_width: BorderWidthObj = {
+	0: 'hover:border-x-0',
+	1: 'hover:border-x',
+	2: 'hover:border-x-2',
+	3: 'hover:border-x-3',
+	4: 'hover:border-x-4',
+	5: 'hover:border-x-5',
+	6: 'hover:border-x-6',
+	7: 'hover:border-x-7',
+	8: 'hover:border-x-8'
+};
+
+const focus_border_x_width: BorderWidthObj = {
+	0: 'focus:border-x-0',
+	1: 'focus:border-x',
+	2: 'focus:border-x-2',
+	3: 'focus:border-x-3',
+	4: 'focus:border-x-4',
+	5: 'focus:border-x-5',
+	6: 'focus:border-x-6',
+	7: 'focus:border-x-7',
+	8: 'focus:border-x-8'
+};
+
+const active_border_x_width: BorderWidthObj = {
+	0: 'active:border-x-0',
+	1: 'active:border-x',
+	2: 'active:border-x-2',
+	3: 'active:border-x-3',
+	4: 'active:border-x-4',
+	5: 'active:border-x-5',
+	6: 'active:border-x-6',
+	7: 'active:border-x-7',
+	8: 'active:border-x-8'
+};
+
+const before_border_x_width: BorderWidthObj = {
+	0: 'before:border-x-0',
+	1: 'before:border-x',
+	2: 'before:border-x-2',
+	3: 'before:border-x-3',
+	4: 'before:border-x-4',
+	5: 'before:border-x-5',
+	6: 'before:border-x-6',
+	7: 'before:border-x-7',
+	8: 'before:border-x-8'
+};
+
+const after_border_x_width: BorderWidthObj = {
+	0: 'after:border-x-0',
+	1: 'after:border-x',
+	2: 'after:border-x-2',
+	3: 'after:border-x-3',
+	4: 'after:border-x-4',
+	5: 'after:border-x-5',
+	6: 'after:border-x-6',
+	7: 'after:border-x-7',
+	8: 'after:border-x-8'
+};
+
+const border_y_width: BorderWidthObj = {
 	0: 'border-y-0',
 	1: 'border-y',
 	2: 'border-y-2',
@@ -34,7 +156,68 @@ const borderYWidth: BorderWidthObj = {
 	7: 'border-y-7',
 	8: 'border-y-8'
 };
-const borderLeftWidth: BorderWidthObj = {
+
+const hover_border_y_width: BorderWidthObj = {
+	0: 'hover:border-y-0',
+	1: 'hover:border-y',
+	2: 'hover:border-y-2',
+	3: 'hover:border-y-3',
+	4: 'hover:border-y-4',
+	5: 'hover:border-y-5',
+	6: 'hover:border-y-6',
+	7: 'hover:border-y-7',
+	8: 'hover:border-y-8'
+};
+
+const focus_border_y_width: BorderWidthObj = {
+	0: 'focus:border-y-0',
+	1: 'focus:border-y',
+	2: 'focus:border-y-2',
+	3: 'focus:border-y-3',
+	4: 'focus:border-y-4',
+	5: 'focus:border-y-5',
+	6: 'focus:border-y-6',
+	7: 'focus:border-y-7',
+	8: 'focus:border-y-8'
+};
+
+const active_border_y_width: BorderWidthObj = {
+	0: 'active:border-y-0',
+	1: 'active:border-y',
+	2: 'active:border-y-2',
+	3: 'active:border-y-3',
+	4: 'active:border-y-4',
+	5: 'active:border-y-5',
+	6: 'active:border-y-6',
+	7: 'active:border-y-7',
+	8: 'active:border-y-8'
+};
+
+const before_border_y_width: BorderWidthObj = {
+	0: 'before:border-y-0',
+	1: 'before:border-y',
+	2: 'before:border-y-2',
+	3: 'before:border-y-3',
+	4: 'before:border-y-4',
+	5: 'before:border-y-5',
+	6: 'before:border-y-6',
+	7: 'before:border-y-7',
+	8: 'before:border-y-8'
+};
+
+const after_border_y_width: BorderWidthObj = {
+	0: 'after:border-y-0',
+	1: 'after:border-y',
+	2: 'after:border-y-2',
+	3: 'after:border-y-3',
+	4: 'after:border-y-4',
+	5: 'after:border-y-5',
+	6: 'after:border-y-6',
+	7: 'after:border-y-7',
+	8: 'after:border-y-8'
+};
+
+const border_l_width: BorderWidthObj = {
 	0: 'border-l-0',
 	1: 'border-l',
 	2: 'border-l-2',
@@ -45,7 +228,68 @@ const borderLeftWidth: BorderWidthObj = {
 	7: 'border-l-7',
 	8: 'border-l-8'
 };
-const borderTopWidth: BorderWidthObj = {
+
+const hover_border_l_width: BorderWidthObj = {
+	0: 'hover:border-l-0',
+	1: 'hover:border-l',
+	2: 'hover:border-l-2',
+	3: 'hover:border-l-3',
+	4: 'hover:border-l-4',
+	5: 'hover:border-l-5',
+	6: 'hover:border-l-6',
+	7: 'hover:border-l-7',
+	8: 'hover:border-l-8'
+};
+
+const focus_border_l_width: BorderWidthObj = {
+	0: 'focus:border-l-0',
+	1: 'focus:border-l',
+	2: 'focus:border-l-2',
+	3: 'focus:border-l-3',
+	4: 'focus:border-l-4',
+	5: 'focus:border-l-5',
+	6: 'focus:border-l-6',
+	7: 'focus:border-l-7',
+	8: 'focus:border-l-8'
+};
+
+const active_border_l_width: BorderWidthObj = {
+	0: 'active:border-l-0',
+	1: 'active:border-l',
+	2: 'active:border-l-2',
+	3: 'active:border-l-3',
+	4: 'active:border-l-4',
+	5: 'active:border-l-5',
+	6: 'active:border-l-6',
+	7: 'active:border-l-7',
+	8: 'active:border-l-8'
+};
+
+const before_border_l_width: BorderWidthObj = {
+	0: 'before:border-l-0',
+	1: 'before:border-l',
+	2: 'before:border-l-2',
+	3: 'before:border-l-3',
+	4: 'before:border-l-4',
+	5: 'before:border-l-5',
+	6: 'before:border-l-6',
+	7: 'before:border-l-7',
+	8: 'before:border-l-8'
+};
+
+const after_border_l_width: BorderWidthObj = {
+	0: 'afterborder-l-0',
+	1: 'afterborder-l',
+	2: 'afterborder-l-2',
+	3: 'afterborder-l-3',
+	4: 'afterborder-l-4',
+	5: 'afterborder-l-5',
+	6: 'afterborder-l-6',
+	7: 'afterborder-l-7',
+	8: 'afterborder-l-8'
+};
+
+const border_t_width: BorderWidthObj = {
 	0: 'border-t-0',
 	1: 'border-t',
 	2: 'border-t-2',
@@ -56,7 +300,68 @@ const borderTopWidth: BorderWidthObj = {
 	7: 'border-t-7',
 	8: 'border-t-8'
 };
-const borderRightWidth: BorderWidthObj = {
+
+const hover_border_t_width: BorderWidthObj = {
+	0: 'hover:border-t-0',
+	1: 'hover:border-t',
+	2: 'hover:border-t-2',
+	3: 'hover:border-t-3',
+	4: 'hover:border-t-4',
+	5: 'hover:border-t-5',
+	6: 'hover:border-t-6',
+	7: 'hover:border-t-7',
+	8: 'hover:border-t-8'
+};
+
+const focus_border_t_width: BorderWidthObj = {
+	0: 'focus:border-t-0',
+	1: 'focus:border-t',
+	2: 'focus:border-t-2',
+	3: 'focus:border-t-3',
+	4: 'focus:border-t-4',
+	5: 'focus:border-t-5',
+	6: 'focus:border-t-6',
+	7: 'focus:border-t-7',
+	8: 'focus:border-t-8'
+};
+
+const active_border_t_width: BorderWidthObj = {
+	0: 'active:border-t-0',
+	1: 'active:border-t',
+	2: 'active:border-t-2',
+	3: 'active:border-t-3',
+	4: 'active:border-t-4',
+	5: 'active:border-t-5',
+	6: 'active:border-t-6',
+	7: 'active:border-t-7',
+	8: 'active:border-t-8'
+};
+
+const before_border_t_width: BorderWidthObj = {
+	0: 'before:border-t-0',
+	1: 'before:border-t',
+	2: 'before:border-t-2',
+	3: 'before:border-t-3',
+	4: 'before:border-t-4',
+	5: 'before:border-t-5',
+	6: 'before:border-t-6',
+	7: 'before:border-t-7',
+	8: 'before:border-t-8'
+};
+
+const after_border_t_width: BorderWidthObj = {
+	0: 'after:border-t-0',
+	1: 'after:border-t',
+	2: 'after:border-t-2',
+	3: 'after:border-t-3',
+	4: 'after:border-t-4',
+	5: 'after:border-t-5',
+	6: 'after:border-t-6',
+	7: 'after:border-t-7',
+	8: 'after:border-t-8'
+};
+
+const border_r_width: BorderWidthObj = {
 	0: 'border-r-0',
 	1: 'border-r',
 	2: 'border-r-2',
@@ -67,7 +372,68 @@ const borderRightWidth: BorderWidthObj = {
 	7: 'border-r-7',
 	8: 'border-r-8'
 };
-const borderBottomWidth: BorderWidthObj = {
+
+const hover_border_r_width: BorderWidthObj = {
+	0: 'hover:border-r-0',
+	1: 'hover:border-r',
+	2: 'hover:border-r-2',
+	3: 'hover:border-r-3',
+	4: 'hover:border-r-4',
+	5: 'hover:border-r-5',
+	6: 'hover:border-r-6',
+	7: 'hover:border-r-7',
+	8: 'hover:border-r-8'
+};
+
+const focus_border_r_width: BorderWidthObj = {
+	0: 'focus:border-r-0',
+	1: 'focus:border-r',
+	2: 'focus:border-r-2',
+	3: 'focus:border-r-3',
+	4: 'focus:border-r-4',
+	5: 'focus:border-r-5',
+	6: 'focus:border-r-6',
+	7: 'focus:border-r-7',
+	8: 'focus:border-r-8'
+};
+
+const active_border_r_width: BorderWidthObj = {
+	0: 'active:border-r-0',
+	1: 'active:border-r',
+	2: 'active:border-r-2',
+	3: 'active:border-r-3',
+	4: 'active:border-r-4',
+	5: 'active:border-r-5',
+	6: 'active:border-r-6',
+	7: 'active:border-r-7',
+	8: 'active:border-r-8'
+};
+
+const before_border_r_width: BorderWidthObj = {
+	0: 'before:border-r-0',
+	1: 'before:border-r',
+	2: 'before:border-r-2',
+	3: 'before:border-r-3',
+	4: 'before:border-r-4',
+	5: 'before:border-r-5',
+	6: 'before:border-r-6',
+	7: 'before:border-r-7',
+	8: 'before:border-r-8'
+};
+
+const after_border_r_width: BorderWidthObj = {
+	0: 'after:border-r-0',
+	1: 'after:border-r',
+	2: 'after:border-r-2',
+	3: 'after:border-r-3',
+	4: 'after:border-r-4',
+	5: 'after:border-r-5',
+	6: 'after:border-r-6',
+	7: 'after:border-r-7',
+	8: 'after:border-r-8'
+};
+
+const border_b_width: BorderWidthObj = {
 	0: 'border-b-0',
 	1: 'border-b',
 	2: 'border-b-2',
@@ -79,7 +445,67 @@ const borderBottomWidth: BorderWidthObj = {
 	8: 'border-b-8'
 };
 
-const borderStyle: BorderStyleObj = {
+const hover_border_b_width: BorderWidthObj = {
+	0: 'hover:border-b-0',
+	1: 'hover:border-b',
+	2: 'hover:border-b-2',
+	3: 'hover:border-b-3',
+	4: 'hover:border-b-4',
+	5: 'hover:border-b-5',
+	6: 'hover:border-b-6',
+	7: 'hover:border-b-7',
+	8: 'hover:border-b-8'
+};
+
+const focus_border_b_width: BorderWidthObj = {
+	0: 'focus:border-b-0',
+	1: 'focus:border-b',
+	2: 'focus:border-b-2',
+	3: 'focus:border-b-3',
+	4: 'focus:border-b-4',
+	5: 'focus:border-b-5',
+	6: 'focus:border-b-6',
+	7: 'focus:border-b-7',
+	8: 'focus:border-b-8'
+};
+
+const active_border_b_width: BorderWidthObj = {
+	0: 'active:border-b-0',
+	1: 'active:border-b',
+	2: 'active:border-b-2',
+	3: 'active:border-b-3',
+	4: 'active:border-b-4',
+	5: 'active:border-b-5',
+	6: 'active:border-b-6',
+	7: 'active:border-b-7',
+	8: 'active:border-b-8'
+};
+
+const before_border_b_width: BorderWidthObj = {
+	0: 'before:border-b-0',
+	1: 'before:border-b',
+	2: 'before:border-b-2',
+	3: 'before:border-b-3',
+	4: 'before:border-b-4',
+	5: 'before:border-b-5',
+	6: 'before:border-b-6',
+	7: 'before:border-b-7',
+	8: 'before:border-b-8'
+};
+
+const after_border_b_width: BorderWidthObj = {
+	0: 'after:border-b-0',
+	1: 'after:border-b',
+	2: 'after:border-b-2',
+	3: 'after:border-b-3',
+	4: 'after:border-b-4',
+	5: 'after:border-b-5',
+	6: 'after:border-b-6',
+	7: 'after:border-b-7',
+	8: 'after:border-b-8'
+};
+
+const border_style: BorderStyleObj = {
 	solid: 'border-solid',
 	dashed: 'border-dashed',
 	dotted: 'border-dotted',
@@ -88,7 +514,7 @@ const borderStyle: BorderStyleObj = {
 	none: 'border-none'
 };
 
-const borderColor: ColorsObj = {
+const border_color: ColorsObj = {
 	transparent: 'border-transparent',
 	black: 'border-black',
 	white: 'border-white',
@@ -302,7 +728,1077 @@ const borderColor: ColorsObj = {
 	}
 };
 
-const borderRadius: RadiiObj = {
+const hover_border_color: ColorsObj = {
+	transparent: 'hover:border-transparent',
+	black: 'hover:border-black',
+	white: 'hover:border-white',
+	gray: {
+		50: 'hover:border-gray-50',
+		100: 'hover:border-gray-100',
+		200: 'hover:border-gray-200',
+		300: 'hover:border-gray-300',
+		400: 'hover:border-gray-400',
+		500: 'hover:border-gray-500',
+		600: 'hover:border-gray-600',
+		700: 'hover:border-gray-700',
+		800: 'hover:border-gray-800',
+		900: 'hover:border-gray-900',
+		950: 'hover:border-gray-950'
+	},
+	red: {
+		50: 'hover:border-red-50',
+		100: 'hover:border-red-100',
+		200: 'hover:border-red-200',
+		300: 'hover:border-red-300',
+		400: 'hover:border-red-400',
+		500: 'hover:border-red-500',
+		600: 'hover:border-red-600',
+		700: 'hover:border-red-700',
+		800: 'hover:border-red-800',
+		900: 'hover:border-red-900',
+		950: 'hover:border-red-950'
+	},
+	pink: {
+		50: 'hover:border-pink-50',
+		100: 'hover:border-pink-100',
+		200: 'hover:border-pink-200',
+		300: 'hover:border-pink-300',
+		400: 'hover:border-pink-400',
+		500: 'hover:border-pink-500',
+		600: 'hover:border-pink-600',
+		700: 'hover:border-pink-700',
+		800: 'hover:border-pink-800',
+		900: 'hover:border-pink-900',
+		950: 'hover:border-pink-950'
+	},
+	purple: {
+		50: 'hover:border-purple-50',
+		100: 'hover:border-purple-100',
+		200: 'hover:border-purple-200',
+		300: 'hover:border-purple-300',
+		400: 'hover:border-purple-400',
+		500: 'hover:border-purple-500',
+		600: 'hover:border-purple-600',
+		700: 'hover:border-purple-700',
+		800: 'hover:border-purple-800',
+		900: 'hover:border-purple-900',
+		950: 'hover:border-purple-950'
+	},
+	deep_purple: {
+		50: 'hover:border-deep_purple-50',
+		100: 'hover:border-deep_purple-100',
+		200: 'hover:border-deep_purple-200',
+		300: 'hover:border-deep_purple-300',
+		400: 'hover:border-deep_purple-400',
+		500: 'hover:border-deep_purple-500',
+		600: 'hover:border-deep_purple-600',
+		700: 'hover:border-deep_purple-700',
+		800: 'hover:border-deep_purple-800',
+		900: 'hover:border-deep_purple-900',
+		950: 'hover:border-deep_purple-950'
+	},
+	indigo: {
+		50: 'hover:border-indigo-50',
+		100: 'hover:border-indigo-100',
+		200: 'hover:border-indigo-200',
+		300: 'hover:border-indigo-300',
+		400: 'hover:border-indigo-400',
+		500: 'hover:border-indigo-500',
+		600: 'hover:border-indigo-600',
+		700: 'hover:border-indigo-700',
+		800: 'hover:border-indigo-800',
+		900: 'hover:border-indigo-900',
+		950: 'hover:border-indigo-950'
+	},
+	blue: {
+		50: 'hover:border-blue-50',
+		100: 'hover:border-blue-100',
+		200: 'hover:border-blue-200',
+		300: 'hover:border-blue-300',
+		400: 'hover:border-blue-400',
+		500: 'hover:border-blue-500',
+		600: 'hover:border-blue-600',
+		700: 'hover:border-blue-700',
+		800: 'hover:border-blue-800',
+		900: 'hover:border-blue-900',
+		950: 'hover:border-blue-950'
+	},
+	light_blue: {
+		50: 'hover:border-light_blue-50',
+		100: 'hover:border-light_blue-100',
+		200: 'hover:border-light_blue-200',
+		300: 'hover:border-light_blue-300',
+		400: 'hover:border-light_blue-400',
+		500: 'hover:border-light_blue-500',
+		600: 'hover:border-light_blue-600',
+		700: 'hover:border-light_blue-700',
+		800: 'hover:border-light_blue-800',
+		900: 'hover:border-light_blue-900',
+		950: 'hover:border-light_blue-950'
+	},
+	cyan: {
+		50: 'hover:border-cyan-50',
+		100: 'hover:border-cyan-100',
+		200: 'hover:border-cyan-200',
+		300: 'hover:border-cyan-300',
+		400: 'hover:border-cyan-400',
+		500: 'hover:border-cyan-500',
+		600: 'hover:border-cyan-600',
+		700: 'hover:border-cyan-700',
+		800: 'hover:border-cyan-800',
+		900: 'hover:border-cyan-900',
+		950: 'hover:border-cyan-950'
+	},
+	teal: {
+		50: 'hover:border-teal-50',
+		100: 'hover:border-teal-100',
+		200: 'hover:border-teal-200',
+		300: 'hover:border-teal-300',
+		400: 'hover:border-teal-400',
+		500: 'hover:border-teal-500',
+		600: 'hover:border-teal-600',
+		700: 'hover:border-teal-700',
+		800: 'hover:border-teal-800',
+		900: 'hover:border-teal-900',
+		950: 'hover:border-teal-950'
+	},
+	green: {
+		50: 'hover:border-green-50',
+		100: 'hover:border-green-100',
+		200: 'hover:border-green-200',
+		300: 'hover:border-green-300',
+		400: 'hover:border-green-400',
+		500: 'hover:border-green-500',
+		600: 'hover:border-green-600',
+		700: 'hover:border-green-700',
+		800: 'hover:border-green-800',
+		900: 'hover:border-green-900',
+		950: 'hover:border-green-950'
+	},
+	light_green: {
+		50: 'hover:border-light_green-50',
+		100: 'hover:border-light_green-100',
+		200: 'hover:border-light_green-200',
+		300: 'hover:border-light_green-300',
+		400: 'hover:border-light_green-400',
+		500: 'hover:border-light_green-500',
+		600: 'hover:border-light_green-600',
+		700: 'hover:border-light_green-700',
+		800: 'hover:border-light_green-800',
+		900: 'hover:border-light_green-900',
+		950: 'hover:border-light_green-950'
+	},
+	lime: {
+		50: 'hover:border-lime-50',
+		100: 'hover:border-lime-100',
+		200: 'hover:border-lime-200',
+		300: 'hover:border-lime-300',
+		400: 'hover:border-lime-400',
+		500: 'hover:border-lime-500',
+		600: 'hover:border-lime-600',
+		700: 'hover:border-lime-700',
+		800: 'hover:border-lime-800',
+		900: 'hover:border-lime-900',
+		950: 'hover:border-lime-950'
+	},
+	yellow: {
+		50: 'hover:border-yellow-50',
+		100: 'hover:border-yellow-100',
+		200: 'hover:border-yellow-200',
+		300: 'hover:border-yellow-300',
+		400: 'hover:border-yellow-400',
+		500: 'hover:border-yellow-500',
+		600: 'hover:border-yellow-600',
+		700: 'hover:border-yellow-700',
+		800: 'hover:border-yellow-800',
+		900: 'hover:border-yellow-900',
+		950: 'hover:border-yellow-950'
+	},
+	orange: {
+		50: 'hover:border-orange-50',
+		100: 'hover:border-orange-100',
+		200: 'hover:border-orange-200',
+		300: 'hover:border-orange-300',
+		400: 'hover:border-orange-400',
+		500: 'hover:border-orange-500',
+		600: 'hover:border-orange-600',
+		700: 'hover:border-orange-700',
+		800: 'hover:border-orange-800',
+		900: 'hover:border-orange-900',
+		950: 'hover:border-orange-950'
+	},
+	deep_orange: {
+		50: 'hover:border-deep_orange-50',
+		100: 'hover:border-deep_orange-100',
+		200: 'hover:border-deep_orange-200',
+		300: 'hover:border-deep_orange-300',
+		400: 'hover:border-deep_orange-400',
+		500: 'hover:border-deep_orange-500',
+		600: 'hover:border-deep_orange-600',
+		700: 'hover:border-deep_orange-700',
+		800: 'hover:border-deep_orange-800',
+		900: 'hover:border-deep_orange-900',
+		950: 'hover:border-deep_orange-950'
+	}
+};
+
+const focus_border_color: ColorsObj = {
+	transparent: 'focus:border-transparent',
+	black: 'focus:border-black',
+	white: 'focus:border-white',
+	gray: {
+		50: 'focus:border-gray-50',
+		100: 'focus:border-gray-100',
+		200: 'focus:border-gray-200',
+		300: 'focus:border-gray-300',
+		400: 'focus:border-gray-400',
+		500: 'focus:border-gray-500',
+		600: 'focus:border-gray-600',
+		700: 'focus:border-gray-700',
+		800: 'focus:border-gray-800',
+		900: 'focus:border-gray-900',
+		950: 'focus:border-gray-950'
+	},
+	red: {
+		50: 'focus:border-red-50',
+		100: 'focus:border-red-100',
+		200: 'focus:border-red-200',
+		300: 'focus:border-red-300',
+		400: 'focus:border-red-400',
+		500: 'focus:border-red-500',
+		600: 'focus:border-red-600',
+		700: 'focus:border-red-700',
+		800: 'focus:border-red-800',
+		900: 'focus:border-red-900',
+		950: 'focus:border-red-950'
+	},
+	pink: {
+		50: 'focus:border-pink-50',
+		100: 'focus:border-pink-100',
+		200: 'focus:border-pink-200',
+		300: 'focus:border-pink-300',
+		400: 'focus:border-pink-400',
+		500: 'focus:border-pink-500',
+		600: 'focus:border-pink-600',
+		700: 'focus:border-pink-700',
+		800: 'focus:border-pink-800',
+		900: 'focus:border-pink-900',
+		950: 'focus:border-pink-950'
+	},
+	purple: {
+		50: 'focus:border-purple-50',
+		100: 'focus:border-purple-100',
+		200: 'focus:border-purple-200',
+		300: 'focus:border-purple-300',
+		400: 'focus:border-purple-400',
+		500: 'focus:border-purple-500',
+		600: 'focus:border-purple-600',
+		700: 'focus:border-purple-700',
+		800: 'focus:border-purple-800',
+		900: 'focus:border-purple-900',
+		950: 'focus:border-purple-950'
+	},
+	deep_purple: {
+		50: 'focus:border-deep_purple-50',
+		100: 'focus:border-deep_purple-100',
+		200: 'focus:border-deep_purple-200',
+		300: 'focus:border-deep_purple-300',
+		400: 'focus:border-deep_purple-400',
+		500: 'focus:border-deep_purple-500',
+		600: 'focus:border-deep_purple-600',
+		700: 'focus:border-deep_purple-700',
+		800: 'focus:border-deep_purple-800',
+		900: 'focus:border-deep_purple-900',
+		950: 'focus:border-deep_purple-950'
+	},
+	indigo: {
+		50: 'focus:border-indigo-50',
+		100: 'focus:border-indigo-100',
+		200: 'focus:border-indigo-200',
+		300: 'focus:border-indigo-300',
+		400: 'focus:border-indigo-400',
+		500: 'focus:border-indigo-500',
+		600: 'focus:border-indigo-600',
+		700: 'focus:border-indigo-700',
+		800: 'focus:border-indigo-800',
+		900: 'focus:border-indigo-900',
+		950: 'focus:border-indigo-950'
+	},
+	blue: {
+		50: 'focus:border-blue-50',
+		100: 'focus:border-blue-100',
+		200: 'focus:border-blue-200',
+		300: 'focus:border-blue-300',
+		400: 'focus:border-blue-400',
+		500: 'focus:border-blue-500',
+		600: 'focus:border-blue-600',
+		700: 'focus:border-blue-700',
+		800: 'focus:border-blue-800',
+		900: 'focus:border-blue-900',
+		950: 'focus:border-blue-950'
+	},
+	light_blue: {
+		50: 'focus:border-light_blue-50',
+		100: 'focus:border-light_blue-100',
+		200: 'focus:border-light_blue-200',
+		300: 'focus:border-light_blue-300',
+		400: 'focus:border-light_blue-400',
+		500: 'focus:border-light_blue-500',
+		600: 'focus:border-light_blue-600',
+		700: 'focus:border-light_blue-700',
+		800: 'focus:border-light_blue-800',
+		900: 'focus:border-light_blue-900',
+		950: 'focus:border-light_blue-950'
+	},
+	cyan: {
+		50: 'focus:border-cyan-50',
+		100: 'focus:border-cyan-100',
+		200: 'focus:border-cyan-200',
+		300: 'focus:border-cyan-300',
+		400: 'focus:border-cyan-400',
+		500: 'focus:border-cyan-500',
+		600: 'focus:border-cyan-600',
+		700: 'focus:border-cyan-700',
+		800: 'focus:border-cyan-800',
+		900: 'focus:border-cyan-900',
+		950: 'focus:border-cyan-950'
+	},
+	teal: {
+		50: 'focus:border-teal-50',
+		100: 'focus:border-teal-100',
+		200: 'focus:border-teal-200',
+		300: 'focus:border-teal-300',
+		400: 'focus:border-teal-400',
+		500: 'focus:border-teal-500',
+		600: 'focus:border-teal-600',
+		700: 'focus:border-teal-700',
+		800: 'focus:border-teal-800',
+		900: 'focus:border-teal-900',
+		950: 'focus:border-teal-950'
+	},
+	green: {
+		50: 'focus:border-green-50',
+		100: 'focus:border-green-100',
+		200: 'focus:border-green-200',
+		300: 'focus:border-green-300',
+		400: 'focus:border-green-400',
+		500: 'focus:border-green-500',
+		600: 'focus:border-green-600',
+		700: 'focus:border-green-700',
+		800: 'focus:border-green-800',
+		900: 'focus:border-green-900',
+		950: 'focus:border-green-950'
+	},
+	light_green: {
+		50: 'focus:border-light_green-50',
+		100: 'focus:border-light_green-100',
+		200: 'focus:border-light_green-200',
+		300: 'focus:border-light_green-300',
+		400: 'focus:border-light_green-400',
+		500: 'focus:border-light_green-500',
+		600: 'focus:border-light_green-600',
+		700: 'focus:border-light_green-700',
+		800: 'focus:border-light_green-800',
+		900: 'focus:border-light_green-900',
+		950: 'focus:border-light_green-950'
+	},
+	lime: {
+		50: 'focus:border-lime-50',
+		100: 'focus:border-lime-100',
+		200: 'focus:border-lime-200',
+		300: 'focus:border-lime-300',
+		400: 'focus:border-lime-400',
+		500: 'focus:border-lime-500',
+		600: 'focus:border-lime-600',
+		700: 'focus:border-lime-700',
+		800: 'focus:border-lime-800',
+		900: 'focus:border-lime-900',
+		950: 'focus:border-lime-950'
+	},
+	yellow: {
+		50: 'focus:border-yellow-50',
+		100: 'focus:border-yellow-100',
+		200: 'focus:border-yellow-200',
+		300: 'focus:border-yellow-300',
+		400: 'focus:border-yellow-400',
+		500: 'focus:border-yellow-500',
+		600: 'focus:border-yellow-600',
+		700: 'focus:border-yellow-700',
+		800: 'focus:border-yellow-800',
+		900: 'focus:border-yellow-900',
+		950: 'focus:border-yellow-950'
+	},
+	orange: {
+		50: 'focus:border-orange-50',
+		100: 'focus:border-orange-100',
+		200: 'focus:border-orange-200',
+		300: 'focus:border-orange-300',
+		400: 'focus:border-orange-400',
+		500: 'focus:border-orange-500',
+		600: 'focus:border-orange-600',
+		700: 'focus:border-orange-700',
+		800: 'focus:border-orange-800',
+		900: 'focus:border-orange-900',
+		950: 'focus:border-orange-950'
+	},
+	deep_orange: {
+		50: 'focus:border-deep_orange-50',
+		100: 'focus:border-deep_orange-100',
+		200: 'focus:border-deep_orange-200',
+		300: 'focus:border-deep_orange-300',
+		400: 'focus:border-deep_orange-400',
+		500: 'focus:border-deep_orange-500',
+		600: 'focus:border-deep_orange-600',
+		700: 'focus:border-deep_orange-700',
+		800: 'focus:border-deep_orange-800',
+		900: 'focus:border-deep_orange-900',
+		950: 'focus:border-deep_orange-950'
+	}
+};
+
+const active_border_color: ColorsObj = {
+	transparent: 'active:border-transparent',
+	black: 'active:border-black',
+	white: 'active:border-white',
+	gray: {
+		50: 'active:border-gray-50',
+		100: 'active:border-gray-100',
+		200: 'active:border-gray-200',
+		300: 'active:border-gray-300',
+		400: 'active:border-gray-400',
+		500: 'active:border-gray-500',
+		600: 'active:border-gray-600',
+		700: 'active:border-gray-700',
+		800: 'active:border-gray-800',
+		900: 'active:border-gray-900',
+		950: 'active:border-gray-950'
+	},
+	red: {
+		50: 'active:border-red-50',
+		100: 'active:border-red-100',
+		200: 'active:border-red-200',
+		300: 'active:border-red-300',
+		400: 'active:border-red-400',
+		500: 'active:border-red-500',
+		600: 'active:border-red-600',
+		700: 'active:border-red-700',
+		800: 'active:border-red-800',
+		900: 'active:border-red-900',
+		950: 'active:border-red-950'
+	},
+	pink: {
+		50: 'active:border-pink-50',
+		100: 'active:border-pink-100',
+		200: 'active:border-pink-200',
+		300: 'active:border-pink-300',
+		400: 'active:border-pink-400',
+		500: 'active:border-pink-500',
+		600: 'active:border-pink-600',
+		700: 'active:border-pink-700',
+		800: 'active:border-pink-800',
+		900: 'active:border-pink-900',
+		950: 'active:border-pink-950'
+	},
+	purple: {
+		50: 'active:border-purple-50',
+		100: 'active:border-purple-100',
+		200: 'active:border-purple-200',
+		300: 'active:border-purple-300',
+		400: 'active:border-purple-400',
+		500: 'active:border-purple-500',
+		600: 'active:border-purple-600',
+		700: 'active:border-purple-700',
+		800: 'active:border-purple-800',
+		900: 'active:border-purple-900',
+		950: 'active:border-purple-950'
+	},
+	deep_purple: {
+		50: 'active:border-deep_purple-50',
+		100: 'active:border-deep_purple-100',
+		200: 'active:border-deep_purple-200',
+		300: 'active:border-deep_purple-300',
+		400: 'active:border-deep_purple-400',
+		500: 'active:border-deep_purple-500',
+		600: 'active:border-deep_purple-600',
+		700: 'active:border-deep_purple-700',
+		800: 'active:border-deep_purple-800',
+		900: 'active:border-deep_purple-900',
+		950: 'active:border-deep_purple-950'
+	},
+	indigo: {
+		50: 'active:border-indigo-50',
+		100: 'active:border-indigo-100',
+		200: 'active:border-indigo-200',
+		300: 'active:border-indigo-300',
+		400: 'active:border-indigo-400',
+		500: 'active:border-indigo-500',
+		600: 'active:border-indigo-600',
+		700: 'active:border-indigo-700',
+		800: 'active:border-indigo-800',
+		900: 'active:border-indigo-900',
+		950: 'active:border-indigo-950'
+	},
+	blue: {
+		50: 'active:border-blue-50',
+		100: 'active:border-blue-100',
+		200: 'active:border-blue-200',
+		300: 'active:border-blue-300',
+		400: 'active:border-blue-400',
+		500: 'active:border-blue-500',
+		600: 'active:border-blue-600',
+		700: 'active:border-blue-700',
+		800: 'active:border-blue-800',
+		900: 'active:border-blue-900',
+		950: 'active:border-blue-950'
+	},
+	light_blue: {
+		50: 'active:border-light_blue-50',
+		100: 'active:border-light_blue-100',
+		200: 'active:border-light_blue-200',
+		300: 'active:border-light_blue-300',
+		400: 'active:border-light_blue-400',
+		500: 'active:border-light_blue-500',
+		600: 'active:border-light_blue-600',
+		700: 'active:border-light_blue-700',
+		800: 'active:border-light_blue-800',
+		900: 'active:border-light_blue-900',
+		950: 'active:border-light_blue-950'
+	},
+	cyan: {
+		50: 'active:border-cyan-50',
+		100: 'active:border-cyan-100',
+		200: 'active:border-cyan-200',
+		300: 'active:border-cyan-300',
+		400: 'active:border-cyan-400',
+		500: 'active:border-cyan-500',
+		600: 'active:border-cyan-600',
+		700: 'active:border-cyan-700',
+		800: 'active:border-cyan-800',
+		900: 'active:border-cyan-900',
+		950: 'active:border-cyan-950'
+	},
+	teal: {
+		50: 'active:border-teal-50',
+		100: 'active:border-teal-100',
+		200: 'active:border-teal-200',
+		300: 'active:border-teal-300',
+		400: 'active:border-teal-400',
+		500: 'active:border-teal-500',
+		600: 'active:border-teal-600',
+		700: 'active:border-teal-700',
+		800: 'active:border-teal-800',
+		900: 'active:border-teal-900',
+		950: 'active:border-teal-950'
+	},
+	green: {
+		50: 'active:border-green-50',
+		100: 'active:border-green-100',
+		200: 'active:border-green-200',
+		300: 'active:border-green-300',
+		400: 'active:border-green-400',
+		500: 'active:border-green-500',
+		600: 'active:border-green-600',
+		700: 'active:border-green-700',
+		800: 'active:border-green-800',
+		900: 'active:border-green-900',
+		950: 'active:border-green-950'
+	},
+	light_green: {
+		50: 'active:border-light_green-50',
+		100: 'active:border-light_green-100',
+		200: 'active:border-light_green-200',
+		300: 'active:border-light_green-300',
+		400: 'active:border-light_green-400',
+		500: 'active:border-light_green-500',
+		600: 'active:border-light_green-600',
+		700: 'active:border-light_green-700',
+		800: 'active:border-light_green-800',
+		900: 'active:border-light_green-900',
+		950: 'active:border-light_green-950'
+	},
+	lime: {
+		50: 'active:border-lime-50',
+		100: 'active:border-lime-100',
+		200: 'active:border-lime-200',
+		300: 'active:border-lime-300',
+		400: 'active:border-lime-400',
+		500: 'active:border-lime-500',
+		600: 'active:border-lime-600',
+		700: 'active:border-lime-700',
+		800: 'active:border-lime-800',
+		900: 'active:border-lime-900',
+		950: 'active:border-lime-950'
+	},
+	yellow: {
+		50: 'active:border-yellow-50',
+		100: 'active:border-yellow-100',
+		200: 'active:border-yellow-200',
+		300: 'active:border-yellow-300',
+		400: 'active:border-yellow-400',
+		500: 'active:border-yellow-500',
+		600: 'active:border-yellow-600',
+		700: 'active:border-yellow-700',
+		800: 'active:border-yellow-800',
+		900: 'active:border-yellow-900',
+		950: 'active:border-yellow-950'
+	},
+	orange: {
+		50: 'active:border-orange-50',
+		100: 'active:border-orange-100',
+		200: 'active:border-orange-200',
+		300: 'active:border-orange-300',
+		400: 'active:border-orange-400',
+		500: 'active:border-orange-500',
+		600: 'active:border-orange-600',
+		700: 'active:border-orange-700',
+		800: 'active:border-orange-800',
+		900: 'active:border-orange-900',
+		950: 'active:border-orange-950'
+	},
+	deep_orange: {
+		50: 'active:border-deep_orange-50',
+		100: 'active:border-deep_orange-100',
+		200: 'active:border-deep_orange-200',
+		300: 'active:border-deep_orange-300',
+		400: 'active:border-deep_orange-400',
+		500: 'active:border-deep_orange-500',
+		600: 'active:border-deep_orange-600',
+		700: 'active:border-deep_orange-700',
+		800: 'active:border-deep_orange-800',
+		900: 'active:border-deep_orange-900',
+		950: 'active:border-deep_orange-950'
+	}
+};
+
+const before_border_color: ColorsObj = {
+	transparent: 'before:border-transparent',
+	black: 'before:border-black',
+	white: 'before:border-white',
+	gray: {
+		50: 'before:border-gray-50',
+		100: 'before:border-gray-100',
+		200: 'before:border-gray-200',
+		300: 'before:border-gray-300',
+		400: 'before:border-gray-400',
+		500: 'before:border-gray-500',
+		600: 'before:border-gray-600',
+		700: 'before:border-gray-700',
+		800: 'before:border-gray-800',
+		900: 'before:border-gray-900',
+		950: 'before:border-gray-950'
+	},
+	red: {
+		50: 'before:border-red-50',
+		100: 'before:border-red-100',
+		200: 'before:border-red-200',
+		300: 'before:border-red-300',
+		400: 'before:border-red-400',
+		500: 'before:border-red-500',
+		600: 'before:border-red-600',
+		700: 'before:border-red-700',
+		800: 'before:border-red-800',
+		900: 'before:border-red-900',
+		950: 'before:border-red-950'
+	},
+	pink: {
+		50: 'before:border-pink-50',
+		100: 'before:border-pink-100',
+		200: 'before:border-pink-200',
+		300: 'before:border-pink-300',
+		400: 'before:border-pink-400',
+		500: 'before:border-pink-500',
+		600: 'before:border-pink-600',
+		700: 'before:border-pink-700',
+		800: 'before:border-pink-800',
+		900: 'before:border-pink-900',
+		950: 'before:border-pink-950'
+	},
+	purple: {
+		50: 'before:border-purple-50',
+		100: 'before:border-purple-100',
+		200: 'before:border-purple-200',
+		300: 'before:border-purple-300',
+		400: 'before:border-purple-400',
+		500: 'before:border-purple-500',
+		600: 'before:border-purple-600',
+		700: 'before:border-purple-700',
+		800: 'before:border-purple-800',
+		900: 'before:border-purple-900',
+		950: 'before:border-purple-950'
+	},
+	deep_purple: {
+		50: 'before:border-deep_purple-50',
+		100: 'before:border-deep_purple-100',
+		200: 'before:border-deep_purple-200',
+		300: 'before:border-deep_purple-300',
+		400: 'before:border-deep_purple-400',
+		500: 'before:border-deep_purple-500',
+		600: 'before:border-deep_purple-600',
+		700: 'before:border-deep_purple-700',
+		800: 'before:border-deep_purple-800',
+		900: 'before:border-deep_purple-900',
+		950: 'before:border-deep_purple-950'
+	},
+	indigo: {
+		50: 'before:border-indigo-50',
+		100: 'before:border-indigo-100',
+		200: 'before:border-indigo-200',
+		300: 'before:border-indigo-300',
+		400: 'before:border-indigo-400',
+		500: 'before:border-indigo-500',
+		600: 'before:border-indigo-600',
+		700: 'before:border-indigo-700',
+		800: 'before:border-indigo-800',
+		900: 'before:border-indigo-900',
+		950: 'before:border-indigo-950'
+	},
+	blue: {
+		50: 'before:border-blue-50',
+		100: 'before:border-blue-100',
+		200: 'before:border-blue-200',
+		300: 'before:border-blue-300',
+		400: 'before:border-blue-400',
+		500: 'before:border-blue-500',
+		600: 'before:border-blue-600',
+		700: 'before:border-blue-700',
+		800: 'before:border-blue-800',
+		900: 'before:border-blue-900',
+		950: 'before:border-blue-950'
+	},
+	light_blue: {
+		50: 'before:border-light_blue-50',
+		100: 'before:border-light_blue-100',
+		200: 'before:border-light_blue-200',
+		300: 'before:border-light_blue-300',
+		400: 'before:border-light_blue-400',
+		500: 'before:border-light_blue-500',
+		600: 'before:border-light_blue-600',
+		700: 'before:border-light_blue-700',
+		800: 'before:border-light_blue-800',
+		900: 'before:border-light_blue-900',
+		950: 'before:border-light_blue-950'
+	},
+	cyan: {
+		50: 'before:border-cyan-50',
+		100: 'before:border-cyan-100',
+		200: 'before:border-cyan-200',
+		300: 'before:border-cyan-300',
+		400: 'before:border-cyan-400',
+		500: 'before:border-cyan-500',
+		600: 'before:border-cyan-600',
+		700: 'before:border-cyan-700',
+		800: 'before:border-cyan-800',
+		900: 'before:border-cyan-900',
+		950: 'before:border-cyan-950'
+	},
+	teal: {
+		50: 'before:border-teal-50',
+		100: 'before:border-teal-100',
+		200: 'before:border-teal-200',
+		300: 'before:border-teal-300',
+		400: 'before:border-teal-400',
+		500: 'before:border-teal-500',
+		600: 'before:border-teal-600',
+		700: 'before:border-teal-700',
+		800: 'before:border-teal-800',
+		900: 'before:border-teal-900',
+		950: 'before:border-teal-950'
+	},
+	green: {
+		50: 'before:border-green-50',
+		100: 'before:border-green-100',
+		200: 'before:border-green-200',
+		300: 'before:border-green-300',
+		400: 'before:border-green-400',
+		500: 'before:border-green-500',
+		600: 'before:border-green-600',
+		700: 'before:border-green-700',
+		800: 'before:border-green-800',
+		900: 'before:border-green-900',
+		950: 'before:border-green-950'
+	},
+	light_green: {
+		50: 'before:border-light_green-50',
+		100: 'before:border-light_green-100',
+		200: 'before:border-light_green-200',
+		300: 'before:border-light_green-300',
+		400: 'before:border-light_green-400',
+		500: 'before:border-light_green-500',
+		600: 'before:border-light_green-600',
+		700: 'before:border-light_green-700',
+		800: 'before:border-light_green-800',
+		900: 'before:border-light_green-900',
+		950: 'before:border-light_green-950'
+	},
+	lime: {
+		50: 'before:border-lime-50',
+		100: 'before:border-lime-100',
+		200: 'before:border-lime-200',
+		300: 'before:border-lime-300',
+		400: 'before:border-lime-400',
+		500: 'before:border-lime-500',
+		600: 'before:border-lime-600',
+		700: 'before:border-lime-700',
+		800: 'before:border-lime-800',
+		900: 'before:border-lime-900',
+		950: 'before:border-lime-950'
+	},
+	yellow: {
+		50: 'before:border-yellow-50',
+		100: 'before:border-yellow-100',
+		200: 'before:border-yellow-200',
+		300: 'before:border-yellow-300',
+		400: 'before:border-yellow-400',
+		500: 'before:border-yellow-500',
+		600: 'before:border-yellow-600',
+		700: 'before:border-yellow-700',
+		800: 'before:border-yellow-800',
+		900: 'before:border-yellow-900',
+		950: 'before:border-yellow-950'
+	},
+	orange: {
+		50: 'before:border-orange-50',
+		100: 'before:border-orange-100',
+		200: 'before:border-orange-200',
+		300: 'before:border-orange-300',
+		400: 'before:border-orange-400',
+		500: 'before:border-orange-500',
+		600: 'before:border-orange-600',
+		700: 'before:border-orange-700',
+		800: 'before:border-orange-800',
+		900: 'before:border-orange-900',
+		950: 'before:border-orange-950'
+	},
+	deep_orange: {
+		50: 'before:border-deep_orange-50',
+		100: 'before:border-deep_orange-100',
+		200: 'before:border-deep_orange-200',
+		300: 'before:border-deep_orange-300',
+		400: 'before:border-deep_orange-400',
+		500: 'before:border-deep_orange-500',
+		600: 'before:border-deep_orange-600',
+		700: 'before:border-deep_orange-700',
+		800: 'before:border-deep_orange-800',
+		900: 'before:border-deep_orange-900',
+		950: 'before:border-deep_orange-950'
+	}
+};
+
+const after_border_color: ColorsObj = {
+	transparent: 'after:border-transparent',
+	black: 'after:border-black',
+	white: 'after:border-white',
+	gray: {
+		50: 'after:border-gray-50',
+		100: 'after:border-gray-100',
+		200: 'after:border-gray-200',
+		300: 'after:border-gray-300',
+		400: 'after:border-gray-400',
+		500: 'after:border-gray-500',
+		600: 'after:border-gray-600',
+		700: 'after:border-gray-700',
+		800: 'after:border-gray-800',
+		900: 'after:border-gray-900',
+		950: 'after:border-gray-950'
+	},
+	red: {
+		50: 'after:border-red-50',
+		100: 'after:border-red-100',
+		200: 'after:border-red-200',
+		300: 'after:border-red-300',
+		400: 'after:border-red-400',
+		500: 'after:border-red-500',
+		600: 'after:border-red-600',
+		700: 'after:border-red-700',
+		800: 'after:border-red-800',
+		900: 'after:border-red-900',
+		950: 'after:border-red-950'
+	},
+	pink: {
+		50: 'after:border-pink-50',
+		100: 'after:border-pink-100',
+		200: 'after:border-pink-200',
+		300: 'after:border-pink-300',
+		400: 'after:border-pink-400',
+		500: 'after:border-pink-500',
+		600: 'after:border-pink-600',
+		700: 'after:border-pink-700',
+		800: 'after:border-pink-800',
+		900: 'after:border-pink-900',
+		950: 'after:border-pink-950'
+	},
+	purple: {
+		50: 'after:border-purple-50',
+		100: 'after:border-purple-100',
+		200: 'after:border-purple-200',
+		300: 'after:border-purple-300',
+		400: 'after:border-purple-400',
+		500: 'after:border-purple-500',
+		600: 'after:border-purple-600',
+		700: 'after:border-purple-700',
+		800: 'after:border-purple-800',
+		900: 'after:border-purple-900',
+		950: 'after:border-purple-950'
+	},
+	deep_purple: {
+		50: 'after:border-deep_purple-50',
+		100: 'after:border-deep_purple-100',
+		200: 'after:border-deep_purple-200',
+		300: 'after:border-deep_purple-300',
+		400: 'after:border-deep_purple-400',
+		500: 'after:border-deep_purple-500',
+		600: 'after:border-deep_purple-600',
+		700: 'after:border-deep_purple-700',
+		800: 'after:border-deep_purple-800',
+		900: 'after:border-deep_purple-900',
+		950: 'after:border-deep_purple-950'
+	},
+	indigo: {
+		50: 'after:border-indigo-50',
+		100: 'after:border-indigo-100',
+		200: 'after:border-indigo-200',
+		300: 'after:border-indigo-300',
+		400: 'after:border-indigo-400',
+		500: 'after:border-indigo-500',
+		600: 'after:border-indigo-600',
+		700: 'after:border-indigo-700',
+		800: 'after:border-indigo-800',
+		900: 'after:border-indigo-900',
+		950: 'after:border-indigo-950'
+	},
+	blue: {
+		50: 'after:border-blue-50',
+		100: 'after:border-blue-100',
+		200: 'after:border-blue-200',
+		300: 'after:border-blue-300',
+		400: 'after:border-blue-400',
+		500: 'after:border-blue-500',
+		600: 'after:border-blue-600',
+		700: 'after:border-blue-700',
+		800: 'after:border-blue-800',
+		900: 'after:border-blue-900',
+		950: 'after:border-blue-950'
+	},
+	light_blue: {
+		50: 'after:border-light_blue-50',
+		100: 'after:border-light_blue-100',
+		200: 'after:border-light_blue-200',
+		300: 'after:border-light_blue-300',
+		400: 'after:border-light_blue-400',
+		500: 'after:border-light_blue-500',
+		600: 'after:border-light_blue-600',
+		700: 'after:border-light_blue-700',
+		800: 'after:border-light_blue-800',
+		900: 'after:border-light_blue-900',
+		950: 'after:border-light_blue-950'
+	},
+	cyan: {
+		50: 'after:border-cyan-50',
+		100: 'after:border-cyan-100',
+		200: 'after:border-cyan-200',
+		300: 'after:border-cyan-300',
+		400: 'after:border-cyan-400',
+		500: 'after:border-cyan-500',
+		600: 'after:border-cyan-600',
+		700: 'after:border-cyan-700',
+		800: 'after:border-cyan-800',
+		900: 'after:border-cyan-900',
+		950: 'after:border-cyan-950'
+	},
+	teal: {
+		50: 'after:border-teal-50',
+		100: 'after:border-teal-100',
+		200: 'after:border-teal-200',
+		300: 'after:border-teal-300',
+		400: 'after:border-teal-400',
+		500: 'after:border-teal-500',
+		600: 'after:border-teal-600',
+		700: 'after:border-teal-700',
+		800: 'after:border-teal-800',
+		900: 'after:border-teal-900',
+		950: 'after:border-teal-950'
+	},
+	green: {
+		50: 'after:border-green-50',
+		100: 'after:border-green-100',
+		200: 'after:border-green-200',
+		300: 'after:border-green-300',
+		400: 'after:border-green-400',
+		500: 'after:border-green-500',
+		600: 'after:border-green-600',
+		700: 'after:border-green-700',
+		800: 'after:border-green-800',
+		900: 'after:border-green-900',
+		950: 'after:border-green-950'
+	},
+	light_green: {
+		50: 'after:border-light_green-50',
+		100: 'after:border-light_green-100',
+		200: 'after:border-light_green-200',
+		300: 'after:border-light_green-300',
+		400: 'after:border-light_green-400',
+		500: 'after:border-light_green-500',
+		600: 'after:border-light_green-600',
+		700: 'after:border-light_green-700',
+		800: 'after:border-light_green-800',
+		900: 'after:border-light_green-900',
+		950: 'after:border-light_green-950'
+	},
+	lime: {
+		50: 'after:border-lime-50',
+		100: 'after:border-lime-100',
+		200: 'after:border-lime-200',
+		300: 'after:border-lime-300',
+		400: 'after:border-lime-400',
+		500: 'after:border-lime-500',
+		600: 'after:border-lime-600',
+		700: 'after:border-lime-700',
+		800: 'after:border-lime-800',
+		900: 'after:border-lime-900',
+		950: 'after:border-lime-950'
+	},
+	yellow: {
+		50: 'after:border-yellow-50',
+		100: 'after:border-yellow-100',
+		200: 'after:border-yellow-200',
+		300: 'after:border-yellow-300',
+		400: 'after:border-yellow-400',
+		500: 'after:border-yellow-500',
+		600: 'after:border-yellow-600',
+		700: 'after:border-yellow-700',
+		800: 'after:border-yellow-800',
+		900: 'after:border-yellow-900',
+		950: 'after:border-yellow-950'
+	},
+	orange: {
+		50: 'after:border-orange-50',
+		100: 'after:border-orange-100',
+		200: 'after:border-orange-200',
+		300: 'after:border-orange-300',
+		400: 'after:border-orange-400',
+		500: 'after:border-orange-500',
+		600: 'after:border-orange-600',
+		700: 'after:border-orange-700',
+		800: 'after:border-orange-800',
+		900: 'after:border-orange-900',
+		950: 'after:border-orange-950'
+	},
+	deep_orange: {
+		50: 'after:border-deep_orange-50',
+		100: 'after:border-deep_orange-100',
+		200: 'after:border-deep_orange-200',
+		300: 'after:border-deep_orange-300',
+		400: 'after:border-deep_orange-400',
+		500: 'after:border-deep_orange-500',
+		600: 'after:border-deep_orange-600',
+		700: 'after:border-deep_orange-700',
+		800: 'after:border-deep_orange-800',
+		900: 'after:border-deep_orange-900',
+		950: 'after:border-deep_orange-950'
+	}
+};
+
+const border_radius: RadiiObj = {
 	none: 'rounded-none',
 	xs: 'rounded-xs',
 	sm: 'rounded-sm',
@@ -312,7 +1808,7 @@ const borderRadius: RadiiObj = {
 	full: 'rounded-full'
 };
 
-const outlineWidth: OutlineWidthObj = {
+const outline_width: OutlineWidthObj = {
 	0: 'outline-0',
 	1: 'outline-1',
 	2: 'outline-2',
@@ -320,7 +1816,47 @@ const outlineWidth: OutlineWidthObj = {
 	8: 'outline-8'
 };
 
-const outlineStyle: OutlineStyleObj = {
+const hover_outline_width: OutlineWidthObj = {
+	0: 'hover:outline-0',
+	1: 'hover:outline-1',
+	2: 'hover:outline-2',
+	4: 'hover:outline-4',
+	8: 'hover:outline-8'
+};
+
+const focus_outline_width: OutlineWidthObj = {
+	0: 'focus:outline-0',
+	1: 'focus:outline-1',
+	2: 'focus:outline-2',
+	4: 'focus:outline-4',
+	8: 'focus:outline-8'
+};
+
+const active_outline_width: OutlineWidthObj = {
+	0: 'active:outline-0',
+	1: 'active:outline-1',
+	2: 'active:outline-2',
+	4: 'active:outline-4',
+	8: 'active:outline-8'
+};
+
+const before_outline_width: OutlineWidthObj = {
+	0: 'before:outline-0',
+	1: 'before:outline-1',
+	2: 'before:outline-2',
+	4: 'before:outline-4',
+	8: 'before:outline-8'
+};
+
+const after_outline_width: OutlineWidthObj = {
+	0: 'after:outline-0',
+	1: 'after:outline-1',
+	2: 'after:outline-2',
+	4: 'after:outline-4',
+	8: 'after:outline-8'
+};
+
+const outline_style: OutlineStyleObj = {
 	none: 'outline-none',
 	solid: 'outline',
 	dashed: 'outline-dashed',
@@ -328,7 +1864,7 @@ const outlineStyle: OutlineStyleObj = {
 	double: 'outline-double'
 };
 
-const outlineOffset: OutlineOffsetObj = {
+const outline_offset: OutlineOffsetObj = {
 	0: 'outline-offset-0',
 	1: 'outline-offset-1',
 	2: 'outline-offset-2',
@@ -336,7 +1872,7 @@ const outlineOffset: OutlineOffsetObj = {
 	8: 'outline-offset-8'
 };
 
-const outlineColor: ColorsObj = {
+const outline_color: ColorsObj = {
 	transparent: 'outline-transparent',
 	black: 'outline-black',
 	white: 'outline-white',
@@ -550,19 +2086,1159 @@ const outlineColor: ColorsObj = {
 	}
 };
 
+const hover_outline_color: ColorsObj = {
+	transparent: 'hover:outline-transparent',
+	black: 'hover:outline-black',
+	white: 'hover:outline-white',
+	gray: {
+		50: 'hover:outline-gray-50',
+		100: 'hover:outline-gray-100',
+		200: 'hover:outline-gray-200',
+		300: 'hover:outline-gray-300',
+		400: 'hover:outline-gray-400',
+		500: 'hover:outline-gray-500',
+		600: 'hover:outline-gray-600',
+		700: 'hover:outline-gray-700',
+		800: 'hover:outline-gray-800',
+		900: 'hover:outline-gray-900',
+		950: 'hover:outline-gray-950'
+	},
+	red: {
+		50: 'hover:outline-red-50',
+		100: 'hover:outline-red-100',
+		200: 'hover:outline-red-200',
+		300: 'hover:outline-red-300',
+		400: 'hover:outline-red-400',
+		500: 'hover:outline-red-500',
+		600: 'hover:outline-red-600',
+		700: 'hover:outline-red-700',
+		800: 'hover:outline-red-800',
+		900: 'hover:outline-red-900',
+		950: 'hover:outline-red-950'
+	},
+	pink: {
+		50: 'hover:outline-pink-50',
+		100: 'hover:outline-pink-100',
+		200: 'hover:outline-pink-200',
+		300: 'hover:outline-pink-300',
+		400: 'hover:outline-pink-400',
+		500: 'hover:outline-pink-500',
+		600: 'hover:outline-pink-600',
+		700: 'hover:outline-pink-700',
+		800: 'hover:outline-pink-800',
+		900: 'hover:outline-pink-900',
+		950: 'hover:outline-pink-950'
+	},
+	purple: {
+		50: 'hover:outline-purple-50',
+		100: 'hover:outline-purple-100',
+		200: 'hover:outline-purple-200',
+		300: 'hover:outline-purple-300',
+		400: 'hover:outline-purple-400',
+		500: 'hover:outline-purple-500',
+		600: 'hover:outline-purple-600',
+		700: 'hover:outline-purple-700',
+		800: 'hover:outline-purple-800',
+		900: 'hover:outline-purple-900',
+		950: 'hover:outline-purple-950'
+	},
+	deep_purple: {
+		50: 'hover:outline-deep_purple-50',
+		100: 'hover:outline-deep_purple-100',
+		200: 'hover:outline-deep_purple-200',
+		300: 'hover:outline-deep_purple-300',
+		400: 'hover:outline-deep_purple-400',
+		500: 'hover:outline-deep_purple-500',
+		600: 'hover:outline-deep_purple-600',
+		700: 'hover:outline-deep_purple-700',
+		800: 'hover:outline-deep_purple-800',
+		900: 'hover:outline-deep_purple-900',
+		950: 'hover:outline-deep_purple-950'
+	},
+	indigo: {
+		50: 'hover:outline-indigo-50',
+		100: 'hover:outline-indigo-100',
+		200: 'hover:outline-indigo-200',
+		300: 'hover:outline-indigo-300',
+		400: 'hover:outline-indigo-400',
+		500: 'hover:outline-indigo-500',
+		600: 'hover:outline-indigo-600',
+		700: 'hover:outline-indigo-700',
+		800: 'hover:outline-indigo-800',
+		900: 'hover:outline-indigo-900',
+		950: 'hover:outline-indigo-950'
+	},
+	blue: {
+		50: 'hover:outline-blue-50',
+		100: 'hover:outline-blue-100',
+		200: 'hover:outline-blue-200',
+		300: 'hover:outline-blue-300',
+		400: 'hover:outline-blue-400',
+		500: 'hover:outline-blue-500',
+		600: 'hover:outline-blue-600',
+		700: 'hover:outline-blue-700',
+		800: 'hover:outline-blue-800',
+		900: 'hover:outline-blue-900',
+		950: 'hover:outline-blue-950'
+	},
+	light_blue: {
+		50: 'hover:outline-light_blue-50',
+		100: 'hover:outline-light_blue-100',
+		200: 'hover:outline-light_blue-200',
+		300: 'hover:outline-light_blue-300',
+		400: 'hover:outline-light_blue-400',
+		500: 'hover:outline-light_blue-500',
+		600: 'hover:outline-light_blue-600',
+		700: 'hover:outline-light_blue-700',
+		800: 'hover:outline-light_blue-800',
+		900: 'hover:outline-light_blue-900',
+		950: 'hover:outline-light_blue-950'
+	},
+	cyan: {
+		50: 'hover:outline-cyan-50',
+		100: 'hover:outline-cyan-100',
+		200: 'hover:outline-cyan-200',
+		300: 'hover:outline-cyan-300',
+		400: 'hover:outline-cyan-400',
+		500: 'hover:outline-cyan-500',
+		600: 'hover:outline-cyan-600',
+		700: 'hover:outline-cyan-700',
+		800: 'hover:outline-cyan-800',
+		900: 'hover:outline-cyan-900',
+		950: 'hover:outline-cyan-950'
+	},
+	teal: {
+		50: 'hover:outline-teal-50',
+		100: 'hover:outline-teal-100',
+		200: 'hover:outline-teal-200',
+		300: 'hover:outline-teal-300',
+		400: 'hover:outline-teal-400',
+		500: 'hover:outline-teal-500',
+		600: 'hover:outline-teal-600',
+		700: 'hover:outline-teal-700',
+		800: 'hover:outline-teal-800',
+		900: 'hover:outline-teal-900',
+		950: 'hover:outline-teal-950'
+	},
+	green: {
+		50: 'hover:outline-green-50',
+		100: 'hover:outline-green-100',
+		200: 'hover:outline-green-200',
+		300: 'hover:outline-green-300',
+		400: 'hover:outline-green-400',
+		500: 'hover:outline-green-500',
+		600: 'hover:outline-green-600',
+		700: 'hover:outline-green-700',
+		800: 'hover:outline-green-800',
+		900: 'hover:outline-green-900',
+		950: 'hover:outline-green-950'
+	},
+	light_green: {
+		50: 'hover:outline-light_green-50',
+		100: 'hover:outline-light_green-100',
+		200: 'hover:outline-light_green-200',
+		300: 'hover:outline-light_green-300',
+		400: 'hover:outline-light_green-400',
+		500: 'hover:outline-light_green-500',
+		600: 'hover:outline-light_green-600',
+		700: 'hover:outline-light_green-700',
+		800: 'hover:outline-light_green-800',
+		900: 'hover:outline-light_green-900',
+		950: 'hover:outline-light_green-950'
+	},
+	lime: {
+		50: 'hover:outline-lime-50',
+		100: 'hover:outline-lime-100',
+		200: 'hover:outline-lime-200',
+		300: 'hover:outline-lime-300',
+		400: 'hover:outline-lime-400',
+		500: 'hover:outline-lime-500',
+		600: 'hover:outline-lime-600',
+		700: 'hover:outline-lime-700',
+		800: 'hover:outline-lime-800',
+		900: 'hover:outline-lime-900',
+		950: 'hover:outline-lime-950'
+	},
+	yellow: {
+		50: 'hover:outline-yellow-50',
+		100: 'hover:outline-yellow-100',
+		200: 'hover:outline-yellow-200',
+		300: 'hover:outline-yellow-300',
+		400: 'hover:outline-yellow-400',
+		500: 'hover:outline-yellow-500',
+		600: 'hover:outline-yellow-600',
+		700: 'hover:outline-yellow-700',
+		800: 'hover:outline-yellow-800',
+		900: 'hover:outline-yellow-900',
+		950: 'hover:outline-yellow-950'
+	},
+	orange: {
+		50: 'hover:outline-orange-50',
+		100: 'hover:outline-orange-100',
+		200: 'hover:outline-orange-200',
+		300: 'hover:outline-orange-300',
+		400: 'hover:outline-orange-400',
+		500: 'hover:outline-orange-500',
+		600: 'hover:outline-orange-600',
+		700: 'hover:outline-orange-700',
+		800: 'hover:outline-orange-800',
+		900: 'hover:outline-orange-900',
+		950: 'hover:outline-orange-950'
+	},
+	deep_orange: {
+		50: 'hover:outline-deep_orange-50',
+		100: 'hover:outline-deep_orange-100',
+		200: 'hover:outline-deep_orange-200',
+		300: 'hover:outline-deep_orange-300',
+		400: 'hover:outline-deep_orange-400',
+		500: 'hover:outline-deep_orange-500',
+		600: 'hover:outline-deep_orange-600',
+		700: 'hover:outline-deep_orange-700',
+		800: 'hover:outline-deep_orange-800',
+		900: 'hover:outline-deep_orange-900',
+		950: 'hover:outline-deep_orange-950'
+	}
+};
+
+const focus_outline_color: ColorsObj = {
+	transparent: 'focus:outline-transparent',
+	black: 'focus:outline-black',
+	white: 'focus:outline-white',
+	gray: {
+		50: 'focus:outline-gray-50',
+		100: 'focus:outline-gray-100',
+		200: 'focus:outline-gray-200',
+		300: 'focus:outline-gray-300',
+		400: 'focus:outline-gray-400',
+		500: 'focus:outline-gray-500',
+		600: 'focus:outline-gray-600',
+		700: 'focus:outline-gray-700',
+		800: 'focus:outline-gray-800',
+		900: 'focus:outline-gray-900',
+		950: 'focus:outline-gray-950'
+	},
+	red: {
+		50: 'focus:outline-red-50',
+		100: 'focus:outline-red-100',
+		200: 'focus:outline-red-200',
+		300: 'focus:outline-red-300',
+		400: 'focus:outline-red-400',
+		500: 'focus:outline-red-500',
+		600: 'focus:outline-red-600',
+		700: 'focus:outline-red-700',
+		800: 'focus:outline-red-800',
+		900: 'focus:outline-red-900',
+		950: 'focus:outline-red-950'
+	},
+	pink: {
+		50: 'focus:outline-pink-50',
+		100: 'focus:outline-pink-100',
+		200: 'focus:outline-pink-200',
+		300: 'focus:outline-pink-300',
+		400: 'focus:outline-pink-400',
+		500: 'focus:outline-pink-500',
+		600: 'focus:outline-pink-600',
+		700: 'focus:outline-pink-700',
+		800: 'focus:outline-pink-800',
+		900: 'focus:outline-pink-900',
+		950: 'focus:outline-pink-950'
+	},
+	purple: {
+		50: 'focus:outline-purple-50',
+		100: 'focus:outline-purple-100',
+		200: 'focus:outline-purple-200',
+		300: 'focus:outline-purple-300',
+		400: 'focus:outline-purple-400',
+		500: 'focus:outline-purple-500',
+		600: 'focus:outline-purple-600',
+		700: 'focus:outline-purple-700',
+		800: 'focus:outline-purple-800',
+		900: 'focus:outline-purple-900',
+		950: 'focus:outline-purple-950'
+	},
+	deep_purple: {
+		50: 'focus:outline-deep_purple-50',
+		100: 'focus:outline-deep_purple-100',
+		200: 'focus:outline-deep_purple-200',
+		300: 'focus:outline-deep_purple-300',
+		400: 'focus:outline-deep_purple-400',
+		500: 'focus:outline-deep_purple-500',
+		600: 'focus:outline-deep_purple-600',
+		700: 'focus:outline-deep_purple-700',
+		800: 'focus:outline-deep_purple-800',
+		900: 'focus:outline-deep_purple-900',
+		950: 'focus:outline-deep_purple-950'
+	},
+	indigo: {
+		50: 'focus:outline-indigo-50',
+		100: 'focus:outline-indigo-100',
+		200: 'focus:outline-indigo-200',
+		300: 'focus:outline-indigo-300',
+		400: 'focus:outline-indigo-400',
+		500: 'focus:outline-indigo-500',
+		600: 'focus:outline-indigo-600',
+		700: 'focus:outline-indigo-700',
+		800: 'focus:outline-indigo-800',
+		900: 'focus:outline-indigo-900',
+		950: 'focus:outline-indigo-950'
+	},
+	blue: {
+		50: 'focus:outline-blue-50',
+		100: 'focus:outline-blue-100',
+		200: 'focus:outline-blue-200',
+		300: 'focus:outline-blue-300',
+		400: 'focus:outline-blue-400',
+		500: 'focus:outline-blue-500',
+		600: 'focus:outline-blue-600',
+		700: 'focus:outline-blue-700',
+		800: 'focus:outline-blue-800',
+		900: 'focus:outline-blue-900',
+		950: 'focus:outline-blue-950'
+	},
+	light_blue: {
+		50: 'focus:outline-light_blue-50',
+		100: 'focus:outline-light_blue-100',
+		200: 'focus:outline-light_blue-200',
+		300: 'focus:outline-light_blue-300',
+		400: 'focus:outline-light_blue-400',
+		500: 'focus:outline-light_blue-500',
+		600: 'focus:outline-light_blue-600',
+		700: 'focus:outline-light_blue-700',
+		800: 'focus:outline-light_blue-800',
+		900: 'focus:outline-light_blue-900',
+		950: 'focus:outline-light_blue-950'
+	},
+	cyan: {
+		50: 'focus:outline-cyan-50',
+		100: 'focus:outline-cyan-100',
+		200: 'focus:outline-cyan-200',
+		300: 'focus:outline-cyan-300',
+		400: 'focus:outline-cyan-400',
+		500: 'focus:outline-cyan-500',
+		600: 'focus:outline-cyan-600',
+		700: 'focus:outline-cyan-700',
+		800: 'focus:outline-cyan-800',
+		900: 'focus:outline-cyan-900',
+		950: 'focus:outline-cyan-950'
+	},
+	teal: {
+		50: 'focus:outline-teal-50',
+		100: 'focus:outline-teal-100',
+		200: 'focus:outline-teal-200',
+		300: 'focus:outline-teal-300',
+		400: 'focus:outline-teal-400',
+		500: 'focus:outline-teal-500',
+		600: 'focus:outline-teal-600',
+		700: 'focus:outline-teal-700',
+		800: 'focus:outline-teal-800',
+		900: 'focus:outline-teal-900',
+		950: 'focus:outline-teal-950'
+	},
+	green: {
+		50: 'focus:outline-green-50',
+		100: 'focus:outline-green-100',
+		200: 'focus:outline-green-200',
+		300: 'focus:outline-green-300',
+		400: 'focus:outline-green-400',
+		500: 'focus:outline-green-500',
+		600: 'focus:outline-green-600',
+		700: 'focus:outline-green-700',
+		800: 'focus:outline-green-800',
+		900: 'focus:outline-green-900',
+		950: 'focus:outline-green-950'
+	},
+	light_green: {
+		50: 'focus:outline-light_green-50',
+		100: 'focus:outline-light_green-100',
+		200: 'focus:outline-light_green-200',
+		300: 'focus:outline-light_green-300',
+		400: 'focus:outline-light_green-400',
+		500: 'focus:outline-light_green-500',
+		600: 'focus:outline-light_green-600',
+		700: 'focus:outline-light_green-700',
+		800: 'focus:outline-light_green-800',
+		900: 'focus:outline-light_green-900',
+		950: 'focus:outline-light_green-950'
+	},
+	lime: {
+		50: 'focus:outline-lime-50',
+		100: 'focus:outline-lime-100',
+		200: 'focus:outline-lime-200',
+		300: 'focus:outline-lime-300',
+		400: 'focus:outline-lime-400',
+		500: 'focus:outline-lime-500',
+		600: 'focus:outline-lime-600',
+		700: 'focus:outline-lime-700',
+		800: 'focus:outline-lime-800',
+		900: 'focus:outline-lime-900',
+		950: 'focus:outline-lime-950'
+	},
+	yellow: {
+		50: 'focus:outline-yellow-50',
+		100: 'focus:outline-yellow-100',
+		200: 'focus:outline-yellow-200',
+		300: 'focus:outline-yellow-300',
+		400: 'focus:outline-yellow-400',
+		500: 'focus:outline-yellow-500',
+		600: 'focus:outline-yellow-600',
+		700: 'focus:outline-yellow-700',
+		800: 'focus:outline-yellow-800',
+		900: 'focus:outline-yellow-900',
+		950: 'focus:outline-yellow-950'
+	},
+	orange: {
+		50: 'focus:outline-orange-50',
+		100: 'focus:outline-orange-100',
+		200: 'focus:outline-orange-200',
+		300: 'focus:outline-orange-300',
+		400: 'focus:outline-orange-400',
+		500: 'focus:outline-orange-500',
+		600: 'focus:outline-orange-600',
+		700: 'focus:outline-orange-700',
+		800: 'focus:outline-orange-800',
+		900: 'focus:outline-orange-900',
+		950: 'focus:outline-orange-950'
+	},
+	deep_orange: {
+		50: 'focus:outline-deep_orange-50',
+		100: 'focus:outline-deep_orange-100',
+		200: 'focus:outline-deep_orange-200',
+		300: 'focus:outline-deep_orange-300',
+		400: 'focus:outline-deep_orange-400',
+		500: 'focus:outline-deep_orange-500',
+		600: 'focus:outline-deep_orange-600',
+		700: 'focus:outline-deep_orange-700',
+		800: 'focus:outline-deep_orange-800',
+		900: 'focus:outline-deep_orange-900',
+		950: 'focus:outline-deep_orange-950'
+	}
+};
+
+const active_outline_color: ColorsObj = {
+	transparent: 'active:outline-transparent',
+	black: 'active:outline-black',
+	white: 'active:outline-white',
+	gray: {
+		50: 'active:outline-gray-50',
+		100: 'active:outline-gray-100',
+		200: 'active:outline-gray-200',
+		300: 'active:outline-gray-300',
+		400: 'active:outline-gray-400',
+		500: 'active:outline-gray-500',
+		600: 'active:outline-gray-600',
+		700: 'active:outline-gray-700',
+		800: 'active:outline-gray-800',
+		900: 'active:outline-gray-900',
+		950: 'active:outline-gray-950'
+	},
+	red: {
+		50: 'active:outline-red-50',
+		100: 'active:outline-red-100',
+		200: 'active:outline-red-200',
+		300: 'active:outline-red-300',
+		400: 'active:outline-red-400',
+		500: 'active:outline-red-500',
+		600: 'active:outline-red-600',
+		700: 'active:outline-red-700',
+		800: 'active:outline-red-800',
+		900: 'active:outline-red-900',
+		950: 'active:outline-red-950'
+	},
+	pink: {
+		50: 'active:outline-pink-50',
+		100: 'active:outline-pink-100',
+		200: 'active:outline-pink-200',
+		300: 'active:outline-pink-300',
+		400: 'active:outline-pink-400',
+		500: 'active:outline-pink-500',
+		600: 'active:outline-pink-600',
+		700: 'active:outline-pink-700',
+		800: 'active:outline-pink-800',
+		900: 'active:outline-pink-900',
+		950: 'active:outline-pink-950'
+	},
+	purple: {
+		50: 'active:outline-purple-50',
+		100: 'active:outline-purple-100',
+		200: 'active:outline-purple-200',
+		300: 'active:outline-purple-300',
+		400: 'active:outline-purple-400',
+		500: 'active:outline-purple-500',
+		600: 'active:outline-purple-600',
+		700: 'active:outline-purple-700',
+		800: 'active:outline-purple-800',
+		900: 'active:outline-purple-900',
+		950: 'active:outline-purple-950'
+	},
+	deep_purple: {
+		50: 'active:outline-deep_purple-50',
+		100: 'active:outline-deep_purple-100',
+		200: 'active:outline-deep_purple-200',
+		300: 'active:outline-deep_purple-300',
+		400: 'active:outline-deep_purple-400',
+		500: 'active:outline-deep_purple-500',
+		600: 'active:outline-deep_purple-600',
+		700: 'active:outline-deep_purple-700',
+		800: 'active:outline-deep_purple-800',
+		900: 'active:outline-deep_purple-900',
+		950: 'active:outline-deep_purple-950'
+	},
+	indigo: {
+		50: 'active:outline-indigo-50',
+		100: 'active:outline-indigo-100',
+		200: 'active:outline-indigo-200',
+		300: 'active:outline-indigo-300',
+		400: 'active:outline-indigo-400',
+		500: 'active:outline-indigo-500',
+		600: 'active:outline-indigo-600',
+		700: 'active:outline-indigo-700',
+		800: 'active:outline-indigo-800',
+		900: 'active:outline-indigo-900',
+		950: 'active:outline-indigo-950'
+	},
+	blue: {
+		50: 'active:outline-blue-50',
+		100: 'active:outline-blue-100',
+		200: 'active:outline-blue-200',
+		300: 'active:outline-blue-300',
+		400: 'active:outline-blue-400',
+		500: 'active:outline-blue-500',
+		600: 'active:outline-blue-600',
+		700: 'active:outline-blue-700',
+		800: 'active:outline-blue-800',
+		900: 'active:outline-blue-900',
+		950: 'active:outline-blue-950'
+	},
+	light_blue: {
+		50: 'active:outline-light_blue-50',
+		100: 'active:outline-light_blue-100',
+		200: 'active:outline-light_blue-200',
+		300: 'active:outline-light_blue-300',
+		400: 'active:outline-light_blue-400',
+		500: 'active:outline-light_blue-500',
+		600: 'active:outline-light_blue-600',
+		700: 'active:outline-light_blue-700',
+		800: 'active:outline-light_blue-800',
+		900: 'active:outline-light_blue-900',
+		950: 'active:outline-light_blue-950'
+	},
+	cyan: {
+		50: 'active:outline-cyan-50',
+		100: 'active:outline-cyan-100',
+		200: 'active:outline-cyan-200',
+		300: 'active:outline-cyan-300',
+		400: 'active:outline-cyan-400',
+		500: 'active:outline-cyan-500',
+		600: 'active:outline-cyan-600',
+		700: 'active:outline-cyan-700',
+		800: 'active:outline-cyan-800',
+		900: 'active:outline-cyan-900',
+		950: 'active:outline-cyan-950'
+	},
+	teal: {
+		50: 'active:outline-teal-50',
+		100: 'active:outline-teal-100',
+		200: 'active:outline-teal-200',
+		300: 'active:outline-teal-300',
+		400: 'active:outline-teal-400',
+		500: 'active:outline-teal-500',
+		600: 'active:outline-teal-600',
+		700: 'active:outline-teal-700',
+		800: 'active:outline-teal-800',
+		900: 'active:outline-teal-900',
+		950: 'active:outline-teal-950'
+	},
+	green: {
+		50: 'active:outline-green-50',
+		100: 'active:outline-green-100',
+		200: 'active:outline-green-200',
+		300: 'active:outline-green-300',
+		400: 'active:outline-green-400',
+		500: 'active:outline-green-500',
+		600: 'active:outline-green-600',
+		700: 'active:outline-green-700',
+		800: 'active:outline-green-800',
+		900: 'active:outline-green-900',
+		950: 'active:outline-green-950'
+	},
+	light_green: {
+		50: 'active:outline-light_green-50',
+		100: 'active:outline-light_green-100',
+		200: 'active:outline-light_green-200',
+		300: 'active:outline-light_green-300',
+		400: 'active:outline-light_green-400',
+		500: 'active:outline-light_green-500',
+		600: 'active:outline-light_green-600',
+		700: 'active:outline-light_green-700',
+		800: 'active:outline-light_green-800',
+		900: 'active:outline-light_green-900',
+		950: 'active:outline-light_green-950'
+	},
+	lime: {
+		50: 'active:outline-lime-50',
+		100: 'active:outline-lime-100',
+		200: 'active:outline-lime-200',
+		300: 'active:outline-lime-300',
+		400: 'active:outline-lime-400',
+		500: 'active:outline-lime-500',
+		600: 'active:outline-lime-600',
+		700: 'active:outline-lime-700',
+		800: 'active:outline-lime-800',
+		900: 'active:outline-lime-900',
+		950: 'active:outline-lime-950'
+	},
+	yellow: {
+		50: 'active:outline-yellow-50',
+		100: 'active:outline-yellow-100',
+		200: 'active:outline-yellow-200',
+		300: 'active:outline-yellow-300',
+		400: 'active:outline-yellow-400',
+		500: 'active:outline-yellow-500',
+		600: 'active:outline-yellow-600',
+		700: 'active:outline-yellow-700',
+		800: 'active:outline-yellow-800',
+		900: 'active:outline-yellow-900',
+		950: 'active:outline-yellow-950'
+	},
+	orange: {
+		50: 'active:outline-orange-50',
+		100: 'active:outline-orange-100',
+		200: 'active:outline-orange-200',
+		300: 'active:outline-orange-300',
+		400: 'active:outline-orange-400',
+		500: 'active:outline-orange-500',
+		600: 'active:outline-orange-600',
+		700: 'active:outline-orange-700',
+		800: 'active:outline-orange-800',
+		900: 'active:outline-orange-900',
+		950: 'active:outline-orange-950'
+	},
+	deep_orange: {
+		50: 'active:outline-deep_orange-50',
+		100: 'active:outline-deep_orange-100',
+		200: 'active:outline-deep_orange-200',
+		300: 'active:outline-deep_orange-300',
+		400: 'active:outline-deep_orange-400',
+		500: 'active:outline-deep_orange-500',
+		600: 'active:outline-deep_orange-600',
+		700: 'active:outline-deep_orange-700',
+		800: 'active:outline-deep_orange-800',
+		900: 'active:outline-deep_orange-900',
+		950: 'active:outline-deep_orange-950'
+	}
+};
+
+const before_outline_color: ColorsObj = {
+	transparent: 'before:outline-transparent',
+	black: 'before:outline-black',
+	white: 'before:outline-white',
+	gray: {
+		50: 'before:outline-gray-50',
+		100: 'before:outline-gray-100',
+		200: 'before:outline-gray-200',
+		300: 'before:outline-gray-300',
+		400: 'before:outline-gray-400',
+		500: 'before:outline-gray-500',
+		600: 'before:outline-gray-600',
+		700: 'before:outline-gray-700',
+		800: 'before:outline-gray-800',
+		900: 'before:outline-gray-900',
+		950: 'before:outline-gray-950'
+	},
+	red: {
+		50: 'before:outline-red-50',
+		100: 'before:outline-red-100',
+		200: 'before:outline-red-200',
+		300: 'before:outline-red-300',
+		400: 'before:outline-red-400',
+		500: 'before:outline-red-500',
+		600: 'before:outline-red-600',
+		700: 'before:outline-red-700',
+		800: 'before:outline-red-800',
+		900: 'before:outline-red-900',
+		950: 'before:outline-red-950'
+	},
+	pink: {
+		50: 'before:outline-pink-50',
+		100: 'before:outline-pink-100',
+		200: 'before:outline-pink-200',
+		300: 'before:outline-pink-300',
+		400: 'before:outline-pink-400',
+		500: 'before:outline-pink-500',
+		600: 'before:outline-pink-600',
+		700: 'before:outline-pink-700',
+		800: 'before:outline-pink-800',
+		900: 'before:outline-pink-900',
+		950: 'before:outline-pink-950'
+	},
+	purple: {
+		50: 'before:outline-purple-50',
+		100: 'before:outline-purple-100',
+		200: 'before:outline-purple-200',
+		300: 'before:outline-purple-300',
+		400: 'before:outline-purple-400',
+		500: 'before:outline-purple-500',
+		600: 'before:outline-purple-600',
+		700: 'before:outline-purple-700',
+		800: 'before:outline-purple-800',
+		900: 'before:outline-purple-900',
+		950: 'before:outline-purple-950'
+	},
+	deep_purple: {
+		50: 'before:outline-deep_purple-50',
+		100: 'before:outline-deep_purple-100',
+		200: 'before:outline-deep_purple-200',
+		300: 'before:outline-deep_purple-300',
+		400: 'before:outline-deep_purple-400',
+		500: 'before:outline-deep_purple-500',
+		600: 'before:outline-deep_purple-600',
+		700: 'before:outline-deep_purple-700',
+		800: 'before:outline-deep_purple-800',
+		900: 'before:outline-deep_purple-900',
+		950: 'before:outline-deep_purple-950'
+	},
+	indigo: {
+		50: 'before:outline-indigo-50',
+		100: 'before:outline-indigo-100',
+		200: 'before:outline-indigo-200',
+		300: 'before:outline-indigo-300',
+		400: 'before:outline-indigo-400',
+		500: 'before:outline-indigo-500',
+		600: 'before:outline-indigo-600',
+		700: 'before:outline-indigo-700',
+		800: 'before:outline-indigo-800',
+		900: 'before:outline-indigo-900',
+		950: 'before:outline-indigo-950'
+	},
+	blue: {
+		50: 'before:outline-blue-50',
+		100: 'before:outline-blue-100',
+		200: 'before:outline-blue-200',
+		300: 'before:outline-blue-300',
+		400: 'before:outline-blue-400',
+		500: 'before:outline-blue-500',
+		600: 'before:outline-blue-600',
+		700: 'before:outline-blue-700',
+		800: 'before:outline-blue-800',
+		900: 'before:outline-blue-900',
+		950: 'before:outline-blue-950'
+	},
+	light_blue: {
+		50: 'before:outline-light_blue-50',
+		100: 'before:outline-light_blue-100',
+		200: 'before:outline-light_blue-200',
+		300: 'before:outline-light_blue-300',
+		400: 'before:outline-light_blue-400',
+		500: 'before:outline-light_blue-500',
+		600: 'before:outline-light_blue-600',
+		700: 'before:outline-light_blue-700',
+		800: 'before:outline-light_blue-800',
+		900: 'before:outline-light_blue-900',
+		950: 'before:outline-light_blue-950'
+	},
+	cyan: {
+		50: 'before:outline-cyan-50',
+		100: 'before:outline-cyan-100',
+		200: 'before:outline-cyan-200',
+		300: 'before:outline-cyan-300',
+		400: 'before:outline-cyan-400',
+		500: 'before:outline-cyan-500',
+		600: 'before:outline-cyan-600',
+		700: 'before:outline-cyan-700',
+		800: 'before:outline-cyan-800',
+		900: 'before:outline-cyan-900',
+		950: 'before:outline-cyan-950'
+	},
+	teal: {
+		50: 'before:outline-teal-50',
+		100: 'before:outline-teal-100',
+		200: 'before:outline-teal-200',
+		300: 'before:outline-teal-300',
+		400: 'before:outline-teal-400',
+		500: 'before:outline-teal-500',
+		600: 'before:outline-teal-600',
+		700: 'before:outline-teal-700',
+		800: 'before:outline-teal-800',
+		900: 'before:outline-teal-900',
+		950: 'before:outline-teal-950'
+	},
+	green: {
+		50: 'before:outline-green-50',
+		100: 'before:outline-green-100',
+		200: 'before:outline-green-200',
+		300: 'before:outline-green-300',
+		400: 'before:outline-green-400',
+		500: 'before:outline-green-500',
+		600: 'before:outline-green-600',
+		700: 'before:outline-green-700',
+		800: 'before:outline-green-800',
+		900: 'before:outline-green-900',
+		950: 'before:outline-green-950'
+	},
+	light_green: {
+		50: 'before:outline-light_green-50',
+		100: 'before:outline-light_green-100',
+		200: 'before:outline-light_green-200',
+		300: 'before:outline-light_green-300',
+		400: 'before:outline-light_green-400',
+		500: 'before:outline-light_green-500',
+		600: 'before:outline-light_green-600',
+		700: 'before:outline-light_green-700',
+		800: 'before:outline-light_green-800',
+		900: 'before:outline-light_green-900',
+		950: 'before:outline-light_green-950'
+	},
+	lime: {
+		50: 'before:outline-lime-50',
+		100: 'before:outline-lime-100',
+		200: 'before:outline-lime-200',
+		300: 'before:outline-lime-300',
+		400: 'before:outline-lime-400',
+		500: 'before:outline-lime-500',
+		600: 'before:outline-lime-600',
+		700: 'before:outline-lime-700',
+		800: 'before:outline-lime-800',
+		900: 'before:outline-lime-900',
+		950: 'before:outline-lime-950'
+	},
+	yellow: {
+		50: 'before:outline-yellow-50',
+		100: 'before:outline-yellow-100',
+		200: 'before:outline-yellow-200',
+		300: 'before:outline-yellow-300',
+		400: 'before:outline-yellow-400',
+		500: 'before:outline-yellow-500',
+		600: 'before:outline-yellow-600',
+		700: 'before:outline-yellow-700',
+		800: 'before:outline-yellow-800',
+		900: 'before:outline-yellow-900',
+		950: 'before:outline-yellow-950'
+	},
+	orange: {
+		50: 'before:outline-orange-50',
+		100: 'before:outline-orange-100',
+		200: 'before:outline-orange-200',
+		300: 'before:outline-orange-300',
+		400: 'before:outline-orange-400',
+		500: 'before:outline-orange-500',
+		600: 'before:outline-orange-600',
+		700: 'before:outline-orange-700',
+		800: 'before:outline-orange-800',
+		900: 'before:outline-orange-900',
+		950: 'before:outline-orange-950'
+	},
+	deep_orange: {
+		50: 'before:outline-deep_orange-50',
+		100: 'before:outline-deep_orange-100',
+		200: 'before:outline-deep_orange-200',
+		300: 'before:outline-deep_orange-300',
+		400: 'before:outline-deep_orange-400',
+		500: 'before:outline-deep_orange-500',
+		600: 'before:outline-deep_orange-600',
+		700: 'before:outline-deep_orange-700',
+		800: 'before:outline-deep_orange-800',
+		900: 'before:outline-deep_orange-900',
+		950: 'before:outline-deep_orange-950'
+	}
+};
+
+const after_outline_color: ColorsObj = {
+	transparent: 'after:outline-transparent',
+	black: 'after:outline-black',
+	white: 'after:outline-white',
+	gray: {
+		50: 'after:outline-gray-50',
+		100: 'after:outline-gray-100',
+		200: 'after:outline-gray-200',
+		300: 'after:outline-gray-300',
+		400: 'after:outline-gray-400',
+		500: 'after:outline-gray-500',
+		600: 'after:outline-gray-600',
+		700: 'after:outline-gray-700',
+		800: 'after:outline-gray-800',
+		900: 'after:outline-gray-900',
+		950: 'after:outline-gray-950'
+	},
+	red: {
+		50: 'after:outline-red-50',
+		100: 'after:outline-red-100',
+		200: 'after:outline-red-200',
+		300: 'after:outline-red-300',
+		400: 'after:outline-red-400',
+		500: 'after:outline-red-500',
+		600: 'after:outline-red-600',
+		700: 'after:outline-red-700',
+		800: 'after:outline-red-800',
+		900: 'after:outline-red-900',
+		950: 'after:outline-red-950'
+	},
+	pink: {
+		50: 'after:outline-pink-50',
+		100: 'after:outline-pink-100',
+		200: 'after:outline-pink-200',
+		300: 'after:outline-pink-300',
+		400: 'after:outline-pink-400',
+		500: 'after:outline-pink-500',
+		600: 'after:outline-pink-600',
+		700: 'after:outline-pink-700',
+		800: 'after:outline-pink-800',
+		900: 'after:outline-pink-900',
+		950: 'after:outline-pink-950'
+	},
+	purple: {
+		50: 'after:outline-purple-50',
+		100: 'after:outline-purple-100',
+		200: 'after:outline-purple-200',
+		300: 'after:outline-purple-300',
+		400: 'after:outline-purple-400',
+		500: 'after:outline-purple-500',
+		600: 'after:outline-purple-600',
+		700: 'after:outline-purple-700',
+		800: 'after:outline-purple-800',
+		900: 'after:outline-purple-900',
+		950: 'after:outline-purple-950'
+	},
+	deep_purple: {
+		50: 'after:outline-deep_purple-50',
+		100: 'after:outline-deep_purple-100',
+		200: 'after:outline-deep_purple-200',
+		300: 'after:outline-deep_purple-300',
+		400: 'after:outline-deep_purple-400',
+		500: 'after:outline-deep_purple-500',
+		600: 'after:outline-deep_purple-600',
+		700: 'after:outline-deep_purple-700',
+		800: 'after:outline-deep_purple-800',
+		900: 'after:outline-deep_purple-900',
+		950: 'after:outline-deep_purple-950'
+	},
+	indigo: {
+		50: 'after:outline-indigo-50',
+		100: 'after:outline-indigo-100',
+		200: 'after:outline-indigo-200',
+		300: 'after:outline-indigo-300',
+		400: 'after:outline-indigo-400',
+		500: 'after:outline-indigo-500',
+		600: 'after:outline-indigo-600',
+		700: 'after:outline-indigo-700',
+		800: 'after:outline-indigo-800',
+		900: 'after:outline-indigo-900',
+		950: 'after:outline-indigo-950'
+	},
+	blue: {
+		50: 'after:outline-blue-50',
+		100: 'after:outline-blue-100',
+		200: 'after:outline-blue-200',
+		300: 'after:outline-blue-300',
+		400: 'after:outline-blue-400',
+		500: 'after:outline-blue-500',
+		600: 'after:outline-blue-600',
+		700: 'after:outline-blue-700',
+		800: 'after:outline-blue-800',
+		900: 'after:outline-blue-900',
+		950: 'after:outline-blue-950'
+	},
+	light_blue: {
+		50: 'after:outline-light_blue-50',
+		100: 'after:outline-light_blue-100',
+		200: 'after:outline-light_blue-200',
+		300: 'after:outline-light_blue-300',
+		400: 'after:outline-light_blue-400',
+		500: 'after:outline-light_blue-500',
+		600: 'after:outline-light_blue-600',
+		700: 'after:outline-light_blue-700',
+		800: 'after:outline-light_blue-800',
+		900: 'after:outline-light_blue-900',
+		950: 'after:outline-light_blue-950'
+	},
+	cyan: {
+		50: 'after:outline-cyan-50',
+		100: 'after:outline-cyan-100',
+		200: 'after:outline-cyan-200',
+		300: 'after:outline-cyan-300',
+		400: 'after:outline-cyan-400',
+		500: 'after:outline-cyan-500',
+		600: 'after:outline-cyan-600',
+		700: 'after:outline-cyan-700',
+		800: 'after:outline-cyan-800',
+		900: 'after:outline-cyan-900',
+		950: 'after:outline-cyan-950'
+	},
+	teal: {
+		50: 'after:outline-teal-50',
+		100: 'after:outline-teal-100',
+		200: 'after:outline-teal-200',
+		300: 'after:outline-teal-300',
+		400: 'after:outline-teal-400',
+		500: 'after:outline-teal-500',
+		600: 'after:outline-teal-600',
+		700: 'after:outline-teal-700',
+		800: 'after:outline-teal-800',
+		900: 'after:outline-teal-900',
+		950: 'after:outline-teal-950'
+	},
+	green: {
+		50: 'after:outline-green-50',
+		100: 'after:outline-green-100',
+		200: 'after:outline-green-200',
+		300: 'after:outline-green-300',
+		400: 'after:outline-green-400',
+		500: 'after:outline-green-500',
+		600: 'after:outline-green-600',
+		700: 'after:outline-green-700',
+		800: 'after:outline-green-800',
+		900: 'after:outline-green-900',
+		950: 'after:outline-green-950'
+	},
+	light_green: {
+		50: 'after:outline-light_green-50',
+		100: 'after:outline-light_green-100',
+		200: 'after:outline-light_green-200',
+		300: 'after:outline-light_green-300',
+		400: 'after:outline-light_green-400',
+		500: 'after:outline-light_green-500',
+		600: 'after:outline-light_green-600',
+		700: 'after:outline-light_green-700',
+		800: 'after:outline-light_green-800',
+		900: 'after:outline-light_green-900',
+		950: 'after:outline-light_green-950'
+	},
+	lime: {
+		50: 'after:outline-lime-50',
+		100: 'after:outline-lime-100',
+		200: 'after:outline-lime-200',
+		300: 'after:outline-lime-300',
+		400: 'after:outline-lime-400',
+		500: 'after:outline-lime-500',
+		600: 'after:outline-lime-600',
+		700: 'after:outline-lime-700',
+		800: 'after:outline-lime-800',
+		900: 'after:outline-lime-900',
+		950: 'after:outline-lime-950'
+	},
+	yellow: {
+		50: 'after:outline-yellow-50',
+		100: 'after:outline-yellow-100',
+		200: 'after:outline-yellow-200',
+		300: 'after:outline-yellow-300',
+		400: 'after:outline-yellow-400',
+		500: 'after:outline-yellow-500',
+		600: 'after:outline-yellow-600',
+		700: 'after:outline-yellow-700',
+		800: 'after:outline-yellow-800',
+		900: 'after:outline-yellow-900',
+		950: 'after:outline-yellow-950'
+	},
+	orange: {
+		50: 'after:outline-orange-50',
+		100: 'after:outline-orange-100',
+		200: 'after:outline-orange-200',
+		300: 'after:outline-orange-300',
+		400: 'after:outline-orange-400',
+		500: 'after:outline-orange-500',
+		600: 'after:outline-orange-600',
+		700: 'after:outline-orange-700',
+		800: 'after:outline-orange-800',
+		900: 'after:outline-orange-900',
+		950: 'after:outline-orange-950'
+	},
+	deep_orange: {
+		50: 'after:outline-deep_orange-50',
+		100: 'after:outline-deep_orange-100',
+		200: 'after:outline-deep_orange-200',
+		300: 'after:outline-deep_orange-300',
+		400: 'after:outline-deep_orange-400',
+		500: 'after:outline-deep_orange-500',
+		600: 'after:outline-deep_orange-600',
+		700: 'after:outline-deep_orange-700',
+		800: 'after:outline-deep_orange-800',
+		900: 'after:outline-deep_orange-900',
+		950: 'after:outline-deep_orange-950'
+	}
+};
+
 export default {
-	borderWidth,
-	borderXWidth,
-	borderYWidth,
-	borderLeftWidth,
-	borderTopWidth,
-	borderRightWidth,
-	borderBottomWidth,
-	borderStyle,
-	borderColor,
-	borderRadius,
-	outlineWidth,
-	outlineStyle,
-	outlineOffset,
-	outlineColor
+	border_width: {
+		...border_width,
+		hover: hover_border_width,
+		focus: focus_border_width,
+		active: active_border_width,
+		before: before_border_width,
+		after: after_border_width
+	},
+	border_x_width: {
+		...border_x_width,
+		hover: hover_border_x_width,
+		focus: focus_border_x_width,
+		active: active_border_x_width,
+		before: before_border_x_width,
+		after: after_border_x_width
+	},
+	border_y_width: {
+		...border_y_width,
+		hover: hover_border_y_width,
+		focus: focus_border_y_width,
+		active: active_border_y_width,
+		before: before_border_y_width,
+		after: after_border_y_width
+	},
+	border_l_width: {
+		...border_l_width,
+		hover: hover_border_l_width,
+		focus: focus_border_l_width,
+		active: active_border_l_width,
+		before: before_border_l_width,
+		after: after_border_l_width
+	},
+	border_t_width: {
+		...border_t_width,
+		hover: hover_border_t_width,
+		focus: focus_border_t_width,
+		active: active_border_t_width,
+		before: before_border_t_width,
+		after: after_border_t_width
+	},
+	border_r_width: {
+		...border_r_width,
+		hover: hover_border_r_width,
+		focus: focus_border_r_width,
+		active: active_border_r_width,
+		before: before_border_r_width,
+		after: after_border_r_width
+	},
+	border_b_width: {
+		...border_b_width,
+		hover: hover_border_b_width,
+		focus: focus_border_b_width,
+		active: active_border_b_width,
+		before: before_border_b_width,
+		after: after_border_b_width
+	},
+	border_style,
+	border_color: {
+		...border_color,
+		hover: hover_border_color,
+		focus: focus_border_color,
+		active: active_border_color,
+		before: before_border_color,
+		after: after_border_color
+	},
+	border_radius,
+	outline_width: {
+		...outline_width,
+		hover: hover_outline_width,
+		focus: focus_outline_width,
+		active: active_outline_width,
+		before: before_outline_width,
+		after: after_outline_width
+	},
+	outline_style,
+	outline_offset,
+	outline_color: {
+		...outline_color,
+		hover: hover_outline_color,
+		focus: focus_outline_color,
+		active: active_outline_color,
+		before: before_outline_color,
+		after: after_outline_color
+	}
 };
