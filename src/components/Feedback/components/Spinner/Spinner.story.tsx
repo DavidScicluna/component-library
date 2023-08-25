@@ -32,7 +32,7 @@ export default {
 				'7xl',
 				'8xl',
 				'9xl'
-			] as SpinnerSize[],
+			] as Array<SpinnerSize>,
 			control: { type: 'radio' }
 		},
 		variant: {
@@ -49,7 +49,7 @@ export default {
 				'rotating_lines',
 				'tail_spin',
 				'three_dots'
-			] as SpinnerVariant[],
+			] as Array<SpinnerVariant>,
 			control: { type: 'radio' }
 		}
 	}

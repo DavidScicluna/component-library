@@ -39,7 +39,7 @@ export default {
 				'7xl',
 				'8xl',
 				'9xl'
-			] as BackdropOverlayBlur[],
+			] as Array<BackdropOverlayBlur>,
 			control: { type: 'radio' }
 		}
 	}

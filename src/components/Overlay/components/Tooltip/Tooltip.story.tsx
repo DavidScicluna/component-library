@@ -106,7 +106,7 @@ export default {
 				'left',
 				'left-start',
 				'left-end'
-			] as TooltipPlacement[],
+			] as Array<TooltipPlacement>,
 			control: { type: 'radio' }
 		}
 	}

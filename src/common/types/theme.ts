@@ -1,11 +1,11 @@
 // TODO: Replace all types to have Theme included in the name
 export type AppColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
-export type AppColors = AppColor[];
+export type AppColors = Array<AppColor>;
 
 export type AppColorMode = Exclude<ColorMode, 'system'>;
 
 export type BorderWidth = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
-export type BorderWidthArr = BorderWidth[];
+export type BorderWidthArr = Array<BorderWidth>;
 export type BorderWidthObj = Record<BorderWidth, string>;
 
 export type Color =
@@ -28,11 +28,11 @@ export type Color =
 	| 'yellow'
 	| 'orange'
 	| 'deep_orange';
-export type ColorsArr = Color[];
+export type ColorsArr = Array<Color>;
 export type ColorsObj = Record<Color, string | Record<ColorHue, string>>;
 
 export type ColorHue = 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950;
-export type ColorHuesArr = ColorHue[];
+export type ColorHuesArr = Array<ColorHue>;
 export type ColorHuesObj = Record<ColorHue, string>;
 
 export type ColorMode = 'light' | 'system' | 'dark';
@@ -48,27 +48,27 @@ export type CommonAppThemeProps = Partial<{
 }>;
 
 export type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
-export type BreakpointsArr = Breakpoint[];
+export type BreakpointsArr = Array<Breakpoint>;
 export type BreakpointsObj = Record<Breakpoint, string>;
 
 export type Radius = 'none' | 'xs' | 'sm' | 'base' | 'lg' | 'xl' | 'full';
-export type RadiiArr = Radius[];
+export type RadiiArr = Array<Radius>;
 export type RadiiObj = Record<Radius, string>;
 
 export type Ease = 'linear' | 'ease-in' | 'ease-out' | 'ease-in-out';
-export type EasingsArr = Ease[];
+export type EasingsArr = Array<Ease>;
 export type EasingsObj = Record<Ease, string>;
 
 export type Delay = 'ultra-fast' | 'faster' | 'fast' | 'normal' | 'slow' | 'slower' | 'ultra-slow';
-export type DelaysArr = Delay[];
+export type DelaysArr = Array<Delay>;
 export type DelaysObj = Record<Delay, string>;
 
 export type Duration = 'ultra-fast' | 'faster' | 'fast' | 'normal' | 'slow' | 'slower' | 'ultra-slow';
-export type DurationsArr = Duration[];
+export type DurationsArr = Array<Duration>;
 export type DurationsObj = Record<Duration, string>;
 
 export type FontSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl';
-export type FontSizesArr = FontSize[];
+export type FontSizesArr = Array<FontSize>;
 export type FontSizesObj = Record<FontSize, string>;
 
 export type FontWeight =
@@ -81,27 +81,27 @@ export type FontWeight =
 	| 'bold'
 	| 'extrabold'
 	| 'black';
-export type FontWeightsArr = FontWeight[];
+export type FontWeightsArr = Array<FontWeight>;
 export type FontWeightsObj = Record<FontWeight, string | number>;
 
 export type TextAlign = 'left' | 'center' | 'right' | 'justify' | 'start' | 'end';
-export type TextAlignsArr = TextAlign[];
+export type TextAlignsArr = Array<TextAlign>;
 export type TextAlignsObj = Record<TextAlign, string>;
 
 export type TextTransform = 'uppercase' | 'lowercase' | 'capitalize' | 'normal';
-export type TextTransformsArr = TextTransform[];
+export type TextTransformsArr = Array<TextTransform>;
 export type TextTransformsObj = Record<TextTransform, string>;
 
 export type LineHeight = 'none' | 'tight' | 'snug' | 'normal' | 'relaxed' | 'loose' | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
-export type LineHeightsArr = LineHeight[];
+export type LineHeightsArr = Array<LineHeight>;
 export type LineHeightsObj = Record<LineHeight, string | number>;
 
 export type Whitespace = 'normal' | 'nowrap' | 'pre' | 'pre-line' | 'pre-wrap' | 'break-spaces';
-export type WhitespacesArr = Whitespace[];
+export type WhitespacesArr = Array<Whitespace>;
 export type WhitespacesObj = Record<Whitespace, string>;
 
 export type WordBreak = 'normal' | 'words' | 'all' | 'keep';
-export type WordBreaksArr = WordBreak[];
+export type WordBreaksArr = Array<WordBreak>;
 export type WordBreaksObj = Record<WordBreak, string>;
 
 export type Space =
@@ -205,5 +205,5 @@ export type Space =
 	| 24.25
 	| 24.5
 	| 24.75;
-export type SpacingArr = Space[];
+export type SpacingArr = Array<Space>;
 export type SpacingObj = Record<Space, string>;

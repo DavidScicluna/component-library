@@ -60,7 +60,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_CONFIRM_MODAL_SIZE__,
 			// description: '',
-			options: ['xs', 'sm', 'md', 'lg', 'xl'] as ConfirmModalSize[],
+			options: ['xs', 'sm', 'md', 'lg', 'xl'] as Array<ConfirmModalSize>,
 			control: { type: 'radio' }
 		},
 		spacing: {

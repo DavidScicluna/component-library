@@ -16,7 +16,7 @@ type Util<Obj, Props extends ReadonlyArray<Primitives>> = Props extends []
 		: never
 	: Props extends [infer Fst, ...infer Tail]
 	? Fst extends keyof Obj
-		? Tail extends string[]
+		? Tail extends Array<string>
 			? Util<Obj[Fst], Tail>
 			: never
 		: never

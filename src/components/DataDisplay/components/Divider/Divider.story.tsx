@@ -33,7 +33,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_DIVIDER_PLACEMENT__,
 			// description: '',
-			options: ['left', 'center', 'right'] as DividerPlacement[],
+			options: ['left', 'center', 'right'] as Array<DividerPlacement>,
 			control: { type: 'radio' }
 		},
 		size: {
@@ -56,7 +56,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_DIVIDER_VARIANT__,
 			// description: '',
-			options: ['dotted', 'dashed', 'solid'] as DividerVariant[],
+			options: ['dotted', 'dashed', 'solid'] as Array<DividerVariant>,
 			control: { type: 'radio' }
 		}
 	}

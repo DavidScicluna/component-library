@@ -12,7 +12,7 @@ import { getResponsiveValue } from '@common/utils';
  * @param keys - An array of keys to be used to traverse the deep classes object
  * @returns - The class from the classes object
  */
-const useGetClass = <D>(responsiveValue: ResponsiveValue<D>, keys: string[] = []): string => {
+const useGetClass = <D>(responsiveValue: ResponsiveValue<D>, keys: Array<string> = []): string => {
 	const value = useMemo<D>(() => getResponsiveValue<D>(responsiveValue), [responsiveValue]);
 
 	const className = useMemo<string>(() => {

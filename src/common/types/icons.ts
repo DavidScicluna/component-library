@@ -1874,4 +1874,4 @@ export type IconType = string &
 		| 'zoom_out'
 		| 'zoom_out_map'
 	);
-export type IconTypes = IconType[];
+export type IconTypes = Array<IconType>;

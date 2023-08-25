@@ -57,7 +57,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_MESSAGE_VARIANT__,
 			// description: '',
-			options: ['solid', 'dashed', 'dotted', 'transparent'] as MessageVariant[],
+			options: ['solid', 'dashed', 'dotted', 'transparent'] as Array<MessageVariant>,
 			control: { type: 'radio' }
 		}
 	}

@@ -6,7 +6,7 @@ import type { Breakpoint } from '@common/types/theme';
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
 export type ContainerBreakpoint = Exclude<Breakpoint, 'xs'>;
-export type ContainerBreakpoints = ContainerBreakpoint[];
+export type ContainerBreakpoints = Array<ContainerBreakpoint>;
 
 type ContainerOtherProps = {
 	breakpoint?: ResponsiveValue<ContainerBreakpoint>;

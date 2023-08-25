@@ -49,7 +49,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_MODAL_SIZE__,
 			// description: '',
-			options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', 'full'] as ModalSize[],
+			options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', 'full'] as Array<ModalSize>,
 			control: { type: 'radio' }
 		},
 		spacing: {

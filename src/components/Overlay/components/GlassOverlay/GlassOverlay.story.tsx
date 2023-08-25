@@ -45,7 +45,7 @@ export default {
 				'7xl',
 				'8xl',
 				'9xl'
-			] as GlassOverlayBlur[],
+			] as Array<GlassOverlayBlur>,
 			control: { type: 'radio' }
 		},
 		isBackdrop: {

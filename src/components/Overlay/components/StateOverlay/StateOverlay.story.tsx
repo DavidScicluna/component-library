@@ -42,7 +42,7 @@ export default {
 			type: 'boolean',
 			defaultValue: __DEFAULT_STATE_OVERLAY_STATE__,
 			// description: '',
-			options: ['success', 'error', 'empty', 'loading', 'default'] as StateOverlayState[],
+			options: ['success', 'error', 'empty', 'loading', 'default'] as Array<StateOverlayState>,
 			control: { type: 'radio' }
 		}
 	}

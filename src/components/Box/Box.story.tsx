@@ -22,7 +22,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_POLYMORPHIC_ELEMENT__,
 			description: 'The component used for the root node. Either a string to use an HTML element or a component.',
-			options: ['div', 'span', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as ElementType[],
+			options: ['div', 'span', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as Array<ElementType>,
 			control: { type: 'select' }
 		},
 		sx: {

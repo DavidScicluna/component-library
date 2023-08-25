@@ -1,6 +1,6 @@
 import type { BoxOtherProps } from '../types';
 
-export const __KEYS_BOX__: (keyof BoxOtherProps)[] = [
+export const __KEYS_BOX__: Array<keyof BoxOtherProps> = [
 	'w',
 	'minW',
 	'maxW',

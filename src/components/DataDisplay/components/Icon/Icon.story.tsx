@@ -38,7 +38,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_ICON_CATEGORY__,
 			// description: '',
-			options: ['filled', 'outlined', 'twoTone'] as IconCategory[],
+			options: ['filled', 'outlined', 'twoTone'] as Array<IconCategory>,
 			control: { type: 'radio' }
 		},
 		radius: {
@@ -46,7 +46,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_ICON_RADIUS__,
 			// description: '',
-			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as IconRadius[],
+			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as Array<IconRadius>,
 			control: { type: 'radio' }
 		},
 		size: {
@@ -68,7 +68,7 @@ export default {
 				'7xl',
 				'8xl',
 				'9xl'
-			] as IconSize[],
+			] as Array<IconSize>,
 			control: { type: 'radio' }
 		},
 		variant: {
@@ -76,7 +76,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_ICON_VARIANT__,
 			// description: '',
-			options: ['contained', 'light', 'outlined', 'monochrome', 'transparent', 'unstyled'] as IconVariant[],
+			options: ['contained', 'light', 'outlined', 'monochrome', 'transparent', 'unstyled'] as Array<IconVariant>,
 			control: { type: 'radio' }
 		}
 	}
