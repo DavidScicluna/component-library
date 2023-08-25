@@ -253,6 +253,10 @@ export type PointerEvents = 'auto' | 'none';
 export type PointerEventsArr = Array<PointerEvents>;
 export type PointerEventsObj = Record<PointerEvents, string>;
 
+export type UserSelect = 'none' | 'text' | 'all' | 'auto';
+export type UserSelectArr = Array<UserSelect>;
+export type UserSelectObj = Record<UserSelect, string>;
+
 /**
  * Layout
  */

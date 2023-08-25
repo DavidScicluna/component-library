@@ -1,4 +1,4 @@
-import type { CursorObj, PointerEventsObj } from '@common/types/classes';
+import type { CursorObj, PointerEventsObj, UserSelectObj } from '@common/types/classes';
 
 const cursor: CursorObj = {
 	'auto': 'cursor-auto',
@@ -44,4 +44,11 @@ const pointer_events: PointerEventsObj = {
 	auto: 'pointer-events-auto'
 };
 
-export default { cursor, pointer_events };
+const user_select: UserSelectObj = {
+	none: 'select-none',
+	text: 'select-text',
+	all: 'select-all',
+	auto: 'select-auto'
+};
+
+export default { cursor, pointer_events, user_select };
