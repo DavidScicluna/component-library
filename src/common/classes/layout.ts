@@ -45,7 +45,7 @@ const width: WidthObj = {
 	'fit': 'w-fit'
 };
 
-const minWidth: MinWidthObj = {
+const min_width: MinWidthObj = {
 	0: 'min-w-0',
 	full: 'min-w-full',
 	min: 'min-w-min',
@@ -53,7 +53,7 @@ const minWidth: MinWidthObj = {
 	fit: 'min-w-fit'
 };
 
-const maxWidth: MaxWidthObj = {
+const max_width: MaxWidthObj = {
 	0: 'max-w-0',
 	'full': 'max-w-full',
 	'min': 'max-w-min',
@@ -74,7 +74,7 @@ const maxWidth: MaxWidthObj = {
 	'prose': 'max-w-prose'
 };
 
-const maxWidthContainer: BreakpointsObj = {
+const max_width_container: BreakpointsObj = {
 	'xs': 'max-w-screen-xs',
 	'sm': 'max-w-screen-sm',
 	'md': 'max-w-screen-md',
@@ -107,7 +107,7 @@ const height: HeightObj = {
 	'fit': 'h-fit'
 };
 
-const minHeight: MinHeightObj = {
+const min_height: MinHeightObj = {
 	0: 'min-h-0',
 	full: 'min-h-full',
 	screen: 'min-h-screen',
@@ -116,7 +116,7 @@ const minHeight: MinHeightObj = {
 	fit: 'min-h-fit'
 };
 
-const maxHeight: MaxHeightObj = {
+const max_height: MaxHeightObj = {
 	0: 'max-h-0',
 	none: 'max-h-none',
 	full: 'max-h-full',
@@ -134,7 +134,23 @@ const position: PositionObj = {
 	sticky: 'sticky'
 };
 
-const zIndex: ZIndexObj = {
+const before_position: PositionObj = {
+	static: 'before:static',
+	fixed: 'before:fixed',
+	absolute: 'before:absolute',
+	relative: 'before:relative',
+	sticky: 'before:sticky'
+};
+
+const after_position: PositionObj = {
+	static: 'after:static',
+	fixed: 'after:fixed',
+	absolute: 'after:absolute',
+	relative: 'after:relative',
+	sticky: 'after:sticky'
+};
+
+const z_index: ZIndexObj = {
 	0: 'z-0',
 	1: 'z-1',
 	2: 'z-2',
@@ -183,12 +199,12 @@ const zIndex: ZIndexObj = {
 
 export default {
 	width,
-	minWidth,
-	maxWidth,
-	maxWidthContainer,
+	min_width,
+	max_width,
+	max_width_container,
 	height,
-	minHeight,
-	maxHeight,
-	position,
-	zIndex
+	min_height,
+	max_height,
+	position: { ...position, before: before_position, after: after_position },
+	z_index
 };
