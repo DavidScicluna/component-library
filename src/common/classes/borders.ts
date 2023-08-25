@@ -1832,6 +1832,14 @@ const focus_outline_width: OutlineWidthObj = {
 	8: 'focus:outline-8'
 };
 
+const focus_visible_outline_width: OutlineWidthObj = {
+	0: 'focus-visible:outline-0',
+	1: 'focus-visible:outline-1',
+	2: 'focus-visible:outline-2',
+	4: 'focus-visible:outline-4',
+	8: 'focus-visible:outline-8'
+};
+
 const active_outline_width: OutlineWidthObj = {
 	0: 'active:outline-0',
 	1: 'active:outline-1',
@@ -1862,6 +1870,54 @@ const outline_style: OutlineStyleObj = {
 	dashed: 'outline-dashed',
 	dotted: 'outline-dotted',
 	double: 'outline-double'
+};
+
+const hover_outline_style: OutlineStyleObj = {
+	none: 'hover:outline-none',
+	solid: 'hover:outline',
+	dashed: 'hover:outline-dashed',
+	dotted: 'hover:outline-dotted',
+	double: 'hover:outline-double'
+};
+
+const focus_outline_style: OutlineStyleObj = {
+	none: 'focus:outline-none',
+	solid: 'focus:outline',
+	dashed: 'focus:outline-dashed',
+	dotted: 'focus:outline-dotted',
+	double: 'focus:outline-double'
+};
+
+const focus_visible_outline_style: OutlineStyleObj = {
+	none: 'focus-visible:outline-none',
+	solid: 'focus-visible:outline',
+	dashed: 'focus-visible:outline-dashed',
+	dotted: 'focus-visible:outline-dotted',
+	double: 'focus-visible:outline-double'
+};
+
+const active_outline_style: OutlineStyleObj = {
+	none: 'active:outline-none',
+	solid: 'active:outline',
+	dashed: 'active:outline-dashed',
+	dotted: 'active:outline-dotted',
+	double: 'active:outline-double'
+};
+
+const before_outline_style: OutlineStyleObj = {
+	none: 'before:outline-none',
+	solid: 'before:outline',
+	dashed: 'before:outline-dashed',
+	dotted: 'before:outline-dotted',
+	double: 'before:outline-double'
+};
+
+const after_outline_style: OutlineStyleObj = {
+	none: 'after:outline-none',
+	solid: 'after:outline',
+	dashed: 'after:outline-dashed',
+	dotted: 'after:outline-dotted',
+	double: 'after:outline-double'
 };
 
 const outline_offset: OutlineOffsetObj = {
@@ -3227,11 +3283,20 @@ export default {
 		...outline_width,
 		hover: hover_outline_width,
 		focus: focus_outline_width,
+		focus_visible: focus_visible_outline_width,
 		active: active_outline_width,
 		before: before_outline_width,
 		after: after_outline_width
 	},
-	outline_style,
+	outline_style: {
+		...outline_style,
+		hover: hover_outline_style,
+		focus: focus_outline_style,
+		focus_visible: focus_visible_outline_style,
+		active: active_outline_style,
+		before: before_outline_style,
+		after: after_outline_style
+	},
 	outline_offset,
 	outline_color: {
 		...outline_color,
