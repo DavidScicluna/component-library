@@ -249,6 +249,10 @@ export type Cursor =
 export type CursorArr = Array<Cursor>;
 export type CursorObj = Record<Cursor, string>;
 
+export type PointerEvents = 'auto' | 'none';
+export type PointerEventsArr = Array<PointerEvents>;
+export type PointerEventsObj = Record<PointerEvents, string>;
+
 /**
  * Layout
  */

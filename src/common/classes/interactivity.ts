@@ -1,4 +1,4 @@
-import type { CursorObj } from '@common/types/classes';
+import type { CursorObj, PointerEventsObj } from '@common/types/classes';
 
 const cursor: CursorObj = {
 	'auto': 'cursor-auto',
@@ -39,6 +39,12 @@ const cursor: CursorObj = {
 	'zoom-out': 'cursor-zoom-out'
 };
 
+const pointerEvents: PointerEventsObj = {
+	none: 'pointer-events-none',
+	auto: 'pointer-events-auto'
+};
+
 export default {
-	cursor
+	cursor,
+	pointerEvents
 };
