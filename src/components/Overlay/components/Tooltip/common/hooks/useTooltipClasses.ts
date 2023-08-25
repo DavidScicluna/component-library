@@ -29,9 +29,9 @@ const useTooltipClasses = <Element extends ElementType>(
 			'select-none',
 			'will-change-auto',
 			'pointer-events-none',
-			classes.borders.borderWidth[__DEFAULT_BORDER_WIDTH__],
-			classes.borders.borderStyle[__DEFAULT_BORDER_STYLE__],
-			classes.borders.borderRadius.xs,
+			classes.borders.border_width[__DEFAULT_BORDER_WIDTH__],
+			classes.borders.border_style[__DEFAULT_BORDER_STYLE__],
+			classes.borders.border_radius.xs,
 			classes.effects.shadow.sm,
 			classes.spacing.px[1],
 			classes.spacing.py[0.5]
@@ -43,7 +43,7 @@ const useTooltipClasses = <Element extends ElementType>(
 		const shadowHue = getColorHue({ colorMode, type: colorMode === 'light' ? 'midlight' : 'midDark' });
 
 		return classNames(
-			classes.borders.borderColor[color][backgroundHue],
+			classes.borders.border_color[color][backgroundHue],
 			classes.backgrounds.color[color][backgroundHue],
 			classes.effects.color[color][color !== 'gray' ? backgroundHue : shadowHue]
 		);
@@ -59,10 +59,10 @@ const useTooltipClasses = <Element extends ElementType>(
 
 	const contentRootClasses = useConst<ClassName>(
 		classNames(
-			classes.typography.fontSize.xs,
-			classes.typography.fontWeight.medium,
-			classes.typography.wordBreak.all,
-			classes.typography.lineClamp[5]
+			classes.typography.font_size.xs,
+			classes.typography.font_weight.medium,
+			classes.typography.word_break.all,
+			classes.typography.line_clamp[5]
 		)
 	);
 

@@ -5,9 +5,9 @@ import type { Space } from '@common/types/theme';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
-interface CenterOtherProps {
+type CenterOtherProps = {
 	spacing?: ResponsiveValue<Space>;
-}
+};
 
 export type CenterProps<Element extends ElementType> = BoxProps<Element, CenterOtherProps>;
 

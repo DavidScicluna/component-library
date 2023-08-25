@@ -50,7 +50,7 @@ export default {
 export const LoadingOverlay: LoadingOverlayStory = (
 	props: LoadingOverlayProps<PolymorphicDefaultElement>
 ): ReactElement => {
-	const radius = classes.borders.borderRadius.base;
+	const radius = classes.borders.border_radius.base;
 
 	const spinner = useGetColor({ colorType: 'default', hueType: 'text.primary' });
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });

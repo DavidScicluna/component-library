@@ -150,7 +150,7 @@ export default {
 } as GridStoryMeta;
 
 export const Grid: GridStory = (props: GridProps<PolymorphicDefaultElement>): ReactElement => {
-	const radius = classes.borders.borderRadius.base;
+	const radius = classes.borders.border_radius.base;
 
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
 	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });

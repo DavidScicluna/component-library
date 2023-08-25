@@ -85,9 +85,9 @@ export default {
 export const Icon: IconStory = (props: IconProps<IconDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
-	const fontSize = classes.typography.fontSize['6xl'];
+	const fontSize = classes.typography.font_size['6xl'];
 
-	const radius = classes.borders.borderRadius.base;
+	const radius = classes.borders.border_radius.base;
 
 	return (
 		<Center w='auto' p={4}>

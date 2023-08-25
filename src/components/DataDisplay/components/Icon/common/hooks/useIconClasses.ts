@@ -45,8 +45,8 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 			lineHeightClassName,
 			radiusClassName,
 			{
-				[classes.borders.borderWidth[__DEFAULT_BORDER_WIDTH__]]: variant !== 'unstyled',
-				[classes.borders.borderStyle[__DEFAULT_BORDER_STYLE__]]: variant !== 'unstyled'
+				[classes.borders.border_width[__DEFAULT_BORDER_WIDTH__]]: variant !== 'unstyled',
+				[classes.borders.border_style[__DEFAULT_BORDER_STYLE__]]: variant !== 'unstyled'
 			}
 		);
 	}, [size, radius, variant]);
@@ -57,7 +57,7 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 
 		return classNames(
 			classes.typography.color.gray[colorHue],
-			classes.borders.borderColor[color][backgroundHue],
+			classes.borders.border_color[color][backgroundHue],
 			classes.backgrounds.color[color][backgroundHue]
 		);
 	}, [color, colorMode]);
@@ -68,7 +68,7 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 
 		return classNames(
 			classes.typography.color[color][colorHue],
-			classes.borders.borderColor[color][backgroundHue],
+			classes.borders.border_color[color][backgroundHue],
 			classes.backgrounds.color[color][backgroundHue]
 		);
 	}, [color, colorMode]);
@@ -79,7 +79,7 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 
 		return classNames(
 			classes.typography.color.gray[colorHue],
-			classes.borders.borderColor.gray[borderHue],
+			classes.borders.border_color.gray[borderHue],
 			classes.backgrounds.color.transparent
 		);
 	}, [color, colorMode]);
@@ -89,7 +89,7 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 
 		return classNames(
 			classes.typography.color[color][colorHue],
-			classes.borders.borderColor[color][colorHue],
+			classes.borders.border_color[color][colorHue],
 			classes.backgrounds.color.transparent
 		);
 	}, [color, colorMode]);
@@ -99,7 +99,7 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 
 		return classNames(
 			classes.typography.color[color][colorHue],
-			classes.borders.borderColor.transparent,
+			classes.borders.border_color.transparent,
 			classes.backgrounds.color.transparent
 		);
 	}, [color, colorMode]);
