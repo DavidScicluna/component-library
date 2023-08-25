@@ -1,4 +1,4 @@
-import type { CursorObj, PointerEventsObj, UserSelectObj } from '@common/types/classes';
+import type { CursorObj, PointerEventsObj, UserSelectObj, WillChangeObj } from '@common/types/classes';
 
 const cursor: CursorObj = {
 	'auto': 'cursor-auto',
@@ -51,4 +51,11 @@ const user_select: UserSelectObj = {
 	auto: 'select-auto'
 };
 
-export default { cursor, pointer_events, user_select };
+const will_change: WillChangeObj = {
+	auto: 'will-change-auto',
+	scroll: 'will-change-scroll',
+	contents: 'will-change-contents',
+	transform: 'will-change-transform'
+};
+
+export default { cursor, pointer_events, user_select, will_change };

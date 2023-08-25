@@ -257,6 +257,10 @@ export type UserSelect = 'none' | 'text' | 'all' | 'auto';
 export type UserSelectArr = Array<UserSelect>;
 export type UserSelectObj = Record<UserSelect, string>;
 
+export type WillChange = 'auto' | 'scroll' | 'contents' | 'transform';
+export type WillChangeArr = Array<WillChange>;
+export type WillChangeObj = Record<WillChange, string>;
+
 /**
  * Layout
  */
