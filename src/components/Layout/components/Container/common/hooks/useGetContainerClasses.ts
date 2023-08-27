@@ -27,7 +27,7 @@ const useGetContainerClasses = <Element extends ElementType>(
 		isFluid = __DEFAULT_CONTAINER_IS_FLUID__
 	} = props;
 
-	const breakpointClassName = useGetClass<ContainerBreakpoint>(breakpoint, ['layout', 'maxWidthContainer']);
+	const breakpointClassName = useGetClass<ContainerBreakpoint>(breakpoint, ['layout', 'container']);
 
 	return classNames('container', {
 		'mx-auto': isContentCentered,

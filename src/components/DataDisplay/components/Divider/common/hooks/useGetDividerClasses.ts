@@ -31,8 +31,8 @@ const useGetDividerClasses = <Element extends DividerElement>(
 		variant = __DEFAULT_DIVIDER_VARIANT__
 	} = props;
 
-	const borderLeftWidthClassName = useGetClass<BorderWidth>(size, ['borders', 'borderLeftWidth']);
-	const borderStyleClassName = useGetClass<BorderStyle>(variant, ['borders', 'borderStyle']);
+	const borderLeftWidthClassName = useGetClass<BorderWidth>(size, ['borders', 'border_l_width']);
+	const borderStyleClassName = useGetClass<BorderStyle>(variant, ['borders', 'border_style']);
 	const borderColorClassName = useGetColor({
 		color,
 		colorMode,
@@ -43,7 +43,7 @@ const useGetDividerClasses = <Element extends DividerElement>(
 
 	const justifyContentClassName = useGetClass<JustifyContent>(
 		placement === 'left' ? 'flex-start' : placement === 'right' ? 'flex-end' : 'center',
-		['grid', 'justifyContent']
+		['grid', 'justify_content']
 	);
 
 	return classNames('flex', 'items-center', justifyContentClassName, borderStyleClassName, borderColorClassName, {

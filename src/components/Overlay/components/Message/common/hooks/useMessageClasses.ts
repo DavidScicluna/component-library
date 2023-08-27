@@ -5,11 +5,10 @@ import classNames from 'classnames';
 
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__ } from '@common/constants/props';
-import { useAppTheme } from '@common/hooks';
+import { useAppTheme, useGetClass } from '@common/hooks';
 import type { ClassName } from '@common/types';
 import type { BorderStyle } from '@common/types/classes';
 import type { BorderWidth, Radius } from '@common/types/theme';
-import { getClass } from '@common/utils/classes';
 import { getColorHue } from '@common/utils/color';
 
 import { __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_SIZE__, __DEFAULT_MESSAGE_VARIANT__ } from '../constants';
@@ -34,12 +33,12 @@ const useMessageClasses = <Element extends ElementType>(
 		variant = __DEFAULT_MESSAGE_VARIANT__
 	} = props;
 
-	const borderWidthClassName = getClass<BorderWidth>(size, ['borders', 'borderWidth']);
-	const borderStyleClassName = getClass<BorderStyle>(variant === 'transparent' ? 'none' : variant, [
+	const borderWidthClassName = useGetClass<BorderWidth>(size, ['borders', 'border_width']);
+	const borderStyleClassName = useGetClass<BorderStyle>(variant === 'transparent' ? 'none' : variant, [
 		'borders',
-		'borderStyle'
+		'border_style'
 	]);
-	const borderRadiusClassName = getClass<Radius>(radius, ['borders', 'borderRadius']);
+	const borderRadiusClassName = useGetClass<Radius>(radius, ['borders', 'border_radius']);
 
 	const colorClasses = useMemo<ClassName>(() => {
 		const borderHue = getColorHue({ colorMode, type: 'divider' });

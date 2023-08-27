@@ -32,15 +32,15 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 	} = props;
 
 	const rootClasses = useMemo<string>(() => {
-		const fontSizeClassName = getClass<IconSize>(size, ['typography', 'fontSize']);
-		const lineHeightClassName = getClass<LineHeight>('none', ['typography', 'lineHeight']);
-		const radiusClassName = getClass<IconRadius>(radius, ['borders', 'borderRadius']);
+		const fontSizeClassName = getClass<IconSize>(size, ['typography', 'font_size']);
+		const lineHeightClassName = getClass<LineHeight>('none', ['typography', 'line_height']);
+		const radiusClassName = getClass<IconRadius>(radius, ['borders', 'border_radius']);
 
 		return classNames(
 			classes.interactivity.cursor.default,
-			'select-none',
-			'will-change-auto',
-			'pointer-events-none',
+			classes.interactivity.user_select.none,
+			classes.interactivity.will_change.auto,
+			classes.interactivity.pointer_events.none,
 			fontSizeClassName,
 			lineHeightClassName,
 			radiusClassName,

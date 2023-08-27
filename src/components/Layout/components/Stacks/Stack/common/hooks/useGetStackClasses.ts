@@ -33,9 +33,9 @@ const useGetStackClasses = <Element extends ElementType>(
 		wrap = __DEFAULT_STACK_WRAP__
 	} = props;
 
-	const alignItemsClassName = useGetClass<AlignItems>(alignItems, ['flex', 'alignItems']);
+	const alignItemsClassName = useGetClass<AlignItems>(alignItems, ['flex', 'align_items']);
 	const directionClassName = useGetClass<FlexDirection>(direction, ['flex', 'direction']);
-	const justifyContentClassName = useGetClass<JustifyContent>(justifyContent, ['flex', 'justifyContent']);
+	const justifyContentClassName = useGetClass<JustifyContent>(justifyContent, ['flex', 'justify_content']);
 	const wrapClassName = useGetClass<FlexWrap>(wrap, ['flex', 'wrap']);
 
 	const spacingClassName = useGetClass<Space>(spacing, ['spacing', 'gap']);

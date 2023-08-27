@@ -31,7 +31,7 @@ const useGetSkeletonClasses = <Element extends ElementType>(
 		hueType: 'divider'
 	});
 
-	const radiusClassName = useGetClass<Radius>(radius, ['borders', 'borderRadius']);
+	const radiusClassName = useGetClass<Radius>(radius, ['borders', 'border_radius']);
 
 	const easeClassName = useGetClass<Ease>(__DEFAULT_EASING__, ['transitions', 'ease']);
 	const durationClassName = useGetClass<Duration>(__DEFAULT_DURATION__, ['transitions', 'duration']);

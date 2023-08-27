@@ -26,9 +26,9 @@ const useTooltipClasses = <Element extends ElementType>(
 	const tooltipRootClasses = useConst<ClassName>(
 		classNames(
 			classes.interactivity.cursor.default,
-			'select-none',
-			'will-change-auto',
-			'pointer-events-none',
+			classes.interactivity.user_select.none,
+			classes.interactivity.will_change.auto,
+			classes.interactivity.pointer_events.none,
 			classes.borders.border_width[__DEFAULT_BORDER_WIDTH__],
 			classes.borders.border_style[__DEFAULT_BORDER_STYLE__],
 			classes.borders.border_radius.xs,

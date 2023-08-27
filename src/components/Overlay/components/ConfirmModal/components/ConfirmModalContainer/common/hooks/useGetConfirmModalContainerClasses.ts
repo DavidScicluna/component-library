@@ -12,12 +12,12 @@ type UseGetConfirmModalContainerClassesReturn = Record<'container' | 'backdrop' 
 const useGetConfirmModalContainerClasses = (): UseGetConfirmModalContainerClassesReturn => {
 	const { color, colorMode, size, spacing } = useConfirmModalContext();
 
-	const widthClassName = useGetClass('full', ['layout', 'width']);
-	const maxWidthClassName = useGetClass<MaxWidth>(size, ['layout', 'maxWidth']);
-	const heightClassName = useGetClass('fit', ['layout', 'height']);
-	const maxHeightClassName = useGetClass<MaxHeight>('full', ['layout', 'maxHeight']);
+	const widthClassName = useGetClass('full', ['sizing', 'width']);
+	const maxWidthClassName = useGetClass<MaxWidth>(size, ['sizing', 'max_width']);
+	const heightClassName = useGetClass('fit', ['sizing', 'height']);
+	const maxHeightClassName = useGetClass<MaxHeight>('full', ['sizing', 'max_height']);
 
-	const zIndexClassName = useGetClass<ZIndex>('modal', ['layout', 'zIndex']);
+	const zIndexClassName = useGetClass<ZIndex>('modal', ['layout', 'z_index']);
 
 	const backgroundClassName = useGetColor({
 		color,
@@ -29,7 +29,7 @@ const useGetConfirmModalContainerClasses = (): UseGetConfirmModalContainerClasse
 
 	const shadowClassName = useGetClass<BoxShadow>('xl', ['effects', 'shadow']);
 
-	const borderRadiusClassName = useGetClass<Radius>('xl', ['borders', 'borderRadius']);
+	const borderRadiusClassName = useGetClass<Radius>('xl', ['borders', 'border_radius']);
 	const paddingClassName = useGetClass<Space>(spacing, ['spacing', 'p']);
 	const marginClassName = useGetClass<Space>(spacing, ['spacing', 'm']);
 

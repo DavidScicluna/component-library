@@ -60,13 +60,13 @@ const useGetTextClasses = <Element extends TextElement>(
 	} = props;
 
 	const alignClassName = useGetClass<TextAlign>(align, ['typography', 'align']);
-	const fontSizeClassName = useGetClass<FontSize>(fontSize, ['typography', 'fontSize']);
-	const fontWeightClassName = useGetClass<FontWeight>(fontWeight, ['typography', 'fontWeight']);
-	const lineClampClassName = useGetClass<Undefinable<TextLineClamp>>(lineClamp, ['typography', 'lineClamp']);
-	const lineHeightClassName = useGetClass<LineHeight>(lineHeight, ['typography', 'lineHeight']);
+	const fontSizeClassName = useGetClass<FontSize>(fontSize, ['typography', 'font_size']);
+	const fontWeightClassName = useGetClass<FontWeight>(fontWeight, ['typography', 'font_weight']);
+	const lineClampClassName = useGetClass<Undefinable<TextLineClamp>>(lineClamp, ['typography', 'line_clamp']);
+	const lineHeightClassName = useGetClass<LineHeight>(lineHeight, ['typography', 'line_height']);
 	const textTransformClassName = useGetClass<TextTransform>(textTransform, ['typography', 'transform']);
 	const whitespaceClassName = useGetClass<Whitespace>(whitespace, ['typography', 'whitespace']);
-	const wordBreakClassName = useGetClass<WordBreak>(wordBreak, ['typography', 'wordBreak']);
+	const wordBreakClassName = useGetClass<WordBreak>(wordBreak, ['typography', 'word_break']);
 
 	return classNames(
 		alignClassName,
@@ -78,7 +78,7 @@ const useGetTextClasses = <Element extends TextElement>(
 		whitespaceClassName,
 		wordBreakClassName,
 		{
-			[colorClassName]: !colorClassName.includes('#'),
+			// [colorClassName]: !colorClassName.includes('#'),
 			[lineClampClassName]: !!lineClamp,
 			['italic']: isItalic,
 			['not-italic']: !isItalic,

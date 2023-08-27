@@ -18,7 +18,7 @@ const useGlassOverlayClasses = <Element extends ElementType>(
 ): UseGlassOverlayClassesReturn => {
 	const { blur = __DEFAULT_GLASS_OVERLAY_BLUR__, isBackdrop = __DEFAULT_GLASS_OVERLAY_IS_BACKDROP__ } = props;
 
-	const backdropBlurClassName = useGetClass<GlassOverlayBlur>(blur, ['filters', 'backdropBlur']);
+	const backdropBlurClassName = useGetClass<GlassOverlayBlur>(blur, ['filters', 'backdrop_blur']);
 	const blurClassName = useGetClass<GlassOverlayBlur>(blur, ['filters', 'blur']);
 	const saturateClassName = useGetClass<Saturate>(100, ['filters', 'saturate']);
 

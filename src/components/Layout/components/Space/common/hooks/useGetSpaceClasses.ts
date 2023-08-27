@@ -16,8 +16,8 @@ const useGetSpaceClasses = <Element extends ElementType>(
 ): UseGetSpaceClassesReturn => {
 	const { width = __DEFAULT_SPACE_WIDTH__, height = __DEFAULT_SPACE_HEIGHT__ } = props;
 
-	const widthClassName = useGetClass<SpaceDimension>(width, ['sizing', 'w']);
-	const heightClassName = useGetClass<SpaceDimension>(height, ['sizing', 'h']);
+	const widthClassName = useGetClass<SpaceDimension>(width, ['sizing', 'width']);
+	const heightClassName = useGetClass<SpaceDimension>(height, ['sizing', 'height']);
 
 	return classNames({
 		[widthClassName]: !!width,

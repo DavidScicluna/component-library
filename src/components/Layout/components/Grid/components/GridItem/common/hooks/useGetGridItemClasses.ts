@@ -50,18 +50,18 @@ const useGetGridItemClasses = <Element extends ElementType>(
 		zIndex = __DEFAULT_GRID_ITEM_Z_INDEX__
 	} = props;
 
-	const alignSelfClassName = useGetClass<AlignSelf>(alignSelf, ['grid', 'alignSelf']);
-	const justifySelfClassName = useGetClass<JustifySelf>(justifySelf, ['grid', 'justifySelf']);
+	const alignSelfClassName = useGetClass<AlignSelf>(alignSelf, ['grid', 'align_self']);
+	const justifySelfClassName = useGetClass<JustifySelf>(justifySelf, ['grid', 'justify_self']);
 
-	const columnSpanClassName = useGetClass<Undefinable<GridColumnSpan>>(columnSpan, ['grid', 'columnSpan']);
-	const columnStartClassName = useGetClass<Undefinable<GridColumnStartEnd>>(columnStart, ['grid', 'columnStart']);
-	const columnEndClassName = useGetClass<Undefinable<GridColumnStartEnd>>(columnEnd, ['grid', 'columnEnd']);
+	const columnSpanClassName = useGetClass<Undefinable<GridColumnSpan>>(columnSpan, ['grid', 'column_span']);
+	const columnStartClassName = useGetClass<Undefinable<GridColumnStartEnd>>(columnStart, ['grid', 'column_start']);
+	const columnEndClassName = useGetClass<Undefinable<GridColumnStartEnd>>(columnEnd, ['grid', 'column_end']);
 
-	const rowSpanClassName = useGetClass<Undefinable<GridRowSpan>>(rowSpan, ['grid', 'rowSpan']);
-	const rowStartClassName = useGetClass<Undefinable<GridRowStartEnd>>(rowStart, ['grid', 'rowStart']);
-	const rowEndClassName = useGetClass<Undefinable<GridRowStartEnd>>(rowEnd, ['grid', 'rowEnd']);
+	const rowSpanClassName = useGetClass<Undefinable<GridRowSpan>>(rowSpan, ['grid', 'row_span']);
+	const rowStartClassName = useGetClass<Undefinable<GridRowStartEnd>>(rowStart, ['grid', 'row_start']);
+	const rowEndClassName = useGetClass<Undefinable<GridRowStartEnd>>(rowEnd, ['grid', 'row_end']);
 
-	const zIndexClassName = useGetClass<Undefinable<ZIndex>>(zIndex, ['layout', 'zIndex']);
+	const zIndexClassName = useGetClass<Undefinable<ZIndex>>(zIndex, ['layout', 'z_index']);
 
 	return classNames(
 		alignSelfClassName,
