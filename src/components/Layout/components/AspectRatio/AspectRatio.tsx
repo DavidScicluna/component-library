@@ -8,7 +8,7 @@ import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constan
 import { Box } from '@components/Box';
 
 import { __DEFAULT_ASPECT_RATIO_RATIO__ } from './common/constants';
-import { useGetAspectRatioClasses } from './common/hooks';
+import { useAspectRatioClasses } from './common/hooks';
 import type { AspectRatioProps, AspectRatioRef } from './common/types';
 
 const AspectRatio = forwardRef(function AspectRatio<Element extends ElementType>(
@@ -17,7 +17,7 @@ const AspectRatio = forwardRef(function AspectRatio<Element extends ElementType>
 ): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, ratio = __DEFAULT_ASPECT_RATIO_RATIO__, ...rest } = props;
 
-	const classes = useGetAspectRatioClasses<Element>({ ratio });
+	const classes = useAspectRatioClasses<Element>({ ratio });
 
 	return (
 		<Box<Element>

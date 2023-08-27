@@ -14,9 +14,9 @@ export default function Component() {
 
 ### Props
 
-| Name    | Type                                                                                            | Default  | Description                 |
-| ------- | ----------------------------------------------------------------------------------------------- | -------- | --------------------------- |
-| `ratio` | `AspectRatioRatio` ("auto", "square", "video, "widescreen", "portrait", "standard", "vertical") | `square` | The aspect ratio of the box |
+| Name    | Type                                                                                       | Default  | Description                 |
+| ------- | ------------------------------------------------------------------------------------------ | -------- | --------------------------- |
+| `ratio` | `AspectRatio` ("auto", "square", "video, "widescreen", "portrait", "standard", "vertical") | `square` | The aspect ratio of the box |
 
 ## Related components
 

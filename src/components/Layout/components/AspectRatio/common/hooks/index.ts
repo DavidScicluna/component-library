@@ -1,3 +1,3 @@
-import useGetAspectRatioClasses from './useGetAspectRatioClasses';
+import useAspectRatioClasses from './useAspectRatioClasses';
 
-export { useGetAspectRatioClasses };
+export { useAspectRatioClasses };
