@@ -1,129 +1,13 @@
-import type {
-	HeightObj,
-	MaxHeightObj,
-	MaxWidthObj,
-	MinHeightObj,
-	MinWidthObj,
-	PositionObj,
-	WidthObj,
-	ZIndexObj
-} from '@common/types/classes';
+import type { PositionObj, ZIndexObj } from '@common/types/classes';
 import type { BreakpointsObj } from '@common/types/theme';
 
-const width: WidthObj = {
-	'auto': 'w-auto',
-	'1/2': 'w-1/2',
-	'1/3': 'w-1/3',
-	'2/3': 'w-2/3',
-	'1/4': 'w-1/4',
-	'2/4': 'w-2/4',
-	'3/4': 'w-3/4',
-	'1/5': 'w-1/5',
-	'2/5': 'w-2/5',
-	'3/5': 'w-3/5',
-	'4/5': 'w-4/5',
-	'1/6': 'w-1/6',
-	'2/6': 'w-2/6',
-	'3/6': 'w-3/6',
-	'4/6': 'w-4/6',
-	'5/6': 'w-5/6',
-	'1/12': 'w-1/12',
-	'2/12': 'w-2/12',
-	'3/12': 'w-3/12',
-	'4/12': 'w-4/12',
-	'5/12': 'w-5/12',
-	'6/12': 'w-6/12',
-	'7/12': 'w-7/12',
-	'8/12': 'w-8/12',
-	'9/12': 'w-9/12',
-	'10/12': 'w-10/12',
-	'11/12': 'w-11/12',
-	'full': 'w-full',
-	'screen': 'w-screen',
-	'min': 'w-min',
-	'max': 'w-max',
-	'fit': 'w-fit'
-};
-
-const min_width: MinWidthObj = {
-	0: 'min-w-0',
-	full: 'min-w-full',
-	min: 'min-w-min',
-	max: 'min-w-max',
-	fit: 'min-w-fit'
-};
-
-const max_width: MaxWidthObj = {
-	0: 'max-w-0',
-	'full': 'max-w-full',
-	'min': 'max-w-min',
-	'max': 'max-w-max',
-	'fit': 'max-w-fit',
-	'none': 'max-w-none',
-	'xs': 'max-w-xs',
-	'sm': 'max-w-sm',
-	'md': 'max-w-md',
-	'lg': 'max-w-lg',
-	'xl': 'max-w-xl',
-	'2xl': 'max-w-2xl',
-	'3xl': 'max-w-3xl',
-	'4xl': 'max-w-4xl',
-	'5xl': 'max-w-5xl',
-	'6xl': 'max-w-6xl',
-	'7xl': 'max-w-7xl',
-	'prose': 'max-w-prose'
-};
-
-const max_width_container: BreakpointsObj = {
+const container: BreakpointsObj = {
 	'xs': 'max-w-screen-xs',
 	'sm': 'max-w-screen-sm',
 	'md': 'max-w-screen-md',
 	'lg': 'max-w-screen-lg',
 	'xl': 'max-w-screen-xl',
 	'2xl': 'max-w-screen-2xl'
-};
-
-const height: HeightObj = {
-	'auto': 'h-auto',
-	'1/2': 'h-1/2',
-	'1/3': 'h-1/3',
-	'2/3': 'h-2/3',
-	'1/4': 'h-1/4',
-	'2/4': 'h-2/4',
-	'3/4': 'h-3/4',
-	'1/5': 'h-1/5',
-	'2/5': 'h-2/5',
-	'3/5': 'h-3/5',
-	'4/5': 'h-4/5',
-	'1/6': 'h-1/6',
-	'2/6': 'h-2/6',
-	'3/6': 'h-3/6',
-	'4/6': 'h-4/6',
-	'5/6': 'h-5/6',
-	'full': 'h-full',
-	'screen': 'h-screen',
-	'min': 'h-min',
-	'max': 'h-max',
-	'fit': 'h-fit'
-};
-
-const min_height: MinHeightObj = {
-	0: 'min-h-0',
-	full: 'min-h-full',
-	screen: 'min-h-screen',
-	min: 'min-h-min',
-	max: 'min-h-max',
-	fit: 'min-h-fit'
-};
-
-const max_height: MaxHeightObj = {
-	0: 'max-h-0',
-	none: 'max-h-none',
-	full: 'max-h-full',
-	screen: 'max-h-screen',
-	min: 'max-h-min',
-	max: 'max-h-max',
-	fit: 'max-h-fit'
 };
 
 const position: PositionObj = {
@@ -198,13 +82,7 @@ const z_index: ZIndexObj = {
 };
 
 export default {
-	width,
-	min_width,
-	max_width,
-	max_width_container,
-	height,
-	min_height,
-	max_height,
+	container,
 	position: { ...position, before: before_position, after: after_position },
 	z_index
 };

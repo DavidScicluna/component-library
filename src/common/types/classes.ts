@@ -1,5 +1,5 @@
 import type { PickFrom } from '.';
-import type { Color, ColorHue } from './theme';
+import type { Color, ColorHue, Space } from './theme';
 
 export type ClassType = 'shadow' | 'fill' | 'bg' | 'text' | 'border' | 'outline';
 
@@ -296,7 +296,8 @@ export type Width =
 	| 'screen'
 	| 'min'
 	| 'max'
-	| 'fit';
+	| 'fit'
+	| Space;
 export type WidthArr = Array<Width>;
 export type WidthObj = Record<Width, string>;
 
@@ -347,7 +348,8 @@ export type Height =
 	| 'screen'
 	| 'min'
 	| 'max'
-	| 'fit';
+	| 'fit'
+	| Space;
 export type HeightArr = Array<Height>;
 export type HeightObj = Record<Height, string>;
 
