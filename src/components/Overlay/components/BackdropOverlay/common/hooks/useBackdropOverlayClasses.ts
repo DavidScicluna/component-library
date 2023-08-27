@@ -7,15 +7,15 @@ import type { Saturate } from '@common/types/classes';
 import { __DEFAULT_BACKDROP_OVERLAY_BLUR__ } from '../constants';
 import type { BackdropOverlayBlur, BackdropOverlayElement, BackdropOverlayProps } from '../types';
 
-type UseGetBackdropOverlayClassesProps<Element extends BackdropOverlayElement> = Pick<
+type UseBackdropOverlayClassesProps<Element extends BackdropOverlayElement> = Pick<
 	BackdropOverlayProps<Element>,
 	'blur'
 >;
-type UseGetBackdropOverlayClassesReturn = ClassName;
+type UseBackdropOverlayClassesReturn = ClassName;
 
-const useGetBackdropOverlayClasses = <Element extends BackdropOverlayElement>(
-	props: UseGetBackdropOverlayClassesProps<Element>
-): UseGetBackdropOverlayClassesReturn => {
+const useBackdropOverlayClasses = <Element extends BackdropOverlayElement>(
+	props: UseBackdropOverlayClassesProps<Element>
+): UseBackdropOverlayClassesReturn => {
 	const { blur = __DEFAULT_BACKDROP_OVERLAY_BLUR__ } = props;
 
 	const backdropBlurClassName = useGetClass<BackdropOverlayBlur>(blur, ['filters', 'backdrop_blur']);
@@ -24,4 +24,4 @@ const useGetBackdropOverlayClasses = <Element extends BackdropOverlayElement>(
 	return classNames({ [backdropBlurClassName]: !!blur, [saturateClassName]: !!blur });
 };
 
-export default useGetBackdropOverlayClasses;
+export default useBackdropOverlayClasses;

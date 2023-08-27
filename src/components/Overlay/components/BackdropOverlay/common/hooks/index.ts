@@ -1,4 +1,4 @@
-import useGetBackdropOverlayClasses from './useGetBackdropOverlayClasses';
-import useGetBackdropOverlayStyles from './useGetBackdropOverlayStyles';
+import useBackdropOverlayClasses from './useBackdropOverlayClasses';
+import useBackdropOverlayStyles from './useBackdropOverlayStyles';
 
-export { useGetBackdropOverlayClasses, useGetBackdropOverlayStyles };
+export { useBackdropOverlayClasses, useBackdropOverlayStyles };

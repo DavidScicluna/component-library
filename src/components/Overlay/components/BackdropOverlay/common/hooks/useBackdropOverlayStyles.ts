@@ -6,15 +6,15 @@ import type { Style } from '@common/types';
 import { __DEFAULT_BACKDROP_OVERLAY_AMOUNT__ } from '../constants';
 import type { BackdropOverlayElement, BackdropOverlayProps } from '../types';
 
-type UseGetBackdropOverlayStylesProps<Element extends BackdropOverlayElement> = Pick<
+type UseBackdropOverlayStylesProps<Element extends BackdropOverlayElement> = Pick<
 	BackdropOverlayProps<Element>,
 	'color' | 'colorMode' | 'amount'
 >;
-type UseGetBackdropOverlayStylesReturn = Style;
+type UseBackdropOverlayStylesReturn = Style;
 
-const useGetBackdropOverlayStyles = <Element extends BackdropOverlayElement>(
-	props: UseGetBackdropOverlayStylesProps<Element>
-): UseGetBackdropOverlayStylesReturn => {
+const useBackdropOverlayStyles = <Element extends BackdropOverlayElement>(
+	props: UseBackdropOverlayStylesProps<Element>
+): UseBackdropOverlayStylesReturn => {
 	const { color, colorMode, amount: a = __DEFAULT_BACKDROP_OVERLAY_AMOUNT__ } = props;
 
 	const background = useGetColor({
@@ -28,4 +28,4 @@ const useGetBackdropOverlayStyles = <Element extends BackdropOverlayElement>(
 	return { background: transparentize(background, amount) };
 };
 
-export default useGetBackdropOverlayStyles;
+export default useBackdropOverlayStyles;

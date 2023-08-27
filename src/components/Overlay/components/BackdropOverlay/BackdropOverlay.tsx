@@ -9,7 +9,7 @@ import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
 
 import { __DEFAULT_BACKDROP_OVERLAY_AMOUNT__, __DEFAULT_BACKDROP_OVERLAY_BLUR__ } from './common/constants';
-import { useGetBackdropOverlayClasses, useGetBackdropOverlayStyles } from './common/hooks';
+import { useBackdropOverlayClasses, useBackdropOverlayStyles } from './common/hooks';
 import type {
 	BackdropOverlayDefaultElement,
 	BackdropOverlayElement,
@@ -30,8 +30,8 @@ const BackdropOverlay = forwardRef(function BackdropOverlay<
 		...rest
 	} = props;
 
-	const classes = useGetBackdropOverlayClasses({ blur });
-	const styles = useGetBackdropOverlayStyles({ color, colorMode, amount });
+	const classes = useBackdropOverlayClasses<Element>({ blur });
+	const styles = useBackdropOverlayStyles<Element>({ color, colorMode, amount });
 
 	return (
 		<Grid<Element>
