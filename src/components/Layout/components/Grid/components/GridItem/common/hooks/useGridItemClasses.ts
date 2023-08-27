@@ -21,7 +21,7 @@ import {
 } from '../constants';
 import type { GridItemProps } from '../types';
 
-type UseGetGridItemClassesProps<Element extends ElementType> = Pick<
+type UseGridItemClassesProps<Element extends ElementType> = Pick<
 	GridItemProps<Element>,
 	| 'alignSelf'
 	| 'columnSpan'
@@ -33,11 +33,11 @@ type UseGetGridItemClassesProps<Element extends ElementType> = Pick<
 	| 'rowEnd'
 	| 'zIndex'
 >;
-type UseGetGridItemClassesReturn = ClassName;
+type UseGridItemClassesReturn = ClassName;
 
-const useGetGridItemClasses = <Element extends ElementType>(
-	props: UseGetGridItemClassesProps<Element>
-): UseGetGridItemClassesReturn => {
+const useGridItemClasses = <Element extends ElementType>(
+	props: UseGridItemClassesProps<Element>
+): UseGridItemClassesReturn => {
 	const {
 		alignSelf = __DEFAULT_GRID_ITEM_ALIGN_SELF__,
 		columnSpan,
@@ -76,4 +76,4 @@ const useGetGridItemClasses = <Element extends ElementType>(
 	);
 };
 
-export default useGetGridItemClasses;
+export default useGridItemClasses;

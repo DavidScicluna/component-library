@@ -1,3 +1,3 @@
-import useGetGridItemClasses from './useGetGridItemClasses';
+import useGridItemClasses from './useGridItemClasses';
 
-export { useGetGridItemClasses };
+export { useGridItemClasses };

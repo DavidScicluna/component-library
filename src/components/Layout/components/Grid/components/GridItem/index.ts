@@ -3,7 +3,7 @@ import {
 	__DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
 	__DEFAULT_GRID_ITEM_Z_INDEX__
 } from './common/constants';
-import { useGetGridItemClasses } from './common/hooks';
+import { useGridItemClasses } from './common/hooks';
 import type { GridItemProps, GridItemRef } from './common/types';
 import GridItem from './GridItem';
 
@@ -15,7 +15,7 @@ export const constants = {
 };
 
 // Hooks
-export { useGetGridItemClasses };
+export { useGridItemClasses };
 
 // Components
 export { GridItem };

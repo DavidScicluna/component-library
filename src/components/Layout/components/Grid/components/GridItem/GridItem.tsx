@@ -12,7 +12,7 @@ import {
 	__DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
 	__DEFAULT_GRID_ITEM_Z_INDEX__
 } from './common/constants';
-import { useGetGridItemClasses } from './common/hooks';
+import { useGridItemClasses } from './common/hooks';
 import type { GridItemProps, GridItemRef } from './common/types';
 
 const GridItem = forwardRef(function Grid<Element extends ElementType>(
@@ -34,7 +34,7 @@ const GridItem = forwardRef(function Grid<Element extends ElementType>(
 		...rest
 	} = props;
 
-	const classes = useGetGridItemClasses<Element>({
+	const classes = useGridItemClasses<Element>({
 		alignSelf,
 		columnSpan,
 		columnStart,

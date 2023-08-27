@@ -9,7 +9,7 @@ import {
 import { useGridClasses, useGridStyles } from './common/hooks';
 import type { GridProps, GridRef } from './common/types';
 import type { GridItemProps, GridItemRef } from './components/GridItem';
-import { constants as gridItemConstants, GridItem, useGetGridItemClasses } from './components/GridItem';
+import { constants as gridItemConstants, GridItem, useGridItemClasses } from './components/GridItem';
 import Grid from './Grid';
 
 // Constants
@@ -24,7 +24,7 @@ export const constants = {
 };
 
 // Hooks
-export { useGetGridItemClasses, useGridClasses, useGridStyles };
+export { useGridClasses, useGridItemClasses, useGridStyles };
 
 // Components
 export { Grid, GridItem };
