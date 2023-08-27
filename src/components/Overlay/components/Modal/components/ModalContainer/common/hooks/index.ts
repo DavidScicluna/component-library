@@ -1,3 +1,3 @@
-import useGetModalContainerClasses from './useGetModalContainerClasses';
+import useModalContainerClasses from './useModalContainerClasses';
 
-export { useGetModalContainerClasses };
+export { useModalContainerClasses };

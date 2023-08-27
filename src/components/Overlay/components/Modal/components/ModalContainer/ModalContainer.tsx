@@ -20,7 +20,7 @@ import type { ModalDefaultElement, ModalElement } from '../../common/types';
 import { ModalBackdrop } from '../ModalBackdrop';
 import { ModalTransition } from '../ModalTransition';
 
-import { useGetModalContainerClasses } from './common/hooks';
+import { useModalContainerClasses } from './common/hooks';
 import type { ModalContainerProps, ModalContainerRef } from './common/types';
 
 const ModalContainer = forwardRef(function ModalContainer<Element extends ModalElement = ModalDefaultElement>(
@@ -43,7 +43,7 @@ const ModalContainer = forwardRef(function ModalContainer<Element extends ModalE
 		...rest
 	} = props;
 
-	const classes = useGetModalContainerClasses();
+	const classes = useModalContainerClasses();
 
 	const handleEscapeClick = () => {
 		onClose();

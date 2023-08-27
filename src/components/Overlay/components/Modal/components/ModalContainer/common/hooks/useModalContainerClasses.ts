@@ -7,9 +7,9 @@ import type { Radius, Space } from '@common/types/theme';
 
 import { useModalContext } from '@components/Overlay/components/Modal/common/hooks';
 
-type UseGetModalContainerClassesReturn = Record<'container' | 'backdrop' | 'content', ClassName>;
+type UseModalContainerClassesReturn = Record<'container' | 'backdrop' | 'content', ClassName>;
 
-const useGetModalContainerClasses = (): UseGetModalContainerClassesReturn => {
+const useModalContainerClasses = (): UseModalContainerClassesReturn => {
 	const { color, colorMode, size, spacing } = useModalContext();
 
 	const widthClassName = useGetClass('full', ['sizing', 'width']);
@@ -50,4 +50,4 @@ const useGetModalContainerClasses = (): UseGetModalContainerClassesReturn => {
 	};
 };
 
-export default useGetModalContainerClasses;
+export default useModalContainerClasses;
