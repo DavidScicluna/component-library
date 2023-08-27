@@ -20,7 +20,7 @@ import type { ConfirmModalDefaultElement, ConfirmModalElement } from '../../comm
 import { ConfirmModalBackdrop } from '../ConfirmModalBackdrop';
 import { ConfirmModalTransition } from '../ConfirmModalTransition';
 
-import { useGetConfirmModalContainerClasses } from './common/hooks';
+import { useConfirmModalContainerClasses } from './common/hooks';
 import type { ConfirmModalContainerProps, ConfirmModalContainerRef } from './common/types';
 
 const ConfirmModalContainer = forwardRef(function ConfirmModalContainer<
@@ -42,7 +42,7 @@ const ConfirmModalContainer = forwardRef(function ConfirmModalContainer<
 		...rest
 	} = props;
 
-	const classes = useGetConfirmModalContainerClasses();
+	const classes = useConfirmModalContainerClasses();
 
 	const handleEscapeClick = () => {
 		onClose();

@@ -1,3 +1,3 @@
-import useGetConfirmModalContainerClasses from './useGetConfirmModalContainerClasses';
+import useConfirmModalContainerClasses from './useConfirmModalContainerClasses';
 
-export { useGetConfirmModalContainerClasses };
+export { useConfirmModalContainerClasses };
