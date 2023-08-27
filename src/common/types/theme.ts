@@ -1,4 +1,9 @@
 // TODO: Replace all types to have Theme included in the name
+
+export type AspectRatio = 'auto' | 'square' | 'video' | 'widescreen' | 'portrait' | 'standard' | 'vertical';
+export type AspectRatioArr = Array<AspectRatio>;
+export type AspectRatioObj = Record<AspectRatio, string>;
+
 export type AppColor = Exclude<Color, 'transparent' | 'black' | 'white' | 'gray'>;
 export type AppColors = Array<AppColor>;
 

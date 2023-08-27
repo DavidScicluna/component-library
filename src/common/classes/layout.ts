@@ -1,5 +1,15 @@
 import type { PositionObj, ZIndexObj } from '@common/types/classes';
-import type { BreakpointsObj } from '@common/types/theme';
+import type { AspectRatioObj, BreakpointsObj } from '@common/types/theme';
+
+const aspect_ratio: AspectRatioObj = {
+	auto: 'aspect-auto',
+	square: 'aspect-square',
+	video: 'aspect-video',
+	widescreen: 'aspect-widescreen',
+	portrait: 'aspect-portrait',
+	standard: 'aspect-standard',
+	vertical: 'aspect-vertical'
+};
 
 const container: BreakpointsObj = {
 	'xs': 'max-w-screen-xs',
@@ -82,6 +92,7 @@ const z_index: ZIndexObj = {
 };
 
 export default {
+	aspect_ratio,
 	container,
 	position: { ...position, before: before_position, after: after_position },
 	z_index

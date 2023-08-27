@@ -2,6 +2,7 @@ import { range } from 'lodash-es';
 
 import type { BackdropBlurObj, BlurObj, ZIndexObj } from '@common/types/classes';
 import type {
+	AspectRatioObj,
 	BorderWidthObj,
 	BreakpointsObj,
 	ColorsObj,
@@ -14,6 +15,16 @@ import type {
 	RadiiObj,
 	SpacingObj
 } from '@common/types/theme';
+
+const aspectRatio: AspectRatioObj = {
+	auto: 'auto',
+	square: '1 / 1',
+	video: '16 / 9',
+	widescreen: '16 / 9',
+	portrait: '4 / 5',
+	standard: '4 / 3',
+	vertical: '9 / 16'
+};
 
 const backdropBlur: BackdropBlurObj = {
 	'none': '0px',
@@ -418,6 +429,7 @@ const zIndex: ZIndexObj = {
 };
 
 export default {
+	aspectRatio,
 	backdropBlur,
 	blur,
 	borderRadius,
