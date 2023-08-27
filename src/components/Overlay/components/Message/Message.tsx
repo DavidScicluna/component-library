@@ -32,7 +32,7 @@ const Message = forwardRef(function Message<Element extends ElementType>(
 		...rest
 	} = props;
 
-	const classes = useMessageClasses({ color, colorMode, radius, size, variant });
+	const classes = useMessageClasses<Element>({ color, colorMode, radius, size, variant });
 
 	return (
 		<MessageContext.Provider value={{ color, colorMode, spacing }}>
