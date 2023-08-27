@@ -1,3 +1,3 @@
-import useGetSimpleGridClasses from './useGetSimpleGridClasses';
+import useSimpleGridClasses from './useSimpleGridClasses';
 
-export { useGetSimpleGridClasses };
+export { useSimpleGridClasses };

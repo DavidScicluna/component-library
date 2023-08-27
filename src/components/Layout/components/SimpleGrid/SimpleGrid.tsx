@@ -7,7 +7,7 @@ import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } 
 
 import { Box } from '@components/Box';
 
-import { useGetSimpleGridClasses } from './common/hooks';
+import { useSimpleGridClasses } from './common/hooks';
 import type { SimpleGridProps, SimpleGridRef } from './common/types';
 
 const SimpleGrid = forwardRef(function SimpleGrid<Element extends ElementType>(
@@ -16,7 +16,7 @@ const SimpleGrid = forwardRef(function SimpleGrid<Element extends ElementType>(
 ): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, columns, spacing = __DEFAULT_SPACING__, ...rest } = props;
 
-	const classes = useGetSimpleGridClasses<Element>({ columns, spacing });
+	const classes = useSimpleGridClasses<Element>({ columns, spacing });
 
 	return (
 		<Box<Element>

@@ -1,9 +1,9 @@
-import { useGetSimpleGridClasses } from './common/hooks';
+import { useSimpleGridClasses } from './common/hooks';
 import type { SimpleGridColumn, SimpleGridColumns, SimpleGridProps, SimpleGridRef } from './common/types';
 import SimpleGrid from './SimpleGrid';
 
 // Hooks
-export { useGetSimpleGridClasses };
+export { useSimpleGridClasses };
 
 // Components
 export { SimpleGrid };
