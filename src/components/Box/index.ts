@@ -1,4 +1,4 @@
-import { useGetBoxStyles } from './common/hooks';
+import { useBoxStyles } from './common/hooks';
 import { __KEYS_BOX__ } from './common/keys';
 import type {
 	BoxHeight,
@@ -17,7 +17,7 @@ import Box from './Box';
 export const keys = { __KEYS_BOX__ };
 
 // Hooks
-export { useGetBoxStyles };
+export { useBoxStyles };
 
 // Components
 export { Box };

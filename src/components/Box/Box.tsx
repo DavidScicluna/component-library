@@ -15,7 +15,7 @@ import {
 	__DEFAULT_POLYMORPHIC_SX__
 } from '@common/constants';
 
-import { useGetBoxStyles } from './common/hooks';
+import { useBoxStyles } from './common/hooks';
 import { __KEYS_BOX__ } from './common/keys';
 import type { BoxProps, BoxRef } from './common/types';
 
@@ -31,7 +31,7 @@ const Box = forwardRef(function Box<
 		...rest
 	} = props;
 
-	const styles = useGetBoxStyles(pick({ ...rest }, __KEYS_BOX__));
+	const styles = useBoxStyles<Element>(pick({ ...rest }, __KEYS_BOX__));
 
 	return (
 		<Component

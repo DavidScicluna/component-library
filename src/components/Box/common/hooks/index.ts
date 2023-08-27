@@ -1,3 +1,3 @@
-import useGetBoxStyles from './useGetBoxStyles';
+import useBoxStyles from './useBoxStyles';
 
-export { useGetBoxStyles };
+export { useBoxStyles };

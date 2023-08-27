@@ -18,10 +18,10 @@ import type {
 	BoxWidth
 } from '../types';
 
-type UseGetBoxStylesProps<Element extends ElementType> = Pick<BoxProps<Element>, keyof BoxOtherProps>;
-type UseGetBoxStylesReturn = Style;
+type UseBoxStylesProps<Element extends ElementType> = Pick<BoxProps<Element>, keyof BoxOtherProps>;
+type UseBoxStylesReturn = Style;
 
-const useGetBoxStyles = <Element extends ElementType>(props: UseGetBoxStylesProps<Element>): UseGetBoxStylesReturn => {
+const useBoxStyles = <Element extends ElementType>(props: UseBoxStylesProps<Element>): UseBoxStylesReturn => {
 	const theme = useTheme();
 
 	const { w, minW, maxW, h, minH, maxH, p, px, py, pl, pt, pr, pb, m, mx, my, ml, mt, mr, mb } = props;
@@ -126,4 +126,4 @@ const useGetBoxStyles = <Element extends ElementType>(props: UseGetBoxStylesProp
 	};
 };
 
-export default useGetBoxStyles;
+export default useBoxStyles;
