@@ -6,7 +6,7 @@ import {
 	__DEFAULT_GRID_TEMPLATE_COLUMNS__,
 	__DEFAULT_GRID_TEMPLATE_ROWS__
 } from './common/constants';
-import { useGetGridClasses, useGetGridStyles } from './common/hooks';
+import { useGridClasses, useGridStyles } from './common/hooks';
 import type { GridProps, GridRef } from './common/types';
 import type { GridItemProps, GridItemRef } from './components/GridItem';
 import { constants as gridItemConstants, GridItem, useGetGridItemClasses } from './components/GridItem';
@@ -24,7 +24,7 @@ export const constants = {
 };
 
 // Hooks
-export { useGetGridClasses, useGetGridItemClasses, useGetGridStyles };
+export { useGetGridItemClasses, useGridClasses, useGridStyles };
 
 // Components
 export { Grid, GridItem };

@@ -1,4 +1,4 @@
-import useGetGridClasses from './useGetGridClasses';
-import useGetGridStyles from './useGetGridStyles';
+import useGridClasses from './useGridClasses';
+import useGridStyles from './useGridStyles';
 
-export { useGetGridClasses, useGetGridStyles };
+export { useGridClasses, useGridStyles };

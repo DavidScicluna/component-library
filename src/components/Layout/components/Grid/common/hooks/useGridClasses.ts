@@ -27,7 +27,7 @@ import {
 } from '../constants';
 import type { GridProps } from '../types';
 
-type UseGetGridClassesProps<Element extends ElementType> = Pick<
+type UseGridClassesProps<Element extends ElementType> = Pick<
 	GridProps<Element>,
 	| 'alignContent'
 	| 'alignItems'
@@ -42,11 +42,9 @@ type UseGetGridClassesProps<Element extends ElementType> = Pick<
 	| 'templateRows'
 	| 'spacing'
 >;
-type UseGetGridClassesReturn = ClassName;
+type UseGridClassesReturn = ClassName;
 
-const useGetGridClasses = <Element extends ElementType>(
-	props: UseGetGridClassesProps<Element>
-): UseGetGridClassesReturn => {
+const useGridClasses = <Element extends ElementType>(props: UseGridClassesProps<Element>): UseGridClassesReturn => {
 	const {
 		alignContent = __DEFAULT_GRID_ALIGN_CONTENT__,
 		alignItems = __DEFAULT_GRID_ALIGN_ITEMS__,
@@ -105,4 +103,4 @@ const useGetGridClasses = <Element extends ElementType>(
 	);
 };
 
-export default useGetGridClasses;
+export default useGridClasses;

@@ -16,7 +16,7 @@ import {
 	__DEFAULT_GRID_TEMPLATE_COLUMNS__,
 	__DEFAULT_GRID_TEMPLATE_ROWS__
 } from './common/constants';
-import { useGetGridClasses, useGetGridStyles } from './common/hooks';
+import { useGridClasses, useGridStyles } from './common/hooks';
 import type { GridProps, GridRef } from './common/types';
 
 const Grid = forwardRef(function Grid<Element extends ElementType>(
@@ -42,7 +42,7 @@ const Grid = forwardRef(function Grid<Element extends ElementType>(
 		...rest
 	} = props;
 
-	const classes = useGetGridClasses<Element>({
+	const classes = useGridClasses<Element>({
 		alignContent,
 		alignItems,
 		autoColumns,
@@ -56,8 +56,7 @@ const Grid = forwardRef(function Grid<Element extends ElementType>(
 		templateRows,
 		spacing
 	});
-
-	const styles = useGetGridStyles({ templateColumns, templateRows });
+	const styles = useGridStyles<Element>({ templateColumns, templateRows });
 
 	return (
 		<Box<Element>

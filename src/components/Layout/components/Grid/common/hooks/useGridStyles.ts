@@ -6,12 +6,10 @@ import type { Style } from '@common/types';
 import { __DEFAULT_GRID_TEMPLATE_COLUMNS__, __DEFAULT_GRID_TEMPLATE_ROWS__ } from '../constants';
 import type { GridProps } from '../types';
 
-type UseGetGridStylesProps<Element extends ElementType> = Pick<GridProps<Element>, 'templateColumns' | 'templateRows'>;
-type UseGetGridStylesReturn = Style;
+type UseGridStylesProps<Element extends ElementType> = Pick<GridProps<Element>, 'templateColumns' | 'templateRows'>;
+type UseGridStylesReturn = Style;
 
-const useGetGridStyles = <Element extends ElementType>(
-	props: UseGetGridStylesProps<Element>
-): UseGetGridStylesReturn => {
+const useGridStyles = <Element extends ElementType>(props: UseGridStylesProps<Element>): UseGridStylesReturn => {
 	const {
 		templateColumns: tc = __DEFAULT_GRID_TEMPLATE_COLUMNS__,
 		templateRows: tr = __DEFAULT_GRID_TEMPLATE_ROWS__
@@ -26,4 +24,4 @@ const useGetGridStyles = <Element extends ElementType>(
 	};
 };
 
-export default useGetGridStyles;
+export default useGridStyles;
