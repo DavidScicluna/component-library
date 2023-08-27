@@ -11,14 +11,14 @@ import type { DividerElement, DividerProps } from '../types';
 
 type PickedDividerProps = 'orientation' | 'placement' | 'size' | 'spacing';
 
-type UseGetDividerStylesProps<Element extends DividerElement> = Pick<DividerProps<Element>, PickedDividerProps> & {
+type UseDividerStylesProps<Element extends DividerElement> = Pick<DividerProps<Element>, PickedDividerProps> & {
 	hasChildren: boolean;
 };
-type UseGetDividerStylesReturn = Style;
+type UseDividerStylesReturn = Style;
 
-const useGetDividerStyles = <Element extends DividerElement>(
-	props: UseGetDividerStylesProps<Element>
-): UseGetDividerStylesReturn => {
+const useDividerStyles = <Element extends DividerElement>(
+	props: UseDividerStylesProps<Element>
+): UseDividerStylesReturn => {
 	const theme = useTheme();
 
 	const {
@@ -71,4 +71,4 @@ const useGetDividerStyles = <Element extends DividerElement>(
 	};
 };
 
-export default useGetDividerStyles;
+export default useDividerStyles;

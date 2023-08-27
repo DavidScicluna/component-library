@@ -13,15 +13,15 @@ import {
 } from '../constants';
 import type { DividerElement, DividerProps } from '../types';
 
-type UseGetDividerClassesProps<Element extends DividerElement> = Pick<
+type UseDividerClassesProps<Element extends DividerElement> = Pick<
 	DividerProps<Element>,
 	'color' | 'colorMode' | 'orientation' | 'placement' | 'size' | 'variant'
 >;
-type UseGetDividerClassesReturn = ClassName;
+type UseDividerClassesReturn = ClassName;
 
-const useGetDividerClasses = <Element extends DividerElement>(
-	props: UseGetDividerClassesProps<Element>
-): UseGetDividerClassesReturn => {
+const useDividerClasses = <Element extends DividerElement>(
+	props: UseDividerClassesProps<Element>
+): UseDividerClassesReturn => {
 	const {
 		color,
 		colorMode,
@@ -51,4 +51,4 @@ const useGetDividerClasses = <Element extends DividerElement>(
 	});
 };
 
-export default useGetDividerClasses;
+export default useDividerClasses;

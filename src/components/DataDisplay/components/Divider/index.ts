@@ -3,7 +3,7 @@ import {
 	__DEFAULT_DIVIDER_PLACEMENT__,
 	__DEFAULT_DIVIDER_VARIANT__
 } from './common/constants';
-import { useGetDividerClasses, useGetDividerStyles } from './common/hooks';
+import { useDividerClasses, useDividerStyles } from './common/hooks';
 import type {
 	DividerDefaultElement,
 	DividerElement,
@@ -22,7 +22,7 @@ export const constants = {
 };
 
 // Hooks
-export { useGetDividerClasses, useGetDividerStyles };
+export { useDividerClasses, useDividerStyles };
 
 // Components
 export { Divider };

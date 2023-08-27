@@ -1,4 +1,4 @@
-import useGetDividerClasses from './useGetDividerClasses';
-import useGetDividerStyles from './useGetDividerStyles';
+import useDividerClasses from './useDividerClasses';
+import useDividerStyles from './useDividerStyles';
 
-export { useGetDividerClasses, useGetDividerStyles };
+export { useDividerClasses, useDividerStyles };

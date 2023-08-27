@@ -19,7 +19,7 @@ import {
 	__DEFAULT_DIVIDER_PLACEMENT__,
 	__DEFAULT_DIVIDER_VARIANT__
 } from './common/constants';
-import { useGetDividerClasses, useGetDividerStyles } from './common/hooks';
+import { useDividerClasses, useDividerStyles } from './common/hooks';
 import type { DividerDefaultElement, DividerElement, DividerProps, DividerRef } from './common/types';
 
 const Divider = forwardRef(function Divider<Element extends DividerElement = DividerDefaultElement>(
@@ -40,8 +40,8 @@ const Divider = forwardRef(function Divider<Element extends DividerElement = Div
 		...rest
 	} = props;
 
-	const classes = useGetDividerClasses({ color, colorMode, orientation, placement, size, variant });
-	const styles = useGetDividerStyles({
+	const classes = useDividerClasses<Element>({ color, colorMode, orientation, placement, size, variant });
+	const styles = useDividerStyles<Element>({
 		hasChildren: orientation === 'horizontal' && !!children,
 		orientation,
 		placement,
