@@ -4,7 +4,8 @@ import classNames from 'classnames';
 import { sample } from 'lodash-es';
 
 import classes from '@common/classes';
-import icons from '@common/data/icons';
+import { icons } from '@common/data';
+import type { ThemeFontSizeArr, ThemeRadiusArr } from '@common/types';
 
 import { Center } from '@components/Layout';
 
@@ -17,7 +18,7 @@ import {
 	__DEFAULT_ICON_SIZE__,
 	__DEFAULT_ICON_VARIANT__
 } from './common/constants';
-import type { IconCategory, IconDefaultElement, IconProps, IconRadius, IconSize, IconVariant } from './common/types';
+import type { IconCategory, IconDefaultElement, IconProps, IconVariant } from './common/types';
 import type { IconStory, IconStoryMeta } from './common/types/story';
 import { Icon as IconComponent } from '.';
 
@@ -46,7 +47,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_ICON_RADIUS__,
 			// description: '',
-			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as Array<IconRadius>,
+			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as ThemeRadiusArr,
 			control: { type: 'radio' }
 		},
 		size: {
@@ -68,7 +69,7 @@ export default {
 				'7xl',
 				'8xl',
 				'9xl'
-			] as Array<IconSize>,
+			] as ThemeFontSizeArr,
 			control: { type: 'radio' }
 		},
 		variant: {

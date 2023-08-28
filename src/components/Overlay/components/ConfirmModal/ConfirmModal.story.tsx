@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import { sample } from 'lodash-es';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
-import colors from '@common/data/colors';
+import { colors } from '@common/data';
 import type { ThemeAppColor } from '@common/types';
 
 // eslint-disable-next-line import-path/parent-depth

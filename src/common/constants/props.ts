@@ -1,6 +1,6 @@
 import { sample } from 'lodash-es';
 
-import colors from '@common/data/colors';
+import { colors } from '@common/data';
 import {
 	__KEY_LOCALSTORAGE_APP_COLOR__,
 	__KEY_LOCALSTORAGE_APP_COLORMODE__,

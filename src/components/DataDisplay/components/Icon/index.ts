@@ -1,5 +1,5 @@
 import { __DEFAULT_ICON_CATEGORY__, __DEFAULT_ICON_VARIANT__ } from './common/constants';
-import { useGetIconClasses } from './common/hooks';
+import { useIconClasses } from './common/hooks';
 import type { IconCategory, IconDefaultElement, IconElement, IconProps, IconRef, IconVariant } from './common/types';
 import Icon from './Icon';
 
@@ -7,7 +7,7 @@ import Icon from './Icon';
 export const constants = { __DEFAULT_ICON_CATEGORY__, __DEFAULT_ICON_VARIANT__ };
 
 // Hooks
-export { useGetIconClasses };
+export { useIconClasses };
 
 // Components
 export { Icon };
