@@ -15,7 +15,7 @@ import {
 } from '@common/constants';
 import { useBoolean, useConst } from '@common/hooks';
 import type { AnimationConfig, ThemeAppColor, ThemeAppColorMode } from '@common/types';
-import { getAnimationConfig } from '@common/utils/animation';
+import { getAnimationConfig } from '@common/utils';
 
 import type {
 	AnimationContext as AnimationContextType,

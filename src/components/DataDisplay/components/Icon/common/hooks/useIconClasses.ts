@@ -7,8 +7,7 @@ import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__ } from '@common/cons
 import { __DEFAULT_COLOR__ } from '@common/constants/props';
 import { useAppTheme } from '@common/hooks';
 import type { ClassName, ThemeFontSize, ThemeLineHeight, ThemeRadius } from '@common/types';
-import { getClass } from '@common/utils/classes';
-import { getColorHue } from '@common/utils/color';
+import { getClass, getColorHue } from '@common/utils';
 
 import { __DEFAULT_ICON_RADIUS__, __DEFAULT_ICON_SIZE__, __DEFAULT_ICON_VARIANT__ } from '../constants';
 import type { IconElement, IconProps } from '../types';

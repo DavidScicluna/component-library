@@ -8,7 +8,7 @@ import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__ } from '@common/cons
 import { __DEFAULT_COLOR__ } from '@common/constants/props';
 import { useAppTheme, useConst } from '@common/hooks';
 import type { ClassName } from '@common/types';
-import { getColorHue } from '@common/utils/color';
+import { getColorHue } from '@common/utils';
 
 import type { TooltipProps } from '../types';
 

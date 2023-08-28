@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
 
 import Provider from '@components/Provider';
-import { getColorHex, getColorMode } from '@common/utils/color';
+import { getColorHex, getColorMode } from '@common/utils';
 
 import { __DEFAULT_APP_COLOR__, __DEFAULT_APP_COLORMODE__ } from '@common/constants';
 import { colors } from '@common/data';

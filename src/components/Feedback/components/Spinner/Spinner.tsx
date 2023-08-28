@@ -11,8 +11,7 @@ import {
 	__DEFAULT_RADIUS__
 } from '@common/constants';
 import { useTheme } from '@common/hooks';
-import { convertREMToPixels, convertStringToNumber } from '@common/utils';
-import { getAnimationDuration } from '@common/utils/animation';
+import { convertREMToPixels, convertStringToNumber, getAnimationDuration } from '@common/utils';
 
 import { Box } from '@components/Box';
 

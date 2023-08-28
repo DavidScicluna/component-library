@@ -7,7 +7,7 @@ import classes from '@common/classes';
 import { __DEFAULT_COLOR__ } from '@common/constants/props';
 import { useAppTheme, useGetClass } from '@common/hooks';
 import type { BorderStyleClass, ClassName, ThemeBorderWidth, ThemeRadius } from '@common/types';
-import { getColorHue } from '@common/utils/color';
+import { getColorHue } from '@common/utils';
 
 import { __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_SIZE__, __DEFAULT_MESSAGE_VARIANT__ } from '../constants';
 import type { MessageProps } from '../types';
