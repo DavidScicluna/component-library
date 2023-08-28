@@ -1,5 +1,5 @@
 // All Material Design Icons
-export type IconType = string &
+export type IconKey = string &
 	(
 		| '10k'
 		| '10mp'
@@ -1874,4 +1874,4 @@ export type IconType = string &
 		| 'zoom_out'
 		| 'zoom_out_map'
 	);
-export type IconTypes = Array<IconType>;
+export type IconKeys = Array<IconKey>;
