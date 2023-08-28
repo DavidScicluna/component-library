@@ -1,7 +1,6 @@
 import type { ElementType } from 'react';
 
-import type { Orientation, PickFrom, ResponsiveValue } from '@common/types';
-import type { BorderWidth, CommonAppThemeProps, Space } from '@common/types/theme';
+import type { PickFrom, ResponsiveValue, ThemeAppAppearanceProps, ThemeBorderWidth, ThemeSpacing } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box/common/types';
 
@@ -10,13 +9,16 @@ export type DividerElement = PickFrom<ElementType, 'div'>;
 
 export type DividerPlacement = 'left' | 'center' | 'right';
 
+export type DividerOrientation = 'vertical' | 'horizontal';
+export type DividerOrientations = Array<DividerOrientation>;
+
 export type DividerVariant = 'dotted' | 'dashed' | 'solid';
 
-type DividerOtherProps = CommonAppThemeProps & {
-	orientation?: ResponsiveValue<Orientation>;
+type DividerOtherProps = ThemeAppAppearanceProps & {
+	orientation?: ResponsiveValue<DividerOrientation>;
 	placement?: ResponsiveValue<DividerPlacement>;
-	size?: ResponsiveValue<BorderWidth>;
-	spacing?: ResponsiveValue<Space>;
+	size?: ResponsiveValue<ThemeBorderWidth>;
+	spacing?: ResponsiveValue<ThemeSpacing>;
 	variant?: ResponsiveValue<DividerVariant>;
 };
 

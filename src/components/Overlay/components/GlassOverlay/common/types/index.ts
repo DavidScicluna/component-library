@@ -1,20 +1,16 @@
 import type { ElementType } from 'react';
 
-import type { ResponsiveValue } from '@common/types';
-import type { BackdropBlur } from '@common/types/classes';
-import type { CommonAppThemeProps } from '@common/types/theme';
+import type { BackdropBlurClass, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
-export type GlassOverlayBlur = BackdropBlur;
-
-type GlassOverlayOtherProps = CommonAppThemeProps & {
+type GlassOverlayOtherProps = ThemeAppAppearanceProps & {
 	/**
 	 * The amount of the blur effect to be applied ("none", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "8xl", "9xl")
 	 *
 	 * @default 'md'
 	 */
-	blur?: ResponsiveValue<GlassOverlayBlur>;
+	blur?: ResponsiveValue<BackdropBlurClass>;
 	/**
 	 * If `true` the blur will be a backdrop filter blur else it will be a normal blur
 	 *

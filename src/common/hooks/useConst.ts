@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRef } from 'react';
 
-import type { Nullable } from '@common/types';
+import type { Nullish } from '@common/types';
 
 type UseConstParamsFn<T> = () => T;
 type UseConstParams<T> = T | UseConstParamsFn<T>;
@@ -15,7 +15,7 @@ type UseConstParams<T> = T | UseConstParamsFn<T>;
  * you can ensure that initializers don't execute twice or more.
  */
 const useConst = <T extends any>(params: UseConstParams<T>): T => {
-	const ref = useRef<Nullable<T>>(null);
+	const ref = useRef<Nullish<T>>(null);
 
 	if (ref.current === null) {
 		ref.current = typeof params === 'function' ? (params as UseConstParamsFn<T>)() : params;

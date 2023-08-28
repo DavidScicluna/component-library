@@ -1,33 +1,36 @@
 import type { ElementType } from 'react';
 
-import type { ResponsiveValue } from '@common/types';
 import type {
-	AlignContent,
-	AlignItems,
-	GridAuto,
-	GridAutoFlow,
-	GridTemplateColumns,
-	GridTemplateRows,
-	JustifyContent,
-	JustifyItems
-} from '@common/types/classes';
-import type { Space } from '@common/types/theme';
+	AlignContentClass,
+	AlignItemsClass,
+	GridAutoClass,
+	GridAutoFlowClass,
+	GridTemplateColumnsClass,
+	GridTemplateRowsClass,
+	JustifyContentClass,
+	JustifyItemsClass,
+	ResponsiveValue,
+	ThemeSpacing
+} from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
+export type GridTemplateColumns = GridTemplateColumnsClass | string;
+export type GridTemplateRows = GridTemplateRowsClass | string;
+
 type GridOtherProps = {
-	alignContent?: ResponsiveValue<AlignContent>;
-	alignItems?: ResponsiveValue<AlignItems>;
-	autoColumns?: ResponsiveValue<GridAuto>;
-	autoFlow?: ResponsiveValue<GridAutoFlow>;
-	autoRows?: ResponsiveValue<GridAuto>;
-	columnSpacing?: ResponsiveValue<Space>;
-	justifyContent?: ResponsiveValue<JustifyContent>;
-	justifyItems?: ResponsiveValue<JustifyItems>;
-	rowSpacing?: ResponsiveValue<Space>;
-	templateColumns?: ResponsiveValue<GridTemplateColumns | string>;
-	templateRows?: ResponsiveValue<GridTemplateRows | string>;
-	spacing?: ResponsiveValue<Space>;
+	alignContent?: ResponsiveValue<AlignContentClass>;
+	alignItems?: ResponsiveValue<AlignItemsClass>;
+	autoColumns?: ResponsiveValue<GridAutoClass>;
+	autoFlow?: ResponsiveValue<GridAutoFlowClass>;
+	autoRows?: ResponsiveValue<GridAutoClass>;
+	columnSpacing?: ResponsiveValue<ThemeSpacing>;
+	justifyContent?: ResponsiveValue<JustifyContentClass>;
+	justifyItems?: ResponsiveValue<JustifyItemsClass>;
+	rowSpacing?: ResponsiveValue<ThemeSpacing>;
+	templateColumns?: ResponsiveValue<GridTemplateColumns>;
+	templateRows?: ResponsiveValue<GridTemplateRows>;
+	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
 export type GridProps<Element extends ElementType> = BoxProps<Element, GridOtherProps>;

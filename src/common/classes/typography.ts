@@ -1,16 +1,16 @@
-import type { TextLineClampObj } from '@common/types/classes';
 import type {
-	ColorsObj,
-	FontSizesObj,
-	FontWeightsObj,
-	LineHeightsObj,
-	TextAlignsObj,
-	TextTransformsObj,
-	WhitespacesObj,
-	WordBreaksObj
-} from '@common/types/theme';
+	TextLineClampClassObj,
+	ThemeColorObj,
+	ThemeFontSizeObj,
+	ThemeFontWeightObj,
+	ThemeLineHeightObj,
+	ThemeTextAlignObj,
+	ThemeTextTransformObj,
+	ThemeWhitespaceObj,
+	ThemeWordBreakObj
+} from '@common/types';
 
-const align: TextAlignsObj = {
+const align: ThemeTextAlignObj = {
 	center: 'text-center',
 	left: 'text-left',
 	right: 'text-right',
@@ -19,7 +19,7 @@ const align: TextAlignsObj = {
 	end: 'text-end'
 };
 
-const color: ColorsObj = {
+const color: ThemeColorObj = {
 	transparent: 'text-transparent',
 	black: 'text-black',
 	white: 'text-white',
@@ -233,7 +233,7 @@ const color: ColorsObj = {
 	}
 };
 
-const hover_color: ColorsObj = {
+const hover_color: ThemeColorObj = {
 	transparent: 'hover:text-transparent',
 	black: 'hover:text-black',
 	white: 'hover:text-white',
@@ -447,7 +447,7 @@ const hover_color: ColorsObj = {
 	}
 };
 
-const focus_color: ColorsObj = {
+const focus_color: ThemeColorObj = {
 	transparent: 'focus:text-transparent',
 	black: 'focus:text-black',
 	white: 'focus:text-white',
@@ -661,7 +661,7 @@ const focus_color: ColorsObj = {
 	}
 };
 
-const active_color: ColorsObj = {
+const active_color: ThemeColorObj = {
 	transparent: 'active:text-transparent',
 	black: 'active:text-black',
 	white: 'active:text-white',
@@ -875,7 +875,7 @@ const active_color: ColorsObj = {
 	}
 };
 
-const before_color: ColorsObj = {
+const before_color: ThemeColorObj = {
 	transparent: 'before:text-transparent',
 	black: 'before:text-black',
 	white: 'before:text-white',
@@ -1089,7 +1089,7 @@ const before_color: ColorsObj = {
 	}
 };
 
-const after_color: ColorsObj = {
+const after_color: ThemeColorObj = {
 	transparent: 'after:text-transparent',
 	black: 'after:text-black',
 	white: 'after:text-white',
@@ -1303,7 +1303,7 @@ const after_color: ColorsObj = {
 	}
 };
 
-const font_size: FontSizesObj = {
+const font_size: ThemeFontSizeObj = {
 	'xs': 'text-xs',
 	'sm': 'text-sm',
 	'md': 'text-base',
@@ -1319,7 +1319,7 @@ const font_size: FontSizesObj = {
 	'9xl': 'text-9xl'
 };
 
-const font_weight: FontWeightsObj = {
+const font_weight: ThemeFontWeightObj = {
 	black: 'font-black',
 	bold: 'font-bold',
 	thin: 'font-thin',
@@ -1331,7 +1331,7 @@ const font_weight: FontWeightsObj = {
 	extrabold: 'font-extrabold'
 };
 
-const line_clamp: TextLineClampObj = {
+const line_clamp: TextLineClampClassObj = {
 	none: 'line-clamp-none',
 	1: 'line-clamp-1',
 	2: 'line-clamp-2',
@@ -1341,7 +1341,7 @@ const line_clamp: TextLineClampObj = {
 	6: 'line-clamp-6'
 };
 
-const line_height: LineHeightsObj = {
+const line_height: ThemeLineHeightObj = {
 	3: 'leading-3',
 	4: 'leading-4',
 	5: 'leading-5',
@@ -1358,14 +1358,14 @@ const line_height: LineHeightsObj = {
 	loose: 'leading-loose'
 };
 
-const transform: TextTransformsObj = {
+const transform: ThemeTextTransformObj = {
 	uppercase: 'uppercase',
 	lowercase: 'lowercase',
 	capitalize: 'capitalize',
 	normal: 'normal-case'
 };
 
-const whitespace: WhitespacesObj = {
+const whitespace: ThemeWhitespaceObj = {
 	'normal': 'whitespace-normal',
 	'nowrap': 'whitespace-nowrap',
 	'pre': 'whitespace-pre',
@@ -1374,7 +1374,7 @@ const whitespace: WhitespacesObj = {
 	'break-spaces': 'whitespace-break-spaces'
 };
 
-const word_break: WordBreaksObj = {
+const word_break: ThemeWordBreakObj = {
 	normal: 'break-normal',
 	words: 'break-words',
 	all: 'break-all',

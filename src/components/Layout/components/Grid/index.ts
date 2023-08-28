@@ -7,7 +7,7 @@ import {
 	__DEFAULT_GRID_TEMPLATE_ROWS__
 } from './common/constants';
 import { useGridClasses, useGridStyles } from './common/hooks';
-import type { GridProps, GridRef } from './common/types';
+import type { GridProps, GridRef, GridTemplateColumns, GridTemplateRows } from './common/types';
 import type { GridItemProps, GridItemRef } from './components/GridItem';
 import { constants as gridItemConstants, GridItem, useGridItemClasses } from './components/GridItem';
 import Grid from './Grid';
@@ -30,4 +30,4 @@ export { useGridClasses, useGridItemClasses, useGridStyles };
 export { Grid, GridItem };
 
 // Component Types
-export type { GridItemProps, GridItemRef, GridProps, GridRef };
+export type { GridItemProps, GridItemRef, GridProps, GridRef, GridTemplateColumns, GridTemplateRows };

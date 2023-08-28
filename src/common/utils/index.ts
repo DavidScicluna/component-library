@@ -2,8 +2,14 @@ import { compact, isArray, isObject } from 'lodash-es';
 import memoize from 'micro-memoize';
 
 import theme from '@common/theme';
-import type { ResponsiveArrayValue, ResponsiveObjectValue, ResponsiveValue } from '@common/types';
-import type { Breakpoint, FontSize, LineHeight } from '@common/types/theme';
+import type {
+	ResponsiveArrayValue,
+	ResponsiveObjectValue,
+	ResponsiveValue,
+	ThemeBreakpoint,
+	ThemeFontSize,
+	ThemeLineHeight
+} from '@common/types';
 
 import type { IconCategory } from '@components/DataDisplay';
 
@@ -58,12 +64,14 @@ export const convertStringToNumber = memoize((string: string, cut: string): numb
  * @param fontSize - FontSize: String value to be cut & converted
  * @param lineHeight - LineHeight: The string to cut from the string
  */
-export const getFontSizeHeight = memoize((fontSize: FontSize = 'md', lineHeight: LineHeight = 'normal'): number => {
-	return (
-		convertREMToPixels(convertStringToNumber(theme.fontSizes[fontSize], 'rem')) *
-		Number(theme.lineHeights[lineHeight])
-	);
-});
+export const getFontSizeHeight = memoize(
+	(fontSize: ThemeFontSize = 'md', lineHeight: ThemeLineHeight = 'normal'): number => {
+		return (
+			convertREMToPixels(convertStringToNumber(theme.fontSizes[fontSize], 'rem')) *
+			Number(theme.lineHeights[lineHeight])
+		);
+	}
+);
 
 /**
  * This method will return the appropriate responsive value depending on current dimensions of the users device
@@ -73,7 +81,7 @@ export const getFontSizeHeight = memoize((fontSize: FontSize = 'md', lineHeight:
  */
 export const getResponsiveValue = memoize(<D>(value: ResponsiveValue<D>): D => {
 	const status = isArray(value) ? 'array' : isObject(value) ? 'object' : 'default';
-	const breakpoint: Breakpoint = globalThis?.window?.matchMedia('(min-width: 1536px)')
+	const breakpoint: ThemeBreakpoint = globalThis?.window?.matchMedia('(min-width: 1536px)')
 		? '2xl'
 		: globalThis?.window?.matchMedia('(min-width: 1280px)')
 		? 'xl'

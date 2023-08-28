@@ -1,22 +1,24 @@
 import { range } from 'lodash-es';
 
-import type { BackdropBlurObj, BlurObj, ZIndexObj } from '@common/types/classes';
 import type {
-	AspectRatioObj,
-	BorderWidthObj,
-	BreakpointsObj,
-	ColorsObj,
-	DelaysObj,
-	DurationsObj,
-	EasingsObj,
-	FontSizesObj,
-	FontWeightsObj,
-	LineHeightsObj,
-	RadiiObj,
-	SpacingObj
-} from '@common/types/theme';
+	BackdropBlurClassObj,
+	BlurClassObj,
+	ThemeAspectRatioObj,
+	ThemeBorderWidthObj,
+	ThemeBreakpointObj,
+	ThemeColorObj,
+	ThemeDelayObj,
+	ThemeDurationObj,
+	ThemeEaseObj,
+	ThemeFontSizeObj,
+	ThemeFontWeightObj,
+	ThemeLineHeightObj,
+	ThemeRadiusObj,
+	ThemeSpacingObj,
+	ZIndexClassObj
+} from '@common/types';
 
-const aspectRatio: AspectRatioObj = {
+const aspectRatio: ThemeAspectRatioObj = {
 	auto: 'auto',
 	square: '1 / 1',
 	video: '16 / 9',
@@ -26,7 +28,7 @@ const aspectRatio: AspectRatioObj = {
 	vertical: '9 / 16'
 };
 
-const backdropBlur: BackdropBlurObj = {
+const backdropBlur: BackdropBlurClassObj = {
 	'none': '0px',
 	'xs': '2px',
 	'sm': '4px',
@@ -43,7 +45,7 @@ const backdropBlur: BackdropBlurObj = {
 	'9xl': '80px'
 };
 
-const blur: BlurObj = {
+const blur: BlurClassObj = {
 	'none': '0px',
 	'xs': '2px',
 	'sm': '4px',
@@ -60,7 +62,7 @@ const blur: BlurObj = {
 	'9xl': '80px'
 };
 
-const borderRadius: RadiiObj = {
+const borderRadius: ThemeRadiusObj = {
 	none: '0',
 	xs: '5px',
 	sm: '7.5px',
@@ -70,7 +72,7 @@ const borderRadius: RadiiObj = {
 	full: '9999px'
 };
 
-const borderWidth: BorderWidthObj = {
+const borderWidth: ThemeBorderWidthObj = {
 	'0': '0px',
 	'1': '1px',
 	'2': '2px',
@@ -82,7 +84,7 @@ const borderWidth: BorderWidthObj = {
 	'8': '8px'
 };
 
-const colors: ColorsObj = {
+const colors: ThemeColorObj = {
 	transparent: 'transparent',
 	black: '#000000',
 	white: '#FFFFFF',
@@ -296,7 +298,7 @@ const colors: ColorsObj = {
 	}
 };
 
-const container: BreakpointsObj = {
+const container: ThemeBreakpointObj = {
 	'xs': '0px',
 	'sm': '640px',
 	'md': '768px',
@@ -305,7 +307,7 @@ const container: BreakpointsObj = {
 	'2xl': '1536px'
 };
 
-const fontSizes: FontSizesObj = {
+const fontSizes: ThemeFontSizeObj = {
 	'xs': '0.75rem' /* 12px */,
 	'sm': '0.875rem' /* 14px */,
 	'lg': '1rem' /* 16px */,
@@ -321,7 +323,7 @@ const fontSizes: FontSizesObj = {
 	'9xl': '8rem' /* 128px */
 };
 
-const fontWeights: FontWeightsObj = {
+const fontWeights: ThemeFontWeightObj = {
 	thin: 100,
 	extralight: 200,
 	light: 300,
@@ -333,7 +335,7 @@ const fontWeights: FontWeightsObj = {
 	black: 900
 };
 
-const lineHeights: LineHeightsObj = {
+const lineHeights: ThemeLineHeightObj = {
 	3: '.75rem' /* 12px */,
 	4: '1rem' /* 16px */,
 	5: '1.25rem' /* 20px */,
@@ -350,14 +352,14 @@ const lineHeights: LineHeightsObj = {
 	loose: 2
 };
 
-const transitionTimingFunction: EasingsObj = {
+const transitionTimingFunction: ThemeEaseObj = {
 	'linear': 'linear',
 	'ease-in': 'cubic-bezier(0.55,0.06,0.68,0.19)',
 	'ease-out': 'cubic-bezier(0.22,0.61,0.36,1)',
 	'ease-in-out': 'cubic-bezier(0.65,0.05,0.36,1)'
 };
 
-const transitionDelay: DelaysObj = {
+const transitionDelay: ThemeDelayObj = {
 	'ultra-fast': '50ms',
 	'faster': '100ms',
 	'fast': '200ms',
@@ -367,7 +369,7 @@ const transitionDelay: DelaysObj = {
 	'ultra-slow': '1000ms'
 };
 
-const transitionDuration: DurationsObj = {
+const transitionDuration: ThemeDurationObj = {
 	'ultra-fast': '50ms',
 	'faster': '100ms',
 	'fast': '200ms',
@@ -377,11 +379,11 @@ const transitionDuration: DurationsObj = {
 	'ultra-slow': '1000ms'
 };
 
-const spacing: SpacingObj = range(0, 25, 0.25)
+const spacing: ThemeSpacingObj = range(0, 25, 0.25)
 	.map((num) => ({ key: num, value: `${(1 / 16) * (num * 8)}rem` }))
-	.reduce((obj, item) => ({ ...obj, [item.key || 0]: item.value }), {}) as SpacingObj;
+	.reduce((obj, item) => ({ ...obj, [item.key || 0]: item.value }), {}) as ThemeSpacingObj;
 
-const zIndex: ZIndexObj = {
+const zIndex: ZIndexClassObj = {
 	0: 0,
 	1: 1,
 	2: 2,

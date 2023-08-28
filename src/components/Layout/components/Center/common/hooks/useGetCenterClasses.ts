@@ -4,8 +4,7 @@ import classNames from 'classnames';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetClass } from '@common/hooks';
-import type { ClassName } from '@common/types';
-import type { Space } from '@common/types/theme';
+import type { ClassName, ThemeSpacing } from '@common/types';
 
 import type { CenterProps } from '../types';
 
@@ -17,7 +16,7 @@ const useGetCenterClasses = <Element extends ElementType>(
 ): UseGetCenterClassesReturn => {
 	const { spacing = __DEFAULT_SPACING__ } = props;
 
-	const spacingClassName = useGetClass<Space>(spacing, ['spacing', 'gap']);
+	const spacingClassName = useGetClass<ThemeSpacing>(spacing, ['spacing', 'gap']);
 
 	return classNames('flex', 'flex-row', 'flex-nowrap', 'items-center', 'justify-center', spacingClassName);
 };

@@ -1,16 +1,14 @@
 import type { ElementType } from 'react';
 
-import type { PickFrom } from '@common/types';
-import type { BorderStyle } from '@common/types/classes';
-import type { BorderWidth, CommonAppThemeProps, Radius } from '@common/types/theme';
+import type { BorderStyleClass, PickFrom, ThemeAppAppearanceProps, ThemeBorderWidth, ThemeRadius } from '@common/types';
 
 import type { VStackProps, VStackRef } from '@components/Layout';
 
-export type MessageVariant = PickFrom<BorderStyle, 'dashed' | 'dotted' | 'solid'> | 'transparent';
+export type MessageVariant = PickFrom<BorderStyleClass, 'dashed' | 'dotted' | 'solid'> | 'transparent';
 
-type MessageOtherProps = CommonAppThemeProps & {
-	radius?: Radius;
-	size?: BorderWidth;
+type MessageOtherProps = ThemeAppAppearanceProps & {
+	radius?: ThemeRadius;
+	size?: ThemeBorderWidth;
 	variant?: MessageVariant;
 };
 

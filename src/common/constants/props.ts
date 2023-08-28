@@ -9,14 +9,14 @@ import {
 	__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__,
 	__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__
 } from '@common/keys';
-import type { AppColor, AppColorMode, Color } from '@common/types/theme';
+import type { ThemeAppColor, ThemeAppColorMode, ThemeColor } from '@common/types';
 
-export const __DEFAULT_COLOR__: Color = (localStorage.getItem(__KEY_LOCALSTORAGE_COLOR__) || 'gray') as Color;
-export const __DEFAULT_APP_COLOR__: AppColor = (localStorage.getItem(__KEY_LOCALSTORAGE_APP_COLOR__) ||
+export const __DEFAULT_COLOR__: ThemeColor = (localStorage.getItem(__KEY_LOCALSTORAGE_COLOR__) || 'gray') as ThemeColor;
+export const __DEFAULT_APP_COLOR__: ThemeAppColor = (localStorage.getItem(__KEY_LOCALSTORAGE_APP_COLOR__) ||
 	sample(colors) ||
-	'blue') as AppColor;
-export const __DEFAULT_APP_COLORMODE__: AppColorMode = (localStorage.getItem(__KEY_LOCALSTORAGE_APP_COLORMODE__) ||
-	'light') as AppColorMode;
+	'blue') as ThemeAppColor;
+export const __DEFAULT_APP_COLORMODE__: ThemeAppColorMode = (localStorage.getItem(__KEY_LOCALSTORAGE_APP_COLORMODE__) ||
+	'light') as ThemeAppColorMode;
 
 export const __DEFAULT_HAS_FILLEDICON_LOADED__ = JSON.parse(
 	sessionStorage.getItem(__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__) || 'false'

@@ -1,7 +1,6 @@
 import { __DEFAULT_BACKDROP_OVERLAY_AMOUNT__, __DEFAULT_BACKDROP_OVERLAY_BLUR__ } from './common/constants';
 import { useBackdropOverlayClasses, useBackdropOverlayStyles } from './common/hooks';
 import type {
-	BackdropOverlayBlur,
 	BackdropOverlayDefaultElement,
 	BackdropOverlayElement,
 	BackdropOverlayProps,
@@ -19,10 +18,4 @@ export { useBackdropOverlayClasses, useBackdropOverlayStyles };
 export { BackdropOverlay };
 
 // Component Types
-export type {
-	BackdropOverlayBlur,
-	BackdropOverlayDefaultElement,
-	BackdropOverlayElement,
-	BackdropOverlayProps,
-	BackdropOverlayRef
-};
+export type { BackdropOverlayDefaultElement, BackdropOverlayElement, BackdropOverlayProps, BackdropOverlayRef };

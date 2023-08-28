@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';

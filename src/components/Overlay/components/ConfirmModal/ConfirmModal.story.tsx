@@ -4,7 +4,7 @@ import { sample } from 'lodash-es';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import colors from '@common/data/colors';
-import type { AppColor } from '@common/types/theme';
+import type { ThemeAppColor } from '@common/types';
 
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
@@ -28,7 +28,7 @@ import {
 	ConfirmModalTitle
 } from '.';
 
-const __DEFAULT_CONFIRM_MODAL_STORY_COLOR__: AppColor = sample(colors) || 'blue';
+const __DEFAULT_CONFIRM_MODAL_STORY_COLOR__: ThemeAppColor = sample(colors) || 'blue';
 
 export default {
 	title: 'Overlay/ConfirmModal',

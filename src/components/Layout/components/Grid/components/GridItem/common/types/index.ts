@@ -1,29 +1,29 @@
 import type { ElementType } from 'react';
 
-import type { ResponsiveValue } from '@common/types';
 import type {
-	AlignSelf,
-	GridColumnSpan,
-	GridColumnStartEnd,
-	GridRowSpan,
-	GridRowStartEnd,
-	JustifySelf,
-	ZIndex
-} from '@common/types/classes';
+	AlignSelfClass,
+	GridColumnSpanClass,
+	GridColumnStartEndClass,
+	GridRowSpanClass,
+	GridRowStartEndClass,
+	JustifySelfClass,
+	ResponsiveValue,
+	ZIndexClass
+} from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
 type GridItemOtherProps = {
-	alignSelf?: ResponsiveValue<AlignSelf>;
+	alignSelf?: ResponsiveValue<AlignSelfClass>;
 	// area?: ResponsiveValue<>;
-	columnSpan?: ResponsiveValue<GridColumnSpan>;
-	columnStart?: ResponsiveValue<GridColumnStartEnd>;
-	columnEnd?: ResponsiveValue<GridColumnStartEnd>;
-	justifySelf?: ResponsiveValue<JustifySelf>;
-	rowSpan?: ResponsiveValue<GridRowSpan>;
-	rowStart?: ResponsiveValue<GridRowStartEnd>;
-	rowEnd?: ResponsiveValue<GridRowStartEnd>;
-	zIndex?: ResponsiveValue<ZIndex>;
+	columnSpan?: ResponsiveValue<GridColumnSpanClass>;
+	columnStart?: ResponsiveValue<GridColumnStartEndClass>;
+	columnEnd?: ResponsiveValue<GridColumnStartEndClass>;
+	justifySelf?: ResponsiveValue<JustifySelfClass>;
+	rowSpan?: ResponsiveValue<GridRowSpanClass>;
+	rowStart?: ResponsiveValue<GridRowStartEndClass>;
+	rowEnd?: ResponsiveValue<GridRowStartEndClass>;
+	zIndex?: ResponsiveValue<ZIndexClass>;
 };
 
 export type GridItemProps<Element extends ElementType> = BoxProps<Element, GridItemOtherProps>;

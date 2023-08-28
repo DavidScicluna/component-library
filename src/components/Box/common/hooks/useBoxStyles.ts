@@ -3,8 +3,7 @@ import { type ElementType, useMemo } from 'react';
 import { compact } from 'lodash-es';
 
 import { useGetResponsiveValue, useTheme } from '@common/hooks';
-import type { Style, Undefinable } from '@common/types';
-import type { Space } from '@common/types/theme';
+import type { Style, ThemeSpacing, Undefinable } from '@common/types';
 import { getResponsiveValue } from '@common/utils';
 
 import type {
@@ -36,72 +35,72 @@ const useBoxStyles = <Element extends ElementType>(props: UseBoxStylesProps<Elem
 
 	const padding = useMemo<Undefinable<string>>(() => {
 		if (p) {
-			const padding = getResponsiveValue<Space>(p);
+			const padding = getResponsiveValue<ThemeSpacing>(p);
 			return theme.spacing[padding];
 		} else if (px || py) {
-			const plr = getResponsiveValue<Undefinable<Space>>(px);
-			const ptb = getResponsiveValue<Undefinable<Space>>(py);
+			const plr = getResponsiveValue<Undefinable<ThemeSpacing>>(px);
+			const ptb = getResponsiveValue<Undefinable<ThemeSpacing>>(py);
 			return compact([plr ? theme.spacing[plr] : null, ptb ? theme.spacing[ptb] : null]).join(' ');
 		}
 	}, [p, px, py]);
 
 	const paddingLeft = useMemo<Undefinable<string>>(() => {
 		if (pl) {
-			const paddingLeft = getResponsiveValue<Space>(pl);
+			const paddingLeft = getResponsiveValue<ThemeSpacing>(pl);
 			return theme.spacing[paddingLeft];
 		}
 	}, [pl]);
 	const paddingTop = useMemo<Undefinable<string>>(() => {
 		if (pt) {
-			const paddingTop = getResponsiveValue<Space>(pt);
+			const paddingTop = getResponsiveValue<ThemeSpacing>(pt);
 			return theme.spacing[paddingTop];
 		}
 	}, [pt]);
 	const paddingRight = useMemo<Undefinable<string>>(() => {
 		if (pr) {
-			const paddingRight = getResponsiveValue<Space>(pr);
+			const paddingRight = getResponsiveValue<ThemeSpacing>(pr);
 			return theme.spacing[paddingRight];
 		}
 	}, [pr]);
 	const paddingBottom = useMemo<Undefinable<string>>(() => {
 		if (pb) {
-			const paddingBottom = getResponsiveValue<Space>(pb);
+			const paddingBottom = getResponsiveValue<ThemeSpacing>(pb);
 			return theme.spacing[paddingBottom];
 		}
 	}, [pb]);
 
 	const margin = useMemo<Undefinable<string>>(() => {
 		if (m) {
-			const margin = getResponsiveValue<Space>(m);
+			const margin = getResponsiveValue<ThemeSpacing>(m);
 			return theme.spacing[margin];
 		} else if (mx || my) {
-			const mlr = getResponsiveValue<Undefinable<Space>>(mx);
-			const mtb = getResponsiveValue<Undefinable<Space>>(my);
+			const mlr = getResponsiveValue<Undefinable<ThemeSpacing>>(mx);
+			const mtb = getResponsiveValue<Undefinable<ThemeSpacing>>(my);
 			return compact([mlr ? theme.spacing[mlr] : null, mtb ? theme.spacing[mtb] : null]).join(' ');
 		}
 	}, [m, mx, my]);
 
 	const marginLeft = useMemo<Undefinable<string>>(() => {
 		if (ml) {
-			const marginLeft = getResponsiveValue<Space>(ml);
+			const marginLeft = getResponsiveValue<ThemeSpacing>(ml);
 			return theme.spacing[marginLeft];
 		}
 	}, [ml]);
 	const marginTop = useMemo<Undefinable<string>>(() => {
 		if (mt) {
-			const marginTop = getResponsiveValue<Space>(mt);
+			const marginTop = getResponsiveValue<ThemeSpacing>(mt);
 			return theme.spacing[marginTop];
 		}
 	}, [mt]);
 	const marginRight = useMemo<Undefinable<string>>(() => {
 		if (mr) {
-			const marginRight = getResponsiveValue<Space>(mr);
+			const marginRight = getResponsiveValue<ThemeSpacing>(mr);
 			return theme.spacing[marginRight];
 		}
 	}, [mr]);
 	const marginBottom = useMemo<Undefinable<string>>(() => {
 		if (mb) {
-			const marginBottom = getResponsiveValue<Space>(mb);
+			const marginBottom = getResponsiveValue<ThemeSpacing>(mb);
 			return theme.spacing[marginBottom];
 		}
 	}, [mb]);

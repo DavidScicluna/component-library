@@ -1,6 +1,6 @@
-import type { SpacingObj } from '@common/types/theme';
+import type { ThemeSpacingObj } from '@common/types';
 
-const p: SpacingObj = {
+const p: ThemeSpacingObj = {
 	0: 'p-0',
 	0.25: 'p-0.25',
 	0.5: 'p-0.5',
@@ -103,7 +103,7 @@ const p: SpacingObj = {
 	24.75: 'p-24.75'
 };
 
-const px: SpacingObj = {
+const px: ThemeSpacingObj = {
 	0: 'px-0',
 	0.25: 'px-0.25',
 	0.5: 'px-0.5',
@@ -206,7 +206,7 @@ const px: SpacingObj = {
 	24.75: 'px-24.75'
 };
 
-const py: SpacingObj = {
+const py: ThemeSpacingObj = {
 	0: 'py-0',
 	0.25: 'py-0.25',
 	0.5: 'py-0.5',
@@ -309,7 +309,7 @@ const py: SpacingObj = {
 	24.75: 'py-24.75'
 };
 
-const pt: SpacingObj = {
+const pt: ThemeSpacingObj = {
 	0: 'pt-0',
 	0.25: 'pt-0.25',
 	0.5: 'pt-0.5',
@@ -412,7 +412,7 @@ const pt: SpacingObj = {
 	24.75: 'pt-24.75'
 };
 
-const pr: SpacingObj = {
+const pr: ThemeSpacingObj = {
 	0: 'pr-0',
 	0.25: 'pr-0.25',
 	0.5: 'pr-0.5',
@@ -515,7 +515,7 @@ const pr: SpacingObj = {
 	24.75: 'pr-24.75'
 };
 
-const pb: SpacingObj = {
+const pb: ThemeSpacingObj = {
 	0: 'pb-0',
 	0.25: 'pb-0.25',
 	0.5: 'pb-0.5',
@@ -618,7 +618,7 @@ const pb: SpacingObj = {
 	24.75: 'pb-24.75'
 };
 
-const pl: SpacingObj = {
+const pl: ThemeSpacingObj = {
 	0: 'pl-0',
 	0.25: 'pl-0.25',
 	0.5: 'pl-0.5',
@@ -721,7 +721,7 @@ const pl: SpacingObj = {
 	24.75: 'pl-24.75'
 };
 
-const m: SpacingObj = {
+const m: ThemeSpacingObj = {
 	0: 'm-0',
 	0.25: 'm-0.25',
 	0.5: 'm-0.5',
@@ -824,7 +824,7 @@ const m: SpacingObj = {
 	24.75: 'm-24.75'
 };
 
-const mx: SpacingObj = {
+const mx: ThemeSpacingObj = {
 	0: 'mx-0',
 	0.25: 'mx-0.25',
 	0.5: 'mx-0.5',
@@ -927,7 +927,7 @@ const mx: SpacingObj = {
 	24.75: 'mx-24.75'
 };
 
-const my: SpacingObj = {
+const my: ThemeSpacingObj = {
 	0: 'my-0',
 	0.25: 'my-0.25',
 	0.5: 'my-0.5',
@@ -1030,7 +1030,7 @@ const my: SpacingObj = {
 	24.75: 'my-24.75'
 };
 
-const mt: SpacingObj = {
+const mt: ThemeSpacingObj = {
 	0: 'mt-0',
 	0.25: 'mt-0.25',
 	0.5: 'mt-0.5',
@@ -1133,7 +1133,7 @@ const mt: SpacingObj = {
 	24.75: 'mt-24.75'
 };
 
-const mr: SpacingObj = {
+const mr: ThemeSpacingObj = {
 	0: 'mr-0',
 	0.25: 'mr-0.25',
 	0.5: 'mr-0.5',
@@ -1236,7 +1236,7 @@ const mr: SpacingObj = {
 	24.75: 'mr-24.75'
 };
 
-const mb: SpacingObj = {
+const mb: ThemeSpacingObj = {
 	0: 'mb-0',
 	0.25: 'mb-0.25',
 	0.5: 'mb-0.5',
@@ -1339,7 +1339,7 @@ const mb: SpacingObj = {
 	24.75: 'mb-24.75'
 };
 
-const ml: SpacingObj = {
+const ml: ThemeSpacingObj = {
 	0: 'ml-0',
 	0.25: 'ml-0.25',
 	0.5: 'ml-0.5',
@@ -1442,7 +1442,7 @@ const ml: SpacingObj = {
 	24.75: 'ml-24.75'
 };
 
-const gap: SpacingObj = {
+const gap: ThemeSpacingObj = {
 	0: 'gap-0',
 	0.25: 'gap-0.25',
 	0.5: 'gap-0.5',
@@ -1545,7 +1545,7 @@ const gap: SpacingObj = {
 	24.75: 'gap-24.75'
 };
 
-const gap_x: SpacingObj = {
+const gap_x: ThemeSpacingObj = {
 	0: 'gap-x-0',
 	0.25: 'gap-x-0.25',
 	0.5: 'gap-x-0.5',
@@ -1648,7 +1648,7 @@ const gap_x: SpacingObj = {
 	24.75: 'gap-x-24.75'
 };
 
-const gap_y: SpacingObj = {
+const gap_y: ThemeSpacingObj = {
 	0: 'gap-y-0',
 	0.25: 'gap-y-0.25',
 	0.5: 'gap-y-0.5',
@@ -1751,7 +1751,7 @@ const gap_y: SpacingObj = {
 	24.75: 'gap-y-24.75'
 };
 
-const space_x: SpacingObj = {
+const space_x: ThemeSpacingObj = {
 	0: 'space-x-0',
 	0.25: 'space-x-0.25',
 	0.5: 'space-x-0.5',
@@ -1854,7 +1854,7 @@ const space_x: SpacingObj = {
 	24.75: 'space-x-24.75'
 };
 
-const space_y: SpacingObj = {
+const space_y: ThemeSpacingObj = {
 	0: 'space-y-0',
 	0.25: 'space-y-0.25',
 	0.5: 'space-y-0.5',

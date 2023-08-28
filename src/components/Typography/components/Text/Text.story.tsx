@@ -1,15 +1,15 @@
 import type { ReactElement } from 'react';
 
-import type { TextLineClampArr } from '@common/types/classes';
 import type {
-	FontSizesArr,
-	FontWeightsArr,
-	LineHeightsArr,
-	TextAlignsArr,
-	TextTransformsArr,
-	WhitespacesArr,
-	WordBreaksArr
-} from '@common/types/theme';
+	TextLineClampClassArr,
+	ThemeFontSizeArr,
+	ThemeFontWeightArr,
+	ThemeLineHeightArr,
+	ThemeTextAlignArr,
+	ThemeTextTransformArr,
+	ThemeWhitespaceArr,
+	ThemeWordBreakArr
+} from '@common/types';
 
 import {
 	__DEFAULT_TEXT_ALIGN__,
@@ -42,7 +42,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_TEXT_ALIGN__,
 			// description: '',
-			options: ['left', 'center', 'right', 'justify', 'start', 'end'] as TextAlignsArr,
+			options: ['left', 'center', 'right', 'justify', 'start', 'end'] as ThemeTextAlignArr,
 			control: { type: 'radio' }
 		},
 		color: {
@@ -70,7 +70,7 @@ export default {
 				'7xl',
 				'8xl',
 				'9xl'
-			] as FontSizesArr,
+			] as ThemeFontSizeArr,
 			control: { type: 'radio' }
 		},
 		fontWeight: {
@@ -88,14 +88,14 @@ export default {
 				'bold',
 				'extrabold',
 				'black'
-			] as FontWeightsArr,
+			] as ThemeFontWeightArr,
 			control: { type: 'radio' }
 		},
 		lineClamp: {
 			name: 'Line Clamp',
 			type: 'string',
 			// description: '',
-			options: ['none', 1, 2, 3, 4, 5, 6] as TextLineClampArr,
+			options: ['none', 1, 2, 3, 4, 5, 6] as TextLineClampClassArr,
 			control: { type: 'radio' }
 		},
 		lineHeight: {
@@ -103,7 +103,22 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_TEXT_LINE_HEIGHT__,
 			// description: '',
-			options: ['none', 'tight', 'snug', 'normal', 'relaxed', 'loose', 3, 4, 5, 6, 7, 8, 9, 10] as LineHeightsArr,
+			options: [
+				'none',
+				'tight',
+				'snug',
+				'normal',
+				'relaxed',
+				'loose',
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10
+			] as ThemeLineHeightArr,
 			control: { type: 'radio' }
 		},
 		textTransform: {
@@ -111,7 +126,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_TEXT_TRANSFORM__,
 			// description: '',
-			options: ['uppercase', 'lowercase', 'capitalize', 'normal'] as TextTransformsArr,
+			options: ['uppercase', 'lowercase', 'capitalize', 'normal'] as ThemeTextTransformArr,
 			control: { type: 'radio' }
 		},
 		isItalic: {
@@ -133,7 +148,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_TEXT_WHITESPACE__,
 			// description: '',
-			options: ['normal', 'nowrap', 'pre', 'pre-line', 'pre-wrap', 'break-spaces'] as WhitespacesArr,
+			options: ['normal', 'nowrap', 'pre', 'pre-line', 'pre-wrap', 'break-spaces'] as ThemeWhitespaceArr,
 			control: { type: 'radio' }
 		},
 		wordBreak: {
@@ -141,7 +156,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_TEXT_WORD_BREAK__,
 			// description: '',
-			options: ['normal', 'words', 'all', 'keep'] as WordBreaksArr,
+			options: ['normal', 'words', 'all', 'keep'] as ThemeWordBreakArr,
 			control: { type: 'radio' }
 		}
 	}

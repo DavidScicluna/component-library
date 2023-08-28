@@ -4,7 +4,7 @@ import { createContext, forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { VStack } from '@components/Layout';
 

@@ -1,6 +1,6 @@
-import type { ColorsObj } from '@common/types/theme';
+import type { ThemeColorObj } from '@common/types';
 
-const fill: ColorsObj = {
+const fill: ThemeColorObj = {
 	transparent: 'fill-transparent',
 	black: 'fill-black',
 	white: 'fill-white',

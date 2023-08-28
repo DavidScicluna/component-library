@@ -1,3 +1,3 @@
-import type { Space } from '@common/types/theme';
+import type { ThemeSpacing } from '@common/types';
 
-export const __DEFAULT_CENTER_SPACING__: Space = 0;
+export const __DEFAULT_CENTER_SPACING__: ThemeSpacing = 0;

@@ -1,13 +1,13 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { CommonAppThemeProps } from '@common/types/theme';
+import type { ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 import type { GlassOverlayProps } from '@components/Overlay/components/GlassOverlay';
 
 export type StateOverlayState = 'success' | 'error' | 'empty' | 'loading' | 'default';
 
-type StateOverlayOtherProps<Element extends ElementType> = CommonAppThemeProps & {
+type StateOverlayOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
 	renderSuccess?: (state: StateOverlayState) => ReactNode;
 	renderError?: (state: StateOverlayState) => ReactNode;
 	renderEmpty?: (state: StateOverlayState) => ReactNode;

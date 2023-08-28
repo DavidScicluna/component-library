@@ -3,10 +3,10 @@ import type { ElementType } from 'react';
 import classNames from 'classnames';
 
 import { useGetClass } from '@common/hooks';
-import type { ClassName } from '@common/types';
+import type { ClassName, ThemeSpacing } from '@common/types';
 
 import { __DEFAULT_SPACE_HEIGHT__, __DEFAULT_SPACE_WIDTH__ } from '../constants';
-import type { SpaceDimension, SpaceProps } from '../types';
+import type { SpaceProps } from '../types';
 
 type UseGetSpaceClassesProps<Element extends ElementType> = Pick<SpaceProps<Element>, 'width' | 'height'>;
 type UseGetSpaceClassesReturn = ClassName;
@@ -16,8 +16,8 @@ const useGetSpaceClasses = <Element extends ElementType>(
 ): UseGetSpaceClassesReturn => {
 	const { width = __DEFAULT_SPACE_WIDTH__, height = __DEFAULT_SPACE_HEIGHT__ } = props;
 
-	const widthClassName = useGetClass<SpaceDimension>(width, ['sizing', 'width']);
-	const heightClassName = useGetClass<SpaceDimension>(height, ['sizing', 'height']);
+	const widthClassName = useGetClass<ThemeSpacing>(width, ['sizing', 'width']);
+	const heightClassName = useGetClass<ThemeSpacing>(height, ['sizing', 'height']);
 
 	return classNames({
 		[widthClassName]: !!width,

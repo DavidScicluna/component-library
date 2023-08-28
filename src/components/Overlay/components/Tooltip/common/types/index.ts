@@ -1,6 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 
-import type { CommonAppThemeProps } from '@common/types/theme';
+import type { ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
@@ -18,7 +18,7 @@ export type TooltipPlacement =
 	| 'left-start'
 	| 'left-end';
 
-export type TooltipOtherProps = CommonAppThemeProps & {
+export type TooltipOtherProps = ThemeAppAppearanceProps & {
 	children: ReactElement;
 	/**
 	 * Delay (in ms) before hiding the tooltip

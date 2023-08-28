@@ -1,7 +1,7 @@
-import type { Icons } from '@common/types/icons';
+import type { IconKeys } from '@common/types';
 
 // All Material Design Icons
-const icons: Icons = [
+const icons: IconKeys = [
 	'10k',
 	'10mp',
 	'11mp',

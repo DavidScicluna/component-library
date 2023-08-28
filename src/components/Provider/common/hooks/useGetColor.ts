@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 
 import { __KEY_LOCALSTORAGE_APP_COLOR__ } from '@common/keys';
-import type { AppColor } from '@common/types/theme';
+import type { ThemeAppColor } from '@common/types';
 
-const useGetColor = (defaultColor: AppColor): AppColor => {
+const useGetColor = (defaultColor: ThemeAppColor): ThemeAppColor => {
 	const handleSetColorMode = (): void => {
 		localStorage.removeItem(__KEY_LOCALSTORAGE_APP_COLOR__);
 		localStorage.setItem(__KEY_LOCALSTORAGE_APP_COLOR__, defaultColor);

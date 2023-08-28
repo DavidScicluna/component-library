@@ -1,6 +1,13 @@
-import type { HeightObj, MaxHeightObj, MaxWidthObj, MinHeightObj, MinWidthObj, WidthObj } from '@common/types/classes';
+import type {
+	HeightClassObj,
+	MaxHeightClassObj,
+	MaxWidthClassObj,
+	MinHeightClassObj,
+	MinWidthClassObj,
+	WidthClassObj
+} from '@common/types';
 
-const width: WidthObj = {
+const width: WidthClassObj = {
 	'auto': 'w-auto',
 	'1/2': 'w-1/2',
 	'1/3': 'w-1/3',
@@ -135,7 +142,7 @@ const width: WidthObj = {
 	24.75: 'w-24.75'
 };
 
-const min_width: MinWidthObj = {
+const min_width: MinWidthClassObj = {
 	0: 'min-w-0',
 	full: 'min-w-full',
 	min: 'min-w-min',
@@ -143,7 +150,7 @@ const min_width: MinWidthObj = {
 	fit: 'min-w-fit'
 };
 
-const max_width: MaxWidthObj = {
+const max_width: MaxWidthClassObj = {
 	0: 'max-w-0',
 	'full': 'max-w-full',
 	'min': 'max-w-min',
@@ -164,7 +171,7 @@ const max_width: MaxWidthObj = {
 	'prose': 'max-w-prose'
 };
 
-const height: HeightObj = {
+const height: HeightClassObj = {
 	'auto': 'h-auto',
 	'1/2': 'h-1/2',
 	'1/3': 'h-1/3',
@@ -288,7 +295,7 @@ const height: HeightObj = {
 	24.75: 'h-24.75'
 };
 
-const min_height: MinHeightObj = {
+const min_height: MinHeightClassObj = {
 	0: 'min-h-0',
 	full: 'min-h-full',
 	screen: 'min-h-screen',
@@ -297,7 +304,7 @@ const min_height: MinHeightObj = {
 	fit: 'min-h-fit'
 };
 
-const max_height: MaxHeightObj = {
+const max_height: MaxHeightClassObj = {
 	0: 'max-h-0',
 	none: 'max-h-none',
 	full: 'max-h-full',

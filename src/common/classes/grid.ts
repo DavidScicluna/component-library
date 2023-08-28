@@ -1,21 +1,21 @@
 import type {
-	AlignContentObj,
-	AlignItemsObj,
-	AlignSelfObj,
-	GridAutoFlowObj,
-	GridAutoObj,
-	GridColumnSpanObj,
-	GridColumnStartEndObj,
-	GridRowSpanObj,
-	GridRowStartEndObj,
-	GridTemplateColumnsObj,
-	GridTemplateRowsObj,
-	JustifyContentObj,
-	JustifyItemsObj,
-	JustifySelfObj
-} from '@common/types/classes';
+	AlignContentClassObj,
+	AlignItemsClassObj,
+	AlignSelfClassObj,
+	GridAutoClassObj,
+	GridAutoFlowClassObj,
+	GridColumnSpanClassObj,
+	GridColumnStartEndClassObj,
+	GridRowSpanClassObj,
+	GridRowStartEndClassObj,
+	GridTemplateColumnsClassObj,
+	GridTemplateRowsClassObj,
+	JustifyContentClassObj,
+	JustifyItemsClassObj,
+	JustifySelfClassObj
+} from '@common/types';
 
-const align_content: AlignContentObj = {
+const align_content: AlignContentClassObj = {
 	normal: 'content-normal',
 	center: 'content-center',
 	start: 'content-start',
@@ -27,7 +27,7 @@ const align_content: AlignContentObj = {
 	stretch: 'content-stretch'
 };
 
-const align_items: AlignItemsObj = {
+const align_items: AlignItemsClassObj = {
 	'flex-start': 'items-start',
 	'flex-end': 'items-end',
 	'center': 'items-center',
@@ -35,7 +35,7 @@ const align_items: AlignItemsObj = {
 	'stretch': 'items-stretch'
 };
 
-const align_self: AlignSelfObj = {
+const align_self: AlignSelfClassObj = {
 	center: 'self-center',
 	start: 'self-start',
 	end: 'self-end',
@@ -44,14 +44,14 @@ const align_self: AlignSelfObj = {
 	auto: 'self-auto'
 };
 
-const auto_columns: GridAutoObj = {
+const auto_columns: GridAutoClassObj = {
 	auto: 'auto-cols-auto',
 	min: 'auto-cols-min',
 	max: 'auto-cols-max',
 	fr: 'auto-cols-fr'
 };
 
-const auto_flow: GridAutoFlowObj = {
+const auto_flow: GridAutoFlowClassObj = {
 	'col': 'grid-flow-col',
 	'row': 'grid-flow-row',
 	'dense': 'grid-flow-dense',
@@ -59,14 +59,14 @@ const auto_flow: GridAutoFlowObj = {
 	'col-dense': 'grid-flow-col-dense'
 };
 
-const auto_rows: GridAutoObj = {
+const auto_rows: GridAutoClassObj = {
 	auto: 'auto-rows-auto',
 	min: 'auto-rows-min',
 	max: 'auto-rows-max',
 	fr: 'auto-rows-fr'
 };
 
-const column_span: GridColumnSpanObj = {
+const column_span: GridColumnSpanClassObj = {
 	1: 'col-span-1',
 	2: 'col-span-2',
 	3: 'col-span-3',
@@ -83,7 +83,7 @@ const column_span: GridColumnSpanObj = {
 	full: 'col-span-full'
 };
 
-const column_start: GridColumnStartEndObj = {
+const column_start: GridColumnStartEndClassObj = {
 	1: 'col-start-1',
 	2: 'col-start-2',
 	3: 'col-start-3',
@@ -100,7 +100,7 @@ const column_start: GridColumnStartEndObj = {
 	auto: 'col-start-auto'
 };
 
-const column_end: GridColumnStartEndObj = {
+const column_end: GridColumnStartEndClassObj = {
 	1: 'col-end-1',
 	2: 'col-end-2',
 	3: 'col-end-3',
@@ -117,7 +117,7 @@ const column_end: GridColumnStartEndObj = {
 	auto: 'col-end-auto'
 };
 
-const justify_content: JustifyContentObj = {
+const justify_content: JustifyContentClassObj = {
 	'normal': 'justify-normal',
 	'flex-start': 'justify-start',
 	'flex-end': 'justify-end',
@@ -128,14 +128,14 @@ const justify_content: JustifyContentObj = {
 	'stretch': 'justify-stretch'
 };
 
-const justify_items: JustifyItemsObj = {
+const justify_items: JustifyItemsClassObj = {
 	center: 'justify-items-center',
 	start: 'justify-items-start',
 	end: 'justify-items-end',
 	stretch: 'justify-items-stretch'
 };
 
-const justify_self: JustifySelfObj = {
+const justify_self: JustifySelfClassObj = {
 	center: 'justify-self-center',
 	start: 'justify-self-start',
 	end: 'justify-self-end',
@@ -143,7 +143,7 @@ const justify_self: JustifySelfObj = {
 	auto: 'justify-self-auto'
 };
 
-const row_span: GridRowSpanObj = {
+const row_span: GridRowSpanClassObj = {
 	1: 'row-span-1',
 	2: 'row-span-2',
 	3: 'row-span-3',
@@ -154,7 +154,7 @@ const row_span: GridRowSpanObj = {
 	full: 'row-span-full'
 };
 
-const row_start: GridRowStartEndObj = {
+const row_start: GridRowStartEndClassObj = {
 	1: 'row-start-1',
 	2: 'row-start-2',
 	3: 'row-start-3',
@@ -165,7 +165,7 @@ const row_start: GridRowStartEndObj = {
 	auto: 'row-start-auto'
 };
 
-const row_end: GridRowStartEndObj = {
+const row_end: GridRowStartEndClassObj = {
 	1: 'row-end-1',
 	2: 'row-end-2',
 	3: 'row-end-3',
@@ -176,7 +176,7 @@ const row_end: GridRowStartEndObj = {
 	auto: 'row-end-auto'
 };
 
-const template_columns: GridTemplateColumnsObj = {
+const template_columns: GridTemplateColumnsClassObj = {
 	1: 'grid-cols-1',
 	2: 'grid-cols-2',
 	3: 'grid-cols-3',
@@ -192,7 +192,7 @@ const template_columns: GridTemplateColumnsObj = {
 	none: 'grid-cols-none'
 };
 
-const template_rows: GridTemplateRowsObj = {
+const template_rows: GridTemplateRowsClassObj = {
 	1: 'grid-rows-1',
 	2: 'grid-rows-2',
 	3: 'grid-rows-3',

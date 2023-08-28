@@ -58,9 +58,9 @@ import type {
 	GridColumnSpanClass,
 	GridColumnSpanClassArr,
 	GridColumnSpanClassObj,
-	GridColumnStartEnd,
-	GridColumnStartEndArr,
-	GridColumnStartEndObj,
+	GridColumnStartEndClass,
+	GridColumnStartEndClassArr,
+	GridColumnStartEndClassObj,
 	GridRowClass,
 	GridRowClassArr,
 	GridRowClassObj,
@@ -223,7 +223,7 @@ import type {
 	ThemeWordBreakArr,
 	ThemeWordBreakObj
 } from './theme';
-import type { PickFrom } from './utility';
+import type { Nullish, PickFrom, Undefinable } from './utility';
 
 export type {
 	AlignContentClass,
@@ -290,9 +290,9 @@ export type {
 	GridColumnSpanClass,
 	GridColumnSpanClassArr,
 	GridColumnSpanClassObj,
-	GridColumnStartEnd,
-	GridColumnStartEndArr,
-	GridColumnStartEndObj,
+	GridColumnStartEndClass,
+	GridColumnStartEndClassArr,
+	GridColumnStartEndClassObj,
 	GridRowClass,
 	GridRowClassArr,
 	GridRowClassObj,
@@ -334,6 +334,7 @@ export type {
 	MinWidthClass,
 	MinWidthClassArr,
 	MinWidthClassObj,
+	Nullish,
 	OpacityClass,
 	OpacityClassArr,
 	OpacityClassObj,
@@ -442,6 +443,7 @@ export type {
 	ThemeWordBreak,
 	ThemeWordBreakArr,
 	ThemeWordBreakObj,
+	Undefinable,
 	UserSelectClass,
 	UserSelectClassArr,
 	UserSelectClassObj,

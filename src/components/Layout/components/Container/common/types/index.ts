@@ -1,11 +1,10 @@
 import type { ElementType } from 'react';
 
-import type { ResponsiveValue } from '@common/types';
-import type { Breakpoint } from '@common/types/theme';
+import type { ResponsiveValue, ThemeBreakpoint } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
-export type ContainerBreakpoint = Exclude<Breakpoint, 'xs'>;
+export type ContainerBreakpoint = Exclude<ThemeBreakpoint, 'xs'>;
 export type ContainerBreakpoints = Array<ContainerBreakpoint>;
 
 type ContainerOtherProps = {

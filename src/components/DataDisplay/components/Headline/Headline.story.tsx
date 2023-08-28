@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography/components/Text';

@@ -7,6 +7,8 @@ import { useDividerClasses, useDividerStyles } from './common/hooks';
 import type {
 	DividerDefaultElement,
 	DividerElement,
+	DividerOrientation,
+	DividerOrientations,
 	DividerPlacement,
 	DividerProps,
 	DividerRef,
@@ -28,4 +30,13 @@ export { useDividerClasses, useDividerStyles };
 export { Divider };
 
 // Component Types
-export type { DividerDefaultElement, DividerElement, DividerPlacement, DividerProps, DividerRef, DividerVariant };
+export type {
+	DividerDefaultElement,
+	DividerElement,
+	DividerOrientation,
+	DividerOrientations,
+	DividerPlacement,
+	DividerProps,
+	DividerRef,
+	DividerVariant
+};

@@ -6,7 +6,7 @@ import type { Transition } from 'framer-motion';
 
 import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useConst } from '@common/hooks';
-import type { AnimationConfig } from '@common/types/animation';
+import type { AnimationConfig } from '@common/types';
 import { getAnimationConfig, getAnimationDuration } from '@common/utils/animation';
 
 import { Fade } from '@components/Animation';

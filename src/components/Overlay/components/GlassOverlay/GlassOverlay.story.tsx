@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
+import type { BackdropBlurClassArr, PolymorphicDefaultElement } from '@common/types';
 
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography/components/Text';
@@ -17,13 +17,13 @@ import {
 	__DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__,
 	__DEFAULT_GLASS_OVERLAY_IS_BACKDROP__
 } from './common/constants';
-import type { GlassOverlayBlur, GlassOverlayProps } from './common/types';
+import type { GlassOverlayProps } from './common/types';
 import type { GlassOverlayStory, GlassOverlayStoryMeta } from './common/types/story';
 import { GlassOverlay as GlassOverlayComponent } from '.';
 
 export default {
 	title: 'Overlay/GlassOverlay',
-	component: GlassOverlayoCmponent,
+	component: GlassOverlayComponent,
 	argTypes: {
 		blur: {
 			name: 'Blur',
@@ -45,7 +45,7 @@ export default {
 				'7xl',
 				'8xl',
 				'9xl'
-			] as Array<GlassOverlayBlur>,
+			] as BackdropBlurClassArr,
 			control: { type: 'radio' }
 		},
 		isBackdrop: {

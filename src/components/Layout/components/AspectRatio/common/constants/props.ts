@@ -1,3 +1,3 @@
-import type { AspectRatio } from '@common/types/theme';
+import type { ThemeAspectRatio } from '@common/types';
 
-export const __DEFAULT_ASPECT_RATIO_RATIO__: AspectRatio = 'square';
+export const __DEFAULT_ASPECT_RATIO_RATIO__: ThemeAspectRatio = 'square';

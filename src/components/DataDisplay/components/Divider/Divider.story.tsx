@@ -1,8 +1,7 @@
 import type { ReactElement } from 'react';
 
 import { __DEFAULT_BORDER_WIDTH__, __DEFAULT_SPACING__ } from '@common/constants';
-import type { Orientations } from '@common/types';
-import type { BorderWidthArr } from '@common/types/theme';
+import type { ThemeBorderWidthArr } from '@common/types';
 
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
@@ -12,7 +11,13 @@ import {
 	__DEFAULT_DIVIDER_PLACEMENT__,
 	__DEFAULT_DIVIDER_VARIANT__
 } from './common/constants';
-import type { DividerDefaultElement, DividerPlacement, DividerProps, DividerVariant } from './common/types';
+import type {
+	DividerDefaultElement,
+	DividerOrientations,
+	DividerPlacement,
+	DividerProps,
+	DividerVariant
+} from './common/types';
 import type { DividerStory, DividerStoryMeta } from './common/types/story';
 import { Divider as DividerComponent } from '.';
 
@@ -25,7 +30,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_DIVIDER_ORIENTATION__,
 			// description: '',
-			options: ['vertical', 'horizontal'] as Orientations,
+			options: ['vertical', 'horizontal'] as DividerOrientations,
 			control: { type: 'radio' }
 		},
 		placement: {
@@ -41,7 +46,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_BORDER_WIDTH__,
 			// description: '',
-			options: [0, 1, 2, 4, 8] as BorderWidthArr,
+			options: [0, 1, 2, 4, 8] as ThemeBorderWidthArr,
 			control: { type: 'radio' }
 		},
 		spacing: {

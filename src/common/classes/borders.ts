@@ -1,7 +1,14 @@
-import type { BorderStyleObj, OutlineOffsetObj, OutlineStyleObj, OutlineWidthObj } from '@common/types/classes';
-import type { BorderWidthObj, ColorsObj, RadiiObj } from '@common/types/theme';
+import type {
+	BorderStyleClassObj,
+	OutlineOffsetClassObj,
+	OutlineStyleClassObj,
+	OutlineWidthClassObj,
+	ThemeBorderWidthObj,
+	ThemeColorObj,
+	ThemeRadiusObj
+} from '@common/types';
 
-const border_width: BorderWidthObj = {
+const border_width: ThemeBorderWidthObj = {
 	0: 'border-0',
 	1: 'border',
 	2: 'border-2',
@@ -13,7 +20,7 @@ const border_width: BorderWidthObj = {
 	8: 'border-8'
 };
 
-const hover_border_width: BorderWidthObj = {
+const hover_border_width: ThemeBorderWidthObj = {
 	0: 'hover:border-0',
 	1: 'hover:border',
 	2: 'hover:border-2',
@@ -25,7 +32,7 @@ const hover_border_width: BorderWidthObj = {
 	8: 'hover:border-8'
 };
 
-const focus_border_width: BorderWidthObj = {
+const focus_border_width: ThemeBorderWidthObj = {
 	0: 'focus:border-0',
 	1: 'focus:border',
 	2: 'focus:border-2',
@@ -37,7 +44,7 @@ const focus_border_width: BorderWidthObj = {
 	8: 'focus:border-8'
 };
 
-const active_border_width: BorderWidthObj = {
+const active_border_width: ThemeBorderWidthObj = {
 	0: 'active:border-0',
 	1: 'active:border',
 	2: 'active:border-2',
@@ -49,7 +56,7 @@ const active_border_width: BorderWidthObj = {
 	8: 'active:border-8'
 };
 
-const before_border_width: BorderWidthObj = {
+const before_border_width: ThemeBorderWidthObj = {
 	0: 'before:border-0',
 	1: 'before:border',
 	2: 'before:border-2',
@@ -61,7 +68,7 @@ const before_border_width: BorderWidthObj = {
 	8: 'before:border-8'
 };
 
-const after_border_width: BorderWidthObj = {
+const after_border_width: ThemeBorderWidthObj = {
 	0: 'after:border-0',
 	1: 'after:border',
 	2: 'after:border-2',
@@ -73,7 +80,7 @@ const after_border_width: BorderWidthObj = {
 	8: 'after:border-8'
 };
 
-const border_x_width: BorderWidthObj = {
+const border_x_width: ThemeBorderWidthObj = {
 	0: 'border-x-0',
 	1: 'border-x',
 	2: 'border-x-2',
@@ -85,7 +92,7 @@ const border_x_width: BorderWidthObj = {
 	8: 'border-x-8'
 };
 
-const hover_border_x_width: BorderWidthObj = {
+const hover_border_x_width: ThemeBorderWidthObj = {
 	0: 'hover:border-x-0',
 	1: 'hover:border-x',
 	2: 'hover:border-x-2',
@@ -97,7 +104,7 @@ const hover_border_x_width: BorderWidthObj = {
 	8: 'hover:border-x-8'
 };
 
-const focus_border_x_width: BorderWidthObj = {
+const focus_border_x_width: ThemeBorderWidthObj = {
 	0: 'focus:border-x-0',
 	1: 'focus:border-x',
 	2: 'focus:border-x-2',
@@ -109,7 +116,7 @@ const focus_border_x_width: BorderWidthObj = {
 	8: 'focus:border-x-8'
 };
 
-const active_border_x_width: BorderWidthObj = {
+const active_border_x_width: ThemeBorderWidthObj = {
 	0: 'active:border-x-0',
 	1: 'active:border-x',
 	2: 'active:border-x-2',
@@ -121,7 +128,7 @@ const active_border_x_width: BorderWidthObj = {
 	8: 'active:border-x-8'
 };
 
-const before_border_x_width: BorderWidthObj = {
+const before_border_x_width: ThemeBorderWidthObj = {
 	0: 'before:border-x-0',
 	1: 'before:border-x',
 	2: 'before:border-x-2',
@@ -133,7 +140,7 @@ const before_border_x_width: BorderWidthObj = {
 	8: 'before:border-x-8'
 };
 
-const after_border_x_width: BorderWidthObj = {
+const after_border_x_width: ThemeBorderWidthObj = {
 	0: 'after:border-x-0',
 	1: 'after:border-x',
 	2: 'after:border-x-2',
@@ -145,7 +152,7 @@ const after_border_x_width: BorderWidthObj = {
 	8: 'after:border-x-8'
 };
 
-const border_y_width: BorderWidthObj = {
+const border_y_width: ThemeBorderWidthObj = {
 	0: 'border-y-0',
 	1: 'border-y',
 	2: 'border-y-2',
@@ -157,7 +164,7 @@ const border_y_width: BorderWidthObj = {
 	8: 'border-y-8'
 };
 
-const hover_border_y_width: BorderWidthObj = {
+const hover_border_y_width: ThemeBorderWidthObj = {
 	0: 'hover:border-y-0',
 	1: 'hover:border-y',
 	2: 'hover:border-y-2',
@@ -169,7 +176,7 @@ const hover_border_y_width: BorderWidthObj = {
 	8: 'hover:border-y-8'
 };
 
-const focus_border_y_width: BorderWidthObj = {
+const focus_border_y_width: ThemeBorderWidthObj = {
 	0: 'focus:border-y-0',
 	1: 'focus:border-y',
 	2: 'focus:border-y-2',
@@ -181,7 +188,7 @@ const focus_border_y_width: BorderWidthObj = {
 	8: 'focus:border-y-8'
 };
 
-const active_border_y_width: BorderWidthObj = {
+const active_border_y_width: ThemeBorderWidthObj = {
 	0: 'active:border-y-0',
 	1: 'active:border-y',
 	2: 'active:border-y-2',
@@ -193,7 +200,7 @@ const active_border_y_width: BorderWidthObj = {
 	8: 'active:border-y-8'
 };
 
-const before_border_y_width: BorderWidthObj = {
+const before_border_y_width: ThemeBorderWidthObj = {
 	0: 'before:border-y-0',
 	1: 'before:border-y',
 	2: 'before:border-y-2',
@@ -205,7 +212,7 @@ const before_border_y_width: BorderWidthObj = {
 	8: 'before:border-y-8'
 };
 
-const after_border_y_width: BorderWidthObj = {
+const after_border_y_width: ThemeBorderWidthObj = {
 	0: 'after:border-y-0',
 	1: 'after:border-y',
 	2: 'after:border-y-2',
@@ -217,7 +224,7 @@ const after_border_y_width: BorderWidthObj = {
 	8: 'after:border-y-8'
 };
 
-const border_l_width: BorderWidthObj = {
+const border_l_width: ThemeBorderWidthObj = {
 	0: 'border-l-0',
 	1: 'border-l',
 	2: 'border-l-2',
@@ -229,7 +236,7 @@ const border_l_width: BorderWidthObj = {
 	8: 'border-l-8'
 };
 
-const hover_border_l_width: BorderWidthObj = {
+const hover_border_l_width: ThemeBorderWidthObj = {
 	0: 'hover:border-l-0',
 	1: 'hover:border-l',
 	2: 'hover:border-l-2',
@@ -241,7 +248,7 @@ const hover_border_l_width: BorderWidthObj = {
 	8: 'hover:border-l-8'
 };
 
-const focus_border_l_width: BorderWidthObj = {
+const focus_border_l_width: ThemeBorderWidthObj = {
 	0: 'focus:border-l-0',
 	1: 'focus:border-l',
 	2: 'focus:border-l-2',
@@ -253,7 +260,7 @@ const focus_border_l_width: BorderWidthObj = {
 	8: 'focus:border-l-8'
 };
 
-const active_border_l_width: BorderWidthObj = {
+const active_border_l_width: ThemeBorderWidthObj = {
 	0: 'active:border-l-0',
 	1: 'active:border-l',
 	2: 'active:border-l-2',
@@ -265,7 +272,7 @@ const active_border_l_width: BorderWidthObj = {
 	8: 'active:border-l-8'
 };
 
-const before_border_l_width: BorderWidthObj = {
+const before_border_l_width: ThemeBorderWidthObj = {
 	0: 'before:border-l-0',
 	1: 'before:border-l',
 	2: 'before:border-l-2',
@@ -277,7 +284,7 @@ const before_border_l_width: BorderWidthObj = {
 	8: 'before:border-l-8'
 };
 
-const after_border_l_width: BorderWidthObj = {
+const after_border_l_width: ThemeBorderWidthObj = {
 	0: 'afterborder-l-0',
 	1: 'afterborder-l',
 	2: 'afterborder-l-2',
@@ -289,7 +296,7 @@ const after_border_l_width: BorderWidthObj = {
 	8: 'afterborder-l-8'
 };
 
-const border_t_width: BorderWidthObj = {
+const border_t_width: ThemeBorderWidthObj = {
 	0: 'border-t-0',
 	1: 'border-t',
 	2: 'border-t-2',
@@ -301,7 +308,7 @@ const border_t_width: BorderWidthObj = {
 	8: 'border-t-8'
 };
 
-const hover_border_t_width: BorderWidthObj = {
+const hover_border_t_width: ThemeBorderWidthObj = {
 	0: 'hover:border-t-0',
 	1: 'hover:border-t',
 	2: 'hover:border-t-2',
@@ -313,7 +320,7 @@ const hover_border_t_width: BorderWidthObj = {
 	8: 'hover:border-t-8'
 };
 
-const focus_border_t_width: BorderWidthObj = {
+const focus_border_t_width: ThemeBorderWidthObj = {
 	0: 'focus:border-t-0',
 	1: 'focus:border-t',
 	2: 'focus:border-t-2',
@@ -325,7 +332,7 @@ const focus_border_t_width: BorderWidthObj = {
 	8: 'focus:border-t-8'
 };
 
-const active_border_t_width: BorderWidthObj = {
+const active_border_t_width: ThemeBorderWidthObj = {
 	0: 'active:border-t-0',
 	1: 'active:border-t',
 	2: 'active:border-t-2',
@@ -337,7 +344,7 @@ const active_border_t_width: BorderWidthObj = {
 	8: 'active:border-t-8'
 };
 
-const before_border_t_width: BorderWidthObj = {
+const before_border_t_width: ThemeBorderWidthObj = {
 	0: 'before:border-t-0',
 	1: 'before:border-t',
 	2: 'before:border-t-2',
@@ -349,7 +356,7 @@ const before_border_t_width: BorderWidthObj = {
 	8: 'before:border-t-8'
 };
 
-const after_border_t_width: BorderWidthObj = {
+const after_border_t_width: ThemeBorderWidthObj = {
 	0: 'after:border-t-0',
 	1: 'after:border-t',
 	2: 'after:border-t-2',
@@ -361,7 +368,7 @@ const after_border_t_width: BorderWidthObj = {
 	8: 'after:border-t-8'
 };
 
-const border_r_width: BorderWidthObj = {
+const border_r_width: ThemeBorderWidthObj = {
 	0: 'border-r-0',
 	1: 'border-r',
 	2: 'border-r-2',
@@ -373,7 +380,7 @@ const border_r_width: BorderWidthObj = {
 	8: 'border-r-8'
 };
 
-const hover_border_r_width: BorderWidthObj = {
+const hover_border_r_width: ThemeBorderWidthObj = {
 	0: 'hover:border-r-0',
 	1: 'hover:border-r',
 	2: 'hover:border-r-2',
@@ -385,7 +392,7 @@ const hover_border_r_width: BorderWidthObj = {
 	8: 'hover:border-r-8'
 };
 
-const focus_border_r_width: BorderWidthObj = {
+const focus_border_r_width: ThemeBorderWidthObj = {
 	0: 'focus:border-r-0',
 	1: 'focus:border-r',
 	2: 'focus:border-r-2',
@@ -397,7 +404,7 @@ const focus_border_r_width: BorderWidthObj = {
 	8: 'focus:border-r-8'
 };
 
-const active_border_r_width: BorderWidthObj = {
+const active_border_r_width: ThemeBorderWidthObj = {
 	0: 'active:border-r-0',
 	1: 'active:border-r',
 	2: 'active:border-r-2',
@@ -409,7 +416,7 @@ const active_border_r_width: BorderWidthObj = {
 	8: 'active:border-r-8'
 };
 
-const before_border_r_width: BorderWidthObj = {
+const before_border_r_width: ThemeBorderWidthObj = {
 	0: 'before:border-r-0',
 	1: 'before:border-r',
 	2: 'before:border-r-2',
@@ -421,7 +428,7 @@ const before_border_r_width: BorderWidthObj = {
 	8: 'before:border-r-8'
 };
 
-const after_border_r_width: BorderWidthObj = {
+const after_border_r_width: ThemeBorderWidthObj = {
 	0: 'after:border-r-0',
 	1: 'after:border-r',
 	2: 'after:border-r-2',
@@ -433,7 +440,7 @@ const after_border_r_width: BorderWidthObj = {
 	8: 'after:border-r-8'
 };
 
-const border_b_width: BorderWidthObj = {
+const border_b_width: ThemeBorderWidthObj = {
 	0: 'border-b-0',
 	1: 'border-b',
 	2: 'border-b-2',
@@ -445,7 +452,7 @@ const border_b_width: BorderWidthObj = {
 	8: 'border-b-8'
 };
 
-const hover_border_b_width: BorderWidthObj = {
+const hover_border_b_width: ThemeBorderWidthObj = {
 	0: 'hover:border-b-0',
 	1: 'hover:border-b',
 	2: 'hover:border-b-2',
@@ -457,7 +464,7 @@ const hover_border_b_width: BorderWidthObj = {
 	8: 'hover:border-b-8'
 };
 
-const focus_border_b_width: BorderWidthObj = {
+const focus_border_b_width: ThemeBorderWidthObj = {
 	0: 'focus:border-b-0',
 	1: 'focus:border-b',
 	2: 'focus:border-b-2',
@@ -469,7 +476,7 @@ const focus_border_b_width: BorderWidthObj = {
 	8: 'focus:border-b-8'
 };
 
-const active_border_b_width: BorderWidthObj = {
+const active_border_b_width: ThemeBorderWidthObj = {
 	0: 'active:border-b-0',
 	1: 'active:border-b',
 	2: 'active:border-b-2',
@@ -481,7 +488,7 @@ const active_border_b_width: BorderWidthObj = {
 	8: 'active:border-b-8'
 };
 
-const before_border_b_width: BorderWidthObj = {
+const before_border_b_width: ThemeBorderWidthObj = {
 	0: 'before:border-b-0',
 	1: 'before:border-b',
 	2: 'before:border-b-2',
@@ -493,7 +500,7 @@ const before_border_b_width: BorderWidthObj = {
 	8: 'before:border-b-8'
 };
 
-const after_border_b_width: BorderWidthObj = {
+const after_border_b_width: ThemeBorderWidthObj = {
 	0: 'after:border-b-0',
 	1: 'after:border-b',
 	2: 'after:border-b-2',
@@ -505,7 +512,7 @@ const after_border_b_width: BorderWidthObj = {
 	8: 'after:border-b-8'
 };
 
-const border_style: BorderStyleObj = {
+const border_style: BorderStyleClassObj = {
 	solid: 'border-solid',
 	dashed: 'border-dashed',
 	dotted: 'border-dotted',
@@ -514,7 +521,7 @@ const border_style: BorderStyleObj = {
 	none: 'border-none'
 };
 
-const border_color: ColorsObj = {
+const border_color: ThemeColorObj = {
 	transparent: 'border-transparent',
 	black: 'border-black',
 	white: 'border-white',
@@ -728,7 +735,7 @@ const border_color: ColorsObj = {
 	}
 };
 
-const hover_border_color: ColorsObj = {
+const hover_border_color: ThemeColorObj = {
 	transparent: 'hover:border-transparent',
 	black: 'hover:border-black',
 	white: 'hover:border-white',
@@ -942,7 +949,7 @@ const hover_border_color: ColorsObj = {
 	}
 };
 
-const focus_border_color: ColorsObj = {
+const focus_border_color: ThemeColorObj = {
 	transparent: 'focus:border-transparent',
 	black: 'focus:border-black',
 	white: 'focus:border-white',
@@ -1156,7 +1163,7 @@ const focus_border_color: ColorsObj = {
 	}
 };
 
-const active_border_color: ColorsObj = {
+const active_border_color: ThemeColorObj = {
 	transparent: 'active:border-transparent',
 	black: 'active:border-black',
 	white: 'active:border-white',
@@ -1370,7 +1377,7 @@ const active_border_color: ColorsObj = {
 	}
 };
 
-const before_border_color: ColorsObj = {
+const before_border_color: ThemeColorObj = {
 	transparent: 'before:border-transparent',
 	black: 'before:border-black',
 	white: 'before:border-white',
@@ -1584,7 +1591,7 @@ const before_border_color: ColorsObj = {
 	}
 };
 
-const after_border_color: ColorsObj = {
+const after_border_color: ThemeColorObj = {
 	transparent: 'after:border-transparent',
 	black: 'after:border-black',
 	white: 'after:border-white',
@@ -1798,7 +1805,7 @@ const after_border_color: ColorsObj = {
 	}
 };
 
-const border_radius: RadiiObj = {
+const border_radius: ThemeRadiusObj = {
 	none: 'rounded-none',
 	xs: 'rounded-xs',
 	sm: 'rounded-sm',
@@ -1808,7 +1815,7 @@ const border_radius: RadiiObj = {
 	full: 'rounded-full'
 };
 
-const outline_width: OutlineWidthObj = {
+const outline_width: OutlineWidthClassObj = {
 	0: 'outline-0',
 	1: 'outline-1',
 	2: 'outline-2',
@@ -1816,7 +1823,7 @@ const outline_width: OutlineWidthObj = {
 	8: 'outline-8'
 };
 
-const hover_outline_width: OutlineWidthObj = {
+const hover_outline_width: OutlineWidthClassObj = {
 	0: 'hover:outline-0',
 	1: 'hover:outline-1',
 	2: 'hover:outline-2',
@@ -1824,7 +1831,7 @@ const hover_outline_width: OutlineWidthObj = {
 	8: 'hover:outline-8'
 };
 
-const focus_outline_width: OutlineWidthObj = {
+const focus_outline_width: OutlineWidthClassObj = {
 	0: 'focus:outline-0',
 	1: 'focus:outline-1',
 	2: 'focus:outline-2',
@@ -1832,7 +1839,7 @@ const focus_outline_width: OutlineWidthObj = {
 	8: 'focus:outline-8'
 };
 
-const focus_visible_outline_width: OutlineWidthObj = {
+const focus_visible_outline_width: OutlineWidthClassObj = {
 	0: 'focus-visible:outline-0',
 	1: 'focus-visible:outline-1',
 	2: 'focus-visible:outline-2',
@@ -1840,7 +1847,7 @@ const focus_visible_outline_width: OutlineWidthObj = {
 	8: 'focus-visible:outline-8'
 };
 
-const active_outline_width: OutlineWidthObj = {
+const active_outline_width: OutlineWidthClassObj = {
 	0: 'active:outline-0',
 	1: 'active:outline-1',
 	2: 'active:outline-2',
@@ -1848,7 +1855,7 @@ const active_outline_width: OutlineWidthObj = {
 	8: 'active:outline-8'
 };
 
-const before_outline_width: OutlineWidthObj = {
+const before_outline_width: OutlineWidthClassObj = {
 	0: 'before:outline-0',
 	1: 'before:outline-1',
 	2: 'before:outline-2',
@@ -1856,7 +1863,7 @@ const before_outline_width: OutlineWidthObj = {
 	8: 'before:outline-8'
 };
 
-const after_outline_width: OutlineWidthObj = {
+const after_outline_width: OutlineWidthClassObj = {
 	0: 'after:outline-0',
 	1: 'after:outline-1',
 	2: 'after:outline-2',
@@ -1864,7 +1871,7 @@ const after_outline_width: OutlineWidthObj = {
 	8: 'after:outline-8'
 };
 
-const outline_style: OutlineStyleObj = {
+const outline_style: OutlineStyleClassObj = {
 	none: 'outline-none',
 	solid: 'outline',
 	dashed: 'outline-dashed',
@@ -1872,7 +1879,7 @@ const outline_style: OutlineStyleObj = {
 	double: 'outline-double'
 };
 
-const hover_outline_style: OutlineStyleObj = {
+const hover_outline_style: OutlineStyleClassObj = {
 	none: 'hover:outline-none',
 	solid: 'hover:outline',
 	dashed: 'hover:outline-dashed',
@@ -1880,7 +1887,7 @@ const hover_outline_style: OutlineStyleObj = {
 	double: 'hover:outline-double'
 };
 
-const focus_outline_style: OutlineStyleObj = {
+const focus_outline_style: OutlineStyleClassObj = {
 	none: 'focus:outline-none',
 	solid: 'focus:outline',
 	dashed: 'focus:outline-dashed',
@@ -1888,7 +1895,7 @@ const focus_outline_style: OutlineStyleObj = {
 	double: 'focus:outline-double'
 };
 
-const focus_visible_outline_style: OutlineStyleObj = {
+const focus_visible_outline_style: OutlineStyleClassObj = {
 	none: 'focus-visible:outline-none',
 	solid: 'focus-visible:outline',
 	dashed: 'focus-visible:outline-dashed',
@@ -1896,7 +1903,7 @@ const focus_visible_outline_style: OutlineStyleObj = {
 	double: 'focus-visible:outline-double'
 };
 
-const active_outline_style: OutlineStyleObj = {
+const active_outline_style: OutlineStyleClassObj = {
 	none: 'active:outline-none',
 	solid: 'active:outline',
 	dashed: 'active:outline-dashed',
@@ -1904,7 +1911,7 @@ const active_outline_style: OutlineStyleObj = {
 	double: 'active:outline-double'
 };
 
-const before_outline_style: OutlineStyleObj = {
+const before_outline_style: OutlineStyleClassObj = {
 	none: 'before:outline-none',
 	solid: 'before:outline',
 	dashed: 'before:outline-dashed',
@@ -1912,7 +1919,7 @@ const before_outline_style: OutlineStyleObj = {
 	double: 'before:outline-double'
 };
 
-const after_outline_style: OutlineStyleObj = {
+const after_outline_style: OutlineStyleClassObj = {
 	none: 'after:outline-none',
 	solid: 'after:outline',
 	dashed: 'after:outline-dashed',
@@ -1920,7 +1927,7 @@ const after_outline_style: OutlineStyleObj = {
 	double: 'after:outline-double'
 };
 
-const outline_offset: OutlineOffsetObj = {
+const outline_offset: OutlineOffsetClassObj = {
 	0: 'outline-offset-0',
 	1: 'outline-offset-1',
 	2: 'outline-offset-2',
@@ -1928,7 +1935,7 @@ const outline_offset: OutlineOffsetObj = {
 	8: 'outline-offset-8'
 };
 
-const outline_color: ColorsObj = {
+const outline_color: ThemeColorObj = {
 	transparent: 'outline-transparent',
 	black: 'outline-black',
 	white: 'outline-white',
@@ -2142,7 +2149,7 @@ const outline_color: ColorsObj = {
 	}
 };
 
-const hover_outline_color: ColorsObj = {
+const hover_outline_color: ThemeColorObj = {
 	transparent: 'hover:outline-transparent',
 	black: 'hover:outline-black',
 	white: 'hover:outline-white',
@@ -2356,7 +2363,7 @@ const hover_outline_color: ColorsObj = {
 	}
 };
 
-const focus_outline_color: ColorsObj = {
+const focus_outline_color: ThemeColorObj = {
 	transparent: 'focus:outline-transparent',
 	black: 'focus:outline-black',
 	white: 'focus:outline-white',
@@ -2570,7 +2577,7 @@ const focus_outline_color: ColorsObj = {
 	}
 };
 
-const active_outline_color: ColorsObj = {
+const active_outline_color: ThemeColorObj = {
 	transparent: 'active:outline-transparent',
 	black: 'active:outline-black',
 	white: 'active:outline-white',
@@ -2784,7 +2791,7 @@ const active_outline_color: ColorsObj = {
 	}
 };
 
-const before_outline_color: ColorsObj = {
+const before_outline_color: ThemeColorObj = {
 	transparent: 'before:outline-transparent',
 	black: 'before:outline-black',
 	white: 'before:outline-white',
@@ -2998,7 +3005,7 @@ const before_outline_color: ColorsObj = {
 	}
 };
 
-const after_outline_color: ColorsObj = {
+const after_outline_color: ThemeColorObj = {
 	transparent: 'after:outline-transparent',
 	black: 'after:outline-black',
 	white: 'after:outline-white',

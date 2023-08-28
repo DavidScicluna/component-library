@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
 import theme from '@common/theme';
-import type { Breakpoint } from '@common/types/theme';
+import type { ThemeBreakpoint } from '@common/types';
 
-type Query = { breakpoint: Breakpoint; type: 'width' | 'height'; direction: 'min' | 'max' } | string;
+type Query = { breakpoint: ThemeBreakpoint; type: 'width' | 'height'; direction: 'min' | 'max' } | string;
 
 const getQuery = (query: Query): string => {
 	if (typeof query === 'string') {

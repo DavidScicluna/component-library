@@ -5,8 +5,7 @@ import classNames from 'classnames';
 import { __DEFAULT_DURATION__, __DEFAULT_EASING__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { __DEFAULT_COLOR__ } from '@common/constants/props';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
-import type { ClassName } from '@common/types';
-import type { Duration, Ease, Radius } from '@common/types/theme';
+import type { ClassName, ThemeDuration, ThemeEase, ThemeRadius } from '@common/types';
 
 import type { SkeletonProps } from '../types';
 
@@ -31,10 +30,10 @@ const useGetSkeletonClasses = <Element extends ElementType>(
 		hueType: 'divider'
 	});
 
-	const radiusClassName = useGetClass<Radius>(radius, ['borders', 'border_radius']);
+	const radiusClassName = useGetClass<ThemeRadius>(radius, ['borders', 'border_radius']);
 
-	const easeClassName = useGetClass<Ease>(__DEFAULT_EASING__, ['transitions', 'ease']);
-	const durationClassName = useGetClass<Duration>(__DEFAULT_DURATION__, ['transitions', 'duration']);
+	const easeClassName = useGetClass<ThemeEase>(__DEFAULT_EASING__, ['transitions', 'ease']);
+	const durationClassName = useGetClass<ThemeDuration>(__DEFAULT_DURATION__, ['transitions', 'duration']);
 
 	return classNames('overflow-hidden', colorClassName, radiusClassName, easeClassName, durationClassName);
 };

@@ -1,8 +1,8 @@
-import type { Duration } from '@common/types/theme';
+import type { ThemeDuration } from '@common/types';
 
 import type { TooltipPlacement } from '../types';
 
-export const __DEFAULT_TOOLTIP_DURATION__: Duration = 'faster';
+export const __DEFAULT_TOOLTIP_DURATION__: ThemeDuration = 'faster';
 
 export const __DEFAULT_TOOLTIP_CLOSE_DELAY__ = 0;
 export const __DEFAULT_TOOLTIP_OPEN_DELAY__ = 0;

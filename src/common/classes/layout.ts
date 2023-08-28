@@ -1,7 +1,12 @@
-import type { PositionObj, ZIndexObj } from '@common/types/classes';
-import type { AspectRatioObj, BreakpointsObj, SpacingObj } from '@common/types/theme';
+import type {
+	PositionClassObj,
+	ThemeAspectRatioObj,
+	ThemeBreakpointObj,
+	ThemeSpacingObj,
+	ZIndexClassObj
+} from '@common/types';
 
-const aspect_ratio: AspectRatioObj = {
+const aspect_ratio: ThemeAspectRatioObj = {
 	auto: 'aspect-auto',
 	square: 'aspect-square',
 	video: 'aspect-video',
@@ -11,7 +16,7 @@ const aspect_ratio: AspectRatioObj = {
 	vertical: 'aspect-vertical'
 };
 
-const container: BreakpointsObj = {
+const container: ThemeBreakpointObj = {
 	'xs': 'max-w-screen-xs',
 	'sm': 'max-w-screen-sm',
 	'md': 'max-w-screen-md',
@@ -20,7 +25,7 @@ const container: BreakpointsObj = {
 	'2xl': 'max-w-screen-2xl'
 };
 
-const position: PositionObj = {
+const position: PositionClassObj = {
 	static: 'static',
 	fixed: 'fixed',
 	absolute: 'absolute',
@@ -28,7 +33,7 @@ const position: PositionObj = {
 	sticky: 'sticky'
 };
 
-const before_position: PositionObj = {
+const before_position: PositionClassObj = {
 	static: 'before:static',
 	fixed: 'before:fixed',
 	absolute: 'before:absolute',
@@ -36,7 +41,7 @@ const before_position: PositionObj = {
 	sticky: 'before:sticky'
 };
 
-const after_position: PositionObj = {
+const after_position: PositionClassObj = {
 	static: 'after:static',
 	fixed: 'after:fixed',
 	absolute: 'after:absolute',
@@ -44,7 +49,7 @@ const after_position: PositionObj = {
 	sticky: 'after:sticky'
 };
 
-const top: SpacingObj = {
+const top: ThemeSpacingObj = {
 	0: 'top-0',
 	0.25: 'top-0.25',
 	0.5: 'top-0.5',
@@ -147,7 +152,7 @@ const top: SpacingObj = {
 	24.75: 'top-24.75'
 };
 
-const before_top: SpacingObj = {
+const before_top: ThemeSpacingObj = {
 	0: 'before:top-0',
 	0.25: 'before:top-0.25',
 	0.5: 'before:top-0.5',
@@ -250,7 +255,7 @@ const before_top: SpacingObj = {
 	24.75: 'before:top-24.75'
 };
 
-const after_top: SpacingObj = {
+const after_top: ThemeSpacingObj = {
 	0: 'after:top-0',
 	0.25: 'after:top-0.25',
 	0.5: 'after:top-0.5',
@@ -353,7 +358,7 @@ const after_top: SpacingObj = {
 	24.75: 'after:top-24.75'
 };
 
-const right: SpacingObj = {
+const right: ThemeSpacingObj = {
 	0: 'right-0',
 	0.25: 'right-0.25',
 	0.5: 'right-0.5',
@@ -456,7 +461,7 @@ const right: SpacingObj = {
 	24.75: 'right-24.75'
 };
 
-const before_right: SpacingObj = {
+const before_right: ThemeSpacingObj = {
 	0: 'before:right-0',
 	0.25: 'before:right-0.25',
 	0.5: 'before:right-0.5',
@@ -559,7 +564,7 @@ const before_right: SpacingObj = {
 	24.75: 'before:right-24.75'
 };
 
-const after_right: SpacingObj = {
+const after_right: ThemeSpacingObj = {
 	0: 'after:right-0',
 	0.25: 'after:right-0.25',
 	0.5: 'after:right-0.5',
@@ -662,7 +667,7 @@ const after_right: SpacingObj = {
 	24.75: 'after:right-24.75'
 };
 
-const bottom: SpacingObj = {
+const bottom: ThemeSpacingObj = {
 	0: 'bottom-0',
 	0.25: 'bottom-0.25',
 	0.5: 'bottom-0.5',
@@ -765,7 +770,7 @@ const bottom: SpacingObj = {
 	24.75: 'bottom-24.75'
 };
 
-const before_bottom: SpacingObj = {
+const before_bottom: ThemeSpacingObj = {
 	0: 'before:bottom-0',
 	0.25: 'before:bottom-0.25',
 	0.5: 'before:bottom-0.5',
@@ -868,7 +873,7 @@ const before_bottom: SpacingObj = {
 	24.75: 'before:bottom-24.75'
 };
 
-const after_bottom: SpacingObj = {
+const after_bottom: ThemeSpacingObj = {
 	0: 'after:bottom-0',
 	0.25: 'after:bottom-0.25',
 	0.5: 'after:bottom-0.5',
@@ -971,7 +976,7 @@ const after_bottom: SpacingObj = {
 	24.75: 'after:bottom-24.75'
 };
 
-const left: SpacingObj = {
+const left: ThemeSpacingObj = {
 	0: 'left-0',
 	0.25: 'left-0.25',
 	0.5: 'left-0.5',
@@ -1074,7 +1079,7 @@ const left: SpacingObj = {
 	24.75: 'left-24.75'
 };
 
-const before_left: SpacingObj = {
+const before_left: ThemeSpacingObj = {
 	0: 'before:left-0',
 	0.25: 'before:left-0.25',
 	0.5: 'before:left-0.5',
@@ -1177,7 +1182,7 @@ const before_left: SpacingObj = {
 	24.75: 'before:left-24.75'
 };
 
-const after_left: SpacingObj = {
+const after_left: ThemeSpacingObj = {
 	0: 'after:left-0',
 	0.25: 'after:left-0.25',
 	0.5: 'after:left-0.5',
@@ -1280,7 +1285,7 @@ const after_left: SpacingObj = {
 	24.75: 'after:left-24.75'
 };
 
-const z_index: ZIndexObj = {
+const z_index: ZIndexClassObj = {
 	0: 'z-0',
 	1: 'z-1',
 	2: 'z-2',

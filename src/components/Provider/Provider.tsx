@@ -14,8 +14,7 @@ import {
 	__DEFAULT_HAS_TWOTONEICON_LOADED__
 } from '@common/constants';
 import { useBoolean, useConst } from '@common/hooks';
-import type { AnimationConfig } from '@common/types/animation';
-import type { AppColor, AppColorMode } from '@common/types/theme';
+import type { AnimationConfig, ThemeAppColor, ThemeAppColorMode } from '@common/types';
 import { getAnimationConfig } from '@common/utils/animation';
 
 import type {
@@ -52,8 +51,8 @@ const Provider: FC<ProviderProps> = (props) => {
 		colorMode: initialColorMode = __DEFAULT_APP_COLORMODE__
 	} = props;
 
-	const [color, setColor] = useState<AppColor>(__DEFAULT_APP_COLOR__);
-	const [colorMode, setColorMode] = useState<AppColorMode>(__DEFAULT_APP_COLORMODE__);
+	const [color, setColor] = useState<ThemeAppColor>(__DEFAULT_APP_COLOR__);
+	const [colorMode, setColorMode] = useState<ThemeAppColorMode>(__DEFAULT_APP_COLORMODE__);
 
 	const [hasFilledIconLoaded, setHasFilledIconLoaded] = useBoolean(__DEFAULT_HAS_FILLEDICON_LOADED__);
 	const [hasOutlinedIconLoaded, setHasOutlinedIconLoaded] = useBoolean(__DEFAULT_HAS_OUTLINEDICON_LOADED__);

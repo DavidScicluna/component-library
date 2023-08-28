@@ -1,7 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { PickFrom, ResponsiveValue } from '@common/types';
-import type { CommonAppThemeProps, Space } from '@common/types/theme';
+import type { PickFrom, ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
@@ -29,7 +28,7 @@ export type ConfirmModalRenderCancelProps<Element extends ConfirmModalElement = 
 export type ConfirmModalDefaultElement = 'dialog';
 export type ConfirmModalElement = PickFrom<ElementType, 'dialog'>;
 
-type ConfirmModalOtherProps = CommonAppThemeProps & {
+type ConfirmModalOtherProps = ThemeAppAppearanceProps & {
 	renderTrigger: (props: ConfirmModalRenderTriggerProps) => ReactNode;
 	renderBackdrop?: (props: ConfirmModalRenderBackdropProps) => ReactNode;
 	renderCancel?: (props: ConfirmModalRenderCancelProps) => ReactNode;
@@ -73,7 +72,7 @@ type ConfirmModalOtherProps = CommonAppThemeProps & {
 	 * @default "xl"
 	 */
 	size?: ResponsiveValue<ConfirmModalSize>;
-	spacing?: ResponsiveValue<Space>;
+	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
 export type ConfirmModalProps<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = Omit<

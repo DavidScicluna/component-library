@@ -1,12 +1,11 @@
 import type { ElementType } from 'react';
 import type { Style } from 'react-loader-spinner/dist/type';
 
-import type { PickFrom } from '@common/types';
-import type { FontSize, Radius } from '@common/types/theme';
+import type { PickFrom, ThemeFontSize, ThemeRadius } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
-export type SpinnerSize = FontSize | number;
+export type SpinnerSize = ThemeFontSize | number;
 
 export type SpinnerVariant =
 	| 'bars'
@@ -35,12 +34,12 @@ export type SpinnerOvalVariant = {
 };
 export type SpinnerPuffVariant = {
 	color: string;
-	radius?: Radius;
+	radius?: ThemeRadius;
 	variant?: PickFrom<SpinnerVariant, 'puff'>;
 };
 export type SpinnerRingsVariant = {
 	color: string;
-	radius?: Radius;
+	radius?: ThemeRadius;
 	variant?: PickFrom<SpinnerVariant, 'rings'>;
 };
 export type SpinnerRotatingLinesVariant = {
@@ -50,12 +49,12 @@ export type SpinnerRotatingLinesVariant = {
 };
 export type SpinnerTailSpinVariant = {
 	color: string;
-	radius?: Radius;
+	radius?: ThemeRadius;
 	variant?: PickFrom<SpinnerVariant, 'tail_spin'>;
 };
 export type SpinnerThreeDotsVariant = {
 	color: string;
-	radius?: Radius;
+	radius?: ThemeRadius;
 	variant?: PickFrom<SpinnerVariant, 'three_dots'>;
 };
 

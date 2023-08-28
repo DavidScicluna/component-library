@@ -1,11 +1,12 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { PickFrom, ResponsiveValue } from '@common/types';
-import type { CommonAppThemeProps, Space } from '@common/types/theme';
+import type { PickFrom, ResponsiveValue, ThemeAppAppearanceProps, ThemeFontSize, ThemeSpacing } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box/common/types';
 
-export type ModalSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | 'full';
+export type ModalSize =
+	| PickFrom<ThemeFontSize, 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl'>
+	| 'full';
 
 export type ModalRenderTriggerProps<Element extends ModalElement = ModalDefaultElement> = {
 	/**
@@ -25,7 +26,7 @@ export type ModalRenderBackdropProps<Element extends ModalElement = ModalDefault
 export type ModalDefaultElement = 'dialog';
 export type ModalElement = PickFrom<ElementType, 'dialog'>;
 
-type ModalOtherProps = CommonAppThemeProps & {
+type ModalOtherProps = ThemeAppAppearanceProps & {
 	renderTrigger: (props: ModalRenderTriggerProps) => ReactNode;
 	renderBackdrop?: (props: ModalRenderBackdropProps) => ReactNode;
 	/**
@@ -68,7 +69,7 @@ type ModalOtherProps = CommonAppThemeProps & {
 	 * @default "xl"
 	 */
 	size?: ResponsiveValue<ModalSize>;
-	spacing?: ResponsiveValue<Space>;
+	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
 export type ModalProps<Element extends ModalElement = ModalDefaultElement> = Omit<

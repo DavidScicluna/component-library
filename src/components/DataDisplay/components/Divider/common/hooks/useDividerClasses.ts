@@ -2,9 +2,7 @@ import classNames from 'classnames';
 
 import { __DEFAULT_BORDER_WIDTH__ } from '@common/constants';
 import { useGetClass, useGetColor } from '@common/hooks';
-import type { ClassName } from '@common/types';
-import type { BorderStyle, JustifyContent } from '@common/types/classes';
-import type { BorderWidth } from '@common/types/theme';
+import type { BorderStyleClass, ClassName, JustifyContentClass, ThemeBorderWidth } from '@common/types';
 
 import {
 	__DEFAULT_DIVIDER_ORIENTATION__,
@@ -31,8 +29,8 @@ const useDividerClasses = <Element extends DividerElement>(
 		variant = __DEFAULT_DIVIDER_VARIANT__
 	} = props;
 
-	const borderLeftWidthClassName = useGetClass<BorderWidth>(size, ['borders', 'border_l_width']);
-	const borderStyleClassName = useGetClass<BorderStyle>(variant, ['borders', 'border_style']);
+	const borderLeftWidthClassName = useGetClass<ThemeBorderWidth>(size, ['borders', 'border_l_width']);
+	const borderStyleClassName = useGetClass<BorderStyleClass>(variant, ['borders', 'border_style']);
 	const borderColorClassName = useGetColor({
 		color,
 		colorMode,
@@ -41,7 +39,7 @@ const useDividerClasses = <Element extends DividerElement>(
 		hueType: 'divider'
 	});
 
-	const justifyContentClassName = useGetClass<JustifyContent>(
+	const justifyContentClassName = useGetClass<JustifyContentClass>(
 		placement === 'left' ? 'flex-start' : placement === 'right' ? 'flex-end' : 'center',
 		['grid', 'justify_content']
 	);

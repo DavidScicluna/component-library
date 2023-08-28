@@ -6,8 +6,12 @@ import { range } from 'lodash-es';
 import classes from '@common/classes';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { AlignItemsArr, FlexWrapArr, JustifyContentArr } from '@common/types/classes';
-import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
+import type {
+	AlignItemsClassArr,
+	FlexWrapClassArr,
+	JustifyContentClassArr,
+	PolymorphicDefaultElement
+} from '@common/types';
 
 import { Center } from '@components/Layout';
 
@@ -30,7 +34,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_STACK_ALIGN_ITEMS__,
 			// description: '',
-			options: ['center', 'baseline', 'flex-start', 'flex-end', 'stretch'] as AlignItemsArr,
+			options: ['center', 'baseline', 'flex-start', 'flex-end', 'stretch'] as AlignItemsClassArr,
 			control: { type: 'radio' }
 		},
 		wrap: {
@@ -38,7 +42,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_STACK_WRAP__,
 			// description: '',
-			options: ['wrap', 'wrap-reverse', 'nowrap'] as FlexWrapArr,
+			options: ['wrap', 'wrap-reverse', 'nowrap'] as FlexWrapClassArr,
 			control: { type: 'radio' }
 		},
 		justifyContent: {
@@ -55,7 +59,7 @@ export default {
 				'space-between',
 				'space-around',
 				'space-evenly'
-			] as JustifyContentArr,
+			] as JustifyContentClassArr,
 			control: { type: 'radio' }
 		},
 		spacing: {

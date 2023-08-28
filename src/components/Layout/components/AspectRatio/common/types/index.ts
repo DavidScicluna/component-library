@@ -1,12 +1,11 @@
 import type { ElementType } from 'react';
 
-import type { ResponsiveValue } from '@common/types';
-import type { AspectRatio } from '@common/types/theme';
+import type { ResponsiveValue, ThemeAspectRatio } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
 type AspectRatioOtherProps = {
-	ratio?: ResponsiveValue<AspectRatio>;
+	ratio?: ResponsiveValue<ThemeAspectRatio>;
 };
 
 export type AspectRatioProps<Element extends ElementType> = BoxProps<Element, AspectRatioOtherProps>;

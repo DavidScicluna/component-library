@@ -1,19 +1,29 @@
-import type { BorderStyle, OutlineOffset, OutlineStyle, OutlineWidth } from '@common/types/classes';
-import type { BorderWidth, Delay, Duration, Ease, Radius, Space } from '@common/types/theme';
+import type {
+	BorderStyleClass,
+	OutlineOffsetClass,
+	OutlineStyleClass,
+	OutlineWidthClass,
+	ThemeBorderWidth,
+	ThemeDelay,
+	ThemeDuration,
+	ThemeEase,
+	ThemeRadius,
+	ThemeSpacing
+} from '@common/types';
 
 export const __DEFAULT_CLASS_PREFIX__ = 'ds-cl';
 
-export const __DEFAULT_BORDER_WIDTH__: BorderWidth = 2;
-export const __DEFAULT_BORDER_STYLE__: BorderStyle = 'solid';
+export const __DEFAULT_BORDER_WIDTH__: ThemeBorderWidth = 2;
+export const __DEFAULT_BORDER_STYLE__: BorderStyleClass = 'solid';
 
-export const __DEFAULT_DELAY__: Delay = 'normal';
-export const __DEFAULT_DURATION__: Duration = 'normal';
-export const __DEFAULT_EASING__: Ease = 'ease-in-out';
+export const __DEFAULT_DELAY__: ThemeDelay = 'normal';
+export const __DEFAULT_DURATION__: ThemeDuration = 'normal';
+export const __DEFAULT_EASING__: ThemeEase = 'ease-in-out';
 
-export const __DEFAULT_OUTLINE_WIDTH__: OutlineWidth = 2;
-export const __DEFAULT_OUTLINE_STYLE__: OutlineStyle = 'dashed';
-export const __DEFAULT_OUTLINE_OFFSET__: OutlineOffset = 4;
+export const __DEFAULT_OUTLINE_WIDTH__: OutlineWidthClass = 2;
+export const __DEFAULT_OUTLINE_STYLE__: OutlineStyleClass = 'dashed';
+export const __DEFAULT_OUTLINE_OFFSET__: OutlineOffsetClass = 4;
 
-export const __DEFAULT_SPACING__: Space = 2;
+export const __DEFAULT_SPACING__: ThemeSpacing = 2;
 
-export const __DEFAULT_RADIUS__: Radius = 'base';
+export const __DEFAULT_RADIUS__: ThemeRadius = 'base';

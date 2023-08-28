@@ -1,16 +1,15 @@
 import { useMemo } from 'react';
 
-import type { ClassType } from '@common/types/classes';
-import type { CommonThemeProps } from '@common/types/theme';
+import type { ColorTypeClass, ThemeAppearanceProps } from '@common/types';
 import type { ColorHueType } from '@common/utils/color';
 import { getColorClass, getColorHex } from '@common/utils/color';
 
 import { useAppTheme } from '.';
 
-type UseGetColorProps = CommonThemeProps & {
+type UseGetColorProps = ThemeAppearanceProps & {
 	colorType: 'default' | 'color';
 	hueType: ColorHueType;
-	classType?: ClassType;
+	classType?: ColorTypeClass;
 };
 
 const useGetColor = (props: UseGetColorProps): string => {

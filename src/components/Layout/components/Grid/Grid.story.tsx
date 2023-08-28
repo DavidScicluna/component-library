@@ -7,16 +7,16 @@ import classes from '@common/classes';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 import type {
-	AlignContentArr,
-	AlignItemsArr,
-	GridAutoArr,
-	GridAutoFlowArr,
-	GridTemplateColumnsArr,
-	GridTemplateRowsArr,
-	JustifyContentArr,
-	JustifyItemsArr
-} from '@common/types/classes';
-import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
+	AlignContentClassArr,
+	AlignItemsClassArr,
+	GridAutoClassArr,
+	GridAutoFlowClassArr,
+	GridTemplateColumnsClassArr,
+	GridTemplateRowsClassArr,
+	JustifyContentClassArr,
+	JustifyItemsClassArr,
+	PolymorphicDefaultElement
+} from '@common/types';
 
 import { Center } from '../Center';
 
@@ -52,7 +52,7 @@ export default {
 				'around',
 				'evenly',
 				'stretch'
-			] as AlignContentArr,
+			] as AlignContentClassArr,
 			control: { type: 'radio' }
 		},
 		alignItems: {
@@ -60,28 +60,28 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_GRID_ALIGN_ITEMS__,
 			// description: '',
-			options: ['flex-start', 'flex-end', 'center', 'baseline', 'stretch'] as AlignItemsArr,
+			options: ['flex-start', 'flex-end', 'center', 'baseline', 'stretch'] as AlignItemsClassArr,
 			control: { type: 'radio' }
 		},
 		autoColumns: {
 			name: 'Auto Columns',
 			type: 'string',
 			// description: '',
-			options: ['auto', 'min', 'max', 'fr'] as GridAutoArr,
+			options: ['auto', 'min', 'max', 'fr'] as GridAutoClassArr,
 			control: { type: 'radio' }
 		},
 		autoFlow: {
 			name: 'Auto Flow',
 			type: 'string',
 			// description: '',
-			options: ['row', 'col', 'dense', 'row-dense', 'col-dense'] as GridAutoFlowArr,
+			options: ['row', 'col', 'dense', 'row-dense', 'col-dense'] as GridAutoFlowClassArr,
 			control: { type: 'radio' }
 		},
 		autoRows: {
 			name: 'Auto Rows',
 			type: 'string',
 			// description: '',
-			options: ['auto', 'min', 'max', 'fr'] as GridAutoArr,
+			options: ['auto', 'min', 'max', 'fr'] as GridAutoClassArr,
 			control: { type: 'radio' }
 		},
 		columnSpacing: {
@@ -105,7 +105,7 @@ export default {
 				'space-between',
 				'space-around',
 				'space-evenly'
-			] as JustifyContentArr,
+			] as JustifyContentClassArr,
 			control: { type: 'radio' }
 		},
 		justifyItems: {
@@ -113,7 +113,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_GRID_JUSTIFY_ITEMS__,
 			// description: '',
-			options: ['start', 'end', 'center', 'stretch'] as JustifyItemsArr,
+			options: ['start', 'end', 'center', 'stretch'] as JustifyItemsClassArr,
 			control: { type: 'radio' }
 		},
 		rowSpacing: {
@@ -128,7 +128,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_GRID_TEMPLATE_COLUMNS__,
 			// description: '',
-			options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 'none'] as GridTemplateColumnsArr,
+			options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 'none'] as GridTemplateColumnsClassArr,
 			control: { type: 'radio' }
 		},
 		templateRows: {
@@ -136,7 +136,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_GRID_TEMPLATE_ROWS__,
 			// description: '',
-			options: [1, 2, 3, 4, 5, 6, 'none'] as GridTemplateRowsArr,
+			options: [1, 2, 3, 4, 5, 6, 'none'] as GridTemplateRowsClassArr,
 			control: { type: 'radio' }
 		},
 		spacing: {

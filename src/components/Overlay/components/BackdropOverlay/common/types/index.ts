@@ -1,17 +1,13 @@
 import type { ElementType } from 'react';
 
-import type { PickFrom, ResponsiveValue } from '@common/types';
-import type { BackdropBlur } from '@common/types/classes';
-import type { CommonAppThemeProps } from '@common/types/theme';
+import type { BackdropBlurClass, PickFrom, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
 export type BackdropOverlayDefaultElement = 'div';
 export type BackdropOverlayElement = PickFrom<ElementType, 'div'>;
 
-export type BackdropOverlayBlur = BackdropBlur;
-
-type BackdropOverlayOtherProps = CommonAppThemeProps & {
+type BackdropOverlayOtherProps = ThemeAppAppearanceProps & {
 	/**
 	 * The amount to increase the transparency by, given as a decimal between 0 and 1
 	 *
@@ -23,7 +19,7 @@ type BackdropOverlayOtherProps = CommonAppThemeProps & {
 	 *
 	 * @default 'none'
 	 */
-	blur?: ResponsiveValue<BackdropOverlayBlur>;
+	blur?: ResponsiveValue<BackdropBlurClass>;
 };
 
 export type BackdropOverlayProps<Element extends BackdropOverlayElement = BackdropOverlayDefaultElement> = BoxProps<

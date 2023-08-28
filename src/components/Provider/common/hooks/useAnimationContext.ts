@@ -1,17 +1,18 @@
 import { useContext } from 'react';
 
+import type { DeepRequired } from 'utility-types';
+
 import {
 	__DEFAULT_ANIMATION_DELAY__,
 	__DEFAULT_ANIMATION_DURATION__,
 	__DEFAULT_ANIMATION_EASING__
 } from '@common/constants';
-import type { NoUndefinedField } from '@common/types';
 
 import { AnimationContext } from '@components/Provider/Provider';
 
 import type { AnimationContext as AnimationContextType } from '../types';
 
-const useAnimationContext = (): NoUndefinedField<AnimationContextType> => {
+const useAnimationContext = (): DeepRequired<AnimationContextType> => {
 	const {
 		delay = __DEFAULT_ANIMATION_DELAY__,
 		duration = __DEFAULT_ANIMATION_DURATION__,

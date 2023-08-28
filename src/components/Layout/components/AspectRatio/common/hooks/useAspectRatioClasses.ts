@@ -3,8 +3,7 @@ import type { ElementType } from 'react';
 import classNames from 'classnames';
 
 import { useGetClass } from '@common/hooks';
-import type { ClassName } from '@common/types';
-import type { AspectRatio } from '@common/types/theme';
+import type { ClassName, ThemeAspectRatio } from '@common/types';
 
 import { __DEFAULT_ASPECT_RATIO_RATIO__ } from '../constants';
 import type { AspectRatioProps } from '../types';
@@ -17,7 +16,7 @@ const useAspectRatioClasses = <Element extends ElementType>(
 ): UseAspectRatioClassesReturn => {
 	const { ratio = __DEFAULT_ASPECT_RATIO_RATIO__ } = props;
 
-	const ratioClassName = useGetClass<AspectRatio>(ratio, ['layout', 'aspect_ratio']);
+	const ratioClassName = useGetClass<ThemeAspectRatio>(ratio, ['layout', 'aspect_ratio']);
 
 	return classNames(ratioClassName);
 };

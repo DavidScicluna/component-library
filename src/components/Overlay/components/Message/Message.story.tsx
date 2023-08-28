@@ -4,8 +4,7 @@ import { sample } from 'lodash-es';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import colors from '@common/data/colors';
-import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
-import type { AppColor, BorderWidthArr, RadiiArr } from '@common/types/theme';
+import type { PolymorphicDefaultElement, ThemeAppColor, ThemeBorderWidthArr, ThemeRadiusArr } from '@common/types';
 
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
@@ -23,7 +22,7 @@ import {
 	MessageTitle
 } from '.';
 
-const __DEFAULT_MESSAGE_STORY_COLOR__: AppColor = sample(colors) || 'blue';
+const __DEFAULT_MESSAGE_STORY_COLOR__: ThemeAppColor = sample(colors) || 'blue';
 
 export default {
 	title: 'Data Display/Message',
@@ -34,7 +33,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_MESSAGE_RADIUS__,
 			// description: '',
-			options: ['base', 'xs', 'sm', 'lg', 'xl', 'none', 'full'] as RadiiArr,
+			options: ['base', 'xs', 'sm', 'lg', 'xl', 'none', 'full'] as ThemeRadiusArr,
 			control: { type: 'radio' }
 		},
 		size: {
@@ -42,7 +41,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_MESSAGE_SIZE__,
 			// description: '',
-			options: [0, 1, 2, 4, 8] as BorderWidthArr,
+			options: [0, 1, 2, 4, 8] as ThemeBorderWidthArr,
 			control: { type: 'radio' }
 		},
 		spacing: {

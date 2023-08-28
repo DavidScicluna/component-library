@@ -1,6 +1,6 @@
-import type { ColorsObj } from '@common/types/theme';
+import type { ThemeColorObj } from '@common/types';
 
-const color: ColorsObj = {
+const color: ThemeColorObj = {
 	transparent: 'bg-transparent',
 	black: 'bg-black',
 	white: 'bg-white',
@@ -214,7 +214,7 @@ const color: ColorsObj = {
 	}
 };
 
-const hover_color: ColorsObj = {
+const hover_color: ThemeColorObj = {
 	transparent: 'hover:bg-transparent',
 	black: 'hover:bg-black',
 	white: 'hover:bg-white',
@@ -428,7 +428,7 @@ const hover_color: ColorsObj = {
 	}
 };
 
-const focus_color: ColorsObj = {
+const focus_color: ThemeColorObj = {
 	transparent: 'focus:bg-transparent',
 	black: 'focus:bg-black',
 	white: 'focus:bg-white',
@@ -642,7 +642,7 @@ const focus_color: ColorsObj = {
 	}
 };
 
-const active_color: ColorsObj = {
+const active_color: ThemeColorObj = {
 	transparent: 'active:bg-transparent',
 	black: 'active:bg-black',
 	white: 'active:bg-white',
@@ -856,7 +856,7 @@ const active_color: ColorsObj = {
 	}
 };
 
-const before_color: ColorsObj = {
+const before_color: ThemeColorObj = {
 	transparent: 'before:bg-transparent',
 	black: 'before:bg-black',
 	white: 'before:bg-white',
@@ -1070,7 +1070,7 @@ const before_color: ColorsObj = {
 	}
 };
 
-const after_color: ColorsObj = {
+const after_color: ThemeColorObj = {
 	transparent: 'after:bg-transparent',
 	black: 'after:bg-black',
 	white: 'after:bg-white',

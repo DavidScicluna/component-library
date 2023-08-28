@@ -1,9 +1,17 @@
 import classNames from 'classnames';
 
 import { useGetClass, useGetColor } from '@common/hooks';
-import type { ClassName } from '@common/types';
-import type { BoxShadow, MaxHeight, MaxWidth, ZIndex } from '@common/types/classes';
-import type { Radius, Space } from '@common/types/theme';
+import type {
+	BoxShadowClass,
+	ClassName,
+	HeightClass,
+	MaxHeightClass,
+	MaxWidthClass,
+	ThemeRadius,
+	ThemeSpacing,
+	WidthClass,
+	ZIndexClass
+} from '@common/types';
 
 import { useModalContext } from '@components/Overlay/components/Modal/common/hooks';
 
@@ -12,12 +20,12 @@ type UseModalContainerClassesReturn = Record<'container' | 'backdrop' | 'content
 const useModalContainerClasses = (): UseModalContainerClassesReturn => {
 	const { color, colorMode, size, spacing } = useModalContext();
 
-	const widthClassName = useGetClass('full', ['sizing', 'width']);
-	const maxWidthClassName = useGetClass<MaxWidth>(size, ['sizing', 'max_width']);
-	const heightClassName = useGetClass(size === 'full' ? 'full' : 'fit', ['sizing', 'height']);
-	const maxHeightClassName = useGetClass<MaxHeight>('full', ['sizing', 'max_height']);
+	const widthClassName = useGetClass<WidthClass>('full', ['sizing', 'width']);
+	const maxWidthClassName = useGetClass<MaxWidthClass>(size, ['sizing', 'max_width']);
+	const heightClassName = useGetClass<HeightClass>(size === 'full' ? 'full' : 'fit', ['sizing', 'height']);
+	const maxHeightClassName = useGetClass<MaxHeightClass>('full', ['sizing', 'max_height']);
 
-	const zIndexClassName = useGetClass<ZIndex>('modal', ['layout', 'z_index']);
+	const zIndexClassName = useGetClass<ZIndexClass>('modal', ['layout', 'z_index']);
 
 	const backgroundClassName = useGetColor({
 		color,
@@ -27,11 +35,14 @@ const useModalContainerClasses = (): UseModalContainerClassesReturn => {
 		classType: 'bg'
 	});
 
-	const shadowClassName = useGetClass<BoxShadow>('xl', ['effects', 'shadow']);
+	const shadowClassName = useGetClass<BoxShadowClass>('xl', ['effects', 'shadow']);
 
-	const borderRadiusClassName = useGetClass<Radius>(size === 'full' ? 'none' : 'xl', ['borders', 'border_radius']);
-	const paddingClassName = useGetClass<Space>(spacing, ['spacing', 'p']);
-	const marginClassName = useGetClass<Space>(spacing, ['spacing', 'm']);
+	const borderRadiusClassName = useGetClass<ThemeRadius>(size === 'full' ? 'none' : 'xl', [
+		'borders',
+		'border_radius'
+	]);
+	const paddingClassName = useGetClass<ThemeSpacing>(spacing, ['spacing', 'p']);
+	const marginClassName = useGetClass<ThemeSpacing>(spacing, ['spacing', 'm']);
 
 	return {
 		container: classNames('fixed', 'top-0', 'left-0', zIndexClassName),

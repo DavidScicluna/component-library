@@ -2,20 +2,27 @@ import memoize from 'micro-memoize';
 
 import { __DEFAULT_DELAY__, __DEFAULT_DURATION__, __DEFAULT_EASING__ } from '@common/constants';
 import theme from '@common/theme';
-import type { AnimationConfig, AnimationDelay, AnimationDuration, AnimationEasing } from '@common/types/animation';
-import type { Delay, Duration, Ease } from '@common/types/theme';
+import type {
+	AnimationConfig,
+	AnimationDelay,
+	AnimationDuration,
+	AnimationEasing,
+	ThemeDelay,
+	ThemeDuration,
+	ThemeEase
+} from '@common/types';
 
 import { convertStringToNumber } from '.';
 
-export const getAnimationDelay = memoize((delay: Delay = __DEFAULT_DELAY__): AnimationDelay => {
+export const getAnimationDelay = memoize((delay: ThemeDelay = __DEFAULT_DELAY__): AnimationDelay => {
 	return convertStringToNumber(theme.transitionDuration[delay], 'ms') / 1000;
 });
 
-export const getAnimationDuration = memoize((duration: Duration = __DEFAULT_DURATION__): AnimationDuration => {
+export const getAnimationDuration = memoize((duration: ThemeDuration = __DEFAULT_DURATION__): AnimationDuration => {
 	return convertStringToNumber(theme.transitionDuration[duration], 'ms') / 1000;
 });
 
-export const getAnimationEasings = memoize((easing: Ease = __DEFAULT_EASING__): AnimationEasing => {
+export const getAnimationEasings = memoize((easing: ThemeEase = __DEFAULT_EASING__): AnimationEasing => {
 	return theme.transitionTimingFunction[easing]
 		.replaceAll('cubic-bezier', '')
 		.replaceAll('(', '')

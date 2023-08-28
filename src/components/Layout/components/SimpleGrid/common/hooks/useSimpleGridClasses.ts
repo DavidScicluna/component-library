@@ -4,8 +4,7 @@ import classNames from 'classnames';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetClass } from '@common/hooks';
-import type { ClassName } from '@common/types';
-import type { Space } from '@common/types/theme';
+import type { ClassName, ThemeSpacing } from '@common/types';
 
 import type { SimpleGridColumn, SimpleGridProps } from '../types';
 
@@ -19,7 +18,7 @@ const useSimpleGridClasses = <Element extends ElementType>(
 
 	const columnsClassName = useGetClass<SimpleGridColumn>(columns, ['grid', 'template_columns']);
 
-	const spacingClassName = useGetClass<Space>(spacing, ['spacing', 'gap']);
+	const spacingClassName = useGetClass<ThemeSpacing>(spacing, ['spacing', 'gap']);
 
 	return classNames('grid', columnsClassName, spacingClassName);
 };

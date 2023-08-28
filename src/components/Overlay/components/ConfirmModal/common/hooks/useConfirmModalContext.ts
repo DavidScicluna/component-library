@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import { __DEFAULT_METHOD__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { Space } from '@common/types/theme';
+import type { ThemeSpacing } from '@common/types';
 
 import { ConfirmModalContext } from '../../ConfirmModal';
 import {
@@ -24,7 +24,7 @@ const useConfirmModalContext = () => {
 
 	const size = useGetResponsiveValue<ConfirmModalSize>(si);
 
-	const spacing = useGetResponsiveValue<Space>(sp);
+	const spacing = useGetResponsiveValue<ThemeSpacing>(sp);
 
 	return { color, colorMode, isOpen, onClose, size, spacing };
 };

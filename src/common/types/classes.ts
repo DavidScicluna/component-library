@@ -196,9 +196,9 @@ export type GridColumnSpanClass = GridColumnClass | 'full' | 'auto';
 export type GridColumnSpanClassArr = Array<GridColumnSpanClass>;
 export type GridColumnSpanClassObj = Record<GridColumnSpanClass, string>;
 
-export type GridColumnStartEnd = GridColumnClass | 13 | 'auto';
-export type GridColumnStartEndArr = Array<GridColumnStartEnd>;
-export type GridColumnStartEndObj = Record<GridColumnStartEnd, string>;
+export type GridColumnStartEndClass = GridColumnClass | 13 | 'auto';
+export type GridColumnStartEndClassArr = Array<GridColumnStartEndClass>;
+export type GridColumnStartEndClassObj = Record<GridColumnStartEndClass, string>;
 
 export type GridRowSpanClass = GridRowClass | 'full' | 'auto';
 export type GridRowSpanClassArr = Array<GridRowSpanClass>;

@@ -1,6 +1,6 @@
-import type { CursorObj, PointerEventsObj, UserSelectObj, WillChangeObj } from '@common/types/classes';
+import type { CursorClassObj, PointerEventsClassObj, UserSelectClassObj, WillChangeClassObj } from '@common/types';
 
-const cursor: CursorObj = {
+const cursor: CursorClassObj = {
 	'auto': 'cursor-auto',
 	'default': 'cursor-default',
 	'pointer': 'cursor-pointer',
@@ -39,19 +39,19 @@ const cursor: CursorObj = {
 	'zoom-out': 'cursor-zoom-out'
 };
 
-const pointer_events: PointerEventsObj = {
+const pointer_events: PointerEventsClassObj = {
 	none: 'pointer-events-none',
 	auto: 'pointer-events-auto'
 };
 
-const user_select: UserSelectObj = {
+const user_select: UserSelectClassObj = {
 	none: 'select-none',
 	text: 'select-text',
 	all: 'select-all',
 	auto: 'select-auto'
 };
 
-const will_change: WillChangeObj = {
+const will_change: WillChangeClassObj = {
 	auto: 'will-change-auto',
 	scroll: 'will-change-scroll',
 	contents: 'will-change-contents',

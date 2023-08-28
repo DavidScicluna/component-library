@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Text } from '@components/Typography/components/Text';
 

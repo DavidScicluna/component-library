@@ -1,34 +1,34 @@
 import theme from '@common/theme';
-import type { ZIndexObj } from '@common/types/classes';
 import type {
-	BreakpointsObj,
-	ColorsObj,
-	DelaysObj,
-	DurationsObj,
-	EasingsObj,
-	FontSizesObj,
-	FontWeightsObj,
-	LineHeightsObj,
-	RadiiObj,
-	SpacingObj
-} from '@common/types/theme';
+	ThemeBreakpointObj,
+	ThemeColorObj,
+	ThemeDelayObj,
+	ThemeDurationObj,
+	ThemeEaseObj,
+	ThemeFontSizeObj,
+	ThemeFontWeightObj,
+	ThemeLineHeightObj,
+	ThemeRadiusObj,
+	ThemeSpacingObj,
+	ZIndexClassObj
+} from '@common/types';
 
 import useConst from './useConst';
 
 type UseThemeReturn = {
-	borderRadius: RadiiObj;
-	colors: ColorsObj;
-	container: BreakpointsObj;
-	fontSizes: FontSizesObj;
-	fontWeights: FontWeightsObj;
-	lineHeights: LineHeightsObj;
+	borderRadius: ThemeRadiusObj;
+	colors: ThemeColorObj;
+	container: ThemeBreakpointObj;
+	fontSizes: ThemeFontSizeObj;
+	fontWeights: ThemeFontWeightObj;
+	lineHeights: ThemeLineHeightObj;
 	transition: {
-		delay: DelaysObj;
-		duration: DurationsObj;
-		easing: EasingsObj;
+		delay: ThemeDelayObj;
+		duration: ThemeDurationObj;
+		easing: ThemeEaseObj;
 	};
-	spacing: SpacingObj;
-	zIndex: ZIndexObj;
+	spacing: ThemeSpacingObj;
+	zIndex: ZIndexClassObj;
 };
 
 const useTheme = (): UseThemeReturn => {

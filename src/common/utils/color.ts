@@ -2,8 +2,7 @@ import memoize from 'micro-memoize';
 
 import classes from '@common/classes';
 import theme from '@common/theme';
-import type { ClassType } from '@common/types/classes';
-import type { AppColorMode, Color, ColorHue } from '@common/types/theme';
+import type { ColorTypeClass, ThemeAppColorMode, ThemeColor, ThemeColorHue } from '@common/types';
 
 export type ColorHueType =
 	| 'background'
@@ -24,7 +23,7 @@ export type ColorHueType =
 	| 'default';
 
 export type GetColorHueProps = {
-	colorMode: AppColorMode;
+	colorMode: ThemeAppColorMode;
 	type: ColorHueType;
 };
 
@@ -35,7 +34,7 @@ export type GetColorHueProps = {
  * @param type - background | text.primary | text.secondary | divider | light | lighter | lightest | dark | darker | darkest | color | default
  * @returns - 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950
  */
-export const getColorHue = memoize(({ colorMode, type }: GetColorHueProps): ColorHue => {
+export const getColorHue = memoize(({ colorMode, type }: GetColorHueProps): ThemeColorHue => {
 	switch (type) {
 		case 'background':
 			return colorMode === 'light' ? 50 : 950;
@@ -73,8 +72,8 @@ export const getColorHue = memoize(({ colorMode, type }: GetColorHueProps): Colo
 });
 
 export type GetColorHexProps = {
-	color: Color;
-	colorMode: AppColorMode;
+	color: ThemeColor;
+	colorMode: ThemeAppColorMode;
 	hueType: ColorHueType;
 };
 
@@ -92,10 +91,10 @@ export const getColorHex = memoize(({ color, colorMode, hueType }: GetColorHexPr
 });
 
 export type GetColorClassProps = {
-	color: Color;
-	colorMode: AppColorMode;
+	color: ThemeColor;
+	colorMode: ThemeAppColorMode;
 	hueType: ColorHueType;
-	classType: ClassType;
+	classType: ColorTypeClass;
 };
 
 /**
@@ -130,7 +129,7 @@ export const getColorClass = memoize(({ color, colorMode, hueType, classType }: 
  *
  * @returns - light | dark
  */
-export const getColorMode = memoize((): AppColorMode => {
+export const getColorMode = memoize((): ThemeAppColorMode => {
 	if (globalThis?.window?.matchMedia && globalThis?.window?.matchMedia('(prefers-color-scheme: dark)')?.matches) {
 		return 'dark';
 	}

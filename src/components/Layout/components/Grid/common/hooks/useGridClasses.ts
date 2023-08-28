@@ -4,18 +4,17 @@ import classNames from 'classnames';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetClass } from '@common/hooks';
-import type { ClassName, Undefinable } from '@common/types';
 import type {
-	AlignContent,
-	AlignItems,
-	GridAuto,
-	GridAutoFlow,
-	GridTemplateColumns,
-	GridTemplateRows,
-	JustifyContent,
-	JustifyItems
-} from '@common/types/classes';
-import type { Space } from '@common/types/theme';
+	AlignContentClass,
+	AlignItemsClass,
+	ClassName,
+	GridAutoClass,
+	GridAutoFlowClass,
+	JustifyContentClass,
+	JustifyItemsClass,
+	ThemeSpacing,
+	Undefinable
+} from '@common/types';
 
 import {
 	__DEFAULT_GRID_ALIGN_CONTENT__,
@@ -25,7 +24,7 @@ import {
 	__DEFAULT_GRID_TEMPLATE_COLUMNS__,
 	__DEFAULT_GRID_TEMPLATE_ROWS__
 } from '../constants';
-import type { GridProps } from '../types';
+import type { GridProps, GridTemplateColumns, GridTemplateRows } from '../types';
 
 type UseGridClassesProps<Element extends ElementType> = Pick<
 	GridProps<Element>,
@@ -60,18 +59,18 @@ const useGridClasses = <Element extends ElementType>(props: UseGridClassesProps<
 		spacing = __DEFAULT_SPACING__
 	} = props;
 
-	const autoColumnsClassName = useGetClass<Undefinable<GridAuto>>(autoColumns, ['grid', 'auto_columns']);
-	const autoFlowClassName = useGetClass<Undefinable<GridAutoFlow>>(autoFlow, ['grid', 'auto_flow']);
-	const autoRowsClassName = useGetClass<Undefinable<GridAuto>>(autoRows, ['grid', 'auto_rows']);
+	const autoColumnsClassName = useGetClass<Undefinable<GridAutoClass>>(autoColumns, ['grid', 'auto_columns']);
+	const autoFlowClassName = useGetClass<Undefinable<GridAutoFlowClass>>(autoFlow, ['grid', 'auto_flow']);
+	const autoRowsClassName = useGetClass<Undefinable<GridAutoClass>>(autoRows, ['grid', 'auto_rows']);
 
-	const alignContentClassName = useGetClass<AlignContent>(alignContent, ['grid', 'align_content']);
-	const alignItemsClassName = useGetClass<AlignItems>(alignItems, ['grid', 'align_items']);
+	const alignContentClassName = useGetClass<AlignContentClass>(alignContent, ['grid', 'align_content']);
+	const alignItemsClassName = useGetClass<AlignItemsClass>(alignItems, ['grid', 'align_items']);
 
-	const justifyContentClassName = useGetClass<JustifyContent>(justifyContent, ['grid', 'justify_content']);
-	const justifyItemsClassName = useGetClass<JustifyItems>(justifyItems, ['grid', 'justify_items']);
+	const justifyContentClassName = useGetClass<JustifyContentClass>(justifyContent, ['grid', 'justify_content']);
+	const justifyItemsClassName = useGetClass<JustifyItemsClass>(justifyItems, ['grid', 'justify_items']);
 
-	const columnSpacingClassName = useGetClass<Undefinable<Space>>(columnSpacing, ['spacing', 'gap_y']);
-	const rowSpacingClassName = useGetClass<Undefinable<Space>>(rowSpacing, ['spacing', 'gap_x']);
+	const columnSpacingClassName = useGetClass<Undefinable<ThemeSpacing>>(columnSpacing, ['spacing', 'gap_y']);
+	const rowSpacingClassName = useGetClass<Undefinable<ThemeSpacing>>(rowSpacing, ['spacing', 'gap_x']);
 
 	const templateColumnsClassName = useGetClass<Undefinable<GridTemplateColumns>>(
 		typeof templateColumns === 'number' ? templateColumns : __DEFAULT_GRID_TEMPLATE_COLUMNS__,
@@ -82,7 +81,7 @@ const useGridClasses = <Element extends ElementType>(props: UseGridClassesProps<
 		['grid', 'template_rows']
 	);
 
-	const spacingClassName = useGetClass<Space>(spacing, ['spacing', 'gap']);
+	const spacingClassName = useGetClass<ThemeSpacing>(spacing, ['spacing', 'gap']);
 
 	return classNames(
 		'grid',

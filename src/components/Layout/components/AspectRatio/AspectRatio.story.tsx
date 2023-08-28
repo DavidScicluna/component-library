@@ -4,8 +4,7 @@ import classNames from 'classnames';
 
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
-import type { AspectRatioArr } from '@common/types/theme';
+import type { PolymorphicDefaultElement, ThemeAspectRatioArr } from '@common/types';
 
 import { Text } from '@components/Typography/components/Text';
 
@@ -25,7 +24,15 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_ASPECT_RATIO_RATIO__,
 			// description: '',
-			options: ['auto', 'square', 'video', 'widescreen', 'portrait', 'standard', 'vertical'] as AspectRatioArr,
+			options: [
+				'auto',
+				'square',
+				'video',
+				'widescreen',
+				'portrait',
+				'standard',
+				'vertical'
+			] as ThemeAspectRatioArr,
 			control: { type: 'radio' }
 		}
 	}

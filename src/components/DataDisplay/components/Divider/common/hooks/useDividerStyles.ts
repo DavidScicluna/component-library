@@ -2,8 +2,7 @@ import { useMemo } from 'react';
 
 import { __DEFAULT_BORDER_WIDTH__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useTheme } from '@common/hooks';
-import type { Style } from '@common/types';
-import type { BorderWidth, Space } from '@common/types/theme';
+import type { Style, ThemeBorderWidth, ThemeSpacing } from '@common/types';
 import { getResponsiveValue } from '@common/utils';
 
 import { __DEFAULT_DIVIDER_ORIENTATION__, __DEFAULT_DIVIDER_PLACEMENT__ } from '../constants';
@@ -30,12 +29,12 @@ const useDividerStyles = <Element extends DividerElement>(
 	} = props;
 
 	const borderWidth = useMemo<string>(() => {
-		const borderWidth = getResponsiveValue<BorderWidth>(size);
+		const borderWidth = getResponsiveValue<ThemeBorderWidth>(size);
 		return `${borderWidth}px`;
 	}, [size]);
 
 	const spacing = useMemo<string>(() => {
-		const spacing = getResponsiveValue<Space>(s);
+		const spacing = getResponsiveValue<ThemeSpacing>(s);
 		return theme.spacing[spacing];
 	}, [s]);
 

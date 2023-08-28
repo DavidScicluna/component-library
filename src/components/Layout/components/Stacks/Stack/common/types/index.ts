@@ -1,19 +1,24 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { ResponsiveValue } from '@common/types';
-import type { AlignItems, FlexDirection, FlexWrap, JustifyContent } from '@common/types/classes';
-import type { Space } from '@common/types/theme';
+import type {
+	AlignItemsClass,
+	FlexDirectionClass,
+	FlexWrapClass,
+	JustifyContentClass,
+	ResponsiveValue,
+	ThemeSpacing
+} from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
 type StackOtherProps = {
-	alignItems?: ResponsiveValue<AlignItems>;
-	direction?: ResponsiveValue<FlexDirection>;
+	alignItems?: ResponsiveValue<AlignItemsClass>;
+	direction?: ResponsiveValue<FlexDirectionClass>;
 	divider?: ReactNode;
-	justifyContent?: ResponsiveValue<JustifyContent>;
+	justifyContent?: ResponsiveValue<JustifyContentClass>;
 	// shouldWrapChildren; TODO: Check if needed & Also check overlay component should have display-block
-	spacing?: ResponsiveValue<Space>;
-	wrap?: ResponsiveValue<FlexWrap>;
+	spacing?: ResponsiveValue<ThemeSpacing>;
+	wrap?: ResponsiveValue<FlexWrapClass>;
 };
 
 export type StackProps<Element extends ElementType> = BoxProps<Element, StackOtherProps>;

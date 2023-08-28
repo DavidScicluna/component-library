@@ -1,6 +1,6 @@
-import type { AppColors } from '@common/types/theme';
+import type { ThemeAppColorArr } from '@common/types';
 
-const colors: AppColors = [
+const colors: ThemeAppColorArr = [
 	'red',
 	'pink',
 	'purple',

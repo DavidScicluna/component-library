@@ -1,7 +1,6 @@
 import type { ElementType } from 'react';
 
-import type { ResponsiveValue } from '@common/types';
-import type { Space } from '@common/types/theme';
+import type { ResponsiveValue, ThemeSpacing } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
@@ -10,7 +9,7 @@ export type SimpleGridColumns = Array<SimpleGridColumn>;
 
 type SimpleGridOtherProps = {
 	columns: ResponsiveValue<SimpleGridColumn>;
-	spacing?: ResponsiveValue<Space>;
+	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
 export type SimpleGridProps<Element extends ElementType> = BoxProps<Element, SimpleGridOtherProps>;

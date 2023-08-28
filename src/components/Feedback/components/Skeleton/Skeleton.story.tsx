@@ -5,8 +5,7 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types/polymorphic';
-import type { RadiiArr } from '@common/types/theme';
+import type { PolymorphicDefaultElement, ThemeRadiusArr } from '@common/types';
 
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography/components/Text';
@@ -42,7 +41,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_RADIUS__,
 			// description: '',
-			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as RadiiArr,
+			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as ThemeRadiusArr,
 			control: { type: 'radio' }
 		}
 	}

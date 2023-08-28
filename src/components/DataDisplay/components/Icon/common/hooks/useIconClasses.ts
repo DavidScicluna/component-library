@@ -6,13 +6,12 @@ import classes from '@common/classes';
 import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__ } from '@common/constants';
 import { __DEFAULT_COLOR__ } from '@common/constants/props';
 import { useAppTheme } from '@common/hooks';
-import type { ClassName } from '@common/types';
-import type { LineHeight } from '@common/types/theme';
+import type { ClassName, ThemeFontSize, ThemeLineHeight, ThemeRadius } from '@common/types';
 import { getClass } from '@common/utils/classes';
 import { getColorHue } from '@common/utils/color';
 
 import { __DEFAULT_ICON_RADIUS__, __DEFAULT_ICON_SIZE__, __DEFAULT_ICON_VARIANT__ } from '../constants';
-import type { IconElement, IconProps, IconRadius, IconSize } from '../types';
+import type { IconElement, IconProps } from '../types';
 
 type UseIconClassesProps<Element extends IconElement> = Pick<
 	IconProps<Element>,
@@ -32,9 +31,9 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 	} = props;
 
 	const rootClasses = useMemo<string>(() => {
-		const fontSizeClassName = getClass<IconSize>(size, ['typography', 'font_size']);
-		const lineHeightClassName = getClass<LineHeight>('none', ['typography', 'line_height']);
-		const radiusClassName = getClass<IconRadius>(radius, ['borders', 'border_radius']);
+		const fontSizeClassName = getClass<ThemeFontSize>(size, ['typography', 'font_size']);
+		const lineHeightClassName = getClass<ThemeLineHeight>('none', ['typography', 'line_height']);
+		const radiusClassName = getClass<ThemeRadius>(radius, ['borders', 'border_radius']);
 
 		return classNames(
 			classes.interactivity.cursor.default,

@@ -1,7 +1,6 @@
-import type { BoxShadowObj, OpacityObj } from '@common/types/classes';
-import type { ColorsObj } from '@common/types/theme';
+import type { BoxShadowClassObj, OpacityClassObj, ThemeColorObj } from '@common/types';
 
-const color: ColorsObj = {
+const color: ThemeColorObj = {
 	transparent: 'shadow-transparent',
 	black: 'shadow-black',
 	white: 'shadow-white',
@@ -215,7 +214,7 @@ const color: ColorsObj = {
 	}
 };
 
-const hover_color: ColorsObj = {
+const hover_color: ThemeColorObj = {
 	transparent: 'hover:shadow-transparent',
 	black: 'hover:shadow-black',
 	white: 'hover:shadow-white',
@@ -429,7 +428,7 @@ const hover_color: ColorsObj = {
 	}
 };
 
-const focus_color: ColorsObj = {
+const focus_color: ThemeColorObj = {
 	transparent: 'focus:shadow-transparent',
 	black: 'focus:shadow-black',
 	white: 'focus:shadow-white',
@@ -643,7 +642,7 @@ const focus_color: ColorsObj = {
 	}
 };
 
-const active_color: ColorsObj = {
+const active_color: ThemeColorObj = {
 	transparent: 'active:shadow-transparent',
 	black: 'active:shadow-black',
 	white: 'active:shadow-white',
@@ -857,7 +856,7 @@ const active_color: ColorsObj = {
 	}
 };
 
-const before_color: ColorsObj = {
+const before_color: ThemeColorObj = {
 	transparent: 'before:shadow-transparent',
 	black: 'before:shadow-black',
 	white: 'before:shadow-white',
@@ -1071,7 +1070,7 @@ const before_color: ColorsObj = {
 	}
 };
 
-const after_color: ColorsObj = {
+const after_color: ThemeColorObj = {
 	transparent: 'after:shadow-transparent',
 	black: 'after:shadow-black',
 	white: 'after:shadow-white',
@@ -1285,7 +1284,7 @@ const after_color: ColorsObj = {
 	}
 };
 
-const shadow: BoxShadowObj = {
+const shadow: BoxShadowClassObj = {
 	'base': 'shadow',
 	'sm': 'shadow-sm',
 	'md': 'shadow-md',
@@ -1296,7 +1295,7 @@ const shadow: BoxShadowObj = {
 	'none': 'shadow-none'
 };
 
-const hover_shadow: BoxShadowObj = {
+const hover_shadow: BoxShadowClassObj = {
 	'base': 'hover:shadow',
 	'sm': 'hover:shadow-sm',
 	'md': 'hover:shadow-md',
@@ -1307,7 +1306,7 @@ const hover_shadow: BoxShadowObj = {
 	'none': 'hover:shadow-none'
 };
 
-const focus_shadow: BoxShadowObj = {
+const focus_shadow: BoxShadowClassObj = {
 	'base': 'focus:shadow',
 	'sm': 'focus:shadow-sm',
 	'md': 'focus:shadow-md',
@@ -1318,7 +1317,7 @@ const focus_shadow: BoxShadowObj = {
 	'none': 'focus:shadow-none'
 };
 
-const active_shadow: BoxShadowObj = {
+const active_shadow: BoxShadowClassObj = {
 	'base': 'active:shadow',
 	'sm': 'active:shadow-sm',
 	'md': 'active:shadow-md',
@@ -1329,7 +1328,7 @@ const active_shadow: BoxShadowObj = {
 	'none': 'active:shadow-none'
 };
 
-const before_shadow: BoxShadowObj = {
+const before_shadow: BoxShadowClassObj = {
 	'base': 'before:shadow',
 	'sm': 'before:shadow-sm',
 	'md': 'before:shadow-md',
@@ -1340,7 +1339,7 @@ const before_shadow: BoxShadowObj = {
 	'none': 'before:shadow-none'
 };
 
-const after_shadow: BoxShadowObj = {
+const after_shadow: BoxShadowClassObj = {
 	'base': 'after:shadow',
 	'sm': 'after:shadow-sm',
 	'md': 'after:shadow-md',
@@ -1351,7 +1350,7 @@ const after_shadow: BoxShadowObj = {
 	'none': 'after:shadow-none'
 };
 
-const opacity: OpacityObj = {
+const opacity: OpacityClassObj = {
 	0: 'opacity-0',
 	5: 'opacity-5',
 	10: 'opacity-10',

@@ -3,6 +3,7 @@ import type { ReactElement } from 'react';
 import classNames from 'classnames';
 
 import { useGetColor } from '@common/hooks';
+import type { BackdropBlurClassArr } from '@common/types';
 
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography';
@@ -11,7 +12,7 @@ import { Text } from '@components/Typography';
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import { __DEFAULT_BACKDROP_OVERLAY_BLUR__ } from './common/constants';
-import type { BackdropOverlayBlur, BackdropOverlayDefaultElement, BackdropOverlayProps } from './common/types';
+import type { BackdropOverlayDefaultElement, BackdropOverlayProps } from './common/types';
 import type { BackdropOverlayStory, BackdropOverlayStoryMeta } from './common/types/story';
 import { BackdropOverlay as BackdropOverlayComponent } from '.';
 
@@ -39,7 +40,7 @@ export default {
 				'7xl',
 				'8xl',
 				'9xl'
-			] as Array<BackdropOverlayBlur>,
+			] as BackdropBlurClassArr,
 			control: { type: 'radio' }
 		}
 	}
