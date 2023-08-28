@@ -1,61 +1,71 @@
-import type { PickFrom } from '.';
-import type { Color, ColorHue, Space } from './theme';
+import type { PickFrom, ThemeColor, ThemeColorHue, ThemeSpacing } from '.';
 
-export type ClassType = 'shadow' | 'fill' | 'bg' | 'text' | 'border' | 'outline';
+export type ColorTypeClass = 'shadow' | 'fill' | 'bg' | 'text' | 'border' | 'outline';
 
 /**
  * Backgrounds
  */
-export type BackgroundColor =
-	| `${PickFrom<ClassType, 'bg'>}-${Exclude<Color, 'transparent' | 'black' | 'white'>}-${ColorHue}`
-	| `${PickFrom<ClassType, 'bg'>}-${PickFrom<Color, 'transparent' | 'black' | 'white'>}`;
+export type BackgroundColorClass =
+	| `${PickFrom<ColorTypeClass, 'bg'>}-${Exclude<ThemeColor, 'transparent' | 'black' | 'white'>}-${ThemeColorHue}`
+	| `${PickFrom<ColorTypeClass, 'bg'>}-${PickFrom<ThemeColor, 'transparent' | 'black' | 'white'>}`;
+export type BackgroundColorClassArr = Array<BackgroundColorClass>;
+export type BackgroundColorClassObj = Record<BackgroundColorClass, string>;
 
 /**
  * Borders
  */
-export type BorderStyle = 'solid' | 'dashed' | 'dotted' | 'double' | 'hidden' | 'none';
-export type BorderStyleArr = Array<BorderStyle>;
-export type BorderStyleObj = Record<BorderStyle, string>;
+export type BorderStyleClass = 'solid' | 'dashed' | 'dotted' | 'double' | 'hidden' | 'none';
+export type BorderStyleClassArr = Array<BorderStyleClass>;
+export type BorderStyleClassObj = Record<BorderStyleClass, string>;
 
-export type BorderColor =
-	| `${PickFrom<ClassType, 'border'>}-${Exclude<Color, 'transparent' | 'black' | 'white'>}-${ColorHue}`
-	| `${PickFrom<ClassType, 'border'>}-${PickFrom<Color, 'transparent' | 'black' | 'white'>}`;
+export type BorderColorClass =
+	| `${PickFrom<ColorTypeClass, 'border'>}-${Exclude<ThemeColor, 'transparent' | 'black' | 'white'>}-${ThemeColorHue}`
+	| `${PickFrom<ColorTypeClass, 'border'>}-${PickFrom<ThemeColor, 'transparent' | 'black' | 'white'>}`;
+export type BorderColorClassArr = Array<BorderColorClass>;
+export type BorderColorClassObj = Record<BorderColorClass, string>;
 
-export type OutlineWidth = 0 | 1 | 2 | 4 | 8;
-export type OutlineWidthArr = Array<OutlineWidth>;
-export type OutlineWidthObj = Record<OutlineWidth, string>;
+export type OutlineWidthClass = 0 | 1 | 2 | 4 | 8;
+export type OutlineWidthClassArr = Array<OutlineWidthClass>;
+export type OutlineWidthClassObj = Record<OutlineWidthClass, string>;
 
-export type OutlineStyle = 'none' | 'solid' | 'dashed' | 'dotted' | 'double';
-export type OutlineStyleArr = Array<OutlineStyle>;
-export type OutlineStyleObj = Record<OutlineStyle, string>;
+export type OutlineStyleClass = 'none' | 'solid' | 'dashed' | 'dotted' | 'double';
+export type OutlineStyleClassArr = Array<OutlineStyleClass>;
+export type OutlineStyleClassObj = Record<OutlineStyleClass, string>;
 
-export type OutlineColor =
-	| `${PickFrom<ClassType, 'outline'>}-${Exclude<Color, 'transparent' | 'black' | 'white'>}-${ColorHue}`
-	| `${PickFrom<ClassType, 'outline'>}-${PickFrom<Color, 'transparent' | 'black' | 'white'>}`;
+export type OutlineColorClass =
+	| `${PickFrom<ColorTypeClass, 'outline'>}-${Exclude<
+			ThemeColor,
+			'transparent' | 'black' | 'white'
+	  >}-${ThemeColorHue}`
+	| `${PickFrom<ColorTypeClass, 'outline'>}-${PickFrom<ThemeColor, 'transparent' | 'black' | 'white'>}`;
+export type OutlineColorClassArr = Array<OutlineColorClass>;
+export type OutlineColorClassObj = Record<OutlineColorClass, string>;
 
-export type OutlineOffset = 0 | 1 | 2 | 4 | 8;
-export type OutlineOffsetArr = Array<OutlineOffset>;
-export type OutlineOffsetObj = Record<OutlineOffset, string>;
+export type OutlineOffsetClass = 0 | 1 | 2 | 4 | 8;
+export type OutlineOffsetClassArr = Array<OutlineOffsetClass>;
+export type OutlineOffsetClassObj = Record<OutlineOffsetClass, string>;
 
 /**
  * Effects
  */
-export type BoxShadow = 'base' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'inner' | 'none';
-export type BoxShadowArr = Array<BoxShadow>;
-export type BoxShadowObj = Record<BoxShadow, string>;
+export type BoxShadowClass = 'base' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'inner' | 'none';
+export type BoxShadowClassArr = Array<BoxShadowClass>;
+export type BoxShadowClassObj = Record<BoxShadowClass, string>;
 
-export type BoxShadowColor =
-	| `${PickFrom<ClassType, 'shadow'>}-${Exclude<Color, 'transparent' | 'black' | 'white'>}-${ColorHue}`
-	| `${PickFrom<ClassType, 'shadow'>}-${PickFrom<Color, 'transparent' | 'black' | 'white'>}`;
+export type BoxShadowColorClass =
+	| `${PickFrom<ColorTypeClass, 'shadow'>}-${Exclude<ThemeColor, 'transparent' | 'black' | 'white'>}-${ThemeColorHue}`
+	| `${PickFrom<ColorTypeClass, 'shadow'>}-${PickFrom<ThemeColor, 'transparent' | 'black' | 'white'>}`;
+export type BoxShadowColorClassArr = Array<BoxShadowColorClass>;
+export type BoxShadowColorClassObj = Record<BoxShadowColorClass, string>;
 
-export type Opacity = 0 | 5 | 10 | 20 | 25 | 30 | 40 | 50 | 60 | 70 | 75 | 80 | 90 | 95 | 100;
-export type OpacityArr = Array<Opacity>;
-export type OpacityObj = Record<Opacity, string>;
+export type OpacityClass = 0 | 5 | 10 | 20 | 25 | 30 | 40 | 50 | 60 | 70 | 75 | 80 | 90 | 95 | 100;
+export type OpacityClassArr = Array<OpacityClass>;
+export type OpacityClassObj = Record<OpacityClass, string>;
 
 /**
  * Filters
  */
-export type Blur =
+export type BlurClass =
 	| 'none'
 	| 'xs'
 	| 'sm'
@@ -70,10 +80,10 @@ export type Blur =
 	| '7xl'
 	| '8xl'
 	| '9xl';
-export type BlurArr = Array<Blur>;
-export type BlurObj = Record<Blur, string>;
+export type BlurClassArr = Array<BlurClass>;
+export type BlurClassObj = Record<BlurClass, string>;
 
-export type BackdropBlur =
+export type BackdropBlurClass =
 	| 'none'
 	| 'xs'
 	| 'sm'
@@ -88,21 +98,21 @@ export type BackdropBlur =
 	| '7xl'
 	| '8xl'
 	| '9xl';
-export type BackdropBlurArr = Array<BackdropBlur>;
-export type BackdropBlurObj = Record<BackdropBlur, string>;
+export type BackdropBlurClassArr = Array<BackdropBlurClass>;
+export type BackdropBlurClassObj = Record<BackdropBlurClass, string>;
 
-export type Saturate = 0 | 50 | 100 | 150 | 200;
-export type SaturateArr = Array<Saturate>;
-export type SaturateObj = Record<Saturate, string>;
+export type SaturateClass = 0 | 50 | 100 | 150 | 200;
+export type SaturateClassArr = Array<SaturateClass>;
+export type SaturateClassObj = Record<SaturateClass, string>;
 
 /**
  * Flex
  */
-export type AlignItems = 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch';
-export type AlignItemsArr = Array<AlignItems>;
-export type AlignItemsObj = Record<AlignItems, string>;
+export type AlignItemsClass = 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch';
+export type AlignItemsClassArr = Array<AlignItemsClass>;
+export type AlignItemsClassObj = Record<AlignItemsClass, string>;
 
-export type JustifyContent =
+export type JustifyContentClass =
 	| 'normal'
 	| 'flex-start'
 	| 'flex-end'
@@ -111,25 +121,25 @@ export type JustifyContent =
 	| 'space-around'
 	| 'space-evenly'
 	| 'stretch';
-export type JustifyContentArr = Array<JustifyContent>;
-export type JustifyContentObj = Record<JustifyContent, string>;
+export type JustifyContentClassArr = Array<JustifyContentClass>;
+export type JustifyContentClassObj = Record<JustifyContentClass, string>;
 
-export type FlexColumn = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-export type FlexColumnArr = Array<FlexColumn>;
-export type FlexColumnObj = Record<FlexColumn, string>;
+export type FlexColumnClass = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+export type FlexColumnClassArr = Array<FlexColumnClass>;
+export type FlexColumnClassObj = Record<FlexColumnClass, string>;
 
-export type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse';
-export type FlexDirectionArr = Array<FlexDirection>;
-export type FlexDirectionObj = Record<FlexDirection, string>;
+export type FlexDirectionClass = 'row' | 'row-reverse' | 'column' | 'column-reverse';
+export type FlexDirectionClassArr = Array<FlexDirectionClass>;
+export type FlexDirectionClassObj = Record<FlexDirectionClass, string>;
 
-export type FlexWrap = 'wrap' | 'wrap-reverse' | 'nowrap';
-export type FlexWrapArr = Array<FlexWrap>;
-export type FlexWrapObj = Record<FlexWrap, string>;
+export type FlexWrapClass = 'wrap' | 'wrap-reverse' | 'nowrap';
+export type FlexWrapClassArr = Array<FlexWrapClass>;
+export type FlexWrapClassObj = Record<FlexWrapClass, string>;
 
 /**
  * Grid
  */
-export type AlignContent =
+export type AlignContentClass =
 	| 'normal'
 	| 'center'
 	| 'start'
@@ -139,77 +149,77 @@ export type AlignContent =
 	| 'evenly'
 	| 'baseline'
 	| 'stretch';
-export type AlignContentArr = Array<AlignContent>;
-export type AlignContentObj = Record<AlignContent, string>;
+export type AlignContentClassArr = Array<AlignContentClass>;
+export type AlignContentClassObj = Record<AlignContentClass, string>;
 
-export type AlignSelf = 'auto' | 'start' | 'end' | 'center' | 'stretch' | 'baseline';
-export type AlignSelfArr = Array<AlignSelf>;
-export type AlignSelfObj = Record<AlignSelf, string>;
+export type AlignSelfClass = 'auto' | 'start' | 'end' | 'center' | 'stretch' | 'baseline';
+export type AlignSelfClassArr = Array<AlignSelfClass>;
+export type AlignSelfClassObj = Record<AlignSelfClass, string>;
 
-export type JustifyItems = 'start' | 'end' | 'center' | 'stretch';
-export type JustifyItemsArr = Array<JustifyItems>;
-export type JustifyItemsObj = Record<JustifyItems, string>;
+export type JustifyItemsClass = 'start' | 'end' | 'center' | 'stretch';
+export type JustifyItemsClassArr = Array<JustifyItemsClass>;
+export type JustifyItemsClassObj = Record<JustifyItemsClass, string>;
 
-export type JustifySelf = 'auto' | 'start' | 'end' | 'center' | 'stretch';
-export type JustifySelfArr = Array<JustifySelf>;
-export type JustifySelfObj = Record<JustifySelf, string>;
+export type JustifySelfClass = 'auto' | 'start' | 'end' | 'center' | 'stretch';
+export type JustifySelfClassArr = Array<JustifySelfClass>;
+export type JustifySelfClassObj = Record<JustifySelfClass, string>;
 
-export type PlaceContent = 'center' | 'start' | 'end' | 'between' | 'around' | 'evenly' | 'baseline' | 'stretch';
-export type PlaceContentArr = Array<PlaceContent>;
-export type PlaceContentObj = Record<PlaceContent, string>;
+export type PlaceContentClass = 'center' | 'start' | 'end' | 'between' | 'around' | 'evenly' | 'baseline' | 'stretch';
+export type PlaceContentClassArr = Array<PlaceContentClass>;
+export type PlaceContentClassObj = Record<PlaceContentClass, string>;
 
-export type PlaceItems = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
-export type PlaceItemsArr = Array<PlaceItems>;
-export type PlaceItemsObj = Record<PlaceItems, string>;
+export type PlaceItemsClass = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
+export type PlaceItemsClassArr = Array<PlaceItemsClass>;
+export type PlaceItemsClassObj = Record<PlaceItemsClass, string>;
 
-export type PlaceSelf = 'auto' | 'start' | 'end' | 'center' | 'stretch';
-export type PlaceSelfArr = Array<PlaceSelf>;
-export type PlaceSelfObj = Record<PlaceSelf, string>;
+export type PlaceSelfClass = 'auto' | 'start' | 'end' | 'center' | 'stretch';
+export type PlaceSelfClassArr = Array<PlaceSelfClass>;
+export type PlaceSelfClassObj = Record<PlaceSelfClass, string>;
 
-export type GridColumn = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-export type GridColumnArr = Array<GridColumn>;
-export type GridColumnObj = Record<GridColumn, string>;
+export type GridColumnClass = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+export type GridColumnClassArr = Array<GridColumnClass>;
+export type GridColumnClassObj = Record<GridColumnClass, string>;
 
-export type GridRow = 1 | 2 | 3 | 4 | 5 | 6;
-export type GridRowArr = Array<GridRow>;
-export type GridRowObj = Record<GridRow, string>;
+export type GridRowClass = 1 | 2 | 3 | 4 | 5 | 6;
+export type GridRowClassArr = Array<GridRowClass>;
+export type GridRowClassObj = Record<GridRowClass, string>;
 
-export type GridAutoFlow = 'row' | 'col' | 'dense' | 'row-dense' | 'col-dense';
-export type GridAutoFlowArr = Array<GridAutoFlow>;
-export type GridAutoFlowObj = Record<GridAutoFlow, string>;
+export type GridAutoFlowClass = 'row' | 'col' | 'dense' | 'row-dense' | 'col-dense';
+export type GridAutoFlowClassArr = Array<GridAutoFlowClass>;
+export type GridAutoFlowClassObj = Record<GridAutoFlowClass, string>;
 
-export type GridAuto = 'auto' | 'min' | 'max' | 'fr';
-export type GridAutoArr = Array<GridAuto>;
-export type GridAutoObj = Record<GridAuto, string>;
+export type GridAutoClass = 'auto' | 'min' | 'max' | 'fr';
+export type GridAutoClassArr = Array<GridAutoClass>;
+export type GridAutoClassObj = Record<GridAutoClass, string>;
 
-export type GridColumnSpan = GridColumn | 'full' | 'auto';
-export type GridColumnSpanArr = Array<GridColumnSpan>;
-export type GridColumnSpanObj = Record<GridColumnSpan, string>;
+export type GridColumnSpanClass = GridColumnClass | 'full' | 'auto';
+export type GridColumnSpanClassArr = Array<GridColumnSpanClass>;
+export type GridColumnSpanClassObj = Record<GridColumnSpanClass, string>;
 
-export type GridColumnStartEnd = GridColumn | 13 | 'auto';
+export type GridColumnStartEnd = GridColumnClass | 13 | 'auto';
 export type GridColumnStartEndArr = Array<GridColumnStartEnd>;
 export type GridColumnStartEndObj = Record<GridColumnStartEnd, string>;
 
-export type GridRowSpan = GridRow | 'full' | 'auto';
-export type GridRowSpanArr = Array<GridRowSpan>;
-export type GridRowSpanObj = Record<GridRowSpan, string>;
+export type GridRowSpanClass = GridRowClass | 'full' | 'auto';
+export type GridRowSpanClassArr = Array<GridRowSpanClass>;
+export type GridRowSpanClassObj = Record<GridRowSpanClass, string>;
 
-export type GridRowStartEnd = GridRow | 7 | 'auto';
-export type GridRowStartEndArr = Array<GridRowStartEnd>;
-export type GridRowStartEndObj = Record<GridRowStartEnd, string>;
+export type GridRowStartEndClass = GridRowClass | 7 | 'auto';
+export type GridRowStartEndClassArr = Array<GridRowStartEndClass>;
+export type GridRowStartEndClassObj = Record<GridRowStartEndClass, string>;
 
-export type GridTemplateColumns = GridColumn | 'none';
-export type GridTemplateColumnsArr = Array<GridTemplateColumns>;
-export type GridTemplateColumnsObj = Record<GridTemplateColumns, string>;
+export type GridTemplateColumnsClass = GridColumnClass | 'none';
+export type GridTemplateColumnsClassArr = Array<GridTemplateColumnsClass>;
+export type GridTemplateColumnsClassObj = Record<GridTemplateColumnsClass, string>;
 
-export type GridTemplateRows = GridRow | 'none';
-export type GridTemplateRowsArr = Array<GridTemplateRows>;
-export type GridTemplateRowsObj = Record<GridTemplateRows, string>;
+export type GridTemplateRowsClass = GridRowClass | 'none';
+export type GridTemplateRowsClassArr = Array<GridTemplateRowsClass>;
+export type GridTemplateRowsClassObj = Record<GridTemplateRowsClass, string>;
 
 /**
  * Interactivity
  */
-export type Cursor =
+export type CursorClass =
 	| 'auto'
 	| 'default'
 	| 'pointer'
@@ -246,25 +256,25 @@ export type Cursor =
 	| 'nwse-resize'
 	| 'zoom-in'
 	| 'zoom-out';
-export type CursorArr = Array<Cursor>;
-export type CursorObj = Record<Cursor, string>;
+export type CursorClassArr = Array<CursorClass>;
+export type CursorClassObj = Record<CursorClass, string>;
 
-export type PointerEvents = 'auto' | 'none';
-export type PointerEventsArr = Array<PointerEvents>;
-export type PointerEventsObj = Record<PointerEvents, string>;
+export type PointerEventsClass = 'auto' | 'none';
+export type PointerEventsClassArr = Array<PointerEventsClass>;
+export type PointerEventsClassObj = Record<PointerEventsClass, string>;
 
-export type UserSelect = 'none' | 'text' | 'all' | 'auto';
-export type UserSelectArr = Array<UserSelect>;
-export type UserSelectObj = Record<UserSelect, string>;
+export type UserSelectClass = 'none' | 'text' | 'all' | 'auto';
+export type UserSelectClassArr = Array<UserSelectClass>;
+export type UserSelectClassObj = Record<UserSelectClass, string>;
 
-export type WillChange = 'auto' | 'scroll' | 'contents' | 'transform';
-export type WillChangeArr = Array<WillChange>;
-export type WillChangeObj = Record<WillChange, string>;
+export type WillChangeClass = 'auto' | 'scroll' | 'contents' | 'transform';
+export type WillChangeClassArr = Array<WillChangeClass>;
+export type WillChangeClassObj = Record<WillChangeClass, string>;
 
 /**
  * Layout
  */
-export type Width =
+export type WidthClass =
 	| 'auto'
 	| '1/2'
 	| '1/3'
@@ -297,15 +307,15 @@ export type Width =
 	| 'min'
 	| 'max'
 	| 'fit'
-	| Space;
-export type WidthArr = Array<Width>;
-export type WidthObj = Record<Width, string>;
+	| ThemeSpacing;
+export type WidthClassArr = Array<WidthClass>;
+export type WidthClassObj = Record<WidthClass, string>;
 
-export type MinWidth = 0 | 'full' | 'min' | 'max' | 'fit';
-export type MinWidthArr = Array<MinWidth>;
-export type MinWidthObj = Record<MinWidth, string>;
+export type MinWidthClass = 0 | 'full' | 'min' | 'max' | 'fit';
+export type MinWidthClassArr = Array<MinWidthClass>;
+export type MinWidthClassObj = Record<MinWidthClass, string>;
 
-export type MaxWidth =
+export type MaxWidthClass =
 	| 0
 	| 'none'
 	| 'xs'
@@ -324,10 +334,10 @@ export type MaxWidth =
 	| 'max'
 	| 'fit'
 	| 'prose';
-export type MaxWidthArr = Array<MaxWidth>;
-export type MaxWidthObj = Record<MaxWidth, string>;
+export type MaxWidthClassArr = Array<MaxWidthClass>;
+export type MaxWidthClassObj = Record<MaxWidthClass, string>;
 
-export type Height =
+export type HeightClass =
 	| 'auto'
 	| '1/2'
 	| '1/3'
@@ -349,23 +359,23 @@ export type Height =
 	| 'min'
 	| 'max'
 	| 'fit'
-	| Space;
-export type HeightArr = Array<Height>;
-export type HeightObj = Record<Height, string>;
+	| ThemeSpacing;
+export type HeightClassArr = Array<HeightClass>;
+export type HeightClassObj = Record<HeightClass, string>;
 
-export type MinHeight = 0 | 'full' | 'screen' | 'min' | 'max' | 'fit';
-export type MinHeightArr = Array<MinHeight>;
-export type MinHeightObj = Record<MinHeight, string>;
+export type MinHeightClass = 0 | 'full' | 'screen' | 'min' | 'max' | 'fit';
+export type MinHeightClassArr = Array<MinHeightClass>;
+export type MinHeightClassObj = Record<MinHeightClass, string>;
 
-export type MaxHeight = 0 | 'none' | 'full' | 'screen' | 'min' | 'max' | 'fit';
-export type MaxHeightArr = Array<MaxHeight>;
-export type MaxHeightObj = Record<MaxHeight, string>;
+export type MaxHeightClass = 0 | 'none' | 'full' | 'screen' | 'min' | 'max' | 'fit';
+export type MaxHeightClassArr = Array<MaxHeightClass>;
+export type MaxHeightClassObj = Record<MaxHeightClass, string>;
 
-export type Position = 'static' | 'fixed' | 'absolute' | 'relative' | 'sticky';
-export type PositionArr = Array<Position>;
-export type PositionObj = Record<Position, string>;
+export type PositionClass = 'static' | 'fixed' | 'absolute' | 'relative' | 'sticky';
+export type PositionClassArr = Array<PositionClass>;
+export type PositionClassObj = Record<PositionClass, string>;
 
-export type ZIndex =
+export type ZIndexClass =
 	| 0
 	| 1
 	| 2
@@ -410,8 +420,8 @@ export type ZIndex =
 	| 'toast'
 	| 'tooltip'
 	| 'auto';
-export type ZIndexArr = Array<ZIndex>;
-export type ZIndexObj = Record<ZIndex, string | number>;
+export type ZIndexClassArr = Array<ZIndexClass>;
+export type ZIndexClassObj = Record<ZIndexClass, string | number>;
 
 /**
  * Sizing
@@ -424,9 +434,11 @@ export type ZIndexObj = Record<ZIndex, string | number>;
 /**
  * SVG
  */
-export type FillColor =
-	| `${PickFrom<ClassType, 'fill'>}-${Exclude<Color, 'transparent' | 'black' | 'white'>}-${ColorHue}`
-	| `${PickFrom<ClassType, 'fill'>}-${PickFrom<Color, 'transparent' | 'black' | 'white'>}`;
+export type FillColorClass =
+	| `${PickFrom<ColorTypeClass, 'fill'>}-${Exclude<ThemeColor, 'transparent' | 'black' | 'white'>}-${ThemeColorHue}`
+	| `${PickFrom<ColorTypeClass, 'fill'>}-${PickFrom<ThemeColor, 'transparent' | 'black' | 'white'>}`;
+export type FillColorClassArr = Array<FillColorClass>;
+export type FillColorClassObj = Record<FillColorClass, string | number>;
 
 /**
  * Transitions
@@ -435,10 +447,12 @@ export type FillColor =
 /**
  * Typography
  */
-export type TextColor =
-	| `${PickFrom<ClassType, 'text'>}-${Exclude<Color, 'transparent' | 'black' | 'white'>}-${ColorHue}`
-	| `${PickFrom<ClassType, 'text'>}-${PickFrom<Color, 'transparent' | 'black' | 'white'>}`;
+export type TextColorClass =
+	| `${PickFrom<ColorTypeClass, 'text'>}-${Exclude<ThemeColor, 'transparent' | 'black' | 'white'>}-${ThemeColorHue}`
+	| `${PickFrom<ColorTypeClass, 'text'>}-${PickFrom<ThemeColor, 'transparent' | 'black' | 'white'>}`;
+export type TextColorClassArr = Array<TextColorClass>;
+export type TextColorClassObj = Record<TextColorClass, string>;
 
-export type TextLineClamp = 'none' | 1 | 2 | 3 | 4 | 5 | 6;
-export type TextLineClampArr = Array<TextLineClamp>;
-export type TextLineClampObj = Record<TextLineClamp, string>;
+export type TextLineClampClass = 'none' | 1 | 2 | 3 | 4 | 5 | 6;
+export type TextLineClampClassArr = Array<TextLineClampClass>;
+export type TextLineClampClassObj = Record<TextLineClampClass, string>;
