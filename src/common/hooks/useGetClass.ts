@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
 import classes from '@common/classes';
-import pickFromObj from '@common/helpers/pickFromObj';
+import { pickFromObj } from '@common/helpers';
 import type { ResponsiveValue } from '@common/types';
 import { getResponsiveValue } from '@common/utils';
 
