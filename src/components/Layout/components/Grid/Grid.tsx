@@ -4,7 +4,12 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 import { merge } from 'lodash-es';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
+import {
+	__DEFAULT_CLASS_PREFIX__,
+	__DEFAULT_CLASSNAME__,
+	__DEFAULT_POLYMORPHIC_SX__,
+	__DEFAULT_SPACING__
+} from '@common/constants';
 
 import { Box } from '@components/Box';
 
@@ -38,7 +43,7 @@ const Grid = forwardRef(function Grid<Element extends ElementType>(
 		templateColumns = __DEFAULT_GRID_TEMPLATE_COLUMNS__,
 		templateRows = __DEFAULT_GRID_TEMPLATE_ROWS__,
 		spacing = __DEFAULT_SPACING__,
-		sx,
+		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
 	} = props;
 

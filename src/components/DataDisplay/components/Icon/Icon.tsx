@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 import { merge } from 'lodash-es';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { getIconFontFamily } from '@common/utils';
 
 import { Skeleton } from '@components/Feedback';
@@ -38,7 +38,7 @@ const Icon = forwardRef(function Icon<Element extends IconElement = IconDefaultE
 		radius = __DEFAULT_ICON_RADIUS__,
 		size = __DEFAULT_ICON_SIZE__,
 		variant = __DEFAULT_ICON_VARIANT__,
-		sx,
+		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
 	} = props;
 

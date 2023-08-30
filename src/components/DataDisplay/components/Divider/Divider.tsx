@@ -8,6 +8,7 @@ import {
 	__DEFAULT_BORDER_WIDTH__,
 	__DEFAULT_CLASS_PREFIX__,
 	__DEFAULT_CLASSNAME__,
+	__DEFAULT_POLYMORPHIC_SX__,
 	__DEFAULT_SPACING__
 } from '@common/constants';
 
@@ -36,7 +37,7 @@ const Divider = forwardRef(function Divider<Element extends DividerElement = Div
 		size = __DEFAULT_BORDER_WIDTH__,
 		spacing = __DEFAULT_SPACING__,
 		variant = __DEFAULT_DIVIDER_VARIANT__,
-		sx,
+		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
 	} = props;
 

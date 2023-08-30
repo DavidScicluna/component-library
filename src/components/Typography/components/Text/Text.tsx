@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 import { merge } from 'lodash-es';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 
 import { Box } from '@components/Box';
@@ -41,7 +41,7 @@ const Text = forwardRef(function Text<Element extends TextElement = TextDefaultE
 		isOverflown: overflown = __DEFAULT_TEXT_IS_OVERFLOWN__,
 		whitespace = __DEFAULT_TEXT_WHITESPACE__,
 		wordBreak = __DEFAULT_TEXT_WORD_BREAK__,
-		sx,
+		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
 	} = props;
 
