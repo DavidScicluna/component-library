@@ -521,6 +521,51 @@ const border_style: BorderStyleClassObj = {
 	none: 'border-none'
 };
 
+const hover_border_style: BorderStyleClassObj = {
+	solid: 'hover:border-solid',
+	dashed: 'hover:border-dashed',
+	dotted: 'hover:border-dotted',
+	double: 'hover:border-double',
+	hidden: 'hover:border-hidden',
+	none: 'hover:border-none'
+};
+
+const focus_border_style: BorderStyleClassObj = {
+	solid: 'focus:border-solid',
+	dashed: 'focus:border-dashed',
+	dotted: 'focus:border-dotted',
+	double: 'focus:border-double',
+	hidden: 'focus:border-hidden',
+	none: 'focus:border-none'
+};
+
+const active_border_style: BorderStyleClassObj = {
+	solid: 'active:border-solid',
+	dashed: 'active:border-dashed',
+	dotted: 'active:border-dotted',
+	double: 'active:border-double',
+	hidden: 'active:border-hidden',
+	none: 'active:border-none'
+};
+
+const before_border_style: BorderStyleClassObj = {
+	solid: 'before:border-solid',
+	dashed: 'before:border-dashed',
+	dotted: 'before:border-dotted',
+	double: 'before:border-double',
+	hidden: 'before:border-hidden',
+	none: 'before:border-none'
+};
+
+const after_border_style: BorderStyleClassObj = {
+	solid: 'after:border-solid',
+	dashed: 'after:border-dashed',
+	dotted: 'after:border-dotted',
+	double: 'after:border-double',
+	hidden: 'after:border-hidden',
+	none: 'after:border-none'
+};
+
 const border_color: ThemeColorObj = {
 	transparent: 'border-transparent',
 	black: 'border-black',
@@ -1815,6 +1860,56 @@ const border_radius: ThemeRadiusObj = {
 	full: 'rounded-full'
 };
 
+const hover_border_radius: ThemeRadiusObj = {
+	none: 'hover:rounded-none',
+	xs: 'hover:rounded-xs',
+	sm: 'hover:rounded-sm',
+	base: 'hover:rounded-base',
+	lg: 'hover:rounded-lg',
+	xl: 'hover:rounded-xl',
+	full: 'hover:rounded-full'
+};
+
+const focus_border_radius: ThemeRadiusObj = {
+	none: 'focus:rounded-none',
+	xs: 'focus:rounded-xs',
+	sm: 'focus:rounded-sm',
+	base: 'focus:rounded-base',
+	lg: 'focus:rounded-lg',
+	xl: 'focus:rounded-xl',
+	full: 'focus:rounded-full'
+};
+
+const active_border_radius: ThemeRadiusObj = {
+	none: 'active:rounded-none',
+	xs: 'active:rounded-xs',
+	sm: 'active:rounded-sm',
+	base: 'active:rounded-base',
+	lg: 'active:rounded-lg',
+	xl: 'active:rounded-xl',
+	full: 'active:rounded-full'
+};
+
+const before_border_radius: ThemeRadiusObj = {
+	none: 'before:rounded-none',
+	xs: 'before:rounded-xs',
+	sm: 'before:rounded-sm',
+	base: 'before:rounded-base',
+	lg: 'before:rounded-lg',
+	xl: 'before:rounded-xl',
+	full: 'before:rounded-full'
+};
+
+const after_border_radius: ThemeRadiusObj = {
+	none: 'after:rounded-none',
+	xs: 'after:rounded-xs',
+	sm: 'after:rounded-sm',
+	base: 'after:rounded-base',
+	lg: 'after:rounded-lg',
+	xl: 'after:rounded-xl',
+	full: 'after:rounded-full'
+};
+
 const outline_width: OutlineWidthClassObj = {
 	0: 'outline-0',
 	1: 'outline-1',
@@ -1933,6 +2028,54 @@ const outline_offset: OutlineOffsetClassObj = {
 	2: 'outline-offset-2',
 	4: 'outline-offset-4',
 	8: 'outline-offset-8'
+};
+
+const hover_outline_offset: OutlineOffsetClassObj = {
+	0: 'hover:outline-offset-0',
+	1: 'hover:outline-offset-1',
+	2: 'hover:outline-offset-2',
+	4: 'hover:outline-offset-4',
+	8: 'hover:outline-offset-8'
+};
+
+const focus_outline_offset: OutlineOffsetClassObj = {
+	0: 'focus:outline-offset-0',
+	1: 'focus:outline-offset-1',
+	2: 'focus:outline-offset-2',
+	4: 'focus:outline-offset-4',
+	8: 'focus:outline-offset-8'
+};
+
+const focus_visible_outline_offset: OutlineOffsetClassObj = {
+	0: 'focus-visible:outline-offset-0',
+	1: 'focus-visible:outline-offset-1',
+	2: 'focus-visible:outline-offset-2',
+	4: 'focus-visible:outline-offset-4',
+	8: 'focus-visible:outline-offset-8'
+};
+
+const active_outline_offset: OutlineOffsetClassObj = {
+	0: 'active:outline-offset-0',
+	1: 'active:outline-offset-1',
+	2: 'active:outline-offset-2',
+	4: 'active:outline-offset-4',
+	8: 'active:outline-offset-8'
+};
+
+const before_outline_offset: OutlineOffsetClassObj = {
+	0: 'before:outline-offset-0',
+	1: 'before:outline-offset-1',
+	2: 'before:outline-offset-2',
+	4: 'before:outline-offset-4',
+	8: 'before:outline-offset-8'
+};
+
+const after_outline_offset: OutlineOffsetClassObj = {
+	0: 'after:outline-offset-0',
+	1: 'after:outline-offset-1',
+	2: 'after:outline-offset-2',
+	4: 'after:outline-offset-4',
+	8: 'after:outline-offset-8'
 };
 
 const outline_color: ThemeColorObj = {
@@ -2364,6 +2507,220 @@ const hover_outline_color: ThemeColorObj = {
 };
 
 const focus_outline_color: ThemeColorObj = {
+	transparent: 'focus-visible:outline-transparent',
+	black: 'focus-visible:outline-black',
+	white: 'focus-visible:outline-white',
+	gray: {
+		50: 'focus-visible:outline-gray-50',
+		100: 'focus-visible:outline-gray-100',
+		200: 'focus-visible:outline-gray-200',
+		300: 'focus-visible:outline-gray-300',
+		400: 'focus-visible:outline-gray-400',
+		500: 'focus-visible:outline-gray-500',
+		600: 'focus-visible:outline-gray-600',
+		700: 'focus-visible:outline-gray-700',
+		800: 'focus-visible:outline-gray-800',
+		900: 'focus-visible:outline-gray-900',
+		950: 'focus-visible:outline-gray-950'
+	},
+	red: {
+		50: 'focus-visible:outline-red-50',
+		100: 'focus-visible:outline-red-100',
+		200: 'focus-visible:outline-red-200',
+		300: 'focus-visible:outline-red-300',
+		400: 'focus-visible:outline-red-400',
+		500: 'focus-visible:outline-red-500',
+		600: 'focus-visible:outline-red-600',
+		700: 'focus-visible:outline-red-700',
+		800: 'focus-visible:outline-red-800',
+		900: 'focus-visible:outline-red-900',
+		950: 'focus-visible:outline-red-950'
+	},
+	pink: {
+		50: 'focus-visible:outline-pink-50',
+		100: 'focus-visible:outline-pink-100',
+		200: 'focus-visible:outline-pink-200',
+		300: 'focus-visible:outline-pink-300',
+		400: 'focus-visible:outline-pink-400',
+		500: 'focus-visible:outline-pink-500',
+		600: 'focus-visible:outline-pink-600',
+		700: 'focus-visible:outline-pink-700',
+		800: 'focus-visible:outline-pink-800',
+		900: 'focus-visible:outline-pink-900',
+		950: 'focus-visible:outline-pink-950'
+	},
+	purple: {
+		50: 'focus-visible:outline-purple-50',
+		100: 'focus-visible:outline-purple-100',
+		200: 'focus-visible:outline-purple-200',
+		300: 'focus-visible:outline-purple-300',
+		400: 'focus-visible:outline-purple-400',
+		500: 'focus-visible:outline-purple-500',
+		600: 'focus-visible:outline-purple-600',
+		700: 'focus-visible:outline-purple-700',
+		800: 'focus-visible:outline-purple-800',
+		900: 'focus-visible:outline-purple-900',
+		950: 'focus-visible:outline-purple-950'
+	},
+	deep_purple: {
+		50: 'focus-visible:outline-deep_purple-50',
+		100: 'focus-visible:outline-deep_purple-100',
+		200: 'focus-visible:outline-deep_purple-200',
+		300: 'focus-visible:outline-deep_purple-300',
+		400: 'focus-visible:outline-deep_purple-400',
+		500: 'focus-visible:outline-deep_purple-500',
+		600: 'focus-visible:outline-deep_purple-600',
+		700: 'focus-visible:outline-deep_purple-700',
+		800: 'focus-visible:outline-deep_purple-800',
+		900: 'focus-visible:outline-deep_purple-900',
+		950: 'focus-visible:outline-deep_purple-950'
+	},
+	indigo: {
+		50: 'focus-visible:outline-indigo-50',
+		100: 'focus-visible:outline-indigo-100',
+		200: 'focus-visible:outline-indigo-200',
+		300: 'focus-visible:outline-indigo-300',
+		400: 'focus-visible:outline-indigo-400',
+		500: 'focus-visible:outline-indigo-500',
+		600: 'focus-visible:outline-indigo-600',
+		700: 'focus-visible:outline-indigo-700',
+		800: 'focus-visible:outline-indigo-800',
+		900: 'focus-visible:outline-indigo-900',
+		950: 'focus-visible:outline-indigo-950'
+	},
+	blue: {
+		50: 'focus-visible:outline-blue-50',
+		100: 'focus-visible:outline-blue-100',
+		200: 'focus-visible:outline-blue-200',
+		300: 'focus-visible:outline-blue-300',
+		400: 'focus-visible:outline-blue-400',
+		500: 'focus-visible:outline-blue-500',
+		600: 'focus-visible:outline-blue-600',
+		700: 'focus-visible:outline-blue-700',
+		800: 'focus-visible:outline-blue-800',
+		900: 'focus-visible:outline-blue-900',
+		950: 'focus-visible:outline-blue-950'
+	},
+	light_blue: {
+		50: 'focus-visible:outline-light_blue-50',
+		100: 'focus-visible:outline-light_blue-100',
+		200: 'focus-visible:outline-light_blue-200',
+		300: 'focus-visible:outline-light_blue-300',
+		400: 'focus-visible:outline-light_blue-400',
+		500: 'focus-visible:outline-light_blue-500',
+		600: 'focus-visible:outline-light_blue-600',
+		700: 'focus-visible:outline-light_blue-700',
+		800: 'focus-visible:outline-light_blue-800',
+		900: 'focus-visible:outline-light_blue-900',
+		950: 'focus-visible:outline-light_blue-950'
+	},
+	cyan: {
+		50: 'focus-visible:outline-cyan-50',
+		100: 'focus-visible:outline-cyan-100',
+		200: 'focus-visible:outline-cyan-200',
+		300: 'focus-visible:outline-cyan-300',
+		400: 'focus-visible:outline-cyan-400',
+		500: 'focus-visible:outline-cyan-500',
+		600: 'focus-visible:outline-cyan-600',
+		700: 'focus-visible:outline-cyan-700',
+		800: 'focus-visible:outline-cyan-800',
+		900: 'focus-visible:outline-cyan-900',
+		950: 'focus-visible:outline-cyan-950'
+	},
+	teal: {
+		50: 'focus-visible:outline-teal-50',
+		100: 'focus-visible:outline-teal-100',
+		200: 'focus-visible:outline-teal-200',
+		300: 'focus-visible:outline-teal-300',
+		400: 'focus-visible:outline-teal-400',
+		500: 'focus-visible:outline-teal-500',
+		600: 'focus-visible:outline-teal-600',
+		700: 'focus-visible:outline-teal-700',
+		800: 'focus-visible:outline-teal-800',
+		900: 'focus-visible:outline-teal-900',
+		950: 'focus-visible:outline-teal-950'
+	},
+	green: {
+		50: 'focus-visible:outline-green-50',
+		100: 'focus-visible:outline-green-100',
+		200: 'focus-visible:outline-green-200',
+		300: 'focus-visible:outline-green-300',
+		400: 'focus-visible:outline-green-400',
+		500: 'focus-visible:outline-green-500',
+		600: 'focus-visible:outline-green-600',
+		700: 'focus-visible:outline-green-700',
+		800: 'focus-visible:outline-green-800',
+		900: 'focus-visible:outline-green-900',
+		950: 'focus-visible:outline-green-950'
+	},
+	light_green: {
+		50: 'focus-visible:outline-light_green-50',
+		100: 'focus-visible:outline-light_green-100',
+		200: 'focus-visible:outline-light_green-200',
+		300: 'focus-visible:outline-light_green-300',
+		400: 'focus-visible:outline-light_green-400',
+		500: 'focus-visible:outline-light_green-500',
+		600: 'focus-visible:outline-light_green-600',
+		700: 'focus-visible:outline-light_green-700',
+		800: 'focus-visible:outline-light_green-800',
+		900: 'focus-visible:outline-light_green-900',
+		950: 'focus-visible:outline-light_green-950'
+	},
+	lime: {
+		50: 'focus-visible:outline-lime-50',
+		100: 'focus-visible:outline-lime-100',
+		200: 'focus-visible:outline-lime-200',
+		300: 'focus-visible:outline-lime-300',
+		400: 'focus-visible:outline-lime-400',
+		500: 'focus-visible:outline-lime-500',
+		600: 'focus-visible:outline-lime-600',
+		700: 'focus-visible:outline-lime-700',
+		800: 'focus-visible:outline-lime-800',
+		900: 'focus-visible:outline-lime-900',
+		950: 'focus-visible:outline-lime-950'
+	},
+	yellow: {
+		50: 'focus-visible:outline-yellow-50',
+		100: 'focus-visible:outline-yellow-100',
+		200: 'focus-visible:outline-yellow-200',
+		300: 'focus-visible:outline-yellow-300',
+		400: 'focus-visible:outline-yellow-400',
+		500: 'focus-visible:outline-yellow-500',
+		600: 'focus-visible:outline-yellow-600',
+		700: 'focus-visible:outline-yellow-700',
+		800: 'focus-visible:outline-yellow-800',
+		900: 'focus-visible:outline-yellow-900',
+		950: 'focus-visible:outline-yellow-950'
+	},
+	orange: {
+		50: 'focus-visible:outline-orange-50',
+		100: 'focus-visible:outline-orange-100',
+		200: 'focus-visible:outline-orange-200',
+		300: 'focus-visible:outline-orange-300',
+		400: 'focus-visible:outline-orange-400',
+		500: 'focus-visible:outline-orange-500',
+		600: 'focus-visible:outline-orange-600',
+		700: 'focus-visible:outline-orange-700',
+		800: 'focus-visible:outline-orange-800',
+		900: 'focus-visible:outline-orange-900',
+		950: 'focus-visible:outline-orange-950'
+	},
+	deep_orange: {
+		50: 'focus-visible:outline-deep_orange-50',
+		100: 'focus-visible:outline-deep_orange-100',
+		200: 'focus-visible:outline-deep_orange-200',
+		300: 'focus-visible:outline-deep_orange-300',
+		400: 'focus-visible:outline-deep_orange-400',
+		500: 'focus-visible:outline-deep_orange-500',
+		600: 'focus-visible:outline-deep_orange-600',
+		700: 'focus-visible:outline-deep_orange-700',
+		800: 'focus-visible:outline-deep_orange-800',
+		900: 'focus-visible:outline-deep_orange-900',
+		950: 'focus-visible:outline-deep_orange-950'
+	}
+};
+
+const focus_visible_outline_color: ThemeColorObj = {
 	transparent: 'focus:outline-transparent',
 	black: 'focus:outline-black',
 	white: 'focus:outline-white',
@@ -3276,7 +3633,14 @@ export default {
 		before: before_border_b_width,
 		after: after_border_b_width
 	},
-	border_style,
+	border_style: {
+		...border_style,
+		hover: hover_border_style,
+		focus: focus_border_style,
+		active: active_border_style,
+		before: before_border_style,
+		after: after_border_style
+	},
 	border_color: {
 		...border_color,
 		hover: hover_border_color,
@@ -3285,7 +3649,14 @@ export default {
 		before: before_border_color,
 		after: after_border_color
 	},
-	border_radius,
+	border_radius: {
+		...border_radius,
+		hover: hover_border_radius,
+		focus: focus_border_radius,
+		active: active_border_radius,
+		before: before_border_radius,
+		after: after_border_radius
+	},
 	outline_width: {
 		...outline_width,
 		hover: hover_outline_width,
@@ -3304,11 +3675,20 @@ export default {
 		before: before_outline_style,
 		after: after_outline_style
 	},
-	outline_offset,
+	outline_offset: {
+		...outline_offset,
+		hover: hover_outline_offset,
+		focus: focus_outline_offset,
+		focus_visible: focus_visible_outline_offset,
+		active: active_outline_offset,
+		before: before_outline_offset,
+		after: after_outline_offset
+	},
 	outline_color: {
 		...outline_color,
 		hover: hover_outline_color,
 		focus: focus_outline_color,
+		focus_visible: focus_visible_outline_color,
 		active: active_outline_color,
 		before: before_outline_color,
 		after: after_outline_color
