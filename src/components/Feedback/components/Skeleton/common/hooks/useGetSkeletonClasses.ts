@@ -2,8 +2,7 @@ import type { ElementType } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_DURATION__, __DEFAULT_EASING__, __DEFAULT_RADIUS__ } from '@common/constants';
-import { __DEFAULT_COLOR__ } from '@common/constants/props';
+import { __DEFAULT_COLOR__, __DEFAULT_DURATION__, __DEFAULT_EASING__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
 import type { ClassName, ThemeDuration, ThemeEase, ThemeRadius } from '@common/types';
 

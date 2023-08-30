@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_COLOR__ } from '@common/constants/props';
+import { __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useGetClass } from '@common/hooks';
 import type { BorderStyleClass, ClassName, ThemeBorderWidth, ThemeRadius } from '@common/types';
 import { getColorHue } from '@common/utils';
