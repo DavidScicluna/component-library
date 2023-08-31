@@ -1,63 +1,20 @@
-import { BoxProps } from '@chakra-ui/react';
+import type { ElementType } from 'react';
 
-import { CommonThemeProps, Nullable } from '../../../../../common/types';
-import {
-	BoxBackground,
-	BoxBorderRadius,
-	BoxBorders,
-	BoxColor,
-	BoxFilter,
-	BoxFlexbox,
-	BoxGradient,
-	BoxGrid,
-	BoxLayout,
-	BoxOther,
-	BoxPosition,
-	BoxShadow,
-	BoxTypography
-} from '../../../../../common/types/box';
-import { Color, Radius } from '../../../../../theme/types';
+import type { ResponsiveValue, ThemeAppAppearanceProps, ThemeRadius } from '@common/types';
 
-export type PushableOverlayColor = Exclude<Color, 'transparent'>;
+import type { BoxProps, BoxRef } from '@components/Box';
 
-export type PushableOverlayVariant = 'contained' | 'light' | 'outlined' | 'monochrome' | 'transparent';
+export type PushableOverlayVariant = 'contained' | 'light' | 'dark' | 'outlined' | 'monochrome' | 'transparent';
 
-type BoxLayoutExcluded =
-	| 'w'
-	| 'width'
-	| 'h'
-	| 'height'
-	| 'minW'
-	| 'minWidth'
-	| 'maxW'
-	| 'maxWidth'
-	| 'minH'
-	| 'minHeight'
-	| 'maxH'
-	| 'maxHeight';
-type Omitted =
-	| BoxColor
-	| BoxGradient
-	| BoxTypography
-	| Exclude<BoxLayout, BoxLayoutExcluded>
-	| BoxFlexbox
-	| BoxGrid
-	| BoxBackground
-	| BoxBorders
-	| BoxBorderRadius
-	| BoxPosition
-	| BoxShadow
-	| BoxFilter
-	| BoxOther;
+type PushableOverlayOtherProps = ThemeAppAppearanceProps & {
+	isActive?: ResponsiveValue<boolean>;
+	isDisabled?: ResponsiveValue<boolean>;
+	isFixed?: ResponsiveValue<boolean>;
+	isPushable?: ResponsiveValue<boolean>;
+	radius?: ResponsiveValue<ThemeRadius>;
+	variant?: ResponsiveValue<PushableOverlayVariant>;
+};
 
-export type PushableOverlayProps = Omit<BoxProps, Omitted> & {
-	borderRadius?: Radius;
-	color?: PushableOverlayColor;
-	isActive?: boolean;
-	isDisabled?: boolean;
-	isFixed?: boolean;
-	isPushable?: boolean;
-	variant?: PushableOverlayVariant;
-} & Pick<CommonThemeProps, 'colorMode'>;
+export type PushableOverlayProps<Element extends ElementType> = BoxProps<Element, PushableOverlayOtherProps>;
 
-export type PushableOverlayRef = Nullable<HTMLDivElement>;
+export type PushableOverlayRef<Element extends ElementType> = BoxRef<Element>;
