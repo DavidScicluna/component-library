@@ -1,3 +1,5 @@
+import type { PickFrom } from './utility';
+
 export type ThemeAppColor = Exclude<ThemeColor, 'transparent' | 'black' | 'white' | 'gray'>;
 export type ThemeAppColorArr = Array<ThemeAppColor>;
 export type ThemeAppColorObj = Record<ThemeAppColor, string>;
@@ -47,7 +49,11 @@ export type ThemeColor =
 	| 'orange'
 	| 'deep_orange';
 export type ThemeColorArr = Array<ThemeColor>;
-export type ThemeColorObj = Record<ThemeColor, string | Record<ThemeColorHue, string>>;
+export type ThemeColorObj = Record<
+	Exclude<ThemeColor, 'transparent' | 'black' | 'white'>,
+	Record<ThemeColorHue, string>
+> &
+	Record<PickFrom<ThemeColor, 'transparent' | 'black' | 'white'>, string>;
 
 export type ThemeColorHue = 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950;
 export type ThemeColorHueArr = Array<ThemeColorHue>;
