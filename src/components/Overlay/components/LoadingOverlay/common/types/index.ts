@@ -33,7 +33,7 @@ type LoadingOverlayOtherProps<Element extends ElementType> = ThemeAppAppearanceP
 	 *
 	 * @default 'none'
 	 */
-	radius?: ThemeRadius;
+	radius?: ResponsiveValue<ThemeRadius>;
 	/**
 	 * If `true` it will fade in the spinner element else it will fade out the spinner
 	 *

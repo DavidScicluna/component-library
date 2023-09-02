@@ -31,7 +31,7 @@ type GlassOverlayOtherProps = ThemeAppAppearanceProps & {
 	 *
 	 * @default 'none'
 	 */
-	radius?: ThemeRadius;
+	radius?: ResponsiveValue<ThemeRadius>;
 	/**
 	 * If `true` a background depending on color & colorMode will be triggered on the background
 	 *
