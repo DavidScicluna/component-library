@@ -1,18 +1,20 @@
+import type { ElementType } from 'react';
+
 import { transparentize } from 'color2k';
 
 import { useGetColor, useGetResponsiveValue } from '@common/hooks';
 import type { Style } from '@common/types';
 
 import { __DEFAULT_BACKDROP_OVERLAY_AMOUNT__ } from '../constants';
-import type { BackdropOverlayElement, BackdropOverlayProps } from '../types';
+import type { BackdropOverlayProps } from '../types';
 
-type UseBackdropOverlayStylesProps<Element extends BackdropOverlayElement> = Pick<
+type UseBackdropOverlayStylesProps<Element extends ElementType> = Pick<
 	BackdropOverlayProps<Element>,
 	'color' | 'colorMode' | 'amount'
 >;
 type UseBackdropOverlayStylesReturn = Style;
 
-const useBackdropOverlayStyles = <Element extends BackdropOverlayElement>(
+const useBackdropOverlayStyles = <Element extends ElementType>(
 	props: UseBackdropOverlayStylesProps<Element>
 ): UseBackdropOverlayStylesReturn => {
 	const { color, colorMode, amount: a = __DEFAULT_BACKDROP_OVERLAY_AMOUNT__ } = props;

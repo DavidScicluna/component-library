@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import classNames from 'classnames';
 
 import { useGetColor } from '@common/hooks';
-import type { BackdropBlurClassArr } from '@common/types';
+import type { BackdropBlurClassArr, PolymorphicDefaultElement } from '@common/types';
 
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography';
@@ -11,8 +11,12 @@ import { Text } from '@components/Typography';
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
-import { __DEFAULT_BACKDROP_OVERLAY_BLUR__ } from './common/constants';
-import type { BackdropOverlayDefaultElement, BackdropOverlayProps } from './common/types';
+import {
+	__DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
+	__DEFAULT_BACKDROP_OVERLAY_BLUR__,
+	__DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__
+} from './common/constants';
+import type { BackdropOverlayBlurTypes, BackdropOverlayProps } from './common/types';
 import type { BackdropOverlayStory, BackdropOverlayStoryMeta } from './common/types/story';
 import { BackdropOverlay as BackdropOverlayComponent } from '.';
 
@@ -20,6 +24,13 @@ export default {
 	title: 'Overlay/BackdropOverlay',
 	component: BackdropOverlayComponent,
 	argTypes: {
+		amount: {
+			name: 'Amount',
+			type: 'string',
+			defaultValue: __DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
+			// description: '',
+			control: { type: 'number' }
+		},
 		blur: {
 			name: 'Blur',
 			type: 'string',
@@ -42,12 +53,20 @@ export default {
 				'9xl'
 			] as BackdropBlurClassArr,
 			control: { type: 'radio' }
+		},
+		blurType: {
+			name: 'Blur Type',
+			type: 'string',
+			defaultValue: __DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
+			// description: '',
+			options: ['backdrop', 'blur'] as BackdropOverlayBlurTypes,
+			control: { type: 'radio' }
 		}
 	}
 } as BackdropOverlayStoryMeta;
 
 export const BackdropOverlay: BackdropOverlayStory = (
-	props: BackdropOverlayProps<BackdropOverlayDefaultElement>
+	props: BackdropOverlayProps<PolymorphicDefaultElement>
 ): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 

@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import classNames from 'classnames';
@@ -8,18 +8,18 @@ import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constan
 import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
 
-import { __DEFAULT_BACKDROP_OVERLAY_AMOUNT__, __DEFAULT_BACKDROP_OVERLAY_BLUR__ } from './common/constants';
+import {
+	__DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
+	__DEFAULT_BACKDROP_OVERLAY_BLUR__,
+	__DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__
+} from './common/constants';
 import { useBackdropOverlayClasses, useBackdropOverlayStyles } from './common/hooks';
-import type {
-	BackdropOverlayDefaultElement,
-	BackdropOverlayElement,
-	BackdropOverlayProps,
-	BackdropOverlayRef
-} from './common/types';
+import type { BackdropOverlayProps, BackdropOverlayRef } from './common/types';
 
-const BackdropOverlay = forwardRef(function BackdropOverlay<
-	Element extends BackdropOverlayElement = BackdropOverlayDefaultElement
->(props: BackdropOverlayProps<Element>, ref: BackdropOverlayRef<Element>): ReactElement {
+const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends ElementType>(
+	props: BackdropOverlayProps<Element>,
+	ref: BackdropOverlayRef<Element>
+): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
@@ -27,10 +27,11 @@ const BackdropOverlay = forwardRef(function BackdropOverlay<
 		colorMode,
 		amount = __DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
 		blur = __DEFAULT_BACKDROP_OVERLAY_BLUR__,
+		blurType = __DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
 		...rest
 	} = props;
 
-	const classes = useBackdropOverlayClasses<Element>({ blur });
+	const classes = useBackdropOverlayClasses<Element>({ blur, blurType });
 	const styles = useBackdropOverlayStyles<Element>({ color, colorMode, amount });
 
 	return (

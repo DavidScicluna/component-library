@@ -1,11 +1,11 @@
 import type { ElementType } from 'react';
 
-import type { BackdropBlurClass, PickFrom, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
+import type { BackdropBlurClass, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
-export type BackdropOverlayDefaultElement = 'div';
-export type BackdropOverlayElement = PickFrom<ElementType, 'div'>;
+export type BackdropOverlayBlurType = 'blur' | 'backdrop';
+export type BackdropOverlayBlurTypes = Array<BackdropOverlayBlurType>;
 
 type BackdropOverlayOtherProps = ThemeAppAppearanceProps & {
 	/**
@@ -20,12 +20,14 @@ type BackdropOverlayOtherProps = ThemeAppAppearanceProps & {
 	 * @default 'none'
 	 */
 	blur?: ResponsiveValue<BackdropBlurClass>;
+	/**
+	 * The type of blur to show either a backdrop filter blur or else it will be a normal blur
+	 *
+	 * @default 'backdrop'
+	 */
+	blurType?: ResponsiveValue<BackdropOverlayBlurType>;
 };
 
-export type BackdropOverlayProps<Element extends BackdropOverlayElement = BackdropOverlayDefaultElement> = BoxProps<
-	Element,
-	BackdropOverlayOtherProps
->;
+export type BackdropOverlayProps<Element extends ElementType> = BoxProps<Element, BackdropOverlayOtherProps>;
 
-export type BackdropOverlayRef<Element extends BackdropOverlayElement = BackdropOverlayDefaultElement> =
-	BoxRef<Element>;
+export type BackdropOverlayRef<Element extends ElementType> = BoxRef<Element>;
