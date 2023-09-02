@@ -11,9 +11,7 @@ export type PolymorphicMouseEvent<Element extends ElementType = typeof __DEFAULT
 	globalThis.MouseEvent
 >;
 
-type PolymorphicProps<Element extends ElementType = typeof __DEFAULT_POLYMORPHIC_ELEMENT__> = HTMLAttributes<
-	PolymorphicRef<Element>
-> & {
+type PolymorphicProps<Element extends ElementType = typeof __DEFAULT_POLYMORPHIC_ELEMENT__> = {
 	/**
 	 * The component used for the root node. Either a string to use an HTML element or a component.
 	 */
@@ -22,7 +20,7 @@ type PolymorphicProps<Element extends ElementType = typeof __DEFAULT_POLYMORPHIC
 	 * The system prop that allows [emotion css](https://emotion.sh/docs/introduction) objects to be passed down to as styles
 	 */
 	sx?: Style;
-};
+} & Omit<HTMLAttributes<PolymorphicRef<Element>>, 'color'>;
 // & ComponentPropsWithoutRef<Element>;
 
 export type PolymorphicComponentProps<
