@@ -375,6 +375,10 @@ export type PositionClass = 'static' | 'fixed' | 'absolute' | 'relative' | 'stic
 export type PositionClassArr = Array<PositionClass>;
 export type PositionClassObj = Record<PositionClass, string>;
 
+export type OverflowClass = 'auto' | 'hidden' | 'clip' | 'visible' | 'scroll';
+export type OverflowClassArr = Array<OverflowClass>;
+export type OverflowClassObj = Record<OverflowClass, string>;
+
 export type ZIndexClass =
 	| 0
 	| 1

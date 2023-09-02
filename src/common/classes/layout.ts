@@ -5,6 +5,7 @@ import type {
 	ThemeSpacingObj,
 	ZIndexClassObj
 } from '@common/types';
+import type { OverflowClassObj } from '@common/types/classes';
 
 const aspect_ratio: ThemeAspectRatioObj = {
 	auto: 'aspect-auto',
@@ -1285,6 +1286,30 @@ const after_left: ThemeSpacingObj = {
 	24.75: 'after:left-24.75'
 };
 
+const overflow: OverflowClassObj = {
+	auto: 'overflow-auto',
+	hidden: 'overflow-hidden',
+	clip: 'overflow-clip',
+	visible: 'overflow-visible',
+	scroll: 'overflow-scroll'
+};
+
+const overflow_x: OverflowClassObj = {
+	auto: 'overflow-x-auto',
+	hidden: 'overflow-x-hidden',
+	clip: 'overflow-x-clip',
+	visible: 'overflow-x-visible',
+	scroll: 'overflow-x-scroll'
+};
+
+const overflow_y: OverflowClassObj = {
+	auto: 'overflow-y-auto',
+	hidden: 'overflow-y-hidden',
+	clip: 'overflow-y-clip',
+	visible: 'overflow-y-visible',
+	scroll: 'overflow-y-scroll'
+};
+
 const z_index: ZIndexClassObj = {
 	0: 'z-0',
 	1: 'z-1',
@@ -1434,5 +1459,8 @@ export default {
 	right: { ...right, before: before_right, after: after_right },
 	bottom: { ...bottom, before: before_bottom, after: after_bottom },
 	left: { ...left, before: before_left, after: after_left },
+	overflow,
+	overflow_x,
+	overflow_y,
 	z_index: { ...z_index, before: before_z_index, after: after_z_index }
 };
