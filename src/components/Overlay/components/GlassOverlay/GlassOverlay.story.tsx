@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
-import type { BackdropBlurClassArr, PolymorphicDefaultElement } from '@common/types';
+import type { BackdropBlurClassArr, PolymorphicDefaultElement, ThemeRadiusArr } from '@common/types';
 
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography/components/Text';
@@ -16,7 +16,8 @@ import {
 	__DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT__,
 	__DEFAULT_GLASS_OVERLAY_BLUR__,
 	__DEFAULT_GLASS_OVERLAY_BLUR_TYPE__,
-	__DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__
+	__DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__,
+	__DEFAULT_GLASS_OVERLAY_RADIUS__
 } from './common/constants';
 import type { GlassOverlayBlurTypes, GlassOverlayProps } from './common/types';
 import type { GlassOverlayStory, GlassOverlayStoryMeta } from './common/types/story';
@@ -70,6 +71,14 @@ export default {
 			defaultValue: __DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__,
 			// description: '',
 			control: { type: 'boolean' }
+		},
+		radius: {
+			name: 'Radius',
+			type: 'string',
+			defaultValue: __DEFAULT_GLASS_OVERLAY_RADIUS__,
+			// description: '',
+			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as ThemeRadiusArr,
+			control: { type: 'radio' }
 		}
 	}
 } as GlassOverlayStoryMeta;
@@ -78,14 +87,12 @@ export default {
 export const GlassOverlay: GlassOverlayStory = (props: GlassOverlayProps<PolymorphicDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
-	const radius = classes.borders.border_radius.base;
-
 	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
 	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
 
 	return (
-		<GlassOverlayComponent {...props} className={classNames(radius)} color={color} colorMode={colorMode} w='100%'>
-			<Center className={classNames(background)} w='100%' p={4}>
+		<GlassOverlayComponent {...props} color={color} colorMode={colorMode}>
+			<Center className={classNames(background)} w='100%' h='100%' p={4}>
 				<Text align='center' color={text}>
 					Hello
 				</Text>

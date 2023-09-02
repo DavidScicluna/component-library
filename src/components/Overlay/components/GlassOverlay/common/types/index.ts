@@ -1,6 +1,6 @@
 import type { ElementType } from 'react';
 
-import type { BackdropBlurClass, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
+import type { BackdropBlurClass, ResponsiveValue, ThemeAppAppearanceProps, ThemeRadius } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
@@ -26,6 +26,12 @@ type GlassOverlayOtherProps = ThemeAppAppearanceProps & {
 	 * @default 0.5
 	 */
 	backdropAmount?: ResponsiveValue<number>;
+	/**
+	 * The border radius of the glass overlay container
+	 *
+	 * @default 'none'
+	 */
+	radius?: ThemeRadius;
 	/**
 	 * If `true` a background depending on color & colorMode will be shown alongside the blur effect
 	 *
