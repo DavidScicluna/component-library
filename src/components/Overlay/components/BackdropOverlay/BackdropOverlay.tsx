@@ -11,7 +11,8 @@ import { Grid, GridItem } from '@components/Layout';
 import {
 	__DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
 	__DEFAULT_BACKDROP_OVERLAY_BLUR__,
-	__DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__
+	__DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
+	__DEFAULT_BACKDROP_OVERLAY_RADIUS__
 } from './common/constants';
 import { useBackdropOverlayClasses, useBackdropOverlayStyles } from './common/hooks';
 import type { BackdropOverlayProps, BackdropOverlayRef } from './common/types';
@@ -28,17 +29,20 @@ const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends Elem
 		amount = __DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
 		blur = __DEFAULT_BACKDROP_OVERLAY_BLUR__,
 		blurType = __DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
+		radius = __DEFAULT_BACKDROP_OVERLAY_RADIUS__,
 		...rest
 	} = props;
 
-	const classes = useBackdropOverlayClasses<Element>({ blur, blurType });
+	const classes = useBackdropOverlayClasses<Element>({ blur, blurType, radius });
 	const styles = useBackdropOverlayStyles<Element>({ color, colorMode, amount });
 
 	return (
 		<Grid<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-backdrop-overlay`, { [className]: !!className })}
+			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-backdrop-overlay`, classes.container, {
+				[className]: !!className
+			})}
 			data-aria-hidden='true'
 			aria-hidden='true'
 			templateColumns={1}
@@ -50,7 +54,7 @@ const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends Elem
 			spacing={0}
 		>
 			<GridItem columnStart={1} rowStart={1}>
-				<Box className={classes} w='100%' h='100%' sx={styles} />
+				<Box className={classes.overlay} w='100%' h='100%' sx={styles} />
 			</GridItem>
 
 			{children ? (

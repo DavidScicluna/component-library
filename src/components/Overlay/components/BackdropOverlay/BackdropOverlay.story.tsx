@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import classNames from 'classnames';
 
 import { useGetColor } from '@common/hooks';
-import type { BackdropBlurClassArr, PolymorphicDefaultElement } from '@common/types';
+import type { BackdropBlurClassArr, PolymorphicDefaultElement, ThemeRadiusArr } from '@common/types';
 
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography';
@@ -14,7 +14,8 @@ import { useStorybookContext } from '../../../../../.storybook/preview';
 import {
 	__DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
 	__DEFAULT_BACKDROP_OVERLAY_BLUR__,
-	__DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__
+	__DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
+	__DEFAULT_BACKDROP_OVERLAY_RADIUS__
 } from './common/constants';
 import type { BackdropOverlayBlurTypes, BackdropOverlayProps } from './common/types';
 import type { BackdropOverlayStory, BackdropOverlayStoryMeta } from './common/types/story';
@@ -60,6 +61,14 @@ export default {
 			defaultValue: __DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
 			// description: '',
 			options: ['backdrop', 'blur'] as BackdropOverlayBlurTypes,
+			control: { type: 'radio' }
+		},
+		radius: {
+			name: 'Radius',
+			type: 'string',
+			defaultValue: __DEFAULT_BACKDROP_OVERLAY_RADIUS__,
+			// description: '',
+			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as ThemeRadiusArr,
 			control: { type: 'radio' }
 		}
 	}

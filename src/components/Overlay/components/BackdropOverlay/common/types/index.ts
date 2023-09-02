@@ -1,6 +1,6 @@
 import type { ElementType } from 'react';
 
-import type { BackdropBlurClass, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
+import type { BackdropBlurClass, ResponsiveValue, ThemeAppAppearanceProps, ThemeRadius } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
@@ -26,6 +26,11 @@ type BackdropOverlayOtherProps = ThemeAppAppearanceProps & {
 	 * @default 'backdrop'
 	 */
 	blurType?: ResponsiveValue<BackdropOverlayBlurType>;
+	/**
+	 * The border radius of the backdrop overlay container.
+	 * @default 'full'
+	 */
+	radius?: ResponsiveValue<ThemeRadius>;
 };
 
 export type BackdropOverlayProps<Element extends ElementType> = BoxProps<Element, BackdropOverlayOtherProps>;
