@@ -16,6 +16,7 @@ export const MessageContext = createContext<MessageContextType<PolymorphicDefaul
 	spacing: __DEFAULT_SPACING__
 });
 
+// Move Message to DataDisplay folder since its not an overlay!
 const Message = forwardRef(function Message<Element extends ElementType>(
 	props: MessageProps<Element>,
 	ref: MessageRef<Element>
