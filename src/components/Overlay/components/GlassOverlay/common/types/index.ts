@@ -33,7 +33,7 @@ type GlassOverlayOtherProps = ThemeAppAppearanceProps & {
 	 */
 	radius?: ThemeRadius;
 	/**
-	 * If `true` a background depending on color & colorMode will be shown alongside the blur effect
+	 * If `true` a background depending on color & colorMode will be triggered on the background
 	 *
 	 * @default true
 	 */
