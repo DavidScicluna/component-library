@@ -13,11 +13,12 @@ import { Text } from '@components/Typography/components/Text';
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import {
+	__DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT__,
 	__DEFAULT_GLASS_OVERLAY_BLUR__,
-	__DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__,
-	__DEFAULT_GLASS_OVERLAY_IS_BACKDROP__
+	__DEFAULT_GLASS_OVERLAY_BLUR_TYPE__,
+	__DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__
 } from './common/constants';
-import type { GlassOverlayProps } from './common/types';
+import type { GlassOverlayBlurTypes, GlassOverlayProps } from './common/types';
 import type { GlassOverlayStory, GlassOverlayStoryMeta } from './common/types/story';
 import { GlassOverlay as GlassOverlayComponent } from '.';
 
@@ -25,6 +26,13 @@ export default {
 	title: 'Overlay/GlassOverlay',
 	component: GlassOverlayComponent,
 	argTypes: {
+		backdropAmount: {
+			name: 'Backdrop Amount',
+			type: 'string',
+			defaultValue: __DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT__,
+			// description: '',
+			control: { type: 'number' }
+		},
 		blur: {
 			name: 'Blur',
 			type: 'string',
@@ -48,12 +56,13 @@ export default {
 			] as BackdropBlurClassArr,
 			control: { type: 'radio' }
 		},
-		isBackdrop: {
-			name: 'Backdrop',
-			type: 'boolean',
-			defaultValue: __DEFAULT_GLASS_OVERLAY_IS_BACKDROP__,
+		blurType: {
+			name: 'Blur Type',
+			type: 'string',
+			defaultValue: __DEFAULT_GLASS_OVERLAY_BLUR_TYPE__,
 			// description: '',
-			control: { type: 'boolean' }
+			options: ['backdrop', 'blur'] as GlassOverlayBlurTypes,
+			control: { type: 'radio' }
 		},
 		hasBackground: {
 			name: 'Has Background',

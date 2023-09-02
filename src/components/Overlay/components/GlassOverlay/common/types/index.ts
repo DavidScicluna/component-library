@@ -4,6 +4,9 @@ import type { BackdropBlurClass, ResponsiveValue, ThemeAppAppearanceProps } from
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
+export type GlassOverlayBlurType = 'blur' | 'backdrop';
+export type GlassOverlayBlurTypes = Array<GlassOverlayBlurType>;
+
 type GlassOverlayOtherProps = ThemeAppAppearanceProps & {
 	/**
 	 * The amount of the blur effect to be applied ("none", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "8xl", "9xl")
@@ -12,11 +15,17 @@ type GlassOverlayOtherProps = ThemeAppAppearanceProps & {
 	 */
 	blur?: ResponsiveValue<BackdropBlurClass>;
 	/**
-	 * If `true` the blur will be a backdrop filter blur else it will be a normal blur
+	 * The type of blur to show either a backdrop filter blur or else it will be a normal blur
 	 *
-	 * @default true
+	 * @default 'backdrop'
 	 */
-	isBackdrop?: boolean;
+	blurType?: ResponsiveValue<GlassOverlayBlurType>;
+	/**
+	 * The amount to increase the transparency by, given as a decimal between 0 and 1
+	 *
+	 * @default 0.5
+	 */
+	backdropAmount?: ResponsiveValue<number>;
 	/**
 	 * If `true` a background depending on color & colorMode will be shown alongside the blur effect
 	 *

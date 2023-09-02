@@ -2,20 +2,19 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import classNames from 'classnames';
-import { transparentize } from 'color2k';
 
 import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useGetColor } from '@common/hooks';
 
 import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
+	__DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT__,
 	__DEFAULT_GLASS_OVERLAY_BLUR__,
-	__DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__,
-	__DEFAULT_GLASS_OVERLAY_IS_BACKDROP__
+	__DEFAULT_GLASS_OVERLAY_BLUR_TYPE__,
+	__DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__
 } from './common/constants';
-import { useGlassOverlayClasses } from './common/hooks';
+import { useGlassOverlayClasses, useGlassOverlayStyles } from './common/hooks';
 import type { GlassOverlayProps, GlassOverlayRef } from './common/types';
 
 const GlassOverlay = forwardRef(function GlassOverlay<Element extends ElementType>(
@@ -27,15 +26,15 @@ const GlassOverlay = forwardRef(function GlassOverlay<Element extends ElementTyp
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
+		backdropAmount = __DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT__,
 		blur = __DEFAULT_GLASS_OVERLAY_BLUR__,
-		isBackdrop = __DEFAULT_GLASS_OVERLAY_IS_BACKDROP__,
+		blurType = __DEFAULT_GLASS_OVERLAY_BLUR_TYPE__,
 		hasBackground = __DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__,
 		...rest
 	} = props;
 
-	const background = useGetColor({ color, colorMode, colorType: color ? 'color' : 'default', hueType: 'background' });
-
-	const classes = useGlassOverlayClasses<Element>({ blur, isBackdrop });
+	const classes = useGlassOverlayClasses<Element>({ blur, blurType });
+	const styles = useGlassOverlayStyles<Element>({ color, colorMode, backdropAmount, hasBackground });
 
 	return (
 		<Grid<Element>
@@ -51,10 +50,7 @@ const GlassOverlay = forwardRef(function GlassOverlay<Element extends ElementTyp
 			spacing={0}
 		>
 			<GridItem columnStart={1} rowStart={1} zIndex={1}>
-				<Box
-					className={classes}
-					sx={hasBackground ? { background: transparentize(background, 0.5) } : undefined}
-				/>
+				<Box className={classes} w='100%' h='100%' sx={styles} />
 			</GridItem>
 
 			<GridItem columnStart={1} rowStart={1}>
