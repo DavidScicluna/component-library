@@ -21,6 +21,9 @@ export type PositionOverlayPlacement =
 export type PositionOverlayPlacements = Array<PositionOverlayPlacement>;
 
 type PositionOverlayOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
+	/**
+	 * A function that will return the item to render in the overlay
+	 */
 	renderOverlay: () => ReactNode;
 	/**
 	 * The amount of the blur effect to be applied ("none", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "8xl", "9xl")
