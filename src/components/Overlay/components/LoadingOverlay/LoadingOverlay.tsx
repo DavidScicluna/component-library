@@ -8,14 +8,16 @@ import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constan
 import { Fade } from '@components/Animation';
 import { Center, Grid, GridItem } from '@components/Layout';
 
-import { BackdropOverlay } from '../BackdropOverlay';
-import { Glass } from '../GlassOverlay';
-
 import {
-	__DEFAULT_LOADING_OVERLAY_HAS_BACKDROP__,
+	__DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT__,
+	__DEFAULT_LOADING_OVERLAY_BLUR__,
+	__DEFAULT_LOADING_OVERLAY_BLUR_TYPE__,
+	__DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND__,
 	__DEFAULT_LOADING_OVERLAY_HAS_GLASS__,
-	__DEFAULT_LOADING_OVERLAY_IS_LOADING__
+	__DEFAULT_LOADING_OVERLAY_IS_LOADING__,
+	__DEFAULT_LOADING_OVERLAY_RADIUS__
 } from './common/constants';
+import { useLoadingOverlayClasses, useLoadingOverlayStyles } from './common/hooks';
 import type { LoadingOverlayProps, LoadingOverlayRef } from './common/types';
 
 const LoadingOverlay = forwardRef(function LoadingOverlay<Element extends ElementType>(
@@ -25,21 +27,29 @@ const LoadingOverlay = forwardRef(function LoadingOverlay<Element extends Elemen
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
+		renderSpinner,
 		color,
 		colorMode,
-		blur,
-		renderSpinner,
+		backdropAmount = __DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT__,
+		blur = __DEFAULT_LOADING_OVERLAY_BLUR__,
+		blurType = __DEFAULT_LOADING_OVERLAY_BLUR_TYPE__,
+		radius = __DEFAULT_LOADING_OVERLAY_RADIUS__,
 		isLoading = __DEFAULT_LOADING_OVERLAY_IS_LOADING__,
 		hasGlass = __DEFAULT_LOADING_OVERLAY_HAS_GLASS__,
-		hasBackdrop = __DEFAULT_LOADING_OVERLAY_HAS_BACKDROP__,
+		hasBackground = __DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND__,
 		...rest
 	} = props;
+
+	const classes = useLoadingOverlayClasses<Element>({ blur, blurType, radius, hasGlass });
+	const styles = useLoadingOverlayStyles<Element>({ color, colorMode, backdropAmount, hasBackground });
 
 	return (
 		<Grid<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-glass`, { [className]: !!className })}
+			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-loading-overlay`, classes.container, {
+				[className]: !!className
+			})}
 			templateColumns={1}
 			templateRows={1}
 			alignItems='stretch'
@@ -50,33 +60,14 @@ const LoadingOverlay = forwardRef(function LoadingOverlay<Element extends Elemen
 		>
 			<GridItem columnStart={1} rowStart={1} zIndex={1}>
 				<Fade w='100%' h='100%' in={isLoading} unmountOnExit={false}>
-					{hasGlass || !hasBackdrop ? (
-						<Center w='100%' h='100%'>
-							{renderSpinner()}
-						</Center>
-					) : (
-						<BackdropOverlay color={color} colorMode={colorMode} w='100%' h='100%'>
-							<Center w='100%' h='100%'>
-								{renderSpinner()}
-							</Center>
-						</BackdropOverlay>
-					)}
+					<Center className={classes.overlay} w='100%' h='100%' sx={styles}>
+						{renderSpinner()}
+					</Center>
 				</Fade>
 			</GridItem>
 
 			<GridItem columnStart={1} rowStart={1}>
-				<Glass
-					color={color}
-					colorMode={colorMode}
-					w='100%'
-					h='100%'
-					blur={isLoading && hasGlass ? blur : 'none'}
-					hasBackground={hasBackdrop}
-				>
-					<Center w='100%' h='100%'>
-						{children}
-					</Center>
-				</Glass>
+				{children}
 			</GridItem>
 		</Grid>
 	);
