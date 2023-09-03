@@ -5,12 +5,12 @@ import classNames from 'classnames';
 
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__ } from '@common/constants';
-import { useAppTheme, useGetClass } from '@common/hooks';
+import { useAppTheme, useGetClass, useGetResponsiveValue } from '@common/hooks';
 import type { BorderStyleClass, ClassName, ThemeBorderWidth, ThemeRadius } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import { __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_SIZE__, __DEFAULT_MESSAGE_VARIANT__ } from '../constants';
-import type { MessageProps } from '../types';
+import type { MessageProps, MessageVariant } from '../types';
 
 type UseMessageClassesProps<Element extends ElementType> = Pick<
 	MessageProps<Element>,
@@ -28,8 +28,10 @@ const useMessageClasses = <Element extends ElementType>(
 		colorMode = __DEFAULT_ICON_COLORMODE__,
 		radius = __DEFAULT_MESSAGE_RADIUS__,
 		size = __DEFAULT_MESSAGE_SIZE__,
-		variant = __DEFAULT_MESSAGE_VARIANT__
+		variant: v = __DEFAULT_MESSAGE_VARIANT__
 	} = props;
+
+	const variant = useGetResponsiveValue<MessageVariant>(v);
 
 	const borderWidthClassName = useGetClass<ThemeBorderWidth>(size, ['borders', 'border_width']);
 	const borderStyleClassName = useGetClass<BorderStyleClass>(variant === 'transparent' ? 'none' : variant, [
