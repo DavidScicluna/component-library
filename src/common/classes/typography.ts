@@ -9,6 +9,7 @@ import type {
 	WhitespaceClassObj,
 	WordBreakClassObj
 } from '@common/types';
+import type { TextLetterSpacingClassObj, TextOverflowClassObj } from '@common/types/classes';
 
 const align: TextAlignClassObj = {
 	center: 'text-center',
@@ -1331,6 +1332,15 @@ const font_weight: ThemeFontWeightObj = {
 	extrabold: 'font-extrabold'
 };
 
+const letter_spacing: TextLetterSpacingClassObj = {
+	tighter: 'tracking-tighter',
+	tight: 'tracking-tight',
+	normal: 'tracking-normal',
+	wide: 'tracking-wide',
+	wider: 'tracking-wider',
+	widest: 'tracking-widest'
+};
+
 const line_clamp: TextLineClampClassObj = {
 	none: 'line-clamp-none',
 	1: 'line-clamp-1',
@@ -1356,6 +1366,12 @@ const line_height: ThemeLineHeightObj = {
 	normal: 'leading-normal',
 	relaxed: 'leading-relaxed',
 	loose: 'leading-loose'
+};
+
+const text_overflow: TextOverflowClassObj = {
+	truncate: 'truncate',
+	ellipsis: 'text-ellipsis',
+	clip: 'text-clip'
 };
 
 const transform: TextTransformClassObj = {
@@ -1393,8 +1409,10 @@ export default {
 	},
 	font_size,
 	font_weight,
+	letter_spacing,
 	line_clamp,
 	line_height,
+	text_overflow,
 	transform,
 	whitespace,
 	word_break

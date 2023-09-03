@@ -461,6 +461,10 @@ export type TextColorClass =
 export type TextColorClassArr = Array<TextColorClass>;
 export type TextColorClassObj = Record<TextColorClass, string>;
 
+export type TextLetterSpacingClass = 'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest';
+export type TextLetterSpacingClassArr = Array<TextLetterSpacingClass>;
+export type TextLetterSpacingClassObj = Record<TextLetterSpacingClass, string>;
+
 export type TextLineClampClass = 'none' | 1 | 2 | 3 | 4 | 5 | 6;
 export type TextLineClampClassArr = Array<TextLineClampClass>;
 export type TextLineClampClassObj = Record<TextLineClampClass, string>;
@@ -468,6 +472,10 @@ export type TextLineClampClassObj = Record<TextLineClampClass, string>;
 export type TextTransformClass = 'uppercase' | 'lowercase' | 'capitalize' | 'normal';
 export type TextTransformClassArr = Array<TextTransformClass>;
 export type TextTransformClassObj = Record<TextTransformClass, string>;
+
+export type TextOverflowClass = 'truncate' | 'ellipsis' | 'clip';
+export type TextOverflowClassArr = Array<TextOverflowClass>;
+export type TextOverflowClassObj = Record<TextOverflowClass, string>;
 
 export type WhitespaceClass = 'normal' | 'nowrap' | 'pre' | 'pre-line' | 'pre-wrap' | 'break-spaces';
 export type WhitespaceClassArr = Array<WhitespaceClass>;
