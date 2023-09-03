@@ -40,7 +40,7 @@ const useBoxStyles = <Element extends ElementType>(props: UseBoxStylesProps<Elem
 		} else if (px || py) {
 			const plr = getResponsiveValue<Undefinable<ThemeSpacing>>(px);
 			const ptb = getResponsiveValue<Undefinable<ThemeSpacing>>(py);
-			return compact([plr ? theme.spacing[plr] : null, ptb ? theme.spacing[ptb] : null]).join(' ');
+			return compact([ptb ? theme.spacing[ptb] : null, plr ? theme.spacing[plr] : null]).join(' ');
 		}
 	}, [p, px, py]);
 
