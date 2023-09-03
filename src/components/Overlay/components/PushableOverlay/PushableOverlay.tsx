@@ -1,8 +1,9 @@
 import type { ElementType, ReactElement } from 'react';
-import { forwardRef } from 'react';
+import { forwardRef, useEffect, useRef } from 'react';
 
 import classNames from 'classnames';
 import { merge } from 'lodash-es';
+import { useMergeRefs } from 'rooks';
 
 import {
 	__DEFAULT_CLASS_PREFIX__,
@@ -17,6 +18,7 @@ import {
 	__DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
 	__DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
 	__DEFAULT_PUSHABLE_OVERLAY_IS_FIXED__,
+	__DEFAULT_PUSHABLE_OVERLAY_IS_FOCUSED__,
 	__DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
 	__DEFAULT_PUSHABLE_OVERLAY_VARIANT__
 } from './common/constants';
@@ -27,6 +29,10 @@ const PushableOverlay = forwardRef(function PushableOverlay<Element extends Elem
 	props: PushableOverlayProps<Element>,
 	ref: PushableOverlayRef<Element>
 ): ReactElement {
+	const internalRef = useRef<HTMLElement>();
+
+	const refs = useMergeRefs<PushableOverlayRef<Element>>(ref, internalRef);
+
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
@@ -35,6 +41,7 @@ const PushableOverlay = forwardRef(function PushableOverlay<Element extends Elem
 		isActive = __DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
 		isDisabled = __DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
 		isFixed = __DEFAULT_PUSHABLE_OVERLAY_IS_FIXED__,
+		isFocused = __DEFAULT_PUSHABLE_OVERLAY_IS_FOCUSED__,
 		isPushable = __DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
 		radius = __DEFAULT_RADIUS__,
 		variant = __DEFAULT_PUSHABLE_OVERLAY_VARIANT__,
@@ -62,10 +69,21 @@ const PushableOverlay = forwardRef(function PushableOverlay<Element extends Elem
 		variant
 	});
 
+	const handleFocus = (): void => {
+		if (isFocused) {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			internalRef?.current?.focus({ focusVisible: true } as any);
+		} else {
+			internalRef?.current?.blur();
+		}
+	};
+
+	useEffect(() => handleFocus(), [isFocused]);
+
 	return (
 		<Grid<Element>
 			{...rest}
-			ref={ref}
+			ref={refs}
 			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-pushable-overlay`, classes, {
 				[className]: !!className
 			})}
