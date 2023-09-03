@@ -1,0 +1,48 @@
+import type { ReactElement } from 'react';
+import { forwardRef } from 'react';
+
+import classNames from 'classnames';
+
+import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+
+import { Icon } from '@components/DataDisplay';
+
+import { useButtonContext, useButtonFontSize } from '../../common/hooks';
+
+import type { ButtonIconDefaultElement, ButtonIconElement, ButtonIconProps, ButtonIconRef } from './common/types';
+
+const ButtonIcon = forwardRef(function ButtonIcon<Element extends ButtonIconElement = ButtonIconDefaultElement>(
+	props: ButtonIconProps<Element>,
+	ref: ButtonIconRef<Element>
+): ReactElement {
+	const {
+		color: __DEFAULT_BUTTON_ICON_COLOR__,
+		colorMode: __DEFAULT_BUTTON_ICON_COLORMODE__,
+		size
+	} = useButtonContext();
+
+	const {
+		className = __DEFAULT_CLASSNAME__,
+		color = __DEFAULT_BUTTON_ICON_COLOR__,
+		colorMode = __DEFAULT_BUTTON_ICON_COLORMODE__,
+		...rest
+	} = props;
+
+	const fontSize = useButtonFontSize({ size });
+
+	return (
+		<Icon
+			{...rest}
+			ref={ref}
+			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-button-icon`, { [className]: !!className })}
+			w={`${fontSize}px`}
+			h={`${fontSize}px`}
+			color={color}
+			colorMode={colorMode}
+			size={`${fontSize}px`}
+			variant='unstyled'
+		/>
+	);
+});
+
+export default ButtonIcon;
