@@ -1,3 +1,3 @@
-import useGetSkeletonClasses from './useGetSkeletonClasses';
+import useSkeletonClasses from './useSkeletonClasses';
 
-export { useGetSkeletonClasses };
+export { useSkeletonClasses };

@@ -14,7 +14,7 @@ import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
 
 import { __DEFAULT_SKELETON_IS_ANIMATED__, __DEFAULT_SKELETON_IS_LOADED__ } from './common/constants';
-import { useGetSkeletonClasses } from './common/hooks';
+import { useSkeletonClasses } from './common/hooks';
 import type { SkeletonProps, SkeletonRef } from './common/types';
 
 const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
@@ -32,7 +32,7 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 		...rest
 	} = props;
 
-	const classes = useGetSkeletonClasses<Element>({ color, colorMode, radius });
+	const classes = useSkeletonClasses<Element>({ color, colorMode, radius });
 
 	const duration = useConst<number>(getAnimationDuration('ultra-fast'));
 	const config = useConst<AnimationConfig>(getAnimationConfig());

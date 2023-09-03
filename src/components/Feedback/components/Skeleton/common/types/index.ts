@@ -1,13 +1,13 @@
 import type { ElementType } from 'react';
 
-import type { ThemeAppAppearanceProps, ThemeRadius } from '@common/types';
+import type { ResponsiveValue, ThemeAppAppearanceProps, ThemeRadius } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
 type SkeletonOtherProps = ThemeAppAppearanceProps & {
 	isAnimated?: boolean;
 	isLoaded?: boolean;
-	radius?: ThemeRadius;
+	radius?: ResponsiveValue<ThemeRadius>;
 };
 
 export type SkeletonProps<Element extends ElementType> = BoxProps<Element, SkeletonOtherProps>;

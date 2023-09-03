@@ -8,15 +8,15 @@ import type { ClassName, ThemeDuration, ThemeEase, ThemeRadius } from '@common/t
 
 import type { SkeletonProps } from '../types';
 
-type UseGetSkeletonClassesProps<Element extends ElementType> = Pick<
+type UseSkeletonClassesProps<Element extends ElementType> = Pick<
 	SkeletonProps<Element>,
 	'color' | 'colorMode' | 'radius'
 >;
-type UseGetSkeletonClassesReturn = ClassName;
+type UseSkeletonClassesReturn = ClassName;
 
-const useGetSkeletonClasses = <Element extends ElementType>(
-	props: UseGetSkeletonClassesProps<Element>
-): UseGetSkeletonClassesReturn => {
+const useSkeletonClasses = <Element extends ElementType>(
+	props: UseSkeletonClassesProps<Element>
+): UseSkeletonClassesReturn => {
 	const { colorMode: __DEFAULT_ICON_COLORMODE__ } = useAppTheme();
 
 	const { color = __DEFAULT_COLOR__, colorMode = __DEFAULT_ICON_COLORMODE__, radius = __DEFAULT_RADIUS__ } = props;
@@ -37,4 +37,4 @@ const useGetSkeletonClasses = <Element extends ElementType>(
 	return classNames('overflow-hidden', colorClassName, radiusClassName, easeClassName, durationClassName);
 };
 
-export default useGetSkeletonClasses;
+export default useSkeletonClasses;
