@@ -1,8 +1,10 @@
-import type { IconCategory, IconRadius, IconSize, IconVariant } from '../types';
+import type { ThemeRadius } from '@common/types';
+
+import type { IconCategory, IconSize, IconVariant } from '../types';
 
 export const __DEFAULT_ICON_CATEGORY__: IconCategory = 'filled';
 
-export const __DEFAULT_ICON_RADIUS__: IconRadius = 'full';
+export const __DEFAULT_ICON_RADIUS__: ThemeRadius = 'full';
 
 export const __DEFAULT_ICON_SIZE__: IconSize = '2xl';
 

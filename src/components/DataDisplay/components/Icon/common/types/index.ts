@@ -16,6 +16,9 @@ export type IconElement = PickFrom<ElementType, 'span'>;
 
 export type IconCategory = 'filled' | 'outlined' | 'twoTone';
 
+export type IconSize = ThemeFontSize | string;
+export type IconSizes = Array<IconSize>;
+
 export type IconVariant = 'contained' | 'light' | 'outlined' | 'monochrome' | 'transparent' | 'unstyled';
 
 type IconOtherProps = ThemeAppAppearanceProps & {
@@ -37,7 +40,7 @@ type IconOtherProps = ThemeAppAppearanceProps & {
 	 * The font size of the icon
 	 * @default '2xl'
 	 */
-	size?: ResponsiveValue<ThemeFontSize>;
+	size?: ResponsiveValue<IconSize>;
 	/**
 	 * The type of styling variant to be set either 'contained', 'light', 'outlined', 'monochrome', 'transparent' or 'unstyled'
 	 * @default 'unstyled'

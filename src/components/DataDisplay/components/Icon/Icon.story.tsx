@@ -1,9 +1,7 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
 import { sample } from 'lodash-es';
 
-import classes from '@common/classes';
 import { icons } from '@common/data';
 import type { ThemeFontSizeArr, ThemeRadiusArr } from '@common/types';
 
@@ -86,21 +84,9 @@ export default {
 export const Icon: IconStory = (props: IconProps<IconDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
-	const fontSize = classes.typography.font_size['6xl'];
-
-	const radius = classes.borders.border_radius.base;
-
 	return (
 		<Center w='auto' p={4}>
-			<IconComponent
-				{...props}
-				className={classNames(fontSize, radius)}
-				color={color}
-				colorMode={colorMode}
-				w='auto'
-				h='auto'
-				p={4}
-			/>
+			<IconComponent {...props} color={color} colorMode={colorMode} p={4} />
 		</Center>
 	);
 };

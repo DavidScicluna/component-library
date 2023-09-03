@@ -9,7 +9,8 @@ import type { ClassName, ThemeFontSize, ThemeLineHeight, ThemeRadius } from '@co
 import { getClass, getColorHue, getResponsiveValue } from '@common/utils';
 
 import { __DEFAULT_ICON_RADIUS__, __DEFAULT_ICON_SIZE__, __DEFAULT_ICON_VARIANT__ } from '../constants';
-import type { IconElement, IconProps, IconVariant } from '../types';
+import type { IconElement, IconProps, IconSize, IconVariant } from '../types';
+import { checkIconSize } from '../utils';
 
 type UseIconClassesProps<Element extends IconElement> = Pick<
 	IconProps<Element>,
@@ -29,7 +30,9 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 	} = props;
 
 	const rootClasses = useMemo<string>(() => {
-		const fontSizeClassName = getClass<ThemeFontSize>(size, ['typography', 'font_size']);
+		const s = getResponsiveValue<IconSize>(size);
+
+		const fontSizeClassName = getClass<ThemeFontSize>(s as ThemeFontSize, ['typography', 'font_size']);
 		const lineHeightClassName = getClass<ThemeLineHeight>('none', ['typography', 'line_height']);
 		const radiusClassName = getClass<ThemeRadius>(radius, ['borders', 'border_radius']);
 
@@ -40,10 +43,10 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 			classes.interactivity.user_select.none,
 			classes.interactivity.will_change.auto,
 			classes.interactivity.pointer_events.none,
-			fontSizeClassName,
 			lineHeightClassName,
 			radiusClassName,
 			{
+				[fontSizeClassName]: checkIconSize(s) === 'theme',
 				[classes.borders.border_width[__DEFAULT_BORDER_WIDTH__]]: v !== 'unstyled',
 				[classes.borders.border_style[__DEFAULT_BORDER_STYLE__]]: v !== 'unstyled'
 			}
