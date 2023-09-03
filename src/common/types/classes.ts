@@ -451,6 +451,10 @@ export type FillColorClassObj = Record<FillColorClass, string | number>;
 /**
  * Typography
  */
+export type TextAlignClass = 'left' | 'center' | 'right' | 'justify' | 'start' | 'end';
+export type TextAlignClassArr = Array<TextAlignClass>;
+export type TextAlignClassObj = Record<TextAlignClass, string>;
+
 export type TextColorClass =
 	| `${PickFrom<ColorTypeClass, 'text'>}-${Exclude<ThemeColor, 'transparent' | 'black' | 'white'>}-${ThemeColorHue}`
 	| `${PickFrom<ColorTypeClass, 'text'>}-${PickFrom<ThemeColor, 'transparent' | 'black' | 'white'>}`;
@@ -460,3 +464,15 @@ export type TextColorClassObj = Record<TextColorClass, string>;
 export type TextLineClampClass = 'none' | 1 | 2 | 3 | 4 | 5 | 6;
 export type TextLineClampClassArr = Array<TextLineClampClass>;
 export type TextLineClampClassObj = Record<TextLineClampClass, string>;
+
+export type TextTransformClass = 'uppercase' | 'lowercase' | 'capitalize' | 'normal';
+export type TextTransformClassArr = Array<TextTransformClass>;
+export type TextTransformClassObj = Record<TextTransformClass, string>;
+
+export type WhitespaceClass = 'normal' | 'nowrap' | 'pre' | 'pre-line' | 'pre-wrap' | 'break-spaces';
+export type WhitespaceClassArr = Array<WhitespaceClass>;
+export type WhitespaceClassObj = Record<WhitespaceClass, string>;
+
+export type WordBreakClass = 'normal' | 'words' | 'all' | 'keep';
+export type WordBreakClassArr = Array<WordBreakClass>;
+export type WordBreakClassObj = Record<WordBreakClass, string>;

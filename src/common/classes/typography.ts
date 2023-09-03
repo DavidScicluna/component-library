@@ -1,16 +1,16 @@
 import type {
+	TextAlignClassObj,
 	TextLineClampClassObj,
+	TextTransformClassObj,
 	ThemeColorObj,
 	ThemeFontSizeObj,
 	ThemeFontWeightObj,
 	ThemeLineHeightObj,
-	ThemeTextAlignObj,
-	ThemeTextTransformObj,
-	ThemeWhitespaceObj,
-	ThemeWordBreakObj
+	WhitespaceClassObj,
+	WordBreakClassObj
 } from '@common/types';
 
-const align: ThemeTextAlignObj = {
+const align: TextAlignClassObj = {
 	center: 'text-center',
 	left: 'text-left',
 	right: 'text-right',
@@ -1358,14 +1358,14 @@ const line_height: ThemeLineHeightObj = {
 	loose: 'leading-loose'
 };
 
-const transform: ThemeTextTransformObj = {
+const transform: TextTransformClassObj = {
 	uppercase: 'uppercase',
 	lowercase: 'lowercase',
 	capitalize: 'capitalize',
 	normal: 'normal-case'
 };
 
-const whitespace: ThemeWhitespaceObj = {
+const whitespace: WhitespaceClassObj = {
 	'normal': 'whitespace-normal',
 	'nowrap': 'whitespace-nowrap',
 	'pre': 'whitespace-pre',
@@ -1374,7 +1374,7 @@ const whitespace: ThemeWhitespaceObj = {
 	'break-spaces': 'whitespace-break-spaces'
 };
 
-const word_break: ThemeWordBreakObj = {
+const word_break: WordBreakClassObj = {
 	normal: 'break-normal',
 	words: 'break-words',
 	all: 'break-all',

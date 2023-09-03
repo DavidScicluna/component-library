@@ -1,14 +1,14 @@
 import type { ReactElement } from 'react';
 
 import type {
+	TextAlignClassArr,
 	TextLineClampClassArr,
+	TextTransformClassArr,
 	ThemeFontSizeArr,
 	ThemeFontWeightArr,
 	ThemeLineHeightArr,
-	ThemeTextAlignArr,
-	ThemeTextTransformArr,
-	ThemeWhitespaceArr,
-	ThemeWordBreakArr
+	WhitespaceClassArr,
+	WordBreakClassArr
 } from '@common/types';
 
 import {
@@ -42,7 +42,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_TEXT_ALIGN__,
 			// description: '',
-			options: ['left', 'center', 'right', 'justify', 'start', 'end'] as ThemeTextAlignArr,
+			options: ['left', 'center', 'right', 'justify', 'start', 'end'] as TextAlignClassArr,
 			control: { type: 'radio' }
 		},
 		color: {
@@ -126,7 +126,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_TEXT_TRANSFORM__,
 			// description: '',
-			options: ['uppercase', 'lowercase', 'capitalize', 'normal'] as ThemeTextTransformArr,
+			options: ['uppercase', 'lowercase', 'capitalize', 'normal'] as TextTransformClassArr,
 			control: { type: 'radio' }
 		},
 		isItalic: {
@@ -148,7 +148,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_TEXT_WHITESPACE__,
 			// description: '',
-			options: ['normal', 'nowrap', 'pre', 'pre-line', 'pre-wrap', 'break-spaces'] as ThemeWhitespaceArr,
+			options: ['normal', 'nowrap', 'pre', 'pre-line', 'pre-wrap', 'break-spaces'] as WhitespaceClassArr,
 			control: { type: 'radio' }
 		},
 		wordBreak: {
@@ -156,7 +156,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_TEXT_WORD_BREAK__,
 			// description: '',
-			options: ['normal', 'words', 'all', 'keep'] as ThemeWordBreakArr,
+			options: ['normal', 'words', 'all', 'keep'] as WordBreakClassArr,
 			control: { type: 'radio' }
 		}
 	}

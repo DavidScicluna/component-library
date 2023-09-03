@@ -3,15 +3,15 @@ import classNames from 'classnames';
 import { useGetClass } from '@common/hooks';
 import type {
 	ClassName,
+	TextAlignClass,
 	TextLineClampClass,
+	TextTransformClass,
 	ThemeFontSize,
 	ThemeFontWeight,
 	ThemeLineHeight,
-	ThemeTextAlign,
-	ThemeTextTransform,
-	ThemeWhitespace,
-	ThemeWordBreak,
-	Undefinable
+	Undefinable,
+	WhitespaceClass,
+	WordBreakClass
 } from '@common/types';
 
 import {
@@ -60,14 +60,14 @@ const useGetTextClasses = <Element extends TextElement>(
 		wordBreak = __DEFAULT_TEXT_WORD_BREAK__
 	} = props;
 
-	const alignClassName = useGetClass<ThemeTextAlign>(align, ['typography', 'align']);
+	const alignClassName = useGetClass<TextAlignClass>(align, ['typography', 'align']);
 	const fontSizeClassName = useGetClass<ThemeFontSize>(fontSize, ['typography', 'font_size']);
 	const fontWeightClassName = useGetClass<ThemeFontWeight>(fontWeight, ['typography', 'font_weight']);
 	const lineClampClassName = useGetClass<Undefinable<TextLineClampClass>>(lineClamp, ['typography', 'line_clamp']);
 	const lineHeightClassName = useGetClass<ThemeLineHeight>(lineHeight, ['typography', 'line_height']);
-	const textTransformClassName = useGetClass<ThemeTextTransform>(textTransform, ['typography', 'transform']);
-	const whitespaceClassName = useGetClass<ThemeWhitespace>(whitespace, ['typography', 'whitespace']);
-	const wordBreakClassName = useGetClass<ThemeWordBreak>(wordBreak, ['typography', 'word_break']);
+	const textTransformClassName = useGetClass<TextTransformClass>(textTransform, ['typography', 'transform']);
+	const whitespaceClassName = useGetClass<WhitespaceClass>(whitespace, ['typography', 'whitespace']);
+	const wordBreakClassName = useGetClass<WordBreakClass>(wordBreak, ['typography', 'word_break']);
 
 	return classNames(
 		alignClassName,

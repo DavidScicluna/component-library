@@ -230,19 +230,3 @@ export type ThemeSpacing =
 	| 24.75;
 export type ThemeSpacingArr = Array<ThemeSpacing>;
 export type ThemeSpacingObj = Record<ThemeSpacing, string>;
-
-export type ThemeTextAlign = 'left' | 'center' | 'right' | 'justify' | 'start' | 'end';
-export type ThemeTextAlignArr = Array<ThemeTextAlign>;
-export type ThemeTextAlignObj = Record<ThemeTextAlign, string>;
-
-export type ThemeTextTransform = 'uppercase' | 'lowercase' | 'capitalize' | 'normal';
-export type ThemeTextTransformArr = Array<ThemeTextTransform>;
-export type ThemeTextTransformObj = Record<ThemeTextTransform, string>;
-
-export type ThemeWhitespace = 'normal' | 'nowrap' | 'pre' | 'pre-line' | 'pre-wrap' | 'break-spaces';
-export type ThemeWhitespaceArr = Array<ThemeWhitespace>;
-export type ThemeWhitespaceObj = Record<ThemeWhitespace, string>;
-
-export type ThemeWordBreak = 'normal' | 'words' | 'all' | 'keep';
-export type ThemeWordBreakArr = Array<ThemeWordBreak>;
-export type ThemeWordBreakObj = Record<ThemeWordBreak, string>;
