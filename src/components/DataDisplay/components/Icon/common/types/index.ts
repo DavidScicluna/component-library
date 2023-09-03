@@ -1,6 +1,13 @@
 import type { ElementType } from 'react';
 
-import type { IconKey, PickFrom, ThemeAppAppearanceProps, ThemeFontSize, ThemeRadius } from '@common/types';
+import type {
+	IconKey,
+	PickFrom,
+	ResponsiveValue,
+	ThemeAppAppearanceProps,
+	ThemeFontSize,
+	ThemeRadius
+} from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
@@ -25,17 +32,17 @@ type IconOtherProps = ThemeAppAppearanceProps & {
 	 * The border radius of the icon container
 	 * @default 'full'
 	 */
-	radius?: ThemeRadius;
+	radius?: ResponsiveValue<ThemeRadius>;
 	/**
 	 * The font size of the icon
 	 * @default '2xl'
 	 */
-	size?: ThemeFontSize;
+	size?: ResponsiveValue<ThemeFontSize>;
 	/**
 	 * The type of styling variant to be set either 'contained', 'light', 'outlined', 'monochrome', 'transparent' or 'unstyled'
 	 * @default 'unstyled'
 	 */
-	variant?: IconVariant;
+	variant?: ResponsiveValue<IconVariant>;
 };
 
 export type IconProps<Element extends IconElement = IconDefaultElement> = BoxProps<Element, IconOtherProps>;

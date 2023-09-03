@@ -6,10 +6,10 @@ import classes from '@common/classes';
 import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
 import type { ClassName, ThemeFontSize, ThemeLineHeight, ThemeRadius } from '@common/types';
-import { getClass, getColorHue } from '@common/utils';
+import { getClass, getColorHue, getResponsiveValue } from '@common/utils';
 
 import { __DEFAULT_ICON_RADIUS__, __DEFAULT_ICON_SIZE__, __DEFAULT_ICON_VARIANT__ } from '../constants';
-import type { IconElement, IconProps } from '../types';
+import type { IconElement, IconProps, IconVariant } from '../types';
 
 type UseIconClassesProps<Element extends IconElement> = Pick<
 	IconProps<Element>,
@@ -33,6 +33,8 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 		const lineHeightClassName = getClass<ThemeLineHeight>('none', ['typography', 'line_height']);
 		const radiusClassName = getClass<ThemeRadius>(radius, ['borders', 'border_radius']);
 
+		const v = getResponsiveValue<IconVariant>(variant);
+
 		return classNames(
 			classes.interactivity.cursor.default,
 			classes.interactivity.user_select.none,
@@ -42,8 +44,8 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 			lineHeightClassName,
 			radiusClassName,
 			{
-				[classes.borders.border_width[__DEFAULT_BORDER_WIDTH__]]: variant !== 'unstyled',
-				[classes.borders.border_style[__DEFAULT_BORDER_STYLE__]]: variant !== 'unstyled'
+				[classes.borders.border_width[__DEFAULT_BORDER_WIDTH__]]: v !== 'unstyled',
+				[classes.borders.border_style[__DEFAULT_BORDER_STYLE__]]: v !== 'unstyled'
 			}
 		);
 	}, [size, radius, variant]);
