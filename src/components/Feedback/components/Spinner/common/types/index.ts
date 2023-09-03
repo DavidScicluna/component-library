@@ -3,7 +3,7 @@ import type { Style } from 'react-loader-spinner/dist/type';
 
 import type { PickFrom, ThemeFontSize, ThemeRadius } from '@common/types';
 
-import type { BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box/common/types';
 
 export type SpinnerSize = ThemeFontSize | number;
 
@@ -73,6 +73,8 @@ type SpinnerOtherProps = {
 	| SpinnerThreeDotsVariant
 );
 
-export type SpinnerProps<Element extends ElementType> = Omit<BoxProps<Element, SpinnerOtherProps>, 'children'>;
+type OmittedBoxProps = keyof BoxOtherProps | 'children';
+
+export type SpinnerProps<Element extends ElementType> = Omit<BoxProps<Element>, OmittedBoxProps> & SpinnerOtherProps;
 
 export type SpinnerRef<Element extends ElementType> = BoxRef<Element>;
