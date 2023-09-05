@@ -9,11 +9,11 @@ export type GetAmountTypeObj = Record<GetAmountType, number>;
 export const getAmount = memoize((colorMode: ThemeAppColorMode, type: GetAmountType): number => {
 	switch (type) {
 		case 'active':
-			return colorMode === 'light' ? 0.2 : 0.15;
-		case 'back':
-			return colorMode === 'light' ? 0.1 : 0.05;
-		case 'hover':
 			return colorMode === 'light' ? 0.15 : 0.1;
+		case 'back':
+			return colorMode === 'light' ? 0.05 : 0;
+		case 'hover':
+			return colorMode === 'light' ? 0.1 : 0.05;
 		case 'placeholder':
 			return colorMode === 'light' ? 0 : 0;
 		case 'selection':
