@@ -1,11 +1,4 @@
 // TODO: Go into each constants file and sort variables like they are sorted in import object
-import {
-	__DEFAULT_AMOUNT_ACTIVE__,
-	__DEFAULT_AMOUNT_BACK__,
-	__DEFAULT_AMOUNT_HOVER__,
-	__DEFAULT_AMOUNT_PLACEHOLDER__,
-	__DEFAULT_AMOUNT_SELECTION__
-} from './amount';
 import { __DEFAULT_ANIMATION_DELAY__, __DEFAULT_ANIMATION_DURATION__, __DEFAULT_ANIMATION_EASING__ } from './animation';
 import {
 	__DEFAULT_BORDER_STYLE__,
@@ -37,11 +30,6 @@ import {
 } from './props';
 
 export {
-	__DEFAULT_AMOUNT_ACTIVE__,
-	__DEFAULT_AMOUNT_BACK__,
-	__DEFAULT_AMOUNT_HOVER__,
-	__DEFAULT_AMOUNT_PLACEHOLDER__,
-	__DEFAULT_AMOUNT_SELECTION__,
 	__DEFAULT_ANIMATION_DELAY__,
 	__DEFAULT_ANIMATION_DURATION__,
 	__DEFAULT_ANIMATION_EASING__,

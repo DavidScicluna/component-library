@@ -1,3 +1,4 @@
+import { getAmount } from './amount';
 import { getAnimationConfig, getAnimationDelay, getAnimationDuration, getAnimationEasings } from './animation';
 import { getClass } from './classes';
 import type { ColorHueType, GetColorClassProps, GetColorHexProps, GetColorHueProps } from './color';
@@ -13,6 +14,7 @@ export {
 	convertPixelsToREM,
 	convertREMToPixels,
 	convertStringToNumber,
+	getAmount,
 	getAnimationConfig,
 	getAnimationDelay,
 	getAnimationDuration,
