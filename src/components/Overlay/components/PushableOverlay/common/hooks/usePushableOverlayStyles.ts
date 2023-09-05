@@ -2,13 +2,8 @@ import { type ElementType, useMemo } from 'react';
 
 import { darken, lighten } from 'color2k';
 
-import {
-	__DEFAULT_AMOUNT_ACTIVE__,
-	__DEFAULT_AMOUNT_BACK__,
-	__DEFAULT_AMOUNT_HOVER__,
-	__DEFAULT_COLOR__
-} from '@common/constants';
-import { useAppTheme, useGetResponsiveValue, useTheme } from '@common/hooks';
+import { __DEFAULT_COLOR__ } from '@common/constants';
+import { useAppTheme, useGetAmount, useGetResponsiveValue, useTheme } from '@common/hooks';
 import type { Style, ThemeColorMode } from '@common/types';
 import { getColorHue } from '@common/utils';
 
@@ -54,6 +49,8 @@ const usePushableOverlayStyles = <Element extends ElementType>(
 		variant: v = __DEFAULT_PUSHABLE_OVERLAY_VARIANT__
 	} = props;
 
+	const amount = useGetAmount({ colorMode, types: ['active', 'back', 'hover'] });
+
 	const isActive = useGetResponsiveValue<boolean>(active);
 	const isDisabled = useGetResponsiveValue<boolean>(disabled);
 	const isFixed = useGetResponsiveValue<boolean>(fixed);
@@ -66,7 +63,7 @@ const usePushableOverlayStyles = <Element extends ElementType>(
 
 		const colorHue = getColorHue({ colorMode, type: 'background' });
 		const backgroundHue = getColorHue({ colorMode, type: 'color' });
-		const shadowHue = getColorHue({ colorMode, type: colorMode === 'light' ? 'darker' : 'lighter' });
+		const shadowHue = getColorHue({ colorMode, type: colorMode === 'light' ? 'dark' : 'light' });
 
 		return {
 			'color': theme.colors.gray[colorHue],
@@ -83,20 +80,12 @@ const usePushableOverlayStyles = <Element extends ElementType>(
 							'color': theme.colors.gray[colorHue],
 
 							'&::before': {
-								borderColor: formatColor(
-									colorMode,
-									theme.colors[color][backgroundHue],
-									__DEFAULT_AMOUNT_HOVER__
-								),
-								background: formatColor(
-									colorMode,
-									theme.colors[color][backgroundHue],
-									__DEFAULT_AMOUNT_HOVER__
-								),
+								borderColor: formatColor(colorMode, theme.colors[color][backgroundHue], amount.hover),
+								background: formatColor(colorMode, theme.colors[color][backgroundHue], amount.hover),
 								boxShadow: `0 ${hover}px 0 0 ${formatColor(
 									colorMode,
 									theme.colors[color][shadowHue],
-									__DEFAULT_AMOUNT_BACK__
+									amount.back
 								)}`
 							},
 
@@ -107,12 +96,12 @@ const usePushableOverlayStyles = <Element extends ElementType>(
 									borderColor: formatColor(
 										colorMode,
 										theme.colors[color][backgroundHue],
-										__DEFAULT_AMOUNT_ACTIVE__
+										amount.active
 									),
 									background: formatColor(
 										colorMode,
 										theme.colors[color][backgroundHue],
-										__DEFAULT_AMOUNT_ACTIVE__
+										amount.active
 									),
 									boxShadow: `0 ${active}px 0 0 ${theme.colors.transparent}`
 								}
@@ -126,22 +115,14 @@ const usePushableOverlayStyles = <Element extends ElementType>(
 							'color': theme.colors.gray[colorHue],
 
 							'&::before': {
-								borderColor: formatColor(
-									colorMode,
-									theme.colors[color][backgroundHue],
-									__DEFAULT_AMOUNT_ACTIVE__
-								),
-								background: formatColor(
-									colorMode,
-									theme.colors[color][backgroundHue],
-									__DEFAULT_AMOUNT_ACTIVE__
-								),
+								borderColor: formatColor(colorMode, theme.colors[color][backgroundHue], amount.active),
+								background: formatColor(colorMode, theme.colors[color][backgroundHue], amount.active),
 								boxShadow: `0 ${active}px 0 0 ${theme.colors.transparent}`
 							}
 					  }
 					: {}
 		};
-	}, [color, colorMode, isPushable, isFixed]);
+	}, [amount, color, colorMode, isPushable, isFixed]);
 
 	const containedActiveStyles = useMemo<Style>(() => {
 		const { active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
@@ -180,9 +161,9 @@ const usePushableOverlayStyles = <Element extends ElementType>(
 	const lightDefaultStyles = useMemo<Style>(() => {
 		const { pushable, hover, active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
 
-		const colorHue = getColorHue({ colorMode, type: 'darker' });
-		const backgroundHue = getColorHue({ colorMode, type: 'lighter' });
-		const shadowHue = getColorHue({ colorMode, type: 'lightest' });
+		const colorHue = getColorHue({ colorMode, type: 'dark' });
+		const backgroundHue = getColorHue({ colorMode, type: 'light' });
+		const shadowHue = getColorHue({ colorMode, type: 'lighter' });
 
 		return {
 			'color': theme.colors[color][colorHue],
@@ -196,43 +177,31 @@ const usePushableOverlayStyles = <Element extends ElementType>(
 			'&:hover':
 				isPushable && !isFixed
 					? {
-							'color': formatColor(colorMode, theme.colors[color][colorHue], __DEFAULT_AMOUNT_HOVER__),
+							'color': formatColor(colorMode, theme.colors[color][colorHue], amount.hover),
 
 							'&::before': {
-								borderColor: formatColor(
-									colorMode,
-									theme.colors[color][backgroundHue],
-									__DEFAULT_AMOUNT_HOVER__
-								),
-								background: formatColor(
-									colorMode,
-									theme.colors[color][backgroundHue],
-									__DEFAULT_AMOUNT_HOVER__
-								),
+								borderColor: formatColor(colorMode, theme.colors[color][backgroundHue], amount.hover),
+								background: formatColor(colorMode, theme.colors[color][backgroundHue], amount.hover),
 								boxShadow: `0 ${hover}px 0 0 ${formatColor(
 									colorMode,
 									theme.colors[color][shadowHue],
-									__DEFAULT_AMOUNT_BACK__
+									amount.back
 								)}`
 							},
 
 							'&:active': {
-								'color': formatColor(
-									colorMode,
-									theme.colors[color][colorHue],
-									__DEFAULT_AMOUNT_ACTIVE__
-								),
+								'color': formatColor(colorMode, theme.colors[color][colorHue], amount.active),
 
 								'&::before': {
 									borderColor: formatColor(
 										colorMode,
 										theme.colors[color][backgroundHue],
-										__DEFAULT_AMOUNT_ACTIVE__
+										amount.active
 									),
 									background: formatColor(
 										colorMode,
 										theme.colors[color][backgroundHue],
-										__DEFAULT_AMOUNT_ACTIVE__
+										amount.active
 									),
 									boxShadow: `0 ${active}px 0 0 ${theme.colors.transparent}`
 								}
@@ -243,25 +212,17 @@ const usePushableOverlayStyles = <Element extends ElementType>(
 			'&:active':
 				isPushable && !isFixed
 					? {
-							'color': formatColor(colorMode, theme.colors[color][colorHue], __DEFAULT_AMOUNT_ACTIVE__),
+							'color': formatColor(colorMode, theme.colors[color][colorHue], amount.active),
 
 							'&::before': {
-								borderColor: formatColor(
-									colorMode,
-									theme.colors[color][backgroundHue],
-									__DEFAULT_AMOUNT_ACTIVE__
-								),
-								background: formatColor(
-									colorMode,
-									theme.colors[color][backgroundHue],
-									__DEFAULT_AMOUNT_ACTIVE__
-								),
+								borderColor: formatColor(colorMode, theme.colors[color][backgroundHue], amount.active),
+								background: formatColor(colorMode, theme.colors[color][backgroundHue], amount.active),
 								boxShadow: `0 ${active}px 0 0 ${theme.colors.transparent}`
 							}
 					  }
 					: {}
 		};
-	}, [color, colorMode, isPushable, isFixed]);
+	}, [amount, color, colorMode, isPushable, isFixed]);
 
 	const lightActiveStyles = useMemo<Style>(() => {
 		const { active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
@@ -300,9 +261,9 @@ const usePushableOverlayStyles = <Element extends ElementType>(
 	const darkDefaultStyles = useMemo<Style>(() => {
 		const { pushable, hover, active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
 
-		const colorHue = getColorHue({ colorMode, type: 'lighter' });
-		const backgroundHue = getColorHue({ colorMode, type: 'darker' });
-		const shadowHue = getColorHue({ colorMode, type: 'darkest' });
+		const colorHue = getColorHue({ colorMode, type: 'light' });
+		const backgroundHue = getColorHue({ colorMode, type: 'dark' });
+		const shadowHue = getColorHue({ colorMode, type: 'darker' });
 
 		return {
 			'color': theme.colors[color][colorHue],
@@ -316,43 +277,31 @@ const usePushableOverlayStyles = <Element extends ElementType>(
 			'&:hover':
 				isPushable && !isFixed
 					? {
-							'color': formatColor(colorMode, theme.colors[color][colorHue], __DEFAULT_AMOUNT_HOVER__),
+							'color': formatColor(colorMode, theme.colors[color][colorHue], amount.hover),
 
 							'&::before': {
-								borderColor: formatColor(
-									colorMode,
-									theme.colors[color][backgroundHue],
-									__DEFAULT_AMOUNT_HOVER__
-								),
-								background: formatColor(
-									colorMode,
-									theme.colors[color][backgroundHue],
-									__DEFAULT_AMOUNT_HOVER__
-								),
+								borderColor: formatColor(colorMode, theme.colors[color][backgroundHue], amount.hover),
+								background: formatColor(colorMode, theme.colors[color][backgroundHue], amount.hover),
 								boxShadow: `0 ${hover}px 0 0 ${formatColor(
 									colorMode,
 									theme.colors[color][shadowHue],
-									__DEFAULT_AMOUNT_BACK__
+									amount.back
 								)}`
 							},
 
 							'&:active': {
-								'color': formatColor(
-									colorMode,
-									theme.colors[color][colorHue],
-									__DEFAULT_AMOUNT_ACTIVE__
-								),
+								'color': formatColor(colorMode, theme.colors[color][colorHue], amount.active),
 
 								'&::before': {
 									borderColor: formatColor(
 										colorMode,
 										theme.colors[color][backgroundHue],
-										__DEFAULT_AMOUNT_ACTIVE__
+										amount.active
 									),
 									background: formatColor(
 										colorMode,
 										theme.colors[color][backgroundHue],
-										__DEFAULT_AMOUNT_ACTIVE__
+										amount.active
 									),
 									boxShadow: `0 ${active}px 0 0 ${theme.colors.transparent}`
 								}
@@ -363,25 +312,17 @@ const usePushableOverlayStyles = <Element extends ElementType>(
 			'&:active':
 				isPushable && !isFixed
 					? {
-							'color': formatColor(colorMode, theme.colors[color][colorHue], __DEFAULT_AMOUNT_ACTIVE__),
+							'color': formatColor(colorMode, theme.colors[color][colorHue], amount.active),
 
 							'&::before': {
-								borderColor: formatColor(
-									colorMode,
-									theme.colors[color][backgroundHue],
-									__DEFAULT_AMOUNT_ACTIVE__
-								),
-								background: formatColor(
-									colorMode,
-									theme.colors[color][backgroundHue],
-									__DEFAULT_AMOUNT_ACTIVE__
-								),
+								borderColor: formatColor(colorMode, theme.colors[color][backgroundHue], amount.active),
+								background: formatColor(colorMode, theme.colors[color][backgroundHue], amount.active),
 								boxShadow: `0 ${active}px 0 0 ${theme.colors.transparent}`
 							}
 					  }
 					: {}
 		};
-	}, [color, colorMode, isPushable, isFixed]);
+	}, [amount, color, colorMode, isPushable, isFixed]);
 
 	const darkActiveStyles = useMemo<Style>(() => {
 		const { active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
@@ -434,35 +375,23 @@ const usePushableOverlayStyles = <Element extends ElementType>(
 			'&:hover':
 				isPushable && !isFixed
 					? {
-							'color': formatColor(colorMode, theme.colors[color][colorHue], __DEFAULT_AMOUNT_HOVER__),
+							'color': formatColor(colorMode, theme.colors[color][colorHue], amount.hover),
 
 							'&::before': {
-								borderColor: formatColor(
-									colorMode,
-									theme.colors[color][colorHue],
-									__DEFAULT_AMOUNT_HOVER__
-								),
+								borderColor: formatColor(colorMode, theme.colors[color][colorHue], amount.hover),
 								background: theme.colors.transparent,
 								boxShadow: `0 ${hover}px 0 0 ${formatColor(
 									colorMode,
 									theme.colors[color][colorHue],
-									__DEFAULT_AMOUNT_HOVER__
+									amount.hover
 								)}`
 							},
 
 							'&:active': {
-								'color': formatColor(
-									colorMode,
-									theme.colors[color][colorHue],
-									__DEFAULT_AMOUNT_ACTIVE__
-								),
+								'color': formatColor(colorMode, theme.colors[color][colorHue], amount.active),
 
 								'&::before': {
-									borderColor: formatColor(
-										colorMode,
-										theme.colors[color][colorHue],
-										__DEFAULT_AMOUNT_ACTIVE__
-									),
+									borderColor: formatColor(colorMode, theme.colors[color][colorHue], amount.active),
 									background: theme.colors.transparent,
 									boxShadow: `0 ${active}px 0 0 ${theme.colors.transparent}`
 								}
@@ -473,21 +402,17 @@ const usePushableOverlayStyles = <Element extends ElementType>(
 			'&:active':
 				isPushable && !isFixed
 					? {
-							'color': formatColor(colorMode, theme.colors[color][colorHue], __DEFAULT_AMOUNT_ACTIVE__),
+							'color': formatColor(colorMode, theme.colors[color][colorHue], amount.active),
 
 							'&::before': {
-								borderColor: formatColor(
-									colorMode,
-									theme.colors[color][colorHue],
-									__DEFAULT_AMOUNT_ACTIVE__
-								),
+								borderColor: formatColor(colorMode, theme.colors[color][colorHue], amount.active),
 								background: theme.colors.transparent,
 								boxShadow: `0 ${active}px 0 0 ${theme.colors.transparent}`
 							}
 					  }
 					: {}
 		};
-	}, [color, colorMode, isPushable, isFixed]);
+	}, [amount, color, colorMode, isPushable, isFixed]);
 
 	const outlinedActiveStyles = useMemo<Style>(() => {
 		const { active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
@@ -539,31 +464,23 @@ const usePushableOverlayStyles = <Element extends ElementType>(
 			'&:hover':
 				isPushable && !isFixed
 					? {
-							'color': formatColor(colorMode, theme.colors.gray[colorHue], __DEFAULT_AMOUNT_HOVER__),
+							'color': formatColor(colorMode, theme.colors.gray[colorHue], amount.hover),
 
 							'&::before': {
-								borderColor: formatColor(
-									colorMode,
-									theme.colors.gray[borderHue],
-									__DEFAULT_AMOUNT_HOVER__
-								),
+								borderColor: formatColor(colorMode, theme.colors.gray[borderHue], amount.hover),
 								background: theme.colors.transparent,
 								boxShadow: `0 ${hover}px 0 0 ${formatColor(
 									colorMode,
 									theme.colors.gray[borderHue],
-									__DEFAULT_AMOUNT_HOVER__
+									amount.hover
 								)}`
 							},
 
 							'&:active': {
-								'color': formatColor(colorMode, theme.colors.gray[colorHue], __DEFAULT_AMOUNT_ACTIVE__),
+								'color': formatColor(colorMode, theme.colors.gray[colorHue], amount.active),
 
 								'&::before': {
-									borderColor: formatColor(
-										colorMode,
-										theme.colors.gray[borderHue],
-										__DEFAULT_AMOUNT_ACTIVE__
-									),
+									borderColor: formatColor(colorMode, theme.colors.gray[borderHue], amount.active),
 									background: theme.colors.transparent,
 									boxShadow: `0 ${active}px 0 0 ${theme.colors.transparent}`
 								}
@@ -574,14 +491,10 @@ const usePushableOverlayStyles = <Element extends ElementType>(
 			'&:active':
 				isPushable && !isFixed
 					? {
-							'color': formatColor(colorMode, theme.colors.gray[colorHue], __DEFAULT_AMOUNT_ACTIVE__),
+							'color': formatColor(colorMode, theme.colors.gray[colorHue], amount.active),
 
 							'&::before': {
-								borderColor: formatColor(
-									colorMode,
-									theme.colors.gray[borderHue],
-									__DEFAULT_AMOUNT_ACTIVE__
-								),
+								borderColor: formatColor(colorMode, theme.colors.gray[borderHue], amount.active),
 								background: theme.colors.transparent,
 								boxShadow: `0 ${active}px 0 0 ${theme.colors.transparent}`
 							}
@@ -639,7 +552,7 @@ const usePushableOverlayStyles = <Element extends ElementType>(
 			'&:hover':
 				isPushable && !isFixed
 					? {
-							'color': formatColor(colorMode, theme.colors[color][colorHue], __DEFAULT_AMOUNT_HOVER__),
+							'color': formatColor(colorMode, theme.colors[color][colorHue], amount.hover),
 
 							'&::before': {
 								borderColor: theme.colors.transparent,
@@ -648,11 +561,7 @@ const usePushableOverlayStyles = <Element extends ElementType>(
 							},
 
 							'&:active': {
-								'color': formatColor(
-									colorMode,
-									theme.colors[color][colorHue],
-									__DEFAULT_AMOUNT_ACTIVE__
-								),
+								'color': formatColor(colorMode, theme.colors[color][colorHue], amount.active),
 
 								'&::before': {
 									borderColor: theme.colors.transparent,
@@ -666,7 +575,7 @@ const usePushableOverlayStyles = <Element extends ElementType>(
 			'&:active':
 				isPushable && !isFixed
 					? {
-							'color': formatColor(colorMode, theme.colors[color][colorHue], __DEFAULT_AMOUNT_ACTIVE__),
+							'color': formatColor(colorMode, theme.colors[color][colorHue], amount.active),
 
 							'&::before': {
 								borderColor: theme.colors.transparent,
@@ -676,7 +585,7 @@ const usePushableOverlayStyles = <Element extends ElementType>(
 					  }
 					: {}
 		};
-	}, [color, colorMode, isPushable, isFixed]);
+	}, [amount, color, colorMode, isPushable, isFixed]);
 
 	const transparentActiveStyles = useMemo<Style>(() => {
 		const colorHue = getColorHue({ colorMode, type: 'color' });

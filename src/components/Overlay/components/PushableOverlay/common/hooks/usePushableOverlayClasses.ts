@@ -139,13 +139,13 @@ const usePushableOverlayClasses = <Element extends ElementType>(
 	}, [color, colorMode]);
 
 	const lightColorClasses = useMemo<ClassName>(() => {
-		const outlineHue = getColorHue({ colorMode, type: 'lighter' });
+		const outlineHue = getColorHue({ colorMode, type: 'light' });
 
 		return classNames(classes.borders.outline_color[color][outlineHue]);
 	}, [color, colorMode]);
 
 	const darkColorClasses = useMemo<ClassName>(() => {
-		const outlineHue = getColorHue({ colorMode, type: 'darker' });
+		const outlineHue = getColorHue({ colorMode, type: 'dark' });
 
 		return classNames(classes.borders.outline_color[color][outlineHue]);
 	}, [color, colorMode]);

@@ -29,8 +29,7 @@ const PushableOverlay = forwardRef(function PushableOverlay<Element extends Elem
 	props: PushableOverlayProps<Element>,
 	ref: PushableOverlayRef<Element>
 ): ReactElement {
-	const internalRef = useRef<HTMLElement>();
-
+	const internalRef = useRef<PushableOverlayRef<Element>>();
 	const refs = useMergeRefs<PushableOverlayRef<Element>>(ref, internalRef);
 
 	const {
