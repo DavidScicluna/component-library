@@ -16,7 +16,7 @@ export type IconElement = PickFrom<ElementType, 'span'>;
 
 export type IconCategory = 'filled' | 'outlined' | 'twoTone';
 
-export type IconSize = ThemeFontSize | string;
+export type IconSize = ThemeFontSize | number | string;
 export type IconSizes = Array<IconSize>;
 
 export type IconVariant = 'contained' | 'light' | 'outlined' | 'monochrome' | 'transparent' | 'unstyled';

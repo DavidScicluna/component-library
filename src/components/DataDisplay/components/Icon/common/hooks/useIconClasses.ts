@@ -7,10 +7,10 @@ import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ }
 import { useAppTheme } from '@common/hooks';
 import type { ClassName, ThemeFontSize, ThemeLineHeight, ThemeRadius } from '@common/types';
 import { getClass, getColorHue, getResponsiveValue } from '@common/utils';
+import { checkFontSizeType } from '@common/utils/fonts';
 
 import { __DEFAULT_ICON_RADIUS__, __DEFAULT_ICON_SIZE__, __DEFAULT_ICON_VARIANT__ } from '../constants';
 import type { IconElement, IconProps, IconSize, IconVariant } from '../types';
-import { checkIconSize } from '../utils';
 
 type UseIconClassesProps<Element extends IconElement> = Pick<
 	IconProps<Element>,
@@ -46,7 +46,7 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 			lineHeightClassName,
 			radiusClassName,
 			{
-				[fontSizeClassName]: checkIconSize(s) === 'theme',
+				[fontSizeClassName]: checkFontSizeType(s) === 'theme',
 				[classes.borders.border_width[__DEFAULT_BORDER_WIDTH__]]: v !== 'unstyled',
 				[classes.borders.border_style[__DEFAULT_BORDER_STYLE__]]: v !== 'unstyled'
 			}
