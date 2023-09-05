@@ -27,13 +27,6 @@ export default {
 	title: 'Buttons/Button',
 	component: ButtonComponent,
 	argTypes: {
-		children: {
-			name: 'Label',
-			type: 'string',
-			defaultValue: 'Hello',
-			// description: '',
-			control: { type: 'text' }
-		},
 		canClickOnEnter: {
 			name: 'Click On Enter',
 			type: 'boolean',
@@ -128,7 +121,9 @@ export const Button: ButtonStory = (props: ButtonProps<ButtonDefaultElement>): R
 				renderLeft={() => <ButtonIcon icon='10k' category='filled' />}
 				renderRight={() => <ButtonIcon icon='12mp' category='filled' />}
 				renderSpinner={() => <ButtonSpinner />}
-			/>
+			>
+				Hello I am a Button
+			</ButtonComponent>
 		</Center>
 	);
 };

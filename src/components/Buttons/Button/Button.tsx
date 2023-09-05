@@ -148,10 +148,10 @@ const Button = forwardRef(function Button<Element extends ButtonElement = Button
 						(isLoading && renderLeft) || renderRight ? 'auto' : null
 					]).join(' ')}
 					templateRows={1}
-					alignItems='stretch'
-					alignContent='stretch'
-					justifyItems='stretch'
-					justifyContent='stretch'
+					alignItems={isFullWidth ? 'center' : 'stretch'}
+					alignContent={isFullWidth ? 'center' : 'stretch'}
+					justifyItems={isFullWidth ? 'center' : 'stretch'}
+					justifyContent={isFullWidth ? 'center' : 'stretch'}
 					spacing={config.spacing}
 				>
 					{isLoading && !renderLeft && renderSpinner ? (

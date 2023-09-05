@@ -6,7 +6,7 @@ import { getColorHex } from '@common/utils';
 
 import { Spinner } from '@components/Feedback';
 
-import { useButtonContext } from '../../common/hooks';
+import { useButtonContext, useButtonFontSize } from '../../common/hooks';
 
 import type { ButtonSpinnerProps, ButtonSpinnerRef } from './common/types';
 
@@ -22,6 +22,8 @@ const ButtonSpinner = forwardRef(function ButtonSpinner<Element extends ElementT
 		size,
 		variant
 	} = useButtonContext();
+
+	const fontSize = useButtonFontSize({ size });
 
 	const c = useMemo<string>(() => {
 		switch (variant) {
@@ -39,7 +41,7 @@ const ButtonSpinner = forwardRef(function ButtonSpinner<Element extends ElementT
 		}
 	}, [color, colorMode, variant]);
 
-	return <Spinner ref={ref} color={c} isVisible size={size} variant='three_dots' />;
+	return <Spinner ref={ref} color={c} isVisible size={`${fontSize}px`} variant='three_dots' />;
 });
 
 export default ButtonSpinner;

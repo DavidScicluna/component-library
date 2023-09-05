@@ -25,6 +25,15 @@ import type {
 	ButtonVariant
 } from './common/types';
 import Button from './Button';
+import type {
+	ButtonIconDefaultElement,
+	ButtonIconElement,
+	ButtonIconProps,
+	ButtonIconRef,
+	ButtonSpinnerProps,
+	ButtonSpinnerRef
+} from './components';
+import { ButtonIcon, ButtonSpinner } from './components';
 
 // Constants
 export const constants = {
@@ -46,17 +55,23 @@ export const constants = {
 export { useButtonClasses, useButtonContext, useButtonFontSize, useButtonSizeConfig };
 
 // Components
-export { Button };
+export { Button, ButtonIcon, ButtonSpinner };
 
 // Component Types
 export type {
 	ButtonContext,
 	ButtonDefaultElement,
 	ButtonElement,
+	ButtonIconDefaultElement,
+	ButtonIconElement,
+	ButtonIconProps,
+	ButtonIconRef,
 	ButtonMouseEvent,
 	ButtonProps,
 	ButtonRef,
 	ButtonRenderProps,
 	ButtonSize,
+	ButtonSpinnerProps,
+	ButtonSpinnerRef,
 	ButtonVariant
 };
