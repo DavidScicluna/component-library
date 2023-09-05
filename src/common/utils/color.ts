@@ -9,7 +9,7 @@ export type ColorHueType =
 	| 'text.primary'
 	| 'text.secondary'
 	| 'divider'
-	| 'midlight'
+	| 'midLight'
 	| 'midLighter'
 	| 'midDark'
 	| 'midDarker'
@@ -44,7 +44,7 @@ export const getColorHue = memoize(({ colorMode, type }: GetColorHueProps): Them
 			return colorMode === 'light' ? 600 : 400;
 		case 'divider':
 			return colorMode === 'light' ? 200 : 800;
-		case 'midlight':
+		case 'midLight':
 			return 400;
 		case 'midLighter':
 			return 300;
