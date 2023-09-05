@@ -6,10 +6,13 @@ import { getColorClass, getColorHex, getColorHue, getColorMode } from './color';
 import { getFontSizeHeight, getIconFontFamily } from './fonts';
 import { checkIsTouchDevice, convertPixelsToREM, convertREMToPixels, convertStringToNumber } from './other';
 import { getResponsiveValue } from './responsive';
+import { checkDurationType, checkFontSizeType } from './theme';
 
 export type { ColorHueType, GetColorClassProps, GetColorHexProps, GetColorHueProps };
 
 export {
+	checkDurationType,
+	checkFontSizeType,
 	checkIsTouchDevice,
 	convertPixelsToREM,
 	convertREMToPixels,
