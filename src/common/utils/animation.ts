@@ -14,13 +14,17 @@ import type {
 
 import { convertStringToNumber } from '.';
 
-export const getAnimationDelay = memoize((delay: ThemeDelay = __DEFAULT_DELAY__): AnimationDelay => {
-	return convertStringToNumber(theme.transitionDuration[delay], 'ms') / 1000;
-});
+export const getAnimationDelay = memoize(
+	(delay: ThemeDelay = __DEFAULT_DELAY__, amount: number = 1000): AnimationDelay => {
+		return convertStringToNumber(theme.transitionDuration[delay], 'ms') / amount;
+	}
+);
 
-export const getAnimationDuration = memoize((duration: ThemeDuration = __DEFAULT_DURATION__): AnimationDuration => {
-	return convertStringToNumber(theme.transitionDuration[duration], 'ms') / 1000;
-});
+export const getAnimationDuration = memoize(
+	(duration: ThemeDuration = __DEFAULT_DURATION__, amount: number = 1000): AnimationDuration => {
+		return convertStringToNumber(theme.transitionDuration[duration], 'ms') / amount;
+	}
+);
 
 export const getAnimationEasings = memoize((easing: ThemeEase = __DEFAULT_EASING__): AnimationEasing => {
 	return theme.transitionTimingFunction[easing]
