@@ -57,6 +57,6 @@ export default {
 
 export const Spinner: SpinnerStory = (props: SpinnerProps<PolymorphicDefaultElement>): ReactElement => (
 	<Center w='auto'>
-		<SpinnerComponent {...props} w='100%' p={4} />;
+		<SpinnerComponent {...props} />
 	</Center>
 );

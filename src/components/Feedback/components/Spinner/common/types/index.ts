@@ -5,7 +5,8 @@ import type { PickFrom, ThemeFontSize, ThemeRadius } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box/common/types';
 
-export type SpinnerSize = ThemeFontSize | number;
+export type SpinnerSize = ThemeFontSize | number | string;
+export type SpinnerSizes = Array<SpinnerSize>;
 
 export type SpinnerVariant =
 	| 'bars'

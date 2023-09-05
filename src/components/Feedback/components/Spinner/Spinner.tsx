@@ -11,7 +11,9 @@ import {
 	__DEFAULT_RADIUS__
 } from '@common/constants';
 import { useTheme } from '@common/hooks';
+import type { ThemeFontSize } from '@common/types';
 import { convertREMToPixels, convertStringToNumber, getAnimationDuration } from '@common/utils';
+import { checkFontSizeType } from '@common/utils/fonts';
 
 import { Box } from '@components/Box';
 
@@ -29,6 +31,7 @@ import type {
 	SpinnerRef,
 	SpinnerRingsVariant,
 	SpinnerRotatingLinesVariant,
+	SpinnerSize,
 	SpinnerTailSpinVariant,
 	SpinnerThreeDotsVariant
 } from './common/types';
@@ -48,9 +51,9 @@ const Spinner = forwardRef(function Spinner<Element extends ElementType>(
 		...rest
 	} = props;
 
-	const dimensions = useMemo<number>(() => {
-		return typeof size !== 'number'
-			? convertREMToPixels(convertStringToNumber(theme.fontSizes[size], 'rem')) / 4
+	const dimensions = useMemo<SpinnerSize>(() => {
+		return checkFontSizeType(size) === 'theme'
+			? convertREMToPixels(convertStringToNumber(theme.fontSizes[size as ThemeFontSize], 'rem'))
 			: size;
 	}, [size]);
 
