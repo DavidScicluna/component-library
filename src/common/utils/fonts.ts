@@ -1,6 +1,7 @@
-import { compact } from 'lodash-es';
+import { compact, includes } from 'lodash-es';
 import memoize from 'micro-memoize';
 
+import { fontSizes } from '@common/data';
 import theme from '@common/theme';
 import type { ThemeFontSize, ThemeLineHeight } from '@common/types';
 
@@ -30,3 +31,20 @@ export const getFontSizeHeight = memoize(
 		);
 	}
 );
+
+type CheckFontSize = ThemeFontSize | number | string;
+type CheckFontSizeType = 'theme' | 'other';
+
+/**
+ * This method will check if the siz param passed is from theme or its a string or number
+ *
+ * @param size
+ * @returns 'theme' or 'other'
+ */
+export const checkFontSizeType = memoize((size: CheckFontSize): CheckFontSizeType => {
+	if (includes(fontSizes, size)) {
+		return 'theme';
+	} else {
+		return 'other';
+	}
+});
