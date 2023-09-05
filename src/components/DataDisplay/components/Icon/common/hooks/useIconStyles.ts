@@ -1,6 +1,6 @@
 import { useGetResponsiveValue } from '@common/hooks';
 import type { Style } from '@common/types';
-import { checkFontSizeType } from '@common/utils/fonts';
+import { checkFontSizeType } from '@common/utils';
 
 import { __DEFAULT_ICON_SIZE__ } from '../constants';
 import type { IconDefaultElement, IconElement, IconProps, IconSize } from '../types';

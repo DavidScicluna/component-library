@@ -12,8 +12,7 @@ import {
 } from '@common/constants';
 import { useTheme } from '@common/hooks';
 import type { ThemeFontSize } from '@common/types';
-import { convertREMToPixels, convertStringToNumber, getAnimationDuration } from '@common/utils';
-import { checkFontSizeType } from '@common/utils/fonts';
+import { checkFontSizeType, convertREMToPixels, convertStringToNumber, getAnimationDuration } from '@common/utils';
 
 import { Box } from '@components/Box';
 
