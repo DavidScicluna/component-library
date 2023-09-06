@@ -1,6 +1,9 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
+import classNames from 'classnames';
+
+import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
 import { getColorHex } from '@common/utils';
 
@@ -11,17 +14,19 @@ import { useButtonContext, useButtonFontSize } from '../../common/hooks';
 import type { ButtonSpinnerProps, ButtonSpinnerRef } from './common/types';
 
 const ButtonSpinner = forwardRef(function ButtonSpinner<Element extends ElementType>(
-	_props: ButtonSpinnerProps,
+	props: ButtonSpinnerProps<Element>,
 	ref: ButtonSpinnerRef<Element>
 ): ReactElement {
-	const { color: __DEFAULT_BUTTON_COLOR__, colorMode: __DEFAULT_BUTTON_COLORMODE__ } = useAppTheme();
+	const { color: __DEFAULT_ICON_BUTTON_COLOR__, colorMode: __DEFAULT_ICON_BUTTON_COLORMODE__ } = useAppTheme();
 
 	const {
-		color = __DEFAULT_BUTTON_COLOR__,
-		colorMode = __DEFAULT_BUTTON_COLORMODE__,
+		color = __DEFAULT_ICON_BUTTON_COLOR__,
+		colorMode = __DEFAULT_ICON_BUTTON_COLORMODE__,
 		size,
 		variant
 	} = useButtonContext();
+
+	const { className = __DEFAULT_CLASSNAME__, ...rest } = props;
 
 	const fontSize = useButtonFontSize({ size });
 
@@ -41,7 +46,16 @@ const ButtonSpinner = forwardRef(function ButtonSpinner<Element extends ElementT
 		}
 	}, [color, colorMode, variant]);
 
-	return <Spinner ref={ref} color={c} isVisible size={`${fontSize}px`} variant='three_dots' />;
+	return (
+		<Spinner
+			{...rest}
+			ref={ref}
+			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-button-spinner`, { [className]: !!className })}
+			color={c}
+			isVisible
+			size={`${fontSize}px`}
+		/>
+	);
 });
 
 export default ButtonSpinner;
