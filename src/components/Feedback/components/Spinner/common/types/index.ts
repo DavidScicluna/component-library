@@ -19,7 +19,7 @@ export type SpinnerVariant =
 	| 'three_dots';
 
 export type SpinnerBarsVariant = {
-	color: string;
+	// color: string;
 	variant?: PickFrom<SpinnerVariant, 'bars'>;
 };
 export type SpinnerColorRingVariant = {
@@ -34,12 +34,12 @@ export type SpinnerOvalVariant = {
 	variant?: PickFrom<SpinnerVariant, 'oval'>;
 };
 export type SpinnerPuffVariant = {
-	color: string;
+	// color: string;
 	radius?: ThemeRadius;
 	variant?: PickFrom<SpinnerVariant, 'puff'>;
 };
 export type SpinnerRingsVariant = {
-	color: string;
+	// color: string;
 	radius?: ThemeRadius;
 	variant?: PickFrom<SpinnerVariant, 'rings'>;
 };
@@ -49,27 +49,28 @@ export type SpinnerRotatingLinesVariant = {
 	variant?: PickFrom<SpinnerVariant, 'rotating_lines'>;
 };
 export type SpinnerTailSpinVariant = {
-	color: string;
+	// color: string;
 	radius?: ThemeRadius;
 	variant?: PickFrom<SpinnerVariant, 'tail_spin'>;
 };
 export type SpinnerThreeDotsVariant = {
-	color: string;
+	// color: string;
 	radius?: ThemeRadius;
 	variant?: PickFrom<SpinnerVariant, 'three_dots'>;
 };
 
 type SpinnerOtherProps = {
+	color?: string;
 	isVisible?: boolean;
 	wrapperStyle?: Style;
 	size?: SpinnerSize;
 } & (
 	| SpinnerBarsVariant
-	| SpinnerColorRingVariant
-	| SpinnerOvalVariant
+	// | SpinnerColorRingVariant
+	// | SpinnerOvalVariant
 	| SpinnerPuffVariant
 	| SpinnerRingsVariant
-	| SpinnerRotatingLinesVariant
+	// | SpinnerRotatingLinesVariant
 	| SpinnerTailSpinVariant
 	| SpinnerThreeDotsVariant
 );

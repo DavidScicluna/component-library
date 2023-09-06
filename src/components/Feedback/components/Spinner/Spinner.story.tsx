@@ -13,6 +13,12 @@ export default {
 	title: 'Feedback/Spinner',
 	component: SpinnerComponent,
 	argTypes: {
+		color: {
+			name: 'Color',
+			type: 'string',
+			// description: '',
+			control: { type: 'color' }
+		},
 		size: {
 			name: 'Size',
 			type: 'string',
@@ -42,11 +48,11 @@ export default {
 			// description: '',
 			options: [
 				'bars',
-				'color_ring',
-				'oval',
+				// 'color_ring',
+				// 'oval',
 				'puff',
 				'rings',
-				'rotating_lines',
+				// 'rotating_lines',
 				'tail_spin',
 				'three_dots'
 			] as Array<SpinnerVariant>,

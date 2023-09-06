@@ -1,18 +1,32 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
-import { Bars, ColorRing, Oval, Puff, Rings, RotatingLines, TailSpin, ThreeDots } from 'react-loader-spinner';
+import {
+	Bars,
+	// ColorRing,
+	//  Oval,
+	Puff,
+	Rings,
+	//  RotatingLines,
+	TailSpin,
+	ThreeDots
+} from 'react-loader-spinner';
 
 import classNames from 'classnames';
 
 import {
-	__DEFAULT_BORDER_WIDTH__,
+	// __DEFAULT_BORDER_WIDTH__,
 	__DEFAULT_CLASS_PREFIX__,
 	__DEFAULT_CLASSNAME__,
 	__DEFAULT_RADIUS__
 } from '@common/constants';
-import { useTheme } from '@common/hooks';
+import { useGetColor, useTheme } from '@common/hooks';
 import type { ThemeFontSize } from '@common/types';
-import { checkFontSizeType, convertREMToPixels, convertStringToNumber, getAnimationDuration } from '@common/utils';
+import {
+	checkFontSizeType,
+	convertREMToPixels,
+	convertStringToNumber
+	// getAnimationDuration
+} from '@common/utils';
 
 import { Box } from '@components/Box';
 
@@ -22,14 +36,14 @@ import {
 	__DEFAULT_SPINNER_VARIANT__
 } from './common/constants';
 import type {
-	SpinnerBarsVariant,
-	SpinnerColorRingVariant,
-	SpinnerOvalVariant,
+	// SpinnerBarsVariant,
+	// SpinnerColorRingVariant,
+	// SpinnerOvalVariant,
 	SpinnerProps,
 	SpinnerPuffVariant,
 	SpinnerRef,
 	SpinnerRingsVariant,
-	SpinnerRotatingLinesVariant,
+	// SpinnerRotatingLinesVariant,
 	SpinnerSize,
 	SpinnerTailSpinVariant,
 	SpinnerThreeDotsVariant
@@ -41,8 +55,11 @@ const Spinner = forwardRef(function Spinner<Element extends ElementType>(
 ): ReactElement {
 	const theme = useTheme();
 
+	const __DEFAULT_SPINNER_COLOR__ = useGetColor({ colorType: 'default', hueType: 'default' });
+
 	const {
 		className = __DEFAULT_CLASSNAME__,
+		color = __DEFAULT_SPINNER_COLOR__,
 		isVisible = __DEFAULT_SPINNER_IS_VISIBLE__,
 		wrapperStyle,
 		size = __DEFAULT_SPINNER_SIZE__,
@@ -59,7 +76,6 @@ const Spinner = forwardRef(function Spinner<Element extends ElementType>(
 	const spinner = useMemo<ReactElement>(() => {
 		switch (variant) {
 			case 'bars': {
-				const { color } = props as SpinnerBarsVariant;
 				return (
 					<Bars
 						ariaLabel={`${__DEFAULT_CLASS_PREFIX__}-bars-spinner`}
@@ -72,44 +88,44 @@ const Spinner = forwardRef(function Spinner<Element extends ElementType>(
 					/>
 				);
 			}
-			case 'color_ring': {
-				const { colors } = props as SpinnerColorRingVariant;
-				return (
-					<ColorRing
-						ariaLabel={`${__DEFAULT_CLASS_PREFIX__}-color-ring-spinner`}
-						width={dimensions}
-						height={dimensions}
-						colors={colors}
-						wrapperStyle={wrapperStyle}
-						wrapperClass={`${__DEFAULT_CLASS_PREFIX__}-color-ring-spinner-wrapper`}
-						visible={isVisible}
-					/>
-				);
-			}
-			case 'oval': {
-				const {
-					color,
-					secondaryColor,
-					strokeWidth = __DEFAULT_BORDER_WIDTH__,
-					strokeWidthSecondary = __DEFAULT_BORDER_WIDTH__
-				} = props as SpinnerOvalVariant;
-				return (
-					<Oval
-						ariaLabel={`${__DEFAULT_CLASS_PREFIX__}-oval-spinner`}
-						width={dimensions}
-						height={dimensions}
-						color={color}
-						secondaryColor={secondaryColor}
-						strokeWidth={strokeWidth}
-						strokeWidthSecondary={strokeWidthSecondary}
-						wrapperStyle={wrapperStyle}
-						wrapperClass={`${__DEFAULT_CLASS_PREFIX__}-oval-spinner-wrapper`}
-						visible={isVisible}
-					/>
-				);
-			}
+			// case 'color_ring': {
+			// 	const { colors } = props as SpinnerColorRingVariant;
+			// 	return (
+			// 		<ColorRing
+			// 			ariaLabel={`${__DEFAULT_CLASS_PREFIX__}-color-ring-spinner`}
+			// 			width={dimensions}
+			// 			height={dimensions}
+			// 			colors={colors}
+			// 			wrapperStyle={wrapperStyle}
+			// 			wrapperClass={`${__DEFAULT_CLASS_PREFIX__}-color-ring-spinner-wrapper`}
+			// 			visible={isVisible}
+			// 		/>
+			// 	);
+			// }
+			// case 'oval': {
+			// 	const {
+			// 		color,
+			// 		secondaryColor,
+			// 		strokeWidth = __DEFAULT_BORDER_WIDTH__,
+			// 		strokeWidthSecondary = __DEFAULT_BORDER_WIDTH__
+			// 	} = props as SpinnerOvalVariant;
+			// 	return (
+			// 		<Oval
+			// 			ariaLabel={`${__DEFAULT_CLASS_PREFIX__}-oval-spinner`}
+			// 			width={dimensions}
+			// 			height={dimensions}
+			// 			color={color}
+			// 			secondaryColor={secondaryColor}
+			// 			strokeWidth={strokeWidth}
+			// 			strokeWidthSecondary={strokeWidthSecondary}
+			// 			wrapperStyle={wrapperStyle}
+			// 			wrapperClass={`${__DEFAULT_CLASS_PREFIX__}-oval-spinner-wrapper`}
+			// 			visible={isVisible}
+			// 		/>
+			// 	);
+			// }
 			case 'puff': {
-				const { color, radius = __DEFAULT_RADIUS__ } = props as SpinnerPuffVariant;
+				const { radius = __DEFAULT_RADIUS__ } = props as SpinnerPuffVariant;
 				return (
 					<Puff
 						ariaLabel={`${__DEFAULT_CLASS_PREFIX__}-puff-spinner`}
@@ -124,7 +140,7 @@ const Spinner = forwardRef(function Spinner<Element extends ElementType>(
 				);
 			}
 			case 'rings': {
-				const { color, radius = __DEFAULT_RADIUS__ } = props as SpinnerRingsVariant;
+				const { radius = __DEFAULT_RADIUS__ } = props as SpinnerRingsVariant;
 				return (
 					<Rings
 						ariaLabel={`${__DEFAULT_CLASS_PREFIX__}-rings-spinner`}
@@ -138,21 +154,21 @@ const Spinner = forwardRef(function Spinner<Element extends ElementType>(
 					/>
 				);
 			}
-			case 'rotating_lines': {
-				const { strokeColor, strokeWidth = __DEFAULT_BORDER_WIDTH__ } = props as SpinnerRotatingLinesVariant;
-				return (
-					<RotatingLines
-						ariaLabel={`${__DEFAULT_CLASS_PREFIX__}-rotating-lines-spinner`}
-						width={dimensions as unknown as string}
-						strokeColor={strokeColor}
-						strokeWidth={strokeWidth as string}
-						animationDuration={`${getAnimationDuration('ultra-slow')}`}
-						visible={isVisible}
-					/>
-				);
-			}
+			// case 'rotating_lines': {
+			// 	const { strokeColor, strokeWidth = __DEFAULT_BORDER_WIDTH__ } = props as SpinnerRotatingLinesVariant;
+			// 	return (
+			// 		<RotatingLines
+			// 			ariaLabel={`${__DEFAULT_CLASS_PREFIX__}-rotating-lines-spinner`}
+			// 			width={dimensions as unknown as string}
+			// 			strokeColor={strokeColor}
+			// 			strokeWidth={strokeWidth as string}
+			// 			animationDuration={`${getAnimationDuration('ultra-slow')}`}
+			// 			visible={isVisible}
+			// 		/>
+			// 	);
+			// }
 			case 'tail_spin': {
-				const { color, radius = __DEFAULT_RADIUS__ } = props as SpinnerTailSpinVariant;
+				const { radius = __DEFAULT_RADIUS__ } = props as SpinnerTailSpinVariant;
 				return (
 					<TailSpin
 						ariaLabel={`${__DEFAULT_CLASS_PREFIX__}-tail-spin-spinner`}
@@ -167,7 +183,7 @@ const Spinner = forwardRef(function Spinner<Element extends ElementType>(
 				);
 			}
 			default: {
-				const { color, radius = __DEFAULT_RADIUS__ } = props as SpinnerThreeDotsVariant;
+				const { radius = __DEFAULT_RADIUS__ } = props as SpinnerThreeDotsVariant;
 				return (
 					<ThreeDots
 						ariaLabel={`${__DEFAULT_CLASS_PREFIX__}-three-dots-spinner`}
