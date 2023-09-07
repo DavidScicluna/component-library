@@ -32,7 +32,7 @@ const DummyPushableOverlay = forwardRef(function DummyPushableOverlay<Element ex
 		...rest
 	} = props;
 
-	const classes = useDummyPushableOverlayClasses<Element>({ isAnimated, radius, variant });
+	const classes = useDummyPushableOverlayClasses<Element>({ isAnimated, radius });
 	const styles = useDummyPushableOverlayStyles<Element>({ color, colorMode, variant });
 
 	return (
