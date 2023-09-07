@@ -9,7 +9,10 @@ import { Center } from '@components/Layout';
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
-import { __DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__ } from './common/constants';
+import {
+	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED__,
+	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__
+} from './common/constants';
 import type { DummyPushableOverlayProps, DummyPushableOverlayVariant } from './common/types';
 import type { DummyPushableOverlayStory, DummyPushableOverlayStoryMeta } from './common/types/story';
 import { DummyPushableOverlay as DummyPushableOverlayComponent } from '.';
@@ -18,9 +21,16 @@ export default {
 	title: 'Overlay/DummyPushableOverlay',
 	component: DummyPushableOverlayComponent,
 	argTypes: {
+		isAnimated: {
+			name: 'Animated',
+			type: 'boolean',
+			defaultValue: __DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED__,
+			// description: '',
+			control: { type: 'boolean' }
+		},
 		radius: {
 			name: 'Radius',
-			type: 'boolean',
+			type: 'string',
 			defaultValue: __DEFAULT_RADIUS__,
 			// description: '',
 			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as ThemeRadiusArr,

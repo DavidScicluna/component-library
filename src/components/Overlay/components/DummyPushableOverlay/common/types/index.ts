@@ -8,6 +8,12 @@ export type DummyPushableOverlayVariant = 'contained' | 'light' | 'dark' | 'outl
 
 // TODO: Go over and add ResponsiveValue to all props except of function props
 type DummyPushableOverlayOtherProps = ThemeAppAppearanceProps & {
+	/**
+	 *  If `true` the pushable overlay will not have the pulse animation
+	 *
+	 * @default true
+	 */
+	isAnimated?: ResponsiveValue<boolean>;
 	radius?: ResponsiveValue<ThemeRadius>;
 	variant?: ResponsiveValue<DummyPushableOverlayVariant>;
 };
