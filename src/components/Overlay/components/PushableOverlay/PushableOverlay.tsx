@@ -86,6 +86,8 @@ const PushableOverlay = forwardRef(function PushableOverlay<Element extends Elem
 			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-pushable-overlay`, classes, {
 				[className]: !!className
 			})}
+			aria-disabled={isDisabled ? 'true' : 'false'}
+			aria-pressed={isFocused || isActive ? 'true' : 'false'}
 			templateColumns={1}
 			templateRows={1}
 			alignItems='stretch'
