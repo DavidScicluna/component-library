@@ -1,0 +1,3 @@
+import { __DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__ } from './props';
+
+export { __DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__ };
