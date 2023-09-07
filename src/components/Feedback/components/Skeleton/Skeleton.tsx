@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 import type { Transition } from 'framer-motion';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useConst } from '@common/hooks';
 import type { AnimationConfig } from '@common/types';
 import { getAnimationConfig, getAnimationDuration } from '@common/utils';
@@ -15,6 +15,7 @@ import { Grid, GridItem } from '@components/Layout';
 
 import { __DEFAULT_SKELETON_IS_ANIMATED__, __DEFAULT_SKELETON_IS_LOADED__ } from './common/constants';
 import { useSkeletonClasses } from './common/hooks';
+import { __KEY_SKELETON_CHILD_CLASS__, __KEY_SKELETON_CLASS__, __KEY_SKELETON_OVERLAY_CLASS__ } from './common/keys';
 import type { SkeletonProps, SkeletonRef } from './common/types';
 
 const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
@@ -32,7 +33,7 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 		...rest
 	} = props;
 
-	const classes = useSkeletonClasses<Element>({ color, colorMode, radius });
+	const classes = useSkeletonClasses<Element>({ color, colorMode, isAnimated, radius });
 
 	const duration = useConst<number>(getAnimationDuration('ultra-fast'));
 	const config = useConst<AnimationConfig>(getAnimationConfig());
@@ -42,7 +43,8 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 		<Grid<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-skeleton`, { [className]: !!className })}
+			// TODO: Go over all classes and extract them to keys to be able to be accessablie across the app
+			className={classNames(__KEY_SKELETON_CLASS__, { [className]: !!className })}
 			templateColumns={1}
 			templateRows={1}
 			alignItems='stretch'
@@ -53,7 +55,14 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 		>
 			{children ? (
 				<GridItem columnStart={1} rowStart={1} zIndex={1}>
-					<Fade w='100%' h='100%' in={isLoaded} transition={transition} unmountOnExit={false}>
+					<Fade
+						className={__KEY_SKELETON_CHILD_CLASS__}
+						w='100%'
+						h='100%'
+						in={isLoaded}
+						transition={transition}
+						unmountOnExit={false}
+					>
 						{children}
 					</Fade>
 				</GridItem>
@@ -61,7 +70,7 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 
 			<GridItem columnStart={1} rowStart={1}>
 				<Fade w='100%' h='100%' in={children ? !isLoaded : true} transition={transition} unmountOnExit={false}>
-					<Box className={classNames(classes, { ['animate-pulse']: isAnimated })} />
+					<Box className={classNames(__KEY_SKELETON_OVERLAY_CLASS__, classes)} w='100%' h='100%' />
 				</Fade>
 			</GridItem>
 		</Grid>

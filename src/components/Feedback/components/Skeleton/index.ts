@@ -1,10 +1,14 @@
-import { __DEFAULT_SKELETON_IS_ANIMATED__, __DEFAULT_SKELETON_IS_LOADED__ } from './common/constants';
+import * as commonConstants from './common/constants';
 import { useSkeletonClasses } from './common/hooks';
+import * as commonKeys from './common/keys';
 import type { SkeletonProps, SkeletonRef } from './common/types';
 import Skeleton from './Skeleton';
 
 // Constants
-export const constants = { __DEFAULT_SKELETON_IS_ANIMATED__, __DEFAULT_SKELETON_IS_LOADED__ };
+export const constants = { ...commonConstants };
+
+// Keys
+export const keys = { ...commonKeys };
 
 // Hooks
 export { useSkeletonClasses };

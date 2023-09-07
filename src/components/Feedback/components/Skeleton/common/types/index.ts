@@ -5,8 +5,23 @@ import type { ResponsiveValue, ThemeAppAppearanceProps, ThemeRadius } from '@com
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
 type SkeletonOtherProps = ThemeAppAppearanceProps & {
+	/**
+	 *  If `true` the skeleton will not have the pulse animation
+	 *
+	 * @default true
+	 */
 	isAnimated?: boolean;
+	/**
+	 *  If `true` the skeleton will be animated out and the children will be animated in
+	 *
+	 * @default false
+	 */
 	isLoaded?: boolean;
+	/**
+	 *  The radius of the container
+	 *
+	 * @default 'base'
+	 */
 	radius?: ResponsiveValue<ThemeRadius>;
 };
 
