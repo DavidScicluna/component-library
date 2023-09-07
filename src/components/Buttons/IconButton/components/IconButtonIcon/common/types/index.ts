@@ -4,11 +4,11 @@ import type { IconDefaultElement, IconElement, IconProps, IconRef } from '@compo
 export type IconButtonIconDefaultElement = IconDefaultElement;
 export type IconButtonIconElement = IconElement;
 
-type IconOmittedProps = keyof BoxOtherProps | 'variant';
+type OmittedIconProps = keyof BoxOtherProps | 'variant';
 
 export type IconButtonIconProps<Element extends IconButtonIconElement = IconButtonIconDefaultElement> = Omit<
 	IconProps<Element>,
-	IconOmittedProps
+	OmittedIconProps
 >;
 
 export type IconButtonIconRef<Element extends IconButtonIconElement = IconButtonIconDefaultElement> = IconRef<Element>;

@@ -74,7 +74,7 @@ type IconButtonOtherProps = ThemeAppAppearanceProps & {
 	/**
 	 * The variant of the button
 	 *
-	 * @default 'md'
+	 * @default 'contained'
 	 */
 	variant?: ResponsiveValue<IconButtonVariant>;
 };
