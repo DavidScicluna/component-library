@@ -60,5 +60,5 @@ export type DummyButtonRef<Element extends ElementType> = BoxRef<Element>;
 
 export type DummyButtonContext<Element extends ElementType> = Pick<
 	DummyButtonProps<Element>,
-	'color' | 'colorMode' | 'isAnimated' | 'size' | 'variant'
+	'color' | 'colorMode' | 'size' | 'variant'
 >;
