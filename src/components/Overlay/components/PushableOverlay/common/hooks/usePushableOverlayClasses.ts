@@ -13,7 +13,7 @@ import {
 } from '@common/constants';
 import { useAppTheme, useConst, useGetResponsiveValue } from '@common/hooks';
 import type { ClassName, ThemeRadius } from '@common/types';
-import { getColorHue, getResponsiveValue } from '@common/utils';
+import { getColorHue } from '@common/utils';
 
 import {
 	__DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
@@ -59,8 +59,6 @@ const usePushableOverlayClasses = <Element extends ElementType>(
 	const rootClasses = useMemo<ClassName>(() => {
 		const { base } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
 
-		const r = getResponsiveValue<ThemeRadius>(radius);
-
 		return classNames(
 			classes.layout.position.relative,
 			classes.interactivity.user_select.none,
@@ -70,8 +68,8 @@ const usePushableOverlayClasses = <Element extends ElementType>(
 			classes.borders.border_style[__DEFAULT_BORDER_STYLE__],
 			classes.borders.border_style.before[__DEFAULT_BORDER_STYLE__],
 			classes.borders.border_color.transparent,
-			classes.borders.border_radius[r],
-			classes.borders.border_radius.before[r],
+			classes.borders.border_radius[radius],
+			classes.borders.border_radius.before[radius],
 			{
 				[classes.borders.outline_style.focus_visible.dashed]: isPushable && !isFixed,
 				[classes.borders.outline_width.focus_visible[__DEFAULT_OUTLINE_WIDTH__]]: isPushable && !isFixed,

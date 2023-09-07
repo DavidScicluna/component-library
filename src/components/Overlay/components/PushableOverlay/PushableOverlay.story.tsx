@@ -53,7 +53,7 @@ export default {
 		},
 		radius: {
 			name: 'Radius',
-			type: 'boolean',
+			type: 'string',
 			defaultValue: __DEFAULT_RADIUS__,
 			// description: '',
 			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as ThemeRadiusArr,
