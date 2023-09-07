@@ -82,7 +82,7 @@ type ButtonOtherProps = ThemeAppAppearanceProps & {
 	/**
 	 * The variant of the Button
 	 *
-	 * @default 'md'
+	 * @default 'contained'
 	 */
 	variant?: ResponsiveValue<ButtonVariant>;
 };
