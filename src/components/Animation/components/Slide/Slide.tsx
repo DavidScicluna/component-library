@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 import { omit, pick } from 'lodash-es';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import {
 	__DEFAULT_ANIMATION_IN__,
@@ -21,7 +21,7 @@ import {
 	__DEFAULT_SLIDE_OFFSET_X__,
 	__DEFAULT_SLIDE_OFFSET_Y__
 } from './common/constants';
-import { __KEYS_SLIDE__ } from './common/keys';
+import { __KEYS_SLIDE__, __KEYS_SLIDE_CLASS__ } from './common/keys';
 import type { SlideProps, SlideRef } from './common/types';
 
 const config = { ...__DEFAULT_ANIMATION_TRANSITION_CONFIG__, initial: 'initial' };
@@ -88,7 +88,7 @@ const Slide = forwardRef(function Slide<Element extends ElementType>(
 					{...omit({ ...rest }, __KEYS_SLIDE__)}
 					{...config}
 					ref={ref}
-					className={classNames(`${__DEFAULT_CLASS_PREFIX__}-slide`, { [className]: !!className })}
+					className={classNames(__KEYS_SLIDE_CLASS__, { [className]: !!className })}
 					custom={custom}
 					animate={animate}
 					variants={variants}
