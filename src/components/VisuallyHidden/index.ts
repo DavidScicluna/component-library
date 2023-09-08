@@ -1,4 +1,5 @@
 import { useVisuallyHiddenStyles } from './common/hooks';
+import * as commonKeys from './common/keys';
 import type {
 	VisuallyHiddenDefaultElement,
 	VisuallyHiddenElement,
@@ -6,6 +7,9 @@ import type {
 	VisuallyHiddenRef
 } from './common/types';
 import VisuallyHidden from './VisuallyHidden';
+
+// Keys
+export const keys = { ...commonKeys };
 
 // Hooks
 export { useVisuallyHiddenStyles };
