@@ -5,7 +5,7 @@ import { createContext, forwardRef } from 'react';
 import classNames from 'classnames';
 import { useFocus } from 'rooks';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 
 import { Center } from '@components/Layout';
@@ -24,6 +24,7 @@ import {
 	__DEFAULT_ICON_BUTTON_VARIANT__
 } from './common/constants';
 import { useIconButtonClasses, useIconButtonSizeConfig } from './common/hooks';
+import { __KEYS_ICON_BUTTON_CLASS__ } from './common/keys';
 import type {
 	IconButtonContext as IconButtonContextType,
 	IconButtonDefaultElement,
@@ -101,9 +102,7 @@ const IconButton = forwardRef(function IconButton<Element extends IconButtonElem
 						{...focusProps}
 						{...rest}
 						ref={refs}
-						className={classNames(`${__DEFAULT_CLASS_PREFIX__}-icon-button`, classes, {
-							[className]: !!className
-						})}
+						className={classNames(__KEYS_ICON_BUTTON_CLASS__, classes, { [className]: !!className })}
 						tabIndex={0}
 					/>
 				}
@@ -117,9 +116,7 @@ const IconButton = forwardRef(function IconButton<Element extends IconButtonElem
 				{...focusProps}
 				{...rest}
 				ref={ref}
-				className={classNames(`${__DEFAULT_CLASS_PREFIX__}-icon-button`, classes, {
-					[className]: !!className
-				})}
+				className={classNames(__KEYS_ICON_BUTTON_CLASS__, classes, { [className]: !!className })}
 				as='button'
 				color={color}
 				colorMode={colorMode}

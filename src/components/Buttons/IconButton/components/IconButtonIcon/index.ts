@@ -1,3 +1,4 @@
+import * as commonKeys from './common/keys';
 import type {
 	IconButtonIconDefaultElement,
 	IconButtonIconElement,
@@ -5,6 +6,9 @@ import type {
 	IconButtonIconRef
 } from './common/types';
 import IconButtonIcon from './IconButtonIcon';
+
+// Keys
+export const keys = { ...commonKeys };
 
 // Components
 export { IconButtonIcon };

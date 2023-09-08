@@ -4,9 +4,12 @@ import type {
 	IconButtonIconProps,
 	IconButtonIconRef
 } from './IconButtonIcon';
-import { IconButtonIcon } from './IconButtonIcon';
+import { IconButtonIcon, keys as iconButtonIconKeys } from './IconButtonIcon';
 import type { IconButtonSpinnerProps, IconButtonSpinnerRef } from './IconButtonSpinner';
-import { IconButtonSpinner } from './IconButtonSpinner';
+import { IconButtonSpinner, keys as iconButtonSpinnereys } from './IconButtonSpinner';
+
+// Keys
+export const keys = { ...iconButtonIconKeys, ...iconButtonSpinnereys };
 
 // Components
 export { IconButtonIcon, IconButtonSpinner };

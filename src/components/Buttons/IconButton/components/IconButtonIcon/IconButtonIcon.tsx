@@ -3,12 +3,13 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Icon } from '@components/DataDisplay';
 
 import { useIconButtonContext, useIconButtonFontSize } from '../../common/hooks';
 
+import { __KEYS_ICON_BUTTON_ICON_CLASS__ } from './common/keys';
 import type {
 	IconButtonIconDefaultElement,
 	IconButtonIconElement,
@@ -38,7 +39,7 @@ const IconButtonIcon = forwardRef(function IconButtonIcon<
 		<Icon
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-icon-button-icon`, { [className]: !!className })}
+			className={classNames(__KEYS_ICON_BUTTON_ICON_CLASS__, { [className]: !!className })}
 			w={`${fontSize}px`}
 			h={`${fontSize}px`}
 			color={color}
