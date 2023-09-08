@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
@@ -16,6 +16,7 @@ import {
 	__DEFAULT_GLASS_OVERLAY_RADIUS__
 } from './common/constants';
 import { useGlassOverlayClasses, useGlassOverlayStyles } from './common/hooks';
+import { __KEYS_GLASS_OVERLAY_CLASS__ } from './common/keys';
 import type { GlassOverlayProps, GlassOverlayRef } from './common/types';
 
 const GlassOverlay = forwardRef(function GlassOverlay<Element extends ElementType>(
@@ -42,9 +43,7 @@ const GlassOverlay = forwardRef(function GlassOverlay<Element extends ElementTyp
 		<Grid<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-glass-overlay`, classes.container, {
-				[className]: !!className
-			})}
+			className={classNames(__KEYS_GLASS_OVERLAY_CLASS__, classes.container, { [className]: !!className })}
 			templateColumns={1}
 			templateRows={1}
 			alignItems='stretch'
