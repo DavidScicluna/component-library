@@ -5,7 +5,7 @@ import { Tooltip as AriakitTooltip, TooltipAnchor, TooltipArrow, useTooltipStore
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__ } from '@common/constants';
 import { useConst, useTheme } from '@common/hooks';
 import { checkIsTouchDevice, convertREMToPixels, convertStringToNumber } from '@common/utils';
 
@@ -26,6 +26,7 @@ import {
 	__DEFAULT_TOOLTIP_PLACEMENT__
 } from './common/constants';
 import { useTooltipClasses } from './common/hooks';
+import { __KEYS_TOOLTIP_CLASS__ } from './common/keys';
 import type { TooltipProps, TooltipRef } from './common/types';
 import { TooltipTransition } from './components';
 
@@ -96,9 +97,7 @@ const Tooltip = forwardRef(function Tooltip<Element extends ElementType>(
 				{!isTouchDevice && (defaultIsOpen || isOpen) && !isDisabled ? (
 					<AriakitTooltip
 						ref={ref}
-						className={classNames(`${__DEFAULT_CLASS_PREFIX__}-tooltip`, classes.tooltip, {
-							[className]: !!className
-						})}
+						className={classNames(__KEYS_TOOLTIP_CLASS__, classes.tooltip, { [className]: !!className })}
 						render={(props) => (
 							<TooltipTransition<Element> {...props} {...rest} style={{ position: 'initial' }} />
 						)}

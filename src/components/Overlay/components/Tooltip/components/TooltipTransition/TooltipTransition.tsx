@@ -3,10 +3,11 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { constants, MotionBox } from '@components/Animation';
 
+import { __KEYS_TOOLTIP_TRANSITION_CLASS__ } from './common/keys';
 import type { TooltipTransitionProps, TooltipTransitionRef } from './common/types';
 
 const {
@@ -52,7 +53,7 @@ const TooltipTransition = forwardRef(function TooltipTransition<Element extends 
 			{...rest}
 			{...config}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-tooltip-transition`, { [className]: !!className })}
+			className={classNames(__KEYS_TOOLTIP_TRANSITION_CLASS__, { [className]: !!className })}
 			variants={variants}
 		/>
 	);
