@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 import { omit, pick } from 'lodash-es';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import {
 	__DEFAULT_ANIMATION_IN__,
@@ -24,7 +24,12 @@ import {
 	__DEFAULT_COLLAPSE_STARTING_HEIGHT__,
 	__DEFAULT_COLLAPSE_STARTING_WIDTH__
 } from './common/constants';
-import { __KEYS_COLLAPSE__, __KEYS_COLLAPSE_X_AXIS__, __KEYS_COLLAPSE_Y_AXIS__ } from './common/keys';
+import {
+	__KEYS_COLLAPSE__,
+	__KEYS_COLLAPSE_CLASS__,
+	__KEYS_COLLAPSE_X_AXIS__,
+	__KEYS_COLLAPSE_Y_AXIS__
+} from './common/keys';
 import type { CollapseProps, CollapseRef } from './common/types';
 
 const config = __DEFAULT_ANIMATION_TRANSITION_CONFIG__;
@@ -90,7 +95,7 @@ const Collapse = forwardRef(function Collapse<Element extends ElementType>(
 					])}
 					{...config}
 					ref={ref}
-					className={classNames(`${__DEFAULT_CLASS_PREFIX__}-collapse`, { [className]: !!className })}
+					className={classNames(__KEYS_COLLAPSE_CLASS__, { [className]: !!className })}
 					custom={custom}
 					animate={animate}
 					variants={variants}
