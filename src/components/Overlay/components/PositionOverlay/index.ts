@@ -1,14 +1,6 @@
-import {
-	__DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT__,
-	__DEFAULT_POSITION_OVERLAY_BLUR__,
-	__DEFAULT_POSITION_OVERLAY_BLUR_TYPE__,
-	__DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND__,
-	__DEFAULT_POSITION_OVERLAY_HAS_GLASS__,
-	__DEFAULT_POSITION_OVERLAY_IS_OVERLAY_VISIBLE__,
-	__DEFAULT_POSITION_OVERLAY_PLACEMENT__,
-	__DEFAULT_POSITION_OVERLAY_RADIUS__
-} from './common/constants';
+import * as commonConstants from './common/constants';
 import { usePositionOverlayClasses, usePositionOverlayStyles } from './common/hooks';
+import * as commonKeys from './common/keys';
 import type {
 	PositionOverlayBlurType,
 	PositionOverlayBlurTypes,
@@ -20,16 +12,10 @@ import type {
 import PositionOverlay from './PositionOverlay';
 
 // Constants
-export const constants = {
-	__DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT__,
-	__DEFAULT_POSITION_OVERLAY_BLUR__,
-	__DEFAULT_POSITION_OVERLAY_BLUR_TYPE__,
-	__DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND__,
-	__DEFAULT_POSITION_OVERLAY_HAS_GLASS__,
-	__DEFAULT_POSITION_OVERLAY_IS_OVERLAY_VISIBLE__,
-	__DEFAULT_POSITION_OVERLAY_PLACEMENT__,
-	__DEFAULT_POSITION_OVERLAY_RADIUS__
-};
+export const constants = { ...commonConstants };
+
+// Keys
+export const keys = { ...commonKeys };
 
 // Hooks
 export { usePositionOverlayClasses, usePositionOverlayStyles };

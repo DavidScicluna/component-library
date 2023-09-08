@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Fade } from '@components/Animation';
 import { Box } from '@components/Box';
@@ -20,6 +20,7 @@ import {
 	__DEFAULT_POSITION_OVERLAY_RADIUS__
 } from './common/constants';
 import { usePositionOverlayClasses, usePositionOverlayStyles } from './common/hooks';
+import { __KEYS_POSITION_OVERLAY_CLASS__ } from './common/keys';
 import type { PositionOverlayProps, PositionOverlayRef } from './common/types';
 
 const PositionOverlay = forwardRef(function PositionOverlay<Element extends ElementType>(
@@ -50,9 +51,7 @@ const PositionOverlay = forwardRef(function PositionOverlay<Element extends Elem
 		<Grid<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-position-overlay`, classes.container, {
-				[className]: !!className
-			})}
+			className={classNames(__KEYS_POSITION_OVERLAY_CLASS__, classes.container, { [className]: !!className })}
 			templateColumns={1}
 			templateRows={1}
 			alignItems='stretch'
