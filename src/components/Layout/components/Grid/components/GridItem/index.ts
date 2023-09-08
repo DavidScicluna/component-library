@@ -1,18 +1,14 @@
-import {
-	__DEFAULT_GRID_ITEM_ALIGN_SELF__,
-	__DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
-	__DEFAULT_GRID_ITEM_Z_INDEX__
-} from './common/constants';
+import * as commonConstants from './common/constants';
 import { useGridItemClasses } from './common/hooks';
+import * as commonKeys from './common/keys';
 import type { GridItemProps, GridItemRef } from './common/types';
 import GridItem from './GridItem';
 
 // Constants
-export const constants = {
-	__DEFAULT_GRID_ITEM_ALIGN_SELF__,
-	__DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
-	__DEFAULT_GRID_ITEM_Z_INDEX__
-};
+export const constants = { ...commonConstants };
+
+// Keys
+export const keys = { ...commonKeys };
 
 // Hooks
 export { useGridItemClasses };
