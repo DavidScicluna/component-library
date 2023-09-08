@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 import { omit, pick } from 'lodash-es';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import {
 	__DEFAULT_ANIMATION_IN__,
@@ -17,7 +17,7 @@ import { AnimatePresence } from '../AnimatePresence';
 import { MotionBox } from '../MotionBox';
 
 import { __DEFAULT_PAGE_TRANSITION_BLUR__ } from './common/constants';
-import { __KEYS_PAGE_TRANSITION__ } from './common/keys';
+import { __KEYS_PAGE_TRANSITION__, __KEYS_PAGE_TRANSITION_CLASS__ } from './common/keys';
 import type { PageTransitionProps, PageTransitionRef } from './common/types';
 
 const config = __DEFAULT_ANIMATION_TRANSITION_CONFIG__;
@@ -71,7 +71,7 @@ const PageTransition = forwardRef(function PageTransition<Element extends Elemen
 					{...omit({ ...rest }, __KEYS_PAGE_TRANSITION__)}
 					{...config}
 					ref={ref}
-					className={classNames(`${__DEFAULT_CLASS_PREFIX__}-page-transition`, { [className]: !!className })}
+					className={classNames(__KEYS_PAGE_TRANSITION_CLASS__, { [className]: !!className })}
 					custom={custom}
 					animate={animate}
 					variants={variants}
