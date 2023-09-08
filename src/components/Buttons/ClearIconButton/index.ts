@@ -1,8 +1,5 @@
-import {
-	__DEFAULT_CLEAR_ICON_BUTTON_HAS_TOOLTIP__,
-	__DEFAULT_CLEAR_ICON_BUTTON_LABEL__,
-	__DEFAULT_CLEAR_ICON_BUTTON_PLACEMENT__
-} from './common/constants';
+import * as commonConstants from './common/constants';
+import * as commonKeys from './common/keys';
 import type {
 	ClearIconButtonDefaultElement,
 	ClearIconButtonElement,
@@ -12,11 +9,10 @@ import type {
 import ClearIconButton from './ClearIconButton';
 
 // Constants
-export const constants = {
-	__DEFAULT_CLEAR_ICON_BUTTON_HAS_TOOLTIP__,
-	__DEFAULT_CLEAR_ICON_BUTTON_LABEL__,
-	__DEFAULT_CLEAR_ICON_BUTTON_PLACEMENT__
-};
+export const constants = { ...commonConstants };
+
+// Keys
+export const keys = { ...commonKeys };
 
 // Components
 export { ClearIconButton };

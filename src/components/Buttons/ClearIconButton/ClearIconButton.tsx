@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { HoverOverlay } from '@components/Overlay/components/HoverOverlay';
 import { Tooltip } from '@components/Overlay/components/Tooltip';
@@ -15,6 +15,7 @@ import {
 	__DEFAULT_CLEAR_ICON_BUTTON_LABEL__,
 	__DEFAULT_CLEAR_ICON_BUTTON_PLACEMENT__
 } from './common/constants';
+import { __KEYS_CLEAR_ICON_BUTTON_CLASS__ } from './common/keys';
 import type {
 	ClearIconButtonDefaultElement,
 	ClearIconButtonElement,
@@ -49,9 +50,7 @@ const ClearIconButton = forwardRef(function ClearIconButton<
 					<IconButton<Element>
 						{...rest}
 						ref={ref}
-						className={classNames(`${__DEFAULT_CLASS_PREFIX__}-close-icon-button`, {
-							[className]: !!className
-						})}
+						className={classNames(__KEYS_CLEAR_ICON_BUTTON_CLASS__, { [className]: !!className })}
 						aria-label={label}
 						color={color}
 						colorMode={colorMode}
