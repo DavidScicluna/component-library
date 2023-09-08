@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 import { merge } from 'lodash-es';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { getIconFontFamily } from '@common/utils';
 
 import { Skeleton } from '@components/Feedback';
@@ -18,6 +18,7 @@ import {
 	__DEFAULT_ICON_VARIANT__
 } from './common/constants';
 import { useIconClasses } from './common/hooks';
+import { __KEYS_ICON_CLASS__ } from './common/keys';
 import type { IconDefaultElement, IconElement, IconProps, IconRef } from './common/types';
 
 const Icon = forwardRef(function Icon<Element extends IconElement = IconDefaultElement>(
@@ -51,9 +52,7 @@ const Icon = forwardRef(function Icon<Element extends IconElement = IconDefaultE
 			<Center<Element>
 				{...rest}
 				ref={ref}
-				className={classNames(`${__DEFAULT_CLASS_PREFIX__}-icon`, classes, {
-					[className]: !!className
-				})}
+				className={classNames(__KEYS_ICON_CLASS__, classes, { [className]: !!className })}
 				w={w}
 				h={h}
 				sx={
