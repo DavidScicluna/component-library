@@ -3,10 +3,11 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Stack } from '../Stack';
 
+import { __KEYS_V_STACK_CLASS__ } from './common/keys';
 import type { VStackProps, VStackRef } from './common/types';
 
 const VStack = forwardRef(function VStack<Element extends ElementType>(
@@ -19,7 +20,7 @@ const VStack = forwardRef(function VStack<Element extends ElementType>(
 		<Stack<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-v-stack`, { [className]: !!className })}
+			className={classNames(__KEYS_V_STACK_CLASS__, { [className]: !!className })}
 			direction='column'
 		>
 			{children}

@@ -3,10 +3,11 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Stack } from '../Stack';
 
+import { __KEYS_H_STACK_CLASS__ } from './common/keys';
 import type { HStackProps, HStackRef } from './common/types';
 
 const HStack = forwardRef(function HStack<Element extends ElementType>(
@@ -19,7 +20,7 @@ const HStack = forwardRef(function HStack<Element extends ElementType>(
 		<Stack<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-h-stack`, { [className]: !!className })}
+			className={classNames(__KEYS_H_STACK_CLASS__, { [className]: !!className })}
 			direction='row'
 		>
 			{children}
