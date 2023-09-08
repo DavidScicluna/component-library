@@ -4,11 +4,12 @@ import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import { Grid, GridItem, VStack } from '@components/Layout';
 
+import { __KEYS_HEADLINE_CLASS__ } from './common/keys';
 import type { HeadlineProps, HeadlineRef } from './common/types';
 
 const Headline = forwardRef(function Headline<Element extends ElementType>(
@@ -56,7 +57,7 @@ const Headline = forwardRef(function Headline<Element extends ElementType>(
 		<Grid<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-headline`, { [className]: !!className })}
+			className={classNames(__KEYS_HEADLINE_CLASS__, { [className]: !!className })}
 			templateColumns={compact([renderLeft ? 'auto' : null, '1fr', renderRight ? 'auto' : null]).join(' ')}
 			templateRows={1}
 			alignItems='stretch'
