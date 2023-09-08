@@ -1,18 +1,14 @@
-import {
-	__DEFAULT_CONTAINER_BREAKPOINT__,
-	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
-	__DEFAULT_CONTAINER_IS_FLUID__
-} from './common/constants';
+import * as commonConstants from './common/constants';
 import { useGetContainerClasses } from './common/hooks';
+import * as commonKeys from './common/keys';
 import type { ContainerBreakpoint, ContainerBreakpoints, ContainerProps, ContainerRef } from './common/types';
 import Container from './Container';
 
 // Constants
-export const constants = {
-	__DEFAULT_CONTAINER_BREAKPOINT__,
-	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
-	__DEFAULT_CONTAINER_IS_FLUID__
-};
+export const constants = { ...commonConstants };
+
+// Keys
+export const keys = { ...commonKeys };
 
 // Hooks
 export { useGetContainerClasses };
