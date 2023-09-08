@@ -6,7 +6,6 @@ import { merge } from 'lodash-es';
 
 import {
 	__DEFAULT_BORDER_WIDTH__,
-	__DEFAULT_CLASS_PREFIX__,
 	__DEFAULT_CLASSNAME__,
 	__DEFAULT_POLYMORPHIC_SX__,
 	__DEFAULT_SPACING__
@@ -21,6 +20,7 @@ import {
 	__DEFAULT_DIVIDER_VARIANT__
 } from './common/constants';
 import { useDividerClasses, useDividerStyles } from './common/hooks';
+import { __KEYS_DIVIDER_CLASS__ } from './common/keys';
 import type { DividerDefaultElement, DividerElement, DividerProps, DividerRef } from './common/types';
 
 const Divider = forwardRef(function Divider<Element extends DividerElement = DividerDefaultElement>(
@@ -54,7 +54,7 @@ const Divider = forwardRef(function Divider<Element extends DividerElement = Div
 		<Box<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-divider`, classes, { [className]: !!className })}
+			className={classNames(__KEYS_DIVIDER_CLASS__, classes, { [className]: !!className })}
 			w={orientation === 'horizontal' ? '100%' : `${size}px`}
 			h={orientation === 'vertical' ? '100%' : `${size}px`}
 			sx={merge(styles, sx)}

@@ -1,9 +1,6 @@
-import {
-	__DEFAULT_DIVIDER_ORIENTATION__,
-	__DEFAULT_DIVIDER_PLACEMENT__,
-	__DEFAULT_DIVIDER_VARIANT__
-} from './common/constants';
+import * as commonConstants from './common/constants';
 import { useDividerClasses, useDividerStyles } from './common/hooks';
+import * as commonKeys from './common/keys';
 import type {
 	DividerDefaultElement,
 	DividerElement,
@@ -17,11 +14,10 @@ import type {
 import Divider from './Divider';
 
 // Constants
-export const constants = {
-	__DEFAULT_DIVIDER_ORIENTATION__,
-	__DEFAULT_DIVIDER_PLACEMENT__,
-	__DEFAULT_DIVIDER_VARIANT__
-};
+export const constants = { ...commonConstants };
+
+// Keys
+export const key = { ...commonKeys };
 
 // Hooks
 export { useDividerClasses, useDividerStyles };
