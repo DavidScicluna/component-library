@@ -5,12 +5,7 @@ import classNames from 'classnames';
 import { merge } from 'lodash-es';
 import { useMergeRefs } from 'rooks';
 
-import {
-	__DEFAULT_CLASS_PREFIX__,
-	__DEFAULT_CLASSNAME__,
-	__DEFAULT_POLYMORPHIC_SX__,
-	__DEFAULT_RADIUS__
-} from '@common/constants';
+import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__, __DEFAULT_RADIUS__ } from '@common/constants';
 
 import { Grid, GridItem } from '@components/Layout';
 
@@ -23,6 +18,7 @@ import {
 	__DEFAULT_PUSHABLE_OVERLAY_VARIANT__
 } from './common/constants';
 import { usePushableOverlayClasses, usePushableOverlayStyles } from './common/hooks';
+import { __KEYS_PUSHABLE_OVERLAY_CLASS__ } from './common/keys';
 import type { PushableOverlayProps, PushableOverlayRef } from './common/types';
 
 const PushableOverlay = forwardRef(function PushableOverlay<Element extends ElementType>(
@@ -83,9 +79,7 @@ const PushableOverlay = forwardRef(function PushableOverlay<Element extends Elem
 		<Grid<Element>
 			{...rest}
 			ref={refs}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-pushable-overlay`, classes, {
-				[className]: !!className
-			})}
+			className={classNames(__KEYS_PUSHABLE_OVERLAY_CLASS__, classes, { [className]: !!className })}
 			aria-disabled={isDisabled ? 'true' : 'false'}
 			aria-pressed={isFocused || isActive ? 'true' : 'false'}
 			templateColumns={1}
