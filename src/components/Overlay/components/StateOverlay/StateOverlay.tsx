@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Fade } from '@components/Animation';
 import { Center, Grid, GridItem } from '@components/Layout';
@@ -15,6 +15,7 @@ import {
 	__DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE__,
 	__DEFAULT_STATE_OVERLAY_STATE__
 } from './common/constants';
+import { __KEYS_STATE_OVERLAY_CLASS__ } from './common/keys';
 import type { StateOverlayProps, StateOverlayRef } from './common/types';
 
 const StateOverlay = forwardRef(function StateOverlay<Element extends ElementType>(
@@ -41,7 +42,7 @@ const StateOverlay = forwardRef(function StateOverlay<Element extends ElementTyp
 		<Grid<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-state-overlay`, { [className]: !!className })}
+			className={classNames(__KEYS_STATE_OVERLAY_CLASS__, { [className]: !!className })}
 			templateColumns={1}
 			templateRows={1}
 			alignItems='stretch'

@@ -1,17 +1,13 @@
-import {
-	__DEFAULT_STATE_OVERLAY_HAS_GLASS__,
-	__DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE__,
-	__DEFAULT_STATE_OVERLAY_STATE__
-} from './common/constants';
+import * as commonConstants from './common/constants';
+import * as commonKeys from './common/keys';
 import type { StateOverlayProps, StateOverlayRef, StateOverlayState } from './common/types';
 import StateOverlay from './StateOverlay';
 
 // Constants
-export const constants = {
-	__DEFAULT_STATE_OVERLAY_HAS_GLASS__,
-	__DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE__,
-	__DEFAULT_STATE_OVERLAY_STATE__
-};
+export const constants = { ...commonConstants };
+
+// Keys
+export const keys = { ...commonKeys };
 
 // Components
 export { StateOverlay };
