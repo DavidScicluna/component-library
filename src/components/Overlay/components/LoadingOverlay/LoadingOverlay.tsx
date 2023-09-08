@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Fade } from '@components/Animation';
 import { Center, Grid, GridItem } from '@components/Layout';
@@ -18,6 +18,7 @@ import {
 	__DEFAULT_LOADING_OVERLAY_RADIUS__
 } from './common/constants';
 import { useLoadingOverlayClasses, useLoadingOverlayStyles } from './common/hooks';
+import { __KEYS_LOADING_OVERLAY_CLASS__ } from './common/keys';
 import type { LoadingOverlayProps, LoadingOverlayRef } from './common/types';
 
 const LoadingOverlay = forwardRef(function LoadingOverlay<Element extends ElementType>(
@@ -47,9 +48,7 @@ const LoadingOverlay = forwardRef(function LoadingOverlay<Element extends Elemen
 		<Grid<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-loading-overlay`, classes.container, {
-				[className]: !!className
-			})}
+			className={classNames(__KEYS_LOADING_OVERLAY_CLASS__, classes.container, { [className]: !!className })}
 			templateColumns={1}
 			templateRows={1}
 			alignItems='stretch'
