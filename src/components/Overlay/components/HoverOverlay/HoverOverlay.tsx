@@ -3,11 +3,12 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 
 import { Box } from '@components/Box';
 
+import { __KEYS_HOVER_OVERLAY_CLASS__ } from './common/keys';
 import type { HoverOverlayMouseEvent, HoverOverlayProps, HoverOverlayRef } from './common/types';
 
 const HoverOverlay = forwardRef(function HoverOverlay<Element extends ElementType>(
@@ -38,7 +39,7 @@ const HoverOverlay = forwardRef(function HoverOverlay<Element extends ElementTyp
 		<Box<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-hover-overlay`, { [className]: !!className })}
+			className={classNames(__KEYS_HOVER_OVERLAY_CLASS__, { [className]: !!className })}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
 		>
