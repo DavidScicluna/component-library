@@ -3,12 +3,13 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Box } from '@components/Box';
 
 import { __DEFAULT_SPACE_HEIGHT__, __DEFAULT_SPACE_WIDTH__ } from './common/constants';
 import { useGetSpaceClasses } from './common/hooks';
+import { __KEYS_SPACE_CLASS__ } from './common/keys';
 import type { SpaceProps, SpaceRef } from './common/types';
 
 const Space = forwardRef(function Space<Element extends ElementType>(
@@ -28,7 +29,7 @@ const Space = forwardRef(function Space<Element extends ElementType>(
 		<Box<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-space`, classes, { [className]: !!className })}
+			className={classNames(__KEYS_SPACE_CLASS__, classes, { [className]: !!className })}
 		/>
 	);
 });

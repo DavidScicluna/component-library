@@ -1,10 +1,14 @@
-import { __DEFAULT_SPACE_HEIGHT__, __DEFAULT_SPACE_WIDTH__ } from './common/constants';
+import * as commonConstants from './common/constants';
 import { useGetSpaceClasses } from './common/hooks';
+import * as commonKeys from './common/keys';
 import type { SpaceProps, SpaceRef } from './common/types';
 import Space from './Space';
 
 // Constants
-export const constants = { __DEFAULT_SPACE_HEIGHT__, __DEFAULT_SPACE_WIDTH__ };
+export const constants = { ...commonConstants };
+
+// Keys
+export const keys = { ...commonKeys };
 
 // Hooks
 export { useGetSpaceClasses };
