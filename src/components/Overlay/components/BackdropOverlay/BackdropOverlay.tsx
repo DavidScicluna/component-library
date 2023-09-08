@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
@@ -15,6 +15,7 @@ import {
 	__DEFAULT_BACKDROP_OVERLAY_RADIUS__
 } from './common/constants';
 import { useBackdropOverlayClasses, useBackdropOverlayStyles } from './common/hooks';
+import { __KEYS_BACKDROP_OVERLAY_CLASS__ } from './common/keys';
 import type { BackdropOverlayProps, BackdropOverlayRef } from './common/types';
 
 const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends ElementType>(
@@ -40,9 +41,7 @@ const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends Elem
 		<Grid<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-backdrop-overlay`, classes.container, {
-				[className]: !!className
-			})}
+			className={classNames(__KEYS_BACKDROP_OVERLAY_CLASS__, classes.container, { [className]: !!className })}
 			data-aria-hidden='true'
 			aria-hidden='true'
 			templateColumns={1}

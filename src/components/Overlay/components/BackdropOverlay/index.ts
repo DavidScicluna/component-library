@@ -1,10 +1,6 @@
-import {
-	__DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
-	__DEFAULT_BACKDROP_OVERLAY_BLUR__,
-	__DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
-	__DEFAULT_BACKDROP_OVERLAY_RADIUS__
-} from './common/constants';
+import * as commonConstants from './common/constants';
 import { useBackdropOverlayClasses, useBackdropOverlayStyles } from './common/hooks';
+import * as commonKeys from './common/keys';
 import type {
 	BackdropOverlayBlurType,
 	BackdropOverlayBlurTypes,
@@ -14,12 +10,10 @@ import type {
 import BackdropOverlay from './BackdropOverlay';
 
 // Constants
-export const constants = {
-	__DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
-	__DEFAULT_BACKDROP_OVERLAY_RADIUS__,
-	__DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
-	__DEFAULT_BACKDROP_OVERLAY_BLUR__
-};
+export const constants = { ...commonConstants };
+
+// Keys
+export const keys = { ...commonKeys };
 
 // Hooks
 export { useBackdropOverlayClasses, useBackdropOverlayStyles };
