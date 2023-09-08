@@ -3,7 +3,7 @@ import { forwardRef, useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
 import { getColorHex } from '@common/utils';
 
@@ -11,6 +11,7 @@ import { Spinner } from '@components/Feedback';
 
 import { useButtonContext, useButtonFontSize } from '../../common/hooks';
 
+import { __KEYS_BUTTON_SPINNER_CLASS__ } from './common/keys';
 import type { ButtonSpinnerProps, ButtonSpinnerRef } from './common/types';
 
 const ButtonSpinner = forwardRef(function ButtonSpinner<Element extends ElementType>(
@@ -50,7 +51,7 @@ const ButtonSpinner = forwardRef(function ButtonSpinner<Element extends ElementT
 		<Spinner
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-button-spinner`, { [className]: !!className })}
+			className={classNames(__KEYS_BUTTON_SPINNER_CLASS__, { [className]: !!className })}
 			color={c}
 			isVisible
 			size={`${fontSize}px`}

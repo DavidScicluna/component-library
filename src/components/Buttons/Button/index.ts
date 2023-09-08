@@ -1,18 +1,6 @@
-import {
-	__DEFAULT_BUTTON_CAN_CLICK_ON_ENTER__,
-	__DEFAULT_BUTTON_CAN_CLICK_ON_SPACE__,
-	__DEFAULT_BUTTON_IS_ACTIVE__,
-	__DEFAULT_BUTTON_IS_COMPACT__,
-	__DEFAULT_BUTTON_IS_DISABLED__,
-	__DEFAULT_BUTTON_IS_FOCUSABLE__,
-	__DEFAULT_BUTTON_IS_FULLWIDTH__,
-	__DEFAULT_BUTTON_IS_LOADING__,
-	__DEFAULT_BUTTON_IS_ROUND__,
-	__DEFAULT_BUTTON_LINE_HEIGHT_SIZE__,
-	__DEFAULT_BUTTON_SIZE__,
-	__DEFAULT_BUTTON_VARIANT__
-} from './common/constants';
+import * as commonConstants from './common/constants';
 import { useButtonClasses, useButtonContext, useButtonFontSize, useButtonSizeConfig } from './common/hooks';
+import * as commonKeys from './common/keys';
 import type {
 	ButtonContext,
 	ButtonDefaultElement,
@@ -33,23 +21,13 @@ import type {
 	ButtonSpinnerProps,
 	ButtonSpinnerRef
 } from './components';
-import { ButtonIcon, ButtonSpinner } from './components';
+import { ButtonIcon, ButtonSpinner, keys as componentsKeys } from './components';
 
 // Constants
-export const constants = {
-	__DEFAULT_BUTTON_CAN_CLICK_ON_ENTER__,
-	__DEFAULT_BUTTON_CAN_CLICK_ON_SPACE__,
-	__DEFAULT_BUTTON_IS_ACTIVE__,
-	__DEFAULT_BUTTON_IS_COMPACT__,
-	__DEFAULT_BUTTON_IS_DISABLED__,
-	__DEFAULT_BUTTON_IS_FOCUSABLE__,
-	__DEFAULT_BUTTON_IS_FULLWIDTH__,
-	__DEFAULT_BUTTON_IS_LOADING__,
-	__DEFAULT_BUTTON_IS_ROUND__,
-	__DEFAULT_BUTTON_LINE_HEIGHT_SIZE__,
-	__DEFAULT_BUTTON_SIZE__,
-	__DEFAULT_BUTTON_VARIANT__
-};
+export const constants = { ...commonConstants };
+
+// Keys
+export const keys = { ...commonKeys, ...componentsKeys };
 
 // Hooks
 export { useButtonClasses, useButtonContext, useButtonFontSize, useButtonSizeConfig };

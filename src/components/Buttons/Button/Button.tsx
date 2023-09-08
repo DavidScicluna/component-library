@@ -7,7 +7,7 @@ import { compact } from 'lodash-es';
 import { useFocus } from 'rooks';
 import { useElementSize } from 'usehooks-ts';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 
 import { Center, Grid, GridItem } from '@components/Layout';
@@ -27,6 +27,7 @@ import {
 	__DEFAULT_BUTTON_VARIANT__
 } from './common/constants';
 import { useButtonClasses, useButtonSizeConfig } from './common/hooks';
+import { __KEYS_BUTTON_CLASS__ } from './common/keys';
 import type {
 	ButtonContext as ButtonContextType,
 	ButtonDefaultElement,
@@ -109,9 +110,7 @@ const Button = forwardRef(function Button<Element extends ButtonElement = Button
 						{...focusProps}
 						{...rest}
 						ref={refs}
-						className={classNames(`${__DEFAULT_CLASS_PREFIX__}-button`, classes, {
-							[className]: !!className
-						})}
+						className={classNames(__KEYS_BUTTON_CLASS__, classes, { [className]: !!className })}
 						tabIndex={0}
 					/>
 				}
@@ -125,9 +124,7 @@ const Button = forwardRef(function Button<Element extends ButtonElement = Button
 				{...focusProps}
 				{...rest}
 				ref={ref}
-				className={classNames(`${__DEFAULT_CLASS_PREFIX__}-button`, classes, {
-					[className]: !!className
-				})}
+				className={classNames(__KEYS_BUTTON_CLASS__, classes, { [className]: !!className })}
 				as='button'
 				color={color}
 				colorMode={colorMode}
