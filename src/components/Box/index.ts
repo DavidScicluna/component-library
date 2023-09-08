@@ -1,5 +1,5 @@
 import { useBoxStyles } from './common/hooks';
-import { __KEYS_BOX__ } from './common/keys';
+import * as commonKeys from './common/keys';
 import type {
 	BoxHeight,
 	BoxMaxHeight,
@@ -13,8 +13,10 @@ import type {
 } from './common/types';
 import Box from './Box';
 
+// TODO: Go to every index.ts and replace all imports with import * as
+
 // Keys
-export const keys = { __KEYS_BOX__ };
+export const keys = { ...commonKeys };
 
 // Hooks
 export { useBoxStyles };

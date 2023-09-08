@@ -8,15 +8,10 @@ import classNames from 'classnames';
 import { merge, omit, pick } from 'lodash-es';
 
 import type { __DEFAULT_POLYMORPHIC_OBJECT__ } from '@common/constants';
-import {
-	__DEFAULT_CLASS_PREFIX__,
-	__DEFAULT_CLASSNAME__,
-	__DEFAULT_POLYMORPHIC_ELEMENT__,
-	__DEFAULT_POLYMORPHIC_SX__
-} from '@common/constants';
+import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 
 import { useBoxStyles } from './common/hooks';
-import { __KEYS_BOX__ } from './common/keys';
+import { __KEYS_BOX__, __KEYS_BOX_CLASS__ } from './common/keys';
 import type { BoxProps, BoxRef } from './common/types';
 
 const Box = forwardRef(function Box<
@@ -37,7 +32,7 @@ const Box = forwardRef(function Box<
 		<Component
 			{...omit({ ...rest }, __KEYS_BOX__)}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-box`, { [className]: !!className })}
+			className={classNames(__KEYS_BOX_CLASS__, { [className]: !!className })}
 			css={merge(styles, sx)}
 		>
 			{children}
