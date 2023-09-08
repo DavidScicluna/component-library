@@ -3,11 +3,12 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
 
 import { Box } from '@components/Box';
 
 import { useSimpleGridClasses } from './common/hooks';
+import { __KEYS_SIMPLE_GRID_CLASS__ } from './common/keys';
 import type { SimpleGridProps, SimpleGridRef } from './common/types';
 
 const SimpleGrid = forwardRef(function SimpleGrid<Element extends ElementType>(
@@ -22,7 +23,7 @@ const SimpleGrid = forwardRef(function SimpleGrid<Element extends ElementType>(
 		<Box<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-simple-grid`, classes, { [className]: !!className })}
+			className={classNames(__KEYS_SIMPLE_GRID_CLASS__, classes, { [className]: !!className })}
 		>
 			{children}
 		</Box>
