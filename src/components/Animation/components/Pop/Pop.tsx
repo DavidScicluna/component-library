@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 import { omit, pick } from 'lodash-es';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import {
 	__DEFAULT_ANIMATION_IN__,
@@ -17,7 +17,7 @@ import { AnimatePresence } from '../AnimatePresence';
 import { MotionBox } from '../MotionBox';
 
 import { __DEFAULT_POP_INITIAL_SCALE__, __DEFAULT_POP_IS_REVERSED__ } from './common/constants';
-import { __KEYS_POP__ } from './common/keys';
+import { __KEYS_POP__, __KEYS_POP_CLASS__ } from './common/keys';
 import type { PopProps, PopRef } from './common/types';
 
 const config = __DEFAULT_ANIMATION_TRANSITION_CONFIG__;
@@ -71,7 +71,7 @@ const Pop = forwardRef(function Pop<Element extends ElementType>(
 					{...omit({ ...rest }, __KEYS_POP__)}
 					{...config}
 					ref={ref}
-					className={classNames(`${__DEFAULT_CLASS_PREFIX__}-pop`, { [className]: !!className })}
+					className={classNames(__KEYS_POP_CLASS__, { [className]: !!className })}
 					custom={custom}
 					animate={animate}
 					variants={variants}
