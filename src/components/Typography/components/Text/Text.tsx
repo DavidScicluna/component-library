@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 import { merge } from 'lodash-es';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 
 import { Box } from '@components/Box';
@@ -21,6 +21,7 @@ import {
 	__DEFAULT_TEXT_WORD_BREAK__
 } from './common/constants';
 import { useGetTextClasses } from './common/hooks';
+import { __KEYS_TEXT_CLASS__ } from './common/keys';
 import type { TextDefaultElement, TextElement, TextProps, TextRef } from './common/types';
 
 const Text = forwardRef(function Text<Element extends TextElement = TextDefaultElement>(
@@ -66,7 +67,7 @@ const Text = forwardRef(function Text<Element extends TextElement = TextDefaultE
 		<Box<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-text`, classes, { [className]: !!className })}
+			className={classNames(__KEYS_TEXT_CLASS__, classes, { [className]: !!className })}
 			sx={color.includes('#') ? merge({ color }, sx) : sx}
 		>
 			{children}
