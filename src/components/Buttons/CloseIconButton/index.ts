@@ -1,8 +1,5 @@
-import {
-	__DEFAULT_CLOSE_ICON_BUTTON_HAS_TOOLTIP__,
-	__DEFAULT_CLOSE_ICON_BUTTON_LABEL__,
-	__DEFAULT_CLOSE_ICON_BUTTON_PLACEMENT__
-} from './common/constants';
+import * as commonConstants from './common/constants';
+import * as commonKeys from './common/keys';
 import type {
 	CloseIconButtonDefaultElement,
 	CloseIconButtonElement,
@@ -12,11 +9,10 @@ import type {
 import CloseIconButton from './CloseIconButton';
 
 // Constants
-export const constants = {
-	__DEFAULT_CLOSE_ICON_BUTTON_HAS_TOOLTIP__,
-	__DEFAULT_CLOSE_ICON_BUTTON_LABEL__,
-	__DEFAULT_CLOSE_ICON_BUTTON_PLACEMENT__
-};
+export const constants = { ...commonConstants };
+
+// Keys
+export const keys = { ...commonKeys };
 
 // Components
 export { CloseIconButton };
