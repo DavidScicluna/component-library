@@ -15,7 +15,6 @@ import classNames from 'classnames';
 
 import {
 	// __DEFAULT_BORDER_WIDTH__,
-	__DEFAULT_CLASS_PREFIX__,
 	__DEFAULT_CLASSNAME__,
 	__DEFAULT_RADIUS__
 } from '@common/constants';
@@ -35,6 +34,16 @@ import {
 	__DEFAULT_SPINNER_SIZE__,
 	__DEFAULT_SPINNER_VARIANT__
 } from './common/constants';
+import {
+	__KEYS_SPINNER_BARS_CLASS__,
+	__KEYS_SPINNER_CLASS__,
+	// __KEYS_SPINNER_COLOR_RING_CLASS__,
+	// __KEYS_SPINNER_OVAL_CLASS__,
+	__KEYS_SPINNER_PUFF_CLASS__,
+	__KEYS_SPINNER_RINGS_CLASS__,
+	__KEYS_SPINNER_TAIL_SPIN_CLASS__,
+	__KEYS_SPINNER_THREE_DOTS_CLASS__
+} from './common/keys';
 import type {
 	// SpinnerBarsVariant,
 	// SpinnerColorRingVariant,
@@ -78,12 +87,11 @@ const Spinner = forwardRef(function Spinner<Element extends ElementType>(
 			case 'bars': {
 				return (
 					<Bars
-						ariaLabel={`${__DEFAULT_CLASS_PREFIX__}-bars-spinner`}
 						width={dimensions}
 						height={dimensions}
 						color={color}
 						wrapperStyle={wrapperStyle}
-						wrapperClass={`${__DEFAULT_CLASS_PREFIX__}-bars-spinner-wrapper`}
+						wrapperClass={__KEYS_SPINNER_BARS_CLASS__}
 						visible={isVisible}
 					/>
 				);
@@ -92,12 +100,11 @@ const Spinner = forwardRef(function Spinner<Element extends ElementType>(
 			// 	const { colors } = props as SpinnerColorRingVariant;
 			// 	return (
 			// 		<ColorRing
-			// 			ariaLabel={`${__DEFAULT_CLASS_PREFIX__}-color-ring-spinner`}
 			// 			width={dimensions}
 			// 			height={dimensions}
 			// 			colors={colors}
 			// 			wrapperStyle={wrapperStyle}
-			// 			wrapperClass={`${__DEFAULT_CLASS_PREFIX__}-color-ring-spinner-wrapper`}
+			// 			wrapperClass={__KEYS_SPINNER_COLOR_RING_CLASS__}
 			// 			visible={isVisible}
 			// 		/>
 			// 	);
@@ -111,7 +118,6 @@ const Spinner = forwardRef(function Spinner<Element extends ElementType>(
 			// 	} = props as SpinnerOvalVariant;
 			// 	return (
 			// 		<Oval
-			// 			ariaLabel={`${__DEFAULT_CLASS_PREFIX__}-oval-spinner`}
 			// 			width={dimensions}
 			// 			height={dimensions}
 			// 			color={color}
@@ -119,7 +125,7 @@ const Spinner = forwardRef(function Spinner<Element extends ElementType>(
 			// 			strokeWidth={strokeWidth}
 			// 			strokeWidthSecondary={strokeWidthSecondary}
 			// 			wrapperStyle={wrapperStyle}
-			// 			wrapperClass={`${__DEFAULT_CLASS_PREFIX__}-oval-spinner-wrapper`}
+			// 			wrapperClass={__KEYS_SPINNER_OVAL_CLASS__}
 			// 			visible={isVisible}
 			// 		/>
 			// 	);
@@ -128,13 +134,12 @@ const Spinner = forwardRef(function Spinner<Element extends ElementType>(
 				const { radius = __DEFAULT_RADIUS__ } = props as SpinnerPuffVariant;
 				return (
 					<Puff
-						ariaLabel={`${__DEFAULT_CLASS_PREFIX__}-puff-spinner`}
 						width={dimensions}
 						height={dimensions}
 						color={color}
 						radius={theme.borderRadius[radius]}
 						wrapperStyle={wrapperStyle}
-						wrapperClass={`${__DEFAULT_CLASS_PREFIX__}-puff-spinner-wrapper`}
+						wrapperClass={__KEYS_SPINNER_PUFF_CLASS__}
 						visible={isVisible}
 					/>
 				);
@@ -143,13 +148,12 @@ const Spinner = forwardRef(function Spinner<Element extends ElementType>(
 				const { radius = __DEFAULT_RADIUS__ } = props as SpinnerRingsVariant;
 				return (
 					<Rings
-						ariaLabel={`${__DEFAULT_CLASS_PREFIX__}-rings-spinner`}
 						width={dimensions}
 						height={dimensions}
 						color={color}
 						radius={theme.borderRadius[radius]}
 						wrapperStyle={wrapperStyle}
-						wrapperClass={`${__DEFAULT_CLASS_PREFIX__}-rings-spinner-wrapper`}
+						wrapperClass={__KEYS_SPINNER_RINGS_CLASS__}
 						visible={isVisible}
 					/>
 				);
@@ -171,13 +175,12 @@ const Spinner = forwardRef(function Spinner<Element extends ElementType>(
 				const { radius = __DEFAULT_RADIUS__ } = props as SpinnerTailSpinVariant;
 				return (
 					<TailSpin
-						ariaLabel={`${__DEFAULT_CLASS_PREFIX__}-tail-spin-spinner`}
 						width={dimensions}
 						height={dimensions}
 						color={color}
 						radius={theme.borderRadius[radius]}
 						wrapperStyle={wrapperStyle}
-						wrapperClass={`${__DEFAULT_CLASS_PREFIX__}-tail-spin-spinner-wrapper`}
+						wrapperClass={__KEYS_SPINNER_TAIL_SPIN_CLASS__}
 						visible={isVisible}
 					/>
 				);
@@ -186,13 +189,12 @@ const Spinner = forwardRef(function Spinner<Element extends ElementType>(
 				const { radius = __DEFAULT_RADIUS__ } = props as SpinnerThreeDotsVariant;
 				return (
 					<ThreeDots
-						ariaLabel={`${__DEFAULT_CLASS_PREFIX__}-three-dots-spinner`}
 						width={dimensions}
 						height={dimensions}
 						color={color}
 						radius={theme.borderRadius[radius]}
 						wrapperStyle={wrapperStyle}
-						wrapperClass={`${__DEFAULT_CLASS_PREFIX__}-three-dots-spinner-wrapper`}
+						wrapperClass={__KEYS_SPINNER_THREE_DOTS_CLASS__}
 						visible={isVisible}
 					/>
 				);
@@ -201,11 +203,7 @@ const Spinner = forwardRef(function Spinner<Element extends ElementType>(
 	}, [props]);
 
 	return (
-		<Box<Element>
-			{...rest}
-			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-spinner-container`, { [className]: !!className })}
-		>
+		<Box<Element> {...rest} ref={ref} className={classNames(__KEYS_SPINNER_CLASS__, { [className]: !!className })}>
 			{spinner}
 		</Box>
 	);

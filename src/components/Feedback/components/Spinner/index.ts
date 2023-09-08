@@ -1,8 +1,5 @@
-import {
-	__DEFAULT_SPINNER_IS_VISIBLE__,
-	__DEFAULT_SPINNER_SIZE__,
-	__DEFAULT_SPINNER_VARIANT__
-} from './common/constants';
+import * as commonConstants from './common/constants';
+import * as commonKeys from './common/keys';
 import type {
 	SpinnerBarsVariant,
 	SpinnerColorRingVariant,
@@ -20,7 +17,10 @@ import type {
 import Spinner from './Spinner';
 
 // Constants
-export const constants = { __DEFAULT_SPINNER_IS_VISIBLE__, __DEFAULT_SPINNER_SIZE__, __DEFAULT_SPINNER_VARIANT__ };
+export const constants = { ...commonConstants };
+
+// Keys
+export const keys = { ...commonKeys };
 
 // Components
 export { Spinner };
