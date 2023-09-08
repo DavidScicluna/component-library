@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 import { omit, pick } from 'lodash-es';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import {
 	__DEFAULT_ANIMATION_IN__,
@@ -16,7 +16,7 @@ import {
 import { AnimatePresence } from '../AnimatePresence';
 import { MotionBox } from '../MotionBox';
 
-import { __KEYS_FADE__ } from './common/keys';
+import { __KEYS_FADE__, __KEYS_FADE_CLASS__ } from './common/keys';
 import type { FadeProps, FadeRef } from './common/types';
 
 const config = __DEFAULT_ANIMATION_TRANSITION_CONFIG__;
@@ -63,7 +63,7 @@ const Fade = forwardRef(function Fade<Element extends ElementType>(
 					{...omit({ ...rest }, __KEYS_FADE__)}
 					{...config}
 					ref={ref}
-					className={classNames(`${__DEFAULT_CLASS_PREFIX__}-fade`, { [className]: !!className })}
+					className={classNames(__KEYS_FADE_CLASS__, { [className]: !!className })}
 					custom={custom}
 					animate={animate}
 					variants={variants}

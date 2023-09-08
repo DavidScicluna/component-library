@@ -1,9 +1,9 @@
-import { __KEYS_FADE__ } from './common/keys';
+import * as commonKeys from './common/keys';
 import type { FadeProps, FadeRef } from './common/types';
 import Fade from './Fade';
 
 // Keys
-export const keys = { __KEYS_FADE__ };
+export const keys = { ...commonKeys };
 
 // Components
 export { Fade };
