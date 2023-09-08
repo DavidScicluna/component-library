@@ -4,10 +4,11 @@ import ReactDOM from 'react-dom';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Box } from '@components/Box';
 
+import { __KEYS_PORTAL_CLASS__ } from './common/keys';
 import type { PortalProps, PortalRef } from './common/types';
 
 const Portal = forwardRef(function Portal<Element extends ElementType>(
@@ -20,9 +21,7 @@ const Portal = forwardRef(function Portal<Element extends ElementType>(
 		<Box<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-portal`, {
-				[className]: !!className
-			})}
+			className={classNames(__KEYS_PORTAL_CLASS__, { [className]: !!className })}
 			w='100vw'
 			h='100vh'
 		>
