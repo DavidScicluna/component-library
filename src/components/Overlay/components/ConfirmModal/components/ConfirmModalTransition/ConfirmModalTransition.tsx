@@ -15,17 +15,18 @@ import {
 	__DEFAULT_CONFIRM_MODAL_TRANSITION_TRANSITION__,
 	__DEFAULT_CONFIRM_MODAL_TRANSITION_VARIANT__
 } from './common/constants';
-import { __KEYS_CONFIRM_MODAL_TRANSITION__ } from './common/keys';
+import { __KEYS_CONFIRM_MODAL_TRANSITION__, __KEYS_CONFIRM_MODAL_TRANSITION_CLASS__ } from './common/keys';
 import type { ConfirmModalTransitionProps, ConfirmModalTransitionRef } from './common/types';
 
-const { __DEFAULT_TRANSITION_CONFIG__, __DEFAULT_TRANSITION_END__, __DEFAULT_TRANSITION_IN__ } = constants;
+const { __DEFAULT_ANIMATION_TRANSITION_CONFIG__, __DEFAULT_ANIMATION_TRANSITION_END__, __DEFAULT_ANIMATION_IN__ } =
+	constants;
 
-const config = __DEFAULT_TRANSITION_CONFIG__;
+const config = __DEFAULT_ANIMATION_TRANSITION_CONFIG__;
 
 const popVariant = {
 	enter: ({
 		transition = __DEFAULT_CONFIRM_MODAL_TRANSITION_TRANSITION__,
-		transitionEnd = __DEFAULT_TRANSITION_END__
+		transitionEnd = __DEFAULT_ANIMATION_TRANSITION_END__
 	} = {}) => ({
 		opacity: 1,
 		scale: 1,
@@ -35,7 +36,7 @@ const popVariant = {
 	}),
 	exit: ({
 		transition = __DEFAULT_CONFIRM_MODAL_TRANSITION_TRANSITION__,
-		transitionEnd = __DEFAULT_TRANSITION_END__
+		transitionEnd = __DEFAULT_ANIMATION_TRANSITION_END__
 	} = {}) => ({
 		opacity: 0,
 		scale: __DEFAULT_CONFIRM_MODAL_TRANSITION_INITIAL_SCALE__,
@@ -47,7 +48,7 @@ const popVariant = {
 const fadeVariant = {
 	enter: ({
 		transition = __DEFAULT_CONFIRM_MODAL_TRANSITION_TRANSITION__,
-		transitionEnd = __DEFAULT_TRANSITION_END__
+		transitionEnd = __DEFAULT_ANIMATION_TRANSITION_END__
 	} = {}) => ({
 		opacity: 1,
 		transition: { ...transition.enter },
@@ -55,7 +56,7 @@ const fadeVariant = {
 	}),
 	exit: ({
 		transition = __DEFAULT_CONFIRM_MODAL_TRANSITION_TRANSITION__,
-		transitionEnd = __DEFAULT_TRANSITION_END__
+		transitionEnd = __DEFAULT_ANIMATION_TRANSITION_END__
 	} = {}) => ({
 		opacity: 0,
 		transition: { ...transition.exit },
@@ -68,7 +69,7 @@ const ConfirmModalTransition = forwardRef<ConfirmModalTransitionRef, ConfirmModa
 		const {
 			children,
 			className = __DEFAULT_CLASSNAME__,
-			in: isOpen = __DEFAULT_TRANSITION_IN__,
+			in: isOpen = __DEFAULT_ANIMATION_IN__,
 			variant = __DEFAULT_CONFIRM_MODAL_TRANSITION_VARIANT__,
 			...rest
 		} = props;
@@ -79,9 +80,7 @@ const ConfirmModalTransition = forwardRef<ConfirmModalTransitionRef, ConfirmModa
 				{...(config as any)}
 				key={`${__DEFAULT_CLASS_PREFIX__}-confirm-modal-transition-${variant}`}
 				ref={ref}
-				className={classNames(`${__DEFAULT_CLASS_PREFIX__}-confirm-modal-transition`, {
-					[className]: !!className
-				})}
+				className={classNames(__KEYS_CONFIRM_MODAL_TRANSITION_CLASS__, { [className]: !!className })}
 				animate={isOpen ? 'enter' : 'exit'}
 				variants={variant === 'pop' ? popVariant : fadeVariant}
 			>

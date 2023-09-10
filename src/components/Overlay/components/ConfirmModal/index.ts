@@ -1,12 +1,4 @@
-import {
-	__DEFAULT_CONFIRM_MODAL_CLOSE_ON_ESC__,
-	__DEFAULT_CONFIRM_MODAL_CLOSE_ON_OVERLAY_CLICK__,
-	__DEFAULT_CONFIRM_MODAL_DURATION__,
-	__DEFAULT_CONFIRM_MODAL_HAS_BACKDROP__,
-	__DEFAULT_CONFIRM_MODAL_IS_OPEN__,
-	__DEFAULT_CONFIRM_MODAL_SIZE__,
-	__DEFAULT_CONFIRM_MODAL_SPACING__
-} from './common/constants';
+import * as commonConstants from './common/constants';
 import { useConfirmModalContext } from './common/hooks';
 import type {
 	ConfirmModalContext,
@@ -56,21 +48,16 @@ import {
 	ConfirmModalSubtitle,
 	ConfirmModalTitle,
 	ConfirmModalTransition,
-	constants as componentsConstants
+	constants as componentsConstants,
+	keys as componentsKeys
 } from './components';
 import ConfirmModal from './ConfirmModal';
 
 // Constants
-export const constants = {
-	...componentsConstants,
-	__DEFAULT_CONFIRM_MODAL_CLOSE_ON_ESC__,
-	__DEFAULT_CONFIRM_MODAL_CLOSE_ON_OVERLAY_CLICK__,
-	__DEFAULT_CONFIRM_MODAL_DURATION__,
-	__DEFAULT_CONFIRM_MODAL_HAS_BACKDROP__,
-	__DEFAULT_CONFIRM_MODAL_IS_OPEN__,
-	__DEFAULT_CONFIRM_MODAL_SIZE__,
-	__DEFAULT_CONFIRM_MODAL_SPACING__
-};
+export const constants = { ...commonConstants, ...componentsConstants };
+
+// Keys
+export const keys = { ...componentsKeys };
 
 // Hooks
 export { useConfirmModalContext };

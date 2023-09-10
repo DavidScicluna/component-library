@@ -1,11 +1,13 @@
-import { __DEFAULT_CONFIRM_MODAL_BODY_SPACING__ } from './common/constants';
+import * as commonConstants from './common/constants';
+import * as commonKeys from './common/keys';
 import type { ConfirmModalBodyProps, ConfirmModalBodyRef } from './common/types';
 import ConfirmModalBody from './ConfirmModalBody';
 
 // Constants
-export const constants = {
-	__DEFAULT_CONFIRM_MODAL_BODY_SPACING__
-};
+export const constants = { ...commonConstants };
+
+// Keys
+export const keys = { ...commonKeys };
 
 // Components
 export { ConfirmModalBody };

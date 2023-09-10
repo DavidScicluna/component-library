@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { useKey } from 'rooks';
 
 // import { v4 as uuid } from 'uuid';
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 // import { useConst } from '@common/hooks';
 import { Center, Grid, GridItem } from '@components/Layout';
@@ -21,6 +21,7 @@ import { ConfirmModalBackdrop } from '../ConfirmModalBackdrop';
 import { ConfirmModalTransition } from '../ConfirmModalTransition';
 
 import { useConfirmModalContainerClasses } from './common/hooks';
+import { __KEYS_CONFIRM_MODAL_CONTAINER_CLASS__ } from './common/keys';
 import type { ConfirmModalContainerProps, ConfirmModalContainerRef } from './common/types';
 
 const ConfirmModalContainer = forwardRef(function ConfirmModalContainer<
@@ -64,7 +65,7 @@ const ConfirmModalContainer = forwardRef(function ConfirmModalContainer<
 		<Grid<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-confirm-modal-container`, classes.container, {
+			className={classNames(__KEYS_CONFIRM_MODAL_CONTAINER_CLASS__, classes.container, {
 				[className]: !!className
 			})}
 			w='100vw'

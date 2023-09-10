@@ -3,12 +3,13 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { VStack } from '@components/Layout';
 
 import { useConfirmModalContext } from '../../common/hooks';
 
+import { __KEYS_CONFIRM_MODAL_STACK_CLASS__ } from './common/keys';
 import type { ConfirmModalStackProps, ConfirmModalStackRef } from './common/types';
 
 const ConfirmModalStack = forwardRef(function ConfirmModalStack<Element extends ElementType>(
@@ -30,7 +31,7 @@ const ConfirmModalStack = forwardRef(function ConfirmModalStack<Element extends 
 		<VStack<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-confirm-modal-stack`, { [className]: !!className })}
+			className={classNames(__KEYS_CONFIRM_MODAL_STACK_CLASS__, { [className]: !!className })}
 			w='100%'
 			h='100%'
 			alignItems={alignItems}

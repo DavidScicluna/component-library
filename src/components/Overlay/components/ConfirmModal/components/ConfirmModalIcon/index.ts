@@ -1,3 +1,4 @@
+import * as commonKeys from './common/keys';
 import type {
 	ConfirmModalIconDefaultElement,
 	ConfirmModalIconElement,
@@ -5,6 +6,9 @@ import type {
 	ConfirmModalIconRef
 } from './common/types';
 import ConfirmModalIcon from './ConfirmModalIcon';
+
+// Keys
+export const keys = { ...commonKeys };
 
 // Components
 export { ConfirmModalIcon };

@@ -3,12 +3,13 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Icon } from '@components/DataDisplay';
 
 import { useConfirmModalContext } from '../../common/hooks';
 
+import { __KEYS_CONFIRM_MODAL_ICON_CLASS__ } from './common/keys';
 import type {
 	ConfirmModalIconDefaultElement,
 	ConfirmModalIconElement,
@@ -34,7 +35,7 @@ const ConfirmModalIcon = forwardRef(function ConfirmModalIcon<
 			{...rest}
 			ref={ref}
 			// TODO: Maybe create a function that generates class names
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-confirm-modal-icon`, { [className]: !!className })}
+			className={classNames(__KEYS_CONFIRM_MODAL_ICON_CLASS__, { [className]: !!className })}
 			color={color}
 			colorMode={colorMode}
 		/>

@@ -3,11 +3,12 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { VStack } from '@components/Layout';
 
 import { __DEFAULT_CONFIRM_MODAL_BODY_SPACING__ } from './common/constants';
+import { __KEYS_CONFIRM_MODAL_BODY_CLASS__ } from './common/keys';
 import type { ConfirmModalBodyProps, ConfirmModalBodyRef } from './common/types';
 
 const ConfirmModalBody = forwardRef(function ConfirmModalBody<Element extends ElementType>(
@@ -27,7 +28,7 @@ const ConfirmModalBody = forwardRef(function ConfirmModalBody<Element extends El
 		<VStack<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-confirm-modal-body`, { [className]: !!className })}
+			className={classNames(__KEYS_CONFIRM_MODAL_BODY_CLASS__, { [className]: !!className })}
 			alignItems={alignItems}
 			justifyContent={justifyContent}
 			spacing={spacing}

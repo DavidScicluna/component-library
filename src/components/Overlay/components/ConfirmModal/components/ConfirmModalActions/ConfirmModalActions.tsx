@@ -3,13 +3,14 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useMediaQuery } from '@common/hooks';
 
 import { VStack } from '@components/Layout';
 
 import { useConfirmModalContext } from '../../common/hooks';
 
+import { __KEYS_CONFIRM_MODAL_ACTIONS_CLASS__ } from './common/keys';
 import type { ConfirmModalActionsProps, ConfirmModalActionsRef } from './common/types';
 
 const ConfirmModalActions = forwardRef(function ConfirmModalActions<Element extends ElementType>(
@@ -34,7 +35,7 @@ const ConfirmModalActions = forwardRef(function ConfirmModalActions<Element exte
 		<VStack<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-confirm-modal-actions`, { [className]: !!className })}
+			className={classNames(__KEYS_CONFIRM_MODAL_ACTIONS_CLASS__, { [className]: !!className })}
 			alignItems={alignItems}
 			justifyContent={justifyContent}
 			spacing={spacing}
