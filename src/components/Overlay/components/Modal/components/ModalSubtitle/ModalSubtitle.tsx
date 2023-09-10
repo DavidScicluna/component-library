@@ -3,12 +3,13 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import { useModalContext } from '@components/Overlay/components/Modal/common/hooks';
 import { Text } from '@components/Typography';
 
+import { __KEYS_MODAL_SUBTITLE_CLASS__ } from './common/keys';
 import type {
 	ModalSubtitleDefaultElement,
 	ModalSubtitleElement,
@@ -44,7 +45,7 @@ const ModalSubtitle = forwardRef(function ModalSubtitle<
 		<Text<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-modal-subtitle`, { [className]: !!className })}
+			className={classNames(__KEYS_MODAL_SUBTITLE_CLASS__, { [className]: !!className })}
 			align={align}
 			color={color}
 			fontSize={fontSize}

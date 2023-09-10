@@ -1,5 +1,9 @@
+import * as commonKeys from './common/keys';
 import type { ModalHeaderProps, ModalHeaderRef } from './common/types';
 import ModalHeader from './ModalHeader';
+
+// Keys
+export const keys = { ...commonKeys };
 
 // Components
 export { ModalHeader };

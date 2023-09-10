@@ -3,12 +3,13 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Divider } from '@components/DataDisplay';
 import { VStack } from '@components/Layout';
 import { useModalContext } from '@components/Overlay/components/Modal/common/hooks';
 
+import { __KEYS_MODAL_STACK_CLASS__ } from './common/keys';
 import type { ModalStackProps, ModalStackRef } from './common/types';
 
 const ModalStack = forwardRef(function ModalStack<Element extends ElementType>(
@@ -32,7 +33,7 @@ const ModalStack = forwardRef(function ModalStack<Element extends ElementType>(
 		<VStack<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-modal-stack`, { [className]: !!className })}
+			className={classNames(__KEYS_MODAL_STACK_CLASS__, { [className]: !!className })}
 			w='100%'
 			h='100%'
 			alignItems={alignItems}

@@ -3,10 +3,11 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Center } from '@components/Layout';
 
+import { __KEYS_MODAL_BODY_CLASS__ } from './common/keys';
 import type { ModalBodyProps, ModalBodyRef } from './common/types';
 
 const ModalBody = forwardRef(function ModalBody<Element extends ElementType>(
@@ -19,7 +20,7 @@ const ModalBody = forwardRef(function ModalBody<Element extends ElementType>(
 		<Center<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-modal-body`, { [className]: !!className })}
+			className={classNames(__KEYS_MODAL_BODY_CLASS__, { [className]: !!className })}
 		>
 			{children}
 		</Center>

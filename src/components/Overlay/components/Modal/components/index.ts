@@ -1,34 +1,47 @@
 import type { ModalBackdropElement, ModalBackdropProps, ModalBackdropRef } from './ModalBackdrop';
-import { ModalBackdrop } from './ModalBackdrop';
+import { keys as modalBackdropKeys, ModalBackdrop } from './ModalBackdrop';
 import type { ModalBodyProps, ModalBodyRef } from './ModalBody';
-import { ModalBody } from './ModalBody';
+import { keys as modalBodyKeys, ModalBody } from './ModalBody';
 import type { ModalContainerProps, ModalContainerRef } from './ModalContainer';
-import { ModalContainer } from './ModalContainer';
+import { keys as modalContainerKeys, ModalContainer } from './ModalContainer';
 import type {
 	ModalFooterProps,
 	ModalFooterRef,
 	ModalFooterRenderCancelProps,
 	ModalFooterRenderProps
 } from './ModalFooter';
-import { ModalFooter } from './ModalFooter';
+import { keys as modalFooterKeys, ModalFooter } from './ModalFooter';
 import type { ModalHeaderProps, ModalHeaderRef } from './ModalHeader';
-import { ModalHeader } from './ModalHeader';
+import { keys as modalHeaderKeys, ModalHeader } from './ModalHeader';
 import type { ModalStackProps, ModalStackRef } from './ModalStack';
-import { ModalStack } from './ModalStack';
+import { keys as modalStackKeys, ModalStack } from './ModalStack';
 import type {
 	ModalSubtitleDefaultElement,
 	ModalSubtitleElement,
 	ModalSubtitleProps,
 	ModalSubtitleRef
 } from './ModalSubtitle';
-import { ModalSubtitle } from './ModalSubtitle';
+import { keys as modalSubtitleKeys, ModalSubtitle } from './ModalSubtitle';
 import type { ModalTitleDefaultElement, ModalTitleElement, ModalTitleProps, ModalTitleRef } from './ModalTitle';
-import { ModalTitle } from './ModalTitle';
+import { keys as modalTitleKeys, ModalTitle } from './ModalTitle';
 import type { ModalTransitionProps, ModalTransitionRef, ModalTransitionVariant } from './ModalTransition';
-import { constants as modalTransitionConstants, ModalTransition } from './ModalTransition';
+import { constants as modalTransitionConstants, keys as modalTransitionKeys, ModalTransition } from './ModalTransition';
 
 // Constants
 export const constants = { ...modalTransitionConstants };
+
+// Keys
+export const keys = {
+	...modalBackdropKeys,
+	...modalBodyKeys,
+	...modalContainerKeys,
+	...modalFooterKeys,
+	...modalHeaderKeys,
+	...modalStackKeys,
+	...modalSubtitleKeys,
+	...modalTitleKeys,
+	...modalTransitionKeys
+};
 
 // Components
 export {

@@ -1,11 +1,4 @@
-import {
-	__DEFAULT_MODAL_CLOSE_ON_ESC__,
-	__DEFAULT_MODAL_CLOSE_ON_OVERLAY_CLICK__,
-	__DEFAULT_MODAL_DURATION__,
-	__DEFAULT_MODAL_HAS_BACKDROP__,
-	__DEFAULT_MODAL_IS_OPEN__,
-	__DEFAULT_MODAL_SIZE__
-} from './common/constants';
+import * as commonConstants from './common/constants';
 import { useModalContext } from './common/hooks';
 import type {
 	ModalContext,
@@ -43,6 +36,7 @@ import type {
 } from './components';
 import {
 	constants as componentsConstants,
+	keys as componentsKeys,
 	ModalBackdrop,
 	ModalBody,
 	ModalFooter,
@@ -54,15 +48,10 @@ import {
 import Modal from './Modal';
 
 // Constants
-export const constants = {
-	...componentsConstants,
-	__DEFAULT_MODAL_CLOSE_ON_ESC__,
-	__DEFAULT_MODAL_DURATION__,
-	__DEFAULT_MODAL_CLOSE_ON_OVERLAY_CLICK__,
-	__DEFAULT_MODAL_HAS_BACKDROP__,
-	__DEFAULT_MODAL_IS_OPEN__,
-	__DEFAULT_MODAL_SIZE__
-};
+export const constants = { ...commonConstants, ...componentsConstants };
+
+// Keys
+export const keys = { ...componentsKeys };
 
 // Hooks
 export { useModalContext };

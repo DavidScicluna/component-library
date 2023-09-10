@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { useKey } from 'rooks';
 
 // import { v4 as uuid } from 'uuid';
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 // import { useConst } from '@common/hooks';
 import { Center, Grid, GridItem } from '@components/Layout';
@@ -21,6 +21,7 @@ import { ModalBackdrop } from '../ModalBackdrop';
 import { ModalTransition } from '../ModalTransition';
 
 import { useModalContainerClasses } from './common/hooks';
+import { __KEYS_MODAL_CONTAINER_CLASS__ } from './common/keys';
 import type { ModalContainerProps, ModalContainerRef } from './common/types';
 
 const ModalContainer = forwardRef(function ModalContainer<Element extends ModalElement = ModalDefaultElement>(
@@ -65,9 +66,7 @@ const ModalContainer = forwardRef(function ModalContainer<Element extends ModalE
 		<Grid<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-modal-container`, classes.container, {
-				[className]: !!className
-			})}
+			className={classNames(__KEYS_MODAL_CONTAINER_CLASS__, classes.container, { [className]: !!className })}
 			w='100vw'
 			h='100vh'
 			templateColumns={1}
