@@ -486,6 +486,10 @@ export type FillColorClassObj = Record<FillColorClass, string | number>;
 /**
  * Typography
  */
+export type FontStyleClass = 'italic' | 'not-italic';
+export type FontStyleClassArr = Array<FontStyleClass>;
+export type FontStyleClassObj = Record<FontStyleClass, string>;
+
 export type TextAlignClass = 'left' | 'center' | 'right' | 'justify' | 'start' | 'end';
 export type TextAlignClassArr = Array<TextAlignClass>;
 export type TextAlignClassObj = Record<TextAlignClass, string>;

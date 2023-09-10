@@ -1,6 +1,9 @@
 import type {
+	FontStyleClassObj,
 	TextAlignClassObj,
+	TextLetterSpacingClassObj,
 	TextLineClampClassObj,
+	TextOverflowClassObj,
 	TextTransformClassObj,
 	ThemeColorObj,
 	ThemeFontSizeObj,
@@ -9,7 +12,6 @@ import type {
 	WhitespaceClassObj,
 	WordBreakClassObj
 } from '@common/types';
-import type { TextLetterSpacingClassObj, TextOverflowClassObj } from '@common/types/classes';
 
 const align: TextAlignClassObj = {
 	center: 'text-center',
@@ -1319,6 +1321,10 @@ const font_size: ThemeFontSizeObj = {
 	'8xl': 'text-8xl',
 	'9xl': 'text-9xl'
 };
+const font_style: FontStyleClassObj = {
+	'italic': 'italic',
+	'not-italic': 'not-italic'
+};
 
 const font_weight: ThemeFontWeightObj = {
 	black: 'font-black',
@@ -1408,6 +1414,7 @@ export default {
 		after: after_color
 	},
 	font_size,
+	font_style,
 	font_weight,
 	letter_spacing,
 	line_clamp,
