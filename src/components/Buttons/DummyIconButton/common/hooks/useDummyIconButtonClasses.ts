@@ -6,19 +6,17 @@ import { useGetClass } from '@common/hooks';
 import type {
 	ClassName,
 	TextAlignClass,
-	TextTransformClass,
-	ThemeFontSize,
-	ThemeFontWeight,
-	ThemeLineHeight,
-	WhitespaceClass
-} from '@common/types';
-import type {
 	// OutlineStyleClass,
 	// OutlineWidthClass,
 	TextLetterSpacingClass,
 	TextOverflowClass,
+	TextTransformClass,
+	ThemeFontSize,
+	ThemeFontWeight,
+	ThemeLineHeight,
+	WhitespaceClass,
 	WidthClass
-} from '@common/types/classes';
+} from '@common/types';
 
 import {
 	__DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT__,

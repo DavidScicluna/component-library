@@ -3,8 +3,7 @@ import type { ElementType } from 'react';
 import classNames from 'classnames';
 
 import { useGetClass } from '@common/hooks';
-import type { BackdropBlurClass, ClassName, SaturateClass, ThemeRadius } from '@common/types';
-import type { OverflowClass } from '@common/types/classes';
+import type { BackdropBlurClass, ClassName, OverflowClass, SaturateClass, ThemeRadius } from '@common/types';
 
 import {
 	__DEFAULT_LOADING_OVERLAY_BLUR__,

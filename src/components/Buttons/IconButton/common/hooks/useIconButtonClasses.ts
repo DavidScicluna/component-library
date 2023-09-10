@@ -4,18 +4,16 @@ import { useGetClass } from '@common/hooks';
 import type {
 	ClassName,
 	TextAlignClass,
+	// OutlineStyleClass,
+	// OutlineWidthClass,
+	TextLetterSpacingClass,
+	TextOverflowClass,
 	TextTransformClass,
 	ThemeFontSize,
 	ThemeFontWeight,
 	ThemeLineHeight,
 	WhitespaceClass
 } from '@common/types';
-import type {
-	// OutlineStyleClass,
-	// OutlineWidthClass,
-	TextLetterSpacingClass,
-	TextOverflowClass
-} from '@common/types/classes';
 
 import {
 	__DEFAULT_ICON_BUTTON_IS_COMPACT__,
