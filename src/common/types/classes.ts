@@ -281,6 +281,34 @@ export type WillChangeClassObj = Record<WillChangeClass, string>;
 /**
  * Layout
  */
+
+export type DisplayClass =
+	| 'container'
+	| 'outline'
+	| 'block'
+	| 'inline-block'
+	| 'inline'
+	| 'flex'
+	| 'inline-flex'
+	| 'table'
+	| 'inline-table'
+	| 'table-caption'
+	| 'table-cell'
+	| 'table-column'
+	| 'table-column-group'
+	| 'table-footer-group'
+	| 'table-header-group'
+	| 'table-row-group'
+	| 'table-row'
+	| 'flow-root'
+	| 'grid'
+	| 'inline-grid'
+	| 'contents'
+	| 'list-item'
+	| 'hidden';
+export type DisplayClassArr = Array<DisplayClass>;
+export type DisplayClassObj = Record<DisplayClass, string>;
+
 export type WidthClass =
 	| 'auto'
 	| '1/2'

@@ -1,11 +1,12 @@
 import type {
+	DisplayClassObj,
+	OverflowClassObj,
 	PositionClassObj,
 	ThemeAspectRatioObj,
 	ThemeBreakpointObj,
 	ThemeSpacingObj,
 	ZIndexClassObj
 } from '@common/types';
-import type { OverflowClassObj } from '@common/types/classes';
 
 const aspect_ratio: ThemeAspectRatioObj = {
 	auto: 'aspect-auto',
@@ -24,6 +25,32 @@ const container: ThemeBreakpointObj = {
 	'lg': 'max-w-screen-lg',
 	'xl': 'max-w-screen-xl',
 	'2xl': 'max-w-screen-2xl'
+};
+
+const display: DisplayClassObj = {
+	'container': 'container',
+	'outline': 'outline',
+	'block': 'block',
+	'inline-block': 'inline-block',
+	'inline': 'inline',
+	'flex': 'flex',
+	'inline-flex': 'inline-flex',
+	'table': 'table',
+	'inline-table': 'inline-table',
+	'table-caption': 'table-caption',
+	'table-cell': 'table-cell',
+	'table-column': 'table-column',
+	'table-column-group': 'table-column-group',
+	'table-footer-group': 'table-footer-group',
+	'table-header-group': 'table-header-group',
+	'table-row-group': 'table-row-group',
+	'table-row': 'table-row',
+	'flow-root': 'flow-root',
+	'grid': 'grid',
+	'inline-grid': 'inline-grid',
+	'contents': 'contents',
+	'list-item': 'list-item',
+	'hidden': 'hidden'
 };
 
 const position: PositionClassObj = {
@@ -1454,6 +1481,7 @@ const after_z_index: ZIndexClassObj = {
 export default {
 	aspect_ratio,
 	container,
+	display,
 	position: { ...position, before: before_position, after: after_position },
 	top: { ...top, before: before_top, after: after_top },
 	right: { ...right, before: before_right, after: after_right },
