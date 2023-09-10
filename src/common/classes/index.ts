@@ -1,3 +1,4 @@
+import animation from './animation';
 import backgrounds from './backgrounds';
 import borders from './borders';
 import effects from './effects';
@@ -13,6 +14,7 @@ import transitions from './transitions';
 import typography from './typography';
 
 export default {
+	animation,
 	backgrounds,
 	borders,
 	effects,

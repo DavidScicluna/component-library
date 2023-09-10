@@ -3,6 +3,13 @@ import type { PickFrom, ThemeColor, ThemeColorHue, ThemeSpacing } from '.';
 export type ColorTypeClass = 'shadow' | 'fill' | 'bg' | 'text' | 'border' | 'outline';
 
 /**
+ * Animation
+ */
+export type AnimationClass = 'none' | 'spin' | 'ping' | 'pulse' | 'bounce';
+export type AnimationClassArr = Array<AnimationClass>;
+export type AnimationClassObj = Record<AnimationClass, string>;
+
+/**
  * Backgrounds
  */
 export type BackgroundColorClass =
