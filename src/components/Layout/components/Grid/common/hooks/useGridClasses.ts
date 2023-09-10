@@ -2,6 +2,7 @@ import type { ElementType } from 'react';
 
 import classNames from 'classnames';
 
+import classes from '@common/classes';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetClass } from '@common/hooks';
 import type {
@@ -84,7 +85,7 @@ const useGridClasses = <Element extends ElementType>(props: UseGridClassesProps<
 	const spacingClassName = useGetClass<ThemeSpacing>(spacing, ['spacing', 'gap']);
 
 	return classNames(
-		'grid',
+		classes.layout.display.grid,
 		alignContentClassName,
 		alignItemsClassName,
 		justifyContentClassName,

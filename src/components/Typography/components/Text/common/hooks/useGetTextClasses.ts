@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 
+import classes from '@common/classes';
 import { useGetClass } from '@common/hooks';
 import type {
 	ClassName,
@@ -81,9 +82,9 @@ const useGetTextClasses = <Element extends TextElement>(
 		{
 			// [colorClassName]: !colorClassName.includes('#'),
 			[lineClampClassName]: !!lineClamp,
-			['italic']: isItalic,
-			['not-italic']: !isItalic,
-			['truncate']: isOverflown
+			[classes.typography.font_style.italic]: isItalic,
+			[classes.typography.font_style['not-italic']]: !isItalic,
+			[classes.typography.text_overflow.truncate]: isOverflown
 		}
 	);
 };

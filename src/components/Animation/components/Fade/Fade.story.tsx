@@ -39,9 +39,9 @@ export const Fade: FadeStory = (props: FadeProps<PolymorphicDefaultElement>): Re
 	const padding = classes.spacing.p[4];
 
 	return (
-		<Center className={classNames('w-auto')}>
+		<Center w='auto'>
 			<FadeComponent {...props}>
-				<Center className={classNames('w-20', 'h-20', radius, text, background, padding)} />
+				<Center className={classNames(radius, text, background, padding)} w='100px' h='100px' />
 			</FadeComponent>
 		</Center>
 	);

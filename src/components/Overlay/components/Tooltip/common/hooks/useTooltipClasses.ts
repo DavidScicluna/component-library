@@ -48,7 +48,13 @@ const useTooltipClasses = <Element extends ElementType>(
 		);
 	}, [color, colorMode]);
 
-	const arrowRootClasses = useConst<ClassName>(classNames('!w-[12px]', '!h-[12px]', '!stroke-0'));
+	const arrowRootClasses = useConst<ClassName>(
+		classNames(
+			classes.sizing.width.important['1.5'],
+			classes.sizing.height.important['1.5'],
+			classes.svg.stroke_width.important[0]
+		)
+	);
 
 	const arrowColorClasses = useMemo<ClassName>(() => {
 		const fillHue = getColorHue({ colorMode, type: colorMode === 'light' ? 'dark' : 'light' });

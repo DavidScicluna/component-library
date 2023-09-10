@@ -47,9 +47,9 @@ export const Collapse: CollapseStory = (props: CollapseProps<PolymorphicDefaultE
 	const padding = classes.spacing.p[4];
 
 	return (
-		<Center className={classNames('w-auto')}>
+		<Center w='auto'>
 			<CollapseComponent {...props}>
-				<Center className={classNames('w-20', 'h-20', radius, text, background, padding)} />
+				<Center className={classNames(radius, text, background, padding)} w='100px' h='100px' />
 			</CollapseComponent>
 		</Center>
 	);

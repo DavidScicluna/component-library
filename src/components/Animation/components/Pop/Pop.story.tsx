@@ -54,9 +54,9 @@ export const Pop: PopStory = (props: PopProps<PolymorphicDefaultElement>): React
 	const padding = classes.spacing.p[4];
 
 	return (
-		<Center className={classNames('w-auto')}>
+		<Center w='auto'>
 			<PopComponent {...props}>
-				<Center className={classNames('w-20', 'h-20', radius, text, background, padding)} />
+				<Center className={classNames(radius, text, background, padding)} w='100px' h='100px' />
 			</PopComponent>
 		</Center>
 	);

@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 
+import classes from '@common/classes';
 import { __DEFAULT_BORDER_WIDTH__ } from '@common/constants';
 import { useGetClass, useGetColor } from '@common/hooks';
 import type { BorderStyleClass, ClassName, JustifyContentClass, ThemeBorderWidth } from '@common/types';
@@ -44,9 +45,16 @@ const useDividerClasses = <Element extends DividerElement>(
 		['grid', 'justify_content']
 	);
 
-	return classNames('flex', 'items-center', justifyContentClassName, borderStyleClassName, borderColorClassName, {
-		[borderLeftWidthClassName]: orientation === 'vertical'
-	});
+	return classNames(
+		classes.layout.display.flex,
+		classes.flex.align_items.center,
+		justifyContentClassName,
+		borderStyleClassName,
+		borderColorClassName,
+		{
+			[borderLeftWidthClassName]: orientation === 'vertical'
+		}
+	);
 };
 
 export default useDividerClasses;

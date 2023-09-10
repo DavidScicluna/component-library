@@ -32,7 +32,7 @@ const useDummyPushableOverlayClasses = <Element extends ElementType>(
 		classes.borders.border_style[__DEFAULT_BORDER_STYLE__],
 		classes.borders.border_color.transparent,
 		classes.borders.border_radius[radius],
-		{ ['animate-pulse']: isAnimated }
+		{ [classes.animation.pulse]: isAnimated }
 	);
 };
 

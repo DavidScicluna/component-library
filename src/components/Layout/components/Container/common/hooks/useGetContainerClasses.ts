@@ -2,6 +2,7 @@ import type { ElementType } from 'react';
 
 import classNames from 'classnames';
 
+import classes from '@common/classes';
 import { useGetClass } from '@common/hooks';
 import type { ClassName } from '@common/types';
 
@@ -29,9 +30,12 @@ const useGetContainerClasses = <Element extends ElementType>(
 
 	const breakpointClassName = useGetClass<ContainerBreakpoint>(breakpoint, ['layout', 'container']);
 
-	return classNames('container', {
-		'mx-auto': isContentCentered,
-		'w-full': isFluid,
+	return classNames(classes.layout.display.container, classes.layout.display.flex, {
+		[classes.flex.align_items.center]: isContentCentered,
+		[classes.flex.align_items.stretch]: !isContentCentered,
+		[classes.flex.justify_content.center]: isContentCentered,
+		[classes.flex.justify_content.stretch]: !isContentCentered,
+		[classes.sizing.height.auto]: isFluid,
 		[breakpointClassName]: !isFluid
 	});
 };

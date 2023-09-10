@@ -2,6 +2,7 @@ import type { ElementType } from 'react';
 
 import classNames from 'classnames';
 
+import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_DURATION__, __DEFAULT_EASING__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
 import type { ClassName, ThemeDuration, ThemeEase, ThemeRadius } from '@common/types';
@@ -40,9 +41,16 @@ const useSkeletonClasses = <Element extends ElementType>(
 	const easeClassName = useGetClass<ThemeEase>(__DEFAULT_EASING__, ['transitions', 'ease']);
 	const durationClassName = useGetClass<ThemeDuration>(__DEFAULT_DURATION__, ['transitions', 'duration']);
 
-	return classNames('overflow-hidden', colorClassName, radiusClassName, easeClassName, durationClassName, {
-		['animate-pulse']: isAnimated
-	});
+	return classNames(
+		classes.layout.overflow.hidden,
+		colorClassName,
+		radiusClassName,
+		easeClassName,
+		durationClassName,
+		{
+			['animate-pulse']: isAnimated
+		}
+	);
 };
 
 export default useSkeletonClasses;

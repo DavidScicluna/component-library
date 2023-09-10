@@ -43,7 +43,6 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 		<Grid<Element>
 			{...rest}
 			ref={ref}
-			// TODO: Go over all classes and extract them to keys to be able to be accessablie across the app
 			className={classNames(__KEY_SKELETON_CLASS__, { [className]: !!className })}
 			templateColumns={1}
 			templateRows={1}

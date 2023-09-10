@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 
+import classes from '@common/classes';
 import { useGetClass, useGetColor } from '@common/hooks';
 import type {
 	BoxShadowClass,
@@ -45,8 +46,13 @@ const useModalContainerClasses = (): UseModalContainerClassesReturn => {
 	const marginClassName = useGetClass<ThemeSpacing>(spacing, ['spacing', 'm']);
 
 	return {
-		container: classNames('fixed', 'top-0', 'left-0', zIndexClassName),
-		backdrop: classNames('w-full', 'h-full'),
+		container: classNames(
+			classes.layout.position.fixed,
+			classes.layout.top[0],
+			classes.layout.left[0],
+			zIndexClassName
+		),
+		backdrop: classNames(classes.sizing.width.full, classes.sizing.height.full),
 		content: classNames(
 			widthClassName,
 			maxWidthClassName,
