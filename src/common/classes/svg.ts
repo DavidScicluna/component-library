@@ -215,3 +215,26 @@ const fill: ThemeColorObj = {
 };
 
 export default { fill };
+const stroke_width: ThemeStrokeWidthObj = {
+	0: 'stroke-0',
+	1: 'stroke-1',
+	2: 'stroke-2',
+	3: 'stroke-3',
+	4: 'stroke-4',
+	5: 'stroke-5',
+	6: 'stroke-6',
+	7: 'stroke-7',
+	8: 'stroke-8'
+};
+
+const important_stroke_width: ThemeStrokeWidthObj = {
+	0: '!stroke-0',
+	1: '!stroke-1',
+	2: '!stroke-2',
+	3: '!stroke-3',
+	4: '!stroke-4',
+	5: '!stroke-5',
+	6: '!stroke-6',
+	7: '!stroke-7',
+	8: '!stroke-8'
+};

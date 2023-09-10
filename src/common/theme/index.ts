@@ -15,6 +15,7 @@ import type {
 	ThemeLineHeightObj,
 	ThemeRadiusObj,
 	ThemeSpacingObj,
+	ThemeStrokeWidthObj,
 	ZIndexClassObj
 } from '@common/types';
 
@@ -383,6 +384,18 @@ const spacing: ThemeSpacingObj = range(0, 25, 0.25)
 	.map((num) => ({ key: num, value: `${(1 / 16) * (num * 8)}rem` }))
 	.reduce((obj, item) => ({ ...obj, [item.key || 0]: item.value }), {}) as ThemeSpacingObj;
 
+const strokeWidth: ThemeStrokeWidthObj = {
+	'0': '0px',
+	'1': '1px',
+	'2': '2px',
+	'3': '3px',
+	'4': '4px',
+	'5': '5px',
+	'6': '6px',
+	'7': '7px',
+	'8': '8px'
+};
+
 const zIndex: ZIndexClassObj = {
 	0: 0,
 	1: 1,
@@ -450,5 +463,6 @@ export default {
 	transitionDelay,
 	transitionDuration,
 	spacing,
+	strokeWidth,
 	zIndex
 };

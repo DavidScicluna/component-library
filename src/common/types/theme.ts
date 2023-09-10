@@ -230,3 +230,7 @@ export type ThemeSpacing =
 	| 24.75;
 export type ThemeSpacingArr = Array<ThemeSpacing>;
 export type ThemeSpacingObj = Record<ThemeSpacing, string>;
+
+export type ThemeStrokeWidth = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
+export type ThemeStrokeWidthArr = Array<ThemeStrokeWidth>;
+export type ThemeStrokeWidthObj = Record<ThemeStrokeWidth, string>;
