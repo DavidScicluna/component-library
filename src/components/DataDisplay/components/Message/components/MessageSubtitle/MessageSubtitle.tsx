@@ -3,13 +3,14 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import { Text } from '@components/Typography';
 
 import { useMessageContext } from '../../common/hooks';
 
+import { __KEYS_MESSAGE_SUBTITLE_CLASS__ } from './common/keys';
 import type {
 	MessageSubtitleDefaultElement,
 	MessageSubtitleElement,
@@ -45,7 +46,7 @@ const MessageSubtitle = forwardRef(function MessageSubtitle<
 		<Text<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-message-subtitle`, { [className]: !!className })}
+			className={classNames(__KEYS_MESSAGE_SUBTITLE_CLASS__, { [className]: !!className })}
 			align={align}
 			color={color}
 			fontSize={fontSize}

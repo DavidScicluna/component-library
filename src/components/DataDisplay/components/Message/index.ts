@@ -1,5 +1,6 @@
-import { __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_SIZE__, __DEFAULT_MESSAGE_VARIANT__ } from './common/constants';
+import * as commonConstants from './common/constants';
 import { useMessageClasses, useMessageContext } from './common/hooks';
+import * as commonKeys from './common/keys';
 import type { MessageContext, MessageProps, MessageRef, MessageVariant } from './common/types';
 import type {
 	MessageActionsChildrenProps,
@@ -24,6 +25,7 @@ import type {
 } from './components';
 import {
 	constants as componentsConstants,
+	keys as componentsKeys,
 	MessageActions,
 	MessageBody,
 	MessageIcon,
@@ -34,12 +36,10 @@ import {
 import Message from './Message';
 
 // Constants
-export const constants = {
-	...componentsConstants,
-	__DEFAULT_MESSAGE_RADIUS__,
-	__DEFAULT_MESSAGE_SIZE__,
-	__DEFAULT_MESSAGE_VARIANT__
-};
+export const constants = { ...commonConstants, ...componentsConstants };
+
+// Keys
+export const keys = { ...commonKeys, ...componentsKeys };
 
 // Hooks
 export { useMessageClasses, useMessageContext };

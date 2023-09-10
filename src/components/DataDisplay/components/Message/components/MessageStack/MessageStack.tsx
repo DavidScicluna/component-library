@@ -3,12 +3,13 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { VStack } from '@components/Layout';
 
 import { useMessageContext } from '../../common/hooks';
 
+import { __KEYS_MESSAGE_STACK_CLASS__ } from './common/keys';
 import type { MessageStackProps, MessageStackRef } from './common/types';
 
 const MessageStack = forwardRef(function MessageStack<Element extends ElementType>(
@@ -30,7 +31,7 @@ const MessageStack = forwardRef(function MessageStack<Element extends ElementTyp
 		<VStack<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-message-stack`, { [className]: !!className })}
+			className={classNames(__KEYS_MESSAGE_STACK_CLASS__, { [className]: !!className })}
 			w='100%'
 			h='100%'
 			alignItems={alignItems}

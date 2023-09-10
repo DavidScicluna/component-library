@@ -3,13 +3,14 @@ import { createContext, forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
 import type { PolymorphicDefaultElement } from '@common/types';
 
 import { VStack } from '@components/Layout';
 
 import { __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_SIZE__, __DEFAULT_MESSAGE_VARIANT__ } from './common/constants';
 import { useMessageClasses } from './common/hooks';
+import { __KEYS_MESSAGE_CLASS__ } from './common/keys';
 import type { MessageContext as MessageContextType, MessageProps, MessageRef } from './common/types';
 
 export const MessageContext = createContext<MessageContextType<PolymorphicDefaultElement>>({
@@ -40,7 +41,7 @@ const Message = forwardRef(function Message<Element extends ElementType>(
 			<VStack<Element>
 				{...rest}
 				ref={ref}
-				className={classNames(`${__DEFAULT_CLASS_PREFIX__}-message`, classes, { [className]: !!className })}
+				className={classNames(__KEYS_MESSAGE_CLASS__, classes, { [className]: !!className })}
 				spacing={spacing}
 			>
 				{children}

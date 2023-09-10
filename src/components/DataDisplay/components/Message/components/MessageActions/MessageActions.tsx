@@ -3,13 +3,14 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useMediaQuery } from '@common/hooks';
 
 import { Stack } from '@components/Layout';
 
 import { useMessageContext } from '../../common/hooks';
 
+import { __KEYS_MESSAGE_ACTIONS_CLASS__ } from './common/keys';
 import type { MessageActionsProps, MessageActionsRef } from './common/types';
 
 const MessageActions = forwardRef(function MessageActions<Element extends ElementType>(
@@ -34,7 +35,7 @@ const MessageActions = forwardRef(function MessageActions<Element extends Elemen
 		<Stack<Element>
 			{...rest}
 			ref={ref}
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-message-actions`, { [className]: !!className })}
+			className={classNames(__KEYS_MESSAGE_ACTIONS_CLASS__, { [className]: !!className })}
 			direction={direction}
 			alignItems={alignItems}
 			justifyContent={justifyContent}

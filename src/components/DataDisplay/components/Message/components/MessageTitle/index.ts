@@ -1,3 +1,4 @@
+import * as commonKeys from './common/keys';
 import type {
 	MessageTitleDefaultElement,
 	MessageTitleElement,
@@ -5,6 +6,9 @@ import type {
 	MessageTitleRef
 } from './common/types';
 import MessageTitle from './MessageTitle';
+
+// Keys
+export const keys = { ...commonKeys };
 
 // Components
 export { MessageTitle };

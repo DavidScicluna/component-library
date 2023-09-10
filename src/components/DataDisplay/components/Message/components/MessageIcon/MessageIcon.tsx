@@ -3,12 +3,13 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASS_PREFIX__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Icon } from '@components/DataDisplay';
 
 import { useMessageContext } from '../../common/hooks';
 
+import { __KEYS_MESSAGE_ICON_CLASS__ } from './common/keys';
 import type { MessageIconDefaultElement, MessageIconElement, MessageIconProps, MessageIconRef } from './common/types';
 
 const MessageIcon = forwardRef(function MessageIcon<Element extends MessageIconElement = MessageIconDefaultElement>(
@@ -29,8 +30,7 @@ const MessageIcon = forwardRef(function MessageIcon<Element extends MessageIconE
 		<Icon
 			{...rest}
 			ref={ref}
-			// TODO: Maybe create a function that generates class names
-			className={classNames(`${__DEFAULT_CLASS_PREFIX__}-message-icon`, { [className]: !!className })}
+			className={classNames(__KEYS_MESSAGE_ICON_CLASS__, { [className]: !!className })}
 			color={color}
 			colorMode={colorMode}
 		/>
