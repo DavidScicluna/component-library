@@ -1,4 +1,4 @@
-import type { ThemeColorObj } from '@common/types';
+import type { ThemeColorObj, ThemeStrokeWidthObj } from '@common/types';
 
 const fill: ThemeColorObj = {
 	transparent: 'fill-transparent',
@@ -214,7 +214,434 @@ const fill: ThemeColorObj = {
 	}
 };
 
-export default { fill };
+const stroke: ThemeColorObj = {
+	transparent: 'stroke-transparent',
+	black: 'stroke-black',
+	white: 'stroke-white',
+	gray: {
+		50: 'stroke-gray-50',
+		100: 'stroke-gray-100',
+		200: 'stroke-gray-200',
+		300: 'stroke-gray-300',
+		400: 'stroke-gray-400',
+		500: 'stroke-gray-500',
+		600: 'stroke-gray-600',
+		700: 'stroke-gray-700',
+		800: 'stroke-gray-800',
+		900: 'stroke-gray-900',
+		950: 'stroke-gray-950'
+	},
+	red: {
+		50: 'stroke-red-50',
+		100: 'stroke-red-100',
+		200: 'stroke-red-200',
+		300: 'stroke-red-300',
+		400: 'stroke-red-400',
+		500: 'stroke-red-500',
+		600: 'stroke-red-600',
+		700: 'stroke-red-700',
+		800: 'stroke-red-800',
+		900: 'stroke-red-900',
+		950: 'stroke-red-950'
+	},
+	pink: {
+		50: 'stroke-pink-50',
+		100: 'stroke-pink-100',
+		200: 'stroke-pink-200',
+		300: 'stroke-pink-300',
+		400: 'stroke-pink-400',
+		500: 'stroke-pink-500',
+		600: 'stroke-pink-600',
+		700: 'stroke-pink-700',
+		800: 'stroke-pink-800',
+		900: 'stroke-pink-900',
+		950: 'stroke-pink-950'
+	},
+	purple: {
+		50: 'stroke-purple-50',
+		100: 'stroke-purple-100',
+		200: 'stroke-purple-200',
+		300: 'stroke-purple-300',
+		400: 'stroke-purple-400',
+		500: 'stroke-purple-500',
+		600: 'stroke-purple-600',
+		700: 'stroke-purple-700',
+		800: 'stroke-purple-800',
+		900: 'stroke-purple-900',
+		950: 'stroke-purple-950'
+	},
+	deep_purple: {
+		50: 'stroke-deep_purple-50',
+		100: 'stroke-deep_purple-100',
+		200: 'stroke-deep_purple-200',
+		300: 'stroke-deep_purple-300',
+		400: 'stroke-deep_purple-400',
+		500: 'stroke-deep_purple-500',
+		600: 'stroke-deep_purple-600',
+		700: 'stroke-deep_purple-700',
+		800: 'stroke-deep_purple-800',
+		900: 'stroke-deep_purple-900',
+		950: 'stroke-deep_purple-950'
+	},
+	indigo: {
+		50: 'stroke-indigo-50',
+		100: 'stroke-indigo-100',
+		200: 'stroke-indigo-200',
+		300: 'stroke-indigo-300',
+		400: 'stroke-indigo-400',
+		500: 'stroke-indigo-500',
+		600: 'stroke-indigo-600',
+		700: 'stroke-indigo-700',
+		800: 'stroke-indigo-800',
+		900: 'stroke-indigo-900',
+		950: 'stroke-indigo-950'
+	},
+	blue: {
+		50: 'stroke-blue-50',
+		100: 'stroke-blue-100',
+		200: 'stroke-blue-200',
+		300: 'stroke-blue-300',
+		400: 'stroke-blue-400',
+		500: 'stroke-blue-500',
+		600: 'stroke-blue-600',
+		700: 'stroke-blue-700',
+		800: 'stroke-blue-800',
+		900: 'stroke-blue-900',
+		950: 'stroke-blue-950'
+	},
+	light_blue: {
+		50: 'stroke-light_blue-50',
+		100: 'stroke-light_blue-100',
+		200: 'stroke-light_blue-200',
+		300: 'stroke-light_blue-300',
+		400: 'stroke-light_blue-400',
+		500: 'stroke-light_blue-500',
+		600: 'stroke-light_blue-600',
+		700: 'stroke-light_blue-700',
+		800: 'stroke-light_blue-800',
+		900: 'stroke-light_blue-900',
+		950: 'stroke-light_blue-950'
+	},
+	cyan: {
+		50: 'stroke-cyan-50',
+		100: 'stroke-cyan-100',
+		200: 'stroke-cyan-200',
+		300: 'stroke-cyan-300',
+		400: 'stroke-cyan-400',
+		500: 'stroke-cyan-500',
+		600: 'stroke-cyan-600',
+		700: 'stroke-cyan-700',
+		800: 'stroke-cyan-800',
+		900: 'stroke-cyan-900',
+		950: 'stroke-cyan-950'
+	},
+	teal: {
+		50: 'stroke-teal-50',
+		100: 'stroke-teal-100',
+		200: 'stroke-teal-200',
+		300: 'stroke-teal-300',
+		400: 'stroke-teal-400',
+		500: 'stroke-teal-500',
+		600: 'stroke-teal-600',
+		700: 'stroke-teal-700',
+		800: 'stroke-teal-800',
+		900: 'stroke-teal-900',
+		950: 'stroke-teal-950'
+	},
+	green: {
+		50: 'stroke-green-50',
+		100: 'stroke-green-100',
+		200: 'stroke-green-200',
+		300: 'stroke-green-300',
+		400: 'stroke-green-400',
+		500: 'stroke-green-500',
+		600: 'stroke-green-600',
+		700: 'stroke-green-700',
+		800: 'stroke-green-800',
+		900: 'stroke-green-900',
+		950: 'stroke-green-950'
+	},
+	light_green: {
+		50: 'stroke-light_green-50',
+		100: 'stroke-light_green-100',
+		200: 'stroke-light_green-200',
+		300: 'stroke-light_green-300',
+		400: 'stroke-light_green-400',
+		500: 'stroke-light_green-500',
+		600: 'stroke-light_green-600',
+		700: 'stroke-light_green-700',
+		800: 'stroke-light_green-800',
+		900: 'stroke-light_green-900',
+		950: 'stroke-light_green-950'
+	},
+	lime: {
+		50: 'stroke-lime-50',
+		100: 'stroke-lime-100',
+		200: 'stroke-lime-200',
+		300: 'stroke-lime-300',
+		400: 'stroke-lime-400',
+		500: 'stroke-lime-500',
+		600: 'stroke-lime-600',
+		700: 'stroke-lime-700',
+		800: 'stroke-lime-800',
+		900: 'stroke-lime-900',
+		950: 'stroke-lime-950'
+	},
+	yellow: {
+		50: 'stroke-yellow-50',
+		100: 'stroke-yellow-100',
+		200: 'stroke-yellow-200',
+		300: 'stroke-yellow-300',
+		400: 'stroke-yellow-400',
+		500: 'stroke-yellow-500',
+		600: 'stroke-yellow-600',
+		700: 'stroke-yellow-700',
+		800: 'stroke-yellow-800',
+		900: 'stroke-yellow-900',
+		950: 'stroke-yellow-950'
+	},
+	orange: {
+		50: 'stroke-orange-50',
+		100: 'stroke-orange-100',
+		200: 'stroke-orange-200',
+		300: 'stroke-orange-300',
+		400: 'stroke-orange-400',
+		500: 'stroke-orange-500',
+		600: 'stroke-orange-600',
+		700: 'stroke-orange-700',
+		800: 'stroke-orange-800',
+		900: 'stroke-orange-900',
+		950: 'stroke-orange-950'
+	},
+	deep_orange: {
+		50: 'stroke-deep_orange-50',
+		100: 'stroke-deep_orange-100',
+		200: 'stroke-deep_orange-200',
+		300: 'stroke-deep_orange-300',
+		400: 'stroke-deep_orange-400',
+		500: 'stroke-deep_orange-500',
+		600: 'stroke-deep_orange-600',
+		700: 'stroke-deep_orange-700',
+		800: 'stroke-deep_orange-800',
+		900: 'stroke-deep_orange-900',
+		950: 'stroke-deep_orange-950'
+	}
+};
+
+const important_stroke: ThemeColorObj = {
+	transparent: '!stroke-transparent',
+	black: '!stroke-black',
+	white: '!stroke-white',
+	gray: {
+		50: '!stroke-gray-50',
+		100: '!stroke-gray-100',
+		200: '!stroke-gray-200',
+		300: '!stroke-gray-300',
+		400: '!stroke-gray-400',
+		500: '!stroke-gray-500',
+		600: '!stroke-gray-600',
+		700: '!stroke-gray-700',
+		800: '!stroke-gray-800',
+		900: '!stroke-gray-900',
+		950: '!stroke-gray-950'
+	},
+	red: {
+		50: '!stroke-red-50',
+		100: '!stroke-red-100',
+		200: '!stroke-red-200',
+		300: '!stroke-red-300',
+		400: '!stroke-red-400',
+		500: '!stroke-red-500',
+		600: '!stroke-red-600',
+		700: '!stroke-red-700',
+		800: '!stroke-red-800',
+		900: '!stroke-red-900',
+		950: '!stroke-red-950'
+	},
+	pink: {
+		50: '!stroke-pink-50',
+		100: '!stroke-pink-100',
+		200: '!stroke-pink-200',
+		300: '!stroke-pink-300',
+		400: '!stroke-pink-400',
+		500: '!stroke-pink-500',
+		600: '!stroke-pink-600',
+		700: '!stroke-pink-700',
+		800: '!stroke-pink-800',
+		900: '!stroke-pink-900',
+		950: '!stroke-pink-950'
+	},
+	purple: {
+		50: '!stroke-purple-50',
+		100: '!stroke-purple-100',
+		200: '!stroke-purple-200',
+		300: '!stroke-purple-300',
+		400: '!stroke-purple-400',
+		500: '!stroke-purple-500',
+		600: '!stroke-purple-600',
+		700: '!stroke-purple-700',
+		800: '!stroke-purple-800',
+		900: '!stroke-purple-900',
+		950: '!stroke-purple-950'
+	},
+	deep_purple: {
+		50: '!stroke-deep_purple-50',
+		100: '!stroke-deep_purple-100',
+		200: '!stroke-deep_purple-200',
+		300: '!stroke-deep_purple-300',
+		400: '!stroke-deep_purple-400',
+		500: '!stroke-deep_purple-500',
+		600: '!stroke-deep_purple-600',
+		700: '!stroke-deep_purple-700',
+		800: '!stroke-deep_purple-800',
+		900: '!stroke-deep_purple-900',
+		950: '!stroke-deep_purple-950'
+	},
+	indigo: {
+		50: '!stroke-indigo-50',
+		100: '!stroke-indigo-100',
+		200: '!stroke-indigo-200',
+		300: '!stroke-indigo-300',
+		400: '!stroke-indigo-400',
+		500: '!stroke-indigo-500',
+		600: '!stroke-indigo-600',
+		700: '!stroke-indigo-700',
+		800: '!stroke-indigo-800',
+		900: '!stroke-indigo-900',
+		950: '!stroke-indigo-950'
+	},
+	blue: {
+		50: '!stroke-blue-50',
+		100: '!stroke-blue-100',
+		200: '!stroke-blue-200',
+		300: '!stroke-blue-300',
+		400: '!stroke-blue-400',
+		500: '!stroke-blue-500',
+		600: '!stroke-blue-600',
+		700: '!stroke-blue-700',
+		800: '!stroke-blue-800',
+		900: '!stroke-blue-900',
+		950: '!stroke-blue-950'
+	},
+	light_blue: {
+		50: '!stroke-light_blue-50',
+		100: '!stroke-light_blue-100',
+		200: '!stroke-light_blue-200',
+		300: '!stroke-light_blue-300',
+		400: '!stroke-light_blue-400',
+		500: '!stroke-light_blue-500',
+		600: '!stroke-light_blue-600',
+		700: '!stroke-light_blue-700',
+		800: '!stroke-light_blue-800',
+		900: '!stroke-light_blue-900',
+		950: '!stroke-light_blue-950'
+	},
+	cyan: {
+		50: '!stroke-cyan-50',
+		100: '!stroke-cyan-100',
+		200: '!stroke-cyan-200',
+		300: '!stroke-cyan-300',
+		400: '!stroke-cyan-400',
+		500: '!stroke-cyan-500',
+		600: '!stroke-cyan-600',
+		700: '!stroke-cyan-700',
+		800: '!stroke-cyan-800',
+		900: '!stroke-cyan-900',
+		950: '!stroke-cyan-950'
+	},
+	teal: {
+		50: '!stroke-teal-50',
+		100: '!stroke-teal-100',
+		200: '!stroke-teal-200',
+		300: '!stroke-teal-300',
+		400: '!stroke-teal-400',
+		500: '!stroke-teal-500',
+		600: '!stroke-teal-600',
+		700: '!stroke-teal-700',
+		800: '!stroke-teal-800',
+		900: '!stroke-teal-900',
+		950: '!stroke-teal-950'
+	},
+	green: {
+		50: '!stroke-green-50',
+		100: '!stroke-green-100',
+		200: '!stroke-green-200',
+		300: '!stroke-green-300',
+		400: '!stroke-green-400',
+		500: '!stroke-green-500',
+		600: '!stroke-green-600',
+		700: '!stroke-green-700',
+		800: '!stroke-green-800',
+		900: '!stroke-green-900',
+		950: '!stroke-green-950'
+	},
+	light_green: {
+		50: '!stroke-light_green-50',
+		100: '!stroke-light_green-100',
+		200: '!stroke-light_green-200',
+		300: '!stroke-light_green-300',
+		400: '!stroke-light_green-400',
+		500: '!stroke-light_green-500',
+		600: '!stroke-light_green-600',
+		700: '!stroke-light_green-700',
+		800: '!stroke-light_green-800',
+		900: '!stroke-light_green-900',
+		950: '!stroke-light_green-950'
+	},
+	lime: {
+		50: '!stroke-lime-50',
+		100: '!stroke-lime-100',
+		200: '!stroke-lime-200',
+		300: '!stroke-lime-300',
+		400: '!stroke-lime-400',
+		500: '!stroke-lime-500',
+		600: '!stroke-lime-600',
+		700: '!stroke-lime-700',
+		800: '!stroke-lime-800',
+		900: '!stroke-lime-900',
+		950: '!stroke-lime-950'
+	},
+	yellow: {
+		50: '!stroke-yellow-50',
+		100: '!stroke-yellow-100',
+		200: '!stroke-yellow-200',
+		300: '!stroke-yellow-300',
+		400: '!stroke-yellow-400',
+		500: '!stroke-yellow-500',
+		600: '!stroke-yellow-600',
+		700: '!stroke-yellow-700',
+		800: '!stroke-yellow-800',
+		900: '!stroke-yellow-900',
+		950: '!stroke-yellow-950'
+	},
+	orange: {
+		50: '!stroke-orange-50',
+		100: '!stroke-orange-100',
+		200: '!stroke-orange-200',
+		300: '!stroke-orange-300',
+		400: '!stroke-orange-400',
+		500: '!stroke-orange-500',
+		600: '!stroke-orange-600',
+		700: '!stroke-orange-700',
+		800: '!stroke-orange-800',
+		900: '!stroke-orange-900',
+		950: '!stroke-orange-950'
+	},
+	deep_orange: {
+		50: '!stroke-deep_orange-50',
+		100: '!stroke-deep_orange-100',
+		200: '!stroke-deep_orange-200',
+		300: '!stroke-deep_orange-300',
+		400: '!stroke-deep_orange-400',
+		500: '!stroke-deep_orange-500',
+		600: '!stroke-deep_orange-600',
+		700: '!stroke-deep_orange-700',
+		800: '!stroke-deep_orange-800',
+		900: '!stroke-deep_orange-900',
+		950: '!stroke-deep_orange-950'
+	}
+};
+
 const stroke_width: ThemeStrokeWidthObj = {
 	0: 'stroke-0',
 	1: 'stroke-1',
@@ -237,4 +664,10 @@ const important_stroke_width: ThemeStrokeWidthObj = {
 	6: '!stroke-6',
 	7: '!stroke-7',
 	8: '!stroke-8'
+};
+
+export default {
+	fill,
+	stroke: { ...stroke, important: important_stroke },
+	stroke_width: { ...stroke_width, important: important_stroke_width }
 };
