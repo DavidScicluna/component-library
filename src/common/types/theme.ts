@@ -123,7 +123,7 @@ export type ThemeLineHeight =
 export type ThemeLineHeightArr = Array<ThemeLineHeight>;
 export type ThemeLineHeightObj = Record<ThemeLineHeight, string | number>;
 
-export type ThemeRadius = 'none' | 'xs' | 'sm' | 'base' | 'lg' | 'xl' | 'full';
+export type ThemeRadius = 'none' | 'xs' | 'sm' | 'base' | 'lg' | 'xl' | 'full' | 'inherit';
 export type ThemeRadiusArr = Array<ThemeRadius>;
 export type ThemeRadiusObj = Record<ThemeRadius, string>;
 

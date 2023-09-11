@@ -70,7 +70,8 @@ const borderRadius: ThemeRadiusObj = {
 	base: '10px',
 	lg: '15px',
 	xl: '20px',
-	full: '9999px'
+	full: '9999px',
+	inherit: 'inherit'
 };
 
 const borderWidth: ThemeBorderWidthObj = {
