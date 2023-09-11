@@ -1857,7 +1857,8 @@ const border_radius: ThemeRadiusObj = {
 	base: 'rounded-base',
 	lg: 'rounded-lg',
 	xl: 'rounded-xl',
-	full: 'rounded-full'
+	full: 'rounded-full',
+	inherit: 'rounded-inherit'
 };
 
 const hover_border_radius: ThemeRadiusObj = {
@@ -1867,7 +1868,8 @@ const hover_border_radius: ThemeRadiusObj = {
 	base: 'hover:rounded-base',
 	lg: 'hover:rounded-lg',
 	xl: 'hover:rounded-xl',
-	full: 'hover:rounded-full'
+	full: 'hover:rounded-full',
+	inherit: 'hover:rounded-inherit'
 };
 
 const focus_border_radius: ThemeRadiusObj = {
@@ -1877,7 +1879,8 @@ const focus_border_radius: ThemeRadiusObj = {
 	base: 'focus:rounded-base',
 	lg: 'focus:rounded-lg',
 	xl: 'focus:rounded-xl',
-	full: 'focus:rounded-full'
+	full: 'focus:rounded-full',
+	inherit: 'focus:rounded-inherit'
 };
 
 const active_border_radius: ThemeRadiusObj = {
@@ -1887,7 +1890,8 @@ const active_border_radius: ThemeRadiusObj = {
 	base: 'active:rounded-base',
 	lg: 'active:rounded-lg',
 	xl: 'active:rounded-xl',
-	full: 'active:rounded-full'
+	full: 'active:rounded-full',
+	inherit: 'active:rounded-inherit'
 };
 
 const before_border_radius: ThemeRadiusObj = {
@@ -1897,7 +1901,8 @@ const before_border_radius: ThemeRadiusObj = {
 	base: 'before:rounded-base',
 	lg: 'before:rounded-lg',
 	xl: 'before:rounded-xl',
-	full: 'before:rounded-full'
+	full: 'before:rounded-full',
+	inherit: 'before:rounded-inherit'
 };
 
 const after_border_radius: ThemeRadiusObj = {
@@ -1907,7 +1912,19 @@ const after_border_radius: ThemeRadiusObj = {
 	base: 'after:rounded-base',
 	lg: 'after:rounded-lg',
 	xl: 'after:rounded-xl',
-	full: 'after:rounded-full'
+	full: 'after:rounded-full',
+	inherit: 'after:rounded-inherit'
+};
+
+const important_border_radius: ThemeRadiusObj = {
+	none: '!rounded-none',
+	xs: '!rounded-xs',
+	sm: '!rounded-sm',
+	base: '!rounded-base',
+	lg: '!rounded-lg',
+	xl: '!rounded-xl',
+	full: '!rounded-full',
+	inherit: '!rounded-inherit'
 };
 
 const border_radius_t: ThemeRadiusObj = {
@@ -1917,7 +1934,8 @@ const border_radius_t: ThemeRadiusObj = {
 	base: 'rounded-t-base',
 	lg: 'rounded-t-lg',
 	xl: 'rounded-t-xl',
-	full: 'rounded-t-full'
+	full: 'rounded-t-full',
+	inherit: 'rounded-t-inherit'
 };
 
 const hover_border_radius_t: ThemeRadiusObj = {
@@ -1927,7 +1945,8 @@ const hover_border_radius_t: ThemeRadiusObj = {
 	base: 'hover:rounded-t-base',
 	lg: 'hover:rounded-t-lg',
 	xl: 'hover:rounded-t-xl',
-	full: 'hover:rounded-t-full'
+	full: 'hover:rounded-t-full',
+	inherit: 'hover:rounded-t-inherit'
 };
 
 const focus_border_radius_t: ThemeRadiusObj = {
@@ -1937,7 +1956,8 @@ const focus_border_radius_t: ThemeRadiusObj = {
 	base: 'focus:rounded-t-base',
 	lg: 'focus:rounded-t-lg',
 	xl: 'focus:rounded-t-xl',
-	full: 'focus:rounded-t-full'
+	full: 'focus:rounded-t-full',
+	inherit: 'focus:rounded-t-inherit'
 };
 
 const active_border_radius_t: ThemeRadiusObj = {
@@ -1947,7 +1967,8 @@ const active_border_radius_t: ThemeRadiusObj = {
 	base: 'active:rounded-t-base',
 	lg: 'active:rounded-t-lg',
 	xl: 'active:rounded-t-xl',
-	full: 'active:rounded-t-full'
+	full: 'active:rounded-t-full',
+	inherit: 'active:rounded-t-inherit'
 };
 
 const before_border_radius_t: ThemeRadiusObj = {
@@ -1957,7 +1978,8 @@ const before_border_radius_t: ThemeRadiusObj = {
 	base: 'before:rounded-t-base',
 	lg: 'before:rounded-t-lg',
 	xl: 'before:rounded-t-xl',
-	full: 'before:rounded-t-full'
+	full: 'before:rounded-t-full',
+	inherit: 'before:rounded-t-inherit'
 };
 
 const after_border_radius_t: ThemeRadiusObj = {
@@ -1967,7 +1989,19 @@ const after_border_radius_t: ThemeRadiusObj = {
 	base: 'after:rounded-t-base',
 	lg: 'after:rounded-t-lg',
 	xl: 'after:rounded-t-xl',
-	full: 'after:rounded-t-full'
+	full: 'after:rounded-t-full',
+	inherit: 'after:rounded-t-inherit'
+};
+
+const important_border_radius_t: ThemeRadiusObj = {
+	none: '!rounded-t-none',
+	xs: '!rounded-t-xs',
+	sm: '!rounded-t-sm',
+	base: '!rounded-t-base',
+	lg: '!rounded-t-lg',
+	xl: '!rounded-t-xl',
+	full: '!rounded-t-full',
+	inherit: '!rounded-t-inherit'
 };
 
 const border_radius_r: ThemeRadiusObj = {
@@ -1977,7 +2011,8 @@ const border_radius_r: ThemeRadiusObj = {
 	base: 'rounded-r-base',
 	lg: 'rounded-r-lg',
 	xl: 'rounded-r-xl',
-	full: 'rounded-r-full'
+	full: 'rounded-r-full',
+	inherit: 'rounded-r-inherit'
 };
 
 const hover_border_radius_r: ThemeRadiusObj = {
@@ -1987,7 +2022,8 @@ const hover_border_radius_r: ThemeRadiusObj = {
 	base: 'hover:rounded-r-base',
 	lg: 'hover:rounded-r-lg',
 	xl: 'hover:rounded-r-xl',
-	full: 'hover:rounded-r-full'
+	full: 'hover:rounded-r-full',
+	inherit: 'hover:rounded-r-inherit'
 };
 
 const focus_border_radius_r: ThemeRadiusObj = {
@@ -1997,7 +2033,8 @@ const focus_border_radius_r: ThemeRadiusObj = {
 	base: 'focus:rounded-r-base',
 	lg: 'focus:rounded-r-lg',
 	xl: 'focus:rounded-r-xl',
-	full: 'focus:rounded-r-full'
+	full: 'focus:rounded-r-full',
+	inherit: 'focus:rounded-r-inherit'
 };
 
 const active_border_radius_r: ThemeRadiusObj = {
@@ -2007,7 +2044,8 @@ const active_border_radius_r: ThemeRadiusObj = {
 	base: 'active:rounded-r-base',
 	lg: 'active:rounded-r-lg',
 	xl: 'active:rounded-r-xl',
-	full: 'active:rounded-r-full'
+	full: 'active:rounded-r-full',
+	inherit: 'active:rounded-r-inherit'
 };
 
 const before_border_radius_r: ThemeRadiusObj = {
@@ -2017,7 +2055,8 @@ const before_border_radius_r: ThemeRadiusObj = {
 	base: 'before:rounded-r-base',
 	lg: 'before:rounded-r-lg',
 	xl: 'before:rounded-r-xl',
-	full: 'before:rounded-r-full'
+	full: 'before:rounded-r-full',
+	inherit: 'before:rounded-r-inherit'
 };
 
 const after_border_radius_r: ThemeRadiusObj = {
@@ -2027,7 +2066,19 @@ const after_border_radius_r: ThemeRadiusObj = {
 	base: 'after:rounded-r-base',
 	lg: 'after:rounded-r-lg',
 	xl: 'after:rounded-r-xl',
-	full: 'after:rounded-r-full'
+	full: 'after:rounded-r-full',
+	inherit: 'after:rounded-r-inherit'
+};
+
+const important_border_radius_r: ThemeRadiusObj = {
+	none: '!rounded-r-none',
+	xs: '!rounded-r-xs',
+	sm: '!rounded-r-sm',
+	base: '!rounded-r-base',
+	lg: '!rounded-r-lg',
+	xl: '!rounded-r-xl',
+	full: '!rounded-r-full',
+	inherit: '!rounded-r-inherit'
 };
 
 const border_radius_b: ThemeRadiusObj = {
@@ -2037,7 +2088,8 @@ const border_radius_b: ThemeRadiusObj = {
 	base: 'rounded-b-base',
 	lg: 'rounded-b-lg',
 	xl: 'rounded-b-xl',
-	full: 'rounded-b-full'
+	full: 'rounded-b-full',
+	inherit: 'rounded-b-inherit'
 };
 
 const hover_border_radius_b: ThemeRadiusObj = {
@@ -2047,7 +2099,8 @@ const hover_border_radius_b: ThemeRadiusObj = {
 	base: 'hover:rounded-b-base',
 	lg: 'hover:rounded-b-lg',
 	xl: 'hover:rounded-b-xl',
-	full: 'hover:rounded-b-full'
+	full: 'hover:rounded-b-full',
+	inherit: 'hover:rounded-b-inherit'
 };
 
 const focus_border_radius_b: ThemeRadiusObj = {
@@ -2057,7 +2110,8 @@ const focus_border_radius_b: ThemeRadiusObj = {
 	base: 'focus:rounded-b-base',
 	lg: 'focus:rounded-b-lg',
 	xl: 'focus:rounded-b-xl',
-	full: 'focus:rounded-b-full'
+	full: 'focus:rounded-b-full',
+	inherit: 'focus:rounded-b-inherit'
 };
 
 const active_border_radius_b: ThemeRadiusObj = {
@@ -2067,7 +2121,8 @@ const active_border_radius_b: ThemeRadiusObj = {
 	base: 'active:rounded-b-base',
 	lg: 'active:rounded-b-lg',
 	xl: 'active:rounded-b-xl',
-	full: 'active:rounded-b-full'
+	full: 'active:rounded-b-full',
+	inherit: 'active:rounded-b-inherit'
 };
 
 const before_border_radius_b: ThemeRadiusObj = {
@@ -2077,7 +2132,8 @@ const before_border_radius_b: ThemeRadiusObj = {
 	base: 'before:rounded-b-base',
 	lg: 'before:rounded-b-lg',
 	xl: 'before:rounded-b-xl',
-	full: 'before:rounded-b-full'
+	full: 'before:rounded-b-full',
+	inherit: 'before:rounded-b-inherit'
 };
 
 const after_border_radius_b: ThemeRadiusObj = {
@@ -2087,7 +2143,19 @@ const after_border_radius_b: ThemeRadiusObj = {
 	base: 'after:rounded-b-base',
 	lg: 'after:rounded-b-lg',
 	xl: 'after:rounded-b-xl',
-	full: 'after:rounded-b-full'
+	full: 'after:rounded-b-full',
+	inherit: 'after:rounded-b-inherit'
+};
+
+const important_border_radius_b: ThemeRadiusObj = {
+	none: '!rounded-b-none',
+	xs: '!rounded-b-xs',
+	sm: '!rounded-b-sm',
+	base: '!rounded-b-base',
+	lg: '!rounded-b-lg',
+	xl: '!rounded-b-xl',
+	full: '!rounded-b-full',
+	inherit: '!rounded-b-inherit'
 };
 
 const border_radius_l: ThemeRadiusObj = {
@@ -2097,7 +2165,8 @@ const border_radius_l: ThemeRadiusObj = {
 	base: 'rounded-l-base',
 	lg: 'rounded-l-lg',
 	xl: 'rounded-l-xl',
-	full: 'rounded-l-full'
+	full: 'rounded-l-full',
+	inherit: 'rounded-l-inherit'
 };
 
 const hover_border_radius_l: ThemeRadiusObj = {
@@ -2107,7 +2176,8 @@ const hover_border_radius_l: ThemeRadiusObj = {
 	base: 'hover:rounded-l-base',
 	lg: 'hover:rounded-l-lg',
 	xl: 'hover:rounded-l-xl',
-	full: 'hover:rounded-l-full'
+	full: 'hover:rounded-l-full',
+	inherit: 'hover:rounded-l-inherit'
 };
 
 const focus_border_radius_l: ThemeRadiusObj = {
@@ -2117,7 +2187,8 @@ const focus_border_radius_l: ThemeRadiusObj = {
 	base: 'focus:rounded-l-base',
 	lg: 'focus:rounded-l-lg',
 	xl: 'focus:rounded-l-xl',
-	full: 'focus:rounded-l-full'
+	full: 'focus:rounded-l-full',
+	inherit: 'focus:rounded-l-inherit'
 };
 
 const active_border_radius_l: ThemeRadiusObj = {
@@ -2127,7 +2198,8 @@ const active_border_radius_l: ThemeRadiusObj = {
 	base: 'active:rounded-l-base',
 	lg: 'active:rounded-l-lg',
 	xl: 'active:rounded-l-xl',
-	full: 'active:rounded-l-full'
+	full: 'active:rounded-l-full',
+	inherit: 'active:rounded-l-inherit'
 };
 
 const before_border_radius_l: ThemeRadiusObj = {
@@ -2137,7 +2209,8 @@ const before_border_radius_l: ThemeRadiusObj = {
 	base: 'before:rounded-l-base',
 	lg: 'before:rounded-l-lg',
 	xl: 'before:rounded-l-xl',
-	full: 'before:rounded-l-full'
+	full: 'before:rounded-l-full',
+	inherit: 'before:rounded-l-inherit'
 };
 
 const after_border_radius_l: ThemeRadiusObj = {
@@ -2147,7 +2220,19 @@ const after_border_radius_l: ThemeRadiusObj = {
 	base: 'after:rounded-l-base',
 	lg: 'after:rounded-l-lg',
 	xl: 'after:rounded-l-xl',
-	full: 'after:rounded-l-full'
+	full: 'after:rounded-l-full',
+	inherit: 'after:rounded-l-inherit'
+};
+
+const important_border_radius_l: ThemeRadiusObj = {
+	none: '!rounded-l-none',
+	xs: '!rounded-l-xs',
+	sm: '!rounded-l-sm',
+	base: '!rounded-l-base',
+	lg: '!rounded-l-lg',
+	xl: '!rounded-l-xl',
+	full: '!rounded-l-full',
+	inherit: '!rounded-l-inherit'
 };
 
 const border_radius_tl: ThemeRadiusObj = {
@@ -2157,7 +2242,8 @@ const border_radius_tl: ThemeRadiusObj = {
 	base: 'rounded-tl-base',
 	lg: 'rounded-tl-lg',
 	xl: 'rounded-tl-xl',
-	full: 'rounded-tl-full'
+	full: 'rounded-tl-full',
+	inherit: 'rounded-tl-inherit'
 };
 
 const hover_border_radius_tl: ThemeRadiusObj = {
@@ -2167,7 +2253,8 @@ const hover_border_radius_tl: ThemeRadiusObj = {
 	base: 'hover:rounded-tl-base',
 	lg: 'hover:rounded-tl-lg',
 	xl: 'hover:rounded-tl-xl',
-	full: 'hover:rounded-tl-full'
+	full: 'hover:rounded-tl-full',
+	inherit: 'hover:rounded-tl-inherit'
 };
 
 const focus_border_radius_tl: ThemeRadiusObj = {
@@ -2177,7 +2264,8 @@ const focus_border_radius_tl: ThemeRadiusObj = {
 	base: 'focus:rounded-tl-base',
 	lg: 'focus:rounded-tl-lg',
 	xl: 'focus:rounded-tl-xl',
-	full: 'focus:rounded-tl-full'
+	full: 'focus:rounded-tl-full',
+	inherit: 'focus:rounded-tl-inherit'
 };
 
 const active_border_radius_tl: ThemeRadiusObj = {
@@ -2187,7 +2275,8 @@ const active_border_radius_tl: ThemeRadiusObj = {
 	base: 'active:rounded-tl-base',
 	lg: 'active:rounded-tl-lg',
 	xl: 'active:rounded-tl-xl',
-	full: 'active:rounded-tl-full'
+	full: 'active:rounded-tl-full',
+	inherit: 'active:rounded-tl-inherit'
 };
 
 const before_border_radius_tl: ThemeRadiusObj = {
@@ -2197,7 +2286,8 @@ const before_border_radius_tl: ThemeRadiusObj = {
 	base: 'before:rounded-tl-base',
 	lg: 'before:rounded-tl-lg',
 	xl: 'before:rounded-tl-xl',
-	full: 'before:rounded-tl-full'
+	full: 'before:rounded-tl-full',
+	inherit: 'before:rounded-tl-inherit'
 };
 
 const after_border_radius_tl: ThemeRadiusObj = {
@@ -2207,7 +2297,19 @@ const after_border_radius_tl: ThemeRadiusObj = {
 	base: 'after:rounded-tl-base',
 	lg: 'after:rounded-tl-lg',
 	xl: 'after:rounded-tl-xl',
-	full: 'after:rounded-tl-full'
+	full: 'after:rounded-tl-full',
+	inherit: 'after:rounded-tl-inherit'
+};
+
+const important_border_radius_tl: ThemeRadiusObj = {
+	none: '!rounded-tl-none',
+	xs: '!rounded-tl-xs',
+	sm: '!rounded-tl-sm',
+	base: '!rounded-tl-base',
+	lg: '!rounded-tl-lg',
+	xl: '!rounded-tl-xl',
+	full: '!rounded-tl-full',
+	inherit: '!rounded-tl-inherit'
 };
 
 const border_radius_tr: ThemeRadiusObj = {
@@ -2217,7 +2319,8 @@ const border_radius_tr: ThemeRadiusObj = {
 	base: 'rounded-tr-base',
 	lg: 'rounded-tr-lg',
 	xl: 'rounded-tr-xl',
-	full: 'rounded-tr-full'
+	full: 'rounded-tr-full',
+	inherit: 'rounded-tr-inherit'
 };
 
 const hover_border_radius_tr: ThemeRadiusObj = {
@@ -2227,7 +2330,8 @@ const hover_border_radius_tr: ThemeRadiusObj = {
 	base: 'hover:rounded-tr-base',
 	lg: 'hover:rounded-tr-lg',
 	xl: 'hover:rounded-tr-xl',
-	full: 'hover:rounded-tr-full'
+	full: 'hover:rounded-tr-full',
+	inherit: 'hover:rounded-tr-inherit'
 };
 
 const focus_border_radius_tr: ThemeRadiusObj = {
@@ -2237,7 +2341,8 @@ const focus_border_radius_tr: ThemeRadiusObj = {
 	base: 'focus:rounded-tr-base',
 	lg: 'focus:rounded-tr-lg',
 	xl: 'focus:rounded-tr-xl',
-	full: 'focus:rounded-tr-full'
+	full: 'focus:rounded-tr-full',
+	inherit: 'focus:rounded-tr-inherit'
 };
 
 const active_border_radius_tr: ThemeRadiusObj = {
@@ -2247,7 +2352,8 @@ const active_border_radius_tr: ThemeRadiusObj = {
 	base: 'active:rounded-tr-base',
 	lg: 'active:rounded-tr-lg',
 	xl: 'active:rounded-tr-xl',
-	full: 'active:rounded-tr-full'
+	full: 'active:rounded-tr-full',
+	inherit: 'active:rounded-tr-inherit'
 };
 
 const before_border_radius_tr: ThemeRadiusObj = {
@@ -2257,7 +2363,8 @@ const before_border_radius_tr: ThemeRadiusObj = {
 	base: 'before:rounded-tr-base',
 	lg: 'before:rounded-tr-lg',
 	xl: 'before:rounded-tr-xl',
-	full: 'before:rounded-tr-full'
+	full: 'before:rounded-tr-full',
+	inherit: 'before:rounded-tr-inherit'
 };
 
 const after_border_radius_tr: ThemeRadiusObj = {
@@ -2267,7 +2374,19 @@ const after_border_radius_tr: ThemeRadiusObj = {
 	base: 'after:rounded-tr-base',
 	lg: 'after:rounded-tr-lg',
 	xl: 'after:rounded-tr-xl',
-	full: 'after:rounded-tr-full'
+	full: 'after:rounded-tr-full',
+	inherit: 'after:rounded-tr-inherit'
+};
+
+const important_border_radius_tr: ThemeRadiusObj = {
+	none: '!rounded-tr-none',
+	xs: '!rounded-tr-xs',
+	sm: '!rounded-tr-sm',
+	base: '!rounded-tr-base',
+	lg: '!rounded-tr-lg',
+	xl: '!rounded-tr-xl',
+	full: '!rounded-tr-full',
+	inherit: '!rounded-tr-inherit'
 };
 
 const border_radius_br: ThemeRadiusObj = {
@@ -2277,7 +2396,8 @@ const border_radius_br: ThemeRadiusObj = {
 	base: 'rounded-br-base',
 	lg: 'rounded-br-lg',
 	xl: 'rounded-br-xl',
-	full: 'rounded-br-full'
+	full: 'rounded-br-full',
+	inherit: 'rounded-br-inherit'
 };
 
 const hover_border_radius_br: ThemeRadiusObj = {
@@ -2287,7 +2407,8 @@ const hover_border_radius_br: ThemeRadiusObj = {
 	base: 'hover:rounded-br-base',
 	lg: 'hover:rounded-br-lg',
 	xl: 'hover:rounded-br-xl',
-	full: 'hover:rounded-br-full'
+	full: 'hover:rounded-br-full',
+	inherit: 'hover:rounded-br-inherit'
 };
 
 const focus_border_radius_br: ThemeRadiusObj = {
@@ -2297,7 +2418,8 @@ const focus_border_radius_br: ThemeRadiusObj = {
 	base: 'focus:rounded-br-base',
 	lg: 'focus:rounded-br-lg',
 	xl: 'focus:rounded-br-xl',
-	full: 'focus:rounded-br-full'
+	full: 'focus:rounded-br-full',
+	inherit: 'focus:rounded-br-inherit'
 };
 
 const active_border_radius_br: ThemeRadiusObj = {
@@ -2307,7 +2429,8 @@ const active_border_radius_br: ThemeRadiusObj = {
 	base: 'active:rounded-br-base',
 	lg: 'active:rounded-br-lg',
 	xl: 'active:rounded-br-xl',
-	full: 'active:rounded-br-full'
+	full: 'active:rounded-br-full',
+	inherit: 'active:rounded-br-inherit'
 };
 
 const before_border_radius_br: ThemeRadiusObj = {
@@ -2317,7 +2440,8 @@ const before_border_radius_br: ThemeRadiusObj = {
 	base: 'before:rounded-br-base',
 	lg: 'before:rounded-br-lg',
 	xl: 'before:rounded-br-xl',
-	full: 'before:rounded-br-full'
+	full: 'before:rounded-br-full',
+	inherit: 'before:rounded-br-inherit'
 };
 
 const after_border_radius_br: ThemeRadiusObj = {
@@ -2327,7 +2451,19 @@ const after_border_radius_br: ThemeRadiusObj = {
 	base: 'after:rounded-br-base',
 	lg: 'after:rounded-br-lg',
 	xl: 'after:rounded-br-xl',
-	full: 'after:rounded-br-full'
+	full: 'after:rounded-br-full',
+	inherit: 'after:rounded-br-inherit'
+};
+
+const important_border_radius_br: ThemeRadiusObj = {
+	none: '!rounded-br-none',
+	xs: '!rounded-br-xs',
+	sm: '!rounded-br-sm',
+	base: '!rounded-br-base',
+	lg: '!rounded-br-lg',
+	xl: '!rounded-br-xl',
+	full: '!rounded-br-full',
+	inherit: '!rounded-br-inherit'
 };
 
 const border_radius_bl: ThemeRadiusObj = {
@@ -2337,7 +2473,8 @@ const border_radius_bl: ThemeRadiusObj = {
 	base: 'rounded-bl-base',
 	lg: 'rounded-bl-lg',
 	xl: 'rounded-bl-xl',
-	full: 'rounded-bl-full'
+	full: 'rounded-bl-full',
+	inherit: 'rounded-bl-inherit'
 };
 
 const hover_border_radius_bl: ThemeRadiusObj = {
@@ -2347,7 +2484,8 @@ const hover_border_radius_bl: ThemeRadiusObj = {
 	base: 'hover:rounded-bl-base',
 	lg: 'hover:rounded-bl-lg',
 	xl: 'hover:rounded-bl-xl',
-	full: 'hover:rounded-bl-full'
+	full: 'hover:rounded-bl-full',
+	inherit: 'hover:rounded-bl-inherit'
 };
 
 const focus_border_radius_bl: ThemeRadiusObj = {
@@ -2357,7 +2495,8 @@ const focus_border_radius_bl: ThemeRadiusObj = {
 	base: 'focus:rounded-bl-base',
 	lg: 'focus:rounded-bl-lg',
 	xl: 'focus:rounded-bl-xl',
-	full: 'focus:rounded-bl-full'
+	full: 'focus:rounded-bl-full',
+	inherit: 'focus:rounded-bl-inherit'
 };
 
 const active_border_radius_bl: ThemeRadiusObj = {
@@ -2367,7 +2506,8 @@ const active_border_radius_bl: ThemeRadiusObj = {
 	base: 'active:rounded-bl-base',
 	lg: 'active:rounded-bl-lg',
 	xl: 'active:rounded-bl-xl',
-	full: 'active:rounded-bl-full'
+	full: 'active:rounded-bl-full',
+	inherit: 'active:rounded-bl-inherit'
 };
 
 const before_border_radius_bl: ThemeRadiusObj = {
@@ -2377,7 +2517,8 @@ const before_border_radius_bl: ThemeRadiusObj = {
 	base: 'before:rounded-bl-base',
 	lg: 'before:rounded-bl-lg',
 	xl: 'before:rounded-bl-xl',
-	full: 'before:rounded-bl-full'
+	full: 'before:rounded-bl-full',
+	inherit: 'before:rounded-bl-inherit'
 };
 
 const after_border_radius_bl: ThemeRadiusObj = {
@@ -2387,7 +2528,19 @@ const after_border_radius_bl: ThemeRadiusObj = {
 	base: 'after:rounded-bl-base',
 	lg: 'after:rounded-bl-lg',
 	xl: 'after:rounded-bl-xl',
-	full: 'after:rounded-bl-full'
+	full: 'after:rounded-bl-full',
+	inherit: 'after:rounded-bl-inherit'
+};
+
+const important_border_radius_bl: ThemeRadiusObj = {
+	none: '!rounded-bl-none',
+	xs: '!rounded-bl-xs',
+	sm: '!rounded-bl-sm',
+	base: '!rounded-bl-base',
+	lg: '!rounded-bl-lg',
+	xl: '!rounded-bl-xl',
+	full: '!rounded-bl-full',
+	inherit: '!rounded-bl-inherit'
 };
 
 const outline_width: OutlineWidthClassObj = {
@@ -4135,7 +4288,8 @@ export default {
 		focus: focus_border_radius,
 		active: active_border_radius,
 		before: before_border_radius,
-		after: after_border_radius
+		after: after_border_radius,
+		important: important_border_radius
 	},
 	border_radius_t: {
 		...border_radius_t,
@@ -4143,7 +4297,8 @@ export default {
 		focus: focus_border_radius_t,
 		active: active_border_radius_t,
 		before: before_border_radius_t,
-		after: after_border_radius_t
+		after: after_border_radius_t,
+		important: important_border_radius_t
 	},
 	border_radius_r: {
 		...border_radius_r,
@@ -4151,7 +4306,8 @@ export default {
 		focus: focus_border_radius_r,
 		active: active_border_radius_r,
 		before: before_border_radius_r,
-		after: after_border_radius_r
+		after: after_border_radius_r,
+		important: important_border_radius_r
 	},
 	border_radius_b: {
 		...border_radius_b,
@@ -4159,7 +4315,8 @@ export default {
 		focus: focus_border_radius_b,
 		active: active_border_radius_b,
 		before: before_border_radius_b,
-		after: after_border_radius_b
+		after: after_border_radius_b,
+		important: important_border_radius_b
 	},
 	border_radius_l: {
 		...border_radius_l,
@@ -4167,7 +4324,8 @@ export default {
 		focus: focus_border_radius_l,
 		active: active_border_radius_l,
 		before: before_border_radius_l,
-		after: after_border_radius_l
+		after: after_border_radius_l,
+		important: important_border_radius_l
 	},
 	border_radius_tl: {
 		...border_radius_tl,
@@ -4175,7 +4333,8 @@ export default {
 		focus: focus_border_radius_tl,
 		active: active_border_radius_tl,
 		before: before_border_radius_tl,
-		after: after_border_radius_tl
+		after: after_border_radius_tl,
+		important: important_border_radius_tl
 	},
 	border_radius_tr: {
 		...border_radius_tr,
@@ -4183,7 +4342,8 @@ export default {
 		focus: focus_border_radius_tr,
 		active: active_border_radius_tr,
 		before: before_border_radius_tr,
-		after: after_border_radius_tr
+		after: after_border_radius_tr,
+		important: important_border_radius_tr
 	},
 	border_radius_br: {
 		...border_radius_br,
@@ -4191,7 +4351,8 @@ export default {
 		focus: focus_border_radius_br,
 		active: active_border_radius_br,
 		before: before_border_radius_br,
-		after: after_border_radius_br
+		after: after_border_radius_br,
+		important: important_border_radius_br
 	},
 	border_radius_bl: {
 		...border_radius_bl,
@@ -4199,7 +4360,8 @@ export default {
 		focus: focus_border_radius_bl,
 		active: active_border_radius_bl,
 		before: before_border_radius_bl,
-		after: after_border_radius_bl
+		after: after_border_radius_bl,
+		important: important_border_radius_bl
 	},
 	outline_width: {
 		...outline_width,
