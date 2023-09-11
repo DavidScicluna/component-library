@@ -13,6 +13,8 @@ import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 import { Center, Grid, GridItem } from '@components/Layout';
 import { PushableOverlay } from '@components/Overlay/components/PushableOverlay';
 
+import { useButtonGroupContext } from '../ButtonGroup';
+
 import {
 	// __DEFAULT_BUTTON_CAN_CLICK_ON_ENTER__,
 	// __DEFAULT_BUTTON_CAN_CLICK_ON_SPACE__,
@@ -55,24 +57,35 @@ const Button = forwardRef(function Button<Element extends ButtonElement = Button
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const {
+		color: __DEFAULT_BUTTON_GROUP_COLOR__,
+		colorMode: __DEFAULT_BUTTON_GROUP_COLORMODE__,
+		isCompact: __DEFAULT_BUTTON_GROUP_IS_COMPACT__ = __DEFAULT_BUTTON_IS_COMPACT__,
+		isDisabled: __DEFAULT_BUTTON_GROUP_IS_DISABLED__ = __DEFAULT_BUTTON_IS_DISABLED__,
+		isFullWidth: __DEFAULT_BUTTON_GROUP_IS_FULLWIDTH__ = __DEFAULT_BUTTON_IS_FULLWIDTH__,
+		isRound: __DEFAULT_BUTTON_GROUP_IS_ROUND__ = __DEFAULT_BUTTON_IS_ROUND__,
+		size: __DEFAULT_BUTTON_GROUP_SIZE__ = __DEFAULT_BUTTON_SIZE__,
+		variant: __DEFAULT_BUTTON_GROUP_VARIANT__ = __DEFAULT_BUTTON_VARIANT__
+	} = useButtonGroupContext();
+
+	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
 		renderLeft,
 		renderRight,
 		renderSpinner,
-		color,
-		colorMode,
+		color = __DEFAULT_BUTTON_GROUP_COLOR__,
+		colorMode = __DEFAULT_BUTTON_GROUP_COLORMODE__,
 		// canClickOnEnter = __DEFAULT_BUTTON_CAN_CLICK_ON_ENTER__,
 		// canClickOnSpace = __DEFAULT_BUTTON_CAN_CLICK_ON_SPACE__,
 		isActive = __DEFAULT_BUTTON_IS_ACTIVE__,
-		isCompact = __DEFAULT_BUTTON_IS_COMPACT__,
-		isDisabled = __DEFAULT_BUTTON_IS_DISABLED__,
+		isCompact = __DEFAULT_BUTTON_GROUP_IS_COMPACT__,
+		isDisabled = __DEFAULT_BUTTON_GROUP_IS_DISABLED__,
 		// isFocusable = __DEFAULT_BUTTON_IS_FOCUSABLE__,
-		isFullWidth = __DEFAULT_BUTTON_IS_FULLWIDTH__,
+		isFullWidth = __DEFAULT_BUTTON_GROUP_IS_FULLWIDTH__,
 		isLoading = __DEFAULT_BUTTON_IS_LOADING__,
-		isRound = __DEFAULT_BUTTON_IS_ROUND__,
-		size: s = __DEFAULT_BUTTON_SIZE__,
-		variant: v = __DEFAULT_BUTTON_VARIANT__,
+		isRound = __DEFAULT_BUTTON_GROUP_IS_ROUND__,
+		size: s = __DEFAULT_BUTTON_GROUP_SIZE__,
+		variant: v = __DEFAULT_BUTTON_GROUP_VARIANT__,
 		...rest
 	} = props;
 
