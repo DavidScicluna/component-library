@@ -1910,6 +1910,486 @@ const after_border_radius: ThemeRadiusObj = {
 	full: 'after:rounded-full'
 };
 
+const border_radius_t: ThemeRadiusObj = {
+	none: 'rounded-t-none',
+	xs: 'rounded-t-xs',
+	sm: 'rounded-t-sm',
+	base: 'rounded-t-base',
+	lg: 'rounded-t-lg',
+	xl: 'rounded-t-xl',
+	full: 'rounded-t-full'
+};
+
+const hover_border_radius_t: ThemeRadiusObj = {
+	none: 'hover:rounded-t-none',
+	xs: 'hover:rounded-t-xs',
+	sm: 'hover:rounded-t-sm',
+	base: 'hover:rounded-t-base',
+	lg: 'hover:rounded-t-lg',
+	xl: 'hover:rounded-t-xl',
+	full: 'hover:rounded-t-full'
+};
+
+const focus_border_radius_t: ThemeRadiusObj = {
+	none: 'focus:rounded-t-none',
+	xs: 'focus:rounded-t-xs',
+	sm: 'focus:rounded-t-sm',
+	base: 'focus:rounded-t-base',
+	lg: 'focus:rounded-t-lg',
+	xl: 'focus:rounded-t-xl',
+	full: 'focus:rounded-t-full'
+};
+
+const active_border_radius_t: ThemeRadiusObj = {
+	none: 'active:rounded-t-none',
+	xs: 'active:rounded-t-xs',
+	sm: 'active:rounded-t-sm',
+	base: 'active:rounded-t-base',
+	lg: 'active:rounded-t-lg',
+	xl: 'active:rounded-t-xl',
+	full: 'active:rounded-t-full'
+};
+
+const before_border_radius_t: ThemeRadiusObj = {
+	none: 'before:rounded-t-none',
+	xs: 'before:rounded-t-xs',
+	sm: 'before:rounded-t-sm',
+	base: 'before:rounded-t-base',
+	lg: 'before:rounded-t-lg',
+	xl: 'before:rounded-t-xl',
+	full: 'before:rounded-t-full'
+};
+
+const after_border_radius_t: ThemeRadiusObj = {
+	none: 'after:rounded-t-none',
+	xs: 'after:rounded-t-xs',
+	sm: 'after:rounded-t-sm',
+	base: 'after:rounded-t-base',
+	lg: 'after:rounded-t-lg',
+	xl: 'after:rounded-t-xl',
+	full: 'after:rounded-t-full'
+};
+
+const border_radius_r: ThemeRadiusObj = {
+	none: 'rounded-r-none',
+	xs: 'rounded-r-xs',
+	sm: 'rounded-r-sm',
+	base: 'rounded-r-base',
+	lg: 'rounded-r-lg',
+	xl: 'rounded-r-xl',
+	full: 'rounded-r-full'
+};
+
+const hover_border_radius_r: ThemeRadiusObj = {
+	none: 'hover:rounded-r-none',
+	xs: 'hover:rounded-r-xs',
+	sm: 'hover:rounded-r-sm',
+	base: 'hover:rounded-r-base',
+	lg: 'hover:rounded-r-lg',
+	xl: 'hover:rounded-r-xl',
+	full: 'hover:rounded-r-full'
+};
+
+const focus_border_radius_r: ThemeRadiusObj = {
+	none: 'focus:rounded-r-none',
+	xs: 'focus:rounded-r-xs',
+	sm: 'focus:rounded-r-sm',
+	base: 'focus:rounded-r-base',
+	lg: 'focus:rounded-r-lg',
+	xl: 'focus:rounded-r-xl',
+	full: 'focus:rounded-r-full'
+};
+
+const active_border_radius_r: ThemeRadiusObj = {
+	none: 'active:rounded-r-none',
+	xs: 'active:rounded-r-xs',
+	sm: 'active:rounded-r-sm',
+	base: 'active:rounded-r-base',
+	lg: 'active:rounded-r-lg',
+	xl: 'active:rounded-r-xl',
+	full: 'active:rounded-r-full'
+};
+
+const before_border_radius_r: ThemeRadiusObj = {
+	none: 'before:rounded-r-none',
+	xs: 'before:rounded-r-xs',
+	sm: 'before:rounded-r-sm',
+	base: 'before:rounded-r-base',
+	lg: 'before:rounded-r-lg',
+	xl: 'before:rounded-r-xl',
+	full: 'before:rounded-r-full'
+};
+
+const after_border_radius_r: ThemeRadiusObj = {
+	none: 'after:rounded-r-none',
+	xs: 'after:rounded-r-xs',
+	sm: 'after:rounded-r-sm',
+	base: 'after:rounded-r-base',
+	lg: 'after:rounded-r-lg',
+	xl: 'after:rounded-r-xl',
+	full: 'after:rounded-r-full'
+};
+
+const border_radius_b: ThemeRadiusObj = {
+	none: 'rounded-b-none',
+	xs: 'rounded-b-xs',
+	sm: 'rounded-b-sm',
+	base: 'rounded-b-base',
+	lg: 'rounded-b-lg',
+	xl: 'rounded-b-xl',
+	full: 'rounded-b-full'
+};
+
+const hover_border_radius_b: ThemeRadiusObj = {
+	none: 'hover:rounded-b-none',
+	xs: 'hover:rounded-b-xs',
+	sm: 'hover:rounded-b-sm',
+	base: 'hover:rounded-b-base',
+	lg: 'hover:rounded-b-lg',
+	xl: 'hover:rounded-b-xl',
+	full: 'hover:rounded-b-full'
+};
+
+const focus_border_radius_b: ThemeRadiusObj = {
+	none: 'focus:rounded-b-none',
+	xs: 'focus:rounded-b-xs',
+	sm: 'focus:rounded-b-sm',
+	base: 'focus:rounded-b-base',
+	lg: 'focus:rounded-b-lg',
+	xl: 'focus:rounded-b-xl',
+	full: 'focus:rounded-b-full'
+};
+
+const active_border_radius_b: ThemeRadiusObj = {
+	none: 'active:rounded-b-none',
+	xs: 'active:rounded-b-xs',
+	sm: 'active:rounded-b-sm',
+	base: 'active:rounded-b-base',
+	lg: 'active:rounded-b-lg',
+	xl: 'active:rounded-b-xl',
+	full: 'active:rounded-b-full'
+};
+
+const before_border_radius_b: ThemeRadiusObj = {
+	none: 'before:rounded-b-none',
+	xs: 'before:rounded-b-xs',
+	sm: 'before:rounded-b-sm',
+	base: 'before:rounded-b-base',
+	lg: 'before:rounded-b-lg',
+	xl: 'before:rounded-b-xl',
+	full: 'before:rounded-b-full'
+};
+
+const after_border_radius_b: ThemeRadiusObj = {
+	none: 'after:rounded-b-none',
+	xs: 'after:rounded-b-xs',
+	sm: 'after:rounded-b-sm',
+	base: 'after:rounded-b-base',
+	lg: 'after:rounded-b-lg',
+	xl: 'after:rounded-b-xl',
+	full: 'after:rounded-b-full'
+};
+
+const border_radius_l: ThemeRadiusObj = {
+	none: 'rounded-l-none',
+	xs: 'rounded-l-xs',
+	sm: 'rounded-l-sm',
+	base: 'rounded-l-base',
+	lg: 'rounded-l-lg',
+	xl: 'rounded-l-xl',
+	full: 'rounded-l-full'
+};
+
+const hover_border_radius_l: ThemeRadiusObj = {
+	none: 'hover:rounded-l-none',
+	xs: 'hover:rounded-l-xs',
+	sm: 'hover:rounded-l-sm',
+	base: 'hover:rounded-l-base',
+	lg: 'hover:rounded-l-lg',
+	xl: 'hover:rounded-l-xl',
+	full: 'hover:rounded-l-full'
+};
+
+const focus_border_radius_l: ThemeRadiusObj = {
+	none: 'focus:rounded-l-none',
+	xs: 'focus:rounded-l-xs',
+	sm: 'focus:rounded-l-sm',
+	base: 'focus:rounded-l-base',
+	lg: 'focus:rounded-l-lg',
+	xl: 'focus:rounded-l-xl',
+	full: 'focus:rounded-l-full'
+};
+
+const active_border_radius_l: ThemeRadiusObj = {
+	none: 'active:rounded-l-none',
+	xs: 'active:rounded-l-xs',
+	sm: 'active:rounded-l-sm',
+	base: 'active:rounded-l-base',
+	lg: 'active:rounded-l-lg',
+	xl: 'active:rounded-l-xl',
+	full: 'active:rounded-l-full'
+};
+
+const before_border_radius_l: ThemeRadiusObj = {
+	none: 'before:rounded-l-none',
+	xs: 'before:rounded-l-xs',
+	sm: 'before:rounded-l-sm',
+	base: 'before:rounded-l-base',
+	lg: 'before:rounded-l-lg',
+	xl: 'before:rounded-l-xl',
+	full: 'before:rounded-l-full'
+};
+
+const after_border_radius_l: ThemeRadiusObj = {
+	none: 'after:rounded-l-none',
+	xs: 'after:rounded-l-xs',
+	sm: 'after:rounded-l-sm',
+	base: 'after:rounded-l-base',
+	lg: 'after:rounded-l-lg',
+	xl: 'after:rounded-l-xl',
+	full: 'after:rounded-l-full'
+};
+
+const border_radius_tl: ThemeRadiusObj = {
+	none: 'rounded-tl-none',
+	xs: 'rounded-tl-xs',
+	sm: 'rounded-tl-sm',
+	base: 'rounded-tl-base',
+	lg: 'rounded-tl-lg',
+	xl: 'rounded-tl-xl',
+	full: 'rounded-tl-full'
+};
+
+const hover_border_radius_tl: ThemeRadiusObj = {
+	none: 'hover:rounded-tl-none',
+	xs: 'hover:rounded-tl-xs',
+	sm: 'hover:rounded-tl-sm',
+	base: 'hover:rounded-tl-base',
+	lg: 'hover:rounded-tl-lg',
+	xl: 'hover:rounded-tl-xl',
+	full: 'hover:rounded-tl-full'
+};
+
+const focus_border_radius_tl: ThemeRadiusObj = {
+	none: 'focus:rounded-tl-none',
+	xs: 'focus:rounded-tl-xs',
+	sm: 'focus:rounded-tl-sm',
+	base: 'focus:rounded-tl-base',
+	lg: 'focus:rounded-tl-lg',
+	xl: 'focus:rounded-tl-xl',
+	full: 'focus:rounded-tl-full'
+};
+
+const active_border_radius_tl: ThemeRadiusObj = {
+	none: 'active:rounded-tl-none',
+	xs: 'active:rounded-tl-xs',
+	sm: 'active:rounded-tl-sm',
+	base: 'active:rounded-tl-base',
+	lg: 'active:rounded-tl-lg',
+	xl: 'active:rounded-tl-xl',
+	full: 'active:rounded-tl-full'
+};
+
+const before_border_radius_tl: ThemeRadiusObj = {
+	none: 'before:rounded-tl-none',
+	xs: 'before:rounded-tl-xs',
+	sm: 'before:rounded-tl-sm',
+	base: 'before:rounded-tl-base',
+	lg: 'before:rounded-tl-lg',
+	xl: 'before:rounded-tl-xl',
+	full: 'before:rounded-tl-full'
+};
+
+const after_border_radius_tl: ThemeRadiusObj = {
+	none: 'after:rounded-tl-none',
+	xs: 'after:rounded-tl-xs',
+	sm: 'after:rounded-tl-sm',
+	base: 'after:rounded-tl-base',
+	lg: 'after:rounded-tl-lg',
+	xl: 'after:rounded-tl-xl',
+	full: 'after:rounded-tl-full'
+};
+
+const border_radius_tr: ThemeRadiusObj = {
+	none: 'rounded-tr-none',
+	xs: 'rounded-tr-xs',
+	sm: 'rounded-tr-sm',
+	base: 'rounded-tr-base',
+	lg: 'rounded-tr-lg',
+	xl: 'rounded-tr-xl',
+	full: 'rounded-tr-full'
+};
+
+const hover_border_radius_tr: ThemeRadiusObj = {
+	none: 'hover:rounded-tr-none',
+	xs: 'hover:rounded-tr-xs',
+	sm: 'hover:rounded-tr-sm',
+	base: 'hover:rounded-tr-base',
+	lg: 'hover:rounded-tr-lg',
+	xl: 'hover:rounded-tr-xl',
+	full: 'hover:rounded-tr-full'
+};
+
+const focus_border_radius_tr: ThemeRadiusObj = {
+	none: 'focus:rounded-tr-none',
+	xs: 'focus:rounded-tr-xs',
+	sm: 'focus:rounded-tr-sm',
+	base: 'focus:rounded-tr-base',
+	lg: 'focus:rounded-tr-lg',
+	xl: 'focus:rounded-tr-xl',
+	full: 'focus:rounded-tr-full'
+};
+
+const active_border_radius_tr: ThemeRadiusObj = {
+	none: 'active:rounded-tr-none',
+	xs: 'active:rounded-tr-xs',
+	sm: 'active:rounded-tr-sm',
+	base: 'active:rounded-tr-base',
+	lg: 'active:rounded-tr-lg',
+	xl: 'active:rounded-tr-xl',
+	full: 'active:rounded-tr-full'
+};
+
+const before_border_radius_tr: ThemeRadiusObj = {
+	none: 'before:rounded-tr-none',
+	xs: 'before:rounded-tr-xs',
+	sm: 'before:rounded-tr-sm',
+	base: 'before:rounded-tr-base',
+	lg: 'before:rounded-tr-lg',
+	xl: 'before:rounded-tr-xl',
+	full: 'before:rounded-tr-full'
+};
+
+const after_border_radius_tr: ThemeRadiusObj = {
+	none: 'after:rounded-tr-none',
+	xs: 'after:rounded-tr-xs',
+	sm: 'after:rounded-tr-sm',
+	base: 'after:rounded-tr-base',
+	lg: 'after:rounded-tr-lg',
+	xl: 'after:rounded-tr-xl',
+	full: 'after:rounded-tr-full'
+};
+
+const border_radius_br: ThemeRadiusObj = {
+	none: 'rounded-br-none',
+	xs: 'rounded-br-xs',
+	sm: 'rounded-br-sm',
+	base: 'rounded-br-base',
+	lg: 'rounded-br-lg',
+	xl: 'rounded-br-xl',
+	full: 'rounded-br-full'
+};
+
+const hover_border_radius_br: ThemeRadiusObj = {
+	none: 'hover:rounded-br-none',
+	xs: 'hover:rounded-br-xs',
+	sm: 'hover:rounded-br-sm',
+	base: 'hover:rounded-br-base',
+	lg: 'hover:rounded-br-lg',
+	xl: 'hover:rounded-br-xl',
+	full: 'hover:rounded-br-full'
+};
+
+const focus_border_radius_br: ThemeRadiusObj = {
+	none: 'focus:rounded-br-none',
+	xs: 'focus:rounded-br-xs',
+	sm: 'focus:rounded-br-sm',
+	base: 'focus:rounded-br-base',
+	lg: 'focus:rounded-br-lg',
+	xl: 'focus:rounded-br-xl',
+	full: 'focus:rounded-br-full'
+};
+
+const active_border_radius_br: ThemeRadiusObj = {
+	none: 'active:rounded-br-none',
+	xs: 'active:rounded-br-xs',
+	sm: 'active:rounded-br-sm',
+	base: 'active:rounded-br-base',
+	lg: 'active:rounded-br-lg',
+	xl: 'active:rounded-br-xl',
+	full: 'active:rounded-br-full'
+};
+
+const before_border_radius_br: ThemeRadiusObj = {
+	none: 'before:rounded-br-none',
+	xs: 'before:rounded-br-xs',
+	sm: 'before:rounded-br-sm',
+	base: 'before:rounded-br-base',
+	lg: 'before:rounded-br-lg',
+	xl: 'before:rounded-br-xl',
+	full: 'before:rounded-br-full'
+};
+
+const after_border_radius_br: ThemeRadiusObj = {
+	none: 'after:rounded-br-none',
+	xs: 'after:rounded-br-xs',
+	sm: 'after:rounded-br-sm',
+	base: 'after:rounded-br-base',
+	lg: 'after:rounded-br-lg',
+	xl: 'after:rounded-br-xl',
+	full: 'after:rounded-br-full'
+};
+
+const border_radius_bl: ThemeRadiusObj = {
+	none: 'rounded-bl-none',
+	xs: 'rounded-bl-xs',
+	sm: 'rounded-bl-sm',
+	base: 'rounded-bl-base',
+	lg: 'rounded-bl-lg',
+	xl: 'rounded-bl-xl',
+	full: 'rounded-bl-full'
+};
+
+const hover_border_radius_bl: ThemeRadiusObj = {
+	none: 'hover:rounded-bl-none',
+	xs: 'hover:rounded-bl-xs',
+	sm: 'hover:rounded-bl-sm',
+	base: 'hover:rounded-bl-base',
+	lg: 'hover:rounded-bl-lg',
+	xl: 'hover:rounded-bl-xl',
+	full: 'hover:rounded-bl-full'
+};
+
+const focus_border_radius_bl: ThemeRadiusObj = {
+	none: 'focus:rounded-bl-none',
+	xs: 'focus:rounded-bl-xs',
+	sm: 'focus:rounded-bl-sm',
+	base: 'focus:rounded-bl-base',
+	lg: 'focus:rounded-bl-lg',
+	xl: 'focus:rounded-bl-xl',
+	full: 'focus:rounded-bl-full'
+};
+
+const active_border_radius_bl: ThemeRadiusObj = {
+	none: 'active:rounded-bl-none',
+	xs: 'active:rounded-bl-xs',
+	sm: 'active:rounded-bl-sm',
+	base: 'active:rounded-bl-base',
+	lg: 'active:rounded-bl-lg',
+	xl: 'active:rounded-bl-xl',
+	full: 'active:rounded-bl-full'
+};
+
+const before_border_radius_bl: ThemeRadiusObj = {
+	none: 'before:rounded-bl-none',
+	xs: 'before:rounded-bl-xs',
+	sm: 'before:rounded-bl-sm',
+	base: 'before:rounded-bl-base',
+	lg: 'before:rounded-bl-lg',
+	xl: 'before:rounded-bl-xl',
+	full: 'before:rounded-bl-full'
+};
+
+const after_border_radius_bl: ThemeRadiusObj = {
+	none: 'after:rounded-bl-none',
+	xs: 'after:rounded-bl-xs',
+	sm: 'after:rounded-bl-sm',
+	base: 'after:rounded-bl-base',
+	lg: 'after:rounded-bl-lg',
+	xl: 'after:rounded-bl-xl',
+	full: 'after:rounded-bl-full'
+};
+
 const outline_width: OutlineWidthClassObj = {
 	0: 'outline-0',
 	1: 'outline-1',
@@ -3656,6 +4136,70 @@ export default {
 		active: active_border_radius,
 		before: before_border_radius,
 		after: after_border_radius
+	},
+	border_radius_t: {
+		...border_radius_t,
+		hover: hover_border_radius_t,
+		focus: focus_border_radius_t,
+		active: active_border_radius_t,
+		before: before_border_radius_t,
+		after: after_border_radius_t
+	},
+	border_radius_r: {
+		...border_radius_r,
+		hover: hover_border_radius_r,
+		focus: focus_border_radius_r,
+		active: active_border_radius_r,
+		before: before_border_radius_r,
+		after: after_border_radius_r
+	},
+	border_radius_b: {
+		...border_radius_b,
+		hover: hover_border_radius_b,
+		focus: focus_border_radius_b,
+		active: active_border_radius_b,
+		before: before_border_radius_b,
+		after: after_border_radius_b
+	},
+	border_radius_l: {
+		...border_radius_l,
+		hover: hover_border_radius_l,
+		focus: focus_border_radius_l,
+		active: active_border_radius_l,
+		before: before_border_radius_l,
+		after: after_border_radius_l
+	},
+	border_radius_tl: {
+		...border_radius_tl,
+		hover: hover_border_radius_tl,
+		focus: focus_border_radius_tl,
+		active: active_border_radius_tl,
+		before: before_border_radius_tl,
+		after: after_border_radius_tl
+	},
+	border_radius_tr: {
+		...border_radius_tr,
+		hover: hover_border_radius_tr,
+		focus: focus_border_radius_tr,
+		active: active_border_radius_tr,
+		before: before_border_radius_tr,
+		after: after_border_radius_tr
+	},
+	border_radius_br: {
+		...border_radius_br,
+		hover: hover_border_radius_br,
+		focus: focus_border_radius_br,
+		active: active_border_radius_br,
+		before: before_border_radius_br,
+		after: after_border_radius_br
+	},
+	border_radius_bl: {
+		...border_radius_bl,
+		hover: hover_border_radius_bl,
+		focus: focus_border_radius_bl,
+		active: active_border_radius_bl,
+		before: before_border_radius_bl,
+		after: after_border_radius_bl
 	},
 	outline_width: {
 		...outline_width,
