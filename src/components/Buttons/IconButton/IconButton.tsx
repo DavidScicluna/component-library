@@ -11,6 +11,8 @@ import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 import { Center } from '@components/Layout';
 import { PushableOverlay } from '@components/Overlay/components/PushableOverlay';
 
+import { useIconButtonGroupContext } from '../IconButtonGroup';
+
 import {
 	// __DEFAULT_ICON_BUTTON_CAN_CLICK_ON_ENTER__,
 	// __DEFAULT_ICON_BUTTON_CAN_CLICK_ON_SPACE__,
@@ -50,21 +52,31 @@ const IconButton = forwardRef(function IconButton<Element extends IconButtonElem
 	// const refs = useMergeRefs<IconButtonRef<Element>>(ref, internalRef);
 
 	const {
+		color: __DEFAULT_ICON_BUTTON_GROUP_COLOR__,
+		colorMode: __DEFAULT_ICON_BUTTON_GROUP_COLORMODE__,
+		isCompact: __DEFAULT_ICON_BUTTON_GROUP_IS_COMPACT__ = __DEFAULT_ICON_BUTTON_IS_COMPACT__,
+		isDisabled: __DEFAULT_ICON_BUTTON_GROUP_IS_DISABLED__ = __DEFAULT_ICON_BUTTON_IS_DISABLED__,
+		isRound: __DEFAULT_ICON_BUTTON_GROUP_IS_ROUND__ = __DEFAULT_ICON_BUTTON_IS_ROUND__,
+		size: __DEFAULT_ICON_BUTTON_GROUP_SIZE__ = __DEFAULT_ICON_BUTTON_SIZE__,
+		variant: __DEFAULT_ICON_BUTTON_GROUP_VARIANT__ = __DEFAULT_ICON_BUTTON_VARIANT__
+	} = useIconButtonGroupContext();
+
+	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
 		renderSpinner,
-		color,
-		colorMode,
+		color = __DEFAULT_ICON_BUTTON_GROUP_COLOR__,
+		colorMode = __DEFAULT_ICON_BUTTON_GROUP_COLORMODE__,
 		// canClickOnEnter = __DEFAULT_ICON_BUTTON_CAN_CLICK_ON_ENTER__,
 		// canClickOnSpace = __DEFAULT_ICON_BUTTON_CAN_CLICK_ON_SPACE__,
 		isActive = __DEFAULT_ICON_BUTTON_IS_ACTIVE__,
-		isCompact = __DEFAULT_ICON_BUTTON_IS_COMPACT__,
-		isDisabled = __DEFAULT_ICON_BUTTON_IS_DISABLED__,
+		isCompact = __DEFAULT_ICON_BUTTON_GROUP_IS_COMPACT__,
+		isDisabled = __DEFAULT_ICON_BUTTON_GROUP_IS_DISABLED__,
 		// isFocusable = __DEFAULT_ICON_BUTTON_IS_FOCUSABLE__,
 		isLoading = __DEFAULT_ICON_BUTTON_IS_LOADING__,
-		isRound = __DEFAULT_ICON_BUTTON_IS_ROUND__,
-		size: s = __DEFAULT_ICON_BUTTON_SIZE__,
-		variant: v = __DEFAULT_ICON_BUTTON_VARIANT__,
+		isRound = __DEFAULT_ICON_BUTTON_GROUP_IS_ROUND__,
+		size: s = __DEFAULT_ICON_BUTTON_GROUP_SIZE__,
+		variant: v = __DEFAULT_ICON_BUTTON_GROUP_VARIANT__,
 		...rest
 	} = props;
 
