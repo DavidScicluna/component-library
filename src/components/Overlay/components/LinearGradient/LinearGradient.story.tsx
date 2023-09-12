@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import type { GradientFromMiddleToClassArr, PolymorphicDefaultElement } from '@common/types';
 
 // eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../.storybook/preview';
+import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import {
 	// __DEFAULT_LINEAR_GRADIENT_COLOR__,
