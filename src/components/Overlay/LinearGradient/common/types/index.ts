@@ -1,40 +1,49 @@
-import { BoxProps } from '@chakra-ui/react';
+import type { ElementType } from 'react';
 
-import { CommonThemeProps, Nullable } from '../../../../../common/types';
-import {
-	BoxBackground,
-	BoxBorderRadius,
-	BoxBorders,
-	BoxColor,
-	BoxFilter,
-	BoxFlexbox,
-	BoxGradient,
-	BoxGrid,
-	BoxOther,
-	BoxPseudo,
-	BoxShadow,
-	BoxTypography
-} from '../../../../../common/types/box';
+import type {
+	GradientClass,
+	GradientFromMiddleToClass,
+	ResponsiveValue,
+	ThemeAppColor,
+	ThemeAppColorMode
+} from '@common/types';
 
-type Omitted =
-	| BoxColor
-	| BoxGradient
-	| BoxTypography
-	| BoxFlexbox
-	| BoxGrid
-	| BoxBackground
-	| BoxBorders
-	| BoxBorderRadius
-	| BoxShadow
-	| BoxFilter
-	| BoxPseudo
-	| BoxOther
-	| 'as'
-	| 'children';
+import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
-export type LinearGradientProps = Omit<BoxProps, Omitted> & {
-	degrees: number;
-	background?: string;
-} & CommonThemeProps;
+export type LinearGradientColor = Partial<Record<'from' | 'middle' | 'to', ThemeAppColor>>;
 
-export type LinearGradientRef = Nullable<HTMLDivElement>;
+export type LinearGradientDirection = Exclude<GradientClass, 'none'>;
+export type LinearGradientDirections = Array<LinearGradientDirection>;
+
+type LinearGradientOtherProps = {
+	color?: LinearGradientColor;
+	colorMode?: ThemeAppColorMode;
+	/**
+	 * The direction in which the linear gradient is directed
+	 *
+	 * @default 'r'
+	 */
+	direction?: ResponsiveValue<LinearGradientDirection>;
+	/**
+	 * The position of the first gradient color
+	 *
+	 * @default 0
+	 */
+	fromPos?: ResponsiveValue<GradientFromMiddleToClass>;
+	/**
+	 * The position of the middle gradient color
+	 *
+	 * @default 50
+	 */
+	middlePos?: ResponsiveValue<GradientFromMiddleToClass>;
+	/**
+	 * The position of the last gradient color
+	 *
+	 * @default 100
+	 */
+	toPos?: ResponsiveValue<GradientFromMiddleToClass>;
+};
+
+export type LinearGradientProps<Element extends ElementType> = BoxProps<Element, LinearGradientOtherProps>;
+
+export type LinearGradientRef<Element extends ElementType> = BoxRef<Element>;
