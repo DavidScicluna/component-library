@@ -67,7 +67,7 @@ const usePushableOverlayClasses = <Element extends ElementType>(
 			classes.borders.border_style.before[__DEFAULT_BORDER_STYLE__],
 			classes.borders.border_color.transparent,
 			classes.borders.border_radius[radius],
-			classes.borders.border_radius.before[radius],
+			classes.borders.border_radius.before.inherit,
 			{
 				[classes.borders.outline_style.focus_visible.dashed]: isPushable && !isFixed,
 				[classes.borders.outline_width.focus_visible[__DEFAULT_OUTLINE_WIDTH__]]: isPushable && !isFixed,
