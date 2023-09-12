@@ -18,6 +18,35 @@ export type BackgroundColorClass =
 export type BackgroundColorClassArr = Array<BackgroundColorClass>;
 export type BackgroundColorClassObj = Record<BackgroundColorClass, string>;
 
+export type GradientFromViaToClass =
+	| 0
+	| 5
+	| 10
+	| 15
+	| 20
+	| 25
+	| 30
+	| 35
+	| 40
+	| 45
+	| 50
+	| 55
+	| 60
+	| 65
+	| 70
+	| 75
+	| 80
+	| 85
+	| 90
+	| 95
+	| 100;
+export type GradientFromViaToClassArr = Array<GradientFromViaToClass>;
+export type GradientFromViaToClassObj = Record<GradientFromViaToClass, string>;
+
+export type GradientClass = 'none' | 't' | 'tr' | 'r' | 'br' | 'b' | 'bl' | 'l' | 'tl';
+export type GradientClassArr = Array<GradientClass>;
+export type GradientClassObj = Record<GradientClass, string>;
+
 /**
  * Borders
  */
