@@ -18,7 +18,7 @@ export type BackgroundColorClass =
 export type BackgroundColorClassArr = Array<BackgroundColorClass>;
 export type BackgroundColorClassObj = Record<BackgroundColorClass, string>;
 
-export type GradientFromViaToClass =
+export type GradientFromMiddleToClass =
 	| 0
 	| 5
 	| 10
@@ -40,8 +40,8 @@ export type GradientFromViaToClass =
 	| 90
 	| 95
 	| 100;
-export type GradientFromViaToClassArr = Array<GradientFromViaToClass>;
-export type GradientFromViaToClassObj = Record<GradientFromViaToClass, string>;
+export type GradientFromMiddleToClassArr = Array<GradientFromMiddleToClass>;
+export type GradientFromMiddleToClassObj = Record<GradientFromMiddleToClass, string>;
 
 export type GradientClass = 'none' | 't' | 'tr' | 'r' | 'br' | 'b' | 'bl' | 'l' | 'tl';
 export type GradientClassArr = Array<GradientClass>;
