@@ -121,6 +121,12 @@ export const getColorClass = memoize(({ color, colorMode, hueType, classType }: 
 			return classes.borders.border_color[color][hue];
 		case 'outline':
 			return classes.borders.outline_color[color][hue];
+		case 'gradient_from_color':
+			return classes.backgrounds.gradient_from_color[color][hue];
+		case 'gradient_middle_color':
+			return classes.backgrounds.gradient_middle_color[color][hue];
+		case 'gradient_to_color':
+			return classes.backgrounds.gradient_to_color[color][hue];
 	}
 });
 

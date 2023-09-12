@@ -1,6 +1,15 @@
 import type { PickFrom, ThemeColor, ThemeColorHue, ThemeSpacing } from '.';
 
-export type ColorTypeClass = 'shadow' | 'fill' | 'bg' | 'text' | 'border' | 'outline';
+export type ColorTypeClass =
+	| 'shadow'
+	| 'fill'
+	| 'bg'
+	| 'text'
+	| 'border'
+	| 'outline'
+	| 'gradient_from_color'
+	| 'gradient_middle_color'
+	| 'gradient_to_color';
 
 /**
  * Animation
@@ -42,6 +51,33 @@ export type GradientFromMiddleToClass =
 	| 100;
 export type GradientFromMiddleToClassArr = Array<GradientFromMiddleToClass>;
 export type GradientFromMiddleToClassObj = Record<GradientFromMiddleToClass, string>;
+
+export type GradientFromColorClass =
+	| `${PickFrom<ColorTypeClass, 'gradient_from_color'>}-${Exclude<
+			ThemeColor,
+			'transparent' | 'black' | 'white'
+	  >}-${ThemeColorHue}`
+	| `${PickFrom<ColorTypeClass, 'gradient_from_color'>}-${PickFrom<ThemeColor, 'transparent' | 'black' | 'white'>}`;
+export type GradientFromColorClassArr = Array<GradientFromColorClass>;
+export type GradientFromColorClassObj = Record<GradientFromColorClass, string>;
+
+export type GradientMiddleColorClass =
+	| `${PickFrom<ColorTypeClass, 'gradient_middle_color'>}-${Exclude<
+			ThemeColor,
+			'transparent' | 'black' | 'white'
+	  >}-${ThemeColorHue}`
+	| `${PickFrom<ColorTypeClass, 'gradient_middle_color'>}-${PickFrom<ThemeColor, 'transparent' | 'black' | 'white'>}`;
+export type GradientMiddleColorClassArr = Array<GradientMiddleColorClass>;
+export type GradientMiddleColorClassObj = Record<GradientMiddleColorClass, string>;
+
+export type GradientToColorClass =
+	| `${PickFrom<ColorTypeClass, 'gradient_to_color'>}-${Exclude<
+			ThemeColor,
+			'transparent' | 'black' | 'white'
+	  >}-${ThemeColorHue}`
+	| `${PickFrom<ColorTypeClass, 'gradient_to_color'>}-${PickFrom<ThemeColor, 'transparent' | 'black' | 'white'>}`;
+export type GradientToColorClassArr = Array<GradientToColorClass>;
+export type GradientToColorClassObj = Record<GradientToColorClass, string>;
 
 export type GradientClass = 'none' | 't' | 'tr' | 'r' | 'br' | 'b' | 'bl' | 'l' | 'tl';
 export type GradientClassArr = Array<GradientClass>;
