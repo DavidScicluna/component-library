@@ -44,7 +44,7 @@ const ButtonGroup = forwardRef(function ButtonGroup<Element extends ElementType>
 				{...rest}
 				ref={ref}
 				className={classNames(__KEYS_BUTTON_GROUP_CLASS__, { [className]: !!className })}
-				w={isFullWidth ? '100%' : 'auto'}
+				w={isFullWidth ? '100%' : undefined}
 				spacing={isAttached ? 0 : spacing}
 			>
 				{children}
