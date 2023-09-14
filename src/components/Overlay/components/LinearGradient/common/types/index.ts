@@ -4,20 +4,24 @@ import type {
 	GradientClass,
 	GradientFromMiddleToClass,
 	ResponsiveValue,
-	ThemeAppColor,
-	ThemeAppColorMode
+	ThemeAppColorMode,
+	ThemeColor
 } from '@common/types';
+import type { ColorHueType } from '@common/utils';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
-export type LinearGradientColor = Partial<Record<'from' | 'middle' | 'to', ThemeAppColor>>;
+export type LinearGradientColor = {
+	color: ThemeColor;
+	colorMode: ThemeAppColorMode;
+	hueType: ColorHueType;
+	position: ResponsiveValue<GradientFromMiddleToClass>;
+};
 
 export type LinearGradientDirection = Exclude<GradientClass, 'none'>;
 export type LinearGradientDirections = Array<LinearGradientDirection>;
 
 type LinearGradientOtherProps = {
-	color?: LinearGradientColor;
-	colorMode?: ThemeAppColorMode;
 	/**
 	 * The direction in which the linear gradient is directed
 	 *
@@ -25,23 +29,26 @@ type LinearGradientOtherProps = {
 	 */
 	direction?: ResponsiveValue<LinearGradientDirection>;
 	/**
-	 * The position of the first gradient color
+	 * The first color of the gradient
 	 *
-	 * @default 0
+	 * @default color - 'gray'
+	 * @default position - 0
 	 */
-	fromPos?: ResponsiveValue<GradientFromMiddleToClass>;
+	from?: LinearGradientColor;
 	/**
-	 * The position of the middle gradient color
+	 * The middle color of the gradient
 	 *
-	 * @default 50
+	 * @default color - 'gray'
+	 * @default position - 50
 	 */
-	middlePos?: ResponsiveValue<GradientFromMiddleToClass>;
+	middle?: LinearGradientColor;
 	/**
-	 * The position of the last gradient color
+	 * The last color of the gradient
 	 *
-	 * @default 100
+	 * @default color - 'gray'
+	 * @default position - 100
 	 */
-	toPos?: ResponsiveValue<GradientFromMiddleToClass>;
+	to?: LinearGradientColor;
 };
 
 export type LinearGradientProps<Element extends ElementType> = BoxProps<Element, LinearGradientOtherProps>;
