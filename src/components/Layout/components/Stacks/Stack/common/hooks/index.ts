@@ -1,3 +1,3 @@
-import useGetStackClasses from './useGetStackClasses';
+import useStackClasses from './useStackClasses';
 
-export { useGetStackClasses };
+export { useStackClasses };

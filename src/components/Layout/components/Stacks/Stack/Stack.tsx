@@ -14,7 +14,7 @@ import {
 	__DEFAULT_STACK_JUSTIFY_CONTENT__,
 	__DEFAULT_STACK_WRAP__
 } from './common/constants';
-import { useGetStackClasses } from './common/hooks';
+import { useStackClasses } from './common/hooks';
 import { __KEYS_STACK_CLASS__ } from './common/keys';
 import type { StackProps, StackRef } from './common/types';
 
@@ -34,7 +34,7 @@ const Stack = forwardRef(function Stack<Element extends ElementType>(
 		...rest
 	} = props;
 
-	const classes = useGetStackClasses<Element>({ alignItems, direction, justifyContent, spacing, wrap });
+	const classes = useStackClasses<Element>({ alignItems, direction, justifyContent, spacing, wrap });
 
 	return (
 		<Box<Element>

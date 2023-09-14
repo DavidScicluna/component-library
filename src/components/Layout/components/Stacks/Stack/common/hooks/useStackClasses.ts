@@ -22,15 +22,13 @@ import {
 } from '../constants';
 import type { StackProps } from '../types';
 
-type UseGetStackClassesProps<Element extends ElementType> = Pick<
+type UseStackClassesProps<Element extends ElementType> = Pick<
 	StackProps<Element>,
 	'alignItems' | 'direction' | 'justifyContent' | 'spacing' | 'wrap'
 >;
-type UseGetStackClassesReturn = ClassName;
+type UseStackClassesReturn = ClassName;
 
-const useGetStackClasses = <Element extends ElementType>(
-	props: UseGetStackClassesProps<Element>
-): UseGetStackClassesReturn => {
+const useStackClasses = <Element extends ElementType>(props: UseStackClassesProps<Element>): UseStackClassesReturn => {
 	const {
 		alignItems = __DEFAULT_STACK_ALIGN_ITEMS__,
 		direction = __DEFAULT_STACK_DIRECTION__,
@@ -56,4 +54,4 @@ const useGetStackClasses = <Element extends ElementType>(
 	);
 };
 
-export default useGetStackClasses;
+export default useStackClasses;

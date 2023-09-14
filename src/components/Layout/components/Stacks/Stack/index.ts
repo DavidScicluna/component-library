@@ -1,5 +1,5 @@
 import * as commonConstants from './common/constants';
-import { useGetStackClasses } from './common/hooks';
+import { useStackClasses } from './common/hooks';
 import * as commonKeys from './common/keys';
 import type { StackProps, StackRef } from './common/types';
 import Stack from './Stack';
@@ -11,7 +11,7 @@ export const constants = { ...commonConstants };
 export const keys = { ...commonKeys };
 
 // Hooks
-export { useGetStackClasses };
+export { useStackClasses };
 
 // Components
 export { Stack };
