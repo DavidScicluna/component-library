@@ -1,5 +1,5 @@
 import * as commonConstants from './common/constants';
-import { useGetTextClasses } from './common/hooks';
+import { useTextClasses } from './common/hooks';
 import * as commonKeys from './common/keys';
 import type { TextDefaultElement, TextElement, TextProps, TextRef } from './common/types';
 import Text from './Text';
@@ -11,7 +11,7 @@ export const constants = { ...commonConstants };
 export const keys = { ...commonKeys };
 
 // Hooks
-export { useGetTextClasses };
+export { useTextClasses };
 
 // Components
 export { Text };

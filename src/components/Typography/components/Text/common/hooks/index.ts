@@ -1,3 +1,3 @@
-import useGetTextClasses from './useGetTextClasses';
+import useTextClasses from './useTextClasses';
 
-export { useGetTextClasses };
+export { useTextClasses };

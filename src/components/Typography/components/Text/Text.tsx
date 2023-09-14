@@ -20,7 +20,7 @@ import {
 	__DEFAULT_TEXT_WHITESPACE__,
 	__DEFAULT_TEXT_WORD_BREAK__
 } from './common/constants';
-import { useGetTextClasses } from './common/hooks';
+import { useTextClasses } from './common/hooks';
 import { __KEYS_TEXT_CLASS__ } from './common/keys';
 import type { TextDefaultElement, TextElement, TextProps, TextRef } from './common/types';
 
@@ -49,7 +49,7 @@ const Text = forwardRef(function Text<Element extends TextElement = TextDefaultE
 	const isItalic = useGetResponsiveValue<boolean>(italic);
 	const isOverflown = useGetResponsiveValue<boolean>(overflown);
 
-	const classes = useGetTextClasses<Element>({
+	const classes = useTextClasses<Element>({
 		align,
 		color,
 		fontSize,

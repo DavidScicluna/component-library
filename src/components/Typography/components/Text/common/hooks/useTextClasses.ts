@@ -28,7 +28,7 @@ import {
 } from '../constants';
 import type { TextElement, TextProps } from '../types';
 
-type UseGetTextClassesProps<Element extends TextElement> = Pick<
+type UseTextClassesProps<Element extends TextElement> = Pick<
 	TextProps<Element>,
 	| 'align'
 	| 'color'
@@ -42,11 +42,9 @@ type UseGetTextClassesProps<Element extends TextElement> = Pick<
 	| 'whitespace'
 	| 'wordBreak'
 >;
-type UseGetTextClassesReturn = ClassName;
+type UseTextClassesReturn = ClassName;
 
-const useGetTextClasses = <Element extends TextElement>(
-	props: UseGetTextClassesProps<Element>
-): UseGetTextClassesReturn => {
+const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<Element>): UseTextClassesReturn => {
 	const {
 		align = __DEFAULT_TEXT_ALIGN__,
 		color: colorClassName,
@@ -89,4 +87,4 @@ const useGetTextClasses = <Element extends TextElement>(
 	);
 };
 
-export default useGetTextClasses;
+export default useTextClasses;
