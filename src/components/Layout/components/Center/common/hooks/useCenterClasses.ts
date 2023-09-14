@@ -9,12 +9,12 @@ import type { ClassName, ThemeSpacing } from '@common/types';
 
 import type { CenterProps } from '../types';
 
-type UseGetCenterClassesProps<Element extends ElementType> = Pick<CenterProps<Element>, 'spacing'>;
-type UseGetCenterClassesReturn = ClassName;
+type UseCenterClassesProps<Element extends ElementType> = Pick<CenterProps<Element>, 'spacing'>;
+type UseCenterClassesReturn = ClassName;
 
-const useGetCenterClasses = <Element extends ElementType>(
-	props: UseGetCenterClassesProps<Element>
-): UseGetCenterClassesReturn => {
+const useCenterClasses = <Element extends ElementType>(
+	props: UseCenterClassesProps<Element>
+): UseCenterClassesReturn => {
 	const { spacing = __DEFAULT_SPACING__ } = props;
 
 	const spacingClassName = useGetClass<ThemeSpacing>(spacing, ['spacing', 'gap']);
@@ -29,4 +29,4 @@ const useGetCenterClasses = <Element extends ElementType>(
 	);
 };
 
-export default useGetCenterClasses;
+export default useCenterClasses;

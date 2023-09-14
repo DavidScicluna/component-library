@@ -1,4 +1,4 @@
-import { useGetCenterClasses } from './common/hooks';
+import { useCenterClasses } from './common/hooks';
 import * as commonKeys from './common/keys';
 import type { CenterProps, CenterRef } from './common/types';
 import Center from './Center';
@@ -7,7 +7,7 @@ import Center from './Center';
 export const keys = { ...commonKeys };
 
 // Hooks
-export { useGetCenterClasses };
+export { useCenterClasses };
 
 // Components
 export { Center };

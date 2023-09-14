@@ -1,3 +1,3 @@
-import useGetCenterClasses from './useGetCenterClasses';
+import useCenterClasses from './useCenterClasses';
 
-export { useGetCenterClasses };
+export { useCenterClasses };

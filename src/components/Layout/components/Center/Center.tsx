@@ -8,7 +8,7 @@ import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { Box } from '@components/Box';
 
 import { __DEFAULT_CENTER_SPACING__ } from './common/constants';
-import { useGetCenterClasses } from './common/hooks';
+import { useCenterClasses } from './common/hooks';
 import { __KEYS_CENTER_CLASS__ } from './common/keys';
 import type { CenterProps, CenterRef } from './common/types';
 
@@ -18,7 +18,7 @@ const Center = forwardRef(function Center<Element extends ElementType>(
 ): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, spacing = __DEFAULT_CENTER_SPACING__, ...rest } = props;
 
-	const classes = useGetCenterClasses<Element>({ spacing });
+	const classes = useCenterClasses<Element>({ spacing });
 
 	return (
 		<Box<Element>
