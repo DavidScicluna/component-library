@@ -1,5 +1,5 @@
 import * as commonConstants from './common/constants';
-import { useGetSpaceClasses } from './common/hooks';
+import { useSpaceClasses } from './common/hooks';
 import * as commonKeys from './common/keys';
 import type { SpaceProps, SpaceRef } from './common/types';
 import Space from './Space';
@@ -11,7 +11,7 @@ export const constants = { ...commonConstants };
 export const keys = { ...commonKeys };
 
 // Hooks
-export { useGetSpaceClasses };
+export { useSpaceClasses };
 
 // Components
 export { Space };

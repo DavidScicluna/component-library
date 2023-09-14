@@ -8,7 +8,7 @@ import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { Box } from '@components/Box';
 
 import { __DEFAULT_SPACE_HEIGHT__, __DEFAULT_SPACE_WIDTH__ } from './common/constants';
-import { useGetSpaceClasses } from './common/hooks';
+import { useSpaceClasses } from './common/hooks';
 import { __KEYS_SPACE_CLASS__ } from './common/keys';
 import type { SpaceProps, SpaceRef } from './common/types';
 
@@ -23,7 +23,7 @@ const Space = forwardRef(function Space<Element extends ElementType>(
 		...rest
 	} = props;
 
-	const classes = useGetSpaceClasses<Element>({ width, height });
+	const classes = useSpaceClasses<Element>({ width, height });
 
 	return (
 		<Box<Element>

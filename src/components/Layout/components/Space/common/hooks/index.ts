@@ -1,3 +1,3 @@
-import useGetSpaceClasses from './useGetSpaceClasses';
+import useSpaceClasses from './useSpaceClasses';
 
-export { useGetSpaceClasses };
+export { useSpaceClasses };
