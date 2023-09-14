@@ -13,7 +13,7 @@ import {
 	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
 	__DEFAULT_CONTAINER_IS_FLUID__
 } from './common/constants';
-import { useGetContainerClasses } from './common/hooks';
+import { useContainerClasses } from './common/hooks';
 import { __KEYS_CONTAINER_CLASS__ } from './common/keys';
 import type { ContainerProps, ContainerRef } from './common/types';
 
@@ -33,7 +33,7 @@ const Container = forwardRef(function Container<Element extends ElementType>(
 	const isContentCentered = useGetResponsiveValue<boolean>(centered);
 	const isFluid = useGetResponsiveValue<boolean>(fluid);
 
-	const classes = useGetContainerClasses<Element>({ breakpoint, isContentCentered, isFluid });
+	const classes = useContainerClasses<Element>({ breakpoint, isContentCentered, isFluid });
 
 	return (
 		<Box<Element>

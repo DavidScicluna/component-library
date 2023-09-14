@@ -1,3 +1,3 @@
-import useGetContainerClasses from './useGetContainerClasses';
+import useContainerClasses from './useContainerClasses';
 
-export { useGetContainerClasses };
+export { useContainerClasses };

@@ -13,15 +13,15 @@ import {
 } from '../constants';
 import type { ContainerBreakpoint, ContainerProps } from '../types';
 
-type UseGetContainerClassesProps<Element extends ElementType> = Pick<
+type UseContainerClassesProps<Element extends ElementType> = Pick<
 	ContainerProps<Element>,
 	'breakpoint' | 'isContentCentered' | 'isFluid'
 >;
-type UseGetContainerClassesReturn = ClassName;
+type UseContainerClassesReturn = ClassName;
 
-const useGetContainerClasses = <Element extends ElementType>(
-	props: UseGetContainerClassesProps<Element>
-): UseGetContainerClassesReturn => {
+const useContainerClasses = <Element extends ElementType>(
+	props: UseContainerClassesProps<Element>
+): UseContainerClassesReturn => {
 	const {
 		breakpoint = __DEFAULT_CONTAINER_BREAKPOINT__,
 		isContentCentered = __DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
@@ -40,4 +40,4 @@ const useGetContainerClasses = <Element extends ElementType>(
 	});
 };
 
-export default useGetContainerClasses;
+export default useContainerClasses;

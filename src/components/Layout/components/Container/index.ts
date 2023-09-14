@@ -1,5 +1,5 @@
 import * as commonConstants from './common/constants';
-import { useGetContainerClasses } from './common/hooks';
+import { useContainerClasses } from './common/hooks';
 import * as commonKeys from './common/keys';
 import type { ContainerBreakpoint, ContainerBreakpoints, ContainerProps, ContainerRef } from './common/types';
 import Container from './Container';
@@ -11,7 +11,7 @@ export const constants = { ...commonConstants };
 export const keys = { ...commonKeys };
 
 // Hooks
-export { useGetContainerClasses };
+export { useContainerClasses };
 
 // Components
 export { Container };
