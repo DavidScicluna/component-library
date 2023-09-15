@@ -1,0 +1,25 @@
+/* eslint-disable max-len */
+import type {
+	HorizontalScrollOverlayArrowIconButtonDefaultElement,
+	HorizontalScrollOverlayArrowIconButtonElement,
+	HorizontalScrollOverlayArrowIconButtonProps,
+	HorizontalScrollOverlayArrowIconButtonRef
+} from '@compontents/DataDisplay/HorizontalScroll';
+
+export type HorizontalScrollOverlayLeftArrowIconButtonDefaultElement =
+	HorizontalScrollOverlayArrowIconButtonDefaultElement;
+export type HorizontalScrollOverlayLeftArrowIconButtonElement = HorizontalScrollOverlayArrowIconButtonElement;
+
+export type HorizontalScrollOverlayLeftArrowIconButtonScrollAmount = 'single' | 'multiple';
+
+type HorizontalScrollOverlayLeftArrowIconButtonOtherProps = {
+	scrollAmount?: HorizontalScrollOverlayLeftArrowIconButtonScrollAmount;
+};
+
+export type HorizontalScrollOverlayLeftArrowIconButtonProps<
+	Element extends HorizontalScrollOverlayLeftArrowIconButtonElement = HorizontalScrollOverlayLeftArrowIconButtonDefaultElement
+> = HorizontalScrollOverlayArrowIconButtonProps<Element> & HorizontalScrollOverlayLeftArrowIconButtonOtherProps;
+
+export type HorizontalScrollOverlayLeftArrowIconButtonRef<
+	Element extends HorizontalScrollOverlayLeftArrowIconButtonElement = HorizontalScrollOverlayLeftArrowIconButtonDefaultElement
+> = HorizontalScrollOverlayArrowIconButtonRef<Element>;
