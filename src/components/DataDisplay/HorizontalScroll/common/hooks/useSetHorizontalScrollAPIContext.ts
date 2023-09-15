@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
-import { useDebounce } from '../../../../../common/hooks';
-import { HorizontalScrollAPIContext } from '../types';
+import { useDebounce } from '@common/hooks';
+
+import type { HorizontalScrollAPIContext } from '../types';
 
 type UseSetHorizontalScrollAPIContextReturn = [
 	HorizontalScrollAPIContext,

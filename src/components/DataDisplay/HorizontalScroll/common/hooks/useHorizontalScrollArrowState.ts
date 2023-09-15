@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 
-import { useBoolean, useDebounce } from '../../../../../common/hooks';
-import { HorizontalScrollAPIContext, HorizontalScrollArrowDirection } from '../types';
+import { useBoolean, useDebounce } from '@common/hooks';
+
+import type { HorizontalScrollAPIContext, HorizontalScrollArrowDirection } from '../types';
 
 type UseHorizontalScrollArrowStateProps = {
 	direction: HorizontalScrollArrowDirection;

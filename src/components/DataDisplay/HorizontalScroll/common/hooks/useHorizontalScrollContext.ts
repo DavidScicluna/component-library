@@ -1,31 +1,21 @@
+import type { ElementType } from 'react';
 import { useContext } from 'react';
 
-import { color as defaultColor, colorMode as defaultColorMode } from '../../../../../common/default/props';
-import { NoUndefinedField } from '../../../../../common/types';
-import { HorizontalScrollContext } from '../..';
-import {
-	arrowsWidth as defaultArrowsWidth,
-	isDisabled as defaultIsDisabled,
-	spacing as defaultSpacing
-} from '../default/props';
-import { HorizontalScrollContext as HorizontalScrollContextType } from '../types';
+import { __DEFAULT_SPACING__ } from '@common/constants';
 
-const useHorizontalScrollContext = (): NoUndefinedField<HorizontalScrollContextType> => {
+import { HorizontalScrollContext } from '../../HorizontalScroll';
+import { __DEFAULT_HORIZONTAL_SCROLL_ARROW_SIZE__ } from '../constants';
+import type { HorizontalScrollContext as HorizontalScrollContextType } from '../types';
+
+const useHorizontalScrollContext = <Element extends ElementType>() => {
 	const {
-		color = defaultColor,
-		colorMode = defaultColorMode,
-		arrowsWidth = defaultArrowsWidth,
-		isDisabled = defaultIsDisabled,
-		spacing = defaultSpacing
-	} = useContext<HorizontalScrollContextType>(HorizontalScrollContext);
-
-	return {
 		color,
 		colorMode,
-		arrowsWidth,
-		isDisabled,
-		spacing
-	};
+		arrowSize = __DEFAULT_HORIZONTAL_SCROLL_ARROW_SIZE__,
+		spacing = __DEFAULT_SPACING__
+	} = useContext<HorizontalScrollContextType<Element>>(HorizontalScrollContext);
+
+	return { color, colorMode, arrowSize, spacing };
 };
 
 export default useHorizontalScrollContext;
