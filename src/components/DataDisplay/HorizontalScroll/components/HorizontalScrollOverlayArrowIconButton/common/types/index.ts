@@ -1,0 +1,17 @@
+import type {
+	HorizontalScrollArrowIconButtonDefaultElement,
+	HorizontalScrollArrowIconButtonElement,
+	HorizontalScrollArrowIconButtonProps,
+	HorizontalScrollArrowIconButtonRef
+} from '@compontents/DataDisplay/HorizontalScroll';
+
+export type HorizontalScrollOverlayArrowIconButtonDefaultElement = HorizontalScrollArrowIconButtonDefaultElement;
+export type HorizontalScrollOverlayArrowIconButtonElement = HorizontalScrollArrowIconButtonElement;
+
+export type HorizontalScrollOverlayArrowIconButtonProps<
+	Element extends HorizontalScrollOverlayArrowIconButtonElement = HorizontalScrollOverlayArrowIconButtonDefaultElement
+> = HorizontalScrollArrowIconButtonProps<Element>;
+
+export type HorizontalScrollOverlayArrowIconButtonRef<
+	Element extends HorizontalScrollOverlayArrowIconButtonElement = HorizontalScrollOverlayArrowIconButtonDefaultElement
+> = HorizontalScrollArrowIconButtonRef<Element>;

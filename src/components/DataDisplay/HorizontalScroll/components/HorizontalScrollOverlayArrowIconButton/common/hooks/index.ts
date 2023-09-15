@@ -1,0 +1,3 @@
+import useHorizontalScrollOverlayArrowIconButtonClasses from './useHorizontalScrollOverlayArrowIconButtonClasses';
+
+export { useHorizontalScrollOverlayArrowIconButtonClasses };
