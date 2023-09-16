@@ -1,4 +1,3 @@
-import { useHorizontalScrollOverlayArrowIconButtonClasses } from './common/hooks';
 import * as commonKeys from './common/keys';
 import type {
 	HorizontalScrollOverlayArrowIconButtonDefaultElement,
@@ -10,9 +9,6 @@ import HorizontalScrollOverlayArrowIconButton from './HorizontalScrollOverlayArr
 
 // Keys
 export const keys = { ...commonKeys };
-
-// Hooks
-export { useHorizontalScrollOverlayArrowIconButtonClasses };
 
 // Components
 export { HorizontalScrollOverlayArrowIconButton };

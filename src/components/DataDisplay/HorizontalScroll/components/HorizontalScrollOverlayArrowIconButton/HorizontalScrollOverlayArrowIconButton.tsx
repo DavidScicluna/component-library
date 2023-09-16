@@ -2,17 +2,20 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import classNames from 'classnames';
-import { useMergeRefs } from 'rooks';
-import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { useGetColor } from '@common/hooks';
 
 import { Fade } from '@components/Animation';
-import { Center } from '@components/Layout';
+import { Center, Grid, GridItem } from '@components/Layout';
 
+import {
+	HorizontalScrollLeftLinearGradient,
+	HorizontalScrollRightLinearGradient,
+	useHorizontalScrollContext
+} from '../..';
 import { HorizontalScrollArrowIconButton } from '../HorizontalScrollArrowIconButton';
 
-import { useHorizontalScrollOverlayArrowIconButtonClasses } from './common/hooks';
 import { __KEYS_HORIZONTAL_SCROLL_OVERLAY_ARROW_ICON_BUTTON_CLASS__ } from './common/keys';
 import type {
 	HorizontalScrollOverlayArrowIconButtonDefaultElement,
@@ -27,26 +30,57 @@ const HorizontalScrollOverlayArrowIconButton = forwardRef(function HorizontalScr
 	props: HorizontalScrollOverlayArrowIconButtonProps<Element>,
 	ref: HorizontalScrollOverlayArrowIconButtonRef<Element>
 ): ReactElement {
-	const [internalRef, { width: internalWidth }] =
-		useElementSize<HorizontalScrollOverlayArrowIconButtonRef<Element>>();
+	const { colorMode, spacing } = useHorizontalScrollContext();
 
-	const refs = useMergeRefs<HorizontalScrollOverlayArrowIconButtonRef<Element>>(ref, internalRef);
+	const { className = __DEFAULT_CLASSNAME__, direction, isVisible = false, ...rest } = props;
 
-	const { className = __DEFAULT_CLASSNAME__, color, colorMode, direction, isVisible = false, ...rest } = props;
-
-	const classes = useHorizontalScrollOverlayArrowIconButtonClasses<Element>({ color, colorMode, direction });
+	const backgroundClassName = useGetColor({
+		colorMode,
+		colorType: 'default',
+		hueType: 'background',
+		classType: 'bg'
+	});
 
 	return (
-		<Fade w={`${internalWidth * 2}px`} h='100%' in={isVisible}>
-			<Center
-				className={classNames(__KEYS_HORIZONTAL_SCROLL_OVERLAY_ARROW_ICON_BUTTON_CLASS__, classes, {
+		<Fade w='100%' h='100%' in={isVisible} unmountOnExit={false}>
+			<Grid
+				className={classNames(__KEYS_HORIZONTAL_SCROLL_OVERLAY_ARROW_ICON_BUTTON_CLASS__, {
 					[className]: !!className
 				})}
 				w='100%'
 				h='100%'
+				templateColumns={3}
+				templateRows={1}
+				alignItems='stretch'
+				alignContent='stretch'
+				justifyItems='stretch'
+				justifyContent='stretch'
+				spacing={0}
 			>
-				<HorizontalScrollArrowIconButton<Element> {...rest} ref={refs} direction={direction} />
-			</Center>
+				{direction === 'right' ? (
+					<GridItem columnSpan={2}>
+						<HorizontalScrollRightLinearGradient w='100%' h='100%' />
+					</GridItem>
+				) : null}
+
+				<GridItem zIndex={1}>
+					<Center
+						className={classNames(backgroundClassName)}
+						w='100%'
+						h='100%'
+						pl={direction === 'right' ? spacing : 0}
+						pr={direction === 'left' ? spacing : 0}
+					>
+						<HorizontalScrollArrowIconButton<Element> {...rest} ref={ref} direction={direction} />
+					</Center>
+				</GridItem>
+
+				{direction === 'left' ? (
+					<GridItem columnSpan={2}>
+						<HorizontalScrollLeftLinearGradient w='100%' h='100%' />
+					</GridItem>
+				) : null}
+			</Grid>
 		</Fade>
 	);
 });
