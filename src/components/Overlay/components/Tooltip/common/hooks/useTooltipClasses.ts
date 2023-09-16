@@ -32,6 +32,7 @@ const useTooltipClasses = <Element extends ElementType>(
 			classes.borders.border_style[__DEFAULT_BORDER_STYLE__],
 			classes.borders.border_radius.xs,
 			classes.effects.shadow.sm,
+			classes.layout.z_index.tooltip,
 			classes.spacing.px[1],
 			classes.spacing.py[0.5]
 		)
