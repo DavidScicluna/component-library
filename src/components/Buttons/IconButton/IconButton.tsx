@@ -3,6 +3,7 @@ import { createContext, forwardRef } from 'react';
 
 // import { IconButton as AriakitIconButton } from '@ariakit/react';
 import classNames from 'classnames';
+import { merge } from 'lodash-es';
 import { useFocus } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -25,7 +26,7 @@ import {
 	__DEFAULT_ICON_BUTTON_SIZE__,
 	__DEFAULT_ICON_BUTTON_VARIANT__
 } from './common/constants';
-import { useIconButtonClasses, useIconButtonSizeConfig } from './common/hooks';
+import { useIconButtonClasses, useIconButtonSizeConfig, useIconButtonStyles } from './common/hooks';
 import { __KEYS_ICON_BUTTON_CLASS__ } from './common/keys';
 import type {
 	IconButtonContext as IconButtonContextType,
@@ -77,6 +78,7 @@ const IconButton = forwardRef(function IconButton<Element extends IconButtonElem
 		isRound = __DEFAULT_ICON_BUTTON_GROUP_IS_ROUND__,
 		size: s = __DEFAULT_ICON_BUTTON_GROUP_SIZE__,
 		variant: v = __DEFAULT_ICON_BUTTON_GROUP_VARIANT__,
+		sx,
 		...rest
 	} = props;
 
@@ -87,7 +89,8 @@ const IconButton = forwardRef(function IconButton<Element extends IconButtonElem
 
 	const config = useIconButtonSizeConfig<Element>({ isCompact, isRound, size, variant });
 
-	const classes = useIconButtonClasses<Element>({ isCompact, isRound, size, variant });
+	const classes = useIconButtonClasses();
+	const styles = useIconButtonStyles<Element>({ size });
 
 	// const handleEnterKeyClick = debounce((): void => {
 	// 	if (canClickOnEnter && isFocused && !isActive && !isDisabled) {
@@ -138,6 +141,7 @@ const IconButton = forwardRef(function IconButton<Element extends IconButtonElem
 				isFocused={isFocused}
 				variant={variant === 'icon' ? 'transparent' : variant}
 				p={config.padding}
+				sx={merge(styles, sx)}
 			>
 				<Center as='span' w='100%' h='100%'>
 					{isLoading && renderSpinner ? renderSpinner({ color, colorMode }) : children}
