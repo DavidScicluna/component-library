@@ -14,7 +14,7 @@ import type { BoxProps, BoxRef } from '@components/Box/common/types';
 export type LinearGradientColor = {
 	color: ThemeColor;
 	colorMode: ThemeAppColorMode;
-	hueType: ColorHueType;
+	hueType?: ColorHueType;
 	position: ResponsiveValue<GradientFromMiddleToClass>;
 };
 

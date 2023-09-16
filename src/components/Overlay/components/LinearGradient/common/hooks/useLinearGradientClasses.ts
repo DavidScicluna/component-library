@@ -25,37 +25,40 @@ const useLinearGradientClasses = <Element extends ElementType>(
 	const {
 		direction = __DEFAULT_LINEAR_GRADIENT_DIRECTION__,
 		from = __DEFAULT_LINEAR_GRADIENT_FROM__,
-		middle = __DEFAULT_LINEAR_GRADIENT_MIDDLE__,
+		middle,
 		to = __DEFAULT_LINEAR_GRADIENT_TO__
 	} = props;
 
 	const gradientClassName = useGetClass<LinearGradientDirection>(direction, ['backgrounds', 'gradient']);
 
-	const fromPosClassName = useGetClass<GradientFromMiddleToClass>(from.position, ['backgrounds', 'gradient']);
+	const fromPosClassName = useGetClass<GradientFromMiddleToClass>(from.position, ['backgrounds', 'gradient_from']);
 	const fromColorClassName = useGetColor({
 		color: from.color,
 		colorMode: from.colorMode,
 		colorType: 'color',
 		classType: 'gradient_from_color',
-		hueType: from.hueType
+		hueType: from?.hueType
 	});
 
-	const middlePosClassName = useGetClass<GradientFromMiddleToClass>(middle.position, ['backgrounds', 'gradient']);
+	const middlePosClassName = useGetClass<GradientFromMiddleToClass>(
+		middle?.position || __DEFAULT_LINEAR_GRADIENT_MIDDLE__.position,
+		['backgrounds', 'gradient_middle']
+	);
 	const middleColorClassName = useGetColor({
-		color: middle.color,
-		colorMode: middle.colorMode,
+		color: middle?.color || __DEFAULT_LINEAR_GRADIENT_MIDDLE__.color,
+		colorMode: middle?.colorMode || __DEFAULT_LINEAR_GRADIENT_MIDDLE__.colorMode,
 		colorType: 'color',
 		classType: 'gradient_middle_color',
-		hueType: middle.hueType
+		hueType: middle?.hueType || __DEFAULT_LINEAR_GRADIENT_MIDDLE__.hueType
 	});
 
-	const toPosClassName = useGetClass<GradientFromMiddleToClass>(to.position, ['backgrounds', 'gradient']);
+	const toPosClassName = useGetClass<GradientFromMiddleToClass>(to.position, ['backgrounds', 'gradient_to']);
 	const toColorClassName = useGetColor({
 		color: to.color,
 		colorMode: to.colorMode,
 		colorType: 'color',
 		classType: 'gradient_to_color',
-		hueType: to.hueType
+		hueType: to?.hueType
 	});
 
 	return classNames(gradientClassName, {
