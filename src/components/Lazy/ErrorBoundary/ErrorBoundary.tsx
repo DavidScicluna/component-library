@@ -1,6 +1,7 @@
-import { Component, ErrorInfo } from 'react';
+import type { ErrorInfo } from 'react';
+import { Component } from 'react';
 
-import { ErrorBoundaryProps, ErrorBoundaryState } from './common/types';
+import type { ErrorBoundaryProps, ErrorBoundaryState } from './common/types';
 
 class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 	public state: ErrorBoundaryState = {
@@ -12,6 +13,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 	}
 
 	public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+		// eslint-disable-next-line no-console
 		console.error('Uncaught error:', error, errorInfo);
 	}
 
