@@ -6,6 +6,9 @@ import { __DEFAULT_SPACING__ } from '@common/constants';
 import { colors } from '@common/data';
 import type { ThemeAppColor } from '@common/types';
 
+import { Button } from '@components/Buttons/Button';
+import { CloseIconButton } from '@components/Buttons/CloseIconButton';
+
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
@@ -82,7 +85,8 @@ export const ConfirmModal: ConfirmModalStory = (props: ConfirmModalProps<Confirm
 			{...props}
 			color={color}
 			colorMode={colorMode}
-			renderTrigger={({ onOpen }) => <button onClick={onOpen}>click</button>}
+			renderTrigger={({ onOpen }) => <Button onClick={onOpen}>click</Button>}
+			renderCancel={(props) => <CloseIconButton {...props} />}
 		>
 			<ConfirmModalStack alignItems='center' justifyContent='center'>
 				<ConfirmModalIcon
@@ -97,8 +101,13 @@ export const ConfirmModal: ConfirmModalStory = (props: ConfirmModalProps<Confirm
 					<ConfirmModalSubtitle>ConfirmModal Subtitle</ConfirmModalSubtitle>
 				</ConfirmModalBody>
 				<ConfirmModalActions
-					renderCancel={(props) => <button {...props}>cancel</button>}
-					renderAction={(props) => <button {...props}>action</button>}
+					renderCancel={(props) => <Button {...props}>cancel</Button>}
+					renderAction={(props) => (
+						<Button {...props} color={!color ? __DEFAULT_CONFIRM_MODAL_STORY_COLOR__ : color}>
+							action
+						</Button>
+					)}
+					spacing={2}
 				/>
 			</ConfirmModalStack>
 		</ConfirmModalComponent>

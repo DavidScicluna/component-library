@@ -3,6 +3,7 @@ import type { ElementType, ReactNode } from 'react';
 import type { PickFrom, ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { IconButtonProps } from '@components/Buttons/IconButton';
 
 export type ConfirmModalSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -20,9 +21,9 @@ export type ConfirmModalRenderBackdropProps<Element extends ConfirmModalElement 
 	ConfirmModalProps<Element>,
 	'color' | 'colorMode'
 >;
-export type ConfirmModalRenderCancelProps<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = Pick<
-	ConfirmModalProps<Element>,
-	'color' | 'colorMode'
+export type ConfirmModalRenderCancelProps = Pick<
+	IconButtonProps,
+	'color' | 'colorMode' | 'onClick' | 'size' | 'variant'
 >;
 
 export type ConfirmModalDefaultElement = 'dialog';

@@ -4,7 +4,6 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useMediaQuery } from '@common/hooks';
 
 import { VStack } from '@components/Layout';
 
@@ -17,8 +16,6 @@ const ConfirmModalActions = forwardRef(function ConfirmModalActions<Element exte
 	props: ConfirmModalActionsProps<Element>,
 	ref: ConfirmModalActionsRef<Element>
 ): ReactElement {
-	const isSm = useMediaQuery({ breakpoint: 'sm', type: 'width', direction: 'max' });
-
 	const { color, colorMode, onClose, spacing: __DEFAULT_CONFIRM_MODAL_ACTIONS_SPACING__ } = useConfirmModalContext();
 
 	const {
@@ -36,6 +33,8 @@ const ConfirmModalActions = forwardRef(function ConfirmModalActions<Element exte
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_CONFIRM_MODAL_ACTIONS_CLASS__, { [className]: !!className })}
+			w='100%'
+			h='100%'
 			alignItems={alignItems}
 			justifyContent={justifyContent}
 			spacing={spacing}
@@ -44,7 +43,7 @@ const ConfirmModalActions = forwardRef(function ConfirmModalActions<Element exte
 				? renderAction({
 						color,
 						colorMode,
-						isFullWidth: isSm || !renderCancel,
+						isFullWidth: true,
 						size: 'md',
 						variant: 'contained'
 				  })
@@ -52,9 +51,8 @@ const ConfirmModalActions = forwardRef(function ConfirmModalActions<Element exte
 
 			{renderCancel
 				? renderCancel({
-						color: 'gray',
 						colorMode,
-						isFullWidth: isSm || !renderAction,
+						isFullWidth: true,
 						onClick: typeof onClose === 'function' ? () => onClose() : undefined,
 						size: 'md',
 						variant: 'monochrome'

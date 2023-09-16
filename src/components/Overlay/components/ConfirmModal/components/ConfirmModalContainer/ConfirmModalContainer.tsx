@@ -35,6 +35,7 @@ const ConfirmModalContainer = forwardRef(function ConfirmModalContainer<
 		children,
 		className = __DEFAULT_CLASSNAME__,
 		renderBackdrop,
+		renderCancel,
 		closeOnEsc = __DEFAULT_CONFIRM_MODAL_CLOSE_ON_ESC__,
 		closeOnOverlayClick = __DEFAULT_CONFIRM_MODAL_CLOSE_ON_OVERLAY_CLICK__,
 		hasBackdrop = __DEFAULT_CONFIRM_MODAL_HAS_BACKDROP__,
@@ -89,6 +90,17 @@ const ConfirmModalContainer = forwardRef(function ConfirmModalContainer<
 			<GridItem columnStart={1} rowStart={1} zIndex={1}>
 				<Center w='100%' h='100%' onClick={closeOnOverlayClick ? handleOverlayClick : undefined}>
 					<ConfirmModalTransition className={classes.content} in={isOpen} variant='pop'>
+						{renderCancel ? (
+							<Center className={classes.cancel}>
+								{renderCancel({
+									colorMode,
+									onClick: typeof onClose === 'function' ? () => onClose() : undefined,
+									size: 'md',
+									variant: 'icon'
+								})}
+							</Center>
+						) : null}
+
 						{children}
 					</ConfirmModalTransition>
 				</Center>

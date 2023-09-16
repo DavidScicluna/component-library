@@ -1,8 +1,8 @@
 import type {
 	ConfirmModalActionsProps,
 	ConfirmModalActionsRef,
-	ConfirmModalActionsRenderCancelProps,
-	ConfirmModalActionsRenderProps
+	ConfirmModalActionsRenderActionProps,
+	ConfirmModalActionsRenderCancelProps
 } from './ConfirmModalActions';
 import { ConfirmModalActions, keys as confirmModalActionsKeys } from './ConfirmModalActions';
 import type {
@@ -86,8 +86,8 @@ export {
 export type {
 	ConfirmModalActionsProps,
 	ConfirmModalActionsRef,
+	ConfirmModalActionsRenderActionProps,
 	ConfirmModalActionsRenderCancelProps,
-	ConfirmModalActionsRenderProps,
 	ConfirmModalBackdropElement,
 	ConfirmModalBackdropProps,
 	ConfirmModalBackdropRef,

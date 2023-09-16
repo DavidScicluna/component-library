@@ -14,8 +14,8 @@ import type {
 import type {
 	ConfirmModalActionsProps,
 	ConfirmModalActionsRef,
+	ConfirmModalActionsRenderActionProps,
 	ConfirmModalActionsRenderCancelProps,
-	ConfirmModalActionsRenderProps,
 	ConfirmModalBackdropElement,
 	ConfirmModalBackdropProps,
 	ConfirmModalBackdropRef,
@@ -79,8 +79,8 @@ export {
 export type {
 	ConfirmModalActionsProps,
 	ConfirmModalActionsRef,
+	ConfirmModalActionsRenderActionProps,
 	ConfirmModalActionsRenderCancelProps,
-	ConfirmModalActionsRenderProps,
 	ConfirmModalBackdropElement,
 	ConfirmModalBackdropProps,
 	ConfirmModalBackdropRef,

@@ -2,8 +2,8 @@ import * as commonKeys from './common/keys';
 import type {
 	ConfirmModalActionsProps,
 	ConfirmModalActionsRef,
-	ConfirmModalActionsRenderCancelProps,
-	ConfirmModalActionsRenderProps
+	ConfirmModalActionsRenderActionProps,
+	ConfirmModalActionsRenderCancelProps
 } from './common/types';
 import ConfirmModalActions from './ConfirmModalActions';
 
@@ -17,6 +17,6 @@ export { ConfirmModalActions };
 export type {
 	ConfirmModalActionsProps,
 	ConfirmModalActionsRef,
-	ConfirmModalActionsRenderCancelProps,
-	ConfirmModalActionsRenderProps
+	ConfirmModalActionsRenderActionProps,
+	ConfirmModalActionsRenderCancelProps
 };

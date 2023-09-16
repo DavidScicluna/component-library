@@ -29,6 +29,8 @@ const ConfirmModalBody = forwardRef(function ConfirmModalBody<Element extends El
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_CONFIRM_MODAL_BODY_CLASS__, { [className]: !!className })}
+			w='100%'
+			h='100%'
 			alignItems={alignItems}
 			justifyContent={justifyContent}
 			spacing={spacing}
