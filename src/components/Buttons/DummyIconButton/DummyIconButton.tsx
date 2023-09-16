@@ -2,6 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import classNames from 'classnames';
+import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
@@ -16,7 +17,7 @@ import {
 	__DEFAULT_DUMMY_ICON_BUTTON_SIZE__,
 	__DEFAULT_DUMMY_ICON_BUTTON_VARIANT__
 } from './common/constants';
-import { useDummyIconButtonClasses, useDummyIconButtonSizeConfig } from './common/hooks';
+import { useDummyIconButtonClasses, useDummyIconButtonSizeConfig, useDummyIconButtonStyles } from './common/hooks';
 import { __KEY_DUMMY_ICON_BUTTON_CLASS__ } from './common/keys';
 import type {
 	DummyIconButtonContext as DummyIconButtonContextType,
@@ -46,6 +47,7 @@ const DummyIconButton = forwardRef(function DummyIconButton<Element extends Elem
 		isRound = __DEFAULT_DUMMY_ICON_BUTTON_IS_ROUND__,
 		size: s = __DEFAULT_DUMMY_ICON_BUTTON_SIZE__,
 		variant: v = __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__,
+		sx,
 		...rest
 	} = props;
 
@@ -54,7 +56,8 @@ const DummyIconButton = forwardRef(function DummyIconButton<Element extends Elem
 
 	const config = useDummyIconButtonSizeConfig<Element>({ isCompact, isRound, size, variant });
 
-	const classes = useDummyIconButtonClasses<Element>({ isCompact, isRound, size, variant });
+	const classes = useDummyIconButtonClasses();
+	const styles = useDummyIconButtonStyles<Element>({ size });
 
 	return (
 		<DummyIconButtonContext.Provider value={{ color, colorMode, size, variant }}>
@@ -70,6 +73,7 @@ const DummyIconButton = forwardRef(function DummyIconButton<Element extends Elem
 				radius={config.radius}
 				variant={variant === 'icon' ? 'transparent' : variant}
 				p={config.padding}
+				sx={merge(styles, sx)}
 			>
 				<Center as='span' w='100%' h='100%'>
 					{children}
