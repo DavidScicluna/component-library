@@ -17,10 +17,15 @@ const HorizontalScrollLeftLinearGradient = forwardRef(function HorizontalScrollL
 	props: HorizontalScrollLeftLinearGradientProps<Element>,
 	ref: HorizontalScrollLeftLinearGradientRef<Element>
 ): ReactElement {
-	const scroll = useGetHorizontalScrollAPIContext();
-	const { isVisible } = useHorizontalScrollArrowState({ direction: 'left', scroll });
+	const __DEFAULT_HORIZONTAL_SCROLL_LEFT_LINEAR_GRADIENT_SCROLL__ = useGetHorizontalScrollAPIContext();
 
-	const { className = __DEFAULT_CLASSNAME__, ...rest } = props;
+	const {
+		className = __DEFAULT_CLASSNAME__,
+		scroll = __DEFAULT_HORIZONTAL_SCROLL_LEFT_LINEAR_GRADIENT_SCROLL__,
+		...rest
+	} = props;
+
+	const { isVisible } = useHorizontalScrollArrowState({ direction: 'left', scroll });
 
 	return (
 		<HorizontalScrollLinearGradient<Element>
