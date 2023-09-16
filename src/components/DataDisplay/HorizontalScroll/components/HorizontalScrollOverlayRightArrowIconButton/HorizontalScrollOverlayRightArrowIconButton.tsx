@@ -24,13 +24,15 @@ const HorizontalScrollOverlayRightArrowIconButton = forwardRef(function Horizont
 	props: HorizontalScrollOverlayRightArrowIconButtonProps<Element>,
 	ref: HorizontalScrollOverlayRightArrowIconButtonRef<Element>
 ): ReactElement {
+	const __DEFAULT_HORIZONTAL_SCROLL_OVERLAY_RIGHT_ARROW_ICON_BUTTON_SCROLL__ = useGetHorizontalScrollAPIContext();
+
 	const {
 		className = __DEFAULT_CLASSNAME__,
+		scroll = __DEFAULT_HORIZONTAL_SCROLL_OVERLAY_RIGHT_ARROW_ICON_BUTTON_SCROLL__,
 		scrollAmount = __DEFAULT_HORIZONTAL_SCROLL_OVERLAY_RIGHT_ARROW_ICON_BUTTON_SCROLL_AMOUNT__,
 		...rest
 	} = props;
 
-	const scroll = useGetHorizontalScrollAPIContext();
 	const { getNextItem, scrollToItem, scrollNext } = scroll;
 
 	const { isVisible } = useHorizontalScrollArrowState({ direction: 'right', scroll });
