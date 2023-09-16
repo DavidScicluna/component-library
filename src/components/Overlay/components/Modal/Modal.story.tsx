@@ -1,7 +1,11 @@
 import type { ReactElement } from 'react';
 
+import { sample } from 'lodash-es';
+
 import { __DEFAULT_SPACING__ } from '@common/constants';
+import { colors } from '@common/data';
 import { useGetColor } from '@common/hooks';
+import type { ThemeAppColor } from '@common/types';
 
 import { Button } from '@components/Buttons/Button';
 import { CloseIconButton } from '@components/Buttons/CloseIconButton';
@@ -20,6 +24,8 @@ import {
 import type { ModalDefaultElement, ModalProps, ModalSize } from './common/types';
 import type { ModalStory, ModalStoryMeta } from './common/types/story';
 import { Modal as ModalComponent, ModalBody, ModalFooter, ModalHeader, ModalStack, ModalSubtitle, ModalTitle } from '.';
+
+const __DEFAULT_MODAL_STORY_COLOR__: ThemeAppColor = sample(colors) || 'blue';
 
 export default {
 	title: 'Overlay/Modal',
@@ -103,7 +109,11 @@ export const Modal: ModalStory = (props: ModalProps<ModalDefaultElement>): React
 				</ModalBody>
 				<ModalFooter
 					renderCancel={(props) => <Button {...props}>cancel</Button>}
-					renderAction={(props) => <Button {...props}>action</Button>}
+					renderAction={(props) => (
+						<Button {...props} color={!color ? __DEFAULT_MODAL_STORY_COLOR__ : color}>
+							action
+						</Button>
+					)}
 				/>
 			</ModalStack>
 		</ModalComponent>

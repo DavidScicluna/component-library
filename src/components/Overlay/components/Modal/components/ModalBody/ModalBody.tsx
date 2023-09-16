@@ -21,6 +21,8 @@ const ModalBody = forwardRef(function ModalBody<Element extends ElementType>(
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_MODAL_BODY_CLASS__, { [className]: !!className })}
+			w='100%'
+			h='100%'
 		>
 			{children}
 		</Center>

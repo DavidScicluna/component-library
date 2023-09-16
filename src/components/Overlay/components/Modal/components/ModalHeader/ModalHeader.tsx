@@ -32,6 +32,8 @@ const ModalHeader = forwardRef(function ModalHeader<Element extends ElementType>
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_MODAL_HEADER_CLASS__, { [className]: !!className })}
+			w='100%'
+			h='100%'
 			templateColumns='1fr auto'
 			templateRows={1}
 			alignItems='stretch'
@@ -54,9 +56,8 @@ const ModalHeader = forwardRef(function ModalHeader<Element extends ElementType>
 				<GridItem>
 					{renderCancel({
 						colorMode,
-						icon: 'close',
-						category: 'outlined',
 						onClick: typeof onClose === 'function' ? () => onClose() : undefined,
+						size: 'md',
 						variant: 'icon'
 					})}
 				</GridItem>

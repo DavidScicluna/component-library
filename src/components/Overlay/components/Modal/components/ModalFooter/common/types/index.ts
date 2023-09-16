@@ -12,7 +12,7 @@ export type ModalFooterRenderActionProps = Pick<
 	'color' | 'colorMode' | 'isFullWidth' | 'size' | 'variant'
 >;
 
-export type ModalFooterProps<Element extends ElementType> = Omit<StackProps<Element>, 'children'> & {
+export type ModalFooterProps<Element extends ElementType> = Omit<StackProps<Element>, 'children' | 'w' | 'h'> & {
 	renderCancel?: (props: ModalFooterRenderCancelProps) => ReactNode;
 	renderAction?: (props: ModalFooterRenderActionProps) => ReactNode;
 };

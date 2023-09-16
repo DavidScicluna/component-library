@@ -37,6 +37,8 @@ const ModalFooter = forwardRef(function ModalFooter<Element extends ElementType>
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_MODAL_FOOTER_CLASS__, { [className]: !!className })}
+			w='100%'
+			h='100%'
 			direction={direction}
 			alignItems={alignItems}
 			justifyContent={justifyContent}
