@@ -9,7 +9,7 @@ import { useAppTheme } from '.';
 
 type UseGetColorProps = ThemeAppearanceProps & {
 	colorType: 'default' | 'color';
-	hueType: ColorHueType;
+	hueType?: ColorHueType;
 	classType?: ColorTypeClass;
 };
 
@@ -20,7 +20,7 @@ const useGetColor = (props: UseGetColorProps): string => {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_GET_COLOR_COLORMODE__,
 		colorType = 'default',
-		hueType,
+		hueType = 'default',
 		classType
 	} = props;
 

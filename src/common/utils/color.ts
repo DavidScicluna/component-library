@@ -2,7 +2,7 @@ import memoize from 'micro-memoize';
 
 import classes from '@common/classes';
 import theme from '@common/theme';
-import type { ColorTypeClass, ThemeAppColorMode, ThemeColor, ThemeColorHue } from '@common/types';
+import type { ColorTypeClass, PickFrom, ThemeAppColorMode, ThemeColor, ThemeColorHue } from '@common/types';
 
 export type ColorHueType =
 	| 'background'
@@ -71,11 +71,15 @@ export const getColorHue = memoize(({ colorMode, type }: GetColorHueProps): Them
 	}
 });
 
+type GetColorHexHueColor = Exclude<ThemeColor, 'transparent' | 'black' | 'white'>;
+type GetColorHexHueProps = { color: GetColorHexHueColor; hueType: ColorHueType };
+
+type GetColorHexNonHueColor = PickFrom<ThemeColor, 'transparent' | 'black' | 'white'>;
+type GetColorHexNonHueProps = { color: GetColorHexNonHueColor };
+
 export type GetColorHexProps = {
-	color: ThemeColor;
 	colorMode: ThemeAppColorMode;
-	hueType: ColorHueType;
-};
+} & (GetColorHexHueProps | GetColorHexNonHueProps);
 
 /**
  * This method will return the appropriate hex color depending on the color, colorMode & type params passed
@@ -85,20 +89,30 @@ export type GetColorHexProps = {
  * @param hueType - background | text.primary | text.secondary | divider | light | lighter | lightest | dark | darker | darkest | color | default
  * @returns - Hex Color
  */
-export const getColorHex = memoize(({ color, colorMode, hueType }: GetColorHexProps): string => {
-	const hue = getColorHue({ colorMode, type: hueType });
-	return theme.colors[color][hue];
+export const getColorHex = memoize((props: GetColorHexProps): string => {
+	const { color, colorMode } = props;
+	if (color !== 'transparent' && color !== 'black' && color !== 'white') {
+		const { hueType } = props as GetColorHexHueProps;
+		const hue = getColorHue({ colorMode, type: hueType });
+		return theme.colors[color as GetColorHexHueColor][hue];
+	} else {
+		return theme.colors[color as GetColorHexNonHueColor];
+	}
 });
 
+type GetColorClassHueColor = Exclude<ThemeColor, 'transparent' | 'black' | 'white'>;
+type GetColorClassHueProps = { color: GetColorClassHueColor; hueType: ColorHueType };
+
+type GetColorClassNonHueColor = PickFrom<ThemeColor, 'transparent' | 'black' | 'white'>;
+type GetColorClassNonHueProps = { color: GetColorClassNonHueColor };
+
 export type GetColorClassProps = {
-	color: ThemeColor;
 	colorMode: ThemeAppColorMode;
-	hueType: ColorHueType;
 	classType: ColorTypeClass;
-};
+} & (GetColorClassHueProps | GetColorClassNonHueProps);
 
 /**
- * This method will return the appropriate hex color depending on the color, colorMode & type params passed
+ * This method will return the appropriate color class depending on the color, colorMode & type params passed
  *
  * @param color - transparent | black | white | gray | red | pink | purple | deep_purple | indigo | blue | light_blue | cyan | teal | green | light_green | lime | yellow | orange | deep_orange
  * @param colorMode - light | dark
@@ -106,27 +120,52 @@ export type GetColorClassProps = {
  * @param classType - 'bg' | 'text'
  * @returns - Classname
  */
-export const getColorClass = memoize(({ color, colorMode, hueType, classType }: GetColorClassProps): string => {
-	const hue = getColorHue({ colorMode, type: hueType });
-	switch (classType) {
-		case 'shadow':
-			return classes.effects.color[color][hue];
-		case 'fill':
-			return classes.svg.fill[color][hue];
-		case 'bg':
-			return classes.backgrounds.color[color][hue];
-		case 'text':
-			return classes.typography.color[color][hue];
-		case 'border':
-			return classes.borders.border_color[color][hue];
-		case 'outline':
-			return classes.borders.outline_color[color][hue];
-		case 'gradient_from_color':
-			return classes.backgrounds.gradient_from_color[color][hue];
-		case 'gradient_middle_color':
-			return classes.backgrounds.gradient_middle_color[color][hue];
-		case 'gradient_to_color':
-			return classes.backgrounds.gradient_to_color[color][hue];
+export const getColorClass = memoize((props: GetColorClassProps): string => {
+	const { color, colorMode, classType } = props;
+	if (color !== 'transparent' && color !== 'black' && color !== 'white') {
+		const { hueType } = props as GetColorClassHueProps;
+		const hue = getColorHue({ colorMode, type: hueType });
+		switch (classType) {
+			case 'shadow':
+				return classes.effects.color[color as GetColorClassHueColor][hue];
+			case 'fill':
+				return classes.svg.fill[color as GetColorClassHueColor][hue];
+			case 'bg':
+				return classes.backgrounds.color[color as GetColorClassHueColor][hue];
+			case 'text':
+				return classes.typography.color[color as GetColorClassHueColor][hue];
+			case 'border':
+				return classes.borders.border_color[color as GetColorClassHueColor][hue];
+			case 'outline':
+				return classes.borders.outline_color[color as GetColorClassHueColor][hue];
+			case 'gradient_from_color':
+				return classes.backgrounds.gradient_from_color[color as GetColorClassHueColor][hue];
+			case 'gradient_middle_color':
+				return classes.backgrounds.gradient_middle_color[color as GetColorClassHueColor][hue];
+			case 'gradient_to_color':
+				return classes.backgrounds.gradient_to_color[color as GetColorClassHueColor][hue];
+		}
+	} else {
+		switch (classType) {
+			case 'shadow':
+				return classes.effects.color[color as GetColorClassNonHueColor];
+			case 'fill':
+				return classes.svg.fill[color as GetColorClassNonHueColor];
+			case 'bg':
+				return classes.backgrounds.color[color as GetColorClassNonHueColor];
+			case 'text':
+				return classes.typography.color[color as GetColorClassNonHueColor];
+			case 'border':
+				return classes.borders.border_color[color as GetColorClassNonHueColor];
+			case 'outline':
+				return classes.borders.outline_color[color as GetColorClassNonHueColor];
+			case 'gradient_from_color':
+				return classes.backgrounds.gradient_from_color[color as GetColorClassNonHueColor];
+			case 'gradient_middle_color':
+				return classes.backgrounds.gradient_middle_color[color as GetColorClassNonHueColor];
+			case 'gradient_to_color':
+				return classes.backgrounds.gradient_to_color[color as GetColorClassNonHueColor];
+		}
 	}
 });
 
