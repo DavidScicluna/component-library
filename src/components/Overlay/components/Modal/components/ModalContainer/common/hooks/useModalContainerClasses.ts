@@ -10,8 +10,7 @@ import type {
 	MaxWidthClass,
 	ThemeRadius,
 	ThemeSpacing,
-	WidthClass,
-	ZIndexClass
+	WidthClass
 } from '@common/types';
 
 import { useModalContext } from '@components/Overlay/components/Modal/common/hooks';
@@ -25,8 +24,6 @@ const useModalContainerClasses = (): UseModalContainerClassesReturn => {
 	const maxWidthClassName = useGetClass<MaxWidthClass>(size, ['sizing', 'max_width']);
 	const heightClassName = useGetClass<HeightClass>(size === 'full' ? 'full' : 'fit', ['sizing', 'height']);
 	const maxHeightClassName = useGetClass<MaxHeightClass>('full', ['sizing', 'max_height']);
-
-	const zIndexClassName = useGetClass<ZIndexClass>('modal', ['layout', 'z_index']);
 
 	const backgroundClassName = useGetColor({
 		color,
@@ -50,7 +47,7 @@ const useModalContainerClasses = (): UseModalContainerClassesReturn => {
 			classes.layout.position.fixed,
 			classes.layout.top[0],
 			classes.layout.left[0],
-			zIndexClassName
+			classes.layout.z_index.modal
 		),
 		backdrop: classNames(classes.sizing.width.full, classes.sizing.height.full),
 		content: classNames(

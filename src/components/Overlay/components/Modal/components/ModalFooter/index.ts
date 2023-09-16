@@ -2,8 +2,8 @@ import * as commonKeys from './common/keys';
 import type {
 	ModalFooterProps,
 	ModalFooterRef,
-	ModalFooterRenderCancelProps,
-	ModalFooterRenderProps
+	ModalFooterRenderActionProps,
+	ModalFooterRenderCancelProps
 } from './common/types';
 import ModalFooter from './ModalFooter';
 
@@ -14,4 +14,4 @@ export const keys = { ...commonKeys };
 export { ModalFooter };
 
 // Component Types
-export type { ModalFooterProps, ModalFooterRef, ModalFooterRenderCancelProps, ModalFooterRenderProps };
+export type { ModalFooterProps, ModalFooterRef, ModalFooterRenderActionProps, ModalFooterRenderCancelProps };

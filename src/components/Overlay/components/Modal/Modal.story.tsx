@@ -3,6 +3,8 @@ import type { ReactElement } from 'react';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
+import { Button } from '@components/Buttons/Button';
+import { CloseIconButton } from '@components/Buttons/CloseIconButton';
 import { Text } from '@components/Typography';
 
 // eslint-disable-next-line import-path/parent-depth
@@ -49,7 +51,20 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_MODAL_SIZE__,
 			// description: '',
-			options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', 'full'] as Array<ModalSize>,
+			options: [
+				'xs',
+				'sm',
+				'md',
+				'lg',
+				'xl',
+				'2xl',
+				'3xl',
+				'4xl',
+				'5xl',
+				'6xl',
+				'7xl',
+				'full'
+			] as Array<ModalSize>,
 			control: { type: 'radio' }
 		},
 		spacing: {
@@ -73,12 +88,13 @@ export const Modal: ModalStory = (props: ModalProps<ModalDefaultElement>): React
 			{...props}
 			color={color}
 			colorMode={colorMode}
-			renderTrigger={({ onOpen }) => <button onClick={onOpen}>click</button>}
+			renderTrigger={({ onOpen }) => <Button onClick={onOpen}>click</Button>}
 		>
 			<ModalStack>
 				<ModalHeader
 					renderTitle={() => <ModalTitle>Modal Title</ModalTitle>}
 					renderSubtitle={() => <ModalSubtitle>Modal Subtitle</ModalSubtitle>}
+					renderCancel={(props) => <CloseIconButton {...props} />}
 				/>
 				<ModalBody p={4}>
 					<Text align='center' color={text}>
@@ -86,8 +102,8 @@ export const Modal: ModalStory = (props: ModalProps<ModalDefaultElement>): React
 					</Text>
 				</ModalBody>
 				<ModalFooter
-					renderCancel={(props) => <button {...props}>cancel</button>}
-					renderAction={(props) => <button {...props}>action</button>}
+					renderCancel={(props) => <Button {...props}>cancel</Button>}
+					renderAction={(props) => <Button {...props}>action</Button>}
 				/>
 			</ModalStack>
 		</ModalComponent>

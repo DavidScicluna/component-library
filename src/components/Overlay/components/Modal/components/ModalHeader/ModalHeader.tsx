@@ -53,13 +53,11 @@ const ModalHeader = forwardRef(function ModalHeader<Element extends ElementType>
 			{renderCancel ? (
 				<GridItem>
 					{renderCancel({
-						'aria-label': 'Close Modal',
-						'color': 'gray',
 						colorMode,
-						'icon': 'close',
-						'category': 'outlined',
-						'onClick': typeof onClose === 'function' ? () => onClose() : undefined,
-						'variant': 'icon'
+						icon: 'close',
+						category: 'outlined',
+						onClick: typeof onClose === 'function' ? () => onClose() : undefined,
+						variant: 'icon'
 					})}
 				</GridItem>
 			) : null}

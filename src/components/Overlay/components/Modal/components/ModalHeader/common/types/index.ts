@@ -1,12 +1,18 @@
 import type { ElementType, ReactNode } from 'react';
 
 import type { BoxProps, BoxRef } from '@components/Box';
+import type { IconButtonProps } from '@components/Buttons/IconButton';
 import type { GridProps } from '@components/Layout';
+
+export type ModalHeaderRenderCancelProps = Pick<
+	IconButtonProps,
+	'color' | 'colorMode' | 'onClick' | 'size' | 'variant'
+>;
 
 type ModalHeaderOtherProps<Element extends ElementType> = Pick<GridProps<Element>, 'spacing'> & {
 	renderTitle: () => ReactNode;
 	renderSubtitle?: () => ReactNode;
-	renderCancel?: () => ReactNode;
+	renderCancel?: (props: ModalHeaderRenderCancelProps) => ReactNode;
 };
 
 export type ModalHeaderProps<Element extends ElementType> = Omit<

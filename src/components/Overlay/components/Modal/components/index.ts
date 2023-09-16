@@ -7,11 +7,11 @@ import { keys as modalContainerKeys, ModalContainer } from './ModalContainer';
 import type {
 	ModalFooterProps,
 	ModalFooterRef,
-	ModalFooterRenderCancelProps,
-	ModalFooterRenderProps
+	ModalFooterRenderActionProps,
+	ModalFooterRenderCancelProps
 } from './ModalFooter';
 import { keys as modalFooterKeys, ModalFooter } from './ModalFooter';
-import type { ModalHeaderProps, ModalHeaderRef } from './ModalHeader';
+import type { ModalHeaderProps, ModalHeaderRef, ModalHeaderRenderCancelProps } from './ModalHeader';
 import { keys as modalHeaderKeys, ModalHeader } from './ModalHeader';
 import type { ModalStackProps, ModalStackRef } from './ModalStack';
 import { keys as modalStackKeys, ModalStack } from './ModalStack';
@@ -67,10 +67,11 @@ export type {
 	ModalContainerRef,
 	ModalFooterProps,
 	ModalFooterRef,
+	ModalFooterRenderActionProps,
 	ModalFooterRenderCancelProps,
-	ModalFooterRenderProps,
 	ModalHeaderProps,
 	ModalHeaderRef,
+	ModalHeaderRenderCancelProps,
 	ModalStackProps,
 	ModalStackRef,
 	ModalSubtitleDefaultElement,

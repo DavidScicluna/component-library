@@ -1,5 +1,5 @@
 import * as commonKeys from './common/keys';
-import type { ModalHeaderProps, ModalHeaderRef } from './common/types';
+import type { ModalHeaderProps, ModalHeaderRef, ModalHeaderRenderCancelProps } from './common/types';
 import ModalHeader from './ModalHeader';
 
 // Keys
@@ -9,4 +9,4 @@ export const keys = { ...commonKeys };
 export { ModalHeader };
 
 // Component Types
-export type { ModalHeaderProps, ModalHeaderRef };
+export type { ModalHeaderProps, ModalHeaderRef, ModalHeaderRenderCancelProps };

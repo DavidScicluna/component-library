@@ -44,7 +44,6 @@ const ModalFooter = forwardRef(function ModalFooter<Element extends ElementType>
 		>
 			{renderCancel
 				? renderCancel({
-						color: 'gray',
 						colorMode,
 						isFullWidth: isSm || !renderAction,
 						onClick: typeof onClose === 'function' ? () => onClose() : undefined,
