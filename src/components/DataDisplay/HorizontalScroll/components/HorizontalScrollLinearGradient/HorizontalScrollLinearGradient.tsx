@@ -26,26 +26,14 @@ const HorizontalScrollLinearGradient = forwardRef(function HorizontalScrollLinea
 	const { className = __DEFAULT_CLASSNAME__, direction, isVisible = true, ...rest } = props;
 
 	return (
-		<Fade w={arrowSize.w * 2} h='100%' in={isVisible}>
+		<Fade w={arrowSize && arrowSize.w ? `${arrowSize.w}px` : '100%'} h='100%' in={isVisible} unmountOnExit={false}>
 			<LinearGradient<Element>
 				{...rest}
 				ref={ref}
 				className={classNames(__KEYS_HORIZONTAL_SCROLL_LINEAR_GRADIENT_CLASS__, { [className]: !!className })}
-				w='100%'
-				h='100%'
 				direction={direction === 'left' ? 'r' : 'l'}
-				from={{
-					color: 'gray',
-					colorMode,
-					hueType: 'background',
-					position: 0
-				}}
-				to={{
-					color: 'transparent',
-					colorMode,
-					hueType: 'background',
-					position: 100
-				}}
+				from={{ color: 'gray', colorMode, hueType: 'background', position: 0 }}
+				to={{ color: 'transparent', colorMode, position: 100 }}
 			/>
 		</Fade>
 	);
