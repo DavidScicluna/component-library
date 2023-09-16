@@ -1,3 +1,3 @@
-import { ReactNode, SuspenseProps as RSProps } from 'react';
+import type { ReactNode, SuspenseProps as ReactSuspenseProps } from 'react';
 
-export type SuspenseProps = RSProps & { renderError: ReactNode };
+export type SuspenseProps = ReactSuspenseProps & { renderError: ReactNode };
