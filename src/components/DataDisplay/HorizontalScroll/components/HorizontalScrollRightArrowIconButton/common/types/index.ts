@@ -1,11 +1,10 @@
 import type {
+	HorizontalScrollAPIContext,
 	HorizontalScrollArrowIconButtonDefaultElement,
 	HorizontalScrollArrowIconButtonElement,
 	HorizontalScrollArrowIconButtonProps,
 	HorizontalScrollArrowIconButtonRef
-} from '@compontents/DataDisplay/HorizontalScroll';
-
-import type { HorizontalScrollAPIContext } from '@components/DataDisplay/HorizontalScroll/common/types';
+} from '@components/DataDisplay/HorizontalScroll';
 
 export type HorizontalScrollRightArrowIconButtonDefaultElement = HorizontalScrollArrowIconButtonDefaultElement;
 export type HorizontalScrollRightArrowIconButtonElement = HorizontalScrollArrowIconButtonElement;
@@ -13,13 +12,13 @@ export type HorizontalScrollRightArrowIconButtonElement = HorizontalScrollArrowI
 export type HorizontalScrollRightArrowIconButtonScrollAmount = 'single' | 'multiple';
 
 type HorizontalScrollRightArrowIconButtonOtherProps = {
-	scroll: HorizontalScrollAPIContext;
+	scroll?: HorizontalScrollAPIContext;
 	scrollAmount?: HorizontalScrollRightArrowIconButtonScrollAmount;
 };
 
 export type HorizontalScrollRightArrowIconButtonProps<
 	Element extends HorizontalScrollRightArrowIconButtonElement = HorizontalScrollRightArrowIconButtonDefaultElement
-> = HorizontalScrollArrowIconButtonProps<Element> & HorizontalScrollRightArrowIconButtonOtherProps;
+> = Omit<HorizontalScrollArrowIconButtonProps<Element>, 'direction'> & HorizontalScrollRightArrowIconButtonOtherProps;
 
 export type HorizontalScrollRightArrowIconButtonRef<
 	Element extends HorizontalScrollRightArrowIconButtonElement = HorizontalScrollRightArrowIconButtonDefaultElement
