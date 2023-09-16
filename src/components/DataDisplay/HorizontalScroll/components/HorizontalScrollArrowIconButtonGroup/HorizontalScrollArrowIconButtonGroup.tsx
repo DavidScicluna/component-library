@@ -1,14 +1,16 @@
 import type { ElementType, ReactElement } from 'react';
-import { forwardRef } from 'react';
+import { forwardRef, isValidElement } from 'react';
 
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
-import { IconButtonGroup } from '@components/Buttons/IconButtonGroup';
+import { IconButtonGroup, IconButtonGroupItem } from '@components/Buttons/IconButtonGroup';
+import { Center } from '@components/Layout';
 
-import DefaultHorizontalScrollLeftArrowIconButton from '../HorizontalScrollLeftArrowIconButton';
-import DefaultHorizontalScrollRightArrowIconButton from '../HorizontalScrollRightArrowIconButton';
+import { useGetHorizontalScrollAPIContext, useHorizontalScrollContext } from '../../common/hooks';
+import { HorizontalScrollLeftArrowIconButton as DefaultHorizontalScrollLeftArrowIconButton } from '../HorizontalScrollLeftArrowIconButton';
+import { HorizontalScrollRightArrowIconButton as DefaultHorizontalScrollRightArrowIconButton } from '../HorizontalScrollRightArrowIconButton';
 
 import { __KEYS_HORIZONTAL_SCROLL_ARROW_ICON_BUTTON_GROUP_CLASS__ } from './common/keys';
 import type {
@@ -22,11 +24,16 @@ const HorizontalScrollArrowIconButtonGroup = forwardRef(function HorizontalScrol
 	props: HorizontalScrollArrowIconButtonGroupProps<Element>,
 	ref: HorizontalScrollArrowIconButtonGroupRef<Element>
 ): ReactElement {
+	const __DEFAULT_HORIZONTAL_SCROLL_ARROW_ICON_BUTTON_GROUP_SCROLL__ = useGetHorizontalScrollAPIContext();
+
+	const { spacing: __DEFAULT_HORIZONTAL_SCROLL_ARROW_ICON_BUTTON_GROUP_SPACING__ } = useHorizontalScrollContext();
+
 	const {
 		className = __DEFAULT_CLASSNAME__,
-		scroll,
-		LeftArrowIconButton = <DefaultHorizontalScrollLeftArrowIconButton scroll={scroll} />,
-		RightArrowIconButton = <DefaultHorizontalScrollRightArrowIconButton scroll={scroll} />,
+		scroll = __DEFAULT_HORIZONTAL_SCROLL_ARROW_ICON_BUTTON_GROUP_SCROLL__,
+		LeftArrow,
+		RightArrow,
+		spacing = __DEFAULT_HORIZONTAL_SCROLL_ARROW_ICON_BUTTON_GROUP_SPACING__,
 		...rest
 	} = props;
 
@@ -41,10 +48,31 @@ const HorizontalScrollArrowIconButtonGroup = forwardRef(function HorizontalScrol
 			h='100%'
 			alignItems='stretch'
 			justifyContent='stretch'
-			isAttached
+			isAttached={!LeftArrow || !RightArrow}
+			spacing={spacing}
 		>
-			{LeftArrowIconButton}
-			{RightArrowIconButton}
+			<Center>
+				<IconButtonGroupItem index={0} total={2}>
+					{(props) =>
+						isValidElement(LeftArrow) ? (
+							LeftArrow
+						) : (
+							<DefaultHorizontalScrollLeftArrowIconButton {...props} scroll={scroll} />
+						)
+					}
+				</IconButtonGroupItem>
+			</Center>
+			<Center>
+				<IconButtonGroupItem index={1} total={2}>
+					{(props) =>
+						isValidElement(RightArrow) ? (
+							RightArrow
+						) : (
+							<DefaultHorizontalScrollRightArrowIconButton {...props} scroll={scroll} />
+						)
+					}
+				</IconButtonGroupItem>
+			</Center>
 		</IconButtonGroup>
 	);
 });
