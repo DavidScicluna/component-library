@@ -29,6 +29,8 @@ import type {
 	HorizontalScrollLeftArrowIconButtonProps,
 	HorizontalScrollLeftArrowIconButtonRef,
 	HorizontalScrollLeftArrowIconButtonScrollAmount,
+	HorizontalScrollLeftLinearGradientProps,
+	HorizontalScrollLeftLinearGradientRef,
 	HorizontalScrollLinearGradientProps,
 	HorizontalScrollLinearGradientRef,
 	HorizontalScrollOverlayArrowIconButtonDefaultElement,
@@ -49,7 +51,9 @@ import type {
 	HorizontalScrollRightArrowIconButtonElement,
 	HorizontalScrollRightArrowIconButtonProps,
 	HorizontalScrollRightArrowIconButtonRef,
-	HorizontalScrollRightArrowIconButtonScrollAmount
+	HorizontalScrollRightArrowIconButtonScrollAmount,
+	HorizontalScrollRightLinearGradientProps,
+	HorizontalScrollRightLinearGradientRef
 } from './components';
 import {
 	constants as componentsConstants,
@@ -64,8 +68,7 @@ import {
 	HorizontalScrollOverlayRightArrowIconButton,
 	HorizontalScrollRightArrowIconButton,
 	HorizontalScrollRightLinearGradient,
-	keys as componentsKeys,
-	useHorizontalScrollOverlayArrowIconButtonClasses
+	keys as componentsKeys
 } from './components';
 import HorizontalScroll from './HorizontalScroll';
 
@@ -86,7 +89,6 @@ export {
 	useGetHorizontalScrollAPIContext,
 	useHorizontalScrollArrowState,
 	useHorizontalScrollContext,
-	useHorizontalScrollOverlayArrowIconButtonClasses,
 	useSetHorizontalScrollAPIContext
 };
 
@@ -125,6 +127,8 @@ export type {
 	HorizontalScrollLeftArrowIconButtonProps,
 	HorizontalScrollLeftArrowIconButtonRef,
 	HorizontalScrollLeftArrowIconButtonScrollAmount,
+	HorizontalScrollLeftLinearGradientProps,
+	HorizontalScrollLeftLinearGradientRef,
 	HorizontalScrollLinearGradientProps,
 	HorizontalScrollLinearGradientRef,
 	HorizontalScrollOverlayArrowIconButtonDefaultElement,
@@ -148,5 +152,7 @@ export type {
 	HorizontalScrollRightArrowIconButtonProps,
 	HorizontalScrollRightArrowIconButtonRef,
 	HorizontalScrollRightArrowIconButtonScrollAmount,
+	HorizontalScrollRightLinearGradientProps,
+	HorizontalScrollRightLinearGradientRef,
 	HorizontalScrollVariant
 };

@@ -59,10 +59,10 @@ const HorizontalScroll = forwardRef(function HorizontalScroll<Element extends El
 		renderDivider,
 		LeftArrow,
 		RightArrow,
-		// itemClassName,
-		// separatorClassName,
-		// scrollContainerClassName = 'scrollContainer',
-		// wrapperClassName = 'wrapperContainer',
+		itemClassName,
+		separatorClassName,
+		scrollContainerClassName = 'scrollContainer',
+		wrapperClassName = 'wrapperContainer',
 		onInit,
 		onUpdate,
 		spacing = __DEFAULT_SPACING__,
@@ -101,9 +101,9 @@ const HorizontalScroll = forwardRef(function HorizontalScroll<Element extends El
 				ref={ref}
 				className={classNames(__KEYS_HORIZONTAL_SCROLL_CLASS__, { [className]: !!className })}
 				templateColumns={[
-					variant === 'left' ? 'min-content' : null,
+					variant === 'left' ? 'auto' : null,
 					'minmax(0, 1fr)',
-					variant === 'right' ? 'min-content' : null
+					variant === 'right' ? 'auto' : null
 				].join(' ')}
 				templateRows={1}
 				alignItems='stretch'
@@ -124,7 +124,7 @@ const HorizontalScroll = forwardRef(function HorizontalScroll<Element extends El
 					</GridItem>
 				) : null}
 
-				{isValidElement(children) && isArray(children) ? (
+				{isArray(children) ? (
 					<GridItem
 						sx={
 							variant !== 'overlay' && variant !== 'hidden'
@@ -139,26 +139,34 @@ const HorizontalScroll = forwardRef(function HorizontalScroll<Element extends El
 					>
 						<ScrollMenu
 							LeftArrow={
-								variant === 'overlay'
-									? LeftArrow || HorizontalScrollOverlayLeftArrowIconButton
-									: variant === 'left'
-									? HorizontalScrollLeftLinearGradient
-									: null
+								variant === 'overlay' ? (
+									isValidElement(LeftArrow) ? (
+										LeftArrow
+									) : (
+										<HorizontalScrollOverlayLeftArrowIconButton scroll={scroll} />
+									)
+								) : variant === 'left' ? (
+									<HorizontalScrollLeftLinearGradient w='100%' h='100%' />
+								) : null
 							}
 							RightArrow={
-								variant === 'overlay'
-									? RightArrow || HorizontalScrollOverlayRightArrowIconButton
-									: variant === 'right'
-									? HorizontalScrollRightLinearGradient
-									: null
+								variant === 'overlay' ? (
+									isValidElement(RightArrow) ? (
+										RightArrow
+									) : (
+										<HorizontalScrollOverlayRightArrowIconButton scroll={scroll} />
+									)
+								) : variant === 'right' ? (
+									<HorizontalScrollRightLinearGradient w='100%' h='100%' />
+								) : null
 							}
 							transitionDuration={convertStringToNumber(theme.transition.duration.slow, 'ms')}
 							transitionBehavior='smooth'
 							transitionEase={(t) => (t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1)}
-							// itemClassName={itemClassName}
-							// separatorClassName={separatorClassName}
-							// wrapperClassName={wrapperClassName}
-							// scrollContainerClassName={scrollContainerClassName}
+							itemClassName={itemClassName}
+							separatorClassName={separatorClassName}
+							wrapperClassName={wrapperClassName}
+							scrollContainerClassName={scrollContainerClassName}
 							onInit={handleInit}
 							onUpdate={handleUpdate}
 						>
