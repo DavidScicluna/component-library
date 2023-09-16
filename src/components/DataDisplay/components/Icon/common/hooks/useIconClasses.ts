@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
-import type { ClassName, ThemeFontSize, ThemeLineHeight, ThemeRadius } from '@common/types';
+import type { ClassName, ThemeFontSize, ThemeRadius } from '@common/types';
 import { checkFontSizeType, getClass, getColorHue, getResponsiveValue } from '@common/utils';
 
 import { __DEFAULT_ICON_RADIUS__, __DEFAULT_ICON_SIZE__, __DEFAULT_ICON_VARIANT__ } from '../constants';
@@ -32,17 +32,23 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 		const s = getResponsiveValue<IconSize>(size);
 
 		const fontSizeClassName = getClass<ThemeFontSize>(s as ThemeFontSize, ['typography', 'font_size']);
-		const lineHeightClassName = getClass<ThemeLineHeight>('none', ['typography', 'line_height']);
 		const radiusClassName = getClass<ThemeRadius>(radius, ['borders', 'border_radius']);
 
 		const v = getResponsiveValue<IconVariant>(variant);
 
 		return classNames(
+			classes.layout.display['inline-block'],
 			classes.interactivity.cursor.default,
 			classes.interactivity.user_select.none,
 			classes.interactivity.will_change.auto,
 			classes.interactivity.pointer_events.none,
-			lineHeightClassName,
+			classes.typography.font_weight.normal,
+			classes.typography.font_style['not-italic'],
+			classes.typography.line_height.none,
+			classes.typography.transform.normal,
+			classes.typography.letter_spacing.normal,
+			classes.typography.word_break.normal,
+			classes.typography.whitespace.normal,
 			radiusClassName,
 			{
 				[fontSizeClassName]: checkFontSizeType(s) === 'theme',
