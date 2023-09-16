@@ -5,7 +5,7 @@ import type { ThemeDuration } from '@common/types';
 export type CopyButtonTimeout = ThemeDuration | number;
 
 export type CopyButtonChildrenProps = {
-	isCopied: boolean;
+	hasCopied: boolean;
 	onCopy: () => void;
 };
 

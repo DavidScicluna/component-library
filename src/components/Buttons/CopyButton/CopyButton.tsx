@@ -12,19 +12,19 @@ import { getCopyButtonTimeout } from './common/utils';
 const CopyButton: FC<CopyButtonProps> = (props) => {
 	const { children, timeout = __DEFAULT_COPY_BUTTON_TIMEOUT__, value } = props;
 
-	const [isCopied, setIsCopied] = useBoolean();
+	const [hasCopied, setHasCopied] = useBoolean();
 
 	const [_value, onCopy] = useCopyToClipboard();
 
 	const handleCopy = useCallback((): void => {
-		setIsCopied.on();
+		setHasCopied.on();
 
 		onCopy(value);
 
-		setTimeout(() => setIsCopied.off(), getCopyButtonTimeout(timeout));
+		setTimeout(() => setHasCopied.off(), getCopyButtonTimeout(timeout));
 	}, [value, timeout]);
 
-	return <Fragment>{children({ isCopied, onCopy: handleCopy })}</Fragment>;
+	return <Fragment>{children({ hasCopied, onCopy: handleCopy })}</Fragment>;
 };
 
 export default CopyButton;

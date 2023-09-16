@@ -38,9 +38,9 @@ export const CopyButton: CopyButtonStory = (props: CopyButtonProps): ReactElemen
 	return (
 		<Center w='100%'>
 			<CopyButtonComponent {...props}>
-				{({ isCopied, onCopy }) => (
-					<Button {...props} color={color} colorMode={colorMode} isActive={isCopied} onClick={onCopy}>
-						{isCopied ? `Copied: "${props.value}"` : 'Click to copy text'}
+				{({ hasCopied, onCopy }) => (
+					<Button {...props} color={color} colorMode={colorMode} isActive={hasCopied} onClick={onCopy}>
+						{hasCopied ? `Copied: "${props.value}"` : 'Click to copy text'}
 					</Button>
 				)}
 			</CopyButtonComponent>
