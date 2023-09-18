@@ -1,10 +1,14 @@
 import type {
 	FontStyleClassObj,
 	TextAlignClassObj,
+	TextDecorationClassObj,
+	TextDecorationStyleClassObj,
+	TextDecorationThicknessClassObj,
 	TextLetterSpacingClassObj,
 	TextLineClampClassObj,
 	TextOverflowClassObj,
 	TextTransformClassObj,
+	TextUnderlineOffsetClassObj,
 	ThemeColorObj,
 	ThemeFontSizeObj,
 	ThemeFontWeightObj,
@@ -22,7 +26,7 @@ const align: TextAlignClassObj = {
 	end: 'text-end'
 };
 
-const color: ThemeColorObj = {
+const text_color: ThemeColorObj = {
 	transparent: 'text-transparent',
 	black: 'text-black',
 	white: 'text-white',
@@ -236,7 +240,7 @@ const color: ThemeColorObj = {
 	}
 };
 
-const hover_color: ThemeColorObj = {
+const hover_text_color: ThemeColorObj = {
 	transparent: 'hover:text-transparent',
 	black: 'hover:text-black',
 	white: 'hover:text-white',
@@ -450,7 +454,7 @@ const hover_color: ThemeColorObj = {
 	}
 };
 
-const focus_color: ThemeColorObj = {
+const focus_text_color: ThemeColorObj = {
 	transparent: 'focus:text-transparent',
 	black: 'focus:text-black',
 	white: 'focus:text-white',
@@ -664,7 +668,7 @@ const focus_color: ThemeColorObj = {
 	}
 };
 
-const active_color: ThemeColorObj = {
+const active_text_color: ThemeColorObj = {
 	transparent: 'active:text-transparent',
 	black: 'active:text-black',
 	white: 'active:text-white',
@@ -878,7 +882,7 @@ const active_color: ThemeColorObj = {
 	}
 };
 
-const before_color: ThemeColorObj = {
+const before_text_color: ThemeColorObj = {
 	transparent: 'before:text-transparent',
 	black: 'before:text-black',
 	white: 'before:text-white',
@@ -1092,7 +1096,7 @@ const before_color: ThemeColorObj = {
 	}
 };
 
-const after_color: ThemeColorObj = {
+const after_text_color: ThemeColorObj = {
 	transparent: 'after:text-transparent',
 	black: 'after:text-black',
 	white: 'after:text-white',
@@ -1306,6 +1310,1369 @@ const after_color: ThemeColorObj = {
 	}
 };
 
+const text_decoration: TextDecorationClassObj = {
+	'underline': 'underline',
+	'overline': 'overline',
+	'line-through': 'line-through',
+	'no-underline': 'no-underline'
+};
+
+const text_decoration_color: ThemeColorObj = {
+	transparent: 'decoration-transparent',
+	black: 'decoration-black',
+	white: 'decoration-white',
+	gray: {
+		50: 'decoration-gray-50',
+		100: 'decoration-gray-100',
+		200: 'decoration-gray-200',
+		300: 'decoration-gray-300',
+		400: 'decoration-gray-400',
+		500: 'decoration-gray-500',
+		600: 'decoration-gray-600',
+		700: 'decoration-gray-700',
+		800: 'decoration-gray-800',
+		900: 'decoration-gray-900',
+		950: 'decoration-gray-950'
+	},
+	red: {
+		50: 'decoration-red-50',
+		100: 'decoration-red-100',
+		200: 'decoration-red-200',
+		300: 'decoration-red-300',
+		400: 'decoration-red-400',
+		500: 'decoration-red-500',
+		600: 'decoration-red-600',
+		700: 'decoration-red-700',
+		800: 'decoration-red-800',
+		900: 'decoration-red-900',
+		950: 'decoration-red-950'
+	},
+	pink: {
+		50: 'decoration-pink-50',
+		100: 'decoration-pink-100',
+		200: 'decoration-pink-200',
+		300: 'decoration-pink-300',
+		400: 'decoration-pink-400',
+		500: 'decoration-pink-500',
+		600: 'decoration-pink-600',
+		700: 'decoration-pink-700',
+		800: 'decoration-pink-800',
+		900: 'decoration-pink-900',
+		950: 'decoration-pink-950'
+	},
+	purple: {
+		50: 'decoration-purple-50',
+		100: 'decoration-purple-100',
+		200: 'decoration-purple-200',
+		300: 'decoration-purple-300',
+		400: 'decoration-purple-400',
+		500: 'decoration-purple-500',
+		600: 'decoration-purple-600',
+		700: 'decoration-purple-700',
+		800: 'decoration-purple-800',
+		900: 'decoration-purple-900',
+		950: 'decoration-purple-950'
+	},
+	deep_purple: {
+		50: 'decoration-deep_purple-50',
+		100: 'decoration-deep_purple-100',
+		200: 'decoration-deep_purple-200',
+		300: 'decoration-deep_purple-300',
+		400: 'decoration-deep_purple-400',
+		500: 'decoration-deep_purple-500',
+		600: 'decoration-deep_purple-600',
+		700: 'decoration-deep_purple-700',
+		800: 'decoration-deep_purple-800',
+		900: 'decoration-deep_purple-900',
+		950: 'decoration-deep_purple-950'
+	},
+	indigo: {
+		50: 'decoration-indigo-50',
+		100: 'decoration-indigo-100',
+		200: 'decoration-indigo-200',
+		300: 'decoration-indigo-300',
+		400: 'decoration-indigo-400',
+		500: 'decoration-indigo-500',
+		600: 'decoration-indigo-600',
+		700: 'decoration-indigo-700',
+		800: 'decoration-indigo-800',
+		900: 'decoration-indigo-900',
+		950: 'decoration-indigo-950'
+	},
+	blue: {
+		50: 'decoration-blue-50',
+		100: 'decoration-blue-100',
+		200: 'decoration-blue-200',
+		300: 'decoration-blue-300',
+		400: 'decoration-blue-400',
+		500: 'decoration-blue-500',
+		600: 'decoration-blue-600',
+		700: 'decoration-blue-700',
+		800: 'decoration-blue-800',
+		900: 'decoration-blue-900',
+		950: 'decoration-blue-950'
+	},
+	light_blue: {
+		50: 'decoration-light_blue-50',
+		100: 'decoration-light_blue-100',
+		200: 'decoration-light_blue-200',
+		300: 'decoration-light_blue-300',
+		400: 'decoration-light_blue-400',
+		500: 'decoration-light_blue-500',
+		600: 'decoration-light_blue-600',
+		700: 'decoration-light_blue-700',
+		800: 'decoration-light_blue-800',
+		900: 'decoration-light_blue-900',
+		950: 'decoration-light_blue-950'
+	},
+	cyan: {
+		50: 'decoration-cyan-50',
+		100: 'decoration-cyan-100',
+		200: 'decoration-cyan-200',
+		300: 'decoration-cyan-300',
+		400: 'decoration-cyan-400',
+		500: 'decoration-cyan-500',
+		600: 'decoration-cyan-600',
+		700: 'decoration-cyan-700',
+		800: 'decoration-cyan-800',
+		900: 'decoration-cyan-900',
+		950: 'decoration-cyan-950'
+	},
+	teal: {
+		50: 'decoration-teal-50',
+		100: 'decoration-teal-100',
+		200: 'decoration-teal-200',
+		300: 'decoration-teal-300',
+		400: 'decoration-teal-400',
+		500: 'decoration-teal-500',
+		600: 'decoration-teal-600',
+		700: 'decoration-teal-700',
+		800: 'decoration-teal-800',
+		900: 'decoration-teal-900',
+		950: 'decoration-teal-950'
+	},
+	green: {
+		50: 'decoration-green-50',
+		100: 'decoration-green-100',
+		200: 'decoration-green-200',
+		300: 'decoration-green-300',
+		400: 'decoration-green-400',
+		500: 'decoration-green-500',
+		600: 'decoration-green-600',
+		700: 'decoration-green-700',
+		800: 'decoration-green-800',
+		900: 'decoration-green-900',
+		950: 'decoration-green-950'
+	},
+	light_green: {
+		50: 'decoration-light_green-50',
+		100: 'decoration-light_green-100',
+		200: 'decoration-light_green-200',
+		300: 'decoration-light_green-300',
+		400: 'decoration-light_green-400',
+		500: 'decoration-light_green-500',
+		600: 'decoration-light_green-600',
+		700: 'decoration-light_green-700',
+		800: 'decoration-light_green-800',
+		900: 'decoration-light_green-900',
+		950: 'decoration-light_green-950'
+	},
+	lime: {
+		50: 'decoration-lime-50',
+		100: 'decoration-lime-100',
+		200: 'decoration-lime-200',
+		300: 'decoration-lime-300',
+		400: 'decoration-lime-400',
+		500: 'decoration-lime-500',
+		600: 'decoration-lime-600',
+		700: 'decoration-lime-700',
+		800: 'decoration-lime-800',
+		900: 'decoration-lime-900',
+		950: 'decoration-lime-950'
+	},
+	yellow: {
+		50: 'decoration-yellow-50',
+		100: 'decoration-yellow-100',
+		200: 'decoration-yellow-200',
+		300: 'decoration-yellow-300',
+		400: 'decoration-yellow-400',
+		500: 'decoration-yellow-500',
+		600: 'decoration-yellow-600',
+		700: 'decoration-yellow-700',
+		800: 'decoration-yellow-800',
+		900: 'decoration-yellow-900',
+		950: 'decoration-yellow-950'
+	},
+	orange: {
+		50: 'decoration-orange-50',
+		100: 'decoration-orange-100',
+		200: 'decoration-orange-200',
+		300: 'decoration-orange-300',
+		400: 'decoration-orange-400',
+		500: 'decoration-orange-500',
+		600: 'decoration-orange-600',
+		700: 'decoration-orange-700',
+		800: 'decoration-orange-800',
+		900: 'decoration-orange-900',
+		950: 'decoration-orange-950'
+	},
+	deep_orange: {
+		50: 'decoration-deep_orange-50',
+		100: 'decoration-deep_orange-100',
+		200: 'decoration-deep_orange-200',
+		300: 'decoration-deep_orange-300',
+		400: 'decoration-deep_orange-400',
+		500: 'decoration-deep_orange-500',
+		600: 'decoration-deep_orange-600',
+		700: 'decoration-deep_orange-700',
+		800: 'decoration-deep_orange-800',
+		900: 'decoration-deep_orange-900',
+		950: 'decoration-deep_orange-950'
+	}
+};
+
+const hover_text_decoration_color: ThemeColorObj = {
+	transparent: 'hover:decoration-transparent',
+	black: 'hover:decoration-black',
+	white: 'hover:decoration-white',
+	gray: {
+		50: 'hover:decoration-gray-50',
+		100: 'hover:decoration-gray-100',
+		200: 'hover:decoration-gray-200',
+		300: 'hover:decoration-gray-300',
+		400: 'hover:decoration-gray-400',
+		500: 'hover:decoration-gray-500',
+		600: 'hover:decoration-gray-600',
+		700: 'hover:decoration-gray-700',
+		800: 'hover:decoration-gray-800',
+		900: 'hover:decoration-gray-900',
+		950: 'hover:decoration-gray-950'
+	},
+	red: {
+		50: 'hover:decoration-red-50',
+		100: 'hover:decoration-red-100',
+		200: 'hover:decoration-red-200',
+		300: 'hover:decoration-red-300',
+		400: 'hover:decoration-red-400',
+		500: 'hover:decoration-red-500',
+		600: 'hover:decoration-red-600',
+		700: 'hover:decoration-red-700',
+		800: 'hover:decoration-red-800',
+		900: 'hover:decoration-red-900',
+		950: 'hover:decoration-red-950'
+	},
+	pink: {
+		50: 'hover:decoration-pink-50',
+		100: 'hover:decoration-pink-100',
+		200: 'hover:decoration-pink-200',
+		300: 'hover:decoration-pink-300',
+		400: 'hover:decoration-pink-400',
+		500: 'hover:decoration-pink-500',
+		600: 'hover:decoration-pink-600',
+		700: 'hover:decoration-pink-700',
+		800: 'hover:decoration-pink-800',
+		900: 'hover:decoration-pink-900',
+		950: 'hover:decoration-pink-950'
+	},
+	purple: {
+		50: 'hover:decoration-purple-50',
+		100: 'hover:decoration-purple-100',
+		200: 'hover:decoration-purple-200',
+		300: 'hover:decoration-purple-300',
+		400: 'hover:decoration-purple-400',
+		500: 'hover:decoration-purple-500',
+		600: 'hover:decoration-purple-600',
+		700: 'hover:decoration-purple-700',
+		800: 'hover:decoration-purple-800',
+		900: 'hover:decoration-purple-900',
+		950: 'hover:decoration-purple-950'
+	},
+	deep_purple: {
+		50: 'hover:decoration-deep_purple-50',
+		100: 'hover:decoration-deep_purple-100',
+		200: 'hover:decoration-deep_purple-200',
+		300: 'hover:decoration-deep_purple-300',
+		400: 'hover:decoration-deep_purple-400',
+		500: 'hover:decoration-deep_purple-500',
+		600: 'hover:decoration-deep_purple-600',
+		700: 'hover:decoration-deep_purple-700',
+		800: 'hover:decoration-deep_purple-800',
+		900: 'hover:decoration-deep_purple-900',
+		950: 'hover:decoration-deep_purple-950'
+	},
+	indigo: {
+		50: 'hover:decoration-indigo-50',
+		100: 'hover:decoration-indigo-100',
+		200: 'hover:decoration-indigo-200',
+		300: 'hover:decoration-indigo-300',
+		400: 'hover:decoration-indigo-400',
+		500: 'hover:decoration-indigo-500',
+		600: 'hover:decoration-indigo-600',
+		700: 'hover:decoration-indigo-700',
+		800: 'hover:decoration-indigo-800',
+		900: 'hover:decoration-indigo-900',
+		950: 'hover:decoration-indigo-950'
+	},
+	blue: {
+		50: 'hover:decoration-blue-50',
+		100: 'hover:decoration-blue-100',
+		200: 'hover:decoration-blue-200',
+		300: 'hover:decoration-blue-300',
+		400: 'hover:decoration-blue-400',
+		500: 'hover:decoration-blue-500',
+		600: 'hover:decoration-blue-600',
+		700: 'hover:decoration-blue-700',
+		800: 'hover:decoration-blue-800',
+		900: 'hover:decoration-blue-900',
+		950: 'hover:decoration-blue-950'
+	},
+	light_blue: {
+		50: 'hover:decoration-light_blue-50',
+		100: 'hover:decoration-light_blue-100',
+		200: 'hover:decoration-light_blue-200',
+		300: 'hover:decoration-light_blue-300',
+		400: 'hover:decoration-light_blue-400',
+		500: 'hover:decoration-light_blue-500',
+		600: 'hover:decoration-light_blue-600',
+		700: 'hover:decoration-light_blue-700',
+		800: 'hover:decoration-light_blue-800',
+		900: 'hover:decoration-light_blue-900',
+		950: 'hover:decoration-light_blue-950'
+	},
+	cyan: {
+		50: 'hover:decoration-cyan-50',
+		100: 'hover:decoration-cyan-100',
+		200: 'hover:decoration-cyan-200',
+		300: 'hover:decoration-cyan-300',
+		400: 'hover:decoration-cyan-400',
+		500: 'hover:decoration-cyan-500',
+		600: 'hover:decoration-cyan-600',
+		700: 'hover:decoration-cyan-700',
+		800: 'hover:decoration-cyan-800',
+		900: 'hover:decoration-cyan-900',
+		950: 'hover:decoration-cyan-950'
+	},
+	teal: {
+		50: 'hover:decoration-teal-50',
+		100: 'hover:decoration-teal-100',
+		200: 'hover:decoration-teal-200',
+		300: 'hover:decoration-teal-300',
+		400: 'hover:decoration-teal-400',
+		500: 'hover:decoration-teal-500',
+		600: 'hover:decoration-teal-600',
+		700: 'hover:decoration-teal-700',
+		800: 'hover:decoration-teal-800',
+		900: 'hover:decoration-teal-900',
+		950: 'hover:decoration-teal-950'
+	},
+	green: {
+		50: 'hover:decoration-green-50',
+		100: 'hover:decoration-green-100',
+		200: 'hover:decoration-green-200',
+		300: 'hover:decoration-green-300',
+		400: 'hover:decoration-green-400',
+		500: 'hover:decoration-green-500',
+		600: 'hover:decoration-green-600',
+		700: 'hover:decoration-green-700',
+		800: 'hover:decoration-green-800',
+		900: 'hover:decoration-green-900',
+		950: 'hover:decoration-green-950'
+	},
+	light_green: {
+		50: 'hover:decoration-light_green-50',
+		100: 'hover:decoration-light_green-100',
+		200: 'hover:decoration-light_green-200',
+		300: 'hover:decoration-light_green-300',
+		400: 'hover:decoration-light_green-400',
+		500: 'hover:decoration-light_green-500',
+		600: 'hover:decoration-light_green-600',
+		700: 'hover:decoration-light_green-700',
+		800: 'hover:decoration-light_green-800',
+		900: 'hover:decoration-light_green-900',
+		950: 'hover:decoration-light_green-950'
+	},
+	lime: {
+		50: 'hover:decoration-lime-50',
+		100: 'hover:decoration-lime-100',
+		200: 'hover:decoration-lime-200',
+		300: 'hover:decoration-lime-300',
+		400: 'hover:decoration-lime-400',
+		500: 'hover:decoration-lime-500',
+		600: 'hover:decoration-lime-600',
+		700: 'hover:decoration-lime-700',
+		800: 'hover:decoration-lime-800',
+		900: 'hover:decoration-lime-900',
+		950: 'hover:decoration-lime-950'
+	},
+	yellow: {
+		50: 'hover:decoration-yellow-50',
+		100: 'hover:decoration-yellow-100',
+		200: 'hover:decoration-yellow-200',
+		300: 'hover:decoration-yellow-300',
+		400: 'hover:decoration-yellow-400',
+		500: 'hover:decoration-yellow-500',
+		600: 'hover:decoration-yellow-600',
+		700: 'hover:decoration-yellow-700',
+		800: 'hover:decoration-yellow-800',
+		900: 'hover:decoration-yellow-900',
+		950: 'hover:decoration-yellow-950'
+	},
+	orange: {
+		50: 'hover:decoration-orange-50',
+		100: 'hover:decoration-orange-100',
+		200: 'hover:decoration-orange-200',
+		300: 'hover:decoration-orange-300',
+		400: 'hover:decoration-orange-400',
+		500: 'hover:decoration-orange-500',
+		600: 'hover:decoration-orange-600',
+		700: 'hover:decoration-orange-700',
+		800: 'hover:decoration-orange-800',
+		900: 'hover:decoration-orange-900',
+		950: 'hover:decoration-orange-950'
+	},
+	deep_orange: {
+		50: 'hover:decoration-deep_orange-50',
+		100: 'hover:decoration-deep_orange-100',
+		200: 'hover:decoration-deep_orange-200',
+		300: 'hover:decoration-deep_orange-300',
+		400: 'hover:decoration-deep_orange-400',
+		500: 'hover:decoration-deep_orange-500',
+		600: 'hover:decoration-deep_orange-600',
+		700: 'hover:decoration-deep_orange-700',
+		800: 'hover:decoration-deep_orange-800',
+		900: 'hover:decoration-deep_orange-900',
+		950: 'hover:decoration-deep_orange-950'
+	}
+};
+
+const focus_text_decoration_color: ThemeColorObj = {
+	transparent: 'focus:decoration-transparent',
+	black: 'focus:decoration-black',
+	white: 'focus:decoration-white',
+	gray: {
+		50: 'focus:decoration-gray-50',
+		100: 'focus:decoration-gray-100',
+		200: 'focus:decoration-gray-200',
+		300: 'focus:decoration-gray-300',
+		400: 'focus:decoration-gray-400',
+		500: 'focus:decoration-gray-500',
+		600: 'focus:decoration-gray-600',
+		700: 'focus:decoration-gray-700',
+		800: 'focus:decoration-gray-800',
+		900: 'focus:decoration-gray-900',
+		950: 'focus:decoration-gray-950'
+	},
+	red: {
+		50: 'focus:decoration-red-50',
+		100: 'focus:decoration-red-100',
+		200: 'focus:decoration-red-200',
+		300: 'focus:decoration-red-300',
+		400: 'focus:decoration-red-400',
+		500: 'focus:decoration-red-500',
+		600: 'focus:decoration-red-600',
+		700: 'focus:decoration-red-700',
+		800: 'focus:decoration-red-800',
+		900: 'focus:decoration-red-900',
+		950: 'focus:decoration-red-950'
+	},
+	pink: {
+		50: 'focus:decoration-pink-50',
+		100: 'focus:decoration-pink-100',
+		200: 'focus:decoration-pink-200',
+		300: 'focus:decoration-pink-300',
+		400: 'focus:decoration-pink-400',
+		500: 'focus:decoration-pink-500',
+		600: 'focus:decoration-pink-600',
+		700: 'focus:decoration-pink-700',
+		800: 'focus:decoration-pink-800',
+		900: 'focus:decoration-pink-900',
+		950: 'focus:decoration-pink-950'
+	},
+	purple: {
+		50: 'focus:decoration-purple-50',
+		100: 'focus:decoration-purple-100',
+		200: 'focus:decoration-purple-200',
+		300: 'focus:decoration-purple-300',
+		400: 'focus:decoration-purple-400',
+		500: 'focus:decoration-purple-500',
+		600: 'focus:decoration-purple-600',
+		700: 'focus:decoration-purple-700',
+		800: 'focus:decoration-purple-800',
+		900: 'focus:decoration-purple-900',
+		950: 'focus:decoration-purple-950'
+	},
+	deep_purple: {
+		50: 'focus:decoration-deep_purple-50',
+		100: 'focus:decoration-deep_purple-100',
+		200: 'focus:decoration-deep_purple-200',
+		300: 'focus:decoration-deep_purple-300',
+		400: 'focus:decoration-deep_purple-400',
+		500: 'focus:decoration-deep_purple-500',
+		600: 'focus:decoration-deep_purple-600',
+		700: 'focus:decoration-deep_purple-700',
+		800: 'focus:decoration-deep_purple-800',
+		900: 'focus:decoration-deep_purple-900',
+		950: 'focus:decoration-deep_purple-950'
+	},
+	indigo: {
+		50: 'focus:decoration-indigo-50',
+		100: 'focus:decoration-indigo-100',
+		200: 'focus:decoration-indigo-200',
+		300: 'focus:decoration-indigo-300',
+		400: 'focus:decoration-indigo-400',
+		500: 'focus:decoration-indigo-500',
+		600: 'focus:decoration-indigo-600',
+		700: 'focus:decoration-indigo-700',
+		800: 'focus:decoration-indigo-800',
+		900: 'focus:decoration-indigo-900',
+		950: 'focus:decoration-indigo-950'
+	},
+	blue: {
+		50: 'focus:decoration-blue-50',
+		100: 'focus:decoration-blue-100',
+		200: 'focus:decoration-blue-200',
+		300: 'focus:decoration-blue-300',
+		400: 'focus:decoration-blue-400',
+		500: 'focus:decoration-blue-500',
+		600: 'focus:decoration-blue-600',
+		700: 'focus:decoration-blue-700',
+		800: 'focus:decoration-blue-800',
+		900: 'focus:decoration-blue-900',
+		950: 'focus:decoration-blue-950'
+	},
+	light_blue: {
+		50: 'focus:decoration-light_blue-50',
+		100: 'focus:decoration-light_blue-100',
+		200: 'focus:decoration-light_blue-200',
+		300: 'focus:decoration-light_blue-300',
+		400: 'focus:decoration-light_blue-400',
+		500: 'focus:decoration-light_blue-500',
+		600: 'focus:decoration-light_blue-600',
+		700: 'focus:decoration-light_blue-700',
+		800: 'focus:decoration-light_blue-800',
+		900: 'focus:decoration-light_blue-900',
+		950: 'focus:decoration-light_blue-950'
+	},
+	cyan: {
+		50: 'focus:decoration-cyan-50',
+		100: 'focus:decoration-cyan-100',
+		200: 'focus:decoration-cyan-200',
+		300: 'focus:decoration-cyan-300',
+		400: 'focus:decoration-cyan-400',
+		500: 'focus:decoration-cyan-500',
+		600: 'focus:decoration-cyan-600',
+		700: 'focus:decoration-cyan-700',
+		800: 'focus:decoration-cyan-800',
+		900: 'focus:decoration-cyan-900',
+		950: 'focus:decoration-cyan-950'
+	},
+	teal: {
+		50: 'focus:decoration-teal-50',
+		100: 'focus:decoration-teal-100',
+		200: 'focus:decoration-teal-200',
+		300: 'focus:decoration-teal-300',
+		400: 'focus:decoration-teal-400',
+		500: 'focus:decoration-teal-500',
+		600: 'focus:decoration-teal-600',
+		700: 'focus:decoration-teal-700',
+		800: 'focus:decoration-teal-800',
+		900: 'focus:decoration-teal-900',
+		950: 'focus:decoration-teal-950'
+	},
+	green: {
+		50: 'focus:decoration-green-50',
+		100: 'focus:decoration-green-100',
+		200: 'focus:decoration-green-200',
+		300: 'focus:decoration-green-300',
+		400: 'focus:decoration-green-400',
+		500: 'focus:decoration-green-500',
+		600: 'focus:decoration-green-600',
+		700: 'focus:decoration-green-700',
+		800: 'focus:decoration-green-800',
+		900: 'focus:decoration-green-900',
+		950: 'focus:decoration-green-950'
+	},
+	light_green: {
+		50: 'focus:decoration-light_green-50',
+		100: 'focus:decoration-light_green-100',
+		200: 'focus:decoration-light_green-200',
+		300: 'focus:decoration-light_green-300',
+		400: 'focus:decoration-light_green-400',
+		500: 'focus:decoration-light_green-500',
+		600: 'focus:decoration-light_green-600',
+		700: 'focus:decoration-light_green-700',
+		800: 'focus:decoration-light_green-800',
+		900: 'focus:decoration-light_green-900',
+		950: 'focus:decoration-light_green-950'
+	},
+	lime: {
+		50: 'focus:decoration-lime-50',
+		100: 'focus:decoration-lime-100',
+		200: 'focus:decoration-lime-200',
+		300: 'focus:decoration-lime-300',
+		400: 'focus:decoration-lime-400',
+		500: 'focus:decoration-lime-500',
+		600: 'focus:decoration-lime-600',
+		700: 'focus:decoration-lime-700',
+		800: 'focus:decoration-lime-800',
+		900: 'focus:decoration-lime-900',
+		950: 'focus:decoration-lime-950'
+	},
+	yellow: {
+		50: 'focus:decoration-yellow-50',
+		100: 'focus:decoration-yellow-100',
+		200: 'focus:decoration-yellow-200',
+		300: 'focus:decoration-yellow-300',
+		400: 'focus:decoration-yellow-400',
+		500: 'focus:decoration-yellow-500',
+		600: 'focus:decoration-yellow-600',
+		700: 'focus:decoration-yellow-700',
+		800: 'focus:decoration-yellow-800',
+		900: 'focus:decoration-yellow-900',
+		950: 'focus:decoration-yellow-950'
+	},
+	orange: {
+		50: 'focus:decoration-orange-50',
+		100: 'focus:decoration-orange-100',
+		200: 'focus:decoration-orange-200',
+		300: 'focus:decoration-orange-300',
+		400: 'focus:decoration-orange-400',
+		500: 'focus:decoration-orange-500',
+		600: 'focus:decoration-orange-600',
+		700: 'focus:decoration-orange-700',
+		800: 'focus:decoration-orange-800',
+		900: 'focus:decoration-orange-900',
+		950: 'focus:decoration-orange-950'
+	},
+	deep_orange: {
+		50: 'focus:decoration-deep_orange-50',
+		100: 'focus:decoration-deep_orange-100',
+		200: 'focus:decoration-deep_orange-200',
+		300: 'focus:decoration-deep_orange-300',
+		400: 'focus:decoration-deep_orange-400',
+		500: 'focus:decoration-deep_orange-500',
+		600: 'focus:decoration-deep_orange-600',
+		700: 'focus:decoration-deep_orange-700',
+		800: 'focus:decoration-deep_orange-800',
+		900: 'focus:decoration-deep_orange-900',
+		950: 'focus:decoration-deep_orange-950'
+	}
+};
+
+const active_text_decoration_color: ThemeColorObj = {
+	transparent: 'active:decoration-transparent',
+	black: 'active:decoration-black',
+	white: 'active:decoration-white',
+	gray: {
+		50: 'active:decoration-gray-50',
+		100: 'active:decoration-gray-100',
+		200: 'active:decoration-gray-200',
+		300: 'active:decoration-gray-300',
+		400: 'active:decoration-gray-400',
+		500: 'active:decoration-gray-500',
+		600: 'active:decoration-gray-600',
+		700: 'active:decoration-gray-700',
+		800: 'active:decoration-gray-800',
+		900: 'active:decoration-gray-900',
+		950: 'active:decoration-gray-950'
+	},
+	red: {
+		50: 'active:decoration-red-50',
+		100: 'active:decoration-red-100',
+		200: 'active:decoration-red-200',
+		300: 'active:decoration-red-300',
+		400: 'active:decoration-red-400',
+		500: 'active:decoration-red-500',
+		600: 'active:decoration-red-600',
+		700: 'active:decoration-red-700',
+		800: 'active:decoration-red-800',
+		900: 'active:decoration-red-900',
+		950: 'active:decoration-red-950'
+	},
+	pink: {
+		50: 'active:decoration-pink-50',
+		100: 'active:decoration-pink-100',
+		200: 'active:decoration-pink-200',
+		300: 'active:decoration-pink-300',
+		400: 'active:decoration-pink-400',
+		500: 'active:decoration-pink-500',
+		600: 'active:decoration-pink-600',
+		700: 'active:decoration-pink-700',
+		800: 'active:decoration-pink-800',
+		900: 'active:decoration-pink-900',
+		950: 'active:decoration-pink-950'
+	},
+	purple: {
+		50: 'active:decoration-purple-50',
+		100: 'active:decoration-purple-100',
+		200: 'active:decoration-purple-200',
+		300: 'active:decoration-purple-300',
+		400: 'active:decoration-purple-400',
+		500: 'active:decoration-purple-500',
+		600: 'active:decoration-purple-600',
+		700: 'active:decoration-purple-700',
+		800: 'active:decoration-purple-800',
+		900: 'active:decoration-purple-900',
+		950: 'active:decoration-purple-950'
+	},
+	deep_purple: {
+		50: 'active:decoration-deep_purple-50',
+		100: 'active:decoration-deep_purple-100',
+		200: 'active:decoration-deep_purple-200',
+		300: 'active:decoration-deep_purple-300',
+		400: 'active:decoration-deep_purple-400',
+		500: 'active:decoration-deep_purple-500',
+		600: 'active:decoration-deep_purple-600',
+		700: 'active:decoration-deep_purple-700',
+		800: 'active:decoration-deep_purple-800',
+		900: 'active:decoration-deep_purple-900',
+		950: 'active:decoration-deep_purple-950'
+	},
+	indigo: {
+		50: 'active:decoration-indigo-50',
+		100: 'active:decoration-indigo-100',
+		200: 'active:decoration-indigo-200',
+		300: 'active:decoration-indigo-300',
+		400: 'active:decoration-indigo-400',
+		500: 'active:decoration-indigo-500',
+		600: 'active:decoration-indigo-600',
+		700: 'active:decoration-indigo-700',
+		800: 'active:decoration-indigo-800',
+		900: 'active:decoration-indigo-900',
+		950: 'active:decoration-indigo-950'
+	},
+	blue: {
+		50: 'active:decoration-blue-50',
+		100: 'active:decoration-blue-100',
+		200: 'active:decoration-blue-200',
+		300: 'active:decoration-blue-300',
+		400: 'active:decoration-blue-400',
+		500: 'active:decoration-blue-500',
+		600: 'active:decoration-blue-600',
+		700: 'active:decoration-blue-700',
+		800: 'active:decoration-blue-800',
+		900: 'active:decoration-blue-900',
+		950: 'active:decoration-blue-950'
+	},
+	light_blue: {
+		50: 'active:decoration-light_blue-50',
+		100: 'active:decoration-light_blue-100',
+		200: 'active:decoration-light_blue-200',
+		300: 'active:decoration-light_blue-300',
+		400: 'active:decoration-light_blue-400',
+		500: 'active:decoration-light_blue-500',
+		600: 'active:decoration-light_blue-600',
+		700: 'active:decoration-light_blue-700',
+		800: 'active:decoration-light_blue-800',
+		900: 'active:decoration-light_blue-900',
+		950: 'active:decoration-light_blue-950'
+	},
+	cyan: {
+		50: 'active:decoration-cyan-50',
+		100: 'active:decoration-cyan-100',
+		200: 'active:decoration-cyan-200',
+		300: 'active:decoration-cyan-300',
+		400: 'active:decoration-cyan-400',
+		500: 'active:decoration-cyan-500',
+		600: 'active:decoration-cyan-600',
+		700: 'active:decoration-cyan-700',
+		800: 'active:decoration-cyan-800',
+		900: 'active:decoration-cyan-900',
+		950: 'active:decoration-cyan-950'
+	},
+	teal: {
+		50: 'active:decoration-teal-50',
+		100: 'active:decoration-teal-100',
+		200: 'active:decoration-teal-200',
+		300: 'active:decoration-teal-300',
+		400: 'active:decoration-teal-400',
+		500: 'active:decoration-teal-500',
+		600: 'active:decoration-teal-600',
+		700: 'active:decoration-teal-700',
+		800: 'active:decoration-teal-800',
+		900: 'active:decoration-teal-900',
+		950: 'active:decoration-teal-950'
+	},
+	green: {
+		50: 'active:decoration-green-50',
+		100: 'active:decoration-green-100',
+		200: 'active:decoration-green-200',
+		300: 'active:decoration-green-300',
+		400: 'active:decoration-green-400',
+		500: 'active:decoration-green-500',
+		600: 'active:decoration-green-600',
+		700: 'active:decoration-green-700',
+		800: 'active:decoration-green-800',
+		900: 'active:decoration-green-900',
+		950: 'active:decoration-green-950'
+	},
+	light_green: {
+		50: 'active:decoration-light_green-50',
+		100: 'active:decoration-light_green-100',
+		200: 'active:decoration-light_green-200',
+		300: 'active:decoration-light_green-300',
+		400: 'active:decoration-light_green-400',
+		500: 'active:decoration-light_green-500',
+		600: 'active:decoration-light_green-600',
+		700: 'active:decoration-light_green-700',
+		800: 'active:decoration-light_green-800',
+		900: 'active:decoration-light_green-900',
+		950: 'active:decoration-light_green-950'
+	},
+	lime: {
+		50: 'active:decoration-lime-50',
+		100: 'active:decoration-lime-100',
+		200: 'active:decoration-lime-200',
+		300: 'active:decoration-lime-300',
+		400: 'active:decoration-lime-400',
+		500: 'active:decoration-lime-500',
+		600: 'active:decoration-lime-600',
+		700: 'active:decoration-lime-700',
+		800: 'active:decoration-lime-800',
+		900: 'active:decoration-lime-900',
+		950: 'active:decoration-lime-950'
+	},
+	yellow: {
+		50: 'active:decoration-yellow-50',
+		100: 'active:decoration-yellow-100',
+		200: 'active:decoration-yellow-200',
+		300: 'active:decoration-yellow-300',
+		400: 'active:decoration-yellow-400',
+		500: 'active:decoration-yellow-500',
+		600: 'active:decoration-yellow-600',
+		700: 'active:decoration-yellow-700',
+		800: 'active:decoration-yellow-800',
+		900: 'active:decoration-yellow-900',
+		950: 'active:decoration-yellow-950'
+	},
+	orange: {
+		50: 'active:decoration-orange-50',
+		100: 'active:decoration-orange-100',
+		200: 'active:decoration-orange-200',
+		300: 'active:decoration-orange-300',
+		400: 'active:decoration-orange-400',
+		500: 'active:decoration-orange-500',
+		600: 'active:decoration-orange-600',
+		700: 'active:decoration-orange-700',
+		800: 'active:decoration-orange-800',
+		900: 'active:decoration-orange-900',
+		950: 'active:decoration-orange-950'
+	},
+	deep_orange: {
+		50: 'active:decoration-deep_orange-50',
+		100: 'active:decoration-deep_orange-100',
+		200: 'active:decoration-deep_orange-200',
+		300: 'active:decoration-deep_orange-300',
+		400: 'active:decoration-deep_orange-400',
+		500: 'active:decoration-deep_orange-500',
+		600: 'active:decoration-deep_orange-600',
+		700: 'active:decoration-deep_orange-700',
+		800: 'active:decoration-deep_orange-800',
+		900: 'active:decoration-deep_orange-900',
+		950: 'active:decoration-deep_orange-950'
+	}
+};
+
+const before_text_decoration_color: ThemeColorObj = {
+	transparent: 'before:decoration-transparent',
+	black: 'before:decoration-black',
+	white: 'before:decoration-white',
+	gray: {
+		50: 'before:decoration-gray-50',
+		100: 'before:decoration-gray-100',
+		200: 'before:decoration-gray-200',
+		300: 'before:decoration-gray-300',
+		400: 'before:decoration-gray-400',
+		500: 'before:decoration-gray-500',
+		600: 'before:decoration-gray-600',
+		700: 'before:decoration-gray-700',
+		800: 'before:decoration-gray-800',
+		900: 'before:decoration-gray-900',
+		950: 'before:decoration-gray-950'
+	},
+	red: {
+		50: 'before:decoration-red-50',
+		100: 'before:decoration-red-100',
+		200: 'before:decoration-red-200',
+		300: 'before:decoration-red-300',
+		400: 'before:decoration-red-400',
+		500: 'before:decoration-red-500',
+		600: 'before:decoration-red-600',
+		700: 'before:decoration-red-700',
+		800: 'before:decoration-red-800',
+		900: 'before:decoration-red-900',
+		950: 'before:decoration-red-950'
+	},
+	pink: {
+		50: 'before:decoration-pink-50',
+		100: 'before:decoration-pink-100',
+		200: 'before:decoration-pink-200',
+		300: 'before:decoration-pink-300',
+		400: 'before:decoration-pink-400',
+		500: 'before:decoration-pink-500',
+		600: 'before:decoration-pink-600',
+		700: 'before:decoration-pink-700',
+		800: 'before:decoration-pink-800',
+		900: 'before:decoration-pink-900',
+		950: 'before:decoration-pink-950'
+	},
+	purple: {
+		50: 'before:decoration-purple-50',
+		100: 'before:decoration-purple-100',
+		200: 'before:decoration-purple-200',
+		300: 'before:decoration-purple-300',
+		400: 'before:decoration-purple-400',
+		500: 'before:decoration-purple-500',
+		600: 'before:decoration-purple-600',
+		700: 'before:decoration-purple-700',
+		800: 'before:decoration-purple-800',
+		900: 'before:decoration-purple-900',
+		950: 'before:decoration-purple-950'
+	},
+	deep_purple: {
+		50: 'before:decoration-deep_purple-50',
+		100: 'before:decoration-deep_purple-100',
+		200: 'before:decoration-deep_purple-200',
+		300: 'before:decoration-deep_purple-300',
+		400: 'before:decoration-deep_purple-400',
+		500: 'before:decoration-deep_purple-500',
+		600: 'before:decoration-deep_purple-600',
+		700: 'before:decoration-deep_purple-700',
+		800: 'before:decoration-deep_purple-800',
+		900: 'before:decoration-deep_purple-900',
+		950: 'before:decoration-deep_purple-950'
+	},
+	indigo: {
+		50: 'before:decoration-indigo-50',
+		100: 'before:decoration-indigo-100',
+		200: 'before:decoration-indigo-200',
+		300: 'before:decoration-indigo-300',
+		400: 'before:decoration-indigo-400',
+		500: 'before:decoration-indigo-500',
+		600: 'before:decoration-indigo-600',
+		700: 'before:decoration-indigo-700',
+		800: 'before:decoration-indigo-800',
+		900: 'before:decoration-indigo-900',
+		950: 'before:decoration-indigo-950'
+	},
+	blue: {
+		50: 'before:decoration-blue-50',
+		100: 'before:decoration-blue-100',
+		200: 'before:decoration-blue-200',
+		300: 'before:decoration-blue-300',
+		400: 'before:decoration-blue-400',
+		500: 'before:decoration-blue-500',
+		600: 'before:decoration-blue-600',
+		700: 'before:decoration-blue-700',
+		800: 'before:decoration-blue-800',
+		900: 'before:decoration-blue-900',
+		950: 'before:decoration-blue-950'
+	},
+	light_blue: {
+		50: 'before:decoration-light_blue-50',
+		100: 'before:decoration-light_blue-100',
+		200: 'before:decoration-light_blue-200',
+		300: 'before:decoration-light_blue-300',
+		400: 'before:decoration-light_blue-400',
+		500: 'before:decoration-light_blue-500',
+		600: 'before:decoration-light_blue-600',
+		700: 'before:decoration-light_blue-700',
+		800: 'before:decoration-light_blue-800',
+		900: 'before:decoration-light_blue-900',
+		950: 'before:decoration-light_blue-950'
+	},
+	cyan: {
+		50: 'before:decoration-cyan-50',
+		100: 'before:decoration-cyan-100',
+		200: 'before:decoration-cyan-200',
+		300: 'before:decoration-cyan-300',
+		400: 'before:decoration-cyan-400',
+		500: 'before:decoration-cyan-500',
+		600: 'before:decoration-cyan-600',
+		700: 'before:decoration-cyan-700',
+		800: 'before:decoration-cyan-800',
+		900: 'before:decoration-cyan-900',
+		950: 'before:decoration-cyan-950'
+	},
+	teal: {
+		50: 'before:decoration-teal-50',
+		100: 'before:decoration-teal-100',
+		200: 'before:decoration-teal-200',
+		300: 'before:decoration-teal-300',
+		400: 'before:decoration-teal-400',
+		500: 'before:decoration-teal-500',
+		600: 'before:decoration-teal-600',
+		700: 'before:decoration-teal-700',
+		800: 'before:decoration-teal-800',
+		900: 'before:decoration-teal-900',
+		950: 'before:decoration-teal-950'
+	},
+	green: {
+		50: 'before:decoration-green-50',
+		100: 'before:decoration-green-100',
+		200: 'before:decoration-green-200',
+		300: 'before:decoration-green-300',
+		400: 'before:decoration-green-400',
+		500: 'before:decoration-green-500',
+		600: 'before:decoration-green-600',
+		700: 'before:decoration-green-700',
+		800: 'before:decoration-green-800',
+		900: 'before:decoration-green-900',
+		950: 'before:decoration-green-950'
+	},
+	light_green: {
+		50: 'before:decoration-light_green-50',
+		100: 'before:decoration-light_green-100',
+		200: 'before:decoration-light_green-200',
+		300: 'before:decoration-light_green-300',
+		400: 'before:decoration-light_green-400',
+		500: 'before:decoration-light_green-500',
+		600: 'before:decoration-light_green-600',
+		700: 'before:decoration-light_green-700',
+		800: 'before:decoration-light_green-800',
+		900: 'before:decoration-light_green-900',
+		950: 'before:decoration-light_green-950'
+	},
+	lime: {
+		50: 'before:decoration-lime-50',
+		100: 'before:decoration-lime-100',
+		200: 'before:decoration-lime-200',
+		300: 'before:decoration-lime-300',
+		400: 'before:decoration-lime-400',
+		500: 'before:decoration-lime-500',
+		600: 'before:decoration-lime-600',
+		700: 'before:decoration-lime-700',
+		800: 'before:decoration-lime-800',
+		900: 'before:decoration-lime-900',
+		950: 'before:decoration-lime-950'
+	},
+	yellow: {
+		50: 'before:decoration-yellow-50',
+		100: 'before:decoration-yellow-100',
+		200: 'before:decoration-yellow-200',
+		300: 'before:decoration-yellow-300',
+		400: 'before:decoration-yellow-400',
+		500: 'before:decoration-yellow-500',
+		600: 'before:decoration-yellow-600',
+		700: 'before:decoration-yellow-700',
+		800: 'before:decoration-yellow-800',
+		900: 'before:decoration-yellow-900',
+		950: 'before:decoration-yellow-950'
+	},
+	orange: {
+		50: 'before:decoration-orange-50',
+		100: 'before:decoration-orange-100',
+		200: 'before:decoration-orange-200',
+		300: 'before:decoration-orange-300',
+		400: 'before:decoration-orange-400',
+		500: 'before:decoration-orange-500',
+		600: 'before:decoration-orange-600',
+		700: 'before:decoration-orange-700',
+		800: 'before:decoration-orange-800',
+		900: 'before:decoration-orange-900',
+		950: 'before:decoration-orange-950'
+	},
+	deep_orange: {
+		50: 'before:decoration-deep_orange-50',
+		100: 'before:decoration-deep_orange-100',
+		200: 'before:decoration-deep_orange-200',
+		300: 'before:decoration-deep_orange-300',
+		400: 'before:decoration-deep_orange-400',
+		500: 'before:decoration-deep_orange-500',
+		600: 'before:decoration-deep_orange-600',
+		700: 'before:decoration-deep_orange-700',
+		800: 'before:decoration-deep_orange-800',
+		900: 'before:decoration-deep_orange-900',
+		950: 'before:decoration-deep_orange-950'
+	}
+};
+
+const after_text_decoration_color: ThemeColorObj = {
+	transparent: 'after:decoration-transparent',
+	black: 'after:decoration-black',
+	white: 'after:decoration-white',
+	gray: {
+		50: 'after:decoration-gray-50',
+		100: 'after:decoration-gray-100',
+		200: 'after:decoration-gray-200',
+		300: 'after:decoration-gray-300',
+		400: 'after:decoration-gray-400',
+		500: 'after:decoration-gray-500',
+		600: 'after:decoration-gray-600',
+		700: 'after:decoration-gray-700',
+		800: 'after:decoration-gray-800',
+		900: 'after:decoration-gray-900',
+		950: 'after:decoration-gray-950'
+	},
+	red: {
+		50: 'after:decoration-red-50',
+		100: 'after:decoration-red-100',
+		200: 'after:decoration-red-200',
+		300: 'after:decoration-red-300',
+		400: 'after:decoration-red-400',
+		500: 'after:decoration-red-500',
+		600: 'after:decoration-red-600',
+		700: 'after:decoration-red-700',
+		800: 'after:decoration-red-800',
+		900: 'after:decoration-red-900',
+		950: 'after:decoration-red-950'
+	},
+	pink: {
+		50: 'after:decoration-pink-50',
+		100: 'after:decoration-pink-100',
+		200: 'after:decoration-pink-200',
+		300: 'after:decoration-pink-300',
+		400: 'after:decoration-pink-400',
+		500: 'after:decoration-pink-500',
+		600: 'after:decoration-pink-600',
+		700: 'after:decoration-pink-700',
+		800: 'after:decoration-pink-800',
+		900: 'after:decoration-pink-900',
+		950: 'after:decoration-pink-950'
+	},
+	purple: {
+		50: 'after:decoration-purple-50',
+		100: 'after:decoration-purple-100',
+		200: 'after:decoration-purple-200',
+		300: 'after:decoration-purple-300',
+		400: 'after:decoration-purple-400',
+		500: 'after:decoration-purple-500',
+		600: 'after:decoration-purple-600',
+		700: 'after:decoration-purple-700',
+		800: 'after:decoration-purple-800',
+		900: 'after:decoration-purple-900',
+		950: 'after:decoration-purple-950'
+	},
+	deep_purple: {
+		50: 'after:decoration-deep_purple-50',
+		100: 'after:decoration-deep_purple-100',
+		200: 'after:decoration-deep_purple-200',
+		300: 'after:decoration-deep_purple-300',
+		400: 'after:decoration-deep_purple-400',
+		500: 'after:decoration-deep_purple-500',
+		600: 'after:decoration-deep_purple-600',
+		700: 'after:decoration-deep_purple-700',
+		800: 'after:decoration-deep_purple-800',
+		900: 'after:decoration-deep_purple-900',
+		950: 'after:decoration-deep_purple-950'
+	},
+	indigo: {
+		50: 'after:decoration-indigo-50',
+		100: 'after:decoration-indigo-100',
+		200: 'after:decoration-indigo-200',
+		300: 'after:decoration-indigo-300',
+		400: 'after:decoration-indigo-400',
+		500: 'after:decoration-indigo-500',
+		600: 'after:decoration-indigo-600',
+		700: 'after:decoration-indigo-700',
+		800: 'after:decoration-indigo-800',
+		900: 'after:decoration-indigo-900',
+		950: 'after:decoration-indigo-950'
+	},
+	blue: {
+		50: 'after:decoration-blue-50',
+		100: 'after:decoration-blue-100',
+		200: 'after:decoration-blue-200',
+		300: 'after:decoration-blue-300',
+		400: 'after:decoration-blue-400',
+		500: 'after:decoration-blue-500',
+		600: 'after:decoration-blue-600',
+		700: 'after:decoration-blue-700',
+		800: 'after:decoration-blue-800',
+		900: 'after:decoration-blue-900',
+		950: 'after:decoration-blue-950'
+	},
+	light_blue: {
+		50: 'after:decoration-light_blue-50',
+		100: 'after:decoration-light_blue-100',
+		200: 'after:decoration-light_blue-200',
+		300: 'after:decoration-light_blue-300',
+		400: 'after:decoration-light_blue-400',
+		500: 'after:decoration-light_blue-500',
+		600: 'after:decoration-light_blue-600',
+		700: 'after:decoration-light_blue-700',
+		800: 'after:decoration-light_blue-800',
+		900: 'after:decoration-light_blue-900',
+		950: 'after:decoration-light_blue-950'
+	},
+	cyan: {
+		50: 'after:decoration-cyan-50',
+		100: 'after:decoration-cyan-100',
+		200: 'after:decoration-cyan-200',
+		300: 'after:decoration-cyan-300',
+		400: 'after:decoration-cyan-400',
+		500: 'after:decoration-cyan-500',
+		600: 'after:decoration-cyan-600',
+		700: 'after:decoration-cyan-700',
+		800: 'after:decoration-cyan-800',
+		900: 'after:decoration-cyan-900',
+		950: 'after:decoration-cyan-950'
+	},
+	teal: {
+		50: 'after:decoration-teal-50',
+		100: 'after:decoration-teal-100',
+		200: 'after:decoration-teal-200',
+		300: 'after:decoration-teal-300',
+		400: 'after:decoration-teal-400',
+		500: 'after:decoration-teal-500',
+		600: 'after:decoration-teal-600',
+		700: 'after:decoration-teal-700',
+		800: 'after:decoration-teal-800',
+		900: 'after:decoration-teal-900',
+		950: 'after:decoration-teal-950'
+	},
+	green: {
+		50: 'after:decoration-green-50',
+		100: 'after:decoration-green-100',
+		200: 'after:decoration-green-200',
+		300: 'after:decoration-green-300',
+		400: 'after:decoration-green-400',
+		500: 'after:decoration-green-500',
+		600: 'after:decoration-green-600',
+		700: 'after:decoration-green-700',
+		800: 'after:decoration-green-800',
+		900: 'after:decoration-green-900',
+		950: 'after:decoration-green-950'
+	},
+	light_green: {
+		50: 'after:decoration-light_green-50',
+		100: 'after:decoration-light_green-100',
+		200: 'after:decoration-light_green-200',
+		300: 'after:decoration-light_green-300',
+		400: 'after:decoration-light_green-400',
+		500: 'after:decoration-light_green-500',
+		600: 'after:decoration-light_green-600',
+		700: 'after:decoration-light_green-700',
+		800: 'after:decoration-light_green-800',
+		900: 'after:decoration-light_green-900',
+		950: 'after:decoration-light_green-950'
+	},
+	lime: {
+		50: 'after:decoration-lime-50',
+		100: 'after:decoration-lime-100',
+		200: 'after:decoration-lime-200',
+		300: 'after:decoration-lime-300',
+		400: 'after:decoration-lime-400',
+		500: 'after:decoration-lime-500',
+		600: 'after:decoration-lime-600',
+		700: 'after:decoration-lime-700',
+		800: 'after:decoration-lime-800',
+		900: 'after:decoration-lime-900',
+		950: 'after:decoration-lime-950'
+	},
+	yellow: {
+		50: 'after:decoration-yellow-50',
+		100: 'after:decoration-yellow-100',
+		200: 'after:decoration-yellow-200',
+		300: 'after:decoration-yellow-300',
+		400: 'after:decoration-yellow-400',
+		500: 'after:decoration-yellow-500',
+		600: 'after:decoration-yellow-600',
+		700: 'after:decoration-yellow-700',
+		800: 'after:decoration-yellow-800',
+		900: 'after:decoration-yellow-900',
+		950: 'after:decoration-yellow-950'
+	},
+	orange: {
+		50: 'after:decoration-orange-50',
+		100: 'after:decoration-orange-100',
+		200: 'after:decoration-orange-200',
+		300: 'after:decoration-orange-300',
+		400: 'after:decoration-orange-400',
+		500: 'after:decoration-orange-500',
+		600: 'after:decoration-orange-600',
+		700: 'after:decoration-orange-700',
+		800: 'after:decoration-orange-800',
+		900: 'after:decoration-orange-900',
+		950: 'after:decoration-orange-950'
+	},
+	deep_orange: {
+		50: 'after:decoration-deep_orange-50',
+		100: 'after:decoration-deep_orange-100',
+		200: 'after:decoration-deep_orange-200',
+		300: 'after:decoration-deep_orange-300',
+		400: 'after:decoration-deep_orange-400',
+		500: 'after:decoration-deep_orange-500',
+		600: 'after:decoration-deep_orange-600',
+		700: 'after:decoration-deep_orange-700',
+		800: 'after:decoration-deep_orange-800',
+		900: 'after:decoration-deep_orange-900',
+		950: 'after:decoration-deep_orange-950'
+	}
+};
+
+const text_decoration_style: TextDecorationStyleClassObj = {
+	solid: 'decoration-solid',
+	dashed: 'decoration-dashed',
+	dotted: 'decoration-dotted',
+	double: 'decoration-double',
+	wavy: 'decoration-wavy'
+};
+
+const text_decoration_thickness: TextDecorationThicknessClassObj = {
+	'from-font': 'decoration-from-font',
+	'auto': 'decoration-auto',
+	0: 'decoration-0',
+	1: 'decoration-1',
+	2: 'decoration-2',
+	4: 'decoration-4',
+	8: 'decoration-8'
+};
+
+const text_underline_offset: TextUnderlineOffsetClassObj = {
+	auto: 'underline-offset-auto',
+	0: 'underline-offset-0',
+	1: 'underline-offset-1',
+	2: 'underline-offset-2',
+	4: 'underline-offset-4',
+	8: 'underline-offset-8'
+};
+
+const hover_text_underline_offset: TextUnderlineOffsetClassObj = {
+	auto: 'hover:underline-offset-auto',
+	0: 'hover:underline-offset-0',
+	1: 'hover:underline-offset-1',
+	2: 'hover:underline-offset-2',
+	4: 'hover:underline-offset-4',
+	8: 'hover:underline-offset-8'
+};
+
+const focus_text_underline_offset: TextUnderlineOffsetClassObj = {
+	auto: 'focus:underline-offset-auto',
+	0: 'focus:underline-offset-0',
+	1: 'focus:underline-offset-1',
+	2: 'focus:underline-offset-2',
+	4: 'focus:underline-offset-4',
+	8: 'focus:underline-offset-8'
+};
+
+const active_text_underline_offset: TextUnderlineOffsetClassObj = {
+	auto: 'active:underline-offset-auto',
+	0: 'active:underline-offset-0',
+	1: 'active:underline-offset-1',
+	2: 'active:underline-offset-2',
+	4: 'active:underline-offset-4',
+	8: 'active:underline-offset-8'
+};
+
+const before_text_underline_offset: TextUnderlineOffsetClassObj = {
+	auto: 'before:underline-offset-auto',
+	0: 'before:underline-offset-0',
+	1: 'before:underline-offset-1',
+	2: 'before:underline-offset-2',
+	4: 'before:underline-offset-4',
+	8: 'before:underline-offset-8'
+};
+
+const after_text_underline_offset: TextUnderlineOffsetClassObj = {
+	auto: 'after:underline-offset-auto',
+	0: 'after:underline-offset-0',
+	1: 'after:underline-offset-1',
+	2: 'after:underline-offset-2',
+	4: 'after:underline-offset-4',
+	8: 'after:underline-offset-8'
+};
+
 const font_size: ThemeFontSizeObj = {
 	'xs': 'text-xs',
 	'sm': 'text-sm',
@@ -1321,6 +2688,7 @@ const font_size: ThemeFontSizeObj = {
 	'8xl': 'text-8xl',
 	'9xl': 'text-9xl'
 };
+
 const font_style: FontStyleClassObj = {
 	'italic': 'italic',
 	'not-italic': 'not-italic'
@@ -1405,13 +2773,32 @@ const word_break: WordBreakClassObj = {
 
 export default {
 	align,
-	color: {
-		...color,
-		hover: hover_color,
-		focus: focus_color,
-		active: active_color,
-		before: before_color,
-		after: after_color
+	text_color: {
+		...text_color,
+		hover: hover_text_color,
+		focus: focus_text_color,
+		active: active_text_color,
+		before: before_text_color,
+		after: after_text_color
+	},
+	text_decoration,
+	text_decoration_color: {
+		...text_decoration_color,
+		hover: hover_text_decoration_color,
+		focus: focus_text_decoration_color,
+		active: active_text_decoration_color,
+		before: before_text_decoration_color,
+		after: after_text_decoration_color
+	},
+	text_decoration_style,
+	text_decoration_thickness,
+	text_underline_offset: {
+		...text_underline_offset,
+		hover: hover_text_underline_offset,
+		focus: focus_text_underline_offset,
+		active: active_text_underline_offset,
+		before: before_text_underline_offset,
+		after: after_text_underline_offset
 	},
 	font_size,
 	font_style,

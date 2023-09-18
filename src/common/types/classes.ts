@@ -7,6 +7,7 @@ export type ColorTypeClass =
 	| 'text'
 	| 'border'
 	| 'outline'
+	| 'decoration'
 	| 'gradient_from_color'
 	| 'gradient_middle_color'
 	| 'gradient_to_color';
@@ -564,6 +565,31 @@ export type TextColorClass =
 	| `${PickFrom<ColorTypeClass, 'text'>}-${PickFrom<ThemeColor, 'transparent' | 'black' | 'white'>}`;
 export type TextColorClassArr = Array<TextColorClass>;
 export type TextColorClassObj = Record<TextColorClass, string>;
+
+export type TextDecorationClass = 'underline' | 'overline' | 'line-through' | 'no-underline';
+export type TextDecorationClassArr = Array<TextDecorationClass>;
+export type TextDecorationClassObj = Record<TextDecorationClass, string>;
+
+export type TextDecorationColorClass =
+	| `${PickFrom<ColorTypeClass, 'decoration'>}-${Exclude<
+			ThemeColor,
+			'transparent' | 'black' | 'white'
+	  >}-${ThemeColorHue}`
+	| `${PickFrom<ColorTypeClass, 'decoration'>}-${PickFrom<ThemeColor, 'transparent' | 'black' | 'white'>}`;
+export type TextDecorationColorClassArr = Array<TextDecorationColorClass>;
+export type TextDecorationColorClassObj = Record<TextDecorationColorClass, string>;
+
+export type TextDecorationStyleClass = 'solid' | 'double' | 'dotted' | 'dashed' | 'wavy';
+export type TextDecorationStyleClassArr = Array<TextDecorationStyleClass>;
+export type TextDecorationStyleClassObj = Record<TextDecorationStyleClass, string>;
+
+export type TextDecorationThicknessClass = 'auto' | 'from-font' | 0 | 1 | 2 | 4 | 8;
+export type TextDecorationThicknessClassArr = Array<TextDecorationThicknessClass>;
+export type TextDecorationThicknessClassObj = Record<TextDecorationThicknessClass, string>;
+
+export type TextUnderlineOffsetClass = 'auto' | 0 | 1 | 2 | 4 | 8;
+export type TextUnderlineOffsetClassArr = Array<TextUnderlineOffsetClass>;
+export type TextUnderlineOffsetClassObj = Record<TextUnderlineOffsetClass, string>;
 
 export type TextLetterSpacingClass = 'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest';
 export type TextLetterSpacingClassArr = Array<TextLetterSpacingClass>;

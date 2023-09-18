@@ -133,11 +133,13 @@ export const getColorClass = memoize((props: GetColorClassProps): string => {
 			case 'bg':
 				return classes.backgrounds.color[color as GetColorClassHueColor][hue];
 			case 'text':
-				return classes.typography.color[color as GetColorClassHueColor][hue];
+				return classes.typography.text_color[color as GetColorClassHueColor][hue];
 			case 'border':
 				return classes.borders.border_color[color as GetColorClassHueColor][hue];
 			case 'outline':
 				return classes.borders.outline_color[color as GetColorClassHueColor][hue];
+			case 'decoration':
+				return classes.typography.text_decoration_color[color as GetColorClassHueColor][hue];
 			case 'gradient_from_color':
 				return classes.backgrounds.gradient_from_color[color as GetColorClassHueColor][hue];
 			case 'gradient_middle_color':
@@ -154,11 +156,13 @@ export const getColorClass = memoize((props: GetColorClassProps): string => {
 			case 'bg':
 				return classes.backgrounds.color[color as GetColorClassNonHueColor];
 			case 'text':
-				return classes.typography.color[color as GetColorClassNonHueColor];
+				return classes.typography.text_color[color as GetColorClassNonHueColor];
 			case 'border':
 				return classes.borders.border_color[color as GetColorClassNonHueColor];
 			case 'outline':
 				return classes.borders.outline_color[color as GetColorClassNonHueColor];
+			case 'decoration':
+				return classes.typography.text_decoration_color[color as GetColorClassNonHueColor];
 			case 'gradient_from_color':
 				return classes.backgrounds.gradient_from_color[color as GetColorClassNonHueColor];
 			case 'gradient_middle_color':
