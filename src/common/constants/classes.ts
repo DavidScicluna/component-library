@@ -3,6 +3,9 @@ import type {
 	OutlineOffsetClass,
 	OutlineStyleClass,
 	OutlineWidthClass,
+	TextDecorationStyleClass,
+	TextDecorationThicknessClass,
+	TextUnderlineOffsetClass,
 	ThemeBorderWidth,
 	ThemeDelay,
 	ThemeDuration,
@@ -23,6 +26,10 @@ export const __DEFAULT_EASING__: ThemeEase = 'ease-in-out';
 export const __DEFAULT_OUTLINE_WIDTH__: OutlineWidthClass = 2;
 export const __DEFAULT_OUTLINE_STYLE__: OutlineStyleClass = 'dashed';
 export const __DEFAULT_OUTLINE_OFFSET__: OutlineOffsetClass = 4;
+
+export const __DEFAULT_TEXT_DECORATION_WIDTH__: TextDecorationThicknessClass = 2;
+export const __DEFAULT_TEXT_DECORATION_STYLE__: TextDecorationStyleClass = 'dotted';
+export const __DEFAULT_TEXT_DECORATION_OFFSET__: TextUnderlineOffsetClass = 2;
 
 export const __DEFAULT_SPACING__: ThemeSpacing = 2;
 
