@@ -1,7 +1,7 @@
-import type { ChangeEvent as CE, MouseEvent as ME, ReactNode } from 'react';
+import type { ChangeEvent, MouseEvent, ReactNode } from 'react';
 
-export type FileButtonChangeEvent = CE<HTMLInputElement>;
-export type FileButtonMouseEvent = ME<unknown>;
+export type FileButtonChangeEvent = ChangeEvent<HTMLInputElement>;
+export type FileButtonMouseEvent = MouseEvent<unknown>;
 
 export type FileButtonBlob = string;
 export type FileButtonBlobs = Array<FileButtonBlob>;

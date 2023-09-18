@@ -1,10 +1,10 @@
-import type { ElementType, MouseEvent as ME, ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
 
-import type { PickFrom, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
+import type { PickFrom, PolymorphicMouseEvent, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
-export type ButtonMouseEvent = ME<HTMLButtonElement, globalThis.MouseEvent>;
+export type ButtonMouseEvent<Element extends ButtonElement = ButtonDefaultElement> = PolymorphicMouseEvent<Element>;
 
 export type ButtonDefaultElement = 'button';
 export type ButtonElement = PickFrom<ElementType, 'button'>;

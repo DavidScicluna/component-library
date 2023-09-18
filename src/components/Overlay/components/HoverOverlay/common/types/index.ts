@@ -1,8 +1,10 @@
-import type { ElementType, MouseEvent, ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
+
+import type { PolymorphicMouseEvent } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
-export type HoverOverlayMouseEvent = MouseEvent<HTMLDivElement, globalThis.MouseEvent>;
+export type HoverOverlayMouseEvent<Element extends ElementType> = PolymorphicMouseEvent<Element>;
 
 export type HoverOverlayProps<Element extends ElementType> = Omit<BoxProps<Element>, 'children'> & {
 	/**
