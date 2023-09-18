@@ -57,7 +57,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__,
 			// description: '',
-			options: ['contained', 'light', 'dark', 'outlined', 'monochrome', 'text'] as Array<DummyIconButtonVariant>,
+			options: ['contained', 'light', 'dark', 'outlined', 'monochrome', 'icon'] as Array<DummyIconButtonVariant>,
 			control: { type: 'radio' }
 		}
 	}
