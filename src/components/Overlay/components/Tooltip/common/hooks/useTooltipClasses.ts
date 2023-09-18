@@ -75,7 +75,7 @@ const useTooltipClasses = <Element extends ElementType>(
 	const contentColorClasses = useMemo<ClassName>(() => {
 		const colorHue = getColorHue({ colorMode, type: 'background' });
 
-		return classNames(classes.typography.color.gray[colorHue]);
+		return classNames(classes.typography.text_color.gray[colorHue]);
 	}, [color, colorMode]);
 
 	return {

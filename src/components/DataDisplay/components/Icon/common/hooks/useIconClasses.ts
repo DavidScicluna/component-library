@@ -63,7 +63,7 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 		const backgroundHue = getColorHue({ colorMode, type: 'color' });
 
 		return classNames(
-			classes.typography.color.gray[colorHue],
+			classes.typography.text_color.gray[colorHue],
 			classes.borders.border_color[color][backgroundHue],
 			classes.backgrounds.color[color][backgroundHue]
 		);
@@ -74,7 +74,7 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 		const backgroundHue = getColorHue({ colorMode, type: 'light' });
 
 		return classNames(
-			classes.typography.color[color][colorHue],
+			classes.typography.text_color[color][colorHue],
 			classes.borders.border_color[color][backgroundHue],
 			classes.backgrounds.color[color][backgroundHue]
 		);
@@ -85,7 +85,7 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 		const borderHue = getColorHue({ colorMode, type: 'divider' });
 
 		return classNames(
-			classes.typography.color.gray[colorHue],
+			classes.typography.text_color.gray[colorHue],
 			classes.borders.border_color.gray[borderHue],
 			classes.backgrounds.color.transparent
 		);
@@ -95,7 +95,7 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 		const colorHue = getColorHue({ colorMode, type: 'color' });
 
 		return classNames(
-			classes.typography.color[color][colorHue],
+			classes.typography.text_color[color][colorHue],
 			classes.borders.border_color[color][colorHue],
 			classes.backgrounds.color.transparent
 		);
@@ -105,7 +105,7 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 		const colorHue = getColorHue({ colorMode, type: 'color' });
 
 		return classNames(
-			classes.typography.color[color][colorHue],
+			classes.typography.text_color[color][colorHue],
 			classes.borders.border_color.transparent,
 			classes.backgrounds.color.transparent
 		);
