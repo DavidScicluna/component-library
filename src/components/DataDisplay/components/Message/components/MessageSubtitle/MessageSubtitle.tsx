@@ -58,4 +58,6 @@ const MessageSubtitle = forwardRef(function MessageSubtitle<
 	);
 });
 
+MessageSubtitle.displayName = 'MessageSubtitle';
+
 export default MessageSubtitle;

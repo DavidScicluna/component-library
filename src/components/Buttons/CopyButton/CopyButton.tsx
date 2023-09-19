@@ -27,4 +27,6 @@ const CopyButton: FC<CopyButtonProps> = (props) => {
 	return <Fragment>{children({ hasCopied, onCopy: handleCopy })}</Fragment>;
 };
 
+CopyButton.displayName = 'CopyButton';
+
 export default CopyButton;

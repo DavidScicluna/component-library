@@ -63,4 +63,6 @@ const GlassOverlay = forwardRef(function GlassOverlay<Element extends ElementTyp
 	);
 });
 
+GlassOverlay.displayName = 'GlassOverlay';
+
 export default GlassOverlay;

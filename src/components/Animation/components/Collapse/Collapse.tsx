@@ -106,4 +106,6 @@ const Collapse = forwardRef(function Collapse<Element extends ElementType>(
 	);
 });
 
+Collapse.displayName = 'Collapse';
+
 export default Collapse;

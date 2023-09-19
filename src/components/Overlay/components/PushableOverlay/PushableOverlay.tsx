@@ -98,4 +98,6 @@ const PushableOverlay = forwardRef(function PushableOverlay<Element extends Elem
 	);
 });
 
+PushableOverlay.displayName = 'PushableOverlay';
+
 export default PushableOverlay;

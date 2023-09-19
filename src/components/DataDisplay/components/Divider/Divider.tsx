@@ -64,4 +64,6 @@ const Divider = forwardRef(function Divider<Element extends DividerElement = Div
 	);
 });
 
+Divider.displayName = 'Divider';
+
 export default Divider;

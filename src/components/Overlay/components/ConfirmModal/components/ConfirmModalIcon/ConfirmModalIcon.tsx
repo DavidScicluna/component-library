@@ -42,4 +42,6 @@ const ConfirmModalIcon = forwardRef(function ConfirmModalIcon<
 	);
 });
 
+ConfirmModalIcon.displayName = 'ConfirmModalIcon';
+
 export default ConfirmModalIcon;

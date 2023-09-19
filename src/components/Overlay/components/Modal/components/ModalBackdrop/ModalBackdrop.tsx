@@ -34,4 +34,6 @@ const ModalBackdrop = forwardRef(function ModalBackdrop<Element extends ModalBac
 	);
 });
 
+ModalBackdrop.displayName = 'ModalBackdrop';
+
 export default ModalBackdrop;

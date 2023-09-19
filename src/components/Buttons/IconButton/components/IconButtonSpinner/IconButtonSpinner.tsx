@@ -59,4 +59,6 @@ const IconButtonSpinner = forwardRef(function IconButtonSpinner<Element extends 
 	);
 });
 
+IconButtonSpinner.displayName = 'IconButtonSpinner';
+
 export default IconButtonSpinner;

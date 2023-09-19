@@ -1,10 +1,12 @@
-import { forwardRef, ReactElement, useMemo } from 'react';
+import type { ReactElement } from 'react';
+import { forwardRef, useMemo } from 'react';
 
-import { Center, CenterProps, Grid, GridItem } from '@chakra-ui/react';
+import type { CenterProps } from '@chakra-ui/react';
+import { Center, Grid, GridItem } from '@chakra-ui/react';
 
 import { useProviderContext } from '../../Provider/common/hooks';
 
-import { IndicatorProps, IndicatorRef } from './common/types';
+import type { IndicatorProps, IndicatorRef } from './common/types';
 import { getIndicatorPosition } from './common/utils';
 
 const Indicator = forwardRef<IndicatorRef, IndicatorProps>(function Indicator(props, ref): ReactElement {
@@ -51,5 +53,7 @@ const Indicator = forwardRef<IndicatorRef, IndicatorProps>(function Indicator(pr
 		</Grid>
 	);
 });
+
+Indicator.displayName = 'Indicator';
 
 export default Indicator;

@@ -31,4 +31,6 @@ const Center = forwardRef(function Center<Element extends ElementType>(
 	);
 });
 
+Center.displayName = 'Center';
+
 export default Center;

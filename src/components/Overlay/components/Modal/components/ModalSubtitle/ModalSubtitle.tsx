@@ -57,4 +57,6 @@ const ModalSubtitle = forwardRef(function ModalSubtitle<
 	);
 });
 
+ModalSubtitle.displayName = 'ModalSubtitle';
+
 export default ModalSubtitle;

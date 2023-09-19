@@ -98,4 +98,6 @@ const Slide = forwardRef(function Slide<Element extends ElementType>(
 	);
 });
 
+Slide.displayName = 'Slide';
+
 export default Slide;

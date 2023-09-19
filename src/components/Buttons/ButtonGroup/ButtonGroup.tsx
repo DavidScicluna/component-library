@@ -53,4 +53,6 @@ const ButtonGroup = forwardRef(function ButtonGroup<Element extends ElementType>
 	);
 });
 
+ButtonGroup.displayName = 'ButtonGroup';
+
 export default ButtonGroup;

@@ -58,4 +58,6 @@ const ConfirmModalTitle = forwardRef(function ConfirmModalTitle<
 	);
 });
 
+ConfirmModalTitle.displayName = 'ConfirmModalTitle';
+
 export default ConfirmModalTitle;

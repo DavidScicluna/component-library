@@ -96,4 +96,6 @@ const ModalContainer = forwardRef(function ModalContainer<Element extends ModalE
 	);
 });
 
+ModalContainer.displayName = 'ModalContainer';
+
 export default ModalContainer;

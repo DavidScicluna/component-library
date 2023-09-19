@@ -65,4 +65,6 @@ const HorizontalScrollOverlayLeftArrowIconButton = forwardRef(function Horizonta
 	);
 });
 
+HorizontalScrollOverlayLeftArrowIconButton.displayName = 'HorizontalScrollOverlayLeftArrowIconButton';
+
 export default HorizontalScrollOverlayLeftArrowIconButton;

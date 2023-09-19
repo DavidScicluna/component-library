@@ -43,4 +43,6 @@ const ConfirmModalStack = forwardRef(function ConfirmModalStack<Element extends 
 	);
 });
 
+ConfirmModalStack.displayName = 'ConfirmModalStack';
+
 export default ConfirmModalStack;

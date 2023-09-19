@@ -120,4 +120,6 @@ const FileButton: FC<FileButtonProps> = (props) => {
 	);
 };
 
+FileButton.displayName = 'FileButton';
+
 export default FileButton;

@@ -32,4 +32,6 @@ const MotionBox = forwardRef(function MotionBox<Element extends ElementType>(
 	);
 });
 
+MotionBox.displayName = 'MotionBox';
+
 export default MotionBox;

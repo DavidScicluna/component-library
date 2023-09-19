@@ -90,4 +90,6 @@ const ConfirmModalTransition = forwardRef<ConfirmModalTransitionRef, ConfirmModa
 	}
 );
 
+ConfirmModalTransition.displayName = 'ConfirmModalTransition';
+
 export default ConfirmModalTransition;

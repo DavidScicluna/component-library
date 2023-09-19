@@ -83,4 +83,6 @@ const DummyIconButton = forwardRef(function DummyIconButton<Element extends Elem
 	);
 });
 
+DummyIconButton.displayName = 'DummyIconButton';
+
 export default DummyIconButton;

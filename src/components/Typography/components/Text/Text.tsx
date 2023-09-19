@@ -75,4 +75,6 @@ const Text = forwardRef(function Text<Element extends TextElement = TextDefaultE
 	);
 });
 
+Text.displayName = 'Text';
+
 export default Text;

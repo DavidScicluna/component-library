@@ -30,4 +30,6 @@ const SimpleGrid = forwardRef(function SimpleGrid<Element extends ElementType>(
 	);
 });
 
+SimpleGrid.displayName = 'SimpleGrid';
+
 export default SimpleGrid;

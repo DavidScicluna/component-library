@@ -73,4 +73,6 @@ const Fade = forwardRef(function Fade<Element extends ElementType>(
 	);
 });
 
+Fade.displayName = 'Fade';
+
 export default Fade;

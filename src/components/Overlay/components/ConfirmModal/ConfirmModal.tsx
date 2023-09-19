@@ -91,4 +91,6 @@ const ConfirmModal = forwardRef(function ConfirmModal<Element extends ConfirmMod
 	);
 });
 
+ConfirmModal.displayName = 'ConfirmModal';
+
 export default ConfirmModal;

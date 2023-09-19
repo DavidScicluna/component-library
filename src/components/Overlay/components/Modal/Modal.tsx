@@ -90,4 +90,6 @@ const Modal = forwardRef(function Modal<Element extends ModalElement = ModalDefa
 	);
 });
 
+Modal.displayName = 'Modal';
+
 export default Modal;

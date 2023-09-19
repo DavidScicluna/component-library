@@ -10,4 +10,6 @@ const AnimatePresence = ({ children, ...rest }: AnimatePresenceProps): ReactElem
 	</FMAnimatePresence>
 );
 
+AnimatePresence.displayName = 'AnimatePresence';
+
 export default AnimatePresence;

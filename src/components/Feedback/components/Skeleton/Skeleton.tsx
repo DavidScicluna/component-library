@@ -76,4 +76,6 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
 	);
 });
 
+Skeleton.displayName = 'Skeleton';
+
 export default Skeleton;

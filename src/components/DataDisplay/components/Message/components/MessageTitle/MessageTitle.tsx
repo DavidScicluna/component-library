@@ -59,4 +59,6 @@ const MessageTitle = forwardRef(function MessageTitle<Element extends MessageTit
 	);
 });
 
+MessageTitle.displayName = 'MessageTitle';
+
 export default MessageTitle;

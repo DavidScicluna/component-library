@@ -60,4 +60,6 @@ const Link = forwardRef(function Link<Element extends LinkElement = LinkDefaultE
 	);
 });
 
+Link.displayName = 'Link';
+
 export default Link;

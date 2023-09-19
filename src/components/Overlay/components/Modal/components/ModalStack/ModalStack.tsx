@@ -46,4 +46,6 @@ const ModalStack = forwardRef(function ModalStack<Element extends ElementType>(
 	);
 });
 
+ModalStack.displayName = 'ModalStack';
+
 export default ModalStack;

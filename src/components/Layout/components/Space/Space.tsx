@@ -34,4 +34,6 @@ const Space = forwardRef(function Space<Element extends ElementType>(
 	);
 });
 
+Space.displayName = 'Space';
+
 export default Space;

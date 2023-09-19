@@ -40,4 +40,6 @@ const Box = forwardRef(function Box<
 	);
 });
 
+Box.displayName = 'Box';
+
 export default Box;

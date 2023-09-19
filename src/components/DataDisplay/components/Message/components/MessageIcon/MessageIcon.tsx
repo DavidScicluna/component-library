@@ -37,4 +37,6 @@ const MessageIcon = forwardRef(function MessageIcon<Element extends MessageIconE
 	);
 });
 
+MessageIcon.displayName = 'MessageIcon';
+
 export default MessageIcon;

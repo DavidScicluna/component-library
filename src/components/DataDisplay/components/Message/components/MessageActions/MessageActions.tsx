@@ -46,4 +46,6 @@ const MessageActions = forwardRef(function MessageActions<Element extends Elemen
 	);
 });
 
+MessageActions.displayName = 'MessageActions';
+
 export default MessageActions;

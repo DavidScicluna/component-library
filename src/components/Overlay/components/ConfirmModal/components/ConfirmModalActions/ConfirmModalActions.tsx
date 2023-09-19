@@ -62,4 +62,6 @@ const ConfirmModalActions = forwardRef(function ConfirmModalActions<Element exte
 	);
 });
 
+ConfirmModalActions.displayName = 'ConfirmModalActions';
+
 export default ConfirmModalActions;

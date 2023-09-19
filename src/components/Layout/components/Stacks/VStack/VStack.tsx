@@ -28,4 +28,6 @@ const VStack = forwardRef(function VStack<Element extends ElementType>(
 	);
 });
 
+VStack.displayName = 'VStack';
+
 export default VStack;

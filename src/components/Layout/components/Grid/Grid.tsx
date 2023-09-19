@@ -71,4 +71,6 @@ const Grid = forwardRef(function Grid<Element extends ElementType>(
 	);
 });
 
+Grid.displayName = 'Grid';
+
 export default Grid;

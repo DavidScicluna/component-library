@@ -31,4 +31,6 @@ const AspectRatio = forwardRef(function AspectRatio<Element extends ElementType>
 	);
 });
 
+AspectRatio.displayName = 'AspectRatio';
+
 export default AspectRatio;

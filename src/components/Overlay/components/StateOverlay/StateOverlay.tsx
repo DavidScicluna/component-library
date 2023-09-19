@@ -109,4 +109,6 @@ const StateOverlay = forwardRef(function StateOverlay<Element extends ElementTyp
 	);
 });
 
+StateOverlay.displayName = 'StateOverlay';
+
 export default StateOverlay;

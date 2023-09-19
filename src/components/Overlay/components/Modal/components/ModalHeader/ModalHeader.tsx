@@ -66,4 +66,6 @@ const ModalHeader = forwardRef(function ModalHeader<Element extends ElementType>
 	);
 });
 
+ModalHeader.displayName = 'ModalHeader';
+
 export default ModalHeader;

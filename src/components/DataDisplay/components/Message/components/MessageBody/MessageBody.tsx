@@ -38,4 +38,6 @@ const MessageBody = forwardRef(function MessageBody<Element extends ElementType>
 	);
 });
 
+MessageBody.displayName = 'MessageBody';
+
 export default MessageBody;

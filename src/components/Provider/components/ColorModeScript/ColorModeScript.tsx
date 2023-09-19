@@ -18,4 +18,6 @@ const ColorModeScript: FC<ColorModeScriptProps> = ({
 	return null;
 };
 
+ColorModeScript.displayName = 'ColorModeScript';
+
 export default ColorModeScript;

@@ -89,4 +89,6 @@ const Provider: FC<ProviderProps> = (props) => {
 	);
 };
 
+Provider.displayName = 'Provider';
+
 export default Provider;

@@ -40,4 +40,6 @@ const LinearGradient = forwardRef(function LinearGradient<Element extends Elemen
 	);
 });
 
+LinearGradient.displayName = 'LinearGradient';
+
 export default LinearGradient;

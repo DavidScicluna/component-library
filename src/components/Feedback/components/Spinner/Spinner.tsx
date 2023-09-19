@@ -209,4 +209,6 @@ const Spinner = forwardRef(function Spinner<Element extends ElementType>(
 	);
 });
 
+Spinner.displayName = 'Spinner';
+
 export default Spinner;

@@ -53,4 +53,6 @@ const ModalTitle = forwardRef(function ModalTitle<Element extends ModalTitleElem
 	);
 });
 
+ModalTitle.displayName = 'ModalTitle';
+
 export default ModalTitle;

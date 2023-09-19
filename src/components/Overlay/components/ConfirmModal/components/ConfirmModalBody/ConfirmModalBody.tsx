@@ -40,4 +40,6 @@ const ConfirmModalBody = forwardRef(function ConfirmModalBody<Element extends El
 	);
 });
 
+ConfirmModalBody.displayName = 'ConfirmModalBody';
+
 export default ConfirmModalBody;

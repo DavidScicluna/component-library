@@ -72,4 +72,6 @@ const LoadingOverlay = forwardRef(function LoadingOverlay<Element extends Elemen
 	);
 });
 
+LoadingOverlay.displayName = 'LoadingOverlay';
+
 export default LoadingOverlay;

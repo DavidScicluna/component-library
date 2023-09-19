@@ -57,4 +57,6 @@ const DummyPushableOverlay = forwardRef(function DummyPushableOverlay<Element ex
 	);
 });
 
+DummyPushableOverlay.displayName = 'DummyPushableOverlay';
+
 export default DummyPushableOverlay;

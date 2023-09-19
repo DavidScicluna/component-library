@@ -30,4 +30,6 @@ const IconButtonGroupItem = forwardRef(function IconButtonGroupItem<Element exte
 	);
 });
 
+IconButtonGroupItem.displayName = 'IconButtonGroupItem';
+
 export default IconButtonGroupItem;

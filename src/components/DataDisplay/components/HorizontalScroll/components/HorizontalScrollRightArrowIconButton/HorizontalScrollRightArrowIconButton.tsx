@@ -63,4 +63,6 @@ const HorizontalScrollRightArrowIconButton = forwardRef(function HorizontalScrol
 	);
 });
 
+HorizontalScrollRightArrowIconButton.displayName = 'HorizontalScrollRightArrowIconButton';
+
 export default HorizontalScrollRightArrowIconButton;

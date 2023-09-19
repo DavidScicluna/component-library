@@ -33,4 +33,6 @@ const HorizontalScrollItem = forwardRef(function HorizontalScrollItem<Element ex
 	);
 });
 
+HorizontalScrollItem.displayName = 'HorizontalScrollItem';
+
 export default HorizontalScrollItem;

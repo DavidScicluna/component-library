@@ -26,4 +26,6 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 	}
 }
 
+ErrorBoundary.displayName = 'ErrorBoundary';
+
 export default ErrorBoundary;

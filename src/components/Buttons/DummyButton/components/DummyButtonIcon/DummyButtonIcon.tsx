@@ -53,4 +53,6 @@ const DummyButtonIcon = forwardRef(function DummyButtonIcon<
 	);
 });
 
+DummyButtonIcon.displayName = 'DummyButtonIcon';
+
 export default DummyButtonIcon;

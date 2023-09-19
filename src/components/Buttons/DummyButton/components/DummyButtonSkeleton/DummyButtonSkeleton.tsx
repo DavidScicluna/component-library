@@ -44,4 +44,6 @@ const DummyButtonSkeleton = forwardRef(function DummyButtonSkeleton<Element exte
 	);
 });
 
+DummyButtonSkeleton.displayName = 'DummyButtonSkeleton';
+
 export default DummyButtonSkeleton;

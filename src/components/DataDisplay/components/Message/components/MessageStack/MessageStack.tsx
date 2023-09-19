@@ -43,4 +43,6 @@ const MessageStack = forwardRef(function MessageStack<Element extends ElementTyp
 	);
 });
 
+MessageStack.displayName = 'MessageStack';
+
 export default MessageStack;

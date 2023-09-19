@@ -38,4 +38,6 @@ const HorizontalScrollLeftLinearGradient = forwardRef(function HorizontalScrollL
 	);
 });
 
+HorizontalScrollLeftLinearGradient.displayName = 'HorizontalScrollLeftLinearGradient';
+
 export default HorizontalScrollLeftLinearGradient;

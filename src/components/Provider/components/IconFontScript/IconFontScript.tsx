@@ -37,4 +37,6 @@ const IconFontScript: FC<IconFontScriptProps> = (props) => {
 	return null;
 };
 
+IconFontScript.displayName = 'IconFontScript';
+
 export default IconFontScript;

@@ -199,4 +199,6 @@ const HorizontalScroll = forwardRef(function HorizontalScroll<Element extends El
 	);
 });
 
+HorizontalScroll.displayName = 'HorizontalScroll';
+
 export default HorizontalScroll;

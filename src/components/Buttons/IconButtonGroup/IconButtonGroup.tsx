@@ -55,4 +55,6 @@ const IconButtonGroup = forwardRef(function IconButtonGroup<Element extends Elem
 	);
 });
 
+IconButtonGroup.displayName = 'IconButtonGroup';
+
 export default IconButtonGroup;

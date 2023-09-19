@@ -34,4 +34,6 @@ const ConfirmModalBackdrop = forwardRef(function ConfirmModalBackdrop<Element ex
 	);
 });
 
+ConfirmModalBackdrop.displayName = 'ConfirmModalBackdrop';
+
 export default ConfirmModalBackdrop;

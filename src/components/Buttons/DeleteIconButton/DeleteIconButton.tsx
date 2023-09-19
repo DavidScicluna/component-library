@@ -63,4 +63,6 @@ const DeleteIconButton = forwardRef(function DeleteIconButton<
 	);
 });
 
+DeleteIconButton.displayName = 'DeleteIconButton';
+
 export default DeleteIconButton;

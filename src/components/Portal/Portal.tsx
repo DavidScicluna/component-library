@@ -31,4 +31,6 @@ const Portal = forwardRef(function Portal<Element extends ElementType>(
 	);
 });
 
+Portal.displayName = 'Portal';
+
 export default Portal;

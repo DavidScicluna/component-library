@@ -67,4 +67,6 @@ const ModalFooter = forwardRef(function ModalFooter<Element extends ElementType>
 	);
 });
 
+ModalFooter.displayName = 'ModalFooter';
+
 export default ModalFooter;

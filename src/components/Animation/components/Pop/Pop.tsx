@@ -81,4 +81,6 @@ const Pop = forwardRef(function Pop<Element extends ElementType>(
 	);
 });
 
+Pop.displayName = 'Pop';
+
 export default Pop;

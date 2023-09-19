@@ -50,4 +50,6 @@ const Message = forwardRef(function Message<Element extends ElementType>(
 	);
 });
 
+Message.displayName = 'Message';
+
 export default Message;

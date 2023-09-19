@@ -63,4 +63,6 @@ const ClearIconButton = forwardRef(function ClearIconButton<
 	);
 });
 
+ClearIconButton.displayName = 'ClearIconButton';
+
 export default ClearIconButton;

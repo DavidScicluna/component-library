@@ -98,4 +98,6 @@ const ScrollToTopIconButton = forwardRef(function ScrollToTopIconButton<
 	);
 });
 
+ScrollToTopIconButton.displayName = 'ScrollToTopIconButton';
+
 export default ScrollToTopIconButton;

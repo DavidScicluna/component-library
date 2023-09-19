@@ -1,13 +1,13 @@
-import { createContext, forwardRef, ReactElement, useMemo } from 'react';
+import type { ReactElement } from 'react';
+import { createContext, forwardRef, useMemo } from 'react';
 
 import { Badge as CUIBadge, HStack } from '@chakra-ui/react';
 import { dataAttr } from '@chakra-ui/utils';
-
 import { merge } from 'lodash-es';
 
 import { color as defaultColor, colorMode as defaultColorMode } from '../../../common/default/props';
 import { useTheme } from '../../../common/hooks';
-import { Radius } from '../../../theme/types';
+import type { Radius } from '../../../theme/types';
 import PushableOverlay from '../../Overlay/PushableOverlay';
 import { useProviderContext } from '../../Provider/common/hooks';
 
@@ -23,8 +23,9 @@ import {
 	variant as defaultVariant
 } from './common/default/props';
 import useStyles from './common/styles';
-import { BadgeContext as BadgeContextType, BadgeProps, BadgeRef } from './common/types';
-import { getSizeConfig, GetSizeConfigReturn, getVariantRadius } from './common/utils';
+import type { BadgeContext as BadgeContextType, BadgeProps, BadgeRef } from './common/types';
+import type { GetSizeConfigReturn } from './common/utils';
+import { getSizeConfig, getVariantRadius } from './common/utils';
 
 export const BadgeContext = createContext<BadgeContextType>({
 	color: defaultColor,

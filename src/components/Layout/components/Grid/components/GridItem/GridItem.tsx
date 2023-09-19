@@ -58,4 +58,6 @@ const GridItem = forwardRef(function Grid<Element extends ElementType>(
 	);
 });
 
+GridItem.displayName = 'GridItem';
+
 export default GridItem;

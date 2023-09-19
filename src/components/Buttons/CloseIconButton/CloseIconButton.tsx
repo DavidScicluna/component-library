@@ -63,4 +63,6 @@ const CloseIconButton = forwardRef(function CloseIconButton<
 	);
 });
 
+CloseIconButton.displayName = 'CloseIconButton';
+
 export default CloseIconButton;

@@ -13,4 +13,6 @@ const Suspense: FC<SuspenseProps> = ({ children, renderError, fallback, ...rest 
 	</ErrorBoundary>
 );
 
+Suspense.displayName = 'Suspense';
+
 export default Suspense;

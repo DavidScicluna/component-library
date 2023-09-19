@@ -81,4 +81,6 @@ const PageTransition = forwardRef(function PageTransition<Element extends Elemen
 	);
 });
 
+PageTransition.displayName = 'PageTransition';
+
 export default PageTransition;

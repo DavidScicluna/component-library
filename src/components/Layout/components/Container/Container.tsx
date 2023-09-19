@@ -46,4 +46,6 @@ const Container = forwardRef(function Container<Element extends ElementType>(
 	);
 });
 
+Container.displayName = 'Container';
+
 export default Container;

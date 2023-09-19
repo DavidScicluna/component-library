@@ -58,4 +58,6 @@ const ConfirmModalSubtitle = forwardRef(function ConfirmModalSubtitle<
 	);
 });
 
+ConfirmModalSubtitle.displayName = 'ConfirmModalSubtitle';
+
 export default ConfirmModalSubtitle;

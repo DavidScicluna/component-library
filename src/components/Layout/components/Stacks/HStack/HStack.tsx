@@ -28,4 +28,6 @@ const HStack = forwardRef(function HStack<Element extends ElementType>(
 	);
 });
 
+HStack.displayName = 'HStack';
+
 export default HStack;

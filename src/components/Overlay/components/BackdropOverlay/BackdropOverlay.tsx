@@ -65,4 +65,6 @@ const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends Elem
 	);
 });
 
+BackdropOverlay.displayName = 'BackdropOverlay';
+
 export default BackdropOverlay;

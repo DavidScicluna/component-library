@@ -36,4 +36,6 @@ const VisuallyHidden = forwardRef(function VisuallyHidden<
 	);
 });
 
+VisuallyHidden.displayName = 'VisuallyHidden';
+
 export default VisuallyHidden;

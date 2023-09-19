@@ -50,4 +50,6 @@ const IconButtonIcon = forwardRef(function IconButtonIcon<
 	);
 });
 
+IconButtonIcon.displayName = 'IconButtonIcon';
+
 export default IconButtonIcon;

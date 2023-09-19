@@ -73,4 +73,6 @@ const Icon = forwardRef(function Icon<Element extends IconElement = IconDefaultE
 	);
 });
 
+Icon.displayName = 'Icon';
+
 export default Icon;

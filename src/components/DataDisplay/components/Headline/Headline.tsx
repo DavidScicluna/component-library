@@ -115,4 +115,6 @@ const Headline = forwardRef(function Headline<Element extends ElementType>(
 	);
 });
 
+Headline.displayName = 'Headline';
+
 export default Headline;

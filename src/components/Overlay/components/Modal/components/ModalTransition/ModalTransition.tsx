@@ -91,4 +91,6 @@ const ModalTransition = forwardRef<ModalTransitionRef, ModalTransitionProps>(fun
 	);
 });
 
+ModalTransition.displayName = 'ModalTransition';
+
 export default ModalTransition;

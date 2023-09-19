@@ -151,4 +151,6 @@ const IconButton = forwardRef(function IconButton<Element extends IconButtonElem
 	);
 });
 
+IconButton.displayName = 'IconButton';
+
 export default IconButton;

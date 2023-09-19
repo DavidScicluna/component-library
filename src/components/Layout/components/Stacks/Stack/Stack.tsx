@@ -56,4 +56,6 @@ const Stack = forwardRef(function Stack<Element extends ElementType>(
 	);
 });
 
+Stack.displayName = 'Stack';
+
 export default Stack;

@@ -48,4 +48,6 @@ const HoverOverlay = forwardRef(function HoverOverlay<Element extends ElementTyp
 	);
 });
 
+HoverOverlay.displayName = 'HoverOverlay';
+
 export default HoverOverlay;

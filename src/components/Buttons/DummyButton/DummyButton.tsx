@@ -115,4 +115,6 @@ const DummyButton = forwardRef(function DummyButton<Element extends ElementType>
 	);
 });
 
+DummyButton.displayName = 'DummyButton';
+
 export default DummyButton;

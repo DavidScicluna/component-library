@@ -131,4 +131,6 @@ const Tooltip = forwardRef(function Tooltip<Element extends ElementType>(
 	);
 });
 
+Tooltip.displayName = 'Tooltip';
+
 export default Tooltip;

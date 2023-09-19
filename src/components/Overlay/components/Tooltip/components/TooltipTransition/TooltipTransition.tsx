@@ -59,4 +59,6 @@ const TooltipTransition = forwardRef(function TooltipTransition<Element extends 
 	);
 });
 
+TooltipTransition.displayName = 'TooltipTransition';
+
 export default TooltipTransition;

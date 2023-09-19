@@ -75,4 +75,6 @@ const PositionOverlay = forwardRef(function PositionOverlay<Element extends Elem
 	);
 });
 
+PositionOverlay.displayName = 'PositionOverlay';
+
 export default PositionOverlay;

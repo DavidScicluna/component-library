@@ -189,4 +189,6 @@ const Button = forwardRef(function Button<Element extends ButtonElement = Button
 	);
 });
 
+Button.displayName = 'Button';
+
 export default Button;

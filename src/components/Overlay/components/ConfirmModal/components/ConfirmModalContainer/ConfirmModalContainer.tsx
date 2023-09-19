@@ -109,4 +109,6 @@ const ConfirmModalContainer = forwardRef(function ConfirmModalContainer<
 	);
 });
 
+ConfirmModalContainer.displayName = 'ConfirmModalContainer';
+
 export default ConfirmModalContainer;

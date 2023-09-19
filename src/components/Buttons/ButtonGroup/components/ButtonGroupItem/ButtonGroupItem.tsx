@@ -35,4 +35,6 @@ const ButtonGroupItem = forwardRef(function ButtonGroupItem<Element extends Elem
 	);
 });
 
+ButtonGroupItem.displayName = 'ButtonGroupItem';
+
 export default ButtonGroupItem;

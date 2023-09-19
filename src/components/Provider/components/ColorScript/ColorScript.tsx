@@ -15,4 +15,6 @@ const ColorScript: FC<ColorScriptProps> = ({ initialColor = __DEFAULT_APP_COLOR_
 	return null;
 };
 
+ColorScript.displayName = 'ColorScript';
+
 export default ColorScript;

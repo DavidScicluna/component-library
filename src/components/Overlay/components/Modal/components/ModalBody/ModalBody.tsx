@@ -29,4 +29,6 @@ const ModalBody = forwardRef(function ModalBody<Element extends ElementType>(
 	);
 });
 
+ModalBody.displayName = 'ModalBody';
+
 export default ModalBody;
