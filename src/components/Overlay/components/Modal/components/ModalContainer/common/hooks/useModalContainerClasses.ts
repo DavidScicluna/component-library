@@ -1,7 +1,8 @@
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { useGetClass, useGetColor } from '@common/hooks';
+import { __DEFAULT_COLOR__ } from '@common/constants';
+import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
 import type {
 	BoxShadowClass,
 	ClassName,
@@ -18,7 +19,14 @@ import { useModalContext } from '@components/Overlay/components/Modal/common/hoo
 type UseModalContainerClassesReturn = Record<'container' | 'backdrop' | 'content', ClassName>;
 
 const useModalContainerClasses = (): UseModalContainerClassesReturn => {
-	const { color, colorMode, size, spacing } = useModalContext();
+	const { colorMode: __DEFAULT_MODAL_CONTAINER_COLORMODE__ } = useAppTheme();
+
+	const {
+		color = __DEFAULT_COLOR__,
+		colorMode = __DEFAULT_MODAL_CONTAINER_COLORMODE__,
+		size,
+		spacing
+	} = useModalContext();
 
 	const widthClassName = useGetClass<WidthClass>('full', ['sizing', 'width']);
 	const maxWidthClassName = useGetClass<MaxWidthClass>(size, ['sizing', 'max_width']);
