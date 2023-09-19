@@ -2,7 +2,8 @@ import type { ElementType } from 'react';
 
 import { transparentize } from 'color2k';
 
-import { useGetColor, useGetResponsiveValue } from '@common/hooks';
+import { __DEFAULT_COLOR__ } from '@common/constants';
+import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
 import type { Style } from '@common/types';
 
 import { __DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT__, __DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__ } from '../constants';
@@ -17,9 +18,11 @@ type UseGlassOverlayStylesReturn = Style;
 const useGlassOverlayStyles = <Element extends ElementType>(
 	props: UseGlassOverlayStylesProps<Element>
 ): UseGlassOverlayStylesReturn => {
+	const { colorMode: __DEFAULT_GLASS_OVERLAY_COLORMODE__ } = useAppTheme();
+
 	const {
-		color,
-		colorMode,
+		color = __DEFAULT_COLOR__,
+		colorMode = __DEFAULT_GLASS_OVERLAY_COLORMODE__,
 		backdropAmount: ba = __DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT__,
 		hasBackground = __DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__
 	} = props;
