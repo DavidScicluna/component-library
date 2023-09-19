@@ -1,0 +1,1 @@
+export const __DEFAULT_PROGRESS_SECTION_VALUE__ = 0;
