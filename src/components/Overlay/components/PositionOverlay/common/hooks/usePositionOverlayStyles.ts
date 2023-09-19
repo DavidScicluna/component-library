@@ -3,7 +3,8 @@ import { type ElementType, useMemo } from 'react';
 import { transparentize } from 'color2k';
 import { compact } from 'lodash-es';
 
-import { useGetColor, useGetResponsiveValue } from '@common/hooks';
+import { __DEFAULT_COLOR__ } from '@common/constants';
+import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
 import type { Style } from '@common/types';
 import { getResponsiveValue } from '@common/utils';
 
@@ -23,9 +24,11 @@ type UsePositionOverlayStylesReturn = Record<'overlay' | 'position', Style>;
 const usePositionOverlayStyles = <Element extends ElementType>(
 	props: UsePositionOverlayStylesProps<Element>
 ): UsePositionOverlayStylesReturn => {
+	const { colorMode: __DEFAULT_POSITION_OVERLAY_COLORMODE__ } = useAppTheme();
+
 	const {
-		color,
-		colorMode,
+		color = __DEFAULT_COLOR__,
+		colorMode = __DEFAULT_POSITION_OVERLAY_COLORMODE__,
 		backdropAmount: ba = __DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT__,
 		placement = __DEFAULT_POSITION_OVERLAY_PLACEMENT__,
 		hasBackground = __DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND__
