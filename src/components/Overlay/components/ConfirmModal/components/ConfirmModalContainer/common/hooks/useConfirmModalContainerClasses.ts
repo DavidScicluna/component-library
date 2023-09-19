@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_SPACING__ } from '@common/constants';
-import { useGetClass, useGetColor } from '@common/hooks';
+import { __DEFAULT_COLOR__, __DEFAULT_SPACING__ } from '@common/constants';
+import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
 import type {
 	BoxShadowClass,
 	ClassName,
@@ -19,7 +19,14 @@ import { useConfirmModalContext } from '@components/Overlay/components/ConfirmMo
 type UseGetConfirmModalContainerClassesReturn = Record<'container' | 'backdrop' | 'content' | 'cancel', ClassName>;
 
 const useGetConfirmModalContainerClasses = (): UseGetConfirmModalContainerClassesReturn => {
-	const { color, colorMode, size, spacing } = useConfirmModalContext();
+	const { colorMode: __DEFAULT_CONFIRM_MODAL_CONTAINER_COLORMODE__ } = useAppTheme();
+
+	const {
+		color = __DEFAULT_COLOR__,
+		colorMode = __DEFAULT_CONFIRM_MODAL_CONTAINER_COLORMODE__,
+		size,
+		spacing
+	} = useConfirmModalContext();
 
 	const widthClassName = useGetClass<WidthClass>('full', ['sizing', 'width']);
 	const maxWidthClassName = useGetClass<MaxWidthClass>(size, ['sizing', 'max_width']);
