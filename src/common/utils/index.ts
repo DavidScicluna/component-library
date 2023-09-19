@@ -4,6 +4,7 @@ import { getClass } from './classes';
 import type { ColorHueType, GetColorClassProps, GetColorHexProps, GetColorHueProps } from './color';
 import { getColorClass, getColorHex, getColorHue, getColorMode } from './color';
 import { getFontSizeHeight, getIconFontFamily } from './fonts';
+import { getPercentage } from './number';
 import { checkIsTouchDevice, convertPixelsToREM, convertREMToPixels, convertStringToNumber } from './other';
 import { getResponsiveValue } from './responsive';
 import { checkDurationType, checkFontSizeType } from './theme';
@@ -29,5 +30,6 @@ export {
 	getColorMode,
 	getFontSizeHeight,
 	getIconFontFamily,
+	getPercentage,
 	getResponsiveValue
 };
