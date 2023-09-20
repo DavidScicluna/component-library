@@ -17,7 +17,7 @@ import {
 	__DEFAULT_ICON_SIZE__,
 	__DEFAULT_ICON_VARIANT__
 } from './common/constants';
-import { useIconClasses } from './common/hooks';
+import { useIconClasses, useIconStyles } from './common/hooks';
 import { __KEYS_ICON_CLASS__ } from './common/keys';
 import type { IconDefaultElement, IconElement, IconProps, IconRef } from './common/types';
 
@@ -46,6 +46,7 @@ const Icon = forwardRef(function Icon<Element extends IconElement = IconDefaultE
 	const hasIcon = !children && !!icon;
 
 	const classes = useIconClasses<Element>({ color, colorMode, radius, size, variant });
+	const styles = useIconStyles<Element>({ size });
 
 	return (
 		<Skeleton color={color} colorMode={colorMode} isLoaded={hasIcon ? fonts[category] : true} radius='full'>
@@ -55,17 +56,16 @@ const Icon = forwardRef(function Icon<Element extends IconElement = IconDefaultE
 				className={classNames(__KEYS_ICON_CLASS__, classes, { [className]: !!className })}
 				w={w}
 				h={h}
-				sx={
+				sx={merge(
 					hasIcon
-						? merge(
-								{
-									fontFamily: getIconFontFamily(category),
-									fontSize: hasIcon && !fonts[category] ? '0px' : null
-								},
-								sx
-						  )
-						: sx
-				}
+						? {
+								fontFamily: getIconFontFamily(category),
+								fontSize: hasIcon && !fonts[category] ? '0px' : null
+						  }
+						: {},
+					styles,
+					sx
+				)}
 			>
 				{children || icon || null}
 			</Center>
