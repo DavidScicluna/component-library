@@ -9,9 +9,10 @@ import { ProgressContext } from '../../Progress';
 import {
 	__DEFAULT_PROGRESS_IS_INDETERMINATE__,
 	__DEFAULT_PROGRESS_MAX__,
-	__DEFAULT_PROGRESS_MIN__
+	__DEFAULT_PROGRESS_MIN__,
+	__DEFAULT_PROGRESS_VARIANT__
 } from '../constants';
-import type { ProgressContext as ProgressContextType } from '../types';
+import type { ProgressContext as ProgressContextType, ProgressVariant } from '../types';
 
 const useProgressContext = <Element extends ElementType>() => {
 	const {
@@ -20,7 +21,8 @@ const useProgressContext = <Element extends ElementType>() => {
 		isIndeterminate: indeterminate = __DEFAULT_PROGRESS_IS_INDETERMINATE__,
 		max: ma = __DEFAULT_PROGRESS_MAX__,
 		min: mi = __DEFAULT_PROGRESS_MIN__,
-		radius: r = __DEFAULT_RADIUS__
+		radius: r = __DEFAULT_RADIUS__,
+		variant: v = __DEFAULT_PROGRESS_VARIANT__
 	} = useContext<ProgressContextType<Element>>(ProgressContext);
 
 	const isIndeterminate = useGetResponsiveValue<boolean>(indeterminate);
@@ -30,7 +32,9 @@ const useProgressContext = <Element extends ElementType>() => {
 
 	const radius = useGetResponsiveValue<ThemeRadius>(r);
 
-	return { color, colorMode, isIndeterminate, max, min, radius };
+	const variant = useGetResponsiveValue<ProgressVariant>(v);
+
+	return { color, colorMode, isIndeterminate, max, min, radius, variant };
 };
 
 export default useProgressContext;

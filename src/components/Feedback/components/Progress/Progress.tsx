@@ -13,11 +13,17 @@ import {
 	__DEFAULT_PROGRESS_IS_INDETERMINATE__,
 	__DEFAULT_PROGRESS_MAX__,
 	__DEFAULT_PROGRESS_MIN__,
-	__DEFAULT_PROGRESS_VALUE__
+	__DEFAULT_PROGRESS_VALUE__,
+	__DEFAULT_PROGRESS_VARIANT__
 } from './common/constants';
 import { useProgressClasses, useProgressStyles } from './common/hooks';
 import { __KEYS_PROGRESS_CLASS__ } from './common/keys';
-import type { ProgressContext as ProgressContextType, ProgressProps, ProgressRef } from './common/types';
+import type {
+	ProgressContext as ProgressContextType,
+	ProgressProps,
+	ProgressRef,
+	ProgressVariant
+} from './common/types';
 import { ProgressSection } from './components';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -25,7 +31,8 @@ export const ProgressContext = createContext<ProgressContextType<any>>({
 	isIndeterminate: __DEFAULT_PROGRESS_IS_INDETERMINATE__,
 	max: __DEFAULT_PROGRESS_MAX__,
 	min: __DEFAULT_PROGRESS_MIN__,
-	radius: __DEFAULT_RADIUS__
+	radius: __DEFAULT_RADIUS__,
+	variant: __DEFAULT_PROGRESS_VARIANT__
 });
 
 const Progress = forwardRef(function Progress<Element extends ElementType>(
@@ -41,7 +48,8 @@ const Progress = forwardRef(function Progress<Element extends ElementType>(
 		max: ma = __DEFAULT_PROGRESS_MAX__,
 		min: mi = __DEFAULT_PROGRESS_MIN__,
 		radius: r = __DEFAULT_RADIUS__,
-		value: v = __DEFAULT_PROGRESS_VALUE__,
+		value: val = __DEFAULT_PROGRESS_VALUE__,
+		variant: va = __DEFAULT_PROGRESS_VARIANT__,
 		...rest
 	} = props;
 
@@ -49,13 +57,14 @@ const Progress = forwardRef(function Progress<Element extends ElementType>(
 	const max = useGetResponsiveValue<number>(ma);
 	const min = useGetResponsiveValue<number>(mi);
 	const radius = useGetResponsiveValue<ThemeRadius>(r);
-	const value = useGetResponsiveValue<number>(v);
+	const value = useGetResponsiveValue<number>(val);
+	const variant = useGetResponsiveValue<ProgressVariant>(va);
 
 	const classes = useProgressClasses<Element>({ color, colorMode, radius });
-	const styles = useProgressStyles();
+	const styles = useProgressStyles<Element>({ variant });
 
 	return (
-		<ProgressContext.Provider value={{ color, colorMode, isIndeterminate, max, min, radius }}>
+		<ProgressContext.Provider value={{ color, colorMode, isIndeterminate, max, min, radius, variant }}>
 			<Box<Element>
 				{...rest}
 				ref={ref}

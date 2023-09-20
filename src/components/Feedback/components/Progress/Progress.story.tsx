@@ -10,9 +10,10 @@ import {
 	__DEFAULT_PROGRESS_IS_INDETERMINATE__,
 	__DEFAULT_PROGRESS_MAX__,
 	__DEFAULT_PROGRESS_MIN__,
-	__DEFAULT_PROGRESS_VALUE__
+	__DEFAULT_PROGRESS_VALUE__,
+	__DEFAULT_PROGRESS_VARIANT__
 } from './common/constants';
-import type { ProgressProps } from './common/types';
+import type { ProgressProps, ProgressVariant } from './common/types';
 import type { ProgressStory, ProgressStoryMeta } from './common/types/story';
 import { Progress as ProgressComponent } from '.';
 
@@ -55,6 +56,14 @@ export default {
 			defaultValue: __DEFAULT_PROGRESS_VALUE__,
 			// description: '',
 			control: { type: 'number' }
+		},
+		variant: {
+			name: 'Variant',
+			type: 'string',
+			defaultValue: __DEFAULT_PROGRESS_VARIANT__,
+			// description: '',
+			options: ['horizontal', 'vertical'] as Array<ProgressVariant>,
+			control: { type: 'radio' }
 		}
 	}
 } as ProgressStoryMeta;
@@ -62,5 +71,13 @@ export default {
 export const Progress: ProgressStory = (props: ProgressProps<PolymorphicDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
-	return <ProgressComponent {...props} color={color} colorMode={colorMode} w='100%' h='24px' />;
+	return (
+		<ProgressComponent
+			{...props}
+			color={color}
+			colorMode={colorMode}
+			w={props.variant === 'horizontal' ? '100%' : '24px'}
+			h={props.variant === 'horizontal' ? '24px' : '500px'}
+		/>
+	);
 };

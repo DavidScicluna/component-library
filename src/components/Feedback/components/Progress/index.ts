@@ -1,7 +1,7 @@
 import * as commonConstants from './common/constants';
 import { useProgressClasses, useProgressContext, useProgressStyles } from './common/hooks';
 import * as commonKeys from './common/keys';
-import type { ProgressContext, ProgressProps, ProgressRef } from './common/types';
+import type { ProgressContext, ProgressProps, ProgressRef, ProgressVariant } from './common/types';
 import type {
 	ProgressLabelDefaultElement,
 	ProgressLabelElement,
@@ -20,10 +20,10 @@ import {
 import Progress from './Progress';
 
 // Constants
-export const constants = { ...commonConstants, ...componentsConstants };
+export const constants = { ...(commonConstants || {}), ...(componentsConstants || {}) };
 
 // Keys
-export const keys = { ...commonKeys, ...componentsKeys };
+export const keys = { ...(commonKeys || {}), ...(componentsKeys || {}) };
 
 // Hooks
 export { useProgressClasses, useProgressContext, useProgressSectionClasses, useProgressStyles };
@@ -41,5 +41,6 @@ export type {
 	ProgressProps,
 	ProgressRef,
 	ProgressSectionProps,
-	ProgressSectionRef
+	ProgressSectionRef,
+	ProgressVariant
 };
