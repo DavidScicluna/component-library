@@ -2,7 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef, Fragment } from 'react';
 
 import classNames from 'classnames';
-import { isArray } from 'lodash-es';
+import { compact, isArray } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
 
@@ -44,7 +44,7 @@ const Stack = forwardRef(function Stack<Element extends ElementType>(
 		>
 			{children
 				? isArray(children)
-					? children.map((child, index: number) => (
+					? compact(children).map((child, index: number) => (
 							<Fragment key={typeof child.key !== 'undefined' ? child.key : index}>
 								{child}
 								{divider && index + 1 !== children.length ? divider : null}
