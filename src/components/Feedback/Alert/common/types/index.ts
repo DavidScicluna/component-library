@@ -1,60 +1,74 @@
-import { ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
 
-import { CommonThemeProps, Nullable, PickFrom } from '../../../../../common/types';
-import { Color, Space } from '../../../../../theme/types';
-import { CloseIconButtonProps } from '../../../../Clickable/IconButtons/CloseIconButton/common/types';
-import { IconProps } from '../../../../DataDisplay/Icon/common/types';
+import type { Nullish, ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
 
-export type AlertColor = PickFrom<Color, 'red' | 'blue' | 'green' | 'yellow'>;
+// TODO: Check all components sub folder and replace all imports to import from root instead
+import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { IconButtonProps } from '@components/Buttons/IconButton';
 
-export type AlertDuration =
-	| 5
-	| 5.5
-	| 6
-	| 6.5
-	| 7
-	| 7.5
-	| 8
-	| 8.5
-	| 9
-	| 9.5
-	| 10
-	| 10.5
-	| 11
-	| 11.5
-	| 12
-	| 12.5
-	| 13
-	| 13.5
-	| 14
-	| 14.5
-	| 15
-	| 15.5
-	| 16
-	| 16.5
-	| 17
-	| 17.5
-	| 18
-	| 18.5
-	| 19
-	| 19.5
-	| 20;
+export type AlertDuration = Nullish<number>;
 
-export type AlertStatus = 'info' | 'warning' | 'success' | 'error';
+export type AlertStatus = 'default' | 'info' | 'warning' | 'success' | 'error';
 
-export type AlertActionsPosition = 'right' | 'bottom';
+export type AlertVariant = 'horizontal' | 'vertical';
 
-export type AlertRenderCloseProps = Pick<IconProps, 'icon' | 'category'> &
-	Pick<CloseIconButtonProps, 'aria-label' | 'color' | 'colorMode' | 'onClick' | 'size' | 'variant'>;
+export type AlertRenderActionsProps = Pick<AlertOtherProps, 'color' | 'colorMode' | 'spacing'>;
+export type AlertRenderCloseProps = Pick<
+	IconButtonProps,
+	'color' | 'colorMode' | 'isCompact' | 'onClick' | 'size' | 'variant'
+>;
 
-export type AlertProps = Pick<CommonThemeProps, 'colorMode'> & {
+type AlertOtherProps = ThemeAppAppearanceProps & {
+	/**
+	 * Callback invoked to render the actions
+	 */
+	renderActions?: (props: AlertRenderActionsProps) => ReactNode;
+	/**
+	 * Callback invoked to render the button to close the alert
+	 */
 	renderClose?: (props: AlertRenderCloseProps) => ReactNode;
-	duration: Nullable<number>;
-	label?: string;
-	description: string;
-	actions?: ReactNode;
-	actionsPosition?: AlertActionsPosition;
+	/**
+	 * Callback invoked to render the description
+	 */
+	renderDescription?: () => ReactNode;
+	/**
+	 * Callback invoked to render the label
+	 */
+	renderLabel?: () => ReactNode;
+	/**
+	 * Callback invoked to render the icon
+	 */
+	renderIcon?: () => ReactNode;
+	/**
+	 * Callback invoked to close the alert
+	 */
 	onClose?: () => void;
-	spacing?: Space;
-	status: AlertStatus;
+	/**
+	 * The time (in seconds) on when the alert will self-close, set null to make it always visible
+	 *
+	 * @default 15
+	 */
+	duration?: ResponsiveValue<AlertDuration>;
+	spacing?: ResponsiveValue<ThemeSpacing>;
+	/**
+	 * The status of the alert
+	 *
+	 * @default 'default'
+	 */
+	status?: ResponsiveValue<AlertStatus>;
+	/**
+	 * The variant of the alert
+	 *
+	 * @default 'horizontal'
+	 */
+	variant?: ResponsiveValue<AlertVariant>;
 };
+
+export type AlertProps<Element extends ElementType> = Omit<BoxProps<Element, AlertOtherProps>, keyof BoxOtherProps>;
+
+export type AlertRef<Element extends ElementType> = BoxRef<Element>;
+
+export type AlertContext<Element extends ElementType> = Pick<
+	AlertProps<Element>,
+	'color' | 'colorMode' | 'status' | 'variant'
+>;

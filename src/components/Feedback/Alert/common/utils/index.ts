@@ -1,10 +1,11 @@
 import memoize from 'micro-memoize';
 
-import { IconType } from '../../../../..';
-import { duration as defaultDuration } from '../default/props';
-import { AlertColor, AlertDuration, AlertStatus } from '../types';
+import { __DEFAULT_COLOR__ } from '@common/constants';
+import type { IconKey, ThemeColor } from '@common/types';
 
-export const getStatusColor = memoize((status: AlertStatus): AlertColor => {
+import type { AlertStatus } from '../types';
+
+export const getStatusColor = memoize((status: AlertStatus, color: ThemeColor = __DEFAULT_COLOR__): ThemeColor => {
 	switch (status) {
 		case 'error':
 			return 'red';
@@ -14,20 +15,21 @@ export const getStatusColor = memoize((status: AlertStatus): AlertColor => {
 			return 'green';
 		case 'warning':
 			return 'yellow';
+		default:
+			return color;
 	}
 });
 
-export const getStatusIcon = memoize((status: AlertStatus): IconType => {
+export const getStatusIcon = memoize((status: AlertStatus): IconKey => {
 	switch (status) {
 		case 'success':
 			return 'check';
-		case 'info':
-			return 'info';
 		case 'error':
 			return 'error';
 		case 'warning':
 			return 'warning';
+		case 'info':
+		default:
+			return 'info';
 	}
 });
-
-export const convertDurationToMS = memoize((duration: AlertDuration = defaultDuration): number => duration * 1000);
