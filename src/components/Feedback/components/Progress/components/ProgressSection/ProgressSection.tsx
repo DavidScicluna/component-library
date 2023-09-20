@@ -20,7 +20,7 @@ const ProgressSection = forwardRef(function ProgressSection<Element extends Elem
 	props: ProgressSectionProps<Element>,
 	ref: ProgressSectionRef<Element>
 ): ReactElement {
-	const { isIndeterminate, max, min } = useProgressContext();
+	const { isIndeterminate, max, min, variant } = useProgressContext();
 
 	const {
 		children,
@@ -40,8 +40,8 @@ const ProgressSection = forwardRef(function ProgressSection<Element extends Elem
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_PROGRESS_SECTION_CLASS__, classes, { [className]: !!className })}
-			w={`${isIndeterminate ? 25 : getPercentage(value, max, min)}%`}
-			h='100%'
+			w={variant === 'horizontal' ? `${isIndeterminate ? 25 : getPercentage(value, max, min)}%` : '100%'}
+			h={variant === 'vertical' ? `${isIndeterminate ? 25 : getPercentage(value, max, min)}%` : '100%'}
 			spacing={0}
 		>
 			{children}

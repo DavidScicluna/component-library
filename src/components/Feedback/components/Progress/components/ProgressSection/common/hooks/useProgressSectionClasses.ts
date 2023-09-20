@@ -22,7 +22,8 @@ const useProgressSectionClasses = <Element extends ElementType>(
 	const {
 		color: __DEFAULT_PROGRESS_SECTION_COLOR__,
 		colorMode: __DEFAULT_PROGRESS_SECTION_COLORMODE__,
-		radius
+		radius,
+		variant
 	} = useProgressContext();
 
 	const { color = __DEFAULT_PROGRESS_SECTION_COLOR__, colorMode = __DEFAULT_PROGRESS_SECTION_COLORMODE__ } = props;
@@ -39,10 +40,11 @@ const useProgressSectionClasses = <Element extends ElementType>(
 
 	return classNames(
 		classes.layout.position.absolute,
-		classes.layout.top[0],
-		classes.layout.bottom[0],
+		classes.layout[variant === 'horizontal' ? 'top' : 'left'][0],
+		classes.layout[variant === 'horizontal' ? 'bottom' : 'right'][0],
 		backgroundClassName,
-		radiusClassName
+		radiusClassName,
+		{ [classes.layout.bottom[0]]: variant === 'vertical' }
 	);
 };
 
