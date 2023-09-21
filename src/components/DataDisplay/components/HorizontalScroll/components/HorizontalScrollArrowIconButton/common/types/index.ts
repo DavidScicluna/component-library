@@ -5,7 +5,7 @@ import type {
 	IconButtonElement,
 	IconButtonProps,
 	IconButtonRef
-} from '@components/Buttons/IconButton';
+} from '@components/Buttons/components/IconButton';
 import type { HorizontalScrollArrowDirection } from '@components/DataDisplay/components/HorizontalScroll';
 import type { TooltipProps } from '@components/Overlay/components/Tooltip';
 

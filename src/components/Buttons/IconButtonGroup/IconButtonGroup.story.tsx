@@ -3,8 +3,8 @@ import type { ReactElement } from 'react';
 import { icons } from '@common/data';
 import type { PolymorphicDefaultElement } from '@common/types';
 
-import type { IconButtonSize, IconButtonVariant } from '@components/Buttons/IconButton';
-import { constants, IconButton, IconButtonIcon } from '@components/Buttons/IconButton';
+import type { IconButtonSize, IconButtonVariant } from '@components/Buttons/components/IconButton';
+import { constants, IconButton, IconButtonIcon } from '@components/Buttons/components/IconButton';
 import { Center } from '@components/Layout';
 
 // eslint-disable-next-line import-path/parent-depth

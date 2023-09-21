@@ -8,7 +8,7 @@ import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { HoverOverlay } from '@components/Overlay/components/HoverOverlay';
 import { Tooltip } from '@components/Overlay/components/Tooltip';
 
-import { IconButton, IconButtonIcon } from '../../IconButton';
+import { IconButton, IconButtonIcon } from '../IconButton';
 
 import {
 	__DEFAULT_CLOSE_ICON_BUTTON_HAS_TOOLTIP__,

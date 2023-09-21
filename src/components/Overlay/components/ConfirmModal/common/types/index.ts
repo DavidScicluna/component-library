@@ -3,7 +3,7 @@ import type { ElementType, ReactNode } from 'react';
 import type { PickFrom, ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
-import type { IconButtonProps } from '@components/Buttons/IconButton';
+import type { IconButtonProps } from '@components/Buttons/components/IconButton';
 
 export type ConfirmModalSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 

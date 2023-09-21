@@ -1,7 +1,7 @@
 import type { ElementType, ReactNode } from 'react';
 
 import type { BoxProps, BoxRef } from '@components/Box';
-import type { IconButtonProps } from '@components/Buttons/IconButton';
+import type { IconButtonProps } from '@components/Buttons/components/IconButton';
 import type { GridProps } from '@components/Layout';
 
 export type ModalHeaderRenderCancelProps = Pick<

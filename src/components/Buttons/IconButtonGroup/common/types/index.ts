@@ -1,6 +1,6 @@
 import type { ElementType } from 'react';
 
-import type { IconButtonProps } from '@components/Buttons/IconButton';
+import type { IconButtonProps } from '@components/Buttons/components/IconButton';
 import type { HStackProps, HStackRef } from '@components/Layout';
 
 type PickedIconButtonProps = 'color' | 'colorMode' | 'isCompact' | 'isDisabled' | 'isRound' | 'size' | 'variant';

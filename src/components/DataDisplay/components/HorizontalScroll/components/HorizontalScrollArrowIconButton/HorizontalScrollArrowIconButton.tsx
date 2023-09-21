@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
-import { IconButton, IconButtonIcon } from '@components/Buttons/IconButton';
+import { IconButton, IconButtonIcon } from '@components/Buttons/components/IconButton';
 import { HoverOverlay } from '@components/Overlay/components/HoverOverlay';
 import { Tooltip } from '@components/Overlay/components/Tooltip';
 
