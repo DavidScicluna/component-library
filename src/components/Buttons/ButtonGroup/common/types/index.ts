@@ -1,6 +1,6 @@
 import type { ElementType } from 'react';
 
-import type { ButtonProps } from '@components/Buttons/Button';
+import type { ButtonProps } from '@components/Buttons/components/Button';
 import type { HStackProps, HStackRef } from '@components/Layout';
 
 type PickedButtonProps =

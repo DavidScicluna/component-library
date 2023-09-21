@@ -6,7 +6,7 @@ import { __DEFAULT_SPACING__ } from '@common/constants';
 import { colors } from '@common/data';
 import type { ThemeAppColor } from '@common/types';
 
-import { Button } from '@components/Buttons/Button';
+import { Button } from '@components/Buttons/components/Button';
 import { CloseIconButton } from '@components/Buttons/CloseIconButton';
 
 // eslint-disable-next-line import-path/parent-depth

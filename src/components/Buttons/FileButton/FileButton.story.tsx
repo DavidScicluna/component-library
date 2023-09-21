@@ -4,7 +4,7 @@ import { Center } from '@components/Layout';
 
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../.storybook/preview';
-import { Button } from '../Button';
+import { Button } from '../components/Button';
 
 import { __DEFAULT_FILE_BUTTON_ACCEPT__, __DEFAULT_FILE_BUTTON_IS_MULTIPLE__ } from './common/constants';
 import type { FileButtonProps } from './common/types';

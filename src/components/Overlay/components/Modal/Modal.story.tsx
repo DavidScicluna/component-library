@@ -7,7 +7,7 @@ import { colors } from '@common/data';
 import { useGetColor } from '@common/hooks';
 import type { ThemeAppColor } from '@common/types';
 
-import { Button } from '@components/Buttons/Button';
+import { Button } from '@components/Buttons/components/Button';
 import { CloseIconButton } from '@components/Buttons/CloseIconButton';
 import { Text } from '@components/Typography';
 

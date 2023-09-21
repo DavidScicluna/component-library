@@ -1,6 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { ButtonProps } from '@components/Buttons/Button';
+import type { ButtonProps } from '@components/Buttons/components/Button';
 import type { StackProps, StackRef } from '@components/Layout';
 
 export type ModalFooterRenderCancelProps = Pick<

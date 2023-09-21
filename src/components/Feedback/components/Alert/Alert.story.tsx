@@ -4,7 +4,7 @@ import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
 
-import { Button } from '@components/Buttons/Button';
+import { Button } from '@components/Buttons/components/Button';
 import { CloseIconButton } from '@components/Buttons/CloseIconButton';
 import { VStack } from '@components/Layout';
 

@@ -4,8 +4,8 @@ import { range } from 'lodash-es';
 
 import type { PolymorphicDefaultElement } from '@common/types';
 
-import type { ButtonSize, ButtonVariant } from '@components/Buttons/Button';
-import { Button, constants } from '@components/Buttons/Button';
+import type { ButtonSize, ButtonVariant } from '@components/Buttons/components/Button';
+import { Button, constants } from '@components/Buttons/components/Button';
 import { Center } from '@components/Layout';
 
 // eslint-disable-next-line import-path/parent-depth

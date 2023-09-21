@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import { Center } from '@components/Layout';
 
 // eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../.storybook/preview';
+import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import {
 	__DEFAULT_BUTTON_CAN_CLICK_ON_ENTER__,
