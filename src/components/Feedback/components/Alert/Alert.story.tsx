@@ -9,7 +9,7 @@ import { CloseIconButton } from '@components/Buttons/components/CloseIconButton'
 import { VStack } from '@components/Layout';
 
 // eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../.storybook/preview';
+import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import { __DEFAULT_ALERT_DURATION__, __DEFAULT_ALERT_STATUS__, __DEFAULT_ALERT_VARIANT__ } from './common/constants';
 import type { AlertProps, AlertStatus, AlertVariant } from './common/types';

@@ -7,11 +7,11 @@ import { useCountdown, useEffectOnce, useUpdateEffect } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetResponsiveValue, useTheme } from '@common/hooks';
-import type { ThemeSpacing } from '@common/types';
+import type { ThemeColor, ThemeSpacing } from '@common/types';
 
 import { Grid, GridItem, HStack, VStack } from '@components/Layout';
 
-import { Progress } from '../components/Progress';
+import { Progress } from '../Progress';
 
 import { __DEFAULT_ALERT_DURATION__, __DEFAULT_ALERT_STATUS__, __DEFAULT_ALERT_VARIANT__ } from './common/constants';
 import { useAlertClasses } from './common/hooks';
@@ -57,7 +57,7 @@ const Alert = forwardRef(function Alert<Element extends ElementType>(
 	const status = useGetResponsiveValue<AlertStatus>(st);
 	const variant = useGetResponsiveValue<AlertVariant>(v);
 
-	const c = useMemo(() => getStatusColor(status, color), [status, color]);
+	const statusColor = useMemo<ThemeColor>(() => getStatusColor(status, color), [status, color]);
 
 	const [count, { startCountdown, resetCountdown }] = useCountdown({
 		countStart: duration ? duration : 0,
@@ -126,9 +126,12 @@ const Alert = forwardRef(function Alert<Element extends ElementType>(
 								w={theme.spacing['0.5']}
 								h='100%'
 								color={
-									c !== 'gray' && c !== 'transparent' && c !== 'black' && c !== 'white'
-										? c
-										: undefined
+									statusColor !== 'gray' &&
+									statusColor !== 'transparent' &&
+									statusColor !== 'black' &&
+									statusColor !== 'white'
+										? statusColor
+										: color
 								}
 								colorMode={colorMode}
 								radius='full'
@@ -175,13 +178,22 @@ const Alert = forwardRef(function Alert<Element extends ElementType>(
 				</GridItem>
 
 				{renderClose && onClose ? (
-					<GridItem>
+					<GridItem
+						alignSelf={variant === 'horizontal' ? 'center' : 'stretch'}
+						justifySelf={variant === 'horizontal' ? 'center' : 'stretch'}
+					>
 						{renderClose({
-							color,
+							color:
+								statusColor !== 'gray' &&
+								statusColor !== 'transparent' &&
+								statusColor !== 'black' &&
+								statusColor !== 'white'
+									? statusColor
+									: color,
 							colorMode,
 							isCompact: true,
 							onClick: handleClose,
-							size: 'sm',
+							size: variant === 'horizontal' ? 'sm' : 'md',
 							variant: 'icon'
 						})}
 					</GridItem>

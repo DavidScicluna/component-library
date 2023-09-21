@@ -4,7 +4,8 @@ import { forwardRef, useMemo } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useConst } from '@common/hooks';
+import { useConst, useGetColor } from '@common/hooks';
+import type { IconKey, ThemeColor } from '@common/types';
 import { getFontSizeHeight } from '@common/utils';
 
 import { Icon } from '@components/DataDisplay';
@@ -28,14 +29,28 @@ const AlertIcon = forwardRef(function AlertIcon<Element extends AlertIconElement
 
 	const {
 		className = __DEFAULT_CLASSNAME__,
-		color = __DEFAULT_ALERT_ICON_COLOR__,
+		color: c = __DEFAULT_ALERT_ICON_COLOR__,
 		colorMode = __DEFAULT_ALERT_ICON_COLORMODE__,
 		icon,
 		...rest
 	} = props;
 
-	const c = useMemo(() => getStatusColor(status, color), [status, color]);
-	const i = useMemo(() => getStatusIcon(status), [status]);
+	const statusColor = useMemo<ThemeColor>(() => getStatusColor(status, c), [status, c]);
+	const statusIcon = useMemo<IconKey>(() => getStatusIcon(status), [status]);
+
+	const color = useGetColor({
+		color: statusColor,
+		colorMode,
+		colorType: 'color',
+		hueType:
+			status !== 'default'
+				? 'color'
+				: statusColor === 'gray'
+				? 'text.primary'
+				: colorMode === 'light'
+				? 'dark'
+				: 'light'
+	});
 
 	const size = useConst(getFontSizeHeight('xl', __DEFAULT_ALERT_LINE_HEIGHT_SIZE__));
 
@@ -47,11 +62,12 @@ const AlertIcon = forwardRef(function AlertIcon<Element extends AlertIconElement
 			className={classNames(__KEYS_ALERT_ICON_CLASS__, { [className]: !!className })}
 			w={`${size}px`}
 			h={`${size}px`}
-			color={c !== 'gray' && c !== 'transparent' && c !== 'black' && c !== 'white' ? c : undefined}
+			color={c}
 			colorMode={colorMode}
-			icon={icon || i}
+			icon={icon || statusIcon}
 			size={`${size}px`}
-			variant='transparent'
+			variant='unstyled'
+			sx={{ color }}
 		/>
 	);
 });

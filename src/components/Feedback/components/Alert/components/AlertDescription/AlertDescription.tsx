@@ -1,10 +1,11 @@
 import type { ReactElement } from 'react';
-import { forwardRef } from 'react';
+import { forwardRef, useMemo } from 'react';
 
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
+import type { ThemeColor } from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -25,11 +26,20 @@ const AlertDescription = forwardRef(function AlertDescription<
 >(props: AlertDescriptionProps<Element>, ref: AlertDescriptionRef<Element>): ReactElement {
 	const { color, colorMode, status, variant } = useAlertContext();
 
+	const statusColor = useMemo<ThemeColor>(() => getStatusColor(status, color), [status, color]);
+
 	const __DEFAULT_ALERT_DESCRIPTION_COLOR__ = useGetColor({
-		color: getStatusColor(status, color),
+		color: statusColor,
 		colorMode,
 		colorType: 'color',
-		hueType: status !== 'default' ? 'color' : 'text.secondary',
+		hueType:
+			status !== 'default'
+				? 'color'
+				: statusColor === 'gray'
+				? 'text.secondary'
+				: colorMode === 'light'
+				? 'dark'
+				: 'light',
 		classType: 'text'
 	});
 

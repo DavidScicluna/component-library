@@ -1,11 +1,12 @@
-import type { ElementType } from 'react';
+import { type ElementType, useMemo } from 'react';
 
 import classNames from 'classnames';
 
 import classes from '@common/classes';
 import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
-import type { ClassName } from '@common/types';
+import type { ClassName, ThemeColor } from '@common/types';
+import { getColorHue } from '@common/utils';
 
 import { __DEFAULT_ALERT_STATUS__ } from '../constants';
 import type { AlertProps, AlertStatus } from '../types';
@@ -24,30 +25,39 @@ const useAlertClasses = <Element extends ElementType>(props: UseAlertClassesProp
 	} = props;
 
 	const status = useGetResponsiveValue<AlertStatus>(st);
+	const statusColor = useMemo<ThemeColor>(() => getStatusColor(status, color), [status, color]);
 
 	const backgroundClassName = useGetColor({
-		color: getStatusColor(status, color),
+		color: statusColor,
 		colorMode,
-		colorType: colorMode === 'dark' ? 'default' : 'color',
-		hueType: status === 'default' || colorMode === 'dark' ? 'background' : 'light',
+		colorType: 'color',
+		hueType: 'background',
 		classType: 'bg'
 	});
 
 	const borderColorClassName = useGetColor({
-		color: getStatusColor(status, color),
+		color: statusColor,
 		colorMode,
-		colorType: colorMode === 'dark' ? 'default' : 'color',
-		hueType: status === 'default' || colorMode === 'dark' ? 'divider' : 'color',
+		colorType: 'color',
+		hueType: status === 'default' && statusColor === 'gray' ? 'divider' : 'color',
 		classType: 'border'
 	});
 
-	const shadowClassName = useGetColor({
-		color: getStatusColor(status, color),
-		colorMode,
-		colorType: colorMode === 'dark' ? 'default' : 'color',
-		hueType: status === 'default' || colorMode === 'dark' ? 'background' : 'light',
-		classType: 'shadow'
-	});
+	const shadowClassName = useMemo<ClassName>(() => {
+		const shadowHue = getColorHue({
+			colorMode,
+			type: status === 'default' && statusColor === 'gray' ? 'divider' : 'color'
+		});
+
+		switch (statusColor) {
+			case 'transparent':
+			case 'white':
+			case 'black':
+				return classNames(classes.effects.shadow_color.opacity[statusColor][10]);
+			default:
+				return classNames(classes.effects.shadow_color.opacity[statusColor][shadowHue][10]);
+		}
+	}, [colorMode, status, statusColor]);
 
 	return classNames(
 		classes.effects.shadow.xl,
