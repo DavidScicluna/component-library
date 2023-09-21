@@ -5,7 +5,7 @@ import type { PolymorphicDefaultElement } from '@common/types';
 import { Center } from '@components/Layout';
 
 // eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../.storybook/preview';
+import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import {
 	__DEFAULT_DUMMY_ICON_BUTTON_IS_ANIMATED__,
