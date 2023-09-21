@@ -127,7 +127,7 @@ export const getColorClass = memoize((props: GetColorClassProps): string => {
 		const hue = getColorHue({ colorMode, type: hueType });
 		switch (classType) {
 			case 'shadow':
-				return classes.effects.color[color as GetColorClassHueColor][hue];
+				return classes.effects.shadow_color[color as GetColorClassHueColor][hue];
 			case 'fill':
 				return classes.svg.fill[color as GetColorClassHueColor][hue];
 			case 'bg':
@@ -150,7 +150,7 @@ export const getColorClass = memoize((props: GetColorClassProps): string => {
 	} else {
 		switch (classType) {
 			case 'shadow':
-				return classes.effects.color[color as GetColorClassNonHueColor];
+				return classes.effects.shadow_color[color as GetColorClassNonHueColor];
 			case 'fill':
 				return classes.svg.fill[color as GetColorClassNonHueColor];
 			case 'bg':
