@@ -30,7 +30,7 @@ const useProgressClasses = <Element extends ElementType>(
 		color,
 		colorMode,
 		colorType: 'color',
-		hueType: 'background',
+		hueType: 'divider',
 		classType: 'bg'
 	});
 
