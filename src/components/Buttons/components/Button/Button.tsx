@@ -13,7 +13,7 @@ import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 import { Center, Grid, GridItem } from '@components/Layout';
 import { PushableOverlay } from '@components/Overlay/components/PushableOverlay';
 
-import { useButtonGroupContext } from '../../ButtonGroup';
+import { useButtonGroupContext } from '../ButtonGroup';
 
 import {
 	// __DEFAULT_BUTTON_CAN_CLICK_ON_ENTER__,

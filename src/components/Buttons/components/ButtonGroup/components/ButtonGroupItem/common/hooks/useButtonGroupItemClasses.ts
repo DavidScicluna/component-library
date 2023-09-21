@@ -6,7 +6,7 @@ import classes from '@common/classes';
 import type { ClassName } from '@common/types';
 
 import { useButtonSizeConfig } from '@components/Buttons/components/Button';
-import { useButtonGroupContext } from '@components/Buttons/ButtonGroup';
+import { useButtonGroupContext } from '@components/Buttons/components/ButtonGroup';
 
 import type { ButtonGroupItemProps } from '../types';
 

@@ -9,7 +9,7 @@ import { Button, constants } from '@components/Buttons/components/Button';
 import { Center } from '@components/Layout';
 
 // eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../.storybook/preview';
+import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import { __DEFAULT_BUTTON_GROUP_IS_ATTACHED__ } from './common/constants';
 import type { ButtonGroupProps } from './common/types';
