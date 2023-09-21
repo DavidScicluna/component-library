@@ -10,7 +10,7 @@ import { getResponsiveValue } from '@common/utils';
  * @returns - The responsive value within the array or object that aligns with the breakpoint
  */
 const useGetResponsiveValue = <D>(value: ResponsiveValue<D>): D => {
-	const v = useMemo(() => getResponsiveValue<D>(value), [value]);
+	const v = useMemo<D>(() => getResponsiveValue<D>(value), [value]);
 	return v;
 };
 

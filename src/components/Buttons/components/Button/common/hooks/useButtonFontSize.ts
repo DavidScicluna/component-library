@@ -15,7 +15,7 @@ const useButtonFontSize = <Element extends ButtonElement = ButtonDefaultElement>
 
 	const size = useGetResponsiveValue<ButtonSize>(s);
 
-	const fontSize = useMemo((): number => {
+	const fontSize = useMemo<number>(() => {
 		return getFontSizeHeight(size, __DEFAULT_BUTTON_LINE_HEIGHT_SIZE__);
 	}, [size]);
 

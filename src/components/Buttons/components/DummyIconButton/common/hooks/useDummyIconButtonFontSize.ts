@@ -16,7 +16,7 @@ const useDummyIconButtonFontSize = <Element extends ElementType>(
 
 	const size = useGetResponsiveValue<DummyIconButtonSize>(s);
 
-	const fontSize = useMemo((): number => {
+	const fontSize = useMemo<number>(() => {
 		return getFontSizeHeight(size, __DEFAULT_DUMMY_ICON_BUTTON_LINE_HEIGHT_SIZE__);
 	}, [size]);
 

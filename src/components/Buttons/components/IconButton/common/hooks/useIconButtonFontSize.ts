@@ -18,7 +18,7 @@ const useIconButtonFontSize = <Element extends IconButtonElement = IconButtonDef
 
 	const size = useGetResponsiveValue<IconButtonSize>(s);
 
-	const fontSize = useMemo((): number => {
+	const fontSize = useMemo<number>(() => {
 		return getFontSizeHeight(size, __DEFAULT_ICON_BUTTON_LINE_HEIGHT_SIZE__);
 	}, [size]);
 
