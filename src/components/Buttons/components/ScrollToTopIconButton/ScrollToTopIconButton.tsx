@@ -12,7 +12,7 @@ import { Pop } from '@components/Animation';
 import { HoverOverlay } from '@components/Overlay/components/HoverOverlay';
 import { Tooltip } from '@components/Overlay/components/Tooltip';
 
-import { IconButton, IconButtonIcon } from '../components/IconButton';
+import { IconButton, IconButtonIcon } from '../IconButton';
 
 import {
 	__DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_HAS_TOOLTIP__,

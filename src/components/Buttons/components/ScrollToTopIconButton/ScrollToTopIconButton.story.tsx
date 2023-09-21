@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import { Center } from '@components/Layout';
 
 // eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../.storybook/preview';
+import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import { __DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_HAS_TOOLTIP__ } from './common/constants';
 import type { ScrollToTopIconButtonDefaultElement, ScrollToTopIconButtonProps } from './common/types';
