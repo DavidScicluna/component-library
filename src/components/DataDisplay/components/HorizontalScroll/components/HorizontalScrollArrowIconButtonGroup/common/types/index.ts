@@ -1,6 +1,6 @@
 import type { ElementType } from 'react';
 
-import type { IconButtonGroupProps, IconButtonGroupRef } from '@components/Buttons/IconButtonGroup';
+import type { IconButtonGroupProps, IconButtonGroupRef } from '@components/Buttons/components/IconButtonGroup';
 import type {
 	HorizontalScrollAPIContext,
 	HorizontalScrollProps

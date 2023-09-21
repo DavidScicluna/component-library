@@ -8,7 +8,7 @@ import { constants, IconButton, IconButtonIcon } from '@components/Buttons/compo
 import { Center } from '@components/Layout';
 
 // eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../.storybook/preview';
+import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import { __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__ } from './common/constants';
 import type { IconButtonGroupProps } from './common/types';

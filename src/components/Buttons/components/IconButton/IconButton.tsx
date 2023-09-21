@@ -12,7 +12,7 @@ import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 import { Center } from '@components/Layout';
 import { PushableOverlay } from '@components/Overlay/components/PushableOverlay';
 
-import { useIconButtonGroupContext } from '../../IconButtonGroup';
+import { useIconButtonGroupContext } from '../IconButtonGroup';
 
 import {
 	// __DEFAULT_ICON_BUTTON_CAN_CLICK_ON_ENTER__,
