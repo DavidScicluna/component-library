@@ -7,11 +7,12 @@ import { getFontSizeHeight, getIconFontFamily } from './fonts';
 import { getPercentage } from './number';
 import { checkIsTouchDevice, convertPixelsToREM, convertREMToPixels, convertStringToNumber } from './other';
 import { getResponsiveValue } from './responsive';
-import { checkDurationType, checkFontSizeType } from './theme';
+import { checkColorType, checkDurationType, checkFontSizeType } from './theme';
 
 export type { ColorHueType, GetColorClassProps, GetColorHexProps, GetColorHueProps };
 
 export {
+	checkColorType,
 	checkDurationType,
 	checkFontSizeType,
 	checkIsTouchDevice,
