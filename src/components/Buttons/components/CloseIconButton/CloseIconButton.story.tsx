@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import { Center } from '@components/Layout';
 
 // eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../.storybook/preview';
+import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import { __DEFAULT_CLOSE_ICON_BUTTON_HAS_TOOLTIP__ } from './common/constants';
 import type { CloseIconButtonDefaultElement, CloseIconButtonProps } from './common/types';

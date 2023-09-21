@@ -8,7 +8,7 @@ import { useGetColor } from '@common/hooks';
 import type { ThemeAppColor } from '@common/types';
 
 import { Button } from '@components/Buttons/components/Button';
-import { CloseIconButton } from '@components/Buttons/CloseIconButton';
+import { CloseIconButton } from '@components/Buttons/components/CloseIconButton';
 import { Text } from '@components/Typography';
 
 // eslint-disable-next-line import-path/parent-depth

@@ -7,7 +7,7 @@ import { colors } from '@common/data';
 import type { ThemeAppColor } from '@common/types';
 
 import { Button } from '@components/Buttons/components/Button';
-import { CloseIconButton } from '@components/Buttons/CloseIconButton';
+import { CloseIconButton } from '@components/Buttons/components/CloseIconButton';
 
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
