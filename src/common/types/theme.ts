@@ -1,3 +1,4 @@
+import type { OpacityClassObj } from './classes';
 import type { PickFrom } from './utility';
 
 export type ThemeAppColor = Exclude<ThemeColor, 'transparent' | 'black' | 'white' | 'gray'>;
@@ -58,6 +59,12 @@ export type ThemeColorObj = Record<
 export type ThemeColorHue = 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950;
 export type ThemeColorHueArr = Array<ThemeColorHue>;
 export type ThemeColorHueObj = Record<ThemeColorHue, string>;
+
+export type ThemeColorOpacityObj = Record<
+	Exclude<ThemeColor, 'transparent' | 'black' | 'white'>,
+	Record<ThemeColorHue, OpacityClassObj>
+> &
+	Record<PickFrom<ThemeColor, 'transparent' | 'black' | 'white'>, OpacityClassObj>;
 
 export type ThemeColorMode = 'light' | 'system' | 'dark';
 export type ThemeColorModeArr = Array<ThemeColorMode>;
