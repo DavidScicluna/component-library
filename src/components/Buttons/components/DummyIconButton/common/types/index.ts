@@ -3,30 +3,25 @@ import type { ElementType } from 'react';
 import type { ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { DummyPushableOverlayProps } from '@components/Overlay/components/DummyPushableOverlay';
 
 export type DummyIconButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export type DummyIconButtonVariant = 'contained' | 'light' | 'dark' | 'outlined' | 'monochrome' | 'icon';
+export type DummyIconButtonVariant = 'contained' | 'light' | 'dark' | 'outlined' | 'monochrome' | 'icon' | 'unstyled';
 
-type DummyIconButtonOtherProps = ThemeAppAppearanceProps & {
-	/**
-	 *  If `true` the button will not have the pulse animation
-	 *
-	 * @default true
-	 */
-	isAnimated?: boolean;
+type DummyIconButtonOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
 	/**
 	 * If true, the button will be styled in a more compressed state
 	 *
 	 * @default false
 	 */
-	isCompact?: boolean;
+	isCompact?: ResponsiveValue<boolean>;
 	/**
 	 * If true, the button's border-radius will be styled in its fullest mode
 	 *
 	 * @default false
 	 */
-	isRound?: boolean;
+	isRound?: ResponsiveValue<boolean>;
 	/**
 	 * The size of the button
 	 *
@@ -39,10 +34,10 @@ type DummyIconButtonOtherProps = ThemeAppAppearanceProps & {
 	 * @default 'contained'
 	 */
 	variant?: ResponsiveValue<DummyIconButtonVariant>;
-};
+} & Pick<DummyPushableOverlayProps<Element>, 'isAnimated' | 'isOutlined'>;
 
 export type DummyIconButtonProps<Element extends ElementType> = Omit<
-	BoxProps<Element, DummyIconButtonOtherProps>,
+	BoxProps<Element, DummyIconButtonOtherProps<Element>>,
 	keyof BoxOtherProps
 >;
 

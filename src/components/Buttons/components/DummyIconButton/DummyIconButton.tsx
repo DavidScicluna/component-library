@@ -13,6 +13,7 @@ import { DummyPushableOverlay } from '@components/Overlay/components/DummyPushab
 import {
 	__DEFAULT_DUMMY_ICON_BUTTON_IS_ANIMATED__,
 	__DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT__,
+	__DEFAULT_DUMMY_ICON_BUTTON_IS_OUTLINED__,
 	__DEFAULT_DUMMY_ICON_BUTTON_IS_ROUND__,
 	__DEFAULT_DUMMY_ICON_BUTTON_SIZE__,
 	__DEFAULT_DUMMY_ICON_BUTTON_VARIANT__
@@ -42,21 +43,27 @@ const DummyIconButton = forwardRef(function DummyIconButton<Element extends Elem
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		isAnimated = __DEFAULT_DUMMY_ICON_BUTTON_IS_ANIMATED__,
-		isCompact = __DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT__,
-		isRound = __DEFAULT_DUMMY_ICON_BUTTON_IS_ROUND__,
+		isAnimated: animated = __DEFAULT_DUMMY_ICON_BUTTON_IS_ANIMATED__,
+		isCompact: c = __DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT__,
+		isRound: round = __DEFAULT_DUMMY_ICON_BUTTON_IS_ROUND__,
+		isOutlined: outlined = __DEFAULT_DUMMY_ICON_BUTTON_IS_OUTLINED__,
 		size: s = __DEFAULT_DUMMY_ICON_BUTTON_SIZE__,
 		variant: v = __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__,
 		sx,
 		...rest
 	} = props;
 
+	const isAnimated = useGetResponsiveValue<boolean>(animated);
+	const isCompact = useGetResponsiveValue<boolean>(c);
+	const isRound = useGetResponsiveValue<boolean>(round);
+	const isOutlined = useGetResponsiveValue<boolean>(outlined);
+
 	const size = useGetResponsiveValue<DummyIconButtonSize>(s);
 	const variant = useGetResponsiveValue<DummyIconButtonVariant>(v);
 
 	const config = useDummyIconButtonSizeConfig<Element>({ isCompact, isRound, size, variant });
 
-	const classes = useDummyIconButtonClasses();
+	const classes = useDummyIconButtonClasses<Element>({ variant });
 	const styles = useDummyIconButtonStyles<Element>({ size });
 
 	return (
@@ -64,12 +71,11 @@ const DummyIconButton = forwardRef(function DummyIconButton<Element extends Elem
 			<DummyPushableOverlay<Element>
 				{...rest}
 				ref={ref}
-				className={classNames(__KEY_DUMMY_ICON_BUTTON_CLASS__, classes, {
-					[className]: !!className
-				})}
+				className={classNames(__KEY_DUMMY_ICON_BUTTON_CLASS__, classes, { [className]: !!className })}
 				color={color}
 				colorMode={colorMode}
 				isAnimated={isAnimated}
+				isOutlined={isOutlined}
 				radius={config.radius}
 				variant={variant === 'icon' ? 'transparent' : variant}
 				p={config.padding}

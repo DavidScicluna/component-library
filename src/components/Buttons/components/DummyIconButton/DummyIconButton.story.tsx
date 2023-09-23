@@ -10,6 +10,7 @@ import { useStorybookContext } from '../../../../../.storybook/preview';
 import {
 	__DEFAULT_DUMMY_ICON_BUTTON_IS_ANIMATED__,
 	__DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT__,
+	__DEFAULT_DUMMY_ICON_BUTTON_IS_OUTLINED__,
 	__DEFAULT_DUMMY_ICON_BUTTON_IS_ROUND__,
 	__DEFAULT_DUMMY_ICON_BUTTON_SIZE__,
 	__DEFAULT_DUMMY_ICON_BUTTON_VARIANT__
@@ -44,6 +45,13 @@ export default {
 			// description: '',
 			control: { type: 'boolean' }
 		},
+		isOutlined: {
+			name: 'Outlined',
+			type: 'boolean',
+			defaultValue: __DEFAULT_DUMMY_ICON_BUTTON_IS_OUTLINED__,
+			// description: '',
+			control: { type: 'boolean' }
+		},
 		size: {
 			name: 'Size',
 			type: 'string',
@@ -57,7 +65,15 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__,
 			// description: '',
-			options: ['contained', 'light', 'dark', 'outlined', 'monochrome', 'icon'] as Array<DummyIconButtonVariant>,
+			options: [
+				'contained',
+				'light',
+				'dark',
+				'outlined',
+				'monochrome',
+				'icon',
+				'unstyled'
+			] as Array<DummyIconButtonVariant>,
 			control: { type: 'radio' }
 		}
 	}
