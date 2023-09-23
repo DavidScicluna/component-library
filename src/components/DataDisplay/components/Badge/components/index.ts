@@ -7,8 +7,7 @@ import type {
 import {
 	BadgeCloseIconButton,
 	constants as badgeCloseIconButtonConstants,
-	keys as badgeCloseIconButtonKeys,
-	useBadgeCloseIconButtonClasses
+	keys as badgeCloseIconButtonKeys
 } from './BadgeCloseIconButton';
 import type { BadgeIconDefaultElement, BadgeIconElement, BadgeIconProps, BadgeIconRef } from './BadgeIcon';
 import { BadgeIcon, keys as badgeIconKeys } from './BadgeIcon';
@@ -18,9 +17,6 @@ export const constants = { ...badgeCloseIconButtonConstants };
 
 // Keys
 export const keys = { ...badgeCloseIconButtonKeys, ...badgeIconKeys };
-
-// Hooks
-export { useBadgeCloseIconButtonClasses };
 
 // Components
 export { BadgeCloseIconButton, BadgeIcon };

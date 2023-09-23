@@ -126,9 +126,9 @@ export const Badge: BadgeStory = (props: BadgeProps<PolymorphicDefaultElement>):
 				{...props}
 				color={color}
 				colorMode={colorMode}
-				// renderLeft={() => <BadgeIcon icon='10k' category='filled' />}
-				// renderRight={() => <BadgeIcon icon='12mp' category='filled' />}
-				renderAction={(props) => <BadgeCloseIconButton {...props} />}
+				renderLeft={() => <BadgeIcon icon='10k' category='filled' />}
+				renderRight={() => <BadgeIcon icon='12mp' category='filled' />}
+				renderAction={() => <BadgeCloseIconButton />}
 			>
 				Hello I am a Badge
 			</BadgeComponent>

@@ -5,7 +5,8 @@ import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
-import { CloseIconButton } from '@components/Buttons';
+import { CloseIconButton, useIconButtonClasses } from '@components/Buttons';
+import { usePushableOverlayStyles } from '@components/Overlay/components/PushableOverlay';
 
 import { useBadgeContext } from '../../common/hooks';
 
@@ -13,7 +14,6 @@ import {
 	__DEFAULT_BADGE_CLOSE_ICON_BUTTON_IS_COMPACT__,
 	__DEFAULT_BADGE_CLOSE_ICON_BUTTON_SIZE__
 } from './common/constants';
-import { useBadgeCloseIconButtonClasses } from './common/hooks';
 import { __KEYS_BADGE_CLOSE_ICON_BUTTON_CLASS__ } from './common/keys';
 import type {
 	BadgeCloseIconButtonDefaultElement,
@@ -28,7 +28,7 @@ const BadgeCloseIconButton = forwardRef(function BadgeCloseIconButton<
 	const {
 		color: __DEFAULT_BADGE_CLOSE_ICON_BUTTON_COLOR__,
 		colorMode: __DEFAULT_BADGE_CLOSE_ICON_BUTTON_COLORMODE__,
-		variant: __DEFAULT_BADGE_VARIANT__
+		variant
 	} = useBadgeContext();
 
 	const {
@@ -40,18 +40,24 @@ const BadgeCloseIconButton = forwardRef(function BadgeCloseIconButton<
 		...rest
 	} = props;
 
-	const classes = useBadgeCloseIconButtonClasses({ color, colorMode });
+	const classes = useIconButtonClasses({ variant: 'icon' });
+	const styles = usePushableOverlayStyles({
+		color,
+		colorMode,
+		variant: variant === 'text' ? 'transparent' : variant
+	});
 
 	return (
 		<CloseIconButton
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_BADGE_CLOSE_ICON_BUTTON_CLASS__, classes, { [className]: !!className })}
-			color={__DEFAULT_BADGE_VARIANT__ === 'contained' ? undefined : color}
+			color={color}
 			colorMode={colorMode}
 			isCompact={isCompact}
 			size={size}
 			variant='unstyled'
+			sx={{ color: styles.color }}
 		/>
 	);
 });
