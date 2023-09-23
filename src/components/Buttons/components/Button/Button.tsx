@@ -24,6 +24,7 @@ import {
 	// __DEFAULT_BUTTON_IS_FOCUSABLE__,
 	__DEFAULT_BUTTON_IS_FULLWIDTH__,
 	__DEFAULT_BUTTON_IS_LOADING__,
+	__DEFAULT_BUTTON_IS_OUTLINED__,
 	__DEFAULT_BUTTON_IS_ROUND__,
 	__DEFAULT_BUTTON_SIZE__,
 	__DEFAULT_BUTTON_VARIANT__
@@ -77,19 +78,28 @@ const Button = forwardRef(function Button<Element extends ButtonElement = Button
 		colorMode = __DEFAULT_BUTTON_GROUP_COLORMODE__,
 		// canClickOnEnter = __DEFAULT_BUTTON_CAN_CLICK_ON_ENTER__,
 		// canClickOnSpace = __DEFAULT_BUTTON_CAN_CLICK_ON_SPACE__,
-		isActive = __DEFAULT_BUTTON_IS_ACTIVE__,
-		isCompact = __DEFAULT_BUTTON_GROUP_IS_COMPACT__,
-		isDisabled = __DEFAULT_BUTTON_GROUP_IS_DISABLED__,
+		isActive: active = __DEFAULT_BUTTON_IS_ACTIVE__,
+		isCompact: c = __DEFAULT_BUTTON_GROUP_IS_COMPACT__,
+		isDisabled: disabled = __DEFAULT_BUTTON_GROUP_IS_DISABLED__,
 		// isFocusable = __DEFAULT_BUTTON_IS_FOCUSABLE__,
-		isFullWidth = __DEFAULT_BUTTON_GROUP_IS_FULLWIDTH__,
-		isLoading = __DEFAULT_BUTTON_IS_LOADING__,
-		isRound = __DEFAULT_BUTTON_GROUP_IS_ROUND__,
+		isFullWidth: fullWidth = __DEFAULT_BUTTON_GROUP_IS_FULLWIDTH__,
+		isLoading: loading = __DEFAULT_BUTTON_IS_LOADING__,
+		isRound: round = __DEFAULT_BUTTON_GROUP_IS_ROUND__,
+		isOutlined: outlined = __DEFAULT_BUTTON_IS_OUTLINED__,
 		size: s = __DEFAULT_BUTTON_GROUP_SIZE__,
 		variant: v = __DEFAULT_BUTTON_GROUP_VARIANT__,
 		...rest
 	} = props;
 
 	const [isFocused, setIsFocused] = useBoolean();
+
+	const isActive = useGetResponsiveValue<boolean>(active);
+	const isCompact = useGetResponsiveValue<boolean>(c);
+	const isDisabled = useGetResponsiveValue<boolean>(disabled);
+	const isFullWidth = useGetResponsiveValue<boolean>(fullWidth);
+	const isLoading = useGetResponsiveValue<boolean>(loading);
+	const isRound = useGetResponsiveValue<boolean>(round);
+	const isOutlined = useGetResponsiveValue<boolean>(outlined);
 
 	const size = useGetResponsiveValue<ButtonSize>(s);
 	const variant = useGetResponsiveValue<ButtonVariant>(v);
@@ -145,6 +155,7 @@ const Button = forwardRef(function Button<Element extends ButtonElement = Button
 				isActive={isActive || isLoading}
 				isDisabled={isDisabled}
 				isFocused={isFocused}
+				isOutlined={isOutlined}
 				variant={variant === 'text' ? 'transparent' : variant}
 				px={config.padding.x}
 				py={config.padding.y}

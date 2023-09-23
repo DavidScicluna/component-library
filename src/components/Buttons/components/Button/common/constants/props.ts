@@ -10,6 +10,7 @@ export const __DEFAULT_BUTTON_IS_FOCUSABLE__ = true;
 export const __DEFAULT_BUTTON_IS_FULLWIDTH__ = false;
 export const __DEFAULT_BUTTON_IS_LOADING__ = false;
 export const __DEFAULT_BUTTON_IS_ROUND__ = false;
+export const __DEFAULT_BUTTON_IS_OUTLINED__ = false;
 
 export const __DEFAULT_BUTTON_SIZE__: ButtonSize = 'md';
 
