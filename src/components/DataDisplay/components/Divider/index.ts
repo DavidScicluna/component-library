@@ -17,7 +17,7 @@ import Divider from './Divider';
 export const constants = { ...commonConstants };
 
 // Keys
-export const key = { ...commonKeys };
+export const keys = { ...commonKeys };
 
 // Hooks
 export { useDividerClasses, useDividerStyles };

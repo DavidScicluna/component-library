@@ -62,6 +62,8 @@ const Badge = forwardRef(function Badge<Element extends ElementType>(
 		...rest
 	} = props;
 
+	const [isFocused, setIsFocused] = useBoolean();
+
 	const isActive = useGetResponsiveValue<boolean>(active);
 	const isClickable = useGetResponsiveValue<boolean>(clickable);
 	const isCompact = useGetResponsiveValue<boolean>(comp);
@@ -70,8 +72,6 @@ const Badge = forwardRef(function Badge<Element extends ElementType>(
 	const isOutlined = useGetResponsiveValue<boolean>(outlined);
 	const isRound = useGetResponsiveValue<boolean>(round);
 	const isUppercase = useGetResponsiveValue<boolean>(uppercase);
-
-	const [isFocused, setIsFocused] = useBoolean();
 
 	const size = useGetResponsiveValue<BadgeSize>(s);
 	const variant = useGetResponsiveValue<BadgeVariant>(v);

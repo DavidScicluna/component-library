@@ -1,4 +1,31 @@
 import type {
+	BadgeCloseIconButtonDefaultElement,
+	BadgeCloseIconButtonElement,
+	BadgeCloseIconButtonProps,
+	BadgeCloseIconButtonRef,
+	BadgeContext,
+	BadgeIconDefaultElement,
+	BadgeIconElement,
+	BadgeIconProps,
+	BadgeIconRef,
+	BadgeProps,
+	BadgeRef,
+	BadgeRenderProps,
+	BadgeSize,
+	BadgeVariant
+} from './components/Badge';
+import {
+	Badge,
+	BadgeCloseIconButton,
+	BadgeIcon,
+	constants as badgeConstants,
+	keys as badgeKeys,
+	useBadgeClasses,
+	useBadgeContext,
+	useBadgeFontSize,
+	useBadgeSizeConfig
+} from './components/Badge';
+import type {
 	DividerDefaultElement,
 	DividerElement,
 	DividerPlacement,
@@ -6,11 +33,109 @@ import type {
 	DividerRef,
 	DividerVariant
 } from './components/Divider';
-import { constants as dividerConstants, Divider, useDividerClasses, useDividerStyles } from './components/Divider';
+import {
+	constants as dividerConstants,
+	Divider,
+	keys as dividerKeys,
+	useDividerClasses,
+	useDividerStyles
+} from './components/Divider';
+import type {
+	DummyBadgeContext,
+	DummyBadgeIconDefaultElement,
+	DummyBadgeIconElement,
+	DummyBadgeIconProps,
+	DummyBadgeIconRef,
+	DummyBadgeProps,
+	DummyBadgeRef,
+	DummyBadgeRenderProps,
+	DummyBadgeSize,
+	DummyBadgeSkeletonProps,
+	DummyBadgeSkeletonRef,
+	DummyBadgeVariant
+} from './components/DummyBadge';
+import {
+	constants as dummyBadgeConstants,
+	DummyBadge,
+	DummyBadgeIcon,
+	DummyBadgeSkeleton,
+	keys as dummyBadgeKeys,
+	useDummyBadgeClasses,
+	useDummyBadgeContext,
+	useDummyBadgeFontSize,
+	useDummyBadgeSizeConfig
+} from './components/DummyBadge';
 import type { HeadlineProps, HeadlineRef, HeadlineRenderProps } from './components/Headline';
-import { Headline } from './components/Headline';
+import { Headline, keys as headlineKeys } from './components/Headline';
+import type {
+	HorizontalScrollAPIContext,
+	HorizontalScrollArrowDirection,
+	HorizontalScrollArrowIconButtonDefaultElement,
+	HorizontalScrollArrowIconButtonElement,
+	HorizontalScrollArrowIconButtonGroupProps,
+	HorizontalScrollArrowIconButtonGroupRef,
+	HorizontalScrollArrowIconButtonProps,
+	HorizontalScrollArrowIconButtonRef,
+	HorizontalScrollArrowSize,
+	HorizontalScrollContext,
+	HorizontalScrollItemProps,
+	HorizontalScrollItemRef,
+	HorizontalScrollLeftArrowIconButtonDefaultElement,
+	HorizontalScrollLeftArrowIconButtonElement,
+	HorizontalScrollLeftArrowIconButtonProps,
+	HorizontalScrollLeftArrowIconButtonRef,
+	HorizontalScrollLeftArrowIconButtonScrollAmount,
+	HorizontalScrollLeftLinearGradientProps,
+	HorizontalScrollLeftLinearGradientRef,
+	HorizontalScrollLinearGradientProps,
+	HorizontalScrollLinearGradientRef,
+	HorizontalScrollOverlayArrowIconButtonDefaultElement,
+	HorizontalScrollOverlayArrowIconButtonElement,
+	HorizontalScrollOverlayArrowIconButtonProps,
+	HorizontalScrollOverlayArrowIconButtonRef,
+	HorizontalScrollOverlayLeftArrowIconButtonDefaultElement,
+	HorizontalScrollOverlayLeftArrowIconButtonElement,
+	HorizontalScrollOverlayLeftArrowIconButtonProps,
+	HorizontalScrollOverlayLeftArrowIconButtonRef,
+	HorizontalScrollOverlayLeftArrowIconButtonScrollAmount,
+	HorizontalScrollOverlayRightArrowIconButtonDefaultElement,
+	HorizontalScrollOverlayRightArrowIconButtonElement,
+	HorizontalScrollOverlayRightArrowIconButtonProps,
+	HorizontalScrollOverlayRightArrowIconButtonRef,
+	HorizontalScrollOverlayRightArrowIconButtonScrollAmount,
+	HorizontalScrollProps,
+	HorizontalScrollRef,
+	HorizontalScrollRightArrowIconButtonDefaultElement,
+	HorizontalScrollRightArrowIconButtonElement,
+	HorizontalScrollRightArrowIconButtonProps,
+	HorizontalScrollRightArrowIconButtonRef,
+	HorizontalScrollRightArrowIconButtonScrollAmount,
+	HorizontalScrollRightLinearGradientProps,
+	HorizontalScrollRightLinearGradientRef,
+	HorizontalScrollVariant
+} from './components/HorizontalScroll';
+import {
+	constants as horizontalScrollConstants,
+	HorizontalScroll,
+	HorizontalScrollArrowIconButton,
+	HorizontalScrollArrowIconButtonGroup,
+	HorizontalScrollItem,
+	HorizontalScrollLeftArrowIconButton,
+	HorizontalScrollLeftLinearGradient,
+	HorizontalScrollLinearGradient,
+	HorizontalScrollOverlayArrowIconButton,
+	HorizontalScrollOverlayLeftArrowIconButton,
+	HorizontalScrollOverlayRightArrowIconButton,
+	HorizontalScrollRightArrowIconButton,
+	HorizontalScrollRightLinearGradient,
+	keys as horizontalScrollKeys,
+	useGetHorizontalScrollAPIContext,
+	useHorizontalScrollArrowState,
+	useHorizontalScrollContext,
+	useSetHorizontalScrollAPIContext
+} from './components/HorizontalScroll';
 import type { IconCategory, IconDefaultElement, IconElement, IconProps, IconRef, IconVariant } from './components/Icon';
-import { constants as iconConstants, Icon, useIconClasses } from './components/Icon';
+import { constants as iconConstants, Icon, keys as iconKeys, useIconClasses } from './components/Icon';
 import type {
 	MessageActionsChildrenProps,
 	MessageActionsProps,
@@ -38,6 +163,7 @@ import type {
 } from './components/Message';
 import {
 	constants as messageConstants,
+	keys as messageKeys,
 	Message,
 	MessageActions,
 	MessageBody,
@@ -50,15 +176,69 @@ import {
 } from './components/Message';
 
 // Constants
-export const constants = { ...dividerConstants, ...messageConstants, ...iconConstants };
+export const constants = {
+	...badgeConstants,
+	...dummyBadgeConstants,
+	...dividerConstants,
+	...horizontalScrollConstants,
+	...iconConstants,
+	...messageConstants
+};
+
+// Keys
+export const keys = {
+	...badgeKeys,
+	...dividerKeys,
+	...dummyBadgeKeys,
+	...headlineKeys,
+	...horizontalScrollKeys,
+	...iconKeys,
+	...messageKeys
+};
 
 // Hooks
-export { useDividerClasses, useDividerStyles, useIconClasses, useMessageClasses, useMessageContext };
+export {
+	useBadgeClasses,
+	useBadgeContext,
+	useBadgeFontSize,
+	useBadgeSizeConfig,
+	useDividerClasses,
+	useDividerStyles,
+	useDummyBadgeClasses,
+	useDummyBadgeContext,
+	useDummyBadgeFontSize,
+	useDummyBadgeSizeConfig,
+	useGetHorizontalScrollAPIContext,
+	useHorizontalScrollArrowState,
+	useHorizontalScrollContext,
+	useIconClasses,
+	useMessageClasses,
+	useMessageContext,
+	useSetHorizontalScrollAPIContext
+};
 
 // Components
 export {
+	Badge,
+	BadgeCloseIconButton,
+	BadgeIcon,
 	Divider,
+	DummyBadge,
+	DummyBadgeIcon,
+	DummyBadgeSkeleton,
 	Headline,
+	HorizontalScroll,
+	HorizontalScrollArrowIconButton,
+	HorizontalScrollArrowIconButtonGroup,
+	HorizontalScrollItem,
+	HorizontalScrollLeftArrowIconButton,
+	HorizontalScrollLeftLinearGradient,
+	HorizontalScrollLinearGradient,
+	HorizontalScrollOverlayArrowIconButton,
+	HorizontalScrollOverlayLeftArrowIconButton,
+	HorizontalScrollOverlayRightArrowIconButton,
+	HorizontalScrollRightArrowIconButton,
+	HorizontalScrollRightLinearGradient,
 	Icon,
 	Message,
 	MessageActions,
@@ -71,15 +251,86 @@ export {
 
 // Component Types
 export type {
+	BadgeCloseIconButtonDefaultElement,
+	BadgeCloseIconButtonElement,
+	BadgeCloseIconButtonProps,
+	BadgeCloseIconButtonRef,
+	BadgeContext,
+	BadgeIconDefaultElement,
+	BadgeIconElement,
+	BadgeIconProps,
+	BadgeIconRef,
+	BadgeProps,
+	BadgeRef,
+	BadgeRenderProps,
+	BadgeSize,
+	BadgeVariant,
 	DividerDefaultElement,
 	DividerElement,
 	DividerPlacement,
 	DividerProps,
 	DividerRef,
 	DividerVariant,
+	DummyBadgeContext,
+	DummyBadgeIconDefaultElement,
+	DummyBadgeIconElement,
+	DummyBadgeIconProps,
+	DummyBadgeIconRef,
+	DummyBadgeProps,
+	DummyBadgeRef,
+	DummyBadgeRenderProps,
+	DummyBadgeSize,
+	DummyBadgeSkeletonProps,
+	DummyBadgeSkeletonRef,
+	DummyBadgeVariant,
 	HeadlineProps,
 	HeadlineRef,
 	HeadlineRenderProps,
+	HorizontalScrollAPIContext,
+	HorizontalScrollArrowDirection,
+	HorizontalScrollArrowIconButtonDefaultElement,
+	HorizontalScrollArrowIconButtonElement,
+	HorizontalScrollArrowIconButtonGroupProps,
+	HorizontalScrollArrowIconButtonGroupRef,
+	HorizontalScrollArrowIconButtonProps,
+	HorizontalScrollArrowIconButtonRef,
+	HorizontalScrollArrowSize,
+	HorizontalScrollContext,
+	HorizontalScrollItemProps,
+	HorizontalScrollItemRef,
+	HorizontalScrollLeftArrowIconButtonDefaultElement,
+	HorizontalScrollLeftArrowIconButtonElement,
+	HorizontalScrollLeftArrowIconButtonProps,
+	HorizontalScrollLeftArrowIconButtonRef,
+	HorizontalScrollLeftArrowIconButtonScrollAmount,
+	HorizontalScrollLeftLinearGradientProps,
+	HorizontalScrollLeftLinearGradientRef,
+	HorizontalScrollLinearGradientProps,
+	HorizontalScrollLinearGradientRef,
+	HorizontalScrollOverlayArrowIconButtonDefaultElement,
+	HorizontalScrollOverlayArrowIconButtonElement,
+	HorizontalScrollOverlayArrowIconButtonProps,
+	HorizontalScrollOverlayArrowIconButtonRef,
+	HorizontalScrollOverlayLeftArrowIconButtonDefaultElement,
+	HorizontalScrollOverlayLeftArrowIconButtonElement,
+	HorizontalScrollOverlayLeftArrowIconButtonProps,
+	HorizontalScrollOverlayLeftArrowIconButtonRef,
+	HorizontalScrollOverlayLeftArrowIconButtonScrollAmount,
+	HorizontalScrollOverlayRightArrowIconButtonDefaultElement,
+	HorizontalScrollOverlayRightArrowIconButtonElement,
+	HorizontalScrollOverlayRightArrowIconButtonProps,
+	HorizontalScrollOverlayRightArrowIconButtonRef,
+	HorizontalScrollOverlayRightArrowIconButtonScrollAmount,
+	HorizontalScrollProps,
+	HorizontalScrollRef,
+	HorizontalScrollRightArrowIconButtonDefaultElement,
+	HorizontalScrollRightArrowIconButtonElement,
+	HorizontalScrollRightArrowIconButtonProps,
+	HorizontalScrollRightArrowIconButtonRef,
+	HorizontalScrollRightArrowIconButtonScrollAmount,
+	HorizontalScrollRightLinearGradientProps,
+	HorizontalScrollRightLinearGradientRef,
+	HorizontalScrollVariant,
 	IconCategory,
 	IconDefaultElement,
 	IconElement,
