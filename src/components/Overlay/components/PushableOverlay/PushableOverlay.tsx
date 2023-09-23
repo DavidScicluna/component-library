@@ -6,6 +6,8 @@ import { merge } from 'lodash-es';
 import { useMergeRefs } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__, __DEFAULT_RADIUS__ } from '@common/constants';
+import { useGetResponsiveValue } from '@common/hooks';
+import type { ThemeRadius } from '@common/types';
 
 import { Grid, GridItem } from '@components/Layout';
 
@@ -14,13 +16,15 @@ import {
 	__DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
 	__DEFAULT_PUSHABLE_OVERLAY_IS_FIXED__,
 	__DEFAULT_PUSHABLE_OVERLAY_IS_FOCUSED__,
+	__DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED__,
 	__DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
 	__DEFAULT_PUSHABLE_OVERLAY_VARIANT__
 } from './common/constants';
 import { usePushableOverlayClasses, usePushableOverlayStyles } from './common/hooks';
 import { __KEYS_PUSHABLE_OVERLAY_CLASS__ } from './common/keys';
-import type { PushableOverlayProps, PushableOverlayRef } from './common/types';
+import type { PushableOverlayProps, PushableOverlayRef, PushableOverlayVariant } from './common/types';
 
+// TODO: Add gradient prop that will replaced colors with gradient from, middle & to colors
 const PushableOverlay = forwardRef(function PushableOverlay<Element extends ElementType>(
 	props: PushableOverlayProps<Element>,
 	ref: PushableOverlayRef<Element>
@@ -33,16 +37,27 @@ const PushableOverlay = forwardRef(function PushableOverlay<Element extends Elem
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		isActive = __DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
-		isDisabled = __DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
-		isFixed = __DEFAULT_PUSHABLE_OVERLAY_IS_FIXED__,
-		isFocused = __DEFAULT_PUSHABLE_OVERLAY_IS_FOCUSED__,
-		isPushable = __DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
-		radius = __DEFAULT_RADIUS__,
-		variant = __DEFAULT_PUSHABLE_OVERLAY_VARIANT__,
+		isActive: active = __DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
+		isDisabled: disabled = __DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
+		isFixed: fixed = __DEFAULT_PUSHABLE_OVERLAY_IS_FIXED__,
+		isFocused: focused = __DEFAULT_PUSHABLE_OVERLAY_IS_FOCUSED__,
+		isOutlined: outlined = __DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED__,
+		isPushable: pushable = __DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
+		radius: r = __DEFAULT_RADIUS__,
+		variant: v = __DEFAULT_PUSHABLE_OVERLAY_VARIANT__,
 		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
 	} = props;
+
+	const isActive = useGetResponsiveValue<boolean>(active);
+	const isDisabled = useGetResponsiveValue<boolean>(disabled);
+	const isFixed = useGetResponsiveValue<boolean>(fixed);
+	const isFocused = useGetResponsiveValue<boolean>(focused);
+	const isOutlined = useGetResponsiveValue<boolean>(outlined);
+	const isPushable = useGetResponsiveValue<boolean>(pushable);
+
+	const radius = useGetResponsiveValue<ThemeRadius>(r);
+	const variant = useGetResponsiveValue<PushableOverlayVariant>(v);
 
 	const classes = usePushableOverlayClasses<Element>({
 		color,
@@ -50,6 +65,7 @@ const PushableOverlay = forwardRef(function PushableOverlay<Element extends Elem
 		isActive,
 		isDisabled,
 		isFixed,
+		isOutlined,
 		isPushable,
 		radius,
 		variant

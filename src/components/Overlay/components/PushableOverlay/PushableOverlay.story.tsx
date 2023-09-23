@@ -12,6 +12,7 @@ import {
 	__DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
 	__DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
 	__DEFAULT_PUSHABLE_OVERLAY_IS_FIXED__,
+	__DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED__,
 	__DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
 	__DEFAULT_PUSHABLE_OVERLAY_VARIANT__
 } from './common/constants';
@@ -44,6 +45,13 @@ export default {
 			// description: '',
 			control: { type: 'boolean' }
 		},
+		isOutlined: {
+			name: 'Outlined',
+			type: 'boolean',
+			defaultValue: __DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED__,
+			// description: '',
+			control: { type: 'boolean' }
+		},
 		isPushable: {
 			name: 'Pushable',
 			type: 'boolean',
@@ -70,7 +78,8 @@ export default {
 				'dark',
 				'outlined',
 				'monochrome',
-				'transparent'
+				'transparent',
+				'unstyled'
 			] as Array<PushableOverlayVariant>,
 			control: { type: 'radio' }
 		}

@@ -630,6 +630,8 @@ const usePushableOverlayStyles = <Element extends ElementType>(
 				: isActive
 				? transparentActiveStyles
 				: transparentDefaultStyles;
+		case 'unstyled':
+			return {};
 		default:
 			return isDisabled ? containedDisabledStyles : isActive ? containedActiveStyles : containedDefaultStyles;
 	}
