@@ -5,16 +5,19 @@ import classNames from 'classnames';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__, __DEFAULT_RADIUS__ } from '@common/constants';
+import { useGetResponsiveValue } from '@common/hooks';
+import type { ThemeRadius } from '@common/types';
 
 import { Grid, GridItem } from '@components/Layout';
 
 import {
 	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED__,
+	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_OUTLINED__,
 	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__
 } from './common/constants';
 import { useDummyPushableOverlayClasses, useDummyPushableOverlayStyles } from './common/hooks';
 import { __KEY_DUMMY_PUSHABLE_OVERLAY_CLASS__ } from './common/keys';
-import type { DummyPushableOverlayProps, DummyPushableOverlayRef } from './common/types';
+import type { DummyPushableOverlayProps, DummyPushableOverlayRef, DummyPushableOverlayVariant } from './common/types';
 
 const DummyPushableOverlay = forwardRef(function DummyPushableOverlay<Element extends ElementType>(
 	props: DummyPushableOverlayProps<Element>,
@@ -25,14 +28,20 @@ const DummyPushableOverlay = forwardRef(function DummyPushableOverlay<Element ex
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		isAnimated = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED__,
-		radius = __DEFAULT_RADIUS__,
-		variant = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__,
+		isAnimated: animated = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED__,
+		isOutlined: outlined = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_OUTLINED__,
+		radius: r = __DEFAULT_RADIUS__,
+		variant: v = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__,
 		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
 	} = props;
 
-	const classes = useDummyPushableOverlayClasses<Element>({ isAnimated, radius });
+	const isAnimated = useGetResponsiveValue<boolean>(animated);
+	const isOutlined = useGetResponsiveValue<boolean>(outlined);
+	const radius = useGetResponsiveValue<ThemeRadius>(r);
+	const variant = useGetResponsiveValue<DummyPushableOverlayVariant>(v);
+
+	const classes = useDummyPushableOverlayClasses<Element>({ colorMode, isAnimated, isOutlined, radius });
 	const styles = useDummyPushableOverlayStyles<Element>({ color, colorMode, variant });
 
 	return (

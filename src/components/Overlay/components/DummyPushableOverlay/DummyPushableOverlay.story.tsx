@@ -11,6 +11,7 @@ import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import {
 	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED__,
+	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_OUTLINED__,
 	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__
 } from './common/constants';
 import type { DummyPushableOverlayProps, DummyPushableOverlayVariant } from './common/types';
@@ -25,6 +26,13 @@ export default {
 			name: 'Animated',
 			type: 'boolean',
 			defaultValue: __DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED__,
+			// description: '',
+			control: { type: 'boolean' }
+		},
+		isOutlined: {
+			name: 'Outlined',
+			type: 'boolean',
+			defaultValue: __DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_OUTLINED__,
 			// description: '',
 			control: { type: 'boolean' }
 		},
@@ -47,7 +55,8 @@ export default {
 				'dark',
 				'outlined',
 				'monochrome',
-				'transparent'
+				'transparent',
+				'unstyled'
 			] as Array<DummyPushableOverlayVariant>,
 			control: { type: 'radio' }
 		}
@@ -60,7 +69,7 @@ export const DummyPushableOverlay: DummyPushableOverlayStory = (
 	const { color, colorMode } = useStorybookContext();
 
 	return (
-		<DummyPushableOverlayComponent {...props} color={color} colorMode={colorMode} w='100%'>
+		<DummyPushableOverlayComponent {...props} color={color} colorMode={colorMode} w='100%' h='100%' p={2}>
 			<Skeleton color={color} colorMode={colorMode} isLoaded={false} radius='base'>
 				<Center as='span' w='100%' h='100%'>
 					Hello
