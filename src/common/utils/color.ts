@@ -131,7 +131,7 @@ export const getColorClass = memoize((props: GetColorClassProps): string => {
 			case 'fill':
 				return classes.svg.fill[color as GetColorClassHueColor][hue];
 			case 'bg':
-				return classes.backgrounds.color[color as GetColorClassHueColor][hue];
+				return classes.backgrounds.background_color[color as GetColorClassHueColor][hue];
 			case 'text':
 				return classes.typography.text_color[color as GetColorClassHueColor][hue];
 			case 'border':
@@ -154,7 +154,7 @@ export const getColorClass = memoize((props: GetColorClassProps): string => {
 			case 'fill':
 				return classes.svg.fill[color as GetColorClassNonHueColor];
 			case 'bg':
-				return classes.backgrounds.color[color as GetColorClassNonHueColor];
+				return classes.backgrounds.background_color[color as GetColorClassNonHueColor];
 			case 'text':
 				return classes.typography.text_color[color as GetColorClassNonHueColor];
 			case 'border':

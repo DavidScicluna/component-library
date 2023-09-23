@@ -5,7 +5,7 @@ import type {
 	ThemeColorOpacityObj
 } from '@common/types';
 
-const color: ThemeColorObj = {
+const background_color: ThemeColorObj = {
 	transparent: 'bg-transparent',
 	black: 'bg-black',
 	white: 'bg-white',
@@ -219,7 +219,7 @@ const color: ThemeColorObj = {
 	}
 };
 
-const opacity_color: ThemeColorOpacityObj = {
+const opacity_background_color: ThemeColorOpacityObj = {
 	transparent: {
 		0: 'bg-transparent/0',
 		5: 'bg-transparent/5',
@@ -3297,7 +3297,7 @@ const opacity_color: ThemeColorOpacityObj = {
 	}
 };
 
-const hover_color: ThemeColorObj = {
+const hover_background_color: ThemeColorObj = {
 	transparent: 'hover:bg-transparent',
 	black: 'hover:bg-black',
 	white: 'hover:bg-white',
@@ -3511,7 +3511,7 @@ const hover_color: ThemeColorObj = {
 	}
 };
 
-const focus_color: ThemeColorObj = {
+const focus_background_color: ThemeColorObj = {
 	transparent: 'focus:bg-transparent',
 	black: 'focus:bg-black',
 	white: 'focus:bg-white',
@@ -3725,7 +3725,7 @@ const focus_color: ThemeColorObj = {
 	}
 };
 
-const active_color: ThemeColorObj = {
+const active_background_color: ThemeColorObj = {
 	transparent: 'active:bg-transparent',
 	black: 'active:bg-black',
 	white: 'active:bg-white',
@@ -3939,7 +3939,7 @@ const active_color: ThemeColorObj = {
 	}
 };
 
-const before_color: ThemeColorObj = {
+const before_background_color: ThemeColorObj = {
 	transparent: 'before:bg-transparent',
 	black: 'before:bg-black',
 	white: 'before:bg-white',
@@ -4153,7 +4153,7 @@ const before_color: ThemeColorObj = {
 	}
 };
 
-const after_color: ThemeColorObj = {
+const after_background_color: ThemeColorObj = {
 	transparent: 'after:bg-transparent',
 	black: 'after:bg-black',
 	white: 'after:bg-white',
@@ -5094,14 +5094,14 @@ const gradient_to_color: ThemeColorObj = {
 };
 
 export default {
-	color: {
-		...color,
-		opacity: opacity_color,
-		hover: hover_color,
-		focus: focus_color,
-		active: active_color,
-		before: before_color,
-		after: after_color
+	background_color: {
+		...background_color,
+		opacity: opacity_background_color,
+		hover: hover_background_color,
+		focus: focus_background_color,
+		active: active_background_color,
+		before: before_background_color,
+		after: after_background_color
 	},
 	gradient,
 	gradient_from,

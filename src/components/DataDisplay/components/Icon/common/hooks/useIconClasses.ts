@@ -65,7 +65,7 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 		return classNames(
 			classes.typography.text_color.gray[colorHue],
 			classes.borders.border_color[color][backgroundHue],
-			classes.backgrounds.color[color][backgroundHue]
+			classes.backgrounds.background_color[color][backgroundHue]
 		);
 	}, [color, colorMode]);
 
@@ -76,7 +76,7 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 		return classNames(
 			classes.typography.text_color[color][colorHue],
 			classes.borders.border_color[color][backgroundHue],
-			classes.backgrounds.color[color][backgroundHue]
+			classes.backgrounds.background_color[color][backgroundHue]
 		);
 	}, [color, colorMode]);
 
@@ -87,7 +87,7 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 		return classNames(
 			classes.typography.text_color.gray[colorHue],
 			classes.borders.border_color.gray[borderHue],
-			classes.backgrounds.color.transparent
+			classes.backgrounds.background_color.transparent
 		);
 	}, [color, colorMode]);
 
@@ -97,7 +97,7 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 		return classNames(
 			classes.typography.text_color[color][colorHue],
 			classes.borders.border_color[color][colorHue],
-			classes.backgrounds.color.transparent
+			classes.backgrounds.background_color.transparent
 		);
 	}, [color, colorMode]);
 
@@ -107,7 +107,7 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 		return classNames(
 			classes.typography.text_color[color][colorHue],
 			classes.borders.border_color.transparent,
-			classes.backgrounds.color.transparent
+			classes.backgrounds.background_color.transparent
 		);
 	}, [color, colorMode]);
 

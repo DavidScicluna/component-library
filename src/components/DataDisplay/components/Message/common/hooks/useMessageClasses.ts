@@ -43,7 +43,10 @@ const useMessageClasses = <Element extends ElementType>(
 	const colorClasses = useMemo<ClassName>(() => {
 		const borderHue = getColorHue({ colorMode, type: 'divider' });
 
-		return classNames(classes.borders.border_color[color][borderHue], classes.backgrounds.color.transparent);
+		return classNames(
+			classes.borders.border_color[color][borderHue],
+			classes.backgrounds.background_color.transparent
+		);
 	}, [color, colorMode]);
 
 	return classNames(borderWidthClassName, borderStyleClassName, borderRadiusClassName, colorClasses);

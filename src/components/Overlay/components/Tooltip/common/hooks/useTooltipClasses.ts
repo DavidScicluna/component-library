@@ -44,7 +44,7 @@ const useTooltipClasses = <Element extends ElementType>(
 
 		return classNames(
 			classes.borders.border_color[color][backgroundHue],
-			classes.backgrounds.color[color][backgroundHue],
+			classes.backgrounds.background_color[color][backgroundHue],
 			classes.effects.shadow_color[color][color !== 'gray' ? backgroundHue : shadowHue]
 		);
 	}, [color, colorMode]);
