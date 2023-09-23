@@ -3,40 +3,38 @@ import type { ElementType, ReactNode } from 'react';
 import type { ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { DummyPushableOverlayProps } from '@components/Overlay/components/DummyPushableOverlay';
 
 export type DummyButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export type DummyButtonVariant = 'contained' | 'light' | 'dark' | 'outlined' | 'monochrome' | 'text';
+export type DummyButtonVariant = 'contained' | 'light' | 'dark' | 'outlined' | 'monochrome' | 'text' | 'unstyled';
 
-export type DummyButtonRenderProps = Pick<DummyButtonOtherProps, 'color' | 'colorMode'> & { w?: number; h?: number };
+export type DummyButtonRenderProps<Element extends ElementType> = Pick<
+	DummyButtonOtherProps<Element>,
+	'color' | 'colorMode'
+> & { w?: number; h?: number };
 
-type DummyButtonOtherProps = ThemeAppAppearanceProps & {
-	renderLeft?: (props: DummyButtonRenderProps) => ReactNode;
-	renderRight?: (props: DummyButtonRenderProps) => ReactNode;
-	/**
-	 *  If `true` the button will not have the pulse animation
-	 *
-	 * @default true
-	 */
-	isAnimated?: boolean;
+type DummyButtonOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
+	renderLeft?: (props: DummyButtonRenderProps<Element>) => ReactNode;
+	renderRight?: (props: DummyButtonRenderProps<Element>) => ReactNode;
 	/**
 	 * If true, the button will be styled in a more compressed state
 	 *
 	 * @default false
 	 */
-	isCompact?: boolean;
+	isCompact?: ResponsiveValue<boolean>;
 	/**
 	 * If true, the button will take the full width of its parent
 	 *
 	 * @default false
 	 */
-	isFullWidth?: boolean;
+	isFullWidth?: ResponsiveValue<boolean>;
 	/**
 	 * If true, the button's border-radius will be styled in its fullest mode
 	 *
 	 * @default false
 	 */
-	isRound?: boolean;
+	isRound?: ResponsiveValue<boolean>;
 	/**
 	 * The size of the button
 	 *
@@ -49,10 +47,10 @@ type DummyButtonOtherProps = ThemeAppAppearanceProps & {
 	 * @default 'contained'
 	 */
 	variant?: ResponsiveValue<DummyButtonVariant>;
-};
+} & Pick<DummyPushableOverlayProps<Element>, 'isAnimated' | 'isOutlined'>;
 
 export type DummyButtonProps<Element extends ElementType> = Omit<
-	BoxProps<Element, DummyButtonOtherProps>,
+	BoxProps<Element, DummyButtonOtherProps<Element>>,
 	keyof BoxOtherProps
 >;
 

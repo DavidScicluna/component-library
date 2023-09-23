@@ -36,46 +36,48 @@ const useDummyButtonSizeConfig = <Element extends ElementType>(
 	} = props;
 
 	const config = useMemo<DummyButtonSizeConfig>(() => {
+		const c = getResponsiveValue<boolean>(isCompact);
+		const r = getResponsiveValue<boolean>(isRound);
 		const s = getResponsiveValue<DummyButtonSize>(size);
 		const v = getResponsiveValue<DummyButtonVariant>(variant);
 
-		const radius: ThemeRadius = v === 'text' ? 'none' : isRound ? 'full' : isCompact ? 'xs' : 'base';
+		const radius: ThemeRadius = v === 'text' ? 'none' : r ? 'full' : c ? 'xs' : 'base';
 
 		switch (s) {
 			case 'xs':
 				return {
 					fontSize: 'xs',
-					padding: { x: isCompact ? 1 : 2, y: isCompact ? 0.25 : 1 },
+					padding: { x: c ? 1 : 2, y: c ? 0.25 : 1 },
 					radius,
-					spacing: isCompact ? 1 : 2
+					spacing: c ? 1 : 2
 				};
 			case 'sm':
 				return {
 					fontSize: 'sm',
-					padding: { x: isCompact ? 1.25 : 2.5, y: isCompact ? 0.5 : 1.25 },
+					padding: { x: c ? 1.25 : 2.5, y: c ? 0.5 : 1.25 },
 					radius,
-					spacing: isCompact ? 1.25 : 2.5
+					spacing: c ? 1.25 : 2.5
 				};
 			case 'lg':
 				return {
 					fontSize: 'lg',
-					padding: { x: isCompact ? 1.75 : 3.5, y: isCompact ? 1 : 1.75 },
+					padding: { x: c ? 1.75 : 3.5, y: c ? 1 : 1.75 },
 					radius,
-					spacing: isCompact ? 1.75 : 3.5
+					spacing: c ? 1.75 : 3.5
 				};
 			case 'xl':
 				return {
 					fontSize: 'xl',
-					padding: { x: isCompact ? 2 : 4, y: isCompact ? 1.25 : 2 },
+					padding: { x: c ? 2 : 4, y: c ? 1.25 : 2 },
 					radius,
-					spacing: isCompact ? 2 : 4
+					spacing: c ? 2 : 4
 				};
 			default:
 				return {
 					fontSize: 'md',
-					padding: { x: isCompact ? 1.5 : 3, y: isCompact ? 0.75 : 1.5 },
+					padding: { x: c ? 1.5 : 3, y: c ? 0.75 : 1.5 },
 					radius,
-					spacing: isCompact ? 1.5 : 3
+					spacing: c ? 1.5 : 3
 				};
 		}
 	}, [isCompact, isRound, size, variant]);

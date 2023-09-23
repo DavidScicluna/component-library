@@ -15,6 +15,7 @@ import {
 	__DEFAULT_DUMMY_BUTTON_IS_ANIMATED__,
 	__DEFAULT_DUMMY_BUTTON_IS_COMPACT__,
 	__DEFAULT_DUMMY_BUTTON_IS_FULLWIDTH__,
+	__DEFAULT_DUMMY_BUTTON_IS_OUTLINED__,
 	__DEFAULT_DUMMY_BUTTON_IS_ROUND__,
 	__DEFAULT_DUMMY_BUTTON_SIZE__,
 	__DEFAULT_DUMMY_BUTTON_VARIANT__
@@ -49,14 +50,21 @@ const DummyButton = forwardRef(function DummyButton<Element extends ElementType>
 		renderRight,
 		color,
 		colorMode,
-		isAnimated = __DEFAULT_DUMMY_BUTTON_IS_ANIMATED__,
-		isCompact = __DEFAULT_DUMMY_BUTTON_IS_COMPACT__,
-		isFullWidth = __DEFAULT_DUMMY_BUTTON_IS_FULLWIDTH__,
-		isRound = __DEFAULT_DUMMY_BUTTON_IS_ROUND__,
+		isAnimated: animated = __DEFAULT_DUMMY_BUTTON_IS_ANIMATED__,
+		isCompact: c = __DEFAULT_DUMMY_BUTTON_IS_COMPACT__,
+		isFullWidth: fullWidth = __DEFAULT_DUMMY_BUTTON_IS_FULLWIDTH__,
+		isRound: round = __DEFAULT_DUMMY_BUTTON_IS_ROUND__,
+		isOutlined: outlined = __DEFAULT_DUMMY_BUTTON_IS_OUTLINED__,
 		size: s = __DEFAULT_DUMMY_BUTTON_SIZE__,
 		variant: v = __DEFAULT_DUMMY_BUTTON_VARIANT__,
 		...rest
 	} = props;
+
+	const isAnimated = useGetResponsiveValue<boolean>(animated);
+	const isCompact = useGetResponsiveValue<boolean>(c);
+	const isFullWidth = useGetResponsiveValue<boolean>(fullWidth);
+	const isRound = useGetResponsiveValue<boolean>(round);
+	const isOutlined = useGetResponsiveValue<boolean>(outlined);
 
 	const size = useGetResponsiveValue<DummyButtonSize>(s);
 	const variant = useGetResponsiveValue<DummyButtonVariant>(v);
@@ -76,6 +84,7 @@ const DummyButton = forwardRef(function DummyButton<Element extends ElementType>
 				color={color}
 				colorMode={colorMode}
 				isAnimated={isAnimated}
+				isOutlined={isOutlined}
 				radius={config.radius}
 				variant={variant === 'text' ? 'transparent' : variant}
 				px={config.padding.x}

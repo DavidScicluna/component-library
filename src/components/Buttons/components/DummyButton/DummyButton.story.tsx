@@ -11,6 +11,7 @@ import {
 	__DEFAULT_DUMMY_BUTTON_IS_ANIMATED__,
 	__DEFAULT_DUMMY_BUTTON_IS_COMPACT__,
 	__DEFAULT_DUMMY_BUTTON_IS_FULLWIDTH__,
+	__DEFAULT_DUMMY_BUTTON_IS_OUTLINED__,
 	__DEFAULT_DUMMY_BUTTON_IS_ROUND__,
 	__DEFAULT_DUMMY_BUTTON_SIZE__,
 	__DEFAULT_DUMMY_BUTTON_VARIANT__
@@ -52,6 +53,13 @@ export default {
 			// description: '',
 			control: { type: 'boolean' }
 		},
+		isOutlined: {
+			name: 'Outlined',
+			type: 'boolean',
+			defaultValue: __DEFAULT_DUMMY_BUTTON_IS_OUTLINED__,
+			// description: '',
+			control: { type: 'boolean' }
+		},
 		size: {
 			name: 'Size',
 			type: 'string',
@@ -65,7 +73,15 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_DUMMY_BUTTON_VARIANT__,
 			// description: '',
-			options: ['contained', 'light', 'dark', 'outlined', 'monochrome', 'text'] as Array<DummyButtonVariant>,
+			options: [
+				'contained',
+				'light',
+				'dark',
+				'outlined',
+				'monochrome',
+				'text',
+				'unstyled'
+			] as Array<DummyButtonVariant>,
 			control: { type: 'radio' }
 		}
 	}
