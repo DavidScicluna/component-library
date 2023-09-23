@@ -1,56 +1,46 @@
-import { ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
 
-import { GridProps } from '@chakra-ui/react';
+import type { ResponsiveValue } from '@common/types';
 
-import { CommonThemeProps, Nullable } from '../../../../../common/types';
-import {
-	BoxBackground,
-	BoxBorderRadius,
-	BoxBorders,
-	BoxColor,
-	BoxFilter,
-	BoxFlexbox,
-	BoxGradient,
-	BoxGrid,
-	BoxLayout,
-	BoxMargin,
-	BoxOther,
-	BoxPadding,
-	BoxPosition,
-	BoxPseudo,
-	BoxShadow,
-	BoxTypography
-} from '../../../../../common/types/box';
+import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
-type IndicatorPositionX = 'start' | 'center' | 'end';
-type IndicatorPositionY = 'top' | 'middle' | 'bottom';
+export type IndicatorPlacement =
+	| 'bottom-center'
+	| 'bottom-end'
+	| 'bottom-start'
+	| 'top-end'
+	| 'top-start'
+	| 'top-center'
+	| 'middle-center'
+	| 'middle-end'
+	| 'middle-start';
+export type IndicatorPlacements = Array<IndicatorPlacement>;
 
-export type IndicatorPosition = `${IndicatorPositionY}-${IndicatorPositionX}`;
+type IndicatorOtherProps = {
+	/**
+	 * Callback invoked to render the indicator
+	 */
+	renderIndicator: () => ReactNode;
+	/**
+	 * If `true` it will render the indicator, else if `false` it will render out
+	 *
+	 * @default false
+	 */
+	isVisible?: ResponsiveValue<boolean>;
+	/**
+	 * Indicator offset relative to the target element, usually used for elements with border-radius, equals to size by default
+	 *
+	 * @default 0
+	 */
+	offset?: ResponsiveValue<number>;
+	/**
+	 * The position of the indicator relative to child element
+	 *
+	 * @default 'top-end'
+	 */
+	placement?: ResponsiveValue<IndicatorPlacement>;
+};
 
-export type IndicatorRenderIndicatorProps = Pick<IndicatorProps, 'color' | 'colorMode'>;
+export type IndicatorProps<Element extends ElementType> = BoxProps<Element, IndicatorOtherProps>;
 
-type Omitted =
-	| BoxMargin
-	| BoxPadding
-	| BoxColor
-	| BoxGradient
-	| BoxTypography
-	| BoxLayout
-	| BoxFlexbox
-	| BoxGrid
-	| BoxBackground
-	| BoxBorders
-	| BoxBorderRadius
-	| BoxPosition
-	| BoxShadow
-	| BoxFilter
-	| BoxPseudo
-	| BoxOther;
-
-export type IndicatorProps = Omit<GridProps, Omitted> & {
-	renderIndicator?: (props: IndicatorRenderIndicatorProps) => ReactNode;
-	position?: IndicatorPosition;
-	offset?: number;
-} & CommonThemeProps;
-
-export type IndicatorRef = Nullable<HTMLDivElement>;
+export type IndicatorRef<Element extends ElementType> = BoxRef<Element>;
