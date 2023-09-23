@@ -17,7 +17,7 @@ import {
 	__DEFAULT_POSITION_OVERLAY_BLUR_TYPE__,
 	__DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND__,
 	__DEFAULT_POSITION_OVERLAY_HAS_GLASS__,
-	__DEFAULT_POSITION_OVERLAY_IS_OVERLAY_VISIBLE__,
+	__DEFAULT_POSITION_OVERLAY_IS_VISIBLE__,
 	__DEFAULT_POSITION_OVERLAY_RADIUS__
 } from './common/constants';
 import type { PositionOverlayBlurTypes, PositionOverlayPlacements, PositionOverlayProps } from './common/types';
@@ -92,10 +92,10 @@ export default {
 			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as ThemeRadiusArr,
 			control: { type: 'radio' }
 		},
-		isOverlayVisible: {
-			name: 'Overlay Visible',
+		isVisible: {
+			name: 'Visible',
 			type: 'boolean',
-			defaultValue: __DEFAULT_POSITION_OVERLAY_IS_OVERLAY_VISIBLE__,
+			defaultValue: __DEFAULT_POSITION_OVERLAY_IS_VISIBLE__,
 			// description: '',
 			control: { type: 'boolean' }
 		},

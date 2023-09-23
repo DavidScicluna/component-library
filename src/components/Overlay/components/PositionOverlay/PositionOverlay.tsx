@@ -15,7 +15,7 @@ import {
 	__DEFAULT_POSITION_OVERLAY_BLUR_TYPE__,
 	__DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND__,
 	__DEFAULT_POSITION_OVERLAY_HAS_GLASS__,
-	__DEFAULT_POSITION_OVERLAY_IS_OVERLAY_VISIBLE__,
+	__DEFAULT_POSITION_OVERLAY_IS_VISIBLE__,
 	__DEFAULT_POSITION_OVERLAY_PLACEMENT__,
 	__DEFAULT_POSITION_OVERLAY_RADIUS__
 } from './common/constants';
@@ -38,7 +38,7 @@ const PositionOverlay = forwardRef(function PositionOverlay<Element extends Elem
 		blurType = __DEFAULT_POSITION_OVERLAY_BLUR_TYPE__,
 		placement = __DEFAULT_POSITION_OVERLAY_PLACEMENT__,
 		radius = __DEFAULT_POSITION_OVERLAY_RADIUS__,
-		isOverlayVisible = __DEFAULT_POSITION_OVERLAY_IS_OVERLAY_VISIBLE__,
+		isVisible = __DEFAULT_POSITION_OVERLAY_IS_VISIBLE__,
 		hasGlass = __DEFAULT_POSITION_OVERLAY_HAS_GLASS__,
 		hasBackground = __DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND__,
 		...rest
@@ -61,7 +61,7 @@ const PositionOverlay = forwardRef(function PositionOverlay<Element extends Elem
 			spacing={0}
 		>
 			<GridItem columnStart={1} rowStart={1} zIndex={1}>
-				<Fade w='100%' h='100%' in={isOverlayVisible}>
+				<Fade w='100%' h='100%' in={isVisible}>
 					<Box className={classes.overlay} w='100%' h='100%' sx={styles.overlay}>
 						<Box sx={styles.position}>{renderOverlay()}</Box>
 					</Box>

@@ -22,7 +22,7 @@ export type PositionOverlayPlacements = Array<PositionOverlayPlacement>;
 
 type PositionOverlayOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
 	/**
-	 * A function that will return the item to render in the overlay
+	 * Callback invoked to render the overlay
 	 */
 	renderOverlay: () => ReactNode;
 	/**
@@ -60,7 +60,7 @@ type PositionOverlayOtherProps<Element extends ElementType> = ThemeAppAppearance
 	 *
 	 * @default false
 	 */
-	isOverlayVisible?: boolean;
+	isVisible?: boolean;
 	/**
 	 * If `true` it will trigger the glass effect on the background
 	 *

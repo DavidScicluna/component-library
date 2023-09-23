@@ -11,6 +11,6 @@ export const __DEFAULT_POSITION_OVERLAY_PLACEMENT__: PositionOverlayPlacement = 
 
 export const __DEFAULT_POSITION_OVERLAY_RADIUS__: ThemeRadius = 'none';
 
-export const __DEFAULT_POSITION_OVERLAY_IS_OVERLAY_VISIBLE__ = false;
+export const __DEFAULT_POSITION_OVERLAY_IS_VISIBLE__ = false;
 export const __DEFAULT_POSITION_OVERLAY_HAS_GLASS__ = true;
 export const __DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND__ = true;
