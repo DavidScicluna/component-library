@@ -118,7 +118,9 @@ const Badge = forwardRef(function Badge<Element extends ElementType>(
 					spacing={config.spacing}
 				>
 					{renderLeft ? (
-						<GridItem>{renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight })}</GridItem>
+						<GridItem alignSelf='center' justifySelf='center'>
+							{renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight })}
+						</GridItem>
 					) : null}
 
 					{children ? (
@@ -130,7 +132,9 @@ const Badge = forwardRef(function Badge<Element extends ElementType>(
 					) : null}
 
 					{renderRight ? (
-						<GridItem>{renderRight({ color, colorMode, w: childrenWidth, h: childrenHeight })}</GridItem>
+						<GridItem alignSelf='center' justifySelf='center'>
+							{renderRight({ color, colorMode, w: childrenWidth, h: childrenHeight })}
+						</GridItem>
 					) : null}
 
 					{renderAction ? (

@@ -104,6 +104,8 @@ const useDummyPushableOverlayStyles = <Element extends ElementType>(
 			return monochromeDefaultStyles;
 		case 'transparent':
 			return transparentDefaultStyles;
+		case 'unstyled':
+			return {};
 		default:
 			return containedDefaultStyles;
 	}

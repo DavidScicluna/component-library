@@ -176,9 +176,13 @@ const Button = forwardRef(function Button<Element extends ButtonElement = Button
 					spacing={config.spacing}
 				>
 					{isLoading && !renderLeft && renderSpinner ? (
-						<GridItem>{renderSpinner({ color, colorMode, w: childrenWidth, h: childrenHeight })}</GridItem>
+						<GridItem alignSelf='center' justifySelf='center'>
+							{renderSpinner({ color, colorMode, w: childrenWidth, h: childrenHeight })}
+						</GridItem>
 					) : renderLeft ? (
-						<GridItem>{renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight })}</GridItem>
+						<GridItem alignSelf='center' justifySelf='center'>
+							{renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight })}
+						</GridItem>
 					) : null}
 
 					{children ? (
@@ -190,9 +194,13 @@ const Button = forwardRef(function Button<Element extends ButtonElement = Button
 					) : null}
 
 					{isLoading && renderLeft && renderSpinner ? (
-						<GridItem>{renderSpinner({ color, colorMode, w: childrenWidth, h: childrenHeight })}</GridItem>
+						<GridItem alignSelf='center' justifySelf='center'>
+							{renderSpinner({ color, colorMode, w: childrenWidth, h: childrenHeight })}
+						</GridItem>
 					) : renderRight ? (
-						<GridItem>{renderRight({ color, colorMode, w: childrenWidth, h: childrenHeight })}</GridItem>
+						<GridItem alignSelf='center' justifySelf='center'>
+							{renderRight({ color, colorMode, w: childrenWidth, h: childrenHeight })}
+						</GridItem>
 					) : null}
 				</Grid>
 			</PushableOverlay>

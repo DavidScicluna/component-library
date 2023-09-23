@@ -67,7 +67,9 @@ const Headline = forwardRef(function Headline<Element extends ElementType>(
 			spacing={spacing}
 		>
 			{renderLeft ? (
-				<GridItem>{renderLeft({ w: `${childrenWidth}px`, h: `${childrenHeight}px` })}</GridItem>
+				<GridItem alignSelf='center' justifySelf='center'>
+					{renderLeft({ w: `${childrenWidth}px`, h: `${childrenHeight}px` })}
+				</GridItem>
 			) : null}
 
 			<GridItem>
@@ -109,7 +111,9 @@ const Headline = forwardRef(function Headline<Element extends ElementType>(
 			</GridItem>
 
 			{renderRight ? (
-				<GridItem>{renderRight({ w: `${childrenWidth}px`, h: `${childrenHeight}px` })}</GridItem>
+				<GridItem alignSelf='center' justifySelf='center'>
+					{renderRight({ w: `${childrenWidth}px`, h: `${childrenHeight}px` })}
+				</GridItem>
 			) : null}
 		</Grid>
 	);
