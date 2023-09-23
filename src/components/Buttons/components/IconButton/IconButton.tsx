@@ -22,6 +22,7 @@ import {
 	__DEFAULT_ICON_BUTTON_IS_DISABLED__,
 	// __DEFAULT_ICON_BUTTON_IS_FOCUSABLE__,
 	__DEFAULT_ICON_BUTTON_IS_LOADING__,
+	__DEFAULT_ICON_BUTTON_IS_OUTLINED__,
 	__DEFAULT_ICON_BUTTON_IS_ROUND__,
 	__DEFAULT_ICON_BUTTON_SIZE__,
 	__DEFAULT_ICON_BUTTON_VARIANT__
@@ -70,12 +71,13 @@ const IconButton = forwardRef(function IconButton<Element extends IconButtonElem
 		colorMode = __DEFAULT_ICON_BUTTON_GROUP_COLORMODE__,
 		// canClickOnEnter = __DEFAULT_ICON_BUTTON_CAN_CLICK_ON_ENTER__,
 		// canClickOnSpace = __DEFAULT_ICON_BUTTON_CAN_CLICK_ON_SPACE__,
-		isActive = __DEFAULT_ICON_BUTTON_IS_ACTIVE__,
-		isCompact = __DEFAULT_ICON_BUTTON_GROUP_IS_COMPACT__,
-		isDisabled = __DEFAULT_ICON_BUTTON_GROUP_IS_DISABLED__,
+		isActive: active = __DEFAULT_ICON_BUTTON_IS_ACTIVE__,
+		isCompact: c = __DEFAULT_ICON_BUTTON_GROUP_IS_COMPACT__,
+		isDisabled: disabled = __DEFAULT_ICON_BUTTON_GROUP_IS_DISABLED__,
 		// isFocusable = __DEFAULT_ICON_BUTTON_IS_FOCUSABLE__,
-		isLoading = __DEFAULT_ICON_BUTTON_IS_LOADING__,
-		isRound = __DEFAULT_ICON_BUTTON_GROUP_IS_ROUND__,
+		isLoading: loading = __DEFAULT_ICON_BUTTON_IS_LOADING__,
+		isRound: round = __DEFAULT_ICON_BUTTON_GROUP_IS_ROUND__,
+		isOutlined: outlined = __DEFAULT_ICON_BUTTON_IS_OUTLINED__,
 		size: s = __DEFAULT_ICON_BUTTON_GROUP_SIZE__,
 		variant: v = __DEFAULT_ICON_BUTTON_GROUP_VARIANT__,
 		sx,
@@ -84,12 +86,19 @@ const IconButton = forwardRef(function IconButton<Element extends IconButtonElem
 
 	const [isFocused, setIsFocused] = useBoolean();
 
+	const isActive = useGetResponsiveValue<boolean>(active);
+	const isCompact = useGetResponsiveValue<boolean>(c);
+	const isDisabled = useGetResponsiveValue<boolean>(disabled);
+	const isLoading = useGetResponsiveValue<boolean>(loading);
+	const isRound = useGetResponsiveValue<boolean>(round);
+	const isOutlined = useGetResponsiveValue<boolean>(outlined);
+
 	const size = useGetResponsiveValue<IconButtonSize>(s);
 	const variant = useGetResponsiveValue<IconButtonVariant>(v);
 
 	const config = useIconButtonSizeConfig<Element>({ isCompact, isRound, size, variant });
 
-	const classes = useIconButtonClasses();
+	const classes = useIconButtonClasses<Element>({ variant });
 	const styles = useIconButtonStyles<Element>({ size });
 
 	// const handleEnterKeyClick = debounce((): void => {
@@ -139,6 +148,7 @@ const IconButton = forwardRef(function IconButton<Element extends IconButtonElem
 				isActive={isActive || isLoading}
 				isDisabled={isDisabled}
 				isFocused={isFocused}
+				isOutlined={isOutlined}
 				variant={variant === 'icon' ? 'transparent' : variant}
 				p={config.padding}
 				sx={merge(styles, sx)}

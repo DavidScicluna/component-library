@@ -9,6 +9,7 @@ export const __DEFAULT_ICON_BUTTON_IS_DISABLED__ = false;
 export const __DEFAULT_ICON_BUTTON_IS_FOCUSABLE__ = true;
 export const __DEFAULT_ICON_BUTTON_IS_LOADING__ = false;
 export const __DEFAULT_ICON_BUTTON_IS_ROUND__ = false;
+export const __DEFAULT_ICON_BUTTON_IS_OUTLINED__ = false;
 
 export const __DEFAULT_ICON_BUTTON_SIZE__: IconButtonSize = 'md';
 

@@ -110,7 +110,15 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_BUTTON_VARIANT__,
 			// description: '',
-			options: ['contained', 'light', 'dark', 'outlined', 'monochrome', 'text'] as Array<ButtonVariant>,
+			options: [
+				'contained',
+				'light',
+				'dark',
+				'outlined',
+				'monochrome',
+				'text',
+				'unstyled'
+			] as Array<ButtonVariant>,
 			control: { type: 'radio' }
 		}
 	}

@@ -40,40 +40,42 @@ const useIconButtonSizeConfig = <Element extends IconButtonElement = IconButtonD
 	} = props;
 
 	const config = useMemo<IconButtonSizeConfig>(() => {
+		const c = getResponsiveValue<boolean>(isCompact);
+		const r = getResponsiveValue<boolean>(isRound);
 		const s = getResponsiveValue<IconButtonSize>(size);
 		const v = getResponsiveValue<IconButtonVariant>(variant);
 
-		const radius: ThemeRadius = v === 'icon' ? 'none' : isRound ? 'full' : isCompact ? 'xs' : 'base';
+		const radius: ThemeRadius = v === 'icon' ? 'none' : r ? 'full' : c ? 'xs' : 'base';
 
 		switch (s) {
 			case 'xs':
 				return {
 					fontSize: 'xs',
-					padding: isCompact ? 0.25 : 1,
+					padding: c ? 0.25 : 1,
 					radius
 				};
 			case 'sm':
 				return {
 					fontSize: 'sm',
-					padding: isCompact ? 0.5 : 1.25,
+					padding: c ? 0.5 : 1.25,
 					radius
 				};
 			case 'lg':
 				return {
 					fontSize: 'lg',
-					padding: isCompact ? 1 : 1.75,
+					padding: c ? 1 : 1.75,
 					radius
 				};
 			case 'xl':
 				return {
 					fontSize: 'xl',
-					padding: isCompact ? 1.25 : 2,
+					padding: c ? 1.25 : 2,
 					radius
 				};
 			default:
 				return {
 					fontSize: 'md',
-					padding: isCompact ? 0.75 : 1.5,
+					padding: c ? 0.75 : 1.5,
 					radius
 				};
 		}

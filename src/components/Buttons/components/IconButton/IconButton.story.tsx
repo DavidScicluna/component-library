@@ -6,13 +6,14 @@ import { Center } from '@components/Layout';
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import {
-	__DEFAULT_ICON_BUTTON_CAN_CLICK_ON_ENTER__,
-	__DEFAULT_ICON_BUTTON_CAN_CLICK_ON_SPACE__,
+	// __DEFAULT_ICON_BUTTON_CAN_CLICK_ON_ENTER__,
+	// __DEFAULT_ICON_BUTTON_CAN_CLICK_ON_SPACE__,
 	__DEFAULT_ICON_BUTTON_IS_ACTIVE__,
 	__DEFAULT_ICON_BUTTON_IS_COMPACT__,
 	__DEFAULT_ICON_BUTTON_IS_DISABLED__,
-	__DEFAULT_ICON_BUTTON_IS_FOCUSABLE__,
+	// __DEFAULT_ICON_BUTTON_IS_FOCUSABLE__,
 	__DEFAULT_ICON_BUTTON_IS_LOADING__,
+	__DEFAULT_ICON_BUTTON_IS_OUTLINED__,
 	__DEFAULT_ICON_BUTTON_IS_ROUND__,
 	__DEFAULT_ICON_BUTTON_SIZE__,
 	__DEFAULT_ICON_BUTTON_VARIANT__
@@ -26,20 +27,20 @@ export default {
 	title: 'Buttons/IconButton',
 	component: IconButtonComponent,
 	argTypes: {
-		canClickOnEnter: {
-			name: 'Click On Enter',
-			type: 'boolean',
-			defaultValue: __DEFAULT_ICON_BUTTON_CAN_CLICK_ON_ENTER__,
-			// description: '',
-			control: { type: 'boolean' }
-		},
-		canClickOnSpace: {
-			name: 'Click On Space',
-			type: 'boolean',
-			defaultValue: __DEFAULT_ICON_BUTTON_CAN_CLICK_ON_SPACE__,
-			// description: '',
-			control: { type: 'boolean' }
-		},
+		// canClickOnEnter: {
+		// 	name: 'Click On Enter',
+		// 	type: 'boolean',
+		// 	defaultValue: __DEFAULT_ICON_BUTTON_CAN_CLICK_ON_ENTER__,
+		// 	// description: '',
+		// 	control: { type: 'boolean' }
+		// },
+		// canClickOnSpace: {
+		// 	name: 'Click On Space',
+		// 	type: 'boolean',
+		// 	defaultValue: __DEFAULT_ICON_BUTTON_CAN_CLICK_ON_SPACE__,
+		// 	// description: '',
+		// 	control: { type: 'boolean' }
+		// },
 		isActive: {
 			name: 'Active',
 			type: 'boolean',
@@ -61,13 +62,13 @@ export default {
 			// description: '',
 			control: { type: 'boolean' }
 		},
-		isFocusable: {
-			name: 'Focusable',
-			type: 'boolean',
-			defaultValue: __DEFAULT_ICON_BUTTON_IS_FOCUSABLE__,
-			// description: '',
-			control: { type: 'boolean' }
-		},
+		// isFocusable: {
+		// 	name: 'Focusable',
+		// 	type: 'boolean',
+		// 	defaultValue: __DEFAULT_ICON_BUTTON_IS_FOCUSABLE__,
+		// 	// description: '',
+		// 	control: { type: 'boolean' }
+		// },
 		isLoading: {
 			name: 'Loading',
 			type: 'boolean',
@@ -79,6 +80,13 @@ export default {
 			name: 'Round',
 			type: 'boolean',
 			defaultValue: __DEFAULT_ICON_BUTTON_IS_ROUND__,
+			// description: '',
+			control: { type: 'boolean' }
+		},
+		isOutlined: {
+			name: 'Outlined',
+			type: 'boolean',
+			defaultValue: __DEFAULT_ICON_BUTTON_IS_OUTLINED__,
 			// description: '',
 			control: { type: 'boolean' }
 		},
@@ -95,7 +103,15 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_ICON_BUTTON_VARIANT__,
 			// description: '',
-			options: ['contained', 'light', 'dark', 'outlined', 'monochrome', 'icon'] as Array<IconButtonVariant>,
+			options: [
+				'contained',
+				'light',
+				'dark',
+				'outlined',
+				'monochrome',
+				'icon',
+				'unstyled'
+			] as Array<IconButtonVariant>,
 			control: { type: 'radio' }
 		}
 	}

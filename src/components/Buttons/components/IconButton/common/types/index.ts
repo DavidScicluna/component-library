@@ -3,6 +3,7 @@ import type { ElementType, ReactNode } from 'react';
 import type { PickFrom, PolymorphicMouseEvent, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { PushableOverlayProps } from '@components/Overlay/components/PushableOverlay';
 
 export type IconButtonMouseEvent<Element extends IconButtonElement = IconButtonDefaultElement> =
 	PolymorphicMouseEvent<Element>;
@@ -12,60 +13,51 @@ export type IconButtonElement = PickFrom<ElementType, 'button'>;
 
 export type IconButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export type IconButtonVariant = 'contained' | 'light' | 'dark' | 'outlined' | 'monochrome' | 'icon';
+export type IconButtonVariant = 'contained' | 'light' | 'dark' | 'outlined' | 'monochrome' | 'icon' | 'unstyled';
 
-export type IconButtonRenderProps = Pick<IconButtonOtherProps, 'color' | 'colorMode'>;
+export type IconButtonRenderProps<Element extends IconButtonElement = IconButtonDefaultElement> = Pick<
+	IconButtonOtherProps<Element>,
+	'color' | 'colorMode'
+>;
 
-type IconButtonOtherProps = ThemeAppAppearanceProps & {
-	renderSpinner?: (props: IconButtonRenderProps) => ReactNode;
+type IconButtonOtherProps<Element extends IconButtonElement = IconButtonDefaultElement> = ThemeAppAppearanceProps & {
+	renderSpinner?: (props: IconButtonRenderProps<Element>) => ReactNode;
 	/**
 	 * If true, the button will allow on pressing the enter key the button will be clicked
 	 *
 	 * @default true
 	 */
-	canClickOnEnter?: boolean;
+	// canClickOnEnter?: ResponsiveValue<boolean>;
 	/**
 	 * If true, the button will allow on pressing the space key the button will be clicked
 	 *
 	 * @default true
 	 */
-	canClickOnSpace?: boolean;
-	/**
-	 * If true, the button will be styled in its active state
-	 *
-	 * @default false
-	 */
-	isActive?: boolean;
+	// canClickOnSpace?: ResponsiveValue<boolean>;
 	/**
 	 * If true, the button will be styled in a more compressed state
 	 *
 	 * @default false
 	 */
-	isCompact?: boolean;
-	/**
-	 * If true, the button will be disabled
-	 *
-	 * @default false
-	 */
-	isDisabled?: boolean;
+	isCompact?: ResponsiveValue<boolean>;
 	/**
 	 * If true, the button can be focused
 	 *
 	 * @default true
 	 */
-	isFocusable?: boolean;
+	// isFocusable?: ResponsiveValue<boolean>;
 	/**
 	 * If true, the button will show a spinner
 	 *
 	 * @default false
 	 */
-	isLoading?: boolean;
+	isLoading?: ResponsiveValue<boolean>;
 	/**
 	 * If true, the button's border-radius will be styled in its fullest mode
 	 *
 	 * @default false
 	 */
-	isRound?: boolean;
+	isRound?: ResponsiveValue<boolean>;
 	/**
 	 * The size of the button
 	 *
@@ -78,7 +70,7 @@ type IconButtonOtherProps = ThemeAppAppearanceProps & {
 	 * @default 'contained'
 	 */
 	variant?: ResponsiveValue<IconButtonVariant>;
-};
+} & Pick<PushableOverlayProps<Element>, 'isActive' | 'isDisabled' | 'isOutlined'>;
 
 export type IconButtonProps<Element extends IconButtonElement = IconButtonDefaultElement> = Omit<
 	BoxProps<Element, IconButtonOtherProps>,
