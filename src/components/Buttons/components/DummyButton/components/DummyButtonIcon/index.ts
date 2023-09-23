@@ -1,4 +1,4 @@
-import { __KEY_DUMMY_BUTTON_ICON_CLASS__ } from './common/keys';
+import * as commonKeys from './common/keys';
 import type {
 	DummyButtonIconDefaultElement,
 	DummyButtonIconElement,
@@ -8,7 +8,7 @@ import type {
 import DummyButtonIcon from './DummyButtonIcon';
 
 // Keys
-export const keys = { __KEY_DUMMY_BUTTON_ICON_CLASS__ };
+export const keys = { ...commonKeys };
 
 // Components
 export { DummyButtonIcon };

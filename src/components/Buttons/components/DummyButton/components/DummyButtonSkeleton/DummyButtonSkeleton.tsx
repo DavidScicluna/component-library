@@ -6,13 +6,15 @@ import classNames from 'classnames';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Skeleton } from '@components/Feedback';
-import { __KEY_SKELETON_OVERLAY_CLASS__ } from '@components/Feedback/components/Skeleton/common/keys';
+import { keys } from '@components/Feedback/components/Skeleton';
 import { useDummyPushableOverlayStyles } from '@components/Overlay/components/DummyPushableOverlay';
 
 import { useDummyButtonContext } from '../../common/hooks';
 
 import { __KEY_DUMMY_BUTTON_SKELETON_CLASS__ } from './common/keys';
 import type { DummyButtonSkeletonProps, DummyButtonSkeletonRef } from './common/types';
+
+const { __KEY_SKELETON_OVERLAY_CLASS__ } = keys;
 
 const DummyButtonSkeleton = forwardRef(function DummyButtonSkeleton<Element extends ElementType>(
 	props: DummyButtonSkeletonProps<Element>,
