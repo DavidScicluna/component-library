@@ -1,4 +1,11 @@
-import type { BoxShadowClassObj, OpacityClassObj, ThemeColorObj, ThemeColorOpacityObj } from '@common/types';
+import type {
+	BackgroundBlendModeClassObj,
+	BoxShadowClassObj,
+	MixBlendModeClassObj,
+	OpacityClassObj,
+	ThemeColorObj,
+	ThemeColorOpacityObj
+} from '@common/types';
 
 const shadow_color: ThemeColorObj = {
 	transparent: 'shadow-transparent',
@@ -4446,6 +4453,45 @@ const opacity: OpacityClassObj = {
 	100: 'opacity-100'
 };
 
+const mix_blend_mode: MixBlendModeClassObj = {
+	'normal': 'mix-blend-normal',
+	'multiply': 'mix-blend-multiply',
+	'screen': 'mix-blend-screen',
+	'overlay': 'mix-blend-overlay',
+	'darken': 'mix-blend-darken',
+	'lighten': 'mix-blend-lighten',
+	'color-dodge': 'mix-blend-color-dodge',
+	'color-burn': 'mix-blend-color-burn',
+	'hard-light': 'mix-blend-hard-light',
+	'soft-light': 'mix-blend-soft-light',
+	'difference': 'mix-blend-difference',
+	'exclusion': 'mix-blend-exclusion',
+	'hue': 'mix-blend-hue',
+	'saturation': 'mix-blend-saturation',
+	'color': 'mix-blend-color',
+	'luminosity': 'mix-blend-luminosity',
+	'plus-lighter': 'mix-blend-plus-lighter'
+};
+
+const background_blend_mode: BackgroundBlendModeClassObj = {
+	'normal': 'bg-blend-normal',
+	'multiply': 'bg-blend-multiply',
+	'screen': 'bg-blend-screen',
+	'overlay': 'bg-blend-overlay',
+	'darken': 'bg-blend-darken',
+	'lighten': 'bg-blend-lighten',
+	'color-dodge': 'bg-blend-color-dodg',
+	'color-burn': 'bg-blend-color-burn',
+	'hard-light': 'bg-blend-hard-light',
+	'soft-light': 'bg-blend-soft-light',
+	'difference': 'bg-blend-difference',
+	'exclusion': 'bg-blend-exclusion',
+	'hue': 'bg-blend-hue',
+	'saturation': 'bg-blend-saturation',
+	'color': 'bg-blend-color',
+	'luminosity': 'bg-blend-luminosity'
+};
+
 export default {
 	shadow_color: {
 		...shadow_color,
@@ -4464,5 +4510,7 @@ export default {
 		before: before_shadow,
 		after: after_shadow
 	},
-	opacity
+	opacity,
+	mix_blend_mode,
+	background_blend_mode
 };

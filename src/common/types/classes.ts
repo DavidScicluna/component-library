@@ -168,6 +168,47 @@ export type OpacityClass = 0 | 5 | 10 | 20 | 25 | 30 | 40 | 50 | 60 | 70 | 75 | 
 export type OpacityClassArr = Array<OpacityClass>;
 export type OpacityClassObj = Record<OpacityClass, string>;
 
+export type MixBlendModeClass =
+	| 'normal'
+	| 'multiply'
+	| 'screen'
+	| 'overlay'
+	| 'darken'
+	| 'lighten'
+	| 'color-dodge'
+	| 'color-burn'
+	| 'hard-light'
+	| 'soft-light'
+	| 'difference'
+	| 'exclusion'
+	| 'hue'
+	| 'saturation'
+	| 'color'
+	| 'luminosity'
+	| 'plus-lighter';
+export type MixBlendModeClassArr = Array<MixBlendModeClass>;
+export type MixBlendModeClassObj = Record<MixBlendModeClass, string>;
+
+export type BackgroundBlendModeClass =
+	| 'normal'
+	| 'multiply'
+	| 'screen'
+	| 'overlay'
+	| 'darken'
+	| 'lighten'
+	| 'color-dodge'
+	| 'color-burn'
+	| 'hard-light'
+	| 'soft-light'
+	| 'difference'
+	| 'exclusion'
+	| 'hue'
+	| 'saturation'
+	| 'color'
+	| 'luminosity';
+export type BackgroundBlendModeClassArr = Array<BackgroundBlendModeClass>;
+export type BackgroundBlendModeClassObj = Record<BackgroundBlendModeClass, string>;
+
 /**
  * Filters
  */
