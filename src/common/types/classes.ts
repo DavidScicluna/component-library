@@ -543,13 +543,30 @@ export type MaxHeightClass = 0 | 'none' | 'full' | 'screen' | 'min' | 'max' | 'f
 export type MaxHeightClassArr = Array<MaxHeightClass>;
 export type MaxHeightClassObj = Record<MaxHeightClass, string>;
 
-export type PositionClass = 'static' | 'fixed' | 'absolute' | 'relative' | 'sticky';
-export type PositionClassArr = Array<PositionClass>;
-export type PositionClassObj = Record<PositionClass, string>;
+export type ObjectFitClass = 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
+export type ObjectFitClassArr = Array<ObjectFitClass>;
+export type ObjectFitClassObj = Record<ObjectFitClass, string>;
+
+export type ObjectPositionClass =
+	| 'bottom'
+	| 'center'
+	| 'left'
+	| 'left-bottom'
+	| 'left-top'
+	| 'right'
+	| 'right-bottom'
+	| 'right-top'
+	| 'top';
+export type ObjectPositionClassArr = Array<ObjectPositionClass>;
+export type ObjectPositionClassObj = Record<ObjectPositionClass, string>;
 
 export type OverflowClass = 'auto' | 'hidden' | 'clip' | 'visible' | 'scroll';
 export type OverflowClassArr = Array<OverflowClass>;
 export type OverflowClassObj = Record<OverflowClass, string>;
+
+export type PositionClass = 'static' | 'fixed' | 'absolute' | 'relative' | 'sticky';
+export type PositionClassArr = Array<PositionClass>;
+export type PositionClassObj = Record<PositionClass, string>;
 
 export type ZIndexClass =
 	| 0

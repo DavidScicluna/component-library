@@ -1,5 +1,7 @@
 import type {
 	DisplayClassObj,
+	ObjectFitClassObj,
+	ObjectPositionClassObj,
 	OverflowClassObj,
 	PositionClassObj,
 	ThemeAspectRatioObj,
@@ -1469,6 +1471,26 @@ const after_left: ThemeSpacingObj = {
 	24.75: 'after:left-24.75'
 };
 
+const object_fit: ObjectFitClassObj = {
+	'fill': 'object-fill',
+	'none': 'object-none',
+	'contain': 'object-contain',
+	'cover': 'object-cover',
+	'scale-down': 'object-scale-down'
+};
+
+const object_position: ObjectPositionClassObj = {
+	'bottom': 'object-bottom',
+	'center': 'object-center',
+	'left': 'object-left',
+	'left-bottom': 'object-left-bottom',
+	'left-top': 'object-left-top',
+	'right': 'object-right',
+	'right-bottom': 'object-right-bottom',
+	'right-top': 'object-right-top',
+	'top': 'object-top'
+};
+
 const overflow: OverflowClassObj = {
 	auto: 'overflow-auto',
 	hidden: 'overflow-hidden',
@@ -1651,6 +1673,8 @@ export default {
 	right: { ...right, before: before_right, after: after_right },
 	bottom: { ...bottom, before: before_bottom, after: after_bottom },
 	left: { ...left, before: before_left, after: after_left },
+	object_fit,
+	object_position,
 	overflow,
 	overflow_x,
 	overflow_y,
