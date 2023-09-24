@@ -16,10 +16,9 @@ import type {
 	ResponsiveValue,
 	SaturateClass,
 	SepiaClass,
-	ThemeAppAppearanceProps,
+	ThemeBlurClass,
 	ThemeRadius
 } from '@common/types';
-import type { ThemeBlurClass } from '@common/types/theme';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
@@ -119,7 +118,7 @@ export type BackgroundImageOptions = {
 	size?: ResponsiveValue<BackgroundSizeClass>;
 };
 
-type BackgroundImageOtherProps = ThemeAppAppearanceProps & {
+type BackgroundImageOtherProps = {
 	filters?: BackgroundImageFilters;
 	options?: BackgroundImageOptions;
 	/**

@@ -12,9 +12,9 @@ import type {
 	HueRotateClass,
 	InvertClass,
 	SaturateClass,
-	SepiaClass
+	SepiaClass,
+	ThemeBlurClass
 } from '@common/types';
-import type { ThemeBlurClass } from '@common/types/theme';
 
 import type { BackgroundImageFilters, BackgroundImageOptions } from '../types';
 

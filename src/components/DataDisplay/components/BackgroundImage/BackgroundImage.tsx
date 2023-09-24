@@ -10,7 +10,7 @@ import { Grid, GridItem } from '@components/Layout';
 
 import { __DEFAULT_BACKGROUND_IMAGE_FILTERS__, __DEFAULT_BACKGROUND_IMAGE_OPTIONS__ } from './common/constants';
 import { useBackgroundImageClasses } from './common/hooks';
-import { __KEYS_BACKGROUND_IMAGE_CLASS__ } from './common/keys';
+import { __KEYS_BACKGROUND_IMAGE_CLASS__, __KEYS_BACKGROUND_IMAGE_IMAGE_CLASS__ } from './common/keys';
 import type { BackgroundImageProps, BackgroundImageRef } from './common/types';
 
 const BackgroundImage = forwardRef(function BackgroundImage<Element extends ElementType>(
@@ -47,7 +47,12 @@ const BackgroundImage = forwardRef(function BackgroundImage<Element extends Elem
 			</GridItem>
 
 			<GridItem columnStart={1} rowStart={1}>
-				<Box className={classes.image} w='100%' h='100%' sx={{ backgroundImage: `url(${src})` }} />
+				<Box
+					className={classNames(__KEYS_BACKGROUND_IMAGE_IMAGE_CLASS__, classes.image)}
+					w='100%'
+					h='100%'
+					sx={{ backgroundImage: `url(${src})` }}
+				/>
 			</GridItem>
 		</Grid>
 	);

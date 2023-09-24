@@ -21,9 +21,9 @@ import type {
 	InvertClass,
 	SaturateClass,
 	SepiaClass,
+	ThemeBlurClass,
 	ThemeRadius
 } from '@common/types';
-import type { ThemeBlurClass } from '@common/types/theme';
 
 import {
 	__DEFAULT_BACKGROUND_IMAGE_ATTACHMENT__,
@@ -80,6 +80,8 @@ const useBackgroundImageClasses = <Element extends ElementType>(
 		size = __DEFAULT_BACKGROUND_IMAGE_SIZE__
 	} = options;
 
+	const radiusClassName = useGetClass<ThemeRadius>(radius, ['borders', 'border_radius']);
+
 	const blurClassName = useGetClass<ThemeBlurClass>(blur, ['filters', 'blur']);
 	const brightnessClassName = useGetClass<BrightnessClass>(brightness, ['filters', 'brightness']);
 	const contrastClassName = useGetClass<ContrastClass>(contrast, ['filters', 'contrast']);
@@ -97,7 +99,6 @@ const useBackgroundImageClasses = <Element extends ElementType>(
 	const clipClassName = useGetClass<BackgroundClipClass>(clip, ['backgrounds', 'background_clip']);
 	const originClassName = useGetClass<BackgroundOriginClass>(origin, ['backgrounds', 'background_origin']);
 	const positionClassName = useGetClass<BackgroundPositionClass>(position, ['backgrounds', 'background_position']);
-	const radiusClassName = useGetClass<ThemeRadius>(radius, ['borders', 'border_radius']);
 	const repeatClassName = useGetClass<BackgroundRepeatClass>(repeat, ['backgrounds', 'background_repeat']);
 	const sizeClassName = useGetClass<BackgroundSizeClass>(size, ['backgrounds', 'background_size']);
 
