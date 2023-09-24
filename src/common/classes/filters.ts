@@ -1,5 +1,12 @@
-import type { BackdropBlurClassObj, BlurClassObj, SaturateClassObj } from '@common/types';
 import type {
+	BrightnessClassObj,
+	ContrastClassObj,
+	DropShadowClassObj,
+	GrayscaleClassObj,
+	HueRotateClassObj,
+	InvertClassObj,
+	SaturateClassObj,
+	SepiaClassObj,
 	ThemeBlurClassObj
 } from '@common/types';
 
@@ -37,6 +44,59 @@ const backdrop_blur: ThemeBlurClassObj = {
 	'9xl': 'backdrop-blur-9xl'
 };
 
+const brightness: BrightnessClassObj = {
+	0: 'brightness-0',
+	50: 'brightness-50',
+	75: 'brightness-75',
+	90: 'brightness-90',
+	95: 'brightness-95',
+	100: 'brightness-100',
+	105: 'brightness-105',
+	110: 'brightness-110',
+	125: 'brightness-125',
+	150: 'brightness-150',
+	200: 'brightness-200'
+};
+
+const contrast: ContrastClassObj = {
+	0: 'contrast-0',
+	50: 'contrast-50',
+	75: 'contrast-75',
+	100: 'contrast-100',
+	125: 'contrast-125',
+	150: 'contrast-150',
+	200: 'contrast-200'
+};
+
+const drop_shadow: DropShadowClassObj = {
+	'base': 'drop-shadow',
+	'sm': 'drop-shadow-sm',
+	'md': 'drop-shadow-md',
+	'lg': 'drop-shadow-lg',
+	'xl': 'drop-shadow-xl',
+	'2xl': 'drop-shadow-2xl',
+	'none': 'drop-shadow-none'
+};
+
+const grayscale: GrayscaleClassObj = {
+	0: 'grayscale-0',
+	1: 'grayscale'
+};
+
+const hue_rotate: HueRotateClassObj = {
+	0: 'hue-rotate-0',
+	30: 'hue-rotate-30',
+	60: 'hue-rotate-60',
+	90: 'hue-rotate-90',
+	15: 'hue-rotate-15',
+	180: 'hue-rotate-180'
+};
+
+const invert: InvertClassObj = {
+	0: 'invert-0',
+	1: 'invert'
+};
+
 const saturate: SaturateClassObj = {
 	0: 'saturate-0',
 	50: 'saturate-50',
@@ -45,4 +105,20 @@ const saturate: SaturateClassObj = {
 	200: 'saturate-200'
 };
 
-export default { blur, backdrop_blur, saturate };
+const sepia: SepiaClassObj = {
+	0: 'sepia-0',
+	1: 'sepia'
+};
+
+export default {
+	blur,
+	backdrop_blur,
+	brightness,
+	contrast,
+	drop_shadow,
+	grayscale,
+	hue_rotate,
+	invert,
+	saturate,
+	sepia
+};

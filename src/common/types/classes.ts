@@ -171,11 +171,42 @@ export type OpacityClassObj = Record<OpacityClass, string>;
 /**
  * Filters
  */
+export type BrightnessClass = 0 | 50 | 75 | 90 | 95 | 100 | 105 | 110 | 125 | 150 | 200;
+export type BrightnessClassArr = Array<BrightnessClass>;
+export type BrightnessClassObj = Record<BrightnessClass, string>;
 
+/*
+ * TODO: Maybe create a folder called props in common and create files like classes with props like example:
+ * radius?: ThemeRadius
+ * Containing documentation
+ */
+export type ContrastClass = 0 | 50 | 75 | 100 | 125 | 150 | 200;
+export type ContrastClassArr = Array<ContrastClass>;
+export type ContrastClassObj = Record<ContrastClass, string>;
+
+export type DropShadowClass = 'base' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'none';
+export type DropShadowClassArr = Array<DropShadowClass>;
+export type DropShadowClassObj = Record<DropShadowClass, string>;
+
+export type GrayscaleClass = 0 | 1;
+export type GrayscaleClassArr = Array<GrayscaleClass>;
+export type GrayscaleClassObj = Record<GrayscaleClass, string>;
+
+export type HueRotateClass = 0 | 15 | 30 | 60 | 90 | 180;
+export type HueRotateClassArr = Array<HueRotateClass>;
+export type HueRotateClassObj = Record<HueRotateClass, string>;
+
+export type InvertClass = 0 | 1;
+export type InvertClassArr = Array<InvertClass>;
+export type InvertClassObj = Record<InvertClass, string>;
 
 export type SaturateClass = 0 | 50 | 100 | 150 | 200;
 export type SaturateClassArr = Array<SaturateClass>;
 export type SaturateClassObj = Record<SaturateClass, string>;
+
+export type SepiaClass = 0 | 1;
+export type SepiaClassArr = Array<SepiaClass>;
+export type SepiaClassObj = Record<SepiaClass, string>;
 
 /**
  * Flex
