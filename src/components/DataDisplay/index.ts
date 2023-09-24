@@ -1,4 +1,16 @@
 import type {
+	BackgroundImageFilters,
+	BackgroundImageOptions,
+	BackgroundImageProps,
+	BackgroundImageRef
+} from './components/BackgroundImage';
+import {
+	BackgroundImage,
+	constants as backgroundImageConstants,
+	keys as backgroundImageKeys,
+	useBackgroundImageClasses
+} from './components/BackgroundImage';
+import type {
 	BadgeCloseIconButtonDefaultElement,
 	BadgeCloseIconButtonElement,
 	BadgeCloseIconButtonProps,
@@ -137,6 +149,17 @@ import {
 import type { IconCategory, IconDefaultElement, IconElement, IconProps, IconRef, IconVariant } from './components/Icon';
 import { constants as iconConstants, Icon, keys as iconKeys, useIconClasses } from './components/Icon';
 import type {
+	ImageFilters,
+	ImageMode,
+	ImageModes,
+	ImageOptions,
+	ImageProps,
+	ImageRef,
+	ImageSyntheticEvent,
+	ImageType
+} from './components/Image';
+import { constants as imageConstants, Image, keys as imageKeys, useImageClasses } from './components/Image';
+import type {
 	MessageActionsChildrenProps,
 	MessageActionsProps,
 	MessageActionsRef,
@@ -177,27 +200,32 @@ import {
 
 // Constants
 export const constants = {
+	...backgroundImageConstants,
 	...badgeConstants,
 	...dummyBadgeConstants,
 	...dividerConstants,
 	...horizontalScrollConstants,
 	...iconConstants,
+	...imageConstants,
 	...messageConstants
 };
 
 // Keys
 export const keys = {
+	...backgroundImageKeys,
 	...badgeKeys,
 	...dividerKeys,
 	...dummyBadgeKeys,
 	...headlineKeys,
 	...horizontalScrollKeys,
 	...iconKeys,
+	...imageKeys,
 	...messageKeys
 };
 
 // Hooks
 export {
+	useBackgroundImageClasses,
 	useBadgeClasses,
 	useBadgeContext,
 	useBadgeFontSize,
@@ -212,6 +240,7 @@ export {
 	useHorizontalScrollArrowState,
 	useHorizontalScrollContext,
 	useIconClasses,
+	useImageClasses,
 	useMessageClasses,
 	useMessageContext,
 	useSetHorizontalScrollAPIContext
@@ -219,6 +248,7 @@ export {
 
 // Components
 export {
+	BackgroundImage,
 	Badge,
 	BadgeCloseIconButton,
 	BadgeIcon,
@@ -240,6 +270,7 @@ export {
 	HorizontalScrollRightArrowIconButton,
 	HorizontalScrollRightLinearGradient,
 	Icon,
+	Image,
 	Message,
 	MessageActions,
 	MessageBody,
@@ -251,6 +282,10 @@ export {
 
 // Component Types
 export type {
+	BackgroundImageFilters,
+	BackgroundImageOptions,
+	BackgroundImageProps,
+	BackgroundImageRef,
 	BadgeCloseIconButtonDefaultElement,
 	BadgeCloseIconButtonElement,
 	BadgeCloseIconButtonProps,
@@ -337,6 +372,14 @@ export type {
 	IconProps,
 	IconRef,
 	IconVariant,
+	ImageFilters,
+	ImageMode,
+	ImageModes,
+	ImageOptions,
+	ImageProps,
+	ImageRef,
+	ImageSyntheticEvent,
+	ImageType,
 	MessageActionsChildrenProps,
 	MessageActionsProps,
 	MessageActionsRef,
