@@ -22,11 +22,44 @@ export type AnimationClassObj = Record<AnimationClass, string>;
 /**
  * Backgrounds
  */
+export type BackgroundAttachmentClass = 'fixed' | 'local' | 'scroll';
+export type BackgroundAttachmentClassArr = Array<BackgroundAttachmentClass>;
+export type BackgroundAttachmentClassObj = Record<BackgroundAttachmentClass, string>;
+
+export type BackgroundClipClass = 'border' | 'padding' | 'content' | 'text';
+export type BackgroundClipClassArr = Array<BackgroundClipClass>;
+export type BackgroundClipClassObj = Record<BackgroundClipClass, string>;
+
 export type BackgroundColorClass =
 	| `${PickFrom<ColorTypeClass, 'bg'>}-${Exclude<ThemeColor, 'transparent' | 'black' | 'white'>}-${ThemeColorHue}`
 	| `${PickFrom<ColorTypeClass, 'bg'>}-${PickFrom<ThemeColor, 'transparent' | 'black' | 'white'>}`;
 export type BackgroundColorClassArr = Array<BackgroundColorClass>;
 export type BackgroundColorClassObj = Record<BackgroundColorClass, string>;
+
+export type BackgroundOriginClass = 'border' | 'padding' | 'content';
+export type BackgroundOriginClassArr = Array<BackgroundOriginClass>;
+export type BackgroundOriginClassObj = Record<BackgroundOriginClass, string>;
+
+export type BackgroundPositionClass =
+	| 'bottom'
+	| 'center'
+	| 'left'
+	| 'left-bottom'
+	| 'left-top'
+	| 'right'
+	| 'right-bottom'
+	| 'right-top'
+	| 'top';
+export type BackgroundPositionClassArr = Array<BackgroundPositionClass>;
+export type BackgroundPositionClassObj = Record<BackgroundPositionClass, string>;
+
+export type BackgroundRepeatClass = 'repeat' | 'no-repeat' | 'repeat-x' | 'repeat-y' | 'repeat-round' | 'repeat-space';
+export type BackgroundRepeatClassArr = Array<BackgroundRepeatClass>;
+export type BackgroundRepeatClassObj = Record<BackgroundRepeatClass, string>;
+
+export type BackgroundSizeClass = 'auto' | 'cover' | 'contain';
+export type BackgroundSizeClassArr = Array<BackgroundSizeClass>;
+export type BackgroundSizeClassObj = Record<BackgroundSizeClass, string>;
 
 export type GradientFromMiddleToClass =
 	| 0

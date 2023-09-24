@@ -1,9 +1,28 @@
 import type {
+	BackgroundAttachmentClassObj,
+	BackgroundClipClassObj,
+	BackgroundOriginClassObj,
+	BackgroundPositionClassObj,
+	BackgroundRepeatClassObj,
+	BackgroundSizeClassObj,
 	GradientClassObj,
 	GradientFromMiddleToClassObj,
 	ThemeColorObj,
 	ThemeColorOpacityObj
 } from '@common/types';
+
+const background_attachment: BackgroundAttachmentClassObj = {
+	fixed: 'bg-fixed',
+	local: 'bg-local',
+	scroll: 'bg-scroll'
+};
+
+const background_clip: BackgroundClipClassObj = {
+	border: 'bg-clip-border',
+	padding: 'bg-clip-padding',
+	content: 'bg-clip-content',
+	text: 'bg-clip-text'
+};
 
 const background_color: ThemeColorObj = {
 	transparent: 'bg-transparent',
@@ -4367,6 +4386,39 @@ const after_background_color: ThemeColorObj = {
 	}
 };
 
+const background_origin: BackgroundOriginClassObj = {
+	border: 'bg-origin-border',
+	padding: 'bg-origin-padding',
+	content: 'bg-origin-content'
+};
+
+const background_position: BackgroundPositionClassObj = {
+	'bottom': 'bg-bottom',
+	'center': 'bg-center',
+	'left': 'bg-left',
+	'left-bottom': 'bg-left-bottom',
+	'left-top': 'bg-left-top',
+	'right': 'bg-right',
+	'right-bottom': 'bg-right-bottom',
+	'right-top': 'bg-right-top',
+	'top': 'bg-top'
+};
+
+const background_repeat: BackgroundRepeatClassObj = {
+	'repeat': 'bg-repeat-repeat',
+	'no-repeat': 'bg-repeat-no-repeat',
+	'repeat-x': 'bg-repeat-repeat-x',
+	'repeat-y': 'bg-repeat-repeat-y',
+	'repeat-round': 'bg-repeat-repeat-round',
+	'repeat-space': 'bg-repeat-repeat-space'
+};
+
+const background_size: BackgroundSizeClassObj = {
+	auto: 'bg-auto',
+	cover: 'bg-cover',
+	contain: 'bg-contain'
+};
+
 const gradient: GradientClassObj = {
 	none: 'bg-none',
 	t: 'bg-gradient-to-t',
@@ -5094,6 +5146,8 @@ const gradient_to_color: ThemeColorObj = {
 };
 
 export default {
+	background_attachment,
+	background_clip,
 	background_color: {
 		...background_color,
 		opacity: opacity_background_color,
@@ -5103,6 +5157,10 @@ export default {
 		before: before_background_color,
 		after: after_background_color
 	},
+	background_origin,
+	background_position,
+	background_repeat,
+	background_size,
 	gradient,
 	gradient_from,
 	gradient_middle,
