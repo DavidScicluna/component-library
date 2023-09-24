@@ -21,6 +21,24 @@ export type ThemeAspectRatio = 'auto' | 'square' | 'video' | 'widescreen' | 'por
 export type ThemeAspectRatioArr = Array<ThemeAspectRatio>;
 export type ThemeAspectRatioObj = Record<ThemeAspectRatio, string>;
 
+export type ThemeBlurClass =
+	| 'none'
+	| 'xs'
+	| 'sm'
+	| 'md'
+	| 'lg'
+	| 'xl'
+	| '2xl'
+	| '3xl'
+	| '4xl'
+	| '5xl'
+	| '6xl'
+	| '7xl'
+	| '8xl'
+	| '9xl';
+export type ThemeBlurClassArr = Array<ThemeBlurClass>;
+export type ThemeBlurClassObj = Record<ThemeBlurClass, string>;
+
 export type ThemeBreakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 export type ThemeBreakpointArr = Array<ThemeBreakpoint>;
 export type ThemeBreakpointObj = Record<ThemeBreakpoint, string>;

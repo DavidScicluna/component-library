@@ -1,6 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { BackdropBlurClass, ResponsiveValue, ThemeAppAppearanceProps, ThemeRadius } from '@common/types';
+import type { ResponsiveValue, ThemeAppAppearanceProps, ThemeBlurClass, ThemeRadius } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 import type { GlassOverlayProps } from '@components/Overlay/components/GlassOverlay';
@@ -30,7 +30,7 @@ type PositionOverlayOtherProps<Element extends ElementType> = ThemeAppAppearance
 	 *
 	 * @default 'md'
 	 */
-	blur?: ResponsiveValue<BackdropBlurClass>;
+	blur?: ResponsiveValue<ThemeBlurClass>;
 	/**
 	 * The type of blur to show either a backdrop filter blur or else it will be a normal blur
 	 *

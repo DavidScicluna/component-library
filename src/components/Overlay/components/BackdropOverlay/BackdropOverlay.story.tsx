@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import classNames from 'classnames';
 
 import { useGetColor } from '@common/hooks';
-import type { BackdropBlurClassArr, PolymorphicDefaultElement, ThemeRadiusArr } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeBlurClassArr, ThemeRadiusArr } from '@common/types';
 
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography';
@@ -52,7 +52,7 @@ export default {
 				'7xl',
 				'8xl',
 				'9xl'
-			] as BackdropBlurClassArr,
+			] as ThemeBlurClassArr,
 			control: { type: 'radio' }
 		},
 		blurType: {

@@ -1,9 +1,8 @@
 import { range } from 'lodash-es';
 
 import type {
-	BackdropBlurClassObj,
-	BlurClassObj,
 	ThemeAspectRatioObj,
+	ThemeBlurClassObj,
 	ThemeBorderWidthObj,
 	ThemeBreakpointObj,
 	ThemeColorObj,
@@ -29,7 +28,7 @@ const aspectRatio: ThemeAspectRatioObj = {
 	vertical: '9 / 16'
 };
 
-const backdropBlur: BackdropBlurClassObj = {
+const backdropBlur: ThemeBlurClassObj = {
 	'none': '0px',
 	'xs': '2px',
 	'sm': '4px',
@@ -46,7 +45,7 @@ const backdropBlur: BackdropBlurClassObj = {
 	'9xl': '80px'
 };
 
-const blur: BlurClassObj = {
+const blur: ThemeBlurClassObj = {
 	'none': '0px',
 	'xs': '2px',
 	'sm': '4px',

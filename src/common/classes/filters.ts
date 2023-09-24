@@ -1,6 +1,9 @@
 import type { BackdropBlurClassObj, BlurClassObj, SaturateClassObj } from '@common/types';
+import type {
+	ThemeBlurClassObj
+} from '@common/types';
 
-const blur: BlurClassObj = {
+const blur: ThemeBlurClassObj = {
 	'none': 'blur-none',
 	'xs': 'blur-xs',
 	'sm': 'blur-sm',
@@ -17,7 +20,7 @@ const blur: BlurClassObj = {
 	'9xl': 'blur-9xl'
 };
 
-const backdrop_blur: BackdropBlurClassObj = {
+const backdrop_blur: ThemeBlurClassObj = {
 	'none': 'backdrop-blur-none',
 	'xs': 'backdrop-blur-xs',
 	'sm': 'backdrop-blur-sm',

@@ -1,6 +1,6 @@
 import type { ElementType } from 'react';
 
-import type { BackdropBlurClass, ResponsiveValue, ThemeAppAppearanceProps, ThemeRadius } from '@common/types';
+import type { ResponsiveValue, ThemeAppAppearanceProps, ThemeBlurClass, ThemeRadius } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
@@ -19,7 +19,7 @@ type BackdropOverlayOtherProps = ThemeAppAppearanceProps & {
 	 *
 	 * @default 'none'
 	 */
-	blur?: ResponsiveValue<BackdropBlurClass>;
+	blur?: ResponsiveValue<ThemeBlurClass>;
 	/**
 	 * The type of blur to show either a backdrop filter blur or else it will be a normal blur
 	 *

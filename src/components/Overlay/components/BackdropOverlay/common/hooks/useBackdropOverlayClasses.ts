@@ -3,7 +3,7 @@ import type { ElementType } from 'react';
 import classNames from 'classnames';
 
 import { useGetClass } from '@common/hooks';
-import type { BackdropBlurClass, ClassName, OverflowClass, SaturateClass, ThemeRadius } from '@common/types';
+import type { ClassName, OverflowClass, SaturateClass, ThemeBlurClass, ThemeRadius } from '@common/types';
 
 import {
 	__DEFAULT_BACKDROP_OVERLAY_BLUR__,
@@ -30,8 +30,8 @@ const useBackdropOverlayClasses = <Element extends ElementType>(
 	const overflowClassName = useGetClass<OverflowClass>('hidden', ['layout', 'overflow']);
 	const radiusClassName = useGetClass<ThemeRadius>(radius, ['borders', 'border_radius']);
 
-	const backdropBlurClassName = useGetClass<BackdropBlurClass>(blur, ['filters', 'backdrop_blur']);
-	const blurClassName = useGetClass<BackdropBlurClass>(blur, ['filters', 'blur']);
+	const backdropBlurClassName = useGetClass<ThemeBlurClass>(blur, ['filters', 'backdrop_blur']);
+	const blurClassName = useGetClass<ThemeBlurClass>(blur, ['filters', 'blur']);
 	const saturateClassName = useGetClass<SaturateClass>(100, ['filters', 'saturate']);
 
 	return {

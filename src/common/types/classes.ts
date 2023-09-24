@@ -138,41 +138,7 @@ export type OpacityClassObj = Record<OpacityClass, string>;
 /**
  * Filters
  */
-export type BlurClass =
-	| 'none'
-	| 'xs'
-	| 'sm'
-	| 'md'
-	| 'lg'
-	| 'xl'
-	| '2xl'
-	| '3xl'
-	| '4xl'
-	| '5xl'
-	| '6xl'
-	| '7xl'
-	| '8xl'
-	| '9xl';
-export type BlurClassArr = Array<BlurClass>;
-export type BlurClassObj = Record<BlurClass, string>;
 
-export type BackdropBlurClass =
-	| 'none'
-	| 'xs'
-	| 'sm'
-	| 'md'
-	| 'lg'
-	| 'xl'
-	| '2xl'
-	| '3xl'
-	| '4xl'
-	| '5xl'
-	| '6xl'
-	| '7xl'
-	| '8xl'
-	| '9xl';
-export type BackdropBlurClassArr = Array<BackdropBlurClass>;
-export type BackdropBlurClassObj = Record<BackdropBlurClass, string>;
 
 export type SaturateClass = 0 | 50 | 100 | 150 | 200;
 export type SaturateClassArr = Array<SaturateClass>;
