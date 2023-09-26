@@ -26,7 +26,7 @@ const HorizontalScrollLinearGradient = forwardRef(function HorizontalScrollLinea
 	const { className = __DEFAULT_CLASSNAME__, direction, isVisible = true, ...rest } = props;
 
 	return (
-		<Fade w={arrowSize && arrowSize.w ? `${arrowSize.w}px` : '100%'} h='100%' in={isVisible} unmountOnExit={false}>
+		<Fade w={arrowSize && arrowSize.w ? `${arrowSize.w}px` : '100%'} h='100%' in={isVisible}>
 			<LinearGradient<Element>
 				{...rest}
 				ref={ref}

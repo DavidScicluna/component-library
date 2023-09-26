@@ -42,7 +42,7 @@ const HorizontalScrollOverlayArrowIconButton = forwardRef(function HorizontalScr
 	});
 
 	return (
-		<Fade w='100%' h='100%' in={isVisible} unmountOnExit={false}>
+		<Fade w='100%' h='100%' in={isVisible}>
 			<Grid
 				className={classNames(__KEYS_HORIZONTAL_SCROLL_OVERLAY_ARROW_ICON_BUTTON_CLASS__, {
 					[className]: !!className
