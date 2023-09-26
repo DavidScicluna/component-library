@@ -1,14 +1,14 @@
 import { useMemo } from 'react';
 
-import { __DEFAULT_BORDER_WIDTH__, __DEFAULT_SPACING__ } from '@common/constants';
+import { __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useTheme } from '@common/hooks';
 import type { Style, ThemeBorderWidth, ThemeSpacing } from '@common/types';
-import { getResponsiveValue } from '@common/utils';
+import { checkColorType, getResponsiveValue } from '@common/utils';
 
 import { __DEFAULT_DIVIDER_ORIENTATION__, __DEFAULT_DIVIDER_PLACEMENT__ } from '../constants';
 import type { DividerElement, DividerProps } from '../types';
 
-type PickedDividerProps = 'orientation' | 'placement' | 'size' | 'spacing';
+type PickedDividerProps = 'color' | 'orientation' | 'placement' | 'size' | 'spacing';
 
 type UseDividerStylesProps<Element extends DividerElement> = Pick<DividerProps<Element>, PickedDividerProps> & {
 	hasChildren: boolean;
@@ -21,6 +21,7 @@ const useDividerStyles = <Element extends DividerElement>(
 	const theme = useTheme();
 
 	const {
+		color = __DEFAULT_COLOR__,
 		hasChildren = false,
 		orientation = __DEFAULT_DIVIDER_ORIENTATION__,
 		placement = __DEFAULT_DIVIDER_PLACEMENT__,
@@ -39,6 +40,8 @@ const useDividerStyles = <Element extends DividerElement>(
 	}, [s]);
 
 	return {
+		'borderColor': checkColorType(color) === 'other' ? color : undefined,
+
 		'&::before':
 			orientation === 'horizontal' && (placement === 'right' || placement === 'center')
 				? {

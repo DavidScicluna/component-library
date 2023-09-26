@@ -43,6 +43,7 @@ const Divider = forwardRef(function Divider<Element extends DividerElement = Div
 
 	const classes = useDividerClasses<Element>({ color, colorMode, orientation, placement, size, variant });
 	const styles = useDividerStyles<Element>({
+		color,
 		hasChildren: orientation === 'horizontal' && !!children,
 		orientation,
 		placement,

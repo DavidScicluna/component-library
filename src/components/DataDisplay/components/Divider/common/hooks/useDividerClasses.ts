@@ -1,9 +1,10 @@
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_BORDER_WIDTH__ } from '@common/constants';
-import { useGetClass, useGetColor } from '@common/hooks';
-import type { BorderStyleClass, ClassName, JustifyContentClass, ThemeBorderWidth } from '@common/types';
+import { __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ } from '@common/constants';
+import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
+import type { BorderStyleClass, ClassName, JustifyContentClass, ThemeBorderWidth, ThemeColor } from '@common/types';
+import { checkColorType } from '@common/utils';
 
 import {
 	__DEFAULT_DIVIDER_ORIENTATION__,
@@ -21,9 +22,11 @@ type UseDividerClassesReturn = ClassName;
 const useDividerClasses = <Element extends DividerElement>(
 	props: UseDividerClassesProps<Element>
 ): UseDividerClassesReturn => {
+	const { colorMode: __DEFAULT_DIVIDER_OLORMODE__ } = useAppTheme();
+
 	const {
-		color,
-		colorMode,
+		color = __DEFAULT_COLOR__,
+		colorMode = __DEFAULT_DIVIDER_OLORMODE__,
 		orientation = __DEFAULT_DIVIDER_ORIENTATION__,
 		placement = __DEFAULT_DIVIDER_PLACEMENT__,
 		size = __DEFAULT_BORDER_WIDTH__,
@@ -33,7 +36,7 @@ const useDividerClasses = <Element extends DividerElement>(
 	const borderLeftWidthClassName = useGetClass<ThemeBorderWidth>(size, ['borders', 'border_l_width']);
 	const borderStyleClassName = useGetClass<BorderStyleClass>(variant, ['borders', 'border_style']);
 	const borderColorClassName = useGetColor({
-		color,
+		color: color as ThemeColor,
 		colorMode,
 		colorType: color ? 'color' : 'default',
 		classType: 'border',
@@ -50,8 +53,8 @@ const useDividerClasses = <Element extends DividerElement>(
 		classes.flex.align_items.center,
 		justifyContentClassName,
 		borderStyleClassName,
-		borderColorClassName,
 		{
+			[borderColorClassName]: checkColorType(color) === 'theme',
 			[borderLeftWidthClassName]: orientation === 'vertical'
 		}
 	);
