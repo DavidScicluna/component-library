@@ -85,7 +85,7 @@ const usePushableOverlayClasses = <Element extends ElementType>(
 				[classes.borders.outline_offset.focus_visible[__DEFAULT_OUTLINE_OFFSET__]]: isPushable && !isFixed
 			}
 		);
-	}, [isDisabled, isFixed, isOutlined, isPushable, radius, variant]);
+	}, [colorMode, isDisabled, isFixed, isOutlined, isPushable, radius, variant]);
 
 	const pseudoClasses = useConst<ClassName>(
 		classNames(
