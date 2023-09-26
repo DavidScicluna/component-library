@@ -37,37 +37,33 @@ const useBoxStyles = <Element extends ElementType>(props: UseBoxStylesProps<Elem
 		if (p) {
 			const padding = getResponsiveValue<ThemeSpacing>(p);
 			return theme.spacing[padding];
-		} else if (px || py) {
-			const plr = getResponsiveValue<Undefinable<ThemeSpacing>>(px);
-			const ptb = getResponsiveValue<Undefinable<ThemeSpacing>>(py);
-			return compact([ptb ? theme.spacing[ptb] : null, plr ? theme.spacing[plr] : null]).join(' ');
 		}
-	}, [p, px, py]);
+	}, [p]);
 
 	const paddingLeft = useMemo<Undefinable<string>>(() => {
-		if (pl) {
-			const paddingLeft = getResponsiveValue<ThemeSpacing>(pl);
+		if (pl || px) {
+			const paddingLeft = getResponsiveValue<ThemeSpacing>(pl || px || 0);
 			return theme.spacing[paddingLeft];
 		}
-	}, [pl]);
+	}, [pl, px]);
 	const paddingTop = useMemo<Undefinable<string>>(() => {
-		if (pt) {
-			const paddingTop = getResponsiveValue<ThemeSpacing>(pt);
+		if (pt || py) {
+			const paddingTop = getResponsiveValue<ThemeSpacing>(pt || py || 0);
 			return theme.spacing[paddingTop];
 		}
-	}, [pt]);
+	}, [pt, py]);
 	const paddingRight = useMemo<Undefinable<string>>(() => {
-		if (pr) {
-			const paddingRight = getResponsiveValue<ThemeSpacing>(pr);
+		if (pr || px) {
+			const paddingRight = getResponsiveValue<ThemeSpacing>(pr || px || 0);
 			return theme.spacing[paddingRight];
 		}
-	}, [pr]);
+	}, [pr, px]);
 	const paddingBottom = useMemo<Undefinable<string>>(() => {
-		if (pb) {
-			const paddingBottom = getResponsiveValue<ThemeSpacing>(pb);
+		if (pb || py) {
+			const paddingBottom = getResponsiveValue<ThemeSpacing>(pb || py || 0);
 			return theme.spacing[paddingBottom];
 		}
-	}, [pb]);
+	}, [pb, py]);
 
 	const margin = useMemo<Undefinable<string>>(() => {
 		if (m) {
