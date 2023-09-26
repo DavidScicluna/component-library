@@ -4,7 +4,7 @@ import memoize from 'micro-memoize';
 import { colors, durations, fontSizes } from '@common/data';
 import type { ThemeColor, ThemeDuration, ThemeFontSize } from '@common/types';
 
-type CheckColor = ThemeColor | number | string;
+type CheckColor = ThemeColor | string;
 type CheckColorType = 'theme' | 'other';
 
 /**
