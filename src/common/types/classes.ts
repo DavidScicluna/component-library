@@ -407,6 +407,22 @@ export type PointerEventsClass = 'auto' | 'none';
 export type PointerEventsClassArr = Array<PointerEventsClass>;
 export type PointerEventsClassObj = Record<PointerEventsClass, string>;
 
+export type ScrollBehaviorClass = 'auto' | 'smooth';
+export type ScrollBehaviorClassArr = Array<ScrollBehaviorClass>;
+export type ScrollBehaviorClassObj = Record<ScrollBehaviorClass, string>;
+
+export type ScrollSnapAlignClass = 'start' | 'end' | 'center' | 'align-none';
+export type ScrollSnapAlignClassArr = Array<ScrollSnapAlignClass>;
+export type ScrollSnapAlignClassObj = Record<ScrollSnapAlignClass, string>;
+
+export type ScrollSnapStopClass = 'normal' | 'always';
+export type ScrollSnapStopClassArr = Array<ScrollSnapStopClass>;
+export type ScrollSnapStopClassObj = Record<ScrollSnapStopClass, string>;
+
+export type ScrollSnapTypeClass = 'none' | 'x' | 'y' | 'both' | 'mandatory' | 'proximity';
+export type ScrollSnapTypeClassArr = Array<ScrollSnapTypeClass>;
+export type ScrollSnapTypeClassObj = Record<ScrollSnapTypeClass, string>;
+
 export type UserSelectClass = 'none' | 'text' | 'all' | 'auto';
 export type UserSelectClassArr = Array<UserSelectClass>;
 export type UserSelectClassObj = Record<UserSelectClass, string>;
