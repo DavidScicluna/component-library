@@ -434,7 +434,6 @@ export type WillChangeClassObj = Record<WillChangeClass, string>;
 /**
  * Layout
  */
-
 export type DisplayClass =
 	| 'container'
 	| 'outline'
@@ -631,6 +630,13 @@ export type ZIndexClass =
 	| 'auto';
 export type ZIndexClassArr = Array<ZIndexClass>;
 export type ZIndexClassObj = Record<ZIndexClass, string | number>;
+
+/**
+ * Scrollbar
+ */
+export type ScrollbarClass = 'default' | 'hide';
+export type ScrollbarClassArr = Array<ScrollbarClass>;
+export type ScrollbarClassObj = Record<ScrollbarClass, string>;
 
 /**
  * Sizing

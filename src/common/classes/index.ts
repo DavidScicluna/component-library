@@ -7,6 +7,7 @@ import flex from './flex';
 import grid from './grid';
 import interactivity from './interactivity';
 import layout from './layout';
+import scrollbar from './scrollbar';
 import sizing from './sizing';
 import spacing from './spacing';
 import svg from './svg';
@@ -22,6 +23,7 @@ export default {
 	filters,
 	grid,
 	interactivity,
+	scrollbar,
 	layout,
 	sizing,
 	spacing,
