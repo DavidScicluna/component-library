@@ -11,6 +11,7 @@ import scrollbar from './scrollbar';
 import sizing from './sizing';
 import spacing from './spacing';
 import svg from './svg';
+import transforms from './transforms';
 import transitions from './transitions';
 import typography from './typography';
 
@@ -28,6 +29,7 @@ export default {
 	sizing,
 	spacing,
 	svg,
+	transforms,
 	transitions,
 	typography
 };

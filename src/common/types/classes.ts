@@ -656,6 +656,34 @@ export type FillColorClassArr = Array<FillColorClass>;
 export type FillColorClassObj = Record<FillColorClass, string | number>;
 
 /**
+ * Transforms
+ */
+export type ScaleClass = 0 | 50 | 75 | 90 | 95 | 100 | 105 | 110 | 125 | 150;
+export type ScaleClassArr = Array<ScaleClass>;
+export type ScaleClassObj = Record<ScaleClass, string>;
+
+export type RotateClass = 0 | 1 | 2 | 3 | 6 | 12 | 45 | 90 | 180;
+export type RotateClassArr = Array<RotateClass>;
+export type RotateClassObj = Record<RotateClass, string>;
+
+export type TransformOriginClass =
+	| 'center'
+	| 'top'
+	| 'top-right'
+	| 'right'
+	| 'bottom-right'
+	| 'bottom'
+	| 'bottom-left'
+	| 'left'
+	| 'top-left';
+export type TransformOriginClassArr = Array<TransformOriginClass>;
+export type TransformOriginClassObj = Record<TransformOriginClass, string>;
+
+export type SkewClass = 0 | 1 | 2 | 3 | 6 | 12;
+export type SkewClassArr = Array<SkewClass>;
+export type SkewClassObj = Record<SkewClass, string>;
+
+/**
  * Transitions
  */
 
