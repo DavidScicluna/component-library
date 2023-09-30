@@ -4,5 +4,5 @@ import theme from './src/common/theme';
 module.exports = {
 	content: ['./src/**/*.{js,jsx,ts,tsx}'],
 	theme: { ...theme },
-	plugins: []
+	plugins: [require('tailwind-scrollbar-hide')]
 };
