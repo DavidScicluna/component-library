@@ -1674,9 +1674,9 @@ __metadata:
     prettier: 2.8.8
     prop-types: ^15.8.1
     react: ^18.2.0
+    react-cool-inview: ^3.0.1
     react-dom: ^18.2.0
     react-easy-crop: ^4.7.4
-    react-horizontal-scrolling-menu: ^4.1.0
     react-loader-spinner: ^5.3.4
     react-scroll: ^1.8.9
     rollup: 2.79.1
@@ -1687,6 +1687,7 @@ __metadata:
     rollup-plugin-terser: ^7.0.2
     rooks: ^7.14.1
     storybook: ^7.1.0
+    tailwind-scrollbar-hide: ^1.1.7
     tailwindcss: ^3.3.3
     tsconfig-paths-webpack-plugin: ^4.1.0
     tslib: ^2.6.0
@@ -6100,13 +6101,6 @@ __metadata:
     blueimp-canvas-to-blob: ^3.29.0
     is-blob: ^2.1.0
   checksum: 8b25fc29b7908216f7029e807623ae9c034fb0e77a72a752686bdd255bd3b1a5cc004b6651cf7ca948c1f86f3151ac3fc00800119d17f8a248d2f0a54570c8b8
-  languageName: node
-  linkType: hard
-
-"compute-scroll-into-view@npm:^1.0.20":
-  version: 1.0.20
-  resolution: "compute-scroll-into-view@npm:1.0.20"
-  checksum: f15fab29221953620735393ac1866541aab0d27d28078bedbba071a291ee9c8cc1a72bee302cf0bc06ed83c5e55afb74ebcbd634a63671ba33cf1fb1c51d3308
   languageName: node
   linkType: hard
 
@@ -12563,6 +12557,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-cool-inview@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "react-cool-inview@npm:3.0.1"
+  peerDependencies:
+    react: ">= 16.8.0"
+  checksum: 10fd6a288c7320e8abc33a17776a650d98fce4bf523d3745303388b78a01342da76876b5e7debd7c1eef44f00ab7b450af9eaf55881f37576b952ab49c3a6eb3
+  languageName: node
+  linkType: hard
+
 "react-docgen-typescript@npm:^2.2.2":
   version: 2.2.2
   resolution: "react-docgen-typescript@npm:2.2.2"
@@ -12628,17 +12631,6 @@ __metadata:
     react: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
     react-dom: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
   checksum: c3907cc4c1d3e9ecc8ca7727058ebcba6ec89848d9e07bfd2c77ee8f28f1ad99bf55e38359dec8a1125de83d41ac09a2874f53c41415edc86ffa9840fa1b7856
-  languageName: node
-  linkType: hard
-
-"react-horizontal-scrolling-menu@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "react-horizontal-scrolling-menu@npm:4.1.0"
-  dependencies:
-    smooth-scroll-into-view-if-needed: ~1.1
-  peerDependencies:
-    react: ">=16.8"
-  checksum: 6e11d9b6e77fae93e12f848007728d8ae8964950b49607545212165bddb6a2d75a88986d561d608cba49cc24a7f149932f871a16abc502c4b2c485bf2bd3f2fa
   languageName: node
   linkType: hard
 
@@ -13394,15 +13386,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"scroll-into-view-if-needed@npm:^2.2.28":
-  version: 2.2.31
-  resolution: "scroll-into-view-if-needed@npm:2.2.31"
-  dependencies:
-    compute-scroll-into-view: ^1.0.20
-  checksum: 93b28f3723a462245b40d4120c40c542c8449473e2b157a5f8e18f04d95d66cd35249d96c625e8a440a56891f7d8905b1d026c690bdda07fcfb4f1a48d643ad1
-  languageName: node
-  linkType: hard
-
 "semver@npm:2 || 3 || 4 || 5, semver@npm:^5.5.0, semver@npm:^5.6.0":
   version: 5.7.2
   resolution: "semver@npm:5.7.2"
@@ -13630,15 +13613,6 @@ __metadata:
   version: 4.2.0
   resolution: "smart-buffer@npm:4.2.0"
   checksum: b5167a7142c1da704c0e3af85c402002b597081dd9575031a90b4f229ca5678e9a36e8a374f1814c8156a725d17008ae3bde63b92f9cfd132526379e580bec8b
-  languageName: node
-  linkType: hard
-
-"smooth-scroll-into-view-if-needed@npm:~1.1":
-  version: 1.1.33
-  resolution: "smooth-scroll-into-view-if-needed@npm:1.1.33"
-  dependencies:
-    scroll-into-view-if-needed: ^2.2.28
-  checksum: feb4c58fd18a5372121beb9d6b6711092fe8766fce5622f454036066e9f14735cc45dddc1d0f09a9437fdc186083c095c569066671db0f1365adbff02da0cd43
   languageName: node
   linkType: hard
 
@@ -14154,6 +14128,13 @@ __metadata:
     slice-ansi: ^2.1.0
     string-width: ^3.0.0
   checksum: 9e35d3efa788edc17237eef8852f8e4b9178efd65a7d115141777b2ee77df4b7796c05f4ed3712d858f98894ac5935a481ceeb6dcb9895e2f67a61cce0e63b6c
+  languageName: node
+  linkType: hard
+
+"tailwind-scrollbar-hide@npm:^1.1.7":
+  version: 1.1.7
+  resolution: "tailwind-scrollbar-hide@npm:1.1.7"
+  checksum: 2434a1db7a92fa91952ce4fbef7f80b83f121fa2fae27453cefc6030c06d368768e3172d3640ae6836fe4f813ed89b40c2f44b1f17756593ab4625259ef22a75
   languageName: node
   linkType: hard
 
