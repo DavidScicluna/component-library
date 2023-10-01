@@ -1,0 +1,1 @@
+export const __DEFAULT_CAROUSEL_LINEAR_GRADIENT_IS_VISIBLE__ = false;
