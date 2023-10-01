@@ -9,6 +9,7 @@ import type { ClassName } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import { __DEFAULT_TABS_TAB_LINE_HEIGHT_SIZE__ } from '@components/Navigation/components/Tabs/common/constants';
+import { useTabsContext } from '@components/Navigation/components/Tabs/common/hooks';
 
 import {
 	__DEFAULT_TAB_IS_ACTIVE__,
@@ -30,6 +31,7 @@ const useTabClasses = <Element extends TabElement = TabDefaultElement>(
 	props: UseTabClassesProps<Element>
 ): UseTabClassesReturn => {
 	const { colorMode: __DEFAULT_TAB_COLORMODE__ } = useAppTheme();
+	const { orientation } = useTabsContext();
 
 	const {
 		color = __DEFAULT_COLOR__,
@@ -51,6 +53,7 @@ const useTabClasses = <Element extends TabElement = TabDefaultElement>(
 		const outlineHue = getColorHue({ colorMode, type: 'color' });
 
 		return classNames(
+			classes.sizing.min_width.max,
 			classes.interactivity.cursor[isActive || isDisabled ? 'default' : 'pointer'],
 			classes.interactivity.pointer_events[isActive || isDisabled ? 'none' : 'auto'],
 			classes.interactivity.user_select.none,
@@ -81,16 +84,14 @@ const useTabClasses = <Element extends TabElement = TabDefaultElement>(
 
 	return {
 		tab: classNames(tabClasses),
-		topDivider: classNames(
-			classes.backgrounds.background_color.transparent,
-			classes.borders.border_radius_bl.full,
-			classes.borders.border_radius_br.full
-		),
-		bottomDivider: classNames(
-			dividerColorClassname,
-			classes.borders.border_radius_tl.full,
-			classes.borders.border_radius_tr.full
-		),
+		topDivider: classNames(classes.borders.border_radius_bl.full, classes.borders.border_radius_br.full, {
+			[dividerColorClassname]: orientation === 'top',
+			[classes.backgrounds.background_color.transparent]: orientation === 'bottom'
+		}),
+		bottomDivider: classNames(classes.borders.border_radius_tl.full, classes.borders.border_radius_tr.full, {
+			[dividerColorClassname]: orientation === 'bottom',
+			[classes.backgrounds.background_color.transparent]: orientation === 'top'
+		}),
 		label: classNames(
 			textColorClassname,
 			classes.typography.align.center,

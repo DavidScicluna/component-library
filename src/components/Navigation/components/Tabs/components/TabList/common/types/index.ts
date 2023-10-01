@@ -1,7 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box/common/types';
-import type { HorizontalScrollAPIContext } from '@components/DataDisplay';
 import type { TabsProps } from '@components/Navigation/components/Tabs';
 
 export type TabListRenderProps<Element extends ElementType> = Pick<TabsProps<Element>, 'color' | 'colorMode'> & {
@@ -20,5 +19,3 @@ export type TabListProps<Element extends ElementType> = Omit<
 >;
 
 export type TabListRef<Element extends ElementType> = BoxRef<Element>;
-
-export type TabListContext = { scroll?: HorizontalScrollAPIContext };

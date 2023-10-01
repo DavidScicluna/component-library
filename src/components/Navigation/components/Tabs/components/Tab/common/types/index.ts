@@ -22,6 +22,7 @@ export type TabRenderProps<Element extends TabElement = TabDefaultElement> = Pic
 
 type TabOtherProps<Element extends TabElement = TabDefaultElement> = ThemeAppAppearanceProps & {
 	renderTop?: (props: TabRenderProps<Element>) => ReactNode;
+	renderBottom?: (props: TabRenderProps<Element>) => ReactNode;
 	renderLeft?: (props: TabRenderProps<Element>) => ReactNode;
 	renderRight?: (props: TabRenderProps<Element>) => ReactNode;
 	index: number;

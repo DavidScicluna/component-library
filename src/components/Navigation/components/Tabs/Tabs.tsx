@@ -51,7 +51,7 @@ const Tabs = forwardRef(function Tabs<Element extends ElementType>(
 		color,
 		colorMode,
 		align: a = __DEFAULT_TABS_ALIGN__,
-		id: i = __DEFAULT_TABS_ID__,
+		id = __DEFAULT_TABS_ID__,
 		index: ind = __DEFAULT_TABS_INDEX__,
 		isDisabled: disabled = __DEFAULT_TABS_IS_DISABLED__,
 		isFitted: fitted = __DEFAULT_TABS_IS_FITTED__,
@@ -64,7 +64,6 @@ const Tabs = forwardRef(function Tabs<Element extends ElementType>(
 
 	const align = useGetResponsiveValue<TabsAlign>(a);
 
-	const id = useGetResponsiveValue<string>(i);
 	const index = useGetResponsiveValue<number>(ind);
 
 	const isDisabled = useGetResponsiveValue<boolean>(disabled);

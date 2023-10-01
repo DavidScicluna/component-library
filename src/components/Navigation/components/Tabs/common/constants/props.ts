@@ -10,6 +10,6 @@ export const __DEFAULT_TABS_INDEX__ = 0;
 export const __DEFAULT_TABS_IS_DISABLED__ = false;
 export const __DEFAULT_TABS_IS_FITTED__ = false;
 
-export const __DEFAULT_TABS_ORIENTATION__: TabsOrientation = 'horizontal';
+export const __DEFAULT_TABS_ORIENTATION__: TabsOrientation = 'bottom';
 
 export const __DEFAULT_TABS_SIZE__: TabsSize = 'md';

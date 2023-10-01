@@ -11,7 +11,7 @@ import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 
 import { Pop } from '@components/Animation';
 import { Box } from '@components/Box';
-import { useGetHorizontalScrollAPIContext } from '@components/DataDisplay';
+import { useCarouselManager } from '@components/DataDisplay';
 import { Center, Grid, GridItem } from '@components/Layout';
 import { HoverOverlay } from '@components/Overlay/components/HoverOverlay';
 
@@ -40,10 +40,10 @@ const Tab = forwardRef(function Tab<Element extends TabElement = TabDefaultEleme
 		index: panel,
 		isDisabled: isTabsDisabled,
 		isFitted,
+		orientation,
 		onChange,
 		spacing: __DEFAULT_TAB_SPACING__
 	} = useTabsContext();
-	const scroll = useGetHorizontalScrollAPIContext();
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
@@ -53,6 +53,7 @@ const Tab = forwardRef(function Tab<Element extends TabElement = TabDefaultEleme
 		renderLeft,
 		renderRight,
 		renderTop,
+		renderBottom,
 		color = __DEFAULT_TAB_COLOR__,
 		colorMode = __DEFAULT_TAB_COLORMODE__,
 		index,
@@ -64,6 +65,8 @@ const Tab = forwardRef(function Tab<Element extends TabElement = TabDefaultEleme
 		spacing = __DEFAULT_TAB_SPACING__,
 		...rest
 	} = props;
+
+	const { getItemByIndex, scrollToItem } = useCarouselManager();
 
 	const [isFocused, setIsFocused] = useBoolean();
 
@@ -90,12 +93,9 @@ const Tab = forwardRef(function Tab<Element extends TabElement = TabDefaultEleme
 	const { focusProps } = useFocus({ onFocus: () => setIsFocused.on(), onBlur: () => setIsFocused.off() });
 
 	const handleScrollToTab = (index: number): void => {
-		if (scroll) {
-			const scrollElement = scroll.getItemByIndex(index);
-
-			if (scrollElement) {
-				scroll.scrollToItem?.(scrollElement, 'smooth', 'center', 'nearest');
-			}
+		const item = getItemByIndex(index);
+		if (item) {
+			scrollToItem(item, 'center', 'center');
 		}
 	};
 
@@ -141,10 +141,17 @@ const Tab = forwardRef(function Tab<Element extends TabElement = TabDefaultEleme
 					justifyContent={isFitted ? 'center' : 'space-between'}
 					onClick={handleClick}
 					spacing={spacing}
-					px={spacing}
 				>
 					<GridItem>
-						<Box className={classNames(classes.topDivider)} w='100%' h='100%' />
+						<Pop
+							w='100%'
+							h='100%'
+							in={orientation === 'top' ? (isActive || isSelected || isHovering) && !isDisabled : true}
+							unmountOnExit={false}
+							initialScale={0.75}
+						>
+							<Box className={classNames(classes.topDivider)} w='100%' h='100%' />
+						</Pop>
 					</GridItem>
 
 					<GridItem>
@@ -152,12 +159,10 @@ const Tab = forwardRef(function Tab<Element extends TabElement = TabDefaultEleme
 							className={classes.label}
 							w='100%'
 							h='100%'
-							templateColumns={compact([
-								renderLeft ? 'auto' : null,
-								'auto',
-								renderRight ? 'auto' : null
-							]).join(' ')}
-							templateRows={compact([renderTop ? '1fr' : null, '1fr']).join(' ')}
+							templateColumns={1}
+							templateRows={compact([renderTop ? '1fr' : null, '1fr', renderBottom ? '1fr' : null]).join(
+								' '
+							)}
 							alignItems='stretch'
 							alignContent='stretch'
 							justifyItems='stretch'
@@ -166,23 +171,53 @@ const Tab = forwardRef(function Tab<Element extends TabElement = TabDefaultEleme
 							px={config.padding.x}
 							py={config.padding.y}
 						>
-							{renderLeft ? (
+							{renderTop ? (
 								<GridItem alignSelf='center' justifySelf='center'>
-									{renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight })}
+									{renderTop({ color, colorMode, w: childrenWidth, h: childrenHeight })}
 								</GridItem>
 							) : null}
 
-							{children ? (
-								<GridItem>
-									<Center ref={childrenRef} as='span' w='100%' h='100%'>
-										{children}
-									</Center>
-								</GridItem>
-							) : null}
+							<GridItem>
+								<Grid
+									w='100%'
+									h='100%'
+									templateColumns={compact([
+										renderLeft ? 'auto' : null,
+										'auto',
+										renderRight ? 'auto' : null
+									]).join(' ')}
+									templateRows={1}
+									alignItems='stretch'
+									alignContent='stretch'
+									justifyItems='stretch'
+									justifyContent='stretch'
+									spacing={spacing}
+								>
+									{renderLeft ? (
+										<GridItem alignSelf='center' justifySelf='center'>
+											{renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight })}
+										</GridItem>
+									) : null}
 
-							{renderRight ? (
+									{children ? (
+										<GridItem>
+											<Center ref={childrenRef} as='span' w='100%' h='100%'>
+												{children}
+											</Center>
+										</GridItem>
+									) : null}
+
+									{renderRight ? (
+										<GridItem alignSelf='center' justifySelf='center'>
+											{renderRight({ color, colorMode, w: childrenWidth, h: childrenHeight })}
+										</GridItem>
+									) : null}
+								</Grid>
+							</GridItem>
+
+							{renderBottom ? (
 								<GridItem alignSelf='center' justifySelf='center'>
-									{renderRight({ color, colorMode, w: childrenWidth, h: childrenHeight })}
+									{renderBottom({ color, colorMode, w: childrenWidth, h: childrenHeight })}
 								</GridItem>
 							) : null}
 						</Grid>
@@ -192,7 +227,7 @@ const Tab = forwardRef(function Tab<Element extends TabElement = TabDefaultEleme
 						<Pop
 							w='100%'
 							h='100%'
-							in={(isActive || isSelected || isHovering) && !isDisabled}
+							in={orientation === 'bottom' ? (isActive || isSelected || isHovering) && !isDisabled : true}
 							unmountOnExit={false}
 							initialScale={0.75}
 						>

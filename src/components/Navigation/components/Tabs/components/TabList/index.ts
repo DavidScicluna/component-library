@@ -1,5 +1,5 @@
 import * as commonKeys from './common/keys';
-import type { TabListContext, TabListProps, TabListRef, TabListRenderProps } from './common/types';
+import type { TabListProps, TabListRef, TabListRenderProps } from './common/types';
 import TabList from './TabList';
 
 // Keys
@@ -9,4 +9,4 @@ export const keys = { ...commonKeys };
 export { TabList };
 
 // Component Types
-export type { TabListContext, TabListProps, TabListRef, TabListRenderProps };
+export type { TabListProps, TabListRef, TabListRenderProps };

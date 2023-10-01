@@ -13,10 +13,15 @@ import { Text } from '@components/Typography';
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
-import { __DEFAULT_TABS_IS_DISABLED__, __DEFAULT_TABS_IS_FITTED__, __DEFAULT_TABS_SIZE__ } from './common/constants';
-import type { TabsAlign, TabsProps, TabsSize } from './common/types';
+import {
+	__DEFAULT_TABS_IS_DISABLED__,
+	__DEFAULT_TABS_IS_FITTED__,
+	__DEFAULT_TABS_ORIENTATION__,
+	__DEFAULT_TABS_SIZE__
+} from './common/constants';
+import type { TabsAlign, TabsOrientation, TabsProps, TabsSize } from './common/types';
 import type { TabsStory, TabsStoryMeta } from './common/types/story';
-import { Tab, TabList, TabPanels, Tabs as TabsComponent } from '.';
+import { Tab, TabIcon, TabList, TabPanels, Tabs as TabsComponent } from '.';
 
 const __DEFAULT_TABS_STORY_COLOR__: ThemeAppColor = sample(colors) || 'blue';
 const __DEFAULT_TABS_STORY_TABS__ = range(10);
@@ -47,7 +52,14 @@ export default {
 			// description: '',
 			control: { type: 'boolean' }
 		},
-		// orientation
+		orientation: {
+			name: 'Size',
+			type: 'string',
+			defaultValue: __DEFAULT_TABS_ORIENTATION__,
+			// description: '',
+			options: ['top', 'bottom', 'left', 'right'] as Array<TabsOrientation>,
+			control: { type: 'radio' }
+		},
 		size: {
 			name: 'Size',
 			type: 'string',
@@ -84,7 +96,15 @@ export const Tabs: TabsStory = (props: TabsProps<PolymorphicDefaultElement>): Re
 		>
 			<TabList>
 				{__DEFAULT_TABS_STORY_TABS__.map((tab, index) => (
-					<Tab key={tab} color={!color ? __DEFAULT_TABS_STORY_COLOR__ : color} index={index}>
+					<Tab
+						key={tab}
+						color={!color ? __DEFAULT_TABS_STORY_COLOR__ : color}
+						index={index}
+						renderTop={
+							props.orientation === 'top' ? () => <TabIcon icon='12mp' category='filled' /> : undefined
+						}
+						spacing={0}
+					>
 						{`Tab ${index + 1}`}
 					</Tab>
 				))}

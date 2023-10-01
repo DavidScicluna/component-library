@@ -6,7 +6,7 @@ import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
 export type TabsAlign = 'start' | 'center' | 'end';
 
-export type TabsOrientation = 'vertical' | 'horizontal';
+export type TabsOrientation = 'top' | 'bottom' | 'left' | 'right';
 
 export type TabsSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
