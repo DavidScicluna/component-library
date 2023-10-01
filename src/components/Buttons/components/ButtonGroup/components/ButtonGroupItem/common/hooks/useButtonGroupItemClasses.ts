@@ -19,7 +19,7 @@ type UseButtonGroupItemClassesReturn = ClassName;
 const useButtonGroupItemClasses = <Element extends ElementType>(
 	props: UseButtonGroupItemClassesProps<Element>
 ): UseButtonGroupItemClassesReturn => {
-	const { isAttached, isCompact, isRound, size, variant } = useButtonGroupContext();
+	const { isAttached, isCompact, isFullWidth, isRound, size, variant } = useButtonGroupContext();
 
 	const { index, total } = props;
 
@@ -28,7 +28,7 @@ const useButtonGroupItemClasses = <Element extends ElementType>(
 	const isFirst = index === 0;
 	const isLast = index === total - 1;
 
-	return classNames({
+	return classNames(classes.sizing.width[isFullWidth ? 'full' : 'auto'], {
 		[classes.borders.border_radius_tl[radius]]: isAttached && isFirst,
 		[classes.borders.border_radius_tl.before.inherit]: isAttached && isFirst,
 		[classes.borders.border_radius_bl[radius]]: isAttached && isFirst,

@@ -4,6 +4,7 @@ import { createContext, forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { useGetResponsiveValue } from '@common/hooks';
 
 import { HStack } from '@components/Layout';
 
@@ -25,7 +26,7 @@ const ButtonGroup = forwardRef(function ButtonGroup<Element extends ElementType>
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		isAttached = __DEFAULT_BUTTON_GROUP_IS_ATTACHED__,
+		isAttached: a = __DEFAULT_BUTTON_GROUP_IS_ATTACHED__,
 		isCompact,
 		isDisabled,
 		isFullWidth,
@@ -35,6 +36,8 @@ const ButtonGroup = forwardRef(function ButtonGroup<Element extends ElementType>
 		variant,
 		...rest
 	} = props;
+
+	const isAttached = useGetResponsiveValue<boolean>(a);
 
 	return (
 		<ButtonGroupContext.Provider
