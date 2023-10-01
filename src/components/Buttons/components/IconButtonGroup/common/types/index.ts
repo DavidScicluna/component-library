@@ -1,5 +1,7 @@
 import type { ElementType } from 'react';
 
+import type { ResponsiveValue } from '@common/types';
+
 import type { IconButtonProps } from '@components/Buttons/components/IconButton';
 import type { HStackProps, HStackRef } from '@components/Layout';
 
@@ -11,7 +13,7 @@ type IconButtonGroupOtherProps = Pick<IconButtonProps, PickedIconButtonProps> & 
 	 *
 	 * @default false
 	 */
-	isAttached?: boolean;
+	isAttached?: ResponsiveValue<boolean>;
 };
 
 export type IconButtonGroupProps<Element extends ElementType> = HStackProps<Element> & IconButtonGroupOtherProps;

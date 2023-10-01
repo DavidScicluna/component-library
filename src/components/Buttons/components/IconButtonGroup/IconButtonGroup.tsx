@@ -4,6 +4,7 @@ import { createContext, forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { useGetResponsiveValue } from '@common/hooks';
 
 import { HStack } from '@components/Layout';
 
@@ -29,7 +30,7 @@ const IconButtonGroup = forwardRef(function IconButtonGroup<Element extends Elem
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		isAttached = __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__,
+		isAttached: a = __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__,
 		isCompact,
 		isDisabled,
 		isRound,
@@ -38,6 +39,8 @@ const IconButtonGroup = forwardRef(function IconButtonGroup<Element extends Elem
 		variant,
 		...rest
 	} = props;
+
+	const isAttached = useGetResponsiveValue<boolean>(a);
 
 	return (
 		<IconButtonGroupContext.Provider

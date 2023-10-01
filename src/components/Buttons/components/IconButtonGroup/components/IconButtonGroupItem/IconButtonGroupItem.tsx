@@ -17,7 +17,7 @@ const IconButtonGroupItem = forwardRef(function IconButtonGroupItem<Element exte
 ): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, index, total, ...rest } = props;
 
-	const classes = useIconButtonGroupItemClasses({ index, total });
+	const classes = useIconButtonGroupItemClasses<Element>({ index, total });
 
 	return (
 		<Box<Element>
