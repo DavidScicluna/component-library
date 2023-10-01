@@ -1,53 +1,45 @@
-import { useEffect } from 'react';
+import { useMemo } from 'react';
 
-import { debounce } from 'lodash-es';
-
-import { useBoolean } from '@common/hooks';
 import type { PickFrom } from '@common/types';
 
 import type { CarouselVariant } from '../types';
 
+import useCarouselContext from './useCarouselContext';
 import useCarouselManager from './useCarouselManager';
 
 type UseCarouselArrowStateReturn = Record<'isDisabled' | 'isVisible', boolean>;
 
 const useCarouselArrowState = (direction: PickFrom<CarouselVariant, 'left' | 'right'>): UseCarouselArrowStateReturn => {
-	const { isFirstItemVisible = false, isLastItemVisible = false, visibleItems = [] } = useCarouselManager();
+	const { visibleItems } = useCarouselContext();
+	const { isFirstItemVisible, isLastItemVisible } = useCarouselManager();
 
-	const [isDisabled, setIsDisabled] = useBoolean();
-
-	const [isVisible, setIsVisible] = useBoolean();
-
-	const handleCheckStatus = debounce((): void => {
-		switch (direction) {
-			case 'left': {
-				if (visibleItems.length > 0) {
-					if (isFirstItemVisible) {
-						setIsDisabled.on();
-						setIsVisible.off();
-					} else {
-						setIsDisabled.off();
-						setIsVisible.on();
-					}
-				}
-				break;
-			}
-			case 'right': {
-				if (visibleItems.length > 0) {
-					if (isLastItemVisible) {
-						setIsDisabled.on();
-						setIsVisible.off();
-					} else {
-						setIsDisabled.off();
-						setIsVisible.on();
-					}
-				}
-				break;
+	const isDisabled = useMemo<boolean>(() => {
+		if (visibleItems.length > 0) {
+			switch (direction) {
+				case 'left':
+					return isFirstItemVisible();
+				case 'right':
+					return isLastItemVisible();
+				default:
+					return true;
 			}
 		}
-	}, 250);
+		return true;
+	}, [direction, visibleItems]);
 
-	useEffect(() => handleCheckStatus(), [isFirstItemVisible, isLastItemVisible, visibleItems]);
+	const isVisible = useMemo<boolean>(() => {
+		if (visibleItems.length > 0) {
+			switch (direction) {
+				case 'left':
+					return !isFirstItemVisible();
+				case 'right':
+					return !isLastItemVisible();
+				default:
+					return false;
+			}
+		}
+		return false;
+	}, [direction, visibleItems]);
 
 	return { isDisabled, isVisible };
 };

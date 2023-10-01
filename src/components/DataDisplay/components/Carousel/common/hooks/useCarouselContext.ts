@@ -11,7 +11,8 @@ import {
 	__DEFAULT_CAROUSEL_ITEMS__,
 	__DEFAULT_CAROUSEL_ORIENTTATION__,
 	__DEFAULT_CAROUSEL_SCROLL_AMOUNT__,
-	__DEFAULT_CAROUSEL_VARIANT__
+	__DEFAULT_CAROUSEL_VARIANT__,
+	__DEFAULT_CAROUSEL_VISIBLE_ITEMS__
 } from '../constants';
 import type {
 	CarouselContext as CarouselContextType,
@@ -26,6 +27,7 @@ const useCarouselContext = <Element extends ElementType>() => {
 		colorMode,
 		id = __DEFAULT_CAROUSEL_ID__,
 		items = __DEFAULT_CAROUSEL_ITEMS__,
+		visibleItems = __DEFAULT_CAROUSEL_VISIBLE_ITEMS__,
 		scrollAmount: sa = __DEFAULT_CAROUSEL_SCROLL_AMOUNT__,
 		spacing: s = __DEFAULT_SPACING__,
 		orientation: o = __DEFAULT_CAROUSEL_ORIENTTATION__,
@@ -37,7 +39,7 @@ const useCarouselContext = <Element extends ElementType>() => {
 	const orientation = useGetResponsiveValue<CarouselOrientation>(o);
 	const variant = useGetResponsiveValue<CarouselVariant>(v);
 
-	return { color, colorMode, id, items, scrollAmount, spacing, orientation, variant };
+	return { color, colorMode, id, items, visibleItems, scrollAmount, spacing, orientation, variant };
 };
 
 export default useCarouselContext;

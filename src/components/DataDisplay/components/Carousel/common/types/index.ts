@@ -7,10 +7,12 @@ import type { BoxProps, BoxRef } from '@components/Box';
 export type CarouselItem = {
 	key: string;
 	index: number;
-	isVisible: boolean;
 	child: ReactNode;
 };
 export type CarouselItems = Array<CarouselItem>;
+
+export type CarouselVisibleItem = Record<CarouselItem['key'], boolean>;
+export type CarouselVisibleItems = Array<CarouselVisibleItem>;
 
 export type CarouselArrowDirection = 'left' | 'right';
 
@@ -42,4 +44,4 @@ export type CarouselRef<Element extends ElementType> = BoxRef<Element>;
 export type CarouselContext<Element extends ElementType> = Pick<
 	CarouselProps<Element>,
 	'color' | 'colorMode' | 'id' | 'scrollAmount' | 'spacing' | 'orientation' | 'variant'
-> & { items: CarouselItems };
+> & { items: CarouselItems; visibleItems: CarouselVisibleItems };

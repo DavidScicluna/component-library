@@ -24,7 +24,7 @@ import type {
 const CarouselOverlayArrowButton = forwardRef(function CarouselOverlayArrowButton<
 	Element extends CarouselOverlayArrowButtonElement = CarouselOverlayArrowButtonDefaultElement
 >(props: CarouselOverlayArrowButtonProps<Element>, ref: CarouselOverlayArrowButtonRef<Element>): ReactElement {
-	const { colorMode, orientation, spacing } = useCarouselContext();
+	const { colorMode, spacing, orientation } = useCarouselContext();
 
 	const {
 		className = __DEFAULT_CLASSNAME__,

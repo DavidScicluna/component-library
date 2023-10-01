@@ -14,10 +14,12 @@ import { useCarouselContext } from '../../common/hooks';
 import type { CarouselArrowDirection } from '../../common/types';
 
 import {
+	__DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_BOTTOM_LABEL__,
 	__DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_HAS_TOOLTIP__,
 	__DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_LEFT_LABEL__,
 	__DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_PLACEMENT__,
-	__DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_RIGHT_LABEL__
+	__DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_RIGHT_LABEL__,
+	__DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_TOP_LABEL__
 } from './common/constants';
 import { __KEYS_CAROUSEL_ARROW_ICON_BUTTON_CLASS__ } from './common/keys';
 import type {
@@ -30,8 +32,11 @@ import type {
 const CarouselArrowIconButton = forwardRef(function CarouselArrowIconButton<
 	Element extends CarouselArrowIconButtonElement = CarouselArrowIconButtonDefaultElement
 >(props: CarouselArrowIconButtonProps<Element>, ref: CarouselArrowIconButtonRef<Element>): ReactElement {
-	const { color: __DEFAULT_ARROW_ICON_BUTTON_COLOR__, colorMode: __DEFAULT_ARROW_ICON_BUTTON_COLORMODE__ } =
-		useCarouselContext();
+	const {
+		color: __DEFAULT_ARROW_ICON_BUTTON_COLOR__,
+		colorMode: __DEFAULT_ARROW_ICON_BUTTON_COLORMODE__,
+		orientation
+	} = useCarouselContext();
 
 	const {
 		className = __DEFAULT_CLASSNAME__,
@@ -47,13 +52,17 @@ const CarouselArrowIconButton = forwardRef(function CarouselArrowIconButton<
 	const direction = useGetResponsiveValue<CarouselArrowDirection>(d);
 	const hasTooltip = useGetResponsiveValue<boolean>(t);
 
-	const label = useMemo(
-		() =>
-			l || direction === 'left'
+	const label = useMemo<string>(() => {
+		return l
+			? l
+			: orientation === 'horizontal'
+			? direction === 'left'
 				? __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_LEFT_LABEL__
-				: __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_RIGHT_LABEL__,
-		[l]
-	);
+				: __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_RIGHT_LABEL__
+			: direction === 'left'
+			? __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_TOP_LABEL__
+			: __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_BOTTOM_LABEL__;
+	}, [direction, l, orientation]);
 
 	return (
 		<HoverOverlay>
@@ -75,7 +84,15 @@ const CarouselArrowIconButton = forwardRef(function CarouselArrowIconButton<
 						colorMode={colorMode}
 					>
 						<IconButtonIcon
-							icon={direction === 'left' ? 'chevron_left' : 'chevron_right'}
+							icon={
+								orientation === 'horizontal'
+									? direction === 'left'
+										? 'chevron_left'
+										: 'chevron_right'
+									: direction === 'left'
+									? 'expand_less'
+									: 'expand_more'
+							}
 							category='filled'
 						/>
 					</IconButton>

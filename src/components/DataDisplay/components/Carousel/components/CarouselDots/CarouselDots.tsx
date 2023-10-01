@@ -1,9 +1,9 @@
 import type { ElementType, ReactElement } from 'react';
-import { forwardRef, useState } from 'react';
+import { forwardRef, useEffect } from 'react';
 
 import classNames from 'classnames';
 import { compact, debounce } from 'lodash-es';
-import { useUpdateEffect } from 'usehooks-ts';
+import { useArrayState } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useDebounce, useGetResponsiveValue } from '@common/hooks';
@@ -11,11 +11,17 @@ import type { ThemeSpacing } from '@common/types';
 
 import { Stack } from '@components/Layout';
 
+import { __DEFAULT_CAROUSEL_DURATION_NUMBER__, __DEFAULT_CAROUSEL_DURATION_THEME__ } from '../../common/constants';
 import { useCarouselContext, useCarouselManager } from '../../common/hooks';
 
-import { __DEFAULT_CAROUSEL_DOTS_SIZE__ } from './common/constants';
+import { __DEFAULT_CAROUSEL_DOTS__, __DEFAULT_CAROUSEL_DOTS_SIZE__ } from './common/constants';
 import { __KEYS_CAROUSEL_DOTS_CLASS__ } from './common/keys';
-import type { CarouselDots as CarouselDotsType, CarouselDotsProps, CarouselDotsRef } from './common/types';
+import type {
+	CarouselDot as CarouselDotType,
+	CarouselDots as CarouselDotsType,
+	CarouselDotsProps,
+	CarouselDotsRef
+} from './common/types';
 import { CarouselDot } from './components';
 
 const CarouselDots = forwardRef(function CarouselDots<Element extends ElementType>(
@@ -29,7 +35,7 @@ const CarouselDots = forwardRef(function CarouselDots<Element extends ElementTyp
 		orientation,
 		spacing: __DEFAULT_CAROUSEL_DOTS_SPACING__
 	} = useCarouselContext();
-	const { isItemVisible, getPrevItem, getNextItem, visibleItems } = useCarouselManager();
+	const { isItemVisible, getPrevItem, getNextItem } = useCarouselManager();
 
 	const {
 		className = __DEFAULT_CLASSNAME__,
@@ -40,8 +46,8 @@ const CarouselDots = forwardRef(function CarouselDots<Element extends ElementTyp
 		...rest
 	} = props;
 
-	const [dots, setDots] = useState<CarouselDotsType>([]);
-	const dotsDebounced = useDebounce<CarouselDotsType>(dots, 'ultra-fast');
+	const [dots, setDots] = useArrayState<CarouselDotType>(__DEFAULT_CAROUSEL_DOTS__);
+	const dotsDebounced = useDebounce<CarouselDotsType>(dots, __DEFAULT_CAROUSEL_DURATION_THEME__);
 
 	const size = useGetResponsiveValue<ThemeSpacing>(si);
 	const spacing = useGetResponsiveValue<ThemeSpacing>(sp);
@@ -50,7 +56,8 @@ const CarouselDots = forwardRef(function CarouselDots<Element extends ElementTyp
 		const prevItem = getPrevItem();
 		const nextItem = getNextItem();
 
-		setDots(
+		setDots.clear();
+		setDots.setArray(
 			compact(
 				items.map((item) => {
 					const { key, index } = item;
@@ -71,9 +78,9 @@ const CarouselDots = forwardRef(function CarouselDots<Element extends ElementTyp
 				})
 			)
 		);
-	}, 250);
+	}, __DEFAULT_CAROUSEL_DURATION_NUMBER__);
 
-	useUpdateEffect(() => handleDots(), [visibleItems]);
+	useEffect(() => handleDots(), [items]);
 
 	return (
 		<Stack<Element>

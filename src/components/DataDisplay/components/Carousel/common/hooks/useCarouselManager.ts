@@ -1,10 +1,6 @@
-import { useCallback, useMemo, useState } from 'react';
-
+import { sort } from 'fast-sort';
 import { round } from 'lodash-es';
-import memoize from 'micro-memoize';
-import { useUpdateEffect } from 'usehooks-ts';
 
-import { useDebounce } from '@common/hooks';
 import type { Undefinable } from '@common/types';
 
 import { __DEFAULT_CAROUSEL_ITEMS__ } from '../constants';
@@ -12,11 +8,7 @@ import type { CarouselItem, CarouselItems } from '../types';
 
 import useCarouselContext from './useCarouselContext';
 
-const getVisibleItems = memoize((items: CarouselItems = __DEFAULT_CAROUSEL_ITEMS__) => {
-	return items.filter(({ isVisible }) => isVisible);
-});
-
-const getPrevItemIndex = memoize((index: number = 0): number => {
+const getPrevItemIndex = (index: number = 0): number => {
 	if (index < 0) {
 		let positive = index;
 
@@ -27,144 +19,116 @@ const getPrevItemIndex = memoize((index: number = 0): number => {
 		return positive;
 	}
 	return index;
-});
-const getNextItemIndex = memoize((items: CarouselItems = __DEFAULT_CAROUSEL_ITEMS__, index: number = 0): number => {
+};
+const getNextItemIndex = (items: CarouselItems = __DEFAULT_CAROUSEL_ITEMS__, index: number = 0): number => {
 	if (index > items.length - 1) {
 		return items.length - 1;
 	}
 	return index;
-});
+};
 
 const useCarouselManager = () => {
-	const { items, scrollAmount } = useCarouselContext();
+	const { items, visibleItems, scrollAmount } = useCarouselContext();
 
-	const [visibleItems, setVisibleItems] = useState<CarouselItems>(getVisibleItems(items));
-	const visibleItemsDebounced = useDebounce<CarouselItems>(visibleItems, 'ultra-fast');
+	const getItemByKey = (key: string): Undefinable<CarouselItem> => {
+		return items.find((item) => item.key === key);
+	};
+	const getItemIndexByKey = (key: string): Undefinable<number> => {
+		return items.findIndex((item) => item.key === key);
+	};
+	const getItemByIndex = (index: number): Undefinable<CarouselItem> => {
+		return items.find((_item, i) => i === index);
+	};
 
-	const getItemByKey = useCallback(
-		(key: string): Undefinable<CarouselItem> => {
-			return items.find((item) => item.key === key);
-		},
-		[items]
-	);
-	const getItemIndexByKey = useCallback(
-		(key: string): Undefinable<number> => {
-			return items.findIndex((item) => item.key === key);
-		},
-		[items]
-	);
-	const getItemByIndex = useCallback(
-		(index: number): Undefinable<CarouselItem> => {
-			return items.find((_item, i) => i === index);
-		},
-		[items]
-	);
+	const isItemVisible = (key: string): boolean => {
+		return visibleItems.some((item) => item[key]);
+	};
 
-	const isFirstItem = useCallback(
-		(key: string): boolean => {
-			return items.some((item, index) => item.key === key && index === 0);
-		},
-		[items]
-	);
-	const isFirstItemVisible = useMemo<boolean>(() => {
-		return items && items[0] ? items[0].isVisible : false;
-	}, [items]);
+	const isFirstItem = (key: string): boolean => {
+		return items.some((item, index) => item.key === key && index === 0);
+	};
+	const isFirstItemVisible = (): boolean => {
+		const firstItem = getItemByIndex(0);
+		return firstItem ? isItemVisible(firstItem.key) : false;
+	};
 
-	const isItemVisible = useCallback(
-		(key: string): boolean => {
-			return visibleItemsDebounced.some((item) => item.key === key);
-		},
-		[visibleItemsDebounced]
-	);
+	const getFirstVisibleItem = (): Undefinable<CarouselItem> => {
+		return sort(items)
+			.asc(({ index }) => index)
+			.find((item) => visibleItems.find((visibleItem) => visibleItem[item.key]));
+	};
 
-	const isLastItem = useCallback(
-		(key: string): boolean => {
-			return items.some((item, index) => item.key === key && index === items.length - 1);
-		},
-		[items]
-	);
-	const isLastItemVisible = useMemo(() => {
-		return items && items[items.length - 1] ? items[items.length - 1].isVisible : false;
-	}, [items]);
+	const isLastItem = (key: string): boolean => {
+		return items.some((item, index) => item.key === key && index === items.length - 1);
+	};
+	const isLastItemVisible = (): boolean => {
+		const lastItem = getItemByIndex(items.length - 1);
+		return lastItem ? isItemVisible(lastItem.key) : false;
+	};
 
-	const getItemPos = useCallback(
-		(key: string): Record<'prev' | 'next', Undefinable<CarouselItem>> => {
-			const index = getItemIndexByKey(key);
+	const getLastVisibleItem = (): Undefinable<CarouselItem> => {
+		return sort(items)
+			.desc(({ index }) => index)
+			.find((item) => visibleItems.find((visibleItem) => visibleItem[item.key]));
+	};
 
-			return {
-				prev: index && index > 0 && items[index - 1] ? items[index - 1] : undefined,
-				next: index && index < items.length - 1 && items[index + 1] ? items[index + 1] : undefined
-			};
-		},
-		[items]
-	);
+	const getItemPos = (key: string): Record<'prev' | 'next', Undefinable<CarouselItem>> => {
+		const index = getItemIndexByKey(key);
 
-	const getPrevItem = useCallback((): Undefinable<CarouselItem> => {
-		const firstVisibleItem =
-			visibleItemsDebounced && visibleItemsDebounced[0] ? visibleItemsDebounced[0] : undefined;
+		return {
+			prev: index && index > 0 && items[index - 1] ? items[index - 1] : undefined,
+			next: index && index < items.length - 1 && items[index + 1] ? items[index + 1] : undefined
+		};
+	};
+
+	const getPrevItem = (): Undefinable<CarouselItem> => {
+		const firstVisibleItem = getFirstVisibleItem();
 		if (firstVisibleItem) {
 			const prevItem = getItemPos(firstVisibleItem.key).prev;
 			return prevItem;
 		}
 		return undefined;
-	}, [visibleItemsDebounced]);
+	};
 
-	const getNextItem = useCallback((): Undefinable<CarouselItem> => {
-		const lastVisibleItem =
-			visibleItemsDebounced && visibleItemsDebounced[visibleItemsDebounced.length - 1]
-				? visibleItemsDebounced[visibleItemsDebounced.length - 1]
-				: undefined;
+	const getNextItem = (): Undefinable<CarouselItem> => {
+		const lastVisibleItem = getLastVisibleItem();
 		if (lastVisibleItem) {
 			const nextItem = getItemPos(lastVisibleItem.key).next;
 			return nextItem;
 		}
 		return undefined;
-	}, [visibleItemsDebounced]);
+	};
 
-	const scrollToItem = useCallback(
-		(
-			item?: CarouselItem,
-			inline: ScrollLogicalPosition = 'nearest',
-			block: ScrollLogicalPosition = 'nearest'
-		): void => {
-			if (item) {
-				const element = document.getElementById(item.key);
-				if (element) {
-					element.scrollIntoView({ behavior: 'smooth', inline, block });
-				}
+	const scrollToItem = (
+		item?: CarouselItem,
+		inline: ScrollLogicalPosition = 'nearest',
+		block: ScrollLogicalPosition = 'nearest'
+	): void => {
+		if (item) {
+			const element = document.getElementById(item.key);
+			if (element) {
+				element.scrollIntoView({ behavior: 'smooth', inline, block });
 			}
-		},
-		[document]
-	);
+		}
+	};
 
-	const scrollPrev = useCallback(
-		(inline: ScrollLogicalPosition = 'nearest', block: ScrollLogicalPosition = 'nearest'): void => {
-			const firstItem = visibleItemsDebounced && visibleItemsDebounced[0] ? visibleItemsDebounced[0] : undefined;
-			if (firstItem) {
-				const prevIndex = getPrevItemIndex(round(firstItem.index - scrollAmount));
-				const prevItem = getItemByIndex(prevIndex);
-				scrollToItem(prevItem, inline, block);
-			}
-		},
-		[scrollAmount, visibleItemsDebounced]
-	);
+	const scrollPrev = (inline: ScrollLogicalPosition = 'nearest', block: ScrollLogicalPosition = 'nearest'): void => {
+		const firstVisibleItem = getFirstVisibleItem();
+		if (firstVisibleItem) {
+			const prevIndex = getPrevItemIndex(round(firstVisibleItem.index - scrollAmount));
+			const prevItem = getItemByIndex(prevIndex);
+			scrollToItem(prevItem, inline, block);
+		}
+	};
 
-	const scrollNext = useCallback(
-		(inline: ScrollLogicalPosition = 'nearest', block: ScrollLogicalPosition = 'nearest'): void => {
-			const lastItem =
-				visibleItemsDebounced && visibleItemsDebounced[visibleItemsDebounced.length - 1]
-					? visibleItemsDebounced[visibleItemsDebounced.length - 1]
-					: undefined;
-			if (lastItem) {
-				const nextIndex = getNextItemIndex(items, round(lastItem.index + scrollAmount));
-				const nextItem = getItemByIndex(nextIndex);
-				scrollToItem(nextItem, inline, block);
-			}
-		},
-		[items, scrollAmount, visibleItemsDebounced]
-	);
-
-	useUpdateEffect(() => setVisibleItems(getVisibleItems(items)), [items]);
+	const scrollNext = (inline: ScrollLogicalPosition = 'nearest', block: ScrollLogicalPosition = 'nearest'): void => {
+		const lastVisibleItem = getLastVisibleItem();
+		if (lastVisibleItem) {
+			const nextIndex = getNextItemIndex(items, round(lastVisibleItem.index + scrollAmount));
+			const nextItem = getItemByIndex(nextIndex);
+			scrollToItem(nextItem, inline, block);
+		}
+	};
 
 	return {
 		getItemByKey,
@@ -175,14 +139,14 @@ const useCarouselManager = () => {
 		getPrevItem,
 		isFirstItem,
 		isFirstItemVisible,
+		getFirstVisibleItem,
 		isItemVisible,
 		isLastItem,
 		isLastItemVisible,
+		getLastVisibleItem,
 		scrollToItem,
 		scrollNext,
-		scrollPrev,
-		items,
-		visibleItems: visibleItemsDebounced
+		scrollPrev
 	};
 };
 
