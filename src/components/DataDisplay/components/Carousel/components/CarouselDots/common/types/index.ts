@@ -1,0 +1,24 @@
+import type { ElementType } from 'react';
+
+import type { ResponsiveValue, ScaleClass, ThemeAppearanceProps, ThemeSpacing } from '@common/types';
+
+import type { BoxProps, BoxRef } from '@components/Box/common/types';
+import type { CarouselItem } from '@components/DataDisplay/components/Carousel/common/types';
+
+export type CarouselDot = {
+	item: CarouselItem;
+	scale: ScaleClass;
+};
+export type CarouselDots = Array<CarouselDot>;
+
+type CarouselDotsOtherProps = ThemeAppearanceProps & {
+	size?: ResponsiveValue<ThemeSpacing>;
+	spacing?: ResponsiveValue<ThemeSpacing>;
+};
+
+export type CarouselDotsProps<Element extends ElementType> = Omit<
+	BoxProps<Element, CarouselDotsOtherProps>,
+	'children'
+>;
+
+export type CarouselDotsRef<Element extends ElementType> = BoxRef<Element>;
