@@ -35,6 +35,7 @@ const DummyTab = forwardRef(function DummyTab<Element extends ElementType>(
 		id,
 		index: panel,
 		isFitted,
+		orientation,
 		spacing: __DEFAULT_DUMMY_TAB_SPACING__
 	} = useDummyTabsContext();
 
@@ -46,6 +47,7 @@ const DummyTab = forwardRef(function DummyTab<Element extends ElementType>(
 		renderLeft,
 		renderRight,
 		renderTop,
+		renderBottom,
 		color = __DEFAULT_DUMMY_TAB_COLOR__,
 		colorMode = __DEFAULT_DUMMY_TAB_COLORMODE__,
 		index,
@@ -70,8 +72,9 @@ const DummyTab = forwardRef(function DummyTab<Element extends ElementType>(
 			ref={ref}
 			aria-controls={getDummyTabPanelID(id, panel)}
 			aria-disabled='true'
+			aria-selected={isSelected}
 			id={getDummyTabID(id, index)}
-			className={classNames(__KEYS_DUMMY_TAB_CLASS__, classes.dummytab, { [className]: !!className })}
+			className={classNames(__KEYS_DUMMY_TAB_CLASS__, classes.tab, { [className]: !!className })}
 			role='tab'
 			tabIndex={0}
 			w={isFitted ? '100%' : 'auto'}
@@ -87,10 +90,17 @@ const DummyTab = forwardRef(function DummyTab<Element extends ElementType>(
 			justifyItems={isFitted ? 'center' : 'stretch'}
 			justifyContent={isFitted ? 'center' : 'space-between'}
 			spacing={spacing}
-			px={spacing}
 		>
 			<GridItem>
-				<Box className={classNames(classes.topDivider)} w='100%' h='100%' />
+				<Pop
+					w='100%'
+					h='100%'
+					in={orientation === 'top' ? isSelected : true}
+					unmountOnExit={false}
+					initialScale={0.75}
+				>
+					<Box className={classNames(classes.topDivider)} w='100%' h='100%' />
+				</Pop>
 			</GridItem>
 
 			<GridItem>
@@ -98,10 +108,8 @@ const DummyTab = forwardRef(function DummyTab<Element extends ElementType>(
 					className={classes.label}
 					w='100%'
 					h='100%'
-					templateColumns={compact([renderLeft ? 'auto' : null, 'auto', renderRight ? 'auto' : null]).join(
-						' '
-					)}
-					templateRows={compact([renderTop ? '1fr' : null, '1fr']).join(' ')}
+					templateColumns={1}
+					templateRows={compact([renderTop ? '1fr' : null, '1fr', renderBottom ? '1fr' : null]).join(' ')}
 					alignItems='stretch'
 					alignContent='stretch'
 					justifyItems='stretch'
@@ -110,32 +118,68 @@ const DummyTab = forwardRef(function DummyTab<Element extends ElementType>(
 					px={config.padding.x}
 					py={config.padding.y}
 				>
-					{renderLeft ? (
+					{renderTop ? (
 						<GridItem alignSelf='center' justifySelf='center'>
-							{renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight })}
+							{renderTop({ color, colorMode, w: childrenWidth, h: childrenHeight })}
 						</GridItem>
 					) : null}
 
-					{children ? (
-						<GridItem>
-							<Center ref={childrenRef} as='span' w='100%' h='100%'>
-								<DummyTabSkeleton color={color} colorMode={colorMode} radius='xs'>
-									{children}
-								</DummyTabSkeleton>
-							</Center>
-						</GridItem>
-					) : null}
+					<GridItem>
+						<Grid
+							w='100%'
+							h='100%'
+							templateColumns={compact([
+								renderLeft ? 'auto' : null,
+								'auto',
+								renderRight ? 'auto' : null
+							]).join(' ')}
+							templateRows={1}
+							alignItems='stretch'
+							alignContent='stretch'
+							justifyItems='stretch'
+							justifyContent='stretch'
+							spacing={spacing}
+						>
+							{renderLeft ? (
+								<GridItem alignSelf='center' justifySelf='center'>
+									{renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight })}
+								</GridItem>
+							) : null}
 
-					{renderRight ? (
+							{children ? (
+								<GridItem>
+									<Center ref={childrenRef} as='span' w='100%' h='100%'>
+										<DummyTabSkeleton color={color} colorMode={colorMode} radius='xs'>
+											{children}
+										</DummyTabSkeleton>
+									</Center>
+								</GridItem>
+							) : null}
+
+							{renderRight ? (
+								<GridItem alignSelf='center' justifySelf='center'>
+									{renderRight({ color, colorMode, w: childrenWidth, h: childrenHeight })}
+								</GridItem>
+							) : null}
+						</Grid>
+					</GridItem>
+
+					{renderBottom ? (
 						<GridItem alignSelf='center' justifySelf='center'>
-							{renderRight({ color, colorMode, w: childrenWidth, h: childrenHeight })}
+							{renderBottom({ color, colorMode, w: childrenWidth, h: childrenHeight })}
 						</GridItem>
 					) : null}
 				</Grid>
 			</GridItem>
 
 			<GridItem>
-				<Pop w='100%' h='100%' in={isSelected} unmountOnExit={false} initialScale={0.75}>
+				<Pop
+					w='100%'
+					h='100%'
+					in={orientation === 'bottom' ? isSelected : true}
+					unmountOnExit={false}
+					initialScale={0.75}
+				>
 					<Box className={classNames(classes.bottomDivider)} w='100%' h='100%' />
 				</Pop>
 			</GridItem>

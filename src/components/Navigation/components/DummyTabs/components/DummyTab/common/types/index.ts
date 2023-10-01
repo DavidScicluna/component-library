@@ -11,6 +11,7 @@ export type DummyTabRenderProps<Element extends ElementType> = Pick<
 
 type DummyTabOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
 	renderTop?: (props: DummyTabRenderProps<Element>) => ReactNode;
+	renderBottom?: (props: DummyTabRenderProps<Element>) => ReactNode;
 	renderLeft?: (props: DummyTabRenderProps<Element>) => ReactNode;
 	renderRight?: (props: DummyTabRenderProps<Element>) => ReactNode;
 	index: number;

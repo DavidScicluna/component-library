@@ -21,14 +21,13 @@ type UseDummyTabClassesProps<Element extends ElementType> = Pick<
 	DummyTabProps<Element>,
 	'color' | 'colorMode' | 'isCompact' | 'isUppercase'
 > & { isSelected: boolean };
-type UseDummyTabClassesReturn = Record<'dummytab' | 'topDivider' | 'bottomDivider' | 'label', ClassName>;
+type UseDummyTabClassesReturn = Record<'tab' | 'topDivider' | 'bottomDivider' | 'label', ClassName>;
 
 const useDummyTabClasses = <Element extends ElementType>(
 	props: UseDummyTabClassesProps<Element>
 ): UseDummyTabClassesReturn => {
 	const { colorMode: __DEFAULT_DUMMY_TAB_COLORMODE__ } = useAppTheme();
-
-	const { isAnimated } = useDummyTabsContext();
+	const { orientation } = useDummyTabsContext();
 
 	const {
 		color = __DEFAULT_COLOR__,
@@ -47,8 +46,9 @@ const useDummyTabClasses = <Element extends ElementType>(
 		const outlineHue = getColorHue({ colorMode, type: 'color' });
 
 		return classNames(
-			classes.interactivity.cursor.default,
-			classes.interactivity.pointer_events.none,
+			classes.sizing.min_width.max,
+			classes.interactivity.cursor[isSelected ? 'default' : 'pointer'],
+			classes.interactivity.pointer_events[isSelected ? 'none' : 'auto'],
 			classes.interactivity.user_select.none,
 			classes.interactivity.will_change.auto,
 			classes.effects.opacity[50],
@@ -58,7 +58,7 @@ const useDummyTabClasses = <Element extends ElementType>(
 			classes.borders.outline_offset.focus_visible[0],
 			classes.borders.outline_color.focus_visible[color][outlineHue]
 		);
-	}, [color, colorMode]);
+	}, [color, colorMode, isSelected]);
 
 	const textColorClassname = useGetColor({
 		color,
@@ -76,19 +76,15 @@ const useDummyTabClasses = <Element extends ElementType>(
 	});
 
 	return {
-		dummytab: classNames(dummytabClasses),
-		topDivider: classNames(
-			classes.backgrounds.background_color.transparent,
-			classes.borders.border_radius_bl.full,
-			classes.borders.border_radius_br.full,
-			{ [classes.animation.pulse]: isAnimated }
-		),
-		bottomDivider: classNames(
-			dividerColorClassname,
-			classes.borders.border_radius_tl.full,
-			classes.borders.border_radius_tr.full,
-			{ [classes.animation.pulse]: isAnimated }
-		),
+		tab: classNames(dummytabClasses),
+		topDivider: classNames(classes.borders.border_radius_bl.full, classes.borders.border_radius_br.full, {
+			[dividerColorClassname]: orientation === 'top',
+			[classes.backgrounds.background_color.transparent]: orientation === 'bottom'
+		}),
+		bottomDivider: classNames(classes.borders.border_radius_tl.full, classes.borders.border_radius_tr.full, {
+			[dividerColorClassname]: orientation === 'bottom',
+			[classes.backgrounds.background_color.transparent]: orientation === 'top'
+		}),
 		label: classNames(
 			textColorClassname,
 			classes.typography.align.center,
@@ -98,8 +94,7 @@ const useDummyTabClasses = <Element extends ElementType>(
 			classes.typography.line_height[__DEFAULT_DUMMY_TABS_TAB_LINE_HEIGHT_SIZE__],
 			classes.typography.transform[isUppercase ? 'uppercase' : 'normal'],
 			classes.typography.text_overflow.ellipsis,
-			classes.typography.whitespace.nowrap,
-			{ [classes.animation.pulse]: isAnimated }
+			classes.typography.whitespace.nowrap
 		)
 	};
 };

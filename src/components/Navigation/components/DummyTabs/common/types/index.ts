@@ -6,7 +6,7 @@ import type { BoxProps, BoxRef } from '@components/Box/common/types';
 
 export type DummyTabsAlign = 'start' | 'center' | 'end';
 
-export type DummyTabsOrientation = 'vertical' | 'horizontal';
+export type DummyTabsOrientation = 'top' | 'bottom' | 'left' | 'right';
 
 export type DummyTabsSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -20,7 +20,7 @@ type DummyTabsOtherProps = ThemeAppAppearanceProps & {
 	/**
 	 * The index of the selected tab (in controlled mode)
 	 */
-	index: number;
+	index: ResponsiveValue<number>;
 	/**
 	 *  If `true` the tabs will not have the pulse animation
 	 *

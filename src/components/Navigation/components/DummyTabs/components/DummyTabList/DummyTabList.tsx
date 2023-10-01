@@ -8,9 +8,11 @@ import { useElementSize } from 'usehooks-ts';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import {
-	HorizontalScroll,
-	HorizontalScrollOverlayLeftArrowIconButton,
-	HorizontalScrollOverlayRightArrowIconButton
+	Carousel,
+	CarouselLeftLinearGradient,
+	CarouselOverlayLeftArrowIconButton,
+	CarouselOverlayRightArrowIconButton,
+	CarouselRightLinearGradient
 } from '@components/DataDisplay';
 import { Grid, GridItem } from '@components/Layout';
 
@@ -18,13 +20,7 @@ import { useDummyTabsContext } from '../../common/hooks';
 import { getDummyTabListID } from '../../common/utils';
 
 import { __KEYS_DUMMY_TABS_TAB_LIST_CLASS__ } from './common/keys';
-import type {
-	DummyTabListContext as DummyTabListContextType,
-	DummyTabListProps,
-	DummyTabListRef
-} from './common/types';
-
-export const DummyTabListContext = createContext<DummyTabListContextType>({});
+import type { DummyTabListProps, DummyTabListRef } from './common/types';
 
 const DummyTabList = forwardRef(function DummyTabList<Element extends ElementType>(
 	props: DummyTabListProps<Element>,
@@ -40,14 +36,22 @@ const DummyTabList = forwardRef(function DummyTabList<Element extends ElementTyp
 		<Grid<Element>
 			{...rest}
 			ref={ref}
-			aria-orientation={orientation}
+			aria-orientation={orientation === 'top' || orientation === 'bottom' ? 'horizontal' : 'vertical'}
 			id={getDummyTabListID(id)}
 			className={classNames(__KEYS_DUMMY_TABS_TAB_LIST_CLASS__, { [className]: !!className })}
 			role='tablist'
 			w='100%'
 			h='100%'
-			templateColumns={compact([renderLeft ? 'auto' : null, 'auto', renderRight ? 'auto' : null]).join(' ')}
-			templateRows={1}
+			templateColumns={
+				orientation === 'top' || orientation === 'bottom'
+					? compact([renderLeft ? 'auto' : null, 'auto', renderRight ? 'auto' : null]).join(' ')
+					: 1
+			}
+			templateRows={
+				orientation === 'left' || orientation === 'right'
+					? compact([renderLeft ? 'auto' : null, 'auto', renderRight ? 'auto' : null]).join(' ')
+					: 1
+			}
 			alignItems='stretch'
 			alignContent='stretch'
 			justifyItems='stretch'
@@ -62,16 +66,24 @@ const DummyTabList = forwardRef(function DummyTabList<Element extends ElementTyp
 
 			{isArray(children) ? (
 				<GridItem alignSelf='stretch' justifySelf={isFitted ? 'stretch' : align}>
-					<HorizontalScroll
+					<Carousel
 						ref={childrenRef}
 						w='100%'
 						h='100%'
 						colorMode={colorMode}
-						LeftArrow={<HorizontalScrollOverlayLeftArrowIconButton scrollAmount='single' />}
-						RightArrow={<HorizontalScrollOverlayRightArrowIconButton scrollAmount='single' />}
+						renderLeftAction={(_variant, props) => (
+							<CarouselOverlayLeftArrowIconButton {...props} isCompact variant='icon' />
+						)}
+						renderLeftLinearGradient={() => <CarouselLeftLinearGradient />}
+						renderRightAction={(_variant, props) => (
+							<CarouselOverlayRightArrowIconButton {...props} isCompact variant='icon' />
+						)}
+						renderRightLinearGradient={() => <CarouselRightLinearGradient />}
+						orientation={orientation === 'top' || orientation === 'bottom' ? 'horizontal' : 'vertical'}
+						variant='overlay'
 					>
 						{children}
-					</HorizontalScroll>
+					</Carousel>
 				</GridItem>
 			) : null}
 

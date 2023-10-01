@@ -20,7 +20,7 @@ type TabsOtherProps = ThemeAppAppearanceProps & {
 	/**
 	 * The index of the selected tab (in controlled mode)
 	 */
-	index: number;
+	index: ResponsiveValue<number>;
 	/**
 	 * If true, the tabs will be disabled
 	 *

@@ -27,7 +27,7 @@ const useDummyTabsContext = <Element extends ElementType>() => {
 		color,
 		colorMode,
 		align: a = __DEFAULT_DUMMY_TABS_ALIGN__,
-		id: i = __DEFAULT_DUMMY_TABS_ID__,
+		id = __DEFAULT_DUMMY_TABS_ID__,
 		index: ind = __DEFAULT_DUMMY_TABS_INDEX__,
 		isAnimated: animated = __DEFAULT_DUMMY_TABS_IS_ANIMATED__,
 		isFitted: fitted = __DEFAULT_DUMMY_TABS_IS_FITTED__,
@@ -38,7 +38,6 @@ const useDummyTabsContext = <Element extends ElementType>() => {
 
 	const align = useGetResponsiveValue<DummyTabsAlign>(a);
 
-	const id = useGetResponsiveValue<string>(i);
 	const index = useGetResponsiveValue<number>(ind);
 
 	const isAnimated = useGetResponsiveValue<boolean>(animated);

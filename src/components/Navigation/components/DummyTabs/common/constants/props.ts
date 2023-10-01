@@ -10,6 +10,6 @@ export const __DEFAULT_DUMMY_TABS_INDEX__ = 0;
 export const __DEFAULT_DUMMY_TABS_IS_ANIMATED__ = true;
 export const __DEFAULT_DUMMY_TABS_IS_FITTED__ = false;
 
-export const __DEFAULT_DUMMY_TABS_ORIENTATION__: DummyTabsOrientation = 'horizontal';
+export const __DEFAULT_DUMMY_TABS_ORIENTATION__: DummyTabsOrientation = 'bottom';
 
 export const __DEFAULT_DUMMY_TABS_SIZE__: DummyTabsSize = 'md';
