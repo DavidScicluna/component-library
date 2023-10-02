@@ -1,6 +1,7 @@
 import { sample } from 'lodash-es';
 
 import { colors } from '@common/data';
+import type { UseBooleanToggles } from '@common/hooks/useBoolean';
 import {
 	__KEY_LOCALSTORAGE_APP_COLOR__,
 	__KEY_LOCALSTORAGE_APP_COLORMODE__,
@@ -31,3 +32,4 @@ export const __DEFAULT_HAS_TWOTONEICON_LOADED__ = JSON.parse(
 export const __DEFAULT_CLASSNAME__ = '';
 
 export const __DEFAULT_METHOD__ = () => undefined;
+export const __DEFAULT_USE_BOOLEAN_TOGGLES__: UseBooleanToggles = { on: __DEFAULT_METHOD__, off: __DEFAULT_METHOD__ };
