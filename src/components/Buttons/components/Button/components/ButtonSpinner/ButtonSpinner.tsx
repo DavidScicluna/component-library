@@ -18,11 +18,11 @@ const ButtonSpinner = forwardRef(function ButtonSpinner<Element extends ElementT
 	props: ButtonSpinnerProps<Element>,
 	ref: ButtonSpinnerRef<Element>
 ): ReactElement {
-	const { color: __DEFAULT_ICON_BUTTON_COLOR__, colorMode: __DEFAULT_ICON_BUTTON_COLORMODE__ } = useAppTheme();
+	const { color: __DEFAULT_BUTTON_SPINNER_COLOR__, colorMode: __DEFAULT_BUTTON_SPINNER_COLORMODE__ } = useAppTheme();
 
 	const {
-		color = __DEFAULT_ICON_BUTTON_COLOR__,
-		colorMode = __DEFAULT_ICON_BUTTON_COLORMODE__,
+		color = __DEFAULT_BUTTON_SPINNER_COLOR__,
+		colorMode = __DEFAULT_BUTTON_SPINNER_COLORMODE__,
 		size,
 		variant
 	} = useButtonContext();
