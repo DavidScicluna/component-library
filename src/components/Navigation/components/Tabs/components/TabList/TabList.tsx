@@ -79,6 +79,7 @@ const TabList = forwardRef(function TabList<Element extends ElementType>(
 							<CarouselOverlayRightArrowIconButton {...props} isCompact variant='icon' />
 						)}
 						renderRightLinearGradient={() => <CarouselRightLinearGradient />}
+						scrollAmount={1}
 						orientation={orientation === 'top' || orientation === 'bottom' ? 'horizontal' : 'vertical'}
 						variant='overlay'
 					>
