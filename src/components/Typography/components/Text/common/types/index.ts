@@ -6,6 +6,7 @@ import type {
 	TextAlignClass,
 	TextLineClampClass,
 	TextTransformClass,
+	ThemeAppearanceProps,
 	ThemeFontSize,
 	ThemeFontWeight,
 	ThemeLineHeight,
@@ -18,9 +19,10 @@ import type { BoxProps, BoxRef } from '@components/Box/common/types';
 export type TextDefaultElement = 'p';
 export type TextElement = PickFrom<ElementType, 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'>;
 
-type TextOtherProps = {
+export type TextThemeAppearanceProps = Partial<ThemeAppearanceProps & { color: string }>;
+
+type TextOtherProps = TextThemeAppearanceProps & {
 	align?: ResponsiveValue<TextAlignClass>;
-	color: string;
 	fontSize?: ResponsiveValue<ThemeFontSize>;
 	fontWeight?: ResponsiveValue<ThemeFontWeight>;
 	lineClamp?: ResponsiveValue<TextLineClampClass>;

@@ -1,12 +1,14 @@
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { useGetClass } from '@common/hooks';
+import { __DEFAULT_COLOR__ } from '@common/constants';
+import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
 import type {
 	ClassName,
 	TextAlignClass,
 	TextLineClampClass,
 	TextTransformClass,
+	ThemeColor,
 	ThemeFontSize,
 	ThemeFontWeight,
 	ThemeLineHeight,
@@ -14,6 +16,7 @@ import type {
 	WhitespaceClass,
 	WordBreakClass
 } from '@common/types';
+import { checkColorType } from '@common/utils';
 
 import {
 	__DEFAULT_TEXT_ALIGN__,
@@ -30,8 +33,9 @@ import type { TextElement, TextProps } from '../types';
 
 type UseTextClassesProps<Element extends TextElement> = Pick<
 	TextProps<Element>,
-	| 'align'
 	| 'color'
+	| 'colorMode'
+	| 'align'
 	| 'fontSize'
 	| 'fontWeight'
 	| 'lineClamp'
@@ -45,9 +49,12 @@ type UseTextClassesProps<Element extends TextElement> = Pick<
 type UseTextClassesReturn = ClassName;
 
 const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<Element>): UseTextClassesReturn => {
+	const { colorMode: __DEFAULT_TEXT_OLORMODE__ } = useAppTheme();
+
 	const {
+		color = __DEFAULT_COLOR__,
+		colorMode = __DEFAULT_TEXT_OLORMODE__,
 		align = __DEFAULT_TEXT_ALIGN__,
-		color: colorClassName,
 		fontSize = __DEFAULT_TEXT_FONT_SIZE__,
 		fontWeight = __DEFAULT_TEXT_FONT_WEIGHT__,
 		lineClamp,
@@ -58,6 +65,14 @@ const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<
 		whitespace = __DEFAULT_TEXT_WHITESPACE__,
 		wordBreak = __DEFAULT_TEXT_WORD_BREAK__
 	} = props;
+
+	const textColorClassName = useGetColor({
+		color: checkColorType(color) === 'theme' ? (color as ThemeColor) : undefined,
+		colorMode,
+		colorType: color ? 'color' : 'default',
+		classType: 'border',
+		hueType: 'text.primary'
+	});
 
 	const alignClassName = useGetClass<TextAlignClass>(align, ['typography', 'align']);
 	const fontSizeClassName = useGetClass<ThemeFontSize>(fontSize, ['typography', 'font_size']);
@@ -70,7 +85,6 @@ const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<
 
 	return classNames(
 		alignClassName,
-		colorClassName,
 		fontSizeClassName,
 		fontWeightClassName,
 		lineHeightClassName,
@@ -78,7 +92,7 @@ const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<
 		whitespaceClassName,
 		wordBreakClassName,
 		{
-			// [colorClassName]: !colorClassName.includes('#'),
+			[textColorClassName]: checkColorType(color) === 'theme',
 			[lineClampClassName]: !!lineClamp,
 			[classes.typography.font_style.italic]: isItalic,
 			[classes.typography.font_style['not-italic']]: !isItalic,

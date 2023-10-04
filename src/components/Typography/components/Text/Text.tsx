@@ -20,7 +20,7 @@ import {
 	__DEFAULT_TEXT_WHITESPACE__,
 	__DEFAULT_TEXT_WORD_BREAK__
 } from './common/constants';
-import { useTextClasses } from './common/hooks';
+import { useTextClasses, useTextStyles } from './common/hooks';
 import { __KEYS_TEXT_CLASS__ } from './common/keys';
 import type { TextDefaultElement, TextElement, TextProps, TextRef } from './common/types';
 
@@ -31,8 +31,9 @@ const Text = forwardRef(function Text<Element extends TextElement = TextDefaultE
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
-		align = __DEFAULT_TEXT_ALIGN__,
 		color,
+		colorMode,
+		align = __DEFAULT_TEXT_ALIGN__,
 		fontSize = __DEFAULT_TEXT_FONT_SIZE__,
 		fontWeight = __DEFAULT_TEXT_FONT_WEIGHT__,
 		lineClamp,
@@ -50,8 +51,9 @@ const Text = forwardRef(function Text<Element extends TextElement = TextDefaultE
 	const isOverflown = useGetResponsiveValue<boolean>(overflown);
 
 	const classes = useTextClasses<Element>({
-		align,
 		color,
+		colorMode,
+		align,
 		fontSize,
 		fontWeight,
 		lineClamp,
@@ -62,13 +64,14 @@ const Text = forwardRef(function Text<Element extends TextElement = TextDefaultE
 		whitespace,
 		wordBreak
 	});
+	const styles = useTextStyles<Element>({ color });
 
 	return (
 		<Box<Element>
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_TEXT_CLASS__, classes, { [className]: !!className })}
-			sx={color.includes('#') ? merge({ color }, sx) : sx}
+			sx={merge(styles, sx)}
 		>
 			{children}
 		</Box>

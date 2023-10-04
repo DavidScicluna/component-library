@@ -1,20 +1,17 @@
-import * as commonConstants from './common/constants';
-import { useTextClasses } from './common/hooks';
-import * as commonKeys from './common/keys';
-import type { TextDefaultElement, TextElement, TextProps, TextRef } from './common/types';
+import type { TextDefaultElement, TextElement, TextProps, TextRef, TextThemeAppearanceProps } from './common/types';
 import Text from './Text';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/constants';
 
 // Hooks
-export { useTextClasses };
+export * as hooks from './common/constants';
 
 // Components
 export { Text };
 
 // Components Types
-export type { TextDefaultElement, TextElement, TextProps, TextRef };
+export type { TextDefaultElement, TextElement, TextProps, TextRef, TextThemeAppearanceProps };
