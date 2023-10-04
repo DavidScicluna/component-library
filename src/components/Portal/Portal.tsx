@@ -18,13 +18,7 @@ const Portal = forwardRef(function Portal<Element extends ElementType>(
 	const { children, className = __DEFAULT_CLASSNAME__, ...rest } = props;
 
 	return ReactDOM.createPortal(
-		<Box<Element>
-			{...rest}
-			ref={ref}
-			className={classNames(__KEYS_PORTAL_CLASS__, { [className]: !!className })}
-			w='100vw'
-			h='100vh'
-		>
+		<Box<Element> {...rest} ref={ref} className={classNames(__KEYS_PORTAL_CLASS__, { [className]: !!className })}>
 			{children}
 		</Box>,
 		document.body
