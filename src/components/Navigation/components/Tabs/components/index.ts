@@ -1,8 +1,8 @@
 import type { TabDefaultElement, TabElement, TabMouseEvent, TabProps, TabRef, TabRenderProps } from './Tab';
-import { constants as tabConstants, keys as tabKeys, Tab, useTabClasses, useTabSizeConfig } from './Tab';
+import { constants as tabConstants, hooks as tabHooks, keys as tabKeys, Tab } from './Tab';
 import type { TabIconDefaultElement, TabIconElement, TabIconProps, TabIconRef } from './TabIcon';
 import { keys as tabIconKeys, TabIcon } from './TabIcon';
-import type { TabListContext, TabListProps, TabListRef, TabListRenderProps } from './TabList';
+import type { TabListProps, TabListRef, TabListRenderProps } from './TabList';
 import { keys as tabListKeys, TabList } from './TabList';
 import type { TabPanelProps, TabPanelsProps, TabPanelsRef } from './TabPanels';
 import { keys as tabPanelsKeys, TabPanels } from './TabPanels';
@@ -14,7 +14,7 @@ export const constants = { ...tabConstants };
 export const keys = { ...tabKeys, ...tabIconKeys, ...tabListKeys, ...tabPanelsKeys };
 
 // Hooks
-export { useTabClasses, useTabSizeConfig };
+export const hooks = { ...tabHooks };
 
 // Components
 export { Tab, TabIcon, TabList, TabPanels };
@@ -27,7 +27,6 @@ export type {
 	TabIconElement,
 	TabIconProps,
 	TabIconRef,
-	TabListContext,
 	TabListProps,
 	TabListRef,
 	TabListRenderProps,

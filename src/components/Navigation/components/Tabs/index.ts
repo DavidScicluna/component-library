@@ -1,8 +1,7 @@
 import * as commonConstants from './common/constants';
-import { useTabsContext, useTabsTabFontSize } from './common/hooks';
+import * as commonHooks from './common/hooks';
 import * as commonKeys from './common/keys';
 import type { TabsAlign, TabsContext, TabsOrientation, TabsProps, TabsRef, TabsSize } from './common/types';
-import * as commonUtils from './common/utils';
 import type {
 	TabDefaultElement,
 	TabElement,
@@ -10,7 +9,6 @@ import type {
 	TabIconElement,
 	TabIconProps,
 	TabIconRef,
-	TabListContext,
 	TabListProps,
 	TabListRef,
 	TabListRenderProps,
@@ -24,13 +22,12 @@ import type {
 } from './components';
 import {
 	constants as componentsConstants,
+	hooks as componentsHooks,
 	keys as componentsKeys,
 	Tab,
 	TabIcon,
 	TabList,
-	TabPanels,
-	useTabClasses,
-	useTabSizeConfig
+	TabPanels
 } from './components';
 import Tabs from './Tabs';
 
@@ -41,10 +38,10 @@ export const constants = { ...commonConstants, ...componentsConstants };
 export const keys = { ...commonKeys, ...componentsKeys };
 
 // Utils
-export const utils = { ...commonUtils };
+export * as utils from './common/utils';
 
 // Hooks
-export { useTabClasses, useTabsContext, useTabSizeConfig, useTabsTabFontSize };
+export const hooks = { ...commonHooks, ...componentsHooks };
 
 // Components
 export { Tab, TabIcon, TabList, TabPanels, Tabs };
@@ -57,7 +54,6 @@ export type {
 	TabIconElement,
 	TabIconProps,
 	TabIconRef,
-	TabListContext,
 	TabListProps,
 	TabListRef,
 	TabListRenderProps,

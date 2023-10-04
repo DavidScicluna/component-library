@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { TabPanelProps, TabPanelsProps, TabPanelsRef } from './common/types';
 import TabPanels from './TabPanels';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { TabPanels };

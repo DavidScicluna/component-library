@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { TabIconDefaultElement, TabIconElement, TabIconProps, TabIconRef } from './common/types';
 import TabIcon from './TabIcon';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { TabIcon };

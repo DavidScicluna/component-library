@@ -1,17 +1,14 @@
-import * as commonConstants from './common/constants';
-import { useTabClasses, useTabSizeConfig } from './common/hooks';
-import * as commonKeys from './common/keys';
 import type { TabDefaultElement, TabElement, TabMouseEvent, TabProps, TabRef, TabRenderProps } from './common/types';
 import Tab from './Tab';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Hooks
-export { useTabClasses, useTabSizeConfig };
+export * as hooks from './common/hooks';
 
 // Components
 export { Tab };
