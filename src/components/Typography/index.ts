@@ -1,16 +1,17 @@
-import type { TextDefaultElement, TextElement, TextProps, TextRef } from './components/Text';
-import { constants as textConstants, Text, useGetTextClasses } from './components/Text';
+import type { TextDefaultElement, TextElement, TextProps, TextRef, TextThemeAppearanceProps } from './components/Text';
+import { constants as textConstants, hooks as textHooks, keys as textKeys, Text } from './components/Text';
 
 // Constants
-export const constants = {
-	...textConstants
-};
+export const constants = { ...textConstants };
+
+// Keys
+export const keys = { ...textKeys };
 
 // Hooks
-export { useGetTextClasses };
+export const hooks = { ...textHooks };
 
 // Components
 export { Text };
 
 // Components Types
-export type { TextDefaultElement, TextElement, TextProps, TextRef };
+export type { TextDefaultElement, TextElement, TextProps, TextRef, TextThemeAppearanceProps };
