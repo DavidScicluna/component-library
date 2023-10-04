@@ -40,9 +40,8 @@ const useStackClasses = <Element extends ElementType>(props: UseStackClassesProp
 	const alignItemsClassName = useGetClass<AlignItemsClass>(alignItems, ['flex', 'align_items']);
 	const directionClassName = useGetClass<FlexDirectionClass>(direction, ['flex', 'direction']);
 	const justifyContentClassName = useGetClass<JustifyContentClass>(justifyContent, ['flex', 'justify_content']);
-	const wrapClassName = useGetClass<FlexWrapClass>(wrap, ['flex', 'wrap']);
-
 	const spacingClassName = useGetClass<ThemeSpacing>(spacing, ['spacing', 'gap']);
+	const wrapClassName = useGetClass<FlexWrapClass>(wrap, ['flex', 'wrap']);
 
 	return classNames(
 		classes.layout.display.flex,
