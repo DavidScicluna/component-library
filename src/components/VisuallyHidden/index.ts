@@ -1,5 +1,3 @@
-import { useVisuallyHiddenStyles } from './common/hooks';
-import * as commonKeys from './common/keys';
 import type {
 	VisuallyHiddenDefaultElement,
 	VisuallyHiddenElement,
@@ -9,10 +7,10 @@ import type {
 import VisuallyHidden from './VisuallyHidden';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Hooks
-export { useVisuallyHiddenStyles };
+export * as hooks from './common/keys';
 
 // Components
 export { VisuallyHidden };
