@@ -1,11 +1,5 @@
 import type { DummyTabProps, DummyTabRef, DummyTabRenderProps } from './DummyTab';
-import {
-	constants as dummyTabConstants,
-	DummyTab,
-	keys as dummyTabKeys,
-	useDummyTabClasses,
-	useDummyTabSizeConfig
-} from './DummyTab';
+import { constants as dummyTabConstants, DummyTab, hooks as dummyTabHooks, keys as dummyTabKeys } from './DummyTab';
 import type {
 	DummyTabIconDefaultElement,
 	DummyTabIconElement,
@@ -13,7 +7,7 @@ import type {
 	DummyTabIconRef
 } from './DummyTabIcon';
 import { DummyTabIcon, keys as dummyTabIconKeys } from './DummyTabIcon';
-import type { DummyTabListContext, DummyTabListProps, DummyTabListRef, DummyTabListRenderProps } from './DummyTabList';
+import type { DummyTabListProps, DummyTabListRef, DummyTabListRenderProps } from './DummyTabList';
 import { DummyTabList, keys as dummyTabListKeys } from './DummyTabList';
 import type { DummyTabPanelProps, DummyTabPanelsProps, DummyTabPanelsRef } from './DummyTabPanels';
 import { DummyTabPanels, keys as dummyTabPanelsKeys } from './DummyTabPanels';
@@ -33,7 +27,7 @@ export const keys = {
 };
 
 // Hooks
-export { useDummyTabClasses, useDummyTabSizeConfig };
+export const hooks = { ...dummyTabHooks };
 
 // Components
 export { DummyTab, DummyTabIcon, DummyTabList, DummyTabPanels, DummyTabSkeleton };
@@ -44,7 +38,6 @@ export type {
 	DummyTabIconElement,
 	DummyTabIconProps,
 	DummyTabIconRef,
-	DummyTabListContext,
 	DummyTabListProps,
 	DummyTabListRef,
 	DummyTabListRenderProps,

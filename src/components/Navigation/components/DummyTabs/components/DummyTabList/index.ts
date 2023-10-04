@@ -1,12 +1,11 @@
-import * as commonKeys from './common/keys';
-import type { DummyTabListContext, DummyTabListProps, DummyTabListRef, DummyTabListRenderProps } from './common/types';
+import type { DummyTabListProps, DummyTabListRef, DummyTabListRenderProps } from './common/types';
 import DummyTabList from './DummyTabList';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { DummyTabList };
 
 // Component Types
-export type { DummyTabListContext, DummyTabListProps, DummyTabListRef, DummyTabListRenderProps };
+export type { DummyTabListProps, DummyTabListRef, DummyTabListRenderProps };

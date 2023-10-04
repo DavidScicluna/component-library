@@ -1,5 +1,5 @@
 import * as commonConstants from './common/constants';
-import { useDummyTabsContext, useDummyTabsDummyTabFontSize } from './common/hooks';
+import * as commonHooks from './common/hooks';
 import * as commonKeys from './common/keys';
 import type {
 	DummyTabsAlign,
@@ -9,13 +9,11 @@ import type {
 	DummyTabsRef,
 	DummyTabsSize
 } from './common/types';
-import * as commonUtils from './common/utils';
 import type {
 	DummyTabIconDefaultElement,
 	DummyTabIconElement,
 	DummyTabIconProps,
 	DummyTabIconRef,
-	DummyTabListContext,
 	DummyTabListProps,
 	DummyTabListRef,
 	DummyTabListRenderProps,
@@ -35,9 +33,8 @@ import {
 	DummyTabList,
 	DummyTabPanels,
 	DummyTabSkeleton,
-	keys as componentsKeys,
-	useDummyTabClasses,
-	useDummyTabSizeConfig
+	hooks as componentsHooks,
+	keys as componentsKeys
 } from './components';
 import DummyTabs from './DummyTabs';
 
@@ -48,10 +45,10 @@ export const constants = { ...commonConstants, ...componentsConstants };
 export const keys = { ...commonKeys, ...componentsKeys };
 
 // Utils
-export const utils = { ...commonUtils };
+export * as utils from './common/utils';
 
 // Hooks
-export { useDummyTabClasses, useDummyTabsContext, useDummyTabsDummyTabFontSize, useDummyTabSizeConfig };
+export const hooks = { ...commonHooks, ...componentsHooks };
 
 // Components
 export { DummyTab, DummyTabIcon, DummyTabList, DummyTabPanels, DummyTabs, DummyTabSkeleton };
@@ -62,7 +59,6 @@ export type {
 	DummyTabIconElement,
 	DummyTabIconProps,
 	DummyTabIconRef,
-	DummyTabListContext,
 	DummyTabListProps,
 	DummyTabListRef,
 	DummyTabListRenderProps,

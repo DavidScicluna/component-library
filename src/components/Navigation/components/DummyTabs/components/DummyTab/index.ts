@@ -1,17 +1,14 @@
-import * as commonConstants from './common/constants';
-import { useDummyTabClasses, useDummyTabSizeConfig } from './common/hooks';
-import * as commonKeys from './common/keys';
 import type { DummyTabProps, DummyTabRef, DummyTabRenderProps } from './common/types';
 import DummyTab from './DummyTab';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Hooks
-export { useDummyTabClasses, useDummyTabSizeConfig };
+export * as hooks from './common/hooks';
 
 // Components
 export { DummyTab };
