@@ -30,7 +30,7 @@ type CarouselOtherProps = ThemeAppAppearanceProps & {
 	renderRightAction?: (variant: CarouselVariant, props?: CarouselRenderIconButtonProps) => ReactNode;
 	renderLeftLinearGradient?: () => ReactNode;
 	renderRightLinearGradient?: () => ReactNode;
-	divider?: ReactNode;
+	divider?: ResponsiveValue<ReactNode>;
 	scrollAmount?: ResponsiveValue<CarouselScrollAmount>;
 	spacing?: ResponsiveValue<ThemeSpacing>;
 	orientation?: ResponsiveValue<CarouselOrientation>;

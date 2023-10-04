@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ElementType, ReactElement, ReactNode } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import classNames from 'classnames';
@@ -74,7 +74,7 @@ const Carousel = forwardRef(function Carousel<Element extends ElementType>(
 		color,
 		colorMode,
 		id = __DEFAULT_CAROUSEL_ID__,
-		divider,
+		divider: d,
 		scrollAmount: sa = __DEFAULT_CAROUSEL_SCROLL_AMOUNT__,
 		spacing: s = __DEFAULT_SPACING__,
 		orientation: o = __DEFAULT_CAROUSEL_ORIENTTATION__,
@@ -82,6 +82,7 @@ const Carousel = forwardRef(function Carousel<Element extends ElementType>(
 		...rest
 	} = props;
 
+	const divider = useGetResponsiveValue<ReactNode>(d);
 	const scrollAmount = useGetResponsiveValue<CarouselScrollAmount>(sa);
 	const spacing = useGetResponsiveValue<ThemeSpacing>(s);
 	const orientation = useGetResponsiveValue<CarouselOrientation>(o);
