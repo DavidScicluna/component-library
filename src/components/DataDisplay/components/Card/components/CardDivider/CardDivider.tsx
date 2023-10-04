@@ -7,6 +7,7 @@ import { __DEFAULT_CLASSNAME__, __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
 import { getColorHex } from '@common/utils';
 
+import type { DividerThemeAppAppearanceProps } from '@components/DataDisplay/components/Divider';
 import { Divider } from '@components/DataDisplay/components/Divider';
 
 import { useCardContext } from '../../common/hooks';
@@ -52,7 +53,7 @@ const CardDivider = forwardRef(function CardDivider<Element extends CardDividerE
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_CARD_DIVIDER_CLASS__, { [className]: !!className })}
-			color={color || c}
+			color={(color || c) as DividerThemeAppAppearanceProps['color']}
 			colorMode={colorMode}
 			orientation='horizontal'
 		>

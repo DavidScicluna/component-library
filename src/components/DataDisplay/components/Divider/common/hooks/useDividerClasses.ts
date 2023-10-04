@@ -36,7 +36,7 @@ const useDividerClasses = <Element extends DividerElement>(
 	const borderLeftWidthClassName = useGetClass<ThemeBorderWidth>(size, ['borders', 'border_l_width']);
 	const borderStyleClassName = useGetClass<BorderStyleClass>(variant, ['borders', 'border_style']);
 	const borderColorClassName = useGetColor({
-		color: color as ThemeColor,
+		color: checkColorType(color) === 'theme' ? (color as ThemeColor) : undefined,
 		colorMode,
 		colorType: color ? 'color' : 'default',
 		classType: 'border',

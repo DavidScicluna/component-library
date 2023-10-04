@@ -2,7 +2,6 @@ import * as commonConstants from './common/constants';
 import { useDividerClasses, useDividerStyles } from './common/hooks';
 import * as commonKeys from './common/keys';
 import type {
-	DividerColor,
 	DividerDefaultElement,
 	DividerElement,
 	DividerOrientation,
@@ -10,6 +9,7 @@ import type {
 	DividerPlacement,
 	DividerProps,
 	DividerRef,
+	DividerThemeAppAppearanceProps,
 	DividerVariant
 } from './common/types';
 import Divider from './Divider';
@@ -28,7 +28,6 @@ export { Divider };
 
 // Component Types
 export type {
-	DividerColor,
 	DividerDefaultElement,
 	DividerElement,
 	DividerOrientation,
@@ -36,5 +35,6 @@ export type {
 	DividerPlacement,
 	DividerProps,
 	DividerRef,
+	DividerThemeAppAppearanceProps,
 	DividerVariant
 };
