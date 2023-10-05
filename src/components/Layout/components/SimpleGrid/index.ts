@@ -1,13 +1,11 @@
-import { useSimpleGridClasses } from './common/hooks';
-import * as commonKeys from './common/keys';
 import type { SimpleGridColumn, SimpleGridColumns, SimpleGridProps, SimpleGridRef } from './common/types';
 import SimpleGrid from './SimpleGrid';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Hooks
-export { useSimpleGridClasses };
+export * as hooks from './common/hooks';
 
 // Components
 export { SimpleGrid };
