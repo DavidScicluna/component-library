@@ -1,17 +1,14 @@
-import * as commonConstants from './common/constants';
-import { useAspectRatioClasses } from './common/hooks';
-import * as commonKeys from './common/keys';
 import type { AspectRatioProps, AspectRatioRef } from './common/types';
 import AspectRatio from './AspectRatio';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Hooks
-export { useAspectRatioClasses };
+export * as hooks from './common/hooks';
 
 // Components
 export { AspectRatio };
