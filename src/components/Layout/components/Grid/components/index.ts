@@ -1,5 +1,5 @@
 import type { GridItemProps, GridItemRef } from './GridItem';
-import { constants as gridItemConstants, GridItem, keys as gridItemKeys, useGridItemClasses } from './GridItem';
+import { constants as gridItemConstants, GridItem, hooks as gridItemHooks, keys as gridItemKeys } from './GridItem';
 
 // Constants
 export const constants = { ...gridItemConstants };
@@ -8,7 +8,7 @@ export const constants = { ...gridItemConstants };
 export const keys = { ...gridItemKeys };
 
 // Hooks
-export { useGridItemClasses };
+export const hooks = { ...gridItemHooks };
 
 // Components
 export { GridItem };
