@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { HStackProps, HStackRef } from './common/types';
 import HStack from './HStack';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { HStack };

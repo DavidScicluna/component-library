@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { VStackProps, VStackRef } from './common/types';
 import VStack from './VStack';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { VStack };
