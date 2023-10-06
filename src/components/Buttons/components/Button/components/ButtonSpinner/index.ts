@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { ButtonSpinnerProps, ButtonSpinnerRef } from './common/types';
 import ButtonSpinner from './ButtonSpinner';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { ButtonSpinner };

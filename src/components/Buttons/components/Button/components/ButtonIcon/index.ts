@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { ButtonIconDefaultElement, ButtonIconElement, ButtonIconProps, ButtonIconRef } from './common/types';
 import ButtonIcon from './ButtonIcon';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { ButtonIcon };
