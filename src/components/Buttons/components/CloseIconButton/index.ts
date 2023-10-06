@@ -1,5 +1,3 @@
-import * as commonConstants from './common/constants';
-import * as commonKeys from './common/keys';
 import type {
 	CloseIconButtonDefaultElement,
 	CloseIconButtonElement,
@@ -9,10 +7,10 @@ import type {
 import CloseIconButton from './CloseIconButton';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { CloseIconButton };
