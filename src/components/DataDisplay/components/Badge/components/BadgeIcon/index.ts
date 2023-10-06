@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { BadgeIconDefaultElement, BadgeIconElement, BadgeIconProps, BadgeIconRef } from './common/types';
 import BadgeIcon from './BadgeIcon';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { BadgeIcon };

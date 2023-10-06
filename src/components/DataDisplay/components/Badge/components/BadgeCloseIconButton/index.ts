@@ -1,5 +1,3 @@
-import * as constantsKeys from './common/constants';
-import * as commonKeys from './common/keys';
 import type {
 	BadgeCloseIconButtonDefaultElement,
 	BadgeCloseIconButtonElement,
@@ -9,10 +7,10 @@ import type {
 import BadgeCloseIconButton from './BadgeCloseIconButton';
 
 // Constants
-export const constants = { ...constantsKeys };
+export * as constants from './common/constants';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { BadgeCloseIconButton };

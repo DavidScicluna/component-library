@@ -1,5 +1,4 @@
 import * as commonConstants from './common/constants';
-import { useBadgeClasses, useBadgeContext, useBadgeFontSize, useBadgeSizeConfig } from './common/hooks';
 import * as commonKeys from './common/keys';
 import type { BadgeContext, BadgeProps, BadgeRef, BadgeRenderProps, BadgeSize, BadgeVariant } from './common/types';
 import Badge from './Badge';
@@ -27,7 +26,7 @@ export const constants = { ...commonConstants, ...componentsConstants };
 export const keys = { ...commonKeys, ...componentsKeys };
 
 // Hooks
-export { useBadgeClasses, useBadgeContext, useBadgeFontSize, useBadgeSizeConfig };
+export * as hooks from './common/hooks';
 
 // Components
 export { Badge, BadgeCloseIconButton, BadgeIcon };
