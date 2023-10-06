@@ -1,4 +1,3 @@
-import * as commonKeys from './common/keys';
 import type {
 	AlertDescriptionDefaultElement,
 	AlertDescriptionElement,
@@ -8,7 +7,7 @@ import type {
 import AlertDescription from './AlertDescription';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { AlertDescription };

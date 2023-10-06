@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { AlertLabelDefaultElement, AlertLabelElement, AlertLabelProps, AlertLabelRef } from './common/types';
 import AlertLabel from './AlertLabel';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { AlertLabel };

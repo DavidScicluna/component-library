@@ -1,5 +1,3 @@
-import * as commonConstants from './common/constants';
-import { useAlertClasses, useAlertContext } from './common/hooks';
 import * as commonKeys from './common/keys';
 import type {
 	AlertContext,
@@ -11,7 +9,6 @@ import type {
 	AlertStatus,
 	AlertVariant
 } from './common/types';
-import * as commonUtils from './common/utils';
 import Alert from './Alert';
 import type {
 	AlertDescriptionDefaultElement,
@@ -30,16 +27,16 @@ import type {
 import { AlertDescription, AlertIcon, AlertLabel, keys as componentsKeys } from './components';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Keys
 export const keys = { ...commonKeys, ...componentsKeys };
 
 // Utils
-export const utils = { ...commonUtils };
+export * as utils from './common/utils';
 
 // Hooks
-export { useAlertClasses, useAlertContext };
+export * as hooks from './common/hooks';
 
 // Components
 export { Alert, AlertDescription, AlertIcon, AlertLabel };
