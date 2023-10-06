@@ -1,10 +1,3 @@
-import * as commonConstants from './common/constants';
-import {
-	useDummyBadgeClasses,
-	useDummyBadgeContext,
-	useDummyBadgeFontSize,
-	useDummyBadgeSizeConfig
-} from './common/hooks';
 import * as commonKeys from './common/keys';
 import type {
 	DummyBadgeContext,
@@ -26,13 +19,13 @@ import { DummyBadgeIcon, DummyBadgeSkeleton, keys as componentsKeys } from './co
 import DummyBadge from './DummyBadge';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Keys
 export const keys = { ...commonKeys, ...componentsKeys };
 
 // Hooks
-export { useDummyBadgeClasses, useDummyBadgeContext, useDummyBadgeFontSize, useDummyBadgeSizeConfig };
+export * as hooks from './common/hooks';
 
 // Components
 export { DummyBadge, DummyBadgeIcon, DummyBadgeSkeleton };
