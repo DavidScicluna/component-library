@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { CarouselLeftLinearGradientProps, CarouselLeftLinearGradientRef } from './common/types';
 import CarouselLeftLinearGradient from './CarouselLeftLinearGradient';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { CarouselLeftLinearGradient };

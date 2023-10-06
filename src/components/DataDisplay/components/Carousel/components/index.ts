@@ -48,8 +48,8 @@ import type {
 import {
 	CarouselDots,
 	constants as carouselDotsConstants,
-	keys as carouselDotsKeys,
-	useCarouselDotClasses
+	hooks as carouselDotsHooks,
+	keys as carouselDotsKeys
 } from './CarouselDots';
 import type { CarouselItemProps, CarouselItemRef } from './CarouselItem';
 import { CarouselItem, keys as carouselItemKeys } from './CarouselItem';
@@ -190,7 +190,7 @@ export const keys = {
 };
 
 // Hooks
-export { useCarouselDotClasses };
+export const hooks = { ...carouselDotsHooks };
 
 // Components
 export {

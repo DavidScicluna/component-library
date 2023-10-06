@@ -1,4 +1,3 @@
-import * as commonKeys from './common/keys';
 import type {
 	CarouselOverlayLeftArrowButtonDefaultElement,
 	CarouselOverlayLeftArrowButtonElement,
@@ -8,7 +7,7 @@ import type {
 import CarouselOverlayLeftArrowButton from './CarouselOverlayLeftArrowButton';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { CarouselOverlayLeftArrowButton };

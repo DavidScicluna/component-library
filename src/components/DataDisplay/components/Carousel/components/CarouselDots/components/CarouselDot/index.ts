@@ -1,13 +1,11 @@
-import { useCarouselDotClasses } from './common/hooks';
-import * as commonKeys from './common/keys';
 import type { CarouselDotProps, CarouselDotRef } from './common/types';
 import CarouselDot from './CarouselDot';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Hooks
-export { useCarouselDotClasses };
+export * as hooks from './common/hooks';
 
 // Components
 export { CarouselDot };

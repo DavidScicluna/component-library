@@ -1,13 +1,11 @@
-import * as commonConstants from './common/constants';
-import * as commonKeys from './common/keys';
 import type { CarouselArrowButtonGroupProps, CarouselArrowButtonGroupRef } from './common/types';
 import CarouselArrowButtonGroup from './CarouselArrowButtonGroup';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { CarouselArrowButtonGroup };

@@ -1,5 +1,5 @@
 import * as commonConstants from './common/constants';
-import { useCarouselArrowState, useCarouselClasses, useCarouselContext, useCarouselManager } from './common/hooks';
+import * as commonHooks from './common/hooks';
 import * as commonKeys from './common/keys';
 import type {
 	CarouselArrowDirection,
@@ -13,7 +13,6 @@ import type {
 	CarouselScrollAmount,
 	CarouselVariant
 } from './common/types';
-import * as commonUtils from './common/utils';
 import Carousel from './Carousel';
 import type {
 	CarouselArrowButtonDefaultElement,
@@ -103,8 +102,8 @@ import {
 	CarouselRightArrowIconButton,
 	CarouselRightLinearGradient,
 	constants as componentsConstants,
-	keys as componentsKeys,
-	useCarouselDotClasses
+	hooks as componentsHooks,
+	keys as componentsKeys
 } from './components';
 
 // Constants
@@ -114,10 +113,10 @@ export const constants = { ...commonConstants, ...componentsConstants };
 export const keys = { ...commonKeys, ...componentsKeys };
 
 // Utils
-export const utils = { ...commonUtils };
+export * as utils from './common/utils';
 
 // Hooks
-export { useCarouselArrowState, useCarouselClasses, useCarouselContext, useCarouselDotClasses, useCarouselManager };
+export const hooks = { ...commonHooks, ...componentsHooks };
 
 // Components
 export {

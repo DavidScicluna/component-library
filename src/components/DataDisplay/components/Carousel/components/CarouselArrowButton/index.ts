@@ -1,5 +1,3 @@
-import * as commonConstants from './common/constants';
-import * as commonKeys from './common/keys';
 import type {
 	CarouselArrowButtonDefaultElement,
 	CarouselArrowButtonElement,
@@ -10,10 +8,10 @@ import type {
 import CarouselArrowButton from './CarouselArrowButton';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { CarouselArrowButton };

@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { CarouselItemProps, CarouselItemRef } from './common/types';
 import CarouselItem from './CarouselItem';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { CarouselItem };
