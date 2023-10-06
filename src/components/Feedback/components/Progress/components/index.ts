@@ -8,9 +8,9 @@ import { keys as progressLabelKeys, ProgressLabel } from './ProgressLabel';
 import type { ProgressSectionProps, ProgressSectionRef } from './ProgressSection';
 import {
 	constants as progressSectionConstants,
+	hooks as progressSectionHooks,
 	keys as progressSectionKeys,
-	ProgressSection,
-	useProgressSectionClasses
+	ProgressSection
 } from './ProgressSection';
 
 // Constants
@@ -20,7 +20,7 @@ export const constants = { ...progressSectionConstants };
 export const keys = { ...progressLabelKeys, ...progressSectionKeys };
 
 // Hooks
-export { useProgressSectionClasses };
+export const hooks = { ...progressSectionHooks };
 
 // Components
 export { ProgressLabel, ProgressSection };

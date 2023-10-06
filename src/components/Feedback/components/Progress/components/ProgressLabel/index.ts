@@ -1,4 +1,3 @@
-import * as commonKeys from './common/keys';
 import type {
 	ProgressLabelDefaultElement,
 	ProgressLabelElement,
@@ -8,7 +7,7 @@ import type {
 import ProgressLabel from './ProgressLabel';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { ProgressLabel };

@@ -1,17 +1,14 @@
-import * as commonConstants from './common/constants';
-import { useProgressSectionClasses } from './common/hooks';
-import * as commonKeys from './common/keys';
 import type { ProgressSectionProps, ProgressSectionRef } from './common/types';
 import ProgressSection from './ProgressSection';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Hooks
-export { useProgressSectionClasses };
+export * as hooks from './common/hooks';
 
 // Components
 export { ProgressSection };
