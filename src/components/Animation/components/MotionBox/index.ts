@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { MotionBoxProps, MotionBoxRef } from './common/types';
 import MotionBox from './MotionBox';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { MotionBox };

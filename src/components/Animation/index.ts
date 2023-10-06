@@ -18,7 +18,7 @@ import type {
 import { Collapse, constants as collapseConstants, keys as collapseKeys } from './components/Collapse';
 import type { FadeProps, FadeRef } from './components/Fade';
 import { Fade, keys as fadeKeys } from './components/Fade';
-import type { MotionBoxElement, MotionBoxProps, MotionBoxRef } from './components/MotionBox';
+import type { MotionBoxProps, MotionBoxRef } from './components/MotionBox';
 import { MotionBox } from './components/MotionBox';
 import type { PageTransitionProps, PageTransitionRef } from './components/PageTransition';
 import {
@@ -62,7 +62,6 @@ export type {
 	CollapseYAxisProps,
 	FadeProps,
 	FadeRef,
-	MotionBoxElement,
 	MotionBoxProps,
 	MotionBoxRef,
 	PageTransitionProps,

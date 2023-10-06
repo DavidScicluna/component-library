@@ -1,13 +1,11 @@
-import * as commonConstants from './common/constants';
-import * as commonKeys from './common/keys';
 import type { PopProps, PopRef } from './common/types';
 import Pop from './Pop';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { Pop };
