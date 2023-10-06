@@ -1,10 +1,10 @@
 import * as commonConstants from './common/constants';
-import { useButtonGroupContext } from './common/hooks';
+import * as commonHooks from './common/hooks';
 import * as commonKeys from './common/keys';
 import type { ButtonGroupContext, ButtonGroupProps, ButtonGroupRef } from './common/types';
 import ButtonGroup from './ButtonGroup';
 import type { ButtonGroupItemProps, ButtonGroupItemRef } from './components';
-import { ButtonGroupItem, keys as componentsKeys, useButtonGroupItemClasses } from './components';
+import { ButtonGroupItem, hooks as componentsHooks, keys as componentsKeys } from './components';
 
 // Constants
 export const constants = { ...commonConstants };
@@ -13,7 +13,7 @@ export const constants = { ...commonConstants };
 export const keys = { ...commonKeys, ...componentsKeys };
 
 // Hooks
-export { useButtonGroupContext, useButtonGroupItemClasses };
+export const hooks = { ...commonHooks, ...componentsHooks };
 
 // Components
 export { ButtonGroup, ButtonGroupItem };
