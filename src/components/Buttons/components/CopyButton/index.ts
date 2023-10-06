@@ -1,13 +1,11 @@
-import * as commonConstants from './common/constants';
-import { useCopyToClipboard } from './common/hooks';
 import type { CopyButtonChildrenProps, CopyButtonProps, CopyButtonTimeout } from './common/types';
 import CopyButton from './CopyButton';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Hooks
-export { useCopyToClipboard };
+export * as hooks from './common/hooks';
 
 // Components
 export { CopyButton };
