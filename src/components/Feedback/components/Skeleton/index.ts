@@ -1,17 +1,14 @@
-import * as commonConstants from './common/constants';
-import { useSkeletonClasses } from './common/hooks';
-import * as commonKeys from './common/keys';
 import type { SkeletonProps, SkeletonRef } from './common/types';
 import Skeleton from './Skeleton';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Hooks
-export { useSkeletonClasses };
+export * as hooks from './common/hooks';
 
 // Components
 export { Skeleton };

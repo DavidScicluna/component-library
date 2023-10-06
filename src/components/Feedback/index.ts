@@ -26,9 +26,8 @@ import {
 	AlertIcon,
 	AlertLabel,
 	constants as alertConstants,
+	hooks as alertHooks,
 	keys as alertKeys,
-	useAlertClasses,
-	useAlertContext,
 	utils as alertUtils
 } from './components/Alert';
 import type {
@@ -52,9 +51,9 @@ import {
 import type { SkeletonProps, SkeletonRef } from './components/Skeleton';
 import {
 	constants as skeletonConstants,
+	hooks as skeletonHooks,
 	keys as skeletonKeys,
-	Skeleton,
-	useSkeletonClasses
+	Skeleton
 } from './components/Skeleton';
 import type {
 	SpinnerBarsVariant,
@@ -82,7 +81,7 @@ export const keys = { ...alertKeys, ...progressKeys, ...spinnerKeys, ...skeleton
 export const utils = { ...alertUtils };
 
 // Hooks
-export { useAlertClasses, useAlertContext, useSkeletonClasses };
+export const hooks = { ...alertHooks, ...skeletonHooks };
 
 // Components
 export { Alert, AlertDescription, AlertIcon, AlertLabel, Progress, ProgressLabel, ProgressSection, Skeleton, Spinner };
