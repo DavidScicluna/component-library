@@ -1,10 +1,4 @@
 import * as commonConstants from './common/constants';
-import {
-	useIconButtonClasses,
-	useIconButtonContext,
-	useIconButtonFontSize,
-	useIconButtonSizeConfig
-} from './common/hooks';
 import * as commonKeys from './common/keys';
 import type {
 	IconButtonContext,
@@ -35,7 +29,7 @@ export const constants = { ...commonConstants };
 export const keys = { ...commonKeys };
 
 // Hooks
-export { useIconButtonClasses, useIconButtonContext, useIconButtonFontSize, useIconButtonSizeConfig };
+export * as hooks from './common/hooks';
 
 // Components
 export { IconButton, IconButtonIcon, IconButtonSpinner };
