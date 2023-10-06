@@ -1,10 +1,4 @@
 import * as commonConstants from './common/constants';
-import {
-	useDummyButtonClasses,
-	useDummyButtonContext,
-	useDummyButtonFontSize,
-	useDummyButtonSizeConfig
-} from './common/hooks';
 import * as commonKeys from './common/keys';
 import type {
 	DummyButtonContext,
@@ -33,7 +27,7 @@ export const constants = { ...commonConstants };
 export const keys = { ...commonKeys, ...componentKeys };
 
 // Hooks
-export { useDummyButtonClasses, useDummyButtonContext, useDummyButtonFontSize, useDummyButtonSizeConfig };
+export * as hooks from './common/hooks';
 
 // Components
 export { DummyButton, DummyButtonIcon, DummyButtonSkeleton };

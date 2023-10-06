@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { DummyButtonSkeletonProps, DummyButtonSkeletonRef } from './common/types';
 import DummyButtonSkeleton from './DummyButtonSkeleton';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { DummyButtonSkeleton };
