@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { HeadlineProps, HeadlineRef, HeadlineRenderProps } from './common/types';
 import Headline from './Headline';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { Headline };

@@ -1,6 +1,3 @@
-import * as commonConstants from './common/constants';
-import { useBackgroundImageClasses } from './common/hooks';
-import * as commonKeys from './common/keys';
 import type {
 	BackgroundImageFilters,
 	BackgroundImageOptions,
@@ -10,13 +7,13 @@ import type {
 import BackgroundImage from './BackgroundImage';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Hooks
-export { useBackgroundImageClasses };
+export * as hooks from './common/hooks';
 
 // Components
 export { BackgroundImage };

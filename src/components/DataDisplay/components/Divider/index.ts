@@ -1,6 +1,3 @@
-import * as commonConstants from './common/constants';
-import { useDividerClasses, useDividerStyles } from './common/hooks';
-import * as commonKeys from './common/keys';
 import type {
 	DividerDefaultElement,
 	DividerElement,
@@ -9,19 +6,18 @@ import type {
 	DividerPlacement,
 	DividerProps,
 	DividerRef,
-	DividerThemeAppAppearanceProps,
 	DividerVariant
 } from './common/types';
 import Divider from './Divider';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Hooks
-export { useDividerClasses, useDividerStyles };
+export * as hooks from './common/hooks';
 
 // Components
 export { Divider };
@@ -35,6 +31,5 @@ export type {
 	DividerPlacement,
 	DividerProps,
 	DividerRef,
-	DividerThemeAppAppearanceProps,
 	DividerVariant
 };
