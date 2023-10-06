@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { MessageIconDefaultElement, MessageIconElement, MessageIconProps, MessageIconRef } from './common/types';
 import MessageIcon from './MessageIcon';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { MessageIcon };

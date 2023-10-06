@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { MessageStackProps, MessageStackRef } from './common/types';
 import MessageStack from './MessageStack';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { MessageStack };

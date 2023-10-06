@@ -1,4 +1,3 @@
-import * as commonKeys from './common/keys';
 import type {
 	MessageSubtitleDefaultElement,
 	MessageSubtitleElement,
@@ -8,7 +7,7 @@ import type {
 import MessageSubtitle from './MessageSubtitle';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { MessageSubtitle };

@@ -1,5 +1,4 @@
 import * as commonConstants from './common/constants';
-import { useMessageClasses, useMessageContext } from './common/hooks';
 import * as commonKeys from './common/keys';
 import type { MessageContext, MessageProps, MessageRef, MessageVariant } from './common/types';
 import type {
@@ -42,7 +41,7 @@ export const constants = { ...commonConstants, ...componentsConstants };
 export const keys = { ...commonKeys, ...componentsKeys };
 
 // Hooks
-export { useMessageClasses, useMessageContext };
+export * as hooks from './common/hooks';
 
 // Components
 export { Message, MessageActions, MessageBody, MessageIcon, MessageStack, MessageSubtitle, MessageTitle };
