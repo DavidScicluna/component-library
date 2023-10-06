@@ -1,13 +1,11 @@
-import { useIconButtonGroupItemClasses } from './common/hooks';
-import * as commonKeys from './common/keys';
 import type { IconButtonGroupItemProps, IconButtonGroupItemRef } from './common/types';
 import IconButtonGroupItem from './IconButtonGroupItem';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
-// Hooks
-export { useIconButtonGroupItemClasses };
+// hooks
+export * as hooks from './common/hooks';
 
 // Components
 export { IconButtonGroupItem };

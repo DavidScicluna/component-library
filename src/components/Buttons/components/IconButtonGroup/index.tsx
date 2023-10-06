@@ -1,9 +1,9 @@
 import * as commonConstants from './common/constants';
-import { useIconButtonGroupContext } from './common/hooks';
+import * as commonHooks from './common/hooks';
 import * as commonKeys from './common/keys';
 import type { IconButtonGroupContext, IconButtonGroupProps, IconButtonGroupRef } from './common/types';
 import type { IconButtonGroupItemProps, IconButtonGroupItemRef } from './components';
-import { IconButtonGroupItem, keys as componentsKeys, useIconButtonGroupItemClasses } from './components';
+import { hooks as componentsHooks, IconButtonGroupItem, keys as componentsKeys } from './components';
 import IconButtonGroup from './IconButtonGroup';
 
 // Constants
@@ -13,7 +13,7 @@ export const constants = { ...commonConstants };
 export const keys = { ...commonKeys, ...componentsKeys };
 
 // Hooks
-export { useIconButtonGroupContext, useIconButtonGroupItemClasses };
+export const hooks = { ...commonHooks, ...componentsHooks };
 
 // Components
 export { IconButtonGroup, IconButtonGroupItem };

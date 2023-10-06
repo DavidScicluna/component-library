@@ -1,15 +1,15 @@
 import type { IconButtonGroupItemProps, IconButtonGroupItemRef } from './IconButtonGroupItem';
 import {
+	hooks as iconbuttonGroupItemHooks,
 	IconButtonGroupItem,
-	keys as iconbuttonGroupItemKeys,
-	useIconButtonGroupItemClasses
+	keys as iconbuttonGroupItemKeys
 } from './IconButtonGroupItem';
 
 // Keys
 export const keys = { ...iconbuttonGroupItemKeys };
 
 // Hooks
-export { useIconButtonGroupItemClasses };
+export const hooks = { ...iconbuttonGroupItemHooks };
 
 // Components
 export { IconButtonGroupItem };
