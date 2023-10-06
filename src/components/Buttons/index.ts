@@ -20,11 +20,8 @@ import {
 	ButtonIcon,
 	ButtonSpinner,
 	constants as buttonConstants,
-	keys as buttonKeys,
-	useButtonClasses,
-	useButtonContext,
-	useButtonFontSize,
-	useButtonSizeConfig
+	hooks as buttonHooks,
+	keys as buttonKeys
 } from './components/Button';
 import type {
 	ButtonGroupContext,
@@ -37,9 +34,8 @@ import {
 	ButtonGroup,
 	ButtonGroupItem,
 	constants as buttonGroupConstants,
-	keys as buttonGroupKeys,
-	useButtonGroupContext,
-	useButtonGroupItemClasses
+	hooks as buttonGroupHooks,
+	keys as buttonGroupKeys
 } from './components/ButtonGroup';
 import type {
 	ClearIconButtonDefaultElement,
@@ -64,7 +60,7 @@ import {
 	keys as closeIconButtonKeys
 } from './components/CloseIconButton';
 import type { CopyButtonChildrenProps, CopyButtonProps, CopyButtonTimeout } from './components/CopyButton';
-import { constants as copyButtonConstants, CopyButton, useCopyToClipboard } from './components/CopyButton';
+import { constants as copyButtonConstants, CopyButton, hooks as copyButtonHooks } from './components/CopyButton';
 import type {
 	DeleteIconButtonDefaultElement,
 	DeleteIconButtonElement,
@@ -95,11 +91,8 @@ import {
 	DummyButton,
 	DummyButtonIcon,
 	DummyButtonSkeleton,
-	keys as dummyButtonKeys,
-	useDummyButtonClasses,
-	useDummyButtonContext,
-	useDummyButtonFontSize,
-	useDummyButtonSizeConfig
+	hooks as dummyButtonHooks,
+	keys as dummyButtonKeys
 } from './components/DummyButton';
 import type {
 	DummyIconButtonContext,
@@ -119,11 +112,8 @@ import {
 	DummyIconButton,
 	DummyIconButtonIcon,
 	DummyIconButtonSkeleton,
-	keys as dummyIconButtonKeys,
-	useDummyIconButtonClasses,
-	useDummyIconButtonContext,
-	useDummyIconButtonFontSize,
-	useDummyIconButtonSizeConfig
+	hooks as dummyIconButtonHooks,
+	keys as dummyIconButtonKeys
 } from './components/DummyIconButton';
 import type {
 	FileButtonBlob,
@@ -155,14 +145,11 @@ import type {
 } from './components/IconButton';
 import {
 	constants as iconButtonConstants,
+	hooks as iconButtonHooks,
 	IconButton,
 	IconButtonIcon,
 	IconButtonSpinner,
-	keys as iconButtonKeys,
-	useIconButtonClasses,
-	useIconButtonContext,
-	useIconButtonFontSize,
-	useIconButtonSizeConfig
+	keys as iconButtonKeys
 } from './components/IconButton';
 import type {
 	IconButtonGroupContext,
@@ -173,14 +160,13 @@ import type {
 } from './components/IconButtonGroup';
 import {
 	constants as iconButtonGroupConstants,
+	hooks as iconButtonGroupHooks,
 	IconButtonGroup,
 	IconButtonGroupItem,
-	keys as iconButtonGroupKeys,
-	useIconButtonGroupContext,
-	useIconButtonGroupItemClasses
+	keys as iconButtonGroupKeys
 } from './components/IconButtonGroup';
 import type { LinkDefaultElement, LinkElement, LinkMouseEvent, LinkProps, LinkRef } from './components/Link';
-import { constants as linkConstants, keys as linkKeys, Link, useLinkClasses } from './components/Link';
+import { constants as linkConstants, hooks as linkHooks, keys as linkKeys, Link } from './components/Link';
 import type {
 	ScrollToTopIconButtonDefaultElement,
 	ScrollToTopIconButtonElement,
@@ -227,29 +213,15 @@ export const keys = {
 };
 
 // Hooks
-export {
-	useButtonClasses,
-	useButtonContext,
-	useButtonFontSize,
-	useButtonGroupContext,
-	useButtonGroupItemClasses,
-	useButtonSizeConfig,
-	useCopyToClipboard,
-	useDummyButtonClasses,
-	useDummyButtonContext,
-	useDummyButtonFontSize,
-	useDummyButtonSizeConfig,
-	useDummyIconButtonClasses,
-	useDummyIconButtonContext,
-	useDummyIconButtonFontSize,
-	useDummyIconButtonSizeConfig,
-	useIconButtonClasses,
-	useIconButtonContext,
-	useIconButtonFontSize,
-	useIconButtonGroupContext,
-	useIconButtonGroupItemClasses,
-	useIconButtonSizeConfig,
-	useLinkClasses
+export const hooks = {
+	...buttonHooks,
+	...buttonGroupHooks,
+	...copyButtonHooks,
+	...dummyButtonHooks,
+	...dummyIconButtonHooks,
+	...iconButtonHooks,
+	...iconButtonGroupHooks,
+	...linkHooks
 };
 
 // Components
