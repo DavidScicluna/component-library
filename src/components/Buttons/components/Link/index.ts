@@ -1,17 +1,14 @@
-import * as commonConstants from './common/constants';
-import { useLinkClasses } from './common/hooks';
-import * as commonKeys from './common/keys';
 import type { LinkDefaultElement, LinkElement, LinkMouseEvent, LinkProps, LinkRef } from './common/types';
 import Link from './Link';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Hooks
-export { useLinkClasses };
+export * as hooks from './common/hooks';
 
 // Components
 export { Link };
