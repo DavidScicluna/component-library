@@ -1,4 +1,3 @@
-import * as commonConstants from './common/constants';
 import type {
 	FileButtonBlob,
 	FileButtonBlobs,
@@ -12,7 +11,7 @@ import type {
 import FileButton from './FileButton';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Components
 export { FileButton };
