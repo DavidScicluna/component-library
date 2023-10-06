@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { CardStackProps, CardStackRef } from './common/types';
 import CardStack from './CardStack';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { CardStack };

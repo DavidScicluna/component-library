@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { CardTitleDefaultElement, CardTitleElement, CardTitleProps, CardTitleRef } from './common/types';
 import CardTitle from './CardTitle';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { CardTitle };

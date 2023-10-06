@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { CardHeaderProps, CardHeaderRef, CardHeaderRenderProps } from './common/types';
 import CardHeader from './CardHeader';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { CardHeader };

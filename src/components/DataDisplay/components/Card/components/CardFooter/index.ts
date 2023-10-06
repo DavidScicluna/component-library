@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { CardFooterProps, CardFooterRef } from './common/types';
 import CardFooter from './CardFooter';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { CardFooter };

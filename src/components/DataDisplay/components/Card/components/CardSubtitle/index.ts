@@ -1,4 +1,3 @@
-import * as commonKeys from './common/keys';
 import type {
 	CardSubtitleDefaultElement,
 	CardSubtitleElement,
@@ -8,7 +7,7 @@ import type {
 import CardSubtitle from './CardSubtitle';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { CardSubtitle };
