@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-import Provider from '@components/Provider';
+import { Provider } from '@components/Provider';
 import { getColorHex, getColorMode } from '@common/utils';
 
 import { __DEFAULT_APP_COLOR__, __DEFAULT_APP_COLORMODE__ } from '@common/constants';
@@ -66,7 +66,11 @@ export const useStorybookContext = () => {
 
 const DSCLProvider = (Story, context) => {
 	const color = context?.globals?.color;
-	const colorMode = context?.globals?.backgrounds?.value === '#f8fafc' ? 'light' : 'dark';
+	const colorMode = context?.globals?.backgrounds?.value
+		? context?.globals?.backgrounds?.value === '#f8fafc'
+			? 'light'
+			: 'dark'
+		: getColorMode();
 
 	return (
 		<StorybookContext.Provider value={{ color, colorMode }}>
