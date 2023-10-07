@@ -10,6 +10,9 @@ import { Spinner } from '@components/Feedback';
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography';
 
+// eslint-disable-next-line import-path/parent-depth
+import { useStorybookContext } from '../../../../../.storybook/preview';
+
 import {
 	__DEFAULT_STATE_OVERLAY_HAS_GLASS__,
 	__DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE__,
@@ -49,11 +52,13 @@ export default {
 } as StateOverlayStoryMeta;
 
 export const StateOverlay: StateOverlayStory = (props: StateOverlayProps<PolymorphicDefaultElement>): ReactElement => {
+	const { color, colorMode } = useStorybookContext();
+
 	const radius = classes.borders.border_radius.base;
 
-	const spinner = useGetColor({ colorType: 'default', hueType: 'text.primary' });
-	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
-	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
+	const spinner = useGetColor({ colorMode, colorType: 'default', hueType: 'text.primary' });
+	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });
+	const background = useGetColor({ color, colorMode, colorType: 'color', hueType: 'color', classType: 'bg' });
 
 	return (
 		<StateOverlayComponent {...props} renderSpinner={() => <Spinner color={spinner} size='9xl' variant='puff' />}>

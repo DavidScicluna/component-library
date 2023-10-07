@@ -8,6 +8,9 @@ import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Text } from '@components/Typography/components/Text';
 
+// eslint-disable-next-line import-path/parent-depth
+import { useStorybookContext } from '../../../../../.storybook/preview';
+
 import {
 	__DEFAULT_CONTAINER_BREAKPOINT__,
 	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
@@ -47,10 +50,12 @@ export default {
 } as ContainerStoryMeta;
 
 export const Container: ContainerStory = (props: ContainerProps<PolymorphicDefaultElement>): ReactElement => {
+	const { color, colorMode } = useStorybookContext();
+
 	const radius = classes.borders.border_radius.base;
 
-	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
-	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
+	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });
+	const background = useGetColor({ color, colorMode, colorType: 'color', hueType: 'color', classType: 'bg' });
 
 	return (
 		<ContainerComponent {...props} className={classNames(radius, background)} p={4}>

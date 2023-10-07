@@ -121,9 +121,9 @@ export const PositionOverlay: PositionOverlayStory = (
 ): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
-	const overlay = useGetColor({ colorType: 'default', hueType: 'background', classType: 'bg' });
-	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
-	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
+	const overlay = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'bg' });
+	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });
+	const background = useGetColor({ color, colorMode, colorType: 'color', hueType: 'color', classType: 'bg' });
 
 	return (
 		<PositionOverlayComponent

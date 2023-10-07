@@ -104,9 +104,9 @@ export const LoadingOverlay: LoadingOverlayStory = (
 ): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
-	const spinner = useGetColor({ colorType: 'default', hueType: 'text.primary' });
-	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
-	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
+	const spinner = useGetColor({ colorMode, colorType: 'default', hueType: 'text.primary' });
+	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });
+	const background = useGetColor({ color, colorMode, colorType: 'color', hueType: 'color', classType: 'bg' });
 
 	return (
 		<LoadingOverlayComponent

@@ -87,7 +87,7 @@ export default {
 export const Modal: ModalStory = (props: ModalProps<ModalDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
-	const text = useGetColor({ colorType: 'default', hueType: 'text.primary', classType: 'text' });
+	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'text.primary', classType: 'text' });
 
 	return (
 		<ModalComponent

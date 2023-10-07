@@ -82,7 +82,7 @@ export const Carousel: CarouselStory = ({
 }: CarouselProps<PolymorphicDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
-	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
+	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });
 	const background = useGetColor({ color, colorMode, colorType: 'color', hueType: 'color', classType: 'bg' });
 
 	return (

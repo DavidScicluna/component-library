@@ -9,6 +9,9 @@ import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Text } from '@components/Typography/components/Text';
 
+// eslint-disable-next-line import-path/parent-depth
+import { useStorybookContext } from '../../../.storybook/preview';
+
 import type { BoxProps } from './common/types';
 import type { BoxStory, BoxStoryMeta } from './common/types/story';
 import { Box as BoxComponent } from '.';
@@ -37,10 +40,12 @@ export default {
 } as BoxStoryMeta;
 
 export const Box: BoxStory = (props: BoxProps<PolymorphicDefaultElement>): ReactElement => {
+	const { color, colorMode } = useStorybookContext();
+
 	const radius = classes.borders.border_radius.base;
 
-	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
-	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
+	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });
+	const background = useGetColor({ color, colorMode, colorType: 'color', hueType: 'color', classType: 'bg' });
 
 	return (
 		<BoxComponent {...props} className={classNames(radius, background)} w='100%' p={4}>

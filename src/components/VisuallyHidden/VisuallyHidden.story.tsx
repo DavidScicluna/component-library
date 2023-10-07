@@ -8,6 +8,9 @@ import { useGetColor } from '@common/hooks';
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography/components/Text';
 
+// eslint-disable-next-line import-path/parent-depth
+import { useStorybookContext } from '../../../.storybook/preview';
+
 import type { VisuallyHiddenDefaultElement, VisuallyHiddenProps } from './common/types';
 import type { VisuallyHiddenStory, VisuallyHiddenStoryMeta } from './common/types/story';
 import { VisuallyHidden as VisuallyHiddenComponent } from '.';
@@ -20,10 +23,12 @@ export default {
 export const VisuallyHidden: VisuallyHiddenStory = (
 	props: VisuallyHiddenProps<VisuallyHiddenDefaultElement>
 ): ReactElement => {
+	const { color, colorMode } = useStorybookContext();
+
 	const radius = classes.borders.border_radius.base;
 
-	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
-	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
+	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });
+	const background = useGetColor({ color, colorMode, colorType: 'color', hueType: 'color', classType: 'bg' });
 
 	return (
 		<Center className={classNames(radius, background)} w='100%' p={4}>

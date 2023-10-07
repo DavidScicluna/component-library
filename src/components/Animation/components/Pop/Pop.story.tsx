@@ -8,6 +8,8 @@ import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Center } from '@components/Layout';
 
+// eslint-disable-next-line import-path/parent-depth
+import { useStorybookContext } from '../../../../../.storybook/preview';
 import { __DEFAULT_ANIMATION_IN__ } from '../../common/constants';
 
 import { __DEFAULT_POP_INITIAL_SCALE__, __DEFAULT_POP_IS_REVERSED__ } from './common/constants';
@@ -46,10 +48,12 @@ export default {
 } as PopStoryMeta;
 
 export const Pop: PopStory = (props: PopProps<PolymorphicDefaultElement>): ReactElement => {
+	const { color, colorMode } = useStorybookContext();
+
 	const radius = classes.borders.border_radius.base;
 
-	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
-	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
+	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });
+	const background = useGetColor({ color, colorMode, colorType: 'color', hueType: 'color', classType: 'bg' });
 
 	const padding = classes.spacing.p[4];
 

@@ -18,6 +18,8 @@ import type {
 	PolymorphicDefaultElement
 } from '@common/types';
 
+// eslint-disable-next-line import-path/parent-depth
+import { useStorybookContext } from '../../../../../.storybook/preview';
 import { Center } from '../Center';
 
 import {
@@ -150,10 +152,12 @@ export default {
 } as GridStoryMeta;
 
 export const Grid: GridStory = (props: GridProps<PolymorphicDefaultElement>): ReactElement => {
+	const { color, colorMode } = useStorybookContext();
+
 	const radius = classes.borders.border_radius.base;
 
-	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
-	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
+	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });
+	const background = useGetColor({ color, colorMode, colorType: 'color', hueType: 'color', classType: 'bg' });
 
 	return (
 		<GridComponent {...props}>

@@ -116,7 +116,7 @@ export default {
 export const Card: CardStory = (props: CardProps<PolymorphicDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
-	const text = useGetColor({ colorType: 'default', hueType: 'text.primary', classType: 'text' });
+	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'text.primary', classType: 'text' });
 
 	return (
 		<CardComponent {...props} w='100%' h='100%' color={color} colorMode={colorMode} p={2}>

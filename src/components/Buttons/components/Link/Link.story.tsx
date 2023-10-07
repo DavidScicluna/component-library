@@ -48,7 +48,7 @@ export default {
 export const Link: LinkStory = (props: LinkProps<LinkDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
-	const text = useGetColor({ colorType: 'default', hueType: 'text.primary', classType: 'text' });
+	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'text.primary', classType: 'text' });
 
 	return (
 		<Center w='auto'>

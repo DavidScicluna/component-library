@@ -81,7 +81,7 @@ export default {
 export const Tabs: TabsStory = (props: TabsProps<PolymorphicDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
-	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
+	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });
 
 	const [index, setIndex] = useState<number>(0);
 

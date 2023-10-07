@@ -73,7 +73,7 @@ export default {
 export const DummyTabs: DummyTabsStory = (props: DummyTabsProps<PolymorphicDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
-	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
+	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });
 
 	return (
 		<DummyTabsComponent {...props} color={color} colorMode={colorMode} w='100%'>

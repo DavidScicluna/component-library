@@ -15,6 +15,8 @@ import type {
 
 import { Center } from '@components/Layout';
 
+// eslint-disable-next-line import-path/parent-depth
+import { useStorybookContext } from '../../../../../../.storybook/preview';
 import {
 	__DEFAULT_STACK_ALIGN_ITEMS__,
 	__DEFAULT_STACK_JUSTIFY_CONTENT__,
@@ -73,10 +75,12 @@ export default {
 } as VStackStoryMeta;
 
 export const VStack: VStackStory = (props: VStackProps<PolymorphicDefaultElement>): ReactElement => {
+	const { color, colorMode } = useStorybookContext();
+
 	const radius = classes.borders.border_radius.base;
 
-	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
-	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
+	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });
+	const background = useGetColor({ color, colorMode, colorType: 'color', hueType: 'color', classType: 'bg' });
 
 	return (
 		<VStackComponent {...props}>

@@ -8,6 +8,8 @@ import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Center } from '@components/Layout';
 
+// eslint-disable-next-line import-path/parent-depth
+import { useStorybookContext } from '../../../../../.storybook/preview';
 import { __DEFAULT_ANIMATION_IN__ } from '../../common/constants';
 
 import type { SlideProps } from './common/types';
@@ -31,10 +33,12 @@ export default {
 } as SlideStoryMeta;
 
 export const Slide: SlideStory = (props: SlideProps<PolymorphicDefaultElement>): ReactElement => {
+	const { color, colorMode } = useStorybookContext();
+
 	const radius = classes.borders.border_radius.base;
 
-	const text = useGetColor({ colorType: 'default', hueType: 'background', classType: 'text' });
-	const background = useGetColor({ colorType: 'color', hueType: 'color', classType: 'bg' });
+	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });
+	const background = useGetColor({ color, colorMode, colorType: 'color', hueType: 'color', classType: 'bg' });
 
 	const padding = classes.spacing.p[4];
 
