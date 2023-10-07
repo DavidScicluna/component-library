@@ -19,7 +19,9 @@ import type { BoxProps, BoxRef } from '@components/Box/common/types';
 export type TextDefaultElement = 'p';
 export type TextElement = PickFrom<ElementType, 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'>;
 
-export type TextThemeAppearanceProps = Partial<ThemeAppearanceProps & { color: string }>;
+export type TextThemeAppearanceProps = Partial<
+	Pick<ThemeAppearanceProps, 'colorMode'> & { color: ThemeAppearanceProps['color'] | string }
+>;
 
 type TextOtherProps = TextThemeAppearanceProps & {
 	align?: ResponsiveValue<TextAlignClass>;

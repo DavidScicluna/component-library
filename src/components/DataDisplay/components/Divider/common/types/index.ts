@@ -7,7 +7,9 @@ import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box/common/typ
 export type DividerDefaultElement = 'div';
 export type DividerElement = PickFrom<ElementType, 'div'>;
 
-export type DividerThemeAppearanceProps = Partial<ThemeAppearanceProps & { color: string }>;
+export type DividerThemeAppearanceProps = Partial<
+	Pick<ThemeAppearanceProps, 'colorMode'> & { color: ThemeAppearanceProps['color'] | string }
+>;
 
 export type DividerPlacement = 'left' | 'center' | 'right';
 
