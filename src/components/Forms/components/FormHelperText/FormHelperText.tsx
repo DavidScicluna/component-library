@@ -50,6 +50,7 @@ const FormHelperText = forwardRef(function FormHelperText<
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_FORM_HELPER_TEXT_CLASS__, { [className]: !!className })}
+			aria-errormessage={children}
 			align={align}
 			color={color}
 			fontSize={fontSize}
