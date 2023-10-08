@@ -14,6 +14,8 @@
 !.yarn/versions/
 !.yarn/sdks/
 
+# Bun
+
 .rollup.cache
 
 # testing
