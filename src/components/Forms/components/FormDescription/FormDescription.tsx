@@ -17,6 +17,7 @@ import type {
 	FormDescriptionProps,
 	FormDescriptionRef
 } from './common/types';
+import { getFormDescriptionID } from './common/utils';
 
 const { getFormControlFontSize } = utils;
 const { useFormControlContext } = hooks;
@@ -24,7 +25,7 @@ const { useFormControlContext } = hooks;
 const FormDescription = forwardRef(function FormDescription<
 	Element extends FormDescriptionElement = FormDescriptionDefaultElement
 >(props: FormDescriptionProps<Element>, ref: FormDescriptionRef<Element>): ReactElement {
-	const { colorMode, size } = useFormControlContext();
+	const { colorMode, id, size } = useFormControlContext();
 
 	const __DEFAULT_FORM_DESCRIPTION_COLOR__ = useGetColor({
 		color: 'gray',
@@ -50,6 +51,8 @@ const FormDescription = forwardRef(function FormDescription<
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_FORM_DESCRIPTION_CLASS__, { [className]: !!className })}
+			aria-description={children}
+			id={getFormDescriptionID(id)}
 			align={align}
 			color={color}
 			fontSize={fontSize}
