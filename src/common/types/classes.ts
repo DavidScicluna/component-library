@@ -5,6 +5,7 @@ export type ColorTypeClass =
 	| 'fill'
 	| 'bg'
 	| 'text'
+	| 'caret'
 	| 'border'
 	| 'outline'
 	| 'decoration'
@@ -402,6 +403,12 @@ export type CursorClass =
 	| 'zoom-out';
 export type CursorClassArr = Array<CursorClass>;
 export type CursorClassObj = Record<CursorClass, string>;
+
+export type CaretColorClass =
+	| `${PickFrom<ColorTypeClass, 'caret'>}-${Exclude<ThemeColor, 'transparent' | 'black' | 'white'>}-${ThemeColorHue}`
+	| `${PickFrom<ColorTypeClass, 'caret'>}-${PickFrom<ThemeColor, 'transparent' | 'black' | 'white'>}`;
+export type CaretColorClassArr = Array<CaretColorClass>;
+export type CaretColorClassObj = Record<CaretColorClass, string>;
 
 export type PointerEventsClass = 'auto' | 'none';
 export type PointerEventsClassArr = Array<PointerEventsClass>;

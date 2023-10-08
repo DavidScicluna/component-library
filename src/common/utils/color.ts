@@ -134,6 +134,8 @@ export const getColorClass = memoize((props: GetColorClassProps): string => {
 				return classes.backgrounds.background_color[color as GetColorClassHueColor][hue];
 			case 'text':
 				return classes.typography.text_color[color as GetColorClassHueColor][hue];
+			case 'caret':
+				return classes.interactivity.caret_color[color as GetColorClassHueColor][hue];
 			case 'border':
 				return classes.borders.border_color[color as GetColorClassHueColor][hue];
 			case 'outline':
@@ -157,6 +159,8 @@ export const getColorClass = memoize((props: GetColorClassProps): string => {
 				return classes.backgrounds.background_color[color as GetColorClassNonHueColor];
 			case 'text':
 				return classes.typography.text_color[color as GetColorClassNonHueColor];
+			case 'caret':
+				return classes.interactivity.caret_color[color as GetColorClassNonHueColor];
 			case 'border':
 				return classes.borders.border_color[color as GetColorClassNonHueColor];
 			case 'outline':
