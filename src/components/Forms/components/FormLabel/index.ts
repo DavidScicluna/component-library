@@ -4,6 +4,9 @@ import FormLabel from './FormLabel';
 // Keys
 export * as keys from './common/keys';
 
+// Utils
+export * as utils from './common/utils';
+
 // Components
 export { FormLabel };
 

@@ -13,6 +13,7 @@ import { hooks, utils } from '../FormControl';
 
 import { __KEYS_FORM_LABEL_CLASS__ } from './common/keys';
 import type { FormLabelDefaultElement, FormLabelElement, FormLabelProps, FormLabelRef } from './common/types';
+import { getFormLabelID } from './common/utils';
 
 const { getFormControlFontSize } = utils;
 const { useFormControlContext } = hooks;
@@ -21,7 +22,7 @@ const FormLabel = forwardRef(function FormLabel<Element extends FormLabelElement
 	props: FormLabelProps<Element>,
 	ref: FormLabelRef<Element>
 ): ReactElement {
-	const { colorMode, isError, isRequired, isWarning, isSuccess, size } = useFormControlContext();
+	const { colorMode, id, isError, isRequired, isWarning, isSuccess, size } = useFormControlContext();
 
 	const __DEFAULT_FORM_LABEL_COLOR__ = useGetColor({
 		color: 'gray',
@@ -56,6 +57,9 @@ const FormLabel = forwardRef(function FormLabel<Element extends FormLabelElement
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_FORM_LABEL_CLASS__, { [className]: !!className })}
+			aria-braillelabel={children}
+			aria-label={children}
+			id={getFormLabelID(id)}
 			align={align}
 			color={color}
 			fontSize={fontSize}
