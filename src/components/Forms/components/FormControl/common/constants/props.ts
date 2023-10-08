@@ -1,6 +1,10 @@
+import { v4 as uuid } from 'uuid';
+
 import type { ThemeSpacing } from '@common/types';
 
 import type { FormControlSize } from '../types';
+
+export const __DEFAULT_FORM_CONTROL_ID__ = uuid();
 
 export const __DEFAULT_FORM_CONTROL_IS_DISABLED__ = false;
 export const __DEFAULT_FORM_CONTROL_IS_ERROR__ = false;

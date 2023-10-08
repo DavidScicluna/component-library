@@ -1,7 +1,6 @@
 import type { ElementType } from 'react';
 
-import type { PickFrom } from '@common/types';
-import type { PolymorphicFormEvent } from '@common/types/polymorphic';
+import type { PickFrom, PolymorphicFormEvent } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box/common/types';
 

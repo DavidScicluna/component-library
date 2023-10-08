@@ -6,6 +6,7 @@ import type { ThemeSpacing } from '@common/types';
 
 import { FormControlContext } from '../../FormControl';
 import {
+	__DEFAULT_FORM_CONTROL_ID__,
 	__DEFAULT_FORM_CONTROL_IS_DISABLED__,
 	__DEFAULT_FORM_CONTROL_IS_ERROR__,
 	__DEFAULT_FORM_CONTROL_IS_FOCUSED__,
@@ -22,6 +23,7 @@ const useFormControlContext = <Element extends ElementType>() => {
 	const {
 		color,
 		colorMode,
+		id = __DEFAULT_FORM_CONTROL_ID__,
 		isDisabled: disabled = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
 		isError: error = __DEFAULT_FORM_CONTROL_IS_ERROR__,
 		isFocused: focused = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
@@ -47,6 +49,7 @@ const useFormControlContext = <Element extends ElementType>() => {
 	return {
 		color,
 		colorMode,
+		id,
 		isDisabled,
 		isError,
 		isFocused,
