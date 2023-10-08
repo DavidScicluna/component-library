@@ -290,8 +290,11 @@ import type {
 import type { IconKey, IconKeys } from './icons';
 import type { ClassName, ClassNames, Style } from './other';
 import type {
+	PolymorphicChangeEvent,
 	PolymorphicComponentProps,
 	PolymorphicDefaultElement,
+	PolymorphicFocusEvent,
+	PolymorphicFormEvent,
 	PolymorphicMouseEvent,
 	PolymorphicRef
 } from './polymorphic';
@@ -565,8 +568,11 @@ export type {
 	PointerEventsClass,
 	PointerEventsClassArr,
 	PointerEventsClassObj,
+	PolymorphicChangeEvent,
 	PolymorphicComponentProps,
 	PolymorphicDefaultElement,
+	PolymorphicFocusEvent,
+	PolymorphicFormEvent,
 	PolymorphicMouseEvent,
 	PolymorphicRef,
 	PositionClass,
