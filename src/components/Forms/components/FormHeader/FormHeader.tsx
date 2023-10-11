@@ -18,12 +18,14 @@ const FormHeader = forwardRef(function FormHeader<Element extends ElementType>(
 	props: FormHeaderProps<Element>,
 	ref: FormHeaderRef<Element>
 ): ReactElement {
-	const { color, colorMode, spacing: __DEFAULT_FORM_HEADER_SPACING__ } = useFormControlContext();
+	const { color, colorMode, hasFormControl, spacing: __DEFAULT_FORM_HEADER_SPACING__ } = useFormControlContext();
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const {
 		className = __DEFAULT_CLASSNAME__,
+		w,
+		h,
 		renderLeft,
 		renderRight,
 		renderLabel,
@@ -38,8 +40,8 @@ const FormHeader = forwardRef(function FormHeader<Element extends ElementType>(
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_FORM_HEADER_CLASS__, { [className]: !!className })}
-			w='100%'
-			h='100%'
+			w={hasFormControl ? '100%' : w}
+			h={hasFormControl ? '100%' : h}
 			templateColumns={compact([renderLeft ? 'auto' : null, '1fr', renderRight ? 'auto' : null]).join(' ')}
 			templateRows={1}
 			alignItems='stretch'
