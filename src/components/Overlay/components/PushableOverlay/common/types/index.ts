@@ -60,7 +60,7 @@ type PushableOverlayOtherProps = ThemeAppAppearanceProps & {
 	/**
 	 *  The variant of the container
 	 *
-	 * @default 'base'
+	 * @default 'contained'
 	 */
 	variant?: ResponsiveValue<PushableOverlayVariant>;
 };
