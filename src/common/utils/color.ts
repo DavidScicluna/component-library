@@ -1,3 +1,4 @@
+import { darken, lighten } from 'color2k';
 import memoize from 'micro-memoize';
 
 import classes from '@common/classes';
@@ -187,4 +188,27 @@ export const getColorMode = memoize((): ThemeAppColorMode => {
 		return 'dark';
 	}
 	return 'light';
+});
+
+export type FilterColorHexProps = {
+	color: string;
+	colorMode: ThemeAppColorMode;
+	amount: number;
+};
+
+/**
+ * This method will return the filtered hex color depending on the color, colorMode & amount of transparency params passed
+ *
+ * @param color - Hex Color
+ * @param colorMode - light | dark
+ * @param amount - The amount to increase the transparency by, given as a decimal between 0 and 1
+ * @returns - Hex Color
+ */
+export const filterColorHex = memoize(({ color, colorMode, amount }: FilterColorHexProps): string => {
+	switch (colorMode) {
+		case 'dark':
+			return lighten(color, amount);
+		default:
+			return darken(color, amount);
+	}
 });
