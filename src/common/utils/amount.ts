@@ -2,7 +2,7 @@ import memoize from 'micro-memoize';
 
 import type { ThemeAppColorMode } from '@common/types';
 
-export type GetAmountType = 'active' | 'back' | 'hover' | 'placeholder' | 'selection';
+export type GetAmountType = 'active' | 'back' | 'focus' | 'hover';
 export type GetAmountTypeArr = Array<GetAmountType>;
 export type GetAmountTypeObj = Record<GetAmountType, number>;
 
@@ -12,11 +12,9 @@ export const getAmount = memoize((colorMode: ThemeAppColorMode, type: GetAmountT
 			return colorMode === 'light' ? 0.15 : 0.1;
 		case 'back':
 			return colorMode === 'light' ? 0.05 : 0;
+		case 'focus':
+			return colorMode === 'light' ? 0.15 : 0.1;
 		case 'hover':
 			return colorMode === 'light' ? 0.1 : 0.05;
-		case 'placeholder':
-			return colorMode === 'light' ? 0 : 0;
-		case 'selection':
-			return colorMode === 'light' ? 0.25 : 0.25;
 	}
 });
