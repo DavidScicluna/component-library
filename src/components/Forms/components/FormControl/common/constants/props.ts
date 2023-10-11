@@ -6,6 +6,8 @@ import type { FormControlSize } from '../types';
 
 export const __DEFAULT_FORM_CONTROL_ID__ = uuid();
 
+export const __DEFAULT_FORM_CONTROL_HAS_FORM_CONTROL__ = true;
+
 export const __DEFAULT_FORM_CONTROL_IS_DISABLED__ = false;
 export const __DEFAULT_FORM_CONTROL_IS_ERROR__ = false;
 export const __DEFAULT_FORM_CONTROL_IS_FOCUSED__ = false;

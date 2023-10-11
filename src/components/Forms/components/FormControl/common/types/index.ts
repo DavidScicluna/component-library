@@ -76,4 +76,6 @@ type PickedFormControlProps =
 	| 'size'
 	| 'spacing';
 
-export type FormControlContext<Element extends ElementType> = Pick<FormControlProps<Element>, PickedFormControlProps>;
+export type FormControlContext<Element extends ElementType> = {
+	hasFormControl?: ResponsiveValue<boolean>;
+} & Pick<FormControlProps<Element>, PickedFormControlProps>;

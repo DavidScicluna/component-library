@@ -10,6 +10,7 @@ import type { AlignItemsClass, JustifyContentClass, ThemeSpacing } from '@common
 import { VStack } from '@components/Layout';
 
 import {
+	__DEFAULT_FORM_CONTROL_HAS_FORM_CONTROL__,
 	__DEFAULT_FORM_CONTROL_ID__,
 	__DEFAULT_FORM_CONTROL_IS_DISABLED__,
 	__DEFAULT_FORM_CONTROL_IS_ERROR__,
@@ -32,6 +33,7 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const FormControlContext = createContext<FormControlContextType<any>>({
 	id: __DEFAULT_FORM_CONTROL_ID__,
+	hasFormControl: __DEFAULT_FORM_CONTROL_HAS_FORM_CONTROL__,
 	isDisabled: __DEFAULT_FORM_CONTROL_IS_DISABLED__,
 	isError: __DEFAULT_FORM_CONTROL_IS_ERROR__,
 	isFocused: __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
@@ -87,6 +89,7 @@ const FormControl = forwardRef(function FormControl<Element extends ElementType>
 				color,
 				colorMode,
 				id,
+				hasFormControl: __DEFAULT_FORM_CONTROL_HAS_FORM_CONTROL__,
 				isDisabled,
 				isError,
 				isFocused,
