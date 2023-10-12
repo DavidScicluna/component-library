@@ -1,6 +1,7 @@
 import type {
 	CursorClassObj,
 	PointerEventsClassObj,
+	ResizeClassObj,
 	ScrollBehaviorClassObj,
 	ScrollSnapAlignClassObj,
 	ScrollSnapStopClassObj,
@@ -4416,6 +4417,13 @@ const after_caret_color: ThemeColorObj = {
 const pointer_events: PointerEventsClassObj = {
 	none: 'pointer-events-none',
 	auto: 'pointer-events-auto'
+};
+
+const resize: ResizeClassObj = {
+	none: 'resize-none',
+	y: 'resize-y',
+	x: 'resize-x',
+	both: 'resize'
 };
 
 const scroll_behavior: ScrollBehaviorClassObj = {
@@ -13122,6 +13130,7 @@ export default {
 		after: after_caret_color
 	},
 	pointer_events,
+	resize,
 	scroll_behavior,
 	scroll_p: {
 		...scroll_p,

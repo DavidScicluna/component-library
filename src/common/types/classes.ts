@@ -414,6 +414,10 @@ export type PointerEventsClass = 'auto' | 'none';
 export type PointerEventsClassArr = Array<PointerEventsClass>;
 export type PointerEventsClassObj = Record<PointerEventsClass, string>;
 
+export type ResizeClass = 'none' | 'y' | 'x' | 'both';
+export type ResizeClassArr = Array<ResizeClass>;
+export type ResizeClassObj = Record<ResizeClass, string>;
+
 export type ScrollBehaviorClass = 'auto' | 'smooth';
 export type ScrollBehaviorClassArr = Array<ScrollBehaviorClass>;
 export type ScrollBehaviorClassObj = Record<ScrollBehaviorClass, string>;
