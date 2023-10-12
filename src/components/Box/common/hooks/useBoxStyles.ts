@@ -1,7 +1,5 @@
 import { type ElementType, useMemo } from 'react';
 
-import { compact } from 'lodash-es';
-
 import { useGetResponsiveValue, useTheme } from '@common/hooks';
 import type { Style, ThemeSpacing, Undefinable } from '@common/types';
 import { getResponsiveValue } from '@common/utils';
@@ -69,37 +67,33 @@ const useBoxStyles = <Element extends ElementType>(props: UseBoxStylesProps<Elem
 		if (m) {
 			const margin = getResponsiveValue<ThemeSpacing>(m);
 			return theme.spacing[margin];
-		} else if (mx || my) {
-			const mlr = getResponsiveValue<Undefinable<ThemeSpacing>>(mx);
-			const mtb = getResponsiveValue<Undefinable<ThemeSpacing>>(my);
-			return compact([mlr ? theme.spacing[mlr] : null, mtb ? theme.spacing[mtb] : null]).join(' ');
 		}
-	}, [m, mx, my]);
+	}, [m]);
 
 	const marginLeft = useMemo<Undefinable<string>>(() => {
-		if (ml) {
-			const marginLeft = getResponsiveValue<ThemeSpacing>(ml);
+		if (ml || mx) {
+			const marginLeft = getResponsiveValue<ThemeSpacing>(ml || mx || 0);
 			return theme.spacing[marginLeft];
 		}
-	}, [ml]);
+	}, [ml, mx]);
 	const marginTop = useMemo<Undefinable<string>>(() => {
-		if (mt) {
-			const marginTop = getResponsiveValue<ThemeSpacing>(mt);
+		if (mt || my) {
+			const marginTop = getResponsiveValue<ThemeSpacing>(mt || my || 0);
 			return theme.spacing[marginTop];
 		}
-	}, [mt]);
+	}, [mt, my]);
 	const marginRight = useMemo<Undefinable<string>>(() => {
-		if (mr) {
-			const marginRight = getResponsiveValue<ThemeSpacing>(mr);
+		if (mr || mx) {
+			const marginRight = getResponsiveValue<ThemeSpacing>(mr || mx || 0);
 			return theme.spacing[marginRight];
 		}
-	}, [mr]);
+	}, [mr, mx]);
 	const marginBottom = useMemo<Undefinable<string>>(() => {
-		if (mb) {
-			const marginBottom = getResponsiveValue<ThemeSpacing>(mb);
+		if (mb || my) {
+			const marginBottom = getResponsiveValue<ThemeSpacing>(mb || my || 0);
 			return theme.spacing[marginBottom];
 		}
-	}, [mb]);
+	}, [mb, my]);
 
 	return {
 		width,
