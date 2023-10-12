@@ -62,16 +62,24 @@ const useInputStyles = <Element extends InputElement = InputDefaultElement>(
 	const variant = useGetResponsiveValue<InputVariant>(v);
 
 	const readOnlyStyles = useMemo<Style>(() => {
-		const colorHue = getColorHue({ colorMode, type: 'dark' });
+		const colorHue = getColorHue({ colorMode, type: colorMode === 'light' ? 'darker' : 'lighter' });
 		const borderHue = getColorHue({ colorMode, type: 'divider' });
-		const backgroundHue = getColorHue({ colorMode, type: 'lighter' });
+		const backgroundHue = getColorHue({ colorMode, type: colorMode === 'light' ? 'lighter' : 'darker' });
 
 		return {
-			color: theme.colors.gray[colorHue],
-			borderColor: theme.colors.gray[borderHue],
-			background: theme.colors.gray[backgroundHue]
+			color: filterColorHex({ color: theme.colors.gray[colorHue], colorMode, amount: amount.hover }),
+			borderColor: filterColorHex({
+				color: theme.colors.gray[borderHue],
+				colorMode,
+				amount: amount.hover
+			}),
+			background: filterColorHex({
+				color: theme.colors.gray[backgroundHue],
+				colorMode,
+				amount: amount.hover
+			})
 		};
-	}, [colorMode]);
+	}, [amount, colorMode]);
 
 	const outlinedDefaultStyles = useMemo<Style>(() => {
 		const colorHue = getColorHue({ colorMode, type: colorMode == 'light' ? 'darker' : 'lighter' });
