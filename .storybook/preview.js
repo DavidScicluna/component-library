@@ -4,7 +4,7 @@ import { Provider } from '@components/Provider';
 import { getColorHex, getColorMode } from '@common/utils';
 
 import { __DEFAULT_APP_COLOR__, __DEFAULT_APP_COLORMODE__ } from '@common/constants';
-import { colors } from '@common/data';
+import { appColors } from '@common/data';
 import { capitalize } from 'lodash-es';
 
 // Importing Main Fonts (Work Sans & Roboto)
@@ -90,7 +90,7 @@ const preview = {
 				title: 'Color',
 				icon: 'circle',
 				items: [
-					...colors.map((color) => ({
+					...appColors.map((color) => ({
 						title: capitalize(color),
 						value: color
 					})),

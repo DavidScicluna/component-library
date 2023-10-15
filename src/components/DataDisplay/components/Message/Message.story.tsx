@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import { sample } from 'lodash-es';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
-import { colors } from '@common/data';
+import { appColors } from '@common/data';
 import type { PolymorphicDefaultElement, ThemeAppColor, ThemeBorderWidthArr, ThemeRadiusArr } from '@common/types';
 
 // eslint-disable-next-line import-path/parent-depth
@@ -22,7 +22,7 @@ import {
 	MessageTitle
 } from '.';
 
-const __DEFAULT_MESSAGE_STORY_COLOR__: ThemeAppColor = sample(colors) || 'blue';
+const __DEFAULT_MESSAGE_STORY_COLOR__: ThemeAppColor = sample(appColors) || 'blue';
 
 export default {
 	title: 'Data Display/Message',

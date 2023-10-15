@@ -1,6 +1,6 @@
 import { sample } from 'lodash-es';
 
-import { colors } from '@common/data';
+import { appColors } from '@common/data';
 import type { UseBooleanToggles } from '@common/hooks/useBoolean';
 import {
 	__KEY_LOCALSTORAGE_APP_COLOR__,
@@ -14,7 +14,7 @@ import type { ThemeAppColor, ThemeAppColorMode, ThemeColor } from '@common/types
 
 export const __DEFAULT_COLOR__: ThemeColor = (localStorage.getItem(__KEY_LOCALSTORAGE_COLOR__) || 'gray') as ThemeColor;
 export const __DEFAULT_APP_COLOR__: ThemeAppColor = (localStorage.getItem(__KEY_LOCALSTORAGE_APP_COLOR__) ||
-	sample(colors) ||
+	sample(appColors) ||
 	'blue') as ThemeAppColor;
 export const __DEFAULT_APP_COLORMODE__: ThemeAppColorMode = (localStorage.getItem(__KEY_LOCALSTORAGE_APP_COLORMODE__) ||
 	'light') as ThemeAppColorMode;

@@ -1,10 +1,6 @@
-import type { ThemeColorArr } from '@common/types';
+import type { ThemeAppColorArr } from '@common/types';
 
-const colors: ThemeColorArr = [
-	'transparent',
-	'black',
-	'white',
-	'gray',
+const colors: ThemeAppColorArr = [
 	'red',
 	'pink',
 	'purple',
