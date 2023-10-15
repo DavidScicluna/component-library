@@ -1,5 +1,4 @@
 import * as commonConstants from './common/constants';
-import { useConfirmModalContext } from './common/hooks';
 import type {
 	ConfirmModalContext,
 	ConfirmModalDefaultElement,
@@ -34,10 +33,7 @@ import type {
 	ConfirmModalTitleDefaultElement,
 	ConfirmModalTitleElement,
 	ConfirmModalTitleProps,
-	ConfirmModalTitleRef,
-	ConfirmModalTransitionProps,
-	ConfirmModalTransitionRef,
-	ConfirmModalTransitionVariant
+	ConfirmModalTitleRef
 } from './components';
 import {
 	ConfirmModalActions,
@@ -47,7 +43,6 @@ import {
 	ConfirmModalStack,
 	ConfirmModalSubtitle,
 	ConfirmModalTitle,
-	ConfirmModalTransition,
 	constants as componentsConstants,
 	keys as componentsKeys
 } from './components';
@@ -59,8 +54,11 @@ export const constants = { ...commonConstants, ...componentsConstants };
 // Keys
 export const keys = { ...componentsKeys };
 
+// Utils
+export * as utils from './common/utils';
+
 // Hooks
-export { useConfirmModalContext };
+export * as hooks from './common/hooks';
 
 // Components
 export {
@@ -71,8 +69,7 @@ export {
 	ConfirmModalIcon,
 	ConfirmModalStack,
 	ConfirmModalSubtitle,
-	ConfirmModalTitle,
-	ConfirmModalTransition
+	ConfirmModalTitle
 };
 
 // Component Types
@@ -108,8 +105,5 @@ export type {
 	ConfirmModalTitleDefaultElement,
 	ConfirmModalTitleElement,
 	ConfirmModalTitleProps,
-	ConfirmModalTitleRef,
-	ConfirmModalTransitionProps,
-	ConfirmModalTransitionRef,
-	ConfirmModalTransitionVariant
+	ConfirmModalTitleRef
 };

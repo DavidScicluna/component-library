@@ -1,5 +1,4 @@
 import * as commonConstants from './common/constants';
-import { useModalContext } from './common/hooks';
 import type {
 	ModalContext,
 	ModalDefaultElement,
@@ -56,7 +55,7 @@ export const keys = { ...componentsKeys };
 export * as utils from './common/utils';
 
 // Hooks
-export { useModalContext };
+export * as hooks from './common/hooks';
 
 // Components
 export { Modal, ModalBackdrop, ModalBody, ModalFooter, ModalHeader, ModalStack, ModalSubtitle, ModalTitle };
