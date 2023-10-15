@@ -23,29 +23,11 @@ export type IconButtonRenderProps<Element extends IconButtonElement = IconButton
 type IconButtonOtherProps<Element extends IconButtonElement = IconButtonDefaultElement> = ThemeAppAppearanceProps & {
 	renderSpinner?: (props: IconButtonRenderProps<Element>) => ReactNode;
 	/**
-	 * If true, the button will allow on pressing the enter key the button will be clicked
-	 *
-	 * @default true
-	 */
-	// canClickOnEnter?: ResponsiveValue<boolean>;
-	/**
-	 * If true, the button will allow on pressing the space key the button will be clicked
-	 *
-	 * @default true
-	 */
-	// canClickOnSpace?: ResponsiveValue<boolean>;
-	/**
 	 * If true, the button will be styled in a more compressed state
 	 *
 	 * @default false
 	 */
 	isCompact?: ResponsiveValue<boolean>;
-	/**
-	 * If true, the button can be focused
-	 *
-	 * @default true
-	 */
-	// isFocusable?: ResponsiveValue<boolean>;
 	/**
 	 * If true, the button will show a spinner
 	 *
@@ -70,7 +52,7 @@ type IconButtonOtherProps<Element extends IconButtonElement = IconButtonDefaultE
 	 * @default 'contained'
 	 */
 	variant?: ResponsiveValue<IconButtonVariant>;
-} & Pick<PushableOverlayProps<Element>, 'isActive' | 'isDisabled' | 'isOutlined'>;
+} & Pick<PushableOverlayProps<Element>, 'isActive' | 'isDisabled' | 'isFocused' | 'isOutlined'>;
 
 export type IconButtonProps<Element extends IconButtonElement = IconButtonDefaultElement> = Omit<
 	BoxProps<Element, IconButtonOtherProps<Element>>,

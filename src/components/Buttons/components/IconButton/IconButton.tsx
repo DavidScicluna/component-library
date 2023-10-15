@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react';
-import { createContext, forwardRef } from 'react';
+import { createContext, forwardRef, useMemo } from 'react';
 
-// import { IconButton as AriakitIconButton } from '@ariakit/react';
 import classNames from 'classnames';
 import { merge } from 'lodash-es';
 import { useFocus } from 'rooks';
@@ -12,15 +11,13 @@ import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 import { Center } from '@components/Layout';
 import { PushableOverlay } from '@components/Overlay/components/PushableOverlay';
 
-import { useIconButtonGroupContext } from '../IconButtonGroup';
+import { hooks as iconButtonGroupHooks } from '../IconButtonGroup';
 
 import {
-	// __DEFAULT_ICON_BUTTON_CAN_CLICK_ON_ENTER__,
-	// __DEFAULT_ICON_BUTTON_CAN_CLICK_ON_SPACE__,
 	__DEFAULT_ICON_BUTTON_IS_ACTIVE__,
 	__DEFAULT_ICON_BUTTON_IS_COMPACT__,
 	__DEFAULT_ICON_BUTTON_IS_DISABLED__,
-	// __DEFAULT_ICON_BUTTON_IS_FOCUSABLE__,
+	__DEFAULT_ICON_BUTTON_IS_FOCUSED__,
 	__DEFAULT_ICON_BUTTON_IS_LOADING__,
 	__DEFAULT_ICON_BUTTON_IS_OUTLINED__,
 	__DEFAULT_ICON_BUTTON_IS_ROUND__,
@@ -39,6 +36,8 @@ import type {
 	IconButtonVariant
 } from './common/types';
 
+const { useIconButtonGroupContext } = iconButtonGroupHooks;
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const IconButtonContext = createContext<IconButtonContextType<any>>({
 	size: __DEFAULT_ICON_BUTTON_SIZE__,
@@ -49,10 +48,6 @@ const IconButton = forwardRef(function IconButton<Element extends IconButtonElem
 	props: IconButtonProps<Element>,
 	ref: IconButtonRef<Element>
 ): ReactElement {
-	// const internalRef = useRef<IconButtonRef<Element>>();
-
-	// const refs = useMergeRefs<IconButtonRef<Element>>(ref, internalRef);
-
 	const {
 		color: __DEFAULT_ICON_BUTTON_GROUP_COLOR__,
 		colorMode: __DEFAULT_ICON_BUTTON_GROUP_COLORMODE__,
@@ -69,12 +64,10 @@ const IconButton = forwardRef(function IconButton<Element extends IconButtonElem
 		renderSpinner,
 		color = __DEFAULT_ICON_BUTTON_GROUP_COLOR__,
 		colorMode = __DEFAULT_ICON_BUTTON_GROUP_COLORMODE__,
-		// canClickOnEnter = __DEFAULT_ICON_BUTTON_CAN_CLICK_ON_ENTER__,
-		// canClickOnSpace = __DEFAULT_ICON_BUTTON_CAN_CLICK_ON_SPACE__,
 		isActive: active = __DEFAULT_ICON_BUTTON_IS_ACTIVE__,
 		isCompact: c = __DEFAULT_ICON_BUTTON_GROUP_IS_COMPACT__,
 		isDisabled: disabled = __DEFAULT_ICON_BUTTON_GROUP_IS_DISABLED__,
-		// isFocusable = __DEFAULT_ICON_BUTTON_IS_FOCUSABLE__,
+		isFocused: focused = __DEFAULT_ICON_BUTTON_IS_FOCUSED__,
 		isLoading: loading = __DEFAULT_ICON_BUTTON_IS_LOADING__,
 		isRound: round = __DEFAULT_ICON_BUTTON_GROUP_IS_ROUND__,
 		isOutlined: outlined = __DEFAULT_ICON_BUTTON_IS_OUTLINED__,
@@ -84,11 +77,12 @@ const IconButton = forwardRef(function IconButton<Element extends IconButtonElem
 		...rest
 	} = props;
 
-	const [isFocused, setIsFocused] = useBoolean();
+	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
 	const isActive = useGetResponsiveValue<boolean>(active);
 	const isCompact = useGetResponsiveValue<boolean>(c);
 	const isDisabled = useGetResponsiveValue<boolean>(disabled);
+	const isFocusedProp = useGetResponsiveValue<boolean>(focused);
 	const isLoading = useGetResponsiveValue<boolean>(loading);
 	const isRound = useGetResponsiveValue<boolean>(round);
 	const isOutlined = useGetResponsiveValue<boolean>(outlined);
@@ -96,46 +90,17 @@ const IconButton = forwardRef(function IconButton<Element extends IconButtonElem
 	const size = useGetResponsiveValue<IconButtonSize>(s);
 	const variant = useGetResponsiveValue<IconButtonVariant>(v);
 
+	const isFocused = useMemo<boolean>(() => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
+
 	const config = useIconButtonSizeConfig<Element>({ isCompact, isRound, size, variant });
 
 	const classes = useIconButtonClasses<Element>({ variant });
 	const styles = useIconButtonStyles<Element>({ size });
 
-	// const handleEnterKeyClick = debounce((): void => {
-	// 	if (canClickOnEnter && isFocused && !isActive && !isDisabled) {
-	// 		internalRef?.current?.click;
-	// 	}
-	// }, 500);
-
-	// const handleSpaceKeyClick = debounce((): void => {
-	// 	if (canClickOnSpace && isFocused && !isActive && !isDisabled) {
-	// 		internalRef?.current?.click;
-	// 	}
-	// }, 500);
-
-	// useKey(['Enter'], handleEnterKeyClick);
-	// useKey(['Space'], handleSpaceKeyClick);
-
-	const { focusProps } = useFocus({ onFocus: () => setIsFocused.on(), onBlur: () => setIsFocused.off() });
+	const { focusProps } = useFocus({ onFocus: () => setIsFocusedHook.on(), onBlur: () => setIsFocusedHook.off() });
 
 	return (
 		<IconButtonContext.Provider value={{ color, colorMode, size, variant }}>
-			{/* <AriakitIconButton
-				render={
-					<Box<Element>
-						{...focusProps}
-						{...rest}
-						ref={refs}
-						className={classNames(__KEYS_ICON_BUTTON_CLASS__, classes, { [className]: !!className })}
-						tabIndex={0}
-					/>
-				}
-				accessibleWhenDisabled={false}
-				clickOnEnter={canClickOnEnter}
-				clickOnSpace={canClickOnSpace}
-				disabled={isDisabled}
-				focusable={isFocusable}
-			> */}
 			<PushableOverlay<Element>
 				{...focusProps}
 				{...rest}
