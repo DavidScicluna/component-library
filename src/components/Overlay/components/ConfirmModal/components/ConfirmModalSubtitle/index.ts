@@ -1,4 +1,3 @@
-import * as commonKeys from './common/keys';
 import type {
 	ConfirmModalSubtitleDefaultElement,
 	ConfirmModalSubtitleElement,
@@ -8,7 +7,7 @@ import type {
 import ConfirmModalSubtitle from './ConfirmModalSubtitle';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { ConfirmModalSubtitle };

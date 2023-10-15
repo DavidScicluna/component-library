@@ -1,4 +1,3 @@
-import * as commonKeys from './common/keys';
 import type {
 	ConfirmModalActionsProps,
 	ConfirmModalActionsRef,
@@ -8,7 +7,7 @@ import type {
 import ConfirmModalActions from './ConfirmModalActions';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { ConfirmModalActions };

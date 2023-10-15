@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { ConfirmModalBackdropElement, ConfirmModalBackdropProps, ConfirmModalBackdropRef } from './common/types';
 import ConfirmModalBackdrop from './ConfirmModalBackdrop';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { ConfirmModalBackdrop };

@@ -17,8 +17,6 @@ import {
 	constants as confirmModalBodyConstants,
 	keys as confirmModalBodyKeys
 } from './ConfirmModalBody';
-import type { ConfirmModalContainerProps, ConfirmModalContainerRef } from './ConfirmModalContainer';
-import { ConfirmModalContainer, keys as confirmModalContainerKeys } from './ConfirmModalContainer';
 import type {
 	ConfirmModalIconDefaultElement,
 	ConfirmModalIconElement,
@@ -42,31 +40,19 @@ import type {
 	ConfirmModalTitleRef
 } from './ConfirmModalTitle';
 import { ConfirmModalTitle, keys as confirmModalTitleKeys } from './ConfirmModalTitle';
-import type {
-	ConfirmModalTransitionProps,
-	ConfirmModalTransitionRef,
-	ConfirmModalTransitionVariant
-} from './ConfirmModalTransition';
-import {
-	ConfirmModalTransition,
-	constants as confirmModalTransitionConstants,
-	keys as confirmModalTransitionKeys
-} from './ConfirmModalTransition';
 
 // Constants
-export const constants = { ...confirmModalBodyConstants, ...confirmModalTransitionConstants };
+export const constants = { ...confirmModalBodyConstants };
 
 // Keys
 export const keys = {
 	confirmModalActionsKeys,
 	confirmModalBackdropKeys,
 	confirmModalBodyKeys,
-	confirmModalContainerKeys,
 	confirmModalIconKeys,
 	confirmModalStackKeys,
 	confirmModalSubtitleKeys,
-	confirmModalTitleKeys,
-	confirmModalTransitionKeys
+	confirmModalTitleKeys
 };
 
 // Components
@@ -74,12 +60,10 @@ export {
 	ConfirmModalActions,
 	ConfirmModalBackdrop,
 	ConfirmModalBody,
-	ConfirmModalContainer,
 	ConfirmModalIcon,
 	ConfirmModalStack,
 	ConfirmModalSubtitle,
-	ConfirmModalTitle,
-	ConfirmModalTransition
+	ConfirmModalTitle
 };
 
 // Component Types
@@ -93,8 +77,6 @@ export type {
 	ConfirmModalBackdropRef,
 	ConfirmModalBodyProps,
 	ConfirmModalBodyRef,
-	ConfirmModalContainerProps,
-	ConfirmModalContainerRef,
 	ConfirmModalIconDefaultElement,
 	ConfirmModalIconElement,
 	ConfirmModalIconProps,
@@ -108,8 +90,5 @@ export type {
 	ConfirmModalTitleDefaultElement,
 	ConfirmModalTitleElement,
 	ConfirmModalTitleProps,
-	ConfirmModalTitleRef,
-	ConfirmModalTransitionProps,
-	ConfirmModalTransitionRef,
-	ConfirmModalTransitionVariant
+	ConfirmModalTitleRef
 };

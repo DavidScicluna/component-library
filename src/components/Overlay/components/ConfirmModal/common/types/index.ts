@@ -5,18 +5,22 @@ import type { PickFrom, ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing }
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { IconButtonProps } from '@components/Buttons/components/IconButton';
 
+export type ConfirmModalDefaultElement = 'dialog';
+export type ConfirmModalElement = PickFrom<ElementType, 'dialog'>;
+
 export type ConfirmModalSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export type ConfirmModalRenderTriggerProps<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = {
-	/**
-	 * If `true`, the modal will be open
-	 */
-	isOpen: boolean;
-	/**
-	 * Callback invoked to open the modal
-	 */
-	onOpen: () => void;
-} & Pick<ConfirmModalProps<Element>, 'color' | 'colorMode'>;
+export type ConfirmModalRenderTriggerProps<Element extends ConfirmModalElement = ConfirmModalDefaultElement> =
+	IconButtonProps & {
+		/**
+		 * If `true`, the modal will be open
+		 */
+		isOpen: boolean;
+		/**
+		 * Callback invoked to open the modal
+		 */
+		onOpen: () => void;
+	} & Pick<ConfirmModalProps<Element>, 'color' | 'colorMode'>;
 export type ConfirmModalRenderBackdropProps<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = Pick<
 	ConfirmModalProps<Element>,
 	'color' | 'colorMode'
@@ -26,9 +30,6 @@ export type ConfirmModalRenderCancelProps = Pick<
 	'color' | 'colorMode' | 'onClick' | 'size' | 'variant'
 >;
 
-export type ConfirmModalDefaultElement = 'dialog';
-export type ConfirmModalElement = PickFrom<ElementType, 'dialog'>;
-
 type ConfirmModalOtherProps = ThemeAppAppearanceProps & {
 	renderTrigger: (props: ConfirmModalRenderTriggerProps) => ReactNode;
 	renderBackdrop?: (props: ConfirmModalRenderBackdropProps) => ReactNode;
@@ -37,17 +38,17 @@ type ConfirmModalOtherProps = ThemeAppAppearanceProps & {
 	 * If `true`, the modal will close when the Esc key is pressed
 	 * @default true
 	 */
-	closeOnEsc?: boolean;
+	closeOnEsc?: ResponsiveValue<boolean>;
 	/**
 	 * If `true`, the modal will close when the overlay is clicked
 	 * @default true
 	 */
-	closeOnOverlayClick?: boolean;
+	closeOnOverlayClick?: ResponsiveValue<boolean>;
 	/**
 	 * If `true`, the modal will render without a backdrop behind the modal
 	 * @default true
 	 */
-	hasBackdrop?: boolean;
+	hasBackdrop?: ResponsiveValue<boolean>;
 	/**
 	 * Callback invoked to close the modal
 	 */
@@ -87,4 +88,4 @@ export type ConfirmModalContext<Element extends ConfirmModalElement = ConfirmMod
 	 * If `true`, the ConfirmModal will be open
 	 */
 	isOpen: boolean;
-} & Pick<ConfirmModalProps<Element>, 'color' | 'colorMode' | 'onClose' | 'size' | 'spacing'>;
+} & Pick<ConfirmModalProps<Element>, 'color' | 'colorMode' | 'id' | 'onClose' | 'size' | 'spacing'>;

@@ -9,6 +9,7 @@ import { useGetColor } from '@common/hooks';
 import { Text } from '@components/Typography';
 
 import { useConfirmModalContext } from '../../common/hooks';
+import { getConfirmModalTitleID } from '../../common/utils';
 
 import { __KEYS_CONFIRM_MODAL_TITLE_CLASS__ } from './common/keys';
 import type {
@@ -21,7 +22,7 @@ import type {
 const ConfirmModalTitle = forwardRef(function ConfirmModalTitle<
 	Element extends ConfirmModalTitleElement = ConfirmModalTitleDefaultElement
 >(props: ConfirmModalTitleProps<Element>, ref: ConfirmModalTitleRef<Element>): ReactElement {
-	const { colorMode } = useConfirmModalContext();
+	const { colorMode, id } = useConfirmModalContext();
 
 	const __DEFAULT_CONFIRM_MODAL_TITLE_COLOR__ = useGetColor({
 		color: 'gray',
@@ -46,6 +47,7 @@ const ConfirmModalTitle = forwardRef(function ConfirmModalTitle<
 		<Text<Element>
 			{...rest}
 			ref={ref}
+			id={getConfirmModalTitleID(id)}
 			className={classNames(__KEYS_CONFIRM_MODAL_TITLE_CLASS__, { [className]: !!className })}
 			align={align}
 			color={color}

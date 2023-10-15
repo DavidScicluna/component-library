@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { ConfirmModalStackProps, ConfirmModalStackRef } from './common/types';
 import ConfirmModalStack from './ConfirmModalStack';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { ConfirmModalStack };

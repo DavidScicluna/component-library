@@ -10,9 +10,14 @@ import {
 	__DEFAULT_CONFIRM_MODAL_SIZE__,
 	__DEFAULT_CONFIRM_MODAL_SPACING__
 } from '../constants';
-import type { ConfirmModalContext as ConfirmModalContextType, ConfirmModalSize } from '../types';
+import type {
+	ConfirmModalContext as ConfirmModalContextType,
+	ConfirmModalDefaultElement,
+	ConfirmModalElement,
+	ConfirmModalSize
+} from '../types';
 
-const useConfirmModalContext = () => {
+const useConfirmModalContext = <Element extends ConfirmModalElement = ConfirmModalDefaultElement>() => {
 	const {
 		color,
 		colorMode,
@@ -20,10 +25,9 @@ const useConfirmModalContext = () => {
 		onClose = __DEFAULT_METHOD__,
 		size: si = __DEFAULT_CONFIRM_MODAL_SIZE__,
 		spacing: sp = __DEFAULT_CONFIRM_MODAL_SPACING__
-	} = useContext<ConfirmModalContextType>(ConfirmModalContext);
+	} = useContext<ConfirmModalContextType<Element>>(ConfirmModalContext);
 
 	const size = useGetResponsiveValue<ConfirmModalSize>(si);
-
 	const spacing = useGetResponsiveValue<ThemeSpacing>(sp);
 
 	return { color, colorMode, isOpen, onClose, size, spacing };
