@@ -24,29 +24,11 @@ type ButtonOtherProps<Element extends ButtonElement = ButtonDefaultElement> = Th
 	renderRight?: (props: ButtonRenderProps<Element>) => ReactNode;
 	renderSpinner?: (props: ButtonRenderProps<Element>) => ReactNode;
 	/**
-	 * If true, the button will allow on pressing the enter key the button will be clicked
-	 *
-	 * @default true
-	 */
-	// canClickOnEnter?: ResponsiveValue< boolean>;
-	/**
-	 * If true, the button will allow on pressing the space key the button will be clicked
-	 *
-	 * @default true
-	 */
-	// canClickOnSpace?: ResponsiveValue< boolean>;
-	/**
 	 * If true, the button will be styled in a more compressed state
 	 *
 	 * @default false
 	 */
 	isCompact?: ResponsiveValue<boolean>;
-	/**
-	 * If true, the button can be focused
-	 *
-	 * @default true
-	 */
-	// isFocusable?: ResponsiveValue< boolean>;
 	/**
 	 * If true, the button will take the full width of its parent
 	 *
@@ -77,7 +59,7 @@ type ButtonOtherProps<Element extends ButtonElement = ButtonDefaultElement> = Th
 	 * @default 'contained'
 	 */
 	variant?: ResponsiveValue<ButtonVariant>;
-} & Pick<PushableOverlayProps<Element>, 'isActive' | 'isDisabled' | 'isOutlined'>;
+} & Pick<PushableOverlayProps<Element>, 'isActive' | 'isDisabled' | 'isFocused' | 'isOutlined'>;
 
 export type ButtonProps<Element extends ButtonElement = ButtonDefaultElement> = Omit<
 	BoxProps<Element, ButtonOtherProps<Element>>,

@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react';
-import { createContext, forwardRef } from 'react';
+import { createContext, forwardRef, useMemo } from 'react';
 
-// import { Button as AriakitButton } from '@ariakit/react';
 import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useFocus } from 'rooks';
@@ -13,15 +12,13 @@ import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 import { Center, Grid, GridItem } from '@components/Layout';
 import { PushableOverlay } from '@components/Overlay/components/PushableOverlay';
 
-import { useButtonGroupContext } from '../ButtonGroup';
+import { hooks as buttonGroupHooks } from '../ButtonGroup';
 
 import {
-	// __DEFAULT_BUTTON_CAN_CLICK_ON_ENTER__,
-	// __DEFAULT_BUTTON_CAN_CLICK_ON_SPACE__,
 	__DEFAULT_BUTTON_IS_ACTIVE__,
 	__DEFAULT_BUTTON_IS_COMPACT__,
 	__DEFAULT_BUTTON_IS_DISABLED__,
-	// __DEFAULT_BUTTON_IS_FOCUSABLE__,
+	__DEFAULT_BUTTON_IS_FOCUSED__,
 	__DEFAULT_BUTTON_IS_FULLWIDTH__,
 	__DEFAULT_BUTTON_IS_LOADING__,
 	__DEFAULT_BUTTON_IS_OUTLINED__,
@@ -41,6 +38,8 @@ import type {
 	ButtonVariant
 } from './common/types';
 
+const { useButtonGroupContext } = buttonGroupHooks;
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const ButtonContext = createContext<ButtonContextType<any>>({
 	size: __DEFAULT_BUTTON_SIZE__,
@@ -51,10 +50,6 @@ const Button = forwardRef(function Button<Element extends ButtonElement = Button
 	props: ButtonProps<Element>,
 	ref: ButtonRef<Element>
 ): ReactElement {
-	// const internalRef = useRef<ButtonRef<Element>>();
-
-	// const refs = useMergeRefs<ButtonRef<Element>>(ref, internalRef);
-
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const {
@@ -76,12 +71,10 @@ const Button = forwardRef(function Button<Element extends ButtonElement = Button
 		renderSpinner,
 		color = __DEFAULT_BUTTON_GROUP_COLOR__,
 		colorMode = __DEFAULT_BUTTON_GROUP_COLORMODE__,
-		// canClickOnEnter = __DEFAULT_BUTTON_CAN_CLICK_ON_ENTER__,
-		// canClickOnSpace = __DEFAULT_BUTTON_CAN_CLICK_ON_SPACE__,
 		isActive: active = __DEFAULT_BUTTON_IS_ACTIVE__,
 		isCompact: c = __DEFAULT_BUTTON_GROUP_IS_COMPACT__,
 		isDisabled: disabled = __DEFAULT_BUTTON_GROUP_IS_DISABLED__,
-		// isFocusable = __DEFAULT_BUTTON_IS_FOCUSABLE__,
+		isFocused: focused = __DEFAULT_BUTTON_IS_FOCUSED__,
 		isFullWidth: fullWidth = __DEFAULT_BUTTON_GROUP_IS_FULLWIDTH__,
 		isLoading: loading = __DEFAULT_BUTTON_IS_LOADING__,
 		isRound: round = __DEFAULT_BUTTON_GROUP_IS_ROUND__,
@@ -91,11 +84,12 @@ const Button = forwardRef(function Button<Element extends ButtonElement = Button
 		...rest
 	} = props;
 
-	const [isFocused, setIsFocused] = useBoolean();
+	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
 	const isActive = useGetResponsiveValue<boolean>(active);
 	const isCompact = useGetResponsiveValue<boolean>(c);
 	const isDisabled = useGetResponsiveValue<boolean>(disabled);
+	const isFocusedProp = useGetResponsiveValue<boolean>(focused);
 	const isFullWidth = useGetResponsiveValue<boolean>(fullWidth);
 	const isLoading = useGetResponsiveValue<boolean>(loading);
 	const isRound = useGetResponsiveValue<boolean>(round);
@@ -104,45 +98,16 @@ const Button = forwardRef(function Button<Element extends ButtonElement = Button
 	const size = useGetResponsiveValue<ButtonSize>(s);
 	const variant = useGetResponsiveValue<ButtonVariant>(v);
 
+	const isFocused = useMemo<boolean>(() => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
+
 	const config = useButtonSizeConfig<Element>({ isCompact, isRound, size, variant });
 
 	const classes = useButtonClasses<Element>({ isCompact, isFullWidth, isRound, size, variant });
 
-	// const handleEnterKeyClick = debounce((): void => {
-	// 	if (canClickOnEnter && isFocused && !isActive && !isDisabled) {
-	// 		internalRef?.current?.click;
-	// 	}
-	// }, 500);
-
-	// const handleSpaceKeyClick = debounce((): void => {
-	// 	if (canClickOnSpace && isFocused && !isActive && !isDisabled) {
-	// 		internalRef?.current?.click;
-	// 	}
-	// }, 500);
-
-	// useKey(['Enter'], handleEnterKeyClick);
-	// useKey(['Space'], handleSpaceKeyClick);
-
-	const { focusProps } = useFocus({ onFocus: () => setIsFocused.on(), onBlur: () => setIsFocused.off() });
+	const { focusProps } = useFocus({ onFocus: () => setIsFocusedHook.on(), onBlur: () => setIsFocusedHook.off() });
 
 	return (
 		<ButtonContext.Provider value={{ color, colorMode, size, variant }}>
-			{/* <AriakitButton
-				render={
-					<Box<Element>
-						{...focusProps}
-						{...rest}
-						ref={refs}
-						className={classNames(__KEYS_BUTTON_CLASS__, classes, { [className]: !!className })}
-						tabIndex={0}
-					/>
-				}
-				accessibleWhenDisabled={false}
-				clickOnEnter={canClickOnEnter}
-				clickOnSpace={canClickOnSpace}
-				disabled={isDisabled}
-				focusable={isFocusable}
-			> */}
 			<PushableOverlay<Element>
 				{...focusProps}
 				{...rest}
