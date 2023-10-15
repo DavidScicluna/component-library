@@ -53,7 +53,7 @@ const ModalHeader = forwardRef(function ModalHeader<Element extends ElementType>
 			</GridItem>
 
 			{renderCancel ? (
-				<GridItem>
+				<GridItem alignSelf='center' justifySelf='center'>
 					{renderCancel({
 						colorMode,
 						onClick: typeof onClose === 'function' ? () => onClose() : undefined,

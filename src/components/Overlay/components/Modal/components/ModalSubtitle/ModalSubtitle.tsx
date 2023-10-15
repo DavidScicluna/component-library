@@ -9,6 +9,8 @@ import { useGetColor } from '@common/hooks';
 import { useModalContext } from '@components/Overlay/components/Modal/common/hooks';
 import { Text } from '@components/Typography';
 
+import { getModalSubtitleID } from '../../common/utils';
+
 import { __KEYS_MODAL_SUBTITLE_CLASS__ } from './common/keys';
 import type {
 	ModalSubtitleDefaultElement,
@@ -20,7 +22,7 @@ import type {
 const ModalSubtitle = forwardRef(function ModalSubtitle<
 	Element extends ModalSubtitleElement = ModalSubtitleDefaultElement
 >(props: ModalSubtitleProps<Element>, ref: ModalSubtitleRef<Element>): ReactElement {
-	const { colorMode } = useModalContext();
+	const { colorMode, id } = useModalContext();
 
 	const __DEFAULT_MODAL_SUBTITLE_COLOR__ = useGetColor({
 		color: 'gray',
@@ -45,6 +47,7 @@ const ModalSubtitle = forwardRef(function ModalSubtitle<
 		<Text<Element>
 			{...rest}
 			ref={ref}
+			id={getModalSubtitleID(id)}
 			className={classNames(__KEYS_MODAL_SUBTITLE_CLASS__, { [className]: !!className })}
 			align={align}
 			color={color}

@@ -1,4 +1,4 @@
+import useModalClasses from './useModalClasses';
 import useModalContext from './useModalContext';
-import useModalIsMounted from './useModalIsMounted';
 
-export { useModalContext, useModalIsMounted };
+export { useModalClasses, useModalContext };

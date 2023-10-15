@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { ModalBackdropElement, ModalBackdropProps, ModalBackdropRef } from './common/types';
 import ModalBackdrop from './ModalBackdrop';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { ModalBackdrop };

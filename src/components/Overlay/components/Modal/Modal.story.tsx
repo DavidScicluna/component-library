@@ -3,12 +3,11 @@ import type { ReactElement } from 'react';
 import { sample } from 'lodash-es';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
-import { colors } from '@common/data';
+import { appColors } from '@common/data';
 import { useGetColor } from '@common/hooks';
 import type { ThemeAppColor } from '@common/types';
 
-import { Button } from '@components/Buttons/components/Button';
-import { CloseIconButton } from '@components/Buttons/components/CloseIconButton';
+import { Button, CloseIconButton } from '@components/Buttons';
 import { Text } from '@components/Typography';
 
 // eslint-disable-next-line import-path/parent-depth
@@ -25,7 +24,7 @@ import type { ModalDefaultElement, ModalProps, ModalSize } from './common/types'
 import type { ModalStory, ModalStoryMeta } from './common/types/story';
 import { Modal as ModalComponent, ModalBody, ModalFooter, ModalHeader, ModalStack, ModalSubtitle, ModalTitle } from '.';
 
-const __DEFAULT_MODAL_STORY_COLOR__: ThemeAppColor = sample(colors) || 'blue';
+const __DEFAULT_MODAL_STORY_COLOR__: ThemeAppColor = sample(appColors) || 'blue';
 
 export default {
 	title: 'Overlay/Modal',
@@ -83,7 +82,6 @@ export default {
 	}
 } as ModalStoryMeta;
 
-// TODO: Convert button to our own Buttons
 export const Modal: ModalStory = (props: ModalProps<ModalDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 

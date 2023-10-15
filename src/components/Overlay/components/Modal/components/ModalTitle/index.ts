@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { ModalTitleDefaultElement, ModalTitleElement, ModalTitleProps, ModalTitleRef } from './common/types';
 import ModalTitle from './ModalTitle';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { ModalTitle };

@@ -3,12 +3,16 @@ import type { ElementType, ReactNode } from 'react';
 import type { PickFrom, ResponsiveValue, ThemeAppAppearanceProps, ThemeFontSize, ThemeSpacing } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box/common/types';
+import type { ButtonProps } from '@components/Buttons';
+
+export type ModalDefaultElement = 'dialog';
+export type ModalElement = PickFrom<ElementType, 'dialog'>;
 
 export type ModalSize =
 	| PickFrom<ThemeFontSize, 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl'>
 	| 'full';
 
-export type ModalRenderTriggerProps<Element extends ModalElement = ModalDefaultElement> = {
+export type ModalRenderTriggerProps<Element extends ModalElement = ModalDefaultElement> = ButtonProps & {
 	/**
 	 * If `true`, the modal will be open
 	 */
@@ -23,9 +27,6 @@ export type ModalRenderBackdropProps<Element extends ModalElement = ModalDefault
 	'color' | 'colorMode'
 >;
 
-export type ModalDefaultElement = 'dialog';
-export type ModalElement = PickFrom<ElementType, 'dialog'>;
-
 type ModalOtherProps = ThemeAppAppearanceProps & {
 	renderTrigger: (props: ModalRenderTriggerProps) => ReactNode;
 	renderBackdrop?: (props: ModalRenderBackdropProps) => ReactNode;
@@ -33,17 +34,17 @@ type ModalOtherProps = ThemeAppAppearanceProps & {
 	 * If `true`, the modal will close when the Esc key is pressed
 	 * @default true
 	 */
-	closeOnEsc?: boolean;
+	closeOnEsc?: ResponsiveValue<boolean>;
 	/**
 	 * If `true`, the modal will close when the overlay is clicked
 	 * @default true
 	 */
-	closeOnOverlayClick?: boolean;
+	closeOnOverlayClick?: ResponsiveValue<boolean>;
 	/**
 	 * If `true`, the modal will render without a backdrop behind the modal
 	 * @default true
 	 */
-	hasBackdrop?: boolean;
+	hasBackdrop?: ResponsiveValue<boolean>;
 	/**
 	 * Callback invoked to close the modal
 	 */
@@ -83,4 +84,4 @@ export type ModalContext<Element extends ModalElement = ModalDefaultElement> = {
 	 * If `true`, the modal will be open
 	 */
 	isOpen: boolean;
-} & Pick<ModalProps<Element>, 'color' | 'colorMode' | 'onClose' | 'size' | 'spacing'>;
+} & Pick<ModalProps<Element>, 'color' | 'colorMode' | 'id' | 'onClose' | 'size' | 'spacing'>;

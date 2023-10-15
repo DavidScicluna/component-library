@@ -2,8 +2,6 @@ import type { ModalBackdropElement, ModalBackdropProps, ModalBackdropRef } from 
 import { keys as modalBackdropKeys, ModalBackdrop } from './ModalBackdrop';
 import type { ModalBodyProps, ModalBodyRef } from './ModalBody';
 import { keys as modalBodyKeys, ModalBody } from './ModalBody';
-import type { ModalContainerProps, ModalContainerRef } from './ModalContainer';
-import { keys as modalContainerKeys, ModalContainer } from './ModalContainer';
 import type {
 	ModalFooterProps,
 	ModalFooterRef,
@@ -24,37 +22,20 @@ import type {
 import { keys as modalSubtitleKeys, ModalSubtitle } from './ModalSubtitle';
 import type { ModalTitleDefaultElement, ModalTitleElement, ModalTitleProps, ModalTitleRef } from './ModalTitle';
 import { keys as modalTitleKeys, ModalTitle } from './ModalTitle';
-import type { ModalTransitionProps, ModalTransitionRef, ModalTransitionVariant } from './ModalTransition';
-import { constants as modalTransitionConstants, keys as modalTransitionKeys, ModalTransition } from './ModalTransition';
-
-// Constants
-export const constants = { ...modalTransitionConstants };
 
 // Keys
 export const keys = {
 	...modalBackdropKeys,
 	...modalBodyKeys,
-	...modalContainerKeys,
 	...modalFooterKeys,
 	...modalHeaderKeys,
 	...modalStackKeys,
 	...modalSubtitleKeys,
-	...modalTitleKeys,
-	...modalTransitionKeys
+	...modalTitleKeys
 };
 
 // Components
-export {
-	ModalBackdrop,
-	ModalBody,
-	ModalContainer,
-	ModalFooter,
-	ModalHeader,
-	ModalStack,
-	ModalSubtitle,
-	ModalTitle,
-	ModalTransition
-};
+export { ModalBackdrop, ModalBody, ModalFooter, ModalHeader, ModalStack, ModalSubtitle, ModalTitle };
 
 // Component Types
 export type {
@@ -63,8 +44,6 @@ export type {
 	ModalBackdropRef,
 	ModalBodyProps,
 	ModalBodyRef,
-	ModalContainerProps,
-	ModalContainerRef,
 	ModalFooterProps,
 	ModalFooterRef,
 	ModalFooterRenderActionProps,
@@ -81,8 +60,5 @@ export type {
 	ModalTitleDefaultElement,
 	ModalTitleElement,
 	ModalTitleProps,
-	ModalTitleRef,
-	ModalTransitionProps,
-	ModalTransitionRef,
-	ModalTransitionVariant
+	ModalTitleRef
 };

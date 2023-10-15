@@ -32,11 +32,9 @@ import type {
 	ModalTitleDefaultElement,
 	ModalTitleElement,
 	ModalTitleProps,
-	ModalTitleRef,
-	ModalTransitionVariant
+	ModalTitleRef
 } from './components';
 import {
-	constants as componentsConstants,
 	keys as componentsKeys,
 	ModalBackdrop,
 	ModalBody,
@@ -49,10 +47,13 @@ import {
 import Modal from './Modal';
 
 // Constants
-export const constants = { ...commonConstants, ...componentsConstants };
+export const constants = { ...commonConstants };
 
 // Keys
 export const keys = { ...componentsKeys };
+
+// Utils
+export * as utils from './common/utils';
 
 // Hooks
 export { useModalContext };
@@ -91,6 +92,5 @@ export type {
 	ModalTitleDefaultElement,
 	ModalTitleElement,
 	ModalTitleProps,
-	ModalTitleRef,
-	ModalTransitionVariant
+	ModalTitleRef
 };

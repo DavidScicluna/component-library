@@ -1,4 +1,3 @@
-import * as commonKeys from './common/keys';
 import type {
 	ModalSubtitleDefaultElement,
 	ModalSubtitleElement,
@@ -8,7 +7,7 @@ import type {
 import ModalSubtitle from './ModalSubtitle';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { ModalSubtitle };
