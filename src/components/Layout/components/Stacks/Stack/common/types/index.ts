@@ -14,7 +14,7 @@ import type { BoxProps, BoxRef } from '@components/Box/common/types';
 type StackOtherProps = {
 	alignItems?: ResponsiveValue<AlignItemsClass>;
 	direction?: ResponsiveValue<FlexDirectionClass>;
-	divider?: ResponsiveValue<ReactNode>;
+	divider?: ReactNode;
 	justifyContent?: ResponsiveValue<JustifyContentClass>;
 	// shouldWrapChildren; TODO: Check if needed & Also check overlay component should have display-block
 	spacing?: ResponsiveValue<ThemeSpacing>;

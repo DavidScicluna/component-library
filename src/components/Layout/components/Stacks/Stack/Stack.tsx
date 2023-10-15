@@ -35,7 +35,7 @@ const Stack = forwardRef(function Stack<Element extends ElementType>(
 		className = __DEFAULT_CLASSNAME__,
 		alignItems: a = __DEFAULT_STACK_ALIGN_ITEMS__,
 		direction: dir = __DEFAULT_STACK_DIRECTION__,
-		divider: div,
+		divider,
 		justifyContent: j = __DEFAULT_STACK_JUSTIFY_CONTENT__,
 		spacing: s = __DEFAULT_SPACING__,
 		wrap: w = __DEFAULT_STACK_WRAP__,
@@ -44,7 +44,6 @@ const Stack = forwardRef(function Stack<Element extends ElementType>(
 
 	const alignItems = useGetResponsiveValue<AlignItemsClass>(a);
 	const direction = useGetResponsiveValue<FlexDirectionClass>(dir);
-	const divider = useGetResponsiveValue<ReactNode>(div);
 	const justifyContent = useGetResponsiveValue<JustifyContentClass>(j);
 	const spacing = useGetResponsiveValue<ThemeSpacing>(s);
 	const wrap = useGetResponsiveValue<FlexWrapClass>(w);
@@ -62,7 +61,6 @@ const Stack = forwardRef(function Stack<Element extends ElementType>(
 					? compact(children).map((child, index: number) => (
 							<Fragment key={typeof child.key !== 'undefined' ? child.key : index}>
 								{child}
-								{/* TODO: Maybe make divider a responsiveValue */}
 								{divider && index + 1 !== children.length ? divider : null}
 							</Fragment>
 					  ))
