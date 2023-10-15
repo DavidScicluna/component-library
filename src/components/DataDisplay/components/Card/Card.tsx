@@ -45,10 +45,10 @@ const Card = forwardRef(function Card<Element extends ElementType>(
 ): ReactElement {
 	const {
 		children,
+		id = __DEFAULT_CARD_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		id = __DEFAULT_CARD_ID__,
 		isActive: active = __DEFAULT_CARD_IS_ACTIVE__,
 		isClickable: clickable = __DEFAULT_CARD_IS_CLICKABLE__,
 		isCollapsable: collapsable = __DEFAULT_CARD_IS_COLLAPSABLE__,

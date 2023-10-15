@@ -65,6 +65,7 @@ const Carousel = forwardRef(function Carousel<Element extends ElementType>(
 
 	const {
 		children,
+		id = __DEFAULT_CAROUSEL_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		renderDots,
 		renderLeftAction,
@@ -73,7 +74,6 @@ const Carousel = forwardRef(function Carousel<Element extends ElementType>(
 		renderRightLinearGradient,
 		color,
 		colorMode,
-		id = __DEFAULT_CAROUSEL_ID__,
 		divider: d,
 		scrollAmount: sa = __DEFAULT_CAROUSEL_SCROLL_AMOUNT__,
 		spacing: s = __DEFAULT_SPACING__,

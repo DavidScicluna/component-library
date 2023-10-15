@@ -51,12 +51,12 @@ const FormControl = forwardRef(function FormControl<Element extends ElementType>
 ): ReactElement {
 	const {
 		children,
+		id = __DEFAULT_FORM_CONTROL_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
 		alignItems: a = 'stretch',
 		justifyContent: j = 'stretch',
-		id = __DEFAULT_FORM_CONTROL_ID__,
 		isDisabled: disabled = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
 		isError: error = __DEFAULT_FORM_CONTROL_IS_ERROR__,
 		isFocused: focused = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
