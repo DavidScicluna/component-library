@@ -3,7 +3,7 @@ import { type ReactElement, useState } from 'react';
 import { range, sample } from 'lodash-es';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
-import { colors } from '@common/data';
+import { appColors } from '@common/data';
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement, ThemeAppColor } from '@common/types';
 
@@ -23,7 +23,7 @@ import type { TabsAlign, TabsOrientation, TabsProps, TabsSize } from './common/t
 import type { TabsStory, TabsStoryMeta } from './common/types/story';
 import { Tab, TabIcon, TabList, TabPanels, Tabs as TabsComponent } from '.';
 
-const __DEFAULT_TABS_STORY_COLOR__: ThemeAppColor = sample(colors) || 'blue';
+const __DEFAULT_TABS_STORY_COLOR__: ThemeAppColor = sample(appColors) || 'blue';
 const __DEFAULT_TABS_STORY_TABS__ = range(10);
 
 export default {

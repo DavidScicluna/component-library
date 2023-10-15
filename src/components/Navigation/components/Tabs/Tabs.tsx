@@ -47,11 +47,11 @@ const Tabs = forwardRef(function Tabs<Element extends ElementType>(
 ): ReactElement {
 	const {
 		children,
+		id = __DEFAULT_TABS_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
 		align: a = __DEFAULT_TABS_ALIGN__,
-		id = __DEFAULT_TABS_ID__,
 		index: ind = __DEFAULT_TABS_INDEX__,
 		isDisabled: disabled = __DEFAULT_TABS_IS_DISABLED__,
 		isFitted: fitted = __DEFAULT_TABS_IS_FITTED__,
