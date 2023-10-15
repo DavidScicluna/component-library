@@ -1,9 +1,8 @@
-import * as commonKeys from './common/keys';
 import type { HoverOverlayMouseEvent, HoverOverlayProps, HoverOverlayRef } from './common/types';
 import HoverOverlay from './HoverOverlay';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { HoverOverlay };

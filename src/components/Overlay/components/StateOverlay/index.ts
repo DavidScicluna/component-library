@@ -1,13 +1,11 @@
-import * as commonConstants from './common/constants';
-import * as commonKeys from './common/keys';
 import type { StateOverlayProps, StateOverlayRef, StateOverlayState } from './common/types';
 import StateOverlay from './StateOverlay';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Components
 export { StateOverlay };

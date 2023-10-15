@@ -1,6 +1,3 @@
-import * as commonConstants from './common/constants';
-import { useBackdropOverlayClasses, useBackdropOverlayStyles } from './common/hooks';
-import * as commonKeys from './common/keys';
 import type {
 	BackdropOverlayBlurType,
 	BackdropOverlayBlurTypes,
@@ -10,13 +7,13 @@ import type {
 import BackdropOverlay from './BackdropOverlay';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Hooks
-export { useBackdropOverlayClasses, useBackdropOverlayStyles };
+export * as hooks from './common/hooks';
 
 // Components
 export { BackdropOverlay };

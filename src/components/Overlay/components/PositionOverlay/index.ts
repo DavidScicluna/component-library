@@ -1,6 +1,3 @@
-import * as commonConstants from './common/constants';
-import { usePositionOverlayClasses, usePositionOverlayStyles } from './common/hooks';
-import * as commonKeys from './common/keys';
 import type {
 	PositionOverlayBlurType,
 	PositionOverlayBlurTypes,
@@ -12,13 +9,13 @@ import type {
 import PositionOverlay from './PositionOverlay';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Hooks
-export { usePositionOverlayClasses, usePositionOverlayStyles };
+export * as hooks from './common/hooks';
 
 // Components
 export { PositionOverlay };
