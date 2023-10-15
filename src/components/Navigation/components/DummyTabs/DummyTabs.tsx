@@ -46,11 +46,11 @@ const DummyTabs = forwardRef(function DummyTabs<Element extends ElementType>(
 ): ReactElement {
 	const {
 		children,
+		id = __DEFAULT_DUMMY_TABS_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
 		align: a = __DEFAULT_DUMMY_TABS_ALIGN__,
-		id = __DEFAULT_DUMMY_TABS_ID__,
 		index: ind = __DEFAULT_DUMMY_TABS_INDEX__,
 		isAnimated: animated = __DEFAULT_DUMMY_TABS_IS_ANIMATED__,
 		isFitted: fitted = __DEFAULT_DUMMY_TABS_IS_FITTED__,

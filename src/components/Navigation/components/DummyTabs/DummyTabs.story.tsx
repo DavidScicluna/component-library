@@ -3,7 +3,7 @@ import { type ReactElement } from 'react';
 import { range, sample } from 'lodash-es';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
-import { colors } from '@common/data';
+import { appColors } from '@common/data';
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement, ThemeAppColor } from '@common/types';
 
@@ -22,7 +22,7 @@ import type { DummyTabsAlign, DummyTabsProps, DummyTabsSize } from './common/typ
 import type { DummyTabsStory, DummyTabsStoryMeta } from './common/types/story';
 import { DummyTab, DummyTabList, DummyTabPanels, DummyTabs as DummyTabsComponent } from '.';
 
-const __DEFAULT_DUMMY_TABS_STORY_COLOR__: ThemeAppColor = sample(colors) || 'blue';
+const __DEFAULT_DUMMY_TABS_STORY_COLOR__: ThemeAppColor = sample(appColors) || 'blue';
 const __DEFAULT_DUMMY_TABS_STORY_DUMMY_TABS__ = range(10);
 
 export default {
