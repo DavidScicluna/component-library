@@ -42,7 +42,8 @@ import type {
 import { getModalID, getModalSubtitleID, getModalTitleID } from './common/utils';
 import { ModalBackdrop } from './components';
 
-export const ModalContext = createContext<ModalContextType>({
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const ModalContext = createContext<ModalContextType<any>>({
 	id: __DEFAULT_MODAL_ID__,
 	isOpen: __DEFAULT_MODAL_IS_OPEN__,
 	onClose: __DEFAULT_METHOD__,
@@ -128,7 +129,7 @@ const Modal = forwardRef(function Modal<Element extends ModalElement = ModalDefa
 
 	const { getReferenceProps, getFloatingProps } = useInteractions([click, dismiss, role]);
 
-	const classes = useModalClasses();
+	const classes = useModalClasses<Element>({ color, colorMode, size, spacing });
 
 	useKey(['Escape'], handleEscapeClick, { when: closeOnEsc });
 

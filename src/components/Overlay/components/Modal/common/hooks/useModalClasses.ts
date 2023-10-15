@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_COLOR__ } from '@common/constants';
-import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
+import { __DEFAULT_COLOR__, __DEFAULT_SPACING__ } from '@common/constants';
+import { useAppTheme, useGetClass, useGetColor, useGetResponsiveValue } from '@common/hooks';
 import type {
 	BoxShadowClass,
 	ClassName,
@@ -14,19 +14,29 @@ import type {
 	WidthClass
 } from '@common/types';
 
-import { useModalContext } from '@components/Overlay/components/Modal/common/hooks';
+import { __DEFAULT_MODAL_SIZE__ } from '../constants';
+import type { ModalDefaultElement, ModalElement, ModalProps, ModalSize } from '../types';
 
+type UseModalClassesProps<Element extends ModalElement = ModalDefaultElement> = Pick<
+	ModalProps<Element>,
+	'color' | 'colorMode' | 'size' | 'spacing'
+>;
 type UseModalClassesReturn = Record<'container' | 'backdrop' | 'content', ClassName>;
 
-const useModalClasses = (): UseModalClassesReturn => {
+const useModalClasses = <Element extends ModalElement = ModalDefaultElement>(
+	props: UseModalClassesProps<Element>
+): UseModalClassesReturn => {
 	const { colorMode: __DEFAULT_MODAL_CONTAINER_COLORMODE__ } = useAppTheme();
 
 	const {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_MODAL_CONTAINER_COLORMODE__,
-		size,
-		spacing
-	} = useModalContext();
+		size: si = __DEFAULT_MODAL_SIZE__,
+		spacing: sp = __DEFAULT_SPACING__
+	} = props;
+
+	const size = useGetResponsiveValue<ModalSize>(si);
+	const spacing = useGetResponsiveValue<ThemeSpacing>(sp);
 
 	const widthClassName = useGetClass<WidthClass>('full', ['sizing', 'width']);
 	const maxWidthClassName = useGetClass<MaxWidthClass>(size, ['sizing', 'max_width']);
