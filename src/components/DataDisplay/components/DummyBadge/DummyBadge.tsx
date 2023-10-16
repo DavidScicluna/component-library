@@ -1,7 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
-// import { DummyBadge as AriakitDummyBadge } from '@ariakit/react';
 import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';

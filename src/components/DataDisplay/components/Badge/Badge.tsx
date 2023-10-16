@@ -1,7 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
-// import { Badge as AriakitBadge } from '@ariakit/react';
 import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useFocus } from 'rooks';

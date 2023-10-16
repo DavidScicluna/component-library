@@ -24,9 +24,9 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@ariakit/react": "^0.2.16",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@floating-ui/react": "^0.26.1",
     "classnames": "^2.3.2",
     "color2k": "^2.0.2",
     "compressorjs": "^1.2.1",
