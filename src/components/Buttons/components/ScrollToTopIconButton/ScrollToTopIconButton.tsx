@@ -9,8 +9,7 @@ import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 
 import { Pop } from '@components/Animation';
-import { HoverOverlay } from '@components/Overlay/components/HoverOverlay';
-import { Tooltip } from '@components/Overlay/components/Tooltip';
+import { Tooltip } from '@components/Overlay';
 
 import { IconButton, IconButtonIcon } from '../IconButton';
 
@@ -68,32 +67,28 @@ const ScrollToTopIconButton = forwardRef(function ScrollToTopIconButton<
 
 	return (
 		<Pop in={isVisible}>
-			<HoverOverlay>
-				{(isHovering) => (
-					<Tooltip
-						// color='gray'
-						colorMode={colorMode}
-						aria-label={`${label} (tooltip)`}
-						label={label}
-						placement={placement}
-						isOpen={hasTooltip && isHovering}
-					>
-						<IconButton<Element>
-							{...rest}
-							ref={ref}
-							className={classNames(__KEYS_SCROLL_TO_TOP_ICON_BUTTON_CLASS__, {
-								[className]: !!className
-							})}
-							aria-label={label}
-							color={color}
-							colorMode={colorMode}
-							onClick={handleClick}
-						>
-							<IconButtonIcon icon='keyboard_double_arrow_up' category='filled' />
-						</IconButton>
-					</Tooltip>
-				)}
-			</HoverOverlay>
+			<Tooltip
+				// color='gray'
+				colorMode={colorMode}
+				aria-label={`${label} (tooltip)`}
+				label={label}
+				placement={placement}
+				isDisabled={!hasTooltip}
+			>
+				<IconButton<Element>
+					{...rest}
+					ref={ref}
+					className={classNames(__KEYS_SCROLL_TO_TOP_ICON_BUTTON_CLASS__, {
+						[className]: !!className
+					})}
+					aria-label={label}
+					color={color}
+					colorMode={colorMode}
+					onClick={handleClick}
+				>
+					<IconButtonIcon icon='keyboard_double_arrow_up' category='filled' />
+				</IconButton>
+			</Tooltip>
 		</Pop>
 	);
 });
