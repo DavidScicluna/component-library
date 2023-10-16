@@ -21,9 +21,9 @@ const useTooltipClasses = <Element extends ElementType>(
 
 	const { color = __DEFAULT_COLOR__, colorMode = __DEFAULT_ICON_COLORMODE__ } = props;
 
-	// TODO: Move all classes into classes object & replace all local classes with classes or useGetClass
 	const tooltipRootClasses = useConst<ClassName>(
 		classNames(
+			classes.sizing.width.fit,
 			classes.interactivity.cursor.default,
 			classes.interactivity.user_select.none,
 			classes.interactivity.will_change.auto,

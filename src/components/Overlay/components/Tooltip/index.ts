@@ -1,17 +1,14 @@
-import * as commonConstants from './common/constants';
-import { useTooltipClasses } from './common/hooks';
-import * as commonKeys from './common/keys';
 import type { TooltipOtherProps, TooltipPlacement, TooltipProps, TooltipRef } from './common/types';
 import Tooltip from './Tooltip';
 
 // Constants
-export const constants = { ...commonConstants };
+export * as constants from './common/constants';
 
 // Keys
-export const keys = { ...commonKeys };
+export * as keys from './common/keys';
 
 // Hooks
-export { useTooltipClasses };
+export * as hooks from './common/hooks';
 
 // Components
 export { Tooltip };

@@ -2,18 +2,17 @@ import type { ReactElement } from 'react';
 
 import type { PolymorphicDefaultElement } from '@common/types';
 
+import { Button } from '@components/Buttons';
+
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
-import { HoverOverlay } from '../HoverOverlay';
 
 import {
 	__DEFAULT_TOOLTIP_CLOSE_DELAY__,
 	__DEFAULT_TOOLTIP_CLOSE_ON_CLICK__,
 	__DEFAULT_TOOLTIP_CLOSE_ON_ESC__,
-	__DEFAULT_TOOLTIP_DEFAULT_IS_OPEN__,
 	__DEFAULT_TOOLTIP_GUTTER__,
 	__DEFAULT_TOOLTIP_IS_DISABLED__,
-	__DEFAULT_TOOLTIP_IS_OPEN__,
 	__DEFAULT_TOOLTIP_OPEN_DELAY__,
 	__DEFAULT_TOOLTIP_PLACEMENT__
 } from './common/constants';
@@ -53,13 +52,6 @@ export default {
 			// description: '',
 			control: { type: 'boolean' }
 		},
-		defaultIsOpen: {
-			name: 'Default Open',
-			type: 'boolean',
-			defaultValue: __DEFAULT_TOOLTIP_DEFAULT_IS_OPEN__,
-			// description: '',
-			control: { type: 'boolean' }
-		},
 		gutter: {
 			name: 'Gutter',
 			type: 'number',
@@ -71,13 +63,6 @@ export default {
 			name: 'Disabled',
 			type: 'boolean',
 			defaultValue: __DEFAULT_TOOLTIP_IS_DISABLED__,
-			// description: '',
-			control: { type: 'boolean' }
-		},
-		isOpen: {
-			name: 'Open',
-			type: 'boolean',
-			defaultValue: __DEFAULT_TOOLTIP_IS_OPEN__,
 			// description: '',
 			control: { type: 'boolean' }
 		},
@@ -116,13 +101,10 @@ export const Tooltip: TooltipStory = ({ isOpen, ...rest }: TooltipProps<Polymorp
 	const { color, colorMode } = useStorybookContext();
 
 	return (
-		<HoverOverlay w='auto' h='auto'>
-			{(isHovering) => (
-				<TooltipComponent {...rest} color={color} colorMode={colorMode} isOpen={isOpen || isHovering}>
-					{/* // TODO: Convert button to our own Buttons */}
-					<button>click</button>
-				</TooltipComponent>
-			)}
-		</HoverOverlay>
+		<TooltipComponent {...rest} color={color} colorMode={colorMode}>
+			<Button color={color} colorMode={colorMode}>
+				Hover me
+			</Button>
+		</TooltipComponent>
 	);
 };

@@ -1,23 +1,33 @@
 import type { ElementType, ReactElement } from 'react';
-import React, { cloneElement, forwardRef, useEffect } from 'react';
+import React, { cloneElement, forwardRef, useCallback, useRef } from 'react';
 
-import { Tooltip as AriakitTooltip, TooltipAnchor, TooltipArrow, useTooltipStore } from '@ariakit/react';
-
+import {
+	arrow,
+	autoUpdate,
+	flip,
+	FloatingArrow,
+	offset,
+	shift,
+	useDismiss,
+	useFloating,
+	useFocus,
+	useHover,
+	useInteractions,
+	useRole
+} from '@floating-ui/react';
 import classNames from 'classnames';
+import { useMergeRefs } from 'rooks';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__ } from '@common/constants';
-import { useConst, useTheme } from '@common/hooks';
-import { checkIsTouchDevice, convertREMToPixels, convertStringToNumber } from '@common/utils';
+import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 
-import { AnimatePresence } from '@components/Animation';
+import { AnimatePresence, Fade } from '@components/Animation';
 import { Box } from '@components/Box';
 
 import {
 	__DEFAULT_TOOLTIP_CLOSE_DELAY__,
 	__DEFAULT_TOOLTIP_CLOSE_ON_CLICK__,
 	__DEFAULT_TOOLTIP_CLOSE_ON_ESC__,
-	__DEFAULT_TOOLTIP_DEFAULT_IS_OPEN__,
-	// __DEFAULT_TOOLTIP_DURATION__,
 	__DEFAULT_TOOLTIP_GUTTER__,
 	__DEFAULT_TOOLTIP_IS_DISABLED__,
 	__DEFAULT_TOOLTIP_IS_OPEN__,
@@ -27,107 +37,107 @@ import {
 } from './common/constants';
 import { useTooltipClasses } from './common/hooks';
 import { __KEYS_TOOLTIP_CLASS__ } from './common/keys';
-import type { TooltipProps, TooltipRef } from './common/types';
-import { TooltipTransition } from './components';
-
-const isTouchDevice: boolean = checkIsTouchDevice();
+import type { TooltipPlacement, TooltipProps, TooltipRef } from './common/types';
 
 const Tooltip = forwardRef(function Tooltip<Element extends ElementType>(
 	props: TooltipProps<Element>,
 	ref: TooltipRef<Element>
 ): ReactElement {
-	const theme = useTheme();
+	const arrowRef = useRef<HTMLElement>(null);
 
 	const {
 		children,
 		color,
 		colorMode,
 		className = __DEFAULT_CLASSNAME__,
-		closeDelay = __DEFAULT_TOOLTIP_CLOSE_DELAY__,
-		openDelay = __DEFAULT_TOOLTIP_OPEN_DELAY__,
-		closeOnClick = __DEFAULT_TOOLTIP_CLOSE_ON_CLICK__,
-		closeOnEsc = __DEFAULT_TOOLTIP_CLOSE_ON_ESC__,
-		defaultIsOpen = __DEFAULT_TOOLTIP_DEFAULT_IS_OPEN__,
-		gutter = __DEFAULT_TOOLTIP_GUTTER__,
-		isDisabled = __DEFAULT_TOOLTIP_IS_DISABLED__,
-		isOpen = __DEFAULT_TOOLTIP_IS_OPEN__,
+		closeDelay: cd = __DEFAULT_TOOLTIP_CLOSE_DELAY__,
+		openDelay: od = __DEFAULT_TOOLTIP_OPEN_DELAY__,
+		closeOnClick: closeonclick = __DEFAULT_TOOLTIP_CLOSE_ON_CLICK__,
+		closeOnEsc: closeonesc = __DEFAULT_TOOLTIP_CLOSE_ON_ESC__,
+		gutter: g = __DEFAULT_TOOLTIP_GUTTER__,
+		isDisabled: disabled = __DEFAULT_TOOLTIP_IS_DISABLED__,
 		label = __DEFAULT_TOOLTIP_LABEL__,
-		onClose = __DEFAULT_METHOD__,
-		onOpen = __DEFAULT_METHOD__,
-		placement = __DEFAULT_TOOLTIP_PLACEMENT__,
+		onClose,
+		onCloseComplete,
+		onOpen,
+		placement: p = __DEFAULT_TOOLTIP_PLACEMENT__,
 		...rest
 	} = props;
 
-	const tooltip = useTooltipStore({
-		animated: true,
-		defaultOpen: defaultIsOpen,
-		hideTimeout: closeDelay,
-		open: isOpen,
-		placement,
-		showTimeout: openDelay,
-		type: 'label'
-	});
+	const closeDelay = useGetResponsiveValue<number>(cd);
+	const openDelay = useGetResponsiveValue<number>(od);
 
-	const classes = useTooltipClasses<Element>({ color, colorMode });
+	const closeOnClick = useGetResponsiveValue<boolean>(closeonclick);
+	const closeOnEsc = useGetResponsiveValue<boolean>(closeonesc);
 
-	const arrowSize = useConst<number>(convertREMToPixels(convertStringToNumber(theme.spacing[1.5], 'rem')));
+	const gutter = useGetResponsiveValue<number>(g);
 
-	const handleOnOpen = (): void => {
-		if (isOpen && onOpen) {
+	const isDisabled = useGetResponsiveValue<boolean>(disabled);
+
+	const placement = useGetResponsiveValue<TooltipPlacement>(p);
+
+	const [isOpen, setIsOpen] = useBoolean(__DEFAULT_TOOLTIP_IS_OPEN__);
+
+	const handleOpen = useCallback((): void => {
+		setIsOpen.on();
+		if (onOpen) {
 			onOpen();
-		} else if (!isOpen && onClose) {
+		}
+	}, [onOpen]);
+
+	const handleClose = useCallback((): void => {
+		setIsOpen.off();
+		if (onClose) {
 			onClose();
+		}
+	}, [onClose]);
+
+	const handleChange = (open: boolean): void => {
+		if (open) {
+			handleOpen();
+		} else {
+			handleClose();
 		}
 	};
 
-	useEffect(() => handleOnOpen(), [isOpen]);
+	const { refs, floatingStyles, context } = useFloating({
+		placement,
+		open: isOpen,
+		onOpenChange: handleChange,
+		middleware: [arrow({ element: arrowRef }), offset(gutter), flip(), shift()],
+		whileElementsMounted: autoUpdate
+	});
 
-	// TODO: Add transition
+	const hover = useHover(context, { delay: { open: openDelay, close: closeDelay }, move: false });
+	const focus = useFocus(context);
+	const dismiss = useDismiss(context, { escapeKey: closeOnEsc, referencePress: closeOnClick });
+	const role = useRole(context, { role: 'tooltip' });
+
+	const { getReferenceProps, getFloatingProps } = useInteractions([hover, focus, dismiss, role]);
+
+	const refss = useMergeRefs(ref, refs.setFloating);
+
+	const classes = useTooltipClasses<Element>({ color, colorMode });
+
 	return (
-		<>
-			<TooltipAnchor
-				render={(props) => cloneElement(children, props)}
-				store={tooltip}
-				accessibleWhenDisabled={false}
-				disabled={isDisabled}
-				focusable
-				showOnHover
-			/>
-			<AnimatePresence>
-				{!isTouchDevice && (defaultIsOpen || isOpen) && !isDisabled ? (
-					<AriakitTooltip
-						ref={ref}
-						className={classNames(__KEYS_TOOLTIP_CLASS__, classes.tooltip, { [className]: !!className })}
-						render={(props) => (
-							<TooltipTransition<Element> {...props} {...rest} style={{ position: 'initial' }} />
-						)}
-						store={tooltip}
-						accessibleWhenDisabled={false}
-						alwaysVisible
-						arrowPadding={0}
-						autoFocusOnHide={false}
-						autoFocusOnShow={false}
-						backdrop={false}
-						disabled={isDisabled}
-						// disablePointerEventsOnApproach
-						fitViewport
-						fixed={false}
-						flip
-						focusable
-						gutter={gutter}
-						hideOnEscape={closeOnEsc}
-						hideOnHoverOutside
-						hideOnInteractOutside={closeOnClick}
-						slide
-					>
-						<TooltipArrow className={classes.arrow} store={tooltip} size={arrowSize} />
-						<Box className={classes.content} as='span'>
-							{label}
-						</Box>
-					</AriakitTooltip>
-				) : null}
-			</AnimatePresence>
-		</>
+		<AnimatePresence onExitComplete={onCloseComplete}>
+			{cloneElement(children, { ...getReferenceProps(), ref: refs.setReference })}
+
+			<Fade as='section' in={!isDisabled && isOpen}>
+				<Box<Element>
+					{...rest}
+					{...getFloatingProps()}
+					ref={refss}
+					className={classNames(__KEYS_TOOLTIP_CLASS__, classes.tooltip, { [className]: !!className })}
+					style={floatingStyles}
+				>
+					<FloatingArrow ref={arrowRef} className={classes.arrow} context={context} />
+					<Box as='span' className={classes.content}>
+						{label}
+					</Box>
+				</Box>
+			</Fade>
+		</AnimatePresence>
 	);
 });
 

@@ -1,15 +1,10 @@
-import type { ThemeDuration } from '@common/types';
-
 import type { TooltipPlacement } from '../types';
-
-export const __DEFAULT_TOOLTIP_DURATION__: ThemeDuration = 'faster';
 
 export const __DEFAULT_TOOLTIP_CLOSE_DELAY__ = 0;
 export const __DEFAULT_TOOLTIP_OPEN_DELAY__ = 0;
 
 export const __DEFAULT_TOOLTIP_CLOSE_ON_CLICK__ = true;
 export const __DEFAULT_TOOLTIP_CLOSE_ON_ESC__ = true;
-export const __DEFAULT_TOOLTIP_DEFAULT_IS_OPEN__ = false;
 
 export const __DEFAULT_TOOLTIP_GUTTER__ = 8;
 

@@ -1,6 +1,6 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ElementType } from 'react';
 
-import type { ThemeAppAppearanceProps } from '@common/types';
+import type { ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
@@ -19,46 +19,36 @@ export type TooltipPlacement =
 	| 'left-end';
 
 export type TooltipOtherProps = ThemeAppAppearanceProps & {
-	children: ReactElement;
 	/**
 	 * Delay (in ms) before hiding the tooltip
 	 * @default 0
 	 */
-	closeDelay?: number;
+	closeDelay?: ResponsiveValue<number>;
 	/**
 	 * Delay (in ms) before showing the tooltip
 	 * @default 0
 	 */
-	openDelay?: number;
+	openDelay?: ResponsiveValue<number>;
 	/**
 	 * If true, the tooltip will hide on click
 	 * @default true
 	 */
-	closeOnClick?: boolean;
+	closeOnClick?: ResponsiveValue<boolean>;
 	/**
 	 * If true, the tooltip will hide on pressing Esc key
 	 * @default true
 	 */
-	closeOnEsc?: boolean;
-	/**
-	 * If true, the tooltip will be initially shown
-	 * @default false
-	 */
-	defaultIsOpen?: boolean;
+	closeOnEsc?: ResponsiveValue<boolean>;
 	/**
 	 * The distance or margin between the trigger and the tooltip.
 	 * @default 8
 	 */
-	gutter?: number;
+	gutter?: ResponsiveValue<number>;
 	/**
 	 * If true, the tooltip will not be shown
 	 * @default false
 	 */
-	isDisabled?: boolean;
-	/**
-	 * If true, the tooltip will be shown (in controlled mode)
-	 */
-	isOpen: boolean;
+	isDisabled?: ResponsiveValue<boolean>;
 	/**
 	 * The label of the tooltip
 	 */
@@ -68,6 +58,10 @@ export type TooltipOtherProps = ThemeAppAppearanceProps & {
 	 */
 	onClose?: () => void;
 	/**
+	 * Callback fired when all exiting nodes have completed animating out
+	 */
+	onCloseComplete?: () => void;
+	/**
 	 * Callback to run when the tooltip shows
 	 */
 	onOpen?: () => void;
@@ -75,7 +69,7 @@ export type TooltipOtherProps = ThemeAppAppearanceProps & {
 	 * The placement of the tooltip relative to its reference.
 	 * @default 'top'
 	 */
-	placement?: TooltipPlacement;
+	placement?: ResponsiveValue<TooltipPlacement>;
 };
 
 export type TooltipProps<Element extends ElementType> = Omit<BoxProps<Element, TooltipOtherProps>, keyof BoxOtherProps>;
