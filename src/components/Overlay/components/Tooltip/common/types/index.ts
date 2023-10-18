@@ -18,7 +18,7 @@ export type TooltipPlacement =
 	| 'left-start'
 	| 'left-end';
 
-export type TooltipOtherProps = ThemeAppAppearanceProps & {
+type TooltipOtherProps = ThemeAppAppearanceProps & {
 	/**
 	 * Delay (in ms) before hiding the tooltip
 	 * @default 0

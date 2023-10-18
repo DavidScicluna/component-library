@@ -1,4 +1,4 @@
-import type { TooltipOtherProps, TooltipPlacement, TooltipProps, TooltipRef } from './common/types';
+import type { TooltipPlacement, TooltipProps, TooltipRef } from './common/types';
 import Tooltip from './Tooltip';
 
 // Constants
@@ -14,4 +14,4 @@ export * as hooks from './common/hooks';
 export { Tooltip };
 
 // Component Types
-export type { TooltipOtherProps, TooltipPlacement, TooltipProps, TooltipRef };
+export type { TooltipPlacement, TooltipProps, TooltipRef };
