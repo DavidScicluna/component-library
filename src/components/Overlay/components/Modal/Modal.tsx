@@ -136,66 +136,60 @@ const Modal = forwardRef(function Modal<Element extends ModalElement = ModalDefa
 	return (
 		<ModalContext.Provider value={{ color, colorMode, isOpen, onClose: handleClose, size, spacing }}>
 			<AnimatePresence onExitComplete={onCloseComplete}>
-				<>
-					{renderTrigger({
-						...getReferenceProps(),
-						ref: refs.setReference,
-						color,
-						colorMode,
-						isOpen,
-						onOpen: handleOpen
-					})}
+				{renderTrigger({
+					...getReferenceProps(),
+					ref: refs.setReference,
+					color,
+					colorMode,
+					isOpen,
+					onOpen: handleOpen
+				})}
 
-					<Fade as='section' in={isOpen}>
-						<FloatingOverlay lockScroll style={{ zIndex: 1 }}>
-							<FloatingFocusManager context={context}>
-								<Grid<Element>
-									{...rest}
-									ref={ref}
-									id={getModalID(id)}
-									className={classNames(__KEYS_MODAL_CLASS__, classes.container, {
-										[className]: !!className
-									})}
-									w='100vw'
-									h='100vh'
-									templateColumns={1}
-									templateRows={1}
-									alignItems='stretch'
-									alignContent='stretch'
-									justifyItems='stretch'
-									justifyContent='stretch'
-									spacing={0}
-								>
-									{hasBackdrop && size !== 'full' ? (
-										<GridItem columnStart={1} rowStart={1}>
-											<Box className={classes.backdrop}>
-												{renderBackdrop ? (
-													renderBackdrop({ color, colorMode })
-												) : (
-													<ModalBackdrop />
-												)}
-											</Box>
-										</GridItem>
-									) : null}
-
-									<GridItem columnStart={1} rowStart={1} zIndex={1}>
-										<Center
-											{...getFloatingProps()}
-											ref={refs.setFloating}
-											aria-labelledby={getModalTitleID(id)}
-											aria-describedby={getModalSubtitleID(id)}
-											w='100%'
-											h='100%'
-											onClick={closeOnOverlayClick ? handleOverlayClick : undefined}
-										>
-											<Box className={classes.content}>{children}</Box>
-										</Center>
+				<Fade as='section' in={isOpen}>
+					<FloatingOverlay lockScroll style={{ zIndex: 1 }}>
+						<FloatingFocusManager context={context}>
+							<Grid<Element>
+								{...rest}
+								ref={ref}
+								id={getModalID(id)}
+								className={classNames(__KEYS_MODAL_CLASS__, classes.container, {
+									[className]: !!className
+								})}
+								w='100vw'
+								h='100vh'
+								templateColumns={1}
+								templateRows={1}
+								alignItems='stretch'
+								alignContent='stretch'
+								justifyItems='stretch'
+								justifyContent='stretch'
+								spacing={0}
+							>
+								{hasBackdrop && size !== 'full' ? (
+									<GridItem columnStart={1} rowStart={1}>
+										<Box className={classes.backdrop}>
+											{renderBackdrop ? renderBackdrop({ color, colorMode }) : <ModalBackdrop />}
+										</Box>
 									</GridItem>
-								</Grid>
-							</FloatingFocusManager>
-						</FloatingOverlay>
-					</Fade>
-				</>
+								) : null}
+
+								<GridItem columnStart={1} rowStart={1} zIndex={1}>
+									<Center
+										{...getFloatingProps()}
+										ref={refs.setFloating}
+										aria-labelledby={getModalTitleID(id)}
+										aria-describedby={getModalSubtitleID(id)}
+										w='100%'
+										h='100%'
+										onClick={closeOnOverlayClick ? handleOverlayClick : undefined}
+									>
+										<Box className={classes.content}>{children}</Box>
+									</Center>
+								</GridItem>
+							</Grid>
+						</FloatingFocusManager>
+					</FloatingOverlay>
+				</Fade>
 			</AnimatePresence>
 		</ModalContext.Provider>
 	);
