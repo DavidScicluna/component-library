@@ -3,7 +3,6 @@ import type { ElementType, ReactNode } from 'react';
 import type { PickFrom, ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
-import type { IconButtonProps } from '@components/Buttons/components/IconButton';
 
 export type ConfirmModalDefaultElement = 'dialog';
 export type ConfirmModalElement = PickFrom<ElementType, 'dialog'>;
@@ -11,7 +10,7 @@ export type ConfirmModalElement = PickFrom<ElementType, 'dialog'>;
 export type ConfirmModalSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type ConfirmModalRenderTriggerProps<Element extends ConfirmModalElement = ConfirmModalDefaultElement> =
-	IconButtonProps & {
+	BoxProps & {
 		/**
 		 * If `true`, the modal will be open
 		 */
@@ -25,60 +24,61 @@ export type ConfirmModalRenderBackdropProps<Element extends ConfirmModalElement 
 	ConfirmModalProps<Element>,
 	'color' | 'colorMode'
 >;
-export type ConfirmModalRenderCancelProps = Pick<
-	IconButtonProps,
-	'color' | 'colorMode' | 'onClick' | 'size' | 'variant'
+export type ConfirmModalRenderCancelProps<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = Pick<
+	ConfirmModalProps<Element>,
+	'color' | 'colorMode'
 >;
 
-type ConfirmModalOtherProps = ThemeAppAppearanceProps & {
-	renderTrigger: (props: ConfirmModalRenderTriggerProps) => ReactNode;
-	renderBackdrop?: (props: ConfirmModalRenderBackdropProps) => ReactNode;
-	renderCancel?: (props: ConfirmModalRenderCancelProps) => ReactNode;
-	/**
-	 * If `true`, the modal will close when the Esc key is pressed
-	 * @default true
-	 */
-	closeOnEsc?: ResponsiveValue<boolean>;
-	/**
-	 * If `true`, the modal will close when the overlay is clicked
-	 * @default true
-	 */
-	closeOnOverlayClick?: ResponsiveValue<boolean>;
-	/**
-	 * If `true`, the modal will render without a backdrop behind the modal
-	 * @default true
-	 */
-	hasBackdrop?: ResponsiveValue<boolean>;
-	/**
-	 * Callback invoked to close the modal
-	 */
-	onClose?: () => void;
-	/**
-	 * Callback fired when all exiting nodes have completed animating out
-	 */
-	onCloseComplete?: () => void;
-	/**
-	 * Callback fired when the escape key is pressed and focus is within modal
-	 */
-	onEsc?: () => void;
-	/**
-	 * Callback fired when the overlay is clicked
-	 */
-	onOverlayClick?: () => void;
-	/**
-	 * Callback invoked to open the modal
-	 */
-	onOpen?: () => void;
-	/**
-	 * The size of the Modal
-	 * @default "xl"
-	 */
-	size?: ResponsiveValue<ConfirmModalSize>;
-	spacing?: ResponsiveValue<ThemeSpacing>;
-};
+type ConfirmModalOtherProps<Element extends ConfirmModalElement = ConfirmModalDefaultElement> =
+	ThemeAppAppearanceProps & {
+		renderTrigger: (props: ConfirmModalRenderTriggerProps<Element>) => ReactNode;
+		renderBackdrop?: (props: ConfirmModalRenderBackdropProps<Element>) => ReactNode;
+		renderCancel?: (props: ConfirmModalRenderCancelProps<Element>) => ReactNode;
+		/**
+		 * If `true`, the modal will close when the Esc key is pressed
+		 * @default true
+		 */
+		closeOnEsc?: ResponsiveValue<boolean>;
+		/**
+		 * If `true`, the modal will close when the overlay is clicked
+		 * @default true
+		 */
+		closeOnOverlayClick?: ResponsiveValue<boolean>;
+		/**
+		 * If `true`, the modal will render without a backdrop behind the modal
+		 * @default true
+		 */
+		hasBackdrop?: ResponsiveValue<boolean>;
+		/**
+		 * Callback invoked to close the modal
+		 */
+		onClose?: () => void;
+		/**
+		 * Callback fired when all exiting nodes have completed animating out
+		 */
+		onCloseComplete?: () => void;
+		/**
+		 * Callback fired when the escape key is pressed and focus is within modal
+		 */
+		onEsc?: () => void;
+		/**
+		 * Callback fired when the overlay is clicked
+		 */
+		onOverlayClick?: () => void;
+		/**
+		 * Callback invoked to open the modal
+		 */
+		onOpen?: () => void;
+		/**
+		 * The size of the Modal
+		 * @default "xl"
+		 */
+		size?: ResponsiveValue<ConfirmModalSize>;
+		spacing?: ResponsiveValue<ThemeSpacing>;
+	};
 
 export type ConfirmModalProps<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = Omit<
-	BoxProps<Element, ConfirmModalOtherProps>,
+	BoxProps<Element, ConfirmModalOtherProps<Element>>,
 	keyof BoxOtherProps
 >;
 export type ConfirmModalRef<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = BoxRef<Element>;

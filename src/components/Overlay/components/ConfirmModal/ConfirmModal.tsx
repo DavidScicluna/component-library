@@ -62,6 +62,7 @@ const ConfirmModal = forwardRef(function ConfirmModal<Element extends ConfirmMod
 		className = __DEFAULT_CLASSNAME__,
 		renderTrigger,
 		renderBackdrop,
+		renderCancel,
 		color,
 		colorMode,
 		closeOnEsc: closeonesc = __DEFAULT_CONFIRM_MODAL_CLOSE_ON_ESC__,
@@ -137,66 +138,72 @@ const ConfirmModal = forwardRef(function ConfirmModal<Element extends ConfirmMod
 	return (
 		<ConfirmModalContext.Provider value={{ color, colorMode, isOpen, onClose: handleClose, size, spacing }}>
 			<AnimatePresence onExitComplete={onCloseComplete}>
-				<>
-					{renderTrigger({
-						...getReferenceProps(),
-						ref: refs.setReference,
-						color,
-						colorMode,
-						isOpen,
-						onOpen: handleOpen
-					})}
+				{renderTrigger({
+					...getReferenceProps(),
+					ref: refs.setReference,
+					color,
+					colorMode,
+					isOpen,
+					onOpen: handleOpen
+				})}
 
-					<Fade as='section' in={isOpen}>
-						<FloatingOverlay lockScroll style={{ zIndex: 1 }}>
-							<FloatingFocusManager context={context}>
-								<Grid<Element>
-									{...rest}
-									ref={ref}
-									id={getConfirmModalID(id)}
-									className={classNames(__KEYS_CONFIRM_MODAL_CLASS__, classes.container, {
-										[className]: !!className
-									})}
-									w='100vw'
-									h='100vh'
-									templateColumns={1}
-									templateRows={1}
-									alignItems='stretch'
-									alignContent='stretch'
-									justifyItems='stretch'
-									justifyContent='stretch'
-									spacing={0}
-								>
-									{hasBackdrop ? (
-										<GridItem columnStart={1} rowStart={1}>
-											<Box className={classes.backdrop}>
-												{renderBackdrop ? (
-													renderBackdrop({ color, colorMode })
-												) : (
-													<ConfirmModalBackdrop />
-												)}
-											</Box>
-										</GridItem>
-									) : null}
-
-									<GridItem columnStart={1} rowStart={1} zIndex={1}>
-										<Center
-											{...getFloatingProps()}
-											ref={refs.setFloating}
-											aria-labelledby={getConfirmModalTitleID(id)}
-											aria-describedby={getConfirmModalSubtitleID(id)}
-											w='100%'
-											h='100%'
-											onClick={closeOnOverlayClick ? handleOverlayClick : undefined}
-										>
-											<Box className={classes.content}>{children}</Box>
-										</Center>
+				<Fade as='section' in={isOpen}>
+					<FloatingOverlay lockScroll style={{ zIndex: 1 }}>
+						<FloatingFocusManager context={context}>
+							<Grid<Element>
+								{...rest}
+								ref={ref}
+								id={getConfirmModalID(id)}
+								className={classNames(__KEYS_CONFIRM_MODAL_CLASS__, classes.container, {
+									[className]: !!className
+								})}
+								w='100vw'
+								h='100vh'
+								templateColumns={1}
+								templateRows={1}
+								alignItems='stretch'
+								alignContent='stretch'
+								justifyItems='stretch'
+								justifyContent='stretch'
+								spacing={0}
+							>
+								{hasBackdrop ? (
+									<GridItem columnStart={1} rowStart={1}>
+										<Box className={classes.backdrop}>
+											{renderBackdrop ? (
+												renderBackdrop({ color, colorMode })
+											) : (
+												<ConfirmModalBackdrop />
+											)}
+										</Box>
 									</GridItem>
-								</Grid>
-							</FloatingFocusManager>
-						</FloatingOverlay>
-					</Fade>
-				</>
+								) : null}
+
+								<GridItem columnStart={1} rowStart={1} zIndex={1}>
+									<Center
+										{...getFloatingProps()}
+										ref={refs.setFloating}
+										aria-labelledby={getConfirmModalTitleID(id)}
+										aria-describedby={getConfirmModalSubtitleID(id)}
+										w='100%'
+										h='100%'
+										onClick={closeOnOverlayClick ? handleOverlayClick : undefined}
+									>
+										<Box className={classes.content}>
+											{renderCancel ? (
+												<Center className={classes.cancel}>
+													{renderCancel({ color, colorMode })}
+												</Center>
+											) : null}
+
+											{children}
+										</Box>
+									</Center>
+								</GridItem>
+							</Grid>
+						</FloatingFocusManager>
+					</FloatingOverlay>
+				</Fade>
 			</AnimatePresence>
 		</ConfirmModalContext.Provider>
 	);
