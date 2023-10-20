@@ -97,11 +97,11 @@ export default {
 	}
 } as TooltipStoryMeta;
 
-export const Tooltip: TooltipStory = ({ isOpen, ...rest }: TooltipProps<PolymorphicDefaultElement>): ReactElement => {
+export const Tooltip: TooltipStory = (props: TooltipProps<PolymorphicDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (
-		<TooltipComponent {...rest} color={color} colorMode={colorMode}>
+		<TooltipComponent {...props} color={color} colorMode={colorMode}>
 			<Button color={color} colorMode={colorMode}>
 				Hover me
 			</Button>

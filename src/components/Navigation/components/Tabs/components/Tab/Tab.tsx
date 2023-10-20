@@ -11,7 +11,7 @@ import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 
 import { Pop } from '@components/Animation';
 import { Box } from '@components/Box';
-import { useCarouselManager } from '@components/DataDisplay';
+import { hooks as data_display_hooks } from '@components/DataDisplay';
 import { Center, Grid, GridItem } from '@components/Layout';
 import { HoverOverlay } from '@components/Overlay';
 
@@ -28,6 +28,8 @@ import {
 import { useTabClasses, useTabSizeConfig } from './common/hooks';
 import { __KEYS_TAB_CLASS__ } from './common/keys';
 import type { TabDefaultElement, TabElement, TabMouseEvent, TabProps, TabRef } from './common/types';
+
+const { useCarouselManager } = data_display_hooks;
 
 const Tab = forwardRef(function Tab<Element extends TabElement = TabDefaultElement>(
 	props: TabProps<Element>,

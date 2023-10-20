@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement, ReactNode } from 'react';
+import type { ElementType, ReactElement } from 'react';
 import { forwardRef, Fragment } from 'react';
 
 import classNames from 'classnames';

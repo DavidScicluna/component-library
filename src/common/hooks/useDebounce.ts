@@ -9,9 +9,12 @@ const useDebounce = <T>(value: T, delay: ThemeDuration = 'normal'): T => {
 	const [debouncedValue, setDebouncedValue] = useState<T>(value);
 
 	useEffect(() => {
-		const timer = setTimeout(() => {
-			setDebouncedValue(value);
-		}, convertStringToNumber(theme.transitionDuration[delay], 'ms'));
+		const timer = setTimeout(
+			() => {
+				setDebouncedValue(value);
+			},
+			convertStringToNumber(theme.transitionDuration[delay], 'ms')
+		);
 
 		return () => clearTimeout(timer);
 	}, [value, delay]);

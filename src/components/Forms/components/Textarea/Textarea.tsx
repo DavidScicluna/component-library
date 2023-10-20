@@ -11,7 +11,7 @@ import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 import type { ResizeClass } from '@common/types';
 
 import { Box } from '@components/Box';
-import { Grid, GridItem, Stack } from '@components/Layout';
+import { Grid, GridItem } from '@components/Layout';
 
 import { useFormControlContext } from '../FormControl/common/hooks';
 import { utils as formDescriptionUtils } from '../FormDescription';

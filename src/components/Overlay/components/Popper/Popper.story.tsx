@@ -97,11 +97,11 @@ export default {
 	}
 } as PopperStoryMeta;
 
-export const Popper: PopperStory = ({ isOpen, ...rest }: PopperProps<PolymorphicDefaultElement>): ReactElement => {
+export const Popper: PopperStory = (props: PopperProps<PolymorphicDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (
-		<PopperComponent {...rest} color={color} colorMode={colorMode}>
+		<PopperComponent {...props} color={color} colorMode={colorMode}>
 			<Button color={color} colorMode={colorMode}>
 				Hover me
 			</Button>

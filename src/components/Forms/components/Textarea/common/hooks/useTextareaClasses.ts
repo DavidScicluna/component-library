@@ -9,7 +9,7 @@ import {
 	__DEFAULT_COLOR__,
 	__DEFAULT_OUTLINE_WIDTH__
 } from '@common/constants';
-import { useAppTheme, useConst, useGetResponsiveValue } from '@common/hooks';
+import { useAppTheme, useGetResponsiveValue } from '@common/hooks';
 import type { ClassName, ResizeClass } from '@common/types';
 import { getColorHue } from '@common/utils';
 

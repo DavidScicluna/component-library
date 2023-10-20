@@ -7,9 +7,13 @@ import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor, useGetResponsiveValue } from '@common/hooks';
 
 import { Fade } from '@components/Animation';
+import {
+	CarouselLeftLinearGradient,
+	CarouselRightLinearGradient,
+	hooks as carousel_hooks
+} from '@components/DataDisplay';
 import { Center, Grid, GridItem } from '@components/Layout';
 
-import { CarouselLeftLinearGradient, CarouselRightLinearGradient, useCarouselContext } from '../..';
 import { CarouselArrowButton } from '..';
 
 import { __DEFAULT_CAROUSEL_OVERLAY_ARROW_BUTTON_IS_VISIBLE__ } from './common/constants';
@@ -20,6 +24,8 @@ import type {
 	CarouselOverlayArrowButtonProps,
 	CarouselOverlayArrowButtonRef
 } from './common/types';
+
+const { useCarouselContext } = carousel_hooks;
 
 const CarouselOverlayArrowButton = forwardRef(function CarouselOverlayArrowButton<
 	Element extends CarouselOverlayArrowButtonElement = CarouselOverlayArrowButtonDefaultElement
