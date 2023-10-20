@@ -8,7 +8,7 @@ import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { Fade } from '@components/Animation';
 import { Center, Grid, GridItem } from '@components/Layout';
 
-import { Glass } from '../GlassOverlay';
+import { GlassOverlay } from '../GlassOverlay';
 
 import {
 	__DEFAULT_STATE_OVERLAY_HAS_GLASS__,
@@ -93,7 +93,7 @@ const StateOverlay = forwardRef(function StateOverlay<Element extends ElementTyp
 
 			<GridItem columnStart={1} rowStart={1}>
 				<Fade w='100%' h='100%' in={isAlwaysVisible || state === 'default'}>
-					<Glass
+					<GlassOverlay
 						color={color}
 						colorMode={colorMode}
 						w='100%'
@@ -102,7 +102,7 @@ const StateOverlay = forwardRef(function StateOverlay<Element extends ElementTyp
 						hasBackground={hasGlass && state !== 'default'}
 					>
 						{children(state)}
-					</Glass>
+					</GlassOverlay>
 				</Fade>
 			</GridItem>
 		</Grid>
