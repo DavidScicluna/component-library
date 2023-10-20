@@ -1,7 +1,7 @@
 import type { PolymorphicDefaultElement, PolymorphicMouseEvent, ResponsiveValue } from '@common/types';
 
 import type { IconButtonDefaultElement, IconButtonElement, IconButtonProps, IconButtonRef } from '@components/Buttons';
-import type { CarouselArrowDirection } from '@components/DataDisplay/components/Carousel';
+import type { CarouselArrowDirection } from '@components/DataDisplay';
 import type { TooltipProps } from '@components/Overlay/components/Tooltip';
 
 export type CarouselArrowIconButtonMouseEvent<

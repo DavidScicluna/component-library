@@ -6,7 +6,7 @@ import type {
 	CarouselArrowButtonProps,
 	CarouselArrowButtonRef,
 	CarouselProps
-} from '@components/DataDisplay/components/Carousel';
+} from '@components/DataDisplay';
 
 export type CarouselOverlayArrowButtonDefaultElement = CarouselArrowButtonDefaultElement;
 export type CarouselOverlayArrowButtonElement = CarouselArrowButtonElement;

@@ -1,9 +1,6 @@
 import type { ElementType } from 'react';
 
-import type {
-	CarouselLinearGradientProps,
-	CarouselLinearGradientRef
-} from '@components/DataDisplay/components/Carousel';
+import type { CarouselLinearGradientProps, CarouselLinearGradientRef } from '@components/DataDisplay';
 
 export type CarouselLeftLinearGradientProps<Element extends ElementType> = Omit<
 	CarouselLinearGradientProps<Element>,

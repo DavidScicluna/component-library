@@ -2,7 +2,7 @@ import type { ElementType } from 'react';
 
 import type { ResponsiveValue } from '@common/types';
 
-import type { CarouselArrowDirection } from '@components/DataDisplay/components/Carousel';
+import type { CarouselArrowDirection } from '@components/DataDisplay';
 import type { LinearGradientProps, LinearGradientRef } from '@components/Overlay/components/LinearGradient';
 
 type CarouselLinearGradientOtherProps = {

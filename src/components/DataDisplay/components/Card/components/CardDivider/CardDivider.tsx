@@ -7,8 +7,8 @@ import { __DEFAULT_CLASSNAME__, __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
 import { getColorHex } from '@common/utils';
 
-import type { DividerThemeAppAppearanceProps } from '@components/DataDisplay/components/Divider';
-import { Divider } from '@components/DataDisplay/components/Divider';
+import type { DividerThemeAppAppearanceProps } from '@components/DataDisplay';
+import { Divider } from '@components/DataDisplay';
 
 import { useCardContext } from '../../common/hooks';
 

@@ -8,7 +8,7 @@ import { useElementSize } from 'usehooks-ts';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
-import { Icon } from '@components/DataDisplay/components/Icon';
+import { Icon } from '@components/DataDisplay';
 import { Grid, GridItem, HStack, VStack } from '@components/Layout';
 
 import { useCardContext } from '../../common/hooks';

@@ -3,7 +3,7 @@ import type { ElementType } from 'react';
 import type { ResponsiveValue, ScaleClass, ThemeAppearanceProps, ThemeSpacing } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
-import type { CarouselItem } from '@components/DataDisplay/components/Carousel/common/types';
+import type { CarouselItem } from '@components/DataDisplay';
 
 export type CarouselDot = {
 	item: CarouselItem;

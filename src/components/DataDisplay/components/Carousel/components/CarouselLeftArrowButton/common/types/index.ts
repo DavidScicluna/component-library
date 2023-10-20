@@ -3,7 +3,7 @@ import type {
 	CarouselArrowButtonElement,
 	CarouselArrowButtonProps,
 	CarouselArrowButtonRef
-} from '@components/DataDisplay/components/Carousel';
+} from '@components/DataDisplay';
 
 export type CarouselLeftArrowButtonDefaultElement = CarouselArrowButtonDefaultElement;
 export type CarouselLeftArrowButtonElement = CarouselArrowButtonElement;

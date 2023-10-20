@@ -3,7 +3,7 @@ import type { ElementType } from 'react';
 import type { PolymorphicDefaultElement, ThemeAppearanceProps } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
-import type { CarouselDotsProps, CarouselDotType } from '@components/DataDisplay/components/Carousel';
+import type { CarouselDotsProps, CarouselDotType } from '@components/DataDisplay';
 
 type CarouselDotOtherProps = ThemeAppearanceProps &
 	CarouselDotType &

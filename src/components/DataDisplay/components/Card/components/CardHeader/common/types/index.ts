@@ -1,7 +1,7 @@
 import type { ElementType, ReactNode } from 'react';
 
 import type { BoxProps, BoxRef } from '@components/Box';
-import type { CardProps } from '@components/DataDisplay/components/Card';
+import type { CardProps } from '@components/DataDisplay';
 import type { GridProps } from '@components/Layout';
 
 export type CardHeaderRenderProps<Element extends ElementType> = Pick<CardProps<Element>, 'color' | 'colorMode'> & {
