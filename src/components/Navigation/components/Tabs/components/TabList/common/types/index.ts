@@ -1,7 +1,7 @@
 import type { ElementType, ReactNode } from 'react';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
-import type { TabsProps } from '@components/Navigation/components/Tabs';
+import type { TabsProps } from '@components/Navigation';
 
 export type TabListRenderProps<Element extends ElementType> = Pick<TabsProps<Element>, 'color' | 'colorMode'> & {
 	w?: number;
