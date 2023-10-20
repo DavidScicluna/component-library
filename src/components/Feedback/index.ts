@@ -43,6 +43,7 @@ import type {
 } from './components/Progress';
 import {
 	constants as progressConstants,
+	hooks as progressHooks,
 	keys as progressKeys,
 	Progress,
 	ProgressLabel,
@@ -81,7 +82,7 @@ export const keys = { ...alertKeys, ...progressKeys, ...spinnerKeys, ...skeleton
 export const utils = { ...alertUtils };
 
 // Hooks
-export const hooks = { ...alertHooks, ...skeletonHooks };
+export const hooks = { ...alertHooks, ...progressHooks, ...skeletonHooks };
 
 // Components
 export { Alert, AlertDescription, AlertIcon, AlertLabel, Progress, ProgressLabel, ProgressSection, Skeleton, Spinner };

@@ -5,8 +5,7 @@ import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
-import { Skeleton } from '@components/Feedback';
-import { keys } from '@components/Feedback/components/Skeleton';
+import { keys as feedback_keys, Skeleton } from '@components/Feedback';
 import { useDummyPushableOverlayStyles } from '@components/Overlay/components/DummyPushableOverlay';
 
 import { useDummyTabsContext } from '../../common/hooks';
@@ -14,7 +13,7 @@ import { useDummyTabsContext } from '../../common/hooks';
 import { __KEY_DUMMY_TAB_SKELETON_CLASS__ } from './common/keys';
 import type { DummyTabSkeletonProps, DummyTabSkeletonRef } from './common/types';
 
-const { __KEY_SKELETON_OVERLAY_CLASS__ } = keys;
+const { __KEY_SKELETON_OVERLAY_CLASS__ } = feedback_keys;
 
 const DummyTabSkeleton = forwardRef(function DummyTabSkeleton<Element extends ElementType>(
 	props: DummyTabSkeletonProps<Element>,

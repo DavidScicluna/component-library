@@ -5,8 +5,7 @@ import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
-import { Skeleton } from '@components/Feedback';
-import { keys } from '@components/Feedback/components/Skeleton';
+import { keys, Skeleton } from '@components/Feedback';
 import { useDummyPushableOverlayStyles } from '@components/Overlay/components/DummyPushableOverlay';
 
 import { useDummyIconButtonContext } from '../../common/hooks';

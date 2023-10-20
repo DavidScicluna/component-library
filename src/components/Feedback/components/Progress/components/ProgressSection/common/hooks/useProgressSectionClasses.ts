@@ -6,7 +6,7 @@ import classes from '@common/classes';
 import { useGetClass, useGetColor } from '@common/hooks';
 import type { ClassName, ThemeRadius } from '@common/types';
 
-import { useProgressContext } from '@components/Feedback/components/Progress';
+import { hooks as feedback_hooks } from '@components/Feedback';
 
 import type { ProgressSectionProps } from '../types';
 
@@ -15,6 +15,8 @@ type UseProgressSectionClassesProps<Element extends ElementType> = Pick<
 	'color' | 'colorMode'
 >;
 type UseProgressSectionClassesReturn = ClassName;
+
+const { useProgressContext } = feedback_hooks;
 
 const useProgressSectionClasses = <Element extends ElementType>(
 	props: UseProgressSectionClassesProps<Element>
