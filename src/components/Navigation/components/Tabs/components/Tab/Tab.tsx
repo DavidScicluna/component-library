@@ -13,7 +13,7 @@ import { Pop } from '@components/Animation';
 import { Box } from '@components/Box';
 import { useCarouselManager } from '@components/DataDisplay';
 import { Center, Grid, GridItem } from '@components/Layout';
-import { HoverOverlay } from '@components/Overlay/components/HoverOverlay';
+import { HoverOverlay } from '@components/Overlay';
 
 import { useTabsContext } from '../../common/hooks';
 import { getTabID, getTabPanelID } from '../../common/utils';

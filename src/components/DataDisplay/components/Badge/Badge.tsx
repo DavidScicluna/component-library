@@ -10,7 +10,7 @@ import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 
 import { Center, Grid, GridItem } from '@components/Layout';
-import { PushableOverlay } from '@components/Overlay/components/PushableOverlay';
+import { PushableOverlay } from '@components/Overlay';
 
 import {
 	__DEFAULT_BADGE_IS_ACTIVE__,

@@ -10,7 +10,6 @@ import type {
 	ModalSize
 } from './common/types';
 import type {
-	ModalBackdropElement,
 	ModalBackdropProps,
 	ModalBackdropRef,
 	ModalBodyProps,
@@ -62,7 +61,6 @@ export { Modal, ModalBackdrop, ModalBody, ModalFooter, ModalHeader, ModalStack, 
 
 // Component Types
 export type {
-	ModalBackdropElement,
 	ModalBackdropProps,
 	ModalBackdropRef,
 	ModalBodyProps,

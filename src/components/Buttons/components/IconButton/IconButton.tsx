@@ -9,7 +9,7 @@ import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 
 import { Center } from '@components/Layout';
-import { PushableOverlay } from '@components/Overlay/components/PushableOverlay';
+import { PushableOverlay } from '@components/Overlay';
 
 import { hooks as iconButtonGroupHooks } from '../IconButtonGroup';
 

@@ -6,13 +6,15 @@ import classNames from 'classnames';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
-import { useModalContext } from '@components/Overlay/components/Modal/common/hooks';
+import { hooks as overlay_hooks } from '@components/Overlay';
 import { Text } from '@components/Typography';
 
 import { getModalTitleID } from '../../common/utils';
 
 import { __KEYS_MODAL_TITLE_CLASS__ } from './common/keys';
 import type { ModalTitleDefaultElement, ModalTitleElement, ModalTitleProps, ModalTitleRef } from './common/types';
+
+const { useModalContext } = overlay_hooks;
 
 const ModalTitle = forwardRef(function ModalTitle<Element extends ModalTitleElement = ModalTitleDefaultElement>(
 	props: ModalTitleProps<Element>,

@@ -1,18 +1,18 @@
-import type { ReactElement } from 'react';
+import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
-import { BackdropOverlay } from '@components/Overlay/components/BackdropOverlay';
+import { BackdropOverlay } from '@components/Overlay';
 
 import { useModalContext } from '../../common/hooks';
 
 import { __KEYS_MODAL_BACKDROP_CLASS__ } from './common/keys';
-import type { ModalBackdropElement, ModalBackdropProps, ModalBackdropRef } from './common/types';
+import type { ModalBackdropProps, ModalBackdropRef } from './common/types';
 
-const ModalBackdrop = forwardRef(function ModalBackdrop<Element extends ModalBackdropElement>(
+const ModalBackdrop = forwardRef(function ModalBackdrop<Element extends ElementType>(
 	props: ModalBackdropProps<Element>,
 	ref: ModalBackdropRef<Element>
 ): ReactElement {

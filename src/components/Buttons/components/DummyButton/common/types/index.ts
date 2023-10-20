@@ -3,7 +3,7 @@ import type { ElementType, ReactNode } from 'react';
 import type { ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
-import type { DummyPushableOverlayProps } from '@components/Overlay/components/DummyPushableOverlay';
+import type { DummyPushableOverlayProps } from '@components/Overlay';
 
 export type DummyButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 

@@ -7,10 +7,12 @@ import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Divider } from '@components/DataDisplay';
 import { VStack } from '@components/Layout';
-import { useModalContext } from '@components/Overlay/components/Modal/common/hooks';
+import { hooks as overlay_hooks } from '@components/Overlay';
 
 import { __KEYS_MODAL_STACK_CLASS__ } from './common/keys';
 import type { ModalStackProps, ModalStackRef } from './common/types';
+
+const { useModalContext } = overlay_hooks;
 
 const ModalStack = forwardRef(function ModalStack<Element extends ElementType>(
 	props: ModalStackProps<Element>,

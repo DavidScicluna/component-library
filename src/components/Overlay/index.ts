@@ -15,7 +15,6 @@ import type {
 	ConfirmModalActionsRef,
 	ConfirmModalActionsRenderActionProps,
 	ConfirmModalActionsRenderCancelProps,
-	ConfirmModalBackdropElement,
 	ConfirmModalBackdropProps,
 	ConfirmModalBackdropRef,
 	ConfirmModalBodyProps,
@@ -108,7 +107,6 @@ import {
 	LoadingOverlay
 } from './components/LoadingOverlay';
 import type {
-	ModalBackdropElement,
 	ModalBackdropProps,
 	ModalBackdropRef,
 	ModalBodyProps,
@@ -252,7 +250,6 @@ export type {
 	ConfirmModalActionsRef,
 	ConfirmModalActionsRenderActionProps,
 	ConfirmModalActionsRenderCancelProps,
-	ConfirmModalBackdropElement,
 	ConfirmModalBackdropProps,
 	ConfirmModalBackdropRef,
 	ConfirmModalBodyProps,
@@ -303,7 +300,6 @@ export type {
 	LoadingOverlayBlurTypes,
 	LoadingOverlayProps,
 	LoadingOverlayRef,
-	ModalBackdropElement,
 	ModalBackdropProps,
 	ModalBackdropRef,
 	ModalBodyProps,

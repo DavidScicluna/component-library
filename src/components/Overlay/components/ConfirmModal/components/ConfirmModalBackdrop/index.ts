@@ -1,4 +1,4 @@
-import type { ConfirmModalBackdropElement, ConfirmModalBackdropProps, ConfirmModalBackdropRef } from './common/types';
+import type { ConfirmModalBackdropProps, ConfirmModalBackdropRef } from './common/types';
 import ConfirmModalBackdrop from './ConfirmModalBackdrop';
 
 // Keys
@@ -8,4 +8,4 @@ export * as keys from './common/keys';
 export { ConfirmModalBackdrop };
 
 // Component Types
-export type { ConfirmModalBackdropElement, ConfirmModalBackdropProps, ConfirmModalBackdropRef };
+export type { ConfirmModalBackdropProps, ConfirmModalBackdropRef };

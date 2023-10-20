@@ -1,11 +1,7 @@
-import type {
-	BackdropOverlayElement,
-	BackdropOverlayProps,
-	BackdropOverlayRef
-} from '@components/Overlay/components/BackdropOverlay/common/types';
+import type { ElementType } from 'react';
 
-export type ModalBackdropElement = BackdropOverlayElement;
+import type { BackdropOverlayProps, BackdropOverlayRef } from '@components/Overlay';
 
-export type ModalBackdropProps<Element extends ModalBackdropElement> = BackdropOverlayProps<Element>;
+export type ModalBackdropProps<Element extends ElementType> = BackdropOverlayProps<Element>;
 
-export type ModalBackdropRef<Element extends ModalBackdropElement> = BackdropOverlayRef<Element>;
+export type ModalBackdropRef<Element extends ElementType> = BackdropOverlayRef<Element>;

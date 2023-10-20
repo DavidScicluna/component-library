@@ -10,7 +10,7 @@ import type { AnimationConfig } from '@common/types';
 import { getAnimationConfig, getAnimationDuration } from '@common/utils';
 
 import { Fade } from '@components/Animation';
-import { LinearGradient } from '@components/Overlay/components/LinearGradient';
+import { LinearGradient } from '@components/Overlay';
 
 import { useCarouselContext } from '../../common/hooks';
 import type { CarouselArrowDirection } from '../../common/types';

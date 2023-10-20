@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
-import { useModalContext } from '@components/Overlay/components/Modal/common/hooks';
+import { hooks as overlay_hooks } from '@components/Overlay';
 import { Text } from '@components/Typography';
 
 import { getModalSubtitleID } from '../../common/utils';
@@ -18,6 +18,8 @@ import type {
 	ModalSubtitleProps,
 	ModalSubtitleRef
 } from './common/types';
+
+const { useModalContext } = overlay_hooks;
 
 const ModalSubtitle = forwardRef(function ModalSubtitle<
 	Element extends ModalSubtitleElement = ModalSubtitleDefaultElement

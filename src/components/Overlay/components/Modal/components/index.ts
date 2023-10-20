@@ -1,4 +1,4 @@
-import type { ModalBackdropElement, ModalBackdropProps, ModalBackdropRef } from './ModalBackdrop';
+import type { ModalBackdropProps, ModalBackdropRef } from './ModalBackdrop';
 import { keys as modalBackdropKeys, ModalBackdrop } from './ModalBackdrop';
 import type { ModalBodyProps, ModalBodyRef } from './ModalBody';
 import { keys as modalBodyKeys, ModalBody } from './ModalBody';
@@ -39,7 +39,6 @@ export { ModalBackdrop, ModalBody, ModalFooter, ModalHeader, ModalStack, ModalSu
 
 // Component Types
 export type {
-	ModalBackdropElement,
 	ModalBackdropProps,
 	ModalBackdropRef,
 	ModalBodyProps,

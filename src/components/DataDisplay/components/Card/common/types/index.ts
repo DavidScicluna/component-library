@@ -10,7 +10,7 @@ import type {
 } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
-import type { PushableOverlayProps } from '@components/Overlay/components/PushableOverlay';
+import type { PushableOverlayProps } from '@components/Overlay';
 
 export type CardMouseEvent<Element extends ElementType> = PolymorphicMouseEvent<Element>;
 

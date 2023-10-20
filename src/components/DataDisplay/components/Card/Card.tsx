@@ -8,7 +8,7 @@ import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__, __DEFAULT_USE_BOOLEAN_TOGGL
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 import type { ThemeRadius, ThemeSpacing } from '@common/types';
 
-import { PushableOverlay } from '@components/Overlay/components/PushableOverlay';
+import { PushableOverlay } from '@components/Overlay';
 import { VisuallyHidden } from '@components/VisuallyHidden';
 
 import {

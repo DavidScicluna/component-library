@@ -5,11 +5,7 @@ import type {
 	ConfirmModalActionsRenderCancelProps
 } from './ConfirmModalActions';
 import { ConfirmModalActions, keys as confirmModalActionsKeys } from './ConfirmModalActions';
-import type {
-	ConfirmModalBackdropElement,
-	ConfirmModalBackdropProps,
-	ConfirmModalBackdropRef
-} from './ConfirmModalBackdrop';
+import type { ConfirmModalBackdropProps, ConfirmModalBackdropRef } from './ConfirmModalBackdrop';
 import { ConfirmModalBackdrop, keys as confirmModalBackdropKeys } from './ConfirmModalBackdrop';
 import type { ConfirmModalBodyProps, ConfirmModalBodyRef } from './ConfirmModalBody';
 import {
@@ -72,7 +68,6 @@ export type {
 	ConfirmModalActionsRef,
 	ConfirmModalActionsRenderActionProps,
 	ConfirmModalActionsRenderCancelProps,
-	ConfirmModalBackdropElement,
 	ConfirmModalBackdropProps,
 	ConfirmModalBackdropRef,
 	ConfirmModalBodyProps,

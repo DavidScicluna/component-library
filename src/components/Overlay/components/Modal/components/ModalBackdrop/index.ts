@@ -1,4 +1,4 @@
-import type { ModalBackdropElement, ModalBackdropProps, ModalBackdropRef } from './common/types';
+import type { ModalBackdropProps, ModalBackdropRef } from './common/types';
 import ModalBackdrop from './ModalBackdrop';
 
 // Keys
@@ -8,4 +8,4 @@ export * as keys from './common/keys';
 export { ModalBackdrop };
 
 // Component Types
-export type { ModalBackdropElement, ModalBackdropProps, ModalBackdropRef };
+export type { ModalBackdropProps, ModalBackdropRef };

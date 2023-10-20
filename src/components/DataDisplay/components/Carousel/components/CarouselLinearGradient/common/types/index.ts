@@ -3,7 +3,7 @@ import type { ElementType } from 'react';
 import type { ResponsiveValue } from '@common/types';
 
 import type { CarouselArrowDirection } from '@components/DataDisplay';
-import type { LinearGradientProps, LinearGradientRef } from '@components/Overlay/components/LinearGradient';
+import type { LinearGradientProps, LinearGradientRef } from '@components/Overlay';
 
 type CarouselLinearGradientOtherProps = {
 	/**

@@ -3,7 +3,7 @@ import type { ElementType, ReactNode } from 'react';
 import type { ResponsiveValue, ThemeAppAppearanceProps, ThemeFontSize } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
-import type { PushableOverlayProps } from '@components/Overlay/components/PushableOverlay';
+import type { PushableOverlayProps } from '@components/Overlay';
 
 export type BadgeSize = ThemeFontSize;
 

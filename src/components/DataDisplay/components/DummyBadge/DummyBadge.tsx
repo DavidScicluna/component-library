@@ -9,7 +9,7 @@ import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 
 import { Center, Grid, GridItem } from '@components/Layout';
-import { DummyPushableOverlay } from '@components/Overlay/components/DummyPushableOverlay';
+import { DummyPushableOverlay } from '@components/Overlay';
 
 import {
 	__DEFAULT_DUMMY_BADGE_IS_ANIMATED__,

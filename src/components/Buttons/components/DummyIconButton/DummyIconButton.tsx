@@ -8,7 +8,7 @@ import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 
 import { Center } from '@components/Layout';
-import { DummyPushableOverlay } from '@components/Overlay/components/DummyPushableOverlay';
+import { DummyPushableOverlay } from '@components/Overlay';
 
 import {
 	__DEFAULT_DUMMY_ICON_BUTTON_IS_ANIMATED__,
