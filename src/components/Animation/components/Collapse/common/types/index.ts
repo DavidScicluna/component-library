@@ -2,7 +2,7 @@ import type { ElementType } from 'react';
 
 import type { PickFrom } from '@common/types';
 
-import type { CommonAnimationProps, CommonAnimationRef } from '@components/Animation/common/types';
+import type { CommonAnimationProps, CommonAnimationRef } from '@components/Animation';
 
 export type CollapseAxis = 'x' | 'y';
 

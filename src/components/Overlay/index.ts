@@ -42,10 +42,7 @@ import type {
 	ConfirmModalTitleDefaultElement,
 	ConfirmModalTitleElement,
 	ConfirmModalTitleProps,
-	ConfirmModalTitleRef,
-	ConfirmModalTransitionProps,
-	ConfirmModalTransitionRef,
-	ConfirmModalTransitionVariant
+	ConfirmModalTitleRef
 } from './components/ConfirmModal';
 import {
 	ConfirmModal,
@@ -77,12 +74,7 @@ import {
 	keys as glassOverlayKeys
 } from './components/GlassOverlay';
 import type { HoverOverlayMouseEvent, HoverOverlayProps, HoverOverlayRef } from './components/HoverOverlay';
-import {
-	constants as hoverOverlayConstants,
-	hooks as hoverOverlayHooks,
-	HoverOverlay,
-	keys as hoverOverlayKeys
-} from './components/HoverOverlay';
+import { HoverOverlay, keys as hoverOverlayKeys } from './components/HoverOverlay';
 import type { IndicatorPlacement, IndicatorPlacements, IndicatorProps, IndicatorRef } from './components/Indicator';
 import {
 	constants as indicatorConstants,
@@ -145,10 +137,11 @@ import type {
 	ModalTitleDefaultElement,
 	ModalTitleElement,
 	ModalTitleProps,
-	ModalTitleRef,
-	ModalTransitionVariant
+	ModalTitleRef
 } from './components/Modal';
 import { constants as modalConstants, hooks as modalHooks, keys as modalKeys, Modal } from './components/Modal';
+import type { PopperPlacement, PopperProps, PopperRef } from './components/Popper';
+import { constants as popperConstants, hooks as popperHooks, keys as popperKeys, Popper } from './components/Popper';
 import type {
 	PositionOverlayBlurType,
 	PositionOverlayBlurTypes,
@@ -171,13 +164,8 @@ import {
 	PushableOverlay
 } from './components/PushableOverlay';
 import type { StateOverlayProps, StateOverlayRef, StateOverlayState } from './components/StateOverlay';
-import {
-	constants as stateOverlayConstants,
-	hooks as stateOverlayHooks,
-	keys as stateOverlayKeys,
-	StateOverlay
-} from './components/StateOverlay';
-import type { TooltipOtherProps, TooltipPlacement, TooltipProps, TooltipRef } from './components/Tooltip';
+import { constants as stateOverlayConstants, keys as stateOverlayKeys, StateOverlay } from './components/StateOverlay';
+import type { TooltipPlacement, TooltipProps, TooltipRef } from './components/Tooltip';
 import {
 	constants as tooltipConstants,
 	hooks as tooltipHooks,
@@ -191,11 +179,11 @@ export const constants = {
 	...confirmModalConstants,
 	...dummyPushableOverlayConstants,
 	...glassOverlayConstants,
-	...hoverOverlayConstants,
 	...indicatorConstants,
 	...linearGradientConstants,
 	...loadingOverlayConstants,
 	...modalConstants,
+	...popperConstants,
 	...positionOverlayConstants,
 	...pushableOverlayConstants,
 	...stateOverlayConstants,
@@ -213,6 +201,7 @@ export const keys = {
 	...linearGradientKeys,
 	...loadingOverlayKeys,
 	...modalKeys,
+	...popperKeys,
 	...positionOverlayKeys,
 	...pushableOverlayKeys,
 	...stateOverlayKeys,
@@ -225,14 +214,13 @@ export const hooks = {
 	...confirmModalHooks,
 	...dummyPushableOverlayHooks,
 	...glassOverlayHooks,
-	...hoverOverlayHooks,
 	...indicatorHooks,
 	...linearGradientHooks,
 	...loadingOverlayHooks,
 	...modalHooks,
+	...popperHooks,
 	...positionOverlayHooks,
 	...pushableOverlayHooks,
-	...stateOverlayHooks,
 	...tooltipHooks
 };
 
@@ -247,6 +235,7 @@ export {
 	LinearGradient,
 	LoadingOverlay,
 	Modal,
+	Popper,
 	PositionOverlay,
 	PushableOverlay,
 	StateOverlay,
@@ -291,9 +280,6 @@ export type {
 	ConfirmModalTitleElement,
 	ConfirmModalTitleProps,
 	ConfirmModalTitleRef,
-	ConfirmModalTransitionProps,
-	ConfirmModalTransitionRef,
-	ConfirmModalTransitionVariant,
 	DummyPushableOverlayProps,
 	DummyPushableOverlayRef,
 	DummyPushableOverlayVariant,
@@ -347,7 +333,9 @@ export type {
 	ModalTitleElement,
 	ModalTitleProps,
 	ModalTitleRef,
-	ModalTransitionVariant,
+	PopperPlacement,
+	PopperProps,
+	PopperRef,
 	PositionOverlayBlurType,
 	PositionOverlayBlurTypes,
 	PositionOverlayPlacement,
@@ -360,7 +348,6 @@ export type {
 	StateOverlayProps,
 	StateOverlayRef,
 	StateOverlayState,
-	TooltipOtherProps,
 	TooltipPlacement,
 	TooltipProps,
 	TooltipRef
