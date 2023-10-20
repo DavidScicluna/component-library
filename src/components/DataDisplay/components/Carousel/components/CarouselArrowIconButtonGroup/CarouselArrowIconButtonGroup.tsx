@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
-import { IconButtonGroup, IconButtonGroupItem } from '@components/Buttons/components/IconButtonGroup';
+import { IconButtonGroup, IconButtonGroupItem } from '@components/Buttons';
 
 import { useCarouselContext } from '../../common/hooks';
 

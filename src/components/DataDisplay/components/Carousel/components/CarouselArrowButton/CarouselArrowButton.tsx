@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 
-import { Button, ButtonIcon } from '@components/Buttons/components/Button';
+import { Button, ButtonIcon } from '@components/Buttons';
 
 import { useCarouselContext } from '../../common/hooks';
 import type { CarouselArrowDirection } from '../../common/types';

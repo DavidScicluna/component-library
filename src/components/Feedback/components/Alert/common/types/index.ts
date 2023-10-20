@@ -4,7 +4,7 @@ import type { Nullish, ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing } 
 
 // TODO: Check all components sub folder and replace all imports to import from root instead
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
-import type { IconButtonProps } from '@components/Buttons/components/IconButton';
+import type { IconButtonProps } from '@components/Buttons';
 
 export type AlertDuration = Nullish<number>;
 

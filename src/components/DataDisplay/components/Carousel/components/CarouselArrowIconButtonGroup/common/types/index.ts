@@ -2,7 +2,7 @@ import type { ElementType } from 'react';
 
 import type { DeepRequired } from 'utility-types';
 
-import type { IconButtonGroupProps, IconButtonGroupRef } from '@components/Buttons/components/IconButtonGroup';
+import type { IconButtonGroupProps, IconButtonGroupRef } from '@components/Buttons';
 import type { CarouselProps } from '@components/DataDisplay/components/Carousel';
 
 type CarouselArrowIconButtonGroupOtherProps<Element extends ElementType> = DeepRequired<

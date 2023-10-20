@@ -1,6 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { ButtonProps } from '@components/Buttons/components/Button';
+import type { ButtonProps } from '@components/Buttons';
 import type { VStackProps, VStackRef } from '@components/Layout';
 
 export type ConfirmModalActionsRenderCancelProps = Pick<

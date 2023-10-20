@@ -2,7 +2,7 @@ import type { ElementType } from 'react';
 
 import type { ResponsiveValue } from '@common/types';
 
-import type { IconButtonProps } from '@components/Buttons/components/IconButton';
+import type { IconButtonProps } from '@components/Buttons';
 import type { HStackProps, HStackRef } from '@components/Layout';
 
 type PickedIconButtonProps = 'color' | 'colorMode' | 'isCompact' | 'isDisabled' | 'isRound' | 'size' | 'variant';

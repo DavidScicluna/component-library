@@ -1,11 +1,6 @@
 import type { PolymorphicMouseEvent, ResponsiveValue } from '@common/types';
 
-import type {
-	ButtonDefaultElement,
-	ButtonElement,
-	ButtonProps,
-	ButtonRef
-} from '@components/Buttons/components/Button';
+import type { ButtonDefaultElement, ButtonElement, ButtonProps, ButtonRef } from '@components/Buttons';
 import type { CarouselArrowDirection } from '@components/DataDisplay/components/Carousel';
 
 export type CarouselArrowButtonMouseEvent<

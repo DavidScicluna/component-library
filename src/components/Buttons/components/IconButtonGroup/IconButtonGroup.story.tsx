@@ -3,8 +3,8 @@ import type { ReactElement } from 'react';
 import { icons } from '@common/data';
 import type { PolymorphicDefaultElement } from '@common/types';
 
-import type { IconButtonSize, IconButtonVariant } from '@components/Buttons/components/IconButton';
-import { constants, IconButton, IconButtonIcon } from '@components/Buttons/components/IconButton';
+import type { IconButtonSize, IconButtonVariant } from '@components/Buttons';
+import { constants as buttons_constants, IconButton, IconButtonIcon } from '@components/Buttons';
 import { Center } from '@components/Layout';
 
 // eslint-disable-next-line import-path/parent-depth
@@ -22,7 +22,7 @@ const {
 	__DEFAULT_ICON_BUTTON_IS_ROUND__,
 	__DEFAULT_ICON_BUTTON_SIZE__,
 	__DEFAULT_ICON_BUTTON_VARIANT__
-} = constants;
+} = buttons_constants;
 
 const iconbuttons = icons.filter((_icon, index) => index < 4);
 

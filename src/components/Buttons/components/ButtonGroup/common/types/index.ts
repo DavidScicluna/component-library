@@ -2,7 +2,7 @@ import type { ElementType } from 'react';
 
 import type { ResponsiveValue } from '@common/types';
 
-import type { ButtonProps } from '@components/Buttons/components/Button';
+import type { ButtonProps } from '@components/Buttons';
 import type { HStackProps, HStackRef } from '@components/Layout';
 
 type PickedButtonProps =

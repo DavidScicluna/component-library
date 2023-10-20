@@ -4,8 +4,8 @@ import { range } from 'lodash-es';
 
 import type { PolymorphicDefaultElement } from '@common/types';
 
-import type { ButtonSize, ButtonVariant } from '@components/Buttons/components/Button';
-import { Button, constants } from '@components/Buttons/components/Button';
+import type { ButtonSize, ButtonVariant } from '@components/Buttons';
+import { Button, constants as buttons_constants } from '@components/Buttons';
 import { Center } from '@components/Layout';
 
 // eslint-disable-next-line import-path/parent-depth
@@ -24,7 +24,7 @@ const {
 	__DEFAULT_BUTTON_IS_ROUND__,
 	__DEFAULT_BUTTON_SIZE__,
 	__DEFAULT_BUTTON_VARIANT__
-} = constants;
+} = buttons_constants;
 
 const buttons = range(4);
 

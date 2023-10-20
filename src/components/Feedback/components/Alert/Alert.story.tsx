@@ -4,8 +4,7 @@ import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
 
-import { Button } from '@components/Buttons/components/Button';
-import { CloseIconButton } from '@components/Buttons/components/CloseIconButton';
+import { Button, CloseIconButton } from '@components/Buttons';
 import { VStack } from '@components/Layout';
 
 // eslint-disable-next-line import-path/parent-depth

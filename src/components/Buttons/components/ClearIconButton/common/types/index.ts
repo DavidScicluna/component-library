@@ -1,11 +1,6 @@
 import type { PolymorphicDefaultElement } from '@common/types';
 
-import type {
-	IconButtonDefaultElement,
-	IconButtonElement,
-	IconButtonProps,
-	IconButtonRef
-} from '@components/Buttons/components/IconButton';
+import type { IconButtonDefaultElement, IconButtonElement, IconButtonProps, IconButtonRef } from '@components/Buttons';
 import type { TooltipProps } from '@components/Overlay/components/Tooltip';
 
 export type ClearIconButtonDefaultElement = IconButtonDefaultElement;
