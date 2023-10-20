@@ -5,7 +5,7 @@ import { useAppTheme, useGetAmount, useGetResponsiveValue, useTheme } from '@com
 import type { Style } from '@common/types';
 import { filterColorHex, getColorHue } from '@common/utils';
 
-import { __DEFAULT_FORM_CONTROL_IS_FOCUSED__ } from '@components/Forms/components/FormControl/common/constants';
+import { constants as forms_constants } from '@components/Forms';
 
 import {
 	__DEFAULT_INPUT_IS_DISABLED__,
@@ -30,6 +30,8 @@ type UseInputStylesProps<Element extends InputElement = InputDefaultElement> = P
 	| 'variant'
 >;
 type UseInputStylesReturn = Style;
+
+const { __DEFAULT_FORM_CONTROL_IS_FOCUSED__ } = forms_constants;
 
 const useInputStyles = <Element extends InputElement = InputDefaultElement>(
 	props: UseInputStylesProps<Element>

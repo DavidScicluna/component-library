@@ -5,7 +5,7 @@ import { useAppTheme, useGetAmount, useGetResponsiveValue, useTheme } from '@com
 import type { Style } from '@common/types';
 import { filterColorHex, getColorHue } from '@common/utils';
 
-import { __DEFAULT_FORM_CONTROL_IS_FOCUSED__ } from '@components/Forms/components/FormControl/common/constants';
+import { constants as forms_constants } from '@components/Forms';
 
 import {
 	__DEFAULT_TEXTAREA_IS_DISABLED__,
@@ -31,6 +31,8 @@ type UseTextareaStylesProps<Element extends TextareaElement = TextareaDefaultEle
 	| 'variant'
 >;
 type UseTextareaStylesReturn = Style;
+
+const { __DEFAULT_FORM_CONTROL_IS_FOCUSED__ } = forms_constants;
 
 const useTextareaStyles = <Element extends TextareaElement = TextareaDefaultElement>(
 	props: UseTextareaStylesProps<Element>
