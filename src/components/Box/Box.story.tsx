@@ -7,7 +7,7 @@ import { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_SX__ } from '@co
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
 
-import { Text } from '@components/Typography/components/Text';
+import { Text } from '@components/Typography';
 
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../.storybook/preview';

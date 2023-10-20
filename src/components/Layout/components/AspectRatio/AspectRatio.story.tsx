@@ -6,7 +6,7 @@ import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement, ThemeAspectRatioArr } from '@common/types';
 
-import { Text } from '@components/Typography/components/Text';
+import { Text } from '@components/Typography';
 
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';

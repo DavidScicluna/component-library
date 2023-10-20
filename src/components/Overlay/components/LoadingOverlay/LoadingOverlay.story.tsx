@@ -7,7 +7,7 @@ import type { PolymorphicDefaultElement, ThemeBlurClassArr, ThemeRadiusArr } fro
 
 import { Spinner } from '@components/Feedback';
 import { Center } from '@components/Layout';
-import { Text } from '@components/Typography/components/Text';
+import { Text } from '@components/Typography';
 
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';

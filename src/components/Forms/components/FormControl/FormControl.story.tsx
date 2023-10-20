@@ -8,7 +8,7 @@ import type { AlignItemsClassArr, JustifyContentClassArr, PolymorphicDefaultElem
 
 import { Box } from '@components/Box';
 import { constants } from '@components/Layout';
-import { Text } from '@components/Typography/components/Text';
+import { Text } from '@components/Typography';
 
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
