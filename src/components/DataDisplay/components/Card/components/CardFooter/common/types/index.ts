@@ -2,7 +2,7 @@ import type { ElementType } from 'react';
 
 import type { PickFrom } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
 export type CardFooterProps<Element extends ElementType> = Omit<
 	BoxProps<Element>,

@@ -10,7 +10,7 @@ import type {
 	ThemeAppAppearanceProps
 } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { TextProps } from '@components/Typography';
 
 export type TextareaMouseEvent<Element extends TextareaElement = TextareaDefaultElement> =

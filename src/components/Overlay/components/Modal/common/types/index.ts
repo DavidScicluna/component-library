@@ -2,7 +2,7 @@ import type { ElementType, ReactNode } from 'react';
 
 import type { PickFrom, ResponsiveValue, ThemeAppAppearanceProps, ThemeFontSize, ThemeSpacing } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
 export type ModalDefaultElement = 'dialog';
 export type ModalElement = PickFrom<ElementType, 'dialog'>;

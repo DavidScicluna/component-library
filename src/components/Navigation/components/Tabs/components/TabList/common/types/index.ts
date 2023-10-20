@@ -1,6 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { TabsProps } from '@components/Navigation/components/Tabs';
 
 export type TabListRenderProps<Element extends ElementType> = Pick<TabsProps<Element>, 'color' | 'colorMode'> & {

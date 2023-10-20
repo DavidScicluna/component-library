@@ -2,7 +2,7 @@ import type { ElementType } from 'react';
 
 import type { ResponsiveValue, ThemeAppAppearanceProps, ThemeBlurClass, ThemeRadius } from '@common/types';
 
-import type { BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type BackdropOverlayBlurType = 'blur' | 'backdrop';
 export type BackdropOverlayBlurTypes = Array<BackdropOverlayBlurType>;

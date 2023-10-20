@@ -2,7 +2,7 @@ import type { ElementType } from 'react';
 
 import type { PickFrom, ResponsiveValue, ThemeAppearanceProps, ThemeBorderWidth, ThemeSpacing } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
 export type DividerDefaultElement = 'div';
 export type DividerElement = PickFrom<ElementType, 'div'>;

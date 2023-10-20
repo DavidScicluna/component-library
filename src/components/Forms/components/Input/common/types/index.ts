@@ -9,7 +9,7 @@ import type {
 	ThemeAppAppearanceProps
 } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
 export type InputMouseEvent<Element extends InputElement = InputDefaultElement> = PolymorphicMouseEvent<Element>;
 export type InputChangeEvent<Element extends InputElement = InputDefaultElement> = PolymorphicChangeEvent<Element>;

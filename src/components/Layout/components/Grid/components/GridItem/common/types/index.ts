@@ -11,7 +11,7 @@ import type {
 	ZIndexClass
 } from '@common/types';
 
-import type { BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 type GridItemOtherProps = {
 	alignSelf?: ResponsiveValue<AlignSelfClass>;

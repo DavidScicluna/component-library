@@ -2,7 +2,7 @@ import type { ElementType, ReactNode } from 'react';
 
 import type { ResponsiveValue } from '@common/types';
 
-import type { BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type IndicatorPlacement =
 	| 'bottom-center'

@@ -1,6 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { DummyTabsProps } from '@components/Navigation/components/DummyTabs';
 
 export type DummyTabListRenderProps<Element extends ElementType> = Pick<

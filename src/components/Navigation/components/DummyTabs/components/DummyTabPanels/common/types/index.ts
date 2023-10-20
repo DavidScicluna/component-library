@@ -1,6 +1,6 @@
 import type { ElementType } from 'react';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { DummyTabsProps } from '@components/Navigation/components/DummyTabs/common/types';
 
 export type DummyTabPanelsProps<Element extends ElementType> = Omit<BoxProps<Element>, keyof BoxOtherProps>;

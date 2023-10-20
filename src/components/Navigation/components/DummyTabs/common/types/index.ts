@@ -2,7 +2,7 @@ import type { ElementType } from 'react';
 
 import type { ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
 
-import type { BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type DummyTabsAlign = 'start' | 'center' | 'end';
 

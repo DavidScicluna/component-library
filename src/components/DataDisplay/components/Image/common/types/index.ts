@@ -15,7 +15,7 @@ import type {
 } from '@common/types';
 import type { ObjectFitClass, ObjectPositionClass } from '@common/types/classes';
 
-import type { BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type ImageSyntheticEvent = SyntheticEvent<HTMLImageElement, Event>;
 

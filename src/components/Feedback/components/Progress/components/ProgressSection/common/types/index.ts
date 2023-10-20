@@ -2,7 +2,7 @@ import type { ElementType } from 'react';
 
 import type { ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
 type ProgressSectionOtherProps = ThemeAppAppearanceProps & {
 	/**

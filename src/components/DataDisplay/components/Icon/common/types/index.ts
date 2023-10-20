@@ -9,7 +9,7 @@ import type {
 	ThemeRadius
 } from '@common/types';
 
-import type { BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type IconDefaultElement = 'span';
 export type IconElement = PickFrom<ElementType, 'span'>;

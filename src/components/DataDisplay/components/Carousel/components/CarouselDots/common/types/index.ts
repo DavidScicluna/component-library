@@ -2,7 +2,7 @@ import type { ElementType } from 'react';
 
 import type { ResponsiveValue, ScaleClass, ThemeAppearanceProps, ThemeSpacing } from '@common/types';
 
-import type { BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxProps, BoxRef } from '@components/Box';
 import type { CarouselItem } from '@components/DataDisplay/components/Carousel/common/types';
 
 export type CarouselDot = {

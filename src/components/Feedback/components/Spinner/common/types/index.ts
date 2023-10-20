@@ -3,7 +3,7 @@ import type { Style } from 'react-loader-spinner/dist/type';
 
 import type { PickFrom, ThemeFontSize, ThemeRadius } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
 export type SpinnerSize = ThemeFontSize | number | string;
 export type SpinnerSizes = Array<SpinnerSize>;

@@ -2,7 +2,7 @@ import type { ElementType, ReactNode } from 'react';
 
 import type { ThemeAppAppearanceProps } from '@common/types';
 
-import type { BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxProps, BoxRef } from '@components/Box';
 import type { GlassOverlayProps } from '@components/Overlay/components/GlassOverlay';
 
 export type StateOverlayState = 'success' | 'error' | 'empty' | 'loading' | 'default';

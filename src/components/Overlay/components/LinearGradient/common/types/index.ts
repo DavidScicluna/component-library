@@ -9,7 +9,7 @@ import type {
 } from '@common/types';
 import type { ColorHueType } from '@common/utils';
 
-import type { BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type LinearGradientColor = {
 	color: ThemeColor;

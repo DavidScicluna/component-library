@@ -2,7 +2,7 @@ import type { ElementType } from 'react';
 
 import type { ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
 
-import type { BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxProps, BoxRef } from '@components/Box';
 import type { StackProps } from '@components/Layout';
 
 export type FormControlSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';

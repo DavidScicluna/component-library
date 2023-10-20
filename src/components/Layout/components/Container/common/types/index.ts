@@ -2,7 +2,7 @@ import type { ElementType } from 'react';
 
 import type { ResponsiveValue, ThemeBreakpoint } from '@common/types';
 
-import type { BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type ContainerBreakpoint = Exclude<ThemeBreakpoint, 'xs'>;
 export type ContainerBreakpoints = Array<ContainerBreakpoint>;

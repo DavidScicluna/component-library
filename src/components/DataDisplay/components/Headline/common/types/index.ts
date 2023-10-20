@@ -2,7 +2,7 @@ import type { ElementType, ReactNode } from 'react';
 
 import type { ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
 
-import type { BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxProps, BoxRef } from '@components/Box';
 import type { TextProps } from '@components/Typography/components/Text/common/types';
 
 export type HeadlineRenderProps = { w: string; h: string };

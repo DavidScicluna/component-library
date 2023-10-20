@@ -9,7 +9,7 @@ import type {
 	ThemeSpacing
 } from '@common/types';
 
-import type { BoxProps, BoxRef } from '@components/Box/common/types';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 type StackOtherProps = {
 	alignItems?: ResponsiveValue<AlignItemsClass>;
