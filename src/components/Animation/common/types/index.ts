@@ -4,11 +4,11 @@ import type { Target, TargetAndTransition, Transition } from 'framer-motion';
 
 import type { MotionBoxProps, MotionBoxRef } from '@components/Animation';
 
-type OmittedCommonAnimationProps = 'custom' | 'animate' | 'initial' | 'exit' | 'variants';
+type OmittedAnimationCommonProps = 'custom' | 'animate' | 'initial' | 'exit' | 'variants';
 
-export type CommonAnimationProps<Element extends ElementType> = Omit<
+export type AnimationCommonProps<Element extends ElementType> = Omit<
 	MotionBoxProps<Element>,
-	OmittedCommonAnimationProps
+	OmittedAnimationCommonProps
 > & {
 	/**
 	 * If `true`, the element will unmount when `in={false}` and animation is done
@@ -22,7 +22,7 @@ export type CommonAnimationProps<Element extends ElementType> = Omit<
 	in?: boolean;
 };
 
-export type CommonAnimationRef<Element extends ElementType> = MotionBoxRef<Element>;
+export type AnimationCommonRef<Element extends ElementType> = MotionBoxRef<Element>;
 
 type WithMotionState<P> = Partial<Record<'enter' | 'exit', P>>;
 

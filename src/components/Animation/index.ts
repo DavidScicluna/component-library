@@ -1,7 +1,7 @@
 import * as commonConstants from './common/constants';
 import type {
-	CommonAnimationProps,
-	CommonAnimationRef,
+	AnimationCommonProps,
+	AnimationCommonRef,
 	TransitionConfig,
 	TransitionDelay,
 	TransitionEndConfig,
@@ -57,13 +57,13 @@ export { AnimatePresence, Collapse, Fade, MotionBox, PageTransition, Pop, Slide 
 // Component Types
 export type {
 	AnimatePresenceProps,
+	AnimationCommonProps,
+	AnimationCommonRef,
 	CollapseAxis,
 	CollapseProps,
 	CollapseRef,
 	CollapseXAxisProps,
 	CollapseYAxisProps,
-	CommonAnimationProps,
-	CommonAnimationRef,
 	FadeProps,
 	FadeRef,
 	MotionBoxProps,

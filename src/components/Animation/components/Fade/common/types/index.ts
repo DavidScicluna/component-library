@@ -1,7 +1,7 @@
 import type { ElementType } from 'react';
 
-import type { CommonAnimationProps, CommonAnimationRef } from '@components/Animation';
+import type { AnimationCommonProps, AnimationCommonRef } from '@components/Animation';
 
-export type FadeProps<Element extends ElementType> = CommonAnimationProps<Element>;
+export type FadeProps<Element extends ElementType> = AnimationCommonProps<Element>;
 
-export type FadeRef<Element extends ElementType> = CommonAnimationRef<Element>;
+export type FadeRef<Element extends ElementType> = AnimationCommonRef<Element>;

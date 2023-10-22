@@ -1,8 +1,8 @@
 import type { ElementType } from 'react';
 
-import type { CommonAnimationProps, CommonAnimationRef } from '@components/Animation';
+import type { AnimationCommonProps, AnimationCommonRef } from '@components/Animation';
 
-export type SlideProps<Element extends ElementType> = CommonAnimationProps<Element> & {
+export type SlideProps<Element extends ElementType> = AnimationCommonProps<Element> & {
 	/**
 	 * The offset on the horizontal or `x` axis
 	 * @default 0
@@ -21,4 +21,4 @@ export type SlideProps<Element extends ElementType> = CommonAnimationProps<Eleme
 	isReversed?: boolean;
 };
 
-export type SlideRef<Element extends ElementType> = CommonAnimationRef<Element>;
+export type SlideRef<Element extends ElementType> = AnimationCommonRef<Element>;
