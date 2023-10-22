@@ -32,7 +32,7 @@ const FileButton: FC<FileButtonProps> = (props) => {
 		onError
 	} = props;
 
-	const [hasUploaded, setHasUploaded] = useBoolean();
+	const [isUploading, setIsUploading] = useBoolean();
 
 	const handleClick = (event: FileButtonMouseEvent): void => {
 		event.preventDefault();
@@ -79,11 +79,11 @@ const FileButton: FC<FileButtonProps> = (props) => {
 			);
 
 			if (blobs.length) {
-				setHasUploaded.on();
+				setIsUploading.on();
 
 				onSuccess(event, blobs);
 
-				setTimeout(() => setHasUploaded.off(), __DEFAULT_FILE_BUTTON_TIMEOUT__);
+				setTimeout(() => setIsUploading.off(), __DEFAULT_FILE_BUTTON_TIMEOUT__);
 			}
 
 			if (errors.length) {
@@ -95,11 +95,11 @@ const FileButton: FC<FileButtonProps> = (props) => {
 				.catch((error) => errors.push(error));
 
 			if (blobs.length) {
-				setHasUploaded.on();
+				setIsUploading.on();
 
 				onSuccess(event, blobs);
 
-				setTimeout(() => setHasUploaded.off(), __DEFAULT_FILE_BUTTON_TIMEOUT__);
+				setTimeout(() => setIsUploading.off(), __DEFAULT_FILE_BUTTON_TIMEOUT__);
 			} else {
 				onError(event, errors);
 			}
@@ -115,7 +115,7 @@ const FileButton: FC<FileButtonProps> = (props) => {
 				type='file'
 				onChange={(event) => handleChange(event)}
 			/>
-			{children({ hasUploaded, onClick: handleClick })}
+			{children({ hasUploaded: isUploading, onClick: handleClick })}
 		</Fragment>
 	);
 };
