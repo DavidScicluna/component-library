@@ -10,9 +10,9 @@ import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/const
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 
 import { Box } from '@components/Box';
+import { hooks as forms_hooks } from '@components/Forms';
 import { Grid, GridItem } from '@components/Layout';
 
-import { useFormControlContext } from '../FormControl/common/hooks';
 import { utils as formDescriptionUtils } from '../FormDescription';
 import { utils as formLabelUtils } from '../FormLabel';
 
@@ -29,7 +29,6 @@ import {
 	__DEFAULT_INPUT_TYPE__,
 	__DEFAULT_INPUT_VARIANT__
 } from './common/constants';
-import { useInputClasses, useInputSizeConfig, useInputStyles } from './common/hooks';
 import { __KEYS_INPUT_CLASS__ } from './common/keys';
 import type {
 	InputDefaultElement,
@@ -41,6 +40,8 @@ import type {
 	InputSize,
 	InputVariant
 } from './common/types';
+
+const { useFormsClasses, useFormsStyles, useFormsSizeConfig, useFormControlContext } = forms_hooks;
 
 const { getFormLabelID } = formLabelUtils;
 const { getFormDescriptionID } = formDescriptionUtils;
@@ -112,9 +113,9 @@ const Input = forwardRef(function Input<Element extends InputElement = InputDefa
 
 	const isFocused = useMemo<boolean>(() => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
 
-	const config = useInputSizeConfig<Element>({ size });
+	const config = useFormsSizeConfig({ size });
 
-	const classes = useInputClasses<Element>({
+	const classes = useFormsClasses({
 		color,
 		colorMode,
 		isDisabled,
@@ -126,7 +127,8 @@ const Input = forwardRef(function Input<Element extends InputElement = InputDefa
 		size,
 		variant
 	});
-	const styles = useInputStyles<Element>({
+	const styles = useFormsStyles({
+		element: 'input',
 		color,
 		colorMode,
 		isDisabled,
@@ -210,7 +212,7 @@ const Input = forwardRef(function Input<Element extends InputElement = InputDefa
 				<Box<Element>
 					{...rest}
 					ref={refs}
-					className={classNames(classes.input)}
+					className={classNames(classes.element)}
 					as='input'
 					aria-disabled={isDisabled ? 'true' : 'false'}
 					aria-describedby={getFormDescriptionID(id)}
