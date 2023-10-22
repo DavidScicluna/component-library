@@ -8,7 +8,7 @@ import { useGetColor } from '@common/hooks';
 
 import { Text } from '@components/Typography';
 
-import { hooks, utils } from '../FormControl';
+import { hooks as form_control_hooks } from '../FormControl';
 
 import { __KEYS_FORM_HELPER_TEXT_CLASS__ } from './common/keys';
 import type {
@@ -18,8 +18,7 @@ import type {
 	FormHelperTextRef
 } from './common/types';
 
-const { getFormControlFontSize } = utils;
-const { useFormControlContext } = hooks;
+const { useFormControlContext, useFormControlFontSize } = form_control_hooks;
 
 const FormHelperText = forwardRef(function FormHelperText<
 	Element extends FormHelperTextElement = FormHelperTextDefaultElement
@@ -33,13 +32,14 @@ const FormHelperText = forwardRef(function FormHelperText<
 		hueType: isError || isWarning || isSuccess ? 'color' : 'text.secondary',
 		classType: 'text'
 	});
+	const __DEFAULT_FORM_HELPER_TEXT_FONT_SIZE__ = useFormControlFontSize({ size });
 
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
 		align = 'left',
 		color = __DEFAULT_FORM_HELPER_TEXT_COLOR__,
-		fontSize = getFormControlFontSize(size).helper,
+		fontSize = __DEFAULT_FORM_HELPER_TEXT_FONT_SIZE__.helper,
 		lineClamp = 'none',
 		lineHeight = 'tight',
 		...rest
