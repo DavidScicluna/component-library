@@ -1,62 +1,29 @@
 import type { ElementType } from 'react';
 
-import type { ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
+import type { ResponsiveValue } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
+import type { FormsCommonProps, FormsCommonSize } from '@components/Forms';
 import type { StackProps } from '@components/Layout';
 
-export type FormControlSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type FormControlSize = FormsCommonSize;
 
-type FormControlOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
-	/**
-	 * If true, the form will be disabled
-	 *
-	 * @default false
-	 */
-	isDisabled?: ResponsiveValue<boolean>;
-	/**
-	 * If true, the form will be invalid
-	 *
-	 * @default false
-	 */
-	isError?: ResponsiveValue<boolean>;
-	/**
-	 * If true, the form will be focused & will have the success styling
-	 *
-	 * @default false
-	 */
-	isFocused?: ResponsiveValue<boolean>;
-	/**
-	 * If true, the form will be readonly
-	 *
-	 * @default false
-	 */
-	isReadOnly?: ResponsiveValue<boolean>;
-	/**
-	 * If true, the form will be required
-	 *
-	 * @default false
-	 */
-	isRequired?: ResponsiveValue<boolean>;
-	/**
-	 * If true, the form will have the success styling
-	 *
-	 * @default false
-	 */
-	isSuccess?: ResponsiveValue<boolean>;
-	/**
-	 * If true, the form will have the warning styling
-	 *
-	 * @default false
-	 */
-	isWarning?: ResponsiveValue<boolean>;
-	/**
-	 * The size of the form
-	 *
-	 * @default 'md'
-	 */
-	size?: ResponsiveValue<FormControlSize>;
-} & Pick<StackProps<Element>, 'alignItems' | 'justifyContent' | 'spacing'>;
+type PickedFormsCommonProps =
+	| 'color'
+	| 'colorMode'
+	| 'isDisabled'
+	| 'isError'
+	| 'isFocused'
+	| 'isReadOnly'
+	| 'isRequired'
+	| 'isSuccess'
+	| 'isWarning'
+	| 'size';
+
+type PickedStackProps = 'alignItems' | 'justifyContent' | 'spacing';
+
+type FormControlOtherProps<Element extends ElementType> = Pick<FormsCommonProps, PickedFormsCommonProps> &
+	Pick<StackProps<Element>, PickedStackProps>;
 
 export type FormControlProps<Element extends ElementType> = BoxProps<Element, FormControlOtherProps<Element>>;
 
