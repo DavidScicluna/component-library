@@ -9,14 +9,13 @@ import { useGetColor } from '@common/hooks';
 import { Box } from '@components/Box';
 import { Text } from '@components/Typography';
 
-import { hooks, utils } from '../FormControl';
+import { hooks as form_control_hooks } from '../FormControl';
 
 import { __KEYS_FORM_LABEL_CLASS__ } from './common/keys';
 import type { FormLabelDefaultElement, FormLabelElement, FormLabelProps, FormLabelRef } from './common/types';
 import { getFormLabelID } from './common/utils';
 
-const { getFormControlFontSize } = utils;
-const { useFormControlContext } = hooks;
+const { useFormControlContext, useFormControlFontSize } = form_control_hooks;
 
 const FormLabel = forwardRef(function FormLabel<Element extends FormLabelElement = FormLabelDefaultElement>(
 	props: FormLabelProps<Element>,
@@ -31,6 +30,7 @@ const FormLabel = forwardRef(function FormLabel<Element extends FormLabelElement
 		hueType: 'text.primary',
 		classType: 'text'
 	});
+	const __DEFAULT_FORM_LABEL_FONT_SIZE__ = useFormControlFontSize({ size });
 
 	const requiredColor = useGetColor({
 		color: isError ? 'red' : isWarning ? 'yellow' : isSuccess ? 'green' : 'red',
@@ -44,7 +44,7 @@ const FormLabel = forwardRef(function FormLabel<Element extends FormLabelElement
 		className = __DEFAULT_CLASSNAME__,
 		align = 'left',
 		color = __DEFAULT_FORM_LABEL_COLOR__,
-		fontSize = getFormControlFontSize(size).label,
+		fontSize = __DEFAULT_FORM_LABEL_FONT_SIZE__.label,
 		fontWeight = 'semibold',
 		lineClamp = 1,
 		lineHeight = 'tight',
