@@ -6,14 +6,15 @@ import { compact, merge } from 'lodash-es';
 import { useFocus, useMergeRefs } from 'rooks';
 import { useElementSize } from 'usehooks-ts';
 
+import classes from '@common/classes';
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 import type { ResizeClass } from '@common/types';
 
 import { Box } from '@components/Box';
+import { hooks as forms_hooks } from '@components/Forms';
 import { Grid, GridItem } from '@components/Layout';
 
-import { useFormControlContext } from '../FormControl/common/hooks';
 import { utils as formDescriptionUtils } from '../FormDescription';
 import { utils as formLabelUtils } from '../FormLabel';
 
@@ -30,7 +31,6 @@ import {
 	__DEFAULT_TEXTAREA_SIZE__,
 	__DEFAULT_TEXTAREA_VARIANT__
 } from './common/constants';
-import { useTextareaClasses, useTextareaSizeConfig, useTextareaStyles } from './common/hooks';
 import { __KEYS_TEXTAREA_CLASS__, __KEYS_TEXTAREA_TOTAL_CLASS__ } from './common/keys';
 import type {
 	TextareaDefaultElement,
@@ -42,6 +42,10 @@ import type {
 	TextareaSize,
 	TextareaVariant
 } from './common/types';
+
+const { interactivity } = classes;
+
+const { useFormsClasses, useFormsStyles, useFormsSizeConfig, useFormControlContext } = forms_hooks;
 
 const { getFormLabelID } = formLabelUtils;
 const { getFormDescriptionID } = formDescriptionUtils;
@@ -116,9 +120,9 @@ const Textarea = forwardRef(function Textarea<Element extends TextareaElement = 
 
 	const isFocused = useMemo<boolean>(() => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
 
-	const config = useTextareaSizeConfig<Element>({ size });
+	const config = useFormsSizeConfig({ size });
 
-	const classes = useTextareaClasses<Element>({
+	const classes = useFormsClasses({
 		color,
 		colorMode,
 		isDisabled,
@@ -127,11 +131,11 @@ const Textarea = forwardRef(function Textarea<Element extends TextareaElement = 
 		isReadOnly,
 		isSuccess,
 		isWarning,
-		resize,
 		size,
 		variant
 	});
-	const styles = useTextareaStyles<Element>({
+	const styles = useFormsStyles({
+		element: 'textarea',
 		color,
 		colorMode,
 		isDisabled,
@@ -229,7 +233,7 @@ const Textarea = forwardRef(function Textarea<Element extends TextareaElement = 
 						<Box<Element>
 							{...rest}
 							ref={refs}
-							className={classNames(classes.textarea)}
+							className={classNames(classes.element, interactivity.resize[resize])}
 							as='textarea'
 							aria-disabled={isDisabled ? 'true' : 'false'}
 							aria-describedby={getFormDescriptionID(id)}
