@@ -26,6 +26,7 @@ import {
 	__DEFAULT_INPUT_IS_SUCCESS__,
 	__DEFAULT_INPUT_IS_WARNING__,
 	__DEFAULT_INPUT_SIZE__,
+	__DEFAULT_INPUT_TYPE__,
 	__DEFAULT_INPUT_VARIANT__
 } from './common/constants';
 import { useInputClasses, useInputSizeConfig, useInputStyles } from './common/hooks';
@@ -85,6 +86,7 @@ const Input = forwardRef(function Input<Element extends InputElement = InputDefa
 		isRequired: required = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
 		isSuccess: success = __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
 		isWarning: warning = __DEFAULT_FORM_CONTROL_IS_WARNING__,
+		type = __DEFAULT_INPUT_TYPE__,
 		onClick,
 		onFocus,
 		onBlur,
@@ -223,6 +225,7 @@ const Input = forwardRef(function Input<Element extends InputElement = InputDefa
 					placeholder={placeholder}
 					onFocus={handleFocus}
 					onBlur={handleBlur}
+					type={type}
 				/>
 			</GridItem>
 

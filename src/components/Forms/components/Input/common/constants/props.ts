@@ -1,3 +1,5 @@
+import type { ComponentProps } from 'react';
+
 import type { InputSize, InputVariant } from '../types';
 
 export const __DEFAULT_INPUT_IS_DISABLED__ = false;
@@ -8,6 +10,8 @@ export const __DEFAULT_INPUT_IS_READONLY__ = false;
 export const __DEFAULT_INPUT_IS_REQUIRED__ = false;
 export const __DEFAULT_INPUT_IS_SUCCESS__ = false;
 export const __DEFAULT_INPUT_IS_WARNING__ = false;
+
+export const __DEFAULT_INPUT_TYPE__: ComponentProps<'input'>['type'] = 'text';
 
 export const __DEFAULT_INPUT_SIZE__: InputSize = 'md';
 
