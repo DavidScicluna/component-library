@@ -4,107 +4,107 @@ import { type ReactElement, useState } from 'react';
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import {
-	__DEFAULT_INPUT_IS_DISABLED__,
-	__DEFAULT_INPUT_IS_ERROR__,
-	__DEFAULT_INPUT_IS_FOCUSED__,
-	__DEFAULT_INPUT_IS_OUTLINED__,
-	__DEFAULT_INPUT_IS_READONLY__,
-	__DEFAULT_INPUT_IS_REQUIRED__,
-	__DEFAULT_INPUT_IS_SUCCESS__,
-	__DEFAULT_INPUT_IS_WARNING__,
-	__DEFAULT_INPUT_SIZE__,
-	__DEFAULT_INPUT_VARIANT__
+	__DEFAULT_TEXT_INPUT_IS_DISABLED__,
+	__DEFAULT_TEXT_INPUT_IS_ERROR__,
+	__DEFAULT_TEXT_INPUT_IS_FOCUSED__,
+	__DEFAULT_TEXT_INPUT_IS_OUTLINED__,
+	__DEFAULT_TEXT_INPUT_IS_READONLY__,
+	__DEFAULT_TEXT_INPUT_IS_REQUIRED__,
+	__DEFAULT_TEXT_INPUT_IS_SUCCESS__,
+	__DEFAULT_TEXT_INPUT_IS_WARNING__,
+	__DEFAULT_TEXT_INPUT_SIZE__,
+	__DEFAULT_TEXT_INPUT_VARIANT__
 } from './common/constants';
-import type { InputDefaultElement, InputProps, InputSize, InputVariant } from './common/types';
-import type { InputStory, InputStoryMeta } from './common/types/story';
-import { Input as InputComponent } from '.';
+import type { TextInputDefaultElement, TextInputProps, TextInputSize, TextInputVariant } from './common/types';
+import type { TextInputStory, TextInputStoryMeta } from './common/types/story';
+import { TextInput as TextInputComponent } from '.';
 
 export default {
-	title: 'Forms/Input',
-	component: InputComponent,
+	title: 'Forms/TextInput',
+	component: TextInputComponent,
 	argTypes: {
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
-			defaultValue: __DEFAULT_INPUT_IS_DISABLED__,
+			defaultValue: __DEFAULT_TEXT_INPUT_IS_DISABLED__,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isError: {
 			name: 'Error',
 			type: 'boolean',
-			defaultValue: __DEFAULT_INPUT_IS_ERROR__,
+			defaultValue: __DEFAULT_TEXT_INPUT_IS_ERROR__,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isFocused: {
 			name: 'Focused',
 			type: 'boolean',
-			defaultValue: __DEFAULT_INPUT_IS_FOCUSED__,
+			defaultValue: __DEFAULT_TEXT_INPUT_IS_FOCUSED__,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isOutlined: {
 			name: 'Outlined',
 			type: 'boolean',
-			defaultValue: __DEFAULT_INPUT_IS_OUTLINED__,
+			defaultValue: __DEFAULT_TEXT_INPUT_IS_OUTLINED__,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isReadOnly: {
 			name: 'ReadOnly',
 			type: 'boolean',
-			defaultValue: __DEFAULT_INPUT_IS_READONLY__,
+			defaultValue: __DEFAULT_TEXT_INPUT_IS_READONLY__,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isRequired: {
 			name: 'Required',
 			type: 'boolean',
-			defaultValue: __DEFAULT_INPUT_IS_REQUIRED__,
+			defaultValue: __DEFAULT_TEXT_INPUT_IS_REQUIRED__,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isSuccess: {
 			name: 'Success',
 			type: 'boolean',
-			defaultValue: __DEFAULT_INPUT_IS_SUCCESS__,
+			defaultValue: __DEFAULT_TEXT_INPUT_IS_SUCCESS__,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isWarning: {
 			name: 'Warning',
 			type: 'boolean',
-			defaultValue: __DEFAULT_INPUT_IS_WARNING__,
+			defaultValue: __DEFAULT_TEXT_INPUT_IS_WARNING__,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: __DEFAULT_INPUT_SIZE__,
+			defaultValue: __DEFAULT_TEXT_INPUT_SIZE__,
 			// description: '',
-			options: ['xs', 'sm', 'md', 'lg', 'xl'] as Array<InputSize>,
+			options: ['xs', 'sm', 'md', 'lg', 'xl'] as Array<TextInputSize>,
 			control: { type: 'radio' }
 		},
 		variant: {
 			name: 'Variant',
 			type: 'string',
-			defaultValue: __DEFAULT_INPUT_VARIANT__,
+			defaultValue: __DEFAULT_TEXT_INPUT_VARIANT__,
 			// description: '',
-			options: ['outlined', 'underline', 'unstyled'] as Array<InputVariant>,
+			options: ['outlined', 'underline', 'unstyled'] as Array<TextInputVariant>,
 			control: { type: 'radio' }
 		}
 	}
-} as InputStoryMeta;
+} as TextInputStoryMeta;
 
-export const Input: InputStory = (props: InputProps<InputDefaultElement>): ReactElement => {
+export const TextInput: TextInputStory = (props: TextInputProps<TextInputDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const [value, setValue] = useState<string>('');
 
 	return (
-		<InputComponent
+		<TextInputComponent
 			{...props}
 			w='100%'
 			color={color}

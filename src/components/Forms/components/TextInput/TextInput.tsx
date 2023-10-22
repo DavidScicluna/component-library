@@ -17,28 +17,28 @@ import { utils as formDescriptionUtils } from '../FormDescription';
 import { utils as formLabelUtils } from '../FormLabel';
 
 import {
-	__DEFAULT_INPUT_IS_DISABLED__,
-	__DEFAULT_INPUT_IS_ERROR__,
-	__DEFAULT_INPUT_IS_FOCUSED__,
-	__DEFAULT_INPUT_IS_OUTLINED__,
-	__DEFAULT_INPUT_IS_READONLY__,
-	__DEFAULT_INPUT_IS_REQUIRED__,
-	__DEFAULT_INPUT_IS_SUCCESS__,
-	__DEFAULT_INPUT_IS_WARNING__,
-	__DEFAULT_INPUT_SIZE__,
-	__DEFAULT_INPUT_TYPE__,
-	__DEFAULT_INPUT_VARIANT__
+	__DEFAULT_TEXT_INPUT_IS_DISABLED__,
+	__DEFAULT_TEXT_INPUT_IS_ERROR__,
+	__DEFAULT_TEXT_INPUT_IS_FOCUSED__,
+	__DEFAULT_TEXT_INPUT_IS_OUTLINED__,
+	__DEFAULT_TEXT_INPUT_IS_READONLY__,
+	__DEFAULT_TEXT_INPUT_IS_REQUIRED__,
+	__DEFAULT_TEXT_INPUT_IS_SUCCESS__,
+	__DEFAULT_TEXT_INPUT_IS_WARNING__,
+	__DEFAULT_TEXT_INPUT_SIZE__,
+	__DEFAULT_TEXT_INPUT_TYPE__,
+	__DEFAULT_TEXT_INPUT_VARIANT__
 } from './common/constants';
-import { __KEYS_INPUT_CLASS__ } from './common/keys';
+import { __KEYS_TEXT_INPUT_CLASS__ } from './common/keys';
 import type {
-	InputDefaultElement,
-	InputElement,
-	InputFocusEvent,
-	InputMouseEvent,
-	InputProps,
-	InputRef,
-	InputSize,
-	InputVariant
+	TextInputDefaultElement,
+	TextInputElement,
+	TextInputFocusEvent,
+	TextInputMouseEvent,
+	TextInputProps,
+	TextInputRef,
+	TextInputSize,
+	TextInputVariant
 } from './common/types';
 
 const { useFormsClasses, useFormsStyles, useFormsSizeConfig, useFormControlContext } = forms_hooks;
@@ -46,28 +46,28 @@ const { useFormsClasses, useFormsStyles, useFormsSizeConfig, useFormControlConte
 const { getFormLabelID } = formLabelUtils;
 const { getFormDescriptionID } = formDescriptionUtils;
 
-const Input = forwardRef(function Input<Element extends InputElement = InputDefaultElement>(
-	props: InputProps<Element>,
-	ref: InputRef<Element>
+const TextInput = forwardRef(function TextInput<Element extends TextInputElement = TextInputDefaultElement>(
+	props: TextInputProps<Element>,
+	ref: TextInputRef<Element>
 ): ReactElement {
-	const inputRef = useRef<InputRef<Element>>();
+	const textinputRef = useRef<TextInputRef<Element>>();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
-	const refs = useMergeRefs(ref, inputRef);
+	const refs = useMergeRefs(ref, textinputRef);
 
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
 		colorMode: __DEFAULT_FORM_CONTROL_COLORMODE__,
 		id,
 		hasFormControl,
-		isDisabled: __DEFAULT_FORM_CONTROL_IS_DISABLED__ = __DEFAULT_INPUT_IS_DISABLED__,
-		isError: __DEFAULT_FORM_CONTROL_IS_ERROR__ = __DEFAULT_INPUT_IS_ERROR__,
-		isFocused: __DEFAULT_FORM_CONTROL_IS_FOCUSED__ = __DEFAULT_INPUT_IS_FOCUSED__,
-		isReadOnly: __DEFAULT_FORM_CONTROL_IS_READONLY__ = __DEFAULT_INPUT_IS_READONLY__,
-		isRequired: __DEFAULT_FORM_CONTROL_IS_REQUIRED__ = __DEFAULT_INPUT_IS_REQUIRED__,
-		isSuccess: __DEFAULT_FORM_CONTROL_IS_SUCCESS__ = __DEFAULT_INPUT_IS_SUCCESS__,
-		isWarning: __DEFAULT_FORM_CONTROL_IS_WARNING__ = __DEFAULT_INPUT_IS_WARNING__,
-		size: __DEFAULT_FORM_CONTROL_SIZE__ = __DEFAULT_INPUT_SIZE__
+		isDisabled: __DEFAULT_FORM_CONTROL_IS_DISABLED__ = __DEFAULT_TEXT_INPUT_IS_DISABLED__,
+		isError: __DEFAULT_FORM_CONTROL_IS_ERROR__ = __DEFAULT_TEXT_INPUT_IS_ERROR__,
+		isFocused: __DEFAULT_FORM_CONTROL_IS_FOCUSED__ = __DEFAULT_TEXT_INPUT_IS_FOCUSED__,
+		isReadOnly: __DEFAULT_FORM_CONTROL_IS_READONLY__ = __DEFAULT_TEXT_INPUT_IS_READONLY__,
+		isRequired: __DEFAULT_FORM_CONTROL_IS_REQUIRED__ = __DEFAULT_TEXT_INPUT_IS_REQUIRED__,
+		isSuccess: __DEFAULT_FORM_CONTROL_IS_SUCCESS__ = __DEFAULT_TEXT_INPUT_IS_SUCCESS__,
+		isWarning: __DEFAULT_FORM_CONTROL_IS_WARNING__ = __DEFAULT_TEXT_INPUT_IS_WARNING__,
+		size: __DEFAULT_FORM_CONTROL_SIZE__ = __DEFAULT_TEXT_INPUT_SIZE__
 	} = useFormControlContext();
 
 	const {
@@ -82,17 +82,17 @@ const Input = forwardRef(function Input<Element extends InputElement = InputDefa
 		isDisabled: disabled = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
 		isError: error = __DEFAULT_FORM_CONTROL_IS_ERROR__,
 		isFocused: focused = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
-		isOutlined: outlined = __DEFAULT_INPUT_IS_OUTLINED__,
+		isOutlined: outlined = __DEFAULT_TEXT_INPUT_IS_OUTLINED__,
 		isReadOnly: readOnly = __DEFAULT_FORM_CONTROL_IS_READONLY__,
 		isRequired: required = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
 		isSuccess: success = __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
 		isWarning: warning = __DEFAULT_FORM_CONTROL_IS_WARNING__,
-		type = __DEFAULT_INPUT_TYPE__,
+		type = __DEFAULT_TEXT_INPUT_TYPE__,
 		onClick,
 		onFocus,
 		onBlur,
 		size: s = __DEFAULT_FORM_CONTROL_SIZE__,
-		variant: v = __DEFAULT_INPUT_VARIANT__,
+		variant: v = __DEFAULT_TEXT_INPUT_VARIANT__,
 		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
 	} = props;
@@ -108,8 +108,8 @@ const Input = forwardRef(function Input<Element extends InputElement = InputDefa
 	const isSuccess = useGetResponsiveValue<boolean>(success);
 	const isWarning = useGetResponsiveValue<boolean>(warning);
 
-	const size = useGetResponsiveValue<InputSize>(s);
-	const variant = useGetResponsiveValue<InputVariant>(v);
+	const size = useGetResponsiveValue<TextInputSize>(s);
+	const variant = useGetResponsiveValue<TextInputVariant>(v);
 
 	const isFocused = useMemo<boolean>(() => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
 
@@ -140,11 +140,11 @@ const Input = forwardRef(function Input<Element extends InputElement = InputDefa
 		variant
 	});
 
-	const handleClick = (event: InputMouseEvent<Element>): void => {
+	const handleClick = (event: TextInputMouseEvent<Element>): void => {
 		setIsFocusedHook.on();
 
-		if (inputRef && inputRef.current) {
-			inputRef.current.focus();
+		if (textinputRef && textinputRef.current) {
+			textinputRef.current.focus();
 		}
 
 		if (onClick) {
@@ -152,11 +152,11 @@ const Input = forwardRef(function Input<Element extends InputElement = InputDefa
 		}
 	};
 
-	const handleFocus = (event: InputFocusEvent<Element>): void => {
+	const handleFocus = (event: TextInputFocusEvent<Element>): void => {
 		setIsFocusedHook.on();
 
-		if (inputRef && inputRef.current) {
-			inputRef.current.focus();
+		if (textinputRef && textinputRef.current) {
+			textinputRef.current.focus();
 		}
 
 		if (onFocus) {
@@ -164,11 +164,11 @@ const Input = forwardRef(function Input<Element extends InputElement = InputDefa
 		}
 	};
 
-	const handleBlur = (event: InputFocusEvent<Element>): void => {
+	const handleBlur = (event: TextInputFocusEvent<Element>): void => {
 		setIsFocusedHook.off();
 
-		if (inputRef && inputRef.current) {
-			inputRef.current.blur();
+		if (textinputRef && textinputRef.current) {
+			textinputRef.current.blur();
 		}
 
 		if (onBlur) {
@@ -179,15 +179,15 @@ const Input = forwardRef(function Input<Element extends InputElement = InputDefa
 	const { focusProps } = useFocus({ onFocus: handleFocus, onBlur: handleBlur });
 
 	useEffect(() => {
-		if (isFocused && inputRef && inputRef.current) {
-			inputRef.current.focus();
+		if (isFocused && textinputRef && textinputRef.current) {
+			textinputRef.current.focus();
 		}
 	}, [isFocused]);
 
 	return (
 		<Grid
 			{...focusProps}
-			className={classNames(__KEYS_INPUT_CLASS__, classes.container, { [className]: !!className })}
+			className={classNames(__KEYS_TEXT_INPUT_CLASS__, classes.container, { [className]: !!className })}
 			w={hasFormControl ? '100%' : w}
 			h={hasFormControl ? '100%' : h}
 			templateColumns={compact([renderLeft ? 'auto' : null, '1fr', renderRight ? 'auto' : null]).join(' ')}
@@ -240,6 +240,6 @@ const Input = forwardRef(function Input<Element extends InputElement = InputDefa
 	);
 });
 
-Input.displayName = 'Input';
+TextInput.displayName = 'TextInput';
 
-export default Input;
+export default TextInput;
