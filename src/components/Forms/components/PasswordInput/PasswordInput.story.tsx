@@ -116,7 +116,6 @@ export const PasswordInput: PasswordInputStory = (
 			w='100%'
 			color={color}
 			colorMode={colorMode}
-			type='text'
 			onChange={(e) => setValue(e.target.value)}
 			placeholder='Placeholder'
 			value={value}

@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import { forwardRef, useEffect, useMemo, useRef } from 'react';
+import { forwardRef, useCallback, useEffect, useMemo, useRef } from 'react';
 
 import classNames from 'classnames';
 import { merge } from 'lodash-es';
@@ -12,11 +12,12 @@ import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 import { Box } from '@components/Box';
 import { IconButton, IconButtonIcon } from '@components/Buttons';
 import { Icon } from '@components/DataDisplay';
-import { hooks as forms_hooks } from '@components/Forms';
+import { useFormsClasses, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
+import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
 import { Grid, GridItem } from '@components/Layout';
 
-import { utils as formDescriptionUtils } from '../FormDescription';
-import { utils as formLabelUtils } from '../FormLabel';
+import { getFormDescriptionID } from '../FormDescription/common/utils';
+import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
 	__DEFAULT_PASSWORD_INPUT_IS_DISABLED__,
@@ -43,18 +44,13 @@ import type {
 	PasswordInputVariant
 } from './common/types';
 
-const { useFormsClasses, useFormsStyles, useFormsSizeConfig, useFormControlContext } = forms_hooks;
-
-const { getFormLabelID } = formLabelUtils;
-const { getFormDescriptionID } = formDescriptionUtils;
-
 const PasswordInput = forwardRef(function PasswordInput<
 	Element extends PasswordInputElement = PasswordInputDefaultElement
 >(props: PasswordInputProps<Element>, ref: PasswordInputRef<Element>): ReactElement {
-	const passwordinputRef = useRef<PasswordInputRef<Element>>();
-	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
+	const inputRef = useRef<PasswordInputRef<Element>>();
+	const refs = useMergeRefs(ref, inputRef);
 
-	const refs = useMergeRefs(ref, passwordinputRef);
+	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
@@ -154,8 +150,8 @@ const PasswordInput = forwardRef(function PasswordInput<
 	const handleClick = (event: PasswordInputMouseEvent<Element>): void => {
 		setIsFocusedHook.on();
 
-		if (passwordinputRef && passwordinputRef.current) {
-			passwordinputRef.current.focus();
+		if (inputRef && inputRef.current) {
+			inputRef.current.focus();
 		}
 
 		if (onClick) {
@@ -166,8 +162,8 @@ const PasswordInput = forwardRef(function PasswordInput<
 	const handleFocus = (event: PasswordInputFocusEvent<Element>): void => {
 		setIsFocusedHook.on();
 
-		if (passwordinputRef && passwordinputRef.current) {
-			passwordinputRef.current.focus();
+		if (inputRef && inputRef.current) {
+			inputRef.current.focus();
 		}
 
 		if (onFocus) {
@@ -178,8 +174,8 @@ const PasswordInput = forwardRef(function PasswordInput<
 	const handleBlur = (event: PasswordInputFocusEvent<Element>): void => {
 		setIsFocusedHook.off();
 
-		if (passwordinputRef && passwordinputRef.current) {
-			passwordinputRef.current.blur();
+		if (inputRef && inputRef.current) {
+			inputRef.current.blur();
 		}
 
 		if (onBlur) {
@@ -190,8 +186,8 @@ const PasswordInput = forwardRef(function PasswordInput<
 	const { focusProps } = useFocus({ onFocus: handleFocus, onBlur: handleBlur });
 
 	useEffect(() => {
-		if (isFocused && passwordinputRef && passwordinputRef.current) {
-			passwordinputRef.current.focus();
+		if (isFocused && inputRef && inputRef.current) {
+			inputRef.current.focus();
 		}
 	}, [isFocused]);
 
@@ -214,7 +210,6 @@ const PasswordInput = forwardRef(function PasswordInput<
 			sx={merge(styles, sx)}
 		>
 			<GridItem alignSelf='center' justifySelf='center'>
-				{renderLeft ? renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight }) : null}
 				<Icon
 					w={`${childrenHeight}px`}
 					h={`${childrenHeight}px`}
@@ -225,6 +220,7 @@ const PasswordInput = forwardRef(function PasswordInput<
 					size={`${childrenHeight}px`}
 					variant='unstyled'
 				/>
+				{renderLeft ? renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight }) : null}
 			</GridItem>
 
 			<GridItem ref={childrenRef}>
@@ -251,6 +247,7 @@ const PasswordInput = forwardRef(function PasswordInput<
 			</GridItem>
 
 			<GridItem alignSelf='center' justifySelf='center'>
+				{renderRight ? renderRight({ color, colorMode, w: childrenWidth, h: childrenHeight }) : null}
 				<IconButton
 					color={color}
 					colorMode={colorMode}
@@ -261,7 +258,6 @@ const PasswordInput = forwardRef(function PasswordInput<
 				>
 					<IconButtonIcon icon={isVisible ? 'visibility_off' : 'visibility'} category='filled' />
 				</IconButton>
-				{renderRight ? renderRight({ color, colorMode, w: childrenWidth, h: childrenHeight }) : null}
 			</GridItem>
 		</Grid>
 	);
