@@ -9,8 +9,8 @@ import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
 import type { ClassName } from '@common/types';
 import { getColorHue } from '@common/utils';
 
-import { hooks as navigation_hooks } from '@components/Navigation';
 import { __DEFAULT_DUMMY_TABS_TAB_LINE_HEIGHT_SIZE__ } from '@components/Navigation/components/DummyTabs/common/constants';
+import { useDummyTabsContext } from '@components/Navigation/components/DummyTabs/common/hooks';
 
 import { __DEFAULT_DUMMY_TAB_IS_COMPACT__, __DEFAULT_DUMMY_TAB_IS_UPPERCASE__ } from '../constants';
 import type { DummyTabProps } from '../types';
@@ -23,7 +23,7 @@ type UseDummyTabClassesProps<Element extends ElementType> = Pick<
 > & { isSelected: boolean };
 type UseDummyTabClassesReturn = Record<'tab' | 'topDivider' | 'bottomDivider' | 'label', ClassName>;
 
-const { useDummyTabsContext } = navigation_hooks;
+
 
 const useDummyTabClasses = <Element extends ElementType>(
 	props: UseDummyTabClassesProps<Element>

@@ -9,8 +9,10 @@ import { ButtonGroup, ButtonGroupItem } from '@components/Buttons';
 
 import { useCarouselContext } from '../../common/hooks';
 
-import { __DEFAULT_CAROUSEL_ARROW_BUTTON_GROUP_IS_FULLWIDTH__ } from './common/constants';
-import { __DEFAULT_CAROUSEL_ARROW_BUTTON_GROUP_IS_ATTACHED__ } from './common/constants/props';
+import {
+	__DEFAULT_CAROUSEL_ARROW_BUTTON_GROUP_IS_ATTACHED__,
+	__DEFAULT_CAROUSEL_ARROW_BUTTON_GROUP_IS_FULLWIDTH__
+} from './common/constants';
 import { __KEYS_CAROUSEL_ARROW_BUTTON_GROUP_CLASS__ } from './common/keys';
 import type { CarouselArrowButtonGroupProps, CarouselArrowButtonGroupRef } from './common/types';
 

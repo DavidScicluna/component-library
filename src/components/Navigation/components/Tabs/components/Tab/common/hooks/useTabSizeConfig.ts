@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import type { ThemeFontSize, ThemeSpacing } from '@common/types';
 import { getResponsiveValue } from '@common/utils';
 
-import { hooks as navigation_hooks } from '@components/Navigation';
+import { useTabsContext } from '@components/Navigation/components/Tabs/common/hooks';
 
 import { __DEFAULT_TAB_IS_COMPACT__ } from '../constants';
 import type { TabDefaultElement, TabElement, TabProps } from '../types';
@@ -16,8 +16,6 @@ type TabSizeConfig = {
 
 type UseTabSizeConfigProps<Element extends TabElement = TabDefaultElement> = Pick<TabProps<Element>, 'isCompact'>;
 type UseTabSizeConfigReturn = TabSizeConfig;
-
-const { useTabsContext } = navigation_hooks;
 
 const useTabSizeConfig = <Element extends TabElement = TabDefaultElement>(
 	props: UseTabSizeConfigProps<Element>

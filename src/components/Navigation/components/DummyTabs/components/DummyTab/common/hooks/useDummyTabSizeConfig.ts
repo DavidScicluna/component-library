@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import type { ThemeFontSize, ThemeSpacing } from '@common/types';
 import { getResponsiveValue } from '@common/utils';
 
-import { hooks as navigation_hooks } from '@components/Navigation';
+import { useDummyTabsContext } from '@components/Navigation/components/DummyTabs/common/hooks';
 
 import { __DEFAULT_DUMMY_TAB_IS_COMPACT__ } from '../constants';
 import type { DummyTabProps } from '../types';
@@ -17,8 +17,6 @@ type DummyTabSizeConfig = {
 
 type UseDummyTabSizeConfigProps<Element extends ElementType> = Pick<DummyTabProps<Element>, 'isCompact'>;
 type UseDummyTabSizeConfigReturn = DummyTabSizeConfig;
-
-const { useDummyTabsContext } = navigation_hooks;
 
 const useDummyTabSizeConfig = <Element extends ElementType>(
 	props: UseDummyTabSizeConfigProps<Element>
