@@ -11,11 +11,12 @@ import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 
 import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
-import { hooks as forms_hooks } from '@components/Forms';
+import { useFormsClasses, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
+import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
 import { Grid, GridItem } from '@components/Layout';
 
-import { utils as formDescriptionUtils } from '../FormDescription';
-import { utils as formLabelUtils } from '../FormLabel';
+import { getFormDescriptionID } from '../FormDescription/common/utils';
+import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
 	__DEFAULT_EMAIL_INPUT_IS_DISABLED__,
@@ -41,11 +42,6 @@ import type {
 	EmailInputSize,
 	EmailInputVariant
 } from './common/types';
-
-const { useFormsClasses, useFormsStyles, useFormsSizeConfig, useFormControlContext } = forms_hooks;
-
-const { getFormLabelID } = formLabelUtils;
-const { getFormDescriptionID } = formDescriptionUtils;
 
 const EmailInput = forwardRef(function EmailInput<Element extends EmailInputElement = EmailInputDefaultElement>(
 	props: EmailInputProps<Element>,
@@ -204,7 +200,6 @@ const EmailInput = forwardRef(function EmailInput<Element extends EmailInputElem
 			sx={merge(styles, sx)}
 		>
 			<GridItem alignSelf='center' justifySelf='center'>
-				{renderLeft ? renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight }) : null}
 				<Icon
 					w={`${childrenHeight}px`}
 					h={`${childrenHeight}px`}
@@ -215,6 +210,7 @@ const EmailInput = forwardRef(function EmailInput<Element extends EmailInputElem
 					size={`${childrenHeight}px`}
 					variant='unstyled'
 				/>
+				{renderLeft ? renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight }) : null}
 			</GridItem>
 
 			<GridItem ref={childrenRef}>
