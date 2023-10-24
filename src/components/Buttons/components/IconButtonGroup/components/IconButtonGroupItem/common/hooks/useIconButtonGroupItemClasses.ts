@@ -5,7 +5,8 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import type { ClassName } from '@common/types';
 
-import { hooks as buttons_hooks } from '@components/Buttons';
+import { useIconButtonSizeConfig } from '@components/Buttons/components/IconButton/common/hooks';
+import { useIconButtonGroupContext } from '@components/Buttons/components/IconButtonGroup/common/hooks';
 
 import type { IconButtonGroupItemProps } from '../types';
 
@@ -14,8 +15,6 @@ type UseIconButtonGroupItemClassesProps<Element extends ElementType> = Pick<
 	'index' | 'total'
 >;
 type UseIconButtonGroupItemClassesReturn = ClassName;
-
-const { useIconButtonGroupContext, useIconButtonSizeConfig } = buttons_hooks;
 
 const useIconButtonGroupItemClasses = <Element extends ElementType>(
 	props: UseIconButtonGroupItemClassesProps<Element>

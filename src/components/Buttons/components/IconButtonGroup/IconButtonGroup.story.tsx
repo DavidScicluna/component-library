@@ -4,7 +4,14 @@ import { icons } from '@common/data';
 import type { PolymorphicDefaultElement } from '@common/types';
 
 import type { IconButtonSize, IconButtonVariant } from '@components/Buttons';
-import { constants as buttons_constants, IconButton, IconButtonIcon } from '@components/Buttons';
+import { IconButton, IconButtonIcon } from '@components/Buttons';
+import {
+	__DEFAULT_ICON_BUTTON_IS_COMPACT__,
+	__DEFAULT_ICON_BUTTON_IS_DISABLED__,
+	__DEFAULT_ICON_BUTTON_IS_ROUND__,
+	__DEFAULT_ICON_BUTTON_SIZE__,
+	__DEFAULT_ICON_BUTTON_VARIANT__
+} from '@components/Buttons/components/IconButton/common/constants';
 import { Center } from '@components/Layout';
 
 // eslint-disable-next-line import-path/parent-depth
@@ -15,14 +22,6 @@ import type { IconButtonGroupProps } from './common/types';
 import type { IconButtonGroupStory, IconButtonGroupStoryMeta } from './common/types/story';
 import { IconButtonGroupItem } from './components';
 import { IconButtonGroup as IconButtonGroupComponent } from '.';
-
-const {
-	__DEFAULT_ICON_BUTTON_IS_COMPACT__,
-	__DEFAULT_ICON_BUTTON_IS_DISABLED__,
-	__DEFAULT_ICON_BUTTON_IS_ROUND__,
-	__DEFAULT_ICON_BUTTON_SIZE__,
-	__DEFAULT_ICON_BUTTON_VARIANT__
-} = buttons_constants;
 
 const iconbuttons = icons.filter((_icon, index) => index < 4);
 

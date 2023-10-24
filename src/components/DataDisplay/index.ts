@@ -6,9 +6,9 @@ import type {
 } from './components/BackgroundImage';
 import {
 	BackgroundImage,
-	constants as backgroundImageConstants,
-	hooks as backgroundImageHooks,
-	keys as backgroundImageKeys
+	constants as background_image_constants,
+	hooks as background_image_hooks,
+	keys as background_image_keys
 } from './components/BackgroundImage';
 import type {
 	BadgeCloseIconButtonDefaultElement,
@@ -30,9 +30,9 @@ import {
 	Badge,
 	BadgeCloseIconButton,
 	BadgeIcon,
-	constants as badgeConstants,
-	hooks as badgeHooks,
-	keys as badgeKeys
+	constants as badge_constants,
+	hooks as badge_hooks,
+	keys as badge_keys
 } from './components/Badge';
 import type {
 	CardBodyProps,
@@ -70,9 +70,9 @@ import {
 	CardStack,
 	CardSubtitle,
 	CardTitle,
-	constants as cardConstants,
-	hooks as cardHooks,
-	keys as cardKeys
+	constants as card_constants,
+	hooks as card_hooks,
+	keys as card_keys
 } from './components/Card';
 import type {
 	CarouselArrowButtonDefaultElement,
@@ -172,10 +172,10 @@ import {
 	CarouselRightArrowButton,
 	CarouselRightArrowIconButton,
 	CarouselRightLinearGradient,
-	constants as carouselConstants,
-	hooks as carouselHooks,
-	keys as carouselKeys,
-	utils as carouselUtils
+	constants as carousel_constants,
+	hooks as carousel_hooks,
+	keys as carousel_keys,
+	utils as carousel_utils
 } from './components/Carousel';
 import type {
 	DividerDefaultElement,
@@ -186,10 +186,10 @@ import type {
 	DividerVariant
 } from './components/Divider';
 import {
-	constants as dividerConstants,
+	constants as divider_constants,
 	Divider,
-	hooks as dividerHooks,
-	keys as dividerKeys
+	hooks as divider_hooks,
+	keys as divider_keys
 } from './components/Divider';
 import type {
 	DummyBadgeContext,
@@ -206,17 +206,17 @@ import type {
 	DummyBadgeVariant
 } from './components/DummyBadge';
 import {
-	constants as dummyBadgeConstants,
+	constants as dummy_badge_constants,
 	DummyBadge,
 	DummyBadgeIcon,
 	DummyBadgeSkeleton,
-	hooks as dummyBadgeHooks,
-	keys as dummyBadgeKeys
+	hooks as dummy_badge_hooks,
+	keys as dummy_badge_keys
 } from './components/DummyBadge';
 import type { HeadlineProps, HeadlineRef, HeadlineRenderProps } from './components/Headline';
-import { Headline, keys as headlineKeys } from './components/Headline';
+import { Headline, keys as headline_keys } from './components/Headline';
 import type { IconCategory, IconDefaultElement, IconElement, IconProps, IconRef, IconVariant } from './components/Icon';
-import { constants as iconConstants, hooks as iconHooks, Icon, keys as iconKeys } from './components/Icon';
+import { constants as icon_constants, hooks as icon_hooks, Icon, keys as icon_keys } from './components/Icon';
 import type {
 	ImageFilters,
 	ImageMode,
@@ -227,7 +227,7 @@ import type {
 	ImageSyntheticEvent,
 	ImageType
 } from './components/Image';
-import { constants as imageConstants, hooks as imageHooks, Image, keys as imageKeys } from './components/Image';
+import { constants as image_constants, hooks as image_hooks, Image, keys as image_keys } from './components/Image';
 import type {
 	MessageActionsChildrenProps,
 	MessageActionsProps,
@@ -254,9 +254,9 @@ import type {
 	MessageVariant
 } from './components/Message';
 import {
-	constants as messageConstants,
-	hooks as messageHooks,
-	keys as messageKeys,
+	constants as message_constants,
+	hooks as message_hooks,
+	keys as message_keys,
 	Message,
 	MessageActions,
 	MessageBody,
@@ -268,45 +268,45 @@ import {
 
 // Constants
 export const constants = {
-	...backgroundImageConstants,
-	...badgeConstants,
-	...cardConstants,
-	...carouselConstants,
-	...dummyBadgeConstants,
-	...dividerConstants,
-	...iconConstants,
-	...imageConstants,
-	...messageConstants
+	...background_image_constants,
+	...badge_constants,
+	...card_constants,
+	...carousel_constants,
+	...dummy_badge_constants,
+	...divider_constants,
+	...icon_constants,
+	...image_constants,
+	...message_constants
 };
 
 // Keys
 export const keys = {
-	...backgroundImageKeys,
-	...badgeKeys,
-	...cardKeys,
-	...carouselKeys,
-	...dividerKeys,
-	...dummyBadgeKeys,
-	...headlineKeys,
-	...iconKeys,
-	...imageKeys,
-	...messageKeys
+	...background_image_keys,
+	...badge_keys,
+	...card_keys,
+	...carousel_keys,
+	...divider_keys,
+	...dummy_badge_keys,
+	...headline_keys,
+	...icon_keys,
+	...image_keys,
+	...message_keys
 };
 
 // Utils
-export const utils = { ...carouselUtils };
+export const utils = { ...carousel_utils };
 
 // Hooks
 export const hooks = {
-	...backgroundImageHooks,
-	...badgeHooks,
-	...cardHooks,
-	...carouselHooks,
-	...dividerHooks,
-	...dummyBadgeHooks,
-	...iconHooks,
-	...imageHooks,
-	...messageHooks
+	...background_image_hooks,
+	...badge_hooks,
+	...card_hooks,
+	...carousel_hooks,
+	...divider_hooks,
+	...dummy_badge_hooks,
+	...icon_hooks,
+	...image_hooks,
+	...message_hooks
 };
 
 // Components

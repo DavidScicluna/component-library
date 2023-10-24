@@ -4,12 +4,12 @@ import type {
 	DummyButtonIconProps,
 	DummyButtonIconRef
 } from './DummyButtonIcon';
-import { DummyButtonIcon, keys as dummyButtonIconKeys } from './DummyButtonIcon';
+import { DummyButtonIcon, keys as dummy_button_icon_keys } from './DummyButtonIcon';
 import type { DummyButtonSkeletonProps, DummyButtonSkeletonRef } from './DummyButtonSkeleton';
-import { DummyButtonSkeleton, keys as dummyButtonSkeletonKeys } from './DummyButtonSkeleton';
+import { DummyButtonSkeleton, keys as dummy_button_skeleton_keys } from './DummyButtonSkeleton';
 
 // Keys
-export const keys = { ...dummyButtonIconKeys, ...dummyButtonSkeletonKeys };
+export const keys = { ...dummy_button_icon_keys, ...dummy_button_skeleton_keys };
 
 // Components
 export { DummyButtonIcon, DummyButtonSkeleton };

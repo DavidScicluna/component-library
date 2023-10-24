@@ -1,5 +1,5 @@
-import * as commonConstants from './common/constants';
-import * as commonKeys from './common/keys';
+import * as common_constants from './common/constants';
+import * as common_keys from './common/keys';
 import type { MessageContext, MessageProps, MessageRef, MessageVariant } from './common/types';
 import type {
 	MessageActionsChildrenProps,
@@ -23,8 +23,8 @@ import type {
 	MessageTitleRef
 } from './components';
 import {
-	constants as componentsConstants,
-	keys as componentsKeys,
+	constants as components_constants,
+	keys as components_keys,
 	MessageActions,
 	MessageBody,
 	MessageIcon,
@@ -35,10 +35,10 @@ import {
 import Message from './Message';
 
 // Constants
-export const constants = { ...commonConstants, ...componentsConstants };
+export const constants = { ...common_constants, ...components_constants };
 
 // Keys
-export const keys = { ...commonKeys, ...componentsKeys };
+export const keys = { ...common_keys, ...components_keys };
 
 // Hooks
 export * as hooks from './common/hooks';

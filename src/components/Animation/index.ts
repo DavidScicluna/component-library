@@ -1,4 +1,4 @@
-import * as commonConstants from './common/constants';
+import * as common_constants from './common/constants';
 import type {
 	AnimationCommonProps,
 	AnimationCommonRef,
@@ -17,38 +17,38 @@ import type {
 	CollapseXAxisProps,
 	CollapseYAxisProps
 } from './components/Collapse';
-import { Collapse, constants as collapseConstants, keys as collapseKeys } from './components/Collapse';
+import { Collapse, constants as collapse_constants, keys as collapse_keys } from './components/Collapse';
 import type { FadeProps, FadeRef } from './components/Fade';
-import { Fade, keys as fadeKeys } from './components/Fade';
+import { Fade, keys as fade_keys } from './components/Fade';
 import type { MotionBoxProps, MotionBoxRef } from './components/MotionBox';
 import { MotionBox } from './components/MotionBox';
 import type { PageTransitionProps, PageTransitionRef } from './components/PageTransition';
 import {
-	constants as pageTransitionConstants,
-	keys as pageTransitionKeys,
+	constants as page_transition_constants,
+	keys as page_transition_keys,
 	PageTransition
 } from './components/PageTransition';
 import type { PopProps, PopRef } from './components/Pop';
-import { constants as popConstants, keys as popKeys, Pop } from './components/Pop';
+import { constants as pop_constants, keys as pop_keys, Pop } from './components/Pop';
 import type { SlideProps, SlideRef } from './components/Slide';
-import { constants as slideConstants, keys as slideKeys, Slide } from './components/Slide';
+import { constants as slide_constants, keys as slide_keys, Slide } from './components/Slide';
 
 // Constants
 export const constants = {
-	...commonConstants,
-	...collapseConstants,
-	...pageTransitionConstants,
-	...popConstants,
-	...slideConstants
+	...common_constants,
+	...collapse_constants,
+	...page_transition_constants,
+	...pop_constants,
+	...slide_constants
 };
 
 // Keys
 export const keys = {
-	...collapseKeys,
-	...fadeKeys,
-	...pageTransitionKeys,
-	...popKeys,
-	...slideKeys
+	...collapse_keys,
+	...fade_keys,
+	...page_transition_keys,
+	...pop_keys,
+	...slide_keys
 };
 
 // Components

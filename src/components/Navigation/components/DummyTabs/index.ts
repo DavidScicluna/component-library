@@ -1,6 +1,6 @@
-import * as commonConstants from './common/constants';
-import * as commonHooks from './common/hooks';
-import * as commonKeys from './common/keys';
+import * as common_constants from './common/constants';
+import * as common_hooks from './common/hooks';
+import * as common_keys from './common/keys';
 import type {
 	DummyTabsAlign,
 	DummyTabsContext,
@@ -27,28 +27,28 @@ import type {
 	DummyTabSkeletonRef
 } from './components';
 import {
-	constants as componentsConstants,
+	constants as components_constants,
 	DummyTab,
 	DummyTabIcon,
 	DummyTabList,
 	DummyTabPanels,
 	DummyTabSkeleton,
-	hooks as componentsHooks,
-	keys as componentsKeys
+	hooks as components_hooks,
+	keys as components_keys
 } from './components';
 import DummyTabs from './DummyTabs';
 
 // Constants
-export const constants = { ...commonConstants, ...componentsConstants };
+export const constants = { ...common_constants, ...components_constants };
 
 // Keys
-export const keys = { ...commonKeys, ...componentsKeys };
+export const keys = { ...common_keys, ...components_keys };
 
 // Utils
 export * as utils from './common/utils';
 
 // Hooks
-export const hooks = { ...commonHooks, ...componentsHooks };
+export const hooks = { ...common_hooks, ...components_hooks };
 
 // Components
 export { DummyTab, DummyTabIcon, DummyTabList, DummyTabPanels, DummyTabs, DummyTabSkeleton };

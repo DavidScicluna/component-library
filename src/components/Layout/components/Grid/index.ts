@@ -1,24 +1,24 @@
-import * as commonConstants from './common/constants';
-import * as commonHooks from './common/hooks';
-import * as commonKeys from './common/keys';
+import * as common_constants from './common/constants';
+import * as common_hooks from './common/hooks';
+import * as common_keys from './common/keys';
 import type { GridProps, GridRef, GridTemplateColumns, GridTemplateRows } from './common/types';
 import type { GridItemProps, GridItemRef } from './components';
 import {
-	constants as componentsConstants,
+	constants as components_constants,
 	GridItem,
-	hooks as componentsHooks,
-	keys as componentsKeys
+	hooks as components_hooks,
+	keys as components_keys
 } from './components';
 import Grid from './Grid';
 
 // Constants
-export const constants = { ...commonConstants, ...componentsConstants };
+export const constants = { ...common_constants, ...components_constants };
 
 // Keys
-export const keys = { ...commonKeys, ...componentsKeys };
+export const keys = { ...common_keys, ...components_keys };
 
 // Hooks
-export const hooks = { ...commonHooks, ...componentsHooks };
+export const hooks = { ...common_hooks, ...components_hooks };
 
 // Components
 export { Grid, GridItem };

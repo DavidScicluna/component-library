@@ -1,4 +1,4 @@
-import * as commonConstants from './common/constants';
+import * as common_constants from './common/constants';
 import type {
 	ModalContext,
 	ModalDefaultElement,
@@ -33,7 +33,7 @@ import type {
 	ModalTitleRef
 } from './components';
 import {
-	keys as componentsKeys,
+	keys as components_keys,
 	ModalBackdrop,
 	ModalBody,
 	ModalFooter,
@@ -45,10 +45,10 @@ import {
 import Modal from './Modal';
 
 // Constants
-export const constants = { ...commonConstants };
+export const constants = { ...common_constants };
 
 // Keys
-export const keys = { ...componentsKeys };
+export const keys = { ...components_keys };
 
 // Utils
 export * as utils from './common/utils';

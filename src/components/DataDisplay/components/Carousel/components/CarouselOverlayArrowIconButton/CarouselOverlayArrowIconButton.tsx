@@ -10,9 +10,9 @@ import { Fade } from '@components/Animation';
 import {
 	CarouselArrowIconButton,
 	CarouselLeftLinearGradient,
-	CarouselRightLinearGradient,
-	hooks as data_display_hooks
+	CarouselRightLinearGradient
 } from '@components/DataDisplay';
+import { useCarouselContext } from '@components/DataDisplay/components/Carousel/common/hooks';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import { __DEFAULT_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_IS_VISIBLE__ } from './common/constants';
@@ -23,8 +23,6 @@ import type {
 	CarouselOverlayArrowIconButtonProps,
 	CarouselOverlayArrowIconButtonRef
 } from './common/types';
-
-const { useCarouselContext } = data_display_hooks;
 
 const CarouselOverlayArrowIconButton = forwardRef(function CarouselOverlayArrowIconButton<
 	Element extends CarouselOverlayArrowIconButtonElement = CarouselOverlayArrowIconButtonDefaultElement

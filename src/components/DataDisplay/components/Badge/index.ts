@@ -1,5 +1,5 @@
-import * as commonConstants from './common/constants';
-import * as commonKeys from './common/keys';
+import * as common_constants from './common/constants';
+import * as common_keys from './common/keys';
 import type { BadgeContext, BadgeProps, BadgeRef, BadgeRenderProps, BadgeSize, BadgeVariant } from './common/types';
 import Badge from './Badge';
 import type {
@@ -15,15 +15,15 @@ import type {
 import {
 	BadgeCloseIconButton,
 	BadgeIcon,
-	constants as componentsConstants,
-	keys as componentsKeys
+	constants as components_constants,
+	keys as components_keys
 } from './components';
 
 // Constants
-export const constants = { ...commonConstants, ...componentsConstants };
+export const constants = { ...common_constants, ...components_constants };
 
 // Keys
-export const keys = { ...commonKeys, ...componentsKeys };
+export const keys = { ...common_keys, ...components_keys };
 
 // Hooks
 export * as hooks from './common/hooks';

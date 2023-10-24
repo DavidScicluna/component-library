@@ -25,10 +25,10 @@ import {
 	AlertDescription,
 	AlertIcon,
 	AlertLabel,
-	constants as alertConstants,
-	hooks as alertHooks,
-	keys as alertKeys,
-	utils as alertUtils
+	constants as alert_constants,
+	hooks as alert_hooks,
+	keys as alert_keys,
+	utils as alert_utils
 } from './components/Alert';
 import type {
 	ProgressContext,
@@ -42,18 +42,18 @@ import type {
 	ProgressSectionRef
 } from './components/Progress';
 import {
-	constants as progressConstants,
-	hooks as progressHooks,
-	keys as progressKeys,
+	constants as progress_constants,
+	hooks as progress_hooks,
+	keys as progress_keys,
 	Progress,
 	ProgressLabel,
 	ProgressSection
 } from './components/Progress';
 import type { SkeletonProps, SkeletonRef } from './components/Skeleton';
 import {
-	constants as skeletonConstants,
-	hooks as skeletonHooks,
-	keys as skeletonKeys,
+	constants as skeleton_constants,
+	hooks as skeleton_hooks,
+	keys as skeleton_keys,
 	Skeleton
 } from './components/Skeleton';
 import type {
@@ -70,19 +70,19 @@ import type {
 	SpinnerThreeDotsVariant,
 	SpinnerVariant
 } from './components/Spinner';
-import { constants as spinnerConstants, keys as spinnerKeys, Spinner } from './components/Spinner';
+import { constants as spinner_constants, keys as spinner_keys, Spinner } from './components/Spinner';
 
 // Constants
-export const constants = { ...alertConstants, ...progressConstants, ...spinnerConstants, ...skeletonConstants };
+export const constants = { ...alert_constants, ...progress_constants, ...spinner_constants, ...skeleton_constants };
 
 // Keys
-export const keys = { ...alertKeys, ...progressKeys, ...spinnerKeys, ...skeletonKeys };
+export const keys = { ...alert_keys, ...progress_keys, ...spinner_keys, ...skeleton_keys };
 
 // Utils
-export const utils = { ...alertUtils };
+export const utils = { ...alert_utils };
 
 // Hooks
-export const hooks = { ...alertHooks, ...progressHooks, ...skeletonHooks };
+export const hooks = { ...alert_hooks, ...progress_hooks, ...skeleton_hooks };
 
 // Components
 export { Alert, AlertDescription, AlertIcon, AlertLabel, Progress, ProgressLabel, ProgressSection, Skeleton, Spinner };

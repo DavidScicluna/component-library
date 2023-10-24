@@ -1,5 +1,5 @@
-import * as commonConstants from './common/constants';
-import * as commonKeys from './common/keys';
+import * as common_constants from './common/constants';
+import * as common_keys from './common/keys';
 import type {
 	DummyButtonContext,
 	DummyButtonProps,
@@ -16,15 +16,14 @@ import type {
 	DummyButtonSkeletonProps,
 	DummyButtonSkeletonRef
 } from './components';
-import { DummyButtonIcon, DummyButtonSkeleton, keys as componentKeys } from './components';
+import { DummyButtonIcon, DummyButtonSkeleton, keys as component_keys } from './components';
 import DummyButton from './DummyButton';
 
 // Constants
-// TODO: consolidate all constants and keys to be imported as * as
-export const constants = { ...commonConstants };
+export const constants = { ...common_constants };
 
 // Keys
-export const keys = { ...commonKeys, ...componentKeys };
+export const keys = { ...common_keys, ...component_keys };
 
 // Hooks
 export * as hooks from './common/hooks';

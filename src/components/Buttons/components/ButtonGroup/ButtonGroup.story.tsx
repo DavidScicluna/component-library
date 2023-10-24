@@ -5,7 +5,15 @@ import { range } from 'lodash-es';
 import type { PolymorphicDefaultElement } from '@common/types';
 
 import type { ButtonSize, ButtonVariant } from '@components/Buttons';
-import { Button, constants as buttons_constants } from '@components/Buttons';
+import { Button } from '@components/Buttons';
+import {
+	__DEFAULT_BUTTON_IS_COMPACT__,
+	__DEFAULT_BUTTON_IS_DISABLED__,
+	__DEFAULT_BUTTON_IS_FULLWIDTH__,
+	__DEFAULT_BUTTON_IS_ROUND__,
+	__DEFAULT_BUTTON_SIZE__,
+	__DEFAULT_BUTTON_VARIANT__
+} from '@components/Buttons/components/Button/common/constants';
 import { Center } from '@components/Layout';
 
 // eslint-disable-next-line import-path/parent-depth
@@ -16,15 +24,6 @@ import type { ButtonGroupProps } from './common/types';
 import type { ButtonGroupStory, ButtonGroupStoryMeta } from './common/types/story';
 import { ButtonGroupItem } from './components';
 import { ButtonGroup as ButtonGroupComponent } from '.';
-
-const {
-	__DEFAULT_BUTTON_IS_COMPACT__,
-	__DEFAULT_BUTTON_IS_DISABLED__,
-	__DEFAULT_BUTTON_IS_FULLWIDTH__,
-	__DEFAULT_BUTTON_IS_ROUND__,
-	__DEFAULT_BUTTON_SIZE__,
-	__DEFAULT_BUTTON_VARIANT__
-} = buttons_constants;
 
 const buttons = range(4);
 

@@ -1,11 +1,11 @@
 import type { ButtonGroupItemProps, ButtonGroupItemRef } from './ButtonGroupItem';
-import { ButtonGroupItem, hooks as buttonGroupItemHooks, keys as buttonGroupItemKeys } from './ButtonGroupItem';
+import { ButtonGroupItem, hooks as button_group_item_hooks, keys as button_group_item_keys } from './ButtonGroupItem';
 
 // Keys
-export const keys = { ...buttonGroupItemKeys };
+export const keys = { ...button_group_item_keys };
 
 // Hooks
-export const hooks = { ...buttonGroupItemHooks };
+export const hooks = { ...button_group_item_hooks };
 
 // Components
 export { ButtonGroupItem };

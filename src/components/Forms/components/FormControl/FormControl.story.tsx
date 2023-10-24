@@ -7,7 +7,10 @@ import { useGetColor } from '@common/hooks';
 import type { AlignItemsClassArr, JustifyContentClassArr, PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
-import { constants as layout_constants } from '@components/Layout';
+import {
+	__DEFAULT_STACK_ALIGN_ITEMS__,
+	__DEFAULT_STACK_JUSTIFY_CONTENT__
+} from '@components/Layout/components/Stacks/Stack/common/constants';
 import { Text } from '@components/Typography';
 
 // eslint-disable-next-line import-path/parent-depth
@@ -31,8 +34,6 @@ import {
 import type { FormControlProps, FormControlSize } from './common/types';
 import type { FormControlStory, FormControlStoryMeta } from './common/types/story';
 import { FormControl as FormControlComponent } from '.';
-
-const { __DEFAULT_STACK_ALIGN_ITEMS__, __DEFAULT_STACK_JUSTIFY_CONTENT__ } = layout_constants;
 
 export default {
 	title: 'Forms/FormControl',

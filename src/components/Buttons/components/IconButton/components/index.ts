@@ -4,12 +4,12 @@ import type {
 	IconButtonIconProps,
 	IconButtonIconRef
 } from './IconButtonIcon';
-import { IconButtonIcon, keys as iconButtonIconKeys } from './IconButtonIcon';
+import { IconButtonIcon, keys as icon_button_icon_keys } from './IconButtonIcon';
 import type { IconButtonSpinnerProps, IconButtonSpinnerRef } from './IconButtonSpinner';
-import { IconButtonSpinner, keys as iconButtonSpinnereys } from './IconButtonSpinner';
+import { IconButtonSpinner, keys as icon_button_spinner_keys } from './IconButtonSpinner';
 
 // Keys
-export const keys = { ...iconButtonIconKeys, ...iconButtonSpinnereys };
+export const keys = { ...icon_button_icon_keys, ...icon_button_spinner_keys };
 
 // Components
 export { IconButtonIcon, IconButtonSpinner };

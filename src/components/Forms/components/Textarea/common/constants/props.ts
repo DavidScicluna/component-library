@@ -1,10 +1,6 @@
 import type { ResizeClass } from '@common/types';
 
-import { constants as forms_constants } from '@components/Forms';
-
-import type { TextareaSize, TextareaVariant } from '../types';
-
-const {
+import {
 	__DEFAULT_FORMS_IS_DISABLED__,
 	__DEFAULT_FORMS_IS_ERROR__,
 	__DEFAULT_FORMS_IS_FOCUSED__,
@@ -15,7 +11,9 @@ const {
 	__DEFAULT_FORMS_IS_WARNING__,
 	__DEFAULT_FORMS_SIZE__,
 	__DEFAULT_FORMS_VARIANT__
-} = forms_constants;
+} from '@components/Forms/common/constants';
+
+import type { TextareaSize, TextareaVariant } from '../types';
 
 export const __DEFAULT_TEXTAREA_IS_DISABLED__ = __DEFAULT_FORMS_IS_DISABLED__;
 export const __DEFAULT_TEXTAREA_IS_ERROR__ = __DEFAULT_FORMS_IS_ERROR__;

@@ -5,8 +5,9 @@ import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
-import { CloseIconButton, hooks as buttons_hooks } from '@components/Buttons';
-import { hooks as overlay_hooks } from '@components/Overlay';
+import { CloseIconButton } from '@components/Buttons';
+import { useIconButtonClasses } from '@components/Buttons/components/IconButton/common/hooks';
+import { usePushableOverlayStyles } from '@components/Overlay/components/PushableOverlay/common/hooks';
 
 import { useBadgeContext } from '../../common/hooks';
 
@@ -21,9 +22,6 @@ import type {
 	BadgeCloseIconButtonProps,
 	BadgeCloseIconButtonRef
 } from './common/types';
-
-const { useIconButtonClasses } = buttons_hooks;
-const { usePushableOverlayStyles } = overlay_hooks;
 
 const BadgeCloseIconButton = forwardRef(function BadgeCloseIconButton<
 	Element extends BadgeCloseIconButtonElement = BadgeCloseIconButtonDefaultElement

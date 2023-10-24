@@ -5,7 +5,7 @@ import { useAppTheme, useGetAmount, useGetResponsiveValue, useTheme } from '@com
 import type { Style } from '@common/types';
 import { filterColorHex, getColorHue } from '@common/utils';
 
-import { constants as forms_constants } from '@components/Forms';
+import { __DEFAULT_FORM_CONTROL_IS_FOCUSED__ } from '@components/Forms/components/FormControl/common/constants';
 
 import {
 	__DEFAULT_FORMS_IS_DISABLED__,
@@ -30,8 +30,6 @@ type UseFormsStylesProps = Pick<
 	| 'variant'
 > & { element: 'input' | 'textarea' };
 type UseFormsStylesReturn = Style;
-
-const { __DEFAULT_FORM_CONTROL_IS_FOCUSED__ } = forms_constants;
 
 const useFormsStyles = (props: UseFormsStylesProps): UseFormsStylesReturn => {
 	const theme = useTheme();

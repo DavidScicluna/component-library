@@ -20,15 +20,15 @@ import type {
 	DummyTabsSize
 } from './components/DummyTabs';
 import {
-	constants as dummyTabsConstants,
+	constants as dummy_tabs_constants,
 	DummyTab,
 	DummyTabIcon,
 	DummyTabList,
 	DummyTabPanels,
 	DummyTabs,
-	hooks as dummyTabsHooks,
-	keys as dummyTabsKeys,
-	utils as dummyTabsUtils
+	hooks as dummy_tabs_hooks,
+	keys as dummy_tabs_keys,
+	utils as dummy_tabs_utils
 } from './components/DummyTabs';
 import type {
 	TabDefaultElement,
@@ -55,28 +55,28 @@ import type {
 	TabsSize
 } from './components/Tabs';
 import {
-	constants as tabsConstants,
-	hooks as tabsHooks,
-	keys as tabsKeys,
+	constants as tabs_constants,
+	hooks as tabs_hooks,
+	keys as tabs_keys,
 	Tab,
 	TabIcon,
 	TabList,
 	TabPanels,
 	Tabs,
-	utils as tabsUtils
+	utils as tabs_utils
 } from './components/Tabs';
 
 // Constants
-export const constants = { ...dummyTabsConstants, ...tabsConstants };
+export const constants = { ...dummy_tabs_constants, ...tabs_constants };
 
 // Keys
-export const keys = { ...dummyTabsKeys, ...tabsKeys };
+export const keys = { ...dummy_tabs_keys, ...tabs_keys };
 
 // Utils
-export const utils = { ...dummyTabsUtils, ...tabsUtils };
+export const utils = { ...dummy_tabs_utils, ...tabs_utils };
 
 // Hooks
-export const hooks = { ...dummyTabsHooks, ...tabsHooks };
+export const hooks = { ...dummy_tabs_hooks, ...tabs_hooks };
 
 // Components
 export { DummyTab, DummyTabIcon, DummyTabList, DummyTabPanels, DummyTabs, Tab, TabIcon, TabList, TabPanels, Tabs };

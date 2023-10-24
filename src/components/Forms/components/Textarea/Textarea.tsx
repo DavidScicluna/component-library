@@ -12,11 +12,12 @@ import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 import type { ResizeClass } from '@common/types';
 
 import { Box } from '@components/Box';
-import { hooks as forms_hooks } from '@components/Forms';
+import { useFormsClasses, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
+import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
 import { Grid, GridItem } from '@components/Layout';
 
-import { utils as formDescriptionUtils } from '../FormDescription';
-import { utils as formLabelUtils } from '../FormLabel';
+import { getFormDescriptionID } from '../FormDescription/common/utils';
+import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
 	__DEFAULT_TEXTAREA_IS_DISABLED__,
@@ -44,11 +45,6 @@ import type {
 } from './common/types';
 
 const { interactivity } = classes;
-
-const { useFormsClasses, useFormsStyles, useFormsSizeConfig, useFormControlContext } = forms_hooks;
-
-const { getFormLabelID } = formLabelUtils;
-const { getFormDescriptionID } = formDescriptionUtils;
 
 const Textarea = forwardRef(function Textarea<Element extends TextareaElement = TextareaDefaultElement>(
 	props: TextareaProps<Element>,

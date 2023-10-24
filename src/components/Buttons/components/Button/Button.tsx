@@ -12,7 +12,7 @@ import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 import { Center, Grid, GridItem } from '@components/Layout';
 import { PushableOverlay } from '@components/Overlay';
 
-import { hooks as buttonGroupHooks } from '../ButtonGroup';
+import { useButtonGroupContext } from '../ButtonGroup/common/hooks';
 
 import {
 	__DEFAULT_BUTTON_IS_ACTIVE__,
@@ -37,8 +37,6 @@ import type {
 	ButtonSize,
 	ButtonVariant
 } from './common/types';
-
-const { useButtonGroupContext } = buttonGroupHooks;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const ButtonContext = createContext<ButtonContextType<any>>({

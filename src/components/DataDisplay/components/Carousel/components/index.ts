@@ -7,14 +7,14 @@ import type {
 } from './CarouselArrowButton';
 import {
 	CarouselArrowButton,
-	constants as carouselArrowButtonConstants,
-	keys as carouselArrowButtonKeys
+	constants as carousel_arrow_button_constants,
+	keys as carousel_arrow_button_keys
 } from './CarouselArrowButton';
 import type { CarouselArrowButtonGroupProps, CarouselArrowButtonGroupRef } from './CarouselArrowButtonGroup';
 import {
 	CarouselArrowButtonGroup,
-	constants as carouselArrowButtonGroupConstants,
-	keys as carouselArrowButtonGroupKeys
+	constants as carousel_arrow_button_group_constants,
+	keys as carousel_arrow_button_group_keys
 } from './CarouselArrowButtonGroup';
 import type {
 	CarouselArrowIconButtonDefaultElement,
@@ -25,8 +25,8 @@ import type {
 } from './CarouselArrowIconButton';
 import {
 	CarouselArrowIconButton,
-	constants as carouselArrowIconButtonConstants,
-	keys as carouselArrowIconButtonKeys
+	constants as carousel_arrow_icon_button_constants,
+	keys as carousel_arrow_icon_button_keys
 } from './CarouselArrowIconButton';
 import type {
 	CarouselArrowIconButtonGroupProps,
@@ -34,8 +34,8 @@ import type {
 } from './CarouselArrowIconButtonGroup';
 import {
 	CarouselArrowIconButtonGroup,
-	constants as carouselArrowIconButtonGroupConstants,
-	keys as carouselArrowIconButtonGroupKeys
+	constants as carousel_arrow_icon_button_group_constants,
+	keys as carousel_arrow_icon_button_group_keys
 } from './CarouselArrowIconButtonGroup';
 import type {
 	CarouselDotProps,
@@ -47,33 +47,36 @@ import type {
 } from './CarouselDots';
 import {
 	CarouselDots,
-	constants as carouselDotsConstants,
-	hooks as carouselDotsHooks,
-	keys as carouselDotsKeys
+	constants as carousel_dots_constants,
+	hooks as carousel_dots_hooks,
+	keys as carousel_dots_keys
 } from './CarouselDots';
 import type { CarouselItemProps, CarouselItemRef } from './CarouselItem';
-import { CarouselItem, keys as carouselItemKeys } from './CarouselItem';
+import { CarouselItem, keys as carousel_item_keys } from './CarouselItem';
 import type {
 	CarouselLeftArrowButtonDefaultElement,
 	CarouselLeftArrowButtonElement,
 	CarouselLeftArrowButtonProps,
 	CarouselLeftArrowButtonRef
 } from './CarouselLeftArrowButton';
-import { CarouselLeftArrowButton, keys as carouselLeftArrowButtonKeys } from './CarouselLeftArrowButton';
+import { CarouselLeftArrowButton, keys as carousel_left_arrow_button_keys } from './CarouselLeftArrowButton';
 import type {
 	CarouselLeftArrowIconButtonDefaultElement,
 	CarouselLeftArrowIconButtonElement,
 	CarouselLeftArrowIconButtonProps,
 	CarouselLeftArrowIconButtonRef
 } from './CarouselLeftArrowIconButton';
-import { CarouselLeftArrowIconButton, keys as carouselLeftArrowIconButtonKeys } from './CarouselLeftArrowIconButton';
+import {
+	CarouselLeftArrowIconButton,
+	keys as carousel_left_arrow_icon_button_keys
+} from './CarouselLeftArrowIconButton';
 import type { CarouselLeftLinearGradientProps, CarouselLeftLinearGradientRef } from './CarouselLeftLinearGradient';
-import { CarouselLeftLinearGradient, keys as carouselLeftLinearGradientKeys } from './CarouselLeftLinearGradient';
+import { CarouselLeftLinearGradient, keys as carousel_left_linear_gradient_keys } from './CarouselLeftLinearGradient';
 import type { CarouselLinearGradientProps, CarouselLinearGradientRef } from './CarouselLinearGradient';
 import {
 	CarouselLinearGradient,
-	constants as carouselLinearGradientConstants,
-	keys as carouselLinearGradientKeys
+	constants as carousel_linear_gradient_constants,
+	keys as carousel_linear_gradient_keys
 } from './CarouselLinearGradient';
 import type {
 	CarouselOverlayArrowButtonDefaultElement,
@@ -83,8 +86,8 @@ import type {
 } from './CarouselOverlayArrowButton';
 import {
 	CarouselOverlayArrowButton,
-	constants as carouselOverlayArrowButtonConstants,
-	keys as carouselOverlayArrowButtonKeys
+	constants as carousel_overlay_arrow_button_constants,
+	keys as carousel_overlay_arrow_button_keys
 } from './CarouselOverlayArrowButton';
 import type {
 	CarouselOverlayArrowIconButtonDefaultElement,
@@ -94,8 +97,8 @@ import type {
 } from './CarouselOverlayArrowIconButton';
 import {
 	CarouselOverlayArrowIconButton,
-	constants as carouselOverlayArrowIconButtonConstants,
-	keys as carouselOverlayArrowIconButtonKeys
+	constants as carousel_overlay_arrow_icon_button_constants,
+	keys as carousel_overlay_arrow_icon_button_keys
 } from './CarouselOverlayArrowIconButton';
 import type {
 	CarouselOverlayLeftArrowButtonDefaultElement,
@@ -105,7 +108,7 @@ import type {
 } from './CarouselOverlayLeftArrowButton';
 import {
 	CarouselOverlayLeftArrowButton,
-	keys as carouselOverlayLeftArrowButtonKeys
+	keys as carousel_overlay_left_arrow_button_keys
 } from './CarouselOverlayLeftArrowButton';
 import type {
 	CarouselOverlayLeftArrowIconButtonDefaultElement,
@@ -115,7 +118,7 @@ import type {
 } from './CarouselOverlayLeftArrowIconButton';
 import {
 	CarouselOverlayLeftArrowIconButton,
-	keys as carouselOverlayLeftArrowIconButtonKeys
+	keys as carousel_overlay_left_arrow_icon_button_keys
 } from './CarouselOverlayLeftArrowIconButton';
 import type {
 	CarouselOverlayRightArrowButtonDefaultElement,
@@ -125,7 +128,7 @@ import type {
 } from './CarouselOverlayRightArrowButton';
 import {
 	CarouselOverlayRightArrowButton,
-	keys as carouselOverlayRightArrowButtonKeys
+	keys as carousel_overlay_right_arrow_button_keys
 } from './CarouselOverlayRightArrowButton';
 import type {
 	CarouselOverlayRightArrowIconButtonDefaultElement,
@@ -135,7 +138,7 @@ import type {
 } from './CarouselOverlayRightArrowIconButton';
 import {
 	CarouselOverlayRightArrowIconButton,
-	keys as carouselOverlayRightArrowIconButtonKeys
+	keys as carousel_overlay_right_arrow_icon_button_keys
 } from './CarouselOverlayRightArrowIconButton';
 import type {
 	CarouselRightArrowButtonDefaultElement,
@@ -143,54 +146,60 @@ import type {
 	CarouselRightArrowButtonProps,
 	CarouselRightArrowButtonRef
 } from './CarouselRightArrowButton';
-import { CarouselRightArrowButton, keys as carouselRightArrowButtonKeys } from './CarouselRightArrowButton';
+import { CarouselRightArrowButton, keys as carousel_right_arrow_button_keys } from './CarouselRightArrowButton';
 import type {
 	CarouselRightArrowIconButtonDefaultElement,
 	CarouselRightArrowIconButtonElement,
 	CarouselRightArrowIconButtonProps,
 	CarouselRightArrowIconButtonRef
 } from './CarouselRightArrowIconButton';
-import { CarouselRightArrowIconButton, keys as carouselRightArrowIconButtonKeys } from './CarouselRightArrowIconButton';
+import {
+	CarouselRightArrowIconButton,
+	keys as carousel_right_arrow_icon_button_keys
+} from './CarouselRightArrowIconButton';
 import type { CarouselRightLinearGradientProps, CarouselRightLinearGradientRef } from './CarouselRightLinearGradient';
-import { CarouselRightLinearGradient, keys as carouselRightLinearGradientKeys } from './CarouselRightLinearGradient';
+import {
+	CarouselRightLinearGradient,
+	keys as carousel_right_linear_gradient_keys
+} from './CarouselRightLinearGradient';
 
 // Constants
 export const constants = {
-	...carouselArrowIconButtonConstants,
-	...carouselArrowIconButtonGroupConstants,
-	...carouselArrowButtonConstants,
-	...carouselArrowButtonGroupConstants,
-	...carouselOverlayArrowButtonConstants,
-	...carouselOverlayArrowIconButtonConstants,
-	...carouselLinearGradientConstants,
-	...carouselDotsConstants
+	...carousel_arrow_icon_button_constants,
+	...carousel_arrow_icon_button_group_constants,
+	...carousel_arrow_button_constants,
+	...carousel_arrow_button_group_constants,
+	...carousel_overlay_arrow_button_constants,
+	...carousel_overlay_arrow_icon_button_constants,
+	...carousel_linear_gradient_constants,
+	...carousel_dots_constants
 };
 
 // Keys
 export const keys = {
-	...carouselArrowIconButtonKeys,
-	...carouselArrowIconButtonGroupKeys,
-	...carouselItemKeys,
-	...carouselLeftArrowIconButtonKeys,
-	...carouselLeftLinearGradientKeys,
-	...carouselLinearGradientKeys,
-	...carouselOverlayArrowIconButtonKeys,
-	...carouselOverlayLeftArrowIconButtonKeys,
-	...carouselOverlayRightArrowIconButtonKeys,
-	...carouselRightArrowIconButtonKeys,
-	...carouselRightLinearGradientKeys,
-	...carouselArrowButtonKeys,
-	...carouselArrowButtonGroupKeys,
-	...carouselDotsKeys,
-	...carouselLeftArrowButtonKeys,
-	...carouselOverlayArrowButtonKeys,
-	...carouselOverlayLeftArrowButtonKeys,
-	...carouselOverlayRightArrowButtonKeys,
-	...carouselRightArrowButtonKeys
+	...carousel_arrow_icon_button_keys,
+	...carousel_arrow_icon_button_group_keys,
+	...carousel_item_keys,
+	...carousel_left_arrow_icon_button_keys,
+	...carousel_left_linear_gradient_keys,
+	...carousel_linear_gradient_keys,
+	...carousel_overlay_arrow_icon_button_keys,
+	...carousel_overlay_left_arrow_icon_button_keys,
+	...carousel_overlay_right_arrow_icon_button_keys,
+	...carousel_right_arrow_icon_button_keys,
+	...carousel_right_linear_gradient_keys,
+	...carousel_arrow_button_keys,
+	...carousel_arrow_button_group_keys,
+	...carousel_dots_keys,
+	...carousel_left_arrow_button_keys,
+	...carousel_overlay_arrow_button_keys,
+	...carousel_overlay_left_arrow_button_keys,
+	...carousel_overlay_right_arrow_button_keys,
+	...carousel_right_arrow_button_keys
 };
 
 // Hooks
-export const hooks = { ...carouselDotsHooks };
+export const hooks = { ...carousel_dots_hooks };
 
 // Components
 export {

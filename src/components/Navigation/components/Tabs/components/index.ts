@@ -1,20 +1,20 @@
 import type { TabDefaultElement, TabElement, TabMouseEvent, TabProps, TabRef, TabRenderProps } from './Tab';
-import { constants as tabConstants, hooks as tabHooks, keys as tabKeys, Tab } from './Tab';
+import { constants as tab_constants, hooks as tab_hooks, keys as tab_keys, Tab } from './Tab';
 import type { TabIconDefaultElement, TabIconElement, TabIconProps, TabIconRef } from './TabIcon';
-import { keys as tabIconKeys, TabIcon } from './TabIcon';
+import { keys as tab_icon_keys, TabIcon } from './TabIcon';
 import type { TabListProps, TabListRef, TabListRenderProps } from './TabList';
-import { keys as tabListKeys, TabList } from './TabList';
+import { keys as tab_list_keys, TabList } from './TabList';
 import type { TabPanelProps, TabPanelsProps, TabPanelsRef } from './TabPanels';
-import { keys as tabPanelsKeys, TabPanels } from './TabPanels';
+import { keys as tab_panels_keys, TabPanels } from './TabPanels';
 
 // Constants
-export const constants = { ...tabConstants };
+export const constants = { ...tab_constants };
 
 // Keys
-export const keys = { ...tabKeys, ...tabIconKeys, ...tabListKeys, ...tabPanelsKeys };
+export const keys = { ...tab_keys, ...tab_icon_keys, ...tab_list_keys, ...tab_panels_keys };
 
 // Hooks
-export const hooks = { ...tabHooks };
+export const hooks = { ...tab_hooks };
 
 // Components
 export { Tab, TabIcon, TabList, TabPanels };

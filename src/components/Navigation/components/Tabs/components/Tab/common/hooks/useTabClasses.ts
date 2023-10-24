@@ -8,7 +8,8 @@ import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
 import type { ClassName } from '@common/types';
 import { getColorHue } from '@common/utils';
 
-import { constants as navigation_constants, hooks as navigation_hooks } from '@components/Navigation';
+import { hooks as navigation_hooks } from '@components/Navigation';
+import { __DEFAULT_TABS_TAB_LINE_HEIGHT_SIZE__ } from '@components/Navigation/components/Tabs/common/constants';
 
 import {
 	__DEFAULT_TAB_IS_ACTIVE__,
@@ -26,7 +27,6 @@ type UseTabClassesProps<Element extends TabElement = TabDefaultElement> = Pick<
 > & { isFocused: boolean };
 type UseTabClassesReturn = Record<'tab' | 'topDivider' | 'bottomDivider' | 'label', ClassName>;
 
-const { __DEFAULT_TABS_TAB_LINE_HEIGHT_SIZE__ } = navigation_constants;
 const { useTabsContext } = navigation_hooks;
 
 const useTabClasses = <Element extends TabElement = TabDefaultElement>(

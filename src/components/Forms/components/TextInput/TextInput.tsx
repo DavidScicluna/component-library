@@ -10,11 +10,12 @@ import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/const
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 
 import { Box } from '@components/Box';
-import { hooks as forms_hooks } from '@components/Forms';
+import { useFormsClasses, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
+import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
 import { Grid, GridItem } from '@components/Layout';
 
-import { utils as formDescriptionUtils } from '../FormDescription';
-import { utils as formLabelUtils } from '../FormLabel';
+import { getFormDescriptionID } from '../FormDescription/common/utils';
+import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
 	__DEFAULT_TEXT_INPUT_IS_DISABLED__,
@@ -40,11 +41,6 @@ import type {
 	TextInputSize,
 	TextInputVariant
 } from './common/types';
-
-const { useFormsClasses, useFormsStyles, useFormsSizeConfig, useFormControlContext } = forms_hooks;
-
-const { getFormLabelID } = formLabelUtils;
-const { getFormDescriptionID } = formDescriptionUtils;
 
 const TextInput = forwardRef(function TextInput<Element extends TextInputElement = TextInputDefaultElement>(
 	props: TextInputProps<Element>,

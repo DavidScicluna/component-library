@@ -1,5 +1,5 @@
-import * as commonConstants from './common/constants';
-import * as commonKeys from './common/keys';
+import * as common_constants from './common/constants';
+import * as common_keys from './common/keys';
 import type {
 	ButtonContext,
 	ButtonDefaultElement,
@@ -20,13 +20,13 @@ import type {
 	ButtonSpinnerProps,
 	ButtonSpinnerRef
 } from './components';
-import { ButtonIcon, ButtonSpinner, keys as componentsKeys } from './components';
+import { ButtonIcon, ButtonSpinner, keys as components_keys } from './components';
 
 // Constants
-export const constants = { ...commonConstants };
+export const constants = { ...common_constants };
 
 // Keys
-export const keys = { ...commonKeys, ...componentsKeys };
+export const keys = { ...common_keys, ...components_keys };
 
 // Hooks
 export * as hooks from './common/hooks';

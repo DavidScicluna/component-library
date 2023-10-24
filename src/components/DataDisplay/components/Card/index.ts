@@ -1,4 +1,4 @@
-import * as commonKeys from './common/keys';
+import * as common_keys from './common/keys';
 import type { CardContext, CardMouseEvent, CardProps, CardRef, CardVariant } from './common/types';
 import Card from './Card';
 import type {
@@ -32,14 +32,14 @@ import {
 	CardStack,
 	CardSubtitle,
 	CardTitle,
-	keys as componentsKeys
+	keys as components_keys
 } from './components';
 
 // Constants
 export * as constants from './common/constants';
 
 // Keys
-export const keys = { ...commonKeys, ...componentsKeys };
+export const keys = { ...common_keys, ...components_keys };
 
 // Hooks
 export * as hooks from './common/hooks';

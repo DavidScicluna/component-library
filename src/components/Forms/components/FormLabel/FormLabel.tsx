@@ -7,15 +7,12 @@ import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import { Box } from '@components/Box';
+import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
 import { Text } from '@components/Typography';
-
-import { hooks as form_control_hooks } from '../FormControl';
 
 import { __KEYS_FORM_LABEL_CLASS__ } from './common/keys';
 import type { FormLabelDefaultElement, FormLabelElement, FormLabelProps, FormLabelRef } from './common/types';
 import { getFormLabelID } from './common/utils';
-
-const { useFormControlContext, useFormControlFontSize } = form_control_hooks;
 
 const FormLabel = forwardRef(function FormLabel<Element extends FormLabelElement = FormLabelDefaultElement>(
 	props: FormLabelProps<Element>,

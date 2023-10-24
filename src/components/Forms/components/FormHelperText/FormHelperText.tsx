@@ -6,9 +6,8 @@ import classNames from 'classnames';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
+import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
 import { Text } from '@components/Typography';
-
-import { hooks as form_control_hooks } from '../FormControl';
 
 import { __KEYS_FORM_HELPER_TEXT_CLASS__ } from './common/keys';
 import type {
@@ -17,8 +16,6 @@ import type {
 	FormHelperTextProps,
 	FormHelperTextRef
 } from './common/types';
-
-const { useFormControlContext, useFormControlFontSize } = form_control_hooks;
 
 const FormHelperText = forwardRef(function FormHelperText<
 	Element extends FormHelperTextElement = FormHelperTextDefaultElement

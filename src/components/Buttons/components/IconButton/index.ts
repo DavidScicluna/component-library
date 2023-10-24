@@ -1,5 +1,5 @@
-import * as commonConstants from './common/constants';
-import * as commonKeys from './common/keys';
+import * as common_constants from './common/constants';
+import * as common_keys from './common/keys';
 import type {
 	IconButtonContext,
 	IconButtonDefaultElement,
@@ -23,10 +23,10 @@ import { IconButtonIcon, IconButtonSpinner } from './components';
 import IconButton from './IconButton';
 
 // Constants
-export const constants = { ...commonConstants };
+export const constants = { ...common_constants };
 
 // Keys
-export const keys = { ...commonKeys };
+export const keys = { ...common_keys };
 
 // Hooks
 export * as hooks from './common/hooks';

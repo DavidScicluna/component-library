@@ -1,14 +1,19 @@
 import type { GridItemProps, GridItemRef } from './GridItem';
-import { constants as gridItemConstants, GridItem, hooks as gridItemHooks, keys as gridItemKeys } from './GridItem';
+import {
+	constants as grid_item_constants,
+	GridItem,
+	hooks as grid_item_hooks,
+	keys as grid_item_keys
+} from './GridItem';
 
 // Constants
-export const constants = { ...gridItemConstants };
+export const constants = { ...grid_item_constants };
 
 // Keys
-export const keys = { ...gridItemKeys };
+export const keys = { ...grid_item_keys };
 
 // Hooks
-export const hooks = { ...gridItemHooks };
+export const hooks = { ...grid_item_hooks };
 
 // Components
 export { GridItem };

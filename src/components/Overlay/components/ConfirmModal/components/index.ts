@@ -4,14 +4,14 @@ import type {
 	ConfirmModalActionsRenderActionProps,
 	ConfirmModalActionsRenderCancelProps
 } from './ConfirmModalActions';
-import { ConfirmModalActions, keys as confirmModalActionsKeys } from './ConfirmModalActions';
+import { ConfirmModalActions, keys as confirm_modal_actions_keys } from './ConfirmModalActions';
 import type { ConfirmModalBackdropProps, ConfirmModalBackdropRef } from './ConfirmModalBackdrop';
-import { ConfirmModalBackdrop, keys as confirmModalBackdropKeys } from './ConfirmModalBackdrop';
+import { ConfirmModalBackdrop, keys as confirm_modal_backdrop_keys } from './ConfirmModalBackdrop';
 import type { ConfirmModalBodyProps, ConfirmModalBodyRef } from './ConfirmModalBody';
 import {
 	ConfirmModalBody,
-	constants as confirmModalBodyConstants,
-	keys as confirmModalBodyKeys
+	constants as confirm_modal_body_constants,
+	keys as confirm_modal_body_keys
 } from './ConfirmModalBody';
 import type {
 	ConfirmModalIconDefaultElement,
@@ -19,36 +19,36 @@ import type {
 	ConfirmModalIconProps,
 	ConfirmModalIconRef
 } from './ConfirmModalIcon';
-import { ConfirmModalIcon, keys as confirmModalIconKeys } from './ConfirmModalIcon';
+import { ConfirmModalIcon, keys as confirm_modal_icon_keys } from './ConfirmModalIcon';
 import type { ConfirmModalStackProps, ConfirmModalStackRef } from './ConfirmModalStack';
-import { ConfirmModalStack, keys as confirmModalStackKeys } from './ConfirmModalStack';
+import { ConfirmModalStack, keys as confirm_modal_stack_keys } from './ConfirmModalStack';
 import type {
 	ConfirmModalSubtitleDefaultElement,
 	ConfirmModalSubtitleElement,
 	ConfirmModalSubtitleProps,
 	ConfirmModalSubtitleRef
 } from './ConfirmModalSubtitle';
-import { ConfirmModalSubtitle, keys as confirmModalSubtitleKeys } from './ConfirmModalSubtitle';
+import { ConfirmModalSubtitle, keys as confirm_modal_subtitle_keys } from './ConfirmModalSubtitle';
 import type {
 	ConfirmModalTitleDefaultElement,
 	ConfirmModalTitleElement,
 	ConfirmModalTitleProps,
 	ConfirmModalTitleRef
 } from './ConfirmModalTitle';
-import { ConfirmModalTitle, keys as confirmModalTitleKeys } from './ConfirmModalTitle';
+import { ConfirmModalTitle, keys as confirm_modal_title_keys } from './ConfirmModalTitle';
 
 // Constants
-export const constants = { ...confirmModalBodyConstants };
+export const constants = { ...confirm_modal_body_constants };
 
 // Keys
 export const keys = {
-	confirmModalActionsKeys,
-	confirmModalBackdropKeys,
-	confirmModalBodyKeys,
-	confirmModalIconKeys,
-	confirmModalStackKeys,
-	confirmModalSubtitleKeys,
-	confirmModalTitleKeys
+	confirm_modal_actions_keys,
+	confirm_modal_backdrop_keys,
+	confirm_modal_body_keys,
+	confirm_modal_icon_keys,
+	confirm_modal_stack_keys,
+	confirm_modal_subtitle_keys,
+	confirm_modal_title_keys
 };
 
 // Components

@@ -1,10 +1,10 @@
 import type { ButtonIconDefaultElement, ButtonIconElement, ButtonIconProps, ButtonIconRef } from './ButtonIcon';
-import { ButtonIcon, keys as buttonIconKeys } from './ButtonIcon';
+import { ButtonIcon, keys as button_icon_keys } from './ButtonIcon';
 import type { ButtonSpinnerProps, ButtonSpinnerRef } from './ButtonSpinner';
-import { ButtonSpinner, keys as buttonSpinnerKeys } from './ButtonSpinner';
+import { ButtonSpinner, keys as button_spinner_keys } from './ButtonSpinner';
 
 // Keys
-export const keys = { ...buttonIconKeys, ...buttonSpinnerKeys };
+export const keys = { ...button_icon_keys, ...button_spinner_keys };
 
 // Components
 export { ButtonIcon, ButtonSpinner };

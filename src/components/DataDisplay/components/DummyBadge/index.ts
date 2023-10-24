@@ -1,4 +1,4 @@
-import * as commonKeys from './common/keys';
+import * as common_keys from './common/keys';
 import type {
 	DummyBadgeContext,
 	DummyBadgeProps,
@@ -15,14 +15,14 @@ import type {
 	DummyBadgeSkeletonProps,
 	DummyBadgeSkeletonRef
 } from './components';
-import { DummyBadgeIcon, DummyBadgeSkeleton, keys as componentsKeys } from './components';
+import { DummyBadgeIcon, DummyBadgeSkeleton, keys as components_keys } from './components';
 import DummyBadge from './DummyBadge';
 
 // Constants
 export * as constants from './common/constants';
 
 // Keys
-export const keys = { ...commonKeys, ...componentsKeys };
+export const keys = { ...common_keys, ...components_keys };
 
 // Hooks
 export * as hooks from './common/hooks';

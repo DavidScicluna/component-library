@@ -8,15 +8,13 @@ import { useGetResponsiveValue } from '@common/hooks';
 import type { ThemeSpacing } from '@common/types';
 
 import { Box } from '@components/Box';
-import { hooks as data_display_hooks } from '@components/DataDisplay';
+import { useCarouselContext, useCarouselManager } from '@components/DataDisplay/components/Carousel/common/hooks';
 
 import { __DEFAULT_CAROUSEL_DOTS_SIZE__ } from '../../common/constants';
 
 import { useCarouselDotClasses } from './common/hooks';
 import { __KEYS_CAROUSEL_DOT_CLASS__ } from './common/keys';
 import type { CarouselDotProps, CarouselDotRef } from './common/types';
-
-const { useCarouselContext, useCarouselManager } = data_display_hooks;
 
 const CarouselDot = forwardRef(function CarouselDot<Element extends ElementType>(
 	props: CarouselDotProps<Element>,

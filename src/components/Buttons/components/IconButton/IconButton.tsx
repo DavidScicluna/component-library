@@ -11,7 +11,7 @@ import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 import { Center } from '@components/Layout';
 import { PushableOverlay } from '@components/Overlay';
 
-import { hooks as iconButtonGroupHooks } from '../IconButtonGroup';
+import { useIconButtonGroupContext } from '../IconButtonGroup/common/hooks';
 
 import {
 	__DEFAULT_ICON_BUTTON_IS_ACTIVE__,
@@ -35,8 +35,6 @@ import type {
 	IconButtonSize,
 	IconButtonVariant
 } from './common/types';
-
-const { useIconButtonGroupContext } = iconButtonGroupHooks;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const IconButtonContext = createContext<IconButtonContextType<any>>({

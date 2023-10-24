@@ -1,19 +1,19 @@
-import * as commonConstants from './common/constants';
-import * as commonHooks from './common/hooks';
-import * as commonKeys from './common/keys';
+import * as common_constants from './common/constants';
+import * as common_hooks from './common/hooks';
+import * as common_keys from './common/keys';
 import type { ButtonGroupContext, ButtonGroupProps, ButtonGroupRef } from './common/types';
 import ButtonGroup from './ButtonGroup';
 import type { ButtonGroupItemProps, ButtonGroupItemRef } from './components';
-import { ButtonGroupItem, hooks as componentsHooks, keys as componentsKeys } from './components';
+import { ButtonGroupItem, hooks as components_hooks, keys as components_keys } from './components';
 
 // Constants
-export const constants = { ...commonConstants };
+export const constants = { ...common_constants };
 
 // Keys
-export const keys = { ...commonKeys, ...componentsKeys };
+export const keys = { ...common_keys, ...components_keys };
 
 // Hooks
-export const hooks = { ...commonHooks, ...componentsHooks };
+export const hooks = { ...common_hooks, ...components_hooks };
 
 // Components
 export { ButtonGroup, ButtonGroupItem };

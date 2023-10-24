@@ -2,20 +2,18 @@ import { v4 as uuid } from 'uuid';
 
 import type { ThemeSpacing } from '@common/types';
 
-import { constants as forms_constants } from '@components/Forms';
-
-import type { FormControlSize } from '../types';
-
-const {
+import {
 	__DEFAULT_FORMS_IS_DISABLED__,
 	__DEFAULT_FORMS_IS_ERROR__,
 	__DEFAULT_FORMS_IS_OUTLINED__,
-	__DEFAULT_FORMS_IS_REQUIRED__,
 	__DEFAULT_FORMS_IS_READONLY__,
+	__DEFAULT_FORMS_IS_REQUIRED__,
 	__DEFAULT_FORMS_IS_SUCCESS__,
 	__DEFAULT_FORMS_IS_WARNING__,
 	__DEFAULT_FORMS_SIZE__
-} = forms_constants;
+} from '@components/Forms/common/constants';
+
+import type { FormControlSize } from '../types';
 
 export const __DEFAULT_FORM_CONTROL_ID__ = uuid();
 
