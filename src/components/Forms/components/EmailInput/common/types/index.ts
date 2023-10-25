@@ -29,6 +29,7 @@ export type EmailInputRenderProps<Element extends EmailInputElement = EmailInput
 type PickedFormsCommonProps =
 	| 'color'
 	| 'colorMode'
+	| 'isCompact'
 	| 'isDisabled'
 	| 'isError'
 	| 'isFocused'

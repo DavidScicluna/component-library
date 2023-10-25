@@ -1,6 +1,7 @@
 import type { ComponentProps } from 'react';
 
 import {
+	__DEFAULT_FORMS_IS_COMPACT__,
 	__DEFAULT_FORMS_IS_DISABLED__,
 	__DEFAULT_FORMS_IS_ERROR__,
 	__DEFAULT_FORMS_IS_FOCUSED__,
@@ -15,6 +16,7 @@ import {
 
 import type { EmailInputSize, EmailInputVariant } from '../types';
 
+export const __DEFAULT_EMAIL_INPUT_IS_COMPACT__ = __DEFAULT_FORMS_IS_COMPACT__;
 export const __DEFAULT_EMAIL_INPUT_IS_DISABLED__ = __DEFAULT_FORMS_IS_DISABLED__;
 export const __DEFAULT_EMAIL_INPUT_IS_ERROR__ = __DEFAULT_FORMS_IS_ERROR__;
 export const __DEFAULT_EMAIL_INPUT_IS_FOCUSED__ = __DEFAULT_FORMS_IS_FOCUSED__;
