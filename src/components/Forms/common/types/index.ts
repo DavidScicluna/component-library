@@ -6,6 +6,12 @@ export type FormsCommonVariant = 'outlined' | 'underline' | 'unstyled';
 
 export type FormsCommonProps = ThemeAppAppearanceProps & {
 	/**
+	 * If true, the element will be styled in a more compressed state
+	 *
+	 * @default false
+	 */
+	isCompact?: ResponsiveValue<boolean>;
+	/**
 	 * If true, the element will be disabled
 	 *
 	 * @default false
