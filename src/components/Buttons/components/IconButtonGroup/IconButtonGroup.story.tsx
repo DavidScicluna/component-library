@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 
 import { icons } from '@common/data';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { FlexDirectionClassArr, PolymorphicDefaultElement } from '@common/types';
 
 import type { IconButtonSize, IconButtonVariant } from '@components/Buttons';
 import { IconButton, IconButtonIcon } from '@components/Buttons';
@@ -13,6 +13,7 @@ import {
 	__DEFAULT_ICON_BUTTON_VARIANT__
 } from '@components/Buttons/components/IconButton/common/constants';
 import { Center } from '@components/Layout';
+import { __DEFAULT_STACK_DIRECTION__ } from '@components/Layout/components/Stacks/Stack/common/constants';
 
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
@@ -29,6 +30,14 @@ export default {
 	title: 'Buttons/IconButtonGroup',
 	component: IconButtonGroupComponent,
 	argTypes: {
+		direction: {
+			name: 'Direction',
+			type: 'string',
+			defaultValue: __DEFAULT_STACK_DIRECTION__,
+			// description: '',
+			options: ['row', 'row-reverse', 'column', 'column-reverse'] as FlexDirectionClassArr,
+			control: { type: 'radio' }
+		},
 		isAttached: {
 			name: 'Attached',
 			type: 'boolean',

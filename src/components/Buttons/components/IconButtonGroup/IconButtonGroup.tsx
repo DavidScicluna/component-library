@@ -5,8 +5,10 @@ import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
+import type { FlexDirectionClass } from '@common/types';
 
-import { HStack } from '@components/Layout';
+import { Stack } from '@components/Layout';
+import { __DEFAULT_STACK_DIRECTION__ } from '@components/Layout/components/Stacks/Stack/common/constants';
 
 import { __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__ } from './common/constants';
 import { __KEYS_ICON_BUTTON_GROUP_CLASS__ } from './common/keys';
@@ -18,6 +20,7 @@ import type {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const IconButtonGroupContext = createContext<IconButtonGroupContextType<any>>({
+	direction: __DEFAULT_STACK_DIRECTION__,
 	isAttached: __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__
 });
 
@@ -30,6 +33,7 @@ const IconButtonGroup = forwardRef(function IconButtonGroup<Element extends Elem
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
+		direction: d = __DEFAULT_STACK_DIRECTION__,
 		isAttached: a = __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__,
 		isCompact,
 		isDisabled,
@@ -40,20 +44,22 @@ const IconButtonGroup = forwardRef(function IconButtonGroup<Element extends Elem
 		...rest
 	} = props;
 
+	const direction = useGetResponsiveValue<FlexDirectionClass>(d);
 	const isAttached = useGetResponsiveValue<boolean>(a);
 
 	return (
 		<IconButtonGroupContext.Provider
-			value={{ color, colorMode, isAttached, isCompact, isDisabled, isRound, size, variant }}
+			value={{ color, colorMode, direction, isAttached, isCompact, isDisabled, isRound, size, variant }}
 		>
-			<HStack<Element>
+			<Stack<Element>
 				{...rest}
 				ref={ref}
 				className={classNames(__KEYS_ICON_BUTTON_GROUP_CLASS__, { [className]: !!className })}
+				direction={direction}
 				spacing={isAttached ? 0 : spacing}
 			>
 				{children}
-			</HStack>
+			</Stack>
 		</IconButtonGroupContext.Provider>
 	);
 });

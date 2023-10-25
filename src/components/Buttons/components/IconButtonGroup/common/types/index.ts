@@ -3,7 +3,7 @@ import type { ElementType } from 'react';
 import type { ResponsiveValue } from '@common/types';
 
 import type { IconButtonProps } from '@components/Buttons';
-import type { HStackProps, HStackRef } from '@components/Layout';
+import type { StackProps, StackRef } from '@components/Layout';
 
 type PickedIconButtonProps = 'color' | 'colorMode' | 'isCompact' | 'isDisabled' | 'isRound' | 'size' | 'variant';
 
@@ -16,11 +16,11 @@ type IconButtonGroupOtherProps = Pick<IconButtonProps, PickedIconButtonProps> & 
 	isAttached?: ResponsiveValue<boolean>;
 };
 
-export type IconButtonGroupProps<Element extends ElementType> = HStackProps<Element> & IconButtonGroupOtherProps;
+export type IconButtonGroupProps<Element extends ElementType> = StackProps<Element> & IconButtonGroupOtherProps;
 
-export type IconButtonGroupRef<Element extends ElementType> = HStackRef<Element>;
+export type IconButtonGroupRef<Element extends ElementType> = StackRef<Element>;
 
 export type IconButtonGroupContext<Element extends ElementType> = Pick<
 	IconButtonGroupProps<Element>,
-	'color' | 'colorMode' | 'isAttached' | 'isCompact' | 'isDisabled' | 'isRound' | 'size' | 'variant'
+	'color' | 'colorMode' | 'direction' | 'isAttached' | 'isCompact' | 'isDisabled' | 'isRound' | 'size' | 'variant'
 >;
