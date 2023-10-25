@@ -5,8 +5,10 @@ import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
+import type { FlexDirectionClass } from '@common/types';
 
-import { HStack } from '@components/Layout';
+import { Stack } from '@components/Layout';
+import { __DEFAULT_STACK_DIRECTION__ } from '@components/Layout/components/Stacks/Stack/common/constants';
 
 import { __DEFAULT_BUTTON_GROUP_IS_ATTACHED__ } from './common/constants';
 import { __KEYS_BUTTON_GROUP_CLASS__ } from './common/keys';
@@ -26,6 +28,7 @@ const ButtonGroup = forwardRef(function ButtonGroup<Element extends ElementType>
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
+		direction: d = __DEFAULT_STACK_DIRECTION__,
 		isAttached: a = __DEFAULT_BUTTON_GROUP_IS_ATTACHED__,
 		isCompact,
 		isDisabled,
@@ -37,21 +40,34 @@ const ButtonGroup = forwardRef(function ButtonGroup<Element extends ElementType>
 		...rest
 	} = props;
 
+	const direction = useGetResponsiveValue<FlexDirectionClass>(d);
 	const isAttached = useGetResponsiveValue<boolean>(a);
 
 	return (
 		<ButtonGroupContext.Provider
-			value={{ color, colorMode, isAttached, isCompact, isDisabled, isFullWidth, isRound, size, variant }}
+			value={{
+				color,
+				colorMode,
+				direction,
+				isAttached,
+				isCompact,
+				isDisabled,
+				isFullWidth,
+				isRound,
+				size,
+				variant
+			}}
 		>
-			<HStack<Element>
+			<Stack<Element>
 				{...rest}
 				ref={ref}
 				className={classNames(__KEYS_BUTTON_GROUP_CLASS__, { [className]: !!className })}
 				w={isFullWidth ? '100%' : undefined}
+				direction={direction}
 				spacing={isAttached ? 0 : spacing}
 			>
 				{children}
-			</HStack>
+			</Stack>
 		</ButtonGroupContext.Provider>
 	);
 });
