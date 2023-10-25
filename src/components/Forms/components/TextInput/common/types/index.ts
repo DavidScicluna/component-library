@@ -29,6 +29,7 @@ export type TextInputRenderProps<Element extends TextInputElement = TextInputDef
 type PickedFormsCommonProps =
 	| 'color'
 	| 'colorMode'
+	| 'isCompact'
 	| 'isDisabled'
 	| 'isError'
 	| 'isFocused'

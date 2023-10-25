@@ -1,6 +1,7 @@
 import type { ComponentProps } from 'react';
 
 import {
+	__DEFAULT_FORMS_IS_COMPACT__,
 	__DEFAULT_FORMS_IS_DISABLED__,
 	__DEFAULT_FORMS_IS_ERROR__,
 	__DEFAULT_FORMS_IS_FOCUSED__,
@@ -13,8 +14,9 @@ import {
 	__DEFAULT_FORMS_VARIANT__
 } from '@components/Forms/common/constants';
 
-import type { InputSize, InputVariant } from '../types';
+import type { TextInputSize, TextInputVariant } from '../types';
 
+export const __DEFAULT_TEXT_INPUT_IS_COMPACT__ = __DEFAULT_FORMS_IS_COMPACT__;
 export const __DEFAULT_TEXT_INPUT_IS_DISABLED__ = __DEFAULT_FORMS_IS_DISABLED__;
 export const __DEFAULT_TEXT_INPUT_IS_ERROR__ = __DEFAULT_FORMS_IS_ERROR__;
 export const __DEFAULT_TEXT_INPUT_IS_FOCUSED__ = __DEFAULT_FORMS_IS_FOCUSED__;
@@ -26,6 +28,6 @@ export const __DEFAULT_TEXT_INPUT_IS_WARNING__ = __DEFAULT_FORMS_IS_WARNING__;
 
 export const __DEFAULT_TEXT_INPUT_TYPE__: ComponentProps<'input'>['type'] = 'text';
 
-export const __DEFAULT_TEXT_INPUT_SIZE__: InputSize = __DEFAULT_FORMS_SIZE__;
+export const __DEFAULT_TEXT_INPUT_SIZE__: TextInputSize = __DEFAULT_FORMS_SIZE__;
 
-export const __DEFAULT_TEXT_INPUT_VARIANT__: InputVariant = __DEFAULT_FORMS_VARIANT__;
+export const __DEFAULT_TEXT_INPUT_VARIANT__: TextInputVariant = __DEFAULT_FORMS_VARIANT__;

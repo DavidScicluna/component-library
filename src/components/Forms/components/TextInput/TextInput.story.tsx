@@ -4,6 +4,7 @@ import { type ReactElement, useState } from 'react';
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import {
+	__DEFAULT_TEXT_INPUT_IS_COMPACT__,
 	__DEFAULT_TEXT_INPUT_IS_DISABLED__,
 	__DEFAULT_TEXT_INPUT_IS_ERROR__,
 	__DEFAULT_TEXT_INPUT_IS_FOCUSED__,
@@ -23,6 +24,13 @@ export default {
 	title: 'Forms/TextInput',
 	component: TextInputComponent,
 	argTypes: {
+		isCompact: {
+			name: 'Compact',
+			type: 'boolean',
+			defaultValue: __DEFAULT_TEXT_INPUT_IS_COMPACT__,
+			// description: '',
+			control: { type: 'boolean' }
+		},
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
@@ -107,9 +115,9 @@ export const TextInput: TextInputStory = (props: TextInputProps<TextInputDefault
 		<TextInputComponent
 			{...props}
 			w='100%'
+			h='100%'
 			color={color}
 			colorMode={colorMode}
-			type='text'
 			onChange={(e) => setValue(e.target.value)}
 			placeholder='Placeholder'
 			value={value}
