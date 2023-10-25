@@ -1,6 +1,7 @@
 import type { ResizeClass } from '@common/types';
 
 import {
+	__DEFAULT_FORMS_IS_COMPACT__,
 	__DEFAULT_FORMS_IS_DISABLED__,
 	__DEFAULT_FORMS_IS_ERROR__,
 	__DEFAULT_FORMS_IS_FOCUSED__,
@@ -15,6 +16,7 @@ import {
 
 import type { TextareaSize, TextareaVariant } from '../types';
 
+export const __DEFAULT_TEXTAREA_IS_COMPACT__ = __DEFAULT_FORMS_IS_COMPACT__;
 export const __DEFAULT_TEXTAREA_IS_DISABLED__ = __DEFAULT_FORMS_IS_DISABLED__;
 export const __DEFAULT_TEXTAREA_IS_ERROR__ = __DEFAULT_FORMS_IS_ERROR__;
 export const __DEFAULT_TEXTAREA_IS_FOCUSED__ = __DEFAULT_FORMS_IS_FOCUSED__;

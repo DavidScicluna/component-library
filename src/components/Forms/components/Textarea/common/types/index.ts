@@ -37,6 +37,7 @@ export type TextareaRenderProps<Element extends TextareaElement = TextareaDefaul
 type PickedFormsCommonProps =
 	| 'color'
 	| 'colorMode'
+	| 'isCompact'
 	| 'isDisabled'
 	| 'isError'
 	| 'isFocused'

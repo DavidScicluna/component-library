@@ -8,6 +8,7 @@ import { Text } from '@components/Typography';
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import {
+	__DEFAULT_TEXTAREA_IS_COMPACT__,
 	__DEFAULT_TEXTAREA_IS_DISABLED__,
 	__DEFAULT_TEXTAREA_IS_ERROR__,
 	__DEFAULT_TEXTAREA_IS_FOCUSED__,
@@ -28,6 +29,13 @@ export default {
 	title: 'Forms/Textarea',
 	component: TextareaComponent,
 	argTypes: {
+		isCompact: {
+			name: 'Compact',
+			type: 'boolean',
+			defaultValue: __DEFAULT_TEXTAREA_IS_COMPACT__,
+			// description: '',
+			control: { type: 'boolean' }
+		},
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
@@ -126,7 +134,6 @@ export const Textarea: TextareaStory = (props: TextareaProps<TextareaDefaultElem
 			colorMode={colorMode}
 			rows='5'
 			cols='1'
-			type='text'
 			onChange={(e) => setValue(e.target.value)}
 			placeholder='Placeholder'
 			value={value}
