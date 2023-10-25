@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
-import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
+import { useFormControlContext, useFormControlFontSize } from '@components/Forms/components/FormControl/common/hooks';
 import { Text } from '@components/Typography';
 
 import { __KEYS_FORM_DESCRIPTION_CLASS__ } from './common/keys';
@@ -27,8 +27,7 @@ const FormDescription = forwardRef(function FormDescription<
 		color: 'gray',
 		colorMode,
 		colorType: 'default',
-		hueType: 'text.secondary',
-		classType: 'text'
+		hueType: 'text.secondary'
 	});
 	const __DEFAULT_FORM_DESCRIPTION_FONT_SIZE__ = useFormControlFontSize({ size });
 

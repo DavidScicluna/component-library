@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
-import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
+import { useFormControlContext, useFormControlFontSize } from '@components/Forms/components/FormControl/common/hooks';
 import { Text } from '@components/Typography';
 
 import { __KEYS_FORM_HELPER_TEXT_CLASS__ } from './common/keys';
@@ -26,8 +26,7 @@ const FormHelperText = forwardRef(function FormHelperText<
 		color: isError ? 'red' : isWarning ? 'yellow' : isSuccess ? 'green' : 'gray',
 		colorMode,
 		colorType: isError || isWarning || isSuccess ? 'color' : 'default',
-		hueType: isError || isWarning || isSuccess ? 'color' : 'text.secondary',
-		classType: 'text'
+		hueType: isError || isWarning || isSuccess ? 'color' : 'text.secondary'
 	});
 	const __DEFAULT_FORM_HELPER_TEXT_FONT_SIZE__ = useFormControlFontSize({ size });
 
