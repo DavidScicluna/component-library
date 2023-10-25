@@ -39,6 +39,7 @@ export type SearchInputRenderProps<Element extends SearchInputElement = SearchIn
 type PickedFormsCommonProps =
 	| 'color'
 	| 'colorMode'
+	| 'isCompact'
 	| 'isDisabled'
 	| 'isError'
 	| 'isFocused'

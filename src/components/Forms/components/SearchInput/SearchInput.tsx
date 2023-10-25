@@ -11,7 +11,7 @@ import { useBoolean, useDebounce, useGetResponsiveValue } from '@common/hooks';
 
 import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
-import { useFormsClasses, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
+import { useFormsClasses, useFormsIconSize, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
 import { Grid, GridItem } from '@components/Layout';
 
@@ -20,6 +20,7 @@ import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
 	__DEFAULT_SEARCH_INPUT_INITIAL_QUERY__,
+	__DEFAULT_SEARCH_INPUT_IS_COMPACT__,
 	__DEFAULT_SEARCH_INPUT_IS_DISABLED__,
 	__DEFAULT_SEARCH_INPUT_IS_ERROR__,
 	__DEFAULT_SEARCH_INPUT_IS_FOCUSED__,
@@ -79,6 +80,7 @@ const SearchInput = forwardRef(function SearchInput<Element extends SearchInputE
 		color = __DEFAULT_FORM_CONTROL_COLOR__,
 		colorMode = __DEFAULT_FORM_CONTROL_COLORMODE__,
 		placeholder,
+		isCompact: comp = __DEFAULT_SEARCH_INPUT_IS_COMPACT__,
 		isDisabled: disabled = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
 		isError: error = __DEFAULT_FORM_CONTROL_IS_ERROR__,
 		isFocused: focused = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
@@ -103,6 +105,7 @@ const SearchInput = forwardRef(function SearchInput<Element extends SearchInputE
 
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
+	const isCompact = useGetResponsiveValue<boolean>(comp);
 	const isDisabled = useGetResponsiveValue<boolean>(disabled);
 	const isError = useGetResponsiveValue<boolean>(error);
 	const isFocusedProp = useGetResponsiveValue<boolean>(focused);
@@ -117,11 +120,13 @@ const SearchInput = forwardRef(function SearchInput<Element extends SearchInputE
 
 	const isFocused = useMemo<boolean>(() => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
 
-	const config = useFormsSizeConfig({ size });
+	const config = useFormsSizeConfig({ isCompact, size, variant });
+	const iconSize = useFormsIconSize({ isCompact, size, variant });
 
 	const classes = useFormsClasses({
 		color,
 		colorMode,
+		isCompact,
 		isDisabled,
 		isError,
 		isOutlined,
@@ -256,13 +261,13 @@ const SearchInput = forwardRef(function SearchInput<Element extends SearchInputE
 				>
 					<GridItem alignSelf='center' justifySelf='center'>
 						<Icon
-							w={`${childrenHeight}px`}
-							h={`${childrenHeight}px`}
+							w={iconSize.w}
+							h={iconSize.h}
 							color={color}
 							colorMode={colorMode}
 							icon='search'
 							category='filled'
-							size={`${childrenHeight}px`}
+							size={iconSize.size}
 							variant='unstyled'
 						/>
 						{renderLeft ? renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight }) : null}
