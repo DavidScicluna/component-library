@@ -1,9 +1,12 @@
 import { type ReactElement, useState } from 'react';
 
+import { IconButton, IconButtonIcon } from '@components/Buttons';
+
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import {
+	__DEFAULT_PASSWORD_INPUT_IS_COMPACT__,
 	__DEFAULT_PASSWORD_INPUT_IS_DISABLED__,
 	__DEFAULT_PASSWORD_INPUT_IS_ERROR__,
 	__DEFAULT_PASSWORD_INPUT_IS_FOCUSED__,
@@ -28,6 +31,13 @@ export default {
 	title: 'Forms/PasswordInput',
 	component: PasswordInputComponent,
 	argTypes: {
+		isCompact: {
+			name: 'Compact',
+			type: 'boolean',
+			defaultValue: __DEFAULT_PASSWORD_INPUT_IS_COMPACT__,
+			// description: '',
+			control: { type: 'boolean' }
+		},
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
@@ -113,7 +123,13 @@ export const PasswordInput: PasswordInputStory = (
 	return (
 		<PasswordInputComponent
 			{...props}
+			renderToggle={({ isVisible, ...rest }) => (
+				<IconButton {...rest} color={undefined}>
+					<IconButtonIcon icon={isVisible ? 'visibility_off' : 'visibility'} category='filled' />
+				</IconButton>
+			)}
 			w='100%'
+			h='100%'
 			color={color}
 			colorMode={colorMode}
 			onChange={(e) => setValue(e.target.value)}

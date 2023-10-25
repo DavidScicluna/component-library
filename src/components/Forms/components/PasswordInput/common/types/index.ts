@@ -3,6 +3,7 @@ import type { ElementType, ReactNode } from 'react';
 import type { PickFrom, PolymorphicChangeEvent, PolymorphicFocusEvent, PolymorphicMouseEvent } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { IconButtonProps } from '@components/Buttons';
 import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms';
 
 export type PasswordInputMouseEvent<Element extends PasswordInputElement = PasswordInputDefaultElement> =
@@ -21,6 +22,10 @@ export type PasswordInputSize = FormsCommonSize;
 
 export type PasswordInputVariant = FormsCommonVariant;
 
+export type PasswordInputRenderToggleProps = Pick<
+	IconButtonProps,
+	'color' | 'colorMode' | 'isCompact' | 'onClick' | 'size' | 'variant'
+> & { isVisible: boolean };
 export type PasswordInputRenderProps<Element extends PasswordInputElement = PasswordInputDefaultElement> = Pick<
 	PasswordInputOtherProps<Element>,
 	'color' | 'colorMode'
@@ -29,6 +34,7 @@ export type PasswordInputRenderProps<Element extends PasswordInputElement = Pass
 type PickedFormsCommonProps =
 	| 'color'
 	| 'colorMode'
+	| 'isCompact'
 	| 'isDisabled'
 	| 'isError'
 	| 'isFocused'
@@ -42,6 +48,7 @@ type PickedFormsCommonProps =
 
 type PasswordInputOtherProps<Element extends PasswordInputElement = PasswordInputDefaultElement> = {
 	// autoComplete?: PasswordInputAutoComplete;
+	renderToggle?: (props: PasswordInputRenderToggleProps) => ReactNode;
 	renderLeft?: (props: PasswordInputRenderProps<Element>) => ReactNode;
 	renderRight?: (props: PasswordInputRenderProps<Element>) => ReactNode;
 } & Pick<FormsCommonProps, PickedFormsCommonProps>;

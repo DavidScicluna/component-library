@@ -2,7 +2,7 @@ import type { ReactElement } from 'react';
 import { forwardRef, useCallback, useEffect, useMemo, useRef } from 'react';
 
 import classNames from 'classnames';
-import { merge } from 'lodash-es';
+import { compact, merge } from 'lodash-es';
 import { useFocus, useMergeRefs } from 'rooks';
 import { useElementSize } from 'usehooks-ts';
 
@@ -12,7 +12,7 @@ import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 import { Box } from '@components/Box';
 import { IconButton, IconButtonIcon } from '@components/Buttons';
 import { Icon } from '@components/DataDisplay';
-import { useFormsClasses, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
+import { useFormsClasses, useFormsIconSize, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
 import { Grid, GridItem } from '@components/Layout';
 
@@ -20,6 +20,7 @@ import { getFormDescriptionID } from '../FormDescription/common/utils';
 import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
+	__DEFAULT_PASSWORD_INPUT_IS_COMPACT__,
 	__DEFAULT_PASSWORD_INPUT_IS_DISABLED__,
 	__DEFAULT_PASSWORD_INPUT_IS_ERROR__,
 	__DEFAULT_PASSWORD_INPUT_IS_FOCUSED__,
@@ -73,9 +74,11 @@ const PasswordInput = forwardRef(function PasswordInput<
 		h,
 		renderLeft,
 		renderRight,
+		renderToggle,
 		color = __DEFAULT_FORM_CONTROL_COLOR__,
 		colorMode = __DEFAULT_FORM_CONTROL_COLORMODE__,
 		placeholder,
+		isCompact: comp = __DEFAULT_PASSWORD_INPUT_IS_COMPACT__,
 		isDisabled: disabled = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
 		isError: error = __DEFAULT_FORM_CONTROL_IS_ERROR__,
 		isFocused: focused = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
@@ -98,6 +101,7 @@ const PasswordInput = forwardRef(function PasswordInput<
 
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
+	const isCompact = useGetResponsiveValue<boolean>(comp);
 	const isDisabled = useGetResponsiveValue<boolean>(disabled);
 	const isError = useGetResponsiveValue<boolean>(error);
 	const isFocusedProp = useGetResponsiveValue<boolean>(focused);
@@ -112,11 +116,13 @@ const PasswordInput = forwardRef(function PasswordInput<
 
 	const isFocused = useMemo<boolean>(() => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
 
-	const config = useFormsSizeConfig({ size });
+	const config = useFormsSizeConfig({ isCompact, size, variant });
+	const iconSize = useFormsIconSize({ isCompact, size, variant });
 
 	const classes = useFormsClasses({
 		color,
 		colorMode,
+		isCompact,
 		isDisabled,
 		isError,
 		isOutlined,
@@ -197,7 +203,7 @@ const PasswordInput = forwardRef(function PasswordInput<
 			className={classNames(__KEYS_PASSWORD_INPUT_CLASS__, classes.container, { [className]: !!className })}
 			w={hasFormControl ? '100%' : w}
 			h={hasFormControl ? '100%' : h}
-			templateColumns={['auto', '1fr', 'auto'].join(' ')}
+			templateColumns={compact(['auto', '1fr', renderRight || renderToggle ? 'auto' : null]).join(' ')}
 			templateRows={1}
 			onClick={handleClick}
 			alignItems='stretch'
@@ -211,13 +217,13 @@ const PasswordInput = forwardRef(function PasswordInput<
 		>
 			<GridItem alignSelf='center' justifySelf='center'>
 				<Icon
-					w={`${childrenHeight}px`}
-					h={`${childrenHeight}px`}
+					w={iconSize.w}
+					h={iconSize.h}
 					color={color}
 					colorMode={colorMode}
 					icon='lock'
 					category='filled'
-					size={`${childrenHeight}px`}
+					size={iconSize.size}
 					variant='unstyled'
 				/>
 				{renderLeft ? renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight }) : null}
@@ -246,19 +252,22 @@ const PasswordInput = forwardRef(function PasswordInput<
 				/>
 			</GridItem>
 
-			<GridItem alignSelf='center' justifySelf='center'>
-				{renderRight ? renderRight({ color, colorMode, w: childrenWidth, h: childrenHeight }) : null}
-				<IconButton
-					color={color}
-					colorMode={colorMode}
-					isCompact
-					onClick={handleVisibility}
-					size='xs'
-					variant='icon'
-				>
-					<IconButtonIcon icon={isVisible ? 'visibility_off' : 'visibility'} category='filled' />
-				</IconButton>
-			</GridItem>
+			{renderRight || renderToggle ? (
+				<GridItem alignSelf='center' justifySelf='center'>
+					{renderRight ? renderRight({ color, colorMode, w: childrenWidth, h: childrenHeight }) : null}
+					{renderToggle
+						? renderToggle({
+								color,
+								colorMode,
+								isVisible,
+								isCompact: true,
+								onClick: handleVisibility,
+								size: 'xs',
+								variant: 'icon'
+						  })
+						: null}
+				</GridItem>
+			) : null}
 		</Grid>
 	);
 });
