@@ -14,12 +14,14 @@ import type { ClassName } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import {
+	__DEFAULT_FORMS_IS_COMPACT__,
 	__DEFAULT_FORMS_IS_DISABLED__,
 	__DEFAULT_FORMS_IS_ERROR__,
 	__DEFAULT_FORMS_IS_OUTLINED__,
 	__DEFAULT_FORMS_IS_READONLY__,
 	__DEFAULT_FORMS_IS_SUCCESS__,
 	__DEFAULT_FORMS_IS_WARNING__,
+	__DEFAULT_FORMS_LINE_HEIGHT_SIZE__,
 	__DEFAULT_FORMS_SIZE__,
 	__DEFAULT_FORMS_VARIANT__
 } from '../constants';
@@ -31,6 +33,7 @@ type UseFormsClassesProps = Pick<
 	FormsCommonProps,
 	| 'color'
 	| 'colorMode'
+	| 'isCompact'
 	| 'isDisabled'
 	| 'isError'
 	| 'isOutlined'
@@ -48,6 +51,7 @@ const useFormsClasses = (props: UseFormsClassesProps): UseFormsClassesReturn => 
 	const {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_FORMS_COLORMODE__,
+		isCompact: compact = __DEFAULT_FORMS_IS_COMPACT__,
 		isDisabled: disabled = __DEFAULT_FORMS_IS_DISABLED__,
 		isError: error = __DEFAULT_FORMS_IS_ERROR__,
 		isOutlined: outlined = __DEFAULT_FORMS_IS_OUTLINED__,
@@ -58,6 +62,7 @@ const useFormsClasses = (props: UseFormsClassesProps): UseFormsClassesReturn => 
 		variant: v = __DEFAULT_FORMS_VARIANT__
 	} = props;
 
+	const isCompact = useGetResponsiveValue<boolean>(compact);
 	const isDisabled = useGetResponsiveValue<boolean>(disabled);
 	const isError = useGetResponsiveValue<boolean>(error);
 	const isOutlined = useGetResponsiveValue<boolean>(outlined);
@@ -68,7 +73,7 @@ const useFormsClasses = (props: UseFormsClassesProps): UseFormsClassesReturn => 
 	const size = useGetResponsiveValue<FormsCommonSize>(s);
 	const variant = useGetResponsiveValue<FormsCommonVariant>(v);
 
-	const config = useFormsSizeConfig({ size });
+	const config = useFormsSizeConfig({ isCompact, size, variant });
 
 	const rootClasses = useMemo<ClassName>(() => {
 		return classNames(
@@ -83,7 +88,7 @@ const useFormsClasses = (props: UseFormsClassesProps): UseFormsClassesReturn => 
 				[classes.typography.font_size[config.fontSize]]: variant !== 'unstyled',
 				[classes.typography.font_weight.normal]: variant !== 'unstyled',
 				[classes.typography.letter_spacing.normal]: variant !== 'unstyled',
-				[classes.typography.line_height.normal]: variant !== 'unstyled',
+				[classes.typography.line_height[__DEFAULT_FORMS_LINE_HEIGHT_SIZE__]]: variant !== 'unstyled',
 				[classes.typography.transform.normal]: variant !== 'unstyled',
 				[classes.typography.text_overflow.ellipsis]: variant !== 'unstyled',
 				[classes.typography.whitespace.nowrap]: variant !== 'unstyled',
@@ -95,16 +100,6 @@ const useFormsClasses = (props: UseFormsClassesProps): UseFormsClassesReturn => 
 			}
 		);
 	}, [config.fontSize, config.radius, isDisabled, isReadOnly, variant]);
-
-	const formsClasses = useConst<ClassName>(
-		classNames(
-			classes.backgrounds.background_color.transparent,
-			classes.borders.border_width[0],
-			classes.borders.border_color.transparent,
-			classes.borders.outline_width[0],
-			classes.borders.outline_color.transparent
-		)
-	);
 
 	const outlineColorClasses = useMemo<ClassName>(() => {
 		const outlineHue = getColorHue({ colorMode, type: 'color' });
@@ -120,6 +115,16 @@ const useFormsClasses = (props: UseFormsClassesProps): UseFormsClassesReturn => 
 			classes.borders.outline_offset[0]
 		);
 	}, [color, colorMode, isError, isWarning, isSuccess]);
+
+	const formsClasses = useConst<ClassName>(
+		classNames(
+			classes.backgrounds.background_color.transparent,
+			classes.borders.border_width[0],
+			classes.borders.border_color.transparent,
+			classes.borders.outline_width[0],
+			classes.borders.outline_color.transparent
+		)
+	);
 
 	return {
 		container: classNames(rootClasses, { [outlineColorClasses]: isOutlined && variant !== 'unstyled' }),

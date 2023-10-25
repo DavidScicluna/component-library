@@ -3,8 +3,8 @@ import { useMemo } from 'react';
 import type { ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
 import { getResponsiveValue } from '@common/utils';
 
-import { __DEFAULT_FORMS_SIZE__ } from '../constants';
-import type { FormsCommonProps, FormsCommonSize } from '../types';
+import { __DEFAULT_FORMS_IS_COMPACT__, __DEFAULT_FORMS_SIZE__, __DEFAULT_FORMS_VARIANT__ } from '../constants';
+import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '../types';
 
 type FormsSizeConfig = {
 	fontSize: ThemeFontSize;
@@ -13,14 +13,20 @@ type FormsSizeConfig = {
 	spacing: ThemeSpacing;
 };
 
-type UseFormsSizeConfigProps = Pick<FormsCommonProps, 'size'>;
+type UseFormsSizeConfigProps = Pick<FormsCommonProps, 'isCompact' | 'size' | 'variant'>;
 type UseFormsSizeConfigReturn = FormsSizeConfig;
 
 const useFormsSizeConfig = (props: UseFormsSizeConfigProps): UseFormsSizeConfigReturn => {
-	const { size = __DEFAULT_FORMS_SIZE__ } = props;
+	const {
+		isCompact = __DEFAULT_FORMS_IS_COMPACT__,
+		size = __DEFAULT_FORMS_SIZE__,
+		variant = __DEFAULT_FORMS_VARIANT__
+	} = props;
 
 	const config = useMemo<FormsSizeConfig>(() => {
+		const c = getResponsiveValue<boolean>(isCompact);
 		const s = getResponsiveValue<FormsCommonSize>(size);
+		const v = getResponsiveValue<FormsCommonVariant>(variant);
 
 		const radius: ThemeRadius = 'base';
 
@@ -28,40 +34,40 @@ const useFormsSizeConfig = (props: UseFormsSizeConfigProps): UseFormsSizeConfigR
 			case 'xs':
 				return {
 					fontSize: 'xs',
-					padding: { x: 1, y: 0.25 },
+					padding: { x: v === 'underline' ? 0 : c ? 0.25 : 1, y: c ? 0.25 : 1 },
 					radius,
 					spacing: 1
 				};
 			case 'sm':
 				return {
 					fontSize: 'sm',
-					padding: { x: 1.25, y: 0.5 },
+					padding: { x: v === 'underline' ? 0 : c ? 0.5 : 1.25, y: c ? 0.5 : 1.25 },
 					radius,
 					spacing: 1.25
 				};
 			case 'lg':
 				return {
 					fontSize: 'lg',
-					padding: { x: 1.75, y: 1 },
+					padding: { x: v === 'underline' ? 0 : c ? 1 : 1.75, y: c ? 1 : 1.75 },
 					radius,
 					spacing: 1.75
 				};
 			case 'xl':
 				return {
 					fontSize: 'xl',
-					padding: { x: 2, y: 1.25 },
+					padding: { x: v === 'underline' ? 0 : c ? 1.25 : 2, y: c ? 1.25 : 2 },
 					radius,
 					spacing: 2
 				};
 			default:
 				return {
 					fontSize: 'md',
-					padding: { x: 1.5, y: 0.75 },
+					padding: { x: v === 'underline' ? 0 : c ? 0.75 : 1.5, y: c ? 0.75 : 1.5 },
 					radius,
 					spacing: 1.5
 				};
 		}
-	}, [size]);
+	}, [isCompact, size, variant]);
 
 	return config;
 };

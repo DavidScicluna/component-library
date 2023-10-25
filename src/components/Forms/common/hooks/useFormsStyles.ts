@@ -249,7 +249,6 @@ const useFormsStyles = (props: UseFormsStylesProps): UseFormsStylesReturn => {
 	const underlineDefaultStyles = useMemo<Style>(() => {
 		const colorHue = getColorHue({ colorMode, type: colorMode == 'light' ? 'darker' : 'lighter' });
 		const borderHue = getColorHue({ colorMode, type: 'divider' });
-		const backgroundHue = getColorHue({ colorMode, type: colorMode == 'light' ? 'lighter' : 'darker' });
 
 		const selectionColorHue = getColorHue({ colorMode, type: 'background' });
 		const selectionBackgroundHue = getColorHue({ colorMode, type: 'color' });
@@ -268,11 +267,7 @@ const useFormsStyles = (props: UseFormsStylesProps): UseFormsStylesReturn => {
 					colorMode,
 					amount: amount.hover
 				}),
-				'background': filterColorHex({
-					color: theme.colors.gray[backgroundHue],
-					colorMode,
-					amount: amount.hover
-				}),
+				'background': theme.colors.transparent,
 
 				'&:active': {
 					color: filterColorHex({ color: theme.colors.gray[colorHue], colorMode, amount: amount.active }),
@@ -281,11 +276,7 @@ const useFormsStyles = (props: UseFormsStylesProps): UseFormsStylesReturn => {
 						colorMode,
 						amount: amount.active
 					}),
-					background: filterColorHex({
-						color: theme.colors.gray[backgroundHue],
-						colorMode,
-						amount: amount.active
-					})
+					background: theme.colors.transparent
 				}
 			},
 
@@ -296,11 +287,7 @@ const useFormsStyles = (props: UseFormsStylesProps): UseFormsStylesReturn => {
 					colorMode,
 					amount: amount.active
 				}),
-				background: filterColorHex({
-					color: theme.colors.gray[backgroundHue],
-					colorMode,
-					amount: amount.active
-				})
+				background: theme.colors.transparent
 			},
 
 			'&:focus': {
@@ -310,11 +297,7 @@ const useFormsStyles = (props: UseFormsStylesProps): UseFormsStylesReturn => {
 					colorMode,
 					amount: amount.focus
 				}),
-				background: filterColorHex({
-					color: theme.colors.gray[backgroundHue],
-					colorMode,
-					amount: amount.focus
-				})
+				background: theme.colors.transparent
 			},
 
 			[`& ${element}::selection`]: {
@@ -330,8 +313,7 @@ const useFormsStyles = (props: UseFormsStylesProps): UseFormsStylesReturn => {
 
 	const underlineColorStyles = useMemo<Style>(() => {
 		const colorHue = getColorHue({ colorMode, type: colorMode == 'light' ? 'darker' : 'lighter' });
-		const borderHue = getColorHue({ colorMode, type: 'divider' });
-		const backgroundHue = getColorHue({ colorMode, type: colorMode == 'light' ? 'lighter' : 'darker' });
+		const borderHue = getColorHue({ colorMode, type: 'color' });
 
 		const c = isError ? 'red' : isWarning ? 'yellow' : isSuccess ? 'green' : color;
 
@@ -343,7 +325,7 @@ const useFormsStyles = (props: UseFormsStylesProps): UseFormsStylesReturn => {
 		return {
 			'color': theme.colors[c][colorHue],
 			'borderColor': theme.colors[c][borderHue],
-			'background': theme.colors[c][backgroundHue],
+			'background': theme.colors.transparent,
 
 			'&:hover': {
 				'color': filterColorHex({ color: theme.colors[c][colorHue], colorMode, amount: amount.hover }),
@@ -352,11 +334,7 @@ const useFormsStyles = (props: UseFormsStylesProps): UseFormsStylesReturn => {
 					colorMode,
 					amount: amount.hover
 				}),
-				'background': filterColorHex({
-					color: theme.colors[c][backgroundHue],
-					colorMode,
-					amount: amount.hover
-				}),
+				'background': theme.colors.transparent,
 
 				'&:active': {
 					color: filterColorHex({ color: theme.colors[c][colorHue], colorMode, amount: amount.active }),
@@ -365,11 +343,7 @@ const useFormsStyles = (props: UseFormsStylesProps): UseFormsStylesReturn => {
 						colorMode,
 						amount: amount.active
 					}),
-					background: filterColorHex({
-						color: theme.colors[c][backgroundHue],
-						colorMode,
-						amount: amount.active
-					})
+					background: theme.colors.transparent
 				}
 			},
 
@@ -380,11 +354,7 @@ const useFormsStyles = (props: UseFormsStylesProps): UseFormsStylesReturn => {
 					colorMode,
 					amount: amount.active
 				}),
-				background: filterColorHex({
-					color: theme.colors[c][backgroundHue],
-					colorMode,
-					amount: amount.active
-				})
+				background: theme.colors.transparent
 			},
 
 			'&:focus': {
@@ -394,11 +364,7 @@ const useFormsStyles = (props: UseFormsStylesProps): UseFormsStylesReturn => {
 					colorMode,
 					amount: amount.focus
 				}),
-				background: filterColorHex({
-					color: theme.colors[c][backgroundHue],
-					colorMode,
-					amount: amount.focus
-				})
+				background: theme.colors.transparent
 			},
 
 			[`& ${element}::selection`]: {
