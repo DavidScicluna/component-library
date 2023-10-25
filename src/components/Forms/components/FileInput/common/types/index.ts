@@ -41,6 +41,7 @@ export type FileInputRenderProps<Element extends FileInputElement = FileInputDef
 type PickedFormsCommonProps =
 	| 'color'
 	| 'colorMode'
+	| 'isCompact'
 	| 'isDisabled'
 	| 'isError'
 	| 'isFocused'

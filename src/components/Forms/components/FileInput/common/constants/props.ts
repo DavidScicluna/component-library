@@ -5,6 +5,7 @@ import type { ThemeDuration } from '@common/types';
 import { convertStringToNumber } from '@common/utils';
 
 import {
+	__DEFAULT_FORMS_IS_COMPACT__,
 	__DEFAULT_FORMS_IS_DISABLED__,
 	__DEFAULT_FORMS_IS_ERROR__,
 	__DEFAULT_FORMS_IS_FOCUSED__,
@@ -25,6 +26,7 @@ export const __DEFAULT_FILE_INPUT_DURATION__: ThemeDuration = 'ultra-slow';
 export const __DEFAULT_FILE_INPUT_TIMEOUT__ =
 	convertStringToNumber(theme.transitionDuration[__DEFAULT_FILE_INPUT_DURATION__], 'ms') * 5;
 
+export const __DEFAULT_FILE_INPUT_IS_COMPACT__ = __DEFAULT_FORMS_IS_COMPACT__;
 export const __DEFAULT_FILE_INPUT_IS_DISABLED__ = __DEFAULT_FORMS_IS_DISABLED__;
 export const __DEFAULT_FILE_INPUT_IS_ERROR__ = __DEFAULT_FORMS_IS_ERROR__;
 export const __DEFAULT_FILE_INPUT_IS_FOCUSED__ = __DEFAULT_FORMS_IS_FOCUSED__;
