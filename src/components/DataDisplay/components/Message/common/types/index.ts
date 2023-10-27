@@ -3,6 +3,7 @@ import type { ElementType } from 'react';
 import type {
 	BorderStyleClass,
 	PickFrom,
+	PolymorphicDefaultElement,
 	ResponsiveValue,
 	ThemeAppAppearanceProps,
 	ThemeBorderWidth,
@@ -19,11 +20,12 @@ type MessageOtherProps = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<MessageVariant>;
 };
 
-export type MessageProps<Element extends ElementType> = VStackProps<Element> & MessageOtherProps;
+export type MessageProps<Element extends ElementType = PolymorphicDefaultElement> = VStackProps<Element> &
+	MessageOtherProps;
 
-export type MessageRef<Element extends ElementType> = VStackRef<Element>;
+export type MessageRef<Element extends ElementType = PolymorphicDefaultElement> = VStackRef<Element>;
 
-export type MessageContext<Element extends ElementType> = Pick<
+export type MessageContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	MessageProps<Element>,
 	'color' | 'colorMode' | 'spacing'
 >;

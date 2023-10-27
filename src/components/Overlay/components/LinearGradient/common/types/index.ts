@@ -3,6 +3,7 @@ import type { ElementType } from 'react';
 import type {
 	GradientClass,
 	GradientFromMiddleToClass,
+	PolymorphicDefaultElement,
 	ResponsiveValue,
 	ThemeAppColorMode,
 	ThemeColor
@@ -51,6 +52,7 @@ type LinearGradientOtherProps = {
 	to?: LinearGradientColor;
 };
 
-export type LinearGradientProps<Element extends ElementType> = BoxProps<Element> & LinearGradientOtherProps;
+export type LinearGradientProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
+	LinearGradientOtherProps;
 
-export type LinearGradientRef<Element extends ElementType> = BoxRef<Element>;
+export type LinearGradientRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

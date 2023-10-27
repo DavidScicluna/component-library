@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
@@ -19,7 +20,7 @@ import { useGlassOverlayClasses, useGlassOverlayStyles } from './common/hooks';
 import { __KEYS_GLASS_OVERLAY_CLASS__ } from './common/keys';
 import type { GlassOverlayProps, GlassOverlayRef } from './common/types';
 
-const GlassOverlay = forwardRef(function GlassOverlay<Element extends ElementType>(
+const GlassOverlay = forwardRef(function GlassOverlay<Element extends ElementType = PolymorphicDefaultElement>(
 	props: GlassOverlayProps<Element>,
 	ref: GlassOverlayRef<Element>
 ): ReactElement {

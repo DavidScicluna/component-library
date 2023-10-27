@@ -5,7 +5,7 @@ import { compact } from 'lodash-es';
 
 import { __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
-import type { Style } from '@common/types';
+import type { PolymorphicDefaultElement, Style } from '@common/types';
 import { getResponsiveValue } from '@common/utils';
 
 import {
@@ -15,13 +15,13 @@ import {
 } from '../constants';
 import type { PositionOverlayPlacement, PositionOverlayProps } from '../types';
 
-type UsePositionOverlayStylesProps<Element extends ElementType> = Pick<
+type UsePositionOverlayStylesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	PositionOverlayProps<Element>,
 	'color' | 'colorMode' | 'backdropAmount' | 'placement' | 'hasBackground'
 >;
 type UsePositionOverlayStylesReturn = Record<'overlay' | 'position', Style>;
 
-const usePositionOverlayStyles = <Element extends ElementType>(
+const usePositionOverlayStyles = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UsePositionOverlayStylesProps<Element>
 ): UsePositionOverlayStylesReturn => {
 	const { colorMode: __DEFAULT_POSITION_OVERLAY_COLORMODE__ } = useAppTheme();

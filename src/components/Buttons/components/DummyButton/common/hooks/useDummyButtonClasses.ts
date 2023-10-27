@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import classes from '@common/classes';
 import { useGetClass, useGetResponsiveValue } from '@common/hooks';
-import type { ClassName, WidthClass } from '@common/types';
+import type { ClassName, PolymorphicDefaultElement, WidthClass } from '@common/types';
 
 import {
 	__DEFAULT_DUMMY_BUTTON_IS_COMPACT__,
@@ -18,13 +18,13 @@ import type { DummyButtonProps } from '../types';
 
 import useDummyButtonSizeConfig from './useDummyButtonSizeConfig';
 
-type UseDummyButtonClassesProps<Element extends ElementType> = Pick<
+type UseDummyButtonClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	DummyButtonProps<Element>,
 	'isAnimated' | 'isCompact' | 'isFullWidth' | 'isRound' | 'size' | 'variant'
 >;
 type UseDummyButtonClassesReturn = ClassName;
 
-const useDummyButtonClasses = <Element extends ElementType>(
+const useDummyButtonClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseDummyButtonClassesProps<Element>
 ): UseDummyButtonClassesReturn => {
 	const {

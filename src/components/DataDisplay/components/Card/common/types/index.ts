@@ -2,6 +2,7 @@ import type { ElementType } from 'react';
 
 import type { UseBooleanToggles } from '@common/hooks/useBoolean';
 import type {
+	PolymorphicDefaultElement,
 	PolymorphicMouseEvent,
 	ResponsiveValue,
 	ThemeAppAppearanceProps,
@@ -12,11 +13,11 @@ import type {
 import type { BoxProps, BoxRef } from '@components/Box';
 import type { PushableOverlayProps } from '@components/Overlay';
 
-export type CardMouseEvent<Element extends ElementType> = PolymorphicMouseEvent<Element>;
+export type CardMouseEvent<Element extends ElementType = PolymorphicDefaultElement> = PolymorphicMouseEvent<Element>;
 
 export type CardVariant = 'contained' | 'light' | 'dark' | 'outlined' | 'monochrome' | 'transparent';
 
-type CardOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
+type CardOtherProps<Element extends ElementType = PolymorphicDefaultElement> = ThemeAppAppearanceProps & {
 	/**
 	 * If true, the card will be clickable
 	 *
@@ -63,11 +64,12 @@ type CardOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<CardVariant>;
 } & Pick<PushableOverlayProps<Element>, 'isActive' | 'isDisabled' | 'isFixed' | 'isOutlined'>;
 
-export type CardProps<Element extends ElementType> = BoxProps<Element> & CardOtherProps<Element>;
+export type CardProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
+	CardOtherProps<Element>;
 
-export type CardRef<Element extends ElementType> = BoxRef<Element>;
+export type CardRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
-export type CardContext<Element extends ElementType> = Pick<
+export type CardContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	CardProps<Element>,
 	'color' | 'colorMode' | 'isCollapsable' | 'isDisabled' | 'isDivisible' | 'isOpen' | 'spacing' | 'variant'
 > & { isHovering: boolean; onHover: UseBooleanToggles };

@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { omit, pick } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import {
 	__DEFAULT_ANIMATION_IN__,
@@ -48,7 +49,7 @@ const variants = {
 	})
 };
 
-const Pop = forwardRef(function Pop<Element extends ElementType>(
+const Pop = forwardRef(function Pop<Element extends ElementType = PolymorphicDefaultElement>(
 	props: PopProps<Element>,
 	ref: PopRef<Element>
 ): ReactElement {

@@ -2,6 +2,7 @@ import type { ElementType } from 'react';
 import { useContext } from 'react';
 
 import { useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { DummyIconButtonContext } from '../../DummyIconButton';
 import { __DEFAULT_DUMMY_ICON_BUTTON_SIZE__, __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__ } from '../constants';
@@ -11,7 +12,7 @@ import type {
 	DummyIconButtonVariant
 } from '../types';
 
-const useDummyIconButtonContext = <Element extends ElementType>() => {
+const useDummyIconButtonContext = <Element extends ElementType = PolymorphicDefaultElement>() => {
 	const {
 		color,
 		colorMode,

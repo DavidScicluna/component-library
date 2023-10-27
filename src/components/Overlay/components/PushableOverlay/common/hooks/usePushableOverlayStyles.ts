@@ -2,7 +2,7 @@ import { type ElementType, useMemo } from 'react';
 
 import { __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useGetAmount, useGetResponsiveValue, useTheme } from '@common/hooks';
-import type { Style } from '@common/types';
+import type { PolymorphicDefaultElement, Style } from '@common/types';
 import { filterColorHex, getColorHue } from '@common/utils';
 
 import {
@@ -15,13 +15,13 @@ import {
 } from '../constants';
 import type { PushableOverlayProps, PushableOverlayVariant } from '../types';
 
-type UsePushableOverlayStylesProps<Element extends ElementType> = Pick<
+type UsePushableOverlayStylesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	PushableOverlayProps<Element>,
 	'color' | 'colorMode' | 'isActive' | 'isDisabled' | 'isFixed' | 'isPushable' | 'variant'
 >;
 type UsePushableOverlayStylesReturn = Style;
 
-const usePushableOverlayStyles = <Element extends ElementType>(
+const usePushableOverlayStyles = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UsePushableOverlayStylesProps<Element>
 ): UsePushableOverlayStylesReturn => {
 	const theme = useTheme();

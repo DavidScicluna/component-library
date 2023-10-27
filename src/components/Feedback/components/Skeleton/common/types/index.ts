@@ -1,6 +1,6 @@
 import type { ElementType } from 'react';
 
-import type { ResponsiveValue, ThemeAppAppearanceProps, ThemeRadius } from '@common/types';
+import type { PolymorphicDefaultElement, ResponsiveValue, ThemeAppAppearanceProps, ThemeRadius } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
@@ -25,6 +25,7 @@ type SkeletonOtherProps = ThemeAppAppearanceProps & {
 	radius?: ResponsiveValue<ThemeRadius>;
 };
 
-export type SkeletonProps<Element extends ElementType> = BoxProps<Element> & SkeletonOtherProps;
+export type SkeletonProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
+	SkeletonOtherProps;
 
-export type SkeletonRef<Element extends ElementType> = BoxRef<Element>;
+export type SkeletonRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

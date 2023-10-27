@@ -1,6 +1,12 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { ResponsiveValue, ThemeAppAppearanceProps, ThemeBlurClass, ThemeRadius } from '@common/types';
+import type {
+	PolymorphicDefaultElement,
+	ResponsiveValue,
+	ThemeAppAppearanceProps,
+	ThemeBlurClass,
+	ThemeRadius
+} from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 import type { GlassOverlayProps } from '@components/Overlay';
@@ -8,7 +14,7 @@ import type { GlassOverlayProps } from '@components/Overlay';
 export type LoadingOverlayBlurType = 'blur' | 'backdrop';
 export type LoadingOverlayBlurTypes = Array<LoadingOverlayBlurType>;
 
-type LoadingOverlayOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
+type LoadingOverlayOtherProps<Element extends ElementType = PolymorphicDefaultElement> = ThemeAppAppearanceProps & {
 	renderSpinner: () => ReactNode;
 	/**
 	 * The amount of the blur effect to be applied ("none", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "8xl", "9xl")
@@ -54,6 +60,7 @@ type LoadingOverlayOtherProps<Element extends ElementType> = ThemeAppAppearanceP
 	hasBackground?: boolean;
 } & Pick<GlassOverlayProps<Element>, 'blur'>;
 
-export type LoadingOverlayProps<Element extends ElementType> = BoxProps<Element> & LoadingOverlayOtherProps<Element>;
+export type LoadingOverlayProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
+	LoadingOverlayOtherProps<Element>;
 
-export type LoadingOverlayRef<Element extends ElementType> = BoxRef<Element>;
+export type LoadingOverlayRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

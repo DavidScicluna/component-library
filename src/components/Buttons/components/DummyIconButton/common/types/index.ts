@@ -1,6 +1,6 @@
 import type { ElementType } from 'react';
 
-import type { ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
+import type { PolymorphicDefaultElement, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { DummyPushableOverlayProps } from '@components/Overlay';
@@ -9,7 +9,7 @@ export type DummyIconButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type DummyIconButtonVariant = 'contained' | 'light' | 'dark' | 'outlined' | 'monochrome' | 'icon' | 'unstyled';
 
-type DummyIconButtonOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
+type DummyIconButtonOtherProps<Element extends ElementType = PolymorphicDefaultElement> = ThemeAppAppearanceProps & {
 	/**
 	 * If true, the button will be styled in a more compressed state
 	 *
@@ -36,12 +36,15 @@ type DummyIconButtonOtherProps<Element extends ElementType> = ThemeAppAppearance
 	variant?: ResponsiveValue<DummyIconButtonVariant>;
 } & Pick<DummyPushableOverlayProps<Element>, 'isAnimated' | 'isOutlined'>;
 
-export type DummyIconButtonProps<Element extends ElementType> = Omit<BoxProps<Element>, keyof BoxOtherProps> &
+export type DummyIconButtonProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+	BoxProps<Element>,
+	keyof BoxOtherProps
+> &
 	DummyIconButtonOtherProps<Element>;
 
-export type DummyIconButtonRef<Element extends ElementType> = BoxRef<Element>;
+export type DummyIconButtonRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
-export type DummyIconButtonContext<Element extends ElementType> = Pick<
+export type DummyIconButtonContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	DummyIconButtonProps<Element>,
 	'color' | 'colorMode' | 'size' | 'variant'
 >;

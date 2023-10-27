@@ -1,6 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { ResponsiveValue, ThemeAppAppearanceProps, ThemeFontSize } from '@common/types';
+import type { PolymorphicDefaultElement, ResponsiveValue, ThemeAppAppearanceProps, ThemeFontSize } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { DummyPushableOverlayProps } from '@components/Overlay';
@@ -9,12 +9,12 @@ export type DummyBadgeSize = ThemeFontSize;
 
 export type DummyBadgeVariant = 'contained' | 'light' | 'dark' | 'outlined' | 'monochrome' | 'text';
 
-export type DummyBadgeRenderProps<Element extends ElementType> = Pick<
+export type DummyBadgeRenderProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	DummyBadgeOtherProps<Element>,
 	'color' | 'colorMode'
 > & { w?: number; h?: number };
 
-type DummyBadgeOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
+type DummyBadgeOtherProps<Element extends ElementType = PolymorphicDefaultElement> = ThemeAppAppearanceProps & {
 	/**
 	 * Callback invoked to render the action button
 	 */
@@ -65,12 +65,15 @@ type DummyBadgeOtherProps<Element extends ElementType> = ThemeAppAppearanceProps
 	variant?: ResponsiveValue<DummyBadgeVariant>;
 } & Pick<DummyPushableOverlayProps<Element>, 'isAnimated' | 'isOutlined'>;
 
-export type DummyBadgeProps<Element extends ElementType> = Omit<BoxProps<Element>, keyof BoxOtherProps> &
+export type DummyBadgeProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+	BoxProps<Element>,
+	keyof BoxOtherProps
+> &
 	DummyBadgeOtherProps<Element>;
 
-export type DummyBadgeRef<Element extends ElementType> = BoxRef<Element>;
+export type DummyBadgeRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
-export type DummyBadgeContext<Element extends ElementType> = Pick<
+export type DummyBadgeContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	DummyBadgeProps<Element>,
 	'color' | 'colorMode' | 'size' | 'variant'
 >;

@@ -2,19 +2,19 @@ import { type ElementType, useMemo } from 'react';
 
 import { __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useGetResponsiveValue, useTheme } from '@common/hooks';
-import type { Style } from '@common/types';
+import type { PolymorphicDefaultElement, Style } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import { __DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__ } from '../constants';
 import type { DummyPushableOverlayProps, DummyPushableOverlayVariant } from '../types';
 
-type UseDummyPushableOverlayStylesProps<Element extends ElementType> = Pick<
+type UseDummyPushableOverlayStylesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	DummyPushableOverlayProps<Element>,
 	'color' | 'colorMode' | 'variant'
 >;
 type UseDummyPushableOverlayStylesReturn = Style;
 
-const useDummyPushableOverlayStyles = <Element extends ElementType>(
+const useDummyPushableOverlayStyles = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseDummyPushableOverlayStylesProps<Element>
 ): UseDummyPushableOverlayStylesReturn => {
 	const theme = useTheme();

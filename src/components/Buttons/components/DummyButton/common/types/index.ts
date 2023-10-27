@@ -1,6 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
+import type { PolymorphicDefaultElement, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { DummyPushableOverlayProps } from '@components/Overlay';
@@ -9,12 +9,12 @@ export type DummyButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type DummyButtonVariant = 'contained' | 'light' | 'dark' | 'outlined' | 'monochrome' | 'text' | 'unstyled';
 
-export type DummyButtonRenderProps<Element extends ElementType> = Pick<
+export type DummyButtonRenderProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	DummyButtonOtherProps<Element>,
 	'color' | 'colorMode'
 > & { w?: number; h?: number };
 
-type DummyButtonOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
+type DummyButtonOtherProps<Element extends ElementType = PolymorphicDefaultElement> = ThemeAppAppearanceProps & {
 	renderLeft?: (props: DummyButtonRenderProps<Element>) => ReactNode;
 	renderRight?: (props: DummyButtonRenderProps<Element>) => ReactNode;
 	/**
@@ -49,12 +49,15 @@ type DummyButtonOtherProps<Element extends ElementType> = ThemeAppAppearanceProp
 	variant?: ResponsiveValue<DummyButtonVariant>;
 } & Pick<DummyPushableOverlayProps<Element>, 'isAnimated' | 'isOutlined'>;
 
-export type DummyButtonProps<Element extends ElementType> = Omit<BoxProps<Element>, keyof BoxOtherProps> &
+export type DummyButtonProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+	BoxProps<Element>,
+	keyof BoxOtherProps
+> &
 	DummyButtonOtherProps<Element>;
 
-export type DummyButtonRef<Element extends ElementType> = BoxRef<Element>;
+export type DummyButtonRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
-export type DummyButtonContext<Element extends ElementType> = Pick<
+export type DummyButtonContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	DummyButtonProps<Element>,
 	'color' | 'colorMode' | 'size' | 'variant'
 >;

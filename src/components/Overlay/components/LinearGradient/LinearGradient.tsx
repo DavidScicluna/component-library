@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -16,7 +17,7 @@ import { useLinearGradientClasses } from './common/hooks';
 import { __KEYS_LINEAR_GRADIENT_CLASS__ } from './common/keys';
 import type { LinearGradientProps, LinearGradientRef } from './common/types';
 
-const LinearGradient = forwardRef(function LinearGradient<Element extends ElementType>(
+const LinearGradient = forwardRef(function LinearGradient<Element extends ElementType = PolymorphicDefaultElement>(
 	props: LinearGradientProps<Element>,
 	ref: LinearGradientRef<Element>
 ): ReactElement {

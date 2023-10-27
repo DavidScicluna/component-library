@@ -1,6 +1,6 @@
 import type { ElementType } from 'react';
 
-import type { ResponsiveValue } from '@common/types';
+import type { PolymorphicDefaultElement, ResponsiveValue } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 import type { FormsCommonProps, FormsCommonSize } from '@components/Forms';
@@ -22,12 +22,16 @@ type PickedFormsCommonProps =
 
 type PickedStackProps = 'alignItems' | 'justifyContent' | 'spacing';
 
-type FormControlOtherProps<Element extends ElementType> = Pick<FormsCommonProps, PickedFormsCommonProps> &
+type FormControlOtherProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
+	FormsCommonProps,
+	PickedFormsCommonProps
+> &
 	Pick<StackProps<Element>, PickedStackProps>;
 
-export type FormControlProps<Element extends ElementType> = BoxProps<Element> & FormControlOtherProps<Element>;
+export type FormControlProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
+	FormControlOtherProps<Element>;
 
-export type FormControlRef<Element extends ElementType> = BoxRef<Element>;
+export type FormControlRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
 type PickedFormControlProps =
 	| 'color'
@@ -43,6 +47,6 @@ type PickedFormControlProps =
 	| 'size'
 	| 'spacing';
 
-export type FormControlContext<Element extends ElementType> = {
+export type FormControlContext<Element extends ElementType = PolymorphicDefaultElement> = {
 	hasFormControl?: ResponsiveValue<boolean>;
 } & Pick<FormControlProps<Element>, PickedFormControlProps>;

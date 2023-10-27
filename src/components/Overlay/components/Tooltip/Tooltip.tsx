@@ -20,6 +20,7 @@ import { useMergeRefs } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { AnimatePresence, Fade } from '@components/Animation';
 import { Box } from '@components/Box';
@@ -39,7 +40,7 @@ import { useTooltipClasses } from './common/hooks';
 import { __KEYS_TOOLTIP_CLASS__ } from './common/keys';
 import type { TooltipPlacement, TooltipProps, TooltipRef } from './common/types';
 
-const Tooltip = forwardRef(function Tooltip<Element extends ElementType>(
+const Tooltip = forwardRef(function Tooltip<Element extends ElementType = PolymorphicDefaultElement>(
 	props: TooltipProps<Element>,
 	ref: TooltipRef<Element>
 ): ReactElement {

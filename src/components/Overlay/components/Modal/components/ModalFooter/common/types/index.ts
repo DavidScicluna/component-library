@@ -1,5 +1,7 @@
 import type { ElementType, ReactNode } from 'react';
 
+import type { PolymorphicDefaultElement } from '@common/types';
+
 import type { ButtonProps } from '@components/Buttons';
 import type { StackProps, StackRef } from '@components/Layout';
 
@@ -12,9 +14,12 @@ export type ModalFooterRenderActionProps = Pick<
 	'color' | 'colorMode' | 'isFullWidth' | 'size' | 'variant'
 >;
 
-export type ModalFooterProps<Element extends ElementType> = Omit<StackProps<Element>, 'children' | 'w' | 'h'> & {
+export type ModalFooterProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+	StackProps<Element>,
+	'children' | 'w' | 'h'
+> & {
 	renderCancel?: (props: ModalFooterRenderCancelProps) => ReactNode;
 	renderAction?: (props: ModalFooterRenderActionProps) => ReactNode;
 };
 
-export type ModalFooterRef<Element extends ElementType> = StackRef<Element>;
+export type ModalFooterRef<Element extends ElementType = PolymorphicDefaultElement> = StackRef<Element>;

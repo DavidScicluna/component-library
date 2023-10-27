@@ -5,6 +5,7 @@ import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types';
 import { getPercentage } from '@common/utils';
 
 import { Center } from '@components/Layout';
@@ -16,7 +17,7 @@ import { useProgressSectionClasses } from './common/hooks';
 import { __KEYS_PROGRESS_SECTION_CLASS__ } from './common/keys';
 import type { ProgressSectionProps, ProgressSectionRef } from './common/types';
 
-const ProgressSection = forwardRef(function ProgressSection<Element extends ElementType>(
+const ProgressSection = forwardRef(function ProgressSection<Element extends ElementType = PolymorphicDefaultElement>(
 	props: ProgressSectionProps<Element>,
 	ref: ProgressSectionRef<Element>
 ): ReactElement {

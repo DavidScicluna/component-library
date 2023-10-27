@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { motion } from 'framer-motion';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -15,7 +16,7 @@ import type { MotionBoxProps, MotionBoxRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const CustomBox: any = motion(Box);
 
-const MotionBox = forwardRef(function MotionBox<Element extends ElementType>(
+const MotionBox = forwardRef(function MotionBox<Element extends ElementType = PolymorphicDefaultElement>(
 	props: MotionBoxProps<Element>,
 	ref: MotionBoxRef<Element>
 ): ReactElement {

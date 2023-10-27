@@ -9,7 +9,7 @@ import { useEffectOnce, useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useDebounce, useGetResponsiveValue } from '@common/hooks';
-import type { ThemeSpacing } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
 
 import { Grid, GridItem, Stack } from '@components/Layout';
 
@@ -51,7 +51,7 @@ export const CarouselContext = createContext<CarouselContextType<any>>({
 	variant: __DEFAULT_CAROUSEL_VARIANT__
 });
 
-const Carousel = forwardRef(function Carousel<Element extends ElementType>(
+const Carousel = forwardRef(function Carousel<Element extends ElementType = PolymorphicDefaultElement>(
 	props: CarouselProps<Element>,
 	ref: CarouselRef<Element>
 ): ReactElement {

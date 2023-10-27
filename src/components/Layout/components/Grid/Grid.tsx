@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__, __DEFAULT_SPACING__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -20,7 +21,7 @@ import { useGridClasses, useGridStyles } from './common/hooks';
 import { __KEYS_GRID_CLASS__ } from './common/keys';
 import type { GridProps, GridRef } from './common/types';
 
-const Grid = forwardRef(function Grid<Element extends ElementType>(
+const Grid = forwardRef(function Grid<Element extends ElementType = PolymorphicDefaultElement>(
 	props: GridProps<Element>,
 	ref: GridRef<Element>
 ): ReactElement {

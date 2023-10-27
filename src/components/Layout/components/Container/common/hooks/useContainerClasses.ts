@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import classes from '@common/classes';
 import { useGetClass } from '@common/hooks';
-import type { ClassName } from '@common/types';
+import type { ClassName, PolymorphicDefaultElement } from '@common/types';
 
 import {
 	__DEFAULT_CONTAINER_BREAKPOINT__,
@@ -13,13 +13,13 @@ import {
 } from '../constants';
 import type { ContainerBreakpoint, ContainerProps } from '../types';
 
-type UseContainerClassesProps<Element extends ElementType> = Pick<
+type UseContainerClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	ContainerProps<Element>,
 	'breakpoint' | 'isContentCentered' | 'isFluid'
 >;
 type UseContainerClassesReturn = ClassName;
 
-const useContainerClasses = <Element extends ElementType>(
+const useContainerClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseContainerClassesProps<Element>
 ): UseContainerClassesReturn => {
 	const {

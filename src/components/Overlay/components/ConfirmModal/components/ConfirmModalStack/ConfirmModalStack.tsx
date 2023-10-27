@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { VStack } from '@components/Layout';
 
@@ -12,10 +13,9 @@ import { useConfirmModalContext } from '../../common/hooks';
 import { __KEYS_CONFIRM_MODAL_STACK_CLASS__ } from './common/keys';
 import type { ConfirmModalStackProps, ConfirmModalStackRef } from './common/types';
 
-const ConfirmModalStack = forwardRef(function ConfirmModalStack<Element extends ElementType>(
-	props: ConfirmModalStackProps<Element>,
-	ref: ConfirmModalStackRef<Element>
-): ReactElement {
+const ConfirmModalStack = forwardRef(function ConfirmModalStack<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: ConfirmModalStackProps<Element>, ref: ConfirmModalStackRef<Element>): ReactElement {
 	const { spacing: __DEFAULT_CONFIRM_MODAL_STACK_SPACING__ } = useConfirmModalContext();
 
 	const {

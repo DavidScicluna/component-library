@@ -7,6 +7,7 @@ import type {
 	GridRowSpanClass,
 	GridRowStartEndClass,
 	JustifySelfClass,
+	PolymorphicDefaultElement,
 	ResponsiveValue,
 	ZIndexClass
 } from '@common/types';
@@ -26,6 +27,7 @@ type GridItemOtherProps = {
 	zIndex?: ResponsiveValue<ZIndexClass>;
 };
 
-export type GridItemProps<Element extends ElementType> = BoxProps<Element> & GridItemOtherProps;
+export type GridItemProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
+	GridItemOtherProps;
 
-export type GridItemRef<Element extends ElementType> = BoxRef<Element>;
+export type GridItemRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

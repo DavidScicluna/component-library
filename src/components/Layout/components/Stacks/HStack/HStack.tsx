@@ -4,13 +4,14 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Stack } from '../Stack';
 
 import { __KEYS_H_STACK_CLASS__ } from './common/keys';
 import type { HStackProps, HStackRef } from './common/types';
 
-const HStack = forwardRef(function HStack<Element extends ElementType>(
+const HStack = forwardRef(function HStack<Element extends ElementType = PolymorphicDefaultElement>(
 	props: HStackProps<Element>,
 	ref: HStackRef<Element>
 ): ReactElement {

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { ThemeSpacing } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
 
 import { CarouselContext } from '../../Carousel';
 import {
@@ -21,7 +21,7 @@ import type {
 	CarouselVariant
 } from '../types';
 
-const useCarouselContext = <Element extends ElementType>() => {
+const useCarouselContext = <Element extends ElementType = PolymorphicDefaultElement>() => {
 	const {
 		color,
 		colorMode,

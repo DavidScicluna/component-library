@@ -1,15 +1,18 @@
 import { type ElementType, useMemo } from 'react';
 
 import { useGetResponsiveValue } from '@common/hooks';
-import type { Style } from '@common/types';
+import type { PolymorphicDefaultElement, Style } from '@common/types';
 
 import { __DEFAULT_INDICATOR_OFFSET__, __DEFAULT_INDICATOR_PLACEMENT__ } from '../constants';
 import type { IndicatorPlacement, IndicatorProps } from '../types';
 
-type UseIndicatorStylesProps<Element extends ElementType> = Pick<IndicatorProps<Element>, 'offset' | 'placement'>;
+type UseIndicatorStylesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
+	IndicatorProps<Element>,
+	'offset' | 'placement'
+>;
 type UseIndicatorStylesReturn = Record<'overlay' | 'position', Style>;
 
-const useIndicatorStyles = <Element extends ElementType>(
+const useIndicatorStyles = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseIndicatorStylesProps<Element>
 ): UseIndicatorStylesReturn => {
 	const { offset: o = __DEFAULT_INDICATOR_OFFSET__, placement: p = __DEFAULT_INDICATOR_PLACEMENT__ } = props;

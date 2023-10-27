@@ -4,19 +4,19 @@ import classNames from 'classnames';
 
 import classes from '@common/classes';
 import { useGetClass, useGetColor } from '@common/hooks';
-import type { ClassName, ThemeRadius } from '@common/types';
+import type { ClassName, PolymorphicDefaultElement, ThemeRadius } from '@common/types';
 
 import { useProgressContext } from '@components/Feedback/components/Progress/common/hooks';
 
 import type { ProgressSectionProps } from '../types';
 
-type UseProgressSectionClassesProps<Element extends ElementType> = Pick<
+type UseProgressSectionClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	ProgressSectionProps<Element>,
 	'color' | 'colorMode'
 >;
 type UseProgressSectionClassesReturn = ClassName;
 
-const useProgressSectionClasses = <Element extends ElementType>(
+const useProgressSectionClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseProgressSectionClassesProps<Element>
 ): UseProgressSectionClassesReturn => {
 	const {

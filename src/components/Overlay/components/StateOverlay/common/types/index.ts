@@ -1,13 +1,13 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { ThemeAppAppearanceProps } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 import type { GlassOverlayProps } from '@components/Overlay';
 
 export type StateOverlayState = 'success' | 'error' | 'empty' | 'loading' | 'default';
 
-type StateOverlayOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
+type StateOverlayOtherProps<Element extends ElementType = PolymorphicDefaultElement> = ThemeAppAppearanceProps & {
 	children: (state: StateOverlayState) => ReactNode;
 	renderSuccess?: (state: StateOverlayState) => ReactNode;
 	renderError?: (state: StateOverlayState) => ReactNode;
@@ -18,7 +18,10 @@ type StateOverlayOtherProps<Element extends ElementType> = ThemeAppAppearancePro
 	state: StateOverlayState;
 } & Pick<GlassOverlayProps<Element>, 'blur'>;
 
-export type StateOverlayProps<Element extends ElementType> = Omit<BoxProps<Element>, 'children'> &
+export type StateOverlayProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+	BoxProps<Element>,
+	'children'
+> &
 	StateOverlayOtherProps<Element>;
 
-export type StateOverlayRef<Element extends ElementType> = BoxRef<Element>;
+export type StateOverlayRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

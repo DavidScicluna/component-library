@@ -6,13 +6,14 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Grid, GridItem, VStack } from '@components/Layout';
 
 import { __KEYS_HEADLINE_CLASS__ } from './common/keys';
 import type { HeadlineProps, HeadlineRef } from './common/types';
 
-const Headline = forwardRef(function Headline<Element extends ElementType>(
+const Headline = forwardRef(function Headline<Element extends ElementType = PolymorphicDefaultElement>(
 	props: HeadlineProps<Element>,
 	ref: HeadlineRef<Element>
 ): ReactElement {

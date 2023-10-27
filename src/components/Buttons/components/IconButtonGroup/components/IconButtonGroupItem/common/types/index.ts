@@ -1,5 +1,7 @@
 import type { ElementType, ReactNode } from 'react';
 
+import type { PolymorphicDefaultElement } from '@common/types';
+
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
 type IconButtonGroupItemOtherProps = {
@@ -15,9 +17,9 @@ type IconButtonGroupItemOtherProps = {
 
 type OmittedBoxProps = keyof BoxOtherProps | 'children';
 
-export type IconButtonGroupItemProps<Element extends ElementType> = {
+export type IconButtonGroupItemProps<Element extends ElementType = PolymorphicDefaultElement> = {
 	children: (props: Pick<BoxProps<Element>, 'className'>) => ReactNode;
 } & Omit<BoxProps<Element>, OmittedBoxProps> &
 	IconButtonGroupItemOtherProps;
 
-export type IconButtonGroupItemRef<Element extends ElementType> = BoxRef<Element>;
+export type IconButtonGroupItemRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

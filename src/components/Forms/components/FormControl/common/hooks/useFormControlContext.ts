@@ -2,7 +2,7 @@ import type { ElementType } from 'react';
 import { useContext } from 'react';
 
 import { useGetResponsiveValue } from '@common/hooks';
-import type { ThemeSpacing } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
 
 import { FormControlContext } from '../../FormControl';
 import {
@@ -20,7 +20,7 @@ import {
 } from '../constants';
 import type { FormControlContext as FormControlContextType, FormControlSize } from '../types';
 
-const useFormControlContext = <Element extends ElementType>() => {
+const useFormControlContext = <Element extends ElementType = PolymorphicDefaultElement>() => {
 	const {
 		color,
 		colorMode,

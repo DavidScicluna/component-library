@@ -1,7 +1,7 @@
 import type { ElementType } from 'react';
 import { useMemo } from 'react';
 
-import type { ThemeFontSize, ThemeSpacing } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeFontSize, ThemeSpacing } from '@common/types';
 import { getResponsiveValue } from '@common/utils';
 
 import { useDummyTabsContext } from '@components/Navigation/components/DummyTabs/common/hooks';
@@ -15,10 +15,13 @@ type DummyTabSizeConfig = {
 	spacing: ThemeSpacing;
 };
 
-type UseDummyTabSizeConfigProps<Element extends ElementType> = Pick<DummyTabProps<Element>, 'isCompact'>;
+type UseDummyTabSizeConfigProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
+	DummyTabProps<Element>,
+	'isCompact'
+>;
 type UseDummyTabSizeConfigReturn = DummyTabSizeConfig;
 
-const useDummyTabSizeConfig = <Element extends ElementType>(
+const useDummyTabSizeConfig = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseDummyTabSizeConfigProps<Element>
 ): UseDummyTabSizeConfigReturn => {
 	const { size } = useDummyTabsContext();

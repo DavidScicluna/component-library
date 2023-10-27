@@ -5,17 +5,17 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
-import type { ClassName, ThemeRadius } from '@common/types';
+import type { ClassName, PolymorphicDefaultElement, ThemeRadius } from '@common/types';
 
 import type { ProgressProps } from '../types';
 
-type UseProgressClassesProps<Element extends ElementType> = Pick<
+type UseProgressClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	ProgressProps<Element>,
 	'color' | 'colorMode' | 'radius'
 >;
 type UseProgressClassesReturn = ClassName;
 
-const useProgressClasses = <Element extends ElementType>(
+const useProgressClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseProgressClassesProps<Element>
 ): UseProgressClassesReturn => {
 	const { colorMode: __DEFAULT_PROGRESS_COLORMODE__ } = useAppTheme();

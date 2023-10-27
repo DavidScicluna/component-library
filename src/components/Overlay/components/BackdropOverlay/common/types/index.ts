@@ -1,6 +1,12 @@
 import type { ElementType } from 'react';
 
-import type { ResponsiveValue, ThemeAppAppearanceProps, ThemeBlurClass, ThemeRadius } from '@common/types';
+import type {
+	PolymorphicDefaultElement,
+	ResponsiveValue,
+	ThemeAppAppearanceProps,
+	ThemeBlurClass,
+	ThemeRadius
+} from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
@@ -33,6 +39,7 @@ type BackdropOverlayOtherProps = ThemeAppAppearanceProps & {
 	radius?: ResponsiveValue<ThemeRadius>;
 };
 
-export type BackdropOverlayProps<Element extends ElementType> = BoxProps<Element> & BackdropOverlayOtherProps;
+export type BackdropOverlayProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
+	BackdropOverlayOtherProps;
 
-export type BackdropOverlayRef<Element extends ElementType> = BoxRef<Element>;
+export type BackdropOverlayRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

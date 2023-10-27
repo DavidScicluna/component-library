@@ -1,6 +1,12 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { ResponsiveValue, ThemeAppAppearanceProps, ThemeBlurClass, ThemeRadius } from '@common/types';
+import type {
+	PolymorphicDefaultElement,
+	ResponsiveValue,
+	ThemeAppAppearanceProps,
+	ThemeBlurClass,
+	ThemeRadius
+} from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 import type { GlassOverlayProps } from '@components/Overlay';
@@ -20,7 +26,7 @@ export type PositionOverlayPlacement =
 	| 'middle-start';
 export type PositionOverlayPlacements = Array<PositionOverlayPlacement>;
 
-type PositionOverlayOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
+type PositionOverlayOtherProps<Element extends ElementType = PolymorphicDefaultElement> = ThemeAppAppearanceProps & {
 	/**
 	 * Callback invoked to render the overlay
 	 */
@@ -75,6 +81,7 @@ type PositionOverlayOtherProps<Element extends ElementType> = ThemeAppAppearance
 	hasBackground?: boolean;
 } & Pick<GlassOverlayProps<Element>, 'blur'>;
 
-export type PositionOverlayProps<Element extends ElementType> = BoxProps<Element> & PositionOverlayOtherProps<Element>;
+export type PositionOverlayProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
+	PositionOverlayOtherProps<Element>;
 
-export type PositionOverlayRef<Element extends ElementType> = BoxRef<Element>;
+export type PositionOverlayRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

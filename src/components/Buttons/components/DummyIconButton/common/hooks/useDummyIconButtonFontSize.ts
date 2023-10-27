@@ -2,14 +2,18 @@ import type { ElementType } from 'react';
 import { useMemo } from 'react';
 
 import { useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types';
 import { getFontSizeHeight } from '@common/utils';
 
 import { __DEFAULT_DUMMY_ICON_BUTTON_LINE_HEIGHT_SIZE__, __DEFAULT_DUMMY_ICON_BUTTON_SIZE__ } from '../constants';
 import type { DummyIconButtonProps, DummyIconButtonSize } from '../types';
 
-type UseDummyIconButtonFontSizeProps<Element extends ElementType> = Pick<DummyIconButtonProps<Element>, 'size'>;
+type UseDummyIconButtonFontSizeProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
+	DummyIconButtonProps<Element>,
+	'size'
+>;
 
-const useDummyIconButtonFontSize = <Element extends ElementType>(
+const useDummyIconButtonFontSize = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseDummyIconButtonFontSizeProps<Element>
 ): number => {
 	const { size: s = __DEFAULT_DUMMY_ICON_BUTTON_SIZE__ } = props;

@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { VStack } from '@components/Layout';
 
@@ -11,7 +12,7 @@ import { __DEFAULT_CONFIRM_MODAL_BODY_SPACING__ } from './common/constants';
 import { __KEYS_CONFIRM_MODAL_BODY_CLASS__ } from './common/keys';
 import type { ConfirmModalBodyProps, ConfirmModalBodyRef } from './common/types';
 
-const ConfirmModalBody = forwardRef(function ConfirmModalBody<Element extends ElementType>(
+const ConfirmModalBody = forwardRef(function ConfirmModalBody<Element extends ElementType = PolymorphicDefaultElement>(
 	props: ConfirmModalBodyProps<Element>,
 	ref: ConfirmModalBodyRef<Element>
 ): ReactElement {

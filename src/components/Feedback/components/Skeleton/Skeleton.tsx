@@ -6,7 +6,7 @@ import type { Transition } from 'framer-motion';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useConst } from '@common/hooks';
-import type { AnimationConfig } from '@common/types';
+import type { AnimationConfig, PolymorphicDefaultElement } from '@common/types';
 import { getAnimationConfig, getAnimationDuration } from '@common/utils';
 
 import { Fade } from '@components/Animation';
@@ -18,7 +18,7 @@ import { useSkeletonClasses } from './common/hooks';
 import { __KEY_SKELETON_CHILD_CLASS__, __KEY_SKELETON_CLASS__, __KEY_SKELETON_OVERLAY_CLASS__ } from './common/keys';
 import type { SkeletonProps, SkeletonRef } from './common/types';
 
-const Skeleton = forwardRef(function Skeleton<Element extends ElementType>(
+const Skeleton = forwardRef(function Skeleton<Element extends ElementType = PolymorphicDefaultElement>(
 	props: SkeletonProps<Element>,
 	ref: SkeletonRef<Element>
 ): ReactElement {

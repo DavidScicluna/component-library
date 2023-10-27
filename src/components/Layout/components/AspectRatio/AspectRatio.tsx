@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -12,7 +13,7 @@ import { useAspectRatioClasses } from './common/hooks';
 import { __KEYS_ASPECT_RATIO_CLASS__ } from './common/keys';
 import type { AspectRatioProps, AspectRatioRef } from './common/types';
 
-const AspectRatio = forwardRef(function AspectRatio<Element extends ElementType>(
+const AspectRatio = forwardRef(function AspectRatio<Element extends ElementType = PolymorphicDefaultElement>(
 	props: AspectRatioProps<Element>,
 	ref: AspectRatioRef<Element>
 ): ReactElement {

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import classes from '@common/classes';
 import { useGetClass, useGetResponsiveValue } from '@common/hooks';
-import type { ClassName, WidthClass } from '@common/types';
+import type { ClassName, PolymorphicDefaultElement, WidthClass } from '@common/types';
 
 import {
 	__DEFAULT_DUMMY_BADGE_IS_COMPACT__,
@@ -19,13 +19,13 @@ import type { DummyBadgeProps } from '../types';
 
 import useDummyBadgeSizeConfig from './useDummyBadgeSizeConfig';
 
-type UseDummyBadgeClassesProps<Element extends ElementType> = Pick<
+type UseDummyBadgeClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	DummyBadgeProps<Element>,
 	'isCompact' | 'isFullWidth' | 'isRound' | 'isUppercase' | 'size' | 'variant'
 >;
 type UseDummyBadgeClassesReturn = ClassName;
 
-const useDummyBadgeClasses = <Element extends ElementType>(
+const useDummyBadgeClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseDummyBadgeClassesProps<Element>
 ): UseDummyBadgeClassesReturn => {
 	const {

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import classes from '@common/classes';
 import { useGetClass, useGetResponsiveValue } from '@common/hooks';
-import type { ClassName, WidthClass } from '@common/types';
+import type { ClassName, PolymorphicDefaultElement, WidthClass } from '@common/types';
 
 import {
 	__DEFAULT_BADGE_IS_COMPACT__,
@@ -19,13 +19,15 @@ import type { BadgeProps } from '../types';
 
 import useBadgeSizeConfig from './useBadgeSizeConfig';
 
-type UseBadgeClassesProps<Element extends ElementType> = Pick<
+type UseBadgeClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	BadgeProps<Element>,
 	'isCompact' | 'isFullWidth' | 'isRound' | 'isUppercase' | 'size' | 'variant'
 >;
 type UseBadgeClassesReturn = ClassName;
 
-const useBadgeClasses = <Element extends ElementType>(props: UseBadgeClassesProps<Element>): UseBadgeClassesReturn => {
+const useBadgeClasses = <Element extends ElementType = PolymorphicDefaultElement>(
+	props: UseBadgeClassesProps<Element>
+): UseBadgeClassesReturn => {
 	const {
 		isCompact = __DEFAULT_BADGE_IS_COMPACT__,
 		isFullWidth = __DEFAULT_BADGE_IS_FULLWIDTH__,

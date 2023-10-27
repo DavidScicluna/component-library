@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Skeleton } from '@components/Feedback';
 import { __KEY_SKELETON_OVERLAY_CLASS__ } from '@components/Feedback/components/Skeleton/common/keys';
@@ -14,7 +15,7 @@ import { useDummyTabsContext } from '../../common/hooks';
 import { __KEY_DUMMY_TAB_SKELETON_CLASS__ } from './common/keys';
 import type { DummyTabSkeletonProps, DummyTabSkeletonRef } from './common/types';
 
-const DummyTabSkeleton = forwardRef(function DummyTabSkeleton<Element extends ElementType>(
+const DummyTabSkeleton = forwardRef(function DummyTabSkeleton<Element extends ElementType = PolymorphicDefaultElement>(
 	props: DummyTabSkeletonProps<Element>,
 	ref: DummyTabSkeletonRef<Element>
 ): ReactElement {

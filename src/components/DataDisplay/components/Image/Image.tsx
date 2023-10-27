@@ -5,6 +5,7 @@ import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Fade } from '@components/Animation';
 import { Box } from '@components/Box';
@@ -21,7 +22,7 @@ import {
 } from './common/keys';
 import type { ImageProps, ImageRef, ImageSyntheticEvent } from './common/types';
 
-const Image = forwardRef(function Image<Element extends ElementType>(
+const Image = forwardRef(function Image<Element extends ElementType = PolymorphicDefaultElement>(
 	props: ImageProps<Element>,
 	ref: ImageRef<Element>
 ): ReactElement {

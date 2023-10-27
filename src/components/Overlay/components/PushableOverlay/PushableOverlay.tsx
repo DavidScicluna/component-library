@@ -7,7 +7,7 @@ import { useMergeRefs } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { ThemeRadius } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeRadius } from '@common/types';
 
 import { Grid, GridItem } from '@components/Layout';
 
@@ -25,7 +25,7 @@ import { __KEYS_PUSHABLE_OVERLAY_CLASS__ } from './common/keys';
 import type { PushableOverlayProps, PushableOverlayRef, PushableOverlayVariant } from './common/types';
 
 // TODO: Add gradient prop that will replaced colors with gradient from, middle & to colors
-const PushableOverlay = forwardRef(function PushableOverlay<Element extends ElementType>(
+const PushableOverlay = forwardRef(function PushableOverlay<Element extends ElementType = PolymorphicDefaultElement>(
 	props: PushableOverlayProps<Element>,
 	ref: PushableOverlayRef<Element>
 ): ReactElement {

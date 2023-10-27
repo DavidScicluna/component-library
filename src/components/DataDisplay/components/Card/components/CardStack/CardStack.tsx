@@ -5,7 +5,7 @@ import type { Transition } from 'framer-motion';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useConst } from '@common/hooks';
-import type { AnimationConfig } from '@common/types';
+import type { AnimationConfig, PolymorphicDefaultElement } from '@common/types';
 import { getAnimationConfig, getAnimationDuration } from '@common/utils';
 
 import { Collapse } from '@components/Animation';
@@ -18,7 +18,7 @@ import { CardDivider } from '../CardDivider';
 import { __KEYS_CARD_STACK_CLASS__ } from './common/keys';
 import type { CardStackProps, CardStackRef } from './common/types';
 
-const CardStack = forwardRef(function CardStack<Element extends ElementType>(
+const CardStack = forwardRef(function CardStack<Element extends ElementType = PolymorphicDefaultElement>(
 	props: CardStackProps<Element>,
 	ref: CardStackRef<Element>
 ): ReactElement {

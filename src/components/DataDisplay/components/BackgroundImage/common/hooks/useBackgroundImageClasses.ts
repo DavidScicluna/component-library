@@ -19,6 +19,7 @@ import type {
 	GrayscaleClass,
 	HueRotateClass,
 	InvertClass,
+	PolymorphicDefaultElement,
 	SaturateClass,
 	SepiaClass,
 	ThemeBlurClass,
@@ -46,13 +47,13 @@ import {
 } from '../constants';
 import type { BackgroundImageProps } from '../types';
 
-type UseBackgroundImageClassesProps<Element extends ElementType> = Pick<
+type UseBackgroundImageClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	BackgroundImageProps<Element>,
 	'filters' | 'options' | 'radius'
 >;
 type UseBackgroundImageClassesReturn = Record<'container' | 'image', ClassName>;
 
-const useBackgroundImageClasses = <Element extends ElementType>(
+const useBackgroundImageClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseBackgroundImageClassesProps<Element>
 ): UseBackgroundImageClassesReturn => {
 	const {

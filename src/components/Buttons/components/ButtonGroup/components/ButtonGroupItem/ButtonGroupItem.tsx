@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -13,7 +14,7 @@ import { useButtonGroupItemClasses } from './common/hooks';
 import { __KEYS_BUTTON_GROUP_ITEM_CLASS__ } from './common/keys';
 import type { ButtonGroupItemProps, ButtonGroupItemRef } from './common/types';
 
-const ButtonGroupItem = forwardRef(function ButtonGroupItem<Element extends ElementType>(
+const ButtonGroupItem = forwardRef(function ButtonGroupItem<Element extends ElementType = PolymorphicDefaultElement>(
 	props: ButtonGroupItemProps<Element>,
 	ref: ButtonGroupItemRef<Element>
 ): ReactElement {

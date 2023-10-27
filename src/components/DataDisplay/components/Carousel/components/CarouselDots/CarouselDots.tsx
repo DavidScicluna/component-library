@@ -7,7 +7,7 @@ import { useArrayState } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useDebounce, useGetResponsiveValue } from '@common/hooks';
-import type { ThemeSpacing } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
 
 import { Stack } from '@components/Layout';
 
@@ -24,7 +24,7 @@ import type {
 } from './common/types';
 import { CarouselDot } from './components';
 
-const CarouselDots = forwardRef(function CarouselDots<Element extends ElementType>(
+const CarouselDots = forwardRef(function CarouselDots<Element extends ElementType = PolymorphicDefaultElement>(
 	props: CarouselDotsProps<Element>,
 	ref: CarouselDotsRef<Element>
 ): ReactElement {

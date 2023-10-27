@@ -6,6 +6,7 @@ import type {
 	GrayscaleClass,
 	HueRotateClass,
 	InvertClass,
+	PolymorphicDefaultElement,
 	ResponsiveValue,
 	SaturateClass,
 	SepiaClass,
@@ -101,6 +102,7 @@ type ImageOtherProps = ThemeAppAppearanceProps & {
 	radius?: ResponsiveValue<ThemeRadius>;
 } & ImageModes;
 
-export type ImageProps<Element extends ElementType> = Omit<BoxProps<Element>, 'children'> & ImageOtherProps;
+export type ImageProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<BoxProps<Element>, 'children'> &
+	ImageOtherProps;
 
-export type ImageRef<Element extends ElementType> = BoxRef<Element>;
+export type ImageRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

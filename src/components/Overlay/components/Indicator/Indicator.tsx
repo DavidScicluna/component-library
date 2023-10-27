@@ -5,6 +5,7 @@ import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Fade } from '@components/Animation';
 import { Box } from '@components/Box';
@@ -19,7 +20,7 @@ import { useIndicatorStyles } from './common/hooks';
 import { __KEYS_INDICATOR_CLASS__ } from './common/keys';
 import type { IndicatorPlacement, IndicatorProps, IndicatorRef } from './common/types';
 
-const Indicator = forwardRef(function Indicator<Element extends ElementType>(
+const Indicator = forwardRef(function Indicator<Element extends ElementType = PolymorphicDefaultElement>(
 	props: IndicatorProps<Element>,
 	ref: IndicatorRef<Element>
 ): ReactElement {

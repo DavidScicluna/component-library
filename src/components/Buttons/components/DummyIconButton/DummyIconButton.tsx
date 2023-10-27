@@ -6,6 +6,7 @@ import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Center } from '@components/Layout';
 import { DummyPushableOverlay } from '@components/Overlay';
@@ -34,7 +35,7 @@ export const DummyIconButtonContext = createContext<DummyIconButtonContextType<a
 	variant: __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__
 });
 
-const DummyIconButton = forwardRef(function DummyIconButton<Element extends ElementType>(
+const DummyIconButton = forwardRef(function DummyIconButton<Element extends ElementType = PolymorphicDefaultElement>(
 	props: DummyIconButtonProps<Element>,
 	ref: DummyIconButtonRef<Element>
 ): ReactElement {

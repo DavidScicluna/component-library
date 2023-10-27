@@ -7,6 +7,7 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 import { Grid, GridItem, HStack, VStack } from '@components/Layout';
@@ -16,7 +17,7 @@ import { useCardContext } from '../../common/hooks';
 import { __KEYS_CARD_HEADER_CLASS__ } from './common/keys';
 import type { CardHeaderProps, CardHeaderRef } from './common/types';
 
-const CardHeader = forwardRef(function CardHeader<Element extends ElementType>(
+const CardHeader = forwardRef(function CardHeader<Element extends ElementType = PolymorphicDefaultElement>(
 	props: CardHeaderProps<Element>,
 	ref: CardHeaderRef<Element>
 ): ReactElement {

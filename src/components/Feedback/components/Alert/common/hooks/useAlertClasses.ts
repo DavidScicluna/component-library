@@ -5,17 +5,22 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
-import type { ClassName, ThemeColor } from '@common/types';
+import type { ClassName, PolymorphicDefaultElement, ThemeColor } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import { __DEFAULT_ALERT_STATUS__ } from '../constants';
 import type { AlertProps, AlertStatus } from '../types';
 import { getStatusColor } from '../utils';
 
-type UseAlertClassesProps<Element extends ElementType> = Pick<AlertProps<Element>, 'color' | 'colorMode' | 'status'>;
+type UseAlertClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
+	AlertProps<Element>,
+	'color' | 'colorMode' | 'status'
+>;
 type UseAlertClassesReturn = ClassName;
 
-const useAlertClasses = <Element extends ElementType>(props: UseAlertClassesProps<Element>): UseAlertClassesReturn => {
+const useAlertClasses = <Element extends ElementType = PolymorphicDefaultElement>(
+	props: UseAlertClassesProps<Element>
+): UseAlertClassesReturn => {
 	const { colorMode: __DEFAULT_ALERT_COLORMODE__ } = useAppTheme();
 
 	const {

@@ -1,7 +1,7 @@
 import type { ElementType } from 'react';
 import { useMemo } from 'react';
 
-import type { ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
 import { getResponsiveValue } from '@common/utils';
 
 import {
@@ -18,13 +18,13 @@ type DummyIconButtonSizeConfig = {
 	radius: ThemeRadius;
 };
 
-type UseDummyIconButtonSizeConfigProps<Element extends ElementType> = Pick<
+type UseDummyIconButtonSizeConfigProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	DummyIconButtonProps<Element>,
 	'isCompact' | 'isRound' | 'size' | 'variant'
 >;
 type UseDummyIconButtonSizeConfigReturn = DummyIconButtonSizeConfig;
 
-const useDummyIconButtonSizeConfig = <Element extends ElementType>(
+const useDummyIconButtonSizeConfig = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseDummyIconButtonSizeConfigProps<Element>
 ): UseDummyIconButtonSizeConfigReturn => {
 	const {

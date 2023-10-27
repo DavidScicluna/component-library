@@ -12,6 +12,7 @@ import type {
 	GrayscaleClass,
 	HueRotateClass,
 	InvertClass,
+	PolymorphicDefaultElement,
 	SaturateClass,
 	SepiaClass,
 	ThemeBlurClass,
@@ -35,13 +36,15 @@ import {
 } from '../constants';
 import type { ImageProps } from '../types';
 
-type UseImageClassesProps<Element extends ElementType> = Pick<
+type UseImageClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	ImageProps<Element>,
 	'color' | 'colorMode' | 'filters' | 'options' | 'radius'
 >;
 type UseImageClassesReturn = Record<'container' | 'image' | 'fallback' | 'thumbnail', ClassName>;
 
-const useImageClasses = <Element extends ElementType>(props: UseImageClassesProps<Element>): UseImageClassesReturn => {
+const useImageClasses = <Element extends ElementType = PolymorphicDefaultElement>(
+	props: UseImageClassesProps<Element>
+): UseImageClassesReturn => {
 	const { colorMode: __DEFAULT_IMAGE_COLORMODE__ } = useAppTheme();
 
 	const {

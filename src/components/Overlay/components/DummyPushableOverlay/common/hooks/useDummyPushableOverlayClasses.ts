@@ -10,7 +10,7 @@ import {
 	__DEFAULT_RADIUS__
 } from '@common/constants';
 import { useAppTheme, useGetResponsiveValue } from '@common/hooks';
-import type { ClassName, ThemeRadius } from '@common/types';
+import type { ClassName, PolymorphicDefaultElement, ThemeRadius } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import {
@@ -20,13 +20,13 @@ import {
 } from '../constants';
 import type { DummyPushableOverlayProps, DummyPushableOverlayVariant } from '../types';
 
-type UseDummyPushableOverlayClassesProps<Element extends ElementType> = Pick<
+type UseDummyPushableOverlayClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	DummyPushableOverlayProps<Element>,
 	'colorMode' | 'isAnimated' | 'isOutlined' | 'radius' | 'variant'
 >;
 type UseDummyPushableOverlayClassesReturn = ClassName;
 
-const useDummyPushableOverlayClasses = <Element extends ElementType>(
+const useDummyPushableOverlayClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseDummyPushableOverlayClassesProps<Element>
 ): UseDummyPushableOverlayClassesReturn => {
 	const { colorMode: __DEFAULT_DUMMY_PUSHABLE_OVERLAY_COLORMODE__ } = useAppTheme();

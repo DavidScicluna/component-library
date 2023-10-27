@@ -1,6 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
+import type { PolymorphicDefaultElement, ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
@@ -37,11 +37,12 @@ type CarouselOtherProps = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<CarouselVariant>;
 };
 
-export type CarouselProps<Element extends ElementType> = BoxProps<Element> & CarouselOtherProps;
+export type CarouselProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
+	CarouselOtherProps;
 
-export type CarouselRef<Element extends ElementType> = BoxRef<Element>;
+export type CarouselRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
-export type CarouselContext<Element extends ElementType> = Pick<
+export type CarouselContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	CarouselProps<Element>,
 	'color' | 'colorMode' | 'id' | 'scrollAmount' | 'spacing' | 'orientation' | 'variant'
 > & { items: CarouselItems; visibleItems: CarouselVisibleItems };

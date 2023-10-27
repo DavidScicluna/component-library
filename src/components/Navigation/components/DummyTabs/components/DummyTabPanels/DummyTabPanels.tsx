@@ -6,6 +6,7 @@ import { isArray } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useConst } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types';
 import { getAnimationConfig, getAnimationDuration, getAnimationEasings } from '@common/utils';
 
 import type { FadeProps as DummyTabPanelFadeProps } from '@components/Animation';
@@ -18,7 +19,10 @@ import { getDummyTabPanelID, getDummyTabPanelsID, getDummyTabsID } from '../../c
 import { __KEYS_DUMMY_TABS_TAB_PANELS_CLASS__ } from './common/keys';
 import type { DummyTabPanelProps, DummyTabPanelsProps, DummyTabPanelsRef } from './common/types';
 
-const DummyTabPanelFade = <Element extends ElementType>({ children, ...rest }: DummyTabPanelFadeProps<Element>) => {
+const DummyTabPanelFade = <Element extends ElementType = PolymorphicDefaultElement>({
+	children,
+	...rest
+}: DummyTabPanelFadeProps<Element>) => {
 	const duration = useConst(getAnimationDuration('slow'));
 	const easing = useConst(getAnimationEasings('ease-in-out'));
 	const config = useConst({ ...getAnimationConfig(), duration, easing });
@@ -30,7 +34,10 @@ const DummyTabPanelFade = <Element extends ElementType>({ children, ...rest }: D
 	);
 };
 
-const DummyTabPanel = <Element extends ElementType>({ children, index }: DummyTabPanelProps<Element>) => {
+const DummyTabPanel = <Element extends ElementType = PolymorphicDefaultElement>({
+	children,
+	index
+}: DummyTabPanelProps<Element>) => {
 	const { index: panel } = useDummyTabsContext();
 
 	return (
@@ -42,7 +49,7 @@ const DummyTabPanel = <Element extends ElementType>({ children, index }: DummyTa
 	);
 };
 
-const DummyTabPanels = forwardRef(function DummyTabPanels<Element extends ElementType>(
+const DummyTabPanels = forwardRef(function DummyTabPanels<Element extends ElementType = PolymorphicDefaultElement>(
 	props: DummyTabPanelsProps<Element>,
 	ref: DummyTabPanelsRef<Element>
 ): ReactElement {

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { AlignItemsClass, JustifyContentClass, ThemeSpacing } from '@common/types';
+import type { AlignItemsClass, JustifyContentClass, PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
 
 import { VStack } from '@components/Layout';
 
@@ -45,7 +45,7 @@ export const FormControlContext = createContext<FormControlContextType<any>>({
 	spacing: __DEFAULT_FORM_CONTROL_SPACING__
 });
 
-const FormControl = forwardRef(function FormControl<Element extends ElementType>(
+const FormControl = forwardRef(function FormControl<Element extends ElementType = PolymorphicDefaultElement>(
 	props: FormControlProps<Element>,
 	ref: FormControlRef<Element>
 ): ReactElement {

@@ -1,6 +1,6 @@
 import type { ElementType } from 'react';
 
-import type { ResponsiveValue, ThemeBreakpoint } from '@common/types';
+import type { PolymorphicDefaultElement, ResponsiveValue, ThemeBreakpoint } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
@@ -13,6 +13,7 @@ type ContainerOtherProps = {
 	isFluid?: ResponsiveValue<boolean>;
 };
 
-export type ContainerProps<Element extends ElementType> = BoxProps<Element> & ContainerOtherProps;
+export type ContainerProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
+	ContainerOtherProps;
 
-export type ContainerRef<Element extends ElementType> = BoxRef<Element>;
+export type ContainerRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

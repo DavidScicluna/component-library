@@ -3,7 +3,14 @@ import type { ElementType } from 'react';
 import classNames from 'classnames';
 
 import { useGetClass } from '@common/hooks';
-import type { ClassName, OverflowClass, SaturateClass, ThemeBlurClass, ThemeRadius } from '@common/types';
+import type {
+	ClassName,
+	OverflowClass,
+	PolymorphicDefaultElement,
+	SaturateClass,
+	ThemeBlurClass,
+	ThemeRadius
+} from '@common/types';
 
 import {
 	__DEFAULT_GLASS_OVERLAY_BLUR__,
@@ -12,14 +19,14 @@ import {
 } from '../constants';
 import type { GlassOverlayProps } from '../types';
 
-type UseGlassOverlayClassesProps<Element extends ElementType> = Pick<
+type UseGlassOverlayClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	GlassOverlayProps<Element>,
 	'blur' | 'blurType' | 'radius'
 >;
 type UseGlassOverlayClassesReturn = Record<'container' | 'overlay', ClassName>;
 
 // TODO: Remove Get from all GetClasses hooks names
-const useGlassOverlayClasses = <Element extends ElementType>(
+const useGlassOverlayClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseGlassOverlayClassesProps<Element>
 ): UseGlassOverlayClassesReturn => {
 	const {

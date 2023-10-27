@@ -2,7 +2,7 @@ import type { ElementType } from 'react';
 import { useContext } from 'react';
 
 import { useGetResponsiveValue } from '@common/hooks';
-import type { FlexDirectionClass } from '@common/types';
+import type { FlexDirectionClass, PolymorphicDefaultElement } from '@common/types';
 
 import { __DEFAULT_STACK_DIRECTION__ } from '@components/Layout/components/Stacks/Stack/common/constants';
 
@@ -10,7 +10,7 @@ import { ButtonGroupContext } from '../../ButtonGroup';
 import { __DEFAULT_BUTTON_GROUP_IS_ATTACHED__ } from '../constants';
 import type { ButtonGroupContext as ButtonGroupContextType } from '../types';
 
-const useButtonGroupContext = <Element extends ElementType>() => {
+const useButtonGroupContext = <Element extends ElementType = PolymorphicDefaultElement>() => {
 	const {
 		color,
 		colorMode,

@@ -1,6 +1,6 @@
 import type { ElementType } from 'react';
 
-import type { ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
+import type { PolymorphicDefaultElement, ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
@@ -48,11 +48,12 @@ type DummyTabsOtherProps = ThemeAppAppearanceProps & {
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type DummyTabsProps<Element extends ElementType> = BoxProps<Element> & DummyTabsOtherProps;
+export type DummyTabsProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
+	DummyTabsOtherProps;
 
-export type DummyTabsRef<Element extends ElementType> = BoxRef<Element>;
+export type DummyTabsRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
-export type DummyTabsContext<Element extends ElementType> = Pick<
+export type DummyTabsContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	DummyTabsProps<Element>,
 	'color' | 'colorMode' | 'align' | 'id' | 'index' | 'isAnimated' | 'isFitted' | 'orientation' | 'size' | 'spacing'
 >;

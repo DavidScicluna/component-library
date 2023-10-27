@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Fade } from '@components/Animation';
 import { Center, Grid, GridItem } from '@components/Layout';
@@ -18,7 +19,7 @@ import {
 import { __KEYS_STATE_OVERLAY_CLASS__ } from './common/keys';
 import type { StateOverlayProps, StateOverlayRef } from './common/types';
 
-const StateOverlay = forwardRef(function StateOverlay<Element extends ElementType>(
+const StateOverlay = forwardRef(function StateOverlay<Element extends ElementType = PolymorphicDefaultElement>(
 	props: StateOverlayProps<Element>,
 	ref: StateOverlayRef<Element>
 ): ReactElement {

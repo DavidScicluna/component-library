@@ -4,13 +4,14 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Center } from '@components/Layout';
 
 import { __KEYS_CARD_BODY_CLASS__ } from './common/keys';
 import type { CardBodyProps, CardBodyRef } from './common/types';
 
-const CardBody = forwardRef(function CardBody<Element extends ElementType>(
+const CardBody = forwardRef(function CardBody<Element extends ElementType = PolymorphicDefaultElement>(
 	props: CardBodyProps<Element>,
 	ref: CardBodyRef<Element>
 ): ReactElement {

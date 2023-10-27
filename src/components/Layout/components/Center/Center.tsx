@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -12,7 +13,7 @@ import { useCenterClasses } from './common/hooks';
 import { __KEYS_CENTER_CLASS__ } from './common/keys';
 import type { CenterProps, CenterRef } from './common/types';
 
-const Center = forwardRef(function Center<Element extends ElementType>(
+const Center = forwardRef(function Center<Element extends ElementType = PolymorphicDefaultElement>(
 	props: CenterProps<Element>,
 	ref: CenterRef<Element>
 ): ReactElement {

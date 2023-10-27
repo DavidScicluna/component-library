@@ -1,6 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { ResponsiveValue, ThemeAppAppearanceProps, ThemeFontSize } from '@common/types';
+import type { PolymorphicDefaultElement, ResponsiveValue, ThemeAppAppearanceProps, ThemeFontSize } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { PushableOverlayProps } from '@components/Overlay';
@@ -9,12 +9,15 @@ export type BadgeSize = ThemeFontSize;
 
 export type BadgeVariant = 'contained' | 'light' | 'dark' | 'outlined' | 'monochrome' | 'text';
 
-export type BadgeRenderProps<Element extends ElementType> = Pick<BadgeOtherProps<Element>, 'color' | 'colorMode'> & {
+export type BadgeRenderProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
+	BadgeOtherProps<Element>,
+	'color' | 'colorMode'
+> & {
 	w?: number;
 	h?: number;
 };
 
-type BadgeOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
+type BadgeOtherProps<Element extends ElementType = PolymorphicDefaultElement> = ThemeAppAppearanceProps & {
 	/**
 	 * Callback invoked to render the action button
 	 */
@@ -71,12 +74,15 @@ type BadgeOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<BadgeVariant>;
 } & Pick<PushableOverlayProps<Element>, 'isActive' | 'isDisabled' | 'isOutlined'>;
 
-export type BadgeProps<Element extends ElementType> = Omit<BoxProps<Element>, keyof BoxOtherProps> &
+export type BadgeProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+	BoxProps<Element>,
+	keyof BoxOtherProps
+> &
 	BadgeOtherProps<Element>;
 
-export type BadgeRef<Element extends ElementType> = BoxRef<Element>;
+export type BadgeRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
-export type BadgeContext<Element extends ElementType> = Pick<
+export type BadgeContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	BadgeProps<Element>,
 	'color' | 'colorMode' | 'size' | 'variant'
 >;

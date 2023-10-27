@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { VStack } from '@components/Layout';
 
@@ -12,10 +13,9 @@ import { useConfirmModalContext } from '../../common/hooks';
 import { __KEYS_CONFIRM_MODAL_ACTIONS_CLASS__ } from './common/keys';
 import type { ConfirmModalActionsProps, ConfirmModalActionsRef } from './common/types';
 
-const ConfirmModalActions = forwardRef(function ConfirmModalActions<Element extends ElementType>(
-	props: ConfirmModalActionsProps<Element>,
-	ref: ConfirmModalActionsRef<Element>
-): ReactElement {
+const ConfirmModalActions = forwardRef(function ConfirmModalActions<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: ConfirmModalActionsProps<Element>, ref: ConfirmModalActionsRef<Element>): ReactElement {
 	const { color, colorMode, onClose, spacing: __DEFAULT_CONFIRM_MODAL_ACTIONS_SPACING__ } = useConfirmModalContext();
 
 	const {

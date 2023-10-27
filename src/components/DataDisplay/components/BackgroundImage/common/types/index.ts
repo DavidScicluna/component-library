@@ -13,6 +13,7 @@ import type {
 	GrayscaleClass,
 	HueRotateClass,
 	InvertClass,
+	PolymorphicDefaultElement,
 	ResponsiveValue,
 	SaturateClass,
 	SepiaClass,
@@ -133,6 +134,7 @@ type BackgroundImageOtherProps = {
 	src: string;
 };
 
-export type BackgroundImageProps<Element extends ElementType> = BoxProps<Element> & BackgroundImageOtherProps;
+export type BackgroundImageProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
+	BackgroundImageOtherProps;
 
-export type BackgroundImageRef<Element extends ElementType> = BoxRef<Element>;
+export type BackgroundImageRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import { useMergeRefs } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Fade } from '@components/Animation';
 import { Center } from '@components/Layout';
@@ -13,7 +14,7 @@ import { Center } from '@components/Layout';
 import { __KEYS_CAROUSEL_ITEM_CLASS__ } from './common/keys';
 import type { CarouselItemProps, CarouselItemRef } from './common/types';
 
-const CarouselItem = forwardRef(function CarouselItem<Element extends ElementType>(
+const CarouselItem = forwardRef(function CarouselItem<Element extends ElementType = PolymorphicDefaultElement>(
 	props: CarouselItemProps<Element>,
 	ref: CarouselItemRef<Element>
 ): ReactElement {

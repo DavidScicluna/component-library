@@ -7,6 +7,7 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Pop } from '@components/Animation';
 import { Box } from '@components/Box';
@@ -25,7 +26,7 @@ import { useDummyTabClasses, useDummyTabSizeConfig } from './common/hooks';
 import { __KEYS_DUMMY_TAB_CLASS__ } from './common/keys';
 import type { DummyTabProps, DummyTabRef } from './common/types';
 
-const DummyTab = forwardRef(function DummyTab<Element extends ElementType>(
+const DummyTab = forwardRef(function DummyTab<Element extends ElementType = PolymorphicDefaultElement>(
 	props: DummyTabProps<Element>,
 	ref: DummyTabRef<Element>
 ): ReactElement {

@@ -7,7 +7,7 @@ import { useCountdown, useEffectOnce, useUpdateEffect } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetResponsiveValue, useTheme } from '@common/hooks';
-import type { ThemeColor, ThemeSpacing } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeColor, ThemeSpacing } from '@common/types';
 
 import { Grid, GridItem, HStack, VStack } from '@components/Layout';
 
@@ -29,7 +29,7 @@ import { getStatusColor } from './common/utils';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const AlertContext = createContext<AlertContextType<any>>({ status: __DEFAULT_ALERT_STATUS__ });
 
-const Alert = forwardRef(function Alert<Element extends ElementType>(
+const Alert = forwardRef(function Alert<Element extends ElementType = PolymorphicDefaultElement>(
 	props: AlertProps<Element>,
 	ref: AlertRef<Element>
 ): ReactElement {

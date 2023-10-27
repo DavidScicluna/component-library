@@ -6,15 +6,18 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useConst } from '@common/hooks';
-import type { ClassName } from '@common/types';
+import type { ClassName, PolymorphicDefaultElement } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import type { TooltipProps } from '../types';
 
-type UseTooltipClassesProps<Element extends ElementType> = Pick<TooltipProps<Element>, 'color' | 'colorMode'>;
+type UseTooltipClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
+	TooltipProps<Element>,
+	'color' | 'colorMode'
+>;
 type UseTooltipClassesReturn = Record<'tooltip' | 'arrow' | 'content', ClassName>;
 
-const useTooltipClasses = <Element extends ElementType>(
+const useTooltipClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseTooltipClassesProps<Element>
 ): UseTooltipClassesReturn => {
 	const { colorMode: __DEFAULT_ICON_COLORMODE__ } = useAppTheme();

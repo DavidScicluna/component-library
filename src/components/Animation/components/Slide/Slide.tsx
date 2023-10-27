@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { omit, pick } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import {
 	__DEFAULT_ANIMATION_IN__,
@@ -65,7 +66,7 @@ const variants = {
 	})
 };
 
-const Slide = forwardRef(function Slide<Element extends ElementType>(
+const Slide = forwardRef(function Slide<Element extends ElementType = PolymorphicDefaultElement>(
 	props: SlideProps<Element>,
 	ref: SlideRef<Element>
 ): ReactElement {

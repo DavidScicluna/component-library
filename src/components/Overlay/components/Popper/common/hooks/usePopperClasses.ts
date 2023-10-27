@@ -11,15 +11,18 @@ import {
 	__DEFAULT_RADIUS__
 } from '@common/constants';
 import { useAppTheme, useConst, useGetResponsiveValue } from '@common/hooks';
-import type { ClassName, ThemeRadius } from '@common/types';
+import type { ClassName, PolymorphicDefaultElement, ThemeRadius } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import type { PopperProps } from '../types';
 
-type UsePopperClassesProps<Element extends ElementType> = Pick<PopperProps<Element>, 'color' | 'colorMode' | 'radius'>;
+type UsePopperClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
+	PopperProps<Element>,
+	'color' | 'colorMode' | 'radius'
+>;
 type UsePopperClassesReturn = Record<'popper' | 'arrow', ClassName>;
 
-const usePopperClasses = <Element extends ElementType>(
+const usePopperClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UsePopperClassesProps<Element>
 ): UsePopperClassesReturn => {
 	const { colorMode: __DEFAULT_ICON_COLORMODE__ } = useAppTheme();

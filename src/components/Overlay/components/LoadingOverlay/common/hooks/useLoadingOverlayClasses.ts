@@ -3,7 +3,14 @@ import type { ElementType } from 'react';
 import classNames from 'classnames';
 
 import { useGetClass } from '@common/hooks';
-import type { ClassName, OverflowClass, SaturateClass, ThemeBlurClass, ThemeRadius } from '@common/types';
+import type {
+	ClassName,
+	OverflowClass,
+	PolymorphicDefaultElement,
+	SaturateClass,
+	ThemeBlurClass,
+	ThemeRadius
+} from '@common/types';
 
 import {
 	__DEFAULT_LOADING_OVERLAY_BLUR__,
@@ -13,14 +20,14 @@ import {
 } from '../constants';
 import type { LoadingOverlayProps } from '../types';
 
-type UseLoadingOverlayClassesProps<Element extends ElementType> = Pick<
+type UseLoadingOverlayClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	LoadingOverlayProps<Element>,
 	'blur' | 'blurType' | 'radius' | 'hasGlass'
 >;
 type UseLoadingOverlayClassesReturn = Record<'container' | 'overlay', ClassName>;
 
 // TODO: Remove Get from all GetClasses hooks names
-const useLoadingOverlayClasses = <Element extends ElementType>(
+const useLoadingOverlayClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseLoadingOverlayClassesProps<Element>
 ): UseLoadingOverlayClassesReturn => {
 	const {

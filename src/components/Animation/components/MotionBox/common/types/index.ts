@@ -2,10 +2,13 @@ import type { ElementType } from 'react';
 
 import type { MotionProps } from 'framer-motion';
 
+import type { PolymorphicDefaultElement } from '@common/types';
+
 import type { TransitionProps } from '@components/Animation';
 import type { BoxProps, BoxRef } from '@components/Box';
 
-// TODO: Replace all ELementype with ElementType = PolymorphicDefaultElement
-export type MotionBoxProps<Element extends ElementType> = BoxProps<Element> & TransitionProps & MotionProps;
+export type MotionBoxProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
+	TransitionProps &
+	MotionProps;
 
-export type MotionBoxRef<Element extends ElementType> = BoxRef<Element>;
+export type MotionBoxRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

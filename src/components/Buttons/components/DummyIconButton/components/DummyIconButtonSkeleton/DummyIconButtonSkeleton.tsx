@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Skeleton } from '@components/Feedback';
 import { __KEY_SKELETON_OVERLAY_CLASS__ } from '@components/Feedback/components/Skeleton/common/keys';
@@ -14,10 +15,9 @@ import { useDummyIconButtonContext } from '../../common/hooks';
 import { __KEY_DUMMY_ICON_BUTTON_SKELETON_CLASS__ } from './common/keys';
 import type { DummyIconButtonSkeletonProps, DummyIconButtonSkeletonRef } from './common/types';
 
-const DummyIconButtonSkeleton = forwardRef(function DummyIconButtonSkeleton<Element extends ElementType>(
-	props: DummyIconButtonSkeletonProps<Element>,
-	ref: DummyIconButtonSkeletonRef<Element>
-): ReactElement {
+const DummyIconButtonSkeleton = forwardRef(function DummyIconButtonSkeleton<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: DummyIconButtonSkeletonProps<Element>, ref: DummyIconButtonSkeletonRef<Element>): ReactElement {
 	const { color, colorMode, variant } = useDummyIconButtonContext();
 
 	const { children, className = __DEFAULT_CLASSNAME__, ...rest } = props;

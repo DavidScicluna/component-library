@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
@@ -18,7 +19,7 @@ import { useBackdropOverlayClasses, useBackdropOverlayStyles } from './common/ho
 import { __KEYS_BACKDROP_OVERLAY_CLASS__ } from './common/keys';
 import type { BackdropOverlayProps, BackdropOverlayRef } from './common/types';
 
-const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends ElementType>(
+const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends ElementType = PolymorphicDefaultElement>(
 	props: BackdropOverlayProps<Element>,
 	ref: BackdropOverlayRef<Element>
 ): ReactElement {

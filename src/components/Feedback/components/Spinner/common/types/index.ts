@@ -1,7 +1,7 @@
 import type { ElementType } from 'react';
 import type { Style } from 'react-loader-spinner/dist/type';
 
-import type { PickFrom, ThemeFontSize, ThemeRadius } from '@common/types';
+import type { PickFrom, PolymorphicDefaultElement, ThemeFontSize, ThemeRadius } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
@@ -77,6 +77,10 @@ type SpinnerOtherProps = {
 
 type OmittedBoxProps = keyof BoxOtherProps | 'children';
 
-export type SpinnerProps<Element extends ElementType> = Omit<BoxProps<Element>, OmittedBoxProps> & SpinnerOtherProps;
+export type SpinnerProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+	BoxProps<Element>,
+	OmittedBoxProps
+> &
+	SpinnerOtherProps;
 
-export type SpinnerRef<Element extends ElementType> = BoxRef<Element>;
+export type SpinnerRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

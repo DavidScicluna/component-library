@@ -11,6 +11,7 @@ import type {
 	FlexDirectionClass,
 	FlexWrapClass,
 	JustifyContentClass,
+	PolymorphicDefaultElement,
 	ThemeSpacing
 } from '@common/types';
 
@@ -26,7 +27,7 @@ import { useStackClasses } from './common/hooks';
 import { __KEYS_STACK_CLASS__ } from './common/keys';
 import type { StackProps, StackRef } from './common/types';
 
-const Stack = forwardRef(function Stack<Element extends ElementType>(
+const Stack = forwardRef(function Stack<Element extends ElementType = PolymorphicDefaultElement>(
 	props: StackProps<Element>,
 	ref: StackRef<Element>
 ): ReactElement {

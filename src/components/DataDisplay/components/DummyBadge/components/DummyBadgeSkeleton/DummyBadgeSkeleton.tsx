@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Skeleton } from '@components/Feedback';
 import { __KEY_SKELETON_OVERLAY_CLASS__ } from '@components/Feedback/components/Skeleton/common/keys';
@@ -14,10 +15,9 @@ import { useDummyBadgeContext } from '../../common/hooks';
 import { __KEY_DUMMY_BADGE_SKELETON_CLASS__ } from './common/keys';
 import type { DummyBadgeSkeletonProps, DummyBadgeSkeletonRef } from './common/types';
 
-const DummyBadgeSkeleton = forwardRef(function DummyBadgeSkeleton<Element extends ElementType>(
-	props: DummyBadgeSkeletonProps<Element>,
-	ref: DummyBadgeSkeletonRef<Element>
-): ReactElement {
+const DummyBadgeSkeleton = forwardRef(function DummyBadgeSkeleton<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: DummyBadgeSkeletonProps<Element>, ref: DummyBadgeSkeletonRef<Element>): ReactElement {
 	const { color, colorMode, variant } = useDummyBadgeContext();
 
 	const { children, className = __DEFAULT_CLASSNAME__, ...rest } = props;

@@ -5,6 +5,7 @@ import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -17,7 +18,7 @@ import { useContainerClasses } from './common/hooks';
 import { __KEYS_CONTAINER_CLASS__ } from './common/keys';
 import type { ContainerProps, ContainerRef } from './common/types';
 
-const Container = forwardRef(function Container<Element extends ElementType>(
+const Container = forwardRef(function Container<Element extends ElementType = PolymorphicDefaultElement>(
 	props: ContainerProps<Element>,
 	ref: ContainerRef<Element>
 ): ReactElement {

@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -12,7 +13,7 @@ import { useSpaceClasses } from './common/hooks';
 import { __KEYS_SPACE_CLASS__ } from './common/keys';
 import type { SpaceProps, SpaceRef } from './common/types';
 
-const Space = forwardRef(function Space<Element extends ElementType>(
+const Space = forwardRef(function Space<Element extends ElementType = PolymorphicDefaultElement>(
 	props: SpaceProps<Element>,
 	ref: SpaceRef<Element>
 ): ReactElement {

@@ -11,6 +11,7 @@ import type {
 	FlexDirectionClass,
 	FlexWrapClass,
 	JustifyContentClass,
+	PolymorphicDefaultElement,
 	ThemeSpacing
 } from '@common/types';
 
@@ -22,13 +23,15 @@ import {
 } from '../constants';
 import type { StackProps } from '../types';
 
-type UseStackClassesProps<Element extends ElementType> = Pick<
+type UseStackClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	StackProps<Element>,
 	'alignItems' | 'direction' | 'justifyContent' | 'spacing' | 'wrap'
 >;
 type UseStackClassesReturn = ClassName;
 
-const useStackClasses = <Element extends ElementType>(props: UseStackClassesProps<Element>): UseStackClassesReturn => {
+const useStackClasses = <Element extends ElementType = PolymorphicDefaultElement>(
+	props: UseStackClassesProps<Element>
+): UseStackClassesReturn => {
 	const {
 		alignItems = __DEFAULT_STACK_ALIGN_ITEMS__,
 		direction = __DEFAULT_STACK_DIRECTION__,

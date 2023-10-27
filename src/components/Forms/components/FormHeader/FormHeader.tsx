@@ -6,6 +6,7 @@ import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Grid, GridItem, VStack } from '@components/Layout';
 
@@ -14,7 +15,7 @@ import { useFormControlContext } from '../FormControl/common/hooks';
 import { __KEYS_FORM_HEADER_CLASS__ } from './common/keys';
 import type { FormHeaderProps, FormHeaderRef } from './common/types';
 
-const FormHeader = forwardRef(function FormHeader<Element extends ElementType>(
+const FormHeader = forwardRef(function FormHeader<Element extends ElementType = PolymorphicDefaultElement>(
 	props: FormHeaderProps<Element>,
 	ref: FormHeaderRef<Element>
 ): ReactElement {

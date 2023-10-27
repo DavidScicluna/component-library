@@ -21,7 +21,7 @@ import { useMergeRefs } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
-import type { ThemeRadius } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeRadius } from '@common/types';
 
 import { AnimatePresence, Fade } from '@components/Animation';
 import { Box } from '@components/Box';
@@ -40,7 +40,7 @@ import { usePopperClasses } from './common/hooks';
 import { __KEYS_POPPER_CLASS__ } from './common/keys';
 import type { PopperPlacement, PopperProps, PopperRef } from './common/types';
 
-const Popper = forwardRef(function Popper<Element extends ElementType>(
+const Popper = forwardRef(function Popper<Element extends ElementType = PolymorphicDefaultElement>(
 	props: PopperProps<Element>,
 	ref: PopperRef<Element>
 ): ReactElement {

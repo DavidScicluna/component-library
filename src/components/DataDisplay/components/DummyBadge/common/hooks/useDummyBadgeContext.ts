@@ -2,12 +2,13 @@ import type { ElementType } from 'react';
 import { useContext } from 'react';
 
 import { useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { DummyBadgeContext } from '../../DummyBadge';
 import { __DEFAULT_DUMMY_BADGE_SIZE__, __DEFAULT_DUMMY_BADGE_VARIANT__ } from '../constants';
 import type { DummyBadgeContext as DummyBadgeContextType, DummyBadgeSize, DummyBadgeVariant } from '../types';
 
-const useDummyBadgeContext = <Element extends ElementType>() => {
+const useDummyBadgeContext = <Element extends ElementType = PolymorphicDefaultElement>() => {
 	const {
 		color,
 		colorMode,

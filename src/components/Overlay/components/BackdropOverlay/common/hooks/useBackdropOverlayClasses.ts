@@ -3,7 +3,14 @@ import type { ElementType } from 'react';
 import classNames from 'classnames';
 
 import { useGetClass } from '@common/hooks';
-import type { ClassName, OverflowClass, SaturateClass, ThemeBlurClass, ThemeRadius } from '@common/types';
+import type {
+	ClassName,
+	OverflowClass,
+	PolymorphicDefaultElement,
+	SaturateClass,
+	ThemeBlurClass,
+	ThemeRadius
+} from '@common/types';
 
 import {
 	__DEFAULT_BACKDROP_OVERLAY_BLUR__,
@@ -12,13 +19,13 @@ import {
 } from '../constants';
 import type { BackdropOverlayProps } from '../types';
 
-type UseBackdropOverlayClassesProps<Element extends ElementType> = Pick<
+type UseBackdropOverlayClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	BackdropOverlayProps<Element>,
 	'blur' | 'blurType' | 'radius'
 >;
 type UseBackdropOverlayClassesReturn = Record<'container' | 'overlay', ClassName>;
 
-const useBackdropOverlayClasses = <Element extends ElementType>(
+const useBackdropOverlayClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseBackdropOverlayClassesProps<Element>
 ): UseBackdropOverlayClassesReturn => {
 	const {

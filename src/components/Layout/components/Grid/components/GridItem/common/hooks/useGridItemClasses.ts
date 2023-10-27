@@ -11,6 +11,7 @@ import type {
 	GridRowSpanClass,
 	GridRowStartEndClass,
 	JustifySelfClass,
+	PolymorphicDefaultElement,
 	Undefinable,
 	ZIndexClass
 } from '@common/types';
@@ -22,7 +23,7 @@ import {
 } from '../constants';
 import type { GridItemProps } from '../types';
 
-type UseGridItemClassesProps<Element extends ElementType> = Pick<
+type UseGridItemClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	GridItemProps<Element>,
 	| 'alignSelf'
 	| 'columnSpan'
@@ -36,7 +37,7 @@ type UseGridItemClassesProps<Element extends ElementType> = Pick<
 >;
 type UseGridItemClassesReturn = ClassName;
 
-const useGridItemClasses = <Element extends ElementType>(
+const useGridItemClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseGridItemClassesProps<Element>
 ): UseGridItemClassesReturn => {
 	const {

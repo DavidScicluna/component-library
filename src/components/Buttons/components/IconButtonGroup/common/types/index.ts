@@ -1,6 +1,6 @@
 import type { ElementType } from 'react';
 
-import type { ResponsiveValue } from '@common/types';
+import type { PolymorphicDefaultElement, ResponsiveValue } from '@common/types';
 
 import type { IconButtonProps } from '@components/Buttons';
 import type { StackProps, StackRef } from '@components/Layout';
@@ -16,11 +16,12 @@ type IconButtonGroupOtherProps = Pick<IconButtonProps, PickedIconButtonProps> & 
 	isAttached?: ResponsiveValue<boolean>;
 };
 
-export type IconButtonGroupProps<Element extends ElementType> = StackProps<Element> & IconButtonGroupOtherProps;
+export type IconButtonGroupProps<Element extends ElementType = PolymorphicDefaultElement> = StackProps<Element> &
+	IconButtonGroupOtherProps;
 
-export type IconButtonGroupRef<Element extends ElementType> = StackRef<Element>;
+export type IconButtonGroupRef<Element extends ElementType = PolymorphicDefaultElement> = StackRef<Element>;
 
-export type IconButtonGroupContext<Element extends ElementType> = Pick<
+export type IconButtonGroupContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	IconButtonGroupProps<Element>,
 	'color' | 'colorMode' | 'direction' | 'isAttached' | 'isCompact' | 'isDisabled' | 'isRound' | 'size' | 'variant'
 >;

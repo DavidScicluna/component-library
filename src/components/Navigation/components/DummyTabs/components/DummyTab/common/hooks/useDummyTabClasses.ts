@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_OUTLINE_WIDTH__ } from '@common/constants';
 import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
-import type { ClassName } from '@common/types';
+import type { ClassName, PolymorphicDefaultElement } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import { __DEFAULT_DUMMY_TABS_TAB_LINE_HEIGHT_SIZE__ } from '@components/Navigation/components/DummyTabs/common/constants';
@@ -17,15 +17,13 @@ import type { DummyTabProps } from '../types';
 
 import useDummyTabSizeConfig from './useDummyTabSizeConfig';
 
-type UseDummyTabClassesProps<Element extends ElementType> = Pick<
+type UseDummyTabClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	DummyTabProps<Element>,
 	'color' | 'colorMode' | 'isCompact' | 'isUppercase'
 > & { isSelected: boolean };
 type UseDummyTabClassesReturn = Record<'tab' | 'topDivider' | 'bottomDivider' | 'label', ClassName>;
 
-
-
-const useDummyTabClasses = <Element extends ElementType>(
+const useDummyTabClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseDummyTabClassesProps<Element>
 ): UseDummyTabClassesReturn => {
 	const { colorMode: __DEFAULT_DUMMY_TAB_COLORMODE__ } = useAppTheme();

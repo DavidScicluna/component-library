@@ -19,7 +19,7 @@ import {
 	__DEFAULT_RADIUS__
 } from '@common/constants';
 import { useGetColor, useTheme } from '@common/hooks';
-import type { ThemeFontSize } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeFontSize } from '@common/types';
 import {
 	checkFontSizeType,
 	convertREMToPixels,
@@ -58,7 +58,7 @@ import type {
 	SpinnerThreeDotsVariant
 } from './common/types';
 
-const Spinner = forwardRef(function Spinner<Element extends ElementType>(
+const Spinner = forwardRef(function Spinner<Element extends ElementType = PolymorphicDefaultElement>(
 	props: SpinnerProps<Element>,
 	ref: SpinnerRef<Element>
 ): ReactElement {

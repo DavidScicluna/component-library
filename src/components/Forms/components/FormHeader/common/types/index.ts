@@ -1,13 +1,16 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { ThemeAppAppearanceProps } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 import type { GridProps } from '@components/Layout';
 
 export type FormHeaderRenderProps = ThemeAppAppearanceProps & { w?: number; h?: number };
 
-type FormHeaderOtherProps<Element extends ElementType> = Pick<GridProps<Element>, 'spacing'> & {
+type FormHeaderOtherProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
+	GridProps<Element>,
+	'spacing'
+> & {
 	renderLeft?: (props: FormHeaderRenderProps) => ReactNode;
 	renderRight?: (props: FormHeaderRenderProps) => ReactNode;
 	renderLabel: () => ReactNode;
@@ -15,7 +18,10 @@ type FormHeaderOtherProps<Element extends ElementType> = Pick<GridProps<Element>
 	renderActions?: () => ReactNode;
 };
 
-export type FormHeaderProps<Element extends ElementType> = Omit<BoxProps<Element>, 'children' | 'w' | 'h'> &
+export type FormHeaderProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+	BoxProps<Element>,
+	'children' | 'w' | 'h'
+> &
 	FormHeaderOtherProps<Element>;
 
-export type FormHeaderRef<Element extends ElementType> = BoxRef<Element>;
+export type FormHeaderRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

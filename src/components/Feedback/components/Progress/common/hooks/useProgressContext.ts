@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 import { __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { ThemeRadius } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeRadius } from '@common/types';
 
 import { ProgressContext } from '../../Progress';
 import {
@@ -14,7 +14,7 @@ import {
 } from '../constants';
 import type { ProgressContext as ProgressContextType, ProgressVariant } from '../types';
 
-const useProgressContext = <Element extends ElementType>() => {
+const useProgressContext = <Element extends ElementType = PolymorphicDefaultElement>() => {
 	const {
 		color,
 		colorMode,

@@ -5,6 +5,7 @@ import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types';
 import { getColorHex } from '@common/utils';
 
 import { Spinner } from '@components/Feedback';
@@ -14,10 +15,9 @@ import { useIconButtonContext, useIconButtonFontSize } from '../../common/hooks'
 import { __KEYS_ICON_BUTTON_SPINNER_CLASS__ } from './common/keys';
 import type { IconButtonSpinnerProps, IconButtonSpinnerRef } from './common/types';
 
-const IconButtonSpinner = forwardRef(function IconButtonSpinner<Element extends ElementType>(
-	props: IconButtonSpinnerProps<Element>,
-	ref: IconButtonSpinnerRef<Element>
-): ReactElement {
+const IconButtonSpinner = forwardRef(function IconButtonSpinner<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: IconButtonSpinnerProps<Element>, ref: IconButtonSpinnerRef<Element>): ReactElement {
 	const { color: __DEFAULT_ICON_BUTTON_COLOR__, colorMode: __DEFAULT_ICON_BUTTON_COLORMODE__ } = useAppTheme();
 
 	const {

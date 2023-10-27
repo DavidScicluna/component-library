@@ -6,7 +6,7 @@ import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { ThemeRadius } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeRadius } from '@common/types';
 
 import { Grid, GridItem } from '@components/Layout';
 
@@ -19,10 +19,9 @@ import { useDummyPushableOverlayClasses, useDummyPushableOverlayStyles } from '.
 import { __KEY_DUMMY_PUSHABLE_OVERLAY_CLASS__ } from './common/keys';
 import type { DummyPushableOverlayProps, DummyPushableOverlayRef, DummyPushableOverlayVariant } from './common/types';
 
-const DummyPushableOverlay = forwardRef(function DummyPushableOverlay<Element extends ElementType>(
-	props: DummyPushableOverlayProps<Element>,
-	ref: DummyPushableOverlayRef<Element>
-): ReactElement {
+const DummyPushableOverlay = forwardRef(function DummyPushableOverlay<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: DummyPushableOverlayProps<Element>, ref: DummyPushableOverlayRef<Element>): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

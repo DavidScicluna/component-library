@@ -2,11 +2,13 @@ import type { ElementType } from 'react';
 
 import type { Target, TargetAndTransition, Transition } from 'framer-motion';
 
+import type { PolymorphicDefaultElement } from '@common/types';
+
 import type { MotionBoxProps, MotionBoxRef } from '@components/Animation';
 
 type OmittedAnimationCommonProps = 'custom' | 'animate' | 'initial' | 'exit' | 'variants';
 
-export type AnimationCommonProps<Element extends ElementType> = Omit<
+export type AnimationCommonProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
 	MotionBoxProps<Element>,
 	OmittedAnimationCommonProps
 > & {
@@ -22,7 +24,7 @@ export type AnimationCommonProps<Element extends ElementType> = Omit<
 	in?: boolean;
 };
 
-export type AnimationCommonRef<Element extends ElementType> = MotionBoxRef<Element>;
+export type AnimationCommonRef<Element extends ElementType = PolymorphicDefaultElement> = MotionBoxRef<Element>;
 
 type WithMotionState<P> = Partial<Record<'enter' | 'exit', P>>;
 

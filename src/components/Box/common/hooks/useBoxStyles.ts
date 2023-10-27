@@ -1,7 +1,7 @@
 import { type ElementType, useMemo } from 'react';
 
 import { useGetResponsiveValue, useTheme } from '@common/hooks';
-import type { Style, ThemeSpacing, Undefinable } from '@common/types';
+import type { PolymorphicDefaultElement, Style, ThemeSpacing, Undefinable } from '@common/types';
 import { getResponsiveValue } from '@common/utils';
 
 import type {
@@ -15,10 +15,15 @@ import type {
 	BoxWidth
 } from '../types';
 
-type UseBoxStylesProps<Element extends ElementType> = Pick<BoxProps<Element>, keyof BoxOtherProps>;
+type UseBoxStylesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
+	BoxProps<Element>,
+	keyof BoxOtherProps
+>;
 type UseBoxStylesReturn = Style;
 
-const useBoxStyles = <Element extends ElementType>(props: UseBoxStylesProps<Element>): UseBoxStylesReturn => {
+const useBoxStyles = <Element extends ElementType = PolymorphicDefaultElement>(
+	props: UseBoxStylesProps<Element>
+): UseBoxStylesReturn => {
 	const theme = useTheme();
 
 	const { w, minW, maxW, h, minH, maxH, p, px, py, pl, pt, pr, pb, m, mx, my, ml, mt, mr, mb } = props;

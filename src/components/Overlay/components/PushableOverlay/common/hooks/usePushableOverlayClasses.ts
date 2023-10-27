@@ -12,7 +12,7 @@ import {
 	__DEFAULT_RADIUS__
 } from '@common/constants';
 import { useAppTheme, useConst, useGetResponsiveValue } from '@common/hooks';
-import type { ClassName, ThemeRadius } from '@common/types';
+import type { ClassName, PolymorphicDefaultElement, ThemeRadius } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import {
@@ -26,13 +26,13 @@ import {
 } from '../constants';
 import type { PushableOverlayProps, PushableOverlayVariant } from '../types';
 
-type UsePushableOverlayClassesProps<Element extends ElementType> = Pick<
+type UsePushableOverlayClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	PushableOverlayProps<Element>,
 	'color' | 'colorMode' | 'isActive' | 'isDisabled' | 'isFixed' | 'isOutlined' | 'isPushable' | 'radius' | 'variant'
 >;
 type UsePushableOverlayClassesReturn = ClassName;
 
-const usePushableOverlayClasses = <Element extends ElementType>(
+const usePushableOverlayClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UsePushableOverlayClassesProps<Element>
 ): UsePushableOverlayClassesReturn => {
 	const { colorMode: __DEFAULT_PUSHABLE_OVERLAY_COLORMODE__ } = useAppTheme();

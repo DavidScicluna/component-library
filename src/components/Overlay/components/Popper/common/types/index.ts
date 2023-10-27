@@ -1,6 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { ResponsiveValue, ThemeAppAppearanceProps, ThemeRadius } from '@common/types';
+import type { PolymorphicDefaultElement, ResponsiveValue, ThemeAppAppearanceProps, ThemeRadius } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
@@ -18,7 +18,7 @@ export type PopperPlacement =
 	| 'left-start'
 	| 'left-end';
 
-export type PopperRenderTriggerProps<Element extends ElementType> = BoxProps & {
+export type PopperRenderTriggerProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps & {
 	/**
 	 * If `true`, the modal will be open
 	 */
@@ -29,7 +29,7 @@ export type PopperRenderTriggerProps<Element extends ElementType> = BoxProps & {
 	onOpen: () => void;
 } & Pick<PopperProps<Element>, 'color' | 'colorMode'>;
 
-export type PopperOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
+export type PopperOtherProps<Element extends ElementType = PolymorphicDefaultElement> = ThemeAppAppearanceProps & {
 	renderTrigger: (props: PopperRenderTriggerProps<Element>) => ReactNode;
 	/**
 	 * Delay (in ms) before hiding the popper
@@ -90,7 +90,10 @@ export type PopperOtherProps<Element extends ElementType> = ThemeAppAppearancePr
 	radius?: ResponsiveValue<ThemeRadius>;
 };
 
-export type PopperProps<Element extends ElementType> = Omit<BoxProps<Element>, keyof BoxOtherProps> &
+export type PopperProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+	BoxProps<Element>,
+	keyof BoxOtherProps
+> &
 	PopperOtherProps<Element>;
 
-export type PopperRef<Element extends ElementType> = BoxRef<Element>;
+export type PopperRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

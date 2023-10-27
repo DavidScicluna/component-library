@@ -1,6 +1,6 @@
 import type { ElementType } from 'react';
 
-import type { ResponsiveValue, ThemeAppAppearanceProps, ThemeRadius } from '@common/types';
+import type { PolymorphicDefaultElement, ResponsiveValue, ThemeAppAppearanceProps, ThemeRadius } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
@@ -46,11 +46,15 @@ type ProgressOtherProps = ThemeAppAppearanceProps & {
 
 type OmittedBoxProps = Exclude<keyof BoxOtherProps, 'w' | 'h'>;
 
-export type ProgressProps<Element extends ElementType> = Omit<BoxProps<Element>, OmittedBoxProps> & ProgressOtherProps;
+export type ProgressProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+	BoxProps<Element>,
+	OmittedBoxProps
+> &
+	ProgressOtherProps;
 
-export type ProgressRef<Element extends ElementType> = BoxRef<Element>;
+export type ProgressRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
-export type ProgressContext<Element extends ElementType> = Pick<
+export type ProgressContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	ProgressProps<Element>,
 	'color' | 'colorMode' | 'isIndeterminate' | 'max' | 'min' | 'radius' | 'variant'
 >;

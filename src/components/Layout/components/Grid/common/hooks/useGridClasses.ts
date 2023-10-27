@@ -13,6 +13,7 @@ import type {
 	GridAutoFlowClass,
 	JustifyContentClass,
 	JustifyItemsClass,
+	PolymorphicDefaultElement,
 	ThemeSpacing,
 	Undefinable
 } from '@common/types';
@@ -27,7 +28,7 @@ import {
 } from '../constants';
 import type { GridProps, GridTemplateColumns, GridTemplateRows } from '../types';
 
-type UseGridClassesProps<Element extends ElementType> = Pick<
+type UseGridClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	GridProps<Element>,
 	| 'alignContent'
 	| 'alignItems'
@@ -44,7 +45,9 @@ type UseGridClassesProps<Element extends ElementType> = Pick<
 >;
 type UseGridClassesReturn = ClassName;
 
-const useGridClasses = <Element extends ElementType>(props: UseGridClassesProps<Element>): UseGridClassesReturn => {
+const useGridClasses = <Element extends ElementType = PolymorphicDefaultElement>(
+	props: UseGridClassesProps<Element>
+): UseGridClassesReturn => {
 	const {
 		alignContent = __DEFAULT_GRID_ALIGN_CONTENT__,
 		alignItems = __DEFAULT_GRID_ALIGN_ITEMS__,

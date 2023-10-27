@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Fade } from '@components/Animation';
 import { Center, Grid, GridItem } from '@components/Layout';
@@ -21,7 +22,7 @@ import { useLoadingOverlayClasses, useLoadingOverlayStyles } from './common/hook
 import { __KEYS_LOADING_OVERLAY_CLASS__ } from './common/keys';
 import type { LoadingOverlayProps, LoadingOverlayRef } from './common/types';
 
-const LoadingOverlay = forwardRef(function LoadingOverlay<Element extends ElementType>(
+const LoadingOverlay = forwardRef(function LoadingOverlay<Element extends ElementType = PolymorphicDefaultElement>(
 	props: LoadingOverlayProps<Element>,
 	ref: LoadingOverlayRef<Element>
 ): ReactElement {

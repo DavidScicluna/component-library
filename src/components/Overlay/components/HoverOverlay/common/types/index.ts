@@ -1,10 +1,11 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { PolymorphicMouseEvent } from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicMouseEvent } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
-export type HoverOverlayMouseEvent<Element extends ElementType> = PolymorphicMouseEvent<Element>;
+export type HoverOverlayMouseEvent<Element extends ElementType = PolymorphicDefaultElement> =
+	PolymorphicMouseEvent<Element>;
 
 type HoverOverlayOtherProps = {
 	/**
@@ -16,7 +17,10 @@ type HoverOverlayOtherProps = {
 	children: (isHovering: boolean) => ReactNode;
 };
 
-export type HoverOverlayProps<Element extends ElementType> = Omit<BoxProps<Element>, 'children'> &
+export type HoverOverlayProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+	BoxProps<Element>,
+	'children'
+> &
 	HoverOverlayOtherProps;
 
-export type HoverOverlayRef<Element extends ElementType> = BoxRef<Element>;
+export type HoverOverlayRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

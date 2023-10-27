@@ -3,20 +3,20 @@ import type { ElementType } from 'react';
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import type { ClassName } from '@common/types';
+import type { ClassName, PolymorphicDefaultElement } from '@common/types';
 
 import { useButtonSizeConfig } from '@components/Buttons/components/Button/common/hooks';
 import { useButtonGroupContext } from '@components/Buttons/components/ButtonGroup/common/hooks';
 
 import type { ButtonGroupItemProps } from '../types';
 
-type UseButtonGroupItemClassesProps<Element extends ElementType> = Pick<
+type UseButtonGroupItemClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	ButtonGroupItemProps<Element>,
 	'index' | 'total'
 >;
 type UseButtonGroupItemClassesReturn = ClassName;
 
-const useButtonGroupItemClasses = <Element extends ElementType>(
+const useButtonGroupItemClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseButtonGroupItemClassesProps<Element>
 ): UseButtonGroupItemClassesReturn => {
 	const { direction, isAttached, isCompact, isRound, size, variant } = useButtonGroupContext();

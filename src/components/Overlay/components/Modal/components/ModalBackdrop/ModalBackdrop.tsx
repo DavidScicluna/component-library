@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { BackdropOverlay } from '@components/Overlay';
 
@@ -12,7 +13,7 @@ import { useModalContext } from '../../common/hooks';
 import { __KEYS_MODAL_BACKDROP_CLASS__ } from './common/keys';
 import type { ModalBackdropProps, ModalBackdropRef } from './common/types';
 
-const ModalBackdrop = forwardRef(function ModalBackdrop<Element extends ElementType>(
+const ModalBackdrop = forwardRef(function ModalBackdrop<Element extends ElementType = PolymorphicDefaultElement>(
 	props: ModalBackdropProps<Element>,
 	ref: ModalBackdropRef<Element>
 ): ReactElement {

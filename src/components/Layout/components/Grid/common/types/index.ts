@@ -9,6 +9,7 @@ import type {
 	GridTemplateRowsClass,
 	JustifyContentClass,
 	JustifyItemsClass,
+	PolymorphicDefaultElement,
 	ResponsiveValue,
 	ThemeSpacing
 } from '@common/types';
@@ -33,6 +34,6 @@ type GridOtherProps = {
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type GridProps<Element extends ElementType> = BoxProps<Element> & GridOtherProps;
+export type GridProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> & GridOtherProps;
 
-export type GridRef<Element extends ElementType> = BoxRef<Element>;
+export type GridRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

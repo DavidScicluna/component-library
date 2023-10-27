@@ -5,18 +5,18 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_DURATION__, __DEFAULT_EASING__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
-import type { ClassName, ThemeDuration, ThemeEase, ThemeRadius } from '@common/types';
+import type { ClassName, PolymorphicDefaultElement, ThemeDuration, ThemeEase, ThemeRadius } from '@common/types';
 
 import { __DEFAULT_SKELETON_IS_ANIMATED__ } from '../constants';
 import type { SkeletonProps } from '../types';
 
-type UseSkeletonClassesProps<Element extends ElementType> = Pick<
+type UseSkeletonClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	SkeletonProps<Element>,
 	'color' | 'colorMode' | 'isAnimated' | 'radius'
 >;
 type UseSkeletonClassesReturn = ClassName;
 
-const useSkeletonClasses = <Element extends ElementType>(
+const useSkeletonClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseSkeletonClassesProps<Element>
 ): UseSkeletonClassesReturn => {
 	const { colorMode: __DEFAULT_ICON_COLORMODE__ } = useAppTheme();

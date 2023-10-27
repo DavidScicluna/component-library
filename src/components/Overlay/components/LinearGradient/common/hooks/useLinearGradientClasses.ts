@@ -3,7 +3,7 @@ import type { ElementType } from 'react';
 import classNames from 'classnames';
 
 import { useGetClass, useGetColor } from '@common/hooks';
-import type { ClassName, GradientFromMiddleToClass } from '@common/types';
+import type { ClassName, GradientFromMiddleToClass, PolymorphicDefaultElement } from '@common/types';
 
 import {
 	__DEFAULT_LINEAR_GRADIENT_DIRECTION__,
@@ -13,13 +13,13 @@ import {
 } from '../constants';
 import type { LinearGradientDirection, LinearGradientProps } from '../types';
 
-type UseLinearGradientClassesProps<Element extends ElementType> = Pick<
+type UseLinearGradientClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	LinearGradientProps<Element>,
 	'direction' | 'from' | 'middle' | 'to'
 >;
 type UseLinearGradientClassesReturn = ClassName;
 
-const useLinearGradientClasses = <Element extends ElementType>(
+const useLinearGradientClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseLinearGradientClassesProps<Element>
 ): UseLinearGradientClassesReturn => {
 	const {

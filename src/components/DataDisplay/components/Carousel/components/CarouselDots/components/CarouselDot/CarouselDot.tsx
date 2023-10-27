@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { ThemeSpacing } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
 
 import { Box } from '@components/Box';
 import { useCarouselContext, useCarouselManager } from '@components/DataDisplay/components/Carousel/common/hooks';
@@ -16,7 +16,7 @@ import { useCarouselDotClasses } from './common/hooks';
 import { __KEYS_CAROUSEL_DOT_CLASS__ } from './common/keys';
 import type { CarouselDotProps, CarouselDotRef } from './common/types';
 
-const CarouselDot = forwardRef(function CarouselDot<Element extends ElementType>(
+const CarouselDot = forwardRef(function CarouselDot<Element extends ElementType = PolymorphicDefaultElement>(
 	props: CarouselDotProps<Element>,
 	ref: CarouselDotRef<Element>
 ): ReactElement {

@@ -1,15 +1,15 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
+import type { PolymorphicDefaultElement, ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
-export type DummyTabRenderProps<Element extends ElementType> = Pick<
+export type DummyTabRenderProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	DummyTabOtherProps<Element>,
 	'color' | 'colorMode'
 > & { w?: number; h?: number };
 
-type DummyTabOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
+type DummyTabOtherProps<Element extends ElementType = PolymorphicDefaultElement> = ThemeAppAppearanceProps & {
 	renderTop?: (props: DummyTabRenderProps<Element>) => ReactNode;
 	renderBottom?: (props: DummyTabRenderProps<Element>) => ReactNode;
 	renderLeft?: (props: DummyTabRenderProps<Element>) => ReactNode;
@@ -30,7 +30,10 @@ type DummyTabOtherProps<Element extends ElementType> = ThemeAppAppearanceProps &
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type DummyTabProps<Element extends ElementType> = Omit<BoxProps<Element>, keyof BoxOtherProps> &
+export type DummyTabProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+	BoxProps<Element>,
+	keyof BoxOtherProps
+> &
 	DummyTabOtherProps<Element>;
 
-export type DummyTabRef<Element extends ElementType> = BoxRef<Element>;
+export type DummyTabRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

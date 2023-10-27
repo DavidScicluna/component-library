@@ -6,6 +6,7 @@ import { compact, isArray } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import {
 	Carousel,
@@ -22,7 +23,7 @@ import { getTabListID } from '../../common/utils';
 import { __KEYS_TABS_TAB_LIST_CLASS__ } from './common/keys';
 import type { TabListProps, TabListRef } from './common/types';
 
-const TabList = forwardRef(function TabList<Element extends ElementType>(
+const TabList = forwardRef(function TabList<Element extends ElementType = PolymorphicDefaultElement>(
 	props: TabListProps<Element>,
 	ref: TabListRef<Element>
 ): ReactElement {

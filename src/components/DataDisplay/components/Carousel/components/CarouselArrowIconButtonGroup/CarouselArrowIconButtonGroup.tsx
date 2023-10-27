@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { IconButtonGroup, IconButtonGroupItem } from '@components/Buttons';
 
@@ -13,10 +14,9 @@ import { __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_IS_ATTACHED__ } from './comm
 import { __KEYS_CAROUSEL_ARROW_ICON_BUTTON_GROUP_CLASS__ } from './common/keys';
 import type { CarouselArrowIconButtonGroupProps, CarouselArrowIconButtonGroupRef } from './common/types';
 
-const CarouselArrowIconButtonGroup = forwardRef(function CarouselArrowIconButtonGroup<Element extends ElementType>(
-	props: CarouselArrowIconButtonGroupProps<Element>,
-	ref: CarouselArrowIconButtonGroupRef<Element>
-): ReactElement {
+const CarouselArrowIconButtonGroup = forwardRef(function CarouselArrowIconButtonGroup<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: CarouselArrowIconButtonGroupProps<Element>, ref: CarouselArrowIconButtonGroupRef<Element>): ReactElement {
 	const { spacing: __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_SPACING__, variant } = useCarouselContext();
 
 	const {

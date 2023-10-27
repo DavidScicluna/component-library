@@ -1,7 +1,7 @@
 import type { ElementType } from 'react';
 import { useMemo } from 'react';
 
-import type { ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
 import { getResponsiveValue } from '@common/utils';
 
 import {
@@ -19,13 +19,13 @@ type DummyBadgeSizeConfig = {
 	spacing: ThemeSpacing;
 };
 
-type UseDummyBadgeSizeConfigProps<Element extends ElementType> = Pick<
+type UseDummyBadgeSizeConfigProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	DummyBadgeProps<Element>,
 	'isCompact' | 'isRound' | 'size' | 'variant'
 >;
 type UseDummyBadgeSizeConfigReturn = DummyBadgeSizeConfig;
 
-const useDummyBadgeSizeConfig = <Element extends ElementType>(
+const useDummyBadgeSizeConfig = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseDummyBadgeSizeConfigProps<Element>
 ): UseDummyBadgeSizeConfigReturn => {
 	const {

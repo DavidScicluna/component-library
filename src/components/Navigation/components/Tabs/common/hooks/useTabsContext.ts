@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 import { __DEFAULT_METHOD__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { ThemeSpacing } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
 
 import { TabsContext } from '../../Tabs';
 import {
@@ -17,7 +17,7 @@ import {
 } from '../constants';
 import type { TabsAlign, TabsContext as TabsContextType, TabsOrientation, TabsSize } from '../types';
 
-const useTabsContext = <Element extends ElementType>() => {
+const useTabsContext = <Element extends ElementType = PolymorphicDefaultElement>() => {
 	const {
 		color,
 		colorMode,

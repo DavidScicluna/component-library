@@ -1,8 +1,10 @@
 import type { ElementType } from 'react';
 
+import type { PolymorphicDefaultElement } from '@common/types';
+
 import type { AnimationCommonProps, AnimationCommonRef } from '@components/Animation';
 
-export type SlideProps<Element extends ElementType> = AnimationCommonProps<Element> & {
+export type SlideProps<Element extends ElementType = PolymorphicDefaultElement> = AnimationCommonProps<Element> & {
 	/**
 	 * The offset on the horizontal or `x` axis
 	 * @default 0
@@ -21,4 +23,4 @@ export type SlideProps<Element extends ElementType> = AnimationCommonProps<Eleme
 	isReversed?: boolean;
 };
 
-export type SlideRef<Element extends ElementType> = AnimationCommonRef<Element>;
+export type SlideRef<Element extends ElementType = PolymorphicDefaultElement> = AnimationCommonRef<Element>;

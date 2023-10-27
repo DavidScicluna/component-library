@@ -1,6 +1,12 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { Nullish, ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
+import type {
+	Nullish,
+	PolymorphicDefaultElement,
+	ResponsiveValue,
+	ThemeAppAppearanceProps,
+	ThemeSpacing
+} from '@common/types';
 
 // TODO: Check all components sub folder and replace all imports to import from root instead
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
@@ -64,11 +70,15 @@ type AlertOtherProps = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<AlertVariant>;
 };
 
-export type AlertProps<Element extends ElementType> = Omit<BoxProps<Element>, keyof BoxOtherProps> & AlertOtherProps;
+export type AlertProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+	BoxProps<Element>,
+	keyof BoxOtherProps
+> &
+	AlertOtherProps;
 
-export type AlertRef<Element extends ElementType> = BoxRef<Element>;
+export type AlertRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
-export type AlertContext<Element extends ElementType> = Pick<
+export type AlertContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	AlertProps<Element>,
 	'color' | 'colorMode' | 'status' | 'variant'
 >;

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { ThemeSpacing } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
 
 import { CardContext } from '../../Card';
 import {
@@ -15,7 +15,7 @@ import {
 } from '../constants';
 import type { CardContext as CardContextType, CardVariant } from '../types';
 
-const useCardContext = <Element extends ElementType>() => {
+const useCardContext = <Element extends ElementType = PolymorphicDefaultElement>() => {
 	const {
 		color,
 		colorMode,

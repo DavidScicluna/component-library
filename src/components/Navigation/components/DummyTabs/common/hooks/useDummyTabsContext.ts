@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { ThemeSpacing } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
 
 import { DummyTabsContext } from '../../DummyTabs';
 import {
@@ -22,7 +22,7 @@ import type {
 	DummyTabsSize
 } from '../types';
 
-const useDummyTabsContext = <Element extends ElementType>() => {
+const useDummyTabsContext = <Element extends ElementType = PolymorphicDefaultElement>() => {
 	const {
 		color,
 		colorMode,

@@ -1,6 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 import type { TextProps } from '@components/Typography';
@@ -16,6 +16,7 @@ type HeadlineOtherProps = ThemeAppAppearanceProps & {
 	spacing?: ThemeSpacing;
 };
 
-export type HeadlineProps<Element extends ElementType> = BoxProps<Element> & HeadlineOtherProps;
+export type HeadlineProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
+	HeadlineOtherProps;
 
-export type HeadlineRef<Element extends ElementType> = BoxRef<Element>;
+export type HeadlineRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

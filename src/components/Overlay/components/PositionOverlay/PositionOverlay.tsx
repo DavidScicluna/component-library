@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Fade } from '@components/Animation';
 import { Box } from '@components/Box';
@@ -23,7 +24,7 @@ import { usePositionOverlayClasses, usePositionOverlayStyles } from './common/ho
 import { __KEYS_POSITION_OVERLAY_CLASS__ } from './common/keys';
 import type { PositionOverlayProps, PositionOverlayRef } from './common/types';
 
-const PositionOverlay = forwardRef(function PositionOverlay<Element extends ElementType>(
+const PositionOverlay = forwardRef(function PositionOverlay<Element extends ElementType = PolymorphicDefaultElement>(
 	props: PositionOverlayProps<Element>,
 	ref: PositionOverlayRef<Element>
 ): ReactElement {

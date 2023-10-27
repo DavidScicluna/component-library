@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { omit, pick } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import {
 	__DEFAULT_ANIMATION_IN__,
@@ -67,7 +68,7 @@ const variants = {
 	})
 };
 
-const Collapse = forwardRef(function Collapse<Element extends ElementType>(
+const Collapse = forwardRef(function Collapse<Element extends ElementType = PolymorphicDefaultElement>(
 	props: CollapseProps<Element>,
 	ref: CollapseRef<Element>
 ): ReactElement {

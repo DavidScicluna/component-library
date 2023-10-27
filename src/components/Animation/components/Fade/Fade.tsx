@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { omit, pick } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import {
 	__DEFAULT_ANIMATION_IN__,
@@ -40,7 +41,7 @@ const variants = {
 	})
 };
 
-const Fade = forwardRef(function Fade<Element extends ElementType>(
+const Fade = forwardRef(function Fade<Element extends ElementType = PolymorphicDefaultElement>(
 	props: FadeProps<Element>,
 	ref: FadeRef<Element>
 ): ReactElement {

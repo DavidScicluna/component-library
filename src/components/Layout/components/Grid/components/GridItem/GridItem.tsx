@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -16,7 +17,7 @@ import { useGridItemClasses } from './common/hooks';
 import { __KEYS_GRID_ITEM_CLASS__ } from './common/keys';
 import type { GridItemProps, GridItemRef } from './common/types';
 
-const GridItem = forwardRef(function Grid<Element extends ElementType>(
+const GridItem = forwardRef(function Grid<Element extends ElementType = PolymorphicDefaultElement>(
 	props: GridItemProps<Element>,
 	ref: GridItemRef<Element>
 ): ReactElement {

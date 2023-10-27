@@ -6,19 +6,25 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetResponsiveValue } from '@common/hooks';
-import type { BorderStyleClass, ClassName, ThemeBorderWidth, ThemeRadius } from '@common/types';
+import type {
+	BorderStyleClass,
+	ClassName,
+	PolymorphicDefaultElement,
+	ThemeBorderWidth,
+	ThemeRadius
+} from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import { __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_SIZE__, __DEFAULT_MESSAGE_VARIANT__ } from '../constants';
 import type { MessageProps, MessageVariant } from '../types';
 
-type UseMessageClassesProps<Element extends ElementType> = Pick<
+type UseMessageClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	MessageProps<Element>,
 	'color' | 'colorMode' | 'radius' | 'size' | 'variant'
 >;
 type UseMessageClassesReturn = ClassName;
 
-const useMessageClasses = <Element extends ElementType>(
+const useMessageClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseMessageClassesProps<Element>
 ): UseMessageClassesReturn => {
 	const { colorMode: __DEFAULT_ICON_COLORMODE__ } = useAppTheme();

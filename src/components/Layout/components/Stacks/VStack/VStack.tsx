@@ -4,13 +4,14 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Stack } from '../Stack';
 
 import { __KEYS_V_STACK_CLASS__ } from './common/keys';
 import type { VStackProps, VStackRef } from './common/types';
 
-const VStack = forwardRef(function VStack<Element extends ElementType>(
+const VStack = forwardRef(function VStack<Element extends ElementType = PolymorphicDefaultElement>(
 	props: VStackProps<Element>,
 	ref: VStackRef<Element>
 ): ReactElement {

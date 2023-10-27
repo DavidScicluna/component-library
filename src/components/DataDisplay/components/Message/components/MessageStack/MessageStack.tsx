@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { VStack } from '@components/Layout';
 
@@ -12,7 +13,7 @@ import { useMessageContext } from '../../common/hooks';
 import { __KEYS_MESSAGE_STACK_CLASS__ } from './common/keys';
 import type { MessageStackProps, MessageStackRef } from './common/types';
 
-const MessageStack = forwardRef(function MessageStack<Element extends ElementType>(
+const MessageStack = forwardRef(function MessageStack<Element extends ElementType = PolymorphicDefaultElement>(
 	props: MessageStackProps<Element>,
 	ref: MessageStackRef<Element>
 ): ReactElement {
