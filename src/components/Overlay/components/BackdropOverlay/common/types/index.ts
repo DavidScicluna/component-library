@@ -33,6 +33,6 @@ type BackdropOverlayOtherProps = ThemeAppAppearanceProps & {
 	radius?: ResponsiveValue<ThemeRadius>;
 };
 
-export type BackdropOverlayProps<Element extends ElementType> = BoxProps<Element, BackdropOverlayOtherProps>;
+export type BackdropOverlayProps<Element extends ElementType> = BoxProps<Element> & BackdropOverlayOtherProps;
 
 export type BackdropOverlayRef<Element extends ElementType> = BoxRef<Element>;

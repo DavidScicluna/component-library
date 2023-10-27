@@ -40,6 +40,6 @@ type GlassOverlayOtherProps = ThemeAppAppearanceProps & {
 	hasBackground?: boolean;
 };
 
-export type GlassOverlayProps<Element extends ElementType> = BoxProps<Element, GlassOverlayOtherProps>;
+export type GlassOverlayProps<Element extends ElementType> = BoxProps<Element> & GlassOverlayOtherProps;
 
 export type GlassOverlayRef<Element extends ElementType> = BoxRef<Element>;

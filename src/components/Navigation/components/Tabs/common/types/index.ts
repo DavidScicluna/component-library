@@ -52,7 +52,7 @@ type TabsOtherProps = ThemeAppAppearanceProps & {
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type TabsProps<Element extends ElementType> = BoxProps<Element, TabsOtherProps>;
+export type TabsProps<Element extends ElementType> = BoxProps<Element> & TabsOtherProps;
 
 export type TabsRef<Element extends ElementType> = BoxRef<Element>;
 

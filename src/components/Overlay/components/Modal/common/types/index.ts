@@ -73,9 +73,10 @@ type ModalOtherProps = ThemeAppAppearanceProps & {
 };
 
 export type ModalProps<Element extends ModalElement = ModalDefaultElement> = Omit<
-	BoxProps<Element, ModalOtherProps>,
+	BoxProps<Element>,
 	keyof BoxOtherProps
->;
+> &
+	ModalOtherProps;
 export type ModalRef<Element extends ModalElement = ModalDefaultElement> = BoxRef<Element>;
 
 export type ModalContext<Element extends ModalElement = ModalDefaultElement> = {
@@ -83,4 +84,5 @@ export type ModalContext<Element extends ModalElement = ModalDefaultElement> = {
 	 * If `true`, the modal will be open
 	 */
 	isOpen: boolean;
-} & Pick<ModalProps<Element>, 'color' | 'colorMode' | 'id' | 'onClose' | 'size' | 'spacing'>;
+	id: string;
+} & Pick<ModalProps<Element>, 'color' | 'colorMode' | 'onClose' | 'size' | 'spacing'>;

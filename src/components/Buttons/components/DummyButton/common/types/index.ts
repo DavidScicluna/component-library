@@ -49,10 +49,8 @@ type DummyButtonOtherProps<Element extends ElementType> = ThemeAppAppearanceProp
 	variant?: ResponsiveValue<DummyButtonVariant>;
 } & Pick<DummyPushableOverlayProps<Element>, 'isAnimated' | 'isOutlined'>;
 
-export type DummyButtonProps<Element extends ElementType> = Omit<
-	BoxProps<Element, DummyButtonOtherProps<Element>>,
-	keyof BoxOtherProps
->;
+export type DummyButtonProps<Element extends ElementType> = Omit<BoxProps<Element>, keyof BoxOtherProps> &
+	DummyButtonOtherProps<Element>;
 
 export type DummyButtonRef<Element extends ElementType> = BoxRef<Element>;
 

@@ -101,6 +101,6 @@ type ImageOtherProps = ThemeAppAppearanceProps & {
 	radius?: ResponsiveValue<ThemeRadius>;
 } & ImageModes;
 
-export type ImageProps<Element extends ElementType> = Omit<BoxProps<Element, ImageOtherProps>, 'children'>;
+export type ImageProps<Element extends ElementType> = Omit<BoxProps<Element>, 'children'> & ImageOtherProps;
 
 export type ImageRef<Element extends ElementType> = BoxRef<Element>;

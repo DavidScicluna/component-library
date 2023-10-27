@@ -16,9 +16,7 @@ type CarouselDotsOtherProps = ThemeAppearanceProps & {
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type CarouselDotsProps<Element extends ElementType> = Omit<
-	BoxProps<Element, CarouselDotsOtherProps>,
-	'children'
->;
+export type CarouselDotsProps<Element extends ElementType> = Omit<BoxProps<Element>, 'children'> &
+	CarouselDotsOtherProps;
 
 export type CarouselDotsRef<Element extends ElementType> = BoxRef<Element>;

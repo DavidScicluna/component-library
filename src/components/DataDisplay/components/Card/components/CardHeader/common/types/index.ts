@@ -17,9 +17,7 @@ type CardHeaderOtherProps<Element extends ElementType> = Pick<GridProps<Element>
 	renderActions?: () => ReactNode;
 };
 
-export type CardHeaderProps<Element extends ElementType> = Omit<
-	BoxProps<Element, CardHeaderOtherProps<Element>>,
-	'children' | 'w' | 'h'
->;
+export type CardHeaderProps<Element extends ElementType> = Omit<BoxProps<Element>, 'children' | 'w' | 'h'> &
+	CardHeaderOtherProps<Element>;
 
 export type CardHeaderRef<Element extends ElementType> = BoxRef<Element>;

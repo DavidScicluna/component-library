@@ -33,6 +33,6 @@ type GridOtherProps = {
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type GridProps<Element extends ElementType> = BoxProps<Element, GridOtherProps>;
+export type GridProps<Element extends ElementType> = BoxProps<Element> & GridOtherProps;
 
 export type GridRef<Element extends ElementType> = BoxRef<Element>;

@@ -15,9 +15,7 @@ type FormHeaderOtherProps<Element extends ElementType> = Pick<GridProps<Element>
 	renderActions?: () => ReactNode;
 };
 
-export type FormHeaderProps<Element extends ElementType> = Omit<
-	BoxProps<Element, FormHeaderOtherProps<Element>>,
-	'children' | 'w' | 'h'
->;
+export type FormHeaderProps<Element extends ElementType> = Omit<BoxProps<Element>, 'children' | 'w' | 'h'> &
+	FormHeaderOtherProps<Element>;
 
 export type FormHeaderRef<Element extends ElementType> = BoxRef<Element>;

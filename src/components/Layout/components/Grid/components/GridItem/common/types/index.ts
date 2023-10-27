@@ -26,6 +26,6 @@ type GridItemOtherProps = {
 	zIndex?: ResponsiveValue<ZIndexClass>;
 };
 
-export type GridItemProps<Element extends ElementType> = BoxProps<Element, GridItemOtherProps>;
+export type GridItemProps<Element extends ElementType> = BoxProps<Element> & GridItemOtherProps;
 
 export type GridItemRef<Element extends ElementType> = BoxRef<Element>;

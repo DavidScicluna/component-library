@@ -71,10 +71,8 @@ type BadgeOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<BadgeVariant>;
 } & Pick<PushableOverlayProps<Element>, 'isActive' | 'isDisabled' | 'isOutlined'>;
 
-export type BadgeProps<Element extends ElementType> = Omit<
-	BoxProps<Element, BadgeOtherProps<Element>>,
-	keyof BoxOtherProps
->;
+export type BadgeProps<Element extends ElementType> = Omit<BoxProps<Element>, keyof BoxOtherProps> &
+	BadgeOtherProps<Element>;
 
 export type BadgeRef<Element extends ElementType> = BoxRef<Element>;
 

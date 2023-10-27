@@ -15,9 +15,7 @@ type ModalHeaderOtherProps<Element extends ElementType> = Pick<GridProps<Element
 	renderCancel?: (props: ModalHeaderRenderCancelProps) => ReactNode;
 };
 
-export type ModalHeaderProps<Element extends ElementType> = Omit<
-	BoxProps<Element, ModalHeaderOtherProps<Element>>,
-	'children' | 'w' | 'h'
->;
+export type ModalHeaderProps<Element extends ElementType> = Omit<BoxProps<Element>, 'children' | 'w' | 'h'> &
+	ModalHeaderOtherProps<Element>;
 
 export type ModalHeaderRef<Element extends ElementType> = BoxRef<Element>;

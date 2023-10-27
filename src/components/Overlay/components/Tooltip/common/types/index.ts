@@ -72,6 +72,7 @@ type TooltipOtherProps = ThemeAppAppearanceProps & {
 	placement?: ResponsiveValue<TooltipPlacement>;
 };
 
-export type TooltipProps<Element extends ElementType> = Omit<BoxProps<Element, TooltipOtherProps>, keyof BoxOtherProps>;
+export type TooltipProps<Element extends ElementType> = Omit<BoxProps<Element>, keyof BoxOtherProps> &
+	TooltipOtherProps;
 
 export type TooltipRef<Element extends ElementType> = BoxRef<Element>;

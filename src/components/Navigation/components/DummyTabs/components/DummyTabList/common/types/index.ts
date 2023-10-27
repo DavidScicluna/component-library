@@ -13,9 +13,7 @@ type DummyTabListOtherProps<Element extends ElementType> = {
 	renderRight?: (props: DummyTabListRenderProps<Element>) => ReactNode;
 };
 
-export type DummyTabListProps<Element extends ElementType> = Omit<
-	BoxProps<Element, DummyTabListOtherProps<Element>>,
-	keyof BoxOtherProps
->;
+export type DummyTabListProps<Element extends ElementType> = Omit<BoxProps<Element>, keyof BoxOtherProps> &
+	DummyTabListOtherProps<Element>;
 
 export type DummyTabListRef<Element extends ElementType> = BoxRef<Element>;

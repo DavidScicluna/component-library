@@ -65,6 +65,6 @@ type PushableOverlayOtherProps = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<PushableOverlayVariant>;
 };
 
-export type PushableOverlayProps<Element extends ElementType> = BoxProps<Element, PushableOverlayOtherProps>;
+export type PushableOverlayProps<Element extends ElementType> = BoxProps<Element> & PushableOverlayOtherProps;
 
 export type PushableOverlayRef<Element extends ElementType> = BoxRef<Element>;

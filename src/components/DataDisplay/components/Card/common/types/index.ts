@@ -63,7 +63,7 @@ type CardOtherProps<Element extends ElementType> = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<CardVariant>;
 } & Pick<PushableOverlayProps<Element>, 'isActive' | 'isDisabled' | 'isFixed' | 'isOutlined'>;
 
-export type CardProps<Element extends ElementType> = BoxProps<Element, CardOtherProps<Element>>;
+export type CardProps<Element extends ElementType> = BoxProps<Element> & CardOtherProps<Element>;
 
 export type CardRef<Element extends ElementType> = BoxRef<Element>;
 

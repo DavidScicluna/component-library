@@ -30,9 +30,7 @@ type DummyTabOtherProps<Element extends ElementType> = ThemeAppAppearanceProps &
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type DummyTabProps<Element extends ElementType> = Omit<
-	BoxProps<Element, DummyTabOtherProps<Element>>,
-	keyof BoxOtherProps
->;
+export type DummyTabProps<Element extends ElementType> = Omit<BoxProps<Element>, keyof BoxOtherProps> &
+	DummyTabOtherProps<Element>;
 
 export type DummyTabRef<Element extends ElementType> = BoxRef<Element>;

@@ -13,9 +13,7 @@ type ProgressSectionOtherProps = ThemeAppAppearanceProps & {
 	value?: ResponsiveValue<number>;
 };
 
-export type ProgressSectionProps<Element extends ElementType> = Omit<
-	BoxProps<Element, ProgressSectionOtherProps>,
-	keyof BoxOtherProps
->;
+export type ProgressSectionProps<Element extends ElementType> = Omit<BoxProps<Element>, keyof BoxOtherProps> &
+	ProgressSectionOtherProps;
 
 export type ProgressSectionRef<Element extends ElementType> = BoxRef<Element>;

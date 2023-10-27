@@ -90,9 +90,7 @@ export type PopperOtherProps<Element extends ElementType> = ThemeAppAppearancePr
 	radius?: ResponsiveValue<ThemeRadius>;
 };
 
-export type PopperProps<Element extends ElementType> = Omit<
-	BoxProps<Element, PopperOtherProps<Element>>,
-	keyof BoxOtherProps
->;
+export type PopperProps<Element extends ElementType> = Omit<BoxProps<Element>, keyof BoxOtherProps> &
+	PopperOtherProps<Element>;
 
 export type PopperRef<Element extends ElementType> = BoxRef<Element>;

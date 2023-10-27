@@ -6,7 +6,7 @@ import type { BoxProps, BoxRef } from '@components/Box';
 
 export type HoverOverlayMouseEvent<Element extends ElementType> = PolymorphicMouseEvent<Element>;
 
-export type HoverOverlayProps<Element extends ElementType> = Omit<BoxProps<Element>, 'children'> & {
+type HoverOverlayOtherProps = {
 	/**
 	 * This method will return a react component and will pass down a boolean value if the container is being hovered or not
 	 *
@@ -15,5 +15,8 @@ export type HoverOverlayProps<Element extends ElementType> = Omit<BoxProps<Eleme
 	 */
 	children: (isHovering: boolean) => ReactNode;
 };
+
+export type HoverOverlayProps<Element extends ElementType> = Omit<BoxProps<Element>, 'children'> &
+	HoverOverlayOtherProps;
 
 export type HoverOverlayRef<Element extends ElementType> = BoxRef<Element>;

@@ -75,6 +75,6 @@ type PositionOverlayOtherProps<Element extends ElementType> = ThemeAppAppearance
 	hasBackground?: boolean;
 } & Pick<GlassOverlayProps<Element>, 'blur'>;
 
-export type PositionOverlayProps<Element extends ElementType> = BoxProps<Element, PositionOverlayOtherProps<Element>>;
+export type PositionOverlayProps<Element extends ElementType> = BoxProps<Element> & PositionOverlayOtherProps<Element>;
 
 export type PositionOverlayRef<Element extends ElementType> = BoxRef<Element>;

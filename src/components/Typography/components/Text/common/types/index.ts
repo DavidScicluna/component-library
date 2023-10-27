@@ -36,6 +36,6 @@ type TextOtherProps = TextThemeAppearanceProps & {
 	wordBreak?: ResponsiveValue<WordBreakClass>;
 };
 
-export type TextProps<Element extends TextElement = TextDefaultElement> = BoxProps<Element, TextOtherProps>;
+export type TextProps<Element extends TextElement = TextDefaultElement> = BoxProps<Element> & TextOtherProps;
 
 export type TextRef<Element extends TextElement = TextDefaultElement> = BoxRef<Element>;

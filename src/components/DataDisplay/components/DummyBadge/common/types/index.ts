@@ -65,10 +65,8 @@ type DummyBadgeOtherProps<Element extends ElementType> = ThemeAppAppearanceProps
 	variant?: ResponsiveValue<DummyBadgeVariant>;
 } & Pick<DummyPushableOverlayProps<Element>, 'isAnimated' | 'isOutlined'>;
 
-export type DummyBadgeProps<Element extends ElementType> = Omit<
-	BoxProps<Element, DummyBadgeOtherProps<Element>>,
-	keyof BoxOtherProps
->;
+export type DummyBadgeProps<Element extends ElementType> = Omit<BoxProps<Element>, keyof BoxOtherProps> &
+	DummyBadgeOtherProps<Element>;
 
 export type DummyBadgeRef<Element extends ElementType> = BoxRef<Element>;
 

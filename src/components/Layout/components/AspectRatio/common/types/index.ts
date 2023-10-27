@@ -8,6 +8,6 @@ type AspectRatioOtherProps = {
 	ratio?: ResponsiveValue<ThemeAspectRatio>;
 };
 
-export type AspectRatioProps<Element extends ElementType> = BoxProps<Element, AspectRatioOtherProps>;
+export type AspectRatioProps<Element extends ElementType> = BoxProps<Element> & AspectRatioOtherProps;
 
 export type AspectRatioRef<Element extends ElementType> = BoxRef<Element>;

@@ -25,7 +25,7 @@ type PickedStackProps = 'alignItems' | 'justifyContent' | 'spacing';
 type FormControlOtherProps<Element extends ElementType> = Pick<FormsCommonProps, PickedFormsCommonProps> &
 	Pick<StackProps<Element>, PickedStackProps>;
 
-export type FormControlProps<Element extends ElementType> = BoxProps<Element, FormControlOtherProps<Element>>;
+export type FormControlProps<Element extends ElementType> = BoxProps<Element> & FormControlOtherProps<Element>;
 
 export type FormControlRef<Element extends ElementType> = BoxRef<Element>;
 

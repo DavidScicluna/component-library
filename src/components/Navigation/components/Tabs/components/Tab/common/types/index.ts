@@ -53,9 +53,7 @@ type TabOtherProps<Element extends TabElement = TabDefaultElement> = ThemeAppApp
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type TabProps<Element extends TabElement = TabDefaultElement> = Omit<
-	BoxProps<Element, TabOtherProps<Element>>,
-	keyof BoxOtherProps
->;
+export type TabProps<Element extends TabElement = TabDefaultElement> = Omit<BoxProps<Element>, keyof BoxOtherProps> &
+	TabOtherProps<Element>;
 
 export type TabRef<Element extends TabElement = TabDefaultElement> = BoxRef<Element>;

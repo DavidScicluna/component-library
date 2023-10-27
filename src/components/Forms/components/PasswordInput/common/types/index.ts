@@ -53,9 +53,12 @@ type PasswordInputOtherProps<Element extends PasswordInputElement = PasswordInpu
 	renderRight?: (props: PasswordInputRenderProps<Element>) => ReactNode;
 } & Pick<FormsCommonProps, PickedFormsCommonProps>;
 
+type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
+
 export type PasswordInputProps<Element extends PasswordInputElement = PasswordInputDefaultElement> = Omit<
-	BoxProps<Element, PasswordInputOtherProps<Element>>,
-	'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>
->;
+	BoxProps<Element>,
+	OmittedBoxProps
+> &
+	PasswordInputOtherProps<Element>;
 
 export type PasswordInputRef<Element extends PasswordInputElement = PasswordInputDefaultElement> = BoxRef<Element>;

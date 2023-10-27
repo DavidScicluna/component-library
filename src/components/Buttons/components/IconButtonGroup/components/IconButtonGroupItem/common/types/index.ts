@@ -2,8 +2,6 @@ import type { ElementType, ReactNode } from 'react';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
-type OmittedBoxProps = keyof BoxOtherProps | 'children';
-
 type IconButtonGroupItemOtherProps = {
 	/**
 	 * The index of the current item within the button group
@@ -15,9 +13,11 @@ type IconButtonGroupItemOtherProps = {
 	total: number;
 };
 
-export type IconButtonGroupItemProps<Element extends ElementType> = Omit<
-	BoxProps<Element, IconButtonGroupItemOtherProps>,
-	OmittedBoxProps
-> & { children: (props: Pick<BoxProps<Element>, 'className'>) => ReactNode };
+type OmittedBoxProps = keyof BoxOtherProps | 'children';
+
+export type IconButtonGroupItemProps<Element extends ElementType> = {
+	children: (props: Pick<BoxProps<Element>, 'className'>) => ReactNode;
+} & Omit<BoxProps<Element>, OmittedBoxProps> &
+	IconButtonGroupItemOtherProps;
 
 export type IconButtonGroupItemRef<Element extends ElementType> = BoxRef<Element>;

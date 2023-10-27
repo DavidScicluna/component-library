@@ -47,9 +47,12 @@ type TextInputOtherProps<Element extends TextInputElement = TextInputDefaultElem
 	renderRight?: (props: TextInputRenderProps<Element>) => ReactNode;
 } & Pick<FormsCommonProps, PickedFormsCommonProps>;
 
+type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
+
 export type TextInputProps<Element extends TextInputElement = TextInputDefaultElement> = Omit<
-	BoxProps<Element, TextInputOtherProps<Element>>,
-	'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>
->;
+	BoxProps<Element>,
+	OmittedBoxProps
+> &
+	TextInputOtherProps<Element>;
 
 export type TextInputRef<Element extends TextInputElement = TextInputDefaultElement> = BoxRef<Element>;

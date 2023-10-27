@@ -63,9 +63,16 @@ type SearchInputOtherProps<Element extends SearchInputElement = SearchInputDefau
 	onSubmit?: (query: string) => void;
 } & Pick<FormsCommonProps, PickedFormsCommonProps>;
 
+type OmittedBoxProps =
+	| 'children'
+	| 'onChange'
+	| 'value'
+	| keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
+
 export type SearchInputProps<Element extends SearchInputElement = SearchInputDefaultElement> = Omit<
-	BoxProps<Element, SearchInputOtherProps<Element>>,
-	'children' | 'onChange' | 'value' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>
->;
+	BoxProps<Element>,
+	OmittedBoxProps
+> &
+	SearchInputOtherProps<Element>;
 
 export type SearchInputRef<Element extends SearchInputElement = SearchInputDefaultElement> = BoxRef<Element>;

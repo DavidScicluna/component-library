@@ -64,7 +64,7 @@ type AlertOtherProps = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<AlertVariant>;
 };
 
-export type AlertProps<Element extends ElementType> = Omit<BoxProps<Element, AlertOtherProps>, keyof BoxOtherProps>;
+export type AlertProps<Element extends ElementType> = Omit<BoxProps<Element>, keyof BoxOtherProps> & AlertOtherProps;
 
 export type AlertRef<Element extends ElementType> = BoxRef<Element>;
 

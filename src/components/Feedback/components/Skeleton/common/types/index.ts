@@ -25,6 +25,6 @@ type SkeletonOtherProps = ThemeAppAppearanceProps & {
 	radius?: ResponsiveValue<ThemeRadius>;
 };
 
-export type SkeletonProps<Element extends ElementType> = BoxProps<Element, SkeletonOtherProps>;
+export type SkeletonProps<Element extends ElementType> = BoxProps<Element> & SkeletonOtherProps;
 
 export type SkeletonRef<Element extends ElementType> = BoxRef<Element>;

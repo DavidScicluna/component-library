@@ -67,9 +67,12 @@ type FileInputOtherProps<Element extends FileInputElement = FileInputDefaultElem
 	onError: (event: FileInputChangeEvent<Element>, error: FileInputErrors) => void;
 } & Pick<FormsCommonProps, PickedFormsCommonProps>;
 
+type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
+
 export type FileInputProps<Element extends FileInputElement = FileInputDefaultElement> = Omit<
-	BoxProps<Element, FileInputOtherProps<Element>>,
-	'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>
->;
+	BoxProps<Element>,
+	OmittedBoxProps
+> &
+	FileInputOtherProps<Element>;
 
 export type FileInputRef<Element extends FileInputElement = FileInputDefaultElement> = BoxRef<Element>;

@@ -13,9 +13,7 @@ type TabListOtherProps<Element extends ElementType> = {
 	renderRight?: (props: TabListRenderProps<Element>) => ReactNode;
 };
 
-export type TabListProps<Element extends ElementType> = Omit<
-	BoxProps<Element, TabListOtherProps<Element>>,
-	keyof BoxOtherProps
->;
+export type TabListProps<Element extends ElementType> = Omit<BoxProps<Element>, keyof BoxOtherProps> &
+	TabListOtherProps<Element>;
 
 export type TabListRef<Element extends ElementType> = BoxRef<Element>;

@@ -36,10 +36,8 @@ type DummyIconButtonOtherProps<Element extends ElementType> = ThemeAppAppearance
 	variant?: ResponsiveValue<DummyIconButtonVariant>;
 } & Pick<DummyPushableOverlayProps<Element>, 'isAnimated' | 'isOutlined'>;
 
-export type DummyIconButtonProps<Element extends ElementType> = Omit<
-	BoxProps<Element, DummyIconButtonOtherProps<Element>>,
-	keyof BoxOtherProps
->;
+export type DummyIconButtonProps<Element extends ElementType> = Omit<BoxProps<Element>, keyof BoxOtherProps> &
+	DummyIconButtonOtherProps<Element>;
 
 export type DummyIconButtonRef<Element extends ElementType> = BoxRef<Element>;
 

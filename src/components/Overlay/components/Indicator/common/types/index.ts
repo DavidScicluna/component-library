@@ -41,6 +41,6 @@ type IndicatorOtherProps = {
 	placement?: ResponsiveValue<IndicatorPlacement>;
 };
 
-export type IndicatorProps<Element extends ElementType> = BoxProps<Element, IndicatorOtherProps>;
+export type IndicatorProps<Element extends ElementType> = BoxProps<Element> & IndicatorOtherProps;
 
 export type IndicatorRef<Element extends ElementType> = BoxRef<Element>;

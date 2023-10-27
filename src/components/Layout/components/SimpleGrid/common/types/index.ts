@@ -12,6 +12,6 @@ type SimpleGridOtherProps = {
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type SimpleGridProps<Element extends ElementType> = BoxProps<Element, SimpleGridOtherProps>;
+export type SimpleGridProps<Element extends ElementType> = BoxProps<Element> & SimpleGridOtherProps;
 
 export type SimpleGridRef<Element extends ElementType> = BoxRef<Element>;

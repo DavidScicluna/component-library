@@ -66,9 +66,11 @@ type TextareaOtherProps<Element extends TextareaElement = TextareaDefaultElement
 	resize?: ResponsiveValue<ResizeClass>;
 } & Pick<FormsCommonProps, PickedFormsCommonProps>;
 
+type OmittedBoxProps = 'children' | 'resize' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
+
 export type TextareaProps<Element extends TextareaElement = TextareaDefaultElement> = Omit<
 	BoxProps<Element>,
-	'children' | 'resize' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>
+	OmittedBoxProps
 > &
 	TextareaOtherProps;
 

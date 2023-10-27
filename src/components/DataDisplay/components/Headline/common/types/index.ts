@@ -16,6 +16,6 @@ type HeadlineOtherProps = ThemeAppAppearanceProps & {
 	spacing?: ThemeSpacing;
 };
 
-export type HeadlineProps<Element extends ElementType> = BoxProps<Element, HeadlineOtherProps>;
+export type HeadlineProps<Element extends ElementType> = BoxProps<Element> & HeadlineOtherProps;
 
 export type HeadlineRef<Element extends ElementType> = BoxRef<Element>;

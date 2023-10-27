@@ -47,9 +47,12 @@ type EmailInputOtherProps<Element extends EmailInputElement = EmailInputDefaultE
 	renderRight?: (props: EmailInputRenderProps<Element>) => ReactNode;
 } & Pick<FormsCommonProps, PickedFormsCommonProps>;
 
+type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
+
 export type EmailInputProps<Element extends EmailInputElement = EmailInputDefaultElement> = Omit<
-	BoxProps<Element, EmailInputOtherProps<Element>>,
-	'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>
->;
+	BoxProps<Element>,
+	OmittedBoxProps
+> &
+	EmailInputOtherProps<Element>;
 
 export type EmailInputRef<Element extends EmailInputElement = EmailInputDefaultElement> = BoxRef<Element>;
