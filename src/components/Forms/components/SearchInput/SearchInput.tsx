@@ -19,6 +19,7 @@ import { getFormDescriptionID } from '../FormDescription/common/utils';
 import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
+	__DEFAULT_SEARCH_INPUT_ID__,
 	__DEFAULT_SEARCH_INPUT_INITIAL_QUERY__,
 	__DEFAULT_SEARCH_INPUT_IS_COMPACT__,
 	__DEFAULT_SEARCH_INPUT_IS_DISABLED__,
@@ -57,7 +58,7 @@ const SearchInput = forwardRef(function SearchInput<Element extends SearchInputE
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
 		colorMode: __DEFAULT_FORM_CONTROL_COLORMODE__,
-		id,
+		id: __DEFAULT_FORM_CONTROL_ID__ = __DEFAULT_SEARCH_INPUT_ID__,
 		hasFormControl,
 		isDisabled: __DEFAULT_FORM_CONTROL_IS_DISABLED__ = __DEFAULT_SEARCH_INPUT_IS_DISABLED__,
 		isError: __DEFAULT_FORM_CONTROL_IS_ERROR__ = __DEFAULT_SEARCH_INPUT_IS_ERROR__,
@@ -70,6 +71,7 @@ const SearchInput = forwardRef(function SearchInput<Element extends SearchInputE
 	} = useFormControlContext();
 
 	const {
+		id = __DEFAULT_FORM_CONTROL_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		w,
 		h,
