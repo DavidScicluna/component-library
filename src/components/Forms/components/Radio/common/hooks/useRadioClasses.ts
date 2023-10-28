@@ -1,5 +1,4 @@
 import type { ElementType } from 'react';
-import { useMemo } from 'react';
 
 import classNames from 'classnames';
 
@@ -20,7 +19,7 @@ type UseRadioClassesProps<Element extends ElementType = PolymorphicDefaultElemen
 	RadioProps<Element>,
 	'isActive' | 'isClickable' | 'isDisabled' | 'isReadOnly'
 >;
-type UseRadioClassesReturn = Record<'container' | 'element', ClassName>;
+type UseRadioClassesReturn = ClassName;
 
 const useRadioClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseRadioClassesProps<Element>
@@ -39,16 +38,12 @@ const useRadioClasses = <Element extends ElementType = PolymorphicDefaultElement
 		isReadOnly: isReadOnlyProp
 	});
 
-	const rootClasses = useMemo<ClassName>(() => {
-		return classNames(
-			classes.interactivity.user_select.none,
-			classes.interactivity.will_change.auto,
-			classes.interactivity.cursor[!isClickable || isActive || isDisabled || isReadOnly ? 'default' : 'pointer'],
-			classes.interactivity.pointer_events[!isClickable || isActive || isDisabled || isReadOnly ? 'none' : 'auto']
-		);
-	}, [isActive, isClickable, isDisabled, isReadOnly]);
-
-	return classNames(rootClasses);
+	return classNames(
+		classes.interactivity.user_select.none,
+		classes.interactivity.will_change.auto,
+		classes.interactivity.cursor[!isClickable || isActive || isDisabled || isReadOnly ? 'default' : 'pointer'],
+		classes.interactivity.pointer_events[!isClickable || isActive || isDisabled || isReadOnly ? 'none' : 'auto']
+	);
 };
 
 export default useRadioClasses;
