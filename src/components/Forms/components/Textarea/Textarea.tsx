@@ -20,6 +20,7 @@ import { getFormDescriptionID } from '../FormDescription/common/utils';
 import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
+	__DEFAULT_TEXTAREA_ID__,
 	__DEFAULT_TEXTAREA_IS_COMPACT__,
 	__DEFAULT_TEXTAREA_IS_DISABLED__,
 	__DEFAULT_TEXTAREA_IS_ERROR__,
@@ -59,7 +60,7 @@ const Textarea = forwardRef(function Textarea<Element extends TextareaElement = 
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
 		colorMode: __DEFAULT_FORM_CONTROL_COLORMODE__,
-		id,
+		id: __DEFAULT_FORM_CONTROL_ID__ = __DEFAULT_TEXTAREA_ID__,
 		hasFormControl,
 		isDisabled: __DEFAULT_FORM_CONTROL_IS_DISABLED__ = __DEFAULT_TEXTAREA_IS_DISABLED__,
 		isError: __DEFAULT_FORM_CONTROL_IS_ERROR__ = __DEFAULT_TEXTAREA_IS_ERROR__,
@@ -72,6 +73,7 @@ const Textarea = forwardRef(function Textarea<Element extends TextareaElement = 
 	} = useFormControlContext();
 
 	const {
+		id = __DEFAULT_FORM_CONTROL_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		w,
 		h,

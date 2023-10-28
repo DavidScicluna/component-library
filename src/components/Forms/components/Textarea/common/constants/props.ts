@@ -1,3 +1,5 @@
+import { v4 as uuid } from 'uuid';
+
 import type { ResizeClass } from '@common/types';
 
 import {
@@ -15,6 +17,8 @@ import {
 } from '@components/Forms/common/constants';
 
 import type { TextareaSize, TextareaVariant } from '../types';
+
+export const __DEFAULT_TEXTAREA_ID__ = uuid();
 
 export const __DEFAULT_TEXTAREA_IS_COMPACT__ = __DEFAULT_FORMS_IS_COMPACT__;
 export const __DEFAULT_TEXTAREA_IS_DISABLED__ = __DEFAULT_FORMS_IS_DISABLED__;
