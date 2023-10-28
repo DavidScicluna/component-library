@@ -20,6 +20,7 @@ import { getFormDescriptionID } from '../FormDescription/common/utils';
 import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
+	__DEFAULT_CHECKBOX_ID__,
 	__DEFAULT_CHECKBOX_IS_ACTIVE__,
 	__DEFAULT_CHECKBOX_IS_CHECKED__,
 	__DEFAULT_CHECKBOX_IS_CLICKABLE__,
@@ -56,7 +57,7 @@ const Checkbox = forwardRef(function Checkbox<Element extends ElementType = Poly
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
 		colorMode: __DEFAULT_FORM_CONTROL_COLORMODE__,
-		id,
+		id: __DEFAULT_FORM_CONTROL_ID__ = __DEFAULT_CHECKBOX_ID__,
 		hasFormControl,
 		isDisabled: __DEFAULT_FORM_CONTROL_IS_DISABLED__ = __DEFAULT_CHECKBOX_IS_DISABLED__,
 		isError: __DEFAULT_FORM_CONTROL_IS_ERROR__ = __DEFAULT_CHECKBOX_IS_ERROR__,
@@ -69,6 +70,7 @@ const Checkbox = forwardRef(function Checkbox<Element extends ElementType = Poly
 	} = useFormControlContext();
 
 	const {
+		id = __DEFAULT_FORM_CONTROL_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		renderLabel,
 		w,

@@ -1,5 +1,4 @@
 import type { ElementType } from 'react';
-import { useMemo } from 'react';
 
 import classNames from 'classnames';
 
@@ -20,7 +19,7 @@ type UseCheckboxClassesProps<Element extends ElementType = PolymorphicDefaultEle
 	CheckboxProps<Element>,
 	'isActive' | 'isClickable' | 'isDisabled' | 'isReadOnly'
 >;
-type UseCheckboxClassesReturn = Record<'container' | 'element', ClassName>;
+type UseCheckboxClassesReturn = ClassName;
 
 const useCheckboxClasses = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseCheckboxClassesProps<Element>
@@ -39,16 +38,12 @@ const useCheckboxClasses = <Element extends ElementType = PolymorphicDefaultElem
 		isReadOnly: isReadOnlyProp
 	});
 
-	const rootClasses = useMemo<ClassName>(() => {
-		return classNames(
-			classes.interactivity.user_select.none,
-			classes.interactivity.will_change.auto,
-			classes.interactivity.cursor[!isClickable || isActive || isDisabled || isReadOnly ? 'default' : 'pointer'],
-			classes.interactivity.pointer_events[!isClickable || isActive || isDisabled || isReadOnly ? 'none' : 'auto']
-		);
-	}, [isActive, isClickable, isDisabled, isReadOnly]);
-
-	return classNames(rootClasses);
+	return classNames(
+		classes.interactivity.user_select.none,
+		classes.interactivity.will_change.auto,
+		classes.interactivity.cursor[!isClickable || isActive || isDisabled || isReadOnly ? 'default' : 'pointer'],
+		classes.interactivity.pointer_events[!isClickable || isActive || isDisabled || isReadOnly ? 'none' : 'auto']
+	);
 };
 
 export default useCheckboxClasses;

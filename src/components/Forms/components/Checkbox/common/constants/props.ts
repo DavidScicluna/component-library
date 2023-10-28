@@ -1,5 +1,7 @@
 import type { ComponentProps } from 'react';
 
+import { v4 as uuid } from 'uuid';
+
 import {
 	__DEFAULT_FORMS_IS_COMPACT__,
 	__DEFAULT_FORMS_IS_DISABLED__,
@@ -14,6 +16,8 @@ import {
 } from '@components/Forms/common/constants';
 
 import type { CheckboxLabelPosition, CheckboxSize } from '../types';
+
+export const __DEFAULT_CHECKBOX_ID__ = uuid();
 
 export const __DEFAULT_CHECKBOX_IS_ACTIVE__ = false;
 export const __DEFAULT_CHECKBOX_IS_CHECKED__ = false;

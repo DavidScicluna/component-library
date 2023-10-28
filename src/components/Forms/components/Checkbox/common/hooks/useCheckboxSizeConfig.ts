@@ -38,35 +38,35 @@ const useCheckboxSizeConfig = <Element extends ElementType = PolymorphicDefaultE
 					fontSize: 'xs',
 					padding: { x: isCompact ? 0.25 : 1, y: isCompact ? 0.25 : 1 },
 					radius,
-					spacing: 1
+					spacing: isCompact ? 0.25 : 1
 				};
 			case 'sm':
 				return {
 					fontSize: 'sm',
 					padding: { x: isCompact ? 0.5 : 1.25, y: isCompact ? 0.5 : 1.25 },
 					radius,
-					spacing: 1.25
+					spacing: isCompact ? 0.5 : 1.25
 				};
 			case 'lg':
 				return {
 					fontSize: 'lg',
 					padding: { x: isCompact ? 1 : 1.75, y: isCompact ? 1 : 1.75 },
 					radius,
-					spacing: 1.75
+					spacing: isCompact ? 1 : 1.75
 				};
 			case 'xl':
 				return {
 					fontSize: 'xl',
 					padding: { x: isCompact ? 1.25 : 2, y: isCompact ? 1.25 : 2 },
 					radius,
-					spacing: 2
+					spacing: isCompact ? 1.25 : 2
 				};
 			default:
 				return {
 					fontSize: 'md',
 					padding: { x: isCompact ? 0.75 : 1.5, y: isCompact ? 0.75 : 1.5 },
 					radius,
-					spacing: 1.5
+					spacing: isCompact ? 0.75 : 1.5
 				};
 		}
 	}, [isCompact, size]);
