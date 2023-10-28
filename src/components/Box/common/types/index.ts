@@ -1,9 +1,9 @@
 import type { ElementType } from 'react';
 
-import type { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_OBJECT__ } from '@common/constants';
 import type {
 	Nullish,
 	PolymorphicComponentProps,
+	PolymorphicDefaultElement,
 	PolymorphicRef,
 	ResponsiveValue,
 	Style,
@@ -40,11 +40,7 @@ export type BoxOtherProps = {
 	mb?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type BoxProps<
-	Element extends ElementType = typeof __DEFAULT_POLYMORPHIC_ELEMENT__,
-	Props extends object = typeof __DEFAULT_POLYMORPHIC_OBJECT__
-> = PolymorphicComponentProps<Element, Props & BoxOtherProps>;
+export type BoxProps<Element extends ElementType = PolymorphicDefaultElement> = PolymorphicComponentProps<Element> &
+	BoxOtherProps;
 
-export type BoxRef<Element extends ElementType = typeof __DEFAULT_POLYMORPHIC_ELEMENT__> = Nullish<
-	PolymorphicRef<Element>
->;
+export type BoxRef<Element extends ElementType = PolymorphicDefaultElement> = Nullish<PolymorphicRef<Element>>;
