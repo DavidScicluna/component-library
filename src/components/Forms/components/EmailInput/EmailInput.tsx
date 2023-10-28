@@ -19,6 +19,7 @@ import { getFormDescriptionID } from '../FormDescription/common/utils';
 import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
+	__DEFAULT_EMAIL_INPUT_ID__,
 	__DEFAULT_EMAIL_INPUT_IS_COMPACT__,
 	__DEFAULT_EMAIL_INPUT_IS_DISABLED__,
 	__DEFAULT_EMAIL_INPUT_IS_ERROR__,
@@ -56,7 +57,7 @@ const EmailInput = forwardRef(function EmailInput<Element extends EmailInputElem
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
 		colorMode: __DEFAULT_FORM_CONTROL_COLORMODE__,
-		id,
+		id: __DEFAULT_FORM_CONTROL_ID__ = __DEFAULT_EMAIL_INPUT_ID__,
 		hasFormControl,
 		isDisabled: __DEFAULT_FORM_CONTROL_IS_DISABLED__ = __DEFAULT_EMAIL_INPUT_IS_DISABLED__,
 		isError: __DEFAULT_FORM_CONTROL_IS_ERROR__ = __DEFAULT_EMAIL_INPUT_IS_ERROR__,
@@ -69,6 +70,7 @@ const EmailInput = forwardRef(function EmailInput<Element extends EmailInputElem
 	} = useFormControlContext();
 
 	const {
+		id = __DEFAULT_FORM_CONTROL_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		w,
 		h,
