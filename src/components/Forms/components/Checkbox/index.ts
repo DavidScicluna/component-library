@@ -5,8 +5,7 @@ import type {
 	CheckboxMouseEvent,
 	CheckboxProps,
 	CheckboxRef,
-	CheckboxSize,
-	CheckboxVariant
+	CheckboxSize
 } from './common/types';
 import Checkbox from './Checkbox';
 
@@ -27,6 +26,5 @@ export type {
 	CheckboxMouseEvent,
 	CheckboxProps,
 	CheckboxRef,
-	CheckboxSize,
-	CheckboxVariant
+	CheckboxSize
 };

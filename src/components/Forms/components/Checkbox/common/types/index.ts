@@ -24,8 +24,6 @@ export type CheckboxLabelPosition = 'left' | 'right';
 
 export type CheckboxSize = FormsCommonSize;
 
-export type CheckboxVariant = 'contained' | 'light' | 'dark' | 'outlined' | 'monochrome' | 'transparent';
-
 type PickedFormsCommonProps =
 	| 'color'
 	| 'colorMode'
@@ -43,19 +41,19 @@ type PickedFormsCommonProps =
 type CheckboxOtherProps = Pick<FormsCommonProps, PickedFormsCommonProps> & {
 	renderLabel?: (props: TextProps) => ReactNode;
 	/**
-	 * If true, the checked will be in a checked state
+	 * If true, the checkbox will be in a checked state
 	 *
 	 * @default false
 	 */
 	isChecked?: ResponsiveValue<boolean>;
 	/**
-	 * If true, the badge will be clickable
+	 * If true, the checkbox will be clickable
 	 *
 	 * @default false
 	 */
 	isClickable?: ResponsiveValue<boolean>;
 	/**
-	 * If true, the checked will be in indeterminate state, checked prop is ignored
+	 * If true, the checkbox will be in indeterminate state, checked prop is ignored
 	 *
 	 * @default false
 	 */
@@ -66,13 +64,7 @@ type CheckboxOtherProps = Pick<FormsCommonProps, PickedFormsCommonProps> & {
 	 * @default 'right'
 	 */
 	labelPosition?: ResponsiveValue<CheckboxLabelPosition>;
-	onToggle?: (value: boolean) => void;
-	/**
-	 * The variant of the checkbox
-	 *
-	 * @default 'transparent'
-	 */
-	variant?: ResponsiveValue<CheckboxVariant>;
+	onToggle?: (isChecked: boolean) => void;
 } & Pick<PushableOverlayProps<PolymorphicDefaultElement>, 'isActive'>;
 
 type OmittedBoxProps = 'children' | 'size' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;

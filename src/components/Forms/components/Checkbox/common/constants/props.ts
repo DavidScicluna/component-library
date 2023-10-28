@@ -13,7 +13,7 @@ import {
 	__DEFAULT_FORMS_SIZE__
 } from '@components/Forms/common/constants';
 
-import type { CheckboxLabelPosition, CheckboxSize, CheckboxVariant } from '../types';
+import type { CheckboxLabelPosition, CheckboxSize } from '../types';
 
 export const __DEFAULT_CHECKBOX_IS_ACTIVE__ = false;
 export const __DEFAULT_CHECKBOX_IS_CHECKED__ = false;
@@ -34,5 +34,3 @@ export const __DEFAULT_CHECKBOX_LABEL_POSITION__: CheckboxLabelPosition = 'right
 export const __DEFAULT_CHECKBOX_TYPE__: ComponentProps<'input'>['type'] = 'checkbox';
 
 export const __DEFAULT_CHECKBOX_SIZE__: CheckboxSize = __DEFAULT_FORMS_SIZE__;
-
-export const __DEFAULT_CHECKBOX_VARIANT__: CheckboxVariant = 'outlined';

@@ -9,7 +9,6 @@ import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
 
-import { Fade } from '@components/Animation';
 import { Icon } from '@components/DataDisplay';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
 import { Grid, GridItem } from '@components/Layout';
@@ -37,8 +36,7 @@ import {
 	__DEFAULT_CHECKBOX_LABEL_POSITION__,
 	__DEFAULT_CHECKBOX_LINE_HEIGHT_SIZE__,
 	__DEFAULT_CHECKBOX_SIZE__,
-	__DEFAULT_CHECKBOX_TYPE__,
-	__DEFAULT_CHECKBOX_VARIANT__
+	__DEFAULT_CHECKBOX_TYPE__
 } from './common/constants';
 import {
 	useCheckboxClasses,
@@ -98,7 +96,6 @@ const Checkbox = forwardRef(function Checkbox<Element extends ElementType = Poly
 		onBlur,
 		onToggle,
 		size: sizeProp = __DEFAULT_FORM_CONTROL_SIZE__,
-		variant: variantProp = __DEFAULT_CHECKBOX_VARIANT__,
 		...rest
 	} = props;
 
@@ -119,8 +116,7 @@ const Checkbox = forwardRef(function Checkbox<Element extends ElementType = Poly
 		isSuccess,
 		isWarning,
 		labelPosition,
-		size,
-		variant
+		size
 	} = useCheckboxResponsiveValues<Element>({
 		isActive: isActiveProp,
 		isChecked: isCheckedProp,
@@ -136,8 +132,7 @@ const Checkbox = forwardRef(function Checkbox<Element extends ElementType = Poly
 		isSuccess: isSuccessProp,
 		isWarning: isWarningProp,
 		labelPosition: labelPositionProp,
-		size: sizeProp,
-		variant: variantProp
+		size: sizeProp
 	});
 
 	const isFocused = useMemo<boolean>(() => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
@@ -246,12 +241,12 @@ const Checkbox = forwardRef(function Checkbox<Element extends ElementType = Poly
 					isDisabled={isClickable && isDisabled}
 					isFocused={isClickable && isFocused}
 					isOutlined={isOutlined}
-					isPushable={isClickable}
-					variant={variant}
+					isPushable={isClickable && !isReadOnly}
+					variant={!isReadOnly && (isIndeterminate || isChecked) ? 'outlined' : 'monochrome'}
 					px={config.padding.x}
 					py={config.padding.y}
 				>
-					<VisuallyHidden
+					<VisuallyHidden<'input'>
 						as='input'
 						aria-checked={isChecked ? 'true' : 'false'}
 						aria-disabled={isDisabled ? 'true' : 'false'}
@@ -265,20 +260,19 @@ const Checkbox = forwardRef(function Checkbox<Element extends ElementType = Poly
 						checked={isIndeterminate || isChecked}
 						placeholder={placeholder}
 						type={type}
+						onChange={onToggle ? (event) => onToggle(event.target.checked) : undefined}
 					/>
-					<Fade in={isIndeterminate || isChecked} unmountOnExit={false}>
-						<Icon
-							w={iconSize.w}
-							h={iconSize.h}
-							color={color}
-							colorMode={colorMode}
-							icon={isIndeterminate ? 'remove' : isChecked ? 'check' : 'check_box_outline_blank'}
-							category='filled'
-							size={iconSize.size}
-							variant='unstyled'
-							sx={{ visibility: isIndeterminate || isChecked ? 'visible' : 'hidden' }}
-						/>
-					</Fade>
+					<Icon
+						w={iconSize.w}
+						h={iconSize.h}
+						color={color}
+						colorMode={colorMode}
+						icon={isIndeterminate ? 'remove' : isChecked ? 'check' : 'check_box_outline_blank'}
+						category='filled'
+						size={iconSize.size}
+						variant='unstyled'
+						sx={{ visibility: isIndeterminate || isChecked ? 'visible' : 'hidden' }}
+					/>
 				</PushableOverlay>
 			</GridItem>
 

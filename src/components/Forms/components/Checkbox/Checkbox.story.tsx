@@ -1,4 +1,6 @@
-import { type ReactElement, useState } from 'react';
+import { type ReactElement } from 'react';
+
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
 import { Text } from '@components/Typography';
@@ -21,16 +23,9 @@ import {
 	__DEFAULT_CHECKBOX_IS_SUCCESS__,
 	__DEFAULT_CHECKBOX_IS_WARNING__,
 	__DEFAULT_CHECKBOX_LABEL_POSITION__,
-	__DEFAULT_CHECKBOX_SIZE__,
-	__DEFAULT_CHECKBOX_VARIANT__
+	__DEFAULT_CHECKBOX_SIZE__
 } from './common/constants';
-import type {
-	CheckboxDefaultElement,
-	CheckboxLabelPosition,
-	CheckboxProps,
-	CheckboxSize,
-	CheckboxVariant
-} from './common/types';
+import type { CheckboxLabelPosition, CheckboxProps, CheckboxSize } from './common/types';
 import type { CheckboxStory, CheckboxStoryMeta } from './common/types/story';
 import { Checkbox as CheckboxComponent } from '.';
 
@@ -83,14 +78,14 @@ export default {
 		isFocused: {
 			name: 'Focused',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CHECKBOX_IS_INDETERMINATE__,
+			defaultValue: __DEFAULT_CHECKBOX_IS_FOCUSED__,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isIndeterminate: {
 			name: 'Indeterminate',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CHECKBOX_IS_FOCUSED__,
+			defaultValue: __DEFAULT_CHECKBOX_IS_INDETERMINATE__,
 			// description: '',
 			control: { type: 'boolean' }
 		},
@@ -144,19 +139,11 @@ export default {
 			// description: '',
 			options: ['xs', 'sm', 'md', 'lg', 'xl'] as Array<CheckboxSize>,
 			control: { type: 'radio' }
-		},
-		variant: {
-			name: 'Variant',
-			type: 'string',
-			defaultValue: __DEFAULT_CHECKBOX_VARIANT__,
-			// description: '',
-			options: ['contained', 'light', 'dark', 'outlined', 'monochrome', 'transparent'] as Array<CheckboxVariant>,
-			control: { type: 'radio' }
 		}
 	}
 } as CheckboxStoryMeta;
 
-export const Checkbox: CheckboxStory = (props: CheckboxProps<CheckboxDefaultElement>): ReactElement => {
+export const Checkbox: CheckboxStory = (props: CheckboxProps<PolymorphicDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

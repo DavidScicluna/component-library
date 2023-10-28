@@ -18,10 +18,9 @@ import {
 	__DEFAULT_CHECKBOX_IS_SUCCESS__,
 	__DEFAULT_CHECKBOX_IS_WARNING__,
 	__DEFAULT_CHECKBOX_LABEL_POSITION__,
-	__DEFAULT_CHECKBOX_SIZE__,
-	__DEFAULT_CHECKBOX_VARIANT__
+	__DEFAULT_CHECKBOX_SIZE__
 } from '../constants';
-import type { CheckboxLabelPosition, CheckboxProps, CheckboxSize, CheckboxVariant } from '../types';
+import type { CheckboxLabelPosition, CheckboxProps, CheckboxSize } from '../types';
 
 type UseCheckboxResponsiveValuesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	CheckboxProps<Element>,
@@ -40,7 +39,6 @@ type UseCheckboxResponsiveValuesProps<Element extends ElementType = PolymorphicD
 	| 'isWarning'
 	| 'labelPosition'
 	| 'size'
-	| 'variant'
 >;
 
 const useCheckboxResponsiveValues = <Element extends ElementType = PolymorphicDefaultElement>(
@@ -61,8 +59,7 @@ const useCheckboxResponsiveValues = <Element extends ElementType = PolymorphicDe
 		isSuccess: isSuccessProp = __DEFAULT_CHECKBOX_IS_SUCCESS__,
 		isWarning: isWarningProp = __DEFAULT_CHECKBOX_IS_WARNING__,
 		labelPosition: labelPositionProp = __DEFAULT_CHECKBOX_LABEL_POSITION__,
-		size: sizeProp = __DEFAULT_CHECKBOX_SIZE__,
-		variant: variantProp = __DEFAULT_CHECKBOX_VARIANT__
+		size: sizeProp = __DEFAULT_CHECKBOX_SIZE__
 	} = props;
 
 	const isActive = useGetResponsiveValue<boolean>(isActiveProp);
@@ -82,7 +79,6 @@ const useCheckboxResponsiveValues = <Element extends ElementType = PolymorphicDe
 	const labelPosition = useGetResponsiveValue<CheckboxLabelPosition>(labelPositionProp);
 
 	const size = useGetResponsiveValue<CheckboxSize>(sizeProp);
-	const variant = useGetResponsiveValue<CheckboxVariant>(variantProp);
 
 	return {
 		isActive,
@@ -99,8 +95,7 @@ const useCheckboxResponsiveValues = <Element extends ElementType = PolymorphicDe
 		isSuccess,
 		isWarning,
 		labelPosition,
-		size,
-		variant
+		size
 	};
 };
 
