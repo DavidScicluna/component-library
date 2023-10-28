@@ -10,7 +10,6 @@ import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/const
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 
 import { Box } from '@components/Box';
-import { IconButton, IconButtonIcon } from '@components/Buttons';
 import { Icon } from '@components/DataDisplay';
 import { useFormsClasses, useFormsIconSize, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
@@ -20,6 +19,7 @@ import { getFormDescriptionID } from '../FormDescription/common/utils';
 import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
+	__DEFAULT_PASSWORD_INPUT_ID__,
 	__DEFAULT_PASSWORD_INPUT_IS_COMPACT__,
 	__DEFAULT_PASSWORD_INPUT_IS_DISABLED__,
 	__DEFAULT_PASSWORD_INPUT_IS_ERROR__,
@@ -56,7 +56,7 @@ const PasswordInput = forwardRef(function PasswordInput<
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
 		colorMode: __DEFAULT_FORM_CONTROL_COLORMODE__,
-		id,
+		id: __DEFAULT_FORM_CONTROL_ID__ = __DEFAULT_PASSWORD_INPUT_ID__,
 		hasFormControl,
 		isDisabled: __DEFAULT_FORM_CONTROL_IS_DISABLED__ = __DEFAULT_PASSWORD_INPUT_IS_DISABLED__,
 		isError: __DEFAULT_FORM_CONTROL_IS_ERROR__ = __DEFAULT_PASSWORD_INPUT_IS_ERROR__,
@@ -69,6 +69,7 @@ const PasswordInput = forwardRef(function PasswordInput<
 	} = useFormControlContext();
 
 	const {
+		id = __DEFAULT_FORM_CONTROL_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		w,
 		h,
