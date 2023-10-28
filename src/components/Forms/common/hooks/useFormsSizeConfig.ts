@@ -36,35 +36,35 @@ const useFormsSizeConfig = (props: UseFormsSizeConfigProps): UseFormsSizeConfigR
 					fontSize: 'xs',
 					padding: { x: v === 'underline' ? 0 : c ? 0.25 : 1, y: c ? 0.25 : 1 },
 					radius,
-					spacing: 1
+					spacing: v === 'underline' ? 0 : c ? 0.25 : 1
 				};
 			case 'sm':
 				return {
 					fontSize: 'sm',
 					padding: { x: v === 'underline' ? 0 : c ? 0.5 : 1.25, y: c ? 0.5 : 1.25 },
 					radius,
-					spacing: 1.25
+					spacing: v === 'underline' ? 0 : c ? 0.5 : 1.25
 				};
 			case 'lg':
 				return {
 					fontSize: 'lg',
 					padding: { x: v === 'underline' ? 0 : c ? 1 : 1.75, y: c ? 1 : 1.75 },
 					radius,
-					spacing: 1.75
+					spacing: v === 'underline' ? 0 : c ? 1 : 1.75
 				};
 			case 'xl':
 				return {
 					fontSize: 'xl',
 					padding: { x: v === 'underline' ? 0 : c ? 1.25 : 2, y: c ? 1.25 : 2 },
 					radius,
-					spacing: 2
+					spacing: v === 'underline' ? 0 : c ? 1.25 : 2
 				};
 			default:
 				return {
 					fontSize: 'md',
 					padding: { x: v === 'underline' ? 0 : c ? 0.75 : 1.5, y: c ? 0.75 : 1.5 },
 					radius,
-					spacing: 1.5
+					spacing: v === 'underline' ? 0 : c ? 0.75 : 1.5
 				};
 		}
 	}, [isCompact, size, variant]);
