@@ -1,5 +1,7 @@
 import type { ComponentProps } from 'react';
 
+import { v4 as uuid } from 'uuid';
+
 import {
 	__DEFAULT_FORMS_IS_COMPACT__,
 	__DEFAULT_FORMS_IS_DISABLED__,
@@ -15,6 +17,8 @@ import {
 } from '@components/Forms/common/constants';
 
 import type { TextInputSize, TextInputVariant } from '../types';
+
+export const __DEFAULT_TEXT_INPUT_ID__ = uuid();
 
 export const __DEFAULT_TEXT_INPUT_IS_COMPACT__ = __DEFAULT_FORMS_IS_COMPACT__;
 export const __DEFAULT_TEXT_INPUT_IS_DISABLED__ = __DEFAULT_FORMS_IS_DISABLED__;
