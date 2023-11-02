@@ -1,13 +1,13 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { PickFrom, ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
+import type { PickFrom, ResponsiveValue, ThemeAppAppearanceProps, ThemeFontSize, ThemeSpacing } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
 export type ConfirmModalDefaultElement = 'dialog';
 export type ConfirmModalElement = PickFrom<ElementType, 'dialog'>;
 
-export type ConfirmModalSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type ConfirmModalSize = PickFrom<ThemeFontSize, 'xs' | 'sm' | 'md' | 'lg' | 'xl'>;
 
 export type ConfirmModalRenderTriggerProps<Element extends ConfirmModalElement = ConfirmModalDefaultElement> =
 	BoxProps & {
@@ -36,16 +36,19 @@ type ConfirmModalOtherProps<Element extends ConfirmModalElement = ConfirmModalDe
 		renderCancel?: (props: ConfirmModalRenderCancelProps<Element>) => ReactNode;
 		/**
 		 * If `true`, the modal will close when the Esc key is pressed
+		 *
 		 * @default true
 		 */
 		closeOnEsc?: ResponsiveValue<boolean>;
 		/**
 		 * If `true`, the modal will close when the overlay is clicked
+		 *
 		 * @default true
 		 */
 		closeOnOverlayClick?: ResponsiveValue<boolean>;
 		/**
 		 * If `true`, the modal will render without a backdrop behind the modal
+		 *
 		 * @default true
 		 */
 		hasBackdrop?: ResponsiveValue<boolean>;

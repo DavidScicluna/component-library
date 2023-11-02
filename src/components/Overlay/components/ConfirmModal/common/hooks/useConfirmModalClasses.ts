@@ -14,7 +14,7 @@ import type {
 	WidthClass
 } from '@common/types';
 
-import { __DEFAULT_CONFIRM_MODAL_SIZE__ } from '../constants';
+import { __DEFAULT_CONFIRM_MODAL_SIZE__, __DEFAULT_CONFIRM_MODAL_SPACING__ } from '../constants';
 import type { ConfirmModalDefaultElement, ConfirmModalElement, ConfirmModalProps, ConfirmModalSize } from '../types';
 
 type UseGetConfirmModalClassesProps<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = Pick<
@@ -32,7 +32,7 @@ const useGetConfirmModalClasses = <Element extends ConfirmModalElement = Confirm
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_CONFIRM_MODAL_CONTAINER_COLORMODE__,
 		size: si = __DEFAULT_CONFIRM_MODAL_SIZE__,
-		spacing: sp = __DEFAULT_SPACING__
+		spacing: sp = __DEFAULT_CONFIRM_MODAL_SPACING__
 	} = props;
 
 	const size = useGetResponsiveValue<ConfirmModalSize>(si);

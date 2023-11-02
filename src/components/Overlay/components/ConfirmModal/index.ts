@@ -1,4 +1,5 @@
 import * as common_constants from './common/constants';
+import * as common_keys from './common/keys';
 import type {
 	ConfirmModalContext,
 	ConfirmModalDefaultElement,
@@ -51,7 +52,7 @@ import ConfirmModal from './ConfirmModal';
 export const constants = { ...common_constants, ...components_constants };
 
 // Keys
-export const keys = { ...components_keys };
+export const keys = { ...common_keys, ...components_keys };
 
 // Utils
 export * as utils from './common/utils';

@@ -136,7 +136,7 @@ const ConfirmModal = forwardRef(function ConfirmModal<Element extends ConfirmMod
 	useKey(['Escape'], handleEscapeClick, { when: closeOnEsc });
 
 	return (
-		<ConfirmModalContext.Provider value={{ color, colorMode, isOpen, onClose: handleClose, size, spacing }}>
+		<ConfirmModalContext.Provider value={{ color, colorMode, id, isOpen, onClose: handleClose, size, spacing }}>
 			<AnimatePresence onExitComplete={onCloseComplete}>
 				{renderTrigger({
 					...getReferenceProps(),
