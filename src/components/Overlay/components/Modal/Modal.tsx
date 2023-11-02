@@ -134,7 +134,7 @@ const Modal = forwardRef(function Modal<Element extends ModalElement = ModalDefa
 	useKey(['Escape'], handleEscapeClick, { when: closeOnEsc });
 
 	return (
-		<ModalContext.Provider value={{ color, colorMode, isOpen, onClose: handleClose, size, spacing }}>
+		<ModalContext.Provider value={{ color, colorMode, id, isOpen, onClose: handleClose, size, spacing }}>
 			<AnimatePresence onExitComplete={onCloseComplete}>
 				{renderTrigger({
 					...getReferenceProps(),
