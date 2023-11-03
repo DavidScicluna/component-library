@@ -18,7 +18,7 @@ type DummyTabsOtherProps = ThemeAppAppearanceProps & {
 	 */
 	align?: ResponsiveValue<DummyTabsAlign>;
 	/**
-	 * The index of the selected tab (in controlled mode)
+	 * The index of the selected tab
 	 */
 	index: ResponsiveValue<number>;
 	/**
