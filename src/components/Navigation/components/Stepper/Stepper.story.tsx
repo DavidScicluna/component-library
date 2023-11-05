@@ -7,7 +7,7 @@ import { appColors } from '@common/data';
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement, ThemeAppColor } from '@common/types';
 
-import { Center } from '@components/Layout';
+import { Center, VStack } from '@components/Layout';
 import { Text } from '@components/Typography';
 
 // eslint-disable-next-line import-path/parent-depth
@@ -21,7 +21,20 @@ import {
 } from './common/constants';
 import type { StepperAlign, StepperOrientation, StepperProps, StepperSize } from './common/types';
 import type { StepperStory, StepperStoryMeta } from './common/types/story';
-import { Step, StepIcon, StepList, StepPanels, Stepper as StepperComponent } from '.';
+import type { StepStatus as StepStatusType } from './components/Step/common/types';
+import {
+	Step,
+	StepHeadline,
+	// StepIcon,
+	StepList,
+	StepPanels,
+	Stepper as StepperComponent,
+	StepProgress,
+	StepStatus,
+	StepStatusIcon,
+	StepSubtitle,
+	StepTitle
+} from '.';
 
 const __DEFAULT_STEPPER_STORY_COLOR__: ThemeAppColor = sample(appColors) || 'blue';
 const __DEFAULT_STEPPER_STORY_STEPPER__ = range(10);
@@ -95,27 +108,41 @@ export const Stepper: StepperStory = (props: StepperProps<PolymorphicDefaultElem
 			onChange={(index) => setIndex(index as number)}
 		>
 			<StepList>
-				{__DEFAULT_STEPPER_STORY_STEPPER__.map((step, index) => (
-					<Step
-						key={step}
-						color={!color ? __DEFAULT_STEPPER_STORY_COLOR__ : color}
-						index={index}
-						renderTop={
-							props.orientation === 'top' ? () => <StepIcon icon='12mp' category='filled' /> : undefined
-						}
-						spacing={0}
-					>
-						{`Step ${index + 1}`}
-					</Step>
-				))}
+				{__DEFAULT_STEPPER_STORY_STEPPER__.map((step, index) => {
+					const status: StepStatusType = 'error';
+					return (
+						<Step
+							key={step}
+							color={!color ? __DEFAULT_STEPPER_STORY_COLOR__ : color}
+							// index={index}
+							// renderTop={
+							// 	props.orientation === 'top' ? () => <StepIcon icon='12mp' category='filled' /> : undefined
+							// }
+							renderRight={
+								status !== 'active' ? () => <StepStatusIcon index={index} status={status} /> : undefined
+							}
+							spacing={0}
+						>
+							<VStack w='100%' h='100%'>
+								<StepStatus index={index} status={status} />
+								<StepTitle>{`${index + 1}. Step ${index + 1}`}</StepTitle>
+								<StepSubtitle>{`Step ${index + 1} subtitle`}</StepSubtitle>
+							</VStack>
+						</Step>
+					);
+				})}
 			</StepList>
+			<StepProgress />
 			<StepPanels>
 				{__DEFAULT_STEPPER_STORY_STEPPER__.map((step, index) => (
-					<Center key={step} p={4}>
-						<Text align='center' color={text}>
-							{`Step ${index + 1} Panel`}
-						</Text>
-					</Center>
+					<VStack key={step} w='100%' h='100%'>
+						<StepHeadline />
+						<Center key={step} p={4}>
+							<Text align='center' color={text}>
+								{`Step ${index + 1} Panel`}
+							</Text>
+						</Center>
+					</VStack>
 				))}
 			</StepPanels>
 		</StepperComponent>

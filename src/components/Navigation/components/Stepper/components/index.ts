@@ -10,6 +10,24 @@ import type { StepPanelProps, StepPanelsProps, StepPanelsRef } from './StepPanel
 import { keys as step_panels_keys, StepPanels } from './StepPanels';
 import type { StepProgressProps, StepProgressRef } from './StepProgress';
 import { keys as step_progress_keys, StepProgress } from './StepProgress';
+import type { StepStatusDefaultElement, StepStatusElement, StepStatusProps, StepStatusRef } from './StepStatus';
+import { keys as step_status_keys, StepStatus } from './StepStatus';
+import type {
+	StepStatusIconDefaultElement,
+	StepStatusIconElement,
+	StepStatusIconProps,
+	StepStatusIconRef
+} from './StepStatusIcon';
+import { keys as step_status_icon_keys, StepStatusIcon } from './StepStatusIcon';
+import type {
+	StepSubtitleDefaultElement,
+	StepSubtitleElement,
+	StepSubtitleProps,
+	StepSubtitleRef
+} from './StepSubtitle';
+import { keys as step_subtitle_keys, StepSubtitle } from './StepSubtitle';
+import type { StepTitleDefaultElement, StepTitleElement, StepTitleProps, StepTitleRef } from './StepTitle';
+import { keys as step_title_keys, StepTitle } from './StepTitle';
 
 // Constants
 export const constants = { ...step_constants };
@@ -21,14 +39,29 @@ export const keys = {
 	...step_icon_keys,
 	...step_list_keys,
 	...step_panels_keys,
-	...step_progress_keys
+	...step_progress_keys,
+	...step_status_keys,
+	...step_status_icon_keys,
+	...step_subtitle_keys,
+	...step_title_keys
 };
 
 // Hooks
 export const hooks = { ...step_hooks };
 
 // Components
-export { Step, StepHeadline, StepIcon, StepList, StepPanels, StepProgress };
+export {
+	Step,
+	StepHeadline,
+	StepIcon,
+	StepList,
+	StepPanels,
+	StepProgress,
+	StepStatus,
+	StepStatusIcon,
+	StepSubtitle,
+	StepTitle
+};
 
 // Component Types
 export type {
@@ -51,5 +84,21 @@ export type {
 	StepProgressRef,
 	StepProps,
 	StepRef,
-	StepRenderProps
+	StepRenderProps,
+	StepStatusDefaultElement,
+	StepStatusElement,
+	StepStatusIconDefaultElement,
+	StepStatusIconElement,
+	StepStatusIconProps,
+	StepStatusIconRef,
+	StepStatusProps,
+	StepStatusRef,
+	StepSubtitleDefaultElement,
+	StepSubtitleElement,
+	StepSubtitleProps,
+	StepSubtitleRef,
+	StepTitleDefaultElement,
+	StepTitleElement,
+	StepTitleProps,
+	StepTitleRef
 };

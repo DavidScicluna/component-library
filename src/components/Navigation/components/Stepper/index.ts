@@ -12,6 +12,8 @@ import type {
 import type {
 	StepDefaultElement,
 	StepElement,
+	StepHeadlineProps,
+	StepHeadlineRef,
 	StepIconDefaultElement,
 	StepIconElement,
 	StepIconProps,
@@ -23,18 +25,42 @@ import type {
 	StepPanelProps,
 	StepPanelsProps,
 	StepPanelsRef,
+	StepProgressProps,
+	StepProgressRef,
 	StepProps,
 	StepRef,
-	StepRenderProps
+	StepRenderProps,
+	StepStatusDefaultElement,
+	StepStatusElement,
+	StepStatusIconDefaultElement,
+	StepStatusIconElement,
+	StepStatusIconProps,
+	StepStatusIconRef,
+	StepStatusProps,
+	StepStatusRef,
+	StepSubtitleDefaultElement,
+	StepSubtitleElement,
+	StepSubtitleProps,
+	StepSubtitleRef,
+	StepTitleDefaultElement,
+	StepTitleElement,
+	StepTitleProps,
+	StepTitleRef
 } from './components';
 import {
 	constants as components_constants,
 	hooks as components_hooks,
 	keys as components_keys,
 	Step,
+	StepHeadline,
 	StepIcon,
 	StepList,
-	StepPanels
+	StepPanels,
+	StepProgress,
+	StepStatus,
+	StepStatusIcon,
+	StepSubtitle,
+	StepTitle
 } from './components';
 import Stepper from './Stepper';
 
@@ -51,12 +77,26 @@ export * as utils from './common/utils';
 export const hooks = { ...common_hooks, ...components_hooks };
 
 // Components
-export { Step, StepIcon, StepList, StepPanels, Stepper };
+export {
+	Step,
+	StepHeadline,
+	StepIcon,
+	StepList,
+	StepPanels,
+	Stepper,
+	StepProgress,
+	StepStatus,
+	StepStatusIcon,
+	StepSubtitle,
+	StepTitle
+};
 
 // Component Types
 export type {
 	StepDefaultElement,
 	StepElement,
+	StepHeadlineProps,
+	StepHeadlineRef,
 	StepIconDefaultElement,
 	StepIconElement,
 	StepIconProps,
@@ -74,7 +114,25 @@ export type {
 	StepperProps,
 	StepperRef,
 	StepperSize,
+	StepProgressProps,
+	StepProgressRef,
 	StepProps,
 	StepRef,
-	StepRenderProps
+	StepRenderProps,
+	StepStatusDefaultElement,
+	StepStatusElement,
+	StepStatusIconDefaultElement,
+	StepStatusIconElement,
+	StepStatusIconProps,
+	StepStatusIconRef,
+	StepStatusProps,
+	StepStatusRef,
+	StepSubtitleDefaultElement,
+	StepSubtitleElement,
+	StepSubtitleProps,
+	StepSubtitleRef,
+	StepTitleDefaultElement,
+	StepTitleElement,
+	StepTitleProps,
+	StepTitleRef
 };
