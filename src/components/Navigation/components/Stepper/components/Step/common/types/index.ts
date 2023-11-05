@@ -15,6 +15,8 @@ export type StepMouseEvent<Element extends StepElement = StepDefaultElement> = P
 export type StepDefaultElement = 'button';
 export type StepElement = PickFrom<ElementType, 'button'>;
 
+export type StepStatus = 'idle' | 'success' | 'error' | 'warning' | 'active';
+
 export type StepRenderProps<Element extends StepElement = StepDefaultElement> = Pick<
 	StepOtherProps<Element>,
 	'color' | 'colorMode'
@@ -25,7 +27,6 @@ type StepOtherProps<Element extends StepElement = StepDefaultElement> = ThemeApp
 	renderBottom?: (props: StepRenderProps<Element>) => ReactNode;
 	renderLeft?: (props: StepRenderProps<Element>) => ReactNode;
 	renderRight?: (props: StepRenderProps<Element>) => ReactNode;
-	index: number;
 	/**
 	 * If `true`, the step will have the active styling
 	 *

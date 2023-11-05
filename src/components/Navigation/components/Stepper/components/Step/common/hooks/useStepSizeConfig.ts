@@ -8,23 +8,23 @@ import { useStepperContext } from '@components/Navigation/components/Stepper/com
 import { __DEFAULT_STEP_IS_COMPACT__ } from '../constants';
 import type { StepDefaultElement, StepElement, StepProps } from '../types';
 
-type StepperizeConfig = {
+type StepSizeConfig = {
 	fontSize: ThemeFontSize;
 	padding: Record<'x' | 'y', ThemeSpacing>;
 	spacing: ThemeSpacing;
 };
 
-type UseStepperizeConfigProps<Element extends StepElement = StepDefaultElement> = Pick<StepProps<Element>, 'isCompact'>;
-type UseStepperizeConfigReturn = StepperizeConfig;
+type UseStepSizeConfigProps<Element extends StepElement = StepDefaultElement> = Pick<StepProps<Element>, 'isCompact'>;
+type UseStepSizeConfigReturn = StepSizeConfig;
 
-const useStepperizeConfig = <Element extends StepElement = StepDefaultElement>(
-	props: UseStepperizeConfigProps<Element>
-): UseStepperizeConfigReturn => {
+const useStepSizeConfig = <Element extends StepElement = StepDefaultElement>(
+	props: UseStepSizeConfigProps<Element>
+): UseStepSizeConfigReturn => {
 	const { size } = useStepperContext();
 
 	const { isCompact = __DEFAULT_STEP_IS_COMPACT__ } = props;
 
-	const config = useMemo<StepperizeConfig>(() => {
+	const config = useMemo<StepSizeConfig>(() => {
 		const c = getResponsiveValue<boolean>(isCompact);
 
 		switch (size) {
@@ -64,4 +64,4 @@ const useStepperizeConfig = <Element extends StepElement = StepDefaultElement>(
 	return config;
 };
 
-export default useStepperizeConfig;
+export default useStepSizeConfig;

@@ -19,7 +19,7 @@ import {
 } from '../constants';
 import type { StepDefaultElement, StepElement, StepProps } from '../types';
 
-import useStepperizeConfig from './useStepperizeConfig';
+import useStepSizeConfig from './useStepSizeConfig';
 
 type UseStepClassesProps<Element extends StepElement = StepDefaultElement> = Pick<
 	StepProps<Element>,
@@ -47,7 +47,7 @@ const useStepClasses = <Element extends StepElement = StepDefaultElement>(
 	const isDisabled = useGetResponsiveValue<boolean>(disabled);
 	const isUppercase = useGetResponsiveValue<boolean>(uppercase);
 
-	const config = useStepperizeConfig<Element>({ isCompact });
+	const config = useStepSizeConfig<Element>({ isCompact });
 
 	const stepClasses = useMemo<ClassName>(() => {
 		const outlineHue = getColorHue({ colorMode, type: 'color' });

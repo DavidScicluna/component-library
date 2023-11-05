@@ -25,7 +25,7 @@ import {
 	__DEFAULT_STEP_IS_DISABLED__,
 	__DEFAULT_STEP_IS_UPPERCASE__
 } from './common/constants';
-import { useStepClasses, useStepperizeConfig } from './common/hooks';
+import { useStepClasses, useStepSizeConfig } from './common/hooks';
 import { __KEYS_STEP_CLASS__ } from './common/keys';
 import type { StepDefaultElement, StepElement, StepMouseEvent, StepProps, StepRef } from './common/types';
 
@@ -56,7 +56,6 @@ const Step = forwardRef(function Step<Element extends StepElement = StepDefaultE
 		renderBottom,
 		color = __DEFAULT_STEP_COLOR__,
 		colorMode = __DEFAULT_STEP_COLORMODE__,
-		index,
 		isActive: active = __DEFAULT_STEP_IS_ACTIVE__,
 		isCompact: c = __DEFAULT_STEP_IS_COMPACT__,
 		isDisabled: disabled = __DEFAULT_STEP_IS_DISABLED__,
@@ -78,7 +77,7 @@ const Step = forwardRef(function Step<Element extends StepElement = StepDefaultE
 	const isDisabled = useMemo(() => isStepperDisabled || isStepDisabled, [isStepperDisabled, isStepDisabled]);
 	const isSelected = useMemo(() => index === panel, [index, panel]);
 
-	const config = useStepperizeConfig<Element>({ isCompact });
+	const config = useStepSizeConfig<Element>({ isCompact });
 
 	const classes = useStepClasses<Element>({
 		color,
