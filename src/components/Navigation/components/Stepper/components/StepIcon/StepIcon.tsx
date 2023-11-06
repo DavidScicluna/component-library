@@ -26,7 +26,6 @@ const StepIcon = forwardRef(function StepIcon<Element extends StepIconElement = 
 		className = __DEFAULT_CLASSNAME__,
 		color = __DEFAULT_STEP_ICON_COLOR__,
 		colorMode = __DEFAULT_STEP_ICON_COLORMODE__,
-		index,
 		...rest
 	} = props;
 
