@@ -9,6 +9,7 @@ import { Icon } from '@components/DataDisplay';
 
 import { useStepperContext, useStepperSizeConfig } from '../../common/hooks';
 import { getStepStatusColor, getStepStatusIcon } from '../../common/utils';
+import { useStepContext } from '../Step/common/hooks';
 
 import { __KEYS_STEP_STATUS_ICON_CLASS__ } from './common/keys';
 import type {
@@ -22,8 +23,9 @@ const StepStatusIcon = forwardRef(function StepStatusIcon<
 	Element extends StepStatusIconElement = StepStatusIconDefaultElement
 >(props: StepStatusIconProps<Element>, ref: StepStatusIconRef<Element>): ReactElement {
 	const { color, colorMode, index: step, size, variant } = useStepperContext();
+	const { index, status } = useStepContext();
 
-	const { className = __DEFAULT_CLASSNAME__, index, status, ...rest } = props;
+	const { className = __DEFAULT_CLASSNAME__, ...rest } = props;
 
 	const config = useStepperSizeConfig({ size });
 
