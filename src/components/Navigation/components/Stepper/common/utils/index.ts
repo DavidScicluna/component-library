@@ -1,4 +1,12 @@
-import { getStepID, getStepListID, getStepPanelID, getStepPanelsID, getStepperID } from './ids';
+import {
+	getStepID,
+	getStepListID,
+	getStepPanelID,
+	getStepPanelsID,
+	getStepperID,
+	getStepSubtitleID,
+	getStepTitleID
+} from './ids';
 import { getStepStatusColor, getStepStatusIcon, getStepStatusLabel } from './step';
 
 export {
@@ -9,5 +17,7 @@ export {
 	getStepperID,
 	getStepStatusColor,
 	getStepStatusIcon,
-	getStepStatusLabel
+	getStepStatusLabel,
+	getStepSubtitleID,
+	getStepTitleID
 };

@@ -94,7 +94,7 @@ export default {
 export const Stepper: StepperStory = (props: StepperProps<PolymorphicDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
-	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });
+	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'text.primary', classType: 'text' });
 
 	const [index, setIndex] = useState<number>(0);
 
@@ -107,44 +107,45 @@ export const Stepper: StepperStory = (props: StepperProps<PolymorphicDefaultElem
 			index={index}
 			onChange={(index) => setIndex(index as number)}
 		>
-			<StepList>
-				{__DEFAULT_STEPPER_STORY_STEPPER__.map((step, index) => {
-					const status: StepStatusType = 'error';
-					return (
-						<Step
-							key={step}
-							color={!color ? __DEFAULT_STEPPER_STORY_COLOR__ : color}
-							// index={index}
-							// renderTop={
-							// 	props.orientation === 'top' ? () => <StepIcon icon='12mp' category='filled' /> : undefined
-							// }
-							renderRight={
-								status !== 'active' ? () => <StepStatusIcon index={index} status={status} /> : undefined
-							}
-							spacing={0}
-						>
-							<VStack w='100%' h='100%'>
-								<StepStatus index={index} status={status} />
-								<StepTitle>{`${index + 1}. Step ${index + 1}`}</StepTitle>
-								<StepSubtitle>{`Step ${index + 1} subtitle`}</StepSubtitle>
-							</VStack>
-						</Step>
-					);
-				})}
-			</StepList>
-			<StepProgress />
-			<StepPanels>
-				{__DEFAULT_STEPPER_STORY_STEPPER__.map((step, index) => (
-					<VStack key={step} w='100%' h='100%'>
-						<StepHeadline />
-						<Center key={step} p={4}>
-							<Text align='center' color={text}>
-								{`Step ${index + 1} Panel`}
-							</Text>
-						</Center>
-					</VStack>
-				))}
-			</StepPanels>
+			<VStack w='100%' h='100%' spacing={4}>
+				<StepList>
+					{__DEFAULT_STEPPER_STORY_STEPPER__.map((step, index) => {
+						const status: StepStatusType = 'error';
+						return (
+							<Step
+								key={step}
+								color={!color ? __DEFAULT_STEPPER_STORY_COLOR__ : color}
+								index={index}
+								status={status}
+								// renderTop={
+								// 	props.orientation === 'top' ? () => <StepIcon icon='12mp' category='filled' /> : undefined
+								// }
+								renderRight={() => <StepStatusIcon />}
+								spacing={0}
+							>
+								<VStack w='100%' h='100%'>
+									<StepStatus />
+									<StepTitle>{`${index + 1}. Step ${index + 1}`}</StepTitle>
+									<StepSubtitle>{`Step ${index + 1} subtitle`}</StepSubtitle>
+								</VStack>
+							</Step>
+						);
+					})}
+				</StepList>
+				<StepProgress />
+				<StepPanels>
+					{__DEFAULT_STEPPER_STORY_STEPPER__.map((step, index) => (
+						<VStack key={step} w='100%' h='100%' spacing={4}>
+							<StepHeadline />
+							<Center key={step} p={4}>
+								<Text align='center' color={text}>
+									{`Step ${index + 1} Panel`}
+								</Text>
+							</Center>
+						</VStack>
+					))}
+				</StepPanels>
+			</VStack>
 		</StepperComponent>
 	);
 };
