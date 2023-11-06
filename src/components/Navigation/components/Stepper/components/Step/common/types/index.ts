@@ -28,6 +28,10 @@ type StepOtherProps<Element extends StepElement = StepDefaultElement> = ThemeApp
 	renderLeft?: (props: StepRenderProps<Element>) => ReactNode;
 	renderRight?: (props: StepRenderProps<Element>) => ReactNode;
 	/**
+	 * The index of the step
+	 */
+	index: number;
+	/**
 	 * If `true`, the step will have the active styling
 	 *
 	 * @default false
@@ -51,6 +55,12 @@ type StepOtherProps<Element extends StepElement = StepDefaultElement> = ThemeApp
 	 * @default true
 	 */
 	isUppercase?: ResponsiveValue<boolean>;
+	/**
+	 * The current status of the step
+	 *
+	 * @default 'idle'
+	 */
+	status?: ResponsiveValue<StepStatus>;
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
@@ -58,3 +68,8 @@ export type StepProps<Element extends StepElement = StepDefaultElement> = Omit<B
 	StepOtherProps<Element>;
 
 export type StepRef<Element extends StepElement = StepDefaultElement> = BoxRef<Element>;
+
+export type StepContext<Element extends StepElement = StepDefaultElement> = Pick<
+	StepProps<Element>,
+	'index' | 'status'
+> & { id: string };
