@@ -1,11 +1,11 @@
-import { includes } from 'lodash-es';
+import { compact, includes } from 'lodash-es';
 import memoize from 'micro-memoize';
 
 import { colors, durations, fontSizes } from '@common/data';
 import type { ThemeColor, ThemeDuration, ThemeFontSize } from '@common/types';
 
 type CheckColor = ThemeColor | string;
-type CheckColorType = 'theme' | 'other';
+type CheckColorType = 'theme' | 'class' | 'other';
 
 /**
  * This method will check if the color param passed is from theme or its a string or number
@@ -16,6 +16,8 @@ type CheckColorType = 'theme' | 'other';
 export const checkColorType = memoize((color: CheckColor): CheckColorType => {
 	if (includes(colors, color)) {
 		return 'theme';
+	} else if (color.includes('-')) {
+		return 'class';
 	} else {
 		return 'other';
 	}

@@ -92,6 +92,7 @@ const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<
 		whitespaceClassName,
 		wordBreakClassName,
 		{
+			[color]: checkColorType(color) === 'class',
 			[textColorClassName]: checkColorType(color) === 'theme',
 			[lineClampClassName]: !!lineClamp,
 			[classes.typography.font_style.italic]: isItalic,

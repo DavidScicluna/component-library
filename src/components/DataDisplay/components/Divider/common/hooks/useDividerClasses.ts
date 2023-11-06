@@ -54,6 +54,7 @@ const useDividerClasses = <Element extends DividerElement>(
 		justifyContentClassName,
 		borderStyleClassName,
 		{
+			[color]: checkColorType(color) === 'class',
 			[borderColorClassName]: checkColorType(color) === 'theme',
 			[borderLeftWidthClassName]: orientation === 'vertical'
 		}
