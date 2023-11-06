@@ -29,8 +29,10 @@
 		"jest": true,
 		"node": true
 	},
+	"plugins": ["react", "jsx-a11y", "import", "import-path", "simple-import-sort"],
 	"extends": [
 		"eslint:recommended",
+		"plugin:react/recommended",
 		"plugin:import/errors",
 		"plugin:import/warnings",
 		"plugin:import/typescript",
@@ -39,7 +41,6 @@
 		"plugin:react-hooks/recommended",
 		"plugin:@typescript-eslint/recommended"
 	],
-	"plugins": ["react", "jsx-a11y", "import", "import-path", "simple-import-sort"],
 	"rules": {
 		"@typescript-eslint/consistent-type-imports": [
 			"error",
@@ -57,6 +58,7 @@
 		"no-process-exit": "warn",
 		"jsx-a11y/href-no-hash": "off",
 		"react/react-in-jsx-scope": "off",
+		"react/display-name": ["off", { "ignoreTranspilerName": true, "checkContextObjects": false }],
 		"react/prop-types": "off",
 		"react-hooks/exhaustive-deps": "off",
 		"import-path/parent-depth": ["error", 2],
