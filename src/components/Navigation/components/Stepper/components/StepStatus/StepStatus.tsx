@@ -8,8 +8,9 @@ import { useGetColor } from '@common/hooks';
 
 import { Text } from '@components/Typography';
 
-import { useStepperContext } from '../../common/hooks';
+import { useStepperContext, useStepperSizeConfig } from '../../common/hooks';
 import { getStepStatusColor, getStepStatusLabel } from '../../common/utils';
+import { useStepContext } from '../Step/common/hooks';
 
 import { __KEYS_STEP_STATUS_CLASS__ } from './common/keys';
 import type { StepStatusDefaultElement, StepStatusElement, StepStatusProps, StepStatusRef } from './common/types';
@@ -18,17 +19,18 @@ const StepStatus = forwardRef(function StepStatus<Element extends StepStatusElem
 	props: StepStatusProps<Element>,
 	ref: StepStatusRef<Element>
 ): ReactElement {
-	const { color, colorMode, index: step } = useStepperContext();
+	const { color, colorMode, index: step, size } = useStepperContext();
+	const { index, status } = useStepContext();
+
+	const config = useStepperSizeConfig({ size });
 
 	const {
 		className = __DEFAULT_CLASSNAME__,
-		index,
 		align = 'left',
-		fontSize = 'xl',
+		fontSize = config.fontSize.status,
 		fontWeight = 'bold',
 		textTransform = 'uppercase',
 		lineClamp = 1,
-		status,
 		...rest
 	} = props;
 
