@@ -14,6 +14,9 @@ type DummyTabOtherProps<Element extends ElementType = PolymorphicDefaultElement>
 	renderBottom?: (props: DummyTabRenderProps<Element>) => ReactNode;
 	renderLeft?: (props: DummyTabRenderProps<Element>) => ReactNode;
 	renderRight?: (props: DummyTabRenderProps<Element>) => ReactNode;
+	/**
+	 * The index of the tab
+	 */
 	index: number;
 	/**
 	 * If true, the tab will be styled in a more compressed state

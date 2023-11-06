@@ -25,6 +25,9 @@ type TabOtherProps<Element extends TabElement = TabDefaultElement> = ThemeAppApp
 	renderBottom?: (props: TabRenderProps<Element>) => ReactNode;
 	renderLeft?: (props: TabRenderProps<Element>) => ReactNode;
 	renderRight?: (props: TabRenderProps<Element>) => ReactNode;
+	/**
+	 * The index of the tab
+	 */
 	index: number;
 	/**
 	 * If `true`, the tab will have the active styling
