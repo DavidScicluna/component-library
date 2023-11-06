@@ -14,8 +14,9 @@
 		"build"
 	],
 	"scripts": {
-		"lint": "eslint . --ext .ts .tsx .js .jsx --ignore-path .gitignore ./.eslintrc.json",
-		"format": "prettier --write \"./src/**/*.{js, jsx, ts, tsx, json}\" --config ./.prettierrc",
+		"lint": "eslint .",
+		"lint:fix": "eslint --fix --ext .js,.jsx .",
+		"format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json}\" --config ./.prettierrc",
 		"cleanup": "rimraf node_modules",
 		"prebuild": "bun run cleanup && bun install && bun run lint --fix && bun run format && rimraf build",
 		"build": "bun run prebuild && bun run rollup -c",

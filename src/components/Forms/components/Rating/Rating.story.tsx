@@ -2,8 +2,6 @@ import { type ReactElement, useState } from 'react';
 
 import type { PolymorphicDefaultElement } from '@common/types';
 
-import { Box } from '@components/Box';
-
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
