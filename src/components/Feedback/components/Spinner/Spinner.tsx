@@ -11,8 +11,6 @@ import {
 	ThreeDots
 } from 'react-loader-spinner';
 
-import classNames from 'classnames';
-
 import {
 	// __DEFAULT_BORDER_WIDTH__,
 	__DEFAULT_CLASSNAME__,
@@ -57,6 +55,9 @@ import type {
 	SpinnerTailSpinVariant,
 	SpinnerThreeDotsVariant
 } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const Spinner = forwardRef(function Spinner<Element extends ElementType = PolymorphicDefaultElement>(
 	props: SpinnerProps<Element>,
