@@ -51,6 +51,7 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 			classes.typography.whitespace.normal,
 			radiusClassName,
 			{
+				[s]: checkFontSizeType(s) === 'class',
 				[fontSizeClassName]: checkFontSizeType(s) === 'theme',
 				[classes.borders.border_width[__DEFAULT_BORDER_WIDTH__]]: v !== 'unstyled',
 				[classes.borders.border_style[__DEFAULT_BORDER_STYLE__]]: v !== 'unstyled'

@@ -24,7 +24,7 @@ export const checkColorType = memoize((color: CheckColor): CheckColorType => {
 });
 
 type CheckFontSize = ThemeFontSize | number | string;
-type CheckFontSizeType = 'theme' | 'other';
+type CheckFontSizeType = 'theme' | 'class' | 'other';
 
 /**
  * This method will check if the size param passed is from theme or its a string or number
@@ -35,6 +35,8 @@ type CheckFontSizeType = 'theme' | 'other';
 export const checkFontSizeType = memoize((size: CheckFontSize): CheckFontSizeType => {
 	if (includes(fontSizes, size)) {
 		return 'theme';
+	} else if (typeof size === 'string' && size.includes('-')) {
+		return 'class';
 	} else {
 		return 'other';
 	}
