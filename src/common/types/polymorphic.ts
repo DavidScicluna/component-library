@@ -5,11 +5,9 @@ import type {
 	ElementType,
 	FocusEvent,
 	FormEvent,
-	HTMLAttributes,
-	MouseEvent
+	MouseEvent,
+	ReactNode
 } from 'react';
-
-import type { __DEFAULT_POLYMORPHIC_OBJECT__ } from '@common/constants';
 
 import type { PickFrom, Style } from '.';
 
@@ -34,6 +32,7 @@ export type PolymorphicFormEvent<Element extends ElementType = PolymorphicDefaul
 >;
 
 type PolymorphicProps<Element extends ElementType = PolymorphicDefaultElement> = {
+	children?: ReactNode;
 	/**
 	 * The component used for the root node. Either a string to use an HTML element or a component.
 	 */
@@ -42,13 +41,10 @@ type PolymorphicProps<Element extends ElementType = PolymorphicDefaultElement> =
 	 * The system prop that allows [emotion css](https://emotion.sh/docs/introduction) objects to be passed down to as styles
 	 */
 	sx?: Style;
-} & Omit<HTMLAttributes<PolymorphicRef<Element>>, 'color'>;
-// & ComponentPropsWithoutRef<Element>;
+} & ComponentPropsWithoutRef<Element>;
 
-export type PolymorphicComponentProps<
-	Element extends ElementType = PolymorphicDefaultElement,
-	Props extends object = typeof __DEFAULT_POLYMORPHIC_OBJECT__
-> = Props & PolymorphicProps<Element>;
+export type PolymorphicComponentProps<Element extends ElementType = PolymorphicDefaultElement> =
+	PolymorphicProps<Element>;
 
 export type PolymorphicRef<Element extends ElementType = PolymorphicDefaultElement> =
 	ComponentPropsWithRef<Element>['ref'];
