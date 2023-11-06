@@ -1,4 +1,4 @@
-import { compact, includes } from 'lodash-es';
+import { includes } from 'lodash-es';
 import memoize from 'micro-memoize';
 
 import { colors, durations, fontSizes } from '@common/data';
@@ -43,7 +43,7 @@ export const checkFontSizeType = memoize((size: CheckFontSize): CheckFontSizeTyp
 });
 
 type CheckDuration = ThemeDuration | number | string;
-type CheckDurationType = 'theme' | 'other';
+type CheckDurationType = 'theme' | 'class' | 'other';
 
 /**
  * This method will check if the duration param passed is from theme or its a string or number
@@ -54,6 +54,8 @@ type CheckDurationType = 'theme' | 'other';
 export const checkDurationType = memoize((duration: CheckDuration): CheckDurationType => {
 	if (includes(durations, duration)) {
 		return 'theme';
+	} else if (typeof duration === 'string' && duration.includes('-')) {
+		return 'class';
 	} else {
 		return 'other';
 	}
