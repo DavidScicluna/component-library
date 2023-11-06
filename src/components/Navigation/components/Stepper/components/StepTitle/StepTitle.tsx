@@ -10,6 +10,8 @@ import { Text } from '@components/Typography';
 
 import { __DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE__ } from '../../common/constants';
 import { useStepperContext, useStepperSizeConfig } from '../../common/hooks';
+import { getStepTitleID } from '../../common/utils';
+import { useStepContext } from '../Step/common/hooks';
 
 import { __KEYS_STEP_TITLE_CLASS__ } from './common/keys';
 import type { StepTitleDefaultElement, StepTitleElement, StepTitleProps, StepTitleRef } from './common/types';
@@ -19,6 +21,7 @@ const StepTitle = forwardRef(function StepTitle<Element extends StepTitleElement
 	ref: StepTitleRef<Element>
 ): ReactElement {
 	const { colorMode, size } = useStepperContext();
+	const { id } = useStepContext();
 
 	const __DEFAULT_STEP_TITLE_COLOR__ = useGetColor({
 		color: 'gray',
@@ -46,6 +49,7 @@ const StepTitle = forwardRef(function StepTitle<Element extends StepTitleElement
 		<Text<Element>
 			{...rest}
 			ref={ref}
+			id={getStepTitleID(id)}
 			className={classNames(__KEYS_STEP_TITLE_CLASS__, { [className]: !!className })}
 			align={align}
 			color={color}

@@ -10,6 +10,8 @@ import { Text } from '@components/Typography';
 
 import { __DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE__ } from '../../common/constants';
 import { useStepperContext, useStepperSizeConfig } from '../../common/hooks';
+import { getStepSubtitleID } from '../../common/utils';
+import { useStepContext } from '../Step/common/hooks';
 
 import { __KEYS_STEP_SUBTITLE_CLASS__ } from './common/keys';
 import type {
@@ -24,6 +26,7 @@ const StepSubtitle = forwardRef(function StepSubtitle<Element extends StepSubtit
 	ref: StepSubtitleRef<Element>
 ): ReactElement {
 	const { colorMode, size } = useStepperContext();
+	const { id } = useStepContext();
 
 	const __DEFAULT_STEP_SUBTITLE_COLOR__ = useGetColor({
 		color: 'gray',
@@ -51,6 +54,7 @@ const StepSubtitle = forwardRef(function StepSubtitle<Element extends StepSubtit
 		<Text<Element>
 			{...rest}
 			ref={ref}
+			id={getStepSubtitleID(id)}
 			className={classNames(__KEYS_STEP_SUBTITLE_CLASS__, { [className]: !!className })}
 			align={align}
 			color={color}
