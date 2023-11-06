@@ -1,8 +1,6 @@
 import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import classNames from 'classnames';
-
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Icon } from '@components/DataDisplay';
@@ -17,6 +15,9 @@ import type {
 	DummyButtonIconProps,
 	DummyButtonIconRef
 } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const DummyButtonIcon = forwardRef(function DummyButtonIcon<
 	Element extends DummyButtonIconElement = DummyButtonIconDefaultElement

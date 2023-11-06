@@ -1,8 +1,6 @@
 import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
-import classNames from 'classnames';
-
 import { __DEFAULT_CLASSNAME__, __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
 import { getColorHex } from '@common/utils';
@@ -14,6 +12,9 @@ import { useCardContext } from '../../common/hooks';
 
 import { __KEYS_CARD_DIVIDER_CLASS__ } from './common/keys';
 import type { CardDividerDefaultElement, CardDividerElement, CardDividerProps, CardDividerRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const CardDivider = forwardRef(function CardDivider<Element extends CardDividerElement = CardDividerDefaultElement>(
 	props: CardDividerProps<Element>,

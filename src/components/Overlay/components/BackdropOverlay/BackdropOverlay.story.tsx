@@ -1,7 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
-
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement, ThemeBlurClassArr, ThemeRadiusArr } from '@common/types';
 
@@ -20,6 +18,9 @@ import {
 import type { BackdropOverlayBlurTypes, BackdropOverlayProps } from './common/types';
 import type { BackdropOverlayStory, BackdropOverlayStoryMeta } from './common/types/story';
 import { BackdropOverlay as BackdropOverlayComponent } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export default {
 	title: 'Overlay/BackdropOverlay',

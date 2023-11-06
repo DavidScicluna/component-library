@@ -1,6 +1,3 @@
-import classNames from 'classnames';
-
-import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor, useGetResponsiveValue } from '@common/hooks';
 import type {
@@ -16,6 +13,9 @@ import type {
 
 import { __DEFAULT_MODAL_SIZE__ } from '../constants';
 import type { ModalDefaultElement, ModalElement, ModalProps, ModalSize } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseModalClassesProps<Element extends ModalElement = ModalDefaultElement> = Pick<
 	ModalProps<Element>,

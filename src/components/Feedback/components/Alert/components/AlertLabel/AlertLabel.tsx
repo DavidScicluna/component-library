@@ -1,8 +1,6 @@
 import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
-import classNames from 'classnames';
-
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 import type { ThemeColor } from '@common/types';
@@ -15,6 +13,9 @@ import { getStatusColor } from '../../common/utils';
 
 import { __KEYS_ALERT_LABEL_CLASS__ } from './common/keys';
 import type { AlertLabelDefaultElement, AlertLabelElement, AlertLabelProps, AlertLabelRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const AlertLabel = forwardRef(function AlertLabel<Element extends AlertLabelElement = AlertLabelDefaultElement>(
 	props: AlertLabelProps<Element>,

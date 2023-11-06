@@ -1,8 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import classNames from 'classnames';
-
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useMediaQuery } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
@@ -13,6 +11,9 @@ import { useModalContext } from '../../common/hooks';
 
 import { __KEYS_MODAL_FOOTER_CLASS__ } from './common/keys';
 import type { ModalFooterProps, ModalFooterRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const ModalFooter = forwardRef(function ModalFooter<Element extends ElementType = PolymorphicDefaultElement>(
 	props: ModalFooterProps<Element>,

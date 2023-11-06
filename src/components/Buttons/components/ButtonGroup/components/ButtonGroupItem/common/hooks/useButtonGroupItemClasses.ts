@@ -1,7 +1,5 @@
 import type { ElementType } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import type { ClassName, PolymorphicDefaultElement } from '@common/types';
 
@@ -9,6 +7,9 @@ import { useButtonSizeConfig } from '@components/Buttons/components/Button/commo
 import { useButtonGroupContext } from '@components/Buttons/components/ButtonGroup/common/hooks';
 
 import type { ButtonGroupItemProps } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseButtonGroupItemClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	ButtonGroupItemProps<Element>,

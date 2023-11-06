@@ -1,13 +1,14 @@
 import type { ElementType } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { ClassName, PolymorphicDefaultElement } from '@common/types';
 
 import { __DEFAULT_DUMMY_ICON_BUTTON_LINE_HEIGHT_SIZE__, __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__ } from '../constants';
 import type { DummyIconButtonProps, DummyIconButtonVariant } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseDummyIconButtonClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	DummyIconButtonProps<Element>,

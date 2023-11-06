@@ -1,8 +1,6 @@
 import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
-import classNames from 'classnames';
-
 import { __DEFAULT_APP_COLOR__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
@@ -14,6 +12,9 @@ import { useStepContext } from '../Step/common/hooks';
 
 import { __KEYS_STEP_STATUS_CLASS__ } from './common/keys';
 import type { StepStatusDefaultElement, StepStatusElement, StepStatusProps, StepStatusRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const StepStatus = forwardRef(function StepStatus<Element extends StepStatusElement = StepStatusDefaultElement>(
 	props: StepStatusProps<Element>,

@@ -1,8 +1,6 @@
 import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
-import classNames from 'classnames';
-
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 import type { ThemeColor } from '@common/types';
@@ -20,6 +18,9 @@ import type {
 	AlertDescriptionProps,
 	AlertDescriptionRef
 } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const AlertDescription = forwardRef(function AlertDescription<
 	Element extends AlertDescriptionElement = AlertDescriptionDefaultElement

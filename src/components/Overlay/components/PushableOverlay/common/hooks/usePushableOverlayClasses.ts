@@ -1,8 +1,6 @@
 import type { ElementType } from 'react';
 import { useMemo } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import {
 	__DEFAULT_BORDER_STYLE__,
@@ -25,6 +23,9 @@ import {
 	__DEFAULT_PUSHABLE_OVERLAY_VARIANT__
 } from '../constants';
 import type { PushableOverlayProps, PushableOverlayVariant } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UsePushableOverlayClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	PushableOverlayProps<Element>,

@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import classNames from 'classnames';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -16,6 +15,9 @@ import type {
 	VisuallyHiddenProps,
 	VisuallyHiddenRef
 } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const VisuallyHidden = forwardRef(function VisuallyHidden<
 	Element extends VisuallyHiddenElement = VisuallyHiddenDefaultElement

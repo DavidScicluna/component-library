@@ -1,7 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
@@ -17,6 +15,9 @@ import { __DEFAULT_SKELETON_IS_ANIMATED__, __DEFAULT_SKELETON_IS_LOADED__ } from
 import type { SkeletonProps } from './common/types';
 import type { SkeletonStory, SkeletonStoryMeta } from './common/types/story';
 import { Skeleton as SkeletonComponent } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export default {
 	title: 'Feedback/Skeleton',

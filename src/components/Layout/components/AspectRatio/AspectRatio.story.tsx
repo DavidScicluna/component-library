@@ -1,7 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement, ThemeAspectRatioArr } from '@common/types';
@@ -16,6 +14,9 @@ import { __DEFAULT_ASPECT_RATIO_RATIO__ } from './common/constants';
 import type { AspectRatioProps } from './common/types';
 import type { AspectRatioStory, AspectRatioStoryMeta } from './common/types/story';
 import { AspectRatio as AspectRatioComponent } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export default {
 	title: 'Layout/AspectRatio',

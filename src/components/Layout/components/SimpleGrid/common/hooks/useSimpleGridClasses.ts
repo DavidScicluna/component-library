@@ -1,13 +1,14 @@
 import type { ElementType } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetClass } from '@common/hooks';
 import type { ClassName, PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
 
 import type { SimpleGridColumn, SimpleGridProps } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseSimpleGridClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	SimpleGridProps<Element>,

@@ -1,7 +1,5 @@
 import type { ElementType } from 'react';
 
-import classNames from 'classnames';
-
 import { useGetClass } from '@common/hooks';
 import type {
 	ClassName,
@@ -18,6 +16,9 @@ import {
 	__DEFAULT_GLASS_OVERLAY_RADIUS__
 } from '../constants';
 import type { GlassOverlayProps } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseGlassOverlayClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	GlassOverlayProps<Element>,

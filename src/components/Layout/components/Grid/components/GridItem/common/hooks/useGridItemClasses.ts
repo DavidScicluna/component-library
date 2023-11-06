@@ -1,7 +1,5 @@
 import type { ElementType } from 'react';
 
-import classNames from 'classnames';
-
 import { useGetClass } from '@common/hooks';
 import type {
 	AlignSelfClass,
@@ -22,6 +20,9 @@ import {
 	__DEFAULT_GRID_ITEM_Z_INDEX__
 } from '../constants';
 import type { GridItemProps } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseGridItemClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	GridItemProps<Element>,

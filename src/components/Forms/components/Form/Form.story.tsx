@@ -1,7 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 
@@ -13,6 +11,9 @@ import { useStorybookContext } from '../../../../../.storybook/preview';
 import type { FormDefaultElement, FormProps } from './common/types';
 import type { FormStory, FormStoryMeta } from './common/types/story';
 import { Form as FormComponent } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export default {
 	title: 'Forms/Form',

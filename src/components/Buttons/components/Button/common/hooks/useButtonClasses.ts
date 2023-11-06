@@ -1,6 +1,3 @@
-import classNames from 'classnames';
-
-import classes from '@common/classes';
 import { useGetClass, useGetResponsiveValue } from '@common/hooks';
 import type { ClassName, WidthClass } from '@common/types';
 
@@ -15,6 +12,9 @@ import {
 import type { ButtonDefaultElement, ButtonElement, ButtonProps } from '../types';
 
 import useButtonSizeConfig from './useButtonSizeConfig';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseButtonClassesProps<Element extends ButtonElement = ButtonDefaultElement> = Pick<
 	ButtonProps<Element>,

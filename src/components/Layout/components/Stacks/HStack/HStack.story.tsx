@@ -1,6 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
 import { range } from 'lodash-es';
 
 import classes from '@common/classes';
@@ -26,6 +25,9 @@ import {
 import type { HStackProps } from './common/types';
 import type { HStackStory, HStackStoryMeta } from './common/types/story';
 import { HStack as HStackComponent } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export default {
 	title: 'Layout/Stacks/HStack',

@@ -10,7 +10,6 @@ import {
 	useInteractions,
 	useRole
 } from '@floating-ui/react';
-import classNames from 'classnames';
 import { useKey } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__, __DEFAULT_SPACING__ } from '@common/constants';
@@ -42,6 +41,9 @@ import type {
 } from './common/types';
 import { getConfirmModalID, getConfirmModalSubtitleID, getConfirmModalTitleID } from './common/utils';
 import { ConfirmModalBackdrop } from './components';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const ConfirmModalContext = createContext<ConfirmModalContextType<any>>({

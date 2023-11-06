@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react';
 import { forwardRef, useCallback, useEffect, useMemo, useRef } from 'react';
 
-import classNames from 'classnames';
 import { compact, merge } from 'lodash-es';
 import { useFocus, useMergeRefs } from 'rooks';
 import { useElementSize } from 'usehooks-ts';
@@ -44,6 +43,9 @@ import type {
 	PasswordInputSize,
 	PasswordInputVariant
 } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const PasswordInput = forwardRef(function PasswordInput<
 	Element extends PasswordInputElement = PasswordInputDefaultElement

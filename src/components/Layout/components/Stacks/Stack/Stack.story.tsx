@@ -1,6 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
 import { range } from 'lodash-es';
 
 import classes from '@common/classes';
@@ -28,6 +27,9 @@ import {
 import type { StackProps } from './common/types';
 import type { StackStory, StackStoryMeta } from './common/types/story';
 import { Stack as StackComponent } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export default {
 	title: 'Layout/Stacks/Stack',

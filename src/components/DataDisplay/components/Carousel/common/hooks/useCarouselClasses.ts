@@ -1,13 +1,14 @@
 import type { ElementType } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { ClassName, PolymorphicDefaultElement } from '@common/types';
 
 import { __DEFAULT_CAROUSEL_VARIANT__ } from '../constants';
 import type { CarouselProps, CarouselVariant } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseCarouselClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	CarouselProps<Element>,

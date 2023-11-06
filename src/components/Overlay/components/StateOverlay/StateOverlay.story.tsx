@@ -1,7 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
@@ -21,6 +19,9 @@ import {
 import type { StateOverlayProps, StateOverlayState } from './common/types';
 import type { StateOverlayStory, StateOverlayStoryMeta } from './common/types/story';
 import { StateOverlay as StateOverlayComponent } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export default {
 	title: 'Overlay/StateOverlay',

@@ -1,7 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import classNames from 'classnames';
 import type { Transition } from 'framer-motion';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
@@ -17,6 +16,9 @@ import { __DEFAULT_SKELETON_IS_ANIMATED__, __DEFAULT_SKELETON_IS_LOADED__ } from
 import { useSkeletonClasses } from './common/hooks';
 import { __KEY_SKELETON_CHILD_CLASS__, __KEY_SKELETON_CLASS__, __KEY_SKELETON_OVERLAY_CLASS__ } from './common/keys';
 import type { SkeletonProps, SkeletonRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const Skeleton = forwardRef(function Skeleton<Element extends ElementType = PolymorphicDefaultElement>(
 	props: SkeletonProps<Element>,

@@ -15,7 +15,6 @@ import {
 	useInteractions,
 	useRole
 } from '@floating-ui/react';
-import classNames from 'classnames';
 import { useMergeRefs } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -39,6 +38,9 @@ import {
 import { useTooltipClasses } from './common/hooks';
 import { __KEYS_TOOLTIP_CLASS__ } from './common/keys';
 import type { TooltipPlacement, TooltipProps, TooltipRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const Tooltip = forwardRef(function Tooltip<Element extends ElementType = PolymorphicDefaultElement>(
 	props: TooltipProps<Element>,

@@ -1,7 +1,5 @@
 import type { ElementType } from 'react';
 
-import classNames from 'classnames';
-
 import { useGetClass } from '@common/hooks';
 import type {
 	ClassName,
@@ -18,6 +16,9 @@ import {
 	__DEFAULT_BACKDROP_OVERLAY_RADIUS__
 } from '../constants';
 import type { BackdropOverlayProps } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseBackdropOverlayClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	BackdropOverlayProps<Element>,

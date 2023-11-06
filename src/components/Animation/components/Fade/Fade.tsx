@@ -1,7 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import classNames from 'classnames';
 import { omit, pick } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -19,6 +18,9 @@ import { MotionBox } from '../MotionBox';
 
 import { __KEYS_FADE__, __KEYS_FADE_CLASS__ } from './common/keys';
 import type { FadeProps, FadeRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const config = __DEFAULT_ANIMATION_TRANSITION_CONFIG__;
 

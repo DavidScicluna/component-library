@@ -1,6 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
 import { range } from 'lodash-es';
 
 import classes from '@common/classes';
@@ -34,6 +33,9 @@ import type { GridProps } from './common/types';
 import type { GridStory, GridStoryMeta } from './common/types/story';
 import { GridItem } from './components/GridItem';
 import { Grid as GridComponent } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export default {
 	title: 'Layout/Grid',

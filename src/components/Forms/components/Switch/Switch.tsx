@@ -1,7 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
-import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useFocus } from 'rooks';
 
@@ -43,6 +42,9 @@ import {
 import { useSwitchClasses, useSwitchIconSize, useSwitchResponsiveValues, useSwitchSizeConfig } from './common/hooks';
 import { __KEYS_SWITCH_CLASS__ } from './common/keys';
 import type { SwitchFocusEvent, SwitchMouseEvent, SwitchProps, SwitchRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const Switch = forwardRef(function Switch<Element extends ElementType = PolymorphicDefaultElement>(
 	props: SwitchProps<Element>,

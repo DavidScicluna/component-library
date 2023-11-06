@@ -1,7 +1,5 @@
 import type { ElementType, ReactElement } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
@@ -15,6 +13,9 @@ import { useStorybookContext } from '../../../.storybook/preview';
 import type { BoxProps } from './common/types';
 import type { BoxStory, BoxStoryMeta } from './common/types/story';
 import { Box as BoxComponent } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export default {
 	title: 'Box',

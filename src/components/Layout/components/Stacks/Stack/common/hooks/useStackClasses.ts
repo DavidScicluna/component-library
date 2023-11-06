@@ -1,7 +1,5 @@
 import type { ElementType } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetClass } from '@common/hooks';
@@ -22,6 +20,9 @@ import {
 	__DEFAULT_STACK_WRAP__
 } from '../constants';
 import type { StackProps } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseStackClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	StackProps<Element>,

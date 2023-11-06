@@ -1,7 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import classNames from 'classnames';
 import { omit, pick } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -32,6 +31,9 @@ import {
 	__KEYS_COLLAPSE_Y_AXIS__
 } from './common/keys';
 import type { CollapseProps, CollapseRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const config = __DEFAULT_ANIMATION_TRANSITION_CONFIG__;
 

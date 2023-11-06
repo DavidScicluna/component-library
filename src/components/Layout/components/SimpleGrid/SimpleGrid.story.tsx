@@ -1,6 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
 import { range } from 'lodash-es';
 
 import classes from '@common/classes';
@@ -15,6 +14,9 @@ import { Center } from '../Center';
 import type { SimpleGridProps } from './common/types';
 import type { SimpleGridStory, SimpleGridStoryMeta } from './common/types/story';
 import { SimpleGrid as SimpleGridComponent } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export default {
 	title: 'Layout/SimpleGrid',

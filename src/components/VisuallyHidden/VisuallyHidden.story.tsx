@@ -1,7 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 
@@ -14,6 +12,9 @@ import { useStorybookContext } from '../../../.storybook/preview';
 import type { VisuallyHiddenDefaultElement, VisuallyHiddenProps } from './common/types';
 import type { VisuallyHiddenStory, VisuallyHiddenStoryMeta } from './common/types/story';
 import { VisuallyHidden as VisuallyHiddenComponent } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export default {
 	title: 'VisuallyHidden',

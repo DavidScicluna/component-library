@@ -1,7 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
-import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
@@ -32,6 +31,9 @@ import type {
 	DummyBadgeVariant
 } from './common/types';
 import { DummyBadgeSkeleton } from './components';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const DummyBadgeContext = createContext<DummyBadgeContextType<any>>({

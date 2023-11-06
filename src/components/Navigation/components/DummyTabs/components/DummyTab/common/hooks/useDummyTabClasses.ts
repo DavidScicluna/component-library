@@ -1,8 +1,6 @@
 import type { ElementType } from 'react';
 import { useMemo } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_OUTLINE_WIDTH__ } from '@common/constants';
 import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
@@ -16,6 +14,9 @@ import { __DEFAULT_DUMMY_TAB_IS_COMPACT__, __DEFAULT_DUMMY_TAB_IS_UPPERCASE__ } 
 import type { DummyTabProps } from '../types';
 
 import useDummyTabSizeConfig from './useDummyTabSizeConfig';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseDummyTabClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	DummyTabProps<Element>,

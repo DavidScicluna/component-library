@@ -1,8 +1,6 @@
 import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import classNames from 'classnames';
-
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
@@ -17,6 +15,9 @@ import type {
 	FormDescriptionRef
 } from './common/types';
 import { getFormDescriptionID } from './common/utils';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const FormDescription = forwardRef(function FormDescription<
 	Element extends FormDescriptionElement = FormDescriptionDefaultElement

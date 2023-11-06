@@ -1,8 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
-import classNames from 'classnames';
-
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
 import type { PolymorphicDefaultElement } from '@common/types';
 
@@ -12,6 +10,9 @@ import { __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_SIZE__, __DEFAULT_MESSAGE
 import { useMessageClasses } from './common/hooks';
 import { __KEYS_MESSAGE_CLASS__ } from './common/keys';
 import type { MessageContext as MessageContextType, MessageProps, MessageRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export const MessageContext = createContext<MessageContextType<PolymorphicDefaultElement>>({
 	spacing: __DEFAULT_SPACING__

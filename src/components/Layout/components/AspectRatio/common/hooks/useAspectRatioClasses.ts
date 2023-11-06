@@ -1,12 +1,13 @@
 import type { ElementType } from 'react';
 
-import classNames from 'classnames';
-
 import { useGetClass } from '@common/hooks';
 import type { ClassName, PolymorphicDefaultElement, ThemeAspectRatio } from '@common/types';
 
 import { __DEFAULT_ASPECT_RATIO_RATIO__ } from '../constants';
 import type { AspectRatioProps } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseAspectRatioClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	AspectRatioProps<Element>,

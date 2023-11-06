@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
-import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useFocus } from 'rooks';
 import { useElementSize } from 'usehooks-ts';
@@ -28,6 +27,9 @@ import {
 import { useTabClasses, useTabSizeConfig } from './common/hooks';
 import { __KEYS_TAB_CLASS__ } from './common/keys';
 import type { TabDefaultElement, TabElement, TabMouseEvent, TabProps, TabRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const Tab = forwardRef(function Tab<Element extends TabElement = TabDefaultElement>(
 	props: TabProps<Element>,

@@ -1,7 +1,5 @@
 import type { ElementType } from 'react';
 
-import classNames from 'classnames';
-
 import { useGetClass } from '@common/hooks';
 import type {
 	ClassName,
@@ -19,6 +17,9 @@ import {
 	__DEFAULT_POSITION_OVERLAY_RADIUS__
 } from '../constants';
 import type { PositionOverlayProps } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UsePositionOverlayClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	PositionOverlayProps<Element>,

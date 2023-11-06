@@ -1,7 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
-import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useFocus } from 'rooks';
 
@@ -41,6 +40,9 @@ import {
 import { useRadioClasses, useRadioIconSize, useRadioResponsiveValues, useRadioSizeConfig } from './common/hooks';
 import { __KEYS_RADIO_CLASS__ } from './common/keys';
 import type { RadioFocusEvent, RadioMouseEvent, RadioProps, RadioRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const Radio = forwardRef(function Radio<Element extends ElementType = PolymorphicDefaultElement>(
 	props: RadioProps<Element>,

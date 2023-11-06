@@ -1,7 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
-
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement, ThemeBlurClassArr, ThemeRadiusArr } from '@common/types';
 
@@ -24,6 +22,9 @@ import {
 import type { LoadingOverlayBlurTypes, LoadingOverlayProps } from './common/types';
 import type { LoadingOverlayStory, LoadingOverlayStoryMeta } from './common/types/story';
 import { LoadingOverlay as LoadingOverlayComponent } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export default {
 	title: 'Overlay/LoadingOverlay',

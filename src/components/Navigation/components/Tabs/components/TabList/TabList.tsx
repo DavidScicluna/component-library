@@ -1,7 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import classNames from 'classnames';
 import { compact, isArray } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
@@ -22,6 +21,9 @@ import { getTabListID } from '../../common/utils';
 
 import { __KEYS_TABS_TAB_LIST_CLASS__ } from './common/keys';
 import type { TabListProps, TabListRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const TabList = forwardRef(function TabList<Element extends ElementType = PolymorphicDefaultElement>(
 	props: TabListProps<Element>,

@@ -1,8 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
-import classNames from 'classnames';
-
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicDefaultElement, ThemeRadius } from '@common/types';
@@ -25,6 +23,9 @@ import type {
 	ProgressVariant
 } from './common/types';
 import { ProgressSection } from './components';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const ProgressContext = createContext<ProgressContextType<any>>({

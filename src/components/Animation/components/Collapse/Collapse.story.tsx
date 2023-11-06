@@ -1,7 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
@@ -16,6 +14,9 @@ import { __DEFAULT_COLLAPSE_IS_OPACITY_ANIMATED__ } from './common/constants';
 import type { CollapseProps } from './common/types';
 import type { CollapseStory, CollapseStoryMeta } from './common/types/story';
 import { Collapse as CollapseComponent } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export default {
 	title: 'Animation/Collapse',

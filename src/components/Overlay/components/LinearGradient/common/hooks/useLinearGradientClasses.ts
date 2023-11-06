@@ -1,7 +1,5 @@
 import type { ElementType } from 'react';
 
-import classNames from 'classnames';
-
 import { useGetClass, useGetColor } from '@common/hooks';
 import type { ClassName, GradientFromMiddleToClass, PolymorphicDefaultElement } from '@common/types';
 
@@ -12,6 +10,9 @@ import {
 	__DEFAULT_LINEAR_GRADIENT_TO__
 } from '../constants';
 import type { LinearGradientDirection, LinearGradientProps } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseLinearGradientClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	LinearGradientProps<Element>,

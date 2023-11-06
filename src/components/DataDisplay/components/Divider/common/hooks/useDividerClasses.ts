@@ -1,5 +1,3 @@
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
@@ -12,6 +10,9 @@ import {
 	__DEFAULT_DIVIDER_VARIANT__
 } from '../constants';
 import type { DividerElement, DividerProps } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseDividerClassesProps<Element extends DividerElement> = Pick<
 	DividerProps<Element>,

@@ -1,7 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import classNames from 'classnames';
 import { omit, pick } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -20,6 +19,9 @@ import { MotionBox } from '../MotionBox';
 import { __DEFAULT_POP_INITIAL_SCALE__, __DEFAULT_POP_IS_REVERSED__ } from './common/constants';
 import { __KEYS_POP__, __KEYS_POP_CLASS__ } from './common/keys';
 import type { PopProps, PopRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const config = __DEFAULT_ANIMATION_TRANSITION_CONFIG__;
 

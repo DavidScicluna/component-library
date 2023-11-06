@@ -1,7 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
-import classNames from 'classnames';
 import { useFocus } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__, __DEFAULT_USE_BOOLEAN_TOGGLES__ } from '@common/constants';
@@ -27,6 +26,9 @@ import {
 } from './common/constants';
 import { __KEYS_CARD_CLASS__ } from './common/keys';
 import type { CardContext as CardContextType, CardMouseEvent, CardProps, CardRef, CardVariant } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const CardContext = createContext<CardContextType<any>>({

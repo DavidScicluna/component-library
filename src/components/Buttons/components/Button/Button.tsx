@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react';
 import { createContext, forwardRef, useMemo } from 'react';
 
-import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useFocus } from 'rooks';
 import { useElementSize } from 'usehooks-ts';
@@ -37,6 +36,9 @@ import type {
 	ButtonSize,
 	ButtonVariant
 } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const ButtonContext = createContext<ButtonContextType<any>>({

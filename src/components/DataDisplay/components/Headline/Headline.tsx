@@ -1,6 +1,5 @@
 import { type ElementType, forwardRef, type ReactElement } from 'react';
 
-import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
@@ -12,6 +11,9 @@ import { Grid, GridItem, VStack } from '@components/Layout';
 
 import { __KEYS_HEADLINE_CLASS__ } from './common/keys';
 import type { HeadlineProps, HeadlineRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const Headline = forwardRef(function Headline<Element extends ElementType = PolymorphicDefaultElement>(
 	props: HeadlineProps<Element>,

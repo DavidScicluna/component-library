@@ -1,6 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
 import { range } from 'lodash-es';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
@@ -36,6 +35,9 @@ import {
 	CarouselOverlayRightArrowButton,
 	CarouselRightArrowButton
 } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const items = range(20);
 

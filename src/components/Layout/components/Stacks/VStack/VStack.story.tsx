@@ -1,6 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
 import { range } from 'lodash-es';
 
 import classes from '@common/classes';
@@ -26,6 +25,9 @@ import {
 import type { VStackProps } from './common/types';
 import type { VStackStory, VStackStoryMeta } from './common/types/story';
 import { VStack as VStackComponent } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export default {
 	title: 'Layout/Stacks/VStack',

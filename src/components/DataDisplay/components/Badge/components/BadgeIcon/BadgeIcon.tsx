@@ -1,8 +1,6 @@
 import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import classNames from 'classnames';
-
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Icon } from '@components/DataDisplay';
@@ -11,6 +9,9 @@ import { useBadgeContext, useBadgeFontSize } from '../../common/hooks';
 
 import { __KEYS_BADGE_ICON_CLASS__ } from './common/keys';
 import type { BadgeIconDefaultElement, BadgeIconElement, BadgeIconProps, BadgeIconRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const BadgeIcon = forwardRef(function BadgeIcon<Element extends BadgeIconElement = BadgeIconDefaultElement>(
 	props: BadgeIconProps<Element>,

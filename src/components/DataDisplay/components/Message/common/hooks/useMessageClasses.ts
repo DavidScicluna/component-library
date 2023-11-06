@@ -1,8 +1,6 @@
 import type { ElementType } from 'react';
 import { useMemo } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetResponsiveValue } from '@common/hooks';
@@ -17,6 +15,9 @@ import { getColorHue } from '@common/utils';
 
 import { __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_SIZE__, __DEFAULT_MESSAGE_VARIANT__ } from '../constants';
 import type { MessageProps, MessageVariant } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseMessageClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	MessageProps<Element>,

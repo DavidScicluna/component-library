@@ -1,8 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import classNames from 'classnames';
-
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicDefaultElement } from '@common/types';
 
@@ -12,6 +10,9 @@ import { __DEFAULT_SPACE_HEIGHT__, __DEFAULT_SPACE_WIDTH__ } from './common/cons
 import { useSpaceClasses } from './common/hooks';
 import { __KEYS_SPACE_CLASS__ } from './common/keys';
 import type { SpaceProps, SpaceRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const Space = forwardRef(function Space<Element extends ElementType = PolymorphicDefaultElement>(
 	props: SpaceProps<Element>,

@@ -1,8 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
-import classNames from 'classnames';
-
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
@@ -14,6 +12,9 @@ import { useButtonContext, useButtonFontSize } from '../../common/hooks';
 
 import { __KEYS_BUTTON_SPINNER_CLASS__ } from './common/keys';
 import type { ButtonSpinnerProps, ButtonSpinnerRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const ButtonSpinner = forwardRef(function ButtonSpinner<Element extends ElementType = PolymorphicDefaultElement>(
 	props: ButtonSpinnerProps<Element>,

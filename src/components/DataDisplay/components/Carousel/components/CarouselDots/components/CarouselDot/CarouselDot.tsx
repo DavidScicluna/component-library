@@ -1,8 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
-import classNames from 'classnames';
-
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
@@ -15,6 +13,9 @@ import { __DEFAULT_CAROUSEL_DOTS_SIZE__ } from '../../common/constants';
 import { useCarouselDotClasses } from './common/hooks';
 import { __KEYS_CAROUSEL_DOT_CLASS__ } from './common/keys';
 import type { CarouselDotProps, CarouselDotRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const CarouselDot = forwardRef(function CarouselDot<Element extends ElementType = PolymorphicDefaultElement>(
 	props: CarouselDotProps<Element>,

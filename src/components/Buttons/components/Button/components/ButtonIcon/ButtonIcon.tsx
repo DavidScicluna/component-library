@@ -1,8 +1,6 @@
 import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import classNames from 'classnames';
-
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Icon } from '@components/DataDisplay';
@@ -11,6 +9,9 @@ import { useButtonContext, useButtonFontSize } from '../../common/hooks';
 
 import { __KEYS_BUTTON_ICON_CLASS__ } from './common/keys';
 import type { ButtonIconDefaultElement, ButtonIconElement, ButtonIconProps, ButtonIconRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const ButtonIcon = forwardRef(function ButtonIcon<Element extends ButtonIconElement = ButtonIconDefaultElement>(
 	props: ButtonIconProps<Element>,

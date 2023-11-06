@@ -1,8 +1,6 @@
 import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import classNames from 'classnames';
-
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
@@ -13,6 +11,9 @@ import { Text } from '@components/Typography';
 import { __KEYS_FORM_LABEL_CLASS__ } from './common/keys';
 import type { FormLabelDefaultElement, FormLabelElement, FormLabelProps, FormLabelRef } from './common/types';
 import { getFormLabelID } from './common/utils';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const FormLabel = forwardRef(function FormLabel<Element extends FormLabelElement = FormLabelDefaultElement>(
 	props: FormLabelProps<Element>,

@@ -1,7 +1,5 @@
 import type { ElementType } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { useGetClass } from '@common/hooks';
 import type { ClassName, PolymorphicDefaultElement } from '@common/types';
@@ -12,6 +10,9 @@ import {
 	__DEFAULT_CONTAINER_IS_FLUID__
 } from '../constants';
 import type { ContainerBreakpoint, ContainerProps } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseContainerClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	ContainerProps<Element>,

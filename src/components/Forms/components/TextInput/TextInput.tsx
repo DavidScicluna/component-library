@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react';
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
-import classNames from 'classnames';
 import { compact, merge } from 'lodash-es';
 import { useFocus, useMergeRefs } from 'rooks';
 import { useElementSize } from 'usehooks-ts';
@@ -43,6 +42,9 @@ import type {
 	TextInputSize,
 	TextInputVariant
 } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const TextInput = forwardRef(function TextInput<Element extends TextInputElement = TextInputDefaultElement>(
 	props: TextInputProps<Element>,

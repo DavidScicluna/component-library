@@ -1,7 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
@@ -19,6 +17,9 @@ import {
 import type { ContainerBreakpoints, ContainerProps } from './common/types';
 import type { ContainerStory, ContainerStoryMeta } from './common/types/story';
 import { Container as ContainerComponent } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export default {
 	title: 'Layout/Container',

@@ -1,7 +1,5 @@
 import { useMemo } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
@@ -10,6 +8,9 @@ import { checkFontSizeType, getClass, getColorHue, getResponsiveValue } from '@c
 
 import { __DEFAULT_ICON_RADIUS__, __DEFAULT_ICON_SIZE__, __DEFAULT_ICON_VARIANT__ } from '../constants';
 import type { IconElement, IconProps, IconSize, IconVariant } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseIconClassesProps<Element extends IconElement> = Pick<
 	IconProps<Element>,

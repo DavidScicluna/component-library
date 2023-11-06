@@ -1,7 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import classNames from 'classnames';
 import { motion } from 'framer-motion';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -11,6 +10,9 @@ import { Box } from '@components/Box';
 
 import { __KEYS_MOTION_BOX_CLASS__ } from './common/keys';
 import type { MotionBoxProps, MotionBoxRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 // The reason for the any is to fix the ref type bug
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

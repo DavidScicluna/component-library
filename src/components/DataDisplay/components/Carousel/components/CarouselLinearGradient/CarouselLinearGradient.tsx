@@ -1,7 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import classNames from 'classnames';
 import type { Transition } from 'framer-motion';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -18,6 +17,9 @@ import type { CarouselArrowDirection } from '../../common/types';
 import { __DEFAULT_CAROUSEL_LINEAR_GRADIENT_IS_VISIBLE__ } from './common/constants';
 import { __KEYS_CAROUSEL_LINEAR_GRADIENT_CLASS__ } from './common/keys';
 import type { CarouselLinearGradientProps, CarouselLinearGradientRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const CarouselLinearGradient = forwardRef(function CarouselLinearGradient<
 	Element extends ElementType = PolymorphicDefaultElement

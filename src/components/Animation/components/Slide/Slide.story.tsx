@@ -1,7 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
@@ -15,6 +13,9 @@ import { __DEFAULT_ANIMATION_IN__ } from '../../common/constants';
 import type { SlideProps } from './common/types';
 import type { SlideStory, SlideStoryMeta } from './common/types/story';
 import { Slide as SlideComponent } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export default {
 	title: 'Animation/Slide',

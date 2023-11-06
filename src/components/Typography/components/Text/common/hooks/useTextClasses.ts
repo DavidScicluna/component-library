@@ -1,5 +1,3 @@
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
@@ -30,6 +28,9 @@ import {
 	__DEFAULT_TEXT_WORD_BREAK__
 } from '../constants';
 import type { TextElement, TextProps } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseTextClassesProps<Element extends TextElement> = Pick<
 	TextProps<Element>,

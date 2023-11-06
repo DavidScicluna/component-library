@@ -1,7 +1,5 @@
 import type { ElementType } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
@@ -10,6 +8,9 @@ import type { ClassName, PolymorphicDefaultElement, ThemeSpacing } from '@common
 import { __DEFAULT_CAROUSEL_DOTS_SIZE__ } from '@components/DataDisplay/components/Carousel/components/CarouselDots/common/constants';
 
 import type { CarouselDotProps } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseCarouselDotClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	CarouselDotProps<Element>,

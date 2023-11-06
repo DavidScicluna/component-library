@@ -1,7 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
-
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement, ThemeBlurClassArr, ThemeRadiusArr } from '@common/types';
 
@@ -23,6 +21,9 @@ import {
 import type { PositionOverlayBlurTypes, PositionOverlayPlacements, PositionOverlayProps } from './common/types';
 import type { PositionOverlayStory, PositionOverlayStoryMeta } from './common/types/story';
 import { PositionOverlay as PositionOverlayComponent } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export default {
 	title: 'Overlay/PositionOverlay',

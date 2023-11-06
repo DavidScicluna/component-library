@@ -1,7 +1,5 @@
 import type { ElementType } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_DURATION__, __DEFAULT_EASING__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
@@ -9,6 +7,9 @@ import type { ClassName, PolymorphicDefaultElement, ThemeDuration, ThemeEase, Th
 
 import { __DEFAULT_SKELETON_IS_ANIMATED__ } from '../constants';
 import type { SkeletonProps } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseSkeletonClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	SkeletonProps<Element>,

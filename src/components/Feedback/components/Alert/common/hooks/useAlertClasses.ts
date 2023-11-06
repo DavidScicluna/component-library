@@ -1,7 +1,5 @@
 import { type ElementType, useMemo } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
@@ -11,6 +9,9 @@ import { getColorHue } from '@common/utils';
 import { __DEFAULT_ALERT_STATUS__ } from '../constants';
 import type { AlertProps, AlertStatus } from '../types';
 import { getStatusColor } from '../utils';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseAlertClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	AlertProps<Element>,

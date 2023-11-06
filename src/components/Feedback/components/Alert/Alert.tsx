@@ -1,7 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { createContext, forwardRef, useCallback, useMemo } from 'react';
 
-import classNames from 'classnames';
 import { compact, round } from 'lodash-es';
 import { useCountdown, useEffectOnce, useUpdateEffect } from 'usehooks-ts';
 
@@ -25,6 +24,9 @@ import type {
 	AlertVariant
 } from './common/types';
 import { getStatusColor } from './common/utils';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const AlertContext = createContext<AlertContextType<any>>({ status: __DEFAULT_ALERT_STATUS__ });

@@ -1,8 +1,6 @@
 import type { ReactElement } from 'react';
 import { forwardRef, useCallback } from 'react';
 
-import classNames from 'classnames';
-
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Box } from '@components/Box';
@@ -15,6 +13,9 @@ import {
 import { useLinkClasses } from './common/hooks';
 import { __KEYS_LINK_CLASS__ } from './common/keys';
 import type { LinkDefaultElement, LinkElement, LinkMouseEvent, LinkProps, LinkRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const Link = forwardRef(function Link<Element extends LinkElement = LinkDefaultElement>(
 	props: LinkProps<Element>,

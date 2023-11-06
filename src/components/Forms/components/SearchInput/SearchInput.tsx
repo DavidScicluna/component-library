@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react';
 import { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
 
-import classNames from 'classnames';
 import { compact, merge } from 'lodash-es';
 import { useFocus, useMergeRefs } from 'rooks';
 import { useElementSize, useUpdateEffect } from 'usehooks-ts';
@@ -45,6 +44,9 @@ import type {
 	SearchInputSize,
 	SearchInputVariant
 } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const SearchInput = forwardRef(function SearchInput<Element extends SearchInputElement = SearchInputDefaultElement>(
 	props: SearchInputProps<Element>,

@@ -1,7 +1,5 @@
 import type { ElementType } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import type { ClassName, PolymorphicDefaultElement } from '@common/types';
 
@@ -14,6 +12,9 @@ import {
 import type { RadioProps } from '../types';
 
 import { useRadioResponsiveValues } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseRadioClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	RadioProps<Element>,

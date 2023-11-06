@@ -1,7 +1,5 @@
 import type { ElementType } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetClass } from '@common/hooks';
@@ -46,6 +44,9 @@ import {
 	__DEFAULT_BACKGROUND_IMAGE_SIZE__
 } from '../constants';
 import type { BackgroundImageProps } from '../types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseBackgroundImageClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	BackgroundImageProps<Element>,

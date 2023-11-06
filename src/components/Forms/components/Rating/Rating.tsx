@@ -1,7 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef, useState } from 'react';
 
-import classNames from 'classnames';
 import { range } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -31,6 +30,9 @@ import {
 import { useRatingClasses, useRatingIconSize, useRatingResponsiveValues } from './common/hooks';
 import { __KEYS_RATING_CLASS__ } from './common/keys';
 import type { RatingProps, RatingRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const Rating = forwardRef(function Rating<Element extends ElementType = PolymorphicDefaultElement>(
 	props: RatingProps<Element>,

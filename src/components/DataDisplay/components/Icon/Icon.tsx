@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import classNames from 'classnames';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
@@ -20,6 +19,9 @@ import {
 import { useIconClasses, useIconStyles } from './common/hooks';
 import { __KEYS_ICON_CLASS__ } from './common/keys';
 import type { IconDefaultElement, IconElement, IconProps, IconRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const Icon = forwardRef(function Icon<Element extends IconElement = IconDefaultElement>(
 	props: IconProps<Element>,

@@ -1,7 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import classNames from 'classnames';
 import { isArray } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -18,6 +17,9 @@ import { getStepPanelID, getStepPanelsID, getStepperID } from '../../common/util
 
 import { __KEYS_STEPPER_STEP_PANELS_CLASS__ } from './common/keys';
 import type { StepPanelProps, StepPanelsProps, StepPanelsRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const StepPanelFade = <Element extends ElementType = PolymorphicDefaultElement>({
 	children,

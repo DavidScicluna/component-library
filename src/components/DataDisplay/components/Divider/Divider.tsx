@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import classNames from 'classnames';
 import { merge } from 'lodash-es';
 
 import {
@@ -22,6 +21,9 @@ import {
 import { useDividerClasses, useDividerStyles } from './common/hooks';
 import { __KEYS_DIVIDER_CLASS__ } from './common/keys';
 import type { DividerDefaultElement, DividerElement, DividerProps, DividerRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const Divider = forwardRef(function Divider<Element extends DividerElement = DividerDefaultElement>(
 	props: DividerProps<Element>,

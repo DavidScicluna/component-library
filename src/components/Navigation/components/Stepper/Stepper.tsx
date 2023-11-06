@@ -1,8 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
-import classNames from 'classnames';
-
 import { __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__, __DEFAULT_SPACING__ } from '@common/constants';
 import type { PolymorphicDefaultElement } from '@common/types';
 
@@ -23,6 +21,9 @@ import {
 import { useStepperResponsiveValues } from './common/hooks';
 import { __KEYS_STEPPER_CLASS__ } from './common/keys';
 import type { StepperContext as StepperContextType, StepperProps, StepperRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const StepperContext = createContext<StepperContextType<any>>({

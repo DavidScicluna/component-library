@@ -1,7 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 import type { AlignItemsClassArr, JustifyContentClassArr, PolymorphicDefaultElement } from '@common/types';
@@ -34,6 +32,9 @@ import {
 import type { FormControlProps, FormControlSize } from './common/types';
 import type { FormControlStory, FormControlStoryMeta } from './common/types/story';
 import { FormControl as FormControlComponent } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export default {
 	title: 'Forms/FormControl',

@@ -1,7 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
-
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
 
@@ -19,6 +17,9 @@ import {
 import type { IndicatorPlacements, IndicatorProps } from './common/types';
 import type { IndicatorStory, IndicatorStoryMeta } from './common/types/story';
 import { Indicator as IndicatorComponent } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export default {
 	title: 'Overlay/Indicator',

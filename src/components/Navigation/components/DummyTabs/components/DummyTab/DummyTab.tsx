@@ -1,7 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
-import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
@@ -25,6 +24,9 @@ import {
 import { useDummyTabClasses, useDummyTabSizeConfig } from './common/hooks';
 import { __KEYS_DUMMY_TAB_CLASS__ } from './common/keys';
 import type { DummyTabProps, DummyTabRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const DummyTab = forwardRef(function DummyTab<Element extends ElementType = PolymorphicDefaultElement>(
 	props: DummyTabProps<Element>,

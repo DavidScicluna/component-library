@@ -1,7 +1,5 @@
 import type { ReactElement } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
@@ -14,6 +12,9 @@ import { useStorybookContext } from '../../../../../.storybook/preview';
 import type { HoverOverlayProps } from './common/types';
 import type { HoverOverlayStory, HoverOverlayStoryMeta } from './common/types/story';
 import { HoverOverlay as HoverOverlayComponent } from '.';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export default {
 	title: 'Overlay/HoverOverlay',

@@ -1,7 +1,5 @@
 import type { ElementType } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { useGetClass, useGetResponsiveValue } from '@common/hooks';
 import type { ClassName, PolymorphicDefaultElement, WidthClass } from '@common/types';
@@ -17,6 +15,9 @@ import {
 import type { DummyButtonProps } from '../types';
 
 import useDummyButtonSizeConfig from './useDummyButtonSizeConfig';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseDummyButtonClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	DummyButtonProps<Element>,

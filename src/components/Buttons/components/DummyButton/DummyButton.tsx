@@ -1,7 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
-import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
@@ -31,6 +30,9 @@ import type {
 	DummyButtonVariant
 } from './common/types';
 import { DummyButtonSkeleton } from './components/DummyButtonSkeleton';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const DummyButtonContext = createContext<DummyButtonContextType<any>>({

@@ -1,8 +1,6 @@
 import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
-import classNames from 'classnames';
-
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useConst, useGetColor } from '@common/hooks';
 import type { IconKey, ThemeColor } from '@common/types';
@@ -16,6 +14,9 @@ import { getStatusColor, getStatusIcon } from '../../common/utils';
 
 import { __KEYS_ALERT_ICON_CLASS__ } from './common/keys';
 import type { AlertIconDefaultElement, AlertIconElement, AlertIconProps, AlertIconRef } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 const AlertIcon = forwardRef(function AlertIcon<Element extends AlertIconElement = AlertIconDefaultElement>(
 	props: AlertIconProps<Element>,

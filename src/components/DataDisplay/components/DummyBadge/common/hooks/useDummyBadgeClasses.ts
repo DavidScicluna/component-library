@@ -1,7 +1,5 @@
 import type { ElementType } from 'react';
 
-import classNames from 'classnames';
-
 import classes from '@common/classes';
 import { useGetClass, useGetResponsiveValue } from '@common/hooks';
 import type { ClassName, PolymorphicDefaultElement, WidthClass } from '@common/types';
@@ -18,6 +16,9 @@ import {
 import type { DummyBadgeProps } from '../types';
 
 import useDummyBadgeSizeConfig from './useDummyBadgeSizeConfig';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 type UseDummyBadgeClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	DummyBadgeProps<Element>,

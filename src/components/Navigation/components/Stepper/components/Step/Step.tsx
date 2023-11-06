@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react';
 import { createContext, forwardRef, useMemo } from 'react';
 
-import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useFocus } from 'rooks';
 import { useElementSize } from 'usehooks-ts';
@@ -38,6 +37,9 @@ import type {
 	StepProps,
 	StepRef
 } from './common/types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const classNames = require('classnames');
 
 export const StepContext = createContext<StepContextType>({
 	id: getStepID(__DEFAULT_STEPPER_ID__, __DEFAULT_STEP_INDEX__),
