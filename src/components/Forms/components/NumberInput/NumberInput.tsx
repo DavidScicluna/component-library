@@ -36,7 +36,6 @@ import {
 } from './common/constants';
 import { __KEYS_NUMBER_INPUT_CLASS__ } from './common/keys';
 import type {
-	NumberInputChangeEvent,
 	NumberInputDefaultElement,
 	NumberInputElement,
 	NumberInputFocusEvent,
