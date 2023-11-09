@@ -1,19 +1,18 @@
 import { useContext } from 'react';
 
-import { color as defaultColor, colorMode as defaultColorMode } from '../../../../common/default/props';
-import { NoUndefinedField } from '../../../../common/types';
-import { ProviderContext } from '../..';
-import { iconFontStatus as defaultIconFontStatus } from '../default/props';
-import { ProviderContext as ProviderContextType } from '../types';
+import type { DeepRequired } from 'utility-types';
 
-const useProviderContext = (): NoUndefinedField<ProviderContextType> => {
-	const {
-		color = defaultColor,
-		colorMode = defaultColorMode,
-		iconFontStatus = defaultIconFontStatus
-	} = useContext<ProviderContextType>(ProviderContext);
+import { __DEFAULT_APP_COLOR__, __DEFAULT_APP_COLORMODE__ } from '@common/constants';
 
-	return { color, colorMode, iconFontStatus };
+import { ProviderContext } from '@components/Provider/Provider';
+
+import type { ProviderContext as ProviderContextType } from '../types';
+
+const useProviderContext = (): DeepRequired<ProviderContextType> => {
+	const { color = __DEFAULT_APP_COLOR__, colorMode = __DEFAULT_APP_COLORMODE__ } =
+		useContext<ProviderContextType>(ProviderContext);
+
+	return { color, colorMode };
 };
 
 export default useProviderContext;

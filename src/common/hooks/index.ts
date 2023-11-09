@@ -1,9 +1,23 @@
+import useAppTheme from './useAppTheme';
 import useBoolean from './useBoolean';
 import useConst from './useConst';
 import useDebounce from './useDebounce';
+import useGetAmount from './useGetAmount';
+import useGetClass from './useGetClass';
 import useGetColor from './useGetColor';
-import useGetThemeAppearance from './useGetThemeAppearance';
-import useOs from './useOs';
-import useTheme from './useThemeTyped';
+import useGetResponsiveValue from './useGetResponsiveValue';
+import useMediaQuery from './useMediaQuery';
+import useTheme from './useTheme';
 
-export { useBoolean, useConst, useDebounce, useGetColor, useGetThemeAppearance, useOs, useTheme };
+export {
+	useAppTheme,
+	useBoolean,
+	useConst,
+	useDebounce,
+	useGetAmount,
+	useGetClass,
+	useGetColor,
+	useGetResponsiveValue,
+	useMediaQuery,
+	useTheme
+};

@@ -1,7 +1,11 @@
-import Provider from '../src/components/Provider';
-import theme from '../src/theme';
+import { createContext, useContext } from 'react';
 
-// import { ChakraProviderDecorator } from '@chakra-ui/storybook-addon/dist/feature/decorator/ChakraProviderDecorator';
+import { Provider } from '@components/Provider';
+import { getColorHex, getColorMode } from '@common/utils';
+
+import { __DEFAULT_APP_COLOR__, __DEFAULT_APP_COLORMODE__ } from '@common/constants';
+import { appColors } from '@common/data';
+import { capitalize } from 'lodash-es';
 
 // Importing Main Fonts (Work Sans & Roboto)
 import '@fontsource/work-sans/100.css';
@@ -53,16 +57,62 @@ import '@fontsource/material-icons';
 import '@fontsource/material-icons-outlined';
 import '@fontsource/material-icons-two-tone';
 
-export const parameters = {
-	chakra: { theme }
+const StorybookContext = createContext({ color: __DEFAULT_APP_COLOR__, colorMode: __DEFAULT_APP_COLORMODE__ });
+
+export const useStorybookContext = () => {
+	const { color, colorMode } = useContext(StorybookContext);
+	return { color, colorMode };
 };
 
-export const decorators = [
-	(Story) => (
-		<Provider>
-			<Story />
-		</Provider>
-	)
-];
+const DSCLProvider = (Story, context) => {
+	const color = context?.globals?.color;
+	const colorMode = context?.globals?.backgrounds?.value
+		? context?.globals?.backgrounds?.value === '#f8fafc'
+			? 'light'
+			: 'dark'
+		: getColorMode();
 
-// export const decorators = [ChakraProviderDecorator];
+	return (
+		<StorybookContext.Provider value={{ color, colorMode }}>
+			<Provider color={color} colorMode={colorMode}>
+				<Story />
+			</Provider>
+		</StorybookContext.Provider>
+	);
+};
+
+const preview = {
+	globalTypes: {
+		color: {
+			description: 'Select the app color',
+			defaultValue: __DEFAULT_APP_COLOR__,
+			toolbar: {
+				title: 'Color',
+				icon: 'circle',
+				items: [
+					...appColors.map((color) => ({
+						title: capitalize(color),
+						value: color
+					})),
+					{
+						title: 'Gray',
+						value: undefined
+					}
+				],
+				dynamicTitle: true
+			}
+		}
+	},
+	parameters: {
+		backgrounds: {
+			default: getColorMode(),
+			values: [
+				{ name: 'light', value: getColorHex({ color: 'gray', colorMode: 'light', hueType: 'background' }) },
+				{ name: 'dark', value: getColorHex({ color: 'gray', colorMode: 'dark', hueType: 'background' }) }
+			]
+		}
+	},
+	decorators: [DSCLProvider]
+};
+
+export default preview;

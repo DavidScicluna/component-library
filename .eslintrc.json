@@ -16,7 +16,7 @@
 			}
 		},
 		"import/parsers": {
-			"@typescript-eslint/parser": [".ts", ".tsx"]
+			"@typescript-eslint/parser": [".js", ".jsx", ".ts", ".tsx"]
 		},
 		"react": {
 			"version": "detect"
@@ -29,8 +29,10 @@
 		"jest": true,
 		"node": true
 	},
+	"plugins": ["react", "jsx-a11y", "import", "import-path", "simple-import-sort"],
 	"extends": [
 		"eslint:recommended",
+		"plugin:react/recommended",
 		"plugin:import/errors",
 		"plugin:import/warnings",
 		"plugin:import/typescript",
@@ -39,23 +41,38 @@
 		"plugin:react-hooks/recommended",
 		"plugin:@typescript-eslint/recommended"
 	],
-	"plugins": ["jsx-a11y", "import", "simple-import-sort"],
 	"rules": {
+		"@typescript-eslint/consistent-type-imports": [
+			"error",
+			{
+				// disallowTypeAnnotations?: boolean;
+				"fixStyle": "separate-type-imports",
+				"prefer": "type-imports"
+			}
+		],
+		"@typescript-eslint/consistent-type-exports": ["error", { "fixMixedExportsWithInlineTypeSpecifier": false }],
+		"@typescript-eslint/array-type": ["error", { "default": "generic" }],
+		// "no-unused-vars": "warn",
+		"no-debugger": "error",
+		"no-console": "warn",
+		"no-process-exit": "warn",
 		"jsx-a11y/href-no-hash": "off",
 		"react/react-in-jsx-scope": "off",
+		"react/display-name": ["off", { "ignoreTranspilerName": true, "checkContextObjects": false }],
 		"react/prop-types": "off",
 		"react-hooks/exhaustive-deps": "off",
+		"import-path/parent-depth": ["error", 2],
 		"simple-import-sort/imports": "error",
 		"simple-import-sort/exports": "error",
-		"import/no-unresolved": "error",
+		"import/no-unresolved": "off",
 		"no-mixed-spaces-and-tabs": 0,
 		"max-len": [
 			"warn",
 			{
 				"code": 120,
-				"tabWidth": 2,
-				"comments": 120,
-				"ignoreComments": false,
+				"tabWidth": 4,
+				"comments": 240,
+				"ignoreComments": true,
 				"ignoreTrailingComments": true,
 				"ignoreUrls": true,
 				"ignoreStrings": true,
@@ -83,14 +100,17 @@
 							// React Packages
 							["^react"],
 
-							// Chakra UI Packages
-							["^@chakra-ui"],
+							// Ariakit Packages
+							["^@ariakit"],
 
 							// External packages.
 							["^@?\\w"],
 
 							// Internal packages.
-							["^(@|components)(/.*|$)"],
+							["^(@common)(/.*|$)"],
+
+							// Internal packages.
+							["^(@components)(/.*|$)"],
 
 							// Side effect imports.
 							["^\\u0000"],

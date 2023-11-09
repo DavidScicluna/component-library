@@ -1,21 +1,45 @@
 import { useMemo } from 'react';
 
-import { useDSCLProviderContext, useTheme } from '../..';
-import { CommonThemeProps } from '../types';
-import { getColor, GetColorProps } from '../utils/color';
+import { __DEFAULT_COLOR__ } from '@common/constants';
+import type { ColorTypeClass, ThemeAppearanceProps } from '@common/types';
+import type { ColorHueType } from '@common/utils';
+import { getColorClass, getColorHex } from '@common/utils';
 
-type UseGetColorProps = Pick<GetColorProps, 'type'> & CommonThemeProps;
+import { useAppTheme } from '.';
+
+type UseGetColorProps = ThemeAppearanceProps & {
+	colorType: 'default' | 'color';
+	hueType?: ColorHueType;
+	classType?: ColorTypeClass;
+};
 
 const useGetColor = (props: UseGetColorProps): string => {
-	const theme = useTheme();
+	const { colorMode: __DEFAULT_GET_COLOR_COLORMODE__ } = useAppTheme();
 
-	const { color: defaultColor, colorMode: defaultColorMode } = useDSCLProviderContext();
-
-	const { color = defaultColor, colorMode = defaultColorMode, type } = props;
+	const {
+		color = __DEFAULT_COLOR__,
+		colorMode = __DEFAULT_GET_COLOR_COLORMODE__,
+		colorType = 'default',
+		hueType = 'default',
+		classType
+	} = props;
 
 	const string = useMemo<string>(() => {
-		return getColor({ theme, colorMode, color, type });
-	}, [color, colorMode, type]);
+		if (classType) {
+			return getColorClass({
+				color: colorType === 'default' ? 'gray' : color,
+				colorMode,
+				hueType,
+				classType
+			});
+		} else {
+			return getColorHex({
+				color: colorType === 'default' ? 'gray' : color,
+				colorMode,
+				hueType
+			});
+		}
+	}, [color, colorMode, colorType, hueType, classType]);
 
 	return string;
 };

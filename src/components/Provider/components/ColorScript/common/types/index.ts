@@ -1,5 +1,6 @@
-import { AppColor } from '../../../../../../common/types';
+import type { ThemeAppColor } from '@common/types';
 
 export type ColorScriptProps = {
-	initialColor: AppColor;
+	initialColor: ThemeAppColor;
+	onSetColor: (color: ThemeAppColor) => void;
 };

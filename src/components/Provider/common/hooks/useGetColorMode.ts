@@ -1,35 +1,29 @@
 import { useEffect, useState } from 'react';
 
-import { useColorMode } from '@chakra-ui/react';
-
 import { useMediaMatch } from 'rooks';
 
-import { colorMode as defaultColorMode } from '../../../../common/default/props';
-import { localStorageColorModeKey } from '../../../../common/keys';
-import { AppColorMode, AppFullColorMode } from '../../../../common/types';
+import { __DEFAULT_APP_COLORMODE__ } from '@common/constants';
+import { __KEY_LOCALSTORAGE_APP_COLORMODE__ } from '@common/keys';
+import type { ThemeAppColorMode, ThemeColorMode } from '@common/types';
 
-const useGetColorMode = (initialColorMode: AppFullColorMode): AppColorMode => {
-	const [colorMode, setColorMode] = useState<AppColorMode>(defaultColorMode);
-
-	const { setColorMode: setCUIColorMode } = useColorMode();
-
+const useGetColorMode = (initialColorMode: ThemeColorMode): ThemeAppColorMode => {
 	const isDarkMode = useMediaMatch('(prefers-color-scheme: dark)');
 
+	const [colorMode, setColorMode] = useState<ThemeAppColorMode>(__DEFAULT_APP_COLORMODE__);
+
 	const handleSetColorMode = (): void => {
-		globalThis?.localStorage?.removeItem(localStorageColorModeKey);
+		globalThis?.localStorage.removeItem(__KEY_LOCALSTORAGE_APP_COLORMODE__);
 
 		if (initialColorMode === 'system') {
-			const updatedColorMode: AppFullColorMode = isDarkMode ? 'dark' : 'light';
+			const updatedColorMode: ThemeAppColorMode = isDarkMode ? 'dark' : 'light';
 
 			setColorMode(updatedColorMode);
-			setCUIColorMode(updatedColorMode);
 
-			globalThis?.localStorage?.setItem(localStorageColorModeKey, updatedColorMode);
+			globalThis?.localStorage.setItem(__KEY_LOCALSTORAGE_APP_COLORMODE__, updatedColorMode);
 		} else {
 			setColorMode(initialColorMode);
-			setCUIColorMode(initialColorMode);
 
-			globalThis?.localStorage?.setItem(localStorageColorModeKey, initialColorMode);
+			globalThis?.localStorage.setItem(__KEY_LOCALSTORAGE_APP_COLORMODE__, initialColorMode);
 		}
 	};
 

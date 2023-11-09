@@ -1,14 +1,26 @@
-import { ChakraProviderProps } from '@chakra-ui/react';
+import type { ReactNode } from 'react';
 
-import { AppFullColorMode, CommonThemeProps } from '../../../../common/types';
-import { IconCategory } from '../../../DataDisplay/Icon/common/types';
+import type {
+	AnimationDelay,
+	AnimationDuration,
+	AnimationEasing,
+	ThemeAppAppearanceProps,
+	ThemeAppColor,
+	ThemeColorMode
+} from '@common/types';
 
-export type IconFontStatus = Record<IconCategory, boolean>;
+import type { IconCategory } from '@components/DataDisplay';
 
-export type ProviderProps = ChakraProviderProps & {
-	colorMode?: AppFullColorMode;
-} & Pick<CommonThemeProps, 'color'>;
+export type ProviderProps = {
+	children: ReactNode;
+	color?: ThemeAppColor;
+	colorMode?: ThemeColorMode;
+};
 
-export type ProviderContext = Pick<ProviderProps, 'color'> & {
-	iconFontStatus: IconFontStatus;
-} & Pick<CommonThemeProps, 'colorMode'>;
+export type ProviderContext = ThemeAppAppearanceProps;
+export type AnimationContext = {
+	delay?: AnimationDelay;
+	duration?: AnimationDuration;
+	easing?: AnimationEasing;
+};
+export type IconFontContext = Record<IconCategory, boolean>;

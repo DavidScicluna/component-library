@@ -1,6 +1,10 @@
-import { AppColors } from '../types';
+import type { ThemeColorArr } from '@common/types';
 
-export const colors: AppColors = [
+const colors: ThemeColorArr = [
+	'transparent',
+	'black',
+	'white',
+	'gray',
 	'red',
 	'pink',
 	'purple',
@@ -17,3 +21,5 @@ export const colors: AppColors = [
 	'orange',
 	'deep_orange'
 ];
+
+export default colors;

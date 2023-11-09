@@ -1,21 +1,20 @@
 import { useEffect, useState } from 'react';
 
-import { Duration } from '../../theme/types';
-import { convertStringToNumber } from '../utils';
-
-import useTheme from './useThemeTyped';
+import theme from '@common/theme';
+import type { ThemeDuration } from '@common/types';
+import { convertStringToNumber } from '@common/utils';
 
 // https://usehooks-ts.com/react-hook/use-debounce
-
-const useDebounce = <T>(value: T, delay: Duration = 'normal'): T => {
-	const theme = useTheme();
-
+const useDebounce = <T>(value: T, delay: ThemeDuration = 'normal'): T => {
 	const [debouncedValue, setDebouncedValue] = useState<T>(value);
 
 	useEffect(() => {
-		const timer = setTimeout(() => {
-			setDebouncedValue(value);
-		}, convertStringToNumber(theme.transition.duration[delay], 'ms'));
+		const timer = setTimeout(
+			() => {
+				setDebouncedValue(value);
+			},
+			convertStringToNumber(theme.transitionDuration[delay], 'ms')
+		);
 
 		return () => clearTimeout(timer);
 	}, [value, delay]);

@@ -1,6 +1,6 @@
-import { AppColorMode, AppFullColorMode } from '../../../../../../common/types';
+import type { ThemeAppColorMode, ThemeColorMode } from '@common/types';
 
 export type ColorModeScriptProps = {
-	initialColorMode: AppFullColorMode;
-	onSetColorMode: (props: AppColorMode) => void;
+	initialColorMode: ThemeColorMode;
+	onSetColorMode: (colorMode: ThemeAppColorMode) => void;
 };

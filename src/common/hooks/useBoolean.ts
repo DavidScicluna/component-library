@@ -9,9 +9,6 @@ export type UseBooleanReturn = [boolean, UseBooleanToggles];
  * React hook to manage boolean (on - off) states
  *
  * @param initialState the initial boolean state value
- *
- * Based on Chakra UI useBoolean hook
- * @see Docs https://chakra-ui.com/docs/hooks/use-boolean
  */
 const useBoolean = (initialState: UseBooleanParams = false): UseBooleanReturn => {
 	const [value, setValue] = useState<boolean>(initialState);

@@ -1,0 +1,1 @@
+export const __DEFAULT_CAROUSEL_OVERLAY_ARROW_BUTTON_IS_VISIBLE__ = false;
