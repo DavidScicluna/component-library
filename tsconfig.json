@@ -9,16 +9,18 @@
 		"declarationDir": "types",
 		"declarationMap": true,
 		"downlevelIteration": true,
+		"emitDeclarationOnly": true,
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"incremental": true,
 		"isolatedModules": true,
+		"importHelpers": true,
 		"jsx": "react-jsx",
 		"lib": ["dom", "dom.iterable", "ESNext"],
-		"module": "esnext",
-		"moduleResolution": "bundler",
+		"module": "ESNext",
+		"moduleResolution": "node",
 		"moduleDetection": "force",
-		"noEmit": true,
+		"noEmit": false,
 		"noFallthroughCasesInSwitch": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
@@ -28,12 +30,13 @@
 			"@components/*": ["src/components/*"]
 		},
 		"resolveJsonModule": true,
+		"rootDir": "src",
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true,
 		"target": "esnext",
 		"types": ["bun-types"]
 	},
-	"include": ["**/*"],
-	"exclude": [".vscode", ".storybook", ".yarn", "build", "node_modules", "**/**.png", "**/**.svg", "**/**.css"]
+	"include": ["./src"],
+	"exclude": ["node_modules", "./build", "./esm", "./cjs", "**/*.story.tsx"]
 }
