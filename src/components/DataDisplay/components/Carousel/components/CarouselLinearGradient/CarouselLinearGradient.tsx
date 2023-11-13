@@ -2,9 +2,8 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useAppTheme, useConst, useGetResponsiveValue } from '@common/hooks';
-import type { AnimationConfig, PolymorphicDefaultElement } from '@common/types';
-import { getAnimationConfig, getAnimationDuration } from '@common/utils';
+import { useAppTheme, useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { LinearGradient } from '@components/Overlay';
@@ -36,12 +35,8 @@ const CarouselLinearGradient = forwardRef(function CarouselLinearGradient<
 	const direction = useGetResponsiveValue<CarouselArrowDirection>(d);
 	const isVisible = useGetResponsiveValue<boolean>(v);
 
-	const duration = useConst<number>(getAnimationDuration('ultra-fast'));
-	const config = useConst<AnimationConfig>({ ...getAnimationConfig(), duration });
-	const transition = useConst<AnimationConfig>({ enter: { ...config }, exit: { ...config } });
-
 	return (
-		<Transition w='100%' h='100%' transition='fade' in={isVisible} transition={transition}>
+		<Transition w='100%' h='100%' duration='ultra-fast' transition='fade' in={isVisible}>
 			<LinearGradient<Element>
 				{...rest}
 				ref={ref}

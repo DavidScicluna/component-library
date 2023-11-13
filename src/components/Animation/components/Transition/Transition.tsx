@@ -20,7 +20,6 @@ import { Box } from '@components/Box';
 
 import {
 	__DEFAULT_TRANSITION__,
-	__DEFAULT_TRANSITION_CONFIG__,
 	__DEFAULT_TRANSITION_IN__,
 	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
 } from './common/constants';
