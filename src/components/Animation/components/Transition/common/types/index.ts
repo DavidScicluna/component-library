@@ -1,6 +1,7 @@
 import type { ElementType } from 'react';
 
 import type {
+	AnimationConfig,
 	PolymorphicDefaultElement,
 	ResponsiveValue,
 	Style,
@@ -39,6 +40,7 @@ export type TransitionVariant = Record<TransitionVariantKey, Style>;
 export type TransitionVariants = Record<TransitionKey, TransitionVariant>;
 
 export type TransitionOtherProps = {
+	config?: ResponsiveValue<AnimationConfig>;
 	/**
 	 * Transition delay from theme or in ms
 	 */

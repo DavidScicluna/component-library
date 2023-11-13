@@ -5,7 +5,7 @@ import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
 
-import { Fade } from '@components/Animation';
+import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
 
@@ -55,11 +55,11 @@ const Indicator = forwardRef(function Indicator<Element extends ElementType = Po
 			spacing={0}
 		>
 			<GridItem columnStart={1} rowStart={1} zIndex={1}>
-				<Fade w='100%' h='100%' in={isVisible}>
+				<Transition w='100%' h='100%' transition='fade' in={isVisible}>
 					<Box w='100%' h='100%' sx={styles.overlay}>
 						<Box sx={styles.position}>{renderIndicator()}</Box>
 					</Box>
-				</Fade>
+				</Transition>
 			</GridItem>
 
 			<GridItem columnStart={1} rowStart={1}>

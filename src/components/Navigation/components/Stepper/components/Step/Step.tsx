@@ -8,7 +8,7 @@ import { useElementSize } from 'usehooks-ts';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 
-import { Pop } from '@components/Animation';
+import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
 import { useCarouselManager } from '@components/DataDisplay/components/Carousel/common/hooks';
 import { Center, Grid, GridItem } from '@components/Layout';
@@ -175,17 +175,17 @@ const Step = forwardRef(function Step<Element extends StepElement = StepDefaultE
 						spacing={spacing}
 					>
 						<GridItem>
-							<Pop
+							<Transition
 								w='100%'
 								h='100%'
+								transition='pop'
 								in={
 									orientation === 'top' ? (isActive || isSelected || isHovering) && !isDisabled : true
 								}
 								unmountOnExit={false}
-								initialScale={0.75}
 							>
 								<Box className={classNames(classes.topDivider)} w='100%' h='100%' />
-							</Pop>
+							</Transition>
 						</GridItem>
 
 						<GridItem>
@@ -260,19 +260,19 @@ const Step = forwardRef(function Step<Element extends StepElement = StepDefaultE
 						</GridItem>
 
 						<GridItem>
-							<Pop
+							<Transition
 								w='100%'
 								h='100%'
+								transition='pop'
 								in={
 									orientation === 'bottom'
 										? (isActive || isSelected || isHovering) && !isDisabled
 										: true
 								}
 								unmountOnExit={false}
-								initialScale={0.75}
 							>
 								<Box className={classNames(classes.bottomDivider)} w='100%' h='100%' />
-							</Pop>
+							</Transition>
 						</GridItem>
 					</Grid>
 				)}

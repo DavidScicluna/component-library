@@ -2,7 +2,7 @@ import type { ElementType } from 'react';
 
 import { __DEFAULT_DURATION__, __DEFAULT_EASING__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeEase, Undefinable } from '@common/types';
+import type { AnimationConfig, PolymorphicDefaultElement, ThemeEase, Undefinable } from '@common/types';
 
 import {
 	__DEFAULT_TRANSITION__,
@@ -13,13 +13,14 @@ import type { TransitionDelay, TransitionDuration, TransitionKey, TransitionProp
 
 type UseTransitionResponsiveValuesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
 	TransitionProps<Element>,
-	'delay' | 'duration' | 'easing' | 'in' | 'transition' | 'unmountOnExit'
+	'config' | 'delay' | 'duration' | 'easing' | 'in' | 'transition' | 'unmountOnExit'
 >;
 
 const useTransitionResponsiveValues = <Element extends ElementType = PolymorphicDefaultElement>(
 	props: UseTransitionResponsiveValuesProps<Element>
 ) => {
 	const {
+		config: configProp,
 		delay: delayProp,
 		duration: durationProp = __DEFAULT_DURATION__,
 		easing: easingProp = __DEFAULT_EASING__,
@@ -28,6 +29,7 @@ const useTransitionResponsiveValues = <Element extends ElementType = Polymorphic
 		unmountOnExit: unmountOnExitProp = __DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
 	} = props;
 
+	const config = useGetResponsiveValue<Undefinable<AnimationConfig>>(configProp);
 	const delay = useGetResponsiveValue<Undefinable<TransitionDelay>>(delayProp);
 	const duration = useGetResponsiveValue<TransitionDuration>(durationProp);
 	const easing = useGetResponsiveValue<ThemeEase>(easingProp);
@@ -36,6 +38,7 @@ const useTransitionResponsiveValues = <Element extends ElementType = Polymorphic
 	const unmountOnExit = useGetResponsiveValue<boolean>(unmountOnExitProp);
 
 	return {
+		config,
 		delay,
 		duration,
 		easing,

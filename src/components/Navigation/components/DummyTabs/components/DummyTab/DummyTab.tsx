@@ -8,7 +8,7 @@ import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
 
-import { Pop } from '@components/Animation';
+import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
 import { Center, Grid, GridItem } from '@components/Layout';
 
@@ -95,15 +95,15 @@ const DummyTab = forwardRef(function DummyTab<Element extends ElementType = Poly
 			spacing={spacing}
 		>
 			<GridItem>
-				<Pop
+				<Transition
 					w='100%'
 					h='100%'
+					transition='pop'
 					in={orientation === 'top' ? isSelected : true}
 					unmountOnExit={false}
-					initialScale={0.75}
 				>
 					<Box className={classNames(classes.topDivider)} w='100%' h='100%' />
-				</Pop>
+				</Transition>
 			</GridItem>
 
 			<GridItem>
@@ -176,15 +176,15 @@ const DummyTab = forwardRef(function DummyTab<Element extends ElementType = Poly
 			</GridItem>
 
 			<GridItem>
-				<Pop
+				<Transition
 					w='100%'
 					h='100%'
+					transition='pop'
 					in={orientation === 'bottom' ? isSelected : true}
 					unmountOnExit={false}
-					initialScale={0.75}
 				>
 					<Box className={classNames(classes.bottomDivider)} w='100%' h='100%' />
-				</Pop>
+				</Transition>
 			</GridItem>
 		</Grid>
 	);

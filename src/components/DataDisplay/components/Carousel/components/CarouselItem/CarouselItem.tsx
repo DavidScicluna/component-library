@@ -7,7 +7,7 @@ import { useMergeRefs } from 'rooks';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicDefaultElement } from '@common/types';
 
-import { Fade } from '@components/Animation';
+import { Transition } from '@components/Animation';
 import { Center } from '@components/Layout';
 
 import { __KEYS_CAROUSEL_ITEM_CLASS__ } from './common/keys';
@@ -39,9 +39,9 @@ const CarouselItem = forwardRef(function CarouselItem<Element extends ElementTyp
 			// h='100%'
 			spacing={0}
 		>
-			<Fade w='100%' h='100%' in={inView} unmountOnExit={false}>
+			<Transition w='100%' h='100%' transition='fade' in={inView} unmountOnExit={false}>
 				{children}
-			</Fade>
+			</Transition>
 		</Center>
 	);
 });

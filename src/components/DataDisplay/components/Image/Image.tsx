@@ -5,7 +5,7 @@ import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
 
-import { Fade } from '@components/Animation';
+import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
 
@@ -128,14 +128,19 @@ const Image = forwardRef(function Image<Element extends ElementType = Polymorphi
 			spacing={0}
 		>
 			<GridItem columnStart={1} rowStart={1}>
-				<Fade w='100%' h='100%' in={!isBoringVisible && !isThumbnailVisible && !isFullVisible}>
+				<Transition
+					w='100%'
+					h='100%'
+					transition='fade'
+					in={!isBoringVisible && !isThumbnailVisible && !isFullVisible}
+				>
 					<Box w='100%' h='100%' className={classNames(__KEYS_IMAGE_FALLBACK_CLASS__, classes.fallback)} />
-				</Fade>
+				</Transition>
 			</GridItem>
 
 			{boring && boring.src ? (
 				<GridItem columnStart={1} rowStart={1} zIndex={1}>
-					<Fade w='100%' h='100%' in={isBoringVisible}>
+					<Transition w='100%' h='100%' transition='fade' in={isBoringVisible}>
 						<Box
 							as='img'
 							className={classNames(__KEYS_IMAGE_BORING_CLASS__, classes.image)}
@@ -146,13 +151,13 @@ const Image = forwardRef(function Image<Element extends ElementType = Polymorphi
 							onError={handleOnBoringError}
 							src={boring.src}
 						/>
-					</Fade>
+					</Transition>
 				</GridItem>
 			) : null}
 
 			{thumbnail && thumbnail.src ? (
 				<GridItem columnStart={1} rowStart={1} zIndex={2}>
-					<Fade w='100%' h='100%' in={isThumbnailVisible}>
+					<Transition w='100%' h='100%' transition='fade' in={isThumbnailVisible}>
 						<Box
 							as='img'
 							className={classNames(__KEYS_IMAGE_THUMBNAIL_CLASS__, classes.image)}
@@ -163,13 +168,13 @@ const Image = forwardRef(function Image<Element extends ElementType = Polymorphi
 							onError={handleOnThumbnailError}
 							src={thumbnail.src}
 						/>
-					</Fade>
+					</Transition>
 				</GridItem>
 			) : null}
 
 			{full && full.src ? (
 				<GridItem columnStart={1} rowStart={1} zIndex={3}>
-					<Fade w='100%' h='100%' in={isFullVisible}>
+					<Transition w='100%' h='100%' transition='fade' in={isFullVisible}>
 						<Box
 							as='img'
 							className={classNames(__KEYS_IMAGE_FULL_CLASS__, classes.image)}
@@ -180,7 +185,7 @@ const Image = forwardRef(function Image<Element extends ElementType = Polymorphi
 							onError={handleOnFullError}
 							src={full.src}
 						/>
-					</Fade>
+					</Transition>
 				</GridItem>
 			) : null}
 		</Grid>

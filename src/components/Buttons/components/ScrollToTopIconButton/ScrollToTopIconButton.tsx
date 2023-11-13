@@ -7,7 +7,7 @@ import { useEventListener, useWindowSize } from 'usehooks-ts';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 
-import { Pop } from '@components/Animation';
+import { Transition } from '@components/Animation';
 import { Tooltip } from '@components/Overlay';
 
 import { IconButton, IconButtonIcon } from '../IconButton';
@@ -68,7 +68,7 @@ const ScrollToTopIconButton = forwardRef(function ScrollToTopIconButton<
 	useEventListener('scroll', () => handleScroll());
 
 	return (
-		<Pop in={isVisible}>
+		<Transition transition='pop' in={isVisible}>
 			<Tooltip
 				// color='gray'
 				colorMode={colorMode}
@@ -91,7 +91,7 @@ const ScrollToTopIconButton = forwardRef(function ScrollToTopIconButton<
 					<IconButtonIcon icon='keyboard_double_arrow_up' category='filled' />
 				</IconButton>
 			</Tooltip>
-		</Pop>
+		</Transition>
 	);
 });
 

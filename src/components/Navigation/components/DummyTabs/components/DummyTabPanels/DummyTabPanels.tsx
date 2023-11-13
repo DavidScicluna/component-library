@@ -4,12 +4,9 @@ import { forwardRef } from 'react';
 import { isArray } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useConst } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
-import { getAnimationConfig, getAnimationDuration, getAnimationEasings } from '@common/utils';
 
-import type { FadeProps as DummyTabPanelFadeProps } from '@components/Animation';
-import { Fade } from '@components/Animation';
+import { Transition } from '@components/Animation';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import { useDummyTabsContext } from '../../common/hooks';
@@ -21,21 +18,6 @@ import type { DummyTabPanelProps, DummyTabPanelsProps, DummyTabPanelsRef } from 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const DummyTabPanelFade = <Element extends ElementType = PolymorphicDefaultElement>({
-	children,
-	...rest
-}: DummyTabPanelFadeProps<Element>) => {
-	const duration = useConst(getAnimationDuration('slow'));
-	const easing = useConst(getAnimationEasings('ease-in-out'));
-	const config = useConst({ ...getAnimationConfig(), duration, easing });
-
-	return (
-		<Fade {...rest} transition={{ enter: { ...config }, exit: { ...config } }}>
-			{children}
-		</Fade>
-	);
-};
-
 const DummyTabPanel = <Element extends ElementType = PolymorphicDefaultElement>({
 	children,
 	index
@@ -43,11 +25,11 @@ const DummyTabPanel = <Element extends ElementType = PolymorphicDefaultElement>(
 	const { index: panel } = useDummyTabsContext();
 
 	return (
-		<DummyTabPanelFade w='100%' h='100%' in={panel === index}>
+		<Transition w='100%' h='100%' duration='slow' easings='ease-in-out' transition='fade' in={panel === index}>
 			<Center w='100%' h='100%'>
 				{children}
 			</Center>
-		</DummyTabPanelFade>
+		</Transition>
 	);
 };
 

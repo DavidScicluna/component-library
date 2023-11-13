@@ -6,7 +6,7 @@ import { useAppTheme, useConst, useGetResponsiveValue } from '@common/hooks';
 import type { AnimationConfig, PolymorphicDefaultElement } from '@common/types';
 import { getAnimationConfig, getAnimationDuration } from '@common/utils';
 
-import { Fade } from '@components/Animation';
+import { Transition } from '@components/Animation';
 import { LinearGradient } from '@components/Overlay';
 
 import { useCarouselContext } from '../../common/hooks';
@@ -41,7 +41,7 @@ const CarouselLinearGradient = forwardRef(function CarouselLinearGradient<
 	const transition = useConst<AnimationConfig>({ enter: { ...config }, exit: { ...config } });
 
 	return (
-		<Fade w='100%' h='100%' in={isVisible} transition={transition}>
+		<Transition w='100%' h='100%' transition='fade' in={isVisible} transition={transition}>
 			<LinearGradient<Element>
 				{...rest}
 				ref={ref}
@@ -54,7 +54,7 @@ const CarouselLinearGradient = forwardRef(function CarouselLinearGradient<
 				from={{ color: 'gray', colorMode, hueType: 'background', position: 0 }}
 				to={{ color: 'transparent', colorMode, position: 100 }}
 			/>
-		</Fade>
+		</Transition>
 	);
 });
 

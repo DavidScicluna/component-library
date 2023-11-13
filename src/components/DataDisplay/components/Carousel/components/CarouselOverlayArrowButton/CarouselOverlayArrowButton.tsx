@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor, useGetResponsiveValue } from '@common/hooks';
 
-import { Fade } from '@components/Animation';
+import { Transition } from '@components/Animation';
 import { CarouselLeftLinearGradient, CarouselRightLinearGradient } from '@components/DataDisplay';
 import { useCarouselContext } from '@components/DataDisplay/components/Carousel/common/hooks';
 import { Center, Grid, GridItem } from '@components/Layout';
@@ -47,7 +47,7 @@ const CarouselOverlayArrowButton = forwardRef(function CarouselOverlayArrowButto
 	});
 
 	return (
-		<Fade w='100%' h='100%' in={isVisible}>
+		<Transition w='100%' h='100%' transition='fade' in={isVisible}>
 			<Grid
 				className={classNames(__KEYS_CAROUSEL_OVERLAY_ARROW_BUTTON_CLASS__, {
 					[className]: !!className
@@ -96,7 +96,7 @@ const CarouselOverlayArrowButton = forwardRef(function CarouselOverlayArrowButto
 					</GridItem>
 				) : null}
 			</Grid>
-		</Fade>
+		</Transition>
 	);
 });
 

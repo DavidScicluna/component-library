@@ -22,7 +22,7 @@ import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicDefaultElement, ThemeRadius } from '@common/types';
 
-import { AnimatePresence, Fade } from '@components/Animation';
+import { AnimatePresence, Transition } from '@components/Animation';
 import { Box } from '@components/Box';
 
 import {
@@ -135,7 +135,7 @@ const Popper = forwardRef(function Popper<Element extends ElementType = Polymorp
 				onOpen: handleOpen
 			})}
 
-			<Fade as='section' in={!isDisabled && isOpen}>
+			<Transition as='section' transition='fade' in={!isDisabled && isOpen}>
 				<FloatingFocusManager context={context} modal={false}>
 					<Box<Element>
 						{...rest}
@@ -148,7 +148,7 @@ const Popper = forwardRef(function Popper<Element extends ElementType = Polymorp
 						{children}
 					</Box>
 				</FloatingFocusManager>
-			</Fade>
+			</Transition>
 		</AnimatePresence>
 	);
 });

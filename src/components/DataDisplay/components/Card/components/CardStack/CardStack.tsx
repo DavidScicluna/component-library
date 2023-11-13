@@ -1,11 +1,9 @@
 import { type ElementType, forwardRef, type ReactElement } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useConst } from '@common/hooks';
-import type { AnimationConfig, PolymorphicDefaultElement } from '@common/types';
-import { getAnimationConfig, getAnimationDuration } from '@common/utils';
+import type { PolymorphicDefaultElement } from '@common/types';
 
-import { Collapse } from '@components/Animation';
+import { Transition } from '@components/Animation';
 import { VStack } from '@components/Layout';
 
 import { useCardContext } from '../../common/hooks';
@@ -36,10 +34,6 @@ const CardStack = forwardRef(function CardStack<Element extends ElementType = Po
 		...rest
 	} = props;
 
-	const duration = useConst<number>(getAnimationDuration('slow'));
-	const config = useConst<AnimationConfig>({ ...getAnimationConfig(), duration });
-	const transition = useConst<AnimationConfig>({ enter: { ...config }, exit: { ...config } });
-
 	const handleMouseEnter = (event: CardMouseEvent<Element>): void => {
 		if (typeof onHover.on === 'function') {
 			onHover.on();
@@ -61,7 +55,7 @@ const CardStack = forwardRef(function CardStack<Element extends ElementType = Po
 	};
 
 	return (
-		<Collapse w='100%' h='100%' in={isCollapsable ? isOpen : true} transition={transition}>
+		<Transition w='100%' h='100%' duration='slow' transition='collapse' in={isCollapsable ? isOpen : true}>
 			<VStack<Element>
 				{...rest}
 				ref={ref}
@@ -77,7 +71,7 @@ const CardStack = forwardRef(function CardStack<Element extends ElementType = Po
 			>
 				{children}
 			</VStack>
-		</Collapse>
+		</Transition>
 	);
 });
 

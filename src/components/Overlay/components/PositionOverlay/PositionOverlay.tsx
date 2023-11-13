@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicDefaultElement } from '@common/types';
 
-import { Fade } from '@components/Animation';
+import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
 
@@ -63,11 +63,11 @@ const PositionOverlay = forwardRef(function PositionOverlay<Element extends Elem
 			spacing={0}
 		>
 			<GridItem columnStart={1} rowStart={1} zIndex={1}>
-				<Fade w='100%' h='100%' in={isVisible}>
+				<Transition w='100%' h='100%' transition='fade' in={isVisible}>
 					<Box className={classes.overlay} w='100%' h='100%' sx={styles.overlay}>
 						<Box sx={styles.position}>{renderOverlay()}</Box>
 					</Box>
-				</Fade>
+				</Transition>
 			</GridItem>
 
 			<GridItem columnStart={1} rowStart={1}>

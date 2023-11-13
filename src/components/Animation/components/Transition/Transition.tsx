@@ -20,6 +20,7 @@ import { Box } from '@components/Box';
 
 import {
 	__DEFAULT_TRANSITION__,
+	__DEFAULT_TRANSITION_CONFIG__,
 	__DEFAULT_TRANSITION_IN__,
 	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
 } from './common/constants';
@@ -40,6 +41,7 @@ const Transition = forwardRef(function Transition<Element extends ElementType = 
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
+		config: configProp,
 		delay: delayProp,
 		duration: durationProp = __DEFAULT_DURATION__,
 		easing: easingProp = __DEFAULT_EASING__,
@@ -55,6 +57,7 @@ const Transition = forwardRef(function Transition<Element extends ElementType = 
 	} = props;
 
 	const {
+		config,
 		delay,
 		duration,
 		easing,
@@ -62,6 +65,7 @@ const Transition = forwardRef(function Transition<Element extends ElementType = 
 		transition,
 		unmountOnExit
 	} = useTransitionResponsiveValues<Element>({
+		config: configProp,
 		delay: delayProp,
 		duration: durationProp,
 		easing: easingProp,
@@ -91,7 +95,7 @@ const Transition = forwardRef(function Transition<Element extends ElementType = 
 		}
 	}, [duration]);
 	const easingArr = useMemo<AnimationEasing>(() => getAnimationEasings(easing), [easing]);
-	const config = useMemo<AnimationConfig>(() => {
+	const configObj = useMemo<AnimationConfig>(() => {
 		return { ...getAnimationConfig(), delay: delayNum, duration: durationNum, ease: easingArr };
 	}, [delayNum, durationNum, easingArr]);
 
@@ -113,7 +117,7 @@ const Transition = forwardRef(function Transition<Element extends ElementType = 
 					initial='exit'
 					animate={isAnimated || unmountOnExit ? 'enter' : 'exit'}
 					exit='exit'
-					transition={config}
+					transition={config || configObj}
 					variants={variants}
 				>
 					{children}

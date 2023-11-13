@@ -4,12 +4,9 @@ import { forwardRef } from 'react';
 import { isArray } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useConst } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
-import { getAnimationConfig, getAnimationDuration, getAnimationEasings } from '@common/utils';
 
-import type { FadeProps as StepPanelFadeProps } from '@components/Animation';
-import { Fade } from '@components/Animation';
+import { Transition } from '@components/Animation';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import { useStepperContext } from '../../common/hooks';
@@ -21,21 +18,6 @@ import type { StepPanelProps, StepPanelsProps, StepPanelsRef } from './common/ty
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const StepPanelFade = <Element extends ElementType = PolymorphicDefaultElement>({
-	children,
-	...rest
-}: StepPanelFadeProps<Element>) => {
-	const duration = useConst(getAnimationDuration('slow'));
-	const easing = useConst(getAnimationEasings('ease-in-out'));
-	const config = useConst({ ...getAnimationConfig(), duration, easing });
-
-	return (
-		<Fade {...rest} transition={{ enter: { ...config }, exit: { ...config } }}>
-			{children}
-		</Fade>
-	);
-};
-
 const StepPanel = <Element extends ElementType = PolymorphicDefaultElement>({
 	children,
 	index
@@ -43,11 +25,11 @@ const StepPanel = <Element extends ElementType = PolymorphicDefaultElement>({
 	const { index: panel } = useStepperContext();
 
 	return (
-		<StepPanelFade w='100%' h='100%' in={panel === index}>
+		<Transition w='100%' h='100%' duration='slow' easing='ease-in-out' in={panel === index}>
 			<Center w='100%' h='100%'>
 				{children}
 			</Center>
-		</StepPanelFade>
+		</Transition>
 	);
 };
 

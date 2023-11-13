@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicDefaultElement } from '@common/types';
 
-import { Fade } from '@components/Animation';
+import { Transition } from '@components/Animation';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import {
@@ -60,11 +60,11 @@ const LoadingOverlay = forwardRef(function LoadingOverlay<Element extends Elemen
 			spacing={0}
 		>
 			<GridItem columnStart={1} rowStart={1} zIndex={1}>
-				<Fade w='100%' h='100%' in={isLoading} unmountOnExit={false}>
+				<Transition w='100%' h='100%' transition='fade' in={isLoading} unmountOnExit={false}>
 					<Center className={classes.overlay} w='100%' h='100%' sx={styles}>
 						{renderSpinner()}
 					</Center>
-				</Fade>
+				</Transition>
 			</GridItem>
 
 			<GridItem columnStart={1} rowStart={1}>

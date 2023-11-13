@@ -2,11 +2,9 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
-import { useConst } from '@common/hooks';
-import type { AnimationConfig, PolymorphicDefaultElement } from '@common/types';
-import { getAnimationConfig, getAnimationDuration } from '@common/utils';
+import type { PolymorphicDefaultElement } from '@common/types';
 
-import { Fade } from '@components/Animation';
+import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
 
@@ -35,10 +33,6 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType = Poly
 
 	const classes = useSkeletonClasses<Element>({ color, colorMode, isAnimated, radius });
 
-	const duration = useConst<number>(getAnimationDuration('ultra-fast'));
-	const config = useConst<AnimationConfig>({ ...getAnimationConfig(), duration });
-	const transition = useConst<AnimationConfig>({ enter: { ...config }, exit: { ...config } });
-
 	return (
 		<Grid<Element>
 			{...rest}
@@ -54,23 +48,31 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType = Poly
 		>
 			{children ? (
 				<GridItem columnStart={1} rowStart={1} zIndex={1}>
-					<Fade
+					<Transition
 						className={__KEY_SKELETON_CHILD_CLASS__}
 						w='100%'
 						h='100%'
+						duration='ultra-fast'
+						transition='fade'
 						in={isLoaded}
-						transition={transition}
 						unmountOnExit={false}
 					>
 						{children}
-					</Fade>
+					</Transition>
 				</GridItem>
 			) : null}
 
 			<GridItem columnStart={1} rowStart={1}>
-				<Fade w='100%' h='100%' in={children ? !isLoaded : true} transition={transition} unmountOnExit={false}>
+				<Transition
+					w='100%'
+					h='100%'
+					duration='ultra-fast'
+					transition='fade'
+					in={children ? !isLoaded : true}
+					unmountOnExit={false}
+				>
 					<Box className={classNames(__KEY_SKELETON_OVERLAY_CLASS__, classes)} w='100%' h='100%' />
-				</Fade>
+				</Transition>
 			</GridItem>
 		</Grid>
 	);

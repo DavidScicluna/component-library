@@ -16,7 +16,7 @@ import { __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__, __DEFAULT_SPACING__ } from '
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 import type { ThemeSpacing } from '@common/types';
 
-import { AnimatePresence, Fade } from '@components/Animation';
+import { AnimatePresence, Transition } from '@components/Animation';
 import { Box } from '@components/Box';
 import { Center, Grid, GridItem } from '@components/Layout';
 
@@ -149,7 +149,7 @@ const ConfirmModal = forwardRef(function ConfirmModal<Element extends ConfirmMod
 					onOpen: handleOpen
 				})}
 
-				<Fade as='section' in={isOpen}>
+				<Transition as='section' transition='fade' in={isOpen}>
 					<FloatingOverlay lockScroll style={{ zIndex: 1 }}>
 						<FloatingFocusManager context={context}>
 							<Grid<Element>
@@ -205,7 +205,7 @@ const ConfirmModal = forwardRef(function ConfirmModal<Element extends ConfirmMod
 							</Grid>
 						</FloatingFocusManager>
 					</FloatingOverlay>
-				</Fade>
+				</Transition>
 			</AnimatePresence>
 		</ConfirmModalContext.Provider>
 	);

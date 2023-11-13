@@ -21,7 +21,8 @@ import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
 
-import { AnimatePresence, Fade } from '@components/Animation';
+// TODO: Go over all Transition and see if they can be merged with the child component since it is based of Box
+import { AnimatePresence, Transition } from '@components/Animation';
 import { Box } from '@components/Box';
 
 import {
@@ -126,7 +127,7 @@ const Tooltip = forwardRef(function Tooltip<Element extends ElementType = Polymo
 		<AnimatePresence onExitComplete={onCloseComplete}>
 			{cloneElement(children, { ...getReferenceProps(), ref: refs.setReference })}
 
-			<Fade as='section' in={!isDisabled && isOpen}>
+			<Transition as='section' transition='fade' in={!isDisabled && isOpen}>
 				<Box<Element>
 					{...rest}
 					{...getFloatingProps()}
@@ -139,7 +140,7 @@ const Tooltip = forwardRef(function Tooltip<Element extends ElementType = Polymo
 						{label}
 					</Box>
 				</Box>
-			</Fade>
+			</Transition>
 		</AnimatePresence>
 	);
 });

@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicDefaultElement } from '@common/types';
 
-import { Fade } from '@components/Animation';
+import { Transition } from '@components/Animation';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import { GlassOverlay } from '../GlassOverlay';
@@ -55,46 +55,46 @@ const StateOverlay = forwardRef(function StateOverlay<Element extends ElementTyp
 		>
 			{renderSuccess ? (
 				<GridItem columnStart={1} rowStart={1} zIndex={1}>
-					<Fade w='100%' h='100%' in={state === 'success'}>
+					<Transition w='100%' h='100%' transition='fade' in={state === 'success'}>
 						<Center w='100%' h='100%'>
 							{renderSuccess(state)}
 						</Center>
-					</Fade>
+					</Transition>
 				</GridItem>
 			) : null}
 
 			{renderEmpty ? (
 				<GridItem columnStart={1} rowStart={1} zIndex={1}>
-					<Fade w='100%' h='100%' in={state === 'empty'}>
+					<Transition w='100%' h='100%' transition='fade' in={state === 'empty'}>
 						<Center w='100%' h='100%'>
 							{renderEmpty(state)}
 						</Center>
-					</Fade>
+					</Transition>
 				</GridItem>
 			) : null}
 
 			{renderError ? (
 				<GridItem columnStart={1} rowStart={1} zIndex={1}>
-					<Fade w='100%' h='100%' in={state === 'error'}>
+					<Transition w='100%' h='100%' transition='fade' in={state === 'error'}>
 						<Center w='100%' h='100%'>
 							{renderError(state)}
 						</Center>
-					</Fade>
+					</Transition>
 				</GridItem>
 			) : null}
 
 			{renderSpinner ? (
 				<GridItem columnStart={1} rowStart={1} zIndex={1}>
-					<Fade w='100%' h='100%' in={state === 'loading'}>
+					<Transition w='100%' h='100%' transition='fade' in={state === 'loading'}>
 						<Center w='100%' h='100%'>
 							{renderSpinner(state)}
 						</Center>
-					</Fade>
+					</Transition>
 				</GridItem>
 			) : null}
 
 			<GridItem columnStart={1} rowStart={1}>
-				<Fade w='100%' h='100%' in={isAlwaysVisible || state === 'default'}>
+				<Transition w='100%' h='100%' transition='fade' in={isAlwaysVisible || state === 'default'}>
 					<GlassOverlay
 						color={color}
 						colorMode={colorMode}
@@ -105,7 +105,7 @@ const StateOverlay = forwardRef(function StateOverlay<Element extends ElementTyp
 					>
 						{children(state)}
 					</GlassOverlay>
-				</Fade>
+				</Transition>
 			</GridItem>
 		</Grid>
 	);
