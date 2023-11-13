@@ -1248,10 +1248,7 @@ export const constants = {
 };
 
 // Data
-export const data = {
-	...common_data,
-	...animation_data
-};
+export const data = { ...common_data, ...animation_data };
 
 // Helpers
 export * as helpers from './common/helpers';
