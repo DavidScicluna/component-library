@@ -1,8 +1,6 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
-import type { Transition } from 'framer-motion';
-
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useConst } from '@common/hooks';
 import type { AnimationConfig, PolymorphicDefaultElement } from '@common/types';
@@ -38,8 +36,8 @@ const Skeleton = forwardRef(function Skeleton<Element extends ElementType = Poly
 	const classes = useSkeletonClasses<Element>({ color, colorMode, isAnimated, radius });
 
 	const duration = useConst<number>(getAnimationDuration('ultra-fast'));
-	const config = useConst<AnimationConfig>(getAnimationConfig());
-	const transition = useConst<Transition>({ enter: { ...config, duration }, exit: { ...config, duration } });
+	const config = useConst<AnimationConfig>({ ...getAnimationConfig(), duration });
+	const transition = useConst<AnimationConfig>({ enter: { ...config }, exit: { ...config } });
 
 	return (
 		<Grid<Element>

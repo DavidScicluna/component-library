@@ -1,7 +1,5 @@
 import { type ElementType, forwardRef, type ReactElement } from 'react';
 
-import type { Transition } from 'framer-motion';
-
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useConst } from '@common/hooks';
 import type { AnimationConfig, PolymorphicDefaultElement } from '@common/types';
@@ -39,8 +37,8 @@ const CardStack = forwardRef(function CardStack<Element extends ElementType = Po
 	} = props;
 
 	const duration = useConst<number>(getAnimationDuration('slow'));
-	const config = useConst<AnimationConfig>(getAnimationConfig());
-	const transition = useConst<Transition>({ enter: { ...config, duration }, exit: { ...config, duration } });
+	const config = useConst<AnimationConfig>({ ...getAnimationConfig(), duration });
+	const transition = useConst<AnimationConfig>({ enter: { ...config }, exit: { ...config } });
 
 	const handleMouseEnter = (event: CardMouseEvent<Element>): void => {
 		if (typeof onHover.on === 'function') {

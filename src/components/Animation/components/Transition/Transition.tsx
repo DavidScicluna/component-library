@@ -1,13 +1,18 @@
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
-import type { Transition as TransitionType } from 'framer-motion';
 import { motion } from 'framer-motion';
 import { keys } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_DURATION__, __DEFAULT_EASING__ } from '@common/constants';
 import { delays, durations } from '@common/data';
-import type { AnimationDelay, AnimationDuration, AnimationEasing, PolymorphicDefaultElement } from '@common/types';
+import type {
+	AnimationConfig,
+	AnimationDelay,
+	AnimationDuration,
+	AnimationEasing,
+	PolymorphicDefaultElement
+} from '@common/types';
 import { getAnimationConfig, getAnimationDelay, getAnimationDuration, getAnimationEasings } from '@common/utils';
 
 import { AnimatePresence } from '@components/Animation';
@@ -86,7 +91,7 @@ const Transition = forwardRef(function Transition<Element extends ElementType = 
 		}
 	}, [duration]);
 	const easingArr = useMemo<AnimationEasing>(() => getAnimationEasings(easing), [easing]);
-	const config = useMemo<TransitionType>(() => {
+	const config = useMemo<AnimationConfig>(() => {
 		return { ...getAnimationConfig(), delay: delayNum, duration: durationNum, ease: easingArr };
 	}, [delayNum, durationNum, easingArr]);
 
