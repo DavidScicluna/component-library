@@ -1,8 +1,13 @@
 esm
 cjs
 build
+node_modules
+.prettierrc
 .cache
 .eslintrc.json
+bun.lockb
+package.json
+tsconfig.json
 *.d.ts
 *.js
 *.story.tsx
