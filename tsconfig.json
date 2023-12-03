@@ -34,8 +34,8 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true,
-		"target": "esnext",
-		"types": ["bun-types"]
+		"target": "esnext"
+		// "types": ["bun-types"]
 	},
 	"include": ["./src"],
 	"exclude": ["node_modules", "./build", "./esm", "./cjs", "**/*.story.tsx"]
