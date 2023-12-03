@@ -47,10 +47,10 @@ const AlertIcon = forwardRef(function AlertIcon<Element extends AlertIconElement
 			status !== 'default'
 				? 'color'
 				: statusColor === 'gray'
-				? 'text.primary'
-				: colorMode === 'light'
-				? 'dark'
-				: 'light'
+				  ? 'text.primary'
+				  : colorMode === 'light'
+				    ? 'dark'
+				    : 'light'
 	});
 
 	const size = useConst(getFontSizeHeight('xl', __DEFAULT_ALERT_LINE_HEIGHT_SIZE__));

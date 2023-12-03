@@ -11,7 +11,7 @@ type UseGetAmountProps = {
 	types?: GetAmountTypeArr;
 };
 
-const __DEFAULT_GET_AMOUNT_TYPES__: GetAmountTypeArr = ['active', 'back', 'hover', 'placeholder', 'selection'];
+const __DEFAULT_GET_AMOUNT_TYPES__: GetAmountTypeArr = ['active', 'back', 'focus', 'hover'];
 
 const useGetAmount = (props: UseGetAmountProps) => {
 	const { colorMode: __DEFAULT_GET_COLOR_COLORMODE__ } = useAppTheme();

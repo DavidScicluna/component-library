@@ -33,10 +33,10 @@ const AlertLabel = forwardRef(function AlertLabel<Element extends AlertLabelElem
 			status !== 'default'
 				? 'color'
 				: statusColor === 'gray'
-				? 'text.primary'
-				: colorMode === 'light'
-				? 'dark'
-				: 'light',
+				  ? 'text.primary'
+				  : colorMode === 'light'
+				    ? 'dark'
+				    : 'light',
 		classType: 'text'
 	});
 

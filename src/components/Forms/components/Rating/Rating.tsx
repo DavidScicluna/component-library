@@ -172,12 +172,12 @@ const Rating = forwardRef(function Rating<Element extends ElementType = Polymorp
 								isError
 									? 'red'
 									: isSuccess
-									? 'green'
-									: isWarning
-									? 'yellow'
-									: isActive || isHovering
-									? color
-									: undefined
+									  ? 'green'
+									  : isWarning
+									    ? 'yellow'
+									    : isActive || isHovering
+									      ? color
+									      : undefined
 							}
 							colorMode={colorMode}
 							icon={isActive ? icons.active : isHovering ? icons.hover : icons.default}

@@ -37,10 +37,10 @@ const AlertDescription = forwardRef(function AlertDescription<
 			status !== 'default'
 				? 'color'
 				: statusColor === 'gray'
-				? 'text.secondary'
-				: colorMode === 'light'
-				? 'dark'
-				: 'light',
+				  ? 'text.secondary'
+				  : colorMode === 'light'
+				    ? 'dark'
+				    : 'light',
 		classType: 'text'
 	});
 

@@ -1,3 +1,4 @@
+import classes from '@common/classes';
 import { useGetClass, useGetResponsiveValue } from '@common/hooks';
 import type { ClassName, WidthClass } from '@common/types';
 

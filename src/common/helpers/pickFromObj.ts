@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-
 import memoize from 'micro-memoize';
 
 /**
@@ -11,16 +10,16 @@ type Primitives = string | number | symbol;
 type Util<Obj, Props extends ReadonlyArray<Primitives>> = Props extends []
 	? Obj
 	: Props extends [infer First]
-	? First extends keyof Obj
-		? Obj[First]
-		: never
-	: Props extends [infer Fst, ...infer Tail]
-	? Fst extends keyof Obj
-		? Tail extends Array<string>
-			? Util<Obj[Fst], Tail>
+	  ? First extends keyof Obj
+			? Obj[First]
 			: never
-		: never
-	: never;
+	  : Props extends [infer Fst, ...infer Tail]
+	    ? Fst extends keyof Obj
+				? Tail extends Array<string>
+					? Util<Obj[Fst], Tail>
+					: never
+				: never
+	    : never;
 
 // credits https://github.com/microsoft/TypeScript/issues/23182#issuecomment-379091887
 // type IsNeverType<T> = [T] extends [never] ? true : false;
