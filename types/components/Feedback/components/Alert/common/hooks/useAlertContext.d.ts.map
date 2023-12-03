@@ -1,1 +1,0 @@
-{"version":3,"file":"useAlertContext.d.ts","sourceRoot":"","sources":["../../../../../../../src/components/Feedback/components/Alert/common/hooks/useAlertContext.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,WAAW,EAAE,MAAM,OAAO,CAAC;AAQzC,OAAO,KAAK,EAAoC,WAAW,EAAE,YAAY,EAAE,MAAM,UAAU,CAAC;AAE5F,QAAA,MAAM,eAAe;;;;;CAYpB,CAAC;AAEF,eAAe,eAAe,CAAC"}

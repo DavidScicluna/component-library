@@ -1,1 +1,0 @@
-{"version":3,"file":"useMessageContext.d.ts","sourceRoot":"","sources":["../../../../../../../src/components/DataDisplay/components/Message/common/hooks/useMessageContext.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,WAAW,EAAE,MAAM,OAAO,CAAC;AAOzC,OAAO,KAAK,EAAE,cAAc,IAAI,kBAAkB,EAAE,MAAM,UAAU,CAAC;AAErE,QAAA,MAAM,iBAAiB,4EAItB,CAAC;AAEF,eAAe,iBAAiB,CAAC"}

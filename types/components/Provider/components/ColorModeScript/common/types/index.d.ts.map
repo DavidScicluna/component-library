@@ -1,1 +1,0 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../../../../../src/components/Provider/components/ColorModeScript/common/types/index.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,iBAAiB,EAAE,cAAc,EAAE,MAAM,eAAe,CAAC;AAEvE,MAAM,MAAM,oBAAoB,GAAG;IAClC,gBAAgB,EAAE,cAAc,CAAC;IACjC,cAAc,EAAE,CAAC,SAAS,EAAE,iBAAiB,KAAK,IAAI,CAAC;CACvD,CAAC"}

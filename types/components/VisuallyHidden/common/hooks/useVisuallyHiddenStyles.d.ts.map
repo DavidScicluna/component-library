@@ -1,1 +1,0 @@
-{"version":3,"file":"useVisuallyHiddenStyles.d.ts","sourceRoot":"","sources":["../../../../../src/components/VisuallyHidden/common/hooks/useVisuallyHiddenStyles.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,KAAK,EAAE,MAAM,eAAe,CAAC;AAE3C,KAAK,6BAA6B,GAAG,KAAK,CAAC;AAE3C,QAAA,MAAM,uBAAuB,QAAO,6BAYnC,CAAC;AAEF,eAAe,uBAAuB,CAAC"}
