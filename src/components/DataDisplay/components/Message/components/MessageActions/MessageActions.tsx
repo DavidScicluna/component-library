@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useMediaQuery } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Stack } from '@components/Layout';
 
@@ -15,10 +15,9 @@ import type { MessageActionsProps, MessageActionsRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const MessageActions = forwardRef(function MessageActions<Element extends ElementType = PolymorphicDefaultElement>(
-	props: MessageActionsProps<Element>,
-	ref: MessageActionsRef<Element>
-): ReactElement {
+const MessageActions: PolymorphicComponentWithRef = forwardRef(function MessageActions<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: MessageActionsProps<Element>, ref: MessageActionsRef<Element>): ReactElement {
 	const isSm = useMediaQuery({ breakpoint: 'sm', type: 'width', direction: 'max' });
 
 	const { color, colorMode, spacing: __DEFAULT_MESSAGE_ACTIONS_SPACING__ } = useMessageContext();

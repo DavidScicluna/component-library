@@ -3,6 +3,7 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Box } from '@components/Box';
 import { useFormControlContext, useFormControlFontSize } from '@components/Forms/components/FormControl/common/hooks';
@@ -15,10 +16,9 @@ import { getFormLabelID } from './common/utils';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const FormLabel = forwardRef(function FormLabel<Element extends FormLabelElement = FormLabelDefaultElement>(
-	props: FormLabelProps<Element>,
-	ref: FormLabelRef<Element>
-): ReactElement {
+const FormLabel: PolymorphicComponentWithRef = forwardRef(function FormLabel<
+	Element extends FormLabelElement = FormLabelDefaultElement
+>(props: FormLabelProps<Element>, ref: FormLabelRef<Element>): ReactElement {
 	const { colorMode, id, isError, isRequired, isWarning, isSuccess, size } = useFormControlContext();
 
 	const __DEFAULT_FORM_LABEL_COLOR__ = useGetColor({

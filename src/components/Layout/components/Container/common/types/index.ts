@@ -13,7 +13,9 @@ type ContainerOtherProps = {
 	isFluid?: ResponsiveValue<boolean>;
 };
 
-export type ContainerProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
-	ContainerOtherProps;
+export type ContainerProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+	Element,
+	ContainerOtherProps
+>;
 
 export type ContainerRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

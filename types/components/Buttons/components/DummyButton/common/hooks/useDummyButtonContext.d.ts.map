@@ -1,0 +1,1 @@
+{"version":3,"file":"useDummyButtonContext.d.ts","sourceRoot":"","sources":["../../../../../../../src/components/Buttons/components/DummyButton/common/hooks/useDummyButtonContext.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,WAAW,EAAE,MAAM,OAAO,CAAC;AAQzC,OAAO,KAAK,EAAgD,eAAe,EAAE,kBAAkB,EAAE,MAAM,UAAU,CAAC;AAElH,QAAA,MAAM,qBAAqB;;;;;CAY1B,CAAC;AAEF,eAAe,qBAAqB,CAAC"}

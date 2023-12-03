@@ -2,7 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Skeleton } from '@components/Feedback';
 import { __KEY_SKELETON_OVERLAY_CLASS__ } from '@components/Feedback/components/Skeleton/common/keys';
@@ -16,7 +16,7 @@ import type { DummyIconButtonSkeletonProps, DummyIconButtonSkeletonRef } from '.
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const DummyIconButtonSkeleton = forwardRef(function DummyIconButtonSkeleton<
+const DummyIconButtonSkeleton: PolymorphicComponentWithRef = forwardRef(function DummyIconButtonSkeleton<
 	Element extends ElementType = PolymorphicDefaultElement
 >(props: DummyIconButtonSkeletonProps<Element>, ref: DummyIconButtonSkeletonRef<Element>): ReactElement {
 	const { color, colorMode, variant } = useDummyIconButtonContext();

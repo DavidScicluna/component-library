@@ -41,7 +41,9 @@ type DummyPushableOverlayOtherProps = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<DummyPushableOverlayVariant>;
 };
 
-export type DummyPushableOverlayProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
-	DummyPushableOverlayOtherProps;
+export type DummyPushableOverlayProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+	Element,
+	DummyPushableOverlayOtherProps
+>;
 
 export type DummyPushableOverlayRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

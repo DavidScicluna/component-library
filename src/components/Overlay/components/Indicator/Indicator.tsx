@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
@@ -21,10 +21,9 @@ import type { IndicatorPlacement, IndicatorProps, IndicatorRef } from './common/
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Indicator = forwardRef(function Indicator<Element extends ElementType = PolymorphicDefaultElement>(
-	props: IndicatorProps<Element>,
-	ref: IndicatorRef<Element>
-): ReactElement {
+const Indicator: PolymorphicComponentWithRef = forwardRef(function Indicator<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: IndicatorProps<Element>, ref: IndicatorRef<Element>): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

@@ -6,7 +6,7 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 import { Grid, GridItem, HStack, VStack } from '@components/Layout';
@@ -19,10 +19,9 @@ import type { CardHeaderProps, CardHeaderRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CardHeader = forwardRef(function CardHeader<Element extends ElementType = PolymorphicDefaultElement>(
-	props: CardHeaderProps<Element>,
-	ref: CardHeaderRef<Element>
-): ReactElement {
+const CardHeader: PolymorphicComponentWithRef = forwardRef(function CardHeader<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: CardHeaderProps<Element>, ref: CardHeaderRef<Element>): ReactElement {
 	const {
 		color,
 		colorMode,

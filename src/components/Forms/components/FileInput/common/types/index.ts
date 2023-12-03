@@ -70,9 +70,8 @@ type FileInputOtherProps<Element extends FileInputElement = FileInputDefaultElem
 type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
 export type FileInputProps<Element extends FileInputElement = FileInputDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, FileInputOtherProps<Element>>,
 	OmittedBoxProps
-> &
-	FileInputOtherProps<Element>;
+>;
 
 export type FileInputRef<Element extends FileInputElement = FileInputDefaultElement> = BoxRef<Element>;

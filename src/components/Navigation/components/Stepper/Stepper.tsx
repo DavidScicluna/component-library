@@ -2,7 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__, __DEFAULT_SPACING__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -41,10 +41,9 @@ export const StepperContext = createContext<StepperContextType<any>>({
 	variant: __DEFAULT_STEPPER_VARIANT__
 });
 
-const Stepper = forwardRef(function Stepper<Element extends ElementType = PolymorphicDefaultElement>(
-	props: StepperProps<Element>,
-	ref: StepperRef<Element>
-): ReactElement {
+const Stepper: PolymorphicComponentWithRef = forwardRef(function Stepper<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: StepperProps<Element>, ref: StepperRef<Element>): ReactElement {
 	const {
 		children,
 		id = __DEFAULT_STEPPER_ID__,

@@ -5,7 +5,7 @@ import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeRadius } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement, ThemeRadius } from '@common/types';
 
 import { Grid, GridItem } from '@components/Layout';
 
@@ -21,7 +21,7 @@ import type { DummyPushableOverlayProps, DummyPushableOverlayRef, DummyPushableO
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const DummyPushableOverlay = forwardRef(function DummyPushableOverlay<
+const DummyPushableOverlay: PolymorphicComponentWithRef = forwardRef(function DummyPushableOverlay<
 	Element extends ElementType = PolymorphicDefaultElement
 >(props: DummyPushableOverlayProps<Element>, ref: DummyPushableOverlayRef<Element>): ReactElement {
 	const {

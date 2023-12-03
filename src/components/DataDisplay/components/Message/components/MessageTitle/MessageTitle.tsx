@@ -3,6 +3,7 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -19,10 +20,9 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const MessageTitle = forwardRef(function MessageTitle<Element extends MessageTitleElement = MessageTitleDefaultElement>(
-	props: MessageTitleProps<Element>,
-	ref: MessageTitleRef<Element>
-): ReactElement {
+const MessageTitle: PolymorphicComponentWithRef = forwardRef(function MessageTitle<
+	Element extends MessageTitleElement = MessageTitleDefaultElement
+>(props: MessageTitleProps<Element>, ref: MessageTitleRef<Element>): ReactElement {
 	const { colorMode } = useMessageContext();
 
 	const __DEFAULT_MESSAGE_TITLE_COLOR__ = useGetColor({

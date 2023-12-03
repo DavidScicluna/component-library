@@ -17,7 +17,7 @@ import {
 	__DEFAULT_RADIUS__
 } from '@common/constants';
 import { useGetColor, useTheme } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeFontSize } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement, ThemeFontSize } from '@common/types';
 import {
 	checkFontSizeType,
 	convertREMToPixels,
@@ -59,10 +59,9 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Spinner = forwardRef(function Spinner<Element extends ElementType = PolymorphicDefaultElement>(
-	props: SpinnerProps<Element>,
-	ref: SpinnerRef<Element>
-): ReactElement {
+const Spinner: PolymorphicComponentWithRef = forwardRef(function Spinner<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: SpinnerProps<Element>, ref: SpinnerRef<Element>): ReactElement {
 	const theme = useTheme();
 
 	const __DEFAULT_SPINNER_COLOR__ = useGetColor({ colorType: 'default', hueType: 'default' });

@@ -71,10 +71,9 @@ type AlertOtherProps = ThemeAppAppearanceProps & {
 };
 
 export type AlertProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, AlertOtherProps>,
 	keyof BoxOtherProps
-> &
-	AlertOtherProps;
+>;
 
 export type AlertRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 

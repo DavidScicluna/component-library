@@ -9,6 +9,6 @@ type SpaceOtherProps = {
 	height?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type SpaceProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> & SpaceOtherProps;
+export type SpaceProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element, SpaceOtherProps>;
 
 export type SpaceRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import { isArray } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Center, Grid, GridItem } from '@components/Layout';
@@ -33,10 +33,9 @@ const StepPanel = <Element extends ElementType = PolymorphicDefaultElement>({
 	);
 };
 
-const StepPanels = forwardRef(function StepPanels<Element extends ElementType = PolymorphicDefaultElement>(
-	props: StepPanelsProps<Element>,
-	ref: StepPanelsRef<Element>
-): ReactElement {
+const StepPanels: PolymorphicComponentWithRef = forwardRef(function StepPanels<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: StepPanelsProps<Element>, ref: StepPanelsRef<Element>): ReactElement {
 	const { id } = useStepperContext();
 
 	const { children, className = __DEFAULT_CLASSNAME__, ...rest } = props;

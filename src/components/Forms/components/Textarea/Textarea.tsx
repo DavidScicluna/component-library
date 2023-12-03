@@ -8,7 +8,7 @@ import { useElementSize } from 'usehooks-ts';
 import classes from '@common/classes';
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
-import type { ResizeClass } from '@common/types';
+import type { PolymorphicComponentWithRef, ResizeClass } from '@common/types';
 
 import { Box } from '@components/Box';
 import { useFormsClasses, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
@@ -50,10 +50,9 @@ const classNames = require('classnames');
 
 const { interactivity } = classes;
 
-const Textarea = forwardRef(function Textarea<Element extends TextareaElement = TextareaDefaultElement>(
-	props: TextareaProps<Element>,
-	ref: TextareaRef<Element>
-): ReactElement {
+const Textarea: PolymorphicComponentWithRef = forwardRef(function Textarea<
+	Element extends TextareaElement = TextareaDefaultElement
+>(props: TextareaProps<Element>, ref: TextareaRef<Element>): ReactElement {
 	const textareaRef = useRef<TextareaRef<Element>>();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 

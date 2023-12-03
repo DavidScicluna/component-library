@@ -3,6 +3,7 @@ import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_APP_COLOR__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -16,10 +17,9 @@ import type { StepStatusDefaultElement, StepStatusElement, StepStatusProps, Step
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const StepStatus = forwardRef(function StepStatus<Element extends StepStatusElement = StepStatusDefaultElement>(
-	props: StepStatusProps<Element>,
-	ref: StepStatusRef<Element>
-): ReactElement {
+const StepStatus: PolymorphicComponentWithRef = forwardRef(function StepStatus<
+	Element extends StepStatusElement = StepStatusDefaultElement
+>(props: StepStatusProps<Element>, ref: StepStatusRef<Element>): ReactElement {
 	const { color, colorMode, index: step, size } = useStepperContext();
 	const { index, status } = useStepContext();
 

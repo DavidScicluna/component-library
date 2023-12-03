@@ -2,7 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { VStack } from '@components/Layout';
 
@@ -14,7 +14,7 @@ import type { ConfirmModalActionsProps, ConfirmModalActionsRef } from './common/
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ConfirmModalActions = forwardRef(function ConfirmModalActions<
+const ConfirmModalActions: PolymorphicComponentWithRef = forwardRef(function ConfirmModalActions<
 	Element extends ElementType = PolymorphicDefaultElement
 >(props: ConfirmModalActionsProps<Element>, ref: ConfirmModalActionsRef<Element>): ReactElement {
 	const { color, colorMode, onClose, spacing: __DEFAULT_CONFIRM_MODAL_ACTIONS_SPACING__ } = useConfirmModalContext();

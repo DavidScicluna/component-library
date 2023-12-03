@@ -3,7 +3,7 @@ import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 import { getColorHex } from '@common/utils';
 
 import { Spinner } from '@components/Feedback';
@@ -16,7 +16,7 @@ import type { IconButtonSpinnerProps, IconButtonSpinnerRef } from './common/type
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const IconButtonSpinner = forwardRef(function IconButtonSpinner<
+const IconButtonSpinner: PolymorphicComponentWithRef = forwardRef(function IconButtonSpinner<
 	Element extends ElementType = PolymorphicDefaultElement
 >(props: IconButtonSpinnerProps<Element>, ref: IconButtonSpinnerRef<Element>): ReactElement {
 	const { color: __DEFAULT_ICON_BUTTON_COLOR__, colorMode: __DEFAULT_ICON_BUTTON_COLORMODE__ } = useAppTheme();

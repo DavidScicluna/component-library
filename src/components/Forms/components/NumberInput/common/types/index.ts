@@ -70,9 +70,8 @@ type NumberInputOtherProps<Element extends NumberInputElement = NumberInputDefau
 type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
 export type NumberInputProps<Element extends NumberInputElement = NumberInputDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, NumberInputOtherProps<Element>>,
 	OmittedBoxProps
-> &
-	NumberInputOtherProps<Element>;
+>;
 
 export type NumberInputRef<Element extends NumberInputElement = NumberInputDefaultElement> = BoxRef<Element>;

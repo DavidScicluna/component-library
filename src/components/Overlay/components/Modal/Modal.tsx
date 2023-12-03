@@ -14,7 +14,7 @@ import { useKey } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
-import type { ThemeSpacing } from '@common/types';
+import type { PolymorphicComponentWithRef, ThemeSpacing } from '@common/types';
 
 import { AnimatePresence, Transition } from '@components/Animation';
 import { Box } from '@components/Box';
@@ -53,10 +53,9 @@ export const ModalContext = createContext<ModalContextType<any>>({
 	spacing: __DEFAULT_SPACING__
 });
 
-const Modal = forwardRef(function Modal<Element extends ModalElement = ModalDefaultElement>(
-	props: ModalProps<Element>,
-	ref: ModalRef<Element>
-): ReactElement {
+const Modal: PolymorphicComponentWithRef = forwardRef(function Modal<
+	Element extends ModalElement = ModalDefaultElement
+>(props: ModalProps<Element>, ref: ModalRef<Element>): ReactElement {
 	const {
 		children,
 		id = __DEFAULT_MODAL_ID__,

@@ -3,6 +3,7 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { useFormControlContext, useFormControlFontSize } from '@components/Forms/components/FormControl/common/hooks';
 import { Text } from '@components/Typography';
@@ -18,7 +19,7 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const FormHelperText = forwardRef(function FormHelperText<
+const FormHelperText: PolymorphicComponentWithRef = forwardRef(function FormHelperText<
 	Element extends FormHelperTextElement = FormHelperTextDefaultElement
 >(props: FormHelperTextProps<Element>, ref: FormHelperTextRef<Element>): ReactElement {
 	const { colorMode, isError, isWarning, isSuccess, size } = useFormControlContext();

@@ -6,7 +6,7 @@ import { useFocus } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
@@ -46,10 +46,9 @@ import type { SwitchFocusEvent, SwitchMouseEvent, SwitchProps, SwitchRef } from 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Switch = forwardRef(function Switch<Element extends ElementType = PolymorphicDefaultElement>(
-	props: SwitchProps<Element>,
-	ref: SwitchRef<Element>
-): ReactElement {
+const Switch: PolymorphicComponentWithRef = forwardRef(function Switch<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: SwitchProps<Element>, ref: SwitchRef<Element>): ReactElement {
 	const pushableOverlayRef = useRef<PushableOverlayRef<PolymorphicDefaultElement>>(null);
 
 	const {

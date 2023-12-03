@@ -64,8 +64,10 @@ type CardOtherProps<Element extends ElementType = PolymorphicDefaultElement> = T
 	variant?: ResponsiveValue<CardVariant>;
 } & Pick<PushableOverlayProps<Element>, 'isActive' | 'isDisabled' | 'isFixed' | 'isOutlined'>;
 
-export type CardProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
-	CardOtherProps<Element>;
+export type CardProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+	Element,
+	CardOtherProps<Element>
+>;
 
 export type CardRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 

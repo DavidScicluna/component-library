@@ -61,9 +61,8 @@ type RadioOtherProps = Pick<FormsCommonProps, PickedFormsCommonProps> & {
 type OmittedBoxProps = 'children' | 'size' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
 export type RadioProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, RadioOtherProps>,
 	OmittedBoxProps
-> &
-	RadioOtherProps;
+>;
 
 export type RadioRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

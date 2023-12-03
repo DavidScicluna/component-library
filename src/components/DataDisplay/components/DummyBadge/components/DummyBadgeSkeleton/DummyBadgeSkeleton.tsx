@@ -2,7 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Skeleton } from '@components/Feedback';
 import { __KEY_SKELETON_OVERLAY_CLASS__ } from '@components/Feedback/components/Skeleton/common/keys';
@@ -16,7 +16,7 @@ import type { DummyBadgeSkeletonProps, DummyBadgeSkeletonRef } from './common/ty
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const DummyBadgeSkeleton = forwardRef(function DummyBadgeSkeleton<
+const DummyBadgeSkeleton: PolymorphicComponentWithRef = forwardRef(function DummyBadgeSkeleton<
 	Element extends ElementType = PolymorphicDefaultElement
 >(props: DummyBadgeSkeletonProps<Element>, ref: DummyBadgeSkeletonRef<Element>): ReactElement {
 	const { color, colorMode, variant } = useDummyBadgeContext();

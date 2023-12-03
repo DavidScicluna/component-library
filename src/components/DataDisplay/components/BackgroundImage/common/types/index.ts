@@ -134,7 +134,9 @@ type BackgroundImageOtherProps = {
 	src: string;
 };
 
-export type BackgroundImageProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
-	BackgroundImageOtherProps;
+export type BackgroundImageProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+	Element,
+	BackgroundImageOtherProps
+>;
 
 export type BackgroundImageRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

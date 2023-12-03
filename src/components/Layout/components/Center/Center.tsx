@@ -2,7 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -14,10 +14,9 @@ import type { CenterProps, CenterRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Center = forwardRef(function Center<Element extends ElementType = PolymorphicDefaultElement>(
-	props: CenterProps<Element>,
-	ref: CenterRef<Element>
-): ReactElement {
+const Center: PolymorphicComponentWithRef = forwardRef(function Center<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: CenterProps<Element>, ref: CenterRef<Element>): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, spacing = __DEFAULT_CENTER_SPACING__, ...rest } = props;
 
 	const classes = useCenterClasses<Element>({ spacing });

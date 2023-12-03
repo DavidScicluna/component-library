@@ -70,8 +70,10 @@ type StepperOtherProps = ThemeAppAppearanceProps & {
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type StepperProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
-	StepperOtherProps;
+export type StepperProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+	Element,
+	StepperOtherProps
+>;
 
 export type StepperRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 

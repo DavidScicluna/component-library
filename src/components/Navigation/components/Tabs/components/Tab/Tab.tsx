@@ -7,6 +7,7 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
@@ -31,7 +32,7 @@ import type { TabDefaultElement, TabElement, TabMouseEvent, TabProps, TabRef } f
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Tab = forwardRef(function Tab<Element extends TabElement = TabDefaultElement>(
+const Tab: PolymorphicComponentWithRef = forwardRef(function Tab<Element extends TabElement = TabDefaultElement>(
 	props: TabProps<Element>,
 	ref: TabRef<Element>
 ): ReactElement {

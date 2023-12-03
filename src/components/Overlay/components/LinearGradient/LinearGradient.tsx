@@ -2,7 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -18,10 +18,9 @@ import type { LinearGradientProps, LinearGradientRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const LinearGradient = forwardRef(function LinearGradient<Element extends ElementType = PolymorphicDefaultElement>(
-	props: LinearGradientProps<Element>,
-	ref: LinearGradientRef<Element>
-): ReactElement {
+const LinearGradient: PolymorphicComponentWithRef = forwardRef(function LinearGradient<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: LinearGradientProps<Element>, ref: LinearGradientRef<Element>): ReactElement {
 	const {
 		className = __DEFAULT_CLASSNAME__,
 		direction = __DEFAULT_LINEAR_GRADIENT_DIRECTION__,

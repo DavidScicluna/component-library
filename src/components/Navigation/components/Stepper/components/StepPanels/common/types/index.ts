@@ -10,7 +10,9 @@ export type StepPanelsProps<Element extends ElementType = PolymorphicDefaultElem
 	keyof BoxOtherProps
 >;
 
-export type StepPanelProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
-	Pick<StepperProps<Element>, 'index'>;
+export type StepPanelProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+	Element,
+	Pick<StepperProps<Element>, 'index'>
+>;
 
 export type StepPanelsRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

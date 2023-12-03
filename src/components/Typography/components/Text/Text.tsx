@@ -5,6 +5,7 @@ import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -26,7 +27,7 @@ import type { TextDefaultElement, TextElement, TextProps, TextRef } from './comm
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Text = forwardRef(function Text<Element extends TextElement = TextDefaultElement>(
+const Text: PolymorphicComponentWithRef = forwardRef(function Text<Element extends TextElement = TextDefaultElement>(
 	props: TextProps<Element>,
 	ref: TextRef<Element>
 ): ReactElement {

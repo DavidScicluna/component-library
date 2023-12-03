@@ -2,7 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
@@ -21,10 +21,9 @@ import type { GlassOverlayProps, GlassOverlayRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const GlassOverlay = forwardRef(function GlassOverlay<Element extends ElementType = PolymorphicDefaultElement>(
-	props: GlassOverlayProps<Element>,
-	ref: GlassOverlayRef<Element>
-): ReactElement {
+const GlassOverlay: PolymorphicComponentWithRef = forwardRef(function GlassOverlay<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: GlassOverlayProps<Element>, ref: GlassOverlayRef<Element>): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

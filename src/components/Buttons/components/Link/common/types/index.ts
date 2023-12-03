@@ -30,6 +30,6 @@ type LinkOtherProps = ThemeAppAppearanceProps & {
 	isUnstyled?: boolean;
 };
 
-export type LinkProps<Element extends LinkElement = LinkDefaultElement> = BoxProps<Element> & LinkOtherProps;
+export type LinkProps<Element extends LinkElement = LinkDefaultElement> = BoxProps<Element, LinkOtherProps>;
 
 export type LinkRef<Element extends LinkElement = LinkDefaultElement> = BoxRef<Element>;

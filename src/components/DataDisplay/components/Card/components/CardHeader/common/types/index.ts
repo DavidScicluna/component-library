@@ -26,9 +26,8 @@ type CardHeaderOtherProps<Element extends ElementType = PolymorphicDefaultElemen
 };
 
 export type CardHeaderProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, CardHeaderOtherProps<Element>>,
 	'children' | 'w' | 'h'
-> &
-	CardHeaderOtherProps<Element>;
+>;
 
 export type CardHeaderRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

@@ -55,10 +55,9 @@ type IconButtonOtherProps<Element extends IconButtonElement = IconButtonDefaultE
 } & Pick<PushableOverlayProps<Element>, 'isActive' | 'isDisabled' | 'isFocused' | 'isOutlined'>;
 
 export type IconButtonProps<Element extends IconButtonElement = IconButtonDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, IconButtonOtherProps<Element>>,
 	keyof BoxOtherProps
-> &
-	IconButtonOtherProps<Element>;
+>;
 
 export type IconButtonRef<Element extends IconButtonElement = IconButtonDefaultElement> = BoxRef<Element>;
 

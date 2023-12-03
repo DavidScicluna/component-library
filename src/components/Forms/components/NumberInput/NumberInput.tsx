@@ -7,6 +7,7 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Box } from '@components/Box';
 import { IconButton, IconButtonGroup, IconButtonGroupItem, IconButtonIcon } from '@components/Buttons';
@@ -49,10 +50,9 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const NumberInput = forwardRef(function NumberInput<Element extends NumberInputElement = NumberInputDefaultElement>(
-	props: NumberInputProps<Element>,
-	ref: NumberInputRef<Element>
-): ReactElement {
+const NumberInput: PolymorphicComponentWithRef = forwardRef(function NumberInput<
+	Element extends NumberInputElement = NumberInputDefaultElement
+>(props: NumberInputProps<Element>, ref: NumberInputRef<Element>): ReactElement {
 	const numberinputRef = useRef<NumberInputRef<Element>>();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 

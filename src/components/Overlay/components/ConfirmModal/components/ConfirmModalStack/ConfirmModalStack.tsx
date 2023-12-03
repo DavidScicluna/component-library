@@ -2,7 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { VStack } from '@components/Layout';
 
@@ -14,7 +14,7 @@ import type { ConfirmModalStackProps, ConfirmModalStackRef } from './common/type
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ConfirmModalStack = forwardRef(function ConfirmModalStack<
+const ConfirmModalStack: PolymorphicComponentWithRef = forwardRef(function ConfirmModalStack<
 	Element extends ElementType = PolymorphicDefaultElement
 >(props: ConfirmModalStackProps<Element>, ref: ConfirmModalStackRef<Element>): ReactElement {
 	const { spacing: __DEFAULT_CONFIRM_MODAL_STACK_SPACING__ } = useConfirmModalContext();

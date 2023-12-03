@@ -4,6 +4,7 @@ import type {
 	Nullish,
 	PolymorphicComponentProps,
 	PolymorphicDefaultElement,
+	PolymorphicDefaultProps,
 	PolymorphicRef,
 	ResponsiveValue,
 	Style,
@@ -40,7 +41,9 @@ export type BoxOtherProps = {
 	mb?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type BoxProps<Element extends ElementType = PolymorphicDefaultElement> = PolymorphicComponentProps<Element> &
-	BoxOtherProps;
+export type BoxProps<
+	Element extends ElementType = PolymorphicDefaultElement,
+	Props = PolymorphicDefaultProps
+> = PolymorphicComponentProps<Element, Props & BoxOtherProps>;
 
 export type BoxRef<Element extends ElementType = PolymorphicDefaultElement> = Nullish<PolymorphicRef<Element>>;

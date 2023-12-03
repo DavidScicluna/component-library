@@ -7,7 +7,7 @@ import { forwardRef } from 'react';
 import { merge, omit, pick } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { useBoxStyles } from './common/hooks';
 import { __KEYS_BOX__, __KEYS_BOX_CLASS__ } from './common/keys';
@@ -16,10 +16,9 @@ import type { BoxProps, BoxRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Box = forwardRef(function Box<Element extends ElementType = PolymorphicDefaultElement>(
-	props: BoxProps<Element>,
-	ref: BoxRef<Element>
-): ReactElement {
+const Box: PolymorphicComponentWithRef = forwardRef(function Box<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: BoxProps<Element>, ref: BoxRef<Element>): ReactElement {
 	const {
 		children,
 		as = __DEFAULT_POLYMORPHIC_ELEMENT__,

@@ -37,8 +37,10 @@ type CarouselOtherProps = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<CarouselVariant>;
 };
 
-export type CarouselProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
-	CarouselOtherProps;
+export type CarouselProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+	Element,
+	CarouselOtherProps
+>;
 
 export type CarouselRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 

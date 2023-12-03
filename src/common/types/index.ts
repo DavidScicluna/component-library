@@ -295,10 +295,16 @@ import type { ClassName, ClassNames, Style } from './other';
 import type {
 	PolymorphicChangeEvent,
 	PolymorphicComponentProps,
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
+	PolymorphicDefaultProps,
+	PolymorphicExtendableProps,
 	PolymorphicFocusEvent,
 	PolymorphicFormEvent,
+	PolymorphicInheritableElementProps,
 	PolymorphicMouseEvent,
+	PolymorphicPropsOf,
 	PolymorphicRef
 } from './polymorphic';
 import type { ResponsiveArrayValue, ResponsiveObjectValue, ResponsiveValue } from './responsive';
@@ -573,10 +579,16 @@ export type {
 	PointerEventsClassObj,
 	PolymorphicChangeEvent,
 	PolymorphicComponentProps,
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
+	PolymorphicDefaultProps,
+	PolymorphicExtendableProps,
 	PolymorphicFocusEvent,
 	PolymorphicFormEvent,
+	PolymorphicInheritableElementProps,
 	PolymorphicMouseEvent,
+	PolymorphicPropsOf,
 	PolymorphicRef,
 	PositionClass,
 	PositionClassArr,

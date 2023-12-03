@@ -2,6 +2,7 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 
@@ -19,7 +20,7 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const DummyBadgeIcon = forwardRef(function DummyBadgeIcon<
+const DummyBadgeIcon: PolymorphicComponentWithRef = forwardRef(function DummyBadgeIcon<
 	Element extends DummyBadgeIconElement = DummyBadgeIconDefaultElement
 >(props: DummyBadgeIconProps<Element>, ref: DummyBadgeIconRef<Element>): ReactElement {
 	const {

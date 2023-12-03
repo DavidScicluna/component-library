@@ -69,9 +69,8 @@ type TextareaOtherProps<Element extends TextareaElement = TextareaDefaultElement
 type OmittedBoxProps = 'children' | 'resize' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
 export type TextareaProps<Element extends TextareaElement = TextareaDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, TextareaOtherProps>,
 	OmittedBoxProps
-> &
-	TextareaOtherProps;
+>;
 
 export type TextareaRef<Element extends TextareaElement = TextareaDefaultElement> = BoxRef<Element>;

@@ -26,7 +26,9 @@ type DividerOtherProps = DividerThemeAppearanceProps & {
 	variant?: ResponsiveValue<DividerVariant>;
 };
 
-export type DividerProps<Element extends DividerElement> = Omit<BoxProps<Element>, keyof BoxOtherProps> &
-	DividerOtherProps;
+export type DividerProps<Element extends DividerElement> = Omit<
+	BoxProps<Element, DividerOtherProps>,
+	keyof BoxOtherProps
+>;
 
 export type DividerRef<Element extends DividerElement> = BoxRef<Element>;

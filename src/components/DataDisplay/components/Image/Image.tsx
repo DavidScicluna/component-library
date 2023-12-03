@@ -3,7 +3,7 @@ import { forwardRef, useEffect } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
@@ -23,10 +23,9 @@ import type { ImageProps, ImageRef, ImageSyntheticEvent } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Image = forwardRef(function Image<Element extends ElementType = PolymorphicDefaultElement>(
-	props: ImageProps<Element>,
-	ref: ImageRef<Element>
-): ReactElement {
+const Image: PolymorphicComponentWithRef = forwardRef(function Image<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: ImageProps<Element>, ref: ImageRef<Element>): ReactElement {
 	const {
 		className = __DEFAULT_CLASSNAME__,
 		color,

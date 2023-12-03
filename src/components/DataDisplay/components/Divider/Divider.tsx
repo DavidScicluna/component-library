@@ -9,6 +9,7 @@ import {
 	__DEFAULT_POLYMORPHIC_SX__,
 	__DEFAULT_SPACING__
 } from '@common/constants';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Box } from '@components/Box';
 import { Center } from '@components/Layout';
@@ -25,10 +26,9 @@ import type { DividerDefaultElement, DividerElement, DividerProps, DividerRef } 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Divider = forwardRef(function Divider<Element extends DividerElement = DividerDefaultElement>(
-	props: DividerProps<Element>,
-	ref: DividerRef<Element>
-): ReactElement {
+const Divider: PolymorphicComponentWithRef = forwardRef(function Divider<
+	Element extends DividerElement = DividerDefaultElement
+>(props: DividerProps<Element>, ref: DividerRef<Element>): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

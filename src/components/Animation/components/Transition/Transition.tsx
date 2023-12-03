@@ -11,6 +11,7 @@ import type {
 	AnimationDelay,
 	AnimationDuration,
 	AnimationEasing,
+	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement
 } from '@common/types';
 import { getAnimationConfig, getAnimationDelay, getAnimationDuration, getAnimationEasings } from '@common/utils';
@@ -31,12 +32,11 @@ import type { TransitionProps, TransitionRef, TransitionVariant } from './common
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const MotionBox = motion(Box);
+const MotionBox: PolymorphicComponentWithRef = motion(Box);
 
-const Transition = forwardRef(function Transition<Element extends ElementType = PolymorphicDefaultElement>(
-	props: TransitionProps<Element>,
-	ref: TransitionRef<Element>
-): ReactElement {
+const Transition: PolymorphicComponentWithRef = forwardRef(function Transition<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: TransitionProps<Element>, ref: TransitionRef<Element>): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
@@ -109,7 +109,7 @@ const Transition = forwardRef(function Transition<Element extends ElementType = 
 	return (
 		<AnimatePresence onExitComplete={onExitComplete}>
 			{isVisible ? (
-				<MotionBox
+				<MotionBox<Element>
 					{...rest}
 					ref={ref}
 					className={classNames(__KEYS_TRANSITION_CLASS__, { [className]: !!className })}

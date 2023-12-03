@@ -5,7 +5,7 @@ import { useInView } from 'react-cool-inview';
 import { useMergeRefs } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Center } from '@components/Layout';
@@ -16,10 +16,9 @@ import type { CarouselItemProps, CarouselItemRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CarouselItem = forwardRef(function CarouselItem<Element extends ElementType = PolymorphicDefaultElement>(
-	props: CarouselItemProps<Element>,
-	ref: CarouselItemRef<Element>
-): ReactElement {
+const CarouselItem: PolymorphicComponentWithRef = forwardRef(function CarouselItem<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: CarouselItemProps<Element>, ref: CarouselItemRef<Element>): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, id, onToggleIsVisible, ...rest } = props;
 
 	const { observe, inView } = useInView({

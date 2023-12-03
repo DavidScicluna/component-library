@@ -47,10 +47,9 @@ type ProgressOtherProps = ThemeAppAppearanceProps & {
 type OmittedBoxProps = Exclude<keyof BoxOtherProps, 'w' | 'h'>;
 
 export type ProgressProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, ProgressOtherProps>,
 	OmittedBoxProps
-> &
-	ProgressOtherProps;
+>;
 
 export type ProgressRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 

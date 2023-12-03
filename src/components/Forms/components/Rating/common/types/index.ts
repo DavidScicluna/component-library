@@ -66,9 +66,8 @@ type RatingOtherProps = Pick<FormsCommonProps, PickedFormsCommonProps> & {
 type OmittedBoxProps = 'children' | 'size' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
 export type RatingProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, RatingOtherProps>,
 	OmittedBoxProps
-> &
-	RatingOtherProps;
+>;
 
 export type RatingRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

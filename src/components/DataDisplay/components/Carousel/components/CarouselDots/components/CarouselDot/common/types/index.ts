@@ -10,9 +10,8 @@ type CarouselDotOtherProps = ThemeAppearanceProps &
 	Pick<CarouselDotsProps<PolymorphicDefaultElement>, 'size'>;
 
 export type CarouselDotProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, CarouselDotOtherProps>,
 	'children'
-> &
-	CarouselDotOtherProps;
+>;
 
 export type CarouselDotRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

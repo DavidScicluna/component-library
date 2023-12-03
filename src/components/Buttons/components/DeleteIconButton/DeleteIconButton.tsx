@@ -2,6 +2,7 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Tooltip } from '@components/Overlay';
 
@@ -23,7 +24,7 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const DeleteIconButton = forwardRef(function DeleteIconButton<
+const DeleteIconButton: PolymorphicComponentWithRef = forwardRef(function DeleteIconButton<
 	Element extends DeleteIconButtonElement = DeleteIconButtonDefaultElement
 >(props: DeleteIconButtonProps<Element>, ref: DeleteIconButtonRef<Element>): ReactElement {
 	const {

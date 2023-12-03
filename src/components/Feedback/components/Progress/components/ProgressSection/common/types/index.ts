@@ -14,9 +14,8 @@ type ProgressSectionOtherProps = ThemeAppAppearanceProps & {
 };
 
 export type ProgressSectionProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, ProgressSectionOtherProps>,
 	keyof BoxOtherProps
-> &
-	ProgressSectionOtherProps;
+>;
 
 export type ProgressSectionRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

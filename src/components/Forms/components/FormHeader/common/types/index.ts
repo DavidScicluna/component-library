@@ -19,9 +19,8 @@ type FormHeaderOtherProps<Element extends ElementType = PolymorphicDefaultElemen
 };
 
 export type FormHeaderProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, FormHeaderOtherProps<Element>>,
 	'children' | 'w' | 'h'
-> &
-	FormHeaderOtherProps<Element>;
+>;
 
 export type FormHeaderRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

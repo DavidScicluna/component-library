@@ -2,6 +2,7 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 
@@ -13,10 +14,9 @@ import type { MessageIconDefaultElement, MessageIconElement, MessageIconProps, M
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const MessageIcon = forwardRef(function MessageIcon<Element extends MessageIconElement = MessageIconDefaultElement>(
-	props: MessageIconProps<Element>,
-	ref: MessageIconRef<Element>
-): ReactElement {
+const MessageIcon: PolymorphicComponentWithRef = forwardRef(function MessageIcon<
+	Element extends MessageIconElement = MessageIconDefaultElement
+>(props: MessageIconProps<Element>, ref: MessageIconRef<Element>): ReactElement {
 	const { color: __DEFAULT_MESSAGE_ICON_COLOR__, colorMode: __DEFAULT_MESSAGE_ICON_COLORMODE__ } =
 		useMessageContext();
 

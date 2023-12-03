@@ -3,6 +3,7 @@ import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 import { getColorHex } from '@common/utils';
 
 import type { DividerThemeAppAppearanceProps } from '@components/DataDisplay';
@@ -16,10 +17,9 @@ import type { CardDividerDefaultElement, CardDividerElement, CardDividerProps, C
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CardDivider = forwardRef(function CardDivider<Element extends CardDividerElement = CardDividerDefaultElement>(
-	props: CardDividerProps<Element>,
-	ref: CardDividerRef<Element>
-): ReactElement {
+const CardDivider: PolymorphicComponentWithRef = forwardRef(function CardDivider<
+	Element extends CardDividerElement = CardDividerDefaultElement
+>(props: CardDividerProps<Element>, ref: CardDividerRef<Element>): ReactElement {
 	const { colorMode: __DEFAULT_CARD_DIVIDER_COLORMODE__ } = useAppTheme();
 
 	const {

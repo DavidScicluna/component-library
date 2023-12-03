@@ -3,7 +3,7 @@ import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useConst, useGetColor } from '@common/hooks';
-import type { IconKey, ThemeColor } from '@common/types';
+import type { IconKey, PolymorphicComponentWithRef, ThemeColor } from '@common/types';
 import { getFontSizeHeight } from '@common/utils';
 
 import { Icon } from '@components/DataDisplay';
@@ -18,10 +18,9 @@ import type { AlertIconDefaultElement, AlertIconElement, AlertIconProps, AlertIc
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const AlertIcon = forwardRef(function AlertIcon<Element extends AlertIconElement = AlertIconDefaultElement>(
-	props: AlertIconProps<Element>,
-	ref: AlertIconRef<Element>
-): ReactElement {
+const AlertIcon: PolymorphicComponentWithRef = forwardRef(function AlertIcon<
+	Element extends AlertIconElement = AlertIconDefaultElement
+>(props: AlertIconProps<Element>, ref: AlertIconRef<Element>): ReactElement {
 	const {
 		color: __DEFAULT_ALERT_ICON_COLOR__,
 		colorMode: __DEFAULT_ALERT_ICON_COLORMODE__,

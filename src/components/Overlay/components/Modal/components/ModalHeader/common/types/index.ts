@@ -21,9 +21,8 @@ type ModalHeaderOtherProps<Element extends ElementType = PolymorphicDefaultEleme
 };
 
 export type ModalHeaderProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, ModalHeaderOtherProps<Element>>,
 	'children' | 'w' | 'h'
-> &
-	ModalHeaderOtherProps<Element>;
+>;
 
 export type ModalHeaderRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

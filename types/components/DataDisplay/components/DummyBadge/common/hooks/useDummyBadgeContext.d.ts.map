@@ -1,0 +1,1 @@
+{"version":3,"file":"useDummyBadgeContext.d.ts","sourceRoot":"","sources":["../../../../../../../src/components/DataDisplay/components/DummyBadge/common/hooks/useDummyBadgeContext.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,WAAW,EAAE,MAAM,OAAO,CAAC;AAQzC,OAAO,KAAK,EAA8D,iBAAiB,EAAE,MAAM,UAAU,CAAC;AAE9G,QAAA,MAAM,oBAAoB;;;;;CAYzB,CAAC;AAEF,eAAe,oBAAoB,CAAC"}

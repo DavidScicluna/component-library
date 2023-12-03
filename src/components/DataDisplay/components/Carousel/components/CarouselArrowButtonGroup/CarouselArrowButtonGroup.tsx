@@ -2,7 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { ButtonGroup, ButtonGroupItem } from '@components/Buttons';
 
@@ -18,7 +18,7 @@ import type { CarouselArrowButtonGroupProps, CarouselArrowButtonGroupRef } from 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CarouselArrowButtonGroup = forwardRef(function CarouselArrowButtonGroup<
+const CarouselArrowButtonGroup: PolymorphicComponentWithRef = forwardRef(function CarouselArrowButtonGroup<
 	Element extends ElementType = PolymorphicDefaultElement
 >(props: CarouselArrowButtonGroupProps<Element>, ref: CarouselArrowButtonGroupRef<Element>): ReactElement {
 	const { spacing: __DEFAULT_CAROUSEL_ARROW_BUTTON_GROUP_SPACING__, variant } = useCarouselContext();

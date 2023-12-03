@@ -6,6 +6,7 @@ import { useEventListener, useWindowSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Tooltip } from '@components/Overlay';
@@ -29,7 +30,7 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ScrollToTopIconButton = forwardRef(function ScrollToTopIconButton<
+const ScrollToTopIconButton: PolymorphicComponentWithRef = forwardRef(function ScrollToTopIconButton<
 	Element extends ScrollToTopIconButtonElement = ScrollToTopIconButtonDefaultElement
 >(props: ScrollToTopIconButtonProps<Element>, ref: ScrollToTopIconButtonRef<Element>): ReactElement {
 	const { height: windowHeight = 0 } = useWindowSize();

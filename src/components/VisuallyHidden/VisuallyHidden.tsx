@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -19,7 +20,7 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const VisuallyHidden = forwardRef(function VisuallyHidden<
+const VisuallyHidden: PolymorphicComponentWithRef = forwardRef(function VisuallyHidden<
 	Element extends VisuallyHiddenElement = VisuallyHiddenDefaultElement
 >(props: VisuallyHiddenProps<Element>, ref: VisuallyHiddenRef<Element>): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, sx, ...rest } = props;

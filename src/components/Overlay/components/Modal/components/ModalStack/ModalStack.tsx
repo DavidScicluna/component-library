@@ -2,7 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Divider } from '@components/DataDisplay';
 import { VStack } from '@components/Layout';
@@ -15,10 +15,9 @@ import type { ModalStackProps, ModalStackRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ModalStack = forwardRef(function ModalStack<Element extends ElementType = PolymorphicDefaultElement>(
-	props: ModalStackProps<Element>,
-	ref: ModalStackRef<Element>
-): ReactElement {
+const ModalStack: PolymorphicComponentWithRef = forwardRef(function ModalStack<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: ModalStackProps<Element>, ref: ModalStackRef<Element>): ReactElement {
 	const { colorMode, spacing: __DEFAULT_MODAL_STACK_SPACING__ } = useModalContext();
 
 	const {

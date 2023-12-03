@@ -20,7 +20,7 @@ import { useMergeRefs } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeRadius } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement, ThemeRadius } from '@common/types';
 
 import { AnimatePresence, Transition } from '@components/Animation';
 import { Box } from '@components/Box';
@@ -42,10 +42,9 @@ import type { PopperPlacement, PopperProps, PopperRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Popper = forwardRef(function Popper<Element extends ElementType = PolymorphicDefaultElement>(
-	props: PopperProps<Element>,
-	ref: PopperRef<Element>
-): ReactElement {
+const Popper: PolymorphicComponentWithRef = forwardRef(function Popper<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: PopperProps<Element>, ref: PopperRef<Element>): ReactElement {
 	const arrowRef = useRef<HTMLElement>(null);
 
 	const {

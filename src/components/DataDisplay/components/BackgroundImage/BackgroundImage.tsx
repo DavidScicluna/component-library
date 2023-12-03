@@ -2,7 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
@@ -15,10 +15,9 @@ import type { BackgroundImageProps, BackgroundImageRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const BackgroundImage = forwardRef(function BackgroundImage<Element extends ElementType = PolymorphicDefaultElement>(
-	props: BackgroundImageProps<Element>,
-	ref: BackgroundImageRef<Element>
-): ReactElement {
+const BackgroundImage: PolymorphicComponentWithRef = forwardRef(function BackgroundImage<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: BackgroundImageProps<Element>, ref: BackgroundImageRef<Element>): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

@@ -3,6 +3,7 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -19,7 +20,7 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const MessageSubtitle = forwardRef(function MessageSubtitle<
+const MessageSubtitle: PolymorphicComponentWithRef = forwardRef(function MessageSubtitle<
 	Element extends MessageSubtitleElement = MessageSubtitleDefaultElement
 >(props: MessageSubtitleProps<Element>, ref: MessageSubtitleRef<Element>): ReactElement {
 	const { colorMode } = useMessageContext();

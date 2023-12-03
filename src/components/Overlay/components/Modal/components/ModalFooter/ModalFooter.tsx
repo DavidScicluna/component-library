@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useMediaQuery } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Stack } from '@components/Layout';
 
@@ -15,10 +15,9 @@ import type { ModalFooterProps, ModalFooterRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ModalFooter = forwardRef(function ModalFooter<Element extends ElementType = PolymorphicDefaultElement>(
-	props: ModalFooterProps<Element>,
-	ref: ModalFooterRef<Element>
-): ReactElement {
+const ModalFooter: PolymorphicComponentWithRef = forwardRef(function ModalFooter<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: ModalFooterProps<Element>, ref: ModalFooterRef<Element>): ReactElement {
 	const isSm = useMediaQuery({ breakpoint: 'sm', type: 'width', direction: 'max' });
 
 	const { color, colorMode, onClose, spacing: __DEFAULT_MODAL_FOOTER_SPACING__ } = useModalContext();

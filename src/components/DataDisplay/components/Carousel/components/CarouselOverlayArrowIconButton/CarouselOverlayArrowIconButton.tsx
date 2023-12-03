@@ -3,6 +3,7 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor, useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import {
@@ -25,7 +26,7 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CarouselOverlayArrowIconButton = forwardRef(function CarouselOverlayArrowIconButton<
+const CarouselOverlayArrowIconButton: PolymorphicComponentWithRef = forwardRef(function CarouselOverlayArrowIconButton<
 	Element extends CarouselOverlayArrowIconButtonElement = CarouselOverlayArrowIconButtonDefaultElement
 >(props: CarouselOverlayArrowIconButtonProps<Element>, ref: CarouselOverlayArrowIconButtonRef<Element>): ReactElement {
 	const { colorMode, spacing, orientation } = useCarouselContext();

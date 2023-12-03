@@ -2,7 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { VStack } from '@components/Layout';
 
@@ -19,10 +19,9 @@ export const MessageContext = createContext<MessageContextType<PolymorphicDefaul
 });
 
 // Move Message to DataDisplay folder since its not an overlay!
-const Message = forwardRef(function Message<Element extends ElementType = PolymorphicDefaultElement>(
-	props: MessageProps<Element>,
-	ref: MessageRef<Element>
-): ReactElement {
+const Message: PolymorphicComponentWithRef = forwardRef(function Message<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: MessageProps<Element>, ref: MessageRef<Element>): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

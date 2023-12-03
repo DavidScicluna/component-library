@@ -16,7 +16,9 @@ type HeadlineOtherProps = ThemeAppAppearanceProps & {
 	spacing?: ThemeSpacing;
 };
 
-export type HeadlineProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
-	HeadlineOtherProps;
+export type HeadlineProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+	Element,
+	HeadlineOtherProps
+>;
 
 export type HeadlineRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

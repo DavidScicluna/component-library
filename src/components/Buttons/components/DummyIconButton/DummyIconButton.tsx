@@ -5,7 +5,7 @@ import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Center } from '@components/Layout';
 import { DummyPushableOverlay } from '@components/Overlay';
@@ -27,7 +27,6 @@ import type {
 	DummyIconButtonSize,
 	DummyIconButtonVariant
 } from './common/types';
-
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
@@ -37,10 +36,9 @@ export const DummyIconButtonContext = createContext<DummyIconButtonContextType<a
 	variant: __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__
 });
 
-const DummyIconButton = forwardRef(function DummyIconButton<Element extends ElementType = PolymorphicDefaultElement>(
-	props: DummyIconButtonProps<Element>,
-	ref: DummyIconButtonRef<Element>
-): ReactElement {
+const DummyIconButton: PolymorphicComponentWithRef = forwardRef(function DummyIconButton<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: DummyIconButtonProps<Element>, ref: DummyIconButtonRef<Element>): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

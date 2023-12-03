@@ -2,6 +2,7 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 
@@ -13,10 +14,9 @@ import type { TabIconDefaultElement, TabIconElement, TabIconProps, TabIconRef } 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const TabIcon = forwardRef(function TabIcon<Element extends TabIconElement = TabIconDefaultElement>(
-	props: TabIconProps<Element>,
-	ref: TabIconRef<Element>
-): ReactElement {
+const TabIcon: PolymorphicComponentWithRef = forwardRef(function TabIcon<
+	Element extends TabIconElement = TabIconDefaultElement
+>(props: TabIconProps<Element>, ref: TabIconRef<Element>): ReactElement {
 	const { color: __DEFAULT_TAB_ICON_COLOR__, colorMode: __DEFAULT_TAB_ICON_COLORMODE__, size } = useTabsContext();
 
 	const {

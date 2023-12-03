@@ -3,6 +3,7 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -15,10 +16,9 @@ import type { ModalTitleDefaultElement, ModalTitleElement, ModalTitleProps, Moda
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ModalTitle = forwardRef(function ModalTitle<Element extends ModalTitleElement = ModalTitleDefaultElement>(
-	props: ModalTitleProps<Element>,
-	ref: ModalTitleRef<Element>
-): ReactElement {
+const ModalTitle: PolymorphicComponentWithRef = forwardRef(function ModalTitle<
+	Element extends ModalTitleElement = ModalTitleDefaultElement
+>(props: ModalTitleProps<Element>, ref: ModalTitleRef<Element>): ReactElement {
 	const { colorMode, id } = useModalContext();
 
 	const __DEFAULT_MODAL_TITLE_COLOR__ = useGetColor({

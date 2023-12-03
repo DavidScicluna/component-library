@@ -2,6 +2,7 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 
@@ -13,10 +14,9 @@ import type { BadgeIconDefaultElement, BadgeIconElement, BadgeIconProps, BadgeIc
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const BadgeIcon = forwardRef(function BadgeIcon<Element extends BadgeIconElement = BadgeIconDefaultElement>(
-	props: BadgeIconProps<Element>,
-	ref: BadgeIconRef<Element>
-): ReactElement {
+const BadgeIcon: PolymorphicComponentWithRef = forwardRef(function BadgeIcon<
+	Element extends BadgeIconElement = BadgeIconDefaultElement
+>(props: BadgeIconProps<Element>, ref: BadgeIconRef<Element>): ReactElement {
 	const {
 		color: __DEFAULT_BADGE_ICON_COLOR__,
 		colorMode: __DEFAULT_BADGE_ICON_COLORMODE__,

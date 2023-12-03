@@ -75,11 +75,9 @@ type SpinnerOtherProps = {
 	| SpinnerThreeDotsVariant
 );
 
-type OmittedBoxProps = keyof BoxOtherProps | 'children';
-
 export type SpinnerProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
 	BoxProps<Element>,
-	OmittedBoxProps
+	keyof BoxOtherProps | 'children'
 > &
 	SpinnerOtherProps;
 

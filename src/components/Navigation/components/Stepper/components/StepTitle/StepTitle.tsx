@@ -3,6 +3,7 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -17,10 +18,9 @@ import type { StepTitleDefaultElement, StepTitleElement, StepTitleProps, StepTit
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const StepTitle = forwardRef(function StepTitle<Element extends StepTitleElement = StepTitleDefaultElement>(
-	props: StepTitleProps<Element>,
-	ref: StepTitleRef<Element>
-): ReactElement {
+const StepTitle: PolymorphicComponentWithRef = forwardRef(function StepTitle<
+	Element extends StepTitleElement = StepTitleDefaultElement
+>(props: StepTitleProps<Element>, ref: StepTitleRef<Element>): ReactElement {
 	const { colorMode, size } = useStepperContext();
 	const { id } = useStepContext();
 

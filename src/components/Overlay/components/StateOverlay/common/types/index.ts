@@ -19,9 +19,8 @@ type StateOverlayOtherProps<Element extends ElementType = PolymorphicDefaultElem
 } & Pick<GlassOverlayProps<Element>, 'blur'>;
 
 export type StateOverlayProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, StateOverlayOtherProps<Element>>,
 	'children'
-> &
-	StateOverlayOtherProps<Element>;
+>;
 
 export type StateOverlayRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

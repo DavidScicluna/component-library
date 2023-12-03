@@ -2,7 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { useCarouselArrowState } from '../../common/hooks';
 import { CarouselLinearGradient } from '..';
@@ -13,7 +13,7 @@ import type { CarouselRightLinearGradientProps, CarouselRightLinearGradientRef }
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CarouselRightLinearGradient = forwardRef(function CarouselRightLinearGradient<
+const CarouselRightLinearGradient: PolymorphicComponentWithRef = forwardRef(function CarouselRightLinearGradient<
 	Element extends ElementType = PolymorphicDefaultElement
 >(props: CarouselRightLinearGradientProps<Element>, ref: CarouselRightLinearGradientRef<Element>): ReactElement {
 	const { className = __DEFAULT_CLASSNAME__, ...rest } = props;

@@ -5,7 +5,7 @@ import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Grid, GridItem, VStack } from '@components/Layout';
 
@@ -17,10 +17,9 @@ import type { FormHeaderProps, FormHeaderRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const FormHeader = forwardRef(function FormHeader<Element extends ElementType = PolymorphicDefaultElement>(
-	props: FormHeaderProps<Element>,
-	ref: FormHeaderRef<Element>
-): ReactElement {
+const FormHeader: PolymorphicComponentWithRef = forwardRef(function FormHeader<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: FormHeaderProps<Element>, ref: FormHeaderRef<Element>): ReactElement {
 	const { color, colorMode, hasFormControl, spacing: __DEFAULT_FORM_HEADER_SPACING__ } = useFormControlContext();
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();

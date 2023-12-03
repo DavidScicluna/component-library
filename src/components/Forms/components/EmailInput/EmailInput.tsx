@@ -7,6 +7,7 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
@@ -47,10 +48,9 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const EmailInput = forwardRef(function EmailInput<Element extends EmailInputElement = EmailInputDefaultElement>(
-	props: EmailInputProps<Element>,
-	ref: EmailInputRef<Element>
-): ReactElement {
+const EmailInput: PolymorphicComponentWithRef = forwardRef(function EmailInput<
+	Element extends EmailInputElement = EmailInputDefaultElement
+>(props: EmailInputProps<Element>, ref: EmailInputRef<Element>): ReactElement {
 	const inputRef = useRef<EmailInputRef<Element>>();
 	const refs = useMergeRefs(ref, inputRef);
 

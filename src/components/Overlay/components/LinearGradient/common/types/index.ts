@@ -52,7 +52,9 @@ type LinearGradientOtherProps = {
 	to?: LinearGradientColor;
 };
 
-export type LinearGradientProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
-	LinearGradientOtherProps;
+export type LinearGradientProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+	Element,
+	LinearGradientOtherProps
+>;
 
 export type LinearGradientRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

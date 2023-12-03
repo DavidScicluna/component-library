@@ -2,6 +2,7 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { CloseIconButton } from '@components/Buttons';
 import { useIconButtonClasses } from '@components/Buttons/components/IconButton/common/hooks';
@@ -24,7 +25,7 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const BadgeCloseIconButton = forwardRef(function BadgeCloseIconButton<
+const BadgeCloseIconButton: PolymorphicComponentWithRef = forwardRef(function BadgeCloseIconButton<
 	Element extends BadgeCloseIconButtonElement = BadgeCloseIconButtonDefaultElement
 >(props: BadgeCloseIconButtonProps<Element>, ref: BadgeCloseIconButtonRef<Element>): ReactElement {
 	const {

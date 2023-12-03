@@ -7,6 +7,7 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Box } from '@components/Box';
 import { useFormsClasses, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
@@ -46,10 +47,9 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const TextInput = forwardRef(function TextInput<Element extends TextInputElement = TextInputDefaultElement>(
-	props: TextInputProps<Element>,
-	ref: TextInputRef<Element>
-): ReactElement {
+const TextInput: PolymorphicComponentWithRef = forwardRef(function TextInput<
+	Element extends TextInputElement = TextInputDefaultElement
+>(props: TextInputProps<Element>, ref: TextInputRef<Element>): ReactElement {
 	const textinputRef = useRef<TextInputRef<Element>>();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 

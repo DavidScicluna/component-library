@@ -70,9 +70,8 @@ type OmittedBoxProps =
 	| keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
 export type SearchInputProps<Element extends SearchInputElement = SearchInputDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, SearchInputOtherProps<Element>>,
 	OmittedBoxProps
-> &
-	SearchInputOtherProps<Element>;
+>;
 
 export type SearchInputRef<Element extends SearchInputElement = SearchInputDefaultElement> = BoxRef<Element>;

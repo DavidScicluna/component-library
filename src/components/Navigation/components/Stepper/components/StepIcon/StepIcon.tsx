@@ -2,6 +2,7 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 
@@ -13,10 +14,9 @@ import type { StepIconDefaultElement, StepIconElement, StepIconProps, StepIconRe
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const StepIcon = forwardRef(function StepIcon<Element extends StepIconElement = StepIconDefaultElement>(
-	props: StepIconProps<Element>,
-	ref: StepIconRef<Element>
-): ReactElement {
+const StepIcon: PolymorphicComponentWithRef = forwardRef(function StepIcon<
+	Element extends StepIconElement = StepIconDefaultElement
+>(props: StepIconProps<Element>, ref: StepIconRef<Element>): ReactElement {
 	const {
 		color: __DEFAULT_STEP_ICON_COLOR__,
 		colorMode: __DEFAULT_STEP_ICON_COLORMODE__,

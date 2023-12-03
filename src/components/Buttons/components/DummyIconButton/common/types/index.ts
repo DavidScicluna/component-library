@@ -37,10 +37,9 @@ type DummyIconButtonOtherProps<Element extends ElementType = PolymorphicDefaultE
 } & Pick<DummyPushableOverlayProps<Element>, 'isAnimated' | 'isOutlined'>;
 
 export type DummyIconButtonProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, DummyIconButtonOtherProps<Element>>,
 	keyof BoxOtherProps
-> &
-	DummyIconButtonOtherProps<Element>;
+>;
 
 export type DummyIconButtonRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 

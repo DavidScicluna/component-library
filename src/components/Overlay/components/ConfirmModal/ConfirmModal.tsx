@@ -14,7 +14,7 @@ import { useKey } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
-import type { ThemeSpacing } from '@common/types';
+import type { PolymorphicComponentWithRef, ThemeSpacing } from '@common/types';
 
 import { AnimatePresence, Transition } from '@components/Animation';
 import { Box } from '@components/Box';
@@ -54,10 +54,9 @@ export const ConfirmModalContext = createContext<ConfirmModalContextType<any>>({
 	spacing: __DEFAULT_CONFIRM_MODAL_SPACING__
 });
 
-const ConfirmModal = forwardRef(function ConfirmModal<Element extends ConfirmModalElement = ConfirmModalDefaultElement>(
-	props: ConfirmModalProps<Element>,
-	ref: ConfirmModalRef<Element>
-): ReactElement {
+const ConfirmModal: PolymorphicComponentWithRef = forwardRef(function ConfirmModal<
+	Element extends ConfirmModalElement = ConfirmModalDefaultElement
+>(props: ConfirmModalProps<Element>, ref: ConfirmModalRef<Element>): ReactElement {
 	const {
 		children,
 		id = __DEFAULT_CONFIRM_MODAL_ID__,

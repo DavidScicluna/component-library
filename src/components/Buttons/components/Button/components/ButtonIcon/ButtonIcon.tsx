@@ -2,6 +2,7 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 
@@ -13,10 +14,9 @@ import type { ButtonIconDefaultElement, ButtonIconElement, ButtonIconProps, Butt
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ButtonIcon = forwardRef(function ButtonIcon<Element extends ButtonIconElement = ButtonIconDefaultElement>(
-	props: ButtonIconProps<Element>,
-	ref: ButtonIconRef<Element>
-): ReactElement {
+const ButtonIcon: PolymorphicComponentWithRef = forwardRef(function ButtonIcon<
+	Element extends ButtonIconElement = ButtonIconDefaultElement
+>(props: ButtonIconProps<Element>, ref: ButtonIconRef<Element>): ReactElement {
 	const {
 		color: __DEFAULT_BUTTON_ICON_COLOR__,
 		colorMode: __DEFAULT_BUTTON_ICON_COLORMODE__,

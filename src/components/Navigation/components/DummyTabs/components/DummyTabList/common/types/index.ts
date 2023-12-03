@@ -16,9 +16,8 @@ type DummyTabListOtherProps<Element extends ElementType = PolymorphicDefaultElem
 };
 
 export type DummyTabListProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, DummyTabListOtherProps<Element>>,
 	keyof BoxOtherProps
-> &
-	DummyTabListOtherProps<Element>;
+>;
 
 export type DummyTabListRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

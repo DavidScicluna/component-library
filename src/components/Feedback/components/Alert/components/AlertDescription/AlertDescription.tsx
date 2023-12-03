@@ -3,7 +3,7 @@ import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { ThemeColor } from '@common/types';
+import type { PolymorphicComponentWithRef, ThemeColor } from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -22,7 +22,7 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const AlertDescription = forwardRef(function AlertDescription<
+const AlertDescription: PolymorphicComponentWithRef = forwardRef(function AlertDescription<
 	Element extends AlertDescriptionElement = AlertDescriptionDefaultElement
 >(props: AlertDescriptionProps<Element>, ref: AlertDescriptionRef<Element>): ReactElement {
 	const { color, colorMode, status, variant } = useAlertContext();

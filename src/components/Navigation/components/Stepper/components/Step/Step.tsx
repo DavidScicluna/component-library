@@ -7,6 +7,7 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
@@ -47,7 +48,7 @@ export const StepContext = createContext<StepContextType>({
 	status: __DEFAULT_STEP_STATUS__
 });
 
-const Step = forwardRef(function Step<Element extends StepElement = StepDefaultElement>(
+const Step: PolymorphicComponentWithRef = forwardRef(function Step<Element extends StepElement = StepDefaultElement>(
 	props: StepProps<Element>,
 	ref: StepRef<Element>
 ): ReactElement {

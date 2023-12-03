@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useAppTheme, useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { LinearGradient } from '@components/Overlay';
@@ -18,7 +18,7 @@ import type { CarouselLinearGradientProps, CarouselLinearGradientRef } from './c
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CarouselLinearGradient = forwardRef(function CarouselLinearGradient<
+const CarouselLinearGradient: PolymorphicComponentWithRef = forwardRef(function CarouselLinearGradient<
 	Element extends ElementType = PolymorphicDefaultElement
 >(props: CarouselLinearGradientProps<Element>, ref: CarouselLinearGradientRef<Element>): ReactElement {
 	const { colorMode: __DEFAULT_CAROUSEL_LINEAR_GRADIENT_COLORMODE__ } = useAppTheme();

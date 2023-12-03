@@ -1,0 +1,1 @@
+{"version":3,"file":"story.d.ts","sourceRoot":"","sources":["../../../../../src/components/Box/common/types/story.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,IAAI,IAAI,aAAa,EAAE,OAAO,IAAI,cAAc,EAAE,MAAM,kBAAkB,CAAC;AAEzF,OAAO,KAAK,GAAG,MAAM,WAAW,CAAC;AAEjC,MAAM,MAAM,YAAY,GAAG,aAAa,CAAC,OAAO,GAAG,CAAC,CAAC;AAErD,MAAM,MAAM,QAAQ,GAAG,cAAc,CAAC,OAAO,GAAG,CAAC,CAAC"}

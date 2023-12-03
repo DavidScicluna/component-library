@@ -1,0 +1,1 @@
+{"version":3,"file":"useAnimationContext.d.ts","sourceRoot":"","sources":["../../../../../src/components/Provider/common/hooks/useAnimationContext.ts"],"names":[],"mappings":"AAEA,OAAO,KAAK,EAAE,YAAY,EAAE,MAAM,eAAe,CAAC;AAUlD,OAAO,KAAK,EAAE,gBAAgB,IAAI,oBAAoB,EAAE,MAAM,UAAU,CAAC;AAEzE,QAAA,MAAM,mBAAmB,QAAO,aAAa,oBAAoB,CAQhE,CAAC;AAEF,eAAe,mBAAmB,CAAC"}

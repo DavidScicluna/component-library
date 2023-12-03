@@ -2,7 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { BackdropOverlay } from '@components/Overlay';
 
@@ -14,7 +14,7 @@ import type { ConfirmModalBackdropProps, ConfirmModalBackdropRef } from './commo
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ConfirmModalBackdrop = forwardRef(function ConfirmModalBackdrop<
+const ConfirmModalBackdrop: PolymorphicComponentWithRef = forwardRef(function ConfirmModalBackdrop<
 	Element extends ElementType = PolymorphicDefaultElement
 >(props: ConfirmModalBackdropProps<Element>, ref: ConfirmModalBackdropRef<Element>): ReactElement {
 	const { color, colorMode } = useConfirmModalContext();

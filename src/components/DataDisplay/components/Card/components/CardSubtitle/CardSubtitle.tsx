@@ -3,6 +3,7 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -19,10 +20,9 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CardSubtitle = forwardRef(function CardSubtitle<Element extends CardSubtitleElement = CardSubtitleDefaultElement>(
-	props: CardSubtitleProps<Element>,
-	ref: CardSubtitleRef<Element>
-): ReactElement {
+const CardSubtitle: PolymorphicComponentWithRef = forwardRef(function CardSubtitle<
+	Element extends CardSubtitleElement = CardSubtitleDefaultElement
+>(props: CardSubtitleProps<Element>, ref: CardSubtitleRef<Element>): ReactElement {
 	const { colorMode } = useCardContext();
 
 	const __DEFAULT_CARD_SUBTITLE_COLOR__ = useGetColor({

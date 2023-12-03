@@ -7,6 +7,7 @@ import { useElementSize, useUpdateEffect } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean, useDebounce, useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
@@ -48,10 +49,9 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const SearchInput = forwardRef(function SearchInput<Element extends SearchInputElement = SearchInputDefaultElement>(
-	props: SearchInputProps<Element>,
-	ref: SearchInputRef<Element>
-): ReactElement {
+const SearchInput: PolymorphicComponentWithRef = forwardRef(function SearchInput<
+	Element extends SearchInputElement = SearchInputDefaultElement
+>(props: SearchInputProps<Element>, ref: SearchInputRef<Element>): ReactElement {
 	const searchinputRef = useRef<SearchInputRef<Element>>();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 

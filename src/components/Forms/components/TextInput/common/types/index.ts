@@ -50,9 +50,8 @@ type TextInputOtherProps<Element extends TextInputElement = TextInputDefaultElem
 type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
 export type TextInputProps<Element extends TextInputElement = TextInputDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, TextInputOtherProps<Element>>,
 	OmittedBoxProps
-> &
-	TextInputOtherProps<Element>;
+>;
 
 export type TextInputRef<Element extends TextInputElement = TextInputDefaultElement> = BoxRef<Element>;

@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 import { getPercentage } from '@common/utils';
 
 import { Center } from '@components/Layout';
@@ -18,10 +18,9 @@ import type { ProgressSectionProps, ProgressSectionRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ProgressSection = forwardRef(function ProgressSection<Element extends ElementType = PolymorphicDefaultElement>(
-	props: ProgressSectionProps<Element>,
-	ref: ProgressSectionRef<Element>
-): ReactElement {
+const ProgressSection: PolymorphicComponentWithRef = forwardRef(function ProgressSection<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: ProgressSectionProps<Element>, ref: ProgressSectionRef<Element>): ReactElement {
 	const { isIndeterminate, max, min, variant } = useProgressContext();
 
 	const {

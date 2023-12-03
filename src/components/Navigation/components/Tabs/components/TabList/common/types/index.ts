@@ -19,9 +19,8 @@ type TabListOtherProps<Element extends ElementType = PolymorphicDefaultElement> 
 };
 
 export type TabListProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, TabListOtherProps<Element>>,
 	keyof BoxOtherProps
-> &
-	TabListOtherProps<Element>;
+>;
 
 export type TabListRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

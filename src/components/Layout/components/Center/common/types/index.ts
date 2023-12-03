@@ -8,6 +8,6 @@ type CenterOtherProps = {
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type CenterProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> & CenterOtherProps;
+export type CenterProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element, CenterOtherProps>;
 
 export type CenterRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

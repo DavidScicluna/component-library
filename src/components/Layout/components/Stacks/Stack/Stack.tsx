@@ -10,6 +10,7 @@ import type {
 	FlexDirectionClass,
 	FlexWrapClass,
 	JustifyContentClass,
+	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
 	ThemeSpacing
 } from '@common/types';
@@ -29,10 +30,9 @@ import type { StackProps, StackRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Stack = forwardRef(function Stack<Element extends ElementType = PolymorphicDefaultElement>(
-	props: StackProps<Element>,
-	ref: StackRef<Element>
-): ReactElement {
+const Stack: PolymorphicComponentWithRef = forwardRef(function Stack<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: StackProps<Element>, ref: StackRef<Element>): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

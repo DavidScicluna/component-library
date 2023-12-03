@@ -3,7 +3,7 @@ import { createContext, forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -42,10 +42,9 @@ export const TabsContext = createContext<TabsContextType<any>>({
 	spacing: __DEFAULT_SPACING__
 });
 
-const Tabs = forwardRef(function Tabs<Element extends ElementType = PolymorphicDefaultElement>(
-	props: TabsProps<Element>,
-	ref: TabsRef<Element>
-): ReactElement {
+const Tabs: PolymorphicComponentWithRef = forwardRef(function Tabs<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: TabsProps<Element>, ref: TabsRef<Element>): ReactElement {
 	const {
 		children,
 		id = __DEFAULT_TABS_ID__,

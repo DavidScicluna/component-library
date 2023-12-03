@@ -3,6 +3,7 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -19,7 +20,7 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ProgressLabel = forwardRef(function ProgressLabel<
+const ProgressLabel: PolymorphicComponentWithRef = forwardRef(function ProgressLabel<
 	Element extends ProgressLabelElement = ProgressLabelDefaultElement
 >(props: ProgressLabelProps<Element>, ref: ProgressLabelRef<Element>): ReactElement {
 	const { colorMode } = useProgressContext();

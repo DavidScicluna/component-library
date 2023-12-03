@@ -97,7 +97,9 @@ export type TransitionOtherProps = {
 	// onEntered?: () => void;
 };
 
-export type TransitionProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
-	TransitionOtherProps;
+export type TransitionProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+	Element,
+	TransitionOtherProps
+>;
 
 export type TransitionRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

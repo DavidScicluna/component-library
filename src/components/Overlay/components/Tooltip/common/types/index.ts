@@ -73,9 +73,8 @@ type TooltipOtherProps = ThemeAppAppearanceProps & {
 };
 
 export type TooltipProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, TooltipOtherProps>,
 	keyof BoxOtherProps
-> &
-	TooltipOtherProps;
+>;
 
 export type TooltipRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

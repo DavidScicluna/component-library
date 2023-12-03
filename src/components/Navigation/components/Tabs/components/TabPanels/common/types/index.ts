@@ -10,7 +10,9 @@ export type TabPanelsProps<Element extends ElementType = PolymorphicDefaultEleme
 	keyof BoxOtherProps
 >;
 
-export type TabPanelProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
-	Pick<TabsProps<Element>, 'index'>;
+export type TabPanelProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+	Element,
+	Pick<TabsProps<Element>, 'index'>
+>;
 
 export type TabPanelsRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

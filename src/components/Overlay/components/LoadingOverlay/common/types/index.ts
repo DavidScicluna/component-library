@@ -60,7 +60,9 @@ type LoadingOverlayOtherProps<Element extends ElementType = PolymorphicDefaultEl
 	hasBackground?: boolean;
 } & Pick<GlassOverlayProps<Element>, 'blur'>;
 
-export type LoadingOverlayProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
-	LoadingOverlayOtherProps<Element>;
+export type LoadingOverlayProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+	Element,
+	LoadingOverlayOtherProps<Element>
+>;
 
 export type LoadingOverlayRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

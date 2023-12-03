@@ -28,8 +28,10 @@ type FormControlOtherProps<Element extends ElementType = PolymorphicDefaultEleme
 > &
 	Pick<StackProps<Element>, PickedStackProps>;
 
-export type FormControlProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
-	FormControlOtherProps<Element>;
+export type FormControlProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+	Element,
+	FormControlOtherProps<Element>
+>;
 
 export type FormControlRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 

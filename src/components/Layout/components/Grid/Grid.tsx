@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__, __DEFAULT_SPACING__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -23,10 +23,9 @@ import type { GridProps, GridRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Grid = forwardRef(function Grid<Element extends ElementType = PolymorphicDefaultElement>(
-	props: GridProps<Element>,
-	ref: GridRef<Element>
-): ReactElement {
+const Grid: PolymorphicComponentWithRef = forwardRef(function Grid<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: GridProps<Element>, ref: GridRef<Element>): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

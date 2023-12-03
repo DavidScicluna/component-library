@@ -41,7 +41,9 @@ type IndicatorOtherProps = {
 	placement?: ResponsiveValue<IndicatorPlacement>;
 };
 
-export type IndicatorProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
-	IndicatorOtherProps;
+export type IndicatorProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+	Element,
+	IndicatorOtherProps
+>;
 
 export type IndicatorRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

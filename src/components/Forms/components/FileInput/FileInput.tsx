@@ -7,6 +7,7 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
@@ -54,10 +55,9 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const FileInput = forwardRef(function FileInput<Element extends FileInputElement = FileInputDefaultElement>(
-	props: FileInputProps<Element>,
-	ref: FileInputRef<Element>
-): ReactElement {
+const FileInput: PolymorphicComponentWithRef = forwardRef(function FileInput<
+	Element extends FileInputElement = FileInputDefaultElement
+>(props: FileInputProps<Element>, ref: FileInputRef<Element>): ReactElement {
 	const inputRef = useRef<FileInputRef<Element>>();
 	const refs = useMergeRefs(ref, inputRef);
 

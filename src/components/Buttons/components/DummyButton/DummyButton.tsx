@@ -6,7 +6,7 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Center, Grid, GridItem } from '@components/Layout';
 import { DummyPushableOverlay } from '@components/Overlay';
@@ -30,7 +30,6 @@ import type {
 	DummyButtonVariant
 } from './common/types';
 import { DummyButtonSkeleton } from './components/DummyButtonSkeleton';
-
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
@@ -40,10 +39,9 @@ export const DummyButtonContext = createContext<DummyButtonContextType<any>>({
 	variant: __DEFAULT_DUMMY_BUTTON_VARIANT__
 });
 
-const DummyButton = forwardRef(function DummyButton<Element extends ElementType = PolymorphicDefaultElement>(
-	props: DummyButtonProps<Element>,
-	ref: DummyButtonRef<Element>
-): ReactElement {
+const DummyButton: PolymorphicComponentWithRef = forwardRef(function DummyButton<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: DummyButtonProps<Element>, ref: DummyButtonRef<Element>): ReactElement {
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const {

@@ -2,7 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { VStack } from '@components/Layout';
 
@@ -14,10 +14,9 @@ import type { MessageStackProps, MessageStackRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const MessageStack = forwardRef(function MessageStack<Element extends ElementType = PolymorphicDefaultElement>(
-	props: MessageStackProps<Element>,
-	ref: MessageStackRef<Element>
-): ReactElement {
+const MessageStack: PolymorphicComponentWithRef = forwardRef(function MessageStack<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: MessageStackProps<Element>, ref: MessageStackRef<Element>): ReactElement {
 	const { spacing: __DEFAULT_MESSAGE_STACK_SPACING__ } = useMessageContext();
 
 	const {

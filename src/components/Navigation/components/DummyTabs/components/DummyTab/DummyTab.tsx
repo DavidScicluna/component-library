@@ -6,7 +6,7 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
@@ -28,10 +28,9 @@ import type { DummyTabProps, DummyTabRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const DummyTab = forwardRef(function DummyTab<Element extends ElementType = PolymorphicDefaultElement>(
-	props: DummyTabProps<Element>,
-	ref: DummyTabRef<Element>
-): ReactElement {
+const DummyTab: PolymorphicComponentWithRef = forwardRef(function DummyTab<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: DummyTabProps<Element>, ref: DummyTabRef<Element>): ReactElement {
 	const {
 		color: __DEFAULT_DUMMY_TAB_COLOR__,
 		colorMode: __DEFAULT_DUMMY_TAB_COLORMODE__,

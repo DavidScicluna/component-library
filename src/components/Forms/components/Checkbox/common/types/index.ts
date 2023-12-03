@@ -70,9 +70,8 @@ type CheckboxOtherProps = Pick<FormsCommonProps, PickedFormsCommonProps> & {
 type OmittedBoxProps = 'children' | 'size' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
 export type CheckboxProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, CheckboxOtherProps>,
 	OmittedBoxProps
-> &
-	CheckboxOtherProps;
+>;
 
 export type CheckboxRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

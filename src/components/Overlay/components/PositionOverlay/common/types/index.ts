@@ -81,7 +81,9 @@ type PositionOverlayOtherProps<Element extends ElementType = PolymorphicDefaultE
 	hasBackground?: boolean;
 } & Pick<GlassOverlayProps<Element>, 'blur'>;
 
-export type PositionOverlayProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> &
-	PositionOverlayOtherProps<Element>;
+export type PositionOverlayProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+	Element,
+	PositionOverlayOtherProps<Element>
+>;
 
 export type PositionOverlayRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

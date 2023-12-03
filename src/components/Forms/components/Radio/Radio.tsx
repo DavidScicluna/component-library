@@ -6,7 +6,7 @@ import { useFocus } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
@@ -44,10 +44,9 @@ import type { RadioFocusEvent, RadioMouseEvent, RadioProps, RadioRef } from './c
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Radio = forwardRef(function Radio<Element extends ElementType = PolymorphicDefaultElement>(
-	props: RadioProps<Element>,
-	ref: RadioRef<Element>
-): ReactElement {
+const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: RadioProps<Element>, ref: RadioRef<Element>): ReactElement {
 	const pushableOverlayRef = useRef<PushableOverlayRef<PolymorphicDefaultElement>>(null);
 
 	const {

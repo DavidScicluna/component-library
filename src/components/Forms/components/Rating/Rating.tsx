@@ -4,7 +4,7 @@ import { forwardRef, useState } from 'react';
 import { range } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
@@ -34,10 +34,9 @@ import type { RatingProps, RatingRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Rating = forwardRef(function Rating<Element extends ElementType = PolymorphicDefaultElement>(
-	props: RatingProps<Element>,
-	ref: RatingRef<Element>
-): ReactElement {
+const Rating: PolymorphicComponentWithRef = forwardRef(function Rating<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: RatingProps<Element>, ref: RatingRef<Element>): ReactElement {
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
 		colorMode: __DEFAULT_FORM_CONTROL_COLORMODE__,

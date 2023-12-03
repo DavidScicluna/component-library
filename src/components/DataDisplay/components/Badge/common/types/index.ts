@@ -75,10 +75,9 @@ type BadgeOtherProps<Element extends ElementType = PolymorphicDefaultElement> = 
 } & Pick<PushableOverlayProps<Element>, 'isActive' | 'isDisabled' | 'isOutlined'>;
 
 export type BadgeProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, BadgeOtherProps<Element>>,
 	keyof BoxOtherProps
-> &
-	BadgeOtherProps<Element>;
+>;
 
 export type BadgeRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 

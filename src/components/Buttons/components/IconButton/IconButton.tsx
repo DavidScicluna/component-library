@@ -6,6 +6,7 @@ import { useFocus } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Center } from '@components/Layout';
 import { PushableOverlay } from '@components/Overlay';
@@ -44,10 +45,9 @@ export const IconButtonContext = createContext<IconButtonContextType<any>>({
 	variant: __DEFAULT_ICON_BUTTON_VARIANT__
 });
 
-const IconButton = forwardRef(function IconButton<Element extends IconButtonElement = IconButtonDefaultElement>(
-	props: IconButtonProps<Element>,
-	ref: IconButtonRef<Element>
-): ReactElement {
+const IconButton: PolymorphicComponentWithRef = forwardRef(function IconButton<
+	Element extends IconButtonElement = IconButtonDefaultElement
+>(props: IconButtonProps<Element>, ref: IconButtonRef<Element>): ReactElement {
 	const {
 		color: __DEFAULT_ICON_BUTTON_GROUP_COLOR__,
 		colorMode: __DEFAULT_ICON_BUTTON_GROUP_COLORMODE__,

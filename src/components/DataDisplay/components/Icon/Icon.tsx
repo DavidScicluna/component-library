@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
+import type { PolymorphicComponentWithRef } from '@common/types';
 import { getIconFontFamily } from '@common/utils';
 
 import { Skeleton } from '@components/Feedback';
@@ -23,7 +24,7 @@ import type { IconDefaultElement, IconElement, IconProps, IconRef } from './comm
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Icon = forwardRef(function Icon<Element extends IconElement = IconDefaultElement>(
+const Icon: PolymorphicComponentWithRef = forwardRef(function Icon<Element extends IconElement = IconDefaultElement>(
 	props: IconProps<Element>,
 	ref: IconRef<Element>
 ): ReactElement {

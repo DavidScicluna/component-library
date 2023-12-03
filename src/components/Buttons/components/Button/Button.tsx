@@ -7,6 +7,7 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Center, Grid, GridItem } from '@components/Layout';
 import { PushableOverlay } from '@components/Overlay';
@@ -46,10 +47,9 @@ export const ButtonContext = createContext<ButtonContextType<any>>({
 	variant: __DEFAULT_BUTTON_VARIANT__
 });
 
-const Button = forwardRef(function Button<Element extends ButtonElement = ButtonDefaultElement>(
-	props: ButtonProps<Element>,
-	ref: ButtonRef<Element>
-): ReactElement {
+const Button: PolymorphicComponentWithRef = forwardRef(function Button<
+	Element extends ButtonElement = ButtonDefaultElement
+>(props: ButtonProps<Element>, ref: ButtonRef<Element>): ReactElement {
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const {

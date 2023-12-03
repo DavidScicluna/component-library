@@ -19,9 +19,8 @@ type StepListOtherProps<Element extends ElementType = PolymorphicDefaultElement>
 };
 
 export type StepListProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, StepListOtherProps<Element>>,
 	keyof BoxOtherProps
-> &
-	StepListOtherProps<Element>;
+>;
 
 export type StepListRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

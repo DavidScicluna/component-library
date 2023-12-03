@@ -91,9 +91,8 @@ export type PopperOtherProps<Element extends ElementType = PolymorphicDefaultEle
 };
 
 export type PopperProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, PopperOtherProps<Element>>,
 	keyof BoxOtherProps
-> &
-	PopperOtherProps<Element>;
+>;
 
 export type PopperRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

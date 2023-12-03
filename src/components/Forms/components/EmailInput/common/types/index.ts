@@ -50,9 +50,8 @@ type EmailInputOtherProps<Element extends EmailInputElement = EmailInputDefaultE
 type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
 export type EmailInputProps<Element extends EmailInputElement = EmailInputDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, EmailInputOtherProps<Element>>,
 	OmittedBoxProps
-> &
-	EmailInputOtherProps<Element>;
+>;
 
 export type EmailInputRef<Element extends EmailInputElement = EmailInputDefaultElement> = BoxRef<Element>;

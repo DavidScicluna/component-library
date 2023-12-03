@@ -3,7 +3,7 @@ import { createContext, forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { FlexDirectionClass, PolymorphicDefaultElement } from '@common/types';
+import type { FlexDirectionClass, PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Stack } from '@components/Layout';
 import { __DEFAULT_STACK_DIRECTION__ } from '@components/Layout/components/Stacks/Stack/common/constants';
@@ -25,10 +25,9 @@ export const IconButtonGroupContext = createContext<IconButtonGroupContextType<a
 	isAttached: __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__
 });
 
-const IconButtonGroup = forwardRef(function IconButtonGroup<Element extends ElementType = PolymorphicDefaultElement>(
-	props: IconButtonGroupProps<Element>,
-	ref: IconButtonGroupRef<Element>
-): ReactElement {
+const IconButtonGroup: PolymorphicComponentWithRef = forwardRef(function IconButtonGroup<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: IconButtonGroupProps<Element>, ref: IconButtonGroupRef<Element>): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

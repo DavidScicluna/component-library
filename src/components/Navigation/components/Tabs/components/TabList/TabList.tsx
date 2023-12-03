@@ -5,7 +5,7 @@ import { compact, isArray } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import {
 	Carousel,
@@ -25,10 +25,9 @@ import type { TabListProps, TabListRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const TabList = forwardRef(function TabList<Element extends ElementType = PolymorphicDefaultElement>(
-	props: TabListProps<Element>,
-	ref: TabListRef<Element>
-): ReactElement {
+const TabList: PolymorphicComponentWithRef = forwardRef(function TabList<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: TabListProps<Element>, ref: TabListRef<Element>): ReactElement {
 	const { color, colorMode, align, id, isFitted, orientation } = useTabsContext();
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();

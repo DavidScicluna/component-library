@@ -62,10 +62,9 @@ type ButtonOtherProps<Element extends ButtonElement = ButtonDefaultElement> = Th
 } & Pick<PushableOverlayProps<Element>, 'isActive' | 'isDisabled' | 'isFocused' | 'isOutlined'>;
 
 export type ButtonProps<Element extends ButtonElement = ButtonDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, ButtonOtherProps<Element>>,
 	keyof BoxOtherProps
-> &
-	ButtonOtherProps<Element>;
+>;
 
 export type ButtonRef<Element extends ButtonElement = ButtonDefaultElement> = BoxRef<Element>;
 

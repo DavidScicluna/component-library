@@ -2,6 +2,7 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Tooltip } from '@components/Overlay';
 
@@ -23,7 +24,7 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ClearIconButton = forwardRef(function ClearIconButton<
+const ClearIconButton: PolymorphicComponentWithRef = forwardRef(function ClearIconButton<
 	Element extends ClearIconButtonElement = ClearIconButtonDefaultElement
 >(props: ClearIconButtonProps<Element>, ref: ClearIconButtonRef<Element>): ReactElement {
 	const {

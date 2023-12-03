@@ -66,10 +66,9 @@ type DummyBadgeOtherProps<Element extends ElementType = PolymorphicDefaultElemen
 } & Pick<DummyPushableOverlayProps<Element>, 'isAnimated' | 'isOutlined'>;
 
 export type DummyBadgeProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, DummyBadgeOtherProps<Element>>,
 	keyof BoxOtherProps
-> &
-	DummyBadgeOtherProps<Element>;
+>;
 
 export type DummyBadgeRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 

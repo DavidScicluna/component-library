@@ -22,6 +22,6 @@ type StackOtherProps = {
 	wrap?: ResponsiveValue<FlexWrapClass>;
 };
 
-export type StackProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element> & StackOtherProps;
+export type StackProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element, StackOtherProps>;
 
 export type StackRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

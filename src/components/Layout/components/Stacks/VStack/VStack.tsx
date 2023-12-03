@@ -2,7 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Stack } from '../Stack';
 
@@ -12,10 +12,9 @@ import type { VStackProps, VStackRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const VStack = forwardRef(function VStack<Element extends ElementType = PolymorphicDefaultElement>(
-	props: VStackProps<Element>,
-	ref: VStackRef<Element>
-): ReactElement {
+const VStack: PolymorphicComponentWithRef = forwardRef(function VStack<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: VStackProps<Element>, ref: VStackRef<Element>): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, ...rest } = props;
 
 	return (

@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -19,10 +19,9 @@ import type { ContainerProps, ContainerRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Container = forwardRef(function Container<Element extends ElementType = PolymorphicDefaultElement>(
-	props: ContainerProps<Element>,
-	ref: ContainerRef<Element>
-): ReactElement {
+const Container: PolymorphicComponentWithRef = forwardRef(function Container<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: ContainerProps<Element>, ref: ContainerRef<Element>): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

@@ -2,6 +2,7 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__ } from '@common/constants';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -11,7 +12,7 @@ import type { FormDefaultElement, FormElement, FormEvent, FormProps, FormRef } f
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Form = forwardRef(function Form<Element extends FormElement = FormDefaultElement>(
+const Form: PolymorphicComponentWithRef = forwardRef(function Form<Element extends FormElement = FormDefaultElement>(
 	props: FormProps<Element>,
 	ref: FormRef<Element>
 ): ReactElement {

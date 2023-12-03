@@ -6,7 +6,7 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Center, Grid, GridItem } from '@components/Layout';
 import { DummyPushableOverlay } from '@components/Overlay';
@@ -41,10 +41,9 @@ export const DummyBadgeContext = createContext<DummyBadgeContextType<any>>({
 	variant: __DEFAULT_DUMMY_BADGE_VARIANT__
 });
 
-const DummyBadge = forwardRef(function DummyBadge<Element extends ElementType = PolymorphicDefaultElement>(
-	props: DummyBadgeProps<Element>,
-	ref: DummyBadgeRef<Element>
-): ReactElement {
+const DummyBadge: PolymorphicComponentWithRef = forwardRef(function DummyBadge<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: DummyBadgeProps<Element>, ref: DummyBadgeRef<Element>): ReactElement {
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const {

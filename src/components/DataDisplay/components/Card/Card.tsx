@@ -5,7 +5,7 @@ import { useFocus } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__, __DEFAULT_USE_BOOLEAN_TOGGLES__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeRadius, ThemeSpacing } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement, ThemeRadius, ThemeSpacing } from '@common/types';
 
 import { PushableOverlay } from '@components/Overlay';
 import { VisuallyHidden } from '@components/VisuallyHidden';
@@ -41,10 +41,9 @@ export const CardContext = createContext<CardContextType<any>>({
 	variant: __DEFAULT_CARD_VARIANT__
 });
 
-const Card = forwardRef(function Card<Element extends ElementType = PolymorphicDefaultElement>(
-	props: CardProps<Element>,
-	ref: CardRef<Element>
-): ReactElement {
+const Card: PolymorphicComponentWithRef = forwardRef(function Card<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: CardProps<Element>, ref: CardRef<Element>): ReactElement {
 	const {
 		children,
 		id = __DEFAULT_CARD_ID__,

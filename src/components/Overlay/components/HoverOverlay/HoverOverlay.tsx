@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -13,10 +13,9 @@ import type { HoverOverlayMouseEvent, HoverOverlayProps, HoverOverlayRef } from 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const HoverOverlay = forwardRef(function HoverOverlay<Element extends ElementType = PolymorphicDefaultElement>(
-	props: HoverOverlayProps<Element>,
-	ref: HoverOverlayRef<Element>
-): ReactElement {
+const HoverOverlay: PolymorphicComponentWithRef = forwardRef(function HoverOverlay<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: HoverOverlayProps<Element>, ref: HoverOverlayRef<Element>): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, onMouseEnter, onMouseLeave, ...rest } = props;
 
 	const [isHovering, setIsHovering] = useBoolean();

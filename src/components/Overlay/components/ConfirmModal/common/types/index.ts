@@ -81,10 +81,9 @@ type ConfirmModalOtherProps<Element extends ConfirmModalElement = ConfirmModalDe
 	};
 
 export type ConfirmModalProps<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, ConfirmModalOtherProps<Element>>,
 	keyof BoxOtherProps
-> &
-	ConfirmModalOtherProps<Element>;
+>;
 export type ConfirmModalRef<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = BoxRef<Element>;
 
 export type ConfirmModalContext<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = {

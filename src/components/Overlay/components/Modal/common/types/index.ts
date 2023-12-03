@@ -73,10 +73,9 @@ type ModalOtherProps = ThemeAppAppearanceProps & {
 };
 
 export type ModalProps<Element extends ModalElement = ModalDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, ModalOtherProps>,
 	keyof BoxOtherProps
-> &
-	ModalOtherProps;
+>;
 export type ModalRef<Element extends ModalElement = ModalDefaultElement> = BoxRef<Element>;
 
 export type ModalContext<Element extends ModalElement = ModalDefaultElement> = {

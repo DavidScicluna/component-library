@@ -2,6 +2,7 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { useCarouselArrowState, useCarouselManager } from '../../common/hooks';
 import type { CarouselArrowButtonMouseEvent } from '..';
@@ -18,7 +19,7 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CarouselRightArrowButton = forwardRef(function CarouselRightArrowButton<
+const CarouselRightArrowButton: PolymorphicComponentWithRef = forwardRef(function CarouselRightArrowButton<
 	Element extends CarouselRightArrowButtonElement = CarouselRightArrowButtonDefaultElement
 >(props: CarouselRightArrowButtonProps<Element>, ref: CarouselRightArrowButtonRef<Element>): ReactElement {
 	const { className = __DEFAULT_CLASSNAME__, onClick, ...rest } = props;

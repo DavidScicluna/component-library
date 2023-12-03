@@ -34,9 +34,8 @@ type DummyTabOtherProps<Element extends ElementType = PolymorphicDefaultElement>
 };
 
 export type DummyTabProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, DummyTabOtherProps<Element>>,
 	keyof BoxOtherProps
-> &
-	DummyTabOtherProps<Element>;
+>;
 
 export type DummyTabRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

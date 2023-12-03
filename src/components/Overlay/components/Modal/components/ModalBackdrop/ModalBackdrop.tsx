@@ -2,7 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { BackdropOverlay } from '@components/Overlay';
 
@@ -14,10 +14,9 @@ import type { ModalBackdropProps, ModalBackdropRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ModalBackdrop = forwardRef(function ModalBackdrop<Element extends ElementType = PolymorphicDefaultElement>(
-	props: ModalBackdropProps<Element>,
-	ref: ModalBackdropRef<Element>
-): ReactElement {
+const ModalBackdrop: PolymorphicComponentWithRef = forwardRef(function ModalBackdrop<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: ModalBackdropProps<Element>, ref: ModalBackdropRef<Element>): ReactElement {
 	const { color, colorMode } = useModalContext();
 
 	const { className = __DEFAULT_CLASSNAME__, ...rest } = props;

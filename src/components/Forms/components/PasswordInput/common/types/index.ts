@@ -56,9 +56,8 @@ type PasswordInputOtherProps<Element extends PasswordInputElement = PasswordInpu
 type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
 export type PasswordInputProps<Element extends PasswordInputElement = PasswordInputDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, PasswordInputOtherProps<Element>>,
 	OmittedBoxProps
-> &
-	PasswordInputOtherProps<Element>;
+>;
 
 export type PasswordInputRef<Element extends PasswordInputElement = PasswordInputDefaultElement> = BoxRef<Element>;

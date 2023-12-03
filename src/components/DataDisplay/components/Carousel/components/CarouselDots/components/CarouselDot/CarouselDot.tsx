@@ -3,7 +3,7 @@ import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
 
 import { Box } from '@components/Box';
 import { useCarouselContext, useCarouselManager } from '@components/DataDisplay/components/Carousel/common/hooks';
@@ -17,10 +17,9 @@ import type { CarouselDotProps, CarouselDotRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CarouselDot = forwardRef(function CarouselDot<Element extends ElementType = PolymorphicDefaultElement>(
-	props: CarouselDotProps<Element>,
-	ref: CarouselDotRef<Element>
-): ReactElement {
+const CarouselDot: PolymorphicComponentWithRef = forwardRef(function CarouselDot<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: CarouselDotProps<Element>, ref: CarouselDotRef<Element>): ReactElement {
 	const { color: __DEFAULT_CAROUSEL_DOT_COLOR__, colorMode: __DEFAULT_CAROUSEL_DOT_COLORMODE__ } =
 		useCarouselContext();
 	const { isItemVisible, scrollToItem } = useCarouselManager();

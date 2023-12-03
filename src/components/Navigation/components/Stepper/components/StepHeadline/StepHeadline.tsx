@@ -2,6 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Headline } from '@components/DataDisplay';
 import { Text } from '@components/Typography';
@@ -14,7 +15,7 @@ import type { StepHeadlineProps, StepHeadlineRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const StepHeadline = forwardRef(function StepHeadline<Element extends ElementType>(
+const StepHeadline: PolymorphicComponentWithRef = forwardRef(function StepHeadline<Element extends ElementType>(
 	props: StepHeadlineProps<Element>,
 	ref: StepHeadlineRef<Element>
 ): ReactElement {

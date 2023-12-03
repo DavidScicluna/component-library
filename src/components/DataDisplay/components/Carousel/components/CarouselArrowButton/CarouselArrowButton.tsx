@@ -3,6 +3,7 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Button, ButtonIcon } from '@components/Buttons';
 
@@ -28,7 +29,7 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CarouselArrowButton = forwardRef(function CarouselArrowButton<
+const CarouselArrowButton: PolymorphicComponentWithRef = forwardRef(function CarouselArrowButton<
 	Element extends CarouselArrowButtonElement = CarouselArrowButtonDefaultElement
 >(props: CarouselArrowButtonProps<Element>, ref: CarouselArrowButtonRef<Element>): ReactElement {
 	const {

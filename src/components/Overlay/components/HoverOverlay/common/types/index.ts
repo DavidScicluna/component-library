@@ -18,9 +18,8 @@ type HoverOverlayOtherProps = {
 };
 
 export type HoverOverlayProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
+	BoxProps<Element, HoverOverlayOtherProps>,
 	'children'
-> &
-	HoverOverlayOtherProps;
+>;
 
 export type HoverOverlayRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

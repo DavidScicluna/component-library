@@ -6,7 +6,7 @@ import { useArrayState } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useDebounce, useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
 
 import { Stack } from '@components/Layout';
 
@@ -26,10 +26,9 @@ import { CarouselDot } from './components';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CarouselDots = forwardRef(function CarouselDots<Element extends ElementType = PolymorphicDefaultElement>(
-	props: CarouselDotsProps<Element>,
-	ref: CarouselDotsRef<Element>
-): ReactElement {
+const CarouselDots: PolymorphicComponentWithRef = forwardRef(function CarouselDots<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: CarouselDotsProps<Element>, ref: CarouselDotsRef<Element>): ReactElement {
 	const {
 		color: __DEFAULT_CAROUSEL_DOTS_COLOR__,
 		colorMode: __DEFAULT_CAROUSEL_DOTS_COLORMODE__,

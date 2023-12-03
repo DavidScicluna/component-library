@@ -64,8 +64,10 @@ type StepOtherProps<Element extends StepElement = StepDefaultElement> = ThemeApp
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type StepProps<Element extends StepElement = StepDefaultElement> = Omit<BoxProps<Element>, keyof BoxOtherProps> &
-	StepOtherProps<Element>;
+export type StepProps<Element extends StepElement = StepDefaultElement> = Omit<
+	BoxProps<Element, StepOtherProps<Element>>,
+	keyof BoxOtherProps
+>;
 
 export type StepRef<Element extends StepElement = StepDefaultElement> = BoxRef<Element>;
 

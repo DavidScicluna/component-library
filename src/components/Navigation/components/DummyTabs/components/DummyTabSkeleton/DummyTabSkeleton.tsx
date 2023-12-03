@@ -2,7 +2,7 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Skeleton } from '@components/Feedback';
 import { __KEY_SKELETON_OVERLAY_CLASS__ } from '@components/Feedback/components/Skeleton/common/keys';
@@ -16,10 +16,9 @@ import type { DummyTabSkeletonProps, DummyTabSkeletonRef } from './common/types'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const DummyTabSkeleton = forwardRef(function DummyTabSkeleton<Element extends ElementType = PolymorphicDefaultElement>(
-	props: DummyTabSkeletonProps<Element>,
-	ref: DummyTabSkeletonRef<Element>
-): ReactElement {
+const DummyTabSkeleton: PolymorphicComponentWithRef = forwardRef(function DummyTabSkeleton<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: DummyTabSkeletonProps<Element>, ref: DummyTabSkeletonRef<Element>): ReactElement {
 	const { color: __DEFAULT_DUMMY_TAB_SKELETON_COLOR__, colorMode: __DEFAULT_DUMMY_TAB_SKELETON_COLORMODE__ } =
 		useDummyTabsContext();
 

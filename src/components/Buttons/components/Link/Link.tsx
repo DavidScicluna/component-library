@@ -2,6 +2,7 @@ import type { ReactElement } from 'react';
 import { forwardRef, useCallback } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -17,7 +18,7 @@ import type { LinkDefaultElement, LinkElement, LinkMouseEvent, LinkProps, LinkRe
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Link = forwardRef(function Link<Element extends LinkElement = LinkDefaultElement>(
+const Link: PolymorphicComponentWithRef = forwardRef(function Link<Element extends LinkElement = LinkDefaultElement>(
 	props: LinkProps<Element>,
 	ref: LinkRef<Element>
 ): ReactElement {

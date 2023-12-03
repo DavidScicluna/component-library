@@ -7,7 +7,7 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
 
 import { Center, Grid, GridItem } from '@components/Layout';
 import { PushableOverlay } from '@components/Overlay';
@@ -37,10 +37,9 @@ export const BadgeContext = createContext<BadgeContextType<any>>({
 	variant: __DEFAULT_BADGE_VARIANT__
 });
 
-const Badge = forwardRef(function Badge<Element extends ElementType = PolymorphicDefaultElement>(
-	props: BadgeProps<Element>,
-	ref: BadgeRef<Element>
-): ReactElement {
+const Badge: PolymorphicComponentWithRef = forwardRef(function Badge<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: BadgeProps<Element>, ref: BadgeRef<Element>): ReactElement {
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const {

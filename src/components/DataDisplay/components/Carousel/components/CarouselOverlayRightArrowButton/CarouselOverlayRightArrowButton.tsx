@@ -3,6 +3,7 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { useCarouselArrowState, useCarouselManager } from '../../common/hooks';
 import type { CarouselArrowButtonMouseEvent } from '../CarouselArrowButton';
@@ -19,36 +20,38 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CarouselOverlayRightArrowButton = forwardRef(function CarouselOverlayRightArrowButton<
-	Element extends CarouselOverlayRightArrowButtonElement = CarouselOverlayRightArrowButtonDefaultElement
->(
-	props: CarouselOverlayRightArrowButtonProps<Element>,
-	ref: CarouselOverlayRightArrowButtonRef<Element>
-): ReactElement {
-	const { className = __DEFAULT_CLASSNAME__, onClick, ...rest } = props;
+const CarouselOverlayRightArrowButton: PolymorphicComponentWithRef = forwardRef(
+	function CarouselOverlayRightArrowButton<
+		Element extends CarouselOverlayRightArrowButtonElement = CarouselOverlayRightArrowButtonDefaultElement
+	>(
+		props: CarouselOverlayRightArrowButtonProps<Element>,
+		ref: CarouselOverlayRightArrowButtonRef<Element>
+	): ReactElement {
+		const { className = __DEFAULT_CLASSNAME__, onClick, ...rest } = props;
 
-	const { scrollNext } = useCarouselManager();
-	const { isVisible } = useCarouselArrowState('right');
+		const { scrollNext } = useCarouselManager();
+		const { isVisible } = useCarouselArrowState('right');
 
-	const handleScrollNext = (event: CarouselArrowButtonMouseEvent): void => {
-		scrollNext();
+		const handleScrollNext = (event: CarouselArrowButtonMouseEvent): void => {
+			scrollNext();
 
-		if (onClick) {
-			onClick(event);
-		}
-	};
+			if (onClick) {
+				onClick(event);
+			}
+		};
 
-	return (
-		<CarouselOverlayArrowButton<Element>
-			{...rest}
-			ref={ref}
-			className={classNames(__KEYS_CAROUSEL_OVERLAY_RIGHT_ARROW_BUTTON_CLASS__, { [className]: !!className })}
-			direction='right'
-			isVisible={isVisible}
-			onClick={handleScrollNext}
-		/>
-	);
-});
+		return (
+			<CarouselOverlayArrowButton<Element>
+				{...rest}
+				ref={ref}
+				className={classNames(__KEYS_CAROUSEL_OVERLAY_RIGHT_ARROW_BUTTON_CLASS__, { [className]: !!className })}
+				direction='right'
+				isVisible={isVisible}
+				onClick={handleScrollNext}
+			/>
+		);
+	}
+);
 
 CarouselOverlayRightArrowButton.displayName = 'CarouselOverlayRightArrowButton';
 

@@ -3,6 +3,7 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
+import type { PolymorphicComponentWithRef } from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -20,7 +21,7 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ConfirmModalTitle = forwardRef(function ConfirmModalTitle<
+const ConfirmModalTitle: PolymorphicComponentWithRef = forwardRef(function ConfirmModalTitle<
 	Element extends ConfirmModalTitleElement = ConfirmModalTitleDefaultElement
 >(props: ConfirmModalTitleProps<Element>, ref: ConfirmModalTitleRef<Element>): ReactElement {
 	const { colorMode, id } = useConfirmModalContext();

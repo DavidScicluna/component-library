@@ -3,7 +3,7 @@ import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { ThemeColor } from '@common/types';
+import type { PolymorphicComponentWithRef, ThemeColor } from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -17,10 +17,9 @@ import type { AlertLabelDefaultElement, AlertLabelElement, AlertLabelProps, Aler
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const AlertLabel = forwardRef(function AlertLabel<Element extends AlertLabelElement = AlertLabelDefaultElement>(
-	props: AlertLabelProps<Element>,
-	ref: AlertLabelRef<Element>
-): ReactElement {
+const AlertLabel: PolymorphicComponentWithRef = forwardRef(function AlertLabel<
+	Element extends AlertLabelElement = AlertLabelDefaultElement
+>(props: AlertLabelProps<Element>, ref: AlertLabelRef<Element>): ReactElement {
 	const { color, colorMode, status, variant } = useAlertContext();
 
 	const statusColor = useMemo<ThemeColor>(() => getStatusColor(status, color), [status, color]);
