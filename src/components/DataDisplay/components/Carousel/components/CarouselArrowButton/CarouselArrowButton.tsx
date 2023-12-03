@@ -84,12 +84,12 @@ const CarouselArrowButton: PolymorphicComponentWithRef = forwardRef(function Car
 			{children
 				? children
 				: orientation === 'horizontal'
-				  ? direction === 'left'
-						? __DEFAULT_CAROUSEL_ARROW_BUTTON_LEFT_LABEL__
-						: __DEFAULT_CAROUSEL_ARROW_BUTTON_RIGHT_LABEL__
-				  : direction === 'left'
-				    ? __DEFAULT_CAROUSEL_ARROW_BUTTON_TOP_LABEL__
-				    : __DEFAULT_CAROUSEL_ARROW_BUTTON_BOTTOM_LABEL__}
+				? direction === 'left'
+					? __DEFAULT_CAROUSEL_ARROW_BUTTON_LEFT_LABEL__
+					: __DEFAULT_CAROUSEL_ARROW_BUTTON_RIGHT_LABEL__
+				: direction === 'left'
+				? __DEFAULT_CAROUSEL_ARROW_BUTTON_TOP_LABEL__
+				: __DEFAULT_CAROUSEL_ARROW_BUTTON_BOTTOM_LABEL__}
 		</Button>
 	);
 });

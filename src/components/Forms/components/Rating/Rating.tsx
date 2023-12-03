@@ -171,12 +171,12 @@ const Rating: PolymorphicComponentWithRef = forwardRef(function Rating<
 								isError
 									? 'red'
 									: isSuccess
-									  ? 'green'
-									  : isWarning
-									    ? 'yellow'
-									    : isActive || isHovering
-									      ? color
-									      : undefined
+									? 'green'
+									: isWarning
+									? 'yellow'
+									: isActive || isHovering
+									? color
+									: undefined
 							}
 							colorMode={colorMode}
 							icon={isActive ? icons.active : isHovering ? icons.hover : icons.default}

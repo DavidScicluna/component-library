@@ -1,7 +1,6 @@
 import type {
 	ChangeEvent,
 	ComponentPropsWithoutRef,
-	ComponentPropsWithRef,
 	ElementType,
 	FocusEvent,
 	FormEvent,
@@ -14,7 +13,8 @@ import type {
 import type { Nullish, PickFrom, Style } from '.';
 
 export type PolymorphicDefaultElement = PickFrom<ElementType, 'div'>;
-export type PolymorphicDefaultProps = object;
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type PolymorphicDefaultProps = {};
 
 export type PolymorphicMouseEvent<Element extends ElementType = PolymorphicDefaultElement> = MouseEvent<
 	PolymorphicRef<Element>,
@@ -34,12 +34,7 @@ export type PolymorphicFormEvent<Element extends ElementType = PolymorphicDefaul
 	PolymorphicRef<Element>
 >;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type PolymorphicPropsOf<Element extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>> =
-	JSX.LibraryManagedAttributes<Element, ComponentPropsWithoutRef<Element>>;
-
 type PolymorphicOtherProps<Element extends ElementType = PolymorphicDefaultElement> = {
-	children?: ReactNode;
 	/**
 	 * The component used for the root node. Either a string to use an HTML element or a component.
 	 */
@@ -48,7 +43,11 @@ type PolymorphicOtherProps<Element extends ElementType = PolymorphicDefaultEleme
 	 * The system prop that allows [emotion css](https://emotion.sh/docs/introduction) objects to be passed down to as styles
 	 */
 	sx?: Style;
-} & ComponentPropsWithRef<Element>;
+};
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type PolymorphicPropsOf<Element extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>> =
+	JSX.LibraryManagedAttributes<Element, ComponentPropsWithoutRef<Element>>;
 
 export type PolymorphicExtendableProps<
 	ExtendedProps = PolymorphicDefaultProps,
@@ -58,7 +57,7 @@ export type PolymorphicExtendableProps<
 export type PolymorphicInheritableElementProps<
 	Element extends ElementType = PolymorphicDefaultElement,
 	Props = PolymorphicDefaultProps
-> = PolymorphicExtendableProps<JSX.LibraryManagedAttributes<Element, ComponentPropsWithoutRef<Element>>, Props>;
+> = PolymorphicExtendableProps<PolymorphicPropsOf<Element>, Props>;
 
 export type PolymorphicComponentProps<
 	Element extends ElementType = PolymorphicDefaultElement,
@@ -74,10 +73,10 @@ export type PolymorphicComponentPropsWithRef<
 	Props = PolymorphicDefaultProps
 > = PolymorphicComponentProps<Element, Props> & { ref?: PolymorphicRef<Element> };
 
-export interface PolymorphicComponentWithRef<
+export type PolymorphicComponentWithRef<
 	DefaultElement extends ElementType = PolymorphicDefaultElement,
 	Props = PolymorphicDefaultProps
-> {
+> = {
 	<Element extends ElementType = DefaultElement>(
 		props: PolymorphicComponentPropsWithRef<Element, Props>
 	): Nullish<ReactNode>;
@@ -85,4 +84,4 @@ export interface PolymorphicComponentWithRef<
 	// contextTypes?: React.ValidationMap<any> | undefined;
 	// defaultProps?: Partial<PolymorphicComponentPropsWithRef<DefaultTag, Props>> | undefined;
 	displayName?: string;
-}
+};

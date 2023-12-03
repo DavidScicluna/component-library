@@ -14,14 +14,14 @@ export const getResponsiveValue = memoize(<D>(value: ResponsiveValue<D>): D => {
 	const breakpoint: ThemeBreakpoint = globalThis?.window?.matchMedia('(min-width: 1536px)')
 		? '2xl'
 		: globalThis?.window?.matchMedia('(min-width: 1280px)')
-		  ? 'xl'
-		  : globalThis?.window?.matchMedia('(min-width: 1024px)')
-		    ? 'lg'
-		    : globalThis?.window?.matchMedia('(min-width: 768px)')
-		      ? 'md'
-		      : globalThis?.window?.matchMedia('(min-width: 640px)')
-		        ? 'sm'
-		        : 'xs';
+		? 'xl'
+		: globalThis?.window?.matchMedia('(min-width: 1024px)')
+		? 'lg'
+		: globalThis?.window?.matchMedia('(min-width: 768px)')
+		? 'md'
+		: globalThis?.window?.matchMedia('(min-width: 640px)')
+		? 'sm'
+		: 'xs';
 
 	if (status === 'array') {
 		const v = value as ResponsiveArrayValue<D>;
@@ -41,26 +41,26 @@ export const getResponsiveValue = memoize(<D>(value: ResponsiveValue<D>): D => {
 					breakpoint === 'xs'
 						? v[0]
 						: breakpoint === 'sm'
-						  ? v[1]
-						  : breakpoint === 'md'
-						    ? v[2]
-						    : breakpoint === 'lg'
-						      ? v[3]
-						      : v[4]
+						? v[1]
+						: breakpoint === 'md'
+						? v[2]
+						: breakpoint === 'lg'
+						? v[3]
+						: v[4]
 				) as D;
 			case 6:
 				return (
 					breakpoint === 'xs'
 						? v[0]
 						: breakpoint === 'sm'
-						  ? v[1]
-						  : breakpoint === 'md'
-						    ? v[2]
-						    : breakpoint === 'lg'
-						      ? v[3]
-						      : breakpoint === 'xl'
-						        ? v[4]
-						        : v[5]
+						? v[1]
+						: breakpoint === 'md'
+						? v[2]
+						: breakpoint === 'lg'
+						? v[3]
+						: breakpoint === 'xl'
+						? v[4]
+						: v[5]
 				) as D;
 		}
 	} else if (status === 'object') {

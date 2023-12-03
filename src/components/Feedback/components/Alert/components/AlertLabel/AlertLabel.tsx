@@ -32,10 +32,10 @@ const AlertLabel: PolymorphicComponentWithRef = forwardRef(function AlertLabel<
 			status !== 'default'
 				? 'color'
 				: statusColor === 'gray'
-				  ? 'text.primary'
-				  : colorMode === 'light'
-				    ? 'dark'
-				    : 'light',
+				? 'text.primary'
+				: colorMode === 'light'
+				? 'dark'
+				: 'light',
 		classType: 'text'
 	});
 

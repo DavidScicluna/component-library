@@ -1,7 +1,6 @@
 import type { ElementType } from 'react';
 
 import type {
-	Nullish,
 	PolymorphicComponentProps,
 	PolymorphicDefaultElement,
 	PolymorphicDefaultProps,
@@ -46,4 +45,4 @@ export type BoxProps<
 	Props = PolymorphicDefaultProps
 > = PolymorphicComponentProps<Element, Props & BoxOtherProps>;
 
-export type BoxRef<Element extends ElementType = PolymorphicDefaultElement> = Nullish<PolymorphicRef<Element>>;
+export type BoxRef<Element extends ElementType = PolymorphicDefaultElement> = PolymorphicRef<Element>;
