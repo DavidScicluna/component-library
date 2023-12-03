@@ -26,9 +26,9 @@
 		"cleanup": "rm -rf node_modules && rm -rf build",
 		"prebuild": "bun run cleanup && bun install && bun run lint && bun run format",
 		"build:bun": "bun build ./src/index.ts --outdir ./build --target=node --format esm --minify",
-		"build:types": "tsc --emitDeclarationOnly",
-		"build:tailwind": "bun tailwindcss -o build.css --minify",
-		"build:lib": "webpack --config ./webpack.config.cjs",
+		"build:types": "bun run tsc -d --declarationDir ./build --declarationMap --emitDeclarationOnly",
+		"build:tailwind": "bun run tailwindcss -o ./build/index.css --minify",
+		"build:cl": "bun run prebuild && bun run build:bun && bun run build:types && bun run build:tailwind",
 		"publish": "bun npm login && bun npm publish --access public",
 		"storybook": "storybook dev --no-open -p 6006",
 		"build-storybook": "storybook build"
