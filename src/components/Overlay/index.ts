@@ -45,6 +45,13 @@ import type {
 } from './components/ConfirmModal';
 import {
 	ConfirmModal,
+	ConfirmModalActions,
+	ConfirmModalBackdrop,
+	ConfirmModalBody,
+	ConfirmModalIcon,
+	ConfirmModalStack,
+	ConfirmModalSubtitle,
+	ConfirmModalTitle,
 	constants as confirm_modal_constants,
 	hooks as confirm_modal_hooks,
 	keys as confirm_modal_keys
@@ -137,7 +144,19 @@ import type {
 	ModalTitleProps,
 	ModalTitleRef
 } from './components/Modal';
-import { constants as modal_constants, hooks as modal_hooks, keys as modal_keys, Modal } from './components/Modal';
+import {
+	constants as modal_constants,
+	hooks as modal_hooks,
+	keys as modal_keys,
+	Modal,
+	ModalBackdrop,
+	ModalBody,
+	ModalFooter,
+	ModalHeader,
+	ModalStack,
+	ModalSubtitle,
+	ModalTitle
+} from './components/Modal';
 import type { PopperPlacement, PopperProps, PopperRef } from './components/Popper';
 import { constants as popper_constants, hooks as popper_hooks, keys as popper_keys, Popper } from './components/Popper';
 import type {
@@ -230,6 +249,13 @@ export const hooks = {
 export {
 	BackdropOverlay,
 	ConfirmModal,
+	ConfirmModalActions,
+	ConfirmModalBackdrop,
+	ConfirmModalBody,
+	ConfirmModalIcon,
+	ConfirmModalStack,
+	ConfirmModalSubtitle,
+	ConfirmModalTitle,
 	DummyPushableOverlay,
 	GlassOverlay,
 	HoverOverlay,
@@ -237,6 +263,13 @@ export {
 	LinearGradient,
 	LoadingOverlay,
 	Modal,
+	ModalBackdrop,
+	ModalBody,
+	ModalFooter,
+	ModalHeader,
+	ModalStack,
+	ModalSubtitle,
+	ModalTitle,
 	Popper,
 	PositionOverlay,
 	PushableOverlay,
