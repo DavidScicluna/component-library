@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import theme from '@common/theme';
 import type { ThemeBreakpoint } from '@common/types';
 
-type Query = { breakpoint: ThemeBreakpoint; type: 'width' | 'height'; direction: 'min' | 'max' } | string;
+export type Query = { breakpoint: ThemeBreakpoint; type: 'width' | 'height'; direction: 'min' | 'max' } | string;
 
 const getQuery = (query: Query): string => {
 	if (typeof query === 'string') {
