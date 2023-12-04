@@ -1077,6 +1077,8 @@ import {
 	Tabs,
 	utils as navigation_utils
 } from './components/Navigation';
+import type { HideProps, ShowProps } from './components/Other';
+import { Hide, Show } from './components/Other';
 import type {
 	BackdropOverlayBlurType,
 	BackdropOverlayBlurTypes,
@@ -1374,6 +1376,7 @@ export {
 	Grid,
 	GridItem,
 	Headline,
+	Hide,
 	HoverOverlay,
 	HStack,
 	Icon,
@@ -1408,6 +1411,7 @@ export {
 	Rating,
 	ScrollToTopIconButton,
 	SearchInput,
+	Show,
 	SimpleGrid,
 	Skeleton,
 	Space,
@@ -2171,6 +2175,7 @@ export type {
 	HeadlineProps,
 	HeadlineRef,
 	HeadlineRenderProps,
+	HideProps,
 	HoverOverlayMouseEvent,
 	HoverOverlayProps,
 	HoverOverlayRef,
@@ -2355,6 +2360,7 @@ export type {
 	// SearchInputAutoComplete,
 	SearchInputSize,
 	SearchInputVariant,
+	ShowProps,
 	SimpleGridColumn,
 	SimpleGridColumns,
 	SimpleGridProps,
