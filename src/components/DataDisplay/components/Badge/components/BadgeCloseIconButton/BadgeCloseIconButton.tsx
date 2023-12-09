@@ -2,7 +2,11 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { CloseIconButton } from '@components/Buttons';
 import { useIconButtonClasses } from '@components/Buttons/components/IconButton/common/hooks';
@@ -67,4 +71,9 @@ const BadgeCloseIconButton: PolymorphicComponentWithRef = forwardRef(function Ba
 
 BadgeCloseIconButton.displayName = 'BadgeCloseIconButton';
 
-export default BadgeCloseIconButton;
+export default <
+	Element extends BadgeCloseIconButtonElement = BadgeCloseIconButtonDefaultElement,
+	Props = PolymorphicDefaultProps
+>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <BadgeCloseIconButton<Element> {...props} />;

@@ -1,7 +1,12 @@
 import { type ElementType, forwardRef, type ReactElement } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { VStack } from '@components/Layout';
@@ -74,4 +79,6 @@ const CardStack: PolymorphicComponentWithRef = forwardRef(function CardStack<
 	);
 });
 
-export default CardStack;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <CardStack<Element> {...props} />;

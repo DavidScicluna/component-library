@@ -2,7 +2,11 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 
@@ -56,4 +60,9 @@ const DummyIconButtonIcon: PolymorphicComponentWithRef = forwardRef(function Dum
 
 DummyIconButtonIcon.displayName = 'DummyIconButtonIcon';
 
-export default DummyIconButtonIcon;
+export default <
+	Element extends DummyIconButtonIconElement = DummyIconButtonIconDefaultElement,
+	Props = PolymorphicDefaultProps
+>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <DummyIconButtonIcon<Element> {...props} />;

@@ -3,7 +3,12 @@ import { forwardRef, useEffect } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
@@ -193,4 +198,6 @@ const Image: PolymorphicComponentWithRef = forwardRef(function Image<
 
 Image.displayName = 'Image';
 
-export default Image;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <Image<Element> {...props} />;

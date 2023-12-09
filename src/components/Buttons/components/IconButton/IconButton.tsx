@@ -6,7 +6,11 @@ import { useFocus } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Center } from '@components/Layout';
 import { PushableOverlay } from '@components/Overlay';
@@ -128,4 +132,6 @@ const IconButton: PolymorphicComponentWithRef = forwardRef(function IconButton<
 
 IconButton.displayName = 'IconButton';
 
-export default IconButton;
+export default <Element extends IconButtonElement = IconButtonDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <IconButton<Element> {...props} />;

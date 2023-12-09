@@ -5,7 +5,13 @@ import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement, ThemeRadius } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps,
+	ThemeRadius
+} from '@common/types';
 
 import { Grid, GridItem } from '@components/Layout';
 
@@ -69,4 +75,6 @@ const DummyPushableOverlay: PolymorphicComponentWithRef = forwardRef(function Du
 
 DummyPushableOverlay.displayName = 'DummyPushableOverlay';
 
-export default DummyPushableOverlay;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <DummyPushableOverlay<Element> {...props} />;

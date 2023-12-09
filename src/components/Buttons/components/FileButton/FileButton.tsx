@@ -109,7 +109,6 @@ const FileButton: FC<FileButtonProps> = (props) => {
 	return (
 		<Fragment>
 			<VisuallyHidden<'input'>
-				as='input'
 				ref={fileInputRef}
 				accept={accept}
 				type='file'

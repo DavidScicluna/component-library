@@ -6,7 +6,13 @@ import { useArrayState } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useDebounce, useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps,
+	ThemeSpacing
+} from '@common/types';
 
 import { Stack } from '@components/Layout';
 
@@ -72,8 +78,8 @@ const CarouselDots: PolymorphicComponentWithRef = forwardRef(function CarouselDo
 						(!!prevItem && prevItem.index - 1 === index) || (!!nextItem && nextItem.index + 1 === index)
 							? 50
 							: (!!prevItem && prevItem.index === index) || (!!nextItem && nextItem.index === index)
-							? 75
-							: 100;
+							  ? 75
+							  : 100;
 
 					return isVisible ? { item, scale } : null;
 				})
@@ -104,4 +110,6 @@ const CarouselDots: PolymorphicComponentWithRef = forwardRef(function CarouselDo
 
 CarouselDots.displayName = 'CarouselDots';
 
-export default CarouselDots;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <CarouselDots<Element> {...props} />;

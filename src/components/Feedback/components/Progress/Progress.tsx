@@ -3,7 +3,13 @@ import { createContext, forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement, ThemeRadius } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps,
+	ThemeRadius
+} from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -82,4 +88,6 @@ const Progress: PolymorphicComponentWithRef = forwardRef(function Progress<
 
 Progress.displayName = 'Progress';
 
-export default Progress;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <Progress<Element> {...props} />;

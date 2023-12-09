@@ -2,7 +2,11 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 
@@ -40,4 +44,6 @@ const MessageIcon: PolymorphicComponentWithRef = forwardRef(function MessageIcon
 
 MessageIcon.displayName = 'MessageIcon';
 
-export default MessageIcon;
+export default <Element extends MessageIconElement = MessageIconDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <MessageIcon<Element> {...props} />;

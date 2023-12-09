@@ -1,11 +1,11 @@
 import type { ElementType } from 'react';
 
-import type { PickFrom, ResponsiveValue, ThemeAppearanceProps, ThemeBorderWidth, ThemeSpacing } from '@common/types';
+import type { ResponsiveValue, ThemeAppearanceProps, ThemeBorderWidth, ThemeSpacing } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
 export type DividerDefaultElement = 'div';
-export type DividerElement = PickFrom<ElementType, 'div'>;
+export type DividerElement = Extract<ElementType, 'div'>;
 
 export type DividerThemeAppearanceProps = Partial<
 	Pick<ThemeAppearanceProps, 'colorMode'> & { color: ThemeAppearanceProps['color'] | string }

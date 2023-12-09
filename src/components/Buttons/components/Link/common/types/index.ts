@@ -1,13 +1,13 @@
 import type { ElementType } from 'react';
 
-import type { PickFrom, PolymorphicMouseEvent, ThemeAppAppearanceProps } from '@common/types';
+import type { PolymorphicMouseEvent, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
 export type LinkMouseEvent<Element extends LinkElement = LinkDefaultElement> = PolymorphicMouseEvent<Element>;
 
 export type LinkDefaultElement = 'a';
-export type LinkElement = PickFrom<ElementType, 'a'>;
+export type LinkElement = Extract<ElementType, 'a'>;
 
 type LinkOtherProps = ThemeAppAppearanceProps & {
 	/**

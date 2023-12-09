@@ -2,7 +2,12 @@ import type { ElementType, ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { VStack } from '@components/Layout';
 
@@ -52,4 +57,6 @@ const Message: PolymorphicComponentWithRef = forwardRef(function Message<
 
 Message.displayName = 'Message';
 
-export default Message;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <Message<Element> {...props} />;

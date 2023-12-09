@@ -7,7 +7,11 @@ import { useElementSize, useUpdateEffect } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean, useDebounce, useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
@@ -336,4 +340,6 @@ const SearchInput: PolymorphicComponentWithRef = forwardRef(function SearchInput
 
 SearchInput.displayName = 'SearchInput';
 
-export default SearchInput;
+export default <Element extends SearchInputElement = SearchInputDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <SearchInput<Element> {...props} />;

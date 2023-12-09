@@ -3,7 +3,11 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -59,4 +63,6 @@ const ModalTitle: PolymorphicComponentWithRef = forwardRef(function ModalTitle<
 
 ModalTitle.displayName = 'ModalTitle';
 
-export default ModalTitle;
+export default <Element extends ModalTitleElement = ModalTitleDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <ModalTitle<Element> {...props} />;

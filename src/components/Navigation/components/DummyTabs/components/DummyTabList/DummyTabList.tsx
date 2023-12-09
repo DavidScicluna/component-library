@@ -5,7 +5,12 @@ import { compact, isArray } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import {
 	Carousel,
@@ -101,4 +106,6 @@ const DummyTabList: PolymorphicComponentWithRef = forwardRef(function DummyTabLi
 
 DummyTabList.displayName = 'DummyTabList';
 
-export default DummyTabList;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <DummyTabList<Element> {...props} />;

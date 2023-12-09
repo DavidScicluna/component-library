@@ -2,7 +2,12 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Center, Grid, GridItem } from '@components/Layout';
@@ -112,4 +117,6 @@ const StateOverlay: PolymorphicComponentWithRef = forwardRef(function StateOverl
 
 StateOverlay.displayName = 'StateOverlay';
 
-export default StateOverlay;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <StateOverlay<Element> {...props} />;

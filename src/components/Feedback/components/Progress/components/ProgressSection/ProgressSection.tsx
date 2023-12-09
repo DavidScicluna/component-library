@@ -3,7 +3,12 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 import { getPercentage } from '@common/utils';
 
 import { Center } from '@components/Layout';
@@ -52,4 +57,6 @@ const ProgressSection: PolymorphicComponentWithRef = forwardRef(function Progres
 
 ProgressSection.displayName = 'ProgressSection';
 
-export default ProgressSection;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <ProgressSection<Element> {...props} />;

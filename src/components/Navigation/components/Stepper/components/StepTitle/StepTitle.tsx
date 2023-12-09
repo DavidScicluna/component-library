@@ -3,7 +3,11 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -66,4 +70,6 @@ const StepTitle: PolymorphicComponentWithRef = forwardRef(function StepTitle<
 
 StepTitle.displayName = 'StepTitle';
 
-export default StepTitle;
+export default <Element extends StepTitleElement = StepTitleDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <StepTitle<Element> {...props} />;

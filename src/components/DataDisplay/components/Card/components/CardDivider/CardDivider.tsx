@@ -3,7 +3,11 @@ import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 import { getColorHex } from '@common/utils';
 
 import type { DividerThemeAppAppearanceProps } from '@components/DataDisplay';
@@ -63,4 +67,6 @@ const CardDivider: PolymorphicComponentWithRef = forwardRef(function CardDivider
 	);
 });
 
-export default CardDivider;
+export default <Element extends CardDividerElement = CardDividerDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <CardDivider<Element> {...props} />;

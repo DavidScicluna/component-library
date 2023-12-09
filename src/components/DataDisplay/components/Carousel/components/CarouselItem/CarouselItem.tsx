@@ -5,7 +5,12 @@ import { useInView } from 'react-cool-inview';
 import { useMergeRefs } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Center } from '@components/Layout';
@@ -47,4 +52,6 @@ const CarouselItem: PolymorphicComponentWithRef = forwardRef(function CarouselIt
 
 CarouselItem.displayName = 'CarouselItem';
 
-export default CarouselItem;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <CarouselItem<Element> {...props} />;

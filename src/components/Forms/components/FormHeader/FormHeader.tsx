@@ -5,7 +5,12 @@ import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Grid, GridItem, VStack } from '@components/Layout';
 
@@ -96,4 +101,6 @@ const FormHeader: PolymorphicComponentWithRef = forwardRef(function FormHeader<
 
 FormHeader.displayName = 'FormHeader';
 
-export default FormHeader;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <FormHeader<Element> {...props} />;

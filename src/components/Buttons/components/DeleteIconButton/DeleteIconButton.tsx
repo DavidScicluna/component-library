@@ -2,7 +2,11 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Tooltip } from '@components/Overlay';
 
@@ -62,4 +66,9 @@ const DeleteIconButton: PolymorphicComponentWithRef = forwardRef(function Delete
 
 DeleteIconButton.displayName = 'DeleteIconButton';
 
-export default DeleteIconButton;
+export default <
+	Element extends DeleteIconButtonElement = DeleteIconButtonDefaultElement,
+	Props = PolymorphicDefaultProps
+>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <DeleteIconButton<Element> {...props} />;

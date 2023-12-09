@@ -3,7 +3,11 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -64,4 +68,6 @@ const ModalSubtitle: PolymorphicComponentWithRef = forwardRef(function ModalSubt
 
 ModalSubtitle.displayName = 'ModalSubtitle';
 
-export default ModalSubtitle;
+export default <Element extends ModalSubtitleElement = ModalSubtitleDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <ModalSubtitle<Element> {...props} />;

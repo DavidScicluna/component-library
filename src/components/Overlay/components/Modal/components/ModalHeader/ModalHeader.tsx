@@ -2,7 +2,12 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Grid, GridItem, VStack } from '@components/Layout';
 
@@ -69,4 +74,6 @@ const ModalHeader: PolymorphicComponentWithRef = forwardRef(function ModalHeader
 
 ModalHeader.displayName = 'ModalHeader';
 
-export default ModalHeader;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <ModalHeader<Element> {...props} />;

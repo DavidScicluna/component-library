@@ -3,7 +3,11 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { useFormControlContext, useFormControlFontSize } from '@components/Forms/components/FormControl/common/hooks';
 import { Text } from '@components/Typography';
@@ -62,4 +66,6 @@ const FormHelperText: PolymorphicComponentWithRef = forwardRef(function FormHelp
 
 FormHelperText.displayName = 'FormHelperText';
 
-export default FormHelperText;
+export default <Element extends FormHelperTextElement = FormHelperTextDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <FormHelperText<Element> {...props} />;

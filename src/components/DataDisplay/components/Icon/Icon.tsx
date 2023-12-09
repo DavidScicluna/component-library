@@ -4,7 +4,11 @@ import { forwardRef } from 'react';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 import { getIconFontFamily } from '@common/utils';
 
 import { Skeleton } from '@components/Feedback';
@@ -78,4 +82,6 @@ const Icon: PolymorphicComponentWithRef = forwardRef(function Icon<Element exten
 
 Icon.displayName = 'Icon';
 
-export default Icon;
+export default <Element extends IconElement = IconDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <Icon<Element> {...props} />;

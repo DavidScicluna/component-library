@@ -2,7 +2,12 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -22,8 +27,8 @@ const Center: PolymorphicComponentWithRef = forwardRef(function Center<
 	const classes = useCenterClasses<Element>({ spacing });
 
 	return (
-		<Box<Element>
-			{...rest}
+		<Box<Element, CenterProps<Element>>
+			{...(rest as CenterProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_CENTER_CLASS__, classes, { [className]: !!className })}
 		>
@@ -34,4 +39,6 @@ const Center: PolymorphicComponentWithRef = forwardRef(function Center<
 
 Center.displayName = 'Center';
 
-export default Center;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <Center<Element> {...props} />;

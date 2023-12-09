@@ -8,7 +8,12 @@ import { useElementSize } from 'usehooks-ts';
 import classes from '@common/classes';
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicComponentWithRef, ResizeClass } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps,
+	ResizeClass
+} from '@common/types';
 
 import { Box } from '@components/Box';
 import { useFormsClasses, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
@@ -281,4 +286,6 @@ const Textarea: PolymorphicComponentWithRef = forwardRef(function Textarea<
 
 Textarea.displayName = 'Textarea';
 
-export default Textarea;
+export default <Element extends TextareaElement = TextareaDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <Textarea<Element> {...props} />;

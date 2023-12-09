@@ -4,7 +4,12 @@ import { forwardRef } from 'react';
 import { isArray } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Center, Grid, GridItem } from '@components/Layout';
@@ -76,4 +81,6 @@ const DummyTabPanels: PolymorphicComponentWithRef = forwardRef(function DummyTab
 
 DummyTabPanels.displayName = 'DummyTabPanels';
 
-export default DummyTabPanels;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <DummyTabPanels<Element> {...props} />;

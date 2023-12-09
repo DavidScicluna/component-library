@@ -3,7 +3,11 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Button, ButtonIcon } from '@components/Buttons';
 
@@ -84,16 +88,21 @@ const CarouselArrowButton: PolymorphicComponentWithRef = forwardRef(function Car
 			{children
 				? children
 				: orientation === 'horizontal'
-				? direction === 'left'
-					? __DEFAULT_CAROUSEL_ARROW_BUTTON_LEFT_LABEL__
-					: __DEFAULT_CAROUSEL_ARROW_BUTTON_RIGHT_LABEL__
-				: direction === 'left'
-				? __DEFAULT_CAROUSEL_ARROW_BUTTON_TOP_LABEL__
-				: __DEFAULT_CAROUSEL_ARROW_BUTTON_BOTTOM_LABEL__}
+				  ? direction === 'left'
+						? __DEFAULT_CAROUSEL_ARROW_BUTTON_LEFT_LABEL__
+						: __DEFAULT_CAROUSEL_ARROW_BUTTON_RIGHT_LABEL__
+				  : direction === 'left'
+				    ? __DEFAULT_CAROUSEL_ARROW_BUTTON_TOP_LABEL__
+				    : __DEFAULT_CAROUSEL_ARROW_BUTTON_BOTTOM_LABEL__}
 		</Button>
 	);
 });
 
 CarouselArrowButton.displayName = 'CarouselArrowButton';
 
-export default CarouselArrowButton;
+export default <
+	Element extends CarouselArrowButtonElement = CarouselArrowButtonDefaultElement,
+	Props = PolymorphicDefaultProps
+>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <CarouselArrowButton<Element> {...props} />;

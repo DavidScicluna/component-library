@@ -3,7 +3,11 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -62,4 +66,6 @@ const MessageTitle: PolymorphicComponentWithRef = forwardRef(function MessageTit
 
 MessageTitle.displayName = 'MessageTitle';
 
-export default MessageTitle;
+export default <Element extends MessageTitleElement = MessageTitleDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <MessageTitle<Element> {...props} />;

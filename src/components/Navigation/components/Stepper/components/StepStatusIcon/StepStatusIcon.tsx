@@ -2,7 +2,11 @@ import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_APP_COLOR__, __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 
@@ -62,4 +66,6 @@ const StepStatusIcon: PolymorphicComponentWithRef = forwardRef(function StepStat
 
 StepStatusIcon.displayName = 'StepStatusIcon';
 
-export default StepStatusIcon;
+export default <Element extends StepStatusIconElement = StepStatusIconDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <StepStatusIcon<Element> {...props} />;

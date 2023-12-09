@@ -11,8 +11,10 @@ import type {
 	AnimationDelay,
 	AnimationDuration,
 	AnimationEasing,
+	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
 } from '@common/types';
 import { getAnimationConfig, getAnimationDelay, getAnimationDuration, getAnimationEasings } from '@common/utils';
 
@@ -32,7 +34,8 @@ import type { TransitionProps, TransitionRef, TransitionVariant } from './common
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const MotionBox: PolymorphicComponentWithRef = motion(Box);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const MotionBox: any = motion(Box);
 
 const Transition: PolymorphicComponentWithRef = forwardRef(function Transition<
 	Element extends ElementType = PolymorphicDefaultElement
@@ -128,4 +131,6 @@ const Transition: PolymorphicComponentWithRef = forwardRef(function Transition<
 
 Transition.displayName = 'Transition';
 
-export default Transition;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <Transition<Element> {...props} />;

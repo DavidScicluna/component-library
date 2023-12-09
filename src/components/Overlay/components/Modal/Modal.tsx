@@ -14,7 +14,12 @@ import { useKey } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicComponentWithRef, ThemeSpacing } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps,
+	ThemeSpacing
+} from '@common/types';
 
 import { AnimatePresence, Transition } from '@components/Animation';
 import { Box } from '@components/Box';
@@ -198,4 +203,6 @@ const Modal: PolymorphicComponentWithRef = forwardRef(function Modal<
 
 Modal.displayName = 'Modal';
 
-export default Modal;
+export default <Element extends ModalElement = ModalDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <Modal<Element> {...props} />;

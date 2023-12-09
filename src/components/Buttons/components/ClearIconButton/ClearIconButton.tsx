@@ -2,7 +2,11 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Tooltip } from '@components/Overlay';
 
@@ -62,4 +66,9 @@ const ClearIconButton: PolymorphicComponentWithRef = forwardRef(function ClearIc
 
 ClearIconButton.displayName = 'ClearIconButton';
 
-export default ClearIconButton;
+export default <
+	Element extends ClearIconButtonElement = ClearIconButtonDefaultElement,
+	Props = PolymorphicDefaultProps
+>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <ClearIconButton<Element> {...props} />;

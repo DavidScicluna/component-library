@@ -3,7 +3,12 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useAppTheme, useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { LinearGradient } from '@components/Overlay';
@@ -55,4 +60,6 @@ const CarouselLinearGradient: PolymorphicComponentWithRef = forwardRef(function 
 
 CarouselLinearGradient.displayName = 'CarouselLinearGradient';
 
-export default CarouselLinearGradient;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <CarouselLinearGradient<Element> {...props} />;

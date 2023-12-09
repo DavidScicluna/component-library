@@ -10,8 +10,10 @@ import type {
 	FlexDirectionClass,
 	FlexWrapClass,
 	JustifyContentClass,
+	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
+	PolymorphicDefaultProps,
 	ThemeSpacing
 } from '@common/types';
 
@@ -75,4 +77,6 @@ const Stack: PolymorphicComponentWithRef = forwardRef(function Stack<
 
 Stack.displayName = 'Stack';
 
-export default Stack;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <Stack<Element> {...props} />;

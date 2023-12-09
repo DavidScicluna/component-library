@@ -7,7 +7,11 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
@@ -342,4 +346,6 @@ const FileInput: PolymorphicComponentWithRef = forwardRef(function FileInput<
 
 FileInput.displayName = 'FileInput';
 
-export default FileInput;
+export default <Element extends FileInputElement = FileInputDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <FileInput<Element> {...props} />;

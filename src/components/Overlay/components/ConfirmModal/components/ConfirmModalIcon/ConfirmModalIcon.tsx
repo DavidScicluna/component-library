@@ -2,7 +2,11 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 
@@ -45,4 +49,9 @@ const ConfirmModalIcon: PolymorphicComponentWithRef = forwardRef(function Confir
 
 ConfirmModalIcon.displayName = 'ConfirmModalIcon';
 
-export default ConfirmModalIcon;
+export default <
+	Element extends ConfirmModalIconElement = ConfirmModalIconDefaultElement,
+	Props = PolymorphicDefaultProps
+>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <ConfirmModalIcon<Element> {...props} />;

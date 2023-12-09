@@ -3,7 +3,12 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useMediaQuery } from '@common/hooks';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Stack } from '@components/Layout';
 
@@ -49,4 +54,6 @@ const MessageActions: PolymorphicComponentWithRef = forwardRef(function MessageA
 
 MessageActions.displayName = 'MessageActions';
 
-export default MessageActions;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <MessageActions<Element> {...props} />;

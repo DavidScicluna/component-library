@@ -5,7 +5,12 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Grid, GridItem, VStack } from '@components/Layout';
 
@@ -123,4 +128,6 @@ const Headline: PolymorphicComponentWithRef = forwardRef(function Headline<
 
 Headline.displayName = 'Headline';
 
-export default Headline;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <Headline<Element> {...props} />;

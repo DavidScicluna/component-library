@@ -3,7 +3,11 @@ import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_APP_COLOR__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -64,4 +68,6 @@ const StepStatus: PolymorphicComponentWithRef = forwardRef(function StepStatus<
 
 StepStatus.displayName = 'StepStatus';
 
-export default StepStatus;
+export default <Element extends StepStatusElement = StepStatusDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <StepStatus<Element> {...props} />;

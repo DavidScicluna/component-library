@@ -2,7 +2,12 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { BackdropOverlay } from '@components/Overlay';
 
@@ -37,4 +42,6 @@ const ConfirmModalBackdrop: PolymorphicComponentWithRef = forwardRef(function Co
 
 ConfirmModalBackdrop.displayName = 'ConfirmModalBackdrop';
 
-export default ConfirmModalBackdrop;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <ConfirmModalBackdrop<Element> {...props} />;

@@ -3,7 +3,11 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -62,4 +66,6 @@ const CardSubtitle: PolymorphicComponentWithRef = forwardRef(function CardSubtit
 
 CardSubtitle.displayName = 'CardSubtitle';
 
-export default CardSubtitle;
+export default <Element extends CardSubtitleElement = CardSubtitleDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <CardSubtitle<Element> {...props} />;

@@ -2,7 +2,12 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
@@ -68,4 +73,6 @@ const BackdropOverlay: PolymorphicComponentWithRef = forwardRef(function Backdro
 
 BackdropOverlay.displayName = 'BackdropOverlay';
 
-export default BackdropOverlay;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <BackdropOverlay<Element> {...props} />;

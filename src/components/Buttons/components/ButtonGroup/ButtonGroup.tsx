@@ -3,7 +3,13 @@ import { createContext, forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { FlexDirectionClass, PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	FlexDirectionClass,
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Stack } from '@components/Layout';
 import { __DEFAULT_STACK_DIRECTION__ } from '@components/Layout/components/Stacks/Stack/common/constants';
@@ -74,4 +80,6 @@ const ButtonGroup: PolymorphicComponentWithRef = forwardRef(function ButtonGroup
 
 ButtonGroup.displayName = 'ButtonGroup';
 
-export default ButtonGroup;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <ButtonGroup<Element> {...props} />;

@@ -7,7 +7,12 @@ import { forwardRef } from 'react';
 import { merge, omit, pick } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { useBoxStyles } from './common/hooks';
 import { __KEYS_BOX__, __KEYS_BOX_CLASS__ } from './common/keys';
@@ -44,4 +49,6 @@ const Box: PolymorphicComponentWithRef = forwardRef(function Box<
 
 Box.displayName = 'Box';
 
-export default Box;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <Box<Element> {...props} />;

@@ -3,7 +3,12 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useTheme } from '@common/hooks';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Progress } from '@components/Feedback';
 
@@ -15,10 +20,9 @@ import type { StepProgressProps, StepProgressRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const StepProgress: PolymorphicComponentWithRef = forwardRef(function StepProgress<Element extends ElementType>(
-	props: StepProgressProps<Element>,
-	ref: StepProgressRef<Element>
-): ReactElement {
+const StepProgress: PolymorphicComponentWithRef = forwardRef(function StepProgress<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: StepProgressProps<Element>, ref: StepProgressRef<Element>): ReactElement {
 	const theme = useTheme();
 
 	const {
@@ -55,4 +59,6 @@ const StepProgress: PolymorphicComponentWithRef = forwardRef(function StepProgre
 
 StepProgress.displayName = 'StepProgress';
 
-export default StepProgress;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <StepProgress<Element> {...props} />;

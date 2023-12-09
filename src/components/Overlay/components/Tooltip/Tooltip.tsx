@@ -19,7 +19,12 @@ import { useMergeRefs } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 // TODO: Go over all Transition and see if they can be merged with the child component since it is based of Box
 import { AnimatePresence, Transition } from '@components/Animation';
@@ -146,4 +151,6 @@ const Tooltip: PolymorphicComponentWithRef = forwardRef(function Tooltip<
 
 Tooltip.displayName = 'Tooltip';
 
-export default Tooltip;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <Tooltip<Element> {...props} />;

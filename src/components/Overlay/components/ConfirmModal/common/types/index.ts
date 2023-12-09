@@ -5,7 +5,7 @@ import type { PickFrom, ResponsiveValue, ThemeAppAppearanceProps, ThemeFontSize,
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
 export type ConfirmModalDefaultElement = 'dialog';
-export type ConfirmModalElement = PickFrom<ElementType, 'dialog'>;
+export type ConfirmModalElement = Extract<ElementType, 'dialog'>;
 
 export type ConfirmModalSize = PickFrom<ThemeFontSize, 'xs' | 'sm' | 'md' | 'lg' | 'xl'>;
 

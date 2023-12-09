@@ -6,8 +6,10 @@ import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	AlignItemsClass,
 	JustifyContentClass,
+	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
+	PolymorphicDefaultProps,
 	ThemeSpacing
 } from '@common/types';
 
@@ -123,4 +125,6 @@ const FormControl: PolymorphicComponentWithRef = forwardRef(function FormControl
 
 FormControl.displayName = 'FormControl';
 
-export default FormControl;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <FormControl<Element> {...props} />;

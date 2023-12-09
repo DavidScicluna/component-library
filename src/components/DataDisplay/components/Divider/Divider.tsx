@@ -9,7 +9,11 @@ import {
 	__DEFAULT_POLYMORPHIC_SX__,
 	__DEFAULT_SPACING__
 } from '@common/constants';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Box } from '@components/Box';
 import { Center } from '@components/Layout';
@@ -69,4 +73,6 @@ const Divider: PolymorphicComponentWithRef = forwardRef(function Divider<
 
 Divider.displayName = 'Divider';
 
-export default Divider;
+export default <Element extends DividerElement = DividerDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <Divider<Element> {...props} />;

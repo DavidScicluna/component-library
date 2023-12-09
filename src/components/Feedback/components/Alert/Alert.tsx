@@ -6,7 +6,14 @@ import { useCountdown, useEffectOnce, useUpdateEffect } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetResponsiveValue, useTheme } from '@common/hooks';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement, ThemeColor, ThemeSpacing } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps,
+	ThemeColor,
+	ThemeSpacing
+} from '@common/types';
 
 import { Grid, GridItem, HStack, VStack } from '@components/Layout';
 
@@ -206,4 +213,6 @@ const Alert: PolymorphicComponentWithRef = forwardRef(function Alert<
 
 Alert.displayName = 'Alert';
 
-export default Alert;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <Alert<Element> {...props} />;

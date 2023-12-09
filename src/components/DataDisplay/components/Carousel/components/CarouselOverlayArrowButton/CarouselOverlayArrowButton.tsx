@@ -3,7 +3,11 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor, useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { CarouselLeftLinearGradient, CarouselRightLinearGradient } from '@components/DataDisplay';
@@ -103,4 +107,9 @@ const CarouselOverlayArrowButton: PolymorphicComponentWithRef = forwardRef(funct
 
 CarouselOverlayArrowButton.displayName = 'CarouselOverlayArrowButton';
 
-export default CarouselOverlayArrowButton;
+export default <
+	Element extends CarouselOverlayArrowButtonElement = CarouselOverlayArrowButtonDefaultElement,
+	Props = PolymorphicDefaultProps
+>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <CarouselOverlayArrowButton<Element> {...props} />;

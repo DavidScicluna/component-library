@@ -2,7 +2,12 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Divider } from '@components/DataDisplay';
 import { VStack } from '@components/Layout';
@@ -50,4 +55,6 @@ const ModalStack: PolymorphicComponentWithRef = forwardRef(function ModalStack<
 
 ModalStack.displayName = 'ModalStack';
 
-export default ModalStack;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <ModalStack<Element> {...props} />;

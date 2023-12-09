@@ -6,7 +6,11 @@ import { useEventListener, useWindowSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Tooltip } from '@components/Overlay';
@@ -98,4 +102,9 @@ const ScrollToTopIconButton: PolymorphicComponentWithRef = forwardRef(function S
 
 ScrollToTopIconButton.displayName = 'ScrollToTopIconButton';
 
-export default ScrollToTopIconButton;
+export default <
+	Element extends ScrollToTopIconButtonElement = ScrollToTopIconButtonDefaultElement,
+	Props = PolymorphicDefaultProps
+>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <ScrollToTopIconButton<Element> {...props} />;

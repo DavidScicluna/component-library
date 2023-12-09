@@ -16,11 +16,9 @@ type IconButtonGroupItemOtherProps<Element extends ElementType = PolymorphicDefa
 	total: number;
 };
 
-type OmittedBoxProps = keyof BoxOtherProps | 'children';
-
 export type IconButtonGroupItemProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
 	BoxProps<Element, IconButtonGroupItemOtherProps<Element>>,
-	OmittedBoxProps
+	keyof BoxOtherProps
 >;
 
 export type IconButtonGroupItemRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

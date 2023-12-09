@@ -3,7 +3,11 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -62,4 +66,6 @@ const ProgressLabel: PolymorphicComponentWithRef = forwardRef(function ProgressL
 
 ProgressLabel.displayName = 'ProgressLabel';
 
-export default ProgressLabel;
+export default <Element extends ProgressLabelElement = ProgressLabelDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <ProgressLabel<Element> {...props} />;

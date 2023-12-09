@@ -3,7 +3,11 @@ import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { IconButton, IconButtonIcon } from '@components/Buttons';
 import { Tooltip } from '@components/Overlay';
@@ -57,12 +61,12 @@ const CarouselArrowIconButton: PolymorphicComponentWithRef = forwardRef(function
 		return l
 			? l
 			: orientation === 'horizontal'
-			? direction === 'left'
-				? __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_LEFT_LABEL__
-				: __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_RIGHT_LABEL__
-			: direction === 'left'
-			? __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_TOP_LABEL__
-			: __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_BOTTOM_LABEL__;
+			  ? direction === 'left'
+					? __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_LEFT_LABEL__
+					: __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_RIGHT_LABEL__
+			  : direction === 'left'
+			    ? __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_TOP_LABEL__
+			    : __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_BOTTOM_LABEL__;
 	}, [direction, l, orientation]);
 
 	return (
@@ -89,8 +93,8 @@ const CarouselArrowIconButton: PolymorphicComponentWithRef = forwardRef(function
 								? 'chevron_left'
 								: 'chevron_right'
 							: direction === 'left'
-							? 'expand_less'
-							: 'expand_more'
+							  ? 'expand_less'
+							  : 'expand_more'
 					}
 					category='filled'
 				/>
@@ -101,4 +105,9 @@ const CarouselArrowIconButton: PolymorphicComponentWithRef = forwardRef(function
 
 CarouselArrowIconButton.displayName = 'CarouselArrowIconButton';
 
-export default CarouselArrowIconButton;
+export default <
+	Element extends CarouselArrowIconButtonElement = CarouselArrowIconButtonDefaultElement,
+	Props = PolymorphicDefaultProps
+>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <CarouselArrowIconButton<Element> {...props} />;

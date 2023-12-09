@@ -2,7 +2,11 @@ import type { ReactElement } from 'react';
 import { forwardRef, useCallback } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -64,4 +68,6 @@ const Link: PolymorphicComponentWithRef = forwardRef(function Link<Element exten
 
 Link.displayName = 'Link';
 
-export default Link;
+export default <Element extends LinkElement = LinkDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <Link<Element> {...props} />;

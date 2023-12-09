@@ -18,7 +18,7 @@ type ButtonGroupItemOtherProps<Element extends ElementType = PolymorphicDefaultE
 
 export type ButtonGroupItemProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
 	BoxProps<Element, ButtonGroupItemOtherProps<Element>>,
-	keyof BoxOtherProps | 'children'
+	keyof BoxOtherProps
 >;
 
 export type ButtonGroupItemRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

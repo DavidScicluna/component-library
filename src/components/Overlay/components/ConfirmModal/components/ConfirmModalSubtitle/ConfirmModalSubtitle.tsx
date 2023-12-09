@@ -3,7 +3,11 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -64,4 +68,9 @@ const ConfirmModalSubtitle: PolymorphicComponentWithRef = forwardRef(function Co
 
 ConfirmModalSubtitle.displayName = 'ConfirmModalSubtitle';
 
-export default ConfirmModalSubtitle;
+export default <
+	Element extends ConfirmModalSubtitleElement = ConfirmModalSubtitleDefaultElement,
+	Props = PolymorphicDefaultProps
+>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <ConfirmModalSubtitle<Element> {...props} />;

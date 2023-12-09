@@ -2,7 +2,11 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 
@@ -54,4 +58,6 @@ const IconButtonIcon: PolymorphicComponentWithRef = forwardRef(function IconButt
 
 IconButtonIcon.displayName = 'IconButtonIcon';
 
-export default IconButtonIcon;
+export default <Element extends IconButtonIconElement = IconButtonIconDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <IconButtonIcon<Element> {...props} />;

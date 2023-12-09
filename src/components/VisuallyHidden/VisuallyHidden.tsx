@@ -4,7 +4,11 @@ import { forwardRef } from 'react';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -41,4 +45,6 @@ const VisuallyHidden: PolymorphicComponentWithRef = forwardRef(function Visually
 
 VisuallyHidden.displayName = 'VisuallyHidden';
 
-export default VisuallyHidden;
+export default <Element extends VisuallyHiddenElement = VisuallyHiddenDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <VisuallyHidden<Element> {...props} />;

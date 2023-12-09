@@ -8,7 +8,13 @@ import { useEffectOnce, useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useDebounce, useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps,
+	ThemeSpacing
+} from '@common/types';
 
 import { Grid, GridItem, Stack } from '@components/Layout';
 
@@ -311,4 +317,6 @@ const Carousel: PolymorphicComponentWithRef = forwardRef(function Carousel<
 
 Carousel.displayName = 'Carousel';
 
-export default Carousel;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <Carousel<Element> {...props} />;

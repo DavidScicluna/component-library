@@ -3,7 +3,12 @@ import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicComponentWithRef, ThemeColor } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps,
+	ThemeColor
+} from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -37,10 +42,10 @@ const AlertDescription: PolymorphicComponentWithRef = forwardRef(function AlertD
 			status !== 'default'
 				? 'color'
 				: statusColor === 'gray'
-				? 'text.secondary'
-				: colorMode === 'light'
-				? 'dark'
-				: 'light',
+				  ? 'text.secondary'
+				  : colorMode === 'light'
+				    ? 'dark'
+				    : 'light',
 		classType: 'text'
 	});
 
@@ -75,4 +80,9 @@ const AlertDescription: PolymorphicComponentWithRef = forwardRef(function AlertD
 
 AlertDescription.displayName = 'AlertDescription';
 
-export default AlertDescription;
+export default <
+	Element extends AlertDescriptionElement = AlertDescriptionDefaultElement,
+	Props = PolymorphicDefaultProps
+>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <AlertDescription<Element> {...props} />;

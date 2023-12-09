@@ -17,7 +17,13 @@ import {
 	__DEFAULT_RADIUS__
 } from '@common/constants';
 import { useGetColor, useTheme } from '@common/hooks';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement, ThemeFontSize } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps,
+	ThemeFontSize
+} from '@common/types';
 import {
 	checkFontSizeType,
 	convertREMToPixels,
@@ -211,4 +217,6 @@ const Spinner: PolymorphicComponentWithRef = forwardRef(function Spinner<
 
 Spinner.displayName = 'Spinner';
 
-export default Spinner;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <Spinner<Element> {...props} />;

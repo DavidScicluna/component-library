@@ -3,7 +3,11 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { useCarouselArrowState, useCarouselManager } from '../../common/hooks';
 import type { CarouselArrowIconButtonMouseEvent } from '../CarouselArrowIconButton';
@@ -57,4 +61,9 @@ const CarouselOverlayRightArrowIconButton: PolymorphicComponentWithRef = forward
 
 CarouselOverlayRightArrowIconButton.displayName = 'CarouselOverlayRightArrowIconButton';
 
-export default CarouselOverlayRightArrowIconButton;
+export default <
+	Element extends CarouselOverlayRightArrowIconButtonElement = CarouselOverlayRightArrowIconButtonDefaultElement,
+	Props = PolymorphicDefaultProps
+>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <CarouselOverlayRightArrowIconButton<Element> {...props} />;

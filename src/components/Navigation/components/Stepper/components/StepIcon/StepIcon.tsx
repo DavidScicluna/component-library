@@ -2,7 +2,11 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 
@@ -49,4 +53,6 @@ const StepIcon: PolymorphicComponentWithRef = forwardRef(function StepIcon<
 
 StepIcon.displayName = 'StepIcon';
 
-export default StepIcon;
+export default <Element extends StepIconElement = StepIconDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <StepIcon<Element> {...props} />;

@@ -20,7 +20,13 @@ import { useMergeRefs } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement, ThemeRadius } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps,
+	ThemeRadius
+} from '@common/types';
 
 import { AnimatePresence, Transition } from '@components/Animation';
 import { Box } from '@components/Box';
@@ -154,4 +160,6 @@ const Popper: PolymorphicComponentWithRef = forwardRef(function Popper<
 
 Popper.displayName = 'Popper';
 
-export default Popper;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <Popper<Element> {...props} />;

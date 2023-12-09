@@ -1,7 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
 import type {
-	PickFrom,
 	PolymorphicChangeEvent,
 	PolymorphicFocusEvent,
 	PolymorphicMouseEvent,
@@ -25,7 +24,7 @@ export type FileInputError = Error;
 export type FileInputErrors = Array<FileInputError>;
 
 export type FileInputDefaultElement = 'input';
-export type FileInputElement = PickFrom<ElementType, 'input'>;
+export type FileInputElement = Extract<ElementType, 'input'>;
 
 // export type FileInputAutoComplete = 'on' | 'password' | 'off';
 

@@ -14,7 +14,12 @@ import { useKey } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicComponentWithRef, ThemeSpacing } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps,
+	ThemeSpacing
+} from '@common/types';
 
 import { AnimatePresence, Transition } from '@components/Animation';
 import { Box } from '@components/Box';
@@ -212,4 +217,6 @@ const ConfirmModal: PolymorphicComponentWithRef = forwardRef(function ConfirmMod
 
 ConfirmModal.displayName = 'ConfirmModal';
 
-export default ConfirmModal;
+export default <Element extends ConfirmModalElement = ConfirmModalDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <ConfirmModal<Element> {...props} />;

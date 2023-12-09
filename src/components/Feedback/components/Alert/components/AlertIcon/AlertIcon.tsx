@@ -3,7 +3,13 @@ import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useConst, useGetColor } from '@common/hooks';
-import type { IconKey, PolymorphicComponentWithRef, ThemeColor } from '@common/types';
+import type {
+	IconKey,
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultProps,
+	ThemeColor
+} from '@common/types';
 import { getFontSizeHeight } from '@common/utils';
 
 import { Icon } from '@components/DataDisplay';
@@ -46,10 +52,10 @@ const AlertIcon: PolymorphicComponentWithRef = forwardRef(function AlertIcon<
 			status !== 'default'
 				? 'color'
 				: statusColor === 'gray'
-				? 'text.primary'
-				: colorMode === 'light'
-				? 'dark'
-				: 'light'
+				  ? 'text.primary'
+				  : colorMode === 'light'
+				    ? 'dark'
+				    : 'light'
 	});
 
 	const size = useConst(getFontSizeHeight('xl', __DEFAULT_ALERT_LINE_HEIGHT_SIZE__));
@@ -74,4 +80,6 @@ const AlertIcon: PolymorphicComponentWithRef = forwardRef(function AlertIcon<
 
 AlertIcon.displayName = 'AlertIcon';
 
-export default AlertIcon;
+export default <Element extends AlertIconElement = AlertIconDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <AlertIcon<Element> {...props} />;

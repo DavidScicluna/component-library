@@ -3,7 +3,13 @@ import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps,
+	ThemeSpacing
+} from '@common/types';
 
 import { Box } from '@components/Box';
 import { useCarouselContext, useCarouselManager } from '@components/DataDisplay/components/Carousel/common/hooks';
@@ -57,4 +63,6 @@ const CarouselDot: PolymorphicComponentWithRef = forwardRef(function CarouselDot
 
 CarouselDot.displayName = 'CarouselDot';
 
-export default CarouselDot;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <CarouselDot<Element> {...props} />;

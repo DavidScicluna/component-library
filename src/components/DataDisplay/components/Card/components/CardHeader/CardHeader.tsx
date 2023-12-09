@@ -6,7 +6,12 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 import { Grid, GridItem, HStack, VStack } from '@components/Layout';
@@ -128,4 +133,6 @@ const CardHeader: PolymorphicComponentWithRef = forwardRef(function CardHeader<
 
 CardHeader.displayName = 'CardHeader';
 
-export default CardHeader;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <CardHeader<Element> {...props} />;

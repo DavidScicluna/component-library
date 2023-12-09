@@ -3,7 +3,12 @@ import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 import { getColorHex } from '@common/utils';
 
 import { Spinner } from '@components/Feedback';
@@ -62,4 +67,6 @@ const ButtonSpinner: PolymorphicComponentWithRef = forwardRef(function ButtonSpi
 
 ButtonSpinner.displayName = 'ButtonSpinner';
 
-export default ButtonSpinner;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <ButtonSpinner<Element> {...props} />;

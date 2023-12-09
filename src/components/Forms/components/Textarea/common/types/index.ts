@@ -1,7 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
 import type {
-	PickFrom,
 	PolymorphicChangeEvent,
 	PolymorphicFocusEvent,
 	PolymorphicMouseEvent,
@@ -21,7 +20,7 @@ export type TextareaFocusEvent<Element extends TextareaElement = TextareaDefault
 	PolymorphicFocusEvent<Element>;
 
 export type TextareaDefaultElement = 'textarea';
-export type TextareaElement = PickFrom<ElementType, 'textarea'>;
+export type TextareaElement = Extract<ElementType, 'textarea'>;
 
 // export type TextareaAutoComplete = 'on' | 'password' | 'off';
 

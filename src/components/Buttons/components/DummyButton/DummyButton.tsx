@@ -6,7 +6,12 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Center, Grid, GridItem } from '@components/Layout';
 import { DummyPushableOverlay } from '@components/Overlay';
@@ -131,4 +136,6 @@ const DummyButton: PolymorphicComponentWithRef = forwardRef(function DummyButton
 
 DummyButton.displayName = 'DummyButton';
 
-export default DummyButton;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <DummyButton<Element> {...props} />;

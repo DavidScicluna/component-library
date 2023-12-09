@@ -5,7 +5,7 @@ import type { PickFrom, ResponsiveValue, ThemeAppAppearanceProps, ThemeFontSize,
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
 export type ModalDefaultElement = 'dialog';
-export type ModalElement = PickFrom<ElementType, 'dialog'>;
+export type ModalElement = Extract<ElementType, 'dialog'>;
 
 export type ModalSize =
 	| PickFrom<ThemeFontSize, 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl'>

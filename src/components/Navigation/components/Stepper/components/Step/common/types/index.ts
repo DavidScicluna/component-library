@@ -1,19 +1,13 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type {
-	PickFrom,
-	PolymorphicMouseEvent,
-	ResponsiveValue,
-	ThemeAppAppearanceProps,
-	ThemeSpacing
-} from '@common/types';
+import type { PolymorphicMouseEvent, ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
 export type StepMouseEvent<Element extends StepElement = StepDefaultElement> = PolymorphicMouseEvent<Element>;
 
 export type StepDefaultElement = 'button';
-export type StepElement = PickFrom<ElementType, 'button'>;
+export type StepElement = Extract<ElementType, 'button'>;
 
 export type StepStatus = 'idle' | 'success' | 'error' | 'warning' | 'active';
 

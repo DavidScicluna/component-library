@@ -4,7 +4,12 @@ import { forwardRef, useState } from 'react';
 import { range } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef, PolymorphicDefaultElement } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
@@ -171,12 +176,12 @@ const Rating: PolymorphicComponentWithRef = forwardRef(function Rating<
 								isError
 									? 'red'
 									: isSuccess
-									? 'green'
-									: isWarning
-									? 'yellow'
-									: isActive || isHovering
-									? color
-									: undefined
+									  ? 'green'
+									  : isWarning
+									    ? 'yellow'
+									    : isActive || isHovering
+									      ? color
+									      : undefined
 							}
 							colorMode={colorMode}
 							icon={isActive ? icons.active : isHovering ? icons.hover : icons.default}
@@ -193,4 +198,6 @@ const Rating: PolymorphicComponentWithRef = forwardRef(function Rating<
 
 Rating.displayName = 'Rating';
 
-export default Rating;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <Rating<Element> {...props} />;

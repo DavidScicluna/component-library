@@ -2,7 +2,12 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicComponentWithRef } from '@common/types';
+import type {
+	PolymorphicComponentPropsWithRef,
+	PolymorphicComponentWithRef,
+	PolymorphicDefaultElement,
+	PolymorphicDefaultProps
+} from '@common/types';
 
 import { Headline } from '@components/DataDisplay';
 import { Text } from '@components/Typography';
@@ -15,10 +20,9 @@ import type { StepHeadlineProps, StepHeadlineRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const StepHeadline: PolymorphicComponentWithRef = forwardRef(function StepHeadline<Element extends ElementType>(
-	props: StepHeadlineProps<Element>,
-	ref: StepHeadlineRef<Element>
-): ReactElement {
+const StepHeadline: PolymorphicComponentWithRef = forwardRef(function StepHeadline<
+	Element extends ElementType = PolymorphicDefaultElement
+>(props: StepHeadlineProps<Element>, ref: StepHeadlineRef<Element>): ReactElement {
 	const {
 		color: __DEFAULT_STEP_HEADLINE_COLOR__,
 		colorMode: __DEFAULT_STEP_HEADLINE_COLORMODE__,
@@ -52,4 +56,6 @@ const StepHeadline: PolymorphicComponentWithRef = forwardRef(function StepHeadli
 
 StepHeadline.displayName = 'StepHeadline';
 
-export default StepHeadline;
+export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+	props: PolymorphicComponentPropsWithRef<Element, Props>
+) => <StepHeadline<Element> {...props} />;
