@@ -29,8 +29,8 @@ export type ButtonGroupProps<Element extends ElementType = PolymorphicDefaultEle
 
 export type ButtonGroupRef<Element extends ElementType = PolymorphicDefaultElement> = StackRef<Element>;
 
-export type ButtonGroupContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	ButtonGroupProps<Element>,
+export type ButtonGroupContext = Pick<
+	ButtonGroupProps,
 	| 'color'
 	| 'colorMode'
 	| 'direction'
