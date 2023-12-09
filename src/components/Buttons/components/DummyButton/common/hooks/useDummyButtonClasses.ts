@@ -1,8 +1,6 @@
-import type { ElementType } from 'react';
-
 import classes from '@common/classes';
-import { useGetClass, useGetResponsiveValue } from '@common/hooks';
-import type { ClassName, PolymorphicDefaultElement, WidthClass } from '@common/types';
+import { useGetClass } from '@common/hooks';
+import type { ClassName, WidthClass } from '@common/types';
 
 import {
 	__DEFAULT_DUMMY_BUTTON_IS_COMPACT__,
@@ -14,33 +12,36 @@ import {
 } from '../constants';
 import type { DummyButtonProps } from '../types';
 
+import useDummyButtonResponsiveValues from './useDummyButtonResponsiveValues';
 import useDummyButtonSizeConfig from './useDummyButtonSizeConfig';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseDummyButtonClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	DummyButtonProps<Element>,
+type UseDummyButtonClassesProps = Pick<
+	DummyButtonProps,
 	'isAnimated' | 'isCompact' | 'isFullWidth' | 'isRound' | 'size' | 'variant'
 >;
 type UseDummyButtonClassesReturn = ClassName;
 
-const useDummyButtonClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseDummyButtonClassesProps<Element>
-): UseDummyButtonClassesReturn => {
+const useDummyButtonClasses = (props: UseDummyButtonClassesProps): UseDummyButtonClassesReturn => {
 	const {
-		isCompact: compact = __DEFAULT_DUMMY_BUTTON_IS_COMPACT__,
-		isFullWidth: fullWidth = __DEFAULT_DUMMY_BUTTON_IS_FULLWIDTH__,
-		isRound: round = __DEFAULT_DUMMY_BUTTON_IS_ROUND__,
-		size = __DEFAULT_DUMMY_BUTTON_SIZE__,
-		variant = __DEFAULT_DUMMY_BUTTON_VARIANT__
+		isCompact: isCompactProp = __DEFAULT_DUMMY_BUTTON_IS_COMPACT__,
+		isFullWidth: isFullWidthProp = __DEFAULT_DUMMY_BUTTON_IS_FULLWIDTH__,
+		isRound: isRoundProp = __DEFAULT_DUMMY_BUTTON_IS_ROUND__,
+		size: sizeProp = __DEFAULT_DUMMY_BUTTON_SIZE__,
+		variant: variantProp = __DEFAULT_DUMMY_BUTTON_VARIANT__
 	} = props;
 
-	const isCompact = useGetResponsiveValue<boolean>(compact);
-	const isFullWidth = useGetResponsiveValue<boolean>(fullWidth);
-	const isRound = useGetResponsiveValue<boolean>(round);
+	const { isCompact, isFullWidth, isRound, size, variant } = useDummyButtonResponsiveValues({
+		isCompact: isCompactProp,
+		isFullWidth: isFullWidthProp,
+		isRound: isRoundProp,
+		size: sizeProp,
+		variant: variantProp
+	});
 
-	const config = useDummyButtonSizeConfig<Element>({ isCompact, isRound, size, variant });
+	const config = useDummyButtonSizeConfig({ isCompact, isRound, size, variant });
 
 	const widthClassName = useGetClass<WidthClass>(isFullWidth ? 'full' : 'auto', ['sizing', 'width']);
 

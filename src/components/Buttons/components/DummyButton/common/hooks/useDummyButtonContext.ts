@@ -1,23 +1,20 @@
-import type { ElementType } from 'react';
 import { useContext } from 'react';
-
-import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
 
 import { DummyButtonContext } from '../../DummyButton';
 import { __DEFAULT_DUMMY_BUTTON_SIZE__, __DEFAULT_DUMMY_BUTTON_VARIANT__ } from '../constants';
-import type { DummyButtonContext as DummyButtonContextType, DummyButtonSize, DummyButtonVariant } from '../types';
+import type { DummyButtonContext as DummyButtonContextType } from '../types';
 
-const useDummyButtonContext = <Element extends ElementType = PolymorphicDefaultElement>() => {
+import useDummyButtonResponsiveValues from './useDummyButtonResponsiveValues';
+
+const useDummyButtonContext = () => {
 	const {
 		color,
 		colorMode,
-		size: s = __DEFAULT_DUMMY_BUTTON_SIZE__,
-		variant: v = __DEFAULT_DUMMY_BUTTON_VARIANT__
-	} = useContext<DummyButtonContextType<Element>>(DummyButtonContext);
+		size: sizeProp = __DEFAULT_DUMMY_BUTTON_SIZE__,
+		variant: variantProp = __DEFAULT_DUMMY_BUTTON_VARIANT__
+	} = useContext<DummyButtonContextType>(DummyButtonContext);
 
-	const size = useGetResponsiveValue<DummyButtonSize>(s);
-	const variant = useGetResponsiveValue<DummyButtonVariant>(v);
+	const { size, variant } = useDummyButtonResponsiveValues({ size: sizeProp, variant: variantProp });
 
 	return { color, colorMode, size, variant };
 };

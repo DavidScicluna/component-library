@@ -56,7 +56,4 @@ export type DummyButtonProps<Element extends ElementType = PolymorphicDefaultEle
 
 export type DummyButtonRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
-export type DummyButtonContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	DummyButtonProps<Element>,
-	'color' | 'colorMode' | 'size' | 'variant'
->;
+export type DummyButtonContext = Pick<DummyButtonProps, 'color' | 'colorMode' | 'size' | 'variant'>;
