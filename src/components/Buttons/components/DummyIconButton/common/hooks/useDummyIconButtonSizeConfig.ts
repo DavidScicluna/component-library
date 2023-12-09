@@ -1,8 +1,6 @@
-import type { ElementType } from 'react';
 import { useMemo } from 'react';
 
-import type { PolymorphicDefaultElement, ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
-import { getResponsiveValue } from '@common/utils';
+import type { ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
 
 import {
 	__DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT__,
@@ -10,7 +8,9 @@ import {
 	__DEFAULT_DUMMY_ICON_BUTTON_SIZE__,
 	__DEFAULT_DUMMY_ICON_BUTTON_VARIANT__
 } from '../constants';
-import type { DummyIconButtonProps, DummyIconButtonSize, DummyIconButtonVariant } from '../types';
+import type { DummyIconButtonProps } from '../types';
+
+import useDummyIconButtonResponsiveValues from './useDummyIconButtonResponsiveValues';
 
 type DummyIconButtonSizeConfig = {
 	fontSize: ThemeFontSize;
@@ -18,59 +18,56 @@ type DummyIconButtonSizeConfig = {
 	radius: ThemeRadius;
 };
 
-type UseDummyIconButtonSizeConfigProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	DummyIconButtonProps<Element>,
-	'isCompact' | 'isRound' | 'size' | 'variant'
->;
+type UseDummyIconButtonSizeConfigProps = Pick<DummyIconButtonProps, 'isCompact' | 'isRound' | 'size' | 'variant'>;
 type UseDummyIconButtonSizeConfigReturn = DummyIconButtonSizeConfig;
 
-const useDummyIconButtonSizeConfig = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseDummyIconButtonSizeConfigProps<Element>
-): UseDummyIconButtonSizeConfigReturn => {
+const useDummyIconButtonSizeConfig = (props: UseDummyIconButtonSizeConfigProps): UseDummyIconButtonSizeConfigReturn => {
 	const {
-		isCompact = __DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT__,
-		isRound = __DEFAULT_DUMMY_ICON_BUTTON_IS_ROUND__,
-		size = __DEFAULT_DUMMY_ICON_BUTTON_SIZE__,
-		variant = __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__
+		isCompact: isCompactProp = __DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT__,
+		isRound: isRoundProp = __DEFAULT_DUMMY_ICON_BUTTON_IS_ROUND__,
+		size: sizeProp = __DEFAULT_DUMMY_ICON_BUTTON_SIZE__,
+		variant: variantProp = __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__
 	} = props;
 
+	const { isCompact, isRound, size, variant } = useDummyIconButtonResponsiveValues({
+		isCompact: isCompactProp,
+		isRound: isRoundProp,
+		size: sizeProp,
+		variant: variantProp
+	});
+
 	const config = useMemo<DummyIconButtonSizeConfig>(() => {
-		const c = getResponsiveValue<boolean>(isCompact);
-		const r = getResponsiveValue<boolean>(isRound);
-		const s = getResponsiveValue<DummyIconButtonSize>(size);
-		const v = getResponsiveValue<DummyIconButtonVariant>(variant);
+		const radius: ThemeRadius = variant === 'icon' ? 'none' : isRound ? 'full' : isCompact ? 'xs' : 'base';
 
-		const radius: ThemeRadius = v === 'icon' ? 'none' : r ? 'full' : c ? 'xs' : 'base';
-
-		switch (s) {
+		switch (size) {
 			case 'xs':
 				return {
 					fontSize: 'xs',
-					padding: c ? 0.25 : 1,
+					padding: isCompact ? 0.25 : 1,
 					radius
 				};
 			case 'sm':
 				return {
 					fontSize: 'sm',
-					padding: c ? 0.5 : 1.25,
+					padding: isCompact ? 0.5 : 1.25,
 					radius
 				};
 			case 'lg':
 				return {
 					fontSize: 'lg',
-					padding: c ? 1 : 1.75,
+					padding: isCompact ? 1 : 1.75,
 					radius
 				};
 			case 'xl':
 				return {
 					fontSize: 'xl',
-					padding: c ? 1.25 : 2,
+					padding: isCompact ? 1.25 : 2,
 					radius
 				};
 			default:
 				return {
 					fontSize: 'md',
-					padding: c ? 0.75 : 1.5,
+					padding: isCompact ? 0.75 : 1.5,
 					radius
 				};
 		}

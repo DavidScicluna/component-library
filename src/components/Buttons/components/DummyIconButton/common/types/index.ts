@@ -43,7 +43,4 @@ export type DummyIconButtonProps<Element extends ElementType = PolymorphicDefaul
 
 export type DummyIconButtonRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
-export type DummyIconButtonContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	DummyIconButtonProps<Element>,
-	'color' | 'colorMode' | 'size' | 'variant'
->;
+export type DummyIconButtonContext = Pick<DummyIconButtonProps, 'color' | 'colorMode' | 'size' | 'variant'>;

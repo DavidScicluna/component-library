@@ -4,7 +4,6 @@ import { createContext, forwardRef } from 'react';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
@@ -23,20 +22,22 @@ import {
 	__DEFAULT_DUMMY_ICON_BUTTON_SIZE__,
 	__DEFAULT_DUMMY_ICON_BUTTON_VARIANT__
 } from './common/constants';
-import { useDummyIconButtonClasses, useDummyIconButtonSizeConfig, useDummyIconButtonStyles } from './common/hooks';
+import {
+	useDummyIconButtonClasses,
+	useDummyIconButtonResponsiveValues,
+	useDummyIconButtonSizeConfig,
+	useDummyIconButtonStyles
+} from './common/hooks';
 import { __KEY_DUMMY_ICON_BUTTON_CLASS__ } from './common/keys';
 import type {
 	DummyIconButtonContext as DummyIconButtonContextType,
 	DummyIconButtonProps,
-	DummyIconButtonRef,
-	DummyIconButtonSize,
-	DummyIconButtonVariant
+	DummyIconButtonRef
 } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const DummyIconButtonContext = createContext<DummyIconButtonContextType<any>>({
+export const DummyIconButtonContext = createContext<DummyIconButtonContextType>({
 	size: __DEFAULT_DUMMY_ICON_BUTTON_SIZE__,
 	variant: __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__
 });
@@ -49,28 +50,30 @@ const DummyIconButton: PolymorphicComponentWithRef = forwardRef(function DummyIc
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		isAnimated: animated = __DEFAULT_DUMMY_ICON_BUTTON_IS_ANIMATED__,
-		isCompact: c = __DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT__,
-		isRound: round = __DEFAULT_DUMMY_ICON_BUTTON_IS_ROUND__,
-		isOutlined: outlined = __DEFAULT_DUMMY_ICON_BUTTON_IS_OUTLINED__,
-		size: s = __DEFAULT_DUMMY_ICON_BUTTON_SIZE__,
-		variant: v = __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__,
+		isAnimated: isAnimatedProp = __DEFAULT_DUMMY_ICON_BUTTON_IS_ANIMATED__,
+		isCompact: isCompactProp = __DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT__,
+		isRound: isRoundProp = __DEFAULT_DUMMY_ICON_BUTTON_IS_ROUND__,
+		isOutlined: isOutlinedProp = __DEFAULT_DUMMY_ICON_BUTTON_IS_OUTLINED__,
+		size: sizeProp = __DEFAULT_DUMMY_ICON_BUTTON_SIZE__,
+		variant: variantProp = __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__,
 		sx,
 		...rest
 	} = props;
 
-	const isAnimated = useGetResponsiveValue<boolean>(animated);
-	const isCompact = useGetResponsiveValue<boolean>(c);
-	const isRound = useGetResponsiveValue<boolean>(round);
-	const isOutlined = useGetResponsiveValue<boolean>(outlined);
+	const { isAnimated, isCompact, isRound, isOutlined, size, variant } = useDummyIconButtonResponsiveValues({
+		isAnimated: isAnimatedProp,
+		isCompact: isCompactProp,
+		isRound: isRoundProp,
+		isOutlined: isOutlinedProp,
+		size: sizeProp,
+		variant: variantProp
+	});
 
-	const size = useGetResponsiveValue<DummyIconButtonSize>(s);
-	const variant = useGetResponsiveValue<DummyIconButtonVariant>(v);
+	// TODO: Go over all component hooks and remove union
+	const config = useDummyIconButtonSizeConfig({ isCompact, isRound, size, variant });
 
-	const config = useDummyIconButtonSizeConfig<Element>({ isCompact, isRound, size, variant });
-
-	const classes = useDummyIconButtonClasses<Element>({ variant });
-	const styles = useDummyIconButtonStyles<Element>({ size });
+	const classes = useDummyIconButtonClasses({ variant });
+	const styles = useDummyIconButtonStyles({ size });
 
 	return (
 		<DummyIconButtonContext.Provider value={{ color, colorMode, size, variant }}>
