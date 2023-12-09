@@ -1,31 +1,44 @@
-import type { ElementType } from 'react';
 import { useContext } from 'react';
 
-import { useGetResponsiveValue } from '@common/hooks';
-import type { FlexDirectionClass, PolymorphicDefaultElement } from '@common/types';
-
+import {
+	__DEFAULT_ICON_BUTTON_IS_COMPACT__,
+	__DEFAULT_ICON_BUTTON_IS_DISABLED__,
+	__DEFAULT_ICON_BUTTON_IS_ROUND__,
+	__DEFAULT_ICON_BUTTON_SIZE__,
+	__DEFAULT_ICON_BUTTON_VARIANT__
+} from '@components/Buttons/components/IconButton/common/constants';
 import { __DEFAULT_STACK_DIRECTION__ } from '@components/Layout/components/Stacks/Stack/common/constants';
 
 import { IconButtonGroupContext } from '../../IconButtonGroup';
 import { __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__ } from '../constants';
 import type { IconButtonGroupContext as IconButtonGroupContextType } from '../types';
 
-const useIconButtonGroupContext = <Element extends ElementType = PolymorphicDefaultElement>() => {
+import useIconButtonGroupResponsiveValues from './useIconButtonGroupResponsiveValues';
+
+const useIconButtonGroupContext = () => {
 	const {
 		color,
 		colorMode,
-		direction: d = __DEFAULT_STACK_DIRECTION__,
-		isAttached: a = __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__,
-		isCompact,
-		isDisabled,
-		isRound,
-		size,
-		variant
-	} = useContext<IconButtonGroupContextType<Element>>(IconButtonGroupContext);
+		direction: directionProp = __DEFAULT_STACK_DIRECTION__,
+		isAttached: isAttachedProp = __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__,
+		isCompact: isCompactProp = __DEFAULT_ICON_BUTTON_IS_COMPACT__,
+		isDisabled: isDisabledProp = __DEFAULT_ICON_BUTTON_IS_DISABLED__,
+		isRound: isRoundProp = __DEFAULT_ICON_BUTTON_IS_ROUND__,
+		size: sizeProp = __DEFAULT_ICON_BUTTON_SIZE__,
+		variant: variantProp = __DEFAULT_ICON_BUTTON_VARIANT__
+	} = useContext<IconButtonGroupContextType>(IconButtonGroupContext);
 
-	const direction = useGetResponsiveValue<FlexDirectionClass>(d);
-	const isAttached = useGetResponsiveValue<boolean>(a);
-
+	const { direction, isAttached, isCompact, isDisabled, isRound, size, variant } = useIconButtonGroupResponsiveValues(
+		{
+			direction: directionProp,
+			isAttached: isAttachedProp,
+			isCompact: isCompactProp,
+			isDisabled: isDisabledProp,
+			isRound: isRoundProp,
+			size: sizeProp,
+			variant: variantProp
+		}
+	);
 	return { color, colorMode, direction, isAttached, isCompact, isDisabled, isRound, size, variant };
 };
 

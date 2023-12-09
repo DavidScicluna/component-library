@@ -1,20 +1,26 @@
 import type { ElementType, ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
+import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
 import type {
-	FlexDirectionClass,
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
 	PolymorphicDefaultProps
 } from '@common/types';
 
+import {
+	__DEFAULT_ICON_BUTTON_IS_COMPACT__,
+	__DEFAULT_ICON_BUTTON_IS_DISABLED__,
+	__DEFAULT_ICON_BUTTON_IS_ROUND__,
+	__DEFAULT_ICON_BUTTON_SIZE__,
+	__DEFAULT_ICON_BUTTON_VARIANT__
+} from '@components/Buttons/components/IconButton/common/constants';
 import { Stack } from '@components/Layout';
 import { __DEFAULT_STACK_DIRECTION__ } from '@components/Layout/components/Stacks/Stack/common/constants';
 
 import { __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__ } from './common/constants';
+import { useIconButtonGroupResponsiveValues } from './common/hooks';
 import { __KEYS_ICON_BUTTON_GROUP_CLASS__ } from './common/keys';
 import type {
 	IconButtonGroupContext as IconButtonGroupContextType,
@@ -25,8 +31,7 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const IconButtonGroupContext = createContext<IconButtonGroupContextType<any>>({
+export const IconButtonGroupContext = createContext<IconButtonGroupContextType>({
 	direction: __DEFAULT_STACK_DIRECTION__,
 	isAttached: __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__
 });
@@ -39,19 +44,28 @@ const IconButtonGroup: PolymorphicComponentWithRef = forwardRef(function IconBut
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		direction: d = __DEFAULT_STACK_DIRECTION__,
-		isAttached: a = __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__,
-		isCompact,
-		isDisabled,
-		isRound,
-		spacing,
-		size,
-		variant,
+		direction: directionProp = __DEFAULT_STACK_DIRECTION__,
+		isAttached: isAttachedProp = __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__,
+		isCompact: isCompactProp = __DEFAULT_ICON_BUTTON_IS_COMPACT__,
+		isDisabled: isDisabledProp = __DEFAULT_ICON_BUTTON_IS_DISABLED__,
+		isRound: isRoundProp = __DEFAULT_ICON_BUTTON_IS_ROUND__,
+		spacing: spacingProp = __DEFAULT_SPACING__,
+		size: sizeProp = __DEFAULT_ICON_BUTTON_SIZE__,
+		variant: variantProp = __DEFAULT_ICON_BUTTON_VARIANT__,
 		...rest
 	} = props;
 
-	const direction = useGetResponsiveValue<FlexDirectionClass>(d);
-	const isAttached = useGetResponsiveValue<boolean>(a);
+	const { direction, isAttached, isCompact, isDisabled, isRound, spacing, size, variant } =
+		useIconButtonGroupResponsiveValues({
+			direction: directionProp,
+			isAttached: isAttachedProp,
+			isCompact: isCompactProp,
+			isDisabled: isDisabledProp,
+			isRound: isRoundProp,
+			spacing: spacingProp,
+			size: sizeProp,
+			variant: variantProp
+		});
 
 	return (
 		<IconButtonGroupContext.Provider

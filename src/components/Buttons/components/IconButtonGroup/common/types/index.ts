@@ -21,7 +21,7 @@ export type IconButtonGroupProps<Element extends ElementType = PolymorphicDefaul
 
 export type IconButtonGroupRef<Element extends ElementType = PolymorphicDefaultElement> = StackRef<Element>;
 
-export type IconButtonGroupContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	IconButtonGroupProps<Element>,
+export type IconButtonGroupContext = Pick<
+	IconButtonGroupProps,
 	'color' | 'colorMode' | 'direction' | 'isAttached' | 'isCompact' | 'isDisabled' | 'isRound' | 'size' | 'variant'
 >;
