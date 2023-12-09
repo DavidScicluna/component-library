@@ -1,27 +1,20 @@
 import { useContext } from 'react';
 
-import { useGetResponsiveValue } from '@common/hooks';
-
 import { IconButtonContext } from '../../IconButton';
 import { __DEFAULT_ICON_BUTTON_SIZE__, __DEFAULT_ICON_BUTTON_VARIANT__ } from '../constants';
-import type {
-	IconButtonContext as IconButtonContextType,
-	IconButtonDefaultElement,
-	IconButtonElement,
-	IconButtonSize,
-	IconButtonVariant
-} from '../types';
+import type { IconButtonContext as IconButtonContextType } from '../types';
 
-const useIconButtonContext = <Element extends IconButtonElement = IconButtonDefaultElement>() => {
+import useIconButtonResponsiveValues from './useIconButtonResponsiveValues';
+
+const useIconButtonContext = () => {
 	const {
 		color,
 		colorMode,
-		size: s = __DEFAULT_ICON_BUTTON_SIZE__,
-		variant: v = __DEFAULT_ICON_BUTTON_VARIANT__
-	} = useContext<IconButtonContextType<Element>>(IconButtonContext);
+		size: sizeProp = __DEFAULT_ICON_BUTTON_SIZE__,
+		variant: variantProp = __DEFAULT_ICON_BUTTON_VARIANT__
+	} = useContext<IconButtonContextType>(IconButtonContext);
 
-	const size = useGetResponsiveValue<IconButtonSize>(s);
-	const variant = useGetResponsiveValue<IconButtonVariant>(v);
+	const { size, variant } = useIconButtonResponsiveValues({ size: sizeProp, variant: variantProp });
 
 	return { color, colorMode, size, variant };
 };

@@ -4,8 +4,8 @@ import { createContext, forwardRef, useMemo } from 'react';
 import { merge } from 'lodash-es';
 import { useFocus } from 'rooks';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useBoolean, useGetResponsiveValue } from '@common/hooks';
+import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
+import { useBoolean } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
@@ -28,23 +28,26 @@ import {
 	__DEFAULT_ICON_BUTTON_SIZE__,
 	__DEFAULT_ICON_BUTTON_VARIANT__
 } from './common/constants';
-import { useIconButtonClasses, useIconButtonSizeConfig, useIconButtonStyles } from './common/hooks';
+import {
+	useIconButtonClasses,
+	useIconButtonResponsiveValues,
+	useIconButtonSizeConfig,
+	useIconButtonStyles
+} from './common/hooks';
 import { __KEYS_ICON_BUTTON_CLASS__ } from './common/keys';
 import type {
 	IconButtonContext as IconButtonContextType,
 	IconButtonDefaultElement,
 	IconButtonElement,
 	IconButtonProps,
-	IconButtonRef,
-	IconButtonSize,
-	IconButtonVariant
+	IconButtonRef
 } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const IconButtonContext = createContext<IconButtonContextType<any>>({
+export const IconButtonContext = createContext<IconButtonContextType>({
 	size: __DEFAULT_ICON_BUTTON_SIZE__,
 	variant: __DEFAULT_ICON_BUTTON_VARIANT__
 });
@@ -68,38 +71,49 @@ const IconButton: PolymorphicComponentWithRef = forwardRef(function IconButton<
 		renderSpinner,
 		color = __DEFAULT_ICON_BUTTON_GROUP_COLOR__,
 		colorMode = __DEFAULT_ICON_BUTTON_GROUP_COLORMODE__,
-		isActive: active = __DEFAULT_ICON_BUTTON_IS_ACTIVE__,
-		isCompact: c = __DEFAULT_ICON_BUTTON_GROUP_IS_COMPACT__,
-		isDisabled: disabled = __DEFAULT_ICON_BUTTON_GROUP_IS_DISABLED__,
-		isFocused: focused = __DEFAULT_ICON_BUTTON_IS_FOCUSED__,
-		isLoading: loading = __DEFAULT_ICON_BUTTON_IS_LOADING__,
-		isRound: round = __DEFAULT_ICON_BUTTON_GROUP_IS_ROUND__,
-		isOutlined: outlined = __DEFAULT_ICON_BUTTON_IS_OUTLINED__,
-		size: s = __DEFAULT_ICON_BUTTON_GROUP_SIZE__,
-		variant: v = __DEFAULT_ICON_BUTTON_GROUP_VARIANT__,
-		sx,
+		isActive: isActiveProp = __DEFAULT_ICON_BUTTON_IS_ACTIVE__,
+		isCompact: isCompactProp = __DEFAULT_ICON_BUTTON_GROUP_IS_COMPACT__,
+		isDisabled: isDisabledProp = __DEFAULT_ICON_BUTTON_GROUP_IS_DISABLED__,
+		isFocused: isFocusedProp = __DEFAULT_ICON_BUTTON_IS_FOCUSED__,
+		isLoading: isLoadingProp = __DEFAULT_ICON_BUTTON_IS_LOADING__,
+		isRound: isRoundProp = __DEFAULT_ICON_BUTTON_GROUP_IS_ROUND__,
+		isOutlined: isOutlinedProp = __DEFAULT_ICON_BUTTON_IS_OUTLINED__,
+		size: sizeProp = __DEFAULT_ICON_BUTTON_GROUP_SIZE__,
+		variant: variantProp = __DEFAULT_ICON_BUTTON_GROUP_VARIANT__,
+		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
 	} = props;
 
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
-	const isActive = useGetResponsiveValue<boolean>(active);
-	const isCompact = useGetResponsiveValue<boolean>(c);
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-	const isFocusedProp = useGetResponsiveValue<boolean>(focused);
-	const isLoading = useGetResponsiveValue<boolean>(loading);
-	const isRound = useGetResponsiveValue<boolean>(round);
-	const isOutlined = useGetResponsiveValue<boolean>(outlined);
+	const {
+		isActive,
+		isCompact,
+		isDisabled,
+		isFocused: focused,
+		isLoading,
+		isRound,
+		isOutlined,
+		size,
+		variant
+	} = useIconButtonResponsiveValues({
+		isActive: isActiveProp,
+		isCompact: isCompactProp,
+		isDisabled: isDisabledProp,
+		isFocused: isFocusedProp,
+		isLoading: isLoadingProp,
+		isRound: isRoundProp,
+		isOutlined: isOutlinedProp,
+		size: sizeProp,
+		variant: variantProp
+	});
 
-	const size = useGetResponsiveValue<IconButtonSize>(s);
-	const variant = useGetResponsiveValue<IconButtonVariant>(v);
+	const isFocused = useMemo<boolean>(() => focused || isFocusedHook, [focused, isFocusedHook]);
 
-	const isFocused = useMemo<boolean>(() => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
+	const config = useIconButtonSizeConfig({ isCompact, isRound, size, variant });
 
-	const config = useIconButtonSizeConfig<Element>({ isCompact, isRound, size, variant });
-
-	const classes = useIconButtonClasses<Element>({ variant });
-	const styles = useIconButtonStyles<Element>({ size });
+	const classes = useIconButtonClasses({ variant });
+	const styles = useIconButtonStyles({ size });
 
 	const { focusProps } = useFocus({ onFocus: () => setIsFocusedHook.on(), onBlur: () => setIsFocusedHook.off() });
 

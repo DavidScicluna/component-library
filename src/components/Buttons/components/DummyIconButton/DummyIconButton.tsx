@@ -3,7 +3,7 @@ import { createContext, forwardRef } from 'react';
 
 import { merge } from 'lodash-es';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
@@ -56,7 +56,7 @@ const DummyIconButton: PolymorphicComponentWithRef = forwardRef(function DummyIc
 		isOutlined: isOutlinedProp = __DEFAULT_DUMMY_ICON_BUTTON_IS_OUTLINED__,
 		size: sizeProp = __DEFAULT_DUMMY_ICON_BUTTON_SIZE__,
 		variant: variantProp = __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__,
-		sx,
+		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
 	} = props;
 

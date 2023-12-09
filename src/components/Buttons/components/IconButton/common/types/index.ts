@@ -61,7 +61,4 @@ export type IconButtonProps<Element extends IconButtonElement = IconButtonDefaul
 
 export type IconButtonRef<Element extends IconButtonElement = IconButtonDefaultElement> = BoxRef<Element>;
 
-export type IconButtonContext<Element extends IconButtonElement = IconButtonDefaultElement> = Pick<
-	IconButtonProps<Element>,
-	'color' | 'colorMode' | 'size' | 'variant'
->;
+export type IconButtonContext = Pick<IconButtonProps, 'color' | 'colorMode' | 'size' | 'variant'>;

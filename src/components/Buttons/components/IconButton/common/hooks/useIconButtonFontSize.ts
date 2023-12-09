@@ -1,22 +1,18 @@
 import { useMemo } from 'react';
 
-import { useGetResponsiveValue } from '@common/hooks';
 import { getFontSizeHeight } from '@common/utils';
 
 import { __DEFAULT_ICON_BUTTON_LINE_HEIGHT_SIZE__, __DEFAULT_ICON_BUTTON_SIZE__ } from '../constants';
-import type { IconButtonDefaultElement, IconButtonElement, IconButtonProps, IconButtonSize } from '../types';
+import type { IconButtonProps } from '../types';
 
-type UseIconButtonFontSizeProps<Element extends IconButtonElement = IconButtonDefaultElement> = Pick<
-	IconButtonProps<Element>,
-	'size'
->;
+import useIconButtonResponsiveValues from './useIconButtonResponsiveValues';
 
-const useIconButtonFontSize = <Element extends IconButtonElement = IconButtonDefaultElement>(
-	props: UseIconButtonFontSizeProps<Element>
-): number => {
-	const { size: s = __DEFAULT_ICON_BUTTON_SIZE__ } = props;
+type UseIconButtonFontSizeProps = Pick<IconButtonProps, 'size'>;
 
-	const size = useGetResponsiveValue<IconButtonSize>(s);
+const useIconButtonFontSize = (props: UseIconButtonFontSizeProps): number => {
+	const { size: sizeProp = __DEFAULT_ICON_BUTTON_SIZE__ } = props;
+
+	const { size } = useIconButtonResponsiveValues({ size: sizeProp });
 
 	const fontSize = useMemo<number>(() => {
 		return getFontSizeHeight(size, __DEFAULT_ICON_BUTTON_LINE_HEIGHT_SIZE__);
