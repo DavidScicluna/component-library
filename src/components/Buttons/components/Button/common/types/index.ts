@@ -68,7 +68,4 @@ export type ButtonProps<Element extends ButtonElement = ButtonDefaultElement> = 
 
 export type ButtonRef<Element extends ButtonElement = ButtonDefaultElement> = BoxRef<Element>;
 
-export type ButtonContext<Element extends ButtonElement = ButtonDefaultElement> = Pick<
-	ButtonProps<Element>,
-	'color' | 'colorMode' | 'size' | 'variant'
->;
+export type ButtonContext = Pick<ButtonProps, 'color' | 'colorMode' | 'size' | 'variant'>;

@@ -1,19 +1,18 @@
 import { useMemo } from 'react';
 
-import { useGetResponsiveValue } from '@common/hooks';
 import { getFontSizeHeight } from '@common/utils';
 
 import { __DEFAULT_BUTTON_LINE_HEIGHT_SIZE__, __DEFAULT_BUTTON_SIZE__ } from '../constants';
-import type { ButtonDefaultElement, ButtonElement, ButtonProps, ButtonSize } from '../types';
+import type { ButtonProps } from '../types';
 
-type UseButtonFontSizeProps<Element extends ButtonElement = ButtonDefaultElement> = Pick<ButtonProps<Element>, 'size'>;
+import useButtonResponsiveValues from './useButtonResponsiveValues';
 
-const useButtonFontSize = <Element extends ButtonElement = ButtonDefaultElement>(
-	props: UseButtonFontSizeProps<Element>
-): number => {
-	const { size: s = __DEFAULT_BUTTON_SIZE__ } = props;
+type UseButtonFontSizeProps = Pick<ButtonProps, 'size'>;
 
-	const size = useGetResponsiveValue<ButtonSize>(s);
+const useButtonFontSize = (props: UseButtonFontSizeProps): number => {
+	const { size: sizeProp = __DEFAULT_BUTTON_SIZE__ } = props;
+
+	const { size } = useButtonResponsiveValues({ size: sizeProp });
 
 	const fontSize = useMemo<number>(() => {
 		return getFontSizeHeight(size, __DEFAULT_BUTTON_LINE_HEIGHT_SIZE__);

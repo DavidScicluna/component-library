@@ -1,27 +1,20 @@
 import { useContext } from 'react';
 
-import { useGetResponsiveValue } from '@common/hooks';
-
 import { ButtonContext } from '../../Button';
 import { __DEFAULT_BUTTON_SIZE__, __DEFAULT_BUTTON_VARIANT__ } from '../constants';
-import type {
-	ButtonContext as ButtonContextType,
-	ButtonDefaultElement,
-	ButtonElement,
-	ButtonSize,
-	ButtonVariant
-} from '../types';
+import type { ButtonContext as ButtonContextType } from '../types';
 
-const useButtonContext = <Element extends ButtonElement = ButtonDefaultElement>() => {
+import useButtonResponsiveValues from './useButtonResponsiveValues';
+
+const useButtonContext = () => {
 	const {
 		color,
 		colorMode,
-		size: s = __DEFAULT_BUTTON_SIZE__,
-		variant: v = __DEFAULT_BUTTON_VARIANT__
-	} = useContext<ButtonContextType<Element>>(ButtonContext);
+		size: sizeProp = __DEFAULT_BUTTON_SIZE__,
+		variant: variantProp = __DEFAULT_BUTTON_VARIANT__
+	} = useContext<ButtonContextType>(ButtonContext);
 
-	const size = useGetResponsiveValue<ButtonSize>(s);
-	const variant = useGetResponsiveValue<ButtonVariant>(v);
+	const { size, variant } = useButtonResponsiveValues({ size: sizeProp, variant: variantProp });
 
 	return { color, colorMode, size, variant };
 };

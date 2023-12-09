@@ -6,7 +6,7 @@ import { useFocus } from 'rooks';
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useBoolean, useGetResponsiveValue } from '@common/hooks';
+import { useBoolean } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
@@ -30,23 +30,20 @@ import {
 	__DEFAULT_BUTTON_SIZE__,
 	__DEFAULT_BUTTON_VARIANT__
 } from './common/constants';
-import { useButtonClasses, useButtonSizeConfig } from './common/hooks';
+import { useButtonClasses, useButtonResponsiveValues, useButtonSizeConfig } from './common/hooks';
 import { __KEYS_BUTTON_CLASS__ } from './common/keys';
 import type {
 	ButtonContext as ButtonContextType,
 	ButtonDefaultElement,
 	ButtonElement,
 	ButtonProps,
-	ButtonRef,
-	ButtonSize,
-	ButtonVariant
+	ButtonRef
 } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const ButtonContext = createContext<ButtonContextType<any>>({
+export const ButtonContext = createContext<ButtonContextType>({
 	size: __DEFAULT_BUTTON_SIZE__,
 	variant: __DEFAULT_BUTTON_VARIANT__
 });
@@ -75,38 +72,50 @@ const Button: PolymorphicComponentWithRef = forwardRef(function Button<
 		renderSpinner,
 		color = __DEFAULT_BUTTON_GROUP_COLOR__,
 		colorMode = __DEFAULT_BUTTON_GROUP_COLORMODE__,
-		isActive: active = __DEFAULT_BUTTON_IS_ACTIVE__,
-		isCompact: c = __DEFAULT_BUTTON_GROUP_IS_COMPACT__,
-		isDisabled: disabled = __DEFAULT_BUTTON_GROUP_IS_DISABLED__,
-		isFocused: focused = __DEFAULT_BUTTON_IS_FOCUSED__,
-		isFullWidth: fullWidth = __DEFAULT_BUTTON_GROUP_IS_FULLWIDTH__,
-		isLoading: loading = __DEFAULT_BUTTON_IS_LOADING__,
-		isRound: round = __DEFAULT_BUTTON_GROUP_IS_ROUND__,
-		isOutlined: outlined = __DEFAULT_BUTTON_IS_OUTLINED__,
-		size: s = __DEFAULT_BUTTON_GROUP_SIZE__,
-		variant: v = __DEFAULT_BUTTON_GROUP_VARIANT__,
+		isActive: isActiveProp = __DEFAULT_BUTTON_IS_ACTIVE__,
+		isCompact: isCompactProp = __DEFAULT_BUTTON_GROUP_IS_COMPACT__,
+		isDisabled: isDisabledProp = __DEFAULT_BUTTON_GROUP_IS_DISABLED__,
+		isFocused: isFocusedProp = __DEFAULT_BUTTON_IS_FOCUSED__,
+		isFullWidth: isFullWidthProp = __DEFAULT_BUTTON_GROUP_IS_FULLWIDTH__,
+		isLoading: isLoadingProp = __DEFAULT_BUTTON_IS_LOADING__,
+		isRound: isRoundProp = __DEFAULT_BUTTON_GROUP_IS_ROUND__,
+		isOutlined: isOutlinedProp = __DEFAULT_BUTTON_IS_OUTLINED__,
+		size: sizeProp = __DEFAULT_BUTTON_GROUP_SIZE__,
+		variant: variantProp = __DEFAULT_BUTTON_GROUP_VARIANT__,
 		...rest
 	} = props;
 
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
-	const isActive = useGetResponsiveValue<boolean>(active);
-	const isCompact = useGetResponsiveValue<boolean>(c);
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-	const isFocusedProp = useGetResponsiveValue<boolean>(focused);
-	const isFullWidth = useGetResponsiveValue<boolean>(fullWidth);
-	const isLoading = useGetResponsiveValue<boolean>(loading);
-	const isRound = useGetResponsiveValue<boolean>(round);
-	const isOutlined = useGetResponsiveValue<boolean>(outlined);
+	const {
+		isActive,
+		isCompact,
+		isDisabled,
+		isFocused: focused,
+		isFullWidth,
+		isLoading,
+		isRound,
+		isOutlined,
+		size,
+		variant
+	} = useButtonResponsiveValues({
+		isActive: isActiveProp,
+		isCompact: isCompactProp,
+		isDisabled: isDisabledProp,
+		isFocused: isFocusedProp,
+		isFullWidth: isFullWidthProp,
+		isLoading: isLoadingProp,
+		isRound: isRoundProp,
+		isOutlined: isOutlinedProp,
+		size: sizeProp,
+		variant: variantProp
+	});
 
-	const size = useGetResponsiveValue<ButtonSize>(s);
-	const variant = useGetResponsiveValue<ButtonVariant>(v);
+	const isFocused = useMemo<boolean>(() => focused || isFocusedHook, [focused, isFocusedHook]);
 
-	const isFocused = useMemo<boolean>(() => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
+	const config = useButtonSizeConfig({ isCompact, isRound, size, variant });
 
-	const config = useButtonSizeConfig<Element>({ isCompact, isRound, size, variant });
-
-	const classes = useButtonClasses<Element>({ isCompact, isFullWidth, isRound, size, variant });
+	const classes = useButtonClasses({ isCompact, isFullWidth, isRound, size, variant });
 
 	const { focusProps } = useFocus({ onFocus: () => setIsFocusedHook.on(), onBlur: () => setIsFocusedHook.off() });
 
