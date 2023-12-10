@@ -1,9 +1,6 @@
-import type { ElementType } from 'react';
 import { useContext } from 'react';
 
 import { __DEFAULT_METHOD__, __DEFAULT_SPACING__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
 
 import { TabsContext } from '../../Tabs';
 import {
@@ -15,33 +12,34 @@ import {
 	__DEFAULT_TABS_ORIENTATION__,
 	__DEFAULT_TABS_SIZE__
 } from '../constants';
-import type { TabsAlign, TabsContext as TabsContextType, TabsOrientation, TabsSize } from '../types';
+import type { TabsContext as TabsContextType } from '../types';
 
-const useTabsContext = <Element extends ElementType = PolymorphicDefaultElement>() => {
+import useTabsResponsiveValues from './useTabsResponsiveValues';
+
+const useTabsContext = () => {
 	const {
 		color,
 		colorMode,
-		align: a = __DEFAULT_TABS_ALIGN__,
+		align: alignProp = __DEFAULT_TABS_ALIGN__,
 		id = __DEFAULT_TABS_ID__,
-		index: ind = __DEFAULT_TABS_INDEX__,
-		isDisabled: disabled = __DEFAULT_TABS_IS_DISABLED__,
-		isFitted: fitted = __DEFAULT_TABS_IS_FITTED__,
+		index: indexProp = __DEFAULT_TABS_INDEX__,
+		isDisabled: isDisabledProp = __DEFAULT_TABS_IS_DISABLED__,
+		isFitted: isFittedProp = __DEFAULT_TABS_IS_FITTED__,
 		onChange = __DEFAULT_METHOD__,
-		orientation: o = __DEFAULT_TABS_ORIENTATION__,
-		size: si = __DEFAULT_TABS_SIZE__,
-		spacing: sp = __DEFAULT_SPACING__
-	} = useContext<TabsContextType<Element>>(TabsContext);
+		orientation: orientationProp = __DEFAULT_TABS_ORIENTATION__,
+		size: sizeProp = __DEFAULT_TABS_SIZE__,
+		spacing: spacingProp = __DEFAULT_SPACING__
+	} = useContext<TabsContextType>(TabsContext);
 
-	const align = useGetResponsiveValue<TabsAlign>(a);
-
-	const index = useGetResponsiveValue<number>(ind);
-
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-	const isFitted = useGetResponsiveValue<boolean>(fitted);
-
-	const orientation = useGetResponsiveValue<TabsOrientation>(o);
-	const size = useGetResponsiveValue<TabsSize>(si);
-	const spacing = useGetResponsiveValue<ThemeSpacing>(sp);
+	const { align, index, isDisabled, isFitted, orientation, size, spacing } = useTabsResponsiveValues({
+		align: alignProp,
+		index: indexProp,
+		isDisabled: isDisabledProp,
+		isFitted: isFittedProp,
+		orientation: orientationProp,
+		size: sizeProp,
+		spacing: spacingProp
+	});
 
 	return { color, colorMode, align, id, index, isDisabled, isFitted, onChange, orientation, size, spacing };
 };

@@ -56,8 +56,7 @@ export type TabsProps<Element extends ElementType = PolymorphicDefaultElement> =
 
 export type TabsRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
-export type TabsContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	TabsProps<Element>,
+type PickedTabsProps =
 	| 'color'
 	| 'colorMode'
 	| 'align'
@@ -68,5 +67,6 @@ export type TabsContext<Element extends ElementType = PolymorphicDefaultElement>
 	| 'onChange'
 	| 'orientation'
 	| 'size'
-	| 'spacing'
->;
+	| 'spacing';
+
+export type TabsContext = Pick<TabsProps, PickedTabsProps>;

@@ -49,6 +49,6 @@ const TabIcon: PolymorphicComponentWithRef = forwardRef(function TabIcon<
 
 TabIcon.displayName = 'TabIcon';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends TabIconElement = TabIconDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <TabIcon<Element> {...props} />;

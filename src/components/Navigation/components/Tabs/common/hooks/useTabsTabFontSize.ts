@@ -1,24 +1,18 @@
-import type { ElementType } from 'react';
 import { useMemo } from 'react';
 
-import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
 import { getFontSizeHeight } from '@common/utils';
 
 import { __DEFAULT_TABS_SIZE__, __DEFAULT_TABS_TAB_LINE_HEIGHT_SIZE__ } from '../constants';
-import type { TabsProps, TabsSize } from '../types';
+import type { TabsProps } from '../types';
 
-type UseTabsTabFontSizeProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	TabsProps<Element>,
-	'size'
->;
+import useTabsResponsiveValues from './useTabsResponsiveValues';
 
-const useTabsTabFontSize = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseTabsTabFontSizeProps<Element>
-): number => {
-	const { size: s = __DEFAULT_TABS_SIZE__ } = props;
+type UseTabsTabFontSizeProps = Pick<TabsProps, 'size'>;
 
-	const size = useGetResponsiveValue<TabsSize>(s);
+const useTabsTabFontSize = (props: UseTabsTabFontSizeProps): number => {
+	const { size: sizeProp = __DEFAULT_TABS_SIZE__ } = props;
+
+	const { size } = useTabsResponsiveValues({ size: sizeProp });
 
 	const fontSize = useMemo<number>(() => {
 		return getFontSizeHeight(size, __DEFAULT_TABS_TAB_LINE_HEIGHT_SIZE__);

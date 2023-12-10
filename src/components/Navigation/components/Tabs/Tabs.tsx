@@ -2,13 +2,11 @@ import type { ElementType, ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__, __DEFAULT_SPACING__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	ThemeSpacing
+	PolymorphicDefaultProps
 } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -22,21 +20,14 @@ import {
 	__DEFAULT_TABS_ORIENTATION__,
 	__DEFAULT_TABS_SIZE__
 } from './common/constants';
+import { useTabsResponsiveValues } from './common/hooks';
 import { __KEYS_TABS_CLASS__ } from './common/keys';
-import type {
-	TabsAlign,
-	TabsContext as TabsContextType,
-	TabsOrientation,
-	TabsProps,
-	TabsRef,
-	TabsSize
-} from './common/types';
+import type { TabsContext as TabsContextType, TabsProps, TabsRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const TabsContext = createContext<TabsContextType<any>>({
+export const TabsContext = createContext<TabsContextType>({
 	align: __DEFAULT_TABS_ALIGN__,
 	id: __DEFAULT_TABS_ID__,
 	index: __DEFAULT_TABS_INDEX__,
@@ -57,27 +48,26 @@ const Tabs: PolymorphicComponentWithRef = forwardRef(function Tabs<
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		align: a = __DEFAULT_TABS_ALIGN__,
-		index: ind = __DEFAULT_TABS_INDEX__,
-		isDisabled: disabled = __DEFAULT_TABS_IS_DISABLED__,
-		isFitted: fitted = __DEFAULT_TABS_IS_FITTED__,
+		align: alignProp = __DEFAULT_TABS_ALIGN__,
+		index: indexProp = __DEFAULT_TABS_INDEX__,
+		isDisabled: isDisabledProp = __DEFAULT_TABS_IS_DISABLED__,
+		isFitted: isFittedProp = __DEFAULT_TABS_IS_FITTED__,
 		onChange = __DEFAULT_METHOD__,
-		orientation: o = __DEFAULT_TABS_ORIENTATION__,
-		size: si = __DEFAULT_TABS_SIZE__,
-		spacing: sp = __DEFAULT_SPACING__,
+		orientation: orientationProp = __DEFAULT_TABS_ORIENTATION__,
+		size: sizeProp = __DEFAULT_TABS_SIZE__,
+		spacing: spacingProp = __DEFAULT_SPACING__,
 		...rest
 	} = props;
 
-	const align = useGetResponsiveValue<TabsAlign>(a);
-
-	const index = useGetResponsiveValue<number>(ind);
-
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-	const isFitted = useGetResponsiveValue<boolean>(fitted);
-
-	const orientation = useGetResponsiveValue<TabsOrientation>(o);
-	const size = useGetResponsiveValue<TabsSize>(si);
-	const spacing = useGetResponsiveValue<ThemeSpacing>(sp);
+	const { align, index, isDisabled, isFitted, orientation, size, spacing } = useTabsResponsiveValues({
+		align: alignProp,
+		index: indexProp,
+		isDisabled: isDisabledProp,
+		isFitted: isFittedProp,
+		orientation: orientationProp,
+		size: sizeProp,
+		spacing: spacingProp
+	});
 
 	return (
 		<TabsContext.Provider
