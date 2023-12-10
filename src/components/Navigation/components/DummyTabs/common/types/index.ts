@@ -55,7 +55,7 @@ export type DummyTabsProps<Element extends ElementType = PolymorphicDefaultEleme
 
 export type DummyTabsRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
-export type DummyTabsContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	DummyTabsProps<Element>,
+export type DummyTabsContext = Pick<
+	DummyTabsProps,
 	'color' | 'colorMode' | 'align' | 'id' | 'index' | 'isAnimated' | 'isFitted' | 'orientation' | 'size' | 'spacing'
 >;
