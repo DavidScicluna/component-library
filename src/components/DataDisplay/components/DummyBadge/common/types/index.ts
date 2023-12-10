@@ -72,7 +72,4 @@ export type DummyBadgeProps<Element extends ElementType = PolymorphicDefaultElem
 
 export type DummyBadgeRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
-export type DummyBadgeContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	DummyBadgeProps<Element>,
-	'color' | 'colorMode' | 'size' | 'variant'
->;
+export type DummyBadgeContext = Pick<DummyBadgeProps, 'color' | 'colorMode' | 'size' | 'variant'>;

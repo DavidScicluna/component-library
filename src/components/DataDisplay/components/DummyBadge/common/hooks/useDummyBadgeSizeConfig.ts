@@ -2,7 +2,6 @@ import type { ElementType } from 'react';
 import { useMemo } from 'react';
 
 import type { PolymorphicDefaultElement, ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
-import { getResponsiveValue } from '@common/utils';
 
 import {
 	__DEFAULT_DUMMY_BADGE_IS_COMPACT__,
@@ -10,7 +9,9 @@ import {
 	__DEFAULT_DUMMY_BADGE_SIZE__,
 	__DEFAULT_DUMMY_BADGE_VARIANT__
 } from '../constants';
-import type { DummyBadgeProps, DummyBadgeSize, DummyBadgeVariant } from '../types';
+import type { DummyBadgeProps } from '../types';
+
+import useDummyBadgeResponsiveValues from './useDummyBadgeResponsiveValues';
 
 type DummyBadgeSizeConfig = {
 	fontSize: ThemeFontSize;
@@ -29,19 +30,23 @@ const useDummyBadgeSizeConfig = <Element extends ElementType = PolymorphicDefaul
 	props: UseDummyBadgeSizeConfigProps<Element>
 ): UseDummyBadgeSizeConfigReturn => {
 	const {
-		isCompact = __DEFAULT_DUMMY_BADGE_IS_COMPACT__,
-		isRound = __DEFAULT_DUMMY_BADGE_IS_ROUND__,
-		size = __DEFAULT_DUMMY_BADGE_SIZE__,
-		variant = __DEFAULT_DUMMY_BADGE_VARIANT__
+		isCompact: isCompactProp = __DEFAULT_DUMMY_BADGE_IS_COMPACT__,
+		isRound: isRoundProp = __DEFAULT_DUMMY_BADGE_IS_ROUND__,
+		size: sizeProp = __DEFAULT_DUMMY_BADGE_SIZE__,
+		variant: variantProp = __DEFAULT_DUMMY_BADGE_VARIANT__
 	} = props;
 
+	const { isCompact, isRound, size, variant } = useDummyBadgeResponsiveValues({
+		isCompact: isCompactProp,
+		isRound: isRoundProp,
+		size: sizeProp,
+		variant: variantProp
+	});
+
 	const config = useMemo<DummyBadgeSizeConfig>(() => {
-		const s = getResponsiveValue<DummyBadgeSize>(size);
-		const v = getResponsiveValue<DummyBadgeVariant>(variant);
+		const radius: ThemeRadius = variant === 'text' ? 'none' : isRound ? 'full' : isCompact ? 'xs' : 'base';
 
-		const radius: ThemeRadius = v === 'text' ? 'none' : isRound ? 'full' : isCompact ? 'xs' : 'base';
-
-		switch (s) {
+		switch (size) {
 			case 'xs':
 				return {
 					fontSize: 'xs',
@@ -72,7 +77,7 @@ const useDummyBadgeSizeConfig = <Element extends ElementType = PolymorphicDefaul
 				};
 			default:
 				return {
-					fontSize: s,
+					fontSize: size,
 					padding: { x: isCompact ? 2 : 4, y: isCompact ? 1.25 : 2 },
 					radius,
 					spacing: isCompact ? 2 : 4

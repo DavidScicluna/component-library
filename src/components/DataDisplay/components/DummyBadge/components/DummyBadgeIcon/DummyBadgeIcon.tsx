@@ -61,6 +61,6 @@ const DummyBadgeIcon: PolymorphicComponentWithRef = forwardRef(function DummyBad
 
 DummyBadgeIcon.displayName = 'DummyBadgeIcon';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends DummyBadgeIconElement = DummyBadgeIconDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <DummyBadgeIcon<Element> {...props} />;

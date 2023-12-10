@@ -1,8 +1,5 @@
-import type { ElementType } from 'react';
-
 import classes from '@common/classes';
-import { useGetClass, useGetResponsiveValue } from '@common/hooks';
-import type { ClassName, PolymorphicDefaultElement, WidthClass } from '@common/types';
+import type { ClassName } from '@common/types';
 
 import {
 	__DEFAULT_DUMMY_BADGE_IS_COMPACT__,
@@ -15,37 +12,41 @@ import {
 } from '../constants';
 import type { DummyBadgeProps } from '../types';
 
+import useDummyBadgeResponsiveValues from './useDummyBadgeResponsiveValues';
 import useDummyBadgeSizeConfig from './useDummyBadgeSizeConfig';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseDummyBadgeClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	DummyBadgeProps<Element>,
+type UseDummyBadgeClassesProps = Pick<
+	DummyBadgeProps,
 	'isCompact' | 'isFullWidth' | 'isRound' | 'isUppercase' | 'size' | 'variant'
 >;
 type UseDummyBadgeClassesReturn = ClassName;
 
-const useDummyBadgeClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseDummyBadgeClassesProps<Element>
-): UseDummyBadgeClassesReturn => {
+const useDummyBadgeClasses = (props: UseDummyBadgeClassesProps): UseDummyBadgeClassesReturn => {
 	const {
-		isCompact = __DEFAULT_DUMMY_BADGE_IS_COMPACT__,
-		isFullWidth = __DEFAULT_DUMMY_BADGE_IS_FULLWIDTH__,
-		isRound = __DEFAULT_DUMMY_BADGE_IS_ROUND__,
-		isUppercase: uppercase = __DEFAULT_DUMMY_BADGE_IS_UPPERCASE__,
-		size = __DEFAULT_DUMMY_BADGE_SIZE__,
-		variant = __DEFAULT_DUMMY_BADGE_VARIANT__
+		isCompact: isCompactProp = __DEFAULT_DUMMY_BADGE_IS_COMPACT__,
+		isFullWidth: isFullWidthProp = __DEFAULT_DUMMY_BADGE_IS_FULLWIDTH__,
+		isRound: isRoundProp = __DEFAULT_DUMMY_BADGE_IS_ROUND__,
+		isUppercase: isUppercaseProp = __DEFAULT_DUMMY_BADGE_IS_UPPERCASE__,
+		size: sizeProp = __DEFAULT_DUMMY_BADGE_SIZE__,
+		variant: variantProp = __DEFAULT_DUMMY_BADGE_VARIANT__
 	} = props;
 
-	const config = useDummyBadgeSizeConfig<Element>({ isCompact, isRound, size, variant });
+	const { isCompact, isFullWidth, isRound, isUppercase, size, variant } = useDummyBadgeResponsiveValues({
+		isCompact: isCompactProp,
+		isFullWidth: isFullWidthProp,
+		isRound: isRoundProp,
+		isUppercase: isUppercaseProp,
+		size: sizeProp,
+		variant: variantProp
+	});
 
-	const isUppercase = useGetResponsiveValue<boolean>(uppercase);
-
-	const widthClassName = useGetClass<WidthClass>(isFullWidth ? 'full' : 'auto', ['sizing', 'width']);
+	const config = useDummyBadgeSizeConfig({ isCompact, isRound, size, variant });
 
 	return classNames(
-		widthClassName,
+		classes.sizing.width[isFullWidth ? 'full' : 'auto'],
 		classes.typography.align.center,
 		classes.typography.font_size[config.fontSize],
 		classes.typography.font_weight.semibold,

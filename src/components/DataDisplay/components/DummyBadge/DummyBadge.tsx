@@ -5,7 +5,6 @@ import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
@@ -26,22 +25,15 @@ import {
 	__DEFAULT_DUMMY_BADGE_SIZE__,
 	__DEFAULT_DUMMY_BADGE_VARIANT__
 } from './common/constants';
-import { useDummyBadgeClasses, useDummyBadgeSizeConfig } from './common/hooks';
+import { useDummyBadgeClasses, useDummyBadgeResponsiveValues, useDummyBadgeSizeConfig } from './common/hooks';
 import { __KEYS_DUMMY_BADGE_CLASS__ } from './common/keys';
-import type {
-	DummyBadgeContext as DummyBadgeContextType,
-	DummyBadgeProps,
-	DummyBadgeRef,
-	DummyBadgeSize,
-	DummyBadgeVariant
-} from './common/types';
+import type { DummyBadgeContext as DummyBadgeContextType, DummyBadgeProps, DummyBadgeRef } from './common/types';
 import { DummyBadgeSkeleton } from './components';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const DummyBadgeContext = createContext<DummyBadgeContextType<any>>({
+export const DummyBadgeContext = createContext<DummyBadgeContextType>({
 	size: __DEFAULT_DUMMY_BADGE_SIZE__,
 	variant: __DEFAULT_DUMMY_BADGE_VARIANT__
 });
@@ -59,30 +51,32 @@ const DummyBadge: PolymorphicComponentWithRef = forwardRef(function DummyBadge<
 		renderAction,
 		color,
 		colorMode,
-		isAnimated: animated = __DEFAULT_DUMMY_BADGE_IS_ANIMATED__,
-		isCompact: c = __DEFAULT_DUMMY_BADGE_IS_COMPACT__,
-		isFullWidth: fullWidth = __DEFAULT_DUMMY_BADGE_IS_FULLWIDTH__,
-		isOutlined: outlined = __DEFAULT_DUMMY_BADGE_IS_OUTLINED__,
-		isRound: round = __DEFAULT_DUMMY_BADGE_IS_ROUND__,
-		isUppercase: uppercase = __DEFAULT_DUMMY_BADGE_IS_UPPERCASE__,
-		size: s = __DEFAULT_DUMMY_BADGE_SIZE__,
-		variant: v = __DEFAULT_DUMMY_BADGE_VARIANT__,
+		isAnimated: isAnimatedProp = __DEFAULT_DUMMY_BADGE_IS_ANIMATED__,
+		isCompact: isCompactProp = __DEFAULT_DUMMY_BADGE_IS_COMPACT__,
+		isFullWidth: isFullWidthProp = __DEFAULT_DUMMY_BADGE_IS_FULLWIDTH__,
+		isOutlined: isOutlinedProp = __DEFAULT_DUMMY_BADGE_IS_OUTLINED__,
+		isRound: isRoundProp = __DEFAULT_DUMMY_BADGE_IS_ROUND__,
+		isUppercase: isUppercaseProp = __DEFAULT_DUMMY_BADGE_IS_UPPERCASE__,
+		size: sizeProp = __DEFAULT_DUMMY_BADGE_SIZE__,
+		variant: variantProp = __DEFAULT_DUMMY_BADGE_VARIANT__,
 		...rest
 	} = props;
 
-	const isAnimated = useGetResponsiveValue<boolean>(animated);
-	const isCompact = useGetResponsiveValue<boolean>(c);
-	const isFullWidth = useGetResponsiveValue<boolean>(fullWidth);
-	const isOutlined = useGetResponsiveValue<boolean>(outlined);
-	const isRound = useGetResponsiveValue<boolean>(round);
-	const isUppercase = useGetResponsiveValue<boolean>(uppercase);
+	const { isAnimated, isCompact, isFullWidth, isOutlined, isRound, isUppercase, size, variant } =
+		useDummyBadgeResponsiveValues({
+			isAnimated: isAnimatedProp,
+			isCompact: isCompactProp,
+			isFullWidth: isFullWidthProp,
+			isOutlined: isOutlinedProp,
+			isRound: isRoundProp,
+			isUppercase: isUppercaseProp,
+			size: sizeProp,
+			variant: variantProp
+		});
 
-	const size = useGetResponsiveValue<DummyBadgeSize>(s);
-	const variant = useGetResponsiveValue<DummyBadgeVariant>(v);
+	const config = useDummyBadgeSizeConfig({ isCompact, isRound, size, variant });
 
-	const config = useDummyBadgeSizeConfig<Element>({ isCompact, isRound, size, variant });
-
-	const classes = useDummyBadgeClasses<Element>({ isCompact, isFullWidth, isRound, isUppercase, size, variant });
+	const classes = useDummyBadgeClasses({ isCompact, isFullWidth, isRound, isUppercase, size, variant });
 
 	return (
 		<DummyBadgeContext.Provider value={{ color, colorMode, size, variant }}>
