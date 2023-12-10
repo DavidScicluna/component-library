@@ -27,8 +27,8 @@ const Center: PolymorphicComponentWithRef = forwardRef(function Center<
 	const classes = useCenterClasses<Element>({ spacing });
 
 	return (
-		<Box<Element, CenterProps<Element>>
-			{...(rest as CenterProps<Element>)}
+		<Box<Element>
+			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_CENTER_CLASS__, classes, { [className]: !!className })}
 		>
