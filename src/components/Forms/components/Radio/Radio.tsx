@@ -44,7 +44,7 @@ import {
 } from './common/constants';
 import { useRadioClasses, useRadioIconSize, useRadioResponsiveValues, useRadioSizeConfig } from './common/hooks';
 import { __KEYS_RADIO_CLASS__ } from './common/keys';
-import type { RadioFocusEvent, RadioMouseEvent, RadioProps, RadioRef } from './common/types';
+import type { RadioChangeEvent, RadioFocusEvent, RadioMouseEvent, RadioProps, RadioRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
@@ -52,7 +52,7 @@ const classNames = require('classnames');
 const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
 	Element extends ElementType = PolymorphicDefaultElement
 >(props: RadioProps<Element>, ref: RadioRef<Element>): ReactElement {
-	const pushableOverlayRef = useRef<PushableOverlayRef<PolymorphicDefaultElement>>(null);
+	const pushableOverlayRef = useRef<PushableOverlayRef<Element>>(null);
 
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
@@ -84,7 +84,7 @@ const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
 		isCompact: isCompactProp = __DEFAULT_RADIO_IS_COMPACT__,
 		isDisabled: isDisabledProp = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
 		isError: isErrorProp = __DEFAULT_FORM_CONTROL_IS_ERROR__,
-		isFocused: focused = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
+		isFocused: isFocusedProp = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
 		isOutlined: isOutlinedProp = __DEFAULT_RADIO_IS_OUTLINED__,
 		isReadOnly: isReadOnlyProp = __DEFAULT_FORM_CONTROL_IS_READONLY__,
 		isRequired: isRequiredProp = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
@@ -109,7 +109,7 @@ const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
 		isCompact,
 		isDisabled,
 		isError,
-		isFocused: isFocusedProp,
+		isFocused: focused,
 		isOutlined,
 		isReadOnly,
 		isRequired,
@@ -124,7 +124,7 @@ const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
 		isError: isErrorProp,
-		isFocused: focused,
+		isFocused: isFocusedProp,
 		isOutlined: isOutlinedProp,
 		isReadOnly: isReadOnlyProp,
 		isRequired: isRequiredProp,
@@ -134,12 +134,12 @@ const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
 		size: sizeProp
 	});
 
-	const isFocused = useMemo<boolean>(() => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
+	const isFocused = useMemo<boolean>(() => focused || isFocusedHook, [focused, isFocusedHook]);
 
-	const classes = useRadioClasses<Element>({ isActive, isClickable, isDisabled, isReadOnly });
+	const classes = useRadioClasses({ isActive, isClickable, isDisabled, isReadOnly });
 
-	const config = useRadioSizeConfig<Element>({ isCompact, size });
-	const iconSize = useRadioIconSize<Element>({ isCompact, size });
+	const config = useRadioSizeConfig({ isCompact, size });
+	const iconSize = useRadioIconSize({ isCompact, size });
 
 	const labelColor = useGetColor({
 		color: 'gray',
@@ -259,7 +259,9 @@ const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
 						checked={isChecked}
 						placeholder={placeholder}
 						type={type}
-						onChange={onToggle ? (event) => onToggle(event.target.checked) : undefined}
+						onChange={
+							onToggle ? (event: RadioChangeEvent<Element>) => onToggle(event.target.checked) : undefined
+						}
 					/>
 					<Icon
 						w={iconSize.w}

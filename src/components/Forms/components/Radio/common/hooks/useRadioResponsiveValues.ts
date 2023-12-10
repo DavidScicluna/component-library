@@ -21,24 +21,23 @@ import {
 } from '../constants';
 import type { RadioLabelPosition, RadioProps, RadioSize } from '../types';
 
+type PickedRadioProps =
+	| 'isActive'
+	| 'isChecked'
+	| 'isClickable'
+	| 'isCompact'
+	| 'isDisabled'
+	| 'isError'
+	| 'isFocused'
+	| 'isOutlined'
+	| 'isReadOnly'
+	| 'isRequired'
+	| 'isSuccess'
+	| 'isWarning'
+	| 'labelPosition'
+	| 'size';
 type UseRadioResponsiveValuesProps<Element extends ElementType = PolymorphicDefaultElement> = Partial<
-	Pick<
-		RadioProps<Element>,
-		| 'isActive'
-		| 'isChecked'
-		| 'isClickable'
-		| 'isCompact'
-		| 'isDisabled'
-		| 'isError'
-		| 'isFocused'
-		| 'isOutlined'
-		| 'isReadOnly'
-		| 'isRequired'
-		| 'isSuccess'
-		| 'isWarning'
-		| 'labelPosition'
-		// | 'size'
-	>
+	Pick<RadioProps<Element>, PickedRadioProps>
 >;
 
 const useRadioResponsiveValues = <Element extends ElementType = PolymorphicDefaultElement>(
@@ -57,8 +56,8 @@ const useRadioResponsiveValues = <Element extends ElementType = PolymorphicDefau
 		isRequired: isRequiredProp = __DEFAULT_RADIO_IS_REQUIRED__,
 		isSuccess: isSuccessProp = __DEFAULT_RADIO_IS_SUCCESS__,
 		isWarning: isWarningProp = __DEFAULT_RADIO_IS_WARNING__,
-		labelPosition: labelPositionProp = __DEFAULT_RADIO_LABEL_POSITION__
-		// size: sizeProp = __DEFAULT_RADIO_SIZE__
+		labelPosition: labelPositionProp = __DEFAULT_RADIO_LABEL_POSITION__,
+		size: sizeProp = __DEFAULT_RADIO_SIZE__
 	} = props;
 
 	const isActive = useGetResponsiveValue<boolean>(isActiveProp);
@@ -76,7 +75,7 @@ const useRadioResponsiveValues = <Element extends ElementType = PolymorphicDefau
 
 	const labelPosition = useGetResponsiveValue<RadioLabelPosition>(labelPositionProp);
 
-	// const size = useGetResponsiveValue<RadioSize>(sizeProp);
+	const size = useGetResponsiveValue<RadioSize>(sizeProp);
 
 	return {
 		isActive,
@@ -91,8 +90,8 @@ const useRadioResponsiveValues = <Element extends ElementType = PolymorphicDefau
 		isRequired,
 		isSuccess,
 		isWarning,
-		labelPosition
-		// size
+		labelPosition,
+		size
 	};
 };
 

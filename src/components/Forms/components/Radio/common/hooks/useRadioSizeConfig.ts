@@ -1,7 +1,6 @@
-import type { ElementType } from 'react';
 import { useMemo } from 'react';
 
-import type { PolymorphicDefaultElement, ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
+import type { ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
 
 import { __DEFAULT_RADIO_IS_COMPACT__, __DEFAULT_RADIO_SIZE__ } from '../constants';
 import type { RadioProps } from '../types';
@@ -15,18 +14,13 @@ type RadioSizeConfig = {
 	spacing: ThemeSpacing;
 };
 
-type UseRadioSizeConfigProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	RadioProps<Element>,
-	'isCompact' | 'size'
->;
+type UseRadioSizeConfigProps = Pick<RadioProps, 'isCompact' | 'size'>;
 type UseRadioSizeConfigReturn = RadioSizeConfig;
 
-const useRadioSizeConfig = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseRadioSizeConfigProps<Element>
-): UseRadioSizeConfigReturn => {
+const useRadioSizeConfig = (props: UseRadioSizeConfigProps): UseRadioSizeConfigReturn => {
 	const { isCompact: isCompactProp = __DEFAULT_RADIO_IS_COMPACT__, size: sizeProp = __DEFAULT_RADIO_SIZE__ } = props;
 
-	const { isCompact, size } = useRadioResponsiveValues<Element>({ isCompact: isCompactProp, size: sizeProp });
+	const { isCompact, size } = useRadioResponsiveValues({ isCompact: isCompactProp, size: sizeProp });
 
 	const config = useMemo<RadioSizeConfig>(() => {
 		const radius: ThemeRadius = 'full';
