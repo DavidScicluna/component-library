@@ -16,19 +16,21 @@ import {
 } from '../constants';
 import type { CardProps, CardVariant } from '../types';
 
-type UseCardResponsiveValuesProps = Pick<
-	CardProps,
-	| 'isActive'
-	| 'isClickable'
-	| 'isCollapsable'
-	| 'isDisabled'
-	| 'isDivisible'
-	| 'isFixed'
-	| 'isOpen'
-	| 'isOutlined'
-	| 'radius'
-	| 'spacing'
-	| 'variant'
+type UseCardResponsiveValuesProps = Partial<
+	Pick<
+		CardProps,
+		| 'isActive'
+		| 'isClickable'
+		| 'isCollapsable'
+		| 'isDisabled'
+		| 'isDivisible'
+		| 'isFixed'
+		| 'isOpen'
+		| 'isOutlined'
+		| 'radius'
+		| 'spacing'
+		| 'variant'
+	>
 >;
 
 const useCardResponsiveValues = (props: UseCardResponsiveValuesProps) => {

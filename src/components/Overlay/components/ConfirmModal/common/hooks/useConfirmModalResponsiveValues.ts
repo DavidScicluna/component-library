@@ -10,9 +10,8 @@ import {
 } from '../constants';
 import type { ConfirmModalProps, ConfirmModalSize } from '../types';
 
-type UseConfirmModalResponsiveValuesProps = Pick<
-	ConfirmModalProps,
-	'closeOnEsc' | 'closeOnOverlayClick' | 'hasBackdrop' | 'spacing' | 'size'
+type UseConfirmModalResponsiveValuesProps = Partial<
+	Pick<ConfirmModalProps, 'closeOnEsc' | 'closeOnOverlayClick' | 'hasBackdrop' | 'spacing' | 'size'>
 >;
 
 const useConfirmModalResponsiveValues = (props: UseConfirmModalResponsiveValuesProps) => {

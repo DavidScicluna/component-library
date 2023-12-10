@@ -11,9 +11,8 @@ import {
 } from '../constants';
 import type { DummyButtonProps, DummyButtonSize, DummyButtonVariant } from '../types';
 
-type UseDummyButtonResponsiveValuesProps = Pick<
-	DummyButtonProps,
-	'isAnimated' | 'isCompact' | 'isFullWidth' | 'isRound' | 'isOutlined' | 'size' | 'variant'
+type UseDummyButtonResponsiveValuesProps = Partial<
+	Pick<DummyButtonProps, 'isAnimated' | 'isCompact' | 'isFullWidth' | 'isRound' | 'isOutlined' | 'size' | 'variant'>
 >;
 
 const useDummyButtonResponsiveValues = (props: UseDummyButtonResponsiveValuesProps) => {

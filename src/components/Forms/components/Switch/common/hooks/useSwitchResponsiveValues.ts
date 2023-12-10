@@ -22,23 +22,25 @@ import {
 } from '../constants';
 import type { SwitchLabelPosition, SwitchProps, SwitchSize } from '../types';
 
-type UseSwitchResponsiveValuesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	SwitchProps<Element>,
-	| 'hasIOLabel'
-	| 'isActive'
-	| 'isChecked'
-	| 'isClickable'
-	| 'isCompact'
-	| 'isDisabled'
-	| 'isError'
-	| 'isFocused'
-	| 'isOutlined'
-	| 'isReadOnly'
-	| 'isRequired'
-	| 'isSuccess'
-	| 'isWarning'
-	| 'labelPosition'
-	| 'size'
+type UseSwitchResponsiveValuesProps<Element extends ElementType = PolymorphicDefaultElement> = Partial<
+	Pick<
+		SwitchProps<Element>,
+		| 'hasIOLabel'
+		| 'isActive'
+		| 'isChecked'
+		| 'isClickable'
+		| 'isCompact'
+		| 'isDisabled'
+		| 'isError'
+		| 'isFocused'
+		| 'isOutlined'
+		| 'isReadOnly'
+		| 'isRequired'
+		| 'isSuccess'
+		| 'isWarning'
+		| 'labelPosition'
+		// | 'size'
+	>
 >;
 
 const useSwitchResponsiveValues = <Element extends ElementType = PolymorphicDefaultElement>(

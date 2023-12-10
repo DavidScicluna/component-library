@@ -5,7 +5,7 @@ import type { ThemeRadius, ThemeSpacing } from '@common/types';
 import { __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_VARIANT__ } from '../constants';
 import type { MessageProps, MessageVariant } from '../types';
 
-type UseMessageResponsiveValuesProps = Pick<MessageProps, 'radius' | 'spacing' | 'variant'>;
+type UseMessageResponsiveValuesProps = Partial<Pick<MessageProps, 'radius' | 'spacing' | 'variant'>>;
 
 const useMessageResponsiveValues = (props: UseMessageResponsiveValuesProps) => {
 	const {

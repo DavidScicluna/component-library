@@ -14,18 +14,20 @@ import {
 } from '../constants';
 import type { ButtonProps, ButtonSize, ButtonVariant } from '../types';
 
-type UseButtonResponsiveValuesProps = Pick<
-	ButtonProps,
-	| 'isActive'
-	| 'isCompact'
-	| 'isDisabled'
-	| 'isFocused'
-	| 'isFullWidth'
-	| 'isLoading'
-	| 'isRound'
-	| 'isOutlined'
-	| 'size'
-	| 'variant'
+type UseButtonResponsiveValuesProps = Partial<
+	Pick<
+		ButtonProps,
+		| 'isActive'
+		| 'isCompact'
+		| 'isDisabled'
+		| 'isFocused'
+		| 'isFullWidth'
+		| 'isLoading'
+		| 'isRound'
+		| 'isOutlined'
+		| 'size'
+		| 'variant'
+	>
 >;
 
 const useButtonResponsiveValues = (props: UseButtonResponsiveValuesProps) => {

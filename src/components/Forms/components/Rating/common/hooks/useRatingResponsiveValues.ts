@@ -17,18 +17,20 @@ import {
 } from '../constants';
 import type { RatingDirection, RatingHighlightMode, RatingProps, RatingSize } from '../types';
 
-type UseRatingResponsiveValuesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	RatingProps<Element>,
-	| 'count'
-	| 'direction'
-	| 'highlightMode'
-	| 'isDisabled'
-	| 'isError'
-	| 'isReadOnly'
-	| 'isRequired'
-	| 'isSuccess'
-	| 'isWarning'
-	| 'size'
+type UseRatingResponsiveValuesProps<Element extends ElementType = PolymorphicDefaultElement> = Partial<
+	Pick<
+		RatingProps<Element>,
+		| 'count'
+		| 'direction'
+		| 'highlightMode'
+		| 'isDisabled'
+		| 'isError'
+		| 'isReadOnly'
+		| 'isRequired'
+		| 'isSuccess'
+		| 'isWarning'
+		// | 'size'
+	>
 >;
 
 const useRatingResponsiveValues = <Element extends ElementType = PolymorphicDefaultElement>(

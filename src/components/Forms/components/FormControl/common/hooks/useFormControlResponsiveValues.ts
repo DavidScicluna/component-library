@@ -19,19 +19,21 @@ import {
 } from '../constants';
 import type { FormControlProps, FormControlSize } from '../types';
 
-type UseFormControlResponsiveValuesProps = Pick<
-	FormControlProps,
-	| 'alignItems'
-	| 'justifyContent'
-	| 'isDisabled'
-	| 'isError'
-	| 'isFocused'
-	| 'isReadOnly'
-	| 'isRequired'
-	| 'isSuccess'
-	| 'isWarning'
-	| 'size'
-	| 'spacing'
+type UseFormControlResponsiveValuesProps = Partial<
+	Pick<
+		FormControlProps,
+		| 'alignItems'
+		| 'justifyContent'
+		| 'isDisabled'
+		| 'isError'
+		| 'isFocused'
+		| 'isReadOnly'
+		| 'isRequired'
+		| 'isSuccess'
+		| 'isWarning'
+		| 'size'
+		| 'spacing'
+	>
 >;
 
 const useFormControlResponsiveValues = (props: UseFormControlResponsiveValuesProps) => {

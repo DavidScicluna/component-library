@@ -12,7 +12,6 @@ import {
 } from '../constants';
 import type { DummyTabsAlign, DummyTabsOrientation, DummyTabsProps, DummyTabsSize } from '../types';
 
-// TODO: Go over all ResponseValues and set props to Partial
 type UseDummyTabsResponsiveValuesProps = Partial<
 	Pick<DummyTabsProps, 'align' | 'index' | 'isAnimated' | 'isFitted' | 'orientation' | 'size' | 'spacing'>
 >;

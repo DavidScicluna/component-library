@@ -12,9 +12,11 @@ import {
 } from '../constants';
 import type { DummyBadgeProps, DummyBadgeSize, DummyBadgeVariant } from '../types';
 
-type UseDummyBadgeResponsiveValuesProps = Pick<
-	DummyBadgeProps,
-	'isAnimated' | 'isCompact' | 'isFullWidth' | 'isOutlined' | 'isRound' | 'isUppercase' | 'size' | 'variant'
+type UseDummyBadgeResponsiveValuesProps = Partial<
+	Pick<
+		DummyBadgeProps,
+		'isAnimated' | 'isCompact' | 'isFullWidth' | 'isOutlined' | 'isRound' | 'isUppercase' | 'size' | 'variant'
+	>
 >;
 
 const useDummyBadgeResponsiveValues = (props: UseDummyBadgeResponsiveValuesProps) => {

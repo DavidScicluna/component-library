@@ -11,9 +11,8 @@ import {
 } from '../constants';
 import type { TransitionDelay, TransitionDuration, TransitionKey, TransitionProps, TransitionVariant } from '../types';
 
-type UseTransitionResponsiveValuesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	TransitionProps<Element>,
-	'config' | 'delay' | 'duration' | 'easing' | 'in' | 'transition' | 'unmountOnExit'
+type UseTransitionResponsiveValuesProps<Element extends ElementType = PolymorphicDefaultElement> = Partial<
+	Pick<TransitionProps<Element>, 'config' | 'delay' | 'duration' | 'easing' | 'in' | 'transition' | 'unmountOnExit'>
 >;
 
 const useTransitionResponsiveValues = <Element extends ElementType = PolymorphicDefaultElement>(

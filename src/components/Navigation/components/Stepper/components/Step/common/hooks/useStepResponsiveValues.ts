@@ -9,9 +9,8 @@ import {
 } from '../constants';
 import type { StepDefaultElement, StepElement, StepProps, StepStatus } from '../types';
 
-type UseStepResponsiveValuesProps<Element extends StepElement = StepDefaultElement> = Pick<
-	StepProps<Element>,
-	'isActive' | 'isCompact' | 'isDisabled' | 'isUppercase' | 'status'
+type UseStepResponsiveValuesProps<Element extends StepElement = StepDefaultElement> = Partial<
+	Pick<StepProps<Element>, 'isActive' | 'isCompact' | 'isDisabled' | 'isUppercase' | 'status'>
 >;
 
 const useStepResponsiveValues = <Element extends StepElement = StepDefaultElement>(

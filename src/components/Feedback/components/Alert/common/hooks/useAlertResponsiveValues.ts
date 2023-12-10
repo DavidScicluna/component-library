@@ -5,7 +5,7 @@ import type { ThemeSpacing } from '@common/types';
 import { __DEFAULT_ALERT_DURATION__, __DEFAULT_ALERT_STATUS__, __DEFAULT_ALERT_VARIANT__ } from '../constants';
 import type { AlertDuration, AlertProps, AlertStatus, AlertVariant } from '../types';
 
-type UseAlertResponsiveValuesProps = Pick<AlertProps, 'duration' | 'spacing' | 'status' | 'variant'>;
+type UseAlertResponsiveValuesProps = Partial<Pick<AlertProps, 'duration' | 'spacing' | 'status' | 'variant'>>;
 
 const useAlertResponsiveValues = (props: UseAlertResponsiveValuesProps) => {
 	const {

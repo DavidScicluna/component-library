@@ -15,9 +15,11 @@ import { __DEFAULT_STACK_DIRECTION__ } from '@components/Layout/components/Stack
 import { __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__ } from '../constants';
 import type { IconButtonGroupProps } from '../types';
 
-type UseIconButtonGroupResponsiveValuesProps = Pick<
-	IconButtonGroupProps,
-	'direction' | 'isAttached' | 'isCompact' | 'isDisabled' | 'isRound' | 'spacing' | 'size' | 'variant'
+type UseIconButtonGroupResponsiveValuesProps = Partial<
+	Pick<
+		IconButtonGroupProps,
+		'direction' | 'isAttached' | 'isCompact' | 'isDisabled' | 'isRound' | 'spacing' | 'size' | 'variant'
+	>
 >;
 
 const useIconButtonGroupResponsiveValues = (props: UseIconButtonGroupResponsiveValuesProps) => {

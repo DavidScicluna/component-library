@@ -11,9 +11,8 @@ import {
 } from '../constants';
 import type { ProgressProps, ProgressVariant } from '../types';
 
-type UseProgressResponsiveValuesProps = Pick<
-	ProgressProps,
-	'isIndeterminate' | 'max' | 'min' | 'radius' | 'value' | 'variant'
+type UseProgressResponsiveValuesProps = Partial<
+	Pick<ProgressProps, 'isIndeterminate' | 'max' | 'min' | 'radius' | 'value' | 'variant'>
 >;
 
 const useProgressResponsiveValues = (props: UseProgressResponsiveValuesProps) => {

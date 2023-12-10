@@ -22,23 +22,25 @@ import {
 } from '../constants';
 import type { CheckboxLabelPosition, CheckboxProps, CheckboxSize } from '../types';
 
-type UseCheckboxResponsiveValuesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	CheckboxProps<Element>,
-	| 'isActive'
-	| 'isChecked'
-	| 'isClickable'
-	| 'isCompact'
-	| 'isDisabled'
-	| 'isError'
-	| 'isFocused'
-	| 'isIndeterminate'
-	| 'isOutlined'
-	| 'isReadOnly'
-	| 'isRequired'
-	| 'isSuccess'
-	| 'isWarning'
-	| 'labelPosition'
-	| 'size'
+type UseCheckboxResponsiveValuesProps<Element extends ElementType = PolymorphicDefaultElement> = Partial<
+	Pick<
+		CheckboxProps<Element>,
+		| 'isActive'
+		| 'isChecked'
+		| 'isClickable'
+		| 'isCompact'
+		| 'isDisabled'
+		| 'isError'
+		| 'isFocused'
+		| 'isIndeterminate'
+		| 'isOutlined'
+		| 'isReadOnly'
+		| 'isRequired'
+		| 'isSuccess'
+		| 'isWarning'
+		| 'labelPosition'
+		// | 'size'
+	>
 >;
 
 const useCheckboxResponsiveValues = <Element extends ElementType = PolymorphicDefaultElement>(

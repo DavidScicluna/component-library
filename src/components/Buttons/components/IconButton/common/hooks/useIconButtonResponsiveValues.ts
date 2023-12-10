@@ -13,9 +13,19 @@ import {
 } from '../constants';
 import type { IconButtonProps, IconButtonSize, IconButtonVariant } from '../types';
 
-type UseIconButtonResponsiveValuesProps = Pick<
-	IconButtonProps,
-	'isActive' | 'isCompact' | 'isDisabled' | 'isFocused' | 'isLoading' | 'isRound' | 'isOutlined' | 'size' | 'variant'
+type UseIconButtonResponsiveValuesProps = Partial<
+	Pick<
+		IconButtonProps,
+		| 'isActive'
+		| 'isCompact'
+		| 'isDisabled'
+		| 'isFocused'
+		| 'isLoading'
+		| 'isRound'
+		| 'isOutlined'
+		| 'size'
+		| 'variant'
+	>
 >;
 
 const useIconButtonResponsiveValues = (props: UseIconButtonResponsiveValuesProps) => {

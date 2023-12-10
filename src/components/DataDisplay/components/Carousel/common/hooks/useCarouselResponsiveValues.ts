@@ -11,9 +11,8 @@ import {
 } from '../constants';
 import type { CarouselOrientation, CarouselProps, CarouselScrollAmount, CarouselVariant } from '../types';
 
-type UseCarouselResponsiveValuesProps = Pick<
-	CarouselProps,
-	'divider' | 'scrollAmount' | 'spacing' | 'orientation' | 'variant'
+type UseCarouselResponsiveValuesProps = Partial<
+	Pick<CarouselProps, 'divider' | 'scrollAmount' | 'spacing' | 'orientation' | 'variant'>
 >;
 
 const useCarouselResponsiveValues = (props: UseCarouselResponsiveValuesProps) => {

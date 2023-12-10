@@ -16,9 +16,19 @@ import { __DEFAULT_STACK_DIRECTION__ } from '@components/Layout/components/Stack
 import { __DEFAULT_BUTTON_GROUP_IS_ATTACHED__ } from '../constants';
 import type { ButtonGroupProps } from '../types';
 
-type UseButtonGroupResponsiveValuesProps = Pick<
-	ButtonGroupProps,
-	'direction' | 'isAttached' | 'isCompact' | 'isDisabled' | 'isFullWidth' | 'isRound' | 'spacing' | 'size' | 'variant'
+type UseButtonGroupResponsiveValuesProps = Partial<
+	Pick<
+		ButtonGroupProps,
+		| 'direction'
+		| 'isAttached'
+		| 'isCompact'
+		| 'isDisabled'
+		| 'isFullWidth'
+		| 'isRound'
+		| 'spacing'
+		| 'size'
+		| 'variant'
+	>
 >;
 
 const useButtonGroupResponsiveValues = (props: UseButtonGroupResponsiveValuesProps) => {

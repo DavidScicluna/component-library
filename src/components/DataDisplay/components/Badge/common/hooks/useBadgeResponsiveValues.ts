@@ -14,18 +14,20 @@ import {
 } from '../constants';
 import type { BadgeProps, BadgeSize, BadgeVariant } from '../types';
 
-type UseBadgeResponsiveValuesProps = Pick<
-	BadgeProps,
-	| 'isActive'
-	| 'isClickable'
-	| 'isCompact'
-	| 'isDisabled'
-	| 'isFullWidth'
-	| 'isOutlined'
-	| 'isRound'
-	| 'isUppercase'
-	| 'size'
-	| 'variant'
+type UseBadgeResponsiveValuesProps = Partial<
+	Pick<
+		BadgeProps,
+		| 'isActive'
+		| 'isClickable'
+		| 'isCompact'
+		| 'isDisabled'
+		| 'isFullWidth'
+		| 'isOutlined'
+		| 'isRound'
+		| 'isUppercase'
+		| 'size'
+		| 'variant'
+	>
 >;
 
 const useBadgeResponsiveValues = (props: UseBadgeResponsiveValuesProps) => {

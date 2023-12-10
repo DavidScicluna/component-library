@@ -10,9 +10,8 @@ import {
 } from '../constants';
 import type { DummyIconButtonProps, DummyIconButtonSize, DummyIconButtonVariant } from '../types';
 
-type UseDummyIconButtonResponsiveValuesProps = Pick<
-	DummyIconButtonProps,
-	'isAnimated' | 'isCompact' | 'isRound' | 'isOutlined' | 'size' | 'variant'
+type UseDummyIconButtonResponsiveValuesProps = Partial<
+	Pick<DummyIconButtonProps, 'isAnimated' | 'isCompact' | 'isRound' | 'isOutlined' | 'size' | 'variant'>
 >;
 
 const useDummyIconButtonResponsiveValues = (props: UseDummyIconButtonResponsiveValuesProps) => {
