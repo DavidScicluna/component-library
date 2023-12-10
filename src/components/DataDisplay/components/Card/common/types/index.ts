@@ -71,7 +71,14 @@ export type CardProps<Element extends ElementType = PolymorphicDefaultElement> =
 
 export type CardRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
-export type CardContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	CardProps<Element>,
-	'color' | 'colorMode' | 'isCollapsable' | 'isDisabled' | 'isDivisible' | 'isOpen' | 'spacing' | 'variant'
-> & { isHovering: boolean; onHover: UseBooleanToggles };
+type PickedCardProps =
+	| 'color'
+	| 'colorMode'
+	| 'isCollapsable'
+	| 'isDisabled'
+	| 'isDivisible'
+	| 'isOpen'
+	| 'spacing'
+	| 'variant';
+
+export type CardContext = Pick<CardProps, PickedCardProps> & { isHovering: boolean; onHover: UseBooleanToggles };

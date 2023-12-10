@@ -1,9 +1,6 @@
-import type { ElementType } from 'react';
 import { useContext } from 'react';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
 
 import { CardContext } from '../../Card';
 import {
@@ -13,29 +10,32 @@ import {
 	__DEFAULT_CARD_IS_OPEN__,
 	__DEFAULT_CARD_VARIANT__
 } from '../constants';
-import type { CardContext as CardContextType, CardVariant } from '../types';
+import type { CardContext as CardContextType } from '../types';
 
-const useCardContext = <Element extends ElementType = PolymorphicDefaultElement>() => {
+import useCardResponsiveValues from './useCardResponsiveValues';
+
+const useCardContext = () => {
 	const {
 		color,
 		colorMode,
-		isCollapsable: collapsable = __DEFAULT_CARD_IS_COLLAPSABLE__,
-		isDisabled: disabled = __DEFAULT_CARD_IS_DISABLED__,
-		isDivisible: divisible = __DEFAULT_CARD_IS_DIVISIBLE__,
+		isCollapsable: isCollapsableProp = __DEFAULT_CARD_IS_COLLAPSABLE__,
+		isDisabled: isDisabledProp = __DEFAULT_CARD_IS_DISABLED__,
+		isDivisible: isDivisibleProp = __DEFAULT_CARD_IS_DIVISIBLE__,
 		isHovering,
-		isOpen: open = __DEFAULT_CARD_IS_OPEN__,
+		isOpen: isOpenProp = __DEFAULT_CARD_IS_OPEN__,
 		onHover,
-		spacing: s = __DEFAULT_SPACING__,
-		variant: v = __DEFAULT_CARD_VARIANT__
-	} = useContext<CardContextType<Element>>(CardContext);
+		spacing: spacingProp = __DEFAULT_SPACING__,
+		variant: variantProp = __DEFAULT_CARD_VARIANT__
+	} = useContext<CardContextType>(CardContext);
 
-	const isCollapsable = useGetResponsiveValue<boolean>(collapsable);
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-	const isDivisible = useGetResponsiveValue<boolean>(divisible);
-	const isOpen = useGetResponsiveValue<boolean>(open);
-
-	const spacing = useGetResponsiveValue<ThemeSpacing>(s);
-	const variant = useGetResponsiveValue<CardVariant>(v);
+	const { isCollapsable, isDisabled, isDivisible, isOpen, spacing, variant } = useCardResponsiveValues({
+		isCollapsable: isCollapsableProp,
+		isDisabled: isDisabledProp,
+		isDivisible: isDivisibleProp,
+		isOpen: isOpenProp,
+		spacing: spacingProp,
+		variant: variantProp
+	});
 
 	return { color, colorMode, isCollapsable, isDisabled, isDivisible, isHovering, isOpen, onHover, spacing, variant };
 };

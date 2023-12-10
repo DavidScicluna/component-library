@@ -4,14 +4,12 @@ import { createContext, forwardRef } from 'react';
 import { useFocus } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__, __DEFAULT_USE_BOOLEAN_TOGGLES__ } from '@common/constants';
-import { useBoolean, useGetResponsiveValue } from '@common/hooks';
+import { useBoolean } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	ThemeRadius,
-	ThemeSpacing
+	PolymorphicDefaultProps
 } from '@common/types';
 
 import { PushableOverlay } from '@components/Overlay';
@@ -31,14 +29,14 @@ import {
 	__DEFAULT_CARD_RADIUS__,
 	__DEFAULT_CARD_VARIANT__
 } from './common/constants';
+import { useCardResponsiveValues } from './common/hooks';
 import { __KEYS_CARD_CLASS__ } from './common/keys';
-import type { CardContext as CardContextType, CardMouseEvent, CardProps, CardRef, CardVariant } from './common/types';
+import type { CardContext as CardContextType, CardMouseEvent, CardProps, CardRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const CardContext = createContext<CardContextType<any>>({
+export const CardContext = createContext<CardContextType>({
 	isCollapsable: __DEFAULT_CARD_IS_COLLAPSABLE__,
 	isDivisible: __DEFAULT_CARD_IS_DIVISIBLE__,
 	isHovering: __DEFAULT_CARD_IS_HOVERING__,
@@ -57,37 +55,50 @@ const Card: PolymorphicComponentWithRef = forwardRef(function Card<
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		isActive: active = __DEFAULT_CARD_IS_ACTIVE__,
-		isClickable: clickable = __DEFAULT_CARD_IS_CLICKABLE__,
-		isCollapsable: collapsable = __DEFAULT_CARD_IS_COLLAPSABLE__,
-		isDisabled: disabled = __DEFAULT_CARD_IS_DISABLED__,
-		isDivisible: divisible = __DEFAULT_CARD_IS_DIVISIBLE__,
-		isFixed: fixed = __DEFAULT_CARD_IS_FIXED__,
-		isOpen: open = __DEFAULT_CARD_IS_OPEN__,
-		isOutlined: outlined = __DEFAULT_CARD_IS_OUTLINED__,
+		isActive: isActiveProp = __DEFAULT_CARD_IS_ACTIVE__,
+		isClickable: isClickableProp = __DEFAULT_CARD_IS_CLICKABLE__,
+		isCollapsable: isCollapsableProp = __DEFAULT_CARD_IS_COLLAPSABLE__,
+		isDisabled: isDisabledProp = __DEFAULT_CARD_IS_DISABLED__,
+		isDivisible: isDivisibleProp = __DEFAULT_CARD_IS_DIVISIBLE__,
+		isFixed: isFixedProp = __DEFAULT_CARD_IS_FIXED__,
+		isOpen: isOpenProp = __DEFAULT_CARD_IS_OPEN__,
+		isOutlined: isOutlinedProp = __DEFAULT_CARD_IS_OUTLINED__,
 		onToggle,
 		onClick,
-		radius: r = __DEFAULT_CARD_RADIUS__,
-		spacing: s = __DEFAULT_SPACING__,
-		variant: v = __DEFAULT_CARD_VARIANT__,
+		radius: radiusProp = __DEFAULT_CARD_RADIUS__,
+		spacing: spacingProp = __DEFAULT_SPACING__,
+		variant: variantProp = __DEFAULT_CARD_VARIANT__,
 		...rest
 	} = props;
 
 	const [isHovering, setIsHovering] = useBoolean();
 	const [isFocused, setIsFocused] = useBoolean();
 
-	const isActive = useGetResponsiveValue<boolean>(active);
-	const isClickable = useGetResponsiveValue<boolean>(clickable);
-	const isCollapsable = useGetResponsiveValue<boolean>(collapsable);
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-	const isDivisible = useGetResponsiveValue<boolean>(divisible);
-	const isFixed = useGetResponsiveValue<boolean>(fixed);
-	const isOpen = useGetResponsiveValue<boolean>(open);
-	const isOutlined = useGetResponsiveValue<boolean>(outlined);
-
-	const radius = useGetResponsiveValue<ThemeRadius>(r);
-	const spacing = useGetResponsiveValue<ThemeSpacing>(s);
-	const variant = useGetResponsiveValue<CardVariant>(v);
+	const {
+		isActive,
+		isClickable,
+		isCollapsable,
+		isDisabled,
+		isDivisible,
+		isFixed,
+		isOpen,
+		isOutlined,
+		radius,
+		spacing,
+		variant
+	} = useCardResponsiveValues({
+		isActive: isActiveProp,
+		isClickable: isClickableProp,
+		isCollapsable: isCollapsableProp,
+		isDisabled: isDisabledProp,
+		isDivisible: isDivisibleProp,
+		isFixed: isFixedProp,
+		isOpen: isOpenProp,
+		isOutlined: isOutlinedProp,
+		radius: radiusProp,
+		spacing: spacingProp,
+		variant: variantProp
+	});
 
 	const { focusProps } = useFocus({ onFocus: () => setIsFocused.on(), onBlur: () => setIsFocused.off() });
 
@@ -135,7 +146,7 @@ const Card: PolymorphicComponentWithRef = forwardRef(function Card<
 				variant={variant}
 			>
 				<VisuallyHidden sx={{ position: 'absolute', top: 0 }}>
-					<span id={id.toLowerCase()} />
+					<span id={String(id).toLowerCase()} />
 				</VisuallyHidden>
 
 				{children}

@@ -1,3 +1,4 @@
 import useCardContext from './useCardContext';
+import useCardResponsiveValues from './useCardResponsiveValues';
 
-export { useCardContext };
+export { useCardContext, useCardResponsiveValues };
