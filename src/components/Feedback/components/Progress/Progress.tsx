@@ -2,13 +2,11 @@ import type { ElementType, ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	ThemeRadius
+	PolymorphicDefaultProps
 } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -20,21 +18,15 @@ import {
 	__DEFAULT_PROGRESS_VALUE__,
 	__DEFAULT_PROGRESS_VARIANT__
 } from './common/constants';
-import { useProgressClasses, useProgressStyles } from './common/hooks';
+import { useProgressClasses, useProgressResponsiveValues, useProgressStyles } from './common/hooks';
 import { __KEYS_PROGRESS_CLASS__ } from './common/keys';
-import type {
-	ProgressContext as ProgressContextType,
-	ProgressProps,
-	ProgressRef,
-	ProgressVariant
-} from './common/types';
+import type { ProgressContext as ProgressContextType, ProgressProps, ProgressRef } from './common/types';
 import { ProgressSection } from './components';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const ProgressContext = createContext<ProgressContextType<any>>({
+export const ProgressContext = createContext<ProgressContextType>({
 	isIndeterminate: __DEFAULT_PROGRESS_IS_INDETERMINATE__,
 	max: __DEFAULT_PROGRESS_MAX__,
 	min: __DEFAULT_PROGRESS_MIN__,
@@ -50,24 +42,26 @@ const Progress: PolymorphicComponentWithRef = forwardRef(function Progress<
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		isIndeterminate: indeterminate = __DEFAULT_PROGRESS_IS_INDETERMINATE__,
-		max: ma = __DEFAULT_PROGRESS_MAX__,
-		min: mi = __DEFAULT_PROGRESS_MIN__,
-		radius: r = __DEFAULT_RADIUS__,
-		value: val = __DEFAULT_PROGRESS_VALUE__,
-		variant: va = __DEFAULT_PROGRESS_VARIANT__,
+		isIndeterminate: isIndeterminateProp = __DEFAULT_PROGRESS_IS_INDETERMINATE__,
+		max: maxProp = __DEFAULT_PROGRESS_MAX__,
+		min: minProp = __DEFAULT_PROGRESS_MIN__,
+		radius: radiusProp = __DEFAULT_RADIUS__,
+		value: valueProp = __DEFAULT_PROGRESS_VALUE__,
+		variant: variantProp = __DEFAULT_PROGRESS_VARIANT__,
 		...rest
 	} = props;
 
-	const isIndeterminate = useGetResponsiveValue<boolean>(indeterminate);
-	const max = useGetResponsiveValue<number>(ma);
-	const min = useGetResponsiveValue<number>(mi);
-	const radius = useGetResponsiveValue<ThemeRadius>(r);
-	const value = useGetResponsiveValue<number>(val);
-	const variant = useGetResponsiveValue<ProgressVariant>(va);
+	const { isIndeterminate, max, min, radius, value, variant } = useProgressResponsiveValues({
+		isIndeterminate: isIndeterminateProp,
+		max: maxProp,
+		min: minProp,
+		radius: radiusProp,
+		value: valueProp,
+		variant: variantProp
+	});
 
-	const classes = useProgressClasses<Element>({ color, colorMode, radius });
-	const styles = useProgressStyles<Element>({ variant });
+	const classes = useProgressClasses({ color, colorMode, radius });
+	const styles = useProgressStyles({ variant });
 
 	return (
 		<ProgressContext.Provider value={{ color, colorMode, isIndeterminate, max, min, radius, variant }}>

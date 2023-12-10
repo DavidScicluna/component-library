@@ -53,7 +53,7 @@ export type ProgressProps<Element extends ElementType = PolymorphicDefaultElemen
 
 export type ProgressRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
-export type ProgressContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	ProgressProps<Element>,
+export type ProgressContext = Pick<
+	ProgressProps,
 	'color' | 'colorMode' | 'isIndeterminate' | 'max' | 'min' | 'radius' | 'variant'
 >;

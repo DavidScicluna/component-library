@@ -1,18 +1,15 @@
-import type { ElementType } from 'react';
-
 import { keyframes } from '@emotion/react';
 
 import { useConst } from '@common/hooks';
-import type { PolymorphicDefaultElement, Style } from '@common/types';
+import type { Style } from '@common/types';
 import { getAnimationDuration } from '@common/utils';
 
 import { __DEFAULT_PROGRESS_VARIANT__ } from '../constants';
 import type { ProgressProps } from '../types';
 
-type UseProgressStylesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	ProgressProps<Element>,
-	'variant'
->;
+import useProgressResponsiveValues from './useProgressResponsiveValues';
+
+type UseProgressStylesProps = Pick<ProgressProps, 'variant'>;
 type UseProgressStylesReturn = Style;
 
 const horizontalIndeterminate = keyframes({
@@ -25,12 +22,12 @@ const verticalIndeterminate = keyframes({
 	to: { bottom: '100%' }
 });
 
-const useProgressStyles = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseProgressStylesProps<Element>
-): UseProgressStylesReturn => {
+const useProgressStyles = (props: UseProgressStylesProps): UseProgressStylesReturn => {
 	const duration = useConst(getAnimationDuration('ultra-slow'));
 
-	const { variant = __DEFAULT_PROGRESS_VARIANT__ } = props;
+	const { variant: variantProp = __DEFAULT_PROGRESS_VARIANT__ } = props;
+
+	const { variant } = useProgressResponsiveValues({ variant: variantProp });
 
 	return {
 		animationDuration: `${duration}s`,
