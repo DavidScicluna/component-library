@@ -1,7 +1,5 @@
-import type { ElementType } from 'react';
-
 import classes from '@common/classes';
-import type { ClassName, PolymorphicDefaultElement } from '@common/types';
+import type { ClassName } from '@common/types';
 
 import {
 	__DEFAULT_CHECKBOX_IS_ACTIVE__,
@@ -16,15 +14,10 @@ import { useCheckboxResponsiveValues } from '.';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseCheckboxClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	CheckboxProps<Element>,
-	'isActive' | 'isClickable' | 'isDisabled' | 'isReadOnly'
->;
+type UseCheckboxClassesProps = Pick<CheckboxProps, 'isActive' | 'isClickable' | 'isDisabled' | 'isReadOnly'>;
 type UseCheckboxClassesReturn = ClassName;
 
-const useCheckboxClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseCheckboxClassesProps<Element>
-): UseCheckboxClassesReturn => {
+const useCheckboxClasses = (props: UseCheckboxClassesProps): UseCheckboxClassesReturn => {
 	const {
 		isActive: isActiveProp = __DEFAULT_CHECKBOX_IS_ACTIVE__,
 		isClickable: isClickableProp = __DEFAULT_CHECKBOX_IS_CLICKABLE__,
@@ -32,7 +25,7 @@ const useCheckboxClasses = <Element extends ElementType = PolymorphicDefaultElem
 		isReadOnly: isReadOnlyProp = __DEFAULT_CHECKBOX_IS_READONLY__
 	} = props;
 
-	const { isActive, isClickable, isDisabled, isReadOnly } = useCheckboxResponsiveValues<Element>({
+	const { isActive, isClickable, isDisabled, isReadOnly } = useCheckboxResponsiveValues({
 		isActive: isActiveProp,
 		isClickable: isClickableProp,
 		isDisabled: isDisabledProp,

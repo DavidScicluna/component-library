@@ -1,7 +1,6 @@
-import type { ElementType } from 'react';
 import { useMemo } from 'react';
 
-import type { PolymorphicDefaultElement, ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
+import type { ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
 
 import { __DEFAULT_CHECKBOX_IS_COMPACT__, __DEFAULT_CHECKBOX_SIZE__ } from '../constants';
 import type { CheckboxProps } from '../types';
@@ -15,19 +14,14 @@ type CheckboxSizeConfig = {
 	spacing: ThemeSpacing;
 };
 
-type UseCheckboxSizeConfigProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	CheckboxProps<Element>,
-	'isCompact' | 'size'
->;
+type UseCheckboxSizeConfigProps = Pick<CheckboxProps, 'isCompact' | 'size'>;
 type UseCheckboxSizeConfigReturn = CheckboxSizeConfig;
 
-const useCheckboxSizeConfig = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseCheckboxSizeConfigProps<Element>
-): UseCheckboxSizeConfigReturn => {
+const useCheckboxSizeConfig = (props: UseCheckboxSizeConfigProps): UseCheckboxSizeConfigReturn => {
 	const { isCompact: isCompactProp = __DEFAULT_CHECKBOX_IS_COMPACT__, size: sizeProp = __DEFAULT_CHECKBOX_SIZE__ } =
 		props;
 
-	const { isCompact, size } = useCheckboxResponsiveValues<Element>({ isCompact: isCompactProp, size: sizeProp });
+	const { isCompact, size } = useCheckboxResponsiveValues({ isCompact: isCompactProp, size: sizeProp });
 
 	const config = useMemo<CheckboxSizeConfig>(() => {
 		const radius: ThemeRadius = 'base';

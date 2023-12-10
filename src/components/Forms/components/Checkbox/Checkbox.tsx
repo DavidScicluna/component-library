@@ -50,7 +50,13 @@ import {
 	useCheckboxSizeConfig
 } from './common/hooks';
 import { __KEYS_CHECKBOX_CLASS__ } from './common/keys';
-import type { CheckboxFocusEvent, CheckboxMouseEvent, CheckboxProps, CheckboxRef } from './common/types';
+import type {
+	CheckboxChangeEvent,
+	CheckboxFocusEvent,
+	CheckboxMouseEvent,
+	CheckboxProps,
+	CheckboxRef
+} from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
@@ -58,7 +64,7 @@ const classNames = require('classnames');
 const Checkbox: PolymorphicComponentWithRef = forwardRef(function Checkbox<
 	Element extends ElementType = PolymorphicDefaultElement
 >(props: CheckboxProps<Element>, ref: CheckboxRef<Element>): ReactElement {
-	const pushableOverlayRef = useRef<PushableOverlayRef<PolymorphicDefaultElement>>(null);
+	const pushableOverlayRef = useRef<PushableOverlayRef<Element>>(null);
 
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
@@ -145,10 +151,10 @@ const Checkbox: PolymorphicComponentWithRef = forwardRef(function Checkbox<
 
 	const isFocused = useMemo<boolean>(() => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
 
-	const classes = useCheckboxClasses<Element>({ isActive, isClickable, isDisabled, isReadOnly });
+	const classes = useCheckboxClasses({ isActive, isClickable, isDisabled, isReadOnly });
 
-	const config = useCheckboxSizeConfig<Element>({ isCompact, size });
-	const iconSize = useCheckboxIconSize<Element>({ isCompact, size });
+	const config = useCheckboxSizeConfig({ isCompact, size });
+	const iconSize = useCheckboxIconSize({ isCompact, size });
 
 	const labelColor = useGetColor({
 		color: 'gray',
@@ -268,7 +274,11 @@ const Checkbox: PolymorphicComponentWithRef = forwardRef(function Checkbox<
 						checked={isIndeterminate || isChecked}
 						placeholder={placeholder}
 						type={type}
-						onChange={onToggle ? (event) => onToggle(event.target.checked) : undefined}
+						onChange={
+							onToggle
+								? (event: CheckboxChangeEvent<Element>) => onToggle(event.target.checked)
+								: undefined
+						}
 					/>
 					<Icon
 						w={iconSize.w}

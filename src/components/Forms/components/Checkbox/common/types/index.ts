@@ -67,7 +67,7 @@ type CheckboxOtherProps = Pick<FormsCommonProps, PickedFormsCommonProps> & {
 	onToggle?: (isChecked: boolean) => void;
 } & Pick<PushableOverlayProps<PolymorphicDefaultElement>, 'isActive'>;
 
-type OmittedBoxProps = 'children' | 'size' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
+type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
 export type CheckboxProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
 	BoxProps<Element, CheckboxOtherProps>,
