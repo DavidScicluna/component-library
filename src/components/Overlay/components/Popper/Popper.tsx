@@ -1,5 +1,5 @@
 import type { ElementType, ReactElement } from 'react';
-import React, { forwardRef, useCallback, useRef } from 'react';
+import { forwardRef, useCallback, useRef } from 'react';
 
 import {
 	arrow,

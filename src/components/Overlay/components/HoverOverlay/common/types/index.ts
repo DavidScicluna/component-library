@@ -17,9 +17,9 @@ type HoverOverlayOtherProps = {
 	children: (isHovering: boolean) => ReactNode;
 };
 
-export type HoverOverlayProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element, HoverOverlayOtherProps>,
-	'children'
+export type HoverOverlayProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+	Element,
+	HoverOverlayOtherProps
 >;
 
 export type HoverOverlayRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;

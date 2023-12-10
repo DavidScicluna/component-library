@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import { merge } from 'lodash-es';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
@@ -27,7 +27,7 @@ const classNames = require('classnames');
 const VisuallyHidden: PolymorphicComponentWithRef = forwardRef(function VisuallyHidden<
 	Element extends VisuallyHiddenElement = VisuallyHiddenDefaultElement
 >(props: VisuallyHiddenProps<Element>, ref: VisuallyHiddenRef<Element>): ReactElement {
-	const { children, className = __DEFAULT_CLASSNAME__, sx, ...rest } = props;
+	const { children, className = __DEFAULT_CLASSNAME__, sx = __DEFAULT_POLYMORPHIC_SX__, ...rest } = props;
 
 	const styles = useVisuallyHiddenStyles();
 
