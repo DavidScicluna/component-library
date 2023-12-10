@@ -5,14 +5,13 @@ import { compact, round } from 'lodash-es';
 import { useCountdown, useEffectOnce, useUpdateEffect } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
-import { useGetResponsiveValue, useTheme } from '@common/hooks';
+import { useTheme } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
 	PolymorphicDefaultProps,
-	ThemeColor,
-	ThemeSpacing
+	ThemeColor
 } from '@common/types';
 
 import { Grid, GridItem, HStack, VStack } from '@components/Layout';
@@ -20,23 +19,16 @@ import { Grid, GridItem, HStack, VStack } from '@components/Layout';
 import { Progress } from '../Progress';
 
 import { __DEFAULT_ALERT_DURATION__, __DEFAULT_ALERT_STATUS__, __DEFAULT_ALERT_VARIANT__ } from './common/constants';
-import { useAlertClasses } from './common/hooks';
+import { useAlertClasses, useAlertResponsiveValues } from './common/hooks';
 import { __KEYS_ALERT_CLASS__ } from './common/keys';
-import type {
-	AlertContext as AlertContextType,
-	AlertDuration,
-	AlertProps,
-	AlertRef,
-	AlertStatus,
-	AlertVariant
-} from './common/types';
+import type { AlertContext as AlertContextType, AlertProps, AlertRef } from './common/types';
 import { getStatusColor } from './common/utils';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const AlertContext = createContext<AlertContextType<any>>({ status: __DEFAULT_ALERT_STATUS__ });
+export const AlertContext = createContext<AlertContextType>({ status: __DEFAULT_ALERT_STATUS__ });
 
 const Alert: PolymorphicComponentWithRef = forwardRef(function Alert<
 	Element extends ElementType = PolymorphicDefaultElement
@@ -53,17 +45,19 @@ const Alert: PolymorphicComponentWithRef = forwardRef(function Alert<
 		renderDescription,
 		renderIcon,
 		onClose,
-		duration: d = __DEFAULT_ALERT_DURATION__,
-		spacing: sp = __DEFAULT_SPACING__,
-		status: st = __DEFAULT_ALERT_STATUS__,
-		variant: v = __DEFAULT_ALERT_VARIANT__,
+		duration: durationProp = __DEFAULT_ALERT_DURATION__,
+		spacing: spacingProp = __DEFAULT_SPACING__,
+		status: statusProp = __DEFAULT_ALERT_STATUS__,
+		variant: variantProp = __DEFAULT_ALERT_VARIANT__,
 		...rest
 	} = props;
 
-	const duration = useGetResponsiveValue<AlertDuration>(d);
-	const spacing = useGetResponsiveValue<ThemeSpacing>(sp);
-	const status = useGetResponsiveValue<AlertStatus>(st);
-	const variant = useGetResponsiveValue<AlertVariant>(v);
+	const { duration, spacing, status, variant } = useAlertResponsiveValues({
+		duration: durationProp,
+		spacing: spacingProp,
+		status: statusProp,
+		variant: variantProp
+	});
 
 	const statusColor = useMemo<ThemeColor>(() => getStatusColor(status, color), [status, color]);
 

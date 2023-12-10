@@ -1,36 +1,34 @@
-import { type ElementType, useMemo } from 'react';
+import { useMemo } from 'react';
 
 import classes from '@common/classes';
 import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ } from '@common/constants';
-import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
-import type { ClassName, PolymorphicDefaultElement, ThemeColor } from '@common/types';
+import { useAppTheme, useGetColor } from '@common/hooks';
+import type { ClassName, ThemeColor } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import { __DEFAULT_ALERT_STATUS__ } from '../constants';
-import type { AlertProps, AlertStatus } from '../types';
+import type { AlertProps } from '../types';
 import { getStatusColor } from '../utils';
+
+import useAlertResponsiveValues from './useAlertResponsiveValues';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseAlertClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	AlertProps<Element>,
-	'color' | 'colorMode' | 'status'
->;
+type UseAlertClassesProps = Pick<AlertProps, 'color' | 'colorMode' | 'status'>;
 type UseAlertClassesReturn = ClassName;
 
-const useAlertClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseAlertClassesProps<Element>
-): UseAlertClassesReturn => {
+const useAlertClasses = (props: UseAlertClassesProps): UseAlertClassesReturn => {
 	const { colorMode: __DEFAULT_ALERT_COLORMODE__ } = useAppTheme();
 
 	const {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_ALERT_COLORMODE__,
-		status: st = __DEFAULT_ALERT_STATUS__
+		status: statusProp = __DEFAULT_ALERT_STATUS__
 	} = props;
 
-	const status = useGetResponsiveValue<AlertStatus>(st);
+	const { status } = useAlertResponsiveValues({ status: statusProp });
+
 	const statusColor = useMemo<ThemeColor>(() => getStatusColor(status, color), [status, color]);
 
 	const backgroundClassName = useGetColor({

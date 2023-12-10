@@ -77,7 +77,4 @@ export type AlertProps<Element extends ElementType = PolymorphicDefaultElement> 
 
 export type AlertRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
-export type AlertContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	AlertProps<Element>,
-	'color' | 'colorMode' | 'status' | 'variant'
->;
+export type AlertContext = Pick<AlertProps, 'color' | 'colorMode' | 'status' | 'variant'>;
