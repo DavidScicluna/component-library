@@ -1,5 +1,6 @@
+import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_SPACING__ } from '@common/constants';
-import { useAppTheme, useGetClass, useGetColor, useGetResponsiveValue } from '@common/hooks';
+import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
 import type {
 	BoxShadowClass,
 	ClassName,
@@ -12,31 +13,27 @@ import type {
 } from '@common/types';
 
 import { __DEFAULT_MODAL_SIZE__ } from '../constants';
-import type { ModalDefaultElement, ModalElement, ModalProps, ModalSize } from '../types';
+import type { ModalProps } from '../types';
+
+import useModalResponsiveValues from './useModalResponsiveValues';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseModalClassesProps<Element extends ModalElement = ModalDefaultElement> = Pick<
-	ModalProps<Element>,
-	'color' | 'colorMode' | 'size' | 'spacing'
->;
+type UseModalClassesProps = Pick<ModalProps, 'color' | 'colorMode' | 'size' | 'spacing'>;
 type UseModalClassesReturn = Record<'container' | 'backdrop' | 'content', ClassName>;
 
-const useModalClasses = <Element extends ModalElement = ModalDefaultElement>(
-	props: UseModalClassesProps<Element>
-): UseModalClassesReturn => {
+const useModalClasses = (props: UseModalClassesProps): UseModalClassesReturn => {
 	const { colorMode: __DEFAULT_MODAL_CONTAINER_COLORMODE__ } = useAppTheme();
 
 	const {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_MODAL_CONTAINER_COLORMODE__,
-		size: si = __DEFAULT_MODAL_SIZE__,
-		spacing: sp = __DEFAULT_SPACING__
+		spacing: spacingProp = __DEFAULT_SPACING__,
+		size: sizeProp = __DEFAULT_MODAL_SIZE__
 	} = props;
 
-	const size = useGetResponsiveValue<ModalSize>(si);
-	const spacing = useGetResponsiveValue<ThemeSpacing>(sp);
+	const { size, spacing } = useModalResponsiveValues({ spacing: spacingProp, size: sizeProp });
 
 	const widthClassName = useGetClass<WidthClass>('full', ['sizing', 'width']);
 	const maxWidthClassName = useGetClass<MaxWidthClass>(size, ['sizing', 'max_width']);

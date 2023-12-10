@@ -78,10 +78,9 @@ export type ModalProps<Element extends ModalElement = ModalDefaultElement> = Omi
 >;
 export type ModalRef<Element extends ModalElement = ModalDefaultElement> = BoxRef<Element>;
 
-export type ModalContext<Element extends ModalElement = ModalDefaultElement> = {
+export type ModalContext = Pick<ModalProps, 'color' | 'colorMode' | 'id' | 'onClose' | 'size' | 'spacing'> & {
 	/**
 	 * If `true`, the modal will be open
 	 */
 	isOpen: boolean;
-	id: string;
-} & Pick<ModalProps<Element>, 'color' | 'colorMode' | 'onClose' | 'size' | 'spacing'>;
+};

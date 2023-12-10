@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import React, { createContext, forwardRef, useCallback } from 'react';
+import { createContext, forwardRef, useCallback } from 'react';
 
 import {
 	FloatingFocusManager,
@@ -13,12 +13,11 @@ import {
 import { useKey } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__, __DEFAULT_SPACING__ } from '@common/constants';
-import { useBoolean, useGetResponsiveValue } from '@common/hooks';
+import { useBoolean } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps,
-	ThemeSpacing
+	PolymorphicDefaultProps
 } from '@common/types';
 
 import { AnimatePresence, Transition } from '@components/Animation';
@@ -33,15 +32,14 @@ import {
 	__DEFAULT_MODAL_IS_OPEN__,
 	__DEFAULT_MODAL_SIZE__
 } from './common/constants';
-import { useModalClasses } from './common/hooks';
+import { useModalClasses, useModalResponsiveValues } from './common/hooks';
 import { __KEYS_MODAL_CLASS__ } from './common/keys';
 import type {
 	ModalContext as ModalContextType,
 	ModalDefaultElement,
 	ModalElement,
 	ModalProps,
-	ModalRef,
-	ModalSize
+	ModalRef
 } from './common/types';
 import { getModalID, getModalSubtitleID, getModalTitleID } from './common/utils';
 import { ModalBackdrop } from './components';
@@ -49,13 +47,12 @@ import { ModalBackdrop } from './components';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const ModalContext = createContext<ModalContextType<any>>({
+export const ModalContext = createContext<ModalContextType>({
 	id: __DEFAULT_MODAL_ID__,
 	isOpen: __DEFAULT_MODAL_IS_OPEN__,
 	onClose: __DEFAULT_METHOD__,
-	size: __DEFAULT_MODAL_SIZE__,
-	spacing: __DEFAULT_SPACING__
+	spacing: __DEFAULT_SPACING__,
+	size: __DEFAULT_MODAL_SIZE__
 });
 
 const Modal: PolymorphicComponentWithRef = forwardRef(function Modal<
@@ -69,27 +66,28 @@ const Modal: PolymorphicComponentWithRef = forwardRef(function Modal<
 		renderBackdrop,
 		color,
 		colorMode,
-		closeOnEsc: closeonesc = __DEFAULT_MODAL_CLOSE_ON_ESC__,
-		closeOnOverlayClick: closeonoverlayclick = __DEFAULT_MODAL_CLOSE_ON_OVERLAY_CLICK__,
-		hasBackdrop: backdrop = __DEFAULT_MODAL_HAS_BACKDROP__,
+		closeOnEsc: closeOnEscProp = __DEFAULT_MODAL_CLOSE_ON_ESC__,
+		closeOnOverlayClick: closeOnOverlayClickProp = __DEFAULT_MODAL_CLOSE_ON_OVERLAY_CLICK__,
+		hasBackdrop: hasBackdropProp = __DEFAULT_MODAL_HAS_BACKDROP__,
 		onClose,
 		onCloseComplete,
 		onEsc,
 		onOverlayClick,
 		onOpen,
-		size: si = __DEFAULT_MODAL_SIZE__,
-		spacing: sp = __DEFAULT_SPACING__,
+		spacing: spacingProp = __DEFAULT_SPACING__,
+		size: sizeProp = __DEFAULT_MODAL_SIZE__,
 		...rest
 	} = props;
 
-	const closeOnEsc = useGetResponsiveValue<boolean>(closeonesc);
-	const closeOnOverlayClick = useGetResponsiveValue<boolean>(closeonoverlayclick);
-	const hasBackdrop = useGetResponsiveValue<boolean>(backdrop);
-
-	const size = useGetResponsiveValue<ModalSize>(si);
-	const spacing = useGetResponsiveValue<ThemeSpacing>(sp);
-
 	const [isOpen, setIsOpen] = useBoolean(__DEFAULT_MODAL_IS_OPEN__);
+
+	const { closeOnEsc, closeOnOverlayClick, hasBackdrop, size, spacing } = useModalResponsiveValues({
+		closeOnEsc: closeOnEscProp,
+		closeOnOverlayClick: closeOnOverlayClickProp,
+		hasBackdrop: hasBackdropProp,
+		spacing: spacingProp,
+		size: sizeProp
+	});
 
 	const handleOpen = useCallback((): void => {
 		setIsOpen.on();
@@ -135,7 +133,7 @@ const Modal: PolymorphicComponentWithRef = forwardRef(function Modal<
 
 	const { getReferenceProps, getFloatingProps } = useInteractions([click, dismiss, role]);
 
-	const classes = useModalClasses<Element>({ color, colorMode, size, spacing });
+	const classes = useModalClasses({ color, colorMode, size, spacing });
 
 	useKey(['Escape'], handleEscapeClick, { when: closeOnEsc });
 
