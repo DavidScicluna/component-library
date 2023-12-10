@@ -1,8 +1,4 @@
-import type { ElementType } from 'react';
 import { useContext } from 'react';
-
-import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
 
 import { FormControlContext } from '../../FormControl';
 import {
@@ -18,35 +14,39 @@ import {
 	__DEFAULT_FORM_CONTROL_SIZE__,
 	__DEFAULT_FORM_CONTROL_SPACING__
 } from '../constants';
-import type { FormControlContext as FormControlContextType, FormControlSize } from '../types';
+import type { FormControlContext as FormControlContextType } from '../types';
 
-const useFormControlContext = <Element extends ElementType = PolymorphicDefaultElement>() => {
+import useFormControlResponsiveValues from './useFormControlResponsiveValues';
+
+const useFormControlContext = () => {
 	const {
 		color,
 		colorMode,
 		id = __DEFAULT_FORM_CONTROL_ID__,
 		hasFormControl = __DEFAULT_FORM_CONTROL_HAS_FORM_CONTROL__,
-		isDisabled: disabled = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
-		isError: error = __DEFAULT_FORM_CONTROL_IS_ERROR__,
-		isFocused: focused = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
-		isReadOnly: readOnly = __DEFAULT_FORM_CONTROL_IS_READONLY__,
-		isRequired: required = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
-		isSuccess: success = __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
-		isWarning: warning = __DEFAULT_FORM_CONTROL_IS_WARNING__,
-		size: si = __DEFAULT_FORM_CONTROL_SIZE__,
-		spacing: sp = __DEFAULT_FORM_CONTROL_SPACING__
-	} = useContext<FormControlContextType<Element>>(FormControlContext);
+		isDisabled: isDisabledProp = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
+		isError: isErrorProp = __DEFAULT_FORM_CONTROL_IS_ERROR__,
+		isFocused: isFocusedProp = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
+		isReadOnly: isReadOnlyProp = __DEFAULT_FORM_CONTROL_IS_READONLY__,
+		isRequired: isRequiredProp = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
+		isSuccess: isSuccessProp = __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
+		isWarning: isWarningProp = __DEFAULT_FORM_CONTROL_IS_WARNING__,
+		size: sizeProp = __DEFAULT_FORM_CONTROL_SIZE__,
+		spacing: spacingProp = __DEFAULT_FORM_CONTROL_SPACING__
+	} = useContext<FormControlContextType>(FormControlContext);
 
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-	const isError = useGetResponsiveValue<boolean>(error);
-	const isFocused = useGetResponsiveValue<boolean>(focused);
-	const isReadOnly = useGetResponsiveValue<boolean>(readOnly);
-	const isRequired = useGetResponsiveValue<boolean>(required);
-	const isSuccess = useGetResponsiveValue<boolean>(success);
-	const isWarning = useGetResponsiveValue<boolean>(warning);
-
-	const size = useGetResponsiveValue<FormControlSize>(si);
-	const spacing = useGetResponsiveValue<ThemeSpacing>(sp);
+	const { isDisabled, isError, isFocused, isReadOnly, isRequired, isSuccess, isWarning, size, spacing } =
+		useFormControlResponsiveValues({
+			isDisabled: isDisabledProp,
+			isError: isErrorProp,
+			isFocused: isFocusedProp,
+			isReadOnly: isReadOnlyProp,
+			isRequired: isRequiredProp,
+			isSuccess: isSuccessProp,
+			isWarning: isWarningProp,
+			size: sizeProp,
+			spacing: spacingProp
+		});
 
 	return {
 		color,

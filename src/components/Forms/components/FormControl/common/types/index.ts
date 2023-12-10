@@ -1,6 +1,6 @@
 import type { ElementType } from 'react';
 
-import type { PolymorphicDefaultElement, ResponsiveValue } from '@common/types';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 import type { FormsCommonProps, FormsCommonSize } from '@components/Forms';
@@ -49,6 +49,6 @@ type PickedFormControlProps =
 	| 'size'
 	| 'spacing';
 
-export type FormControlContext<Element extends ElementType = PolymorphicDefaultElement> = {
-	hasFormControl?: ResponsiveValue<boolean>;
-} & Pick<FormControlProps<Element>, PickedFormControlProps>;
+export type FormControlContext = Pick<FormControlProps, PickedFormControlProps> & {
+	hasFormControl?: boolean;
+};
