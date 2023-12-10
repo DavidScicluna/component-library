@@ -101,7 +101,7 @@ const Step: PolymorphicComponentWithRef = forwardRef(function Step<Element exten
 		isDisabled: isStepDisabled,
 		isUppercase,
 		status
-	} = useStepResponsiveValues<Element>({
+	} = useStepResponsiveValues({
 		isActive: isActiveProp,
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
@@ -114,9 +114,9 @@ const Step: PolymorphicComponentWithRef = forwardRef(function Step<Element exten
 	const isDisabled = useMemo(() => isStepperDisabled || isStepDisabled, [isStepperDisabled, isStepDisabled]);
 	const isSelected = useMemo(() => index === panel, [index, panel]);
 
-	const config = useStepSizeConfig<Element>({ isCompact });
+	const config = useStepSizeConfig({ isCompact });
 
-	const classes = useStepClasses<Element>({
+	const classes = useStepClasses({
 		color,
 		colorMode,
 		isActive: isActive || isSelected,
@@ -152,7 +152,7 @@ const Step: PolymorphicComponentWithRef = forwardRef(function Step<Element exten
 	return (
 		<StepContext.Provider value={{ id, index, status }}>
 			<HoverOverlay w={isFitted ? '100%' : 'auto'} h='100%'>
-				{(isHovering) => (
+				{(isHovering: boolean) => (
 					<Grid<Element>
 						{...focusProps}
 						{...rest}

@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_OUTLINE_WIDTH__ } from '@common/constants';
-import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
+import { useAppTheme, useGetColor } from '@common/hooks';
 import type { ClassName } from '@common/types';
 import { getColorHue } from '@common/utils';
 
@@ -15,40 +15,39 @@ import {
 	__DEFAULT_STEP_IS_DISABLED__,
 	__DEFAULT_STEP_IS_UPPERCASE__
 } from '../constants';
-import type { StepDefaultElement, StepElement, StepProps } from '../types';
+import type { StepProps } from '../types';
 
+import useStepResponsiveValues from './useStepResponsiveValues';
 import useStepSizeConfig from './useStepSizeConfig';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseStepClassesProps<Element extends StepElement = StepDefaultElement> = Pick<
-	StepProps<Element>,
-	'color' | 'colorMode' | 'isActive' | 'isCompact' | 'isDisabled' | 'isUppercase'
-> & { isFocused: boolean };
+type PickedStepProps = 'color' | 'colorMode' | 'isActive' | 'isCompact' | 'isDisabled' | 'isUppercase';
+type UseStepClassesProps = Pick<StepProps, PickedStepProps> & { isFocused: boolean };
 type UseStepClassesReturn = Record<'step' | 'topDivider' | 'bottomDivider' | 'label', ClassName>;
 
-const useStepClasses = <Element extends StepElement = StepDefaultElement>(
-	props: UseStepClassesProps<Element>
-): UseStepClassesReturn => {
+const useStepClasses = (props: UseStepClassesProps): UseStepClassesReturn => {
 	const { colorMode: __DEFAULT_STEP_COLORMODE__ } = useAppTheme();
 	const { orientation } = useStepperContext();
 
 	const {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_STEP_COLORMODE__,
-		isActive: active = __DEFAULT_STEP_IS_ACTIVE__,
-		isCompact: compact = __DEFAULT_STEP_IS_COMPACT__,
-		isDisabled: disabled = __DEFAULT_STEP_IS_DISABLED__,
-		isUppercase: uppercase = __DEFAULT_STEP_IS_UPPERCASE__
+		isActive: isActiveProp = __DEFAULT_STEP_IS_ACTIVE__,
+		isCompact: isCompactProp = __DEFAULT_STEP_IS_COMPACT__,
+		isDisabled: isDisabledProp = __DEFAULT_STEP_IS_DISABLED__,
+		isUppercase: isUppercaseProp = __DEFAULT_STEP_IS_UPPERCASE__
 	} = props;
 
-	const isActive = useGetResponsiveValue<boolean>(active);
-	const isCompact = useGetResponsiveValue<boolean>(compact);
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-	const isUppercase = useGetResponsiveValue<boolean>(uppercase);
+	const { isActive, isCompact, isDisabled, isUppercase } = useStepResponsiveValues({
+		isActive: isActiveProp,
+		isCompact: isCompactProp,
+		isDisabled: isDisabledProp,
+		isUppercase: isUppercaseProp
+	});
 
-	const config = useStepSizeConfig<Element>({ isCompact });
+	const config = useStepSizeConfig({ isCompact });
 
 	const stepClasses = useMemo<ClassName>(() => {
 		const outlineHue = getColorHue({ colorMode, type: 'color' });

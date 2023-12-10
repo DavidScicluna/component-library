@@ -65,7 +65,4 @@ export type StepProps<Element extends StepElement = StepDefaultElement> = Omit<
 
 export type StepRef<Element extends StepElement = StepDefaultElement> = BoxRef<Element>;
 
-export type StepContext<Element extends StepElement = StepDefaultElement> = Pick<
-	StepProps<Element>,
-	'index' | 'status'
-> & { id: string };
+export type StepContext = Pick<StepProps, 'id' | 'index' | 'status'>;

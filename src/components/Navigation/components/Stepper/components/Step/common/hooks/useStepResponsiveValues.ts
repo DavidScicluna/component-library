@@ -27,12 +27,12 @@ const useStepResponsiveValues = <Element extends StepElement = StepDefaultElemen
 
 	const isActive = useGetResponsiveValue<boolean>(isActiveProp);
 	const isCompact = useGetResponsiveValue<boolean>(isCompactProp);
-	const isStepDisabled = useGetResponsiveValue<boolean>(isDisabledProp);
+	const isDisabled = useGetResponsiveValue<boolean>(isDisabledProp);
 	const isUppercase = useGetResponsiveValue<boolean>(isUppercaseProp);
 
 	const status = useGetResponsiveValue<StepStatus>(statusProp);
 
-	return { isActive, isCompact, isStepDisabled, isUppercase, status };
+	return { isActive, isCompact, isDisabled, isUppercase, status };
 };
 
 export default useStepResponsiveValues;
