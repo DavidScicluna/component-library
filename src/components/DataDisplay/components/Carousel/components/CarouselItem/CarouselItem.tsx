@@ -24,11 +24,11 @@ const classNames = require('classnames');
 const CarouselItem: PolymorphicComponentWithRef = forwardRef(function CarouselItem<
 	Element extends ElementType = PolymorphicDefaultElement
 >(props: CarouselItemProps<Element>, ref: CarouselItemRef<Element>): ReactElement {
-	const { children, className = __DEFAULT_CLASSNAME__, id, onToggleIsVisible, ...rest } = props;
+	const { children, className = __DEFAULT_CLASSNAME__, id, onToggleVisibility, ...rest } = props;
 
 	const { observe, inView } = useInView({
 		unobserveOnEnter: false,
-		onChange: ({ inView }) => onToggleIsVisible(inView)
+		onChange: ({ inView }) => onToggleVisibility(inView)
 	});
 
 	const refs = useMergeRefs(ref, observe);

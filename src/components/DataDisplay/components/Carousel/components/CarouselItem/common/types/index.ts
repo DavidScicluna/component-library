@@ -4,7 +4,7 @@ import type { PolymorphicDefaultElement } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
-type CarouselItemOtherProps = { onToggleIsVisible: (isVisible: boolean) => void };
+type CarouselItemOtherProps = { onToggleVisibility: (isVisible: boolean) => void };
 
 export type CarouselItemProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
 	Element,

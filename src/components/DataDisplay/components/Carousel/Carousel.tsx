@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement, ReactNode } from 'react';
+import type { ElementType, ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { sort } from 'fast-sort';
@@ -7,13 +7,12 @@ import { useArrayState } from 'rooks';
 import { useEffectOnce, useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
-import { useDebounce, useGetResponsiveValue } from '@common/hooks';
+import { useDebounce } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	ThemeSpacing
+	PolymorphicDefaultProps
 } from '@common/types';
 
 import { Grid, GridItem, Stack } from '@components/Layout';
@@ -28,17 +27,14 @@ import {
 	__DEFAULT_CAROUSEL_VARIANT__,
 	__DEFAULT_CAROUSEL_VISIBLE_ITEMS__
 } from './common/constants';
-import { useCarouselClasses } from './common/hooks';
+import { useCarouselClasses, useCarouselResponsiveValues } from './common/hooks';
 import { __KEYS_CAROUSEL_CLASS__ } from './common/keys';
 import type {
 	CarouselContext as CarouselContextType,
 	CarouselItem as CarouselItemType,
 	CarouselItems,
-	CarouselOrientation,
 	CarouselProps,
 	CarouselRef,
-	CarouselScrollAmount,
-	CarouselVariant,
 	CarouselVisibleItem,
 	CarouselVisibleItems
 } from './common/types';
@@ -49,7 +45,7 @@ import { CarouselArrowButtonGroup, CarouselArrowIconButtonGroup, CarouselItem } 
 const classNames = require('classnames');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const CarouselContext = createContext<CarouselContextType<any>>({
+export const CarouselContext = createContext<CarouselContextType>({
 	id: __DEFAULT_CAROUSEL_ID__,
 	items: __DEFAULT_CAROUSEL_ITEMS__,
 	visibleItems: __DEFAULT_CAROUSEL_VISIBLE_ITEMS__,
@@ -81,21 +77,23 @@ const Carousel: PolymorphicComponentWithRef = forwardRef(function Carousel<
 		renderRightLinearGradient,
 		color,
 		colorMode,
-		divider: d,
-		scrollAmount: sa = __DEFAULT_CAROUSEL_SCROLL_AMOUNT__,
-		spacing: s = __DEFAULT_SPACING__,
-		orientation: o = __DEFAULT_CAROUSEL_ORIENTTATION__,
-		variant: v = __DEFAULT_CAROUSEL_VARIANT__,
+		divider: dividerProp,
+		scrollAmount: scrollAmountProp = __DEFAULT_CAROUSEL_SCROLL_AMOUNT__,
+		spacing: spacingProp = __DEFAULT_SPACING__,
+		orientation: orientationProp = __DEFAULT_CAROUSEL_ORIENTTATION__,
+		variant: variantProp = __DEFAULT_CAROUSEL_VARIANT__,
 		...rest
 	} = props;
 
-	const divider = useGetResponsiveValue<ReactNode>(d);
-	const scrollAmount = useGetResponsiveValue<CarouselScrollAmount>(sa);
-	const spacing = useGetResponsiveValue<ThemeSpacing>(s);
-	const orientation = useGetResponsiveValue<CarouselOrientation>(o);
-	const variant = useGetResponsiveValue<CarouselVariant>(v);
+	const { divider, scrollAmount, spacing, orientation, variant } = useCarouselResponsiveValues({
+		divider: dividerProp,
+		scrollAmount: scrollAmountProp,
+		spacing: spacingProp,
+		orientation: orientationProp,
+		variant: variantProp
+	});
 
-	const classes = useCarouselClasses<Element>({ spacing, orientation, variant });
+	const classes = useCarouselClasses({ spacing, orientation, variant });
 
 	const handleChildren = debounce(() => {
 		if (isArray(children)) {
@@ -248,7 +246,7 @@ const Carousel: PolymorphicComponentWithRef = forwardRef(function Carousel<
 													key={item.key}
 													id={item.key}
 													className={classes.item}
-													onToggleIsVisible={(isVisible) => {
+													onToggleVisibility={(isVisible: boolean) => {
 														setVisibleItems.updateItemAtIndex(item.index, {
 															[item.key]: isVisible
 														});

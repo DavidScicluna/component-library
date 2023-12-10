@@ -44,7 +44,9 @@ export type CarouselProps<Element extends ElementType = PolymorphicDefaultElemen
 
 export type CarouselRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
-export type CarouselContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	CarouselProps<Element>,
-	'color' | 'colorMode' | 'id' | 'scrollAmount' | 'spacing' | 'orientation' | 'variant'
-> & { items: CarouselItems; visibleItems: CarouselVisibleItems };
+type PickedCarouselProps = 'color' | 'colorMode' | 'id' | 'scrollAmount' | 'spacing' | 'orientation' | 'variant';
+
+export type CarouselContext = Pick<CarouselProps, PickedCarouselProps> & {
+	items: CarouselItems;
+	visibleItems: CarouselVisibleItems;
+};

@@ -1,9 +1,6 @@
-import type { ElementType } from 'react';
 import { useContext } from 'react';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
 
 import { CarouselContext } from '../../Carousel';
 import {
@@ -14,30 +11,29 @@ import {
 	__DEFAULT_CAROUSEL_VARIANT__,
 	__DEFAULT_CAROUSEL_VISIBLE_ITEMS__
 } from '../constants';
-import type {
-	CarouselContext as CarouselContextType,
-	CarouselOrientation,
-	CarouselScrollAmount,
-	CarouselVariant
-} from '../types';
+import type { CarouselContext as CarouselContextType } from '../types';
 
-const useCarouselContext = <Element extends ElementType = PolymorphicDefaultElement>() => {
+import useCarouselResponsiveValues from './useCarouselResponsiveValues';
+
+const useCarouselContext = () => {
 	const {
 		color,
 		colorMode,
 		id = __DEFAULT_CAROUSEL_ID__,
 		items = __DEFAULT_CAROUSEL_ITEMS__,
 		visibleItems = __DEFAULT_CAROUSEL_VISIBLE_ITEMS__,
-		scrollAmount: sa = __DEFAULT_CAROUSEL_SCROLL_AMOUNT__,
-		spacing: s = __DEFAULT_SPACING__,
-		orientation: o = __DEFAULT_CAROUSEL_ORIENTTATION__,
-		variant: v = __DEFAULT_CAROUSEL_VARIANT__
-	} = useContext<CarouselContextType<Element>>(CarouselContext);
+		scrollAmount: scrollAmountProp = __DEFAULT_CAROUSEL_SCROLL_AMOUNT__,
+		spacing: spacingProp = __DEFAULT_SPACING__,
+		orientation: orientationProp = __DEFAULT_CAROUSEL_ORIENTTATION__,
+		variant: variantProp = __DEFAULT_CAROUSEL_VARIANT__
+	} = useContext<CarouselContextType>(CarouselContext);
 
-	const scrollAmount = useGetResponsiveValue<CarouselScrollAmount>(sa);
-	const spacing = useGetResponsiveValue<ThemeSpacing>(s);
-	const orientation = useGetResponsiveValue<CarouselOrientation>(o);
-	const variant = useGetResponsiveValue<CarouselVariant>(v);
+	const { scrollAmount, spacing, orientation, variant } = useCarouselResponsiveValues({
+		scrollAmount: scrollAmountProp,
+		spacing: spacingProp,
+		orientation: orientationProp,
+		variant: variantProp
+	});
 
 	return { color, colorMode, id, items, visibleItems, scrollAmount, spacing, orientation, variant };
 };

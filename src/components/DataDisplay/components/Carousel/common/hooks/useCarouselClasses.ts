@@ -1,29 +1,23 @@
-import type { ElementType } from 'react';
-
 import classes from '@common/classes';
-import { useGetResponsiveValue } from '@common/hooks';
-import type { ClassName, PolymorphicDefaultElement } from '@common/types';
+import type { ClassName } from '@common/types';
 
 import { __DEFAULT_CAROUSEL_VARIANT__ } from '../constants';
-import type { CarouselProps, CarouselVariant } from '../types';
+import type { CarouselProps } from '../types';
+
+import useCarouselResponsiveValues from './useCarouselResponsiveValues';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseCarouselClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	CarouselProps<Element>,
-	'variant' | 'orientation' | 'spacing'
->;
+type UseCarouselClassesProps = Pick<CarouselProps, 'variant' | 'orientation' | 'spacing'>;
 type UseCarouselClassesReturn = Record<'items' | 'item', ClassName> & {
 	overflow: Record<'hidden' | 'auto', ClassName>;
 };
 
-const useCarouselClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseCarouselClassesProps<Element>
-): UseCarouselClassesReturn => {
-	const { variant: v = __DEFAULT_CAROUSEL_VARIANT__ } = props;
+const useCarouselClasses = (props: UseCarouselClassesProps): UseCarouselClassesReturn => {
+	const { variant: variantProp = __DEFAULT_CAROUSEL_VARIANT__ } = props;
 
-	const variant = useGetResponsiveValue<CarouselVariant>(v);
+	const { variant } = useCarouselResponsiveValues({ variant: variantProp });
 
 	return {
 		overflow: {
