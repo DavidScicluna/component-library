@@ -1,8 +1,6 @@
-import type { ElementType } from 'react';
-
 import classes from '@common/classes';
-import { useGetClass, useGetResponsiveValue } from '@common/hooks';
-import type { ClassName, PolymorphicDefaultElement, WidthClass } from '@common/types';
+import { useGetClass } from '@common/hooks';
+import type { ClassName, WidthClass } from '@common/types';
 
 import {
 	__DEFAULT_BADGE_IS_COMPACT__,
@@ -15,32 +13,38 @@ import {
 } from '../constants';
 import type { BadgeProps } from '../types';
 
+import useBadgeResponsiveValues from './useBadgeResponsiveValues';
 import useBadgeSizeConfig from './useBadgeSizeConfig';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseBadgeClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	BadgeProps<Element>,
+type UseBadgeClassesProps = Pick<
+	BadgeProps,
 	'isCompact' | 'isFullWidth' | 'isRound' | 'isUppercase' | 'size' | 'variant'
 >;
 type UseBadgeClassesReturn = ClassName;
 
-const useBadgeClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseBadgeClassesProps<Element>
-): UseBadgeClassesReturn => {
+const useBadgeClasses = (props: UseBadgeClassesProps): UseBadgeClassesReturn => {
 	const {
-		isCompact = __DEFAULT_BADGE_IS_COMPACT__,
-		isFullWidth = __DEFAULT_BADGE_IS_FULLWIDTH__,
-		isRound = __DEFAULT_BADGE_IS_ROUND__,
-		isUppercase: uppercase = __DEFAULT_BADGE_IS_UPPERCASE__,
-		size = __DEFAULT_BADGE_SIZE__,
-		variant = __DEFAULT_BADGE_VARIANT__
+		isCompact: isCompactProp = __DEFAULT_BADGE_IS_COMPACT__,
+		isFullWidth: isFullWidthProp = __DEFAULT_BADGE_IS_FULLWIDTH__,
+		isRound: isRoundProp = __DEFAULT_BADGE_IS_ROUND__,
+		isUppercase: isUppercaseProp = __DEFAULT_BADGE_IS_UPPERCASE__,
+		size: sizeProp = __DEFAULT_BADGE_SIZE__,
+		variant: variantProp = __DEFAULT_BADGE_VARIANT__
 	} = props;
 
-	const config = useBadgeSizeConfig<Element>({ isCompact, isRound, size, variant });
+	const { isCompact, isFullWidth, isRound, isUppercase, size, variant } = useBadgeResponsiveValues({
+		isCompact: isCompactProp,
+		isFullWidth: isFullWidthProp,
+		isRound: isRoundProp,
+		isUppercase: isUppercaseProp,
+		size: sizeProp,
+		variant: variantProp
+	});
 
-	const isUppercase = useGetResponsiveValue<boolean>(uppercase);
+	const config = useBadgeSizeConfig({ isCompact, isRound, size, variant });
 
 	const widthClassName = useGetClass<WidthClass>(isFullWidth ? 'full' : 'auto', ['sizing', 'width']);
 

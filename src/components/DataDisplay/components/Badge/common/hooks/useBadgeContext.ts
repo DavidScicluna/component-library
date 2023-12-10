@@ -1,23 +1,20 @@
-import type { ElementType } from 'react';
 import { useContext } from 'react';
-
-import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
 
 import { BadgeContext } from '../../Badge';
 import { __DEFAULT_BADGE_SIZE__, __DEFAULT_BADGE_VARIANT__ } from '../constants';
-import type { BadgeContext as BadgeContextType, BadgeSize, BadgeVariant } from '../types';
+import type { BadgeContext as BadgeContextType } from '../types';
 
-const useBadgeContext = <Element extends ElementType = PolymorphicDefaultElement>() => {
+import useBadgeResponsiveValues from './useBadgeResponsiveValues';
+
+const useBadgeContext = () => {
 	const {
 		color,
 		colorMode,
-		size: s = __DEFAULT_BADGE_SIZE__,
-		variant: v = __DEFAULT_BADGE_VARIANT__
-	} = useContext<BadgeContextType<Element>>(BadgeContext);
+		size: sizeProp = __DEFAULT_BADGE_SIZE__,
+		variant: variantProp = __DEFAULT_BADGE_VARIANT__
+	} = useContext<BadgeContextType>(BadgeContext);
 
-	const size = useGetResponsiveValue<BadgeSize>(s);
-	const variant = useGetResponsiveValue<BadgeVariant>(v);
+	const { size, variant } = useBadgeResponsiveValues({ size: sizeProp, variant: variantProp });
 
 	return { color, colorMode, size, variant };
 };

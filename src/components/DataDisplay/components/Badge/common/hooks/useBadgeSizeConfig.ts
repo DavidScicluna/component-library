@@ -2,7 +2,6 @@ import type { ElementType } from 'react';
 import { useMemo } from 'react';
 
 import type { PolymorphicDefaultElement, ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
-import { getResponsiveValue } from '@common/utils';
 
 import {
 	__DEFAULT_BADGE_IS_COMPACT__,
@@ -10,7 +9,9 @@ import {
 	__DEFAULT_BADGE_SIZE__,
 	__DEFAULT_BADGE_VARIANT__
 } from '../constants';
-import type { BadgeProps, BadgeSize, BadgeVariant } from '../types';
+import type { BadgeProps } from '../types';
+
+import useBadgeResponsiveValues from './useBadgeResponsiveValues';
 
 type BadgeSizeConfig = {
 	fontSize: ThemeFontSize;
@@ -29,19 +30,23 @@ const useBadgeSizeConfig = <Element extends ElementType = PolymorphicDefaultElem
 	props: UseBadgeSizeConfigProps<Element>
 ): UseBadgeSizeConfigReturn => {
 	const {
-		isCompact = __DEFAULT_BADGE_IS_COMPACT__,
-		isRound = __DEFAULT_BADGE_IS_ROUND__,
-		size = __DEFAULT_BADGE_SIZE__,
-		variant = __DEFAULT_BADGE_VARIANT__
+		isCompact: isCompactProp = __DEFAULT_BADGE_IS_COMPACT__,
+		isRound: isRoundProp = __DEFAULT_BADGE_IS_ROUND__,
+		size: sizeProp = __DEFAULT_BADGE_SIZE__,
+		variant: variantProp = __DEFAULT_BADGE_VARIANT__
 	} = props;
 
+	const { isCompact, isRound, size, variant } = useBadgeResponsiveValues({
+		isCompact: isCompactProp,
+		isRound: isRoundProp,
+		size: sizeProp,
+		variant: variantProp
+	});
+
 	const config = useMemo<BadgeSizeConfig>(() => {
-		const s = getResponsiveValue<BadgeSize>(size);
-		const v = getResponsiveValue<BadgeVariant>(variant);
+		const radius: ThemeRadius = variant === 'text' ? 'none' : isRound ? 'full' : isCompact ? 'xs' : 'base';
 
-		const radius: ThemeRadius = v === 'text' ? 'none' : isRound ? 'full' : isCompact ? 'xs' : 'base';
-
-		switch (s) {
+		switch (size) {
 			case 'xs':
 				return {
 					fontSize: 'xs',
@@ -72,7 +77,7 @@ const useBadgeSizeConfig = <Element extends ElementType = PolymorphicDefaultElem
 				};
 			default:
 				return {
-					fontSize: s,
+					fontSize: size,
 					padding: { x: isCompact ? 2 : 4, y: isCompact ? 1.25 : 2 },
 					radius,
 					spacing: isCompact ? 2 : 4

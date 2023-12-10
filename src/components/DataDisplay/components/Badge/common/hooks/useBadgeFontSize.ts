@@ -1,21 +1,18 @@
-import type { ElementType } from 'react';
 import { useMemo } from 'react';
 
-import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
 import { getFontSizeHeight } from '@common/utils';
 
 import { __DEFAULT_BADGE_LINE_HEIGHT_SIZE__, __DEFAULT_BADGE_SIZE__ } from '../constants';
-import type { BadgeProps, BadgeSize } from '../types';
+import type { BadgeProps } from '../types';
 
-type UseBadgeFontSizeProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<BadgeProps<Element>, 'size'>;
+import useBadgeResponsiveValues from './useBadgeResponsiveValues';
 
-const useBadgeFontSize = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseBadgeFontSizeProps<Element>
-): number => {
-	const { size: s = __DEFAULT_BADGE_SIZE__ } = props;
+type UseBadgeFontSizeProps = Pick<BadgeProps, 'size'>;
 
-	const size = useGetResponsiveValue<BadgeSize>(s);
+const useBadgeFontSize = (props: UseBadgeFontSizeProps): number => {
+	const { size: sizeProp = __DEFAULT_BADGE_SIZE__ } = props;
+
+	const { size } = useBadgeResponsiveValues({ size: sizeProp });
 
 	const fontSize = useMemo<number>(() => {
 		return getFontSizeHeight(size, __DEFAULT_BADGE_LINE_HEIGHT_SIZE__);

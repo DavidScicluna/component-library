@@ -6,7 +6,7 @@ import { useFocus } from 'rooks';
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useBoolean, useGetResponsiveValue } from '@common/hooks';
+import { useBoolean } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
@@ -29,15 +29,14 @@ import {
 	__DEFAULT_BADGE_SIZE__,
 	__DEFAULT_BADGE_VARIANT__
 } from './common/constants';
-import { useBadgeClasses, useBadgeSizeConfig } from './common/hooks';
+import { useBadgeClasses, useBadgeResponsiveValues, useBadgeSizeConfig } from './common/hooks';
 import { __KEYS_BADGE_CLASS__ } from './common/keys';
-import type { BadgeContext as BadgeContextType, BadgeProps, BadgeRef, BadgeSize, BadgeVariant } from './common/types';
+import type { BadgeContext as BadgeContextType, BadgeProps, BadgeRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const BadgeContext = createContext<BadgeContextType<any>>({
+export const BadgeContext = createContext<BadgeContextType>({
 	size: __DEFAULT_BADGE_SIZE__,
 	variant: __DEFAULT_BADGE_VARIANT__
 });
@@ -55,36 +54,48 @@ const Badge: PolymorphicComponentWithRef = forwardRef(function Badge<
 		renderAction,
 		color,
 		colorMode,
-		isActive: active = __DEFAULT_BADGE_IS_ACTIVE__,
-		isClickable: clickable = __DEFAULT_BADGE_IS_CLICKABLE__,
-		isCompact: comp = __DEFAULT_BADGE_IS_COMPACT__,
-		isDisabled: disabled = __DEFAULT_BADGE_IS_DISABLED__,
-		isFullWidth: fullWidth = __DEFAULT_BADGE_IS_FULLWIDTH__,
-		isOutlined: outlined = __DEFAULT_BADGE_IS_OUTLINED__,
-		isRound: round = __DEFAULT_BADGE_IS_ROUND__,
-		isUppercase: uppercase = __DEFAULT_BADGE_IS_UPPERCASE__,
-		size: s = __DEFAULT_BADGE_SIZE__,
-		variant: v = __DEFAULT_BADGE_VARIANT__,
+		isActive: isActiveProp = __DEFAULT_BADGE_IS_ACTIVE__,
+		isClickable: isClickableProp = __DEFAULT_BADGE_IS_CLICKABLE__,
+		isCompact: isCompactProp = __DEFAULT_BADGE_IS_COMPACT__,
+		isDisabled: isDisabledProp = __DEFAULT_BADGE_IS_DISABLED__,
+		isFullWidth: isFullWidthProp = __DEFAULT_BADGE_IS_FULLWIDTH__,
+		isOutlined: isOutlinedProp = __DEFAULT_BADGE_IS_OUTLINED__,
+		isRound: isRoundProp = __DEFAULT_BADGE_IS_ROUND__,
+		isUppercase: isUppercaseProp = __DEFAULT_BADGE_IS_UPPERCASE__,
+		size: sizeProp = __DEFAULT_BADGE_SIZE__,
+		variant: variantProp = __DEFAULT_BADGE_VARIANT__,
 		...rest
 	} = props;
 
 	const [isFocused, setIsFocused] = useBoolean();
 
-	const isActive = useGetResponsiveValue<boolean>(active);
-	const isClickable = useGetResponsiveValue<boolean>(clickable);
-	const isCompact = useGetResponsiveValue<boolean>(comp);
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-	const isFullWidth = useGetResponsiveValue<boolean>(fullWidth);
-	const isOutlined = useGetResponsiveValue<boolean>(outlined);
-	const isRound = useGetResponsiveValue<boolean>(round);
-	const isUppercase = useGetResponsiveValue<boolean>(uppercase);
+	const {
+		isActive,
+		isClickable,
+		isCompact,
+		isDisabled,
+		isFullWidth,
+		isOutlined,
+		isRound,
+		isUppercase,
+		size,
+		variant
+	} = useBadgeResponsiveValues({
+		isActive: isActiveProp,
+		isClickable: isClickableProp,
+		isCompact: isCompactProp,
+		isDisabled: isDisabledProp,
+		isFullWidth: isFullWidthProp,
+		isOutlined: isOutlinedProp,
+		isRound: isRoundProp,
+		isUppercase: isUppercaseProp,
+		size: sizeProp,
+		variant: variantProp
+	});
 
-	const size = useGetResponsiveValue<BadgeSize>(s);
-	const variant = useGetResponsiveValue<BadgeVariant>(v);
+	const config = useBadgeSizeConfig({ isCompact, isRound, size, variant });
 
-	const config = useBadgeSizeConfig<Element>({ isCompact, isRound, size, variant });
-
-	const classes = useBadgeClasses<Element>({ isCompact, isFullWidth, isRound, isUppercase, size, variant });
+	const classes = useBadgeClasses({ isCompact, isFullWidth, isRound, isUppercase, size, variant });
 
 	const { focusProps } = useFocus({ onFocus: () => setIsFocused.on(), onBlur: () => setIsFocused.off() });
 
