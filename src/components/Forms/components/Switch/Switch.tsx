@@ -46,7 +46,7 @@ import {
 } from './common/constants';
 import { useSwitchClasses, useSwitchIconSize, useSwitchResponsiveValues, useSwitchSizeConfig } from './common/hooks';
 import { __KEYS_SWITCH_CLASS__ } from './common/keys';
-import type { SwitchFocusEvent, SwitchMouseEvent, SwitchProps, SwitchRef } from './common/types';
+import type { SwitchChangeEvent, SwitchFocusEvent, SwitchMouseEvent, SwitchProps, SwitchRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
@@ -54,7 +54,7 @@ const classNames = require('classnames');
 const Switch: PolymorphicComponentWithRef = forwardRef(function Switch<
 	Element extends ElementType = PolymorphicDefaultElement
 >(props: SwitchProps<Element>, ref: SwitchRef<Element>): ReactElement {
-	const pushableOverlayRef = useRef<PushableOverlayRef<PolymorphicDefaultElement>>(null);
+	const pushableOverlayRef = useRef<PushableOverlayRef<Element>>(null);
 
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
@@ -87,7 +87,7 @@ const Switch: PolymorphicComponentWithRef = forwardRef(function Switch<
 		isCompact: isCompactProp = __DEFAULT_SWITCH_IS_COMPACT__,
 		isDisabled: isDisabledProp = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
 		isError: isErrorProp = __DEFAULT_FORM_CONTROL_IS_ERROR__,
-		isFocused: focused = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
+		isFocused: isFocusedProp = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
 		isOutlined: isOutlinedProp = __DEFAULT_SWITCH_IS_OUTLINED__,
 		isReadOnly: isReadOnlyProp = __DEFAULT_FORM_CONTROL_IS_READONLY__,
 		isRequired: isRequiredProp = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
@@ -113,7 +113,7 @@ const Switch: PolymorphicComponentWithRef = forwardRef(function Switch<
 		isCompact,
 		isDisabled,
 		isError,
-		isFocused: isFocusedProp,
+		isFocused: focused,
 		isOutlined,
 		isReadOnly,
 		isRequired,
@@ -121,7 +121,7 @@ const Switch: PolymorphicComponentWithRef = forwardRef(function Switch<
 		isWarning,
 		labelPosition,
 		size
-	} = useSwitchResponsiveValues<Element>({
+	} = useSwitchResponsiveValues({
 		hasIOLabel: hasIOLabelProp,
 		isActive: isActiveProp,
 		isChecked: isCheckedProp,
@@ -129,7 +129,7 @@ const Switch: PolymorphicComponentWithRef = forwardRef(function Switch<
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
 		isError: isErrorProp,
-		isFocused: focused,
+		isFocused: isFocusedProp,
 		isOutlined: isOutlinedProp,
 		isReadOnly: isReadOnlyProp,
 		isRequired: isRequiredProp,
@@ -139,12 +139,12 @@ const Switch: PolymorphicComponentWithRef = forwardRef(function Switch<
 		size: sizeProp
 	});
 
-	const isFocused = useMemo<boolean>(() => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
+	const isFocused = useMemo<boolean>(() => focused || isFocusedHook, [focused, isFocusedHook]);
 
-	const classes = useSwitchClasses<Element>({ isActive, isClickable, isDisabled, isReadOnly });
+	const classes = useSwitchClasses({ isActive, isClickable, isDisabled, isReadOnly });
 
-	const config = useSwitchSizeConfig<Element>({ isCompact, size });
-	const iconSize = useSwitchIconSize<Element>({ isCompact, size });
+	const config = useSwitchSizeConfig({ isCompact, size });
+	const iconSize = useSwitchIconSize({ isCompact, size });
 
 	const labelColor = useGetColor({
 		color: 'gray',
@@ -265,7 +265,9 @@ const Switch: PolymorphicComponentWithRef = forwardRef(function Switch<
 						checked={isChecked}
 						placeholder={placeholder}
 						type={type}
-						onChange={onToggle ? (event) => onToggle(event.target.checked) : undefined}
+						onChange={
+							onToggle ? (event: SwitchChangeEvent<Element>) => onToggle(event.target.checked) : undefined
+						}
 					/>
 					<Grid
 						w='100%'

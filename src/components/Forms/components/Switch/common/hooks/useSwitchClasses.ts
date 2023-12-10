@@ -1,7 +1,5 @@
-import type { ElementType } from 'react';
-
 import classes from '@common/classes';
-import type { ClassName, PolymorphicDefaultElement } from '@common/types';
+import type { ClassName } from '@common/types';
 
 import {
 	__DEFAULT_SWITCH_IS_ACTIVE__,
@@ -16,15 +14,10 @@ import { useSwitchResponsiveValues } from '.';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseSwitchClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	SwitchProps<Element>,
-	'isActive' | 'isClickable' | 'isDisabled' | 'isReadOnly'
->;
+type UseSwitchClassesProps = Pick<SwitchProps, 'isActive' | 'isClickable' | 'isDisabled' | 'isReadOnly'>;
 type UseSwitchClassesReturn = ClassName;
 
-const useSwitchClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseSwitchClassesProps<Element>
-): UseSwitchClassesReturn => {
+const useSwitchClasses = (props: UseSwitchClassesProps): UseSwitchClassesReturn => {
 	const {
 		isActive: isActiveProp = __DEFAULT_SWITCH_IS_ACTIVE__,
 		isClickable: isClickableProp = __DEFAULT_SWITCH_IS_CLICKABLE__,
@@ -32,7 +25,7 @@ const useSwitchClasses = <Element extends ElementType = PolymorphicDefaultElemen
 		isReadOnly: isReadOnlyProp = __DEFAULT_SWITCH_IS_READONLY__
 	} = props;
 
-	const { isActive, isClickable, isDisabled, isReadOnly } = useSwitchResponsiveValues<Element>({
+	const { isActive, isClickable, isDisabled, isReadOnly } = useSwitchResponsiveValues({
 		isActive: isActiveProp,
 		isClickable: isClickableProp,
 		isDisabled: isDisabledProp,
