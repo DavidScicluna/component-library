@@ -6,7 +6,6 @@ import type {
 	PolymorphicDefaultElement,
 	ResponsiveValue,
 	ThemeAppAppearanceProps,
-	ThemeBorderWidth,
 	ThemeRadius
 } from '@common/types';
 
@@ -16,7 +15,6 @@ export type MessageVariant = PickFrom<BorderStyleClass, 'dashed' | 'dotted' | 's
 
 type MessageOtherProps = ThemeAppAppearanceProps & {
 	radius?: ResponsiveValue<ThemeRadius>;
-	size?: ResponsiveValue<ThemeBorderWidth>;
 	variant?: ResponsiveValue<MessageVariant>;
 };
 
@@ -25,7 +23,4 @@ export type MessageProps<Element extends ElementType = PolymorphicDefaultElement
 
 export type MessageRef<Element extends ElementType = PolymorphicDefaultElement> = VStackRef<Element>;
 
-export type MessageContext<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	MessageProps<Element>,
-	'color' | 'colorMode' | 'spacing'
->;
+export type MessageContext = Pick<MessageProps, 'color' | 'colorMode' | 'spacing'>;

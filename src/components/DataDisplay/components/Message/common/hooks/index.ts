@@ -1,4 +1,5 @@
 import useMessageClasses from './useMessageClasses';
 import useMessageContext from './useMessageContext';
+import useMessageResponsiveValues from './useMessageResponsiveValues';
 
-export { useMessageClasses, useMessageContext };
+export { useMessageClasses, useMessageContext, useMessageResponsiveValues };

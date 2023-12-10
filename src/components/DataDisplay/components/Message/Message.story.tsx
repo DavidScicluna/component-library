@@ -9,7 +9,7 @@ import type { PolymorphicDefaultElement, ThemeAppColor, ThemeBorderWidthArr, The
 // eslint-disable-next-line import-path/parent-depth
 import { useStorybookContext } from '../../../../../.storybook/preview';
 
-import { __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_SIZE__, __DEFAULT_MESSAGE_VARIANT__ } from './common/constants';
+import { __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_VARIANT__ } from './common/constants';
 import type { MessageProps, MessageVariant } from './common/types';
 import type { MessageStory, MessageStoryMeta } from './common/types/story';
 import {
@@ -34,14 +34,6 @@ export default {
 			defaultValue: __DEFAULT_MESSAGE_RADIUS__,
 			// description: '',
 			options: ['base', 'xs', 'sm', 'lg', 'xl', 'none', 'full'] as ThemeRadiusArr,
-			control: { type: 'radio' }
-		},
-		size: {
-			name: 'Size',
-			type: 'string',
-			defaultValue: __DEFAULT_MESSAGE_SIZE__,
-			// description: '',
-			options: [0, 1, 2, 4, 8] as ThemeBorderWidthArr,
 			control: { type: 'radio' }
 		},
 		spacing: {

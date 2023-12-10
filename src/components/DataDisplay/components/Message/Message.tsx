@@ -11,15 +11,15 @@ import type {
 
 import { VStack } from '@components/Layout';
 
-import { __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_SIZE__, __DEFAULT_MESSAGE_VARIANT__ } from './common/constants';
-import { useMessageClasses } from './common/hooks';
+import { __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_VARIANT__ } from './common/constants';
+import { useMessageClasses, useMessageResponsiveValues } from './common/hooks';
 import { __KEYS_MESSAGE_CLASS__ } from './common/keys';
 import type { MessageContext as MessageContextType, MessageProps, MessageRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-export const MessageContext = createContext<MessageContextType<PolymorphicDefaultElement>>({
+export const MessageContext = createContext<MessageContextType>({
 	spacing: __DEFAULT_SPACING__
 });
 
@@ -32,14 +32,19 @@ const Message: PolymorphicComponentWithRef = forwardRef(function Message<
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		radius = __DEFAULT_MESSAGE_RADIUS__,
-		size = __DEFAULT_MESSAGE_SIZE__,
-		spacing = __DEFAULT_SPACING__,
-		variant = __DEFAULT_MESSAGE_VARIANT__,
+		radius: radiusProp = __DEFAULT_MESSAGE_RADIUS__,
+		spacing: spacingProp = __DEFAULT_SPACING__,
+		variant: variantProp = __DEFAULT_MESSAGE_VARIANT__,
 		...rest
 	} = props;
 
-	const classes = useMessageClasses<Element>({ color, colorMode, radius, size, variant });
+	const { radius, spacing, variant } = useMessageResponsiveValues({
+		radius: radiusProp,
+		spacing: spacingProp,
+		variant: variantProp
+	});
+
+	const classes = useMessageClasses({ color, colorMode, radius, variant });
 
 	return (
 		<MessageContext.Provider value={{ color, colorMode, spacing }}>
