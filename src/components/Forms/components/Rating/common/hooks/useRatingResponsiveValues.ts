@@ -1,12 +1,10 @@
-import type { ElementType } from 'react';
-
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
 
 import {
 	__DEFAULT_RATING_COUNT__,
 	__DEFAULT_RATING_DIRECTION__,
 	__DEFAULT_RATING_HIGHLIGHT_MODE__,
+	__DEFAULT_RATING_ICONS__,
 	__DEFAULT_RATING_IS_DISABLED__,
 	__DEFAULT_RATING_IS_ERROR__,
 	__DEFAULT_RATING_IS_READONLY__,
@@ -15,31 +13,28 @@ import {
 	__DEFAULT_RATING_IS_WARNING__,
 	__DEFAULT_RATING_SIZE__
 } from '../constants';
-import type { RatingDirection, RatingHighlightMode, RatingProps, RatingSize } from '../types';
+import type { RatingDirection, RatingHighlightMode, RatingIcons, RatingProps, RatingSize } from '../types';
 
-type UseRatingResponsiveValuesProps<Element extends ElementType = PolymorphicDefaultElement> = Partial<
-	Pick<
-		RatingProps<Element>,
-		| 'count'
-		| 'direction'
-		| 'highlightMode'
-		| 'isDisabled'
-		| 'isError'
-		| 'isReadOnly'
-		| 'isRequired'
-		| 'isSuccess'
-		| 'isWarning'
-		// | 'size'
-	>
->;
+type PickedRatingProps =
+	| 'count'
+	| 'direction'
+	| 'highlightMode'
+	| 'icons'
+	| 'isDisabled'
+	| 'isError'
+	| 'isReadOnly'
+	| 'isRequired'
+	| 'isSuccess'
+	| 'isWarning'
+	| 'size';
+type UseRatingResponsiveValuesProps = Partial<Pick<RatingProps, PickedRatingProps>>;
 
-const useRatingResponsiveValues = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseRatingResponsiveValuesProps<Element>
-) => {
+const useRatingResponsiveValues = (props: UseRatingResponsiveValuesProps) => {
 	const {
 		count: countProp = __DEFAULT_RATING_COUNT__,
 		direction: directionProp = __DEFAULT_RATING_DIRECTION__,
 		highlightMode: highlightModeProp = __DEFAULT_RATING_HIGHLIGHT_MODE__,
+		icons: iconsProp = __DEFAULT_RATING_ICONS__,
 		isDisabled: isDisabledProp = __DEFAULT_RATING_IS_DISABLED__,
 		isError: isErrorProp = __DEFAULT_RATING_IS_ERROR__,
 		isReadOnly: isReadOnlyProp = __DEFAULT_RATING_IS_READONLY__,
@@ -51,8 +46,8 @@ const useRatingResponsiveValues = <Element extends ElementType = PolymorphicDefa
 
 	const count = useGetResponsiveValue<number>(countProp);
 	const direction = useGetResponsiveValue<RatingDirection>(directionProp);
-
 	const highlightMode = useGetResponsiveValue<RatingHighlightMode>(highlightModeProp);
+	const icons = useGetResponsiveValue<RatingIcons>(iconsProp);
 
 	const isDisabled = useGetResponsiveValue<boolean>(isDisabledProp);
 	const isError = useGetResponsiveValue<boolean>(isErrorProp);
@@ -67,6 +62,7 @@ const useRatingResponsiveValues = <Element extends ElementType = PolymorphicDefa
 		count,
 		direction,
 		highlightMode,
+		icons,
 		isDisabled,
 		isError,
 		isReadOnly,

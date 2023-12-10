@@ -66,7 +66,7 @@ const Rating: PolymorphicComponentWithRef = forwardRef(function Rating<
 		count: countProp = __DEFAULT_RATING_COUNT__,
 		direction: directionProp = __DEFAULT_RATING_DIRECTION__,
 		highlightMode: highlightModeProp = __DEFAULT_RATING_HIGHLIGHT_MODE__,
-		icons = __DEFAULT_RATING_ICONS__,
+		icons: iconsProp = __DEFAULT_RATING_ICONS__,
 		isDisabled: isDisabledProp = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
 		isError: isErrorProp = __DEFAULT_FORM_CONTROL_IS_ERROR__,
 		isReadOnly: isReadOnlyProp = __DEFAULT_FORM_CONTROL_IS_READONLY__,
@@ -82,22 +82,34 @@ const Rating: PolymorphicComponentWithRef = forwardRef(function Rating<
 
 	const [hoveringCounts, setHoveringCounts] = useState<Array<number>>([]);
 
-	const { count, direction, highlightMode, isDisabled, isError, isReadOnly, isRequired, isSuccess, isWarning, size } =
-		useRatingResponsiveValues<Element>({
-			count: countProp,
-			direction: directionProp,
-			highlightMode: highlightModeProp,
-			isDisabled: isDisabledProp,
-			isError: isErrorProp,
-			isReadOnly: isReadOnlyProp,
-			isRequired: isRequiredProp,
-			isSuccess: isSuccessProp,
-			isWarning: isWarningProp,
-			size: sizeProp
-		});
+	const {
+		count,
+		direction,
+		highlightMode,
+		icons,
+		isDisabled,
+		isError,
+		isReadOnly,
+		isRequired,
+		isSuccess,
+		isWarning,
+		size
+	} = useRatingResponsiveValues({
+		count: countProp,
+		direction: directionProp,
+		highlightMode: highlightModeProp,
+		icons: iconsProp,
+		isDisabled: isDisabledProp,
+		isError: isErrorProp,
+		isReadOnly: isReadOnlyProp,
+		isRequired: isRequiredProp,
+		isSuccess: isSuccessProp,
+		isWarning: isWarningProp,
+		size: sizeProp
+	});
 
-	const classes = useRatingClasses<Element>({ isDisabled, isReadOnly });
-	const iconSize = useRatingIconSize<Element>({ size });
+	const classes = useRatingClasses({ isDisabled, isReadOnly });
+	const iconSize = useRatingIconSize({ size });
 
 	const handleCountMouseClick = (count: number): void => {
 		if (onChange) {
