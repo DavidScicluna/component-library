@@ -1,6 +1,6 @@
-import { type ElementType, useMemo } from 'react';
+import { useMemo } from 'react';
 
-import type { PolymorphicDefaultElement, ThemeFontSize, ThemeSpacing } from '@common/types';
+import type { ThemeFontSize, ThemeSpacing } from '@common/types';
 
 import { __DEFAULT_STEPPER_SIZE__ } from '../constants';
 import type { StepperProps } from '../types';
@@ -14,18 +14,13 @@ type StepperSizeConfig = {
 	spacing: ThemeSpacing;
 };
 
-type UseStepperSizeConfigProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	StepperProps<Element>,
-	'size'
->;
+type UseStepperSizeConfigProps = Pick<StepperProps, 'size'>;
 type UseStepperSizeConfigReturn = StepperSizeConfig;
 
-const useStepperSizeConfig = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseStepperSizeConfigProps<Element>
-): UseStepperSizeConfigReturn => {
+const useStepperSizeConfig = (props: UseStepperSizeConfigProps): UseStepperSizeConfigReturn => {
 	const { size: sizeProp = __DEFAULT_STEPPER_SIZE__ } = props;
 
-	const { size } = useStepperResponsiveValues<Element>({ size: sizeProp });
+	const { size } = useStepperResponsiveValues({ size: sizeProp });
 
 	const config = useMemo<StepperSizeConfig>(() => {
 		switch (size) {

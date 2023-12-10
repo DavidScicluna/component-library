@@ -30,8 +30,7 @@ import type { StepperContext as StepperContextType, StepperProps, StepperRef } f
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const StepperContext = createContext<StepperContextType<any>>({
+export const StepperContext = createContext<StepperContextType>({
 	align: __DEFAULT_STEPPER_ALIGN__,
 	id: __DEFAULT_STEPPER_ID__,
 	index: __DEFAULT_STEPPER_INDEX__,
@@ -70,7 +69,7 @@ const Stepper: PolymorphicComponentWithRef = forwardRef(function Stepper<
 	} = props;
 
 	const { align, index, total, isConsecutively, isDisabled, isFitted, orientation, size, spacing, variant } =
-		useStepperResponsiveValues<Element>({
+		useStepperResponsiveValues({
 			align: alignProp,
 			index: indexProp,
 			total: totalProp,

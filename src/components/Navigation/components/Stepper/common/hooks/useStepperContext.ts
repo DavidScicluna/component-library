@@ -1,8 +1,6 @@
-import type { ElementType } from 'react';
 import { useContext } from 'react';
 
 import { __DEFAULT_METHOD__, __DEFAULT_SPACING__ } from '@common/constants';
-import type { PolymorphicDefaultElement } from '@common/types';
 
 import { StepperContext } from '../../Stepper';
 import {
@@ -21,7 +19,7 @@ import type { StepperContext as StepperContextType } from '../types';
 
 import { useStepperResponsiveValues } from '.';
 
-const useStepperContext = <Element extends ElementType = PolymorphicDefaultElement>() => {
+const useStepperContext = () => {
 	const {
 		color,
 		colorMode,
@@ -37,10 +35,10 @@ const useStepperContext = <Element extends ElementType = PolymorphicDefaultEleme
 		size: sizeProp = __DEFAULT_STEPPER_SIZE__,
 		spacing: spacingProp = __DEFAULT_SPACING__,
 		variant: variantProp = __DEFAULT_STEPPER_VARIANT__
-	} = useContext<StepperContextType<Element>>(StepperContext);
+	} = useContext<StepperContextType>(StepperContext);
 
 	const { align, index, total, isConsecutively, isDisabled, isFitted, orientation, size, spacing, variant } =
-		useStepperResponsiveValues<Element>({
+		useStepperResponsiveValues({
 			align: alignProp,
 			index: indexProp,
 			total: totalProp,

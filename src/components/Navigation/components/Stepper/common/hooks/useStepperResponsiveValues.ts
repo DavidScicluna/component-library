@@ -1,8 +1,6 @@
-import type { ElementType } from 'react';
-
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
+import type { ThemeSpacing } from '@common/types';
 
 import {
 	__DEFAULT_STEPPER_ALIGN__,
@@ -17,23 +15,23 @@ import {
 } from '../constants';
 import type { StepperAlign, StepperOrientation, StepperProps, StepperSize, StepperVariant } from '../types';
 
-type UseStepperResponsiveValuesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	StepperProps<Element>,
-	| 'align'
-	| 'index'
-	| 'total'
-	| 'isConsecutively'
-	| 'isDisabled'
-	| 'isFitted'
-	| 'orientation'
-	| 'size'
-	| 'variant'
-	| 'spacing'
+type UseStepperResponsiveValuesProps = Partial<
+	Pick<
+		StepperProps,
+		| 'align'
+		| 'index'
+		| 'total'
+		| 'isConsecutively'
+		| 'isDisabled'
+		| 'isFitted'
+		| 'orientation'
+		| 'size'
+		| 'variant'
+		| 'spacing'
+	>
 >;
 
-const useStepperResponsiveValues = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseStepperResponsiveValuesProps<Element>
-) => {
+const useStepperResponsiveValues = (props: UseStepperResponsiveValuesProps) => {
 	const {
 		align: alignProp = __DEFAULT_STEPPER_ALIGN__,
 		index: indexProp = __DEFAULT_STEPPER_INDEX__,

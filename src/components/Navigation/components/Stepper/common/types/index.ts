@@ -81,6 +81,7 @@ type PickedStepperProps =
 	| 'color'
 	| 'colorMode'
 	| 'align'
+	| 'id'
 	| 'index'
 	| 'total'
 	| 'isConsecutively'
@@ -92,6 +93,4 @@ type PickedStepperProps =
 	| 'spacing'
 	| 'variant';
 
-export type StepperContext<Element extends ElementType = PolymorphicDefaultElement> = {
-	id: string;
-} & Pick<StepperProps<Element>, PickedStepperProps>;
+export type StepperContext = Pick<StepperProps, PickedStepperProps>;
