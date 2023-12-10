@@ -86,10 +86,11 @@ export type ConfirmModalProps<Element extends ConfirmModalElement = ConfirmModal
 >;
 export type ConfirmModalRef<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = BoxRef<Element>;
 
-export type ConfirmModalContext<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = {
+type PickedConfirmModalProps = 'color' | 'colorMode' | 'id' | 'onClose' | 'size' | 'spacing';
+
+export type ConfirmModalContext = Pick<ConfirmModalProps, PickedConfirmModalProps> & {
 	/**
 	 * If `true`, the ConfirmModal will be open
 	 */
 	isOpen: boolean;
-	id: string;
-} & Pick<ConfirmModalProps<Element>, 'color' | 'colorMode' | 'onClose' | 'size' | 'spacing'>;
+};

@@ -1,6 +1,6 @@
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_SPACING__ } from '@common/constants';
-import { useAppTheme, useGetClass, useGetColor, useGetResponsiveValue } from '@common/hooks';
+import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
 import type {
 	BoxShadowClass,
 	ClassName,
@@ -13,31 +13,27 @@ import type {
 } from '@common/types';
 
 import { __DEFAULT_CONFIRM_MODAL_SIZE__, __DEFAULT_CONFIRM_MODAL_SPACING__ } from '../constants';
-import type { ConfirmModalDefaultElement, ConfirmModalElement, ConfirmModalProps, ConfirmModalSize } from '../types';
+import type { ConfirmModalProps } from '../types';
+
+import useConfirmModalResponsiveValues from './useConfirmModalResponsiveValues';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseGetConfirmModalClassesProps<Element extends ConfirmModalElement = ConfirmModalDefaultElement> = Pick<
-	ConfirmModalProps<Element>,
-	'color' | 'colorMode' | 'size' | 'spacing'
->;
+type UseGetConfirmModalClassesProps = Pick<ConfirmModalProps, 'color' | 'colorMode' | 'size' | 'spacing'>;
 type UseGetConfirmModalClassesReturn = Record<'container' | 'backdrop' | 'content' | 'cancel', ClassName>;
 
-const useGetConfirmModalClasses = <Element extends ConfirmModalElement = ConfirmModalDefaultElement>(
-	props: UseGetConfirmModalClassesProps<Element>
-): UseGetConfirmModalClassesReturn => {
+const useGetConfirmModalClasses = (props: UseGetConfirmModalClassesProps): UseGetConfirmModalClassesReturn => {
 	const { colorMode: __DEFAULT_CONFIRM_MODAL_CONTAINER_COLORMODE__ } = useAppTheme();
 
 	const {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_CONFIRM_MODAL_CONTAINER_COLORMODE__,
-		size: si = __DEFAULT_CONFIRM_MODAL_SIZE__,
-		spacing: sp = __DEFAULT_CONFIRM_MODAL_SPACING__
+		spacing: spacingProp = __DEFAULT_CONFIRM_MODAL_SPACING__,
+		size: sizeProp = __DEFAULT_CONFIRM_MODAL_SIZE__
 	} = props;
 
-	const size = useGetResponsiveValue<ConfirmModalSize>(si);
-	const spacing = useGetResponsiveValue<ThemeSpacing>(sp);
+	const { size, spacing } = useConfirmModalResponsiveValues({ spacing: spacingProp, size: sizeProp });
 
 	const widthClassName = useGetClass<WidthClass>('full', ['sizing', 'width']);
 	const maxWidthClassName = useGetClass<MaxWidthClass>(size, ['sizing', 'max_width']);
