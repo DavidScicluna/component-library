@@ -8,6 +8,8 @@ import { useTabsContext } from '@components/Navigation/components/Tabs/common/ho
 import { __DEFAULT_TAB_IS_COMPACT__ } from '../constants';
 import type { TabDefaultElement, TabElement, TabProps } from '../types';
 
+import useTabResponsiveValues from './useTabResponsiveValues';
+
 type TabSizeConfig = {
 	fontSize: ThemeFontSize;
 	padding: Record<'x' | 'y', ThemeSpacing>;
@@ -22,7 +24,9 @@ const useTabSizeConfig = <Element extends TabElement = TabDefaultElement>(
 ): UseTabSizeConfigReturn => {
 	const { size } = useTabsContext();
 
-	const { isCompact = __DEFAULT_TAB_IS_COMPACT__ } = props;
+	const { isCompact: isCompactProp = __DEFAULT_TAB_IS_COMPACT__ } = props;
+
+	const { isCompact } = useTabResponsiveValues({ isCompact: isCompactProp });
 
 	const config = useMemo<TabSizeConfig>(() => {
 		const c = getResponsiveValue<boolean>(isCompact);

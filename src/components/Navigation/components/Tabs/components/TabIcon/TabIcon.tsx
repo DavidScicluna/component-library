@@ -33,7 +33,7 @@ const TabIcon: PolymorphicComponentWithRef = forwardRef(function TabIcon<
 	const fontSize = useTabsTabFontSize({ size });
 
 	return (
-		<Icon
+		<Icon<Element>
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_TAB_ICON_CLASS__, { [className]: !!className })}

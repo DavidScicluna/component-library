@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_OUTLINE_WIDTH__ } from '@common/constants';
-import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
+import { useAppTheme, useGetColor } from '@common/hooks';
 import type { ClassName } from '@common/types';
 import { getColorHue } from '@common/utils';
 
@@ -15,40 +15,39 @@ import {
 	__DEFAULT_TAB_IS_DISABLED__,
 	__DEFAULT_TAB_IS_UPPERCASE__
 } from '../constants';
-import type { TabDefaultElement, TabElement, TabProps } from '../types';
+import type { TabProps } from '../types';
 
+import useTabResponsiveValues from './useTabResponsiveValues';
 import useTabSizeConfig from './useTabSizeConfig';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseTabClassesProps<Element extends TabElement = TabDefaultElement> = Pick<
-	TabProps<Element>,
-	'color' | 'colorMode' | 'isActive' | 'isCompact' | 'isDisabled' | 'isUppercase'
-> & { isFocused: boolean };
+type PickedTabProps = 'color' | 'colorMode' | 'isActive' | 'isCompact' | 'isDisabled' | 'isUppercase';
+type UseTabClassesProps = Pick<TabProps, PickedTabProps> & { isFocused: boolean };
 type UseTabClassesReturn = Record<'tab' | 'topDivider' | 'bottomDivider' | 'label', ClassName>;
 
-const useTabClasses = <Element extends TabElement = TabDefaultElement>(
-	props: UseTabClassesProps<Element>
-): UseTabClassesReturn => {
+const useTabClasses = (props: UseTabClassesProps): UseTabClassesReturn => {
 	const { colorMode: __DEFAULT_TAB_COLORMODE__ } = useAppTheme();
 	const { orientation } = useTabsContext();
 
 	const {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_TAB_COLORMODE__,
-		isActive: active = __DEFAULT_TAB_IS_ACTIVE__,
-		isCompact: compact = __DEFAULT_TAB_IS_COMPACT__,
-		isDisabled: disabled = __DEFAULT_TAB_IS_DISABLED__,
-		isUppercase: uppercase = __DEFAULT_TAB_IS_UPPERCASE__
+		isActive: isActiveProp = __DEFAULT_TAB_IS_ACTIVE__,
+		isCompact: isCompactProp = __DEFAULT_TAB_IS_COMPACT__,
+		isDisabled: isDisabledProp = __DEFAULT_TAB_IS_DISABLED__,
+		isUppercase: isUppercaseProp = __DEFAULT_TAB_IS_UPPERCASE__
 	} = props;
 
-	const isActive = useGetResponsiveValue<boolean>(active);
-	const isCompact = useGetResponsiveValue<boolean>(compact);
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-	const isUppercase = useGetResponsiveValue<boolean>(uppercase);
+	const { isActive, isCompact, isDisabled, isUppercase } = useTabResponsiveValues({
+		isActive: isActiveProp,
+		isCompact: isCompactProp,
+		isDisabled: isDisabledProp,
+		isUppercase: isUppercaseProp
+	});
 
-	const config = useTabSizeConfig<Element>({ isCompact });
+	const config = useTabSizeConfig({ isCompact });
 
 	const tabClasses = useMemo<ClassName>(() => {
 		const outlineHue = getColorHue({ colorMode, type: 'color' });

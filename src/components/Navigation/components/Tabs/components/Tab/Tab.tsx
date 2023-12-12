@@ -6,7 +6,7 @@ import { useFocus } from 'rooks';
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useBoolean, useGetResponsiveValue } from '@common/hooks';
+import { useBoolean } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
@@ -16,6 +16,7 @@ import type {
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
 import { useCarouselManager } from '@components/DataDisplay/components/Carousel/common/hooks';
+import type { CenterRef } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 import { HoverOverlay } from '@components/Overlay';
 
@@ -29,7 +30,7 @@ import {
 	__DEFAULT_TAB_IS_DISABLED__,
 	__DEFAULT_TAB_IS_UPPERCASE__
 } from './common/constants';
-import { useTabClasses, useTabSizeConfig } from './common/hooks';
+import { useTabClasses, useTabResponsiveValues, useTabSizeConfig } from './common/hooks';
 import { __KEYS_TAB_CLASS__ } from './common/keys';
 import type { TabDefaultElement, TabElement, TabMouseEvent, TabProps, TabRef } from './common/types';
 
@@ -64,10 +65,10 @@ const Tab: PolymorphicComponentWithRef = forwardRef(function Tab<Element extends
 		color = __DEFAULT_TAB_COLOR__,
 		colorMode = __DEFAULT_TAB_COLORMODE__,
 		index,
-		isActive: active = __DEFAULT_TAB_IS_ACTIVE__,
-		isCompact: c = __DEFAULT_TAB_IS_COMPACT__,
-		isDisabled: disabled = __DEFAULT_TAB_IS_DISABLED__,
-		isUppercase: uppercase = __DEFAULT_TAB_IS_UPPERCASE__,
+		isActive: isActiveProp = __DEFAULT_TAB_IS_ACTIVE__,
+		isCompact: isCompactProp = __DEFAULT_TAB_IS_COMPACT__,
+		isDisabled: isDisabledProp = __DEFAULT_TAB_IS_DISABLED__,
+		isUppercase: isUppercaseProp = __DEFAULT_TAB_IS_UPPERCASE__,
 		onClick,
 		spacing = __DEFAULT_TAB_SPACING__,
 		...rest
@@ -77,17 +78,24 @@ const Tab: PolymorphicComponentWithRef = forwardRef(function Tab<Element extends
 
 	const [isFocused, setIsFocused] = useBoolean();
 
-	const isActive = useGetResponsiveValue<boolean>(active);
-	const isCompact = useGetResponsiveValue<boolean>(c);
-	const isTabDisabled = useGetResponsiveValue<boolean>(disabled);
-	const isUppercase = useGetResponsiveValue<boolean>(uppercase);
+	const {
+		isActive,
+		isCompact,
+		isDisabled: isTabDisabled,
+		isUppercase
+	} = useTabResponsiveValues({
+		isActive: isActiveProp,
+		isCompact: isCompactProp,
+		isDisabled: isDisabledProp,
+		isUppercase: isUppercaseProp
+	});
 
 	const isDisabled = useMemo(() => isTabsDisabled || isTabDisabled, [isTabsDisabled, isTabDisabled]);
 	const isSelected = useMemo(() => index === panel, [index, panel]);
 
-	const config = useTabSizeConfig<Element>({ isCompact });
+	const config = useTabSizeConfig({ isCompact });
 
-	const classes = useTabClasses<Element>({
+	const classes = useTabClasses({
 		color,
 		colorMode,
 		isActive: isActive || isSelected,
@@ -122,7 +130,7 @@ const Tab: PolymorphicComponentWithRef = forwardRef(function Tab<Element extends
 
 	return (
 		<HoverOverlay w={isFitted ? '100%' : 'auto'} h='100%'>
-			{(isHovering) => (
+			{(isHovering: boolean) => (
 				<Grid<Element>
 					{...focusProps}
 					{...rest}
@@ -208,7 +216,7 @@ const Tab: PolymorphicComponentWithRef = forwardRef(function Tab<Element extends
 
 									{children ? (
 										<GridItem>
-											<Center ref={childrenRef} as='span' w='100%' h='100%'>
+											<Center ref={childrenRef as CenterRef} as='span' w='100%' h='100%'>
 												{children}
 											</Center>
 										</GridItem>
