@@ -36,7 +36,7 @@ const ConfirmModalIcon: PolymorphicComponentWithRef = forwardRef(function Confir
 	} = props;
 
 	return (
-		<Icon
+		<Icon<Element>
 			{...rest}
 			ref={ref}
 			// TODO: Maybe create a function that generates class names

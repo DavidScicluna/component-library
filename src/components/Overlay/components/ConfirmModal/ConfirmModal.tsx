@@ -22,6 +22,7 @@ import type {
 
 import { AnimatePresence, Transition } from '@components/Animation';
 import { Box } from '@components/Box';
+import type { CenterRef } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import {
@@ -186,7 +187,7 @@ const ConfirmModal: PolymorphicComponentWithRef = forwardRef(function ConfirmMod
 								<GridItem columnStart={1} rowStart={1} zIndex={1}>
 									<Center
 										{...getFloatingProps()}
-										ref={refs.setFloating}
+										ref={refs.setFloating as CenterRef}
 										aria-labelledby={getConfirmModalTitleID(id)}
 										aria-describedby={getConfirmModalSubtitleID(id)}
 										w='100%'
