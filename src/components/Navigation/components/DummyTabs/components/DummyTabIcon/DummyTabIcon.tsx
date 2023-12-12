@@ -44,7 +44,7 @@ const DummyTabIcon: PolymorphicComponentWithRef = forwardRef(function DummyTabIc
 
 	return (
 		<DummyTabSkeleton color={color} colorMode={colorMode} radius='full'>
-			<Icon
+			<Icon<Element>
 				{...rest}
 				ref={ref}
 				className={classNames(__KEYS_DUMMY_TAB_ICON_CLASS__, { [className]: !!className })}
@@ -61,6 +61,6 @@ const DummyTabIcon: PolymorphicComponentWithRef = forwardRef(function DummyTabIc
 
 DummyTabIcon.displayName = 'DummyTabIcon';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends DummyTabIconElement = DummyTabIconDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <DummyTabIcon<Element> {...props} />;

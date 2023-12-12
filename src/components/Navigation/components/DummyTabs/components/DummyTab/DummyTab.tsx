@@ -5,7 +5,6 @@ import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
@@ -15,6 +14,7 @@ import type {
 
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
+import type { CenterRef } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import { useDummyTabsContext } from '../../common/hooks';
@@ -26,7 +26,7 @@ import {
 	__DEFAULT_DUMMY_TAB_IS_COMPACT__,
 	__DEFAULT_DUMMY_TAB_IS_UPPERCASE__
 } from './common/constants';
-import { useDummyTabClasses, useDummyTabSizeConfig } from './common/hooks';
+import { useDummyTabClasses, useDummyTabResponsiveValues, useDummyTabSizeConfig } from './common/hooks';
 import { __KEYS_DUMMY_TAB_CLASS__ } from './common/keys';
 import type { DummyTabProps, DummyTabRef } from './common/types';
 
@@ -58,20 +58,22 @@ const DummyTab: PolymorphicComponentWithRef = forwardRef(function DummyTab<
 		color = __DEFAULT_DUMMY_TAB_COLOR__,
 		colorMode = __DEFAULT_DUMMY_TAB_COLORMODE__,
 		index,
-		isCompact: c = __DEFAULT_DUMMY_TAB_IS_COMPACT__,
-		isUppercase: uppercase = __DEFAULT_DUMMY_TAB_IS_UPPERCASE__,
+		isCompact: isCompactProp = __DEFAULT_DUMMY_TAB_IS_COMPACT__,
+		isUppercase: isUppercaseProp = __DEFAULT_DUMMY_TAB_IS_UPPERCASE__,
 		spacing = __DEFAULT_DUMMY_TAB_SPACING__,
 		...rest
 	} = props;
 
-	const isCompact = useGetResponsiveValue<boolean>(c);
-	const isUppercase = useGetResponsiveValue<boolean>(uppercase);
+	const { isCompact, isUppercase } = useDummyTabResponsiveValues({
+		isCompact: isCompactProp,
+		isUppercase: isUppercaseProp
+	});
 
 	const isSelected = useMemo(() => index === panel, [index, panel]);
 
-	const config = useDummyTabSizeConfig<Element>({ isCompact });
+	const config = useDummyTabSizeConfig({ isCompact });
 
-	const classes = useDummyTabClasses<Element>({ color, colorMode, isSelected, isCompact, isUppercase });
+	const classes = useDummyTabClasses({ color, colorMode, isSelected, isCompact, isUppercase });
 
 	return (
 		<Grid<Element>
@@ -155,7 +157,7 @@ const DummyTab: PolymorphicComponentWithRef = forwardRef(function DummyTab<
 
 							{children ? (
 								<GridItem>
-									<Center ref={childrenRef} as='span' w='100%' h='100%'>
+									<Center ref={childrenRef as CenterRef} as='span' w='100%' h='100%'>
 										<DummyTabSkeleton color={color} colorMode={colorMode} radius='xs'>
 											{children}
 										</DummyTabSkeleton>

@@ -12,6 +12,7 @@ import type {
 	PolymorphicDefaultProps
 } from '@common/types';
 
+import type { CarouselRef, CarouselRenderIconButtonProps, CarouselVariant } from '@components/DataDisplay';
 import {
 	Carousel,
 	CarouselLeftLinearGradient,
@@ -74,15 +75,15 @@ const DummyTabList: PolymorphicComponentWithRef = forwardRef(function DummyTabLi
 			{isArray(children) ? (
 				<GridItem alignSelf='stretch' justifySelf={isFitted ? 'stretch' : align}>
 					<Carousel
-						ref={childrenRef}
+						ref={childrenRef as CarouselRef}
 						w='100%'
 						h='100%'
 						colorMode={colorMode}
-						renderLeftAction={(_variant, props) => (
+						renderLeftAction={(_variant: CarouselVariant, props: CarouselRenderIconButtonProps) => (
 							<CarouselOverlayLeftArrowIconButton {...props} isCompact variant='icon' />
 						)}
 						renderLeftLinearGradient={() => <CarouselLeftLinearGradient />}
-						renderRightAction={(_variant, props) => (
+						renderRightAction={(_variant: CarouselVariant, props: CarouselRenderIconButtonProps) => (
 							<CarouselOverlayRightArrowIconButton {...props} isCompact variant='icon' />
 						)}
 						renderRightLinearGradient={() => <CarouselRightLinearGradient />}

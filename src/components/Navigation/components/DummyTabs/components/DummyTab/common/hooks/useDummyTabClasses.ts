@@ -1,10 +1,9 @@
-import type { ElementType } from 'react';
 import { useMemo } from 'react';
 
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_OUTLINE_WIDTH__ } from '@common/constants';
-import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
-import type { ClassName, PolymorphicDefaultElement } from '@common/types';
+import { useAppTheme, useGetColor } from '@common/hooks';
+import type { ClassName } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import { __DEFAULT_DUMMY_TABS_TAB_LINE_HEIGHT_SIZE__ } from '@components/Navigation/components/DummyTabs/common/constants';
@@ -13,35 +12,35 @@ import { useDummyTabsContext } from '@components/Navigation/components/DummyTabs
 import { __DEFAULT_DUMMY_TAB_IS_COMPACT__, __DEFAULT_DUMMY_TAB_IS_UPPERCASE__ } from '../constants';
 import type { DummyTabProps } from '../types';
 
+import useDummyTabResponsiveValues from './useDummyTabResponsiveValues';
 import useDummyTabSizeConfig from './useDummyTabSizeConfig';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseDummyTabClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	DummyTabProps<Element>,
-	'color' | 'colorMode' | 'isCompact' | 'isUppercase'
-> & { isSelected: boolean };
+type UseDummyTabClassesProps = Pick<DummyTabProps, 'color' | 'colorMode' | 'isCompact' | 'isUppercase'> & {
+	isSelected: boolean;
+};
 type UseDummyTabClassesReturn = Record<'tab' | 'topDivider' | 'bottomDivider' | 'label', ClassName>;
 
-const useDummyTabClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseDummyTabClassesProps<Element>
-): UseDummyTabClassesReturn => {
+const useDummyTabClasses = (props: UseDummyTabClassesProps): UseDummyTabClassesReturn => {
 	const { colorMode: __DEFAULT_DUMMY_TAB_COLORMODE__ } = useAppTheme();
 	const { orientation } = useDummyTabsContext();
 
 	const {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_DUMMY_TAB_COLORMODE__,
-		isCompact: compact = __DEFAULT_DUMMY_TAB_IS_COMPACT__,
-		isUppercase: uppercase = __DEFAULT_DUMMY_TAB_IS_UPPERCASE__,
+		isCompact: isCompactProp = __DEFAULT_DUMMY_TAB_IS_COMPACT__,
+		isUppercase: isUppercaseProp = __DEFAULT_DUMMY_TAB_IS_UPPERCASE__,
 		isSelected
 	} = props;
 
-	const isCompact = useGetResponsiveValue<boolean>(compact);
-	const isUppercase = useGetResponsiveValue<boolean>(uppercase);
+	const { isCompact, isUppercase } = useDummyTabResponsiveValues({
+		isCompact: isCompactProp,
+		isUppercase: isUppercaseProp
+	});
 
-	const config = useDummyTabSizeConfig<Element>({ isCompact });
+	const config = useDummyTabSizeConfig({ isCompact });
 
 	const dummytabClasses = useMemo<ClassName>(() => {
 		const outlineHue = getColorHue({ colorMode, type: 'color' });
