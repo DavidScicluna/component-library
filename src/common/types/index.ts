@@ -299,12 +299,12 @@ import type {
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
 	PolymorphicDefaultProps,
+	PolymorphicElement,
 	PolymorphicExtendableProps,
 	PolymorphicFocusEvent,
 	PolymorphicFormEvent,
 	PolymorphicInheritableElementProps,
 	PolymorphicMouseEvent,
-	PolymorphicPropsOf,
 	PolymorphicRef
 } from './polymorphic';
 import type { ResponsiveArrayValue, ResponsiveObjectValue, ResponsiveValue } from './responsive';
@@ -583,12 +583,12 @@ export type {
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
 	PolymorphicDefaultProps,
+	PolymorphicElement,
 	PolymorphicExtendableProps,
 	PolymorphicFocusEvent,
 	PolymorphicFormEvent,
 	PolymorphicInheritableElementProps,
 	PolymorphicMouseEvent,
-	PolymorphicPropsOf,
 	PolymorphicRef,
 	PositionClass,
 	PositionClassArr,
