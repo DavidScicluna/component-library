@@ -4,38 +4,39 @@ import classes from '@common/classes';
 import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
 import type { ClassName, ThemeFontSize, ThemeRadius } from '@common/types';
-import { checkFontSizeType, getClass, getColorHue, getResponsiveValue } from '@common/utils';
+import { checkFontSizeType, getClass, getColorHue } from '@common/utils';
 
 import { __DEFAULT_ICON_RADIUS__, __DEFAULT_ICON_SIZE__, __DEFAULT_ICON_VARIANT__ } from '../constants';
-import type { IconElement, IconProps, IconSize, IconVariant } from '../types';
+import type { IconProps } from '../types';
+
+import useIconResponsiveValues from './useIconResponsiveValues';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseIconClassesProps<Element extends IconElement> = Pick<
-	IconProps<Element>,
-	'color' | 'colorMode' | 'radius' | 'size' | 'variant'
->;
+type UseIconClassesProps = Pick<IconProps, 'color' | 'colorMode' | 'radius' | 'size' | 'variant'>;
 type UseIconClassesReturn = ClassName;
 
-const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<Element>): UseIconClassesReturn => {
+const useIconClasses = (props: UseIconClassesProps): UseIconClassesReturn => {
 	const { colorMode: __DEFAULT_ICON_COLORMODE__ } = useAppTheme();
 
 	const {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_ICON_COLORMODE__,
-		radius = __DEFAULT_ICON_RADIUS__,
-		size = __DEFAULT_ICON_SIZE__,
-		variant = __DEFAULT_ICON_VARIANT__
+		radius: radiusProp = __DEFAULT_ICON_RADIUS__,
+		size: sizeProp = __DEFAULT_ICON_SIZE__,
+		variant: variantProp = __DEFAULT_ICON_VARIANT__
 	} = props;
 
+	const { radius, size, variant } = useIconResponsiveValues({
+		radius: radiusProp,
+		size: sizeProp,
+		variant: variantProp
+	});
+
 	const rootClasses = useMemo<string>(() => {
-		const s = getResponsiveValue<IconSize>(size);
-
-		const fontSizeClassName = getClass<ThemeFontSize>(s as ThemeFontSize, ['typography', 'font_size']);
+		const fontSizeClassName = getClass<ThemeFontSize>(size as ThemeFontSize, ['typography', 'font_size']);
 		const radiusClassName = getClass<ThemeRadius>(radius, ['borders', 'border_radius']);
-
-		const v = getResponsiveValue<IconVariant>(variant);
 
 		return classNames(
 			classes.layout.display['inline-block'],
@@ -52,10 +53,10 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 			classes.typography.whitespace.normal,
 			radiusClassName,
 			{
-				[s]: checkFontSizeType(s) === 'class',
-				[fontSizeClassName]: checkFontSizeType(s) === 'theme',
-				[classes.borders.border_width[__DEFAULT_BORDER_WIDTH__]]: v !== 'unstyled',
-				[classes.borders.border_style[__DEFAULT_BORDER_STYLE__]]: v !== 'unstyled'
+				[size]: checkFontSizeType(size) === 'class',
+				[fontSizeClassName]: checkFontSizeType(size) === 'theme',
+				[classes.borders.border_width[__DEFAULT_BORDER_WIDTH__]]: variant !== 'unstyled',
+				[classes.borders.border_style[__DEFAULT_BORDER_STYLE__]]: variant !== 'unstyled'
 			}
 		);
 	}, [size, radius, variant]);

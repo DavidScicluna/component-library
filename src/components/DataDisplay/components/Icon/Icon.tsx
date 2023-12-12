@@ -17,11 +17,12 @@ import useIconFontContext from '@components/Provider/common/hooks/useIconFontCon
 
 import {
 	__DEFAULT_ICON_CATEGORY__,
+	__DEFAULT_ICON_ICON__,
 	__DEFAULT_ICON_RADIUS__,
 	__DEFAULT_ICON_SIZE__,
 	__DEFAULT_ICON_VARIANT__
 } from './common/constants';
-import { useIconClasses, useIconStyles } from './common/hooks';
+import { useIconClasses, useIconResponsiveValues, useIconStyles } from './common/hooks';
 import { __KEYS_ICON_CLASS__ } from './common/keys';
 import type { IconDefaultElement, IconElement, IconProps, IconRef } from './common/types';
 
@@ -41,19 +42,27 @@ const Icon: PolymorphicComponentWithRef = forwardRef(function Icon<Element exten
 		h = 'auto',
 		color,
 		colorMode,
-		icon,
-		category = __DEFAULT_ICON_CATEGORY__,
-		radius = __DEFAULT_ICON_RADIUS__,
-		size = __DEFAULT_ICON_SIZE__,
-		variant = __DEFAULT_ICON_VARIANT__,
+		icon: iconProp = __DEFAULT_ICON_ICON__,
+		category: categoryProp = __DEFAULT_ICON_CATEGORY__,
+		radius: radiusProp = __DEFAULT_ICON_RADIUS__,
+		size: sizeProp = __DEFAULT_ICON_SIZE__,
+		variant: variantProp = __DEFAULT_ICON_VARIANT__,
 		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
 	} = props;
 
+	const { icon, category, radius, size, variant } = useIconResponsiveValues({
+		icon: iconProp,
+		category: categoryProp,
+		radius: radiusProp,
+		size: sizeProp,
+		variant: variantProp
+	});
+
 	const hasIcon = !children && !!icon;
 
-	const classes = useIconClasses<Element>({ color, colorMode, radius, size, variant });
-	const styles = useIconStyles<Element>({ size });
+	const classes = useIconClasses({ color, colorMode, radius, size, variant });
+	const styles = useIconStyles({ size });
 
 	return (
 		<Skeleton color={color} colorMode={colorMode} isLoaded={hasIcon ? fonts[category] : true} radius='full'>

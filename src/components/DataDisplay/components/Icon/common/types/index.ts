@@ -18,12 +18,12 @@ type IconOtherProps = ThemeAppAppearanceProps & {
 	/**
 	 * The icon key from the list of google material icons
 	 */
-	icon?: IconKey;
+	icon?: ResponsiveValue<IconKey>;
 	/**
 	 * The type of icon set to choose from either 'filled', 'outlined' or 'twoTone'
 	 * @default 'filled'
 	 */
-	category?: IconCategory;
+	category?: ResponsiveValue<IconCategory>;
 	/**
 	 * The border radius of the icon container
 	 * @default 'full'
