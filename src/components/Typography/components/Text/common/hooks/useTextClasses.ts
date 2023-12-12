@@ -22,18 +22,21 @@ import {
 	__DEFAULT_TEXT_FONT_WEIGHT__,
 	__DEFAULT_TEXT_IS_ITALIC__,
 	__DEFAULT_TEXT_IS_OVERFLOWN__,
+	__DEFAULT_TEXT_LINE_CLAMP__,
 	__DEFAULT_TEXT_LINE_HEIGHT__,
 	__DEFAULT_TEXT_TRANSFORM__,
 	__DEFAULT_TEXT_WHITESPACE__,
 	__DEFAULT_TEXT_WORD_BREAK__
 } from '../constants';
-import type { TextElement, TextProps } from '../types';
+import type { TextProps } from '../types';
+
+import useTextResponsiveValues from './useTextResponsiveValues';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseTextClassesProps<Element extends TextElement> = Pick<
-	TextProps<Element>,
+type UseTextClassesProps = Pick<
+	TextProps,
 	| 'color'
 	| 'colorMode'
 	| 'align'
@@ -49,23 +52,47 @@ type UseTextClassesProps<Element extends TextElement> = Pick<
 >;
 type UseTextClassesReturn = ClassName;
 
-const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<Element>): UseTextClassesReturn => {
+const useTextClasses = (props: UseTextClassesProps): UseTextClassesReturn => {
 	const { colorMode: __DEFAULT_TEXT_OLORMODE__ } = useAppTheme();
 
 	const {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_TEXT_OLORMODE__,
-		align = __DEFAULT_TEXT_ALIGN__,
-		fontSize = __DEFAULT_TEXT_FONT_SIZE__,
-		fontWeight = __DEFAULT_TEXT_FONT_WEIGHT__,
-		lineClamp,
-		lineHeight = __DEFAULT_TEXT_LINE_HEIGHT__,
-		textTransform = __DEFAULT_TEXT_TRANSFORM__,
-		isItalic = __DEFAULT_TEXT_IS_ITALIC__,
-		isOverflown = __DEFAULT_TEXT_IS_OVERFLOWN__,
-		whitespace = __DEFAULT_TEXT_WHITESPACE__,
-		wordBreak = __DEFAULT_TEXT_WORD_BREAK__
+		align: alignProp = __DEFAULT_TEXT_ALIGN__,
+		fontSize: fontSizeProp = __DEFAULT_TEXT_FONT_SIZE__,
+		fontWeight: fontWeightProp = __DEFAULT_TEXT_FONT_WEIGHT__,
+		lineClamp: lineClampProp = __DEFAULT_TEXT_LINE_CLAMP__,
+		lineHeight: lineHeightProp = __DEFAULT_TEXT_LINE_HEIGHT__,
+		textTransform: textTransformProp = __DEFAULT_TEXT_TRANSFORM__,
+		isItalic: isItalicProp = __DEFAULT_TEXT_IS_ITALIC__,
+		isOverflown: isOverflownProp = __DEFAULT_TEXT_IS_OVERFLOWN__,
+		whitespace: whitespaceProp = __DEFAULT_TEXT_WHITESPACE__,
+		wordBreak: wordBreakProp = __DEFAULT_TEXT_WORD_BREAK__
 	} = props;
+
+	const {
+		align,
+		fontSize,
+		fontWeight,
+		lineClamp,
+		lineHeight,
+		textTransform,
+		isItalic,
+		isOverflown,
+		whitespace,
+		wordBreak
+	} = useTextResponsiveValues({
+		align: alignProp,
+		fontSize: fontSizeProp,
+		fontWeight: fontWeightProp,
+		lineClamp: lineClampProp,
+		lineHeight: lineHeightProp,
+		textTransform: textTransformProp,
+		isItalic: isItalicProp,
+		isOverflown: isOverflownProp,
+		whitespace: whitespaceProp,
+		wordBreak: wordBreakProp
+	});
 
 	const textColorClassName = useGetColor({
 		color: checkColorType(color) === 'theme' ? (color as ThemeColor) : undefined,

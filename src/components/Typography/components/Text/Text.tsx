@@ -4,7 +4,6 @@ import { forwardRef } from 'react';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
@@ -19,12 +18,13 @@ import {
 	__DEFAULT_TEXT_FONT_WEIGHT__,
 	__DEFAULT_TEXT_IS_ITALIC__,
 	__DEFAULT_TEXT_IS_OVERFLOWN__,
+	__DEFAULT_TEXT_LINE_CLAMP__,
 	__DEFAULT_TEXT_LINE_HEIGHT__,
 	__DEFAULT_TEXT_TRANSFORM__,
 	__DEFAULT_TEXT_WHITESPACE__,
 	__DEFAULT_TEXT_WORD_BREAK__
 } from './common/constants';
-import { useTextClasses, useTextStyles } from './common/hooks';
+import { useTextClasses, useTextResponsiveValues, useTextStyles } from './common/hooks';
 import { __KEYS_TEXT_CLASS__ } from './common/keys';
 import type { TextDefaultElement, TextElement, TextProps, TextRef } from './common/types';
 
@@ -40,24 +40,45 @@ const Text: PolymorphicComponentWithRef = forwardRef(function Text<Element exten
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		align = __DEFAULT_TEXT_ALIGN__,
-		fontSize = __DEFAULT_TEXT_FONT_SIZE__,
-		fontWeight = __DEFAULT_TEXT_FONT_WEIGHT__,
-		lineClamp,
-		lineHeight = __DEFAULT_TEXT_LINE_HEIGHT__,
-		textTransform = __DEFAULT_TEXT_TRANSFORM__,
-		isItalic: italic = __DEFAULT_TEXT_IS_ITALIC__,
-		isOverflown: overflown = __DEFAULT_TEXT_IS_OVERFLOWN__,
-		whitespace = __DEFAULT_TEXT_WHITESPACE__,
-		wordBreak = __DEFAULT_TEXT_WORD_BREAK__,
+		align: alignProp = __DEFAULT_TEXT_ALIGN__,
+		fontSize: fontSizeProp = __DEFAULT_TEXT_FONT_SIZE__,
+		fontWeight: fontWeightProp = __DEFAULT_TEXT_FONT_WEIGHT__,
+		lineClamp: lineClampProp = __DEFAULT_TEXT_LINE_CLAMP__,
+		lineHeight: lineHeightProp = __DEFAULT_TEXT_LINE_HEIGHT__,
+		textTransform: textTransformProp = __DEFAULT_TEXT_TRANSFORM__,
+		isItalic: isItalicProp = __DEFAULT_TEXT_IS_ITALIC__,
+		isOverflown: isOverflownProp = __DEFAULT_TEXT_IS_OVERFLOWN__,
+		whitespace: whitespaceProp = __DEFAULT_TEXT_WHITESPACE__,
+		wordBreak: wordBreakProp = __DEFAULT_TEXT_WORD_BREAK__,
 		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
 	} = props;
 
-	const isItalic = useGetResponsiveValue<boolean>(italic);
-	const isOverflown = useGetResponsiveValue<boolean>(overflown);
+	const {
+		align,
+		fontSize,
+		fontWeight,
+		lineClamp,
+		lineHeight,
+		textTransform,
+		isItalic,
+		isOverflown,
+		whitespace,
+		wordBreak
+	} = useTextResponsiveValues({
+		align: alignProp,
+		fontSize: fontSizeProp,
+		fontWeight: fontWeightProp,
+		lineClamp: lineClampProp,
+		lineHeight: lineHeightProp,
+		textTransform: textTransformProp,
+		isItalic: isItalicProp,
+		isOverflown: isOverflownProp,
+		whitespace: whitespaceProp,
+		wordBreak: wordBreakProp
+	});
 
-	const classes = useTextClasses<Element>({
+	const classes = useTextClasses({
 		color,
 		colorMode,
 		align,
@@ -71,7 +92,7 @@ const Text: PolymorphicComponentWithRef = forwardRef(function Text<Element exten
 		whitespace,
 		wordBreak
 	});
-	const styles = useTextStyles<Element>({ color });
+	const styles = useTextStyles({ color });
 
 	return (
 		<Box<Element>
