@@ -6,6 +6,7 @@ import type {
 	DividerPlacement,
 	DividerProps,
 	DividerRef,
+	DividerThemeAppearanceProps,
 	DividerVariant
 } from './common/types';
 import Divider from './Divider';
@@ -31,5 +32,6 @@ export type {
 	DividerPlacement,
 	DividerProps,
 	DividerRef,
+	DividerThemeAppearanceProps,
 	DividerVariant
 };
