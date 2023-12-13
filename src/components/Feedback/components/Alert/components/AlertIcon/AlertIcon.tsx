@@ -61,7 +61,7 @@ const AlertIcon: PolymorphicComponentWithRef = forwardRef(function AlertIcon<
 	const size = useConst(getFontSizeHeight('xl', __DEFAULT_ALERT_LINE_HEIGHT_SIZE__));
 
 	return (
-		<Icon
+		<Icon<Element>
 			{...rest}
 			ref={ref}
 			// TODO: Maybe create a function that generates class names
