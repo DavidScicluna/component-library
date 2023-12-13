@@ -43,7 +43,7 @@ const DummyIconButtonIcon: PolymorphicComponentWithRef = forwardRef(function Dum
 
 	return (
 		<DummyIconButtonSkeleton>
-			<Icon
+			<Icon<Element>
 				{...rest}
 				ref={ref}
 				className={classNames(__KEY_DUMMY_ICON_BUTTON_ICON_CLASS__, { [className]: !!className })}
