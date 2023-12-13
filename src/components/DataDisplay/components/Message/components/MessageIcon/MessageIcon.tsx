@@ -32,7 +32,7 @@ const MessageIcon: PolymorphicComponentWithRef = forwardRef(function MessageIcon
 	} = props;
 
 	return (
-		<Icon
+		<Icon<Element>
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_MESSAGE_ICON_CLASS__, { [className]: !!className })}
