@@ -9,30 +9,35 @@ import {
 	__DEFAULT_DIVIDER_PLACEMENT__,
 	__DEFAULT_DIVIDER_VARIANT__
 } from '../constants';
-import type { DividerElement, DividerProps } from '../types';
+import type { DividerProps } from '../types';
+
+import useDividerResponsiveValues from './useDividerResponsiveValues';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseDividerClassesProps<Element extends DividerElement> = Pick<
-	DividerProps<Element>,
-	'color' | 'colorMode' | 'orientation' | 'placement' | 'size' | 'variant'
->;
+type PickedDividerProps = 'color' | 'colorMode' | 'orientation' | 'placement' | 'size' | 'variant';
+type UseDividerClassesProps = Pick<DividerProps, PickedDividerProps>;
 type UseDividerClassesReturn = ClassName;
 
-const useDividerClasses = <Element extends DividerElement>(
-	props: UseDividerClassesProps<Element>
-): UseDividerClassesReturn => {
+const useDividerClasses = (props: UseDividerClassesProps): UseDividerClassesReturn => {
 	const { colorMode: __DEFAULT_DIVIDER_OLORMODE__ } = useAppTheme();
 
 	const {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_DIVIDER_OLORMODE__,
-		orientation = __DEFAULT_DIVIDER_ORIENTATION__,
-		placement = __DEFAULT_DIVIDER_PLACEMENT__,
-		size = __DEFAULT_BORDER_WIDTH__,
-		variant = __DEFAULT_DIVIDER_VARIANT__
+		orientation: orientationProp = __DEFAULT_DIVIDER_ORIENTATION__,
+		placement: placementProp = __DEFAULT_DIVIDER_PLACEMENT__,
+		size: sizeProp = __DEFAULT_BORDER_WIDTH__,
+		variant: variantProp = __DEFAULT_DIVIDER_VARIANT__
 	} = props;
+
+	const { orientation, placement, size, variant } = useDividerResponsiveValues({
+		orientation: orientationProp,
+		placement: placementProp,
+		size: sizeProp,
+		variant: variantProp
+	});
 
 	const borderLeftWidthClassName = useGetClass<ThemeBorderWidth>(size, ['borders', 'border_l_width']);
 	const borderStyleClassName = useGetClass<BorderStyleClass>(variant, ['borders', 'border_style']);

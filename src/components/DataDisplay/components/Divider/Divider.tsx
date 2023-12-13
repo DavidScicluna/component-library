@@ -23,7 +23,7 @@ import {
 	__DEFAULT_DIVIDER_PLACEMENT__,
 	__DEFAULT_DIVIDER_VARIANT__
 } from './common/constants';
-import { useDividerClasses, useDividerStyles } from './common/hooks';
+import { useDividerClasses, useDividerResponsiveValues, useDividerStyles } from './common/hooks';
 import { __KEYS_DIVIDER_CLASS__ } from './common/keys';
 import type { DividerDefaultElement, DividerElement, DividerProps, DividerRef } from './common/types';
 
@@ -38,23 +38,31 @@ const Divider: PolymorphicComponentWithRef = forwardRef(function Divider<
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		orientation = __DEFAULT_DIVIDER_ORIENTATION__,
-		placement = __DEFAULT_DIVIDER_PLACEMENT__,
-		size = __DEFAULT_BORDER_WIDTH__,
-		spacing = __DEFAULT_SPACING__,
-		variant = __DEFAULT_DIVIDER_VARIANT__,
+		orientation: orientationProp = __DEFAULT_DIVIDER_ORIENTATION__,
+		placement: placementProp = __DEFAULT_DIVIDER_PLACEMENT__,
+		spacing: spacingProp = __DEFAULT_SPACING__,
+		size: sizeProp = __DEFAULT_BORDER_WIDTH__,
+		variant: variantProp = __DEFAULT_DIVIDER_VARIANT__,
 		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
 	} = props;
 
-	const classes = useDividerClasses<Element>({ color, colorMode, orientation, placement, size, variant });
-	const styles = useDividerStyles<Element>({
+	const { orientation, placement, spacing, size, variant } = useDividerResponsiveValues({
+		orientation: orientationProp,
+		placement: placementProp,
+		spacing: spacingProp,
+		size: sizeProp,
+		variant: variantProp
+	});
+
+	const classes = useDividerClasses({ color, colorMode, orientation, placement, size, variant });
+	const styles = useDividerStyles({
 		color,
 		hasChildren: orientation === 'horizontal' && !!children,
 		orientation,
 		placement,
-		size,
-		spacing
+		spacing,
+		size
 	});
 
 	return (
