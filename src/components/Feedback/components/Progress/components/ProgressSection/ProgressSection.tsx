@@ -2,7 +2,6 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
@@ -16,7 +15,7 @@ import { Center } from '@components/Layout';
 import { useProgressContext } from '../../common/hooks';
 
 import { __DEFAULT_PROGRESS_SECTION_VALUE__ } from './common/constants';
-import { useProgressSectionClasses } from './common/hooks';
+import { useProgressSectionClasses, useProgressSectionResponsiveValues } from './common/hooks';
 import { __KEYS_PROGRESS_SECTION_CLASS__ } from './common/keys';
 import type { ProgressSectionProps, ProgressSectionRef } from './common/types';
 
@@ -33,13 +32,13 @@ const ProgressSection: PolymorphicComponentWithRef = forwardRef(function Progres
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		value: v = __DEFAULT_PROGRESS_SECTION_VALUE__,
+		value: valueProp = __DEFAULT_PROGRESS_SECTION_VALUE__,
 		...rest
 	} = props;
 
-	const value = useGetResponsiveValue<number>(v);
+	const { value } = useProgressSectionResponsiveValues({ value: valueProp });
 
-	const classes = useProgressSectionClasses<Element>({ color, colorMode });
+	const classes = useProgressSectionClasses({ color, colorMode });
 
 	return (
 		<Center<Element>

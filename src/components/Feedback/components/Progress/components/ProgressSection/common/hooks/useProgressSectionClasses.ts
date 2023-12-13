@@ -1,8 +1,6 @@
-import type { ElementType } from 'react';
-
 import classes from '@common/classes';
 import { useGetClass, useGetColor } from '@common/hooks';
-import type { ClassName, PolymorphicDefaultElement, ThemeRadius } from '@common/types';
+import type { ClassName, ThemeRadius } from '@common/types';
 
 import { useProgressContext } from '@components/Feedback/components/Progress/common/hooks';
 
@@ -11,15 +9,10 @@ import type { ProgressSectionProps } from '../types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseProgressSectionClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	ProgressSectionProps<Element>,
-	'color' | 'colorMode'
->;
+type UseProgressSectionClassesProps = Pick<ProgressSectionProps, 'color' | 'colorMode'>;
 type UseProgressSectionClassesReturn = ClassName;
 
-const useProgressSectionClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseProgressSectionClassesProps<Element>
-): UseProgressSectionClassesReturn => {
+const useProgressSectionClasses = (props: UseProgressSectionClassesProps): UseProgressSectionClassesReturn => {
 	const {
 		color: __DEFAULT_PROGRESS_SECTION_COLOR__,
 		colorMode: __DEFAULT_PROGRESS_SECTION_COLORMODE__,
