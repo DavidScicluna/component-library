@@ -14,6 +14,7 @@ import type {
 } from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
+import type { GridRef } from '@components/Layout';
 import { Grid, GridItem, HStack, VStack } from '@components/Layout';
 
 import { useCardContext } from '../../common/hooks';
@@ -79,7 +80,7 @@ const CardHeader: PolymorphicComponentWithRef = forwardRef(function CardHeader<
 
 			<GridItem>
 				<Grid
-					ref={childrenRef}
+					ref={childrenRef as GridRef}
 					w='100%'
 					h='100%'
 					templateColumns={compact(['1fr', renderActions || isCollapsable ? 'auto' : null]).join(' ')}

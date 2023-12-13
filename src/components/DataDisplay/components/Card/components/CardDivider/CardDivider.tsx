@@ -10,7 +10,7 @@ import type {
 } from '@common/types';
 import { getColorHex } from '@common/utils';
 
-import type { DividerThemeAppAppearanceProps } from '@components/DataDisplay';
+import type { DividerThemeAppearanceProps } from '@components/DataDisplay';
 import { Divider } from '@components/DataDisplay';
 
 import { useCardContext } from '../../common/hooks';
@@ -58,7 +58,7 @@ const CardDivider: PolymorphicComponentWithRef = forwardRef(function CardDivider
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_CARD_DIVIDER_CLASS__, { [className]: !!className })}
-			color={(color || c) as DividerThemeAppAppearanceProps['color']}
+			color={(color || c) as DividerThemeAppearanceProps['color']}
 			colorMode={colorMode}
 			orientation='horizontal'
 		>
