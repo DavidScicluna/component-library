@@ -1,4 +1,5 @@
 import type {
+	VisuallyHiddenChangeEvent,
 	VisuallyHiddenDefaultElement,
 	VisuallyHiddenElement,
 	VisuallyHiddenProps,
@@ -16,4 +17,10 @@ export * as hooks from './common/keys';
 export { VisuallyHidden };
 
 // Components Types
-export type { VisuallyHiddenDefaultElement, VisuallyHiddenElement, VisuallyHiddenProps, VisuallyHiddenRef };
+export type {
+	VisuallyHiddenChangeEvent,
+	VisuallyHiddenDefaultElement,
+	VisuallyHiddenElement,
+	VisuallyHiddenProps,
+	VisuallyHiddenRef
+};

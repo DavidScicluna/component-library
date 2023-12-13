@@ -1235,6 +1235,7 @@ import {
 	Text
 } from './components/Typography';
 import type {
+	VisuallyHiddenChangeEvent,
 	VisuallyHiddenDefaultElement,
 	VisuallyHiddenElement,
 	VisuallyHiddenProps,
@@ -2483,6 +2484,7 @@ export type {
 	TransitionVariant,
 	TransitionVariantKey,
 	TransitionVariants,
+	VisuallyHiddenChangeEvent,
 	VisuallyHiddenDefaultElement,
 	VisuallyHiddenElement,
 	VisuallyHiddenProps,
