@@ -23,7 +23,7 @@ const IconButtonGroupItem: PolymorphicComponentWithRef = forwardRef(function Ico
 >(props: IconButtonGroupItemProps<Element>, ref: IconButtonGroupItemRef<Element>): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, index, total, ...rest } = props;
 
-	const classes = useIconButtonGroupItemClasses<Element>({ index, total });
+	const classes = useIconButtonGroupItemClasses({ index, total });
 
 	return (
 		<Box<Element>

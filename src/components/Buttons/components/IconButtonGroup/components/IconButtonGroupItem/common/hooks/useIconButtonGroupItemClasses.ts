@@ -1,7 +1,5 @@
-import { type ElementType } from 'react';
-
 import classes from '@common/classes';
-import type { ClassName, PolymorphicDefaultElement } from '@common/types';
+import type { ClassName } from '@common/types';
 
 import { useIconButtonSizeConfig } from '@components/Buttons/components/IconButton/common/hooks';
 import { useIconButtonGroupContext } from '@components/Buttons/components/IconButtonGroup/common/hooks';
@@ -11,14 +9,11 @@ import type { IconButtonGroupItemProps } from '../types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseIconButtonGroupItemClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	IconButtonGroupItemProps<Element>,
-	'index' | 'total'
->;
+type UseIconButtonGroupItemClassesProps = Pick<IconButtonGroupItemProps, 'index' | 'total'>;
 type UseIconButtonGroupItemClassesReturn = ClassName;
 
-const useIconButtonGroupItemClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseIconButtonGroupItemClassesProps<Element>
+const useIconButtonGroupItemClasses = (
+	props: UseIconButtonGroupItemClassesProps
 ): UseIconButtonGroupItemClassesReturn => {
 	const { direction, isAttached, isCompact, isRound, size, variant } = useIconButtonGroupContext();
 

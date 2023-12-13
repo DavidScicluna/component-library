@@ -1,4 +1,8 @@
-import type { IconButtonGroupItemProps, IconButtonGroupItemRef } from './IconButtonGroupItem';
+import type {
+	IconButtonGroupItemChildrenProps,
+	IconButtonGroupItemProps,
+	IconButtonGroupItemRef
+} from './IconButtonGroupItem';
 import {
 	hooks as icon_button_group_item_hooks,
 	IconButtonGroupItem,
@@ -15,4 +19,4 @@ export const hooks = { ...icon_button_group_item_hooks };
 export { IconButtonGroupItem };
 
 // Component Types
-export type { IconButtonGroupItemProps, IconButtonGroupItemRef };
+export type { IconButtonGroupItemChildrenProps, IconButtonGroupItemProps, IconButtonGroupItemRef };
