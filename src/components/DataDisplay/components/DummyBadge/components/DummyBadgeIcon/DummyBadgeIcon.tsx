@@ -44,7 +44,7 @@ const DummyBadgeIcon: PolymorphicComponentWithRef = forwardRef(function DummyBad
 
 	return (
 		<DummyBadgeSkeleton>
-			<Icon
+			<Icon<Element>
 				{...rest}
 				ref={ref}
 				className={classNames(__KEY_DUMMY_BADGE_ICON_CLASS__, { [className]: !!className })}
