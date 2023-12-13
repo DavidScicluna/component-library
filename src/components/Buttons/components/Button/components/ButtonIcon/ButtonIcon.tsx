@@ -37,7 +37,7 @@ const ButtonIcon: PolymorphicComponentWithRef = forwardRef(function ButtonIcon<
 	const fontSize = useButtonFontSize({ size });
 
 	return (
-		<Icon
+		<Icon<Element>
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_BUTTON_ICON_CLASS__, { [className]: !!className })}

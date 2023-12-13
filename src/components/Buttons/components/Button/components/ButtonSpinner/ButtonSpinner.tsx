@@ -54,7 +54,7 @@ const ButtonSpinner: PolymorphicComponentWithRef = forwardRef(function ButtonSpi
 	}, [color, colorMode, variant]);
 
 	return (
-		<Spinner
+		<Spinner<Element>
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_BUTTON_SPINNER_CLASS__, { [className]: !!className })}
