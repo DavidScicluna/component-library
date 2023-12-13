@@ -10,13 +10,13 @@ type SkeletonOtherProps = ThemeAppAppearanceProps & {
 	 *
 	 * @default true
 	 */
-	isAnimated?: boolean;
+	isAnimated?: ResponsiveValue<boolean>;
 	/**
 	 *  If `true` the skeleton will be animated out and the children will be animated in
 	 *
 	 * @default false
 	 */
-	isLoaded?: boolean;
+	isLoaded?: ResponsiveValue<boolean>;
 	/**
 	 *  The radius of the container
 	 *

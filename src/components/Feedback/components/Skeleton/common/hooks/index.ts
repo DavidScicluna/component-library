@@ -1,3 +1,4 @@
 import useSkeletonClasses from './useSkeletonClasses';
+import useSkeletonResponsiveValues from './useSkeletonResponsiveValues';
 
-export { useSkeletonClasses };
+export { useSkeletonClasses, useSkeletonResponsiveValues };

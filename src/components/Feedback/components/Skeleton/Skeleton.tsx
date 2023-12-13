@@ -14,7 +14,7 @@ import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
 
 import { __DEFAULT_SKELETON_IS_ANIMATED__, __DEFAULT_SKELETON_IS_LOADED__ } from './common/constants';
-import { useSkeletonClasses } from './common/hooks';
+import { useSkeletonClasses, useSkeletonResponsiveValues } from './common/hooks';
 import { __KEY_SKELETON_CHILD_CLASS__, __KEY_SKELETON_CLASS__, __KEY_SKELETON_OVERLAY_CLASS__ } from './common/keys';
 import type { SkeletonProps, SkeletonRef } from './common/types';
 
@@ -29,13 +29,19 @@ const Skeleton: PolymorphicComponentWithRef = forwardRef(function Skeleton<
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		isAnimated = __DEFAULT_SKELETON_IS_ANIMATED__,
-		isLoaded = __DEFAULT_SKELETON_IS_LOADED__,
-		radius = __DEFAULT_RADIUS__,
+		isAnimated: isAnimatedProp = __DEFAULT_SKELETON_IS_ANIMATED__,
+		isLoaded: isLoadedProp = __DEFAULT_SKELETON_IS_LOADED__,
+		radius: radiusProp = __DEFAULT_RADIUS__,
 		...rest
 	} = props;
 
-	const classes = useSkeletonClasses<Element>({ color, colorMode, isAnimated, radius });
+	const { isAnimated, isLoaded, radius } = useSkeletonResponsiveValues({
+		isAnimated: isAnimatedProp,
+		isLoaded: isLoadedProp,
+		radius: radiusProp
+	});
+
+	const classes = useSkeletonClasses({ color, colorMode, isAnimated, radius });
 
 	return (
 		<Grid<Element>
