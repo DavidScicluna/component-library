@@ -44,7 +44,7 @@ const DummyButtonIcon: PolymorphicComponentWithRef = forwardRef(function DummyBu
 
 	return (
 		<DummyButtonSkeleton radius='full'>
-			<Icon
+			<Icon<Element>
 				{...rest}
 				ref={ref}
 				className={classNames(__KEY_DUMMY_BUTTON_ICON_CLASS__, { [className]: !!className })}

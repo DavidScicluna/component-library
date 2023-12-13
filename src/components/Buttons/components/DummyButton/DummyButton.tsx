@@ -12,6 +12,7 @@ import type {
 	PolymorphicDefaultProps
 } from '@common/types';
 
+import type { CenterRef } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 import { DummyPushableOverlay } from '@components/Overlay';
 
@@ -110,7 +111,7 @@ const DummyButton: PolymorphicComponentWithRef = forwardRef(function DummyButton
 
 					{children ? (
 						<GridItem>
-							<Center ref={childrenRef} as='span' w='100%' h='100%'>
+							<Center ref={childrenRef as CenterRef} as='span' w='100%' h='100%'>
 								<DummyButtonSkeleton radius='xs'>{children}</DummyButtonSkeleton>
 							</Center>
 						</GridItem>
