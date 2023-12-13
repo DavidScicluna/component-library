@@ -1,4 +1,4 @@
-import type { ButtonGroupItemProps, ButtonGroupItemRef } from './common/types';
+import type { ButtonGroupItemChildrenProps, ButtonGroupItemProps, ButtonGroupItemRef } from './common/types';
 import ButtonGroupItem from './ButtonGroupItem';
 
 // Keys
@@ -11,4 +11,4 @@ export * as hooks from './common/hooks';
 export { ButtonGroupItem };
 
 // Component Types
-export type { ButtonGroupItemProps, ButtonGroupItemRef };
+export type { ButtonGroupItemChildrenProps, ButtonGroupItemProps, ButtonGroupItemRef };

@@ -4,8 +4,10 @@ import type { PolymorphicDefaultElement } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
-type ButtonGroupItemOtherProps<Element extends ElementType = PolymorphicDefaultElement> = {
-	children: (props: Pick<BoxProps<Element>, 'className'>) => ReactNode;
+export type ButtonGroupItemChildrenProps = Pick<BoxProps, 'className'>;
+
+type ButtonGroupItemOtherProps = {
+	children: (props: ButtonGroupItemChildrenProps) => ReactNode;
 	/**
 	 * The index of the current item within the button group
 	 */
@@ -17,7 +19,7 @@ type ButtonGroupItemOtherProps<Element extends ElementType = PolymorphicDefaultE
 };
 
 export type ButtonGroupItemProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element, ButtonGroupItemOtherProps<Element>>,
+	BoxProps<Element, ButtonGroupItemOtherProps>,
 	keyof BoxOtherProps
 >;
 

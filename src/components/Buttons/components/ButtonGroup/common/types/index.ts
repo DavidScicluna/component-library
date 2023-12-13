@@ -14,7 +14,6 @@ type PickedButtonProps =
 	| 'isRound'
 	| 'size'
 	| 'variant';
-
 type ButtonGroupOtherProps = Pick<ButtonProps, PickedButtonProps> & {
 	/**
 	 * If true, the borderRadius of button that are direct children will be altered to look flushed together
