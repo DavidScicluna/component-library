@@ -15,7 +15,7 @@ import {
 	__DEFAULT_LINK_IS_UNDERLINE__,
 	__DEFAULT_LINK_IS_UNSTYLED__
 } from './common/constants';
-import { useLinkClasses } from './common/hooks';
+import { useLinkClasses, useLinkResponsiveValues } from './common/hooks';
 import { __KEYS_LINK_CLASS__ } from './common/keys';
 import type { LinkDefaultElement, LinkElement, LinkMouseEvent, LinkProps, LinkRef } from './common/types';
 
@@ -31,14 +31,20 @@ const Link: PolymorphicComponentWithRef = forwardRef(function Link<Element exten
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		isDisabled = __DEFAULT_LINK_IS_DISABLED__,
-		isUnderline = __DEFAULT_LINK_IS_UNDERLINE__,
-		isUnstyled = __DEFAULT_LINK_IS_UNSTYLED__,
+		isDisabled: isDisabledProp = __DEFAULT_LINK_IS_DISABLED__,
+		isUnderline: isUnderlineProp = __DEFAULT_LINK_IS_UNDERLINE__,
+		isUnstyled: isUnstyledProp = __DEFAULT_LINK_IS_UNSTYLED__,
 		onClick,
 		...rest
 	} = props;
 
-	const classes = useLinkClasses<Element>({ color, colorMode, isDisabled, isUnderline, isUnstyled });
+	const { isDisabled, isUnderline, isUnstyled } = useLinkResponsiveValues({
+		isDisabled: isDisabledProp,
+		isUnderline: isUnderlineProp,
+		isUnstyled: isUnstyledProp
+	});
+
+	const classes = useLinkClasses({ color, colorMode, isDisabled, isUnderline, isUnstyled });
 
 	const handleClick = useCallback(
 		(event: LinkMouseEvent<Element>): void => {

@@ -1,3 +1,4 @@
 import useLinkClasses from './useLinkClasses';
+import useLinkResponsiveValues from './useLinkResponsiveValues';
 
-export { useLinkClasses };
+export { useLinkClasses, useLinkResponsiveValues };

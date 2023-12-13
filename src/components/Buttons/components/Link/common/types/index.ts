@@ -1,6 +1,6 @@
 import type { ElementType } from 'react';
 
-import type { PolymorphicMouseEvent, ThemeAppAppearanceProps } from '@common/types';
+import type { PolymorphicMouseEvent, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
@@ -15,19 +15,19 @@ type LinkOtherProps = ThemeAppAppearanceProps & {
 	 *
 	 * @default false
 	 */
-	isDisabled?: boolean;
+	isDisabled?: ResponsiveValue<boolean>;
 	/**
 	 * If true, the link will have text decoration styling
 	 *
 	 * @default true
 	 */
-	isUnderline?: boolean;
+	isUnderline?: ResponsiveValue<boolean>;
 	/**
 	 * If true, the link will be unstyled
 	 *
 	 * @default false
 	 */
-	isUnstyled?: boolean;
+	isUnstyled?: ResponsiveValue<boolean>;
 };
 
 export type LinkProps<Element extends LinkElement = LinkDefaultElement> = BoxProps<Element, LinkOtherProps>;
