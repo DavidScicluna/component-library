@@ -1,8 +1,8 @@
-import { type ElementType, useMemo } from 'react';
+import { useMemo } from 'react';
 
 import { __DEFAULT_COLOR__ } from '@common/constants';
-import { useAppTheme, useGetAmount, useGetResponsiveValue, useTheme } from '@common/hooks';
-import type { PolymorphicDefaultElement, Style } from '@common/types';
+import { useAppTheme, useGetAmount, useTheme } from '@common/hooks';
+import type { Style } from '@common/types';
 import { filterColorHex, getColorHue } from '@common/utils';
 
 import {
@@ -13,17 +13,22 @@ import {
 	__DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__,
 	__DEFAULT_PUSHABLE_OVERLAY_VARIANT__
 } from '../constants';
-import type { PushableOverlayProps, PushableOverlayVariant } from '../types';
+import type { PushableOverlayProps } from '../types';
 
-type UsePushableOverlayStylesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	PushableOverlayProps<Element>,
-	'color' | 'colorMode' | 'isActive' | 'isDisabled' | 'isFixed' | 'isPushable' | 'variant'
->;
+import usePushableOverlayResponsiveValues from './usePushableOverlayResponsiveValues';
+
+type PickedPushableOverlayProps =
+	| 'color'
+	| 'colorMode'
+	| 'isActive'
+	| 'isDisabled'
+	| 'isFixed'
+	| 'isPushable'
+	| 'variant';
+type UsePushableOverlayStylesProps = Pick<PushableOverlayProps, PickedPushableOverlayProps>;
 type UsePushableOverlayStylesReturn = Style;
 
-const usePushableOverlayStyles = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UsePushableOverlayStylesProps<Element>
-): UsePushableOverlayStylesReturn => {
+const usePushableOverlayStyles = (props: UsePushableOverlayStylesProps): UsePushableOverlayStylesReturn => {
 	const theme = useTheme();
 
 	const { colorMode: __DEFAULT_PUSHABLE_OVERLAY_COLORMODE__ } = useAppTheme();
@@ -31,21 +36,22 @@ const usePushableOverlayStyles = <Element extends ElementType = PolymorphicDefau
 	const {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_PUSHABLE_OVERLAY_COLORMODE__,
-		isActive: active = __DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
-		isDisabled: disabled = __DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
-		isFixed: fixed = __DEFAULT_PUSHABLE_OVERLAY_IS_FIXED__,
-		isPushable: pushable = __DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
-		variant: v = __DEFAULT_PUSHABLE_OVERLAY_VARIANT__
+		isActive: isActiveProp = __DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
+		isDisabled: isDisabledProp = __DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
+		isFixed: isFixedProp = __DEFAULT_PUSHABLE_OVERLAY_IS_FIXED__,
+		isPushable: isPushableProp = __DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
+		variant: variantProp = __DEFAULT_PUSHABLE_OVERLAY_VARIANT__
 	} = props;
 
 	const amount = useGetAmount({ colorMode, types: ['active', 'back', 'hover'] });
 
-	const isActive = useGetResponsiveValue<boolean>(active);
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-	const isFixed = useGetResponsiveValue<boolean>(fixed);
-	const isPushable = useGetResponsiveValue<boolean>(pushable);
-
-	const variant = useGetResponsiveValue<PushableOverlayVariant>(v);
+	const { isActive, isDisabled, isFixed, isPushable, variant } = usePushableOverlayResponsiveValues({
+		isActive: isActiveProp,
+		isDisabled: isDisabledProp,
+		isFixed: isFixedProp,
+		isPushable: isPushableProp,
+		variant: variantProp
+	});
 
 	const containedDefaultStyles = useMemo<Style>(() => {
 		const { pushable, hover, active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;

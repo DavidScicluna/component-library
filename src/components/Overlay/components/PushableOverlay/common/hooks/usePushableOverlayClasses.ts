@@ -1,4 +1,3 @@
-import type { ElementType } from 'react';
 import { useMemo } from 'react';
 
 import classes from '@common/classes';
@@ -9,8 +8,8 @@ import {
 	__DEFAULT_OUTLINE_WIDTH__,
 	__DEFAULT_RADIUS__
 } from '@common/constants';
-import { useAppTheme, useConst, useGetResponsiveValue } from '@common/hooks';
-import type { ClassName, PolymorphicDefaultElement, ThemeRadius } from '@common/types';
+import { useAppTheme, useConst } from '@common/hooks';
+import type { ClassName } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import {
@@ -22,42 +21,51 @@ import {
 	__DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__,
 	__DEFAULT_PUSHABLE_OVERLAY_VARIANT__
 } from '../constants';
-import type { PushableOverlayProps, PushableOverlayVariant } from '../types';
+import type { PushableOverlayProps } from '../types';
+
+import usePushableOverlayResponsiveValues from './usePushableOverlayResponsiveValues';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UsePushableOverlayClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	PushableOverlayProps<Element>,
-	'color' | 'colorMode' | 'isActive' | 'isDisabled' | 'isFixed' | 'isOutlined' | 'isPushable' | 'radius' | 'variant'
->;
+type PickedPushableOverlayProps =
+	| 'color'
+	| 'colorMode'
+	| 'isActive'
+	| 'isDisabled'
+	| 'isFixed'
+	| 'isOutlined'
+	| 'isPushable'
+	| 'radius'
+	| 'variant';
+type UsePushableOverlayClassesProps = Pick<PushableOverlayProps, PickedPushableOverlayProps>;
 type UsePushableOverlayClassesReturn = ClassName;
 
-const usePushableOverlayClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UsePushableOverlayClassesProps<Element>
-): UsePushableOverlayClassesReturn => {
+const usePushableOverlayClasses = (props: UsePushableOverlayClassesProps): UsePushableOverlayClassesReturn => {
 	const { colorMode: __DEFAULT_PUSHABLE_OVERLAY_COLORMODE__ } = useAppTheme();
 
 	const {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_PUSHABLE_OVERLAY_COLORMODE__,
-		isActive: active = __DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
-		isDisabled: disabled = __DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
-		isFixed: fixed = __DEFAULT_PUSHABLE_OVERLAY_IS_FIXED__,
-		isOutlined: outlined = __DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED__,
-		isPushable: pushable = __DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
-		radius: r = __DEFAULT_RADIUS__,
-		variant: v = __DEFAULT_PUSHABLE_OVERLAY_VARIANT__
+		isActive: isActiveProp = __DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
+		isDisabled: isDisabledProp = __DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
+		isFixed: isFixedProp = __DEFAULT_PUSHABLE_OVERLAY_IS_FIXED__,
+		isOutlined: isOutlinedProp = __DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED__,
+		isPushable: isPushableProp = __DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
+		radius: radiusProp = __DEFAULT_RADIUS__,
+		variant: variantProp = __DEFAULT_PUSHABLE_OVERLAY_VARIANT__
 	} = props;
 
-	const isActive = useGetResponsiveValue<boolean>(active);
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-	const isFixed = useGetResponsiveValue<boolean>(fixed);
-	const isOutlined = useGetResponsiveValue<boolean>(outlined);
-	const isPushable = useGetResponsiveValue<boolean>(pushable);
-
-	const radius = useGetResponsiveValue<ThemeRadius>(r);
-	const variant = useGetResponsiveValue<PushableOverlayVariant>(v);
+	const { isActive, isDisabled, isFixed, isOutlined, isPushable, radius, variant } =
+		usePushableOverlayResponsiveValues({
+			isActive: isActiveProp,
+			isDisabled: isDisabledProp,
+			isFixed: isFixedProp,
+			isOutlined: isOutlinedProp,
+			isPushable: isPushableProp,
+			radius: radiusProp,
+			variant: variantProp
+		});
 
 	const rootClasses = useMemo<ClassName>(() => {
 		const { base } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;

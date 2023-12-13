@@ -1,17 +1,14 @@
 import type { ElementType, ReactElement } from 'react';
-import { forwardRef, useEffect, useRef } from 'react';
+import { forwardRef } from 'react';
 
 import { merge } from 'lodash-es';
-import { useMergeRefs } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__, __DEFAULT_RADIUS__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	ThemeRadius
+	PolymorphicDefaultProps
 } from '@common/types';
 
 import { Grid, GridItem } from '@components/Layout';
@@ -25,9 +22,13 @@ import {
 	__DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
 	__DEFAULT_PUSHABLE_OVERLAY_VARIANT__
 } from './common/constants';
-import { usePushableOverlayClasses, usePushableOverlayStyles } from './common/hooks';
+import {
+	usePushableOverlayClasses,
+	usePushableOverlayResponsiveValues,
+	usePushableOverlayStyles
+} from './common/hooks';
 import { __KEYS_PUSHABLE_OVERLAY_CLASS__ } from './common/keys';
-import type { PushableOverlayProps, PushableOverlayRef, PushableOverlayVariant } from './common/types';
+import type { PushableOverlayProps, PushableOverlayRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
@@ -36,37 +37,36 @@ const classNames = require('classnames');
 const PushableOverlay: PolymorphicComponentWithRef = forwardRef(function PushableOverlay<
 	Element extends ElementType = PolymorphicDefaultElement
 >(props: PushableOverlayProps<Element>, ref: PushableOverlayRef<Element>): ReactElement {
-	const internalRef = useRef<PushableOverlayRef<Element>>();
-	const refs = useMergeRefs<PushableOverlayRef<Element>>(ref, internalRef);
-
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		isActive: active = __DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
-		isDisabled: disabled = __DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
-		isFixed: fixed = __DEFAULT_PUSHABLE_OVERLAY_IS_FIXED__,
-		isFocused: focused = __DEFAULT_PUSHABLE_OVERLAY_IS_FOCUSED__,
-		isOutlined: outlined = __DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED__,
-		isPushable: pushable = __DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
-		radius: r = __DEFAULT_RADIUS__,
-		variant: v = __DEFAULT_PUSHABLE_OVERLAY_VARIANT__,
+		isActive: isActiveProp = __DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
+		isDisabled: isDisabledProp = __DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
+		isFixed: isFixedProp = __DEFAULT_PUSHABLE_OVERLAY_IS_FIXED__,
+		isFocused: isFocusedProp = __DEFAULT_PUSHABLE_OVERLAY_IS_FOCUSED__,
+		isOutlined: isOutlinedProp = __DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED__,
+		isPushable: isPushableProp = __DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
+		radius: radiusProp = __DEFAULT_RADIUS__,
+		variant: variantProp = __DEFAULT_PUSHABLE_OVERLAY_VARIANT__,
 		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
 	} = props;
 
-	const isActive = useGetResponsiveValue<boolean>(active);
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-	const isFixed = useGetResponsiveValue<boolean>(fixed);
-	const isFocused = useGetResponsiveValue<boolean>(focused);
-	const isOutlined = useGetResponsiveValue<boolean>(outlined);
-	const isPushable = useGetResponsiveValue<boolean>(pushable);
+	const { isActive, isDisabled, isFixed, isFocused, isOutlined, isPushable, radius, variant } =
+		usePushableOverlayResponsiveValues({
+			isActive: isActiveProp,
+			isDisabled: isDisabledProp,
+			isFixed: isFixedProp,
+			isFocused: isFocusedProp,
+			isOutlined: isOutlinedProp,
+			isPushable: isPushableProp,
+			radius: radiusProp,
+			variant: variantProp
+		});
 
-	const radius = useGetResponsiveValue<ThemeRadius>(r);
-	const variant = useGetResponsiveValue<PushableOverlayVariant>(v);
-
-	const classes = usePushableOverlayClasses<Element>({
+	const classes = usePushableOverlayClasses({
 		color,
 		colorMode,
 		isActive,
@@ -77,7 +77,7 @@ const PushableOverlay: PolymorphicComponentWithRef = forwardRef(function Pushabl
 		radius,
 		variant
 	});
-	const styles = usePushableOverlayStyles<Element>({
+	const styles = usePushableOverlayStyles({
 		color,
 		colorMode,
 		isActive,
@@ -87,21 +87,10 @@ const PushableOverlay: PolymorphicComponentWithRef = forwardRef(function Pushabl
 		variant
 	});
 
-	const handleFocus = (): void => {
-		if (isFocused) {
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			internalRef?.current?.focus({ focusVisible: true } as any);
-		} else {
-			internalRef?.current?.blur();
-		}
-	};
-
-	useEffect(() => handleFocus(), [isFocused]);
-
 	return (
 		<Grid<Element>
 			{...rest}
-			ref={refs}
+			ref={ref}
 			className={classNames(__KEYS_PUSHABLE_OVERLAY_CLASS__, classes, { [className]: !!className })}
 			aria-disabled={isDisabled ? 'true' : 'false'}
 			aria-pressed={isFocused || isActive ? 'true' : 'false'}
