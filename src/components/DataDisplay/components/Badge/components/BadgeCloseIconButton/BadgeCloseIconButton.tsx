@@ -55,7 +55,7 @@ const BadgeCloseIconButton: PolymorphicComponentWithRef = forwardRef(function Ba
 	});
 
 	return (
-		<CloseIconButton
+		<CloseIconButton<Element>
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_BADGE_CLOSE_ICON_BUTTON_CLASS__, classes, { [className]: !!className })}

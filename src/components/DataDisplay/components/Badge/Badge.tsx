@@ -14,6 +14,7 @@ import type {
 	PolymorphicDefaultProps
 } from '@common/types';
 
+import type { CenterRef } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 import { PushableOverlay } from '@components/Overlay';
 
@@ -142,7 +143,7 @@ const Badge: PolymorphicComponentWithRef = forwardRef(function Badge<
 
 					{children ? (
 						<GridItem>
-							<Center ref={childrenRef} as='span' w='100%' h='100%'>
+							<Center ref={childrenRef as CenterRef} as='span' w='100%' h='100%'>
 								{children}
 							</Center>
 						</GridItem>

@@ -37,7 +37,7 @@ const BadgeIcon: PolymorphicComponentWithRef = forwardRef(function BadgeIcon<
 	const fontSize = useBadgeFontSize({ size });
 
 	return (
-		<Icon
+		<Icon<Element>
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_BADGE_ICON_CLASS__, { [className]: !!className })}
