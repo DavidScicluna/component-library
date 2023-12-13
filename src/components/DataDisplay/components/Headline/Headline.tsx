@@ -12,8 +12,11 @@ import type {
 	PolymorphicDefaultProps
 } from '@common/types';
 
+import type { VStackRef } from '@components/Layout';
 import { Grid, GridItem, VStack } from '@components/Layout';
 
+import { __DEFAULT_HEADLINE_SPACING__ } from './common/constants';
+import { useHeadlineResponsiveValues } from './common/hooks';
 import { __KEYS_HEADLINE_CLASS__ } from './common/keys';
 import type { HeadlineProps, HeadlineRef } from './common/types';
 
@@ -34,9 +37,11 @@ const Headline: PolymorphicComponentWithRef = forwardRef(function Headline<
 		renderCaption,
 		renderTitle,
 		renderSubtitle,
-		spacing = 0.5,
+		spacing: spacingProp = __DEFAULT_HEADLINE_SPACING__,
 		...rest
 	} = props;
+
+	const { spacing } = useHeadlineResponsiveValues({ spacing: spacingProp });
 
 	const captionColor = useGetColor({
 		color,
@@ -81,7 +86,7 @@ const Headline: PolymorphicComponentWithRef = forwardRef(function Headline<
 
 			<GridItem>
 				<VStack
-					ref={childrenRef}
+					ref={childrenRef as VStackRef}
 					w='100%'
 					h='100%'
 					alignItems='stretch'

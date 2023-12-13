@@ -1,6 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { PolymorphicDefaultElement, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
+import type { PolymorphicDefaultElement, ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 import type { TextProps } from '@components/Typography';
@@ -13,7 +13,12 @@ type HeadlineOtherProps = ThemeAppAppearanceProps & {
 	renderCaption?: (props: TextProps) => ReactNode;
 	renderTitle: (props: TextProps) => ReactNode;
 	renderSubtitle?: (props: TextProps) => ReactNode;
-	spacing?: ThemeSpacing;
+	/**
+	 *  The spacing between the children of the container
+	 *
+	 * @default 0.5
+	 */
+	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
 export type HeadlineProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
