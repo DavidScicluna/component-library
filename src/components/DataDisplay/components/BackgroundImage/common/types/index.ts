@@ -120,8 +120,8 @@ export type BackgroundImageOptions = {
 };
 
 type BackgroundImageOtherProps = {
-	filters?: BackgroundImageFilters;
-	options?: BackgroundImageOptions;
+	filters?: ResponsiveValue<BackgroundImageFilters>;
+	options?: ResponsiveValue<BackgroundImageOptions>;
 	/**
 	 *  The radius of the container
 	 *
@@ -131,7 +131,7 @@ type BackgroundImageOtherProps = {
 	/**
 	 * Image url
 	 */
-	src: string;
+	src: ResponsiveValue<string>;
 };
 
 export type BackgroundImageProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<

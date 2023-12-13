@@ -12,8 +12,12 @@ import type {
 import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
 
-import { __DEFAULT_BACKGROUND_IMAGE_FILTERS__, __DEFAULT_BACKGROUND_IMAGE_OPTIONS__ } from './common/constants';
-import { useBackgroundImageClasses } from './common/hooks';
+import {
+	__DEFAULT_BACKGROUND_IMAGE_FILTERS__,
+	__DEFAULT_BACKGROUND_IMAGE_OPTIONS__,
+	__DEFAULT_BACKGROUND_IMAGE_SRC__
+} from './common/constants';
+import { useBackgroundImageClasses, useBackgroundImageResponsiveValues } from './common/hooks';
 import { __KEYS_BACKGROUND_IMAGE_CLASS__, __KEYS_BACKGROUND_IMAGE_IMAGE_CLASS__ } from './common/keys';
 import type { BackgroundImageProps, BackgroundImageRef } from './common/types';
 
@@ -26,14 +30,21 @@ const BackgroundImage: PolymorphicComponentWithRef = forwardRef(function Backgro
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
-		filters = __DEFAULT_BACKGROUND_IMAGE_FILTERS__,
-		options = __DEFAULT_BACKGROUND_IMAGE_OPTIONS__,
-		radius = __DEFAULT_RADIUS__,
-		src,
+		filters: filtersProp = __DEFAULT_BACKGROUND_IMAGE_FILTERS__,
+		options: optionsProp = __DEFAULT_BACKGROUND_IMAGE_OPTIONS__,
+		radius: radiusProp = __DEFAULT_RADIUS__,
+		src: srcProp = __DEFAULT_BACKGROUND_IMAGE_SRC__,
 		...rest
 	} = props;
 
-	const classes = useBackgroundImageClasses<Element>({ filters, options, radius });
+	const { filters, options, radius, src } = useBackgroundImageResponsiveValues({
+		filters: filtersProp,
+		options: optionsProp,
+		radius: radiusProp,
+		src: srcProp
+	});
+
+	const classes = useBackgroundImageClasses({ filters, options, radius });
 
 	return (
 		<Grid<Element>

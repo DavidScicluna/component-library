@@ -55,3 +55,5 @@ export const __DEFAULT_BACKGROUND_IMAGE_OPTIONS__: BackgroundImageOptions = {
 	repeat: __DEFAULT_BACKGROUND_IMAGE_REPEAT__,
 	size: __DEFAULT_BACKGROUND_IMAGE_SIZE__
 };
+
+export const __DEFAULT_BACKGROUND_IMAGE_SRC__ = '';

@@ -1,5 +1,3 @@
-import type { ElementType } from 'react';
-
 import classes from '@common/classes';
 import { __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetClass } from '@common/hooks';
@@ -17,7 +15,6 @@ import type {
 	GrayscaleClass,
 	HueRotateClass,
 	InvertClass,
-	PolymorphicDefaultElement,
 	SaturateClass,
 	SepiaClass,
 	ThemeBlurClass,
@@ -45,23 +42,27 @@ import {
 } from '../constants';
 import type { BackgroundImageProps } from '../types';
 
+import useBackgroundImageResponsiveValues from './useBackgroundImageResponsiveValues';
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseBackgroundImageClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	BackgroundImageProps<Element>,
-	'filters' | 'options' | 'radius'
->;
+type UseBackgroundImageClassesProps = Pick<BackgroundImageProps, 'filters' | 'options' | 'radius'>;
 type UseBackgroundImageClassesReturn = Record<'container' | 'image', ClassName>;
 
-const useBackgroundImageClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseBackgroundImageClassesProps<Element>
-): UseBackgroundImageClassesReturn => {
+const useBackgroundImageClasses = (props: UseBackgroundImageClassesProps): UseBackgroundImageClassesReturn => {
 	const {
-		filters = __DEFAULT_BACKGROUND_IMAGE_FILTERS__,
-		options = __DEFAULT_BACKGROUND_IMAGE_OPTIONS__,
-		radius = __DEFAULT_RADIUS__
+		filters: filtersProp = __DEFAULT_BACKGROUND_IMAGE_FILTERS__,
+		options: optionsProp = __DEFAULT_BACKGROUND_IMAGE_OPTIONS__,
+		radius: radiusProp = __DEFAULT_RADIUS__
 	} = props;
+
+	const { filters, options, radius } = useBackgroundImageResponsiveValues({
+		filters: filtersProp,
+		options: optionsProp,
+		radius: radiusProp
+	});
+
 	const {
 		blur = __DEFAULT_BACKGROUND_IMAGE_BLUR__,
 		brightness = __DEFAULT_BACKGROUND_IMAGE_BRIGHTNESS__,
