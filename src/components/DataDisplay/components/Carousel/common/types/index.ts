@@ -22,12 +22,12 @@ export type CarouselOrientation = 'horizontal' | 'vertical';
 
 export type CarouselVariant = CarouselArrowDirection | 'overlay' | 'hidden';
 
-export type CarouselRenderIconButtonProps = Pick<BoxProps, 'className'>;
+export type CarouselRenderActionProps = Pick<BoxProps, 'className'>;
 
 type CarouselOtherProps = ThemeAppAppearanceProps & {
 	renderDots?: () => ReactNode;
-	renderLeftAction?: (variant: CarouselVariant, props?: CarouselRenderIconButtonProps) => ReactNode;
-	renderRightAction?: (variant: CarouselVariant, props?: CarouselRenderIconButtonProps) => ReactNode;
+	renderLeftAction?: (variant: CarouselVariant, props?: CarouselRenderActionProps) => ReactNode;
+	renderRightAction?: (variant: CarouselVariant, props?: CarouselRenderActionProps) => ReactNode;
 	renderLeftLinearGradient?: () => ReactNode;
 	renderRightLinearGradient?: () => ReactNode;
 	divider?: ResponsiveValue<ReactNode>;

@@ -31,7 +31,8 @@ const CarouselItem: PolymorphicComponentWithRef = forwardRef(function CarouselIt
 		onChange: ({ inView }) => onToggleVisibility(inView)
 	});
 
-	const refs = useMergeRefs(ref, observe);
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	const refs = useMergeRefs(ref, observe as any);
 
 	return (
 		<Center<Element>
@@ -39,8 +40,6 @@ const CarouselItem: PolymorphicComponentWithRef = forwardRef(function CarouselIt
 			ref={refs}
 			id={id}
 			className={classNames(__KEYS_CAROUSEL_ITEM_CLASS__, { [className]: !!className })}
-			// w='100%'
-			// h='100%'
 			spacing={0}
 		>
 			<Transition w='100%' h='100%' transition='fade' in={inView} unmountOnExit={false}>

@@ -39,6 +39,7 @@ import type {
 	CarouselVisibleItems
 } from './common/types';
 import { getCarouselID, getCarouselItemID } from './common/utils';
+import type { CarouselArrowButtonGroupRef, CarouselArrowIconButtonGroupRef } from './components';
 import { CarouselArrowButtonGroup, CarouselArrowIconButtonGroup, CarouselItem } from './components';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -173,14 +174,14 @@ const Carousel: PolymorphicComponentWithRef = forwardRef(function Carousel<
 							<GridItem>
 								{orientation === 'horizontal' ? (
 									<CarouselArrowIconButtonGroup
-										ref={arrowRef}
+										ref={arrowRef as CarouselArrowIconButtonGroupRef}
 										renderLeftAction={renderLeftAction}
 										renderRightAction={renderRightAction}
 										spacing={spacing}
 									/>
 								) : (
 									<CarouselArrowButtonGroup
-										ref={arrowRef}
+										ref={arrowRef as CarouselArrowButtonGroupRef}
 										renderLeftAction={renderLeftAction}
 										renderRightAction={renderRightAction}
 										spacing={spacing}
@@ -289,14 +290,14 @@ const Carousel: PolymorphicComponentWithRef = forwardRef(function Carousel<
 							<GridItem>
 								{orientation === 'horizontal' ? (
 									<CarouselArrowIconButtonGroup
-										ref={arrowRef}
+										ref={arrowRef as CarouselArrowIconButtonGroupRef}
 										renderLeftAction={renderLeftAction}
 										renderRightAction={renderRightAction}
 										spacing={spacing}
 									/>
 								) : (
 									<CarouselArrowButtonGroup
-										ref={arrowRef}
+										ref={arrowRef as CarouselArrowButtonGroupRef}
 										renderLeftAction={renderLeftAction}
 										renderRightAction={renderRightAction}
 										spacing={spacing}

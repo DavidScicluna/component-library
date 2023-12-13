@@ -7,12 +7,12 @@ import type { PolymorphicDefaultElement } from '@common/types';
 import type { IconButtonGroupProps, IconButtonGroupRef } from '@components/Buttons';
 import type { CarouselProps } from '@components/DataDisplay';
 
-type CarouselArrowIconButtonGroupOtherProps<Element extends ElementType = PolymorphicDefaultElement> = DeepRequired<
-	Pick<CarouselProps<Element>, 'renderLeftAction' | 'renderRightAction'>
+type CarouselArrowIconButtonGroupOtherProps = DeepRequired<
+	Pick<CarouselProps, 'renderLeftAction' | 'renderRightAction'>
 >;
 
 export type CarouselArrowIconButtonGroupProps<Element extends ElementType = PolymorphicDefaultElement> =
-	IconButtonGroupProps<Element> & CarouselArrowIconButtonGroupOtherProps<Element>;
+	IconButtonGroupProps<Element> & CarouselArrowIconButtonGroupOtherProps;
 
 export type CarouselArrowIconButtonGroupRef<Element extends ElementType = PolymorphicDefaultElement> =
 	IconButtonGroupRef<Element>;

@@ -9,9 +9,11 @@ import type {
 	CarouselOrientation,
 	CarouselProps,
 	CarouselRef,
-	CarouselRenderIconButtonProps,
+	CarouselRenderActionProps,
 	CarouselScrollAmount,
-	CarouselVariant
+	CarouselVariant,
+	CarouselVisibleItem,
+	CarouselVisibleItems
 } from './common/types';
 import Carousel from './Carousel';
 import type {
@@ -206,7 +208,7 @@ export type {
 	CarouselOverlayRightArrowIconButtonRef,
 	CarouselProps,
 	CarouselRef,
-	CarouselRenderIconButtonProps,
+	CarouselRenderActionProps,
 	CarouselRightArrowButtonDefaultElement,
 	CarouselRightArrowButtonElement,
 	CarouselRightArrowButtonProps,
@@ -218,5 +220,7 @@ export type {
 	CarouselRightLinearGradientProps,
 	CarouselRightLinearGradientRef,
 	CarouselScrollAmount,
-	CarouselVariant
+	CarouselVariant,
+	CarouselVisibleItem,
+	CarouselVisibleItems
 };

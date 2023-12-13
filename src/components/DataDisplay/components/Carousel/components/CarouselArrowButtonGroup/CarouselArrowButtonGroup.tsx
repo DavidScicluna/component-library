@@ -9,6 +9,7 @@ import type {
 	PolymorphicDefaultProps
 } from '@common/types';
 
+import type { ButtonGroupItemChildrenProps } from '@components/Buttons';
 import { ButtonGroup, ButtonGroupItem } from '@components/Buttons';
 
 import { useCarouselContext } from '../../common/hooks';
@@ -52,10 +53,10 @@ const CarouselArrowButtonGroup: PolymorphicComponentWithRef = forwardRef(functio
 			spacing={spacing}
 		>
 			<ButtonGroupItem index={0} total={2}>
-				{(props) => renderLeftAction(variant, props)}
+				{(props: ButtonGroupItemChildrenProps) => renderLeftAction(variant, props)}
 			</ButtonGroupItem>
 			<ButtonGroupItem index={1} total={2}>
-				{(props) => renderRightAction(variant, props)}
+				{(props: ButtonGroupItemChildrenProps) => renderRightAction(variant, props)}
 			</ButtonGroupItem>
 		</ButtonGroup>
 	);
