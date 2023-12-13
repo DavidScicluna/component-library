@@ -88,12 +88,11 @@ export type ImageOptions = {
 
 export type ImageType = 'boring' | 'thumbnail' | 'full';
 export type ImageMode = Pick<ImgHTMLAttributes<HTMLImageElement>, 'alt' | 'onLoad' | 'onError' | 'src'>;
-export type ImageModes = Partial<Record<ImageType, ImageMode>>;
+export type ImageModes = Partial<Record<ImageType, ResponsiveValue<ImageMode>>>;
 
 type ImageOtherProps = ThemeAppAppearanceProps & {
-	// alt: string;
-	filters?: ImageFilters;
-	options?: ImageOptions;
+	filters?: ResponsiveValue<ImageFilters>;
+	options?: ResponsiveValue<ImageOptions>;
 	/**
 	 *  The radius of the container
 	 *

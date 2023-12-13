@@ -1,3 +1,4 @@
 import useImageClasses from './useImageClasses';
+import useImageResponsiveValues from './useImageResponsiveValues';
 
-export { useImageClasses };
+export { useImageClasses, useImageResponsiveValues };

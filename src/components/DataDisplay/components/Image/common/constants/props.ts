@@ -10,7 +10,11 @@ import type {
 } from '@common/types';
 import type { ObjectFitClass, ObjectPositionClass } from '@common/types/classes';
 
-import type { ImageFilters, ImageOptions } from '../types';
+import type { ImageFilters, ImageMode, ImageOptions } from '../types';
+
+export const __DEFAULT_IMAGE_BORING__: ImageMode = {};
+export const __DEFAULT_IMAGE_THUMBNAIL__: ImageMode = {};
+export const __DEFAULT_IMAGE_FULL__: ImageMode = {};
 
 export const __DEFAULT_IMAGE_BLUR__: ThemeBlurClass = 'none';
 export const __DEFAULT_IMAGE_BRIGHTNESS__: BrightnessClass = 100;

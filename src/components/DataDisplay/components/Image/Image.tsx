@@ -14,8 +14,14 @@ import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
 
-import { __DEFAULT_IMAGE_FILTERS__, __DEFAULT_IMAGE_OPTIONS__ } from './common/constants';
-import { useImageClasses } from './common/hooks';
+import {
+	__DEFAULT_IMAGE_BORING__,
+	__DEFAULT_IMAGE_FILTERS__,
+	__DEFAULT_IMAGE_FULL__,
+	__DEFAULT_IMAGE_OPTIONS__,
+	__DEFAULT_IMAGE_THUMBNAIL__
+} from './common/constants';
+import { useImageClasses, useImageResponsiveValues } from './common/hooks';
 import {
 	__KEYS_IMAGE_BORING_CLASS__,
 	__KEYS_IMAGE_CLASS__,
@@ -35,20 +41,29 @@ const Image: PolymorphicComponentWithRef = forwardRef(function Image<
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		boring,
-		thumbnail,
-		full,
-		filters = __DEFAULT_IMAGE_FILTERS__,
-		options = __DEFAULT_IMAGE_OPTIONS__,
-		radius = __DEFAULT_RADIUS__,
+		boring: boringProp = __DEFAULT_IMAGE_BORING__,
+		thumbnail: thumbnailProp = __DEFAULT_IMAGE_THUMBNAIL__,
+		full: fullProp = __DEFAULT_IMAGE_FULL__,
+		filters: filtersProp = __DEFAULT_IMAGE_FILTERS__,
+		options: optionsProp = __DEFAULT_IMAGE_OPTIONS__,
+		radius: radiusProp = __DEFAULT_RADIUS__,
 		...rest
 	} = props;
+
+	const { boring, thumbnail, full, filters, options, radius } = useImageResponsiveValues({
+		boring: boringProp,
+		thumbnail: thumbnailProp,
+		full: fullProp,
+		filters: filtersProp,
+		options: optionsProp,
+		radius: radiusProp
+	});
 
 	const [isBoringVisible, setIsBoringVisible] = useBoolean();
 	const [isThumbnailVisible, setIsThumbnailVisible] = useBoolean();
 	const [isFullVisible, setIsFullVisible] = useBoolean();
 
-	const classes = useImageClasses<Element>({ color, colorMode, filters, options, radius });
+	const classes = useImageClasses({ color, colorMode, filters, options, radius });
 
 	const handleOnBoringLoad = (event: ImageSyntheticEvent): void => {
 		setIsThumbnailVisible.off();

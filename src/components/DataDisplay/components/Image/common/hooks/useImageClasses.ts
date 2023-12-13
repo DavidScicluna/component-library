@@ -1,5 +1,3 @@
-import type { ElementType } from 'react';
-
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
@@ -10,7 +8,6 @@ import type {
 	GrayscaleClass,
 	HueRotateClass,
 	InvertClass,
-	PolymorphicDefaultElement,
 	SaturateClass,
 	SepiaClass,
 	ThemeBlurClass,
@@ -34,27 +31,31 @@ import {
 } from '../constants';
 import type { ImageProps } from '../types';
 
+import useImageResponsiveValues from './useImageResponsiveValues';
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseImageClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	ImageProps<Element>,
-	'color' | 'colorMode' | 'filters' | 'options' | 'radius'
->;
+type UseImageClassesProps = Pick<ImageProps, 'color' | 'colorMode' | 'filters' | 'options' | 'radius'>;
 type UseImageClassesReturn = Record<'container' | 'image' | 'fallback' | 'thumbnail', ClassName>;
 
-const useImageClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseImageClassesProps<Element>
-): UseImageClassesReturn => {
+const useImageClasses = (props: UseImageClassesProps): UseImageClassesReturn => {
 	const { colorMode: __DEFAULT_IMAGE_COLORMODE__ } = useAppTheme();
 
 	const {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_IMAGE_COLORMODE__,
-		filters = __DEFAULT_IMAGE_FILTERS__,
-		options = __DEFAULT_IMAGE_OPTIONS__,
-		radius = __DEFAULT_RADIUS__
+		filters: filtersProp = __DEFAULT_IMAGE_FILTERS__,
+		options: optionsProp = __DEFAULT_IMAGE_OPTIONS__,
+		radius: radiusProp = __DEFAULT_RADIUS__
 	} = props;
+
+	const { filters, options, radius } = useImageResponsiveValues({
+		filters: filtersProp,
+		options: optionsProp,
+		radius: radiusProp
+	});
+
 	const {
 		blur = __DEFAULT_IMAGE_BLUR__,
 		brightness = __DEFAULT_IMAGE_BRIGHTNESS__,
