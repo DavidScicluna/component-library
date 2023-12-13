@@ -138,7 +138,7 @@ import type {
 	CarouselOverlayRightArrowIconButtonRef,
 	CarouselProps,
 	CarouselRef,
-	CarouselRenderIconButtonProps,
+	CarouselRenderActionProps,
 	CarouselRightArrowButtonDefaultElement,
 	CarouselRightArrowButtonElement,
 	CarouselRightArrowButtonProps,
@@ -150,7 +150,9 @@ import type {
 	CarouselRightLinearGradientProps,
 	CarouselRightLinearGradientRef,
 	CarouselScrollAmount,
-	CarouselVariant
+	CarouselVariant,
+	CarouselVisibleItem,
+	CarouselVisibleItems
 } from './components/Carousel';
 import {
 	Carousel,
@@ -180,9 +182,12 @@ import {
 import type {
 	DividerDefaultElement,
 	DividerElement,
+	DividerOrientation,
+	DividerOrientations,
 	DividerPlacement,
 	DividerProps,
 	DividerRef,
+	DividerThemeAppearanceProps,
 	DividerVariant
 } from './components/Divider';
 import {
@@ -466,7 +471,7 @@ export type {
 	CarouselOverlayRightArrowIconButtonRef,
 	CarouselProps,
 	CarouselRef,
-	CarouselRenderIconButtonProps,
+	CarouselRenderActionProps,
 	CarouselRightArrowButtonDefaultElement,
 	CarouselRightArrowButtonElement,
 	CarouselRightArrowButtonProps,
@@ -479,11 +484,16 @@ export type {
 	CarouselRightLinearGradientRef,
 	CarouselScrollAmount,
 	CarouselVariant,
+	CarouselVisibleItem,
+	CarouselVisibleItems,
 	DividerDefaultElement,
 	DividerElement,
+	DividerOrientation,
+	DividerOrientations,
 	DividerPlacement,
 	DividerProps,
 	DividerRef,
+	DividerThemeAppearanceProps,
 	DividerVariant,
 	DummyBadgeContext,
 	DummyBadgeIconDefaultElement,

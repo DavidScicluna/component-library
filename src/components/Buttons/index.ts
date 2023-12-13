@@ -25,6 +25,7 @@ import {
 } from './components/Button';
 import type {
 	ButtonGroupContext,
+	ButtonGroupItemChildrenProps,
 	ButtonGroupItemProps,
 	ButtonGroupItemRef,
 	ButtonGroupProps,
@@ -153,6 +154,7 @@ import {
 } from './components/IconButton';
 import type {
 	IconButtonGroupContext,
+	IconButtonGroupItemChildrenProps,
 	IconButtonGroupItemProps,
 	IconButtonGroupItemRef,
 	IconButtonGroupProps,
@@ -257,6 +259,7 @@ export type {
 	ButtonDefaultElement,
 	ButtonElement,
 	ButtonGroupContext,
+	ButtonGroupItemChildrenProps,
 	ButtonGroupItemProps,
 	ButtonGroupItemRef,
 	ButtonGroupProps,
@@ -323,6 +326,7 @@ export type {
 	IconButtonDefaultElement,
 	IconButtonElement,
 	IconButtonGroupContext,
+	IconButtonGroupItemChildrenProps,
 	IconButtonGroupItemProps,
 	IconButtonGroupItemRef,
 	IconButtonGroupProps,
