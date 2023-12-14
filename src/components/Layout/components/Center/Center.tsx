@@ -12,7 +12,7 @@ import type {
 import { Box } from '@components/Box';
 
 import { __DEFAULT_CENTER_SPACING__ } from './common/constants';
-import { useCenterClasses } from './common/hooks';
+import { useCenterClasses, useCenterResponsiveValues } from './common/hooks';
 import { __KEYS_CENTER_CLASS__ } from './common/keys';
 import type { CenterProps, CenterRef } from './common/types';
 
@@ -22,9 +22,16 @@ const classNames = require('classnames');
 const Center: PolymorphicComponentWithRef = forwardRef(function Center<
 	Element extends ElementType = PolymorphicDefaultElement
 >(props: CenterProps<Element>, ref: CenterRef<Element>): ReactElement {
-	const { children, className = __DEFAULT_CLASSNAME__, spacing = __DEFAULT_CENTER_SPACING__, ...rest } = props;
+	const {
+		children,
+		className = __DEFAULT_CLASSNAME__,
+		spacing: spacingProp = __DEFAULT_CENTER_SPACING__,
+		...rest
+	} = props;
 
-	const classes = useCenterClasses<Element>({ spacing });
+	const { spacing } = useCenterResponsiveValues({ spacing: spacingProp });
+
+	const classes = useCenterClasses({ spacing });
 
 	return (
 		<Box<Element>

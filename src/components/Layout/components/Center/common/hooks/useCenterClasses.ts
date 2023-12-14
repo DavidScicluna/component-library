@@ -1,25 +1,22 @@
-import type { ElementType } from 'react';
-
 import classes from '@common/classes';
-import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetClass } from '@common/hooks';
-import type { ClassName, PolymorphicDefaultElement, ThemeSpacing } from '@common/types';
+import type { ClassName, ThemeSpacing } from '@common/types';
 
+import { __DEFAULT_CENTER_SPACING__ } from '../constants';
 import type { CenterProps } from '../types';
+
+import useCenterResponsiveValues from './useCenterResponsiveValues';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseCenterClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	CenterProps<Element>,
-	'spacing'
->;
+type UseCenterClassesProps = Pick<CenterProps, 'spacing'>;
 type UseCenterClassesReturn = ClassName;
 
-const useCenterClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseCenterClassesProps<Element>
-): UseCenterClassesReturn => {
-	const { spacing = __DEFAULT_SPACING__ } = props;
+const useCenterClasses = (props: UseCenterClassesProps): UseCenterClassesReturn => {
+	const { spacing: spacingProp = __DEFAULT_CENTER_SPACING__ } = props;
+
+	const { spacing } = useCenterResponsiveValues({ spacing: spacingProp });
 
 	const spacingClassName = useGetClass<ThemeSpacing>(spacing, ['spacing', 'gap']);
 
