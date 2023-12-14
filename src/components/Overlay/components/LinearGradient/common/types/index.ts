@@ -16,7 +16,7 @@ export type LinearGradientColor = {
 	color: ThemeColor;
 	colorMode: ThemeAppColorMode;
 	hueType?: ColorHueType;
-	position: ResponsiveValue<GradientFromMiddleToClass>;
+	position: GradientFromMiddleToClass;
 };
 
 export type LinearGradientDirection = Exclude<GradientClass, 'none'>;
@@ -35,21 +35,21 @@ type LinearGradientOtherProps = {
 	 * @default color - 'gray'
 	 * @default position - 0
 	 */
-	from?: LinearGradientColor;
+	from?: ResponsiveValue<LinearGradientColor>;
 	/**
 	 * The middle color of the gradient
 	 *
 	 * @default color - 'gray'
 	 * @default position - 50
 	 */
-	middle?: LinearGradientColor;
+	middle?: ResponsiveValue<LinearGradientColor>;
 	/**
 	 * The last color of the gradient
 	 *
 	 * @default color - 'gray'
 	 * @default position - 100
 	 */
-	to?: LinearGradientColor;
+	to?: ResponsiveValue<LinearGradientColor>;
 };
 
 export type LinearGradientProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<

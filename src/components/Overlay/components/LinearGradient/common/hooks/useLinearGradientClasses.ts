@@ -1,7 +1,5 @@
-import type { ElementType } from 'react';
-
 import { useGetClass, useGetColor } from '@common/hooks';
-import type { ClassName, GradientFromMiddleToClass, PolymorphicDefaultElement } from '@common/types';
+import type { ClassName, GradientFromMiddleToClass } from '@common/types';
 
 import {
 	__DEFAULT_LINEAR_GRADIENT_DIRECTION__,
@@ -11,24 +9,28 @@ import {
 } from '../constants';
 import type { LinearGradientDirection, LinearGradientProps } from '../types';
 
+import useLinearGradientResponsiveValues from './useLinearGradientResponsiveValues';
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseLinearGradientClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	LinearGradientProps<Element>,
-	'direction' | 'from' | 'middle' | 'to'
->;
+type UseLinearGradientClassesProps = Pick<LinearGradientProps, 'direction' | 'from' | 'middle' | 'to'>;
 type UseLinearGradientClassesReturn = ClassName;
 
-const useLinearGradientClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseLinearGradientClassesProps<Element>
-): UseLinearGradientClassesReturn => {
+const useLinearGradientClasses = (props: UseLinearGradientClassesProps): UseLinearGradientClassesReturn => {
 	const {
-		direction = __DEFAULT_LINEAR_GRADIENT_DIRECTION__,
-		from = __DEFAULT_LINEAR_GRADIENT_FROM__,
-		middle,
-		to = __DEFAULT_LINEAR_GRADIENT_TO__
+		direction: directionProp = __DEFAULT_LINEAR_GRADIENT_DIRECTION__,
+		from: fromProp = __DEFAULT_LINEAR_GRADIENT_FROM__,
+		middle: middleProp = __DEFAULT_LINEAR_GRADIENT_MIDDLE__,
+		to: toProp = __DEFAULT_LINEAR_GRADIENT_TO__
 	} = props;
+
+	const { direction, from, middle, to } = useLinearGradientResponsiveValues({
+		direction: directionProp,
+		from: fromProp,
+		middle: middleProp,
+		to: toProp
+	});
 
 	const gradientClassName = useGetClass<LinearGradientDirection>(direction, ['backgrounds', 'gradient']);
 
