@@ -1,21 +1,20 @@
-import { type ElementType, useMemo } from 'react';
+import { useMemo } from 'react';
 
 import { __DEFAULT_COLOR__ } from '@common/constants';
-import { useAppTheme, useGetResponsiveValue, useTheme } from '@common/hooks';
-import type { PolymorphicDefaultElement, Style } from '@common/types';
+import { useAppTheme, useTheme } from '@common/hooks';
+import type { Style } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import { __DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__ } from '../constants';
-import type { DummyPushableOverlayProps, DummyPushableOverlayVariant } from '../types';
+import type { DummyPushableOverlayProps } from '../types';
 
-type UseDummyPushableOverlayStylesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	DummyPushableOverlayProps<Element>,
-	'color' | 'colorMode' | 'variant'
->;
+import useDummyPushableOverlayResponsiveValues from './useDummyPushableOverlayResponsiveValues';
+
+type UseDummyPushableOverlayStylesProps = Pick<DummyPushableOverlayProps, 'color' | 'colorMode' | 'variant'>;
 type UseDummyPushableOverlayStylesReturn = Style;
 
-const useDummyPushableOverlayStyles = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseDummyPushableOverlayStylesProps<Element>
+const useDummyPushableOverlayStyles = (
+	props: UseDummyPushableOverlayStylesProps
 ): UseDummyPushableOverlayStylesReturn => {
 	const theme = useTheme();
 
@@ -24,10 +23,10 @@ const useDummyPushableOverlayStyles = <Element extends ElementType = Polymorphic
 	const {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_COLORMODE__,
-		variant: v = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__
+		variant: variantProp = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__
 	} = props;
 
-	const variant = useGetResponsiveValue<DummyPushableOverlayVariant>(v);
+	const { variant } = useDummyPushableOverlayResponsiveValues({ variant: variantProp });
 
 	const containedDefaultStyles = useMemo<Style>(() => {
 		const colorHue = getColorHue({ colorMode, type: 'background' });

@@ -4,13 +4,11 @@ import { forwardRef } from 'react';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__, __DEFAULT_RADIUS__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	ThemeRadius
+	PolymorphicDefaultProps
 } from '@common/types';
 
 import { Grid, GridItem } from '@components/Layout';
@@ -20,9 +18,13 @@ import {
 	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_OUTLINED__,
 	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__
 } from './common/constants';
-import { useDummyPushableOverlayClasses, useDummyPushableOverlayStyles } from './common/hooks';
+import {
+	useDummyPushableOverlayClasses,
+	useDummyPushableOverlayResponsiveValues,
+	useDummyPushableOverlayStyles
+} from './common/hooks';
 import { __KEY_DUMMY_PUSHABLE_OVERLAY_CLASS__ } from './common/keys';
-import type { DummyPushableOverlayProps, DummyPushableOverlayRef, DummyPushableOverlayVariant } from './common/types';
+import type { DummyPushableOverlayProps, DummyPushableOverlayRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
@@ -35,21 +37,23 @@ const DummyPushableOverlay: PolymorphicComponentWithRef = forwardRef(function Du
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		isAnimated: animated = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED__,
-		isOutlined: outlined = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_OUTLINED__,
-		radius: r = __DEFAULT_RADIUS__,
-		variant: v = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__,
+		isAnimated: isAnimatedProp = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED__,
+		isOutlined: isOutlinedProp = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_OUTLINED__,
+		radius: radiusProp = __DEFAULT_RADIUS__,
+		variant: variantProp = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__,
 		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
 	} = props;
 
-	const isAnimated = useGetResponsiveValue<boolean>(animated);
-	const isOutlined = useGetResponsiveValue<boolean>(outlined);
-	const radius = useGetResponsiveValue<ThemeRadius>(r);
-	const variant = useGetResponsiveValue<DummyPushableOverlayVariant>(v);
+	const { isAnimated, isOutlined, radius, variant } = useDummyPushableOverlayResponsiveValues({
+		isAnimated: isAnimatedProp,
+		isOutlined: isOutlinedProp,
+		radius: radiusProp,
+		variant: variantProp
+	});
 
-	const classes = useDummyPushableOverlayClasses<Element>({ colorMode, isAnimated, isOutlined, radius });
-	const styles = useDummyPushableOverlayStyles<Element>({ color, colorMode, variant });
+	const classes = useDummyPushableOverlayClasses({ colorMode, isAnimated, isOutlined, radius });
+	const styles = useDummyPushableOverlayStyles({ color, colorMode, variant });
 
 	return (
 		<Grid<Element>
