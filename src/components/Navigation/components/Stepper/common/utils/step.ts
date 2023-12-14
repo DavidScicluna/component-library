@@ -2,9 +2,9 @@ import memoize from 'micro-memoize';
 
 import type { IconKey, ThemeAppColor, ThemeColor } from '@common/types';
 
-import type { StepperVariant, StepStatus } from '@components/Navigation';
+import type { StepperVariant, StepStatusType } from '@components/Navigation';
 
-export const getStepStatusColor = memoize((color: ThemeAppColor, status: StepStatus): ThemeColor => {
+export const getStepStatusColor = memoize((color: ThemeAppColor, status: StepStatusType): ThemeColor => {
 	switch (status) {
 		case 'success':
 			return 'green';
@@ -19,7 +19,7 @@ export const getStepStatusColor = memoize((color: ThemeAppColor, status: StepSta
 	}
 });
 
-export const getStepStatusIcon = memoize((status: StepStatus, variant: StepperVariant): IconKey => {
+export const getStepStatusIcon = memoize((status: StepStatusType, variant: StepperVariant): IconKey => {
 	switch (status) {
 		case 'success':
 			return variant === 'dot' ? 'check' : 'check_circle_outline';
@@ -34,7 +34,7 @@ export const getStepStatusIcon = memoize((status: StepStatus, variant: StepperVa
 	}
 });
 
-export const getStepStatusLabel = memoize((isSelected: boolean, status: StepStatus): StepStatus => {
+export const getStepStatusLabel = memoize((isSelected: boolean, status: StepStatusType): StepStatusType => {
 	if (isSelected) {
 		return 'active';
 	} else {

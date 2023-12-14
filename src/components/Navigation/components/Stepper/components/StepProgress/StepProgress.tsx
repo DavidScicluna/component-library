@@ -42,7 +42,7 @@ const StepProgress: PolymorphicComponentWithRef = forwardRef(function StepProgre
 	} = props;
 
 	return (
-		<Progress
+		<Progress<Element>
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_STEP_PROGRESS_CLASS__, { [className]: !!className })}

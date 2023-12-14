@@ -1,4 +1,13 @@
-import type { StepDefaultElement, StepElement, StepMouseEvent, StepProps, StepRef, StepRenderProps } from './Step';
+import type {
+	StepContext,
+	StepDefaultElement,
+	StepElement,
+	StepMouseEvent,
+	StepProps,
+	StepRef,
+	StepRenderProps,
+	StepStatus as StepStatusType
+} from './Step';
 import { constants as step_constants, hooks as step_hooks, keys as step_keys, Step } from './Step';
 import type { StepHeadlineProps, StepHeadlineRef } from './StepHeadline';
 import { keys as step_headline_keys, StepHeadline } from './StepHeadline';
@@ -65,6 +74,7 @@ export {
 
 // Component Types
 export type {
+	StepContext,
 	StepDefaultElement,
 	StepElement,
 	StepHeadlineProps,
@@ -93,6 +103,7 @@ export type {
 	StepStatusIconRef,
 	StepStatusProps,
 	StepStatusRef,
+	StepStatusType,
 	StepSubtitleDefaultElement,
 	StepSubtitleElement,
 	StepSubtitleProps,

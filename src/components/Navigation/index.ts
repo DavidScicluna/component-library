@@ -31,6 +31,7 @@ import {
 	utils as dummy_tabs_utils
 } from './components/DummyTabs';
 import type {
+	StepContext,
 	StepDefaultElement,
 	StepElement,
 	StepHeadlineProps,
@@ -52,6 +53,7 @@ import type {
 	StepperProps,
 	StepperRef,
 	StepperSize,
+	StepperVariant,
 	StepProgressProps,
 	StepProgressRef,
 	StepProps,
@@ -65,6 +67,7 @@ import type {
 	StepStatusIconRef,
 	StepStatusProps,
 	StepStatusRef,
+	StepStatusType,
 	StepSubtitleDefaultElement,
 	StepSubtitleElement,
 	StepSubtitleProps,
@@ -185,6 +188,7 @@ export type {
 	DummyTabsProps,
 	DummyTabsRef,
 	DummyTabsSize,
+	StepContext,
 	StepDefaultElement,
 	StepElement,
 	StepHeadlineProps,
@@ -206,6 +210,7 @@ export type {
 	StepperProps,
 	StepperRef,
 	StepperSize,
+	StepperVariant,
 	StepProgressProps,
 	StepProgressRef,
 	StepProps,
@@ -219,6 +224,7 @@ export type {
 	StepStatusIconRef,
 	StepStatusProps,
 	StepStatusRef,
+	StepStatusType,
 	StepSubtitleDefaultElement,
 	StepSubtitleElement,
 	StepSubtitleProps,

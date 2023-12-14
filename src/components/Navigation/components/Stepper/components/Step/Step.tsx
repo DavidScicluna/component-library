@@ -16,6 +16,7 @@ import type {
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
 import { useCarouselManager } from '@components/DataDisplay/components/Carousel/common/hooks';
+import type { CenterRef } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 import { HoverOverlay } from '@components/Overlay';
 
@@ -242,7 +243,7 @@ const Step: PolymorphicComponentWithRef = forwardRef(function Step<Element exten
 
 										{children ? (
 											<GridItem>
-												<Center ref={childrenRef} as='span' w='100%' h='100%'>
+												<Center ref={childrenRef as CenterRef} as='span' w='100%' h='100%'>
 													{children}
 												</Center>
 											</GridItem>

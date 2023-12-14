@@ -34,13 +34,13 @@ const StepHeadline: PolymorphicComponentWithRef = forwardRef(function StepHeadli
 		className = __DEFAULT_CLASSNAME__,
 		color = __DEFAULT_STEP_HEADLINE_COLOR__,
 		colorMode = __DEFAULT_STEP_HEADLINE_COLORMODE__,
-		renderCaption = (props) => <Text {...props}>{`Step ${index + 1} of ${total}`}</Text>,
-		renderTitle = (props) => <Text {...props}>{`Step ${index + 1}`}</Text>,
+		renderCaption,
+		renderTitle,
 		...rest
 	} = props;
 
 	return (
-		<Headline
+		<Headline<Element>
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_STEP_HEADLINE_CLASS__, { [className]: !!className })}
@@ -48,8 +48,10 @@ const StepHeadline: PolymorphicComponentWithRef = forwardRef(function StepHeadli
 			h='100%'
 			color={color}
 			colorMode={colorMode}
-			renderCaption={renderCaption}
-			renderTitle={renderTitle}
+			renderCaption={
+				renderCaption ? renderCaption(props) : <Text<'p'> {...props}>{`Step ${index + 1} of ${total}`}</Text>
+			}
+			renderTitle={renderTitle ? renderTitle(props) : <Text<'p'> {...props}>{`Step ${index + 1}`}</Text>}
 		/>
 	);
 });

@@ -37,7 +37,7 @@ const StepIcon: PolymorphicComponentWithRef = forwardRef(function StepIcon<
 	const fontSize = useStepperStepFontSize({ size });
 
 	return (
-		<Icon
+		<Icon<Element>
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_STEP_ICON_CLASS__, { [className]: !!className })}

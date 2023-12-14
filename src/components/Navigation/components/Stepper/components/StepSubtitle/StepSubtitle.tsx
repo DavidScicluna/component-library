@@ -13,7 +13,7 @@ import { Text } from '@components/Typography';
 
 import { __DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE__ } from '../../common/constants';
 import { useStepperContext, useStepperSizeConfig } from '../../common/hooks';
-import { getStepSubtitleID } from '../../common/utils';
+import { getStepID, getStepSubtitleID } from '../../common/utils';
 import { useStepContext } from '../Step/common/hooks';
 
 import { __KEYS_STEP_SUBTITLE_CLASS__ } from './common/keys';
@@ -30,8 +30,8 @@ const classNames = require('classnames');
 const StepSubtitle: PolymorphicComponentWithRef = forwardRef(function StepSubtitle<
 	Element extends StepSubtitleElement = StepSubtitleDefaultElement
 >(props: StepSubtitleProps<Element>, ref: StepSubtitleRef<Element>): ReactElement {
-	const { colorMode, size } = useStepperContext();
-	const { id } = useStepContext();
+	const { colorMode, size, id: stepperID } = useStepperContext();
+	const { id, index } = useStepContext();
 
 	const __DEFAULT_STEP_SUBTITLE_COLOR__ = useGetColor({
 		color: 'gray',
@@ -59,7 +59,7 @@ const StepSubtitle: PolymorphicComponentWithRef = forwardRef(function StepSubtit
 		<Text<Element>
 			{...rest}
 			ref={ref}
-			id={getStepSubtitleID(id)}
+			id={getStepSubtitleID(id || getStepID(stepperID, index))}
 			className={classNames(__KEYS_STEP_SUBTITLE_CLASS__, { [className]: !!className })}
 			align={align}
 			color={color}

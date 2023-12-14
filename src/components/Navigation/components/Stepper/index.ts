@@ -7,9 +7,11 @@ import type {
 	StepperOrientation,
 	StepperProps,
 	StepperRef,
-	StepperSize
+	StepperSize,
+	StepperVariant
 } from './common/types';
 import type {
+	StepContext,
 	StepDefaultElement,
 	StepElement,
 	StepHeadlineProps,
@@ -38,6 +40,7 @@ import type {
 	StepStatusIconRef,
 	StepStatusProps,
 	StepStatusRef,
+	StepStatusType,
 	StepSubtitleDefaultElement,
 	StepSubtitleElement,
 	StepSubtitleProps,
@@ -93,6 +96,7 @@ export {
 
 // Component Types
 export type {
+	StepContext,
 	StepDefaultElement,
 	StepElement,
 	StepHeadlineProps,
@@ -114,6 +118,7 @@ export type {
 	StepperProps,
 	StepperRef,
 	StepperSize,
+	StepperVariant,
 	StepProgressProps,
 	StepProgressRef,
 	StepProps,
@@ -127,6 +132,7 @@ export type {
 	StepStatusIconRef,
 	StepStatusProps,
 	StepStatusRef,
+	StepStatusType,
 	StepSubtitleDefaultElement,
 	StepSubtitleElement,
 	StepSubtitleProps,

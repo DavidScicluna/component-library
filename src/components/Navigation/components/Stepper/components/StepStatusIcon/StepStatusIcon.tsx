@@ -36,14 +36,14 @@ const StepStatusIcon: PolymorphicComponentWithRef = forwardRef(function StepStat
 	const config = useStepperSizeConfig({ size });
 
 	const statusColor = useMemo(() => {
-		return getStepStatusColor(color || __DEFAULT_APP_COLOR__, index === step);
+		return getStepStatusColor(color || __DEFAULT_APP_COLOR__, status);
 	}, [color, index, step]);
 	const statusIcon = useMemo(() => {
 		return getStepStatusIcon(status, variant);
 	}, [status, variant]);
 
 	return (
-		<Icon
+		<Icon<Element>
 			{...rest}
 			ref={ref}
 			className={classNames(__KEYS_STEP_STATUS_ICON_CLASS__, { [className]: !!className })}

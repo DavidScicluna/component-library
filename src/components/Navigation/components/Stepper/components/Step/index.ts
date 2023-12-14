@@ -1,10 +1,12 @@
 import type {
+	StepContext,
 	StepDefaultElement,
 	StepElement,
 	StepMouseEvent,
 	StepProps,
 	StepRef,
-	StepRenderProps
+	StepRenderProps,
+	StepStatus
 } from './common/types';
 import Step from './Step';
 
@@ -21,4 +23,13 @@ export * as hooks from './common/hooks';
 export { Step };
 
 // Component Types
-export type { StepDefaultElement, StepElement, StepMouseEvent, StepProps, StepRef, StepRenderProps };
+export type {
+	StepContext,
+	StepDefaultElement,
+	StepElement,
+	StepMouseEvent,
+	StepProps,
+	StepRef,
+	StepRenderProps,
+	StepStatus
+};
