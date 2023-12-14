@@ -12,7 +12,7 @@ import type {
 import { Box } from '@components/Box';
 
 import { __DEFAULT_ASPECT_RATIO_RATIO__ } from './common/constants';
-import { useAspectRatioClasses } from './common/hooks';
+import { useAspectRatioClasses, useAspectRatioResponsiveValues } from './common/hooks';
 import { __KEYS_ASPECT_RATIO_CLASS__ } from './common/keys';
 import type { AspectRatioProps, AspectRatioRef } from './common/types';
 
@@ -22,9 +22,16 @@ const classNames = require('classnames');
 const AspectRatio: PolymorphicComponentWithRef = forwardRef(function AspectRatio<
 	Element extends ElementType = PolymorphicDefaultElement
 >(props: AspectRatioProps<Element>, ref: AspectRatioRef<Element>): ReactElement {
-	const { children, className = __DEFAULT_CLASSNAME__, ratio = __DEFAULT_ASPECT_RATIO_RATIO__, ...rest } = props;
+	const {
+		children,
+		className = __DEFAULT_CLASSNAME__,
+		ratio: ratioProp = __DEFAULT_ASPECT_RATIO_RATIO__,
+		...rest
+	} = props;
 
-	const classes = useAspectRatioClasses<Element>({ ratio });
+	const { ratio } = useAspectRatioResponsiveValues({ ratio: ratioProp });
+
+	const classes = useAspectRatioClasses({ ratio });
 
 	return (
 		<Box<Element>
