@@ -2,7 +2,6 @@ import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
@@ -17,7 +16,7 @@ import {
 	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
 	__DEFAULT_CONTAINER_IS_FLUID__
 } from './common/constants';
-import { useContainerClasses } from './common/hooks';
+import { useContainerClasses, useContainerResponsiveValues } from './common/hooks';
 import { __KEYS_CONTAINER_CLASS__ } from './common/keys';
 import type { ContainerProps, ContainerRef } from './common/types';
 
@@ -30,16 +29,19 @@ const Container: PolymorphicComponentWithRef = forwardRef(function Container<
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
-		breakpoint = __DEFAULT_CONTAINER_BREAKPOINT__,
-		isContentCentered: centered = __DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
-		isFluid: fluid = __DEFAULT_CONTAINER_IS_FLUID__,
+		breakpoint: breakpointProp = __DEFAULT_CONTAINER_BREAKPOINT__,
+		isContentCentered: isContentCenteredProp = __DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
+		isFluid: isFluidProp = __DEFAULT_CONTAINER_IS_FLUID__,
 		...rest
 	} = props;
 
-	const isContentCentered = useGetResponsiveValue<boolean>(centered);
-	const isFluid = useGetResponsiveValue<boolean>(fluid);
+	const { breakpoint, isContentCentered, isFluid } = useContainerResponsiveValues({
+		breakpoint: breakpointProp,
+		isContentCentered: isContentCenteredProp,
+		isFluid: isFluidProp
+	});
 
-	const classes = useContainerClasses<Element>({ breakpoint, isContentCentered, isFluid });
+	const classes = useContainerClasses({ breakpoint, isContentCentered, isFluid });
 
 	return (
 		<Box<Element>
