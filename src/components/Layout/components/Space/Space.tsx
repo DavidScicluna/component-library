@@ -12,7 +12,7 @@ import type {
 import { Box } from '@components/Box';
 
 import { __DEFAULT_SPACE_HEIGHT__, __DEFAULT_SPACE_WIDTH__ } from './common/constants';
-import { useSpaceClasses } from './common/hooks';
+import { useSpaceClasses, useSpaceResponsiveValues } from './common/hooks';
 import { __KEYS_SPACE_CLASS__ } from './common/keys';
 import type { SpaceProps, SpaceRef } from './common/types';
 
@@ -24,12 +24,14 @@ const Space: PolymorphicComponentWithRef = forwardRef(function Space<
 >(props: SpaceProps<Element>, ref: SpaceRef<Element>): ReactElement {
 	const {
 		className = __DEFAULT_CLASSNAME__,
-		width = __DEFAULT_SPACE_WIDTH__,
-		height = __DEFAULT_SPACE_HEIGHT__,
+		width: widthProp = __DEFAULT_SPACE_WIDTH__,
+		height: heightProp = __DEFAULT_SPACE_HEIGHT__,
 		...rest
 	} = props;
 
-	const classes = useSpaceClasses<Element>({ width, height });
+	const { width, height } = useSpaceResponsiveValues({ width: widthProp, height: heightProp });
+
+	const classes = useSpaceClasses({ width, height });
 
 	return (
 		<Box<Element>
