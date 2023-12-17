@@ -1,3 +1,4 @@
 import useGridItemClasses from './useGridItemClasses';
+import useGridItemResponsiveValues from './useGridItemResponsiveValues';
 
-export { useGridItemClasses };
+export { useGridItemClasses, useGridItemResponsiveValues };

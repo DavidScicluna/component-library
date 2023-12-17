@@ -1,5 +1,3 @@
-import type { ElementType } from 'react';
-
 import { useGetClass } from '@common/hooks';
 import type {
 	AlignSelfClass,
@@ -9,7 +7,6 @@ import type {
 	GridRowSpanClass,
 	GridRowStartEndClass,
 	JustifySelfClass,
-	PolymorphicDefaultElement,
 	Undefinable,
 	ZIndexClass
 } from '@common/types';
@@ -21,11 +18,13 @@ import {
 } from '../constants';
 import type { GridItemProps } from '../types';
 
+import useGridItemResponsiveValues from './useGridItemResponsiveValues';
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseGridItemClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	GridItemProps<Element>,
+type UseGridItemClassesProps = Pick<
+	GridItemProps,
 	| 'alignSelf'
 	| 'columnSpan'
 	| 'columnStart'
@@ -38,20 +37,31 @@ type UseGridItemClassesProps<Element extends ElementType = PolymorphicDefaultEle
 >;
 type UseGridItemClassesReturn = ClassName;
 
-const useGridItemClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseGridItemClassesProps<Element>
-): UseGridItemClassesReturn => {
+const useGridItemClasses = (props: UseGridItemClassesProps): UseGridItemClassesReturn => {
 	const {
-		alignSelf = __DEFAULT_GRID_ITEM_ALIGN_SELF__,
-		columnSpan,
-		columnStart,
-		columnEnd,
-		justifySelf = __DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
-		rowSpan,
-		rowStart,
-		rowEnd,
-		zIndex = __DEFAULT_GRID_ITEM_Z_INDEX__
+		alignSelf: alignSelfProp = __DEFAULT_GRID_ITEM_ALIGN_SELF__,
+		columnSpan: columnSpanProp,
+		columnStart: columnStartProp,
+		columnEnd: columnEndProp,
+		justifySelf: justifySelfProp = __DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
+		rowSpan: rowSpanProp,
+		rowStart: rowStartProp,
+		rowEnd: rowEndProp,
+		zIndex: zIndexProp = __DEFAULT_GRID_ITEM_Z_INDEX__
 	} = props;
+
+	const { alignSelf, columnSpan, columnStart, columnEnd, justifySelf, rowSpan, rowStart, rowEnd, zIndex } =
+		useGridItemResponsiveValues({
+			alignSelf: alignSelfProp,
+			columnSpan: columnSpanProp,
+			columnStart: columnStartProp,
+			columnEnd: columnEndProp,
+			justifySelf: justifySelfProp,
+			rowSpan: rowSpanProp,
+			rowStart: rowStartProp,
+			rowEnd: rowEndProp,
+			zIndex: zIndexProp
+		});
 
 	const alignSelfClassName = useGetClass<AlignSelfClass>(alignSelf, ['grid', 'align_self']);
 	const justifySelfClassName = useGetClass<JustifySelfClass>(justifySelf, ['grid', 'justify_self']);

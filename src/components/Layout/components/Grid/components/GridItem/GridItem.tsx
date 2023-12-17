@@ -16,7 +16,7 @@ import {
 	__DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
 	__DEFAULT_GRID_ITEM_Z_INDEX__
 } from './common/constants';
-import { useGridItemClasses } from './common/hooks';
+import { useGridItemClasses, useGridItemResponsiveValues } from './common/hooks';
 import { __KEYS_GRID_ITEM_CLASS__ } from './common/keys';
 import type { GridItemProps, GridItemRef } from './common/types';
 
@@ -29,19 +29,32 @@ const GridItem: PolymorphicComponentWithRef = forwardRef(function Grid<
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
-		alignSelf = __DEFAULT_GRID_ITEM_ALIGN_SELF__,
-		columnSpan,
-		columnStart,
-		columnEnd,
-		justifySelf = __DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
-		rowSpan,
-		rowStart,
-		rowEnd,
-		zIndex = __DEFAULT_GRID_ITEM_Z_INDEX__,
+		alignSelf: alignSelfProp = __DEFAULT_GRID_ITEM_ALIGN_SELF__,
+		columnSpan: columnSpanProp,
+		columnStart: columnStartProp,
+		columnEnd: columnEndProp,
+		justifySelf: justifySelfProp = __DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
+		rowSpan: rowSpanProp,
+		rowStart: rowStartProp,
+		rowEnd: rowEndProp,
+		zIndex: zIndexProp = __DEFAULT_GRID_ITEM_Z_INDEX__,
 		...rest
 	} = props;
 
-	const classes = useGridItemClasses<Element>({
+	const { alignSelf, columnSpan, columnStart, columnEnd, justifySelf, rowSpan, rowStart, rowEnd, zIndex } =
+		useGridItemResponsiveValues({
+			alignSelf: alignSelfProp,
+			columnSpan: columnSpanProp,
+			columnStart: columnStartProp,
+			columnEnd: columnEndProp,
+			justifySelf: justifySelfProp,
+			rowSpan: rowSpanProp,
+			rowStart: rowStartProp,
+			rowEnd: rowEndProp,
+			zIndex: zIndexProp
+		});
+
+	const classes = useGridItemClasses({
 		alignSelf,
 		columnSpan,
 		columnStart,
