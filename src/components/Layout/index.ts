@@ -16,7 +16,7 @@ import {
 } from './components/Container';
 import type { GridItemProps, GridItemRef, GridProps, GridRef } from './components/Grid';
 import { constants as grid_constants, Grid, GridItem, hooks as grid_hooks, keys as grid_keys } from './components/Grid';
-import type { SimpleGridColumn, SimpleGridColumns, SimpleGridProps, SimpleGridRef } from './components/SimpleGrid';
+import type { SimpleGridColumn, SimpleGridProps, SimpleGridRef } from './components/SimpleGrid';
 import { SimpleGrid } from './components/SimpleGrid';
 import type { SpaceProps, SpaceRef } from './components/Space';
 import { constants as space_constants, hooks as space_hooks, keys as space_keys, Space } from './components/Space';
@@ -79,7 +79,6 @@ export type {
 	HStackProps,
 	HStackRef,
 	SimpleGridColumn,
-	SimpleGridColumns,
 	SimpleGridProps,
 	SimpleGridRef,
 	SpaceProps,

@@ -1,4 +1,4 @@
-import type { SimpleGridColumn, SimpleGridColumns, SimpleGridProps, SimpleGridRef } from './common/types';
+import type { SimpleGridColumn, SimpleGridProps, SimpleGridRef } from './common/types';
 import SimpleGrid from './SimpleGrid';
 
 // Keys
@@ -11,4 +11,4 @@ export * as hooks from './common/hooks';
 export { SimpleGrid };
 
 // Component Types
-export type { SimpleGridColumn, SimpleGridColumns, SimpleGridProps, SimpleGridRef };
+export type { SimpleGridColumn, SimpleGridProps, SimpleGridRef };

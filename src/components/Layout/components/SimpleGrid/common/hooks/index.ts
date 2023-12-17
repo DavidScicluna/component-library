@@ -1,3 +1,4 @@
 import useSimpleGridClasses from './useSimpleGridClasses';
+import useSimpleGridResponsiveValues from './useSimpleGridResponsiveValues';
 
-export { useSimpleGridClasses };
+export { useSimpleGridClasses, useSimpleGridResponsiveValues };
