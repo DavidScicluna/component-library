@@ -21,7 +21,7 @@ import {
 	__DEFAULT_GRID_TEMPLATE_COLUMNS__,
 	__DEFAULT_GRID_TEMPLATE_ROWS__
 } from './common/constants';
-import { useGridClasses, useGridStyles } from './common/hooks';
+import { useGridClasses, useGridResponsiveValues, useGridStyles } from './common/hooks';
 import { __KEYS_GRID_CLASS__ } from './common/keys';
 import type { GridProps, GridRef } from './common/types';
 
@@ -34,23 +34,51 @@ const Grid: PolymorphicComponentWithRef = forwardRef(function Grid<
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
-		alignContent = __DEFAULT_GRID_ALIGN_CONTENT__,
-		alignItems = __DEFAULT_GRID_ALIGN_ITEMS__,
-		autoColumns,
-		autoFlow,
-		autoRows,
-		columnSpacing,
-		justifyContent = __DEFAULT_GRID_JUSTIFY_CONTENT__,
-		justifyItems = __DEFAULT_GRID_JUSTIFY_ITEMS__,
-		rowSpacing,
-		templateColumns = __DEFAULT_GRID_TEMPLATE_COLUMNS__,
-		templateRows = __DEFAULT_GRID_TEMPLATE_ROWS__,
-		spacing = __DEFAULT_SPACING__,
+		alignContent: alignContentProp = __DEFAULT_GRID_ALIGN_CONTENT__,
+		alignItems: alignItemsProp = __DEFAULT_GRID_ALIGN_ITEMS__,
+		autoColumns: autoColumnsProp,
+		autoFlow: autoFlowProp,
+		autoRows: autoRowsProp,
+		columnSpacing: columnSpacingProp,
+		justifyContent: justifyContentProp = __DEFAULT_GRID_JUSTIFY_CONTENT__,
+		justifyItems: justifyItemsProp = __DEFAULT_GRID_JUSTIFY_ITEMS__,
+		rowSpacing: rowSpacingProp,
+		templateColumns: templateColumnsProp = __DEFAULT_GRID_TEMPLATE_COLUMNS__,
+		templateRows: templateRowsProp = __DEFAULT_GRID_TEMPLATE_ROWS__,
+		spacing: spacingProp = __DEFAULT_SPACING__,
 		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
 	} = props;
 
-	const classes = useGridClasses<Element>({
+	const {
+		alignContent,
+		alignItems,
+		autoColumns,
+		autoFlow,
+		autoRows,
+		columnSpacing,
+		justifyContent,
+		justifyItems,
+		rowSpacing,
+		templateColumns,
+		templateRows,
+		spacing
+	} = useGridResponsiveValues({
+		alignContent: alignContentProp,
+		alignItems: alignItemsProp,
+		autoColumns: autoColumnsProp,
+		autoFlow: autoFlowProp,
+		autoRows: autoRowsProp,
+		columnSpacing: columnSpacingProp,
+		justifyContent: justifyContentProp,
+		justifyItems: justifyItemsProp,
+		rowSpacing: rowSpacingProp,
+		templateColumns: templateColumnsProp,
+		templateRows: templateRowsProp,
+		spacing: spacingProp
+	});
+
+	const classes = useGridClasses({
 		alignContent,
 		alignItems,
 		autoColumns,
@@ -64,7 +92,7 @@ const Grid: PolymorphicComponentWithRef = forwardRef(function Grid<
 		templateRows,
 		spacing
 	});
-	const styles = useGridStyles<Element>({ templateColumns, templateRows });
+	const styles = useGridStyles({ templateColumns, templateRows });
 
 	return (
 		<Box<Element>
