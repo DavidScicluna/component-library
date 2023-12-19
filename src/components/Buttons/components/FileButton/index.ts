@@ -3,10 +3,13 @@ import type {
 	FileButtonBlobs,
 	FileButtonChangeEvent,
 	FileButtonChildrenProps,
+	FileButtonDefaultElement,
+	FileButtonElement,
 	FileButtonError,
 	FileButtonErrors,
-	FileButtonMouseEvent,
-	FileButtonProps
+	FileButtonFile,
+	FileButtonProps,
+	FileButtonRef
 } from './common/types';
 import FileButton from './FileButton';
 
@@ -22,8 +25,11 @@ export type {
 	FileButtonBlobs,
 	FileButtonChangeEvent,
 	FileButtonChildrenProps,
+	FileButtonDefaultElement,
+	FileButtonElement,
 	FileButtonError,
 	FileButtonErrors,
-	FileButtonMouseEvent,
-	FileButtonProps
+	FileButtonFile,
+	FileButtonProps,
+	FileButtonRef
 };

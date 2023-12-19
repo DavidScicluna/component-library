@@ -121,10 +121,13 @@ import type {
 	FileButtonBlobs,
 	FileButtonChangeEvent,
 	FileButtonChildrenProps,
+	FileButtonDefaultElement,
+	FileButtonElement,
 	FileButtonError,
 	FileButtonErrors,
-	FileButtonMouseEvent,
-	FileButtonProps
+	FileButtonFile,
+	FileButtonProps,
+	FileButtonRef
 } from './components/FileButton';
 import { constants as file_button_constants, FileButton } from './components/FileButton';
 import type {
@@ -318,10 +321,13 @@ export type {
 	FileButtonBlobs,
 	FileButtonChangeEvent,
 	FileButtonChildrenProps,
+	FileButtonDefaultElement,
+	FileButtonElement,
 	FileButtonError,
 	FileButtonErrors,
-	FileButtonMouseEvent,
+	FileButtonFile,
 	FileButtonProps,
+	FileButtonRef,
 	IconButtonContext,
 	IconButtonDefaultElement,
 	IconButtonElement,

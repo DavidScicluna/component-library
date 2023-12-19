@@ -1,7 +1,16 @@
-import type { ChangeEvent, MouseEvent, ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
 
-export type FileButtonChangeEvent = ChangeEvent<HTMLInputElement>;
-export type FileButtonMouseEvent = MouseEvent<unknown>;
+import type { Nullish, PolymorphicChangeEvent } from '@common/types';
+
+import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+
+export type FileButtonChangeEvent<Element extends FileButtonElement = FileButtonDefaultElement> =
+	PolymorphicChangeEvent<Element>;
+
+export type FileButtonDefaultElement = 'input';
+export type FileButtonElement = Extract<ElementType, 'input'>;
+
+export type FileButtonFile = Nullish<FileList | Array<never>>;
 
 export type FileButtonBlob = string;
 export type FileButtonBlobs = Array<FileButtonBlob>;
@@ -11,13 +20,18 @@ export type FileButtonErrors = Array<FileButtonError>;
 
 export type FileButtonChildrenProps = {
 	hasUploaded: boolean;
-	onClick: (event: FileButtonMouseEvent) => void;
+	onUpload: () => void;
 };
 
-export type FileButtonProps = {
+type FileButtonOtherProps = {
 	children: (props: FileButtonChildrenProps) => ReactNode;
-	accept?: string;
-	isMultiple?: boolean;
 	onSuccess: (event: FileButtonChangeEvent, blobs: FileButtonBlobs) => void;
 	onError: (event: FileButtonChangeEvent, error: FileButtonErrors) => void;
 };
+
+export type FileButtonProps<Element extends FileButtonElement = FileButtonDefaultElement> = Omit<
+	BoxProps<Element, FileButtonOtherProps>,
+	keyof BoxOtherProps
+>;
+
+export type FileButtonRef<Element extends FileButtonElement = FileButtonDefaultElement> = BoxRef<Element>;
