@@ -42,7 +42,7 @@ const StepStatus: PolymorphicComponentWithRef = forwardRef(function StepStatus<
 	const isSelected = useMemo(() => index === step, [index, step]);
 
 	const __DEFAULT_STEP_STATUS_ACTIVE_COLOR__ = useGetColor({
-		color: isSelected ? getStepStatusColor(color || __DEFAULT_APP_COLOR__, isSelected) : 'gray',
+		color: isSelected ? getStepStatusColor(color || __DEFAULT_APP_COLOR__, status) : 'gray',
 		colorMode,
 		colorType: isSelected ? 'color' : 'default',
 		hueType: isSelected ? 'color' : 'text.secondary',
