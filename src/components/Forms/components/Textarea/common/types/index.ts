@@ -22,8 +22,6 @@ export type TextareaFocusEvent<Element extends TextareaElement = TextareaDefault
 export type TextareaDefaultElement = 'textarea';
 export type TextareaElement = Extract<ElementType, 'textarea'>;
 
-// export type TextareaAutoComplete = 'on' | 'password' | 'off';
-
 export type TextareaSize = FormsCommonSize;
 
 export type TextareaVariant = FormsCommonVariant;
@@ -54,10 +52,6 @@ type TextareaOtherProps<Element extends TextareaElement = TextareaDefaultElement
 	renderRight?: (props: TextareaRenderProps<Element>) => ReactNode;
 	renderTotal?: (props: TextProps) => ReactNode;
 	/**
-	 * The total number of characters allowed
-	 */
-	total?: number;
-	/**
 	 * How the textarea can be resized
 	 *
 	 * @default 'none'
@@ -65,7 +59,7 @@ type TextareaOtherProps<Element extends TextareaElement = TextareaDefaultElement
 	resize?: ResponsiveValue<ResizeClass>;
 } & Pick<FormsCommonProps, PickedFormsCommonProps>;
 
-type OmittedBoxProps = 'children' | 'resize' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
+type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
 export type TextareaProps<Element extends TextareaElement = TextareaDefaultElement> = Omit<
 	BoxProps<Element, TextareaOtherProps>,

@@ -7,17 +7,18 @@ import { useElementSize } from 'usehooks-ts';
 
 import classes from '@common/classes';
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
-import { useBoolean, useGetResponsiveValue } from '@common/hooks';
+import { useBoolean } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultProps,
-	ResizeClass
+	PolymorphicElement
 } from '@common/types';
 
 import { Box } from '@components/Box';
 import { useFormsClasses, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
+import type { GridItemRef } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import { getFormDescriptionID } from '../FormDescription/common/utils';
@@ -38,6 +39,7 @@ import {
 	__DEFAULT_TEXTAREA_SIZE__,
 	__DEFAULT_TEXTAREA_VARIANT__
 } from './common/constants';
+import { useTextareaResponsiveValues } from './common/hooks';
 import { __KEYS_TEXTAREA_CLASS__, __KEYS_TEXTAREA_TOTAL_CLASS__ } from './common/keys';
 import type {
 	TextareaDefaultElement,
@@ -45,9 +47,7 @@ import type {
 	TextareaFocusEvent,
 	TextareaMouseEvent,
 	TextareaProps,
-	TextareaRef,
-	TextareaSize,
-	TextareaVariant
+	TextareaRef
 } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -58,7 +58,7 @@ const { interactivity } = classes;
 const Textarea: PolymorphicComponentWithRef = forwardRef(function Textarea<
 	Element extends TextareaElement = TextareaDefaultElement
 >(props: TextareaProps<Element>, ref: TextareaRef<Element>): ReactElement {
-	const textareaRef = useRef<TextareaRef<Element>>();
+	const textareaRef = useRef<PolymorphicElement<Element>>();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const refs = useMergeRefs(ref, textareaRef);
@@ -89,43 +89,56 @@ const Textarea: PolymorphicComponentWithRef = forwardRef(function Textarea<
 		color = __DEFAULT_FORM_CONTROL_COLOR__,
 		colorMode = __DEFAULT_FORM_CONTROL_COLORMODE__,
 		placeholder,
-		isCompact: comp = __DEFAULT_TEXTAREA_IS_COMPACT__,
-		isDisabled: disabled = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
-		isError: error = __DEFAULT_FORM_CONTROL_IS_ERROR__,
-		isFocused: focused = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
-		isOutlined: outlined = __DEFAULT_TEXTAREA_IS_OUTLINED__,
-		isReadOnly: readOnly = __DEFAULT_FORM_CONTROL_IS_READONLY__,
-		isRequired: required = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
-		isSuccess: success = __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
-		isWarning: warning = __DEFAULT_FORM_CONTROL_IS_WARNING__,
+		isCompact: isCompactProp = __DEFAULT_TEXTAREA_IS_COMPACT__,
+		isDisabled: isDisabledProp = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
+		isError: isErrorProp = __DEFAULT_FORM_CONTROL_IS_ERROR__,
+		isFocused: isFocusedProp = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
+		isOutlined: isOutlinedProp = __DEFAULT_TEXTAREA_IS_OUTLINED__,
+		isReadOnly: isReadOnlyProp = __DEFAULT_FORM_CONTROL_IS_READONLY__,
+		isRequired: isRequiredProp = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
+		isSuccess: isSuccessProp = __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
+		isWarning: isWarningProp = __DEFAULT_FORM_CONTROL_IS_WARNING__,
 		onClick,
 		onFocus,
 		onBlur,
-		resize: r = __DEFAULT_TEXTAREA_RESIZE__,
-		size: s = __DEFAULT_FORM_CONTROL_SIZE__,
-		variant: v = __DEFAULT_TEXTAREA_VARIANT__,
+		resize: resizeProp = __DEFAULT_TEXTAREA_RESIZE__,
+		size: sizeProp = __DEFAULT_FORM_CONTROL_SIZE__,
+		variant: variantProp = __DEFAULT_TEXTAREA_VARIANT__,
 		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
 	} = props;
 
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
-	const isCompact = useGetResponsiveValue<boolean>(comp);
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-	const isError = useGetResponsiveValue<boolean>(error);
-	const isFocusedProp = useGetResponsiveValue<boolean>(focused);
-	const isOutlined = useGetResponsiveValue<boolean>(outlined);
-	const isReadOnly = useGetResponsiveValue<boolean>(readOnly);
-	const isRequired = useGetResponsiveValue<boolean>(required);
-	const isSuccess = useGetResponsiveValue<boolean>(success);
-	const isWarning = useGetResponsiveValue<boolean>(warning);
+	const {
+		isCompact,
+		isDisabled,
+		isError,
+		isFocused: focused,
+		isOutlined,
+		isReadOnly,
+		isRequired,
+		isSuccess,
+		isWarning,
+		resize,
+		size,
+		variant
+	} = useTextareaResponsiveValues({
+		isCompact: isCompactProp,
+		isDisabled: isDisabledProp,
+		isError: isErrorProp,
+		isFocused: isFocusedProp,
+		isOutlined: isOutlinedProp,
+		isReadOnly: isReadOnlyProp,
+		isRequired: isRequiredProp,
+		isSuccess: isSuccessProp,
+		isWarning: isWarningProp,
+		resize: resizeProp,
+		size: sizeProp,
+		variant: variantProp
+	});
 
-	const resize = useGetResponsiveValue<ResizeClass>(r);
-
-	const size = useGetResponsiveValue<TextareaSize>(s);
-	const variant = useGetResponsiveValue<TextareaVariant>(v);
-
-	const isFocused = useMemo<boolean>(() => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
+	const isFocused = useMemo<boolean>(() => focused || isFocusedHook, [focused, isFocusedHook]);
 
 	const config = useFormsSizeConfig({ isCompact, size, variant });
 
@@ -159,7 +172,8 @@ const Textarea: PolymorphicComponentWithRef = forwardRef(function Textarea<
 		setIsFocusedHook.on();
 
 		if (textareaRef && textareaRef.current) {
-			textareaRef.current.focus();
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(textareaRef.current as any).focus();
 		}
 
 		if (onClick) {
@@ -171,7 +185,8 @@ const Textarea: PolymorphicComponentWithRef = forwardRef(function Textarea<
 		setIsFocusedHook.on();
 
 		if (textareaRef && textareaRef.current) {
-			textareaRef.current.focus();
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(textareaRef.current as any).focus();
 		}
 
 		if (onFocus) {
@@ -183,7 +198,8 @@ const Textarea: PolymorphicComponentWithRef = forwardRef(function Textarea<
 		setIsFocusedHook.off();
 
 		if (textareaRef && textareaRef.current) {
-			textareaRef.current.blur();
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(textareaRef.current as any).blur();
 		}
 
 		if (onBlur) {
@@ -195,7 +211,8 @@ const Textarea: PolymorphicComponentWithRef = forwardRef(function Textarea<
 
 	useEffect(() => {
 		if (isFocused && textareaRef && textareaRef.current) {
-			textareaRef.current.focus();
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(textareaRef.current as any).focus();
 		}
 	}, [isFocused]);
 
@@ -237,7 +254,7 @@ const Textarea: PolymorphicComponentWithRef = forwardRef(function Textarea<
 						</GridItem>
 					) : null}
 
-					<GridItem ref={childrenRef}>
+					<GridItem ref={childrenRef as GridItemRef}>
 						<Box<Element>
 							{...rest}
 							ref={refs}
