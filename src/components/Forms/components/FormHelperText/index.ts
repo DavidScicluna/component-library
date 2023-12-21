@@ -6,6 +6,9 @@ import type {
 } from './common/types';
 import FormHelperText from './FormHelperText';
 
+// Constants
+export * as constants from './common/constants';
+
 // Keys
 export * as keys from './common/keys';
 
