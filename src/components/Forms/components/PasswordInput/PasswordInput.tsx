@@ -6,17 +6,19 @@ import { useFocus, useMergeRefs } from 'rooks';
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
-import { useBoolean, useGetResponsiveValue } from '@common/hooks';
+import { useBoolean } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElement
 } from '@common/types';
 
 import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
 import { useFormsClasses, useFormsIconSize, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
+import type { GridItemRef } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import { getFormDescriptionID } from '../FormDescription/common/utils';
@@ -37,6 +39,7 @@ import {
 	__DEFAULT_PASSWORD_INPUT_TYPE__,
 	__DEFAULT_PASSWORD_INPUT_VARIANT__
 } from './common/constants';
+import { usePasswordInputResponsiveValues } from './common/hooks';
 import { __KEYS_PASSWORD_INPUT_CLASS__ } from './common/keys';
 import type {
 	PasswordInputDefaultElement,
@@ -44,9 +47,7 @@ import type {
 	PasswordInputFocusEvent,
 	PasswordInputMouseEvent,
 	PasswordInputProps,
-	PasswordInputRef,
-	PasswordInputSize,
-	PasswordInputVariant
+	PasswordInputRef
 } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -55,8 +56,8 @@ const classNames = require('classnames');
 const PasswordInput: PolymorphicComponentWithRef = forwardRef(function PasswordInput<
 	Element extends PasswordInputElement = PasswordInputDefaultElement
 >(props: PasswordInputProps<Element>, ref: PasswordInputRef<Element>): ReactElement {
-	const inputRef = useRef<PasswordInputRef<Element>>();
-	const refs = useMergeRefs(ref, inputRef);
+	const passwordInputRef = useRef<PolymorphicElement<Element>>();
+	const refs = useMergeRefs(ref, passwordInputRef);
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
@@ -86,21 +87,21 @@ const PasswordInput: PolymorphicComponentWithRef = forwardRef(function PasswordI
 		color = __DEFAULT_FORM_CONTROL_COLOR__,
 		colorMode = __DEFAULT_FORM_CONTROL_COLORMODE__,
 		placeholder,
-		isCompact: comp = __DEFAULT_PASSWORD_INPUT_IS_COMPACT__,
-		isDisabled: disabled = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
-		isError: error = __DEFAULT_FORM_CONTROL_IS_ERROR__,
-		isFocused: focused = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
-		isOutlined: outlined = __DEFAULT_PASSWORD_INPUT_IS_OUTLINED__,
-		isReadOnly: readOnly = __DEFAULT_FORM_CONTROL_IS_READONLY__,
-		isRequired: required = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
-		isSuccess: success = __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
-		isWarning: warning = __DEFAULT_FORM_CONTROL_IS_WARNING__,
+		isCompact: isCompactProp = __DEFAULT_PASSWORD_INPUT_IS_COMPACT__,
+		isDisabled: isDisabledProp = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
+		isError: isErrorProp = __DEFAULT_FORM_CONTROL_IS_ERROR__,
+		isFocused: isFocusedProp = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
+		isOutlined: isOutlinedProp = __DEFAULT_PASSWORD_INPUT_IS_OUTLINED__,
+		isReadOnly: isReadOnlyProp = __DEFAULT_FORM_CONTROL_IS_READONLY__,
+		isRequired: isRequiredProp = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
+		isSuccess: isSuccessProp = __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
+		isWarning: isWarningProp = __DEFAULT_FORM_CONTROL_IS_WARNING__,
 		type = __DEFAULT_PASSWORD_INPUT_TYPE__,
 		onClick,
 		onFocus,
 		onBlur,
-		size: s = __DEFAULT_FORM_CONTROL_SIZE__,
-		variant: v = __DEFAULT_PASSWORD_INPUT_VARIANT__,
+		size: sizeProp = __DEFAULT_FORM_CONTROL_SIZE__,
+		variant: variantProp = __DEFAULT_PASSWORD_INPUT_VARIANT__,
 		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
 	} = props;
@@ -109,20 +110,33 @@ const PasswordInput: PolymorphicComponentWithRef = forwardRef(function PasswordI
 
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
-	const isCompact = useGetResponsiveValue<boolean>(comp);
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-	const isError = useGetResponsiveValue<boolean>(error);
-	const isFocusedProp = useGetResponsiveValue<boolean>(focused);
-	const isOutlined = useGetResponsiveValue<boolean>(outlined);
-	const isReadOnly = useGetResponsiveValue<boolean>(readOnly);
-	const isRequired = useGetResponsiveValue<boolean>(required);
-	const isSuccess = useGetResponsiveValue<boolean>(success);
-	const isWarning = useGetResponsiveValue<boolean>(warning);
+	const {
+		isCompact,
+		isDisabled,
+		isError,
+		isFocused: focused,
+		isOutlined,
+		isReadOnly,
+		isRequired,
+		isSuccess,
+		isWarning,
+		size,
+		variant
+	} = usePasswordInputResponsiveValues({
+		isCompact: isCompactProp,
+		isDisabled: isDisabledProp,
+		isError: isErrorProp,
+		isFocused: isFocusedProp,
+		isOutlined: isOutlinedProp,
+		isReadOnly: isReadOnlyProp,
+		isRequired: isRequiredProp,
+		isSuccess: isSuccessProp,
+		isWarning: isWarningProp,
+		size: sizeProp,
+		variant: variantProp
+	});
 
-	const size = useGetResponsiveValue<PasswordInputSize>(s);
-	const variant = useGetResponsiveValue<PasswordInputVariant>(v);
-
-	const isFocused = useMemo<boolean>(() => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
+	const isFocused = useMemo<boolean>(() => focused || isFocusedHook, [focused, isFocusedHook]);
 
 	const config = useFormsSizeConfig({ isCompact, size, variant });
 	const iconSize = useFormsIconSize({ isCompact, size, variant });
@@ -164,8 +178,9 @@ const PasswordInput: PolymorphicComponentWithRef = forwardRef(function PasswordI
 	const handleClick = (event: PasswordInputMouseEvent<Element>): void => {
 		setIsFocusedHook.on();
 
-		if (inputRef && inputRef.current) {
-			inputRef.current.focus();
+		if (passwordInputRef && passwordInputRef.current) {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(passwordInputRef.current as any).focus();
 		}
 
 		if (onClick) {
@@ -176,8 +191,9 @@ const PasswordInput: PolymorphicComponentWithRef = forwardRef(function PasswordI
 	const handleFocus = (event: PasswordInputFocusEvent<Element>): void => {
 		setIsFocusedHook.on();
 
-		if (inputRef && inputRef.current) {
-			inputRef.current.focus();
+		if (passwordInputRef && passwordInputRef.current) {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(passwordInputRef.current as any).focus();
 		}
 
 		if (onFocus) {
@@ -188,8 +204,9 @@ const PasswordInput: PolymorphicComponentWithRef = forwardRef(function PasswordI
 	const handleBlur = (event: PasswordInputFocusEvent<Element>): void => {
 		setIsFocusedHook.off();
 
-		if (inputRef && inputRef.current) {
-			inputRef.current.blur();
+		if (passwordInputRef && passwordInputRef.current) {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(passwordInputRef.current as any).blur();
 		}
 
 		if (onBlur) {
@@ -200,8 +217,9 @@ const PasswordInput: PolymorphicComponentWithRef = forwardRef(function PasswordI
 	const { focusProps } = useFocus({ onFocus: handleFocus, onBlur: handleBlur });
 
 	useEffect(() => {
-		if (isFocused && inputRef && inputRef.current) {
-			inputRef.current.focus();
+		if (isFocused && passwordInputRef && passwordInputRef.current) {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(passwordInputRef.current as any).focus();
 		}
 	}, [isFocused]);
 
@@ -237,7 +255,7 @@ const PasswordInput: PolymorphicComponentWithRef = forwardRef(function PasswordI
 				{renderLeft ? renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight }) : null}
 			</GridItem>
 
-			<GridItem ref={childrenRef}>
+			<GridItem ref={childrenRef as GridItemRef}>
 				<Box<Element>
 					{...rest}
 					ref={refs}
