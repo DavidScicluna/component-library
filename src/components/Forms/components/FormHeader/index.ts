@@ -1,6 +1,9 @@
 import type { FormHeaderProps, FormHeaderRef, FormHeaderRenderProps } from './common/types';
 import FormHeader from './FormHeader';
 
+// Constants
+export * as constants from './common/constants';
+
 // Keys
 export * as keys from './common/keys';
 

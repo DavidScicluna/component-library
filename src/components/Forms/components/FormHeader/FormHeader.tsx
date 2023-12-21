@@ -12,10 +12,17 @@ import type {
 	PolymorphicDefaultProps
 } from '@common/types';
 
+import type { GridRef } from '@components/Layout';
 import { Grid, GridItem, VStack } from '@components/Layout';
 
 import { useFormControlContext } from '../FormControl/common/hooks';
 
+import {
+	__DEFAULT_FORM_HEADER_ALIGN_CONTENT__,
+	__DEFAULT_FORM_HEADER_ALIGN_ITEMS__,
+	__DEFAULT_FORM_HEADER_JUSTIFY_CONTENT__,
+	__DEFAULT_FORM_HEADER_JUSTIFY_ITEMS__
+} from './common/constants';
 import { __KEYS_FORM_HEADER_CLASS__ } from './common/keys';
 import type { FormHeaderProps, FormHeaderRef } from './common/types';
 
@@ -38,6 +45,10 @@ const FormHeader: PolymorphicComponentWithRef = forwardRef(function FormHeader<
 		renderLabel,
 		renderDescription,
 		renderActions,
+		alignItems = __DEFAULT_FORM_HEADER_ALIGN_CONTENT__,
+		alignContent = __DEFAULT_FORM_HEADER_ALIGN_ITEMS__,
+		justifyItems = __DEFAULT_FORM_HEADER_JUSTIFY_CONTENT__,
+		justifyContent = __DEFAULT_FORM_HEADER_JUSTIFY_ITEMS__,
 		spacing = __DEFAULT_FORM_HEADER_SPACING__,
 		...rest
 	} = props;
@@ -51,10 +62,10 @@ const FormHeader: PolymorphicComponentWithRef = forwardRef(function FormHeader<
 			h={hasFormControl ? '100%' : h}
 			templateColumns={compact([renderLeft ? 'auto' : null, '1fr', renderRight ? 'auto' : null]).join(' ')}
 			templateRows={1}
-			alignItems='stretch'
-			alignContent='stretch'
-			justifyItems='stretch'
-			justifyContent='stretch'
+			alignItems={alignItems}
+			alignContent={alignContent}
+			justifyItems={justifyItems}
+			justifyContent={justifyContent}
 			spacing={spacing}
 		>
 			{renderLeft ? (
@@ -65,7 +76,7 @@ const FormHeader: PolymorphicComponentWithRef = forwardRef(function FormHeader<
 
 			<GridItem>
 				<Grid
-					ref={childrenRef}
+					ref={childrenRef as GridRef}
 					w='100%'
 					h='100%'
 					templateColumns={compact(['1fr', renderActions ? 'auto' : null]).join(' ')}
