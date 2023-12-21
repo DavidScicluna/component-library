@@ -1,6 +1,9 @@
 import type { FormLabelDefaultElement, FormLabelElement, FormLabelProps, FormLabelRef } from './common/types';
 import FormLabel from './FormLabel';
 
+// Constants
+export * as constants from './common/constants';
+
 // Keys
 export * as keys from './common/keys';
 

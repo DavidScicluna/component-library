@@ -13,6 +13,13 @@ import { Box } from '@components/Box';
 import { useFormControlContext, useFormControlFontSize } from '@components/Forms/components/FormControl/common/hooks';
 import { Text } from '@components/Typography';
 
+import {
+	__DEFAULT_FORM_LABEL_ALIGN__,
+	__DEFAULT_FORM_LABEL_FONT_WEIGHT__,
+	__DEFAULT_FORM_LABEL_LINE_CLAMP__,
+	__DEFAULT_FORM_LABEL_LINE_HEIGHT__,
+	__DEFAULT_FORM_LABEL_TEXT_TRANSFORM__
+} from './common/constants';
 import { __KEYS_FORM_LABEL_CLASS__ } from './common/keys';
 import type { FormLabelDefaultElement, FormLabelElement, FormLabelProps, FormLabelRef } from './common/types';
 import { getFormLabelID } from './common/utils';
@@ -43,13 +50,13 @@ const FormLabel: PolymorphicComponentWithRef = forwardRef(function FormLabel<
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
-		align = 'left',
+		align = __DEFAULT_FORM_LABEL_ALIGN__,
 		color = __DEFAULT_FORM_LABEL_COLOR__,
 		fontSize = __DEFAULT_FORM_LABEL_FONT_SIZE__.label,
-		fontWeight = 'semibold',
-		lineClamp = 1,
-		lineHeight = 'tight',
-		textTransform = 'capitalize',
+		fontWeight = __DEFAULT_FORM_LABEL_FONT_WEIGHT__,
+		lineClamp = __DEFAULT_FORM_LABEL_LINE_CLAMP__,
+		lineHeight = __DEFAULT_FORM_LABEL_LINE_HEIGHT__,
+		textTransform = __DEFAULT_FORM_LABEL_TEXT_TRANSFORM__,
 		...rest
 	} = props;
 
