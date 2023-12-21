@@ -12,6 +12,11 @@ import type {
 import { useFormControlContext, useFormControlFontSize } from '@components/Forms/components/FormControl/common/hooks';
 import { Text } from '@components/Typography';
 
+import {
+	__DEFAULT_FORM_DESCRIPTION_ALIGN__,
+	__DEFAULT_FORM_DESCRIPTION_LINE_CLAMP__,
+	__DEFAULT_FORM_DESCRIPTION_LINE_HEIGHT__
+} from './common/constants';
 import { __KEYS_FORM_DESCRIPTION_CLASS__ } from './common/keys';
 import type {
 	FormDescriptionDefaultElement,
@@ -40,11 +45,11 @@ const FormDescription: PolymorphicComponentWithRef = forwardRef(function FormDes
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
-		align = 'left',
+		align = __DEFAULT_FORM_DESCRIPTION_ALIGN__,
 		color = __DEFAULT_FORM_DESCRIPTION_COLOR__,
 		fontSize = __DEFAULT_FORM_DESCRIPTION_FONT_SIZE__.description,
-		lineClamp = 'none',
-		lineHeight = 'tight',
+		lineClamp = __DEFAULT_FORM_DESCRIPTION_LINE_CLAMP__,
+		lineHeight = __DEFAULT_FORM_DESCRIPTION_LINE_HEIGHT__,
 		...rest
 	} = props;
 
