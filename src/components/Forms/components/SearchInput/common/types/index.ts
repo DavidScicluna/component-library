@@ -1,6 +1,11 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { PolymorphicChangeEvent, PolymorphicFocusEvent, PolymorphicMouseEvent } from '@common/types';
+import type {
+	PolymorphicChangeEvent,
+	PolymorphicFocusEvent,
+	PolymorphicMouseEvent,
+	ResponsiveValue
+} from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { ButtonProps, IconButtonProps } from '@components/Buttons';
@@ -52,12 +57,11 @@ type PickedFormsCommonProps =
 	| 'variant';
 
 type SearchInputOtherProps<Element extends SearchInputElement = SearchInputDefaultElement> = {
-	// autoComplete?: SearchInputAutoComplete;
 	renderClear?: (props: SearchInputRenderClearProps) => ReactNode;
 	renderSubmit?: (props: SearchInputRenderSubmitProps) => ReactNode;
 	renderLeft?: (props: SearchInputRenderProps<Element>) => ReactNode;
 	renderRight?: (props: SearchInputRenderProps<Element>) => ReactNode;
-	initialQuery?: string;
+	initialQuery?: ResponsiveValue<string>;
 	onClear?: () => void;
 	onFilter?: (query: string) => void;
 	onSubmit?: (query: string) => void;

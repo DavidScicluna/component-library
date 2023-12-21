@@ -6,17 +6,19 @@ import { useFocus, useMergeRefs } from 'rooks';
 import { useElementSize, useUpdateEffect } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
-import { useBoolean, useDebounce, useGetResponsiveValue } from '@common/hooks';
+import { useBoolean, useDebounce } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElement
 } from '@common/types';
 
 import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
 import { useFormsClasses, useFormsIconSize, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
+import type { GridItemRef } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import { getFormDescriptionID } from '../FormDescription/common/utils';
@@ -38,6 +40,7 @@ import {
 	__DEFAULT_SEARCH_INPUT_TYPE__,
 	__DEFAULT_SEARCH_INPUT_VARIANT__
 } from './common/constants';
+import { useSearchInputResponsiveValues } from './common/hooks';
 import { __KEYS_SEARCH_INPUT_CLASS__ } from './common/keys';
 import type {
 	SearchInputDefaultElement,
@@ -45,9 +48,7 @@ import type {
 	SearchInputFocusEvent,
 	SearchInputMouseEvent,
 	SearchInputProps,
-	SearchInputRef,
-	SearchInputSize,
-	SearchInputVariant
+	SearchInputRef
 } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -56,10 +57,10 @@ const classNames = require('classnames');
 const SearchInput: PolymorphicComponentWithRef = forwardRef(function SearchInput<
 	Element extends SearchInputElement = SearchInputDefaultElement
 >(props: SearchInputProps<Element>, ref: SearchInputRef<Element>): ReactElement {
-	const searchinputRef = useRef<SearchInputRef<Element>>();
+	const searchInputRef = useRef<PolymorphicElement<Element>>();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
-	const refs = useMergeRefs(ref, searchinputRef);
+	const refs = useMergeRefs(ref, searchInputRef);
 
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
@@ -88,45 +89,60 @@ const SearchInput: PolymorphicComponentWithRef = forwardRef(function SearchInput
 		color = __DEFAULT_FORM_CONTROL_COLOR__,
 		colorMode = __DEFAULT_FORM_CONTROL_COLORMODE__,
 		placeholder,
-		isCompact: comp = __DEFAULT_SEARCH_INPUT_IS_COMPACT__,
-		isDisabled: disabled = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
-		isError: error = __DEFAULT_FORM_CONTROL_IS_ERROR__,
-		isFocused: focused = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
-		isOutlined: outlined = __DEFAULT_SEARCH_INPUT_IS_OUTLINED__,
-		isReadOnly: readOnly = __DEFAULT_FORM_CONTROL_IS_READONLY__,
-		isRequired: required = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
-		isSuccess: success = __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
-		isWarning: warning = __DEFAULT_FORM_CONTROL_IS_WARNING__,
+		isCompact: isCompactProp = __DEFAULT_SEARCH_INPUT_IS_COMPACT__,
+		isDisabled: isDisabledProp = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
+		isError: isErrorProp = __DEFAULT_FORM_CONTROL_IS_ERROR__,
+		isFocused: isFocusedProp = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
+		isOutlined: isOutlinedProp = __DEFAULT_SEARCH_INPUT_IS_OUTLINED__,
+		isReadOnly: isReadOnlyProp = __DEFAULT_FORM_CONTROL_IS_READONLY__,
+		isRequired: isRequiredProp = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
+		isSuccess: isSuccessProp = __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
+		isWarning: isWarningProp = __DEFAULT_FORM_CONTROL_IS_WARNING__,
 		type = __DEFAULT_SEARCH_INPUT_TYPE__,
-		initialQuery = __DEFAULT_SEARCH_INPUT_INITIAL_QUERY__,
+		initialQuery: initialQueryProp = __DEFAULT_SEARCH_INPUT_INITIAL_QUERY__,
 		onClear,
 		onFilter,
 		onSubmit,
 		onClick,
 		onFocus,
 		onBlur,
-		size: s = __DEFAULT_FORM_CONTROL_SIZE__,
-		variant: v = __DEFAULT_SEARCH_INPUT_VARIANT__,
+		size: sizeProp = __DEFAULT_FORM_CONTROL_SIZE__,
+		variant: variantProp = __DEFAULT_SEARCH_INPUT_VARIANT__,
 		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
 	} = props;
 
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
-	const isCompact = useGetResponsiveValue<boolean>(comp);
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-	const isError = useGetResponsiveValue<boolean>(error);
-	const isFocusedProp = useGetResponsiveValue<boolean>(focused);
-	const isOutlined = useGetResponsiveValue<boolean>(outlined);
-	const isReadOnly = useGetResponsiveValue<boolean>(readOnly);
-	const isRequired = useGetResponsiveValue<boolean>(required);
-	const isSuccess = useGetResponsiveValue<boolean>(success);
-	const isWarning = useGetResponsiveValue<boolean>(warning);
+	const {
+		isCompact,
+		isDisabled,
+		isError,
+		isFocused: focused,
+		isOutlined,
+		isReadOnly,
+		isRequired,
+		isSuccess,
+		isWarning,
+		initialQuery,
+		size,
+		variant
+	} = useSearchInputResponsiveValues({
+		isCompact: isCompactProp,
+		isDisabled: isDisabledProp,
+		isError: isErrorProp,
+		isFocused: isFocusedProp,
+		isOutlined: isOutlinedProp,
+		isReadOnly: isReadOnlyProp,
+		isRequired: isRequiredProp,
+		isSuccess: isSuccessProp,
+		isWarning: isWarningProp,
+		initialQuery: initialQueryProp,
+		size: sizeProp,
+		variant: variantProp
+	});
 
-	const size = useGetResponsiveValue<SearchInputSize>(s);
-	const variant = useGetResponsiveValue<SearchInputVariant>(v);
-
-	const isFocused = useMemo<boolean>(() => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
+	const isFocused = useMemo<boolean>(() => focused || isFocusedHook, [focused, isFocusedHook]);
 
 	const config = useFormsSizeConfig({ isCompact, size, variant });
 	const iconSize = useFormsIconSize({ isCompact, size, variant });
@@ -191,8 +207,9 @@ const SearchInput: PolymorphicComponentWithRef = forwardRef(function SearchInput
 	const handleClick = (event: SearchInputMouseEvent<Element>): void => {
 		setIsFocusedHook.on();
 
-		if (searchinputRef && searchinputRef.current) {
-			searchinputRef.current.focus();
+		if (searchInputRef && searchInputRef.current) {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(searchInputRef.current as any).focus();
 		}
 
 		if (onClick) {
@@ -203,8 +220,9 @@ const SearchInput: PolymorphicComponentWithRef = forwardRef(function SearchInput
 	const handleFocus = (event: SearchInputFocusEvent<Element>): void => {
 		setIsFocusedHook.on();
 
-		if (searchinputRef && searchinputRef.current) {
-			searchinputRef.current.focus();
+		if (searchInputRef && searchInputRef.current) {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(searchInputRef.current as any).focus();
 		}
 
 		if (onFocus) {
@@ -215,8 +233,9 @@ const SearchInput: PolymorphicComponentWithRef = forwardRef(function SearchInput
 	const handleBlur = (event: SearchInputFocusEvent<Element>): void => {
 		setIsFocusedHook.off();
 
-		if (searchinputRef && searchinputRef.current) {
-			searchinputRef.current.blur();
+		if (searchInputRef && searchInputRef.current) {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(searchInputRef.current as any).blur();
 		}
 
 		if (onBlur) {
@@ -231,8 +250,9 @@ const SearchInput: PolymorphicComponentWithRef = forwardRef(function SearchInput
 	useUpdateEffect(() => handleQuery(initialQuery), [initialQuery]);
 
 	useEffect(() => {
-		if (isFocused && searchinputRef && searchinputRef.current) {
-			searchinputRef.current.focus();
+		if (isFocused && searchInputRef && searchInputRef.current) {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(searchInputRef.current as any).focus();
 		}
 	}, [isFocused]);
 
@@ -281,7 +301,7 @@ const SearchInput: PolymorphicComponentWithRef = forwardRef(function SearchInput
 						{renderLeft ? renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight }) : null}
 					</GridItem>
 
-					<GridItem ref={childrenRef}>
+					<GridItem ref={childrenRef as GridItemRef}>
 						<Box<Element>
 							{...rest}
 							ref={refs}
