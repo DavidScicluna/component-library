@@ -12,6 +12,11 @@ import type {
 import { useFormControlContext, useFormControlFontSize } from '@components/Forms/components/FormControl/common/hooks';
 import { Text } from '@components/Typography';
 
+import {
+	__DEFAULT_FORM_HELPER_TEXT_ALIGN__,
+	__DEFAULT_FORM_HELPER_TEXT_LINE_CLAMP__,
+	__DEFAULT_FORM_HELPER_TEXT_LINE_HEIGHT__
+} from './common/constants';
 import { __KEYS_FORM_HELPER_TEXT_CLASS__ } from './common/keys';
 import type {
 	FormHelperTextDefaultElement,
@@ -39,11 +44,11 @@ const FormHelperText: PolymorphicComponentWithRef = forwardRef(function FormHelp
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
-		align = 'left',
+		align = __DEFAULT_FORM_HELPER_TEXT_ALIGN__,
 		color = __DEFAULT_FORM_HELPER_TEXT_COLOR__,
 		fontSize = __DEFAULT_FORM_HELPER_TEXT_FONT_SIZE__.helper,
-		lineClamp = 'none',
-		lineHeight = 'tight',
+		lineClamp = __DEFAULT_FORM_HELPER_TEXT_LINE_CLAMP__,
+		lineHeight = __DEFAULT_FORM_HELPER_TEXT_LINE_HEIGHT__,
 		...rest
 	} = props;
 
