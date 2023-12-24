@@ -11,10 +11,12 @@ import type {
 } from '@common/types';
 import { getColorHex } from '@common/utils';
 
-import { Spinner } from '@components/Feedback';
+import { PuffSpinner, TailSpinSpinner, ThreeDotsSpinner } from '@components/Feedback';
 
 import { useButtonContext, useButtonFontSize } from '../../common/hooks';
 
+import { __DEFAULT_BUTTON_SPINNER_VARIANT__ } from './common/constants';
+import { useButtonSpinnerResponsiveValues } from './common/hooks';
 import { __KEYS_BUTTON_SPINNER_CLASS__ } from './common/keys';
 import type { ButtonSpinnerProps, ButtonSpinnerRef } from './common/types';
 
@@ -30,15 +32,21 @@ const ButtonSpinner: PolymorphicComponentWithRef = forwardRef(function ButtonSpi
 		color = __DEFAULT_BUTTON_SPINNER_COLOR__,
 		colorMode = __DEFAULT_BUTTON_SPINNER_COLORMODE__,
 		size,
-		variant
+		variant: buttonVariant
 	} = useButtonContext();
 
-	const { className = __DEFAULT_CLASSNAME__, ...rest } = props;
+	const {
+		className = __DEFAULT_CLASSNAME__,
+		variant: variantProp = __DEFAULT_BUTTON_SPINNER_VARIANT__,
+		...rest
+	} = props;
+
+	const { variant } = useButtonSpinnerResponsiveValues({ variant: variantProp });
 
 	const fontSize = useButtonFontSize({ size });
 
 	const c = useMemo<string>(() => {
-		switch (variant) {
+		switch (buttonVariant) {
 			case 'light':
 				return getColorHex({ color, colorMode, hueType: 'darker' });
 			case 'dark':
@@ -51,18 +59,43 @@ const ButtonSpinner: PolymorphicComponentWithRef = forwardRef(function ButtonSpi
 			default:
 				return getColorHex({ color: 'gray', colorMode, hueType: 'background' });
 		}
-	}, [color, colorMode, variant]);
+	}, [color, colorMode, buttonVariant]);
 
-	return (
-		<Spinner<Element>
-			{...rest}
-			ref={ref}
-			className={classNames(__KEYS_BUTTON_SPINNER_CLASS__, { [className]: !!className })}
-			color={c}
-			isVisible
-			size={`${fontSize}px`}
-		/>
-	);
+	switch (variant) {
+		case 'tail_spin':
+			return (
+				<TailSpinSpinner<Element>
+					{...rest}
+					ref={ref}
+					className={classNames(__KEYS_BUTTON_SPINNER_CLASS__, { [className]: !!className })}
+					color={c}
+					isVisible
+					size={`${fontSize}px`}
+				/>
+			);
+		case 'three_dots':
+			return (
+				<ThreeDotsSpinner<Element>
+					{...rest}
+					ref={ref}
+					className={classNames(__KEYS_BUTTON_SPINNER_CLASS__, { [className]: !!className })}
+					color={c}
+					isVisible
+					size={`${fontSize}px`}
+				/>
+			);
+		default:
+			return (
+				<PuffSpinner<Element>
+					{...rest}
+					ref={ref}
+					className={classNames(__KEYS_BUTTON_SPINNER_CLASS__, { [className]: !!className })}
+					color={c}
+					isVisible
+					size={`${fontSize}px`}
+				/>
+			);
+	}
 });
 
 ButtonSpinner.displayName = 'ButtonSpinner';

@@ -1,12 +1,25 @@
 import type { ElementType } from 'react';
 
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicDefaultElement, ResponsiveValue } from '@common/types';
 
-import type { SpinnerProps, SpinnerRef } from '@components/Feedback';
+import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+
+// import type { SpinnerProps, SpinnerRef } from '@components/Feedback';
+
+export type ButtonSpinnerVariant = 'puff' | 'tail_spin' | 'three_dots';
+
+type ButtonSpinnerOtherProps = {
+	/**
+	 * The type of spinner to render
+	 *
+	 * @default
+	 */
+	variant?: ResponsiveValue<ButtonSpinnerVariant>;
+};
 
 export type ButtonSpinnerProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
-	SpinnerProps<Element>,
-	'color' | 'isVisible' | 'size'
+	BoxProps<Element, ButtonSpinnerOtherProps>,
+	keyof BoxOtherProps
 >;
 
-export type ButtonSpinnerRef<Element extends ElementType = PolymorphicDefaultElement> = SpinnerRef<Element>;
+export type ButtonSpinnerRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
