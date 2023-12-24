@@ -136,13 +136,9 @@ import type {
 } from './components/EmailInput';
 import { constants as email_input_constants, EmailInput, keys as email_input_keys } from './components/EmailInput';
 import type {
-	FileInputBlob,
-	FileInputBlobs,
 	FileInputChangeEvent,
 	FileInputDefaultElement,
 	FileInputElement,
-	FileInputError,
-	FileInputErrors,
 	FileInputFocusEvent,
 	FileInputMouseEvent,
 	FileInputProps,
@@ -263,13 +259,9 @@ export type {
 	// EmailInputAutoComplete,
 	EmailInputSize,
 	EmailInputVariant,
-	FileInputBlob,
-	FileInputBlobs,
 	FileInputChangeEvent,
 	FileInputDefaultElement,
 	FileInputElement,
-	FileInputError,
-	FileInputErrors,
 	FileInputFocusEvent,
 	FileInputMouseEvent,
 	FileInputProps,

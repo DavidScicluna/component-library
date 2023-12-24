@@ -1,11 +1,7 @@
 import type {
-	FileInputBlob,
-	FileInputBlobs,
 	FileInputChangeEvent,
 	FileInputDefaultElement,
 	FileInputElement,
-	FileInputError,
-	FileInputErrors,
 	FileInputFocusEvent,
 	FileInputMouseEvent,
 	FileInputProps,
@@ -28,13 +24,9 @@ export { FileInput };
 
 // Component Types
 export type {
-	FileInputBlob,
-	FileInputBlobs,
 	FileInputChangeEvent,
 	FileInputDefaultElement,
 	FileInputElement,
-	FileInputError,
-	FileInputErrors,
 	FileInputFocusEvent,
 	FileInputMouseEvent,
 	FileInputProps,

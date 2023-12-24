@@ -6,24 +6,27 @@ import { useFocus, useMergeRefs } from 'rooks';
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
-import { useBoolean, useGetResponsiveValue } from '@common/hooks';
+import { useBoolean } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElement
 } from '@common/types';
 
 import { Box } from '@components/Box';
+import type { FileButtonChildrenProps } from '@components/Buttons';
+import { FileButton } from '@components/Buttons';
 import { Icon } from '@components/DataDisplay';
 import { useFormsClasses, useFormsIconSize, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
+import type { GridItemRef } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import { getFormDescriptionID } from '../FormDescription/common/utils';
 import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
-	__DEFAULT_FILE_INPUT_ACCEPT__,
 	__DEFAULT_FILE_INPUT_ID__,
 	__DEFAULT_FILE_INPUT_IS_COMPACT__,
 	__DEFAULT_FILE_INPUT_IS_DISABLED__,
@@ -36,24 +39,18 @@ import {
 	__DEFAULT_FILE_INPUT_IS_SUCCESS__,
 	__DEFAULT_FILE_INPUT_IS_WARNING__,
 	__DEFAULT_FILE_INPUT_SIZE__,
-	__DEFAULT_FILE_INPUT_TIMEOUT__,
 	__DEFAULT_FILE_INPUT_TYPE__,
 	__DEFAULT_FILE_INPUT_VARIANT__
 } from './common/constants';
+import { useFileInputResponsiveValues } from './common/hooks';
 import { __KEYS_FILE_INPUT_CLASS__ } from './common/keys';
 import type {
-	FileInputBlob,
-	FileInputBlobs,
-	FileInputChangeEvent,
 	FileInputDefaultElement,
 	FileInputElement,
-	FileInputErrors,
 	FileInputFocusEvent,
 	FileInputMouseEvent,
 	FileInputProps,
-	FileInputRef,
-	FileInputSize,
-	FileInputVariant
+	FileInputRef
 } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -62,8 +59,8 @@ const classNames = require('classnames');
 const FileInput: PolymorphicComponentWithRef = forwardRef(function FileInput<
 	Element extends FileInputElement = FileInputDefaultElement
 >(props: FileInputProps<Element>, ref: FileInputRef<Element>): ReactElement {
-	const inputRef = useRef<FileInputRef<Element>>();
-	const refs = useMergeRefs(ref, inputRef);
+	const fileInputRef = useRef<PolymorphicElement<Element>>();
+	const refs = useMergeRefs(ref, fileInputRef);
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
@@ -91,50 +88,61 @@ const FileInput: PolymorphicComponentWithRef = forwardRef(function FileInput<
 		renderRight,
 		color = __DEFAULT_FORM_CONTROL_COLOR__,
 		colorMode = __DEFAULT_FORM_CONTROL_COLORMODE__,
-		accept = __DEFAULT_FILE_INPUT_ACCEPT__,
+		accept,
 		placeholder,
-		isCompact: comp = __DEFAULT_FILE_INPUT_IS_COMPACT__,
-		isDisabled: disabled = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
-		isError: error = __DEFAULT_FORM_CONTROL_IS_ERROR__,
-		isFocused: focused = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
-		isMultiple: multiple = __DEFAULT_FILE_INPUT_IS_MULTIPLE__,
-		isOutlined: outlined = __DEFAULT_FILE_INPUT_IS_OUTLINED__,
-		isReadOnly: readOnly = __DEFAULT_FORM_CONTROL_IS_READONLY__,
-		isRequired: required = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
-		isSuccess: success = __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
-		isWarning: warning = __DEFAULT_FORM_CONTROL_IS_WARNING__,
+		isCompact: isCompactProp = __DEFAULT_FILE_INPUT_IS_COMPACT__,
+		isDisabled: isDisabledProp = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
+		isError: isErrorProp = __DEFAULT_FORM_CONTROL_IS_ERROR__,
+		isFocused: isFocusedProp = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
+		isMultiple: isMultipleProp = __DEFAULT_FILE_INPUT_IS_MULTIPLE__,
+		isOutlined: isOutlinedProp = __DEFAULT_FILE_INPUT_IS_OUTLINED__,
+		isReadOnly: isReadOnlyProp = __DEFAULT_FORM_CONTROL_IS_READONLY__,
+		isRequired: isRequiredProp = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
+		isSuccess: isSuccessProp = __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
+		isWarning: isWarningProp = __DEFAULT_FORM_CONTROL_IS_WARNING__,
 		type = __DEFAULT_FILE_INPUT_TYPE__,
 		onClick,
 		onFocus,
 		onBlur,
 		onError,
 		onSuccess,
-		size: s = __DEFAULT_FORM_CONTROL_SIZE__,
-		variant: v = __DEFAULT_FILE_INPUT_VARIANT__,
+		size: sizeProp = __DEFAULT_FORM_CONTROL_SIZE__,
+		variant: variantProp = __DEFAULT_FILE_INPUT_VARIANT__,
 		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
 	} = props;
 
-	const [isUploading, setIsUploading] = useBoolean();
-
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
-	const isCompact = useGetResponsiveValue<boolean>(comp);
-	const isDisabledProp = useGetResponsiveValue<boolean>(disabled);
-	const isError = useGetResponsiveValue<boolean>(error);
-	const isFocusedProp = useGetResponsiveValue<boolean>(focused);
-	const isMultiple = useGetResponsiveValue<boolean>(multiple);
-	const isOutlined = useGetResponsiveValue<boolean>(outlined);
-	const isReadOnly = useGetResponsiveValue<boolean>(readOnly);
-	const isRequired = useGetResponsiveValue<boolean>(required);
-	const isSuccess = useGetResponsiveValue<boolean>(success);
-	const isWarning = useGetResponsiveValue<boolean>(warning);
+	const {
+		isCompact,
+		isDisabled,
+		isError,
+		isFocused: focused,
+		isMultiple,
+		isOutlined,
+		isReadOnly,
+		isRequired,
+		isSuccess,
+		isWarning,
+		size,
+		variant
+	} = useFileInputResponsiveValues({
+		isCompact: isCompactProp,
+		isDisabled: isDisabledProp,
+		isError: isErrorProp,
+		isFocused: isFocusedProp,
+		isMultiple: isMultipleProp,
+		isOutlined: isOutlinedProp,
+		isReadOnly: isReadOnlyProp,
+		isRequired: isRequiredProp,
+		isSuccess: isSuccessProp,
+		isWarning: isWarningProp,
+		size: sizeProp,
+		variant: variantProp
+	});
 
-	const size = useGetResponsiveValue<FileInputSize>(s);
-	const variant = useGetResponsiveValue<FileInputVariant>(v);
-
-	const isDisabled = useMemo<boolean>(() => isUploading || isDisabledProp, [isUploading, isDisabledProp]);
-	const isFocused = useMemo<boolean>(() => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
+	const isFocused = useMemo<boolean>(() => focused || isFocusedHook, [focused, isFocusedHook]);
 
 	const config = useFormsSizeConfig({ isCompact, size, variant });
 	const iconSize = useFormsIconSize({ isCompact, size, variant });
@@ -165,80 +173,15 @@ const FileInput: PolymorphicComponentWithRef = forwardRef(function FileInput<
 		variant
 	});
 
-	const handleCompressor = async (file: File): Promise<void> => {
-		await new Compressor(file, {
-			strict: true,
-			checkOrientation: true,
-			quality: 0.6,
-			resize: 'cover',
-			success: (file) => {
-				const blob = new Blob([file], { type: file.type });
-
-				return URL.createObjectURL(blob);
-			},
-			error: (error) => {
-				// eslint-disable-next-line no-console
-				console.error(error);
-
-				return error;
-			}
-		});
-	};
-
-	const handleChange = async (event: FileInputChangeEvent<Element>) => {
-		const { files } = event.target;
-
-		const blobs: FileInputBlobs = [];
-		const errors: FileInputErrors = [];
-
-		if (!files) {
-			return;
-		}
-
-		if (isMultiple) {
-			await Array.from(files).forEach((file) =>
-				handleCompressor(file)
-					.then((blob) => blobs.push(blob as unknown as FileInputBlob))
-					.catch((error) => errors.push(error))
-			);
-
-			if (blobs.length) {
-				setIsUploading.on();
-
-				onSuccess(event, blobs);
-
-				setTimeout(() => setIsUploading.off(), __DEFAULT_FILE_INPUT_TIMEOUT__);
-			}
-
-			if (errors.length) {
-				onError(event, errors);
-			}
-		} else {
-			await handleCompressor(files[0])
-				.then((blob) => blobs.push(blob as unknown as FileInputBlob))
-				.catch((error) => errors.push(error));
-
-			if (blobs.length) {
-				setIsUploading.on();
-
-				onSuccess(event, blobs);
-
-				setTimeout(() => setIsUploading.off(), __DEFAULT_FILE_INPUT_TIMEOUT__);
-			} else {
-				onError(event, errors);
-			}
-		}
-	};
-
 	const handleClick = (event: FileInputMouseEvent<Element>): void => {
 		event.preventDefault();
 		event.stopPropagation();
 
 		setIsFocusedHook.on();
 
-		if (inputRef && inputRef.current) {
-			inputRef.current.click();
-			inputRef.current.focus();
+		if (fileInputRef && fileInputRef.current) {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(fileInputRef.current as any).focus();
 		}
 
 		if (onClick) {
@@ -249,8 +192,9 @@ const FileInput: PolymorphicComponentWithRef = forwardRef(function FileInput<
 	const handleFocus = (event: FileInputFocusEvent<Element>): void => {
 		setIsFocusedHook.on();
 
-		if (inputRef && inputRef.current) {
-			inputRef.current.focus();
+		if (fileInputRef && fileInputRef.current) {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(fileInputRef.current as any).focus();
 		}
 
 		if (onFocus) {
@@ -261,8 +205,9 @@ const FileInput: PolymorphicComponentWithRef = forwardRef(function FileInput<
 	const handleBlur = (event: FileInputFocusEvent<Element>): void => {
 		setIsFocusedHook.off();
 
-		if (inputRef && inputRef.current) {
-			inputRef.current.blur();
+		if (fileInputRef && fileInputRef.current) {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(fileInputRef.current as any).blur();
 		}
 
 		if (onBlur) {
@@ -273,74 +218,81 @@ const FileInput: PolymorphicComponentWithRef = forwardRef(function FileInput<
 	const { focusProps } = useFocus({ onFocus: handleFocus, onBlur: handleBlur });
 
 	useEffect(() => {
-		if (isFocused && inputRef && inputRef.current) {
-			inputRef.current.focus();
+		if (isFocused && fileInputRef && fileInputRef.current) {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(fileInputRef.current as any).focus();
 		}
 	}, [isFocused]);
 
 	return (
-		<Grid
-			{...focusProps}
-			className={classNames(__KEYS_FILE_INPUT_CLASS__, classes.container, { [className]: !!className })}
-			w={hasFormControl ? '100%' : w}
-			h={hasFormControl ? '100%' : h}
-			templateColumns={compact(['auto', '1fr', renderRight ? 'auto' : null]).join(' ')}
-			templateRows={1}
-			onClick={handleClick}
-			alignItems='stretch'
-			alignContent='stretch'
-			justifyItems='stretch'
-			justifyContent='stretch'
-			spacing={config.spacing}
-			px={config.padding.x}
-			py={config.padding.y}
-			sx={merge(styles, sx)}
-		>
-			<GridItem alignSelf='center' justifySelf='center'>
-				<Icon
-					w={iconSize.w}
-					h={iconSize.h}
-					color={color}
-					colorMode={colorMode}
-					icon='file_upload'
-					category='filled'
-					size={iconSize.size}
-					variant='unstyled'
-				/>
-				{renderLeft ? renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight }) : null}
-			</GridItem>
+		<FileButton accept={accept} multiple={isMultiple} onError={onError} onSuccess={onSuccess} type={type}>
+			{({ hasUploaded: isUploading, onUpload: handleUpload }: FileButtonChildrenProps) => (
+				<Grid
+					{...focusProps}
+					className={classNames(__KEYS_FILE_INPUT_CLASS__, classes.container, { [className]: !!className })}
+					w={hasFormControl ? '100%' : w}
+					h={hasFormControl ? '100%' : h}
+					templateColumns={compact(['auto', '1fr', renderRight ? 'auto' : null]).join(' ')}
+					templateRows={1}
+					onClick={(event: FileInputMouseEvent<Element>) => {
+						handleUpload();
+						handleClick(event);
+					}}
+					alignItems='stretch'
+					alignContent='stretch'
+					justifyItems='stretch'
+					justifyContent='stretch'
+					spacing={config.spacing}
+					px={config.padding.x}
+					py={config.padding.y}
+					sx={merge(styles, sx)}
+				>
+					<GridItem alignSelf='center' justifySelf='center'>
+						<Icon
+							w={iconSize.w}
+							h={iconSize.h}
+							color={color}
+							colorMode={colorMode}
+							icon='file_upload'
+							category='filled'
+							size={iconSize.size}
+							variant='unstyled'
+						/>
+						{renderLeft ? renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight }) : null}
+					</GridItem>
 
-			<GridItem ref={childrenRef}>
-				<Box<Element>
-					{...rest}
-					ref={refs}
-					className={classNames(classes.element)}
-					as='input'
-					aria-disabled={isDisabled ? 'true' : 'false'}
-					aria-describedby={getFormDescriptionID(id)}
-					aria-invalid={isError ? 'true' : 'false'}
-					aria-labelledby={getFormLabelID(id)}
-					aria-placeholder={placeholder}
-					aria-readonly={isReadOnly ? 'true' : 'false'}
-					aria-required={isRequired ? 'true' : 'false'}
-					aria-selected={isFocused ? 'true' : 'false'}
-					w='100%'
-					h='100%'
-					accept={accept}
-					placeholder={placeholder}
-					onChange={handleChange}
-					onFocus={handleFocus}
-					onBlur={handleBlur}
-					type={type}
-				/>
-			</GridItem>
+					<GridItem ref={childrenRef as GridItemRef}>
+						<Box<Element>
+							{...rest}
+							ref={refs}
+							className={classNames(classes.element)}
+							as='input'
+							aria-disabled={isUploading || isDisabled ? 'true' : 'false'}
+							aria-describedby={getFormDescriptionID(id)}
+							aria-invalid={isError ? 'true' : 'false'}
+							aria-labelledby={getFormLabelID(id)}
+							aria-placeholder={placeholder}
+							aria-readonly={isReadOnly ? 'true' : 'false'}
+							aria-required={isRequired ? 'true' : 'false'}
+							aria-selected={isFocused ? 'true' : 'false'}
+							w='100%'
+							h='100%'
+							accept={accept}
+							placeholder={placeholder}
+							onFocus={handleFocus}
+							onBlur={handleBlur}
+							type={type}
+						/>
+					</GridItem>
 
-			{renderRight ? (
-				<GridItem alignSelf='center' justifySelf='center'>
-					{renderRight({ color, colorMode, w: childrenWidth, h: childrenHeight })}
-				</GridItem>
-			) : null}
-		</Grid>
+					{renderRight ? (
+						<GridItem alignSelf='center' justifySelf='center'>
+							{renderRight({ color, colorMode, w: childrenWidth, h: childrenHeight })}
+						</GridItem>
+					) : null}
+				</Grid>
+			)}
+		</FileButton>
 	);
 });
 

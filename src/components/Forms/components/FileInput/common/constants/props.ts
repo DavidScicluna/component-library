@@ -2,10 +2,6 @@ import type { ComponentProps } from 'react';
 
 import { v4 as uuid } from 'uuid';
 
-import theme from '@common/theme';
-import type { ThemeDuration } from '@common/types';
-import { convertStringToNumber } from '@common/utils';
-
 import {
 	__DEFAULT_FORMS_IS_COMPACT__,
 	__DEFAULT_FORMS_IS_DISABLED__,
@@ -21,12 +17,6 @@ import {
 } from '@components/Forms/common/constants';
 
 import type { FileInputSize, FileInputVariant } from '../types';
-
-export const __DEFAULT_FILE_INPUT_ACCEPT__ = 'image/*';
-
-export const __DEFAULT_FILE_INPUT_DURATION__: ThemeDuration = 'ultra-slow';
-export const __DEFAULT_FILE_INPUT_TIMEOUT__ =
-	convertStringToNumber(theme.transitionDuration[__DEFAULT_FILE_INPUT_DURATION__], 'ms') * 5;
 
 export const __DEFAULT_FILE_INPUT_ID__ = uuid();
 

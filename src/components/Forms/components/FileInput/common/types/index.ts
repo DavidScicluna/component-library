@@ -8,6 +8,7 @@ import type {
 } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { FileButtonProps } from '@components/Buttons';
 import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms';
 
 export type FileInputMouseEvent<Element extends FileInputElement = FileInputDefaultElement> =
@@ -17,16 +18,8 @@ export type FileInputChangeEvent<Element extends FileInputElement = FileInputDef
 export type FileInputFocusEvent<Element extends FileInputElement = FileInputDefaultElement> =
 	PolymorphicFocusEvent<Element>;
 
-export type FileInputBlob = string;
-export type FileInputBlobs = Array<FileInputBlob>;
-
-export type FileInputError = Error;
-export type FileInputErrors = Array<FileInputError>;
-
 export type FileInputDefaultElement = 'input';
 export type FileInputElement = Extract<ElementType, 'input'>;
-
-// export type FileInputAutoComplete = 'on' | 'password' | 'off';
 
 export type FileInputSize = FormsCommonSize;
 
@@ -52,8 +45,10 @@ type PickedFormsCommonProps =
 	| 'size'
 	| 'variant';
 
-type FileInputOtherProps<Element extends FileInputElement = FileInputDefaultElement> = {
-	// autoComplete?: FileInputAutoComplete;
+type FileInputOtherProps<Element extends FileInputElement = FileInputDefaultElement> = Pick<
+	FileButtonProps,
+	'accept' | 'onSuccess' | 'onError'
+> & {
 	renderLeft?: (props: FileInputRenderProps<Element>) => ReactNode;
 	renderRight?: (props: FileInputRenderProps<Element>) => ReactNode;
 	/**
@@ -62,8 +57,6 @@ type FileInputOtherProps<Element extends FileInputElement = FileInputDefaultElem
 	 * @default false
 	 */
 	isMultiple?: ResponsiveValue<boolean>;
-	onSuccess: (event: FileInputChangeEvent<Element>, blobs: FileInputBlobs) => void;
-	onError: (event: FileInputChangeEvent<Element>, error: FileInputErrors) => void;
 } & Pick<FormsCommonProps, PickedFormsCommonProps>;
 
 type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
