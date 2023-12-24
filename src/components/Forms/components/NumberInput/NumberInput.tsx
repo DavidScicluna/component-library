@@ -6,17 +6,20 @@ import { useFocus, useMergeRefs } from 'rooks';
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
-import { useBoolean, useGetResponsiveValue } from '@common/hooks';
+import { useBoolean } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElement
 } from '@common/types';
 
 import { Box } from '@components/Box';
+import type { IconButtonGroupItemChildrenProps } from '@components/Buttons';
 import { IconButton, IconButtonGroup, IconButtonGroupItem, IconButtonIcon } from '@components/Buttons';
 import { useFormsClasses, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
+import type { GridItemRef } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import { getFormDescriptionID } from '../FormDescription/common/utils';
@@ -28,17 +31,21 @@ import {
 	__DEFAULT_NUMBER_INPUT_IS_DISABLED__,
 	__DEFAULT_NUMBER_INPUT_IS_ERROR__,
 	__DEFAULT_NUMBER_INPUT_IS_FOCUSED__,
+	__DEFAULT_NUMBER_INPUT_IS_NEGATIVE_ALLOWED__,
 	__DEFAULT_NUMBER_INPUT_IS_OUTLINED__,
 	__DEFAULT_NUMBER_INPUT_IS_READONLY__,
 	__DEFAULT_NUMBER_INPUT_IS_REQUIRED__,
 	__DEFAULT_NUMBER_INPUT_IS_SUCCESS__,
 	__DEFAULT_NUMBER_INPUT_IS_WARNING__,
+	__DEFAULT_NUMBER_INPUT_MAX__,
+	__DEFAULT_NUMBER_INPUT_MIN__,
 	__DEFAULT_NUMBER_INPUT_SIZE__,
 	__DEFAULT_NUMBER_INPUT_START_VALUE__,
 	__DEFAULT_NUMBER_INPUT_STEP__,
 	__DEFAULT_NUMBER_INPUT_TYPE__,
 	__DEFAULT_NUMBER_INPUT_VARIANT__
 } from './common/constants';
+import { useNumberInputResponsiveValues } from './common/hooks';
 import { __KEYS_NUMBER_INPUT_CLASS__ } from './common/keys';
 import type {
 	NumberInputDefaultElement,
@@ -46,9 +53,7 @@ import type {
 	NumberInputFocusEvent,
 	NumberInputMouseEvent,
 	NumberInputProps,
-	NumberInputRef,
-	NumberInputSize,
-	NumberInputVariant
+	NumberInputRef
 } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -57,10 +62,10 @@ const classNames = require('classnames');
 const NumberInput: PolymorphicComponentWithRef = forwardRef(function NumberInput<
 	Element extends NumberInputElement = NumberInputDefaultElement
 >(props: NumberInputProps<Element>, ref: NumberInputRef<Element>): ReactElement {
-	const numberinputRef = useRef<NumberInputRef<Element>>();
+	const numberInputRef = useRef<PolymorphicElement<Element>>();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
-	const refs = useMergeRefs(ref, numberinputRef);
+	const refs = useMergeRefs(ref, numberInputRef);
 
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
@@ -87,27 +92,28 @@ const NumberInput: PolymorphicComponentWithRef = forwardRef(function NumberInput
 		color = __DEFAULT_FORM_CONTROL_COLOR__,
 		colorMode = __DEFAULT_FORM_CONTROL_COLORMODE__,
 		placeholder,
-		isCompact: comp = __DEFAULT_NUMBER_INPUT_IS_COMPACT__,
-		isDisabled: disabled = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
-		isError: error = __DEFAULT_FORM_CONTROL_IS_ERROR__,
-		isFocused: focused = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
-		isOutlined: outlined = __DEFAULT_NUMBER_INPUT_IS_OUTLINED__,
-		isReadOnly: readOnly = __DEFAULT_FORM_CONTROL_IS_READONLY__,
-		isRequired: required = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
-		isSuccess: success = __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
-		isWarning: warning = __DEFAULT_FORM_CONTROL_IS_WARNING__,
+		isCompact: isCompactProp = __DEFAULT_NUMBER_INPUT_IS_COMPACT__,
+		isDisabled: isDisabledProp = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
+		isError: isErrorProp = __DEFAULT_FORM_CONTROL_IS_ERROR__,
+		isFocused: isFocusedProp = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
+		isOutlined: isOutlinedProp = __DEFAULT_NUMBER_INPUT_IS_OUTLINED__,
+		isReadOnly: isReadOnlyProp = __DEFAULT_FORM_CONTROL_IS_READONLY__,
+		isRequired: isRequiredProp = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
+		isNegativeAllowed: isNegativeAllowedProp = __DEFAULT_NUMBER_INPUT_IS_NEGATIVE_ALLOWED__,
+		isSuccess: isSuccessProp = __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
+		isWarning: isWarningProp = __DEFAULT_FORM_CONTROL_IS_WARNING__,
 		type = __DEFAULT_NUMBER_INPUT_TYPE__,
-		min,
-		max,
+		min = __DEFAULT_NUMBER_INPUT_MIN__,
+		max = __DEFAULT_NUMBER_INPUT_MAX__,
 		onClick,
 		onFocus,
 		onBlur,
 		onIncrement,
 		onDecrement,
-		startValue = __DEFAULT_NUMBER_INPUT_START_VALUE__,
+		startValue: startValueProp = __DEFAULT_NUMBER_INPUT_START_VALUE__,
 		step = __DEFAULT_NUMBER_INPUT_STEP__,
-		size: s = __DEFAULT_FORM_CONTROL_SIZE__,
-		variant: v = __DEFAULT_NUMBER_INPUT_VARIANT__,
+		size: sizeProp = __DEFAULT_FORM_CONTROL_SIZE__,
+		variant: variantProp = __DEFAULT_NUMBER_INPUT_VARIANT__,
 		value,
 		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
@@ -115,22 +121,37 @@ const NumberInput: PolymorphicComponentWithRef = forwardRef(function NumberInput
 
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
-	// TODO: Create a hook that gets all responsive prop values
+	const {
+		isCompact,
+		isDisabled,
+		isError,
+		isFocused: focused,
+		isOutlined,
+		isReadOnly,
+		isRequired,
+		isNegativeAllowed,
+		isSuccess,
+		isWarning,
+		startValue,
+		size,
+		variant
+	} = useNumberInputResponsiveValues({
+		isCompact: isCompactProp,
+		isDisabled: isDisabledProp,
+		isError: isErrorProp,
+		isFocused: isFocusedProp,
+		isOutlined: isOutlinedProp,
+		isReadOnly: isReadOnlyProp,
+		isRequired: isRequiredProp,
+		isNegativeAllowed: isNegativeAllowedProp,
+		isSuccess: isSuccessProp,
+		isWarning: isWarningProp,
+		startValue: startValueProp,
+		size: sizeProp,
+		variant: variantProp
+	});
 
-	const isCompact = useGetResponsiveValue<boolean>(comp);
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-	const isError = useGetResponsiveValue<boolean>(error);
-	const isFocusedProp = useGetResponsiveValue<boolean>(focused);
-	const isOutlined = useGetResponsiveValue<boolean>(outlined);
-	const isReadOnly = useGetResponsiveValue<boolean>(readOnly);
-	const isRequired = useGetResponsiveValue<boolean>(required);
-	const isSuccess = useGetResponsiveValue<boolean>(success);
-	const isWarning = useGetResponsiveValue<boolean>(warning);
-
-	const size = useGetResponsiveValue<NumberInputSize>(s);
-	const variant = useGetResponsiveValue<NumberInputVariant>(v);
-
-	const isFocused = useMemo<boolean>(() => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
+	const isFocused = useMemo<boolean>(() => focused || isFocusedHook, [focused, isFocusedHook]);
 
 	const config = useFormsSizeConfig({ isCompact, size, variant });
 
@@ -162,22 +183,38 @@ const NumberInput: PolymorphicComponentWithRef = forwardRef(function NumberInput
 
 	const handleIncrement = (): void => {
 		if (onIncrement) {
+			const minNum = Number(min);
+			const maxNum = Number(max);
+			const stepNum = Number(step);
+
 			if (typeof value !== 'number' || Number.isNaN(value)) {
-				onIncrement(min ?? clamp(startValue!, min, max));
-			} else if (max !== undefined) {
-				onIncrement(value + step! <= max ? value + step! : max);
+				onIncrement(minNum ?? clamp(startValue!, minNum, maxNum));
+			} else if (maxNum !== undefined) {
+				onIncrement(value + stepNum! <= maxNum ? value + stepNum! : maxNum);
 			} else {
-				onIncrement(value + step!);
+				onIncrement(value + stepNum!);
 			}
 		}
 	};
 
 	const handleDecrement = (): void => {
 		if (onDecrement) {
+			const minNum = Number(min);
+			const maxNum = Number(max);
+			const stepNum = Number(step);
+
 			if (typeof value !== 'number' || Number.isNaN(value)) {
-				onDecrement(max ?? clamp(startValue!, min, max));
+				onDecrement(maxNum ?? clamp(startValue!, minNum, maxNum));
 			} else {
-				onDecrement(getDecrementedValue({ value: value, min, step, allowNegative }));
+				const nextValue = value - stepNum;
+
+				if (minNum !== undefined && nextValue < minNum) {
+					onDecrement(minNum);
+				} else if (!isNegativeAllowed && nextValue < 0 && minNum === undefined) {
+					onDecrement(value);
+				} else {
+					onDecrement(nextValue);
+				}
 			}
 		}
 	};
@@ -185,8 +222,9 @@ const NumberInput: PolymorphicComponentWithRef = forwardRef(function NumberInput
 	const handleClick = (event: NumberInputMouseEvent<Element>): void => {
 		setIsFocusedHook.on();
 
-		if (numberinputRef && numberinputRef.current) {
-			numberinputRef.current.focus();
+		if (numberInputRef && numberInputRef.current) {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(numberInputRef.current as any).focus();
 		}
 
 		if (onClick) {
@@ -197,8 +235,9 @@ const NumberInput: PolymorphicComponentWithRef = forwardRef(function NumberInput
 	const handleFocus = (event: NumberInputFocusEvent<Element>): void => {
 		setIsFocusedHook.on();
 
-		if (numberinputRef && numberinputRef.current) {
-			numberinputRef.current.focus();
+		if (numberInputRef && numberInputRef.current) {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(numberInputRef.current as any).focus();
 		}
 
 		if (onFocus) {
@@ -209,8 +248,9 @@ const NumberInput: PolymorphicComponentWithRef = forwardRef(function NumberInput
 	const handleBlur = (event: NumberInputFocusEvent<Element>): void => {
 		setIsFocusedHook.off();
 
-		if (numberinputRef && numberinputRef.current) {
-			numberinputRef.current.blur();
+		if (numberInputRef && numberInputRef.current) {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(numberInputRef.current as any).blur();
 		}
 
 		if (onBlur) {
@@ -221,8 +261,9 @@ const NumberInput: PolymorphicComponentWithRef = forwardRef(function NumberInput
 	const { focusProps } = useFocus({ onFocus: handleFocus, onBlur: handleBlur });
 
 	useEffect(() => {
-		if (isFocused && numberinputRef && numberinputRef.current) {
-			numberinputRef.current.focus();
+		if (isFocused && numberInputRef && numberInputRef.current) {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(numberInputRef.current as any).focus();
 		}
 	}, [isFocused]);
 
@@ -265,7 +306,7 @@ const NumberInput: PolymorphicComponentWithRef = forwardRef(function NumberInput
 						</GridItem>
 					) : null}
 
-					<GridItem ref={childrenRef}>
+					<GridItem ref={childrenRef as GridItemRef}>
 						<Box<Element>
 							{...rest}
 							ref={refs}
@@ -299,7 +340,7 @@ const NumberInput: PolymorphicComponentWithRef = forwardRef(function NumberInput
 			<GridItem>
 				<IconButtonGroup color={color} colorMode={colorMode} direction='column'>
 					<IconButtonGroupItem index={0} total={2}>
-						{(props) => (
+						{(props: IconButtonGroupItemChildrenProps) => (
 							<IconButton
 								{...props}
 								color={color}
@@ -314,7 +355,7 @@ const NumberInput: PolymorphicComponentWithRef = forwardRef(function NumberInput
 						)}
 					</IconButtonGroupItem>
 					<IconButtonGroupItem index={1} total={2}>
-						{(props) => (
+						{(props: IconButtonGroupItemChildrenProps) => (
 							<IconButton
 								{...props}
 								color={color}

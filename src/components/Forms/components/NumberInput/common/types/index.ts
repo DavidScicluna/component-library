@@ -1,6 +1,11 @@
 import type { ElementType, ReactNode } from 'react';
 
-import type { PolymorphicChangeEvent, PolymorphicFocusEvent, PolymorphicMouseEvent } from '@common/types';
+import type {
+	PolymorphicChangeEvent,
+	PolymorphicFocusEvent,
+	PolymorphicMouseEvent,
+	ResponsiveValue
+} from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms';
@@ -46,23 +51,15 @@ type NumberInputOtherProps<Element extends NumberInputElement = NumberInputDefau
 	renderLeft?: (props: NumberInputRenderProps<Element>) => ReactNode;
 	renderRight?: (props: NumberInputRenderProps<Element>) => ReactNode;
 	/**
-	 * Maximum possible value
-	 */
-	max?: number;
-	/**
-	 * Minimum possible value
-	 */
-	min?: number;
-	/**
 	 * Value set to the input when increment/decrement buttons are clicked or up/down arrows pressed if the input is empty, 0 by default
 	 * @default 0
 	 */
-	startValue?: number;
+	startValue?: ResponsiveValue<number>;
 	/**
-	 * Number by which value will be incremented/decremented with up/down controls and keyboard arrows, 1 by default
-	 * @default 1
+	 * Determines whether negative values are allowed, `true` by default
+	 * @default true
 	 */
-	step?: number;
+	isNegativeAllowed?: ResponsiveValue<boolean>;
 	onIncrement?: (value: number) => void;
 	onDecrement?: (value: number) => void;
 } & Pick<FormsCommonProps, PickedFormsCommonProps>;
