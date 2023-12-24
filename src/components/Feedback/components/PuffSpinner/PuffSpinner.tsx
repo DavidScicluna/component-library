@@ -28,11 +28,11 @@ const PuffSpinner: PolymorphicComponentWithRef = forwardRef(function PuffSpinner
 >(props: PuffSpinnerProps<Element>, ref: PuffSpinnerRef<Element>): ReactElement {
 	const theme = useTheme();
 
-	const __DEFAULT_PUFFSPINNER_COLOR__ = useGetColor({ colorType: 'default', hueType: 'default' });
+	const __DEFAULT_PUFFS_PINNER_COLOR__ = useGetColor({ colorType: 'default', hueType: 'default' });
 
 	const {
 		className = __DEFAULT_CLASSNAME__,
-		color = __DEFAULT_PUFFSPINNER_COLOR__,
+		color = __DEFAULT_PUFFS_PINNER_COLOR__,
 		isVisible: isVisibleProp = __DEFAULT_PUFF_SPINNER_IS_VISIBLE__,
 		radius: radiusProp = __DEFAULT_RADIUS__,
 		size: sizeProp = __DEFAULT_PUFF_SPINNER_SIZE__,
