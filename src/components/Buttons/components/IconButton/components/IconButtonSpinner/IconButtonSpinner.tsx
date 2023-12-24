@@ -11,10 +11,12 @@ import type {
 } from '@common/types';
 import { getColorHex } from '@common/utils';
 
-import { Spinner } from '@components/Feedback';
+import { PuffSpinner, TailSpinSpinner, ThreeDotsSpinner } from '@components/Feedback';
 
 import { useIconButtonContext, useIconButtonFontSize } from '../../common/hooks';
 
+import { __DEFAULT_ICON_BUTTON_SPINNER_VARIANT__ } from './common/constants';
+import { useIconButtonSpinnerResponsiveValues } from './common/hooks';
 import { __KEYS_ICON_BUTTON_SPINNER_CLASS__ } from './common/keys';
 import type { IconButtonSpinnerProps, IconButtonSpinnerRef } from './common/types';
 
@@ -30,15 +32,21 @@ const IconButtonSpinner: PolymorphicComponentWithRef = forwardRef(function IconB
 		color = __DEFAULT_ICON_BUTTON_COLOR__,
 		colorMode = __DEFAULT_ICON_BUTTON_COLORMODE__,
 		size,
-		variant
+		variant: iconButtonVariant
 	} = useIconButtonContext();
 
-	const { className = __DEFAULT_CLASSNAME__, ...rest } = props;
+	const {
+		className = __DEFAULT_CLASSNAME__,
+		variant: variantProp = __DEFAULT_ICON_BUTTON_SPINNER_VARIANT__,
+		...rest
+	} = props;
+
+	const { variant } = useIconButtonSpinnerResponsiveValues({ variant: variantProp });
 
 	const fontSize = useIconButtonFontSize({ size });
 
 	const c = useMemo<string>(() => {
-		switch (variant) {
+		switch (iconButtonVariant) {
 			case 'light':
 				return getColorHex({ color, colorMode, hueType: 'darker' });
 			case 'dark':
@@ -51,18 +59,43 @@ const IconButtonSpinner: PolymorphicComponentWithRef = forwardRef(function IconB
 			default:
 				return getColorHex({ color: 'gray', colorMode, hueType: 'background' });
 		}
-	}, [color, colorMode, variant]);
+	}, [color, colorMode, iconButtonVariant]);
 
-	return (
-		<Spinner<Element>
-			{...rest}
-			ref={ref}
-			className={classNames(__KEYS_ICON_BUTTON_SPINNER_CLASS__, { [className]: !!className })}
-			color={c}
-			isVisible
-			size={`${fontSize}px`}
-		/>
-	);
+	switch (variant) {
+		case 'tail_spin':
+			return (
+				<TailSpinSpinner<Element>
+					{...rest}
+					ref={ref}
+					className={classNames(__KEYS_ICON_BUTTON_SPINNER_CLASS__, { [className]: !!className })}
+					color={c}
+					isVisible
+					size={`${fontSize}px`}
+				/>
+			);
+		case 'three_dots':
+			return (
+				<ThreeDotsSpinner<Element>
+					{...rest}
+					ref={ref}
+					className={classNames(__KEYS_ICON_BUTTON_SPINNER_CLASS__, { [className]: !!className })}
+					color={c}
+					isVisible
+					size={`${fontSize}px`}
+				/>
+			);
+		default:
+			return (
+				<PuffSpinner<Element>
+					{...rest}
+					ref={ref}
+					className={classNames(__KEYS_ICON_BUTTON_SPINNER_CLASS__, { [className]: !!className })}
+					color={c}
+					isVisible
+					size={`${fontSize}px`}
+				/>
+			);
+	}
 });
 
 IconButtonSpinner.displayName = 'IconButtonSpinner';

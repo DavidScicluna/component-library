@@ -1,0 +1,3 @@
+import { __DEFAULT_ICON_BUTTON_SPINNER_VARIANT__ } from './props';
+
+export { __DEFAULT_ICON_BUTTON_SPINNER_VARIANT__ };
