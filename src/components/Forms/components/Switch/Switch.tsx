@@ -7,16 +7,18 @@ import { useFocus } from 'rooks';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetColor } from '@common/hooks';
 import type {
+	PolymorphicChangeEvent,
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElement
 } from '@common/types';
 
+import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
 import { Grid, GridItem } from '@components/Layout';
-import type { PushableOverlayRef } from '@components/Overlay';
 import { PushableOverlay } from '@components/Overlay';
 import { Text } from '@components/Typography';
 import { VisuallyHidden } from '@components/VisuallyHidden';
@@ -46,7 +48,8 @@ import {
 } from './common/constants';
 import { useSwitchClasses, useSwitchIconSize, useSwitchResponsiveValues, useSwitchSizeConfig } from './common/hooks';
 import { __KEYS_SWITCH_CLASS__ } from './common/keys';
-import type { SwitchChangeEvent, SwitchFocusEvent, SwitchMouseEvent, SwitchProps, SwitchRef } from './common/types';
+// TODO: Go over all Form components Event types and check if they are used if not remove
+import type { SwitchFocusEvent, SwitchMouseEvent, SwitchProps, SwitchRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
@@ -54,7 +57,7 @@ const classNames = require('classnames');
 const Switch: PolymorphicComponentWithRef = forwardRef(function Switch<
 	Element extends ElementType = PolymorphicDefaultElement
 >(props: SwitchProps<Element>, ref: SwitchRef<Element>): ReactElement {
-	const pushableOverlayRef = useRef<PushableOverlayRef<Element>>(null);
+	const pushableOverlayRef = useRef<PolymorphicElement>(null);
 
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
@@ -159,7 +162,8 @@ const Switch: PolymorphicComponentWithRef = forwardRef(function Switch<
 		}
 
 		if (pushableOverlayRef && pushableOverlayRef.current) {
-			pushableOverlayRef.current.click();
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(pushableOverlayRef.current as any).click();
 		}
 
 		if (onToggle) {
@@ -246,29 +250,32 @@ const Switch: PolymorphicComponentWithRef = forwardRef(function Switch<
 					isFocused={isClickable && isFocused}
 					isOutlined={isOutlined}
 					isPushable={isClickable && !isReadOnly}
-					// variant={!isReadOnly && isChecked ? 'outlined' : 'monochrome'}
 					variant={!isReadOnly && isChecked ? 'contained' : 'monochrome'}
 					px={config.padding.x}
 					py={config.padding.y}
 				>
-					<VisuallyHidden<'input'>
-						as='input'
-						aria-checked={isChecked ? 'true' : 'false'}
-						aria-disabled={isDisabled ? 'true' : 'false'}
-						aria-describedby={getFormDescriptionID(id)}
-						aria-invalid={isError ? 'true' : 'false'}
-						aria-labelledby={getFormLabelID(id)}
-						aria-placeholder={placeholder}
-						aria-readonly={isReadOnly ? 'true' : 'false'}
-						aria-required={isRequired ? 'true' : 'false'}
-						aria-selected={isFocused ? 'true' : 'false'}
-						checked={isChecked}
-						placeholder={placeholder}
-						type={type}
-						onChange={
-							onToggle ? (event: SwitchChangeEvent<Element>) => onToggle(event.target.checked) : undefined
-						}
-					/>
+					<VisuallyHidden>
+						<Box<'input'>
+							as='input'
+							aria-checked={isChecked ? 'true' : 'false'}
+							aria-disabled={isDisabled ? 'true' : 'false'}
+							aria-describedby={getFormDescriptionID(id)}
+							aria-invalid={isError ? 'true' : 'false'}
+							aria-labelledby={getFormLabelID(id)}
+							aria-placeholder={placeholder}
+							aria-readonly={isReadOnly ? 'true' : 'false'}
+							aria-required={isRequired ? 'true' : 'false'}
+							aria-selected={isFocused ? 'true' : 'false'}
+							checked={isChecked}
+							placeholder={placeholder}
+							type={type}
+							onChange={
+								onToggle
+									? (event: PolymorphicChangeEvent<'input'>) => onToggle(event.target.checked)
+									: undefined
+							}
+						/>
+					</VisuallyHidden>
 					<Grid
 						w='100%'
 						h='100%'
