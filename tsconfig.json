@@ -6,7 +6,7 @@
 		"baseUrl": ".",
 		"composite": true,
 		"declaration": true,
-		"declarationDir": "types",
+		"declarationDir": "build",
 		"declarationMap": true,
 		"downlevelIteration": true,
 		"emitDeclarationOnly": true,
