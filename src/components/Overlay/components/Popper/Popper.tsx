@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ElementType, ReactElement } from 'react';
 import { forwardRef, useCallback, useRef } from 'react';
 
@@ -14,9 +15,9 @@ import {
 	useFocus,
 	useHover,
 	useInteractions,
+	useMergeRefs,
 	useRole
 } from '@floating-ui/react';
-import { useMergeRefs } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
@@ -125,7 +126,7 @@ const Popper: PolymorphicComponentWithRef = forwardRef(function Popper<
 
 	const { getReferenceProps, getFloatingProps } = useInteractions([hover, focus, dismiss, role]);
 
-	const refss = useMergeRefs(ref, refs.setFloating);
+	const refss = useMergeRefs([ref, refs.setFloating as any]);
 
 	const classes = usePopperClasses<Element>({ color, colorMode, radius });
 
@@ -139,7 +140,6 @@ const Popper: PolymorphicComponentWithRef = forwardRef(function Popper<
 				isOpen,
 				onOpen: handleOpen
 			})}
-
 			<Transition as='section' transition='fade' in={!isDisabled && isOpen}>
 				<FloatingFocusManager context={context} modal={false}>
 					<Box<Element>
@@ -149,7 +149,7 @@ const Popper: PolymorphicComponentWithRef = forwardRef(function Popper<
 						className={classNames(__KEYS_POPPER_CLASS__, classes.popper, { [className]: !!className })}
 						style={floatingStyles}
 					>
-						<FloatingArrow ref={arrowRef} className={classes.arrow} context={context} />
+						<FloatingArrow ref={arrowRef as any} className={classes.arrow} context={context} />
 						{children}
 					</Box>
 				</FloatingFocusManager>
