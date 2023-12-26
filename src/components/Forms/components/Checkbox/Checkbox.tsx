@@ -7,16 +7,18 @@ import { useFocus } from 'rooks';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetColor } from '@common/hooks';
 import type {
+	PolymorphicChangeEvent,
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElement
 } from '@common/types';
 
+import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
 import { Grid, GridItem } from '@components/Layout';
-import type { PushableOverlayRef } from '@components/Overlay';
 import { PushableOverlay } from '@components/Overlay';
 import { VisuallyHidden } from '@components/VisuallyHidden';
 
@@ -50,13 +52,7 @@ import {
 	useCheckboxSizeConfig
 } from './common/hooks';
 import { __KEYS_CHECKBOX_CLASS__ } from './common/keys';
-import type {
-	CheckboxChangeEvent,
-	CheckboxFocusEvent,
-	CheckboxMouseEvent,
-	CheckboxProps,
-	CheckboxRef
-} from './common/types';
+import type { CheckboxFocusEvent, CheckboxMouseEvent, CheckboxProps, CheckboxRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
@@ -64,7 +60,7 @@ const classNames = require('classnames');
 const Checkbox: PolymorphicComponentWithRef = forwardRef(function Checkbox<
 	Element extends ElementType = PolymorphicDefaultElement
 >(props: CheckboxProps<Element>, ref: CheckboxRef<Element>): ReactElement {
-	const pushableOverlayRef = useRef<PushableOverlayRef<Element>>(null);
+	const pushableOverlayRef = useRef<PolymorphicElement>(null);
 
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
@@ -169,7 +165,8 @@ const Checkbox: PolymorphicComponentWithRef = forwardRef(function Checkbox<
 		}
 
 		if (pushableOverlayRef && pushableOverlayRef.current) {
-			pushableOverlayRef.current.click();
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(pushableOverlayRef.current as any).click();
 		}
 
 		if (onToggle) {
@@ -260,26 +257,28 @@ const Checkbox: PolymorphicComponentWithRef = forwardRef(function Checkbox<
 					px={config.padding.x}
 					py={config.padding.y}
 				>
-					<VisuallyHidden<'input'>
-						as='input'
-						aria-checked={isChecked ? 'true' : 'false'}
-						aria-disabled={isDisabled ? 'true' : 'false'}
-						aria-describedby={getFormDescriptionID(id)}
-						aria-invalid={isError ? 'true' : 'false'}
-						aria-labelledby={getFormLabelID(id)}
-						aria-placeholder={placeholder}
-						aria-readonly={isReadOnly ? 'true' : 'false'}
-						aria-required={isRequired ? 'true' : 'false'}
-						aria-selected={isFocused ? 'true' : 'false'}
-						checked={isIndeterminate || isChecked}
-						placeholder={placeholder}
-						type={type}
-						onChange={
-							onToggle
-								? (event: CheckboxChangeEvent<Element>) => onToggle(event.target.checked)
-								: undefined
-						}
-					/>
+					<VisuallyHidden>
+						<Box<'input'>
+							as='input'
+							aria-checked={isChecked ? 'true' : 'false'}
+							aria-disabled={isDisabled ? 'true' : 'false'}
+							aria-describedby={getFormDescriptionID(id)}
+							aria-invalid={isError ? 'true' : 'false'}
+							aria-labelledby={getFormLabelID(id)}
+							aria-placeholder={placeholder}
+							aria-readonly={isReadOnly ? 'true' : 'false'}
+							aria-required={isRequired ? 'true' : 'false'}
+							aria-selected={isFocused ? 'true' : 'false'}
+							checked={isIndeterminate || isChecked}
+							placeholder={placeholder}
+							type={type}
+							onChange={
+								onToggle
+									? (event: PolymorphicChangeEvent<'input'>) => onToggle(event.target.checked)
+									: undefined
+							}
+						/>
+					</VisuallyHidden>
 					<Icon
 						w={iconSize.w}
 						h={iconSize.h}
