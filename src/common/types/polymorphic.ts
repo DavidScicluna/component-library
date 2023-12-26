@@ -30,8 +30,7 @@ export type PolymorphicChangeEvent<Element extends ElementType = PolymorphicDefa
 >;
 
 export type PolymorphicFocusEvent<Element extends ElementType = PolymorphicDefaultElement> = FocusEvent<
-	PolymorphicElement<Element>,
-	globalThis.FocusEvent
+	PolymorphicElement<Element>
 >;
 
 export type PolymorphicFormEvent<Element extends ElementType = PolymorphicDefaultElement> = FormEvent<
