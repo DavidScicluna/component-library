@@ -7,16 +7,18 @@ import { useFocus } from 'rooks';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetColor } from '@common/hooks';
 import type {
+	PolymorphicChangeEvent,
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElement
 } from '@common/types';
 
+import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
 import { Grid, GridItem } from '@components/Layout';
-import type { PushableOverlayRef } from '@components/Overlay';
 import { PushableOverlay } from '@components/Overlay';
 import { VisuallyHidden } from '@components/VisuallyHidden';
 
@@ -44,7 +46,7 @@ import {
 } from './common/constants';
 import { useRadioClasses, useRadioIconSize, useRadioResponsiveValues, useRadioSizeConfig } from './common/hooks';
 import { __KEYS_RADIO_CLASS__ } from './common/keys';
-import type { RadioChangeEvent, RadioFocusEvent, RadioMouseEvent, RadioProps, RadioRef } from './common/types';
+import type { RadioFocusEvent, RadioMouseEvent, RadioProps, RadioRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
@@ -52,7 +54,7 @@ const classNames = require('classnames');
 const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
 	Element extends ElementType = PolymorphicDefaultElement
 >(props: RadioProps<Element>, ref: RadioRef<Element>): ReactElement {
-	const pushableOverlayRef = useRef<PushableOverlayRef<Element>>(null);
+	const pushableOverlayRef = useRef<PolymorphicElement>(null);
 
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
@@ -154,7 +156,8 @@ const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
 		}
 
 		if (pushableOverlayRef && pushableOverlayRef.current) {
-			pushableOverlayRef.current.click();
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(pushableOverlayRef.current as any).click();
 		}
 
 		if (onToggle) {
@@ -245,24 +248,28 @@ const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
 					px={config.padding.x}
 					py={config.padding.y}
 				>
-					<VisuallyHidden<'input'>
-						as='input'
-						aria-checked={isChecked ? 'true' : 'false'}
-						aria-disabled={isDisabled ? 'true' : 'false'}
-						aria-describedby={getFormDescriptionID(id)}
-						aria-invalid={isError ? 'true' : 'false'}
-						aria-labelledby={getFormLabelID(id)}
-						aria-placeholder={placeholder}
-						aria-readonly={isReadOnly ? 'true' : 'false'}
-						aria-required={isRequired ? 'true' : 'false'}
-						aria-selected={isFocused ? 'true' : 'false'}
-						checked={isChecked}
-						placeholder={placeholder}
-						type={type}
-						onChange={
-							onToggle ? (event: RadioChangeEvent<Element>) => onToggle(event.target.checked) : undefined
-						}
-					/>
+					<VisuallyHidden>
+						<Box<'input'>
+							as='input'
+							aria-checked={isChecked ? 'true' : 'false'}
+							aria-disabled={isDisabled ? 'true' : 'false'}
+							aria-describedby={getFormDescriptionID(id)}
+							aria-invalid={isError ? 'true' : 'false'}
+							aria-labelledby={getFormLabelID(id)}
+							aria-placeholder={placeholder}
+							aria-readonly={isReadOnly ? 'true' : 'false'}
+							aria-required={isRequired ? 'true' : 'false'}
+							aria-selected={isFocused ? 'true' : 'false'}
+							checked={isChecked}
+							placeholder={placeholder}
+							type={type}
+							onChange={
+								onToggle
+									? (event: PolymorphicChangeEvent<'input'>) => onToggle(event.target.checked)
+									: undefined
+							}
+						/>
+					</VisuallyHidden>
 					<Icon
 						w={iconSize.w}
 						h={iconSize.h}
