@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ElementType, ReactElement } from 'react';
-import React, { cloneElement, forwardRef, useCallback, useRef } from 'react';
+import { cloneElement, forwardRef, useCallback, useRef } from 'react';
 
 import {
 	arrow,
@@ -13,9 +14,9 @@ import {
 	useFocus,
 	useHover,
 	useInteractions,
+	useMergeRefs,
 	useRole
 } from '@floating-ui/react';
-import { useMergeRefs } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetResponsiveValue } from '@common/hooks';
@@ -123,7 +124,7 @@ const Tooltip: PolymorphicComponentWithRef = forwardRef(function Tooltip<
 
 	const { getReferenceProps, getFloatingProps } = useInteractions([hover, focus, dismiss, role]);
 
-	const refss = useMergeRefs(ref, refs.setFloating);
+	const refss = useMergeRefs([ref, refs.setFloating as any]);
 
 	const classes = useTooltipClasses<Element>({ color, colorMode });
 
@@ -139,7 +140,7 @@ const Tooltip: PolymorphicComponentWithRef = forwardRef(function Tooltip<
 					className={classNames(__KEYS_TOOLTIP_CLASS__, classes.tooltip, { [className]: !!className })}
 					style={floatingStyles}
 				>
-					<FloatingArrow ref={arrowRef} className={classes.arrow} context={context} />
+					<FloatingArrow ref={arrowRef as any} className={classes.arrow} context={context} />
 					<Box as='span' className={classes.content}>
 						{label}
 					</Box>
