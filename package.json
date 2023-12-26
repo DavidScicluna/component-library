@@ -11,11 +11,6 @@
 	"module": "build/index.esm.js",
 	"unpkg": "build/index.min.js",
 	"types": "build/index.d.ts",
-	"files": [
-		"build",
-		"src",
-		"tsconfig.json"
-	],
 	"publishConfig": {
 		"access": "public",
 		"registry": "https://registry.npmjs.org/"
@@ -26,9 +21,9 @@
 		"cleanup": "rm -rf node_modules && rm -rf build",
 		"prebuild": "bun run cleanup && bun install && bun run lint && bun run format",
 		"build:bun": "bun build ./src/index.ts --outdir ./build --target=node --format esm --minify",
-		"build:types": "bun run tsc -d --declarationDir ./build --declarationMap --emitDeclarationOnly",
+		"build:types": "tsc -project ./",
 		"build:tailwind": "bun run tailwindcss -o ./build/index.css --minify",
-		"build:cl": "bun run prebuild && bun run build:bun && bun run build:types && bun run build:tailwind",
+		"build:cl": "bun run prebuild && bun run build:bun && bun run build:tailwind && bun run build:types",
 		"publish": "bun npm login && bun npm publish --access public",
 		"storybook": "storybook dev --no-open -p 6006",
 		"build-storybook": "storybook build"
