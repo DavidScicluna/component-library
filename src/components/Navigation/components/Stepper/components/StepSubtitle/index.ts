@@ -7,7 +7,7 @@ import type {
 import StepSubtitle from './StepSubtitle';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { StepSubtitle };

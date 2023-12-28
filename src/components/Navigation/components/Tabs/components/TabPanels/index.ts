@@ -2,7 +2,7 @@ import type { TabPanelProps, TabPanelsProps, TabPanelsRef } from './common/types
 import TabPanels from './TabPanels';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { TabPanels };

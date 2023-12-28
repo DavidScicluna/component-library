@@ -7,7 +7,7 @@ import type {
 import StepStatusIcon from './StepStatusIcon';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { StepStatusIcon };

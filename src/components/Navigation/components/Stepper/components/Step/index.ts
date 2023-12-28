@@ -6,18 +6,18 @@ import type {
 	StepProps,
 	StepRef,
 	StepRenderProps,
-	StepStatus
+	StepStatus as StepStatusType
 } from './common/types';
 import Step from './Step';
 
 // Constants
-export * as constants from './common/constants';
+export * from './common/constants';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Hooks
-export * as hooks from './common/hooks';
+export * from './common/hooks';
 
 // Components
 export { Step };
@@ -31,5 +31,5 @@ export type {
 	StepProps,
 	StepRef,
 	StepRenderProps,
-	StepStatus
+	StepStatusType
 };

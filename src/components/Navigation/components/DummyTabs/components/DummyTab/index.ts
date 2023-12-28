@@ -2,13 +2,13 @@ import type { DummyTabProps, DummyTabRef, DummyTabRenderProps } from './common/t
 import DummyTab from './DummyTab';
 
 // Constants
-export * as constants from './common/constants';
+export * from './common/constants';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Hooks
-export * as hooks from './common/hooks';
+export * from './common/hooks';
 
 // Components
 export { DummyTab };

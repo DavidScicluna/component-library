@@ -2,7 +2,7 @@ import type { TabIconDefaultElement, TabIconElement, TabIconProps, TabIconRef } 
 import TabIcon from './TabIcon';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { TabIcon };

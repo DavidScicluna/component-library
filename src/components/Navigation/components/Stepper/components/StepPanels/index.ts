@@ -2,7 +2,7 @@ import type { StepPanelProps, StepPanelsProps, StepPanelsRef } from './common/ty
 import StepPanels from './StepPanels';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { StepPanels };

@@ -2,7 +2,7 @@ import type { StepListProps, StepListRef, StepListRenderProps } from './common/t
 import StepList from './StepList';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { StepList };

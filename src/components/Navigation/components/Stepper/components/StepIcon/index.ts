@@ -2,7 +2,7 @@ import type { StepIconDefaultElement, StepIconElement, StepIconProps, StepIconRe
 import StepIcon from './StepIcon';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { StepIcon };

@@ -2,7 +2,7 @@ import type { StepHeadlineProps, StepHeadlineRef } from './common/types';
 import StepHeadline from './StepHeadline';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { StepHeadline };

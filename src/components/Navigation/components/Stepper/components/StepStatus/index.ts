@@ -2,7 +2,7 @@ import type { StepStatusDefaultElement, StepStatusElement, StepStatusProps, Step
 import StepStatus from './StepStatus';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { StepStatus };

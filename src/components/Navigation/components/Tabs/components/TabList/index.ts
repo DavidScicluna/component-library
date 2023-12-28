@@ -2,7 +2,7 @@ import type { TabListProps, TabListRef, TabListRenderProps } from './common/type
 import TabList from './TabList';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { TabList };

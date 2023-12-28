@@ -2,7 +2,7 @@ import type { DummyTabListProps, DummyTabListRef, DummyTabListRenderProps } from
 import DummyTabList from './DummyTabList';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { DummyTabList };
