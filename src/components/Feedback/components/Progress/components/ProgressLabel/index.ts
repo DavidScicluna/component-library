@@ -7,7 +7,7 @@ import type {
 import ProgressLabel from './ProgressLabel';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { ProgressLabel };
