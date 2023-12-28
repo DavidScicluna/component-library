@@ -2,7 +2,7 @@ import type { ModalBodyProps, ModalBodyRef } from './common/types';
 import ModalBody from './ModalBody';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { ModalBody };

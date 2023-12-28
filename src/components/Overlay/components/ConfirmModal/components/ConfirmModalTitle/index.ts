@@ -7,7 +7,7 @@ import type {
 import ConfirmModalTitle from './ConfirmModalTitle';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { ConfirmModalTitle };

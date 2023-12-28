@@ -2,7 +2,7 @@ import type { ConfirmModalBackdropProps, ConfirmModalBackdropRef } from './commo
 import ConfirmModalBackdrop from './ConfirmModalBackdrop';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { ConfirmModalBackdrop };

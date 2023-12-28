@@ -2,7 +2,7 @@ import type { ModalStackProps, ModalStackRef } from './common/types';
 import ModalStack from './ModalStack';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { ModalStack };

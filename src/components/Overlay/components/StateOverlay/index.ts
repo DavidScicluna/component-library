@@ -2,10 +2,10 @@ import type { StateOverlayProps, StateOverlayRef, StateOverlayState } from './co
 import StateOverlay from './StateOverlay';
 
 // Constants
-export * as constants from './common/constants';
+export * from './common/constants';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { StateOverlay };

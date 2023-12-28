@@ -2,7 +2,7 @@ import type { HoverOverlayMouseEvent, HoverOverlayProps, HoverOverlayRef } from 
 import HoverOverlay from './HoverOverlay';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { HoverOverlay };
