@@ -2,10 +2,10 @@ import type { SimpleGridColumn, SimpleGridProps, SimpleGridRef } from './common/
 import SimpleGrid from './SimpleGrid';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Hooks
-export * as hooks from './common/hooks';
+export * from './common/hooks';
 
 // Components
 export { SimpleGrid };
