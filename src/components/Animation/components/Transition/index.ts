@@ -12,16 +12,16 @@ import type {
 import Transition from './Transition';
 
 // Constants
-export * as constants from './common/constants';
+export * from './common/constants';
 
 // Data
-export * as data from './common/data';
+export * from './common/data';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Hooks
-export * as hooks from './common/hooks';
+export * from './common/hooks';
 
 // Components
 export { Transition };
