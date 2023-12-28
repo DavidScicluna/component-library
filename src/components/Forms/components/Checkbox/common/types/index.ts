@@ -9,7 +9,7 @@ import type {
 } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
-import type { FormsCommonProps, FormsCommonSize } from '@components/Forms';
+import type { FormsCommonProps, FormsCommonSize } from '@components/Forms/common/types';
 import type { PushableOverlayProps } from '@components/Overlay';
 import type { TextProps } from '@components/Typography';
 

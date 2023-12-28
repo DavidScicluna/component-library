@@ -9,7 +9,7 @@ import type {
 } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
-import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms';
+import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
 import type { TextProps } from '@components/Typography';
 
 export type TextareaMouseEvent<Element extends TextareaElement = TextareaDefaultElement> =

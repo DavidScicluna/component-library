@@ -4,7 +4,7 @@ import type { PolymorphicChangeEvent, PolymorphicFocusEvent, PolymorphicMouseEve
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { IconButtonProps } from '@components/Buttons';
-import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms';
+import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
 
 export type PasswordInputMouseEvent<Element extends PasswordInputElement = PasswordInputDefaultElement> =
 	PolymorphicMouseEvent<Element>;

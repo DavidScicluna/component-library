@@ -3,7 +3,7 @@ import type { ElementType } from 'react';
 import type { PolymorphicDefaultElement } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
-import type { FormsCommonProps, FormsCommonSize } from '@components/Forms';
+import type { FormsCommonProps, FormsCommonSize } from '@components/Forms/common/types';
 import type { StackProps } from '@components/Layout';
 
 export type FormControlSize = FormsCommonSize;

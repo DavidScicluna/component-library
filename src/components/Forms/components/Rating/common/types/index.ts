@@ -3,7 +3,7 @@ import type { ElementType } from 'react';
 import type { IconKey, PolymorphicDefaultElement, ResponsiveValue } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
-import type { FormsCommonProps, FormsCommonSize } from '@components/Forms';
+import type { FormsCommonProps, FormsCommonSize } from '@components/Forms/common/types';
 
 export type RatingDirection = 'horizontal' | 'vertical';
 

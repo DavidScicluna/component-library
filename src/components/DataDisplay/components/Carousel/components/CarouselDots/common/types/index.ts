@@ -9,10 +9,10 @@ import type {
 } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
-import type { CarouselItem } from '@components/DataDisplay';
+import type { CarouselItemType } from '@components/DataDisplay';
 
 export type CarouselDot = {
-	item: CarouselItem;
+	item: CarouselItemType;
 	scale: ScaleClass;
 };
 export type CarouselDots = Array<CarouselDot>;

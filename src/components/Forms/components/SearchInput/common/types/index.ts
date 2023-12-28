@@ -9,7 +9,7 @@ import type {
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { ButtonProps, IconButtonProps } from '@components/Buttons';
-import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms';
+import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
 
 export type SearchInputMouseEvent<Element extends SearchInputElement = SearchInputDefaultElement> =
 	PolymorphicMouseEvent<Element>;

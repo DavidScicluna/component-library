@@ -8,7 +8,7 @@ import type {
 } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
-import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms';
+import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
 
 export type NumberInputMouseEvent<Element extends NumberInputElement = NumberInputDefaultElement> =
 	PolymorphicMouseEvent<Element>;
