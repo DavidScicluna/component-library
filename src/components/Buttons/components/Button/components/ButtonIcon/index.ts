@@ -2,7 +2,7 @@ import type { ButtonIconDefaultElement, ButtonIconElement, ButtonIconProps, Butt
 import ButtonIcon from './ButtonIcon';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { ButtonIcon };

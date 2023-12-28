@@ -6,10 +6,10 @@ import type {
 import IconButtonGroupItem from './IconButtonGroupItem';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // hooks
-export * as hooks from './common/hooks';
+export * from './common/hooks';
 
 // Components
 export { IconButtonGroupItem };

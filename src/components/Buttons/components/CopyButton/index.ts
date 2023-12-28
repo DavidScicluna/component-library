@@ -2,10 +2,10 @@ import type { CopyButtonChildrenProps, CopyButtonProps, CopyButtonTimeout } from
 import CopyButton from './CopyButton';
 
 // Constants
-export * as constants from './common/constants';
+export * from './common/constants';
 
 // Hooks
-export * as hooks from './common/hooks';
+export * from './common/hooks';
 
 // Components
 export { CopyButton };

@@ -7,7 +7,7 @@ import type {
 import DummyButtonIcon from './DummyButtonIcon';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { DummyButtonIcon };

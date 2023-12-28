@@ -2,7 +2,7 @@ import type { DummyButtonSkeletonProps, DummyButtonSkeletonRef } from './common/
 import DummyButtonSkeleton from './DummyButtonSkeleton';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { DummyButtonSkeleton };

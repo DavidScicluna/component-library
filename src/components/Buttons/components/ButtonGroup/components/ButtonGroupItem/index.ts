@@ -2,10 +2,10 @@ import type { ButtonGroupItemChildrenProps, ButtonGroupItemProps, ButtonGroupIte
 import ButtonGroupItem from './ButtonGroupItem';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Hooks
-export * as hooks from './common/hooks';
+export * from './common/hooks';
 
 // Components
 export { ButtonGroupItem };

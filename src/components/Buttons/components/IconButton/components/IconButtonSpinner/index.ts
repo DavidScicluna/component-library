@@ -2,13 +2,13 @@ import type { IconButtonSpinnerProps, IconButtonSpinnerRef } from './common/type
 import IconButtonSpinner from './IconButtonSpinner';
 
 // Constants
-export * as constants from './common/constants';
+export * from './common/constants';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Hooks
-export * as hooks from './common/hooks';
+export * from './common/hooks';
 
 // Components
 export { IconButtonSpinner };

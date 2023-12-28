@@ -14,7 +14,7 @@ import type {
 import FileButton from './FileButton';
 
 // Constants
-export * as constants from './common/constants';
+export * from './common/constants';
 
 // Components
 export { FileButton };
