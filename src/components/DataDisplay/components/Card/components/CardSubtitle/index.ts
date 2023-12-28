@@ -7,7 +7,7 @@ import type {
 import CardSubtitle from './CardSubtitle';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { CardSubtitle };

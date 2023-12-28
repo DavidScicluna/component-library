@@ -2,7 +2,7 @@ import type { HeadlineProps, HeadlineRef, HeadlineRenderProps } from './common/t
 import Headline from './Headline';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { Headline };

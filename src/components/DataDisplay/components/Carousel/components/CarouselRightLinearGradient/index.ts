@@ -2,7 +2,7 @@ import type { CarouselRightLinearGradientProps, CarouselRightLinearGradientRef }
 import CarouselRightLinearGradient from './CarouselRightLinearGradient';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { CarouselRightLinearGradient };

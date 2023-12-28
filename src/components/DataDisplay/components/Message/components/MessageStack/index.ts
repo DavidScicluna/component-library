@@ -2,7 +2,7 @@ import type { MessageStackProps, MessageStackRef } from './common/types';
 import MessageStack from './MessageStack';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { MessageStack };

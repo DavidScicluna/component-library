@@ -2,7 +2,7 @@ import type { CardHeaderProps, CardHeaderRef, CardHeaderRenderProps } from './co
 import CardHeader from './CardHeader';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { CardHeader };

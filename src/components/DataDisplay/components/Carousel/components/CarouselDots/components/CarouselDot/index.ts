@@ -2,10 +2,10 @@ import type { CarouselDotProps, CarouselDotRef } from './common/types';
 import CarouselDot from './CarouselDot';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Hooks
-export * as hooks from './common/hooks';
+export * from './common/hooks';
 
 // Components
 export { CarouselDot };

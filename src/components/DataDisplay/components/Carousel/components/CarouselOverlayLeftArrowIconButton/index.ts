@@ -7,7 +7,7 @@ import type {
 import CarouselOverlayLeftArrowIconButton from './CarouselOverlayLeftArrowIconButton';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { CarouselOverlayLeftArrowIconButton };

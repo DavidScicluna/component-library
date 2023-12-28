@@ -7,7 +7,7 @@ import type {
 import CarouselRightArrowIconButton from './CarouselRightArrowIconButton';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { CarouselRightArrowIconButton };

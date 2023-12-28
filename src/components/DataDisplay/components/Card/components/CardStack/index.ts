@@ -2,7 +2,7 @@ import type { CardStackProps, CardStackRef } from './common/types';
 import CardStack from './CardStack';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { CardStack };

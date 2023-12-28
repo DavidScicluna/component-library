@@ -2,7 +2,7 @@ import type { DummyBadgeSkeletonProps, DummyBadgeSkeletonRef } from './common/ty
 import DummyBadgeSkeleton from './DummyBadgeSkeleton';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { DummyBadgeSkeleton };

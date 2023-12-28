@@ -8,10 +8,10 @@ import type {
 import CarouselArrowIconButton from './CarouselArrowIconButton';
 
 // Constants
-export * as constants from './common/constants';
+export * from './common/constants';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { CarouselArrowIconButton };

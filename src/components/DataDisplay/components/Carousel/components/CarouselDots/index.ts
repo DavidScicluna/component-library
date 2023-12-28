@@ -1,4 +1,3 @@
-import * as common_keys from './common/keys';
 import type {
 	CarouselDot as CarouselDotType,
 	CarouselDots as CarouselDotsType,
@@ -6,20 +5,16 @@ import type {
 	CarouselDotsRef
 } from './common/types';
 import CarouselDots from './CarouselDots';
-import type { CarouselDotProps, CarouselDotRef } from './components';
-import { CarouselDot, hooks as components_hooks, keys as components_keys } from './components';
 
 // Constants
-export * as constants from './common/constants';
+export * from './common/constants';
 
 // Keys
-export const keys = { ...common_keys, ...components_keys };
-
-// Hooks
-export const hooks = { ...components_hooks };
+export * from './common/keys';
 
 // Components
-export { CarouselDot, CarouselDots };
+export { CarouselDots };
+export * from './components';
 
 // Component Types
-export type { CarouselDotProps, CarouselDotRef, CarouselDotsProps, CarouselDotsRef, CarouselDotsType, CarouselDotType };
+export type { CarouselDotsProps, CarouselDotsRef, CarouselDotsType, CarouselDotType };

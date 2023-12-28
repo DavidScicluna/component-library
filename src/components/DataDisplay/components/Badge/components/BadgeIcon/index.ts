@@ -2,7 +2,7 @@ import type { BadgeIconDefaultElement, BadgeIconElement, BadgeIconProps, BadgeIc
 import BadgeIcon from './BadgeIcon';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { BadgeIcon };
