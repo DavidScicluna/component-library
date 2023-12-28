@@ -2,13 +2,13 @@ import type { TextDefaultElement, TextElement, TextProps, TextRef, TextThemeAppe
 import Text from './Text';
 
 // Constants
-export * as constants from './common/constants';
+export * from './common/constants';
 
 // Keys
-export * as keys from './common/constants';
+export * from './common/keys';
 
 // Hooks
-export * as hooks from './common/constants';
+export * from './common/hooks';
 
 // Components
 export { Text };
