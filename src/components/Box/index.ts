@@ -11,13 +11,11 @@ import type {
 } from './common/types';
 import Box from './Box';
 
-// TODO: Go to every index.ts and replace all imports with import * as
-
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Hooks
-export * as hooks from './common/hooks';
+export * from './common/hooks';
 
 // Components
 export { Box };
