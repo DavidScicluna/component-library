@@ -2,13 +2,13 @@ import type { FormLabelDefaultElement, FormLabelElement, FormLabelProps, FormLab
 import FormLabel from './FormLabel';
 
 // Constants
-export * as constants from './common/constants';
+export * from './common/constants';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Utils
-export * as utils from './common/utils';
+export * from './common/utils';
 
 // Components
 export { FormLabel };

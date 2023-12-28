@@ -14,10 +14,10 @@ import type {
 import Textarea from './Textarea';
 
 // Constants
-export * as constants from './common/constants';
+export * from './common/constants';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { Textarea };

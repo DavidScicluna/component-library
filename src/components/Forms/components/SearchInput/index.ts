@@ -14,10 +14,10 @@ import type {
 import SearchInput from './SearchInput';
 
 // Constants
-export * as constants from './common/constants';
+export * from './common/constants';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { SearchInput };

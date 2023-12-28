@@ -2,10 +2,10 @@ import type { FormHeaderProps, FormHeaderRef, FormHeaderRenderProps } from './co
 import FormHeader from './FormHeader';
 
 // Constants
-export * as constants from './common/constants';
+export * from './common/constants';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { FormHeader };

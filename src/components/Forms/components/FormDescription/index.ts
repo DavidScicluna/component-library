@@ -7,13 +7,13 @@ import type {
 import FormDescription from './FormDescription';
 
 // Constants
-export * as constants from './common/constants';
+export * from './common/constants';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Utils
-export * as utils from './common/utils';
+export * from './common/utils';
 
 // Components
 export { FormDescription };

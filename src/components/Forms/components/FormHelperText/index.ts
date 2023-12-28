@@ -7,10 +7,10 @@ import type {
 import FormHelperText from './FormHelperText';
 
 // Constants
-export * as constants from './common/constants';
+export * from './common/constants';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Components
 export { FormHelperText };
