@@ -8,10 +8,10 @@ import type {
 import VisuallyHidden from './VisuallyHidden';
 
 // Keys
-export * as keys from './common/keys';
+export * from './common/keys';
 
 // Hooks
-export * as hooks from './common/keys';
+export * from './common/hooks';
 
 // Components
 export { VisuallyHidden };
