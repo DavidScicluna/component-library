@@ -14,8 +14,6 @@
 !.yarn/versions/
 !.yarn/sdks/
 
-# Bun
-
 .rollup.cache
 
 # testing
@@ -29,6 +27,7 @@
 .env.production.local
 
 build
+types
 
 npm-debug.log*
 yarn-debug.log*
