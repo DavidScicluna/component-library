@@ -237,7 +237,7 @@ const Checkbox: PolymorphicComponentWithRef = forwardRef(function Checkbox<
 								color: labelColor,
 								fontSize: config.fontSize,
 								lineHeight: __DEFAULT_CHECKBOX_LINE_HEIGHT_SIZE__
-						  })
+							})
 						: null}
 				</GridItem>
 			) : null}
@@ -301,7 +301,7 @@ const Checkbox: PolymorphicComponentWithRef = forwardRef(function Checkbox<
 								color: labelColor,
 								fontSize: config.fontSize,
 								lineHeight: __DEFAULT_CHECKBOX_LINE_HEIGHT_SIZE__
-						  })
+							})
 						: null}
 				</GridItem>
 			) : null}

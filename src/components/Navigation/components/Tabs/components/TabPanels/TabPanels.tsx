@@ -73,7 +73,7 @@ const TabPanels: PolymorphicComponentWithRef = forwardRef(function TabPanels<
 						>
 							<TabPanel index={index}>{panel}</TabPanel>
 						</GridItem>
-				  ))
+					))
 				: null}
 		</Grid>
 	);

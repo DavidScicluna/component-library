@@ -64,7 +64,7 @@ const Stack: PolymorphicComponentWithRef = forwardRef(function Stack<
 								{child}
 								{divider && index + 1 !== children.length ? divider : null}
 							</Fragment>
-					  ))
+						))
 					: children
 				: undefined}
 		</Box>

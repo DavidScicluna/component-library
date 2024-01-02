@@ -290,7 +290,7 @@ const PasswordInput: PolymorphicComponentWithRef = forwardRef(function PasswordI
 								onClick: handleVisibility,
 								size: 'xs',
 								variant: 'icon'
-						  })
+							})
 						: null}
 				</GridItem>
 			) : null}

@@ -78,8 +78,8 @@ const CarouselDots: PolymorphicComponentWithRef = forwardRef(function CarouselDo
 						(!!prevItem && prevItem.index - 1 === index) || (!!nextItem && nextItem.index + 1 === index)
 							? 50
 							: (!!prevItem && prevItem.index === index) || (!!nextItem && nextItem.index === index)
-							  ? 75
-							  : 100;
+								? 75
+								: 100;
 
 					return isVisible ? { item, scale } : null;
 				})

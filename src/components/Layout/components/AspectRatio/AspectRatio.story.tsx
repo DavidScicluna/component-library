@@ -55,14 +55,14 @@ export const AspectRatio: AspectRatioStory = (props: AspectRatioProps<Polymorphi
 				{props.ratio === 'portrait'
 					? '4/5'
 					: props.ratio === 'square'
-					  ? '1/1'
-					  : props.ratio === 'standard'
-					    ? '4/3'
-					    : props.ratio === 'vertical'
-					      ? '9/16'
-					      : props.ratio === 'video' || props.ratio === 'widescreen'
-					        ? '16/9'
-					        : 'Auto'}
+						? '1/1'
+						: props.ratio === 'standard'
+							? '4/3'
+							: props.ratio === 'vertical'
+								? '9/16'
+								: props.ratio === 'video' || props.ratio === 'widescreen'
+									? '16/9'
+									: 'Auto'}
 			</Text>
 		</AspectRatioComponent>
 	);

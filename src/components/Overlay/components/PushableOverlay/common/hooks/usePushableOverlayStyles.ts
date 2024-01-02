@@ -109,7 +109,7 @@ const usePushableOverlayStyles = (props: UsePushableOverlayStylesProps): UsePush
 									boxShadow: `0 ${active}px 0 0 ${theme.colors.transparent}`
 								}
 							}
-					  }
+						}
 					: {},
 
 			'&:active':
@@ -130,7 +130,7 @@ const usePushableOverlayStyles = (props: UsePushableOverlayStylesProps): UsePush
 								}),
 								boxShadow: `0 ${active}px 0 0 ${theme.colors.transparent}`
 							}
-					  }
+						}
 					: {}
 		};
 	}, [amount, color, colorMode, isPushable, isFixed]);
@@ -233,7 +233,7 @@ const usePushableOverlayStyles = (props: UsePushableOverlayStylesProps): UsePush
 									boxShadow: `0 ${active}px 0 0 ${theme.colors.transparent}`
 								}
 							}
-					  }
+						}
 					: {},
 
 			'&:active':
@@ -258,7 +258,7 @@ const usePushableOverlayStyles = (props: UsePushableOverlayStylesProps): UsePush
 								}),
 								boxShadow: `0 ${active}px 0 0 ${theme.colors.transparent}`
 							}
-					  }
+						}
 					: {}
 		};
 	}, [amount, color, colorMode, isPushable, isFixed]);
@@ -361,7 +361,7 @@ const usePushableOverlayStyles = (props: UsePushableOverlayStylesProps): UsePush
 									boxShadow: `0 ${active}px 0 0 ${theme.colors.transparent}`
 								}
 							}
-					  }
+						}
 					: {},
 
 			'&:active':
@@ -386,7 +386,7 @@ const usePushableOverlayStyles = (props: UsePushableOverlayStylesProps): UsePush
 								}),
 								boxShadow: `0 ${active}px 0 0 ${theme.colors.transparent}`
 							}
-					  }
+						}
 					: {}
 		};
 	}, [amount, color, colorMode, isPushable, isFixed]);
@@ -479,7 +479,7 @@ const usePushableOverlayStyles = (props: UsePushableOverlayStylesProps): UsePush
 									boxShadow: `0 ${active}px 0 0 ${theme.colors.transparent}`
 								}
 							}
-					  }
+						}
 					: {},
 
 			'&:active':
@@ -500,7 +500,7 @@ const usePushableOverlayStyles = (props: UsePushableOverlayStylesProps): UsePush
 								background: theme.colors.transparent,
 								boxShadow: `0 ${active}px 0 0 ${theme.colors.transparent}`
 							}
-					  }
+						}
 					: {}
 		};
 	}, [amount, color, colorMode, isPushable, isFixed]);
@@ -592,7 +592,7 @@ const usePushableOverlayStyles = (props: UsePushableOverlayStylesProps): UsePush
 									boxShadow: `0 ${active}px 0 0 ${theme.colors.transparent}`
 								}
 							}
-					  }
+						}
 					: {},
 
 			'&:active':
@@ -613,7 +613,7 @@ const usePushableOverlayStyles = (props: UsePushableOverlayStylesProps): UsePush
 								background: theme.colors.transparent,
 								boxShadow: `0 ${active}px 0 0 ${theme.colors.transparent}`
 							}
-					  }
+						}
 					: {}
 		};
 	}, [colorMode, isPushable, isFixed]);
@@ -692,7 +692,7 @@ const usePushableOverlayStyles = (props: UsePushableOverlayStylesProps): UsePush
 									boxShadow: 'none'
 								}
 							}
-					  }
+						}
 					: {},
 
 			'&:active':
@@ -709,7 +709,7 @@ const usePushableOverlayStyles = (props: UsePushableOverlayStylesProps): UsePush
 								background: theme.colors.transparent,
 								boxShadow: 'none'
 							}
-					  }
+						}
 					: {}
 		};
 	}, [amount, color, colorMode, isPushable, isFixed]);
@@ -755,8 +755,8 @@ const usePushableOverlayStyles = (props: UsePushableOverlayStylesProps): UsePush
 			return isDisabled
 				? transparentDisabledStyles
 				: isActive
-				  ? transparentActiveStyles
-				  : transparentDefaultStyles;
+					? transparentActiveStyles
+					: transparentDefaultStyles;
 		case 'unstyled':
 			return {};
 		default:

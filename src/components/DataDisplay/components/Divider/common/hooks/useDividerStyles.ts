@@ -48,7 +48,7 @@ const useDividerStyles = (props: UseDividerStylesProps): UseDividerStylesReturn 
 						borderColor: 'inherit',
 
 						marginRight: hasChildren ? theme.spacing[spacing] : undefined
-				  }
+					}
 				: {},
 		'&::after':
 			orientation === 'horizontal' && (placement === 'left' || placement === 'center')
@@ -62,7 +62,7 @@ const useDividerStyles = (props: UseDividerStylesProps): UseDividerStylesReturn 
 						borderColor: 'inherit',
 
 						marginLeft: hasChildren ? theme.spacing[spacing] : undefined
-				  }
+					}
 				: {}
 	};
 };

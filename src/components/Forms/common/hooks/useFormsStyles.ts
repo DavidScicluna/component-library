@@ -383,16 +383,16 @@ const useFormsStyles = (props: UseFormsStylesProps): UseFormsStylesReturn => {
 			return isReadOnly
 				? readOnlyStyles
 				: isError || isDisabled || isFocused || isWarning || isSuccess
-				  ? underlineColorStyles
-				  : underlineDefaultStyles;
+					? underlineColorStyles
+					: underlineDefaultStyles;
 		case 'unstyled':
 			return {};
 		default:
 			return isReadOnly
 				? readOnlyStyles
 				: isError || isDisabled || isFocused || isWarning || isSuccess
-				  ? outlinedColorStyles
-				  : outlinedDefaultStyles;
+					? outlinedColorStyles
+					: outlinedDefaultStyles;
 	}
 };
 

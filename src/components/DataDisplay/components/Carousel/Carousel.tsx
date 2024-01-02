@@ -152,7 +152,7 @@ const Carousel: PolymorphicComponentWithRef = forwardRef(function Carousel<
 										variant === 'left' ? 'auto' : null,
 										'1fr',
 										variant === 'right' ? 'auto' : null
-								  ]).join(' ')
+									]).join(' ')
 								: 1
 						}
 						templateRows={
@@ -161,7 +161,7 @@ const Carousel: PolymorphicComponentWithRef = forwardRef(function Carousel<
 										variant === 'left' ? 'auto' : null,
 										'1fr',
 										variant === 'right' ? 'auto' : null
-								  ]).join(' ')
+									]).join(' ')
 								: 1
 						}
 						alignItems='stretch'

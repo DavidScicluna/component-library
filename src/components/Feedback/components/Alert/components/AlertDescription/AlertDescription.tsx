@@ -42,10 +42,10 @@ const AlertDescription: PolymorphicComponentWithRef = forwardRef(function AlertD
 			status !== 'default'
 				? 'color'
 				: statusColor === 'gray'
-				  ? 'text.secondary'
-				  : colorMode === 'light'
-				    ? 'dark'
-				    : 'light',
+					? 'text.secondary'
+					: colorMode === 'light'
+						? 'dark'
+						: 'light',
 		classType: 'text'
 	});
 

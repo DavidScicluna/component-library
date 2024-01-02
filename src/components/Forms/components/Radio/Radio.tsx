@@ -228,7 +228,7 @@ const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
 								color: labelColor,
 								fontSize: config.fontSize,
 								lineHeight: __DEFAULT_RADIO_LINE_HEIGHT_SIZE__
-						  })
+							})
 						: null}
 				</GridItem>
 			) : null}
@@ -292,7 +292,7 @@ const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
 								color: labelColor,
 								fontSize: config.fontSize,
 								lineHeight: __DEFAULT_RADIO_LINE_HEIGHT_SIZE__
-						  })
+							})
 						: null}
 				</GridItem>
 			) : null}

@@ -100,7 +100,7 @@ const Headline: PolymorphicComponentWithRef = forwardRef(function Headline<
 								fontSize: ['xs', 'xs', 'sm', 'sm', 'sm', 'sm'],
 								lineHeight: 'normal',
 								textTransform: 'uppercase'
-						  })
+							})
 						: null}
 
 					{renderTitle({
@@ -117,7 +117,7 @@ const Headline: PolymorphicComponentWithRef = forwardRef(function Headline<
 								color: subtitleColor,
 								fontSize: ['xs', 'xs', 'sm', 'sm', 'sm', 'sm'],
 								lineHeight: 'normal'
-						  })
+							})
 						: null}
 				</VStack>
 			</GridItem>

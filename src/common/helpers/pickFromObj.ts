@@ -10,16 +10,16 @@ type Primitives = string | number | symbol;
 type Util<Obj, Props extends ReadonlyArray<Primitives>> = Props extends []
 	? Obj
 	: Props extends [infer First]
-	  ? First extends keyof Obj
+		? First extends keyof Obj
 			? Obj[First]
 			: never
-	  : Props extends [infer Fst, ...infer Tail]
-	    ? Fst extends keyof Obj
+		: Props extends [infer Fst, ...infer Tail]
+			? Fst extends keyof Obj
 				? Tail extends Array<string>
 					? Util<Obj[Fst], Tail>
 					: never
 				: never
-	    : never;
+			: never;
 
 // credits https://github.com/microsoft/TypeScript/issues/23182#issuecomment-379091887
 // type IsNeverType<T> = [T] extends [never] ? true : false;
@@ -30,7 +30,7 @@ type ValuesUnion<T, Cache = T> = T extends Primitives
 	? T
 	: {
 			[P in keyof T]: Cache | T[P] | ValuesUnion<T[P], Cache | T[P]>;
-	  }[keyof T];
+		}[keyof T];
 
 const hasProperty = memoize(<Obj, Prop extends Primitives>(obj: Obj, prop: Prop): obj is Obj & Record<Prop, never> => {
 	return Object.prototype.hasOwnProperty.call(obj, prop);

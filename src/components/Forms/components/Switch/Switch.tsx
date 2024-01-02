@@ -234,7 +234,7 @@ const Switch: PolymorphicComponentWithRef = forwardRef(function Switch<
 								color: labelColor,
 								fontSize: config.fontSize,
 								lineHeight: __DEFAULT_SWITCH_LINE_HEIGHT_SIZE__
-						  })
+							})
 						: null}
 				</GridItem>
 			) : null}
@@ -349,7 +349,7 @@ const Switch: PolymorphicComponentWithRef = forwardRef(function Switch<
 								color: labelColor,
 								fontSize: config.fontSize,
 								lineHeight: __DEFAULT_SWITCH_LINE_HEIGHT_SIZE__
-						  })
+							})
 						: null}
 				</GridItem>
 			) : null}

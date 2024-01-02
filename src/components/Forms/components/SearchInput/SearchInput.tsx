@@ -334,7 +334,7 @@ const SearchInput: PolymorphicComponentWithRef = forwardRef(function SearchInput
 									onClick: handleClear,
 									size: 'xs',
 									variant: 'icon'
-							  })
+								})
 							: null}
 					</GridItem>
 				</Grid>

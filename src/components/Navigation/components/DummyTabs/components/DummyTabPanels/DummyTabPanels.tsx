@@ -73,7 +73,7 @@ const DummyTabPanels: PolymorphicComponentWithRef = forwardRef(function DummyTab
 						>
 							<DummyTabPanel index={index}>{panel}</DummyTabPanel>
 						</GridItem>
-				  ))
+					))
 				: null}
 		</Grid>
 	);

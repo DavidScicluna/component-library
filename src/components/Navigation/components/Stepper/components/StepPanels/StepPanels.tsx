@@ -73,7 +73,7 @@ const StepPanels: PolymorphicComponentWithRef = forwardRef(function StepPanels<
 						>
 							<StepPanel index={index}>{panel}</StepPanel>
 						</GridItem>
-				  ))
+					))
 				: null}
 		</Grid>
 	);

@@ -77,7 +77,7 @@ const Icon: PolymorphicComponentWithRef = forwardRef(function Icon<Element exten
 						? {
 								fontFamily: getIconFontFamily(category),
 								fontSize: hasIcon && !fonts[category] ? '0px' : null
-						  }
+							}
 						: {},
 					styles,
 					sx

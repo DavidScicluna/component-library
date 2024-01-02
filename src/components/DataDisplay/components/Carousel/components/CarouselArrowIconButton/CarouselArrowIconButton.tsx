@@ -61,12 +61,12 @@ const CarouselArrowIconButton: PolymorphicComponentWithRef = forwardRef(function
 		return l
 			? l
 			: orientation === 'horizontal'
-			  ? direction === 'left'
+				? direction === 'left'
 					? __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_LEFT_LABEL__
 					: __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_RIGHT_LABEL__
-			  : direction === 'left'
-			    ? __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_TOP_LABEL__
-			    : __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_BOTTOM_LABEL__;
+				: direction === 'left'
+					? __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_TOP_LABEL__
+					: __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_BOTTOM_LABEL__;
 	}, [direction, l, orientation]);
 
 	return (
@@ -93,8 +93,8 @@ const CarouselArrowIconButton: PolymorphicComponentWithRef = forwardRef(function
 								? 'chevron_left'
 								: 'chevron_right'
 							: direction === 'left'
-							  ? 'expand_less'
-							  : 'expand_more'
+								? 'expand_less'
+								: 'expand_more'
 					}
 					category='filled'
 				/>

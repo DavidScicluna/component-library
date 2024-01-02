@@ -70,7 +70,7 @@ const CarouselArrowButton: PolymorphicComponentWithRef = forwardRef(function Car
 								icon={orientation === 'horizontal' ? 'chevron_left' : 'expand_less'}
 								category='filled'
 							/>
-					  )
+						)
 					: undefined
 			}
 			renderRight={
@@ -80,7 +80,7 @@ const CarouselArrowButton: PolymorphicComponentWithRef = forwardRef(function Car
 								icon={orientation === 'horizontal' ? 'chevron_right' : 'expand_more'}
 								category='filled'
 							/>
-					  )
+						)
 					: undefined
 			}
 			isFullWidth={isFullWidth}
@@ -88,12 +88,12 @@ const CarouselArrowButton: PolymorphicComponentWithRef = forwardRef(function Car
 			{children
 				? children
 				: orientation === 'horizontal'
-				  ? direction === 'left'
+					? direction === 'left'
 						? __DEFAULT_CAROUSEL_ARROW_BUTTON_LEFT_LABEL__
 						: __DEFAULT_CAROUSEL_ARROW_BUTTON_RIGHT_LABEL__
-				  : direction === 'left'
-				    ? __DEFAULT_CAROUSEL_ARROW_BUTTON_TOP_LABEL__
-				    : __DEFAULT_CAROUSEL_ARROW_BUTTON_BOTTOM_LABEL__}
+					: direction === 'left'
+						? __DEFAULT_CAROUSEL_ARROW_BUTTON_TOP_LABEL__
+						: __DEFAULT_CAROUSEL_ARROW_BUTTON_BOTTOM_LABEL__}
 		</Button>
 	);
 });

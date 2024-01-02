@@ -57,7 +57,7 @@ const ModalFooter: PolymorphicComponentWithRef = forwardRef(function ModalFooter
 						onClick: typeof onClose === 'function' ? () => onClose() : undefined,
 						size: 'md',
 						variant: 'monochrome'
-				  })
+					})
 				: null}
 
 			{renderAction
@@ -67,7 +67,7 @@ const ModalFooter: PolymorphicComponentWithRef = forwardRef(function ModalFooter
 						isFullWidth: isSm || !renderCancel,
 						size: 'md',
 						variant: 'contained'
-				  })
+					})
 				: null}
 		</Stack>
 	);

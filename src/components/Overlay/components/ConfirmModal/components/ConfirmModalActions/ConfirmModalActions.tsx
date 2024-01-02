@@ -52,7 +52,7 @@ const ConfirmModalActions: PolymorphicComponentWithRef = forwardRef(function Con
 						isFullWidth: true,
 						size: 'md',
 						variant: 'contained'
-				  })
+					})
 				: null}
 
 			{renderCancel
@@ -62,7 +62,7 @@ const ConfirmModalActions: PolymorphicComponentWithRef = forwardRef(function Con
 						onClick: typeof onClose === 'function' ? () => onClose() : undefined,
 						size: 'md',
 						variant: 'monochrome'
-				  })
+					})
 				: null}
 		</VStack>
 	);
