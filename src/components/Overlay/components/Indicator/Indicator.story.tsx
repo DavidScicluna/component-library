@@ -14,7 +14,7 @@ import {
 	__DEFAULT_INDICATOR_OFFSET__,
 	__DEFAULT_INDICATOR_PLACEMENT__
 } from './common/constants';
-import type { IndicatorPlacements, IndicatorProps } from './common/types';
+import type { IndicatorPlacement, IndicatorProps } from './common/types';
 import type { IndicatorStory, IndicatorStoryMeta } from './common/types/story';
 import { Indicator as IndicatorComponent } from '.';
 
@@ -54,7 +54,7 @@ export default {
 				'middle-center',
 				'middle-end',
 				'middle-start'
-			] as IndicatorPlacements,
+			] as Array<IndicatorPlacement>,
 			control: { type: 'radio' }
 		}
 	}

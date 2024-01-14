@@ -2,7 +2,6 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
@@ -20,9 +19,9 @@ import {
 	__DEFAULT_INDICATOR_OFFSET__,
 	__DEFAULT_INDICATOR_PLACEMENT__
 } from './common/constants';
-import { useIndicatorStyles } from './common/hooks';
+import { useIndicatorResponsiveValues, useIndicatorStyles } from './common/hooks';
 import { __KEYS_INDICATOR_CLASS__ } from './common/keys';
-import type { IndicatorPlacement, IndicatorProps, IndicatorRef } from './common/types';
+import type { IndicatorProps, IndicatorRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
@@ -34,15 +33,17 @@ const Indicator: PolymorphicComponentWithRef = forwardRef(function Indicator<
 		children,
 		className = __DEFAULT_CLASSNAME__,
 		renderIndicator,
-		isVisible: visible = __DEFAULT_INDICATOR_IS_VISIBLE__,
-		offset: o = __DEFAULT_INDICATOR_OFFSET__,
-		placement: p = __DEFAULT_INDICATOR_PLACEMENT__,
+		isVisible: isVisibleProp = __DEFAULT_INDICATOR_IS_VISIBLE__,
+		offset: offsetProp = __DEFAULT_INDICATOR_OFFSET__,
+		placement: placementProp = __DEFAULT_INDICATOR_PLACEMENT__,
 		...rest
 	} = props;
 
-	const isVisible = useGetResponsiveValue<boolean>(visible);
-	const offset = useGetResponsiveValue<number>(o);
-	const placement = useGetResponsiveValue<IndicatorPlacement>(p);
+	const { isVisible, offset, placement } = useIndicatorResponsiveValues({
+		isVisible: isVisibleProp,
+		offset: offsetProp,
+		placement: placementProp
+	});
 
 	const styles = useIndicatorStyles({ offset, placement });
 

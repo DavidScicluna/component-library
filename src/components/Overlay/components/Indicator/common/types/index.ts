@@ -14,7 +14,6 @@ export type IndicatorPlacement =
 	| 'middle-center'
 	| 'middle-end'
 	| 'middle-start';
-export type IndicatorPlacements = Array<IndicatorPlacement>;
 
 type IndicatorOtherProps = {
 	/**

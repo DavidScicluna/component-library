@@ -1,3 +1,4 @@
+import useIndicatorResponsiveValues from './useIndicatorResponsiveValues';
 import useIndicatorStyles from './useIndicatorStyles';
 
-export { useIndicatorStyles };
+export { useIndicatorResponsiveValues, useIndicatorStyles };

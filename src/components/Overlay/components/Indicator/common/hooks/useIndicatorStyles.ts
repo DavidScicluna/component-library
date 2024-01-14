@@ -1,19 +1,22 @@
 import { useMemo } from 'react';
 
-import { useGetResponsiveValue } from '@common/hooks';
 import type { Style } from '@common/types';
 
 import { __DEFAULT_INDICATOR_OFFSET__, __DEFAULT_INDICATOR_PLACEMENT__ } from '../constants';
-import type { IndicatorPlacement, IndicatorProps } from '../types';
+import type { IndicatorProps } from '../types';
+
+import useIndicatorResponsiveValues from './useIndicatorResponsiveValues';
 
 type UseIndicatorStylesProps = Pick<IndicatorProps, 'offset' | 'placement'>;
 type UseIndicatorStylesReturn = Record<'overlay' | 'position', Style>;
 
 const useIndicatorStyles = (props: UseIndicatorStylesProps): UseIndicatorStylesReturn => {
-	const { offset: o = __DEFAULT_INDICATOR_OFFSET__, placement: p = __DEFAULT_INDICATOR_PLACEMENT__ } = props;
+	const {
+		offset: offsetProp = __DEFAULT_INDICATOR_OFFSET__,
+		placement: placementProp = __DEFAULT_INDICATOR_PLACEMENT__
+	} = props;
 
-	const offset = useGetResponsiveValue<number>(o);
-	const placement = useGetResponsiveValue<IndicatorPlacement>(p);
+	const { offset, placement } = useIndicatorResponsiveValues({ offset: offsetProp, placement: placementProp });
 
 	const position = useMemo<Style>(() => {
 		const styles: Style = { position: 'absolute' };

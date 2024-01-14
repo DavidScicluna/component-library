@@ -1,4 +1,4 @@
-import type { IndicatorPlacement, IndicatorPlacements, IndicatorProps, IndicatorRef } from './common/types';
+import type { IndicatorPlacement, IndicatorProps, IndicatorRef } from './common/types';
 import Indicator from './Indicator';
 
 // Constants
@@ -14,4 +14,4 @@ export * from './common/hooks';
 export { Indicator };
 
 // Component Types
-export type { IndicatorPlacement, IndicatorPlacements, IndicatorProps, IndicatorRef };
+export type { IndicatorPlacement, IndicatorProps, IndicatorRef };
