@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { merge } from 'lodash-es';
@@ -8,7 +8,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Center } from '@components/Layout';
@@ -43,7 +44,7 @@ export const DummyIconButtonContext = createContext<DummyIconButtonContextType>(
 });
 
 const DummyIconButton: PolymorphicComponentWithRef = forwardRef(function DummyIconButton<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: DummyIconButtonProps<Element>, ref: DummyIconButtonRef<Element>): ReactElement {
 	const {
 		children,
@@ -100,6 +101,6 @@ const DummyIconButton: PolymorphicComponentWithRef = forwardRef(function DummyIc
 
 DummyIconButton.displayName = 'DummyIconButton';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <DummyIconButton<Element> {...props} />;

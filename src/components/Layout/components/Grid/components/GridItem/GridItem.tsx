@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -24,7 +25,7 @@ import type { GridItemProps, GridItemRef } from './common/types';
 const classNames = require('classnames');
 
 const GridItem: PolymorphicComponentWithRef = forwardRef(function Grid<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: GridItemProps<Element>, ref: GridItemRef<Element>): ReactElement {
 	const {
 		children,
@@ -79,6 +80,6 @@ const GridItem: PolymorphicComponentWithRef = forwardRef(function Grid<
 
 GridItem.displayName = 'GridItem';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <GridItem<Element> {...props} />;

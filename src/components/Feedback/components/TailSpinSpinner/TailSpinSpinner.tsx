@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
 
@@ -9,6 +9,7 @@ import type {
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
 	PolymorphicDefaultProps,
+	PolymorphicElementType,
 	ThemeFontSize
 } from '@common/types';
 import { checkFontSizeType, convertREMToPixels, convertStringToNumber } from '@common/utils';
@@ -24,7 +25,7 @@ import type { TailSpinSpinnerProps, TailSpinSpinnerRef, TailSpinSpinnerSize } fr
 const classNames = require('classnames');
 
 const TailSpinSpinner: PolymorphicComponentWithRef = forwardRef(function TailSpinSpinner<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: TailSpinSpinnerProps<Element>, ref: TailSpinSpinnerRef<Element>): ReactElement {
 	const theme = useTheme();
 
@@ -72,6 +73,6 @@ const TailSpinSpinner: PolymorphicComponentWithRef = forwardRef(function TailSpi
 
 TailSpinSpinner.displayName = 'TailSpinSpinner';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <TailSpinSpinner<Element> {...props} />;

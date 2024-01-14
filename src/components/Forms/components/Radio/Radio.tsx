@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
 import { compact } from 'lodash-es';
@@ -12,7 +12,8 @@ import type {
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
 	PolymorphicDefaultProps,
-	PolymorphicElement
+	PolymorphicElement,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -52,7 +53,7 @@ import type { RadioFocusEvent, RadioMouseEvent, RadioProps, RadioRef } from './c
 const classNames = require('classnames');
 
 const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: RadioProps<Element>, ref: RadioRef<Element>): ReactElement {
 	const pushableOverlayRef = useRef<PolymorphicElement>(null);
 
@@ -119,7 +120,7 @@ const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
 		isWarning,
 		labelPosition,
 		size
-	} = useRadioResponsiveValues<Element>({
+	} = useRadioResponsiveValues({
 		isActive: isActiveProp,
 		isChecked: isCheckedProp,
 		isClickable: isClickableProp,
@@ -302,6 +303,6 @@ const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
 
 Radio.displayName = 'Radio';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <Radio<Element> {...props} />;

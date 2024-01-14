@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -20,7 +21,7 @@ import type { SpaceProps, SpaceRef } from './common/types';
 const classNames = require('classnames');
 
 const Space: PolymorphicComponentWithRef = forwardRef(function Space<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: SpaceProps<Element>, ref: SpaceRef<Element>): ReactElement {
 	const {
 		className = __DEFAULT_CLASSNAME__,
@@ -44,6 +45,6 @@ const Space: PolymorphicComponentWithRef = forwardRef(function Space<
 
 Space.displayName = 'Space';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <Space<Element> {...props} />;

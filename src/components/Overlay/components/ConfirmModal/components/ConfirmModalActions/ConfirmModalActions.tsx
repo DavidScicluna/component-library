@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { VStack } from '@components/Layout';
@@ -20,7 +21,7 @@ import type { ConfirmModalActionsProps, ConfirmModalActionsRef } from './common/
 const classNames = require('classnames');
 
 const ConfirmModalActions: PolymorphicComponentWithRef = forwardRef(function ConfirmModalActions<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: ConfirmModalActionsProps<Element>, ref: ConfirmModalActionsRef<Element>): ReactElement {
 	const { color, colorMode, onClose, spacing: __DEFAULT_CONFIRM_MODAL_ACTIONS_SPACING__ } = useConfirmModalContext();
 
@@ -70,6 +71,6 @@ const ConfirmModalActions: PolymorphicComponentWithRef = forwardRef(function Con
 
 ConfirmModalActions.displayName = 'ConfirmModalActions';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <ConfirmModalActions<Element> {...props} />;

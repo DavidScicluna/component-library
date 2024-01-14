@@ -1,11 +1,11 @@
-import { type ElementType, useMemo } from 'react';
+import { useMemo } from 'react';
 
 import { transparentize } from 'color2k';
 import { compact } from 'lodash-es';
 
 import { __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement, Style } from '@common/types';
+import type { Style } from '@common/types';
 import { getResponsiveValue } from '@common/utils';
 
 import {
@@ -15,15 +15,13 @@ import {
 } from '../constants';
 import type { PositionOverlayPlacement, PositionOverlayProps } from '../types';
 
-type UsePositionOverlayStylesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	PositionOverlayProps<Element>,
+type UsePositionOverlayStylesProps = Pick<
+	PositionOverlayProps,
 	'color' | 'colorMode' | 'backdropAmount' | 'placement' | 'hasBackground'
 >;
 type UsePositionOverlayStylesReturn = Record<'overlay' | 'position', Style>;
 
-const usePositionOverlayStyles = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UsePositionOverlayStylesProps<Element>
-): UsePositionOverlayStylesReturn => {
+const usePositionOverlayStyles = (props: UsePositionOverlayStylesProps): UsePositionOverlayStylesReturn => {
 	const { colorMode: __DEFAULT_POSITION_OVERLAY_COLORMODE__ } = useAppTheme();
 
 	const {

@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { compact } from 'lodash-es';
@@ -10,7 +10,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
@@ -26,7 +27,7 @@ import type { CardHeaderProps, CardHeaderRef } from './common/types';
 const classNames = require('classnames');
 
 const CardHeader: PolymorphicComponentWithRef = forwardRef(function CardHeader<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: CardHeaderProps<Element>, ref: CardHeaderRef<Element>): ReactElement {
 	const {
 		color,
@@ -134,6 +135,6 @@ const CardHeader: PolymorphicComponentWithRef = forwardRef(function CardHeader<
 
 CardHeader.displayName = 'CardHeader';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <CardHeader<Element> {...props} />;

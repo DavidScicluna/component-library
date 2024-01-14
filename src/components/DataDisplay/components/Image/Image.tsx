@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef, useEffect } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
@@ -7,7 +7,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -35,7 +36,7 @@ import type { ImageProps, ImageRef, ImageSyntheticEvent } from './common/types';
 const classNames = require('classnames');
 
 const Image: PolymorphicComponentWithRef = forwardRef(function Image<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: ImageProps<Element>, ref: ImageRef<Element>): ReactElement {
 	const {
 		className = __DEFAULT_CLASSNAME__,
@@ -213,6 +214,6 @@ const Image: PolymorphicComponentWithRef = forwardRef(function Image<
 
 Image.displayName = 'Image';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <Image<Element> {...props} />;

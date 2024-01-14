@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
 import { compact } from 'lodash-es';
@@ -12,7 +12,8 @@ import type {
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
 	PolymorphicDefaultProps,
-	PolymorphicElement
+	PolymorphicElement,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -58,7 +59,7 @@ import type { CheckboxFocusEvent, CheckboxMouseEvent, CheckboxProps, CheckboxRef
 const classNames = require('classnames');
 
 const Checkbox: PolymorphicComponentWithRef = forwardRef(function Checkbox<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: CheckboxProps<Element>, ref: CheckboxRef<Element>): ReactElement {
 	const pushableOverlayRef = useRef<PolymorphicElement>(null);
 
@@ -127,7 +128,7 @@ const Checkbox: PolymorphicComponentWithRef = forwardRef(function Checkbox<
 		isWarning,
 		labelPosition,
 		size
-	} = useCheckboxResponsiveValues<Element>({
+	} = useCheckboxResponsiveValues({
 		isActive: isActiveProp,
 		isChecked: isCheckedProp,
 		isClickable: isClickableProp,
@@ -311,6 +312,6 @@ const Checkbox: PolymorphicComponentWithRef = forwardRef(function Checkbox<
 
 Checkbox.displayName = 'Checkbox';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <Checkbox<Element> {...props} />;

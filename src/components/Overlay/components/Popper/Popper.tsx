@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef, useCallback, useRef } from 'react';
 
 import {
@@ -26,6 +26,7 @@ import type {
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
 	PolymorphicDefaultProps,
+	PolymorphicElementType,
 	ThemeRadius
 } from '@common/types';
 
@@ -50,7 +51,7 @@ import type { PopperPlacement, PopperProps, PopperRef } from './common/types';
 const classNames = require('classnames');
 
 const Popper: PolymorphicComponentWithRef = forwardRef(function Popper<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: PopperProps<Element>, ref: PopperRef<Element>): ReactElement {
 	const arrowRef = useRef<HTMLElement>(null);
 
@@ -128,7 +129,7 @@ const Popper: PolymorphicComponentWithRef = forwardRef(function Popper<
 
 	const refss = useMergeRefs([ref, refs.setFloating as any]);
 
-	const classes = usePopperClasses<Element>({ color, colorMode, radius });
+	const classes = usePopperClasses({ color, colorMode, radius });
 
 	return (
 		<AnimatePresence onExitComplete={onCloseComplete}>
@@ -160,6 +161,6 @@ const Popper: PolymorphicComponentWithRef = forwardRef(function Popper<
 
 Popper.displayName = 'Popper';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <Popper<Element> {...props} />;

@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 import { Puff } from 'react-loader-spinner';
 
@@ -9,6 +9,7 @@ import type {
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
 	PolymorphicDefaultProps,
+	PolymorphicElementType,
 	ThemeFontSize
 } from '@common/types';
 import { checkFontSizeType, convertREMToPixels, convertStringToNumber } from '@common/utils';
@@ -24,7 +25,7 @@ import type { PuffSpinnerProps, PuffSpinnerRef, PuffSpinnerSize } from './common
 const classNames = require('classnames');
 
 const PuffSpinner: PolymorphicComponentWithRef = forwardRef(function PuffSpinner<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: PuffSpinnerProps<Element>, ref: PuffSpinnerRef<Element>): ReactElement {
 	const theme = useTheme();
 
@@ -72,6 +73,6 @@ const PuffSpinner: PolymorphicComponentWithRef = forwardRef(function PuffSpinner
 
 PuffSpinner.displayName = 'PuffSpinner';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <PuffSpinner<Element> {...props} />;

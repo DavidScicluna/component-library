@@ -1,4 +1,4 @@
-import { type ElementType, forwardRef, type ReactElement } from 'react';
+import { forwardRef, type ReactElement } from 'react';
 
 import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
@@ -9,7 +9,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import type { VStackRef } from '@components/Layout';
@@ -24,7 +25,7 @@ import type { HeadlineProps, HeadlineRef } from './common/types';
 const classNames = require('classnames');
 
 const Headline: PolymorphicComponentWithRef = forwardRef(function Headline<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: HeadlineProps<Element>, ref: HeadlineRef<Element>): ReactElement {
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
@@ -133,6 +134,6 @@ const Headline: PolymorphicComponentWithRef = forwardRef(function Headline<
 
 Headline.displayName = 'Headline';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <Headline<Element> {...props} />;

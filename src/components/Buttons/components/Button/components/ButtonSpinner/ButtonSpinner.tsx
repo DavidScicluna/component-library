@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -7,7 +7,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 import { getColorHex } from '@common/utils';
 
@@ -24,7 +25,7 @@ import type { ButtonSpinnerProps, ButtonSpinnerRef } from './common/types';
 const classNames = require('classnames');
 
 const ButtonSpinner: PolymorphicComponentWithRef = forwardRef(function ButtonSpinner<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: ButtonSpinnerProps<Element>, ref: ButtonSpinnerRef<Element>): ReactElement {
 	const { color: __DEFAULT_BUTTON_SPINNER_COLOR__, colorMode: __DEFAULT_BUTTON_SPINNER_COLORMODE__ } = useAppTheme();
 
@@ -100,6 +101,6 @@ const ButtonSpinner: PolymorphicComponentWithRef = forwardRef(function ButtonSpi
 
 ButtonSpinner.displayName = 'ButtonSpinner';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <ButtonSpinner<Element> {...props} />;

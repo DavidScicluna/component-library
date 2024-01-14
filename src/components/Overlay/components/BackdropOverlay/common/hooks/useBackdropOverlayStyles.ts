@@ -1,23 +1,16 @@
-import type { ElementType } from 'react';
-
 import { transparentize } from 'color2k';
 
 import { __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement, Style } from '@common/types';
+import type { Style } from '@common/types';
 
 import { __DEFAULT_BACKDROP_OVERLAY_AMOUNT__ } from '../constants';
 import type { BackdropOverlayProps } from '../types';
 
-type UseBackdropOverlayStylesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	BackdropOverlayProps<Element>,
-	'color' | 'colorMode' | 'amount'
->;
+type UseBackdropOverlayStylesProps = Pick<BackdropOverlayProps, 'color' | 'colorMode' | 'amount'>;
 type UseBackdropOverlayStylesReturn = Style;
 
-const useBackdropOverlayStyles = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseBackdropOverlayStylesProps<Element>
-): UseBackdropOverlayStylesReturn => {
+const useBackdropOverlayStyles = (props: UseBackdropOverlayStylesProps): UseBackdropOverlayStylesReturn => {
 	const { colorMode: __DEFAULT_BACKDROP_OVERLAY_COLORMODE__ } = useAppTheme();
 
 	const {

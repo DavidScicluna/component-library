@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -26,7 +27,7 @@ import type { BackdropOverlayProps, BackdropOverlayRef } from './common/types';
 const classNames = require('classnames');
 
 const BackdropOverlay: PolymorphicComponentWithRef = forwardRef(function BackdropOverlay<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: BackdropOverlayProps<Element>, ref: BackdropOverlayRef<Element>): ReactElement {
 	const {
 		children,
@@ -40,8 +41,8 @@ const BackdropOverlay: PolymorphicComponentWithRef = forwardRef(function Backdro
 		...rest
 	} = props;
 
-	const classes = useBackdropOverlayClasses<Element>({ blur, blurType, radius });
-	const styles = useBackdropOverlayStyles<Element>({ color, colorMode, amount });
+	const classes = useBackdropOverlayClasses({ blur, blurType, radius });
+	const styles = useBackdropOverlayStyles({ color, colorMode, amount });
 
 	return (
 		<Grid<Element>
@@ -73,6 +74,6 @@ const BackdropOverlay: PolymorphicComponentWithRef = forwardRef(function Backdro
 
 BackdropOverlay.displayName = 'BackdropOverlay';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <BackdropOverlay<Element> {...props} />;

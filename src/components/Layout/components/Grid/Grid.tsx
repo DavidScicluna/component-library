@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { merge } from 'lodash-es';
@@ -8,7 +8,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -29,7 +30,7 @@ import type { GridProps, GridRef } from './common/types';
 const classNames = require('classnames');
 
 const Grid: PolymorphicComponentWithRef = forwardRef(function Grid<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: GridProps<Element>, ref: GridRef<Element>): ReactElement {
 	const {
 		children,
@@ -108,6 +109,6 @@ const Grid: PolymorphicComponentWithRef = forwardRef(function Grid<
 
 Grid.displayName = 'Grid';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <Grid<Element> {...props} />;

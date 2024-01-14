@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Skeleton } from '@components/Feedback';
@@ -22,7 +23,7 @@ import type { DummyTabSkeletonProps, DummyTabSkeletonRef } from './common/types'
 const classNames = require('classnames');
 
 const DummyTabSkeleton: PolymorphicComponentWithRef = forwardRef(function DummyTabSkeleton<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: DummyTabSkeletonProps<Element>, ref: DummyTabSkeletonRef<Element>): ReactElement {
 	const { color: __DEFAULT_DUMMY_TAB_SKELETON_COLOR__, colorMode: __DEFAULT_DUMMY_TAB_SKELETON_COLORMODE__ } =
 		useDummyTabsContext();
@@ -55,6 +56,6 @@ const DummyTabSkeleton: PolymorphicComponentWithRef = forwardRef(function DummyT
 
 DummyTabSkeleton.displayName = 'DummyTabSkeleton';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <DummyTabSkeleton<Element> {...props} />;

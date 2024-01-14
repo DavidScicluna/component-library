@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { compact } from 'lodash-es';
@@ -9,7 +9,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import type { GridRef } from '@components/Layout';
@@ -30,7 +31,7 @@ import type { FormHeaderProps, FormHeaderRef } from './common/types';
 const classNames = require('classnames');
 
 const FormHeader: PolymorphicComponentWithRef = forwardRef(function FormHeader<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: FormHeaderProps<Element>, ref: FormHeaderRef<Element>): ReactElement {
 	const { color, colorMode, hasFormControl, spacing: __DEFAULT_FORM_HEADER_SPACING__ } = useFormControlContext();
 
@@ -112,6 +113,6 @@ const FormHeader: PolymorphicComponentWithRef = forwardRef(function FormHeader<
 
 FormHeader.displayName = 'FormHeader';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <FormHeader<Element> {...props} />;

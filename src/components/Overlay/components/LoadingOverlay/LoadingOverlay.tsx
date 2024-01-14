@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -29,7 +30,7 @@ import type { LoadingOverlayProps, LoadingOverlayRef } from './common/types';
 const classNames = require('classnames');
 
 const LoadingOverlay: PolymorphicComponentWithRef = forwardRef(function LoadingOverlay<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: LoadingOverlayProps<Element>, ref: LoadingOverlayRef<Element>): ReactElement {
 	const {
 		children,
@@ -47,8 +48,8 @@ const LoadingOverlay: PolymorphicComponentWithRef = forwardRef(function LoadingO
 		...rest
 	} = props;
 
-	const classes = useLoadingOverlayClasses<Element>({ blur, blurType, radius, hasGlass });
-	const styles = useLoadingOverlayStyles<Element>({ color, colorMode, backdropAmount, hasBackground });
+	const classes = useLoadingOverlayClasses({ blur, blurType, radius, hasGlass });
+	const styles = useLoadingOverlayStyles({ color, colorMode, backdropAmount, hasBackground });
 
 	return (
 		<Grid<Element>
@@ -80,6 +81,6 @@ const LoadingOverlay: PolymorphicComponentWithRef = forwardRef(function LoadingO
 
 LoadingOverlay.displayName = 'LoadingOverlay';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <LoadingOverlay<Element> {...props} />;

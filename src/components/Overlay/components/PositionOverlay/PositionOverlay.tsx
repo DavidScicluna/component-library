@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -31,7 +32,7 @@ import type { PositionOverlayProps, PositionOverlayRef } from './common/types';
 const classNames = require('classnames');
 
 const PositionOverlay: PolymorphicComponentWithRef = forwardRef(function PositionOverlay<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: PositionOverlayProps<Element>, ref: PositionOverlayRef<Element>): ReactElement {
 	const {
 		children,
@@ -50,8 +51,8 @@ const PositionOverlay: PolymorphicComponentWithRef = forwardRef(function Positio
 		...rest
 	} = props;
 
-	const classes = usePositionOverlayClasses<Element>({ blur, blurType, radius, hasGlass });
-	const styles = usePositionOverlayStyles<Element>({ color, colorMode, backdropAmount, placement, hasBackground });
+	const classes = usePositionOverlayClasses({ blur, blurType, radius, hasGlass });
+	const styles = usePositionOverlayStyles({ color, colorMode, backdropAmount, placement, hasBackground });
 
 	return (
 		<Grid<Element>
@@ -83,6 +84,6 @@ const PositionOverlay: PolymorphicComponentWithRef = forwardRef(function Positio
 
 PositionOverlay.displayName = 'PositionOverlay';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <PositionOverlay<Element> {...props} />;

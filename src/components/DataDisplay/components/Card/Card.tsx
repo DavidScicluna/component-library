@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { useFocus } from 'rooks';
@@ -9,7 +9,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { PushableOverlay } from '@components/Overlay';
@@ -47,7 +48,7 @@ export const CardContext = createContext<CardContextType>({
 });
 
 const Card: PolymorphicComponentWithRef = forwardRef(function Card<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: CardProps<Element>, ref: CardRef<Element>): ReactElement {
 	const {
 		children,
@@ -157,6 +158,6 @@ const Card: PolymorphicComponentWithRef = forwardRef(function Card<
 
 Card.displayName = 'Card';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <Card<Element> {...props} />;

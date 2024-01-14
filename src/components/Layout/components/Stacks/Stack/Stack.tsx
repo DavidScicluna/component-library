@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { Children, forwardRef, Fragment } from 'react';
 
 import { compact, isArray } from 'lodash-es';
@@ -8,7 +8,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -27,7 +28,7 @@ import type { StackProps, StackRef } from './common/types';
 const classNames = require('classnames');
 
 const Stack: PolymorphicComponentWithRef = forwardRef(function Stack<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: StackProps<Element>, ref: StackRef<Element>): ReactElement {
 	const {
 		children,
@@ -73,6 +74,6 @@ const Stack: PolymorphicComponentWithRef = forwardRef(function Stack<
 
 Stack.displayName = 'Stack';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <Stack<Element> {...props} />;

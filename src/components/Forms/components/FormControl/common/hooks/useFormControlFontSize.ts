@@ -1,7 +1,6 @@
-import type { ElementType } from 'react';
 import { useMemo } from 'react';
 
-import type { PolymorphicDefaultElement, ThemeFontSize } from '@common/types';
+import type { ThemeFontSize } from '@common/types';
 
 import { __DEFAULT_FORM_CONTROL_SIZE__ } from '../constants';
 import type { FormControlProps } from '../types';
@@ -10,15 +9,10 @@ import useFormControlResponsiveValues from './useFormControlResponsiveValues';
 
 type UseFormControlFontSize = Record<'label' | 'description' | 'helper', ThemeFontSize>;
 
-type UseFormControlFontSizeProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	FormControlProps<Element>,
-	'size'
->;
+type UseFormControlFontSizeProps = Pick<FormControlProps, 'size'>;
 type UseFormControlFontSizeReturn = UseFormControlFontSize;
 
-const useFormControlFontSize = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseFormControlFontSizeProps<Element>
-): UseFormControlFontSizeReturn => {
+const useFormControlFontSize = (props: UseFormControlFontSizeProps): UseFormControlFontSizeReturn => {
 	const { size: sizeProp = __DEFAULT_FORM_CONTROL_SIZE__ } = props;
 
 	const { size } = useFormControlResponsiveValues({ size: sizeProp });

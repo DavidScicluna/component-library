@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { VStack } from '@components/Layout';
@@ -19,7 +20,7 @@ import type { ConfirmModalBodyProps, ConfirmModalBodyRef } from './common/types'
 const classNames = require('classnames');
 
 const ConfirmModalBody: PolymorphicComponentWithRef = forwardRef(function ConfirmModalBody<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: ConfirmModalBodyProps<Element>, ref: ConfirmModalBodyRef<Element>): ReactElement {
 	const {
 		children,
@@ -48,6 +49,6 @@ const ConfirmModalBody: PolymorphicComponentWithRef = forwardRef(function Confir
 
 ConfirmModalBody.displayName = 'ConfirmModalBody';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <ConfirmModalBody<Element> {...props} />;

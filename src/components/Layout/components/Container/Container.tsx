@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -24,7 +25,7 @@ import type { ContainerProps, ContainerRef } from './common/types';
 const classNames = require('classnames');
 
 const Container: PolymorphicComponentWithRef = forwardRef(function Container<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: ContainerProps<Element>, ref: ContainerRef<Element>): ReactElement {
 	const {
 		children,
@@ -56,6 +57,6 @@ const Container: PolymorphicComponentWithRef = forwardRef(function Container<
 
 Container.displayName = 'Container';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <Container<Element> {...props} />;

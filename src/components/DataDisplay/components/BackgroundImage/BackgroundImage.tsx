@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -25,7 +26,7 @@ import type { BackgroundImageProps, BackgroundImageRef } from './common/types';
 const classNames = require('classnames');
 
 const BackgroundImage: PolymorphicComponentWithRef = forwardRef(function BackgroundImage<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: BackgroundImageProps<Element>, ref: BackgroundImageRef<Element>): ReactElement {
 	const {
 		children,
@@ -77,6 +78,6 @@ const BackgroundImage: PolymorphicComponentWithRef = forwardRef(function Backgro
 
 BackgroundImage.displayName = 'BackgroundImage';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <BackgroundImage<Element> {...props} />;

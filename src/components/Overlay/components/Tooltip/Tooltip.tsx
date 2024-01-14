@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { cloneElement, forwardRef, useCallback, useRef } from 'react';
 
 import {
@@ -24,7 +24,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 // TODO: Go over all Transition and see if they can be merged with the child component since it is based of Box
@@ -50,7 +51,7 @@ import type { TooltipPlacement, TooltipProps, TooltipRef } from './common/types'
 const classNames = require('classnames');
 
 const Tooltip: PolymorphicComponentWithRef = forwardRef(function Tooltip<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: TooltipProps<Element>, ref: TooltipRef<Element>): ReactElement {
 	const arrowRef = useRef<HTMLElement>(null);
 
@@ -152,6 +153,6 @@ const Tooltip: PolymorphicComponentWithRef = forwardRef(function Tooltip<
 
 Tooltip.displayName = 'Tooltip';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <Tooltip<Element> {...props} />;

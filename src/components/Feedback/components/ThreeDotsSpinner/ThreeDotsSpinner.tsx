@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
 
@@ -9,6 +9,7 @@ import type {
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
 	PolymorphicDefaultProps,
+	PolymorphicElementType,
 	ThemeFontSize
 } from '@common/types';
 import { checkFontSizeType, convertREMToPixels, convertStringToNumber } from '@common/utils';
@@ -24,7 +25,7 @@ import type { ThreeDotsSpinnerProps, ThreeDotsSpinnerRef, ThreeDotsSpinnerSize }
 const classNames = require('classnames');
 
 const ThreeDotsSpinner: PolymorphicComponentWithRef = forwardRef(function ThreeDotsSpinner<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: ThreeDotsSpinnerProps<Element>, ref: ThreeDotsSpinnerRef<Element>): ReactElement {
 	const theme = useTheme();
 
@@ -72,6 +73,6 @@ const ThreeDotsSpinner: PolymorphicComponentWithRef = forwardRef(function ThreeD
 
 ThreeDotsSpinner.displayName = 'ThreeDotsSpinner';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <ThreeDotsSpinner<Element> {...props} />;

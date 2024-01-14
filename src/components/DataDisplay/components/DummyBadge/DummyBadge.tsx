@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { compact } from 'lodash-es';
@@ -9,7 +9,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import type { CenterRef } from '@components/Layout';
@@ -40,7 +41,7 @@ export const DummyBadgeContext = createContext<DummyBadgeContextType>({
 });
 
 const DummyBadge: PolymorphicComponentWithRef = forwardRef(function DummyBadge<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: DummyBadgeProps<Element>, ref: DummyBadgeRef<Element>): ReactElement {
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
@@ -143,6 +144,6 @@ const DummyBadge: PolymorphicComponentWithRef = forwardRef(function DummyBadge<
 
 DummyBadge.displayName = 'DummyBadge';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <DummyBadge<Element> {...props} />;

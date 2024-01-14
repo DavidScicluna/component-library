@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -7,7 +7,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Stack } from '@components/Layout';
@@ -21,7 +22,7 @@ import type { ModalFooterProps, ModalFooterRef } from './common/types';
 const classNames = require('classnames');
 
 const ModalFooter: PolymorphicComponentWithRef = forwardRef(function ModalFooter<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: ModalFooterProps<Element>, ref: ModalFooterRef<Element>): ReactElement {
 	const isSm = useMediaQuery({ breakpoint: 'sm', type: 'width', direction: 'max' });
 
@@ -75,6 +76,6 @@ const ModalFooter: PolymorphicComponentWithRef = forwardRef(function ModalFooter
 
 ModalFooter.displayName = 'ModalFooter';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <ModalFooter<Element> {...props} />;

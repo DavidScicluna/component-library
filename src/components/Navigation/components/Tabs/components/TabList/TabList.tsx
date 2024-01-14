@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { compact, isArray } from 'lodash-es';
@@ -9,7 +9,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import type { CarouselRef, CarouselRenderActionProps, CarouselVariant } from '@components/DataDisplay';
@@ -32,7 +33,7 @@ import type { TabListProps, TabListRef } from './common/types';
 const classNames = require('classnames');
 
 const TabList: PolymorphicComponentWithRef = forwardRef(function TabList<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: TabListProps<Element>, ref: TabListRef<Element>): ReactElement {
 	const { color, colorMode, align, id, isFitted, orientation } = useTabsContext();
 
@@ -107,6 +108,6 @@ const TabList: PolymorphicComponentWithRef = forwardRef(function TabList<
 
 TabList.displayName = 'TabList';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <TabList<Element> {...props} />;

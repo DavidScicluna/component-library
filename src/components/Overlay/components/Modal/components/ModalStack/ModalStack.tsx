@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Divider } from '@components/DataDisplay';
@@ -21,7 +22,7 @@ import type { ModalStackProps, ModalStackRef } from './common/types';
 const classNames = require('classnames');
 
 const ModalStack: PolymorphicComponentWithRef = forwardRef(function ModalStack<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: ModalStackProps<Element>, ref: ModalStackRef<Element>): ReactElement {
 	const { colorMode, spacing: __DEFAULT_MODAL_STACK_SPACING__ } = useModalContext();
 
@@ -55,6 +56,6 @@ const ModalStack: PolymorphicComponentWithRef = forwardRef(function ModalStack<
 
 ModalStack.displayName = 'ModalStack';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <ModalStack<Element> {...props} />;

@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { VStack } from '@components/Layout';
@@ -50,7 +51,7 @@ export const FormControlContext = createContext<FormControlContextType>({
 });
 
 const FormControl: PolymorphicComponentWithRef = forwardRef(function FormControl<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: FormControlProps<Element>, ref: FormControlRef<Element>): ReactElement {
 	const {
 		children,
@@ -132,6 +133,6 @@ const FormControl: PolymorphicComponentWithRef = forwardRef(function FormControl
 
 FormControl.displayName = 'FormControl';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <FormControl<Element> {...props} />;

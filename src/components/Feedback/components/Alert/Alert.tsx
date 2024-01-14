@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { createContext, forwardRef, useCallback, useMemo } from 'react';
 
 import { compact, round } from 'lodash-es';
@@ -11,6 +11,7 @@ import type {
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
 	PolymorphicDefaultProps,
+	PolymorphicElementType,
 	ThemeColor
 } from '@common/types';
 
@@ -31,7 +32,7 @@ const classNames = require('classnames');
 export const AlertContext = createContext<AlertContextType>({ status: __DEFAULT_ALERT_STATUS__ });
 
 const Alert: PolymorphicComponentWithRef = forwardRef(function Alert<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: AlertProps<Element>, ref: AlertRef<Element>): ReactElement {
 	const theme = useTheme();
 
@@ -207,6 +208,6 @@ const Alert: PolymorphicComponentWithRef = forwardRef(function Alert<
 
 Alert.displayName = 'Alert';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <Alert<Element> {...props} />;

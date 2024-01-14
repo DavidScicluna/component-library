@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -19,7 +20,7 @@ import type { IconButtonGroupItemProps, IconButtonGroupItemRef } from './common/
 const classNames = require('classnames');
 
 const IconButtonGroupItem: PolymorphicComponentWithRef = forwardRef(function IconButtonGroupItem<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: IconButtonGroupItemProps<Element>, ref: IconButtonGroupItemRef<Element>): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, index, total, ...rest } = props;
 
@@ -38,6 +39,6 @@ const IconButtonGroupItem: PolymorphicComponentWithRef = forwardRef(function Ico
 
 IconButtonGroupItem.displayName = 'IconButtonGroupItem';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <IconButtonGroupItem<Element> {...props} />;

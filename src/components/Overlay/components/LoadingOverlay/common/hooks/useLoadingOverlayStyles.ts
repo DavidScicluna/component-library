@@ -1,23 +1,19 @@
-import type { ElementType } from 'react';
-
 import { transparentize } from 'color2k';
 
 import { __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement, Style } from '@common/types';
+import type { Style } from '@common/types';
 
 import { __DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT__, __DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND__ } from '../constants';
 import type { LoadingOverlayProps } from '../types';
 
-type UseLoadingOverlayStylesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	LoadingOverlayProps<Element>,
+type UseLoadingOverlayStylesProps = Pick<
+	LoadingOverlayProps,
 	'color' | 'colorMode' | 'backdropAmount' | 'hasBackground'
 >;
 type UseLoadingOverlayStylesReturn = Style;
 
-const useLoadingOverlayStyles = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseLoadingOverlayStylesProps<Element>
-): UseLoadingOverlayStylesReturn => {
+const useLoadingOverlayStyles = (props: UseLoadingOverlayStylesProps): UseLoadingOverlayStylesReturn => {
 	const { colorMode: __DEFAULT_LOADING_OVERLAY_COLORMODE__ } = useAppTheme();
 
 	const {

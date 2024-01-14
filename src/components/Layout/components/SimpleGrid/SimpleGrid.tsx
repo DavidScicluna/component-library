@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -20,7 +21,7 @@ import type { SimpleGridProps, SimpleGridRef } from './common/types';
 const classNames = require('classnames');
 
 const SimpleGrid: PolymorphicComponentWithRef = forwardRef(function SimpleGrid<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: SimpleGridProps<Element>, ref: SimpleGridRef<Element>): ReactElement {
 	const {
 		children,
@@ -47,6 +48,6 @@ const SimpleGrid: PolymorphicComponentWithRef = forwardRef(function SimpleGrid<
 
 SimpleGrid.displayName = 'SimpleGrid';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <SimpleGrid<Element> {...props} />;

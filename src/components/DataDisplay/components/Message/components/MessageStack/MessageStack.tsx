@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { VStack } from '@components/Layout';
@@ -20,7 +21,7 @@ import type { MessageStackProps, MessageStackRef } from './common/types';
 const classNames = require('classnames');
 
 const MessageStack: PolymorphicComponentWithRef = forwardRef(function MessageStack<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: MessageStackProps<Element>, ref: MessageStackRef<Element>): ReactElement {
 	const { spacing: __DEFAULT_MESSAGE_STACK_SPACING__ } = useMessageContext();
 
@@ -51,6 +52,6 @@ const MessageStack: PolymorphicComponentWithRef = forwardRef(function MessageSta
 
 MessageStack.displayName = 'MessageStack';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <MessageStack<Element> {...props} />;

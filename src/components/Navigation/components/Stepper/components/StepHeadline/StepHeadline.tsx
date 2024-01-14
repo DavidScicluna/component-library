@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Headline } from '@components/DataDisplay';
@@ -21,7 +22,7 @@ import type { StepHeadlineProps, StepHeadlineRef } from './common/types';
 const classNames = require('classnames');
 
 const StepHeadline: PolymorphicComponentWithRef = forwardRef(function StepHeadline<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: StepHeadlineProps<Element>, ref: StepHeadlineRef<Element>): ReactElement {
 	const {
 		color: __DEFAULT_STEP_HEADLINE_COLOR__,
@@ -58,6 +59,6 @@ const StepHeadline: PolymorphicComponentWithRef = forwardRef(function StepHeadli
 
 StepHeadline.displayName = 'StepHeadline';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <StepHeadline<Element> {...props} />;

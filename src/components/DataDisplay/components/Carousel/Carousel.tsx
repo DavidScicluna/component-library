@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { sort } from 'fast-sort';
@@ -12,7 +12,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Grid, GridItem, Stack } from '@components/Layout';
@@ -57,7 +58,7 @@ export const CarouselContext = createContext<CarouselContextType>({
 });
 
 const Carousel: PolymorphicComponentWithRef = forwardRef(function Carousel<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: CarouselProps<Element>, ref: CarouselRef<Element>): ReactElement {
 	const [arrowRef, { width: arrowWidthSize, height: arrowHeightSize }] = useElementSize();
 
@@ -316,6 +317,6 @@ const Carousel: PolymorphicComponentWithRef = forwardRef(function Carousel<
 
 Carousel.displayName = 'Carousel';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <Carousel<Element> {...props} />;

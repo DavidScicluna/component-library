@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { isArray } from 'lodash-es';
@@ -8,7 +8,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -23,7 +24,7 @@ import type { TabPanelProps, TabPanelsProps, TabPanelsRef } from './common/types
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const TabPanel = <Element extends ElementType = PolymorphicDefaultElement>({
+const TabPanel = <Element extends PolymorphicElementType = PolymorphicDefaultElement>({
 	children,
 	index
 }: TabPanelProps<Element>) => {
@@ -39,7 +40,7 @@ const TabPanel = <Element extends ElementType = PolymorphicDefaultElement>({
 };
 
 const TabPanels: PolymorphicComponentWithRef = forwardRef(function TabPanels<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: TabPanelsProps<Element>, ref: TabPanelsRef<Element>): ReactElement {
 	const { id } = useTabsContext();
 
@@ -81,6 +82,6 @@ const TabPanels: PolymorphicComponentWithRef = forwardRef(function TabPanels<
 
 TabPanels.displayName = 'TabPanels';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <TabPanels<Element> {...props} />;

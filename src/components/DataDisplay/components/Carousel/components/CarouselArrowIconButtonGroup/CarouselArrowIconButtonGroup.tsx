@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import type { IconButtonGroupItemChildrenProps } from '@components/Buttons';
@@ -22,7 +23,7 @@ import type { CarouselArrowIconButtonGroupProps, CarouselArrowIconButtonGroupRef
 const classNames = require('classnames');
 
 const CarouselArrowIconButtonGroup: PolymorphicComponentWithRef = forwardRef(function CarouselArrowIconButtonGroup<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: CarouselArrowIconButtonGroupProps<Element>, ref: CarouselArrowIconButtonGroupRef<Element>): ReactElement {
 	const { spacing: __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_SPACING__, variant } = useCarouselContext();
 
@@ -59,6 +60,6 @@ const CarouselArrowIconButtonGroup: PolymorphicComponentWithRef = forwardRef(fun
 
 CarouselArrowIconButtonGroup.displayName = 'CarouselArrowIconButtonGroup';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <CarouselArrowIconButtonGroup<Element> {...props} />;

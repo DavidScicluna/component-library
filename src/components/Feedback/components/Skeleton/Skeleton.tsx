@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -22,7 +23,7 @@ import type { SkeletonProps, SkeletonRef } from './common/types';
 const classNames = require('classnames');
 
 const Skeleton: PolymorphicComponentWithRef = forwardRef(function Skeleton<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: SkeletonProps<Element>, ref: SkeletonRef<Element>): ReactElement {
 	const {
 		children,
@@ -90,6 +91,6 @@ const Skeleton: PolymorphicComponentWithRef = forwardRef(function Skeleton<
 
 Skeleton.displayName = 'Skeleton';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <Skeleton<Element> {...props} />;

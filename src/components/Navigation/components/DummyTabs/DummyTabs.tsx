@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -39,7 +40,7 @@ export const DummyTabsContext = createContext<DummyTabsContextType>({
 });
 
 const DummyTabs: PolymorphicComponentWithRef = forwardRef(function DummyTabs<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: DummyTabsProps<Element>, ref: DummyTabsRef<Element>): ReactElement {
 	const {
 		children,
@@ -84,6 +85,6 @@ const DummyTabs: PolymorphicComponentWithRef = forwardRef(function DummyTabs<
 
 DummyTabs.displayName = 'DummyTabs';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <DummyTabs<Element> {...props} />;

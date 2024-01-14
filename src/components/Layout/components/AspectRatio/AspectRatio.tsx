@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -20,7 +21,7 @@ import type { AspectRatioProps, AspectRatioRef } from './common/types';
 const classNames = require('classnames');
 
 const AspectRatio: PolymorphicComponentWithRef = forwardRef(function AspectRatio<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: AspectRatioProps<Element>, ref: AspectRatioRef<Element>): ReactElement {
 	const {
 		children,
@@ -46,6 +47,6 @@ const AspectRatio: PolymorphicComponentWithRef = forwardRef(function AspectRatio
 
 AspectRatio.displayName = 'AspectRatio';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <AspectRatio<Element> {...props} />;

@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -7,7 +7,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -27,7 +28,7 @@ import type { IndicatorPlacement, IndicatorProps, IndicatorRef } from './common/
 const classNames = require('classnames');
 
 const Indicator: PolymorphicComponentWithRef = forwardRef(function Indicator<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: IndicatorProps<Element>, ref: IndicatorRef<Element>): ReactElement {
 	const {
 		children,
@@ -43,7 +44,7 @@ const Indicator: PolymorphicComponentWithRef = forwardRef(function Indicator<
 	const offset = useGetResponsiveValue<number>(o);
 	const placement = useGetResponsiveValue<IndicatorPlacement>(p);
 
-	const styles = useIndicatorStyles<Element>({ offset, placement });
+	const styles = useIndicatorStyles({ offset, placement });
 
 	return (
 		<Grid<Element>
@@ -75,6 +76,6 @@ const Indicator: PolymorphicComponentWithRef = forwardRef(function Indicator<
 
 Indicator.displayName = 'Indicator';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <Indicator<Element> {...props} />;

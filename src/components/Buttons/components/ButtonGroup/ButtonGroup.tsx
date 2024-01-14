@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import {
@@ -33,7 +34,7 @@ export const ButtonGroupContext = createContext<ButtonGroupContextType>({
 });
 
 const ButtonGroup: PolymorphicComponentWithRef = forwardRef(function ButtonGroup<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: ButtonGroupProps<Element>, ref: ButtonGroupRef<Element>): ReactElement {
 	const {
 		children,
@@ -96,6 +97,6 @@ const ButtonGroup: PolymorphicComponentWithRef = forwardRef(function ButtonGroup
 
 ButtonGroup.displayName = 'ButtonGroup';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <ButtonGroup<Element> {...props} />;

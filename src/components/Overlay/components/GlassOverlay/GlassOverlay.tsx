@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -27,7 +28,7 @@ import type { GlassOverlayProps, GlassOverlayRef } from './common/types';
 const classNames = require('classnames');
 
 const GlassOverlay: PolymorphicComponentWithRef = forwardRef(function GlassOverlay<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: GlassOverlayProps<Element>, ref: GlassOverlayRef<Element>): ReactElement {
 	const {
 		children,
@@ -42,8 +43,8 @@ const GlassOverlay: PolymorphicComponentWithRef = forwardRef(function GlassOverl
 		...rest
 	} = props;
 
-	const classes = useGlassOverlayClasses<Element>({ blur, blurType, radius });
-	const styles = useGlassOverlayStyles<Element>({ color, colorMode, backdropAmount, hasBackground });
+	const classes = useGlassOverlayClasses({ blur, blurType, radius });
+	const styles = useGlassOverlayStyles({ color, colorMode, backdropAmount, hasBackground });
 
 	return (
 		<Grid<Element>
@@ -71,6 +72,6 @@ const GlassOverlay: PolymorphicComponentWithRef = forwardRef(function GlassOverl
 
 GlassOverlay.displayName = 'GlassOverlay';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <GlassOverlay<Element> {...props} />;

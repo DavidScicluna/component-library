@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Center } from '@components/Layout';
@@ -18,7 +19,7 @@ import type { CardFooterProps, CardFooterRef } from './common/types';
 const classNames = require('classnames');
 
 const CardFooter: PolymorphicComponentWithRef = forwardRef(function CardFooter<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: CardFooterProps<Element>, ref: CardFooterRef<Element>): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, ...rest } = props;
 
@@ -35,6 +36,6 @@ const CardFooter: PolymorphicComponentWithRef = forwardRef(function CardFooter<
 
 CardFooter.displayName = 'CardFooter';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <CardFooter<Element> {...props} />;

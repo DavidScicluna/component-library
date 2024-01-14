@@ -1,11 +1,12 @@
-import { type ElementType, forwardRef, type ReactElement } from 'react';
+import { forwardRef, type ReactElement } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -22,7 +23,7 @@ import type { CardStackProps, CardStackRef } from './common/types';
 const classNames = require('classnames');
 
 const CardStack: PolymorphicComponentWithRef = forwardRef(function CardStack<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: CardStackProps<Element>, ref: CardStackRef<Element>): ReactElement {
 	const { isCollapsable, isDivisible, isOpen, onHover, spacing: __DEFAULT_CARD_STACK_SPACING__ } = useCardContext();
 
@@ -79,6 +80,6 @@ const CardStack: PolymorphicComponentWithRef = forwardRef(function CardStack<
 	);
 });
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <CardStack<Element> {...props} />;

@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef, useState } from 'react';
 
 import { range } from 'lodash-es';
@@ -8,7 +8,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
@@ -40,7 +41,7 @@ import type { RatingProps, RatingRef } from './common/types';
 const classNames = require('classnames');
 
 const Rating: PolymorphicComponentWithRef = forwardRef(function Rating<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: RatingProps<Element>, ref: RatingRef<Element>): ReactElement {
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
@@ -210,6 +211,6 @@ const Rating: PolymorphicComponentWithRef = forwardRef(function Rating<
 
 Rating.displayName = 'Rating';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <Rating<Element> {...props} />;

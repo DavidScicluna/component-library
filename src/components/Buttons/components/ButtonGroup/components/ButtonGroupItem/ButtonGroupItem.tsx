@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -21,13 +22,13 @@ import type { ButtonGroupItemProps, ButtonGroupItemRef } from './common/types';
 const classNames = require('classnames');
 
 const ButtonGroupItem: PolymorphicComponentWithRef = forwardRef(function ButtonGroupItem<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: ButtonGroupItemProps<Element>, ref: ButtonGroupItemRef<Element>): ReactElement {
 	const { isFullWidth } = useButtonGroupContext();
 
 	const { children, className = __DEFAULT_CLASSNAME__, index, total, ...rest } = props;
 
-	const classes = useButtonGroupItemClasses<Element>({ index, total });
+	const classes = useButtonGroupItemClasses({ index, total });
 
 	return (
 		<Box<Element>
@@ -43,6 +44,6 @@ const ButtonGroupItem: PolymorphicComponentWithRef = forwardRef(function ButtonG
 
 ButtonGroupItem.displayName = 'ButtonGroupItem';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <ButtonGroupItem<Element> {...props} />;

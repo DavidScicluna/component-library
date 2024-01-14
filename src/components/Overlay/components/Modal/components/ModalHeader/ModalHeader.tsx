@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Grid, GridItem, VStack } from '@components/Layout';
@@ -20,7 +21,7 @@ import type { ModalHeaderProps, ModalHeaderRef } from './common/types';
 const classNames = require('classnames');
 
 const ModalHeader: PolymorphicComponentWithRef = forwardRef(function ModalHeader<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: ModalHeaderProps<Element>, ref: ModalHeaderRef<Element>): ReactElement {
 	const { colorMode, onClose, spacing: __DEFAULT_MODAL_HEADER_SPACING__ } = useModalContext();
 
@@ -74,6 +75,6 @@ const ModalHeader: PolymorphicComponentWithRef = forwardRef(function ModalHeader
 
 ModalHeader.displayName = 'ModalHeader';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <ModalHeader<Element> {...props} />;

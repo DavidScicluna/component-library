@@ -1,4 +1,3 @@
-import type { ElementType } from 'react';
 import { useMemo } from 'react';
 
 import classes from '@common/classes';
@@ -9,7 +8,7 @@ import {
 	__DEFAULT_RADIUS__
 } from '@common/constants';
 import { useAppTheme, useConst, useGetResponsiveValue } from '@common/hooks';
-import type { ClassName, PolymorphicDefaultElement, ThemeRadius } from '@common/types';
+import type { ClassName, ThemeRadius } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import type { PopperProps } from '../types';
@@ -17,15 +16,10 @@ import type { PopperProps } from '../types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UsePopperClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	PopperProps<Element>,
-	'color' | 'colorMode' | 'radius'
->;
+type UsePopperClassesProps = Pick<PopperProps, 'color' | 'colorMode' | 'radius'>;
 type UsePopperClassesReturn = Record<'popper' | 'arrow', ClassName>;
 
-const usePopperClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UsePopperClassesProps<Element>
-): UsePopperClassesReturn => {
+const usePopperClasses = (props: UsePopperClassesProps): UsePopperClassesReturn => {
 	const { colorMode: __DEFAULT_ICON_COLORMODE__ } = useAppTheme();
 
 	const { color = __DEFAULT_COLOR__, colorMode = __DEFAULT_ICON_COLORMODE__, radius: r = __DEFAULT_RADIUS__ } = props;

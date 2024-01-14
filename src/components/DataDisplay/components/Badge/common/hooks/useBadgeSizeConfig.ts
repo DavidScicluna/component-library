@@ -1,7 +1,6 @@
-import type { ElementType } from 'react';
 import { useMemo } from 'react';
 
-import type { PolymorphicDefaultElement, ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
+import type { ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
 
 import {
 	__DEFAULT_BADGE_IS_COMPACT__,
@@ -20,15 +19,10 @@ type BadgeSizeConfig = {
 	spacing: ThemeSpacing;
 };
 
-type UseBadgeSizeConfigProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	BadgeProps<Element>,
-	'isCompact' | 'isRound' | 'size' | 'variant'
->;
+type UseBadgeSizeConfigProps = Pick<BadgeProps, 'isCompact' | 'isRound' | 'size' | 'variant'>;
 type UseBadgeSizeConfigReturn = BadgeSizeConfig;
 
-const useBadgeSizeConfig = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseBadgeSizeConfigProps<Element>
-): UseBadgeSizeConfigReturn => {
+const useBadgeSizeConfig = (props: UseBadgeSizeConfigProps): UseBadgeSizeConfigReturn => {
 	const {
 		isCompact: isCompactProp = __DEFAULT_BADGE_IS_COMPACT__,
 		isRound: isRoundProp = __DEFAULT_BADGE_IS_ROUND__,

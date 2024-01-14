@@ -1,14 +1,5 @@
-import type { ElementType } from 'react';
-
 import { useGetClass } from '@common/hooks';
-import type {
-	ClassName,
-	OverflowClass,
-	PolymorphicDefaultElement,
-	SaturateClass,
-	ThemeBlurClass,
-	ThemeRadius
-} from '@common/types';
+import type { ClassName, OverflowClass, SaturateClass, ThemeBlurClass, ThemeRadius } from '@common/types';
 
 import {
 	__DEFAULT_BACKDROP_OVERLAY_BLUR__,
@@ -20,15 +11,10 @@ import type { BackdropOverlayProps } from '../types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseBackdropOverlayClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	BackdropOverlayProps<Element>,
-	'blur' | 'blurType' | 'radius'
->;
+type UseBackdropOverlayClassesProps = Pick<BackdropOverlayProps, 'blur' | 'blurType' | 'radius'>;
 type UseBackdropOverlayClassesReturn = Record<'container' | 'overlay', ClassName>;
 
-const useBackdropOverlayClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseBackdropOverlayClassesProps<Element>
-): UseBackdropOverlayClassesReturn => {
+const useBackdropOverlayClasses = (props: UseBackdropOverlayClassesProps): UseBackdropOverlayClassesReturn => {
 	const {
 		blur = __DEFAULT_BACKDROP_OVERLAY_BLUR__,
 		blurType = __DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,

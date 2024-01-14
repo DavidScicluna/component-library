@@ -1,10 +1,9 @@
-import type { ElementType } from 'react';
 import { useMemo } from 'react';
 
 import classes from '@common/classes';
 import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useConst } from '@common/hooks';
-import type { ClassName, PolymorphicDefaultElement } from '@common/types';
+import type { ClassName } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import type { TooltipProps } from '../types';
@@ -12,15 +11,10 @@ import type { TooltipProps } from '../types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseTooltipClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	TooltipProps<Element>,
-	'color' | 'colorMode'
->;
+type UseTooltipClassesProps = Pick<TooltipProps, 'color' | 'colorMode'>;
 type UseTooltipClassesReturn = Record<'tooltip' | 'arrow' | 'content', ClassName>;
 
-const useTooltipClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseTooltipClassesProps<Element>
-): UseTooltipClassesReturn => {
+const useTooltipClasses = (props: UseTooltipClassesProps): UseTooltipClassesReturn => {
 	const { colorMode: __DEFAULT_ICON_COLORMODE__ } = useAppTheme();
 
 	const { color = __DEFAULT_COLOR__, colorMode = __DEFAULT_ICON_COLORMODE__ } = props;

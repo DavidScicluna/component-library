@@ -1,8 +1,6 @@
-import type { ElementType } from 'react';
-
 import { __DEFAULT_DURATION__, __DEFAULT_EASING__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { AnimationConfig, PolymorphicDefaultElement, ThemeEase, Undefinable } from '@common/types';
+import type { AnimationConfig, ThemeEase, Undefinable } from '@common/types';
 
 import {
 	__DEFAULT_TRANSITION__,
@@ -11,13 +9,11 @@ import {
 } from '../constants';
 import type { TransitionDelay, TransitionDuration, TransitionKey, TransitionProps, TransitionVariant } from '../types';
 
-type UseTransitionResponsiveValuesProps<Element extends ElementType = PolymorphicDefaultElement> = Partial<
-	Pick<TransitionProps<Element>, 'config' | 'delay' | 'duration' | 'easing' | 'in' | 'transition' | 'unmountOnExit'>
+type UseTransitionResponsiveValuesProps = Partial<
+	Pick<TransitionProps, 'config' | 'delay' | 'duration' | 'easing' | 'in' | 'transition' | 'unmountOnExit'>
 >;
 
-const useTransitionResponsiveValues = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseTransitionResponsiveValuesProps<Element>
-) => {
+const useTransitionResponsiveValues = (props: UseTransitionResponsiveValuesProps) => {
 	const {
 		config: configProp,
 		delay: delayProp,

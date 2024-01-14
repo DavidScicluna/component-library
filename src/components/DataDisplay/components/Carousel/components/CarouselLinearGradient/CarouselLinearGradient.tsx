@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -7,7 +7,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -24,7 +25,7 @@ import type { CarouselLinearGradientProps, CarouselLinearGradientRef } from './c
 const classNames = require('classnames');
 
 const CarouselLinearGradient: PolymorphicComponentWithRef = forwardRef(function CarouselLinearGradient<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: CarouselLinearGradientProps<Element>, ref: CarouselLinearGradientRef<Element>): ReactElement {
 	const { colorMode: __DEFAULT_CAROUSEL_LINEAR_GRADIENT_COLORMODE__ } = useAppTheme();
 
@@ -60,6 +61,6 @@ const CarouselLinearGradient: PolymorphicComponentWithRef = forwardRef(function 
 
 CarouselLinearGradient.displayName = 'CarouselLinearGradient';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <CarouselLinearGradient<Element> {...props} />;

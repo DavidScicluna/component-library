@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -25,7 +26,7 @@ import type { LinearGradientProps, LinearGradientRef } from './common/types';
 const classNames = require('classnames');
 
 const LinearGradient: PolymorphicComponentWithRef = forwardRef(function LinearGradient<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: LinearGradientProps<Element>, ref: LinearGradientRef<Element>): ReactElement {
 	const {
 		className = __DEFAULT_CLASSNAME__,
@@ -56,6 +57,6 @@ const LinearGradient: PolymorphicComponentWithRef = forwardRef(function LinearGr
 
 LinearGradient.displayName = 'LinearGradient';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <LinearGradient<Element> {...props} />;

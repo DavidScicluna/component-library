@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { VStack } from '@components/Layout';
@@ -19,7 +20,7 @@ import type { MessageBodyProps, MessageBodyRef } from './common/types';
 const classNames = require('classnames');
 
 const MessageBody: PolymorphicComponentWithRef = forwardRef(function MessageBody<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: MessageBodyProps<Element>, ref: MessageBodyRef<Element>): ReactElement {
 	const {
 		children,
@@ -46,6 +47,6 @@ const MessageBody: PolymorphicComponentWithRef = forwardRef(function MessageBody
 
 MessageBody.displayName = 'MessageBody';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <MessageBody<Element> {...props} />;

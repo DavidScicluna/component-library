@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -7,7 +7,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Progress } from '@components/Feedback';
@@ -21,7 +22,7 @@ import type { StepProgressProps, StepProgressRef } from './common/types';
 const classNames = require('classnames');
 
 const StepProgress: PolymorphicComponentWithRef = forwardRef(function StepProgress<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: StepProgressProps<Element>, ref: StepProgressRef<Element>): ReactElement {
 	const theme = useTheme();
 
@@ -59,6 +60,6 @@ const StepProgress: PolymorphicComponentWithRef = forwardRef(function StepProgre
 
 StepProgress.displayName = 'StepProgress';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <StepProgress<Element> {...props} />;

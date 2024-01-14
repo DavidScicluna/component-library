@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 import { useInView } from 'react-cool-inview';
 
@@ -9,7 +9,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -22,7 +23,7 @@ import type { CarouselItemProps, CarouselItemRef } from './common/types';
 const classNames = require('classnames');
 
 const CarouselItem: PolymorphicComponentWithRef = forwardRef(function CarouselItem<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: CarouselItemProps<Element>, ref: CarouselItemRef<Element>): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, id, onToggleVisibility, ...rest } = props;
 
@@ -51,6 +52,6 @@ const CarouselItem: PolymorphicComponentWithRef = forwardRef(function CarouselIt
 
 CarouselItem.displayName = 'CarouselItem';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <CarouselItem<Element> {...props} />;

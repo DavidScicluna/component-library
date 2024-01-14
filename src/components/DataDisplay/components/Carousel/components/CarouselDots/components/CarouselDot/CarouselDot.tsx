@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -8,6 +8,7 @@ import type {
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
 	PolymorphicDefaultProps,
+	PolymorphicElementType,
 	ThemeSpacing
 } from '@common/types';
 
@@ -24,7 +25,7 @@ import type { CarouselDotProps, CarouselDotRef } from './common/types';
 const classNames = require('classnames');
 
 const CarouselDot: PolymorphicComponentWithRef = forwardRef(function CarouselDot<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: CarouselDotProps<Element>, ref: CarouselDotRef<Element>): ReactElement {
 	const { color: __DEFAULT_CAROUSEL_DOT_COLOR__, colorMode: __DEFAULT_CAROUSEL_DOT_COLORMODE__ } =
 		useCarouselContext();
@@ -44,7 +45,7 @@ const CarouselDot: PolymorphicComponentWithRef = forwardRef(function CarouselDot
 
 	const isVisible = useMemo(() => isItemVisible(item.key), [item.key]);
 
-	const classes = useCarouselDotClasses<Element>({ color, colorMode, isVisible, size });
+	const classes = useCarouselDotClasses({ color, colorMode, isVisible, size });
 
 	return (
 		<Box<Element>
@@ -63,6 +64,6 @@ const CarouselDot: PolymorphicComponentWithRef = forwardRef(function CarouselDot
 
 CarouselDot.displayName = 'CarouselDot';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <CarouselDot<Element> {...props} />;

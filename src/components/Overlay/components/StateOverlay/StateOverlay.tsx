@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -26,7 +27,7 @@ import type { StateOverlayProps, StateOverlayRef } from './common/types';
 const classNames = require('classnames');
 
 const StateOverlay: PolymorphicComponentWithRef = forwardRef(function StateOverlay<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: StateOverlayProps<Element>, ref: StateOverlayRef<Element>): ReactElement {
 	const {
 		children,
@@ -117,6 +118,6 @@ const StateOverlay: PolymorphicComponentWithRef = forwardRef(function StateOverl
 
 StateOverlay.displayName = 'StateOverlay';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <StateOverlay<Element> {...props} />;

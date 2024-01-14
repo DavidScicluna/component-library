@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { useCarouselArrowState } from '../../common/hooks';
@@ -19,7 +20,7 @@ import type { CarouselLeftLinearGradientProps, CarouselLeftLinearGradientRef } f
 const classNames = require('classnames');
 
 const CarouselLeftLinearGradient: PolymorphicComponentWithRef = forwardRef(function CarouselLeftLinearGradient<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: CarouselLeftLinearGradientProps<Element>, ref: CarouselLeftLinearGradientRef<Element>): ReactElement {
 	const { className = __DEFAULT_CLASSNAME__, ...rest } = props;
 
@@ -38,6 +39,6 @@ const CarouselLeftLinearGradient: PolymorphicComponentWithRef = forwardRef(funct
 
 CarouselLeftLinearGradient.displayName = 'CarouselLeftLinearGradient';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <CarouselLeftLinearGradient<Element> {...props} />;

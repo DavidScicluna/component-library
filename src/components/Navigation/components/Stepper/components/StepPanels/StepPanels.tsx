@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { isArray } from 'lodash-es';
@@ -8,7 +8,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -23,7 +24,7 @@ import type { StepPanelProps, StepPanelsProps, StepPanelsRef } from './common/ty
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const StepPanel = <Element extends ElementType = PolymorphicDefaultElement>({
+const StepPanel = <Element extends PolymorphicElementType = PolymorphicDefaultElement>({
 	children,
 	index
 }: StepPanelProps<Element>) => {
@@ -39,7 +40,7 @@ const StepPanel = <Element extends ElementType = PolymorphicDefaultElement>({
 };
 
 const StepPanels: PolymorphicComponentWithRef = forwardRef(function StepPanels<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: StepPanelsProps<Element>, ref: StepPanelsRef<Element>): ReactElement {
 	const { id } = useStepperContext();
 
@@ -81,6 +82,6 @@ const StepPanels: PolymorphicComponentWithRef = forwardRef(function StepPanels<
 
 StepPanels.displayName = 'StepPanels';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <StepPanels<Element> {...props} />;

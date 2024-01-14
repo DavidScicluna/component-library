@@ -1,14 +1,5 @@
-import type { ElementType } from 'react';
-
 import { useGetClass } from '@common/hooks';
-import type {
-	ClassName,
-	OverflowClass,
-	PolymorphicDefaultElement,
-	SaturateClass,
-	ThemeBlurClass,
-	ThemeRadius
-} from '@common/types';
+import type { ClassName, OverflowClass, SaturateClass, ThemeBlurClass, ThemeRadius } from '@common/types';
 
 import {
 	__DEFAULT_LOADING_OVERLAY_BLUR__,
@@ -21,16 +12,11 @@ import type { LoadingOverlayProps } from '../types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseLoadingOverlayClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	LoadingOverlayProps<Element>,
-	'blur' | 'blurType' | 'radius' | 'hasGlass'
->;
+type UseLoadingOverlayClassesProps = Pick<LoadingOverlayProps, 'blur' | 'blurType' | 'radius' | 'hasGlass'>;
 type UseLoadingOverlayClassesReturn = Record<'container' | 'overlay', ClassName>;
 
 // TODO: Remove Get from all GetClasses hooks names
-const useLoadingOverlayClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseLoadingOverlayClassesProps<Element>
-): UseLoadingOverlayClassesReturn => {
+const useLoadingOverlayClasses = (props: UseLoadingOverlayClassesProps): UseLoadingOverlayClassesReturn => {
 	const {
 		blur = __DEFAULT_LOADING_OVERLAY_BLUR__,
 		blurType = __DEFAULT_LOADING_OVERLAY_BLUR_TYPE__,

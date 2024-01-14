@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Center } from '@components/Layout';
@@ -18,7 +19,7 @@ import type { ModalBodyProps, ModalBodyRef } from './common/types';
 const classNames = require('classnames');
 
 const ModalBody: PolymorphicComponentWithRef = forwardRef(function ModalBody<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: ModalBodyProps<Element>, ref: ModalBodyRef<Element>): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, ...rest } = props;
 
@@ -37,6 +38,6 @@ const ModalBody: PolymorphicComponentWithRef = forwardRef(function ModalBody<
 
 ModalBody.displayName = 'ModalBody';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <ModalBody<Element> {...props} />;

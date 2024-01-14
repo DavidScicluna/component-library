@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { merge } from 'lodash-es';
@@ -8,7 +8,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Grid, GridItem } from '@components/Layout';
@@ -35,7 +36,7 @@ const classNames = require('classnames');
 
 // TODO: Add gradient prop that will replaced colors with gradient from, middle & to colors
 const PushableOverlay: PolymorphicComponentWithRef = forwardRef(function PushableOverlay<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: PushableOverlayProps<Element>, ref: PushableOverlayRef<Element>): ReactElement {
 	const {
 		children,
@@ -112,6 +113,6 @@ const PushableOverlay: PolymorphicComponentWithRef = forwardRef(function Pushabl
 
 PushableOverlay.displayName = 'PushableOverlay';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <PushableOverlay<Element> {...props} />;

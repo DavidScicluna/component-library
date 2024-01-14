@@ -1,8 +1,6 @@
-import type { ElementType } from 'react';
-
 import classes from '@common/classes';
 import { useGetClass } from '@common/hooks';
-import type { ClassName, PolymorphicDefaultElement } from '@common/types';
+import type { ClassName } from '@common/types';
 
 import {
 	__DEFAULT_CONTAINER_BREAKPOINT__,
@@ -16,15 +14,10 @@ import useContainerResponsiveValues from './useContainerResponsiveValues';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseContainerClassesProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
-	ContainerProps<Element>,
-	'breakpoint' | 'isContentCentered' | 'isFluid'
->;
+type UseContainerClassesProps = Pick<ContainerProps, 'breakpoint' | 'isContentCentered' | 'isFluid'>;
 type UseContainerClassesReturn = ClassName;
 
-const useContainerClasses = <Element extends ElementType = PolymorphicDefaultElement>(
-	props: UseContainerClassesProps<Element>
-): UseContainerClassesReturn => {
+const useContainerClasses = (props: UseContainerClassesProps): UseContainerClassesReturn => {
 	const {
 		breakpoint: breakpointProp = __DEFAULT_CONTAINER_BREAKPOINT__,
 		isContentCentered: isContentCenteredProp = __DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,

@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { BackdropOverlay } from '@components/Overlay';
@@ -20,7 +21,7 @@ import type { ConfirmModalBackdropProps, ConfirmModalBackdropRef } from './commo
 const classNames = require('classnames');
 
 const ConfirmModalBackdrop: PolymorphicComponentWithRef = forwardRef(function ConfirmModalBackdrop<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: ConfirmModalBackdropProps<Element>, ref: ConfirmModalBackdropRef<Element>): ReactElement {
 	const { color, colorMode } = useConfirmModalContext();
 
@@ -42,6 +43,6 @@ const ConfirmModalBackdrop: PolymorphicComponentWithRef = forwardRef(function Co
 
 ConfirmModalBackdrop.displayName = 'ConfirmModalBackdrop';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <ConfirmModalBackdrop<Element> {...props} />;

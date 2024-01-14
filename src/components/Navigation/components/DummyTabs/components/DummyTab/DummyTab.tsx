@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
 import { compact } from 'lodash-es';
@@ -9,7 +9,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -34,7 +35,7 @@ import type { DummyTabProps, DummyTabRef } from './common/types';
 const classNames = require('classnames');
 
 const DummyTab: PolymorphicComponentWithRef = forwardRef(function DummyTab<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: DummyTabProps<Element>, ref: DummyTabRef<Element>): ReactElement {
 	const {
 		color: __DEFAULT_DUMMY_TAB_COLOR__,
@@ -198,6 +199,6 @@ const DummyTab: PolymorphicComponentWithRef = forwardRef(function DummyTab<
 
 DummyTab.displayName = 'DummyTab';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <DummyTab<Element> {...props} />;

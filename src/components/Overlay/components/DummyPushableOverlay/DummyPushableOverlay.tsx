@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { merge } from 'lodash-es';
@@ -8,7 +8,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Grid, GridItem } from '@components/Layout';
@@ -30,7 +31,7 @@ import type { DummyPushableOverlayProps, DummyPushableOverlayRef } from './commo
 const classNames = require('classnames');
 
 const DummyPushableOverlay: PolymorphicComponentWithRef = forwardRef(function DummyPushableOverlay<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: DummyPushableOverlayProps<Element>, ref: DummyPushableOverlayRef<Element>): ReactElement {
 	const {
 		children,
@@ -79,6 +80,6 @@ const DummyPushableOverlay: PolymorphicComponentWithRef = forwardRef(function Du
 
 DummyPushableOverlay.displayName = 'DummyPushableOverlay';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <DummyPushableOverlay<Element> {...props} />;

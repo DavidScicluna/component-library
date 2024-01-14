@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
 import { motion } from 'framer-motion';
@@ -14,7 +14,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 import { getAnimationConfig, getAnimationDelay, getAnimationDuration, getAnimationEasings } from '@common/utils';
 
@@ -38,7 +39,7 @@ const classNames = require('classnames');
 const MotionBox: any = motion(Box);
 
 const Transition: PolymorphicComponentWithRef = forwardRef(function Transition<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: TransitionProps<Element>, ref: TransitionRef<Element>): ReactElement {
 	const {
 		children,
@@ -66,7 +67,7 @@ const Transition: PolymorphicComponentWithRef = forwardRef(function Transition<
 		in: isAnimated,
 		transition,
 		unmountOnExit
-	} = useTransitionResponsiveValues<Element>({
+	} = useTransitionResponsiveValues({
 		config: configProp,
 		delay: delayProp,
 		duration: durationProp,
@@ -131,6 +132,6 @@ const Transition: PolymorphicComponentWithRef = forwardRef(function Transition<
 
 Transition.displayName = 'Transition';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <Transition<Element> {...props} />;

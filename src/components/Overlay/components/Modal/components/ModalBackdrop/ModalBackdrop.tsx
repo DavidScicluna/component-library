@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { BackdropOverlay } from '@components/Overlay';
@@ -20,7 +21,7 @@ import type { ModalBackdropProps, ModalBackdropRef } from './common/types';
 const classNames = require('classnames');
 
 const ModalBackdrop: PolymorphicComponentWithRef = forwardRef(function ModalBackdrop<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: ModalBackdropProps<Element>, ref: ModalBackdropRef<Element>): ReactElement {
 	const { color, colorMode } = useModalContext();
 
@@ -42,6 +43,6 @@ const ModalBackdrop: PolymorphicComponentWithRef = forwardRef(function ModalBack
 
 ModalBackdrop.displayName = 'ModalBackdrop';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <ModalBackdrop<Element> {...props} />;

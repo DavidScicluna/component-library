@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef, useEffect } from 'react';
 
 import { compact, debounce } from 'lodash-es';
@@ -11,6 +11,7 @@ import type {
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
 	PolymorphicDefaultProps,
+	PolymorphicElementType,
 	ThemeSpacing
 } from '@common/types';
 
@@ -33,7 +34,7 @@ import { CarouselDot } from './components';
 const classNames = require('classnames');
 
 const CarouselDots: PolymorphicComponentWithRef = forwardRef(function CarouselDots<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: CarouselDotsProps<Element>, ref: CarouselDotsRef<Element>): ReactElement {
 	const {
 		color: __DEFAULT_CAROUSEL_DOTS_COLOR__,
@@ -110,6 +111,6 @@ const CarouselDots: PolymorphicComponentWithRef = forwardRef(function CarouselDo
 
 CarouselDots.displayName = 'CarouselDots';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <CarouselDots<Element> {...props} />;

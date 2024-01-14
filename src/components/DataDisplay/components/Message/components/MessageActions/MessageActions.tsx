@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -7,7 +7,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Stack } from '@components/Layout';
@@ -21,7 +22,7 @@ import type { MessageActionsProps, MessageActionsRef } from './common/types';
 const classNames = require('classnames');
 
 const MessageActions: PolymorphicComponentWithRef = forwardRef(function MessageActions<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: MessageActionsProps<Element>, ref: MessageActionsRef<Element>): ReactElement {
 	const isSm = useMediaQuery({ breakpoint: 'sm', type: 'width', direction: 'max' });
 
@@ -54,6 +55,6 @@ const MessageActions: PolymorphicComponentWithRef = forwardRef(function MessageA
 
 MessageActions.displayName = 'MessageActions';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <MessageActions<Element> {...props} />;

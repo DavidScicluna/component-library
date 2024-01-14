@@ -1,4 +1,4 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -6,7 +6,8 @@ import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
+	PolymorphicDefaultProps,
+	PolymorphicElementType
 } from '@common/types';
 
 import { Skeleton } from '@components/Feedback';
@@ -22,7 +23,7 @@ import type { DummyButtonSkeletonProps, DummyButtonSkeletonRef } from './common/
 const classNames = require('classnames');
 
 const DummyButtonSkeleton: PolymorphicComponentWithRef = forwardRef(function DummyButtonSkeleton<
-	Element extends ElementType = PolymorphicDefaultElement
+	Element extends PolymorphicElementType = PolymorphicDefaultElement
 >(props: DummyButtonSkeletonProps<Element>, ref: DummyButtonSkeletonRef<Element>): ReactElement {
 	const { color, colorMode, variant } = useDummyButtonContext();
 
@@ -52,6 +53,6 @@ const DummyButtonSkeleton: PolymorphicComponentWithRef = forwardRef(function Dum
 
 DummyButtonSkeleton.displayName = 'DummyButtonSkeleton';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
+export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
 	props: PolymorphicComponentPropsWithRef<Element, Props>
 ) => <DummyButtonSkeleton<Element> {...props} />;
