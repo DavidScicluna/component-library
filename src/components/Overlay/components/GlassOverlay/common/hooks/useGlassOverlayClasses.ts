@@ -8,6 +8,8 @@ import {
 } from '../constants';
 import type { GlassOverlayProps } from '../types';
 
+import useGlassOverlayResponsiveValues from './useGlassOverlayResponsiveValues';
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
@@ -17,10 +19,16 @@ type UseGlassOverlayClassesReturn = Record<'container' | 'overlay', ClassName>;
 // TODO: Remove Get from all GetClasses hooks names
 const useGlassOverlayClasses = (props: UseGlassOverlayClassesProps): UseGlassOverlayClassesReturn => {
 	const {
-		blur = __DEFAULT_GLASS_OVERLAY_BLUR__,
-		blurType = __DEFAULT_GLASS_OVERLAY_BLUR_TYPE__,
-		radius = __DEFAULT_GLASS_OVERLAY_RADIUS__
+		blur: blurProp = __DEFAULT_GLASS_OVERLAY_BLUR__,
+		blurType: blurTypeProp = __DEFAULT_GLASS_OVERLAY_BLUR_TYPE__,
+		radius: radiusProp = __DEFAULT_GLASS_OVERLAY_RADIUS__
 	} = props;
+
+	const { blur, blurType, radius } = useGlassOverlayResponsiveValues({
+		blur: blurProp,
+		blurType: blurTypeProp,
+		radius: radiusProp
+	});
 
 	const overflowClassName = useGetClass<OverflowClass>('hidden', ['layout', 'overflow']);
 	const radiusClassName = useGetClass<ThemeRadius>(radius, ['borders', 'border_radius']);

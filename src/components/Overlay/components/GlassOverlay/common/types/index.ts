@@ -11,9 +11,14 @@ import type {
 import type { BoxProps, BoxRef } from '@components/Box';
 
 export type GlassOverlayBlurType = 'blur' | 'backdrop';
-export type GlassOverlayBlurTypes = Array<GlassOverlayBlurType>;
 
 type GlassOverlayOtherProps = ThemeAppAppearanceProps & {
+	/**
+	 * The amount to increase the transparency by, given as a decimal between 0 and 1
+	 *
+	 * @default 0.5
+	 */
+	backdropAmount?: ResponsiveValue<number>;
 	/**
 	 * The amount of the blur effect to be applied ("none", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "8xl", "9xl")
 	 *
@@ -27,12 +32,6 @@ type GlassOverlayOtherProps = ThemeAppAppearanceProps & {
 	 */
 	blurType?: ResponsiveValue<GlassOverlayBlurType>;
 	/**
-	 * The amount to increase the transparency by, given as a decimal between 0 and 1
-	 *
-	 * @default 0.5
-	 */
-	backdropAmount?: ResponsiveValue<number>;
-	/**
 	 * The border radius of the glass overlay container
 	 *
 	 * @default 'none'
@@ -43,7 +42,7 @@ type GlassOverlayOtherProps = ThemeAppAppearanceProps & {
 	 *
 	 * @default true
 	 */
-	hasBackground?: boolean;
+	hasBackground?: ResponsiveValue<boolean>;
 };
 
 export type GlassOverlayProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<

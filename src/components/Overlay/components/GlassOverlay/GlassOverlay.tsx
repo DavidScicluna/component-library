@@ -20,7 +20,7 @@ import {
 	__DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__,
 	__DEFAULT_GLASS_OVERLAY_RADIUS__
 } from './common/constants';
-import { useGlassOverlayClasses, useGlassOverlayStyles } from './common/hooks';
+import { useGlassOverlayClasses, useGlassOverlayResponsiveValues, useGlassOverlayStyles } from './common/hooks';
 import { __KEYS_GLASS_OVERLAY_CLASS__ } from './common/keys';
 import type { GlassOverlayProps, GlassOverlayRef } from './common/types';
 
@@ -35,13 +35,21 @@ const GlassOverlay: PolymorphicComponentWithRef = forwardRef(function GlassOverl
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		backdropAmount = __DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT__,
-		blur = __DEFAULT_GLASS_OVERLAY_BLUR__,
-		blurType = __DEFAULT_GLASS_OVERLAY_BLUR_TYPE__,
-		radius = __DEFAULT_GLASS_OVERLAY_RADIUS__,
-		hasBackground = __DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__,
+		backdropAmount: backdropAmountProp = __DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT__,
+		blur: blurProp = __DEFAULT_GLASS_OVERLAY_BLUR__,
+		blurType: blurTypeProp = __DEFAULT_GLASS_OVERLAY_BLUR_TYPE__,
+		radius: radiusProp = __DEFAULT_GLASS_OVERLAY_RADIUS__,
+		hasBackground: hasBackgroundProp = __DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__,
 		...rest
 	} = props;
+
+	const { backdropAmount, blur, blurType, radius, hasBackground } = useGlassOverlayResponsiveValues({
+		backdropAmount: backdropAmountProp,
+		blur: blurProp,
+		blurType: blurTypeProp,
+		radius: radiusProp,
+		hasBackground: hasBackgroundProp
+	});
 
 	const classes = useGlassOverlayClasses({ blur, blurType, radius });
 	const styles = useGlassOverlayStyles({ color, colorMode, backdropAmount, hasBackground });

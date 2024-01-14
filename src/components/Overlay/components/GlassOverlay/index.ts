@@ -1,4 +1,4 @@
-import type { GlassOverlayBlurType, GlassOverlayBlurTypes, GlassOverlayProps, GlassOverlayRef } from './common/types';
+import type { GlassOverlayBlurType, GlassOverlayProps, GlassOverlayRef } from './common/types';
 import GlassOverlay from './GlassOverlay';
 
 // Constants
@@ -14,4 +14,4 @@ export * from './common/hooks';
 export { GlassOverlay };
 
 // Component Types
-export type { GlassOverlayBlurType, GlassOverlayBlurTypes, GlassOverlayProps, GlassOverlayRef };
+export type { GlassOverlayBlurType, GlassOverlayProps, GlassOverlayRef };

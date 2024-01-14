@@ -16,7 +16,7 @@ import {
 	__DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__,
 	__DEFAULT_GLASS_OVERLAY_RADIUS__
 } from './common/constants';
-import type { GlassOverlayBlurTypes, GlassOverlayProps } from './common/types';
+import type { GlassOverlayBlurType, GlassOverlayProps } from './common/types';
 import type { GlassOverlayStory, GlassOverlayStoryMeta } from './common/types/story';
 import { GlassOverlay as GlassOverlayComponent } from '.';
 
@@ -62,7 +62,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_GLASS_OVERLAY_BLUR_TYPE__,
 			// description: '',
-			options: ['backdrop', 'blur'] as GlassOverlayBlurTypes,
+			options: ['backdrop', 'blur'] as Array<GlassOverlayBlurType>,
 			control: { type: 'radio' }
 		},
 		hasBackground: {
