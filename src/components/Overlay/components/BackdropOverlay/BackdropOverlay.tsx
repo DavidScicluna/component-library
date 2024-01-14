@@ -19,7 +19,11 @@ import {
 	__DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
 	__DEFAULT_BACKDROP_OVERLAY_RADIUS__
 } from './common/constants';
-import { useBackdropOverlayClasses, useBackdropOverlayStyles } from './common/hooks';
+import {
+	useBackdropOverlayClasses,
+	useBackdropOverlayResponsiveValues,
+	useBackdropOverlayStyles
+} from './common/hooks';
 import { __KEYS_BACKDROP_OVERLAY_CLASS__ } from './common/keys';
 import type { BackdropOverlayProps, BackdropOverlayRef } from './common/types';
 
@@ -34,12 +38,19 @@ const BackdropOverlay: PolymorphicComponentWithRef = forwardRef(function Backdro
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
-		amount = __DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
-		blur = __DEFAULT_BACKDROP_OVERLAY_BLUR__,
-		blurType = __DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
-		radius = __DEFAULT_BACKDROP_OVERLAY_RADIUS__,
+		amount: amountProp = __DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
+		blur: blurProp = __DEFAULT_BACKDROP_OVERLAY_BLUR__,
+		blurType: blurTypeProp = __DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
+		radius: radiusProp = __DEFAULT_BACKDROP_OVERLAY_RADIUS__,
 		...rest
 	} = props;
+
+	const { amount, blur, blurType, radius } = useBackdropOverlayResponsiveValues({
+		amount: amountProp,
+		blur: blurProp,
+		blurType: blurTypeProp,
+		radius: radiusProp
+	});
 
 	const classes = useBackdropOverlayClasses({ blur, blurType, radius });
 	const styles = useBackdropOverlayStyles({ color, colorMode, amount });

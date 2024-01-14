@@ -1,11 +1,13 @@
 import { transparentize } from 'color2k';
 
 import { __DEFAULT_COLOR__ } from '@common/constants';
-import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
+import { useAppTheme, useGetColor } from '@common/hooks';
 import type { Style } from '@common/types';
 
 import { __DEFAULT_BACKDROP_OVERLAY_AMOUNT__ } from '../constants';
 import type { BackdropOverlayProps } from '../types';
+
+import useBackdropOverlayResponsiveValues from './useBackdropOverlayResponsiveValues';
 
 type UseBackdropOverlayStylesProps = Pick<BackdropOverlayProps, 'color' | 'colorMode' | 'amount'>;
 type UseBackdropOverlayStylesReturn = Style;
@@ -16,8 +18,10 @@ const useBackdropOverlayStyles = (props: UseBackdropOverlayStylesProps): UseBack
 	const {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_BACKDROP_OVERLAY_COLORMODE__,
-		amount: a = __DEFAULT_BACKDROP_OVERLAY_AMOUNT__
+		amount: amountProp = __DEFAULT_BACKDROP_OVERLAY_AMOUNT__
 	} = props;
+
+	const { amount } = useBackdropOverlayResponsiveValues({ amount: amountProp });
 
 	const background = useGetColor({
 		color,
@@ -25,7 +29,6 @@ const useBackdropOverlayStyles = (props: UseBackdropOverlayStylesProps): UseBack
 		colorType: color ? 'color' : 'default',
 		hueType: colorMode === 'light' ? 'dark' : 'dark'
 	});
-	const amount = useGetResponsiveValue<number>(a);
 
 	return { background: transparentize(background, amount) };
 };

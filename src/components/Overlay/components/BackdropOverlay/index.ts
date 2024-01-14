@@ -1,9 +1,4 @@
-import type {
-	BackdropOverlayBlurType,
-	BackdropOverlayBlurTypes,
-	BackdropOverlayProps,
-	BackdropOverlayRef
-} from './common/types';
+import type { BackdropOverlayBlurType, BackdropOverlayProps, BackdropOverlayRef } from './common/types';
 import BackdropOverlay from './BackdropOverlay';
 
 // Constants
@@ -19,4 +14,4 @@ export * from './common/hooks';
 export { BackdropOverlay };
 
 // Component Types
-export type { BackdropOverlayBlurType, BackdropOverlayBlurTypes, BackdropOverlayProps, BackdropOverlayRef };
+export type { BackdropOverlayBlurType, BackdropOverlayProps, BackdropOverlayRef };

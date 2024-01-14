@@ -11,7 +11,6 @@ import type {
 import type { BoxProps, BoxRef } from '@components/Box';
 
 export type BackdropOverlayBlurType = 'blur' | 'backdrop';
-export type BackdropOverlayBlurTypes = Array<BackdropOverlayBlurType>;
 
 type BackdropOverlayOtherProps = ThemeAppAppearanceProps & {
 	/**

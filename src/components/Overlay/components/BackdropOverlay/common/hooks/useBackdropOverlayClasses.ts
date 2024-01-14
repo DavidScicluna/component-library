@@ -8,6 +8,8 @@ import {
 } from '../constants';
 import type { BackdropOverlayProps } from '../types';
 
+import useBackdropOverlayResponsiveValues from './useBackdropOverlayResponsiveValues';
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
@@ -16,10 +18,16 @@ type UseBackdropOverlayClassesReturn = Record<'container' | 'overlay', ClassName
 
 const useBackdropOverlayClasses = (props: UseBackdropOverlayClassesProps): UseBackdropOverlayClassesReturn => {
 	const {
-		blur = __DEFAULT_BACKDROP_OVERLAY_BLUR__,
-		blurType = __DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
-		radius = __DEFAULT_BACKDROP_OVERLAY_RADIUS__
+		blur: blurProp = __DEFAULT_BACKDROP_OVERLAY_BLUR__,
+		blurType: blurTypeProp = __DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
+		radius: radiusProp = __DEFAULT_BACKDROP_OVERLAY_RADIUS__
 	} = props;
+
+	const { blur, blurType, radius } = useBackdropOverlayResponsiveValues({
+		blur: blurProp,
+		blurType: blurTypeProp,
+		radius: radiusProp
+	});
 
 	const overflowClassName = useGetClass<OverflowClass>('hidden', ['layout', 'overflow']);
 	const radiusClassName = useGetClass<ThemeRadius>(radius, ['borders', 'border_radius']);

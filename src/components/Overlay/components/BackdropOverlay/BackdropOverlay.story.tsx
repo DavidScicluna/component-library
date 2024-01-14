@@ -15,7 +15,7 @@ import {
 	__DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
 	__DEFAULT_BACKDROP_OVERLAY_RADIUS__
 } from './common/constants';
-import type { BackdropOverlayBlurTypes, BackdropOverlayProps } from './common/types';
+import type { BackdropOverlayBlurType, BackdropOverlayProps } from './common/types';
 import type { BackdropOverlayStory, BackdropOverlayStoryMeta } from './common/types/story';
 import { BackdropOverlay as BackdropOverlayComponent } from '.';
 
@@ -61,7 +61,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
 			// description: '',
-			options: ['backdrop', 'blur'] as BackdropOverlayBlurTypes,
+			options: ['backdrop', 'blur'] as Array<BackdropOverlayBlurType>,
 			control: { type: 'radio' }
 		},
 		radius: {
