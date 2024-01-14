@@ -19,7 +19,7 @@ import {
 } from '@floating-ui/react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useBoolean, useGetResponsiveValue } from '@common/hooks';
+import { useBoolean } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
@@ -43,9 +43,9 @@ import {
 	__DEFAULT_TOOLTIP_OPEN_DELAY__,
 	__DEFAULT_TOOLTIP_PLACEMENT__
 } from './common/constants';
-import { useTooltipClasses } from './common/hooks';
+import { useTooltipClasses, useTooltipResponsiveValues } from './common/hooks';
 import { __KEYS_TOOLTIP_CLASS__ } from './common/keys';
-import type { TooltipPlacement, TooltipProps, TooltipRef } from './common/types';
+import type { TooltipProps, TooltipRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
@@ -60,33 +60,33 @@ const Tooltip: PolymorphicComponentWithRef = forwardRef(function Tooltip<
 		color,
 		colorMode,
 		className = __DEFAULT_CLASSNAME__,
-		closeDelay: cd = __DEFAULT_TOOLTIP_CLOSE_DELAY__,
-		openDelay: od = __DEFAULT_TOOLTIP_OPEN_DELAY__,
-		closeOnClick: closeonclick = __DEFAULT_TOOLTIP_CLOSE_ON_CLICK__,
-		closeOnEsc: closeonesc = __DEFAULT_TOOLTIP_CLOSE_ON_ESC__,
-		gutter: g = __DEFAULT_TOOLTIP_GUTTER__,
-		isDisabled: disabled = __DEFAULT_TOOLTIP_IS_DISABLED__,
-		label = __DEFAULT_TOOLTIP_LABEL__,
+		closeDelay: closeDelayProp = __DEFAULT_TOOLTIP_CLOSE_DELAY__,
+		openDelay: openDelayProp = __DEFAULT_TOOLTIP_OPEN_DELAY__,
+		closeOnClick: closeOnClickProp = __DEFAULT_TOOLTIP_CLOSE_ON_CLICK__,
+		closeOnEsc: closeOnEscProp = __DEFAULT_TOOLTIP_CLOSE_ON_ESC__,
+		gutter: gutterProp = __DEFAULT_TOOLTIP_GUTTER__,
+		isDisabled: isDisabledProp = __DEFAULT_TOOLTIP_IS_DISABLED__,
+		label: labelProp = __DEFAULT_TOOLTIP_LABEL__,
 		onClose,
 		onCloseComplete,
 		onOpen,
-		placement: p = __DEFAULT_TOOLTIP_PLACEMENT__,
+		placement: placementProp = __DEFAULT_TOOLTIP_PLACEMENT__,
 		...rest
 	} = props;
 
-	const closeDelay = useGetResponsiveValue<number>(cd);
-	const openDelay = useGetResponsiveValue<number>(od);
-
-	const closeOnClick = useGetResponsiveValue<boolean>(closeonclick);
-	const closeOnEsc = useGetResponsiveValue<boolean>(closeonesc);
-
-	const gutter = useGetResponsiveValue<number>(g);
-
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-
-	const placement = useGetResponsiveValue<TooltipPlacement>(p);
-
 	const [isOpen, setIsOpen] = useBoolean(__DEFAULT_TOOLTIP_IS_OPEN__);
+
+	const { closeDelay, openDelay, closeOnClick, closeOnEsc, gutter, isDisabled, label, placement } =
+		useTooltipResponsiveValues({
+			closeDelay: closeDelayProp,
+			openDelay: openDelayProp,
+			closeOnClick: closeOnClickProp,
+			closeOnEsc: closeOnEscProp,
+			gutter: gutterProp,
+			isDisabled: isDisabledProp,
+			label: labelProp,
+			placement: placementProp
+		});
 
 	const handleOpen = useCallback((): void => {
 		setIsOpen.on();
@@ -127,7 +127,7 @@ const Tooltip: PolymorphicComponentWithRef = forwardRef(function Tooltip<
 
 	const refss = useMergeRefs([ref, refs.setFloating as any]);
 
-	const classes = useTooltipClasses<Element>({ color, colorMode });
+	const classes = useTooltipClasses({ color, colorMode });
 
 	return (
 		<AnimatePresence onExitComplete={onCloseComplete}>

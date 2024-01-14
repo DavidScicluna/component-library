@@ -52,7 +52,7 @@ type TooltipOtherProps = ThemeAppAppearanceProps & {
 	/**
 	 * The label of the tooltip
 	 */
-	label?: string;
+	label?: ResponsiveValue<string>;
 	/**
 	 * Callback to run when the tooltip hides
 	 */

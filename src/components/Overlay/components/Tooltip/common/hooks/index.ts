@@ -1,3 +1,4 @@
 import useTooltipClasses from './useTooltipClasses';
+import useTooltipResponsiveValues from './useTooltipResponsiveValues';
 
-export { useTooltipClasses };
+export { useTooltipClasses, useTooltipResponsiveValues };
