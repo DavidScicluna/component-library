@@ -62,10 +62,6 @@ export type PopperOtherProps<Element extends ElementType = PolymorphicDefaultEle
 	 */
 	isDisabled?: ResponsiveValue<boolean>;
 	/**
-	 * The label of the popper
-	 */
-	label?: string;
-	/**
 	 * Callback to run when the popper hides
 	 */
 	onClose?: () => void;

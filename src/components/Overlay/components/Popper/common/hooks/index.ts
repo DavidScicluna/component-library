@@ -1,3 +1,4 @@
 import usePopperClasses from './usePopperClasses';
+import usePopperResponsiveValues from './usePopperResponsiveValues';
 
-export { usePopperClasses };
+export { usePopperClasses, usePopperResponsiveValues };

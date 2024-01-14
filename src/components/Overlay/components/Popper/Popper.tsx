@@ -20,14 +20,13 @@ import {
 } from '@floating-ui/react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
-import { useBoolean, useGetResponsiveValue } from '@common/hooks';
+import { useBoolean } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
 	PolymorphicDefaultProps,
-	PolymorphicElementType,
-	ThemeRadius
+	PolymorphicElementType
 } from '@common/types';
 
 import { AnimatePresence, Transition } from '@components/Animation';
@@ -43,9 +42,9 @@ import {
 	__DEFAULT_POPPER_OPEN_DELAY__,
 	__DEFAULT_POPPER_PLACEMENT__
 } from './common/constants';
-import { usePopperClasses } from './common/hooks';
+import { usePopperClasses, usePopperResponsiveValues } from './common/hooks';
 import { __KEYS_POPPER_CLASS__ } from './common/keys';
-import type { PopperPlacement, PopperProps, PopperRef } from './common/types';
+import type { PopperProps, PopperRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
@@ -61,34 +60,33 @@ const Popper: PolymorphicComponentWithRef = forwardRef(function Popper<
 		color,
 		colorMode,
 		className = __DEFAULT_CLASSNAME__,
-		closeDelay: cd = __DEFAULT_POPPER_CLOSE_DELAY__,
-		openDelay: od = __DEFAULT_POPPER_OPEN_DELAY__,
-		closeOnClickOutside: closeonclickoutside = __DEFAULT_POPPER_CLOSE_ON_CLICK_OUTSIDE__,
-		closeOnEsc: closeonesc = __DEFAULT_POPPER_CLOSE_ON_ESC__,
-		gutter: g = __DEFAULT_POPPER_GUTTER__,
-		isDisabled: disabled = __DEFAULT_POPPER_IS_DISABLED__,
+		closeDelay: closeDelayProp = __DEFAULT_POPPER_CLOSE_DELAY__,
+		openDelay: openDelayProp = __DEFAULT_POPPER_OPEN_DELAY__,
+		closeOnClickOutside: closeOnClickOutsideProp = __DEFAULT_POPPER_CLOSE_ON_CLICK_OUTSIDE__,
+		closeOnEsc: closeOnEscProp = __DEFAULT_POPPER_CLOSE_ON_ESC__,
+		gutter: gutterProp = __DEFAULT_POPPER_GUTTER__,
+		isDisabled: isDisabledProp = __DEFAULT_POPPER_IS_DISABLED__,
 		onClose,
 		onCloseComplete,
 		onOpen,
-		placement: p = __DEFAULT_POPPER_PLACEMENT__,
-		radius: r = __DEFAULT_RADIUS__,
+		placement: placementProp = __DEFAULT_POPPER_PLACEMENT__,
+		radius: radiusProp = __DEFAULT_RADIUS__,
 		...rest
 	} = props;
 
-	const closeDelay = useGetResponsiveValue<number>(cd);
-	const openDelay = useGetResponsiveValue<number>(od);
-
-	const closeOnClickOutside = useGetResponsiveValue<boolean>(closeonclickoutside);
-	const closeOnEsc = useGetResponsiveValue<boolean>(closeonesc);
-
-	const gutter = useGetResponsiveValue<number>(g);
-
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-
-	const placement = useGetResponsiveValue<PopperPlacement>(p);
-	const radius = useGetResponsiveValue<ThemeRadius>(r);
-
 	const [isOpen, setIsOpen] = useBoolean(__DEFAULT_POPPER_IS_OPEN__);
+
+	const { closeDelay, openDelay, closeOnClickOutside, closeOnEsc, gutter, isDisabled, placement, radius } =
+		usePopperResponsiveValues({
+			closeDelay: closeDelayProp,
+			openDelay: openDelayProp,
+			closeOnClickOutside: closeOnClickOutsideProp,
+			closeOnEsc: closeOnEscProp,
+			gutter: gutterProp,
+			isDisabled: isDisabledProp,
+			placement: placementProp,
+			radius: radiusProp
+		});
 
 	const handleOpen = useCallback((): void => {
 		setIsOpen.on();

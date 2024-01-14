@@ -7,11 +7,13 @@ import {
 	__DEFAULT_COLOR__,
 	__DEFAULT_RADIUS__
 } from '@common/constants';
-import { useAppTheme, useConst, useGetResponsiveValue } from '@common/hooks';
-import type { ClassName, ThemeRadius } from '@common/types';
+import { useAppTheme, useConst } from '@common/hooks';
+import type { ClassName } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import type { PopperProps } from '../types';
+
+import usePopperResponsiveValues from './usePopperResponsiveValues';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
@@ -22,9 +24,13 @@ type UsePopperClassesReturn = Record<'popper' | 'arrow', ClassName>;
 const usePopperClasses = (props: UsePopperClassesProps): UsePopperClassesReturn => {
 	const { colorMode: __DEFAULT_ICON_COLORMODE__ } = useAppTheme();
 
-	const { color = __DEFAULT_COLOR__, colorMode = __DEFAULT_ICON_COLORMODE__, radius: r = __DEFAULT_RADIUS__ } = props;
+	const {
+		color = __DEFAULT_COLOR__,
+		colorMode = __DEFAULT_ICON_COLORMODE__,
+		radius: radiusProp = __DEFAULT_RADIUS__
+	} = props;
 
-	const radius = useGetResponsiveValue<ThemeRadius>(r);
+	const { radius } = usePopperResponsiveValues({ radius: radiusProp });
 
 	const popperRootClasses = useMemo<ClassName>(
 		() =>
