@@ -1,11 +1,13 @@
 import { transparentize } from 'color2k';
 
 import { __DEFAULT_COLOR__ } from '@common/constants';
-import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
+import { useAppTheme, useGetColor } from '@common/hooks';
 import type { Style } from '@common/types';
 
 import { __DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT__, __DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND__ } from '../constants';
 import type { LoadingOverlayProps } from '../types';
+
+import useLoadingOverlayResponsiveValues from './useLoadingOverlayResponsiveValues';
 
 type UseLoadingOverlayStylesProps = Pick<
 	LoadingOverlayProps,
@@ -19,9 +21,14 @@ const useLoadingOverlayStyles = (props: UseLoadingOverlayStylesProps): UseLoadin
 	const {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_LOADING_OVERLAY_COLORMODE__,
-		backdropAmount: ba = __DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT__,
-		hasBackground = __DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND__
+		backdropAmount: backdropAmountProp = __DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT__,
+		hasBackground: hasBackgroundProp = __DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND__
 	} = props;
+
+	const { backdropAmount: amount, hasBackground } = useLoadingOverlayResponsiveValues({
+		backdropAmount: backdropAmountProp,
+		hasBackground: hasBackgroundProp
+	});
 
 	const background = useGetColor({
 		color,
@@ -29,7 +36,6 @@ const useLoadingOverlayStyles = (props: UseLoadingOverlayStylesProps): UseLoadin
 		colorType: color ? 'color' : 'default',
 		hueType: colorMode === 'light' ? 'dark' : 'dark'
 	});
-	const amount = useGetResponsiveValue<number>(ba);
 
 	return { background: hasBackground ? transparentize(background, amount) : undefined };
 };

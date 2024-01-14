@@ -22,7 +22,7 @@ import {
 	__DEFAULT_LOADING_OVERLAY_IS_LOADING__,
 	__DEFAULT_LOADING_OVERLAY_RADIUS__
 } from './common/constants';
-import { useLoadingOverlayClasses, useLoadingOverlayStyles } from './common/hooks';
+import { useLoadingOverlayClasses, useLoadingOverlayResponsiveValues, useLoadingOverlayStyles } from './common/hooks';
 import { __KEYS_LOADING_OVERLAY_CLASS__ } from './common/keys';
 import type { LoadingOverlayProps, LoadingOverlayRef } from './common/types';
 
@@ -38,15 +38,26 @@ const LoadingOverlay: PolymorphicComponentWithRef = forwardRef(function LoadingO
 		renderSpinner,
 		color,
 		colorMode,
-		backdropAmount = __DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT__,
-		blur = __DEFAULT_LOADING_OVERLAY_BLUR__,
-		blurType = __DEFAULT_LOADING_OVERLAY_BLUR_TYPE__,
-		radius = __DEFAULT_LOADING_OVERLAY_RADIUS__,
-		isLoading = __DEFAULT_LOADING_OVERLAY_IS_LOADING__,
-		hasGlass = __DEFAULT_LOADING_OVERLAY_HAS_GLASS__,
-		hasBackground = __DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND__,
+		backdropAmount: backdropAmountProp = __DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT__,
+		blur: blurProp = __DEFAULT_LOADING_OVERLAY_BLUR__,
+		blurType: blurTypeProp = __DEFAULT_LOADING_OVERLAY_BLUR_TYPE__,
+		radius: radiusProp = __DEFAULT_LOADING_OVERLAY_RADIUS__,
+		isLoading: isLoadingProp = __DEFAULT_LOADING_OVERLAY_IS_LOADING__,
+		hasGlass: hasGlassProp = __DEFAULT_LOADING_OVERLAY_HAS_GLASS__,
+		hasBackground: hasBackgroundProp = __DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND__,
 		...rest
 	} = props;
+
+	const { backdropAmount, blur, blurType, radius, isLoading, hasGlass, hasBackground } =
+		useLoadingOverlayResponsiveValues({
+			backdropAmount: backdropAmountProp,
+			blur: blurProp,
+			blurType: blurTypeProp,
+			radius: radiusProp,
+			isLoading: isLoadingProp,
+			hasGlass: hasGlassProp,
+			hasBackground: hasBackgroundProp
+		});
 
 	const classes = useLoadingOverlayClasses({ blur, blurType, radius, hasGlass });
 	const styles = useLoadingOverlayStyles({ color, colorMode, backdropAmount, hasBackground });

@@ -9,6 +9,8 @@ import {
 } from '../constants';
 import type { LoadingOverlayProps } from '../types';
 
+import useLoadingOverlayResponsiveValues from './useLoadingOverlayResponsiveValues';
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
@@ -18,11 +20,18 @@ type UseLoadingOverlayClassesReturn = Record<'container' | 'overlay', ClassName>
 // TODO: Remove Get from all GetClasses hooks names
 const useLoadingOverlayClasses = (props: UseLoadingOverlayClassesProps): UseLoadingOverlayClassesReturn => {
 	const {
-		blur = __DEFAULT_LOADING_OVERLAY_BLUR__,
-		blurType = __DEFAULT_LOADING_OVERLAY_BLUR_TYPE__,
-		radius = __DEFAULT_LOADING_OVERLAY_RADIUS__,
-		hasGlass = __DEFAULT_LOADING_OVERLAY_HAS_GLASS__
+		blur: blurProp = __DEFAULT_LOADING_OVERLAY_BLUR__,
+		blurType: blurTypeProp = __DEFAULT_LOADING_OVERLAY_BLUR_TYPE__,
+		radius: radiusProp = __DEFAULT_LOADING_OVERLAY_RADIUS__,
+		hasGlass: hasGlassProp = __DEFAULT_LOADING_OVERLAY_HAS_GLASS__
 	} = props;
+
+	const { blur, blurType, radius, hasGlass } = useLoadingOverlayResponsiveValues({
+		blur: blurProp,
+		blurType: blurTypeProp,
+		radius: radiusProp,
+		hasGlass: hasGlassProp
+	});
 
 	const overflowClassName = useGetClass<OverflowClass>('hidden', ['layout', 'overflow']);
 	const radiusClassName = useGetClass<ThemeRadius>(radius, ['borders', 'border_radius']);

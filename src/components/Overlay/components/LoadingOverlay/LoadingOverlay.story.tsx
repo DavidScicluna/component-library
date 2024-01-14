@@ -19,7 +19,7 @@ import {
 	__DEFAULT_LOADING_OVERLAY_IS_LOADING__,
 	__DEFAULT_LOADING_OVERLAY_RADIUS__
 } from './common/constants';
-import type { LoadingOverlayBlurTypes, LoadingOverlayProps } from './common/types';
+import type { LoadingOverlayBlurType, LoadingOverlayProps } from './common/types';
 import type { LoadingOverlayStory, LoadingOverlayStoryMeta } from './common/types/story';
 import { LoadingOverlay as LoadingOverlayComponent } from '.';
 
@@ -65,7 +65,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_LOADING_OVERLAY_BLUR_TYPE__,
 			// description: '',
-			options: ['backdrop', 'blur'] as LoadingOverlayBlurTypes,
+			options: ['backdrop', 'blur'] as Array<LoadingOverlayBlurType>,
 			control: { type: 'radio' }
 		},
 		radius: {

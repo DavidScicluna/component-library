@@ -12,10 +12,15 @@ import type { BoxProps, BoxRef } from '@components/Box';
 import type { GlassOverlayProps } from '@components/Overlay';
 
 export type LoadingOverlayBlurType = 'blur' | 'backdrop';
-export type LoadingOverlayBlurTypes = Array<LoadingOverlayBlurType>;
 
 type LoadingOverlayOtherProps<Element extends ElementType = PolymorphicDefaultElement> = ThemeAppAppearanceProps & {
 	renderSpinner: () => ReactNode;
+	/**
+	 * The amount to increase the transparency by, given as a decimal between 0 and 1
+	 *
+	 * @default 0.5
+	 */
+	backdropAmount?: ResponsiveValue<number>;
 	/**
 	 * The amount of the blur effect to be applied ("none", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "8xl", "9xl")
 	 *
@@ -29,12 +34,6 @@ type LoadingOverlayOtherProps<Element extends ElementType = PolymorphicDefaultEl
 	 */
 	blurType?: ResponsiveValue<LoadingOverlayBlurType>;
 	/**
-	 * The amount to increase the transparency by, given as a decimal between 0 and 1
-	 *
-	 * @default 0.5
-	 */
-	backdropAmount?: ResponsiveValue<number>;
-	/**
 	 * The border radius of the loading overlay container
 	 *
 	 * @default 'none'
@@ -45,19 +44,19 @@ type LoadingOverlayOtherProps<Element extends ElementType = PolymorphicDefaultEl
 	 *
 	 * @default false
 	 */
-	isLoading: boolean;
+	isLoading: ResponsiveValue<boolean>;
 	/**
 	 * If `true` it will trigger the glass effect on the background
 	 *
 	 * @default true
 	 */
-	hasGlass?: boolean;
+	hasGlass?: ResponsiveValue<boolean>;
 	/**
 	 * If `true` a background depending on color & colorMode will be triggered on the background
 	 *
 	 * @default true
 	 */
-	hasBackground?: boolean;
+	hasBackground?: ResponsiveValue<boolean>;
 } & Pick<GlassOverlayProps<Element>, 'blur'>;
 
 export type LoadingOverlayProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
