@@ -4,7 +4,7 @@ import { transparentize } from 'color2k';
 import { compact } from 'lodash-es';
 
 import { __DEFAULT_COLOR__ } from '@common/constants';
-import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
+import { useAppTheme, useGetColor } from '@common/hooks';
 import type { Style } from '@common/types';
 import { getResponsiveValue } from '@common/utils';
 
@@ -15,10 +15,10 @@ import {
 } from '../constants';
 import type { PositionOverlayPlacement, PositionOverlayProps } from '../types';
 
-type UsePositionOverlayStylesProps = Pick<
-	PositionOverlayProps,
-	'color' | 'colorMode' | 'backdropAmount' | 'placement' | 'hasBackground'
->;
+import usePositionOverlayResponsiveValues from './usePositionOverlayResponsiveValues';
+
+type PickedPositionOverlayProps = 'color' | 'colorMode' | 'backdropAmount' | 'placement' | 'hasBackground';
+type UsePositionOverlayStylesProps = Pick<PositionOverlayProps, PickedPositionOverlayProps>;
 type UsePositionOverlayStylesReturn = Record<'overlay' | 'position', Style>;
 
 const usePositionOverlayStyles = (props: UsePositionOverlayStylesProps): UsePositionOverlayStylesReturn => {
@@ -27,10 +27,20 @@ const usePositionOverlayStyles = (props: UsePositionOverlayStylesProps): UsePosi
 	const {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_POSITION_OVERLAY_COLORMODE__,
-		backdropAmount: ba = __DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT__,
-		placement = __DEFAULT_POSITION_OVERLAY_PLACEMENT__,
-		hasBackground = __DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND__
+		backdropAmount: backdropAmountProp = __DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT__,
+		placement: placementProp = __DEFAULT_POSITION_OVERLAY_PLACEMENT__,
+		hasBackground: hasBackgroundProp = __DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND__
 	} = props;
+
+	const {
+		backdropAmount: amount,
+		placement,
+		hasBackground
+	} = usePositionOverlayResponsiveValues({
+		backdropAmount: backdropAmountProp,
+		placement: placementProp,
+		hasBackground: hasBackgroundProp
+	});
 
 	const background = useGetColor({
 		color,
@@ -38,7 +48,6 @@ const usePositionOverlayStyles = (props: UsePositionOverlayStylesProps): UsePosi
 		colorType: color ? 'color' : 'default',
 		hueType: colorMode === 'light' ? 'dark' : 'dark'
 	});
-	const amount = useGetResponsiveValue<number>(ba);
 
 	const position = useMemo<Style>(() => {
 		const styles: Style = { position: 'absolute' };

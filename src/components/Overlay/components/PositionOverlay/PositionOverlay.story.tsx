@@ -18,7 +18,7 @@ import {
 	__DEFAULT_POSITION_OVERLAY_IS_VISIBLE__,
 	__DEFAULT_POSITION_OVERLAY_RADIUS__
 } from './common/constants';
-import type { PositionOverlayBlurTypes, PositionOverlayPlacements, PositionOverlayProps } from './common/types';
+import type { PositionOverlayBlurType, PositionOverlayPlacement, PositionOverlayProps } from './common/types';
 import type { PositionOverlayStory, PositionOverlayStoryMeta } from './common/types/story';
 import { PositionOverlay as PositionOverlayComponent } from '.';
 
@@ -64,7 +64,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_POSITION_OVERLAY_BLUR_TYPE__,
 			// description: '',
-			options: ['backdrop', 'blur'] as PositionOverlayBlurTypes,
+			options: ['backdrop', 'blur'] as Array<PositionOverlayBlurType>,
 			control: { type: 'radio' }
 		},
 		placement: {
@@ -82,7 +82,7 @@ export default {
 				'middle-center',
 				'middle-end',
 				'middle-start'
-			] as PositionOverlayPlacements,
+			] as Array<PositionOverlayPlacement>,
 			control: { type: 'radio' }
 		},
 		radius: {

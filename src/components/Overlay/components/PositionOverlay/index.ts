@@ -1,8 +1,6 @@
 import type {
 	PositionOverlayBlurType,
-	PositionOverlayBlurTypes,
 	PositionOverlayPlacement,
-	PositionOverlayPlacements,
 	PositionOverlayProps,
 	PositionOverlayRef
 } from './common/types';
@@ -21,11 +19,4 @@ export * from './common/hooks';
 export { PositionOverlay };
 
 // Component Types
-export type {
-	PositionOverlayBlurType,
-	PositionOverlayBlurTypes,
-	PositionOverlayPlacement,
-	PositionOverlayPlacements,
-	PositionOverlayProps,
-	PositionOverlayRef
-};
+export type { PositionOverlayBlurType, PositionOverlayPlacement, PositionOverlayProps, PositionOverlayRef };

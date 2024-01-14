@@ -12,7 +12,6 @@ import type { BoxProps, BoxRef } from '@components/Box';
 import type { GlassOverlayProps } from '@components/Overlay';
 
 export type PositionOverlayBlurType = 'blur' | 'backdrop';
-export type PositionOverlayBlurTypes = Array<PositionOverlayBlurType>;
 
 export type PositionOverlayPlacement =
 	| 'bottom-center'
@@ -24,13 +23,18 @@ export type PositionOverlayPlacement =
 	| 'middle-center'
 	| 'middle-end'
 	| 'middle-start';
-export type PositionOverlayPlacements = Array<PositionOverlayPlacement>;
 
 type PositionOverlayOtherProps<Element extends ElementType = PolymorphicDefaultElement> = ThemeAppAppearanceProps & {
 	/**
 	 * Callback invoked to render the overlay
 	 */
 	renderOverlay: () => ReactNode;
+	/**
+	 * The amount to increase the transparency by, given as a decimal between 0 and 1
+	 *
+	 * @default 0.5
+	 */
+	backdropAmount?: ResponsiveValue<number>;
 	/**
 	 * The amount of the blur effect to be applied ("none", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "8xl", "9xl")
 	 *
@@ -43,12 +47,6 @@ type PositionOverlayOtherProps<Element extends ElementType = PolymorphicDefaultE
 	 * @default 'backdrop'
 	 */
 	blurType?: ResponsiveValue<PositionOverlayBlurType>;
-	/**
-	 * The amount to increase the transparency by, given as a decimal between 0 and 1
-	 *
-	 * @default 0.5
-	 */
-	backdropAmount?: ResponsiveValue<number>;
 	/**
 	 * The position of the overlay item relative to child element
 	 *
@@ -66,19 +64,19 @@ type PositionOverlayOtherProps<Element extends ElementType = PolymorphicDefaultE
 	 *
 	 * @default false
 	 */
-	isVisible?: boolean;
+	isVisible?: ResponsiveValue<boolean>;
 	/**
 	 * If `true` it will trigger the glass effect on the background
 	 *
 	 * @default true
 	 */
-	hasGlass?: boolean;
+	hasGlass?: ResponsiveValue<boolean>;
 	/**
 	 * If `true` a background depending on color & colorMode will be triggered on the background
 	 *
 	 * @default true
 	 */
-	hasBackground?: boolean;
+	hasBackground?: ResponsiveValue<boolean>;
 } & Pick<GlassOverlayProps<Element>, 'blur'>;
 
 export type PositionOverlayProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<

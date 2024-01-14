@@ -24,7 +24,11 @@ import {
 	__DEFAULT_POSITION_OVERLAY_PLACEMENT__,
 	__DEFAULT_POSITION_OVERLAY_RADIUS__
 } from './common/constants';
-import { usePositionOverlayClasses, usePositionOverlayStyles } from './common/hooks';
+import {
+	usePositionOverlayClasses,
+	usePositionOverlayResponsiveValues,
+	usePositionOverlayStyles
+} from './common/hooks';
 import { __KEYS_POSITION_OVERLAY_CLASS__ } from './common/keys';
 import type { PositionOverlayProps, PositionOverlayRef } from './common/types';
 
@@ -40,16 +44,28 @@ const PositionOverlay: PolymorphicComponentWithRef = forwardRef(function Positio
 		renderOverlay,
 		color,
 		colorMode,
-		backdropAmount = __DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT__,
-		blur = __DEFAULT_POSITION_OVERLAY_BLUR__,
-		blurType = __DEFAULT_POSITION_OVERLAY_BLUR_TYPE__,
-		placement = __DEFAULT_POSITION_OVERLAY_PLACEMENT__,
-		radius = __DEFAULT_POSITION_OVERLAY_RADIUS__,
-		isVisible = __DEFAULT_POSITION_OVERLAY_IS_VISIBLE__,
-		hasGlass = __DEFAULT_POSITION_OVERLAY_HAS_GLASS__,
-		hasBackground = __DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND__,
+		backdropAmount: backdropAmountProp = __DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT__,
+		blur: blurProp = __DEFAULT_POSITION_OVERLAY_BLUR__,
+		blurType: blurTypeProp = __DEFAULT_POSITION_OVERLAY_BLUR_TYPE__,
+		placement: placementProp = __DEFAULT_POSITION_OVERLAY_PLACEMENT__,
+		radius: radiusProp = __DEFAULT_POSITION_OVERLAY_RADIUS__,
+		isVisible: isVisibleProp = __DEFAULT_POSITION_OVERLAY_IS_VISIBLE__,
+		hasGlass: hasGlassProp = __DEFAULT_POSITION_OVERLAY_HAS_GLASS__,
+		hasBackground: hasBackgroundProp = __DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND__,
 		...rest
 	} = props;
+
+	const { backdropAmount, blur, blurType, placement, radius, isVisible, hasGlass, hasBackground } =
+		usePositionOverlayResponsiveValues({
+			backdropAmount: backdropAmountProp,
+			blur: blurProp,
+			blurType: blurTypeProp,
+			placement: placementProp,
+			radius: radiusProp,
+			isVisible: isVisibleProp,
+			hasGlass: hasGlassProp,
+			hasBackground: hasBackgroundProp
+		});
 
 	const classes = usePositionOverlayClasses({ blur, blurType, radius, hasGlass });
 	const styles = usePositionOverlayStyles({ color, colorMode, backdropAmount, placement, hasBackground });
