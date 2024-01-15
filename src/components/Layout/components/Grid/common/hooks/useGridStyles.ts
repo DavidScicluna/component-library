@@ -1,4 +1,3 @@
-import { useGetResponsiveValue } from '@common/hooks';
 import type { Style } from '@common/types';
 
 import { __DEFAULT_GRID_TEMPLATE_COLUMNS__, __DEFAULT_GRID_TEMPLATE_ROWS__ } from '../constants';
@@ -15,13 +14,10 @@ const useGridStyles = (props: UseGridStylesProps): UseGridStylesReturn => {
 		templateRows: templateRowsProp = __DEFAULT_GRID_TEMPLATE_ROWS__
 	} = props;
 
-	const { templateColumns: tc, templateRows: tr } = useGridResponsiveValues({
+	const { templateColumns, templateRows } = useGridResponsiveValues({
 		templateColumns: templateColumnsProp,
 		templateRows: templateRowsProp
 	});
-
-	const templateColumns = useGetResponsiveValue(tc);
-	const templateRows = useGetResponsiveValue(tr);
 
 	return {
 		gridTemplateColumns: typeof templateColumns === 'string' ? templateColumns : undefined,
