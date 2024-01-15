@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
 import { __DEFAULT_COLOR__ } from '@common/constants';
-import { useAppTheme, useGetAmount, useGetResponsiveValue, useTheme } from '@common/hooks';
+import { useAppTheme, useGetAmount, useTheme } from '@common/hooks';
 import type { Style } from '@common/types';
 import { filterColorHex, getColorHue } from '@common/utils';
 
@@ -15,7 +15,9 @@ import {
 	__DEFAULT_FORMS_IS_WARNING__,
 	__DEFAULT_FORMS_VARIANT__
 } from '../constants';
-import type { FormsCommonProps, FormsCommonVariant } from '../types';
+import type { FormsCommonProps } from '../types';
+
+import useFormsResponsiveValues from './useFormsResponsiveValues';
 
 type UseFormsStylesProps = Pick<
 	FormsCommonProps,
@@ -40,25 +42,26 @@ const useFormsStyles = (props: UseFormsStylesProps): UseFormsStylesReturn => {
 		element,
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_FORMS_COLORMODE__,
-		isDisabled: disabled = __DEFAULT_FORMS_IS_DISABLED__,
-		isError: error = __DEFAULT_FORMS_IS_ERROR__,
-		isFocused: focused = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
-		isReadOnly: readOnly = __DEFAULT_FORMS_IS_READONLY__,
-		isSuccess: success = __DEFAULT_FORMS_IS_SUCCESS__,
-		isWarning: warning = __DEFAULT_FORMS_IS_WARNING__,
-		variant: v = __DEFAULT_FORMS_VARIANT__
+		isDisabled: isDisabledProp = __DEFAULT_FORMS_IS_DISABLED__,
+		isError: isErrorProp = __DEFAULT_FORMS_IS_ERROR__,
+		isFocused: isFocusedProp = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
+		isReadOnly: isReadOnlyProp = __DEFAULT_FORMS_IS_READONLY__,
+		isSuccess: isSuccessProp = __DEFAULT_FORMS_IS_SUCCESS__,
+		isWarning: isWarningProp = __DEFAULT_FORMS_IS_WARNING__,
+		variant: variantProp = __DEFAULT_FORMS_VARIANT__
 	} = props;
 
+	const { isDisabled, isError, isFocused, isReadOnly, isSuccess, isWarning, variant } = useFormsResponsiveValues({
+		isDisabled: isDisabledProp,
+		isError: isErrorProp,
+		isFocused: isFocusedProp,
+		isReadOnly: isReadOnlyProp,
+		isSuccess: isSuccessProp,
+		isWarning: isWarningProp,
+		variant: variantProp
+	});
+
 	const amount = useGetAmount({ colorMode, types: ['active', 'focus', 'hover'] });
-
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-	const isError = useGetResponsiveValue<boolean>(error);
-	const isFocused = useGetResponsiveValue<boolean>(focused);
-	const isReadOnly = useGetResponsiveValue<boolean>(readOnly);
-	const isSuccess = useGetResponsiveValue<boolean>(success);
-	const isWarning = useGetResponsiveValue<boolean>(warning);
-
-	const variant = useGetResponsiveValue<FormsCommonVariant>(v);
 
 	const readOnlyStyles = useMemo<Style>(() => {
 		const colorHue = getColorHue({ colorMode, type: colorMode === 'light' ? 'darker' : 'lighter' });

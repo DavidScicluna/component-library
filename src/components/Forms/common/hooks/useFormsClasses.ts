@@ -7,7 +7,7 @@ import {
 	__DEFAULT_COLOR__,
 	__DEFAULT_OUTLINE_WIDTH__
 } from '@common/constants';
-import { useAppTheme, useConst, useGetResponsiveValue } from '@common/hooks';
+import { useAppTheme, useConst } from '@common/hooks';
 import type { ClassName } from '@common/types';
 import { getColorHue } from '@common/utils';
 
@@ -23,8 +23,9 @@ import {
 	__DEFAULT_FORMS_SIZE__,
 	__DEFAULT_FORMS_VARIANT__
 } from '../constants';
-import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '../types';
+import type { FormsCommonProps } from '../types';
 
+import useFormsResponsiveValues from './useFormsResponsiveValues';
 import useFormsSizeConfig from './useFormsSizeConfig';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -52,27 +53,29 @@ const useFormsClasses = (props: UseFormsClassesProps): UseFormsClassesReturn => 
 	const {
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_FORMS_COLORMODE__,
-		isCompact: compact = __DEFAULT_FORMS_IS_COMPACT__,
-		isDisabled: disabled = __DEFAULT_FORMS_IS_DISABLED__,
-		isError: error = __DEFAULT_FORMS_IS_ERROR__,
-		isOutlined: outlined = __DEFAULT_FORMS_IS_OUTLINED__,
-		isReadOnly: readOnly = __DEFAULT_FORMS_IS_READONLY__,
-		isSuccess: success = __DEFAULT_FORMS_IS_SUCCESS__,
-		isWarning: warning = __DEFAULT_FORMS_IS_WARNING__,
-		size: s = __DEFAULT_FORMS_SIZE__,
-		variant: v = __DEFAULT_FORMS_VARIANT__
+		isCompact: isCompactProp = __DEFAULT_FORMS_IS_COMPACT__,
+		isDisabled: isDisabledProp = __DEFAULT_FORMS_IS_DISABLED__,
+		isError: isErrorProp = __DEFAULT_FORMS_IS_ERROR__,
+		isOutlined: isOutlinedProp = __DEFAULT_FORMS_IS_OUTLINED__,
+		isReadOnly: isReadOnlyProp = __DEFAULT_FORMS_IS_READONLY__,
+		isSuccess: isSuccessProp = __DEFAULT_FORMS_IS_SUCCESS__,
+		isWarning: isWarningProp = __DEFAULT_FORMS_IS_WARNING__,
+		size: sizeProp = __DEFAULT_FORMS_SIZE__,
+		variant: variantProp = __DEFAULT_FORMS_VARIANT__
 	} = props;
 
-	const isCompact = useGetResponsiveValue<boolean>(compact);
-	const isDisabled = useGetResponsiveValue<boolean>(disabled);
-	const isError = useGetResponsiveValue<boolean>(error);
-	const isOutlined = useGetResponsiveValue<boolean>(outlined);
-	const isReadOnly = useGetResponsiveValue<boolean>(readOnly);
-	const isSuccess = useGetResponsiveValue<boolean>(success);
-	const isWarning = useGetResponsiveValue<boolean>(warning);
-
-	const size = useGetResponsiveValue<FormsCommonSize>(s);
-	const variant = useGetResponsiveValue<FormsCommonVariant>(v);
+	const { isCompact, isDisabled, isError, isOutlined, isReadOnly, isSuccess, isWarning, size, variant } =
+		useFormsResponsiveValues({
+			isCompact: isCompactProp,
+			isDisabled: isDisabledProp,
+			isError: isErrorProp,
+			isOutlined: isOutlinedProp,
+			isReadOnly: isReadOnlyProp,
+			isSuccess: isSuccessProp,
+			isWarning: isWarningProp,
+			size: sizeProp,
+			variant: variantProp
+		});
 
 	const config = useFormsSizeConfig({ isCompact, size, variant });
 
