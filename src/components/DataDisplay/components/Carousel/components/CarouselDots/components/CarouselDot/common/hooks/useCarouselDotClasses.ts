@@ -1,11 +1,13 @@
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__ } from '@common/constants';
-import { useAppTheme, useGetColor, useGetResponsiveValue } from '@common/hooks';
-import type { ClassName, ThemeSpacing } from '@common/types';
+import { useAppTheme, useGetColor } from '@common/hooks';
+import type { ClassName } from '@common/types';
 
 import { __DEFAULT_CAROUSEL_DOTS_SIZE__ } from '@components/DataDisplay/components/Carousel/components/CarouselDots/common/constants';
 
 import type { CarouselDotProps } from '../types';
+
+import useCarouselDotResponsiveValues from './useCarouselDotResponsiveValues';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
@@ -20,10 +22,10 @@ const useCarouselDotClasses = (props: UseCarouselDotClassesProps): UseCarouselDo
 		color = __DEFAULT_COLOR__,
 		colorMode = __DEFAULT_CAROUSEL_DOT_COLORMODE__,
 		isVisible,
-		size: s = __DEFAULT_CAROUSEL_DOTS_SIZE__
+		size: sizeProp = __DEFAULT_CAROUSEL_DOTS_SIZE__
 	} = props;
 
-	const size = useGetResponsiveValue<ThemeSpacing>(s);
+	const { size } = useCarouselDotResponsiveValues({ size: sizeProp });
 
 	const colorClassName = useGetColor({
 		color,

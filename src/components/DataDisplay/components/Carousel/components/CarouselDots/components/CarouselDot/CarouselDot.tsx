@@ -2,14 +2,12 @@ import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	PolymorphicComponentPropsWithRef,
 	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
 	PolymorphicDefaultProps,
-	PolymorphicElementType,
-	ThemeSpacing
+	PolymorphicElementType
 } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -17,7 +15,7 @@ import { useCarouselContext, useCarouselManager } from '@components/DataDisplay/
 
 import { __DEFAULT_CAROUSEL_DOTS_SIZE__ } from '../../common/constants';
 
-import { useCarouselDotClasses } from './common/hooks';
+import { useCarouselDotClasses, useCarouselDotResponsiveValues } from './common/hooks';
 import { __KEYS_CAROUSEL_DOT_CLASS__ } from './common/keys';
 import type { CarouselDotProps, CarouselDotRef } from './common/types';
 
@@ -37,11 +35,11 @@ const CarouselDot: PolymorphicComponentWithRef = forwardRef(function CarouselDot
 		colorMode = __DEFAULT_CAROUSEL_DOT_COLORMODE__,
 		item,
 		scale,
-		size: si = __DEFAULT_CAROUSEL_DOTS_SIZE__,
+		size: sizeProp = __DEFAULT_CAROUSEL_DOTS_SIZE__,
 		...rest
 	} = props;
 
-	const size = useGetResponsiveValue<ThemeSpacing>(si);
+	const { size } = useCarouselDotResponsiveValues({ size: sizeProp });
 
 	const isVisible = useMemo(() => isItemVisible(item.key), [item.key]);
 

@@ -1,3 +1,4 @@
 import useCarouselDotClasses from './useCarouselDotClasses';
+import useCarouselDotResponsiveValues from './useCarouselDotResponsiveValues';
 
-export { useCarouselDotClasses };
+export { useCarouselDotClasses, useCarouselDotResponsiveValues };
