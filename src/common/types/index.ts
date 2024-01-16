@@ -306,7 +306,7 @@ import type {
 	PolymorphicProps,
 	PolymorphicRef
 } from './polymorphic';
-import type { ResponsiveArrayValue, ResponsiveObjectValue, ResponsiveValue } from './responsive';
+import type { ResponsiveArrayValue, ResponsiveObjectValue, ResponsiveValue, ResponsiveValueProps } from './responsive';
 import type {
 	ThemeAppAppearanceProps,
 	ThemeAppColor,
@@ -597,6 +597,7 @@ export type {
 	ResponsiveArrayValue,
 	ResponsiveObjectValue,
 	ResponsiveValue,
+	ResponsiveValueProps,
 	RotateClass,
 	RotateClassArr,
 	RotateClassObj,
