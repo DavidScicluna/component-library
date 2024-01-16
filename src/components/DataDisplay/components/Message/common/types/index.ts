@@ -1,9 +1,8 @@
-import type { ElementType } from 'react';
-
 import type {
 	BorderStyleClass,
 	PickFrom,
 	PolymorphicDefaultElement,
+	PolymorphicElementType,
 	ResponsiveValue,
 	ThemeAppAppearanceProps,
 	ThemeRadius
@@ -18,9 +17,9 @@ type MessageOtherProps = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<MessageVariant>;
 };
 
-export type MessageProps<Element extends ElementType = PolymorphicDefaultElement> = VStackProps<Element> &
+export type MessageProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = VStackProps<Element> &
 	MessageOtherProps;
 
-export type MessageRef<Element extends ElementType = PolymorphicDefaultElement> = VStackRef<Element>;
+export type MessageRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = VStackRef<Element>;
 
 export type MessageContext = Pick<MessageProps, 'color' | 'colorMode' | 'spacing'>;

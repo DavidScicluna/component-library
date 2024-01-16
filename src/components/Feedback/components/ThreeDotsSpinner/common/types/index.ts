@@ -1,6 +1,10 @@
-import type { ElementType } from 'react';
-
-import type { PolymorphicDefaultElement, ResponsiveValue, ThemeFontSize, ThemeRadius } from '@common/types';
+import type {
+	PolymorphicDefaultElement,
+	PolymorphicElementType,
+	ResponsiveValue,
+	ThemeFontSize,
+	ThemeRadius
+} from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
@@ -13,9 +17,9 @@ type ThreeDotsSpinnerOtherProps = {
 	size?: ResponsiveValue<ThreeDotsSpinnerSize>;
 };
 
-export type ThreeDotsSpinnerProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+export type ThreeDotsSpinnerProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
 	BoxProps<Element, ThreeDotsSpinnerOtherProps>,
 	'children' | keyof BoxOtherProps
 >;
 
-export type ThreeDotsSpinnerRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type ThreeDotsSpinnerRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

@@ -1,9 +1,17 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-import type { PolymorphicChangeEvent, PolymorphicFocusEvent, PolymorphicMouseEvent } from '@common/types';
+import type {
+	PolymorphicChangeEvent,
+	PolymorphicElementType,
+	PolymorphicFocusEvent,
+	PolymorphicMouseEvent
+} from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
+
+export type TextInputDefaultElement = 'input';
+export type TextInputElement = Extract<PolymorphicElementType, 'input'>;
 
 export type TextInputMouseEvent<Element extends TextInputElement = TextInputDefaultElement> =
 	PolymorphicMouseEvent<Element>;
@@ -11,9 +19,6 @@ export type TextInputChangeEvent<Element extends TextInputElement = TextInputDef
 	PolymorphicChangeEvent<Element>;
 export type TextInputFocusEvent<Element extends TextInputElement = TextInputDefaultElement> =
 	PolymorphicFocusEvent<Element>;
-
-export type TextInputDefaultElement = 'input';
-export type TextInputElement = Extract<ElementType, 'input'>;
 
 export type TextInputSize = FormsCommonSize;
 

@@ -1,18 +1,16 @@
-import type { ElementType } from 'react';
-
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { TabsProps } from '@components/Navigation';
 
-export type TabPanelsProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+export type TabPanelsProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
 	BoxProps<Element>,
 	keyof BoxOtherProps
 >;
 
-export type TabPanelProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+export type TabPanelProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
 	Element,
 	Pick<TabsProps<Element>, 'index'>
 >;
 
-export type TabPanelsRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type TabPanelsRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

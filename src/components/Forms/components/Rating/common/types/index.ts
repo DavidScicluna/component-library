@@ -1,6 +1,4 @@
-import type { ElementType } from 'react';
-
-import type { IconKey, PolymorphicDefaultElement, ResponsiveValue } from '@common/types';
+import type { IconKey, PolymorphicDefaultElement, PolymorphicElementType, ResponsiveValue } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { FormsCommonProps, FormsCommonSize } from '@components/Forms/common/types';
@@ -65,9 +63,9 @@ type RatingOtherProps = Pick<FormsCommonProps, PickedFormsCommonProps> & {
 
 type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
-export type RatingProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+export type RatingProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
 	BoxProps<Element, RatingOtherProps>,
 	OmittedBoxProps
 >;
 
-export type RatingRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type RatingRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

@@ -1,6 +1,4 @@
-import type { ElementType } from 'react';
-
-import type { PolymorphicDefaultElement, ResponsiveValue } from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType, ResponsiveValue } from '@common/types';
 
 import type { ButtonProps } from '@components/Buttons';
 import type { StackProps, StackRef } from '@components/Layout';
@@ -23,10 +21,10 @@ type ButtonGroupOtherProps = Pick<ButtonProps, PickedButtonProps> & {
 	isAttached?: ResponsiveValue<boolean>;
 };
 
-export type ButtonGroupProps<Element extends ElementType = PolymorphicDefaultElement> = StackProps<Element> &
+export type ButtonGroupProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = StackProps<Element> &
 	ButtonGroupOtherProps;
 
-export type ButtonGroupRef<Element extends ElementType = PolymorphicDefaultElement> = StackRef<Element>;
+export type ButtonGroupRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = StackRef<Element>;
 
 export type ButtonGroupContext = Pick<
 	ButtonGroupProps,

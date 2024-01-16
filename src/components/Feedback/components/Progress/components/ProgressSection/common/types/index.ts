@@ -1,6 +1,9 @@
-import type { ElementType } from 'react';
-
-import type { PolymorphicDefaultElement, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
+import type {
+	PolymorphicDefaultElement,
+	PolymorphicElementType,
+	ResponsiveValue,
+	ThemeAppAppearanceProps
+} from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
@@ -13,9 +16,9 @@ type ProgressSectionOtherProps = ThemeAppAppearanceProps & {
 	value?: ResponsiveValue<number>;
 };
 
-export type ProgressSectionProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+export type ProgressSectionProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
 	BoxProps<Element, ProgressSectionOtherProps>,
 	keyof BoxOtherProps
 >;
 
-export type ProgressSectionRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type ProgressSectionRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

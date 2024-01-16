@@ -1,7 +1,8 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import type {
 	PolymorphicChangeEvent,
+	PolymorphicElementType,
 	PolymorphicFocusEvent,
 	PolymorphicMouseEvent,
 	ResponsiveValue
@@ -11,15 +12,15 @@ import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { ButtonProps, IconButtonProps } from '@components/Buttons';
 import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
 
+export type SearchInputDefaultElement = 'input';
+export type SearchInputElement = Extract<PolymorphicElementType, 'input'>;
+
 export type SearchInputMouseEvent<Element extends SearchInputElement = SearchInputDefaultElement> =
 	PolymorphicMouseEvent<Element>;
 export type SearchInputChangeEvent<Element extends SearchInputElement = SearchInputDefaultElement> =
 	PolymorphicChangeEvent<Element>;
 export type SearchInputFocusEvent<Element extends SearchInputElement = SearchInputDefaultElement> =
 	PolymorphicFocusEvent<Element>;
-
-export type SearchInputDefaultElement = 'input';
-export type SearchInputElement = Extract<ElementType, 'input'>;
 
 // export type SearchInputAutoComplete = 'on' | 'password' | 'off';
 

@@ -1,4 +1,4 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import type {
 	AlignItemsClass,
@@ -6,6 +6,7 @@ import type {
 	FlexWrapClass,
 	JustifyContentClass,
 	PolymorphicDefaultElement,
+	PolymorphicElementType,
 	ResponsiveValue,
 	ThemeSpacing
 } from '@common/types';
@@ -22,6 +23,9 @@ type StackOtherProps = {
 	wrap?: ResponsiveValue<FlexWrapClass>;
 };
 
-export type StackProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element, StackOtherProps>;
+export type StackProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
+	Element,
+	StackOtherProps
+>;
 
-export type StackRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type StackRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

@@ -1,6 +1,4 @@
-import type { ElementType } from 'react';
-
-import type { PolymorphicDefaultElement, ResponsiveValue, ThemeSpacing } from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType, ResponsiveValue, ThemeSpacing } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
@@ -9,6 +7,9 @@ type SpaceOtherProps = {
 	height?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type SpaceProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element, SpaceOtherProps>;
+export type SpaceProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
+	Element,
+	SpaceOtherProps
+>;
 
-export type SpaceRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type SpaceRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

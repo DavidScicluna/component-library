@@ -1,9 +1,17 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-import type { PolymorphicChangeEvent, PolymorphicFocusEvent, PolymorphicMouseEvent } from '@common/types';
+import type {
+	PolymorphicChangeEvent,
+	PolymorphicElementType,
+	PolymorphicFocusEvent,
+	PolymorphicMouseEvent
+} from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
+
+export type EmailInputDefaultElement = 'input';
+export type EmailInputElement = Extract<PolymorphicElementType, 'input'>;
 
 export type EmailInputMouseEvent<Element extends EmailInputElement = EmailInputDefaultElement> =
 	PolymorphicMouseEvent<Element>;
@@ -11,9 +19,6 @@ export type EmailInputChangeEvent<Element extends EmailInputElement = EmailInput
 	PolymorphicChangeEvent<Element>;
 export type EmailInputFocusEvent<Element extends EmailInputElement = EmailInputDefaultElement> =
 	PolymorphicFocusEvent<Element>;
-
-export type EmailInputDefaultElement = 'input';
-export type EmailInputElement = Extract<ElementType, 'input'>;
 
 // export type EmailInputAutoComplete = 'on' | 'password' | 'off';
 

@@ -1,15 +1,20 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-import type { PolymorphicMouseEvent, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
+import type {
+	PolymorphicElementType,
+	PolymorphicMouseEvent,
+	ResponsiveValue,
+	ThemeAppAppearanceProps
+} from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { PushableOverlayProps } from '@components/Overlay';
 
+export type IconButtonDefaultElement = 'button';
+export type IconButtonElement = Extract<PolymorphicElementType, 'button'>;
+
 export type IconButtonMouseEvent<Element extends IconButtonElement = IconButtonDefaultElement> =
 	PolymorphicMouseEvent<Element>;
-
-export type IconButtonDefaultElement = 'button';
-export type IconButtonElement = Extract<ElementType, 'button'>;
 
 export type IconButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 

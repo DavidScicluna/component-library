@@ -1,7 +1,8 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import type {
 	PolymorphicChangeEvent,
+	PolymorphicElementType,
 	PolymorphicFocusEvent,
 	PolymorphicMouseEvent,
 	ResponsiveValue
@@ -10,15 +11,15 @@ import type {
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
 
+export type NumberInputDefaultElement = 'input';
+export type NumberInputElement = Extract<PolymorphicElementType, 'input'>;
+
 export type NumberInputMouseEvent<Element extends NumberInputElement = NumberInputDefaultElement> =
 	PolymorphicMouseEvent<Element>;
 export type NumberInputChangeEvent<Element extends NumberInputElement = NumberInputDefaultElement> =
 	PolymorphicChangeEvent<Element>;
 export type NumberInputFocusEvent<Element extends NumberInputElement = NumberInputDefaultElement> =
 	PolymorphicFocusEvent<Element>;
-
-export type NumberInputDefaultElement = 'input';
-export type NumberInputElement = Extract<ElementType, 'input'>;
 
 // export type NumberInputAutoComplete = 'on' | 'password' | 'off';
 

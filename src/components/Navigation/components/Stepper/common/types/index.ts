@@ -1,6 +1,10 @@
-import type { ElementType } from 'react';
-
-import type { PolymorphicDefaultElement, ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
+import type {
+	PolymorphicDefaultElement,
+	PolymorphicElementType,
+	ResponsiveValue,
+	ThemeAppAppearanceProps,
+	ThemeSpacing
+} from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
@@ -70,12 +74,12 @@ type StepperOtherProps = ThemeAppAppearanceProps & {
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type StepperProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+export type StepperProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
 	Element,
 	StepperOtherProps
 >;
 
-export type StepperRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type StepperRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
 type PickedStepperProps =
 	| 'color'

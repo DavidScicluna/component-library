@@ -1,13 +1,19 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-import type { PolymorphicMouseEvent, ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
+import type {
+	PolymorphicElementType,
+	PolymorphicMouseEvent,
+	ResponsiveValue,
+	ThemeAppAppearanceProps,
+	ThemeSpacing
+} from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
-export type TabMouseEvent<Element extends TabElement = TabDefaultElement> = PolymorphicMouseEvent<Element>;
-
 export type TabDefaultElement = 'button';
-export type TabElement = Extract<ElementType, 'button'>;
+export type TabElement = Extract<PolymorphicElementType, 'button'>;
+
+export type TabMouseEvent<Element extends TabElement = TabDefaultElement> = PolymorphicMouseEvent<Element>;
 
 export type TabRenderProps<Element extends TabElement = TabDefaultElement> = Pick<
 	TabOtherProps<Element>,

@@ -1,12 +1,12 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 import type { CardProps } from '@components/DataDisplay';
 import type { GridProps } from '@components/Layout';
 
-export type CardHeaderRenderProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
+export type CardHeaderRenderProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Pick<
 	CardProps<Element>,
 	'color' | 'colorMode'
 > & {
@@ -14,7 +14,7 @@ export type CardHeaderRenderProps<Element extends ElementType = PolymorphicDefau
 	h?: number;
 };
 
-type CardHeaderOtherProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
+type CardHeaderOtherProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Pick<
 	GridProps<Element>,
 	'spacing'
 > & {
@@ -25,9 +25,9 @@ type CardHeaderOtherProps<Element extends ElementType = PolymorphicDefaultElemen
 	renderActions?: () => ReactNode;
 };
 
-export type CardHeaderProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+export type CardHeaderProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
 	BoxProps<Element, CardHeaderOtherProps<Element>>,
 	'children' | 'w' | 'h'
 >;
 
-export type CardHeaderRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type CardHeaderRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

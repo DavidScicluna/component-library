@@ -1,6 +1,10 @@
-import type { ElementType } from 'react';
-
-import type { PolymorphicDefaultElement, ResponsiveValue, ThemeAppAppearanceProps, ThemeRadius } from '@common/types';
+import type {
+	PolymorphicDefaultElement,
+	PolymorphicElementType,
+	ResponsiveValue,
+	ThemeAppAppearanceProps,
+	ThemeRadius
+} from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
@@ -41,9 +45,10 @@ type DummyPushableOverlayOtherProps = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<DummyPushableOverlayVariant>;
 };
 
-export type DummyPushableOverlayProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+export type DummyPushableOverlayProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
 	Element,
 	DummyPushableOverlayOtherProps
 >;
 
-export type DummyPushableOverlayRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type DummyPushableOverlayRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
+	BoxRef<Element>;

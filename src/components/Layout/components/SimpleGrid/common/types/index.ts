@@ -1,6 +1,4 @@
-import type { ElementType } from 'react';
-
-import type { PolymorphicDefaultElement, ResponsiveValue, ThemeSpacing } from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType, ResponsiveValue, ThemeSpacing } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
@@ -11,9 +9,9 @@ type SimpleGridOtherProps = {
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type SimpleGridProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+export type SimpleGridProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
 	Element,
 	SimpleGridOtherProps
 >;
 
-export type SimpleGridRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type SimpleGridRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

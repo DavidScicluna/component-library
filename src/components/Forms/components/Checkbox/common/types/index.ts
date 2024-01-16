@@ -1,8 +1,9 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import type {
 	PolymorphicChangeEvent,
 	PolymorphicDefaultElement,
+	PolymorphicElementType,
 	PolymorphicFocusEvent,
 	PolymorphicMouseEvent,
 	ResponsiveValue
@@ -13,11 +14,11 @@ import type { FormsCommonProps, FormsCommonSize } from '@components/Forms/common
 import type { PushableOverlayProps } from '@components/Overlay';
 import type { TextProps } from '@components/Typography';
 
-export type CheckboxMouseEvent<Element extends ElementType = PolymorphicDefaultElement> =
+export type CheckboxMouseEvent<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
 	PolymorphicMouseEvent<Element>;
-export type CheckboxChangeEvent<Element extends ElementType = PolymorphicDefaultElement> =
+export type CheckboxChangeEvent<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
 	PolymorphicChangeEvent<Element>;
-export type CheckboxFocusEvent<Element extends ElementType = PolymorphicDefaultElement> =
+export type CheckboxFocusEvent<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
 	PolymorphicFocusEvent<Element>;
 
 export type CheckboxLabelPosition = 'left' | 'right';
@@ -69,9 +70,9 @@ type CheckboxOtherProps = Pick<FormsCommonProps, PickedFormsCommonProps> & {
 
 type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
-export type CheckboxProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+export type CheckboxProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
 	BoxProps<Element, CheckboxOtherProps>,
 	OmittedBoxProps
 >;
 
-export type CheckboxRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type CheckboxRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

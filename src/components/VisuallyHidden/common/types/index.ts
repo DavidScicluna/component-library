@@ -1,11 +1,9 @@
-import type { ElementType } from 'react';
-
-import type { PolymorphicChangeEvent } from '@common/types';
+import type { PolymorphicChangeEvent, PolymorphicElementType } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
 export type VisuallyHiddenDefaultElement = 'span';
-export type VisuallyHiddenElement = Extract<ElementType, 'span'>;
+export type VisuallyHiddenElement = Extract<PolymorphicElementType, 'span' | 'input'>;
 
 export type VisuallyHiddenChangeEvent<Element extends VisuallyHiddenElement = VisuallyHiddenDefaultElement> =
 	PolymorphicChangeEvent<Element>;

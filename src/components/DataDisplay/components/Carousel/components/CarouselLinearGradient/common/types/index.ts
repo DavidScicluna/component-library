@@ -1,6 +1,4 @@
-import type { ElementType } from 'react';
-
-import type { PolymorphicDefaultElement, ResponsiveValue } from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType, ResponsiveValue } from '@common/types';
 
 import type { CarouselArrowDirection } from '@components/DataDisplay';
 import type { LinearGradientProps, LinearGradientRef } from '@components/Overlay';
@@ -18,11 +16,11 @@ type CarouselLinearGradientOtherProps = {
 	isVisible?: ResponsiveValue<boolean>;
 };
 
-export type CarouselLinearGradientProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+export type CarouselLinearGradientProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
 	LinearGradientProps<Element>,
 	'direction' | 'from' | 'middle' | 'to'
 > &
 	CarouselLinearGradientOtherProps;
 
-export type CarouselLinearGradientRef<Element extends ElementType = PolymorphicDefaultElement> =
+export type CarouselLinearGradientRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
 	LinearGradientRef<Element>;

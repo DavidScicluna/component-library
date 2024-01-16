@@ -1,11 +1,16 @@
-import type { ElementType } from 'react';
-
-import type { IconKey, ResponsiveValue, ThemeAppAppearanceProps, ThemeFontSize, ThemeRadius } from '@common/types';
+import type {
+	IconKey,
+	PolymorphicElementType,
+	ResponsiveValue,
+	ThemeAppAppearanceProps,
+	ThemeFontSize,
+	ThemeRadius
+} from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
 export type IconDefaultElement = 'span';
-export type IconElement = Extract<ElementType, 'span'>;
+export type IconElement = Extract<PolymorphicElementType, 'span'>;
 
 export type IconCategory = 'filled' | 'outlined' | 'twoTone';
 

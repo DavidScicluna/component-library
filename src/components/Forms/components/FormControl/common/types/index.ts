@@ -1,6 +1,4 @@
-import type { ElementType } from 'react';
-
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 import type { FormsCommonProps, FormsCommonSize } from '@components/Forms/common/types';
@@ -22,18 +20,18 @@ type PickedFormsCommonProps =
 
 type PickedStackProps = 'alignItems' | 'justifyContent' | 'spacing';
 
-type FormControlOtherProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
+type FormControlOtherProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Pick<
 	FormsCommonProps,
 	PickedFormsCommonProps
 > &
 	Pick<StackProps<Element>, PickedStackProps>;
 
-export type FormControlProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+export type FormControlProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
 	Element,
 	FormControlOtherProps<Element>
 >;
 
-export type FormControlRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type FormControlRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
 type PickedFormControlProps =
 	| 'color'

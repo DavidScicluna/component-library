@@ -1,7 +1,6 @@
-import type { ElementType } from 'react';
-
 import type {
 	PolymorphicDefaultElement,
+	PolymorphicElementType,
 	ResponsiveValue,
 	ScaleClass,
 	ThemeAppearanceProps,
@@ -22,9 +21,9 @@ type CarouselDotsOtherProps = ThemeAppearanceProps & {
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type CarouselDotsProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+export type CarouselDotsProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
 	BoxProps<Element, CarouselDotsOtherProps>,
 	'children'
 >;
 
-export type CarouselDotsRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type CarouselDotsRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

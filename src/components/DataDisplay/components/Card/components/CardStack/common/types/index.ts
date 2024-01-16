@@ -1,12 +1,10 @@
-import type { ElementType } from 'react';
-
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import type { VStackProps, VStackRef } from '@components/Layout';
 
-export type CardStackProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+export type CardStackProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
 	VStackProps<Element>,
 	'w' | 'h'
 >;
 
-export type CardStackRef<Element extends ElementType = PolymorphicDefaultElement> = VStackRef<Element>;
+export type CardStackRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = VStackRef<Element>;

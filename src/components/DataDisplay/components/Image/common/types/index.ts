@@ -1,4 +1,4 @@
-import type { ElementType, ImgHTMLAttributes, SyntheticEvent } from 'react';
+import type { ImgHTMLAttributes, SyntheticEvent } from 'react';
 
 import type {
 	BrightnessClass,
@@ -7,6 +7,7 @@ import type {
 	HueRotateClass,
 	InvertClass,
 	PolymorphicDefaultElement,
+	PolymorphicElementType,
 	ResponsiveValue,
 	SaturateClass,
 	SepiaClass,
@@ -101,9 +102,9 @@ type ImageOtherProps = ThemeAppAppearanceProps & {
 	radius?: ResponsiveValue<ThemeRadius>;
 } & ImageModes;
 
-export type ImageProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+export type ImageProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
 	BoxProps<Element, ImageOtherProps>,
 	'children'
 >;
 
-export type ImageRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type ImageRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

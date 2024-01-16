@@ -1,7 +1,8 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import type {
 	PolymorphicChangeEvent,
+	PolymorphicElementType,
 	PolymorphicFocusEvent,
 	PolymorphicMouseEvent,
 	ResponsiveValue
@@ -11,15 +12,15 @@ import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { FileButtonProps } from '@components/Buttons';
 import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
 
+export type FileInputDefaultElement = 'input';
+export type FileInputElement = Extract<PolymorphicElementType, 'input'>;
+
 export type FileInputMouseEvent<Element extends FileInputElement = FileInputDefaultElement> =
 	PolymorphicMouseEvent<Element>;
 export type FileInputChangeEvent<Element extends FileInputElement = FileInputDefaultElement> =
 	PolymorphicChangeEvent<Element>;
 export type FileInputFocusEvent<Element extends FileInputElement = FileInputDefaultElement> =
 	PolymorphicFocusEvent<Element>;
-
-export type FileInputDefaultElement = 'input';
-export type FileInputElement = Extract<ElementType, 'input'>;
 
 export type FileInputSize = FormsCommonSize;
 

@@ -1,8 +1,9 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import type {
 	PolymorphicChangeEvent,
 	PolymorphicDefaultElement,
+	PolymorphicElementType,
 	PolymorphicFocusEvent,
 	PolymorphicMouseEvent,
 	ResponsiveValue
@@ -13,9 +14,12 @@ import type { FormsCommonProps, FormsCommonSize } from '@components/Forms/common
 import type { PushableOverlayProps } from '@components/Overlay';
 import type { TextProps } from '@components/Typography';
 
-export type RadioMouseEvent<Element extends ElementType = PolymorphicDefaultElement> = PolymorphicMouseEvent<Element>;
-export type RadioChangeEvent<Element extends ElementType = PolymorphicDefaultElement> = PolymorphicChangeEvent<Element>;
-export type RadioFocusEvent<Element extends ElementType = PolymorphicDefaultElement> = PolymorphicFocusEvent<Element>;
+export type RadioMouseEvent<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
+	PolymorphicMouseEvent<Element>;
+export type RadioChangeEvent<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
+	PolymorphicChangeEvent<Element>;
+export type RadioFocusEvent<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
+	PolymorphicFocusEvent<Element>;
 
 export type RadioLabelPosition = 'left' | 'right';
 
@@ -60,9 +64,9 @@ type RadioOtherProps = Pick<FormsCommonProps, PickedFormsCommonProps> & {
 
 type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
-export type RadioProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+export type RadioProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
 	BoxProps<Element, RadioOtherProps>,
 	OmittedBoxProps
 >;
 
-export type RadioRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type RadioRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

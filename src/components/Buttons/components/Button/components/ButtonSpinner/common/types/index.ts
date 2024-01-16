@@ -1,6 +1,4 @@
-import type { ElementType } from 'react';
-
-import type { PolymorphicDefaultElement, ResponsiveValue } from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType, ResponsiveValue } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
@@ -17,9 +15,9 @@ type ButtonSpinnerOtherProps = {
 	variant?: ResponsiveValue<ButtonSpinnerVariant>;
 };
 
-export type ButtonSpinnerProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+export type ButtonSpinnerProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
 	BoxProps<Element, ButtonSpinnerOtherProps>,
 	keyof BoxOtherProps
 >;
 
-export type ButtonSpinnerRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type ButtonSpinnerRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

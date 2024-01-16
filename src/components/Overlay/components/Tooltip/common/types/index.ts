@@ -1,6 +1,9 @@
-import type { ElementType } from 'react';
-
-import type { PolymorphicDefaultElement, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
+import type {
+	PolymorphicDefaultElement,
+	PolymorphicElementType,
+	ResponsiveValue,
+	ThemeAppAppearanceProps
+} from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
@@ -72,9 +75,9 @@ type TooltipOtherProps = ThemeAppAppearanceProps & {
 	placement?: ResponsiveValue<TooltipPlacement>;
 };
 
-export type TooltipProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+export type TooltipProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
 	BoxProps<Element, TooltipOtherProps>,
 	keyof BoxOtherProps
 >;
 
-export type TooltipRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type TooltipRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

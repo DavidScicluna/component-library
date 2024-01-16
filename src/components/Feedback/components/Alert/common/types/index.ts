@@ -1,8 +1,9 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import type {
 	Nullish,
 	PolymorphicDefaultElement,
+	PolymorphicElementType,
 	ResponsiveValue,
 	ThemeAppAppearanceProps,
 	ThemeSpacing
@@ -70,11 +71,11 @@ type AlertOtherProps = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<AlertVariant>;
 };
 
-export type AlertProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+export type AlertProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
 	BoxProps<Element, AlertOtherProps>,
 	keyof BoxOtherProps
 >;
 
-export type AlertRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type AlertRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
 export type AlertContext = Pick<AlertProps, 'color' | 'colorMode' | 'status' | 'variant'>;

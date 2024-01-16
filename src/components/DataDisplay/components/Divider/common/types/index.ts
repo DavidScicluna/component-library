@@ -1,11 +1,15 @@
-import type { ElementType } from 'react';
-
-import type { ResponsiveValue, ThemeAppearanceProps, ThemeBorderWidth, ThemeSpacing } from '@common/types';
+import type {
+	PolymorphicElementType,
+	ResponsiveValue,
+	ThemeAppearanceProps,
+	ThemeBorderWidth,
+	ThemeSpacing
+} from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
 export type DividerDefaultElement = 'div';
-export type DividerElement = Extract<ElementType, 'div'>;
+export type DividerElement = Extract<PolymorphicElementType, 'div'>;
 
 export type DividerThemeAppearanceProps = Partial<
 	Pick<ThemeAppearanceProps, 'colorMode'> & { color: ThemeAppearanceProps['color'] | string }

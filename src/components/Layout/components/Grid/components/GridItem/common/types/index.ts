@@ -1,5 +1,3 @@
-import type { ElementType } from 'react';
-
 import type {
 	AlignSelfClass,
 	GridColumnSpanClass,
@@ -8,6 +6,7 @@ import type {
 	GridRowStartEndClass,
 	JustifySelfClass,
 	PolymorphicDefaultElement,
+	PolymorphicElementType,
 	ResponsiveValue,
 	ZIndexClass
 } from '@common/types';
@@ -27,9 +26,9 @@ type GridItemOtherProps = {
 	zIndex?: ResponsiveValue<ZIndexClass>;
 };
 
-export type GridItemProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+export type GridItemProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
 	Element,
 	GridItemOtherProps
 >;
 
-export type GridItemRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type GridItemRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

@@ -1,8 +1,9 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import type {
 	PolymorphicChangeEvent,
 	PolymorphicDefaultElement,
+	PolymorphicElementType,
 	PolymorphicFocusEvent,
 	PolymorphicMouseEvent,
 	ResponsiveValue
@@ -13,10 +14,12 @@ import type { FormsCommonProps, FormsCommonSize } from '@components/Forms/common
 import type { PushableOverlayProps } from '@components/Overlay';
 import type { TextProps } from '@components/Typography';
 
-export type SwitchMouseEvent<Element extends ElementType = PolymorphicDefaultElement> = PolymorphicMouseEvent<Element>;
-export type SwitchChangeEvent<Element extends ElementType = PolymorphicDefaultElement> =
+export type SwitchMouseEvent<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
+	PolymorphicMouseEvent<Element>;
+export type SwitchChangeEvent<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
 	PolymorphicChangeEvent<Element>;
-export type SwitchFocusEvent<Element extends ElementType = PolymorphicDefaultElement> = PolymorphicFocusEvent<Element>;
+export type SwitchFocusEvent<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
+	PolymorphicFocusEvent<Element>;
 
 export type SwitchLabelPosition = 'left' | 'right';
 
@@ -67,9 +70,9 @@ type SwitchOtherProps = Pick<FormsCommonProps, PickedFormsCommonProps> & {
 
 type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
-export type SwitchProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+export type SwitchProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
 	BoxProps<Element, SwitchOtherProps>,
 	OmittedBoxProps
 >;
 
-export type SwitchRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type SwitchRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

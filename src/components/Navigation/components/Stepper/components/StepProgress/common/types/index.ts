@@ -1,8 +1,11 @@
-import type { ElementType } from 'react';
+import type { PolymorphicElementType } from '@common/types';
 
 import type { BoxOtherProps } from '@components/Box';
 import type { ProgressProps, ProgressRef } from '@components/Feedback';
 
-export type StepProgressProps<Element extends ElementType> = Omit<ProgressProps<Element>, keyof BoxOtherProps>;
+export type StepProgressProps<Element extends PolymorphicElementType> = Omit<
+	ProgressProps<Element>,
+	keyof BoxOtherProps
+>;
 
-export type StepProgressRef<Element extends ElementType> = ProgressRef<Element>;
+export type StepProgressRef<Element extends PolymorphicElementType> = ProgressRef<Element>;

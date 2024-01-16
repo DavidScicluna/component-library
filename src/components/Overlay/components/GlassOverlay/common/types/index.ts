@@ -1,7 +1,6 @@
-import type { ElementType } from 'react';
-
 import type {
 	PolymorphicDefaultElement,
+	PolymorphicElementType,
 	ResponsiveValue,
 	ThemeAppAppearanceProps,
 	ThemeBlurClass,
@@ -45,9 +44,9 @@ type GlassOverlayOtherProps = ThemeAppAppearanceProps & {
 	hasBackground?: ResponsiveValue<boolean>;
 };
 
-export type GlassOverlayProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+export type GlassOverlayProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
 	Element,
 	GlassOverlayOtherProps
 >;
 
-export type GlassOverlayRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type GlassOverlayRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

@@ -1,11 +1,9 @@
-import type { ElementType } from 'react';
-
-import type { PolymorphicFormEvent } from '@common/types';
+import type { PolymorphicElementType, PolymorphicFormEvent } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
 export type FormDefaultElement = 'form';
-export type FormElement = Extract<ElementType, 'form'>;
+export type FormElement = Extract<PolymorphicElementType, 'form'>;
 
 export type FormEvent<Element extends FormElement = FormDefaultElement> = PolymorphicFormEvent<Element>;
 

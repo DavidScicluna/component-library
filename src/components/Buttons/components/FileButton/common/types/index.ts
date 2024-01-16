@@ -1,14 +1,14 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-import type { Nullish, PolymorphicChangeEvent } from '@common/types';
+import type { Nullish, PolymorphicChangeEvent, PolymorphicElementType } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
+export type FileButtonDefaultElement = 'input';
+export type FileButtonElement = Extract<PolymorphicElementType, 'input'>;
+
 export type FileButtonChangeEvent<Element extends FileButtonElement = FileButtonDefaultElement> =
 	PolymorphicChangeEvent<Element>;
-
-export type FileButtonDefaultElement = 'input';
-export type FileButtonElement = Extract<ElementType, 'input'>;
 
 export type FileButtonFile = Nullish<FileList | Array<never>>;
 

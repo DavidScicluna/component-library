@@ -1,11 +1,18 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-import type { PickFrom, ResponsiveValue, ThemeAppAppearanceProps, ThemeFontSize, ThemeSpacing } from '@common/types';
+import type {
+	PickFrom,
+	PolymorphicElementType,
+	ResponsiveValue,
+	ThemeAppAppearanceProps,
+	ThemeFontSize,
+	ThemeSpacing
+} from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
 export type ModalDefaultElement = 'dialog';
-export type ModalElement = Extract<ElementType, 'dialog'>;
+export type ModalElement = Extract<PolymorphicElementType, 'dialog'>;
 
 export type ModalSize =
 	| PickFrom<ThemeFontSize, 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl'>

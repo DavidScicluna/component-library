@@ -1,5 +1,3 @@
-import type { ElementType } from 'react';
-
 import type {
 	AlignContentClass,
 	AlignItemsClass,
@@ -10,6 +8,7 @@ import type {
 	JustifyContentClass,
 	JustifyItemsClass,
 	PolymorphicDefaultElement,
+	PolymorphicElementType,
 	ResponsiveValue,
 	ThemeSpacing
 } from '@common/types';
@@ -34,6 +33,9 @@ type GridOtherProps = {
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type GridProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<Element, GridOtherProps>;
+export type GridProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
+	Element,
+	GridOtherProps
+>;
 
-export type GridRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type GridRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

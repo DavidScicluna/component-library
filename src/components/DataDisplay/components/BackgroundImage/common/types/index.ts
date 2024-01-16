@@ -1,5 +1,3 @@
-import type { ElementType } from 'react';
-
 import type {
 	BackgroundAttachmentClass,
 	BackgroundBlendModeClass,
@@ -14,6 +12,7 @@ import type {
 	HueRotateClass,
 	InvertClass,
 	PolymorphicDefaultElement,
+	PolymorphicElementType,
 	ResponsiveValue,
 	SaturateClass,
 	SepiaClass,
@@ -134,9 +133,9 @@ type BackgroundImageOtherProps = {
 	src: ResponsiveValue<string>;
 };
 
-export type BackgroundImageProps<Element extends ElementType = PolymorphicDefaultElement> = BoxProps<
+export type BackgroundImageProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
 	Element,
 	BackgroundImageOtherProps
 >;
 
-export type BackgroundImageRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type BackgroundImageRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

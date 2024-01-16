@@ -1,6 +1,12 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-import type { PolymorphicDefaultElement, ResponsiveValue, ThemeAppAppearanceProps, ThemeFontSize } from '@common/types';
+import type {
+	PolymorphicDefaultElement,
+	PolymorphicElementType,
+	ResponsiveValue,
+	ThemeAppAppearanceProps,
+	ThemeFontSize
+} from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { PushableOverlayProps } from '@components/Overlay';
@@ -9,7 +15,7 @@ export type BadgeSize = ThemeFontSize;
 
 export type BadgeVariant = 'contained' | 'light' | 'dark' | 'outlined' | 'monochrome' | 'text';
 
-export type BadgeRenderProps<Element extends ElementType = PolymorphicDefaultElement> = Pick<
+export type BadgeRenderProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Pick<
 	BadgeOtherProps<Element>,
 	'color' | 'colorMode'
 > & {
@@ -17,7 +23,7 @@ export type BadgeRenderProps<Element extends ElementType = PolymorphicDefaultEle
 	h?: number;
 };
 
-type BadgeOtherProps<Element extends ElementType = PolymorphicDefaultElement> = ThemeAppAppearanceProps & {
+type BadgeOtherProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = ThemeAppAppearanceProps & {
 	/**
 	 * Callback invoked to render the action button
 	 */
@@ -74,11 +80,11 @@ type BadgeOtherProps<Element extends ElementType = PolymorphicDefaultElement> = 
 	variant?: ResponsiveValue<BadgeVariant>;
 } & Pick<PushableOverlayProps<Element>, 'isActive' | 'isDisabled' | 'isOutlined'>;
 
-export type BadgeProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+export type BadgeProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
 	BoxProps<Element, BadgeOtherProps<Element>>,
 	keyof BoxOtherProps
 >;
 
-export type BadgeRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type BadgeRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
 
 export type BadgeContext = Pick<BadgeProps, 'color' | 'colorMode' | 'size' | 'variant'>;

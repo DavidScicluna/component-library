@@ -1,9 +1,9 @@
-import type { ElementType } from 'react';
+import type { PolymorphicElementType } from '@common/types';
 
 import type { DividerProps, DividerRef } from '@components/DataDisplay';
 
 export type CardDividerDefaultElement = 'div';
-export type CardDividerElement = Extract<ElementType, 'div'>;
+export type CardDividerElement = Extract<PolymorphicElementType, 'div'>;
 
 export type CardDividerProps<Element extends CardDividerElement = CardDividerDefaultElement> = Omit<
 	DividerProps<Element>,

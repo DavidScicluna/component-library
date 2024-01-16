@@ -1,6 +1,6 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
@@ -18,9 +18,9 @@ type ButtonGroupItemOtherProps = {
 	total: number;
 };
 
-export type ButtonGroupItemProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+export type ButtonGroupItemProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
 	BoxProps<Element, ButtonGroupItemOtherProps>,
 	keyof BoxOtherProps
 >;
 
-export type ButtonGroupItemRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type ButtonGroupItemRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

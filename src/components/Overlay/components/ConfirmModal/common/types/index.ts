@@ -1,11 +1,18 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-import type { PickFrom, ResponsiveValue, ThemeAppAppearanceProps, ThemeFontSize, ThemeSpacing } from '@common/types';
+import type {
+	PickFrom,
+	PolymorphicElementType,
+	ResponsiveValue,
+	ThemeAppAppearanceProps,
+	ThemeFontSize,
+	ThemeSpacing
+} from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
 export type ConfirmModalDefaultElement = 'dialog';
-export type ConfirmModalElement = Extract<ElementType, 'dialog'>;
+export type ConfirmModalElement = Extract<PolymorphicElementType, 'dialog'>;
 
 export type ConfirmModalSize = PickFrom<ThemeFontSize, 'xs' | 'sm' | 'md' | 'lg' | 'xl'>;
 

@@ -1,6 +1,4 @@
-import type { ElementType } from 'react';
-
-import type { PolymorphicDefaultElement, ThemeAppearanceProps } from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType, ThemeAppearanceProps } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 import type { CarouselDotsProps, CarouselDotType } from '@components/DataDisplay';
@@ -9,9 +7,9 @@ type CarouselDotOtherProps = ThemeAppearanceProps &
 	CarouselDotType &
 	Pick<CarouselDotsProps<PolymorphicDefaultElement>, 'size'>;
 
-export type CarouselDotProps<Element extends ElementType = PolymorphicDefaultElement> = Omit<
+export type CarouselDotProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
 	BoxProps<Element, CarouselDotOtherProps>,
 	'children'
 >;
 
-export type CarouselDotRef<Element extends ElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type CarouselDotRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
