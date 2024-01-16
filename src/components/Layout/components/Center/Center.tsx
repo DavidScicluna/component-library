@@ -1,13 +1,8 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -19,9 +14,10 @@ import type { CenterProps, CenterRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Center: PolymorphicComponentWithRef = forwardRef(function Center<
-	Element extends ElementType = PolymorphicDefaultElement
->(props: CenterProps<Element>, ref: CenterRef<Element>): ReactElement {
+const Center = forwardRef(function Center<Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+	props: CenterProps<Element>,
+	ref: CenterRef<Element>
+): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
@@ -29,13 +25,13 @@ const Center: PolymorphicComponentWithRef = forwardRef(function Center<
 		...rest
 	} = props;
 
-	const { spacing } = useCenterResponsiveValues({ spacing: spacingProp });
+	const { spacing } = useCenterResponsiveValues<Element>({ spacing: spacingProp });
 
-	const classes = useCenterClasses({ spacing });
+	const classes = useCenterClasses<Element>({ spacing });
 
 	return (
-		<Box<Element>
-			{...rest}
+		<Box
+			{...(rest as CenterProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_CENTER_CLASS__, classes, { [className]: !!className })}
 		>
@@ -44,8 +40,6 @@ const Center: PolymorphicComponentWithRef = forwardRef(function Center<
 	);
 });
 
-Center.displayName = 'Center';
+// Center.displayName = 'Center';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Center<Element> {...props} />;
+export default Center;
