@@ -4,13 +4,7 @@ import { Children, forwardRef, Fragment } from 'react';
 import { compact, isArray } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -27,9 +21,10 @@ import type { StackProps, StackRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Stack: PolymorphicComponentWithRef = forwardRef(function Stack<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: StackProps<Element>, ref: StackRef<Element>): ReactElement {
+const Stack = forwardRef(function Stack<Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+	props: StackProps<Element>,
+	ref: StackRef<Element>
+): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
@@ -42,7 +37,7 @@ const Stack: PolymorphicComponentWithRef = forwardRef(function Stack<
 		...rest
 	} = props;
 
-	const { alignItems, direction, justifyContent, spacing, wrap } = useStackResponsiveValues({
+	const { alignItems, direction, justifyContent, spacing, wrap } = useStackResponsiveValues<Element>({
 		alignItems: alignItemsProp,
 		direction: directionProp,
 		justifyContent: justifyContentProp,
@@ -50,11 +45,11 @@ const Stack: PolymorphicComponentWithRef = forwardRef(function Stack<
 		wrap: wrapProp
 	});
 
-	const classes = useStackClasses({ alignItems, direction, justifyContent, spacing, wrap });
+	const classes = useStackClasses<Element>({ alignItems, direction, justifyContent, spacing, wrap });
 
 	return (
-		<Box<Element>
-			{...rest}
+		<Box
+			{...(rest as StackProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_STACK_CLASS__, classes, { [className]: !!className })}
 		>
@@ -72,8 +67,6 @@ const Stack: PolymorphicComponentWithRef = forwardRef(function Stack<
 	);
 });
 
-Stack.displayName = 'Stack';
+// Stack.displayName = 'Stack';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Stack<Element> {...props} />;
+export default Stack;

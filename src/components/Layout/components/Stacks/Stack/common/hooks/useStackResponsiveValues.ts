@@ -1,3 +1,5 @@
+import type { DeepRequired } from 'utility-types';
+
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type {
@@ -5,6 +7,8 @@ import type {
 	FlexDirectionClass,
 	FlexWrapClass,
 	JustifyContentClass,
+	PolymorphicDefaultElement,
+	PolymorphicElementType,
 	ThemeSpacing
 } from '@common/types';
 
@@ -14,13 +18,18 @@ import {
 	__DEFAULT_STACK_JUSTIFY_CONTENT__,
 	__DEFAULT_STACK_WRAP__
 } from '../constants';
-import type { StackProps } from '../types';
+import type { StackOtherProps, StackProps } from '../types';
 
-type UseStackResponsiveValuesProps = Partial<
-	Pick<StackProps, 'alignItems' | 'direction' | 'justifyContent' | 'spacing' | 'wrap'>
+type PickedStackProps = 'alignItems' | 'direction' | 'justifyContent' | 'spacing' | 'wrap';
+
+type UseStackResponsiveValuesProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Partial<
+	Pick<StackProps<Element>, PickedStackProps>
 >;
+type UseStackResponsiveValuesReturn = DeepRequired<Pick<StackOtherProps, PickedStackProps>>;
 
-const useStackResponsiveValues = (props: UseStackResponsiveValuesProps) => {
+const useStackResponsiveValues = <Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+	props: UseStackResponsiveValuesProps<Element>
+): UseStackResponsiveValuesReturn => {
 	const {
 		alignItems: alignItemsProp = __DEFAULT_STACK_ALIGN_ITEMS__,
 		direction: directionProp = __DEFAULT_STACK_DIRECTION__,

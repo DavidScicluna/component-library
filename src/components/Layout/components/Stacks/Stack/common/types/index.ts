@@ -7,25 +7,29 @@ import type {
 	JustifyContentClass,
 	PolymorphicDefaultElement,
 	PolymorphicElementType,
-	ResponsiveValue,
+	ResponsiveValueProps,
 	ThemeSpacing
 } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
-type StackOtherProps = {
-	alignItems?: ResponsiveValue<AlignItemsClass>;
-	direction?: ResponsiveValue<FlexDirectionClass>;
+export type StackOtherProps = {
+	alignItems?: AlignItemsClass;
+	direction?: FlexDirectionClass;
 	divider?: ReactNode;
-	justifyContent?: ResponsiveValue<JustifyContentClass>;
+	justifyContent?: JustifyContentClass;
 	// shouldWrapChildren; TODO: Check if needed & Also check overlay component should have display-block
-	spacing?: ResponsiveValue<ThemeSpacing>;
-	wrap?: ResponsiveValue<FlexWrapClass>;
+	spacing?: ThemeSpacing;
+	wrap?: FlexWrapClass;
 };
+export type StackResponsiveValueProps = ResponsiveValueProps<
+	StackOtherProps,
+	'alignItems' | 'direction' | 'justifyContent' | 'spacing' | 'wrap'
+>;
 
 export type StackProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
 	Element,
-	StackOtherProps
+	StackResponsiveValueProps
 >;
 
 export type StackRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

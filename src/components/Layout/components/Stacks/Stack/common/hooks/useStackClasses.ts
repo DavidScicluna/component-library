@@ -7,6 +7,8 @@ import type {
 	FlexDirectionClass,
 	FlexWrapClass,
 	JustifyContentClass,
+	PolymorphicDefaultElement,
+	PolymorphicElementType,
 	ThemeSpacing
 } from '@common/types';
 
@@ -23,10 +25,15 @@ import useStackResponsiveValues from './useStackResponsiveValues';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseStackClassesProps = Pick<StackProps, 'alignItems' | 'direction' | 'justifyContent' | 'spacing' | 'wrap'>;
+type UseStackClassesProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Pick<
+	StackProps<Element>,
+	'alignItems' | 'direction' | 'justifyContent' | 'spacing' | 'wrap'
+>;
 type UseStackClassesReturn = ClassName;
 
-const useStackClasses = (props: UseStackClassesProps): UseStackClassesReturn => {
+const useStackClasses = <Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+	props: UseStackClassesProps<Element>
+): UseStackClassesReturn => {
 	const {
 		alignItems: alignItemsProp = __DEFAULT_STACK_ALIGN_ITEMS__,
 		direction: directionProp = __DEFAULT_STACK_DIRECTION__,
@@ -35,7 +42,7 @@ const useStackClasses = (props: UseStackClassesProps): UseStackClassesReturn => 
 		wrap: wrapProp = __DEFAULT_STACK_WRAP__
 	} = props;
 
-	const { alignItems, direction, justifyContent, spacing, wrap } = useStackResponsiveValues({
+	const { alignItems, direction, justifyContent, spacing, wrap } = useStackResponsiveValues<Element>({
 		alignItems: alignItemsProp,
 		direction: directionProp,
 		justifyContent: justifyContentProp,
