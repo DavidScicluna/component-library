@@ -2,13 +2,7 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -20,9 +14,10 @@ import type { SpaceProps, SpaceRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Space: PolymorphicComponentWithRef = forwardRef(function Space<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: SpaceProps<Element>, ref: SpaceRef<Element>): ReactElement {
+const Space = forwardRef(function Space<Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+	props: SpaceProps<Element>,
+	ref: SpaceRef<Element>
+): ReactElement {
 	const {
 		className = __DEFAULT_CLASSNAME__,
 		width: widthProp = __DEFAULT_SPACE_WIDTH__,
@@ -30,21 +25,19 @@ const Space: PolymorphicComponentWithRef = forwardRef(function Space<
 		...rest
 	} = props;
 
-	const { width, height } = useSpaceResponsiveValues({ width: widthProp, height: heightProp });
+	const { width, height } = useSpaceResponsiveValues<Element>({ width: widthProp, height: heightProp });
 
-	const classes = useSpaceClasses({ width, height });
+	const classes = useSpaceClasses<Element>({ width, height });
 
 	return (
-		<Box<Element>
-			{...rest}
+		<Box
+			{...(rest as SpaceProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_SPACE_CLASS__, classes, { [className]: !!className })}
 		/>
 	);
 });
 
-Space.displayName = 'Space';
+// Space.displayName = 'Space';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Space<Element> {...props} />;
+export default Space;
