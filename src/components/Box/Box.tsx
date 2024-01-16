@@ -1,18 +1,12 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
 
-import type { ElementType, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { merge, omit, pick } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import { useBoxStyles } from './common/hooks';
 import { __KEYS_BOX__, __KEYS_BOX_CLASS__ } from './common/keys';
@@ -21,9 +15,10 @@ import type { BoxProps, BoxRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Box: PolymorphicComponentWithRef = forwardRef(function Box<
-	Element extends ElementType = PolymorphicDefaultElement
->(props: BoxProps<Element>, ref: BoxRef<Element>): ReactElement {
+const Box = forwardRef(function Box<Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+	props: BoxProps<Element>,
+	ref: BoxRef<Element>
+): JSX.Element {
 	const {
 		children,
 		as = __DEFAULT_POLYMORPHIC_ELEMENT__,
@@ -32,8 +27,8 @@ const Box: PolymorphicComponentWithRef = forwardRef(function Box<
 		...rest
 	} = props;
 
-	const Component = as;
-	const styles = useBoxStyles<Element>(pick({ ...rest }, __KEYS_BOX__));
+	const Component = as as BoxProps<Element>['as'];
+	const styles = useBoxStyles(pick({ ...rest }, __KEYS_BOX__));
 
 	return (
 		<Component
@@ -47,8 +42,6 @@ const Box: PolymorphicComponentWithRef = forwardRef(function Box<
 	);
 });
 
-Box.displayName = 'Box';
+// Box.displayName = 'Box';
 
-export default <Element extends ElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Box<Element> {...props} />;
+export default Box;

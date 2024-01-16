@@ -1,9 +1,8 @@
-import type { ElementType } from 'react';
-
 import type {
 	PolymorphicComponentProps,
 	PolymorphicDefaultElement,
 	PolymorphicDefaultProps,
+	PolymorphicElementType,
 	PolymorphicRef,
 	ResponsiveValue,
 	Style,
@@ -41,8 +40,8 @@ export type BoxOtherProps = {
 };
 
 export type BoxProps<
-	Element extends ElementType = PolymorphicDefaultElement,
+	Element extends PolymorphicElementType = PolymorphicDefaultElement,
 	Props = PolymorphicDefaultProps
 > = PolymorphicComponentProps<Element, Props & BoxOtherProps>;
 
-export type BoxRef<Element extends ElementType = PolymorphicDefaultElement> = PolymorphicRef<Element>;
+export type BoxRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = PolymorphicRef<Element>;

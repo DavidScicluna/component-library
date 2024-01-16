@@ -1,9 +1,9 @@
-import type { ElementType, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
 import classes from '@common/classes';
 import { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import { Text } from '@components/Typography';
 
@@ -26,7 +26,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_POLYMORPHIC_ELEMENT__,
 			description: 'The component used for the root node. Either a string to use an HTML element or a component.',
-			options: ['div', 'span', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as Array<ElementType>,
+			options: ['div', 'span', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as Array<PolymorphicElementType>,
 			control: { type: 'select' }
 		},
 		sx: {
