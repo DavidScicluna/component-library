@@ -1,15 +1,25 @@
+import type { DeepRequired } from 'utility-types';
+
 import { useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import {
 	__DEFAULT_CONTAINER_BREAKPOINT__,
 	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
 	__DEFAULT_CONTAINER_IS_FLUID__
 } from '../constants';
-import type { ContainerBreakpoint, ContainerProps } from '../types';
+import type { ContainerBreakpoint, ContainerOtherProps, ContainerProps } from '../types';
 
-type UseContainerResponsiveValuesProps = Partial<Pick<ContainerProps, 'breakpoint' | 'isContentCentered' | 'isFluid'>>;
+type PickedContainerProps = 'breakpoint' | 'isContentCentered' | 'isFluid';
 
-const useContainerResponsiveValues = (props: UseContainerResponsiveValuesProps) => {
+type UseContainerResponsiveValuesProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Partial<
+	Pick<ContainerProps<Element>, PickedContainerProps>
+>;
+type UseContainerResponsiveValuesReturn = DeepRequired<Pick<ContainerOtherProps, PickedContainerProps>>;
+
+const useContainerResponsiveValues = <Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+	props: UseContainerResponsiveValuesProps<Element>
+): UseContainerResponsiveValuesReturn => {
 	const {
 		breakpoint: breakpointProp = __DEFAULT_CONTAINER_BREAKPOINT__,
 		isContentCentered: isContentCenteredProp = __DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,

@@ -1,6 +1,6 @@
 import classes from '@common/classes';
 import { useGetClass } from '@common/hooks';
-import type { ClassName } from '@common/types';
+import type { ClassName, PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import {
 	__DEFAULT_CONTAINER_BREAKPOINT__,
@@ -14,17 +14,22 @@ import useContainerResponsiveValues from './useContainerResponsiveValues';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseContainerClassesProps = Pick<ContainerProps, 'breakpoint' | 'isContentCentered' | 'isFluid'>;
+type UseContainerClassesProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Pick<
+	ContainerProps<Element>,
+	'breakpoint' | 'isContentCentered' | 'isFluid'
+>;
 type UseContainerClassesReturn = ClassName;
 
-const useContainerClasses = (props: UseContainerClassesProps): UseContainerClassesReturn => {
+const useContainerClasses = <Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+	props: UseContainerClassesProps<Element>
+): UseContainerClassesReturn => {
 	const {
 		breakpoint: breakpointProp = __DEFAULT_CONTAINER_BREAKPOINT__,
 		isContentCentered: isContentCenteredProp = __DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
 		isFluid: isFluidProp = __DEFAULT_CONTAINER_IS_FLUID__
 	} = props;
 
-	const { breakpoint, isContentCentered, isFluid } = useContainerResponsiveValues({
+	const { breakpoint, isContentCentered, isFluid } = useContainerResponsiveValues<Element>({
 		breakpoint: breakpointProp,
 		isContentCentered: isContentCenteredProp,
 		isFluid: isFluidProp

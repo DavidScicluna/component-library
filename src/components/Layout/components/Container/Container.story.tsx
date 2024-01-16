@@ -14,7 +14,7 @@ import {
 	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
 	__DEFAULT_CONTAINER_IS_FLUID__
 } from './common/constants';
-import type { ContainerBreakpoints, ContainerProps } from './common/types';
+import type { ContainerBreakpoint, ContainerProps } from './common/types';
 import type { ContainerStory, ContainerStoryMeta } from './common/types/story';
 import { Container as ContainerComponent } from '.';
 
@@ -30,7 +30,7 @@ export default {
 			type: 'string',
 			defaultValue: __DEFAULT_CONTAINER_BREAKPOINT__,
 			// description: '',
-			options: ['sm', 'md', 'lg', 'xl', '2xl'] as ContainerBreakpoints,
+			options: ['sm', 'md', 'lg', 'xl', '2xl'] as Array<ContainerBreakpoint>,
 			control: { type: 'radio' }
 		},
 		isContentCentered: {

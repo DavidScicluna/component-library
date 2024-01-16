@@ -1,24 +1,27 @@
 import type {
 	PolymorphicDefaultElement,
 	PolymorphicElementType,
-	ResponsiveValue,
+	ResponsiveValueProps,
 	ThemeBreakpoint
 } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
 export type ContainerBreakpoint = Exclude<ThemeBreakpoint, 'xs'>;
-export type ContainerBreakpoints = Array<ContainerBreakpoint>;
 
-type ContainerOtherProps = {
-	breakpoint?: ResponsiveValue<ContainerBreakpoint>;
-	isContentCentered?: ResponsiveValue<boolean>;
-	isFluid?: ResponsiveValue<boolean>;
+export type ContainerOtherProps = {
+	breakpoint?: ContainerBreakpoint;
+	isContentCentered?: boolean;
+	isFluid?: boolean;
 };
+export type ContainerResponsiveValueProps = ResponsiveValueProps<
+	ContainerOtherProps,
+	'breakpoint' | 'isContentCentered' | 'isFluid'
+>;
 
 export type ContainerProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
 	Element,
-	ContainerOtherProps
+	ContainerResponsiveValueProps
 >;
 
 export type ContainerRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

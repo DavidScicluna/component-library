@@ -1,4 +1,4 @@
-import type { ContainerBreakpoint, ContainerBreakpoints, ContainerProps, ContainerRef } from './common/types';
+import type { ContainerBreakpoint, ContainerProps, ContainerRef } from './common/types';
 import Container from './Container';
 
 // Constants
@@ -14,4 +14,4 @@ export * from './common/hooks';
 export { Container };
 
 // Component Types
-export type { ContainerBreakpoint, ContainerBreakpoints, ContainerProps, ContainerRef };
+export type { ContainerBreakpoint, ContainerProps, ContainerRef };
