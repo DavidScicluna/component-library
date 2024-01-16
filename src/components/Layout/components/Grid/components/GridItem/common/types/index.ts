@@ -7,28 +7,39 @@ import type {
 	JustifySelfClass,
 	PolymorphicDefaultElement,
 	PolymorphicElementType,
-	ResponsiveValue,
+	ResponsiveValueProps,
 	ZIndexClass
 } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
-type GridItemOtherProps = {
-	alignSelf?: ResponsiveValue<AlignSelfClass>;
-	// area?: ResponsiveValue<>;
-	columnSpan?: ResponsiveValue<GridColumnSpanClass>;
-	columnStart?: ResponsiveValue<GridColumnStartEndClass>;
-	columnEnd?: ResponsiveValue<GridColumnStartEndClass>;
-	justifySelf?: ResponsiveValue<JustifySelfClass>;
-	rowSpan?: ResponsiveValue<GridRowSpanClass>;
-	rowStart?: ResponsiveValue<GridRowStartEndClass>;
-	rowEnd?: ResponsiveValue<GridRowStartEndClass>;
-	zIndex?: ResponsiveValue<ZIndexClass>;
+export type GridItemOtherProps = {
+	alignSelf?: AlignSelfClass;
+	columnSpan?: GridColumnSpanClass;
+	columnStart?: GridColumnStartEndClass;
+	columnEnd?: GridColumnStartEndClass;
+	justifySelf?: JustifySelfClass;
+	rowSpan?: GridRowSpanClass;
+	rowStart?: GridRowStartEndClass;
+	rowEnd?: GridRowStartEndClass;
+	zIndex?: ZIndexClass;
 };
+export type GridItemResponsiveValueProps = ResponsiveValueProps<
+	GridItemOtherProps,
+	| 'alignSelf'
+	| 'columnSpan'
+	| 'columnStart'
+	| 'columnEnd'
+	| 'justifySelf'
+	| 'rowSpan'
+	| 'rowStart'
+	| 'rowEnd'
+	| 'zIndex'
+>;
 
 export type GridItemProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
 	Element,
-	GridItemOtherProps
+	GridItemResponsiveValueProps
 >;
 
 export type GridItemRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

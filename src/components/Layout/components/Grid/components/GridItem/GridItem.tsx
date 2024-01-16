@@ -2,13 +2,7 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -24,9 +18,10 @@ import type { GridItemProps, GridItemRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const GridItem: PolymorphicComponentWithRef = forwardRef(function Grid<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: GridItemProps<Element>, ref: GridItemRef<Element>): ReactElement {
+const GridItem = forwardRef(function Grid<Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+	props: GridItemProps<Element>,
+	ref: GridItemRef<Element>
+): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
@@ -43,7 +38,7 @@ const GridItem: PolymorphicComponentWithRef = forwardRef(function Grid<
 	} = props;
 
 	const { alignSelf, columnSpan, columnStart, columnEnd, justifySelf, rowSpan, rowStart, rowEnd, zIndex } =
-		useGridItemResponsiveValues({
+		useGridItemResponsiveValues<Element>({
 			alignSelf: alignSelfProp,
 			columnSpan: columnSpanProp,
 			columnStart: columnStartProp,
@@ -55,7 +50,7 @@ const GridItem: PolymorphicComponentWithRef = forwardRef(function Grid<
 			zIndex: zIndexProp
 		});
 
-	const classes = useGridItemClasses({
+	const classes = useGridItemClasses<Element>({
 		alignSelf,
 		columnSpan,
 		columnStart,
@@ -68,8 +63,8 @@ const GridItem: PolymorphicComponentWithRef = forwardRef(function Grid<
 	});
 
 	return (
-		<Box<Element>
-			{...rest}
+		<Box
+			{...(rest as GridItemProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_GRID_ITEM_CLASS__, classes, { [className]: !!className })}
 		>
@@ -78,8 +73,6 @@ const GridItem: PolymorphicComponentWithRef = forwardRef(function Grid<
 	);
 });
 
-GridItem.displayName = 'GridItem';
+// GridItem.displayName = 'GridItem';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <GridItem<Element> {...props} />;
+export default GridItem;

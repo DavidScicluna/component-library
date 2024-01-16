@@ -1,3 +1,5 @@
+import type { DeepRequired } from 'utility-types';
+
 import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	AlignSelfClass,
@@ -6,6 +8,8 @@ import type {
 	GridRowSpanClass,
 	GridRowStartEndClass,
 	JustifySelfClass,
+	PolymorphicDefaultElement,
+	PolymorphicElementType,
 	Undefinable,
 	ZIndexClass
 } from '@common/types';
@@ -15,24 +19,27 @@ import {
 	__DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
 	__DEFAULT_GRID_ITEM_Z_INDEX__
 } from '../constants';
-import type { GridItemProps } from '../types';
+import type { GridItemOtherProps, GridItemProps } from '../types';
 
-type UseGridItemResponsiveValuesProps = Partial<
-	Pick<
-		GridItemProps,
-		| 'alignSelf'
-		| 'columnSpan'
-		| 'columnStart'
-		| 'columnEnd'
-		| 'justifySelf'
-		| 'rowSpan'
-		| 'rowStart'
-		| 'rowEnd'
-		| 'zIndex'
-	>
+type PickedGridItemProps =
+	| 'alignSelf'
+	| 'columnSpan'
+	| 'columnStart'
+	| 'columnEnd'
+	| 'justifySelf'
+	| 'rowSpan'
+	| 'rowStart'
+	| 'rowEnd'
+	| 'zIndex';
+
+type UseGridItemResponsiveValuesProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Partial<
+	Pick<GridItemProps<Element>, PickedGridItemProps>
 >;
+type UseGridItemResponsiveValuesReturn = DeepRequired<Pick<GridItemOtherProps, PickedGridItemProps>>;
 
-const useGridItemResponsiveValues = (props: UseGridItemResponsiveValuesProps) => {
+const useGridItemResponsiveValues = <Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+	props: UseGridItemResponsiveValuesProps<Element>
+): UseGridItemResponsiveValuesReturn => {
 	const {
 		alignSelf: alignSelfProp = __DEFAULT_GRID_ITEM_ALIGN_SELF__,
 		columnSpan: columnSpanProp,
