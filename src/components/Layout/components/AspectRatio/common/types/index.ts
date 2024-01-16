@@ -1,19 +1,20 @@
 import type {
 	PolymorphicDefaultElement,
 	PolymorphicElementType,
-	ResponsiveValue,
+	ResponsiveValueProps,
 	ThemeAspectRatio
 } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
-type AspectRatioOtherProps = {
-	ratio?: ResponsiveValue<ThemeAspectRatio>;
+export type AspectRatioOtherProps = {
+	ratio?: ThemeAspectRatio;
 };
+export type AspectRatioResponsiveValueProps = ResponsiveValueProps<AspectRatioOtherProps, 'ratio'>;
 
 export type AspectRatioProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
 	Element,
-	AspectRatioOtherProps
+	AspectRatioResponsiveValueProps
 >;
 
 export type AspectRatioRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;

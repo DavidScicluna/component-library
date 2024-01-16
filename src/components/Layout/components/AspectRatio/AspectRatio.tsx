@@ -2,13 +2,7 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -20,9 +14,10 @@ import type { AspectRatioProps, AspectRatioRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const AspectRatio: PolymorphicComponentWithRef = forwardRef(function AspectRatio<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: AspectRatioProps<Element>, ref: AspectRatioRef<Element>): ReactElement {
+const AspectRatio = forwardRef(function AspectRatio<Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+	props: AspectRatioProps<Element>,
+	ref: AspectRatioRef<Element>
+): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
@@ -30,13 +25,13 @@ const AspectRatio: PolymorphicComponentWithRef = forwardRef(function AspectRatio
 		...rest
 	} = props;
 
-	const { ratio } = useAspectRatioResponsiveValues({ ratio: ratioProp });
+	const { ratio } = useAspectRatioResponsiveValues<Element>({ ratio: ratioProp });
 
-	const classes = useAspectRatioClasses({ ratio });
+	const classes = useAspectRatioClasses<Element>({ ratio });
 
 	return (
-		<Box<Element>
-			{...rest}
+		<Box
+			{...(rest as AspectRatioProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_ASPECT_RATIO_CLASS__, classes, { [className]: !!className })}
 		>
@@ -45,8 +40,6 @@ const AspectRatio: PolymorphicComponentWithRef = forwardRef(function AspectRatio
 	);
 });
 
-AspectRatio.displayName = 'AspectRatio';
+// AspectRatio.displayName = 'AspectRatio';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <AspectRatio<Element> {...props} />;
+export default AspectRatio;
