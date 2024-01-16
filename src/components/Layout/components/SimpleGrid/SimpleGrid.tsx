@@ -2,13 +2,7 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -20,9 +14,10 @@ import type { SimpleGridProps, SimpleGridRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const SimpleGrid: PolymorphicComponentWithRef = forwardRef(function SimpleGrid<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: SimpleGridProps<Element>, ref: SimpleGridRef<Element>): ReactElement {
+const SimpleGrid = forwardRef(function SimpleGrid<Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+	props: SimpleGridProps<Element>,
+	ref: SimpleGridRef<Element>
+): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
@@ -31,13 +26,13 @@ const SimpleGrid: PolymorphicComponentWithRef = forwardRef(function SimpleGrid<
 		...rest
 	} = props;
 
-	const { columns, spacing } = useSimpleGridResponsiveValues({ columns: columnsProp, spacing: spacingProp });
+	const { columns, spacing } = useSimpleGridResponsiveValues<Element>({ columns: columnsProp, spacing: spacingProp });
 
-	const classes = useSimpleGridClasses({ columns, spacing });
+	const classes = useSimpleGridClasses<Element>({ columns, spacing });
 
 	return (
-		<Box<Element>
-			{...rest}
+		<Box
+			{...(rest as SimpleGridProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_SIMPLE_GRID_CLASS__, classes, { [className]: !!className })}
 		>
@@ -46,8 +41,6 @@ const SimpleGrid: PolymorphicComponentWithRef = forwardRef(function SimpleGrid<
 	);
 });
 
-SimpleGrid.displayName = 'SimpleGrid';
+// SimpleGrid.displayName = 'SimpleGrid';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <SimpleGrid<Element> {...props} />;
+export default SimpleGrid;
