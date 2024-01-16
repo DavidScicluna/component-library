@@ -1,3 +1,5 @@
+import type { DeepRequired } from 'utility-types';
+
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type {
@@ -7,6 +9,8 @@ import type {
 	GridAutoFlowClass,
 	JustifyContentClass,
 	JustifyItemsClass,
+	PolymorphicDefaultElement,
+	PolymorphicElementType,
 	ThemeSpacing,
 	Undefinable
 } from '@common/types';
@@ -19,27 +23,30 @@ import {
 	__DEFAULT_GRID_TEMPLATE_COLUMNS__,
 	__DEFAULT_GRID_TEMPLATE_ROWS__
 } from '../constants';
-import type { GridProps, GridTemplateColumns, GridTemplateRows } from '../types';
+import type { GridOtherProps, GridProps, GridTemplateColumns, GridTemplateRows } from '../types';
 
-type UseGridResponsiveValuesProps = Partial<
-	Pick<
-		GridProps,
-		| 'alignContent'
-		| 'alignItems'
-		| 'autoColumns'
-		| 'autoFlow'
-		| 'autoRows'
-		| 'columnSpacing'
-		| 'justifyContent'
-		| 'justifyItems'
-		| 'rowSpacing'
-		| 'templateColumns'
-		| 'templateRows'
-		| 'spacing'
-	>
+type PickedGridProps =
+	| 'alignContent'
+	| 'alignItems'
+	| 'autoColumns'
+	| 'autoFlow'
+	| 'autoRows'
+	| 'columnSpacing'
+	| 'justifyContent'
+	| 'justifyItems'
+	| 'rowSpacing'
+	| 'templateColumns'
+	| 'templateRows'
+	| 'spacing';
+
+type UseGridResponsiveValuesProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Partial<
+	Pick<GridProps<Element>, PickedGridProps>
 >;
+type UseGridResponsiveValuesReturn = DeepRequired<Pick<GridOtherProps, PickedGridProps>>;
 
-const useGridResponsiveValues = (props: UseGridResponsiveValuesProps) => {
+const useGridResponsiveValues = <Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+	props: UseGridResponsiveValuesProps<Element>
+): UseGridResponsiveValuesReturn => {
 	const {
 		alignContent: alignContentProp = __DEFAULT_GRID_ALIGN_CONTENT__,
 		alignItems: alignItemsProp = __DEFAULT_GRID_ALIGN_ITEMS__,

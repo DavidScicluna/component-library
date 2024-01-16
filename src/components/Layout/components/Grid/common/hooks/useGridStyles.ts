@@ -1,20 +1,26 @@
-import type { Style } from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType, Style } from '@common/types';
 
 import { __DEFAULT_GRID_TEMPLATE_COLUMNS__, __DEFAULT_GRID_TEMPLATE_ROWS__ } from '../constants';
 import type { GridProps } from '../types';
 
 import useGridResponsiveValues from './useGridResponsiveValues';
 
-type UseGridStylesProps = Pick<GridProps, 'templateColumns' | 'templateRows'>;
+// TODO: Temporary remove PolymorphicDefaultElement to know if Element is being passed
+type UseGridStylesProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Pick<
+	GridProps<Element>,
+	'templateColumns' | 'templateRows'
+>;
 type UseGridStylesReturn = Style;
 
-const useGridStyles = (props: UseGridStylesProps): UseGridStylesReturn => {
+const useGridStyles = <Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+	props: UseGridStylesProps<Element>
+): UseGridStylesReturn => {
 	const {
 		templateColumns: templateColumnsProp = __DEFAULT_GRID_TEMPLATE_COLUMNS__,
 		templateRows: templateRowsProp = __DEFAULT_GRID_TEMPLATE_ROWS__
 	} = props;
 
-	const { templateColumns, templateRows } = useGridResponsiveValues({
+	const { templateColumns, templateRows } = useGridResponsiveValues<Element>({
 		templateColumns: templateColumnsProp,
 		templateRows: templateRowsProp
 	});

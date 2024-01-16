@@ -4,13 +4,7 @@ import { forwardRef } from 'react';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__, __DEFAULT_SPACING__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -29,9 +23,10 @@ import type { GridProps, GridRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Grid: PolymorphicComponentWithRef = forwardRef(function Grid<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: GridProps<Element>, ref: GridRef<Element>): ReactElement {
+const Grid = forwardRef(function Grid<Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+	props: GridProps<Element>,
+	ref: GridRef<Element>
+): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
@@ -64,7 +59,7 @@ const Grid: PolymorphicComponentWithRef = forwardRef(function Grid<
 		templateColumns,
 		templateRows,
 		spacing
-	} = useGridResponsiveValues({
+	} = useGridResponsiveValues<Element>({
 		alignContent: alignContentProp,
 		alignItems: alignItemsProp,
 		autoColumns: autoColumnsProp,
@@ -79,7 +74,7 @@ const Grid: PolymorphicComponentWithRef = forwardRef(function Grid<
 		spacing: spacingProp
 	});
 
-	const classes = useGridClasses({
+	const classes = useGridClasses<Element>({
 		alignContent,
 		alignItems,
 		autoColumns,
@@ -93,11 +88,11 @@ const Grid: PolymorphicComponentWithRef = forwardRef(function Grid<
 		templateRows,
 		spacing
 	});
-	const styles = useGridStyles({ templateColumns, templateRows });
+	const styles = useGridStyles<Element>({ templateColumns, templateRows });
 
 	return (
-		<Box<Element>
-			{...rest}
+		<Box
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_GRID_CLASS__, classes, { [className]: !!className })}
 			sx={merge(styles, sx)}
@@ -107,8 +102,6 @@ const Grid: PolymorphicComponentWithRef = forwardRef(function Grid<
 	);
 });
 
-Grid.displayName = 'Grid';
+// Grid.displayName = 'Grid';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Grid<Element> {...props} />;
+export default Grid;

@@ -9,7 +9,7 @@ import type {
 	JustifyItemsClass,
 	PolymorphicDefaultElement,
 	PolymorphicElementType,
-	ResponsiveValue,
+	ResponsiveValueProps,
 	ThemeSpacing
 } from '@common/types';
 
@@ -18,24 +18,39 @@ import type { BoxProps, BoxRef } from '@components/Box';
 export type GridTemplateColumns = GridTemplateColumnsClass | string;
 export type GridTemplateRows = GridTemplateRowsClass | string;
 
-type GridOtherProps = {
-	alignContent?: ResponsiveValue<AlignContentClass>;
-	alignItems?: ResponsiveValue<AlignItemsClass>;
-	autoColumns?: ResponsiveValue<GridAutoClass>;
-	autoFlow?: ResponsiveValue<GridAutoFlowClass>;
-	autoRows?: ResponsiveValue<GridAutoClass>;
-	columnSpacing?: ResponsiveValue<ThemeSpacing>;
-	justifyContent?: ResponsiveValue<JustifyContentClass>;
-	justifyItems?: ResponsiveValue<JustifyItemsClass>;
-	rowSpacing?: ResponsiveValue<ThemeSpacing>;
-	templateColumns?: ResponsiveValue<GridTemplateColumns>;
-	templateRows?: ResponsiveValue<GridTemplateRows>;
-	spacing?: ResponsiveValue<ThemeSpacing>;
+export type GridOtherProps = {
+	alignContent?: AlignContentClass;
+	alignItems?: AlignItemsClass;
+	autoColumns?: GridAutoClass;
+	autoFlow?: GridAutoFlowClass;
+	autoRows?: GridAutoClass;
+	columnSpacing?: ThemeSpacing;
+	justifyContent?: JustifyContentClass;
+	justifyItems?: JustifyItemsClass;
+	rowSpacing?: ThemeSpacing;
+	templateColumns?: GridTemplateColumns;
+	templateRows?: GridTemplateRows;
+	spacing?: ThemeSpacing;
 };
+export type GridResponsiveValueProps = ResponsiveValueProps<
+	GridOtherProps,
+	| 'alignContent'
+	| 'alignItems'
+	| 'autoColumns'
+	| 'autoFlow'
+	| 'autoRows'
+	| 'columnSpacing'
+	| 'justifyContent'
+	| 'justifyItems'
+	| 'rowSpacing'
+	| 'templateColumns'
+	| 'templateRows'
+	| 'spacing'
+>;
 
 export type GridProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
 	Element,
-	GridOtherProps
+	GridResponsiveValueProps
 >;
 
 export type GridRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
