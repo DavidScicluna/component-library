@@ -2,15 +2,10 @@ import type { PolymorphicChangeEvent, PolymorphicElementType } from '@common/typ
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
-export type VisuallyHiddenDefaultElement = 'span';
 export type VisuallyHiddenElement = Extract<PolymorphicElementType, 'span' | 'input'>;
 
-export type VisuallyHiddenChangeEvent<Element extends VisuallyHiddenElement = VisuallyHiddenDefaultElement> =
-	PolymorphicChangeEvent<Element>;
+export type VisuallyHiddenChangeEvent<Element extends VisuallyHiddenElement> = PolymorphicChangeEvent<Element>;
 
-export type VisuallyHiddenProps<Element extends VisuallyHiddenElement = VisuallyHiddenDefaultElement> = Omit<
-	BoxProps<Element>,
-	keyof BoxOtherProps
->;
+export type VisuallyHiddenProps<Element extends VisuallyHiddenElement> = Omit<BoxProps<Element>, keyof BoxOtherProps>;
 
-export type VisuallyHiddenRef<Element extends VisuallyHiddenElement = VisuallyHiddenDefaultElement> = BoxRef<Element>;
+export type VisuallyHiddenRef<Element extends VisuallyHiddenElement> = BoxRef<Element>;

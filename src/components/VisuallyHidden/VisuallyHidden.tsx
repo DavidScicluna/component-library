@@ -5,30 +5,35 @@ import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
+import { __DEFAULT_VISUALLY_HIDDEN_AS__ } from './common/constants';
 import { useVisuallyHiddenStyles } from './common/hooks';
 import { __KEYS_VISUALLY_HIDDEN_CLASS__ } from './common/keys';
-import type {
-	VisuallyHiddenDefaultElement,
-	VisuallyHiddenElement,
-	VisuallyHiddenProps,
-	VisuallyHiddenRef
-} from './common/types';
+import type { VisuallyHiddenElement, VisuallyHiddenProps, VisuallyHiddenRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const VisuallyHidden = forwardRef(function VisuallyHidden<
-	Element extends VisuallyHiddenElement = VisuallyHiddenDefaultElement
->(props: VisuallyHiddenProps<Element>, ref: VisuallyHiddenRef<Element>): ReactElement {
-	const { children, className = __DEFAULT_CLASSNAME__, sx = __DEFAULT_POLYMORPHIC_SX__, ...rest } = props;
+const VisuallyHidden = forwardRef(function VisuallyHidden<Element extends VisuallyHiddenElement>(
+	props: VisuallyHiddenProps<Element>,
+	ref: VisuallyHiddenRef<Element>
+): ReactElement {
+	const {
+		children,
+		as = __DEFAULT_VISUALLY_HIDDEN_AS__,
+		className = __DEFAULT_CLASSNAME__,
+		sx = __DEFAULT_POLYMORPHIC_SX__,
+		...rest
+	} = props;
 
 	const styles = useVisuallyHiddenStyles();
 
 	return (
 		<Box
-			{...(rest as VisuallyHiddenProps<Element>)}
+			{...(rest as BoxProps<Element>)}
+			as={as}
 			ref={ref}
 			className={classNames(__KEYS_VISUALLY_HIDDEN_CLASS__, { [className]: !!className })}
 			sx={merge(styles, sx)}
