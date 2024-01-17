@@ -28,15 +28,15 @@ import {
 	__DEFAULT_TEXT_WHITESPACE__,
 	__DEFAULT_TEXT_WORD_BREAK__
 } from '../constants';
-import type { TextProps } from '../types';
+import type { TextElement, TextProps } from '../types';
 
 import useTextResponsiveValues from './useTextResponsiveValues';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseTextClassesProps = Pick<
-	TextProps,
+type UseTextClassesProps<Element extends TextElement> = Pick<
+	TextProps<Element>,
 	| 'color'
 	| 'colorMode'
 	| 'align'
@@ -52,7 +52,7 @@ type UseTextClassesProps = Pick<
 >;
 type UseTextClassesReturn = ClassName;
 
-const useTextClasses = (props: UseTextClassesProps): UseTextClassesReturn => {
+const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<Element>): UseTextClassesReturn => {
 	const { colorMode: __DEFAULT_TEXT_OLORMODE__ } = useAppTheme();
 
 	const {
@@ -81,7 +81,7 @@ const useTextClasses = (props: UseTextClassesProps): UseTextClassesReturn => {
 		isOverflown,
 		whitespace,
 		wordBreak
-	} = useTextResponsiveValues({
+	} = useTextResponsiveValues<Element>({
 		align: alignProp,
 		fontSize: fontSizeProp,
 		fontWeight: fontWeightProp,

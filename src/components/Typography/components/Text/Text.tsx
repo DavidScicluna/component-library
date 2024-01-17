@@ -5,10 +5,12 @@ import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
 	__DEFAULT_TEXT_ALIGN__,
+	__DEFAULT_TEXT_AS__,
 	__DEFAULT_TEXT_FONT_SIZE__,
 	__DEFAULT_TEXT_FONT_WEIGHT__,
 	__DEFAULT_TEXT_IS_ITALIC__,
@@ -21,17 +23,18 @@ import {
 } from './common/constants';
 import { useTextClasses, useTextResponsiveValues, useTextStyles } from './common/hooks';
 import { __KEYS_TEXT_CLASS__ } from './common/keys';
-import type { TextDefaultElement, TextElement, TextProps, TextRef } from './common/types';
+import type { TextElement, TextProps, TextRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Text = forwardRef(function Text<Element extends TextElement = TextDefaultElement>(
+const Text = forwardRef(function Text<Element extends TextElement>(
 	props: TextProps<Element>,
 	ref: TextRef<Element>
 ): ReactElement {
 	const {
 		children,
+		as = __DEFAULT_TEXT_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
@@ -60,7 +63,7 @@ const Text = forwardRef(function Text<Element extends TextElement = TextDefaultE
 		isOverflown,
 		whitespace,
 		wordBreak
-	} = useTextResponsiveValues({
+	} = useTextResponsiveValues<Element>({
 		align: alignProp,
 		fontSize: fontSizeProp,
 		fontWeight: fontWeightProp,
@@ -73,7 +76,7 @@ const Text = forwardRef(function Text<Element extends TextElement = TextDefaultE
 		wordBreak: wordBreakProp
 	});
 
-	const classes = useTextClasses({
+	const classes = useTextClasses<Element>({
 		color,
 		colorMode,
 		align,
@@ -87,11 +90,12 @@ const Text = forwardRef(function Text<Element extends TextElement = TextDefaultE
 		whitespace,
 		wordBreak
 	});
-	const styles = useTextStyles({ color });
+	const styles = useTextStyles<Element>({ color });
 
 	return (
 		<Box
-			{...(rest as TextProps<Element>)}
+			{...(rest as BoxProps<Element>)}
+			as={as}
 			ref={ref}
 			className={classNames(__KEYS_TEXT_CLASS__, classes, { [className]: !!className })}
 			sx={merge(styles, sx)}

@@ -1,4 +1,5 @@
 import type {
+	PickFrom,
 	PolymorphicElementType,
 	ResponsiveValue,
 	TextAlignClass,
@@ -14,8 +15,7 @@ import type {
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
-export type TextDefaultElement = 'p';
-export type TextElement = Extract<
+export type TextElement = PickFrom<
 	PolymorphicElementType,
 	'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'label' | 'span'
 >;
@@ -37,6 +37,6 @@ type TextOtherProps = TextThemeAppearanceProps & {
 	wordBreak?: ResponsiveValue<WordBreakClass>;
 };
 
-export type TextProps<Element extends TextElement = TextDefaultElement> = BoxProps<Element, TextOtherProps>;
+export type TextProps<Element extends TextElement> = BoxProps<Element, TextOtherProps>;
 
-export type TextRef<Element extends TextElement = TextDefaultElement> = BoxRef<Element>;
+export type TextRef<Element extends TextElement> = BoxRef<Element>;

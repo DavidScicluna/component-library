@@ -1,4 +1,4 @@
-import type { TextDefaultElement, TextElement, TextProps, TextRef, TextThemeAppearanceProps } from './common/types';
+import type { TextElement, TextProps, TextRef, TextThemeAppearanceProps } from './common/types';
 import Text from './Text';
 
 // Constants
@@ -14,4 +14,4 @@ export * from './common/hooks';
 export { Text };
 
 // Components Types
-export type { TextDefaultElement, TextElement, TextProps, TextRef, TextThemeAppearanceProps };
+export type { TextElement, TextProps, TextRef, TextThemeAppearanceProps };

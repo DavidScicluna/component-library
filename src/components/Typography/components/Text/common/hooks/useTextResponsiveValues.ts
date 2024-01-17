@@ -22,11 +22,11 @@ import {
 	__DEFAULT_TEXT_WHITESPACE__,
 	__DEFAULT_TEXT_WORD_BREAK__
 } from '../constants';
-import type { TextProps } from '../types';
+import type { TextElement, TextProps } from '../types';
 
-type UseTextResponsiveValuesProps = Partial<
+type UseTextResponsiveValuesProps<Element extends TextElement> = Partial<
 	Pick<
-		TextProps,
+		TextProps<Element>,
 		| 'align'
 		| 'fontSize'
 		| 'fontWeight'
@@ -40,7 +40,7 @@ type UseTextResponsiveValuesProps = Partial<
 	>
 >;
 
-const useTextResponsiveValues = (props: UseTextResponsiveValuesProps) => {
+const useTextResponsiveValues = <Element extends TextElement>(props: UseTextResponsiveValuesProps<Element>) => {
 	const {
 		align: alignProp = __DEFAULT_TEXT_ALIGN__,
 		fontSize: fontSizeProp = __DEFAULT_TEXT_FONT_SIZE__,
