@@ -11,15 +11,12 @@ import type {
 	AnimationDelay,
 	AnimationDuration,
 	AnimationEasing,
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
 	PolymorphicElementType
 } from '@common/types';
 import { getAnimationConfig, getAnimationDelay, getAnimationDuration, getAnimationEasings } from '@common/utils';
 
 import { AnimatePresence } from '@components/Animation';
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
@@ -38,9 +35,10 @@ const classNames = require('classnames');
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const MotionBox: any = motion(Box);
 
-const Transition: PolymorphicComponentWithRef = forwardRef(function Transition<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: TransitionProps<Element>, ref: TransitionRef<Element>): ReactElement {
+const Transition = forwardRef(function Transition<Element extends PolymorphicElementType>(
+	props: TransitionProps<Element>,
+	ref: TransitionRef<Element>
+): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
@@ -67,7 +65,7 @@ const Transition: PolymorphicComponentWithRef = forwardRef(function Transition<
 		in: isAnimated,
 		transition,
 		unmountOnExit
-	} = useTransitionResponsiveValues({
+	} = useTransitionResponsiveValues<Element>({
 		config: configProp,
 		delay: delayProp,
 		duration: durationProp,
@@ -113,8 +111,8 @@ const Transition: PolymorphicComponentWithRef = forwardRef(function Transition<
 	return (
 		<AnimatePresence onExitComplete={onExitComplete}>
 			{isVisible ? (
-				<MotionBox<Element>
-					{...rest}
+				<MotionBox
+					{...(rest as BoxProps<Element>)}
 					ref={ref}
 					className={classNames(__KEYS_TRANSITION_CLASS__, { [className]: !!className })}
 					initial='exit'
@@ -130,8 +128,6 @@ const Transition: PolymorphicComponentWithRef = forwardRef(function Transition<
 	);
 });
 
-Transition.displayName = 'Transition';
+// Transition.displayName = 'Transition';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Transition<Element> {...props} />;
+export default Transition;

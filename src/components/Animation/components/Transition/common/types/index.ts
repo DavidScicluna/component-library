@@ -1,6 +1,5 @@
 import type {
 	AnimationConfig,
-	PolymorphicDefaultElement,
 	PolymorphicElementType,
 	ResponsiveValue,
 	Style,
@@ -96,9 +95,6 @@ export type TransitionOtherProps = {
 	// onEntered?: () => void;
 };
 
-export type TransitionProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
-	Element,
-	TransitionOtherProps
->;
+export type TransitionProps<Element extends PolymorphicElementType> = BoxProps<Element, TransitionOtherProps>;
 
-export type TransitionRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type TransitionRef<Element extends PolymorphicElementType> = BoxRef<Element>;
