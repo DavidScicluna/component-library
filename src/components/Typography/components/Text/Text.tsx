@@ -4,11 +4,6 @@ import { forwardRef } from 'react';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
 import { Box } from '@components/Box';
 
@@ -31,7 +26,7 @@ import type { TextDefaultElement, TextElement, TextProps, TextRef } from './comm
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Text: PolymorphicComponentWithRef = forwardRef(function Text<Element extends TextElement = TextDefaultElement>(
+const Text = forwardRef(function Text<Element extends TextElement = TextDefaultElement>(
 	props: TextProps<Element>,
 	ref: TextRef<Element>
 ): ReactElement {
@@ -95,8 +90,8 @@ const Text: PolymorphicComponentWithRef = forwardRef(function Text<Element exten
 	const styles = useTextStyles({ color });
 
 	return (
-		<Box<Element>
-			{...rest}
+		<Box
+			{...(rest as TextProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_TEXT_CLASS__, classes, { [className]: !!className })}
 			sx={merge(styles, sx)}
@@ -106,8 +101,6 @@ const Text: PolymorphicComponentWithRef = forwardRef(function Text<Element exten
 	);
 });
 
-Text.displayName = 'Text';
+// Text.displayName = 'Text';
 
-export default <Element extends TextElement = TextDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Text<Element> {...props} />;
+export default Text;
