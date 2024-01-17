@@ -1,34 +1,30 @@
 import type { ChangeEvent, ComponentPropsWithoutRef, ElementType, FocusEvent, FormEvent, MouseEvent, Ref } from 'react';
 
 import type { Style } from '.';
+import type { MergeTypes, PickFrom } from './utility';
 
 export type PolymorphicElementType = ElementType;
 
-export type PolymorphicElement<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
-	Element extends keyof JSX.IntrinsicElements ? JSX.IntrinsicElements[Element] : Element;
+export type PolymorphicElement<Element extends PolymorphicElementType> = Element extends keyof JSX.IntrinsicElements
+	? JSX.IntrinsicElements[Element]
+	: Element;
 
-export type PolymorphicDefaultElement = Extract<PolymorphicElementType, 'div'>;
+export type PolymorphicDefaultElement = PickFrom<PolymorphicElementType, 'div'>;
 // eslint-disable-next-line @typescript-eslint/ban-types, @typescript-eslint/no-explicit-any
 export type PolymorphicDefaultProps = {};
 
-export type PolymorphicMouseEvent<Element extends PolymorphicElementType = PolymorphicDefaultElement> = MouseEvent<
+export type PolymorphicMouseEvent<Element extends PolymorphicElementType> = MouseEvent<
 	PolymorphicElement<Element>,
 	globalThis.MouseEvent
 >;
 
-export type PolymorphicChangeEvent<Element extends PolymorphicElementType = PolymorphicDefaultElement> = ChangeEvent<
-	PolymorphicElement<Element>
->;
+export type PolymorphicChangeEvent<Element extends PolymorphicElementType> = ChangeEvent<PolymorphicElement<Element>>;
 
-export type PolymorphicFocusEvent<Element extends PolymorphicElementType = PolymorphicDefaultElement> = FocusEvent<
-	PolymorphicElement<Element>
->;
+export type PolymorphicFocusEvent<Element extends PolymorphicElementType> = FocusEvent<PolymorphicElement<Element>>;
 
-export type PolymorphicFormEvent<Element extends PolymorphicElementType = PolymorphicDefaultElement> = FormEvent<
-	PolymorphicElement<Element>
->;
+export type PolymorphicFormEvent<Element extends PolymorphicElementType> = FormEvent<PolymorphicElement<Element>>;
 
-type PolymorphicOtherProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = {
+type PolymorphicOtherProps<Element extends PolymorphicElementType> = {
 	/**
 	 * The component used for the root node. Either a string to use an HTML element or a component.
 	 */
@@ -42,19 +38,16 @@ type PolymorphicOtherProps<Element extends PolymorphicElementType = PolymorphicD
 export type PolymorphicExtendableProps<
 	ExtendedProps = PolymorphicDefaultProps,
 	OverrideProps = PolymorphicDefaultProps
-	// > = OverrideProps & Omit<ExtendedProps, keyof OverrideProps>;
-> = ExtendedProps & OverrideProps;
+> = MergeTypes<ExtendedProps, OverrideProps>;
 
 export type PolymorphicInheritableElementProps<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement,
+	Element extends PolymorphicElementType,
 	Props = PolymorphicDefaultProps
 > = PolymorphicExtendableProps<PolymorphicOtherProps<Element>, Props>;
 
 export type PolymorphicProps<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement,
+	Element extends PolymorphicElementType,
 	Props = PolymorphicDefaultProps
 > = PolymorphicInheritableElementProps<Element, Props>;
 
-export type PolymorphicRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Ref<
-	PolymorphicElement<Element>
->;
+export type PolymorphicRef<Element extends PolymorphicElementType> = Ref<PolymorphicElement<Element>>;

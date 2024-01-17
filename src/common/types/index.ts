@@ -364,7 +364,7 @@ import type {
 	ThemeStrokeWidthArr,
 	ThemeStrokeWidthObj
 } from './theme';
-import type { Nullish, PickFrom, Undefinable } from './utility';
+import type { MergeTypes, Nullish, PickFrom, Undefinable } from './utility';
 
 export type {
 	AlignContentClass,
@@ -529,6 +529,7 @@ export type {
 	MaxWidthClass,
 	MaxWidthClassArr,
 	MaxWidthClassObj,
+	MergeTypes,
 	MinHeightClass,
 	MinHeightClassArr,
 	MinHeightClassObj,
