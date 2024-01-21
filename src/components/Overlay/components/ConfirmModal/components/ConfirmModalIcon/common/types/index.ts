@@ -3,8 +3,6 @@ import type { IconDefaultElement, IconElement, IconProps, IconRef } from '@compo
 export type ConfirmModalIconDefaultElement = IconDefaultElement;
 export type ConfirmModalIconElement = IconElement;
 
-export type ConfirmModalIconProps<Element extends ConfirmModalIconElement = ConfirmModalIconDefaultElement> =
-	IconProps<Element>;
+export type ConfirmModalIconProps<Element extends ConfirmModalIconElement> = IconProps<Element>;
 
-export type ConfirmModalIconRef<Element extends ConfirmModalIconElement = ConfirmModalIconDefaultElement> =
-	IconRef<Element>;
+export type ConfirmModalIconRef<Element extends ConfirmModalIconElement> = IconRef<Element>;
