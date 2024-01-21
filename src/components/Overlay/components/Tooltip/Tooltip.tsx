@@ -20,16 +20,11 @@ import {
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 // TODO: Go over all Transition and see if they can be merged with the child component since it is based of Box
 import { AnimatePresence, Transition } from '@components/Animation';
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
@@ -50,9 +45,10 @@ import type { TooltipProps, TooltipRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Tooltip: PolymorphicComponentWithRef = forwardRef(function Tooltip<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: TooltipProps<Element>, ref: TooltipRef<Element>): ReactElement {
+const Tooltip = forwardRef(function Tooltip<Element extends PolymorphicElementType>(
+	props: TooltipProps<Element>,
+	ref: TooltipRef<Element>
+): ReactElement {
 	const arrowRef = useRef<HTMLElement>(null);
 
 	const {
@@ -77,7 +73,7 @@ const Tooltip: PolymorphicComponentWithRef = forwardRef(function Tooltip<
 	const [isOpen, setIsOpen] = useBoolean(__DEFAULT_TOOLTIP_IS_OPEN__);
 
 	const { closeDelay, openDelay, closeOnClick, closeOnEsc, gutter, isDisabled, label, placement } =
-		useTooltipResponsiveValues({
+		useTooltipResponsiveValues<Element>({
 			closeDelay: closeDelayProp,
 			openDelay: openDelayProp,
 			closeOnClick: closeOnClickProp,
@@ -127,15 +123,14 @@ const Tooltip: PolymorphicComponentWithRef = forwardRef(function Tooltip<
 
 	const refss = useMergeRefs([ref, refs.setFloating as any]);
 
-	const classes = useTooltipClasses({ color, colorMode });
+	const classes = useTooltipClasses<Element>({ color, colorMode });
 
 	return (
 		<AnimatePresence onExitComplete={onCloseComplete}>
 			{cloneElement(children, { ...getReferenceProps(), ref: refs.setReference })}
-
 			<Transition as='section' transition='fade' in={!isDisabled && isOpen}>
-				<Box<Element>
-					{...rest}
+				<Box
+					{...(rest as BoxProps<Element>)}
 					{...getFloatingProps()}
 					ref={refss}
 					className={classNames(__KEYS_TOOLTIP_CLASS__, classes.tooltip, { [className]: !!className })}
@@ -151,8 +146,6 @@ const Tooltip: PolymorphicComponentWithRef = forwardRef(function Tooltip<
 	);
 });
 
-Tooltip.displayName = 'Tooltip';
+// Tooltip.displayName = 'Tooltip';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Tooltip<Element> {...props} />;
+export default Tooltip;

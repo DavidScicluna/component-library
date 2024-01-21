@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import classes from '@common/classes';
 import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useConst } from '@common/hooks';
-import type { ClassName } from '@common/types';
+import type { ClassName, PolymorphicElementType } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import type { TooltipProps } from '../types';
@@ -11,10 +11,15 @@ import type { TooltipProps } from '../types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseTooltipClassesProps = Pick<TooltipProps, 'color' | 'colorMode'>;
+type UseTooltipClassesProps<Element extends PolymorphicElementType> = Pick<
+	TooltipProps<Element>,
+	'color' | 'colorMode'
+>;
 type UseTooltipClassesReturn = Record<'tooltip' | 'arrow' | 'content', ClassName>;
 
-const useTooltipClasses = (props: UseTooltipClassesProps): UseTooltipClassesReturn => {
+const useTooltipClasses = <Element extends PolymorphicElementType>(
+	props: UseTooltipClassesProps<Element>
+): UseTooltipClassesReturn => {
 	const { colorMode: __DEFAULT_ICON_COLORMODE__ } = useAppTheme();
 
 	const { color = __DEFAULT_COLOR__, colorMode = __DEFAULT_ICON_COLORMODE__ } = props;

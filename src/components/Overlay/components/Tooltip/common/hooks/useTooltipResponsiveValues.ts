@@ -1,4 +1,5 @@
 import { useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicElementType } from '@common/types';
 
 import {
 	__DEFAULT_TOOLTIP_CLOSE_DELAY__,
@@ -12,14 +13,23 @@ import {
 } from '../constants';
 import type { TooltipPlacement, TooltipProps } from '../types';
 
-type UseTooltipResponsiveValuesProps = Partial<
-	Pick<
-		TooltipProps,
-		'closeDelay' | 'openDelay' | 'closeOnClick' | 'closeOnEsc' | 'gutter' | 'label' | 'isDisabled' | 'placement'
-	>
+type PickedTooltipProps =
+	| 'closeDelay'
+	| 'openDelay'
+	| 'closeOnClick'
+	| 'closeOnEsc'
+	| 'gutter'
+	| 'label'
+	| 'isDisabled'
+	| 'placement';
+type UseTooltipResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
+	Pick<TooltipProps<Element>, PickedTooltipProps>
 >;
 
-const useTooltipResponsiveValues = (props: UseTooltipResponsiveValuesProps) => {
+// TODO: See if we should add return for ResponsiveValues hooks (take look in layout folder)
+const useTooltipResponsiveValues = <Element extends PolymorphicElementType>(
+	props: UseTooltipResponsiveValuesProps<Element>
+) => {
 	const {
 		closeDelay: closeDelayProp = __DEFAULT_TOOLTIP_CLOSE_DELAY__,
 		openDelay: openDelayProp = __DEFAULT_TOOLTIP_OPEN_DELAY__,
@@ -38,7 +48,7 @@ const useTooltipResponsiveValues = (props: UseTooltipResponsiveValuesProps) => {
 	const closeOnEsc = useGetResponsiveValue<boolean>(closeOnEscProp);
 
 	const gutter = useGetResponsiveValue<number>(gutterProp);
-	const label = useGetResponsiveValue<number>(labelProp);
+	const label = useGetResponsiveValue<string>(labelProp);
 
 	const isDisabled = useGetResponsiveValue<boolean>(isDisabledProp);
 
