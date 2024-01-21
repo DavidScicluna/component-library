@@ -2,15 +2,10 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
+import type { GridProps } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import {
@@ -29,9 +24,10 @@ import type { LoadingOverlayProps, LoadingOverlayRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const LoadingOverlay: PolymorphicComponentWithRef = forwardRef(function LoadingOverlay<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: LoadingOverlayProps<Element>, ref: LoadingOverlayRef<Element>): ReactElement {
+const LoadingOverlay = forwardRef(function LoadingOverlay<Element extends PolymorphicElementType>(
+	props: LoadingOverlayProps<Element>,
+	ref: LoadingOverlayRef<Element>
+): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
@@ -49,7 +45,7 @@ const LoadingOverlay: PolymorphicComponentWithRef = forwardRef(function LoadingO
 	} = props;
 
 	const { backdropAmount, blur, blurType, radius, isLoading, hasGlass, hasBackground } =
-		useLoadingOverlayResponsiveValues({
+		useLoadingOverlayResponsiveValues<Element>({
 			backdropAmount: backdropAmountProp,
 			blur: blurProp,
 			blurType: blurTypeProp,
@@ -59,12 +55,12 @@ const LoadingOverlay: PolymorphicComponentWithRef = forwardRef(function LoadingO
 			hasBackground: hasBackgroundProp
 		});
 
-	const classes = useLoadingOverlayClasses({ blur, blurType, radius, hasGlass });
-	const styles = useLoadingOverlayStyles({ color, colorMode, backdropAmount, hasBackground });
+	const classes = useLoadingOverlayClasses<Element>({ blur, blurType, radius, hasGlass });
+	const styles = useLoadingOverlayStyles<Element>({ color, colorMode, backdropAmount, hasBackground });
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_LOADING_OVERLAY_CLASS__, classes.container, { [className]: !!className })}
 			templateColumns={1}
@@ -90,8 +86,6 @@ const LoadingOverlay: PolymorphicComponentWithRef = forwardRef(function LoadingO
 	);
 });
 
-LoadingOverlay.displayName = 'LoadingOverlay';
+// LoadingOverlay.displayName = 'LoadingOverlay';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <LoadingOverlay<Element> {...props} />;
+export default LoadingOverlay;

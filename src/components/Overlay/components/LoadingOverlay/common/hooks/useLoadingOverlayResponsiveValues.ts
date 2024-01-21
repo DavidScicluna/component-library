@@ -1,5 +1,5 @@
 import { useGetResponsiveValue } from '@common/hooks';
-import type { ThemeBlurClass, ThemeRadius } from '@common/types';
+import type { PolymorphicElementType, ThemeBlurClass, ThemeRadius } from '@common/types';
 
 import {
 	__DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT__,
@@ -20,9 +20,13 @@ type PickedLoadingOverlayProps =
 	| 'isLoading'
 	| 'hasGlass'
 	| 'hasBackground';
-type UseLoadingOverlayResponsiveValuesProps = Partial<Pick<LoadingOverlayProps, PickedLoadingOverlayProps>>;
+type UseLoadingOverlayResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
+	Pick<LoadingOverlayProps<Element>, PickedLoadingOverlayProps>
+>;
 
-const useLoadingOverlayResponsiveValues = (props: UseLoadingOverlayResponsiveValuesProps) => {
+const useLoadingOverlayResponsiveValues = <Element extends PolymorphicElementType>(
+	props: UseLoadingOverlayResponsiveValuesProps<Element>
+) => {
 	const {
 		backdropAmount: backdropAmountProp = __DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT__,
 		blur: blurProp = __DEFAULT_LOADING_OVERLAY_BLUR__,
