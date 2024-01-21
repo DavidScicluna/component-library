@@ -2,15 +2,10 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import { Divider } from '@components/DataDisplay';
+import type { VStackProps } from '@components/Layout';
 import { VStack } from '@components/Layout';
 
 import { useModalContext } from '../../common/hooks';
@@ -21,9 +16,10 @@ import type { ModalStackProps, ModalStackRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ModalStack: PolymorphicComponentWithRef = forwardRef(function ModalStack<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: ModalStackProps<Element>, ref: ModalStackRef<Element>): ReactElement {
+const ModalStack = forwardRef(function ModalStack<Element extends PolymorphicElementType>(
+	props: ModalStackProps<Element>,
+	ref: ModalStackRef<Element>
+): ReactElement {
 	const { colorMode, spacing: __DEFAULT_MODAL_STACK_SPACING__ } = useModalContext();
 
 	const {
@@ -38,8 +34,8 @@ const ModalStack: PolymorphicComponentWithRef = forwardRef(function ModalStack<
 	} = props;
 
 	return (
-		<VStack<Element>
-			{...rest}
+		<VStack
+			{...(rest as VStackProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_MODAL_STACK_CLASS__, { [className]: !!className })}
 			w='100%'
@@ -54,8 +50,6 @@ const ModalStack: PolymorphicComponentWithRef = forwardRef(function ModalStack<
 	);
 });
 
-ModalStack.displayName = 'ModalStack';
+// ModalStack.displayName = 'ModalStack';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <ModalStack<Element> {...props} />;
+export default ModalStack;
