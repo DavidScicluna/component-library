@@ -8,7 +8,7 @@ import {
 	__DEFAULT_RADIUS__
 } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
-import type { ClassName } from '@common/types';
+import type { ClassName, PolymorphicElementType } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import {
@@ -23,14 +23,14 @@ import useDummyPushableOverlayResponsiveValues from './useDummyPushableOverlayRe
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseDummyPushableOverlayClassesProps = Pick<
-	DummyPushableOverlayProps,
+type UseDummyPushableOverlayClassesProps<Element extends PolymorphicElementType> = Pick<
+	DummyPushableOverlayProps<Element>,
 	'colorMode' | 'isAnimated' | 'isOutlined' | 'radius' | 'variant'
 >;
 type UseDummyPushableOverlayClassesReturn = ClassName;
 
-const useDummyPushableOverlayClasses = (
-	props: UseDummyPushableOverlayClassesProps
+const useDummyPushableOverlayClasses = <Element extends PolymorphicElementType>(
+	props: UseDummyPushableOverlayClassesProps<Element>
 ): UseDummyPushableOverlayClassesReturn => {
 	const { colorMode: __DEFAULT_DUMMY_PUSHABLE_OVERLAY_COLORMODE__ } = useAppTheme();
 
@@ -42,7 +42,7 @@ const useDummyPushableOverlayClasses = (
 		variant: variantProp = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__
 	} = props;
 
-	const { isAnimated, isOutlined, radius, variant } = useDummyPushableOverlayResponsiveValues({
+	const { isAnimated, isOutlined, radius, variant } = useDummyPushableOverlayResponsiveValues<Element>({
 		isAnimated: isAnimatedProp,
 		isOutlined: isOutlinedProp,
 		radius: radiusProp,

@@ -4,14 +4,9 @@ import { forwardRef } from 'react';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__, __DEFAULT_RADIUS__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
+import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
@@ -30,9 +25,10 @@ import type { DummyPushableOverlayProps, DummyPushableOverlayRef } from './commo
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const DummyPushableOverlay: PolymorphicComponentWithRef = forwardRef(function DummyPushableOverlay<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: DummyPushableOverlayProps<Element>, ref: DummyPushableOverlayRef<Element>): ReactElement {
+const DummyPushableOverlay = forwardRef(function DummyPushableOverlay<Element extends PolymorphicElementType>(
+	props: DummyPushableOverlayProps<Element>,
+	ref: DummyPushableOverlayRef<Element>
+): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
@@ -46,19 +42,19 @@ const DummyPushableOverlay: PolymorphicComponentWithRef = forwardRef(function Du
 		...rest
 	} = props;
 
-	const { isAnimated, isOutlined, radius, variant } = useDummyPushableOverlayResponsiveValues({
+	const { isAnimated, isOutlined, radius, variant } = useDummyPushableOverlayResponsiveValues<Element>({
 		isAnimated: isAnimatedProp,
 		isOutlined: isOutlinedProp,
 		radius: radiusProp,
 		variant: variantProp
 	});
 
-	const classes = useDummyPushableOverlayClasses({ colorMode, isAnimated, isOutlined, radius });
-	const styles = useDummyPushableOverlayStyles({ color, colorMode, variant });
+	const classes = useDummyPushableOverlayClasses<Element>({ colorMode, isAnimated, isOutlined, radius, variant });
+	const styles = useDummyPushableOverlayStyles<Element>({ color, colorMode, variant });
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			className={classNames(__KEY_DUMMY_PUSHABLE_OVERLAY_CLASS__, classes, { [className]: !!className })}
 			aria-disabled='true'
@@ -78,8 +74,6 @@ const DummyPushableOverlay: PolymorphicComponentWithRef = forwardRef(function Du
 	);
 });
 
-DummyPushableOverlay.displayName = 'DummyPushableOverlay';
+// DummyPushableOverlay.displayName = 'DummyPushableOverlay';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <DummyPushableOverlay<Element> {...props} />;
+export default DummyPushableOverlay;
