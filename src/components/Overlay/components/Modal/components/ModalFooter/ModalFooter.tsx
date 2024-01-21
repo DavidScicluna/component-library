@@ -3,14 +3,9 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useMediaQuery } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
+import type { StackProps } from '@components/Layout';
 import { Stack } from '@components/Layout';
 
 import { useModalContext } from '../../common/hooks';
@@ -21,9 +16,10 @@ import type { ModalFooterProps, ModalFooterRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ModalFooter: PolymorphicComponentWithRef = forwardRef(function ModalFooter<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: ModalFooterProps<Element>, ref: ModalFooterRef<Element>): ReactElement {
+const ModalFooter = forwardRef(function ModalFooter<Element extends PolymorphicElementType>(
+	props: ModalFooterProps<Element>,
+	ref: ModalFooterRef<Element>
+): ReactElement {
 	const isSm = useMediaQuery({ breakpoint: 'sm', type: 'width', direction: 'max' });
 
 	const { color, colorMode, onClose, spacing: __DEFAULT_MODAL_FOOTER_SPACING__ } = useModalContext();
@@ -40,8 +36,8 @@ const ModalFooter: PolymorphicComponentWithRef = forwardRef(function ModalFooter
 	} = props;
 
 	return (
-		<Stack<Element>
-			{...rest}
+		<Stack
+			{...(rest as StackProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_MODAL_FOOTER_CLASS__, { [className]: !!className })}
 			w='100%'
@@ -74,8 +70,6 @@ const ModalFooter: PolymorphicComponentWithRef = forwardRef(function ModalFooter
 	);
 });
 
-ModalFooter.displayName = 'ModalFooter';
+// ModalFooter.displayName = 'ModalFooter';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <ModalFooter<Element> {...props} />;
+export default ModalFooter;
