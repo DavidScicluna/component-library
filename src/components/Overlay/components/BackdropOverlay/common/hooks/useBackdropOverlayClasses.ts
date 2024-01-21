@@ -1,5 +1,12 @@
 import { useGetClass } from '@common/hooks';
-import type { ClassName, OverflowClass, SaturateClass, ThemeBlurClass, ThemeRadius } from '@common/types';
+import type {
+	ClassName,
+	OverflowClass,
+	PolymorphicElementType,
+	SaturateClass,
+	ThemeBlurClass,
+	ThemeRadius
+} from '@common/types';
 
 import {
 	__DEFAULT_BACKDROP_OVERLAY_BLUR__,
@@ -13,17 +20,22 @@ import useBackdropOverlayResponsiveValues from './useBackdropOverlayResponsiveVa
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseBackdropOverlayClassesProps = Pick<BackdropOverlayProps, 'blur' | 'blurType' | 'radius'>;
+type UseBackdropOverlayClassesProps<Element extends PolymorphicElementType> = Pick<
+	BackdropOverlayProps<Element>,
+	'blur' | 'blurType' | 'radius'
+>;
 type UseBackdropOverlayClassesReturn = Record<'container' | 'overlay', ClassName>;
 
-const useBackdropOverlayClasses = (props: UseBackdropOverlayClassesProps): UseBackdropOverlayClassesReturn => {
+const useBackdropOverlayClasses = <Element extends PolymorphicElementType>(
+	props: UseBackdropOverlayClassesProps<Element>
+): UseBackdropOverlayClassesReturn => {
 	const {
 		blur: blurProp = __DEFAULT_BACKDROP_OVERLAY_BLUR__,
 		blurType: blurTypeProp = __DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
 		radius: radiusProp = __DEFAULT_BACKDROP_OVERLAY_RADIUS__
 	} = props;
 
-	const { blur, blurType, radius } = useBackdropOverlayResponsiveValues({
+	const { blur, blurType, radius } = useBackdropOverlayResponsiveValues<Element>({
 		blur: blurProp,
 		blurType: blurTypeProp,
 		radius: radiusProp

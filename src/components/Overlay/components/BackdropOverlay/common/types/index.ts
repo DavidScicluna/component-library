@@ -1,5 +1,4 @@
 import type {
-	PolymorphicDefaultElement,
 	PolymorphicElementType,
 	ResponsiveValue,
 	ThemeAppAppearanceProps,
@@ -37,9 +36,6 @@ type BackdropOverlayOtherProps = ThemeAppAppearanceProps & {
 	radius?: ResponsiveValue<ThemeRadius>;
 };
 
-export type BackdropOverlayProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
-	Element,
-	BackdropOverlayOtherProps
->;
+export type BackdropOverlayProps<Element extends PolymorphicElementType> = BoxProps<Element, BackdropOverlayOtherProps>;
 
-export type BackdropOverlayRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type BackdropOverlayRef<Element extends PolymorphicElementType> = BoxRef<Element>;

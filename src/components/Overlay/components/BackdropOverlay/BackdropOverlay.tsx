@@ -2,15 +2,10 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import { Box } from '@components/Box';
+import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
@@ -30,9 +25,10 @@ import type { BackdropOverlayProps, BackdropOverlayRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const BackdropOverlay: PolymorphicComponentWithRef = forwardRef(function BackdropOverlay<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: BackdropOverlayProps<Element>, ref: BackdropOverlayRef<Element>): ReactElement {
+const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends PolymorphicElementType>(
+	props: BackdropOverlayProps<Element>,
+	ref: BackdropOverlayRef<Element>
+): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
@@ -45,19 +41,19 @@ const BackdropOverlay: PolymorphicComponentWithRef = forwardRef(function Backdro
 		...rest
 	} = props;
 
-	const { amount, blur, blurType, radius } = useBackdropOverlayResponsiveValues({
+	const { amount, blur, blurType, radius } = useBackdropOverlayResponsiveValues<Element>({
 		amount: amountProp,
 		blur: blurProp,
 		blurType: blurTypeProp,
 		radius: radiusProp
 	});
 
-	const classes = useBackdropOverlayClasses({ blur, blurType, radius });
-	const styles = useBackdropOverlayStyles({ color, colorMode, amount });
+	const classes = useBackdropOverlayClasses<Element>({ blur, blurType, radius });
+	const styles = useBackdropOverlayStyles<Element>({ color, colorMode, amount });
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_BACKDROP_OVERLAY_CLASS__, classes.container, { [className]: !!className })}
 			data-aria-hidden='true'
@@ -83,8 +79,6 @@ const BackdropOverlay: PolymorphicComponentWithRef = forwardRef(function Backdro
 	);
 });
 
-BackdropOverlay.displayName = 'BackdropOverlay';
+// BackdropOverlay.displayName = 'BackdropOverlay';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <BackdropOverlay<Element> {...props} />;
+export default BackdropOverlay;

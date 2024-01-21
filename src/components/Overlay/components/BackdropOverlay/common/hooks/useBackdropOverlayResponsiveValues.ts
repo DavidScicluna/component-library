@@ -1,5 +1,5 @@
 import { useGetResponsiveValue } from '@common/hooks';
-import type { ThemeBlurClass, ThemeRadius } from '@common/types';
+import type { PolymorphicElementType, ThemeBlurClass, ThemeRadius } from '@common/types';
 
 import {
 	__DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
@@ -9,11 +9,13 @@ import {
 } from '../constants';
 import type { BackdropOverlayBlurType, BackdropOverlayProps } from '../types';
 
-type UseBackdropOverlayResponsiveValuesProps = Partial<
-	Pick<BackdropOverlayProps, 'amount' | 'blur' | 'blurType' | 'radius'>
+type UseBackdropOverlayResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
+	Pick<BackdropOverlayProps<Element>, 'amount' | 'blur' | 'blurType' | 'radius'>
 >;
 
-const useBackdropOverlayResponsiveValues = (props: UseBackdropOverlayResponsiveValuesProps) => {
+const useBackdropOverlayResponsiveValues = <Element extends PolymorphicElementType>(
+	props: UseBackdropOverlayResponsiveValuesProps<Element>
+) => {
 	const {
 		amount: amountProp = __DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
 		blur: blurProp = __DEFAULT_BACKDROP_OVERLAY_BLUR__,
