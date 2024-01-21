@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import type { PolymorphicDefaultElement, PolymorphicElementType, ResponsiveValue } from '@common/types';
+import type { PolymorphicElementType, ResponsiveValue } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
@@ -40,9 +40,6 @@ type IndicatorOtherProps = {
 	placement?: ResponsiveValue<IndicatorPlacement>;
 };
 
-export type IndicatorProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
-	Element,
-	IndicatorOtherProps
->;
+export type IndicatorProps<Element extends PolymorphicElementType> = BoxProps<Element, IndicatorOtherProps>;
 
-export type IndicatorRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type IndicatorRef<Element extends PolymorphicElementType> = BoxRef<Element>;

@@ -1,4 +1,5 @@
 import { useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicElementType } from '@common/types';
 
 import {
 	__DEFAULT_INDICATOR_IS_VISIBLE__,
@@ -7,9 +8,13 @@ import {
 } from '../constants';
 import type { IndicatorPlacement, IndicatorProps } from '../types';
 
-type UseIndicatorResponsiveValuesProps = Partial<Pick<IndicatorProps, 'isVisible' | 'offset' | 'placement'>>;
+type UseIndicatorResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
+	Pick<IndicatorProps<Element>, 'isVisible' | 'offset' | 'placement'>
+>;
 
-const useIndicatorResponsiveValues = (props: UseIndicatorResponsiveValuesProps) => {
+const useIndicatorResponsiveValues = <Element extends PolymorphicElementType>(
+	props: UseIndicatorResponsiveValuesProps<Element>
+) => {
 	const {
 		isVisible: isVisibleProp = __DEFAULT_INDICATOR_IS_VISIBLE__,
 		offset: offsetProp = __DEFAULT_INDICATOR_OFFSET__,

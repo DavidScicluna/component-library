@@ -2,16 +2,11 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
+import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
@@ -26,9 +21,10 @@ import type { IndicatorProps, IndicatorRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Indicator: PolymorphicComponentWithRef = forwardRef(function Indicator<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: IndicatorProps<Element>, ref: IndicatorRef<Element>): ReactElement {
+const Indicator = forwardRef(function Indicator<Element extends PolymorphicElementType>(
+	props: IndicatorProps<Element>,
+	ref: IndicatorRef<Element>
+): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
@@ -39,17 +35,17 @@ const Indicator: PolymorphicComponentWithRef = forwardRef(function Indicator<
 		...rest
 	} = props;
 
-	const { isVisible, offset, placement } = useIndicatorResponsiveValues({
+	const { isVisible, offset, placement } = useIndicatorResponsiveValues<Element>({
 		isVisible: isVisibleProp,
 		offset: offsetProp,
 		placement: placementProp
 	});
 
-	const styles = useIndicatorStyles({ offset, placement });
+	const styles = useIndicatorStyles<Element>({ offset, placement });
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_INDICATOR_CLASS__, { [className]: !!className })}
 			templateColumns={1}
@@ -75,8 +71,6 @@ const Indicator: PolymorphicComponentWithRef = forwardRef(function Indicator<
 	);
 });
 
-Indicator.displayName = 'Indicator';
+// Indicator.displayName = 'Indicator';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Indicator<Element> {...props} />;
+export default Indicator;
