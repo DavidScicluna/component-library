@@ -3,26 +3,24 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
+import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
 import { useModalContext } from '../../common/hooks';
 import { getModalTitleID } from '../../common/utils';
 
+import { __DEFAULT_MODAL_TITLE_AS__ } from './common/constants';
 import { __KEYS_MODAL_TITLE_CLASS__ } from './common/keys';
-import type { ModalTitleDefaultElement, ModalTitleElement, ModalTitleProps, ModalTitleRef } from './common/types';
+import type { ModalTitleElement, ModalTitleProps, ModalTitleRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ModalTitle: PolymorphicComponentWithRef = forwardRef(function ModalTitle<
-	Element extends ModalTitleElement = ModalTitleDefaultElement
->(props: ModalTitleProps<Element>, ref: ModalTitleRef<Element>): ReactElement {
+const ModalTitle = forwardRef(function ModalTitle<Element extends ModalTitleElement>(
+	props: ModalTitleProps<Element>,
+	ref: ModalTitleRef<Element>
+): ReactElement {
 	const { colorMode, id } = useModalContext();
 
 	const __DEFAULT_MODAL_TITLE_COLOR__ = useGetColor({
@@ -35,6 +33,7 @@ const ModalTitle: PolymorphicComponentWithRef = forwardRef(function ModalTitle<
 
 	const {
 		children,
+		as = __DEFAULT_MODAL_TITLE_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		align = 'left',
 		color = __DEFAULT_MODAL_TITLE_COLOR__,
@@ -45,8 +44,9 @@ const ModalTitle: PolymorphicComponentWithRef = forwardRef(function ModalTitle<
 	} = props;
 
 	return (
-		<Text<Element>
-			{...rest}
+		<Text
+			{...(rest as TextProps<Element>)}
+			as={as}
 			ref={ref}
 			id={getModalTitleID(id)}
 			className={classNames(__KEYS_MODAL_TITLE_CLASS__, { [className]: !!className })}
@@ -61,8 +61,6 @@ const ModalTitle: PolymorphicComponentWithRef = forwardRef(function ModalTitle<
 	);
 });
 
-ModalTitle.displayName = 'ModalTitle';
+// ModalTitle.displayName = 'ModalTitle';
 
-export default <Element extends ModalTitleElement = ModalTitleDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <ModalTitle<Element> {...props} />;
+export default ModalTitle;
