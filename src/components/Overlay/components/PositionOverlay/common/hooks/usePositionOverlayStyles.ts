@@ -5,7 +5,7 @@ import { compact } from 'lodash-es';
 
 import { __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useGetColor } from '@common/hooks';
-import type { Style } from '@common/types';
+import type { PolymorphicElementType, Style } from '@common/types';
 import { getResponsiveValue } from '@common/utils';
 
 import {
@@ -18,10 +18,15 @@ import type { PositionOverlayPlacement, PositionOverlayProps } from '../types';
 import usePositionOverlayResponsiveValues from './usePositionOverlayResponsiveValues';
 
 type PickedPositionOverlayProps = 'color' | 'colorMode' | 'backdropAmount' | 'placement' | 'hasBackground';
-type UsePositionOverlayStylesProps = Pick<PositionOverlayProps, PickedPositionOverlayProps>;
+type UsePositionOverlayStylesProps<Element extends PolymorphicElementType> = Pick<
+	PositionOverlayProps<Element>,
+	PickedPositionOverlayProps
+>;
 type UsePositionOverlayStylesReturn = Record<'overlay' | 'position', Style>;
 
-const usePositionOverlayStyles = (props: UsePositionOverlayStylesProps): UsePositionOverlayStylesReturn => {
+const usePositionOverlayStyles = <Element extends PolymorphicElementType>(
+	props: UsePositionOverlayStylesProps<Element>
+): UsePositionOverlayStylesReturn => {
 	const { colorMode: __DEFAULT_POSITION_OVERLAY_COLORMODE__ } = useAppTheme();
 
 	const {
@@ -36,7 +41,7 @@ const usePositionOverlayStyles = (props: UsePositionOverlayStylesProps): UsePosi
 		backdropAmount: amount,
 		placement,
 		hasBackground
-	} = usePositionOverlayResponsiveValues({
+	} = usePositionOverlayResponsiveValues<Element>({
 		backdropAmount: backdropAmountProp,
 		placement: placementProp,
 		hasBackground: hasBackgroundProp

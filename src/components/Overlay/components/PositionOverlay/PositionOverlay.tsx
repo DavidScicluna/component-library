@@ -2,13 +2,7 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
@@ -35,9 +29,10 @@ import type { PositionOverlayProps, PositionOverlayRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const PositionOverlay: PolymorphicComponentWithRef = forwardRef(function PositionOverlay<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: PositionOverlayProps<Element>, ref: PositionOverlayRef<Element>): ReactElement {
+const PositionOverlay = forwardRef(function PositionOverlay<Element extends PolymorphicElementType>(
+	props: PositionOverlayProps<Element>,
+	ref: PositionOverlayRef<Element>
+): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
@@ -56,7 +51,7 @@ const PositionOverlay: PolymorphicComponentWithRef = forwardRef(function Positio
 	} = props;
 
 	const { backdropAmount, blur, blurType, placement, radius, isVisible, hasGlass, hasBackground } =
-		usePositionOverlayResponsiveValues({
+		usePositionOverlayResponsiveValues<Element>({
 			backdropAmount: backdropAmountProp,
 			blur: blurProp,
 			blurType: blurTypeProp,
@@ -67,12 +62,12 @@ const PositionOverlay: PolymorphicComponentWithRef = forwardRef(function Positio
 			hasBackground: hasBackgroundProp
 		});
 
-	const classes = usePositionOverlayClasses({ blur, blurType, radius, hasGlass });
-	const styles = usePositionOverlayStyles({ color, colorMode, backdropAmount, placement, hasBackground });
+	const classes = usePositionOverlayClasses<Element>({ blur, blurType, radius, hasGlass });
+	const styles = usePositionOverlayStyles<Element>({ color, colorMode, backdropAmount, placement, hasBackground });
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as PositionOverlayProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_POSITION_OVERLAY_CLASS__, classes.container, { [className]: !!className })}
 			templateColumns={1}
@@ -98,8 +93,6 @@ const PositionOverlay: PolymorphicComponentWithRef = forwardRef(function Positio
 	);
 });
 
-PositionOverlay.displayName = 'PositionOverlay';
+// PositionOverlay.displayName = 'PositionOverlay';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <PositionOverlay<Element> {...props} />;
+export default PositionOverlay;

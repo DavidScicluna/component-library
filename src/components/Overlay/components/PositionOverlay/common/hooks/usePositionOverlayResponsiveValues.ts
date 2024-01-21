@@ -1,5 +1,5 @@
 import { useGetResponsiveValue } from '@common/hooks';
-import type { ThemeBlurClass, ThemeRadius } from '@common/types';
+import type { PolymorphicElementType, ThemeBlurClass, ThemeRadius } from '@common/types';
 
 import {
 	__DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT__,
@@ -22,9 +22,13 @@ type PickedPositionOverlayProps =
 	| 'isVisible'
 	| 'hasGlass'
 	| 'hasBackground';
-type UsePositionOverlayResponsiveValuesProps = Partial<Pick<PositionOverlayProps, PickedPositionOverlayProps>>;
+type UsePositionOverlayResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
+	Pick<PositionOverlayProps<Element>, PickedPositionOverlayProps>
+>;
 
-const usePositionOverlayResponsiveValues = (props: UsePositionOverlayResponsiveValuesProps) => {
+const usePositionOverlayResponsiveValues = <Element extends PolymorphicElementType>(
+	props: UsePositionOverlayResponsiveValuesProps<Element>
+) => {
 	const {
 		backdropAmount: backdropAmountProp = __DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT__,
 		blur: blurProp = __DEFAULT_POSITION_OVERLAY_BLUR__,
@@ -37,8 +41,8 @@ const usePositionOverlayResponsiveValues = (props: UsePositionOverlayResponsiveV
 	} = props;
 
 	const backdropAmount = useGetResponsiveValue<number>(backdropAmountProp);
-	const blur = useGetResponsiveValue<PositionOverlayBlurType>(blurProp);
-	const blurType = useGetResponsiveValue<ThemeBlurClass>(blurTypeProp);
+	const blur = useGetResponsiveValue<ThemeBlurClass>(blurProp);
+	const blurType = useGetResponsiveValue<PositionOverlayBlurType>(blurTypeProp);
 	const placement = useGetResponsiveValue<PositionOverlayPlacement>(placementProp);
 	const radius = useGetResponsiveValue<ThemeRadius>(radiusProp);
 	const isVisible = useGetResponsiveValue<boolean>(isVisibleProp);

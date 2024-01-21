@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react';
 
 import type {
-	PolymorphicDefaultElement,
 	PolymorphicElementType,
 	ResponsiveValue,
 	ThemeAppAppearanceProps,
@@ -25,65 +24,64 @@ export type PositionOverlayPlacement =
 	| 'middle-end'
 	| 'middle-start';
 
-type PositionOverlayOtherProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
-	ThemeAppAppearanceProps & {
-		/**
-		 * Callback invoked to render the overlay
-		 */
-		renderOverlay: () => ReactNode;
-		/**
-		 * The amount to increase the transparency by, given as a decimal between 0 and 1
-		 *
-		 * @default 0.5
-		 */
-		backdropAmount?: ResponsiveValue<number>;
-		/**
-		 * The amount of the blur effect to be applied ("none", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "8xl", "9xl")
-		 *
-		 * @default 'md'
-		 */
-		blur?: ResponsiveValue<ThemeBlurClass>;
-		/**
-		 * The type of blur to show either a backdrop filter blur or else it will be a normal blur
-		 *
-		 * @default 'backdrop'
-		 */
-		blurType?: ResponsiveValue<PositionOverlayBlurType>;
-		/**
-		 * The position of the overlay item relative to child element
-		 *
-		 * @default 'middle-center'
-		 */
-		placement?: ResponsiveValue<PositionOverlayPlacement>;
-		/**
-		 * The border radius of the position overlay container
-		 *
-		 * @default 'none'
-		 */
-		radius?: ResponsiveValue<ThemeRadius>;
-		/**
-		 * If `true` it will render the overlay, else if `false` it will render out
-		 *
-		 * @default false
-		 */
-		isVisible?: ResponsiveValue<boolean>;
-		/**
-		 * If `true` it will trigger the glass effect on the background
-		 *
-		 * @default true
-		 */
-		hasGlass?: ResponsiveValue<boolean>;
-		/**
-		 * If `true` a background depending on color & colorMode will be triggered on the background
-		 *
-		 * @default true
-		 */
-		hasBackground?: ResponsiveValue<boolean>;
-	} & Pick<GlassOverlayProps<Element>, 'blur'>;
+type PositionOverlayOtherProps<Element extends PolymorphicElementType> = ThemeAppAppearanceProps & {
+	/**
+	 * Callback invoked to render the overlay
+	 */
+	renderOverlay: () => ReactNode;
+	/**
+	 * The amount to increase the transparency by, given as a decimal between 0 and 1
+	 *
+	 * @default 0.5
+	 */
+	backdropAmount?: ResponsiveValue<number>;
+	/**
+	 * The amount of the blur effect to be applied ("none", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "8xl", "9xl")
+	 *
+	 * @default 'md'
+	 */
+	blur?: ResponsiveValue<ThemeBlurClass>;
+	/**
+	 * The type of blur to show either a backdrop filter blur or else it will be a normal blur
+	 *
+	 * @default 'backdrop'
+	 */
+	blurType?: ResponsiveValue<PositionOverlayBlurType>;
+	/**
+	 * The position of the overlay item relative to child element
+	 *
+	 * @default 'middle-center'
+	 */
+	placement?: ResponsiveValue<PositionOverlayPlacement>;
+	/**
+	 * The border radius of the position overlay container
+	 *
+	 * @default 'none'
+	 */
+	radius?: ResponsiveValue<ThemeRadius>;
+	/**
+	 * If `true` it will render the overlay, else if `false` it will render out
+	 *
+	 * @default false
+	 */
+	isVisible?: ResponsiveValue<boolean>;
+	/**
+	 * If `true` it will trigger the glass effect on the background
+	 *
+	 * @default true
+	 */
+	hasGlass?: ResponsiveValue<boolean>;
+	/**
+	 * If `true` a background depending on color & colorMode will be triggered on the background
+	 *
+	 * @default true
+	 */
+	hasBackground?: ResponsiveValue<boolean>;
+} & Pick<GlassOverlayProps<Element>, 'blur'>;
 
-export type PositionOverlayProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
+export type PositionOverlayProps<Element extends PolymorphicElementType> = BoxProps<
 	Element,
 	PositionOverlayOtherProps<Element>
 >;
 
-export type PositionOverlayRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type PositionOverlayRef<Element extends PolymorphicElementType> = BoxRef<Element>;
