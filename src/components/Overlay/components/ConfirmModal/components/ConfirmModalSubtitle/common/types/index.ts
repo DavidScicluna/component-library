@@ -3,9 +3,6 @@ import type { TextDefaultElement, TextElement, TextProps, TextRef } from '@compo
 export type ConfirmModalSubtitleDefaultElement = TextDefaultElement;
 export type ConfirmModalSubtitleElement = TextElement;
 
-export type ConfirmModalSubtitleProps<
-	Element extends ConfirmModalSubtitleElement = ConfirmModalSubtitleDefaultElement
-> = Partial<TextProps<Element>>;
+export type ConfirmModalSubtitleProps<Element extends ConfirmModalSubtitleElement> = Partial<TextProps<Element>>;
 
-export type ConfirmModalSubtitleRef<Element extends ConfirmModalSubtitleElement = ConfirmModalSubtitleDefaultElement> =
-	TextRef<Element>;
+export type ConfirmModalSubtitleRef<Element extends ConfirmModalSubtitleElement> = TextRef<Element>;
