@@ -21,15 +21,10 @@ import {
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import { AnimatePresence, Transition } from '@components/Animation';
+import type { BoxProps, BoxRef } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
@@ -49,9 +44,10 @@ import type { PopperProps, PopperRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Popper: PolymorphicComponentWithRef = forwardRef(function Popper<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: PopperProps<Element>, ref: PopperRef<Element>): ReactElement {
+const Popper = forwardRef(function Popper<Element extends PolymorphicElementType>(
+	props: PopperProps<Element>,
+	ref: PopperRef<Element>
+): ReactElement {
 	const arrowRef = useRef<HTMLElement>(null);
 
 	const {
@@ -77,7 +73,7 @@ const Popper: PolymorphicComponentWithRef = forwardRef(function Popper<
 	const [isOpen, setIsOpen] = useBoolean(__DEFAULT_POPPER_IS_OPEN__);
 
 	const { closeDelay, openDelay, closeOnClickOutside, closeOnEsc, gutter, isDisabled, placement, radius } =
-		usePopperResponsiveValues({
+		usePopperResponsiveValues<Element>({
 			closeDelay: closeDelayProp,
 			openDelay: openDelayProp,
 			closeOnClickOutside: closeOnClickOutsideProp,
@@ -127,22 +123,25 @@ const Popper: PolymorphicComponentWithRef = forwardRef(function Popper<
 
 	const refss = useMergeRefs([ref, refs.setFloating as any]);
 
-	const classes = usePopperClasses({ color, colorMode, radius });
+	const classes = usePopperClasses<Element>({ color, colorMode, radius });
 
 	return (
 		<AnimatePresence onExitComplete={onCloseComplete}>
-			{renderTrigger({
-				...getReferenceProps(),
-				ref: refs.setReference,
-				color,
-				colorMode,
-				isOpen,
-				onOpen: handleOpen
-			})}
+			<Box
+				{...(getReferenceProps() as BoxProps<PolymorphicDefaultElement>)}
+				ref={refs.setReference as BoxRef<PolymorphicDefaultElement>}
+			>
+				{renderTrigger({
+					color,
+					colorMode,
+					isOpen,
+					onOpen: handleOpen
+				})}
+			</Box>
 			<Transition as='section' transition='fade' in={!isDisabled && isOpen}>
 				<FloatingFocusManager context={context} modal={false}>
-					<Box<Element>
-						{...rest}
+					<Box
+						{...(rest as BoxProps<Element>)}
 						{...getFloatingProps()}
 						ref={refss}
 						className={classNames(__KEYS_POPPER_CLASS__, classes.popper, { [className]: !!className })}
@@ -157,8 +156,6 @@ const Popper: PolymorphicComponentWithRef = forwardRef(function Popper<
 	);
 });
 
-Popper.displayName = 'Popper';
+// Popper.displayName = 'Popper';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Popper<Element> {...props} />;
+export default Popper;

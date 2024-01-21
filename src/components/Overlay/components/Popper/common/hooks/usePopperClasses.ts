@@ -8,7 +8,7 @@ import {
 	__DEFAULT_RADIUS__
 } from '@common/constants';
 import { useAppTheme, useConst } from '@common/hooks';
-import type { ClassName } from '@common/types';
+import type { ClassName, PolymorphicElementType } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import type { PopperProps } from '../types';
@@ -18,10 +18,15 @@ import usePopperResponsiveValues from './usePopperResponsiveValues';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UsePopperClassesProps = Pick<PopperProps, 'color' | 'colorMode' | 'radius'>;
+type UsePopperClassesProps<Element extends PolymorphicElementType> = Pick<
+	PopperProps<Element>,
+	'color' | 'colorMode' | 'radius'
+>;
 type UsePopperClassesReturn = Record<'popper' | 'arrow', ClassName>;
 
-const usePopperClasses = (props: UsePopperClassesProps): UsePopperClassesReturn => {
+const usePopperClasses = <Element extends PolymorphicElementType>(
+	props: UsePopperClassesProps<Element>
+): UsePopperClassesReturn => {
 	const { colorMode: __DEFAULT_ICON_COLORMODE__ } = useAppTheme();
 
 	const {
@@ -30,7 +35,7 @@ const usePopperClasses = (props: UsePopperClassesProps): UsePopperClassesReturn 
 		radius: radiusProp = __DEFAULT_RADIUS__
 	} = props;
 
-	const { radius } = usePopperResponsiveValues({ radius: radiusProp });
+	const { radius } = usePopperResponsiveValues<Element>({ radius: radiusProp });
 
 	const popperRootClasses = useMemo<ClassName>(
 		() =>

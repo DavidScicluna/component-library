@@ -1,6 +1,6 @@
 import { __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { ThemeRadius } from '@common/types';
+import type { PolymorphicElementType, ThemeRadius } from '@common/types';
 
 import {
 	__DEFAULT_POPPER_CLOSE_DELAY__,
@@ -22,9 +22,13 @@ type PickedPopperProps =
 	| 'isDisabled'
 	| 'placement'
 	| 'radius';
-type UsePopperResponsiveValuesProps = Partial<Pick<PopperProps, PickedPopperProps>>;
+type UsePopperResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
+	Pick<PopperProps<Element>, PickedPopperProps>
+>;
 
-const usePopperResponsiveValues = (props: UsePopperResponsiveValuesProps) => {
+const usePopperResponsiveValues = <Element extends PolymorphicElementType>(
+	props: UsePopperResponsiveValuesProps<Element>
+) => {
 	const {
 		closeDelay: closeDelayProp = __DEFAULT_POPPER_CLOSE_DELAY__,
 		openDelay: openDelayProp = __DEFAULT_POPPER_OPEN_DELAY__,
