@@ -13,17 +13,22 @@ import type {
 } from '@common/types';
 
 import { __DEFAULT_CONFIRM_MODAL_SIZE__, __DEFAULT_CONFIRM_MODAL_SPACING__ } from '../constants';
-import type { ConfirmModalProps } from '../types';
+import type { ConfirmModalElement, ConfirmModalProps } from '../types';
 
 import useConfirmModalResponsiveValues from './useConfirmModalResponsiveValues';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseGetConfirmModalClassesProps = Pick<ConfirmModalProps, 'color' | 'colorMode' | 'size' | 'spacing'>;
+type UseGetConfirmModalClassesProps<Element extends ConfirmModalElement> = Pick<
+	ConfirmModalProps<Element>,
+	'color' | 'colorMode' | 'size' | 'spacing'
+>;
 type UseGetConfirmModalClassesReturn = Record<'container' | 'backdrop' | 'content' | 'cancel', ClassName>;
 
-const useGetConfirmModalClasses = (props: UseGetConfirmModalClassesProps): UseGetConfirmModalClassesReturn => {
+const useGetConfirmModalClasses = <Element extends ConfirmModalElement>(
+	props: UseGetConfirmModalClassesProps<Element>
+): UseGetConfirmModalClassesReturn => {
 	const { colorMode: __DEFAULT_CONFIRM_MODAL_CONTAINER_COLORMODE__ } = useAppTheme();
 
 	const {
@@ -33,7 +38,7 @@ const useGetConfirmModalClasses = (props: UseGetConfirmModalClassesProps): UseGe
 		size: sizeProp = __DEFAULT_CONFIRM_MODAL_SIZE__
 	} = props;
 
-	const { size, spacing } = useConfirmModalResponsiveValues({ spacing: spacingProp, size: sizeProp });
+	const { size, spacing } = useConfirmModalResponsiveValues<Element>({ spacing: spacingProp, size: sizeProp });
 
 	const widthClassName = useGetClass<WidthClass>('full', ['sizing', 'width']);
 	const maxWidthClassName = useGetClass<MaxWidthClass>(size, ['sizing', 'max_width']);

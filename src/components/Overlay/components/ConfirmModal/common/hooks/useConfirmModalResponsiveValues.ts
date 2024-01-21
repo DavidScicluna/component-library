@@ -8,13 +8,15 @@ import {
 	__DEFAULT_CONFIRM_MODAL_SIZE__,
 	__DEFAULT_CONFIRM_MODAL_SPACING__
 } from '../constants';
-import type { ConfirmModalProps, ConfirmModalSize } from '../types';
+import type { ConfirmModalElement, ConfirmModalProps, ConfirmModalSize } from '../types';
 
-type UseConfirmModalResponsiveValuesProps = Partial<
-	Pick<ConfirmModalProps, 'closeOnEsc' | 'closeOnOverlayClick' | 'hasBackdrop' | 'spacing' | 'size'>
+type UseConfirmModalResponsiveValuesProps<Element extends ConfirmModalElement> = Partial<
+	Pick<ConfirmModalProps<Element>, 'closeOnEsc' | 'closeOnOverlayClick' | 'hasBackdrop' | 'spacing' | 'size'>
 >;
 
-const useConfirmModalResponsiveValues = (props: UseConfirmModalResponsiveValuesProps) => {
+const useConfirmModalResponsiveValues = <Element extends ConfirmModalElement>(
+	props: UseConfirmModalResponsiveValuesProps<Element>
+) => {
 	const {
 		closeOnOverlayClick: closeOnOverlayClickProp = __DEFAULT_CONFIRM_MODAL_CLOSE_ON_OVERLAY_CLICK__,
 		closeOnEsc: closeOnEscProp = __DEFAULT_CONFIRM_MODAL_CLOSE_ON_ESC__,
