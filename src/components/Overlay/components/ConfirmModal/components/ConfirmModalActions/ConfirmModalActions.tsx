@@ -2,14 +2,9 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
+import type { VStackProps } from '@components/Layout';
 import { VStack } from '@components/Layout';
 
 import { useConfirmModalContext } from '../../common/hooks';
@@ -20,9 +15,10 @@ import type { ConfirmModalActionsProps, ConfirmModalActionsRef } from './common/
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ConfirmModalActions: PolymorphicComponentWithRef = forwardRef(function ConfirmModalActions<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: ConfirmModalActionsProps<Element>, ref: ConfirmModalActionsRef<Element>): ReactElement {
+const ConfirmModalActions = forwardRef(function ConfirmModalActions<Element extends PolymorphicElementType>(
+	props: ConfirmModalActionsProps<Element>,
+	ref: ConfirmModalActionsRef<Element>
+): ReactElement {
 	const { color, colorMode, onClose, spacing: __DEFAULT_CONFIRM_MODAL_ACTIONS_SPACING__ } = useConfirmModalContext();
 
 	const {
@@ -36,8 +32,8 @@ const ConfirmModalActions: PolymorphicComponentWithRef = forwardRef(function Con
 	} = props;
 
 	return (
-		<VStack<Element>
-			{...rest}
+		<VStack
+			{...(rest as VStackProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_CONFIRM_MODAL_ACTIONS_CLASS__, { [className]: !!className })}
 			w='100%'
@@ -69,8 +65,6 @@ const ConfirmModalActions: PolymorphicComponentWithRef = forwardRef(function Con
 	);
 });
 
-ConfirmModalActions.displayName = 'ConfirmModalActions';
+// ConfirmModalActions.displayName = 'ConfirmModalActions';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <ConfirmModalActions<Element> {...props} />;
+export default ConfirmModalActions;

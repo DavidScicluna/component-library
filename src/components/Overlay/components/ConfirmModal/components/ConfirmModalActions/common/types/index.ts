@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import type { ButtonProps } from '@components/Buttons';
 import type { VStackProps, VStackRef } from '@components/Layout';
@@ -14,13 +14,9 @@ export type ConfirmModalActionsRenderActionProps = Pick<
 	'color' | 'colorMode' | 'isFullWidth' | 'size' | 'variant'
 >;
 
-export type ConfirmModalActionsProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
-	VStackProps<Element>,
-	'children' | 'w' | 'h'
-> & {
+export type ConfirmModalActionsProps<Element extends PolymorphicElementType> = {
 	renderCancel?: (props: ConfirmModalActionsRenderCancelProps) => ReactNode;
 	renderAction?: (props: ConfirmModalActionsRenderActionProps) => ReactNode;
-};
+} & Omit<VStackProps<Element>, 'children' | 'w' | 'h'>;
 
-export type ConfirmModalActionsRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
-	VStackRef<Element>;
+export type ConfirmModalActionsRef<Element extends PolymorphicElementType> = VStackRef<Element>;
