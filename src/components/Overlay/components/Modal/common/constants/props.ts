@@ -1,7 +1,8 @@
 import { v4 as uuid } from 'uuid';
 
-import type { ModalSize } from '../types';
+import type { ModalDefaultElement, ModalSize } from '../types';
 
+export const __DEFAULT_MODAL_AS__: ModalDefaultElement = 'dialog';
 export const __DEFAULT_MODAL_ID__ = uuid();
 
 export const __DEFAULT_MODAL_CLOSE_ON_ESC__ = true;

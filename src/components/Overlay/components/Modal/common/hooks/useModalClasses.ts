@@ -13,17 +13,18 @@ import type {
 } from '@common/types';
 
 import { __DEFAULT_MODAL_SIZE__ } from '../constants';
-import type { ModalProps } from '../types';
+import type { ModalElement, ModalProps } from '../types';
 
 import useModalResponsiveValues from './useModalResponsiveValues';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseModalClassesProps = Pick<ModalProps, 'color' | 'colorMode' | 'size' | 'spacing'>;
+type PickedModalProps = 'color' | 'colorMode' | 'size' | 'spacing';
+type UseModalClassesProps<Element extends ModalElement> = Pick<ModalProps<Element>, PickedModalProps>;
 type UseModalClassesReturn = Record<'container' | 'backdrop' | 'content', ClassName>;
 
-const useModalClasses = (props: UseModalClassesProps): UseModalClassesReturn => {
+const useModalClasses = <Element extends ModalElement>(props: UseModalClassesProps<Element>): UseModalClassesReturn => {
 	const { colorMode: __DEFAULT_MODAL_CONTAINER_COLORMODE__ } = useAppTheme();
 
 	const {
@@ -33,7 +34,7 @@ const useModalClasses = (props: UseModalClassesProps): UseModalClassesReturn => 
 		size: sizeProp = __DEFAULT_MODAL_SIZE__
 	} = props;
 
-	const { size, spacing } = useModalResponsiveValues({ spacing: spacingProp, size: sizeProp });
+	const { size, spacing } = useModalResponsiveValues<Element>({ spacing: spacingProp, size: sizeProp });
 
 	const widthClassName = useGetClass<WidthClass>('full', ['sizing', 'width']);
 	const maxWidthClassName = useGetClass<MaxWidthClass>(size, ['sizing', 'max_width']);

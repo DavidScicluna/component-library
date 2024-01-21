@@ -8,13 +8,13 @@ import {
 	__DEFAULT_MODAL_HAS_BACKDROP__,
 	__DEFAULT_MODAL_SIZE__
 } from '../constants';
-import type { ModalProps, ModalSize } from '../types';
+import type { ModalElement, ModalProps, ModalSize } from '../types';
 
-type UseModalResponsiveValuesProps = Partial<
-	Pick<ModalProps, 'closeOnEsc' | 'closeOnOverlayClick' | 'hasBackdrop' | 'size' | 'spacing'>
+type UseModalResponsiveValuesProps<Element extends ModalElement> = Partial<
+	Pick<ModalProps<Element>, 'closeOnEsc' | 'closeOnOverlayClick' | 'hasBackdrop' | 'size' | 'spacing'>
 >;
 
-const useModalResponsiveValues = (props: UseModalResponsiveValuesProps) => {
+const useModalResponsiveValues = <Element extends ModalElement>(props: UseModalResponsiveValuesProps<Element>) => {
 	const {
 		closeOnEsc: closeOnEscProp = __DEFAULT_MODAL_CLOSE_ON_ESC__,
 		closeOnOverlayClick: closeOnOverlayClickProp = __DEFAULT_MODAL_CLOSE_ON_OVERLAY_CLICK__,

@@ -12,20 +12,24 @@ import {
 } from '@floating-ui/react';
 import { useKey } from 'rooks';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__, __DEFAULT_SPACING__ } from '@common/constants';
+import {
+	__DEFAULT_APP_COLOR__,
+	__DEFAULT_APP_COLORMODE__,
+	__DEFAULT_CLASSNAME__,
+	__DEFAULT_METHOD__,
+	__DEFAULT_SPACING__
+} from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { AnimatePresence, Transition } from '@components/Animation';
+import type { BoxProps, BoxRef } from '@components/Box';
 import { Box } from '@components/Box';
-import type { CenterRef } from '@components/Layout';
+import type { CenterRef, GridProps } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import {
+	__DEFAULT_MODAL_AS__,
 	__DEFAULT_MODAL_CLOSE_ON_ESC__,
 	__DEFAULT_MODAL_CLOSE_ON_OVERLAY_CLICK__,
 	__DEFAULT_MODAL_HAS_BACKDROP__,
@@ -48,7 +52,9 @@ import { ModalBackdrop } from './components';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-export const ModalContext = createContext<ModalContextType>({
+export const ModalContext = createContext<ModalContextType<ModalDefaultElement>>({
+	color: __DEFAULT_APP_COLOR__,
+	colorMode: __DEFAULT_APP_COLORMODE__,
 	id: __DEFAULT_MODAL_ID__,
 	isOpen: __DEFAULT_MODAL_IS_OPEN__,
 	onClose: __DEFAULT_METHOD__,
@@ -56,11 +62,13 @@ export const ModalContext = createContext<ModalContextType>({
 	size: __DEFAULT_MODAL_SIZE__
 });
 
-const Modal: PolymorphicComponentWithRef = forwardRef(function Modal<
-	Element extends ModalElement = ModalDefaultElement
->(props: ModalProps<Element>, ref: ModalRef<Element>): ReactElement {
+const Modal = forwardRef(function Modal<Element extends ModalElement>(
+	props: ModalProps<Element>,
+	ref: ModalRef<Element>
+): ReactElement {
 	const {
 		children,
+		as = __DEFAULT_MODAL_AS__,
 		id = __DEFAULT_MODAL_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		renderTrigger,
@@ -82,7 +90,7 @@ const Modal: PolymorphicComponentWithRef = forwardRef(function Modal<
 
 	const [isOpen, setIsOpen] = useBoolean(__DEFAULT_MODAL_IS_OPEN__);
 
-	const { closeOnEsc, closeOnOverlayClick, hasBackdrop, size, spacing } = useModalResponsiveValues({
+	const { closeOnEsc, closeOnOverlayClick, hasBackdrop, size, spacing } = useModalResponsiveValues<Element>({
 		closeOnEsc: closeOnEscProp,
 		closeOnOverlayClick: closeOnOverlayClickProp,
 		hasBackdrop: hasBackdropProp,
@@ -134,27 +142,31 @@ const Modal: PolymorphicComponentWithRef = forwardRef(function Modal<
 
 	const { getReferenceProps, getFloatingProps } = useInteractions([click, dismiss, role]);
 
-	const classes = useModalClasses({ color, colorMode, size, spacing });
+	const classes = useModalClasses<Element>({ color, colorMode, size, spacing });
 
 	useKey(['Escape'], handleEscapeClick, { when: closeOnEsc });
 
 	return (
 		<ModalContext.Provider value={{ color, colorMode, id, isOpen, onClose: handleClose, size, spacing }}>
 			<AnimatePresence onExitComplete={onCloseComplete}>
-				{renderTrigger({
-					...getReferenceProps(),
-					ref: refs.setReference,
-					color,
-					colorMode,
-					isOpen,
-					onOpen: handleOpen
-				})}
+				<Box
+					{...(getReferenceProps() as BoxProps<PolymorphicDefaultElement>)}
+					ref={refs.setReference as BoxRef<PolymorphicDefaultElement>}
+				>
+					{renderTrigger({
+						color,
+						colorMode,
+						isOpen,
+						onOpen: handleOpen
+					})}
+				</Box>
 
 				<Transition as='section' transition='fade' in={isOpen}>
 					<FloatingOverlay lockScroll style={{ zIndex: 1 }}>
 						<FloatingFocusManager context={context}>
-							<Grid<Element>
-								{...rest}
+							<Grid
+								{...(rest as GridProps<Element>)}
+								as={as}
 								ref={ref}
 								id={getModalID(id)}
 								className={classNames(__KEYS_MODAL_CLASS__, classes.container, {
@@ -181,7 +193,7 @@ const Modal: PolymorphicComponentWithRef = forwardRef(function Modal<
 								<GridItem columnStart={1} rowStart={1} zIndex={1}>
 									<Center
 										{...getFloatingProps()}
-										ref={refs.setFloating as CenterRef}
+										ref={refs.setFloating as CenterRef<PolymorphicDefaultElement>}
 										aria-labelledby={getModalTitleID(id)}
 										aria-describedby={getModalSubtitleID(id)}
 										w='100%'
@@ -200,8 +212,6 @@ const Modal: PolymorphicComponentWithRef = forwardRef(function Modal<
 	);
 });
 
-Modal.displayName = 'Modal';
+// Modal.displayName = 'Modal';
 
-export default <Element extends ModalElement = ModalDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Modal<Element> {...props} />;
+export default Modal;

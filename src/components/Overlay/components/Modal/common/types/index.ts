@@ -18,7 +18,7 @@ export type ModalSize =
 	| PickFrom<ThemeFontSize, 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl'>
 	| 'full';
 
-export type ModalRenderTriggerProps<Element extends ModalElement = ModalDefaultElement> = BoxProps & {
+export type ModalRenderTriggerProps<Element extends ModalElement> = {
 	/**
 	 * If `true`, the modal will be open
 	 */
@@ -28,14 +28,11 @@ export type ModalRenderTriggerProps<Element extends ModalElement = ModalDefaultE
 	 */
 	onOpen: () => void;
 } & Pick<ModalProps<Element>, 'color' | 'colorMode'>;
-export type ModalRenderBackdropProps<Element extends ModalElement = ModalDefaultElement> = Pick<
-	ModalProps<Element>,
-	'color' | 'colorMode'
->;
+export type ModalRenderBackdropProps<Element extends ModalElement> = Pick<ModalProps<Element>, 'color' | 'colorMode'>;
 
-type ModalOtherProps = ThemeAppAppearanceProps & {
-	renderTrigger: (props: ModalRenderTriggerProps) => ReactNode;
-	renderBackdrop?: (props: ModalRenderBackdropProps) => ReactNode;
+type ModalOtherProps<Element extends ModalElement> = ThemeAppAppearanceProps & {
+	renderTrigger: (props: ModalRenderTriggerProps<Element>) => ReactNode;
+	renderBackdrop?: (props: ModalRenderBackdropProps<Element>) => ReactNode;
 	/**
 	 * If `true`, the modal will close when the Esc key is pressed
 	 * @default true
@@ -79,15 +76,17 @@ type ModalOtherProps = ThemeAppAppearanceProps & {
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type ModalProps<Element extends ModalElement = ModalDefaultElement> = Omit<
-	BoxProps<Element, ModalOtherProps>,
+export type ModalProps<Element extends ModalElement> = Omit<
+	BoxProps<Element, ModalOtherProps<Element>>,
 	keyof BoxOtherProps
 >;
-export type ModalRef<Element extends ModalElement = ModalDefaultElement> = BoxRef<Element>;
+export type ModalRef<Element extends ModalElement> = BoxRef<Element>;
 
-export type ModalContext = Pick<ModalProps, 'color' | 'colorMode' | 'id' | 'onClose' | 'size' | 'spacing'> & {
+type PickedModalProps = 'color' | 'colorMode' | 'onClose' | 'size' | 'spacing';
+export type ModalContext<Element extends ModalElement> = Pick<ModalProps<Element>, PickedModalProps> & {
 	/**
 	 * If `true`, the modal will be open
 	 */
 	isOpen: boolean;
+	id: string;
 };
