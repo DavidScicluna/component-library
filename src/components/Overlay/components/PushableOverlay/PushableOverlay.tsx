@@ -4,14 +4,9 @@ import { forwardRef } from 'react';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__, __DEFAULT_RADIUS__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
+import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
@@ -35,9 +30,10 @@ import type { PushableOverlayProps, PushableOverlayRef } from './common/types';
 const classNames = require('classnames');
 
 // TODO: Add gradient prop that will replaced colors with gradient from, middle & to colors
-const PushableOverlay: PolymorphicComponentWithRef = forwardRef(function PushableOverlay<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: PushableOverlayProps<Element>, ref: PushableOverlayRef<Element>): ReactElement {
+const PushableOverlay = forwardRef(function PushableOverlay<Element extends PolymorphicElementType>(
+	props: PushableOverlayProps<Element>,
+	ref: PushableOverlayRef<Element>
+): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
@@ -56,7 +52,7 @@ const PushableOverlay: PolymorphicComponentWithRef = forwardRef(function Pushabl
 	} = props;
 
 	const { isActive, isDisabled, isFixed, isFocused, isOutlined, isPushable, radius, variant } =
-		usePushableOverlayResponsiveValues({
+		usePushableOverlayResponsiveValues<Element>({
 			isActive: isActiveProp,
 			isDisabled: isDisabledProp,
 			isFixed: isFixedProp,
@@ -67,7 +63,7 @@ const PushableOverlay: PolymorphicComponentWithRef = forwardRef(function Pushabl
 			variant: variantProp
 		});
 
-	const classes = usePushableOverlayClasses({
+	const classes = usePushableOverlayClasses<Element>({
 		color,
 		colorMode,
 		isActive,
@@ -78,7 +74,7 @@ const PushableOverlay: PolymorphicComponentWithRef = forwardRef(function Pushabl
 		radius,
 		variant
 	});
-	const styles = usePushableOverlayStyles({
+	const styles = usePushableOverlayStyles<Element>({
 		color,
 		colorMode,
 		isActive,
@@ -89,8 +85,8 @@ const PushableOverlay: PolymorphicComponentWithRef = forwardRef(function Pushabl
 	});
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_PUSHABLE_OVERLAY_CLASS__, classes, { [className]: !!className })}
 			aria-disabled={isDisabled ? 'true' : 'false'}
@@ -111,8 +107,6 @@ const PushableOverlay: PolymorphicComponentWithRef = forwardRef(function Pushabl
 	);
 });
 
-PushableOverlay.displayName = 'PushableOverlay';
+// PushableOverlay.displayName = 'PushableOverlay';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <PushableOverlay<Element> {...props} />;
+export default PushableOverlay;

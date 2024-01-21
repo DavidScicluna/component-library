@@ -1,10 +1,4 @@
-import type {
-	PolymorphicDefaultElement,
-	PolymorphicElementType,
-	ResponsiveValue,
-	ThemeAppAppearanceProps,
-	ThemeRadius
-} from '@common/types';
+import type { PolymorphicElementType, ResponsiveValue, ThemeAppAppearanceProps, ThemeRadius } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
@@ -17,7 +11,7 @@ export type PushableOverlayVariant =
 	| 'transparent'
 	| 'unstyled';
 
-// TODO: Go over and add ResponsiveValue to all props except of function props
+// TODO: Go over and add ResponsiveValue to all props
 type PushableOverlayOtherProps = ThemeAppAppearanceProps & {
 	/**
 	 * If `true`, the container will have the active styling
@@ -69,9 +63,6 @@ type PushableOverlayOtherProps = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<PushableOverlayVariant>;
 };
 
-export type PushableOverlayProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
-	Element,
-	PushableOverlayOtherProps
->;
+export type PushableOverlayProps<Element extends PolymorphicElementType> = BoxProps<Element, PushableOverlayOtherProps>;
 
-export type PushableOverlayRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type PushableOverlayRef<Element extends PolymorphicElementType> = BoxRef<Element>;

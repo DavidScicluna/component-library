@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import { __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useGetAmount, useTheme } from '@common/hooks';
-import type { Style } from '@common/types';
+import type { PolymorphicElementType, Style } from '@common/types';
 import { filterColorHex, getColorHue } from '@common/utils';
 
 import {
@@ -25,10 +25,15 @@ type PickedPushableOverlayProps =
 	| 'isFixed'
 	| 'isPushable'
 	| 'variant';
-type UsePushableOverlayStylesProps = Pick<PushableOverlayProps, PickedPushableOverlayProps>;
+type UsePushableOverlayStylesProps<Element extends PolymorphicElementType> = Pick<
+	PushableOverlayProps<Element>,
+	PickedPushableOverlayProps
+>;
 type UsePushableOverlayStylesReturn = Style;
 
-const usePushableOverlayStyles = (props: UsePushableOverlayStylesProps): UsePushableOverlayStylesReturn => {
+const usePushableOverlayStyles = <Element extends PolymorphicElementType>(
+	props: UsePushableOverlayStylesProps<Element>
+): UsePushableOverlayStylesReturn => {
 	const theme = useTheme();
 
 	const { colorMode: __DEFAULT_PUSHABLE_OVERLAY_COLORMODE__ } = useAppTheme();
@@ -45,7 +50,7 @@ const usePushableOverlayStyles = (props: UsePushableOverlayStylesProps): UsePush
 
 	const amount = useGetAmount({ colorMode, types: ['active', 'back', 'hover'] });
 
-	const { isActive, isDisabled, isFixed, isPushable, variant } = usePushableOverlayResponsiveValues({
+	const { isActive, isDisabled, isFixed, isPushable, variant } = usePushableOverlayResponsiveValues<Element>({
 		isActive: isActiveProp,
 		isDisabled: isDisabledProp,
 		isFixed: isFixedProp,

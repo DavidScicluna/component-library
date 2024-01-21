@@ -1,6 +1,6 @@
 import { __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { ThemeRadius } from '@common/types';
+import type { PolymorphicElementType, ThemeRadius } from '@common/types';
 
 import {
 	__DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
@@ -13,14 +13,22 @@ import {
 } from '../constants';
 import type { PushableOverlayProps, PushableOverlayVariant } from '../types';
 
-type UsePushableOverlayResponsiveValuesProps = Partial<
-	Pick<
-		PushableOverlayProps,
-		'isActive' | 'isDisabled' | 'isFixed' | 'isFocused' | 'isOutlined' | 'isPushable' | 'radius' | 'variant'
-	>
+type PickedPushableOverlayProps =
+	| 'isActive'
+	| 'isDisabled'
+	| 'isFixed'
+	| 'isFocused'
+	| 'isOutlined'
+	| 'isPushable'
+	| 'radius'
+	| 'variant';
+type UsePushableOverlayResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
+	Pick<PushableOverlayProps<Element>, PickedPushableOverlayProps>
 >;
 
-const usePushableOverlayResponsiveValues = (props: UsePushableOverlayResponsiveValuesProps) => {
+const usePushableOverlayResponsiveValues = <Element extends PolymorphicElementType>(
+	props: UsePushableOverlayResponsiveValuesProps<Element>
+) => {
 	const {
 		isActive: isActiveProp = __DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
 		isDisabled: isDisabledProp = __DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
