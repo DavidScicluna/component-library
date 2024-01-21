@@ -1,5 +1,4 @@
 import type {
-	PolymorphicElementType,
 	TextAlignClass,
 	TextLineClampClass,
 	TextTransformClass,
@@ -10,7 +9,9 @@ import type {
 	WordBreakClass
 } from '@common/types';
 
-export const __DEFAULT_TEXT_AS__: PolymorphicElementType = 'p';
+import type { TextDefaultElement } from '../types';
+
+export const __DEFAULT_TEXT_AS__: TextDefaultElement = 'p';
 export const __DEFAULT_TEXT_ALIGN__: TextAlignClass = 'left';
 export const __DEFAULT_TEXT_FONT_SIZE__: ThemeFontSize = 'md';
 export const __DEFAULT_TEXT_FONT_WEIGHT__: ThemeFontWeight = 'normal';
