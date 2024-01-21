@@ -2,14 +2,9 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
@@ -25,9 +20,10 @@ import type { LinearGradientProps, LinearGradientRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const LinearGradient: PolymorphicComponentWithRef = forwardRef(function LinearGradient<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: LinearGradientProps<Element>, ref: LinearGradientRef<Element>): ReactElement {
+const LinearGradient = forwardRef(function LinearGradient<Element extends PolymorphicElementType>(
+	props: LinearGradientProps<Element>,
+	ref: LinearGradientRef<Element>
+): ReactElement {
 	const {
 		className = __DEFAULT_CLASSNAME__,
 		direction: directionProp = __DEFAULT_LINEAR_GRADIENT_DIRECTION__,
@@ -37,26 +33,24 @@ const LinearGradient: PolymorphicComponentWithRef = forwardRef(function LinearGr
 		...rest
 	} = props;
 
-	const { direction, from, middle, to } = useLinearGradientResponsiveValues({
+	const { direction, from, middle, to } = useLinearGradientResponsiveValues<Element>({
 		direction: directionProp,
 		from: fromProp,
 		middle: middleProp,
 		to: toProp
 	});
 
-	const classes = useLinearGradientClasses({ direction, from, middle, to });
+	const classes = useLinearGradientClasses<Element>({ direction, from, middle, to });
 
 	return (
-		<Box<Element>
-			{...rest}
+		<Box
+			{...(rest as BoxProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_LINEAR_GRADIENT_CLASS__, classes, { [className]: !!className })}
 		/>
 	);
 });
 
-LinearGradient.displayName = 'LinearGradient';
+// LinearGradient.displayName = 'LinearGradient';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <LinearGradient<Element> {...props} />;
+export default LinearGradient;

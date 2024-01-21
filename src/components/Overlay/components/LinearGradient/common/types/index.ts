@@ -1,7 +1,6 @@
 import type {
 	GradientClass,
 	GradientFromMiddleToClass,
-	PolymorphicDefaultElement,
 	PolymorphicElementType,
 	ResponsiveValue,
 	ThemeAppColorMode,
@@ -51,9 +50,6 @@ type LinearGradientOtherProps = {
 	to?: ResponsiveValue<LinearGradientColor>;
 };
 
-export type LinearGradientProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
-	Element,
-	LinearGradientOtherProps
->;
+export type LinearGradientProps<Element extends PolymorphicElementType> = BoxProps<Element, LinearGradientOtherProps>;
 
-export type LinearGradientRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type LinearGradientRef<Element extends PolymorphicElementType> = BoxRef<Element>;

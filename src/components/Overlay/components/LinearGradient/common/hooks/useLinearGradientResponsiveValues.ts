@@ -1,4 +1,5 @@
 import { useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicElementType } from '@common/types';
 
 import {
 	__DEFAULT_LINEAR_GRADIENT_DIRECTION__,
@@ -8,11 +9,13 @@ import {
 } from '../constants';
 import type { LinearGradientColor, LinearGradientDirection, LinearGradientProps } from '../types';
 
-type UseLinearGradientResponsiveValuesProps = Partial<
-	Pick<LinearGradientProps, 'direction' | 'from' | 'middle' | 'to'>
+type UseLinearGradientResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
+	Pick<LinearGradientProps<Element>, 'direction' | 'from' | 'middle' | 'to'>
 >;
 
-const useLinearGradientResponsiveValues = (props: UseLinearGradientResponsiveValuesProps) => {
+const useLinearGradientResponsiveValues = <Element extends PolymorphicElementType>(
+	props: UseLinearGradientResponsiveValuesProps<Element>
+) => {
 	const {
 		direction: directionProp = __DEFAULT_LINEAR_GRADIENT_DIRECTION__,
 		from: fromProp = __DEFAULT_LINEAR_GRADIENT_FROM__,
