@@ -2,15 +2,10 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
+import type { GridProps } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import { GlassOverlay } from '../GlassOverlay';
@@ -20,34 +15,56 @@ import {
 	__DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE__,
 	__DEFAULT_STATE_OVERLAY_STATE__
 } from './common/constants';
+import { useStateOverlayResponsiveValues } from './common/hooks';
 import { __KEYS_STATE_OVERLAY_CLASS__ } from './common/keys';
 import type { StateOverlayProps, StateOverlayRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const StateOverlay: PolymorphicComponentWithRef = forwardRef(function StateOverlay<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: StateOverlayProps<Element>, ref: StateOverlayRef<Element>): ReactElement {
+const StateOverlay = forwardRef(function StateOverlay<Element extends PolymorphicElementType>(
+	props: StateOverlayProps<Element>,
+	ref: StateOverlayRef<Element>
+): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
 		blur,
+		renderSuccess: renderSuccessProp,
+		renderEmpty: renderEmptyProp,
+		renderError: renderErrorProp,
+		renderSpinner: renderSpinnerProp,
+		hasGlass: hasGlassProp = __DEFAULT_STATE_OVERLAY_HAS_GLASS__,
+		isAlwaysVisible: isAlwaysVisibleProp = __DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE__,
+		state: stateProp = __DEFAULT_STATE_OVERLAY_STATE__,
+		...rest
+	} = props;
+
+	const {
+		// children,
 		renderSuccess,
 		renderEmpty,
 		renderError,
 		renderSpinner,
-		hasGlass = __DEFAULT_STATE_OVERLAY_HAS_GLASS__,
-		isAlwaysVisible = __DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE__,
-		state = __DEFAULT_STATE_OVERLAY_STATE__,
-		...rest
-	} = props;
+		hasGlass,
+		isAlwaysVisible,
+		state
+	} = useStateOverlayResponsiveValues<Element>({
+		// children: childrenProp,
+		renderSuccess: renderSuccessProp,
+		renderEmpty: renderEmptyProp,
+		renderError: renderErrorProp,
+		renderSpinner: renderSpinnerProp,
+		hasGlass: hasGlassProp,
+		isAlwaysVisible: isAlwaysVisibleProp,
+		state: stateProp
+	});
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_STATE_OVERLAY_CLASS__, { [className]: !!className })}
 			templateColumns={1}
@@ -116,8 +133,6 @@ const StateOverlay: PolymorphicComponentWithRef = forwardRef(function StateOverl
 	);
 });
 
-StateOverlay.displayName = 'StateOverlay';
+// StateOverlay.displayName = 'StateOverlay';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <StateOverlay<Element> {...props} />;
+export default StateOverlay;
