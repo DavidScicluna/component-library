@@ -2,14 +2,9 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
+import type { CenterProps } from '@components/Layout';
 import { Center } from '@components/Layout';
 
 import { __KEYS_MODAL_BODY_CLASS__ } from './common/keys';
@@ -18,14 +13,15 @@ import type { ModalBodyProps, ModalBodyRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ModalBody: PolymorphicComponentWithRef = forwardRef(function ModalBody<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: ModalBodyProps<Element>, ref: ModalBodyRef<Element>): ReactElement {
+const ModalBody = forwardRef(function ModalBody<Element extends PolymorphicElementType>(
+	props: ModalBodyProps<Element>,
+	ref: ModalBodyRef<Element>
+): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, ...rest } = props;
 
 	return (
-		<Center<Element>
-			{...rest}
+		<Center
+			{...(rest as CenterProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_MODAL_BODY_CLASS__, { [className]: !!className })}
 			w='100%'
@@ -36,8 +32,6 @@ const ModalBody: PolymorphicComponentWithRef = forwardRef(function ModalBody<
 	);
 });
 
-ModalBody.displayName = 'ModalBody';
+// ModalBody.displayName = 'ModalBody';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <ModalBody<Element> {...props} />;
+export default ModalBody;
