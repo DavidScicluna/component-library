@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 import type { IconButtonProps } from '@components/Buttons';
@@ -11,18 +11,15 @@ export type ModalHeaderRenderCancelProps = Pick<
 	'color' | 'colorMode' | 'onClick' | 'size' | 'variant'
 >;
 
-type ModalHeaderOtherProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Pick<
-	GridProps<Element>,
-	'spacing'
-> & {
+type ModalHeaderOtherProps<Element extends PolymorphicElementType> = Pick<GridProps<Element>, 'spacing'> & {
 	renderTitle: () => ReactNode;
 	renderSubtitle?: () => ReactNode;
 	renderCancel?: (props: ModalHeaderRenderCancelProps) => ReactNode;
 };
 
-export type ModalHeaderProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
+export type ModalHeaderProps<Element extends PolymorphicElementType> = Omit<
 	BoxProps<Element, ModalHeaderOtherProps<Element>>,
 	'children' | 'w' | 'h'
 >;
 
-export type ModalHeaderRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type ModalHeaderRef<Element extends PolymorphicElementType> = BoxRef<Element>;

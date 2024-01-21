@@ -2,14 +2,9 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
+import type { GridProps } from '@components/Layout';
 import { Grid, GridItem, VStack } from '@components/Layout';
 
 import { useModalContext } from '../../common/hooks';
@@ -20,9 +15,10 @@ import type { ModalHeaderProps, ModalHeaderRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ModalHeader: PolymorphicComponentWithRef = forwardRef(function ModalHeader<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: ModalHeaderProps<Element>, ref: ModalHeaderRef<Element>): ReactElement {
+const ModalHeader = forwardRef(function ModalHeader<Element extends PolymorphicElementType>(
+	props: ModalHeaderProps<Element>,
+	ref: ModalHeaderRef<Element>
+): ReactElement {
 	const { colorMode, onClose, spacing: __DEFAULT_MODAL_HEADER_SPACING__ } = useModalContext();
 
 	const {
@@ -35,8 +31,8 @@ const ModalHeader: PolymorphicComponentWithRef = forwardRef(function ModalHeader
 	} = props;
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_MODAL_HEADER_CLASS__, { [className]: !!className })}
 			w='100%'
@@ -73,8 +69,6 @@ const ModalHeader: PolymorphicComponentWithRef = forwardRef(function ModalHeader
 	);
 });
 
-ModalHeader.displayName = 'ModalHeader';
+// ModalHeader.displayName = 'ModalHeader';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <ModalHeader<Element> {...props} />;
+export default ModalHeader;
