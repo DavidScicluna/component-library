@@ -1,5 +1,5 @@
 import { useGetResponsiveValue } from '@common/hooks';
-import type { ThemeBlurClass, ThemeRadius } from '@common/types';
+import type { PolymorphicElementType, ThemeBlurClass, ThemeRadius } from '@common/types';
 
 import {
 	__DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT__,
@@ -10,11 +10,13 @@ import {
 } from '../constants';
 import type { GlassOverlayBlurType, GlassOverlayProps } from '../types';
 
-type UseGlassOverlayResponsiveValuesProps = Partial<
-	Pick<GlassOverlayProps, 'backdropAmount' | 'blur' | 'blurType' | 'radius' | 'hasBackground'>
+type UseGlassOverlayResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
+	Pick<GlassOverlayProps<Element>, 'backdropAmount' | 'blur' | 'blurType' | 'radius' | 'hasBackground'>
 >;
 
-const useGlassOverlayResponsiveValues = (props: UseGlassOverlayResponsiveValuesProps) => {
+const useGlassOverlayResponsiveValues = <Element extends PolymorphicElementType>(
+	props: UseGlassOverlayResponsiveValuesProps<Element>
+) => {
 	const {
 		backdropAmount: backdropAmountProp = __DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT__,
 		blur: blurProp = __DEFAULT_GLASS_OVERLAY_BLUR__,

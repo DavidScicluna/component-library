@@ -1,5 +1,12 @@
 import { useGetClass } from '@common/hooks';
-import type { ClassName, OverflowClass, SaturateClass, ThemeBlurClass, ThemeRadius } from '@common/types';
+import type {
+	ClassName,
+	OverflowClass,
+	PolymorphicElementType,
+	SaturateClass,
+	ThemeBlurClass,
+	ThemeRadius
+} from '@common/types';
 
 import {
 	__DEFAULT_GLASS_OVERLAY_BLUR__,
@@ -13,18 +20,23 @@ import useGlassOverlayResponsiveValues from './useGlassOverlayResponsiveValues';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseGlassOverlayClassesProps = Pick<GlassOverlayProps, 'blur' | 'blurType' | 'radius'>;
+type UseGlassOverlayClassesProps<Element extends PolymorphicElementType> = Pick<
+	GlassOverlayProps<Element>,
+	'blur' | 'blurType' | 'radius'
+>;
 type UseGlassOverlayClassesReturn = Record<'container' | 'overlay', ClassName>;
 
 // TODO: Remove Get from all GetClasses hooks names
-const useGlassOverlayClasses = (props: UseGlassOverlayClassesProps): UseGlassOverlayClassesReturn => {
+const useGlassOverlayClasses = <Element extends PolymorphicElementType>(
+	props: UseGlassOverlayClassesProps<Element>
+): UseGlassOverlayClassesReturn => {
 	const {
 		blur: blurProp = __DEFAULT_GLASS_OVERLAY_BLUR__,
 		blurType: blurTypeProp = __DEFAULT_GLASS_OVERLAY_BLUR_TYPE__,
 		radius: radiusProp = __DEFAULT_GLASS_OVERLAY_RADIUS__
 	} = props;
 
-	const { blur, blurType, radius } = useGlassOverlayResponsiveValues({
+	const { blur, blurType, radius } = useGlassOverlayResponsiveValues<Element>({
 		blur: blurProp,
 		blurType: blurTypeProp,
 		radius: radiusProp

@@ -2,15 +2,10 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import { Box } from '@components/Box';
+import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
@@ -27,9 +22,10 @@ import type { GlassOverlayProps, GlassOverlayRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const GlassOverlay: PolymorphicComponentWithRef = forwardRef(function GlassOverlay<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: GlassOverlayProps<Element>, ref: GlassOverlayRef<Element>): ReactElement {
+const GlassOverlay = forwardRef(function GlassOverlay<Element extends PolymorphicElementType>(
+	props: GlassOverlayProps<Element>,
+	ref: GlassOverlayRef<Element>
+): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
@@ -43,7 +39,7 @@ const GlassOverlay: PolymorphicComponentWithRef = forwardRef(function GlassOverl
 		...rest
 	} = props;
 
-	const { backdropAmount, blur, blurType, radius, hasBackground } = useGlassOverlayResponsiveValues({
+	const { backdropAmount, blur, blurType, radius, hasBackground } = useGlassOverlayResponsiveValues<Element>({
 		backdropAmount: backdropAmountProp,
 		blur: blurProp,
 		blurType: blurTypeProp,
@@ -51,12 +47,12 @@ const GlassOverlay: PolymorphicComponentWithRef = forwardRef(function GlassOverl
 		hasBackground: hasBackgroundProp
 	});
 
-	const classes = useGlassOverlayClasses({ blur, blurType, radius });
-	const styles = useGlassOverlayStyles({ color, colorMode, backdropAmount, hasBackground });
+	const classes = useGlassOverlayClasses<Element>({ blur, blurType, radius });
+	const styles = useGlassOverlayStyles<Element>({ color, colorMode, backdropAmount, hasBackground });
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_GLASS_OVERLAY_CLASS__, classes.container, { [className]: !!className })}
 			templateColumns={1}
@@ -78,8 +74,6 @@ const GlassOverlay: PolymorphicComponentWithRef = forwardRef(function GlassOverl
 	);
 });
 
-GlassOverlay.displayName = 'GlassOverlay';
+// GlassOverlay.displayName = 'GlassOverlay';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <GlassOverlay<Element> {...props} />;
+export default GlassOverlay;

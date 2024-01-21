@@ -1,5 +1,4 @@
 import type {
-	PolymorphicDefaultElement,
 	PolymorphicElementType,
 	ResponsiveValue,
 	ThemeAppAppearanceProps,
@@ -44,9 +43,6 @@ type GlassOverlayOtherProps = ThemeAppAppearanceProps & {
 	hasBackground?: ResponsiveValue<boolean>;
 };
 
-export type GlassOverlayProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
-	Element,
-	GlassOverlayOtherProps
->;
+export type GlassOverlayProps<Element extends PolymorphicElementType> = BoxProps<Element, GlassOverlayOtherProps>;
 
-export type GlassOverlayRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type GlassOverlayRef<Element extends PolymorphicElementType> = BoxRef<Element>;
