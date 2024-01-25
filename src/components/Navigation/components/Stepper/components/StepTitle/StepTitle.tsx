@@ -3,12 +3,8 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
+import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
 import { __DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE__ } from '../../common/constants';
@@ -16,15 +12,17 @@ import { useStepperContext, useStepperSizeConfig } from '../../common/hooks';
 import { getStepID, getStepTitleID } from '../../common/utils';
 import { useStepContext } from '../Step/common/hooks';
 
+import { __DEFAULT_STEP_TITLE_AS__ } from './common/constants';
 import { __KEYS_STEP_TITLE_CLASS__ } from './common/keys';
-import type { StepTitleDefaultElement, StepTitleElement, StepTitleProps, StepTitleRef } from './common/types';
+import type { StepTitleElement, StepTitleProps, StepTitleRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const StepTitle: PolymorphicComponentWithRef = forwardRef(function StepTitle<
-	Element extends StepTitleElement = StepTitleDefaultElement
->(props: StepTitleProps<Element>, ref: StepTitleRef<Element>): ReactElement {
+const StepTitle = forwardRef(function StepTitle<Element extends StepTitleElement>(
+	props: StepTitleProps<Element>,
+	ref: StepTitleRef<Element>
+): ReactElement {
 	const { colorMode, size, id: stepperID } = useStepperContext();
 	const { id, index } = useStepContext();
 
@@ -40,6 +38,7 @@ const StepTitle: PolymorphicComponentWithRef = forwardRef(function StepTitle<
 
 	const {
 		children,
+		as = __DEFAULT_STEP_TITLE_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		align = 'left',
 		color = __DEFAULT_STEP_TITLE_COLOR__,
@@ -51,8 +50,9 @@ const StepTitle: PolymorphicComponentWithRef = forwardRef(function StepTitle<
 	} = props;
 
 	return (
-		<Text<Element>
-			{...rest}
+		<Text
+			{...(rest as TextProps<Element>)}
+			as={as}
 			ref={ref}
 			id={getStepTitleID(id || getStepID(stepperID, index))}
 			className={classNames(__KEYS_STEP_TITLE_CLASS__, { [className]: !!className })}
@@ -68,8 +68,6 @@ const StepTitle: PolymorphicComponentWithRef = forwardRef(function StepTitle<
 	);
 });
 
-StepTitle.displayName = 'StepTitle';
+// StepTitle.displayName = 'StepTitle';
 
-export default <Element extends StepTitleElement = StepTitleDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <StepTitle<Element> {...props} />;
+export default StepTitle;
