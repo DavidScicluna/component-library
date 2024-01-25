@@ -4,15 +4,10 @@ import { forwardRef } from 'react';
 import { isArray } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
+import type { GridProps } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import { useStepperContext } from '../../common/hooks';
@@ -24,31 +19,27 @@ import type { StepPanelProps, StepPanelsProps, StepPanelsRef } from './common/ty
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const StepPanel = <Element extends PolymorphicElementType = PolymorphicDefaultElement>({
-	children,
-	index
-}: StepPanelProps<Element>) => {
+const StepPanel = <Element extends PolymorphicElementType>({ children, index }: StepPanelProps<Element>) => {
 	const { index: panel } = useStepperContext();
 
 	return (
-		<Transition w='100%' h='100%' duration='slow' easing='ease-in-out' in={panel === index}>
-			<Center w='100%' h='100%'>
-				{children}
-			</Center>
+		<Transition as={Center} w='100%' h='100%' duration='slow' easing='ease-in-out' in={panel === index}>
+			{children}
 		</Transition>
 	);
 };
 
-const StepPanels: PolymorphicComponentWithRef = forwardRef(function StepPanels<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: StepPanelsProps<Element>, ref: StepPanelsRef<Element>): ReactElement {
+const StepPanels = forwardRef(function StepPanels<Element extends PolymorphicElementType>(
+	props: StepPanelsProps<Element>,
+	ref: StepPanelsRef<Element>
+): ReactElement {
 	const { id } = useStepperContext();
 
 	const { children, className = __DEFAULT_CLASSNAME__, ...rest } = props;
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			aria-labelledby={getStepperID(id)}
 			id={getStepPanelsID(id)}
@@ -65,7 +56,8 @@ const StepPanels: PolymorphicComponentWithRef = forwardRef(function StepPanels<
 			spacing={0}
 		>
 			{isArray(children)
-				? children.map((panel, index) => (
+				? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+					children.map((panel: any, index: number) => (
 						<GridItem
 							key={getStepPanelID(id, index)}
 							id={getStepPanelID(id, index)}
@@ -80,8 +72,6 @@ const StepPanels: PolymorphicComponentWithRef = forwardRef(function StepPanels<
 	);
 });
 
-StepPanels.displayName = 'StepPanels';
+// StepPanels.displayName = 'StepPanels';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <StepPanels<Element> {...props} />;
+export default StepPanels;
