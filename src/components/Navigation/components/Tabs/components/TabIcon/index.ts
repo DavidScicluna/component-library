@@ -1,6 +1,9 @@
 import type { TabIconDefaultElement, TabIconElement, TabIconProps, TabIconRef } from './common/types';
 import TabIcon from './TabIcon';
 
+// Constants
+export * from './common/constants';
+
 // Keys
 export * from './common/keys';
 

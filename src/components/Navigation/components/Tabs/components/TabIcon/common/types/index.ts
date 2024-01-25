@@ -6,9 +6,6 @@ export type TabIconElement = IconElement;
 
 type OmittedIconProps = keyof BoxOtherProps | 'variant';
 
-export type TabIconProps<Element extends TabIconElement = TabIconDefaultElement> = Omit<
-	IconProps<Element>,
-	OmittedIconProps
->;
+export type TabIconProps<Element extends TabIconElement> = Omit<IconProps<Element>, OmittedIconProps>;
 
-export type TabIconRef<Element extends TabIconElement = TabIconDefaultElement> = IconRef<Element>;
+export type TabIconRef<Element extends TabIconElement> = IconRef<Element>;
