@@ -2,14 +2,9 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
+import type { HeadlineProps } from '@components/DataDisplay';
 import { Headline } from '@components/DataDisplay';
 import { Text } from '@components/Typography';
 
@@ -21,9 +16,10 @@ import type { StepHeadlineProps, StepHeadlineRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const StepHeadline: PolymorphicComponentWithRef = forwardRef(function StepHeadline<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: StepHeadlineProps<Element>, ref: StepHeadlineRef<Element>): ReactElement {
+const StepHeadline = forwardRef(function StepHeadline<Element extends PolymorphicElementType>(
+	props: StepHeadlineProps<Element>,
+	ref: StepHeadlineRef<Element>
+): ReactElement {
 	const {
 		color: __DEFAULT_STEP_HEADLINE_COLOR__,
 		colorMode: __DEFAULT_STEP_HEADLINE_COLORMODE__,
@@ -41,8 +37,8 @@ const StepHeadline: PolymorphicComponentWithRef = forwardRef(function StepHeadli
 	} = props;
 
 	return (
-		<Headline<Element>
-			{...rest}
+		<Headline
+			{...(rest as HeadlineProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_STEP_HEADLINE_CLASS__, { [className]: !!className })}
 			w='100%'
@@ -57,8 +53,6 @@ const StepHeadline: PolymorphicComponentWithRef = forwardRef(function StepHeadli
 	);
 });
 
-StepHeadline.displayName = 'StepHeadline';
+// StepHeadline.displayName = 'StepHeadline';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <StepHeadline<Element> {...props} />;
+export default StepHeadline;
