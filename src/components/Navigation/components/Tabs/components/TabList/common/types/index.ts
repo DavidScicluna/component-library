@@ -1,26 +1,23 @@
 import type { ReactNode } from 'react';
 
-import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
-import type { TabsProps } from '@components/Navigation';
+import type { TabsDefaultElement, TabsProps } from '@components/Navigation';
 
-export type TabListRenderProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Pick<
-	TabsProps<Element>,
-	'color' | 'colorMode'
-> & {
+export type TabListRenderProps = {
 	w?: number;
 	h?: number;
+} & Pick<TabsProps<TabsDefaultElement>, 'color' | 'colorMode'>;
+
+type TabListOtherProps = {
+	renderLeft?: (props: TabListRenderProps) => ReactNode;
+	renderRight?: (props: TabListRenderProps) => ReactNode;
 };
 
-type TabListOtherProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = {
-	renderLeft?: (props: TabListRenderProps<Element>) => ReactNode;
-	renderRight?: (props: TabListRenderProps<Element>) => ReactNode;
-};
-
-export type TabListProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element, TabListOtherProps<Element>>,
+export type TabListProps<Element extends PolymorphicElementType> = Omit<
+	BoxProps<Element, TabListOtherProps>,
 	keyof BoxOtherProps
 >;
 
-export type TabListRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type TabListRef<Element extends PolymorphicElementType> = BoxRef<Element>;
