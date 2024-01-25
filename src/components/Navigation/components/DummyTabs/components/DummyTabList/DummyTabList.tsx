@@ -5,15 +5,9 @@ import { compact, isArray } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
-import type { CarouselRef, CarouselRenderActionProps, CarouselVariant } from '@components/DataDisplay';
+import type { CarouselRenderActionProps, CarouselVariant } from '@components/DataDisplay';
 import {
 	Carousel,
 	CarouselLeftLinearGradient,
@@ -21,6 +15,7 @@ import {
 	CarouselOverlayRightArrowIconButton,
 	CarouselRightLinearGradient
 } from '@components/DataDisplay';
+import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import { useDummyTabsContext } from '../../common/hooks';
@@ -32,9 +27,10 @@ import type { DummyTabListProps, DummyTabListRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const DummyTabList: PolymorphicComponentWithRef = forwardRef(function DummyTabList<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: DummyTabListProps<Element>, ref: DummyTabListRef<Element>): ReactElement {
+const DummyTabList = forwardRef(function DummyTabList<Element extends PolymorphicElementType>(
+	props: DummyTabListProps<Element>,
+	ref: DummyTabListRef<Element>
+): ReactElement {
 	const { color, colorMode, align, id, isFitted, orientation } = useDummyTabsContext();
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
@@ -42,8 +38,8 @@ const DummyTabList: PolymorphicComponentWithRef = forwardRef(function DummyTabLi
 	const { children, className = __DEFAULT_CLASSNAME__, renderLeft, renderRight, ...rest } = props;
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			aria-orientation={orientation === 'top' || orientation === 'bottom' ? 'horizontal' : 'vertical'}
 			id={getDummyTabListID(id)}
@@ -76,7 +72,7 @@ const DummyTabList: PolymorphicComponentWithRef = forwardRef(function DummyTabLi
 			{isArray(children) ? (
 				<GridItem alignSelf='stretch' justifySelf={isFitted ? 'stretch' : align}>
 					<Carousel
-						ref={childrenRef as CarouselRef}
+						ref={childrenRef}
 						w='100%'
 						h='100%'
 						colorMode={colorMode}
@@ -106,8 +102,6 @@ const DummyTabList: PolymorphicComponentWithRef = forwardRef(function DummyTabLi
 	);
 });
 
-DummyTabList.displayName = 'DummyTabList';
+// DummyTabList.displayName = 'DummyTabList';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <DummyTabList<Element> {...props} />;
+export default DummyTabList;
