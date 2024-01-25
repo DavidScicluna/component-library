@@ -4,16 +4,11 @@ import { forwardRef } from 'react';
 import { isArray } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
-import { Center, Grid, GridItem } from '@components/Layout';
+import type { GridProps } from '@components/Layout';
+import { Grid, GridItem } from '@components/Layout';
 
 import { useTabsContext } from '../../common/hooks';
 import { getTabPanelID, getTabPanelsID, getTabsID } from '../../common/utils';
@@ -24,31 +19,27 @@ import type { TabPanelProps, TabPanelsProps, TabPanelsRef } from './common/types
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const TabPanel = <Element extends PolymorphicElementType = PolymorphicDefaultElement>({
-	children,
-	index
-}: TabPanelProps<Element>) => {
+const TabPanel = <Element extends PolymorphicElementType>({ children, index }: TabPanelProps<Element>) => {
 	const { index: panel } = useTabsContext();
 
 	return (
 		<Transition w='100%' h='100%' duration='slow' easing='ease-in-out' transition='fade' in={panel === index}>
-			<Center w='100%' h='100%'>
-				{children}
-			</Center>
+			{children}
 		</Transition>
 	);
 };
 
-const TabPanels: PolymorphicComponentWithRef = forwardRef(function TabPanels<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: TabPanelsProps<Element>, ref: TabPanelsRef<Element>): ReactElement {
+const TabPanels = forwardRef(function TabPanels<Element extends PolymorphicElementType>(
+	props: TabPanelsProps<Element>,
+	ref: TabPanelsRef<Element>
+): ReactElement {
 	const { id } = useTabsContext();
 
 	const { children, className = __DEFAULT_CLASSNAME__, ...rest } = props;
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			aria-labelledby={getTabsID(id)}
 			id={getTabPanelsID(id)}
@@ -65,7 +56,8 @@ const TabPanels: PolymorphicComponentWithRef = forwardRef(function TabPanels<
 			spacing={0}
 		>
 			{isArray(children)
-				? children.map((panel, index) => (
+				? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+					children.map((panel: any, index: number) => (
 						<GridItem
 							key={getTabPanelID(id, index)}
 							id={getTabPanelID(id, index)}
@@ -80,8 +72,6 @@ const TabPanels: PolymorphicComponentWithRef = forwardRef(function TabPanels<
 	);
 });
 
-TabPanels.displayName = 'TabPanels';
+// TabPanels.displayName = 'TabPanels';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <TabPanels<Element> {...props} />;
+export default TabPanels;
