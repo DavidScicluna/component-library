@@ -2,36 +2,29 @@ import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_APP_COLOR__, __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
+import type { IconProps } from '@components/DataDisplay';
 import { Icon } from '@components/DataDisplay';
 
 import { useStepperContext, useStepperSizeConfig } from '../../common/hooks';
 import { getStepStatusColor, getStepStatusIcon } from '../../common/utils';
 import { useStepContext } from '../Step/common/hooks';
 
+import { __DEFAULT_STEP_STATUS_ICON_AS__ } from './common/constants';
 import { __KEYS_STEP_STATUS_ICON_CLASS__ } from './common/keys';
-import type {
-	StepStatusIconDefaultElement,
-	StepStatusIconElement,
-	StepStatusIconProps,
-	StepStatusIconRef
-} from './common/types';
+import type { StepStatusIconElement, StepStatusIconProps, StepStatusIconRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const StepStatusIcon: PolymorphicComponentWithRef = forwardRef(function StepStatusIcon<
-	Element extends StepStatusIconElement = StepStatusIconDefaultElement
->(props: StepStatusIconProps<Element>, ref: StepStatusIconRef<Element>): ReactElement {
+const StepStatusIcon = forwardRef(function StepStatusIcon<Element extends StepStatusIconElement>(
+	props: StepStatusIconProps<Element>,
+	ref: StepStatusIconRef<Element>
+): ReactElement {
 	const { color, colorMode, index: step, size, variant } = useStepperContext();
 	const { index, status } = useStepContext();
 
-	const { className = __DEFAULT_CLASSNAME__, ...rest } = props;
+	const { as = __DEFAULT_STEP_STATUS_ICON_AS__, className = __DEFAULT_CLASSNAME__, ...rest } = props;
 
 	const config = useStepperSizeConfig({ size });
 
@@ -43,8 +36,9 @@ const StepStatusIcon: PolymorphicComponentWithRef = forwardRef(function StepStat
 	}, [status, variant]);
 
 	return (
-		<Icon<Element>
-			{...rest}
+		<Icon
+			{...(rest as IconProps<Element>)}
+			as={as}
 			ref={ref}
 			className={classNames(__KEYS_STEP_STATUS_ICON_CLASS__, { [className]: !!className })}
 			color={
@@ -64,8 +58,6 @@ const StepStatusIcon: PolymorphicComponentWithRef = forwardRef(function StepStat
 	);
 });
 
-StepStatusIcon.displayName = 'StepStatusIcon';
+// StepStatusIcon.displayName = 'StepStatusIcon';
 
-export default <Element extends StepStatusIconElement = StepStatusIconDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <StepStatusIcon<Element> {...props} />;
+export default StepStatusIcon;

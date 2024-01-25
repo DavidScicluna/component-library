@@ -8,9 +8,6 @@ export type StepStatusIconElement = IconElement;
 
 type OmittedIconProps = keyof BoxOtherProps | keyof ThemeAppAppearanceProps | 'icon' | 'category';
 
-export type StepStatusIconProps<Element extends StepStatusIconElement = StepStatusIconDefaultElement> = Omit<
-	IconProps<Element>,
-	OmittedIconProps
->;
+export type StepStatusIconProps<Element extends StepStatusIconElement> = Omit<IconProps<Element>, OmittedIconProps>;
 
-export type StepStatusIconRef<Element extends StepStatusIconElement = StepStatusIconDefaultElement> = IconRef<Element>;
+export type StepStatusIconRef<Element extends StepStatusIconElement> = IconRef<Element>;
