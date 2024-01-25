@@ -1,26 +1,23 @@
 import type { ReactNode } from 'react';
 
-import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
-import type { StepperProps } from '@components/Navigation';
+import type { StepperDefaultElement, StepperProps } from '@components/Navigation';
 
-export type StepListRenderProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Pick<
-	StepperProps<Element>,
-	'color' | 'colorMode'
-> & {
+export type StepListRenderProps = Pick<StepperProps<StepperDefaultElement>, 'color' | 'colorMode'> & {
 	w?: number;
 	h?: number;
 };
 
-type StepListOtherProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = {
-	renderLeft?: (props: StepListRenderProps<Element>) => ReactNode;
-	renderRight?: (props: StepListRenderProps<Element>) => ReactNode;
+type StepListOtherProps = {
+	renderLeft?: (props: StepListRenderProps) => ReactNode;
+	renderRight?: (props: StepListRenderProps) => ReactNode;
 };
 
-export type StepListProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element, StepListOtherProps<Element>>,
+export type StepListProps<Element extends PolymorphicElementType> = Omit<
+	BoxProps<Element, StepListOtherProps>,
 	keyof BoxOtherProps
 >;
 
-export type StepListRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type StepListRef<Element extends PolymorphicElementType> = BoxRef<Element>;

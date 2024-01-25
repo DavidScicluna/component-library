@@ -5,15 +5,9 @@ import { compact, isArray } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
-import type { CarouselRef, CarouselRenderActionProps, CarouselVariant } from '@components/DataDisplay';
+import type { CarouselRenderActionProps, CarouselVariant } from '@components/DataDisplay';
 import {
 	Carousel,
 	CarouselLeftLinearGradient,
@@ -21,6 +15,7 @@ import {
 	CarouselOverlayRightArrowIconButton,
 	CarouselRightLinearGradient
 } from '@components/DataDisplay';
+import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import { useStepperContext } from '../../common/hooks';
@@ -32,9 +27,10 @@ import type { StepListProps, StepListRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const StepList: PolymorphicComponentWithRef = forwardRef(function StepList<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: StepListProps<Element>, ref: StepListRef<Element>): ReactElement {
+const StepList = forwardRef(function StepList<Element extends PolymorphicElementType>(
+	props: StepListProps<Element>,
+	ref: StepListRef<Element>
+): ReactElement {
 	const { color, colorMode, align, id, isFitted, orientation } = useStepperContext();
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
@@ -42,8 +38,8 @@ const StepList: PolymorphicComponentWithRef = forwardRef(function StepList<
 	const { children, className = __DEFAULT_CLASSNAME__, renderLeft, renderRight, ...rest } = props;
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			aria-orientation={orientation === 'top' || orientation === 'bottom' ? 'horizontal' : 'vertical'}
 			id={getStepListID(id)}
@@ -76,7 +72,7 @@ const StepList: PolymorphicComponentWithRef = forwardRef(function StepList<
 			{isArray(children) ? (
 				<GridItem alignSelf='stretch' justifySelf={isFitted ? 'stretch' : align}>
 					<Carousel
-						ref={childrenRef as CarouselRef}
+						ref={childrenRef}
 						w='100%'
 						h='100%'
 						colorMode={colorMode}
@@ -106,8 +102,6 @@ const StepList: PolymorphicComponentWithRef = forwardRef(function StepList<
 	);
 });
 
-StepList.displayName = 'StepList';
+// StepList.displayName = 'StepList';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <StepList<Element> {...props} />;
+export default StepList;
