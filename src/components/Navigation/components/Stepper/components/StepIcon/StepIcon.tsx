@@ -2,25 +2,23 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
+import type { IconProps } from '@components/DataDisplay';
 import { Icon } from '@components/DataDisplay';
 
 import { useStepperContext, useStepperStepFontSize } from '../../common/hooks';
 
+import { __DEFAULT_STEP_ICON_AS__ } from './common/constants';
 import { __KEYS_STEP_ICON_CLASS__ } from './common/keys';
-import type { StepIconDefaultElement, StepIconElement, StepIconProps, StepIconRef } from './common/types';
+import type { StepIconElement, StepIconProps, StepIconRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const StepIcon: PolymorphicComponentWithRef = forwardRef(function StepIcon<
-	Element extends StepIconElement = StepIconDefaultElement
->(props: StepIconProps<Element>, ref: StepIconRef<Element>): ReactElement {
+const StepIcon = forwardRef(function StepIcon<Element extends StepIconElement>(
+	props: StepIconProps<Element>,
+	ref: StepIconRef<Element>
+): ReactElement {
 	const {
 		color: __DEFAULT_STEP_ICON_COLOR__,
 		colorMode: __DEFAULT_STEP_ICON_COLORMODE__,
@@ -28,6 +26,7 @@ const StepIcon: PolymorphicComponentWithRef = forwardRef(function StepIcon<
 	} = useStepperContext();
 
 	const {
+		as = __DEFAULT_STEP_ICON_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		color = __DEFAULT_STEP_ICON_COLOR__,
 		colorMode = __DEFAULT_STEP_ICON_COLORMODE__,
@@ -37,8 +36,9 @@ const StepIcon: PolymorphicComponentWithRef = forwardRef(function StepIcon<
 	const fontSize = useStepperStepFontSize({ size });
 
 	return (
-		<Icon<Element>
-			{...rest}
+		<Icon
+			{...(rest as IconProps<Element>)}
+			as={as}
 			ref={ref}
 			className={classNames(__KEYS_STEP_ICON_CLASS__, { [className]: !!className })}
 			w={`${fontSize}px`}
@@ -51,8 +51,6 @@ const StepIcon: PolymorphicComponentWithRef = forwardRef(function StepIcon<
 	);
 });
 
-StepIcon.displayName = 'StepIcon';
+// StepIcon.displayName = 'StepIcon';
 
-export default <Element extends StepIconElement = StepIconDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <StepIcon<Element> {...props} />;
+export default StepIcon;

@@ -6,9 +6,6 @@ export type StepIconElement = IconElement;
 
 type OmittedIconProps = keyof BoxOtherProps | 'variant';
 
-export type StepIconProps<Element extends StepIconElement = StepIconDefaultElement> = Omit<
-	IconProps<Element>,
-	OmittedIconProps
->;
+export type StepIconProps<Element extends StepIconElement> = Omit<IconProps<Element>, OmittedIconProps>;
 
-export type StepIconRef<Element extends StepIconElement = StepIconDefaultElement> = IconRef<Element>;
+export type StepIconRef<Element extends StepIconElement> = IconRef<Element>;
