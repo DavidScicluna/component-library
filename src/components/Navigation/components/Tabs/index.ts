@@ -1,4 +1,13 @@
-import type { TabsAlign, TabsContext, TabsOrientation, TabsProps, TabsRef, TabsSize } from './common/types';
+import type {
+	TabsAlign,
+	TabsContext,
+	TabsDefaultElement,
+	TabsElement,
+	TabsOrientation,
+	TabsProps,
+	TabsRef,
+	TabsSize
+} from './common/types';
 import Tabs from './Tabs';
 
 // Constants
@@ -18,4 +27,4 @@ export { Tabs };
 export * from './components';
 
 // Component Types
-export type { TabsAlign, TabsContext, TabsOrientation, TabsProps, TabsRef, TabsSize };
+export type { TabsAlign, TabsContext, TabsDefaultElement, TabsElement, TabsOrientation, TabsProps, TabsRef, TabsSize };

@@ -1,6 +1,8 @@
 import { v4 as uuid } from 'uuid';
 
-import type { TabsAlign, TabsOrientation, TabsSize } from '../types';
+import type { TabsAlign, TabsDefaultElement, TabsOrientation, TabsSize } from '../types';
+
+export const __DEFAULT_TABS_AS__: TabsDefaultElement = 'div';
 
 export const __DEFAULT_TABS_ALIGN__: TabsAlign = 'start';
 

@@ -12,11 +12,11 @@ import {
 	__DEFAULT_TABS_ORIENTATION__,
 	__DEFAULT_TABS_SIZE__
 } from '../constants';
-import type { TabsContext as TabsContextType } from '../types';
+import type { TabsContext as TabsContextType, TabsElement } from '../types';
 
 import useTabsResponsiveValues from './useTabsResponsiveValues';
 
-const useTabsContext = () => {
+const useTabsContext = <Element extends TabsElement>() => {
 	const {
 		color,
 		colorMode,
@@ -29,9 +29,9 @@ const useTabsContext = () => {
 		orientation: orientationProp = __DEFAULT_TABS_ORIENTATION__,
 		size: sizeProp = __DEFAULT_TABS_SIZE__,
 		spacing: spacingProp = __DEFAULT_SPACING__
-	} = useContext<TabsContextType>(TabsContext);
+	} = useContext<TabsContextType<Element>>(TabsContext);
 
-	const { align, index, isDisabled, isFitted, orientation, size, spacing } = useTabsResponsiveValues({
+	const { align, index, isDisabled, isFitted, orientation, size, spacing } = useTabsResponsiveValues<Element>({
 		align: alignProp,
 		index: indexProp,
 		isDisabled: isDisabledProp,

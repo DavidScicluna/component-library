@@ -10,13 +10,13 @@ import {
 	__DEFAULT_TABS_ORIENTATION__,
 	__DEFAULT_TABS_SIZE__
 } from '../constants';
-import type { TabsAlign, TabsOrientation, TabsProps, TabsSize } from '../types';
+import type { TabsAlign, TabsElement, TabsOrientation, TabsProps, TabsSize } from '../types';
 
-type UseTabsResponsiveValuesProps = Partial<
-	Pick<TabsProps, 'align' | 'index' | 'isDisabled' | 'isFitted' | 'orientation' | 'size' | 'spacing'>
+type UseTabsResponsiveValuesProps<Element extends TabsElement> = Partial<
+	Pick<TabsProps<Element>, 'align' | 'index' | 'isDisabled' | 'isFitted' | 'orientation' | 'size' | 'spacing'>
 >;
 
-const useTabsResponsiveValues = (props: UseTabsResponsiveValuesProps) => {
+const useTabsResponsiveValues = <Element extends TabsElement>(props: UseTabsResponsiveValuesProps<Element>) => {
 	const {
 		align: alignProp = __DEFAULT_TABS_ALIGN__,
 		index: indexProp = __DEFAULT_TABS_INDEX__,

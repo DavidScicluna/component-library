@@ -8,6 +8,9 @@ import type {
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
+export type TabsDefaultElement = PolymorphicDefaultElement;
+export type TabsElement = Extract<PolymorphicElementType, 'div'>;
+
 export type TabsAlign = 'start' | 'center' | 'end';
 
 export type TabsOrientation = 'top' | 'bottom' | 'left' | 'right';
@@ -56,12 +59,9 @@ type TabsOtherProps = ThemeAppAppearanceProps & {
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type TabsProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
-	Element,
-	TabsOtherProps
->;
+export type TabsProps<Element extends TabsElement> = BoxProps<Element, TabsOtherProps>;
 
-export type TabsRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type TabsRef<Element extends TabsElement> = BoxRef<Element>;
 
 type PickedTabsProps =
 	| 'color'
@@ -75,5 +75,4 @@ type PickedTabsProps =
 	| 'orientation'
 	| 'size'
 	| 'spacing';
-
-export type TabsContext = Pick<TabsProps, PickedTabsProps>;
+export type TabsContext<Element extends TabsElement> = Pick<TabsProps<Element>, PickedTabsProps>;

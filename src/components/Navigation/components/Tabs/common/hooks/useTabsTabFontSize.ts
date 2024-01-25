@@ -3,16 +3,16 @@ import { useMemo } from 'react';
 import { getFontSizeHeight } from '@common/utils';
 
 import { __DEFAULT_TABS_SIZE__, __DEFAULT_TABS_TAB_LINE_HEIGHT_SIZE__ } from '../constants';
-import type { TabsProps } from '../types';
+import type { TabsElement, TabsProps } from '../types';
 
 import useTabsResponsiveValues from './useTabsResponsiveValues';
 
-type UseTabsTabFontSizeProps = Pick<TabsProps, 'size'>;
+type UseTabsTabFontSizeProps<Element extends TabsElement> = Pick<TabsProps<Element>, 'size'>;
 
-const useTabsTabFontSize = (props: UseTabsTabFontSizeProps): number => {
+const useTabsTabFontSize = <Element extends TabsElement>(props: UseTabsTabFontSizeProps<Element>): number => {
 	const { size: sizeProp = __DEFAULT_TABS_SIZE__ } = props;
 
-	const { size } = useTabsResponsiveValues({ size: sizeProp });
+	const { size } = useTabsResponsiveValues<Element>({ size: sizeProp });
 
 	const fontSize = useMemo<number>(() => {
 		return getFontSizeHeight(size, __DEFAULT_TABS_TAB_LINE_HEIGHT_SIZE__);
