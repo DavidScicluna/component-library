@@ -5,17 +5,11 @@ import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
-import type { CenterRef } from '@components/Layout';
+import type { CenterRef, GridProps } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import { useDummyTabsContext } from '../../common/hooks';
@@ -34,9 +28,10 @@ import type { DummyTabProps, DummyTabRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const DummyTab: PolymorphicComponentWithRef = forwardRef(function DummyTab<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: DummyTabProps<Element>, ref: DummyTabRef<Element>): ReactElement {
+const DummyTab = forwardRef(function DummyTab<Element extends PolymorphicElementType>(
+	props: DummyTabProps<Element>,
+	ref: DummyTabRef<Element>
+): ReactElement {
 	const {
 		color: __DEFAULT_DUMMY_TAB_COLOR__,
 		colorMode: __DEFAULT_DUMMY_TAB_COLORMODE__,
@@ -65,20 +60,20 @@ const DummyTab: PolymorphicComponentWithRef = forwardRef(function DummyTab<
 		...rest
 	} = props;
 
-	const { isCompact, isUppercase } = useDummyTabResponsiveValues({
+	const { isCompact, isUppercase } = useDummyTabResponsiveValues<Element>({
 		isCompact: isCompactProp,
 		isUppercase: isUppercaseProp
 	});
 
 	const isSelected = useMemo(() => index === panel, [index, panel]);
 
-	const config = useDummyTabSizeConfig({ isCompact });
+	const config = useDummyTabSizeConfig<Element>({ isCompact });
 
-	const classes = useDummyTabClasses({ color, colorMode, isSelected, isCompact, isUppercase });
+	const classes = useDummyTabClasses<Element>({ color, colorMode, isSelected, isCompact, isUppercase });
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			aria-controls={getDummyTabPanelID(id, panel)}
 			aria-disabled='true'
@@ -158,7 +153,12 @@ const DummyTab: PolymorphicComponentWithRef = forwardRef(function DummyTab<
 
 							{children ? (
 								<GridItem>
-									<Center ref={childrenRef as CenterRef} as='span' w='100%' h='100%'>
+									<Center
+										ref={childrenRef as CenterRef<PolymorphicDefaultElement>}
+										as='span'
+										w='100%'
+										h='100%'
+									>
 										<DummyTabSkeleton color={color} colorMode={colorMode} radius='xs'>
 											{children}
 										</DummyTabSkeleton>
@@ -197,8 +197,6 @@ const DummyTab: PolymorphicComponentWithRef = forwardRef(function DummyTab<
 	);
 });
 
-DummyTab.displayName = 'DummyTab';
+// DummyTab.displayName = 'DummyTab';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <DummyTab<Element> {...props} />;
+export default DummyTab;

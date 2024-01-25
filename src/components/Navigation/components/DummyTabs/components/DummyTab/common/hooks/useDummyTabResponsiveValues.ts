@@ -1,11 +1,16 @@
 import { useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicElementType } from '@common/types';
 
 import { __DEFAULT_DUMMY_TAB_IS_COMPACT__, __DEFAULT_DUMMY_TAB_IS_UPPERCASE__ } from '../constants';
 import type { DummyTabProps } from '../types';
 
-type UseDummyTabResponsiveValuesProps = Partial<Pick<DummyTabProps, 'isCompact' | 'isUppercase'>>;
+type UseDummyTabResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
+	Pick<DummyTabProps<Element>, 'isCompact' | 'isUppercase'>
+>;
 
-const useDummyTabResponsiveValues = (props: UseDummyTabResponsiveValuesProps) => {
+const useDummyTabResponsiveValues = <Element extends PolymorphicElementType>(
+	props: UseDummyTabResponsiveValuesProps<Element>
+) => {
 	const {
 		isCompact: isCompactProp = __DEFAULT_DUMMY_TAB_IS_COMPACT__,
 		isUppercase: isUppercaseProp = __DEFAULT_DUMMY_TAB_IS_UPPERCASE__

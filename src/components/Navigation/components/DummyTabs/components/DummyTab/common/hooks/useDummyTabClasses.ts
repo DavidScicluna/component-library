@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_OUTLINE_WIDTH__ } from '@common/constants';
 import { useAppTheme, useGetColor } from '@common/hooks';
-import type { ClassName } from '@common/types';
+import type { ClassName, PolymorphicElementType } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import { __DEFAULT_DUMMY_TABS_TAB_LINE_HEIGHT_SIZE__ } from '@components/Navigation/components/DummyTabs/common/constants';
@@ -18,12 +18,15 @@ import useDummyTabSizeConfig from './useDummyTabSizeConfig';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseDummyTabClassesProps = Pick<DummyTabProps, 'color' | 'colorMode' | 'isCompact' | 'isUppercase'> & {
-	isSelected: boolean;
-};
+type UseDummyTabClassesProps<Element extends PolymorphicElementType> = Pick<
+	DummyTabProps<Element>,
+	'color' | 'colorMode' | 'isCompact' | 'isUppercase'
+> & { isSelected: boolean };
 type UseDummyTabClassesReturn = Record<'tab' | 'topDivider' | 'bottomDivider' | 'label', ClassName>;
 
-const useDummyTabClasses = (props: UseDummyTabClassesProps): UseDummyTabClassesReturn => {
+const useDummyTabClasses = <Element extends PolymorphicElementType>(
+	props: UseDummyTabClassesProps<Element>
+): UseDummyTabClassesReturn => {
 	const { colorMode: __DEFAULT_DUMMY_TAB_COLORMODE__ } = useAppTheme();
 	const { orientation } = useDummyTabsContext();
 
@@ -35,12 +38,12 @@ const useDummyTabClasses = (props: UseDummyTabClassesProps): UseDummyTabClassesR
 		isSelected
 	} = props;
 
-	const { isCompact, isUppercase } = useDummyTabResponsiveValues({
+	const { isCompact, isUppercase } = useDummyTabResponsiveValues<Element>({
 		isCompact: isCompactProp,
 		isUppercase: isUppercaseProp
 	});
 
-	const config = useDummyTabSizeConfig({ isCompact });
+	const config = useDummyTabSizeConfig<Element>({ isCompact });
 
 	const dummytabClasses = useMemo<ClassName>(() => {
 		const outlineHue = getColorHue({ colorMode, type: 'color' });
