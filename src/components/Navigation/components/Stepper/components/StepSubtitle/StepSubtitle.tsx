@@ -3,12 +3,8 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
+import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
 import { __DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE__ } from '../../common/constants';
@@ -16,20 +12,17 @@ import { useStepperContext, useStepperSizeConfig } from '../../common/hooks';
 import { getStepID, getStepSubtitleID } from '../../common/utils';
 import { useStepContext } from '../Step/common/hooks';
 
+import { __DEFAULT_STEP_SUBTITLE_AS__ } from './common/constants';
 import { __KEYS_STEP_SUBTITLE_CLASS__ } from './common/keys';
-import type {
-	StepSubtitleDefaultElement,
-	StepSubtitleElement,
-	StepSubtitleProps,
-	StepSubtitleRef
-} from './common/types';
+import type { StepSubtitleElement, StepSubtitleProps, StepSubtitleRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const StepSubtitle: PolymorphicComponentWithRef = forwardRef(function StepSubtitle<
-	Element extends StepSubtitleElement = StepSubtitleDefaultElement
->(props: StepSubtitleProps<Element>, ref: StepSubtitleRef<Element>): ReactElement {
+const StepSubtitle = forwardRef(function StepSubtitle<Element extends StepSubtitleElement>(
+	props: StepSubtitleProps<Element>,
+	ref: StepSubtitleRef<Element>
+): ReactElement {
 	const { colorMode, size, id: stepperID } = useStepperContext();
 	const { id, index } = useStepContext();
 
@@ -45,6 +38,7 @@ const StepSubtitle: PolymorphicComponentWithRef = forwardRef(function StepSubtit
 
 	const {
 		children,
+		as = __DEFAULT_STEP_SUBTITLE_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		align = 'left',
 		color = __DEFAULT_STEP_SUBTITLE_COLOR__,
@@ -56,8 +50,9 @@ const StepSubtitle: PolymorphicComponentWithRef = forwardRef(function StepSubtit
 	} = props;
 
 	return (
-		<Text<Element>
-			{...rest}
+		<Text
+			{...(rest as TextProps<Element>)}
+			as={as}
 			ref={ref}
 			id={getStepSubtitleID(id || getStepID(stepperID, index))}
 			className={classNames(__KEYS_STEP_SUBTITLE_CLASS__, { [className]: !!className })}
@@ -73,8 +68,6 @@ const StepSubtitle: PolymorphicComponentWithRef = forwardRef(function StepSubtit
 	);
 });
 
-StepSubtitle.displayName = 'StepSubtitle';
+// StepSubtitle.displayName = 'StepSubtitle';
 
-export default <Element extends StepSubtitleElement = StepSubtitleDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <StepSubtitle<Element> {...props} />;
+export default StepSubtitle;

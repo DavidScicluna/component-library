@@ -6,6 +6,9 @@ import type {
 } from './common/types';
 import StepSubtitle from './StepSubtitle';
 
+// Constants
+export * from './common/constants';
+
 // Keys
 export * from './common/keys';
 
