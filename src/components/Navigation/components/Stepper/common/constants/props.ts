@@ -1,6 +1,8 @@
 import { v4 as uuid } from 'uuid';
 
-import type { StepperAlign, StepperOrientation, StepperSize, StepperVariant } from '../types';
+import type { StepperAlign, StepperDefaultElement, StepperOrientation, StepperSize, StepperVariant } from '../types';
+
+export const __DEFAULT_STEPPER_AS__: StepperDefaultElement = 'div';
 
 export const __DEFAULT_STEPPER_ALIGN__: StepperAlign = 'start';
 

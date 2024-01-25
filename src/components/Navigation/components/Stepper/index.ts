@@ -1,6 +1,8 @@
 import type {
 	StepperAlign,
 	StepperContext,
+	StepperDefaultElement,
+	StepperElement,
 	StepperOrientation,
 	StepperProps,
 	StepperRef,
@@ -26,4 +28,14 @@ export { Stepper };
 export * from './components';
 
 // Component Types
-export type { StepperAlign, StepperContext, StepperOrientation, StepperProps, StepperRef, StepperSize, StepperVariant };
+export type {
+	StepperAlign,
+	StepperContext,
+	StepperDefaultElement,
+	StepperElement,
+	StepperOrientation,
+	StepperProps,
+	StepperRef,
+	StepperSize,
+	StepperVariant
+};

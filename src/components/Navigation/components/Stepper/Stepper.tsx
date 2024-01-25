@@ -1,19 +1,20 @@
 import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__, __DEFAULT_SPACING__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import {
+	__DEFAULT_APP_COLOR__,
+	__DEFAULT_APP_COLORMODE__,
+	__DEFAULT_CLASSNAME__,
+	__DEFAULT_METHOD__,
+	__DEFAULT_SPACING__
+} from '@common/constants';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
 	__DEFAULT_STEPPER_ALIGN__,
+	__DEFAULT_STEPPER_AS__,
 	__DEFAULT_STEPPER_ID__,
 	__DEFAULT_STEPPER_INDEX__,
 	__DEFAULT_STEPPER_IS_CONSECUTIVELY__,
@@ -26,12 +27,20 @@ import {
 } from './common/constants';
 import { useStepperResponsiveValues } from './common/hooks';
 import { __KEYS_STEPPER_CLASS__ } from './common/keys';
-import type { StepperContext as StepperContextType, StepperProps, StepperRef } from './common/types';
+import type {
+	StepperContext as StepperContextType,
+	StepperDefaultElement,
+	StepperElement,
+	StepperProps,
+	StepperRef
+} from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-export const StepperContext = createContext<StepperContextType>({
+export const StepperContext = createContext<StepperContextType<StepperDefaultElement>>({
+	color: __DEFAULT_APP_COLOR__,
+	colorMode: __DEFAULT_APP_COLORMODE__,
 	align: __DEFAULT_STEPPER_ALIGN__,
 	id: __DEFAULT_STEPPER_ID__,
 	index: __DEFAULT_STEPPER_INDEX__,
@@ -46,12 +55,14 @@ export const StepperContext = createContext<StepperContextType>({
 	variant: __DEFAULT_STEPPER_VARIANT__
 });
 
-const Stepper: PolymorphicComponentWithRef = forwardRef(function Stepper<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: StepperProps<Element>, ref: StepperRef<Element>): ReactElement {
+const Stepper = forwardRef(function Stepper<Element extends StepperElement>(
+	props: StepperProps<Element>,
+	ref: StepperRef<Element>
+): ReactElement {
 	const {
 		children,
 		id = __DEFAULT_STEPPER_ID__,
+		as = __DEFAULT_STEPPER_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
@@ -70,7 +81,7 @@ const Stepper: PolymorphicComponentWithRef = forwardRef(function Stepper<
 	} = props;
 
 	const { align, index, total, isConsecutively, isDisabled, isFitted, orientation, size, spacing, variant } =
-		useStepperResponsiveValues({
+		useStepperResponsiveValues<Element>({
 			align: alignProp,
 			index: indexProp,
 			total: totalProp,
@@ -102,8 +113,9 @@ const Stepper: PolymorphicComponentWithRef = forwardRef(function Stepper<
 				variant
 			}}
 		>
-			<Box<Element>
-				{...rest}
+			<Box
+				{...(rest as BoxProps<Element>)}
+				as={as}
 				ref={ref}
 				className={classNames(__KEYS_STEPPER_CLASS__, { [className]: !!className })}
 			>
@@ -113,8 +125,6 @@ const Stepper: PolymorphicComponentWithRef = forwardRef(function Stepper<
 	);
 });
 
-Stepper.displayName = 'Stepper';
+// Stepper.displayName = 'Stepper';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Stepper<Element> {...props} />;
+export default Stepper;

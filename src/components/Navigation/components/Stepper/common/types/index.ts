@@ -8,6 +8,9 @@ import type {
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
+export type StepperDefaultElement = PolymorphicDefaultElement;
+export type StepperElement = Extract<PolymorphicElementType, 'div'>;
+
 export type StepperAlign = 'start' | 'center' | 'end';
 
 export type StepperOrientation = 'top' | 'bottom' | 'left' | 'right';
@@ -74,12 +77,9 @@ type StepperOtherProps = ThemeAppAppearanceProps & {
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type StepperProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
-	Element,
-	StepperOtherProps
->;
+export type StepperProps<Element extends StepperElement> = BoxProps<Element, StepperOtherProps>;
 
-export type StepperRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type StepperRef<Element extends StepperElement> = BoxRef<Element>;
 
 type PickedStepperProps =
 	| 'color'
@@ -96,5 +96,4 @@ type PickedStepperProps =
 	| 'size'
 	| 'spacing'
 	| 'variant';
-
-export type StepperContext = Pick<StepperProps, PickedStepperProps>;
+export type StepperContext<Element extends StepperElement> = Pick<StepperProps<Element>, PickedStepperProps>;

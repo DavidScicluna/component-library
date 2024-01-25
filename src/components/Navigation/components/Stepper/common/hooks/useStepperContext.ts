@@ -15,11 +15,11 @@ import {
 	__DEFAULT_STEPPER_TOTAL__,
 	__DEFAULT_STEPPER_VARIANT__
 } from '../constants';
-import type { StepperContext as StepperContextType } from '../types';
+import type { StepperContext as StepperContextType, StepperElement } from '../types';
 
 import { useStepperResponsiveValues } from '.';
 
-const useStepperContext = () => {
+const useStepperContext = <Element extends StepperElement>() => {
 	const {
 		color,
 		colorMode,
@@ -35,10 +35,10 @@ const useStepperContext = () => {
 		size: sizeProp = __DEFAULT_STEPPER_SIZE__,
 		spacing: spacingProp = __DEFAULT_SPACING__,
 		variant: variantProp = __DEFAULT_STEPPER_VARIANT__
-	} = useContext<StepperContextType>(StepperContext);
+	} = useContext<StepperContextType<Element>>(StepperContext);
 
 	const { align, index, total, isConsecutively, isDisabled, isFitted, orientation, size, spacing, variant } =
-		useStepperResponsiveValues({
+		useStepperResponsiveValues<Element>({
 			align: alignProp,
 			index: indexProp,
 			total: totalProp,

@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import type { ThemeFontSize, ThemeSpacing } from '@common/types';
 
 import { __DEFAULT_STEPPER_SIZE__ } from '../constants';
-import type { StepperProps } from '../types';
+import type { StepperElement, StepperProps } from '../types';
 
 import { useStepperResponsiveValues } from '.';
 
@@ -14,13 +14,15 @@ type StepperSizeConfig = {
 	spacing: ThemeSpacing;
 };
 
-type UseStepperSizeConfigProps = Pick<StepperProps, 'size'>;
+type UseStepperSizeConfigProps<Element extends StepperElement> = Pick<StepperProps<Element>, 'size'>;
 type UseStepperSizeConfigReturn = StepperSizeConfig;
 
-const useStepperSizeConfig = (props: UseStepperSizeConfigProps): UseStepperSizeConfigReturn => {
+const useStepperSizeConfig = <Element extends StepperElement>(
+	props: UseStepperSizeConfigProps<Element>
+): UseStepperSizeConfigReturn => {
 	const { size: sizeProp = __DEFAULT_STEPPER_SIZE__ } = props;
 
-	const { size } = useStepperResponsiveValues({ size: sizeProp });
+	const { size } = useStepperResponsiveValues<Element>({ size: sizeProp });
 
 	const config = useMemo<StepperSizeConfig>(() => {
 		switch (size) {

@@ -13,25 +13,33 @@ import {
 	__DEFAULT_STEPPER_TOTAL__,
 	__DEFAULT_STEPPER_VARIANT__
 } from '../constants';
-import type { StepperAlign, StepperOrientation, StepperProps, StepperSize, StepperVariant } from '../types';
+import type {
+	StepperAlign,
+	StepperElement,
+	StepperOrientation,
+	StepperProps,
+	StepperSize,
+	StepperVariant
+} from '../types';
 
-type UseStepperResponsiveValuesProps = Partial<
-	Pick<
-		StepperProps,
-		| 'align'
-		| 'index'
-		| 'total'
-		| 'isConsecutively'
-		| 'isDisabled'
-		| 'isFitted'
-		| 'orientation'
-		| 'size'
-		| 'variant'
-		| 'spacing'
-	>
+type PickedStepperProps =
+	| 'align'
+	| 'index'
+	| 'total'
+	| 'isConsecutively'
+	| 'isDisabled'
+	| 'isFitted'
+	| 'orientation'
+	| 'size'
+	| 'variant'
+	| 'spacing';
+type UseStepperResponsiveValuesProps<Element extends StepperElement> = Partial<
+	Pick<StepperProps<Element>, PickedStepperProps>
 >;
 
-const useStepperResponsiveValues = (props: UseStepperResponsiveValuesProps) => {
+const useStepperResponsiveValues = <Element extends StepperElement>(
+	props: UseStepperResponsiveValuesProps<Element>
+) => {
 	const {
 		align: alignProp = __DEFAULT_STEPPER_ALIGN__,
 		index: indexProp = __DEFAULT_STEPPER_INDEX__,
