@@ -1,6 +1,8 @@
 import { v4 as uuid } from 'uuid';
 
-import type { DummyTabsAlign, DummyTabsOrientation, DummyTabsSize } from '../types';
+import type { DummyTabsAlign, DummyTabsDefaultElement, DummyTabsOrientation, DummyTabsSize } from '../types';
+
+export const __DEFAULT_DUMMY_TABS_AS__: DummyTabsDefaultElement = 'div';
 
 export const __DEFAULT_DUMMY_TABS_ALIGN__: DummyTabsAlign = 'start';
 

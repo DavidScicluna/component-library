@@ -1,4 +1,5 @@
 import type {
+	PickFrom,
 	PolymorphicDefaultElement,
 	PolymorphicElementType,
 	ResponsiveValue,
@@ -7,6 +8,9 @@ import type {
 } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
+
+export type DummyTabsDefaultElement = PolymorphicDefaultElement;
+export type DummyTabsElement = PickFrom<PolymorphicElementType, 'div'>;
 
 export type DummyTabsAlign = 'start' | 'center' | 'end';
 
@@ -52,14 +56,19 @@ type DummyTabsOtherProps = ThemeAppAppearanceProps & {
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type DummyTabsProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
-	Element,
-	DummyTabsOtherProps
->;
+export type DummyTabsProps<Element extends DummyTabsElement> = BoxProps<Element, DummyTabsOtherProps>;
 
-export type DummyTabsRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type DummyTabsRef<Element extends DummyTabsElement> = BoxRef<Element>;
 
-export type DummyTabsContext = Pick<
-	DummyTabsProps,
-	'color' | 'colorMode' | 'align' | 'id' | 'index' | 'isAnimated' | 'isFitted' | 'orientation' | 'size' | 'spacing'
->;
+type PickedDummyTabsProps =
+	| 'color'
+	| 'colorMode'
+	| 'align'
+	| 'id'
+	| 'index'
+	| 'isAnimated'
+	| 'isFitted'
+	| 'orientation'
+	| 'size'
+	| 'spacing';
+export type DummyTabsContext<Element extends DummyTabsElement> = Pick<DummyTabsProps<Element>, PickedDummyTabsProps>;

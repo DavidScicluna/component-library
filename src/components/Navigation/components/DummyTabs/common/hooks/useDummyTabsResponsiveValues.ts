@@ -10,13 +10,15 @@ import {
 	__DEFAULT_DUMMY_TABS_ORIENTATION__,
 	__DEFAULT_DUMMY_TABS_SIZE__
 } from '../constants';
-import type { DummyTabsAlign, DummyTabsOrientation, DummyTabsProps, DummyTabsSize } from '../types';
+import type { DummyTabsAlign, DummyTabsElement, DummyTabsOrientation, DummyTabsProps, DummyTabsSize } from '../types';
 
-type UseDummyTabsResponsiveValuesProps = Partial<
-	Pick<DummyTabsProps, 'align' | 'index' | 'isAnimated' | 'isFitted' | 'orientation' | 'size' | 'spacing'>
+type UseDummyTabsResponsiveValuesProps<Element extends DummyTabsElement> = Partial<
+	Pick<DummyTabsProps<Element>, 'align' | 'index' | 'isAnimated' | 'isFitted' | 'orientation' | 'size' | 'spacing'>
 >;
 
-const useDummyTabsResponsiveValues = (props: UseDummyTabsResponsiveValuesProps) => {
+const useDummyTabsResponsiveValues = <Element extends DummyTabsElement>(
+	props: UseDummyTabsResponsiveValuesProps<Element>
+) => {
 	const {
 		align: alignProp = __DEFAULT_DUMMY_TABS_ALIGN__,
 		index: indexProp = __DEFAULT_DUMMY_TABS_INDEX__,

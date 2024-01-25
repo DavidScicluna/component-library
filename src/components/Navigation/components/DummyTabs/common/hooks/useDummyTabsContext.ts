@@ -12,11 +12,11 @@ import {
 	__DEFAULT_DUMMY_TABS_ORIENTATION__,
 	__DEFAULT_DUMMY_TABS_SIZE__
 } from '../constants';
-import type { DummyTabsContext as DummyTabsContextType } from '../types';
+import type { DummyTabsContext as DummyTabsContextType, DummyTabsElement } from '../types';
 
 import useDummyTabsResponsiveValues from './useDummyTabsResponsiveValues';
 
-const useDummyTabsContext = () => {
+const useDummyTabsContext = <Element extends DummyTabsElement>() => {
 	const {
 		color,
 		colorMode,
@@ -28,9 +28,9 @@ const useDummyTabsContext = () => {
 		orientation: orientationProp = __DEFAULT_DUMMY_TABS_ORIENTATION__,
 		size: sizeProp = __DEFAULT_DUMMY_TABS_SIZE__,
 		spacing: spacingProp = __DEFAULT_SPACING__
-	} = useContext<DummyTabsContextType>(DummyTabsContext);
+	} = useContext<DummyTabsContextType<Element>>(DummyTabsContext);
 
-	const { align, index, isAnimated, isFitted, orientation, size, spacing } = useDummyTabsResponsiveValues({
+	const { align, index, isAnimated, isFitted, orientation, size, spacing } = useDummyTabsResponsiveValues<Element>({
 		align: alignProp,
 		index: indexProp,
 		isAnimated: isAnimatedProp,

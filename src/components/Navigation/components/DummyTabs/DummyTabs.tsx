@@ -1,19 +1,19 @@
 import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import {
+	__DEFAULT_APP_COLOR__,
+	__DEFAULT_APP_COLORMODE__,
+	__DEFAULT_CLASSNAME__,
+	__DEFAULT_SPACING__
+} from '@common/constants';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
 	__DEFAULT_DUMMY_TABS_ALIGN__,
+	__DEFAULT_DUMMY_TABS_AS__,
 	__DEFAULT_DUMMY_TABS_ID__,
 	__DEFAULT_DUMMY_TABS_INDEX__,
 	__DEFAULT_DUMMY_TABS_IS_ANIMATED__,
@@ -23,12 +23,20 @@ import {
 } from './common/constants';
 import { useDummyTabsResponsiveValues } from './common/hooks';
 import { __KEYS_DUMMY_TABS_CLASS__ } from './common/keys';
-import type { DummyTabsContext as DummyTabsContextType, DummyTabsProps, DummyTabsRef } from './common/types';
+import type {
+	DummyTabsContext as DummyTabsContextType,
+	DummyTabsDefaultElement,
+	DummyTabsElement,
+	DummyTabsProps,
+	DummyTabsRef
+} from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-export const DummyTabsContext = createContext<DummyTabsContextType>({
+export const DummyTabsContext = createContext<DummyTabsContextType<DummyTabsDefaultElement>>({
+	color: __DEFAULT_APP_COLOR__,
+	colorMode: __DEFAULT_APP_COLORMODE__,
 	align: __DEFAULT_DUMMY_TABS_ALIGN__,
 	id: __DEFAULT_DUMMY_TABS_ID__,
 	index: __DEFAULT_DUMMY_TABS_INDEX__,
@@ -39,12 +47,14 @@ export const DummyTabsContext = createContext<DummyTabsContextType>({
 	spacing: __DEFAULT_SPACING__
 });
 
-const DummyTabs: PolymorphicComponentWithRef = forwardRef(function DummyTabs<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: DummyTabsProps<Element>, ref: DummyTabsRef<Element>): ReactElement {
+const DummyTabs = forwardRef(function DummyTabs<Element extends DummyTabsElement>(
+	props: DummyTabsProps<Element>,
+	ref: DummyTabsRef<Element>
+): ReactElement {
 	const {
 		children,
 		id = __DEFAULT_DUMMY_TABS_ID__,
+		as = __DEFAULT_DUMMY_TABS_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
@@ -58,7 +68,7 @@ const DummyTabs: PolymorphicComponentWithRef = forwardRef(function DummyTabs<
 		...rest
 	} = props;
 
-	const { align, index, isAnimated, isFitted, orientation, size, spacing } = useDummyTabsResponsiveValues({
+	const { align, index, isAnimated, isFitted, orientation, size, spacing } = useDummyTabsResponsiveValues<Element>({
 		align: alignProp,
 		index: indexProp,
 		isAnimated: isAnimatedProp,
@@ -72,8 +82,9 @@ const DummyTabs: PolymorphicComponentWithRef = forwardRef(function DummyTabs<
 		<DummyTabsContext.Provider
 			value={{ color, colorMode, align, id, index, isAnimated, isFitted, orientation, size, spacing }}
 		>
-			<Box<Element>
-				{...rest}
+			<Box
+				{...(rest as BoxProps<Element>)}
+				as={as}
 				ref={ref}
 				className={classNames(__KEYS_DUMMY_TABS_CLASS__, { [className]: !!className })}
 			>
@@ -83,8 +94,6 @@ const DummyTabs: PolymorphicComponentWithRef = forwardRef(function DummyTabs<
 	);
 });
 
-DummyTabs.displayName = 'DummyTabs';
+// DummyTabs.displayName = 'DummyTabs';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <DummyTabs<Element> {...props} />;
+export default DummyTabs;

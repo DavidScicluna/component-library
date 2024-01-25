@@ -1,6 +1,8 @@
 import type {
 	DummyTabsAlign,
 	DummyTabsContext,
+	DummyTabsDefaultElement,
+	DummyTabsElement,
 	DummyTabsOrientation,
 	DummyTabsProps,
 	DummyTabsRef,
@@ -25,4 +27,13 @@ export { DummyTabs };
 export * from './components';
 
 // Component Types
-export type { DummyTabsAlign, DummyTabsContext, DummyTabsOrientation, DummyTabsProps, DummyTabsRef, DummyTabsSize };
+export type {
+	DummyTabsAlign,
+	DummyTabsContext,
+	DummyTabsDefaultElement,
+	DummyTabsElement,
+	DummyTabsOrientation,
+	DummyTabsProps,
+	DummyTabsRef,
+	DummyTabsSize
+};

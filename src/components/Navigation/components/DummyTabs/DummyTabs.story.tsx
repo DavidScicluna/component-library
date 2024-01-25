@@ -5,7 +5,7 @@ import { range, sample } from 'lodash-es';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { appColors } from '@common/data';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeAppColor } from '@common/types';
+import type { ThemeAppColor } from '@common/types';
 
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography';
@@ -18,7 +18,7 @@ import {
 	__DEFAULT_DUMMY_TABS_IS_FITTED__,
 	__DEFAULT_DUMMY_TABS_SIZE__
 } from './common/constants';
-import type { DummyTabsAlign, DummyTabsProps, DummyTabsSize } from './common/types';
+import type { DummyTabsAlign, DummyTabsDefaultElement, DummyTabsProps, DummyTabsSize } from './common/types';
 import type { DummyTabsStory, DummyTabsStoryMeta } from './common/types/story';
 import { DummyTab, DummyTabList, DummyTabPanels, DummyTabs as DummyTabsComponent } from '.';
 
@@ -70,7 +70,7 @@ export default {
 	}
 } as DummyTabsStoryMeta;
 
-export const DummyTabs: DummyTabsStory = (props: DummyTabsProps<PolymorphicDefaultElement>): ReactElement => {
+export const DummyTabs: DummyTabsStory = (props: DummyTabsProps<DummyTabsDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });
