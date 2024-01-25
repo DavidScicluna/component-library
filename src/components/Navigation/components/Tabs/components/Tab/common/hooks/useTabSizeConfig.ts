@@ -1,12 +1,11 @@
 import { useMemo } from 'react';
 
 import type { ThemeFontSize, ThemeSpacing } from '@common/types';
-import { getResponsiveValue } from '@common/utils';
 
 import { useTabsContext } from '@components/Navigation/components/Tabs/common/hooks';
 
 import { __DEFAULT_TAB_IS_COMPACT__ } from '../constants';
-import type { TabProps } from '../types';
+import type { TabElement, TabProps } from '../types';
 
 import useTabResponsiveValues from './useTabResponsiveValues';
 
@@ -16,49 +15,49 @@ type TabSizeConfig = {
 	spacing: ThemeSpacing;
 };
 
-type UseTabSizeConfigProps = Pick<TabProps, 'isCompact'>;
+type UseTabSizeConfigProps<Element extends TabElement> = Pick<TabProps<Element>, 'isCompact'>;
 type UseTabSizeConfigReturn = TabSizeConfig;
 
-const useTabSizeConfig = (props: UseTabSizeConfigProps): UseTabSizeConfigReturn => {
+const useTabSizeConfig = <Element extends TabElement>(
+	props: UseTabSizeConfigProps<Element>
+): UseTabSizeConfigReturn => {
 	const { size } = useTabsContext();
 
 	const { isCompact: isCompactProp = __DEFAULT_TAB_IS_COMPACT__ } = props;
 
-	const { isCompact } = useTabResponsiveValues({ isCompact: isCompactProp });
+	const { isCompact } = useTabResponsiveValues<Element>({ isCompact: isCompactProp });
 
 	const config = useMemo<TabSizeConfig>(() => {
-		const c = getResponsiveValue<boolean>(isCompact);
-
 		switch (size) {
 			case 'xs':
 				return {
 					fontSize: 'xs',
-					padding: { x: c ? 1 : 2, y: c ? 0.25 : 1 },
-					spacing: c ? 1 : 2
+					padding: { x: isCompact ? 1 : 2, y: isCompact ? 0.25 : 1 },
+					spacing: isCompact ? 1 : 2
 				};
 			case 'sm':
 				return {
 					fontSize: 'sm',
-					padding: { x: c ? 1.25 : 2.5, y: c ? 0.5 : 1.25 },
-					spacing: c ? 1.25 : 2.5
+					padding: { x: isCompact ? 1.25 : 2.5, y: isCompact ? 0.5 : 1.25 },
+					spacing: isCompact ? 1.25 : 2.5
 				};
 			case 'lg':
 				return {
 					fontSize: 'lg',
-					padding: { x: c ? 1.75 : 3.5, y: c ? 1 : 1.75 },
-					spacing: c ? 1.75 : 3.5
+					padding: { x: isCompact ? 1.75 : 3.5, y: isCompact ? 1 : 1.75 },
+					spacing: isCompact ? 1.75 : 3.5
 				};
 			case 'xl':
 				return {
 					fontSize: 'xl',
-					padding: { x: c ? 2 : 4, y: c ? 1.25 : 2 },
-					spacing: c ? 2 : 4
+					padding: { x: isCompact ? 2 : 4, y: isCompact ? 1.25 : 2 },
+					spacing: isCompact ? 2 : 4
 				};
 			default:
 				return {
 					fontSize: 'md',
-					padding: { x: c ? 1.5 : 3, y: c ? 0.75 : 1.5 },
-					spacing: c ? 1.5 : 3
+					padding: { x: isCompact ? 1.5 : 3, y: isCompact ? 0.75 : 1.5 },
+					spacing: isCompact ? 1.5 : 3
 				};
 		}
 	}, [isCompact, size]);

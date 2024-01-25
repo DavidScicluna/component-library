@@ -13,14 +13,14 @@ import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 export type TabDefaultElement = 'button';
 export type TabElement = Extract<PolymorphicElementType, 'button'>;
 
-export type TabMouseEvent<Element extends TabElement = TabDefaultElement> = PolymorphicMouseEvent<Element>;
+export type TabMouseEvent<Element extends TabElement> = PolymorphicMouseEvent<Element>;
 
-export type TabRenderProps<Element extends TabElement = TabDefaultElement> = Pick<
-	TabOtherProps<Element>,
-	'color' | 'colorMode'
-> & { w?: number; h?: number };
+export type TabRenderProps<Element extends TabElement> = Pick<TabProps<Element>, 'color' | 'colorMode'> & {
+	w?: number;
+	h?: number;
+};
 
-type TabOtherProps<Element extends TabElement = TabDefaultElement> = ThemeAppAppearanceProps & {
+type TabOtherProps<Element extends TabElement> = ThemeAppAppearanceProps & {
 	renderTop?: (props: TabRenderProps<Element>) => ReactNode;
 	renderBottom?: (props: TabRenderProps<Element>) => ReactNode;
 	renderLeft?: (props: TabRenderProps<Element>) => ReactNode;
@@ -56,9 +56,6 @@ type TabOtherProps<Element extends TabElement = TabDefaultElement> = ThemeAppApp
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type TabProps<Element extends TabElement = TabDefaultElement> = Omit<
-	BoxProps<Element, TabOtherProps<Element>>,
-	keyof BoxOtherProps
->;
+export type TabProps<Element extends TabElement> = Omit<BoxProps<Element, TabOtherProps<Element>>, keyof BoxOtherProps>;
 
-export type TabRef<Element extends TabElement = TabDefaultElement> = BoxRef<Element>;
+export type TabRef<Element extends TabElement> = BoxRef<Element>;

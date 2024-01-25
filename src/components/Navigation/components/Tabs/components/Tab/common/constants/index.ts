@@ -1,4 +1,5 @@
 import {
+	__DEFAULT_TAB_AS__,
 	__DEFAULT_TAB_IS_ACTIVE__,
 	__DEFAULT_TAB_IS_COMPACT__,
 	__DEFAULT_TAB_IS_DISABLED__,
@@ -7,6 +8,7 @@ import {
 import { __DEFAULT_TAB_BORDER_WIDTH__ } from './sizes';
 
 export {
+	__DEFAULT_TAB_AS__,
 	__DEFAULT_TAB_BORDER_WIDTH__,
 	__DEFAULT_TAB_IS_ACTIVE__,
 	__DEFAULT_TAB_IS_COMPACT__,

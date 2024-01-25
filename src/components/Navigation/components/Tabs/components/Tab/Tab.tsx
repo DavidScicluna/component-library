@@ -7,16 +7,12 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
 import { useCarouselManager } from '@components/DataDisplay/components/Carousel/common/hooks';
-import type { CenterRef } from '@components/Layout';
+import type { CenterRef, GridProps } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 import { HoverOverlay } from '@components/Overlay';
 
@@ -24,6 +20,7 @@ import { useTabsContext } from '../../common/hooks';
 import { getTabID, getTabPanelID } from '../../common/utils';
 
 import {
+	__DEFAULT_TAB_AS__,
 	__DEFAULT_TAB_BORDER_WIDTH__,
 	__DEFAULT_TAB_IS_ACTIVE__,
 	__DEFAULT_TAB_IS_COMPACT__,
@@ -32,12 +29,12 @@ import {
 } from './common/constants';
 import { useTabClasses, useTabResponsiveValues, useTabSizeConfig } from './common/hooks';
 import { __KEYS_TAB_CLASS__ } from './common/keys';
-import type { TabDefaultElement, TabElement, TabMouseEvent, TabProps, TabRef } from './common/types';
+import type { TabElement, TabMouseEvent, TabProps, TabRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Tab: PolymorphicComponentWithRef = forwardRef(function Tab<Element extends TabElement = TabDefaultElement>(
+const Tab = forwardRef(function Tab<Element extends TabElement>(
 	props: TabProps<Element>,
 	ref: TabRef<Element>
 ): ReactElement {
@@ -57,6 +54,7 @@ const Tab: PolymorphicComponentWithRef = forwardRef(function Tab<Element extends
 
 	const {
 		children,
+		as = __DEFAULT_TAB_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		renderLeft,
 		renderRight,
@@ -83,7 +81,7 @@ const Tab: PolymorphicComponentWithRef = forwardRef(function Tab<Element extends
 		isCompact,
 		isDisabled: isTabDisabled,
 		isUppercase
-	} = useTabResponsiveValues({
+	} = useTabResponsiveValues<Element>({
 		isActive: isActiveProp,
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
@@ -93,9 +91,9 @@ const Tab: PolymorphicComponentWithRef = forwardRef(function Tab<Element extends
 	const isDisabled = useMemo(() => isTabsDisabled || isTabDisabled, [isTabsDisabled, isTabDisabled]);
 	const isSelected = useMemo(() => index === panel, [index, panel]);
 
-	const config = useTabSizeConfig({ isCompact });
+	const config = useTabSizeConfig<Element>({ isCompact });
 
-	const classes = useTabClasses({
+	const classes = useTabClasses<Element>({
 		color,
 		colorMode,
 		isActive: isActive || isSelected,
@@ -124,16 +122,18 @@ const Tab: PolymorphicComponentWithRef = forwardRef(function Tab<Element extends
 		}
 
 		if (onClick) {
-			onClick(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onClick(event as any);
 		}
 	};
 
 	return (
 		<HoverOverlay w={isFitted ? '100%' : 'auto'} h='100%'>
 			{(isHovering: boolean) => (
-				<Grid<Element>
+				<Grid
 					{...focusProps}
-					{...rest}
+					{...(rest as GridProps<Element>)}
+					as={as}
 					ref={ref}
 					aria-controls={getTabPanelID(id, panel)}
 					aria-disabled={isDisabled}
@@ -216,7 +216,12 @@ const Tab: PolymorphicComponentWithRef = forwardRef(function Tab<Element extends
 
 									{children ? (
 										<GridItem>
-											<Center ref={childrenRef as CenterRef} as='span' w='100%' h='100%'>
+											<Center
+												ref={childrenRef as CenterRef<PolymorphicDefaultElement>}
+												as='span'
+												w='100%'
+												h='100%'
+											>
 												{children}
 											</Center>
 										</GridItem>
@@ -255,8 +260,6 @@ const Tab: PolymorphicComponentWithRef = forwardRef(function Tab<Element extends
 	);
 });
 
-Tab.displayName = 'Tab';
+// Tab.displayName = 'Tab';
 
-export default <Element extends TabElement = TabDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Tab<Element> {...props} />;
+export default Tab;

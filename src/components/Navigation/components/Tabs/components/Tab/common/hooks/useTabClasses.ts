@@ -15,7 +15,7 @@ import {
 	__DEFAULT_TAB_IS_DISABLED__,
 	__DEFAULT_TAB_IS_UPPERCASE__
 } from '../constants';
-import type { TabProps } from '../types';
+import type { TabElement, TabProps } from '../types';
 
 import useTabResponsiveValues from './useTabResponsiveValues';
 import useTabSizeConfig from './useTabSizeConfig';
@@ -24,10 +24,10 @@ import useTabSizeConfig from './useTabSizeConfig';
 const classNames = require('classnames');
 
 type PickedTabProps = 'color' | 'colorMode' | 'isActive' | 'isCompact' | 'isDisabled' | 'isUppercase';
-type UseTabClassesProps = Pick<TabProps, PickedTabProps> & { isFocused: boolean };
+type UseTabClassesProps<Element extends TabElement> = Pick<TabProps<Element>, PickedTabProps> & { isFocused: boolean };
 type UseTabClassesReturn = Record<'tab' | 'topDivider' | 'bottomDivider' | 'label', ClassName>;
 
-const useTabClasses = (props: UseTabClassesProps): UseTabClassesReturn => {
+const useTabClasses = <Element extends TabElement>(props: UseTabClassesProps<Element>): UseTabClassesReturn => {
 	const { colorMode: __DEFAULT_TAB_COLORMODE__ } = useAppTheme();
 	const { orientation } = useTabsContext();
 
@@ -40,14 +40,14 @@ const useTabClasses = (props: UseTabClassesProps): UseTabClassesReturn => {
 		isUppercase: isUppercaseProp = __DEFAULT_TAB_IS_UPPERCASE__
 	} = props;
 
-	const { isActive, isCompact, isDisabled, isUppercase } = useTabResponsiveValues({
+	const { isActive, isCompact, isDisabled, isUppercase } = useTabResponsiveValues<Element>({
 		isActive: isActiveProp,
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
 		isUppercase: isUppercaseProp
 	});
 
-	const config = useTabSizeConfig({ isCompact });
+	const config = useTabSizeConfig<Element>({ isCompact });
 
 	const tabClasses = useMemo<ClassName>(() => {
 		const outlineHue = getColorHue({ colorMode, type: 'color' });

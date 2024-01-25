@@ -6,11 +6,13 @@ import {
 	__DEFAULT_TAB_IS_DISABLED__,
 	__DEFAULT_TAB_IS_UPPERCASE__
 } from '../constants';
-import type { TabProps } from '../types';
+import type { TabElement, TabProps } from '../types';
 
-type UseTabResponsiveValuesProps = Partial<Pick<TabProps, 'isActive' | 'isCompact' | 'isDisabled' | 'isUppercase'>>;
+type UseTabResponsiveValuesProps<Element extends TabElement> = Partial<
+	Pick<TabProps<Element>, 'isActive' | 'isCompact' | 'isDisabled' | 'isUppercase'>
+>;
 
-const useTabResponsiveValues = (props: UseTabResponsiveValuesProps) => {
+const useTabResponsiveValues = <Element extends TabElement>(props: UseTabResponsiveValuesProps<Element>) => {
 	const {
 		isActive: isActiveProp = __DEFAULT_TAB_IS_ACTIVE__,
 		isCompact: isCompactProp = __DEFAULT_TAB_IS_COMPACT__,
