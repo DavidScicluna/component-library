@@ -7,13 +7,13 @@ import {
 	__DEFAULT_STEP_IS_UPPERCASE__,
 	__DEFAULT_STEP_STATUS__
 } from '../constants';
-import type { StepProps, StepStatus } from '../types';
+import type { StepElement, StepProps, StepStatus } from '../types';
 
-type UseStepResponsiveValuesProps = Partial<
-	Pick<StepProps, 'isActive' | 'isCompact' | 'isDisabled' | 'isUppercase' | 'status'>
+type UseStepResponsiveValuesProps<Element extends StepElement> = Partial<
+	Pick<StepProps<Element>, 'isActive' | 'isCompact' | 'isDisabled' | 'isUppercase' | 'status'>
 >;
 
-const useStepResponsiveValues = (props: UseStepResponsiveValuesProps) => {
+const useStepResponsiveValues = <Element extends StepElement>(props: UseStepResponsiveValuesProps<Element>) => {
 	const {
 		isActive: isActiveProp = __DEFAULT_STEP_IS_ACTIVE__,
 		isCompact: isCompactProp = __DEFAULT_STEP_IS_COMPACT__,

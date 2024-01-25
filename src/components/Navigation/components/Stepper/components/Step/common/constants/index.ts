@@ -1,4 +1,5 @@
 import {
+	__DEFAULT_STEP_AS__,
 	__DEFAULT_STEP_INDEX__,
 	__DEFAULT_STEP_IS_ACTIVE__,
 	__DEFAULT_STEP_IS_COMPACT__,
@@ -9,6 +10,7 @@ import {
 import { __DEFAULT_STEP_BORDER_WIDTH__ } from './sizes';
 
 export {
+	__DEFAULT_STEP_AS__,
 	__DEFAULT_STEP_BORDER_WIDTH__,
 	__DEFAULT_STEP_INDEX__,
 	__DEFAULT_STEP_IS_ACTIVE__,

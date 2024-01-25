@@ -7,16 +7,12 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
 import { useCarouselManager } from '@components/DataDisplay/components/Carousel/common/hooks';
-import type { CenterRef } from '@components/Layout';
+import type { CenterRef, GridProps } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 import { HoverOverlay } from '@components/Overlay';
 
@@ -25,6 +21,7 @@ import { useStepperContext } from '../../common/hooks';
 import { getStepID, getStepPanelID } from '../../common/utils';
 
 import {
+	__DEFAULT_STEP_AS__,
 	__DEFAULT_STEP_BORDER_WIDTH__,
 	__DEFAULT_STEP_INDEX__,
 	__DEFAULT_STEP_IS_ACTIVE__,
@@ -47,13 +44,13 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-export const StepContext = createContext<StepContextType>({
+export const StepContext = createContext<StepContextType<StepDefaultElement>>({
 	id: getStepID(__DEFAULT_STEPPER_ID__, __DEFAULT_STEP_INDEX__),
 	index: __DEFAULT_STEP_INDEX__,
 	status: __DEFAULT_STEP_STATUS__
 });
 
-const Step: PolymorphicComponentWithRef = forwardRef(function Step<Element extends StepElement = StepDefaultElement>(
+const Step = forwardRef(function Step<Element extends StepElement>(
 	props: StepProps<Element>,
 	ref: StepRef<Element>
 ): ReactElement {
@@ -73,6 +70,7 @@ const Step: PolymorphicComponentWithRef = forwardRef(function Step<Element exten
 
 	const {
 		children,
+		as = __DEFAULT_STEP_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		renderLeft,
 		renderRight,
@@ -102,7 +100,7 @@ const Step: PolymorphicComponentWithRef = forwardRef(function Step<Element exten
 		isDisabled: isStepDisabled,
 		isUppercase,
 		status
-	} = useStepResponsiveValues({
+	} = useStepResponsiveValues<Element>({
 		isActive: isActiveProp,
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
@@ -115,9 +113,9 @@ const Step: PolymorphicComponentWithRef = forwardRef(function Step<Element exten
 	const isDisabled = useMemo(() => isStepperDisabled || isStepDisabled, [isStepperDisabled, isStepDisabled]);
 	const isSelected = useMemo(() => index === panel, [index, panel]);
 
-	const config = useStepSizeConfig({ isCompact });
+	const config = useStepSizeConfig<Element>({ isCompact });
 
-	const classes = useStepClasses({
+	const classes = useStepClasses<Element>({
 		color,
 		colorMode,
 		isActive: isActive || isSelected,
@@ -146,7 +144,8 @@ const Step: PolymorphicComponentWithRef = forwardRef(function Step<Element exten
 		}
 
 		if (onClick) {
-			onClick(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onClick(event as any);
 		}
 	};
 
@@ -154,9 +153,10 @@ const Step: PolymorphicComponentWithRef = forwardRef(function Step<Element exten
 		<StepContext.Provider value={{ id, index, status }}>
 			<HoverOverlay w={isFitted ? '100%' : 'auto'} h='100%'>
 				{(isHovering: boolean) => (
-					<Grid<Element>
+					<Grid
 						{...focusProps}
-						{...rest}
+						{...(rest as GridProps<Element>)}
+						as={as}
 						ref={ref}
 						aria-controls={getStepPanelID(id, panel)}
 						aria-disabled={isDisabled}
@@ -243,7 +243,12 @@ const Step: PolymorphicComponentWithRef = forwardRef(function Step<Element exten
 
 										{children ? (
 											<GridItem>
-												<Center ref={childrenRef as CenterRef} as='span' w='100%' h='100%'>
+												<Center
+													ref={childrenRef as CenterRef<PolymorphicDefaultElement>}
+													as='span'
+													w='100%'
+													h='100%'
+												>
 													{children}
 												</Center>
 											</GridItem>
@@ -287,8 +292,6 @@ const Step: PolymorphicComponentWithRef = forwardRef(function Step<Element exten
 	);
 });
 
-Step.displayName = 'Step';
+// Step.displayName = 'Step';
 
-export default <Element extends StepElement = StepDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Step<Element> {...props} />;
+export default Step;

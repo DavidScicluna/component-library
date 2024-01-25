@@ -13,16 +13,16 @@ import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 export type StepDefaultElement = 'button';
 export type StepElement = Extract<PolymorphicElementType, 'button'>;
 
-export type StepMouseEvent<Element extends StepElement = StepDefaultElement> = PolymorphicMouseEvent<Element>;
+export type StepMouseEvent<Element extends StepElement> = PolymorphicMouseEvent<Element>;
 
 export type StepStatus = 'idle' | 'success' | 'error' | 'warning' | 'active';
 
-export type StepRenderProps<Element extends StepElement = StepDefaultElement> = Pick<
-	StepOtherProps<Element>,
-	'color' | 'colorMode'
-> & { w?: number; h?: number };
+export type StepRenderProps<Element extends StepElement> = Pick<StepOtherProps<Element>, 'color' | 'colorMode'> & {
+	w?: number;
+	h?: number;
+};
 
-type StepOtherProps<Element extends StepElement = StepDefaultElement> = ThemeAppAppearanceProps & {
+type StepOtherProps<Element extends StepElement> = ThemeAppAppearanceProps & {
 	renderTop?: (props: StepRenderProps<Element>) => ReactNode;
 	renderBottom?: (props: StepRenderProps<Element>) => ReactNode;
 	renderLeft?: (props: StepRenderProps<Element>) => ReactNode;
@@ -64,11 +64,11 @@ type StepOtherProps<Element extends StepElement = StepDefaultElement> = ThemeApp
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type StepProps<Element extends StepElement = StepDefaultElement> = Omit<
+export type StepProps<Element extends StepElement> = Omit<
 	BoxProps<Element, StepOtherProps<Element>>,
 	keyof BoxOtherProps
 >;
 
-export type StepRef<Element extends StepElement = StepDefaultElement> = BoxRef<Element>;
+export type StepRef<Element extends StepElement> = BoxRef<Element>;
 
-export type StepContext = Pick<StepProps, 'id' | 'index' | 'status'>;
+export type StepContext<Element extends StepElement> = Pick<StepProps<Element>, 'index' | 'status'> & { id: string };

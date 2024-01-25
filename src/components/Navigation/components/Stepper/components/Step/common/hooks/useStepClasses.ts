@@ -15,7 +15,7 @@ import {
 	__DEFAULT_STEP_IS_DISABLED__,
 	__DEFAULT_STEP_IS_UPPERCASE__
 } from '../constants';
-import type { StepProps } from '../types';
+import type { StepElement, StepProps } from '../types';
 
 import useStepResponsiveValues from './useStepResponsiveValues';
 import useStepSizeConfig from './useStepSizeConfig';
@@ -24,10 +24,12 @@ import useStepSizeConfig from './useStepSizeConfig';
 const classNames = require('classnames');
 
 type PickedStepProps = 'color' | 'colorMode' | 'isActive' | 'isCompact' | 'isDisabled' | 'isUppercase';
-type UseStepClassesProps = Pick<StepProps, PickedStepProps> & { isFocused: boolean };
+type UseStepClassesProps<Element extends StepElement> = Pick<StepProps<Element>, PickedStepProps> & {
+	isFocused: boolean;
+};
 type UseStepClassesReturn = Record<'step' | 'topDivider' | 'bottomDivider' | 'label', ClassName>;
 
-const useStepClasses = (props: UseStepClassesProps): UseStepClassesReturn => {
+const useStepClasses = <Element extends StepElement>(props: UseStepClassesProps<Element>): UseStepClassesReturn => {
 	const { colorMode: __DEFAULT_STEP_COLORMODE__ } = useAppTheme();
 	const { orientation } = useStepperContext();
 
@@ -40,14 +42,14 @@ const useStepClasses = (props: UseStepClassesProps): UseStepClassesReturn => {
 		isUppercase: isUppercaseProp = __DEFAULT_STEP_IS_UPPERCASE__
 	} = props;
 
-	const { isActive, isCompact, isDisabled, isUppercase } = useStepResponsiveValues({
+	const { isActive, isCompact, isDisabled, isUppercase } = useStepResponsiveValues<Element>({
 		isActive: isActiveProp,
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
 		isUppercase: isUppercaseProp
 	});
 
-	const config = useStepSizeConfig({ isCompact });
+	const config = useStepSizeConfig<Element>({ isCompact });
 
 	const stepClasses = useMemo<ClassName>(() => {
 		const outlineHue = getColorHue({ colorMode, type: 'color' });

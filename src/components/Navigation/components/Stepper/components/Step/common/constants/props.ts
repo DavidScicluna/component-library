@@ -1,4 +1,6 @@
-import type { StepStatus } from '../types';
+import type { StepDefaultElement, StepStatus } from '../types';
+
+export const __DEFAULT_STEP_AS__: StepDefaultElement = 'button';
 
 export const __DEFAULT_STEP_INDEX__ = -1;
 
