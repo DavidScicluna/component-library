@@ -2,14 +2,9 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
+import type { SkeletonProps } from '@components/Feedback';
 import { Skeleton } from '@components/Feedback';
 import { __KEY_SKELETON_OVERLAY_CLASS__ } from '@components/Feedback/components/Skeleton/common/keys';
 import { useDummyPushableOverlayStyles } from '@components/Overlay/components/DummyPushableOverlay/common/hooks';
@@ -22,9 +17,10 @@ import type { DummyTabSkeletonProps, DummyTabSkeletonRef } from './common/types'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const DummyTabSkeleton: PolymorphicComponentWithRef = forwardRef(function DummyTabSkeleton<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: DummyTabSkeletonProps<Element>, ref: DummyTabSkeletonRef<Element>): ReactElement {
+const DummyTabSkeleton = forwardRef(function DummyTabSkeleton<Element extends PolymorphicElementType>(
+	props: DummyTabSkeletonProps<Element>,
+	ref: DummyTabSkeletonRef<Element>
+): ReactElement {
 	const { color: __DEFAULT_DUMMY_TAB_SKELETON_COLOR__, colorMode: __DEFAULT_DUMMY_TAB_SKELETON_COLORMODE__ } =
 		useDummyTabsContext();
 
@@ -36,11 +32,11 @@ const DummyTabSkeleton: PolymorphicComponentWithRef = forwardRef(function DummyT
 		...rest
 	} = props;
 
-	const styles = useDummyPushableOverlayStyles({ color, colorMode, variant: 'transparent' });
+	const styles = useDummyPushableOverlayStyles<Element>({ color, colorMode, variant: 'transparent' });
 
 	return (
-		<Skeleton<Element>
-			{...rest}
+		<Skeleton
+			{...(rest as SkeletonProps<Element>)}
 			ref={ref}
 			className={classNames(__KEY_DUMMY_TAB_SKELETON_CLASS__, { [className]: !!className })}
 			color={color}
@@ -54,8 +50,6 @@ const DummyTabSkeleton: PolymorphicComponentWithRef = forwardRef(function DummyT
 	);
 });
 
-DummyTabSkeleton.displayName = 'DummyTabSkeleton';
+// DummyTabSkeleton.displayName = 'DummyTabSkeleton';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <DummyTabSkeleton<Element> {...props} />;
+export default DummyTabSkeleton;
