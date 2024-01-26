@@ -2,36 +2,30 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
 import { Tooltip } from '@components/Overlay';
 
+import type { IconButtonProps } from '../IconButton';
 import { IconButton, IconButtonIcon } from '../IconButton';
 
 import {
+	__DEFAULT_CLEAR_ICON_BUTTON_AS__,
 	__DEFAULT_CLEAR_ICON_BUTTON_HAS_TOOLTIP__,
 	__DEFAULT_CLEAR_ICON_BUTTON_LABEL__,
 	__DEFAULT_CLEAR_ICON_BUTTON_PLACEMENT__
 } from './common/constants';
 import { __KEYS_CLEAR_ICON_BUTTON_CLASS__ } from './common/keys';
-import type {
-	ClearIconButtonDefaultElement,
-	ClearIconButtonElement,
-	ClearIconButtonProps,
-	ClearIconButtonRef
-} from './common/types';
+import type { ClearIconButtonElement, ClearIconButtonProps, ClearIconButtonRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ClearIconButton: PolymorphicComponentWithRef = forwardRef(function ClearIconButton<
-	Element extends ClearIconButtonElement = ClearIconButtonDefaultElement
->(props: ClearIconButtonProps<Element>, ref: ClearIconButtonRef<Element>): ReactElement {
+const ClearIconButton = forwardRef(function ClearIconButton<Element extends ClearIconButtonElement>(
+	props: ClearIconButtonProps<Element>,
+	ref: ClearIconButtonRef<Element>
+): ReactElement {
 	const {
+		as = __DEFAULT_CLEAR_ICON_BUTTON_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
@@ -43,15 +37,16 @@ const ClearIconButton: PolymorphicComponentWithRef = forwardRef(function ClearIc
 
 	return (
 		<Tooltip
-			// color='gray'
+			color='gray'
 			colorMode={colorMode}
 			aria-label={`${label} (tooltip)`}
 			label={label}
 			placement={placement}
 			isDisabled={!hasTooltip}
 		>
-			<IconButton<Element>
-				{...rest}
+			<IconButton
+				{...(rest as IconButtonProps<Element>)}
+				as={as}
 				ref={ref}
 				className={classNames(__KEYS_CLEAR_ICON_BUTTON_CLASS__, { [className]: !!className })}
 				aria-label={label}
@@ -64,11 +59,6 @@ const ClearIconButton: PolymorphicComponentWithRef = forwardRef(function ClearIc
 	);
 });
 
-ClearIconButton.displayName = 'ClearIconButton';
+// ClearIconButton.displayName = 'ClearIconButton';
 
-export default <
-	Element extends ClearIconButtonElement = ClearIconButtonDefaultElement,
-	Props = PolymorphicDefaultProps
->(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <ClearIconButton<Element> {...props} />;
+export default ClearIconButton;
