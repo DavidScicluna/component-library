@@ -1,5 +1,5 @@
 import classes from '@common/classes';
-import type { ClassName } from '@common/types';
+import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import { useButtonSizeConfig } from '@components/Buttons/components/Button/common/hooks';
 import { useButtonGroupContext } from '@components/Buttons/components/ButtonGroup/common/hooks';
@@ -9,10 +9,15 @@ import type { ButtonGroupItemProps } from '../types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseButtonGroupItemClassesProps = Pick<ButtonGroupItemProps, 'index' | 'total'>;
+type UseButtonGroupItemClassesProps<Element extends PolymorphicElementType> = Pick<
+	ButtonGroupItemProps<Element>,
+	'index' | 'total'
+>;
 type UseButtonGroupItemClassesReturn = ClassName;
 
-const useButtonGroupItemClasses = (props: UseButtonGroupItemClassesProps): UseButtonGroupItemClassesReturn => {
+const useButtonGroupItemClasses = <Element extends PolymorphicElementType>(
+	props: UseButtonGroupItemClassesProps<Element>
+): UseButtonGroupItemClassesReturn => {
 	const { direction, isAttached, isCompact, isRound, size, variant } = useButtonGroupContext();
 
 	const { index, total } = props;
@@ -107,6 +112,8 @@ const useButtonGroupItemClasses = (props: UseButtonGroupItemClassesProps): UseBu
 				[classes.borders.border_radius.important.none]: isAttached && !isFirst && !isLast,
 				[classes.borders.border_radius.before.inherit]: isAttached && !isFirst && !isLast
 			});
+		default:
+			return classNames();
 	}
 };
 

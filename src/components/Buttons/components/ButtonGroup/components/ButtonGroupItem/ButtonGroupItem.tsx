@@ -2,14 +2,9 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import { useButtonGroupContext } from '../../common/hooks';
@@ -21,9 +16,10 @@ import type { ButtonGroupItemProps, ButtonGroupItemRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ButtonGroupItem: PolymorphicComponentWithRef = forwardRef(function ButtonGroupItem<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: ButtonGroupItemProps<Element>, ref: ButtonGroupItemRef<Element>): ReactElement {
+const ButtonGroupItem = forwardRef(function ButtonGroupItem<Element extends PolymorphicElementType>(
+	props: ButtonGroupItemProps<Element>,
+	ref: ButtonGroupItemRef<Element>
+): ReactElement {
 	const { isFullWidth } = useButtonGroupContext();
 
 	const { children, className = __DEFAULT_CLASSNAME__, index, total, ...rest } = props;
@@ -31,8 +27,8 @@ const ButtonGroupItem: PolymorphicComponentWithRef = forwardRef(function ButtonG
 	const classes = useButtonGroupItemClasses({ index, total });
 
 	return (
-		<Box<Element>
-			{...rest}
+		<Box
+			{...(rest as BoxProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_BUTTON_GROUP_ITEM_CLASS__, { [className]: !!className })}
 			w={isFullWidth ? '100%' : 'auto'}
@@ -42,8 +38,6 @@ const ButtonGroupItem: PolymorphicComponentWithRef = forwardRef(function ButtonG
 	);
 });
 
-ButtonGroupItem.displayName = 'ButtonGroupItem';
+// ButtonGroupItem.displayName = 'ButtonGroupItem';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <ButtonGroupItem<Element> {...props} />;
+export default ButtonGroupItem;
