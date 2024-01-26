@@ -11,11 +11,11 @@ import { __DEFAULT_STACK_DIRECTION__ } from '@components/Layout/components/Stack
 
 import { IconButtonGroupContext } from '../../IconButtonGroup';
 import { __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__ } from '../constants';
-import type { IconButtonGroupContext as IconButtonGroupContextType } from '../types';
+import type { IconButtonGroupContext as IconButtonGroupContextType, IconButtonGroupElement } from '../types';
 
 import useIconButtonGroupResponsiveValues from './useIconButtonGroupResponsiveValues';
 
-const useIconButtonGroupContext = () => {
+const useIconButtonGroupContext = <Element extends IconButtonGroupElement>() => {
 	const {
 		color,
 		colorMode,
@@ -26,10 +26,10 @@ const useIconButtonGroupContext = () => {
 		isRound: isRoundProp = __DEFAULT_ICON_BUTTON_IS_ROUND__,
 		size: sizeProp = __DEFAULT_ICON_BUTTON_SIZE__,
 		variant: variantProp = __DEFAULT_ICON_BUTTON_VARIANT__
-	} = useContext<IconButtonGroupContextType>(IconButtonGroupContext);
+	} = useContext<IconButtonGroupContextType<Element>>(IconButtonGroupContext);
 
-	const { direction, isAttached, isCompact, isDisabled, isRound, size, variant } = useIconButtonGroupResponsiveValues(
-		{
+	const { direction, isAttached, isCompact, isDisabled, isRound, size, variant } =
+		useIconButtonGroupResponsiveValues<Element>({
 			direction: directionProp,
 			isAttached: isAttachedProp,
 			isCompact: isCompactProp,
@@ -37,8 +37,7 @@ const useIconButtonGroupContext = () => {
 			isRound: isRoundProp,
 			size: sizeProp,
 			variant: variantProp
-		}
-	);
+		});
 	return { color, colorMode, direction, isAttached, isCompact, isDisabled, isRound, size, variant };
 };
 

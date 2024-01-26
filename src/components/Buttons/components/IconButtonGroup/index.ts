@@ -1,4 +1,10 @@
-import type { IconButtonGroupContext, IconButtonGroupProps, IconButtonGroupRef } from './common/types';
+import type {
+	IconButtonGroupContext,
+	IconButtonGroupDefaultElement,
+	IconButtonGroupElement,
+	IconButtonGroupProps,
+	IconButtonGroupRef
+} from './common/types';
 import IconButtonGroup from './IconButtonGroup';
 
 // Constants
@@ -15,4 +21,10 @@ export { IconButtonGroup };
 export * from './components';
 
 // Component Types
-export type { IconButtonGroupContext, IconButtonGroupProps, IconButtonGroupRef };
+export type {
+	IconButtonGroupContext,
+	IconButtonGroupDefaultElement,
+	IconButtonGroupElement,
+	IconButtonGroupProps,
+	IconButtonGroupRef
+};
