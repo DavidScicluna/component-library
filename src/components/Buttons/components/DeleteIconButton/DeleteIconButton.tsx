@@ -2,36 +2,30 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
 import { Tooltip } from '@components/Overlay';
 
+import type { IconButtonProps } from '../IconButton';
 import { IconButton, IconButtonIcon } from '../IconButton';
 
 import {
+	__DEFAULT_DELETE_ICON_BUTTON_AS__,
 	__DEFAULT_DELETE_ICON_BUTTON_HAS_TOOLTIP__,
 	__DEFAULT_DELETE_ICON_BUTTON_LABEL__,
 	__DEFAULT_DELETE_ICON_BUTTON_PLACEMENT__
 } from './common/constants';
 import { __KEYS_DELETE_ICON_BUTTON_CLASS__ } from './common/keys';
-import type {
-	DeleteIconButtonDefaultElement,
-	DeleteIconButtonElement,
-	DeleteIconButtonProps,
-	DeleteIconButtonRef
-} from './common/types';
+import type { DeleteIconButtonElement, DeleteIconButtonProps, DeleteIconButtonRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const DeleteIconButton: PolymorphicComponentWithRef = forwardRef(function DeleteIconButton<
-	Element extends DeleteIconButtonElement = DeleteIconButtonDefaultElement
->(props: DeleteIconButtonProps<Element>, ref: DeleteIconButtonRef<Element>): ReactElement {
+const DeleteIconButton = forwardRef(function DeleteIconButton<Element extends DeleteIconButtonElement>(
+	props: DeleteIconButtonProps<Element>,
+	ref: DeleteIconButtonRef<Element>
+): ReactElement {
 	const {
+		as = __DEFAULT_DELETE_ICON_BUTTON_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
@@ -43,15 +37,16 @@ const DeleteIconButton: PolymorphicComponentWithRef = forwardRef(function Delete
 
 	return (
 		<Tooltip
-			// color='gray'
+			color='gray'
 			colorMode={colorMode}
 			aria-label={`${label} (tooltip)`}
 			label={label}
 			placement={placement}
 			isDisabled={!hasTooltip}
 		>
-			<IconButton<Element>
-				{...rest}
+			<IconButton
+				{...(rest as IconButtonProps<Element>)}
+				as={as}
 				ref={ref}
 				className={classNames(__KEYS_DELETE_ICON_BUTTON_CLASS__, { [className]: !!className })}
 				aria-label={label}
@@ -64,11 +59,6 @@ const DeleteIconButton: PolymorphicComponentWithRef = forwardRef(function Delete
 	);
 });
 
-DeleteIconButton.displayName = 'DeleteIconButton';
+// DeleteIconButton.displayName = 'DeleteIconButton';
 
-export default <
-	Element extends DeleteIconButtonElement = DeleteIconButtonDefaultElement,
-	Props = PolymorphicDefaultProps
->(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <DeleteIconButton<Element> {...props} />;
+export default DeleteIconButton;
