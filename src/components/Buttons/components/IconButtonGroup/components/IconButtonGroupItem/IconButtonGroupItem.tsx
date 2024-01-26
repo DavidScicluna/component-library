@@ -2,14 +2,9 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import { useIconButtonGroupItemClasses } from './common/hooks';
@@ -19,16 +14,17 @@ import type { IconButtonGroupItemProps, IconButtonGroupItemRef } from './common/
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const IconButtonGroupItem: PolymorphicComponentWithRef = forwardRef(function IconButtonGroupItem<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: IconButtonGroupItemProps<Element>, ref: IconButtonGroupItemRef<Element>): ReactElement {
+const IconButtonGroupItem = forwardRef(function IconButtonGroupItem<Element extends PolymorphicElementType>(
+	props: IconButtonGroupItemProps<Element>,
+	ref: IconButtonGroupItemRef<Element>
+): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, index, total, ...rest } = props;
 
-	const classes = useIconButtonGroupItemClasses({ index, total });
+	const classes = useIconButtonGroupItemClasses<Element>({ index, total });
 
 	return (
-		<Box<Element>
-			{...rest}
+		<Box
+			{...(rest as BoxProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_ICON_BUTTON_GROUP_ITEM_CLASS__, { [className]: !!className })}
 		>
@@ -37,8 +33,6 @@ const IconButtonGroupItem: PolymorphicComponentWithRef = forwardRef(function Ico
 	);
 });
 
-IconButtonGroupItem.displayName = 'IconButtonGroupItem';
+// IconButtonGroupItem.displayName = 'IconButtonGroupItem';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <IconButtonGroupItem<Element> {...props} />;
+export default IconButtonGroupItem;

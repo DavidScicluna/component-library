@@ -1,5 +1,5 @@
 import classes from '@common/classes';
-import type { ClassName } from '@common/types';
+import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import { useIconButtonSizeConfig } from '@components/Buttons/components/IconButton/common/hooks';
 import { useIconButtonGroupContext } from '@components/Buttons/components/IconButtonGroup/common/hooks';
@@ -9,11 +9,14 @@ import type { IconButtonGroupItemProps } from '../types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseIconButtonGroupItemClassesProps = Pick<IconButtonGroupItemProps, 'index' | 'total'>;
+type UseIconButtonGroupItemClassesProps<Element extends PolymorphicElementType> = Pick<
+	IconButtonGroupItemProps<Element>,
+	'index' | 'total'
+>;
 type UseIconButtonGroupItemClassesReturn = ClassName;
 
-const useIconButtonGroupItemClasses = (
-	props: UseIconButtonGroupItemClassesProps
+const useIconButtonGroupItemClasses = <Element extends PolymorphicElementType>(
+	props: UseIconButtonGroupItemClassesProps<Element>
 ): UseIconButtonGroupItemClassesReturn => {
 	const { direction, isAttached, isCompact, isRound, size, variant } = useIconButtonGroupContext();
 
@@ -109,6 +112,8 @@ const useIconButtonGroupItemClasses = (
 				[classes.borders.border_radius.important.none]: isAttached && !isFirst && !isLast,
 				[classes.borders.border_radius.before.inherit]: isAttached && !isFirst && !isLast
 			});
+		default:
+			return classNames();
 	}
 };
 
