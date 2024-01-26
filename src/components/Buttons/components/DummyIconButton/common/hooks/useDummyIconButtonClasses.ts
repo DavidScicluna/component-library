@@ -2,20 +2,25 @@ import classes from '@common/classes';
 import type { ClassName } from '@common/types';
 
 import { __DEFAULT_DUMMY_ICON_BUTTON_LINE_HEIGHT_SIZE__, __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__ } from '../constants';
-import type { DummyIconButtonProps } from '../types';
+import type { DummyIconButtonElement, DummyIconButtonProps } from '../types';
 
 import useDummyIconButtonResponsiveValues from './useDummyIconButtonResponsiveValues';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseDummyIconButtonClassesProps = Pick<DummyIconButtonProps, 'variant'>;
+type UseDummyIconButtonClassesProps<Element extends DummyIconButtonElement> = Pick<
+	DummyIconButtonProps<Element>,
+	'variant'
+>;
 type UseDummyIconButtonClassesReturn = ClassName;
 
-const useDummyIconButtonClasses = (props: UseDummyIconButtonClassesProps): UseDummyIconButtonClassesReturn => {
+const useDummyIconButtonClasses = <Element extends DummyIconButtonElement>(
+	props: UseDummyIconButtonClassesProps<Element>
+): UseDummyIconButtonClassesReturn => {
 	const { variant: variantProp = __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__ } = props;
 
-	const { variant } = useDummyIconButtonResponsiveValues({ variant: variantProp });
+	const { variant } = useDummyIconButtonResponsiveValues<Element>({ variant: variantProp });
 
 	return classNames({
 		[classes.typography.align.center]: variant !== 'unstyled',

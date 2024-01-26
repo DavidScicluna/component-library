@@ -8,13 +8,20 @@ import {
 	__DEFAULT_DUMMY_ICON_BUTTON_SIZE__,
 	__DEFAULT_DUMMY_ICON_BUTTON_VARIANT__
 } from '../constants';
-import type { DummyIconButtonProps, DummyIconButtonSize, DummyIconButtonVariant } from '../types';
+import type {
+	DummyIconButtonElement,
+	DummyIconButtonProps,
+	DummyIconButtonSize,
+	DummyIconButtonVariant
+} from '../types';
 
-type UseDummyIconButtonResponsiveValuesProps = Partial<
-	Pick<DummyIconButtonProps, 'isAnimated' | 'isCompact' | 'isRound' | 'isOutlined' | 'size' | 'variant'>
+type UseDummyIconButtonResponsiveValuesProps<Element extends DummyIconButtonElement> = Partial<
+	Pick<DummyIconButtonProps<Element>, 'isAnimated' | 'isCompact' | 'isRound' | 'isOutlined' | 'size' | 'variant'>
 >;
 
-const useDummyIconButtonResponsiveValues = (props: UseDummyIconButtonResponsiveValuesProps) => {
+const useDummyIconButtonResponsiveValues = <Element extends DummyIconButtonElement>(
+	props: UseDummyIconButtonResponsiveValuesProps<Element>
+) => {
 	const {
 		isAnimated: isAnimatedProp = __DEFAULT_DUMMY_ICON_BUTTON_IS_ANIMATED__,
 		isCompact: isCompactProp = __DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT__,

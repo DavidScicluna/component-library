@@ -4,18 +4,13 @@ import { createContext, forwardRef } from 'react';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
 
 import { Center } from '@components/Layout';
+import type { DummyPushableOverlayProps } from '@components/Overlay';
 import { DummyPushableOverlay } from '@components/Overlay';
 
 import {
+	__DEFAULT_DUMMY_ICON_BUTTON_AS__,
 	__DEFAULT_DUMMY_ICON_BUTTON_IS_ANIMATED__,
 	__DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT__,
 	__DEFAULT_DUMMY_ICON_BUTTON_IS_OUTLINED__,
@@ -32,22 +27,26 @@ import {
 import { __KEY_DUMMY_ICON_BUTTON_CLASS__ } from './common/keys';
 import type {
 	DummyIconButtonContext as DummyIconButtonContextType,
+	DummyIconButtonDefaultElement,
+	DummyIconButtonElement,
 	DummyIconButtonProps,
 	DummyIconButtonRef
 } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-export const DummyIconButtonContext = createContext<DummyIconButtonContextType>({
+export const DummyIconButtonContext = createContext<DummyIconButtonContextType<DummyIconButtonDefaultElement>>({
 	size: __DEFAULT_DUMMY_ICON_BUTTON_SIZE__,
 	variant: __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__
 });
 
-const DummyIconButton: PolymorphicComponentWithRef = forwardRef(function DummyIconButton<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: DummyIconButtonProps<Element>, ref: DummyIconButtonRef<Element>): ReactElement {
+const DummyIconButton = forwardRef(function DummyIconButton<Element extends DummyIconButtonElement>(
+	props: DummyIconButtonProps<Element>,
+	ref: DummyIconButtonRef<Element>
+): ReactElement {
 	const {
 		children,
+		as = __DEFAULT_DUMMY_ICON_BUTTON_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
@@ -61,7 +60,7 @@ const DummyIconButton: PolymorphicComponentWithRef = forwardRef(function DummyIc
 		...rest
 	} = props;
 
-	const { isAnimated, isCompact, isRound, isOutlined, size, variant } = useDummyIconButtonResponsiveValues({
+	const { isAnimated, isCompact, isRound, isOutlined, size, variant } = useDummyIconButtonResponsiveValues<Element>({
 		isAnimated: isAnimatedProp,
 		isCompact: isCompactProp,
 		isRound: isRoundProp,
@@ -70,16 +69,16 @@ const DummyIconButton: PolymorphicComponentWithRef = forwardRef(function DummyIc
 		variant: variantProp
 	});
 
-	// TODO: Go over all component hooks and remove union
-	const config = useDummyIconButtonSizeConfig({ isCompact, isRound, size, variant });
+	const config = useDummyIconButtonSizeConfig<Element>({ isCompact, isRound, size, variant });
 
-	const classes = useDummyIconButtonClasses({ variant });
-	const styles = useDummyIconButtonStyles({ size });
+	const classes = useDummyIconButtonClasses<Element>({ variant });
+	const styles = useDummyIconButtonStyles<Element>({ size });
 
 	return (
 		<DummyIconButtonContext.Provider value={{ color, colorMode, size, variant }}>
-			<DummyPushableOverlay<Element>
-				{...rest}
+			<DummyPushableOverlay
+				{...(rest as DummyPushableOverlayProps<Element>)}
+				as={as}
 				ref={ref}
 				className={classNames(__KEY_DUMMY_ICON_BUTTON_CLASS__, classes, { [className]: !!className })}
 				color={color}
@@ -99,8 +98,6 @@ const DummyIconButton: PolymorphicComponentWithRef = forwardRef(function DummyIc
 	);
 });
 
-DummyIconButton.displayName = 'DummyIconButton';
+// DummyIconButton.displayName = 'DummyIconButton';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <DummyIconButton<Element> {...props} />;
+export default DummyIconButton;
