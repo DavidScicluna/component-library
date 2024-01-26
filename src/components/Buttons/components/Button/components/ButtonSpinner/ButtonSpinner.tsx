@@ -3,15 +3,10 @@ import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 import { getColorHex } from '@common/utils';
 
+import type { PuffSpinnerProps, TailSpinSpinnerProps, ThreeDotsSpinnerProps } from '@components/Feedback';
 import { PuffSpinner, TailSpinSpinner, ThreeDotsSpinner } from '@components/Feedback';
 
 import { useButtonContext, useButtonFontSize } from '../../common/hooks';
@@ -24,9 +19,10 @@ import type { ButtonSpinnerProps, ButtonSpinnerRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ButtonSpinner: PolymorphicComponentWithRef = forwardRef(function ButtonSpinner<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: ButtonSpinnerProps<Element>, ref: ButtonSpinnerRef<Element>): ReactElement {
+const ButtonSpinner = forwardRef(function ButtonSpinner<Element extends PolymorphicElementType>(
+	props: ButtonSpinnerProps<Element>,
+	ref: ButtonSpinnerRef<Element>
+): ReactElement {
 	const { color: __DEFAULT_BUTTON_SPINNER_COLOR__, colorMode: __DEFAULT_BUTTON_SPINNER_COLORMODE__ } = useAppTheme();
 
 	const {
@@ -42,7 +38,7 @@ const ButtonSpinner: PolymorphicComponentWithRef = forwardRef(function ButtonSpi
 		...rest
 	} = props;
 
-	const { variant } = useButtonSpinnerResponsiveValues({ variant: variantProp });
+	const { variant } = useButtonSpinnerResponsiveValues<Element>({ variant: variantProp });
 
 	const fontSize = useButtonFontSize({ size });
 
@@ -65,8 +61,8 @@ const ButtonSpinner: PolymorphicComponentWithRef = forwardRef(function ButtonSpi
 	switch (variant) {
 		case 'tail_spin':
 			return (
-				<TailSpinSpinner<Element>
-					{...rest}
+				<TailSpinSpinner
+					{...(rest as TailSpinSpinnerProps<Element>)}
 					ref={ref}
 					className={classNames(__KEYS_BUTTON_SPINNER_CLASS__, { [className]: !!className })}
 					color={c}
@@ -76,8 +72,8 @@ const ButtonSpinner: PolymorphicComponentWithRef = forwardRef(function ButtonSpi
 			);
 		case 'three_dots':
 			return (
-				<ThreeDotsSpinner<Element>
-					{...rest}
+				<ThreeDotsSpinner
+					{...(rest as ThreeDotsSpinnerProps<Element>)}
 					ref={ref}
 					className={classNames(__KEYS_BUTTON_SPINNER_CLASS__, { [className]: !!className })}
 					color={c}
@@ -87,8 +83,8 @@ const ButtonSpinner: PolymorphicComponentWithRef = forwardRef(function ButtonSpi
 			);
 		default:
 			return (
-				<PuffSpinner<Element>
-					{...rest}
+				<PuffSpinner
+					{...(rest as PuffSpinnerProps<Element>)}
 					ref={ref}
 					className={classNames(__KEYS_BUTTON_SPINNER_CLASS__, { [className]: !!className })}
 					color={c}
@@ -99,8 +95,6 @@ const ButtonSpinner: PolymorphicComponentWithRef = forwardRef(function ButtonSpi
 	}
 });
 
-ButtonSpinner.displayName = 'ButtonSpinner';
+// ButtonSpinner.displayName = 'ButtonSpinner';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <ButtonSpinner<Element> {...props} />;
+export default ButtonSpinner;
