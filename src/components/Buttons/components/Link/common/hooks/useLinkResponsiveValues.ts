@@ -5,11 +5,13 @@ import {
 	__DEFAULT_LINK_IS_UNDERLINE__,
 	__DEFAULT_LINK_IS_UNSTYLED__
 } from '../constants';
-import type { LinkProps } from '../types';
+import type { LinkElement, LinkProps } from '../types';
 
-type UseLinkResponsiveValuesProps = Partial<Pick<LinkProps, 'isDisabled' | 'isUnderline' | 'isUnstyled'>>;
+type UseLinkResponsiveValuesProps<Element extends LinkElement> = Partial<
+	Pick<LinkProps<Element>, 'isDisabled' | 'isUnderline' | 'isUnstyled'>
+>;
 
-const useLinkResponsiveValues = (props: UseLinkResponsiveValuesProps) => {
+const useLinkResponsiveValues = <Element extends LinkElement>(props: UseLinkResponsiveValuesProps<Element>) => {
 	const {
 		isDisabled: isDisabledProp = __DEFAULT_LINK_IS_DISABLED__,
 		isUnderline: isUnderlineProp = __DEFAULT_LINK_IS_UNDERLINE__,

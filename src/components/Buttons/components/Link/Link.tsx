@@ -2,32 +2,30 @@ import type { ReactElement } from 'react';
 import { forwardRef, useCallback } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
+	__DEFAULT_LINK_AS__,
 	__DEFAULT_LINK_IS_DISABLED__,
 	__DEFAULT_LINK_IS_UNDERLINE__,
 	__DEFAULT_LINK_IS_UNSTYLED__
 } from './common/constants';
 import { useLinkClasses, useLinkResponsiveValues } from './common/hooks';
 import { __KEYS_LINK_CLASS__ } from './common/keys';
-import type { LinkDefaultElement, LinkElement, LinkMouseEvent, LinkProps, LinkRef } from './common/types';
+import type { LinkElement, LinkMouseEvent, LinkProps, LinkRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Link: PolymorphicComponentWithRef = forwardRef(function Link<Element extends LinkElement = LinkDefaultElement>(
+const Link = forwardRef(function Link<Element extends LinkElement>(
 	props: LinkProps<Element>,
 	ref: LinkRef<Element>
 ): ReactElement {
 	const {
 		children,
+		as = __DEFAULT_LINK_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
@@ -38,13 +36,13 @@ const Link: PolymorphicComponentWithRef = forwardRef(function Link<Element exten
 		...rest
 	} = props;
 
-	const { isDisabled, isUnderline, isUnstyled } = useLinkResponsiveValues({
+	const { isDisabled, isUnderline, isUnstyled } = useLinkResponsiveValues<Element>({
 		isDisabled: isDisabledProp,
 		isUnderline: isUnderlineProp,
 		isUnstyled: isUnstyledProp
 	});
 
-	const classes = useLinkClasses({ color, colorMode, isDisabled, isUnderline, isUnstyled });
+	const classes = useLinkClasses<Element>({ color, colorMode, isDisabled, isUnderline, isUnstyled });
 
 	const handleClick = useCallback(
 		(event: LinkMouseEvent<Element>): void => {
@@ -53,15 +51,17 @@ const Link: PolymorphicComponentWithRef = forwardRef(function Link<Element exten
 			}
 
 			if (onClick) {
-				onClick(event);
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
+				onClick(event as any);
 			}
 		},
 		[isDisabled, onClick]
 	);
 
 	return (
-		<Box<Element>
-			{...rest}
+		<Box
+			{...(rest as BoxProps<Element>)}
+			as={as}
 			ref={ref}
 			className={classNames(__KEYS_LINK_CLASS__, classes, { [className]: !!className })}
 			aria-disabled={isDisabled ? 'true' : 'false'}
@@ -72,8 +72,6 @@ const Link: PolymorphicComponentWithRef = forwardRef(function Link<Element exten
 	);
 });
 
-Link.displayName = 'Link';
+// Link.displayName = 'Link';
 
-export default <Element extends LinkElement = LinkDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Link<Element> {...props} />;
+export default Link;

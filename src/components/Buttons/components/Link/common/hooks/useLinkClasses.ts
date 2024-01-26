@@ -18,17 +18,20 @@ import {
 	__DEFAULT_LINK_IS_UNSTYLED__,
 	__DEFAULT_LINK_OFFSET_SIZE__
 } from '../constants';
-import type { LinkProps } from '../types';
+import type { LinkElement, LinkProps } from '../types';
 
 import useLinkResponsiveValues from './useLinkResponsiveValues';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseLinkClassesProps = Pick<LinkProps, 'color' | 'colorMode' | 'isDisabled' | 'isUnderline' | 'isUnstyled'>;
+type UseLinkClassesProps<Element extends LinkElement> = Pick<
+	LinkProps<Element>,
+	'color' | 'colorMode' | 'isDisabled' | 'isUnderline' | 'isUnstyled'
+>;
 type UseLinkClassesReturn = ClassName;
 
-const useLinkClasses = (props: UseLinkClassesProps): UseLinkClassesReturn => {
+const useLinkClasses = <Element extends LinkElement>(props: UseLinkClassesProps<Element>): UseLinkClassesReturn => {
 	const { colorMode: __DEFAULT_LINK_COLORMODE__ } = useAppTheme();
 
 	const {
@@ -39,7 +42,7 @@ const useLinkClasses = (props: UseLinkClassesProps): UseLinkClassesReturn => {
 		isUnstyled: isUnstyledProp = __DEFAULT_LINK_IS_UNSTYLED__
 	} = props;
 
-	const { isDisabled, isUnderline, isUnstyled } = useLinkResponsiveValues({
+	const { isDisabled, isUnderline, isUnstyled } = useLinkResponsiveValues<Element>({
 		isDisabled: isDisabledProp,
 		isUnderline: isUnderlineProp,
 		isUnstyled: isUnstyledProp

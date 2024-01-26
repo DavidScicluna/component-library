@@ -10,7 +10,7 @@ import type { BoxProps, BoxRef } from '@components/Box';
 export type LinkDefaultElement = 'a';
 export type LinkElement = Extract<PolymorphicElementType, 'a'>;
 
-export type LinkMouseEvent<Element extends LinkElement = LinkDefaultElement> = PolymorphicMouseEvent<Element>;
+export type LinkMouseEvent<Element extends LinkElement> = PolymorphicMouseEvent<Element>;
 
 type LinkOtherProps = ThemeAppAppearanceProps & {
 	/**
@@ -33,6 +33,6 @@ type LinkOtherProps = ThemeAppAppearanceProps & {
 	isUnstyled?: ResponsiveValue<boolean>;
 };
 
-export type LinkProps<Element extends LinkElement = LinkDefaultElement> = BoxProps<Element, LinkOtherProps>;
+export type LinkProps<Element extends LinkElement> = BoxProps<Element, LinkOtherProps>;
 
-export type LinkRef<Element extends LinkElement = LinkDefaultElement> = BoxRef<Element>;
+export type LinkRef<Element extends LinkElement> = BoxRef<Element>;
