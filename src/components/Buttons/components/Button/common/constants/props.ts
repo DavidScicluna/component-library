@@ -1,4 +1,6 @@
-import type { ButtonSize, ButtonVariant } from '../types';
+import type { ButtonDefaultElement, ButtonSize, ButtonVariant } from '../types';
+
+export const __DEFAULT_BUTTON_AS__: ButtonDefaultElement = 'button';
 
 export const __DEFAULT_BUTTON_IS_ACTIVE__ = false;
 export const __DEFAULT_BUTTON_IS_COMPACT__ = false;

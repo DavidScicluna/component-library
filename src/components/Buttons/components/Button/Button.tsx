@@ -7,19 +7,17 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import type { CenterRef } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
+import type { PushableOverlayProps } from '@components/Overlay';
 import { PushableOverlay } from '@components/Overlay';
 
 import { useButtonGroupContext } from '../ButtonGroup/common/hooks';
 
 import {
+	__DEFAULT_BUTTON_AS__,
 	__DEFAULT_BUTTON_IS_ACTIVE__,
 	__DEFAULT_BUTTON_IS_COMPACT__,
 	__DEFAULT_BUTTON_IS_DISABLED__,
@@ -44,14 +42,15 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-export const ButtonContext = createContext<ButtonContextType>({
+export const ButtonContext = createContext<ButtonContextType<ButtonDefaultElement>>({
 	size: __DEFAULT_BUTTON_SIZE__,
 	variant: __DEFAULT_BUTTON_VARIANT__
 });
 
-const Button: PolymorphicComponentWithRef = forwardRef(function Button<
-	Element extends ButtonElement = ButtonDefaultElement
->(props: ButtonProps<Element>, ref: ButtonRef<Element>): ReactElement {
+const Button = forwardRef(function Button<Element extends ButtonElement>(
+	props: ButtonProps<Element>,
+	ref: ButtonRef<Element>
+): ReactElement {
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const {
@@ -67,6 +66,7 @@ const Button: PolymorphicComponentWithRef = forwardRef(function Button<
 
 	const {
 		children,
+		as = __DEFAULT_BUTTON_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		renderLeft,
 		renderRight,
@@ -99,7 +99,7 @@ const Button: PolymorphicComponentWithRef = forwardRef(function Button<
 		isOutlined,
 		size,
 		variant
-	} = useButtonResponsiveValues({
+	} = useButtonResponsiveValues<Element>({
 		isActive: isActiveProp,
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
@@ -114,20 +114,20 @@ const Button: PolymorphicComponentWithRef = forwardRef(function Button<
 
 	const isFocused = useMemo<boolean>(() => focused || isFocusedHook, [focused, isFocusedHook]);
 
-	const config = useButtonSizeConfig({ isCompact, isRound, size, variant });
+	const config = useButtonSizeConfig<Element>({ isCompact, isRound, size, variant });
 
-	const classes = useButtonClasses({ isCompact, isFullWidth, isRound, size, variant });
+	const classes = useButtonClasses<Element>({ isCompact, isFullWidth, isRound, size, variant });
 
 	const { focusProps } = useFocus({ onFocus: () => setIsFocusedHook.on(), onBlur: () => setIsFocusedHook.off() });
 
 	return (
 		<ButtonContext.Provider value={{ color, colorMode, size, variant }}>
-			<PushableOverlay<Element>
+			<PushableOverlay
 				{...focusProps}
-				{...rest}
+				{...(rest as PushableOverlayProps<Element>)}
+				as={as}
 				ref={ref}
 				className={classNames(__KEYS_BUTTON_CLASS__, classes, { [className]: !!className })}
-				as='button'
 				color={color}
 				colorMode={colorMode}
 				radius={config.radius}
@@ -166,7 +166,12 @@ const Button: PolymorphicComponentWithRef = forwardRef(function Button<
 
 					{children ? (
 						<GridItem>
-							<Center ref={childrenRef as CenterRef} as='span' w='100%' h='100%'>
+							<Center
+								ref={childrenRef as CenterRef<PolymorphicDefaultElement>}
+								as='span'
+								w='100%'
+								h='100%'
+							>
 								{children}
 							</Center>
 						</GridItem>
@@ -187,8 +192,6 @@ const Button: PolymorphicComponentWithRef = forwardRef(function Button<
 	);
 });
 
-Button.displayName = 'Button';
+// Button.displayName = 'Button';
 
-export default <Element extends ButtonElement = ButtonDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Button<Element> {...props} />;
+export default Button;

@@ -12,25 +12,24 @@ import {
 	__DEFAULT_BUTTON_SIZE__,
 	__DEFAULT_BUTTON_VARIANT__
 } from '../constants';
-import type { ButtonProps, ButtonSize, ButtonVariant } from '../types';
+import type { ButtonElement, ButtonProps, ButtonSize, ButtonVariant } from '../types';
 
-type UseButtonResponsiveValuesProps = Partial<
-	Pick<
-		ButtonProps,
-		| 'isActive'
-		| 'isCompact'
-		| 'isDisabled'
-		| 'isFocused'
-		| 'isFullWidth'
-		| 'isLoading'
-		| 'isRound'
-		| 'isOutlined'
-		| 'size'
-		| 'variant'
-	>
+type PickedButtonProps =
+	| 'isActive'
+	| 'isCompact'
+	| 'isDisabled'
+	| 'isFocused'
+	| 'isFullWidth'
+	| 'isLoading'
+	| 'isRound'
+	| 'isOutlined'
+	| 'size'
+	| 'variant';
+type UseButtonResponsiveValuesProps<Element extends ButtonElement> = Partial<
+	Pick<ButtonProps<Element>, PickedButtonProps>
 >;
 
-const useButtonResponsiveValues = (props: UseButtonResponsiveValuesProps) => {
+const useButtonResponsiveValues = <Element extends ButtonElement>(props: UseButtonResponsiveValuesProps<Element>) => {
 	const {
 		isActive: isActiveProp = __DEFAULT_BUTTON_IS_ACTIVE__,
 		isCompact: isCompactProp = __DEFAULT_BUTTON_IS_COMPACT__,

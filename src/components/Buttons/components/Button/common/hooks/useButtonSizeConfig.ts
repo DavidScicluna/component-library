@@ -8,7 +8,7 @@ import {
 	__DEFAULT_BUTTON_SIZE__,
 	__DEFAULT_BUTTON_VARIANT__
 } from '../constants';
-import type { ButtonProps } from '../types';
+import type { ButtonElement, ButtonProps } from '../types';
 
 import useButtonResponsiveValues from './useButtonResponsiveValues';
 
@@ -19,10 +19,15 @@ type ButtonSizeConfig = {
 	spacing: ThemeSpacing;
 };
 
-type UseButtonSizeConfigProps = Pick<ButtonProps, 'isCompact' | 'isRound' | 'size' | 'variant'>;
+type UseButtonSizeConfigProps<Element extends ButtonElement> = Pick<
+	ButtonProps<Element>,
+	'isCompact' | 'isRound' | 'size' | 'variant'
+>;
 type UseButtonSizeConfigReturn = ButtonSizeConfig;
 
-const useButtonSizeConfig = (props: UseButtonSizeConfigProps): UseButtonSizeConfigReturn => {
+const useButtonSizeConfig = <Element extends ButtonElement>(
+	props: UseButtonSizeConfigProps<Element>
+): UseButtonSizeConfigReturn => {
 	const {
 		isCompact: isCompactProp = __DEFAULT_BUTTON_IS_COMPACT__,
 		isRound: isRoundProp = __DEFAULT_BUTTON_IS_ROUND__,
@@ -30,7 +35,7 @@ const useButtonSizeConfig = (props: UseButtonSizeConfigProps): UseButtonSizeConf
 		variant: variantProp = __DEFAULT_BUTTON_VARIANT__
 	} = props;
 
-	const { isCompact, isRound, size, variant } = useButtonResponsiveValues({
+	const { isCompact, isRound, size, variant } = useButtonResponsiveValues<Element>({
 		isCompact: isCompactProp,
 		isRound: isRoundProp,
 		size: sizeProp,

@@ -13,18 +13,18 @@ import type { PushableOverlayProps } from '@components/Overlay';
 export type ButtonDefaultElement = 'button';
 export type ButtonElement = Extract<PolymorphicElementType, 'button'>;
 
-export type ButtonMouseEvent<Element extends ButtonElement = ButtonDefaultElement> = PolymorphicMouseEvent<Element>;
+export type ButtonMouseEvent<Element extends ButtonElement> = PolymorphicMouseEvent<Element>;
 
 export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type ButtonVariant = 'contained' | 'light' | 'dark' | 'outlined' | 'monochrome' | 'text' | 'unstyled';
 
-export type ButtonRenderProps<Element extends ButtonElement = ButtonDefaultElement> = Pick<
+export type ButtonRenderProps<Element extends ButtonElement> = Pick<
 	ButtonOtherProps<Element>,
 	'color' | 'colorMode'
 > & { w?: number; h?: number };
 
-type ButtonOtherProps<Element extends ButtonElement = ButtonDefaultElement> = ThemeAppAppearanceProps & {
+type ButtonOtherProps<Element extends ButtonElement> = ThemeAppAppearanceProps & {
 	renderLeft?: (props: ButtonRenderProps<Element>) => ReactNode;
 	renderRight?: (props: ButtonRenderProps<Element>) => ReactNode;
 	renderSpinner?: (props: ButtonRenderProps<Element>) => ReactNode;
@@ -66,11 +66,14 @@ type ButtonOtherProps<Element extends ButtonElement = ButtonDefaultElement> = Th
 	variant?: ResponsiveValue<ButtonVariant>;
 } & Pick<PushableOverlayProps<Element>, 'isActive' | 'isDisabled' | 'isFocused' | 'isOutlined'>;
 
-export type ButtonProps<Element extends ButtonElement = ButtonDefaultElement> = Omit<
+export type ButtonProps<Element extends ButtonElement> = Omit<
 	BoxProps<Element, ButtonOtherProps<Element>>,
 	keyof BoxOtherProps
 >;
 
-export type ButtonRef<Element extends ButtonElement = ButtonDefaultElement> = BoxRef<Element>;
+export type ButtonRef<Element extends ButtonElement> = BoxRef<Element>;
 
-export type ButtonContext = Pick<ButtonProps, 'color' | 'colorMode' | 'size' | 'variant'>;
+export type ButtonContext<Element extends ButtonElement> = Pick<
+	ButtonProps<Element>,
+	'color' | 'colorMode' | 'size' | 'variant'
+>;
