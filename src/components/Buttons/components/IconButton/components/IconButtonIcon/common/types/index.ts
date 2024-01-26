@@ -6,9 +6,6 @@ export type IconButtonIconElement = IconElement;
 
 type OmittedIconProps = keyof BoxOtherProps | 'variant';
 
-export type IconButtonIconProps<Element extends IconButtonIconElement = IconButtonIconDefaultElement> = Omit<
-	IconProps<Element>,
-	OmittedIconProps
->;
+export type IconButtonIconProps<Element extends IconButtonIconElement> = Omit<IconProps<Element>, OmittedIconProps>;
 
-export type IconButtonIconRef<Element extends IconButtonIconElement = IconButtonIconDefaultElement> = IconRef<Element>;
+export type IconButtonIconRef<Element extends IconButtonIconElement> = IconRef<Element>;
