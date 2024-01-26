@@ -2,36 +2,30 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
 import { Tooltip } from '@components/Overlay';
 
+import type { IconButtonProps } from '../IconButton';
 import { IconButton, IconButtonIcon } from '../IconButton';
 
 import {
+	__DEFAULT_CLOSE_ICON_BUTTON_AS__,
 	__DEFAULT_CLOSE_ICON_BUTTON_HAS_TOOLTIP__,
 	__DEFAULT_CLOSE_ICON_BUTTON_LABEL__,
 	__DEFAULT_CLOSE_ICON_BUTTON_PLACEMENT__
 } from './common/constants';
 import { __KEYS_CLOSE_ICON_BUTTON_CLASS__ } from './common/keys';
-import type {
-	CloseIconButtonDefaultElement,
-	CloseIconButtonElement,
-	CloseIconButtonProps,
-	CloseIconButtonRef
-} from './common/types';
+import type { CloseIconButtonElement, CloseIconButtonProps, CloseIconButtonRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CloseIconButton: PolymorphicComponentWithRef = forwardRef(function CloseIconButton<
-	Element extends CloseIconButtonElement = CloseIconButtonDefaultElement
->(props: CloseIconButtonProps<Element>, ref: CloseIconButtonRef<Element>): ReactElement {
+const CloseIconButton = forwardRef(function CloseIconButton<Element extends CloseIconButtonElement>(
+	props: CloseIconButtonProps<Element>,
+	ref: CloseIconButtonRef<Element>
+): ReactElement {
 	const {
+		as = __DEFAULT_CLOSE_ICON_BUTTON_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
@@ -43,15 +37,16 @@ const CloseIconButton: PolymorphicComponentWithRef = forwardRef(function CloseIc
 
 	return (
 		<Tooltip
-			// color='gray'
+			color='gray'
 			colorMode={colorMode}
 			aria-label={`${label} (tooltip)`}
 			label={label}
 			placement={placement}
 			isDisabled={!hasTooltip}
 		>
-			<IconButton<Element>
-				{...rest}
+			<IconButton
+				{...(rest as IconButtonProps<Element>)}
+				as={as}
 				ref={ref}
 				className={classNames(__KEYS_CLOSE_ICON_BUTTON_CLASS__, { [className]: !!className })}
 				aria-label={label}
@@ -64,11 +59,6 @@ const CloseIconButton: PolymorphicComponentWithRef = forwardRef(function CloseIc
 	);
 });
 
-CloseIconButton.displayName = 'CloseIconButton';
+// CloseIconButton.displayName = 'CloseIconButton';
 
-export default <
-	Element extends CloseIconButtonElement = CloseIconButtonDefaultElement,
-	Props = PolymorphicDefaultProps
->(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <CloseIconButton<Element> {...props} />;
+export default CloseIconButton;
