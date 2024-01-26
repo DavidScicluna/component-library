@@ -11,24 +11,25 @@ import {
 	__DEFAULT_ICON_BUTTON_SIZE__,
 	__DEFAULT_ICON_BUTTON_VARIANT__
 } from '../constants';
-import type { IconButtonProps, IconButtonSize, IconButtonVariant } from '../types';
+import type { IconButtonElement, IconButtonProps, IconButtonSize, IconButtonVariant } from '../types';
 
-type UseIconButtonResponsiveValuesProps = Partial<
-	Pick<
-		IconButtonProps,
-		| 'isActive'
-		| 'isCompact'
-		| 'isDisabled'
-		| 'isFocused'
-		| 'isLoading'
-		| 'isRound'
-		| 'isOutlined'
-		| 'size'
-		| 'variant'
-	>
+type PickedIconButtonProps =
+	| 'isActive'
+	| 'isCompact'
+	| 'isDisabled'
+	| 'isFocused'
+	| 'isLoading'
+	| 'isRound'
+	| 'isOutlined'
+	| 'size'
+	| 'variant';
+type UseIconButtonResponsiveValuesProps<Element extends IconButtonElement> = Partial<
+	Pick<IconButtonProps<Element>, PickedIconButtonProps>
 >;
 
-const useIconButtonResponsiveValues = (props: UseIconButtonResponsiveValuesProps) => {
+const useIconButtonResponsiveValues = <Element extends IconButtonElement>(
+	props: UseIconButtonResponsiveValuesProps<Element>
+) => {
 	const {
 		isActive: isActiveProp = __DEFAULT_ICON_BUTTON_IS_ACTIVE__,
 		isCompact: isCompactProp = __DEFAULT_ICON_BUTTON_IS_COMPACT__,

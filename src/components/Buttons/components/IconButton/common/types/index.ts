@@ -13,19 +13,18 @@ import type { PushableOverlayProps } from '@components/Overlay';
 export type IconButtonDefaultElement = 'button';
 export type IconButtonElement = Extract<PolymorphicElementType, 'button'>;
 
-export type IconButtonMouseEvent<Element extends IconButtonElement = IconButtonDefaultElement> =
-	PolymorphicMouseEvent<Element>;
+export type IconButtonMouseEvent<Element extends IconButtonElement> = PolymorphicMouseEvent<Element>;
 
 export type IconButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type IconButtonVariant = 'contained' | 'light' | 'dark' | 'outlined' | 'monochrome' | 'icon' | 'unstyled';
 
-export type IconButtonRenderProps<Element extends IconButtonElement = IconButtonDefaultElement> = Pick<
+export type IconButtonRenderProps<Element extends IconButtonElement> = Pick<
 	IconButtonOtherProps<Element>,
 	'color' | 'colorMode'
 >;
 
-type IconButtonOtherProps<Element extends IconButtonElement = IconButtonDefaultElement> = ThemeAppAppearanceProps & {
+type IconButtonOtherProps<Element extends IconButtonElement> = ThemeAppAppearanceProps & {
 	renderSpinner?: (props: IconButtonRenderProps<Element>) => ReactNode;
 	/**
 	 * If true, the button will be styled in a more compressed state
@@ -59,11 +58,14 @@ type IconButtonOtherProps<Element extends IconButtonElement = IconButtonDefaultE
 	variant?: ResponsiveValue<IconButtonVariant>;
 } & Pick<PushableOverlayProps<Element>, 'isActive' | 'isDisabled' | 'isFocused' | 'isOutlined'>;
 
-export type IconButtonProps<Element extends IconButtonElement = IconButtonDefaultElement> = Omit<
+export type IconButtonProps<Element extends IconButtonElement> = Omit<
 	BoxProps<Element, IconButtonOtherProps<Element>>,
 	keyof BoxOtherProps
 >;
 
-export type IconButtonRef<Element extends IconButtonElement = IconButtonDefaultElement> = BoxRef<Element>;
+export type IconButtonRef<Element extends IconButtonElement> = BoxRef<Element>;
 
-export type IconButtonContext = Pick<IconButtonProps, 'color' | 'colorMode' | 'size' | 'variant'>;
+export type IconButtonContext<Element extends IconButtonElement> = Pick<
+	IconButtonProps<Element>,
+	'color' | 'colorMode' | 'size' | 'variant'
+>;

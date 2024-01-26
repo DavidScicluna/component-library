@@ -1,20 +1,22 @@
 import type { Style } from '@common/types';
 
 import { __DEFAULT_ICON_BUTTON_SIZE__ } from '../constants';
-import type { IconButtonProps } from '../types';
+import type { IconButtonElement, IconButtonProps } from '../types';
 
 import useIconButtonFontSize from './useIconButtonFontSize';
 import useIconButtonResponsiveValues from './useIconButtonResponsiveValues';
 
-type UseIconButtonStylesProps = Pick<IconButtonProps, 'size'>;
+type UseIconButtonStylesProps<Element extends IconButtonElement> = Pick<IconButtonProps<Element>, 'size'>;
 type UseIconButtonStylesReturn = Style;
 
-const useIconButtonStyles = (props: UseIconButtonStylesProps): UseIconButtonStylesReturn => {
+const useIconButtonStyles = <Element extends IconButtonElement>(
+	props: UseIconButtonStylesProps<Element>
+): UseIconButtonStylesReturn => {
 	const { size: sizeProp = __DEFAULT_ICON_BUTTON_SIZE__ } = props;
 
-	const { size } = useIconButtonResponsiveValues({ size: sizeProp });
+	const { size } = useIconButtonResponsiveValues<Element>({ size: sizeProp });
 
-	const fontSize = useIconButtonFontSize({ size });
+	const fontSize = useIconButtonFontSize<Element>({ size });
 
 	return { fontSize: `${fontSize}px` };
 };

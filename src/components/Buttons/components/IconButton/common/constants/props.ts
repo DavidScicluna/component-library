@@ -1,4 +1,6 @@
-import type { IconButtonSize, IconButtonVariant } from '../types';
+import type { IconButtonDefaultElement, IconButtonSize, IconButtonVariant } from '../types';
+
+export const __DEFAULT_ICON_BUTTON_AS__: IconButtonDefaultElement = 'button';
 
 export const __DEFAULT_ICON_BUTTON_IS_ACTIVE__ = false;
 export const __DEFAULT_ICON_BUTTON_IS_COMPACT__ = false;

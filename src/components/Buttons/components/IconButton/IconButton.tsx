@@ -6,18 +6,15 @@ import { useFocus } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
 import { Center } from '@components/Layout';
+import type { PushableOverlayProps } from '@components/Overlay';
 import { PushableOverlay } from '@components/Overlay';
 
 import { useIconButtonGroupContext } from '../IconButtonGroup/common/hooks';
 
 import {
+	__DEFAULT_ICON_BUTTON_AS__,
 	__DEFAULT_ICON_BUTTON_IS_ACTIVE__,
 	__DEFAULT_ICON_BUTTON_IS_COMPACT__,
 	__DEFAULT_ICON_BUTTON_IS_DISABLED__,
@@ -47,14 +44,15 @@ import type {
 const classNames = require('classnames');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const IconButtonContext = createContext<IconButtonContextType>({
+export const IconButtonContext = createContext<IconButtonContextType<IconButtonDefaultElement>>({
 	size: __DEFAULT_ICON_BUTTON_SIZE__,
 	variant: __DEFAULT_ICON_BUTTON_VARIANT__
 });
 
-const IconButton: PolymorphicComponentWithRef = forwardRef(function IconButton<
-	Element extends IconButtonElement = IconButtonDefaultElement
->(props: IconButtonProps<Element>, ref: IconButtonRef<Element>): ReactElement {
+const IconButton = forwardRef(function IconButton<Element extends IconButtonElement>(
+	props: IconButtonProps<Element>,
+	ref: IconButtonRef<Element>
+): ReactElement {
 	const {
 		color: __DEFAULT_ICON_BUTTON_GROUP_COLOR__,
 		colorMode: __DEFAULT_ICON_BUTTON_GROUP_COLORMODE__,
@@ -67,6 +65,7 @@ const IconButton: PolymorphicComponentWithRef = forwardRef(function IconButton<
 
 	const {
 		children,
+		as = __DEFAULT_ICON_BUTTON_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		renderSpinner,
 		color = __DEFAULT_ICON_BUTTON_GROUP_COLOR__,
@@ -96,7 +95,7 @@ const IconButton: PolymorphicComponentWithRef = forwardRef(function IconButton<
 		isOutlined,
 		size,
 		variant
-	} = useIconButtonResponsiveValues({
+	} = useIconButtonResponsiveValues<Element>({
 		isActive: isActiveProp,
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
@@ -110,21 +109,21 @@ const IconButton: PolymorphicComponentWithRef = forwardRef(function IconButton<
 
 	const isFocused = useMemo<boolean>(() => focused || isFocusedHook, [focused, isFocusedHook]);
 
-	const config = useIconButtonSizeConfig({ isCompact, isRound, size, variant });
+	const config = useIconButtonSizeConfig<Element>({ isCompact, isRound, size, variant });
 
-	const classes = useIconButtonClasses({ variant });
-	const styles = useIconButtonStyles({ size });
+	const classes = useIconButtonClasses<Element>({ variant });
+	const styles = useIconButtonStyles<Element>({ size });
 
 	const { focusProps } = useFocus({ onFocus: () => setIsFocusedHook.on(), onBlur: () => setIsFocusedHook.off() });
 
 	return (
 		<IconButtonContext.Provider value={{ color, colorMode, size, variant }}>
-			<PushableOverlay<Element>
+			<PushableOverlay
 				{...focusProps}
-				{...rest}
+				{...(rest as PushableOverlayProps<Element>)}
+				as={as}
 				ref={ref}
 				className={classNames(__KEYS_ICON_BUTTON_CLASS__, classes, { [className]: !!className })}
-				as='button'
 				color={color}
 				colorMode={colorMode}
 				radius={config.radius}
@@ -144,8 +143,6 @@ const IconButton: PolymorphicComponentWithRef = forwardRef(function IconButton<
 	);
 });
 
-IconButton.displayName = 'IconButton';
+// IconButton.displayName = 'IconButton';
 
-export default <Element extends IconButtonElement = IconButtonDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <IconButton<Element> {...props} />;
+export default IconButton;
