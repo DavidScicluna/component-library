@@ -4,6 +4,10 @@ import theme from '@common/theme';
 import type { ThemeDuration } from '@common/types';
 import { convertStringToNumber } from '@common/utils';
 
+import type { FileButtonDefaultElement } from '../types';
+
+export const __DEFAULT_FILE_BUTTON_AS__: FileButtonDefaultElement = 'input';
+
 export const __DEFAULT_FILE_BUTTON_ACCEPT__ = 'image/*';
 
 export const __DEFAULT_FILE_BUTTON_DURATION__: ThemeDuration = 'ultra-slow';

@@ -5,18 +5,15 @@ import Compressor from 'compressorjs';
 import { useMergeRefs } from 'rooks';
 
 import { useBoolean } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps,
-	PolymorphicElement
-} from '@common/types';
+import type { PolymorphicElement } from '@common/types';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 import { VisuallyHidden } from '@components/VisuallyHidden';
 
 import {
 	__DEFAULT_FILE_BUTTON_ACCEPT__,
+	__DEFAULT_FILE_BUTTON_AS__,
 	__DEFAULT_FILE_BUTTON_IS_MULTIPLE__,
 	__DEFAULT_FILE_BUTTON_TIMEOUT__,
 	__DEFAULT_FILE_BUTTON_TYPE__
@@ -25,7 +22,6 @@ import type {
 	FileButtonBlob,
 	FileButtonBlobs,
 	FileButtonChangeEvent,
-	FileButtonDefaultElement,
 	FileButtonElement,
 	FileButtonErrors,
 	FileButtonFile,
@@ -33,14 +29,16 @@ import type {
 	FileButtonRef
 } from './common/types';
 
-const FileButton: PolymorphicComponentWithRef = forwardRef(function FileButton<
-	Element extends FileButtonElement = FileButtonDefaultElement
->(props: FileButtonProps<Element>, ref: FileButtonRef<Element>): ReactElement {
+const FileButton = forwardRef(function FileButton<Element extends FileButtonElement>(
+	props: FileButtonProps<Element>,
+	ref: FileButtonRef<Element>
+): ReactElement {
 	const fileInputRef = useRef<PolymorphicElement<Element>>(null);
 	const refs = useMergeRefs(ref, fileInputRef);
 
 	const {
 		children,
+		as = __DEFAULT_FILE_BUTTON_AS__,
 		accept = __DEFAULT_FILE_BUTTON_ACCEPT__,
 		multiple: isMultiple = __DEFAULT_FILE_BUTTON_IS_MULTIPLE__,
 		type = __DEFAULT_FILE_BUTTON_TYPE__,
@@ -126,8 +124,9 @@ const FileButton: PolymorphicComponentWithRef = forwardRef(function FileButton<
 	return (
 		<Fragment>
 			<VisuallyHidden>
-				<Box<Element>
-					{...rest}
+				<Box
+					{...(rest as BoxProps<Element>)}
+					as={as}
 					ref={refs}
 					accept={accept}
 					type={type}
@@ -139,8 +138,6 @@ const FileButton: PolymorphicComponentWithRef = forwardRef(function FileButton<
 	);
 });
 
-FileButton.displayName = 'FileButton';
+// FileButton.displayName = 'FileButton';
 
-export default <Element extends FileButtonElement = FileButtonDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <FileButton<Element> {...props} />;
+export default FileButton;

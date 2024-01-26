@@ -7,8 +7,7 @@ import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 export type FileButtonDefaultElement = 'input';
 export type FileButtonElement = Extract<PolymorphicElementType, 'input'>;
 
-export type FileButtonChangeEvent<Element extends FileButtonElement = FileButtonDefaultElement> =
-	PolymorphicChangeEvent<Element>;
+export type FileButtonChangeEvent<Element extends FileButtonElement> = PolymorphicChangeEvent<Element>;
 
 export type FileButtonFile = Nullish<FileList | Array<never>>;
 
@@ -25,13 +24,13 @@ export type FileButtonChildrenProps = {
 
 type FileButtonOtherProps = {
 	children: (props: FileButtonChildrenProps) => ReactNode;
-	onSuccess: (event: FileButtonChangeEvent, blobs: FileButtonBlobs) => void;
-	onError: (event: FileButtonChangeEvent, error: FileButtonErrors) => void;
+	onSuccess: (event: FileButtonChangeEvent<FileButtonDefaultElement>, blobs: FileButtonBlobs) => void;
+	onError: (event: FileButtonChangeEvent<FileButtonDefaultElement>, error: FileButtonErrors) => void;
 };
 
-export type FileButtonProps<Element extends FileButtonElement = FileButtonDefaultElement> = Omit<
+export type FileButtonProps<Element extends FileButtonElement> = Omit<
 	BoxProps<Element, FileButtonOtherProps>,
 	keyof BoxOtherProps
 >;
 
-export type FileButtonRef<Element extends FileButtonElement = FileButtonDefaultElement> = BoxRef<Element>;
+export type FileButtonRef<Element extends FileButtonElement> = BoxRef<Element>;
