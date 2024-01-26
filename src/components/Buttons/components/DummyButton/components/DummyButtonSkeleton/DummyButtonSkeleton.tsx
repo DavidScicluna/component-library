@@ -2,14 +2,9 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
+import type { SkeletonProps } from '@components/Feedback';
 import { Skeleton } from '@components/Feedback';
 import { __KEY_SKELETON_OVERLAY_CLASS__ } from '@components/Feedback/components/Skeleton/common/keys';
 import { useDummyPushableOverlayStyles } from '@components/Overlay/components/DummyPushableOverlay/common/hooks';
@@ -22,9 +17,10 @@ import type { DummyButtonSkeletonProps, DummyButtonSkeletonRef } from './common/
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const DummyButtonSkeleton: PolymorphicComponentWithRef = forwardRef(function DummyButtonSkeleton<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: DummyButtonSkeletonProps<Element>, ref: DummyButtonSkeletonRef<Element>): ReactElement {
+const DummyButtonSkeleton = forwardRef(function DummyButtonSkeleton<Element extends PolymorphicElementType>(
+	props: DummyButtonSkeletonProps<Element>,
+	ref: DummyButtonSkeletonRef<Element>
+): ReactElement {
 	const { color, colorMode, variant } = useDummyButtonContext();
 
 	const { children, className = __DEFAULT_CLASSNAME__, ...rest } = props;
@@ -36,8 +32,8 @@ const DummyButtonSkeleton: PolymorphicComponentWithRef = forwardRef(function Dum
 	});
 
 	return (
-		<Skeleton<Element>
-			{...rest}
+		<Skeleton
+			{...(rest as SkeletonProps<Element>)}
 			ref={ref}
 			className={classNames(__KEY_DUMMY_BUTTON_SKELETON_CLASS__, { [className]: !!className })}
 			color={color}
@@ -51,8 +47,6 @@ const DummyButtonSkeleton: PolymorphicComponentWithRef = forwardRef(function Dum
 	);
 });
 
-DummyButtonSkeleton.displayName = 'DummyButtonSkeleton';
+// DummyButtonSkeleton.displayName = 'DummyButtonSkeleton';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <DummyButtonSkeleton<Element> {...props} />;
+export default DummyButtonSkeleton;
