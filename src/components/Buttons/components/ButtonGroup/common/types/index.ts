@@ -1,7 +1,11 @@
 import type { PolymorphicDefaultElement, PolymorphicElementType, ResponsiveValue } from '@common/types';
 
-import type { ButtonProps } from '@components/Buttons';
-import type { StackProps, StackRef } from '@components/Layout';
+import type { BoxProps, BoxRef } from '@components/Box';
+import type { ButtonDefaultElement, ButtonProps } from '@components/Buttons';
+import type { StackProps } from '@components/Layout';
+
+export type ButtonGroupDefaultElement = PolymorphicDefaultElement;
+export type ButtonGroupElement = Extract<PolymorphicElementType, 'div'>;
 
 type PickedButtonProps =
 	| 'color'
@@ -12,22 +16,20 @@ type PickedButtonProps =
 	| 'isRound'
 	| 'size'
 	| 'variant';
-type ButtonGroupOtherProps = Pick<ButtonProps, PickedButtonProps> & {
+type ButtonGroupOtherProps = Pick<ButtonProps<ButtonDefaultElement>, PickedButtonProps> & {
 	/**
 	 * If true, the borderRadius of button that are direct children will be altered to look flushed together
 	 *
 	 * @default false
 	 */
 	isAttached?: ResponsiveValue<boolean>;
-};
+} & Pick<StackProps<PolymorphicDefaultElement>, 'direction' | 'spacing'>;
 
-export type ButtonGroupProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = StackProps<Element> &
-	ButtonGroupOtherProps;
+export type ButtonGroupProps<Element extends ButtonGroupElement> = BoxProps<Element, ButtonGroupOtherProps>;
 
-export type ButtonGroupRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = StackRef<Element>;
+export type ButtonGroupRef<Element extends ButtonGroupElement> = BoxRef<Element>;
 
-export type ButtonGroupContext = Pick<
-	ButtonGroupProps,
+type PickedButtonGroupProps =
 	| 'color'
 	| 'colorMode'
 	| 'direction'
@@ -37,5 +39,8 @@ export type ButtonGroupContext = Pick<
 	| 'isFullWidth'
 	| 'isRound'
 	| 'size'
-	| 'variant'
+	| 'variant';
+export type ButtonGroupContext<Element extends ButtonGroupElement> = Pick<
+	ButtonGroupProps<Element>,
+	PickedButtonGroupProps
 >;

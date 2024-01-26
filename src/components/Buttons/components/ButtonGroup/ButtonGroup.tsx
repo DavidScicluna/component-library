@@ -2,13 +2,6 @@ import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
 
 import {
 	__DEFAULT_BUTTON_IS_COMPACT__,
@@ -18,26 +11,35 @@ import {
 	__DEFAULT_BUTTON_SIZE__,
 	__DEFAULT_BUTTON_VARIANT__
 } from '@components/Buttons/components/Button/common/constants';
+import type { StackProps } from '@components/Layout';
 import { Stack } from '@components/Layout';
 import { __DEFAULT_STACK_DIRECTION__ } from '@components/Layout/components/Stacks/Stack/common/constants';
 
-import { __DEFAULT_BUTTON_GROUP_IS_ATTACHED__ } from './common/constants';
+import { __DEFAULT_BUTTON_GROUP_AS__, __DEFAULT_BUTTON_GROUP_IS_ATTACHED__ } from './common/constants';
 import { useButtonGroupResponsiveValues } from './common/hooks';
 import { __KEYS_BUTTON_GROUP_CLASS__ } from './common/keys';
-import type { ButtonGroupContext as ButtonGroupContextType, ButtonGroupProps, ButtonGroupRef } from './common/types';
+import type {
+	ButtonGroupContext as ButtonGroupContextType,
+	ButtonGroupDefaultElement,
+	ButtonGroupElement,
+	ButtonGroupProps,
+	ButtonGroupRef
+} from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-export const ButtonGroupContext = createContext<ButtonGroupContextType>({
+export const ButtonGroupContext = createContext<ButtonGroupContextType<ButtonGroupDefaultElement>>({
 	isAttached: __DEFAULT_BUTTON_GROUP_IS_ATTACHED__
 });
 
-const ButtonGroup: PolymorphicComponentWithRef = forwardRef(function ButtonGroup<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: ButtonGroupProps<Element>, ref: ButtonGroupRef<Element>): ReactElement {
+const ButtonGroup = forwardRef(function ButtonGroup<Element extends ButtonGroupElement>(
+	props: ButtonGroupProps<Element>,
+	ref: ButtonGroupRef<Element>
+): ReactElement {
 	const {
 		children,
+		as = __DEFAULT_BUTTON_GROUP_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
@@ -54,7 +56,7 @@ const ButtonGroup: PolymorphicComponentWithRef = forwardRef(function ButtonGroup
 	} = props;
 
 	const { direction, isAttached, isCompact, isDisabled, isFullWidth, isRound, spacing, size, variant } =
-		useButtonGroupResponsiveValues({
+		useButtonGroupResponsiveValues<Element>({
 			direction: directionProp,
 			isAttached: isAttachedProp,
 			isCompact: isCompactProp,
@@ -81,8 +83,9 @@ const ButtonGroup: PolymorphicComponentWithRef = forwardRef(function ButtonGroup
 				variant
 			}}
 		>
-			<Stack<Element>
-				{...rest}
+			<Stack
+				{...(rest as StackProps<Element>)}
+				as={as}
 				ref={ref}
 				className={classNames(__KEYS_BUTTON_GROUP_CLASS__, { [className]: !!className })}
 				w={isFullWidth ? '100%' : undefined}
@@ -95,8 +98,6 @@ const ButtonGroup: PolymorphicComponentWithRef = forwardRef(function ButtonGroup
 	);
 });
 
-ButtonGroup.displayName = 'ButtonGroup';
+// ButtonGroup.displayName = 'ButtonGroup';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <ButtonGroup<Element> {...props} />;
+export default ButtonGroup;

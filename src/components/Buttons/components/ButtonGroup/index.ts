@@ -1,4 +1,10 @@
-import type { ButtonGroupContext, ButtonGroupProps, ButtonGroupRef } from './common/types';
+import type {
+	ButtonGroupContext,
+	ButtonGroupDefaultElement,
+	ButtonGroupElement,
+	ButtonGroupProps,
+	ButtonGroupRef
+} from './common/types';
 import ButtonGroup from './ButtonGroup';
 
 // Constants
@@ -15,4 +21,4 @@ export { ButtonGroup };
 export * from './components';
 
 // Component Types
-export type { ButtonGroupContext, ButtonGroupProps, ButtonGroupRef };
+export type { ButtonGroupContext, ButtonGroupDefaultElement, ButtonGroupElement, ButtonGroupProps, ButtonGroupRef };
