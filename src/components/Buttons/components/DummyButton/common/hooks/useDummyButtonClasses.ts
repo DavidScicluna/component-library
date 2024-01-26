@@ -10,7 +10,7 @@ import {
 	__DEFAULT_DUMMY_BUTTON_SIZE__,
 	__DEFAULT_DUMMY_BUTTON_VARIANT__
 } from '../constants';
-import type { DummyButtonProps } from '../types';
+import type { DummyButtonElement, DummyButtonProps } from '../types';
 
 import useDummyButtonResponsiveValues from './useDummyButtonResponsiveValues';
 import useDummyButtonSizeConfig from './useDummyButtonSizeConfig';
@@ -18,13 +18,15 @@ import useDummyButtonSizeConfig from './useDummyButtonSizeConfig';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseDummyButtonClassesProps = Pick<
-	DummyButtonProps,
+type UseDummyButtonClassesProps<Element extends DummyButtonElement> = Pick<
+	DummyButtonProps<Element>,
 	'isAnimated' | 'isCompact' | 'isFullWidth' | 'isRound' | 'size' | 'variant'
 >;
 type UseDummyButtonClassesReturn = ClassName;
 
-const useDummyButtonClasses = (props: UseDummyButtonClassesProps): UseDummyButtonClassesReturn => {
+const useDummyButtonClasses = <Element extends DummyButtonElement>(
+	props: UseDummyButtonClassesProps<Element>
+): UseDummyButtonClassesReturn => {
 	const {
 		isCompact: isCompactProp = __DEFAULT_DUMMY_BUTTON_IS_COMPACT__,
 		isFullWidth: isFullWidthProp = __DEFAULT_DUMMY_BUTTON_IS_FULLWIDTH__,
@@ -33,7 +35,7 @@ const useDummyButtonClasses = (props: UseDummyButtonClassesProps): UseDummyButto
 		variant: variantProp = __DEFAULT_DUMMY_BUTTON_VARIANT__
 	} = props;
 
-	const { isCompact, isFullWidth, isRound, size, variant } = useDummyButtonResponsiveValues({
+	const { isCompact, isFullWidth, isRound, size, variant } = useDummyButtonResponsiveValues<Element>({
 		isCompact: isCompactProp,
 		isFullWidth: isFullWidthProp,
 		isRound: isRoundProp,
@@ -41,7 +43,7 @@ const useDummyButtonClasses = (props: UseDummyButtonClassesProps): UseDummyButto
 		variant: variantProp
 	});
 
-	const config = useDummyButtonSizeConfig({ isCompact, isRound, size, variant });
+	const config = useDummyButtonSizeConfig<Element>({ isCompact, isRound, size, variant });
 
 	const widthClassName = useGetClass<WidthClass>(isFullWidth ? 'full' : 'auto', ['sizing', 'width']);
 

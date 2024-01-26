@@ -1,5 +1,7 @@
 import type {
 	DummyButtonContext,
+	DummyButtonDefaultElement,
+	DummyButtonElement,
 	DummyButtonProps,
 	DummyButtonRef,
 	DummyButtonRenderProps,
@@ -25,6 +27,8 @@ export * from './components';
 // Component Types
 export type {
 	DummyButtonContext,
+	DummyButtonDefaultElement,
+	DummyButtonElement,
 	DummyButtonProps,
 	DummyButtonRef,
 	DummyButtonRenderProps,

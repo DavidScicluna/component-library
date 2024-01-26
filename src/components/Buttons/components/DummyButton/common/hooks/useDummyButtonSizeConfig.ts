@@ -8,7 +8,7 @@ import {
 	__DEFAULT_DUMMY_BUTTON_SIZE__,
 	__DEFAULT_DUMMY_BUTTON_VARIANT__
 } from '../constants';
-import type { DummyButtonProps } from '../types';
+import type { DummyButtonElement, DummyButtonProps } from '../types';
 
 import useDummyButtonResponsiveValues from './useDummyButtonResponsiveValues';
 
@@ -19,10 +19,15 @@ type DummyButtonSizeConfig = {
 	spacing: ThemeSpacing;
 };
 
-type UseDummyButtonSizeConfigProps = Pick<DummyButtonProps, 'isCompact' | 'isRound' | 'size' | 'variant'>;
+type UseDummyButtonSizeConfigProps<Element extends DummyButtonElement> = Pick<
+	DummyButtonProps<Element>,
+	'isCompact' | 'isRound' | 'size' | 'variant'
+>;
 type UseDummyButtonSizeConfigReturn = DummyButtonSizeConfig;
 
-const useDummyButtonSizeConfig = (props: UseDummyButtonSizeConfigProps): UseDummyButtonSizeConfigReturn => {
+const useDummyButtonSizeConfig = <Element extends DummyButtonElement>(
+	props: UseDummyButtonSizeConfigProps<Element>
+): UseDummyButtonSizeConfigReturn => {
 	const {
 		isCompact: isCompactProp = __DEFAULT_DUMMY_BUTTON_IS_COMPACT__,
 		isRound: isRoundProp = __DEFAULT_DUMMY_BUTTON_IS_ROUND__,
@@ -30,7 +35,7 @@ const useDummyButtonSizeConfig = (props: UseDummyButtonSizeConfigProps): UseDumm
 		variant: variantProp = __DEFAULT_DUMMY_BUTTON_VARIANT__
 	} = props;
 
-	const { isCompact, isRound, size, variant } = useDummyButtonResponsiveValues({
+	const { isCompact, isRound, size, variant } = useDummyButtonResponsiveValues<Element>({
 		isCompact: isCompactProp,
 		isRound: isRoundProp,
 		size: sizeProp,

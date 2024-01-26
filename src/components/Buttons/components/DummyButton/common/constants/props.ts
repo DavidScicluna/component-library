@@ -1,4 +1,6 @@
-import type { DummyButtonSize, DummyButtonVariant } from '../types';
+import type { DummyButtonDefaultElement, DummyButtonSize, DummyButtonVariant } from '../types';
+
+export const __DEFAULT_DUMMY_BUTTON_AS__: DummyButtonDefaultElement = 'div';
 
 export const __DEFAULT_DUMMY_BUTTON_IS_ANIMATED__ = true;
 export const __DEFAULT_DUMMY_BUTTON_IS_COMPACT__ = false;

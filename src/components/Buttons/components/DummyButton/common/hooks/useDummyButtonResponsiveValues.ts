@@ -9,13 +9,18 @@ import {
 	__DEFAULT_DUMMY_BUTTON_SIZE__,
 	__DEFAULT_DUMMY_BUTTON_VARIANT__
 } from '../constants';
-import type { DummyButtonProps, DummyButtonSize, DummyButtonVariant } from '../types';
+import type { DummyButtonElement, DummyButtonProps, DummyButtonSize, DummyButtonVariant } from '../types';
 
-type UseDummyButtonResponsiveValuesProps = Partial<
-	Pick<DummyButtonProps, 'isAnimated' | 'isCompact' | 'isFullWidth' | 'isRound' | 'isOutlined' | 'size' | 'variant'>
+type UseDummyButtonResponsiveValuesProps<Element extends DummyButtonElement> = Partial<
+	Pick<
+		DummyButtonProps<Element>,
+		'isAnimated' | 'isCompact' | 'isFullWidth' | 'isRound' | 'isOutlined' | 'size' | 'variant'
+	>
 >;
 
-const useDummyButtonResponsiveValues = (props: UseDummyButtonResponsiveValuesProps) => {
+const useDummyButtonResponsiveValues = <Element extends DummyButtonElement>(
+	props: UseDummyButtonResponsiveValuesProps<Element>
+) => {
 	const {
 		isAnimated: isAnimatedProp = __DEFAULT_DUMMY_BUTTON_IS_ANIMATED__,
 		isCompact: isCompactProp = __DEFAULT_DUMMY_BUTTON_IS_COMPACT__,

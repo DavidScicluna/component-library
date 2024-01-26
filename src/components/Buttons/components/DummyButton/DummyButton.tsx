@@ -5,19 +5,15 @@ import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import type { CenterRef } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
+import type { DummyPushableOverlayProps } from '@components/Overlay';
 import { DummyPushableOverlay } from '@components/Overlay';
 
 import {
+	__DEFAULT_DUMMY_BUTTON_AS__,
 	__DEFAULT_DUMMY_BUTTON_IS_ANIMATED__,
 	__DEFAULT_DUMMY_BUTTON_IS_COMPACT__,
 	__DEFAULT_DUMMY_BUTTON_IS_FULLWIDTH__,
@@ -28,23 +24,31 @@ import {
 } from './common/constants';
 import { useDummyButtonClasses, useDummyButtonResponsiveValues, useDummyButtonSizeConfig } from './common/hooks';
 import { __KEY_DUMMY_BUTTON_CLASS__ } from './common/keys';
-import type { DummyButtonContext as DummyButtonContextType, DummyButtonProps, DummyButtonRef } from './common/types';
+import type {
+	DummyButtonContext as DummyButtonContextType,
+	DummyButtonDefaultElement,
+	DummyButtonElement,
+	DummyButtonProps,
+	DummyButtonRef
+} from './common/types';
 import { DummyButtonSkeleton } from './components/DummyButtonSkeleton';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-export const DummyButtonContext = createContext<DummyButtonContextType>({
+export const DummyButtonContext = createContext<DummyButtonContextType<DummyButtonDefaultElement>>({
 	size: __DEFAULT_DUMMY_BUTTON_SIZE__,
 	variant: __DEFAULT_DUMMY_BUTTON_VARIANT__
 });
 
-const DummyButton: PolymorphicComponentWithRef = forwardRef(function DummyButton<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: DummyButtonProps<Element>, ref: DummyButtonRef<Element>): ReactElement {
+const DummyButton = forwardRef(function DummyButton<Element extends DummyButtonElement>(
+	props: DummyButtonProps<Element>,
+	ref: DummyButtonRef<Element>
+): ReactElement {
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const {
 		children,
+		as = __DEFAULT_DUMMY_BUTTON_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		renderLeft,
 		renderRight,
@@ -60,24 +64,26 @@ const DummyButton: PolymorphicComponentWithRef = forwardRef(function DummyButton
 		...rest
 	} = props;
 
-	const { isAnimated, isCompact, isFullWidth, isRound, isOutlined, size, variant } = useDummyButtonResponsiveValues({
-		isAnimated: isAnimatedProp,
-		isCompact: isCompactProp,
-		isFullWidth: isFullWidthProp,
-		isRound: isRoundProp,
-		isOutlined: isOutlinedProp,
-		size: sizeProp,
-		variant: variantProp
-	});
+	const { isAnimated, isCompact, isFullWidth, isRound, isOutlined, size, variant } =
+		useDummyButtonResponsiveValues<Element>({
+			isAnimated: isAnimatedProp,
+			isCompact: isCompactProp,
+			isFullWidth: isFullWidthProp,
+			isRound: isRoundProp,
+			isOutlined: isOutlinedProp,
+			size: sizeProp,
+			variant: variantProp
+		});
 
-	const config = useDummyButtonSizeConfig({ isCompact, isRound, size, variant });
+	const config = useDummyButtonSizeConfig<Element>({ isCompact, isRound, size, variant });
 
-	const classes = useDummyButtonClasses({ isCompact, isFullWidth, isRound, size, variant });
+	const classes = useDummyButtonClasses<Element>({ isCompact, isFullWidth, isRound, size, variant });
 
 	return (
 		<DummyButtonContext.Provider value={{ color, colorMode, size, variant }}>
-			<DummyPushableOverlay<Element>
-				{...rest}
+			<DummyPushableOverlay
+				{...(rest as DummyPushableOverlayProps<Element>)}
+				as={as}
 				ref={ref}
 				className={classNames(__KEY_DUMMY_BUTTON_CLASS__, classes, {
 					[className]: !!className
@@ -112,7 +118,12 @@ const DummyButton: PolymorphicComponentWithRef = forwardRef(function DummyButton
 
 					{children ? (
 						<GridItem>
-							<Center ref={childrenRef as CenterRef} as='span' w='100%' h='100%'>
+							<Center
+								ref={childrenRef as CenterRef<PolymorphicDefaultElement>}
+								as='span'
+								w='100%'
+								h='100%'
+							>
 								<DummyButtonSkeleton radius='xs'>{children}</DummyButtonSkeleton>
 							</Center>
 						</GridItem>
@@ -129,8 +140,6 @@ const DummyButton: PolymorphicComponentWithRef = forwardRef(function DummyButton
 	);
 });
 
-DummyButton.displayName = 'DummyButton';
+// DummyButton.displayName = 'DummyButton';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <DummyButton<Element> {...props} />;
+export default DummyButton;
