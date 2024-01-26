@@ -6,25 +6,21 @@ import { useEventListener, useWindowSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Tooltip } from '@components/Overlay';
 
+import type { IconButtonProps } from '../IconButton';
 import { IconButton, IconButtonIcon } from '../IconButton';
 
 import {
+	__DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_AS__,
 	__DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_HAS_TOOLTIP__,
 	__DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_LABEL__,
 	__DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_PLACEMENT__
 } from './common/constants';
 import { __KEYS_SCROLL_TO_TOP_ICON_BUTTON_CLASS__ } from './common/keys';
 import type {
-	ScrollToTopIconButtonDefaultElement,
 	ScrollToTopIconButtonElement,
 	ScrollToTopIconButtonMouseEvent,
 	ScrollToTopIconButtonProps,
@@ -34,12 +30,14 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ScrollToTopIconButton: PolymorphicComponentWithRef = forwardRef(function ScrollToTopIconButton<
-	Element extends ScrollToTopIconButtonElement = ScrollToTopIconButtonDefaultElement
->(props: ScrollToTopIconButtonProps<Element>, ref: ScrollToTopIconButtonRef<Element>): ReactElement {
+const ScrollToTopIconButton = forwardRef(function ScrollToTopIconButton<Element extends ScrollToTopIconButtonElement>(
+	props: ScrollToTopIconButtonProps<Element>,
+	ref: ScrollToTopIconButtonRef<Element>
+): ReactElement {
 	const { height: windowHeight = 0 } = useWindowSize();
 
 	const {
+		as = __DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
@@ -56,7 +54,8 @@ const ScrollToTopIconButton: PolymorphicComponentWithRef = forwardRef(function S
 		window.scrollTo(0, 0);
 
 		if (onClick) {
-			onClick(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onClick(event as any);
 		}
 	};
 
@@ -75,15 +74,16 @@ const ScrollToTopIconButton: PolymorphicComponentWithRef = forwardRef(function S
 	return (
 		<Transition transition='pop' in={isVisible}>
 			<Tooltip
-				// color='gray'
+				color='gray'
 				colorMode={colorMode}
 				aria-label={`${label} (tooltip)`}
 				label={label}
 				placement={placement}
 				isDisabled={!hasTooltip}
 			>
-				<IconButton<Element>
-					{...rest}
+				<IconButton
+					{...(rest as IconButtonProps<Element>)}
+					as={as}
 					ref={ref}
 					className={classNames(__KEYS_SCROLL_TO_TOP_ICON_BUTTON_CLASS__, {
 						[className]: !!className
@@ -100,11 +100,6 @@ const ScrollToTopIconButton: PolymorphicComponentWithRef = forwardRef(function S
 	);
 });
 
-ScrollToTopIconButton.displayName = 'ScrollToTopIconButton';
+// ScrollToTopIconButton.displayName = 'ScrollToTopIconButton';
 
-export default <
-	Element extends ScrollToTopIconButtonElement = ScrollToTopIconButtonDefaultElement,
-	Props = PolymorphicDefaultProps
->(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <ScrollToTopIconButton<Element> {...props} />;
+export default ScrollToTopIconButton;
