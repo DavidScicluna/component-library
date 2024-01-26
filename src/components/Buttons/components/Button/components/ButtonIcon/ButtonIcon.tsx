@@ -2,25 +2,23 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
+import type { IconProps } from '@components/DataDisplay';
 import { Icon } from '@components/DataDisplay';
 
 import { useButtonContext, useButtonFontSize } from '../../common/hooks';
 
+import { __DEFAULT_BUTTON_ICON_AS__ } from './common/constants';
 import { __KEYS_BUTTON_ICON_CLASS__ } from './common/keys';
-import type { ButtonIconDefaultElement, ButtonIconElement, ButtonIconProps, ButtonIconRef } from './common/types';
+import type { ButtonIconElement, ButtonIconProps, ButtonIconRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ButtonIcon: PolymorphicComponentWithRef = forwardRef(function ButtonIcon<
-	Element extends ButtonIconElement = ButtonIconDefaultElement
->(props: ButtonIconProps<Element>, ref: ButtonIconRef<Element>): ReactElement {
+const ButtonIcon = forwardRef(function ButtonIcon<Element extends ButtonIconElement>(
+	props: ButtonIconProps<Element>,
+	ref: ButtonIconRef<Element>
+): ReactElement {
 	const {
 		color: __DEFAULT_BUTTON_ICON_COLOR__,
 		colorMode: __DEFAULT_BUTTON_ICON_COLORMODE__,
@@ -28,6 +26,7 @@ const ButtonIcon: PolymorphicComponentWithRef = forwardRef(function ButtonIcon<
 	} = useButtonContext();
 
 	const {
+		as = __DEFAULT_BUTTON_ICON_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		color = __DEFAULT_BUTTON_ICON_COLOR__,
 		colorMode = __DEFAULT_BUTTON_ICON_COLORMODE__,
@@ -37,8 +36,9 @@ const ButtonIcon: PolymorphicComponentWithRef = forwardRef(function ButtonIcon<
 	const fontSize = useButtonFontSize({ size });
 
 	return (
-		<Icon<Element>
-			{...rest}
+		<Icon
+			{...(rest as IconProps<Element>)}
+			as={as}
 			ref={ref}
 			className={classNames(__KEYS_BUTTON_ICON_CLASS__, { [className]: !!className })}
 			w={`${fontSize}px`}
@@ -51,8 +51,6 @@ const ButtonIcon: PolymorphicComponentWithRef = forwardRef(function ButtonIcon<
 	);
 });
 
-ButtonIcon.displayName = 'ButtonIcon';
+// ButtonIcon.displayName = 'ButtonIcon';
 
-export default <Element extends ButtonIconElement = ButtonIconDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <ButtonIcon<Element> {...props} />;
+export default ButtonIcon;
