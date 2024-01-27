@@ -3,30 +3,23 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
+import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
 import { useProgressContext } from '../../common/hooks';
 
+import { __DEFAULT_PROGRESS_LABEL_AS__ } from './common/constants';
 import { __KEYS_PROGRESS_LABEL_CLASS__ } from './common/keys';
-import type {
-	ProgressLabelDefaultElement,
-	ProgressLabelElement,
-	ProgressLabelProps,
-	ProgressLabelRef
-} from './common/types';
+import type { ProgressLabelElement, ProgressLabelProps, ProgressLabelRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ProgressLabel: PolymorphicComponentWithRef = forwardRef(function ProgressLabel<
-	Element extends ProgressLabelElement = ProgressLabelDefaultElement
->(props: ProgressLabelProps<Element>, ref: ProgressLabelRef<Element>): ReactElement {
+const ProgressLabel = forwardRef(function ProgressLabel<Element extends ProgressLabelElement>(
+	props: ProgressLabelProps<Element>,
+	ref: ProgressLabelRef<Element>
+): ReactElement {
 	const { colorMode } = useProgressContext();
 
 	const __DEFAULT_PROGRESS_LABEL_COLOR__ = useGetColor({
@@ -39,6 +32,7 @@ const ProgressLabel: PolymorphicComponentWithRef = forwardRef(function ProgressL
 
 	const {
 		children,
+		as = __DEFAULT_PROGRESS_LABEL_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		align = 'center',
 		color = __DEFAULT_PROGRESS_LABEL_COLOR__,
@@ -49,8 +43,9 @@ const ProgressLabel: PolymorphicComponentWithRef = forwardRef(function ProgressL
 	} = props;
 
 	return (
-		<Text<Element>
-			{...rest}
+		<Text
+			{...(rest as TextProps<Element>)}
+			as={as}
 			ref={ref}
 			className={classNames(__KEYS_PROGRESS_LABEL_CLASS__, { [className]: !!className })}
 			align={align}
@@ -64,8 +59,6 @@ const ProgressLabel: PolymorphicComponentWithRef = forwardRef(function ProgressL
 	);
 });
 
-ProgressLabel.displayName = 'ProgressLabel';
+// ProgressLabel.displayName = 'ProgressLabel';
 
-export default <Element extends ProgressLabelElement = ProgressLabelDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <ProgressLabel<Element> {...props} />;
+export default ProgressLabel;
