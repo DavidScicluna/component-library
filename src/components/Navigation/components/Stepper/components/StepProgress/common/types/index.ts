@@ -1,11 +1,10 @@
-import type { PolymorphicElementType } from '@common/types';
-
 import type { BoxOtherProps } from '@components/Box';
 import type { ProgressProps, ProgressRef } from '@components/Feedback';
+import type { ProgressDefaultElement, ProgressElement } from '@components/Feedback/components/Progress/common/types';
 
-export type StepProgressProps<Element extends PolymorphicElementType> = Omit<
-	ProgressProps<Element>,
-	keyof BoxOtherProps
->;
+export type StepProgressDefaultElement = ProgressDefaultElement;
+export type StepProgressElement = ProgressElement;
 
-export type StepProgressRef<Element extends PolymorphicElementType> = ProgressRef<Element>;
+export type StepProgressProps<Element extends ProgressElement> = Omit<ProgressProps<Element>, keyof BoxOtherProps>;
+
+export type StepProgressRef<Element extends ProgressElement> = ProgressRef<Element>;

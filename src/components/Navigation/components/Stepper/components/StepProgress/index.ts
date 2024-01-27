@@ -1,4 +1,9 @@
-import type { StepProgressProps, StepProgressRef } from './common/types';
+import type {
+	StepProgressDefaultElement,
+	StepProgressElement,
+	StepProgressProps,
+	StepProgressRef
+} from './common/types';
 import StepProgress from './StepProgress';
 
 // Keys
@@ -8,4 +13,4 @@ export * from './common/keys';
 export { StepProgress };
 
 // Component Types
-export type { StepProgressProps, StepProgressRef };
+export type { StepProgressDefaultElement, StepProgressElement, StepProgressProps, StepProgressRef };
