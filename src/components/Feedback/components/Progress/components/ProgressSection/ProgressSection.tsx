@@ -2,15 +2,10 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 import { getPercentage } from '@common/utils';
 
+import type { CenterProps } from '@components/Layout';
 import { Center } from '@components/Layout';
 
 import { useProgressContext } from '../../common/hooks';
@@ -23,9 +18,10 @@ import type { ProgressSectionProps, ProgressSectionRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ProgressSection: PolymorphicComponentWithRef = forwardRef(function ProgressSection<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: ProgressSectionProps<Element>, ref: ProgressSectionRef<Element>): ReactElement {
+const ProgressSection = forwardRef(function ProgressSection<Element extends PolymorphicElementType>(
+	props: ProgressSectionProps<Element>,
+	ref: ProgressSectionRef<Element>
+): ReactElement {
 	const { isIndeterminate, max, min, variant } = useProgressContext();
 
 	const {
@@ -37,13 +33,13 @@ const ProgressSection: PolymorphicComponentWithRef = forwardRef(function Progres
 		...rest
 	} = props;
 
-	const { value } = useProgressSectionResponsiveValues({ value: valueProp });
+	const { value } = useProgressSectionResponsiveValues<Element>({ value: valueProp });
 
-	const classes = useProgressSectionClasses({ color, colorMode });
+	const classes = useProgressSectionClasses<Element>({ color, colorMode });
 
 	return (
-		<Center<Element>
-			{...rest}
+		<Center
+			{...(rest as CenterProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_PROGRESS_SECTION_CLASS__, classes, { [className]: !!className })}
 			w={variant === 'horizontal' ? `${isIndeterminate ? 25 : getPercentage(value, max, min)}%` : '100%'}
@@ -55,8 +51,6 @@ const ProgressSection: PolymorphicComponentWithRef = forwardRef(function Progres
 	);
 });
 
-ProgressSection.displayName = 'ProgressSection';
+// ProgressSection.displayName = 'ProgressSection';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <ProgressSection<Element> {...props} />;
+export default ProgressSection;
