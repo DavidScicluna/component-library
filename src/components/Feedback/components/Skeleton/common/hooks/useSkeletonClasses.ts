@@ -1,7 +1,7 @@
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_DURATION__, __DEFAULT_EASING__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
-import type { ClassName, ThemeDuration, ThemeEase, ThemeRadius } from '@common/types';
+import type { ClassName, PolymorphicElementType, ThemeDuration, ThemeEase, ThemeRadius } from '@common/types';
 
 import { __DEFAULT_SKELETON_IS_ANIMATED__ } from '../constants';
 import type { SkeletonProps } from '../types';
@@ -11,10 +11,15 @@ import useSkeletonResponsiveValues from './useSkeletonResponsiveValues';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseSkeletonClassesProps = Pick<SkeletonProps, 'color' | 'colorMode' | 'isAnimated' | 'radius'>;
+type UseSkeletonClassesProps<Element extends PolymorphicElementType> = Pick<
+	SkeletonProps<Element>,
+	'color' | 'colorMode' | 'isAnimated' | 'radius'
+>;
 type UseSkeletonClassesReturn = ClassName;
 
-const useSkeletonClasses = (props: UseSkeletonClassesProps): UseSkeletonClassesReturn => {
+const useSkeletonClasses = <Element extends PolymorphicElementType>(
+	props: UseSkeletonClassesProps<Element>
+): UseSkeletonClassesReturn => {
 	const { colorMode: __DEFAULT_ICON_COLORMODE__ } = useAppTheme();
 
 	const {
@@ -24,7 +29,10 @@ const useSkeletonClasses = (props: UseSkeletonClassesProps): UseSkeletonClassesR
 		radius: radiusProp = __DEFAULT_RADIUS__
 	} = props;
 
-	const { isAnimated, radius } = useSkeletonResponsiveValues({ isAnimated: isAnimatedProp, radius: radiusProp });
+	const { isAnimated, radius } = useSkeletonResponsiveValues<Element>({
+		isAnimated: isAnimatedProp,
+		radius: radiusProp
+	});
 
 	const colorClassName = useGetColor({
 		color: color,

@@ -1,13 +1,17 @@
 import { __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { ThemeRadius } from '@common/types';
+import type { PolymorphicElementType, ThemeRadius } from '@common/types';
 
 import { __DEFAULT_SKELETON_IS_ANIMATED__, __DEFAULT_SKELETON_IS_LOADED__ } from '../constants';
 import type { SkeletonProps } from '../types';
 
-type UseSkeletonResponsiveValuesProps = Partial<Pick<SkeletonProps, 'isAnimated' | 'isLoaded' | 'radius'>>;
+type UseSkeletonResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
+	Pick<SkeletonProps<Element>, 'isAnimated' | 'isLoaded' | 'radius'>
+>;
 
-const useSkeletonResponsiveValues = (props: UseSkeletonResponsiveValuesProps) => {
+const useSkeletonResponsiveValues = <Element extends PolymorphicElementType>(
+	props: UseSkeletonResponsiveValuesProps<Element>
+) => {
 	const {
 		isAnimated: isAnimatedProp = __DEFAULT_SKELETON_IS_ANIMATED__,
 		isLoaded: isLoadedProp = __DEFAULT_SKELETON_IS_LOADED__,

@@ -2,16 +2,11 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
+import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import { __DEFAULT_SKELETON_IS_ANIMATED__, __DEFAULT_SKELETON_IS_LOADED__ } from './common/constants';
@@ -22,9 +17,10 @@ import type { SkeletonProps, SkeletonRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Skeleton: PolymorphicComponentWithRef = forwardRef(function Skeleton<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: SkeletonProps<Element>, ref: SkeletonRef<Element>): ReactElement {
+const Skeleton = forwardRef(function Skeleton<Element extends PolymorphicElementType>(
+	props: SkeletonProps<Element>,
+	ref: SkeletonRef<Element>
+): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
@@ -36,17 +32,17 @@ const Skeleton: PolymorphicComponentWithRef = forwardRef(function Skeleton<
 		...rest
 	} = props;
 
-	const { isAnimated, isLoaded, radius } = useSkeletonResponsiveValues({
+	const { isAnimated, isLoaded, radius } = useSkeletonResponsiveValues<Element>({
 		isAnimated: isAnimatedProp,
 		isLoaded: isLoadedProp,
 		radius: radiusProp
 	});
 
-	const classes = useSkeletonClasses({ color, colorMode, isAnimated, radius });
+	const classes = useSkeletonClasses<Element>({ color, colorMode, isAnimated, radius });
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			className={classNames(__KEY_SKELETON_CLASS__, { [className]: !!className })}
 			templateColumns={1}
@@ -89,8 +85,6 @@ const Skeleton: PolymorphicComponentWithRef = forwardRef(function Skeleton<
 	);
 });
 
-Skeleton.displayName = 'Skeleton';
+// Skeleton.displayName = 'Skeleton';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Skeleton<Element> {...props} />;
+export default Skeleton;
