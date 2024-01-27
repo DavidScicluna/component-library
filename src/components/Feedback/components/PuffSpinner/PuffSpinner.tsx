@@ -4,16 +4,10 @@ import { Puff } from 'react-loader-spinner';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetColor, useTheme } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType,
-	ThemeFontSize
-} from '@common/types';
+import type { PolymorphicElementType, ThemeFontSize } from '@common/types';
 import { checkFontSizeType, convertREMToPixels, convertStringToNumber } from '@common/utils';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import { __DEFAULT_PUFF_SPINNER_IS_VISIBLE__, __DEFAULT_PUFF_SPINNER_SIZE__ } from './common/constants';
@@ -24,9 +18,10 @@ import type { PuffSpinnerProps, PuffSpinnerRef, PuffSpinnerSize } from './common
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const PuffSpinner: PolymorphicComponentWithRef = forwardRef(function PuffSpinner<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: PuffSpinnerProps<Element>, ref: PuffSpinnerRef<Element>): ReactElement {
+const PuffSpinner = forwardRef(function PuffSpinner<Element extends PolymorphicElementType>(
+	props: PuffSpinnerProps<Element>,
+	ref: PuffSpinnerRef<Element>
+): ReactElement {
 	const theme = useTheme();
 
 	const __DEFAULT_PUFFS_PINNER_COLOR__ = useGetColor({ colorType: 'default', hueType: 'default' });
@@ -40,7 +35,7 @@ const PuffSpinner: PolymorphicComponentWithRef = forwardRef(function PuffSpinner
 		...rest
 	} = props;
 
-	const { isVisible, radius, size } = usePuffSpinnerResponsiveValues({
+	const { isVisible, radius, size } = usePuffSpinnerResponsiveValues<Element>({
 		isVisible: isVisibleProp,
 		radius: radiusProp,
 		size: sizeProp
@@ -53,8 +48,8 @@ const PuffSpinner: PolymorphicComponentWithRef = forwardRef(function PuffSpinner
 	}, [size]);
 
 	return (
-		<Box<Element>
-			{...rest}
+		<Box
+			{...(rest as BoxProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_PUFF_SPINNER_CLASS__, { [className]: !!className })}
 		>
@@ -71,8 +66,6 @@ const PuffSpinner: PolymorphicComponentWithRef = forwardRef(function PuffSpinner
 	);
 });
 
-PuffSpinner.displayName = 'PuffSpinner';
+// PuffSpinner.displayName = 'PuffSpinner';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <PuffSpinner<Element> {...props} />;
+export default PuffSpinner;
