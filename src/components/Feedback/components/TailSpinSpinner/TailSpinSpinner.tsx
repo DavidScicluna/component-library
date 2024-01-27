@@ -4,16 +4,10 @@ import { ThreeDots } from 'react-loader-spinner';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetColor, useTheme } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType,
-	ThemeFontSize
-} from '@common/types';
+import type { PolymorphicElementType, ThemeFontSize } from '@common/types';
 import { checkFontSizeType, convertREMToPixels, convertStringToNumber } from '@common/utils';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import { __DEFAULT_TAIL_SPIN_SPINNER_IS_VISIBLE__, __DEFAULT_TAIL_SPIN_SPINNER_SIZE__ } from './common/constants';
@@ -24,9 +18,10 @@ import type { TailSpinSpinnerProps, TailSpinSpinnerRef, TailSpinSpinnerSize } fr
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const TailSpinSpinner: PolymorphicComponentWithRef = forwardRef(function TailSpinSpinner<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: TailSpinSpinnerProps<Element>, ref: TailSpinSpinnerRef<Element>): ReactElement {
+const TailSpinSpinner = forwardRef(function TailSpinSpinner<Element extends PolymorphicElementType>(
+	props: TailSpinSpinnerProps<Element>,
+	ref: TailSpinSpinnerRef<Element>
+): ReactElement {
 	const theme = useTheme();
 
 	const __DEFAULT_TAIL_SPIN_SPINNER_COLOR__ = useGetColor({ colorType: 'default', hueType: 'default' });
@@ -40,7 +35,7 @@ const TailSpinSpinner: PolymorphicComponentWithRef = forwardRef(function TailSpi
 		...rest
 	} = props;
 
-	const { isVisible, radius, size } = useTailSpinSpinnerResponsiveValues({
+	const { isVisible, radius, size } = useTailSpinSpinnerResponsiveValues<Element>({
 		isVisible: isVisibleProp,
 		radius: radiusProp,
 		size: sizeProp
@@ -53,8 +48,8 @@ const TailSpinSpinner: PolymorphicComponentWithRef = forwardRef(function TailSpi
 	}, [size]);
 
 	return (
-		<Box<Element>
-			{...rest}
+		<Box
+			{...(rest as BoxProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_TAIL_SPIN_SPINNER_CLASS__, { [className]: !!className })}
 		>
@@ -71,8 +66,6 @@ const TailSpinSpinner: PolymorphicComponentWithRef = forwardRef(function TailSpi
 	);
 });
 
-TailSpinSpinner.displayName = 'TailSpinSpinner';
+// TailSpinSpinner.displayName = 'TailSpinSpinner';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <TailSpinSpinner<Element> {...props} />;
+export default TailSpinSpinner;

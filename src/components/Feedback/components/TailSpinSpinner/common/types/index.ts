@@ -1,10 +1,4 @@
-import type {
-	PolymorphicDefaultElement,
-	PolymorphicElementType,
-	ResponsiveValue,
-	ThemeFontSize,
-	ThemeRadius
-} from '@common/types';
+import type { PolymorphicElementType, ResponsiveValue, ThemeFontSize, ThemeRadius } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
@@ -17,9 +11,9 @@ type TailSpinSpinnerOtherProps = {
 	size?: ResponsiveValue<TailSpinSpinnerSize>;
 };
 
-export type TailSpinSpinnerProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
+export type TailSpinSpinnerProps<Element extends PolymorphicElementType> = Omit<
 	BoxProps<Element, TailSpinSpinnerOtherProps>,
 	'children' | keyof BoxOtherProps
 >;
 
-export type TailSpinSpinnerRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type TailSpinSpinnerRef<Element extends PolymorphicElementType> = BoxRef<Element>;
