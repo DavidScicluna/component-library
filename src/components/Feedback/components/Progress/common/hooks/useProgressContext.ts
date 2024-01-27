@@ -9,11 +9,11 @@ import {
 	__DEFAULT_PROGRESS_MIN__,
 	__DEFAULT_PROGRESS_VARIANT__
 } from '../constants';
-import type { ProgressContext as ProgressContextType } from '../types';
+import type { ProgressContext as ProgressContextType, ProgressElement } from '../types';
 
 import useProgressResponsiveValues from './useProgressResponsiveValues';
 
-const useProgressContext = () => {
+const useProgressContext = <Element extends ProgressElement>() => {
 	const {
 		color,
 		colorMode,
@@ -22,9 +22,9 @@ const useProgressContext = () => {
 		min: minProp = __DEFAULT_PROGRESS_MIN__,
 		radius: radiusProp = __DEFAULT_RADIUS__,
 		variant: variantProp = __DEFAULT_PROGRESS_VARIANT__
-	} = useContext<ProgressContextType>(ProgressContext);
+	} = useContext<ProgressContextType<Element>>(ProgressContext);
 
-	const { isIndeterminate, max, min, radius, variant } = useProgressResponsiveValues({
+	const { isIndeterminate, max, min, radius, variant } = useProgressResponsiveValues<Element>({
 		isIndeterminate: isIndeterminateProp,
 		max: maxProp,
 		min: minProp,

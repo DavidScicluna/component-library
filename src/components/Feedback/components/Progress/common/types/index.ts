@@ -8,6 +8,9 @@ import type {
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
+export type ProgressDefaultElement = PolymorphicDefaultElement;
+export type ProgressElement = Extract<PolymorphicElementType, 'div'>;
+
 export type ProgressVariant = 'horizontal' | 'vertical';
 
 type ProgressOtherProps = ThemeAppAppearanceProps & {
@@ -48,16 +51,14 @@ type ProgressOtherProps = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<ProgressVariant>;
 };
 
-type OmittedBoxProps = Exclude<keyof BoxOtherProps, 'w' | 'h'>;
-
-export type ProgressProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
+export type ProgressProps<Element extends ProgressElement> = Omit<
 	BoxProps<Element, ProgressOtherProps>,
-	OmittedBoxProps
+	Exclude<keyof BoxOtherProps, 'w' | 'h'>
 >;
 
-export type ProgressRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type ProgressRef<Element extends ProgressElement> = BoxRef<Element>;
 
-export type ProgressContext = Pick<
-	ProgressProps,
+export type ProgressContext<Element extends ProgressElement> = Pick<
+	ProgressProps<Element>,
 	'color' | 'colorMode' | 'isIndeterminate' | 'max' | 'min' | 'radius' | 'variant'
 >;

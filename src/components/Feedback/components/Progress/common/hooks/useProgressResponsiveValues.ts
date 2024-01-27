@@ -9,13 +9,15 @@ import {
 	__DEFAULT_PROGRESS_VALUE__,
 	__DEFAULT_PROGRESS_VARIANT__
 } from '../constants';
-import type { ProgressProps, ProgressVariant } from '../types';
+import type { ProgressElement, ProgressProps, ProgressVariant } from '../types';
 
-type UseProgressResponsiveValuesProps = Partial<
-	Pick<ProgressProps, 'isIndeterminate' | 'max' | 'min' | 'radius' | 'value' | 'variant'>
+type UseProgressResponsiveValuesProps<Element extends ProgressElement> = Partial<
+	Pick<ProgressProps<Element>, 'isIndeterminate' | 'max' | 'min' | 'radius' | 'value' | 'variant'>
 >;
 
-const useProgressResponsiveValues = (props: UseProgressResponsiveValuesProps) => {
+const useProgressResponsiveValues = <Element extends ProgressElement>(
+	props: UseProgressResponsiveValuesProps<Element>
+) => {
 	const {
 		isIndeterminate: isIndeterminateProp = __DEFAULT_PROGRESS_IS_INDETERMINATE__,
 		max: maxProp = __DEFAULT_PROGRESS_MAX__,

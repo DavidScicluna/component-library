@@ -1,4 +1,6 @@
-import type { ProgressVariant } from '../types';
+import type { ProgressDefaultElement, ProgressVariant } from '../types';
+
+export const __DEFAULT_PROGRESS_AS__: ProgressDefaultElement = 'div';
 
 export const __DEFAULT_PROGRESS_IS_INDETERMINATE__ = false;
 

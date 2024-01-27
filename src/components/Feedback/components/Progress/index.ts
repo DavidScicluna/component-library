@@ -1,4 +1,11 @@
-import type { ProgressContext, ProgressProps, ProgressRef, ProgressVariant } from './common/types';
+import type {
+	ProgressContext,
+	ProgressDefaultElement,
+	ProgressElement,
+	ProgressProps,
+	ProgressRef,
+	ProgressVariant
+} from './common/types';
 import Progress from './Progress';
 
 // Constants
@@ -15,4 +22,4 @@ export { Progress };
 export * from './components';
 
 // Component Types
-export type { ProgressContext, ProgressProps, ProgressRef, ProgressVariant };
+export type { ProgressContext, ProgressDefaultElement, ProgressElement, ProgressProps, ProgressRef, ProgressVariant };

@@ -3,17 +3,22 @@ import { __DEFAULT_COLOR__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
 import type { ClassName, ThemeRadius } from '@common/types';
 
-import type { ProgressProps } from '../types';
+import type { ProgressElement, ProgressProps } from '../types';
 
 import useProgressResponsiveValues from './useProgressResponsiveValues';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseProgressClassesProps = Pick<ProgressProps, 'color' | 'colorMode' | 'radius'>;
+type UseProgressClassesProps<Element extends ProgressElement> = Pick<
+	ProgressProps<Element>,
+	'color' | 'colorMode' | 'radius'
+>;
 type UseProgressClassesReturn = ClassName;
 
-const useProgressClasses = (props: UseProgressClassesProps): UseProgressClassesReturn => {
+const useProgressClasses = <Element extends ProgressElement>(
+	props: UseProgressClassesProps<Element>
+): UseProgressClassesReturn => {
 	const { colorMode: __DEFAULT_PROGRESS_COLORMODE__ } = useAppTheme();
 
 	const {
@@ -22,7 +27,7 @@ const useProgressClasses = (props: UseProgressClassesProps): UseProgressClassesR
 		radius: radiusProp = __DEFAULT_RADIUS__
 	} = props;
 
-	const { radius } = useProgressResponsiveValues({ radius: radiusProp });
+	const { radius } = useProgressResponsiveValues<Element>({ radius: radiusProp });
 
 	const backgroundClassName = useGetColor({
 		color,
