@@ -1,13 +1,17 @@
 import { __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { ThemeRadius } from '@common/types';
+import type { PolymorphicElementType, ThemeRadius } from '@common/types';
 
 import { __DEFAULT_THREE_DOTS_SPINNER_IS_VISIBLE__, __DEFAULT_THREE_DOTS_SPINNER_SIZE__ } from '../constants';
 import type { ThreeDotsSpinnerProps, ThreeDotsSpinnerSize } from '../types';
 
-type UseThreeDotsSpinnerResponsiveValuesProps = Partial<Pick<ThreeDotsSpinnerProps, 'isVisible' | 'radius' | 'size'>>;
+type UseThreeDotsSpinnerResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
+	Pick<ThreeDotsSpinnerProps<Element>, 'isVisible' | 'radius' | 'size'>
+>;
 
-const useThreeDotsSpinnerResponsiveValues = (props: UseThreeDotsSpinnerResponsiveValuesProps) => {
+const useThreeDotsSpinnerResponsiveValues = <Element extends PolymorphicElementType>(
+	props: UseThreeDotsSpinnerResponsiveValuesProps<Element>
+) => {
 	const {
 		isVisible: isVisibleProp = __DEFAULT_THREE_DOTS_SPINNER_IS_VISIBLE__,
 		radius: radiusProp = __DEFAULT_RADIUS__,

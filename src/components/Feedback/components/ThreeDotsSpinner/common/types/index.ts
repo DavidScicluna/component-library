@@ -1,10 +1,4 @@
-import type {
-	PolymorphicDefaultElement,
-	PolymorphicElementType,
-	ResponsiveValue,
-	ThemeFontSize,
-	ThemeRadius
-} from '@common/types';
+import type { PolymorphicElementType, ResponsiveValue, ThemeFontSize, ThemeRadius } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
@@ -17,9 +11,9 @@ type ThreeDotsSpinnerOtherProps = {
 	size?: ResponsiveValue<ThreeDotsSpinnerSize>;
 };
 
-export type ThreeDotsSpinnerProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
+export type ThreeDotsSpinnerProps<Element extends PolymorphicElementType> = Omit<
 	BoxProps<Element, ThreeDotsSpinnerOtherProps>,
 	'children' | keyof BoxOtherProps
 >;
 
-export type ThreeDotsSpinnerRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type ThreeDotsSpinnerRef<Element extends PolymorphicElementType> = BoxRef<Element>;

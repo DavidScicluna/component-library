@@ -4,16 +4,10 @@ import { ThreeDots } from 'react-loader-spinner';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetColor, useTheme } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType,
-	ThemeFontSize
-} from '@common/types';
+import type { PolymorphicElementType, ThemeFontSize } from '@common/types';
 import { checkFontSizeType, convertREMToPixels, convertStringToNumber } from '@common/utils';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import { __DEFAULT_THREE_DOTS_SPINNER_IS_VISIBLE__, __DEFAULT_THREE_DOTS_SPINNER_SIZE__ } from './common/constants';
@@ -24,9 +18,10 @@ import type { ThreeDotsSpinnerProps, ThreeDotsSpinnerRef, ThreeDotsSpinnerSize }
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const ThreeDotsSpinner: PolymorphicComponentWithRef = forwardRef(function ThreeDotsSpinner<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: ThreeDotsSpinnerProps<Element>, ref: ThreeDotsSpinnerRef<Element>): ReactElement {
+const ThreeDotsSpinner = forwardRef(function ThreeDotsSpinner<Element extends PolymorphicElementType>(
+	props: ThreeDotsSpinnerProps<Element>,
+	ref: ThreeDotsSpinnerRef<Element>
+): ReactElement {
 	const theme = useTheme();
 
 	const __DEFAULT_THREE_DOTS_SPINNER_COLOR__ = useGetColor({ colorType: 'default', hueType: 'default' });
@@ -40,7 +35,7 @@ const ThreeDotsSpinner: PolymorphicComponentWithRef = forwardRef(function ThreeD
 		...rest
 	} = props;
 
-	const { isVisible, radius, size } = useThreeDotsSpinnerResponsiveValues({
+	const { isVisible, radius, size } = useThreeDotsSpinnerResponsiveValues<Element>({
 		isVisible: isVisibleProp,
 		radius: radiusProp,
 		size: sizeProp
@@ -53,8 +48,8 @@ const ThreeDotsSpinner: PolymorphicComponentWithRef = forwardRef(function ThreeD
 	}, [size]);
 
 	return (
-		<Box<Element>
-			{...rest}
+		<Box
+			{...(rest as BoxProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_THREE_DOTS_SPINNER_CLASS__, { [className]: !!className })}
 		>
@@ -71,8 +66,6 @@ const ThreeDotsSpinner: PolymorphicComponentWithRef = forwardRef(function ThreeD
 	);
 });
 
-ThreeDotsSpinner.displayName = 'ThreeDotsSpinner';
+// ThreeDotsSpinner.displayName = 'ThreeDotsSpinner';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <ThreeDotsSpinner<Element> {...props} />;
+export default ThreeDotsSpinner;
