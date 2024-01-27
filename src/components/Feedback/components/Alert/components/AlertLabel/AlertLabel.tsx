@@ -3,28 +3,26 @@ import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps,
-	ThemeColor
-} from '@common/types';
+import type { ThemeColor } from '@common/types';
 
+import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
 import { __DEFAULT_ALERT_LINE_HEIGHT_SIZE__ } from '../../common/constants';
 import { useAlertContext } from '../../common/hooks';
 import { getStatusColor } from '../../common/utils';
 
+import { __DEFAULT_ALERT_LABEL_AS__ } from './common/constants';
 import { __KEYS_ALERT_LABEL_CLASS__ } from './common/keys';
 import type { AlertLabelDefaultElement, AlertLabelElement, AlertLabelProps, AlertLabelRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const AlertLabel: PolymorphicComponentWithRef = forwardRef(function AlertLabel<
-	Element extends AlertLabelElement = AlertLabelDefaultElement
->(props: AlertLabelProps<Element>, ref: AlertLabelRef<Element>): ReactElement {
+const AlertLabel = forwardRef(function AlertLabel<Element extends AlertLabelElement = AlertLabelDefaultElement>(
+	props: AlertLabelProps<Element>,
+	ref: AlertLabelRef<Element>
+): ReactElement {
 	const { color, colorMode, status, variant } = useAlertContext();
 
 	const statusColor = useMemo<ThemeColor>(() => getStatusColor(status, color), [status, color]);
@@ -46,6 +44,7 @@ const AlertLabel: PolymorphicComponentWithRef = forwardRef(function AlertLabel<
 
 	const {
 		children,
+		as = __DEFAULT_ALERT_LABEL_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		align = 'left',
 		color: c = __DEFAULT_ALERT_LABEL_COLOR__,
@@ -57,8 +56,9 @@ const AlertLabel: PolymorphicComponentWithRef = forwardRef(function AlertLabel<
 	} = props;
 
 	return (
-		<Text<Element>
-			{...rest}
+		<Text
+			{...(rest as TextProps<Element>)}
+			as={as}
 			ref={ref}
 			className={classNames(__KEYS_ALERT_LABEL_CLASS__, { [className]: !!className })}
 			align={align}
@@ -73,8 +73,6 @@ const AlertLabel: PolymorphicComponentWithRef = forwardRef(function AlertLabel<
 	);
 });
 
-AlertLabel.displayName = 'AlertLabel';
+// AlertLabel.displayName = 'AlertLabel';
 
-export default <Element extends AlertLabelElement = AlertLabelDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <AlertLabel<Element> {...props} />;
+export default AlertLabel;
