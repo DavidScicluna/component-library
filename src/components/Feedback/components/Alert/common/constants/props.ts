@@ -1,4 +1,6 @@
-import type { AlertDuration, AlertStatus, AlertVariant } from '../types';
+import type { AlertDefaultElement, AlertDuration, AlertStatus, AlertVariant } from '../types';
+
+export const __DEFAULT_ALERT_AS__: AlertDefaultElement = 'div';
 
 export const __DEFAULT_ALERT_DURATION__: AlertDuration = 0;
 

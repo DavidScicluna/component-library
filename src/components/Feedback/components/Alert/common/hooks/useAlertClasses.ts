@@ -7,7 +7,7 @@ import type { ClassName, ThemeColor } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import { __DEFAULT_ALERT_STATUS__ } from '../constants';
-import type { AlertProps } from '../types';
+import type { AlertElement, AlertProps } from '../types';
 import { getStatusColor } from '../utils';
 
 import useAlertResponsiveValues from './useAlertResponsiveValues';
@@ -15,10 +15,10 @@ import useAlertResponsiveValues from './useAlertResponsiveValues';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseAlertClassesProps = Pick<AlertProps, 'color' | 'colorMode' | 'status'>;
+type UseAlertClassesProps<Element extends AlertElement> = Pick<AlertProps<Element>, 'color' | 'colorMode' | 'status'>;
 type UseAlertClassesReturn = ClassName;
 
-const useAlertClasses = (props: UseAlertClassesProps): UseAlertClassesReturn => {
+const useAlertClasses = <Element extends AlertElement>(props: UseAlertClassesProps<Element>): UseAlertClassesReturn => {
 	const { colorMode: __DEFAULT_ALERT_COLORMODE__ } = useAppTheme();
 
 	const {
@@ -27,7 +27,7 @@ const useAlertClasses = (props: UseAlertClassesProps): UseAlertClassesReturn => 
 		status: statusProp = __DEFAULT_ALERT_STATUS__
 	} = props;
 
-	const { status } = useAlertResponsiveValues({ status: statusProp });
+	const { status } = useAlertResponsiveValues<Element>({ status: statusProp });
 
 	const statusColor = useMemo<ThemeColor>(() => getStatusColor(status, color), [status, color]);
 

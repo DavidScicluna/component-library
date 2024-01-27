@@ -1,6 +1,8 @@
 import type {
 	AlertContext,
+	AlertDefaultElement,
 	AlertDuration,
+	AlertElement,
 	AlertProps,
 	AlertRef,
 	AlertRenderActionsProps,
@@ -29,7 +31,9 @@ export * from './components';
 // Component Types
 export type {
 	AlertContext,
+	AlertDefaultElement,
 	AlertDuration,
+	AlertElement,
 	AlertProps,
 	AlertRef,
 	AlertRenderActionsProps,

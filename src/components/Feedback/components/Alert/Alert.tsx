@@ -6,37 +6,44 @@ import { useCountdown, useEffectOnce, useUpdateEffect } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useTheme } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType,
-	ThemeColor
-} from '@common/types';
+import type { ThemeAppColor, ThemeAppColorMode, ThemeColor } from '@common/types';
 
+import type { GridProps } from '@components/Layout';
 import { Grid, GridItem, HStack, VStack } from '@components/Layout';
 
 import { Progress } from '../Progress';
 
-import { __DEFAULT_ALERT_DURATION__, __DEFAULT_ALERT_STATUS__, __DEFAULT_ALERT_VARIANT__ } from './common/constants';
+import {
+	__DEFAULT_ALERT_AS__,
+	__DEFAULT_ALERT_DURATION__,
+	__DEFAULT_ALERT_STATUS__,
+	__DEFAULT_ALERT_VARIANT__
+} from './common/constants';
 import { useAlertClasses, useAlertResponsiveValues } from './common/hooks';
 import { __KEYS_ALERT_CLASS__ } from './common/keys';
-import type { AlertContext as AlertContextType, AlertProps, AlertRef } from './common/types';
+import type {
+	AlertContext as AlertContextType,
+	AlertDefaultElement,
+	AlertElement,
+	AlertProps,
+	AlertRef
+} from './common/types';
 import { getStatusColor } from './common/utils';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const AlertContext = createContext<AlertContextType>({ status: __DEFAULT_ALERT_STATUS__ });
+export const AlertContext = createContext<AlertContextType<AlertDefaultElement>>({ status: __DEFAULT_ALERT_STATUS__ });
 
-const Alert: PolymorphicComponentWithRef = forwardRef(function Alert<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: AlertProps<Element>, ref: AlertRef<Element>): ReactElement {
+const Alert = forwardRef(function Alert<Element extends AlertElement>(
+	props: AlertProps<Element>,
+	ref: AlertRef<Element>
+): ReactElement {
 	const theme = useTheme();
 
 	const {
+		as = __DEFAULT_ALERT_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode,
@@ -53,7 +60,7 @@ const Alert: PolymorphicComponentWithRef = forwardRef(function Alert<
 		...rest
 	} = props;
 
-	const { duration, spacing, status, variant } = useAlertResponsiveValues({
+	const { duration, spacing, status, variant } = useAlertResponsiveValues<Element>({
 		duration: durationProp,
 		spacing: spacingProp,
 		status: statusProp,
@@ -67,7 +74,7 @@ const Alert: PolymorphicComponentWithRef = forwardRef(function Alert<
 		intervalMs: 1000
 	});
 
-	const classes = useAlertClasses({ color, colorMode, status });
+	const classes = useAlertClasses<Element>({ color, colorMode, status });
 
 	const handleOpen = (): void => {
 		resetCountdown();
@@ -101,8 +108,9 @@ const Alert: PolymorphicComponentWithRef = forwardRef(function Alert<
 
 	return (
 		<AlertContext.Provider value={{ color, colorMode, status, variant }}>
-			<Grid<Element>
-				{...rest}
+			<Grid
+				{...(rest as GridProps<Element>)}
+				as={as}
 				ref={ref}
 				className={classNames(__KEYS_ALERT_CLASS__, classes, { [className]: !!className })}
 				templateColumns={compact(['1fr', renderClose && onClose ? 'auto' : null]).join(' ')}
@@ -129,14 +137,14 @@ const Alert: PolymorphicComponentWithRef = forwardRef(function Alert<
 								w={theme.spacing['0.5']}
 								h='100%'
 								color={
-									statusColor !== 'gray' &&
+									(statusColor !== 'gray' &&
 									statusColor !== 'transparent' &&
 									statusColor !== 'black' &&
 									statusColor !== 'white'
 										? statusColor
-										: color
+										: color) as ThemeAppColor
 								}
-								colorMode={colorMode}
+								colorMode={colorMode as ThemeAppColorMode}
 								radius='full'
 								value={duration ? round((count / duration) * 100) : 100}
 								variant='vertical'
@@ -206,8 +214,6 @@ const Alert: PolymorphicComponentWithRef = forwardRef(function Alert<
 	);
 });
 
-Alert.displayName = 'Alert';
+// Alert.displayName = 'Alert';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Alert<Element> {...props} />;
+export default Alert;

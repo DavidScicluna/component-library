@@ -3,11 +3,13 @@ import { useGetResponsiveValue } from '@common/hooks';
 import type { ThemeSpacing } from '@common/types';
 
 import { __DEFAULT_ALERT_DURATION__, __DEFAULT_ALERT_STATUS__, __DEFAULT_ALERT_VARIANT__ } from '../constants';
-import type { AlertDuration, AlertProps, AlertStatus, AlertVariant } from '../types';
+import type { AlertDuration, AlertElement, AlertProps, AlertStatus, AlertVariant } from '../types';
 
-type UseAlertResponsiveValuesProps = Partial<Pick<AlertProps, 'duration' | 'spacing' | 'status' | 'variant'>>;
+type UseAlertResponsiveValuesProps<Element extends AlertElement> = Partial<
+	Pick<AlertProps<Element>, 'duration' | 'spacing' | 'status' | 'variant'>
+>;
 
-const useAlertResponsiveValues = (props: UseAlertResponsiveValuesProps) => {
+const useAlertResponsiveValues = <Element extends AlertElement>(props: UseAlertResponsiveValuesProps<Element>) => {
 	const {
 		duration: durationProp = __DEFAULT_ALERT_DURATION__,
 		spacing: spacingProp = __DEFAULT_SPACING__,

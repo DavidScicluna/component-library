@@ -11,7 +11,10 @@ import type {
 
 // TODO: Check all components sub folder and replace all imports to import from root instead
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
-import type { IconButtonProps } from '@components/Buttons';
+import type { IconButtonDefaultElement, IconButtonProps } from '@components/Buttons';
+
+export type AlertDefaultElement = PolymorphicDefaultElement;
+export type AlertElement = Extract<PolymorphicElementType, 'div'>;
 
 export type AlertDuration = Nullish<number>;
 
@@ -21,7 +24,7 @@ export type AlertVariant = 'horizontal' | 'vertical';
 
 export type AlertRenderActionsProps = Pick<AlertOtherProps, 'color' | 'colorMode' | 'spacing'>;
 export type AlertRenderCloseProps = Pick<
-	IconButtonProps,
+	IconButtonProps<IconButtonDefaultElement>,
 	'color' | 'colorMode' | 'isCompact' | 'onClick' | 'size' | 'variant'
 >;
 
@@ -71,11 +74,11 @@ type AlertOtherProps = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<AlertVariant>;
 };
 
-export type AlertProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element, AlertOtherProps>,
-	keyof BoxOtherProps
+export type AlertProps<Element extends AlertElement> = Omit<BoxProps<Element, AlertOtherProps>, keyof BoxOtherProps>;
+
+export type AlertRef<Element extends AlertElement> = BoxRef<Element>;
+
+export type AlertContext<Element extends AlertElement> = Pick<
+	AlertProps<Element>,
+	'color' | 'colorMode' | 'status' | 'variant'
 >;
-
-export type AlertRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
-
-export type AlertContext = Pick<AlertProps, 'color' | 'colorMode' | 'status' | 'variant'>;
