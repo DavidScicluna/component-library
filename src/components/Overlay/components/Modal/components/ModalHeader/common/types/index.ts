@@ -3,11 +3,11 @@ import type { ReactNode } from 'react';
 import type { PolymorphicElementType } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
-import type { IconButtonProps } from '@components/Buttons';
+import type { IconButtonDefaultElement, IconButtonProps } from '@components/Buttons';
 import type { GridProps } from '@components/Layout';
 
 export type ModalHeaderRenderCancelProps = Pick<
-	IconButtonProps,
+	IconButtonProps<IconButtonDefaultElement>,
 	'color' | 'colorMode' | 'onClick' | 'size' | 'variant'
 >;
 

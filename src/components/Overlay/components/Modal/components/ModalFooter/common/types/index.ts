@@ -2,15 +2,15 @@ import type { ReactNode } from 'react';
 
 import type { PolymorphicElementType } from '@common/types';
 
-import type { ButtonProps } from '@components/Buttons';
+import type { ButtonDefaultElement, ButtonProps } from '@components/Buttons';
 import type { StackProps, StackRef } from '@components/Layout';
 
 export type ModalFooterRenderCancelProps = Pick<
-	ButtonProps,
+	ButtonProps<ButtonDefaultElement>,
 	'color' | 'colorMode' | 'isFullWidth' | 'onClick' | 'size' | 'variant'
 >;
 export type ModalFooterRenderActionProps = Pick<
-	ButtonProps,
+	ButtonProps<ButtonDefaultElement>,
 	'color' | 'colorMode' | 'isFullWidth' | 'size' | 'variant'
 >;
 
