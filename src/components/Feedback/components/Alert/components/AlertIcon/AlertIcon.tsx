@@ -3,30 +3,27 @@ import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useConst, useGetColor } from '@common/hooks';
-import type {
-	IconKey,
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps,
-	ThemeColor
-} from '@common/types';
+import type { IconKey, ThemeColor } from '@common/types';
 import { getFontSizeHeight } from '@common/utils';
 
+import type { IconProps } from '@components/DataDisplay';
 import { Icon } from '@components/DataDisplay';
 
 import { __DEFAULT_ALERT_LINE_HEIGHT_SIZE__ } from '../../common/constants';
 import { useAlertContext } from '../../common/hooks';
 import { getStatusColor, getStatusIcon } from '../../common/utils';
 
+import { __DEFAULT_ALERT_ICON_AS__ } from './common/constants';
 import { __KEYS_ALERT_ICON_CLASS__ } from './common/keys';
-import type { AlertIconDefaultElement, AlertIconElement, AlertIconProps, AlertIconRef } from './common/types';
+import type { AlertIconElement, AlertIconProps, AlertIconRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const AlertIcon: PolymorphicComponentWithRef = forwardRef(function AlertIcon<
-	Element extends AlertIconElement = AlertIconDefaultElement
->(props: AlertIconProps<Element>, ref: AlertIconRef<Element>): ReactElement {
+const AlertIcon = forwardRef(function AlertIcon<Element extends AlertIconElement>(
+	props: AlertIconProps<Element>,
+	ref: AlertIconRef<Element>
+): ReactElement {
 	const {
 		color: __DEFAULT_ALERT_ICON_COLOR__,
 		colorMode: __DEFAULT_ALERT_ICON_COLORMODE__,
@@ -34,6 +31,7 @@ const AlertIcon: PolymorphicComponentWithRef = forwardRef(function AlertIcon<
 	} = useAlertContext();
 
 	const {
+		as = __DEFAULT_ALERT_ICON_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		color: c = __DEFAULT_ALERT_ICON_COLOR__,
 		colorMode = __DEFAULT_ALERT_ICON_COLORMODE__,
@@ -61,8 +59,9 @@ const AlertIcon: PolymorphicComponentWithRef = forwardRef(function AlertIcon<
 	const size = useConst(getFontSizeHeight('xl', __DEFAULT_ALERT_LINE_HEIGHT_SIZE__));
 
 	return (
-		<Icon<Element>
-			{...rest}
+		<Icon
+			{...(rest as IconProps<Element>)}
+			as={as}
 			ref={ref}
 			// TODO: Maybe create a function that generates class names
 			className={classNames(__KEYS_ALERT_ICON_CLASS__, { [className]: !!className })}
@@ -78,8 +77,6 @@ const AlertIcon: PolymorphicComponentWithRef = forwardRef(function AlertIcon<
 	);
 });
 
-AlertIcon.displayName = 'AlertIcon';
+// AlertIcon.displayName = 'AlertIcon';
 
-export default <Element extends AlertIconElement = AlertIconDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <AlertIcon<Element> {...props} />;
+export default AlertIcon;

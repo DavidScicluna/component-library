@@ -3,6 +3,6 @@ import type { IconDefaultElement, IconElement, IconProps, IconRef } from '@compo
 export type AlertIconDefaultElement = IconDefaultElement;
 export type AlertIconElement = IconElement;
 
-export type AlertIconProps<Element extends AlertIconElement = AlertIconDefaultElement> = IconProps<Element>;
+export type AlertIconProps<Element extends AlertIconElement> = IconProps<Element>;
 
-export type AlertIconRef<Element extends AlertIconElement = AlertIconDefaultElement> = IconRef<Element>;
+export type AlertIconRef<Element extends AlertIconElement> = IconRef<Element>;
