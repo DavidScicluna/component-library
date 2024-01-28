@@ -3,35 +3,28 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
 import { useFormControlContext, useFormControlFontSize } from '@components/Forms/components/FormControl/common/hooks';
+import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
 import {
 	__DEFAULT_FORM_DESCRIPTION_ALIGN__,
+	__DEFAULT_FORM_DESCRIPTION_AS__,
 	__DEFAULT_FORM_DESCRIPTION_LINE_CLAMP__,
 	__DEFAULT_FORM_DESCRIPTION_LINE_HEIGHT__
 } from './common/constants';
 import { __KEYS_FORM_DESCRIPTION_CLASS__ } from './common/keys';
-import type {
-	FormDescriptionDefaultElement,
-	FormDescriptionElement,
-	FormDescriptionProps,
-	FormDescriptionRef
-} from './common/types';
+import type { FormDescriptionElement, FormDescriptionProps, FormDescriptionRef } from './common/types';
 import { getFormDescriptionID } from './common/utils';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const FormDescription: PolymorphicComponentWithRef = forwardRef(function FormDescription<
-	Element extends FormDescriptionElement = FormDescriptionDefaultElement
->(props: FormDescriptionProps<Element>, ref: FormDescriptionRef<Element>): ReactElement {
+const FormDescription = forwardRef(function FormDescription<Element extends FormDescriptionElement>(
+	props: FormDescriptionProps<Element>,
+	ref: FormDescriptionRef<Element>
+): ReactElement {
 	const { colorMode, id, size } = useFormControlContext();
 
 	const __DEFAULT_FORM_DESCRIPTION_COLOR__ = useGetColor({
@@ -44,6 +37,7 @@ const FormDescription: PolymorphicComponentWithRef = forwardRef(function FormDes
 
 	const {
 		children,
+		as = __DEFAULT_FORM_DESCRIPTION_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		align = __DEFAULT_FORM_DESCRIPTION_ALIGN__,
 		color = __DEFAULT_FORM_DESCRIPTION_COLOR__,
@@ -54,8 +48,9 @@ const FormDescription: PolymorphicComponentWithRef = forwardRef(function FormDes
 	} = props;
 
 	return (
-		<Text<Element>
-			{...rest}
+		<Text
+			{...(rest as TextProps<Element>)}
+			as={as}
 			ref={ref}
 			className={classNames(__KEYS_FORM_DESCRIPTION_CLASS__, { [className]: !!className })}
 			aria-description={children}
@@ -71,11 +66,6 @@ const FormDescription: PolymorphicComponentWithRef = forwardRef(function FormDes
 	);
 });
 
-FormDescription.displayName = 'FormDescription';
+// FormDescription.displayName = 'FormDescription';
 
-export default <
-	Element extends FormDescriptionElement = FormDescriptionDefaultElement,
-	Props = PolymorphicDefaultProps
->(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <FormDescription<Element> {...props} />;
+export default FormDescription;
