@@ -15,28 +15,29 @@ import {
 	__DEFAULT_NUMBER_INPUT_START_VALUE__,
 	__DEFAULT_NUMBER_INPUT_VARIANT__
 } from '../constants';
-import type { NumberInputProps, NumberInputSize, NumberInputVariant } from '../types';
+import type { NumberInputElement, NumberInputProps, NumberInputSize, NumberInputVariant } from '../types';
 
-type UseNumberInputResponsiveValuesProps = Partial<
-	Pick<
-		NumberInputProps,
-		| 'isCompact'
-		| 'isDisabled'
-		| 'isError'
-		| 'isFocused'
-		| 'isOutlined'
-		| 'isReadOnly'
-		| 'isRequired'
-		| 'isNegativeAllowed'
-		| 'isSuccess'
-		| 'isWarning'
-		| 'startValue'
-		| 'size'
-		| 'variant'
-	>
+type PickedNumberInputProps =
+	| 'isCompact'
+	| 'isDisabled'
+	| 'isError'
+	| 'isFocused'
+	| 'isOutlined'
+	| 'isReadOnly'
+	| 'isRequired'
+	| 'isNegativeAllowed'
+	| 'isSuccess'
+	| 'isWarning'
+	| 'startValue'
+	| 'size'
+	| 'variant';
+type UseNumberInputResponsiveValuesProps<Element extends NumberInputElement> = Partial<
+	Pick<NumberInputProps<Element>, PickedNumberInputProps>
 >;
 
-const useNumberInputResponsiveValues = (props: UseNumberInputResponsiveValuesProps) => {
+const useNumberInputResponsiveValues = <Element extends NumberInputElement>(
+	props: UseNumberInputResponsiveValuesProps<Element>
+) => {
 	const {
 		isCompact: isCompactProp = __DEFAULT_NUMBER_INPUT_IS_COMPACT__,
 		isDisabled: isDisabledProp = __DEFAULT_NUMBER_INPUT_IS_DISABLED__,

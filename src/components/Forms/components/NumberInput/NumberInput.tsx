@@ -7,13 +7,9 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps,
-	PolymorphicElement
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElement } from '@common/types';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 import type { IconButtonGroupItemChildrenProps } from '@components/Buttons';
 import { IconButton, IconButtonGroup, IconButtonGroupItem, IconButtonIcon } from '@components/Buttons';
@@ -26,6 +22,7 @@ import { getFormDescriptionID } from '../FormDescription/common/utils';
 import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
+	__DEFAULT_NUMBER_INPUT_AS__,
 	__DEFAULT_NUMBER_INPUT_ID__,
 	__DEFAULT_NUMBER_INPUT_IS_COMPACT__,
 	__DEFAULT_NUMBER_INPUT_IS_DISABLED__,
@@ -48,7 +45,6 @@ import {
 import { useNumberInputResponsiveValues } from './common/hooks';
 import { __KEYS_NUMBER_INPUT_CLASS__ } from './common/keys';
 import type {
-	NumberInputDefaultElement,
 	NumberInputElement,
 	NumberInputFocusEvent,
 	NumberInputMouseEvent,
@@ -59,9 +55,10 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const NumberInput: PolymorphicComponentWithRef = forwardRef(function NumberInput<
-	Element extends NumberInputElement = NumberInputDefaultElement
->(props: NumberInputProps<Element>, ref: NumberInputRef<Element>): ReactElement {
+const NumberInput = forwardRef(function NumberInput<Element extends NumberInputElement>(
+	props: NumberInputProps<Element>,
+	ref: NumberInputRef<Element>
+): ReactElement {
 	const numberInputRef = useRef<PolymorphicElement<Element>>();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
@@ -83,6 +80,7 @@ const NumberInput: PolymorphicComponentWithRef = forwardRef(function NumberInput
 	} = useFormControlContext();
 
 	const {
+		as = __DEFAULT_NUMBER_INPUT_AS__,
 		id = __DEFAULT_FORM_CONTROL_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		w,
@@ -135,7 +133,7 @@ const NumberInput: PolymorphicComponentWithRef = forwardRef(function NumberInput
 		startValue,
 		size,
 		variant
-	} = useNumberInputResponsiveValues({
+	} = useNumberInputResponsiveValues<Element>({
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
 		isError: isErrorProp,
@@ -228,7 +226,8 @@ const NumberInput: PolymorphicComponentWithRef = forwardRef(function NumberInput
 		}
 
 		if (onClick) {
-			onClick(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onClick(event as any);
 		}
 	};
 
@@ -241,7 +240,8 @@ const NumberInput: PolymorphicComponentWithRef = forwardRef(function NumberInput
 		}
 
 		if (onFocus) {
-			onFocus(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onFocus(event as any);
 		}
 	};
 
@@ -254,7 +254,8 @@ const NumberInput: PolymorphicComponentWithRef = forwardRef(function NumberInput
 		}
 
 		if (onBlur) {
-			onBlur(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onBlur(event as any);
 		}
 	};
 
@@ -306,12 +307,12 @@ const NumberInput: PolymorphicComponentWithRef = forwardRef(function NumberInput
 						</GridItem>
 					) : null}
 
-					<GridItem ref={childrenRef as GridItemRef}>
-						<Box<Element>
-							{...rest}
+					<GridItem ref={childrenRef as GridItemRef<PolymorphicDefaultElement>}>
+						<Box
+							{...(rest as BoxProps<Element>)}
+							as={as}
 							ref={refs}
 							className={classNames(classes.element)}
-							as='input'
 							aria-disabled={isDisabled ? 'true' : 'false'}
 							aria-describedby={getFormDescriptionID(id)}
 							aria-invalid={isError ? 'true' : 'false'}
@@ -375,8 +376,6 @@ const NumberInput: PolymorphicComponentWithRef = forwardRef(function NumberInput
 	);
 });
 
-NumberInput.displayName = 'NumberInput';
+// NumberInput.displayName = 'NumberInput';
 
-export default <Element extends NumberInputElement = NumberInputDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <NumberInput<Element> {...props} />;
+export default NumberInput;

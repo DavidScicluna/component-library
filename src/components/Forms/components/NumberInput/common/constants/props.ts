@@ -16,7 +16,9 @@ import {
 	__DEFAULT_FORMS_VARIANT__
 } from '@components/Forms/common/constants';
 
-import type { NumberInputSize, NumberInputVariant } from '../types';
+import type { NumberInputDefaultElement, NumberInputSize, NumberInputVariant } from '../types';
+
+export const __DEFAULT_NUMBER_INPUT_AS__: NumberInputDefaultElement = 'input';
 
 export const __DEFAULT_NUMBER_INPUT_ID__ = uuid();
 

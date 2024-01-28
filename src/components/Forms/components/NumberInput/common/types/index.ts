@@ -14,12 +14,9 @@ import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@com
 export type NumberInputDefaultElement = 'input';
 export type NumberInputElement = Extract<PolymorphicElementType, 'input'>;
 
-export type NumberInputMouseEvent<Element extends NumberInputElement = NumberInputDefaultElement> =
-	PolymorphicMouseEvent<Element>;
-export type NumberInputChangeEvent<Element extends NumberInputElement = NumberInputDefaultElement> =
-	PolymorphicChangeEvent<Element>;
-export type NumberInputFocusEvent<Element extends NumberInputElement = NumberInputDefaultElement> =
-	PolymorphicFocusEvent<Element>;
+export type NumberInputMouseEvent<Element extends NumberInputElement> = PolymorphicMouseEvent<Element>;
+export type NumberInputChangeEvent<Element extends NumberInputElement> = PolymorphicChangeEvent<Element>;
+export type NumberInputFocusEvent<Element extends NumberInputElement> = PolymorphicFocusEvent<Element>;
 
 // export type NumberInputAutoComplete = 'on' | 'password' | 'off';
 
@@ -27,7 +24,7 @@ export type NumberInputSize = FormsCommonSize;
 
 export type NumberInputVariant = FormsCommonVariant;
 
-export type NumberInputRenderProps<Element extends NumberInputElement = NumberInputDefaultElement> = Pick<
+export type NumberInputRenderProps<Element extends NumberInputElement> = Pick<
 	NumberInputOtherProps<Element>,
 	'color' | 'colorMode'
 > & { w?: number; h?: number };
@@ -47,7 +44,7 @@ type PickedFormsCommonProps =
 	| 'size'
 	| 'variant';
 
-type NumberInputOtherProps<Element extends NumberInputElement = NumberInputDefaultElement> = {
+type NumberInputOtherProps<Element extends NumberInputElement> = {
 	// autoComplete?: NumberInputAutoComplete;
 	renderLeft?: (props: NumberInputRenderProps<Element>) => ReactNode;
 	renderRight?: (props: NumberInputRenderProps<Element>) => ReactNode;
@@ -67,9 +64,9 @@ type NumberInputOtherProps<Element extends NumberInputElement = NumberInputDefau
 
 type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
-export type NumberInputProps<Element extends NumberInputElement = NumberInputDefaultElement> = Omit<
+export type NumberInputProps<Element extends NumberInputElement> = Omit<
 	BoxProps<Element, NumberInputOtherProps<Element>>,
 	OmittedBoxProps
 >;
 
-export type NumberInputRef<Element extends NumberInputElement = NumberInputDefaultElement> = BoxRef<Element>;
+export type NumberInputRef<Element extends NumberInputElement> = BoxRef<Element>;
