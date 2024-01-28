@@ -1,5 +1,5 @@
 import classes from '@common/classes';
-import type { ClassName } from '@common/types';
+import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import {
 	__DEFAULT_RADIO_IS_ACTIVE__,
@@ -14,10 +14,15 @@ import { useRadioResponsiveValues } from '.';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseRadioClassesProps = Pick<RadioProps, 'isActive' | 'isClickable' | 'isDisabled' | 'isReadOnly'>;
+type UseRadioClassesProps<Element extends PolymorphicElementType> = Pick<
+	RadioProps<Element>,
+	'isActive' | 'isClickable' | 'isDisabled' | 'isReadOnly'
+>;
 type UseRadioClassesReturn = ClassName;
 
-const useRadioClasses = (props: UseRadioClassesProps): UseRadioClassesReturn => {
+const useRadioClasses = <Element extends PolymorphicElementType>(
+	props: UseRadioClassesProps<Element>
+): UseRadioClassesReturn => {
 	const {
 		isActive: isActiveProp = __DEFAULT_RADIO_IS_ACTIVE__,
 		isClickable: isClickableProp = __DEFAULT_RADIO_IS_CLICKABLE__,
@@ -25,7 +30,7 @@ const useRadioClasses = (props: UseRadioClassesProps): UseRadioClassesReturn => 
 		isReadOnly: isReadOnlyProp = __DEFAULT_RADIO_IS_READONLY__
 	} = props;
 
-	const { isActive, isClickable, isDisabled, isReadOnly } = useRadioResponsiveValues({
+	const { isActive, isClickable, isDisabled, isReadOnly } = useRadioResponsiveValues<Element>({
 		isActive: isActiveProp,
 		isClickable: isClickableProp,
 		isDisabled: isDisabledProp,

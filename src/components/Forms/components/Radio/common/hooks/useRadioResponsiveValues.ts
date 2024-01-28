@@ -1,4 +1,5 @@
 import { useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicElementType } from '@common/types';
 
 import {
 	__DEFAULT_RADIO_IS_ACTIVE__,
@@ -33,9 +34,13 @@ type PickedRadioProps =
 	| 'isWarning'
 	| 'labelPosition'
 	| 'size';
-type UseRadioResponsiveValuesProps = Partial<Pick<RadioProps, PickedRadioProps>>;
+type UseRadioResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
+	Pick<RadioProps<Element>, PickedRadioProps>
+>;
 
-const useRadioResponsiveValues = (props: UseRadioResponsiveValuesProps) => {
+const useRadioResponsiveValues = <Element extends PolymorphicElementType>(
+	props: UseRadioResponsiveValuesProps<Element>
+) => {
 	const {
 		isActive: isActiveProp = __DEFAULT_RADIO_IS_ACTIVE__,
 		isChecked: isCheckedProp = __DEFAULT_RADIO_IS_CHECKED__,

@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 
+import type { PolymorphicElementType } from '@common/types';
 import { getFontSizeHeight } from '@common/utils';
 
 import type { IconProps } from '@components/DataDisplay';
@@ -11,15 +12,17 @@ import { useRadioResponsiveValues, useRadioSizeConfig } from '.';
 
 type RadioIconSize = Pick<IconProps, 'w' | 'h' | 'size'>;
 
-type UseRadioIconSizeProps = Pick<RadioProps, 'isCompact' | 'size'>;
+type UseRadioIconSizeProps<Element extends PolymorphicElementType> = Pick<RadioProps<Element>, 'isCompact' | 'size'>;
 type UseRadioIconSizeReturn = RadioIconSize;
 
-const useRadioIconSize = (props: UseRadioIconSizeProps): UseRadioIconSizeReturn => {
+const useRadioIconSize = <Element extends PolymorphicElementType>(
+	props: UseRadioIconSizeProps<Element>
+): UseRadioIconSizeReturn => {
 	const { isCompact: isCompactProp = __DEFAULT_RADIO_IS_COMPACT__, size: sizeProp = __DEFAULT_RADIO_SIZE__ } = props;
 
-	const { isCompact, size } = useRadioResponsiveValues({ isCompact: isCompactProp, size: sizeProp });
+	const { isCompact, size } = useRadioResponsiveValues<Element>({ isCompact: isCompactProp, size: sizeProp });
 
-	const config = useRadioSizeConfig({ isCompact, size });
+	const config = useRadioSizeConfig<Element>({ isCompact, size });
 
 	const iconSize = useMemo<number>(() => {
 		return getFontSizeHeight(config.fontSize, __DEFAULT_RADIO_LINE_HEIGHT_SIZE__);

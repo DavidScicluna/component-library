@@ -8,10 +8,7 @@ import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetColor } from '@common/hooks';
 import type {
 	PolymorphicChangeEvent,
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
 	PolymorphicElement,
 	PolymorphicElementType
 } from '@common/types';
@@ -19,6 +16,7 @@ import type {
 import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
+import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 import { PushableOverlay } from '@components/Overlay';
 import { VisuallyHidden } from '@components/VisuallyHidden';
@@ -52,10 +50,11 @@ import type { RadioFocusEvent, RadioMouseEvent, RadioProps, RadioRef } from './c
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: RadioProps<Element>, ref: RadioRef<Element>): ReactElement {
-	const pushableOverlayRef = useRef<PolymorphicElement>(null);
+const Radio = forwardRef(function Radio<Element extends PolymorphicElementType>(
+	props: RadioProps<Element>,
+	ref: RadioRef<Element>
+): ReactElement {
+	const pushableOverlayRef = useRef<PolymorphicElement<PolymorphicDefaultElement>>(null);
 
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
@@ -120,7 +119,7 @@ const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
 		isWarning,
 		labelPosition,
 		size
-	} = useRadioResponsiveValues({
+	} = useRadioResponsiveValues<Element>({
 		isActive: isActiveProp,
 		isChecked: isCheckedProp,
 		isClickable: isClickableProp,
@@ -139,10 +138,10 @@ const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
 
 	const isFocused = useMemo<boolean>(() => focused || isFocusedHook, [focused, isFocusedHook]);
 
-	const classes = useRadioClasses({ isActive, isClickable, isDisabled, isReadOnly });
+	const classes = useRadioClasses<Element>({ isActive, isClickable, isDisabled, isReadOnly });
 
-	const config = useRadioSizeConfig({ isCompact, size });
-	const iconSize = useRadioIconSize({ isCompact, size });
+	const config = useRadioSizeConfig<Element>({ isCompact, size });
+	const iconSize = useRadioIconSize<Element>({ isCompact, size });
 
 	const labelColor = useGetColor({
 		color: 'gray',
@@ -199,9 +198,9 @@ const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
 	}, [isFocused]);
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
 			{...focusProps}
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_RADIO_CLASS__, classes, { [className]: !!className })}
 			w={hasFormControl ? '100%' : w}
@@ -250,7 +249,7 @@ const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
 					py={config.padding.y}
 				>
 					<VisuallyHidden>
-						<Box<'input'>
+						<Box
 							as='input'
 							aria-checked={isChecked ? 'true' : 'false'}
 							aria-disabled={isDisabled ? 'true' : 'false'}
@@ -266,7 +265,7 @@ const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
 							type={type}
 							onChange={
 								onToggle
-									? (event: PolymorphicChangeEvent<'input'>) => onToggle(event.target.checked)
+									? (event: PolymorphicChangeEvent<'input'>) => onToggle(!!event.target.checked)
 									: undefined
 							}
 						/>
@@ -301,8 +300,6 @@ const Radio: PolymorphicComponentWithRef = forwardRef(function Radio<
 	);
 });
 
-Radio.displayName = 'Radio';
+// Radio.displayName = 'Radio';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Radio<Element> {...props} />;
+export default Radio;
