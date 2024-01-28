@@ -7,13 +7,9 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps,
-	PolymorphicElement
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElement } from '@common/types';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 import type { FileButtonChildrenProps } from '@components/Buttons';
 import { FileButton } from '@components/Buttons';
@@ -27,6 +23,7 @@ import { getFormDescriptionID } from '../FormDescription/common/utils';
 import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
+	__DEFAULT_FILE_INPUT_AS__,
 	__DEFAULT_FILE_INPUT_ID__,
 	__DEFAULT_FILE_INPUT_IS_COMPACT__,
 	__DEFAULT_FILE_INPUT_IS_DISABLED__,
@@ -45,7 +42,6 @@ import {
 import { useFileInputResponsiveValues } from './common/hooks';
 import { __KEYS_FILE_INPUT_CLASS__ } from './common/keys';
 import type {
-	FileInputDefaultElement,
 	FileInputElement,
 	FileInputFocusEvent,
 	FileInputMouseEvent,
@@ -56,9 +52,10 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const FileInput: PolymorphicComponentWithRef = forwardRef(function FileInput<
-	Element extends FileInputElement = FileInputDefaultElement
->(props: FileInputProps<Element>, ref: FileInputRef<Element>): ReactElement {
+const FileInput = forwardRef(function FileInput<Element extends FileInputElement>(
+	props: FileInputProps<Element>,
+	ref: FileInputRef<Element>
+): ReactElement {
 	const fileInputRef = useRef<PolymorphicElement<Element>>();
 	const refs = useMergeRefs(ref, fileInputRef);
 
@@ -80,6 +77,7 @@ const FileInput: PolymorphicComponentWithRef = forwardRef(function FileInput<
 	} = useFormControlContext();
 
 	const {
+		as = __DEFAULT_FILE_INPUT_AS__,
 		id = __DEFAULT_FORM_CONTROL_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		w,
@@ -127,7 +125,7 @@ const FileInput: PolymorphicComponentWithRef = forwardRef(function FileInput<
 		isWarning,
 		size,
 		variant
-	} = useFileInputResponsiveValues({
+	} = useFileInputResponsiveValues<Element>({
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
 		isError: isErrorProp,
@@ -185,7 +183,8 @@ const FileInput: PolymorphicComponentWithRef = forwardRef(function FileInput<
 		}
 
 		if (onClick) {
-			onClick(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onClick(event as any);
 		}
 	};
 
@@ -198,7 +197,8 @@ const FileInput: PolymorphicComponentWithRef = forwardRef(function FileInput<
 		}
 
 		if (onFocus) {
-			onFocus(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onFocus(event as any);
 		}
 	};
 
@@ -211,7 +211,8 @@ const FileInput: PolymorphicComponentWithRef = forwardRef(function FileInput<
 		}
 
 		if (onBlur) {
-			onBlur(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onBlur(event as any);
 		}
 	};
 
@@ -261,12 +262,12 @@ const FileInput: PolymorphicComponentWithRef = forwardRef(function FileInput<
 						{renderLeft ? renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight }) : null}
 					</GridItem>
 
-					<GridItem ref={childrenRef as GridItemRef}>
-						<Box<Element>
-							{...rest}
+					<GridItem ref={childrenRef as GridItemRef<PolymorphicDefaultElement>}>
+						<Box
+							{...(rest as BoxProps<Element>)}
+							as={as}
 							ref={refs}
 							className={classNames(classes.element)}
-							as='input'
 							aria-disabled={isUploading || isDisabled ? 'true' : 'false'}
 							aria-describedby={getFormDescriptionID(id)}
 							aria-invalid={isError ? 'true' : 'false'}
@@ -296,8 +297,6 @@ const FileInput: PolymorphicComponentWithRef = forwardRef(function FileInput<
 	);
 });
 
-FileInput.displayName = 'FileInput';
+// FileInput.displayName = 'FileInput';
 
-export default <Element extends FileInputElement = FileInputDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <FileInput<Element> {...props} />;
+export default FileInput;

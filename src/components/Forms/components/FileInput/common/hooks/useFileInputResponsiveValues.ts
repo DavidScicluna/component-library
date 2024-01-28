@@ -13,27 +13,28 @@ import {
 	__DEFAULT_FILE_INPUT_SIZE__,
 	__DEFAULT_FILE_INPUT_VARIANT__
 } from '../constants';
-import type { FileInputProps, FileInputSize, FileInputVariant } from '../types';
+import type { FileInputElement, FileInputProps, FileInputSize, FileInputVariant } from '../types';
 
-type UseFileInputResponsiveValuesProps = Partial<
-	Pick<
-		FileInputProps,
-		| 'isCompact'
-		| 'isDisabled'
-		| 'isError'
-		| 'isFocused'
-		| 'isMultiple'
-		| 'isOutlined'
-		| 'isReadOnly'
-		| 'isRequired'
-		| 'isSuccess'
-		| 'isWarning'
-		| 'size'
-		| 'variant'
-	>
+type PickedFileInputProps =
+	| 'isCompact'
+	| 'isDisabled'
+	| 'isError'
+	| 'isFocused'
+	| 'isMultiple'
+	| 'isOutlined'
+	| 'isReadOnly'
+	| 'isRequired'
+	| 'isSuccess'
+	| 'isWarning'
+	| 'size'
+	| 'variant';
+type UseFileInputResponsiveValuesProps<Element extends FileInputElement> = Partial<
+	Pick<FileInputProps<Element>, PickedFileInputProps>
 >;
 
-const useFileInputResponsiveValues = (props: UseFileInputResponsiveValuesProps) => {
+const useFileInputResponsiveValues = <Element extends FileInputElement>(
+	props: UseFileInputResponsiveValuesProps<Element>
+) => {
 	const {
 		isCompact: isCompactProp = __DEFAULT_FILE_INPUT_IS_COMPACT__,
 		isDisabled: isDisabledProp = __DEFAULT_FILE_INPUT_IS_DISABLED__,

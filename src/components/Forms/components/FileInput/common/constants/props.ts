@@ -16,7 +16,9 @@ import {
 	__DEFAULT_FORMS_VARIANT__
 } from '@components/Forms/common/constants';
 
-import type { FileInputSize, FileInputVariant } from '../types';
+import type { FileInputDefaultElement, FileInputSize, FileInputVariant } from '../types';
+
+export const __DEFAULT_FILE_INPUT_AS__: FileInputDefaultElement = 'input';
 
 export const __DEFAULT_FILE_INPUT_ID__ = uuid();
 

@@ -9,24 +9,21 @@ import type {
 } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
-import type { FileButtonProps } from '@components/Buttons';
+import type { FileButtonDefaultElement, FileButtonProps } from '@components/Buttons';
 import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
 
 export type FileInputDefaultElement = 'input';
 export type FileInputElement = Extract<PolymorphicElementType, 'input'>;
 
-export type FileInputMouseEvent<Element extends FileInputElement = FileInputDefaultElement> =
-	PolymorphicMouseEvent<Element>;
-export type FileInputChangeEvent<Element extends FileInputElement = FileInputDefaultElement> =
-	PolymorphicChangeEvent<Element>;
-export type FileInputFocusEvent<Element extends FileInputElement = FileInputDefaultElement> =
-	PolymorphicFocusEvent<Element>;
+export type FileInputMouseEvent<Element extends FileInputElement> = PolymorphicMouseEvent<Element>;
+export type FileInputChangeEvent<Element extends FileInputElement> = PolymorphicChangeEvent<Element>;
+export type FileInputFocusEvent<Element extends FileInputElement> = PolymorphicFocusEvent<Element>;
 
 export type FileInputSize = FormsCommonSize;
 
 export type FileInputVariant = FormsCommonVariant;
 
-export type FileInputRenderProps<Element extends FileInputElement = FileInputDefaultElement> = Pick<
+export type FileInputRenderProps<Element extends FileInputElement> = Pick<
 	FileInputOtherProps<Element>,
 	'color' | 'colorMode'
 > & { w?: number; h?: number };
@@ -46,8 +43,8 @@ type PickedFormsCommonProps =
 	| 'size'
 	| 'variant';
 
-type FileInputOtherProps<Element extends FileInputElement = FileInputDefaultElement> = Pick<
-	FileButtonProps,
+type FileInputOtherProps<Element extends FileInputElement> = Pick<
+	FileButtonProps<FileButtonDefaultElement>,
 	'accept' | 'onSuccess' | 'onError'
 > & {
 	renderLeft?: (props: FileInputRenderProps<Element>) => ReactNode;
@@ -62,9 +59,9 @@ type FileInputOtherProps<Element extends FileInputElement = FileInputDefaultElem
 
 type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
-export type FileInputProps<Element extends FileInputElement = FileInputDefaultElement> = Omit<
+export type FileInputProps<Element extends FileInputElement> = Omit<
 	BoxProps<Element, FileInputOtherProps<Element>>,
 	OmittedBoxProps
 >;
 
-export type FileInputRef<Element extends FileInputElement = FileInputDefaultElement> = BoxRef<Element>;
+export type FileInputRef<Element extends FileInputElement> = BoxRef<Element>;
