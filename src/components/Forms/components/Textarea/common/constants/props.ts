@@ -16,7 +16,9 @@ import {
 	__DEFAULT_FORMS_VARIANT__
 } from '@components/Forms/common/constants';
 
-import type { TextareaSize, TextareaVariant } from '../types';
+import type { TextareaDefaultElement, TextareaSize, TextareaVariant } from '../types';
+
+export const __DEFAULT_TEXTAREA_AS__: TextareaDefaultElement = 'textarea';
 
 export const __DEFAULT_TEXTAREA_ID__ = uuid();
 

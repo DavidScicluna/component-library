@@ -15,27 +15,28 @@ import {
 	__DEFAULT_TEXTAREA_SIZE__,
 	__DEFAULT_TEXTAREA_VARIANT__
 } from '../constants';
-import type { TextareaProps, TextareaSize, TextareaVariant } from '../types';
+import type { TextareaElement, TextareaProps, TextareaSize, TextareaVariant } from '../types';
 
-type UseTextareaResponsiveValuesProps = Partial<
-	Pick<
-		TextareaProps,
-		| 'isCompact'
-		| 'isDisabled'
-		| 'isError'
-		| 'isFocused'
-		| 'isOutlined'
-		| 'isReadOnly'
-		| 'isRequired'
-		| 'isSuccess'
-		| 'isWarning'
-		| 'resize'
-		| 'size'
-		| 'variant'
-	>
+type PickedTextareaProps =
+	| 'isCompact'
+	| 'isDisabled'
+	| 'isError'
+	| 'isFocused'
+	| 'isOutlined'
+	| 'isReadOnly'
+	| 'isRequired'
+	| 'isSuccess'
+	| 'isWarning'
+	| 'resize'
+	| 'size'
+	| 'variant';
+type UseTextareaResponsiveValuesProps<Element extends TextareaElement> = Partial<
+	Pick<TextareaProps<Element>, PickedTextareaProps>
 >;
 
-const useTextareaResponsiveValues = (props: UseTextareaResponsiveValuesProps) => {
+const useTextareaResponsiveValues = <Element extends TextareaElement>(
+	props: UseTextareaResponsiveValuesProps<Element>
+) => {
 	const {
 		isCompact: isCompactProp = __DEFAULT_TEXTAREA_IS_COMPACT__,
 		isDisabled: isDisabledProp = __DEFAULT_TEXTAREA_IS_DISABLED__,

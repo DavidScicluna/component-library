@@ -11,23 +11,20 @@ import type {
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
-import type { TextProps } from '@components/Typography';
+import type { TextDefaultElement, TextProps } from '@components/Typography';
 
 export type TextareaDefaultElement = 'textarea';
 export type TextareaElement = Extract<PolymorphicElementType, 'textarea'>;
 
-export type TextareaMouseEvent<Element extends TextareaElement = TextareaDefaultElement> =
-	PolymorphicMouseEvent<Element>;
-export type TextareaChangeEvent<Element extends TextareaElement = TextareaDefaultElement> =
-	PolymorphicChangeEvent<Element>;
-export type TextareaFocusEvent<Element extends TextareaElement = TextareaDefaultElement> =
-	PolymorphicFocusEvent<Element>;
+export type TextareaMouseEvent<Element extends TextareaElement> = PolymorphicMouseEvent<Element>;
+export type TextareaChangeEvent<Element extends TextareaElement> = PolymorphicChangeEvent<Element>;
+export type TextareaFocusEvent<Element extends TextareaElement> = PolymorphicFocusEvent<Element>;
 
 export type TextareaSize = FormsCommonSize;
 
 export type TextareaVariant = FormsCommonVariant;
 
-export type TextareaRenderProps<Element extends TextareaElement = TextareaDefaultElement> = Pick<
+export type TextareaRenderProps<Element extends TextareaElement> = Pick<
 	TextareaOtherProps<Element>,
 	'color' | 'colorMode'
 > & { w?: number; h?: number };
@@ -47,11 +44,11 @@ type PickedFormsCommonProps =
 	| 'size'
 	| 'variant';
 
-type TextareaOtherProps<Element extends TextareaElement = TextareaDefaultElement> = {
+type TextareaOtherProps<Element extends TextareaElement> = {
 	// autoComplete?: TextareaAutoComplete;
 	renderLeft?: (props: TextareaRenderProps<Element>) => ReactNode;
 	renderRight?: (props: TextareaRenderProps<Element>) => ReactNode;
-	renderTotal?: (props: TextProps) => ReactNode;
+	renderTotal?: (props: TextProps<TextDefaultElement>) => ReactNode;
 	/**
 	 * How the textarea can be resized
 	 *
@@ -62,9 +59,9 @@ type TextareaOtherProps<Element extends TextareaElement = TextareaDefaultElement
 
 type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
-export type TextareaProps<Element extends TextareaElement = TextareaDefaultElement> = Omit<
-	BoxProps<Element, TextareaOtherProps>,
+export type TextareaProps<Element extends TextareaElement> = Omit<
+	BoxProps<Element, TextareaOtherProps<Element>>,
 	OmittedBoxProps
 >;
 
-export type TextareaRef<Element extends TextareaElement = TextareaDefaultElement> = BoxRef<Element>;
+export type TextareaRef<Element extends TextareaElement> = BoxRef<Element>;

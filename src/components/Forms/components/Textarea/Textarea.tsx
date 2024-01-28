@@ -8,13 +8,9 @@ import { useElementSize } from 'usehooks-ts';
 import classes from '@common/classes';
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps,
-	PolymorphicElement
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElement } from '@common/types';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 import { useFormsClasses, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
@@ -25,6 +21,7 @@ import { getFormDescriptionID } from '../FormDescription/common/utils';
 import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
+	__DEFAULT_TEXTAREA_AS__,
 	__DEFAULT_TEXTAREA_ID__,
 	__DEFAULT_TEXTAREA_IS_COMPACT__,
 	__DEFAULT_TEXTAREA_IS_DISABLED__,
@@ -42,7 +39,6 @@ import {
 import { useTextareaResponsiveValues } from './common/hooks';
 import { __KEYS_TEXTAREA_CLASS__, __KEYS_TEXTAREA_TOTAL_CLASS__ } from './common/keys';
 import type {
-	TextareaDefaultElement,
 	TextareaElement,
 	TextareaFocusEvent,
 	TextareaMouseEvent,
@@ -55,9 +51,10 @@ const classNames = require('classnames');
 
 const { interactivity } = classes;
 
-const Textarea: PolymorphicComponentWithRef = forwardRef(function Textarea<
-	Element extends TextareaElement = TextareaDefaultElement
->(props: TextareaProps<Element>, ref: TextareaRef<Element>): ReactElement {
+const Textarea = forwardRef(function Textarea<Element extends TextareaElement>(
+	props: TextareaProps<Element>,
+	ref: TextareaRef<Element>
+): ReactElement {
 	const textareaRef = useRef<PolymorphicElement<Element>>();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
@@ -79,6 +76,7 @@ const Textarea: PolymorphicComponentWithRef = forwardRef(function Textarea<
 	} = useFormControlContext();
 
 	const {
+		as = __DEFAULT_TEXTAREA_AS__,
 		id = __DEFAULT_FORM_CONTROL_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		w,
@@ -123,7 +121,7 @@ const Textarea: PolymorphicComponentWithRef = forwardRef(function Textarea<
 		resize,
 		size,
 		variant
-	} = useTextareaResponsiveValues({
+	} = useTextareaResponsiveValues<Element>({
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
 		isError: isErrorProp,
@@ -177,7 +175,8 @@ const Textarea: PolymorphicComponentWithRef = forwardRef(function Textarea<
 		}
 
 		if (onClick) {
-			onClick(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onClick(event as any);
 		}
 	};
 
@@ -190,7 +189,8 @@ const Textarea: PolymorphicComponentWithRef = forwardRef(function Textarea<
 		}
 
 		if (onFocus) {
-			onFocus(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onFocus(event as any);
 		}
 	};
 
@@ -203,7 +203,8 @@ const Textarea: PolymorphicComponentWithRef = forwardRef(function Textarea<
 		}
 
 		if (onBlur) {
-			onBlur(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onBlur(event as any);
 		}
 	};
 
@@ -254,12 +255,12 @@ const Textarea: PolymorphicComponentWithRef = forwardRef(function Textarea<
 						</GridItem>
 					) : null}
 
-					<GridItem ref={childrenRef as GridItemRef}>
-						<Box<Element>
-							{...rest}
+					<GridItem ref={childrenRef as GridItemRef<PolymorphicDefaultElement>}>
+						<Box
+							{...(rest as BoxProps<Element>)}
+							as={as}
 							ref={refs}
 							className={classNames(classes.element, interactivity.resize[resize])}
-							as='textarea'
 							aria-disabled={isDisabled ? 'true' : 'false'}
 							aria-describedby={getFormDescriptionID(id)}
 							aria-invalid={isError ? 'true' : 'false'}
@@ -301,8 +302,6 @@ const Textarea: PolymorphicComponentWithRef = forwardRef(function Textarea<
 	);
 });
 
-Textarea.displayName = 'Textarea';
+// Textarea.displayName = 'Textarea';
 
-export default <Element extends TextareaElement = TextareaDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Textarea<Element> {...props} />;
+export default Textarea;
