@@ -13,26 +13,27 @@ import {
 	__DEFAULT_PASSWORD_INPUT_SIZE__,
 	__DEFAULT_PASSWORD_INPUT_VARIANT__
 } from '../constants';
-import type { PasswordInputProps, PasswordInputSize, PasswordInputVariant } from '../types';
+import type { PasswordInputElement, PasswordInputProps, PasswordInputSize, PasswordInputVariant } from '../types';
 
-type UsePasswordInputResponsiveValuesProps = Partial<
-	Pick<
-		PasswordInputProps,
-		| 'isCompact'
-		| 'isDisabled'
-		| 'isError'
-		| 'isFocused'
-		| 'isOutlined'
-		| 'isReadOnly'
-		| 'isRequired'
-		| 'isSuccess'
-		| 'isWarning'
-		| 'size'
-		| 'variant'
-	>
+type PickedPasswordInputProps =
+	| 'isCompact'
+	| 'isDisabled'
+	| 'isError'
+	| 'isFocused'
+	| 'isOutlined'
+	| 'isReadOnly'
+	| 'isRequired'
+	| 'isSuccess'
+	| 'isWarning'
+	| 'size'
+	| 'variant';
+type UsePasswordInputResponsiveValuesProps<Element extends PasswordInputElement> = Partial<
+	Pick<PasswordInputProps<Element>, PickedPasswordInputProps>
 >;
 
-const usePasswordInputResponsiveValues = (props: UsePasswordInputResponsiveValuesProps) => {
+const usePasswordInputResponsiveValues = <Element extends PasswordInputElement>(
+	props: UsePasswordInputResponsiveValuesProps<Element>
+) => {
 	const {
 		isCompact: isCompactProp = __DEFAULT_PASSWORD_INPUT_IS_COMPACT__,
 		isDisabled: isDisabledProp = __DEFAULT_PASSWORD_INPUT_IS_DISABLED__,

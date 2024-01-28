@@ -16,7 +16,9 @@ import {
 	__DEFAULT_FORMS_VARIANT__
 } from '@components/Forms/common/constants';
 
-import type { PasswordInputSize, PasswordInputVariant } from '../types';
+import type { PasswordInputDefaultElement, PasswordInputSize, PasswordInputVariant } from '../types';
+
+export const __DEFAULT_PASSWORD_INPUT_AS__: PasswordInputDefaultElement = 'input';
 
 export const __DEFAULT_PASSWORD_INPUT_ID__ = uuid();
 

@@ -7,13 +7,9 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps,
-	PolymorphicElement
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElement } from '@common/types';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
 import { useFormsClasses, useFormsIconSize, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
@@ -25,6 +21,7 @@ import { getFormDescriptionID } from '../FormDescription/common/utils';
 import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
+	__DEFAULT_PASSWORD_INPUT_AS__,
 	__DEFAULT_PASSWORD_INPUT_ID__,
 	__DEFAULT_PASSWORD_INPUT_IS_COMPACT__,
 	__DEFAULT_PASSWORD_INPUT_IS_DISABLED__,
@@ -42,7 +39,6 @@ import {
 import { usePasswordInputResponsiveValues } from './common/hooks';
 import { __KEYS_PASSWORD_INPUT_CLASS__ } from './common/keys';
 import type {
-	PasswordInputDefaultElement,
 	PasswordInputElement,
 	PasswordInputFocusEvent,
 	PasswordInputMouseEvent,
@@ -53,9 +49,10 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const PasswordInput: PolymorphicComponentWithRef = forwardRef(function PasswordInput<
-	Element extends PasswordInputElement = PasswordInputDefaultElement
->(props: PasswordInputProps<Element>, ref: PasswordInputRef<Element>): ReactElement {
+const PasswordInput = forwardRef(function PasswordInput<Element extends PasswordInputElement>(
+	props: PasswordInputProps<Element>,
+	ref: PasswordInputRef<Element>
+): ReactElement {
 	const passwordInputRef = useRef<PolymorphicElement<Element>>();
 	const refs = useMergeRefs(ref, passwordInputRef);
 
@@ -77,6 +74,7 @@ const PasswordInput: PolymorphicComponentWithRef = forwardRef(function PasswordI
 	} = useFormControlContext();
 
 	const {
+		as = __DEFAULT_PASSWORD_INPUT_AS__,
 		id = __DEFAULT_FORM_CONTROL_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		w,
@@ -122,7 +120,7 @@ const PasswordInput: PolymorphicComponentWithRef = forwardRef(function PasswordI
 		isWarning,
 		size,
 		variant
-	} = usePasswordInputResponsiveValues({
+	} = usePasswordInputResponsiveValues<Element>({
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
 		isError: isErrorProp,
@@ -184,7 +182,8 @@ const PasswordInput: PolymorphicComponentWithRef = forwardRef(function PasswordI
 		}
 
 		if (onClick) {
-			onClick(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onClick(event as any);
 		}
 	};
 
@@ -197,7 +196,8 @@ const PasswordInput: PolymorphicComponentWithRef = forwardRef(function PasswordI
 		}
 
 		if (onFocus) {
-			onFocus(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onFocus(event as any);
 		}
 	};
 
@@ -210,7 +210,8 @@ const PasswordInput: PolymorphicComponentWithRef = forwardRef(function PasswordI
 		}
 
 		if (onBlur) {
-			onBlur(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onBlur(event as any);
 		}
 	};
 
@@ -255,12 +256,12 @@ const PasswordInput: PolymorphicComponentWithRef = forwardRef(function PasswordI
 				{renderLeft ? renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight }) : null}
 			</GridItem>
 
-			<GridItem ref={childrenRef as GridItemRef}>
-				<Box<Element>
-					{...rest}
+			<GridItem ref={childrenRef as GridItemRef<PolymorphicDefaultElement>}>
+				<Box
+					{...(rest as BoxProps<Element>)}
+					as={as}
 					ref={refs}
 					className={classNames(classes.element)}
-					as='input'
 					aria-disabled={isDisabled ? 'true' : 'false'}
 					aria-describedby={getFormDescriptionID(id)}
 					aria-invalid={isError ? 'true' : 'false'}
@@ -298,8 +299,6 @@ const PasswordInput: PolymorphicComponentWithRef = forwardRef(function PasswordI
 	);
 });
 
-PasswordInput.displayName = 'PasswordInput';
+// PasswordInput.displayName = 'PasswordInput';
 
-export default <Element extends PasswordInputElement = PasswordInputDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <PasswordInput<Element> {...props} />;
+export default PasswordInput;

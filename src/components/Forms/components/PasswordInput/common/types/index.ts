@@ -8,18 +8,15 @@ import type {
 } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
-import type { IconButtonProps } from '@components/Buttons';
+import type { IconButtonDefaultElement, IconButtonProps } from '@components/Buttons';
 import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
 
 export type PasswordInputDefaultElement = 'input';
 export type PasswordInputElement = Extract<PolymorphicElementType, 'input'>;
 
-export type PasswordInputMouseEvent<Element extends PasswordInputElement = PasswordInputDefaultElement> =
-	PolymorphicMouseEvent<Element>;
-export type PasswordInputChangeEvent<Element extends PasswordInputElement = PasswordInputDefaultElement> =
-	PolymorphicChangeEvent<Element>;
-export type PasswordInputFocusEvent<Element extends PasswordInputElement = PasswordInputDefaultElement> =
-	PolymorphicFocusEvent<Element>;
+export type PasswordInputMouseEvent<Element extends PasswordInputElement> = PolymorphicMouseEvent<Element>;
+export type PasswordInputChangeEvent<Element extends PasswordInputElement> = PolymorphicChangeEvent<Element>;
+export type PasswordInputFocusEvent<Element extends PasswordInputElement> = PolymorphicFocusEvent<Element>;
 
 // export type PasswordInputAutoComplete = 'on' | 'password' | 'off';
 
@@ -28,10 +25,10 @@ export type PasswordInputSize = FormsCommonSize;
 export type PasswordInputVariant = FormsCommonVariant;
 
 export type PasswordInputRenderToggleProps = Pick<
-	IconButtonProps,
+	IconButtonProps<IconButtonDefaultElement>,
 	'color' | 'colorMode' | 'isCompact' | 'onClick' | 'size' | 'variant'
 > & { isVisible: boolean };
-export type PasswordInputRenderProps<Element extends PasswordInputElement = PasswordInputDefaultElement> = Pick<
+export type PasswordInputRenderProps<Element extends PasswordInputElement> = Pick<
 	PasswordInputOtherProps<Element>,
 	'color' | 'colorMode'
 > & { w?: number; h?: number };
@@ -51,7 +48,7 @@ type PickedFormsCommonProps =
 	| 'size'
 	| 'variant';
 
-type PasswordInputOtherProps<Element extends PasswordInputElement = PasswordInputDefaultElement> = {
+type PasswordInputOtherProps<Element extends PasswordInputElement> = {
 	// autoComplete?: PasswordInputAutoComplete;
 	renderToggle?: (props: PasswordInputRenderToggleProps) => ReactNode;
 	renderLeft?: (props: PasswordInputRenderProps<Element>) => ReactNode;
@@ -60,9 +57,9 @@ type PasswordInputOtherProps<Element extends PasswordInputElement = PasswordInpu
 
 type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
-export type PasswordInputProps<Element extends PasswordInputElement = PasswordInputDefaultElement> = Omit<
+export type PasswordInputProps<Element extends PasswordInputElement> = Omit<
 	BoxProps<Element, PasswordInputOtherProps<Element>>,
 	OmittedBoxProps
 >;
 
-export type PasswordInputRef<Element extends PasswordInputElement = PasswordInputDefaultElement> = BoxRef<Element>;
+export type PasswordInputRef<Element extends PasswordInputElement> = BoxRef<Element>;
