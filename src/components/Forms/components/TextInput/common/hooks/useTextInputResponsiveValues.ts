@@ -13,26 +13,27 @@ import {
 	__DEFAULT_TEXT_INPUT_SIZE__,
 	__DEFAULT_TEXT_INPUT_VARIANT__
 } from '../constants';
-import type { TextInputProps, TextInputSize, TextInputVariant } from '../types';
+import type { TextInputElement, TextInputProps, TextInputSize, TextInputVariant } from '../types';
 
-type UseTextInputResponsiveValuesProps = Partial<
-	Pick<
-		TextInputProps,
-		| 'isCompact'
-		| 'isDisabled'
-		| 'isError'
-		| 'isFocused'
-		| 'isOutlined'
-		| 'isReadOnly'
-		| 'isRequired'
-		| 'isSuccess'
-		| 'isWarning'
-		| 'size'
-		| 'variant'
-	>
+type PickedTextInputProps =
+	| 'isCompact'
+	| 'isDisabled'
+	| 'isError'
+	| 'isFocused'
+	| 'isOutlined'
+	| 'isReadOnly'
+	| 'isRequired'
+	| 'isSuccess'
+	| 'isWarning'
+	| 'size'
+	| 'variant';
+type UseTextInputResponsiveValuesProps<Element extends TextInputElement> = Partial<
+	Pick<TextInputProps<Element>, PickedTextInputProps>
 >;
 
-const useTextInputResponsiveValues = (props: UseTextInputResponsiveValuesProps) => {
+const useTextInputResponsiveValues = <Element extends TextInputElement>(
+	props: UseTextInputResponsiveValuesProps<Element>
+) => {
 	const {
 		isCompact: isCompactProp = __DEFAULT_TEXT_INPUT_IS_COMPACT__,
 		isDisabled: isDisabledProp = __DEFAULT_TEXT_INPUT_IS_DISABLED__,

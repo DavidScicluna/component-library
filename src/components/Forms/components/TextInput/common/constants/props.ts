@@ -16,7 +16,9 @@ import {
 	__DEFAULT_FORMS_VARIANT__
 } from '@components/Forms/common/constants';
 
-import type { TextInputSize, TextInputVariant } from '../types';
+import type { TextInputDefaultElement, TextInputSize, TextInputVariant } from '../types';
+
+export const __DEFAULT_TEXT_INPUT_AS__: TextInputDefaultElement = 'input';
 
 export const __DEFAULT_TEXT_INPUT_ID__ = uuid();
 

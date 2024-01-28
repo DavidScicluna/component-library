@@ -7,13 +7,9 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps,
-	PolymorphicElement
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElement } from '@common/types';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 import { useFormsClasses, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
@@ -24,6 +20,7 @@ import { getFormDescriptionID } from '../FormDescription/common/utils';
 import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
+	__DEFAULT_TEXT_INPUT_AS__,
 	__DEFAULT_TEXT_INPUT_ID__,
 	__DEFAULT_TEXT_INPUT_IS_COMPACT__,
 	__DEFAULT_TEXT_INPUT_IS_DISABLED__,
@@ -41,7 +38,6 @@ import {
 import { useTextInputResponsiveValues } from './common/hooks';
 import { __KEYS_TEXT_INPUT_CLASS__ } from './common/keys';
 import type {
-	TextInputDefaultElement,
 	TextInputElement,
 	TextInputFocusEvent,
 	TextInputMouseEvent,
@@ -52,9 +48,10 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const TextInput: PolymorphicComponentWithRef = forwardRef(function TextInput<
-	Element extends TextInputElement = TextInputDefaultElement
->(props: TextInputProps<Element>, ref: TextInputRef<Element>): ReactElement {
+const TextInput = forwardRef(function TextInput<Element extends TextInputElement>(
+	props: TextInputProps<Element>,
+	ref: TextInputRef<Element>
+): ReactElement {
 	const textInputRef = useRef<PolymorphicElement<Element>>();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
@@ -76,6 +73,7 @@ const TextInput: PolymorphicComponentWithRef = forwardRef(function TextInput<
 	} = useFormControlContext();
 
 	const {
+		as = __DEFAULT_TEXT_INPUT_AS__,
 		id = __DEFAULT_FORM_CONTROL_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		w,
@@ -118,7 +116,7 @@ const TextInput: PolymorphicComponentWithRef = forwardRef(function TextInput<
 		isWarning,
 		size,
 		variant
-	} = useTextInputResponsiveValues({
+	} = useTextInputResponsiveValues<Element>({
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
 		isError: isErrorProp,
@@ -171,7 +169,8 @@ const TextInput: PolymorphicComponentWithRef = forwardRef(function TextInput<
 		}
 
 		if (onClick) {
-			onClick(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onClick(event as any);
 		}
 	};
 
@@ -184,7 +183,8 @@ const TextInput: PolymorphicComponentWithRef = forwardRef(function TextInput<
 		}
 
 		if (onFocus) {
-			onFocus(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onFocus(event as any);
 		}
 	};
 
@@ -197,7 +197,8 @@ const TextInput: PolymorphicComponentWithRef = forwardRef(function TextInput<
 		}
 
 		if (onBlur) {
-			onBlur(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onBlur(event as any);
 		}
 	};
 
@@ -234,12 +235,12 @@ const TextInput: PolymorphicComponentWithRef = forwardRef(function TextInput<
 				</GridItem>
 			) : null}
 
-			<GridItem ref={childrenRef as GridItemRef}>
-				<Box<Element>
-					{...rest}
+			<GridItem ref={childrenRef as GridItemRef<PolymorphicDefaultElement>}>
+				<Box
+					{...(rest as BoxProps<Element>)}
+					as={as}
 					ref={refs}
 					className={classNames(classes.element)}
-					as='input'
 					aria-disabled={isDisabled ? 'true' : 'false'}
 					aria-describedby={getFormDescriptionID(id)}
 					aria-invalid={isError ? 'true' : 'false'}
@@ -266,8 +267,6 @@ const TextInput: PolymorphicComponentWithRef = forwardRef(function TextInput<
 	);
 });
 
-TextInput.displayName = 'TextInput';
+// TextInput.displayName = 'TextInput';
 
-export default <Element extends TextInputElement = TextInputDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <TextInput<Element> {...props} />;
+export default TextInput;
