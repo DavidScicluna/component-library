@@ -6,6 +6,9 @@ import type {
 } from './common/types';
 import MessageSubtitle from './MessageSubtitle';
 
+// Constants
+export * from './common/constants';
+
 // Keys
 export * from './common/keys';
 
