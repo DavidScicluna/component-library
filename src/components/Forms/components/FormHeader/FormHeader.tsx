@@ -5,15 +5,9 @@ import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
-import type { GridRef } from '@components/Layout';
+import type { GridProps, GridRef } from '@components/Layout';
 import { Grid, GridItem, VStack } from '@components/Layout';
 
 import { useFormControlContext } from '../FormControl/common/hooks';
@@ -30,9 +24,10 @@ import type { FormHeaderProps, FormHeaderRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const FormHeader: PolymorphicComponentWithRef = forwardRef(function FormHeader<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: FormHeaderProps<Element>, ref: FormHeaderRef<Element>): ReactElement {
+const FormHeader = forwardRef(function FormHeader<Element extends PolymorphicElementType>(
+	props: FormHeaderProps<Element>,
+	ref: FormHeaderRef<Element>
+): ReactElement {
 	const { color, colorMode, hasFormControl, spacing: __DEFAULT_FORM_HEADER_SPACING__ } = useFormControlContext();
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
@@ -55,8 +50,8 @@ const FormHeader: PolymorphicComponentWithRef = forwardRef(function FormHeader<
 	} = props;
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_FORM_HEADER_CLASS__, { [className]: !!className })}
 			w={hasFormControl ? '100%' : w}
@@ -77,7 +72,7 @@ const FormHeader: PolymorphicComponentWithRef = forwardRef(function FormHeader<
 
 			<GridItem>
 				<Grid
-					ref={childrenRef as GridRef}
+					ref={childrenRef as GridRef<PolymorphicDefaultElement>}
 					w='100%'
 					h='100%'
 					templateColumns={compact(['1fr', renderActions ? 'auto' : null]).join(' ')}
@@ -111,8 +106,6 @@ const FormHeader: PolymorphicComponentWithRef = forwardRef(function FormHeader<
 	);
 });
 
-FormHeader.displayName = 'FormHeader';
+// FormHeader.displayName = 'FormHeader';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <FormHeader<Element> {...props} />;
+export default FormHeader;
