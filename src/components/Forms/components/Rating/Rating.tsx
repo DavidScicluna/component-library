@@ -4,16 +4,11 @@ import { forwardRef, useState } from 'react';
 import { range } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
+import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import { getFormDescriptionID } from '../FormDescription/common/utils';
@@ -40,9 +35,10 @@ import type { RatingProps, RatingRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Rating: PolymorphicComponentWithRef = forwardRef(function Rating<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: RatingProps<Element>, ref: RatingRef<Element>): ReactElement {
+const Rating = forwardRef(function Rating<Element extends PolymorphicElementType>(
+	props: RatingProps<Element>,
+	ref: RatingRef<Element>
+): ReactElement {
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
 		colorMode: __DEFAULT_FORM_CONTROL_COLORMODE__,
@@ -95,7 +91,7 @@ const Rating: PolymorphicComponentWithRef = forwardRef(function Rating<
 		isSuccess,
 		isWarning,
 		size
-	} = useRatingResponsiveValues({
+	} = useRatingResponsiveValues<Element>({
 		count: countProp,
 		direction: directionProp,
 		highlightMode: highlightModeProp,
@@ -109,8 +105,8 @@ const Rating: PolymorphicComponentWithRef = forwardRef(function Rating<
 		size: sizeProp
 	});
 
-	const classes = useRatingClasses({ isDisabled, isReadOnly });
-	const iconSize = useRatingIconSize({ size });
+	const classes = useRatingClasses<Element>({ isDisabled, isReadOnly });
+	const iconSize = useRatingIconSize<Element>({ size });
 
 	const handleCountMouseClick = (count: number): void => {
 		if (onChange) {
@@ -135,8 +131,8 @@ const Rating: PolymorphicComponentWithRef = forwardRef(function Rating<
 	};
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_RATING_CLASS__, classes, { [className]: !!className })}
 			aria-disabled={isDisabled ? 'true' : 'false'}
@@ -209,8 +205,6 @@ const Rating: PolymorphicComponentWithRef = forwardRef(function Rating<
 	);
 });
 
-Rating.displayName = 'Rating';
+// Rating.displayName = 'Rating';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Rating<Element> {...props} />;
+export default Rating;

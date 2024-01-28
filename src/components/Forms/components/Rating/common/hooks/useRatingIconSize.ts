@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 
+import type { PolymorphicElementType } from '@common/types';
 import { getFontSizeHeight } from '@common/utils';
 
 import type { IconProps } from '@components/DataDisplay';
@@ -11,13 +12,15 @@ import { useRatingResponsiveValues } from '.';
 
 type RatingIconSize = Pick<IconProps, 'w' | 'h' | 'size'>;
 
-type UseRatingIconSizeProps = Pick<RatingProps, 'size'>;
+type UseRatingIconSizeProps<Element extends PolymorphicElementType> = Pick<RatingProps<Element>, 'size'>;
 type UseRatingIconSizeReturn = RatingIconSize;
 
-const useRatingIconSize = (props: UseRatingIconSizeProps): UseRatingIconSizeReturn => {
+const useRatingIconSize = <Element extends PolymorphicElementType>(
+	props: UseRatingIconSizeProps<Element>
+): UseRatingIconSizeReturn => {
 	const { size: sizeProp = __DEFAULT_RATING_SIZE__ } = props;
 
-	const { size } = useRatingResponsiveValues({ size: sizeProp });
+	const { size } = useRatingResponsiveValues<Element>({ size: sizeProp });
 
 	const iconSize = useMemo<number>(() => getFontSizeHeight(size), [size]);
 

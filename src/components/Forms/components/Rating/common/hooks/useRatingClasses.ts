@@ -1,5 +1,5 @@
 import classes from '@common/classes';
-import type { ClassName } from '@common/types';
+import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import { __DEFAULT_RATING_IS_DISABLED__, __DEFAULT_RATING_IS_READONLY__ } from '../constants';
 import type { RatingProps } from '../types';
@@ -9,16 +9,21 @@ import { useRatingResponsiveValues } from '.';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseRatingClassesProps = Pick<RatingProps, 'isDisabled' | 'isReadOnly'>;
+type UseRatingClassesProps<Element extends PolymorphicElementType> = Pick<
+	RatingProps<Element>,
+	'isDisabled' | 'isReadOnly'
+>;
 type UseRatingClassesReturn = ClassName;
 
-const useRatingClasses = (props: UseRatingClassesProps): UseRatingClassesReturn => {
+const useRatingClasses = <Element extends PolymorphicElementType>(
+	props: UseRatingClassesProps<Element>
+): UseRatingClassesReturn => {
 	const {
 		isDisabled: isDisabledProp = __DEFAULT_RATING_IS_DISABLED__,
 		isReadOnly: isReadOnlyProp = __DEFAULT_RATING_IS_READONLY__
 	} = props;
 
-	const { isDisabled, isReadOnly } = useRatingResponsiveValues({
+	const { isDisabled, isReadOnly } = useRatingResponsiveValues<Element>({
 		isDisabled: isDisabledProp,
 		isReadOnly: isReadOnlyProp
 	});

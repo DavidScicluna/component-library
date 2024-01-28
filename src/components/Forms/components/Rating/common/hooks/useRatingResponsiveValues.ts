@@ -1,4 +1,5 @@
 import { useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicElementType } from '@common/types';
 
 import {
 	__DEFAULT_RATING_COUNT__,
@@ -27,9 +28,13 @@ type PickedRatingProps =
 	| 'isSuccess'
 	| 'isWarning'
 	| 'size';
-type UseRatingResponsiveValuesProps = Partial<Pick<RatingProps, PickedRatingProps>>;
+type UseRatingResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
+	Pick<RatingProps<Element>, PickedRatingProps>
+>;
 
-const useRatingResponsiveValues = (props: UseRatingResponsiveValuesProps) => {
+const useRatingResponsiveValues = <Element extends PolymorphicElementType>(
+	props: UseRatingResponsiveValuesProps<Element>
+) => {
 	const {
 		count: countProp = __DEFAULT_RATING_COUNT__,
 		direction: directionProp = __DEFAULT_RATING_DIRECTION__,
