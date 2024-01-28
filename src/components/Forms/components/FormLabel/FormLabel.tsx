@@ -3,33 +3,31 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
 import { Box } from '@components/Box';
 import { useFormControlContext, useFormControlFontSize } from '@components/Forms/components/FormControl/common/hooks';
+import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
 import {
 	__DEFAULT_FORM_LABEL_ALIGN__,
+	__DEFAULT_FORM_LABEL_AS__,
 	__DEFAULT_FORM_LABEL_FONT_WEIGHT__,
 	__DEFAULT_FORM_LABEL_LINE_CLAMP__,
 	__DEFAULT_FORM_LABEL_LINE_HEIGHT__,
 	__DEFAULT_FORM_LABEL_TEXT_TRANSFORM__
 } from './common/constants';
 import { __KEYS_FORM_LABEL_CLASS__ } from './common/keys';
-import type { FormLabelDefaultElement, FormLabelElement, FormLabelProps, FormLabelRef } from './common/types';
+import type { FormLabelElement, FormLabelProps, FormLabelRef } from './common/types';
 import { getFormLabelID } from './common/utils';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const FormLabel: PolymorphicComponentWithRef = forwardRef(function FormLabel<
-	Element extends FormLabelElement = FormLabelDefaultElement
->(props: FormLabelProps<Element>, ref: FormLabelRef<Element>): ReactElement {
+const FormLabel = forwardRef(function FormLabel<Element extends FormLabelElement>(
+	props: FormLabelProps<Element>,
+	ref: FormLabelRef<Element>
+): ReactElement {
 	const { colorMode, id, isError, isRequired, isWarning, isSuccess, size } = useFormControlContext();
 
 	const __DEFAULT_FORM_LABEL_COLOR__ = useGetColor({
@@ -49,6 +47,7 @@ const FormLabel: PolymorphicComponentWithRef = forwardRef(function FormLabel<
 
 	const {
 		children,
+		as = __DEFAULT_FORM_LABEL_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		align = __DEFAULT_FORM_LABEL_ALIGN__,
 		color = __DEFAULT_FORM_LABEL_COLOR__,
@@ -61,8 +60,9 @@ const FormLabel: PolymorphicComponentWithRef = forwardRef(function FormLabel<
 	} = props;
 
 	return (
-		<Text<Element>
-			{...rest}
+		<Text
+			{...(rest as TextProps<Element>)}
+			as={as}
 			ref={ref}
 			className={classNames(__KEYS_FORM_LABEL_CLASS__, { [className]: !!className })}
 			aria-braillelabel={children}
@@ -87,8 +87,6 @@ const FormLabel: PolymorphicComponentWithRef = forwardRef(function FormLabel<
 	);
 });
 
-FormLabel.displayName = 'FormLabel';
+// FormLabel.displayName = 'FormLabel';
 
-export default <Element extends FormLabelElement = FormLabelDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <FormLabel<Element> {...props} />;
+export default FormLabel;
