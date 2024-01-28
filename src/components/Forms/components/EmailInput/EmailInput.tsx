@@ -7,13 +7,9 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps,
-	PolymorphicElement
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElement } from '@common/types';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
 import { useFormsClasses, useFormsIconSize, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
@@ -25,6 +21,7 @@ import { getFormDescriptionID } from '../FormDescription/common/utils';
 import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
+	__DEFAULT_EMAIL_INPUT_AS__,
 	__DEFAULT_EMAIL_INPUT_ID__,
 	__DEFAULT_EMAIL_INPUT_IS_COMPACT__,
 	__DEFAULT_EMAIL_INPUT_IS_DISABLED__,
@@ -42,7 +39,6 @@ import {
 import { useEmailInputResponsiveValues } from './common/hooks';
 import { __KEYS_EMAIL_INPUT_CLASS__ } from './common/keys';
 import type {
-	EmailInputDefaultElement,
 	EmailInputElement,
 	EmailInputFocusEvent,
 	EmailInputMouseEvent,
@@ -53,9 +49,10 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const EmailInput: PolymorphicComponentWithRef = forwardRef(function EmailInput<
-	Element extends EmailInputElement = EmailInputDefaultElement
->(props: EmailInputProps<Element>, ref: EmailInputRef<Element>): ReactElement {
+const EmailInput = forwardRef(function EmailInput<Element extends EmailInputElement>(
+	props: EmailInputProps<Element>,
+	ref: EmailInputRef<Element>
+): ReactElement {
 	const emailInput = useRef<PolymorphicElement<Element>>();
 	const refs = useMergeRefs(ref, emailInput);
 
@@ -77,6 +74,7 @@ const EmailInput: PolymorphicComponentWithRef = forwardRef(function EmailInput<
 	} = useFormControlContext();
 
 	const {
+		as = __DEFAULT_EMAIL_INPUT_AS__,
 		id = __DEFAULT_FORM_CONTROL_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		w,
@@ -119,7 +117,7 @@ const EmailInput: PolymorphicComponentWithRef = forwardRef(function EmailInput<
 		isWarning,
 		size,
 		variant
-	} = useEmailInputResponsiveValues({
+	} = useEmailInputResponsiveValues<Element>({
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
 		isError: isErrorProp,
@@ -173,7 +171,8 @@ const EmailInput: PolymorphicComponentWithRef = forwardRef(function EmailInput<
 		}
 
 		if (onClick) {
-			onClick(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onClick(event as any);
 		}
 	};
 
@@ -186,7 +185,8 @@ const EmailInput: PolymorphicComponentWithRef = forwardRef(function EmailInput<
 		}
 
 		if (onFocus) {
-			onFocus(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onFocus(event as any);
 		}
 	};
 
@@ -199,7 +199,8 @@ const EmailInput: PolymorphicComponentWithRef = forwardRef(function EmailInput<
 		}
 
 		if (onBlur) {
-			onBlur(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onBlur(event as any);
 		}
 	};
 
@@ -244,12 +245,12 @@ const EmailInput: PolymorphicComponentWithRef = forwardRef(function EmailInput<
 				{renderLeft ? renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight }) : null}
 			</GridItem>
 
-			<GridItem ref={childrenRef as GridItemRef}>
-				<Box<Element>
-					{...rest}
+			<GridItem ref={childrenRef as GridItemRef<PolymorphicDefaultElement>}>
+				<Box
+					{...(rest as BoxProps<Element>)}
+					as={as}
 					ref={refs}
 					className={classNames(classes.element)}
-					as='input'
 					aria-disabled={isDisabled ? 'true' : 'false'}
 					aria-describedby={getFormDescriptionID(id)}
 					aria-invalid={isError ? 'true' : 'false'}
@@ -276,8 +277,6 @@ const EmailInput: PolymorphicComponentWithRef = forwardRef(function EmailInput<
 	);
 });
 
-EmailInput.displayName = 'EmailInput';
+// EmailInput.displayName = 'EmailInput';
 
-export default <Element extends EmailInputElement = EmailInputDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <EmailInput<Element> {...props} />;
+export default EmailInput;

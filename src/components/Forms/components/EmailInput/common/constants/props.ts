@@ -16,7 +16,9 @@ import {
 	__DEFAULT_FORMS_VARIANT__
 } from '@components/Forms/common/constants';
 
-import type { EmailInputSize, EmailInputVariant } from '../types';
+import type { EmailInputDefaultElement, EmailInputSize, EmailInputVariant } from '../types';
+
+export const __DEFAULT_EMAIL_INPUT_AS__: EmailInputDefaultElement = 'input';
 
 export const __DEFAULT_EMAIL_INPUT_ID__ = uuid();
 

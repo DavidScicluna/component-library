@@ -13,26 +13,27 @@ import {
 	__DEFAULT_EMAIL_INPUT_SIZE__,
 	__DEFAULT_EMAIL_INPUT_VARIANT__
 } from '../constants';
-import type { EmailInputProps, EmailInputSize, EmailInputVariant } from '../types';
+import type { EmailInputElement, EmailInputProps, EmailInputSize, EmailInputVariant } from '../types';
 
-type UseEmailInputResponsiveValuesProps = Partial<
-	Pick<
-		EmailInputProps,
-		| 'isCompact'
-		| 'isDisabled'
-		| 'isError'
-		| 'isFocused'
-		| 'isOutlined'
-		| 'isReadOnly'
-		| 'isRequired'
-		| 'isSuccess'
-		| 'isWarning'
-		| 'size'
-		| 'variant'
-	>
+type PickedEmailInputProps =
+	| 'isCompact'
+	| 'isDisabled'
+	| 'isError'
+	| 'isFocused'
+	| 'isOutlined'
+	| 'isReadOnly'
+	| 'isRequired'
+	| 'isSuccess'
+	| 'isWarning'
+	| 'size'
+	| 'variant';
+type UseEmailInputResponsiveValuesProps<Element extends EmailInputElement> = Partial<
+	Pick<EmailInputProps<Element>, PickedEmailInputProps>
 >;
 
-const useEmailInputResponsiveValues = (props: UseEmailInputResponsiveValuesProps) => {
+const useEmailInputResponsiveValues = <Element extends EmailInputElement>(
+	props: UseEmailInputResponsiveValuesProps<Element>
+) => {
 	const {
 		isCompact: isCompactProp = __DEFAULT_EMAIL_INPUT_IS_COMPACT__,
 		isDisabled: isDisabledProp = __DEFAULT_EMAIL_INPUT_IS_DISABLED__,
