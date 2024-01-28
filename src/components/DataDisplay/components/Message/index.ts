@@ -1,4 +1,11 @@
-import type { MessageContext, MessageProps, MessageRef, MessageVariant } from './common/types';
+import type {
+	MessageContext,
+	MessageDefaultElement,
+	MessageElement,
+	MessageProps,
+	MessageRef,
+	MessageVariant
+} from './common/types';
 import Message from './Message';
 
 // Constants
@@ -15,4 +22,4 @@ export { Message };
 export * from './components';
 
 // Component Types
-export type { MessageContext, MessageProps, MessageRef, MessageVariant };
+export type { MessageContext, MessageDefaultElement, MessageElement, MessageProps, MessageRef, MessageVariant };

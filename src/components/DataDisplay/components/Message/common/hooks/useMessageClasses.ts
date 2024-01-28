@@ -7,17 +7,22 @@ import type { BorderStyleClass, ClassName, ThemeBorderWidth, ThemeRadius } from 
 import { getColorHue } from '@common/utils';
 
 import { __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_VARIANT__ } from '../constants';
-import type { MessageProps } from '../types';
+import type { MessageElement, MessageProps } from '../types';
 
 import useMessageResponsiveValues from './useMessageResponsiveValues';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseMessageClassesProps = Pick<MessageProps, 'color' | 'colorMode' | 'radius' | 'variant'>;
+type UseMessageClassesProps<Element extends MessageElement> = Pick<
+	MessageProps<Element>,
+	'color' | 'colorMode' | 'radius' | 'variant'
+>;
 type UseMessageClassesReturn = ClassName;
 
-const useMessageClasses = (props: UseMessageClassesProps): UseMessageClassesReturn => {
+const useMessageClasses = <Element extends MessageElement>(
+	props: UseMessageClassesProps<Element>
+): UseMessageClassesReturn => {
 	const { colorMode: __DEFAULT_ICON_COLORMODE__ } = useAppTheme();
 
 	const {
@@ -27,7 +32,7 @@ const useMessageClasses = (props: UseMessageClassesProps): UseMessageClassesRetu
 		variant: variantProp = __DEFAULT_MESSAGE_VARIANT__
 	} = props;
 
-	const { radius, variant } = useMessageResponsiveValues({ radius: radiusProp, variant: variantProp });
+	const { radius, variant } = useMessageResponsiveValues<Element>({ radius: radiusProp, variant: variantProp });
 
 	const borderWidthClassName = useGetClass<ThemeBorderWidth>(__DEFAULT_BORDER_WIDTH__, ['borders', 'border_width']);
 	const borderStyleClassName = useGetClass<BorderStyleClass>(variant === 'transparent' ? 'none' : variant, [

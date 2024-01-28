@@ -8,18 +8,24 @@ import type {
 	ThemeRadius
 } from '@common/types';
 
-import type { VStackProps, VStackRef } from '@components/Layout';
+import type { BoxProps, BoxRef } from '@components/Box';
+import type { VStackProps } from '@components/Layout';
+
+export type MessageDefaultElement = PolymorphicDefaultElement;
+export type MessageElement = Extract<PolymorphicElementType, 'div'>;
 
 export type MessageVariant = PickFrom<BorderStyleClass, 'dashed' | 'dotted' | 'solid'> | 'transparent';
 
 type MessageOtherProps = ThemeAppAppearanceProps & {
 	radius?: ResponsiveValue<ThemeRadius>;
 	variant?: ResponsiveValue<MessageVariant>;
-};
+} & Pick<VStackProps<PolymorphicDefaultElement>, 'spacing'>;
 
-export type MessageProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = VStackProps<Element> &
-	MessageOtherProps;
+export type MessageProps<Element extends MessageElement> = BoxProps<Element, MessageOtherProps>;
 
-export type MessageRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = VStackRef<Element>;
+export type MessageRef<Element extends MessageElement> = BoxRef<Element>;
 
-export type MessageContext = Pick<MessageProps, 'color' | 'colorMode' | 'spacing'>;
+export type MessageContext<Element extends MessageElement> = Pick<
+	MessageProps<Element>,
+	'color' | 'colorMode' | 'spacing'
+>;

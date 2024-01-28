@@ -1,13 +1,17 @@
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { ThemeRadius, ThemeSpacing } from '@common/types';
+import type { ThemeRadius, ThemeSpacing, Undefinable } from '@common/types';
 
 import { __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_VARIANT__ } from '../constants';
-import type { MessageProps, MessageVariant } from '../types';
+import type { MessageElement, MessageProps, MessageVariant } from '../types';
 
-type UseMessageResponsiveValuesProps = Partial<Pick<MessageProps, 'radius' | 'spacing' | 'variant'>>;
+type UseMessageResponsiveValuesProps<Element extends MessageElement> = Partial<
+	Pick<MessageProps<Element>, 'radius' | 'spacing' | 'variant'>
+>;
 
-const useMessageResponsiveValues = (props: UseMessageResponsiveValuesProps) => {
+const useMessageResponsiveValues = <Element extends MessageElement>(
+	props: UseMessageResponsiveValuesProps<Element>
+) => {
 	const {
 		radius: radiusProp = __DEFAULT_MESSAGE_RADIUS__,
 		spacing: spacingProp = __DEFAULT_SPACING__,
@@ -15,7 +19,7 @@ const useMessageResponsiveValues = (props: UseMessageResponsiveValuesProps) => {
 	} = props;
 
 	const radius = useGetResponsiveValue<ThemeRadius>(radiusProp);
-	const spacing = useGetResponsiveValue<ThemeSpacing>(spacingProp);
+	const spacing = useGetResponsiveValue<Undefinable<ThemeSpacing>>(spacingProp);
 	const variant = useGetResponsiveValue<MessageVariant>(variantProp);
 
 	return { radius, spacing, variant };
