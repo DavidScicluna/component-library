@@ -14,27 +14,28 @@ import {
 	__DEFAULT_SEARCH_INPUT_SIZE__,
 	__DEFAULT_SEARCH_INPUT_VARIANT__
 } from '../constants';
-import type { SearchInputProps, SearchInputSize, SearchInputVariant } from '../types';
+import type { SearchInputElement, SearchInputProps, SearchInputSize, SearchInputVariant } from '../types';
 
-type UseSearchInputResponsiveValuesProps = Partial<
-	Pick<
-		SearchInputProps,
-		| 'isCompact'
-		| 'isDisabled'
-		| 'isError'
-		| 'isFocused'
-		| 'isOutlined'
-		| 'isReadOnly'
-		| 'isRequired'
-		| 'isSuccess'
-		| 'isWarning'
-		| 'initialQuery'
-		| 'size'
-		| 'variant'
-	>
+type PickedSearchInputProps =
+	| 'isCompact'
+	| 'isDisabled'
+	| 'isError'
+	| 'isFocused'
+	| 'isOutlined'
+	| 'isReadOnly'
+	| 'isRequired'
+	| 'isSuccess'
+	| 'isWarning'
+	| 'initialQuery'
+	| 'size'
+	| 'variant';
+type UseSearchInputResponsiveValuesProps<Element extends SearchInputElement> = Partial<
+	Pick<SearchInputProps<Element>, PickedSearchInputProps>
 >;
 
-const useSearchInputResponsiveValues = (props: UseSearchInputResponsiveValuesProps) => {
+const useSearchInputResponsiveValues = <Element extends SearchInputElement>(
+	props: UseSearchInputResponsiveValuesProps<Element>
+) => {
 	const {
 		isCompact: isCompactProp = __DEFAULT_SEARCH_INPUT_IS_COMPACT__,
 		isDisabled: isDisabledProp = __DEFAULT_SEARCH_INPUT_IS_DISABLED__,

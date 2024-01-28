@@ -7,13 +7,9 @@ import { useElementSize, useUpdateEffect } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean, useDebounce } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps,
-	PolymorphicElement
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElement } from '@common/types';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
 import { useFormsClasses, useFormsIconSize, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
@@ -25,6 +21,7 @@ import { getFormDescriptionID } from '../FormDescription/common/utils';
 import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
+	__DEFAULT_SEARCH_INPUT_AS__,
 	__DEFAULT_SEARCH_INPUT_ID__,
 	__DEFAULT_SEARCH_INPUT_INITIAL_QUERY__,
 	__DEFAULT_SEARCH_INPUT_IS_COMPACT__,
@@ -43,7 +40,6 @@ import {
 import { useSearchInputResponsiveValues } from './common/hooks';
 import { __KEYS_SEARCH_INPUT_CLASS__ } from './common/keys';
 import type {
-	SearchInputDefaultElement,
 	SearchInputElement,
 	SearchInputFocusEvent,
 	SearchInputMouseEvent,
@@ -54,9 +50,10 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const SearchInput: PolymorphicComponentWithRef = forwardRef(function SearchInput<
-	Element extends SearchInputElement = SearchInputDefaultElement
->(props: SearchInputProps<Element>, ref: SearchInputRef<Element>): ReactElement {
+const SearchInput = forwardRef(function SearchInput<Element extends SearchInputElement>(
+	props: SearchInputProps<Element>,
+	ref: SearchInputRef<Element>
+): ReactElement {
 	const searchInputRef = useRef<PolymorphicElement<Element>>();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
@@ -78,6 +75,7 @@ const SearchInput: PolymorphicComponentWithRef = forwardRef(function SearchInput
 	} = useFormControlContext();
 
 	const {
+		as = __DEFAULT_SEARCH_INPUT_AS__,
 		id = __DEFAULT_FORM_CONTROL_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		w,
@@ -127,7 +125,7 @@ const SearchInput: PolymorphicComponentWithRef = forwardRef(function SearchInput
 		initialQuery,
 		size,
 		variant
-	} = useSearchInputResponsiveValues({
+	} = useSearchInputResponsiveValues<Element>({
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
 		isError: isErrorProp,
@@ -213,7 +211,8 @@ const SearchInput: PolymorphicComponentWithRef = forwardRef(function SearchInput
 		}
 
 		if (onClick) {
-			onClick(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onClick(event as any);
 		}
 	};
 
@@ -226,7 +225,8 @@ const SearchInput: PolymorphicComponentWithRef = forwardRef(function SearchInput
 		}
 
 		if (onFocus) {
-			onFocus(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onFocus(event as any);
 		}
 	};
 
@@ -239,7 +239,8 @@ const SearchInput: PolymorphicComponentWithRef = forwardRef(function SearchInput
 		}
 
 		if (onBlur) {
-			onBlur(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onBlur(event as any);
 		}
 	};
 
@@ -301,12 +302,12 @@ const SearchInput: PolymorphicComponentWithRef = forwardRef(function SearchInput
 						{renderLeft ? renderLeft({ color, colorMode, w: childrenWidth, h: childrenHeight }) : null}
 					</GridItem>
 
-					<GridItem ref={childrenRef as GridItemRef}>
-						<Box<Element>
-							{...rest}
+					<GridItem ref={childrenRef as GridItemRef<PolymorphicDefaultElement>}>
+						<Box
+							{...(rest as BoxProps<Element>)}
+							as={as}
 							ref={refs}
 							className={classNames(classes.element)}
-							as='input'
 							aria-disabled={isDisabled ? 'true' : 'false'}
 							aria-describedby={getFormDescriptionID(id)}
 							aria-invalid={isError ? 'true' : 'false'}
@@ -358,8 +359,6 @@ const SearchInput: PolymorphicComponentWithRef = forwardRef(function SearchInput
 	);
 });
 
-SearchInput.displayName = 'SearchInput';
+// SearchInput.displayName = 'SearchInput';
 
-export default <Element extends SearchInputElement = SearchInputDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <SearchInput<Element> {...props} />;
+export default SearchInput;

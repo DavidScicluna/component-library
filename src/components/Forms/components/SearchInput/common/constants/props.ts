@@ -1,5 +1,7 @@
 import type { ComponentProps } from 'react';
 
+import { v4 as uuid } from 'uuid';
+
 import {
 	__DEFAULT_FORMS_IS_COMPACT__,
 	__DEFAULT_FORMS_IS_DISABLED__,
@@ -14,13 +16,13 @@ import {
 	__DEFAULT_FORMS_VARIANT__
 } from '@components/Forms/common/constants';
 
-import type { SearchInputSize, SearchInputVariant } from '../types';
+import type { SearchInputDefaultElement, SearchInputSize, SearchInputVariant } from '../types';
 
-export const __DEFAULT_SEARCH_INPUT_INITIAL_QUERY__ = '';
-
-import { v4 as uuid } from 'uuid';
+export const __DEFAULT_SEARCH_INPUT_AS__: SearchInputDefaultElement = 'input';
 
 export const __DEFAULT_SEARCH_INPUT_ID__ = uuid();
+
+export const __DEFAULT_SEARCH_INPUT_INITIAL_QUERY__ = '';
 
 export const __DEFAULT_SEARCH_INPUT_IS_COMPACT__ = __DEFAULT_FORMS_IS_COMPACT__;
 export const __DEFAULT_SEARCH_INPUT_IS_DISABLED__ = __DEFAULT_FORMS_IS_DISABLED__;

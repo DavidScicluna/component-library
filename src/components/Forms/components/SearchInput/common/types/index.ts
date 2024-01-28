@@ -9,18 +9,15 @@ import type {
 } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
-import type { ButtonProps, IconButtonProps } from '@components/Buttons';
+import type { ButtonDefaultElement, ButtonProps, IconButtonDefaultElement, IconButtonProps } from '@components/Buttons';
 import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
 
 export type SearchInputDefaultElement = 'input';
 export type SearchInputElement = Extract<PolymorphicElementType, 'input'>;
 
-export type SearchInputMouseEvent<Element extends SearchInputElement = SearchInputDefaultElement> =
-	PolymorphicMouseEvent<Element>;
-export type SearchInputChangeEvent<Element extends SearchInputElement = SearchInputDefaultElement> =
-	PolymorphicChangeEvent<Element>;
-export type SearchInputFocusEvent<Element extends SearchInputElement = SearchInputDefaultElement> =
-	PolymorphicFocusEvent<Element>;
+export type SearchInputMouseEvent<Element extends SearchInputElement> = PolymorphicMouseEvent<Element>;
+export type SearchInputChangeEvent<Element extends SearchInputElement> = PolymorphicChangeEvent<Element>;
+export type SearchInputFocusEvent<Element extends SearchInputElement> = PolymorphicFocusEvent<Element>;
 
 // export type SearchInputAutoComplete = 'on' | 'password' | 'off';
 
@@ -29,15 +26,15 @@ export type SearchInputSize = FormsCommonSize;
 export type SearchInputVariant = FormsCommonVariant;
 
 export type SearchInputRenderClearProps = Pick<
-	IconButtonProps,
+	IconButtonProps<IconButtonDefaultElement>,
 	'color' | 'colorMode' | 'isCompact' | 'onClick' | 'size' | 'variant'
 >;
 export type SearchInputRenderSubmitProps = Pick<
-	ButtonProps,
+	ButtonProps<ButtonDefaultElement>,
 	'color' | 'colorMode' | 'isCompact' | 'isDisabled' | 'isRound' | 'onClick' | 'size' | 'variant'
 >;
 
-export type SearchInputRenderProps<Element extends SearchInputElement = SearchInputDefaultElement> = Pick<
+export type SearchInputRenderProps<Element extends SearchInputElement> = Pick<
 	SearchInputOtherProps<Element>,
 	'color' | 'colorMode'
 > & { w?: number; h?: number };
@@ -57,7 +54,7 @@ type PickedFormsCommonProps =
 	| 'size'
 	| 'variant';
 
-type SearchInputOtherProps<Element extends SearchInputElement = SearchInputDefaultElement> = {
+type SearchInputOtherProps<Element extends SearchInputElement> = {
 	renderClear?: (props: SearchInputRenderClearProps) => ReactNode;
 	renderSubmit?: (props: SearchInputRenderSubmitProps) => ReactNode;
 	renderLeft?: (props: SearchInputRenderProps<Element>) => ReactNode;
@@ -74,9 +71,9 @@ type OmittedBoxProps =
 	| 'value'
 	| keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
-export type SearchInputProps<Element extends SearchInputElement = SearchInputDefaultElement> = Omit<
+export type SearchInputProps<Element extends SearchInputElement> = Omit<
 	BoxProps<Element, SearchInputOtherProps<Element>>,
 	OmittedBoxProps
 >;
 
-export type SearchInputRef<Element extends SearchInputElement = SearchInputDefaultElement> = BoxRef<Element>;
+export type SearchInputRef<Element extends SearchInputElement> = BoxRef<Element>;
