@@ -13,7 +13,9 @@ import {
 	__DEFAULT_FORMS_SIZE__
 } from '@components/Forms/common/constants';
 
-import type { FormControlSize } from '../types';
+import type { FormControlDefaultElement, FormControlSize } from '../types';
+
+export const __DEFAULT_FORM_CONTROL_AS__: FormControlDefaultElement = 'div';
 
 export const __DEFAULT_FORM_CONTROL_ID__ = uuid();
 

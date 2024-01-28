@@ -14,11 +14,11 @@ import {
 	__DEFAULT_FORM_CONTROL_SIZE__,
 	__DEFAULT_FORM_CONTROL_SPACING__
 } from '../constants';
-import type { FormControlContext as FormControlContextType } from '../types';
+import type { FormControlContext as FormControlContextType, FormControlElement } from '../types';
 
 import useFormControlResponsiveValues from './useFormControlResponsiveValues';
 
-const useFormControlContext = () => {
+const useFormControlContext = <Element extends FormControlElement>() => {
 	const {
 		color,
 		colorMode,
@@ -33,10 +33,10 @@ const useFormControlContext = () => {
 		isWarning: isWarningProp = __DEFAULT_FORM_CONTROL_IS_WARNING__,
 		size: sizeProp = __DEFAULT_FORM_CONTROL_SIZE__,
 		spacing: spacingProp = __DEFAULT_FORM_CONTROL_SPACING__
-	} = useContext<FormControlContextType>(FormControlContext);
+	} = useContext<FormControlContextType<Element>>(FormControlContext);
 
 	const { isDisabled, isError, isFocused, isReadOnly, isRequired, isSuccess, isWarning, size, spacing } =
-		useFormControlResponsiveValues({
+		useFormControlResponsiveValues<Element>({
 			isDisabled: isDisabledProp,
 			isError: isErrorProp,
 			isFocused: isFocusedProp,

@@ -1,4 +1,11 @@
-import type { FormControlContext, FormControlProps, FormControlRef, FormControlSize } from './common/types';
+import type {
+	FormControlContext,
+	FormControlDefaultElement,
+	FormControlElement,
+	FormControlProps,
+	FormControlRef,
+	FormControlSize
+} from './common/types';
 import FormControl from './FormControl';
 
 // Constants
@@ -14,4 +21,11 @@ export * from './common/hooks';
 export { FormControl };
 
 // Component Types
-export type { FormControlContext, FormControlProps, FormControlRef, FormControlSize };
+export type {
+	FormControlContext,
+	FormControlDefaultElement,
+	FormControlElement,
+	FormControlProps,
+	FormControlRef,
+	FormControlSize
+};

@@ -1,5 +1,5 @@
 import { useGetResponsiveValue } from '@common/hooks';
-import type { AlignItemsClass, JustifyContentClass, ThemeSpacing } from '@common/types';
+import type { AlignItemsClass, JustifyContentClass, ThemeSpacing, Undefinable } from '@common/types';
 
 import {
 	__DEFAULT_STACK_ALIGN_ITEMS__,
@@ -17,26 +17,27 @@ import {
 	__DEFAULT_FORM_CONTROL_SIZE__,
 	__DEFAULT_FORM_CONTROL_SPACING__
 } from '../constants';
-import type { FormControlProps, FormControlSize } from '../types';
+import type { FormControlElement, FormControlProps, FormControlSize } from '../types';
 
-type UseFormControlResponsiveValuesProps = Partial<
-	Pick<
-		FormControlProps,
-		| 'alignItems'
-		| 'justifyContent'
-		| 'isDisabled'
-		| 'isError'
-		| 'isFocused'
-		| 'isReadOnly'
-		| 'isRequired'
-		| 'isSuccess'
-		| 'isWarning'
-		| 'size'
-		| 'spacing'
-	>
+type PickedFormControlProps =
+	| 'alignItems'
+	| 'justifyContent'
+	| 'isDisabled'
+	| 'isError'
+	| 'isFocused'
+	| 'isReadOnly'
+	| 'isRequired'
+	| 'isSuccess'
+	| 'isWarning'
+	| 'size'
+	| 'spacing';
+type UseFormControlResponsiveValuesProps<Element extends FormControlElement> = Partial<
+	Pick<FormControlProps<Element>, PickedFormControlProps>
 >;
 
-const useFormControlResponsiveValues = (props: UseFormControlResponsiveValuesProps) => {
+const useFormControlResponsiveValues = <Element extends FormControlElement>(
+	props: UseFormControlResponsiveValuesProps<Element>
+) => {
 	const {
 		alignItems: alignItemsProp = __DEFAULT_STACK_ALIGN_ITEMS__,
 		justifyContent: justifyContentProp = __DEFAULT_STACK_JUSTIFY_CONTENT__,
@@ -51,8 +52,8 @@ const useFormControlResponsiveValues = (props: UseFormControlResponsiveValuesPro
 		spacing: spacingProp = __DEFAULT_FORM_CONTROL_SPACING__
 	} = props;
 
-	const alignItems = useGetResponsiveValue<AlignItemsClass>(alignItemsProp);
-	const justifyContent = useGetResponsiveValue<JustifyContentClass>(justifyContentProp);
+	const alignItems = useGetResponsiveValue<Undefinable<AlignItemsClass>>(alignItemsProp);
+	const justifyContent = useGetResponsiveValue<Undefinable<JustifyContentClass>>(justifyContentProp);
 
 	const isDisabled = useGetResponsiveValue<boolean>(isDisabledProp);
 	const isError = useGetResponsiveValue<boolean>(isErrorProp);
@@ -63,7 +64,7 @@ const useFormControlResponsiveValues = (props: UseFormControlResponsiveValuesPro
 	const isWarning = useGetResponsiveValue<boolean>(isWarningProp);
 
 	const size = useGetResponsiveValue<FormControlSize>(sizeProp);
-	const spacing = useGetResponsiveValue<ThemeSpacing>(spacingProp);
+	const spacing = useGetResponsiveValue<Undefinable<ThemeSpacing>>(spacingProp);
 
 	return {
 		alignItems,

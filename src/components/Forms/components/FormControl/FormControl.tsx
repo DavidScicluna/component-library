@@ -2,14 +2,8 @@ import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
 
+import type { VStackProps } from '@components/Layout';
 import { VStack } from '@components/Layout';
 import {
 	__DEFAULT_STACK_ALIGN_ITEMS__,
@@ -17,6 +11,7 @@ import {
 } from '@components/Layout/components/Stacks/Stack/common/constants';
 
 import {
+	__DEFAULT_FORM_CONTROL_AS__,
 	__DEFAULT_FORM_CONTROL_HAS_FORM_CONTROL__,
 	__DEFAULT_FORM_CONTROL_ID__,
 	__DEFAULT_FORM_CONTROL_IS_DISABLED__,
@@ -31,12 +26,18 @@ import {
 } from './common/constants';
 import { useFormControlResponsiveValues } from './common/hooks';
 import { __KEYS_FORM_CONTROL_CLASS__ } from './common/keys';
-import type { FormControlContext as FormControlContextType, FormControlProps, FormControlRef } from './common/types';
+import type {
+	FormControlContext as FormControlContextType,
+	FormControlDefaultElement,
+	FormControlElement,
+	FormControlProps,
+	FormControlRef
+} from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-export const FormControlContext = createContext<FormControlContextType>({
+export const FormControlContext = createContext<FormControlContextType<FormControlDefaultElement>>({
 	id: __DEFAULT_FORM_CONTROL_ID__,
 	hasFormControl: __DEFAULT_FORM_CONTROL_HAS_FORM_CONTROL__,
 	isDisabled: __DEFAULT_FORM_CONTROL_IS_DISABLED__,
@@ -50,11 +51,13 @@ export const FormControlContext = createContext<FormControlContextType>({
 	spacing: __DEFAULT_FORM_CONTROL_SPACING__
 });
 
-const FormControl: PolymorphicComponentWithRef = forwardRef(function FormControl<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: FormControlProps<Element>, ref: FormControlRef<Element>): ReactElement {
+const FormControl = forwardRef(function FormControl<Element extends FormControlElement>(
+	props: FormControlProps<Element>,
+	ref: FormControlRef<Element>
+): ReactElement {
 	const {
 		children,
+		as = __DEFAULT_FORM_CONTROL_AS__,
 		id = __DEFAULT_FORM_CONTROL_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		color,
@@ -85,7 +88,7 @@ const FormControl: PolymorphicComponentWithRef = forwardRef(function FormControl
 		isWarning,
 		size,
 		spacing
-	} = useFormControlResponsiveValues({
+	} = useFormControlResponsiveValues<Element>({
 		alignItems: alignItemsProp,
 		justifyContent: justifyContentProp,
 		isDisabled: isDisabledProp,
@@ -117,8 +120,9 @@ const FormControl: PolymorphicComponentWithRef = forwardRef(function FormControl
 				spacing
 			}}
 		>
-			<VStack<Element>
-				{...rest}
+			<VStack
+				{...(rest as VStackProps<Element>)}
+				as={as}
 				ref={ref}
 				className={classNames(__KEYS_FORM_CONTROL_CLASS__, { [className]: !!className })}
 				alignItems={alignItems}
@@ -131,8 +135,6 @@ const FormControl: PolymorphicComponentWithRef = forwardRef(function FormControl
 	);
 });
 
-FormControl.displayName = 'FormControl';
+// FormControl.displayName = 'FormControl';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <FormControl<Element> {...props} />;
+export default FormControl;

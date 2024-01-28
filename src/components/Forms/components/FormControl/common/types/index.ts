@@ -4,6 +4,9 @@ import type { BoxProps, BoxRef } from '@components/Box';
 import type { FormsCommonProps, FormsCommonSize } from '@components/Forms/common/types';
 import type { StackProps } from '@components/Layout';
 
+export type FormControlDefaultElement = PolymorphicDefaultElement;
+export type FormControlElement = Extract<PolymorphicElementType, 'div'>;
+
 export type FormControlSize = FormsCommonSize;
 
 type PickedFormsCommonProps =
@@ -20,18 +23,12 @@ type PickedFormsCommonProps =
 
 type PickedStackProps = 'alignItems' | 'justifyContent' | 'spacing';
 
-type FormControlOtherProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Pick<
-	FormsCommonProps,
-	PickedFormsCommonProps
-> &
+type FormControlOtherProps<Element extends FormControlElement> = Pick<FormsCommonProps, PickedFormsCommonProps> &
 	Pick<StackProps<Element>, PickedStackProps>;
 
-export type FormControlProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
-	Element,
-	FormControlOtherProps<Element>
->;
+export type FormControlProps<Element extends FormControlElement> = BoxProps<Element, FormControlOtherProps<Element>>;
 
-export type FormControlRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type FormControlRef<Element extends FormControlElement> = BoxRef<Element>;
 
 type PickedFormControlProps =
 	| 'color'
@@ -47,6 +44,7 @@ type PickedFormControlProps =
 	| 'size'
 	| 'spacing';
 
-export type FormControlContext = Pick<FormControlProps, PickedFormControlProps> & {
-	hasFormControl?: boolean;
-};
+export type FormControlContext<Element extends FormControlElement> = Pick<
+	FormControlProps<Element>,
+	PickedFormControlProps
+> & { hasFormControl?: boolean };
