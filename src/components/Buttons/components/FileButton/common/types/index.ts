@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 import type { Nullish, PolymorphicChangeEvent, PolymorphicElementType } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type FileButtonDefaultElement = 'input';
 export type FileButtonElement = Extract<PolymorphicElementType, 'input'>;
@@ -28,9 +28,6 @@ type FileButtonOtherProps = {
 	onError: (event: FileButtonChangeEvent<FileButtonDefaultElement>, error: FileButtonErrors) => void;
 };
 
-export type FileButtonProps<Element extends FileButtonElement> = Omit<
-	BoxProps<Element, FileButtonOtherProps>,
-	keyof BoxOtherProps
->;
+export type FileButtonProps<Element extends FileButtonElement> = BoxProps<Element, FileButtonOtherProps>;
 
 export type FileButtonRef<Element extends FileButtonElement> = BoxRef<Element>;
