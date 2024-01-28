@@ -3,34 +3,27 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
 import { useFormControlContext, useFormControlFontSize } from '@components/Forms/components/FormControl/common/hooks';
+import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
 import {
 	__DEFAULT_FORM_HELPER_TEXT_ALIGN__,
+	__DEFAULT_FORM_HELPER_TEXT_AS__,
 	__DEFAULT_FORM_HELPER_TEXT_LINE_CLAMP__,
 	__DEFAULT_FORM_HELPER_TEXT_LINE_HEIGHT__
 } from './common/constants';
 import { __KEYS_FORM_HELPER_TEXT_CLASS__ } from './common/keys';
-import type {
-	FormHelperTextDefaultElement,
-	FormHelperTextElement,
-	FormHelperTextProps,
-	FormHelperTextRef
-} from './common/types';
+import type { FormHelperTextElement, FormHelperTextProps, FormHelperTextRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const FormHelperText: PolymorphicComponentWithRef = forwardRef(function FormHelperText<
-	Element extends FormHelperTextElement = FormHelperTextDefaultElement
->(props: FormHelperTextProps<Element>, ref: FormHelperTextRef<Element>): ReactElement {
+const FormHelperText = forwardRef(function FormHelperText<Element extends FormHelperTextElement>(
+	props: FormHelperTextProps<Element>,
+	ref: FormHelperTextRef<Element>
+): ReactElement {
 	const { colorMode, isError, isWarning, isSuccess, size } = useFormControlContext();
 
 	const __DEFAULT_FORM_HELPER_TEXT_COLOR__ = useGetColor({
@@ -43,6 +36,7 @@ const FormHelperText: PolymorphicComponentWithRef = forwardRef(function FormHelp
 
 	const {
 		children,
+		as = __DEFAULT_FORM_HELPER_TEXT_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		align = __DEFAULT_FORM_HELPER_TEXT_ALIGN__,
 		color = __DEFAULT_FORM_HELPER_TEXT_COLOR__,
@@ -53,8 +47,9 @@ const FormHelperText: PolymorphicComponentWithRef = forwardRef(function FormHelp
 	} = props;
 
 	return (
-		<Text<Element>
-			{...rest}
+		<Text
+			{...(rest as TextProps<Element>)}
+			as={as}
 			ref={ref}
 			className={classNames(__KEYS_FORM_HELPER_TEXT_CLASS__, { [className]: !!className })}
 			aria-errormessage={children}
@@ -69,8 +64,6 @@ const FormHelperText: PolymorphicComponentWithRef = forwardRef(function FormHelp
 	);
 });
 
-FormHelperText.displayName = 'FormHelperText';
+// FormHelperText.displayName = 'FormHelperText';
 
-export default <Element extends FormHelperTextElement = FormHelperTextDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <FormHelperText<Element> {...props} />;
+export default FormHelperText;
