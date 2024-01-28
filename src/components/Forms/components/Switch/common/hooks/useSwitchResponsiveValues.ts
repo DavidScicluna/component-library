@@ -1,4 +1,5 @@
 import { useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicElementType } from '@common/types';
 
 import {
 	__DEFAULT_SWITCH_HAS_IO_LABEL__,
@@ -35,9 +36,13 @@ type PickedSwitchProps =
 	| 'isWarning'
 	| 'labelPosition'
 	| 'size';
-type UseSwitchResponsiveValuesProps = Partial<Pick<SwitchProps, PickedSwitchProps>>;
+type UseSwitchResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
+	Pick<SwitchProps<Element>, PickedSwitchProps>
+>;
 
-const useSwitchResponsiveValues = (props: UseSwitchResponsiveValuesProps) => {
+const useSwitchResponsiveValues = <Element extends PolymorphicElementType>(
+	props: UseSwitchResponsiveValuesProps<Element>
+) => {
 	const {
 		hasIOLabel: hasIOLabelProp = __DEFAULT_SWITCH_HAS_IO_LABEL__,
 		isActive: isActiveProp = __DEFAULT_SWITCH_IS_ACTIVE__,

@@ -12,14 +12,11 @@ import type {
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { FormsCommonProps, FormsCommonSize } from '@components/Forms/common/types';
 import type { PushableOverlayProps } from '@components/Overlay';
-import type { TextProps } from '@components/Typography';
+import type { TextDefaultElement, TextProps } from '@components/Typography';
 
-export type SwitchMouseEvent<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
-	PolymorphicMouseEvent<Element>;
-export type SwitchChangeEvent<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
-	PolymorphicChangeEvent<Element>;
-export type SwitchFocusEvent<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
-	PolymorphicFocusEvent<Element>;
+export type SwitchMouseEvent<Element extends PolymorphicElementType> = PolymorphicMouseEvent<Element>;
+export type SwitchChangeEvent<Element extends PolymorphicElementType> = PolymorphicChangeEvent<Element>;
+export type SwitchFocusEvent<Element extends PolymorphicElementType> = PolymorphicFocusEvent<Element>;
 
 export type SwitchLabelPosition = 'left' | 'right';
 
@@ -40,7 +37,7 @@ type PickedFormsCommonProps =
 	| 'size';
 
 type SwitchOtherProps = Pick<FormsCommonProps, PickedFormsCommonProps> & {
-	renderLabel?: (props: TextProps) => ReactNode;
+	renderLabel?: (props: TextProps<TextDefaultElement>) => ReactNode;
 	/**
 	 * If true, the switch will contain I (Switch on) and O (Switch off) labels
 	 *
@@ -70,9 +67,9 @@ type SwitchOtherProps = Pick<FormsCommonProps, PickedFormsCommonProps> & {
 
 type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
-export type SwitchProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
+export type SwitchProps<Element extends PolymorphicElementType> = Omit<
 	BoxProps<Element, SwitchOtherProps>,
 	OmittedBoxProps
 >;
 
-export type SwitchRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type SwitchRef<Element extends PolymorphicElementType> = BoxRef<Element>;

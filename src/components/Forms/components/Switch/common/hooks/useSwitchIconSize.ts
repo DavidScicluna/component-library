@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 
+import type { PolymorphicElementType } from '@common/types';
 import { getFontSizeHeight } from '@common/utils';
 
 import type { IconProps } from '@components/DataDisplay';
@@ -15,16 +16,18 @@ import { useSwitchResponsiveValues, useSwitchSizeConfig } from '.';
 
 type SwitchIconSize = Pick<IconProps, 'w' | 'h' | 'size'>;
 
-type UseSwitchIconSizeProps = Pick<SwitchProps, 'isCompact' | 'size'>;
+type UseSwitchIconSizeProps<Element extends PolymorphicElementType> = Pick<SwitchProps<Element>, 'isCompact' | 'size'>;
 type UseSwitchIconSizeReturn = SwitchIconSize;
 
-const useSwitchIconSize = (props: UseSwitchIconSizeProps): UseSwitchIconSizeReturn => {
+const useSwitchIconSize = <Element extends PolymorphicElementType>(
+	props: UseSwitchIconSizeProps<Element>
+): UseSwitchIconSizeReturn => {
 	const { isCompact: isCompactProp = __DEFAULT_SWITCH_IS_COMPACT__, size: sizeProp = __DEFAULT_SWITCH_SIZE__ } =
 		props;
 
-	const { isCompact, size } = useSwitchResponsiveValues({ isCompact: isCompactProp, size: sizeProp });
+	const { isCompact, size } = useSwitchResponsiveValues<Element>({ isCompact: isCompactProp, size: sizeProp });
 
-	const config = useSwitchSizeConfig({ isCompact, size });
+	const config = useSwitchSizeConfig<Element>({ isCompact, size });
 
 	const iconSize = useMemo<number>(() => {
 		return getFontSizeHeight(config.fontSize, __DEFAULT_SWITCH_LINE_HEIGHT_SIZE__);
