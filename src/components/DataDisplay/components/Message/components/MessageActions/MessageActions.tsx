@@ -3,14 +3,9 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useMediaQuery } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
+import type { StackProps } from '@components/Layout';
 import { Stack } from '@components/Layout';
 
 import { useMessageContext } from '../../common/hooks';
@@ -21,9 +16,10 @@ import type { MessageActionsProps, MessageActionsRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const MessageActions: PolymorphicComponentWithRef = forwardRef(function MessageActions<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: MessageActionsProps<Element>, ref: MessageActionsRef<Element>): ReactElement {
+const MessageActions = forwardRef(function MessageActions<Element extends PolymorphicElementType>(
+	props: MessageActionsProps<Element>,
+	ref: MessageActionsRef<Element>
+): ReactElement {
 	const isSm = useMediaQuery({ breakpoint: 'sm', type: 'width', direction: 'max' });
 
 	const { color, colorMode, spacing: __DEFAULT_MESSAGE_ACTIONS_SPACING__ } = useMessageContext();
@@ -39,8 +35,8 @@ const MessageActions: PolymorphicComponentWithRef = forwardRef(function MessageA
 	} = props;
 
 	return (
-		<Stack<Element>
-			{...rest}
+		<Stack
+			{...(rest as StackProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_MESSAGE_ACTIONS_CLASS__, { [className]: !!className })}
 			direction={direction}
@@ -53,8 +49,6 @@ const MessageActions: PolymorphicComponentWithRef = forwardRef(function MessageA
 	);
 });
 
-MessageActions.displayName = 'MessageActions';
+// MessageActions.displayName = 'MessageActions';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <MessageActions<Element> {...props} />;
+export default MessageActions;
