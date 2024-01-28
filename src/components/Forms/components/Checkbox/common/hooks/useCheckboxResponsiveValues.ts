@@ -1,4 +1,5 @@
 import { useGetResponsiveValue } from '@common/hooks';
+import type { PolymorphicElementType } from '@common/types';
 
 import {
 	__DEFAULT_CHECKBOX_IS_ACTIVE__,
@@ -35,9 +36,13 @@ type PickedCheckboxProps =
 	| 'isWarning'
 	| 'labelPosition'
 	| 'size';
-type UseCheckboxResponsiveValuesProps = Partial<Pick<CheckboxProps, PickedCheckboxProps>>;
+type UseCheckboxResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
+	Pick<CheckboxProps<Element>, PickedCheckboxProps>
+>;
 
-const useCheckboxResponsiveValues = (props: UseCheckboxResponsiveValuesProps) => {
+const useCheckboxResponsiveValues = <Element extends PolymorphicElementType>(
+	props: UseCheckboxResponsiveValuesProps<Element>
+) => {
 	const {
 		isActive: isActiveProp = __DEFAULT_CHECKBOX_IS_ACTIVE__,
 		isChecked: isCheckedProp = __DEFAULT_CHECKBOX_IS_CHECKED__,

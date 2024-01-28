@@ -8,10 +8,7 @@ import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean, useGetColor } from '@common/hooks';
 import type {
 	PolymorphicChangeEvent,
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
 	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
 	PolymorphicElement,
 	PolymorphicElementType
 } from '@common/types';
@@ -19,6 +16,7 @@ import type {
 import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
+import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 import { PushableOverlay } from '@components/Overlay';
 import { VisuallyHidden } from '@components/VisuallyHidden';
@@ -58,10 +56,12 @@ import type { CheckboxFocusEvent, CheckboxMouseEvent, CheckboxProps, CheckboxRef
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Checkbox: PolymorphicComponentWithRef = forwardRef(function Checkbox<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: CheckboxProps<Element>, ref: CheckboxRef<Element>): ReactElement {
-	const pushableOverlayRef = useRef<PolymorphicElement>(null);
+const Checkbox = forwardRef(function Checkbox<Element extends PolymorphicElementType>(
+	props: CheckboxProps<Element>,
+	ref: CheckboxRef<Element>
+): ReactElement {
+	// TODO: Update PolymorphicRef type to get useRef working without as
+	const pushableOverlayRef = useRef<PolymorphicElement<PolymorphicDefaultElement>>(null);
 
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
@@ -128,7 +128,7 @@ const Checkbox: PolymorphicComponentWithRef = forwardRef(function Checkbox<
 		isWarning,
 		labelPosition,
 		size
-	} = useCheckboxResponsiveValues({
+	} = useCheckboxResponsiveValues<Element>({
 		isActive: isActiveProp,
 		isChecked: isCheckedProp,
 		isClickable: isClickableProp,
@@ -148,10 +148,10 @@ const Checkbox: PolymorphicComponentWithRef = forwardRef(function Checkbox<
 
 	const isFocused = useMemo<boolean>(() => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
 
-	const classes = useCheckboxClasses({ isActive, isClickable, isDisabled, isReadOnly });
+	const classes = useCheckboxClasses<Element>({ isActive, isClickable, isDisabled, isReadOnly });
 
-	const config = useCheckboxSizeConfig({ isCompact, size });
-	const iconSize = useCheckboxIconSize({ isCompact, size });
+	const config = useCheckboxSizeConfig<Element>({ isCompact, size });
+	const iconSize = useCheckboxIconSize<Element>({ isCompact, size });
 
 	const labelColor = useGetColor({
 		color: 'gray',
@@ -208,8 +208,8 @@ const Checkbox: PolymorphicComponentWithRef = forwardRef(function Checkbox<
 	}, [isFocused]);
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			{...focusProps}
 			ref={ref}
 			className={classNames(__KEYS_CHECKBOX_CLASS__, classes, { [className]: !!className })}
@@ -259,7 +259,7 @@ const Checkbox: PolymorphicComponentWithRef = forwardRef(function Checkbox<
 					py={config.padding.y}
 				>
 					<VisuallyHidden>
-						<Box<'input'>
+						<Box
 							as='input'
 							aria-checked={isChecked ? 'true' : 'false'}
 							aria-disabled={isDisabled ? 'true' : 'false'}
@@ -275,7 +275,7 @@ const Checkbox: PolymorphicComponentWithRef = forwardRef(function Checkbox<
 							type={type}
 							onChange={
 								onToggle
-									? (event: PolymorphicChangeEvent<'input'>) => onToggle(event.target.checked)
+									? (event: PolymorphicChangeEvent<'input'>) => onToggle(!!event.target.checked)
 									: undefined
 							}
 						/>
@@ -310,8 +310,6 @@ const Checkbox: PolymorphicComponentWithRef = forwardRef(function Checkbox<
 	);
 });
 
-Checkbox.displayName = 'Checkbox';
+// Checkbox.displayName = 'Checkbox';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Checkbox<Element> {...props} />;
+export default Checkbox;

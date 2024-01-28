@@ -12,14 +12,11 @@ import type {
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 import type { FormsCommonProps, FormsCommonSize } from '@components/Forms/common/types';
 import type { PushableOverlayProps } from '@components/Overlay';
-import type { TextProps } from '@components/Typography';
+import type { TextDefaultElement, TextProps } from '@components/Typography';
 
-export type CheckboxMouseEvent<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
-	PolymorphicMouseEvent<Element>;
-export type CheckboxChangeEvent<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
-	PolymorphicChangeEvent<Element>;
-export type CheckboxFocusEvent<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
-	PolymorphicFocusEvent<Element>;
+export type CheckboxMouseEvent<Element extends PolymorphicElementType> = PolymorphicMouseEvent<Element>;
+export type CheckboxChangeEvent<Element extends PolymorphicElementType> = PolymorphicChangeEvent<Element>;
+export type CheckboxFocusEvent<Element extends PolymorphicElementType> = PolymorphicFocusEvent<Element>;
 
 export type CheckboxLabelPosition = 'left' | 'right';
 
@@ -40,7 +37,7 @@ type PickedFormsCommonProps =
 	| 'size';
 
 type CheckboxOtherProps = Pick<FormsCommonProps, PickedFormsCommonProps> & {
-	renderLabel?: (props: TextProps) => ReactNode;
+	renderLabel?: (props: TextProps<TextDefaultElement>) => ReactNode;
 	/**
 	 * If true, the checkbox will be in a checked state
 	 *
@@ -70,9 +67,9 @@ type CheckboxOtherProps = Pick<FormsCommonProps, PickedFormsCommonProps> & {
 
 type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
-export type CheckboxProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
+export type CheckboxProps<Element extends PolymorphicElementType> = Omit<
 	BoxProps<Element, CheckboxOtherProps>,
 	OmittedBoxProps
 >;
 
-export type CheckboxRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type CheckboxRef<Element extends PolymorphicElementType> = BoxRef<Element>;
