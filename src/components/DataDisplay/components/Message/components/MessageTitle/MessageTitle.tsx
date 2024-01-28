@@ -3,30 +3,23 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
+import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
 import { useMessageContext } from '../../common/hooks';
 
+import { __DEFAULT_MESSAGE_TITLE_AS__ } from './common/constants';
 import { __KEYS_MESSAGE_TITLE_CLASS__ } from './common/keys';
-import type {
-	MessageTitleDefaultElement,
-	MessageTitleElement,
-	MessageTitleProps,
-	MessageTitleRef
-} from './common/types';
+import type { MessageTitleElement, MessageTitleProps, MessageTitleRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const MessageTitle: PolymorphicComponentWithRef = forwardRef(function MessageTitle<
-	Element extends MessageTitleElement = MessageTitleDefaultElement
->(props: MessageTitleProps<Element>, ref: MessageTitleRef<Element>): ReactElement {
+const MessageTitle = forwardRef(function MessageTitle<Element extends MessageTitleElement>(
+	props: MessageTitleProps<Element>,
+	ref: MessageTitleRef<Element>
+): ReactElement {
 	const { colorMode } = useMessageContext();
 
 	const __DEFAULT_MESSAGE_TITLE_COLOR__ = useGetColor({
@@ -39,6 +32,7 @@ const MessageTitle: PolymorphicComponentWithRef = forwardRef(function MessageTit
 
 	const {
 		children,
+		as = __DEFAULT_MESSAGE_TITLE_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		align = 'center',
 		color = __DEFAULT_MESSAGE_TITLE_COLOR__,
@@ -49,8 +43,9 @@ const MessageTitle: PolymorphicComponentWithRef = forwardRef(function MessageTit
 	} = props;
 
 	return (
-		<Text<Element>
-			{...rest}
+		<Text
+			{...(rest as TextProps<Element>)}
+			as={as}
 			ref={ref}
 			className={classNames(__KEYS_MESSAGE_TITLE_CLASS__, { [className]: !!className })}
 			align={align}
@@ -64,8 +59,6 @@ const MessageTitle: PolymorphicComponentWithRef = forwardRef(function MessageTit
 	);
 });
 
-MessageTitle.displayName = 'MessageTitle';
+// MessageTitle.displayName = 'MessageTitle';
 
-export default <Element extends MessageTitleElement = MessageTitleDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <MessageTitle<Element> {...props} />;
+export default MessageTitle;
