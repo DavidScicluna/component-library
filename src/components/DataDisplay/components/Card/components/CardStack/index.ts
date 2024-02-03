@@ -1,4 +1,4 @@
-import type { CardStackProps, CardStackRef } from './common/types';
+import type { CardStackMouseEvent, CardStackProps, CardStackRef } from './common/types';
 import CardStack from './CardStack';
 
 // Keys
@@ -8,4 +8,4 @@ export * from './common/keys';
 export { CardStack };
 
 // Component Types
-export type { CardStackProps, CardStackRef };
+export type { CardStackMouseEvent, CardStackProps, CardStackRef };

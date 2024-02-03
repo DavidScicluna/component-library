@@ -1,30 +1,25 @@
 import { forwardRef, type ReactElement } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
+import type { VStackProps } from '@components/Layout';
 import { VStack } from '@components/Layout';
 
 import { useCardContext } from '../../common/hooks';
-import type { CardMouseEvent } from '../../common/types';
 import { CardDivider } from '../CardDivider';
 
 import { __KEYS_CARD_STACK_CLASS__ } from './common/keys';
-import type { CardStackProps, CardStackRef } from './common/types';
+import type { CardStackMouseEvent, CardStackProps, CardStackRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CardStack: PolymorphicComponentWithRef = forwardRef(function CardStack<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: CardStackProps<Element>, ref: CardStackRef<Element>): ReactElement {
+const CardStack = forwardRef(function CardStack<Element extends PolymorphicElementType>(
+	props: CardStackProps<Element>,
+	ref: CardStackRef<Element>
+): ReactElement {
 	const { isCollapsable, isDivisible, isOpen, onHover, spacing: __DEFAULT_CARD_STACK_SPACING__ } = useCardContext();
 
 	const {
@@ -39,7 +34,7 @@ const CardStack: PolymorphicComponentWithRef = forwardRef(function CardStack<
 		...rest
 	} = props;
 
-	const handleMouseEnter = (event: CardMouseEvent<Element>): void => {
+	const handleMouseEnter = (event: CardStackMouseEvent<Element>): void => {
 		if (typeof onHover.on === 'function') {
 			onHover.on();
 		}
@@ -49,7 +44,7 @@ const CardStack: PolymorphicComponentWithRef = forwardRef(function CardStack<
 		}
 	};
 
-	const handleMouseLeave = (event: CardMouseEvent<Element>): void => {
+	const handleMouseLeave = (event: CardStackMouseEvent<Element>): void => {
 		if (typeof onHover.off === 'function') {
 			onHover.off();
 		}
@@ -61,8 +56,8 @@ const CardStack: PolymorphicComponentWithRef = forwardRef(function CardStack<
 
 	return (
 		<Transition w='100%' h='100%' duration='slow' transition='collapse' in={isCollapsable ? isOpen : true}>
-			<VStack<Element>
-				{...rest}
+			<VStack
+				{...(rest as VStackProps<Element>)}
 				ref={ref}
 				className={classNames(__KEYS_CARD_STACK_CLASS__, { [className]: !!className })}
 				w='100%'
@@ -80,6 +75,6 @@ const CardStack: PolymorphicComponentWithRef = forwardRef(function CardStack<
 	);
 });
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <CardStack<Element> {...props} />;
+// CardStack.displayName = 'CardStack';
+
+export default CardStack;
