@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import type { PolymorphicElementType } from '@common/types';
 import { getFontSizeHeight } from '@common/utils';
 
-import type { IconProps } from '@components/DataDisplay';
+import type { IconDefaultElement, IconProps } from '@components/DataDisplay';
 
 import {
 	__DEFAULT_SWITCH_IS_COMPACT__,
@@ -14,7 +14,7 @@ import type { SwitchProps } from '../types';
 
 import { useSwitchResponsiveValues, useSwitchSizeConfig } from '.';
 
-type SwitchIconSize = Pick<IconProps, 'w' | 'h' | 'size'>;
+type SwitchIconSize = Pick<IconProps<IconDefaultElement>, 'w' | 'h' | 'size'>;
 
 type UseSwitchIconSizeProps<Element extends PolymorphicElementType> = Pick<SwitchProps<Element>, 'isCompact' | 'size'>;
 type UseSwitchIconSizeReturn = SwitchIconSize;

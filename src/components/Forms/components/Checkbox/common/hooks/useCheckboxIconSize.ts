@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import type { PolymorphicElementType } from '@common/types';
 import { getFontSizeHeight } from '@common/utils';
 
-import type { IconProps } from '@components/DataDisplay';
+import type { IconDefaultElement, IconProps } from '@components/DataDisplay';
 
 import {
 	__DEFAULT_CHECKBOX_IS_COMPACT__,
@@ -14,7 +14,7 @@ import type { CheckboxProps } from '../types';
 
 import { useCheckboxResponsiveValues, useCheckboxSizeConfig } from '.';
 
-type CheckboxIconSize = Pick<IconProps, 'w' | 'h' | 'size'>;
+type CheckboxIconSize = Pick<IconProps<IconDefaultElement>, 'w' | 'h' | 'size'>;
 
 type UseCheckboxIconSizeProps<Element extends PolymorphicElementType> = Pick<
 	CheckboxProps<Element>,

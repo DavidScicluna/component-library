@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import { getFontSizeHeight } from '@common/utils';
 
-import type { IconProps } from '@components/DataDisplay';
+import type { IconDefaultElement, IconProps } from '@components/DataDisplay';
 
 import {
 	__DEFAULT_FORMS_IS_COMPACT__,
@@ -15,7 +15,7 @@ import type { FormsCommonProps } from '../types';
 import useFormsResponsiveValues from './useFormsResponsiveValues';
 import { useFormsSizeConfig } from '.';
 
-type FormsIconSize = Pick<IconProps, 'w' | 'h' | 'size'>;
+type FormsIconSize = Pick<IconProps<IconDefaultElement>, 'w' | 'h' | 'size'>;
 
 type UseFormsIconSizeProps = Pick<FormsCommonProps, 'isCompact' | 'size' | 'variant'>;
 type UseFormsIconSizeReturn = FormsIconSize;

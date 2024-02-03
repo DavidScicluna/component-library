@@ -3,14 +3,14 @@ import { useMemo } from 'react';
 import type { PolymorphicElementType } from '@common/types';
 import { getFontSizeHeight } from '@common/utils';
 
-import type { IconProps } from '@components/DataDisplay';
+import type { IconDefaultElement, IconProps } from '@components/DataDisplay';
 
 import { __DEFAULT_RATING_SIZE__ } from '../constants';
 import type { RatingProps } from '../types';
 
 import { useRatingResponsiveValues } from '.';
 
-type RatingIconSize = Pick<IconProps, 'w' | 'h' | 'size'>;
+type RatingIconSize = Pick<IconProps<IconDefaultElement>, 'w' | 'h' | 'size'>;
 
 type UseRatingIconSizeProps<Element extends PolymorphicElementType> = Pick<RatingProps<Element>, 'size'>;
 type UseRatingIconSizeReturn = RatingIconSize;
