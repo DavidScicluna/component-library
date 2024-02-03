@@ -15,9 +15,7 @@ type BadgeCloseIconButtonOtherProps = Pick<TooltipProps<PolymorphicDefaultElemen
 	hasTooltip?: boolean;
 };
 
-export type BadgeCloseIconButtonProps<
-	Element extends BadgeCloseIconButtonElement = BadgeCloseIconButtonDefaultElement
-> = Omit<IconButtonProps<Element>, 'variant'> & BadgeCloseIconButtonOtherProps;
+export type BadgeCloseIconButtonProps<Element extends BadgeCloseIconButtonElement> = BadgeCloseIconButtonOtherProps &
+	Omit<IconButtonProps<Element>, 'variant'>;
 
-export type BadgeCloseIconButtonRef<Element extends BadgeCloseIconButtonElement = BadgeCloseIconButtonDefaultElement> =
-	IconButtonRef<Element>;
+export type BadgeCloseIconButtonRef<Element extends BadgeCloseIconButtonElement> = IconButtonRef<Element>;

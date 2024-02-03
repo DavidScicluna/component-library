@@ -2,12 +2,8 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
+import type { CloseIconButtonProps } from '@components/Buttons';
 import { CloseIconButton } from '@components/Buttons';
 import { useIconButtonClasses } from '@components/Buttons/components/IconButton/common/hooks';
 import { usePushableOverlayStyles } from '@components/Overlay/components/PushableOverlay/common/hooks';
@@ -15,23 +11,20 @@ import { usePushableOverlayStyles } from '@components/Overlay/components/Pushabl
 import { useBadgeContext } from '../../common/hooks';
 
 import {
+	__DEFAULT_BADGE_CLOSE_ICON_BUTTON_AS__,
 	__DEFAULT_BADGE_CLOSE_ICON_BUTTON_IS_COMPACT__,
 	__DEFAULT_BADGE_CLOSE_ICON_BUTTON_SIZE__
 } from './common/constants';
 import { __KEYS_BADGE_CLOSE_ICON_BUTTON_CLASS__ } from './common/keys';
-import type {
-	BadgeCloseIconButtonDefaultElement,
-	BadgeCloseIconButtonElement,
-	BadgeCloseIconButtonProps,
-	BadgeCloseIconButtonRef
-} from './common/types';
+import type { BadgeCloseIconButtonElement, BadgeCloseIconButtonProps, BadgeCloseIconButtonRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const BadgeCloseIconButton: PolymorphicComponentWithRef = forwardRef(function BadgeCloseIconButton<
-	Element extends BadgeCloseIconButtonElement = BadgeCloseIconButtonDefaultElement
->(props: BadgeCloseIconButtonProps<Element>, ref: BadgeCloseIconButtonRef<Element>): ReactElement {
+const BadgeCloseIconButton = forwardRef(function BadgeCloseIconButton<Element extends BadgeCloseIconButtonElement>(
+	props: BadgeCloseIconButtonProps<Element>,
+	ref: BadgeCloseIconButtonRef<Element>
+): ReactElement {
 	const {
 		color: __DEFAULT_BADGE_CLOSE_ICON_BUTTON_COLOR__,
 		colorMode: __DEFAULT_BADGE_CLOSE_ICON_BUTTON_COLORMODE__,
@@ -39,6 +32,7 @@ const BadgeCloseIconButton: PolymorphicComponentWithRef = forwardRef(function Ba
 	} = useBadgeContext();
 
 	const {
+		as = __DEFAULT_BADGE_CLOSE_ICON_BUTTON_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		color = __DEFAULT_BADGE_CLOSE_ICON_BUTTON_COLOR__,
 		colorMode = __DEFAULT_BADGE_CLOSE_ICON_BUTTON_COLORMODE__,
@@ -55,8 +49,9 @@ const BadgeCloseIconButton: PolymorphicComponentWithRef = forwardRef(function Ba
 	});
 
 	return (
-		<CloseIconButton<Element>
-			{...rest}
+		<CloseIconButton
+			{...(rest as CloseIconButtonProps<Element>)}
+			as={as}
 			ref={ref}
 			className={classNames(__KEYS_BADGE_CLOSE_ICON_BUTTON_CLASS__, classes, { [className]: !!className })}
 			color={color}
@@ -69,11 +64,6 @@ const BadgeCloseIconButton: PolymorphicComponentWithRef = forwardRef(function Ba
 	);
 });
 
-BadgeCloseIconButton.displayName = 'BadgeCloseIconButton';
+// BadgeCloseIconButton.displayName = 'BadgeCloseIconButton';
 
-export default <
-	Element extends BadgeCloseIconButtonElement = BadgeCloseIconButtonDefaultElement,
-	Props = PolymorphicDefaultProps
->(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <BadgeCloseIconButton<Element> {...props} />;
+export default BadgeCloseIconButton;
