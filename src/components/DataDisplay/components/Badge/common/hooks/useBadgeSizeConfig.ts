@@ -8,7 +8,7 @@ import {
 	__DEFAULT_BADGE_SIZE__,
 	__DEFAULT_BADGE_VARIANT__
 } from '../constants';
-import type { BadgeProps } from '../types';
+import type { BadgeElement, BadgeProps } from '../types';
 
 import useBadgeResponsiveValues from './useBadgeResponsiveValues';
 
@@ -19,10 +19,15 @@ type BadgeSizeConfig = {
 	spacing: ThemeSpacing;
 };
 
-type UseBadgeSizeConfigProps = Pick<BadgeProps, 'isCompact' | 'isRound' | 'size' | 'variant'>;
+type UseBadgeSizeConfigProps<Element extends BadgeElement> = Pick<
+	BadgeProps<Element>,
+	'isCompact' | 'isRound' | 'size' | 'variant'
+>;
 type UseBadgeSizeConfigReturn = BadgeSizeConfig;
 
-const useBadgeSizeConfig = (props: UseBadgeSizeConfigProps): UseBadgeSizeConfigReturn => {
+const useBadgeSizeConfig = <Element extends BadgeElement>(
+	props: UseBadgeSizeConfigProps<Element>
+): UseBadgeSizeConfigReturn => {
 	const {
 		isCompact: isCompactProp = __DEFAULT_BADGE_IS_COMPACT__,
 		isRound: isRoundProp = __DEFAULT_BADGE_IS_ROUND__,
@@ -30,7 +35,7 @@ const useBadgeSizeConfig = (props: UseBadgeSizeConfigProps): UseBadgeSizeConfigR
 		variant: variantProp = __DEFAULT_BADGE_VARIANT__
 	} = props;
 
-	const { isCompact, isRound, size, variant } = useBadgeResponsiveValues({
+	const { isCompact, isRound, size, variant } = useBadgeResponsiveValues<Element>({
 		isCompact: isCompactProp,
 		isRound: isRoundProp,
 		size: sizeProp,

@@ -12,25 +12,22 @@ import {
 	__DEFAULT_BADGE_SIZE__,
 	__DEFAULT_BADGE_VARIANT__
 } from '../constants';
-import type { BadgeProps, BadgeSize, BadgeVariant } from '../types';
+import type { BadgeElement, BadgeProps, BadgeSize, BadgeVariant } from '../types';
 
-type UseBadgeResponsiveValuesProps = Partial<
-	Pick<
-		BadgeProps,
-		| 'isActive'
-		| 'isClickable'
-		| 'isCompact'
-		| 'isDisabled'
-		| 'isFullWidth'
-		| 'isOutlined'
-		| 'isRound'
-		| 'isUppercase'
-		| 'size'
-		| 'variant'
-	>
->;
+type PickedBadgeProps =
+	| 'isActive'
+	| 'isClickable'
+	| 'isCompact'
+	| 'isDisabled'
+	| 'isFullWidth'
+	| 'isOutlined'
+	| 'isRound'
+	| 'isUppercase'
+	| 'size'
+	| 'variant';
+type UseBadgeResponsiveValuesProps<Element extends BadgeElement> = Partial<Pick<BadgeProps<Element>, PickedBadgeProps>>;
 
-const useBadgeResponsiveValues = (props: UseBadgeResponsiveValuesProps) => {
+const useBadgeResponsiveValues = <Element extends BadgeElement>(props: UseBadgeResponsiveValuesProps<Element>) => {
 	const {
 		isActive: isActiveProp = __DEFAULT_BADGE_IS_ACTIVE__,
 		isClickable: isClickableProp = __DEFAULT_BADGE_IS_CLICKABLE__,

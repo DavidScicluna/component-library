@@ -7,19 +7,15 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import type { CenterRef } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
+import type { PushableOverlayProps } from '@components/Overlay';
 import { PushableOverlay } from '@components/Overlay';
 
 import {
+	__DEFAULT_BADGE_AS__,
 	__DEFAULT_BADGE_IS_ACTIVE__,
 	__DEFAULT_BADGE_IS_CLICKABLE__,
 	__DEFAULT_BADGE_IS_COMPACT__,
@@ -33,23 +29,31 @@ import {
 } from './common/constants';
 import { useBadgeClasses, useBadgeResponsiveValues, useBadgeSizeConfig } from './common/hooks';
 import { __KEYS_BADGE_CLASS__ } from './common/keys';
-import type { BadgeContext as BadgeContextType, BadgeProps, BadgeRef } from './common/types';
+import type {
+	BadgeContext as BadgeContextType,
+	BadgeDefaultElement,
+	BadgeElement,
+	BadgeProps,
+	BadgeRef
+} from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-export const BadgeContext = createContext<BadgeContextType>({
+export const BadgeContext = createContext<BadgeContextType<BadgeDefaultElement>>({
 	size: __DEFAULT_BADGE_SIZE__,
 	variant: __DEFAULT_BADGE_VARIANT__
 });
 
-const Badge: PolymorphicComponentWithRef = forwardRef(function Badge<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: BadgeProps<Element>, ref: BadgeRef<Element>): ReactElement {
+const Badge = forwardRef(function Badge<Element extends BadgeElement>(
+	props: BadgeProps<Element>,
+	ref: BadgeRef<Element>
+): ReactElement {
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const {
 		children,
+		as = __DEFAULT_BADGE_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		renderLeft,
 		renderRight,
@@ -82,7 +86,7 @@ const Badge: PolymorphicComponentWithRef = forwardRef(function Badge<
 		isUppercase,
 		size,
 		variant
-	} = useBadgeResponsiveValues({
+	} = useBadgeResponsiveValues<Element>({
 		isActive: isActiveProp,
 		isClickable: isClickableProp,
 		isCompact: isCompactProp,
@@ -95,17 +99,18 @@ const Badge: PolymorphicComponentWithRef = forwardRef(function Badge<
 		variant: variantProp
 	});
 
-	const config = useBadgeSizeConfig({ isCompact, isRound, size, variant });
+	const config = useBadgeSizeConfig<Element>({ isCompact, isRound, size, variant });
 
-	const classes = useBadgeClasses({ isCompact, isFullWidth, isRound, isUppercase, size, variant });
+	const classes = useBadgeClasses<Element>({ isCompact, isFullWidth, isRound, isUppercase, size, variant });
 
 	const { focusProps } = useFocus({ onFocus: () => setIsFocused.on(), onBlur: () => setIsFocused.off() });
 
 	return (
 		<BadgeContext.Provider value={{ color, colorMode, size, variant }}>
-			<PushableOverlay<Element>
+			<PushableOverlay
 				{...focusProps}
-				{...rest}
+				{...(rest as PushableOverlayProps<Element>)}
+				as={as}
 				ref={ref}
 				className={classNames(__KEYS_BADGE_CLASS__, classes, { [className]: !!className })}
 				color={color}
@@ -144,7 +149,12 @@ const Badge: PolymorphicComponentWithRef = forwardRef(function Badge<
 
 					{children ? (
 						<GridItem>
-							<Center ref={childrenRef as CenterRef} as='span' w='100%' h='100%'>
+							<Center
+								ref={childrenRef as CenterRef<PolymorphicDefaultElement>}
+								as='span'
+								w='100%'
+								h='100%'
+							>
 								{children}
 							</Center>
 						</GridItem>
@@ -167,8 +177,6 @@ const Badge: PolymorphicComponentWithRef = forwardRef(function Badge<
 	);
 });
 
-Badge.displayName = 'Badge';
+// Badge.displayName = 'Badge';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Badge<Element> {...props} />;
+export default Badge;

@@ -11,7 +11,7 @@ import {
 	__DEFAULT_BADGE_SIZE__,
 	__DEFAULT_BADGE_VARIANT__
 } from '../constants';
-import type { BadgeProps } from '../types';
+import type { BadgeElement, BadgeProps } from '../types';
 
 import useBadgeResponsiveValues from './useBadgeResponsiveValues';
 import useBadgeSizeConfig from './useBadgeSizeConfig';
@@ -19,13 +19,13 @@ import useBadgeSizeConfig from './useBadgeSizeConfig';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseBadgeClassesProps = Pick<
-	BadgeProps,
+type UseBadgeClassesProps<Element extends BadgeElement> = Pick<
+	BadgeProps<Element>,
 	'isCompact' | 'isFullWidth' | 'isRound' | 'isUppercase' | 'size' | 'variant'
 >;
 type UseBadgeClassesReturn = ClassName;
 
-const useBadgeClasses = (props: UseBadgeClassesProps): UseBadgeClassesReturn => {
+const useBadgeClasses = <Element extends BadgeElement>(props: UseBadgeClassesProps<Element>): UseBadgeClassesReturn => {
 	const {
 		isCompact: isCompactProp = __DEFAULT_BADGE_IS_COMPACT__,
 		isFullWidth: isFullWidthProp = __DEFAULT_BADGE_IS_FULLWIDTH__,
@@ -35,7 +35,7 @@ const useBadgeClasses = (props: UseBadgeClassesProps): UseBadgeClassesReturn => 
 		variant: variantProp = __DEFAULT_BADGE_VARIANT__
 	} = props;
 
-	const { isCompact, isFullWidth, isRound, isUppercase, size, variant } = useBadgeResponsiveValues({
+	const { isCompact, isFullWidth, isRound, isUppercase, size, variant } = useBadgeResponsiveValues<Element>({
 		isCompact: isCompactProp,
 		isFullWidth: isFullWidthProp,
 		isRound: isRoundProp,
@@ -44,7 +44,7 @@ const useBadgeClasses = (props: UseBadgeClassesProps): UseBadgeClassesReturn => 
 		variant: variantProp
 	});
 
-	const config = useBadgeSizeConfig({ isCompact, isRound, size, variant });
+	const config = useBadgeSizeConfig<Element>({ isCompact, isRound, size, variant });
 
 	const widthClassName = useGetClass<WidthClass>(isFullWidth ? 'full' : 'auto', ['sizing', 'width']);
 

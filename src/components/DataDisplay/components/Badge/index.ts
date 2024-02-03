@@ -1,4 +1,13 @@
-import type { BadgeContext, BadgeProps, BadgeRef, BadgeRenderProps, BadgeSize, BadgeVariant } from './common/types';
+import type {
+	BadgeContext,
+	BadgeDefaultElement,
+	BadgeElement,
+	BadgeProps,
+	BadgeRef,
+	BadgeRenderProps,
+	BadgeSize,
+	BadgeVariant
+} from './common/types';
 import Badge from './Badge';
 
 // Constants
@@ -15,4 +24,13 @@ export { Badge };
 export * from './components';
 
 // Component Types
-export type { BadgeContext, BadgeProps, BadgeRef, BadgeRenderProps, BadgeSize, BadgeVariant };
+export type {
+	BadgeContext,
+	BadgeDefaultElement,
+	BadgeElement,
+	BadgeProps,
+	BadgeRef,
+	BadgeRenderProps,
+	BadgeSize,
+	BadgeVariant
+};

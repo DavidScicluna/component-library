@@ -1,4 +1,6 @@
-import type { BadgeSize, BadgeVariant } from '../types';
+import type { BadgeDefaultElement, BadgeSize, BadgeVariant } from '../types';
+
+export const __DEFAULT_BADGE_AS__: BadgeDefaultElement = 'span';
 
 export const __DEFAULT_BADGE_IS_ACTIVE__ = false;
 export const __DEFAULT_BADGE_IS_CLICKABLE__ = false;
