@@ -6,16 +6,10 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
-import type { GridRef } from '@components/Layout';
+import type { GridProps, GridRef } from '@components/Layout';
 import { Grid, GridItem, HStack, VStack } from '@components/Layout';
 
 import { useCardContext } from '../../common/hooks';
@@ -26,9 +20,10 @@ import type { CardHeaderProps, CardHeaderRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CardHeader: PolymorphicComponentWithRef = forwardRef(function CardHeader<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: CardHeaderProps<Element>, ref: CardHeaderRef<Element>): ReactElement {
+const CardHeader = forwardRef(function CardHeader<Element extends PolymorphicElementType>(
+	props: CardHeaderProps<Element>,
+	ref: CardHeaderRef<Element>
+): ReactElement {
 	const {
 		color,
 		colorMode,
@@ -59,8 +54,8 @@ const CardHeader: PolymorphicComponentWithRef = forwardRef(function CardHeader<
 	});
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_CARD_HEADER_CLASS__, { [className]: !!className })}
 			w='100%'
@@ -81,7 +76,7 @@ const CardHeader: PolymorphicComponentWithRef = forwardRef(function CardHeader<
 
 			<GridItem>
 				<Grid
-					ref={childrenRef as GridRef}
+					ref={childrenRef as GridRef<PolymorphicDefaultElement>}
 					w='100%'
 					h='100%'
 					templateColumns={compact(['1fr', renderActions || isCollapsable ? 'auto' : null]).join(' ')}
@@ -133,8 +128,6 @@ const CardHeader: PolymorphicComponentWithRef = forwardRef(function CardHeader<
 	);
 });
 
-CardHeader.displayName = 'CardHeader';
+// CardHeader.displayName = 'CardHeader';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <CardHeader<Element> {...props} />;
+export default CardHeader;
