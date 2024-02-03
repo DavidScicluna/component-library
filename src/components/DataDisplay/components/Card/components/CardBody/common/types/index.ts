@@ -1,10 +1,9 @@
-import type { PickFrom, PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
+import type { PickFrom, PolymorphicElementType } from '@common/types';
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
-export type CardBodyProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element>,
-	PickFrom<keyof BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>
->;
+type OmittedBoxProps = PickFrom<keyof BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
 
-export type CardBodyRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type CardBodyProps<Element extends PolymorphicElementType> = Omit<BoxProps<Element>, OmittedBoxProps>;
+
+export type CardBodyRef<Element extends PolymorphicElementType> = BoxRef<Element>;
