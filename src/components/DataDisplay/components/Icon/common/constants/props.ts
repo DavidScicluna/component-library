@@ -1,6 +1,8 @@
 import type { IconKey, ThemeRadius } from '@common/types';
 
-import type { IconCategory, IconSize, IconVariant } from '../types';
+import type { IconCategory, IconDefaultElement, IconSize, IconVariant } from '../types';
+
+export const __DEFAULT_ICON_AS__: IconDefaultElement = 'span';
 
 export const __DEFAULT_ICON_ICON__: IconKey = 'circle';
 export const __DEFAULT_ICON_CATEGORY__: IconCategory = 'filled';

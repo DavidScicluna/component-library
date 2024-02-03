@@ -1,4 +1,5 @@
 import {
+	__DEFAULT_ICON_AS__,
 	__DEFAULT_ICON_CATEGORY__,
 	__DEFAULT_ICON_ICON__,
 	__DEFAULT_ICON_RADIUS__,
@@ -7,6 +8,7 @@ import {
 } from './props';
 
 export {
+	__DEFAULT_ICON_AS__,
 	__DEFAULT_ICON_CATEGORY__,
 	__DEFAULT_ICON_ICON__,
 	__DEFAULT_ICON_RADIUS__,

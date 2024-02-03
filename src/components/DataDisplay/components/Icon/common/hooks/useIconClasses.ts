@@ -7,17 +7,20 @@ import type { ClassName, ThemeFontSize, ThemeRadius } from '@common/types';
 import { checkFontSizeType, getClass, getColorHue } from '@common/utils';
 
 import { __DEFAULT_ICON_RADIUS__, __DEFAULT_ICON_SIZE__, __DEFAULT_ICON_VARIANT__ } from '../constants';
-import type { IconProps } from '../types';
+import type { IconElement, IconProps } from '../types';
 
 import useIconResponsiveValues from './useIconResponsiveValues';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseIconClassesProps = Pick<IconProps, 'color' | 'colorMode' | 'radius' | 'size' | 'variant'>;
+type UseIconClassesProps<Element extends IconElement> = Pick<
+	IconProps<Element>,
+	'color' | 'colorMode' | 'radius' | 'size' | 'variant'
+>;
 type UseIconClassesReturn = ClassName;
 
-const useIconClasses = (props: UseIconClassesProps): UseIconClassesReturn => {
+const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<Element>): UseIconClassesReturn => {
 	const { colorMode: __DEFAULT_ICON_COLORMODE__ } = useAppTheme();
 
 	const {
@@ -28,7 +31,7 @@ const useIconClasses = (props: UseIconClassesProps): UseIconClassesReturn => {
 		variant: variantProp = __DEFAULT_ICON_VARIANT__
 	} = props;
 
-	const { radius, size, variant } = useIconResponsiveValues({
+	const { radius, size, variant } = useIconResponsiveValues<Element>({
 		radius: radiusProp,
 		size: sizeProp,
 		variant: variantProp

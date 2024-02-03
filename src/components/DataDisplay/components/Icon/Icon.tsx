@@ -4,18 +4,15 @@ import { forwardRef } from 'react';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 import { getIconFontFamily } from '@common/utils';
 
 import { Skeleton } from '@components/Feedback';
+import type { CenterProps } from '@components/Layout';
 import { Center } from '@components/Layout';
 import useIconFontContext from '@components/Provider/common/hooks/useIconFontContext';
 
 import {
+	__DEFAULT_ICON_AS__,
 	__DEFAULT_ICON_CATEGORY__,
 	__DEFAULT_ICON_ICON__,
 	__DEFAULT_ICON_RADIUS__,
@@ -24,12 +21,12 @@ import {
 } from './common/constants';
 import { useIconClasses, useIconResponsiveValues, useIconStyles } from './common/hooks';
 import { __KEYS_ICON_CLASS__ } from './common/keys';
-import type { IconDefaultElement, IconElement, IconProps, IconRef } from './common/types';
+import type { IconElement, IconProps, IconRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Icon: PolymorphicComponentWithRef = forwardRef(function Icon<Element extends IconElement = IconDefaultElement>(
+const Icon = forwardRef(function Icon<Element extends IconElement>(
 	props: IconProps<Element>,
 	ref: IconRef<Element>
 ): ReactElement {
@@ -37,6 +34,7 @@ const Icon: PolymorphicComponentWithRef = forwardRef(function Icon<Element exten
 
 	const {
 		children,
+		as = __DEFAULT_ICON_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		w = 'auto',
 		h = 'auto',
@@ -51,7 +49,7 @@ const Icon: PolymorphicComponentWithRef = forwardRef(function Icon<Element exten
 		...rest
 	} = props;
 
-	const { icon, category, radius, size, variant } = useIconResponsiveValues({
+	const { icon, category, radius, size, variant } = useIconResponsiveValues<Element>({
 		icon: iconProp,
 		category: categoryProp,
 		radius: radiusProp,
@@ -61,13 +59,14 @@ const Icon: PolymorphicComponentWithRef = forwardRef(function Icon<Element exten
 
 	const hasIcon = !children && !!icon;
 
-	const classes = useIconClasses({ color, colorMode, radius, size, variant });
-	const styles = useIconStyles({ size });
+	const classes = useIconClasses<Element>({ color, colorMode, radius, size, variant });
+	const styles = useIconStyles<Element>({ size });
 
 	return (
 		<Skeleton color={color} colorMode={colorMode} isLoaded={hasIcon ? fonts[category] : true} radius='full'>
-			<Center<Element>
-				{...rest}
+			<Center
+				{...(rest as CenterProps<Element>)}
+				as={as}
 				ref={ref}
 				className={classNames(__KEYS_ICON_CLASS__, classes, { [className]: !!className })}
 				w={w}
@@ -89,8 +88,6 @@ const Icon: PolymorphicComponentWithRef = forwardRef(function Icon<Element exten
 	);
 });
 
-Icon.displayName = 'Icon';
+// Icon.displayName = 'Icon';
 
-export default <Element extends IconElement = IconDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Icon<Element> {...props} />;
+export default Icon;

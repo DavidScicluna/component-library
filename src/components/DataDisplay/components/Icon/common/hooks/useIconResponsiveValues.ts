@@ -8,11 +8,13 @@ import {
 	__DEFAULT_ICON_SIZE__,
 	__DEFAULT_ICON_VARIANT__
 } from '../constants';
-import type { IconCategory, IconProps, IconSize, IconVariant } from '../types';
+import type { IconCategory, IconElement, IconProps, IconSize, IconVariant } from '../types';
 
-type UseIconResponsiveValuesProps = Partial<Pick<IconProps, 'icon' | 'category' | 'radius' | 'size' | 'variant'>>;
+type UseIconResponsiveValuesProps<Element extends IconElement> = Partial<
+	Pick<IconProps<Element>, 'icon' | 'category' | 'radius' | 'size' | 'variant'>
+>;
 
-const useIconResponsiveValues = (props: UseIconResponsiveValuesProps) => {
+const useIconResponsiveValues = <Element extends IconElement>(props: UseIconResponsiveValuesProps<Element>) => {
 	const {
 		icon: iconProp = __DEFAULT_ICON_ICON__,
 		category: categoryProp = __DEFAULT_ICON_CATEGORY__,
