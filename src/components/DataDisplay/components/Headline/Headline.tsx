@@ -5,15 +5,9 @@ import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
-import type { VStackRef } from '@components/Layout';
+import type { GridProps, VStackRef } from '@components/Layout';
 import { Grid, GridItem, VStack } from '@components/Layout';
 
 import { __DEFAULT_HEADLINE_SPACING__ } from './common/constants';
@@ -24,9 +18,10 @@ import type { HeadlineProps, HeadlineRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Headline: PolymorphicComponentWithRef = forwardRef(function Headline<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: HeadlineProps<Element>, ref: HeadlineRef<Element>): ReactElement {
+const Headline = forwardRef(function Headline<Element extends PolymorphicElementType>(
+	props: HeadlineProps<Element>,
+	ref: HeadlineRef<Element>
+): ReactElement {
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const {
@@ -42,7 +37,7 @@ const Headline: PolymorphicComponentWithRef = forwardRef(function Headline<
 		...rest
 	} = props;
 
-	const { spacing } = useHeadlineResponsiveValues({ spacing: spacingProp });
+	const { spacing } = useHeadlineResponsiveValues<Element>({ spacing: spacingProp });
 
 	const captionColor = useGetColor({
 		color,
@@ -67,8 +62,8 @@ const Headline: PolymorphicComponentWithRef = forwardRef(function Headline<
 	});
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_HEADLINE_CLASS__, { [className]: !!className })}
 			templateColumns={compact([renderLeft ? 'auto' : null, '1fr', renderRight ? 'auto' : null]).join(' ')}
@@ -87,7 +82,7 @@ const Headline: PolymorphicComponentWithRef = forwardRef(function Headline<
 
 			<GridItem>
 				<VStack
-					ref={childrenRef as VStackRef}
+					ref={childrenRef as VStackRef<PolymorphicDefaultElement>}
 					w='100%'
 					h='100%'
 					alignItems='stretch'
@@ -132,8 +127,6 @@ const Headline: PolymorphicComponentWithRef = forwardRef(function Headline<
 	);
 });
 
-Headline.displayName = 'Headline';
+// Headline.displayName = 'Headline';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Headline<Element> {...props} />;
+export default Headline;
