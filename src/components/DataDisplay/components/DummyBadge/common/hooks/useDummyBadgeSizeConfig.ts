@@ -8,7 +8,7 @@ import {
 	__DEFAULT_DUMMY_BADGE_SIZE__,
 	__DEFAULT_DUMMY_BADGE_VARIANT__
 } from '../constants';
-import type { DummyBadgeProps } from '../types';
+import type { DummyBadgeElement, DummyBadgeProps } from '../types';
 
 import useDummyBadgeResponsiveValues from './useDummyBadgeResponsiveValues';
 
@@ -19,10 +19,15 @@ type DummyBadgeSizeConfig = {
 	spacing: ThemeSpacing;
 };
 
-type UseDummyBadgeSizeConfigProps = Pick<DummyBadgeProps, 'isCompact' | 'isRound' | 'size' | 'variant'>;
+type UseDummyBadgeSizeConfigProps<Element extends DummyBadgeElement> = Pick<
+	DummyBadgeProps<Element>,
+	'isCompact' | 'isRound' | 'size' | 'variant'
+>;
 type UseDummyBadgeSizeConfigReturn = DummyBadgeSizeConfig;
 
-const useDummyBadgeSizeConfig = (props: UseDummyBadgeSizeConfigProps): UseDummyBadgeSizeConfigReturn => {
+const useDummyBadgeSizeConfig = <Element extends DummyBadgeElement>(
+	props: UseDummyBadgeSizeConfigProps<Element>
+): UseDummyBadgeSizeConfigReturn => {
 	const {
 		isCompact: isCompactProp = __DEFAULT_DUMMY_BADGE_IS_COMPACT__,
 		isRound: isRoundProp = __DEFAULT_DUMMY_BADGE_IS_ROUND__,
@@ -30,7 +35,7 @@ const useDummyBadgeSizeConfig = (props: UseDummyBadgeSizeConfigProps): UseDummyB
 		variant: variantProp = __DEFAULT_DUMMY_BADGE_VARIANT__
 	} = props;
 
-	const { isCompact, isRound, size, variant } = useDummyBadgeResponsiveValues({
+	const { isCompact, isRound, size, variant } = useDummyBadgeResponsiveValues<Element>({
 		isCompact: isCompactProp,
 		isRound: isRoundProp,
 		size: sizeProp,

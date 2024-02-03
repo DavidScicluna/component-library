@@ -1,5 +1,7 @@
 import type {
 	DummyBadgeContext,
+	DummyBadgeDefaultElement,
+	DummyBadgeElement,
 	DummyBadgeProps,
 	DummyBadgeRef,
 	DummyBadgeRenderProps,
@@ -24,6 +26,8 @@ export * from './components';
 // Component Types
 export type {
 	DummyBadgeContext,
+	DummyBadgeDefaultElement,
+	DummyBadgeElement,
 	DummyBadgeProps,
 	DummyBadgeRef,
 	DummyBadgeRenderProps,

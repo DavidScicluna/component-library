@@ -1,4 +1,6 @@
-import type { DummyBadgeSize, DummyBadgeVariant } from '../types';
+import type { DummyBadgeDefaultElement, DummyBadgeSize, DummyBadgeVariant } from '../types';
+
+export const __DEFAULT_DUMMY_BADGE_AS__: DummyBadgeDefaultElement = 'span';
 
 export const __DEFAULT_DUMMY_BADGE_IS_ANIMATED__ = true;
 export const __DEFAULT_DUMMY_BADGE_IS_COMPACT__ = false;

@@ -10,16 +10,24 @@ import {
 	__DEFAULT_DUMMY_BADGE_SIZE__,
 	__DEFAULT_DUMMY_BADGE_VARIANT__
 } from '../constants';
-import type { DummyBadgeProps, DummyBadgeSize, DummyBadgeVariant } from '../types';
+import type { DummyBadgeElement, DummyBadgeProps, DummyBadgeSize, DummyBadgeVariant } from '../types';
 
-type UseDummyBadgeResponsiveValuesProps = Partial<
-	Pick<
-		DummyBadgeProps,
-		'isAnimated' | 'isCompact' | 'isFullWidth' | 'isOutlined' | 'isRound' | 'isUppercase' | 'size' | 'variant'
-	>
+type PickedDummyBadgeProps =
+	| 'isAnimated'
+	| 'isCompact'
+	| 'isFullWidth'
+	| 'isOutlined'
+	| 'isRound'
+	| 'isUppercase'
+	| 'size'
+	| 'variant';
+type UseDummyBadgeResponsiveValuesProps<Element extends DummyBadgeElement> = Partial<
+	Pick<DummyBadgeProps<Element>, PickedDummyBadgeProps>
 >;
 
-const useDummyBadgeResponsiveValues = (props: UseDummyBadgeResponsiveValuesProps) => {
+const useDummyBadgeResponsiveValues = <Element extends DummyBadgeElement>(
+	props: UseDummyBadgeResponsiveValuesProps<Element>
+) => {
 	const {
 		isAnimated: isAnimatedProp = __DEFAULT_DUMMY_BADGE_IS_ANIMATED__,
 		isCompact: isCompactProp = __DEFAULT_DUMMY_BADGE_IS_COMPACT__,

@@ -10,7 +10,7 @@ import {
 	__DEFAULT_DUMMY_BADGE_SIZE__,
 	__DEFAULT_DUMMY_BADGE_VARIANT__
 } from '../constants';
-import type { DummyBadgeProps } from '../types';
+import type { DummyBadgeElement, DummyBadgeProps } from '../types';
 
 import useDummyBadgeResponsiveValues from './useDummyBadgeResponsiveValues';
 import useDummyBadgeSizeConfig from './useDummyBadgeSizeConfig';
@@ -18,13 +18,15 @@ import useDummyBadgeSizeConfig from './useDummyBadgeSizeConfig';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseDummyBadgeClassesProps = Pick<
-	DummyBadgeProps,
+type UseDummyBadgeClassesProps<Element extends DummyBadgeElement> = Pick<
+	DummyBadgeProps<Element>,
 	'isCompact' | 'isFullWidth' | 'isRound' | 'isUppercase' | 'size' | 'variant'
 >;
 type UseDummyBadgeClassesReturn = ClassName;
 
-const useDummyBadgeClasses = (props: UseDummyBadgeClassesProps): UseDummyBadgeClassesReturn => {
+const useDummyBadgeClasses = <Element extends DummyBadgeElement>(
+	props: UseDummyBadgeClassesProps<Element>
+): UseDummyBadgeClassesReturn => {
 	const {
 		isCompact: isCompactProp = __DEFAULT_DUMMY_BADGE_IS_COMPACT__,
 		isFullWidth: isFullWidthProp = __DEFAULT_DUMMY_BADGE_IS_FULLWIDTH__,
@@ -34,7 +36,7 @@ const useDummyBadgeClasses = (props: UseDummyBadgeClassesProps): UseDummyBadgeCl
 		variant: variantProp = __DEFAULT_DUMMY_BADGE_VARIANT__
 	} = props;
 
-	const { isCompact, isFullWidth, isRound, isUppercase, size, variant } = useDummyBadgeResponsiveValues({
+	const { isCompact, isFullWidth, isRound, isUppercase, size, variant } = useDummyBadgeResponsiveValues<Element>({
 		isCompact: isCompactProp,
 		isFullWidth: isFullWidthProp,
 		isRound: isRoundProp,
@@ -43,7 +45,7 @@ const useDummyBadgeClasses = (props: UseDummyBadgeClassesProps): UseDummyBadgeCl
 		variant: variantProp
 	});
 
-	const config = useDummyBadgeSizeConfig({ isCompact, isRound, size, variant });
+	const config = useDummyBadgeSizeConfig<Element>({ isCompact, isRound, size, variant });
 
 	return classNames(
 		classes.sizing.width[isFullWidth ? 'full' : 'auto'],
