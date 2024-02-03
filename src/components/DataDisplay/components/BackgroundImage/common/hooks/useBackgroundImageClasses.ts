@@ -15,6 +15,7 @@ import type {
 	GrayscaleClass,
 	HueRotateClass,
 	InvertClass,
+	PolymorphicElementType,
 	SaturateClass,
 	SepiaClass,
 	ThemeBlurClass,
@@ -47,17 +48,22 @@ import useBackgroundImageResponsiveValues from './useBackgroundImageResponsiveVa
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseBackgroundImageClassesProps = Pick<BackgroundImageProps, 'filters' | 'options' | 'radius'>;
+type UseBackgroundImageClassesProps<Element extends PolymorphicElementType> = Pick<
+	BackgroundImageProps<Element>,
+	'filters' | 'options' | 'radius'
+>;
 type UseBackgroundImageClassesReturn = Record<'container' | 'image', ClassName>;
 
-const useBackgroundImageClasses = (props: UseBackgroundImageClassesProps): UseBackgroundImageClassesReturn => {
+const useBackgroundImageClasses = <Element extends PolymorphicElementType>(
+	props: UseBackgroundImageClassesProps<Element>
+): UseBackgroundImageClassesReturn => {
 	const {
 		filters: filtersProp = __DEFAULT_BACKGROUND_IMAGE_FILTERS__,
 		options: optionsProp = __DEFAULT_BACKGROUND_IMAGE_OPTIONS__,
 		radius: radiusProp = __DEFAULT_RADIUS__
 	} = props;
 
-	const { filters, options, radius } = useBackgroundImageResponsiveValues({
+	const { filters, options, radius } = useBackgroundImageResponsiveValues<Element>({
 		filters: filtersProp,
 		options: optionsProp,
 		radius: radiusProp

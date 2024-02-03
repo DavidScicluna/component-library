@@ -13,6 +13,7 @@ import type {
 	GrayscaleClass,
 	HueRotateClass,
 	InvertClass,
+	PolymorphicElementType,
 	SaturateClass,
 	SepiaClass,
 	ThemeBlurClass,
@@ -41,11 +42,13 @@ import {
 } from '../constants';
 import type { BackgroundImageFilters, BackgroundImageOptions, BackgroundImageProps } from '../types';
 
-type UseBackgroundImageResponsiveValuesProps = Partial<
-	Pick<BackgroundImageProps, 'filters' | 'options' | 'radius' | 'src'>
+type UseBackgroundImageResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
+	Pick<BackgroundImageProps<Element>, 'filters' | 'options' | 'radius' | 'src'>
 >;
 
-const useBackgroundImageResponsiveValues = (props: UseBackgroundImageResponsiveValuesProps) => {
+const useBackgroundImageResponsiveValues = <Element extends PolymorphicElementType>(
+	props: UseBackgroundImageResponsiveValuesProps<Element>
+) => {
 	const {
 		filters: filtersProp = __DEFAULT_BACKGROUND_IMAGE_FILTERS__,
 		options: optionsProp = __DEFAULT_BACKGROUND_IMAGE_OPTIONS__,

@@ -2,15 +2,10 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import { Box } from '@components/Box';
+import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
@@ -25,9 +20,10 @@ import type { BackgroundImageProps, BackgroundImageRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const BackgroundImage: PolymorphicComponentWithRef = forwardRef(function BackgroundImage<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: BackgroundImageProps<Element>, ref: BackgroundImageRef<Element>): ReactElement {
+const BackgroundImage = forwardRef(function BackgroundImage<Element extends PolymorphicElementType>(
+	props: BackgroundImageProps<Element>,
+	ref: BackgroundImageRef<Element>
+): ReactElement {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
@@ -38,18 +34,18 @@ const BackgroundImage: PolymorphicComponentWithRef = forwardRef(function Backgro
 		...rest
 	} = props;
 
-	const { filters, options, radius, src } = useBackgroundImageResponsiveValues({
+	const { filters, options, radius, src } = useBackgroundImageResponsiveValues<Element>({
 		filters: filtersProp,
 		options: optionsProp,
 		radius: radiusProp,
 		src: srcProp
 	});
 
-	const classes = useBackgroundImageClasses({ filters, options, radius });
+	const classes = useBackgroundImageClasses<Element>({ filters, options, radius });
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_BACKGROUND_IMAGE_CLASS__, classes.container, { [className]: !!className })}
 			templateColumns={1}
@@ -76,8 +72,6 @@ const BackgroundImage: PolymorphicComponentWithRef = forwardRef(function Backgro
 	);
 });
 
-BackgroundImage.displayName = 'BackgroundImage';
+// BackgroundImage.displayName = 'BackgroundImage';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <BackgroundImage<Element> {...props} />;
+export default BackgroundImage;
