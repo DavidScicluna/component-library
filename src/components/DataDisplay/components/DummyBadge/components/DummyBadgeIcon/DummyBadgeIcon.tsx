@@ -2,41 +2,35 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
+import { __DEFAULT_DUMMY_ICON_BUTTON_ICON_AS__ } from '@components/Buttons';
+import type { IconProps } from '@components/DataDisplay';
 import { Icon } from '@components/DataDisplay';
 
 import { useDummyBadgeContext, useDummyBadgeFontSize } from '../../common/hooks';
 import { DummyBadgeSkeleton } from '../DummyBadgeSkeleton';
 
 import { __KEY_DUMMY_BADGE_ICON_CLASS__ } from './common/keys';
-import type {
-	DummyBadgeIconDefaultElement,
-	DummyBadgeIconElement,
-	DummyBadgeIconProps,
-	DummyBadgeIconRef
-} from './common/types';
+import type { DummyBadgeIconElement, DummyBadgeIconProps, DummyBadgeIconRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const DummyBadgeIcon: PolymorphicComponentWithRef = forwardRef(function DummyBadgeIcon<
-	Element extends DummyBadgeIconElement = DummyBadgeIconDefaultElement
->(props: DummyBadgeIconProps<Element>, ref: DummyBadgeIconRef<Element>): ReactElement {
+const DummyBadgeIcon = forwardRef(function DummyBadgeIcon<Element extends DummyBadgeIconElement>(
+	props: DummyBadgeIconProps<Element>,
+	ref: DummyBadgeIconRef<Element>
+): ReactElement {
 	const {
-		color: __DEFAULT_DUMMYICONBUTTON_ICON_COLOR__,
-		colorMode: __DEFAULT_DUMMYICONBUTTON_ICON_COLORMODE__,
+		color: __DEFAULT_DUMMY_ICON_BUTTON_ICON_COLOR__,
+		colorMode: __DEFAULT_DUMMY_ICON_BUTTON_ICON_COLORMODE__,
 		size
 	} = useDummyBadgeContext();
 
 	const {
+		as = __DEFAULT_DUMMY_ICON_BUTTON_ICON_AS__,
 		className = __DEFAULT_CLASSNAME__,
-		color = __DEFAULT_DUMMYICONBUTTON_ICON_COLOR__,
-		colorMode = __DEFAULT_DUMMYICONBUTTON_ICON_COLORMODE__,
+		color = __DEFAULT_DUMMY_ICON_BUTTON_ICON_COLOR__,
+		colorMode = __DEFAULT_DUMMY_ICON_BUTTON_ICON_COLORMODE__,
 		...rest
 	} = props;
 
@@ -44,8 +38,9 @@ const DummyBadgeIcon: PolymorphicComponentWithRef = forwardRef(function DummyBad
 
 	return (
 		<DummyBadgeSkeleton>
-			<Icon<Element>
-				{...rest}
+			<Icon
+				{...(rest as IconProps<Element>)}
+				as={as}
 				ref={ref}
 				className={classNames(__KEY_DUMMY_BADGE_ICON_CLASS__, { [className]: !!className })}
 				w={`${fontSize}px`}
@@ -59,8 +54,6 @@ const DummyBadgeIcon: PolymorphicComponentWithRef = forwardRef(function DummyBad
 	);
 });
 
-DummyBadgeIcon.displayName = 'DummyBadgeIcon';
+// DummyBadgeIcon.displayName = 'DummyBadgeIcon';
 
-export default <Element extends DummyBadgeIconElement = DummyBadgeIconDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <DummyBadgeIcon<Element> {...props} />;
+export default DummyBadgeIcon;
