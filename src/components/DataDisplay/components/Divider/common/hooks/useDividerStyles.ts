@@ -4,17 +4,19 @@ import type { Style } from '@common/types';
 import { checkColorType } from '@common/utils';
 
 import { __DEFAULT_DIVIDER_ORIENTATION__, __DEFAULT_DIVIDER_PLACEMENT__ } from '../constants';
-import type { DividerProps } from '../types';
+import type { DividerElement, DividerProps } from '../types';
 
 import useDividerResponsiveValues from './useDividerResponsiveValues';
 
 type PickedDividerProps = 'color' | 'orientation' | 'placement' | 'size' | 'spacing';
-type UseDividerStylesProps = Pick<DividerProps, PickedDividerProps> & {
+type UseDividerStylesProps<Element extends DividerElement> = Pick<DividerProps<Element>, PickedDividerProps> & {
 	hasChildren: boolean;
 };
 type UseDividerStylesReturn = Style;
 
-const useDividerStyles = (props: UseDividerStylesProps): UseDividerStylesReturn => {
+const useDividerStyles = <Element extends DividerElement>(
+	props: UseDividerStylesProps<Element>
+): UseDividerStylesReturn => {
 	const theme = useTheme();
 
 	const {
@@ -26,7 +28,7 @@ const useDividerStyles = (props: UseDividerStylesProps): UseDividerStylesReturn 
 		size: sizeProp = __DEFAULT_BORDER_WIDTH__
 	} = props;
 
-	const { orientation, placement, spacing, size } = useDividerResponsiveValues({
+	const { orientation, placement, spacing, size } = useDividerResponsiveValues<Element>({
 		orientation: orientationProp,
 		placement: placementProp,
 		spacing: spacingProp,

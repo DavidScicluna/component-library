@@ -9,7 +9,7 @@ import {
 	__DEFAULT_DIVIDER_PLACEMENT__,
 	__DEFAULT_DIVIDER_VARIANT__
 } from '../constants';
-import type { DividerProps } from '../types';
+import type { DividerElement, DividerProps } from '../types';
 
 import useDividerResponsiveValues from './useDividerResponsiveValues';
 
@@ -17,10 +17,12 @@ import useDividerResponsiveValues from './useDividerResponsiveValues';
 const classNames = require('classnames');
 
 type PickedDividerProps = 'color' | 'colorMode' | 'orientation' | 'placement' | 'size' | 'variant';
-type UseDividerClassesProps = Pick<DividerProps, PickedDividerProps>;
+type UseDividerClassesProps<Element extends DividerElement> = Pick<DividerProps<Element>, PickedDividerProps>;
 type UseDividerClassesReturn = ClassName;
 
-const useDividerClasses = (props: UseDividerClassesProps): UseDividerClassesReturn => {
+const useDividerClasses = <Element extends DividerElement>(
+	props: UseDividerClassesProps<Element>
+): UseDividerClassesReturn => {
 	const { colorMode: __DEFAULT_DIVIDER_OLORMODE__ } = useAppTheme();
 
 	const {
@@ -32,7 +34,7 @@ const useDividerClasses = (props: UseDividerClassesProps): UseDividerClassesRetu
 		variant: variantProp = __DEFAULT_DIVIDER_VARIANT__
 	} = props;
 
-	const { orientation, placement, size, variant } = useDividerResponsiveValues({
+	const { orientation, placement, size, variant } = useDividerResponsiveValues<Element>({
 		orientation: orientationProp,
 		placement: placementProp,
 		size: sizeProp,

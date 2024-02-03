@@ -7,13 +7,15 @@ import {
 	__DEFAULT_DIVIDER_PLACEMENT__,
 	__DEFAULT_DIVIDER_VARIANT__
 } from '../constants';
-import type { DividerOrientation, DividerPlacement, DividerProps, DividerVariant } from '../types';
+import type { DividerElement, DividerOrientation, DividerPlacement, DividerProps, DividerVariant } from '../types';
 
-type UseDividerResponsiveValuesProps = Partial<
-	Pick<DividerProps, 'orientation' | 'placement' | 'spacing' | 'size' | 'variant'>
+type UseDividerResponsiveValuesProps<Element extends DividerElement> = Partial<
+	Pick<DividerProps<Element>, 'orientation' | 'placement' | 'spacing' | 'size' | 'variant'>
 >;
 
-const useDividerResponsiveValues = (props: UseDividerResponsiveValuesProps) => {
+const useDividerResponsiveValues = <Element extends DividerElement>(
+	props: UseDividerResponsiveValuesProps<Element>
+) => {
 	const {
 		orientation: orientationProp = __DEFAULT_DIVIDER_ORIENTATION__,
 		placement: placementProp = __DEFAULT_DIVIDER_PLACEMENT__,

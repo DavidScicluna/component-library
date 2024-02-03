@@ -8,8 +8,8 @@ import type {
 
 import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
-export type DividerDefaultElement = 'div';
-export type DividerElement = Extract<PolymorphicElementType, 'div'>;
+export type DividerDefaultElement = 'hr';
+export type DividerElement = Extract<PolymorphicElementType, 'hr'>;
 
 export type DividerThemeAppearanceProps = Partial<
 	Pick<ThemeAppearanceProps, 'colorMode'> & { color: ThemeAppearanceProps['color'] | string }
@@ -30,9 +30,9 @@ type DividerOtherProps = DividerThemeAppearanceProps & {
 	variant?: ResponsiveValue<DividerVariant>;
 };
 
-export type DividerProps<Element extends DividerElement = DividerDefaultElement> = Omit<
+export type DividerProps<Element extends DividerElement> = Omit<
 	BoxProps<Element, DividerOtherProps>,
 	keyof BoxOtherProps
 >;
 
-export type DividerRef<Element extends DividerElement = DividerDefaultElement> = BoxRef<Element>;
+export type DividerRef<Element extends DividerElement> = BoxRef<Element>;
