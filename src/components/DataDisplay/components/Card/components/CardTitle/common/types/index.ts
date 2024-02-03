@@ -3,6 +3,6 @@ import type { TextDefaultElement, TextElement, TextProps, TextRef } from '@compo
 export type CardTitleDefaultElement = TextDefaultElement;
 export type CardTitleElement = TextElement;
 
-export type CardTitleProps<Element extends CardTitleElement = CardTitleDefaultElement> = Partial<TextProps<Element>>;
+export type CardTitleProps<Element extends CardTitleElement> = Partial<TextProps<Element>>;
 
-export type CardTitleRef<Element extends CardTitleElement = CardTitleDefaultElement> = TextRef<Element>;
+export type CardTitleRef<Element extends CardTitleElement> = TextRef<Element>;
