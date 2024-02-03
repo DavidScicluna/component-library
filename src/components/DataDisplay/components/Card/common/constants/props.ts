@@ -3,7 +3,9 @@ import { v4 as uuid } from 'uuid';
 import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
 import type { ThemeRadius } from '@common/types';
 
-import type { CardVariant } from '../types';
+import type { CardDefaultElement, CardVariant } from '../types';
+
+export const __DEFAULT_CARD_AS__: CardDefaultElement = 'div';
 
 export const __DEFAULT_CARD_ID__ = `${__DEFAULT_CLASS_PREFIX__}-${uuid()}`;
 

@@ -1,4 +1,12 @@
-import type { CardContext, CardMouseEvent, CardProps, CardRef, CardVariant } from './common/types';
+import type {
+	CardContext,
+	CardDefaultElement,
+	CardElement,
+	CardMouseEvent,
+	CardProps,
+	CardRef,
+	CardVariant
+} from './common/types';
 import Card from './Card';
 
 // Constants
@@ -15,4 +23,4 @@ export { Card };
 export * from './components';
 
 // Component Types
-export type { CardContext, CardMouseEvent, CardProps, CardRef, CardVariant };
+export type { CardContext, CardDefaultElement, CardElement, CardMouseEvent, CardProps, CardRef, CardVariant };

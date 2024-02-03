@@ -10,11 +10,11 @@ import {
 	__DEFAULT_CARD_IS_OPEN__,
 	__DEFAULT_CARD_VARIANT__
 } from '../constants';
-import type { CardContext as CardContextType } from '../types';
+import type { CardContext as CardContextType, CardElement } from '../types';
 
 import useCardResponsiveValues from './useCardResponsiveValues';
 
-const useCardContext = () => {
+const useCardContext = <Element extends CardElement>() => {
 	const {
 		color,
 		colorMode,
@@ -26,9 +26,9 @@ const useCardContext = () => {
 		onHover,
 		spacing: spacingProp = __DEFAULT_SPACING__,
 		variant: variantProp = __DEFAULT_CARD_VARIANT__
-	} = useContext<CardContextType>(CardContext);
+	} = useContext<CardContextType<Element>>(CardContext);
 
-	const { isCollapsable, isDisabled, isDivisible, isOpen, spacing, variant } = useCardResponsiveValues({
+	const { isCollapsable, isDisabled, isDivisible, isOpen, spacing, variant } = useCardResponsiveValues<Element>({
 		isCollapsable: isCollapsableProp,
 		isDisabled: isDisabledProp,
 		isDivisible: isDivisibleProp,

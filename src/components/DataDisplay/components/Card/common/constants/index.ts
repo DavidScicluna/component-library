@@ -1,4 +1,5 @@
 import {
+	__DEFAULT_CARD_AS__,
 	__DEFAULT_CARD_ID__,
 	__DEFAULT_CARD_IS_ACTIVE__,
 	__DEFAULT_CARD_IS_CLICKABLE__,
@@ -14,6 +15,7 @@ import {
 } from './props';
 
 export {
+	__DEFAULT_CARD_AS__,
 	__DEFAULT_CARD_ID__,
 	__DEFAULT_CARD_IS_ACTIVE__,
 	__DEFAULT_CARD_IS_CLICKABLE__,

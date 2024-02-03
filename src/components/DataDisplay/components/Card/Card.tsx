@@ -5,18 +5,13 @@ import { useFocus } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__, __DEFAULT_USE_BOOLEAN_TOGGLES__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
 
+import type { PushableOverlayProps } from '@components/Overlay';
 import { PushableOverlay } from '@components/Overlay';
 import { VisuallyHidden } from '@components/VisuallyHidden';
 
 import {
+	__DEFAULT_CARD_AS__,
 	__DEFAULT_CARD_ID__,
 	__DEFAULT_CARD_IS_ACTIVE__,
 	__DEFAULT_CARD_IS_CLICKABLE__,
@@ -32,12 +27,19 @@ import {
 } from './common/constants';
 import { useCardResponsiveValues } from './common/hooks';
 import { __KEYS_CARD_CLASS__ } from './common/keys';
-import type { CardContext as CardContextType, CardMouseEvent, CardProps, CardRef } from './common/types';
+import type {
+	CardContext as CardContextType,
+	CardDefaultElement,
+	CardElement,
+	CardMouseEvent,
+	CardProps,
+	CardRef
+} from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-export const CardContext = createContext<CardContextType>({
+export const CardContext = createContext<CardContextType<CardDefaultElement>>({
 	isCollapsable: __DEFAULT_CARD_IS_COLLAPSABLE__,
 	isDivisible: __DEFAULT_CARD_IS_DIVISIBLE__,
 	isHovering: __DEFAULT_CARD_IS_HOVERING__,
@@ -47,11 +49,13 @@ export const CardContext = createContext<CardContextType>({
 	variant: __DEFAULT_CARD_VARIANT__
 });
 
-const Card: PolymorphicComponentWithRef = forwardRef(function Card<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: CardProps<Element>, ref: CardRef<Element>): ReactElement {
+const Card = forwardRef(function Card<Element extends CardElement>(
+	props: CardProps<Element>,
+	ref: CardRef<Element>
+): ReactElement {
 	const {
 		children,
+		as = __DEFAULT_CARD_AS__,
 		id = __DEFAULT_CARD_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		color,
@@ -87,7 +91,7 @@ const Card: PolymorphicComponentWithRef = forwardRef(function Card<
 		radius,
 		spacing,
 		variant
-	} = useCardResponsiveValues({
+	} = useCardResponsiveValues<Element>({
 		isActive: isActiveProp,
 		isClickable: isClickableProp,
 		isCollapsable: isCollapsableProp,
@@ -109,7 +113,8 @@ const Card: PolymorphicComponentWithRef = forwardRef(function Card<
 		}
 
 		if (onClick) {
-			onClick(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onClick(event as any);
 		}
 	};
 
@@ -129,9 +134,10 @@ const Card: PolymorphicComponentWithRef = forwardRef(function Card<
 				variant
 			}}
 		>
-			<PushableOverlay<Element>
+			<PushableOverlay
 				{...focusProps}
-				{...rest}
+				{...(rest as PushableOverlayProps<Element>)}
+				as={as}
 				ref={ref}
 				className={classNames(__KEYS_CARD_CLASS__, { [className]: !!className })}
 				color={color}
@@ -156,8 +162,6 @@ const Card: PolymorphicComponentWithRef = forwardRef(function Card<
 	);
 });
 
-Card.displayName = 'Card';
+// Card.displayName = 'Card';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Card<Element> {...props} />;
+export default Card;

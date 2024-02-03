@@ -14,26 +14,23 @@ import {
 	__DEFAULT_CARD_RADIUS__,
 	__DEFAULT_CARD_VARIANT__
 } from '../constants';
-import type { CardProps, CardVariant } from '../types';
+import type { CardElement, CardProps, CardVariant } from '../types';
 
-type UseCardResponsiveValuesProps = Partial<
-	Pick<
-		CardProps,
-		| 'isActive'
-		| 'isClickable'
-		| 'isCollapsable'
-		| 'isDisabled'
-		| 'isDivisible'
-		| 'isFixed'
-		| 'isOpen'
-		| 'isOutlined'
-		| 'radius'
-		| 'spacing'
-		| 'variant'
-	>
->;
+type PickedCardProps =
+	| 'isActive'
+	| 'isClickable'
+	| 'isCollapsable'
+	| 'isDisabled'
+	| 'isDivisible'
+	| 'isFixed'
+	| 'isOpen'
+	| 'isOutlined'
+	| 'radius'
+	| 'spacing'
+	| 'variant';
+type UseCardResponsiveValuesProps<Element extends CardElement> = Partial<Pick<CardProps<Element>, PickedCardProps>>;
 
-const useCardResponsiveValues = (props: UseCardResponsiveValuesProps) => {
+const useCardResponsiveValues = <Element extends CardElement>(props: UseCardResponsiveValuesProps<Element>) => {
 	const {
 		isActive: isActiveProp = __DEFAULT_CARD_IS_ACTIVE__,
 		isClickable: isClickableProp = __DEFAULT_CARD_IS_CLICKABLE__,
