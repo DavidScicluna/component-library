@@ -3,27 +3,23 @@ import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 import { getColorHex } from '@common/utils';
 
-import type { DividerThemeAppearanceProps } from '@components/DataDisplay';
-import { Divider } from '@components/DataDisplay';
+import type { DividerProps, DividerThemeAppearanceProps } from '@components/DataDisplay';
+import { __DEFAULT_CARD_DIVIDER_AS__, Divider } from '@components/DataDisplay';
 
 import { useCardContext } from '../../common/hooks';
 
 import { __KEYS_CARD_DIVIDER_CLASS__ } from './common/keys';
-import type { CardDividerDefaultElement, CardDividerElement, CardDividerProps, CardDividerRef } from './common/types';
+import type { CardDividerElement, CardDividerProps, CardDividerRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CardDivider: PolymorphicComponentWithRef = forwardRef(function CardDivider<
-	Element extends CardDividerElement = CardDividerDefaultElement
->(props: CardDividerProps<Element>, ref: CardDividerRef<Element>): ReactElement {
+const CardDivider = forwardRef(function CardDivider<Element extends CardDividerElement>(
+	props: CardDividerProps<Element>,
+	ref: CardDividerRef<Element>
+): ReactElement {
 	const { colorMode: __DEFAULT_CARD_DIVIDER_COLORMODE__ } = useAppTheme();
 
 	const {
@@ -34,6 +30,7 @@ const CardDivider: PolymorphicComponentWithRef = forwardRef(function CardDivider
 
 	const {
 		children,
+		as = __DEFAULT_CARD_DIVIDER_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		color,
 		colorMode = __DEFAULT_CARD_COLORMODE__,
@@ -54,8 +51,9 @@ const CardDivider: PolymorphicComponentWithRef = forwardRef(function CardDivider
 	}, [color, colorMode, variant]);
 
 	return (
-		<Divider<Element>
-			{...rest}
+		<Divider
+			{...(rest as DividerProps<Element>)}
+			as={as}
 			ref={ref}
 			className={classNames(__KEYS_CARD_DIVIDER_CLASS__, { [className]: !!className })}
 			color={(color || c) as DividerThemeAppearanceProps['color']}
@@ -67,6 +65,4 @@ const CardDivider: PolymorphicComponentWithRef = forwardRef(function CardDivider
 	);
 });
 
-export default <Element extends CardDividerElement = CardDividerDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <CardDivider<Element> {...props} />;
+export default CardDivider;
