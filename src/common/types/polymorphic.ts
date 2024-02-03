@@ -1,4 +1,13 @@
-import type { ChangeEvent, ComponentPropsWithoutRef, ElementType, FocusEvent, FormEvent, MouseEvent, Ref } from 'react';
+import type {
+	ChangeEvent,
+	ComponentPropsWithoutRef,
+	ElementType,
+	FocusEvent,
+	FormEvent,
+	MouseEvent,
+	Ref,
+	SyntheticEvent
+} from 'react';
 
 import type { Style } from '.';
 import type { MergeTypes, PickFrom } from './utility';
@@ -23,6 +32,10 @@ export type PolymorphicChangeEvent<Element extends PolymorphicElementType> = Cha
 export type PolymorphicFocusEvent<Element extends PolymorphicElementType> = FocusEvent<PolymorphicElement<Element>>;
 
 export type PolymorphicFormEvent<Element extends PolymorphicElementType> = FormEvent<PolymorphicElement<Element>>;
+
+export type PolymorphicSyntheticEvent<Element extends PolymorphicElementType> = SyntheticEvent<
+	PolymorphicElement<Element>
+>;
 
 type PolymorphicOtherProps<Element extends PolymorphicElementType> = {
 	/**

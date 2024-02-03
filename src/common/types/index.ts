@@ -304,7 +304,8 @@ import type {
 	PolymorphicInheritableElementProps,
 	PolymorphicMouseEvent,
 	PolymorphicProps,
-	PolymorphicRef
+	PolymorphicRef,
+	PolymorphicSyntheticEvent
 } from './polymorphic';
 import type { ResponsiveArrayValue, ResponsiveObjectValue, ResponsiveValue, ResponsiveValueProps } from './responsive';
 import type {
@@ -589,6 +590,7 @@ export type {
 	PolymorphicMouseEvent,
 	PolymorphicProps,
 	PolymorphicRef,
+	PolymorphicSyntheticEvent,
 	PositionClass,
 	PositionClassArr,
 	PositionClassObj,
