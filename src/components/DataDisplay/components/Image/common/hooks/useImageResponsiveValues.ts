@@ -8,6 +8,7 @@ import type {
 	InvertClass,
 	ObjectFitClass,
 	ObjectPositionClass,
+	PolymorphicElementType,
 	SaturateClass,
 	SepiaClass,
 	ThemeBlurClass,
@@ -33,11 +34,13 @@ import {
 } from '../constants';
 import type { ImageFilters, ImageMode, ImageOptions, ImageProps } from '../types';
 
-type UseImageResponsiveValuesProps = Partial<
-	Pick<ImageProps, 'boring' | 'thumbnail' | 'full' | 'filters' | 'options' | 'radius'>
+type UseImageResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
+	Pick<ImageProps<Element>, 'boring' | 'thumbnail' | 'full' | 'filters' | 'options' | 'radius'>
 >;
 
-const useImageResponsiveValues = (props: UseImageResponsiveValuesProps) => {
+const useImageResponsiveValues = <Element extends PolymorphicElementType>(
+	props: UseImageResponsiveValuesProps<Element>
+) => {
 	const {
 		boring: boringProp = __DEFAULT_IMAGE_BORING__,
 		thumbnail: thumbnailProp = __DEFAULT_IMAGE_THUMBNAIL__,

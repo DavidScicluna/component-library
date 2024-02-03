@@ -1,4 +1,4 @@
-import type { ImgHTMLAttributes, SyntheticEvent } from 'react';
+import type { ImgHTMLAttributes } from 'react';
 
 import type {
 	BrightnessClass,
@@ -6,8 +6,9 @@ import type {
 	GrayscaleClass,
 	HueRotateClass,
 	InvertClass,
-	PolymorphicDefaultElement,
+	PolymorphicElement,
 	PolymorphicElementType,
+	PolymorphicSyntheticEvent,
 	ResponsiveValue,
 	SaturateClass,
 	SepiaClass,
@@ -19,7 +20,7 @@ import type { ObjectFitClass, ObjectPositionClass } from '@common/types/classes'
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
-export type ImageSyntheticEvent = SyntheticEvent<HTMLImageElement, Event>;
+export type ImageSyntheticEvent = PolymorphicSyntheticEvent<'img'>;
 
 export type ImageFilters = {
 	/**
@@ -88,7 +89,7 @@ export type ImageOptions = {
 };
 
 export type ImageType = 'boring' | 'thumbnail' | 'full';
-export type ImageMode = Pick<ImgHTMLAttributes<HTMLImageElement>, 'alt' | 'onLoad' | 'onError' | 'src'>;
+export type ImageMode = Pick<ImgHTMLAttributes<PolymorphicElement<'img'>>, 'alt' | 'onLoad' | 'onError' | 'src'>;
 export type ImageModes = Partial<Record<ImageType, ResponsiveValue<ImageMode>>>;
 
 type ImageOtherProps = ThemeAppAppearanceProps & {
@@ -102,9 +103,6 @@ type ImageOtherProps = ThemeAppAppearanceProps & {
 	radius?: ResponsiveValue<ThemeRadius>;
 } & ImageModes;
 
-export type ImageProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Omit<
-	BoxProps<Element, ImageOtherProps>,
-	'children'
->;
+export type ImageProps<Element extends PolymorphicElementType> = Omit<BoxProps<Element, ImageOtherProps>, 'children'>;
 
-export type ImageRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type ImageRef<Element extends PolymorphicElementType> = BoxRef<Element>;

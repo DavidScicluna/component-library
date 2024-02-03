@@ -8,6 +8,7 @@ import type {
 	GrayscaleClass,
 	HueRotateClass,
 	InvertClass,
+	PolymorphicElementType,
 	SaturateClass,
 	SepiaClass,
 	ThemeBlurClass,
@@ -36,10 +37,15 @@ import useImageResponsiveValues from './useImageResponsiveValues';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseImageClassesProps = Pick<ImageProps, 'color' | 'colorMode' | 'filters' | 'options' | 'radius'>;
+type UseImageClassesProps<Element extends PolymorphicElementType> = Pick<
+	ImageProps<Element>,
+	'color' | 'colorMode' | 'filters' | 'options' | 'radius'
+>;
 type UseImageClassesReturn = Record<'container' | 'image' | 'fallback' | 'thumbnail', ClassName>;
 
-const useImageClasses = (props: UseImageClassesProps): UseImageClassesReturn => {
+const useImageClasses = <Element extends PolymorphicElementType>(
+	props: UseImageClassesProps<Element>
+): UseImageClassesReturn => {
 	const { colorMode: __DEFAULT_IMAGE_COLORMODE__ } = useAppTheme();
 
 	const {
@@ -50,7 +56,7 @@ const useImageClasses = (props: UseImageClassesProps): UseImageClassesReturn => 
 		radius: radiusProp = __DEFAULT_RADIUS__
 	} = props;
 
-	const { filters, options, radius } = useImageResponsiveValues({
+	const { filters, options, radius } = useImageResponsiveValues<Element>({
 		filters: filtersProp,
 		options: optionsProp,
 		radius: radiusProp

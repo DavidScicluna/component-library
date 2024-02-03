@@ -3,16 +3,11 @@ import { forwardRef, useEffect } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
+import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
@@ -35,9 +30,10 @@ import type { ImageProps, ImageRef, ImageSyntheticEvent } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Image: PolymorphicComponentWithRef = forwardRef(function Image<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: ImageProps<Element>, ref: ImageRef<Element>): ReactElement {
+const Image = forwardRef(function Image<Element extends PolymorphicElementType>(
+	props: ImageProps<Element>,
+	ref: ImageRef<Element>
+): ReactElement {
 	const {
 		className = __DEFAULT_CLASSNAME__,
 		color,
@@ -51,7 +47,7 @@ const Image: PolymorphicComponentWithRef = forwardRef(function Image<
 		...rest
 	} = props;
 
-	const { boring, thumbnail, full, filters, options, radius } = useImageResponsiveValues({
+	const { boring, thumbnail, full, filters, options, radius } = useImageResponsiveValues<Element>({
 		boring: boringProp,
 		thumbnail: thumbnailProp,
 		full: fullProp,
@@ -64,7 +60,7 @@ const Image: PolymorphicComponentWithRef = forwardRef(function Image<
 	const [isThumbnailVisible, setIsThumbnailVisible] = useBoolean();
 	const [isFullVisible, setIsFullVisible] = useBoolean();
 
-	const classes = useImageClasses({ color, colorMode, filters, options, radius });
+	const classes = useImageClasses<Element>({ color, colorMode, filters, options, radius });
 
 	const handleOnBoringLoad = (event: ImageSyntheticEvent): void => {
 		setIsThumbnailVisible.off();
@@ -135,8 +131,8 @@ const Image: PolymorphicComponentWithRef = forwardRef(function Image<
 	useEffect(() => handleCheckModeVisibility(), [full, thumbnail, boring]);
 
 	return (
-		<Grid<Element>
-			{...rest}
+		<Grid
+			{...(rest as GridProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_IMAGE_CLASS__, classes.container, { [className]: !!className })}
 			templateColumns={1}
@@ -212,8 +208,6 @@ const Image: PolymorphicComponentWithRef = forwardRef(function Image<
 	);
 });
 
-Image.displayName = 'Image';
+// Image.displayName = 'Image';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Image<Element> {...props} />;
+export default Image;
