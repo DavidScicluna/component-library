@@ -6,9 +6,6 @@ export type BadgeIconElement = IconElement;
 
 type OmittedIconProps = keyof BoxOtherProps | 'variant';
 
-export type BadgeIconProps<Element extends BadgeIconElement = BadgeIconDefaultElement> = Omit<
-	IconProps<Element>,
-	OmittedIconProps
->;
+export type BadgeIconProps<Element extends BadgeIconElement> = Omit<IconProps<Element>, OmittedIconProps>;
 
-export type BadgeIconRef<Element extends BadgeIconElement = BadgeIconDefaultElement> = IconRef<Element>;
+export type BadgeIconRef<Element extends BadgeIconElement> = IconRef<Element>;
