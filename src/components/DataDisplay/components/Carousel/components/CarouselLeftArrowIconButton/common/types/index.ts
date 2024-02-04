@@ -8,10 +8,10 @@ import type {
 export type CarouselLeftArrowIconButtonDefaultElement = CarouselArrowIconButtonDefaultElement;
 export type CarouselLeftArrowIconButtonElement = CarouselArrowIconButtonElement;
 
-export type CarouselLeftArrowIconButtonProps<
-	Element extends CarouselLeftArrowIconButtonElement = CarouselLeftArrowIconButtonDefaultElement
-> = Omit<CarouselArrowIconButtonProps<Element>, 'direction'>;
+export type CarouselLeftArrowIconButtonProps<Element extends CarouselLeftArrowIconButtonElement> = Omit<
+	CarouselArrowIconButtonProps<Element>,
+	'direction'
+>;
 
-export type CarouselLeftArrowIconButtonRef<
-	Element extends CarouselLeftArrowIconButtonElement = CarouselLeftArrowIconButtonDefaultElement
-> = CarouselArrowIconButtonRef<Element>;
+export type CarouselLeftArrowIconButtonRef<Element extends CarouselLeftArrowIconButtonElement> =
+	CarouselArrowIconButtonRef<Element>;
