@@ -5,15 +5,10 @@ import { useInView } from 'react-cool-inview';
 import { useMergeRefs } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
+import type { CenterProps } from '@components/Layout';
 import { Center } from '@components/Layout';
 
 import { __KEYS_CAROUSEL_ITEM_CLASS__ } from './common/keys';
@@ -22,9 +17,10 @@ import type { CarouselItemProps, CarouselItemRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CarouselItem: PolymorphicComponentWithRef = forwardRef(function CarouselItem<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: CarouselItemProps<Element>, ref: CarouselItemRef<Element>): ReactElement {
+const CarouselItem = forwardRef(function CarouselItem<Element extends PolymorphicElementType>(
+	props: CarouselItemProps<Element>,
+	ref: CarouselItemRef<Element>
+): ReactElement {
 	const { children, className = __DEFAULT_CLASSNAME__, id, onToggleVisibility, ...rest } = props;
 
 	const { observe, inView } = useInView({
@@ -36,8 +32,8 @@ const CarouselItem: PolymorphicComponentWithRef = forwardRef(function CarouselIt
 	const refs = useMergeRefs(ref, observe as any);
 
 	return (
-		<Center<Element>
-			{...rest}
+		<Center
+			{...(rest as CenterProps<Element>)}
 			ref={refs}
 			id={id}
 			className={classNames(__KEYS_CAROUSEL_ITEM_CLASS__, { [className]: !!className })}
@@ -50,8 +46,6 @@ const CarouselItem: PolymorphicComponentWithRef = forwardRef(function CarouselIt
 	);
 });
 
-CarouselItem.displayName = 'CarouselItem';
+// CarouselItem.displayName = 'CarouselItem';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <CarouselItem<Element> {...props} />;
+export default CarouselItem;
