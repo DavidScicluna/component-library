@@ -9,10 +9,10 @@ import type {
 export type CarouselOverlayRightArrowButtonDefaultElement = CarouselOverlayArrowButtonDefaultElement;
 export type CarouselOverlayRightArrowButtonElement = CarouselOverlayArrowButtonElement;
 
-export type CarouselOverlayRightArrowButtonProps<
-	Element extends CarouselOverlayRightArrowButtonElement = CarouselOverlayRightArrowButtonDefaultElement
-> = Omit<CarouselOverlayArrowButtonProps<Element>, 'direction'>;
+export type CarouselOverlayRightArrowButtonProps<Element extends CarouselOverlayRightArrowButtonElement> = Omit<
+	CarouselOverlayArrowButtonProps<Element>,
+	'direction'
+>;
 
-export type CarouselOverlayRightArrowButtonRef<
-	Element extends CarouselOverlayRightArrowButtonElement = CarouselOverlayRightArrowButtonDefaultElement
-> = CarouselOverlayArrowButtonRef<Element>;
+export type CarouselOverlayRightArrowButtonRef<Element extends CarouselOverlayRightArrowButtonElement> =
+	CarouselOverlayArrowButtonRef<Element>;
