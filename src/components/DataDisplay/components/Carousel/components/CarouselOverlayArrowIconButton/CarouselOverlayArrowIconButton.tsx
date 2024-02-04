@@ -2,26 +2,25 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useGetColor, useGetResponsiveValue } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
+import { useGetColor } from '@common/hooks';
 
 import { Transition } from '@components/Animation';
+import type { CarouselArrowIconButtonProps } from '@components/DataDisplay';
 import {
 	CarouselArrowIconButton,
 	CarouselLeftLinearGradient,
-	CarouselRightLinearGradient
+	CarouselRightLinearGradient,
+	useCarouselOverlayArrowIconButtonResponsiveValues
 } from '@components/DataDisplay';
 import { useCarouselContext } from '@components/DataDisplay/components/Carousel/common/hooks';
 import { Center, Grid, GridItem } from '@components/Layout';
 
-import { __DEFAULT_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_IS_VISIBLE__ } from './common/constants';
+import {
+	__DEFAULT_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_AS__,
+	__DEFAULT_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_IS_VISIBLE__
+} from './common/constants';
 import { __KEYS_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_CLASS__ } from './common/keys';
 import type {
-	CarouselOverlayArrowIconButtonDefaultElement,
 	CarouselOverlayArrowIconButtonElement,
 	CarouselOverlayArrowIconButtonProps,
 	CarouselOverlayArrowIconButtonRef
@@ -30,21 +29,25 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CarouselOverlayArrowIconButton: PolymorphicComponentWithRef = forwardRef(function CarouselOverlayArrowIconButton<
-	Element extends CarouselOverlayArrowIconButtonElement = CarouselOverlayArrowIconButtonDefaultElement
+const CarouselOverlayArrowIconButton = forwardRef(function CarouselOverlayArrowIconButton<
+	Element extends CarouselOverlayArrowIconButtonElement
 >(props: CarouselOverlayArrowIconButtonProps<Element>, ref: CarouselOverlayArrowIconButtonRef<Element>): ReactElement {
 	const { colorMode, spacing, orientation } = useCarouselContext();
 
 	const {
+		as = __DEFAULT_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		renderLeftLinearGradient,
 		renderRightLinearGradient,
-		direction,
-		isVisible: v = __DEFAULT_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_IS_VISIBLE__,
+		direction: directionProp,
+		isVisible: isVisibleProp = __DEFAULT_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_IS_VISIBLE__,
 		...rest
 	} = props;
 
-	const isVisible = useGetResponsiveValue<boolean>(v);
+	const { direction, isVisible } = useCarouselOverlayArrowIconButtonResponsiveValues<Element>({
+		direction: directionProp as CarouselOverlayArrowIconButtonProps<Element>['direction'],
+		isVisible: isVisibleProp as CarouselOverlayArrowIconButtonProps<Element>['isVisible']
+	});
 
 	const backgroundClassName = useGetColor({
 		colorMode,
@@ -56,9 +59,6 @@ const CarouselOverlayArrowIconButton: PolymorphicComponentWithRef = forwardRef(f
 	return (
 		<Transition w='100%' h='100%' transition='fade' in={isVisible}>
 			<Grid
-				className={classNames(__KEYS_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_CLASS__, {
-					[className]: !!className
-				})}
 				w='100%'
 				h='100%'
 				templateColumns={orientation === 'horizontal' ? 2 : 1}
@@ -89,7 +89,15 @@ const CarouselOverlayArrowIconButton: PolymorphicComponentWithRef = forwardRef(f
 						pt={orientation === 'vertical' && direction === 'right' ? spacing : 0}
 						pb={orientation === 'vertical' && direction === 'left' ? spacing : 0}
 					>
-						<CarouselArrowIconButton<Element> {...rest} ref={ref} direction={direction} />
+						<CarouselArrowIconButton
+							{...(rest as CarouselArrowIconButtonProps<Element>)}
+							as={as}
+							ref={ref}
+							className={classNames(__KEYS_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_CLASS__, {
+								[className]: !!className
+							})}
+							direction={direction === 'left' ? 'left' : 'right'}
+						/>
 					</Center>
 				</GridItem>
 
@@ -107,11 +115,6 @@ const CarouselOverlayArrowIconButton: PolymorphicComponentWithRef = forwardRef(f
 	);
 });
 
-CarouselOverlayArrowIconButton.displayName = 'CarouselOverlayArrowIconButton';
+// CarouselOverlayArrowIconButton.displayName = 'CarouselOverlayArrowIconButton';
 
-export default <
-	Element extends CarouselOverlayArrowIconButtonElement = CarouselOverlayArrowIconButtonDefaultElement,
-	Props = PolymorphicDefaultProps
->(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <CarouselOverlayArrowIconButton<Element> {...props} />;
+export default CarouselOverlayArrowIconButton;
