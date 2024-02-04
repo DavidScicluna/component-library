@@ -1,4 +1,9 @@
-import type { CarouselArrowIconButtonGroupProps, CarouselArrowIconButtonGroupRef } from './common/types';
+import type {
+	CarouselArrowIconButtonGroupDefaultElement,
+	CarouselArrowIconButtonGroupElement,
+	CarouselArrowIconButtonGroupProps,
+	CarouselArrowIconButtonGroupRef
+} from './common/types';
 import CarouselArrowIconButtonGroup from './CarouselArrowIconButtonGroup';
 
 // Constants
@@ -11,4 +16,9 @@ export * from './common/keys';
 export { CarouselArrowIconButtonGroup };
 
 // Component Types
-export type { CarouselArrowIconButtonGroupProps, CarouselArrowIconButtonGroupRef };
+export type {
+	CarouselArrowIconButtonGroupDefaultElement,
+	CarouselArrowIconButtonGroupElement,
+	CarouselArrowIconButtonGroupProps,
+	CarouselArrowIconButtonGroupRef
+};

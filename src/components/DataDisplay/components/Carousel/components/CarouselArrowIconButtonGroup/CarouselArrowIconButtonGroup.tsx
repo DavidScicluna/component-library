@@ -2,32 +2,33 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
 
-import type { IconButtonGroupItemChildrenProps } from '@components/Buttons';
+import type { IconButtonGroupItemChildrenProps, IconButtonGroupProps } from '@components/Buttons';
 import { IconButtonGroup, IconButtonGroupItem } from '@components/Buttons';
 
 import { useCarouselContext } from '../../common/hooks';
 
-import { __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_IS_ATTACHED__ } from './common/constants';
+import {
+	__DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_AS__,
+	__DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_IS_ATTACHED__
+} from './common/constants';
 import { __KEYS_CAROUSEL_ARROW_ICON_BUTTON_GROUP_CLASS__ } from './common/keys';
-import type { CarouselArrowIconButtonGroupProps, CarouselArrowIconButtonGroupRef } from './common/types';
+import type {
+	CarouselArrowIconButtonGroupElement,
+	CarouselArrowIconButtonGroupProps,
+	CarouselArrowIconButtonGroupRef
+} from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CarouselArrowIconButtonGroup: PolymorphicComponentWithRef = forwardRef(function CarouselArrowIconButtonGroup<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
+const CarouselArrowIconButtonGroup = forwardRef(function CarouselArrowIconButtonGroup<
+	Element extends CarouselArrowIconButtonGroupElement
 >(props: CarouselArrowIconButtonGroupProps<Element>, ref: CarouselArrowIconButtonGroupRef<Element>): ReactElement {
 	const { spacing: __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_SPACING__, variant } = useCarouselContext();
 
 	const {
+		as = __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		renderLeftAction,
 		renderRightAction,
@@ -37,8 +38,9 @@ const CarouselArrowIconButtonGroup: PolymorphicComponentWithRef = forwardRef(fun
 	} = props;
 
 	return (
-		<IconButtonGroup<Element>
-			{...rest}
+		<IconButtonGroup
+			{...(rest as IconButtonGroupProps<Element>)}
+			as={as}
 			ref={ref}
 			className={classNames(__KEYS_CAROUSEL_ARROW_ICON_BUTTON_GROUP_CLASS__, { [className]: !!className })}
 			w='100%'
@@ -58,8 +60,6 @@ const CarouselArrowIconButtonGroup: PolymorphicComponentWithRef = forwardRef(fun
 	);
 });
 
-CarouselArrowIconButtonGroup.displayName = 'CarouselArrowIconButtonGroup';
+// CarouselArrowIconButtonGroup.displayName = 'CarouselArrowIconButtonGroup';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <CarouselArrowIconButtonGroup<Element> {...props} />;
+export default CarouselArrowIconButtonGroup;

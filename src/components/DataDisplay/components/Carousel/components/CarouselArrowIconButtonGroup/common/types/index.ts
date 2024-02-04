@@ -1,16 +1,22 @@
 import type { DeepRequired } from 'utility-types';
 
-import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
+import type {
+	IconButtonGroupDefaultElement,
+	IconButtonGroupElement,
+	IconButtonGroupProps,
+	IconButtonGroupRef
+} from '@components/Buttons';
+import type { CarouselDefaultElement, CarouselProps } from '@components/DataDisplay';
 
-import type { IconButtonGroupProps, IconButtonGroupRef } from '@components/Buttons';
-import type { CarouselProps } from '@components/DataDisplay';
+export type CarouselArrowIconButtonGroupDefaultElement = IconButtonGroupDefaultElement;
+export type CarouselArrowIconButtonGroupElement = IconButtonGroupElement;
 
 type CarouselArrowIconButtonGroupOtherProps = DeepRequired<
-	Pick<CarouselProps, 'renderLeftAction' | 'renderRightAction'>
+	Pick<CarouselProps<CarouselDefaultElement>, 'renderLeftAction' | 'renderRightAction'>
 >;
 
-export type CarouselArrowIconButtonGroupProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
+export type CarouselArrowIconButtonGroupProps<Element extends CarouselArrowIconButtonGroupElement> =
 	IconButtonGroupProps<Element> & CarouselArrowIconButtonGroupOtherProps;
 
-export type CarouselArrowIconButtonGroupRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> =
+export type CarouselArrowIconButtonGroupRef<Element extends CarouselArrowIconButtonGroupElement> =
 	IconButtonGroupRef<Element>;
