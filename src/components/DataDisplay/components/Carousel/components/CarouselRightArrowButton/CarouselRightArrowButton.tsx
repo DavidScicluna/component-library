@@ -2,19 +2,13 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
 import { useCarouselArrowState, useCarouselManager } from '../../common/hooks';
-import type { CarouselArrowButtonMouseEvent } from '..';
-import { CarouselArrowButton } from '..';
+import type { CarouselArrowButtonMouseEvent, CarouselArrowButtonProps } from '..';
+import { __DEFAULT_CAROUSEL_RIGHT_ARROW_BUTTON_AS__, CarouselArrowButton } from '..';
 
 import { __KEYS_CAROUSEL_RIGHT_ARROW_BUTTON_CLASS__ } from './common/keys';
 import type {
-	CarouselRightArrowButtonDefaultElement,
 	CarouselRightArrowButtonElement,
 	CarouselRightArrowButtonProps,
 	CarouselRightArrowButtonRef
@@ -23,25 +17,32 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CarouselRightArrowButton: PolymorphicComponentWithRef = forwardRef(function CarouselRightArrowButton<
-	Element extends CarouselRightArrowButtonElement = CarouselRightArrowButtonDefaultElement
+const CarouselRightArrowButton = forwardRef(function CarouselRightArrowButton<
+	Element extends CarouselRightArrowButtonElement
 >(props: CarouselRightArrowButtonProps<Element>, ref: CarouselRightArrowButtonRef<Element>): ReactElement {
-	const { className = __DEFAULT_CLASSNAME__, onClick, ...rest } = props;
+	const {
+		as = __DEFAULT_CAROUSEL_RIGHT_ARROW_BUTTON_AS__,
+		className = __DEFAULT_CLASSNAME__,
+		onClick,
+		...rest
+	} = props;
 
 	const { scrollNext } = useCarouselManager();
 	const { isDisabled } = useCarouselArrowState('right');
 
-	const handleScrollNext = (event: CarouselArrowButtonMouseEvent): void => {
+	const handleScrollNext = (event: CarouselArrowButtonMouseEvent<Element>): void => {
 		scrollNext();
 
 		if (onClick) {
-			onClick(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			onClick(event as any);
 		}
 	};
 
 	return (
-		<CarouselArrowButton<Element>
-			{...rest}
+		<CarouselArrowButton
+			{...(rest as CarouselArrowButtonProps<Element>)}
+			as={as}
 			ref={ref}
 			className={classNames(__KEYS_CAROUSEL_RIGHT_ARROW_BUTTON_CLASS__, {
 				[className]: !!className
@@ -53,11 +54,6 @@ const CarouselRightArrowButton: PolymorphicComponentWithRef = forwardRef(functio
 	);
 });
 
-CarouselRightArrowButton.displayName = 'CarouselRightArrowButton';
+// CarouselRightArrowButton.displayName = 'CarouselRightArrowButton';
 
-export default <
-	Element extends CarouselRightArrowButtonElement = CarouselRightArrowButtonDefaultElement,
-	Props = PolymorphicDefaultProps
->(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <CarouselRightArrowButton<Element> {...props} />;
+export default CarouselRightArrowButton;
