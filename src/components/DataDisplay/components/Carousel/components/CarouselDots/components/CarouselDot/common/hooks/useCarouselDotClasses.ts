@@ -1,7 +1,7 @@
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useGetColor } from '@common/hooks';
-import type { ClassName } from '@common/types';
+import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import { __DEFAULT_CAROUSEL_DOTS_SIZE__ } from '@components/DataDisplay/components/Carousel/components/CarouselDots/common/constants';
 
@@ -12,10 +12,15 @@ import useCarouselDotResponsiveValues from './useCarouselDotResponsiveValues';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseCarouselDotClassesProps = Pick<CarouselDotProps, 'color' | 'colorMode' | 'size'> & { isVisible: boolean };
+type UseCarouselDotClassesProps<Element extends PolymorphicElementType> = Pick<
+	CarouselDotProps<Element>,
+	'color' | 'colorMode' | 'size'
+> & { isVisible: boolean };
 type UseCarouselDotClassesReturn = Record<'item' | 'scale100' | 'scale75' | 'scale50', ClassName>;
 
-const useCarouselDotClasses = (props: UseCarouselDotClassesProps): UseCarouselDotClassesReturn => {
+const useCarouselDotClasses = <Element extends PolymorphicElementType>(
+	props: UseCarouselDotClassesProps<Element>
+): UseCarouselDotClassesReturn => {
 	const { colorMode: __DEFAULT_CAROUSEL_DOT_COLORMODE__ } = useAppTheme();
 
 	const {
@@ -25,7 +30,7 @@ const useCarouselDotClasses = (props: UseCarouselDotClassesProps): UseCarouselDo
 		size: sizeProp = __DEFAULT_CAROUSEL_DOTS_SIZE__
 	} = props;
 
-	const { size } = useCarouselDotResponsiveValues({ size: sizeProp });
+	const { size } = useCarouselDotResponsiveValues<Element>({ size: sizeProp });
 
 	const colorClassName = useGetColor({
 		color,

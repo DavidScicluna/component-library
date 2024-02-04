@@ -2,14 +2,9 @@ import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 import { useCarouselContext, useCarouselManager } from '@components/DataDisplay/components/Carousel/common/hooks';
 
@@ -22,9 +17,10 @@ import type { CarouselDotProps, CarouselDotRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CarouselDot: PolymorphicComponentWithRef = forwardRef(function CarouselDot<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: CarouselDotProps<Element>, ref: CarouselDotRef<Element>): ReactElement {
+const CarouselDot = forwardRef(function CarouselDot<Element extends PolymorphicElementType>(
+	props: CarouselDotProps<Element>,
+	ref: CarouselDotRef<Element>
+): ReactElement {
 	const { color: __DEFAULT_CAROUSEL_DOT_COLOR__, colorMode: __DEFAULT_CAROUSEL_DOT_COLORMODE__ } =
 		useCarouselContext();
 	const { isItemVisible, scrollToItem } = useCarouselManager();
@@ -39,15 +35,15 @@ const CarouselDot: PolymorphicComponentWithRef = forwardRef(function CarouselDot
 		...rest
 	} = props;
 
-	const { size } = useCarouselDotResponsiveValues({ size: sizeProp });
+	const { size } = useCarouselDotResponsiveValues<Element>({ size: sizeProp });
 
 	const isVisible = useMemo(() => isItemVisible(item.key), [item.key]);
 
-	const classes = useCarouselDotClasses({ color, colorMode, isVisible, size });
+	const classes = useCarouselDotClasses<Element>({ color, colorMode, isVisible, size });
 
 	return (
-		<Box<Element>
-			{...rest}
+		<Box
+			{...(rest as BoxProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_CAROUSEL_DOT_CLASS__, classes.item, {
 				[classes.scale100]: scale === 100,
@@ -60,8 +56,6 @@ const CarouselDot: PolymorphicComponentWithRef = forwardRef(function CarouselDot
 	);
 });
 
-CarouselDot.displayName = 'CarouselDot';
+// CarouselDot.displayName = 'CarouselDot';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <CarouselDot<Element> {...props} />;
+export default CarouselDot;
