@@ -2,15 +2,10 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import { useCarouselArrowState } from '../../common/hooks';
+import type { CarouselLinearGradientProps } from '..';
 import { CarouselLinearGradient } from '..';
 
 import { __KEYS_CAROUSEL_RIGHT_LINEAR_GRADIENT_CLASS__ } from './common/keys';
@@ -19,16 +14,16 @@ import type { CarouselRightLinearGradientProps, CarouselRightLinearGradientRef }
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CarouselRightLinearGradient: PolymorphicComponentWithRef = forwardRef(function CarouselRightLinearGradient<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
+const CarouselRightLinearGradient = forwardRef(function CarouselRightLinearGradient<
+	Element extends PolymorphicElementType
 >(props: CarouselRightLinearGradientProps<Element>, ref: CarouselRightLinearGradientRef<Element>): ReactElement {
 	const { className = __DEFAULT_CLASSNAME__, ...rest } = props;
 
 	const { isVisible } = useCarouselArrowState('right');
 
 	return (
-		<CarouselLinearGradient<Element>
-			{...rest}
+		<CarouselLinearGradient
+			{...(rest as CarouselLinearGradientProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_CAROUSEL_RIGHT_LINEAR_GRADIENT_CLASS__, { [className]: !!className })}
 			direction='right'
@@ -37,8 +32,6 @@ const CarouselRightLinearGradient: PolymorphicComponentWithRef = forwardRef(func
 	);
 });
 
-CarouselRightLinearGradient.displayName = 'CarouselRightLinearGradient';
+// CarouselRightLinearGradient.displayName = 'CarouselRightLinearGradient';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <CarouselRightLinearGradient<Element> {...props} />;
+export default CarouselRightLinearGradient;
