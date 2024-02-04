@@ -7,7 +7,7 @@ import { useElementSize } from 'usehooks-ts';
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { CarouselRenderActionProps, CarouselVariant } from '@components/DataDisplay';
+import type { CarouselDefaultElement, CarouselRef } from '@components/DataDisplay';
 import {
 	Carousel,
 	CarouselLeftLinearGradient,
@@ -72,15 +72,15 @@ const TabList = forwardRef(function TabList<Element extends PolymorphicElementTy
 			{isArray(children) ? (
 				<GridItem alignSelf='stretch' justifySelf={isFitted ? 'stretch' : align}>
 					<Carousel
-						ref={childrenRef}
+						ref={childrenRef as CarouselRef<CarouselDefaultElement>}
 						w='100%'
 						h='100%'
 						colorMode={colorMode}
-						renderLeftAction={(_variant: CarouselVariant, props: CarouselRenderActionProps) => (
+						renderLeftAction={(_variant, props) => (
 							<CarouselOverlayLeftArrowIconButton {...props} isCompact variant='icon' />
 						)}
 						renderLeftLinearGradient={() => <CarouselLeftLinearGradient />}
-						renderRightAction={(_variant: CarouselVariant, props: CarouselRenderActionProps) => (
+						renderRightAction={(_variant, props) => (
 							<CarouselOverlayRightArrowIconButton {...props} isCompact variant='icon' />
 						)}
 						renderRightLinearGradient={() => <CarouselRightLinearGradient />}
