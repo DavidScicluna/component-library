@@ -5,27 +5,24 @@ import type {
 	CarouselArrowButtonElement,
 	CarouselArrowButtonProps,
 	CarouselArrowButtonRef,
+	CarouselDefaultElement,
 	CarouselProps
 } from '@components/DataDisplay';
 
 export type CarouselOverlayArrowButtonDefaultElement = CarouselArrowButtonDefaultElement;
 export type CarouselOverlayArrowButtonElement = CarouselArrowButtonElement;
 
-type CarouselOverlayArrowButtonOtherProps<
-	Element extends CarouselOverlayArrowButtonElement = CarouselOverlayArrowButtonDefaultElement
-> = {
+type CarouselOverlayArrowButtonOtherProps = {
 	/**
 	 * If true, overlay button will be visible
 	 *
 	 * @default true
 	 */
 	isVisible?: ResponsiveValue<boolean>;
-} & Pick<CarouselProps<Element>, 'renderLeftLinearGradient' | 'renderRightLinearGradient'>;
+} & Pick<CarouselProps<CarouselDefaultElement>, 'renderLeftLinearGradient' | 'renderRightLinearGradient'>;
 
-export type CarouselOverlayArrowButtonProps<
-	Element extends CarouselOverlayArrowButtonElement = CarouselOverlayArrowButtonDefaultElement
-> = CarouselArrowButtonProps<Element> & CarouselOverlayArrowButtonOtherProps;
+export type CarouselOverlayArrowButtonProps<Element extends CarouselOverlayArrowButtonElement> =
+	CarouselArrowButtonProps<Element> & CarouselOverlayArrowButtonOtherProps;
 
-export type CarouselOverlayArrowButtonRef<
-	Element extends CarouselOverlayArrowButtonElement = CarouselOverlayArrowButtonDefaultElement
-> = CarouselArrowButtonRef<Element>;
+export type CarouselOverlayArrowButtonRef<Element extends CarouselOverlayArrowButtonElement> =
+	CarouselArrowButtonRef<Element>;
