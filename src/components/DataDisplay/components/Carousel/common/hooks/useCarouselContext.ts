@@ -11,11 +11,11 @@ import {
 	__DEFAULT_CAROUSEL_VARIANT__,
 	__DEFAULT_CAROUSEL_VISIBLE_ITEMS__
 } from '../constants';
-import type { CarouselContext as CarouselContextType } from '../types';
+import type { CarouselContext as CarouselContextType, CarouselElement } from '../types';
 
 import useCarouselResponsiveValues from './useCarouselResponsiveValues';
 
-const useCarouselContext = () => {
+const useCarouselContext = <Element extends CarouselElement>() => {
 	const {
 		color,
 		colorMode,
@@ -26,9 +26,9 @@ const useCarouselContext = () => {
 		spacing: spacingProp = __DEFAULT_SPACING__,
 		orientation: orientationProp = __DEFAULT_CAROUSEL_ORIENTTATION__,
 		variant: variantProp = __DEFAULT_CAROUSEL_VARIANT__
-	} = useContext<CarouselContextType>(CarouselContext);
+	} = useContext<CarouselContextType<Element>>(CarouselContext);
 
-	const { scrollAmount, spacing, orientation, variant } = useCarouselResponsiveValues({
+	const { scrollAmount, spacing, orientation, variant } = useCarouselResponsiveValues<Element>({
 		scrollAmount: scrollAmountProp,
 		spacing: spacingProp,
 		orientation: orientationProp,

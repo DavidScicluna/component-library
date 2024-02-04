@@ -2,22 +2,27 @@ import classes from '@common/classes';
 import type { ClassName } from '@common/types';
 
 import { __DEFAULT_CAROUSEL_VARIANT__ } from '../constants';
-import type { CarouselProps } from '../types';
+import type { CarouselElement, CarouselProps } from '../types';
 
 import useCarouselResponsiveValues from './useCarouselResponsiveValues';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseCarouselClassesProps = Pick<CarouselProps, 'variant' | 'orientation' | 'spacing'>;
+type UseCarouselClassesProps<Element extends CarouselElement> = Pick<
+	CarouselProps<Element>,
+	'variant' | 'orientation' | 'spacing'
+>;
 type UseCarouselClassesReturn = Record<'items' | 'item', ClassName> & {
 	overflow: Record<'hidden' | 'auto', ClassName>;
 };
 
-const useCarouselClasses = (props: UseCarouselClassesProps): UseCarouselClassesReturn => {
+const useCarouselClasses = <Element extends CarouselElement>(
+	props: UseCarouselClassesProps<Element>
+): UseCarouselClassesReturn => {
 	const { variant: variantProp = __DEFAULT_CAROUSEL_VARIANT__ } = props;
 
-	const { variant } = useCarouselResponsiveValues({ variant: variantProp });
+	const { variant } = useCarouselResponsiveValues<Element>({ variant: variantProp });
 
 	return {
 		overflow: {

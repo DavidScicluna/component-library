@@ -9,13 +9,21 @@ import {
 	__DEFAULT_CAROUSEL_SCROLL_AMOUNT__,
 	__DEFAULT_CAROUSEL_VARIANT__
 } from '../constants';
-import type { CarouselOrientation, CarouselProps, CarouselScrollAmount, CarouselVariant } from '../types';
+import type {
+	CarouselElement,
+	CarouselOrientation,
+	CarouselProps,
+	CarouselScrollAmount,
+	CarouselVariant
+} from '../types';
 
-type UseCarouselResponsiveValuesProps = Partial<
-	Pick<CarouselProps, 'divider' | 'scrollAmount' | 'spacing' | 'orientation' | 'variant'>
+type UseCarouselResponsiveValuesProps<Element extends CarouselElement> = Partial<
+	Pick<CarouselProps<Element>, 'divider' | 'scrollAmount' | 'spacing' | 'orientation' | 'variant'>
 >;
 
-const useCarouselResponsiveValues = (props: UseCarouselResponsiveValuesProps) => {
+const useCarouselResponsiveValues = <Element extends CarouselElement>(
+	props: UseCarouselResponsiveValuesProps<Element>
+) => {
 	const {
 		divider: dividerProp,
 		scrollAmount: scrollAmountProp = __DEFAULT_CAROUSEL_SCROLL_AMOUNT__,

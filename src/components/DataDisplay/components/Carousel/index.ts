@@ -1,6 +1,8 @@
 import type {
 	CarouselArrowDirection,
 	CarouselContext,
+	CarouselDefaultElement,
+	CarouselElement,
 	CarouselItem as CarouselItemType,
 	CarouselItems as CarouselItemsType,
 	CarouselOrientation,
@@ -34,6 +36,8 @@ export * from './components';
 export type {
 	CarouselArrowDirection,
 	CarouselContext,
+	CarouselDefaultElement,
+	CarouselElement,
 	CarouselItemsType,
 	CarouselItemType,
 	CarouselOrientation,

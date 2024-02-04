@@ -8,17 +8,12 @@ import { useEffectOnce, useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useDebounce } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType
-} from '@common/types';
 
+import type { GridProps } from '@components/Layout';
 import { Grid, GridItem, Stack } from '@components/Layout';
 
 import {
+	__DEFAULT_CAROUSEL_AS__,
 	__DEFAULT_CAROUSEL_DURATION_NUMBER__,
 	__DEFAULT_CAROUSEL_DURATION_THEME__,
 	__DEFAULT_CAROUSEL_ID__,
@@ -32,6 +27,8 @@ import { useCarouselClasses, useCarouselResponsiveValues } from './common/hooks'
 import { __KEYS_CAROUSEL_CLASS__ } from './common/keys';
 import type {
 	CarouselContext as CarouselContextType,
+	CarouselDefaultElement,
+	CarouselElement,
 	CarouselItem as CarouselItemType,
 	CarouselItems,
 	CarouselProps,
@@ -40,14 +37,19 @@ import type {
 	CarouselVisibleItems
 } from './common/types';
 import { getCarouselID, getCarouselItemID } from './common/utils';
-import type { CarouselArrowButtonGroupRef, CarouselArrowIconButtonGroupRef } from './components';
+import type {
+	CarouselArrowButtonGroupDefaultElement,
+	CarouselArrowButtonGroupRef,
+	CarouselArrowIconButtonGroupDefaultElement,
+	CarouselArrowIconButtonGroupRef
+} from './components';
 import { CarouselArrowButtonGroup, CarouselArrowIconButtonGroup, CarouselItem } from './components';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const CarouselContext = createContext<CarouselContextType>({
+export const CarouselContext = createContext<CarouselContextType<CarouselDefaultElement>>({
 	id: __DEFAULT_CAROUSEL_ID__,
 	items: __DEFAULT_CAROUSEL_ITEMS__,
 	visibleItems: __DEFAULT_CAROUSEL_VISIBLE_ITEMS__,
@@ -57,9 +59,10 @@ export const CarouselContext = createContext<CarouselContextType>({
 	variant: __DEFAULT_CAROUSEL_VARIANT__
 });
 
-const Carousel: PolymorphicComponentWithRef = forwardRef(function Carousel<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: CarouselProps<Element>, ref: CarouselRef<Element>): ReactElement {
+const Carousel = forwardRef(function Carousel<Element extends CarouselElement>(
+	props: CarouselProps<Element>,
+	ref: CarouselRef<Element>
+): ReactElement {
 	const [arrowRef, { width: arrowWidthSize, height: arrowHeightSize }] = useElementSize();
 
 	const [items, setItems] = useArrayState<CarouselItemType>(__DEFAULT_CAROUSEL_ITEMS__);
@@ -70,6 +73,7 @@ const Carousel: PolymorphicComponentWithRef = forwardRef(function Carousel<
 
 	const {
 		children,
+		as = __DEFAULT_CAROUSEL_AS__,
 		id = __DEFAULT_CAROUSEL_ID__,
 		className = __DEFAULT_CLASSNAME__,
 		renderDots,
@@ -87,7 +91,7 @@ const Carousel: PolymorphicComponentWithRef = forwardRef(function Carousel<
 		...rest
 	} = props;
 
-	const { divider, scrollAmount, spacing, orientation, variant } = useCarouselResponsiveValues({
+	const { divider, scrollAmount, spacing, orientation, variant } = useCarouselResponsiveValues<Element>({
 		divider: dividerProp,
 		scrollAmount: scrollAmountProp,
 		spacing: spacingProp,
@@ -95,7 +99,7 @@ const Carousel: PolymorphicComponentWithRef = forwardRef(function Carousel<
 		variant: variantProp
 	});
 
-	const classes = useCarouselClasses({ spacing, orientation, variant });
+	const classes = useCarouselClasses<Element>({ spacing, orientation, variant });
 
 	const handleChildren = debounce(() => {
 		if (isArray(children)) {
@@ -129,8 +133,9 @@ const Carousel: PolymorphicComponentWithRef = forwardRef(function Carousel<
 				variant
 			}}
 		>
-			<Grid<Element>
-				{...rest}
+			<Grid
+				{...(rest as GridProps<Element>)}
+				as={as}
 				ref={ref}
 				id={getCarouselID(id)}
 				className={classNames(__KEYS_CAROUSEL_CLASS__, classes.overflow.hidden, { [className]: !!className })}
@@ -175,14 +180,20 @@ const Carousel: PolymorphicComponentWithRef = forwardRef(function Carousel<
 							<GridItem>
 								{orientation === 'horizontal' ? (
 									<CarouselArrowIconButtonGroup
-										ref={arrowRef as CarouselArrowIconButtonGroupRef}
+										ref={
+											// eslint-disable-next-line max-len
+											arrowRef as CarouselArrowIconButtonGroupRef<CarouselArrowIconButtonGroupDefaultElement>
+										}
 										renderLeftAction={renderLeftAction}
 										renderRightAction={renderRightAction}
 										spacing={spacing}
 									/>
 								) : (
 									<CarouselArrowButtonGroup
-										ref={arrowRef as CarouselArrowButtonGroupRef}
+										ref={
+											// eslint-disable-next-line max-len
+											arrowRef as CarouselArrowButtonGroupRef<CarouselArrowButtonGroupDefaultElement>
+										}
 										renderLeftAction={renderLeftAction}
 										renderRightAction={renderRightAction}
 										spacing={spacing}
@@ -291,14 +302,20 @@ const Carousel: PolymorphicComponentWithRef = forwardRef(function Carousel<
 							<GridItem>
 								{orientation === 'horizontal' ? (
 									<CarouselArrowIconButtonGroup
-										ref={arrowRef as CarouselArrowIconButtonGroupRef}
+										ref={
+											// eslint-disable-next-line max-len
+											arrowRef as CarouselArrowIconButtonGroupRef<CarouselArrowIconButtonGroupDefaultElement>
+										}
 										renderLeftAction={renderLeftAction}
 										renderRightAction={renderRightAction}
 										spacing={spacing}
 									/>
 								) : (
 									<CarouselArrowButtonGroup
-										ref={arrowRef as CarouselArrowButtonGroupRef}
+										ref={
+											// eslint-disable-next-line max-len
+											arrowRef as CarouselArrowButtonGroupRef<CarouselArrowButtonGroupDefaultElement>
+										}
 										renderLeftAction={renderLeftAction}
 										renderRightAction={renderRightAction}
 										spacing={spacing}
@@ -315,8 +332,6 @@ const Carousel: PolymorphicComponentWithRef = forwardRef(function Carousel<
 	);
 });
 
-Carousel.displayName = 'Carousel';
+// Carousel.displayName = 'Carousel';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <Carousel<Element> {...props} />;
+export default Carousel;

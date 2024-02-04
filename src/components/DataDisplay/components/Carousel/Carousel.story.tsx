@@ -4,7 +4,6 @@ import { range } from 'lodash-es';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography';
@@ -17,7 +16,7 @@ import {
 	__DEFAULT_CAROUSEL_SCROLL_AMOUNT__,
 	__DEFAULT_CAROUSEL_VARIANT__
 } from './common/constants';
-import type { CarouselOrientation, CarouselProps, CarouselVariant } from './common/types';
+import type { CarouselDefaultElement, CarouselOrientation, CarouselProps, CarouselVariant } from './common/types';
 import type { CarouselStory, CarouselStoryMeta } from './common/types/story';
 import CarouselDots from './components/CarouselDots/CarouselDots';
 import {
@@ -81,7 +80,7 @@ export default {
 export const Carousel: CarouselStory = ({
 	orientation,
 	...rest
-}: CarouselProps<PolymorphicDefaultElement>): ReactElement => {
+}: CarouselProps<CarouselDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });
