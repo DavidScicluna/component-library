@@ -5,22 +5,17 @@ import { compact, debounce } from 'lodash-es';
 import { useArrayState } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useDebounce, useGetResponsiveValue } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultElement,
-	PolymorphicDefaultProps,
-	PolymorphicElementType,
-	ThemeSpacing
-} from '@common/types';
+import { useDebounce } from '@common/hooks';
+import type { PolymorphicElementType } from '@common/types';
 
+import type { StackProps } from '@components/Layout';
 import { Stack } from '@components/Layout';
 
 import { __DEFAULT_CAROUSEL_DURATION_NUMBER__, __DEFAULT_CAROUSEL_DURATION_THEME__ } from '../../common/constants';
 import { useCarouselContext, useCarouselManager } from '../../common/hooks';
 
 import { __DEFAULT_CAROUSEL_DOTS__, __DEFAULT_CAROUSEL_DOTS_SIZE__ } from './common/constants';
+import { useCarouselDotsResponsiveValues } from './common/hooks';
 import { __KEYS_CAROUSEL_DOTS_CLASS__ } from './common/keys';
 import type {
 	CarouselDot as CarouselDotType,
@@ -33,9 +28,10 @@ import { CarouselDot } from './components';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CarouselDots: PolymorphicComponentWithRef = forwardRef(function CarouselDots<
-	Element extends PolymorphicElementType = PolymorphicDefaultElement
->(props: CarouselDotsProps<Element>, ref: CarouselDotsRef<Element>): ReactElement {
+const CarouselDots = forwardRef(function CarouselDots<Element extends PolymorphicElementType>(
+	props: CarouselDotsProps<Element>,
+	ref: CarouselDotsRef<Element>
+): ReactElement {
 	const {
 		color: __DEFAULT_CAROUSEL_DOTS_COLOR__,
 		colorMode: __DEFAULT_CAROUSEL_DOTS_COLORMODE__,
@@ -49,16 +45,18 @@ const CarouselDots: PolymorphicComponentWithRef = forwardRef(function CarouselDo
 		className = __DEFAULT_CLASSNAME__,
 		color = __DEFAULT_CAROUSEL_DOTS_COLOR__,
 		colorMode = __DEFAULT_CAROUSEL_DOTS_COLORMODE__,
-		size: si = __DEFAULT_CAROUSEL_DOTS_SIZE__,
-		spacing: sp = __DEFAULT_CAROUSEL_DOTS_SPACING__,
+		size: sizeProp = __DEFAULT_CAROUSEL_DOTS_SIZE__,
+		spacing: spacingProp = __DEFAULT_CAROUSEL_DOTS_SPACING__,
 		...rest
 	} = props;
 
 	const [dots, setDots] = useArrayState<CarouselDotType>(__DEFAULT_CAROUSEL_DOTS__);
 	const dotsDebounced = useDebounce<CarouselDotsType>(dots, __DEFAULT_CAROUSEL_DURATION_THEME__);
 
-	const size = useGetResponsiveValue<ThemeSpacing>(si);
-	const spacing = useGetResponsiveValue<ThemeSpacing>(sp);
+	const { size, spacing } = useCarouselDotsResponsiveValues<Element>({
+		size: sizeProp,
+		spacing: spacingProp
+	});
 
 	const handleDots = debounce((): void => {
 		const prevItem = getPrevItem();
@@ -91,8 +89,8 @@ const CarouselDots: PolymorphicComponentWithRef = forwardRef(function CarouselDo
 	useEffect(() => handleDots(), [items]);
 
 	return (
-		<Stack<Element>
-			{...rest}
+		<Stack
+			{...(rest as StackProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_CAROUSEL_DOTS_CLASS__, { [className]: !!className })}
 			w='100%'
@@ -109,8 +107,6 @@ const CarouselDots: PolymorphicComponentWithRef = forwardRef(function CarouselDo
 	);
 });
 
-CarouselDots.displayName = 'CarouselDots';
+// CarouselDots.displayName = 'CarouselDots';
 
-export default <Element extends PolymorphicElementType = PolymorphicDefaultElement, Props = PolymorphicDefaultProps>(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <CarouselDots<Element> {...props} />;
+export default CarouselDots;
