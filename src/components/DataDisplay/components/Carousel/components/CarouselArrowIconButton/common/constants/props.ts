@@ -1,5 +1,9 @@
 import type { TooltipPlacement } from '@components/Overlay';
 
+import type { CarouselArrowIconButtonDefaultElement } from '../types';
+
+export const __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_AS__: CarouselArrowIconButtonDefaultElement = 'button';
+
 export const __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_HAS_TOOLTIP__ = true;
 
 export const __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_TOP_LABEL__ = 'Scroll Top';

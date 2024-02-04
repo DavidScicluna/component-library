@@ -2,20 +2,15 @@ import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import { useGetResponsiveValue } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
+import type { IconButtonProps } from '@components/Buttons';
 import { IconButton, IconButtonIcon } from '@components/Buttons';
 import { Tooltip } from '@components/Overlay';
 
 import { useCarouselContext } from '../../common/hooks';
-import type { CarouselArrowDirection } from '../../common/types';
 
 import {
+	__DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_AS__,
 	__DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_BOTTOM_LABEL__,
 	__DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_HAS_TOOLTIP__,
 	__DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_LEFT_LABEL__,
@@ -23,9 +18,9 @@ import {
 	__DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_RIGHT_LABEL__,
 	__DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_TOP_LABEL__
 } from './common/constants';
+import { useCarouselArrowIconButtonResponsiveValues } from './common/hooks';
 import { __KEYS_CAROUSEL_ARROW_ICON_BUTTON_CLASS__ } from './common/keys';
 import type {
-	CarouselArrowIconButtonDefaultElement,
 	CarouselArrowIconButtonElement,
 	CarouselArrowIconButtonProps,
 	CarouselArrowIconButtonRef
@@ -34,8 +29,8 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CarouselArrowIconButton: PolymorphicComponentWithRef = forwardRef(function CarouselArrowIconButton<
-	Element extends CarouselArrowIconButtonElement = CarouselArrowIconButtonDefaultElement
+const CarouselArrowIconButton = forwardRef(function CarouselArrowIconButton<
+	Element extends CarouselArrowIconButtonElement
 >(props: CarouselArrowIconButtonProps<Element>, ref: CarouselArrowIconButtonRef<Element>): ReactElement {
 	const {
 		color: __DEFAULT_ARROW_ICON_BUTTON_COLOR__,
@@ -44,45 +39,48 @@ const CarouselArrowIconButton: PolymorphicComponentWithRef = forwardRef(function
 	} = useCarouselContext();
 
 	const {
+		as = __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		color = __DEFAULT_ARROW_ICON_BUTTON_COLOR__,
 		colorMode = __DEFAULT_ARROW_ICON_BUTTON_COLORMODE__,
-		direction: d,
-		hasTooltip: t = __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_HAS_TOOLTIP__,
-		label: l,
+		direction: directionProp,
+		hasTooltip: hasTooltipProp = __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_HAS_TOOLTIP__,
+		label: labelProp,
 		placement = __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_PLACEMENT__,
 		...rest
 	} = props;
 
-	const direction = useGetResponsiveValue<CarouselArrowDirection>(d);
-	const hasTooltip = useGetResponsiveValue<boolean>(t);
+	const { direction, hasTooltip, label } = useCarouselArrowIconButtonResponsiveValues<Element>({
+		direction: directionProp as CarouselArrowIconButtonProps<Element>['direction'],
+		hasTooltip: hasTooltipProp as CarouselArrowIconButtonProps<Element>['hasTooltip'],
+		label: labelProp as CarouselArrowIconButtonProps<Element>['label']
+	});
 
-	const label = useMemo<string>(() => {
-		return l
-			? l
-			: orientation === 'horizontal'
-				? direction === 'left'
-					? __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_LEFT_LABEL__
-					: __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_RIGHT_LABEL__
-				: direction === 'left'
-					? __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_TOP_LABEL__
-					: __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_BOTTOM_LABEL__;
-	}, [direction, l, orientation]);
+	const __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_LABEL__ = useMemo<string>(() => {
+		return orientation === 'horizontal'
+			? direction === 'left'
+				? __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_LEFT_LABEL__
+				: __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_RIGHT_LABEL__
+			: direction === 'left'
+				? __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_TOP_LABEL__
+				: __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_BOTTOM_LABEL__;
+	}, [direction, orientation]);
 
 	return (
 		<Tooltip
-			// color='gray'
+			color='gray'
 			colorMode={colorMode}
-			aria-label={`${label} (tooltip)`}
-			label={label}
+			aria-label={`${label || __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_LABEL__} (tooltip)`}
+			label={label || __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_LABEL__}
 			placement={placement}
 			isDisabled={!hasTooltip}
 		>
-			<IconButton<Element>
-				{...rest}
+			<IconButton
+				{...(rest as IconButtonProps<Element>)}
+				as={as}
 				ref={ref}
 				className={classNames(__KEYS_CAROUSEL_ARROW_ICON_BUTTON_CLASS__, { [className]: !!className })}
-				aria-label={label}
+				aria-label={label || __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_LABEL__}
 				color={color}
 				colorMode={colorMode}
 			>
@@ -103,11 +101,6 @@ const CarouselArrowIconButton: PolymorphicComponentWithRef = forwardRef(function
 	);
 });
 
-CarouselArrowIconButton.displayName = 'CarouselArrowIconButton';
+// CarouselArrowIconButton.displayName = 'CarouselArrowIconButton';
 
-export default <
-	Element extends CarouselArrowIconButtonElement = CarouselArrowIconButtonDefaultElement,
-	Props = PolymorphicDefaultProps
->(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <CarouselArrowIconButton<Element> {...props} />;
+export default CarouselArrowIconButton;
