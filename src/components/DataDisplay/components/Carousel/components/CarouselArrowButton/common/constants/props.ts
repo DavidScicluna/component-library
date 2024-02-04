@@ -1,3 +1,7 @@
+import type { CarouselArrowButtonDefaultElement } from '../types';
+
+export const __DEFAULT_CAROUSEL_ARROW_BUTTON_AS__: CarouselArrowButtonDefaultElement = 'button';
+
 export const __DEFAULT_CAROUSEL_ARROW_BUTTON_HAS_ICON__ = true;
 export const __DEFAULT_CAROUSEL_ARROW_BUTTON_IS_FULLWIDTH__ = true;
 

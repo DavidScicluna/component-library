@@ -3,18 +3,15 @@ import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type {
-	PolymorphicComponentPropsWithRef,
-	PolymorphicComponentWithRef,
-	PolymorphicDefaultProps
-} from '@common/types';
 
+import type { ButtonProps } from '@components/Buttons';
 import { Button, ButtonIcon } from '@components/Buttons';
 
 import { useCarouselContext } from '../../common/hooks';
 import type { CarouselArrowDirection } from '../../common/types';
 
 import {
+	__DEFAULT_CAROUSEL_ARROW_BUTTON_AS__,
 	__DEFAULT_CAROUSEL_ARROW_BUTTON_BOTTOM_LABEL__,
 	__DEFAULT_CAROUSEL_ARROW_BUTTON_HAS_ICON__,
 	__DEFAULT_CAROUSEL_ARROW_BUTTON_IS_FULLWIDTH__,
@@ -23,19 +20,15 @@ import {
 	__DEFAULT_CAROUSEL_ARROW_BUTTON_TOP_LABEL__
 } from './common/constants';
 import { __KEYS_CAROUSEL_ARROW_BUTTON_CLASS__ } from './common/keys';
-import type {
-	CarouselArrowButtonDefaultElement,
-	CarouselArrowButtonElement,
-	CarouselArrowButtonProps,
-	CarouselArrowButtonRef
-} from './common/types';
+import type { CarouselArrowButtonElement, CarouselArrowButtonProps, CarouselArrowButtonRef } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const CarouselArrowButton: PolymorphicComponentWithRef = forwardRef(function CarouselArrowButton<
-	Element extends CarouselArrowButtonElement = CarouselArrowButtonDefaultElement
->(props: CarouselArrowButtonProps<Element>, ref: CarouselArrowButtonRef<Element>): ReactElement {
+const CarouselArrowButton = forwardRef(function CarouselArrowButton<Element extends CarouselArrowButtonElement>(
+	props: CarouselArrowButtonProps<Element>,
+	ref: CarouselArrowButtonRef<Element>
+): ReactElement {
 	const {
 		color: __DEFAULT_ARROW_BUTTON_COLOR__,
 		colorMode: __DEFAULT_ARROW_BUTTON_COLORMODE__,
@@ -44,6 +37,7 @@ const CarouselArrowButton: PolymorphicComponentWithRef = forwardRef(function Car
 
 	const {
 		children,
+		as = __DEFAULT_CAROUSEL_ARROW_BUTTON_AS__,
 		className = __DEFAULT_CLASSNAME__,
 		color = __DEFAULT_ARROW_BUTTON_COLOR__,
 		colorMode = __DEFAULT_ARROW_BUTTON_COLORMODE__,
@@ -57,8 +51,9 @@ const CarouselArrowButton: PolymorphicComponentWithRef = forwardRef(function Car
 	const hasIcon = useGetResponsiveValue<boolean>(i);
 
 	return (
-		<Button<Element>
-			{...rest}
+		<Button
+			{...(rest as ButtonProps<Element>)}
+			as={as}
 			ref={ref}
 			className={classNames(__KEYS_CAROUSEL_ARROW_BUTTON_CLASS__, { [className]: !!className })}
 			color={color}
@@ -98,11 +93,6 @@ const CarouselArrowButton: PolymorphicComponentWithRef = forwardRef(function Car
 	);
 });
 
-CarouselArrowButton.displayName = 'CarouselArrowButton';
+// CarouselArrowButton.displayName = 'CarouselArrowButton';
 
-export default <
-	Element extends CarouselArrowButtonElement = CarouselArrowButtonDefaultElement,
-	Props = PolymorphicDefaultProps
->(
-	props: PolymorphicComponentPropsWithRef<Element, Props>
-) => <CarouselArrowButton<Element> {...props} />;
+export default CarouselArrowButton;
