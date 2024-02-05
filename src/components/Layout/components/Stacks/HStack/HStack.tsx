@@ -2,8 +2,9 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
+import type { StackProps } from '../Stack';
 import { Stack } from '../Stack';
 
 import { __KEYS_H_STACK_CLASS__ } from './common/keys';
@@ -12,7 +13,7 @@ import type { HStackProps, HStackRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const HStack = forwardRef(function HStack<Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+const HStack = forwardRef(function HStack<Element extends PolymorphicElementType>(
 	props: HStackProps<Element>,
 	ref: HStackRef<Element>
 ): ReactElement {
@@ -20,7 +21,7 @@ const HStack = forwardRef(function HStack<Element extends PolymorphicElementType
 
 	return (
 		<Stack
-			{...(rest as HStackProps<Element>)}
+			{...(rest as StackProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_H_STACK_CLASS__, { [className]: !!className })}
 			direction='row'
