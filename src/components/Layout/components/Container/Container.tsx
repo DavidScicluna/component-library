@@ -2,8 +2,9 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
@@ -18,7 +19,7 @@ import type { ContainerProps, ContainerRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Container = forwardRef(function Container<Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+const Container = forwardRef(function Container<Element extends PolymorphicElementType>(
 	props: ContainerProps<Element>,
 	ref: ContainerRef<Element>
 ): ReactElement {
@@ -31,7 +32,7 @@ const Container = forwardRef(function Container<Element extends PolymorphicEleme
 		...rest
 	} = props;
 
-	const { breakpoint, isContentCentered, isFluid } = useContainerResponsiveValues<Element>({
+	const { breakpoint, isContentCentered, isFluid } = useContainerResponsiveValues({
 		breakpoint: breakpointProp,
 		isContentCentered: isContentCenteredProp,
 		isFluid: isFluidProp
@@ -41,7 +42,7 @@ const Container = forwardRef(function Container<Element extends PolymorphicEleme
 
 	return (
 		<Box
-			{...(rest as ContainerProps<Element>)}
+			{...(rest as BoxProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_CONTAINER_CLASS__, classes, { [className]: !!className })}
 		>

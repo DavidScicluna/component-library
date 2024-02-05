@@ -1,37 +1,34 @@
-import type { DeepRequired } from 'utility-types';
+import type { Required } from 'utility-types';
 
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
+import type { Undefinable } from '@common/types';
 
 import {
 	__DEFAULT_CONTAINER_BREAKPOINT__,
 	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
 	__DEFAULT_CONTAINER_IS_FLUID__
 } from '../constants';
-import type { ContainerBreakpoint, ContainerOtherProps, ContainerProps } from '../types';
+import type { ContainerBreakpoint, ContainerNonResponsiveValueProps, ContainerResponsiveValueProps } from '../types';
 
-type PickedContainerProps = 'breakpoint' | 'isContentCentered' | 'isFluid';
-
-type UseContainerResponsiveValuesProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Partial<
-	Pick<ContainerProps<Element>, PickedContainerProps>
+type UseContainerResponsiveValuesProps = Partial<ContainerResponsiveValueProps>;
+type UseContainerResponsiveValuesReturn = Required<
+	ContainerNonResponsiveValueProps,
+	'breakpoint' | 'isContentCentered' | 'isFluid'
 >;
-type UseContainerResponsiveValuesReturn = DeepRequired<Pick<ContainerOtherProps, PickedContainerProps>>;
 
-const useContainerResponsiveValues = <Element extends PolymorphicElementType = PolymorphicDefaultElement>(
-	props: UseContainerResponsiveValuesProps<Element>
-): UseContainerResponsiveValuesReturn => {
-	const {
-		breakpoint: breakpointProp = __DEFAULT_CONTAINER_BREAKPOINT__,
-		isContentCentered: isContentCenteredProp = __DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
-		isFluid: isFluidProp = __DEFAULT_CONTAINER_IS_FLUID__
-	} = props;
+const useContainerResponsiveValues = (props: UseContainerResponsiveValuesProps): UseContainerResponsiveValuesReturn => {
+	const { breakpoint: breakpointProp, isContentCentered: isContentCenteredProp, isFluid: isFluidProp } = props;
 
-	const breakpoint = useGetResponsiveValue<ContainerBreakpoint>(breakpointProp);
+	const breakpoint = useGetResponsiveValue<Undefinable<ContainerBreakpoint>>(breakpointProp);
 
-	const isContentCentered = useGetResponsiveValue<boolean>(isContentCenteredProp);
-	const isFluid = useGetResponsiveValue<boolean>(isFluidProp);
+	const isContentCentered = useGetResponsiveValue<Undefinable<boolean>>(isContentCenteredProp);
+	const isFluid = useGetResponsiveValue<Undefinable<boolean>>(isFluidProp);
 
-	return { breakpoint, isContentCentered, isFluid };
+	return {
+		breakpoint: breakpoint || __DEFAULT_CONTAINER_BREAKPOINT__,
+		isContentCentered: isContentCentered || __DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
+		isFluid: isFluid || __DEFAULT_CONTAINER_IS_FLUID__
+	};
 };
 
 export default useContainerResponsiveValues;
