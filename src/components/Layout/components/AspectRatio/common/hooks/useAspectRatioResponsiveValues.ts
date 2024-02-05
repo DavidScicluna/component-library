@@ -1,26 +1,22 @@
-import type { DeepRequired } from 'utility-types';
+import type { Required } from 'utility-types';
 
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement, PolymorphicElementType, ThemeAspectRatio } from '@common/types';
+import type { ThemeAspectRatio, Undefinable } from '@common/types';
 
 import { __DEFAULT_ASPECT_RATIO_RATIO__ } from '../constants';
-import type { AspectRatioOtherProps, AspectRatioProps } from '../types';
+import type { AspectRatioNonResponsiveValueProps, AspectRatioResponsiveValueProps } from '../types';
 
-type PickedAspectRatioProps = 'ratio';
+type UseAspectRatioResponsiveValuesProps = Partial<AspectRatioResponsiveValueProps>;
+type UseCenterResponsiveValuesReturn = Required<AspectRatioNonResponsiveValueProps, 'ratio'>;
 
-type UseAspectRatioResponsiveValuesProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Partial<
-	Pick<AspectRatioProps<Element>, PickedAspectRatioProps>
->;
-type UseCenterResponsiveValuesReturn = DeepRequired<Pick<AspectRatioOtherProps, PickedAspectRatioProps>>;
-
-const useAspectRatioResponsiveValues = <Element extends PolymorphicElementType = PolymorphicDefaultElement>(
-	props: UseAspectRatioResponsiveValuesProps<Element>
+const useAspectRatioResponsiveValues = (
+	props: UseAspectRatioResponsiveValuesProps
 ): UseCenterResponsiveValuesReturn => {
-	const { ratio: ratioProp = __DEFAULT_ASPECT_RATIO_RATIO__ } = props;
+	const { ratio: ratioProp } = props;
 
-	const ratio = useGetResponsiveValue<ThemeAspectRatio>(ratioProp);
+	const ratio = useGetResponsiveValue<Undefinable<ThemeAspectRatio>>(ratioProp);
 
-	return { ratio };
+	return { ratio: ratio || __DEFAULT_ASPECT_RATIO_RATIO__ };
 };
 
 export default useAspectRatioResponsiveValues;

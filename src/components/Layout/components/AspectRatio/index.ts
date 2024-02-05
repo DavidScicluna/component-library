@@ -1,4 +1,10 @@
-import type { AspectRatioProps, AspectRatioRef } from './common/types';
+import type {
+	AspectRatioNonResponsiveValueProps,
+	AspectRatioProps,
+	AspectRatioRef,
+	AspectRatioResponsiveValueProps,
+	AspectRatioUniqueProps
+} from './common/types';
 import AspectRatio from './AspectRatio';
 
 // Constants
@@ -14,4 +20,10 @@ export * from './common/hooks';
 export { AspectRatio };
 
 // Component Types
-export type { AspectRatioProps, AspectRatioRef };
+export type {
+	AspectRatioNonResponsiveValueProps,
+	AspectRatioProps,
+	AspectRatioRef,
+	AspectRatioResponsiveValueProps,
+	AspectRatioUniqueProps
+};

@@ -2,8 +2,9 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import { __DEFAULT_ASPECT_RATIO_RATIO__ } from './common/constants';
@@ -14,7 +15,7 @@ import type { AspectRatioProps, AspectRatioRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const AspectRatio = forwardRef(function AspectRatio<Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+const AspectRatio = forwardRef(function AspectRatio<Element extends PolymorphicElementType>(
 	props: AspectRatioProps<Element>,
 	ref: AspectRatioRef<Element>
 ): ReactElement {
@@ -25,13 +26,13 @@ const AspectRatio = forwardRef(function AspectRatio<Element extends PolymorphicE
 		...rest
 	} = props;
 
-	const { ratio } = useAspectRatioResponsiveValues<Element>({ ratio: ratioProp });
+	const { ratio } = useAspectRatioResponsiveValues({ ratio: ratioProp });
 
 	const classes = useAspectRatioClasses<Element>({ ratio });
 
 	return (
 		<Box
-			{...(rest as AspectRatioProps<Element>)}
+			{...(rest as BoxProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_ASPECT_RATIO_CLASS__, classes, { [className]: !!className })}
 		>
