@@ -9,7 +9,6 @@ import type {
 	GridAutoFlowClass,
 	JustifyContentClass,
 	JustifyItemsClass,
-	PolymorphicDefaultElement,
 	PolymorphicElementType,
 	ThemeSpacing,
 	Undefinable
@@ -30,8 +29,7 @@ import useGridResponsiveValues from './useGridResponsiveValues';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseGridClassesProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Pick<
-	GridProps<Element>,
+type PickedGridProps =
 	| 'alignContent'
 	| 'alignItems'
 	| 'autoColumns'
@@ -43,11 +41,11 @@ type UseGridClassesProps<Element extends PolymorphicElementType = PolymorphicDef
 	| 'rowSpacing'
 	| 'templateColumns'
 	| 'templateRows'
-	| 'spacing'
->;
+	| 'spacing';
+type UseGridClassesProps<Element extends PolymorphicElementType> = Pick<GridProps<Element>, PickedGridProps>;
 type UseGridClassesReturn = ClassName;
 
-const useGridClasses = <Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+const useGridClasses = <Element extends PolymorphicElementType>(
 	props: UseGridClassesProps<Element>
 ): UseGridClassesReturn => {
 	const {
@@ -78,7 +76,7 @@ const useGridClasses = <Element extends PolymorphicElementType = PolymorphicDefa
 		templateColumns,
 		templateRows,
 		spacing = __DEFAULT_SPACING__
-	} = useGridResponsiveValues<Element>({
+	} = useGridResponsiveValues({
 		alignContent: alignContentProp,
 		alignItems: alignItemsProp,
 		autoColumns: autoColumnsProp,

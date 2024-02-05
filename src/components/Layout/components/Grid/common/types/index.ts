@@ -7,7 +7,6 @@ import type {
 	GridTemplateRowsClass,
 	JustifyContentClass,
 	JustifyItemsClass,
-	PolymorphicDefaultElement,
 	PolymorphicElementType,
 	ResponsiveValueProps,
 	ThemeSpacing
@@ -18,7 +17,7 @@ import type { BoxProps, BoxRef } from '@components/Box';
 export type GridTemplateColumns = GridTemplateColumnsClass | string;
 export type GridTemplateRows = GridTemplateRowsClass | string;
 
-export type GridOtherProps = {
+export type GridNonResponsiveValueProps = {
 	alignContent?: AlignContentClass;
 	alignItems?: AlignItemsClass;
 	autoColumns?: GridAutoClass;
@@ -32,25 +31,10 @@ export type GridOtherProps = {
 	templateRows?: GridTemplateRows;
 	spacing?: ThemeSpacing;
 };
-export type GridResponsiveValueProps = ResponsiveValueProps<
-	GridOtherProps,
-	| 'alignContent'
-	| 'alignItems'
-	| 'autoColumns'
-	| 'autoFlow'
-	| 'autoRows'
-	| 'columnSpacing'
-	| 'justifyContent'
-	| 'justifyItems'
-	| 'rowSpacing'
-	| 'templateColumns'
-	| 'templateRows'
-	| 'spacing'
->;
+export type GridResponsiveValueProps = ResponsiveValueProps<GridNonResponsiveValueProps>;
 
-export type GridProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
-	Element,
-	GridResponsiveValueProps
->;
+export type GridUniqueProps = GridResponsiveValueProps;
 
-export type GridRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type GridProps<Element extends PolymorphicElementType> = BoxProps<Element, GridUniqueProps>;
+
+export type GridRef<Element extends PolymorphicElementType> = BoxRef<Element>;

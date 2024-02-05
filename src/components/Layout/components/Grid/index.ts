@@ -1,4 +1,12 @@
-import type { GridProps, GridRef, GridTemplateColumns, GridTemplateRows } from './common/types';
+import type {
+	GridNonResponsiveValueProps,
+	GridProps,
+	GridRef,
+	GridResponsiveValueProps,
+	GridTemplateColumns,
+	GridTemplateRows,
+	GridUniqueProps
+} from './common/types';
 import Grid from './Grid';
 
 // Constants
@@ -15,4 +23,12 @@ export { Grid };
 export * from './components';
 
 // Component Types
-export type { GridProps, GridRef, GridTemplateColumns, GridTemplateRows };
+export type {
+	GridNonResponsiveValueProps,
+	GridProps,
+	GridRef,
+	GridResponsiveValueProps,
+	GridTemplateColumns,
+	GridTemplateRows,
+	GridUniqueProps
+};

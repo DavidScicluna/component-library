@@ -4,8 +4,9 @@ import { forwardRef } from 'react';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__, __DEFAULT_SPACING__ } from '@common/constants';
-import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
@@ -23,7 +24,7 @@ import type { GridProps, GridRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const Grid = forwardRef(function Grid<Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+const Grid = forwardRef(function Grid<Element extends PolymorphicElementType>(
 	props: GridProps<Element>,
 	ref: GridRef<Element>
 ): ReactElement {
@@ -59,7 +60,7 @@ const Grid = forwardRef(function Grid<Element extends PolymorphicElementType = P
 		templateColumns,
 		templateRows,
 		spacing
-	} = useGridResponsiveValues<Element>({
+	} = useGridResponsiveValues({
 		alignContent: alignContentProp,
 		alignItems: alignItemsProp,
 		autoColumns: autoColumnsProp,
@@ -92,7 +93,7 @@ const Grid = forwardRef(function Grid<Element extends PolymorphicElementType = P
 
 	return (
 		<Box
-			{...(rest as GridProps<Element>)}
+			{...(rest as BoxProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_GRID_CLASS__, classes, { [className]: !!className })}
 			sx={merge(styles, sx)}
