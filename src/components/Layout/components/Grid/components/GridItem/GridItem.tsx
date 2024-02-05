@@ -2,8 +2,9 @@ import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
-import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
+import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
@@ -18,7 +19,7 @@ import type { GridItemProps, GridItemRef } from './common/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-const GridItem = forwardRef(function Grid<Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+const GridItem = forwardRef(function Grid<Element extends PolymorphicElementType>(
 	props: GridItemProps<Element>,
 	ref: GridItemRef<Element>
 ): ReactElement {
@@ -38,7 +39,7 @@ const GridItem = forwardRef(function Grid<Element extends PolymorphicElementType
 	} = props;
 
 	const { alignSelf, columnSpan, columnStart, columnEnd, justifySelf, rowSpan, rowStart, rowEnd, zIndex } =
-		useGridItemResponsiveValues<Element>({
+		useGridItemResponsiveValues({
 			alignSelf: alignSelfProp,
 			columnSpan: columnSpanProp,
 			columnStart: columnStartProp,
@@ -64,7 +65,7 @@ const GridItem = forwardRef(function Grid<Element extends PolymorphicElementType
 
 	return (
 		<Box
-			{...(rest as GridItemProps<Element>)}
+			{...(rest as BoxProps<Element>)}
 			ref={ref}
 			className={classNames(__KEYS_GRID_ITEM_CLASS__, classes, { [className]: !!className })}
 		>

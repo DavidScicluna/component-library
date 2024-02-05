@@ -5,7 +5,6 @@ import type {
 	GridRowSpanClass,
 	GridRowStartEndClass,
 	JustifySelfClass,
-	PolymorphicDefaultElement,
 	PolymorphicElementType,
 	ResponsiveValueProps,
 	ZIndexClass
@@ -13,7 +12,7 @@ import type {
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
-export type GridItemOtherProps = {
+export type GridItemNonResponsiveValueProps = {
 	alignSelf?: AlignSelfClass;
 	columnSpan?: GridColumnSpanClass;
 	columnStart?: GridColumnStartEndClass;
@@ -24,22 +23,10 @@ export type GridItemOtherProps = {
 	rowEnd?: GridRowStartEndClass;
 	zIndex?: ZIndexClass;
 };
-export type GridItemResponsiveValueProps = ResponsiveValueProps<
-	GridItemOtherProps,
-	| 'alignSelf'
-	| 'columnSpan'
-	| 'columnStart'
-	| 'columnEnd'
-	| 'justifySelf'
-	| 'rowSpan'
-	| 'rowStart'
-	| 'rowEnd'
-	| 'zIndex'
->;
+export type GridItemResponsiveValueProps = ResponsiveValueProps<GridItemNonResponsiveValueProps>;
 
-export type GridItemProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
-	Element,
-	GridItemResponsiveValueProps
->;
+export type GridItemUniqueProps = GridItemResponsiveValueProps;
 
-export type GridItemRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type GridItemProps<Element extends PolymorphicElementType> = BoxProps<Element, GridItemUniqueProps>;
+
+export type GridItemRef<Element extends PolymorphicElementType> = BoxRef<Element>;

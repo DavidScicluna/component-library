@@ -7,7 +7,6 @@ import type {
 	GridRowSpanClass,
 	GridRowStartEndClass,
 	JustifySelfClass,
-	PolymorphicDefaultElement,
 	PolymorphicElementType,
 	Undefinable,
 	ZIndexClass
@@ -25,8 +24,7 @@ import useGridItemResponsiveValues from './useGridItemResponsiveValues';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
 
-type UseGridItemClassesProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Pick<
-	GridItemProps<Element>,
+type PickedGridItemProps =
 	| 'alignSelf'
 	| 'columnSpan'
 	| 'columnStart'
@@ -35,11 +33,14 @@ type UseGridItemClassesProps<Element extends PolymorphicElementType = Polymorphi
 	| 'rowSpan'
 	| 'rowStart'
 	| 'rowEnd'
-	| 'zIndex'
+	| 'zIndex';
+type UseGridItemClassesProps<Element extends PolymorphicElementType> = Pick<
+	GridItemProps<Element>,
+	PickedGridItemProps
 >;
 type UseGridItemClassesReturn = ClassName;
 
-const useGridItemClasses = <Element extends PolymorphicElementType = PolymorphicDefaultElement>(
+const useGridItemClasses = <Element extends PolymorphicElementType>(
 	props: UseGridItemClassesProps<Element>
 ): UseGridItemClassesReturn => {
 	const {
@@ -55,7 +56,7 @@ const useGridItemClasses = <Element extends PolymorphicElementType = Polymorphic
 	} = props;
 
 	const { alignSelf, columnSpan, columnStart, columnEnd, justifySelf, rowSpan, rowStart, rowEnd, zIndex } =
-		useGridItemResponsiveValues<Element>({
+		useGridItemResponsiveValues({
 			alignSelf: alignSelfProp,
 			columnSpan: columnSpanProp,
 			columnStart: columnStartProp,

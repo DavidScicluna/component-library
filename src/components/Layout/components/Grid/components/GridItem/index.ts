@@ -1,4 +1,10 @@
-import type { GridItemProps, GridItemRef } from './common/types';
+import type {
+	GridItemNonResponsiveValueProps,
+	GridItemProps,
+	GridItemRef,
+	GridItemResponsiveValueProps,
+	GridItemUniqueProps
+} from './common/types';
 import GridItem from './GridItem';
 
 // Constants
@@ -14,4 +20,10 @@ export * from './common/hooks';
 export { GridItem };
 
 // Component Types
-export type { GridItemProps, GridItemRef };
+export type {
+	GridItemNonResponsiveValueProps,
+	GridItemProps,
+	GridItemRef,
+	GridItemResponsiveValueProps,
+	GridItemUniqueProps
+};
