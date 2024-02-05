@@ -1,29 +1,24 @@
-import type { DeepRequired } from 'utility-types';
+import type { Required } from 'utility-types';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement, PolymorphicElementType, ThemeSpacing } from '@common/types';
+import type { ThemeSpacing, Undefinable } from '@common/types';
 
 import { __DEFAULT_SIMPLE_GRID_COLUMNS__ } from '../constants';
-import type { SimpleGridColumn, SimpleGridOtherProps, SimpleGridProps } from '../types';
+import type { SimpleGridColumn, SimpleGridNonResponsiveValueProps, SimpleGridResponsiveValueProps } from '../types';
 
-type PickedSimpleGridProps = 'columns' | 'spacing';
+type UseSimpleGridResponsiveValuesProps = Partial<SimpleGridResponsiveValueProps>;
+type UseSimpleGridResponsiveValuesReturn = Required<SimpleGridNonResponsiveValueProps, 'columns' | 'spacing'>;
 
-type UseSimpleGridResponsiveValuesProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Partial<
-	Pick<SimpleGridProps<Element>, PickedSimpleGridProps>
->;
-type UseSimpleGridResponsiveValuesReturn = DeepRequired<Pick<SimpleGridOtherProps, PickedSimpleGridProps>>;
-
-const useSimpleGridResponsiveValues = <Element extends PolymorphicElementType = PolymorphicDefaultElement>(
-	props: UseSimpleGridResponsiveValuesProps<Element>
+const useSimpleGridResponsiveValues = (
+	props: UseSimpleGridResponsiveValuesProps
 ): UseSimpleGridResponsiveValuesReturn => {
-	const { columns: columnsProp = __DEFAULT_SIMPLE_GRID_COLUMNS__, spacing: spacingProp = __DEFAULT_SPACING__ } =
-		props;
+	const { columns: columnsProp, spacing: spacingProp } = props;
 
-	const columns = useGetResponsiveValue<SimpleGridColumn>(columnsProp);
-	const spacing = useGetResponsiveValue<ThemeSpacing>(spacingProp);
+	const columns = useGetResponsiveValue<Undefinable<SimpleGridColumn>>(columnsProp);
+	const spacing = useGetResponsiveValue<Undefinable<ThemeSpacing>>(spacingProp);
 
-	return { columns, spacing };
+	return { columns: columns || __DEFAULT_SIMPLE_GRID_COLUMNS__, spacing: spacing || __DEFAULT_SPACING__ };
 };
 
 export default useSimpleGridResponsiveValues;

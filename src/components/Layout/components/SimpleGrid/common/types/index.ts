@@ -1,23 +1,14 @@
-import type {
-	PolymorphicDefaultElement,
-	PolymorphicElementType,
-	ResponsiveValueProps,
-	ThemeSpacing
-} from '@common/types';
+import type { PolymorphicElementType, ResponsiveValueProps, ThemeSpacing } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
 export type SimpleGridColumn = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-export type SimpleGridOtherProps = {
-	columns: SimpleGridColumn;
-	spacing?: ThemeSpacing;
-};
-export type SimpleGridResponsiveValueProps = ResponsiveValueProps<SimpleGridOtherProps, 'columns' | 'spacing'>;
+export type SimpleGridNonResponsiveValueProps = { columns: SimpleGridColumn; spacing?: ThemeSpacing };
+export type SimpleGridResponsiveValueProps = ResponsiveValueProps<SimpleGridNonResponsiveValueProps>;
 
-export type SimpleGridProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
-	Element,
-	SimpleGridResponsiveValueProps
->;
+export type SimpleGridUniqueProps = SimpleGridResponsiveValueProps;
 
-export type SimpleGridRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type SimpleGridProps<Element extends PolymorphicElementType> = BoxProps<Element, SimpleGridUniqueProps>;
+
+export type SimpleGridRef<Element extends PolymorphicElementType> = BoxRef<Element>;
