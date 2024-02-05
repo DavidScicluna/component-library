@@ -1,20 +1,12 @@
-import type {
-	PolymorphicDefaultElement,
-	PolymorphicElementType,
-	ResponsiveValueProps,
-	ThemeSpacing
-} from '@common/types';
+import type { PolymorphicElementType, ResponsiveValueProps, ThemeSpacing } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
-export type CenterOtherProps = {
-	spacing?: ThemeSpacing;
-};
-export type CenterResponsiveValueProps = ResponsiveValueProps<CenterOtherProps, 'spacing'>;
+export type CenterNonResponsiveValueProps = { spacing?: ThemeSpacing };
+export type CenterResponsiveValueProps = ResponsiveValueProps<CenterNonResponsiveValueProps>;
 
-export type CenterProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
-	Element,
-	CenterResponsiveValueProps
->;
+export type CenterUniqueProps = CenterResponsiveValueProps;
 
-export type CenterRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type CenterProps<Element extends PolymorphicElementType> = BoxProps<Element, CenterUniqueProps>;
+
+export type CenterRef<Element extends PolymorphicElementType> = BoxRef<Element>;

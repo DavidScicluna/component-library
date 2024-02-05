@@ -1,4 +1,10 @@
-import type { CenterProps, CenterRef } from './common/types';
+import type {
+	CenterNonResponsiveValueProps,
+	CenterProps,
+	CenterRef,
+	CenterResponsiveValueProps,
+	CenterUniqueProps
+} from './common/types';
 import Center from './Center';
 
 // Constants
@@ -14,4 +20,4 @@ export * from './common/hooks';
 export { Center };
 
 // Component Types
-export type { CenterProps, CenterRef };
+export type { CenterNonResponsiveValueProps, CenterProps, CenterRef, CenterResponsiveValueProps, CenterUniqueProps };

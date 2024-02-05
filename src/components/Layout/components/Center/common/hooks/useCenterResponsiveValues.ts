@@ -1,26 +1,20 @@
-import type { DeepRequired } from 'utility-types';
+import type { Required } from 'utility-types';
 
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement, PolymorphicElementType, ThemeSpacing } from '@common/types';
+import type { ThemeSpacing, Undefinable } from '@common/types';
 
 import { __DEFAULT_CENTER_SPACING__ } from '../constants';
-import type { CenterOtherProps, CenterProps } from '../types';
+import type { CenterNonResponsiveValueProps, CenterResponsiveValueProps } from '../types';
 
-type PickedCenterProps = 'spacing';
+type UseCenterResponsiveValuesProps = Partial<CenterResponsiveValueProps>;
+type UseCenterResponsiveValuesReturn = Required<CenterNonResponsiveValueProps, 'spacing'>;
 
-type UseCenterResponsiveValuesProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Partial<
-	Pick<CenterProps<Element>, PickedCenterProps>
->;
-type UseCenterResponsiveValuesReturn = DeepRequired<Pick<CenterOtherProps, PickedCenterProps>>;
+const useCenterResponsiveValues = (props: UseCenterResponsiveValuesProps): UseCenterResponsiveValuesReturn => {
+	const { spacing: spacingProp } = props;
 
-const useCenterResponsiveValues = <Element extends PolymorphicElementType = PolymorphicDefaultElement>(
-	props: UseCenterResponsiveValuesProps<Element>
-): UseCenterResponsiveValuesReturn => {
-	const { spacing: spacingProp = __DEFAULT_CENTER_SPACING__ } = props;
+	const spacing = useGetResponsiveValue<Undefinable<ThemeSpacing>>(spacingProp);
 
-	const spacing = useGetResponsiveValue<ThemeSpacing>(spacingProp);
-
-	return { spacing };
+	return { spacing: spacing || __DEFAULT_CENTER_SPACING__ };
 };
 
 export default useCenterResponsiveValues;
