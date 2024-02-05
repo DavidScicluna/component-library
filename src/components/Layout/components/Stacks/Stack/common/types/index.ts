@@ -5,7 +5,6 @@ import type {
 	FlexDirectionClass,
 	FlexWrapClass,
 	JustifyContentClass,
-	PolymorphicDefaultElement,
 	PolymorphicElementType,
 	ResponsiveValueProps,
 	ThemeSpacing
@@ -13,7 +12,7 @@ import type {
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
-export type StackOtherProps = {
+export type StackNonResponsiveValueProps = {
 	alignItems?: AlignItemsClass;
 	direction?: FlexDirectionClass;
 	divider?: ReactNode;
@@ -22,14 +21,10 @@ export type StackOtherProps = {
 	spacing?: ThemeSpacing;
 	wrap?: FlexWrapClass;
 };
-export type StackResponsiveValueProps = ResponsiveValueProps<
-	StackOtherProps,
-	'alignItems' | 'direction' | 'justifyContent' | 'spacing' | 'wrap'
->;
+export type StackResponsiveValueProps = ResponsiveValueProps<StackNonResponsiveValueProps>;
 
-export type StackProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxProps<
-	Element,
-	StackResponsiveValueProps
->;
+export type StackUniqueProps = StackResponsiveValueProps;
 
-export type StackRef<Element extends PolymorphicElementType = PolymorphicDefaultElement> = BoxRef<Element>;
+export type StackProps<Element extends PolymorphicElementType> = BoxProps<Element, StackUniqueProps>;
+
+export type StackRef<Element extends PolymorphicElementType> = BoxRef<Element>;

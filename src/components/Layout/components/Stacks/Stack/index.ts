@@ -1,4 +1,10 @@
-import type { StackProps, StackRef } from './common/types';
+import type {
+	StackNonResponsiveValueProps,
+	StackProps,
+	StackRef,
+	StackResponsiveValueProps,
+	StackUniqueProps
+} from './common/types';
 import Stack from './Stack';
 
 // Constants
@@ -14,4 +20,4 @@ export * from './common/hooks';
 export { Stack };
 
 // Component Types
-export type { StackProps, StackRef };
+export type { StackNonResponsiveValueProps, StackProps, StackRef, StackResponsiveValueProps, StackUniqueProps };
