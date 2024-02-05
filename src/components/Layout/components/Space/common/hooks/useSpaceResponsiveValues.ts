@@ -1,27 +1,21 @@
-import type { DeepRequired } from 'utility-types';
+import type { Required } from 'utility-types';
 
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicDefaultElement, PolymorphicElementType, ThemeSpacing } from '@common/types';
+import type { ThemeSpacing, Undefinable } from '@common/types';
 
 import { __DEFAULT_SPACE_HEIGHT__, __DEFAULT_SPACE_WIDTH__ } from '../constants';
-import type { SpaceOtherProps, SpaceProps } from '../types';
+import type { SpaceNonResponsiveValueProps, SpaceResponsiveValueProps } from '../types';
 
-type PickedSpaceProps = 'width' | 'height';
+type UseSpaceResponsiveValuesProps = Partial<SpaceResponsiveValueProps>;
+type UseSpaceResponsiveValuesReturn = Required<SpaceNonResponsiveValueProps, 'width' | 'height'>;
 
-type UseSpaceResponsiveValuesProps<Element extends PolymorphicElementType = PolymorphicDefaultElement> = Partial<
-	Pick<SpaceProps<Element>, PickedSpaceProps>
->;
-type UseSpaceResponsiveValuesReturn = DeepRequired<Pick<SpaceOtherProps, PickedSpaceProps>>;
+const useSpaceResponsiveValues = (props: UseSpaceResponsiveValuesProps): UseSpaceResponsiveValuesReturn => {
+	const { width: widthProp, height: heightProp } = props;
 
-const useSpaceResponsiveValues = <Element extends PolymorphicElementType = PolymorphicDefaultElement>(
-	props: UseSpaceResponsiveValuesProps<Element>
-): UseSpaceResponsiveValuesReturn => {
-	const { width: widthProp = __DEFAULT_SPACE_WIDTH__, height: heightProp = __DEFAULT_SPACE_HEIGHT__ } = props;
+	const width = useGetResponsiveValue<Undefinable<ThemeSpacing>>(widthProp);
+	const height = useGetResponsiveValue<Undefinable<ThemeSpacing>>(heightProp);
 
-	const width = useGetResponsiveValue<ThemeSpacing>(widthProp);
-	const height = useGetResponsiveValue<ThemeSpacing>(heightProp);
-
-	return { width, height };
+	return { width: width || __DEFAULT_SPACE_WIDTH__, height: height || __DEFAULT_SPACE_HEIGHT__ };
 };
 
 export default useSpaceResponsiveValues;

@@ -1,4 +1,10 @@
-import type { SpaceProps, SpaceRef } from './common/types';
+import type {
+	SpaceNonResponsiveValueProps,
+	SpaceProps,
+	SpaceRef,
+	SpaceResponsiveValueProps,
+	SpaceUniqueProps
+} from './common/types';
 import Space from './Space';
 
 // Constants
@@ -14,4 +20,4 @@ export * from './common/hooks';
 export { Space };
 
 // Component Types
-export type { SpaceProps, SpaceRef };
+export type { SpaceNonResponsiveValueProps, SpaceProps, SpaceRef, SpaceResponsiveValueProps, SpaceUniqueProps };
