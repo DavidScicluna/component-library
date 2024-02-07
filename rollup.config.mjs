@@ -21,7 +21,7 @@ export default {
 			extensions: ['.js', '.jsx', '.ts', '.tsx']
 		}),
 		commonjs(),
-		typescript(),
+		typescript({ tsconfig: './tsconfig.build.json' }),
 		json(),
 		postcss(),
 		terser()
