@@ -16,6 +16,9 @@
 
 .rollup.cache
 
+# tailwind
+tailwind.css
+
 # testing
 /coverage
 
