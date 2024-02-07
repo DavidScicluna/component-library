@@ -1,11 +1,12 @@
+// @ts-ignore
 import { createContext, useContext } from 'react';
 
-import { Provider } from '@components/Provider';
 import { getColorHex, getColorMode } from '@common/utils';
 
 import { __DEFAULT_APP_COLOR__, __DEFAULT_APP_COLORMODE__ } from '@common/constants';
 import { appColors } from '@common/data';
 import { capitalize } from 'lodash-es';
+import { StorybookProvider } from '@components/Provider/components/StorybookProvider';
 
 // Importing Main Fonts (Work Sans & Roboto)
 import '@fontsource/work-sans/100.css';
@@ -57,30 +58,6 @@ import '@fontsource/material-icons';
 import '@fontsource/material-icons-outlined';
 import '@fontsource/material-icons-two-tone';
 
-const StorybookContext = createContext({ color: __DEFAULT_APP_COLOR__, colorMode: __DEFAULT_APP_COLORMODE__ });
-
-export const useStorybookContext = () => {
-	const { color, colorMode } = useContext(StorybookContext);
-	return { color, colorMode };
-};
-
-const DSCLProvider = (Story, context) => {
-	const color = context?.globals?.color;
-	const colorMode = context?.globals?.backgrounds?.value
-		? context?.globals?.backgrounds?.value === '#f8fafc'
-			? 'light'
-			: 'dark'
-		: getColorMode();
-
-	return (
-		<StorybookContext.Provider value={{ color, colorMode }}>
-			<Provider color={color} colorMode={colorMode}>
-				<Story />
-			</Provider>
-		</StorybookContext.Provider>
-	);
-};
-
 const preview = {
 	globalTypes: {
 		color: {
@@ -112,7 +89,7 @@ const preview = {
 			]
 		}
 	},
-	decorators: [DSCLProvider]
+	decorators: [StorybookProvider]
 };
 
 export default preview;
