@@ -2,7 +2,7 @@ import type { ReactElement } from 'react';
 
 import { range } from 'lodash-es';
 
-import type { FlexDirectionClassArr, PolymorphicDefaultElement } from '@common/types';
+import type { FlexDirectionClassArr } from '@common/types';
 
 import type { ButtonSize, ButtonVariant } from '@components/Buttons';
 import { Button } from '@components/Buttons';
@@ -17,8 +17,7 @@ import {
 import { Center } from '@components/Layout';
 import { __DEFAULT_STACK_DIRECTION__ } from '@components/Layout/components/Stacks/Stack/common/constants';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import { __DEFAULT_BUTTON_GROUP_IS_ATTACHED__ } from './common/constants';
 import type { ButtonGroupProps } from './common/types';
@@ -94,7 +93,7 @@ export default {
 	}
 } as ButtonGroupStoryMeta;
 
-export const ButtonGroup: ButtonGroupStory = (props: ButtonGroupProps<PolymorphicDefaultElement>): ReactElement => {
+export const ButtonGroup: ButtonGroupStory = (props: ButtonGroupProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

@@ -1,7 +1,6 @@
 import { type ReactElement, useState } from 'react';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_NUMBER_INPUT_IS_COMPACT__,
@@ -118,7 +117,7 @@ export const NumberInput: NumberInputStory = (props: NumberInputProps<NumberInpu
 			h='100%'
 			color={color}
 			colorMode={colorMode}
-			onChange={(e) => setValue(e.target.value)}
+			onChange={(e) => setValue(Number(e.target.value))}
 			placeholder='Placeholder'
 			value={value}
 		/>

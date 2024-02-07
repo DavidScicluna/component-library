@@ -1,12 +1,9 @@
 import type { ReactElement } from 'react';
 
-import type { PolymorphicDefaultElement } from '@common/types';
-
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import type { HeadlineProps } from './common/types';
 import type { HeadlineStory, HeadlineStoryMeta } from './common/types/story';
@@ -17,7 +14,7 @@ export default {
 	component: HeadlineComponent
 } as HeadlineStoryMeta;
 
-export const Headline: HeadlineStory = (props: HeadlineProps<PolymorphicDefaultElement>): ReactElement => {
+export const Headline: HeadlineStory = (props: HeadlineProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

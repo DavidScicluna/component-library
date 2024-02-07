@@ -5,8 +5,7 @@ import { useGetColor } from '@common/hooks';
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_LINK_IS_DISABLED__,

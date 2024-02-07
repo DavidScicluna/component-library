@@ -2,12 +2,12 @@ import type { ReactElement } from 'react';
 
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeAspectRatioArr } from '@common/types';
+import type { ThemeAspectRatioArr } from '@common/types';
 
 import { Text } from '@components/Typography';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+
 import { Center } from '../Center';
 
 import { __DEFAULT_ASPECT_RATIO_RATIO__ } from './common/constants';
@@ -41,7 +41,7 @@ export default {
 	}
 } as AspectRatioStoryMeta;
 
-export const AspectRatio: AspectRatioStory = (props: AspectRatioProps<PolymorphicDefaultElement>): ReactElement => {
+export const AspectRatio: AspectRatioStory = (props: AspectRatioProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

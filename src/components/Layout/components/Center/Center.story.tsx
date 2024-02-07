@@ -2,12 +2,10 @@ import type { ReactElement } from 'react';
 
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Text } from '@components/Typography';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import { __DEFAULT_CENTER_SPACING__ } from './common/constants';
 import type { CenterProps } from './common/types';
@@ -31,7 +29,7 @@ export default {
 	}
 } as CenterStoryMeta;
 
-export const Center: CenterStory = (props: CenterProps<PolymorphicDefaultElement>): ReactElement => {
+export const Center: CenterStory = (props: CenterProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

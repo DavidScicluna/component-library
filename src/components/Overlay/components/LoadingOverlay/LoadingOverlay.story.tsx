@@ -1,14 +1,12 @@
 import type { ReactElement } from 'react';
 
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeBlurClassArr, ThemeRadiusArr } from '@common/types';
+import type { ThemeBlurClassArr, ThemeRadiusArr } from '@common/types';
 
-import { Spinner } from '@components/Feedback';
+import { PuffSpinner } from '@components/Feedback';
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography';
-
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT__,
@@ -100,9 +98,7 @@ export default {
 	}
 } as LoadingOverlayStoryMeta;
 
-export const LoadingOverlay: LoadingOverlayStory = (
-	props: LoadingOverlayProps<PolymorphicDefaultElement>
-): ReactElement => {
+export const LoadingOverlay: LoadingOverlayStory = (props: LoadingOverlayProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const spinner = useGetColor({ colorMode, colorType: 'default', hueType: 'text.primary' });
@@ -112,7 +108,7 @@ export const LoadingOverlay: LoadingOverlayStory = (
 	return (
 		<LoadingOverlayComponent
 			{...props}
-			renderSpinner={() => <Spinner color={spinner} size='9xl' variant='puff' />}
+			renderSpinner={() => <PuffSpinner color={spinner} size='9xl' variant='puff' />}
 			color={color}
 			colorMode={colorMode}
 		>

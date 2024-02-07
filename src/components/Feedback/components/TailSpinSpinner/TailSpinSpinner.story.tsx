@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import type { PolymorphicDefaultElement, ThemeRadiusArr } from '@common/types';
+import type { ThemeRadiusArr } from '@common/types';
 
 import { Center } from '@components/Layout';
 
@@ -60,9 +60,7 @@ export default {
 	}
 } as TailSpinSpinnerStoryMeta;
 
-export const TailSpinSpinner: TailSpinSpinnerStory = (
-	props: TailSpinSpinnerProps<PolymorphicDefaultElement>
-): ReactElement => (
+export const TailSpinSpinner: TailSpinSpinnerStory = (props: TailSpinSpinnerProps<any>): ReactElement => (
 	<Center w='auto'>
 		<TailSpinSpinnerComponent {...props} />
 	</Center>

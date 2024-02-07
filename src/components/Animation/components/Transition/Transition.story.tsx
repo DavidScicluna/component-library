@@ -3,12 +3,9 @@ import type { ReactElement } from 'react';
 import classes from '@common/classes';
 import { __DEFAULT_DURATION__, __DEFAULT_EASING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeDelayArr, ThemeDurationArr, ThemeEaseArr } from '@common/types';
+import type { ThemeDelayArr, ThemeDurationArr, ThemeEaseArr } from '@common/types';
 
 import { AspectRatio } from '@components/Layout';
-
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
 
 import {
 	__DEFAULT_TRANSITION__,
@@ -18,6 +15,7 @@ import {
 import type { TransitionKey, TransitionProps } from './common/types';
 import type { TransitionStory, TransitionStoryMeta } from './common/types/story';
 import { Transition as TransitionComponent } from '.';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
@@ -93,7 +91,7 @@ export default {
 	}
 } as TransitionStoryMeta;
 
-export const Transition: TransitionStory = (props: TransitionProps<PolymorphicDefaultElement>): ReactElement => {
+export const Transition: TransitionStory = (props: TransitionProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import type { PolymorphicDefaultElement, ThemeRadiusArr } from '@common/types';
+import type { ThemeRadiusArr } from '@common/types';
 
 import { Center } from '@components/Layout';
 
@@ -60,9 +60,7 @@ export default {
 	}
 } as ThreeDotsSpinnerStoryMeta;
 
-export const ThreeDotsSpinner: ThreeDotsSpinnerStory = (
-	props: ThreeDotsSpinnerProps<PolymorphicDefaultElement>
-): ReactElement => (
+export const ThreeDotsSpinner: ThreeDotsSpinnerStory = (props: ThreeDotsSpinnerProps<any>): ReactElement => (
 	<Center w='auto'>
 		<ThreeDotsSpinnerComponent {...props} />
 	</Center>

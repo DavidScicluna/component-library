@@ -1,7 +1,5 @@
 import { type ReactElement, useState } from 'react';
-
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_SEARCH_INPUT_IS_COMPACT__,
@@ -118,9 +116,9 @@ export const SearchInput: SearchInputStory = (props: SearchInputProps<SearchInpu
 			h='100%'
 			color={color}
 			colorMode={colorMode}
-			onChange={(e) => setValue(e.target.value)}
+			onFilter={(query) => setValue(query)}
 			placeholder='Placeholder'
-			value={value}
+			initialQuery={value}
 		/>
 	);
 };

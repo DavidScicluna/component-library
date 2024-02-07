@@ -1,11 +1,8 @@
 import type { ReactElement } from 'react';
 
-import type { PolymorphicDefaultElement } from '@common/types';
-
 import { Center } from '@components/Layout';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_DUMMY_BADGE_IS_ANIMATED__,
@@ -101,7 +98,7 @@ export default {
 	}
 } as DummyBadgeStoryMeta;
 
-export const DummyBadge: DummyBadgeStory = (props: DummyBadgeProps<PolymorphicDefaultElement>): ReactElement => {
+export const DummyBadge: DummyBadgeStory = (props: DummyBadgeProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

@@ -1,11 +1,8 @@
 import type { ReactElement } from 'react';
 
-import type { PolymorphicDefaultElement } from '@common/types';
-
 import { Button } from '@components/Buttons';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_TOOLTIP_CLOSE_DELAY__,
@@ -97,7 +94,7 @@ export default {
 	}
 } as TooltipStoryMeta;
 
-export const Tooltip: TooltipStory = (props: TooltipProps<PolymorphicDefaultElement>): ReactElement => {
+export const Tooltip: TooltipStory = (props: TooltipProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

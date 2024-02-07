@@ -1,11 +1,8 @@
 import type { ReactElement } from 'react';
 
-import type { PolymorphicDefaultElement } from '@common/types';
-
 import { Center } from '@components/Layout';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_DUMMY_ICON_BUTTON_IS_ANIMATED__,
@@ -79,9 +76,7 @@ export default {
 	}
 } as DummyIconButtonStoryMeta;
 
-export const DummyIconButton: DummyIconButtonStory = (
-	props: DummyIconButtonProps<PolymorphicDefaultElement>
-): ReactElement => {
+export const DummyIconButton: DummyIconButtonStory = (props: DummyIconButtonProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

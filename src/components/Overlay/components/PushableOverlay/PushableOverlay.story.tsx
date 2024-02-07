@@ -1,12 +1,11 @@
 import type { ReactElement } from 'react';
 
 import { __DEFAULT_RADIUS__ } from '@common/constants';
-import type { PolymorphicDefaultElement, ThemeRadiusArr } from '@common/types';
+import type { ThemeRadiusArr } from '@common/types';
 
 import { Center } from '@components/Layout';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
@@ -86,9 +85,7 @@ export default {
 	}
 } as PushableOverlayStoryMeta;
 
-export const PushableOverlay: PushableOverlayStory = (
-	props: PushableOverlayProps<PolymorphicDefaultElement>
-): ReactElement => {
+export const PushableOverlay: PushableOverlayStory = (props: PushableOverlayProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

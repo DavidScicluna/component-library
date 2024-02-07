@@ -5,10 +5,9 @@ import { range } from 'lodash-es';
 import classes from '@common/classes';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+
 import { Center } from '../Center';
 
 import type { SimpleGridProps } from './common/types';
@@ -40,7 +39,7 @@ export default {
 	}
 } as SimpleGridStoryMeta;
 
-export const SimpleGrid: SimpleGridStory = (props: SimpleGridProps<PolymorphicDefaultElement>): ReactElement => {
+export const SimpleGrid: SimpleGridStory = (props: SimpleGridProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

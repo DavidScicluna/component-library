@@ -2,12 +2,10 @@ import type { ReactElement } from 'react';
 
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Text } from '@components/Typography';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_CONTAINER_BREAKPOINT__,
@@ -50,7 +48,7 @@ export default {
 	}
 } as ContainerStoryMeta;
 
-export const Container: ContainerStory = (props: ContainerProps<PolymorphicDefaultElement>): ReactElement => {
+export const Container: ContainerStory = (props: ContainerProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

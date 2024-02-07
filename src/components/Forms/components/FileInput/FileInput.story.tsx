@@ -1,7 +1,6 @@
 import { type ReactElement, useState } from 'react';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_FILE_INPUT_IS_COMPACT__,

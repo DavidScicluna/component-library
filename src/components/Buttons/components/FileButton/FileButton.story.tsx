@@ -2,12 +2,12 @@ import type { ReactElement } from 'react';
 
 import { Center } from '@components/Layout';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+
 import { Button } from '../Button';
 
 import { __DEFAULT_FILE_BUTTON_ACCEPT__, __DEFAULT_FILE_BUTTON_IS_MULTIPLE__ } from './common/constants';
-import type { FileButtonProps } from './common/types';
+import type { FileButtonDefaultElement, FileButtonProps } from './common/types';
 import type { FileButtonStory, FileButtonStoryMeta } from './common/types/story';
 import { FileButton as FileButtonComponent } from '.';
 
@@ -32,19 +32,19 @@ export default {
 	}
 } as FileButtonStoryMeta;
 
-export const FileButton: FileButtonStory = (props: FileButtonProps): ReactElement => {
+export const FileButton: FileButtonStory = (props: FileButtonProps<FileButtonDefaultElement>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (
 		<Center w='100%'>
 			<FileButtonComponent {...props}>
-				{({ hasUploaded, onClick }) => (
+				{({ hasUploaded, onUpload }) => (
 					<Button
-						{...props}
+						// {...props}
 						color={hasUploaded ? 'green' : color}
 						colorMode={colorMode}
 						isActive={hasUploaded}
-						onClick={onClick}
+						onClick={onUpload}
 					>
 						{hasUploaded ? 'Uploaded file' : 'Click to upload file'}
 					</Button>

@@ -1,11 +1,8 @@
 import type { ReactElement } from 'react';
 
-import type { PolymorphicDefaultElement } from '@common/types';
-
 import { Button } from '@components/Buttons';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_POPPER_CLOSE_DELAY__,
@@ -97,7 +94,7 @@ export default {
 	}
 } as PopperStoryMeta;
 
-export const Popper: PopperStory = (props: PopperProps<PolymorphicDefaultElement>): ReactElement => {
+export const Popper: PopperStory = (props: PopperProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

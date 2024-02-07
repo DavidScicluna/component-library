@@ -1,9 +1,6 @@
 import type { ReactElement } from 'react';
 
-import type { PolymorphicDefaultElement } from '@common/types';
-
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import { __DEFAULT_LINEAR_GRADIENT_DIRECTION__ } from './common/constants';
 import type { LinearGradientDirections, LinearGradientProps } from './common/types';
@@ -26,9 +23,7 @@ export default {
 	}
 } as LinearGradientStoryMeta;
 
-export const LinearGradient: LinearGradientStory = (
-	props: LinearGradientProps<PolymorphicDefaultElement>
-): ReactElement => {
+export const LinearGradient: LinearGradientStory = (props: LinearGradientProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

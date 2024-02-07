@@ -5,13 +5,11 @@ import { range, sample } from 'lodash-es';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { appColors } from '@common/data';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeAppColor } from '@common/types';
+import type { ThemeAppColor } from '@common/types';
 
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography';
-
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_TABS_IS_DISABLED__,
@@ -78,7 +76,7 @@ export default {
 	}
 } as TabsStoryMeta;
 
-export const Tabs: TabsStory = (props: TabsProps<PolymorphicDefaultElement>): ReactElement => {
+export const Tabs: TabsStory = (props: TabsProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });

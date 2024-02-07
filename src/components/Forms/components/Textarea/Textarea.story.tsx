@@ -3,9 +3,7 @@ import { type ReactElement, useState } from 'react';
 import type { ResizeClassArr } from '@common/types';
 
 import { Text } from '@components/Typography';
-
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_TEXTAREA_IS_COMPACT__,
@@ -132,8 +130,8 @@ export const Textarea: TextareaStory = (props: TextareaProps<TextareaDefaultElem
 			h='100%'
 			color={color}
 			colorMode={colorMode}
-			rows='5'
-			cols='1'
+			rows={5}
+			cols={1}
 			onChange={(e) => setValue(e.target.value)}
 			placeholder='Placeholder'
 			value={value}

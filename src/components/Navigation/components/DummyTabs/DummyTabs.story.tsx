@@ -10,8 +10,7 @@ import type { ThemeAppColor } from '@common/types';
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_DUMMY_TABS_IS_ANIMATED__,

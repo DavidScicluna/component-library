@@ -1,13 +1,10 @@
 import type { ReactElement } from 'react';
 
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
 
 import { AspectRatio, Center } from '@components/Layout';
 import { Text } from '@components/Typography';
-
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_INDICATOR_IS_VISIBLE__,
@@ -60,7 +57,7 @@ export default {
 	}
 } as IndicatorStoryMeta;
 
-export const Indicator: IndicatorStory = (props: IndicatorProps<PolymorphicDefaultElement>): ReactElement => {
+export const Indicator: IndicatorStory = (props: IndicatorProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const overlay = useGetColor({ color, colorMode, colorType: 'color', hueType: 'divider', classType: 'bg' });

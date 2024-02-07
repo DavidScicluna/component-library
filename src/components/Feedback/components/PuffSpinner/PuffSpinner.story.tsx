@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import type { PolymorphicDefaultElement, ThemeRadiusArr } from '@common/types';
+import type { ThemeRadiusArr } from '@common/types';
 
 import { Center } from '@components/Layout';
 
@@ -60,7 +60,7 @@ export default {
 	}
 } as PuffSpinnerStoryMeta;
 
-export const PuffSpinner: PuffSpinnerStory = (props: PuffSpinnerProps<PolymorphicDefaultElement>): ReactElement => (
+export const PuffSpinner: PuffSpinnerStory = (props: PuffSpinnerProps<any>): ReactElement => (
 	<Center w='auto'>
 		<PuffSpinnerComponent {...props} />
 	</Center>

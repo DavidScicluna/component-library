@@ -2,13 +2,11 @@ import type { ReactElement } from 'react';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
 
 import { Button, CloseIconButton } from '@components/Buttons';
 import { VStack } from '@components/Layout';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import { __DEFAULT_ALERT_DURATION__, __DEFAULT_ALERT_STATUS__, __DEFAULT_ALERT_VARIANT__ } from './common/constants';
 import type { AlertProps, AlertStatus, AlertVariant } from './common/types';
@@ -52,7 +50,7 @@ export default {
 	}
 } as AlertStoryMeta;
 
-export const Alert: AlertStory = (props: AlertProps<PolymorphicDefaultElement>): ReactElement => {
+export const Alert: AlertStory = (props: AlertProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const [isOpen, setIsOpen] = useBoolean();

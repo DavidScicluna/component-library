@@ -13,12 +13,11 @@ import type {
 	GridTemplateColumnsClassArr,
 	GridTemplateRowsClassArr,
 	JustifyContentClassArr,
-	JustifyItemsClassArr,
-	PolymorphicDefaultElement
+	JustifyItemsClassArr
 } from '@common/types';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+
 import { Center } from '../Center';
 
 import {
@@ -153,7 +152,7 @@ export default {
 	}
 } as GridStoryMeta;
 
-export const Grid: GridStory = (props: GridProps<PolymorphicDefaultElement>): ReactElement => {
+export const Grid: GridStory = (props: GridProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

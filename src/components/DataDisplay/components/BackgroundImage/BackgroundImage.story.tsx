@@ -2,13 +2,12 @@ import type { ReactElement } from 'react';
 
 import { __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeRadiusArr } from '@common/types';
+import type { ThemeRadiusArr } from '@common/types';
 
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import { __DEFAULT_BACKGROUND_IMAGE_FILTERS__, __DEFAULT_BACKGROUND_IMAGE_OPTIONS__ } from './common/constants';
 import type { BackgroundImageProps } from './common/types';
@@ -51,9 +50,7 @@ export default {
 	}
 } as BackgroundImageStoryMeta;
 
-export const BackgroundImage: BackgroundImageStory = (
-	props: BackgroundImageProps<PolymorphicDefaultElement>
-): ReactElement => {
+export const BackgroundImage: BackgroundImageStory = (props: BackgroundImageProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ color, colorMode, colorType: 'default', hueType: 'background', classType: 'text' });

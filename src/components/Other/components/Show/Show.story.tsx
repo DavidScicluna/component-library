@@ -4,9 +4,7 @@ import { useGetColor } from '@common/hooks';
 
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography';
-
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import type { ShowProps } from './common/types';
 import type { ShowStory, ShowStoryMeta } from './common/types/story';
@@ -36,7 +34,7 @@ export const Show: ShowStory = (props: ShowProps): ReactElement => {
 	const background = useGetColor({ color, colorMode, colorType: 'color', hueType: 'color', classType: 'bg' });
 
 	return (
-		<ShowComponent {...props} color={color} colorMode={colorMode}>
+		<ShowComponent {...props}>
 			<Center className={classNames(background)} w='100%' h='100%' p={4}>
 				<Text align='center' color={text}>
 					Hello

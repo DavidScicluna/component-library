@@ -1,7 +1,5 @@
 import type { ReactElement } from 'react';
 
-import type { PolymorphicDefaultElement } from '@common/types';
-
 import { FormDescription } from '../FormDescription';
 import { FormLabel } from '../FormLabel';
 
@@ -14,7 +12,7 @@ export default {
 	component: FormHeaderComponent
 } as FormHeaderStoryMeta;
 
-export const FormHeader: FormHeaderStory = (props: FormHeaderProps<PolymorphicDefaultElement>): ReactElement => {
+export const FormHeader: FormHeaderStory = (props: FormHeaderProps<any>): ReactElement => {
 	return (
 		<FormHeaderComponent
 			{...props}

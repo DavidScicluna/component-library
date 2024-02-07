@@ -2,8 +2,8 @@ import type { ReactElement } from 'react';
 
 import { Center } from '@components/Layout';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+
 import { Button } from '../Button';
 
 import { __DEFAULT_COPY_BUTTON_TIMEOUT__ } from './common/constants';

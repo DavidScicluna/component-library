@@ -1,12 +1,9 @@
 import { type ReactElement } from 'react';
 
-import type { PolymorphicDefaultElement } from '@common/types';
-
 import { Box } from '@components/Box';
 import { Text } from '@components/Typography';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_RADIO_IS_ACTIVE__,
@@ -135,7 +132,7 @@ export default {
 	}
 } as RadioStoryMeta;
 
-export const Radio: RadioStory = (props: RadioProps<PolymorphicDefaultElement>): ReactElement => {
+export const Radio: RadioStory = (props: RadioProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

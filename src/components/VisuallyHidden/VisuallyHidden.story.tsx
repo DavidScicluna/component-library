@@ -6,10 +6,9 @@ import { useGetColor } from '@common/hooks';
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
-import type { VisuallyHiddenDefaultElement, VisuallyHiddenProps } from './common/types';
+import type { VisuallyHiddenProps } from './common/types';
 import type { VisuallyHiddenStory, VisuallyHiddenStoryMeta } from './common/types/story';
 import { VisuallyHidden as VisuallyHiddenComponent } from '.';
 
@@ -21,9 +20,7 @@ export default {
 	component: VisuallyHiddenComponent
 } as VisuallyHiddenStoryMeta;
 
-export const VisuallyHidden: VisuallyHiddenStory = (
-	props: VisuallyHiddenProps<VisuallyHiddenDefaultElement>
-): ReactElement => {
+export const VisuallyHidden: VisuallyHiddenStory = (props: VisuallyHiddenProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

@@ -5,17 +5,12 @@ import { range } from 'lodash-es';
 import classes from '@common/classes';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type {
-	AlignItemsClassArr,
-	FlexWrapClassArr,
-	JustifyContentClassArr,
-	PolymorphicDefaultElement
-} from '@common/types';
+import type { AlignItemsClassArr, FlexWrapClassArr, JustifyContentClassArr } from '@common/types';
 
 import { Center } from '@components/Layout';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+
 import {
 	__DEFAULT_STACK_ALIGN_ITEMS__,
 	__DEFAULT_STACK_JUSTIFY_CONTENT__,
@@ -76,7 +71,7 @@ export default {
 	}
 } as VStackStoryMeta;
 
-export const VStack: VStackStory = (props: VStackProps<PolymorphicDefaultElement>): ReactElement => {
+export const VStack: VStackStory = (props: VStackProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

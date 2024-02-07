@@ -1,9 +1,6 @@
 import { type ReactElement, useState } from 'react';
 
-import type { PolymorphicDefaultElement } from '@common/types';
-
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_RATING_COUNT__,
@@ -101,7 +98,7 @@ export default {
 	}
 } as RatingStoryMeta;
 
-export const Rating: RatingStory = (props: RatingProps<PolymorphicDefaultElement>): ReactElement => {
+export const Rating: RatingStory = (props: RatingProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const [value, setValue] = useState<number>(0);

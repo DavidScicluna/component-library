@@ -1,10 +1,9 @@
 import type { ReactElement } from 'react';
 
 import { __DEFAULT_RADIUS__ } from '@common/constants';
-import type { PolymorphicDefaultElement, ThemeRadiusArr } from '@common/types';
+import type { ThemeRadiusArr } from '@common/types';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_PROGRESS_IS_INDETERMINATE__,
@@ -68,7 +67,7 @@ export default {
 	}
 } as ProgressStoryMeta;
 
-export const Progress: ProgressStory = (props: ProgressProps<PolymorphicDefaultElement>): ReactElement => {
+export const Progress: ProgressStory = (props: ProgressProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

@@ -2,13 +2,12 @@ import type { ReactElement } from 'react';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeRadiusArr } from '@common/types';
+import type { ThemeRadiusArr } from '@common/types';
 
 import { DummyButton, DummyIconButton, DummyIconButtonIcon } from '@components/Buttons';
 import { Text } from '@components/Typography';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_CARD_IS_ACTIVE__,
@@ -113,7 +112,7 @@ export default {
 	}
 } as CardStoryMeta;
 
-export const Card: CardStory = (props: CardProps<PolymorphicDefaultElement>): ReactElement => {
+export const Card: CardStory = (props: CardProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'text.primary', classType: 'text' });

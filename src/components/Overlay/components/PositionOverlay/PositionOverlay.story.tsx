@@ -1,13 +1,12 @@
 import type { ReactElement } from 'react';
 
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeBlurClassArr, ThemeRadiusArr } from '@common/types';
+import type { ThemeBlurClassArr, ThemeRadiusArr } from '@common/types';
 
 import { AspectRatio, Center } from '@components/Layout';
 import { Text } from '@components/Typography';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT__,
@@ -117,9 +116,7 @@ export default {
 	}
 } as PositionOverlayStoryMeta;
 
-export const PositionOverlay: PositionOverlayStory = (
-	props: PositionOverlayProps<PolymorphicDefaultElement>
-): ReactElement => {
+export const PositionOverlay: PositionOverlayStory = (props: PositionOverlayProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const overlay = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'bg' });

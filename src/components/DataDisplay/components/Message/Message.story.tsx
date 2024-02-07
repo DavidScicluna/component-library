@@ -4,10 +4,9 @@ import { sample } from 'lodash-es';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { appColors } from '@common/data';
-import type { PolymorphicDefaultElement, ThemeAppColor, ThemeBorderWidthArr, ThemeRadiusArr } from '@common/types';
+import type { ThemeAppColor, ThemeRadiusArr, ThemeSpacing } from '@common/types';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import { __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_VARIANT__ } from './common/constants';
 import type { MessageProps, MessageVariant } from './common/types';
@@ -54,11 +53,11 @@ export default {
 	}
 } as MessageStoryMeta;
 
-export const Message: MessageStory = (props: MessageProps<PolymorphicDefaultElement>): ReactElement => {
+export const Message: MessageStory = (props: MessageProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (
-		<MessageComponent {...props} color={color} colorMode={colorMode} p={props.spacing}>
+		<MessageComponent {...props} color={color} colorMode={colorMode} p={props.spacing as ThemeSpacing}>
 			<MessageStack alignItems='center' justifyContent='center'>
 				<MessageIcon
 					color={!color ? __DEFAULT_MESSAGE_STORY_COLOR__ : color}

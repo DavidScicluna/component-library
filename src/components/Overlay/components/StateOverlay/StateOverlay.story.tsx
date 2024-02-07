@@ -2,14 +2,11 @@ import type { ReactElement } from 'react';
 
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
-
-import { Spinner } from '@components/Feedback';
+import { PuffSpinner } from '@components/Feedback';
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_STATE_OVERLAY_HAS_GLASS__,
@@ -52,7 +49,7 @@ export default {
 	}
 } as StateOverlayStoryMeta;
 
-export const StateOverlay: StateOverlayStory = (props: StateOverlayProps<PolymorphicDefaultElement>): ReactElement => {
+export const StateOverlay: StateOverlayStory = (props: StateOverlayProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;
@@ -62,7 +59,7 @@ export const StateOverlay: StateOverlayStory = (props: StateOverlayProps<Polymor
 	const background = useGetColor({ color, colorMode, colorType: 'color', hueType: 'color', classType: 'bg' });
 
 	return (
-		<StateOverlayComponent {...props} renderSpinner={() => <Spinner color={spinner} size='9xl' variant='puff' />}>
+		<StateOverlayComponent {...props} renderSpinner={() => <PuffSpinner color={spinner} size='9xl' />}>
 			{() => (
 				<Center className={classNames(radius, background)} w='100%' p={4}>
 					<Text align='center' color={text}>

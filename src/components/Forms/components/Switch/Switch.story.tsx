@@ -1,12 +1,9 @@
 import { type ReactElement } from 'react';
 
-import type { PolymorphicDefaultElement } from '@common/types';
-
 import { Box } from '@components/Box';
 import { Text } from '@components/Typography';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_SWITCH_HAS_IO_LABEL__,
@@ -143,7 +140,7 @@ export default {
 	}
 } as SwitchStoryMeta;
 
-export const Switch: SwitchStory = (props: SwitchProps<PolymorphicDefaultElement>): ReactElement => {
+export const Switch: SwitchStory = (props: SwitchProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

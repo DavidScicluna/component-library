@@ -2,8 +2,7 @@ import type { ReactElement } from 'react';
 
 import { Center } from '@components/Layout';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_ICON_BUTTON_IS_ACTIVE__,

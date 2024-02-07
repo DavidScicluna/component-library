@@ -1,13 +1,12 @@
 import type { ReactElement } from 'react';
 
 import { useGetColor } from '@common/hooks';
-import type { PolymorphicDefaultElement, ThemeBlurClassArr, ThemeRadiusArr } from '@common/types';
+import type { ThemeBlurClassArr, ThemeRadiusArr } from '@common/types';
 
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
@@ -75,9 +74,7 @@ export default {
 	}
 } as BackdropOverlayStoryMeta;
 
-export const BackdropOverlay: BackdropOverlayStory = (
-	props: BackdropOverlayProps<PolymorphicDefaultElement>
-): ReactElement => {
+export const BackdropOverlay: BackdropOverlayStory = (props: BackdropOverlayProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });

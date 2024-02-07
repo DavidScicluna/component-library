@@ -1,13 +1,11 @@
 import type { ReactElement } from 'react';
 
 import { __DEFAULT_RADIUS__ } from '@common/constants';
-import type { PolymorphicDefaultElement, ThemeRadiusArr } from '@common/types';
+import type { ThemeRadiusArr } from '@common/types';
 
 import { Skeleton } from '@components/Feedback';
 import { Center } from '@components/Layout';
-
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED__,
@@ -64,7 +62,7 @@ export default {
 } as DummyPushableOverlayStoryMeta;
 
 export const DummyPushableOverlay: DummyPushableOverlayStory = (
-	props: DummyPushableOverlayProps<PolymorphicDefaultElement>
+	props: DummyPushableOverlayProps<any>
 ): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 

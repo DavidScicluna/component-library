@@ -5,8 +5,7 @@ import { useGetColor } from '@common/hooks';
 
 import { Text } from '@components/Typography';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import type { FormDefaultElement, FormProps } from './common/types';
 import type { FormStory, FormStoryMeta } from './common/types/story';

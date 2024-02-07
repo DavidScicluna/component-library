@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 
 import { icons } from '@common/data';
-import type { FlexDirectionClassArr, PolymorphicDefaultElement } from '@common/types';
+import type { FlexDirectionClassArr } from '@common/types';
 
 import type { IconButtonSize, IconButtonVariant } from '@components/Buttons';
 import { IconButton, IconButtonIcon } from '@components/Buttons';
@@ -15,8 +15,7 @@ import {
 import { Center } from '@components/Layout';
 import { __DEFAULT_STACK_DIRECTION__ } from '@components/Layout/components/Stacks/Stack/common/constants';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import { __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__ } from './common/constants';
 import type { IconButtonGroupProps } from './common/types';
@@ -85,9 +84,7 @@ export default {
 	}
 } as IconButtonGroupStoryMeta;
 
-export const IconButtonGroup: IconButtonGroupStory = (
-	props: IconButtonGroupProps<PolymorphicDefaultElement>
-): ReactElement => {
+export const IconButtonGroup: IconButtonGroupStory = (props: IconButtonGroupProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

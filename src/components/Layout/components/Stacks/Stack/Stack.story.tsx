@@ -9,14 +9,12 @@ import type {
 	AlignItemsClassArr,
 	FlexDirectionClassArr,
 	FlexWrapClassArr,
-	JustifyContentClassArr,
-	PolymorphicDefaultElement
+	JustifyContentClassArr
 } from '@common/types';
 
 import { Center } from '@components/Layout';
 
-// eslint-disable-next-line import-path/parent-depth
-import { useStorybookContext } from '../../../../../../.storybook/preview';
+import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_STACK_ALIGN_ITEMS__,
@@ -86,7 +84,7 @@ export default {
 	}
 } as StackStoryMeta;
 
-export const Stack: StackStory = (props: StackProps<PolymorphicDefaultElement>): ReactElement => {
+export const Stack: StackStory = (props: StackProps<any>): ReactElement => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;
