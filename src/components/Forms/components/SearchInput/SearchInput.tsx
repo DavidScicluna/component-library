@@ -1,8 +1,8 @@
 import { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
 
 import { compact, merge } from 'lodash-es';
-import { useFocus, useMergeRefs } from 'rooks';
-import { useElementSize, useUpdateEffect } from 'usehooks-ts';
+import { useDimensionsRef, useFocus, useMergeRefs } from 'rooks';
+import { useUpdateEffect } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean, useDebounce } from '@common/hooks';
@@ -54,9 +54,10 @@ const SearchInput = forwardRef(function SearchInput<Element extends SearchInputE
 	ref: SearchInputRef<Element>
 ): JSX.Element {
 	const searchInputRef = useRef<PolymorphicElement<Element>>();
-	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
-
 	const refs = useMergeRefs(ref, searchInputRef);
+
+	const [childrenRef, childrenDimensions] = useDimensionsRef();
+	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
 
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,

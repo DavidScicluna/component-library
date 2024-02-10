@@ -1,8 +1,7 @@
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
 import { compact, merge } from 'lodash-es';
-import { useFocus, useMergeRefs } from 'rooks';
-import { useElementSize } from 'usehooks-ts';
+import { useDimensionsRef, useFocus, useMergeRefs } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
@@ -58,7 +57,8 @@ const FileInput = forwardRef(function FileInput<Element extends FileInputElement
 	const fileInputRef = useRef<PolymorphicElement<Element>>();
 	const refs = useMergeRefs(ref, fileInputRef);
 
-	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
+	const [childrenRef, childrenDimensions] = useDimensionsRef();
+	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
 
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,

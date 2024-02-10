@@ -1,8 +1,7 @@
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
 import { compact, merge } from 'lodash-es';
-import { useFocus, useMergeRefs } from 'rooks';
-import { useElementSize } from 'usehooks-ts';
+import { useDimensionsRef, useFocus, useMergeRefs } from 'rooks';
 
 import classes from '@common/classes';
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
@@ -55,9 +54,10 @@ const Textarea = forwardRef(function Textarea<Element extends TextareaElement>(
 	ref: TextareaRef<Element>
 ): JSX.Element {
 	const textareaRef = useRef<PolymorphicElement<Element>>();
-	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
-
 	const refs = useMergeRefs(ref, textareaRef);
+
+	const [childrenRef, childrenDimensions] = useDimensionsRef();
+	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
 
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,

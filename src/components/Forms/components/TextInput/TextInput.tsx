@@ -1,8 +1,7 @@
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
 import { compact, merge } from 'lodash-es';
-import { useFocus, useMergeRefs } from 'rooks';
-import { useElementSize } from 'usehooks-ts';
+import { useDimensionsRef, useFocus, useMergeRefs } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
@@ -52,9 +51,10 @@ const TextInput = forwardRef(function TextInput<Element extends TextInputElement
 	ref: TextInputRef<Element>
 ): JSX.Element {
 	const textInputRef = useRef<PolymorphicElement<Element>>();
-	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
-
 	const refs = useMergeRefs(ref, textInputRef);
+
+	const [childrenRef, childrenDimensions] = useDimensionsRef();
+	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
 
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,

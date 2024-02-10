@@ -48,7 +48,6 @@ export const TabsContext = createContext<TabsContextType<TabsDefaultElement>>({
 	spacing: __DEFAULT_SPACING__
 });
 
-// TODO: Replace all ReactElement with JSX.Element
 const Tabs = forwardRef(function Tabs<Element extends TabsElement>(
 	props: TabsProps<Element>,
 	ref: TabsRef<Element>

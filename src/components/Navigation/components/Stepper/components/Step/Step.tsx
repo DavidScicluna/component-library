@@ -1,8 +1,7 @@
 import { createContext, forwardRef, useMemo } from 'react';
 
 import { compact } from 'lodash-es';
-import { useFocus } from 'rooks';
-import { useElementSize } from 'usehooks-ts';
+import { useDimensionsRef, useFocus } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
@@ -65,7 +64,8 @@ const Step = forwardRef(function Step<Element extends StepElement>(
 		spacing: __DEFAULT_STEP_SPACING__
 	} = useStepperContext();
 
-	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
+	const [childrenRef, childrenDimensions] = useDimensionsRef();
+	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
 
 	const {
 		children,

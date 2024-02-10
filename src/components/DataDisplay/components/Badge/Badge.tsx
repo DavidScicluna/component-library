@@ -1,8 +1,7 @@
 import { createContext, forwardRef } from 'react';
 
 import { compact } from 'lodash-es';
-import { useFocus } from 'rooks';
-import { useElementSize } from 'usehooks-ts';
+import { useDimensionsRef, useFocus } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
@@ -48,7 +47,8 @@ const Badge = forwardRef(function Badge<Element extends BadgeElement>(
 	props: BadgeProps<Element>,
 	ref: BadgeRef<Element>
 ): JSX.Element {
-	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
+	const [childrenRef, childrenDimensions] = useDimensionsRef();
+	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
 
 	const {
 		children,

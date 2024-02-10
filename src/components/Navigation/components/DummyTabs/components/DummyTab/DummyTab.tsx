@@ -1,7 +1,7 @@
 import { forwardRef, useMemo } from 'react';
 
 import { compact } from 'lodash-es';
-import { useElementSize } from 'usehooks-ts';
+import { useDimensionsRef } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
@@ -41,7 +41,8 @@ const DummyTab = forwardRef(function DummyTab<Element extends PolymorphicElement
 		spacing: __DEFAULT_DUMMY_TAB_SPACING__
 	} = useDummyTabsContext();
 
-	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
+	const [childrenRef, childrenDimensions] = useDimensionsRef();
+	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
 
 	const {
 		children,

@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 
 import { compact, isArray } from 'lodash-es';
-import { useElementSize } from 'usehooks-ts';
+import { useDimensionsRef } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
@@ -32,7 +32,8 @@ const TabList = forwardRef(function TabList<Element extends PolymorphicElementTy
 ): JSX.Element {
 	const { color, colorMode, align, id, isFitted, orientation } = useTabsContext();
 
-	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
+	const [childrenRef, childrenDimensions] = useDimensionsRef();
+	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
 
 	const { children, className = __DEFAULT_CLASSNAME__, renderLeft, renderRight, ...rest } = props;
 

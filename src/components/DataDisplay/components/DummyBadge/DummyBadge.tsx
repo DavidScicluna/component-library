@@ -1,8 +1,7 @@
 import { createContext, forwardRef } from 'react';
 
 import { compact } from 'lodash-es';
-// TODO: Replace all useElementSize
-import { useElementSize } from 'usehooks-ts';
+import { useDimensionsRef } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicDefaultElement } from '@common/types';
@@ -46,7 +45,8 @@ const DummyBadge = forwardRef(function DummyBadge<Element extends DummyBadgeElem
 	props: DummyBadgeProps<Element>,
 	ref: DummyBadgeRef<Element>
 ): JSX.Element {
-	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
+	const [childrenRef, childrenDimensions] = useDimensionsRef();
+	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
 
 	const {
 		children,

@@ -1,8 +1,7 @@
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
 import { clamp, compact, merge } from 'lodash-es';
-import { useFocus, useMergeRefs } from 'rooks';
-import { useElementSize } from 'usehooks-ts';
+import { useDimensionsRef, useFocus, useMergeRefs } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
@@ -59,9 +58,10 @@ const NumberInput = forwardRef(function NumberInput<Element extends NumberInputE
 	ref: NumberInputRef<Element>
 ): JSX.Element {
 	const numberInputRef = useRef<PolymorphicElement<Element>>();
-	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
-
 	const refs = useMergeRefs(ref, numberInputRef);
+
+	const [childrenRef, childrenDimensions] = useDimensionsRef();
+	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
 
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,

@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 
 import { compact } from 'lodash-es';
-import { useElementSize } from 'usehooks-ts';
+import { useDimensionsRef } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
@@ -32,7 +32,8 @@ const CardHeader = forwardRef(function CardHeader<Element extends PolymorphicEle
 		spacing: __DEFAULT_CARD_HEADER_SPACING__
 	} = useCardContext();
 
-	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
+	const [childrenRef, childrenDimensions] = useDimensionsRef();
+	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
 
 	const {
 		className = __DEFAULT_CLASSNAME__,

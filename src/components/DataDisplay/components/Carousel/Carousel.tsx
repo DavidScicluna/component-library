@@ -2,8 +2,8 @@ import { createContext, forwardRef } from 'react';
 
 import { sort } from 'fast-sort';
 import { compact, debounce, isArray } from 'lodash-es';
-import { useArrayState } from 'rooks';
-import { useEffectOnce, useElementSize } from 'usehooks-ts';
+import { useArrayState, useDimensionsRef } from 'rooks';
+import { useEffectOnce } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useDebounce } from '@common/hooks';
@@ -62,7 +62,8 @@ const Carousel = forwardRef(function Carousel<Element extends CarouselElement>(
 	props: CarouselProps<Element>,
 	ref: CarouselRef<Element>
 ): JSX.Element {
-	const [arrowRef, { width: arrowWidthSize, height: arrowHeightSize }] = useElementSize();
+	const [arrowRef, arrowDimensions] = useDimensionsRef();
+	const { width: arrowWidth = 0, height: arrowHeight = 0 } = arrowDimensions || {};
 
 	const [items, setItems] = useArrayState<CarouselItemType>(__DEFAULT_CAROUSEL_ITEMS__);
 	const itemsDebounced = useDebounce<CarouselItems>(items, __DEFAULT_CAROUSEL_DURATION_THEME__);
@@ -227,8 +228,8 @@ const Carousel = forwardRef(function Carousel<Element extends CarouselElement>(
 										</GridItem>
 									) : variant === 'left' && renderLeftLinearGradient ? (
 										<GridItem
-											w={orientation === 'horizontal' ? `${arrowWidthSize}px` : '100%'}
-											h={orientation === 'vertical' ? `${arrowHeightSize}px` : undefined}
+											w={orientation === 'horizontal' ? `${arrowWidth}px` : '100%'}
+											h={orientation === 'vertical' ? `${arrowHeight}px` : undefined}
 											columnStart={1}
 											rowStart={1}
 											alignSelf='stretch'
@@ -282,8 +283,8 @@ const Carousel = forwardRef(function Carousel<Element extends CarouselElement>(
 										</GridItem>
 									) : variant === 'right' && renderRightLinearGradient ? (
 										<GridItem
-											w={orientation === 'horizontal' ? `${arrowWidthSize}px` : '100%'}
-											h={orientation === 'vertical' ? `${arrowHeightSize}px` : undefined}
+											w={orientation === 'horizontal' ? `${arrowWidth}px` : '100%'}
+											h={orientation === 'vertical' ? `${arrowHeight}px` : undefined}
 											columnStart={1}
 											rowStart={1}
 											alignSelf='stretch'

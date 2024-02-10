@@ -5,7 +5,6 @@ import type { GridProps } from '../types';
 
 import useGridResponsiveValues from './useGridResponsiveValues';
 
-// TODO: Temporary remove PolymorphicDefaultElement to know if Element is being passed
 type UseGridStylesProps<Element extends PolymorphicElementType> = Pick<
 	GridProps<Element>,
 	'templateColumns' | 'templateRows'
