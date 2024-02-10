@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { sample } from 'lodash-es';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
@@ -81,7 +79,7 @@ export default {
 	}
 } as ModalStoryMeta;
 
-export const Modal: ModalStory = (props: ModalProps<ModalDefaultElement>): ReactElement => {
+export const Modal: ModalStory = (props: ModalProps<ModalDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'text.primary', classType: 'text' });

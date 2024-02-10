@@ -1,4 +1,4 @@
-import { type ReactElement, useState } from 'react';
+import { useState } from 'react';
 
 import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
@@ -105,7 +105,7 @@ export default {
 	}
 } as TextInputStoryMeta;
 
-export const TextInput: TextInputStory = (props: TextInputProps<TextInputDefaultElement>): ReactElement => {
+export const TextInput: TextInputStory = (props: TextInputProps<TextInputDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const [value, setValue] = useState<string>('');

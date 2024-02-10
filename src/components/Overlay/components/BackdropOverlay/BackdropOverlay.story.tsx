@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { useGetColor } from '@common/hooks';
 import type { ThemeBlurClassArr, ThemeRadiusArr } from '@common/types';
 
@@ -74,7 +72,7 @@ export default {
 	}
 } as BackdropOverlayStoryMeta;
 
-export const BackdropOverlay: BackdropOverlayStory = (props: BackdropOverlayProps<any>): ReactElement => {
+export const BackdropOverlay: BackdropOverlayStory = (props: BackdropOverlayProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });

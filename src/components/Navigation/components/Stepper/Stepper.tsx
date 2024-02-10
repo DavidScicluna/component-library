@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import {
@@ -58,7 +57,7 @@ export const StepperContext = createContext<StepperContextType<StepperDefaultEle
 const Stepper = forwardRef(function Stepper<Element extends StepperElement>(
 	props: StepperProps<Element>,
 	ref: StepperRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		id = __DEFAULT_STEPPER_ID__,

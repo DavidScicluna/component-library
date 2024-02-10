@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -18,7 +17,7 @@ const classNames = require('classnames');
 const StepIcon = forwardRef(function StepIcon<Element extends StepIconElement>(
 	props: StepIconProps<Element>,
 	ref: StepIconRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		color: __DEFAULT_STEP_ICON_COLOR__,
 		colorMode: __DEFAULT_STEP_ICON_COLORMODE__,

@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -19,7 +18,7 @@ const classNames = require('classnames');
 const DummyTabIcon = forwardRef(function DummyTabIcon<Element extends DummyTabIconElement>(
 	props: DummyTabIconProps<Element>,
 	ref: DummyTabIconRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		color: __DEFAULT_DUMMY_TAB_ICON_COLOR__,
 		colorMode: __DEFAULT_DUMMY_TAB_ICON_COLORMODE__,

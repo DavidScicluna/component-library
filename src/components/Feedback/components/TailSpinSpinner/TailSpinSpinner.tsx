@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
 
@@ -21,7 +20,7 @@ const classNames = require('classnames');
 const TailSpinSpinner = forwardRef(function TailSpinSpinner<Element extends PolymorphicElementType>(
 	props: TailSpinSpinnerProps<Element>,
 	ref: TailSpinSpinnerRef<Element>
-): ReactElement {
+): JSX.Element {
 	const theme = useTheme();
 
 	const __DEFAULT_TAIL_SPIN_SPINNER_COLOR__ = useGetColor({ colorType: 'default', hueType: 'default' });

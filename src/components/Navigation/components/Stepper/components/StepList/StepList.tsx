@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { compact, isArray } from 'lodash-es';
@@ -30,7 +29,7 @@ const classNames = require('classnames');
 const StepList = forwardRef(function StepList<Element extends PolymorphicElementType>(
 	props: StepListProps<Element>,
 	ref: StepListRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { color, colorMode, align, id, isFitted, orientation } = useStepperContext();
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();

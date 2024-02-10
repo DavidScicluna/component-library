@@ -1,4 +1,4 @@
-import { type ReactElement, useState } from 'react';
+import { useState } from 'react';
 
 import { range, sample } from 'lodash-es';
 
@@ -89,7 +89,7 @@ export default {
 	}
 } as StepperStoryMeta;
 
-export const Stepper: StepperStory = (props: StepperProps<any>): ReactElement => {
+export const Stepper: StepperStory = (props: StepperProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'text.primary', classType: 'text' });

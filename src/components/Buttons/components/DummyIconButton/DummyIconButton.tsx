@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { merge } from 'lodash-es';
@@ -43,7 +42,7 @@ export const DummyIconButtonContext = createContext<DummyIconButtonContextType<D
 const DummyIconButton = forwardRef(function DummyIconButton<Element extends DummyIconButtonElement>(
 	props: DummyIconButtonProps<Element>,
 	ref: DummyIconButtonRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		as = __DEFAULT_DUMMY_ICON_BUTTON_AS__,

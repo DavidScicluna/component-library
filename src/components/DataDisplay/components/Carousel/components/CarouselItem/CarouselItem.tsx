@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 import { useInView } from 'react-cool-inview';
 
@@ -20,7 +19,7 @@ const classNames = require('classnames');
 const CarouselItem = forwardRef(function CarouselItem<Element extends PolymorphicElementType>(
 	props: CarouselItemProps<Element>,
 	ref: CarouselItemRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { children, className = __DEFAULT_CLASSNAME__, id, onToggleVisibility, ...rest } = props;
 
 	const { observe, inView } = useInView({

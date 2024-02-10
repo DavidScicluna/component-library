@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { merge } from 'lodash-es';
@@ -30,7 +29,7 @@ const classNames = require('classnames');
 const Divider = forwardRef(function Divider<Element extends DividerElement>(
 	props: DividerProps<Element>,
 	ref: DividerRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		as = __DEFAULT_DIVIDER_AS__,

@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -18,7 +17,7 @@ const classNames = require('classnames');
 const Center = forwardRef(function Center<Element extends PolymorphicElementType>(
 	props: CenterProps<Element>,
 	ref: CenterRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

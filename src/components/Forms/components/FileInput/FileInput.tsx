@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
 import { compact, merge } from 'lodash-es';
@@ -55,7 +54,7 @@ const classNames = require('classnames');
 const FileInput = forwardRef(function FileInput<Element extends FileInputElement>(
 	props: FileInputProps<Element>,
 	ref: FileInputRef<Element>
-): ReactElement {
+): JSX.Element {
 	const fileInputRef = useRef<PolymorphicElement<Element>>();
 	const refs = useMergeRefs(ref, fileInputRef);
 

@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -23,7 +22,7 @@ const classNames = require('classnames');
 const CloseIconButton = forwardRef(function CloseIconButton<Element extends CloseIconButtonElement>(
 	props: CloseIconButtonProps<Element>,
 	ref: CloseIconButtonRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		as = __DEFAULT_CLOSE_ICON_BUTTON_AS__,
 		className = __DEFAULT_CLASSNAME__,

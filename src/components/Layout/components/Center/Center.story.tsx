@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 
@@ -29,7 +27,7 @@ export default {
 	}
 } as CenterStoryMeta;
 
-export const Center: CenterStory = (props: CenterProps<any>): ReactElement => {
+export const Center: CenterStory = (props: CenterProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

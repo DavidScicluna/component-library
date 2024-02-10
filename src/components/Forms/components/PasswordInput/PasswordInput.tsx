@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useCallback, useEffect, useMemo, useRef } from 'react';
 
 import { compact, merge } from 'lodash-es';
@@ -52,7 +51,7 @@ const classNames = require('classnames');
 const PasswordInput = forwardRef(function PasswordInput<Element extends PasswordInputElement>(
 	props: PasswordInputProps<Element>,
 	ref: PasswordInputRef<Element>
-): ReactElement {
+): JSX.Element {
 	const passwordInputRef = useRef<PolymorphicElement<Element>>();
 	const refs = useMergeRefs(ref, passwordInputRef);
 

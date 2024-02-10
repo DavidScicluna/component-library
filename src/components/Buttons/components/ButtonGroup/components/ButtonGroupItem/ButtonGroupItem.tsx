@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -19,7 +18,7 @@ const classNames = require('classnames');
 const ButtonGroupItem = forwardRef(function ButtonGroupItem<Element extends PolymorphicElementType>(
 	props: ButtonGroupItemProps<Element>,
 	ref: ButtonGroupItemRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { isFullWidth } = useButtonGroupContext();
 
 	const { children, className = __DEFAULT_CLASSNAME__, index, total, ...rest } = props;

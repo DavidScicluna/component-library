@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { merge } from 'lodash-es';
@@ -19,7 +18,7 @@ const classNames = require('classnames');
 const VisuallyHidden = forwardRef(function VisuallyHidden<Element extends VisuallyHiddenElement>(
 	props: VisuallyHiddenProps<Element>,
 	ref: VisuallyHiddenRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		as = __DEFAULT_VISUALLY_HIDDEN_AS__,

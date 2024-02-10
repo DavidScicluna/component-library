@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { Center } from '@components/Layout';
 import { Text } from '@components/Typography';
 
@@ -14,7 +12,7 @@ export default {
 	component: HeadlineComponent
 } as HeadlineStoryMeta;
 
-export const Headline: HeadlineStory = (props: HeadlineProps<any>): ReactElement => {
+export const Headline: HeadlineStory = (props: HeadlineProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -54,7 +53,7 @@ export const FormControlContext = createContext<FormControlContextType<FormContr
 const FormControl = forwardRef(function FormControl<Element extends FormControlElement>(
 	props: FormControlProps<Element>,
 	ref: FormControlRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		as = __DEFAULT_FORM_CONTROL_AS__,

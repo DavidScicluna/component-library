@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { icons } from '@common/data';
 import type { FlexDirectionClassArr } from '@common/types';
 
@@ -84,7 +82,7 @@ export default {
 	}
 } as IconButtonGroupStoryMeta;
 
-export const IconButtonGroup: IconButtonGroupStory = (props: IconButtonGroupProps<any>): ReactElement => {
+export const IconButtonGroup: IconButtonGroupStory = (props: IconButtonGroupProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

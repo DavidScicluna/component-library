@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { merge } from 'lodash-es';
@@ -33,7 +32,7 @@ const classNames = require('classnames');
 const PushableOverlay = forwardRef(function PushableOverlay<Element extends PolymorphicElementType>(
 	props: PushableOverlayProps<Element>,
 	ref: PushableOverlayRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

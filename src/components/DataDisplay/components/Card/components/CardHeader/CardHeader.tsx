@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { compact } from 'lodash-es';
@@ -23,7 +22,7 @@ const classNames = require('classnames');
 const CardHeader = forwardRef(function CardHeader<Element extends PolymorphicElementType>(
 	props: CardHeaderProps<Element>,
 	ref: CardHeaderRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		color,
 		colorMode,

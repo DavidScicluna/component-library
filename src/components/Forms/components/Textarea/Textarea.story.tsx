@@ -1,4 +1,4 @@
-import { type ReactElement, useState } from 'react';
+import { useState } from 'react';
 
 import type { ResizeClassArr } from '@common/types';
 
@@ -117,7 +117,7 @@ export default {
 	}
 } as TextareaStoryMeta;
 
-export const Textarea: TextareaStory = (props: TextareaProps<TextareaDefaultElement>): ReactElement => {
+export const Textarea: TextareaStory = (props: TextareaProps<TextareaDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const [value, setValue] = useState<string>('');

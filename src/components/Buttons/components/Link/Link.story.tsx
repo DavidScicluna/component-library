@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { useGetColor } from '@common/hooks';
 
 import { Center } from '@components/Layout';
@@ -44,7 +42,7 @@ export default {
 	}
 } as LinkStoryMeta;
 
-export const Link: LinkStory = (props: LinkProps<LinkDefaultElement>): ReactElement => {
+export const Link: LinkStory = (props: LinkProps<LinkDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'text.primary', classType: 'text' });

@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -18,7 +17,7 @@ const classNames = require('classnames');
 const AspectRatio = forwardRef(function AspectRatio<Element extends PolymorphicElementType>(
 	props: AspectRatioProps<Element>,
 	ref: AspectRatioRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

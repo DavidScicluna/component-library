@@ -1,5 +1,3 @@
-import { type ReactElement } from 'react';
-
 import { Box } from '@components/Box';
 import { Text } from '@components/Typography';
 
@@ -140,7 +138,7 @@ export default {
 	}
 } as SwitchStoryMeta;
 
-export const Switch: SwitchStory = (props: SwitchProps<any>): ReactElement => {
+export const Switch: SwitchStory = (props: SwitchProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

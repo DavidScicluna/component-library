@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
 import { clamp, compact, merge } from 'lodash-es';
@@ -58,7 +57,7 @@ const classNames = require('classnames');
 const NumberInput = forwardRef(function NumberInput<Element extends NumberInputElement>(
 	props: NumberInputProps<Element>,
 	ref: NumberInputRef<Element>
-): ReactElement {
+): JSX.Element {
 	const numberInputRef = useRef<PolymorphicElement<Element>>();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 

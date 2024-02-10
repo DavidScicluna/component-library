@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { createContext, forwardRef, useMemo } from 'react';
 
 import { merge } from 'lodash-es';
@@ -52,7 +51,7 @@ export const IconButtonContext = createContext<IconButtonContextType<IconButtonD
 const IconButton = forwardRef(function IconButton<Element extends IconButtonElement>(
 	props: IconButtonProps<Element>,
 	ref: IconButtonRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		color: __DEFAULT_ICON_BUTTON_GROUP_COLOR__,
 		colorMode: __DEFAULT_ICON_BUTTON_GROUP_COLORMODE__,

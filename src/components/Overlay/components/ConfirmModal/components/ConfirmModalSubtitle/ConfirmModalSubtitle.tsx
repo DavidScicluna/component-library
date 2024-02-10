@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -20,7 +19,7 @@ const classNames = require('classnames');
 const ConfirmModalSubtitle = forwardRef(function ConfirmModalSubtitle<Element extends ConfirmModalSubtitleElement>(
 	props: ConfirmModalSubtitleProps<Element>,
 	ref: ConfirmModalSubtitleRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { colorMode, id } = useConfirmModalContext();
 
 	const __DEFAULT_CONFIRM_MODAL_SUBTITLE_COLOR__ = useGetColor({

@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -18,7 +17,7 @@ const classNames = require('classnames');
 const ConfirmModalStack = forwardRef(function ConfirmModalStack<Element extends PolymorphicElementType>(
 	props: ConfirmModalStackProps<Element>,
 	ref: ConfirmModalStackRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { spacing: __DEFAULT_CONFIRM_MODAL_STACK_SPACING__ } = useConfirmModalContext();
 
 	const {

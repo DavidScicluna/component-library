@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 import type { ThemeRadiusArr } from '@common/types';
@@ -50,7 +48,7 @@ export default {
 	}
 } as BackgroundImageStoryMeta;
 
-export const BackgroundImage: BackgroundImageStory = (props: BackgroundImageProps<any>): ReactElement => {
+export const BackgroundImage: BackgroundImageStory = (props: BackgroundImageProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ color, colorMode, colorType: 'default', hueType: 'background', classType: 'text' });

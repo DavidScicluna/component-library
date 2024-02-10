@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { Button } from '@components/Buttons';
 
 import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
@@ -94,7 +92,7 @@ export default {
 	}
 } as PopperStoryMeta;
 
-export const Popper: PopperStory = (props: PopperProps<any>): ReactElement => {
+export const Popper: PopperStory = (props: PopperProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

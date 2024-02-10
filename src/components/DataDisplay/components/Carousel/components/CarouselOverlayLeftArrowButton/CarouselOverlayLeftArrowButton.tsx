@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -22,7 +20,7 @@ const classNames = require('classnames');
 
 const CarouselOverlayLeftArrowButton = forwardRef(function CarouselOverlayLeftArrowButton<
 	Element extends CarouselOverlayLeftArrowButtonElement
->(props: CarouselOverlayLeftArrowButtonProps<Element>, ref: CarouselOverlayLeftArrowButtonRef<Element>): ReactElement {
+>(props: CarouselOverlayLeftArrowButtonProps<Element>, ref: CarouselOverlayLeftArrowButtonRef<Element>): JSX.Element {
 	const {
 		as = __DEFAULT_CAROUSEL_OVERLAY_LEFT_ARROW_BUTTON_AS__,
 		className = __DEFAULT_CLASSNAME__,

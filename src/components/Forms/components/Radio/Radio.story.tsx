@@ -1,5 +1,3 @@
-import { type ReactElement } from 'react';
-
 import { Box } from '@components/Box';
 import { Text } from '@components/Typography';
 
@@ -132,7 +130,7 @@ export default {
 	}
 } as RadioStoryMeta;
 
-export const Radio: RadioStory = (props: RadioProps<any>): ReactElement => {
+export const Radio: RadioStory = (props: RadioProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

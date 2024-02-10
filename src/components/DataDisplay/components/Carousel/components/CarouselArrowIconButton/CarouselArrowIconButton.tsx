@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -31,7 +30,7 @@ const classNames = require('classnames');
 
 const CarouselArrowIconButton = forwardRef(function CarouselArrowIconButton<
 	Element extends CarouselArrowIconButtonElement
->(props: CarouselArrowIconButtonProps<Element>, ref: CarouselArrowIconButtonRef<Element>): ReactElement {
+>(props: CarouselArrowIconButtonProps<Element>, ref: CarouselArrowIconButtonRef<Element>): JSX.Element {
 	const {
 		color: __DEFAULT_ARROW_ICON_BUTTON_COLOR__,
 		colorMode: __DEFAULT_ARROW_ICON_BUTTON_COLORMODE__,

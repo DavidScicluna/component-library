@@ -1,4 +1,4 @@
-import { forwardRef, type ReactElement } from 'react';
+import { forwardRef } from 'react';
 
 import { compact } from 'lodash-es';
 import { useElementSize } from 'usehooks-ts';
@@ -21,7 +21,7 @@ const classNames = require('classnames');
 const Headline = forwardRef(function Headline<Element extends PolymorphicElementType>(
 	props: HeadlineProps<Element>,
 	ref: HeadlineRef<Element>
-): ReactElement {
+): JSX.Element {
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const {

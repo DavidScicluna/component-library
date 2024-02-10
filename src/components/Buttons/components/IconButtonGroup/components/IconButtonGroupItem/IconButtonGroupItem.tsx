@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -17,7 +16,7 @@ const classNames = require('classnames');
 const IconButtonGroupItem = forwardRef(function IconButtonGroupItem<Element extends PolymorphicElementType>(
 	props: IconButtonGroupItemProps<Element>,
 	ref: IconButtonGroupItemRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { children, className = __DEFAULT_CLASSNAME__, index, total, ...rest } = props;
 
 	const classes = useIconButtonGroupItemClasses<Element>({ index, total });

@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
 import { compact } from 'lodash-es';
@@ -53,7 +52,7 @@ const classNames = require('classnames');
 const Radio = forwardRef(function Radio<Element extends PolymorphicElementType>(
 	props: RadioProps<Element>,
 	ref: RadioRef<Element>
-): ReactElement {
+): JSX.Element {
 	const pushableOverlayRef = useRef<PolymorphicElement<PolymorphicDefaultElement>>(null);
 
 	const {

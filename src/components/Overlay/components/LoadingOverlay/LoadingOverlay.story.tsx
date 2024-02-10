@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { useGetColor } from '@common/hooks';
 import type { ThemeBlurClassArr, ThemeRadiusArr } from '@common/types';
 
@@ -98,7 +96,7 @@ export default {
 	}
 } as LoadingOverlayStoryMeta;
 
-export const LoadingOverlay: LoadingOverlayStory = (props: LoadingOverlayProps<any>): ReactElement => {
+export const LoadingOverlay: LoadingOverlayStory = (props: LoadingOverlayProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const spinner = useGetColor({ colorMode, colorType: 'default', hueType: 'text.primary' });

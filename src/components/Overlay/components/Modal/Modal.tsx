@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { createContext, forwardRef, useCallback } from 'react';
 
 import {
@@ -65,7 +64,7 @@ export const ModalContext = createContext<ModalContextType<ModalDefaultElement>>
 const Modal = forwardRef(function Modal<Element extends ModalElement>(
 	props: ModalProps<Element>,
 	ref: ModalRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		as = __DEFAULT_MODAL_AS__,

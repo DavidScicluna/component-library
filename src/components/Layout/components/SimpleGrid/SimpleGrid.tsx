@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
@@ -18,7 +17,7 @@ const classNames = require('classnames');
 const SimpleGrid = forwardRef(function SimpleGrid<Element extends PolymorphicElementType>(
 	props: SimpleGridProps<Element>,
 	ref: SimpleGridRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

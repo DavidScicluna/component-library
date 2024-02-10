@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import type { FormLabelProps } from './common/types';
 import type { FormLabelStory, FormLabelStoryMeta } from './common/types/story';
 import { FormLabel as FormLabelComponent } from '.';
@@ -18,6 +16,6 @@ export default {
 	}
 } as FormLabelStoryMeta;
 
-export const FormLabel: FormLabelStory = (props: FormLabelProps<any>): ReactElement => {
+export const FormLabel: FormLabelStory = (props: FormLabelProps<any>): JSX.Element => {
 	return <FormLabelComponent {...props} />;
 };

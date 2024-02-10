@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -19,7 +18,7 @@ const classNames = require('classnames');
 const StepHeadline = forwardRef(function StepHeadline<Element extends PolymorphicElementType>(
 	props: StepHeadlineProps<Element>,
 	ref: StepHeadlineRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		color: __DEFAULT_STEP_HEADLINE_COLOR__,
 		colorMode: __DEFAULT_STEP_HEADLINE_COLORMODE__,

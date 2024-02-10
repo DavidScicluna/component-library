@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { Center } from '@components/Layout';
 
 import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
@@ -25,7 +23,7 @@ export default {
 
 export const CloseIconButton: CloseIconButtonStory = (
 	props: CloseIconButtonProps<CloseIconButtonDefaultElement>
-): ReactElement => {
+): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -18,7 +17,7 @@ const classNames = require('classnames');
 const MessageStack = forwardRef(function MessageStack<Element extends PolymorphicElementType>(
 	props: MessageStackProps<Element>,
 	ref: MessageStackRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { spacing: __DEFAULT_MESSAGE_STACK_SPACING__ } = useMessageContext();
 
 	const {

@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { Center } from '@components/Layout';
 
 import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
@@ -98,7 +96,7 @@ export default {
 	}
 } as DummyBadgeStoryMeta;
 
-export const DummyBadge: DummyBadgeStory = (props: DummyBadgeProps<any>): ReactElement => {
+export const DummyBadge: DummyBadgeStory = (props: DummyBadgeProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

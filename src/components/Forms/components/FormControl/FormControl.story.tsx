@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 import type { AlignItemsClassArr, JustifyContentClassArr } from '@common/types';
@@ -132,7 +130,7 @@ export default {
 	}
 } as FormControlStoryMeta;
 
-export const FormControl: FormControlStory = (props: FormControlProps<any>): ReactElement => {
+export const FormControl: FormControlStory = (props: FormControlProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

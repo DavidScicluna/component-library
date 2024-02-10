@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -24,7 +23,7 @@ const classNames = require('classnames');
 const FormDescription = forwardRef(function FormDescription<Element extends FormDescriptionElement>(
 	props: FormDescriptionProps<Element>,
 	ref: FormDescriptionRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { colorMode, id, size } = useFormControlContext();
 
 	const __DEFAULT_FORM_DESCRIPTION_COLOR__ = useGetColor({

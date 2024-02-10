@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { Children, forwardRef, Fragment } from 'react';
 
 import { compact, isArray } from 'lodash-es';
@@ -25,7 +24,7 @@ const classNames = require('classnames');
 const Stack = forwardRef(function Stack<Element extends PolymorphicElementType>(
 	props: StackProps<Element>,
 	ref: StackRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

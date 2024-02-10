@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { range } from 'lodash-es';
 
 import classes from '@common/classes';
@@ -39,7 +37,7 @@ export default {
 	}
 } as SimpleGridStoryMeta;
 
-export const SimpleGrid: SimpleGridStory = (props: SimpleGridProps<any>): ReactElement => {
+export const SimpleGrid: SimpleGridStory = (props: SimpleGridProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { useGetColor } from '@common/hooks';
 
 import { Center } from '@components/Layout';
@@ -27,7 +25,7 @@ export default {
 	}
 } as ShowStoryMeta;
 
-export const Show: ShowStory = (props: ShowProps): ReactElement => {
+export const Show: ShowStory = (props: ShowProps): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });

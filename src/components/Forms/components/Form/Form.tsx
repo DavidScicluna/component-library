@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__ } from '@common/constants';
@@ -16,7 +15,7 @@ const classNames = require('classnames');
 const Form = forwardRef(function Form<Element extends FormElement>(
 	props: FormProps<Element>,
 	ref: FormRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		as = __DEFAULT_FORM_AS__,

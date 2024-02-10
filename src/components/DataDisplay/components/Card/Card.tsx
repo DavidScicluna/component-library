@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { useFocus } from 'rooks';
@@ -52,7 +51,7 @@ export const CardContext = createContext<CardContextType<CardDefaultElement>>({
 const Card = forwardRef(function Card<Element extends CardElement>(
 	props: CardProps<Element>,
 	ref: CardRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		as = __DEFAULT_CARD_AS__,

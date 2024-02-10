@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
 
 import { compact, merge } from 'lodash-es';
@@ -53,7 +52,7 @@ const classNames = require('classnames');
 const SearchInput = forwardRef(function SearchInput<Element extends SearchInputElement>(
 	props: SearchInputProps<Element>,
 	ref: SearchInputRef<Element>
-): ReactElement {
+): JSX.Element {
 	const searchInputRef = useRef<PolymorphicElement<Element>>();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 

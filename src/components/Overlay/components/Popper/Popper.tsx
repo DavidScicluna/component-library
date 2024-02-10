@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ReactElement } from 'react';
 import { forwardRef, useCallback, useRef } from 'react';
 
 import {
@@ -47,7 +46,7 @@ const classNames = require('classnames');
 const Popper = forwardRef(function Popper<Element extends PolymorphicElementType>(
 	props: PopperProps<Element>,
 	ref: PopperRef<Element>
-): ReactElement {
+): JSX.Element {
 	const arrowRef = useRef<HTMLElement>(null);
 
 	const {

@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -24,7 +23,7 @@ const classNames = require('classnames');
 const Indicator = forwardRef(function Indicator<Element extends PolymorphicElementType>(
 	props: IndicatorProps<Element>,
 	ref: IndicatorRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

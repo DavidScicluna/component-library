@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, Fragment, useRef } from 'react';
 
 import Compressor from 'compressorjs';
@@ -32,7 +31,7 @@ import type {
 const FileButton = forwardRef(function FileButton<Element extends FileButtonElement>(
 	props: FileButtonProps<Element>,
 	ref: FileButtonRef<Element>
-): ReactElement {
+): JSX.Element {
 	const fileInputRef = useRef<PolymorphicElement<Element>>(null);
 	const refs = useMergeRefs(ref, fileInputRef);
 

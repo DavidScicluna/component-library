@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -22,7 +21,7 @@ const classNames = require('classnames');
 const AlertDescription = forwardRef(function AlertDescription<Element extends AlertDescriptionElement>(
 	props: AlertDescriptionProps<Element>,
 	ref: AlertDescriptionRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { color, colorMode, status, variant } = useAlertContext();
 
 	const statusColor = useMemo<ThemeColor>(() => getStatusColor(status, color), [status, color]);

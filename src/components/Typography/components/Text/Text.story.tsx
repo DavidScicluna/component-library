@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import type {
 	TextAlignClassArr,
 	TextLineClampClassArr,
@@ -162,6 +160,6 @@ export default {
 	}
 } as TextStoryMeta;
 
-export const Text: TextStory = (props: TextProps<any>): ReactElement => {
+export const Text: TextStory = (props: TextProps<any>): JSX.Element => {
 	return <TextComponent {...props} />;
 };

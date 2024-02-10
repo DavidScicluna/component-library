@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { isArray } from 'lodash-es';
@@ -40,7 +39,7 @@ const DummyTabPanel = <Element extends PolymorphicElementType>({ children, index
 const DummyTabPanels = forwardRef(function DummyTabPanels<Element extends PolymorphicElementType>(
 	props: DummyTabPanelsProps<Element>,
 	ref: DummyTabPanelsRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { id } = useDummyTabsContext();
 
 	const { children, className = __DEFAULT_CLASSNAME__, ...rest } = props;

@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { compact } from 'lodash-es';
@@ -48,7 +47,7 @@ export const BadgeContext = createContext<BadgeContextType<BadgeDefaultElement>>
 const Badge = forwardRef(function Badge<Element extends BadgeElement>(
 	props: BadgeProps<Element>,
 	ref: BadgeRef<Element>
-): ReactElement {
+): JSX.Element {
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const {

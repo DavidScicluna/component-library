@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -25,7 +23,7 @@ const CarouselOverlayLeftArrowIconButton = forwardRef(function CarouselOverlayLe
 >(
 	props: CarouselOverlayLeftArrowIconButtonProps<Element>,
 	ref: CarouselOverlayLeftArrowIconButtonRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		as = __DEFAULT_CAROUSEL_OVERLAY_LEFT_ARROW_ICON_BUTTON_AS__,
 		className = __DEFAULT_CLASSNAME__,

@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 import type { ThemeAspectRatioArr } from '@common/types';
@@ -41,7 +39,7 @@ export default {
 	}
 } as AspectRatioStoryMeta;
 
-export const AspectRatio: AspectRatioStory = (props: AspectRatioProps<any>): ReactElement => {
+export const AspectRatio: AspectRatioStory = (props: AspectRatioProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
 import { compact } from 'lodash-es';
@@ -59,7 +58,7 @@ const classNames = require('classnames');
 const Checkbox = forwardRef(function Checkbox<Element extends PolymorphicElementType>(
 	props: CheckboxProps<Element>,
 	ref: CheckboxRef<Element>
-): ReactElement {
+): JSX.Element {
 	// TODO: Update PolymorphicRef type to get useRef working without as
 	const pushableOverlayRef = useRef<PolymorphicElement<PolymorphicDefaultElement>>(null);
 

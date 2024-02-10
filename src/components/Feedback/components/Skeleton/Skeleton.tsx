@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
@@ -20,7 +19,7 @@ const classNames = require('classnames');
 const Skeleton = forwardRef(function Skeleton<Element extends PolymorphicElementType>(
 	props: SkeletonProps<Element>,
 	ref: SkeletonRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

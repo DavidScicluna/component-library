@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { compact, isArray } from 'lodash-es';
@@ -30,7 +29,7 @@ const classNames = require('classnames');
 const DummyTabList = forwardRef(function DummyTabList<Element extends PolymorphicElementType>(
 	props: DummyTabListProps<Element>,
 	ref: DummyTabListRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { color, colorMode, align, id, isFitted, orientation } = useDummyTabsContext();
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();

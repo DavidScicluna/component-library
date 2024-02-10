@@ -1,4 +1,4 @@
-import { type ReactElement, useState } from 'react';
+import { useState } from 'react';
 
 import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
@@ -105,7 +105,7 @@ export default {
 	}
 } as NumberInputStoryMeta;
 
-export const NumberInput: NumberInputStory = (props: NumberInputProps<NumberInputDefaultElement>): ReactElement => {
+export const NumberInput: NumberInputStory = (props: NumberInputProps<NumberInputDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const [value, setValue] = useState<number>(0);

@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { range } from 'lodash-es';
 
 import type { FlexDirectionClassArr } from '@common/types';
@@ -93,7 +91,7 @@ export default {
 	}
 } as ButtonGroupStoryMeta;
 
-export const ButtonGroup: ButtonGroupStory = (props: ButtonGroupProps<any>): ReactElement => {
+export const ButtonGroup: ButtonGroupStory = (props: ButtonGroupProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -19,7 +18,7 @@ const classNames = require('classnames');
 const MessageSubtitle = forwardRef(function MessageSubtitle<Element extends MessageSubtitleElement>(
 	props: MessageSubtitleProps<Element>,
 	ref: MessageSubtitleRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { colorMode } = useMessageContext();
 
 	const __DEFAULT_MESSAGE_SUBTITLE_COLOR__ = useGetColor({

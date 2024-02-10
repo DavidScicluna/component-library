@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 import type { ThemeRadiusArr } from '@common/types';
@@ -112,7 +110,7 @@ export default {
 	}
 } as CardStoryMeta;
 
-export const Card: CardStory = (props: CardProps<any>): ReactElement => {
+export const Card: CardStory = (props: CardProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'text.primary', classType: 'text' });

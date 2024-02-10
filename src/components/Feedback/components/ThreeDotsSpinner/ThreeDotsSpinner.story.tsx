@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import type { ThemeRadiusArr } from '@common/types';
 
 import { Center } from '@components/Layout';
@@ -60,7 +58,7 @@ export default {
 	}
 } as ThreeDotsSpinnerStoryMeta;
 
-export const ThreeDotsSpinner: ThreeDotsSpinnerStory = (props: ThreeDotsSpinnerProps<any>): ReactElement => (
+export const ThreeDotsSpinner: ThreeDotsSpinnerStory = (props: ThreeDotsSpinnerProps<any>): JSX.Element => (
 	<Center w='auto'>
 		<ThreeDotsSpinnerComponent {...props} />
 	</Center>

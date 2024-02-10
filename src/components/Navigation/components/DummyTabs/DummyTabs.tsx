@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import {
@@ -50,7 +49,7 @@ export const DummyTabsContext = createContext<DummyTabsContextType<DummyTabsDefa
 const DummyTabs = forwardRef(function DummyTabs<Element extends DummyTabsElement>(
 	props: DummyTabsProps<Element>,
 	ref: DummyTabsRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		id = __DEFAULT_DUMMY_TABS_ID__,

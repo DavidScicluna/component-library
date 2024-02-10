@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -24,7 +23,7 @@ const classNames = require('classnames');
 
 const CarouselArrowIconButtonGroup = forwardRef(function CarouselArrowIconButtonGroup<
 	Element extends CarouselArrowIconButtonGroupElement
->(props: CarouselArrowIconButtonGroupProps<Element>, ref: CarouselArrowIconButtonGroupRef<Element>): ReactElement {
+>(props: CarouselArrowIconButtonGroupProps<Element>, ref: CarouselArrowIconButtonGroupRef<Element>): JSX.Element {
 	const { spacing: __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_SPACING__, variant } = useCarouselContext();
 
 	const {

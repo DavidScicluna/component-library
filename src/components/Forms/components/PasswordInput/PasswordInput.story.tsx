@@ -1,4 +1,4 @@
-import { type ReactElement, useState } from 'react';
+import { useState } from 'react';
 
 import { IconButton, IconButtonIcon } from '@components/Buttons';
 import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
@@ -113,7 +113,7 @@ export default {
 
 export const PasswordInput: PasswordInputStory = (
 	props: PasswordInputProps<PasswordInputDefaultElement>
-): ReactElement => {
+): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const [value, setValue] = useState<string>('');

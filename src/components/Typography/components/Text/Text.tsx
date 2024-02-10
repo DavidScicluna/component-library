@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { merge } from 'lodash-es';
@@ -31,7 +30,7 @@ const classNames = require('classnames');
 const Text = forwardRef(function Text<Element extends TextElement>(
 	props: TextProps<Element>,
 	ref: TextRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		as = __DEFAULT_TEXT_AS__,

@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -23,7 +22,7 @@ const classNames = require('classnames');
 const LinearGradient = forwardRef(function LinearGradient<Element extends PolymorphicElementType>(
 	props: LinearGradientProps<Element>,
 	ref: LinearGradientRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		className = __DEFAULT_CLASSNAME__,
 		direction: directionProp = __DEFAULT_LINEAR_GRADIENT_DIRECTION__,

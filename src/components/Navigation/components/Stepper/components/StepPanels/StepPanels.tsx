@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { isArray } from 'lodash-es';
@@ -32,7 +31,7 @@ const StepPanel = <Element extends PolymorphicElementType>({ children, index }: 
 const StepPanels = forwardRef(function StepPanels<Element extends PolymorphicElementType>(
 	props: StepPanelsProps<Element>,
 	ref: StepPanelsRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { id } = useStepperContext();
 
 	const { children, className = __DEFAULT_CLASSNAME__, ...rest } = props;

@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
 import { compact, merge } from 'lodash-es';
@@ -54,7 +53,7 @@ const { interactivity } = classes;
 const Textarea = forwardRef(function Textarea<Element extends TextareaElement>(
 	props: TextareaProps<Element>,
 	ref: TextareaRef<Element>
-): ReactElement {
+): JSX.Element {
 	const textareaRef = useRef<PolymorphicElement<Element>>();
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 

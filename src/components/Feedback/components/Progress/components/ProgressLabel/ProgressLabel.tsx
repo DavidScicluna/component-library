@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -19,7 +18,7 @@ const classNames = require('classnames');
 const ProgressLabel = forwardRef(function ProgressLabel<Element extends ProgressLabelElement>(
 	props: ProgressLabelProps<Element>,
 	ref: ProgressLabelRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { colorMode } = useProgressContext();
 
 	const __DEFAULT_PROGRESS_LABEL_COLOR__ = useGetColor({

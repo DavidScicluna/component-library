@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { compact } from 'lodash-es';
@@ -43,7 +42,7 @@ export const DummyButtonContext = createContext<DummyButtonContextType<DummyButt
 const DummyButton = forwardRef(function DummyButton<Element extends DummyButtonElement>(
 	props: DummyButtonProps<Element>,
 	ref: DummyButtonRef<Element>
-): ReactElement {
+): JSX.Element {
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const {

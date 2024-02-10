@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { range } from 'lodash-es';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
@@ -79,7 +77,7 @@ export default {
 export const Carousel: CarouselStory = ({
 	orientation,
 	...rest
-}: CarouselProps<CarouselDefaultElement>): ReactElement => {
+}: CarouselProps<CarouselDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });

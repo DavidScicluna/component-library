@@ -1,4 +1,4 @@
-import { type ReactElement, useState } from 'react';
+import { useState } from 'react';
 
 import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
@@ -105,7 +105,7 @@ export default {
 	}
 } as EmailInputStoryMeta;
 
-export const EmailInput: EmailInputStory = (props: EmailInputProps<EmailInputDefaultElement>): ReactElement => {
+export const EmailInput: EmailInputStory = (props: EmailInputProps<EmailInputDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const [value, setValue] = useState<string>('');

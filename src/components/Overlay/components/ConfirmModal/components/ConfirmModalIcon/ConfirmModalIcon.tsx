@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -17,7 +16,7 @@ const classNames = require('classnames');
 const ConfirmModalIcon = forwardRef(function ConfirmModalIcon<Element extends ConfirmModalIconElement>(
 	props: ConfirmModalIconProps<Element>,
 	ref: ConfirmModalIconRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { color: __DEFAULT_CONFIRM_MODAL_ICON_COLOR__, colorMode: __DEFAULT_CONFIRM_MODAL_ICON_COLORMODE__ } =
 		useConfirmModalContext();
 

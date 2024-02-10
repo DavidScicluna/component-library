@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { Center } from '@components/Layout';
 
 import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
@@ -84,7 +82,7 @@ export default {
 	}
 } as DummyButtonStoryMeta;
 
-export const DummyButton: DummyButtonStory = (props: DummyButtonProps<any>): ReactElement => {
+export const DummyButton: DummyButtonStory = (props: DummyButtonProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

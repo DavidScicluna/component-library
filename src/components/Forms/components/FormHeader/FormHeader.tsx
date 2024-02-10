@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { compact } from 'lodash-es';
@@ -27,7 +26,7 @@ const classNames = require('classnames');
 const FormHeader = forwardRef(function FormHeader<Element extends PolymorphicElementType>(
 	props: FormHeaderProps<Element>,
 	ref: FormHeaderRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { color, colorMode, hasFormControl, spacing: __DEFAULT_FORM_HEADER_SPACING__ } = useFormControlContext();
 
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();

@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
@@ -36,7 +35,7 @@ export const IconButtonGroupContext = createContext<IconButtonGroupContextType<I
 const IconButtonGroup = forwardRef(function IconButtonGroup<Element extends IconButtonGroupElement>(
 	props: IconButtonGroupProps<Element>,
 	ref: IconButtonGroupRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		as = __DEFAULT_ICON_BUTTON_GROUP_AS__,

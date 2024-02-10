@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import type { ThemeRadiusArr } from '@common/types';
 
 import { Center } from '@components/Layout';
@@ -60,7 +58,7 @@ export default {
 	}
 } as TailSpinSpinnerStoryMeta;
 
-export const TailSpinSpinner: TailSpinSpinnerStory = (props: TailSpinSpinnerProps<any>): ReactElement => (
+export const TailSpinSpinner: TailSpinSpinnerStory = (props: TailSpinSpinnerProps<any>): JSX.Element => (
 	<Center w='auto'>
 		<TailSpinSpinnerComponent {...props} />
 	</Center>

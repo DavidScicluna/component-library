@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -21,7 +20,7 @@ const classNames = require('classnames');
 const ProgressSection = forwardRef(function ProgressSection<Element extends PolymorphicElementType>(
 	props: ProgressSectionProps<Element>,
 	ref: ProgressSectionRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { isIndeterminate, max, min, variant } = useProgressContext();
 
 	const {

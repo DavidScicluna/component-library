@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -19,7 +18,7 @@ const classNames = require('classnames');
 const MessageActions = forwardRef(function MessageActions<Element extends PolymorphicElementType>(
 	props: MessageActionsProps<Element>,
 	ref: MessageActionsRef<Element>
-): ReactElement {
+): JSX.Element {
 	const isSm = useMediaQuery({ breakpoint: 'sm', type: 'width', direction: 'max' });
 
 	const { color, colorMode, spacing: __DEFAULT_MESSAGE_ACTIONS_SPACING__ } = useMessageContext();

@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useEffect } from 'react';
 
 import { compact, debounce } from 'lodash-es';
@@ -31,7 +30,7 @@ const classNames = require('classnames');
 const CarouselDots = forwardRef(function CarouselDots<Element extends PolymorphicElementType>(
 	props: CarouselDotsProps<Element>,
 	ref: CarouselDotsRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		color: __DEFAULT_CAROUSEL_DOTS_COLOR__,
 		colorMode: __DEFAULT_CAROUSEL_DOTS_COLORMODE__,

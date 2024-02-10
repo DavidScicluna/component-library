@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -16,7 +15,7 @@ const classNames = require('classnames');
 
 const CarouselLeftLinearGradient = forwardRef(function CarouselLeftLinearGradient<
 	Element extends PolymorphicElementType
->(props: CarouselLeftLinearGradientProps<Element>, ref: CarouselLeftLinearGradientRef<Element>): ReactElement {
+>(props: CarouselLeftLinearGradientProps<Element>, ref: CarouselLeftLinearGradientRef<Element>): JSX.Element {
 	const { className = __DEFAULT_CLASSNAME__, ...rest } = props;
 
 	const { isVisible } = useCarouselArrowState('left');

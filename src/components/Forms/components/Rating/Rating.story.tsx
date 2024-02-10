@@ -1,4 +1,4 @@
-import { type ReactElement, useState } from 'react';
+import { useState } from 'react';
 
 import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
@@ -98,7 +98,7 @@ export default {
 	}
 } as RatingStoryMeta;
 
-export const Rating: RatingStory = (props: RatingProps<any>): ReactElement => {
+export const Rating: RatingStory = (props: RatingProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const [value, setValue] = useState<number>(0);

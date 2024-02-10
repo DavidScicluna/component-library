@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -18,7 +17,7 @@ const classNames = require('classnames');
 const IconButtonIcon = forwardRef(function IconButtonIcon<Element extends IconButtonIconElement>(
 	props: IconButtonIconProps<Element>,
 	ref: IconButtonIconRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		color: __DEFAULT_ICON_BUTTON_ICON_COLOR__,
 		colorMode: __DEFAULT_ICON_BUTTON_ICON_COLORMODE__,

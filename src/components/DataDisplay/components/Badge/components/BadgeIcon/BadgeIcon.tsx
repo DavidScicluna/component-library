@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -18,7 +17,7 @@ const classNames = require('classnames');
 const BadgeIcon = forwardRef(function BadgeIcon<Element extends BadgeIconElement>(
 	props: BadgeIconProps<Element>,
 	ref: BadgeIconRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		color: __DEFAULT_BADGE_ICON_COLOR__,
 		colorMode: __DEFAULT_BADGE_ICON_COLORMODE__,

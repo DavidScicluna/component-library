@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { range } from 'lodash-es';
 
 import classes from '@common/classes';
@@ -71,7 +69,7 @@ export default {
 	}
 } as HStackStoryMeta;
 
-export const HStack: HStackStory = (props: HStackProps<any>): ReactElement => {
+export const HStack: HStackStory = (props: HStackProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

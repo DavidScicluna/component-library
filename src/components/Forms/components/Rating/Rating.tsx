@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useState } from 'react';
 
 import { range } from 'lodash-es';
@@ -38,7 +37,7 @@ const classNames = require('classnames');
 const Rating = forwardRef(function Rating<Element extends PolymorphicElementType>(
 	props: RatingProps<Element>,
 	ref: RatingRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		color: __DEFAULT_FORM_CONTROL_COLOR__,
 		colorMode: __DEFAULT_FORM_CONTROL_COLORMODE__,

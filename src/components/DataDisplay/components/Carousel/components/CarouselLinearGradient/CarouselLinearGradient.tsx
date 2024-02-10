@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -22,7 +21,7 @@ const classNames = require('classnames');
 const CarouselLinearGradient = forwardRef(function CarouselLinearGradient<Element extends PolymorphicElementType>(
 	props: CarouselLinearGradientProps<Element>,
 	ref: CarouselLinearGradientRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { colorMode: __DEFAULT_CAROUSEL_LINEAR_GRADIENT_COLORMODE__ } = useAppTheme();
 
 	const { colorMode = __DEFAULT_CAROUSEL_LINEAR_GRADIENT_COLORMODE__, orientation } = useCarouselContext();

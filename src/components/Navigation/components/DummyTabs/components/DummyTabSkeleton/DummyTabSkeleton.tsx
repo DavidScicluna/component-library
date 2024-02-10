@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -20,7 +19,7 @@ const classNames = require('classnames');
 const DummyTabSkeleton = forwardRef(function DummyTabSkeleton<Element extends PolymorphicElementType>(
 	props: DummyTabSkeletonProps<Element>,
 	ref: DummyTabSkeletonRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { color: __DEFAULT_DUMMY_TAB_SKELETON_COLOR__, colorMode: __DEFAULT_DUMMY_TAB_SKELETON_COLORMODE__ } =
 		useDummyTabsContext();
 

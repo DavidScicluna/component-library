@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { createContext, forwardRef, useCallback, useMemo } from 'react';
 
 import { compact, round } from 'lodash-es';
@@ -39,7 +38,7 @@ export const AlertContext = createContext<AlertContextType<AlertDefaultElement>>
 const Alert = forwardRef(function Alert<Element extends AlertElement>(
 	props: AlertProps<Element>,
 	ref: AlertRef<Element>
-): ReactElement {
+): JSX.Element {
 	const theme = useTheme();
 
 	const {

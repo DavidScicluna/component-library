@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -19,7 +18,7 @@ const classNames = require('classnames');
 const ModalStack = forwardRef(function ModalStack<Element extends PolymorphicElementType>(
 	props: ModalStackProps<Element>,
 	ref: ModalStackRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { colorMode, spacing: __DEFAULT_MODAL_STACK_SPACING__ } = useModalContext();
 
 	const {

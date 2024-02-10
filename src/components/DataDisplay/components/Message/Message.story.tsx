@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { sample } from 'lodash-es';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
@@ -53,7 +51,7 @@ export default {
 	}
 } as MessageStoryMeta;
 
-export const Message: MessageStory = (props: MessageProps<any>): ReactElement => {
+export const Message: MessageStory = (props: MessageProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

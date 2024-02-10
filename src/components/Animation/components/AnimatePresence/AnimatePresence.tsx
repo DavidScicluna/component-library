@@ -1,10 +1,8 @@
-import type { ReactElement } from 'react';
-
 import { AnimatePresence as FMAnimatePresence } from 'framer-motion';
 
 import type { AnimatePresenceProps } from './common/types';
 
-const AnimatePresence = ({ children, ...rest }: AnimatePresenceProps): ReactElement => (
+const AnimatePresence = ({ children, ...rest }: AnimatePresenceProps): JSX.Element => (
 	<FMAnimatePresence mode='wait' initial={false} {...rest}>
 		{children}
 	</FMAnimatePresence>

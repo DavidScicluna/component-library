@@ -1,4 +1,4 @@
-import { forwardRef, type ReactElement } from 'react';
+import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
@@ -19,7 +19,7 @@ const classNames = require('classnames');
 const CardStack = forwardRef(function CardStack<Element extends PolymorphicElementType>(
 	props: CardStackProps<Element>,
 	ref: CardStackRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { isCollapsable, isDivisible, isOpen, onHover, spacing: __DEFAULT_CARD_STACK_SPACING__ } = useCardContext();
 
 	const {

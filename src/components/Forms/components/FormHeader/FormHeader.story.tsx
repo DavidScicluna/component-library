@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { FormDescription } from '../FormDescription';
 import { FormLabel } from '../FormLabel';
 
@@ -12,7 +10,7 @@ export default {
 	component: FormHeaderComponent
 } as FormHeaderStoryMeta;
 
-export const FormHeader: FormHeaderStory = (props: FormHeaderProps<any>): ReactElement => {
+export const FormHeader: FormHeaderStory = (props: FormHeaderProps<any>): JSX.Element => {
 	return (
 		<FormHeaderComponent
 			{...props}

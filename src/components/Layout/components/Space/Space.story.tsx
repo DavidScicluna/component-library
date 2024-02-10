@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 
@@ -38,7 +36,7 @@ export default {
 	}
 } as SpaceStoryMeta;
 
-export const Space: SpaceStory = (props: SpaceProps<any>): ReactElement => {
+export const Space: SpaceStory = (props: SpaceProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -22,7 +21,7 @@ const classNames = require('classnames');
 const GridItem = forwardRef(function Grid<Element extends PolymorphicElementType>(
 	props: GridItemProps<Element>,
 	ref: GridItemRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

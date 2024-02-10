@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useEffect } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
@@ -33,7 +32,7 @@ const classNames = require('classnames');
 const Image = forwardRef(function Image<Element extends PolymorphicElementType>(
 	props: ImageProps<Element>,
 	ref: ImageRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		className = __DEFAULT_CLASSNAME__,
 		color,

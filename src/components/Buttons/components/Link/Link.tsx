@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useCallback } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -22,7 +21,7 @@ const classNames = require('classnames');
 const Link = forwardRef(function Link<Element extends LinkElement>(
 	props: LinkProps<Element>,
 	ref: LinkRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		as = __DEFAULT_LINK_AS__,

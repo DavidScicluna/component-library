@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ReactElement } from 'react';
 import { cloneElement, forwardRef, useCallback, useRef } from 'react';
 
 import {
@@ -48,7 +47,7 @@ const classNames = require('classnames');
 const Tooltip = forwardRef(function Tooltip<Element extends PolymorphicElementType>(
 	props: TooltipProps<Element>,
 	ref: TooltipRef<Element>
-): ReactElement {
+): JSX.Element {
 	const arrowRef = useRef<HTMLElement>(null);
 
 	const {

@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 
@@ -19,7 +17,7 @@ export default {
 	component: FormComponent
 } as FormStoryMeta;
 
-export const Form: FormStory = (props: FormProps<FormDefaultElement>): ReactElement => {
+export const Form: FormStory = (props: FormProps<FormDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

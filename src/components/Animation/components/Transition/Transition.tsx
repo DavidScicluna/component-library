@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
 import { motion } from 'framer-motion';
@@ -38,7 +37,7 @@ const MotionBox: any = motion(Box);
 const Transition = forwardRef(function Transition<Element extends PolymorphicElementType>(
 	props: TransitionProps<Element>,
 	ref: TransitionRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

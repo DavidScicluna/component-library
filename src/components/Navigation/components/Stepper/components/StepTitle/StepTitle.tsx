@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -22,7 +21,7 @@ const classNames = require('classnames');
 const StepTitle = forwardRef(function StepTitle<Element extends StepTitleElement>(
 	props: StepTitleProps<Element>,
 	ref: StepTitleRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { colorMode, size, id: stepperID } = useStepperContext();
 	const { id, index } = useStepContext();
 

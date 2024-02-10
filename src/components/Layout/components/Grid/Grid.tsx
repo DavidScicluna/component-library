@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { merge } from 'lodash-es';
@@ -27,7 +26,7 @@ const classNames = require('classnames');
 const Grid = forwardRef(function Grid<Element extends PolymorphicElementType>(
 	props: GridProps<Element>,
 	ref: GridRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

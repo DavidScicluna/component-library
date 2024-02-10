@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -31,7 +30,7 @@ const classNames = require('classnames');
 
 const CarouselOverlayArrowIconButton = forwardRef(function CarouselOverlayArrowIconButton<
 	Element extends CarouselOverlayArrowIconButtonElement
->(props: CarouselOverlayArrowIconButtonProps<Element>, ref: CarouselOverlayArrowIconButtonRef<Element>): ReactElement {
+>(props: CarouselOverlayArrowIconButtonProps<Element>, ref: CarouselOverlayArrowIconButtonRef<Element>): JSX.Element {
 	const { colorMode, spacing, orientation } = useCarouselContext();
 
 	const {

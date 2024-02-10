@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -23,7 +22,7 @@ const classNames = require('classnames');
 const AlertIcon = forwardRef(function AlertIcon<Element extends AlertIconElement>(
 	props: AlertIconProps<Element>,
 	ref: AlertIconRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		color: __DEFAULT_ALERT_ICON_COLOR__,
 		colorMode: __DEFAULT_ALERT_ICON_COLORMODE__,

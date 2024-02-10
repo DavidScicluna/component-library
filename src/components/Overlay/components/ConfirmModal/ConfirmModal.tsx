@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { createContext, forwardRef, useCallback } from 'react';
 
 import {
@@ -65,7 +64,7 @@ export const ConfirmModalContext = createContext<ConfirmModalContextType<Confirm
 const ConfirmModal = forwardRef(function ConfirmModal<Element extends ConfirmModalElement>(
 	props: ConfirmModalProps<Element>,
 	ref: ConfirmModalRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		as = __DEFAULT_CONFIRM_MODAL_AS__,
 		children,

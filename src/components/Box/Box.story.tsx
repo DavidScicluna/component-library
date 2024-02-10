@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import classes from '@common/classes';
 import { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
@@ -39,7 +37,7 @@ export default {
 	}
 } as BoxStoryMeta;
 
-export const Box: BoxStory = (props: BoxProps<any>): ReactElement => {
+export const Box: BoxStory = (props: BoxProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

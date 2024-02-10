@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { __DEFAULT_BORDER_WIDTH__, __DEFAULT_SPACING__ } from '@common/constants';
 import type { ThemeBorderWidthArr } from '@common/types';
 
@@ -66,7 +64,7 @@ export default {
 	}
 } as DividerStoryMeta;
 
-export const Divider: DividerStory = (props: DividerProps<DividerDefaultElement>): ReactElement => {
+export const Divider: DividerStory = (props: DividerProps<DividerDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

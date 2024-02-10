@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { useGetColor } from '@common/hooks';
 import type { ThemeBlurClassArr, ThemeRadiusArr } from '@common/types';
 
@@ -116,7 +114,7 @@ export default {
 	}
 } as PositionOverlayStoryMeta;
 
-export const PositionOverlay: PositionOverlayStory = (props: PositionOverlayProps<any>): ReactElement => {
+export const PositionOverlay: PositionOverlayStory = (props: PositionOverlayProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const overlay = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'bg' });

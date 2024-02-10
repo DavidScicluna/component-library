@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { useGetColor } from '@common/hooks';
 
 import { AspectRatio, Center } from '@components/Layout';
@@ -57,7 +55,7 @@ export default {
 	}
 } as IndicatorStoryMeta;
 
-export const Indicator: IndicatorStory = (props: IndicatorProps<any>): ReactElement => {
+export const Indicator: IndicatorStory = (props: IndicatorProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const overlay = useGetColor({ color, colorMode, colorType: 'color', hueType: 'divider', classType: 'bg' });

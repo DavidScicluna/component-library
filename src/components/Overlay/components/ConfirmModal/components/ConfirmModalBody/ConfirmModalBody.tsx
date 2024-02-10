@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -17,7 +16,7 @@ const classNames = require('classnames');
 const ConfirmModalBody = forwardRef(function ConfirmModalBody<Element extends PolymorphicElementType>(
 	props: ConfirmModalBodyProps<Element>,
 	ref: ConfirmModalBodyRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

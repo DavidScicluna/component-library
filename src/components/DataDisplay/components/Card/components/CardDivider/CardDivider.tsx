@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_COLOR__ } from '@common/constants';
@@ -19,7 +18,7 @@ const classNames = require('classnames');
 const CardDivider = forwardRef(function CardDivider<Element extends CardDividerElement>(
 	props: CardDividerProps<Element>,
 	ref: CardDividerRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { colorMode: __DEFAULT_CARD_DIVIDER_COLORMODE__ } = useAppTheme();
 
 	const {

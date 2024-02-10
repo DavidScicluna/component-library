@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 
@@ -20,7 +18,7 @@ export default {
 	component: VisuallyHiddenComponent
 } as VisuallyHiddenStoryMeta;
 
-export const VisuallyHidden: VisuallyHiddenStory = (props: VisuallyHiddenProps<any>): ReactElement => {
+export const VisuallyHidden: VisuallyHiddenStory = (props: VisuallyHiddenProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { Center } from '@components/Layout';
 
 import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
@@ -100,7 +98,7 @@ export default {
 	}
 } as IconButtonStoryMeta;
 
-export const IconButton: IconButtonStory = (props: IconButtonProps<IconButtonDefaultElement>): ReactElement => {
+export const IconButton: IconButtonStory = (props: IconButtonProps<IconButtonDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

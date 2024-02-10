@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_APP_COLOR__, __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -21,7 +20,7 @@ const classNames = require('classnames');
 const StepStatus = forwardRef(function StepStatus<Element extends StepStatusElement>(
 	props: StepStatusProps<Element>,
 	ref: StepStatusRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { color, colorMode, index: step, size } = useStepperContext();
 	const { index, status } = useStepContext();
 

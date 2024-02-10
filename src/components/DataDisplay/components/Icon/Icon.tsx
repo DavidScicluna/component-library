@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { merge } from 'lodash-es';
@@ -29,7 +28,7 @@ const classNames = require('classnames');
 const Icon = forwardRef(function Icon<Element extends IconElement>(
 	props: IconProps<Element>,
 	ref: IconRef<Element>
-): ReactElement {
+): JSX.Element {
 	const fonts = useIconFontContext();
 
 	const {

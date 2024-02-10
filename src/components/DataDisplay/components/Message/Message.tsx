@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
@@ -28,7 +27,7 @@ export const MessageContext = createContext<MessageContextType<MessageDefaultEle
 const Message = forwardRef(function Message<Element extends MessageElement>(
 	props: MessageProps<Element>,
 	ref: MessageRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		as = __DEFAULT_MESSAGE_AS__,

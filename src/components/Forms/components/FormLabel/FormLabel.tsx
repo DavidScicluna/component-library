@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -27,7 +26,7 @@ const classNames = require('classnames');
 const FormLabel = forwardRef(function FormLabel<Element extends FormLabelElement>(
 	props: FormLabelProps<Element>,
 	ref: FormLabelRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { colorMode, id, isError, isRequired, isWarning, isSuccess, size } = useFormControlContext();
 
 	const __DEFAULT_FORM_LABEL_COLOR__ = useGetColor({

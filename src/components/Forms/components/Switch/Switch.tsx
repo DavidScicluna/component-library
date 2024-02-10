@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
 import { compact } from 'lodash-es';
@@ -56,7 +55,7 @@ const classNames = require('classnames');
 const Switch = forwardRef(function Switch<Element extends PolymorphicElementType>(
 	props: SwitchProps<Element>,
 	ref: SwitchRef<Element>
-): ReactElement {
+): JSX.Element {
 	const pushableOverlayRef = useRef<PolymorphicElement<PolymorphicDefaultElement>>(null);
 
 	const {

@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { Center } from '@components/Layout';
 
 import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
@@ -32,7 +30,7 @@ export default {
 	}
 } as CopyButtonStoryMeta;
 
-export const CopyButton: CopyButtonStory = (props: CopyButtonProps): ReactElement => {
+export const CopyButton: CopyButtonStory = (props: CopyButtonProps): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

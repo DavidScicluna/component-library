@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -23,7 +22,7 @@ const classNames = require('classnames');
 const DeleteIconButton = forwardRef(function DeleteIconButton<Element extends DeleteIconButtonElement>(
 	props: DeleteIconButtonProps<Element>,
 	ref: DeleteIconButtonRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		as = __DEFAULT_DELETE_ICON_BUTTON_AS__,
 		className = __DEFAULT_CLASSNAME__,

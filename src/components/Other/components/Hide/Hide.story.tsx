@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { useGetColor } from '@common/hooks';
 
 import { Center } from '@components/Layout';
@@ -27,7 +25,7 @@ export default {
 	}
 } as HideStoryMeta;
 
-export const Hide: HideStory = (props: HideProps): ReactElement => {
+export const Hide: HideStory = (props: HideProps): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });

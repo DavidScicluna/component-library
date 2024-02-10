@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import classes from '@common/classes';
 import { __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
@@ -47,7 +45,7 @@ export default {
 	}
 } as SkeletonStoryMeta;
 
-export const Skeleton: SkeletonStory = (props: SkeletonProps<any>): ReactElement => {
+export const Skeleton: SkeletonStory = (props: SkeletonProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

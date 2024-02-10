@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
 import { compact } from 'lodash-es';
@@ -37,7 +36,7 @@ const classNames = require('classnames');
 const Tab = forwardRef(function Tab<Element extends TabElement>(
 	props: TabProps<Element>,
 	ref: TabRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		color: __DEFAULT_TAB_COLOR__,
 		colorMode: __DEFAULT_TAB_COLORMODE__,

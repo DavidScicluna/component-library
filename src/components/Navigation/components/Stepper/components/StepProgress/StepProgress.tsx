@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -18,7 +17,7 @@ const classNames = require('classnames');
 const StepProgress = forwardRef(function StepProgress<Element extends StepProgressElement>(
 	props: StepProgressProps<Element>,
 	ref: StepProgressRef<Element>
-): ReactElement {
+): JSX.Element {
 	const theme = useTheme();
 
 	const {

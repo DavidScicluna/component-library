@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -16,7 +15,7 @@ const classNames = require('classnames');
 const ModalBody = forwardRef(function ModalBody<Element extends PolymorphicElementType>(
 	props: ModalBodyProps<Element>,
 	ref: ModalBodyRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { children, className = __DEFAULT_CLASSNAME__, ...rest } = props;
 
 	return (

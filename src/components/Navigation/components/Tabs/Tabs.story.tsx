@@ -1,4 +1,4 @@
-import { type ReactElement, useState } from 'react';
+import { useState } from 'react';
 
 import { range, sample } from 'lodash-es';
 
@@ -76,7 +76,7 @@ export default {
 	}
 } as TabsStoryMeta;
 
-export const Tabs: TabsStory = (props: TabsProps<any>): ReactElement => {
+export const Tabs: TabsStory = (props: TabsProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });

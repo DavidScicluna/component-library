@@ -1,5 +1,3 @@
-import { type ReactElement } from 'react';
-
 import { range, sample } from 'lodash-es';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
@@ -69,7 +67,7 @@ export default {
 	}
 } as DummyTabsStoryMeta;
 
-export const DummyTabs: DummyTabsStory = (props: DummyTabsProps<DummyTabsDefaultElement>): ReactElement => {
+export const DummyTabs: DummyTabsStory = (props: DummyTabsProps<DummyTabsDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });

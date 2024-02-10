@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -23,7 +22,7 @@ const classNames = require('classnames');
 const FormHelperText = forwardRef(function FormHelperText<Element extends FormHelperTextElement>(
 	props: FormHelperTextProps<Element>,
 	ref: FormHelperTextRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { colorMode, isError, isWarning, isSuccess, size } = useFormControlContext();
 
 	const __DEFAULT_FORM_HELPER_TEXT_COLOR__ = useGetColor({

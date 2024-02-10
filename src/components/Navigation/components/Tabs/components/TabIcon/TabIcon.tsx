@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -18,7 +17,7 @@ const classNames = require('classnames');
 const TabIcon = forwardRef(function TabIcon<Element extends TabIconElement>(
 	props: TabIconProps<Element>,
 	ref: TabIconRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { color: __DEFAULT_TAB_ICON_COLOR__, colorMode: __DEFAULT_TAB_ICON_COLORMODE__, size } = useTabsContext();
 
 	const {

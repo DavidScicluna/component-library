@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { range } from 'lodash-es';
 
 import classes from '@common/classes';
@@ -84,7 +82,7 @@ export default {
 	}
 } as StackStoryMeta;
 
-export const Stack: StackStory = (props: StackProps<any>): ReactElement => {
+export const Stack: StackStory = (props: StackProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -17,7 +16,7 @@ const classNames = require('classnames');
 const HoverOverlay = forwardRef(function HoverOverlay<Element extends PolymorphicElementType>(
 	props: HoverOverlayProps<Element>,
 	ref: HoverOverlayRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { children, className = __DEFAULT_CLASSNAME__, onMouseEnter, onMouseLeave, ...rest } = props;
 
 	const [isHovering, setIsHovering] = useBoolean();

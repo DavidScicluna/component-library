@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import classes from '@common/classes';
 import { __DEFAULT_DURATION__, __DEFAULT_EASING__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
@@ -91,7 +89,7 @@ export default {
 	}
 } as TransitionStoryMeta;
 
-export const Transition: TransitionStory = (props: TransitionProps<any>): ReactElement => {
+export const Transition: TransitionStory = (props: TransitionProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

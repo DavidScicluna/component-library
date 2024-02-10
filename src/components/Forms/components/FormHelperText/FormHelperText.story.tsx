@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import type { FormHelperTextProps } from './common/types';
 import type { FormHelperTextStory, FormHelperTextStoryMeta } from './common/types/story';
 import { FormHelperText as FormHelperTextComponent } from '.';
@@ -18,6 +16,6 @@ export default {
 	}
 } as FormHelperTextStoryMeta;
 
-export const FormHelperText: FormHelperTextStory = (props: FormHelperTextProps<any>): ReactElement => {
+export const FormHelperText: FormHelperTextStory = (props: FormHelperTextProps<any>): JSX.Element => {
 	return <FormHelperTextComponent {...props} />;
 };

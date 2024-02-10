@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -18,7 +17,7 @@ const classNames = require('classnames');
 const ConfirmModalBackdrop = forwardRef(function ConfirmModalBackdrop<Element extends PolymorphicElementType>(
 	props: ConfirmModalBackdropProps<Element>,
 	ref: ConfirmModalBackdropRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { color, colorMode } = useConfirmModalContext();
 
 	const { className = __DEFAULT_CLASSNAME__, ...rest } = props;

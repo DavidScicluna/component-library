@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { createContext, forwardRef, useMemo } from 'react';
 
 import { compact } from 'lodash-es';
@@ -53,7 +52,7 @@ export const StepContext = createContext<StepContextType<StepDefaultElement>>({
 const Step = forwardRef(function Step<Element extends StepElement>(
 	props: StepProps<Element>,
 	ref: StepRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		color: __DEFAULT_STEP_COLOR__,
 		colorMode: __DEFAULT_STEP_COLORMODE__,

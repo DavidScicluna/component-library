@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -19,7 +18,7 @@ const classNames = require('classnames');
 const CardTitle = forwardRef(function CardTitle<Element extends CardTitleElement>(
 	props: CardTitleProps<Element>,
 	ref: CardTitleRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { colorMode } = useCardContext();
 
 	const __DEFAULT_CARD_TITLE_COLOR__ = useGetColor({

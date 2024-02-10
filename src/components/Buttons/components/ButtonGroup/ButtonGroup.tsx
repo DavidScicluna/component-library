@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
@@ -36,7 +35,7 @@ export const ButtonGroupContext = createContext<ButtonGroupContextType<ButtonGro
 const ButtonGroup = forwardRef(function ButtonGroup<Element extends ButtonGroupElement>(
 	props: ButtonGroupProps<Element>,
 	ref: ButtonGroupRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		as = __DEFAULT_BUTTON_GROUP_AS__,

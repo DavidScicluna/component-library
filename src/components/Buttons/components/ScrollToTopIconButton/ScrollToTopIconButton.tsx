@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { debounce } from 'lodash-es';
@@ -33,7 +32,7 @@ const classNames = require('classnames');
 const ScrollToTopIconButton = forwardRef(function ScrollToTopIconButton<Element extends ScrollToTopIconButtonElement>(
 	props: ScrollToTopIconButtonProps<Element>,
 	ref: ScrollToTopIconButtonRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { height: windowHeight = 0 } = useWindowSize();
 
 	const {

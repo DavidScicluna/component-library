@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -20,7 +19,7 @@ const classNames = require('classnames');
 const ModalTitle = forwardRef(function ModalTitle<Element extends ModalTitleElement>(
 	props: ModalTitleProps<Element>,
 	ref: ModalTitleRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { colorMode, id } = useModalContext();
 
 	const __DEFAULT_MODAL_TITLE_COLOR__ = useGetColor({

@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -24,7 +23,7 @@ const classNames = require('classnames');
 const BadgeCloseIconButton = forwardRef(function BadgeCloseIconButton<Element extends BadgeCloseIconButtonElement>(
 	props: BadgeCloseIconButtonProps<Element>,
 	ref: BadgeCloseIconButtonRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		color: __DEFAULT_BADGE_CLOSE_ICON_BUTTON_COLOR__,
 		colorMode: __DEFAULT_BADGE_CLOSE_ICON_BUTTON_COLORMODE__,

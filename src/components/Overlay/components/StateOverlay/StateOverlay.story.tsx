@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import classes from '@common/classes';
 import { useGetColor } from '@common/hooks';
 import { PuffSpinner } from '@components/Feedback';
@@ -49,7 +47,7 @@ export default {
 	}
 } as StateOverlayStoryMeta;
 
-export const StateOverlay: StateOverlayStory = (props: StateOverlayProps<any>): ReactElement => {
+export const StateOverlay: StateOverlayStory = (props: StateOverlayProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

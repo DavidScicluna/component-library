@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -19,7 +18,7 @@ const classNames = require('classnames');
 const ModalFooter = forwardRef(function ModalFooter<Element extends PolymorphicElementType>(
 	props: ModalFooterProps<Element>,
 	ref: ModalFooterRef<Element>
-): ReactElement {
+): JSX.Element {
 	const isSm = useMediaQuery({ breakpoint: 'sm', type: 'width', direction: 'max' });
 
 	const { color, colorMode, onClose, spacing: __DEFAULT_MODAL_FOOTER_SPACING__ } = useModalContext();

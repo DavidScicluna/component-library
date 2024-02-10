@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
 import { compact, merge } from 'lodash-es';
@@ -52,7 +51,7 @@ const classNames = require('classnames');
 const EmailInput = forwardRef(function EmailInput<Element extends EmailInputElement>(
 	props: EmailInputProps<Element>,
 	ref: EmailInputRef<Element>
-): ReactElement {
+): JSX.Element {
 	const emailInput = useRef<PolymorphicElement<Element>>();
 	const refs = useMergeRefs(ref, emailInput);
 

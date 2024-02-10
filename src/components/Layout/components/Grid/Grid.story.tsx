@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { range } from 'lodash-es';
 
 import classes from '@common/classes';
@@ -152,7 +150,7 @@ export default {
 	}
 } as GridStoryMeta;
 
-export const Grid: GridStory = (props: GridProps<any>): ReactElement => {
+export const Grid: GridStory = (props: GridProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

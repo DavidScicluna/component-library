@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { __DEFAULT_RADIUS__ } from '@common/constants';
 import type { ThemeRadiusArr } from '@common/types';
 
@@ -61,9 +59,7 @@ export default {
 	}
 } as DummyPushableOverlayStoryMeta;
 
-export const DummyPushableOverlay: DummyPushableOverlayStory = (
-	props: DummyPushableOverlayProps<any>
-): ReactElement => {
+export const DummyPushableOverlay: DummyPushableOverlayStory = (props: DummyPushableOverlayProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 
@@ -50,7 +48,7 @@ export default {
 	}
 } as AlertStoryMeta;
 
-export const Alert: AlertStory = (props: AlertProps<any>): ReactElement => {
+export const Alert: AlertStory = (props: AlertProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const [isOpen, setIsOpen] = useBoolean();

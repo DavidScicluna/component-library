@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { sample } from 'lodash-es';
 
 import { __DEFAULT_SPACING__ } from '@common/constants';
@@ -74,7 +72,7 @@ export default {
 	}
 } as ConfirmModalStoryMeta;
 
-export const ConfirmModal: ConfirmModalStory = (props: ConfirmModalProps<ConfirmModalDefaultElement>): ReactElement => {
+export const ConfirmModal: ConfirmModalStory = (props: ConfirmModalProps<ConfirmModalDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

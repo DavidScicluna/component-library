@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
@@ -39,7 +38,7 @@ export const ProgressContext = createContext<ProgressContextType<ProgressDefault
 const Progress = forwardRef(function Progress<Element extends ProgressElement>(
 	props: ProgressProps<Element>,
 	ref: ProgressRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		as = __DEFAULT_PROGRESS_AS__,

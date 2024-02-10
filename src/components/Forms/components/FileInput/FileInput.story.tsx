@@ -1,4 +1,4 @@
-import { type ReactElement, useState } from 'react';
+import { useState } from 'react';
 
 import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
@@ -105,7 +105,7 @@ export default {
 	}
 } as FileInputStoryMeta;
 
-export const FileInput: FileInputStory = (props: FileInputProps<FileInputDefaultElement>): ReactElement => {
+export const FileInput: FileInputStory = (props: FileInputProps<FileInputDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const [value, setValue] = useState<string>('');

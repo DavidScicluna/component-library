@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -17,7 +16,7 @@ const classNames = require('classnames');
 const MessageIcon = forwardRef(function MessageIcon<Element extends MessageIconElement>(
 	props: MessageIconProps<Element>,
 	ref: MessageIconRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { color: __DEFAULT_MESSAGE_ICON_COLOR__, colorMode: __DEFAULT_MESSAGE_ICON_COLORMODE__ } =
 		useMessageContext();
 

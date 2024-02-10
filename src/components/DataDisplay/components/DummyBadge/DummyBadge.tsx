@@ -1,7 +1,7 @@
-import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { compact } from 'lodash-es';
+// TODO: Replace all useElementSize
 import { useElementSize } from 'usehooks-ts';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -45,7 +45,7 @@ export const DummyBadgeContext = createContext<DummyBadgeContextType<DummyBadgeD
 const DummyBadge = forwardRef(function DummyBadge<Element extends DummyBadgeElement>(
 	props: DummyBadgeProps<Element>,
 	ref: DummyBadgeRef<Element>
-): ReactElement {
+): JSX.Element {
 	const [childrenRef, { width: childrenWidth, height: childrenHeight }] = useElementSize();
 
 	const {

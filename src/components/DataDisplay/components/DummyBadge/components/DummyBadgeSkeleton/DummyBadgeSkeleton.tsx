@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -20,7 +19,7 @@ const classNames = require('classnames');
 const DummyBadgeSkeleton = forwardRef(function DummyBadgeSkeleton<Element extends PolymorphicElementType>(
 	props: DummyBadgeSkeletonProps<Element>,
 	ref: DummyBadgeSkeletonRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { color, colorMode, variant } = useDummyBadgeContext();
 
 	const { children, className = __DEFAULT_CLASSNAME__, ...rest } = props;

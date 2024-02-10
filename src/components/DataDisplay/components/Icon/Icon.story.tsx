@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { sample } from 'lodash-es';
 
 import { icons } from '@common/data';
@@ -80,7 +78,7 @@ export default {
 	}
 } as IconStoryMeta;
 
-export const Icon: IconStory = (props: IconProps<IconDefaultElement>): ReactElement => {
+export const Icon: IconStory = (props: IconProps<IconDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -28,7 +27,7 @@ const classNames = require('classnames');
 const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends PolymorphicElementType>(
 	props: BackdropOverlayProps<Element>,
 	ref: BackdropOverlayRef<Element>
-): ReactElement {
+): JSX.Element {
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,

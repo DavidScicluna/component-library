@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 import { Puff } from 'react-loader-spinner';
 
@@ -21,7 +20,7 @@ const classNames = require('classnames');
 const PuffSpinner = forwardRef(function PuffSpinner<Element extends PolymorphicElementType>(
 	props: PuffSpinnerProps<Element>,
 	ref: PuffSpinnerRef<Element>
-): ReactElement {
+): JSX.Element {
 	const theme = useTheme();
 
 	const __DEFAULT_PUFFS_PINNER_COLOR__ = useGetColor({ colorType: 'default', hueType: 'default' });

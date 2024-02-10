@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { createContext, forwardRef } from 'react';
 
 import { sort } from 'fast-sort';
@@ -62,7 +61,7 @@ export const CarouselContext = createContext<CarouselContextType<CarouselDefault
 const Carousel = forwardRef(function Carousel<Element extends CarouselElement>(
 	props: CarouselProps<Element>,
 	ref: CarouselRef<Element>
-): ReactElement {
+): JSX.Element {
 	const [arrowRef, { width: arrowWidthSize, height: arrowHeightSize }] = useElementSize();
 
 	const [items, setItems] = useArrayState<CarouselItemType>(__DEFAULT_CAROUSEL_ITEMS__);

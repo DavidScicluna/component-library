@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import type { ThemeRadiusArr } from '@common/types';
 
 import { Center } from '@components/Layout';
@@ -60,7 +58,7 @@ export default {
 	}
 } as PuffSpinnerStoryMeta;
 
-export const PuffSpinner: PuffSpinnerStory = (props: PuffSpinnerProps<any>): ReactElement => (
+export const PuffSpinner: PuffSpinnerStory = (props: PuffSpinnerProps<any>): JSX.Element => (
 	<Center w='auto'>
 		<PuffSpinnerComponent {...props} />
 	</Center>

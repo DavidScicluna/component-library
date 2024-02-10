@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
 import { __DEFAULT_LINEAR_GRADIENT_DIRECTION__ } from './common/constants';
@@ -23,7 +21,7 @@ export default {
 	}
 } as LinearGradientStoryMeta;
 
-export const LinearGradient: LinearGradientStory = (props: LinearGradientProps<any>): ReactElement => {
+export const LinearGradient: LinearGradientStory = (props: LinearGradientProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

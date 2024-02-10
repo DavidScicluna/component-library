@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef, useMemo } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -20,7 +19,7 @@ const classNames = require('classnames');
 const CarouselDot = forwardRef(function CarouselDot<Element extends PolymorphicElementType>(
 	props: CarouselDotProps<Element>,
 	ref: CarouselDotRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { color: __DEFAULT_CAROUSEL_DOT_COLOR__, colorMode: __DEFAULT_CAROUSEL_DOT_COLORMODE__ } =
 		useCarouselContext();
 	const { isItemVisible, scrollToItem } = useCarouselManager();

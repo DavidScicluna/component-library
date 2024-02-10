@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -18,7 +17,7 @@ const classNames = require('classnames');
 const ModalHeader = forwardRef(function ModalHeader<Element extends PolymorphicElementType>(
 	props: ModalHeaderProps<Element>,
 	ref: ModalHeaderRef<Element>
-): ReactElement {
+): JSX.Element {
 	const { colorMode, onClose, spacing: __DEFAULT_MODAL_HEADER_SPACING__ } = useModalContext();
 
 	const {

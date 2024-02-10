@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 import { Button } from '@components/Buttons';
 
 import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
@@ -94,7 +92,7 @@ export default {
 	}
 } as TooltipStoryMeta;
 
-export const Tooltip: TooltipStory = (props: TooltipProps<any>): ReactElement => {
+export const Tooltip: TooltipStory = (props: TooltipProps<any>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (
