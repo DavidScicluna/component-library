@@ -13,7 +13,7 @@ import type { GlassOverlayProps } from '@components/Overlay';
 
 export type PositionOverlayBlurType = 'blur' | 'backdrop';
 
-export type PositionOverlayPlacement =
+export type PositionOverlayItemPlacement =
 	| 'bottom-center'
 	| 'bottom-end'
 	| 'bottom-start'
@@ -24,11 +24,22 @@ export type PositionOverlayPlacement =
 	| 'middle-end'
 	| 'middle-start';
 
-type PositionOverlayOtherProps<Element extends PolymorphicElementType> = ThemeAppAppearanceProps & {
+export type PositionOverlayItem = {
 	/**
 	 * Callback invoked to render the overlay
 	 */
 	renderOverlay: () => ReactNode;
+	/**
+	 * The position of the overlay item relative to child element
+	 *
+	 * @default 'middle-center'
+	 */
+	placement?: ResponsiveValue<PositionOverlayItemPlacement>;
+};
+export type PositionOverlayItems = Array<PositionOverlayItem>;
+
+type PositionOverlayOtherProps<Element extends PolymorphicElementType> = ThemeAppAppearanceProps & {
+	overlays: PositionOverlayItems;
 	/**
 	 * The amount to increase the transparency by, given as a decimal between 0 and 1
 	 *
@@ -47,12 +58,6 @@ type PositionOverlayOtherProps<Element extends PolymorphicElementType> = ThemeAp
 	 * @default 'backdrop'
 	 */
 	blurType?: ResponsiveValue<PositionOverlayBlurType>;
-	/**
-	 * The position of the overlay item relative to child element
-	 *
-	 * @default 'middle-center'
-	 */
-	placement?: ResponsiveValue<PositionOverlayPlacement>;
 	/**
 	 * The border radius of the position overlay container
 	 *

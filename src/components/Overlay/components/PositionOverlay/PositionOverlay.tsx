@@ -14,19 +14,36 @@ import {
 	__DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND__,
 	__DEFAULT_POSITION_OVERLAY_HAS_GLASS__,
 	__DEFAULT_POSITION_OVERLAY_IS_VISIBLE__,
-	__DEFAULT_POSITION_OVERLAY_PLACEMENT__,
+	__DEFAULT_POSITION_OVERLAY_ITEM_PLACEMENT__,
+	__DEFAULT_POSITION_OVERLAY_ITEMS__,
 	__DEFAULT_POSITION_OVERLAY_RADIUS__
 } from './common/constants';
 import {
 	usePositionOverlayClasses,
+	usePositionOverlayItemResponsiveValues,
+	usePositionOverlayItemStyles,
 	usePositionOverlayResponsiveValues,
 	usePositionOverlayStyles
 } from './common/hooks';
 import { __KEYS_POSITION_OVERLAY_CLASS__ } from './common/keys';
-import type { PositionOverlayProps, PositionOverlayRef } from './common/types';
+import type {
+	PositionOverlayItem as PositionOverlayItemProps,
+	PositionOverlayProps,
+	PositionOverlayRef
+} from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const classNames = require('classnames');
+
+const PositionOverlayItem = (props: PositionOverlayItemProps): JSX.Element => {
+	const { renderOverlay, placement: placementProp = __DEFAULT_POSITION_OVERLAY_ITEM_PLACEMENT__ } = props;
+
+	const { placement } = usePositionOverlayItemResponsiveValues({ placement: placementProp });
+
+	const styles = usePositionOverlayItemStyles({ placement });
+
+	return <Box sx={styles}>{renderOverlay()}</Box>;
+};
 
 const PositionOverlay = forwardRef(function PositionOverlay<Element extends PolymorphicElementType>(
 	props: PositionOverlayProps<Element>,
@@ -35,13 +52,13 @@ const PositionOverlay = forwardRef(function PositionOverlay<Element extends Poly
 	const {
 		children,
 		className = __DEFAULT_CLASSNAME__,
-		renderOverlay,
 		color,
 		colorMode,
+		overlays = __DEFAULT_POSITION_OVERLAY_ITEMS__,
 		backdropAmount: backdropAmountProp = __DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT__,
 		blur: blurProp = __DEFAULT_POSITION_OVERLAY_BLUR__,
 		blurType: blurTypeProp = __DEFAULT_POSITION_OVERLAY_BLUR_TYPE__,
-		placement: placementProp = __DEFAULT_POSITION_OVERLAY_PLACEMENT__,
+		// placement: placementProp = __DEFAULT_POSITION_OVERLAY_PLACEMENT__,
 		radius: radiusProp = __DEFAULT_POSITION_OVERLAY_RADIUS__,
 		isVisible: isVisibleProp = __DEFAULT_POSITION_OVERLAY_IS_VISIBLE__,
 		hasGlass: hasGlassProp = __DEFAULT_POSITION_OVERLAY_HAS_GLASS__,
@@ -49,12 +66,11 @@ const PositionOverlay = forwardRef(function PositionOverlay<Element extends Poly
 		...rest
 	} = props;
 
-	const { backdropAmount, blur, blurType, placement, radius, isVisible, hasGlass, hasBackground } =
+	const { backdropAmount, blur, blurType, radius, isVisible, hasGlass, hasBackground } =
 		usePositionOverlayResponsiveValues<Element>({
 			backdropAmount: backdropAmountProp,
 			blur: blurProp,
 			blurType: blurTypeProp,
-			placement: placementProp,
 			radius: radiusProp,
 			isVisible: isVisibleProp,
 			hasGlass: hasGlassProp,
@@ -62,7 +78,7 @@ const PositionOverlay = forwardRef(function PositionOverlay<Element extends Poly
 		});
 
 	const classes = usePositionOverlayClasses<Element>({ blur, blurType, radius, hasGlass });
-	const styles = usePositionOverlayStyles<Element>({ color, colorMode, backdropAmount, placement, hasBackground });
+	const styles = usePositionOverlayStyles<Element>({ color, colorMode, backdropAmount, hasBackground });
 
 	return (
 		<Grid
@@ -80,7 +96,9 @@ const PositionOverlay = forwardRef(function PositionOverlay<Element extends Poly
 			<GridItem columnStart={1} rowStart={1} zIndex={1}>
 				<Transition w='100%' h='100%' transition='fade' in={isVisible}>
 					<Box className={classes.overlay} w='100%' h='100%' sx={styles.overlay}>
-						<Box sx={styles.position}>{renderOverlay()}</Box>
+						{overlays.map((overlay, index) => (
+							<PositionOverlayItem {...overlay} key={index} />
+						))}
 					</Box>
 				</Transition>
 			</GridItem>

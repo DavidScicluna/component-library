@@ -15,7 +15,7 @@ import {
 	__DEFAULT_POSITION_OVERLAY_IS_VISIBLE__,
 	__DEFAULT_POSITION_OVERLAY_RADIUS__
 } from './common/constants';
-import type { PositionOverlayBlurType, PositionOverlayPlacement, PositionOverlayProps } from './common/types';
+import type { PositionOverlayBlurType, PositionOverlayProps } from './common/types';
 import type { PositionOverlayStory, PositionOverlayStoryMeta } from './common/types/story';
 import { PositionOverlay as PositionOverlayComponent } from '.';
 
@@ -64,24 +64,6 @@ export default {
 			options: ['backdrop', 'blur'] as Array<PositionOverlayBlurType>,
 			control: { type: 'radio' }
 		},
-		placement: {
-			name: 'Placement',
-			type: 'string',
-			defaultValue: __DEFAULT_POSITION_OVERLAY_RADIUS__,
-			// description: '',
-			options: [
-				'bottom-center',
-				'bottom-end',
-				'bottom-start',
-				'top-end',
-				'top-start',
-				'top-center',
-				'middle-center',
-				'middle-end',
-				'middle-start'
-			] as Array<PositionOverlayPlacement>,
-			control: { type: 'radio' }
-		},
 		radius: {
 			name: 'Radius',
 			type: 'string',
@@ -124,9 +106,22 @@ export const PositionOverlay: PositionOverlayStory = (props: PositionOverlayProp
 	return (
 		<PositionOverlayComponent
 			{...props}
-			renderOverlay={() => <Center w='24px' h='24px' className={classNames(overlay)} />}
 			color={color}
 			colorMode={colorMode}
+			overlays={[
+				{
+					renderOverlay: () => <Center w='24px' h='24px' className={classNames(overlay)} />,
+					placement: 'middle-start'
+				},
+				{
+					renderOverlay: () => <Center w='24px' h='24px' className={classNames(overlay)} />,
+					placement: 'middle-center'
+				},
+				{
+					renderOverlay: () => <Center w='24px' h='24px' className={classNames(overlay)} />,
+					placement: 'middle-end'
+				}
+			]}
 		>
 			<AspectRatio ratio='video'>
 				<Center className={classNames(background)} w='100%' h='100%' p={4}>
