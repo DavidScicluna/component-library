@@ -1,26 +1,7 @@
 import classes from '@common/classes';
 import { __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetClass } from '@common/hooks';
-import type {
-	BackgroundAttachmentClass,
-	BackgroundBlendModeClass,
-	BackgroundClipClass,
-	BackgroundOriginClass,
-	BackgroundPositionClass,
-	BackgroundRepeatClass,
-	BackgroundSizeClass,
-	BrightnessClass,
-	ClassName,
-	ContrastClass,
-	GrayscaleClass,
-	HueRotateClass,
-	InvertClass,
-	PolymorphicElementType,
-	SaturateClass,
-	SepiaClass,
-	ThemeBlurClass,
-	ThemeRadius
-} from '@common/types';
+import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import {
 	__DEFAULT_BACKGROUND_IMAGE_ATTACHMENT__,
@@ -89,27 +70,24 @@ const useBackgroundImageClasses = <Element extends PolymorphicElementType>(
 		size = __DEFAULT_BACKGROUND_IMAGE_SIZE__
 	} = options;
 
-	const radiusClassName = useGetClass<ThemeRadius>(radius, ['borders', 'border_radius']);
+	const radiusClassName = useGetClass((classes) => classes.borders.border_radius[radius]);
 
-	const blurClassName = useGetClass<ThemeBlurClass>(blur, ['filters', 'blur']);
-	const brightnessClassName = useGetClass<BrightnessClass>(brightness, ['filters', 'brightness']);
-	const contrastClassName = useGetClass<ContrastClass>(contrast, ['filters', 'contrast']);
-	const grayscaleClassName = useGetClass<GrayscaleClass>(grayscale, ['filters', 'grayscale']);
-	const hueRotateClassName = useGetClass<HueRotateClass>(hueRotate, ['filters', 'hue_rotate']);
-	const invertClassName = useGetClass<InvertClass>(invert, ['filters', 'invert']);
-	const saturateClassName = useGetClass<SaturateClass>(saturate, ['filters', 'saturate']);
-	const sepiaClassName = useGetClass<SepiaClass>(sepia, ['filters', 'sepia']);
+	const blurClassName = useGetClass((classes) => classes.filters.blur[blur]);
+	const brightnessClassName = useGetClass((classes) => classes.filters.brightness[brightness]);
+	const contrastClassName = useGetClass((classes) => classes.filters.contrast[contrast]);
+	const grayscaleClassName = useGetClass((classes) => classes.filters.grayscale[grayscale]);
+	const hueRotateClassName = useGetClass((classes) => classes.filters.hue_rotate[hueRotate]);
+	const invertClassName = useGetClass((classes) => classes.filters.invert[invert]);
+	const saturateClassName = useGetClass((classes) => classes.filters.saturate[saturate]);
+	const sepiaClassName = useGetClass((classes) => classes.filters.sepia[sepia]);
 
-	const attachmentClassName = useGetClass<BackgroundAttachmentClass>(attachment, [
-		'backgrounds',
-		'background_attachment'
-	]);
-	const blendModeClassName = useGetClass<BackgroundBlendModeClass>(blendMode, ['effects', 'background_blend_mode']);
-	const clipClassName = useGetClass<BackgroundClipClass>(clip, ['backgrounds', 'background_clip']);
-	const originClassName = useGetClass<BackgroundOriginClass>(origin, ['backgrounds', 'background_origin']);
-	const positionClassName = useGetClass<BackgroundPositionClass>(position, ['backgrounds', 'background_position']);
-	const repeatClassName = useGetClass<BackgroundRepeatClass>(repeat, ['backgrounds', 'background_repeat']);
-	const sizeClassName = useGetClass<BackgroundSizeClass>(size, ['backgrounds', 'background_size']);
+	const attachmentClassName = useGetClass((classes) => classes.backgrounds.background_attachment[attachment]);
+	const blendModeClassName = useGetClass((classes) => classes.effects.background_blend_mode[blendMode]);
+	const clipClassName = useGetClass((classes) => classes.backgrounds.background_clip[clip]);
+	const originClassName = useGetClass((classes) => classes.backgrounds.background_origin[origin]);
+	const positionClassName = useGetClass((classes) => classes.backgrounds.background_position[position]);
+	const repeatClassName = useGetClass((classes) => classes.backgrounds.background_repeat[repeat]);
+	const sizeClassName = useGetClass((classes) => classes.backgrounds.background_size[size]);
 
 	return {
 		container: classNames(classes.layout.overflow.hidden, radiusClassName),

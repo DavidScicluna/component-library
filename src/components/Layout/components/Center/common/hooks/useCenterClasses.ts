@@ -1,6 +1,6 @@
 import classes from '@common/classes';
 import { useGetClass } from '@common/hooks';
-import type { ClassName, PolymorphicElementType, ThemeSpacing } from '@common/types';
+import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import { __DEFAULT_CENTER_SPACING__ } from '../constants';
 import type { CenterProps } from '../types';
@@ -20,7 +20,7 @@ const useCenterClasses = <Element extends PolymorphicElementType>(
 
 	const { spacing } = useCenterResponsiveValues({ spacing: spacingProp });
 
-	const spacingClassName = useGetClass<ThemeSpacing>(spacing, ['spacing', 'gap']);
+	const spacingClassName = useGetClass((classes) => classes.spacing.gap[spacing]);
 
 	return classNames(
 		classes.layout.display.flex,

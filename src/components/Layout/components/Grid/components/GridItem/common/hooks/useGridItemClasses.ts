@@ -1,16 +1,5 @@
 import { useGetClass } from '@common/hooks';
-import type {
-	AlignSelfClass,
-	ClassName,
-	GridColumnSpanClass,
-	GridColumnStartEndClass,
-	GridRowSpanClass,
-	GridRowStartEndClass,
-	JustifySelfClass,
-	PolymorphicElementType,
-	Undefinable,
-	ZIndexClass
-} from '@common/types';
+import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import {
 	__DEFAULT_GRID_ITEM_ALIGN_SELF__,
@@ -68,21 +57,18 @@ const useGridItemClasses = <Element extends PolymorphicElementType>(
 			zIndex: zIndexProp
 		});
 
-	const alignSelfClassName = useGetClass<AlignSelfClass>(alignSelf, ['grid', 'align_self']);
-	const justifySelfClassName = useGetClass<JustifySelfClass>(justifySelf, ['grid', 'justify_self']);
+	const alignSelfClassName = useGetClass((classes) => classes.grid.align_self[alignSelf]);
+	const justifySelfClassName = useGetClass((classes) => classes.grid.justify_self[justifySelf]);
 
-	const columnSpanClassName = useGetClass<Undefinable<GridColumnSpanClass>>(columnSpan, ['grid', 'column_span']);
-	const columnStartClassName = useGetClass<Undefinable<GridColumnStartEndClass>>(columnStart, [
-		'grid',
-		'column_start'
-	]);
-	const columnEndClassName = useGetClass<Undefinable<GridColumnStartEndClass>>(columnEnd, ['grid', 'column_end']);
+	const columnSpanClassName = useGetClass((classes) => (columnSpan ? classes.grid.column_span[columnSpan] : ''));
+	const columnStartClassName = useGetClass((classes) => (columnStart ? classes.grid.column_start[columnStart] : ''));
+	const columnEndClassName = useGetClass((classes) => (columnEnd ? classes.grid.column_end[columnEnd] : ''));
 
-	const rowSpanClassName = useGetClass<Undefinable<GridRowSpanClass>>(rowSpan, ['grid', 'row_span']);
-	const rowStartClassName = useGetClass<Undefinable<GridRowStartEndClass>>(rowStart, ['grid', 'row_start']);
-	const rowEndClassName = useGetClass<Undefinable<GridRowStartEndClass>>(rowEnd, ['grid', 'row_end']);
+	const rowSpanClassName = useGetClass((classes) => (rowSpan ? classes.grid.row_span[rowSpan] : ''));
+	const rowStartClassName = useGetClass((classes) => (rowStart ? classes.grid.row_start[rowStart] : ''));
+	const rowEndClassName = useGetClass((classes) => (rowEnd ? classes.grid.row_end[rowEnd] : ''));
 
-	const zIndexClassName = useGetClass<Undefinable<ZIndexClass>>(zIndex, ['layout', 'z_index']);
+	const zIndexClassName = useGetClass((classes) => (zIndex ? classes.layout.z_index[zIndex] : '') as string);
 
 	return classNames(
 		alignSelfClassName,

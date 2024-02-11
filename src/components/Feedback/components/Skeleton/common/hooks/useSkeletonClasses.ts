@@ -1,7 +1,7 @@
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_DURATION__, __DEFAULT_EASING__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
-import type { ClassName, PolymorphicElementType, ThemeDuration, ThemeEase, ThemeRadius } from '@common/types';
+import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import { __DEFAULT_SKELETON_IS_ANIMATED__ } from '../constants';
 import type { SkeletonProps } from '../types';
@@ -42,10 +42,10 @@ const useSkeletonClasses = <Element extends PolymorphicElementType>(
 		classType: 'bg'
 	});
 
-	const radiusClassName = useGetClass<ThemeRadius>(radius, ['borders', 'border_radius']);
+	const radiusClassName = useGetClass((classes) => classes.borders.border_radius[radius]);
 
-	const easeClassName = useGetClass<ThemeEase>(__DEFAULT_EASING__, ['transitions', 'ease']);
-	const durationClassName = useGetClass<ThemeDuration>(__DEFAULT_DURATION__, ['transitions', 'duration']);
+	const easeClassName = useGetClass((classes) => classes.transitions.ease[__DEFAULT_EASING__]);
+	const durationClassName = useGetClass((classes) => classes.transitions.duration[__DEFAULT_DURATION__]);
 
 	return classNames(
 		classes.layout.overflow.hidden,

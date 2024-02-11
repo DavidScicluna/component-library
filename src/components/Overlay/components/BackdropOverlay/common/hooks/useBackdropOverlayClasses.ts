@@ -1,12 +1,5 @@
 import { useGetClass } from '@common/hooks';
-import type {
-	ClassName,
-	OverflowClass,
-	PolymorphicElementType,
-	SaturateClass,
-	ThemeBlurClass,
-	ThemeRadius
-} from '@common/types';
+import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import {
 	__DEFAULT_BACKDROP_OVERLAY_BLUR__,
@@ -41,12 +34,12 @@ const useBackdropOverlayClasses = <Element extends PolymorphicElementType>(
 		radius: radiusProp
 	});
 
-	const overflowClassName = useGetClass<OverflowClass>('hidden', ['layout', 'overflow']);
-	const radiusClassName = useGetClass<ThemeRadius>(radius, ['borders', 'border_radius']);
+	const overflowClassName = useGetClass((classes) => classes.layout.overflow.hidden);
+	const radiusClassName = useGetClass((classes) => classes.borders.border_radius[radius]);
 
-	const backdropBlurClassName = useGetClass<ThemeBlurClass>(blur, ['filters', 'backdrop_blur']);
-	const blurClassName = useGetClass<ThemeBlurClass>(blur, ['filters', 'blur']);
-	const saturateClassName = useGetClass<SaturateClass>(100, ['filters', 'saturate']);
+	const backdropBlurClassName = useGetClass((classes) => classes.filters.backdrop_blur[blur]);
+	const blurClassName = useGetClass((classes) => classes.filters.blur[blur]);
+	const saturateClassName = useGetClass((classes) => classes.filters.saturate[100]);
 
 	return {
 		container: classNames(overflowClassName, radiusClassName),

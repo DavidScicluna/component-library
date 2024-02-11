@@ -1,15 +1,7 @@
 import classes from '@common/classes';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetClass } from '@common/hooks';
-import type {
-	AlignItemsClass,
-	ClassName,
-	FlexDirectionClass,
-	FlexWrapClass,
-	JustifyContentClass,
-	PolymorphicElementType,
-	ThemeSpacing
-} from '@common/types';
+import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import {
 	__DEFAULT_STACK_ALIGN_ITEMS__,
@@ -49,11 +41,11 @@ const useStackClasses = <Element extends PolymorphicElementType>(
 		wrap: wrapProp
 	});
 
-	const alignItemsClassName = useGetClass<AlignItemsClass>(alignItems, ['flex', 'align_items']);
-	const directionClassName = useGetClass<FlexDirectionClass>(direction, ['flex', 'direction']);
-	const justifyContentClassName = useGetClass<JustifyContentClass>(justifyContent, ['flex', 'justify_content']);
-	const spacingClassName = useGetClass<ThemeSpacing>(spacing, ['spacing', 'gap']);
-	const wrapClassName = useGetClass<FlexWrapClass>(wrap, ['flex', 'wrap']);
+	const alignItemsClassName = useGetClass((classes) => classes.flex.align_items[alignItems]);
+	const directionClassName = useGetClass((classes) => classes.flex.direction[direction]);
+	const justifyContentClassName = useGetClass((classes) => classes.flex.justify_content[justifyContent]);
+	const spacingClassName = useGetClass((classes) => classes.spacing.gap[spacing]);
+	const wrapClassName = useGetClass((classes) => classes.flex.wrap[wrap]);
 
 	return classNames(
 		classes.layout.display.flex,

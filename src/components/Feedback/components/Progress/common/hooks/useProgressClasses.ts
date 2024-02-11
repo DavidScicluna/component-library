@@ -1,7 +1,7 @@
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
-import type { ClassName, ThemeRadius } from '@common/types';
+import type { ClassName } from '@common/types';
 
 import type { ProgressElement, ProgressProps } from '../types';
 
@@ -37,7 +37,7 @@ const useProgressClasses = <Element extends ProgressElement>(
 		classType: 'bg'
 	});
 
-	const radiusClassName = useGetClass<ThemeRadius>(radius, ['borders', 'border_radius']);
+	const radiusClassName = useGetClass((classes) => classes.borders.border_radius[radius]);
 
 	return classNames(
 		classes.layout.position.relative,

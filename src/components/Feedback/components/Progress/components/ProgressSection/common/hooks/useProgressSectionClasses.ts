@@ -1,6 +1,6 @@
 import classes from '@common/classes';
 import { useGetClass, useGetColor } from '@common/hooks';
-import type { ClassName, PolymorphicElementType, ThemeRadius } from '@common/types';
+import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import { useProgressContext } from '@components/Feedback/components/Progress/common/hooks';
 
@@ -35,7 +35,7 @@ const useProgressSectionClasses = <Element extends PolymorphicElementType>(
 		classType: 'bg'
 	});
 
-	const radiusClassName = useGetClass<ThemeRadius>(radius, ['borders', 'border_radius']);
+	const radiusClassName = useGetClass((classes) => classes.borders.border_radius[radius]);
 
 	return classNames(
 		classes.layout.position.absolute,

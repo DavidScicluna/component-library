@@ -1,20 +1,7 @@
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
-import type {
-	BrightnessClass,
-	ClassName,
-	ContrastClass,
-	GrayscaleClass,
-	HueRotateClass,
-	InvertClass,
-	PolymorphicElementType,
-	SaturateClass,
-	SepiaClass,
-	ThemeBlurClass,
-	ThemeRadius
-} from '@common/types';
-import type { ObjectFitClass, ObjectPositionClass } from '@common/types/classes';
+import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import {
 	__DEFAULT_IMAGE_BLUR__,
@@ -74,19 +61,19 @@ const useImageClasses = <Element extends PolymorphicElementType>(
 	} = filters;
 	const { fit = __DEFAULT_IMAGE_FIT__, position = __DEFAULT_IMAGE_POSITION__ } = options;
 
-	const radiusClassName = useGetClass<ThemeRadius>(radius, ['borders', 'border_radius']);
+	const radiusClassName = useGetClass((classes) => classes.borders.border_radius[radius]);
 
-	const blurClassName = useGetClass<ThemeBlurClass>(blur, ['filters', 'blur']);
-	const brightnessClassName = useGetClass<BrightnessClass>(brightness, ['filters', 'brightness']);
-	const contrastClassName = useGetClass<ContrastClass>(contrast, ['filters', 'contrast']);
-	const grayscaleClassName = useGetClass<GrayscaleClass>(grayscale, ['filters', 'grayscale']);
-	const hueRotateClassName = useGetClass<HueRotateClass>(hueRotate, ['filters', 'hue_rotate']);
-	const invertClassName = useGetClass<InvertClass>(invert, ['filters', 'invert']);
-	const saturateClassName = useGetClass<SaturateClass>(saturate, ['filters', 'saturate']);
-	const sepiaClassName = useGetClass<SepiaClass>(sepia, ['filters', 'sepia']);
+	const blurClassName = useGetClass((classes) => classes.filters.blur[blur]);
+	const brightnessClassName = useGetClass((classes) => classes.filters.brightness[brightness]);
+	const contrastClassName = useGetClass((classes) => classes.filters.contrast[contrast]);
+	const grayscaleClassName = useGetClass((classes) => classes.filters.grayscale[grayscale]);
+	const hueRotateClassName = useGetClass((classes) => classes.filters.hue_rotate[hueRotate]);
+	const invertClassName = useGetClass((classes) => classes.filters.invert[invert]);
+	const saturateClassName = useGetClass((classes) => classes.filters.saturate[saturate]);
+	const sepiaClassName = useGetClass((classes) => classes.filters.sepia[sepia]);
 
-	const fitClassName = useGetClass<ObjectFitClass>(fit, ['layout', 'object_fit']);
-	const positionClassName = useGetClass<ObjectPositionClass>(position, ['layout', 'object_position']);
+	const fitClassName = useGetClass((classes) => classes.layout.object_fit[fit]);
+	const positionClassName = useGetClass((classes) => classes.layout.object_position[position]);
 
 	const fallbackClassName = useGetColor({
 		color,

@@ -1,4 +1,3 @@
-// TODO: Go into each constants file and sort variables like they are sorted in import object
 import { __DEFAULT_ANIMATION_DELAY__, __DEFAULT_ANIMATION_DURATION__, __DEFAULT_ANIMATION_EASING__ } from './animation';
 import {
 	__DEFAULT_BORDER_STYLE__,

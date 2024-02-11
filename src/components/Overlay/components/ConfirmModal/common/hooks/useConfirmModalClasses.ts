@@ -1,16 +1,7 @@
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
-import type {
-	BoxShadowClass,
-	ClassName,
-	HeightClass,
-	MaxHeightClass,
-	MaxWidthClass,
-	ThemeRadius,
-	ThemeSpacing,
-	WidthClass
-} from '@common/types';
+import type { ClassName } from '@common/types';
 
 import { __DEFAULT_CONFIRM_MODAL_SIZE__, __DEFAULT_CONFIRM_MODAL_SPACING__ } from '../constants';
 import type { ConfirmModalElement, ConfirmModalProps } from '../types';
@@ -40,10 +31,10 @@ const useGetConfirmModalClasses = <Element extends ConfirmModalElement>(
 
 	const { size, spacing } = useConfirmModalResponsiveValues<Element>({ spacing: spacingProp, size: sizeProp });
 
-	const widthClassName = useGetClass<WidthClass>('full', ['sizing', 'width']);
-	const maxWidthClassName = useGetClass<MaxWidthClass>(size, ['sizing', 'max_width']);
-	const heightClassName = useGetClass<HeightClass>('fit', ['sizing', 'height']);
-	const maxHeightClassName = useGetClass<MaxHeightClass>('full', ['sizing', 'max_height']);
+	const widthClassName = useGetClass((classes) => classes.sizing.width.full);
+	const maxWidthClassName = useGetClass((classes) => classes.sizing.max_width[size]);
+	const heightClassName = useGetClass((classes) => classes.sizing.height.fit);
+	const maxHeightClassName = useGetClass((classes) => classes.sizing.max_height.full);
 
 	const backgroundClassName = useGetColor({
 		color,
@@ -53,12 +44,11 @@ const useGetConfirmModalClasses = <Element extends ConfirmModalElement>(
 		classType: 'bg'
 	});
 
-	const shadowClassName = useGetClass<BoxShadowClass>('xl', ['effects', 'shadow']);
+	const shadowClassName = useGetClass((classes) => classes.effects.shadow.xl);
 
-	// TODO: Replace all useGetClass that have a fixed value with classes.
-	const borderRadiusClassName = useGetClass<ThemeRadius>('xl', ['borders', 'border_radius']);
-	const paddingClassName = useGetClass<ThemeSpacing>(spacing, ['spacing', 'p']);
-	const marginClassName = useGetClass<ThemeSpacing>(spacing, ['spacing', 'm']);
+	const borderRadiusClassName = useGetClass((classes) => classes.borders.border_radius.xl);
+	const paddingClassName = useGetClass((classes) => classes.spacing.p[spacing]);
+	const marginClassName = useGetClass((classes) => classes.spacing.m[spacing]);
 
 	return {
 		container: classNames(

@@ -7,7 +7,7 @@ import {
 	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
 	__DEFAULT_CONTAINER_IS_FLUID__
 } from '../constants';
-import type { ContainerBreakpoint, ContainerProps } from '../types';
+import type { ContainerProps } from '../types';
 
 import useContainerResponsiveValues from './useContainerResponsiveValues';
 
@@ -35,7 +35,7 @@ const useContainerClasses = <Element extends PolymorphicElementType>(
 		isFluid: isFluidProp
 	});
 
-	const breakpointClassName = useGetClass<ContainerBreakpoint>(breakpoint, ['layout', 'container']);
+	const breakpointClassName = useGetClass((classes) => classes.layout.container[breakpoint]);
 
 	return classNames(classes.layout.display.container, classes.layout.display.flex, {
 		[classes.flex.align_items.center]: isContentCentered,

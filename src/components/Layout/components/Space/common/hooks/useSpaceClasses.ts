@@ -1,5 +1,5 @@
 import { useGetClass } from '@common/hooks';
-import type { ClassName, PolymorphicElementType, ThemeSpacing } from '@common/types';
+import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import { __DEFAULT_SPACE_HEIGHT__, __DEFAULT_SPACE_WIDTH__ } from '../constants';
 import type { SpaceProps } from '../types';
@@ -19,8 +19,8 @@ const useSpaceClasses = <Element extends PolymorphicElementType>(
 
 	const { width, height } = useSpaceResponsiveValues({ width: widthProp, height: heightProp });
 
-	const widthClassName = useGetClass<ThemeSpacing>(width, ['sizing', 'width']);
-	const heightClassName = useGetClass<ThemeSpacing>(height, ['sizing', 'height']);
+	const widthClassName = useGetClass((classes) => classes.sizing.width[width]);
+	const heightClassName = useGetClass((classes) => classes.sizing.height[height]);
 
 	return classNames({
 		[widthClassName]: !!width,

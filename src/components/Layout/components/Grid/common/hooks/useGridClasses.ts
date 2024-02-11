@@ -1,18 +1,7 @@
 import classes from '@common/classes';
 import { __DEFAULT_SPACING__ } from '@common/constants';
 import { useGetClass } from '@common/hooks';
-import type {
-	AlignContentClass,
-	AlignItemsClass,
-	ClassName,
-	GridAutoClass,
-	GridAutoFlowClass,
-	JustifyContentClass,
-	JustifyItemsClass,
-	PolymorphicElementType,
-	ThemeSpacing,
-	Undefinable
-} from '@common/types';
+import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import {
 	__DEFAULT_GRID_ALIGN_CONTENT__,
@@ -22,7 +11,7 @@ import {
 	__DEFAULT_GRID_TEMPLATE_COLUMNS__,
 	__DEFAULT_GRID_TEMPLATE_ROWS__
 } from '../constants';
-import type { GridProps, GridTemplateColumns, GridTemplateRows } from '../types';
+import type { GridProps } from '../types';
 
 import useGridResponsiveValues from './useGridResponsiveValues';
 
@@ -91,29 +80,33 @@ const useGridClasses = <Element extends PolymorphicElementType>(
 		spacing: spacingProp
 	});
 
-	const autoColumnsClassName = useGetClass<Undefinable<GridAutoClass>>(autoColumns, ['grid', 'auto_columns']);
-	const autoFlowClassName = useGetClass<Undefinable<GridAutoFlowClass>>(autoFlow, ['grid', 'auto_flow']);
-	const autoRowsClassName = useGetClass<Undefinable<GridAutoClass>>(autoRows, ['grid', 'auto_rows']);
+	const autoColumnsClassName = useGetClass((classes) => (autoColumns ? classes.grid.auto_columns[autoColumns] : ''));
+	const autoFlowClassName = useGetClass((classes) => (autoFlow ? classes.grid.auto_flow[autoFlow] : ''));
+	const autoRowsClassName = useGetClass((classes) => (autoRows ? classes.grid.auto_rows[autoRows] : ''));
 
-	const alignContentClassName = useGetClass<AlignContentClass>(alignContent, ['grid', 'align_content']);
-	const alignItemsClassName = useGetClass<AlignItemsClass>(alignItems, ['grid', 'align_items']);
+	const alignContentClassName = useGetClass((classes) => classes.grid.align_content[alignContent]);
+	const alignItemsClassName = useGetClass((classes) => classes.grid.align_items[alignItems]);
 
-	const justifyContentClassName = useGetClass<JustifyContentClass>(justifyContent, ['grid', 'justify_content']);
-	const justifyItemsClassName = useGetClass<JustifyItemsClass>(justifyItems, ['grid', 'justify_items']);
+	const justifyContentClassName = useGetClass((classes) => classes.grid.justify_content[justifyContent]);
+	const justifyItemsClassName = useGetClass((classes) => classes.grid.justify_items[justifyItems]);
 
-	const columnSpacingClassName = useGetClass<Undefinable<ThemeSpacing>>(columnSpacing, ['spacing', 'gap_y']);
-	const rowSpacingClassName = useGetClass<Undefinable<ThemeSpacing>>(rowSpacing, ['spacing', 'gap_x']);
-
-	const templateColumnsClassName = useGetClass<Undefinable<GridTemplateColumns>>(
-		typeof templateColumns === 'number' ? templateColumns : __DEFAULT_GRID_TEMPLATE_COLUMNS__,
-		['grid', 'template_columns']
+	const columnSpacingClassName = useGetClass((classes) =>
+		columnSpacing ? classes.spacing.gap_y[columnSpacing] : ''
 	);
-	const templateRowsClassName = useGetClass<Undefinable<GridTemplateRows>>(
-		typeof templateRows === 'number' ? templateRows : __DEFAULT_GRID_TEMPLATE_ROWS__,
-		['grid', 'template_rows']
+	const rowSpacingClassName = useGetClass((classes) => (rowSpacing ? classes.spacing.gap_x[rowSpacing] : ''));
+
+	const templateColumnsClassName = useGetClass(
+		(classes) =>
+			classes.grid.template_columns[
+				typeof templateColumns === 'number' ? templateColumns : __DEFAULT_GRID_TEMPLATE_COLUMNS__
+			]
+	);
+	const templateRowsClassName = useGetClass(
+		(classes) =>
+			classes.grid.template_rows[typeof templateRows === 'number' ? templateRows : __DEFAULT_GRID_TEMPLATE_ROWS__]
 	);
 
-	const spacingClassName = useGetClass<ThemeSpacing>(spacing, ['spacing', 'gap']);
+	const spacingClassName = useGetClass((classes) => classes.spacing.gap[spacing]);
 
 	return classNames(
 		classes.layout.display.grid,

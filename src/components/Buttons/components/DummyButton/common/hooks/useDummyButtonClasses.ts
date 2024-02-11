@@ -1,6 +1,6 @@
 import classes from '@common/classes';
 import { useGetClass } from '@common/hooks';
-import type { ClassName, WidthClass } from '@common/types';
+import type { ClassName } from '@common/types';
 
 import {
 	__DEFAULT_DUMMY_BUTTON_IS_COMPACT__,
@@ -45,7 +45,7 @@ const useDummyButtonClasses = <Element extends DummyButtonElement>(
 
 	const config = useDummyButtonSizeConfig<Element>({ isCompact, isRound, size, variant });
 
-	const widthClassName = useGetClass<WidthClass>(isFullWidth ? 'full' : 'auto', ['sizing', 'width']);
+	const widthClassName = useGetClass((classes) => classes.sizing.width[isFullWidth ? 'full' : 'auto']);
 
 	return classNames(widthClassName, {
 		[classes.typography.align.center]: variant !== 'unstyled',

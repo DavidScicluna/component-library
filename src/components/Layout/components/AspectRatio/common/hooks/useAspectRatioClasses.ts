@@ -1,5 +1,5 @@
 import { useGetClass } from '@common/hooks';
-import type { ClassName, PolymorphicElementType, ThemeAspectRatio } from '@common/types';
+import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import { __DEFAULT_ASPECT_RATIO_RATIO__ } from '../constants';
 import type { AspectRatioProps } from '../types';
@@ -19,7 +19,7 @@ const useAspectRatioClasses = <Element extends PolymorphicElementType>(
 
 	const { ratio } = useAspectRatioResponsiveValues({ ratio: ratioProp });
 
-	const ratioClassName = useGetClass<ThemeAspectRatio>(ratio, ['layout', 'aspect_ratio']);
+	const ratioClassName = useGetClass((classes) => classes.layout.aspect_ratio[ratio]);
 
 	return classNames(ratioClassName);
 };
