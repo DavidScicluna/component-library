@@ -36,7 +36,7 @@ export type ConfirmModalRenderCancelProps<Element extends ConfirmModalElement> =
 >;
 
 type ConfirmModalOtherProps<Element extends ConfirmModalElement> = ThemeAppAppearanceProps & {
-	renderTrigger: (props: ConfirmModalRenderTriggerProps<Element>) => ReactNode;
+	renderTrigger?: (props: ConfirmModalRenderTriggerProps<Element>) => ReactNode;
 	renderBackdrop?: (props: ConfirmModalRenderBackdropProps<Element>) => ReactNode;
 	renderCancel?: (props: ConfirmModalRenderCancelProps<Element>) => ReactNode;
 	/**
@@ -57,6 +57,10 @@ type ConfirmModalOtherProps<Element extends ConfirmModalElement> = ThemeAppAppea
 	 * @default true
 	 */
 	hasBackdrop?: ResponsiveValue<boolean>;
+	/**
+	 * If `true`, the modal will be open
+	 */
+	isOpen?: ResponsiveValue<boolean>;
 	/**
 	 * Callback invoked to close the modal
 	 */
@@ -91,12 +95,8 @@ export type ConfirmModalProps<Element extends ConfirmModalElement> = Omit<
 >;
 export type ConfirmModalRef<Element extends ConfirmModalElement> = BoxRef<Element>;
 
-type PickedConfirmModalProps = 'color' | 'colorMode' | 'onClose' | 'size' | 'spacing';
+type PickedConfirmModalProps = 'color' | 'colorMode' | 'isOpen' | 'onClose' | 'size' | 'spacing';
 
 export type ConfirmModalContext<Element extends ConfirmModalElement> = {
-	/**
-	 * If `true`, the ConfirmModal will be open
-	 */
-	isOpen: boolean;
 	id: string;
 } & Pick<ConfirmModalProps<Element>, PickedConfirmModalProps>;

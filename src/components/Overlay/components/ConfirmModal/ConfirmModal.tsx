@@ -1,4 +1,4 @@
-import { createContext, forwardRef, useCallback } from 'react';
+import { createContext, forwardRef, useCallback, useEffect } from 'react';
 
 import {
 	FloatingFocusManager,
@@ -9,6 +9,7 @@ import {
 	useInteractions,
 	useRole
 } from '@floating-ui/react';
+import { isBoolean } from 'lodash-es';
 import { useKey } from 'rooks';
 
 import {
@@ -78,6 +79,7 @@ const ConfirmModal = forwardRef(function ConfirmModal<Element extends ConfirmMod
 		closeOnEsc: closeOnEscProp = __DEFAULT_CONFIRM_MODAL_CLOSE_ON_ESC__,
 		closeOnOverlayClick: closeOnOverlayClickProp = __DEFAULT_CONFIRM_MODAL_CLOSE_ON_OVERLAY_CLICK__,
 		hasBackdrop: hasBackdropProp = __DEFAULT_CONFIRM_MODAL_HAS_BACKDROP__,
+		isOpen: isOpenProp = __DEFAULT_CONFIRM_MODAL_IS_OPEN__,
 		onClose,
 		onCloseComplete,
 		onEsc,
@@ -90,10 +92,18 @@ const ConfirmModal = forwardRef(function ConfirmModal<Element extends ConfirmMod
 
 	const [isOpen, setIsOpen] = useBoolean(__DEFAULT_CONFIRM_MODAL_IS_OPEN__);
 
-	const { closeOnEsc, closeOnOverlayClick, hasBackdrop, spacing, size } = useConfirmModalResponsiveValues<Element>({
+	const {
+		closeOnEsc,
+		closeOnOverlayClick,
+		hasBackdrop,
+		isOpen: isConfirmModalOpen,
+		spacing,
+		size
+	} = useConfirmModalResponsiveValues<Element>({
 		closeOnEsc: closeOnEscProp,
 		closeOnOverlayClick: closeOnOverlayClickProp,
 		hasBackdrop: hasBackdropProp,
+		isOpen: isOpenProp,
 		spacing: spacingProp,
 		size: sizeProp
 	});
@@ -144,22 +154,34 @@ const ConfirmModal = forwardRef(function ConfirmModal<Element extends ConfirmMod
 
 	const classes = useConfirmModalClasses<Element>({ color, colorMode, size, spacing });
 
+	useEffect(() => {
+		if (isBoolean(isConfirmModalOpen)) {
+			if (isConfirmModalOpen) {
+				setIsOpen.on();
+			} else {
+				setIsOpen.off();
+			}
+		}
+	}, [isConfirmModalOpen]);
+
 	useKey(['Escape'], handleEscapeClick, { when: closeOnEsc });
 
 	return (
 		<ConfirmModalContext.Provider value={{ color, colorMode, id, isOpen, onClose: handleClose, size, spacing }}>
 			<AnimatePresence onExitComplete={onCloseComplete}>
-				<Box
-					{...(getReferenceProps() as BoxProps<PolymorphicDefaultElement>)}
-					ref={refs.setReference as BoxRef<PolymorphicDefaultElement>}
-				>
-					{renderTrigger({
-						color,
-						colorMode,
-						isOpen,
-						onOpen: handleOpen
-					})}
-				</Box>
+				{renderTrigger ? (
+					<Box
+						{...(getReferenceProps() as BoxProps<PolymorphicDefaultElement>)}
+						ref={refs.setReference as BoxRef<PolymorphicDefaultElement>}
+					>
+						{renderTrigger({
+							color,
+							colorMode,
+							isOpen,
+							onOpen: handleOpen
+						})}
+					</Box>
+				) : null}
 
 				<Transition as='section' transition='fade' in={isOpen}>
 					<FloatingOverlay lockScroll style={{ zIndex: 1 }}>
