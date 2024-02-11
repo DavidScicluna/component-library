@@ -57,13 +57,6 @@ export default {
 		'@fontsource/roboto-mono',
 		'@fontsource/roboto-slab',
 		'@fontsource/work-sans',
-		'@rollup/plugin-beep',
-		'@rollup/plugin-commonjs',
-		'@rollup/plugin-eslint',
-		'@rollup/plugin-image',
-		'@rollup/plugin-node-resolve',
-		'@rollup/plugin-strip',
-		'@rollup/plugin-typescript',
 		'@storybook/addon-a11y',
 		'@storybook/addon-essentials',
 		'@storybook/addon-interactions',
@@ -91,14 +84,11 @@ export default {
 		'prettier',
 		'rollup',
 		'rollup-plugin-commonjs',
-		'rollup-plugin-gzip',
-		'rollup-plugin-import-css',
 		'rollup-plugin-json',
 		'rollup-plugin-node-resolve',
 		'rollup-plugin-peer-deps-external',
 		'rollup-plugin-postcss',
 		'rollup-plugin-terser',
-		'rollup-plugin-typescript',
 		'rollup-plugin-typescript2',
 		'storybook',
 		'tsc-alias',
@@ -106,6 +96,4 @@ export default {
 		'typescript',
 		'utility-types'
 	]
-	// For external dependencies that you want to exclude from the bundle
-	// Example: external: ['react', 'react-dom']
 };
