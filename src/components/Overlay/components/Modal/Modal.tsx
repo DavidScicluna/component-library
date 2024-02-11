@@ -1,4 +1,4 @@
-import { createContext, forwardRef, useCallback } from 'react';
+import { createContext, forwardRef, useCallback, useEffect } from 'react';
 
 import {
 	FloatingFocusManager,
@@ -9,6 +9,7 @@ import {
 	useInteractions,
 	useRole
 } from '@floating-ui/react';
+import { isBoolean } from 'lodash-es';
 import { useKey } from 'rooks';
 
 import {
@@ -77,6 +78,7 @@ const Modal = forwardRef(function Modal<Element extends ModalElement>(
 		closeOnEsc: closeOnEscProp = __DEFAULT_MODAL_CLOSE_ON_ESC__,
 		closeOnOverlayClick: closeOnOverlayClickProp = __DEFAULT_MODAL_CLOSE_ON_OVERLAY_CLICK__,
 		hasBackdrop: hasBackdropProp = __DEFAULT_MODAL_HAS_BACKDROP__,
+		isOpen: isOpenProp = __DEFAULT_MODAL_IS_OPEN__,
 		onClose,
 		onCloseComplete,
 		onEsc,
@@ -89,10 +91,18 @@ const Modal = forwardRef(function Modal<Element extends ModalElement>(
 
 	const [isOpen, setIsOpen] = useBoolean(__DEFAULT_MODAL_IS_OPEN__);
 
-	const { closeOnEsc, closeOnOverlayClick, hasBackdrop, size, spacing } = useModalResponsiveValues<Element>({
+	const {
+		closeOnEsc,
+		closeOnOverlayClick,
+		hasBackdrop,
+		isOpen: isModalOpen,
+		size,
+		spacing
+	} = useModalResponsiveValues<Element>({
 		closeOnEsc: closeOnEscProp,
 		closeOnOverlayClick: closeOnOverlayClickProp,
 		hasBackdrop: hasBackdropProp,
+		isOpen: isOpenProp,
 		spacing: spacingProp,
 		size: sizeProp
 	});
@@ -143,22 +153,34 @@ const Modal = forwardRef(function Modal<Element extends ModalElement>(
 
 	const classes = useModalClasses<Element>({ color, colorMode, size, spacing });
 
+	useEffect(() => {
+		if (isBoolean(isModalOpen)) {
+			if (isModalOpen) {
+				setIsOpen.on();
+			} else {
+				setIsOpen.off();
+			}
+		}
+	}, [isModalOpen]);
+
 	useKey(['Escape'], handleEscapeClick, { when: closeOnEsc });
 
 	return (
 		<ModalContext.Provider value={{ color, colorMode, id, isOpen, onClose: handleClose, size, spacing }}>
 			<AnimatePresence onExitComplete={onCloseComplete}>
-				<Box
-					{...(getReferenceProps() as BoxProps<PolymorphicDefaultElement>)}
-					ref={refs.setReference as BoxRef<PolymorphicDefaultElement>}
-				>
-					{renderTrigger({
-						color,
-						colorMode,
-						isOpen,
-						onOpen: handleOpen
-					})}
-				</Box>
+				{renderTrigger ? (
+					<Box
+						{...(getReferenceProps() as BoxProps<PolymorphicDefaultElement>)}
+						ref={refs.setReference as BoxRef<PolymorphicDefaultElement>}
+					>
+						{renderTrigger({
+							color,
+							colorMode,
+							isOpen,
+							onOpen: handleOpen
+						})}
+					</Box>
+				) : null}
 
 				<Transition as='section' transition='fade' in={isOpen}>
 					<FloatingOverlay lockScroll style={{ zIndex: 1 }}>

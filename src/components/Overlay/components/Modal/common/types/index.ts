@@ -31,7 +31,7 @@ export type ModalRenderTriggerProps<Element extends ModalElement> = {
 export type ModalRenderBackdropProps<Element extends ModalElement> = Pick<ModalProps<Element>, 'color' | 'colorMode'>;
 
 type ModalOtherProps<Element extends ModalElement> = ThemeAppAppearanceProps & {
-	renderTrigger: (props: ModalRenderTriggerProps<Element>) => ReactNode;
+	renderTrigger?: (props: ModalRenderTriggerProps<Element>) => ReactNode;
 	renderBackdrop?: (props: ModalRenderBackdropProps<Element>) => ReactNode;
 	/**
 	 * If `true`, the modal will close when the Esc key is pressed
@@ -48,6 +48,10 @@ type ModalOtherProps<Element extends ModalElement> = ThemeAppAppearanceProps & {
 	 * @default true
 	 */
 	hasBackdrop?: ResponsiveValue<boolean>;
+	/**
+	 * If `true`, the modal will be open
+	 */
+	isOpen?: ResponsiveValue<boolean>;
 	/**
 	 * Callback invoked to close the modal
 	 */
@@ -75,18 +79,13 @@ type ModalOtherProps<Element extends ModalElement> = ThemeAppAppearanceProps & {
 	size?: ResponsiveValue<ModalSize>;
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
-
 export type ModalProps<Element extends ModalElement> = Omit<
 	BoxProps<Element, ModalOtherProps<Element>>,
 	keyof BoxOtherProps
 >;
 export type ModalRef<Element extends ModalElement> = BoxRef<Element>;
 
-type PickedModalProps = 'color' | 'colorMode' | 'onClose' | 'size' | 'spacing';
+type PickedModalProps = 'color' | 'colorMode' | 'isOpen' | 'onClose' | 'size' | 'spacing';
 export type ModalContext<Element extends ModalElement> = Pick<ModalProps<Element>, PickedModalProps> & {
-	/**
-	 * If `true`, the modal will be open
-	 */
-	isOpen: boolean;
 	id: string;
 };
