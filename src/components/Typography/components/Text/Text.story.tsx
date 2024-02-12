@@ -5,7 +5,7 @@ import type {
 	ThemeFontSizeArr,
 	ThemeFontWeightArr,
 	ThemeLineHeightArr,
-	WhitespaceClassArr,
+	WhiteSpaceClassArr,
 	WordBreakClassArr
 } from '@common/types';
 
@@ -141,12 +141,12 @@ export default {
 			// description: '',
 			control: { type: 'boolean' }
 		},
-		whitespace: {
-			name: 'Whitespace',
+		whiteSpace: {
+			name: 'White Space',
 			type: 'string',
 			defaultValue: __DEFAULT_TEXT_WHITESPACE__,
 			// description: '',
-			options: ['normal', 'nowrap', 'pre', 'pre-line', 'pre-wrap', 'break-spaces'] as WhitespaceClassArr,
+			options: ['normal', 'nowrap', 'pre', 'pre-line', 'pre-wrap', 'break-spaces'] as WhiteSpaceClassArr,
 			control: { type: 'radio' }
 		},
 		wordBreak: {

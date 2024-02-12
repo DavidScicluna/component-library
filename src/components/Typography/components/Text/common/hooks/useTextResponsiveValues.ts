@@ -6,7 +6,7 @@ import type {
 	ThemeFontSize,
 	ThemeFontWeight,
 	ThemeLineHeight,
-	WhitespaceClass,
+	WhiteSpaceClass,
 	WordBreakClass
 } from '@common/types';
 
@@ -35,7 +35,7 @@ type UseTextResponsiveValuesProps<Element extends TextElement> = Partial<
 		| 'textTransform'
 		| 'isItalic'
 		| 'isOverflown'
-		| 'whitespace'
+		| 'whiteSpace'
 		| 'wordBreak'
 	>
 >;
@@ -50,8 +50,8 @@ const useTextResponsiveValues = <Element extends TextElement>(props: UseTextResp
 		textTransform: textTransformProp = __DEFAULT_TEXT_TRANSFORM__,
 		isItalic: isItalicProp = __DEFAULT_TEXT_IS_ITALIC__,
 		isOverflown: isOverflownProp = __DEFAULT_TEXT_IS_OVERFLOWN__,
-		whitespace: whitespaceProp = __DEFAULT_TEXT_WHITESPACE__,
-		wordBreak: wordBreakProp = __DEFAULT_TEXT_WORD_BREAK__
+		whiteSpace: whiteSpaceProp = __DEFAULT_TEXT_WHITESPACE__,
+		wordBreak: wordBreakProp = __DEFAULT_TEXT_WORD_BREAK__,
 	} = props;
 
 	const align = useGetResponsiveValue<TextAlignClass>(alignProp);
@@ -64,7 +64,7 @@ const useTextResponsiveValues = <Element extends TextElement>(props: UseTextResp
 	const isItalic = useGetResponsiveValue<boolean>(isItalicProp);
 	const isOverflown = useGetResponsiveValue<boolean>(isOverflownProp);
 
-	const whitespace = useGetResponsiveValue<WhitespaceClass>(whitespaceProp);
+	const whiteSpace = useGetResponsiveValue<WhiteSpaceClass>(whiteSpaceProp);
 	const wordBreak = useGetResponsiveValue<WordBreakClass>(wordBreakProp);
 
 	return {
@@ -76,8 +76,8 @@ const useTextResponsiveValues = <Element extends TextElement>(props: UseTextResp
 		textTransform,
 		isItalic,
 		isOverflown,
-		whitespace,
-		wordBreak
+		whiteSpace,
+		wordBreak,
 	};
 };
 

@@ -50,7 +50,7 @@ const useButtonClasses = <Element extends ButtonElement>(
 		[classes.typography.line_height[__DEFAULT_BUTTON_LINE_HEIGHT_SIZE__]]: variant !== 'unstyled',
 		[classes.typography.transform.uppercase]: variant !== 'unstyled',
 		[classes.typography.text_overflow.ellipsis]: variant !== 'unstyled',
-		[classes.typography.whitespace.nowrap]: variant !== 'unstyled'
+		[classes.typography.whiteSpace.nowrap]: variant !== 'unstyled'
 	});
 };
 

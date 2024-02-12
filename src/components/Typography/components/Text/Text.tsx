@@ -45,7 +45,7 @@ const Text = forwardRef(function Text<Element extends TextElement>(
 		textTransform: textTransformProp = __DEFAULT_TEXT_TRANSFORM__,
 		isItalic: isItalicProp = __DEFAULT_TEXT_IS_ITALIC__,
 		isOverflown: isOverflownProp = __DEFAULT_TEXT_IS_OVERFLOWN__,
-		whitespace: whitespaceProp = __DEFAULT_TEXT_WHITESPACE__,
+		whiteSpace: whiteSpaceProp = __DEFAULT_TEXT_WHITESPACE__,
 		wordBreak: wordBreakProp = __DEFAULT_TEXT_WORD_BREAK__,
 		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
@@ -60,8 +60,8 @@ const Text = forwardRef(function Text<Element extends TextElement>(
 		textTransform,
 		isItalic,
 		isOverflown,
-		whitespace,
-		wordBreak
+		whiteSpace,
+		wordBreak,
 	} = useTextResponsiveValues<Element>({
 		align: alignProp,
 		fontSize: fontSizeProp,
@@ -71,8 +71,8 @@ const Text = forwardRef(function Text<Element extends TextElement>(
 		textTransform: textTransformProp,
 		isItalic: isItalicProp,
 		isOverflown: isOverflownProp,
-		whitespace: whitespaceProp,
-		wordBreak: wordBreakProp
+		whiteSpace: whiteSpaceProp,
+		wordBreak: wordBreakProp,
 	});
 
 	const classes = useTextClasses<Element>({
@@ -86,8 +86,8 @@ const Text = forwardRef(function Text<Element extends TextElement>(
 		textTransform,
 		isItalic,
 		isOverflown,
-		whitespace,
-		wordBreak
+		whiteSpace,
+		wordBreak,
 	});
 	const styles = useTextStyles<Element>({ color });
 

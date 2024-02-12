@@ -756,9 +756,9 @@ export type TextOverflowClass = 'truncate' | 'ellipsis' | 'clip';
 export type TextOverflowClassArr = Array<TextOverflowClass>;
 export type TextOverflowClassObj = Record<TextOverflowClass, string>;
 
-export type WhitespaceClass = 'normal' | 'nowrap' | 'pre' | 'pre-line' | 'pre-wrap' | 'break-spaces';
-export type WhitespaceClassArr = Array<WhitespaceClass>;
-export type WhitespaceClassObj = Record<WhitespaceClass, string>;
+export type WhiteSpaceClass = 'normal' | 'nowrap' | 'pre' | 'pre-line' | 'pre-wrap' | 'break-spaces';
+export type WhiteSpaceClassArr = Array<WhiteSpaceClass>;
+export type WhiteSpaceClassObj = Record<WhiteSpaceClass, string>;
 
 export type WordBreakClass = 'normal' | 'words' | 'all' | 'keep';
 export type WordBreakClassArr = Array<WordBreakClass>;

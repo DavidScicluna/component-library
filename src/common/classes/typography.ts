@@ -14,7 +14,7 @@ import type {
 	ThemeFontSizeObj,
 	ThemeFontWeightObj,
 	ThemeLineHeightObj,
-	WhitespaceClassObj,
+	WhiteSpaceClassObj,
 	WordBreakClassObj
 } from '@common/types';
 
@@ -9340,7 +9340,7 @@ const transform: TextTransformClassObj = {
 	normal: 'normal-case'
 };
 
-const whitespace: WhitespaceClassObj = {
+const whiteSpace: WhiteSpaceClassObj = {
 	'normal': 'whitespace-normal',
 	'nowrap': 'whitespace-nowrap',
 	'pre': 'whitespace-pre',
@@ -9397,6 +9397,6 @@ export default {
 	line_height,
 	text_overflow,
 	transform,
-	whitespace,
+	whiteSpace,
 	word_break
 };

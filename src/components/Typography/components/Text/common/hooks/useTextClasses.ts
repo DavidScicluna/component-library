@@ -35,7 +35,7 @@ type UseTextClassesProps<Element extends TextElement> = Pick<
 	| 'textTransform'
 	| 'isItalic'
 	| 'isOverflown'
-	| 'whitespace'
+	| 'whiteSpace'
 	| 'wordBreak'
 >;
 type UseTextClassesReturn = ClassName;
@@ -54,8 +54,8 @@ const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<
 		textTransform: textTransformProp = __DEFAULT_TEXT_TRANSFORM__,
 		isItalic: isItalicProp = __DEFAULT_TEXT_IS_ITALIC__,
 		isOverflown: isOverflownProp = __DEFAULT_TEXT_IS_OVERFLOWN__,
-		whitespace: whitespaceProp = __DEFAULT_TEXT_WHITESPACE__,
-		wordBreak: wordBreakProp = __DEFAULT_TEXT_WORD_BREAK__
+		whiteSpace: whiteSpaceProp = __DEFAULT_TEXT_WHITESPACE__,
+		wordBreak: wordBreakProp = __DEFAULT_TEXT_WORD_BREAK__,
 	} = props;
 
 	const {
@@ -67,8 +67,8 @@ const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<
 		textTransform,
 		isItalic,
 		isOverflown,
-		whitespace,
-		wordBreak
+		whiteSpace,
+		wordBreak,
 	} = useTextResponsiveValues<Element>({
 		align: alignProp,
 		fontSize: fontSizeProp,
@@ -78,8 +78,8 @@ const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<
 		textTransform: textTransformProp,
 		isItalic: isItalicProp,
 		isOverflown: isOverflownProp,
-		whitespace: whitespaceProp,
-		wordBreak: wordBreakProp
+		whiteSpace: whiteSpaceProp,
+		wordBreak: wordBreakProp,
 	});
 
 	const textColorClassName = useGetColor({
@@ -96,7 +96,7 @@ const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<
 	const lineClampClassName = useGetClass((classes) => classes.typography.line_clamp[lineClamp]);
 	const lineHeightClassName = useGetClass((classes) => classes.typography.line_height[lineHeight] as string);
 	const textTransformClassName = useGetClass((classes) => classes.typography.transform[textTransform]);
-	const whitespaceClassName = useGetClass((classes) => classes.typography.whitespace[whitespace]);
+	const whiteSpaceClassName = useGetClass((classes) => classes.typography.whiteSpace[whiteSpace]);
 	const wordBreakClassName = useGetClass((classes) => classes.typography.word_break[wordBreak]);
 
 	return classNames(
@@ -105,7 +105,7 @@ const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<
 		fontWeightClassName,
 		lineHeightClassName,
 		textTransformClassName,
-		whitespaceClassName,
+		whiteSpaceClassName,
 		wordBreakClassName,
 		{
 			[color]: checkColorType(color) === 'class',

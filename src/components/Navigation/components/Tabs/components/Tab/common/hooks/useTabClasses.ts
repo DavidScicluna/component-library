@@ -101,7 +101,7 @@ const useTabClasses = <Element extends TabElement>(props: UseTabClassesProps<Ele
 			classes.typography.line_height[__DEFAULT_TABS_TAB_LINE_HEIGHT_SIZE__],
 			classes.typography.transform[isUppercase ? 'uppercase' : 'normal'],
 			classes.typography.text_overflow.ellipsis,
-			classes.typography.whitespace.nowrap
+			classes.typography.whiteSpace.nowrap
 		)
 	};
 };

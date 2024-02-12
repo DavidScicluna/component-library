@@ -56,7 +56,7 @@ const useDummyBadgeClasses = <Element extends DummyBadgeElement>(
 		classes.typography.line_height[__DEFAULT_DUMMY_BADGE_LINE_HEIGHT_SIZE__],
 		classes.typography.transform[isUppercase ? 'uppercase' : 'capitalize'],
 		classes.typography.text_overflow.ellipsis,
-		classes.typography.whitespace.nowrap
+		classes.typography.whiteSpace.nowrap
 	);
 };
 

@@ -53,7 +53,7 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 			classes.typography.transform.normal,
 			classes.typography.letter_spacing.normal,
 			classes.typography.word_break.normal,
-			classes.typography.whitespace.normal,
+			classes.typography.whiteSpace.normal,
 			radiusClassName,
 			{
 				[size]: checkFontSizeType(size) === 'class',

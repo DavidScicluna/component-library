@@ -9,7 +9,7 @@ import type {
 	ThemeFontSize,
 	ThemeFontWeight,
 	ThemeLineHeight,
-	WhitespaceClass,
+	WhiteSpaceClass,
 	WordBreakClass
 } from '@common/types';
 
@@ -34,7 +34,7 @@ type TextOtherProps = TextThemeAppearanceProps & {
 	textTransform?: ResponsiveValue<TextTransformClass>;
 	isItalic?: ResponsiveValue<boolean>;
 	isOverflown?: ResponsiveValue<boolean>;
-	whitespace?: ResponsiveValue<WhitespaceClass>;
+	whiteSpace?: ResponsiveValue<WhiteSpaceClass>;
 	wordBreak?: ResponsiveValue<WordBreakClass>;
 };
 

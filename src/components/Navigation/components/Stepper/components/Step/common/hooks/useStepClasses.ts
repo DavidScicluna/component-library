@@ -103,7 +103,7 @@ const useStepClasses = <Element extends StepElement>(props: UseStepClassesProps<
 			classes.typography.line_height[__DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE__],
 			classes.typography.transform[isUppercase ? 'uppercase' : 'normal'],
 			classes.typography.text_overflow.ellipsis,
-			classes.typography.whitespace.nowrap
+			classes.typography.whiteSpace.nowrap
 		)
 	};
 };

@@ -95,7 +95,7 @@ const useFormsClasses = (props: UseFormsClassesProps): UseFormsClassesReturn => 
 				[classes.typography.line_height[__DEFAULT_FORMS_LINE_HEIGHT_SIZE__]]: variant !== 'unstyled',
 				[classes.typography.transform.normal]: variant !== 'unstyled',
 				[classes.typography.text_overflow.ellipsis]: variant !== 'unstyled',
-				[classes.typography.whitespace.nowrap]: variant !== 'unstyled',
+				[classes.typography.whiteSpace.nowrap]: variant !== 'unstyled',
 				[classes.borders.border_width[__DEFAULT_BORDER_WIDTH__]]: variant === 'outlined',
 				[classes.borders.border_b_width[__DEFAULT_BORDER_WIDTH__]]: variant === 'underline',
 				[classes.borders.border_style[__DEFAULT_BORDER_STYLE__]]: variant !== 'unstyled',
