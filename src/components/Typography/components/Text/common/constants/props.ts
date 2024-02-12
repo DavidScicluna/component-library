@@ -5,6 +5,7 @@ import type {
 	ThemeFontSize,
 	ThemeFontWeight,
 	ThemeLineHeight,
+	UserSelectClass,
 	WhiteSpaceClass,
 	WordBreakClass
 } from '@common/types';
@@ -22,3 +23,4 @@ export const __DEFAULT_TEXT_IS_ITALIC__ = false;
 export const __DEFAULT_TEXT_IS_OVERFLOWN__ = false;
 export const __DEFAULT_TEXT_WHITESPACE__: WhiteSpaceClass = 'normal';
 export const __DEFAULT_TEXT_WORD_BREAK__: WordBreakClass = 'normal';
+export const __DEFAULT_TEXT_USER_SELECT__: UserSelectClass = 'text';

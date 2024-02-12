@@ -5,6 +5,7 @@ import type {
 	ThemeFontSizeArr,
 	ThemeFontWeightArr,
 	ThemeLineHeightArr,
+	UserSelectClassArr,
 	WhiteSpaceClassArr,
 	WordBreakClassArr
 } from '@common/types';
@@ -17,6 +18,7 @@ import {
 	__DEFAULT_TEXT_IS_OVERFLOWN__,
 	__DEFAULT_TEXT_LINE_HEIGHT__,
 	__DEFAULT_TEXT_TRANSFORM__,
+	__DEFAULT_TEXT_USER_SELECT__,
 	__DEFAULT_TEXT_WHITESPACE__,
 	__DEFAULT_TEXT_WORD_BREAK__
 } from './common/constants';
@@ -155,6 +157,14 @@ export default {
 			defaultValue: __DEFAULT_TEXT_WORD_BREAK__,
 			// description: '',
 			options: ['normal', 'words', 'all', 'keep'] as WordBreakClassArr,
+			control: { type: 'radio' }
+		},
+		userSelect: {
+			name: 'User Select',
+			type: 'string',
+			defaultValue: __DEFAULT_TEXT_USER_SELECT__,
+			// description: '',
+			options: ['none', 'text', 'all', 'auto'] as UserSelectClassArr,
 			control: { type: 'radio' }
 		}
 	}

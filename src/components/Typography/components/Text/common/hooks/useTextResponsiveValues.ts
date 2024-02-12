@@ -6,6 +6,7 @@ import type {
 	ThemeFontSize,
 	ThemeFontWeight,
 	ThemeLineHeight,
+	UserSelectClass,
 	WhiteSpaceClass,
 	WordBreakClass
 } from '@common/types';
@@ -19,6 +20,7 @@ import {
 	__DEFAULT_TEXT_LINE_CLAMP__,
 	__DEFAULT_TEXT_LINE_HEIGHT__,
 	__DEFAULT_TEXT_TRANSFORM__,
+	__DEFAULT_TEXT_USER_SELECT__,
 	__DEFAULT_TEXT_WHITESPACE__,
 	__DEFAULT_TEXT_WORD_BREAK__
 } from '../constants';
@@ -37,6 +39,7 @@ type UseTextResponsiveValuesProps<Element extends TextElement> = Partial<
 		| 'isOverflown'
 		| 'whiteSpace'
 		| 'wordBreak'
+		| 'userSelect'
 	>
 >;
 
@@ -52,6 +55,7 @@ const useTextResponsiveValues = <Element extends TextElement>(props: UseTextResp
 		isOverflown: isOverflownProp = __DEFAULT_TEXT_IS_OVERFLOWN__,
 		whiteSpace: whiteSpaceProp = __DEFAULT_TEXT_WHITESPACE__,
 		wordBreak: wordBreakProp = __DEFAULT_TEXT_WORD_BREAK__,
+		userSelect: userSelectProp = __DEFAULT_TEXT_USER_SELECT__
 	} = props;
 
 	const align = useGetResponsiveValue<TextAlignClass>(alignProp);
@@ -66,6 +70,7 @@ const useTextResponsiveValues = <Element extends TextElement>(props: UseTextResp
 
 	const whiteSpace = useGetResponsiveValue<WhiteSpaceClass>(whiteSpaceProp);
 	const wordBreak = useGetResponsiveValue<WordBreakClass>(wordBreakProp);
+	const userSelect = useGetResponsiveValue<UserSelectClass>(userSelectProp);
 
 	return {
 		align,
@@ -78,6 +83,7 @@ const useTextResponsiveValues = <Element extends TextElement>(props: UseTextResp
 		isOverflown,
 		whiteSpace,
 		wordBreak,
+		userSelect
 	};
 };
 

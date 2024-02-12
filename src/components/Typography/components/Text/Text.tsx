@@ -17,6 +17,7 @@ import {
 	__DEFAULT_TEXT_LINE_CLAMP__,
 	__DEFAULT_TEXT_LINE_HEIGHT__,
 	__DEFAULT_TEXT_TRANSFORM__,
+	__DEFAULT_TEXT_USER_SELECT__,
 	__DEFAULT_TEXT_WHITESPACE__,
 	__DEFAULT_TEXT_WORD_BREAK__
 } from './common/constants';
@@ -47,6 +48,7 @@ const Text = forwardRef(function Text<Element extends TextElement>(
 		isOverflown: isOverflownProp = __DEFAULT_TEXT_IS_OVERFLOWN__,
 		whiteSpace: whiteSpaceProp = __DEFAULT_TEXT_WHITESPACE__,
 		wordBreak: wordBreakProp = __DEFAULT_TEXT_WORD_BREAK__,
+		userSelect: userSelectProp = __DEFAULT_TEXT_USER_SELECT__,
 		sx = __DEFAULT_POLYMORPHIC_SX__,
 		...rest
 	} = props;
@@ -62,6 +64,7 @@ const Text = forwardRef(function Text<Element extends TextElement>(
 		isOverflown,
 		whiteSpace,
 		wordBreak,
+		userSelect
 	} = useTextResponsiveValues<Element>({
 		align: alignProp,
 		fontSize: fontSizeProp,
@@ -73,6 +76,7 @@ const Text = forwardRef(function Text<Element extends TextElement>(
 		isOverflown: isOverflownProp,
 		whiteSpace: whiteSpaceProp,
 		wordBreak: wordBreakProp,
+		userSelect: userSelectProp
 	});
 
 	const classes = useTextClasses<Element>({
@@ -88,6 +92,7 @@ const Text = forwardRef(function Text<Element extends TextElement>(
 		isOverflown,
 		whiteSpace,
 		wordBreak,
+		userSelect
 	});
 	const styles = useTextStyles<Element>({ color });
 

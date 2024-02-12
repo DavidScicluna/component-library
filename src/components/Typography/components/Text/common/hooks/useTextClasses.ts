@@ -13,6 +13,7 @@ import {
 	__DEFAULT_TEXT_LINE_CLAMP__,
 	__DEFAULT_TEXT_LINE_HEIGHT__,
 	__DEFAULT_TEXT_TRANSFORM__,
+	__DEFAULT_TEXT_USER_SELECT__,
 	__DEFAULT_TEXT_WHITESPACE__,
 	__DEFAULT_TEXT_WORD_BREAK__
 } from '../constants';
@@ -37,6 +38,7 @@ type UseTextClassesProps<Element extends TextElement> = Pick<
 	| 'isOverflown'
 	| 'whiteSpace'
 	| 'wordBreak'
+	| 'userSelect'
 >;
 type UseTextClassesReturn = ClassName;
 
@@ -56,6 +58,7 @@ const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<
 		isOverflown: isOverflownProp = __DEFAULT_TEXT_IS_OVERFLOWN__,
 		whiteSpace: whiteSpaceProp = __DEFAULT_TEXT_WHITESPACE__,
 		wordBreak: wordBreakProp = __DEFAULT_TEXT_WORD_BREAK__,
+		userSelect: userSelectProp = __DEFAULT_TEXT_USER_SELECT__
 	} = props;
 
 	const {
@@ -69,6 +72,7 @@ const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<
 		isOverflown,
 		whiteSpace,
 		wordBreak,
+		userSelect
 	} = useTextResponsiveValues<Element>({
 		align: alignProp,
 		fontSize: fontSizeProp,
@@ -80,6 +84,7 @@ const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<
 		isOverflown: isOverflownProp,
 		whiteSpace: whiteSpaceProp,
 		wordBreak: wordBreakProp,
+		userSelect: userSelectProp
 	});
 
 	const textColorClassName = useGetColor({
@@ -98,6 +103,7 @@ const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<
 	const textTransformClassName = useGetClass((classes) => classes.typography.transform[textTransform]);
 	const whiteSpaceClassName = useGetClass((classes) => classes.typography.whiteSpace[whiteSpace]);
 	const wordBreakClassName = useGetClass((classes) => classes.typography.word_break[wordBreak]);
+	const userSelectClassName = useGetClass((classes) => classes.interactivity.user_select[userSelect]);
 
 	return classNames(
 		alignClassName,
@@ -107,6 +113,7 @@ const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<
 		textTransformClassName,
 		whiteSpaceClassName,
 		wordBreakClassName,
+		userSelectClassName,
 		{
 			[color]: checkColorType(color) === 'class',
 			[textColorClassName]: checkColorType(color) === 'theme',

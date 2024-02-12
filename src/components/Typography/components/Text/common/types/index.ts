@@ -9,6 +9,7 @@ import type {
 	ThemeFontSize,
 	ThemeFontWeight,
 	ThemeLineHeight,
+	UserSelectClass,
 	WhiteSpaceClass,
 	WordBreakClass
 } from '@common/types';
@@ -36,6 +37,7 @@ type TextOtherProps = TextThemeAppearanceProps & {
 	isOverflown?: ResponsiveValue<boolean>;
 	whiteSpace?: ResponsiveValue<WhiteSpaceClass>;
 	wordBreak?: ResponsiveValue<WordBreakClass>;
+	userSelect?: ResponsiveValue<UserSelectClass>;
 };
 
 export type TextProps<Element extends TextElement> = BoxProps<Element, TextOtherProps>;
