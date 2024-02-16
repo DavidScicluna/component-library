@@ -10,10 +10,12 @@ import { Box } from '@components/Box';
 import {
 	__DEFAULT_TEXT_ALIGN__,
 	__DEFAULT_TEXT_AS__,
+	__DEFAULT_TEXT_DECORATION__,
 	__DEFAULT_TEXT_FONT_SIZE__,
 	__DEFAULT_TEXT_FONT_WEIGHT__,
 	__DEFAULT_TEXT_IS_ITALIC__,
 	__DEFAULT_TEXT_IS_OVERFLOWN__,
+	__DEFAULT_TEXT_LETTER_SPACING__,
 	__DEFAULT_TEXT_LINE_CLAMP__,
 	__DEFAULT_TEXT_LINE_HEIGHT__,
 	__DEFAULT_TEXT_TRANSFORM__,
@@ -39,8 +41,10 @@ const Text = forwardRef(function Text<Element extends TextElement>(
 		color,
 		colorMode,
 		align: alignProp = __DEFAULT_TEXT_ALIGN__,
+		decoration: decorationProp = __DEFAULT_TEXT_DECORATION__,
 		fontSize: fontSizeProp = __DEFAULT_TEXT_FONT_SIZE__,
 		fontWeight: fontWeightProp = __DEFAULT_TEXT_FONT_WEIGHT__,
+		letterSpacing: letterSpacingProp = __DEFAULT_TEXT_LETTER_SPACING__,
 		lineClamp: lineClampProp = __DEFAULT_TEXT_LINE_CLAMP__,
 		lineHeight: lineHeightProp = __DEFAULT_TEXT_LINE_HEIGHT__,
 		textTransform: textTransformProp = __DEFAULT_TEXT_TRANSFORM__,
@@ -55,8 +59,10 @@ const Text = forwardRef(function Text<Element extends TextElement>(
 
 	const {
 		align,
+		decoration,
 		fontSize,
 		fontWeight,
+		letterSpacing,
 		lineClamp,
 		lineHeight,
 		textTransform,
@@ -67,8 +73,10 @@ const Text = forwardRef(function Text<Element extends TextElement>(
 		userSelect
 	} = useTextResponsiveValues<Element>({
 		align: alignProp,
+		decoration: decorationProp,
 		fontSize: fontSizeProp,
 		fontWeight: fontWeightProp,
+		letterSpacing: letterSpacingProp,
 		lineClamp: lineClampProp,
 		lineHeight: lineHeightProp,
 		textTransform: textTransformProp,
@@ -83,8 +91,10 @@ const Text = forwardRef(function Text<Element extends TextElement>(
 		color,
 		colorMode,
 		align,
+		decoration,
 		fontSize,
 		fontWeight,
+		letterSpacing,
 		lineClamp,
 		lineHeight,
 		textTransform,
@@ -94,7 +104,7 @@ const Text = forwardRef(function Text<Element extends TextElement>(
 		wordBreak,
 		userSelect
 	});
-	const styles = useTextStyles<Element>({ color });
+	const styles = useTextStyles<Element>({ color, decoration });
 
 	return (
 		<Box

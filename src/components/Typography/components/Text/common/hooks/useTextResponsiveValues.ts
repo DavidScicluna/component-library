@@ -1,6 +1,7 @@
 import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	TextAlignClass,
+	TextLetterSpacingClass,
 	TextLineClampClass,
 	TextTransformClass,
 	ThemeFontSize,
@@ -13,10 +14,12 @@ import type {
 
 import {
 	__DEFAULT_TEXT_ALIGN__,
+	__DEFAULT_TEXT_DECORATION__,
 	__DEFAULT_TEXT_FONT_SIZE__,
 	__DEFAULT_TEXT_FONT_WEIGHT__,
 	__DEFAULT_TEXT_IS_ITALIC__,
 	__DEFAULT_TEXT_IS_OVERFLOWN__,
+	__DEFAULT_TEXT_LETTER_SPACING__,
 	__DEFAULT_TEXT_LINE_CLAMP__,
 	__DEFAULT_TEXT_LINE_HEIGHT__,
 	__DEFAULT_TEXT_TRANSFORM__,
@@ -24,14 +27,16 @@ import {
 	__DEFAULT_TEXT_WHITESPACE__,
 	__DEFAULT_TEXT_WORD_BREAK__
 } from '../constants';
-import type { TextElement, TextProps } from '../types';
+import type { TextDecorationProps, TextElement, TextProps } from '../types';
 
 type UseTextResponsiveValuesProps<Element extends TextElement> = Partial<
 	Pick<
 		TextProps<Element>,
 		| 'align'
+		| 'decoration'
 		| 'fontSize'
 		| 'fontWeight'
+		| 'letterSpacing'
 		| 'lineClamp'
 		| 'lineHeight'
 		| 'textTransform'
@@ -46,8 +51,10 @@ type UseTextResponsiveValuesProps<Element extends TextElement> = Partial<
 const useTextResponsiveValues = <Element extends TextElement>(props: UseTextResponsiveValuesProps<Element>) => {
 	const {
 		align: alignProp = __DEFAULT_TEXT_ALIGN__,
+		decoration: decorationProp = __DEFAULT_TEXT_DECORATION__,
 		fontSize: fontSizeProp = __DEFAULT_TEXT_FONT_SIZE__,
 		fontWeight: fontWeightProp = __DEFAULT_TEXT_FONT_WEIGHT__,
+		letterSpacing: letterSpacingProp = __DEFAULT_TEXT_LETTER_SPACING__,
 		lineClamp: lineClampProp = __DEFAULT_TEXT_LINE_CLAMP__,
 		lineHeight: lineHeightProp = __DEFAULT_TEXT_LINE_HEIGHT__,
 		textTransform: textTransformProp = __DEFAULT_TEXT_TRANSFORM__,
@@ -59,8 +66,10 @@ const useTextResponsiveValues = <Element extends TextElement>(props: UseTextResp
 	} = props;
 
 	const align = useGetResponsiveValue<TextAlignClass>(alignProp);
+	const decoration = useGetResponsiveValue<TextDecorationProps>(decorationProp);
 	const fontSize = useGetResponsiveValue<ThemeFontSize>(fontSizeProp);
 	const fontWeight = useGetResponsiveValue<ThemeFontWeight>(fontWeightProp);
+	const letterSpacing = useGetResponsiveValue<TextLetterSpacingClass>(letterSpacingProp);
 	const lineClamp = useGetResponsiveValue<TextLineClampClass>(lineClampProp);
 	const lineHeight = useGetResponsiveValue<ThemeLineHeight>(lineHeightProp);
 	const textTransform = useGetResponsiveValue<TextTransformClass>(textTransformProp);
@@ -74,8 +83,10 @@ const useTextResponsiveValues = <Element extends TextElement>(props: UseTextResp
 
 	return {
 		align,
+		decoration,
 		fontSize,
 		fontWeight,
+		letterSpacing,
 		lineClamp,
 		lineHeight,
 		textTransform,

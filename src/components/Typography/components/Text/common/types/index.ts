@@ -1,10 +1,17 @@
+import type { NonUndefined } from 'utility-types';
+
 import type {
 	PickFrom,
 	PolymorphicElementType,
 	ResponsiveValue,
 	TextAlignClass,
+	TextDecorationClass,
+	TextDecorationStyleClass,
+	TextDecorationThicknessClass,
+	TextLetterSpacingClass,
 	TextLineClampClass,
 	TextTransformClass,
+	TextUnderlineOffsetClass,
 	ThemeAppearanceProps,
 	ThemeFontSize,
 	ThemeFontWeight,
@@ -23,13 +30,23 @@ export type TextElement = PickFrom<
 >;
 
 export type TextThemeAppearanceProps = Partial<
-	Pick<ThemeAppearanceProps, 'colorMode'> & { color: ThemeAppearanceProps['color'] | string }
+	Pick<ThemeAppearanceProps, 'colorMode'> & { color: NonUndefined<ThemeAppearanceProps['color']> | string }
 >;
+
+export type TextDecorationProps = {
+	color: NonUndefined<ThemeAppearanceProps['color']> | string;
+	style: TextDecorationStyleClass;
+	thickness: TextDecorationThicknessClass;
+	offset: TextUnderlineOffsetClass;
+	variant: TextDecorationClass;
+};
 
 type TextOtherProps = TextThemeAppearanceProps & {
 	align?: ResponsiveValue<TextAlignClass>;
+	decoration?: ResponsiveValue<TextDecorationProps>;
 	fontSize?: ResponsiveValue<ThemeFontSize>;
 	fontWeight?: ResponsiveValue<ThemeFontWeight>;
+	letterSpacing?: ResponsiveValue<TextLetterSpacingClass>;
 	lineClamp?: ResponsiveValue<TextLineClampClass>;
 	lineHeight?: ResponsiveValue<ThemeLineHeight>;
 	textTransform?: ResponsiveValue<TextTransformClass>;
