@@ -27,44 +27,44 @@ const useGetIconFontStatus = (): useGetIconFontStatusReturn => {
 	const [hasTwoToneIconsLoaded, setHasTwoToneIconsLoaded] = useBoolean(__DEFAULT_HAS_TWOTONEICON_LOADED__);
 
 	const handleCheckFilledIconsStatus = (): void => {
-		sessionStorage.removeItem(__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__);
+		globalThis?.window?.sessionStorage.removeItem(__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__);
 
 		if (checkFontStatus('filled')) {
 			setHasFilledIconsLoaded.on();
 
-			sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__, 'true');
+			globalThis?.window?.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__, 'true');
 		} else {
 			setHasFilledIconsLoaded.off();
 
-			sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__, 'false');
+			globalThis?.window?.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__, 'false');
 		}
 	};
 
 	const handleCheckOutlinedIconsStatus = (): void => {
-		sessionStorage.removeItem(__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__);
+		globalThis?.window?.sessionStorage.removeItem(__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__);
 
 		if (checkFontStatus('outlined')) {
 			setHasOutlinedIconsLoaded.on();
 
-			sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__, 'true');
+			globalThis?.window?.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__, 'true');
 		} else {
 			setHasOutlinedIconsLoaded.off();
 
-			sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__, 'false');
+			globalThis?.window?.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__, 'false');
 		}
 	};
 
 	const handleCheckTwoToneIconsStatus = (): void => {
-		sessionStorage.removeItem(__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__);
+		globalThis?.window?.sessionStorage.removeItem(__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__);
 
 		if (checkFontStatus('twoTone')) {
 			setHasTwoToneIconsLoaded.on();
 
-			sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__, 'true');
+			globalThis?.window?.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__, 'true');
 		} else {
 			setHasTwoToneIconsLoaded.off();
 
-			sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__, 'false');
+			globalThis?.window?.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__, 'false');
 		}
 	};
 

@@ -12,18 +12,18 @@ const useGetColorMode = (initialColorMode: ThemeColorMode): ThemeAppColorMode =>
 	const [colorMode, setColorMode] = useState<ThemeAppColorMode>(__DEFAULT_APP_COLORMODE__);
 
 	const handleSetColorMode = (): void => {
-		globalThis?.localStorage.removeItem(__KEY_LOCALSTORAGE_APP_COLORMODE__);
+		globalThis?.window?.localStorage.removeItem(__KEY_LOCALSTORAGE_APP_COLORMODE__);
 
 		if (initialColorMode === 'system') {
 			const updatedColorMode: ThemeAppColorMode = isDarkMode ? 'dark' : 'light';
 
 			setColorMode(updatedColorMode);
 
-			globalThis?.localStorage.setItem(__KEY_LOCALSTORAGE_APP_COLORMODE__, updatedColorMode);
+			globalThis?.window?.localStorage.setItem(__KEY_LOCALSTORAGE_APP_COLORMODE__, updatedColorMode);
 		} else {
 			setColorMode(initialColorMode);
 
-			globalThis?.localStorage.setItem(__KEY_LOCALSTORAGE_APP_COLORMODE__, initialColorMode);
+			globalThis?.window?.localStorage.setItem(__KEY_LOCALSTORAGE_APP_COLORMODE__, initialColorMode);
 		}
 	};
 
