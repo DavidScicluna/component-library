@@ -1,10 +1,11 @@
-export * as classes from './common/classes';
+import classes from './common/classes';
+import theme from './common/theme';
+
 export * from './common/constants';
 export * from './common/data';
 export * from './common/helpers';
 export * from './common/hooks';
 export * from './common/keys';
-export * as theme from './common/theme';
 export * from './common/types';
 export * from './common/utils';
 export * from './components/Animation';
@@ -21,3 +22,4 @@ export * from './components/Overlay';
 export * from './components/Provider';
 export * from './components/Typography';
 export * from './components/VisuallyHidden';
+export { classes, theme };
