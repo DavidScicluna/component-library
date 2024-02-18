@@ -1,5 +1,7 @@
 import { forwardRef, useMemo } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
@@ -14,9 +16,6 @@ import { __DEFAULT_ICON_BUTTON_SPINNER_VARIANT__ } from './common/constants';
 import { useIconButtonSpinnerResponsiveValues } from './common/hooks';
 import { __KEYS_ICON_BUTTON_SPINNER_CLASS__ } from './common/keys';
 import type { IconButtonSpinnerProps, IconButtonSpinnerRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const IconButtonSpinner = forwardRef(function IconButtonSpinner<Element extends PolymorphicElementType>(
 	props: IconButtonSpinnerProps<Element>,

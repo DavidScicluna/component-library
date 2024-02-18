@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
 import { compact, isArray } from 'lodash-es';
 import { useDimensionsRef } from 'rooks';
 
@@ -22,9 +23,6 @@ import { getStepListID } from '../../common/utils';
 
 import { __KEYS_STEPPER_STEP_LIST_CLASS__ } from './common/keys';
 import type { StepListProps, StepListRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const StepList = forwardRef(function StepList<Element extends PolymorphicElementType>(
 	props: StepListProps<Element>,

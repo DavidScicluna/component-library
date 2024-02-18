@@ -1,5 +1,6 @@
 import { createContext, forwardRef } from 'react';
 
+import classNames from 'classnames';
 import { sort } from 'fast-sort';
 import { compact, debounce, isArray } from 'lodash-es';
 import { useArrayState, useDimensionsRef } from 'rooks';
@@ -43,9 +44,6 @@ import type {
 	CarouselArrowIconButtonGroupRef
 } from './components';
 import { CarouselArrowButtonGroup, CarouselArrowIconButtonGroup, CarouselItem } from './components';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const CarouselContext = createContext<CarouselContextType<CarouselDefaultElement>>({

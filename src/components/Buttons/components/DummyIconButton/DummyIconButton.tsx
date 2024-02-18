@@ -1,5 +1,6 @@
 import { createContext, forwardRef } from 'react';
 
+import classNames from 'classnames';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
@@ -31,8 +32,6 @@ import type {
 	DummyIconButtonProps,
 	DummyIconButtonRef
 } from './common/types';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 export const DummyIconButtonContext = createContext<DummyIconButtonContextType<DummyIconButtonDefaultElement>>({
 	size: __DEFAULT_DUMMY_ICON_BUTTON_SIZE__,

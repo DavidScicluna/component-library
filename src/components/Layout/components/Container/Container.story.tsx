@@ -14,8 +14,7 @@ import type { ContainerBreakpoint, ContainerProps } from './common/types';
 import type { ContainerStory, ContainerStoryMeta } from './common/types/story';
 import { Container as ContainerComponent } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 export default {
 	title: 'Layout/Container',

@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
@@ -9,9 +11,6 @@ import { Box } from '@components/Box';
 import { useIconButtonGroupItemClasses } from './common/hooks';
 import { __KEYS_ICON_BUTTON_GROUP_ITEM_CLASS__ } from './common/keys';
 import type { IconButtonGroupItemProps, IconButtonGroupItemRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const IconButtonGroupItem = forwardRef(function IconButtonGroupItem<Element extends PolymorphicElementType>(
 	props: IconButtonGroupItemProps<Element>,

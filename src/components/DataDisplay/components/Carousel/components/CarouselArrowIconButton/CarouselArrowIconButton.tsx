@@ -1,5 +1,7 @@
 import { forwardRef, useMemo } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import type { IconButtonProps } from '@components/Buttons';
@@ -24,9 +26,6 @@ import type {
 	CarouselArrowIconButtonProps,
 	CarouselArrowIconButtonRef
 } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const CarouselArrowIconButton = forwardRef(function CarouselArrowIconButton<
 	Element extends CarouselArrowIconButtonElement

@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import { useGetClass, useGetColor } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
@@ -10,9 +12,6 @@ import {
 import type { LinearGradientProps } from '../types';
 
 import useLinearGradientResponsiveValues from './useLinearGradientResponsiveValues';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseLinearGradientClassesProps<Element extends PolymorphicElementType> = Pick<
 	LinearGradientProps<Element>,

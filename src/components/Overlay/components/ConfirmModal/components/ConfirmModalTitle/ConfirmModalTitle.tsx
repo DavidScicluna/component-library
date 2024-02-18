@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
@@ -12,9 +14,6 @@ import { getConfirmModalTitleID } from '../../common/utils';
 import { __DEFAULT_CONFIRM_MODAL_TITLE_AS__ } from './common/constants';
 import { __KEYS_CONFIRM_MODAL_TITLE_CLASS__ } from './common/keys';
 import type { ConfirmModalTitleElement, ConfirmModalTitleProps, ConfirmModalTitleRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const ConfirmModalTitle = forwardRef(function ConfirmModalTitle<Element extends ConfirmModalTitleElement>(
 	props: ConfirmModalTitleProps<Element>,

@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
@@ -12,9 +14,6 @@ import { useDummyBadgeContext } from '../../common/hooks';
 
 import { __KEY_DUMMY_BADGE_SKELETON_CLASS__ } from './common/keys';
 import type { DummyBadgeSkeletonProps, DummyBadgeSkeletonRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const DummyBadgeSkeleton = forwardRef(function DummyBadgeSkeleton<Element extends PolymorphicElementType>(
 	props: DummyBadgeSkeletonProps<Element>,

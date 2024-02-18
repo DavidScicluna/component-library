@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useDimensionsRef } from 'rooks';
 
@@ -14,9 +15,6 @@ import { __DEFAULT_HEADLINE_SPACING__ } from './common/constants';
 import { useHeadlineResponsiveValues } from './common/hooks';
 import { __KEYS_HEADLINE_CLASS__ } from './common/keys';
 import type { HeadlineProps, HeadlineRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const Headline = forwardRef(function Headline<Element extends PolymorphicElementType>(
 	props: HeadlineProps<Element>,

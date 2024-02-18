@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
@@ -12,9 +14,6 @@ import { getModalTitleID } from '../../common/utils';
 import { __DEFAULT_MODAL_TITLE_AS__ } from './common/constants';
 import { __KEYS_MODAL_TITLE_CLASS__ } from './common/keys';
 import type { ModalTitleElement, ModalTitleProps, ModalTitleRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const ModalTitle = forwardRef(function ModalTitle<Element extends ModalTitleElement>(
 	props: ModalTitleProps<Element>,

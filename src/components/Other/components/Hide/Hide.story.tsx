@@ -8,8 +8,7 @@ import type { HideProps } from './common/types';
 import type { HideStory, HideStoryMeta } from './common/types/story';
 import { Hide as HideComponent } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 export default {
 	title: 'Other/Hide',

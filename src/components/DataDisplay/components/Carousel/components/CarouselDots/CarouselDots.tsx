@@ -1,5 +1,6 @@
 import { forwardRef, useEffect } from 'react';
 
+import classNames from 'classnames';
 import { compact, debounce } from 'lodash-es';
 import { useArrayState } from 'rooks';
 
@@ -23,9 +24,6 @@ import type {
 	CarouselDotsRef
 } from './common/types';
 import { CarouselDot } from './components';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const CarouselDots = forwardRef(function CarouselDots<Element extends PolymorphicElementType>(
 	props: CarouselDotsProps<Element>,

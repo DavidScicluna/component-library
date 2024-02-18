@@ -15,8 +15,7 @@ import type { StateOverlayProps, StateOverlayState } from './common/types';
 import type { StateOverlayStory, StateOverlayStoryMeta } from './common/types/story';
 import { StateOverlay as StateOverlayComponent } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 export default {
 	title: 'Overlay/StateOverlay',

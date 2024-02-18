@@ -1,6 +1,8 @@
 import { forwardRef, useMemo } from 'react';
 import { Puff } from 'react-loader-spinner';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetColor, useTheme } from '@common/hooks';
 import type { PolymorphicElementType, ThemeFontSize } from '@common/types';
@@ -13,9 +15,6 @@ import { __DEFAULT_PUFF_SPINNER_IS_VISIBLE__, __DEFAULT_PUFF_SPINNER_SIZE__ } fr
 import { usePuffSpinnerResponsiveValues } from './common/hooks';
 import { __KEYS_PUFF_SPINNER_CLASS__, __KEYS_PUFF_SPINNER_WRAPPER_CLASS__ } from './common/keys';
 import type { PuffSpinnerProps, PuffSpinnerRef, PuffSpinnerSize } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const PuffSpinner = forwardRef(function PuffSpinner<Element extends PolymorphicElementType>(
 	props: PuffSpinnerProps<Element>,

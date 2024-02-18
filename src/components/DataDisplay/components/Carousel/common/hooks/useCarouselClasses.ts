@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import type { ClassName } from '@common/types';
 
@@ -5,9 +7,6 @@ import { __DEFAULT_CAROUSEL_VARIANT__ } from '../constants';
 import type { CarouselElement, CarouselProps } from '../types';
 
 import useCarouselResponsiveValues from './useCarouselResponsiveValues';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseCarouselClassesProps<Element extends CarouselElement> = Pick<
 	CarouselProps<Element>,

@@ -19,8 +19,7 @@ import type { PositionOverlayBlurType, PositionOverlayProps } from './common/typ
 import type { PositionOverlayStory, PositionOverlayStoryMeta } from './common/types/story';
 import { PositionOverlay as PositionOverlayComponent } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 export default {
 	title: 'Overlay/PositionOverlay',

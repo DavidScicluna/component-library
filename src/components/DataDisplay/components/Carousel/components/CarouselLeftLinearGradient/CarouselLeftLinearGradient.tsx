@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
@@ -9,9 +11,6 @@ import { CarouselLinearGradient } from '..';
 
 import { __KEYS_CAROUSEL_LEFT_LINEAR_GRADIENT_CLASS__ } from './common/keys';
 import type { CarouselLeftLinearGradientProps, CarouselLeftLinearGradientRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const CarouselLeftLinearGradient = forwardRef(function CarouselLeftLinearGradient<
 	Element extends PolymorphicElementType

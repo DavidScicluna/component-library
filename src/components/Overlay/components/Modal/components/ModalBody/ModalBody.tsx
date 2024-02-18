@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
@@ -8,9 +10,6 @@ import { Center } from '@components/Layout';
 
 import { __KEYS_MODAL_BODY_CLASS__ } from './common/keys';
 import type { ModalBodyProps, ModalBodyRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const ModalBody = forwardRef(function ModalBody<Element extends PolymorphicElementType>(
 	props: ModalBodyProps<Element>,

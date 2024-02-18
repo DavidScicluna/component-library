@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_OUTLINE_WIDTH__ } from '@common/constants';
 import { useAppTheme, useGetColor } from '@common/hooks';
@@ -19,9 +21,6 @@ import type { TabElement, TabProps } from '../types';
 
 import useTabResponsiveValues from './useTabResponsiveValues';
 import useTabSizeConfig from './useTabSizeConfig';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type PickedTabProps = 'color' | 'colorMode' | 'isActive' | 'isCompact' | 'isDisabled' | 'isUppercase';
 type UseTabClassesProps<Element extends TabElement> = Pick<TabProps<Element>, PickedTabProps> & { isFocused: boolean };

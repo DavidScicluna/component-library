@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import { useGetClass } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
@@ -10,9 +12,6 @@ import {
 import type { PositionOverlayProps } from '../types';
 
 import usePositionOverlayResponsiveValues from './usePositionOverlayResponsiveValues';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UsePositionOverlayClassesProps<Element extends PolymorphicElementType> = Pick<
 	PositionOverlayProps<Element>,

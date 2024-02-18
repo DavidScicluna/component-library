@@ -1,6 +1,5 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import classNames from 'classnames';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
 
 export const __KEYS_ICON_CLASS__ = classNames(`${__DEFAULT_CLASS_PREFIX__}-icon`, 'material-icons');

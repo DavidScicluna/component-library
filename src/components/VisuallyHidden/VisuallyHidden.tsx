@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
@@ -11,9 +12,6 @@ import { __DEFAULT_VISUALLY_HIDDEN_AS__ } from './common/constants';
 import { useVisuallyHiddenStyles } from './common/hooks';
 import { __KEYS_VISUALLY_HIDDEN_CLASS__ } from './common/keys';
 import type { VisuallyHiddenElement, VisuallyHiddenProps, VisuallyHiddenRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const VisuallyHidden = forwardRef(function VisuallyHidden<Element extends VisuallyHiddenElement>(
 	props: VisuallyHiddenProps<Element>,

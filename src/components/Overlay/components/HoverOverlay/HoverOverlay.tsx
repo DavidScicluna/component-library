@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
@@ -9,9 +11,6 @@ import { Box } from '@components/Box';
 
 import { __KEYS_HOVER_OVERLAY_CLASS__ } from './common/keys';
 import type { HoverOverlayMouseEvent, HoverOverlayProps, HoverOverlayRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const HoverOverlay = forwardRef(function HoverOverlay<Element extends PolymorphicElementType>(
 	props: HoverOverlayProps<Element>,

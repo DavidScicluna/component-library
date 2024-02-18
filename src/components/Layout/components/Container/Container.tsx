@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
@@ -14,9 +16,6 @@ import {
 import { useContainerClasses, useContainerResponsiveValues } from './common/hooks';
 import { __KEYS_CONTAINER_CLASS__ } from './common/keys';
 import type { ContainerProps, ContainerRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const Container = forwardRef(function Container<Element extends PolymorphicElementType>(
 	props: ContainerProps<Element>,

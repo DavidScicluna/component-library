@@ -1,5 +1,6 @@
 import { forwardRef, useMemo } from 'react';
 
+import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import { keys } from 'lodash-es';
 
@@ -27,9 +28,6 @@ import { transitions } from './common/data';
 import { useTransitionResponsiveValues } from './common/hooks';
 import { __KEYS_TRANSITION_CLASS__ } from './common/keys';
 import type { TransitionProps, TransitionRef, TransitionVariant } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const MotionBox: any = motion(Box);

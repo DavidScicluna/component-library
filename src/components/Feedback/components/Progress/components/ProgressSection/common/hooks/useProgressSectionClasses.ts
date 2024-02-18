@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import { useGetClass, useGetColor } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
@@ -5,9 +7,6 @@ import type { ClassName, PolymorphicElementType } from '@common/types';
 import { useProgressContext } from '@components/Feedback/components/Progress/common/hooks';
 
 import type { ProgressSectionProps } from '../types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseProgressSectionClassesProps<Element extends PolymorphicElementType> = Pick<
 	ProgressSectionProps<Element>,

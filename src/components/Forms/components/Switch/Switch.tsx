@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
+import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useFocus } from 'rooks';
 
@@ -48,9 +49,6 @@ import { useSwitchClasses, useSwitchIconSize, useSwitchResponsiveValues, useSwit
 import { __KEYS_SWITCH_CLASS__ } from './common/keys';
 // TODO: Go over all Form components Event types and check if they are used if not remove
 import type { SwitchFocusEvent, SwitchMouseEvent, SwitchProps, SwitchRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const Switch = forwardRef(function Switch<Element extends PolymorphicElementType>(
 	props: SwitchProps<Element>,

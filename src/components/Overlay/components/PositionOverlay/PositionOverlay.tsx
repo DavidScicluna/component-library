@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
@@ -31,9 +33,6 @@ import type {
 	PositionOverlayProps,
 	PositionOverlayRef
 } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const PositionOverlayItem = (props: PositionOverlayItemProps): JSX.Element => {
 	const { renderOverlay, placement: placementProp = __DEFAULT_POSITION_OVERLAY_ITEM_PLACEMENT__ } = props;

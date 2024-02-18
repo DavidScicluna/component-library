@@ -8,8 +8,7 @@ import type { ShowProps } from './common/types';
 import type { ShowStory, ShowStoryMeta } from './common/types/story';
 import { Show as ShowComponent } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 export default {
 	title: 'Other/Show',

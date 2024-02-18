@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 
@@ -20,9 +22,6 @@ import {
 } from './common/constants';
 import { __KEYS_CAROUSEL_ARROW_BUTTON_CLASS__ } from './common/keys';
 import type { CarouselArrowButtonElement, CarouselArrowButtonProps, CarouselArrowButtonRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const CarouselArrowButton = forwardRef(function CarouselArrowButton<Element extends CarouselArrowButtonElement>(
 	props: CarouselArrowButtonProps<Element>,

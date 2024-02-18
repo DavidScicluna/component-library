@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import { useGetClass } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
@@ -5,9 +7,6 @@ import { __DEFAULT_ASPECT_RATIO_RATIO__ } from '../constants';
 import type { AspectRatioProps } from '../types';
 
 import useAspectRatioResponsiveValues from './useAspectRatioResponsiveValues';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseAspectRatioClassesProps<Element extends PolymorphicElementType> = Pick<AspectRatioProps<Element>, 'ratio'>;
 type UseAspectRatioClassesReturn = ClassName;

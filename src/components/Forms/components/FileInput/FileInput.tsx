@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
+import classNames from 'classnames';
 import { compact, merge } from 'lodash-es';
 import { useDimensionsRef, useFocus, useMergeRefs } from 'rooks';
 
@@ -46,9 +47,6 @@ import type {
 	FileInputProps,
 	FileInputRef
 } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const FileInput = forwardRef(function FileInput<Element extends FileInputElement>(
 	props: FileInputProps<Element>,

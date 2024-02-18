@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
@@ -26,9 +27,6 @@ import {
 import { useTextClasses, useTextResponsiveValues, useTextStyles } from './common/hooks';
 import { __KEYS_TEXT_CLASS__ } from './common/keys';
 import type { TextElement, TextProps, TextRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const Text = forwardRef(function Text<Element extends TextElement>(
 	props: TextProps<Element>,

@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import {
 	__DEFAULT_BORDER_STYLE__,
@@ -14,9 +16,6 @@ import { getColorHue } from '@common/utils';
 import type { PopperProps } from '../types';
 
 import usePopperResponsiveValues from './usePopperResponsiveValues';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UsePopperClassesProps<Element extends PolymorphicElementType> = Pick<
 	PopperProps<Element>,

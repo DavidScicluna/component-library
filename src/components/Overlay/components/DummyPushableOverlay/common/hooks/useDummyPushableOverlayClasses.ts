@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import {
 	__DEFAULT_BORDER_STYLE__,
@@ -19,9 +21,6 @@ import {
 import type { DummyPushableOverlayProps } from '../types';
 
 import useDummyPushableOverlayResponsiveValues from './useDummyPushableOverlayResponsiveValues';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseDummyPushableOverlayClassesProps<Element extends PolymorphicElementType> = Pick<
 	DummyPushableOverlayProps<Element>,

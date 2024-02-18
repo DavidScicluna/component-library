@@ -19,8 +19,7 @@ import type { HStackProps } from './common/types';
 import type { HStackStory, HStackStoryMeta } from './common/types/story';
 import { HStack as HStackComponent } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 export default {
 	title: 'Layout/Stacks/HStack',

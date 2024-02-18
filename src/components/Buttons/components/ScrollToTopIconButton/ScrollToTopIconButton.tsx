@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
 import { debounce } from 'lodash-es';
 import { useEventListener, useWindowSize } from 'usehooks-ts';
 
@@ -25,9 +26,6 @@ import type {
 	ScrollToTopIconButtonProps,
 	ScrollToTopIconButtonRef
 } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const ScrollToTopIconButton = forwardRef(function ScrollToTopIconButton<Element extends ScrollToTopIconButtonElement>(
 	props: ScrollToTopIconButtonProps<Element>,

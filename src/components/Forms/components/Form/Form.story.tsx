@@ -9,8 +9,7 @@ import type { FormDefaultElement, FormProps } from './common/types';
 import type { FormStory, FormStoryMeta } from './common/types/story';
 import { Form as FormComponent } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 export default {
 	title: 'Forms/Form',

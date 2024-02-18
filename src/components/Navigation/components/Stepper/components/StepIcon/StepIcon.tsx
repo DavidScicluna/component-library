@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import type { IconProps } from '@components/DataDisplay';
@@ -10,9 +12,6 @@ import { useStepperContext, useStepperStepFontSize } from '../../common/hooks';
 import { __DEFAULT_STEP_ICON_AS__ } from './common/constants';
 import { __KEYS_STEP_ICON_CLASS__ } from './common/keys';
 import type { StepIconElement, StepIconProps, StepIconRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const StepIcon = forwardRef(function StepIcon<Element extends StepIconElement>(
 	props: StepIconProps<Element>,

@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
@@ -14,9 +16,6 @@ import { useStepContext } from '../Step/common/hooks';
 import { __DEFAULT_STEP_SUBTITLE_AS__ } from './common/constants';
 import { __KEYS_STEP_SUBTITLE_CLASS__ } from './common/keys';
 import type { StepSubtitleElement, StepSubtitleProps, StepSubtitleRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const StepSubtitle = forwardRef(function StepSubtitle<Element extends StepSubtitleElement>(
 	props: StepSubtitleProps<Element>,

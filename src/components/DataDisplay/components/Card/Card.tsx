@@ -1,5 +1,6 @@
 import { createContext, forwardRef } from 'react';
 
+import classNames from 'classnames';
 import { useFocus } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__, __DEFAULT_USE_BOOLEAN_TOGGLES__ } from '@common/constants';
@@ -34,9 +35,6 @@ import type {
 	CardProps,
 	CardRef
 } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 export const CardContext = createContext<CardContextType<CardDefaultElement>>({
 	isCollapsable: __DEFAULT_CARD_IS_COLLAPSABLE__,

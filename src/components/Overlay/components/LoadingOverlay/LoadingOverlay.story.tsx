@@ -19,8 +19,7 @@ import type { LoadingOverlayBlurType, LoadingOverlayProps } from './common/types
 import type { LoadingOverlayStory, LoadingOverlayStoryMeta } from './common/types/story';
 import { LoadingOverlay as LoadingOverlayComponent } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 export default {
 	title: 'Overlay/LoadingOverlay',

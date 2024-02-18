@@ -12,8 +12,7 @@ import type { SpaceProps } from './common/types';
 import type { SpaceStory, SpaceStoryMeta } from './common/types/story';
 import { Space as SpaceComponent } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 export default {
 	title: 'Layout/Space',

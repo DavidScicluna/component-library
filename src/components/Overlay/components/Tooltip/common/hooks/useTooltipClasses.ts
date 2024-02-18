@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useConst } from '@common/hooks';
@@ -7,9 +9,6 @@ import type { ClassName, PolymorphicElementType } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import type { TooltipProps } from '../types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseTooltipClassesProps<Element extends PolymorphicElementType> = Pick<
 	TooltipProps<Element>,

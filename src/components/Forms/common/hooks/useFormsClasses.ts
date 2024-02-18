@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import {
 	__DEFAULT_BORDER_STYLE__,
@@ -27,9 +29,6 @@ import type { FormsCommonProps } from '../types';
 
 import useFormsResponsiveValues from './useFormsResponsiveValues';
 import useFormsSizeConfig from './useFormsSizeConfig';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseFormsClassesProps = Pick<
 	FormsCommonProps,

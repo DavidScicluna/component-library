@@ -31,8 +31,7 @@ import type { GridStory, GridStoryMeta } from './common/types/story';
 import { GridItem } from './components/GridItem';
 import { Grid as GridComponent } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 export default {
 	title: 'Layout/Grid',

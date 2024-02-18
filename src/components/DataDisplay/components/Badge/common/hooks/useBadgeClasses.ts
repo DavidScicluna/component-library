@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import { useGetClass } from '@common/hooks';
 import type { ClassName } from '@common/types';
@@ -15,9 +17,6 @@ import type { BadgeElement, BadgeProps } from '../types';
 
 import useBadgeResponsiveValues from './useBadgeResponsiveValues';
 import useBadgeSizeConfig from './useBadgeSizeConfig';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseBadgeClassesProps<Element extends BadgeElement> = Pick<
 	BadgeProps<Element>,

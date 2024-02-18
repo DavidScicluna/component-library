@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
@@ -22,9 +24,6 @@ import type {
 	CarouselOverlayArrowButtonProps,
 	CarouselOverlayArrowButtonRef
 } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const CarouselOverlayArrowButton = forwardRef(function CarouselOverlayArrowButton<
 	Element extends CarouselOverlayArrowButtonElement

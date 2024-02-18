@@ -13,8 +13,7 @@ import type { IndicatorPlacement, IndicatorProps } from './common/types';
 import type { IndicatorStory, IndicatorStoryMeta } from './common/types/story';
 import { Indicator as IndicatorComponent } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 export default {
 	title: 'Overlay/Indicator',

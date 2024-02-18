@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import { useGetClass } from '@common/hooks';
 import type { ClassName } from '@common/types';
@@ -14,9 +16,6 @@ import type { DummyButtonElement, DummyButtonProps } from '../types';
 
 import useDummyButtonResponsiveValues from './useDummyButtonResponsiveValues';
 import useDummyButtonSizeConfig from './useDummyButtonSizeConfig';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseDummyButtonClassesProps<Element extends DummyButtonElement> = Pick<
 	DummyButtonProps<Element>,

@@ -1,5 +1,7 @@
 import { forwardRef, useEffect } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
@@ -25,9 +27,6 @@ import {
 	__KEYS_IMAGE_THUMBNAIL_CLASS__
 } from './common/keys';
 import type { ImageProps, ImageRef, ImageSyntheticEvent } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const Image = forwardRef(function Image<Element extends PolymorphicElementType>(
 	props: ImageProps<Element>,

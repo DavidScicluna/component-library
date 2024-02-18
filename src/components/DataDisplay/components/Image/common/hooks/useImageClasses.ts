@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
@@ -20,9 +22,6 @@ import {
 import type { ImageProps } from '../types';
 
 import useImageResponsiveValues from './useImageResponsiveValues';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseImageClassesProps<Element extends PolymorphicElementType> = Pick<
 	ImageProps<Element>,

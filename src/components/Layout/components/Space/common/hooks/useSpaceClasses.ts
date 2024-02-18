@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import { useGetClass } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
@@ -5,9 +7,6 @@ import { __DEFAULT_SPACE_HEIGHT__, __DEFAULT_SPACE_WIDTH__ } from '../constants'
 import type { SpaceProps } from '../types';
 
 import useSpaceResponsiveValues from './useSpaceResponsiveValues';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseSpaceClassesProps<Element extends PolymorphicElementType> = Pick<SpaceProps<Element>, 'width' | 'height'>;
 type UseSpaceClassesReturn = ClassName;

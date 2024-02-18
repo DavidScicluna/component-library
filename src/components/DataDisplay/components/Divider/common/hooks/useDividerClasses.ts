@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import { __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
@@ -12,9 +14,6 @@ import {
 import type { DividerElement, DividerProps } from '../types';
 
 import useDividerResponsiveValues from './useDividerResponsiveValues';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type PickedDividerProps = 'color' | 'colorMode' | 'orientation' | 'placement' | 'size' | 'variant';
 type UseDividerClassesProps<Element extends DividerElement> = Pick<DividerProps<Element>, PickedDividerProps>;

@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import { Tooltip } from '@components/Overlay';
@@ -15,9 +17,6 @@ import {
 } from './common/constants';
 import { __KEYS_CLOSE_ICON_BUTTON_CLASS__ } from './common/keys';
 import type { CloseIconButtonElement, CloseIconButtonProps, CloseIconButtonRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const CloseIconButton = forwardRef(function CloseIconButton<Element extends CloseIconButtonElement>(
 	props: CloseIconButtonProps<Element>,

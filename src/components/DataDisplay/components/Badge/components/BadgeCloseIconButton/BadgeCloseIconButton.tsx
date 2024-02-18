@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import type { CloseIconButtonProps } from '@components/Buttons';
@@ -16,9 +18,6 @@ import {
 } from './common/constants';
 import { __KEYS_BADGE_CLOSE_ICON_BUTTON_CLASS__ } from './common/keys';
 import type { BadgeCloseIconButtonElement, BadgeCloseIconButtonProps, BadgeCloseIconButtonRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const BadgeCloseIconButton = forwardRef(function BadgeCloseIconButton<Element extends BadgeCloseIconButtonElement>(
 	props: BadgeCloseIconButtonProps<Element>,

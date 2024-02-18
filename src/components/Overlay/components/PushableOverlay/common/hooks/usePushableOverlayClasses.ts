@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import {
 	__DEFAULT_BORDER_STYLE__,
@@ -24,9 +26,6 @@ import {
 import type { PushableOverlayProps } from '../types';
 
 import usePushableOverlayResponsiveValues from './usePushableOverlayResponsiveValues';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type PickedPushableOverlayProps =
 	| 'color'

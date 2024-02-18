@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useDimensionsRef } from 'rooks';
 
@@ -15,9 +16,6 @@ import { useCardContext } from '../../common/hooks';
 
 import { __KEYS_CARD_HEADER_CLASS__ } from './common/keys';
 import type { CardHeaderProps, CardHeaderRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const CardHeader = forwardRef(function CardHeader<Element extends PolymorphicElementType>(
 	props: CardHeaderProps<Element>,

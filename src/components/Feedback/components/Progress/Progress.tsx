@@ -1,5 +1,7 @@
 import { createContext, forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 
 import type { BoxProps } from '@components/Box';
@@ -23,9 +25,6 @@ import type {
 	ProgressRef
 } from './common/types';
 import { ProgressSection } from './components';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 export const ProgressContext = createContext<ProgressContextType<ProgressDefaultElement>>({
 	isIndeterminate: __DEFAULT_PROGRESS_IS_INDETERMINATE__,

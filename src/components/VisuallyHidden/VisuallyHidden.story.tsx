@@ -10,8 +10,7 @@ import type { VisuallyHiddenProps } from './common/types';
 import type { VisuallyHiddenStory, VisuallyHiddenStoryMeta } from './common/types/story';
 import { VisuallyHidden as VisuallyHiddenComponent } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 export default {
 	title: 'VisuallyHidden',

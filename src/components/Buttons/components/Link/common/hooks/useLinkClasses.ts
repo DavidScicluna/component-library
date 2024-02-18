@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import {
 	__DEFAULT_COLOR__,
@@ -21,9 +23,6 @@ import {
 import type { LinkElement, LinkProps } from '../types';
 
 import useLinkResponsiveValues from './useLinkResponsiveValues';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseLinkClassesProps<Element extends LinkElement> = Pick<
 	LinkProps<Element>,

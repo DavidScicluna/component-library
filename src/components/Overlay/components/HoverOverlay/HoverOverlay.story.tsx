@@ -8,8 +8,7 @@ import type { HoverOverlayProps } from './common/types';
 import type { HoverOverlayStory, HoverOverlayStoryMeta } from './common/types/story';
 import { HoverOverlay as HoverOverlayComponent } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 export default {
 	title: 'Overlay/HoverOverlay',

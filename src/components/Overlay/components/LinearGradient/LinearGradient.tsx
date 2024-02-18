@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
@@ -15,9 +17,6 @@ import {
 import { useLinearGradientClasses, useLinearGradientResponsiveValues } from './common/hooks';
 import { __KEYS_LINEAR_GRADIENT_CLASS__ } from './common/keys';
 import type { LinearGradientProps, LinearGradientRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const LinearGradient = forwardRef(function LinearGradient<Element extends PolymorphicElementType>(
 	props: LinearGradientProps<Element>,

@@ -32,8 +32,7 @@ import {
 	CarouselRightArrowButton
 } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 const items = range(20);
 

@@ -13,8 +13,7 @@ import type { SkeletonProps } from './common/types';
 import type { SkeletonStory, SkeletonStoryMeta } from './common/types/story';
 import { Skeleton as SkeletonComponent } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 export default {
 	title: 'Feedback/Skeleton',

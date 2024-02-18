@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
@@ -8,9 +10,6 @@ import { Stack } from '../Stack';
 
 import { __KEYS_H_STACK_CLASS__ } from './common/keys';
 import type { HStackProps, HStackRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const HStack = forwardRef(function HStack<Element extends PolymorphicElementType>(
 	props: HStackProps<Element>,

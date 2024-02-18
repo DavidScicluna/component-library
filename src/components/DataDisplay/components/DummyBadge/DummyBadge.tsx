@@ -1,5 +1,6 @@
 import { createContext, forwardRef } from 'react';
 
+import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useDimensionsRef } from 'rooks';
 
@@ -32,9 +33,6 @@ import type {
 	DummyBadgeRef
 } from './common/types';
 import { DummyBadgeSkeleton } from './components';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 export const DummyBadgeContext = createContext<DummyBadgeContextType<DummyBadgeDefaultElement>>({
 	size: __DEFAULT_DUMMY_BADGE_SIZE__,

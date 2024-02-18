@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
@@ -8,9 +10,6 @@ import { Center } from '@components/Layout';
 
 import { __KEYS_CARD_BODY_CLASS__ } from './common/keys';
 import type { CardBodyProps, CardBodyRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const CardBody = forwardRef(function CardBody<Element extends PolymorphicElementType>(
 	props: CardBodyProps<Element>,

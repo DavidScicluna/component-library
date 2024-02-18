@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import type { IconProps } from '@components/DataDisplay';
@@ -9,9 +11,6 @@ import { useMessageContext } from '../../common/hooks';
 
 import { __KEYS_MESSAGE_ICON_CLASS__ } from './common/keys';
 import type { MessageIconElement, MessageIconProps, MessageIconRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const MessageIcon = forwardRef(function MessageIcon<Element extends MessageIconElement>(
 	props: MessageIconProps<Element>,

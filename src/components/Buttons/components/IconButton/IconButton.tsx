@@ -1,5 +1,6 @@
 import { createContext, forwardRef, useMemo } from 'react';
 
+import classNames from 'classnames';
 import { merge } from 'lodash-es';
 import { useFocus } from 'rooks';
 
@@ -38,9 +39,6 @@ import type {
 	IconButtonProps,
 	IconButtonRef
 } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const IconButtonContext = createContext<IconButtonContextType<IconButtonDefaultElement>>({

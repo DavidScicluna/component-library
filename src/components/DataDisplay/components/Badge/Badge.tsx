@@ -1,5 +1,6 @@
 import { createContext, forwardRef } from 'react';
 
+import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useDimensionsRef, useFocus } from 'rooks';
 
@@ -34,9 +35,6 @@ import type {
 	BadgeProps,
 	BadgeRef
 } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 export const BadgeContext = createContext<BadgeContextType<BadgeDefaultElement>>({
 	size: __DEFAULT_BADGE_SIZE__,

@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
@@ -5,9 +7,6 @@ import { __DEFAULT_RATING_IS_DISABLED__, __DEFAULT_RATING_IS_READONLY__ } from '
 import type { RatingProps } from '../types';
 
 import { useRatingResponsiveValues } from '.';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseRatingClassesProps<Element extends PolymorphicElementType> = Pick<
 	RatingProps<Element>,

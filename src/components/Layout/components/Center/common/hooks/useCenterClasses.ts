@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import { useGetClass } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
@@ -6,9 +8,6 @@ import { __DEFAULT_CENTER_SPACING__ } from '../constants';
 import type { CenterProps } from '../types';
 
 import useCenterResponsiveValues from './useCenterResponsiveValues';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseCenterClassesProps<Element extends PolymorphicElementType> = Pick<CenterProps<Element>, 'spacing'>;
 type UseCenterClassesReturn = ClassName;

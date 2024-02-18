@@ -1,5 +1,6 @@
 import { Children, forwardRef, Fragment } from 'react';
 
+import classNames from 'classnames';
 import { compact, isArray } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
@@ -17,9 +18,6 @@ import {
 import { useStackClasses, useStackResponsiveValues } from './common/hooks';
 import { __KEYS_STACK_CLASS__ } from './common/keys';
 import type { StackProps, StackRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const Stack = forwardRef(function Stack<Element extends PolymorphicElementType>(
 	props: StackProps<Element>,

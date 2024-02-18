@@ -31,8 +31,7 @@ import type { FormControlProps, FormControlSize } from './common/types';
 import type { FormControlStory, FormControlStoryMeta } from './common/types/story';
 import { FormControl as FormControlComponent } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 export default {
 	title: 'Forms/FormControl',

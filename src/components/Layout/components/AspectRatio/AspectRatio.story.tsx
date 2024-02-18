@@ -13,8 +13,7 @@ import type { AspectRatioProps } from './common/types';
 import type { AspectRatioStory, AspectRatioStoryMeta } from './common/types/story';
 import { AspectRatio as AspectRatioComponent } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 export default {
 	title: 'Layout/AspectRatio',

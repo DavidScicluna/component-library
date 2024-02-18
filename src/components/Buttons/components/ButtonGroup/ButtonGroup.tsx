@@ -1,5 +1,7 @@
 import { createContext, forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
 
 import {
@@ -24,9 +26,6 @@ import type {
 	ButtonGroupProps,
 	ButtonGroupRef
 } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 export const ButtonGroupContext = createContext<ButtonGroupContextType<ButtonGroupDefaultElement>>({
 	isAttached: __DEFAULT_BUTTON_GROUP_IS_ATTACHED__

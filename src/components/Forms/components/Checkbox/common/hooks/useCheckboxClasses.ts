@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
@@ -10,9 +12,6 @@ import {
 import type { CheckboxProps } from '../types';
 
 import { useCheckboxResponsiveValues } from '.';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseCheckboxClassesProps<Element extends PolymorphicElementType> = Pick<
 	CheckboxProps<Element>,

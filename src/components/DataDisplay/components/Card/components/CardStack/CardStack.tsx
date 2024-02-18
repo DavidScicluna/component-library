@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
@@ -12,9 +14,6 @@ import { CardDivider } from '../CardDivider';
 
 import { __KEYS_CARD_STACK_CLASS__ } from './common/keys';
 import type { CardStackMouseEvent, CardStackProps, CardStackRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const CardStack = forwardRef(function CardStack<Element extends PolymorphicElementType>(
 	props: CardStackProps<Element>,

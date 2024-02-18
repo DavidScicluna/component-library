@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
@@ -15,9 +17,6 @@ import {
 import { useBackgroundImageClasses, useBackgroundImageResponsiveValues } from './common/hooks';
 import { __KEYS_BACKGROUND_IMAGE_CLASS__, __KEYS_BACKGROUND_IMAGE_IMAGE_CLASS__ } from './common/keys';
 import type { BackgroundImageProps, BackgroundImageRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const BackgroundImage = forwardRef(function BackgroundImage<Element extends PolymorphicElementType>(
 	props: BackgroundImageProps<Element>,

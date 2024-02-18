@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
@@ -10,9 +12,6 @@ import { useConfirmModalContext } from '../../common/hooks';
 
 import { __KEYS_CONFIRM_MODAL_STACK_CLASS__ } from './common/keys';
 import type { ConfirmModalStackProps, ConfirmModalStackRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const ConfirmModalStack = forwardRef(function ConfirmModalStack<Element extends PolymorphicElementType>(
 	props: ConfirmModalStackProps<Element>,

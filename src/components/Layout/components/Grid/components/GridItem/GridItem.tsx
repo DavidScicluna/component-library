@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
@@ -14,9 +16,6 @@ import {
 import { useGridItemClasses, useGridItemResponsiveValues } from './common/hooks';
 import { __KEYS_GRID_ITEM_CLASS__ } from './common/keys';
 import type { GridItemProps, GridItemRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const GridItem = forwardRef(function Grid<Element extends PolymorphicElementType>(
 	props: GridItemProps<Element>,

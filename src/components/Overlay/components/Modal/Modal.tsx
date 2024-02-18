@@ -9,6 +9,7 @@ import {
 	useInteractions,
 	useRole
 } from '@floating-ui/react';
+import classNames from 'classnames';
 import { isBoolean } from 'lodash-es';
 import { useKey } from 'rooks';
 
@@ -48,9 +49,6 @@ import type {
 } from './common/types';
 import { getModalID, getModalSubtitleID, getModalTitleID } from './common/utils';
 import { ModalBackdrop } from './components';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 export const ModalContext = createContext<ModalContextType<ModalDefaultElement>>({
 	color: __DEFAULT_APP_COLOR__,

@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import type { ClassName } from '@common/types';
 
@@ -5,9 +7,6 @@ import { __DEFAULT_DUMMY_ICON_BUTTON_LINE_HEIGHT_SIZE__, __DEFAULT_DUMMY_ICON_BU
 import type { DummyIconButtonElement, DummyIconButtonProps } from '../types';
 
 import useDummyIconButtonResponsiveValues from './useDummyIconButtonResponsiveValues';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseDummyIconButtonClassesProps<Element extends DummyIconButtonElement> = Pick<
 	DummyIconButtonProps<Element>,

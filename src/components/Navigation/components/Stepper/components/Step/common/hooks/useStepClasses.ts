@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_OUTLINE_WIDTH__ } from '@common/constants';
 import { useAppTheme, useGetColor } from '@common/hooks';
@@ -19,9 +21,6 @@ import type { StepElement, StepProps } from '../types';
 
 import useStepResponsiveValues from './useStepResponsiveValues';
 import useStepSizeConfig from './useStepSizeConfig';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type PickedStepProps = 'color' | 'colorMode' | 'isActive' | 'isCompact' | 'isDisabled' | 'isUppercase';
 type UseStepClassesProps<Element extends StepElement> = Pick<StepProps<Element>, PickedStepProps> & {

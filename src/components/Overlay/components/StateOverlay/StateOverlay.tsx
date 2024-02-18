@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
@@ -17,9 +19,6 @@ import {
 import { useStateOverlayResponsiveValues } from './common/hooks';
 import { __KEYS_STATE_OVERLAY_CLASS__ } from './common/keys';
 import type { StateOverlayProps, StateOverlayRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const StateOverlay = forwardRef(function StateOverlay<Element extends PolymorphicElementType>(
 	props: StateOverlayProps<Element>,

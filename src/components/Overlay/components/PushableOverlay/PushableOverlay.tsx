@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
 import { merge } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__, __DEFAULT_RADIUS__ } from '@common/constants';
@@ -24,9 +25,6 @@ import {
 } from './common/hooks';
 import { __KEYS_PUSHABLE_OVERLAY_CLASS__ } from './common/keys';
 import type { PushableOverlayProps, PushableOverlayRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 // TODO: Add gradient prop that will replaced colors with gradient from, middle & to colors
 const PushableOverlay = forwardRef(function PushableOverlay<Element extends PolymorphicElementType>(

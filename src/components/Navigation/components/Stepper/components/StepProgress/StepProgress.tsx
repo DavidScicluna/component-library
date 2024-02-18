@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useTheme } from '@common/hooks';
 
@@ -10,9 +12,6 @@ import { useStepperContext } from '../../common/hooks';
 
 import { __KEYS_STEP_PROGRESS_CLASS__ } from './common/keys';
 import type { StepProgressElement, StepProgressProps, StepProgressRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const StepProgress = forwardRef(function StepProgress<Element extends StepProgressElement>(
 	props: StepProgressProps<Element>,

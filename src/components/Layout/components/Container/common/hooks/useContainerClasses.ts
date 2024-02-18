@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import { useGetClass } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
@@ -10,9 +12,6 @@ import {
 import type { ContainerProps } from '../types';
 
 import useContainerResponsiveValues from './useContainerResponsiveValues';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseContainerClassesProps<Element extends PolymorphicElementType> = Pick<
 	ContainerProps<Element>,

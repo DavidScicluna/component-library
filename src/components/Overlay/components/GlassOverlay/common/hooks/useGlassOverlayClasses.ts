@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import { useGetClass } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
@@ -9,9 +11,6 @@ import {
 import type { GlassOverlayProps } from '../types';
 
 import useGlassOverlayResponsiveValues from './useGlassOverlayResponsiveValues';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseGlassOverlayClassesProps<Element extends PolymorphicElementType> = Pick<
 	GlassOverlayProps<Element>,

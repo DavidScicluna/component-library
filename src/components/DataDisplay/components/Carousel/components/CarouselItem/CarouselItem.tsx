@@ -1,6 +1,7 @@
 import { forwardRef } from 'react';
 import { useInView } from 'react-cool-inview';
 
+import classNames from 'classnames';
 import { useMergeRefs } from 'rooks';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -12,9 +13,6 @@ import { Center } from '@components/Layout';
 
 import { __KEYS_CAROUSEL_ITEM_CLASS__ } from './common/keys';
 import type { CarouselItemProps, CarouselItemRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const CarouselItem = forwardRef(function CarouselItem<Element extends PolymorphicElementType>(
 	props: CarouselItemProps<Element>,

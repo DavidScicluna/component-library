@@ -1,5 +1,7 @@
 import { forwardRef, useMemo } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 import type { ThemeColor } from '@common/types';
@@ -14,9 +16,6 @@ import { getStatusColor } from '../../common/utils';
 import { __DEFAULT_ALERT_DESCRIPTION_AS__ } from './common/constants';
 import { __KEYS_ALERT_DESCRIPTION_CLASS__ } from './common/keys';
 import type { AlertDescriptionElement, AlertDescriptionProps, AlertDescriptionRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const AlertDescription = forwardRef(function AlertDescription<Element extends AlertDescriptionElement>(
 	props: AlertDescriptionProps<Element>,

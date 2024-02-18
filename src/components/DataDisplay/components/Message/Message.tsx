@@ -1,5 +1,7 @@
 import { createContext, forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
 
 import type { VStackProps } from '@components/Layout';
@@ -15,9 +17,6 @@ import type {
 	MessageProps,
 	MessageRef
 } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 export const MessageContext = createContext<MessageContextType<MessageDefaultElement>>({
 	spacing: __DEFAULT_SPACING__

@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
+import classNames from 'classnames';
 import { clamp, compact, merge } from 'lodash-es';
 import { useDimensionsRef, useFocus, useMergeRefs } from 'rooks';
 
@@ -49,9 +50,6 @@ import type {
 	NumberInputProps,
 	NumberInputRef
 } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const NumberInput = forwardRef(function NumberInput<Element extends NumberInputElement>(
 	props: NumberInputProps<Element>,

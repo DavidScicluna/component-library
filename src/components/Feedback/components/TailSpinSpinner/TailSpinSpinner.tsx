@@ -1,6 +1,8 @@
 import { forwardRef, useMemo } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetColor, useTheme } from '@common/hooks';
 import type { PolymorphicElementType, ThemeFontSize } from '@common/types';
@@ -13,9 +15,6 @@ import { __DEFAULT_TAIL_SPIN_SPINNER_IS_VISIBLE__, __DEFAULT_TAIL_SPIN_SPINNER_S
 import { useTailSpinSpinnerResponsiveValues } from './common/hooks';
 import { __KEYS_TAIL_SPIN_SPINNER_CLASS__, __KEYS_TAIL_SPIN_SPINNER_WRAPPER_CLASS__ } from './common/keys';
 import type { TailSpinSpinnerProps, TailSpinSpinnerRef, TailSpinSpinnerSize } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const TailSpinSpinner = forwardRef(function TailSpinSpinner<Element extends PolymorphicElementType>(
 	props: TailSpinSpinnerProps<Element>,

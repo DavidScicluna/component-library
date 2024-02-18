@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
@@ -9,9 +11,6 @@ import { VStack } from '@components/Layout';
 import { __DEFAULT_CONFIRM_MODAL_BODY_SPACING__ } from './common/constants';
 import { __KEYS_CONFIRM_MODAL_BODY_CLASS__ } from './common/keys';
 import type { ConfirmModalBodyProps, ConfirmModalBodyRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const ConfirmModalBody = forwardRef(function ConfirmModalBody<Element extends PolymorphicElementType>(
 	props: ConfirmModalBodyProps<Element>,

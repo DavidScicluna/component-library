@@ -1,5 +1,7 @@
 import { forwardRef, useMemo } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_APP_COLOR__, __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import type { IconProps } from '@components/DataDisplay';
@@ -12,9 +14,6 @@ import { useStepContext } from '../Step/common/hooks';
 import { __DEFAULT_STEP_STATUS_ICON_AS__ } from './common/constants';
 import { __KEYS_STEP_STATUS_ICON_CLASS__ } from './common/keys';
 import type { StepStatusIconElement, StepStatusIconProps, StepStatusIconRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const StepStatusIcon = forwardRef(function StepStatusIcon<Element extends StepStatusIconElement>(
 	props: StepStatusIconProps<Element>,

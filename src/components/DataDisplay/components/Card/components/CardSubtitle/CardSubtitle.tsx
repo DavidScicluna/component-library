@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
@@ -11,9 +13,6 @@ import { useCardContext } from '../../common/hooks';
 import { __DEFAULT_CARD_SUBTITLE_AS__ } from './common/constants';
 import { __KEYS_CARD_SUBTITLE_CLASS__ } from './common/keys';
 import type { CardSubtitleElement, CardSubtitleProps, CardSubtitleRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const CardSubtitle = forwardRef(function CardSubtitle<Element extends CardSubtitleElement>(
 	props: CardSubtitleProps<Element>,

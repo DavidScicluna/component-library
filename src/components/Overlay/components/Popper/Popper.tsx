@@ -17,6 +17,7 @@ import {
 	useMergeRefs,
 	useRole
 } from '@floating-ui/react';
+import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useBoolean } from '@common/hooks';
@@ -39,9 +40,6 @@ import {
 import { usePopperClasses, usePopperResponsiveValues } from './common/hooks';
 import { __KEYS_POPPER_CLASS__ } from './common/keys';
 import type { PopperProps, PopperRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const Popper = forwardRef(function Popper<Element extends PolymorphicElementType>(
 	props: PopperProps<Element>,

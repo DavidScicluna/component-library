@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_SPACING__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
@@ -7,9 +9,6 @@ import { __DEFAULT_CONFIRM_MODAL_SIZE__, __DEFAULT_CONFIRM_MODAL_SPACING__ } fro
 import type { ConfirmModalElement, ConfirmModalProps } from '../types';
 
 import useConfirmModalResponsiveValues from './useConfirmModalResponsiveValues';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseGetConfirmModalClassesProps<Element extends ConfirmModalElement> = Pick<
 	ConfirmModalProps<Element>,

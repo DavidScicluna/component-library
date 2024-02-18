@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
 import { isArray } from 'lodash-es';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
@@ -14,9 +15,6 @@ import { getTabPanelID, getTabPanelsID, getTabsID } from '../../common/utils';
 
 import { __KEYS_TABS_TAB_PANELS_CLASS__ } from './common/keys';
 import type { TabPanelProps, TabPanelsProps, TabPanelsRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const TabPanel = <Element extends PolymorphicElementType>({ children, index }: TabPanelProps<Element>) => {
 	const { index: panel } = useTabsContext();

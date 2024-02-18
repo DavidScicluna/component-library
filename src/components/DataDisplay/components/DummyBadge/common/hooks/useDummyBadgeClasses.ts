@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import type { ClassName } from '@common/types';
 
@@ -14,9 +16,6 @@ import type { DummyBadgeElement, DummyBadgeProps } from '../types';
 
 import useDummyBadgeResponsiveValues from './useDummyBadgeResponsiveValues';
 import useDummyBadgeSizeConfig from './useDummyBadgeSizeConfig';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseDummyBadgeClassesProps<Element extends DummyBadgeElement> = Pick<
 	DummyBadgeProps<Element>,

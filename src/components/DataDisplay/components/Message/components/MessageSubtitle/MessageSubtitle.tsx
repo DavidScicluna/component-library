@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
@@ -11,9 +13,6 @@ import { useMessageContext } from '../../common/hooks';
 import { __DEFAULT_MESSAGE_SUBTITLE_AS__ } from './common/constants';
 import { __KEYS_MESSAGE_SUBTITLE_CLASS__ } from './common/keys';
 import type { MessageSubtitleElement, MessageSubtitleProps, MessageSubtitleRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const MessageSubtitle = forwardRef(function MessageSubtitle<Element extends MessageSubtitleElement>(
 	props: MessageSubtitleProps<Element>,

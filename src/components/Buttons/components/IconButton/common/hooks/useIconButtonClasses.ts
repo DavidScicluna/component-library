@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import type { ClassName } from '@common/types';
 
@@ -5,9 +7,6 @@ import { __DEFAULT_ICON_BUTTON_LINE_HEIGHT_SIZE__, __DEFAULT_ICON_BUTTON_VARIANT
 import type { IconButtonElement, IconButtonProps } from '../types';
 
 import useIconButtonResponsiveValues from './useIconButtonResponsiveValues';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseIconButtonClassesProps<Element extends IconButtonElement> = Pick<IconButtonProps<Element>, 'variant'>;
 type UseIconButtonClassesReturn = ClassName;

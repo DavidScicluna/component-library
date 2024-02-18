@@ -1,5 +1,6 @@
 import { createContext, forwardRef, useMemo } from 'react';
 
+import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useDimensionsRef, useFocus } from 'rooks';
 
@@ -36,9 +37,6 @@ import type {
 	ButtonProps,
 	ButtonRef
 } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 export const ButtonContext = createContext<ButtonContextType<ButtonDefaultElement>>({
 	size: __DEFAULT_BUTTON_SIZE__,

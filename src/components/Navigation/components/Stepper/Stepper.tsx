@@ -1,5 +1,7 @@
 import { createContext, forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import {
 	__DEFAULT_APP_COLOR__,
 	__DEFAULT_APP_COLORMODE__,
@@ -33,9 +35,6 @@ import type {
 	StepperProps,
 	StepperRef
 } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 export const StepperContext = createContext<StepperContextType<StepperDefaultElement>>({
 	color: __DEFAULT_APP_COLOR__,

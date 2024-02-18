@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import { __DEFAULT_COLOR__, __DEFAULT_RADIUS__ } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
@@ -6,9 +8,6 @@ import type { ClassName } from '@common/types';
 import type { ProgressElement, ProgressProps } from '../types';
 
 import useProgressResponsiveValues from './useProgressResponsiveValues';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseProgressClassesProps<Element extends ProgressElement> = Pick<
 	ProgressProps<Element>,

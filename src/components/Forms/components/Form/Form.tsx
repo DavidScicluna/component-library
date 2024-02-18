@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__ } from '@common/constants';
 
 import type { BoxProps } from '@components/Box';
@@ -8,9 +10,6 @@ import { Box } from '@components/Box';
 import { __DEFAULT_FORM_AS__ } from './common/constants';
 import { __KEYS_FORM_CLASS__ } from './common/keys';
 import type { FormElement, FormEvent, FormProps, FormRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const Form = forwardRef(function Form<Element extends FormElement>(
 	props: FormProps<Element>,

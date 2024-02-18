@@ -15,8 +15,7 @@ import type { TransitionStory, TransitionStoryMeta } from './common/types/story'
 import { Transition as TransitionComponent } from '.';
 import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 export default {
 	title: 'Animation/Transition',

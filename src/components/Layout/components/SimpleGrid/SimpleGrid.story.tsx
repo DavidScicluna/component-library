@@ -12,8 +12,7 @@ import type { SimpleGridProps } from './common/types';
 import type { SimpleGridStory, SimpleGridStoryMeta } from './common/types/story';
 import { SimpleGrid as SimpleGridComponent } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 export default {
 	title: 'Layout/SimpleGrid',

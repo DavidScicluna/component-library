@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
@@ -10,9 +12,6 @@ import {
 import type { SwitchProps } from '../types';
 
 import { useSwitchResponsiveValues } from '.';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseSwitchClassesProps<Element extends PolymorphicElementType> = Pick<
 	SwitchProps<Element>,

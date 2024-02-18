@@ -9,6 +9,7 @@ import {
 	useInteractions,
 	useRole
 } from '@floating-ui/react';
+import classNames from 'classnames';
 import { isBoolean } from 'lodash-es';
 import { useKey } from 'rooks';
 
@@ -48,9 +49,6 @@ import type {
 } from './common/types';
 import { getConfirmModalID, getConfirmModalSubtitleID, getConfirmModalTitleID } from './common/utils';
 import { ConfirmModalBackdrop } from './components';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 export const ConfirmModalContext = createContext<ConfirmModalContextType<ConfirmModalDefaultElement>>({
 	color: __DEFAULT_APP_COLOR__,

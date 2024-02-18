@@ -11,8 +11,7 @@ import type { BoxProps } from './common/types';
 import type { BoxStory, BoxStoryMeta } from './common/types/story';
 import { Box as BoxComponent } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 export default {
 	title: 'Box',

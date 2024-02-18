@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import type { IconProps } from '@components/DataDisplay';
@@ -10,8 +12,6 @@ import { useConfirmModalContext } from '../../common/hooks';
 import { __DEFAULT_CONFIRM_MODAL_ICON_AS__ } from './common/constants';
 import { __KEYS_CONFIRM_MODAL_ICON_CLASS__ } from './common/keys';
 import type { ConfirmModalIconElement, ConfirmModalIconProps, ConfirmModalIconRef } from './common/types';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const ConfirmModalIcon = forwardRef(function ConfirmModalIcon<Element extends ConfirmModalIconElement>(
 	props: ConfirmModalIconProps<Element>,

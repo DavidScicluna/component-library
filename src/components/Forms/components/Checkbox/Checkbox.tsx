@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
+import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useFocus } from 'rooks';
 
@@ -51,9 +52,6 @@ import {
 } from './common/hooks';
 import { __KEYS_CHECKBOX_CLASS__ } from './common/keys';
 import type { CheckboxFocusEvent, CheckboxMouseEvent, CheckboxProps, CheckboxRef } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 const Checkbox = forwardRef(function Checkbox<Element extends PolymorphicElementType>(
 	props: CheckboxProps<Element>,

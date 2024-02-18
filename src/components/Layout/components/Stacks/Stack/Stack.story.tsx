@@ -24,8 +24,7 @@ import type { StackProps } from './common/types';
 import type { StackStory, StackStoryMeta } from './common/types/story';
 import { Stack as StackComponent } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 export default {
 	title: 'Layout/Stacks/Stack',

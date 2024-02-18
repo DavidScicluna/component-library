@@ -1,5 +1,6 @@
 import { createContext, forwardRef } from 'react';
 
+import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useDimensionsRef } from 'rooks';
 
@@ -31,8 +32,6 @@ import type {
 	DummyButtonRef
 } from './common/types';
 import { DummyButtonSkeleton } from './components/DummyButtonSkeleton';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 export const DummyButtonContext = createContext<DummyButtonContextType<DummyButtonDefaultElement>>({
 	size: __DEFAULT_DUMMY_BUTTON_SIZE__,

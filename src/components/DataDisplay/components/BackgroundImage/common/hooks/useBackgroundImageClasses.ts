@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import classes from '@common/classes';
 import { __DEFAULT_RADIUS__ } from '@common/constants';
 import { useGetClass } from '@common/hooks';
@@ -25,9 +27,6 @@ import {
 import type { BackgroundImageProps } from '../types';
 
 import useBackgroundImageResponsiveValues from './useBackgroundImageResponsiveValues';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 type UseBackgroundImageClassesProps<Element extends PolymorphicElementType> = Pick<
 	BackgroundImageProps<Element>,

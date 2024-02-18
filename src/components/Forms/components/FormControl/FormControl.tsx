@@ -1,5 +1,7 @@
 import { createContext, forwardRef } from 'react';
 
+import classNames from 'classnames';
+
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
 import type { VStackProps } from '@components/Layout';
@@ -32,9 +34,6 @@ import type {
 	FormControlProps,
 	FormControlRef
 } from './common/types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const classNames = require('classnames');
 
 export const FormControlContext = createContext<FormControlContextType<FormControlDefaultElement>>({
 	id: __DEFAULT_FORM_CONTROL_ID__,
