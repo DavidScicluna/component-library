@@ -1,5 +1,5 @@
-esm
-cjs
+*.esm
+*.cjs
 build
 node_modules
 .prettierrc
@@ -11,3 +11,5 @@ tsconfig.json
 *.d.ts
 *.js
 *.story.tsx
+vite.config.ts
+tsconfig.*.json
