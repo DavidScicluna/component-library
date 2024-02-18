@@ -1,6 +1,9 @@
 import classes from './common/classes';
 import theme from './common/theme';
 
+import './common/styles/index.css';
+import './common/styles/tailwind.css';
+
 export * from './common/constants';
 export * from './common/data';
 export * from './common/helpers';

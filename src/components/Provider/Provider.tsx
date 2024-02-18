@@ -27,8 +27,6 @@ import ColorModeScript from './components/ColorModeScript';
 import ColorScript from './components/ColorScript';
 import IconFontScript from './components/IconFontScript';
 
-import './common/styles/index.css';
-
 export const ProviderContext = createContext<ProviderContextType>({
 	color: __DEFAULT_APP_COLOR__,
 	colorMode: __DEFAULT_APP_COLORMODE__
