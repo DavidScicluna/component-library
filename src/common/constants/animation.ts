@@ -9,9 +9,9 @@ export const __DEFAULT_ANIMATION_DELAY__: AnimationDelay =
 export const __DEFAULT_ANIMATION_DURATION__: AnimationDuration =
 	convertStringToNumber(theme.transitionDuration[__DEFAULT_DURATION__], 'ms') / 1000;
 export const __DEFAULT_ANIMATION_EASING__: AnimationEasing = theme.transitionTimingFunction[__DEFAULT_EASING__]
-	.replaceAll('cubic-bezier', '')
-	.replaceAll('(', '')
-	.replaceAll(')', '')
-	.replaceAll(' ', '')
+	.replace('cubic-bezier', '')
+	.replace('(', '')
+	.replace(')', '')
+	.replace(' ', '')
 	.split(',')
-	.map((number) => Number(number));
+	.map((number: string) => Number(number));
