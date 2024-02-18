@@ -1,12 +1,10 @@
 // @ts-ignore
-import { createContext, useContext } from 'react';
+import { getColorHex, getColorMode } from '../src/common/utils';
 
-import { getColorHex, getColorMode } from '@common/utils';
-
-import { __DEFAULT_APP_COLOR__, __DEFAULT_APP_COLORMODE__ } from '@common/constants';
-import { appColors } from '@common/data';
+import { __DEFAULT_APP_COLOR__, __DEFAULT_APP_COLORMODE__ } from '../src/common/constants';
+import { appColors } from '../src/common/data';
 import { capitalize } from 'lodash-es';
-import { StorybookProvider } from '@components/Provider/components/StorybookProvider';
+import { StorybookProvider } from '../src/components/Provider/components/StorybookProvider';
 
 // Importing Main Fonts (Work Sans & Roboto)
 import '@fontsource/work-sans/100.css';
