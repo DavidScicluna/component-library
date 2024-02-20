@@ -1,4 +1,3 @@
-import type { FC } from 'react';
 import { createContext, useState } from 'react';
 
 import { MotionConfig } from 'framer-motion';
@@ -42,7 +41,7 @@ export const IconFontContext = createContext<IconFontContextType>({
 	twoTone: __DEFAULT_HAS_TWOTONEICON_LOADED__
 });
 
-const Provider: FC<ProviderProps> = (props) => {
+const Provider = (props: ProviderProps): JSX.Element => {
 	const {
 		children,
 		color: initialColor = __DEFAULT_APP_COLOR__,

@@ -1,11 +1,10 @@
-import type { FC } from 'react';
 import { useEffect } from 'react';
 
 import { useGetIconFontStatus } from '@components/Provider/common/hooks';
 
 import type { IconFontScriptProps } from './common/types';
 
-const IconFontScript: FC<IconFontScriptProps> = (props) => {
+const IconFontScript = (props: IconFontScriptProps): JSX.Element => {
 	const { filled, outlined, twoTone } = useGetIconFontStatus();
 
 	const { onSetHasFilledIconLoaded, onSetHasOutlinedIconLoaded, onSetHasTwoToneIconLoaded } = props;
@@ -34,7 +33,7 @@ const IconFontScript: FC<IconFontScriptProps> = (props) => {
 		}
 	}, [twoTone]);
 
-	return null;
+	return <></>;
 };
 
 IconFontScript.displayName = 'IconFontScript';

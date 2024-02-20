@@ -1,11 +1,10 @@
-import type { FC } from 'react';
 import { Suspense as ReactSuspense } from 'react';
 
 import { ErrorBoundary } from '../ErrorBoundary';
 
 import type { SuspenseProps } from './common/types';
 
-const Suspense: FC<SuspenseProps> = ({ children, renderError, fallback, ...rest }) => (
+const Suspense = ({ children, renderError, fallback, ...rest }: SuspenseProps): JSX.Element => (
 	<ErrorBoundary renderError={renderError}>
 		<ReactSuspense {...rest} fallback={fallback}>
 			{children}

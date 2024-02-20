@@ -1,13 +1,11 @@
-import type { FC } from 'react';
-
 import { useMediaQuery } from '@common/hooks';
 
 import type { ShowProps } from './common/types';
 
-const Show: FC<ShowProps> = ({ children, query }) => {
+const Show = ({ children, query }: ShowProps): JSX.Element => {
 	const isShown = useMediaQuery(query);
 
-	return isShown ? children : null;
+	return <>{isShown ? children : null}</>;
 };
 
 export default Show;

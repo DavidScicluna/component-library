@@ -1,13 +1,11 @@
-import type { FC } from 'react';
-
 import { useMediaQuery } from '@common/hooks';
 
 import type { HideProps } from './common/types';
 
-const Hide: FC<HideProps> = ({ children, query }) => {
+const Hide = ({ children, query }: HideProps): JSX.Element => {
 	const isHidden = useMediaQuery(query);
 
-	return isHidden ? children : null;
+	return <>{isHidden ? children : null}</>;
 };
 
 export default Hide;
