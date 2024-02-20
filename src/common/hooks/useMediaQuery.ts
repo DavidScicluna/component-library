@@ -16,8 +16,8 @@ const getQuery = (query: Query): string => {
 
 const getMatches = (query: Query): boolean => {
 	// Prevents SSR issues
-	if (typeof window !== 'undefined') {
-		return window.matchMedia(getQuery(query)).matches;
+	if (typeof globalThis?.window !== 'undefined') {
+		return globalThis?.window?.matchMedia(getQuery(query)).matches;
 	}
 	return false;
 };
@@ -30,7 +30,7 @@ const useMediaQuery = (query: Query): boolean => {
 	}
 
 	useEffect(() => {
-		const matchMedia = window.matchMedia(getQuery(query));
+		const matchMedia = globalThis?.window?.matchMedia(getQuery(query));
 
 		// Triggered at the first client-side load and if query changes
 		handleChange();

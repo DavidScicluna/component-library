@@ -5,7 +5,9 @@ import memoize from 'micro-memoize';
  *
  * @returns boolean: Either its a touch device or not
  */
-export const checkIsTouchDevice = memoize((): boolean => 'ontouchstart' in window || navigator.maxTouchPoints > 0);
+export const checkIsTouchDevice = memoize(
+	(): boolean => 'ontouchstart' in globalThis.window || navigator.maxTouchPoints > 0
+);
 
 /**
  * This method will convert a PX size to REM size

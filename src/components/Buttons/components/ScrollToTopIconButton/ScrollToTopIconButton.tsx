@@ -48,7 +48,7 @@ const ScrollToTopIconButton = forwardRef(function ScrollToTopIconButton<Element 
 	const [isVisible, setIsVisible] = useBoolean();
 
 	const handleClick = (event: ScrollToTopIconButtonMouseEvent<Element>): void => {
-		window.scrollTo(0, 0);
+		globalThis?.window?.scrollTo(0, 0);
 
 		if (onClick) {
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -57,7 +57,7 @@ const ScrollToTopIconButton = forwardRef(function ScrollToTopIconButton<Element 
 	};
 
 	const handleScroll = debounce(() => {
-		const scroll = window.scrollY;
+		const scroll = globalThis?.window?.scrollY;
 
 		if (scroll < windowHeight) {
 			setIsVisible.off();
