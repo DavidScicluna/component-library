@@ -11,6 +11,5 @@
 			"@components/*": ["./src/components/*"]
 		}
 	},
-	"include": ["vite.config.ts"],
-	"exclude": ["node_modules", "./build/**/*", "./.storybook/**/*", "**/*.story.tsx"]
+	"include": ["vite.config.js"]
 }
