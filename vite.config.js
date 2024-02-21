@@ -1,37 +1,48 @@
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 import viteCompression from 'vite-plugin-compression';
 import dts from 'vite-plugin-dts';
 import tailwindcss from 'tailwindcss';
+import { viteCommonjs } from '@originjs/vite-plugin-commonjs';
+import external from 'rollup-plugin-peer-deps-external';
+import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
 export default defineConfig({
 	build: {
 		outDir: 'build',
 		lib: {
+			fileName: (format) => `index.${format}.js`,
 			entry: resolve(__dirname, './src/index.ts'),
 			name: '@davidscicluna/component-library',
-			fileName: (format) => `index.${format}.js`
+			formats: ['es', 'umd']
 		},
 		rollupOptions: {
-			external: ['react', 'react-dom', 'tailwindcss'],
+			copyPublicDir: false,
+			external: ['react', 'react/jsx-runtime', 'react-dom', 'tailwindcss'],
 			output: {
 				globals: {
 					'react': 'React',
+					'react/jsx-runtime': 'react/jsx-runtime',
 					'react-dom': 'ReactDOM',
 					'tailwindcss': 'tailwindcss'
 				}
 			}
 		},
+		// commonjsOptions: { transformMixedEsModules: true },
 		sourcemap: true,
 		emptyOutDir: true
 	},
-	plugins: [react(), dts({ rollupTypes: true }), viteCompression()],
-	css: {
-		postcss: {
-			plugins: [tailwindcss]
-		}
-	},
+	plugins: [
+		react(),
+		libInjectCss(),
+		dts({ insertTypesEntry: true, rollupTypes: true }),
+		external(),
+		viteCommonjs(),
+		viteCompression()
+	],
+	// external: ['react', 'react-dom', 'tailwindcss'],
+	css: { postcss: { plugins: [tailwindcss] } },
 	resolve: {
 		alias: {
 			'@common/classes': resolve(__dirname, './src/common/classes'),
