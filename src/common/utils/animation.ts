@@ -28,10 +28,10 @@ export const getAnimationDuration = memoize(
 
 export const getAnimationEasings = memoize((easing: ThemeEase = __DEFAULT_EASING__): AnimationEasing => {
 	return theme.transitionTimingFunction[easing]
-		.replaceAll('cubic-bezier', '')
-		.replaceAll('(', '')
-		.replaceAll(')', '')
-		.replaceAll(' ', '')
+		.replace('cubic-bezier', '')
+		.replace('(', '')
+		.replace(')', '')
+		.replace(' ', '')
 		.split(',')
 		.map((number) => Number(number));
 });
