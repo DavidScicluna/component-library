@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 
 import { __DEFAULT_APP_COLORMODE__ } from '@common/constants';
 
@@ -13,7 +13,7 @@ const ColorModeScript = (props: ColorModeScriptProps): JSX.Element => {
 
 	useEffect(() => onSetColorMode(updatedColorMode), [updatedColorMode]);
 
-	return <></>;
+	return <Fragment />;
 };
 
 ColorModeScript.displayName = 'ColorModeScript';

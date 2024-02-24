@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 
 import { __DEFAULT_APP_COLOR__ } from '@common/constants';
 
@@ -11,7 +11,7 @@ const ColorScript = ({ initialColor = __DEFAULT_APP_COLOR__, onSetColor }: Color
 
 	useEffect(() => onSetColor(updatedColor), [updatedColor]);
 
-	return <></>;
+	return <Fragment />;
 };
 
 ColorScript.displayName = 'ColorScript';

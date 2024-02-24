@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 
 import { useGetIconFontStatus } from '@components/Provider/common/hooks';
 
@@ -33,7 +33,7 @@ const IconFontScript = (props: IconFontScriptProps): JSX.Element => {
 		}
 	}, [twoTone]);
 
-	return <></>;
+	return <Fragment />;
 };
 
 IconFontScript.displayName = 'IconFontScript';
