@@ -184,7 +184,11 @@ export const getColorClass = memoize((props: GetColorClassProps): string => {
  * @returns - light | dark
  */
 export const getColorMode = memoize((): ThemeAppColorMode => {
-	if (globalThis?.window?.matchMedia && globalThis?.window?.matchMedia('(prefers-color-scheme: dark)')?.matches) {
+	if (
+		typeof window !== 'undefined' &&
+		window.matchMedia &&
+		window.matchMedia('(prefers-color-scheme: dark)')?.matches
+	) {
 		return 'dark';
 	}
 	return 'light';

@@ -5,8 +5,10 @@ import type { ThemeAppColor } from '@common/types';
 
 const useGetColor = (defaultColor: ThemeAppColor): ThemeAppColor => {
 	const handleSetColorMode = (): void => {
-		globalThis?.window?.localStorage.removeItem(__KEY_LOCALSTORAGE_APP_COLOR__);
-		globalThis?.window?.localStorage.setItem(__KEY_LOCALSTORAGE_APP_COLOR__, defaultColor);
+		if (typeof window !== 'undefined') {
+			window.localStorage.removeItem(__KEY_LOCALSTORAGE_APP_COLOR__);
+			window.localStorage.setItem(__KEY_LOCALSTORAGE_APP_COLOR__, defaultColor);
+		}
 	};
 
 	useEffect(() => handleSetColorMode(), [defaultColor]);

@@ -12,25 +12,32 @@ import {
 } from '@common/keys';
 import type { ThemeAppColor, ThemeAppColorMode, ThemeColor } from '@common/types';
 
-export const __DEFAULT_COLOR__: ThemeColor = (globalThis?.window?.localStorage.getItem(__KEY_LOCALSTORAGE_COLOR__) ||
-	'gray') as ThemeColor;
-export const __DEFAULT_APP_COLOR__: ThemeAppColor = (globalThis?.window?.localStorage.getItem(
-	__KEY_LOCALSTORAGE_APP_COLOR__
-) ||
-	sample(appColors) ||
-	'blue') as ThemeAppColor;
-export const __DEFAULT_APP_COLORMODE__: ThemeAppColorMode = (globalThis?.window?.localStorage.getItem(
-	__KEY_LOCALSTORAGE_APP_COLORMODE__
-) || 'light') as ThemeAppColorMode;
+export const __DEFAULT_COLOR__: ThemeColor = (
+	typeof window !== 'undefined' ? window.localStorage.getItem(__KEY_LOCALSTORAGE_COLOR__) || 'gray' : 'gray'
+) as ThemeColor;
+export const __DEFAULT_APP_COLOR__: ThemeAppColor = (
+	typeof window !== 'undefined'
+		? window.localStorage.getItem(__KEY_LOCALSTORAGE_APP_COLOR__) || sample(appColors) || 'blue'
+		: 'blue'
+) as ThemeAppColor;
+export const __DEFAULT_APP_COLORMODE__: ThemeAppColorMode = (
+	typeof window !== 'undefined' ? window.localStorage.getItem(__KEY_LOCALSTORAGE_APP_COLORMODE__) || 'light' : 'light'
+) as ThemeAppColorMode;
 
 export const __DEFAULT_HAS_FILLEDICON_LOADED__ = JSON.parse(
-	globalThis?.window?.sessionStorage.getItem(__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__) || 'false'
+	typeof window !== 'undefined'
+		? window.sessionStorage.getItem(__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__) || 'false'
+		: 'false'
 ) as boolean;
 export const __DEFAULT_HAS_OUTLINEDICON_LOADED__ = JSON.parse(
-	globalThis?.window?.sessionStorage.getItem(__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__) || 'false'
+	typeof window !== 'undefined'
+		? window.sessionStorage.getItem(__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__) || 'false'
+		: 'false'
 ) as boolean;
 export const __DEFAULT_HAS_TWOTONEICON_LOADED__ = JSON.parse(
-	globalThis?.window?.sessionStorage.getItem(__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__) || 'false'
+	typeof window !== 'undefined'
+		? window.sessionStorage.getItem(__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__) || 'false'
+		: 'false'
 ) as boolean;
 
 export const __DEFAULT_CLASSNAME__ = '';

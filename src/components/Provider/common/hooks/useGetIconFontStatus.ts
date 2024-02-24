@@ -27,44 +27,50 @@ const useGetIconFontStatus = (): useGetIconFontStatusReturn => {
 	const [hasTwoToneIconsLoaded, setHasTwoToneIconsLoaded] = useBoolean(__DEFAULT_HAS_TWOTONEICON_LOADED__);
 
 	const handleCheckFilledIconsStatus = (): void => {
-		globalThis?.window?.sessionStorage.removeItem(__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__);
+		if (typeof window !== 'undefined') {
+			window.sessionStorage.removeItem(__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__);
 
-		if (checkFontStatus('filled')) {
-			setHasFilledIconsLoaded.on();
+			if (checkFontStatus('filled')) {
+				setHasFilledIconsLoaded.on();
 
-			globalThis?.window?.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__, 'true');
-		} else {
-			setHasFilledIconsLoaded.off();
+				window.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__, 'true');
+			} else {
+				setHasFilledIconsLoaded.off();
 
-			globalThis?.window?.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__, 'false');
+				window.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__, 'false');
+			}
 		}
 	};
 
 	const handleCheckOutlinedIconsStatus = (): void => {
-		globalThis?.window?.sessionStorage.removeItem(__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__);
+		if (typeof window !== 'undefined') {
+			window.sessionStorage.removeItem(__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__);
 
-		if (checkFontStatus('outlined')) {
-			setHasOutlinedIconsLoaded.on();
+			if (checkFontStatus('outlined')) {
+				setHasOutlinedIconsLoaded.on();
 
-			globalThis?.window?.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__, 'true');
-		} else {
-			setHasOutlinedIconsLoaded.off();
+				window.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__, 'true');
+			} else {
+				setHasOutlinedIconsLoaded.off();
 
-			globalThis?.window?.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__, 'false');
+				window.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__, 'false');
+			}
 		}
 	};
 
 	const handleCheckTwoToneIconsStatus = (): void => {
-		globalThis?.window?.sessionStorage.removeItem(__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__);
+		if (typeof window !== 'undefined') {
+			window.sessionStorage.removeItem(__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__);
 
-		if (checkFontStatus('twoTone')) {
-			setHasTwoToneIconsLoaded.on();
+			if (checkFontStatus('twoTone')) {
+				setHasTwoToneIconsLoaded.on();
 
-			globalThis?.window?.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__, 'true');
-		} else {
-			setHasTwoToneIconsLoaded.off();
+				window.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__, 'true');
+			} else {
+				setHasTwoToneIconsLoaded.off();
 
-			globalThis?.window?.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__, 'false');
+				window.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__, 'false');
+			}
 		}
 	};
 

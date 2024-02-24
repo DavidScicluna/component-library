@@ -16,8 +16,8 @@ const getQuery = (query: Query): string => {
 
 const getMatches = (query: Query): boolean => {
 	// Prevents SSR issues
-	if (typeof globalThis?.window !== 'undefined') {
-		return globalThis?.window?.matchMedia(getQuery(query)).matches;
+	if (typeof window !== 'undefined') {
+		return window.matchMedia(getQuery(query)).matches;
 	}
 	return false;
 };
@@ -30,23 +30,29 @@ const useMediaQuery = (query: Query): boolean => {
 	}
 
 	useEffect(() => {
-		const matchMedia = globalThis?.window?.matchMedia(getQuery(query));
+		if (typeof window !== 'undefined') {
+			const matchMedia = window.matchMedia(getQuery(query));
 
-		// Triggered at the first client-side load and if query changes
-		handleChange();
+			// Triggered at the first client-side load and if query changes
+			handleChange();
 
-		// Listen matchMedia
-		if (matchMedia.addListener) {
-			matchMedia.addListener(handleChange);
-		} else {
-			matchMedia.addEventListener('change', handleChange);
+			// Listen matchMedia
+			if (matchMedia.addListener) {
+				matchMedia.addListener(handleChange);
+			} else {
+				matchMedia.addEventListener('change', handleChange);
+			}
 		}
 
 		return () => {
-			if (matchMedia.removeListener) {
-				matchMedia.removeListener(handleChange);
-			} else {
-				matchMedia.removeEventListener('change', handleChange);
+			const matchMedia = window.matchMedia(getQuery(query));
+
+			if (typeof window !== 'undefined') {
+				if (matchMedia.removeListener) {
+					matchMedia.removeListener(handleChange);
+				} else {
+					matchMedia.removeEventListener('change', handleChange);
+				}
 			}
 		};
 	}, [query]);

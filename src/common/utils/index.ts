@@ -11,7 +11,12 @@ import type {
 import { filterColorHex, getColorClass, getColorHex, getColorHue, getColorMode } from './color';
 import { getFontSizeHeight, getIconFontFamily } from './fonts';
 import { getPercentage } from './number';
-import { checkIsTouchDevice, convertPixelsToREM, convertREMToPixels, convertStringToNumber } from './other';
+import {
+	// checkIsTouchDevice,
+	convertPixelsToREM,
+	convertREMToPixels,
+	convertStringToNumber
+} from './other';
 import { getResponsiveValue } from './responsive';
 import { checkColorType, checkDurationType, checkFontSizeType } from './theme';
 
@@ -21,7 +26,7 @@ export {
 	checkColorType,
 	checkDurationType,
 	checkFontSizeType,
-	checkIsTouchDevice,
+	// checkIsTouchDevice,
 	convertPixelsToREM,
 	convertREMToPixels,
 	convertStringToNumber,
