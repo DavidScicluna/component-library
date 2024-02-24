@@ -22,11 +22,11 @@ type UseDividerClassesReturn = ClassName;
 const useDividerClasses = <Element extends DividerElement>(
 	props: UseDividerClassesProps<Element>
 ): UseDividerClassesReturn => {
-	const { colorMode: __DEFAULT_DIVIDER_OLORMODE__ } = useAppTheme();
+	const { colorMode: __DEFAULT_DIVIDER_COLORMODE__ } = useAppTheme();
 
 	const {
 		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_DIVIDER_OLORMODE__,
+		colorMode = __DEFAULT_DIVIDER_COLORMODE__,
 		orientation: orientationProp = __DEFAULT_DIVIDER_ORIENTATION__,
 		placement: placementProp = __DEFAULT_DIVIDER_PLACEMENT__,
 		size: sizeProp = __DEFAULT_BORDER_WIDTH__,

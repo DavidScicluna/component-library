@@ -46,11 +46,11 @@ type UseTextClassesProps<Element extends TextElement> = Pick<
 type UseTextClassesReturn = ClassName;
 
 const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<Element>): UseTextClassesReturn => {
-	const { colorMode: __DEFAULT_TEXT_OLORMODE__ } = useAppTheme();
+	const { colorMode: __DEFAULT_TEXT_COLORMODE__ } = useAppTheme();
 
 	const {
 		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_TEXT_OLORMODE__,
+		colorMode = __DEFAULT_TEXT_COLORMODE__,
 		align: alignProp = __DEFAULT_TEXT_ALIGN__,
 		decoration: decorationProp = __DEFAULT_TEXT_DECORATION__,
 		fontSize: fontSizeProp = __DEFAULT_TEXT_FONT_SIZE__,
