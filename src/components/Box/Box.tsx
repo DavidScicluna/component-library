@@ -1,8 +1,7 @@
-/** @jsxRuntime classic /
-/* @jsx jsx */
-
+/** @jsxImportSource @emotion/react */
 import { forwardRef } from 'react';
 
+import { css } from '@emotion/react';
 import classNames from 'classnames';
 import { merge, omit, pick } from 'lodash-es';
 
@@ -32,7 +31,7 @@ const Box = forwardRef(function Box<Element extends PolymorphicElementType>(
 			{...omit({ ...rest }, __KEYS_BOX__)}
 			ref={ref}
 			className={classNames(__KEYS_BOX_CLASS__, { [className]: !!className })}
-			css={merge(styles, sx)}
+			css={css(merge(styles, sx))}
 		>
 			{children}
 		</Component>
