@@ -33,6 +33,18 @@ const hover_border_width: ThemeBorderWidthObj = {
 	8: 'hover:border-8'
 };
 
+const hover_active_border_width: ThemeBorderWidthObj = {
+	0: 'hover:active:border-0',
+	1: 'hover:active:border',
+	2: 'hover:active:border-2',
+	3: 'hover:active:border-3',
+	4: 'hover:active:border-4',
+	5: 'hover:active:border-5',
+	6: 'hover:active:border-6',
+	7: 'hover:active:border-7',
+	8: 'hover:active:border-8'
+};
+
 const focus_border_width: ThemeBorderWidthObj = {
 	0: 'focus:border-0',
 	1: 'focus:border',
@@ -103,6 +115,18 @@ const hover_border_x_width: ThemeBorderWidthObj = {
 	6: 'hover:border-x-6',
 	7: 'hover:border-x-7',
 	8: 'hover:border-x-8'
+};
+
+const hover_active_border_x_width: ThemeBorderWidthObj = {
+	0: 'hover:active:border-x-0',
+	1: 'hover:active:border-x',
+	2: 'hover:active:border-x-2',
+	3: 'hover:active:border-x-3',
+	4: 'hover:active:border-x-4',
+	5: 'hover:active:border-x-5',
+	6: 'hover:active:border-x-6',
+	7: 'hover:active:border-x-7',
+	8: 'hover:active:border-x-8'
 };
 
 const focus_border_x_width: ThemeBorderWidthObj = {
@@ -177,6 +201,18 @@ const hover_border_y_width: ThemeBorderWidthObj = {
 	8: 'hover:border-y-8'
 };
 
+const hover_active_border_y_width: ThemeBorderWidthObj = {
+	0: 'hover:active:border-y-0',
+	1: 'hover:active:border-y',
+	2: 'hover:active:border-y-2',
+	3: 'hover:active:border-y-3',
+	4: 'hover:active:border-y-4',
+	5: 'hover:active:border-y-5',
+	6: 'hover:active:border-y-6',
+	7: 'hover:active:border-y-7',
+	8: 'hover:active:border-y-8'
+};
+
 const focus_border_y_width: ThemeBorderWidthObj = {
 	0: 'focus:border-y-0',
 	1: 'focus:border-y',
@@ -247,6 +283,18 @@ const hover_border_l_width: ThemeBorderWidthObj = {
 	6: 'hover:border-l-6',
 	7: 'hover:border-l-7',
 	8: 'hover:border-l-8'
+};
+
+const hover_active_border_l_width: ThemeBorderWidthObj = {
+	0: 'hover:active:border-l-0',
+	1: 'hover:active:border-l',
+	2: 'hover:active:border-l-2',
+	3: 'hover:active:border-l-3',
+	4: 'hover:active:border-l-4',
+	5: 'hover:active:border-l-5',
+	6: 'hover:active:border-l-6',
+	7: 'hover:active:border-l-7',
+	8: 'hover:active:border-l-8'
 };
 
 const focus_border_l_width: ThemeBorderWidthObj = {
@@ -321,6 +369,18 @@ const hover_border_t_width: ThemeBorderWidthObj = {
 	8: 'hover:border-t-8'
 };
 
+const hover_active_border_t_width: ThemeBorderWidthObj = {
+	0: 'hover:active:border-t-0',
+	1: 'hover:active:border-t',
+	2: 'hover:active:border-t-2',
+	3: 'hover:active:border-t-3',
+	4: 'hover:active:border-t-4',
+	5: 'hover:active:border-t-5',
+	6: 'hover:active:border-t-6',
+	7: 'hover:active:border-t-7',
+	8: 'hover:active:border-t-8'
+};
+
 const focus_border_t_width: ThemeBorderWidthObj = {
 	0: 'focus:border-t-0',
 	1: 'focus:border-t',
@@ -391,6 +451,18 @@ const hover_border_r_width: ThemeBorderWidthObj = {
 	6: 'hover:border-r-6',
 	7: 'hover:border-r-7',
 	8: 'hover:border-r-8'
+};
+
+const hover_active_border_r_width: ThemeBorderWidthObj = {
+	0: 'hover:active:border-r-0',
+	1: 'hover:active:border-r',
+	2: 'hover:active:border-r-2',
+	3: 'hover:active:border-r-3',
+	4: 'hover:active:border-r-4',
+	5: 'hover:active:border-r-5',
+	6: 'hover:active:border-r-6',
+	7: 'hover:active:border-r-7',
+	8: 'hover:active:border-r-8'
 };
 
 const focus_border_r_width: ThemeBorderWidthObj = {
@@ -465,6 +537,18 @@ const hover_border_b_width: ThemeBorderWidthObj = {
 	8: 'hover:border-b-8'
 };
 
+const hover_active_border_b_width: ThemeBorderWidthObj = {
+	0: 'hover:active:border-b-0',
+	1: 'hover:active:border-b',
+	2: 'hover:active:border-b-2',
+	3: 'hover:active:border-b-3',
+	4: 'hover:active:border-b-4',
+	5: 'hover:active:border-b-5',
+	6: 'hover:active:border-b-6',
+	7: 'hover:active:border-b-7',
+	8: 'hover:active:border-b-8'
+};
+
 const focus_border_b_width: ThemeBorderWidthObj = {
 	0: 'focus:border-b-0',
 	1: 'focus:border-b',
@@ -529,6 +613,15 @@ const hover_border_style: BorderStyleClassObj = {
 	double: 'hover:border-double',
 	hidden: 'hover:border-hidden',
 	none: 'hover:border-none'
+};
+
+const hover_active_border_style: BorderStyleClassObj = {
+	solid: 'hover:active:border-solid',
+	dashed: 'hover:active:border-dashed',
+	dotted: 'hover:active:border-dotted',
+	double: 'hover:active:border-double',
+	hidden: 'hover:active:border-hidden',
+	none: 'hover:active:border-none'
 };
 
 const focus_border_style: BorderStyleClassObj = {
@@ -4073,6 +4166,220 @@ const hover_border_color: ThemeColorObj = {
 	}
 };
 
+const hover_active_border_color: ThemeColorObj = {
+	transparent: 'hover:active:border-transparent',
+	black: 'hover:active:border-black',
+	white: 'hover:active:border-white',
+	gray: {
+		50: 'hover:active:border-gray-50',
+		100: 'hover:active:border-gray-100',
+		200: 'hover:active:border-gray-200',
+		300: 'hover:active:border-gray-300',
+		400: 'hover:active:border-gray-400',
+		500: 'hover:active:border-gray-500',
+		600: 'hover:active:border-gray-600',
+		700: 'hover:active:border-gray-700',
+		800: 'hover:active:border-gray-800',
+		900: 'hover:active:border-gray-900',
+		950: 'hover:active:border-gray-950'
+	},
+	red: {
+		50: 'hover:active:border-red-50',
+		100: 'hover:active:border-red-100',
+		200: 'hover:active:border-red-200',
+		300: 'hover:active:border-red-300',
+		400: 'hover:active:border-red-400',
+		500: 'hover:active:border-red-500',
+		600: 'hover:active:border-red-600',
+		700: 'hover:active:border-red-700',
+		800: 'hover:active:border-red-800',
+		900: 'hover:active:border-red-900',
+		950: 'hover:active:border-red-950'
+	},
+	pink: {
+		50: 'hover:active:border-pink-50',
+		100: 'hover:active:border-pink-100',
+		200: 'hover:active:border-pink-200',
+		300: 'hover:active:border-pink-300',
+		400: 'hover:active:border-pink-400',
+		500: 'hover:active:border-pink-500',
+		600: 'hover:active:border-pink-600',
+		700: 'hover:active:border-pink-700',
+		800: 'hover:active:border-pink-800',
+		900: 'hover:active:border-pink-900',
+		950: 'hover:active:border-pink-950'
+	},
+	purple: {
+		50: 'hover:active:border-purple-50',
+		100: 'hover:active:border-purple-100',
+		200: 'hover:active:border-purple-200',
+		300: 'hover:active:border-purple-300',
+		400: 'hover:active:border-purple-400',
+		500: 'hover:active:border-purple-500',
+		600: 'hover:active:border-purple-600',
+		700: 'hover:active:border-purple-700',
+		800: 'hover:active:border-purple-800',
+		900: 'hover:active:border-purple-900',
+		950: 'hover:active:border-purple-950'
+	},
+	deep_purple: {
+		50: 'hover:active:border-deep_purple-50',
+		100: 'hover:active:border-deep_purple-100',
+		200: 'hover:active:border-deep_purple-200',
+		300: 'hover:active:border-deep_purple-300',
+		400: 'hover:active:border-deep_purple-400',
+		500: 'hover:active:border-deep_purple-500',
+		600: 'hover:active:border-deep_purple-600',
+		700: 'hover:active:border-deep_purple-700',
+		800: 'hover:active:border-deep_purple-800',
+		900: 'hover:active:border-deep_purple-900',
+		950: 'hover:active:border-deep_purple-950'
+	},
+	indigo: {
+		50: 'hover:active:border-indigo-50',
+		100: 'hover:active:border-indigo-100',
+		200: 'hover:active:border-indigo-200',
+		300: 'hover:active:border-indigo-300',
+		400: 'hover:active:border-indigo-400',
+		500: 'hover:active:border-indigo-500',
+		600: 'hover:active:border-indigo-600',
+		700: 'hover:active:border-indigo-700',
+		800: 'hover:active:border-indigo-800',
+		900: 'hover:active:border-indigo-900',
+		950: 'hover:active:border-indigo-950'
+	},
+	blue: {
+		50: 'hover:active:border-blue-50',
+		100: 'hover:active:border-blue-100',
+		200: 'hover:active:border-blue-200',
+		300: 'hover:active:border-blue-300',
+		400: 'hover:active:border-blue-400',
+		500: 'hover:active:border-blue-500',
+		600: 'hover:active:border-blue-600',
+		700: 'hover:active:border-blue-700',
+		800: 'hover:active:border-blue-800',
+		900: 'hover:active:border-blue-900',
+		950: 'hover:active:border-blue-950'
+	},
+	light_blue: {
+		50: 'hover:active:border-light_blue-50',
+		100: 'hover:active:border-light_blue-100',
+		200: 'hover:active:border-light_blue-200',
+		300: 'hover:active:border-light_blue-300',
+		400: 'hover:active:border-light_blue-400',
+		500: 'hover:active:border-light_blue-500',
+		600: 'hover:active:border-light_blue-600',
+		700: 'hover:active:border-light_blue-700',
+		800: 'hover:active:border-light_blue-800',
+		900: 'hover:active:border-light_blue-900',
+		950: 'hover:active:border-light_blue-950'
+	},
+	cyan: {
+		50: 'hover:active:border-cyan-50',
+		100: 'hover:active:border-cyan-100',
+		200: 'hover:active:border-cyan-200',
+		300: 'hover:active:border-cyan-300',
+		400: 'hover:active:border-cyan-400',
+		500: 'hover:active:border-cyan-500',
+		600: 'hover:active:border-cyan-600',
+		700: 'hover:active:border-cyan-700',
+		800: 'hover:active:border-cyan-800',
+		900: 'hover:active:border-cyan-900',
+		950: 'hover:active:border-cyan-950'
+	},
+	teal: {
+		50: 'hover:active:border-teal-50',
+		100: 'hover:active:border-teal-100',
+		200: 'hover:active:border-teal-200',
+		300: 'hover:active:border-teal-300',
+		400: 'hover:active:border-teal-400',
+		500: 'hover:active:border-teal-500',
+		600: 'hover:active:border-teal-600',
+		700: 'hover:active:border-teal-700',
+		800: 'hover:active:border-teal-800',
+		900: 'hover:active:border-teal-900',
+		950: 'hover:active:border-teal-950'
+	},
+	green: {
+		50: 'hover:active:border-green-50',
+		100: 'hover:active:border-green-100',
+		200: 'hover:active:border-green-200',
+		300: 'hover:active:border-green-300',
+		400: 'hover:active:border-green-400',
+		500: 'hover:active:border-green-500',
+		600: 'hover:active:border-green-600',
+		700: 'hover:active:border-green-700',
+		800: 'hover:active:border-green-800',
+		900: 'hover:active:border-green-900',
+		950: 'hover:active:border-green-950'
+	},
+	light_green: {
+		50: 'hover:active:border-light_green-50',
+		100: 'hover:active:border-light_green-100',
+		200: 'hover:active:border-light_green-200',
+		300: 'hover:active:border-light_green-300',
+		400: 'hover:active:border-light_green-400',
+		500: 'hover:active:border-light_green-500',
+		600: 'hover:active:border-light_green-600',
+		700: 'hover:active:border-light_green-700',
+		800: 'hover:active:border-light_green-800',
+		900: 'hover:active:border-light_green-900',
+		950: 'hover:active:border-light_green-950'
+	},
+	lime: {
+		50: 'hover:active:border-lime-50',
+		100: 'hover:active:border-lime-100',
+		200: 'hover:active:border-lime-200',
+		300: 'hover:active:border-lime-300',
+		400: 'hover:active:border-lime-400',
+		500: 'hover:active:border-lime-500',
+		600: 'hover:active:border-lime-600',
+		700: 'hover:active:border-lime-700',
+		800: 'hover:active:border-lime-800',
+		900: 'hover:active:border-lime-900',
+		950: 'hover:active:border-lime-950'
+	},
+	yellow: {
+		50: 'hover:active:border-yellow-50',
+		100: 'hover:active:border-yellow-100',
+		200: 'hover:active:border-yellow-200',
+		300: 'hover:active:border-yellow-300',
+		400: 'hover:active:border-yellow-400',
+		500: 'hover:active:border-yellow-500',
+		600: 'hover:active:border-yellow-600',
+		700: 'hover:active:border-yellow-700',
+		800: 'hover:active:border-yellow-800',
+		900: 'hover:active:border-yellow-900',
+		950: 'hover:active:border-yellow-950'
+	},
+	orange: {
+		50: 'hover:active:border-orange-50',
+		100: 'hover:active:border-orange-100',
+		200: 'hover:active:border-orange-200',
+		300: 'hover:active:border-orange-300',
+		400: 'hover:active:border-orange-400',
+		500: 'hover:active:border-orange-500',
+		600: 'hover:active:border-orange-600',
+		700: 'hover:active:border-orange-700',
+		800: 'hover:active:border-orange-800',
+		900: 'hover:active:border-orange-900',
+		950: 'hover:active:border-orange-950'
+	},
+	deep_orange: {
+		50: 'hover:active:border-deep_orange-50',
+		100: 'hover:active:border-deep_orange-100',
+		200: 'hover:active:border-deep_orange-200',
+		300: 'hover:active:border-deep_orange-300',
+		400: 'hover:active:border-deep_orange-400',
+		500: 'hover:active:border-deep_orange-500',
+		600: 'hover:active:border-deep_orange-600',
+		700: 'hover:active:border-deep_orange-700',
+		800: 'hover:active:border-deep_orange-800',
+		900: 'hover:active:border-deep_orange-900',
+		950: 'hover:active:border-deep_orange-950'
+	}
+};
+
 const focus_border_color: ThemeColorObj = {
 	transparent: 'focus:border-transparent',
 	black: 'focus:border-black',
@@ -4951,6 +5258,17 @@ const hover_border_radius: ThemeRadiusObj = {
 	inherit: 'hover:rounded-inherit'
 };
 
+const hover_active_border_radius: ThemeRadiusObj = {
+	none: 'hover:active:rounded-none',
+	xs: 'hover:active:rounded-xs',
+	sm: 'hover:active:rounded-sm',
+	base: 'hover:active:rounded-base',
+	lg: 'hover:active:rounded-lg',
+	xl: 'hover:active:rounded-xl',
+	full: 'hover:active:rounded-full',
+	inherit: 'hover:active:rounded-inherit'
+};
+
 const focus_border_radius: ThemeRadiusObj = {
 	none: 'focus:rounded-none',
 	xs: 'focus:rounded-xs',
@@ -5026,6 +5344,17 @@ const hover_border_radius_t: ThemeRadiusObj = {
 	xl: 'hover:rounded-t-xl',
 	full: 'hover:rounded-t-full',
 	inherit: 'hover:rounded-t-inherit'
+};
+
+const hover_active_border_radius_t: ThemeRadiusObj = {
+	none: 'hover:active:rounded-t-none',
+	xs: 'hover:active:rounded-t-xs',
+	sm: 'hover:active:rounded-t-sm',
+	base: 'hover:active:rounded-t-base',
+	lg: 'hover:active:rounded-t-lg',
+	xl: 'hover:active:rounded-t-xl',
+	full: 'hover:active:rounded-t-full',
+	inherit: 'hover:active:rounded-t-inherit'
 };
 
 const focus_border_radius_t: ThemeRadiusObj = {
@@ -5105,6 +5434,17 @@ const hover_border_radius_r: ThemeRadiusObj = {
 	inherit: 'hover:rounded-r-inherit'
 };
 
+const hover_active_border_radius_r: ThemeRadiusObj = {
+	none: 'hover:active:rounded-r-none',
+	xs: 'hover:active:rounded-r-xs',
+	sm: 'hover:active:rounded-r-sm',
+	base: 'hover:active:rounded-r-base',
+	lg: 'hover:active:rounded-r-lg',
+	xl: 'hover:active:rounded-r-xl',
+	full: 'hover:active:rounded-r-full',
+	inherit: 'hover:active:rounded-r-inherit'
+};
+
 const focus_border_radius_r: ThemeRadiusObj = {
 	none: 'focus:rounded-r-none',
 	xs: 'focus:rounded-r-xs',
@@ -5180,6 +5520,17 @@ const hover_border_radius_b: ThemeRadiusObj = {
 	xl: 'hover:rounded-b-xl',
 	full: 'hover:rounded-b-full',
 	inherit: 'hover:rounded-b-inherit'
+};
+
+const hover_active_border_radius_b: ThemeRadiusObj = {
+	none: 'hover:active:rounded-b-none',
+	xs: 'hover:active:rounded-b-xs',
+	sm: 'hover:active:rounded-b-sm',
+	base: 'hover:active:rounded-b-base',
+	lg: 'hover:active:rounded-b-lg',
+	xl: 'hover:active:rounded-b-xl',
+	full: 'hover:active:rounded-b-full',
+	inherit: 'hover:active:rounded-b-inherit'
 };
 
 const focus_border_radius_b: ThemeRadiusObj = {
@@ -5259,6 +5610,17 @@ const hover_border_radius_l: ThemeRadiusObj = {
 	inherit: 'hover:rounded-l-inherit'
 };
 
+const hover_active_border_radius_l: ThemeRadiusObj = {
+	none: 'hover:active:rounded-l-none',
+	xs: 'hover:active:rounded-l-xs',
+	sm: 'hover:active:rounded-l-sm',
+	base: 'hover:active:rounded-l-base',
+	lg: 'hover:active:rounded-l-lg',
+	xl: 'hover:active:rounded-l-xl',
+	full: 'hover:active:rounded-l-full',
+	inherit: 'hover:active:rounded-l-inherit'
+};
+
 const focus_border_radius_l: ThemeRadiusObj = {
 	none: 'focus:rounded-l-none',
 	xs: 'focus:rounded-l-xs',
@@ -5334,6 +5696,17 @@ const hover_border_radius_tl: ThemeRadiusObj = {
 	xl: 'hover:rounded-tl-xl',
 	full: 'hover:rounded-tl-full',
 	inherit: 'hover:rounded-tl-inherit'
+};
+
+const hover_active_border_radius_tl: ThemeRadiusObj = {
+	none: 'hover:active:rounded-tl-none',
+	xs: 'hover:active:rounded-tl-xs',
+	sm: 'hover:active:rounded-tl-sm',
+	base: 'hover:active:rounded-tl-base',
+	lg: 'hover:active:rounded-tl-lg',
+	xl: 'hover:active:rounded-tl-xl',
+	full: 'hover:active:rounded-tl-full',
+	inherit: 'hover:active:rounded-tl-inherit'
 };
 
 const focus_border_radius_tl: ThemeRadiusObj = {
@@ -5413,6 +5786,17 @@ const hover_border_radius_tr: ThemeRadiusObj = {
 	inherit: 'hover:rounded-tr-inherit'
 };
 
+const hover_active_border_radius_tr: ThemeRadiusObj = {
+	none: 'hover:active:rounded-tr-none',
+	xs: 'hover:active:rounded-tr-xs',
+	sm: 'hover:active:rounded-tr-sm',
+	base: 'hover:active:rounded-tr-base',
+	lg: 'hover:active:rounded-tr-lg',
+	xl: 'hover:active:rounded-tr-xl',
+	full: 'hover:active:rounded-tr-full',
+	inherit: 'hover:active:rounded-tr-inherit'
+};
+
 const focus_border_radius_tr: ThemeRadiusObj = {
 	none: 'focus:rounded-tr-none',
 	xs: 'focus:rounded-tr-xs',
@@ -5488,6 +5872,17 @@ const hover_border_radius_br: ThemeRadiusObj = {
 	xl: 'hover:rounded-br-xl',
 	full: 'hover:rounded-br-full',
 	inherit: 'hover:rounded-br-inherit'
+};
+
+const hover_active_border_radius_br: ThemeRadiusObj = {
+	none: 'hover:active:rounded-br-none',
+	xs: 'hover:active:rounded-br-xs',
+	sm: 'hover:active:rounded-br-sm',
+	base: 'hover:active:rounded-br-base',
+	lg: 'hover:active:rounded-br-lg',
+	xl: 'hover:active:rounded-br-xl',
+	full: 'hover:active:rounded-br-full',
+	inherit: 'hover:active:rounded-br-inherit'
 };
 
 const focus_border_radius_br: ThemeRadiusObj = {
@@ -5567,6 +5962,17 @@ const hover_border_radius_bl: ThemeRadiusObj = {
 	inherit: 'hover:rounded-bl-inherit'
 };
 
+const hover_active_border_radius_bl: ThemeRadiusObj = {
+	none: 'hover:active:rounded-bl-none',
+	xs: 'hover:active:rounded-bl-xs',
+	sm: 'hover:active:rounded-bl-sm',
+	base: 'hover:active:rounded-bl-base',
+	lg: 'hover:active:rounded-bl-lg',
+	xl: 'hover:active:rounded-bl-xl',
+	full: 'hover:active:rounded-bl-full',
+	inherit: 'hover:active:rounded-bl-inherit'
+};
+
 const focus_border_radius_bl: ThemeRadiusObj = {
 	none: 'focus:rounded-bl-none',
 	xs: 'focus:rounded-bl-xs',
@@ -5638,6 +6044,14 @@ const hover_outline_width: OutlineWidthClassObj = {
 	8: 'hover:outline-8'
 };
 
+const hover_active_outline_width: OutlineWidthClassObj = {
+	0: 'hover:active:outline-0',
+	1: 'hover:active:outline-1',
+	2: 'hover:active:outline-2',
+	4: 'hover:active:outline-4',
+	8: 'hover:active:outline-8'
+};
+
 const focus_outline_width: OutlineWidthClassObj = {
 	0: 'focus:outline-0',
 	1: 'focus:outline-1',
@@ -5694,6 +6108,14 @@ const hover_outline_style: OutlineStyleClassObj = {
 	double: 'hover:outline-double'
 };
 
+const hover_active_outline_style: OutlineStyleClassObj = {
+	none: 'hover:active:outline-none',
+	solid: 'hover:active:outline',
+	dashed: 'hover:active:outline-dashed',
+	dotted: 'hover:active:outline-dotted',
+	double: 'hover:active:outline-double'
+};
+
 const focus_outline_style: OutlineStyleClassObj = {
 	none: 'focus:outline-none',
 	solid: 'focus:outline',
@@ -5748,6 +6170,14 @@ const hover_outline_offset: OutlineOffsetClassObj = {
 	2: 'hover:outline-offset-2',
 	4: 'hover:outline-offset-4',
 	8: 'hover:outline-offset-8'
+};
+
+const hover_active_outline_offset: OutlineOffsetClassObj = {
+	0: 'hover:active:outline-offset-0',
+	1: 'hover:active:outline-offset-1',
+	2: 'hover:active:outline-offset-2',
+	4: 'hover:active:outline-offset-4',
+	8: 'hover:active:outline-offset-8'
 };
 
 const focus_outline_offset: OutlineOffsetClassObj = {
@@ -9296,6 +9726,220 @@ const hover_outline_color: ThemeColorObj = {
 	}
 };
 
+const hover_active_outline_color: ThemeColorObj = {
+	transparent: 'hover:active:outline-transparent',
+	black: 'hover:active:outline-black',
+	white: 'hover:active:outline-white',
+	gray: {
+		50: 'hover:active:outline-gray-50',
+		100: 'hover:active:outline-gray-100',
+		200: 'hover:active:outline-gray-200',
+		300: 'hover:active:outline-gray-300',
+		400: 'hover:active:outline-gray-400',
+		500: 'hover:active:outline-gray-500',
+		600: 'hover:active:outline-gray-600',
+		700: 'hover:active:outline-gray-700',
+		800: 'hover:active:outline-gray-800',
+		900: 'hover:active:outline-gray-900',
+		950: 'hover:active:outline-gray-950'
+	},
+	red: {
+		50: 'hover:active:outline-red-50',
+		100: 'hover:active:outline-red-100',
+		200: 'hover:active:outline-red-200',
+		300: 'hover:active:outline-red-300',
+		400: 'hover:active:outline-red-400',
+		500: 'hover:active:outline-red-500',
+		600: 'hover:active:outline-red-600',
+		700: 'hover:active:outline-red-700',
+		800: 'hover:active:outline-red-800',
+		900: 'hover:active:outline-red-900',
+		950: 'hover:active:outline-red-950'
+	},
+	pink: {
+		50: 'hover:active:outline-pink-50',
+		100: 'hover:active:outline-pink-100',
+		200: 'hover:active:outline-pink-200',
+		300: 'hover:active:outline-pink-300',
+		400: 'hover:active:outline-pink-400',
+		500: 'hover:active:outline-pink-500',
+		600: 'hover:active:outline-pink-600',
+		700: 'hover:active:outline-pink-700',
+		800: 'hover:active:outline-pink-800',
+		900: 'hover:active:outline-pink-900',
+		950: 'hover:active:outline-pink-950'
+	},
+	purple: {
+		50: 'hover:active:outline-purple-50',
+		100: 'hover:active:outline-purple-100',
+		200: 'hover:active:outline-purple-200',
+		300: 'hover:active:outline-purple-300',
+		400: 'hover:active:outline-purple-400',
+		500: 'hover:active:outline-purple-500',
+		600: 'hover:active:outline-purple-600',
+		700: 'hover:active:outline-purple-700',
+		800: 'hover:active:outline-purple-800',
+		900: 'hover:active:outline-purple-900',
+		950: 'hover:active:outline-purple-950'
+	},
+	deep_purple: {
+		50: 'hover:active:outline-deep_purple-50',
+		100: 'hover:active:outline-deep_purple-100',
+		200: 'hover:active:outline-deep_purple-200',
+		300: 'hover:active:outline-deep_purple-300',
+		400: 'hover:active:outline-deep_purple-400',
+		500: 'hover:active:outline-deep_purple-500',
+		600: 'hover:active:outline-deep_purple-600',
+		700: 'hover:active:outline-deep_purple-700',
+		800: 'hover:active:outline-deep_purple-800',
+		900: 'hover:active:outline-deep_purple-900',
+		950: 'hover:active:outline-deep_purple-950'
+	},
+	indigo: {
+		50: 'hover:active:outline-indigo-50',
+		100: 'hover:active:outline-indigo-100',
+		200: 'hover:active:outline-indigo-200',
+		300: 'hover:active:outline-indigo-300',
+		400: 'hover:active:outline-indigo-400',
+		500: 'hover:active:outline-indigo-500',
+		600: 'hover:active:outline-indigo-600',
+		700: 'hover:active:outline-indigo-700',
+		800: 'hover:active:outline-indigo-800',
+		900: 'hover:active:outline-indigo-900',
+		950: 'hover:active:outline-indigo-950'
+	},
+	blue: {
+		50: 'hover:active:outline-blue-50',
+		100: 'hover:active:outline-blue-100',
+		200: 'hover:active:outline-blue-200',
+		300: 'hover:active:outline-blue-300',
+		400: 'hover:active:outline-blue-400',
+		500: 'hover:active:outline-blue-500',
+		600: 'hover:active:outline-blue-600',
+		700: 'hover:active:outline-blue-700',
+		800: 'hover:active:outline-blue-800',
+		900: 'hover:active:outline-blue-900',
+		950: 'hover:active:outline-blue-950'
+	},
+	light_blue: {
+		50: 'hover:active:outline-light_blue-50',
+		100: 'hover:active:outline-light_blue-100',
+		200: 'hover:active:outline-light_blue-200',
+		300: 'hover:active:outline-light_blue-300',
+		400: 'hover:active:outline-light_blue-400',
+		500: 'hover:active:outline-light_blue-500',
+		600: 'hover:active:outline-light_blue-600',
+		700: 'hover:active:outline-light_blue-700',
+		800: 'hover:active:outline-light_blue-800',
+		900: 'hover:active:outline-light_blue-900',
+		950: 'hover:active:outline-light_blue-950'
+	},
+	cyan: {
+		50: 'hover:active:outline-cyan-50',
+		100: 'hover:active:outline-cyan-100',
+		200: 'hover:active:outline-cyan-200',
+		300: 'hover:active:outline-cyan-300',
+		400: 'hover:active:outline-cyan-400',
+		500: 'hover:active:outline-cyan-500',
+		600: 'hover:active:outline-cyan-600',
+		700: 'hover:active:outline-cyan-700',
+		800: 'hover:active:outline-cyan-800',
+		900: 'hover:active:outline-cyan-900',
+		950: 'hover:active:outline-cyan-950'
+	},
+	teal: {
+		50: 'hover:active:outline-teal-50',
+		100: 'hover:active:outline-teal-100',
+		200: 'hover:active:outline-teal-200',
+		300: 'hover:active:outline-teal-300',
+		400: 'hover:active:outline-teal-400',
+		500: 'hover:active:outline-teal-500',
+		600: 'hover:active:outline-teal-600',
+		700: 'hover:active:outline-teal-700',
+		800: 'hover:active:outline-teal-800',
+		900: 'hover:active:outline-teal-900',
+		950: 'hover:active:outline-teal-950'
+	},
+	green: {
+		50: 'hover:active:outline-green-50',
+		100: 'hover:active:outline-green-100',
+		200: 'hover:active:outline-green-200',
+		300: 'hover:active:outline-green-300',
+		400: 'hover:active:outline-green-400',
+		500: 'hover:active:outline-green-500',
+		600: 'hover:active:outline-green-600',
+		700: 'hover:active:outline-green-700',
+		800: 'hover:active:outline-green-800',
+		900: 'hover:active:outline-green-900',
+		950: 'hover:active:outline-green-950'
+	},
+	light_green: {
+		50: 'hover:active:outline-light_green-50',
+		100: 'hover:active:outline-light_green-100',
+		200: 'hover:active:outline-light_green-200',
+		300: 'hover:active:outline-light_green-300',
+		400: 'hover:active:outline-light_green-400',
+		500: 'hover:active:outline-light_green-500',
+		600: 'hover:active:outline-light_green-600',
+		700: 'hover:active:outline-light_green-700',
+		800: 'hover:active:outline-light_green-800',
+		900: 'hover:active:outline-light_green-900',
+		950: 'hover:active:outline-light_green-950'
+	},
+	lime: {
+		50: 'hover:active:outline-lime-50',
+		100: 'hover:active:outline-lime-100',
+		200: 'hover:active:outline-lime-200',
+		300: 'hover:active:outline-lime-300',
+		400: 'hover:active:outline-lime-400',
+		500: 'hover:active:outline-lime-500',
+		600: 'hover:active:outline-lime-600',
+		700: 'hover:active:outline-lime-700',
+		800: 'hover:active:outline-lime-800',
+		900: 'hover:active:outline-lime-900',
+		950: 'hover:active:outline-lime-950'
+	},
+	yellow: {
+		50: 'hover:active:outline-yellow-50',
+		100: 'hover:active:outline-yellow-100',
+		200: 'hover:active:outline-yellow-200',
+		300: 'hover:active:outline-yellow-300',
+		400: 'hover:active:outline-yellow-400',
+		500: 'hover:active:outline-yellow-500',
+		600: 'hover:active:outline-yellow-600',
+		700: 'hover:active:outline-yellow-700',
+		800: 'hover:active:outline-yellow-800',
+		900: 'hover:active:outline-yellow-900',
+		950: 'hover:active:outline-yellow-950'
+	},
+	orange: {
+		50: 'hover:active:outline-orange-50',
+		100: 'hover:active:outline-orange-100',
+		200: 'hover:active:outline-orange-200',
+		300: 'hover:active:outline-orange-300',
+		400: 'hover:active:outline-orange-400',
+		500: 'hover:active:outline-orange-500',
+		600: 'hover:active:outline-orange-600',
+		700: 'hover:active:outline-orange-700',
+		800: 'hover:active:outline-orange-800',
+		900: 'hover:active:outline-orange-900',
+		950: 'hover:active:outline-orange-950'
+	},
+	deep_orange: {
+		50: 'hover:active:outline-deep_orange-50',
+		100: 'hover:active:outline-deep_orange-100',
+		200: 'hover:active:outline-deep_orange-200',
+		300: 'hover:active:outline-deep_orange-300',
+		400: 'hover:active:outline-deep_orange-400',
+		500: 'hover:active:outline-deep_orange-500',
+		600: 'hover:active:outline-deep_orange-600',
+		700: 'hover:active:outline-deep_orange-700',
+		800: 'hover:active:outline-deep_orange-800',
+		900: 'hover:active:outline-deep_orange-900',
+		950: 'hover:active:outline-deep_orange-950'
+	}
+};
+
 const focus_outline_color: ThemeColorObj = {
 	transparent: 'focus-visible:outline-transparent',
 	black: 'focus-visible:outline-black',
@@ -10369,7 +11013,7 @@ const after_outline_color: ThemeColorObj = {
 export default {
 	border_width: {
 		...border_width,
-		hover: hover_border_width,
+		hover: { ...hover_border_width, active: hover_active_border_width },
 		focus: focus_border_width,
 		active: active_border_width,
 		before: before_border_width,
@@ -10377,7 +11021,7 @@ export default {
 	},
 	border_x_width: {
 		...border_x_width,
-		hover: hover_border_x_width,
+		hover: { ...hover_border_x_width, active: hover_active_border_x_width },
 		focus: focus_border_x_width,
 		active: active_border_x_width,
 		before: before_border_x_width,
@@ -10385,7 +11029,7 @@ export default {
 	},
 	border_y_width: {
 		...border_y_width,
-		hover: hover_border_y_width,
+		hover: { ...hover_border_y_width, active: hover_active_border_y_width },
 		focus: focus_border_y_width,
 		active: active_border_y_width,
 		before: before_border_y_width,
@@ -10393,7 +11037,7 @@ export default {
 	},
 	border_l_width: {
 		...border_l_width,
-		hover: hover_border_l_width,
+		hover: { ...hover_border_l_width, active: hover_active_border_l_width },
 		focus: focus_border_l_width,
 		active: active_border_l_width,
 		before: before_border_l_width,
@@ -10401,7 +11045,7 @@ export default {
 	},
 	border_t_width: {
 		...border_t_width,
-		hover: hover_border_t_width,
+		hover: { ...hover_border_t_width, active: hover_active_border_t_width },
 		focus: focus_border_t_width,
 		active: active_border_t_width,
 		before: before_border_t_width,
@@ -10409,7 +11053,7 @@ export default {
 	},
 	border_r_width: {
 		...border_r_width,
-		hover: hover_border_r_width,
+		hover: { ...hover_border_r_width, active: hover_active_border_r_width },
 		focus: focus_border_r_width,
 		active: active_border_r_width,
 		before: before_border_r_width,
@@ -10417,7 +11061,7 @@ export default {
 	},
 	border_b_width: {
 		...border_b_width,
-		hover: hover_border_b_width,
+		hover: { ...hover_border_b_width, active: hover_active_border_b_width },
 		focus: focus_border_b_width,
 		active: active_border_b_width,
 		before: before_border_b_width,
@@ -10425,7 +11069,7 @@ export default {
 	},
 	border_style: {
 		...border_style,
-		hover: hover_border_style,
+		hover: { ...hover_border_style, active: hover_active_border_style },
 		focus: focus_border_style,
 		active: active_border_style,
 		before: before_border_style,
@@ -10434,7 +11078,7 @@ export default {
 	border_color: {
 		...border_color,
 		opacity: opacity_border_color,
-		hover: hover_border_color,
+		hover: { ...hover_border_color, active: hover_active_border_color },
 		focus: focus_border_color,
 		active: active_border_color,
 		before: before_border_color,
@@ -10442,7 +11086,7 @@ export default {
 	},
 	border_radius: {
 		...border_radius,
-		hover: hover_border_radius,
+		hover: { ...hover_border_radius, active: hover_active_border_radius },
 		focus: focus_border_radius,
 		active: active_border_radius,
 		before: before_border_radius,
@@ -10451,7 +11095,7 @@ export default {
 	},
 	border_radius_t: {
 		...border_radius_t,
-		hover: hover_border_radius_t,
+		hover: { ...hover_border_radius_t, active: hover_active_border_radius_t },
 		focus: focus_border_radius_t,
 		active: active_border_radius_t,
 		before: before_border_radius_t,
@@ -10460,7 +11104,7 @@ export default {
 	},
 	border_radius_r: {
 		...border_radius_r,
-		hover: hover_border_radius_r,
+		hover: { ...hover_border_radius_r, active: hover_active_border_radius_r },
 		focus: focus_border_radius_r,
 		active: active_border_radius_r,
 		before: before_border_radius_r,
@@ -10469,7 +11113,7 @@ export default {
 	},
 	border_radius_b: {
 		...border_radius_b,
-		hover: hover_border_radius_b,
+		hover: { ...hover_border_radius_b, active: hover_active_border_radius_b },
 		focus: focus_border_radius_b,
 		active: active_border_radius_b,
 		before: before_border_radius_b,
@@ -10478,7 +11122,7 @@ export default {
 	},
 	border_radius_l: {
 		...border_radius_l,
-		hover: hover_border_radius_l,
+		hover: { ...hover_border_radius_l, active: hover_active_border_radius_l },
 		focus: focus_border_radius_l,
 		active: active_border_radius_l,
 		before: before_border_radius_l,
@@ -10487,7 +11131,7 @@ export default {
 	},
 	border_radius_tl: {
 		...border_radius_tl,
-		hover: hover_border_radius_tl,
+		hover: { ...hover_border_radius_tl, active: hover_active_border_radius_tl },
 		focus: focus_border_radius_tl,
 		active: active_border_radius_tl,
 		before: before_border_radius_tl,
@@ -10496,7 +11140,7 @@ export default {
 	},
 	border_radius_tr: {
 		...border_radius_tr,
-		hover: hover_border_radius_tr,
+		hover: { ...hover_border_radius_tr, active: hover_active_border_radius_tr },
 		focus: focus_border_radius_tr,
 		active: active_border_radius_tr,
 		before: before_border_radius_tr,
@@ -10505,7 +11149,7 @@ export default {
 	},
 	border_radius_br: {
 		...border_radius_br,
-		hover: hover_border_radius_br,
+		hover: { ...hover_border_radius_br, active: hover_active_border_radius_br },
 		focus: focus_border_radius_br,
 		active: active_border_radius_br,
 		before: before_border_radius_br,
@@ -10514,7 +11158,7 @@ export default {
 	},
 	border_radius_bl: {
 		...border_radius_bl,
-		hover: hover_border_radius_bl,
+		hover: { ...hover_border_radius_bl, active: hover_active_border_radius_bl },
 		focus: focus_border_radius_bl,
 		active: active_border_radius_bl,
 		before: before_border_radius_bl,
@@ -10523,7 +11167,7 @@ export default {
 	},
 	outline_width: {
 		...outline_width,
-		hover: hover_outline_width,
+		hover: { ...hover_outline_width, active: hover_active_outline_width },
 		focus: focus_outline_width,
 		focus_visible: focus_visible_outline_width,
 		active: active_outline_width,
@@ -10532,7 +11176,7 @@ export default {
 	},
 	outline_style: {
 		...outline_style,
-		hover: hover_outline_style,
+		hover: { ...hover_outline_style, active: hover_active_outline_style },
 		focus: focus_outline_style,
 		focus_visible: focus_visible_outline_style,
 		active: active_outline_style,
@@ -10541,7 +11185,7 @@ export default {
 	},
 	outline_offset: {
 		...outline_offset,
-		hover: hover_outline_offset,
+		hover: { ...hover_outline_offset, active: hover_active_outline_offset },
 		focus: focus_outline_offset,
 		focus_visible: focus_visible_outline_offset,
 		active: active_outline_offset,
@@ -10551,7 +11195,7 @@ export default {
 	outline_color: {
 		...outline_color,
 		opacity: opacity_outline_color,
-		hover: hover_outline_color,
+		hover: { ...hover_outline_color, active: hover_active_outline_color },
 		focus: focus_outline_color,
 		focus_visible: focus_visible_outline_color,
 		active: active_outline_color,
