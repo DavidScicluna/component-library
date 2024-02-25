@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 
 export type UseBooleanParams = boolean | (() => boolean);
-export type UseBooleanToggles = Record<'on' | 'off', () => void>;
+export type UseBooleanToggles = Record<'on' | 'off' | 'toggle', () => void>;
 
 export type UseBooleanReturn = [boolean, UseBooleanToggles];
 
@@ -16,7 +16,8 @@ const useBoolean = (initialState: UseBooleanParams = false): UseBooleanReturn =>
 	const callbacks = useMemo<UseBooleanToggles>(
 		() => ({
 			on: () => setValue(true),
-			off: () => setValue(false)
+			off: () => setValue(false),
+			toggle: () => setValue((bool) => !bool)
 		}),
 		[]
 	);

@@ -43,4 +43,8 @@ export const __DEFAULT_HAS_TWOTONEICON_LOADED__ = JSON.parse(
 export const __DEFAULT_CLASSNAME__ = '';
 
 export const __DEFAULT_METHOD__ = () => undefined;
-export const __DEFAULT_USE_BOOLEAN_TOGGLES__: UseBooleanToggles = { on: __DEFAULT_METHOD__, off: __DEFAULT_METHOD__ };
+export const __DEFAULT_USE_BOOLEAN_TOGGLES__: UseBooleanToggles = {
+	on: __DEFAULT_METHOD__,
+	off: __DEFAULT_METHOD__,
+	toggle: __DEFAULT_METHOD__
+};
