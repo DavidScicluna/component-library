@@ -5,6 +5,8 @@ import classes from '@common/classes';
 import theme from '@common/theme';
 import type { ColorTypeClass, PickFrom, ThemeAppColorMode, ThemeColor, ThemeColorHue } from '@common/types';
 
+import { checkColorType } from '.';
+
 export type ColorHueType =
 	| 'background'
 	| 'text.primary'
@@ -92,12 +94,14 @@ export type GetColorHexProps = {
  */
 export const getColorHex = memoize((props: GetColorHexProps): string => {
 	const { color, colorMode } = props;
-	if (color !== 'transparent' && color !== 'black' && color !== 'white') {
+	if (checkColorType(color) === 'theme' && color !== 'transparent' && color !== 'black' && color !== 'white') {
 		const { hueType } = props as GetColorHexHueProps;
 		const hue = getColorHue({ colorMode, type: hueType });
 		return theme.colors[color as GetColorHexHueColor][hue];
-	} else {
+	} else if (checkColorType(color) === 'theme') {
 		return theme.colors[color as GetColorHexNonHueColor];
+	} else {
+		return '';
 	}
 });
 
@@ -123,7 +127,7 @@ export type GetColorClassProps = {
  */
 export const getColorClass = memoize((props: GetColorClassProps): string => {
 	const { color, colorMode, classType } = props;
-	if (color !== 'transparent' && color !== 'black' && color !== 'white') {
+	if (checkColorType(color) === 'theme' && color !== 'transparent' && color !== 'black' && color !== 'white') {
 		const { hueType } = props as GetColorClassHueProps;
 		const hue = getColorHue({ colorMode, type: hueType });
 		switch (classType) {
@@ -150,7 +154,7 @@ export const getColorClass = memoize((props: GetColorClassProps): string => {
 			case 'gradient_to_color':
 				return classes.backgrounds.gradient_to_color[color as GetColorClassHueColor][hue];
 		}
-	} else {
+	} else if (checkColorType(color) === 'theme') {
 		switch (classType) {
 			case 'shadow':
 				return classes.effects.shadow_color[color as GetColorClassNonHueColor];
@@ -175,6 +179,8 @@ export const getColorClass = memoize((props: GetColorClassProps): string => {
 			case 'gradient_to_color':
 				return classes.backgrounds.gradient_to_color[color as GetColorClassNonHueColor];
 		}
+	} else {
+		return '';
 	}
 });
 
