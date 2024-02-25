@@ -10,6 +10,7 @@ import type {
 	ThemeDelay,
 	ThemeDuration,
 	ThemeEase,
+	ThemeFontSize,
 	ThemeRadius,
 	ThemeSpacing
 } from '@common/types';
@@ -30,6 +31,8 @@ export const __DEFAULT_OUTLINE_OFFSET__: OutlineOffsetClass = 4;
 export const __DEFAULT_TEXT_DECORATION_WIDTH__: TextDecorationThicknessClass = 2;
 export const __DEFAULT_TEXT_DECORATION_STYLE__: TextDecorationStyleClass = 'dotted';
 export const __DEFAULT_TEXT_DECORATION_OFFSET__: TextUnderlineOffsetClass = 2;
+
+export const __DEFAULT_FONT_SIZE__: ThemeFontSize = 'md';
 
 export const __DEFAULT_SPACING__: ThemeSpacing = 2;
 
