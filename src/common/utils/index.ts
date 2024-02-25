@@ -17,7 +17,7 @@ import {
 	convertREMToPixels,
 	convertStringToNumber
 } from './other';
-import { getResponsiveValue } from './responsive';
+import { getBreakpoint, getResponsiveValue } from './responsive';
 import { checkColorType, checkDurationType, checkFontSizeType } from './theme';
 
 export type { ColorHueType, FilterColorHexProps, GetColorClassProps, GetColorHexProps, GetColorHueProps };
@@ -36,6 +36,7 @@ export {
 	getAnimationDelay,
 	getAnimationDuration,
 	getAnimationEasings,
+	getBreakpoint,
 	getClass,
 	getColorClass,
 	getColorHex,
