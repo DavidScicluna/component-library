@@ -1,7 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect } from 'react';
+
+import { debounce } from 'lodash-es';
+import { useWindowEventListener } from 'rooks';
 
 import theme from '@common/theme';
 import type { ThemeBreakpoint } from '@common/types';
+
+import useBoolean from './useBoolean';
 
 export type Query = { breakpoint: ThemeBreakpoint; type: 'width' | 'height'; direction: 'min' | 'max' } | string;
 
@@ -15,47 +20,29 @@ const getQuery = (query: Query): string => {
 };
 
 const getMatches = (query: Query): boolean => {
-	// Prevents SSR issues
 	if (typeof window !== 'undefined') {
 		return window.matchMedia(getQuery(query)).matches;
+	} else {
+		return false;
 	}
-	return false;
 };
 
 const useMediaQuery = (query: Query): boolean => {
-	const [matches, setMatches] = useState<boolean>(getMatches(query));
+	const [matches, setMatches] = useBoolean(getMatches(query));
 
-	function handleChange() {
-		setMatches(getMatches(query));
-	}
-
-	useEffect(() => {
-		if (typeof window !== 'undefined') {
-			const matchMedia = window.matchMedia(getQuery(query));
-
-			// Triggered at the first client-side load and if query changes
-			handleChange();
-
-			// Listen matchMedia
-			if (matchMedia.addListener) {
-				matchMedia.addListener(handleChange);
+	const handleGetMatches = useCallback(
+		debounce(() => {
+			if (getMatches(query)) {
+				setMatches.on();
 			} else {
-				matchMedia.addEventListener('change', handleChange);
+				setMatches.off();
 			}
-		}
+		}, 0),
+		[query]
+	);
 
-		return () => {
-			const matchMedia = window.matchMedia(getQuery(query));
-
-			if (typeof window !== 'undefined') {
-				if (matchMedia.removeListener) {
-					matchMedia.removeListener(handleChange);
-				} else {
-					matchMedia.removeEventListener('change', handleChange);
-				}
-			}
-		};
-	}, [query]);
+	useEffect(() => handleGetMatches(), [query]);
+	useWindowEventListener('resize', handleGetMatches);
 
 	return matches;
 };
