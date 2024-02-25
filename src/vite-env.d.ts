@@ -1,3 +1,6 @@
+/// <reference types="vite/client" />
+/// <reference types="@emotion/react/types/css-prop" />
+
 import type { ForwardedRef, ReactNode, RefAttributes } from 'react';
 import type { Nullish } from 'utility-types';
 
@@ -8,3 +11,9 @@ declare module 'react' {
 }
 
 declare module '*.png';
+
+declare global {
+	interface Window {
+		// Declare properties or methods here
+	}
+}
