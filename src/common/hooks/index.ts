@@ -1,5 +1,6 @@
 import useAppTheme from './useAppTheme';
 import useBoolean from './useBoolean';
+import useBreakpoint from './useBreakpoint';
 import useConst from './useConst';
 import useDebounce from './useDebounce';
 import useGetAmount from './useGetAmount';
@@ -12,6 +13,7 @@ import useTheme from './useTheme';
 export {
 	useAppTheme,
 	useBoolean,
+	useBreakpoint,
 	useConst,
 	useDebounce,
 	useGetAmount,
