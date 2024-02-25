@@ -85,6 +85,15 @@ const borderWidth: ThemeBorderWidthObj = {
 	'8': '8px'
 };
 
+const breakpoints: ThemeBreakpointObj = {
+	'xs': '0px',
+	'sm': '640px',
+	'md': '768px',
+	'lg': '1024px',
+	'xl': '1280px',
+	'2xl': '1536px'
+};
+
 const colors: ThemeColorObj = {
 	transparent: 'transparent',
 	black: '#000000',
@@ -299,15 +308,6 @@ const colors: ThemeColorObj = {
 	}
 };
 
-const container: ThemeBreakpointObj = {
-	'xs': '0px',
-	'sm': '640px',
-	'md': '768px',
-	'lg': '1024px',
-	'xl': '1280px',
-	'2xl': '1536px'
-};
-
 const fontSizes: ThemeFontSizeObj = {
 	'xs': '0.75rem' /* 12px */,
 	'sm': '0.875rem' /* 14px */,
@@ -450,7 +450,7 @@ export default {
 	borderRadius,
 	borderWidth,
 	colors,
-	container,
+	container: breakpoints,
 	fontSizes,
 	fontWeights,
 	fontFamily: {
