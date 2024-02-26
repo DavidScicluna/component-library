@@ -7,7 +7,7 @@ import type {
 	PolymorphicMouseEvent
 } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 import type { IconButtonDefaultElement, IconButtonProps } from '@components/Buttons';
 import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
 
@@ -38,6 +38,7 @@ type PickedFormsCommonProps =
 	| 'colorMode'
 	| 'isCompact'
 	| 'isDisabled'
+	| 'isFullWidth'
 	| 'isError'
 	| 'isFocused'
 	| 'isOutlined'
@@ -55,11 +56,9 @@ type PasswordInputOtherProps<Element extends PasswordInputElement> = {
 	renderRight?: (props: PasswordInputRenderProps<Element>) => ReactNode;
 } & Pick<FormsCommonProps, PickedFormsCommonProps>;
 
-type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
-
 export type PasswordInputProps<Element extends PasswordInputElement> = Omit<
 	BoxProps<Element, PasswordInputOtherProps<Element>>,
-	OmittedBoxProps
+	'children'
 >;
 
 export type PasswordInputRef<Element extends PasswordInputElement> = BoxRef<Element>;

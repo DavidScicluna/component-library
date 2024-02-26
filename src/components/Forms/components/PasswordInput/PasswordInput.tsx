@@ -26,6 +26,7 @@ import {
 	__DEFAULT_PASSWORD_INPUT_IS_DISABLED__,
 	__DEFAULT_PASSWORD_INPUT_IS_ERROR__,
 	__DEFAULT_PASSWORD_INPUT_IS_FOCUSED__,
+	__DEFAULT_PASSWORD_INPUT_IS_FULLWIDTH__,
 	__DEFAULT_PASSWORD_INPUT_IS_OUTLINED__,
 	__DEFAULT_PASSWORD_INPUT_IS_READONLY__,
 	__DEFAULT_PASSWORD_INPUT_IS_REQUIRED__,
@@ -74,8 +75,6 @@ const PasswordInput = forwardRef(function PasswordInput<Element extends Password
 		as = __DEFAULT_PASSWORD_INPUT_AS__,
 		id = __DEFAULT_FORM_CONTROL_ID__,
 		className = __DEFAULT_CLASSNAME__,
-		w,
-		h,
 		renderLeft,
 		renderRight,
 		renderToggle,
@@ -84,6 +83,7 @@ const PasswordInput = forwardRef(function PasswordInput<Element extends Password
 		placeholder,
 		isCompact: isCompactProp = __DEFAULT_PASSWORD_INPUT_IS_COMPACT__,
 		isDisabled: isDisabledProp = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
+		isFullWidth: isFullWidthProp = __DEFAULT_PASSWORD_INPUT_IS_FULLWIDTH__,
 		isError: isErrorProp = __DEFAULT_FORM_CONTROL_IS_ERROR__,
 		isFocused: isFocusedProp = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
 		isOutlined: isOutlinedProp = __DEFAULT_PASSWORD_INPUT_IS_OUTLINED__,
@@ -108,6 +108,7 @@ const PasswordInput = forwardRef(function PasswordInput<Element extends Password
 	const {
 		isCompact,
 		isDisabled,
+		isFullWidth,
 		isError,
 		isFocused: focused,
 		isOutlined,
@@ -120,6 +121,7 @@ const PasswordInput = forwardRef(function PasswordInput<Element extends Password
 	} = usePasswordInputResponsiveValues<Element>({
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
+		isFullWidth: isFullWidthProp,
 		isError: isErrorProp,
 		isFocused: isFocusedProp,
 		isOutlined: isOutlinedProp,
@@ -225,8 +227,8 @@ const PasswordInput = forwardRef(function PasswordInput<Element extends Password
 		<Grid
 			{...focusProps}
 			className={classNames(__KEYS_PASSWORD_INPUT_CLASS__, classes.container, { [className]: !!className })}
-			w={hasFormControl ? '100%' : w}
-			h={hasFormControl ? '100%' : h}
+			w={hasFormControl || isFullWidth ? '100%' : undefined}
+			h={hasFormControl ? '100%' : undefined}
 			templateColumns={compact(['auto', '1fr', renderRight || renderToggle ? 'auto' : null]).join(' ')}
 			templateRows={1}
 			onClick={handleClick}
