@@ -75,7 +75,6 @@ const ScrollToTopIconButton = forwardRef(function ScrollToTopIconButton<Element 
 	return (
 		<Transition transition='pop' in={isVisible}>
 			<Tooltip
-				color='gray'
 				colorMode={colorMode}
 				aria-label={`${label} (tooltip)`}
 				label={label}
