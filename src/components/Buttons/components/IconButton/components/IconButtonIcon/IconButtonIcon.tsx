@@ -9,7 +9,7 @@ import { Icon } from '@components/DataDisplay';
 
 import { useIconButtonContext, useIconButtonFontSize } from '../../common/hooks';
 
-import { __DEFAULT_ICON_BUTTON_ICON_AS__ } from './common/constants';
+import { __DEFAULT_ICON_BUTTON_ICON_AS__, __DEFAULT_ICON_BUTTON_ICON_VARIANT__ } from './common/constants';
 import { __KEYS_ICON_BUTTON_ICON_CLASS__ } from './common/keys';
 import type { IconButtonIconElement, IconButtonIconProps, IconButtonIconRef } from './common/types';
 
@@ -28,6 +28,7 @@ const IconButtonIcon = forwardRef(function IconButtonIcon<Element extends IconBu
 		className = __DEFAULT_CLASSNAME__,
 		color = __DEFAULT_ICON_BUTTON_ICON_COLOR__,
 		colorMode = __DEFAULT_ICON_BUTTON_ICON_COLORMODE__,
+		variant = __DEFAULT_ICON_BUTTON_ICON_VARIANT__,
 		...rest
 	} = props;
 
@@ -44,7 +45,7 @@ const IconButtonIcon = forwardRef(function IconButtonIcon<Element extends IconBu
 			color={color}
 			colorMode={colorMode}
 			size={`${fontSize}px`}
-			variant='unstyled'
+			variant={variant}
 		/>
 	);
 });
