@@ -1,6 +1,6 @@
-import { Button } from '@components/Buttons';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { Button } from '../../../Buttons';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_TOOLTIP_CLOSE_DELAY__,
@@ -14,6 +14,7 @@ import {
 import type { TooltipPlacement, TooltipProps } from './common/types';
 import type { TooltipStory, TooltipStoryMeta } from './common/types/story';
 import { Tooltip as TooltipComponent } from '.';
+import { PolymorphicDefaultElement } from '../../../../common/types';
 
 export default {
 	title: 'Overlay/Tooltip',
@@ -92,7 +93,7 @@ export default {
 	}
 } as TooltipStoryMeta;
 
-export const Tooltip: TooltipStory = (props: TooltipProps<any>): JSX.Element => {
+export const Tooltip: TooltipStory = (props: TooltipProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

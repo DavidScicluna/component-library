@@ -1,10 +1,10 @@
-import { __DEFAULT_RADIUS__ } from '@common/constants';
-import type { ThemeRadiusArr } from '@common/types';
+import { __DEFAULT_RADIUS__ } from '../../../../common/constants';
+import type { PolymorphicDefaultElement, ThemeRadiusArr } from '../../../../common/types';
 
-import { Skeleton } from '@components/Feedback';
-import { Center } from '@components/Layout';
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
-
+import { Skeleton } from '../../../Feedback';
+import { Center } from '../../../Layout';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
+import React from 'react';
 import {
 	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED__,
 	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_OUTLINED__,
@@ -59,7 +59,9 @@ export default {
 	}
 } as DummyPushableOverlayStoryMeta;
 
-export const DummyPushableOverlay: DummyPushableOverlayStory = (props: DummyPushableOverlayProps<any>): JSX.Element => {
+export const DummyPushableOverlay: DummyPushableOverlayStory = (
+	props: DummyPushableOverlayProps<PolymorphicDefaultElement>
+): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

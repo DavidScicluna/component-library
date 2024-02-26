@@ -1,7 +1,7 @@
-import { Center } from '@components/Layout';
+import { Center } from '../../../Layout';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
-
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
+import React from 'react';
 import { Button } from '../Button';
 
 import { __DEFAULT_COPY_BUTTON_TIMEOUT__ } from './common/constants';

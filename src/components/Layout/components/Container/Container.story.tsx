@@ -1,9 +1,9 @@
-import classes from '@common/classes';
-import { useGetColor } from '@common/hooks';
+import classes from '../../../../common/classes';
+import { useGetColor } from '../../../../common/hooks';
 
-import { Text } from '@components/Typography';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { Text } from '../../../Typography';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_CONTAINER_BREAKPOINT__,
@@ -15,6 +15,7 @@ import type { ContainerStory, ContainerStoryMeta } from './common/types/story';
 import { Container as ContainerComponent } from '.';
 
 import classNames from 'classnames';
+import { PolymorphicDefaultElement } from '../../../../common/types';
 
 export default {
 	title: 'Layout/Container',
@@ -45,7 +46,7 @@ export default {
 	}
 } as ContainerStoryMeta;
 
-export const Container: ContainerStory = (props: ContainerProps<any>): JSX.Element => {
+export const Container: ContainerStory = (props: ContainerProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

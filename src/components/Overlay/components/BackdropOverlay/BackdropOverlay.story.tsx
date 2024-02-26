@@ -1,10 +1,10 @@
-import { useGetColor } from '@common/hooks';
-import type { ThemeBlurClassArr, ThemeRadiusArr } from '@common/types';
+import { useGetColor } from '../../../../common/hooks';
+import type { PolymorphicDefaultElement, ThemeBlurClassArr, ThemeRadiusArr } from '../../../../common/types';
+import React from 'react';
+import { Center } from '../../../Layout';
+import { Text } from '../../../Typography';
 
-import { Center } from '@components/Layout';
-import { Text } from '@components/Typography';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
@@ -71,7 +71,9 @@ export default {
 	}
 } as BackdropOverlayStoryMeta;
 
-export const BackdropOverlay: BackdropOverlayStory = (props: BackdropOverlayProps<any>): JSX.Element => {
+export const BackdropOverlay: BackdropOverlayStory = (
+	props: BackdropOverlayProps<PolymorphicDefaultElement>
+): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });

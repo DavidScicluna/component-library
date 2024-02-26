@@ -1,7 +1,7 @@
-import { Center } from '@components/Layout';
+import { Center } from '../../../Layout';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
-
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
+import React from 'react';
 import { Button } from '../Button';
 
 import { __DEFAULT_FILE_BUTTON_ACCEPT__, __DEFAULT_FILE_BUTTON_IS_MULTIPLE__ } from './common/constants';

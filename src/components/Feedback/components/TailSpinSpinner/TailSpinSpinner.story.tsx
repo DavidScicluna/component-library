@@ -1,12 +1,12 @@
-import type { ThemeRadiusArr } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeRadiusArr } from '../../../../common/types';
 
-import { Center } from '@components/Layout';
-
+import { Center } from '../../../Layout';
+import React from 'react';
 import { __DEFAULT_TAIL_SPIN_SPINNER_IS_VISIBLE__, __DEFAULT_TAIL_SPIN_SPINNER_SIZE__ } from './common/constants';
 import type { TailSpinSpinnerProps, TailSpinSpinnerSize } from './common/types';
 import type { TailSpinSpinnerStory, TailSpinSpinnerStoryMeta } from './common/types/story';
 import { TailSpinSpinner as TailSpinSpinnerComponent } from '.';
-import { __DEFAULT_RADIUS__ } from '@common/constants';
+import { __DEFAULT_RADIUS__ } from '../../../../common/constants';
 
 export default {
 	title: 'Feedback/TailSpinSpinner',
@@ -58,7 +58,9 @@ export default {
 	}
 } as TailSpinSpinnerStoryMeta;
 
-export const TailSpinSpinner: TailSpinSpinnerStory = (props: TailSpinSpinnerProps<any>): JSX.Element => (
+export const TailSpinSpinner: TailSpinSpinnerStory = (
+	props: TailSpinSpinnerProps<PolymorphicDefaultElement>
+): JSX.Element => (
 	<Center w='auto'>
 		<TailSpinSpinnerComponent {...props} />
 	</Center>

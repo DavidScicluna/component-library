@@ -1,3 +1,4 @@
+import React from 'react';
 import type {
 	TextAlignClassArr,
 	TextLineClampClassArr,
@@ -8,7 +9,7 @@ import type {
 	UserSelectClassArr,
 	WhiteSpaceClassArr,
 	WordBreakClassArr
-} from '@common/types';
+} from '../../../../common/types';
 
 import {
 	__DEFAULT_TEXT_ALIGN__,
@@ -22,7 +23,7 @@ import {
 	__DEFAULT_TEXT_WHITESPACE__,
 	__DEFAULT_TEXT_WORD_BREAK__
 } from './common/constants';
-import type { TextProps } from './common/types';
+import type { TextDefaultElement, TextProps } from './common/types';
 import type { TextStory, TextStoryMeta } from './common/types/story';
 import { Text as TextComponent } from '.';
 
@@ -170,6 +171,6 @@ export default {
 	}
 } as TextStoryMeta;
 
-export const Text: TextStory = (props: TextProps<any>): JSX.Element => {
+export const Text: TextStory = (props: TextProps<TextDefaultElement>): JSX.Element => {
 	return <TextComponent {...props} />;
 };

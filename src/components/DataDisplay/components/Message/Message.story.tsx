@@ -1,13 +1,13 @@
 import { sample } from 'lodash-es';
 
-import { __DEFAULT_SPACING__ } from '@common/constants';
-import { appColors } from '@common/data';
-import type { ThemeAppColor, ThemeRadiusArr, ThemeSpacing } from '@common/types';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { __DEFAULT_SPACING__ } from '../../../../common/constants';
+import { appColors } from '../../../../common/data';
+import type { ThemeAppColor, ThemeRadiusArr, ThemeSpacing } from '../../../../common/types';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import { __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_VARIANT__ } from './common/constants';
-import type { MessageProps, MessageVariant } from './common/types';
+import type { MessageDefaultElement, MessageProps, MessageVariant } from './common/types';
 import type { MessageStory, MessageStoryMeta } from './common/types/story';
 import {
 	Message as MessageComponent,
@@ -51,7 +51,7 @@ export default {
 	}
 } as MessageStoryMeta;
 
-export const Message: MessageStory = (props: MessageProps<any>): JSX.Element => {
+export const Message: MessageStory = (props: MessageProps<MessageDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

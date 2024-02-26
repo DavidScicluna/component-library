@@ -1,10 +1,10 @@
-import { useGetColor } from '@common/hooks';
-import type { ThemeBlurClassArr, ThemeRadiusArr } from '@common/types';
+import { useGetColor } from '../../../../common/hooks';
+import type { PolymorphicDefaultElement, ThemeBlurClassArr, ThemeRadiusArr } from '../../../../common/types';
+import React from 'react';
+import { AspectRatio, Center } from '../../../Layout';
+import { Text } from '../../../Typography';
 
-import { AspectRatio, Center } from '@components/Layout';
-import { Text } from '@components/Typography';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT__,
@@ -95,7 +95,9 @@ export default {
 	}
 } as PositionOverlayStoryMeta;
 
-export const PositionOverlay: PositionOverlayStory = (props: PositionOverlayProps<any>): JSX.Element => {
+export const PositionOverlay: PositionOverlayStory = (
+	props: PositionOverlayProps<PolymorphicDefaultElement>
+): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const overlay = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'bg' });

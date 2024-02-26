@@ -1,7 +1,7 @@
-import { Center } from '@components/Layout';
+import { Center } from '../../../Layout';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
-
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
+import React from 'react';
 import {
 	__DEFAULT_BADGE_IS_ACTIVE__,
 	__DEFAULT_BADGE_IS_CLICKABLE__,
@@ -14,7 +14,7 @@ import {
 	__DEFAULT_BADGE_SIZE__,
 	__DEFAULT_BADGE_VARIANT__
 } from './common/constants';
-import type { BadgeProps, BadgeSize, BadgeVariant } from './common/types';
+import type { BadgeDefaultElement, BadgeProps, BadgeSize, BadgeVariant } from './common/types';
 import type { BadgeStory, BadgeStoryMeta } from './common/types/story';
 import { BadgeCloseIconButton, BadgeIcon } from './components';
 import { Badge as BadgeComponent } from '.';
@@ -112,7 +112,7 @@ export default {
 	}
 } as BadgeStoryMeta;
 
-export const Badge: BadgeStory = (props: BadgeProps<any>): JSX.Element => {
+export const Badge: BadgeStory = (props: BadgeProps<BadgeDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

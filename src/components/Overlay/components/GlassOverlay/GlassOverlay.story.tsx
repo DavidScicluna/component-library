@@ -1,10 +1,10 @@
-import { useGetColor } from '@common/hooks';
-import type { ThemeBlurClassArr, ThemeRadiusArr } from '@common/types';
+import { useGetColor } from '../../../../common/hooks';
+import type { PolymorphicDefaultElement, ThemeBlurClassArr, ThemeRadiusArr } from '../../../../common/types';
 
-import { Center } from '@components/Layout';
-import { Text } from '@components/Typography';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { Center } from '../../../Layout';
+import { Text } from '../../../Typography';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT__,
@@ -79,7 +79,7 @@ export default {
 	}
 } as GlassOverlayStoryMeta;
 
-export const GlassOverlay: GlassOverlayStory = (props: GlassOverlayProps<any>): JSX.Element => {
+export const GlassOverlay: GlassOverlayStory = (props: GlassOverlayProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });

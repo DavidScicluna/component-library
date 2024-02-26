@@ -1,12 +1,12 @@
-import type { ThemeRadiusArr } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeRadiusArr } from '../../../../common/types';
 
-import { Center } from '@components/Layout';
-
+import { Center } from '../../../Layout';
+import React from 'react';
 import { __DEFAULT_PUFF_SPINNER_IS_VISIBLE__, __DEFAULT_PUFF_SPINNER_SIZE__ } from './common/constants';
 import type { PuffSpinnerProps, PuffSpinnerSize } from './common/types';
 import type { PuffSpinnerStory, PuffSpinnerStoryMeta } from './common/types/story';
 import { PuffSpinner as PuffSpinnerComponent } from '.';
-import { __DEFAULT_RADIUS__ } from '@common/constants';
+import { __DEFAULT_RADIUS__ } from '../../../../common/constants';
 
 export default {
 	title: 'Feedback/PuffSpinner',
@@ -58,7 +58,7 @@ export default {
 	}
 } as PuffSpinnerStoryMeta;
 
-export const PuffSpinner: PuffSpinnerStory = (props: PuffSpinnerProps<any>): JSX.Element => (
+export const PuffSpinner: PuffSpinnerStory = (props: PuffSpinnerProps<PolymorphicDefaultElement>): JSX.Element => (
 	<Center w='auto'>
 		<PuffSpinnerComponent {...props} />
 	</Center>

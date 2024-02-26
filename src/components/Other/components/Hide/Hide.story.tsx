@@ -1,8 +1,8 @@
-import { useGetColor } from '@common/hooks';
-
-import { Center } from '@components/Layout';
-import { Text } from '@components/Typography';
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { useGetColor } from '../../../../common/hooks';
+import React from 'react';
+import { Center } from '../../../Layout';
+import { Text } from '../../../Typography';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import type { HideProps } from './common/types';
 import type { HideStory, HideStoryMeta } from './common/types/story';

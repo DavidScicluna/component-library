@@ -1,12 +1,12 @@
-import classes from '@common/classes';
-import { __DEFAULT_RADIUS__ } from '@common/constants';
-import { useGetColor } from '@common/hooks';
-import type { ThemeRadiusArr } from '@common/types';
+import classes from '../../../../common/classes';
+import { __DEFAULT_RADIUS__ } from '../../../../common/constants';
+import { useGetColor } from '../../../../common/hooks';
+import type { PolymorphicDefaultElement, ThemeRadiusArr } from '../../../../common/types';
 
-import { Center } from '@components/Layout';
-import { Text } from '@components/Typography';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { Center } from '../../../Layout';
+import { Text } from '../../../Typography';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import { __DEFAULT_SKELETON_IS_ANIMATED__, __DEFAULT_SKELETON_IS_LOADED__ } from './common/constants';
 import type { SkeletonProps } from './common/types';
@@ -44,7 +44,7 @@ export default {
 	}
 } as SkeletonStoryMeta;
 
-export const Skeleton: SkeletonStory = (props: SkeletonProps<any>): JSX.Element => {
+export const Skeleton: SkeletonStory = (props: SkeletonProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

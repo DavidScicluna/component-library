@@ -1,13 +1,13 @@
-import { __DEFAULT_SPACING__ } from '@common/constants';
-import { useBoolean } from '@common/hooks';
+import { __DEFAULT_SPACING__ } from '../../../../common/constants';
+import { useBoolean } from '../../../../common/hooks';
 
-import { Button, CloseIconButton } from '@components/Buttons';
-import { VStack } from '@components/Layout';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { Button, CloseIconButton } from '../../../Buttons';
+import { VStack } from '../../../Layout';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import { __DEFAULT_ALERT_DURATION__, __DEFAULT_ALERT_STATUS__, __DEFAULT_ALERT_VARIANT__ } from './common/constants';
-import type { AlertProps, AlertStatus, AlertVariant } from './common/types';
+import type { AlertDefaultElement, AlertProps, AlertStatus, AlertVariant } from './common/types';
 import type { AlertStory, AlertStoryMeta } from './common/types/story';
 import { Alert as AlertComponent, AlertDescription, AlertIcon, AlertLabel } from '.';
 
@@ -48,7 +48,7 @@ export default {
 	}
 } as AlertStoryMeta;
 
-export const Alert: AlertStory = (props: AlertProps<any>): JSX.Element => {
+export const Alert: AlertStory = (props: AlertProps<AlertDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const [isOpen, setIsOpen] = useBoolean();

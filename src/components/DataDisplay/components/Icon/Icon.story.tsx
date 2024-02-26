@@ -1,12 +1,12 @@
 import { sample } from 'lodash-es';
 
-import { icons } from '@common/data';
-import type { ThemeFontSizeArr, ThemeRadiusArr } from '@common/types';
+import { icons } from '../../../../common/data';
+import type { ThemeFontSizeArr, ThemeRadiusArr } from '../../../../common/types';
 
-import { Center } from '@components/Layout';
+import { Center } from '../../../Layout';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
-
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
+import React from 'react';
 import {
 	__DEFAULT_ICON_CATEGORY__,
 	__DEFAULT_ICON_RADIUS__,

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import type { ResizeClassArr } from '@common/types';
-
-import { Text } from '@components/Typography';
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import type { ResizeClassArr } from '../../../../common/types';
+import React from 'react';
+import { Text } from '../../../Typography';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_TEXTAREA_IS_COMPACT__,

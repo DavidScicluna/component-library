@@ -1,8 +1,8 @@
-import { Box } from '@components/Box';
-import { Text } from '@components/Typography';
+import { Box } from '../../../Box';
+import { Text } from '../../../Typography';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
-
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
+import React from 'react';
 import {
 	__DEFAULT_RADIO_IS_ACTIVE__,
 	__DEFAULT_RADIO_IS_CHECKED__,
@@ -22,6 +22,7 @@ import {
 import type { RadioLabelPosition, RadioProps, RadioSize } from './common/types';
 import type { RadioStory, RadioStoryMeta } from './common/types/story';
 import { Radio as RadioComponent } from '.';
+import { PolymorphicDefaultElement } from '../../../../common/types';
 
 export default {
 	title: 'Forms/Radio',
@@ -130,7 +131,7 @@ export default {
 	}
 } as RadioStoryMeta;
 
-export const Radio: RadioStory = (props: RadioProps<any>): JSX.Element => {
+export const Radio: RadioStory = (props: RadioProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

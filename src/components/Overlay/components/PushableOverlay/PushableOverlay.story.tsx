@@ -1,9 +1,10 @@
-import { __DEFAULT_RADIUS__ } from '@common/constants';
-import type { ThemeRadiusArr } from '@common/types';
+import React from 'react';
+import { __DEFAULT_RADIUS__ } from '../../../../common/constants';
+import type { ThemeRadiusArr } from '../../../../common/types';
 
-import { Center } from '@components/Layout';
+import { Center } from '../../../Layout';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { useStorybookContext } from '../../..//Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,

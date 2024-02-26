@@ -1,18 +1,19 @@
 import { range } from 'lodash-es';
-
-import classes from '@common/classes';
-import { __DEFAULT_SPACING__ } from '@common/constants';
-import { useGetColor } from '@common/hooks';
+import React from 'react';
+import classes from '../../../../../common/classes';
+import { __DEFAULT_SPACING__ } from '../../../../../common/constants';
+import { useGetColor } from '../../../../../common/hooks';
 import type {
 	AlignItemsClassArr,
 	FlexDirectionClassArr,
 	FlexWrapClassArr,
-	JustifyContentClassArr
-} from '@common/types';
+	JustifyContentClassArr,
+	PolymorphicDefaultElement
+} from '../../../../../common/types';
 
-import { Center } from '@components/Layout';
+import { Center } from '../../Center';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { useStorybookContext } from '../../../../Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_STACK_ALIGN_ITEMS__,
@@ -81,7 +82,7 @@ export default {
 	}
 } as StackStoryMeta;
 
-export const Stack: StackStory = (props: StackProps<any>): JSX.Element => {
+export const Stack: StackStory = (props: StackProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

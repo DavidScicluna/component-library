@@ -1,10 +1,10 @@
 import { range } from 'lodash-es';
 
-import classes from '@common/classes';
-import { __DEFAULT_SPACING__ } from '@common/constants';
-import { useGetColor } from '@common/hooks';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import classes from '../../../../common/classes';
+import { __DEFAULT_SPACING__ } from '../../../../common/constants';
+import { useGetColor } from '../../../../common/hooks';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import { Center } from '../Center';
 
@@ -13,6 +13,7 @@ import type { SimpleGridStory, SimpleGridStoryMeta } from './common/types/story'
 import { SimpleGrid as SimpleGridComponent } from '.';
 
 import classNames from 'classnames';
+import { PolymorphicDefaultElement } from '../../../../common/types';
 
 export default {
 	title: 'Layout/SimpleGrid',
@@ -36,7 +37,7 @@ export default {
 	}
 } as SimpleGridStoryMeta;
 
-export const SimpleGrid: SimpleGridStory = (props: SimpleGridProps<any>): JSX.Element => {
+export const SimpleGrid: SimpleGridStory = (props: SimpleGridProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

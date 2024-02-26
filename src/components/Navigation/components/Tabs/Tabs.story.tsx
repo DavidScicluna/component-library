@@ -2,14 +2,14 @@ import { useState } from 'react';
 
 import { range, sample } from 'lodash-es';
 
-import { __DEFAULT_SPACING__ } from '@common/constants';
-import { appColors } from '@common/data';
-import { useGetColor } from '@common/hooks';
-import type { ThemeAppColor } from '@common/types';
-
-import { Center } from '@components/Layout';
-import { Text } from '@components/Typography';
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { __DEFAULT_SPACING__ } from '../../../../common/constants';
+import { appColors } from '../../../../common/data';
+import { useGetColor } from '../../../../common/hooks';
+import type { ThemeAppColor } from '../../../../common/types';
+import React from 'react';
+import { Center } from '../../../Layout';
+import { Text } from '../../../Typography';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_TABS_IS_DISABLED__,
@@ -17,7 +17,7 @@ import {
 	__DEFAULT_TABS_ORIENTATION__,
 	__DEFAULT_TABS_SIZE__
 } from './common/constants';
-import type { TabsAlign, TabsOrientation, TabsProps, TabsSize } from './common/types';
+import type { TabsAlign, TabsDefaultElement, TabsOrientation, TabsProps, TabsSize } from './common/types';
 import type { TabsStory, TabsStoryMeta } from './common/types/story';
 import { Tab, TabIcon, TabList, TabPanels, Tabs as TabsComponent } from '.';
 
@@ -76,7 +76,7 @@ export default {
 	}
 } as TabsStoryMeta;
 
-export const Tabs: TabsStory = (props: TabsProps<any>): JSX.Element => {
+export const Tabs: TabsStory = (props: TabsProps<TabsDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'background', classType: 'text' });

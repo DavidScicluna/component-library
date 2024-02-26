@@ -1,14 +1,14 @@
 import { sample } from 'lodash-es';
 
-import { __DEFAULT_SPACING__ } from '@common/constants';
-import { appColors } from '@common/data';
-import { useGetColor } from '@common/hooks';
-import type { ThemeAppColor } from '@common/types';
+import { __DEFAULT_SPACING__ } from '../../../../common/constants';
+import { appColors } from '../../../../common/data';
+import { useGetColor } from '../../../../common/hooks';
+import type { ThemeAppColor } from '../../../../common/types';
+import React from 'react';
+import { Button, CloseIconButton } from '../../..//Buttons';
+import { Text } from '../../..//Typography';
 
-import { Button, CloseIconButton } from '@components/Buttons';
-import { Text } from '@components/Typography';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { useStorybookContext } from '../../..//Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_MODAL_CLOSE_ON_ESC__,

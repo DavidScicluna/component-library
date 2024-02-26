@@ -1,6 +1,7 @@
-import type { FormDescriptionProps } from './common/types';
+import type { FormDescriptionDefaultElement, FormDescriptionProps } from './common/types';
 import type { FormDescriptionStory, FormDescriptionStoryMeta } from './common/types/story';
 import { FormDescription as FormDescriptionComponent } from '.';
+import React from 'react';
 
 export default {
 	title: 'Forms/FormDescription',
@@ -16,6 +17,8 @@ export default {
 	}
 } as FormDescriptionStoryMeta;
 
-export const FormDescription: FormDescriptionStory = (props: FormDescriptionProps<any>): JSX.Element => {
+export const FormDescription: FormDescriptionStory = (
+	props: FormDescriptionProps<FormDescriptionDefaultElement>
+): JSX.Element => {
 	return <FormDescriptionComponent {...props} />;
 };

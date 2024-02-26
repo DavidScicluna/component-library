@@ -1,11 +1,12 @@
-import classes from '@common/classes';
-import { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
-import { useGetColor } from '@common/hooks';
-import type { PolymorphicElementType } from '@common/types';
+import React from 'react';
+import classes from '../../common/classes';
+import { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_SX__ } from '../../common/constants';
+import { useGetColor } from '../../common/hooks';
+import type { PolymorphicDefaultElement, PolymorphicElementType } from '../../common/types';
 
-import { Text } from '@components/Typography';
+import { Text } from '../Typography';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { useStorybookContext } from '../Provider/components/StorybookProvider';
 
 import type { BoxProps } from './common/types';
 import type { BoxStory, BoxStoryMeta } from './common/types/story';
@@ -36,7 +37,7 @@ export default {
 	}
 } as BoxStoryMeta;
 
-export const Box: BoxStory = (props: BoxProps<any>): JSX.Element => {
+export const Box: BoxStory = (props: BoxProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

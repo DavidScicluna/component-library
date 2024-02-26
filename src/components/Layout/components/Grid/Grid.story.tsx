@@ -1,8 +1,8 @@
 import { range } from 'lodash-es';
 
-import classes from '@common/classes';
-import { __DEFAULT_SPACING__ } from '@common/constants';
-import { useGetColor } from '@common/hooks';
+import classes from '../../../../common/classes';
+import { __DEFAULT_SPACING__ } from '../../../../common/constants';
+import { useGetColor } from '../../../../common/hooks';
 import type {
 	AlignContentClassArr,
 	AlignItemsClassArr,
@@ -11,10 +11,11 @@ import type {
 	GridTemplateColumnsClassArr,
 	GridTemplateRowsClassArr,
 	JustifyContentClassArr,
-	JustifyItemsClassArr
-} from '@common/types';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+	JustifyItemsClassArr,
+	PolymorphicDefaultElement
+} from '../../../../common/types';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import { Center } from '../Center';
 
@@ -149,7 +150,7 @@ export default {
 	}
 } as GridStoryMeta;
 
-export const Grid: GridStory = (props: GridProps<any>): JSX.Element => {
+export const Grid: GridStory = (props: GridProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

@@ -1,15 +1,15 @@
-import classes from '@common/classes';
-import { useGetColor } from '@common/hooks';
-import type { AlignItemsClassArr, JustifyContentClassArr } from '@common/types';
+import classes from '../../../../common/classes';
+import { useGetColor } from '../../../../common/hooks';
+import type { AlignItemsClassArr, JustifyContentClassArr } from '../../../../common/types';
 
-import { Box } from '@components/Box';
+import { Box } from '../../../Box';
 import {
 	__DEFAULT_STACK_ALIGN_ITEMS__,
 	__DEFAULT_STACK_JUSTIFY_CONTENT__
-} from '@components/Layout/components/Stacks/Stack/common/constants';
-import { Text } from '@components/Typography';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+} from '../../../Layout/components/Stacks/Stack/common/constants';
+import { Text } from '../../../Typography';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import { FormDescription } from '../FormDescription';
 import { FormHeader } from '../FormHeader';
@@ -27,7 +27,7 @@ import {
 	__DEFAULT_FORM_CONTROL_SIZE__,
 	__DEFAULT_FORM_CONTROL_SPACING__
 } from './common/constants';
-import type { FormControlProps, FormControlSize } from './common/types';
+import type { FormControlDefaultElement, FormControlProps, FormControlSize } from './common/types';
 import type { FormControlStory, FormControlStoryMeta } from './common/types/story';
 import { FormControl as FormControlComponent } from '.';
 
@@ -129,7 +129,7 @@ export default {
 	}
 } as FormControlStoryMeta;
 
-export const FormControl: FormControlStory = (props: FormControlProps<any>): JSX.Element => {
+export const FormControl: FormControlStory = (props: FormControlProps<FormControlDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

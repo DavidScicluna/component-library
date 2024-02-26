@@ -1,9 +1,15 @@
-import classes from '@common/classes';
-import { __DEFAULT_DURATION__, __DEFAULT_EASING__ } from '@common/constants';
-import { useGetColor } from '@common/hooks';
-import type { ThemeDelayArr, ThemeDurationArr, ThemeEaseArr } from '@common/types';
+import React from 'react';
+import classes from '../../../../common/classes';
+import { __DEFAULT_DURATION__, __DEFAULT_EASING__ } from '../../../../common/constants';
+import { useGetColor } from '../../../../common/hooks';
+import type {
+	PolymorphicDefaultElement,
+	ThemeDelayArr,
+	ThemeDurationArr,
+	ThemeEaseArr
+} from '../../../../common/types';
 
-import { AspectRatio } from '@components/Layout';
+import { AspectRatio } from '../../../Layout';
 
 import {
 	__DEFAULT_TRANSITION__,
@@ -13,7 +19,7 @@ import {
 import type { TransitionKey, TransitionProps } from './common/types';
 import type { TransitionStory, TransitionStoryMeta } from './common/types/story';
 import { Transition as TransitionComponent } from '.';
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import classNames from 'classnames';
 
@@ -88,7 +94,7 @@ export default {
 	}
 } as TransitionStoryMeta;
 
-export const Transition: TransitionStory = (props: TransitionProps<any>): JSX.Element => {
+export const Transition: TransitionStory = (props: TransitionProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

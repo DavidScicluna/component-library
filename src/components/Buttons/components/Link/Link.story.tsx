@@ -1,10 +1,10 @@
-import { useGetColor } from '@common/hooks';
+import { useGetColor } from '../../../../common/hooks';
 
-import { Center } from '@components/Layout';
-import { Text } from '@components/Typography';
+import { Center } from '../../../Layout';
+import { Text } from '../../../Typography';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
-
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
+import React from 'react';
 import {
 	__DEFAULT_LINK_IS_DISABLED__,
 	__DEFAULT_LINK_IS_UNDERLINE__,

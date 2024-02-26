@@ -1,12 +1,12 @@
-import type { ThemeRadiusArr } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeRadiusArr } from '../../../../common/types';
 
-import { Center } from '@components/Layout';
-
+import { Center } from '../../../Layout';
+import React from 'react';
 import { __DEFAULT_THREE_DOTS_SPINNER_IS_VISIBLE__, __DEFAULT_THREE_DOTS_SPINNER_SIZE__ } from './common/constants';
 import type { ThreeDotsSpinnerProps, ThreeDotsSpinnerSize } from './common/types';
 import type { ThreeDotsSpinnerStory, ThreeDotsSpinnerStoryMeta } from './common/types/story';
 import { ThreeDotsSpinner as ThreeDotsSpinnerComponent } from '.';
-import { __DEFAULT_RADIUS__ } from '@common/constants';
+import { __DEFAULT_RADIUS__ } from '../../../../common/constants';
 
 export default {
 	title: 'Feedback/ThreeDotsSpinner',
@@ -58,7 +58,9 @@ export default {
 	}
 } as ThreeDotsSpinnerStoryMeta;
 
-export const ThreeDotsSpinner: ThreeDotsSpinnerStory = (props: ThreeDotsSpinnerProps<any>): JSX.Element => (
+export const ThreeDotsSpinner: ThreeDotsSpinnerStory = (
+	props: ThreeDotsSpinnerProps<PolymorphicDefaultElement>
+): JSX.Element => (
 	<Center w='auto'>
 		<ThreeDotsSpinnerComponent {...props} />
 	</Center>

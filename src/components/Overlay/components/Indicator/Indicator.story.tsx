@@ -1,8 +1,8 @@
-import { useGetColor } from '@common/hooks';
-
-import { AspectRatio, Center } from '@components/Layout';
-import { Text } from '@components/Typography';
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { useGetColor } from '../../../../common/hooks';
+import React from 'react';
+import { AspectRatio, Center } from '../../../Layout';
+import { Text } from '../../../Typography';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_INDICATOR_IS_VISIBLE__,
@@ -14,6 +14,7 @@ import type { IndicatorStory, IndicatorStoryMeta } from './common/types/story';
 import { Indicator as IndicatorComponent } from '.';
 
 import classNames from 'classnames';
+import { PolymorphicDefaultElement } from '../../../../common/types';
 
 export default {
 	title: 'Overlay/Indicator',
@@ -54,7 +55,7 @@ export default {
 	}
 } as IndicatorStoryMeta;
 
-export const Indicator: IndicatorStory = (props: IndicatorProps<any>): JSX.Element => {
+export const Indicator: IndicatorStory = (props: IndicatorProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const overlay = useGetColor({ color, colorMode, colorType: 'color', hueType: 'divider', classType: 'bg' });

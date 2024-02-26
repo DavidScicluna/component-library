@@ -2,14 +2,14 @@ import { useState } from 'react';
 
 import { range, sample } from 'lodash-es';
 
-import { __DEFAULT_SPACING__ } from '@common/constants';
-import { appColors } from '@common/data';
-import { useGetColor } from '@common/hooks';
-import type { ThemeAppColor } from '@common/types';
-
-import { Center, VStack } from '@components/Layout';
-import { Text } from '@components/Typography';
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { __DEFAULT_SPACING__ } from '../../../../common/constants';
+import { appColors } from '../../../../common/data';
+import { useGetColor } from '../../../../common/hooks';
+import type { ThemeAppColor } from '../../../../common/types';
+import React from 'react';
+import { Center, VStack } from '../../../Layout';
+import { Text } from '../../../Typography';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_STEPPER_IS_DISABLED__,
@@ -17,7 +17,13 @@ import {
 	__DEFAULT_STEPPER_ORIENTATION__,
 	__DEFAULT_STEPPER_SIZE__
 } from './common/constants';
-import type { StepperAlign, StepperOrientation, StepperProps, StepperSize } from './common/types';
+import type {
+	StepperAlign,
+	StepperDefaultElement,
+	StepperOrientation,
+	StepperProps,
+	StepperSize
+} from './common/types';
 import type { StepperStory, StepperStoryMeta } from './common/types/story';
 import type { StepStatus as StepStatusType } from './components/Step/common/types';
 import {
@@ -89,7 +95,7 @@ export default {
 	}
 } as StepperStoryMeta;
 
-export const Stepper: StepperStory = (props: StepperProps<any>): JSX.Element => {
+export const Stepper: StepperStory = (props: StepperProps<StepperDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'text.primary', classType: 'text' });

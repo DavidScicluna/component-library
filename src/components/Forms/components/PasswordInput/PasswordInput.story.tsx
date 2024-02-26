@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import { IconButton, IconButtonIcon } from '@components/Buttons';
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
-
+import { IconButton, IconButtonIcon } from '../../../Buttons';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
+import React from 'react';
 import {
 	__DEFAULT_PASSWORD_INPUT_IS_COMPACT__,
 	__DEFAULT_PASSWORD_INPUT_IS_DISABLED__,

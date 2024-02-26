@@ -1,10 +1,10 @@
-import classes from '@common/classes';
-import { useGetColor } from '@common/hooks';
+import classes from '../../../../common/classes';
+import { useGetColor } from '../../../../common/hooks';
 
-import { Text } from '@components/Typography';
+import { Text } from '../../../Typography';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
-
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
+import React from 'react';
 import type { FormDefaultElement, FormProps } from './common/types';
 import type { FormStory, FormStoryMeta } from './common/types/story';
 import { Form as FormComponent } from '.';

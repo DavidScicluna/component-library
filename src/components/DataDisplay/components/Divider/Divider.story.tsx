@@ -1,8 +1,8 @@
-import { __DEFAULT_BORDER_WIDTH__, __DEFAULT_SPACING__ } from '@common/constants';
-import type { ThemeBorderWidthArr } from '@common/types';
+import { __DEFAULT_BORDER_WIDTH__, __DEFAULT_SPACING__ } from '../../../../common/constants';
+import type { ThemeBorderWidthArr } from '../../../../common/types';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
-
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
+import React from 'react';
 import {
 	__DEFAULT_DIVIDER_ORIENTATION__,
 	__DEFAULT_DIVIDER_PLACEMENT__,

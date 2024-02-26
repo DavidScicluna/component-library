@@ -1,12 +1,12 @@
-import classes from '@common/classes';
-import { useGetColor } from '@common/hooks';
+import classes from '../../common/classes';
+import { useGetColor } from '../../common/hooks';
 
-import { Center } from '@components/Layout';
-import { Text } from '@components/Typography';
+import { Center } from '../Layout';
+import { Text } from '../Typography';
+import React from 'react';
+import { useStorybookContext } from '../Provider/components/StorybookProvider';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
-
-import type { VisuallyHiddenProps } from './common/types';
+import type { VisuallyHiddenDefaultElement, VisuallyHiddenProps } from './common/types';
 import type { VisuallyHiddenStory, VisuallyHiddenStoryMeta } from './common/types/story';
 import { VisuallyHidden as VisuallyHiddenComponent } from '.';
 
@@ -17,7 +17,9 @@ export default {
 	component: VisuallyHiddenComponent
 } as VisuallyHiddenStoryMeta;
 
-export const VisuallyHidden: VisuallyHiddenStory = (props: VisuallyHiddenProps<any>): JSX.Element => {
+export const VisuallyHidden: VisuallyHiddenStory = (
+	props: VisuallyHiddenProps<VisuallyHiddenDefaultElement>
+): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

@@ -1,10 +1,10 @@
-import classes from '@common/classes';
-import { useGetColor } from '@common/hooks';
-import type { ThemeAspectRatioArr } from '@common/types';
+import classes from '../../../../common/classes';
+import { useGetColor } from '../../../../common/hooks';
+import type { PolymorphicDefaultElement, ThemeAspectRatioArr } from '../../../../common/types';
 
-import { Text } from '@components/Typography';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { Text } from '../../../Typography';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import { Center } from '../Center';
 
@@ -38,7 +38,7 @@ export default {
 	}
 } as AspectRatioStoryMeta;
 
-export const AspectRatio: AspectRatioStory = (props: AspectRatioProps<any>): JSX.Element => {
+export const AspectRatio: AspectRatioStory = (props: AspectRatioProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

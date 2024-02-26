@@ -1,8 +1,8 @@
-import { Box } from '@components/Box';
-import { Text } from '@components/Typography';
+import { Box } from '../../../Box';
+import { Text } from '../../../Typography';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
-
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
+import React from 'react';
 import {
 	__DEFAULT_CHECKBOX_IS_ACTIVE__,
 	__DEFAULT_CHECKBOX_IS_CHECKED__,
@@ -23,6 +23,7 @@ import {
 import type { CheckboxLabelPosition, CheckboxProps, CheckboxSize } from './common/types';
 import type { CheckboxStory, CheckboxStoryMeta } from './common/types/story';
 import { Checkbox as CheckboxComponent } from '.';
+import { PolymorphicDefaultElement } from '../../../../common/types';
 
 export default {
 	title: 'Forms/Checkbox',
@@ -138,7 +139,7 @@ export default {
 	}
 } as CheckboxStoryMeta;
 
-export const Checkbox: CheckboxStory = (props: CheckboxProps<any>): JSX.Element => {
+export const Checkbox: CheckboxStory = (props: CheckboxProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

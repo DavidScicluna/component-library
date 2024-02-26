@@ -1,21 +1,22 @@
-import classes from '@common/classes';
-import { useGetColor } from '@common/hooks';
-
-import { Text } from '@components/Typography';
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import classes from '../../../../common/classes';
+import { useGetColor } from '../../../../common/hooks';
+import React from 'react';
+import { Text } from '../../../Typography';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import type { HoverOverlayProps } from './common/types';
 import type { HoverOverlayStory, HoverOverlayStoryMeta } from './common/types/story';
 import { HoverOverlay as HoverOverlayComponent } from '.';
 
 import classNames from 'classnames';
+import { PolymorphicDefaultElement } from '../../../../common/types';
 
 export default {
 	title: 'Overlay/HoverOverlay',
 	component: HoverOverlayComponent
 } as HoverOverlayStoryMeta;
 
-export const HoverOverlay: HoverOverlayStory = (props: HoverOverlayProps<any>): JSX.Element => {
+export const HoverOverlay: HoverOverlayStory = (props: HoverOverlayProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

@@ -1,9 +1,8 @@
-import { range } from 'lodash-es';
+import React from 'react';
+import type { FlexDirectionClassArr } from '../../../../common/types';
 
-import type { FlexDirectionClassArr } from '@common/types';
-
-import type { ButtonSize, ButtonVariant } from '@components/Buttons';
-import { Button } from '@components/Buttons';
+import type { ButtonSize, ButtonVariant } from '../Button';
+import { Button } from '../Button';
 import {
 	__DEFAULT_BUTTON_IS_COMPACT__,
 	__DEFAULT_BUTTON_IS_DISABLED__,
@@ -11,19 +10,18 @@ import {
 	__DEFAULT_BUTTON_IS_ROUND__,
 	__DEFAULT_BUTTON_SIZE__,
 	__DEFAULT_BUTTON_VARIANT__
-} from '@components/Buttons/components/Button/common/constants';
-import { Center } from '@components/Layout';
-import { __DEFAULT_STACK_DIRECTION__ } from '@components/Layout/components/Stacks/Stack/common/constants';
+} from '../Button/common/constants';
+import { Center } from '../../../Layout';
+import { __DEFAULT_STACK_DIRECTION__ } from '../../..//Layout/components/Stacks/Stack/common/constants';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import { __DEFAULT_BUTTON_GROUP_IS_ATTACHED__ } from './common/constants';
-import type { ButtonGroupProps } from './common/types';
+import type { ButtonGroupDefaultElement, ButtonGroupProps } from './common/types';
 import type { ButtonGroupStory, ButtonGroupStoryMeta } from './common/types/story';
 import { ButtonGroupItem } from './components';
 import { ButtonGroup as ButtonGroupComponent } from '.';
-
-const buttons = range(4);
+import { range } from 'lodash-es';
 
 export default {
 	title: 'Buttons/ButtonGroup',
@@ -91,14 +89,14 @@ export default {
 	}
 } as ButtonGroupStoryMeta;
 
-export const ButtonGroup: ButtonGroupStory = (props: ButtonGroupProps<any>): JSX.Element => {
+export const ButtonGroup: ButtonGroupStory = (props: ButtonGroupProps<ButtonGroupDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (
 		<Center w='100%'>
 			<ButtonGroupComponent {...props} color={color} colorMode={colorMode}>
-				{buttons.map((button, index) => (
-					<ButtonGroupItem key={button} index={index} total={buttons.length}>
+				{range(4).map((button, index) => (
+					<ButtonGroupItem key={button} index={index} total={4}>
 						{(props) => <Button {...props}> {`Button ${index + 1}`}</Button>}
 					</ButtonGroupItem>
 				))}

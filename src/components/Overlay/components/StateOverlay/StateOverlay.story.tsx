@@ -1,10 +1,10 @@
-import classes from '@common/classes';
-import { useGetColor } from '@common/hooks';
-import { PuffSpinner } from '@components/Feedback';
-import { Center } from '@components/Layout';
-import { Text } from '@components/Typography';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import classes from '../../../../common/classes';
+import { useGetColor } from '../../../../common/hooks';
+import { PuffSpinner } from '../../../Feedback';
+import { Center } from '../../../Layout';
+import { Text } from '../../../Typography';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_STATE_OVERLAY_HAS_GLASS__,
@@ -16,6 +16,7 @@ import type { StateOverlayStory, StateOverlayStoryMeta } from './common/types/st
 import { StateOverlay as StateOverlayComponent } from '.';
 
 import classNames from 'classnames';
+import { PolymorphicDefaultElement } from '../../../../common/types';
 
 export default {
 	title: 'Overlay/StateOverlay',
@@ -46,7 +47,7 @@ export default {
 	}
 } as StateOverlayStoryMeta;
 
-export const StateOverlay: StateOverlayStory = (props: StateOverlayProps<any>): JSX.Element => {
+export const StateOverlay: StateOverlayStory = (props: StateOverlayProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

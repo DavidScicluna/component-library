@@ -1,12 +1,12 @@
 import { range } from 'lodash-es';
 
-import { __DEFAULT_SPACING__ } from '@common/constants';
-import { useGetColor } from '@common/hooks';
+import { __DEFAULT_SPACING__ } from '../../../../common/constants';
+import { useGetColor } from '../../../../common/hooks';
 
-import { Center } from '@components/Layout';
-import { Text } from '@components/Typography';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { Center } from '../../../Layout';
+import { Text } from '../../../Typography';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_CAROUSEL_ORIENTTATION__,

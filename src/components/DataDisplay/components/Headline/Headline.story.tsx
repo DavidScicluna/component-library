@@ -1,18 +1,19 @@
-import { Center } from '@components/Layout';
-import { Text } from '@components/Typography';
+import { Center } from '../../../Layout';
+import { Text } from '../../../Typography';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
-
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
+import React from 'react';
 import type { HeadlineProps } from './common/types';
 import type { HeadlineStory, HeadlineStoryMeta } from './common/types/story';
 import { Headline as HeadlineComponent } from '.';
+import { PolymorphicDefaultElement } from '../../../../common/types';
 
 export default {
 	title: 'Data Display/Headline',
 	component: HeadlineComponent
 } as HeadlineStoryMeta;
 
-export const Headline: HeadlineStory = (props: HeadlineProps<any>): JSX.Element => {
+export const Headline: HeadlineStory = (props: HeadlineProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

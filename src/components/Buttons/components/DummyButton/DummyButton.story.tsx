@@ -1,7 +1,7 @@
-import { Center } from '@components/Layout';
+import { Center } from '../../../Layout';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
-
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
+import React from 'react';
 import {
 	__DEFAULT_DUMMY_BUTTON_IS_ANIMATED__,
 	__DEFAULT_DUMMY_BUTTON_IS_COMPACT__,
@@ -11,7 +11,7 @@ import {
 	__DEFAULT_DUMMY_BUTTON_SIZE__,
 	__DEFAULT_DUMMY_BUTTON_VARIANT__
 } from './common/constants';
-import type { DummyButtonProps, DummyButtonSize, DummyButtonVariant } from './common/types';
+import type { DummyButtonDefaultElement, DummyButtonProps, DummyButtonSize, DummyButtonVariant } from './common/types';
 import type { DummyButtonStory, DummyButtonStoryMeta } from './common/types/story';
 import { DummyButtonIcon } from './components';
 import { DummyButton as DummyButtonComponent } from '.';
@@ -82,7 +82,7 @@ export default {
 	}
 } as DummyButtonStoryMeta;
 
-export const DummyButton: DummyButtonStory = (props: DummyButtonProps<any>): JSX.Element => {
+export const DummyButton: DummyButtonStory = (props: DummyButtonProps<DummyButtonDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

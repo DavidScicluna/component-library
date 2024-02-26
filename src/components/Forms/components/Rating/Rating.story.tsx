@@ -1,6 +1,6 @@
 import { useState } from 'react';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_RATING_COUNT__,
@@ -17,6 +17,7 @@ import {
 import type { RatingDirection, RatingHighlightMode, RatingProps, RatingSize } from './common/types';
 import type { RatingStory, RatingStoryMeta } from './common/types/story';
 import { Rating as RatingComponent } from '.';
+import { PolymorphicDefaultElement } from '../../../../common/types';
 
 export default {
 	title: 'Forms/Rating',
@@ -98,7 +99,7 @@ export default {
 	}
 } as RatingStoryMeta;
 
-export const Rating: RatingStory = (props: RatingProps<any>): JSX.Element => {
+export const Rating: RatingStory = (props: RatingProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const [value, setValue] = useState<number>(0);

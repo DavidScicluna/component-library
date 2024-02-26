@@ -1,11 +1,11 @@
-import { __DEFAULT_SPACING__ } from '@common/constants';
-import { useGetColor } from '@common/hooks';
-import type { ThemeRadiusArr } from '@common/types';
+import { __DEFAULT_SPACING__ } from '../../../../common/constants';
+import { useGetColor } from '../../../../common/hooks';
+import type { ThemeRadiusArr } from '../../../../common/types';
 
-import { DummyButton, DummyIconButton, DummyIconButtonIcon } from '@components/Buttons';
-import { Text } from '@components/Typography';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { DummyButton, DummyIconButton, DummyIconButtonIcon } from '../../../Buttons';
+import { Text } from '../../../Typography';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_CARD_IS_ACTIVE__,
@@ -19,7 +19,7 @@ import {
 	__DEFAULT_CARD_RADIUS__,
 	__DEFAULT_CARD_VARIANT__
 } from './common/constants';
-import type { CardProps, CardVariant } from './common/types';
+import type { CardDefaultElement, CardProps, CardVariant } from './common/types';
 import type { CardStory, CardStoryMeta } from './common/types/story';
 import { CardBody, CardFooter, CardHeader, CardStack, CardSubtitle, CardTitle } from './components';
 import { Card as CardComponent } from '.';
@@ -110,7 +110,7 @@ export default {
 	}
 } as CardStoryMeta;
 
-export const Card: CardStory = (props: CardProps<any>): JSX.Element => {
+export const Card: CardStory = (props: CardProps<CardDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const text = useGetColor({ colorMode, colorType: 'default', hueType: 'text.primary', classType: 'text' });

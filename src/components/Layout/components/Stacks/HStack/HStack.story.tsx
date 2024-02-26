@@ -1,14 +1,19 @@
 import { range } from 'lodash-es';
 
-import classes from '@common/classes';
-import { __DEFAULT_SPACING__ } from '@common/constants';
-import { useGetColor } from '@common/hooks';
-import type { AlignItemsClassArr, FlexWrapClassArr, JustifyContentClassArr } from '@common/types';
+import classes from '../../../../../common/classes';
+import { __DEFAULT_SPACING__ } from '../../../../../common/constants';
+import { useGetColor } from '../../../../../common/hooks';
+import type {
+	AlignItemsClassArr,
+	FlexWrapClassArr,
+	JustifyContentClassArr,
+	PolymorphicDefaultElement
+} from '../../../../../common/types';
 
-import { Center } from '@components/Layout';
+import { Center } from '../../Center';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
-
+import { useStorybookContext } from '../../../../Provider/components/StorybookProvider';
+import React from 'react';
 import {
 	__DEFAULT_STACK_ALIGN_ITEMS__,
 	__DEFAULT_STACK_JUSTIFY_CONTENT__,
@@ -68,7 +73,7 @@ export default {
 	}
 } as HStackStoryMeta;
 
-export const HStack: HStackStory = (props: HStackProps<any>): JSX.Element => {
+export const HStack: HStackStory = (props: HStackProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

@@ -1,8 +1,8 @@
-import { Box } from '@components/Box';
-import { Text } from '@components/Typography';
+import { Box } from '../../../Box';
+import { Text } from '../../../Typography';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
-
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
+import React from 'react';
 import {
 	__DEFAULT_SWITCH_HAS_IO_LABEL__,
 	__DEFAULT_SWITCH_IS_ACTIVE__,
@@ -23,6 +23,7 @@ import {
 import type { SwitchLabelPosition, SwitchProps, SwitchSize } from './common/types';
 import type { SwitchStory, SwitchStoryMeta } from './common/types/story';
 import { Switch as SwitchComponent } from '.';
+import { PolymorphicDefaultElement } from '../../../../common/types';
 
 export default {
 	title: 'Forms/Switch',
@@ -138,7 +139,7 @@ export default {
 	}
 } as SwitchStoryMeta;
 
-export const Switch: SwitchStory = (props: SwitchProps<any>): JSX.Element => {
+export const Switch: SwitchStory = (props: SwitchProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

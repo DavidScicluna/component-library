@@ -1,14 +1,14 @@
 import { range, sample } from 'lodash-es';
 
-import { __DEFAULT_SPACING__ } from '@common/constants';
-import { appColors } from '@common/data';
-import { useGetColor } from '@common/hooks';
-import type { ThemeAppColor } from '@common/types';
+import { __DEFAULT_SPACING__ } from '../../../../common/constants';
+import { appColors } from '../../../../common/data';
+import { useGetColor } from '../../../../common/hooks';
+import type { ThemeAppColor } from '../../../../common/types';
+import React from 'react';
+import { Center } from '../../../Layout';
+import { Text } from '../../../Typography';
 
-import { Center } from '@components/Layout';
-import { Text } from '@components/Typography';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_DUMMY_TABS_IS_ANIMATED__,

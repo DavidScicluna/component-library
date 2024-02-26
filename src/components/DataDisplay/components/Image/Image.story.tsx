@@ -1,9 +1,9 @@
-import { __DEFAULT_RADIUS__ } from '@common/constants';
-import type { ThemeRadiusArr } from '@common/types';
+import { __DEFAULT_RADIUS__ } from '../../../../common/constants';
+import type { PolymorphicDefaultElement, ThemeRadiusArr } from '../../../../common/types';
+import { AspectRatio } from '../../../Layout';
 
-import { AspectRatio } from '@components/Layout';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import { __DEFAULT_IMAGE_FILTERS__, __DEFAULT_IMAGE_OPTIONS__ } from './common/constants';
 import type { ImageProps } from './common/types';
@@ -39,7 +39,7 @@ export default {
 	}
 } as ImageStoryMeta;
 
-export const Image: ImageStory = (props: ImageProps<any>): JSX.Element => {
+export const Image: ImageStory = (props: ImageProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

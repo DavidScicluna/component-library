@@ -1,6 +1,6 @@
-import { Center } from '@components/Layout';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { Center } from '../../../Layout';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import { __DEFAULT_DELETE_ICON_BUTTON_HAS_TOOLTIP__ } from './common/constants';
 import type { DeleteIconButtonDefaultElement, DeleteIconButtonProps } from './common/types';

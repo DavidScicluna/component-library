@@ -1,6 +1,6 @@
-import { Center } from '@components/Layout';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { Center } from '../../../Layout';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_DUMMY_BADGE_IS_ANIMATED__,
@@ -12,7 +12,7 @@ import {
 	__DEFAULT_DUMMY_BADGE_SIZE__,
 	__DEFAULT_DUMMY_BADGE_VARIANT__
 } from './common/constants';
-import type { DummyBadgeProps, DummyBadgeSize, DummyBadgeVariant } from './common/types';
+import type { DummyBadgeDefaultElement, DummyBadgeProps, DummyBadgeSize, DummyBadgeVariant } from './common/types';
 import type { DummyBadgeStory, DummyBadgeStoryMeta } from './common/types/story';
 import { DummyBadgeIcon } from './components';
 import { DummyBadge as DummyBadgeComponent } from '.';
@@ -96,7 +96,7 @@ export default {
 	}
 } as DummyBadgeStoryMeta;
 
-export const DummyBadge: DummyBadgeStory = (props: DummyBadgeProps<any>): JSX.Element => {
+export const DummyBadge: DummyBadgeStory = (props: DummyBadgeProps<DummyBadgeDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

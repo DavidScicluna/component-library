@@ -1,6 +1,6 @@
-import { Button } from '@components/Buttons';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { Button } from '../../../Buttons';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_POPPER_CLOSE_DELAY__,
@@ -14,6 +14,7 @@ import {
 import type { PopperPlacement, PopperProps } from './common/types';
 import type { PopperStory, PopperStoryMeta } from './common/types/story';
 import { Popper as PopperComponent } from '.';
+import { PolymorphicDefaultElement } from '../../../../common/types';
 
 export default {
 	title: 'Overlay/Popper',
@@ -92,7 +93,7 @@ export default {
 	}
 } as PopperStoryMeta;
 
-export const Popper: PopperStory = (props: PopperProps<any>): JSX.Element => {
+export const Popper: PopperStory = (props: PopperProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

@@ -1,10 +1,10 @@
-import { useGetColor } from '@common/hooks';
-import type { ThemeBlurClassArr, ThemeRadiusArr } from '@common/types';
-
-import { PuffSpinner } from '@components/Feedback';
-import { Center } from '@components/Layout';
-import { Text } from '@components/Typography';
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { useGetColor } from '../../../../common/hooks';
+import type { PolymorphicDefaultElement, ThemeBlurClassArr, ThemeRadiusArr } from '../../../../common/types';
+import React from 'react';
+import { PuffSpinner } from '../../../Feedback';
+import { Center } from '../../../Layout';
+import { Text } from '../../../Typography';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT__,
@@ -95,7 +95,9 @@ export default {
 	}
 } as LoadingOverlayStoryMeta;
 
-export const LoadingOverlay: LoadingOverlayStory = (props: LoadingOverlayProps<any>): JSX.Element => {
+export const LoadingOverlay: LoadingOverlayStory = (
+	props: LoadingOverlayProps<PolymorphicDefaultElement>
+): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const spinner = useGetColor({ colorMode, colorType: 'default', hueType: 'text.primary' });

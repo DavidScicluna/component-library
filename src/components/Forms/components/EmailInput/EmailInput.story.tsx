@@ -1,6 +1,6 @@
 import { useState } from 'react';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_EMAIL_INPUT_IS_COMPACT__,

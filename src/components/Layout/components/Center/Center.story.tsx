@@ -1,9 +1,9 @@
-import classes from '@common/classes';
-import { useGetColor } from '@common/hooks';
+import classes from '../../../../common/classes';
+import { useGetColor } from '../../../../common/hooks';
 
-import { Text } from '@components/Typography';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { Text } from '../../../Typography';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import { __DEFAULT_CENTER_SPACING__ } from './common/constants';
 import type { CenterProps } from './common/types';
@@ -11,6 +11,7 @@ import type { CenterStory, CenterStoryMeta } from './common/types/story';
 import { Center as CenterComponent } from '.';
 
 import classNames from 'classnames';
+import { PolymorphicDefaultElement } from '../../../../common/types';
 
 export default {
 	title: 'Layout/Center',
@@ -26,7 +27,7 @@ export default {
 	}
 } as CenterStoryMeta;
 
-export const Center: CenterStory = (props: CenterProps<any>): JSX.Element => {
+export const Center: CenterStory = (props: CenterProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;

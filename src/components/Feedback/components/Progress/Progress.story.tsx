@@ -1,8 +1,8 @@
-import { __DEFAULT_RADIUS__ } from '@common/constants';
-import type { ThemeRadiusArr } from '@common/types';
+import { __DEFAULT_RADIUS__ } from '../../../../common/constants';
+import type { ThemeRadiusArr } from '../../../../common/types';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
-
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
+import React from 'react';
 import {
 	__DEFAULT_PROGRESS_IS_INDETERMINATE__,
 	__DEFAULT_PROGRESS_MAX__,
@@ -10,7 +10,7 @@ import {
 	__DEFAULT_PROGRESS_VALUE__,
 	__DEFAULT_PROGRESS_VARIANT__
 } from './common/constants';
-import type { ProgressProps, ProgressVariant } from './common/types';
+import type { ProgressDefaultElement, ProgressProps, ProgressVariant } from './common/types';
 import type { ProgressStory, ProgressStoryMeta } from './common/types/story';
 import { Progress as ProgressComponent } from '.';
 
@@ -65,7 +65,7 @@ export default {
 	}
 } as ProgressStoryMeta;
 
-export const Progress: ProgressStory = (props: ProgressProps<any>): JSX.Element => {
+export const Progress: ProgressStory = (props: ProgressProps<ProgressDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (

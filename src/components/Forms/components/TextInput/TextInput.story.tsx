@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
-
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
+import React from 'react';
 import {
 	__DEFAULT_TEXT_INPUT_IS_COMPACT__,
 	__DEFAULT_TEXT_INPUT_IS_DISABLED__,

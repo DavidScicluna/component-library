@@ -1,6 +1,6 @@
-import { Center } from '@components/Layout';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { Center } from '../../../Layout';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
 	__DEFAULT_BUTTON_IS_ACTIVE__,

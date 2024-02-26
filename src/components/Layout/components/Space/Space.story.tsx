@@ -1,9 +1,9 @@
-import classes from '@common/classes';
-import { useGetColor } from '@common/hooks';
+import classes from '../../../../common/classes';
+import { useGetColor } from '../../../../common/hooks';
 
-import { Text } from '@components/Typography';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+import { Text } from '../../../Typography';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import { Center } from '../Center';
 
@@ -13,6 +13,7 @@ import type { SpaceStory, SpaceStoryMeta } from './common/types/story';
 import { Space as SpaceComponent } from '.';
 
 import classNames from 'classnames';
+import { PolymorphicDefaultElement } from '../../../../common/types';
 
 export default {
 	title: 'Layout/Space',
@@ -35,7 +36,7 @@ export default {
 	}
 } as SpaceStoryMeta;
 
-export const Space: SpaceStory = (props: SpaceProps<any>): JSX.Element => {
+export const Space: SpaceStory = (props: SpaceProps<PolymorphicDefaultElement>): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	const radius = classes.borders.border_radius.base;
