@@ -5,6 +5,7 @@ import {
 	__DEFAULT_FILE_INPUT_IS_DISABLED__,
 	__DEFAULT_FILE_INPUT_IS_ERROR__,
 	__DEFAULT_FILE_INPUT_IS_FOCUSED__,
+	__DEFAULT_FILE_INPUT_IS_FULLWIDTH__,
 	__DEFAULT_FILE_INPUT_IS_OUTLINED__,
 	__DEFAULT_FILE_INPUT_IS_READONLY__,
 	__DEFAULT_FILE_INPUT_IS_REQUIRED__,
@@ -18,6 +19,7 @@ import type { FileInputElement, FileInputProps, FileInputSize, FileInputVariant 
 type PickedFileInputProps =
 	| 'isCompact'
 	| 'isDisabled'
+	| 'isFullWidth'
 	| 'isError'
 	| 'isFocused'
 	| 'isMultiple'
@@ -38,6 +40,7 @@ const useFileInputResponsiveValues = <Element extends FileInputElement>(
 	const {
 		isCompact: isCompactProp = __DEFAULT_FILE_INPUT_IS_COMPACT__,
 		isDisabled: isDisabledProp = __DEFAULT_FILE_INPUT_IS_DISABLED__,
+		isFullWidth: isFullWidthProp = __DEFAULT_FILE_INPUT_IS_FULLWIDTH__,
 		isError: isErrorProp = __DEFAULT_FILE_INPUT_IS_ERROR__,
 		isFocused: isFocusedProp = __DEFAULT_FILE_INPUT_IS_FOCUSED__,
 		isMultiple: isMultipleProp = __DEFAULT_FILE_INPUT_IS_FOCUSED__,
@@ -52,6 +55,7 @@ const useFileInputResponsiveValues = <Element extends FileInputElement>(
 
 	const isCompact = useGetResponsiveValue<boolean>(isCompactProp);
 	const isDisabled = useGetResponsiveValue<boolean>(isDisabledProp);
+	const isFullWidth = useGetResponsiveValue<boolean>(isFullWidthProp);
 	const isError = useGetResponsiveValue<boolean>(isErrorProp);
 	const isFocused = useGetResponsiveValue<boolean>(isFocusedProp);
 	const isMultiple = useGetResponsiveValue<boolean>(isMultipleProp);
@@ -67,6 +71,7 @@ const useFileInputResponsiveValues = <Element extends FileInputElement>(
 	return {
 		isCompact,
 		isDisabled,
+		isFullWidth,
 		isError,
 		isFocused,
 		isMultiple,

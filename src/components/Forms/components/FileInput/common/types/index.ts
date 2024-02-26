@@ -8,7 +8,7 @@ import type {
 	ResponsiveValue
 } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 import type { FileButtonDefaultElement, FileButtonProps } from '@components/Buttons';
 import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
 
@@ -33,6 +33,7 @@ type PickedFormsCommonProps =
 	| 'colorMode'
 	| 'isCompact'
 	| 'isDisabled'
+	| 'isFullWidth'
 	| 'isError'
 	| 'isFocused'
 	| 'isOutlined'
@@ -57,11 +58,9 @@ type FileInputOtherProps<Element extends FileInputElement> = Pick<
 	isMultiple?: ResponsiveValue<boolean>;
 } & Pick<FormsCommonProps, PickedFormsCommonProps>;
 
-type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
-
 export type FileInputProps<Element extends FileInputElement> = Omit<
 	BoxProps<Element, FileInputOtherProps<Element>>,
-	OmittedBoxProps
+	'children'
 >;
 
 export type FileInputRef<Element extends FileInputElement> = BoxRef<Element>;
