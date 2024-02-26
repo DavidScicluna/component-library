@@ -6,6 +6,7 @@ import {
 	__DEFAULT_TEXTAREA_IS_DISABLED__,
 	__DEFAULT_TEXTAREA_IS_ERROR__,
 	__DEFAULT_TEXTAREA_IS_FOCUSED__,
+	__DEFAULT_TEXTAREA_IS_FULLWIDTH__,
 	__DEFAULT_TEXTAREA_IS_OUTLINED__,
 	__DEFAULT_TEXTAREA_IS_READONLY__,
 	__DEFAULT_TEXTAREA_IS_REQUIRED__,
@@ -20,6 +21,7 @@ import type { TextareaElement, TextareaProps, TextareaSize, TextareaVariant } fr
 type PickedTextareaProps =
 	| 'isCompact'
 	| 'isDisabled'
+	| 'isFullWidth'
 	| 'isError'
 	| 'isFocused'
 	| 'isOutlined'
@@ -40,6 +42,7 @@ const useTextareaResponsiveValues = <Element extends TextareaElement>(
 	const {
 		isCompact: isCompactProp = __DEFAULT_TEXTAREA_IS_COMPACT__,
 		isDisabled: isDisabledProp = __DEFAULT_TEXTAREA_IS_DISABLED__,
+		isFullWidth: isFullWidthProp = __DEFAULT_TEXTAREA_IS_FULLWIDTH__,
 		isError: isErrorProp = __DEFAULT_TEXTAREA_IS_ERROR__,
 		isFocused: isFocusedProp = __DEFAULT_TEXTAREA_IS_FOCUSED__,
 		isOutlined: isOutlinedProp = __DEFAULT_TEXTAREA_IS_OUTLINED__,
@@ -54,6 +57,7 @@ const useTextareaResponsiveValues = <Element extends TextareaElement>(
 
 	const isCompact = useGetResponsiveValue<boolean>(isCompactProp);
 	const isDisabled = useGetResponsiveValue<boolean>(isDisabledProp);
+	const isFullWidth = useGetResponsiveValue<boolean>(isFullWidthProp);
 	const isError = useGetResponsiveValue<boolean>(isErrorProp);
 	const isFocused = useGetResponsiveValue<boolean>(isFocusedProp);
 	const isOutlined = useGetResponsiveValue<boolean>(isOutlinedProp);
@@ -70,6 +74,7 @@ const useTextareaResponsiveValues = <Element extends TextareaElement>(
 	return {
 		isCompact,
 		isDisabled,
+		isFullWidth,
 		isError,
 		isFocused,
 		isOutlined,

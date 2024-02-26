@@ -9,7 +9,7 @@ import type {
 	ResponsiveValue
 } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
 import type { TextDefaultElement, TextProps } from '@components/Typography';
 
@@ -34,6 +34,7 @@ type PickedFormsCommonProps =
 	| 'colorMode'
 	| 'isCompact'
 	| 'isDisabled'
+	| 'isFullWidth'
 	| 'isError'
 	| 'isFocused'
 	| 'isOutlined'
@@ -57,11 +58,9 @@ type TextareaOtherProps<Element extends TextareaElement> = {
 	resize?: ResponsiveValue<ResizeClass>;
 } & Pick<FormsCommonProps, PickedFormsCommonProps>;
 
-type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
-
 export type TextareaProps<Element extends TextareaElement> = Omit<
 	BoxProps<Element, TextareaOtherProps<Element>>,
-	OmittedBoxProps
+	'children'
 >;
 
 export type TextareaRef<Element extends TextareaElement> = BoxRef<Element>;

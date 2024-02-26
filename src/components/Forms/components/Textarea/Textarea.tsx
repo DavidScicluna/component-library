@@ -26,6 +26,7 @@ import {
 	__DEFAULT_TEXTAREA_IS_DISABLED__,
 	__DEFAULT_TEXTAREA_IS_ERROR__,
 	__DEFAULT_TEXTAREA_IS_FOCUSED__,
+	__DEFAULT_TEXTAREA_IS_FULLWIDTH__,
 	__DEFAULT_TEXTAREA_IS_OUTLINED__,
 	__DEFAULT_TEXTAREA_IS_READONLY__,
 	__DEFAULT_TEXTAREA_IS_REQUIRED__,
@@ -76,8 +77,6 @@ const Textarea = forwardRef(function Textarea<Element extends TextareaElement>(
 		as = __DEFAULT_TEXTAREA_AS__,
 		id = __DEFAULT_FORM_CONTROL_ID__,
 		className = __DEFAULT_CLASSNAME__,
-		w,
-		h,
 		renderLeft,
 		renderRight,
 		renderTotal,
@@ -86,6 +85,7 @@ const Textarea = forwardRef(function Textarea<Element extends TextareaElement>(
 		placeholder,
 		isCompact: isCompactProp = __DEFAULT_TEXTAREA_IS_COMPACT__,
 		isDisabled: isDisabledProp = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
+		isFullWidth: isFullWidthProp = __DEFAULT_TEXTAREA_IS_FULLWIDTH__,
 		isError: isErrorProp = __DEFAULT_FORM_CONTROL_IS_ERROR__,
 		isFocused: isFocusedProp = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
 		isOutlined: isOutlinedProp = __DEFAULT_TEXTAREA_IS_OUTLINED__,
@@ -108,6 +108,7 @@ const Textarea = forwardRef(function Textarea<Element extends TextareaElement>(
 	const {
 		isCompact,
 		isDisabled,
+		isFullWidth,
 		isError,
 		isFocused: focused,
 		isOutlined,
@@ -121,6 +122,7 @@ const Textarea = forwardRef(function Textarea<Element extends TextareaElement>(
 	} = useTextareaResponsiveValues<Element>({
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
+		isFullWidth: isFullWidthProp,
 		isError: isErrorProp,
 		isFocused: isFocusedProp,
 		isOutlined: isOutlinedProp,
@@ -218,8 +220,8 @@ const Textarea = forwardRef(function Textarea<Element extends TextareaElement>(
 		<Grid
 			{...focusProps}
 			className={classNames(__KEYS_TEXTAREA_CLASS__, classes.container, { [className]: !!className })}
-			w={hasFormControl ? '100%' : w}
-			h={hasFormControl ? '100%' : h}
+			w={hasFormControl || isFullWidth ? '100%' : undefined}
+			h={hasFormControl ? '100%' : undefined}
 			templateColumns={1}
 			templateRows={1}
 			onClick={handleClick}
