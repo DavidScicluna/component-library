@@ -8,7 +8,7 @@ import type {
 	ResponsiveValue
 } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 import type { ButtonDefaultElement, ButtonProps, IconButtonDefaultElement, IconButtonProps } from '@components/Buttons';
 import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
 
@@ -44,6 +44,7 @@ type PickedFormsCommonProps =
 	| 'colorMode'
 	| 'isCompact'
 	| 'isDisabled'
+	| 'isFullWidth'
 	| 'isError'
 	| 'isFocused'
 	| 'isOutlined'
@@ -65,15 +66,9 @@ type SearchInputOtherProps<Element extends SearchInputElement> = {
 	onSubmit?: (query: string) => void;
 } & Pick<FormsCommonProps, PickedFormsCommonProps>;
 
-type OmittedBoxProps =
-	| 'children'
-	| 'onChange'
-	| 'value'
-	| keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
-
 export type SearchInputProps<Element extends SearchInputElement> = Omit<
 	BoxProps<Element, SearchInputOtherProps<Element>>,
-	OmittedBoxProps
+	'children' | 'onChange' | 'value'
 >;
 
 export type SearchInputRef<Element extends SearchInputElement> = BoxRef<Element>;
