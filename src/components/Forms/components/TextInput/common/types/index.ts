@@ -7,7 +7,7 @@ import type {
 	PolymorphicMouseEvent
 } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
 
 export type TextInputDefaultElement = 'input';
@@ -31,6 +31,7 @@ type PickedFormsCommonProps =
 	| 'colorMode'
 	| 'isCompact'
 	| 'isDisabled'
+	| 'isFullWidth'
 	| 'isError'
 	| 'isFocused'
 	| 'isOutlined'
@@ -46,11 +47,9 @@ type TextInputOtherProps<Element extends TextInputElement> = {
 	renderRight?: (props: TextInputRenderProps<Element>) => ReactNode;
 } & Pick<FormsCommonProps, PickedFormsCommonProps>;
 
-type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
-
 export type TextInputProps<Element extends TextInputElement> = Omit<
 	BoxProps<Element, TextInputOtherProps<Element>>,
-	OmittedBoxProps
+	'children'
 >;
 
 export type TextInputRef<Element extends TextInputElement> = BoxRef<Element>;

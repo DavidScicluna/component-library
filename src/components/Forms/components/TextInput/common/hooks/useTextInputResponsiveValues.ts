@@ -5,6 +5,7 @@ import {
 	__DEFAULT_TEXT_INPUT_IS_DISABLED__,
 	__DEFAULT_TEXT_INPUT_IS_ERROR__,
 	__DEFAULT_TEXT_INPUT_IS_FOCUSED__,
+	__DEFAULT_TEXT_INPUT_IS_FULLWIDTH__,
 	__DEFAULT_TEXT_INPUT_IS_OUTLINED__,
 	__DEFAULT_TEXT_INPUT_IS_READONLY__,
 	__DEFAULT_TEXT_INPUT_IS_REQUIRED__,
@@ -18,6 +19,7 @@ import type { TextInputElement, TextInputProps, TextInputSize, TextInputVariant 
 type PickedTextInputProps =
 	| 'isCompact'
 	| 'isDisabled'
+	| 'isFullWidth'
 	| 'isError'
 	| 'isFocused'
 	| 'isOutlined'
@@ -37,6 +39,7 @@ const useTextInputResponsiveValues = <Element extends TextInputElement>(
 	const {
 		isCompact: isCompactProp = __DEFAULT_TEXT_INPUT_IS_COMPACT__,
 		isDisabled: isDisabledProp = __DEFAULT_TEXT_INPUT_IS_DISABLED__,
+		isFullWidth: isFullWidthProp = __DEFAULT_TEXT_INPUT_IS_FULLWIDTH__,
 		isError: isErrorProp = __DEFAULT_TEXT_INPUT_IS_ERROR__,
 		isFocused: isFocusedProp = __DEFAULT_TEXT_INPUT_IS_FOCUSED__,
 		isOutlined: isOutlinedProp = __DEFAULT_TEXT_INPUT_IS_OUTLINED__,
@@ -50,6 +53,7 @@ const useTextInputResponsiveValues = <Element extends TextInputElement>(
 
 	const isCompact = useGetResponsiveValue<boolean>(isCompactProp);
 	const isDisabled = useGetResponsiveValue<boolean>(isDisabledProp);
+	const isFullWidth = useGetResponsiveValue<boolean>(isFullWidthProp);
 	const isError = useGetResponsiveValue<boolean>(isErrorProp);
 	const isFocused = useGetResponsiveValue<boolean>(isFocusedProp);
 	const isOutlined = useGetResponsiveValue<boolean>(isOutlinedProp);
@@ -64,6 +68,7 @@ const useTextInputResponsiveValues = <Element extends TextInputElement>(
 	return {
 		isCompact,
 		isDisabled,
+		isFullWidth,
 		isError,
 		isFocused,
 		isOutlined,
