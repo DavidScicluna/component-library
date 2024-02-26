@@ -22,7 +22,7 @@ const ButtonGroupItem = forwardRef(function ButtonGroupItem<Element extends Poly
 
 	const { children, className = __DEFAULT_CLASSNAME__, index, total, ...rest } = props;
 
-	const classes = useButtonGroupItemClasses({ index, total });
+	const classes = useButtonGroupItemClasses<Element>({ index, total });
 
 	return (
 		<Box
