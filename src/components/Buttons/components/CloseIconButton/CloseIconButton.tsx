@@ -35,7 +35,6 @@ const CloseIconButton = forwardRef(function CloseIconButton<Element extends Clos
 
 	return (
 		<Tooltip
-			color='gray'
 			colorMode={colorMode}
 			aria-label={`${label} (tooltip)`}
 			label={label}

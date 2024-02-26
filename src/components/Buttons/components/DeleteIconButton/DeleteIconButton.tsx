@@ -35,7 +35,6 @@ const DeleteIconButton = forwardRef(function DeleteIconButton<Element extends De
 
 	return (
 		<Tooltip
-			color='gray'
 			colorMode={colorMode}
 			aria-label={`${label} (tooltip)`}
 			label={label}

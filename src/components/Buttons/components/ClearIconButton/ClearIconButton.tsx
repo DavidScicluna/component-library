@@ -35,7 +35,6 @@ const ClearIconButton = forwardRef(function ClearIconButton<Element extends Clea
 
 	return (
 		<Tooltip
-			color='gray'
 			colorMode={colorMode}
 			aria-label={`${label} (tooltip)`}
 			label={label}
