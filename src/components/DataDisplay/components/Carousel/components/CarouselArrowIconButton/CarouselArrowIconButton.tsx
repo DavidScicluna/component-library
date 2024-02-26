@@ -66,7 +66,6 @@ const CarouselArrowIconButton = forwardRef(function CarouselArrowIconButton<
 
 	return (
 		<Tooltip
-			color='gray'
 			colorMode={colorMode}
 			aria-label={`${label || __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_LABEL__} (tooltip)`}
 			label={label || __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_LABEL__}
