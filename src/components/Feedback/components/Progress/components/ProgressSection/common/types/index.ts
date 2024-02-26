@@ -1,6 +1,6 @@
 import type { PolymorphicElementType, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 type ProgressSectionOtherProps = ThemeAppAppearanceProps & {
 	/**
@@ -11,9 +11,6 @@ type ProgressSectionOtherProps = ThemeAppAppearanceProps & {
 	value?: ResponsiveValue<number>;
 };
 
-export type ProgressSectionProps<Element extends PolymorphicElementType> = Omit<
-	BoxProps<Element, ProgressSectionOtherProps>,
-	keyof BoxOtherProps
->;
+export type ProgressSectionProps<Element extends PolymorphicElementType> = BoxProps<Element, ProgressSectionOtherProps>;
 
 export type ProgressSectionRef<Element extends PolymorphicElementType> = BoxRef<Element>;

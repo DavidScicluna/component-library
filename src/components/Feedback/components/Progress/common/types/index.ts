@@ -6,7 +6,7 @@ import type {
 	ThemeRadius
 } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type ProgressDefaultElement = PolymorphicDefaultElement;
 export type ProgressElement = Extract<PolymorphicElementType, 'div'>;
@@ -51,10 +51,7 @@ type ProgressOtherProps = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<ProgressVariant>;
 };
 
-export type ProgressProps<Element extends ProgressElement> = Omit<
-	BoxProps<Element, ProgressOtherProps>,
-	Exclude<keyof BoxOtherProps, 'w' | 'h'>
->;
+export type ProgressProps<Element extends ProgressElement> = BoxProps<Element, ProgressOtherProps, true>;
 
 export type ProgressRef<Element extends ProgressElement> = BoxRef<Element>;
 
