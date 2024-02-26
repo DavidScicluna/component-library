@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 import type { PolymorphicElementType, ResponsiveValue, ThemeAppAppearanceProps, ThemeFontSize } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 import type { PushableOverlayProps } from '@components/Overlay';
 
 export type BadgeDefaultElement = 'span';
@@ -74,10 +74,7 @@ type BadgeOtherProps<Element extends BadgeElement> = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<BadgeVariant>;
 } & Pick<PushableOverlayProps<Element>, 'isActive' | 'isDisabled' | 'isOutlined'>;
 
-export type BadgeProps<Element extends BadgeElement> = Omit<
-	BoxProps<Element, BadgeOtherProps<Element>>,
-	keyof BoxOtherProps
->;
+export type BadgeProps<Element extends BadgeElement> = BoxProps<Element, BadgeOtherProps<Element>>;
 
 export type BadgeRef<Element extends BadgeElement> = BoxRef<Element>;
 

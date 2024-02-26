@@ -9,7 +9,7 @@ import { Icon } from '@components/DataDisplay';
 
 import { useBadgeContext, useBadgeFontSize } from '../../common/hooks';
 
-import { __DEFAULT_BADGE_ICON_AS__ } from './common/constants';
+import { __DEFAULT_BADGE_ICON_AS__, __DEFAULT_BADGE_ICON_VARIANT__ } from './common/constants';
 import { __KEYS_BADGE_ICON_CLASS__ } from './common/keys';
 import type { BadgeIconElement, BadgeIconProps, BadgeIconRef } from './common/types';
 
@@ -28,6 +28,7 @@ const BadgeIcon = forwardRef(function BadgeIcon<Element extends BadgeIconElement
 		className = __DEFAULT_CLASSNAME__,
 		color = __DEFAULT_BADGE_ICON_COLOR__,
 		colorMode = __DEFAULT_BADGE_ICON_COLORMODE__,
+		variant = __DEFAULT_BADGE_ICON_VARIANT__,
 		...rest
 	} = props;
 
@@ -44,7 +45,7 @@ const BadgeIcon = forwardRef(function BadgeIcon<Element extends BadgeIconElement
 			color={color}
 			colorMode={colorMode}
 			size={`${fontSize}px`}
-			variant='unstyled'
+			variant={variant}
 		/>
 	);
 });
