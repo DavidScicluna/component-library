@@ -11,5 +11,5 @@
 			"@components/*": ["./src/components/*"]
 		}
 	},
-	"include": ["vite.config.js"]
+	"include": ["vite.config.js", "package.json"]
 }
