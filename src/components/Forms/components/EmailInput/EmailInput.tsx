@@ -26,6 +26,7 @@ import {
 	__DEFAULT_EMAIL_INPUT_IS_DISABLED__,
 	__DEFAULT_EMAIL_INPUT_IS_ERROR__,
 	__DEFAULT_EMAIL_INPUT_IS_FOCUSED__,
+	__DEFAULT_EMAIL_INPUT_IS_FULLWIDTH__,
 	__DEFAULT_EMAIL_INPUT_IS_OUTLINED__,
 	__DEFAULT_EMAIL_INPUT_IS_READONLY__,
 	__DEFAULT_EMAIL_INPUT_IS_REQUIRED__,
@@ -74,8 +75,6 @@ const EmailInput = forwardRef(function EmailInput<Element extends EmailInputElem
 		as = __DEFAULT_EMAIL_INPUT_AS__,
 		id = __DEFAULT_FORM_CONTROL_ID__,
 		className = __DEFAULT_CLASSNAME__,
-		w,
-		h,
 		renderLeft,
 		renderRight,
 		color = __DEFAULT_FORM_CONTROL_COLOR__,
@@ -83,6 +82,7 @@ const EmailInput = forwardRef(function EmailInput<Element extends EmailInputElem
 		placeholder,
 		isCompact: isCompactProp = __DEFAULT_EMAIL_INPUT_IS_COMPACT__,
 		isDisabled: isDisabledProp = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
+		isFullWidth: isFullWidthProp = __DEFAULT_EMAIL_INPUT_IS_FULLWIDTH__,
 		isError: isErrorProp = __DEFAULT_FORM_CONTROL_IS_ERROR__,
 		isFocused: isFocusedProp = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
 		isOutlined: isOutlinedProp = __DEFAULT_EMAIL_INPUT_IS_OUTLINED__,
@@ -105,6 +105,7 @@ const EmailInput = forwardRef(function EmailInput<Element extends EmailInputElem
 	const {
 		isCompact,
 		isDisabled,
+		isFullWidth,
 		isError,
 		isFocused: focused,
 		isOutlined,
@@ -117,6 +118,7 @@ const EmailInput = forwardRef(function EmailInput<Element extends EmailInputElem
 	} = useEmailInputResponsiveValues<Element>({
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
+		isFullWidth: isFullWidthProp,
 		isError: isErrorProp,
 		isFocused: isFocusedProp,
 		isOutlined: isOutlinedProp,
@@ -214,8 +216,8 @@ const EmailInput = forwardRef(function EmailInput<Element extends EmailInputElem
 		<Grid
 			{...focusProps}
 			className={classNames(__KEYS_EMAIL_INPUT_CLASS__, classes.container, { [className]: !!className })}
-			w={hasFormControl ? '100%' : w}
-			h={hasFormControl ? '100%' : h}
+			w={hasFormControl || isFullWidth ? '100%' : undefined}
+			h={hasFormControl ? '100%' : undefined}
 			templateColumns={compact(['auto', '1fr', renderRight ? 'auto' : null]).join(' ')}
 			templateRows={1}
 			onClick={handleClick}
