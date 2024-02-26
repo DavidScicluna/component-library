@@ -9,7 +9,7 @@ import { Icon } from '@components/DataDisplay';
 
 import { useStepperContext, useStepperStepFontSize } from '../../common/hooks';
 
-import { __DEFAULT_STEP_ICON_AS__ } from './common/constants';
+import { __DEFAULT_STEP_ICON_AS__, __DEFAULT_STEP_ICON_VARIANT__ } from './common/constants';
 import { __KEYS_STEP_ICON_CLASS__ } from './common/keys';
 import type { StepIconElement, StepIconProps, StepIconRef } from './common/types';
 
@@ -28,6 +28,7 @@ const StepIcon = forwardRef(function StepIcon<Element extends StepIconElement>(
 		className = __DEFAULT_CLASSNAME__,
 		color = __DEFAULT_STEP_ICON_COLOR__,
 		colorMode = __DEFAULT_STEP_ICON_COLORMODE__,
+		variant = __DEFAULT_STEP_ICON_VARIANT__,
 		...rest
 	} = props;
 
@@ -44,7 +45,7 @@ const StepIcon = forwardRef(function StepIcon<Element extends StepIconElement>(
 			color={color}
 			colorMode={colorMode}
 			size={`${fontSize}px`}
-			variant='unstyled'
+			variant={variant}
 		/>
 	);
 });

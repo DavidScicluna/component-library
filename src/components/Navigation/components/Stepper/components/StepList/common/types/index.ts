@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 import type { PolymorphicElementType } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 import type { StepperDefaultElement, StepperProps } from '@components/Navigation';
 
 export type StepListRenderProps = Pick<StepperProps<StepperDefaultElement>, 'color' | 'colorMode'> & {
@@ -15,9 +15,6 @@ type StepListOtherProps = {
 	renderRight?: (props: StepListRenderProps) => ReactNode;
 };
 
-export type StepListProps<Element extends PolymorphicElementType> = Omit<
-	BoxProps<Element, StepListOtherProps>,
-	keyof BoxOtherProps
->;
+export type StepListProps<Element extends PolymorphicElementType> = BoxProps<Element, StepListOtherProps>;
 
 export type StepListRef<Element extends PolymorphicElementType> = BoxRef<Element>;

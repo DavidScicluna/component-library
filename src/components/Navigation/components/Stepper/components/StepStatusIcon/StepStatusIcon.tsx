@@ -11,7 +11,7 @@ import { useStepperContext, useStepperSizeConfig } from '../../common/hooks';
 import { getStepStatusColor, getStepStatusIcon } from '../../common/utils';
 import { useStepContext } from '../Step/common/hooks';
 
-import { __DEFAULT_STEP_STATUS_ICON_AS__ } from './common/constants';
+import { __DEFAULT_STEP_STATUS_ICON_AS__, __DEFAULT_STEP_STATUS_ICON_VARIANT__ } from './common/constants';
 import { __KEYS_STEP_STATUS_ICON_CLASS__ } from './common/keys';
 import type { StepStatusIconElement, StepStatusIconProps, StepStatusIconRef } from './common/types';
 
@@ -19,10 +19,15 @@ const StepStatusIcon = forwardRef(function StepStatusIcon<Element extends StepSt
 	props: StepStatusIconProps<Element>,
 	ref: StepStatusIconRef<Element>
 ): JSX.Element {
-	const { color, colorMode, index: step, size, variant } = useStepperContext();
+	const { color, colorMode, index: step, size, variant: stepVariant } = useStepperContext();
 	const { index, status } = useStepContext();
 
-	const { as = __DEFAULT_STEP_STATUS_ICON_AS__, className = __DEFAULT_CLASSNAME__, ...rest } = props;
+	const {
+		as = __DEFAULT_STEP_STATUS_ICON_AS__,
+		className = __DEFAULT_CLASSNAME__,
+		variant = __DEFAULT_STEP_STATUS_ICON_VARIANT__,
+		...rest
+	} = props;
 
 	const config = useStepperSizeConfig({ size });
 
@@ -30,8 +35,8 @@ const StepStatusIcon = forwardRef(function StepStatusIcon<Element extends StepSt
 		return getStepStatusColor(color || __DEFAULT_APP_COLOR__, status);
 	}, [color, index, step]);
 	const statusIcon = useMemo(() => {
-		return getStepStatusIcon(status, variant);
-	}, [status, variant]);
+		return getStepStatusIcon(status, stepVariant);
+	}, [status, stepVariant]);
 
 	return (
 		<Icon
@@ -51,7 +56,7 @@ const StepStatusIcon = forwardRef(function StepStatusIcon<Element extends StepSt
 			icon={statusIcon}
 			category='filled'
 			size={config.fontSize.status}
-			variant='unstyled'
+			variant={variant}
 		/>
 	);
 });

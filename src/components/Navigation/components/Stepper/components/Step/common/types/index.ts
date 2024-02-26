@@ -8,7 +8,7 @@ import type {
 	ThemeSpacing
 } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type StepDefaultElement = 'button';
 export type StepElement = Extract<PolymorphicElementType, 'button'>;
@@ -64,10 +64,7 @@ type StepOtherProps<Element extends StepElement> = ThemeAppAppearanceProps & {
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type StepProps<Element extends StepElement> = Omit<
-	BoxProps<Element, StepOtherProps<Element>>,
-	keyof BoxOtherProps
->;
+export type StepProps<Element extends StepElement> = BoxProps<Element, StepOtherProps<Element>>;
 
 export type StepRef<Element extends StepElement> = BoxRef<Element>;
 
