@@ -9,7 +9,7 @@ import type {
 	ThemeSpacing
 } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type ConfirmModalDefaultElement = 'dialog';
 export type ConfirmModalElement = Extract<PolymorphicElementType, 'dialog'>;
@@ -89,10 +89,8 @@ type ConfirmModalOtherProps<Element extends ConfirmModalElement> = ThemeAppAppea
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type ConfirmModalProps<Element extends ConfirmModalElement> = Omit<
-	BoxProps<Element, ConfirmModalOtherProps<Element>>,
-	keyof BoxOtherProps
->;
+export type ConfirmModalProps<Element extends ConfirmModalElement> = BoxProps<Element, ConfirmModalOtherProps<Element>>;
+
 export type ConfirmModalRef<Element extends ConfirmModalElement> = BoxRef<Element>;
 
 type PickedConfirmModalProps = 'color' | 'colorMode' | 'isOpen' | 'onClose' | 'size' | 'spacing';

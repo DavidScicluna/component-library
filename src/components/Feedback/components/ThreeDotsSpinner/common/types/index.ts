@@ -1,6 +1,6 @@
 import type { PolymorphicElementType, ResponsiveValue, ThemeFontSize, ThemeRadius } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type ThreeDotsSpinnerSize = ThemeFontSize | number | string;
 
@@ -13,7 +13,7 @@ type ThreeDotsSpinnerOtherProps = {
 
 export type ThreeDotsSpinnerProps<Element extends PolymorphicElementType> = Omit<
 	BoxProps<Element, ThreeDotsSpinnerOtherProps>,
-	'children' | keyof BoxOtherProps
+	'children'
 >;
 
 export type ThreeDotsSpinnerRef<Element extends PolymorphicElementType> = BoxRef<Element>;

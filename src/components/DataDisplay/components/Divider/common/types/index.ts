@@ -6,7 +6,7 @@ import type {
 	ThemeSpacing
 } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type DividerDefaultElement = 'hr';
 export type DividerElement = Extract<PolymorphicElementType, 'hr'>;
@@ -30,9 +30,6 @@ type DividerOtherProps = DividerThemeAppearanceProps & {
 	variant?: ResponsiveValue<DividerVariant>;
 };
 
-export type DividerProps<Element extends DividerElement> = Omit<
-	BoxProps<Element, DividerOtherProps>,
-	keyof BoxOtherProps
->;
+export type DividerProps<Element extends DividerElement> = BoxProps<Element, DividerOtherProps>;
 
 export type DividerRef<Element extends DividerElement> = BoxRef<Element>;

@@ -1,6 +1,6 @@
 import type { IconKey, PolymorphicElementType, ResponsiveValue } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 import type { FormsCommonProps, FormsCommonSize } from '@components/Forms/common/types';
 
 export type RatingDirection = 'horizontal' | 'vertical';
@@ -61,11 +61,6 @@ type RatingOtherProps = Pick<FormsCommonProps, PickedFormsCommonProps> & {
 	value?: number;
 };
 
-type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
-
-export type RatingProps<Element extends PolymorphicElementType> = Omit<
-	BoxProps<Element, RatingOtherProps>,
-	OmittedBoxProps
->;
+export type RatingProps<Element extends PolymorphicElementType> = Omit<BoxProps<Element, RatingOtherProps>, 'children'>;
 
 export type RatingRef<Element extends PolymorphicElementType> = BoxRef<Element>;

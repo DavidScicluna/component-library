@@ -9,7 +9,7 @@ import type {
 	ResponsiveValue
 } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 import type { FormsCommonProps, FormsCommonSize } from '@components/Forms/common/types';
 import type { PushableOverlayProps } from '@components/Overlay';
 import type { TextDefaultElement, TextProps } from '@components/Typography';
@@ -65,11 +65,6 @@ type SwitchOtherProps = Pick<FormsCommonProps, PickedFormsCommonProps> & {
 	onToggle?: (isChecked: boolean) => void;
 } & Pick<PushableOverlayProps<PolymorphicDefaultElement>, 'isActive'>;
 
-type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
-
-export type SwitchProps<Element extends PolymorphicElementType> = Omit<
-	BoxProps<Element, SwitchOtherProps>,
-	OmittedBoxProps
->;
+export type SwitchProps<Element extends PolymorphicElementType> = Omit<BoxProps<Element, SwitchOtherProps>, 'children'>;
 
 export type SwitchRef<Element extends PolymorphicElementType> = BoxRef<Element>;

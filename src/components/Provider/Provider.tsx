@@ -27,7 +27,6 @@ import ColorScript from './components/ColorScript';
 import IconFontScript from './components/IconFontScript';
 
 import '@common/styles/index.css';
-import '@common/styles/tailwind.css';
 
 export const ProviderContext = createContext<ProviderContextType>({
 	color: __DEFAULT_APP_COLOR__,

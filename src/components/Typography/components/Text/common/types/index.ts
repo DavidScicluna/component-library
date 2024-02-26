@@ -57,6 +57,6 @@ type TextOtherProps = TextThemeAppearanceProps & {
 	userSelect?: ResponsiveValue<UserSelectClass>;
 };
 
-export type TextProps<Element extends TextElement> = BoxProps<Element, TextOtherProps>;
+export type TextProps<Element extends TextElement> = BoxProps<Element, TextOtherProps, true>;
 
 export type TextRef<Element extends TextElement> = BoxRef<Element>;

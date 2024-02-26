@@ -9,7 +9,7 @@ import type {
 	ThemeSpacing
 } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type ModalDefaultElement = 'dialog';
 export type ModalElement = Extract<PolymorphicElementType, 'dialog'>;
@@ -79,10 +79,8 @@ type ModalOtherProps<Element extends ModalElement> = ThemeAppAppearanceProps & {
 	size?: ResponsiveValue<ModalSize>;
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
-export type ModalProps<Element extends ModalElement> = Omit<
-	BoxProps<Element, ModalOtherProps<Element>>,
-	keyof BoxOtherProps
->;
+export type ModalProps<Element extends ModalElement> = BoxProps<Element, ModalOtherProps<Element>>;
+
 export type ModalRef<Element extends ModalElement> = BoxRef<Element>;
 
 type PickedModalProps = 'color' | 'colorMode' | 'isOpen' | 'onClose' | 'size' | 'spacing';

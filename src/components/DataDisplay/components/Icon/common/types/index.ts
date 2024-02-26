@@ -46,6 +46,6 @@ type IconOtherProps = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<IconVariant>;
 };
 
-export type IconProps<Element extends IconElement> = BoxProps<Element, IconOtherProps>;
+export type IconProps<Element extends IconElement> = BoxProps<Element, IconOtherProps, true>;
 
 export type IconRef<Element extends IconElement> = BoxRef<Element>;

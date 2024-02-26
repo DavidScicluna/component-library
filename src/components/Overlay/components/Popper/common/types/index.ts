@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 import type { PolymorphicElementType, ResponsiveValue, ThemeAppAppearanceProps, ThemeRadius } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type PopperPlacement =
 	| 'top'
@@ -86,9 +86,6 @@ export type PopperOtherProps<Element extends PolymorphicElementType> = ThemeAppA
 	radius?: ResponsiveValue<ThemeRadius>;
 };
 
-export type PopperProps<Element extends PolymorphicElementType> = Omit<
-	BoxProps<Element, PopperOtherProps<Element>>,
-	keyof BoxOtherProps
->;
+export type PopperProps<Element extends PolymorphicElementType> = BoxProps<Element, PopperOtherProps<Element>>;
 
 export type PopperRef<Element extends PolymorphicElementType> = BoxRef<Element>;

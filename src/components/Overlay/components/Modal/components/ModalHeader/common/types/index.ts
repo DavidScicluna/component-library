@@ -19,7 +19,7 @@ type ModalHeaderOtherProps<Element extends PolymorphicElementType> = Pick<GridPr
 
 export type ModalHeaderProps<Element extends PolymorphicElementType> = Omit<
 	BoxProps<Element, ModalHeaderOtherProps<Element>>,
-	'children' | 'w' | 'h'
+	'children'
 >;
 
 export type ModalHeaderRef<Element extends PolymorphicElementType> = BoxRef<Element>;

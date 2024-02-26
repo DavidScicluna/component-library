@@ -1,12 +1,12 @@
-import { __DEFAULT_RADIUS__ } from '@common/constants';
-import { useGetColor } from '@common/hooks';
-import type { ThemeRadiusArr } from '@common/types';
+import { __DEFAULT_RADIUS__ } from '../../../../common/constants';
+import { useGetColor } from '../../../../common/hooks';
+import type { ThemeRadiusArr } from '../../../../common/types';
 
-import { Center } from '@components/Layout';
-import { Text } from '@components/Typography';
+import { Center } from '../../../Layout';
+import { Text } from '../../../Typography';
 
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
-
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
+import React from 'react';
 import { __DEFAULT_BACKGROUND_IMAGE_FILTERS__, __DEFAULT_BACKGROUND_IMAGE_OPTIONS__ } from './common/constants';
 import type { BackgroundImageProps } from './common/types';
 import type { BackgroundImageStory, BackgroundImageStoryMeta } from './common/types/story';
