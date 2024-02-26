@@ -1,8 +1,9 @@
 import { isArray, isObject } from 'lodash-es';
 import memoize from 'micro-memoize';
-import { __DEFAULT_BREAKPOINT__, convertStringToNumber } from 'src';
 
+import { __DEFAULT_BREAKPOINT__ } from '@common/constants';
 import type { ResponsiveValue, ThemeBreakpoint } from '@common/types';
+import { convertStringToNumber } from '@common/utils';
 
 import theme from '../theme';
 

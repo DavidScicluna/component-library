@@ -1,7 +1,7 @@
 import { includes } from 'lodash-es';
 import memoize from 'micro-memoize';
-import { __DEFAULT_COLOR__, __DEFAULT_DURATION__, __DEFAULT_FONT_SIZE__ } from 'src';
 
+import { __DEFAULT_COLOR__, __DEFAULT_DURATION__, __DEFAULT_FONT_SIZE__ } from '@common/constants';
 import { colors, durations, fontSizes } from '@common/data';
 import type { ThemeColor, ThemeDuration, ThemeFontSize } from '@common/types';
 
