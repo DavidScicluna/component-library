@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 import type { PolymorphicElementType } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 import type { TabsDefaultElement, TabsProps } from '@components/Navigation';
 
 export type TabListRenderProps = {
@@ -15,9 +15,6 @@ type TabListOtherProps = {
 	renderRight?: (props: TabListRenderProps) => ReactNode;
 };
 
-export type TabListProps<Element extends PolymorphicElementType> = Omit<
-	BoxProps<Element, TabListOtherProps>,
-	keyof BoxOtherProps
->;
+export type TabListProps<Element extends PolymorphicElementType> = BoxProps<Element, TabListOtherProps>;
 
 export type TabListRef<Element extends PolymorphicElementType> = BoxRef<Element>;

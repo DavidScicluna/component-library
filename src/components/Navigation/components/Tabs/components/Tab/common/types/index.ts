@@ -8,7 +8,7 @@ import type {
 	ThemeSpacing
 } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type TabDefaultElement = 'button';
 export type TabElement = Extract<PolymorphicElementType, 'button'>;
@@ -56,6 +56,6 @@ type TabOtherProps<Element extends TabElement> = ThemeAppAppearanceProps & {
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type TabProps<Element extends TabElement> = Omit<BoxProps<Element, TabOtherProps<Element>>, keyof BoxOtherProps>;
+export type TabProps<Element extends TabElement> = BoxProps<Element, TabOtherProps<Element>>;
 
 export type TabRef<Element extends TabElement> = BoxRef<Element>;

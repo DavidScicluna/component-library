@@ -9,7 +9,7 @@ import { Icon } from '@components/DataDisplay';
 
 import { useTabsContext, useTabsTabFontSize } from '../../common/hooks';
 
-import { __DEFAULT_TAB_ICON_AS__ } from './common/constants';
+import { __DEFAULT_TAB_ICON_AS__, __DEFAULT_TAB_ICON_VARIANT__ } from './common/constants';
 import { __KEYS_TAB_ICON_CLASS__ } from './common/keys';
 import type { TabIconElement, TabIconProps, TabIconRef } from './common/types';
 
@@ -24,6 +24,7 @@ const TabIcon = forwardRef(function TabIcon<Element extends TabIconElement>(
 		className = __DEFAULT_CLASSNAME__,
 		color = __DEFAULT_TAB_ICON_COLOR__,
 		colorMode = __DEFAULT_TAB_ICON_COLORMODE__,
+		variant = __DEFAULT_TAB_ICON_VARIANT__,
 		...rest
 	} = props;
 
@@ -40,7 +41,7 @@ const TabIcon = forwardRef(function TabIcon<Element extends TabIconElement>(
 			color={color}
 			colorMode={colorMode}
 			size={`${fontSize}px`}
-			variant='unstyled'
+			variant={variant}
 		/>
 	);
 });
