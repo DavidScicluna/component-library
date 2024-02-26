@@ -2,6 +2,7 @@ import type { FormsCommonSize, FormsCommonVariant } from '../types';
 
 export const __DEFAULT_FORMS_IS_COMPACT__ = false;
 export const __DEFAULT_FORMS_IS_DISABLED__ = false;
+export const __DEFAULT_FORMS_IS_FULLWIDTH__ = false;
 export const __DEFAULT_FORMS_IS_ERROR__ = false;
 export const __DEFAULT_FORMS_IS_FOCUSED__ = false;
 export const __DEFAULT_FORMS_IS_OUTLINED__ = false;

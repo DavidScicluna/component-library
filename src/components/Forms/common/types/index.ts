@@ -18,6 +18,12 @@ export type FormsCommonProps = ThemeAppAppearanceProps & {
 	 */
 	isDisabled?: ResponsiveValue<boolean>;
 	/**
+	 * If true, the element will take the full width of its parent
+	 *
+	 * @default false
+	 */
+	isFullWidth?: ResponsiveValue<boolean>;
+	/**
 	 * If true, the element will be invalid
 	 *
 	 * @default false

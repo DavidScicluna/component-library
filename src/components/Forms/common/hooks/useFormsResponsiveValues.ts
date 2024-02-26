@@ -5,6 +5,7 @@ import {
 	__DEFAULT_FORMS_IS_DISABLED__,
 	__DEFAULT_FORMS_IS_ERROR__,
 	__DEFAULT_FORMS_IS_FOCUSED__,
+	__DEFAULT_FORMS_IS_FULLWIDTH__,
 	__DEFAULT_FORMS_IS_OUTLINED__,
 	__DEFAULT_FORMS_IS_READONLY__,
 	__DEFAULT_FORMS_IS_REQUIRED__,
@@ -18,6 +19,7 @@ import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '../t
 type PickedFormsCommonProps =
 	| 'isCompact'
 	| 'isDisabled'
+	| 'isFullWidth'
 	| 'isError'
 	| 'isFocused'
 	| 'isOutlined'
@@ -33,6 +35,7 @@ const useFormsResponsiveValues = (props: UseFormsResponsiveValuesProps) => {
 	const {
 		isCompact: isCompactProp = __DEFAULT_FORMS_IS_COMPACT__,
 		isDisabled: isDisabledProp = __DEFAULT_FORMS_IS_DISABLED__,
+		isFullWidth: isFullWidthProp = __DEFAULT_FORMS_IS_FULLWIDTH__,
 		isError: isErrorProp = __DEFAULT_FORMS_IS_ERROR__,
 		isFocused: isFocusedProp = __DEFAULT_FORMS_IS_FOCUSED__,
 		isOutlined: isOutlinedProp = __DEFAULT_FORMS_IS_OUTLINED__,
@@ -46,6 +49,7 @@ const useFormsResponsiveValues = (props: UseFormsResponsiveValuesProps) => {
 
 	const isCompact = useGetResponsiveValue<boolean>(isCompactProp);
 	const isDisabled = useGetResponsiveValue<boolean>(isDisabledProp);
+	const isFullWidth = useGetResponsiveValue<boolean>(isFullWidthProp);
 	const isError = useGetResponsiveValue<boolean>(isErrorProp);
 	const isFocused = useGetResponsiveValue<boolean>(isFocusedProp);
 	const isOutlined = useGetResponsiveValue<boolean>(isOutlinedProp);
@@ -60,6 +64,7 @@ const useFormsResponsiveValues = (props: UseFormsResponsiveValuesProps) => {
 	return {
 		isCompact,
 		isDisabled,
+		isFullWidth,
 		isError,
 		isFocused,
 		isOutlined,
