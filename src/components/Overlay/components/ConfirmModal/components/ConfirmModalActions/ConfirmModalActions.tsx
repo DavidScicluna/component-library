@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import type { VStackProps } from '@components/Layout';
@@ -10,22 +10,22 @@ import { VStack } from '@components/Layout';
 
 import { useConfirmModalContext } from '../../common/hooks';
 
-import { __KEYS_CONFIRM_MODAL_ACTIONS_CLASS__ } from './common/keys';
+import { KEYS_CONFIRM_MODAL_ACTIONS_CLASS } from './common/keys';
 import type { ConfirmModalActionsProps, ConfirmModalActionsRef } from './common/types';
 
 const ConfirmModalActions = forwardRef(function ConfirmModalActions<Element extends PolymorphicElementType>(
 	props: ConfirmModalActionsProps<Element>,
 	ref: ConfirmModalActionsRef<Element>
 ): JSX.Element {
-	const { color, colorMode, onClose, spacing: __DEFAULT_CONFIRM_MODAL_ACTIONS_SPACING__ } = useConfirmModalContext();
+	const { color, colorMode, onClose, spacing: DEFAULT_CONFIRM_MODAL_ACTIONS_SPACING } = useConfirmModalContext();
 
 	const {
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		renderCancel,
 		renderAction,
 		alignItems = 'stretch',
 		justifyContent = 'stretch',
-		spacing = __DEFAULT_CONFIRM_MODAL_ACTIONS_SPACING__,
+		spacing = DEFAULT_CONFIRM_MODAL_ACTIONS_SPACING,
 		...rest
 	} = props;
 
@@ -33,7 +33,7 @@ const ConfirmModalActions = forwardRef(function ConfirmModalActions<Element exte
 		<VStack
 			{...(rest as VStackProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_CONFIRM_MODAL_ACTIONS_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_CONFIRM_MODAL_ACTIONS_CLASS, { [className]: !!className })}
 			w='100%'
 			h='100%'
 			alignItems={alignItems}

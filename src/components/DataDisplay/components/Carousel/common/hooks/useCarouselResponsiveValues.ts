@@ -1,14 +1,10 @@
 import type { ReactNode } from 'react';
 
-import { __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_SPACING } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { ThemeSpacing } from '@common/types';
 
-import {
-	__DEFAULT_CAROUSEL_ORIENTTATION__,
-	__DEFAULT_CAROUSEL_SCROLL_AMOUNT__,
-	__DEFAULT_CAROUSEL_VARIANT__
-} from '../constants';
+import { DEFAULT_CAROUSEL_ORIENTTATION, DEFAULT_CAROUSEL_SCROLL_AMOUNT, DEFAULT_CAROUSEL_VARIANT } from '../constants';
 import type {
 	CarouselElement,
 	CarouselOrientation,
@@ -26,10 +22,10 @@ const useCarouselResponsiveValues = <Element extends CarouselElement>(
 ) => {
 	const {
 		divider: dividerProp,
-		scrollAmount: scrollAmountProp = __DEFAULT_CAROUSEL_SCROLL_AMOUNT__,
-		spacing: spacingProp = __DEFAULT_SPACING__,
-		orientation: orientationProp = __DEFAULT_CAROUSEL_ORIENTTATION__,
-		variant: variantProp = __DEFAULT_CAROUSEL_VARIANT__
+		scrollAmount: scrollAmountProp = DEFAULT_CAROUSEL_SCROLL_AMOUNT,
+		spacing: spacingProp = DEFAULT_SPACING,
+		orientation: orientationProp = DEFAULT_CAROUSEL_ORIENTTATION,
+		variant: variantProp = DEFAULT_CAROUSEL_VARIANT
 	} = props;
 
 	const divider = useGetResponsiveValue<ReactNode>(dividerProp);

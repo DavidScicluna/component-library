@@ -2,7 +2,7 @@ import { forwardRef, useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
 import { getColorHex } from '@common/utils';
@@ -12,29 +12,25 @@ import { PuffSpinner, TailSpinSpinner, ThreeDotsSpinner } from '@components/Feed
 
 import { useButtonContext, useButtonFontSize } from '../../common/hooks';
 
-import { __DEFAULT_BUTTON_SPINNER_VARIANT__ } from './common/constants';
+import { DEFAULT_BUTTON_SPINNER_VARIANT } from './common/constants';
 import { useButtonSpinnerResponsiveValues } from './common/hooks';
-import { __KEYS_BUTTON_SPINNER_CLASS__ } from './common/keys';
+import { KEYS_BUTTON_SPINNER_CLASS } from './common/keys';
 import type { ButtonSpinnerProps, ButtonSpinnerRef } from './common/types';
 
 const ButtonSpinner = forwardRef(function ButtonSpinner<Element extends PolymorphicElementType>(
 	props: ButtonSpinnerProps<Element>,
 	ref: ButtonSpinnerRef<Element>
 ): JSX.Element {
-	const { color: __DEFAULT_BUTTON_SPINNER_COLOR__, colorMode: __DEFAULT_BUTTON_SPINNER_COLORMODE__ } = useAppTheme();
+	const { color: DEFAULT_BUTTON_SPINNER_COLOR, colorMode: DEFAULT_BUTTON_SPINNER_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_BUTTON_SPINNER_COLOR__,
-		colorMode = __DEFAULT_BUTTON_SPINNER_COLORMODE__,
+		color = DEFAULT_BUTTON_SPINNER_COLOR,
+		colorMode = DEFAULT_BUTTON_SPINNER_COLORMODE,
 		size,
 		variant: buttonVariant
 	} = useButtonContext();
 
-	const {
-		className = __DEFAULT_CLASSNAME__,
-		variant: variantProp = __DEFAULT_BUTTON_SPINNER_VARIANT__,
-		...rest
-	} = props;
+	const { className = DEFAULT_CLASSNAME, variant: variantProp = DEFAULT_BUTTON_SPINNER_VARIANT, ...rest } = props;
 
 	const { variant } = useButtonSpinnerResponsiveValues<Element>({ variant: variantProp });
 
@@ -62,7 +58,7 @@ const ButtonSpinner = forwardRef(function ButtonSpinner<Element extends Polymorp
 				<TailSpinSpinner
 					{...(rest as TailSpinSpinnerProps<Element>)}
 					ref={ref}
-					className={classNames(__KEYS_BUTTON_SPINNER_CLASS__, { [className]: !!className })}
+					className={classNames(KEYS_BUTTON_SPINNER_CLASS, { [className]: !!className })}
 					color={c}
 					isVisible
 					size={`${fontSize}px`}
@@ -73,7 +69,7 @@ const ButtonSpinner = forwardRef(function ButtonSpinner<Element extends Polymorp
 				<ThreeDotsSpinner
 					{...(rest as ThreeDotsSpinnerProps<Element>)}
 					ref={ref}
-					className={classNames(__KEYS_BUTTON_SPINNER_CLASS__, { [className]: !!className })}
+					className={classNames(KEYS_BUTTON_SPINNER_CLASS, { [className]: !!className })}
 					color={c}
 					isVisible
 					size={`${fontSize}px`}
@@ -84,7 +80,7 @@ const ButtonSpinner = forwardRef(function ButtonSpinner<Element extends Polymorp
 				<PuffSpinner
 					{...(rest as PuffSpinnerProps<Element>)}
 					ref={ref}
-					className={classNames(__KEYS_BUTTON_SPINNER_CLASS__, { [className]: !!className })}
+					className={classNames(KEYS_BUTTON_SPINNER_CLASS, { [className]: !!className })}
 					color={c}
 					isVisible
 					size={`${fontSize}px`}

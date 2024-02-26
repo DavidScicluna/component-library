@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import type { PolymorphicElementType, Style } from '@common/types';
 
-import { __DEFAULT_INDICATOR_OFFSET__, __DEFAULT_INDICATOR_PLACEMENT__ } from '../constants';
+import { DEFAULT_INDICATOR_OFFSET, DEFAULT_INDICATOR_PLACEMENT } from '../constants';
 import type { IndicatorProps } from '../types';
 
 import useIndicatorResponsiveValues from './useIndicatorResponsiveValues';
@@ -16,10 +16,8 @@ type UseIndicatorStylesReturn = Record<'overlay' | 'position', Style>;
 const useIndicatorStyles = <Element extends PolymorphicElementType>(
 	props: UseIndicatorStylesProps<Element>
 ): UseIndicatorStylesReturn => {
-	const {
-		offset: offsetProp = __DEFAULT_INDICATOR_OFFSET__,
-		placement: placementProp = __DEFAULT_INDICATOR_PLACEMENT__
-	} = props;
+	const { offset: offsetProp = DEFAULT_INDICATOR_OFFSET, placement: placementProp = DEFAULT_INDICATOR_PLACEMENT } =
+		props;
 
 	const { offset, placement } = useIndicatorResponsiveValues<Element>({
 		offset: offsetProp,

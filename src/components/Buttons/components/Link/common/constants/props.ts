@@ -1,7 +1,7 @@
 import type { LinkDefaultElement } from '../types';
 
-export const __DEFAULT_LINK_AS__: LinkDefaultElement = 'a';
+export const DEFAULT_LINK_AS: LinkDefaultElement = 'a';
 
-export const __DEFAULT_LINK_IS_DISABLED__ = false;
-export const __DEFAULT_LINK_IS_UNDERLINE__ = true;
-export const __DEFAULT_LINK_IS_UNSTYLED__ = false;
+export const DEFAULT_LINK_IS_DISABLED = false;
+export const DEFAULT_LINK_IS_UNDERLINE = true;
+export const DEFAULT_LINK_IS_UNSTYLED = false;

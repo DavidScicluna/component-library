@@ -1,3 +1,3 @@
 import type { CarouselLeftArrowButtonDefaultElement } from '../types';
 
-export const __DEFAULT_CAROUSEL_LEFT_ARROW_BUTTON_AS__: CarouselLeftArrowButtonDefaultElement = 'button';
+export const DEFAULT_CAROUSEL_LEFT_ARROW_BUTTON_AS: CarouselLeftArrowButtonDefaultElement = 'button';

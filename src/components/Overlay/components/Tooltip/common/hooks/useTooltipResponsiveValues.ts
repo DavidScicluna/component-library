@@ -2,14 +2,14 @@ import { useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
 
 import {
-	__DEFAULT_TOOLTIP_CLOSE_DELAY__,
-	__DEFAULT_TOOLTIP_CLOSE_ON_CLICK__,
-	__DEFAULT_TOOLTIP_CLOSE_ON_ESC__,
-	__DEFAULT_TOOLTIP_GUTTER__,
-	__DEFAULT_TOOLTIP_IS_DISABLED__,
-	__DEFAULT_TOOLTIP_LABEL__,
-	__DEFAULT_TOOLTIP_OPEN_DELAY__,
-	__DEFAULT_TOOLTIP_PLACEMENT__
+	DEFAULT_TOOLTIP_CLOSE_DELAY,
+	DEFAULT_TOOLTIP_CLOSE_ON_CLICK,
+	DEFAULT_TOOLTIP_CLOSE_ON_ESC,
+	DEFAULT_TOOLTIP_GUTTER,
+	DEFAULT_TOOLTIP_IS_DISABLED,
+	DEFAULT_TOOLTIP_LABEL,
+	DEFAULT_TOOLTIP_OPEN_DELAY,
+	DEFAULT_TOOLTIP_PLACEMENT
 } from '../constants';
 import type { TooltipPlacement, TooltipProps } from '../types';
 
@@ -31,14 +31,14 @@ const useTooltipResponsiveValues = <Element extends PolymorphicElementType>(
 	props: UseTooltipResponsiveValuesProps<Element>
 ) => {
 	const {
-		closeDelay: closeDelayProp = __DEFAULT_TOOLTIP_CLOSE_DELAY__,
-		openDelay: openDelayProp = __DEFAULT_TOOLTIP_OPEN_DELAY__,
-		closeOnClick: closeOnClickProp = __DEFAULT_TOOLTIP_CLOSE_ON_CLICK__,
-		closeOnEsc: closeOnEscProp = __DEFAULT_TOOLTIP_CLOSE_ON_ESC__,
-		gutter: gutterProp = __DEFAULT_TOOLTIP_GUTTER__,
-		isDisabled: isDisabledProp = __DEFAULT_TOOLTIP_IS_DISABLED__,
-		label: labelProp = __DEFAULT_TOOLTIP_LABEL__,
-		placement: placementProp = __DEFAULT_TOOLTIP_PLACEMENT__
+		closeDelay: closeDelayProp = DEFAULT_TOOLTIP_CLOSE_DELAY,
+		openDelay: openDelayProp = DEFAULT_TOOLTIP_OPEN_DELAY,
+		closeOnClick: closeOnClickProp = DEFAULT_TOOLTIP_CLOSE_ON_CLICK,
+		closeOnEsc: closeOnEscProp = DEFAULT_TOOLTIP_CLOSE_ON_ESC,
+		gutter: gutterProp = DEFAULT_TOOLTIP_GUTTER,
+		isDisabled: isDisabledProp = DEFAULT_TOOLTIP_IS_DISABLED,
+		label: labelProp = DEFAULT_TOOLTIP_LABEL,
+		placement: placementProp = DEFAULT_TOOLTIP_PLACEMENT
 	} = props;
 
 	const closeDelay = useGetResponsiveValue<number>(closeDelayProp);

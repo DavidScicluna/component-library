@@ -2,11 +2,7 @@ import { useContext } from 'react';
 
 import type { DeepRequired } from 'utility-types';
 
-import {
-	__DEFAULT_ANIMATION_DELAY__,
-	__DEFAULT_ANIMATION_DURATION__,
-	__DEFAULT_ANIMATION_EASING__
-} from '@common/constants';
+import { DEFAULT_ANIMATION_DELAY, DEFAULT_ANIMATION_DURATION, DEFAULT_ANIMATION_EASING } from '@common/constants';
 
 import { AnimationContext } from '@components/Provider/Provider';
 
@@ -14,9 +10,9 @@ import type { AnimationContext as AnimationContextType } from '../types';
 
 const useAnimationContext = (): DeepRequired<AnimationContextType> => {
 	const {
-		delay = __DEFAULT_ANIMATION_DELAY__,
-		duration = __DEFAULT_ANIMATION_DURATION__,
-		easing = __DEFAULT_ANIMATION_EASING__
+		delay = DEFAULT_ANIMATION_DELAY,
+		duration = DEFAULT_ANIMATION_DURATION,
+		easing = DEFAULT_ANIMATION_EASING
 	} = useContext<AnimationContextType>(AnimationContext);
 
 	return { delay, duration, easing };

@@ -4,7 +4,7 @@ import { useStorybookContext } from '../../../Provider/components/StorybookProvi
 import React from 'react';
 import { Button } from '../Button';
 
-import { __DEFAULT_COPY_BUTTON_TIMEOUT__ } from './common/constants';
+import { DEFAULT_COPY_BUTTON_TIMEOUT } from './common/constants';
 import type { CopyButtonProps } from './common/types';
 import type { CopyButtonStory, CopyButtonStoryMeta } from './common/types/story';
 import { CopyButton as CopyButtonComponent } from '.';
@@ -16,7 +16,7 @@ export default {
 		timeout: {
 			name: 'Timeout',
 			type: 'number',
-			defaultValue: __DEFAULT_COPY_BUTTON_TIMEOUT__,
+			defaultValue: DEFAULT_COPY_BUTTON_TIMEOUT,
 			// description: '',
 			control: { type: 'number' }
 		},

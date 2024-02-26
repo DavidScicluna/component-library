@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 import { getPercentage } from '@common/utils';
 
@@ -11,9 +11,9 @@ import { Center } from '@components/Layout';
 
 import { useProgressContext } from '../../common/hooks';
 
-import { __DEFAULT_PROGRESS_SECTION_VALUE__ } from './common/constants';
+import { DEFAULT_PROGRESS_SECTION_VALUE } from './common/constants';
 import { useProgressSectionClasses, useProgressSectionResponsiveValues } from './common/hooks';
-import { __KEYS_PROGRESS_SECTION_CLASS__ } from './common/keys';
+import { KEYS_PROGRESS_SECTION_CLASS } from './common/keys';
 import type { ProgressSectionProps, ProgressSectionRef } from './common/types';
 
 const ProgressSection = forwardRef(function ProgressSection<Element extends PolymorphicElementType>(
@@ -24,10 +24,10 @@ const ProgressSection = forwardRef(function ProgressSection<Element extends Poly
 
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		value: valueProp = __DEFAULT_PROGRESS_SECTION_VALUE__,
+		value: valueProp = DEFAULT_PROGRESS_SECTION_VALUE,
 		...rest
 	} = props;
 
@@ -39,7 +39,7 @@ const ProgressSection = forwardRef(function ProgressSection<Element extends Poly
 		<Center
 			{...(rest as CenterProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_PROGRESS_SECTION_CLASS__, classes, { [className]: !!className })}
+			className={classNames(KEYS_PROGRESS_SECTION_CLASS, classes, { [className]: !!className })}
 			w={variant === 'horizontal' ? `${isIndeterminate ? 25 : getPercentage(value, max, min)}%` : '100%'}
 			h={variant === 'vertical' ? `${isIndeterminate ? 25 : getPercentage(value, max, min)}%` : '100%'}
 			spacing={0}

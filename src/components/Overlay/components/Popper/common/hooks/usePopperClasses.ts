@@ -3,12 +3,7 @@ import { useMemo } from 'react';
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import {
-	__DEFAULT_BORDER_STYLE__,
-	__DEFAULT_BORDER_WIDTH__,
-	__DEFAULT_COLOR__,
-	__DEFAULT_RADIUS__
-} from '@common/constants';
+import { DEFAULT_BORDER_STYLE, DEFAULT_BORDER_WIDTH, DEFAULT_COLOR, DEFAULT_RADIUS } from '@common/constants';
 import { useAppTheme, useConst } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 import { getColorHue } from '@common/utils';
@@ -26,13 +21,9 @@ type UsePopperClassesReturn = Record<'popper' | 'arrow', ClassName>;
 const usePopperClasses = <Element extends PolymorphicElementType>(
 	props: UsePopperClassesProps<Element>
 ): UsePopperClassesReturn => {
-	const { colorMode: __DEFAULT_ICON_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_ICON_COLORMODE } = useAppTheme();
 
-	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_ICON_COLORMODE__,
-		radius: radiusProp = __DEFAULT_RADIUS__
-	} = props;
+	const { color = DEFAULT_COLOR, colorMode = DEFAULT_ICON_COLORMODE, radius: radiusProp = DEFAULT_RADIUS } = props;
 
 	const { radius } = usePopperResponsiveValues<Element>({ radius: radiusProp });
 
@@ -44,8 +35,8 @@ const usePopperClasses = <Element extends PolymorphicElementType>(
 				classes.interactivity.user_select.none,
 				classes.interactivity.will_change.auto,
 				classes.interactivity.pointer_events.none,
-				classes.borders.border_width[__DEFAULT_BORDER_WIDTH__],
-				classes.borders.border_style[__DEFAULT_BORDER_STYLE__],
+				classes.borders.border_width[DEFAULT_BORDER_WIDTH],
+				classes.borders.border_style[DEFAULT_BORDER_STYLE],
 				classes.borders.border_radius[radius],
 				classes.effects.shadow.sm,
 				classes.layout.z_index.popover

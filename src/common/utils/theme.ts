@@ -1,7 +1,7 @@
 import { includes } from 'lodash-es';
 import memoize from 'micro-memoize';
 
-import { __DEFAULT_COLOR__, __DEFAULT_DURATION__, __DEFAULT_FONT_SIZE__ } from '@common/constants';
+import { DEFAULT_COLOR, DEFAULT_DURATION, DEFAULT_FONT_SIZE } from '@common/constants';
 import { colors, durations, fontSizes } from '@common/data';
 import type { ThemeColor, ThemeDuration, ThemeFontSize } from '@common/types';
 
@@ -14,7 +14,7 @@ type CheckColorType = 'theme' | 'class' | 'other';
  * @param color
  * @returns 'theme' or 'other'
  */
-export const checkColorType = memoize((color: CheckColor = __DEFAULT_COLOR__): CheckColorType => {
+export const checkColorType = memoize((color: CheckColor = DEFAULT_COLOR): CheckColorType => {
 	if (includes(colors, color)) {
 		return 'theme';
 	} else if (color.includes('-')) {
@@ -33,7 +33,7 @@ type CheckFontSizeType = 'theme' | 'class' | 'other';
  * @param size
  * @returns 'theme' or 'other'
  */
-export const checkFontSizeType = memoize((size: CheckFontSize = __DEFAULT_FONT_SIZE__): CheckFontSizeType => {
+export const checkFontSizeType = memoize((size: CheckFontSize = DEFAULT_FONT_SIZE): CheckFontSizeType => {
 	if (includes(fontSizes, size)) {
 		return 'theme';
 	} else if (typeof size === 'string' && size.includes('-')) {
@@ -52,7 +52,7 @@ type CheckDurationType = 'theme' | 'class' | 'other';
  * @param duration
  * @returns 'theme' or 'other'
  */
-export const checkDurationType = memoize((duration: CheckDuration = __DEFAULT_DURATION__): CheckDurationType => {
+export const checkDurationType = memoize((duration: CheckDuration = DEFAULT_DURATION): CheckDurationType => {
 	if (includes(durations, duration)) {
 		return 'theme';
 	} else if (typeof duration === 'string' && duration.includes('-')) {

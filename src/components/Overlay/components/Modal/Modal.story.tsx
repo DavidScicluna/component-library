@@ -1,6 +1,6 @@
 import { sample } from 'lodash-es';
 
-import { __DEFAULT_SPACING__ } from '../../../../common/constants';
+import { DEFAULT_SPACING } from '../../../../common/constants';
 import { appColors } from '../../../../common/data';
 import { useGetColor } from '../../../../common/hooks';
 import type { ThemeAppColor } from '../../../../common/types';
@@ -11,17 +11,17 @@ import { Text } from '../../..//Typography';
 import { useStorybookContext } from '../../..//Provider/components/StorybookProvider';
 
 import {
-	__DEFAULT_MODAL_CLOSE_ON_ESC__,
-	__DEFAULT_MODAL_CLOSE_ON_OVERLAY_CLICK__,
-	__DEFAULT_MODAL_HAS_BACKDROP__,
-	// __DEFAULT_MODAL_IS_OPEN__,
-	__DEFAULT_MODAL_SIZE__
+	DEFAULT_MODAL_CLOSE_ON_ESC,
+	DEFAULT_MODAL_CLOSE_ON_OVERLAY_CLICK,
+	DEFAULT_MODAL_HAS_BACKDROP,
+	// DEFAULT_MODAL_IS_OPEN,
+	DEFAULT_MODAL_SIZE
 } from './common/constants';
 import type { ModalDefaultElement, ModalProps, ModalSize } from './common/types';
 import type { ModalStory, ModalStoryMeta } from './common/types/story';
 import { Modal as ModalComponent, ModalBody, ModalFooter, ModalHeader, ModalStack, ModalSubtitle, ModalTitle } from '.';
 
-const __DEFAULT_MODAL_STORY_COLOR__: ThemeAppColor = sample(appColors) || 'blue';
+const DEFAULT_MODAL_STORY_COLOR: ThemeAppColor = sample(appColors) || 'blue';
 
 export default {
 	title: 'Overlay/Modal',
@@ -30,28 +30,28 @@ export default {
 		closeOnEsc: {
 			name: 'Close On Esc',
 			type: 'boolean',
-			defaultValue: __DEFAULT_MODAL_CLOSE_ON_ESC__,
+			defaultValue: DEFAULT_MODAL_CLOSE_ON_ESC,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		closeOnOverlayClick: {
 			name: 'Close On Overlay Click',
 			type: 'boolean',
-			defaultValue: __DEFAULT_MODAL_CLOSE_ON_OVERLAY_CLICK__,
+			defaultValue: DEFAULT_MODAL_CLOSE_ON_OVERLAY_CLICK,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		hasBackdrop: {
 			name: 'Backdrop',
 			type: 'boolean',
-			defaultValue: __DEFAULT_MODAL_HAS_BACKDROP__,
+			defaultValue: DEFAULT_MODAL_HAS_BACKDROP,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: __DEFAULT_MODAL_SIZE__,
+			defaultValue: DEFAULT_MODAL_SIZE,
 			// description: '',
 			options: [
 				'xs',
@@ -72,7 +72,7 @@ export default {
 		spacing: {
 			name: 'Spacing (0-24 | .0, .25, .5 or .75)',
 			type: 'number',
-			defaultValue: __DEFAULT_SPACING__,
+			defaultValue: DEFAULT_SPACING,
 			// description: '',
 			control: { type: 'number' }
 		}
@@ -105,7 +105,7 @@ export const Modal: ModalStory = (props: ModalProps<ModalDefaultElement>): JSX.E
 				<ModalFooter
 					renderCancel={(props) => <Button {...props}>cancel</Button>}
 					renderAction={(props) => (
-						<Button {...props} color={!color ? __DEFAULT_MODAL_STORY_COLOR__ : color}>
+						<Button {...props} color={!color ? DEFAULT_MODAL_STORY_COLOR : color}>
 							action
 						</Button>
 					)}

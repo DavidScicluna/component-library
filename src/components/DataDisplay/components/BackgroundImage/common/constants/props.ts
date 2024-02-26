@@ -18,42 +18,42 @@ import type {
 
 import type { BackgroundImageFilters, BackgroundImageOptions } from '../types';
 
-export const __DEFAULT_BACKGROUND_IMAGE_BLUR__: ThemeBlurClass = 'none';
-export const __DEFAULT_BACKGROUND_IMAGE_BRIGHTNESS__: BrightnessClass = 100;
-export const __DEFAULT_BACKGROUND_IMAGE_CONTRAST__: ContrastClass = 100;
-export const __DEFAULT_BACKGROUND_IMAGE_GRAYSCALE__: GrayscaleClass = 0;
-export const __DEFAULT_BACKGROUND_IMAGE_HUE_ROTATE__: HueRotateClass = 0;
-export const __DEFAULT_BACKGROUND_IMAGE_INVERT__: InvertClass = 0;
-export const __DEFAULT_BACKGROUND_IMAGE_SATURATE__: SaturateClass = 100;
-export const __DEFAULT_BACKGROUND_IMAGE_SEPIA__: SepiaClass = 0;
+export const DEFAULT_BACKGROUND_IMAGE_BLUR: ThemeBlurClass = 'none';
+export const DEFAULT_BACKGROUND_IMAGE_BRIGHTNESS: BrightnessClass = 100;
+export const DEFAULT_BACKGROUND_IMAGE_CONTRAST: ContrastClass = 100;
+export const DEFAULT_BACKGROUND_IMAGE_GRAYSCALE: GrayscaleClass = 0;
+export const DEFAULT_BACKGROUND_IMAGE_HUE_ROTATE: HueRotateClass = 0;
+export const DEFAULT_BACKGROUND_IMAGE_INVERT: InvertClass = 0;
+export const DEFAULT_BACKGROUND_IMAGE_SATURATE: SaturateClass = 100;
+export const DEFAULT_BACKGROUND_IMAGE_SEPIA: SepiaClass = 0;
 
-export const __DEFAULT_BACKGROUND_IMAGE_FILTERS__: BackgroundImageFilters = {
-	blur: __DEFAULT_BACKGROUND_IMAGE_BLUR__,
-	brightness: __DEFAULT_BACKGROUND_IMAGE_BRIGHTNESS__,
-	contrast: __DEFAULT_BACKGROUND_IMAGE_CONTRAST__,
-	grayscale: __DEFAULT_BACKGROUND_IMAGE_GRAYSCALE__,
-	hueRotate: __DEFAULT_BACKGROUND_IMAGE_HUE_ROTATE__,
-	invert: __DEFAULT_BACKGROUND_IMAGE_INVERT__,
-	saturate: __DEFAULT_BACKGROUND_IMAGE_SATURATE__,
-	sepia: __DEFAULT_BACKGROUND_IMAGE_SEPIA__
+export const DEFAULT_BACKGROUND_IMAGE_FILTERS: BackgroundImageFilters = {
+	blur: DEFAULT_BACKGROUND_IMAGE_BLUR,
+	brightness: DEFAULT_BACKGROUND_IMAGE_BRIGHTNESS,
+	contrast: DEFAULT_BACKGROUND_IMAGE_CONTRAST,
+	grayscale: DEFAULT_BACKGROUND_IMAGE_GRAYSCALE,
+	hueRotate: DEFAULT_BACKGROUND_IMAGE_HUE_ROTATE,
+	invert: DEFAULT_BACKGROUND_IMAGE_INVERT,
+	saturate: DEFAULT_BACKGROUND_IMAGE_SATURATE,
+	sepia: DEFAULT_BACKGROUND_IMAGE_SEPIA
 };
 
-export const __DEFAULT_BACKGROUND_IMAGE_ATTACHMENT__: BackgroundAttachmentClass = 'local';
-export const __DEFAULT_BACKGROUND_IMAGE_BLEND_MODE__: BackgroundBlendModeClass = 'normal';
-export const __DEFAULT_BACKGROUND_IMAGE_CLIP__: BackgroundClipClass = 'padding';
-export const __DEFAULT_BACKGROUND_IMAGE_ORIGIN__: BackgroundOriginClass = 'padding';
-export const __DEFAULT_BACKGROUND_IMAGE_POSITION__: BackgroundPositionClass = 'center';
-export const __DEFAULT_BACKGROUND_IMAGE_REPEAT__: BackgroundRepeatClass = 'no-repeat';
-export const __DEFAULT_BACKGROUND_IMAGE_SIZE__: BackgroundSizeClass = 'cover';
+export const DEFAULT_BACKGROUND_IMAGE_ATTACHMENT: BackgroundAttachmentClass = 'local';
+export const DEFAULT_BACKGROUND_IMAGE_BLEND_MODE: BackgroundBlendModeClass = 'normal';
+export const DEFAULT_BACKGROUND_IMAGE_CLIP: BackgroundClipClass = 'padding';
+export const DEFAULT_BACKGROUND_IMAGE_ORIGIN: BackgroundOriginClass = 'padding';
+export const DEFAULT_BACKGROUND_IMAGE_POSITION: BackgroundPositionClass = 'center';
+export const DEFAULT_BACKGROUND_IMAGE_REPEAT: BackgroundRepeatClass = 'no-repeat';
+export const DEFAULT_BACKGROUND_IMAGE_SIZE: BackgroundSizeClass = 'cover';
 
-export const __DEFAULT_BACKGROUND_IMAGE_OPTIONS__: BackgroundImageOptions = {
-	attachment: __DEFAULT_BACKGROUND_IMAGE_ATTACHMENT__,
-	blendMode: __DEFAULT_BACKGROUND_IMAGE_BLEND_MODE__,
-	clip: __DEFAULT_BACKGROUND_IMAGE_CLIP__,
-	origin: __DEFAULT_BACKGROUND_IMAGE_ORIGIN__,
-	position: __DEFAULT_BACKGROUND_IMAGE_POSITION__,
-	repeat: __DEFAULT_BACKGROUND_IMAGE_REPEAT__,
-	size: __DEFAULT_BACKGROUND_IMAGE_SIZE__
+export const DEFAULT_BACKGROUND_IMAGE_OPTIONS: BackgroundImageOptions = {
+	attachment: DEFAULT_BACKGROUND_IMAGE_ATTACHMENT,
+	blendMode: DEFAULT_BACKGROUND_IMAGE_BLEND_MODE,
+	clip: DEFAULT_BACKGROUND_IMAGE_CLIP,
+	origin: DEFAULT_BACKGROUND_IMAGE_ORIGIN,
+	position: DEFAULT_BACKGROUND_IMAGE_POSITION,
+	repeat: DEFAULT_BACKGROUND_IMAGE_REPEAT,
+	size: DEFAULT_BACKGROUND_IMAGE_SIZE
 };
 
-export const __DEFAULT_BACKGROUND_IMAGE_SRC__ = '';
+export const DEFAULT_BACKGROUND_IMAGE_SRC = '';

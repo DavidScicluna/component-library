@@ -7,13 +7,13 @@ import { Text } from '../../../Typography';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
-	__DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT__,
-	__DEFAULT_LOADING_OVERLAY_BLUR__,
-	__DEFAULT_LOADING_OVERLAY_BLUR_TYPE__,
-	__DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND__,
-	__DEFAULT_LOADING_OVERLAY_HAS_GLASS__,
-	__DEFAULT_LOADING_OVERLAY_IS_LOADING__,
-	__DEFAULT_LOADING_OVERLAY_RADIUS__
+	DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT,
+	DEFAULT_LOADING_OVERLAY_BLUR,
+	DEFAULT_LOADING_OVERLAY_BLUR_TYPE,
+	DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND,
+	DEFAULT_LOADING_OVERLAY_HAS_GLASS,
+	DEFAULT_LOADING_OVERLAY_IS_LOADING,
+	DEFAULT_LOADING_OVERLAY_RADIUS
 } from './common/constants';
 import type { LoadingOverlayBlurType, LoadingOverlayProps } from './common/types';
 import type { LoadingOverlayStory, LoadingOverlayStoryMeta } from './common/types/story';
@@ -28,14 +28,14 @@ export default {
 		backdropAmount: {
 			name: 'Backdrop Amount',
 			type: 'string',
-			defaultValue: __DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT__,
+			defaultValue: DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT,
 			// description: '',
 			control: { type: 'number' }
 		},
 		blur: {
 			name: 'Blur',
 			type: 'string',
-			defaultValue: __DEFAULT_LOADING_OVERLAY_BLUR__,
+			defaultValue: DEFAULT_LOADING_OVERLAY_BLUR,
 			// description: '',
 			options: [
 				'none',
@@ -58,7 +58,7 @@ export default {
 		blurType: {
 			name: 'Blur Type',
 			type: 'string',
-			defaultValue: __DEFAULT_LOADING_OVERLAY_BLUR_TYPE__,
+			defaultValue: DEFAULT_LOADING_OVERLAY_BLUR_TYPE,
 			// description: '',
 			options: ['backdrop', 'blur'] as Array<LoadingOverlayBlurType>,
 			control: { type: 'radio' }
@@ -66,7 +66,7 @@ export default {
 		radius: {
 			name: 'Radius',
 			type: 'string',
-			defaultValue: __DEFAULT_LOADING_OVERLAY_RADIUS__,
+			defaultValue: DEFAULT_LOADING_OVERLAY_RADIUS,
 			// description: '',
 			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as ThemeRadiusArr,
 			control: { type: 'radio' }
@@ -74,21 +74,21 @@ export default {
 		isLoading: {
 			name: 'Loading',
 			type: 'boolean',
-			defaultValue: __DEFAULT_LOADING_OVERLAY_IS_LOADING__,
+			defaultValue: DEFAULT_LOADING_OVERLAY_IS_LOADING,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		hasGlass: {
 			name: 'Glass',
 			type: 'boolean',
-			defaultValue: __DEFAULT_LOADING_OVERLAY_HAS_GLASS__,
+			defaultValue: DEFAULT_LOADING_OVERLAY_HAS_GLASS,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		hasBackground: {
 			name: 'Has Background',
 			type: 'boolean',
-			defaultValue: __DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND__,
+			defaultValue: DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND,
 			// description: '',
 			control: { type: 'boolean' }
 		}

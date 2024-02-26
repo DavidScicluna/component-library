@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import { getFontSizeHeight } from '@common/utils';
 
-import { __DEFAULT_DUMMY_ICON_BUTTON_LINE_HEIGHT_SIZE__, __DEFAULT_DUMMY_ICON_BUTTON_SIZE__ } from '../constants';
+import { DEFAULT_DUMMY_ICON_BUTTON_LINE_HEIGHT_SIZE, DEFAULT_DUMMY_ICON_BUTTON_SIZE } from '../constants';
 import type { DummyIconButtonElement, DummyIconButtonProps } from '../types';
 
 import useDummyIconButtonResponsiveValues from './useDummyIconButtonResponsiveValues';
@@ -15,12 +15,12 @@ type UseDummyIconButtonFontSizeProps<Element extends DummyIconButtonElement> = P
 const useDummyIconButtonFontSize = <Element extends DummyIconButtonElement>(
 	props: UseDummyIconButtonFontSizeProps<Element>
 ): number => {
-	const { size: sizeProp = __DEFAULT_DUMMY_ICON_BUTTON_SIZE__ } = props;
+	const { size: sizeProp = DEFAULT_DUMMY_ICON_BUTTON_SIZE } = props;
 
 	const { size } = useDummyIconButtonResponsiveValues<Element>({ size: sizeProp });
 
 	const fontSize = useMemo<number>(() => {
-		return getFontSizeHeight(size, __DEFAULT_DUMMY_ICON_BUTTON_LINE_HEIGHT_SIZE__);
+		return getFontSizeHeight(size, DEFAULT_DUMMY_ICON_BUTTON_LINE_HEIGHT_SIZE);
 	}, [size]);
 
 	return fontSize;

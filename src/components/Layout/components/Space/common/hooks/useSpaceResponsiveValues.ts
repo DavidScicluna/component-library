@@ -3,7 +3,7 @@ import type { Required } from 'utility-types';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { ThemeSpacing, Undefinable } from '@common/types';
 
-import { __DEFAULT_SPACE_HEIGHT__, __DEFAULT_SPACE_WIDTH__ } from '../constants';
+import { DEFAULT_SPACE_HEIGHT, DEFAULT_SPACE_WIDTH } from '../constants';
 import type { SpaceNonResponsiveValueProps, SpaceResponsiveValueProps } from '../types';
 
 type UseSpaceResponsiveValuesProps = Partial<SpaceResponsiveValueProps>;
@@ -15,7 +15,7 @@ const useSpaceResponsiveValues = (props: UseSpaceResponsiveValuesProps): UseSpac
 	const width = useGetResponsiveValue<Undefinable<ThemeSpacing>>(widthProp);
 	const height = useGetResponsiveValue<Undefinable<ThemeSpacing>>(heightProp);
 
-	return { width: width || __DEFAULT_SPACE_WIDTH__, height: height || __DEFAULT_SPACE_HEIGHT__ };
+	return { width: width || DEFAULT_SPACE_WIDTH, height: height || DEFAULT_SPACE_HEIGHT };
 };
 
 export default useSpaceResponsiveValues;

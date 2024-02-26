@@ -2,21 +2,21 @@ import { createContext, forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_RADIUS } from '@common/constants';
 
 import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
-	__DEFAULT_PROGRESS_AS__,
-	__DEFAULT_PROGRESS_IS_INDETERMINATE__,
-	__DEFAULT_PROGRESS_MAX__,
-	__DEFAULT_PROGRESS_MIN__,
-	__DEFAULT_PROGRESS_VALUE__,
-	__DEFAULT_PROGRESS_VARIANT__
+	DEFAULT_PROGRESS_AS,
+	DEFAULT_PROGRESS_IS_INDETERMINATE,
+	DEFAULT_PROGRESS_MAX,
+	DEFAULT_PROGRESS_MIN,
+	DEFAULT_PROGRESS_VALUE,
+	DEFAULT_PROGRESS_VARIANT
 } from './common/constants';
 import { useProgressClasses, useProgressResponsiveValues, useProgressStyles } from './common/hooks';
-import { __KEYS_PROGRESS_CLASS__ } from './common/keys';
+import { KEYS_PROGRESS_CLASS } from './common/keys';
 import type {
 	ProgressContext as ProgressContextType,
 	ProgressDefaultElement,
@@ -27,11 +27,11 @@ import type {
 import { ProgressSection } from './components';
 
 export const ProgressContext = createContext<ProgressContextType<ProgressDefaultElement>>({
-	isIndeterminate: __DEFAULT_PROGRESS_IS_INDETERMINATE__,
-	max: __DEFAULT_PROGRESS_MAX__,
-	min: __DEFAULT_PROGRESS_MIN__,
-	radius: __DEFAULT_RADIUS__,
-	variant: __DEFAULT_PROGRESS_VARIANT__
+	isIndeterminate: DEFAULT_PROGRESS_IS_INDETERMINATE,
+	max: DEFAULT_PROGRESS_MAX,
+	min: DEFAULT_PROGRESS_MIN,
+	radius: DEFAULT_RADIUS,
+	variant: DEFAULT_PROGRESS_VARIANT
 });
 
 const Progress = forwardRef(function Progress<Element extends ProgressElement>(
@@ -40,16 +40,16 @@ const Progress = forwardRef(function Progress<Element extends ProgressElement>(
 ): JSX.Element {
 	const {
 		children,
-		as = __DEFAULT_PROGRESS_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_PROGRESS_AS,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		isIndeterminate: isIndeterminateProp = __DEFAULT_PROGRESS_IS_INDETERMINATE__,
-		max: maxProp = __DEFAULT_PROGRESS_MAX__,
-		min: minProp = __DEFAULT_PROGRESS_MIN__,
-		radius: radiusProp = __DEFAULT_RADIUS__,
-		value: valueProp = __DEFAULT_PROGRESS_VALUE__,
-		variant: variantProp = __DEFAULT_PROGRESS_VARIANT__,
+		isIndeterminate: isIndeterminateProp = DEFAULT_PROGRESS_IS_INDETERMINATE,
+		max: maxProp = DEFAULT_PROGRESS_MAX,
+		min: minProp = DEFAULT_PROGRESS_MIN,
+		radius: radiusProp = DEFAULT_RADIUS,
+		value: valueProp = DEFAULT_PROGRESS_VALUE,
+		variant: variantProp = DEFAULT_PROGRESS_VARIANT,
 		...rest
 	} = props;
 
@@ -71,7 +71,7 @@ const Progress = forwardRef(function Progress<Element extends ProgressElement>(
 				{...(rest as BoxProps<Element>)}
 				as={as}
 				ref={ref}
-				className={classNames(__KEYS_PROGRESS_CLASS__, classes, { [className]: !!className })}
+				className={classNames(KEYS_PROGRESS_CLASS, classes, { [className]: !!className })}
 			>
 				{isIndeterminate || !children ? (
 					<ProgressSection value={value} sx={isIndeterminate ? styles : undefined} />

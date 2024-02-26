@@ -2,13 +2,13 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 
 import { useCarouselArrowState, useCarouselManager } from '../../common/hooks';
 import type { CarouselArrowIconButtonMouseEvent, CarouselArrowIconButtonProps } from '..';
-import { __DEFAULT_CAROUSEL_RIGHT_ARROW_ICON_BUTTON_AS__, CarouselArrowIconButton } from '..';
+import { DEFAULT_CAROUSEL_RIGHT_ARROW_ICON_BUTTON_AS, CarouselArrowIconButton } from '..';
 
-import { __KEYS_CAROUSEL_RIGHT_ARROW_ICON_BUTTON_CLASS__ } from './common/keys';
+import { KEYS_CAROUSEL_RIGHT_ARROW_ICON_BUTTON_CLASS } from './common/keys';
 import type {
 	CarouselRightArrowIconButtonElement,
 	CarouselRightArrowIconButtonProps,
@@ -18,12 +18,7 @@ import type {
 const CarouselRightArrowIconButton = forwardRef(function CarouselRightArrowIconButton<
 	Element extends CarouselRightArrowIconButtonElement
 >(props: CarouselRightArrowIconButtonProps<Element>, ref: CarouselRightArrowIconButtonRef<Element>): JSX.Element {
-	const {
-		as = __DEFAULT_CAROUSEL_RIGHT_ARROW_ICON_BUTTON_AS__,
-		className = __DEFAULT_CLASSNAME__,
-		onClick,
-		...rest
-	} = props;
+	const { as = DEFAULT_CAROUSEL_RIGHT_ARROW_ICON_BUTTON_AS, className = DEFAULT_CLASSNAME, onClick, ...rest } = props;
 
 	const { scrollNext } = useCarouselManager();
 	const { isDisabled } = useCarouselArrowState('right');
@@ -42,7 +37,7 @@ const CarouselRightArrowIconButton = forwardRef(function CarouselRightArrowIconB
 			{...(rest as CarouselArrowIconButtonProps<Element>)}
 			as={as}
 			ref={ref}
-			className={classNames(__KEYS_CAROUSEL_RIGHT_ARROW_ICON_BUTTON_CLASS__, {
+			className={classNames(KEYS_CAROUSEL_RIGHT_ARROW_ICON_BUTTON_CLASS, {
 				[className]: !!className
 			})}
 			direction='right'

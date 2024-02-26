@@ -2,7 +2,7 @@ import { forwardRef, useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_APP_COLOR__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_APP_COLOR, DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import type { TextProps } from '@components/Typography';
@@ -12,8 +12,8 @@ import { useStepperContext, useStepperSizeConfig } from '../../common/hooks';
 import { getStepStatusColor, getStepStatusLabel } from '../../common/utils';
 import { useStepContext } from '../Step/common/hooks';
 
-import { __DEFAULT_STEP_STATUS_AS__ } from './common/constants';
-import { __KEYS_STEP_STATUS_CLASS__ } from './common/keys';
+import { DEFAULT_STEP_STATUS_AS } from './common/constants';
+import { KEYS_STEP_STATUS_CLASS } from './common/keys';
 import type { StepStatusElement, StepStatusProps, StepStatusRef } from './common/types';
 
 const StepStatus = forwardRef(function StepStatus<Element extends StepStatusElement>(
@@ -26,8 +26,8 @@ const StepStatus = forwardRef(function StepStatus<Element extends StepStatusElem
 	const config = useStepperSizeConfig({ size });
 
 	const {
-		as = __DEFAULT_STEP_STATUS_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_STEP_STATUS_AS,
+		className = DEFAULT_CLASSNAME,
 		align = 'left',
 		fontSize = config.fontSize.status,
 		fontWeight = 'bold',
@@ -38,8 +38,8 @@ const StepStatus = forwardRef(function StepStatus<Element extends StepStatusElem
 
 	const isSelected = useMemo(() => index === step, [index, step]);
 
-	const __DEFAULT_STEP_STATUS_ACTIVE_COLOR__ = useGetColor({
-		color: isSelected ? getStepStatusColor(color || __DEFAULT_APP_COLOR__, status) : 'gray',
+	const DEFAULT_STEP_STATUS_ACTIVE_COLOR = useGetColor({
+		color: isSelected ? getStepStatusColor(color || DEFAULT_APP_COLOR, status) : 'gray',
 		colorMode,
 		colorType: isSelected ? 'color' : 'default',
 		hueType: isSelected ? 'color' : 'text.secondary',
@@ -51,9 +51,9 @@ const StepStatus = forwardRef(function StepStatus<Element extends StepStatusElem
 			{...(rest as TextProps<Element>)}
 			as={as}
 			ref={ref}
-			className={classNames(__KEYS_STEP_STATUS_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_STEP_STATUS_CLASS, { [className]: !!className })}
 			align={align}
-			color={__DEFAULT_STEP_STATUS_ACTIVE_COLOR__}
+			color={DEFAULT_STEP_STATUS_ACTIVE_COLOR}
 			fontSize={fontSize}
 			fontWeight={fontWeight}
 			textTransform={textTransform}

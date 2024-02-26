@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import type { GridProps } from '@components/Layout';
@@ -10,21 +10,21 @@ import { Grid, GridItem, VStack } from '@components/Layout';
 
 import { useModalContext } from '../../common/hooks';
 
-import { __KEYS_MODAL_HEADER_CLASS__ } from './common/keys';
+import { KEYS_MODAL_HEADER_CLASS } from './common/keys';
 import type { ModalHeaderProps, ModalHeaderRef } from './common/types';
 
 const ModalHeader = forwardRef(function ModalHeader<Element extends PolymorphicElementType>(
 	props: ModalHeaderProps<Element>,
 	ref: ModalHeaderRef<Element>
 ): JSX.Element {
-	const { colorMode, onClose, spacing: __DEFAULT_MODAL_HEADER_SPACING__ } = useModalContext();
+	const { colorMode, onClose, spacing: DEFAULT_MODAL_HEADER_SPACING } = useModalContext();
 
 	const {
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		renderTitle,
 		renderSubtitle,
 		renderCancel,
-		spacing = __DEFAULT_MODAL_HEADER_SPACING__,
+		spacing = DEFAULT_MODAL_HEADER_SPACING,
 		...rest
 	} = props;
 
@@ -32,7 +32,7 @@ const ModalHeader = forwardRef(function ModalHeader<Element extends PolymorphicE
 		<Grid
 			{...(rest as GridProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_MODAL_HEADER_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_MODAL_HEADER_CLASS, { [className]: !!className })}
 			w='100%'
 			h='100%'
 			templateColumns='1fr auto'

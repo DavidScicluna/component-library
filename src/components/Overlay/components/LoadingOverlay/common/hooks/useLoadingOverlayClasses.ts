@@ -4,10 +4,10 @@ import { useGetClass } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import {
-	__DEFAULT_LOADING_OVERLAY_BLUR__,
-	__DEFAULT_LOADING_OVERLAY_BLUR_TYPE__,
-	__DEFAULT_LOADING_OVERLAY_HAS_GLASS__,
-	__DEFAULT_LOADING_OVERLAY_RADIUS__
+	DEFAULT_LOADING_OVERLAY_BLUR,
+	DEFAULT_LOADING_OVERLAY_BLUR_TYPE,
+	DEFAULT_LOADING_OVERLAY_HAS_GLASS,
+	DEFAULT_LOADING_OVERLAY_RADIUS
 } from '../constants';
 import type { LoadingOverlayProps } from '../types';
 
@@ -24,10 +24,10 @@ const useLoadingOverlayClasses = <Element extends PolymorphicElementType>(
 	props: UseLoadingOverlayClassesProps<Element>
 ): UseLoadingOverlayClassesReturn => {
 	const {
-		blur: blurProp = __DEFAULT_LOADING_OVERLAY_BLUR__,
-		blurType: blurTypeProp = __DEFAULT_LOADING_OVERLAY_BLUR_TYPE__,
-		radius: radiusProp = __DEFAULT_LOADING_OVERLAY_RADIUS__,
-		hasGlass: hasGlassProp = __DEFAULT_LOADING_OVERLAY_HAS_GLASS__
+		blur: blurProp = DEFAULT_LOADING_OVERLAY_BLUR,
+		blurType: blurTypeProp = DEFAULT_LOADING_OVERLAY_BLUR_TYPE,
+		radius: radiusProp = DEFAULT_LOADING_OVERLAY_RADIUS,
+		hasGlass: hasGlassProp = DEFAULT_LOADING_OVERLAY_HAS_GLASS
 	} = props;
 
 	const { blur, blurType, radius, hasGlass } = useLoadingOverlayResponsiveValues<Element>({

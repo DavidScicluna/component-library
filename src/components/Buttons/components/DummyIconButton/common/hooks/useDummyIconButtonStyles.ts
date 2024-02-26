@@ -1,6 +1,6 @@
 import type { Style } from '@common/types';
 
-import { __DEFAULT_DUMMY_ICON_BUTTON_SIZE__ } from '../constants';
+import { DEFAULT_DUMMY_ICON_BUTTON_SIZE } from '../constants';
 import type { DummyIconButtonElement, DummyIconButtonProps } from '../types';
 
 import useDummyIconButtonFontSize from './useDummyIconButtonFontSize';
@@ -15,7 +15,7 @@ type UseDummyIconButtonStylesReturn = Style;
 const useDummyIconButtonStyles = <Element extends DummyIconButtonElement>(
 	props: UseDummyIconButtonStylesProps<Element>
 ): UseDummyIconButtonStylesReturn => {
-	const { size: sizeProp = __DEFAULT_DUMMY_ICON_BUTTON_SIZE__ } = props;
+	const { size: sizeProp = DEFAULT_DUMMY_ICON_BUTTON_SIZE } = props;
 
 	const { size } = useDummyIconButtonResponsiveValues<Element>({ size: sizeProp });
 

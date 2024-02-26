@@ -1,8 +1,8 @@
-import { __DEFAULT_RADIUS__ } from '@common/constants';
+import { DEFAULT_RADIUS } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicElementType, ThemeRadius } from '@common/types';
 
-import { __DEFAULT_PUFF_SPINNER_IS_VISIBLE__, __DEFAULT_PUFF_SPINNER_SIZE__ } from '../constants';
+import { DEFAULT_PUFF_SPINNER_IS_VISIBLE, DEFAULT_PUFF_SPINNER_SIZE } from '../constants';
 import type { PuffSpinnerProps, PuffSpinnerSize } from '../types';
 
 type UsePuffSpinnerResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
@@ -13,9 +13,9 @@ const usePuffSpinnerResponsiveValues = <Element extends PolymorphicElementType>(
 	props: UsePuffSpinnerResponsiveValuesProps<Element>
 ) => {
 	const {
-		isVisible: isVisibleProp = __DEFAULT_PUFF_SPINNER_IS_VISIBLE__,
-		radius: radiusProp = __DEFAULT_RADIUS__,
-		size: sizeProp = __DEFAULT_PUFF_SPINNER_SIZE__
+		isVisible: isVisibleProp = DEFAULT_PUFF_SPINNER_IS_VISIBLE,
+		radius: radiusProp = DEFAULT_RADIUS,
+		size: sizeProp = DEFAULT_PUFF_SPINNER_SIZE
 	} = props;
 
 	const isVisible = useGetResponsiveValue<boolean>(isVisibleProp);

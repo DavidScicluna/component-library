@@ -4,10 +4,10 @@ import { useGetClass, useGetColor } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import {
-	__DEFAULT_LINEAR_GRADIENT_DIRECTION__,
-	__DEFAULT_LINEAR_GRADIENT_FROM__,
-	__DEFAULT_LINEAR_GRADIENT_MIDDLE__,
-	__DEFAULT_LINEAR_GRADIENT_TO__
+	DEFAULT_LINEAR_GRADIENT_DIRECTION,
+	DEFAULT_LINEAR_GRADIENT_FROM,
+	DEFAULT_LINEAR_GRADIENT_MIDDLE,
+	DEFAULT_LINEAR_GRADIENT_TO
 } from '../constants';
 import type { LinearGradientProps } from '../types';
 
@@ -23,10 +23,10 @@ const useLinearGradientClasses = <Element extends PolymorphicElementType>(
 	props: UseLinearGradientClassesProps<Element>
 ): UseLinearGradientClassesReturn => {
 	const {
-		direction: directionProp = __DEFAULT_LINEAR_GRADIENT_DIRECTION__,
-		from: fromProp = __DEFAULT_LINEAR_GRADIENT_FROM__,
-		middle: middleProp = __DEFAULT_LINEAR_GRADIENT_MIDDLE__,
-		to: toProp = __DEFAULT_LINEAR_GRADIENT_TO__
+		direction: directionProp = DEFAULT_LINEAR_GRADIENT_DIRECTION,
+		from: fromProp = DEFAULT_LINEAR_GRADIENT_FROM,
+		middle: middleProp = DEFAULT_LINEAR_GRADIENT_MIDDLE,
+		to: toProp = DEFAULT_LINEAR_GRADIENT_TO
 	} = props;
 
 	const { direction, from, middle, to } = useLinearGradientResponsiveValues<Element>({
@@ -48,15 +48,14 @@ const useLinearGradientClasses = <Element extends PolymorphicElementType>(
 	});
 
 	const middlePosClassName = useGetClass(
-		(classes) =>
-			classes.backgrounds.gradient_middle[middle?.position || __DEFAULT_LINEAR_GRADIENT_MIDDLE__.position]
+		(classes) => classes.backgrounds.gradient_middle[middle?.position || DEFAULT_LINEAR_GRADIENT_MIDDLE.position]
 	);
 	const middleColorClassName = useGetColor({
-		color: middle?.color || __DEFAULT_LINEAR_GRADIENT_MIDDLE__.color,
-		colorMode: middle?.colorMode || __DEFAULT_LINEAR_GRADIENT_MIDDLE__.colorMode,
+		color: middle?.color || DEFAULT_LINEAR_GRADIENT_MIDDLE.color,
+		colorMode: middle?.colorMode || DEFAULT_LINEAR_GRADIENT_MIDDLE.colorMode,
 		colorType: 'color',
 		classType: 'gradient_middle_color',
-		hueType: middle?.hueType || __DEFAULT_LINEAR_GRADIENT_MIDDLE__.hueType
+		hueType: middle?.hueType || DEFAULT_LINEAR_GRADIENT_MIDDLE.hueType
 	});
 
 	const toPosClassName = useGetClass((classes) => classes.backgrounds.gradient_to[to.position]);

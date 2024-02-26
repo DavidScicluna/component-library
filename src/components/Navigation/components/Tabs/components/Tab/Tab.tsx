@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useDimensionsRef, useFocus } from 'rooks';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
 
@@ -19,15 +19,15 @@ import { useTabsContext } from '../../common/hooks';
 import { getTabID, getTabPanelID } from '../../common/utils';
 
 import {
-	__DEFAULT_TAB_AS__,
-	__DEFAULT_TAB_BORDER_WIDTH__,
-	__DEFAULT_TAB_IS_ACTIVE__,
-	__DEFAULT_TAB_IS_COMPACT__,
-	__DEFAULT_TAB_IS_DISABLED__,
-	__DEFAULT_TAB_IS_UPPERCASE__
+	DEFAULT_TAB_AS,
+	DEFAULT_TAB_BORDER_WIDTH,
+	DEFAULT_TAB_IS_ACTIVE,
+	DEFAULT_TAB_IS_COMPACT,
+	DEFAULT_TAB_IS_DISABLED,
+	DEFAULT_TAB_IS_UPPERCASE
 } from './common/constants';
 import { useTabClasses, useTabResponsiveValues, useTabSizeConfig } from './common/hooks';
-import { __KEYS_TAB_CLASS__ } from './common/keys';
+import { KEYS_TAB_CLASS } from './common/keys';
 import type { TabElement, TabMouseEvent, TabProps, TabRef } from './common/types';
 
 const Tab = forwardRef(function Tab<Element extends TabElement>(
@@ -35,15 +35,15 @@ const Tab = forwardRef(function Tab<Element extends TabElement>(
 	ref: TabRef<Element>
 ): JSX.Element {
 	const {
-		color: __DEFAULT_TAB_COLOR__,
-		colorMode: __DEFAULT_TAB_COLORMODE__,
+		color: DEFAULT_TAB_COLOR,
+		colorMode: DEFAULT_TAB_COLORMODE,
 		id,
 		index: panel,
 		isDisabled: isTabsDisabled,
 		isFitted,
 		orientation,
 		onChange,
-		spacing: __DEFAULT_TAB_SPACING__
+		spacing: DEFAULT_TAB_SPACING
 	} = useTabsContext();
 
 	const [childrenRef, childrenDimensions] = useDimensionsRef();
@@ -51,21 +51,21 @@ const Tab = forwardRef(function Tab<Element extends TabElement>(
 
 	const {
 		children,
-		as = __DEFAULT_TAB_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_TAB_AS,
+		className = DEFAULT_CLASSNAME,
 		renderLeft,
 		renderRight,
 		renderTop,
 		renderBottom,
-		color = __DEFAULT_TAB_COLOR__,
-		colorMode = __DEFAULT_TAB_COLORMODE__,
+		color = DEFAULT_TAB_COLOR,
+		colorMode = DEFAULT_TAB_COLORMODE,
 		index,
-		isActive: isActiveProp = __DEFAULT_TAB_IS_ACTIVE__,
-		isCompact: isCompactProp = __DEFAULT_TAB_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_TAB_IS_DISABLED__,
-		isUppercase: isUppercaseProp = __DEFAULT_TAB_IS_UPPERCASE__,
+		isActive: isActiveProp = DEFAULT_TAB_IS_ACTIVE,
+		isCompact: isCompactProp = DEFAULT_TAB_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_TAB_IS_DISABLED,
+		isUppercase: isUppercaseProp = DEFAULT_TAB_IS_UPPERCASE,
 		onClick,
-		spacing = __DEFAULT_TAB_SPACING__,
+		spacing = DEFAULT_TAB_SPACING,
 		...rest
 	} = props;
 
@@ -136,17 +136,13 @@ const Tab = forwardRef(function Tab<Element extends TabElement>(
 					aria-disabled={isDisabled}
 					aria-selected={isActive || isSelected}
 					id={getTabID(id, index)}
-					className={classNames(__KEYS_TAB_CLASS__, classes.tab, { [className]: !!className })}
+					className={classNames(KEYS_TAB_CLASS, classes.tab, { [className]: !!className })}
 					role='tab'
 					tabIndex={0}
 					w='100%'
 					h='100%'
 					templateColumns={1}
-					templateRows={[
-						`${__DEFAULT_TAB_BORDER_WIDTH__}px`,
-						'1fr',
-						`${__DEFAULT_TAB_BORDER_WIDTH__}px`
-					].join(' ')}
+					templateRows={[`${DEFAULT_TAB_BORDER_WIDTH}px`, '1fr', `${DEFAULT_TAB_BORDER_WIDTH}px`].join(' ')}
 					alignItems={isFitted ? 'center' : 'stretch'}
 					alignContent={isFitted ? 'center' : 'stretch'}
 					justifyItems={isFitted ? 'center' : 'stretch'}

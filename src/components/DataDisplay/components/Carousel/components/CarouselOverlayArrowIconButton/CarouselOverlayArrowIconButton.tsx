@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import { Transition } from '@components/Animation';
@@ -17,10 +17,10 @@ import { useCarouselContext } from '@components/DataDisplay/components/Carousel/
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import {
-	__DEFAULT_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_AS__,
-	__DEFAULT_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_IS_VISIBLE__
+	DEFAULT_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_AS,
+	DEFAULT_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_IS_VISIBLE
 } from './common/constants';
-import { __KEYS_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_CLASS__ } from './common/keys';
+import { KEYS_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_CLASS } from './common/keys';
 import type {
 	CarouselOverlayArrowIconButtonElement,
 	CarouselOverlayArrowIconButtonProps,
@@ -33,12 +33,12 @@ const CarouselOverlayArrowIconButton = forwardRef(function CarouselOverlayArrowI
 	const { colorMode, spacing, orientation } = useCarouselContext();
 
 	const {
-		as = __DEFAULT_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_AS,
+		className = DEFAULT_CLASSNAME,
 		renderLeftLinearGradient,
 		renderRightLinearGradient,
 		direction: directionProp,
-		isVisible: isVisibleProp = __DEFAULT_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_IS_VISIBLE__,
+		isVisible: isVisibleProp = DEFAULT_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_IS_VISIBLE,
 		...rest
 	} = props;
 
@@ -91,7 +91,7 @@ const CarouselOverlayArrowIconButton = forwardRef(function CarouselOverlayArrowI
 							{...(rest as CarouselArrowIconButtonProps<Element>)}
 							as={as}
 							ref={ref}
-							className={classNames(__KEYS_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_CLASS__, {
+							className={classNames(KEYS_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_CLASS, {
 								[className]: !!className
 							})}
 							direction={direction === 'left' ? 'left' : 'right'}

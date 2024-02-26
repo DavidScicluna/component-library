@@ -8,10 +8,10 @@ import type {
 
 import type { FormLabelDefaultElement } from '../types';
 
-export const __DEFAULT_FORM_LABEL_AS__: FormLabelDefaultElement = 'label';
+export const DEFAULT_FORM_LABEL_AS: FormLabelDefaultElement = 'label';
 
-export const __DEFAULT_FORM_LABEL_ALIGN__: TextAlignClass = 'left';
-export const __DEFAULT_FORM_LABEL_FONT_WEIGHT__: ThemeFontWeight = 'semibold';
-export const __DEFAULT_FORM_LABEL_LINE_CLAMP__: TextLineClampClass = 'none';
-export const __DEFAULT_FORM_LABEL_LINE_HEIGHT__: ThemeLineHeight = 'tight';
-export const __DEFAULT_FORM_LABEL_TEXT_TRANSFORM__: TextTransformClass = 'capitalize';
+export const DEFAULT_FORM_LABEL_ALIGN: TextAlignClass = 'left';
+export const DEFAULT_FORM_LABEL_FONT_WEIGHT: ThemeFontWeight = 'semibold';
+export const DEFAULT_FORM_LABEL_LINE_CLAMP: TextLineClampClass = 'none';
+export const DEFAULT_FORM_LABEL_LINE_HEIGHT: ThemeLineHeight = 'tight';
+export const DEFAULT_FORM_LABEL_TEXT_TRANSFORM: TextTransformClass = 'capitalize';

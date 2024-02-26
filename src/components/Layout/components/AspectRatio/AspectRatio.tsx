@@ -2,27 +2,22 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
-import { __DEFAULT_ASPECT_RATIO_RATIO__ } from './common/constants';
+import { DEFAULT_ASPECT_RATIO_RATIO } from './common/constants';
 import { useAspectRatioClasses, useAspectRatioResponsiveValues } from './common/hooks';
-import { __KEYS_ASPECT_RATIO_CLASS__ } from './common/keys';
+import { KEYS_ASPECT_RATIO_CLASS } from './common/keys';
 import type { AspectRatioProps, AspectRatioRef } from './common/types';
 
 const AspectRatio = forwardRef(function AspectRatio<Element extends PolymorphicElementType>(
 	props: AspectRatioProps<Element>,
 	ref: AspectRatioRef<Element>
 ): JSX.Element {
-	const {
-		children,
-		className = __DEFAULT_CLASSNAME__,
-		ratio: ratioProp = __DEFAULT_ASPECT_RATIO_RATIO__,
-		...rest
-	} = props;
+	const { children, className = DEFAULT_CLASSNAME, ratio: ratioProp = DEFAULT_ASPECT_RATIO_RATIO, ...rest } = props;
 
 	const { ratio } = useAspectRatioResponsiveValues({ ratio: ratioProp });
 
@@ -32,7 +27,7 @@ const AspectRatio = forwardRef(function AspectRatio<Element extends PolymorphicE
 		<Box
 			{...(rest as BoxProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_ASPECT_RATIO_CLASS__, classes, { [className]: !!className })}
+			className={classNames(KEYS_ASPECT_RATIO_CLASS, classes, { [className]: !!className })}
 		>
 			{children}
 		</Box>

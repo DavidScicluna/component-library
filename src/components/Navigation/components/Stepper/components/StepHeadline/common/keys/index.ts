@@ -1,3 +1,3 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
-export const __KEYS_STEP_HEADLINE_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-stepper-step-headline`;
+export const KEYS_STEP_HEADLINE_CLASS = `${DEFAULT_CLASS_PREFIX}-stepper-step-headline`;

@@ -1,5 +1,5 @@
 import classes from '../../../../common/classes';
-import { __DEFAULT_RADIUS__ } from '../../../../common/constants';
+import { DEFAULT_RADIUS } from '../../../../common/constants';
 import { useGetColor } from '../../../../common/hooks';
 import type { PolymorphicDefaultElement, ThemeRadiusArr } from '../../../../common/types';
 
@@ -8,7 +8,7 @@ import { Text } from '../../../Typography';
 import React from 'react';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
-import { __DEFAULT_SKELETON_IS_ANIMATED__, __DEFAULT_SKELETON_IS_LOADED__ } from './common/constants';
+import { DEFAULT_SKELETON_IS_ANIMATED, DEFAULT_SKELETON_IS_LOADED } from './common/constants';
 import type { SkeletonProps } from './common/types';
 import type { SkeletonStory, SkeletonStoryMeta } from './common/types/story';
 import { Skeleton as SkeletonComponent } from '.';
@@ -22,21 +22,21 @@ export default {
 		isAnimated: {
 			name: 'Animated',
 			type: 'boolean',
-			defaultValue: __DEFAULT_SKELETON_IS_ANIMATED__,
+			defaultValue: DEFAULT_SKELETON_IS_ANIMATED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isLoaded: {
 			name: 'Loaded',
 			type: 'boolean',
-			defaultValue: __DEFAULT_SKELETON_IS_LOADED__,
+			defaultValue: DEFAULT_SKELETON_IS_LOADED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		radius: {
 			name: 'Radius',
 			type: 'string',
-			defaultValue: __DEFAULT_RADIUS__,
+			defaultValue: DEFAULT_RADIUS,
 			// description: '',
 			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as ThemeRadiusArr,
 			control: { type: 'radio' }

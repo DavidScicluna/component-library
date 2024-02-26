@@ -18,13 +18,13 @@ const useProgressSectionClasses = <Element extends PolymorphicElementType>(
 	props: UseProgressSectionClassesProps<Element>
 ): UseProgressSectionClassesReturn => {
 	const {
-		color: __DEFAULT_PROGRESS_SECTION_COLOR__,
-		colorMode: __DEFAULT_PROGRESS_SECTION_COLORMODE__,
+		color: DEFAULT_PROGRESS_SECTION_COLOR,
+		colorMode: DEFAULT_PROGRESS_SECTION_COLORMODE,
 		radius,
 		variant
 	} = useProgressContext();
 
-	const { color = __DEFAULT_PROGRESS_SECTION_COLOR__, colorMode = __DEFAULT_PROGRESS_SECTION_COLORMODE__ } = props;
+	const { color = DEFAULT_PROGRESS_SECTION_COLOR, colorMode = DEFAULT_PROGRESS_SECTION_COLORMODE } = props;
 
 	const backgroundClassName = useGetColor({
 		color,

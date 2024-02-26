@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Divider } from '@components/DataDisplay';
@@ -11,23 +11,23 @@ import { VStack } from '@components/Layout';
 
 import { useModalContext } from '../../common/hooks';
 
-import { __KEYS_MODAL_STACK_CLASS__ } from './common/keys';
+import { KEYS_MODAL_STACK_CLASS } from './common/keys';
 import type { ModalStackProps, ModalStackRef } from './common/types';
 
 const ModalStack = forwardRef(function ModalStack<Element extends PolymorphicElementType>(
 	props: ModalStackProps<Element>,
 	ref: ModalStackRef<Element>
 ): JSX.Element {
-	const { colorMode, spacing: __DEFAULT_MODAL_STACK_SPACING__ } = useModalContext();
+	const { colorMode, spacing: DEFAULT_MODAL_STACK_SPACING } = useModalContext();
 
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		isDivisible = true,
 		alignItems = 'stretch',
 		justifyContent = 'stretch',
 		divider = <Divider colorMode={colorMode} />,
-		spacing = __DEFAULT_MODAL_STACK_SPACING__,
+		spacing = DEFAULT_MODAL_STACK_SPACING,
 		...rest
 	} = props;
 
@@ -35,7 +35,7 @@ const ModalStack = forwardRef(function ModalStack<Element extends PolymorphicEle
 		<VStack
 			{...(rest as VStackProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_MODAL_STACK_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_MODAL_STACK_CLASS, { [className]: !!className })}
 			w='100%'
 			h='100%'
 			alignItems={alignItems}

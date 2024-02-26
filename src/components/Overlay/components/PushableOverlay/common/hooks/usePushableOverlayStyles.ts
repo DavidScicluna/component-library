@@ -1,17 +1,17 @@
 import { useMemo } from 'react';
 
-import { __DEFAULT_COLOR__ } from '@common/constants';
+import { DEFAULT_COLOR } from '@common/constants';
 import { useAppTheme, useGetAmount, useTheme } from '@common/hooks';
 import type { PolymorphicElementType, Style } from '@common/types';
 import { filterColorHex, getColorHue } from '@common/utils';
 
 import {
-	__DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
-	__DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
-	__DEFAULT_PUSHABLE_OVERLAY_IS_FIXED__,
-	__DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
-	__DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__,
-	__DEFAULT_PUSHABLE_OVERLAY_VARIANT__
+	DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE,
+	DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED,
+	DEFAULT_PUSHABLE_OVERLAY_IS_FIXED,
+	DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE,
+	DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE,
+	DEFAULT_PUSHABLE_OVERLAY_VARIANT
 } from '../constants';
 import type { PushableOverlayProps } from '../types';
 
@@ -36,16 +36,16 @@ const usePushableOverlayStyles = <Element extends PolymorphicElementType>(
 ): UsePushableOverlayStylesReturn => {
 	const theme = useTheme();
 
-	const { colorMode: __DEFAULT_PUSHABLE_OVERLAY_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_PUSHABLE_OVERLAY_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_PUSHABLE_OVERLAY_COLORMODE__,
-		isActive: isActiveProp = __DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
-		isDisabled: isDisabledProp = __DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
-		isFixed: isFixedProp = __DEFAULT_PUSHABLE_OVERLAY_IS_FIXED__,
-		isPushable: isPushableProp = __DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
-		variant: variantProp = __DEFAULT_PUSHABLE_OVERLAY_VARIANT__
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_PUSHABLE_OVERLAY_COLORMODE,
+		isActive: isActiveProp = DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE,
+		isDisabled: isDisabledProp = DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED,
+		isFixed: isFixedProp = DEFAULT_PUSHABLE_OVERLAY_IS_FIXED,
+		isPushable: isPushableProp = DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE,
+		variant: variantProp = DEFAULT_PUSHABLE_OVERLAY_VARIANT
 	} = props;
 
 	const amount = useGetAmount({ colorMode, types: ['active', 'back', 'hover'] });
@@ -59,7 +59,7 @@ const usePushableOverlayStyles = <Element extends PolymorphicElementType>(
 	});
 
 	const containedDefaultStyles = useMemo<Style>(() => {
-		const { pushable, hover, active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { pushable, hover, active } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		const colorHue = getColorHue({ colorMode, type: 'background' });
 		const backgroundHue = getColorHue({ colorMode, type: 'color' });
@@ -141,7 +141,7 @@ const usePushableOverlayStyles = <Element extends PolymorphicElementType>(
 	}, [amount, color, colorMode, isPushable, isFixed]);
 
 	const containedActiveStyles = useMemo<Style>(() => {
-		const { active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { active } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		const colorHue = getColorHue({ colorMode, type: 'background' });
 		const backgroundHue = getColorHue({ colorMode, type: 'color' });
@@ -158,7 +158,7 @@ const usePushableOverlayStyles = <Element extends PolymorphicElementType>(
 	}, [color, colorMode]);
 
 	const containedDisabledStyles = useMemo<Style>(() => {
-		const { active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { active } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		const colorHue = getColorHue({ colorMode, type: 'background' });
 		const backgroundHue = getColorHue({ colorMode, type: 'color' });
@@ -175,7 +175,7 @@ const usePushableOverlayStyles = <Element extends PolymorphicElementType>(
 	}, [color, colorMode]);
 
 	const lightDefaultStyles = useMemo<Style>(() => {
-		const { pushable, hover, active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { pushable, hover, active } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		const colorHue = getColorHue({ colorMode, type: 'dark' });
 		const backgroundHue = getColorHue({ colorMode, type: 'light' });
@@ -269,7 +269,7 @@ const usePushableOverlayStyles = <Element extends PolymorphicElementType>(
 	}, [amount, color, colorMode, isPushable, isFixed]);
 
 	const lightActiveStyles = useMemo<Style>(() => {
-		const { active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { active } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		const colorHue = getColorHue({ colorMode, type: 'darker' });
 		const backgroundHue = getColorHue({ colorMode, type: 'lighter' });
@@ -286,7 +286,7 @@ const usePushableOverlayStyles = <Element extends PolymorphicElementType>(
 	}, [color, colorMode]);
 
 	const lightDisabledStyles = useMemo<Style>(() => {
-		const { active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { active } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		const colorHue = getColorHue({ colorMode, type: 'darker' });
 		const backgroundHue = getColorHue({ colorMode, type: 'lighter' });
@@ -303,7 +303,7 @@ const usePushableOverlayStyles = <Element extends PolymorphicElementType>(
 	}, [color, colorMode]);
 
 	const darkDefaultStyles = useMemo<Style>(() => {
-		const { pushable, hover, active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { pushable, hover, active } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		const colorHue = getColorHue({ colorMode, type: 'light' });
 		const backgroundHue = getColorHue({ colorMode, type: 'dark' });
@@ -397,7 +397,7 @@ const usePushableOverlayStyles = <Element extends PolymorphicElementType>(
 	}, [amount, color, colorMode, isPushable, isFixed]);
 
 	const darkActiveStyles = useMemo<Style>(() => {
-		const { active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { active } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		const colorHue = getColorHue({ colorMode, type: 'lighter' });
 		const backgroundHue = getColorHue({ colorMode, type: 'darker' });
@@ -414,7 +414,7 @@ const usePushableOverlayStyles = <Element extends PolymorphicElementType>(
 	}, [color, colorMode]);
 
 	const darkDisabledStyles = useMemo<Style>(() => {
-		const { active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { active } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		const colorHue = getColorHue({ colorMode, type: 'lighter' });
 		const backgroundHue = getColorHue({ colorMode, type: 'darker' });
@@ -431,7 +431,7 @@ const usePushableOverlayStyles = <Element extends PolymorphicElementType>(
 	}, [color, colorMode]);
 
 	const outlinedDefaultStyles = useMemo<Style>(() => {
-		const { pushable, hover, active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { pushable, hover, active } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		const colorHue = getColorHue({ colorMode, type: 'color' });
 
@@ -511,7 +511,7 @@ const usePushableOverlayStyles = <Element extends PolymorphicElementType>(
 	}, [amount, color, colorMode, isPushable, isFixed]);
 
 	const outlinedActiveStyles = useMemo<Style>(() => {
-		const { active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { active } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		const colorHue = getColorHue({ colorMode, type: 'color' });
 
@@ -527,7 +527,7 @@ const usePushableOverlayStyles = <Element extends PolymorphicElementType>(
 	}, [color, colorMode]);
 
 	const outlinedDisabledStyles = useMemo<Style>(() => {
-		const { active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { active } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		const colorHue = getColorHue({ colorMode, type: 'color' });
 
@@ -543,7 +543,7 @@ const usePushableOverlayStyles = <Element extends PolymorphicElementType>(
 	}, [color, colorMode]);
 
 	const monochromeDefaultStyles = useMemo<Style>(() => {
-		const { pushable, hover, active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { pushable, hover, active } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		const colorHue = getColorHue({ colorMode, type: 'text.primary' });
 		const borderHue = getColorHue({ colorMode, type: 'divider' });
@@ -624,7 +624,7 @@ const usePushableOverlayStyles = <Element extends PolymorphicElementType>(
 	}, [colorMode, isPushable, isFixed]);
 
 	const monochromeActiveStyles = useMemo<Style>(() => {
-		const { active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { active } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		const colorHue = getColorHue({ colorMode, type: 'text.primary' });
 		const borderHue = getColorHue({ colorMode, type: 'divider' });
@@ -641,7 +641,7 @@ const usePushableOverlayStyles = <Element extends PolymorphicElementType>(
 	}, [colorMode]);
 
 	const monochromeDisabledStyles = useMemo<Style>(() => {
-		const { active } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { active } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		const colorHue = getColorHue({ colorMode, type: 'text.primary' });
 		const borderHue = getColorHue({ colorMode, type: 'divider' });

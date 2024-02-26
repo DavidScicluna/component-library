@@ -1,5 +1,5 @@
 import type { PolymorphicElementType } from '@common/types';
 
-export const __DEFAULT_POLYMORPHIC_ELEMENT__: PolymorphicElementType = 'div';
-export const __DEFAULT_POLYMORPHIC_OBJECT__ = {};
-export const __DEFAULT_POLYMORPHIC_SX__ = {};
+export const DEFAULT_POLYMORPHIC_ELEMENT: PolymorphicElementType = 'div';
+export const DEFAULT_POLYMORPHIC_OBJECT = {};
+export const DEFAULT_POLYMORPHIC_SX = {};

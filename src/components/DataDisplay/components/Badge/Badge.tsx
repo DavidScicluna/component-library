@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useDimensionsRef, useFocus } from 'rooks';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
 
@@ -14,20 +14,20 @@ import type { PushableOverlayProps } from '@components/Overlay';
 import { PushableOverlay } from '@components/Overlay';
 
 import {
-	__DEFAULT_BADGE_AS__,
-	__DEFAULT_BADGE_IS_ACTIVE__,
-	__DEFAULT_BADGE_IS_CLICKABLE__,
-	__DEFAULT_BADGE_IS_COMPACT__,
-	__DEFAULT_BADGE_IS_DISABLED__,
-	__DEFAULT_BADGE_IS_FULLWIDTH__,
-	__DEFAULT_BADGE_IS_OUTLINED__,
-	__DEFAULT_BADGE_IS_ROUND__,
-	__DEFAULT_BADGE_IS_UPPERCASE__,
-	__DEFAULT_BADGE_SIZE__,
-	__DEFAULT_BADGE_VARIANT__
+	DEFAULT_BADGE_AS,
+	DEFAULT_BADGE_IS_ACTIVE,
+	DEFAULT_BADGE_IS_CLICKABLE,
+	DEFAULT_BADGE_IS_COMPACT,
+	DEFAULT_BADGE_IS_DISABLED,
+	DEFAULT_BADGE_IS_FULLWIDTH,
+	DEFAULT_BADGE_IS_OUTLINED,
+	DEFAULT_BADGE_IS_ROUND,
+	DEFAULT_BADGE_IS_UPPERCASE,
+	DEFAULT_BADGE_SIZE,
+	DEFAULT_BADGE_VARIANT
 } from './common/constants';
 import { useBadgeClasses, useBadgeResponsiveValues, useBadgeSizeConfig } from './common/hooks';
-import { __KEYS_BADGE_CLASS__ } from './common/keys';
+import { KEYS_BADGE_CLASS } from './common/keys';
 import type {
 	BadgeContext as BadgeContextType,
 	BadgeDefaultElement,
@@ -37,8 +37,8 @@ import type {
 } from './common/types';
 
 export const BadgeContext = createContext<BadgeContextType<BadgeDefaultElement>>({
-	size: __DEFAULT_BADGE_SIZE__,
-	variant: __DEFAULT_BADGE_VARIANT__
+	size: DEFAULT_BADGE_SIZE,
+	variant: DEFAULT_BADGE_VARIANT
 });
 
 const Badge = forwardRef(function Badge<Element extends BadgeElement>(
@@ -50,23 +50,23 @@ const Badge = forwardRef(function Badge<Element extends BadgeElement>(
 
 	const {
 		children,
-		as = __DEFAULT_BADGE_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_BADGE_AS,
+		className = DEFAULT_CLASSNAME,
 		renderLeft,
 		renderRight,
 		renderAction,
 		color,
 		colorMode,
-		isActive: isActiveProp = __DEFAULT_BADGE_IS_ACTIVE__,
-		isClickable: isClickableProp = __DEFAULT_BADGE_IS_CLICKABLE__,
-		isCompact: isCompactProp = __DEFAULT_BADGE_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_BADGE_IS_DISABLED__,
-		isFullWidth: isFullWidthProp = __DEFAULT_BADGE_IS_FULLWIDTH__,
-		isOutlined: isOutlinedProp = __DEFAULT_BADGE_IS_OUTLINED__,
-		isRound: isRoundProp = __DEFAULT_BADGE_IS_ROUND__,
-		isUppercase: isUppercaseProp = __DEFAULT_BADGE_IS_UPPERCASE__,
-		size: sizeProp = __DEFAULT_BADGE_SIZE__,
-		variant: variantProp = __DEFAULT_BADGE_VARIANT__,
+		isActive: isActiveProp = DEFAULT_BADGE_IS_ACTIVE,
+		isClickable: isClickableProp = DEFAULT_BADGE_IS_CLICKABLE,
+		isCompact: isCompactProp = DEFAULT_BADGE_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_BADGE_IS_DISABLED,
+		isFullWidth: isFullWidthProp = DEFAULT_BADGE_IS_FULLWIDTH,
+		isOutlined: isOutlinedProp = DEFAULT_BADGE_IS_OUTLINED,
+		isRound: isRoundProp = DEFAULT_BADGE_IS_ROUND,
+		isUppercase: isUppercaseProp = DEFAULT_BADGE_IS_UPPERCASE,
+		size: sizeProp = DEFAULT_BADGE_SIZE,
+		variant: variantProp = DEFAULT_BADGE_VARIANT,
 		...rest
 	} = props;
 
@@ -109,7 +109,7 @@ const Badge = forwardRef(function Badge<Element extends BadgeElement>(
 				{...(rest as PushableOverlayProps<Element>)}
 				as={as}
 				ref={ref}
-				className={classNames(__KEYS_BADGE_CLASS__, classes, { [className]: !!className })}
+				className={classNames(KEYS_BADGE_CLASS, classes, { [className]: !!className })}
 				color={color}
 				colorMode={colorMode}
 				radius={config.radius}

@@ -3,13 +3,13 @@ import React from 'react';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
-	__DEFAULT_TOOLTIP_CLOSE_DELAY__,
-	__DEFAULT_TOOLTIP_CLOSE_ON_CLICK__,
-	__DEFAULT_TOOLTIP_CLOSE_ON_ESC__,
-	__DEFAULT_TOOLTIP_GUTTER__,
-	__DEFAULT_TOOLTIP_IS_DISABLED__,
-	__DEFAULT_TOOLTIP_OPEN_DELAY__,
-	__DEFAULT_TOOLTIP_PLACEMENT__
+	DEFAULT_TOOLTIP_CLOSE_DELAY,
+	DEFAULT_TOOLTIP_CLOSE_ON_CLICK,
+	DEFAULT_TOOLTIP_CLOSE_ON_ESC,
+	DEFAULT_TOOLTIP_GUTTER,
+	DEFAULT_TOOLTIP_IS_DISABLED,
+	DEFAULT_TOOLTIP_OPEN_DELAY,
+	DEFAULT_TOOLTIP_PLACEMENT
 } from './common/constants';
 import type { TooltipPlacement, TooltipProps } from './common/types';
 import type { TooltipStory, TooltipStoryMeta } from './common/types/story';
@@ -23,42 +23,42 @@ export default {
 		closeDelay: {
 			name: 'Close Delay',
 			type: 'number',
-			defaultValue: __DEFAULT_TOOLTIP_CLOSE_DELAY__,
+			defaultValue: DEFAULT_TOOLTIP_CLOSE_DELAY,
 			// description: '',
 			control: { type: 'number' }
 		},
 		openDelay: {
 			name: 'Open Delay',
 			type: 'number',
-			defaultValue: __DEFAULT_TOOLTIP_OPEN_DELAY__,
+			defaultValue: DEFAULT_TOOLTIP_OPEN_DELAY,
 			// description: '',
 			control: { type: 'number' }
 		},
 		closeOnClick: {
 			name: 'Close On Click',
 			type: 'boolean',
-			defaultValue: __DEFAULT_TOOLTIP_CLOSE_ON_CLICK__,
+			defaultValue: DEFAULT_TOOLTIP_CLOSE_ON_CLICK,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		closeOnEsc: {
 			name: 'Close On Esc',
 			type: 'boolean',
-			defaultValue: __DEFAULT_TOOLTIP_CLOSE_ON_ESC__,
+			defaultValue: DEFAULT_TOOLTIP_CLOSE_ON_ESC,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		gutter: {
 			name: 'Gutter',
 			type: 'number',
-			defaultValue: __DEFAULT_TOOLTIP_GUTTER__,
+			defaultValue: DEFAULT_TOOLTIP_GUTTER,
 			// description: '',
 			control: { type: 'number' }
 		},
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
-			defaultValue: __DEFAULT_TOOLTIP_IS_DISABLED__,
+			defaultValue: DEFAULT_TOOLTIP_IS_DISABLED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
@@ -72,7 +72,7 @@ export default {
 		placement: {
 			name: 'Placement',
 			type: 'string',
-			defaultValue: __DEFAULT_TOOLTIP_PLACEMENT__,
+			defaultValue: DEFAULT_TOOLTIP_PLACEMENT,
 			// description: '',
 			options: [
 				'top',

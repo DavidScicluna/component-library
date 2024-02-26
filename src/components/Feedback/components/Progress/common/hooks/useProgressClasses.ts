@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_COLOR__, __DEFAULT_RADIUS__ } from '@common/constants';
+import { DEFAULT_COLOR, DEFAULT_RADIUS } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
 import type { ClassName } from '@common/types';
 
@@ -18,12 +18,12 @@ type UseProgressClassesReturn = ClassName;
 const useProgressClasses = <Element extends ProgressElement>(
 	props: UseProgressClassesProps<Element>
 ): UseProgressClassesReturn => {
-	const { colorMode: __DEFAULT_PROGRESS_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_PROGRESS_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_PROGRESS_COLORMODE__,
-		radius: radiusProp = __DEFAULT_RADIUS__
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_PROGRESS_COLORMODE,
+		radius: radiusProp = DEFAULT_RADIUS
 	} = props;
 
 	const { radius } = useProgressResponsiveValues<Element>({ radius: radiusProp });

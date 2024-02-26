@@ -2,15 +2,15 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
-import { __DEFAULT_SPACE_HEIGHT__, __DEFAULT_SPACE_WIDTH__ } from './common/constants';
+import { DEFAULT_SPACE_HEIGHT, DEFAULT_SPACE_WIDTH } from './common/constants';
 import { useSpaceClasses, useSpaceResponsiveValues } from './common/hooks';
-import { __KEYS_SPACE_CLASS__ } from './common/keys';
+import { KEYS_SPACE_CLASS } from './common/keys';
 import type { SpaceProps, SpaceRef } from './common/types';
 
 const Space = forwardRef(function Space<Element extends PolymorphicElementType>(
@@ -18,9 +18,9 @@ const Space = forwardRef(function Space<Element extends PolymorphicElementType>(
 	ref: SpaceRef<Element>
 ): JSX.Element {
 	const {
-		className = __DEFAULT_CLASSNAME__,
-		width: widthProp = __DEFAULT_SPACE_WIDTH__,
-		height: heightProp = __DEFAULT_SPACE_HEIGHT__,
+		className = DEFAULT_CLASSNAME,
+		width: widthProp = DEFAULT_SPACE_WIDTH,
+		height: heightProp = DEFAULT_SPACE_HEIGHT,
 		...rest
 	} = props;
 
@@ -32,7 +32,7 @@ const Space = forwardRef(function Space<Element extends PolymorphicElementType>(
 		<Box
 			{...(rest as BoxProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_SPACE_CLASS__, classes, { [className]: !!className })}
+			className={classNames(KEYS_SPACE_CLASS, classes, { [className]: !!className })}
 		/>
 	);
 });

@@ -3,9 +3,9 @@ import { useContext } from 'react';
 import type { DeepRequired } from 'utility-types';
 
 import {
-	__DEFAULT_HAS_FILLEDICON_LOADED__,
-	__DEFAULT_HAS_OUTLINEDICON_LOADED__,
-	__DEFAULT_HAS_TWOTONEICON_LOADED__
+	DEFAULT_HAS_FILLEDICON_LOADED,
+	DEFAULT_HAS_OUTLINEDICON_LOADED,
+	DEFAULT_HAS_TWOTONEICON_LOADED
 } from '@common/constants';
 
 import { IconFontContext } from '@components/Provider/Provider';
@@ -14,9 +14,9 @@ import type { IconFontContext as IconFontContextType } from '../types';
 
 const useIconFontContext = (): DeepRequired<IconFontContextType> => {
 	const {
-		filled = __DEFAULT_HAS_FILLEDICON_LOADED__,
-		outlined = __DEFAULT_HAS_OUTLINEDICON_LOADED__,
-		twoTone = __DEFAULT_HAS_TWOTONEICON_LOADED__
+		filled = DEFAULT_HAS_FILLEDICON_LOADED,
+		outlined = DEFAULT_HAS_OUTLINEDICON_LOADED,
+		twoTone = DEFAULT_HAS_TWOTONEICON_LOADED
 	} = useContext<IconFontContextType>(IconFontContext);
 
 	return { filled, outlined, twoTone };

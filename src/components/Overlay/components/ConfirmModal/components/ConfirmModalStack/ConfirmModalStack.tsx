@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import type { VStackProps } from '@components/Layout';
@@ -10,21 +10,21 @@ import { VStack } from '@components/Layout';
 
 import { useConfirmModalContext } from '../../common/hooks';
 
-import { __KEYS_CONFIRM_MODAL_STACK_CLASS__ } from './common/keys';
+import { KEYS_CONFIRM_MODAL_STACK_CLASS } from './common/keys';
 import type { ConfirmModalStackProps, ConfirmModalStackRef } from './common/types';
 
 const ConfirmModalStack = forwardRef(function ConfirmModalStack<Element extends PolymorphicElementType>(
 	props: ConfirmModalStackProps<Element>,
 	ref: ConfirmModalStackRef<Element>
 ): JSX.Element {
-	const { spacing: __DEFAULT_CONFIRM_MODAL_STACK_SPACING__ } = useConfirmModalContext();
+	const { spacing: DEFAULT_CONFIRM_MODAL_STACK_SPACING } = useConfirmModalContext();
 
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		alignItems = 'stretch',
 		justifyContent = 'stretch',
-		spacing = __DEFAULT_CONFIRM_MODAL_STACK_SPACING__,
+		spacing = DEFAULT_CONFIRM_MODAL_STACK_SPACING,
 		...rest
 	} = props;
 
@@ -32,7 +32,7 @@ const ConfirmModalStack = forwardRef(function ConfirmModalStack<Element extends 
 		<VStack
 			{...(rest as VStackProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_CONFIRM_MODAL_STACK_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_CONFIRM_MODAL_STACK_CLASS, { [className]: !!className })}
 			w='100%'
 			h='100%'
 			alignItems={alignItems}

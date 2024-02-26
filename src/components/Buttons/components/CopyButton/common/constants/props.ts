@@ -4,8 +4,8 @@ import { convertStringToNumber } from '@common/utils';
 
 import type { CopyButtonTimeout } from '../types';
 
-export const __DEFAULT_COPY_BUTTON_DURATION__: ThemeDuration = 'ultra-slow';
-export const __DEFAULT_COPY_BUTTON_TIMEOUT__: CopyButtonTimeout = convertStringToNumber(
-	theme.transitionDuration[__DEFAULT_COPY_BUTTON_DURATION__],
+export const DEFAULT_COPY_BUTTON_DURATION: ThemeDuration = 'ultra-slow';
+export const DEFAULT_COPY_BUTTON_TIMEOUT: CopyButtonTimeout = convertStringToNumber(
+	theme.transitionDuration[DEFAULT_COPY_BUTTON_DURATION],
 	'ms'
 );

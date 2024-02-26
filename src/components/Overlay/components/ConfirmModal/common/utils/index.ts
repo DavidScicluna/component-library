@@ -1,13 +1,13 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
 export const getConfirmModalID = (id: string): string => {
-	return `${__DEFAULT_CLASS_PREFIX__}-${id}-confirm-modal`;
+	return `${DEFAULT_CLASS_PREFIX}-${id}-confirm-modal`;
 };
 
 export const getConfirmModalTitleID = (id: string): string => {
-	return `${__DEFAULT_CLASS_PREFIX__}-${id}-confirm-modal-title`;
+	return `${DEFAULT_CLASS_PREFIX}-${id}-confirm-modal-title`;
 };
 
 export const getConfirmModalSubtitleID = (id: string): string => {
-	return `${__DEFAULT_CLASS_PREFIX__}-${id}-confirm-modal-subtitle`;
+	return `${DEFAULT_CLASS_PREFIX}-${id}-confirm-modal-subtitle`;
 };

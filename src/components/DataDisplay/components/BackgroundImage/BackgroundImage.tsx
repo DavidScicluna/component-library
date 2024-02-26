@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_RADIUS } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -10,12 +10,12 @@ import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
-	__DEFAULT_BACKGROUND_IMAGE_FILTERS__,
-	__DEFAULT_BACKGROUND_IMAGE_OPTIONS__,
-	__DEFAULT_BACKGROUND_IMAGE_SRC__
+	DEFAULT_BACKGROUND_IMAGE_FILTERS,
+	DEFAULT_BACKGROUND_IMAGE_OPTIONS,
+	DEFAULT_BACKGROUND_IMAGE_SRC
 } from './common/constants';
 import { useBackgroundImageClasses, useBackgroundImageResponsiveValues } from './common/hooks';
-import { __KEYS_BACKGROUND_IMAGE_CLASS__, __KEYS_BACKGROUND_IMAGE_IMAGE_CLASS__ } from './common/keys';
+import { KEYS_BACKGROUND_IMAGE_CLASS, KEYS_BACKGROUND_IMAGE_IMAGE_CLASS } from './common/keys';
 import type { BackgroundImageProps, BackgroundImageRef } from './common/types';
 
 const BackgroundImage = forwardRef(function BackgroundImage<Element extends PolymorphicElementType>(
@@ -24,11 +24,11 @@ const BackgroundImage = forwardRef(function BackgroundImage<Element extends Poly
 ): JSX.Element {
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
-		filters: filtersProp = __DEFAULT_BACKGROUND_IMAGE_FILTERS__,
-		options: optionsProp = __DEFAULT_BACKGROUND_IMAGE_OPTIONS__,
-		radius: radiusProp = __DEFAULT_RADIUS__,
-		src: srcProp = __DEFAULT_BACKGROUND_IMAGE_SRC__,
+		className = DEFAULT_CLASSNAME,
+		filters: filtersProp = DEFAULT_BACKGROUND_IMAGE_FILTERS,
+		options: optionsProp = DEFAULT_BACKGROUND_IMAGE_OPTIONS,
+		radius: radiusProp = DEFAULT_RADIUS,
+		src: srcProp = DEFAULT_BACKGROUND_IMAGE_SRC,
 		...rest
 	} = props;
 
@@ -45,7 +45,7 @@ const BackgroundImage = forwardRef(function BackgroundImage<Element extends Poly
 		<Grid
 			{...(rest as GridProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_BACKGROUND_IMAGE_CLASS__, classes.container, { [className]: !!className })}
+			className={classNames(KEYS_BACKGROUND_IMAGE_CLASS, classes.container, { [className]: !!className })}
 			templateColumns={1}
 			templateRows={1}
 			alignItems='stretch'
@@ -60,7 +60,7 @@ const BackgroundImage = forwardRef(function BackgroundImage<Element extends Poly
 
 			<GridItem columnStart={1} rowStart={1}>
 				<Box
-					className={classNames(__KEYS_BACKGROUND_IMAGE_IMAGE_CLASS__, classes.image)}
+					className={classNames(KEYS_BACKGROUND_IMAGE_IMAGE_CLASS, classes.image)}
 					w='100%'
 					h='100%'
 					sx={{ backgroundImage: `url(${src})` }}

@@ -3,28 +3,28 @@ import { createContext, forwardRef } from 'react';
 import classNames from 'classnames';
 
 import {
-	__DEFAULT_APP_COLOR__,
-	__DEFAULT_APP_COLORMODE__,
-	__DEFAULT_CLASSNAME__,
-	__DEFAULT_METHOD__,
-	__DEFAULT_SPACING__
+	DEFAULT_APP_COLOR,
+	DEFAULT_APP_COLORMODE,
+	DEFAULT_CLASSNAME,
+	DEFAULT_METHOD,
+	DEFAULT_SPACING
 } from '@common/constants';
 
 import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
-	__DEFAULT_TABS_ALIGN__,
-	__DEFAULT_TABS_AS__,
-	__DEFAULT_TABS_ID__,
-	__DEFAULT_TABS_INDEX__,
-	__DEFAULT_TABS_IS_DISABLED__,
-	__DEFAULT_TABS_IS_FITTED__,
-	__DEFAULT_TABS_ORIENTATION__,
-	__DEFAULT_TABS_SIZE__
+	DEFAULT_TABS_ALIGN,
+	DEFAULT_TABS_AS,
+	DEFAULT_TABS_ID,
+	DEFAULT_TABS_INDEX,
+	DEFAULT_TABS_IS_DISABLED,
+	DEFAULT_TABS_IS_FITTED,
+	DEFAULT_TABS_ORIENTATION,
+	DEFAULT_TABS_SIZE
 } from './common/constants';
 import { useTabsResponsiveValues } from './common/hooks';
-import { __KEYS_TABS_CLASS__ } from './common/keys';
+import { KEYS_TABS_CLASS } from './common/keys';
 import type {
 	TabsContext as TabsContextType,
 	TabsDefaultElement,
@@ -34,17 +34,17 @@ import type {
 } from './common/types';
 
 export const TabsContext = createContext<TabsContextType<TabsDefaultElement>>({
-	color: __DEFAULT_APP_COLOR__,
-	colorMode: __DEFAULT_APP_COLORMODE__,
-	align: __DEFAULT_TABS_ALIGN__,
-	id: __DEFAULT_TABS_ID__,
-	index: __DEFAULT_TABS_INDEX__,
-	isDisabled: __DEFAULT_TABS_IS_DISABLED__,
-	isFitted: __DEFAULT_TABS_IS_FITTED__,
-	onChange: __DEFAULT_METHOD__,
-	orientation: __DEFAULT_TABS_ORIENTATION__,
-	size: __DEFAULT_TABS_SIZE__,
-	spacing: __DEFAULT_SPACING__
+	color: DEFAULT_APP_COLOR,
+	colorMode: DEFAULT_APP_COLORMODE,
+	align: DEFAULT_TABS_ALIGN,
+	id: DEFAULT_TABS_ID,
+	index: DEFAULT_TABS_INDEX,
+	isDisabled: DEFAULT_TABS_IS_DISABLED,
+	isFitted: DEFAULT_TABS_IS_FITTED,
+	onChange: DEFAULT_METHOD,
+	orientation: DEFAULT_TABS_ORIENTATION,
+	size: DEFAULT_TABS_SIZE,
+	spacing: DEFAULT_SPACING
 });
 
 const Tabs = forwardRef(function Tabs<Element extends TabsElement>(
@@ -53,19 +53,19 @@ const Tabs = forwardRef(function Tabs<Element extends TabsElement>(
 ): JSX.Element {
 	const {
 		children,
-		id = __DEFAULT_TABS_ID__,
-		as = __DEFAULT_TABS_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		id = DEFAULT_TABS_ID,
+		as = DEFAULT_TABS_AS,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		align: alignProp = __DEFAULT_TABS_ALIGN__,
-		index: indexProp = __DEFAULT_TABS_INDEX__,
-		isDisabled: isDisabledProp = __DEFAULT_TABS_IS_DISABLED__,
-		isFitted: isFittedProp = __DEFAULT_TABS_IS_FITTED__,
-		onChange = __DEFAULT_METHOD__,
-		orientation: orientationProp = __DEFAULT_TABS_ORIENTATION__,
-		size: sizeProp = __DEFAULT_TABS_SIZE__,
-		spacing: spacingProp = __DEFAULT_SPACING__,
+		align: alignProp = DEFAULT_TABS_ALIGN,
+		index: indexProp = DEFAULT_TABS_INDEX,
+		isDisabled: isDisabledProp = DEFAULT_TABS_IS_DISABLED,
+		isFitted: isFittedProp = DEFAULT_TABS_IS_FITTED,
+		onChange = DEFAULT_METHOD,
+		orientation: orientationProp = DEFAULT_TABS_ORIENTATION,
+		size: sizeProp = DEFAULT_TABS_SIZE,
+		spacing: spacingProp = DEFAULT_SPACING,
 		...rest
 	} = props;
 
@@ -87,7 +87,7 @@ const Tabs = forwardRef(function Tabs<Element extends TabsElement>(
 				{...(rest as BoxProps<Element>)}
 				as={as}
 				ref={ref}
-				className={classNames(__KEYS_TABS_CLASS__, { [className]: !!className })}
+				className={classNames(KEYS_TABS_CLASS, { [className]: !!className })}
 			>
 				{children}
 			</Box>

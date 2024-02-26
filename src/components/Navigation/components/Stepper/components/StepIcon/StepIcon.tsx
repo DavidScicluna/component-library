@@ -2,33 +2,29 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 
 import type { IconProps } from '@components/DataDisplay';
 import { Icon } from '@components/DataDisplay';
 
 import { useStepperContext, useStepperStepFontSize } from '../../common/hooks';
 
-import { __DEFAULT_STEP_ICON_AS__, __DEFAULT_STEP_ICON_VARIANT__ } from './common/constants';
-import { __KEYS_STEP_ICON_CLASS__ } from './common/keys';
+import { DEFAULT_STEP_ICON_AS, DEFAULT_STEP_ICON_VARIANT } from './common/constants';
+import { KEYS_STEP_ICON_CLASS } from './common/keys';
 import type { StepIconElement, StepIconProps, StepIconRef } from './common/types';
 
 const StepIcon = forwardRef(function StepIcon<Element extends StepIconElement>(
 	props: StepIconProps<Element>,
 	ref: StepIconRef<Element>
 ): JSX.Element {
-	const {
-		color: __DEFAULT_STEP_ICON_COLOR__,
-		colorMode: __DEFAULT_STEP_ICON_COLORMODE__,
-		size
-	} = useStepperContext();
+	const { color: DEFAULT_STEP_ICON_COLOR, colorMode: DEFAULT_STEP_ICON_COLORMODE, size } = useStepperContext();
 
 	const {
-		as = __DEFAULT_STEP_ICON_AS__,
-		className = __DEFAULT_CLASSNAME__,
-		color = __DEFAULT_STEP_ICON_COLOR__,
-		colorMode = __DEFAULT_STEP_ICON_COLORMODE__,
-		variant = __DEFAULT_STEP_ICON_VARIANT__,
+		as = DEFAULT_STEP_ICON_AS,
+		className = DEFAULT_CLASSNAME,
+		color = DEFAULT_STEP_ICON_COLOR,
+		colorMode = DEFAULT_STEP_ICON_COLORMODE,
+		variant = DEFAULT_STEP_ICON_VARIANT,
 		...rest
 	} = props;
 
@@ -39,7 +35,7 @@ const StepIcon = forwardRef(function StepIcon<Element extends StepIconElement>(
 			{...(rest as IconProps<Element>)}
 			as={as}
 			ref={ref}
-			className={classNames(__KEYS_STEP_ICON_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_STEP_ICON_CLASS, { [className]: !!className })}
 			w={`${fontSize}px`}
 			h={`${fontSize}px`}
 			color={color}

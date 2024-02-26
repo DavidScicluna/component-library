@@ -4,9 +4,9 @@ import { useGetResponsiveValue } from '@common/hooks';
 import type { Undefinable } from '@common/types';
 
 import {
-	__DEFAULT_CONTAINER_BREAKPOINT__,
-	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
-	__DEFAULT_CONTAINER_IS_FLUID__
+	DEFAULT_CONTAINER_BREAKPOINT,
+	DEFAULT_CONTAINER_IS_CONTENT_CENTERED,
+	DEFAULT_CONTAINER_IS_FLUID
 } from '../constants';
 import type { ContainerBreakpoint, ContainerNonResponsiveValueProps, ContainerResponsiveValueProps } from '../types';
 
@@ -25,9 +25,9 @@ const useContainerResponsiveValues = (props: UseContainerResponsiveValuesProps):
 	const isFluid = useGetResponsiveValue<Undefinable<boolean>>(isFluidProp);
 
 	return {
-		breakpoint: breakpoint || __DEFAULT_CONTAINER_BREAKPOINT__,
-		isContentCentered: isContentCentered || __DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
-		isFluid: isFluid || __DEFAULT_CONTAINER_IS_FLUID__
+		breakpoint: breakpoint || DEFAULT_CONTAINER_BREAKPOINT,
+		isContentCentered: isContentCentered || DEFAULT_CONTAINER_IS_CONTENT_CENTERED,
+		isFluid: isFluid || DEFAULT_CONTAINER_IS_FLUID
 	};
 };
 

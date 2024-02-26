@@ -6,25 +6,25 @@ import { compact, debounce, isArray } from 'lodash-es';
 import { useArrayState, useDimensionsRef } from 'rooks';
 import { useEffectOnce } from 'usehooks-ts';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_SPACING } from '@common/constants';
 import { useDebounce } from '@common/hooks';
 
 import type { GridProps } from '@components/Layout';
 import { Grid, GridItem, Stack } from '@components/Layout';
 
 import {
-	__DEFAULT_CAROUSEL_AS__,
-	__DEFAULT_CAROUSEL_DURATION_NUMBER__,
-	__DEFAULT_CAROUSEL_DURATION_THEME__,
-	__DEFAULT_CAROUSEL_ID__,
-	__DEFAULT_CAROUSEL_ITEMS__,
-	__DEFAULT_CAROUSEL_ORIENTTATION__,
-	__DEFAULT_CAROUSEL_SCROLL_AMOUNT__,
-	__DEFAULT_CAROUSEL_VARIANT__,
-	__DEFAULT_CAROUSEL_VISIBLE_ITEMS__
+	DEFAULT_CAROUSEL_AS,
+	DEFAULT_CAROUSEL_DURATION_NUMBER,
+	DEFAULT_CAROUSEL_DURATION_THEME,
+	DEFAULT_CAROUSEL_ID,
+	DEFAULT_CAROUSEL_ITEMS,
+	DEFAULT_CAROUSEL_ORIENTTATION,
+	DEFAULT_CAROUSEL_SCROLL_AMOUNT,
+	DEFAULT_CAROUSEL_VARIANT,
+	DEFAULT_CAROUSEL_VISIBLE_ITEMS
 } from './common/constants';
 import { useCarouselClasses, useCarouselResponsiveValues } from './common/hooks';
-import { __KEYS_CAROUSEL_CLASS__ } from './common/keys';
+import { KEYS_CAROUSEL_CLASS } from './common/keys';
 import type {
 	CarouselContext as CarouselContextType,
 	CarouselDefaultElement,
@@ -47,13 +47,13 @@ import { CarouselArrowButtonGroup, CarouselArrowIconButtonGroup, CarouselItem } 
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const CarouselContext = createContext<CarouselContextType<CarouselDefaultElement>>({
-	id: __DEFAULT_CAROUSEL_ID__,
-	items: __DEFAULT_CAROUSEL_ITEMS__,
-	visibleItems: __DEFAULT_CAROUSEL_VISIBLE_ITEMS__,
-	scrollAmount: __DEFAULT_CAROUSEL_SCROLL_AMOUNT__,
-	spacing: __DEFAULT_SPACING__,
-	orientation: __DEFAULT_CAROUSEL_ORIENTTATION__,
-	variant: __DEFAULT_CAROUSEL_VARIANT__
+	id: DEFAULT_CAROUSEL_ID,
+	items: DEFAULT_CAROUSEL_ITEMS,
+	visibleItems: DEFAULT_CAROUSEL_VISIBLE_ITEMS,
+	scrollAmount: DEFAULT_CAROUSEL_SCROLL_AMOUNT,
+	spacing: DEFAULT_SPACING,
+	orientation: DEFAULT_CAROUSEL_ORIENTTATION,
+	variant: DEFAULT_CAROUSEL_VARIANT
 });
 
 const Carousel = forwardRef(function Carousel<Element extends CarouselElement>(
@@ -63,17 +63,17 @@ const Carousel = forwardRef(function Carousel<Element extends CarouselElement>(
 	const [arrowRef, arrowDimensions] = useDimensionsRef();
 	const { width: arrowWidth = 0, height: arrowHeight = 0 } = arrowDimensions || {};
 
-	const [items, setItems] = useArrayState<CarouselItemType>(__DEFAULT_CAROUSEL_ITEMS__);
-	const itemsDebounced = useDebounce<CarouselItems>(items, __DEFAULT_CAROUSEL_DURATION_THEME__);
+	const [items, setItems] = useArrayState<CarouselItemType>(DEFAULT_CAROUSEL_ITEMS);
+	const itemsDebounced = useDebounce<CarouselItems>(items, DEFAULT_CAROUSEL_DURATION_THEME);
 
-	const [visibleItems, setVisibleItems] = useArrayState<CarouselVisibleItem>(__DEFAULT_CAROUSEL_VISIBLE_ITEMS__);
-	const visibleItemsDebounced = useDebounce<CarouselVisibleItems>(visibleItems, __DEFAULT_CAROUSEL_DURATION_THEME__);
+	const [visibleItems, setVisibleItems] = useArrayState<CarouselVisibleItem>(DEFAULT_CAROUSEL_VISIBLE_ITEMS);
+	const visibleItemsDebounced = useDebounce<CarouselVisibleItems>(visibleItems, DEFAULT_CAROUSEL_DURATION_THEME);
 
 	const {
 		children,
-		as = __DEFAULT_CAROUSEL_AS__,
-		id = __DEFAULT_CAROUSEL_ID__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_CAROUSEL_AS,
+		id = DEFAULT_CAROUSEL_ID,
+		className = DEFAULT_CLASSNAME,
 		renderDots,
 		renderLeftAction,
 		renderRightAction,
@@ -82,10 +82,10 @@ const Carousel = forwardRef(function Carousel<Element extends CarouselElement>(
 		color,
 		colorMode,
 		divider: dividerProp,
-		scrollAmount: scrollAmountProp = __DEFAULT_CAROUSEL_SCROLL_AMOUNT__,
-		spacing: spacingProp = __DEFAULT_SPACING__,
-		orientation: orientationProp = __DEFAULT_CAROUSEL_ORIENTTATION__,
-		variant: variantProp = __DEFAULT_CAROUSEL_VARIANT__,
+		scrollAmount: scrollAmountProp = DEFAULT_CAROUSEL_SCROLL_AMOUNT,
+		spacing: spacingProp = DEFAULT_SPACING,
+		orientation: orientationProp = DEFAULT_CAROUSEL_ORIENTTATION,
+		variant: variantProp = DEFAULT_CAROUSEL_VARIANT,
 		...rest
 	} = props;
 
@@ -101,7 +101,7 @@ const Carousel = forwardRef(function Carousel<Element extends CarouselElement>(
 
 	const handleChildren = debounce(() => {
 		if (isArray(children)) {
-			setVisibleItems.setArray(__DEFAULT_CAROUSEL_VISIBLE_ITEMS__);
+			setVisibleItems.setArray(DEFAULT_CAROUSEL_VISIBLE_ITEMS);
 			setItems.clear();
 			setItems.setArray(
 				sort(
@@ -113,7 +113,7 @@ const Carousel = forwardRef(function Carousel<Element extends CarouselElement>(
 				).asc(({ index }) => index) as CarouselItems
 			);
 		}
-	}, __DEFAULT_CAROUSEL_DURATION_NUMBER__);
+	}, DEFAULT_CAROUSEL_DURATION_NUMBER);
 
 	useEffectOnce(() => handleChildren());
 
@@ -136,7 +136,7 @@ const Carousel = forwardRef(function Carousel<Element extends CarouselElement>(
 				as={as}
 				ref={ref}
 				id={getCarouselID(id)}
-				className={classNames(__KEYS_CAROUSEL_CLASS__, classes.overflow.hidden, { [className]: !!className })}
+				className={classNames(KEYS_CAROUSEL_CLASS, classes.overflow.hidden, { [className]: !!className })}
 				templateColumns={
 					orientation === 'vertical' ? compact(['1fr', renderDots ? 'auto' : null]).join(' ') : 1
 				}

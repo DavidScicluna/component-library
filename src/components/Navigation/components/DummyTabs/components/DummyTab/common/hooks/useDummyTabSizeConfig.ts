@@ -4,7 +4,7 @@ import type { PolymorphicElementType, ThemeFontSize, ThemeSpacing } from '@commo
 
 import { useDummyTabsContext } from '@components/Navigation/components/DummyTabs/common/hooks';
 
-import { __DEFAULT_DUMMY_TAB_IS_COMPACT__ } from '../constants';
+import { DEFAULT_DUMMY_TAB_IS_COMPACT } from '../constants';
 import type { DummyTabProps } from '../types';
 
 import useDummyTabResponsiveValues from './useDummyTabResponsiveValues';
@@ -23,7 +23,7 @@ const useDummyTabSizeConfig = <Element extends PolymorphicElementType>(
 ): UseDummyTabSizeConfigReturn => {
 	const { size } = useDummyTabsContext();
 
-	const { isCompact: isUppercaseProp = __DEFAULT_DUMMY_TAB_IS_COMPACT__ } = props;
+	const { isCompact: isUppercaseProp = DEFAULT_DUMMY_TAB_IS_COMPACT } = props;
 
 	const { isCompact } = useDummyTabResponsiveValues<Element>({ isUppercase: isUppercaseProp });
 

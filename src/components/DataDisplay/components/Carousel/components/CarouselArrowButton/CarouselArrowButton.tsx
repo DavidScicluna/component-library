@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 
 import type { ButtonProps } from '@components/Buttons';
@@ -12,15 +12,15 @@ import { useCarouselContext } from '../../common/hooks';
 import type { CarouselArrowDirection } from '../../common/types';
 
 import {
-	__DEFAULT_CAROUSEL_ARROW_BUTTON_AS__,
-	__DEFAULT_CAROUSEL_ARROW_BUTTON_BOTTOM_LABEL__,
-	__DEFAULT_CAROUSEL_ARROW_BUTTON_HAS_ICON__,
-	__DEFAULT_CAROUSEL_ARROW_BUTTON_IS_FULLWIDTH__,
-	__DEFAULT_CAROUSEL_ARROW_BUTTON_LEFT_LABEL__,
-	__DEFAULT_CAROUSEL_ARROW_BUTTON_RIGHT_LABEL__,
-	__DEFAULT_CAROUSEL_ARROW_BUTTON_TOP_LABEL__
+	DEFAULT_CAROUSEL_ARROW_BUTTON_AS,
+	DEFAULT_CAROUSEL_ARROW_BUTTON_BOTTOM_LABEL,
+	DEFAULT_CAROUSEL_ARROW_BUTTON_HAS_ICON,
+	DEFAULT_CAROUSEL_ARROW_BUTTON_IS_FULLWIDTH,
+	DEFAULT_CAROUSEL_ARROW_BUTTON_LEFT_LABEL,
+	DEFAULT_CAROUSEL_ARROW_BUTTON_RIGHT_LABEL,
+	DEFAULT_CAROUSEL_ARROW_BUTTON_TOP_LABEL
 } from './common/constants';
-import { __KEYS_CAROUSEL_ARROW_BUTTON_CLASS__ } from './common/keys';
+import { KEYS_CAROUSEL_ARROW_BUTTON_CLASS } from './common/keys';
 import type { CarouselArrowButtonElement, CarouselArrowButtonProps, CarouselArrowButtonRef } from './common/types';
 
 const CarouselArrowButton = forwardRef(function CarouselArrowButton<Element extends CarouselArrowButtonElement>(
@@ -28,20 +28,20 @@ const CarouselArrowButton = forwardRef(function CarouselArrowButton<Element exte
 	ref: CarouselArrowButtonRef<Element>
 ): JSX.Element {
 	const {
-		color: __DEFAULT_ARROW_BUTTON_COLOR__,
-		colorMode: __DEFAULT_ARROW_BUTTON_COLORMODE__,
+		color: DEFAULT_ARROW_BUTTON_COLOR,
+		colorMode: DEFAULT_ARROW_BUTTON_COLORMODE,
 		orientation
 	} = useCarouselContext();
 
 	const {
 		children,
-		as = __DEFAULT_CAROUSEL_ARROW_BUTTON_AS__,
-		className = __DEFAULT_CLASSNAME__,
-		color = __DEFAULT_ARROW_BUTTON_COLOR__,
-		colorMode = __DEFAULT_ARROW_BUTTON_COLORMODE__,
+		as = DEFAULT_CAROUSEL_ARROW_BUTTON_AS,
+		className = DEFAULT_CLASSNAME,
+		color = DEFAULT_ARROW_BUTTON_COLOR,
+		colorMode = DEFAULT_ARROW_BUTTON_COLORMODE,
 		direction: d,
-		hasIcon: i = __DEFAULT_CAROUSEL_ARROW_BUTTON_HAS_ICON__,
-		isFullWidth = __DEFAULT_CAROUSEL_ARROW_BUTTON_IS_FULLWIDTH__,
+		hasIcon: i = DEFAULT_CAROUSEL_ARROW_BUTTON_HAS_ICON,
+		isFullWidth = DEFAULT_CAROUSEL_ARROW_BUTTON_IS_FULLWIDTH,
 		...rest
 	} = props;
 
@@ -53,7 +53,7 @@ const CarouselArrowButton = forwardRef(function CarouselArrowButton<Element exte
 			{...(rest as ButtonProps<Element>)}
 			as={as}
 			ref={ref}
-			className={classNames(__KEYS_CAROUSEL_ARROW_BUTTON_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_CAROUSEL_ARROW_BUTTON_CLASS, { [className]: !!className })}
 			color={color}
 			colorMode={colorMode}
 			renderLeft={
@@ -82,11 +82,11 @@ const CarouselArrowButton = forwardRef(function CarouselArrowButton<Element exte
 				? children
 				: orientation === 'horizontal'
 					? direction === 'left'
-						? __DEFAULT_CAROUSEL_ARROW_BUTTON_LEFT_LABEL__
-						: __DEFAULT_CAROUSEL_ARROW_BUTTON_RIGHT_LABEL__
+						? DEFAULT_CAROUSEL_ARROW_BUTTON_LEFT_LABEL
+						: DEFAULT_CAROUSEL_ARROW_BUTTON_RIGHT_LABEL
 					: direction === 'left'
-						? __DEFAULT_CAROUSEL_ARROW_BUTTON_TOP_LABEL__
-						: __DEFAULT_CAROUSEL_ARROW_BUTTON_BOTTOM_LABEL__}
+						? DEFAULT_CAROUSEL_ARROW_BUTTON_TOP_LABEL
+						: DEFAULT_CAROUSEL_ARROW_BUTTON_BOTTOM_LABEL}
 		</Button>
 	);
 });

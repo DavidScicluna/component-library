@@ -1,20 +1,20 @@
 import { useGetResponsiveValue } from '@common/hooks';
 
 import {
-	__DEFAULT_NUMBER_INPUT_IS_COMPACT__,
-	__DEFAULT_NUMBER_INPUT_IS_DISABLED__,
-	__DEFAULT_NUMBER_INPUT_IS_ERROR__,
-	__DEFAULT_NUMBER_INPUT_IS_FOCUSED__,
-	__DEFAULT_NUMBER_INPUT_IS_FULLWIDTH__,
-	__DEFAULT_NUMBER_INPUT_IS_NEGATIVE_ALLOWED__,
-	__DEFAULT_NUMBER_INPUT_IS_OUTLINED__,
-	__DEFAULT_NUMBER_INPUT_IS_READONLY__,
-	__DEFAULT_NUMBER_INPUT_IS_REQUIRED__,
-	__DEFAULT_NUMBER_INPUT_IS_SUCCESS__,
-	__DEFAULT_NUMBER_INPUT_IS_WARNING__,
-	__DEFAULT_NUMBER_INPUT_SIZE__,
-	__DEFAULT_NUMBER_INPUT_START_VALUE__,
-	__DEFAULT_NUMBER_INPUT_VARIANT__
+	DEFAULT_NUMBER_INPUT_IS_COMPACT,
+	DEFAULT_NUMBER_INPUT_IS_DISABLED,
+	DEFAULT_NUMBER_INPUT_IS_ERROR,
+	DEFAULT_NUMBER_INPUT_IS_FOCUSED,
+	DEFAULT_NUMBER_INPUT_IS_FULLWIDTH,
+	DEFAULT_NUMBER_INPUT_IS_NEGATIVE_ALLOWED,
+	DEFAULT_NUMBER_INPUT_IS_OUTLINED,
+	DEFAULT_NUMBER_INPUT_IS_READONLY,
+	DEFAULT_NUMBER_INPUT_IS_REQUIRED,
+	DEFAULT_NUMBER_INPUT_IS_SUCCESS,
+	DEFAULT_NUMBER_INPUT_IS_WARNING,
+	DEFAULT_NUMBER_INPUT_SIZE,
+	DEFAULT_NUMBER_INPUT_START_VALUE,
+	DEFAULT_NUMBER_INPUT_VARIANT
 } from '../constants';
 import type { NumberInputElement, NumberInputProps, NumberInputSize, NumberInputVariant } from '../types';
 
@@ -41,20 +41,20 @@ const useNumberInputResponsiveValues = <Element extends NumberInputElement>(
 	props: UseNumberInputResponsiveValuesProps<Element>
 ) => {
 	const {
-		isCompact: isCompactProp = __DEFAULT_NUMBER_INPUT_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_NUMBER_INPUT_IS_DISABLED__,
-		isFullWidth: isFullWidthProp = __DEFAULT_NUMBER_INPUT_IS_FULLWIDTH__,
-		isError: isErrorProp = __DEFAULT_NUMBER_INPUT_IS_ERROR__,
-		isFocused: isFocusedProp = __DEFAULT_NUMBER_INPUT_IS_FOCUSED__,
-		isOutlined: isOutlinedProp = __DEFAULT_NUMBER_INPUT_IS_OUTLINED__,
-		isReadOnly: isReadOnlyProp = __DEFAULT_NUMBER_INPUT_IS_READONLY__,
-		isRequired: isRequiredProp = __DEFAULT_NUMBER_INPUT_IS_REQUIRED__,
-		isNegativeAllowed: isNegativeAllowedProp = __DEFAULT_NUMBER_INPUT_IS_NEGATIVE_ALLOWED__,
-		isSuccess: isSuccessProp = __DEFAULT_NUMBER_INPUT_IS_SUCCESS__,
-		isWarning: isWarningProp = __DEFAULT_NUMBER_INPUT_IS_WARNING__,
-		startValue: startValueProp = __DEFAULT_NUMBER_INPUT_START_VALUE__,
-		size: sizeProp = __DEFAULT_NUMBER_INPUT_SIZE__,
-		variant: variantProp = __DEFAULT_NUMBER_INPUT_VARIANT__
+		isCompact: isCompactProp = DEFAULT_NUMBER_INPUT_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_NUMBER_INPUT_IS_DISABLED,
+		isFullWidth: isFullWidthProp = DEFAULT_NUMBER_INPUT_IS_FULLWIDTH,
+		isError: isErrorProp = DEFAULT_NUMBER_INPUT_IS_ERROR,
+		isFocused: isFocusedProp = DEFAULT_NUMBER_INPUT_IS_FOCUSED,
+		isOutlined: isOutlinedProp = DEFAULT_NUMBER_INPUT_IS_OUTLINED,
+		isReadOnly: isReadOnlyProp = DEFAULT_NUMBER_INPUT_IS_READONLY,
+		isRequired: isRequiredProp = DEFAULT_NUMBER_INPUT_IS_REQUIRED,
+		isNegativeAllowed: isNegativeAllowedProp = DEFAULT_NUMBER_INPUT_IS_NEGATIVE_ALLOWED,
+		isSuccess: isSuccessProp = DEFAULT_NUMBER_INPUT_IS_SUCCESS,
+		isWarning: isWarningProp = DEFAULT_NUMBER_INPUT_IS_WARNING,
+		startValue: startValueProp = DEFAULT_NUMBER_INPUT_START_VALUE,
+		size: sizeProp = DEFAULT_NUMBER_INPUT_SIZE,
+		variant: variantProp = DEFAULT_NUMBER_INPUT_VARIANT
 	} = props;
 
 	const isCompact = useGetResponsiveValue<boolean>(isCompactProp);

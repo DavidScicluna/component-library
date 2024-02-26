@@ -12,11 +12,7 @@ import type {
 	ZIndexClass
 } from '@common/types';
 
-import {
-	__DEFAULT_GRID_ITEM_ALIGN_SELF__,
-	__DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
-	__DEFAULT_GRID_ITEM_Z_INDEX__
-} from '../constants';
+import { DEFAULT_GRID_ITEM_ALIGN_SELF, DEFAULT_GRID_ITEM_JUSTIFY_SELF, DEFAULT_GRID_ITEM_Z_INDEX } from '../constants';
 import type { GridItemNonResponsiveValueProps, GridItemResponsiveValueProps } from '../types';
 
 type UseGridItemResponsiveValuesProps = Partial<GridItemResponsiveValueProps>;
@@ -49,15 +45,15 @@ const useGridItemResponsiveValues = (props: UseGridItemResponsiveValuesProps): U
 	const zIndex = useGetResponsiveValue<Undefinable<ZIndexClass>>(zIndexProp);
 
 	return {
-		alignSelf: alignSelf || __DEFAULT_GRID_ITEM_ALIGN_SELF__,
+		alignSelf: alignSelf || DEFAULT_GRID_ITEM_ALIGN_SELF,
 		columnSpan,
 		columnStart,
 		columnEnd,
-		justifySelf: justifySelf || __DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
+		justifySelf: justifySelf || DEFAULT_GRID_ITEM_JUSTIFY_SELF,
 		rowSpan,
 		rowStart,
 		rowEnd,
-		zIndex: zIndex || __DEFAULT_GRID_ITEM_Z_INDEX__
+		zIndex: zIndex || DEFAULT_GRID_ITEM_Z_INDEX
 	};
 };
 

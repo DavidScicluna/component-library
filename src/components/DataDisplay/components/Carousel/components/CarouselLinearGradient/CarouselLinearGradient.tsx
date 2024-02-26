@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
 
@@ -12,23 +12,23 @@ import { LinearGradient } from '@components/Overlay';
 
 import { useCarouselContext } from '../../common/hooks';
 
-import { __DEFAULT_CAROUSEL_LINEAR_GRADIENT_IS_VISIBLE__ } from './common/constants';
+import { DEFAULT_CAROUSEL_LINEAR_GRADIENT_IS_VISIBLE } from './common/constants';
 import { useCarouselLinearGradientResponsiveValues } from './common/hooks';
-import { __KEYS_CAROUSEL_LINEAR_GRADIENT_CLASS__ } from './common/keys';
+import { KEYS_CAROUSEL_LINEAR_GRADIENT_CLASS } from './common/keys';
 import type { CarouselLinearGradientProps, CarouselLinearGradientRef } from './common/types';
 
 const CarouselLinearGradient = forwardRef(function CarouselLinearGradient<Element extends PolymorphicElementType>(
 	props: CarouselLinearGradientProps<Element>,
 	ref: CarouselLinearGradientRef<Element>
 ): JSX.Element {
-	const { colorMode: __DEFAULT_CAROUSEL_LINEAR_GRADIENT_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_CAROUSEL_LINEAR_GRADIENT_COLORMODE } = useAppTheme();
 
-	const { colorMode = __DEFAULT_CAROUSEL_LINEAR_GRADIENT_COLORMODE__, orientation } = useCarouselContext();
+	const { colorMode = DEFAULT_CAROUSEL_LINEAR_GRADIENT_COLORMODE, orientation } = useCarouselContext();
 
 	const {
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		direction: directionProp,
-		isVisible: isVisibleProp = __DEFAULT_CAROUSEL_LINEAR_GRADIENT_IS_VISIBLE__,
+		isVisible: isVisibleProp = DEFAULT_CAROUSEL_LINEAR_GRADIENT_IS_VISIBLE,
 		...rest
 	} = props;
 
@@ -42,7 +42,7 @@ const CarouselLinearGradient = forwardRef(function CarouselLinearGradient<Elemen
 			<LinearGradient
 				{...(rest as LinearGradientProps<Element>)}
 				ref={ref}
-				className={classNames(__KEYS_CAROUSEL_LINEAR_GRADIENT_CLASS__, { [className]: !!className })}
+				className={classNames(KEYS_CAROUSEL_LINEAR_GRADIENT_CLASS, { [className]: !!className })}
 				w='100%'
 				h='100%'
 				direction={

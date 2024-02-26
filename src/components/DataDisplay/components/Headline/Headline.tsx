@@ -4,16 +4,16 @@ import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useDimensionsRef } from 'rooks';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import type { GridProps, VStackRef } from '@components/Layout';
 import { Grid, GridItem, VStack } from '@components/Layout';
 
-import { __DEFAULT_HEADLINE_SPACING__ } from './common/constants';
+import { DEFAULT_HEADLINE_SPACING } from './common/constants';
 import { useHeadlineResponsiveValues } from './common/hooks';
-import { __KEYS_HEADLINE_CLASS__ } from './common/keys';
+import { KEYS_HEADLINE_CLASS } from './common/keys';
 import type { HeadlineProps, HeadlineRef } from './common/types';
 
 const Headline = forwardRef(function Headline<Element extends PolymorphicElementType>(
@@ -24,7 +24,7 @@ const Headline = forwardRef(function Headline<Element extends PolymorphicElement
 	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
 
 	const {
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
 		renderLeft,
@@ -32,7 +32,7 @@ const Headline = forwardRef(function Headline<Element extends PolymorphicElement
 		renderCaption,
 		renderTitle,
 		renderSubtitle,
-		spacing: spacingProp = __DEFAULT_HEADLINE_SPACING__,
+		spacing: spacingProp = DEFAULT_HEADLINE_SPACING,
 		...rest
 	} = props;
 
@@ -64,7 +64,7 @@ const Headline = forwardRef(function Headline<Element extends PolymorphicElement
 		<Grid
 			{...(rest as GridProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_HEADLINE_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_HEADLINE_CLASS, { [className]: !!className })}
 			templateColumns={compact([renderLeft ? 'auto' : null, '1fr', renderRight ? 'auto' : null]).join(' ')}
 			templateRows={1}
 			alignItems='stretch'

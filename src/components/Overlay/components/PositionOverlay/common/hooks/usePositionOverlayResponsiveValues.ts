@@ -2,13 +2,13 @@ import { useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicElementType, ThemeBlurClass, ThemeRadius } from '@common/types';
 
 import {
-	__DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT__,
-	__DEFAULT_POSITION_OVERLAY_BLUR__,
-	__DEFAULT_POSITION_OVERLAY_BLUR_TYPE__,
-	__DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND__,
-	__DEFAULT_POSITION_OVERLAY_HAS_GLASS__,
-	__DEFAULT_POSITION_OVERLAY_IS_VISIBLE__,
-	__DEFAULT_POSITION_OVERLAY_RADIUS__
+	DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT,
+	DEFAULT_POSITION_OVERLAY_BLUR,
+	DEFAULT_POSITION_OVERLAY_BLUR_TYPE,
+	DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND,
+	DEFAULT_POSITION_OVERLAY_HAS_GLASS,
+	DEFAULT_POSITION_OVERLAY_IS_VISIBLE,
+	DEFAULT_POSITION_OVERLAY_RADIUS
 } from '../constants';
 import type { PositionOverlayBlurType, PositionOverlayProps } from '../types';
 
@@ -28,13 +28,13 @@ const usePositionOverlayResponsiveValues = <Element extends PolymorphicElementTy
 	props: UsePositionOverlayResponsiveValuesProps<Element>
 ) => {
 	const {
-		backdropAmount: backdropAmountProp = __DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT__,
-		blur: blurProp = __DEFAULT_POSITION_OVERLAY_BLUR__,
-		blurType: blurTypeProp = __DEFAULT_POSITION_OVERLAY_BLUR_TYPE__,
-		radius: radiusProp = __DEFAULT_POSITION_OVERLAY_RADIUS__,
-		isVisible: isVisibleProp = __DEFAULT_POSITION_OVERLAY_IS_VISIBLE__,
-		hasGlass: hasGlassProp = __DEFAULT_POSITION_OVERLAY_HAS_GLASS__,
-		hasBackground: hasBackgroundProp = __DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND__
+		backdropAmount: backdropAmountProp = DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT,
+		blur: blurProp = DEFAULT_POSITION_OVERLAY_BLUR,
+		blurType: blurTypeProp = DEFAULT_POSITION_OVERLAY_BLUR_TYPE,
+		radius: radiusProp = DEFAULT_POSITION_OVERLAY_RADIUS,
+		isVisible: isVisibleProp = DEFAULT_POSITION_OVERLAY_IS_VISIBLE,
+		hasGlass: hasGlassProp = DEFAULT_POSITION_OVERLAY_HAS_GLASS,
+		hasBackground: hasBackgroundProp = DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND
 	} = props;
 
 	const backdropAmount = useGetResponsiveValue<number>(backdropAmountProp);

@@ -3,12 +3,12 @@ import { useMemo } from 'react';
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ } from '@common/constants';
+import { DEFAULT_BORDER_STYLE, DEFAULT_BORDER_WIDTH, DEFAULT_COLOR } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
 import type { ClassName, ThemeFontSize, ThemeRadius } from '@common/types';
 import { checkFontSizeType, getClass, getColorHue } from '@common/utils';
 
-import { __DEFAULT_ICON_RADIUS__, __DEFAULT_ICON_SIZE__, __DEFAULT_ICON_VARIANT__ } from '../constants';
+import { DEFAULT_ICON_RADIUS, DEFAULT_ICON_SIZE, DEFAULT_ICON_VARIANT } from '../constants';
 import type { IconElement, IconProps } from '../types';
 
 import useIconResponsiveValues from './useIconResponsiveValues';
@@ -20,14 +20,14 @@ type UseIconClassesProps<Element extends IconElement> = Pick<
 type UseIconClassesReturn = ClassName;
 
 const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<Element>): UseIconClassesReturn => {
-	const { colorMode: __DEFAULT_ICON_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_ICON_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_ICON_COLORMODE__,
-		radius: radiusProp = __DEFAULT_ICON_RADIUS__,
-		size: sizeProp = __DEFAULT_ICON_SIZE__,
-		variant: variantProp = __DEFAULT_ICON_VARIANT__
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_ICON_COLORMODE,
+		radius: radiusProp = DEFAULT_ICON_RADIUS,
+		size: sizeProp = DEFAULT_ICON_SIZE,
+		variant: variantProp = DEFAULT_ICON_VARIANT
 	} = props;
 
 	const { radius, size, variant } = useIconResponsiveValues<Element>({
@@ -57,8 +57,8 @@ const useIconClasses = <Element extends IconElement>(props: UseIconClassesProps<
 			{
 				[size]: checkFontSizeType(size) === 'class',
 				[fontSizeClassName]: checkFontSizeType(size) === 'theme',
-				[classes.borders.border_width[__DEFAULT_BORDER_WIDTH__]]: variant !== 'unstyled',
-				[classes.borders.border_style[__DEFAULT_BORDER_STYLE__]]: variant !== 'unstyled'
+				[classes.borders.border_width[DEFAULT_BORDER_WIDTH]]: variant !== 'unstyled',
+				[classes.borders.border_style[DEFAULT_BORDER_STYLE]]: variant !== 'unstyled'
 			}
 		);
 	}, [size, radius, variant]);

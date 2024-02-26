@@ -1,18 +1,18 @@
 import { useGetResponsiveValue } from '@common/hooks';
 
 import {
-	__DEFAULT_FORMS_IS_COMPACT__,
-	__DEFAULT_FORMS_IS_DISABLED__,
-	__DEFAULT_FORMS_IS_ERROR__,
-	__DEFAULT_FORMS_IS_FOCUSED__,
-	__DEFAULT_FORMS_IS_FULLWIDTH__,
-	__DEFAULT_FORMS_IS_OUTLINED__,
-	__DEFAULT_FORMS_IS_READONLY__,
-	__DEFAULT_FORMS_IS_REQUIRED__,
-	__DEFAULT_FORMS_IS_SUCCESS__,
-	__DEFAULT_FORMS_IS_WARNING__,
-	__DEFAULT_FORMS_SIZE__,
-	__DEFAULT_FORMS_VARIANT__
+	DEFAULT_FORMS_IS_COMPACT,
+	DEFAULT_FORMS_IS_DISABLED,
+	DEFAULT_FORMS_IS_ERROR,
+	DEFAULT_FORMS_IS_FOCUSED,
+	DEFAULT_FORMS_IS_FULLWIDTH,
+	DEFAULT_FORMS_IS_OUTLINED,
+	DEFAULT_FORMS_IS_READONLY,
+	DEFAULT_FORMS_IS_REQUIRED,
+	DEFAULT_FORMS_IS_SUCCESS,
+	DEFAULT_FORMS_IS_WARNING,
+	DEFAULT_FORMS_SIZE,
+	DEFAULT_FORMS_VARIANT
 } from '../constants';
 import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '../types';
 
@@ -33,18 +33,18 @@ type UseFormsResponsiveValuesProps = Partial<Pick<FormsCommonProps, PickedFormsC
 
 const useFormsResponsiveValues = (props: UseFormsResponsiveValuesProps) => {
 	const {
-		isCompact: isCompactProp = __DEFAULT_FORMS_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_FORMS_IS_DISABLED__,
-		isFullWidth: isFullWidthProp = __DEFAULT_FORMS_IS_FULLWIDTH__,
-		isError: isErrorProp = __DEFAULT_FORMS_IS_ERROR__,
-		isFocused: isFocusedProp = __DEFAULT_FORMS_IS_FOCUSED__,
-		isOutlined: isOutlinedProp = __DEFAULT_FORMS_IS_OUTLINED__,
-		isReadOnly: isReadOnlyProp = __DEFAULT_FORMS_IS_READONLY__,
-		isRequired: isRequiredProp = __DEFAULT_FORMS_IS_REQUIRED__,
-		isSuccess: isSuccessProp = __DEFAULT_FORMS_IS_SUCCESS__,
-		isWarning: isWarningProp = __DEFAULT_FORMS_IS_WARNING__,
-		size: sizeProp = __DEFAULT_FORMS_SIZE__,
-		variant: variantProp = __DEFAULT_FORMS_VARIANT__
+		isCompact: isCompactProp = DEFAULT_FORMS_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_FORMS_IS_DISABLED,
+		isFullWidth: isFullWidthProp = DEFAULT_FORMS_IS_FULLWIDTH,
+		isError: isErrorProp = DEFAULT_FORMS_IS_ERROR,
+		isFocused: isFocusedProp = DEFAULT_FORMS_IS_FOCUSED,
+		isOutlined: isOutlinedProp = DEFAULT_FORMS_IS_OUTLINED,
+		isReadOnly: isReadOnlyProp = DEFAULT_FORMS_IS_READONLY,
+		isRequired: isRequiredProp = DEFAULT_FORMS_IS_REQUIRED,
+		isSuccess: isSuccessProp = DEFAULT_FORMS_IS_SUCCESS,
+		isWarning: isWarningProp = DEFAULT_FORMS_IS_WARNING,
+		size: sizeProp = DEFAULT_FORMS_SIZE,
+		variant: variantProp = DEFAULT_FORMS_VARIANT
 	} = props;
 
 	const isCompact = useGetResponsiveValue<boolean>(isCompactProp);

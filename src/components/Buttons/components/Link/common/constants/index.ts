@@ -1,15 +1,2 @@
-import {
-	__DEFAULT_LINK_AS__,
-	__DEFAULT_LINK_IS_DISABLED__,
-	__DEFAULT_LINK_IS_UNDERLINE__,
-	__DEFAULT_LINK_IS_UNSTYLED__
-} from './props';
-import { __DEFAULT_LINK_OFFSET_SIZE__ } from './sizes';
-
-export {
-	__DEFAULT_LINK_AS__,
-	__DEFAULT_LINK_IS_DISABLED__,
-	__DEFAULT_LINK_IS_UNDERLINE__,
-	__DEFAULT_LINK_IS_UNSTYLED__,
-	__DEFAULT_LINK_OFFSET_SIZE__
-};
+export * from './props';
+export * from './sizes';

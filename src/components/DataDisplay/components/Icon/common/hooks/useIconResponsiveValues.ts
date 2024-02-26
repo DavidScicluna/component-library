@@ -2,11 +2,11 @@ import { useGetResponsiveValue } from '@common/hooks';
 import type { IconKey, ThemeRadius } from '@common/types';
 
 import {
-	__DEFAULT_ICON_CATEGORY__,
-	__DEFAULT_ICON_ICON__,
-	__DEFAULT_ICON_RADIUS__,
-	__DEFAULT_ICON_SIZE__,
-	__DEFAULT_ICON_VARIANT__
+	DEFAULT_ICON_CATEGORY,
+	DEFAULT_ICON_ICON,
+	DEFAULT_ICON_RADIUS,
+	DEFAULT_ICON_SIZE,
+	DEFAULT_ICON_VARIANT
 } from '../constants';
 import type { IconCategory, IconElement, IconProps, IconSize, IconVariant } from '../types';
 
@@ -16,11 +16,11 @@ type UseIconResponsiveValuesProps<Element extends IconElement> = Partial<
 
 const useIconResponsiveValues = <Element extends IconElement>(props: UseIconResponsiveValuesProps<Element>) => {
 	const {
-		icon: iconProp = __DEFAULT_ICON_ICON__,
-		category: categoryProp = __DEFAULT_ICON_CATEGORY__,
-		radius: radiusProp = __DEFAULT_ICON_RADIUS__,
-		size: sizeProp = __DEFAULT_ICON_SIZE__,
-		variant: variantProp = __DEFAULT_ICON_VARIANT__
+		icon: iconProp = DEFAULT_ICON_ICON,
+		category: categoryProp = DEFAULT_ICON_CATEGORY,
+		radius: radiusProp = DEFAULT_ICON_RADIUS,
+		size: sizeProp = DEFAULT_ICON_SIZE,
+		variant: variantProp = DEFAULT_ICON_VARIANT
 	} = props;
 
 	const icon = useGetResponsiveValue<IconKey>(iconProp);

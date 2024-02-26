@@ -1,11 +1,11 @@
-import { __DEFAULT_RADIUS__ } from '@common/constants';
+import { DEFAULT_RADIUS } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicElementType, ThemeRadius } from '@common/types';
 
 import {
-	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED__,
-	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_OUTLINED__,
-	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__
+	DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED,
+	DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_OUTLINED,
+	DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT
 } from '../constants';
 import type { DummyPushableOverlayProps, DummyPushableOverlayVariant } from '../types';
 
@@ -17,10 +17,10 @@ const useDummyPushableOverlayResponsiveValues = <Element extends PolymorphicElem
 	props: UseDummyPushableOverlayResponsiveValuesProps<Element>
 ) => {
 	const {
-		isAnimated: isAnimatedProp = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED__,
-		isOutlined: isOutlinedProp = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_OUTLINED__,
-		radius: radiusProp = __DEFAULT_RADIUS__,
-		variant: variantProp = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__
+		isAnimated: isAnimatedProp = DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED,
+		isOutlined: isOutlinedProp = DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_OUTLINED,
+		radius: radiusProp = DEFAULT_RADIUS,
+		variant: variantProp = DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT
 	} = props;
 
 	const isAnimated = useGetResponsiveValue<boolean>(isAnimatedProp);

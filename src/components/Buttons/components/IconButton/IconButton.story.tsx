@@ -3,15 +3,15 @@ import { Center } from '../../../Layout';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 import React from 'react';
 import {
-	__DEFAULT_ICON_BUTTON_IS_ACTIVE__,
-	__DEFAULT_ICON_BUTTON_IS_COMPACT__,
-	__DEFAULT_ICON_BUTTON_IS_DISABLED__,
-	__DEFAULT_ICON_BUTTON_IS_FOCUSED__,
-	__DEFAULT_ICON_BUTTON_IS_LOADING__,
-	__DEFAULT_ICON_BUTTON_IS_OUTLINED__,
-	__DEFAULT_ICON_BUTTON_IS_ROUND__,
-	__DEFAULT_ICON_BUTTON_SIZE__,
-	__DEFAULT_ICON_BUTTON_VARIANT__
+	DEFAULT_ICON_BUTTON_IS_ACTIVE,
+	DEFAULT_ICON_BUTTON_IS_COMPACT,
+	DEFAULT_ICON_BUTTON_IS_DISABLED,
+	DEFAULT_ICON_BUTTON_IS_FOCUSED,
+	DEFAULT_ICON_BUTTON_IS_LOADING,
+	DEFAULT_ICON_BUTTON_IS_OUTLINED,
+	DEFAULT_ICON_BUTTON_IS_ROUND,
+	DEFAULT_ICON_BUTTON_SIZE,
+	DEFAULT_ICON_BUTTON_VARIANT
 } from './common/constants';
 import type { IconButtonDefaultElement, IconButtonProps, IconButtonSize, IconButtonVariant } from './common/types';
 import type { IconButtonStory, IconButtonStoryMeta } from './common/types/story';
@@ -25,56 +25,56 @@ export default {
 		isActive: {
 			name: 'Active',
 			type: 'boolean',
-			defaultValue: __DEFAULT_ICON_BUTTON_IS_ACTIVE__,
+			defaultValue: DEFAULT_ICON_BUTTON_IS_ACTIVE,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isCompact: {
 			name: 'Compact',
 			type: 'boolean',
-			defaultValue: __DEFAULT_ICON_BUTTON_IS_COMPACT__,
+			defaultValue: DEFAULT_ICON_BUTTON_IS_COMPACT,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
-			defaultValue: __DEFAULT_ICON_BUTTON_IS_DISABLED__,
+			defaultValue: DEFAULT_ICON_BUTTON_IS_DISABLED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isFocused: {
 			name: 'Focused',
 			type: 'boolean',
-			defaultValue: __DEFAULT_ICON_BUTTON_IS_FOCUSED__,
+			defaultValue: DEFAULT_ICON_BUTTON_IS_FOCUSED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isLoading: {
 			name: 'Loading',
 			type: 'boolean',
-			defaultValue: __DEFAULT_ICON_BUTTON_IS_LOADING__,
+			defaultValue: DEFAULT_ICON_BUTTON_IS_LOADING,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isRound: {
 			name: 'Round',
 			type: 'boolean',
-			defaultValue: __DEFAULT_ICON_BUTTON_IS_ROUND__,
+			defaultValue: DEFAULT_ICON_BUTTON_IS_ROUND,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isOutlined: {
 			name: 'Outlined',
 			type: 'boolean',
-			defaultValue: __DEFAULT_ICON_BUTTON_IS_OUTLINED__,
+			defaultValue: DEFAULT_ICON_BUTTON_IS_OUTLINED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: __DEFAULT_ICON_BUTTON_SIZE__,
+			defaultValue: DEFAULT_ICON_BUTTON_SIZE,
 			// description: '',
 			options: ['xs', 'sm', 'md', 'lg', 'xl'] as Array<IconButtonSize>,
 			control: { type: 'radio' }
@@ -82,7 +82,7 @@ export default {
 		variant: {
 			name: 'Variant',
 			type: 'string',
-			defaultValue: __DEFAULT_ICON_BUTTON_VARIANT__,
+			defaultValue: DEFAULT_ICON_BUTTON_VARIANT,
 			// description: '',
 			options: [
 				'contained',

@@ -2,19 +2,19 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
-import { __DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE__ } from '../../common/constants';
+import { DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE } from '../../common/constants';
 import { useStepperContext, useStepperSizeConfig } from '../../common/hooks';
 import { getStepID, getStepTitleID } from '../../common/utils';
 import { useStepContext } from '../Step/common/hooks';
 
-import { __DEFAULT_STEP_TITLE_AS__ } from './common/constants';
-import { __KEYS_STEP_TITLE_CLASS__ } from './common/keys';
+import { DEFAULT_STEP_TITLE_AS } from './common/constants';
+import { KEYS_STEP_TITLE_CLASS } from './common/keys';
 import type { StepTitleElement, StepTitleProps, StepTitleRef } from './common/types';
 
 const StepTitle = forwardRef(function StepTitle<Element extends StepTitleElement>(
@@ -24,7 +24,7 @@ const StepTitle = forwardRef(function StepTitle<Element extends StepTitleElement
 	const { colorMode, size, id: stepperID } = useStepperContext();
 	const { id, index } = useStepContext();
 
-	const __DEFAULT_STEP_TITLE_COLOR__ = useGetColor({
+	const DEFAULT_STEP_TITLE_COLOR = useGetColor({
 		color: 'gray',
 		colorMode,
 		colorType: 'default',
@@ -36,14 +36,14 @@ const StepTitle = forwardRef(function StepTitle<Element extends StepTitleElement
 
 	const {
 		children,
-		as = __DEFAULT_STEP_TITLE_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_STEP_TITLE_AS,
+		className = DEFAULT_CLASSNAME,
 		align = 'left',
-		color = __DEFAULT_STEP_TITLE_COLOR__,
+		color = DEFAULT_STEP_TITLE_COLOR,
 		fontSize = config.fontSize.title,
 		fontWeight = 'bold',
 		lineClamp = 1,
-		lineHeight = __DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE__,
+		lineHeight = DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE,
 		...rest
 	} = props;
 
@@ -53,7 +53,7 @@ const StepTitle = forwardRef(function StepTitle<Element extends StepTitleElement
 			as={as}
 			ref={ref}
 			id={getStepTitleID(id || getStepID(stepperID, index))}
-			className={classNames(__KEYS_STEP_TITLE_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_STEP_TITLE_CLASS, { [className]: !!className })}
 			align={align}
 			color={color}
 			fontSize={fontSize}

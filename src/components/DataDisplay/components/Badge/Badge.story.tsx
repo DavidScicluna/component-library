@@ -3,16 +3,16 @@ import { Center } from '../../../Layout';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 import React from 'react';
 import {
-	__DEFAULT_BADGE_IS_ACTIVE__,
-	__DEFAULT_BADGE_IS_CLICKABLE__,
-	__DEFAULT_BADGE_IS_COMPACT__,
-	__DEFAULT_BADGE_IS_DISABLED__,
-	__DEFAULT_BADGE_IS_FULLWIDTH__,
-	__DEFAULT_BADGE_IS_OUTLINED__,
-	__DEFAULT_BADGE_IS_ROUND__,
-	__DEFAULT_BADGE_IS_UPPERCASE__,
-	__DEFAULT_BADGE_SIZE__,
-	__DEFAULT_BADGE_VARIANT__
+	DEFAULT_BADGE_IS_ACTIVE,
+	DEFAULT_BADGE_IS_CLICKABLE,
+	DEFAULT_BADGE_IS_COMPACT,
+	DEFAULT_BADGE_IS_DISABLED,
+	DEFAULT_BADGE_IS_FULLWIDTH,
+	DEFAULT_BADGE_IS_OUTLINED,
+	DEFAULT_BADGE_IS_ROUND,
+	DEFAULT_BADGE_IS_UPPERCASE,
+	DEFAULT_BADGE_SIZE,
+	DEFAULT_BADGE_VARIANT
 } from './common/constants';
 import type { BadgeDefaultElement, BadgeProps, BadgeSize, BadgeVariant } from './common/types';
 import type { BadgeStory, BadgeStoryMeta } from './common/types/story';
@@ -26,63 +26,63 @@ export default {
 		isActive: {
 			name: 'Active',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BADGE_IS_ACTIVE__,
+			defaultValue: DEFAULT_BADGE_IS_ACTIVE,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isClickable: {
 			name: 'Clickable',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BADGE_IS_CLICKABLE__,
+			defaultValue: DEFAULT_BADGE_IS_CLICKABLE,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isCompact: {
 			name: 'Compact',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BADGE_IS_COMPACT__,
+			defaultValue: DEFAULT_BADGE_IS_COMPACT,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BADGE_IS_DISABLED__,
+			defaultValue: DEFAULT_BADGE_IS_DISABLED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isFullWidth: {
 			name: 'FullWidth',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BADGE_IS_FULLWIDTH__,
+			defaultValue: DEFAULT_BADGE_IS_FULLWIDTH,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isOutlined: {
 			name: 'Outlined',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BADGE_IS_OUTLINED__,
+			defaultValue: DEFAULT_BADGE_IS_OUTLINED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isRound: {
 			name: 'Round',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BADGE_IS_ROUND__,
+			defaultValue: DEFAULT_BADGE_IS_ROUND,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isUppercase: {
 			name: 'Uppercase',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BADGE_IS_UPPERCASE__,
+			defaultValue: DEFAULT_BADGE_IS_UPPERCASE,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: __DEFAULT_BADGE_SIZE__,
+			defaultValue: DEFAULT_BADGE_SIZE,
 			// description: '',
 			options: [
 				'xs',
@@ -104,7 +104,7 @@ export default {
 		variant: {
 			name: 'Variant',
 			type: 'string',
-			defaultValue: __DEFAULT_BADGE_VARIANT__,
+			defaultValue: DEFAULT_BADGE_VARIANT,
 			// description: '',
 			options: ['contained', 'light', 'dark', 'outlined', 'monochrome', 'text'] as Array<BadgeVariant>,
 			control: { type: 'radio' }

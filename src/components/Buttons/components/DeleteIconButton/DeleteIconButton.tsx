@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 
 import { Tooltip } from '@components/Overlay';
 
@@ -10,12 +10,12 @@ import type { IconButtonProps } from '../IconButton';
 import { IconButton, IconButtonIcon } from '../IconButton';
 
 import {
-	__DEFAULT_DELETE_ICON_BUTTON_AS__,
-	__DEFAULT_DELETE_ICON_BUTTON_HAS_TOOLTIP__,
-	__DEFAULT_DELETE_ICON_BUTTON_LABEL__,
-	__DEFAULT_DELETE_ICON_BUTTON_PLACEMENT__
+	DEFAULT_DELETE_ICON_BUTTON_AS,
+	DEFAULT_DELETE_ICON_BUTTON_HAS_TOOLTIP,
+	DEFAULT_DELETE_ICON_BUTTON_LABEL,
+	DEFAULT_DELETE_ICON_BUTTON_PLACEMENT
 } from './common/constants';
-import { __KEYS_DELETE_ICON_BUTTON_CLASS__ } from './common/keys';
+import { KEYS_DELETE_ICON_BUTTON_CLASS } from './common/keys';
 import type { DeleteIconButtonElement, DeleteIconButtonProps, DeleteIconButtonRef } from './common/types';
 
 const DeleteIconButton = forwardRef(function DeleteIconButton<Element extends DeleteIconButtonElement>(
@@ -23,13 +23,13 @@ const DeleteIconButton = forwardRef(function DeleteIconButton<Element extends De
 	ref: DeleteIconButtonRef<Element>
 ): JSX.Element {
 	const {
-		as = __DEFAULT_DELETE_ICON_BUTTON_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_DELETE_ICON_BUTTON_AS,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		hasTooltip = __DEFAULT_DELETE_ICON_BUTTON_HAS_TOOLTIP__,
-		label = __DEFAULT_DELETE_ICON_BUTTON_LABEL__,
-		placement = __DEFAULT_DELETE_ICON_BUTTON_PLACEMENT__,
+		hasTooltip = DEFAULT_DELETE_ICON_BUTTON_HAS_TOOLTIP,
+		label = DEFAULT_DELETE_ICON_BUTTON_LABEL,
+		placement = DEFAULT_DELETE_ICON_BUTTON_PLACEMENT,
 		...rest
 	} = props;
 
@@ -45,7 +45,7 @@ const DeleteIconButton = forwardRef(function DeleteIconButton<Element extends De
 				{...(rest as IconButtonProps<Element>)}
 				as={as}
 				ref={ref}
-				className={classNames(__KEYS_DELETE_ICON_BUTTON_CLASS__, { [className]: !!className })}
+				className={classNames(KEYS_DELETE_ICON_BUTTON_CLASS, { [className]: !!className })}
 				aria-label={label}
 				color={color}
 				colorMode={colorMode}

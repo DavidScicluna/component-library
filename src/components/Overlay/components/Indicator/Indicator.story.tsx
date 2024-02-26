@@ -5,9 +5,9 @@ import { Text } from '../../../Typography';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
-	__DEFAULT_INDICATOR_IS_VISIBLE__,
-	__DEFAULT_INDICATOR_OFFSET__,
-	__DEFAULT_INDICATOR_PLACEMENT__
+	DEFAULT_INDICATOR_IS_VISIBLE,
+	DEFAULT_INDICATOR_OFFSET,
+	DEFAULT_INDICATOR_PLACEMENT
 } from './common/constants';
 import type { IndicatorPlacement, IndicatorProps } from './common/types';
 import type { IndicatorStory, IndicatorStoryMeta } from './common/types/story';
@@ -23,21 +23,21 @@ export default {
 		offset: {
 			name: 'offset',
 			type: 'string',
-			defaultValue: __DEFAULT_INDICATOR_OFFSET__,
+			defaultValue: DEFAULT_INDICATOR_OFFSET,
 			// description: '',
 			control: { type: 'number' }
 		},
 		isVisible: {
 			name: 'Visible',
 			type: 'boolean',
-			defaultValue: __DEFAULT_INDICATOR_IS_VISIBLE__,
+			defaultValue: DEFAULT_INDICATOR_IS_VISIBLE,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		placement: {
 			name: 'Placement',
 			type: 'string',
-			defaultValue: __DEFAULT_INDICATOR_PLACEMENT__,
+			defaultValue: DEFAULT_INDICATOR_PLACEMENT,
 			// description: '',
 			options: [
 				'bottom-center',

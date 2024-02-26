@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import { keys } from 'lodash-es';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_DURATION__, __DEFAULT_EASING__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_DURATION, DEFAULT_EASING } from '@common/constants';
 import { delays, durations } from '@common/data';
 import type {
 	AnimationConfig,
@@ -19,14 +19,10 @@ import { AnimatePresence } from '@components/Animation';
 import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
-import {
-	__DEFAULT_TRANSITION__,
-	__DEFAULT_TRANSITION_IN__,
-	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
-} from './common/constants';
+import { DEFAULT_TRANSITION, DEFAULT_TRANSITION_IN, DEFAULT_TRANSITION_UNMOUNT_ON_EXIT } from './common/constants';
 import { transitions } from './common/data';
 import { useTransitionResponsiveValues } from './common/hooks';
-import { __KEYS_TRANSITION_CLASS__ } from './common/keys';
+import { KEYS_TRANSITION_CLASS } from './common/keys';
 import type { TransitionProps, TransitionRef, TransitionVariant } from './common/types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -38,14 +34,14 @@ const Transition = forwardRef(function Transition<Element extends PolymorphicEle
 ): JSX.Element {
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		config: configProp,
 		delay: delayProp,
-		duration: durationProp = __DEFAULT_DURATION__,
-		easing: easingProp = __DEFAULT_EASING__,
-		in: isAnimatedProp = __DEFAULT_TRANSITION_IN__,
-		transition: transitionProp = __DEFAULT_TRANSITION__,
-		unmountOnExit: unmountOnExitProp = __DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__,
+		duration: durationProp = DEFAULT_DURATION,
+		easing: easingProp = DEFAULT_EASING,
+		in: isAnimatedProp = DEFAULT_TRANSITION_IN,
+		transition: transitionProp = DEFAULT_TRANSITION,
+		unmountOnExit: unmountOnExitProp = DEFAULT_TRANSITION_UNMOUNT_ON_EXIT,
 		onExitComplete,
 		// onExited,
 		// onExit,
@@ -111,7 +107,7 @@ const Transition = forwardRef(function Transition<Element extends PolymorphicEle
 				<MotionBox
 					{...(rest as BoxProps<Element>)}
 					ref={ref}
-					className={classNames(__KEYS_TRANSITION_CLASS__, { [className]: !!className })}
+					className={classNames(KEYS_TRANSITION_CLASS, { [className]: !!className })}
 					initial='exit'
 					animate={isAnimated || unmountOnExit ? 'enter' : 'exit'}
 					exit='exit'

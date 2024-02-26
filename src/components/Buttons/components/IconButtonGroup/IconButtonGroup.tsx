@@ -2,22 +2,22 @@ import { createContext, forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_SPACING } from '@common/constants';
 
 import {
-	__DEFAULT_ICON_BUTTON_IS_COMPACT__,
-	__DEFAULT_ICON_BUTTON_IS_DISABLED__,
-	__DEFAULT_ICON_BUTTON_IS_ROUND__,
-	__DEFAULT_ICON_BUTTON_SIZE__,
-	__DEFAULT_ICON_BUTTON_VARIANT__
+	DEFAULT_ICON_BUTTON_IS_COMPACT,
+	DEFAULT_ICON_BUTTON_IS_DISABLED,
+	DEFAULT_ICON_BUTTON_IS_ROUND,
+	DEFAULT_ICON_BUTTON_SIZE,
+	DEFAULT_ICON_BUTTON_VARIANT
 } from '@components/Buttons/components/IconButton/common/constants';
 import type { StackProps } from '@components/Layout';
 import { Stack } from '@components/Layout';
-import { __DEFAULT_STACK_DIRECTION__ } from '@components/Layout/components/Stacks/Stack/common/constants';
+import { DEFAULT_STACK_DIRECTION } from '@components/Layout/components/Stacks/Stack/common/constants';
 
-import { __DEFAULT_ICON_BUTTON_GROUP_AS__, __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__ } from './common/constants';
+import { DEFAULT_ICON_BUTTON_GROUP_AS, DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED } from './common/constants';
 import { useIconButtonGroupResponsiveValues } from './common/hooks';
-import { __KEYS_ICON_BUTTON_GROUP_CLASS__ } from './common/keys';
+import { KEYS_ICON_BUTTON_GROUP_CLASS } from './common/keys';
 import type {
 	IconButtonGroupContext as IconButtonGroupContextType,
 	IconButtonGroupDefaultElement,
@@ -27,8 +27,8 @@ import type {
 } from './common/types';
 
 export const IconButtonGroupContext = createContext<IconButtonGroupContextType<IconButtonGroupDefaultElement>>({
-	direction: __DEFAULT_STACK_DIRECTION__,
-	isAttached: __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__
+	direction: DEFAULT_STACK_DIRECTION,
+	isAttached: DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED
 });
 
 const IconButtonGroup = forwardRef(function IconButtonGroup<Element extends IconButtonGroupElement>(
@@ -37,18 +37,18 @@ const IconButtonGroup = forwardRef(function IconButtonGroup<Element extends Icon
 ): JSX.Element {
 	const {
 		children,
-		as = __DEFAULT_ICON_BUTTON_GROUP_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_ICON_BUTTON_GROUP_AS,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		direction: directionProp = __DEFAULT_STACK_DIRECTION__,
-		isAttached: isAttachedProp = __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__,
-		isCompact: isCompactProp = __DEFAULT_ICON_BUTTON_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_ICON_BUTTON_IS_DISABLED__,
-		isRound: isRoundProp = __DEFAULT_ICON_BUTTON_IS_ROUND__,
-		spacing: spacingProp = __DEFAULT_SPACING__,
-		size: sizeProp = __DEFAULT_ICON_BUTTON_SIZE__,
-		variant: variantProp = __DEFAULT_ICON_BUTTON_VARIANT__,
+		direction: directionProp = DEFAULT_STACK_DIRECTION,
+		isAttached: isAttachedProp = DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED,
+		isCompact: isCompactProp = DEFAULT_ICON_BUTTON_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_ICON_BUTTON_IS_DISABLED,
+		isRound: isRoundProp = DEFAULT_ICON_BUTTON_IS_ROUND,
+		spacing: spacingProp = DEFAULT_SPACING,
+		size: sizeProp = DEFAULT_ICON_BUTTON_SIZE,
+		variant: variantProp = DEFAULT_ICON_BUTTON_VARIANT,
 		...rest
 	} = props;
 
@@ -72,7 +72,7 @@ const IconButtonGroup = forwardRef(function IconButtonGroup<Element extends Icon
 				{...(rest as StackProps<Element>)}
 				as={as}
 				ref={ref}
-				className={classNames(__KEYS_ICON_BUTTON_GROUP_CLASS__, { [className]: !!className })}
+				className={classNames(KEYS_ICON_BUTTON_GROUP_CLASS, { [className]: !!className })}
 				direction={direction}
 				spacing={isAttached ? 0 : spacing}
 			>

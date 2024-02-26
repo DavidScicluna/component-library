@@ -1,15 +1,15 @@
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_SPACING } from '@common/constants';
 import { useGetClass } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import {
-	__DEFAULT_STACK_ALIGN_ITEMS__,
-	__DEFAULT_STACK_DIRECTION__,
-	__DEFAULT_STACK_JUSTIFY_CONTENT__,
-	__DEFAULT_STACK_WRAP__
+	DEFAULT_STACK_ALIGN_ITEMS,
+	DEFAULT_STACK_DIRECTION,
+	DEFAULT_STACK_JUSTIFY_CONTENT,
+	DEFAULT_STACK_WRAP
 } from '../constants';
 import type { StackProps } from '../types';
 
@@ -25,11 +25,11 @@ const useStackClasses = <Element extends PolymorphicElementType>(
 	props: UseStackClassesProps<Element>
 ): UseStackClassesReturn => {
 	const {
-		alignItems: alignItemsProp = __DEFAULT_STACK_ALIGN_ITEMS__,
-		direction: directionProp = __DEFAULT_STACK_DIRECTION__,
-		justifyContent: justifyContentProp = __DEFAULT_STACK_JUSTIFY_CONTENT__,
-		spacing: spacingProp = __DEFAULT_SPACING__,
-		wrap: wrapProp = __DEFAULT_STACK_WRAP__
+		alignItems: alignItemsProp = DEFAULT_STACK_ALIGN_ITEMS,
+		direction: directionProp = DEFAULT_STACK_DIRECTION,
+		justifyContent: justifyContentProp = DEFAULT_STACK_JUSTIFY_CONTENT,
+		spacing: spacingProp = DEFAULT_SPACING,
+		wrap: wrapProp = DEFAULT_STACK_WRAP
 	} = props;
 
 	const { alignItems, direction, justifyContent, spacing, wrap } = useStackResponsiveValues({

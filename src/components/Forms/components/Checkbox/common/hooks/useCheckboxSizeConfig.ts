@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import type { PolymorphicElementType, ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
 
-import { __DEFAULT_CHECKBOX_IS_COMPACT__, __DEFAULT_CHECKBOX_SIZE__ } from '../constants';
+import { DEFAULT_CHECKBOX_IS_COMPACT, DEFAULT_CHECKBOX_SIZE } from '../constants';
 import type { CheckboxProps } from '../types';
 
 import { useCheckboxResponsiveValues } from '.';
@@ -23,8 +23,7 @@ type UseCheckboxSizeConfigReturn = CheckboxSizeConfig;
 const useCheckboxSizeConfig = <Element extends PolymorphicElementType>(
 	props: UseCheckboxSizeConfigProps<Element>
 ): UseCheckboxSizeConfigReturn => {
-	const { isCompact: isCompactProp = __DEFAULT_CHECKBOX_IS_COMPACT__, size: sizeProp = __DEFAULT_CHECKBOX_SIZE__ } =
-		props;
+	const { isCompact: isCompactProp = DEFAULT_CHECKBOX_IS_COMPACT, size: sizeProp = DEFAULT_CHECKBOX_SIZE } = props;
 
 	const { isCompact, size } = useCheckboxResponsiveValues<Element>({ isCompact: isCompactProp, size: sizeProp });
 

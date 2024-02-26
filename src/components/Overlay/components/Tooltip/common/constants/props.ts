@@ -1,16 +1,16 @@
 import type { TooltipPlacement } from '../types';
 
-export const __DEFAULT_TOOLTIP_CLOSE_DELAY__ = 0;
-export const __DEFAULT_TOOLTIP_OPEN_DELAY__ = 0;
+export const DEFAULT_TOOLTIP_CLOSE_DELAY = 0;
+export const DEFAULT_TOOLTIP_OPEN_DELAY = 0;
 
-export const __DEFAULT_TOOLTIP_CLOSE_ON_CLICK__ = true;
-export const __DEFAULT_TOOLTIP_CLOSE_ON_ESC__ = true;
+export const DEFAULT_TOOLTIP_CLOSE_ON_CLICK = true;
+export const DEFAULT_TOOLTIP_CLOSE_ON_ESC = true;
 
-export const __DEFAULT_TOOLTIP_GUTTER__ = 8;
+export const DEFAULT_TOOLTIP_GUTTER = 8;
 
-export const __DEFAULT_TOOLTIP_IS_DISABLED__ = false;
-export const __DEFAULT_TOOLTIP_IS_OPEN__ = false;
+export const DEFAULT_TOOLTIP_IS_DISABLED = false;
+export const DEFAULT_TOOLTIP_IS_OPEN = false;
 
-export const __DEFAULT_TOOLTIP_LABEL__ = '';
+export const DEFAULT_TOOLTIP_LABEL = '';
 
-export const __DEFAULT_TOOLTIP_PLACEMENT__: TooltipPlacement = 'top';
+export const DEFAULT_TOOLTIP_PLACEMENT: TooltipPlacement = 'top';

@@ -1,15 +1,15 @@
 import { useInterval } from 'usehooks-ts';
 
 import {
-	__DEFAULT_HAS_FILLEDICON_LOADED__,
-	__DEFAULT_HAS_OUTLINEDICON_LOADED__,
-	__DEFAULT_HAS_TWOTONEICON_LOADED__
+	DEFAULT_HAS_FILLEDICON_LOADED,
+	DEFAULT_HAS_OUTLINEDICON_LOADED,
+	DEFAULT_HAS_TWOTONEICON_LOADED
 } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 import {
-	__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__,
-	__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__,
-	__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__
+	KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED,
+	KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED,
+	KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED
 } from '@common/keys';
 import { getIconFontFamily } from '@common/utils';
 
@@ -22,54 +22,54 @@ const checkFontStatus = (category: IconCategory): boolean => {
 };
 
 const useGetIconFontStatus = (): useGetIconFontStatusReturn => {
-	const [hasFilledIconsLoaded, setHasFilledIconsLoaded] = useBoolean(__DEFAULT_HAS_FILLEDICON_LOADED__);
-	const [hasOutlinedIconsLoaded, setHasOutlinedIconsLoaded] = useBoolean(__DEFAULT_HAS_OUTLINEDICON_LOADED__);
-	const [hasTwoToneIconsLoaded, setHasTwoToneIconsLoaded] = useBoolean(__DEFAULT_HAS_TWOTONEICON_LOADED__);
+	const [hasFilledIconsLoaded, setHasFilledIconsLoaded] = useBoolean(DEFAULT_HAS_FILLEDICON_LOADED);
+	const [hasOutlinedIconsLoaded, setHasOutlinedIconsLoaded] = useBoolean(DEFAULT_HAS_OUTLINEDICON_LOADED);
+	const [hasTwoToneIconsLoaded, setHasTwoToneIconsLoaded] = useBoolean(DEFAULT_HAS_TWOTONEICON_LOADED);
 
 	const handleCheckFilledIconsStatus = (): void => {
 		if (typeof window !== 'undefined') {
-			window.sessionStorage.removeItem(__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__);
+			window.sessionStorage.removeItem(KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED);
 
 			if (checkFontStatus('filled')) {
 				setHasFilledIconsLoaded.on();
 
-				window.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__, 'true');
+				window.sessionStorage.setItem(KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED, 'true');
 			} else {
 				setHasFilledIconsLoaded.off();
 
-				window.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED__, 'false');
+				window.sessionStorage.setItem(KEY_SESSIONSTORAGE_HAS_FILLEDICON_LOADED, 'false');
 			}
 		}
 	};
 
 	const handleCheckOutlinedIconsStatus = (): void => {
 		if (typeof window !== 'undefined') {
-			window.sessionStorage.removeItem(__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__);
+			window.sessionStorage.removeItem(KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED);
 
 			if (checkFontStatus('outlined')) {
 				setHasOutlinedIconsLoaded.on();
 
-				window.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__, 'true');
+				window.sessionStorage.setItem(KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED, 'true');
 			} else {
 				setHasOutlinedIconsLoaded.off();
 
-				window.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED__, 'false');
+				window.sessionStorage.setItem(KEY_SESSIONSTORAGE_HAS_OUTLINEDICON_LOADED, 'false');
 			}
 		}
 	};
 
 	const handleCheckTwoToneIconsStatus = (): void => {
 		if (typeof window !== 'undefined') {
-			window.sessionStorage.removeItem(__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__);
+			window.sessionStorage.removeItem(KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED);
 
 			if (checkFontStatus('twoTone')) {
 				setHasTwoToneIconsLoaded.on();
 
-				window.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__, 'true');
+				window.sessionStorage.setItem(KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED, 'true');
 			} else {
 				setHasTwoToneIconsLoaded.off();
 
-				window.sessionStorage.setItem(__KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED__, 'false');
+				window.sessionStorage.setItem(KEY_SESSIONSTORAGE_HAS_TWOTONEICON_LOADED, 'false');
 			}
 		}
 	};

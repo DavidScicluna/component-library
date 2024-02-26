@@ -2,7 +2,7 @@ import { useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicElementType, ThemeSpacing } from '@common/types';
 
 // eslint-disable-next-line import-path/parent-depth
-import { __DEFAULT_CAROUSEL_DOTS_SIZE__ } from '@components/DataDisplay/components/Carousel';
+import { DEFAULT_CAROUSEL_DOTS_SIZE } from '@components/DataDisplay/components/Carousel';
 
 import type { CarouselDotProps } from '../types';
 
@@ -13,7 +13,7 @@ type UseCarouselDotResponsiveValuesProps<Element extends PolymorphicElementType>
 const useCarouselDotResponsiveValues = <Element extends PolymorphicElementType>(
 	props: UseCarouselDotResponsiveValuesProps<Element>
 ) => {
-	const { size: sizeProp = __DEFAULT_CAROUSEL_DOTS_SIZE__ } = props;
+	const { size: sizeProp = DEFAULT_CAROUSEL_DOTS_SIZE } = props;
 
 	const size = useGetResponsiveValue<ThemeSpacing>(sizeProp);
 

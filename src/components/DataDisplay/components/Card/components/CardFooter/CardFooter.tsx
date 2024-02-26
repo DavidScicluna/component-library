@@ -2,26 +2,26 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import type { CenterProps } from '@components/Layout';
 import { Center } from '@components/Layout';
 
-import { __KEYS_CARD_FOOTER_CLASS__ } from './common/keys';
+import { KEYS_CARD_FOOTER_CLASS } from './common/keys';
 import type { CardFooterProps, CardFooterRef } from './common/types';
 
 const CardFooter = forwardRef(function CardFooter<Element extends PolymorphicElementType>(
 	props: CardFooterProps<Element>,
 	ref: CardFooterRef<Element>
 ): JSX.Element {
-	const { children, className = __DEFAULT_CLASSNAME__, ...rest } = props;
+	const { children, className = DEFAULT_CLASSNAME, ...rest } = props;
 
 	return (
 		<Center
 			{...(rest as CenterProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_CARD_FOOTER_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_CARD_FOOTER_CLASS, { [className]: !!className })}
 		>
 			{children}
 		</Center>

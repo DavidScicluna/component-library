@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import type { TextProps } from '@components/Typography';
@@ -11,8 +11,8 @@ import { Text } from '@components/Typography';
 import { useConfirmModalContext } from '../../common/hooks';
 import { getConfirmModalTitleID } from '../../common/utils';
 
-import { __DEFAULT_CONFIRM_MODAL_TITLE_AS__ } from './common/constants';
-import { __KEYS_CONFIRM_MODAL_TITLE_CLASS__ } from './common/keys';
+import { DEFAULT_CONFIRM_MODAL_TITLE_AS } from './common/constants';
+import { KEYS_CONFIRM_MODAL_TITLE_CLASS } from './common/keys';
 import type { ConfirmModalTitleElement, ConfirmModalTitleProps, ConfirmModalTitleRef } from './common/types';
 
 const ConfirmModalTitle = forwardRef(function ConfirmModalTitle<Element extends ConfirmModalTitleElement>(
@@ -21,7 +21,7 @@ const ConfirmModalTitle = forwardRef(function ConfirmModalTitle<Element extends 
 ): JSX.Element {
 	const { colorMode, id } = useConfirmModalContext();
 
-	const __DEFAULT_CONFIRM_MODAL_TITLE_COLOR__ = useGetColor({
+	const DEFAULT_CONFIRM_MODAL_TITLE_COLOR = useGetColor({
 		color: 'gray',
 		colorMode,
 		colorType: 'default',
@@ -31,10 +31,10 @@ const ConfirmModalTitle = forwardRef(function ConfirmModalTitle<Element extends 
 
 	const {
 		children,
-		as = __DEFAULT_CONFIRM_MODAL_TITLE_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_CONFIRM_MODAL_TITLE_AS,
+		className = DEFAULT_CLASSNAME,
 		align = 'center',
-		color = __DEFAULT_CONFIRM_MODAL_TITLE_COLOR__,
+		color = DEFAULT_CONFIRM_MODAL_TITLE_COLOR,
 		fontSize = '4xl',
 		fontWeight = 'bold',
 		lineClamp = 'none',
@@ -47,7 +47,7 @@ const ConfirmModalTitle = forwardRef(function ConfirmModalTitle<Element extends 
 			as={as}
 			ref={ref}
 			id={getConfirmModalTitleID(id)}
-			className={classNames(__KEYS_CONFIRM_MODAL_TITLE_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_CONFIRM_MODAL_TITLE_CLASS, { [className]: !!className })}
 			align={align}
 			color={color}
 			fontSize={fontSize}

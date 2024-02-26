@@ -2,13 +2,13 @@ import type { IconKey, ThemeRadius } from '@common/types';
 
 import type { IconCategory, IconDefaultElement, IconSize, IconVariant } from '../types';
 
-export const __DEFAULT_ICON_AS__: IconDefaultElement = 'span';
+export const DEFAULT_ICON_AS: IconDefaultElement = 'span';
 
-export const __DEFAULT_ICON_ICON__: IconKey = 'circle';
-export const __DEFAULT_ICON_CATEGORY__: IconCategory = 'filled';
+export const DEFAULT_ICON_ICON: IconKey = 'circle';
+export const DEFAULT_ICON_CATEGORY: IconCategory = 'filled';
 
-export const __DEFAULT_ICON_RADIUS__: ThemeRadius = 'full';
+export const DEFAULT_ICON_RADIUS: ThemeRadius = 'full';
 
-export const __DEFAULT_ICON_SIZE__: IconSize = '2xl';
+export const DEFAULT_ICON_SIZE: IconSize = '2xl';
 
-export const __DEFAULT_ICON_VARIANT__: IconVariant = 'unstyled';
+export const DEFAULT_ICON_VARIANT: IconVariant = 'unstyled';

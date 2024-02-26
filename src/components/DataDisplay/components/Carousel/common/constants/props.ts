@@ -12,17 +12,17 @@ import type {
 	CarouselVisibleItems
 } from '../types';
 
-export const __DEFAULT_CAROUSEL_AS__: CarouselDefaultElement = 'div';
+export const DEFAULT_CAROUSEL_AS: CarouselDefaultElement = 'div';
 
-export const __DEFAULT_CAROUSEL_DURATION_THEME__: ThemeDuration = 'normal';
-export const __DEFAULT_CAROUSEL_DURATION_NUMBER__ = getAnimationDuration(__DEFAULT_CAROUSEL_DURATION_THEME__);
+export const DEFAULT_CAROUSEL_DURATION_THEME: ThemeDuration = 'normal';
+export const DEFAULT_CAROUSEL_DURATION_NUMBER = getAnimationDuration(DEFAULT_CAROUSEL_DURATION_THEME);
 
-export const __DEFAULT_CAROUSEL_ID__ = uuid();
-export const __DEFAULT_CAROUSEL_ITEMS__: CarouselItems = [];
-export const __DEFAULT_CAROUSEL_VISIBLE_ITEMS__: CarouselVisibleItems = [];
+export const DEFAULT_CAROUSEL_ID = uuid();
+export const DEFAULT_CAROUSEL_ITEMS: CarouselItems = [];
+export const DEFAULT_CAROUSEL_VISIBLE_ITEMS: CarouselVisibleItems = [];
 
-export const __DEFAULT_CAROUSEL_SCROLL_AMOUNT__: CarouselScrollAmount = 3;
+export const DEFAULT_CAROUSEL_SCROLL_AMOUNT: CarouselScrollAmount = 3;
 
-export const __DEFAULT_CAROUSEL_ORIENTTATION__: CarouselOrientation = 'horizontal';
+export const DEFAULT_CAROUSEL_ORIENTTATION: CarouselOrientation = 'horizontal';
 
-export const __DEFAULT_CAROUSEL_VARIANT__: CarouselVariant = 'overlay';
+export const DEFAULT_CAROUSEL_VARIANT: CarouselVariant = 'overlay';

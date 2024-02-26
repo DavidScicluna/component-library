@@ -2,21 +2,21 @@ import { useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
 
 import {
-	__DEFAULT_CHECKBOX_IS_ACTIVE__,
-	__DEFAULT_CHECKBOX_IS_CHECKED__,
-	__DEFAULT_CHECKBOX_IS_CLICKABLE__,
-	__DEFAULT_CHECKBOX_IS_COMPACT__,
-	__DEFAULT_CHECKBOX_IS_DISABLED__,
-	__DEFAULT_CHECKBOX_IS_ERROR__,
-	__DEFAULT_CHECKBOX_IS_FOCUSED__,
-	__DEFAULT_CHECKBOX_IS_INDETERMINATE__,
-	__DEFAULT_CHECKBOX_IS_OUTLINED__,
-	__DEFAULT_CHECKBOX_IS_READONLY__,
-	__DEFAULT_CHECKBOX_IS_REQUIRED__,
-	__DEFAULT_CHECKBOX_IS_SUCCESS__,
-	__DEFAULT_CHECKBOX_IS_WARNING__,
-	__DEFAULT_CHECKBOX_LABEL_POSITION__,
-	__DEFAULT_CHECKBOX_SIZE__
+	DEFAULT_CHECKBOX_IS_ACTIVE,
+	DEFAULT_CHECKBOX_IS_CHECKED,
+	DEFAULT_CHECKBOX_IS_CLICKABLE,
+	DEFAULT_CHECKBOX_IS_COMPACT,
+	DEFAULT_CHECKBOX_IS_DISABLED,
+	DEFAULT_CHECKBOX_IS_ERROR,
+	DEFAULT_CHECKBOX_IS_FOCUSED,
+	DEFAULT_CHECKBOX_IS_INDETERMINATE,
+	DEFAULT_CHECKBOX_IS_OUTLINED,
+	DEFAULT_CHECKBOX_IS_READONLY,
+	DEFAULT_CHECKBOX_IS_REQUIRED,
+	DEFAULT_CHECKBOX_IS_SUCCESS,
+	DEFAULT_CHECKBOX_IS_WARNING,
+	DEFAULT_CHECKBOX_LABEL_POSITION,
+	DEFAULT_CHECKBOX_SIZE
 } from '../constants';
 import type { CheckboxLabelPosition, CheckboxProps, CheckboxSize } from '../types';
 
@@ -44,21 +44,21 @@ const useCheckboxResponsiveValues = <Element extends PolymorphicElementType>(
 	props: UseCheckboxResponsiveValuesProps<Element>
 ) => {
 	const {
-		isActive: isActiveProp = __DEFAULT_CHECKBOX_IS_ACTIVE__,
-		isChecked: isCheckedProp = __DEFAULT_CHECKBOX_IS_CHECKED__,
-		isClickable: isClickableProp = __DEFAULT_CHECKBOX_IS_CLICKABLE__,
-		isCompact: isCompactProp = __DEFAULT_CHECKBOX_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_CHECKBOX_IS_DISABLED__,
-		isError: isErrorProp = __DEFAULT_CHECKBOX_IS_ERROR__,
-		isFocused: isFocusedProp = __DEFAULT_CHECKBOX_IS_FOCUSED__,
-		isIndeterminate: isIndeterminateProp = __DEFAULT_CHECKBOX_IS_INDETERMINATE__,
-		isOutlined: isOutlinedProp = __DEFAULT_CHECKBOX_IS_OUTLINED__,
-		isReadOnly: isReadOnlyProp = __DEFAULT_CHECKBOX_IS_READONLY__,
-		isRequired: isRequiredProp = __DEFAULT_CHECKBOX_IS_REQUIRED__,
-		isSuccess: isSuccessProp = __DEFAULT_CHECKBOX_IS_SUCCESS__,
-		isWarning: isWarningProp = __DEFAULT_CHECKBOX_IS_WARNING__,
-		labelPosition: labelPositionProp = __DEFAULT_CHECKBOX_LABEL_POSITION__,
-		size: sizeProp = __DEFAULT_CHECKBOX_SIZE__
+		isActive: isActiveProp = DEFAULT_CHECKBOX_IS_ACTIVE,
+		isChecked: isCheckedProp = DEFAULT_CHECKBOX_IS_CHECKED,
+		isClickable: isClickableProp = DEFAULT_CHECKBOX_IS_CLICKABLE,
+		isCompact: isCompactProp = DEFAULT_CHECKBOX_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_CHECKBOX_IS_DISABLED,
+		isError: isErrorProp = DEFAULT_CHECKBOX_IS_ERROR,
+		isFocused: isFocusedProp = DEFAULT_CHECKBOX_IS_FOCUSED,
+		isIndeterminate: isIndeterminateProp = DEFAULT_CHECKBOX_IS_INDETERMINATE,
+		isOutlined: isOutlinedProp = DEFAULT_CHECKBOX_IS_OUTLINED,
+		isReadOnly: isReadOnlyProp = DEFAULT_CHECKBOX_IS_READONLY,
+		isRequired: isRequiredProp = DEFAULT_CHECKBOX_IS_REQUIRED,
+		isSuccess: isSuccessProp = DEFAULT_CHECKBOX_IS_SUCCESS,
+		isWarning: isWarningProp = DEFAULT_CHECKBOX_IS_WARNING,
+		labelPosition: labelPositionProp = DEFAULT_CHECKBOX_LABEL_POSITION,
+		size: sizeProp = DEFAULT_CHECKBOX_SIZE
 	} = props;
 
 	const isActive = useGetResponsiveValue<boolean>(isActiveProp);

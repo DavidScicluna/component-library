@@ -1,23 +1,23 @@
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_COLOR__, __DEFAULT_RADIUS__ } from '@common/constants';
+import { DEFAULT_COLOR, DEFAULT_RADIUS } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import {
-	__DEFAULT_IMAGE_BLUR__,
-	__DEFAULT_IMAGE_BRIGHTNESS__,
-	__DEFAULT_IMAGE_CONTRAST__,
-	__DEFAULT_IMAGE_FILTERS__,
-	__DEFAULT_IMAGE_FIT__,
-	__DEFAULT_IMAGE_GRAYSCALE__,
-	__DEFAULT_IMAGE_HUE_ROTATE__,
-	__DEFAULT_IMAGE_INVERT__,
-	__DEFAULT_IMAGE_OPTIONS__,
-	__DEFAULT_IMAGE_POSITION__,
-	__DEFAULT_IMAGE_SATURATE__,
-	__DEFAULT_IMAGE_SEPIA__
+	DEFAULT_IMAGE_BLUR,
+	DEFAULT_IMAGE_BRIGHTNESS,
+	DEFAULT_IMAGE_CONTRAST,
+	DEFAULT_IMAGE_FILTERS,
+	DEFAULT_IMAGE_FIT,
+	DEFAULT_IMAGE_GRAYSCALE,
+	DEFAULT_IMAGE_HUE_ROTATE,
+	DEFAULT_IMAGE_INVERT,
+	DEFAULT_IMAGE_OPTIONS,
+	DEFAULT_IMAGE_POSITION,
+	DEFAULT_IMAGE_SATURATE,
+	DEFAULT_IMAGE_SEPIA
 } from '../constants';
 import type { ImageProps } from '../types';
 
@@ -32,14 +32,14 @@ type UseImageClassesReturn = Record<'container' | 'image' | 'fallback' | 'thumbn
 const useImageClasses = <Element extends PolymorphicElementType>(
 	props: UseImageClassesProps<Element>
 ): UseImageClassesReturn => {
-	const { colorMode: __DEFAULT_IMAGE_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_IMAGE_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_IMAGE_COLORMODE__,
-		filters: filtersProp = __DEFAULT_IMAGE_FILTERS__,
-		options: optionsProp = __DEFAULT_IMAGE_OPTIONS__,
-		radius: radiusProp = __DEFAULT_RADIUS__
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_IMAGE_COLORMODE,
+		filters: filtersProp = DEFAULT_IMAGE_FILTERS,
+		options: optionsProp = DEFAULT_IMAGE_OPTIONS,
+		radius: radiusProp = DEFAULT_RADIUS
 	} = props;
 
 	const { filters, options, radius } = useImageResponsiveValues<Element>({
@@ -49,16 +49,16 @@ const useImageClasses = <Element extends PolymorphicElementType>(
 	});
 
 	const {
-		blur = __DEFAULT_IMAGE_BLUR__,
-		brightness = __DEFAULT_IMAGE_BRIGHTNESS__,
-		contrast = __DEFAULT_IMAGE_CONTRAST__,
-		grayscale = __DEFAULT_IMAGE_GRAYSCALE__,
-		hueRotate = __DEFAULT_IMAGE_HUE_ROTATE__,
-		invert = __DEFAULT_IMAGE_INVERT__,
-		saturate = __DEFAULT_IMAGE_SATURATE__,
-		sepia = __DEFAULT_IMAGE_SEPIA__
+		blur = DEFAULT_IMAGE_BLUR,
+		brightness = DEFAULT_IMAGE_BRIGHTNESS,
+		contrast = DEFAULT_IMAGE_CONTRAST,
+		grayscale = DEFAULT_IMAGE_GRAYSCALE,
+		hueRotate = DEFAULT_IMAGE_HUE_ROTATE,
+		invert = DEFAULT_IMAGE_INVERT,
+		saturate = DEFAULT_IMAGE_SATURATE,
+		sepia = DEFAULT_IMAGE_SEPIA
 	} = filters;
-	const { fit = __DEFAULT_IMAGE_FIT__, position = __DEFAULT_IMAGE_POSITION__ } = options;
+	const { fit = DEFAULT_IMAGE_FIT, position = DEFAULT_IMAGE_POSITION } = options;
 
 	const radiusClassName = useGetClass((classes) => classes.borders.border_radius[radius]);
 

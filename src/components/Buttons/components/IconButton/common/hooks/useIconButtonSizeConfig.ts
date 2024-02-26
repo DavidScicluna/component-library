@@ -3,10 +3,10 @@ import { useMemo } from 'react';
 import type { ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
 
 import {
-	__DEFAULT_ICON_BUTTON_IS_COMPACT__,
-	__DEFAULT_ICON_BUTTON_IS_ROUND__,
-	__DEFAULT_ICON_BUTTON_SIZE__,
-	__DEFAULT_ICON_BUTTON_VARIANT__
+	DEFAULT_ICON_BUTTON_IS_COMPACT,
+	DEFAULT_ICON_BUTTON_IS_ROUND,
+	DEFAULT_ICON_BUTTON_SIZE,
+	DEFAULT_ICON_BUTTON_VARIANT
 } from '../constants';
 import type { IconButtonElement, IconButtonProps } from '../types';
 
@@ -28,10 +28,10 @@ const useIconButtonSizeConfig = <Element extends IconButtonElement>(
 	props: UseIconButtonSizeConfigProps<Element>
 ): UseIconButtonSizeConfigReturn => {
 	const {
-		isCompact: isCompactProp = __DEFAULT_ICON_BUTTON_IS_COMPACT__,
-		isRound: isRoundProp = __DEFAULT_ICON_BUTTON_IS_ROUND__,
-		size: sizeProp = __DEFAULT_ICON_BUTTON_SIZE__,
-		variant: variantProp = __DEFAULT_ICON_BUTTON_VARIANT__
+		isCompact: isCompactProp = DEFAULT_ICON_BUTTON_IS_COMPACT,
+		isRound: isRoundProp = DEFAULT_ICON_BUTTON_IS_ROUND,
+		size: sizeProp = DEFAULT_ICON_BUTTON_SIZE,
+		variant: variantProp = DEFAULT_ICON_BUTTON_VARIANT
 	} = props;
 
 	const { isCompact, isRound, size, variant } = useIconButtonResponsiveValues<Element>({

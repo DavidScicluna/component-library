@@ -1,5 +1,5 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
-export const __KEY_SKELETON_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-skeleton`;
-export const __KEY_SKELETON_CHILD_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-skeleton-child`;
-export const __KEY_SKELETON_OVERLAY_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-skeleton-overlay`;
+export const KEY_SKELETON_CLASS = `${DEFAULT_CLASS_PREFIX}-skeleton`;
+export const KEY_SKELETON_CHILD_CLASS = `${DEFAULT_CLASS_PREFIX}-skeleton-child`;
+export const KEY_SKELETON_OVERLAY_CLASS = `${DEFAULT_CLASS_PREFIX}-skeleton-overlay`;

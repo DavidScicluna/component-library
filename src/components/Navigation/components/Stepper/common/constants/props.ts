@@ -2,21 +2,21 @@ import { v4 as uuid } from 'uuid';
 
 import type { StepperAlign, StepperDefaultElement, StepperOrientation, StepperSize, StepperVariant } from '../types';
 
-export const __DEFAULT_STEPPER_AS__: StepperDefaultElement = 'div';
+export const DEFAULT_STEPPER_AS: StepperDefaultElement = 'div';
 
-export const __DEFAULT_STEPPER_ALIGN__: StepperAlign = 'start';
+export const DEFAULT_STEPPER_ALIGN: StepperAlign = 'start';
 
-export const __DEFAULT_STEPPER_ID__ = uuid();
+export const DEFAULT_STEPPER_ID = uuid();
 
-export const __DEFAULT_STEPPER_INDEX__ = 0;
-export const __DEFAULT_STEPPER_TOTAL__ = 0;
+export const DEFAULT_STEPPER_INDEX = 0;
+export const DEFAULT_STEPPER_TOTAL = 0;
 
-export const __DEFAULT_STEPPER_IS_CONSECUTIVELY__ = false;
-export const __DEFAULT_STEPPER_IS_DISABLED__ = false;
-export const __DEFAULT_STEPPER_IS_FITTED__ = false;
+export const DEFAULT_STEPPER_IS_CONSECUTIVELY = false;
+export const DEFAULT_STEPPER_IS_DISABLED = false;
+export const DEFAULT_STEPPER_IS_FITTED = false;
 
-export const __DEFAULT_STEPPER_ORIENTATION__: StepperOrientation = 'bottom';
+export const DEFAULT_STEPPER_ORIENTATION: StepperOrientation = 'bottom';
 
-export const __DEFAULT_STEPPER_SIZE__: StepperSize = 'md';
+export const DEFAULT_STEPPER_SIZE: StepperSize = 'md';
 
-export const __DEFAULT_STEPPER_VARIANT__: StepperVariant = 'dot';
+export const DEFAULT_STEPPER_VARIANT: StepperVariant = 'dot';

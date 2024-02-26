@@ -1,10 +1,10 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
 import type { BoxOtherProps } from '../types';
 
-export const __KEYS_BOX_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-box`;
+export const KEYS_BOX_CLASS = `${DEFAULT_CLASS_PREFIX}-box`;
 
-export const __KEYS_BOX__: Array<keyof BoxOtherProps<true>> = [
+export const KEYS_BOX: Array<keyof BoxOtherProps<true>> = [
 	'w',
 	'minW',
 	'maxW',

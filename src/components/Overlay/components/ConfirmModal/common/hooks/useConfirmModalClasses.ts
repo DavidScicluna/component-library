@@ -1,11 +1,11 @@
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_COLOR__, __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_COLOR, DEFAULT_SPACING } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
 import type { ClassName } from '@common/types';
 
-import { __DEFAULT_CONFIRM_MODAL_SIZE__, __DEFAULT_CONFIRM_MODAL_SPACING__ } from '../constants';
+import { DEFAULT_CONFIRM_MODAL_SIZE, DEFAULT_CONFIRM_MODAL_SPACING } from '../constants';
 import type { ConfirmModalElement, ConfirmModalProps } from '../types';
 
 import useConfirmModalResponsiveValues from './useConfirmModalResponsiveValues';
@@ -19,13 +19,13 @@ type UseGetConfirmModalClassesReturn = Record<'container' | 'backdrop' | 'conten
 const useGetConfirmModalClasses = <Element extends ConfirmModalElement>(
 	props: UseGetConfirmModalClassesProps<Element>
 ): UseGetConfirmModalClassesReturn => {
-	const { colorMode: __DEFAULT_CONFIRM_MODAL_CONTAINER_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_CONFIRM_MODAL_CONTAINER_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_CONFIRM_MODAL_CONTAINER_COLORMODE__,
-		spacing: spacingProp = __DEFAULT_CONFIRM_MODAL_SPACING__,
-		size: sizeProp = __DEFAULT_CONFIRM_MODAL_SIZE__
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_CONFIRM_MODAL_CONTAINER_COLORMODE,
+		spacing: spacingProp = DEFAULT_CONFIRM_MODAL_SPACING,
+		size: sizeProp = DEFAULT_CONFIRM_MODAL_SIZE
 	} = props;
 
 	const { size, spacing } = useConfirmModalResponsiveValues<Element>({ spacing: spacingProp, size: sizeProp });
@@ -71,8 +71,8 @@ const useGetConfirmModalClasses = <Element extends ConfirmModalElement>(
 		),
 		cancel: classNames(
 			classes.layout.position.absolute,
-			classes.layout.top[__DEFAULT_SPACING__],
-			classes.layout.right[__DEFAULT_SPACING__]
+			classes.layout.top[DEFAULT_SPACING],
+			classes.layout.right[DEFAULT_SPACING]
 		)
 	};
 };

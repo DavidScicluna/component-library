@@ -1,4 +1,4 @@
-import { __DEFAULT_RADIUS__ } from '../../../../common/constants';
+import { DEFAULT_RADIUS } from '../../../../common/constants';
 import type { PolymorphicDefaultElement, ThemeRadiusArr } from '../../../../common/types';
 
 import { Skeleton } from '../../../Feedback';
@@ -6,9 +6,9 @@ import { Center } from '../../../Layout';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 import React from 'react';
 import {
-	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED__,
-	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_OUTLINED__,
-	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__
+	DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED,
+	DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_OUTLINED,
+	DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT
 } from './common/constants';
 import type { DummyPushableOverlayProps, DummyPushableOverlayVariant } from './common/types';
 import type { DummyPushableOverlayStory, DummyPushableOverlayStoryMeta } from './common/types/story';
@@ -21,21 +21,21 @@ export default {
 		isAnimated: {
 			name: 'Animated',
 			type: 'boolean',
-			defaultValue: __DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED__,
+			defaultValue: DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isOutlined: {
 			name: 'Outlined',
 			type: 'boolean',
-			defaultValue: __DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_OUTLINED__,
+			defaultValue: DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_OUTLINED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		radius: {
 			name: 'Radius',
 			type: 'string',
-			defaultValue: __DEFAULT_RADIUS__,
+			defaultValue: DEFAULT_RADIUS,
 			// description: '',
 			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as ThemeRadiusArr,
 			control: { type: 'radio' }
@@ -43,7 +43,7 @@ export default {
 		variant: {
 			name: 'Variant',
 			type: 'boolean',
-			defaultValue: __DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__,
+			defaultValue: DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT,
 			// description: '',
 			options: [
 				'contained',

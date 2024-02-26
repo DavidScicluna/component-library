@@ -1,15 +1,15 @@
-import { __DEFAULT_RADIUS__ } from '@common/constants';
+import { DEFAULT_RADIUS } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicElementType, ThemeRadius } from '@common/types';
 
 import {
-	__DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
-	__DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
-	__DEFAULT_PUSHABLE_OVERLAY_IS_FIXED__,
-	__DEFAULT_PUSHABLE_OVERLAY_IS_FOCUSED__,
-	__DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED__,
-	__DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
-	__DEFAULT_PUSHABLE_OVERLAY_VARIANT__
+	DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE,
+	DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED,
+	DEFAULT_PUSHABLE_OVERLAY_IS_FIXED,
+	DEFAULT_PUSHABLE_OVERLAY_IS_FOCUSED,
+	DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED,
+	DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE,
+	DEFAULT_PUSHABLE_OVERLAY_VARIANT
 } from '../constants';
 import type { PushableOverlayProps, PushableOverlayVariant } from '../types';
 
@@ -30,14 +30,14 @@ const usePushableOverlayResponsiveValues = <Element extends PolymorphicElementTy
 	props: UsePushableOverlayResponsiveValuesProps<Element>
 ) => {
 	const {
-		isActive: isActiveProp = __DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
-		isDisabled: isDisabledProp = __DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
-		isFixed: isFixedProp = __DEFAULT_PUSHABLE_OVERLAY_IS_FIXED__,
-		isFocused: isFocusedProp = __DEFAULT_PUSHABLE_OVERLAY_IS_FOCUSED__,
-		isOutlined: isOutlinedProp = __DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED__,
-		isPushable: isPushableProp = __DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
-		radius: radiusProp = __DEFAULT_RADIUS__,
-		variant: variantProp = __DEFAULT_PUSHABLE_OVERLAY_VARIANT__
+		isActive: isActiveProp = DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE,
+		isDisabled: isDisabledProp = DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED,
+		isFixed: isFixedProp = DEFAULT_PUSHABLE_OVERLAY_IS_FIXED,
+		isFocused: isFocusedProp = DEFAULT_PUSHABLE_OVERLAY_IS_FOCUSED,
+		isOutlined: isOutlinedProp = DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED,
+		isPushable: isPushableProp = DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE,
+		radius: radiusProp = DEFAULT_RADIUS,
+		variant: variantProp = DEFAULT_PUSHABLE_OVERLAY_VARIANT
 	} = props;
 
 	const isActive = useGetResponsiveValue<boolean>(isActiveProp);

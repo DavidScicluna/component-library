@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useDimensionsRef } from 'rooks';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -17,12 +17,12 @@ import { getDummyTabID, getDummyTabPanelID } from '../../common/utils';
 import { DummyTabSkeleton } from '../DummyTabSkeleton';
 
 import {
-	__DEFAULT_DUMMY_TAB_BORDER_WIDTH__,
-	__DEFAULT_DUMMY_TAB_IS_COMPACT__,
-	__DEFAULT_DUMMY_TAB_IS_UPPERCASE__
+	DEFAULT_DUMMY_TAB_BORDER_WIDTH,
+	DEFAULT_DUMMY_TAB_IS_COMPACT,
+	DEFAULT_DUMMY_TAB_IS_UPPERCASE
 } from './common/constants';
 import { useDummyTabClasses, useDummyTabResponsiveValues, useDummyTabSizeConfig } from './common/hooks';
-import { __KEYS_DUMMY_TAB_CLASS__ } from './common/keys';
+import { KEYS_DUMMY_TAB_CLASS } from './common/keys';
 import type { DummyTabProps, DummyTabRef } from './common/types';
 
 const DummyTab = forwardRef(function DummyTab<Element extends PolymorphicElementType>(
@@ -30,13 +30,13 @@ const DummyTab = forwardRef(function DummyTab<Element extends PolymorphicElement
 	ref: DummyTabRef<Element>
 ): JSX.Element {
 	const {
-		color: __DEFAULT_DUMMY_TAB_COLOR__,
-		colorMode: __DEFAULT_DUMMY_TAB_COLORMODE__,
+		color: DEFAULT_DUMMY_TAB_COLOR,
+		colorMode: DEFAULT_DUMMY_TAB_COLORMODE,
 		id,
 		index: panel,
 		isFitted,
 		orientation,
-		spacing: __DEFAULT_DUMMY_TAB_SPACING__
+		spacing: DEFAULT_DUMMY_TAB_SPACING
 	} = useDummyTabsContext();
 
 	const [childrenRef, childrenDimensions] = useDimensionsRef();
@@ -44,17 +44,17 @@ const DummyTab = forwardRef(function DummyTab<Element extends PolymorphicElement
 
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		renderLeft,
 		renderRight,
 		renderTop,
 		renderBottom,
-		color = __DEFAULT_DUMMY_TAB_COLOR__,
-		colorMode = __DEFAULT_DUMMY_TAB_COLORMODE__,
+		color = DEFAULT_DUMMY_TAB_COLOR,
+		colorMode = DEFAULT_DUMMY_TAB_COLORMODE,
 		index,
-		isCompact: isCompactProp = __DEFAULT_DUMMY_TAB_IS_COMPACT__,
-		isUppercase: isUppercaseProp = __DEFAULT_DUMMY_TAB_IS_UPPERCASE__,
-		spacing = __DEFAULT_DUMMY_TAB_SPACING__,
+		isCompact: isCompactProp = DEFAULT_DUMMY_TAB_IS_COMPACT,
+		isUppercase: isUppercaseProp = DEFAULT_DUMMY_TAB_IS_UPPERCASE,
+		spacing = DEFAULT_DUMMY_TAB_SPACING,
 		...rest
 	} = props;
 
@@ -77,17 +77,15 @@ const DummyTab = forwardRef(function DummyTab<Element extends PolymorphicElement
 			aria-disabled='true'
 			aria-selected={isSelected}
 			id={getDummyTabID(id, index)}
-			className={classNames(__KEYS_DUMMY_TAB_CLASS__, classes.tab, { [className]: !!className })}
+			className={classNames(KEYS_DUMMY_TAB_CLASS, classes.tab, { [className]: !!className })}
 			role='tab'
 			tabIndex={0}
 			w={isFitted ? '100%' : 'auto'}
 			h='100%'
 			templateColumns={1}
-			templateRows={[
-				`${__DEFAULT_DUMMY_TAB_BORDER_WIDTH__}px`,
-				'1fr',
-				`${__DEFAULT_DUMMY_TAB_BORDER_WIDTH__}px`
-			].join(' ')}
+			templateRows={[`${DEFAULT_DUMMY_TAB_BORDER_WIDTH}px`, '1fr', `${DEFAULT_DUMMY_TAB_BORDER_WIDTH}px`].join(
+				' '
+			)}
 			alignItems={isFitted ? 'center' : 'stretch'}
 			alignContent={isFitted ? 'center' : 'stretch'}
 			justifyItems={isFitted ? 'center' : 'stretch'}

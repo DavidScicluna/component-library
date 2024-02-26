@@ -6,14 +6,14 @@ import { convertStringToNumber } from '@common/utils';
 
 import type { FileButtonDefaultElement } from '../types';
 
-export const __DEFAULT_FILE_BUTTON_AS__: FileButtonDefaultElement = 'input';
+export const DEFAULT_FILE_BUTTON_AS: FileButtonDefaultElement = 'input';
 
-export const __DEFAULT_FILE_BUTTON_ACCEPT__ = 'image/*';
+export const DEFAULT_FILE_BUTTON_ACCEPT = 'image/*';
 
-export const __DEFAULT_FILE_BUTTON_DURATION__: ThemeDuration = 'ultra-slow';
-export const __DEFAULT_FILE_BUTTON_TIMEOUT__ =
-	convertStringToNumber(theme.transitionDuration[__DEFAULT_FILE_BUTTON_DURATION__], 'ms') * 5;
+export const DEFAULT_FILE_BUTTON_DURATION: ThemeDuration = 'ultra-slow';
+export const DEFAULT_FILE_BUTTON_TIMEOUT =
+	convertStringToNumber(theme.transitionDuration[DEFAULT_FILE_BUTTON_DURATION], 'ms') * 5;
 
-export const __DEFAULT_FILE_BUTTON_IS_MULTIPLE__ = false;
+export const DEFAULT_FILE_BUTTON_IS_MULTIPLE = false;
 
-export const __DEFAULT_FILE_BUTTON_TYPE__: ComponentProps<'input'>['type'] = 'file';
+export const DEFAULT_FILE_BUTTON_TYPE: ComponentProps<'input'>['type'] = 'file';

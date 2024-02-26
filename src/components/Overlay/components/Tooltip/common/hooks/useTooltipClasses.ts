@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ } from '@common/constants';
+import { DEFAULT_BORDER_STYLE, DEFAULT_BORDER_WIDTH, DEFAULT_COLOR } from '@common/constants';
 import { useAppTheme, useConst } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 import { getColorHue } from '@common/utils';
@@ -19,9 +19,9 @@ type UseTooltipClassesReturn = Record<'tooltip' | 'arrow' | 'content', ClassName
 const useTooltipClasses = <Element extends PolymorphicElementType>(
 	props: UseTooltipClassesProps<Element>
 ): UseTooltipClassesReturn => {
-	const { colorMode: __DEFAULT_ICON_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_ICON_COLORMODE } = useAppTheme();
 
-	const { color = __DEFAULT_COLOR__, colorMode = __DEFAULT_ICON_COLORMODE__ } = props;
+	const { color = DEFAULT_COLOR, colorMode = DEFAULT_ICON_COLORMODE } = props;
 
 	const tooltipRootClasses = useConst<ClassName>(
 		classNames(
@@ -30,8 +30,8 @@ const useTooltipClasses = <Element extends PolymorphicElementType>(
 			classes.interactivity.user_select.none,
 			classes.interactivity.will_change.auto,
 			classes.interactivity.pointer_events.none,
-			classes.borders.border_width[__DEFAULT_BORDER_WIDTH__],
-			classes.borders.border_style[__DEFAULT_BORDER_STYLE__],
+			classes.borders.border_width[DEFAULT_BORDER_WIDTH],
+			classes.borders.border_style[DEFAULT_BORDER_STYLE],
 			classes.borders.border_radius.xs,
 			classes.effects.shadow.sm,
 			classes.layout.z_index.tooltip,

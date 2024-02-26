@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import type { TextProps } from '@components/Typography';
@@ -10,8 +10,8 @@ import { Text } from '@components/Typography';
 
 import { useCardContext } from '../../common/hooks';
 
-import { __DEFAULT_CARD_SUBTITLE_AS__ } from './common/constants';
-import { __KEYS_CARD_SUBTITLE_CLASS__ } from './common/keys';
+import { DEFAULT_CARD_SUBTITLE_AS } from './common/constants';
+import { KEYS_CARD_SUBTITLE_CLASS } from './common/keys';
 import type { CardSubtitleElement, CardSubtitleProps, CardSubtitleRef } from './common/types';
 
 const CardSubtitle = forwardRef(function CardSubtitle<Element extends CardSubtitleElement>(
@@ -20,7 +20,7 @@ const CardSubtitle = forwardRef(function CardSubtitle<Element extends CardSubtit
 ): JSX.Element {
 	const { colorMode } = useCardContext();
 
-	const __DEFAULT_CARD_SUBTITLE_COLOR__ = useGetColor({
+	const DEFAULT_CARD_SUBTITLE_COLOR = useGetColor({
 		color: 'gray',
 		colorMode,
 		colorType: 'default',
@@ -30,10 +30,10 @@ const CardSubtitle = forwardRef(function CardSubtitle<Element extends CardSubtit
 
 	const {
 		children,
-		as = __DEFAULT_CARD_SUBTITLE_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_CARD_SUBTITLE_AS,
+		className = DEFAULT_CLASSNAME,
 		align = 'left',
-		color = __DEFAULT_CARD_SUBTITLE_COLOR__,
+		color = DEFAULT_CARD_SUBTITLE_COLOR,
 		fontSize = 'sm',
 		fontWeight = 'normal',
 		lineClamp = 1,
@@ -45,7 +45,7 @@ const CardSubtitle = forwardRef(function CardSubtitle<Element extends CardSubtit
 			{...(rest as TextProps<Element>)}
 			as={as}
 			ref={ref}
-			className={classNames(__KEYS_CARD_SUBTITLE_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_CARD_SUBTITLE_CLASS, { [className]: !!className })}
 			align={align}
 			color={color}
 			fontSize={fontSize}

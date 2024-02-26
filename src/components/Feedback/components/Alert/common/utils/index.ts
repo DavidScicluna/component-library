@@ -1,11 +1,11 @@
 import memoize from 'micro-memoize';
 
-import { __DEFAULT_COLOR__ } from '@common/constants';
+import { DEFAULT_COLOR } from '@common/constants';
 import type { IconKey, ThemeColor } from '@common/types';
 
 import type { AlertStatus } from '../types';
 
-export const getStatusColor = memoize((status: AlertStatus, color: ThemeColor = __DEFAULT_COLOR__): ThemeColor => {
+export const getStatusColor = memoize((status: AlertStatus, color: ThemeColor = DEFAULT_COLOR): ThemeColor => {
 	switch (status) {
 		case 'error':
 			return 'red';

@@ -2,20 +2,20 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { useCarouselArrowState } from '../../common/hooks';
 import type { CarouselLinearGradientProps } from '..';
 import { CarouselLinearGradient } from '..';
 
-import { __KEYS_CAROUSEL_LEFT_LINEAR_GRADIENT_CLASS__ } from './common/keys';
+import { KEYS_CAROUSEL_LEFT_LINEAR_GRADIENT_CLASS } from './common/keys';
 import type { CarouselLeftLinearGradientProps, CarouselLeftLinearGradientRef } from './common/types';
 
 const CarouselLeftLinearGradient = forwardRef(function CarouselLeftLinearGradient<
 	Element extends PolymorphicElementType
 >(props: CarouselLeftLinearGradientProps<Element>, ref: CarouselLeftLinearGradientRef<Element>): JSX.Element {
-	const { className = __DEFAULT_CLASSNAME__, ...rest } = props;
+	const { className = DEFAULT_CLASSNAME, ...rest } = props;
 
 	const { isVisible } = useCarouselArrowState('left');
 
@@ -23,7 +23,7 @@ const CarouselLeftLinearGradient = forwardRef(function CarouselLeftLinearGradien
 		<CarouselLinearGradient
 			{...(rest as CarouselLinearGradientProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_CAROUSEL_LEFT_LINEAR_GRADIENT_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_CAROUSEL_LEFT_LINEAR_GRADIENT_CLASS, { [className]: !!className })}
 			direction='left'
 			isVisible={isVisible}
 		/>

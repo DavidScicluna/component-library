@@ -4,21 +4,21 @@ import classNames from 'classnames';
 
 import classes from '@common/classes';
 import {
-	__DEFAULT_COLOR__,
-	__DEFAULT_OUTLINE_OFFSET__,
-	__DEFAULT_OUTLINE_WIDTH__,
-	__DEFAULT_TEXT_DECORATION_STYLE__,
-	__DEFAULT_TEXT_DECORATION_WIDTH__
+	DEFAULT_COLOR,
+	DEFAULT_OUTLINE_OFFSET,
+	DEFAULT_OUTLINE_WIDTH,
+	DEFAULT_TEXT_DECORATION_STYLE,
+	DEFAULT_TEXT_DECORATION_WIDTH
 } from '@common/constants';
 import { useAppTheme, useConst } from '@common/hooks';
 import type { ClassName } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import {
-	__DEFAULT_LINK_IS_DISABLED__,
-	__DEFAULT_LINK_IS_UNDERLINE__,
-	__DEFAULT_LINK_IS_UNSTYLED__,
-	__DEFAULT_LINK_OFFSET_SIZE__
+	DEFAULT_LINK_IS_DISABLED,
+	DEFAULT_LINK_IS_UNDERLINE,
+	DEFAULT_LINK_IS_UNSTYLED,
+	DEFAULT_LINK_OFFSET_SIZE
 } from '../constants';
 import type { LinkElement, LinkProps } from '../types';
 
@@ -31,14 +31,14 @@ type UseLinkClassesProps<Element extends LinkElement> = Pick<
 type UseLinkClassesReturn = ClassName;
 
 const useLinkClasses = <Element extends LinkElement>(props: UseLinkClassesProps<Element>): UseLinkClassesReturn => {
-	const { colorMode: __DEFAULT_LINK_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_LINK_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_LINK_COLORMODE__,
-		isDisabled: isDisabledProp = __DEFAULT_LINK_IS_DISABLED__,
-		isUnderline: isUnderlineProp = __DEFAULT_LINK_IS_UNDERLINE__,
-		isUnstyled: isUnstyledProp = __DEFAULT_LINK_IS_UNSTYLED__
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_LINK_COLORMODE,
+		isDisabled: isDisabledProp = DEFAULT_LINK_IS_DISABLED,
+		isUnderline: isUnderlineProp = DEFAULT_LINK_IS_UNDERLINE,
+		isUnstyled: isUnstyledProp = DEFAULT_LINK_IS_UNSTYLED
 	} = props;
 
 	const { isDisabled, isUnderline, isUnstyled } = useLinkResponsiveValues<Element>({
@@ -57,21 +57,21 @@ const useLinkClasses = <Element extends LinkElement>(props: UseLinkClassesProps<
 	);
 
 	const stylingClasses = useMemo<ClassName>(() => {
-		const { base, hover, active } = __DEFAULT_LINK_OFFSET_SIZE__;
+		const { base, hover, active } = DEFAULT_LINK_OFFSET_SIZE;
 
 		const hue = getColorHue({ colorMode, type: 'color' });
 
 		return classNames(
 			classes.typography.text_color[color][hue],
 			classes.borders.outline_style.focus_visible.dashed,
-			classes.borders.outline_width.focus_visible[__DEFAULT_OUTLINE_WIDTH__],
-			classes.borders.outline_offset.focus_visible[__DEFAULT_OUTLINE_OFFSET__],
+			classes.borders.outline_width.focus_visible[DEFAULT_OUTLINE_WIDTH],
+			classes.borders.outline_offset.focus_visible[DEFAULT_OUTLINE_OFFSET],
 			classes.borders.outline_color[color][hue],
 			{
 				[classes.typography.text_decoration.underline]: isUnderline,
 				[classes.typography.text_decoration_color[color][hue]]: isUnderline,
-				[classes.typography.text_decoration_style[__DEFAULT_TEXT_DECORATION_STYLE__]]: isUnderline,
-				[classes.typography.text_decoration_thickness[__DEFAULT_TEXT_DECORATION_WIDTH__]]: isUnderline,
+				[classes.typography.text_decoration_style[DEFAULT_TEXT_DECORATION_STYLE]]: isUnderline,
+				[classes.typography.text_decoration_thickness[DEFAULT_TEXT_DECORATION_WIDTH]]: isUnderline,
 				[classes.typography.text_underline_offset[base]]: isUnderline,
 				[classes.typography.text_underline_offset.hover[hover]]: isUnderline,
 				[classes.typography.text_underline_offset.active[active]]: isUnderline

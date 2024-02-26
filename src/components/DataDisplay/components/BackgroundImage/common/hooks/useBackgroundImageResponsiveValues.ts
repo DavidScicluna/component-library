@@ -1,4 +1,4 @@
-import { __DEFAULT_RADIUS__ } from '@common/constants';
+import { DEFAULT_RADIUS } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	BackgroundAttachmentClass,
@@ -21,24 +21,24 @@ import type {
 } from '@common/types';
 
 import {
-	__DEFAULT_BACKGROUND_IMAGE_ATTACHMENT__,
-	__DEFAULT_BACKGROUND_IMAGE_BLEND_MODE__,
-	__DEFAULT_BACKGROUND_IMAGE_BLUR__,
-	__DEFAULT_BACKGROUND_IMAGE_BRIGHTNESS__,
-	__DEFAULT_BACKGROUND_IMAGE_CLIP__,
-	__DEFAULT_BACKGROUND_IMAGE_CONTRAST__,
-	__DEFAULT_BACKGROUND_IMAGE_FILTERS__,
-	__DEFAULT_BACKGROUND_IMAGE_GRAYSCALE__,
-	__DEFAULT_BACKGROUND_IMAGE_HUE_ROTATE__,
-	__DEFAULT_BACKGROUND_IMAGE_INVERT__,
-	__DEFAULT_BACKGROUND_IMAGE_OPTIONS__,
-	__DEFAULT_BACKGROUND_IMAGE_ORIGIN__,
-	__DEFAULT_BACKGROUND_IMAGE_POSITION__,
-	__DEFAULT_BACKGROUND_IMAGE_REPEAT__,
-	__DEFAULT_BACKGROUND_IMAGE_SATURATE__,
-	__DEFAULT_BACKGROUND_IMAGE_SEPIA__,
-	__DEFAULT_BACKGROUND_IMAGE_SIZE__,
-	__DEFAULT_BACKGROUND_IMAGE_SRC__
+	DEFAULT_BACKGROUND_IMAGE_ATTACHMENT,
+	DEFAULT_BACKGROUND_IMAGE_BLEND_MODE,
+	DEFAULT_BACKGROUND_IMAGE_BLUR,
+	DEFAULT_BACKGROUND_IMAGE_BRIGHTNESS,
+	DEFAULT_BACKGROUND_IMAGE_CLIP,
+	DEFAULT_BACKGROUND_IMAGE_CONTRAST,
+	DEFAULT_BACKGROUND_IMAGE_FILTERS,
+	DEFAULT_BACKGROUND_IMAGE_GRAYSCALE,
+	DEFAULT_BACKGROUND_IMAGE_HUE_ROTATE,
+	DEFAULT_BACKGROUND_IMAGE_INVERT,
+	DEFAULT_BACKGROUND_IMAGE_OPTIONS,
+	DEFAULT_BACKGROUND_IMAGE_ORIGIN,
+	DEFAULT_BACKGROUND_IMAGE_POSITION,
+	DEFAULT_BACKGROUND_IMAGE_REPEAT,
+	DEFAULT_BACKGROUND_IMAGE_SATURATE,
+	DEFAULT_BACKGROUND_IMAGE_SEPIA,
+	DEFAULT_BACKGROUND_IMAGE_SIZE,
+	DEFAULT_BACKGROUND_IMAGE_SRC
 } from '../constants';
 import type { BackgroundImageFilters, BackgroundImageOptions, BackgroundImageProps } from '../types';
 
@@ -50,10 +50,10 @@ const useBackgroundImageResponsiveValues = <Element extends PolymorphicElementTy
 	props: UseBackgroundImageResponsiveValuesProps<Element>
 ) => {
 	const {
-		filters: filtersProp = __DEFAULT_BACKGROUND_IMAGE_FILTERS__,
-		options: optionsProp = __DEFAULT_BACKGROUND_IMAGE_OPTIONS__,
-		radius: radiusProp = __DEFAULT_RADIUS__,
-		src: srcProp = __DEFAULT_BACKGROUND_IMAGE_SRC__
+		filters: filtersProp = DEFAULT_BACKGROUND_IMAGE_FILTERS,
+		options: optionsProp = DEFAULT_BACKGROUND_IMAGE_OPTIONS,
+		radius: radiusProp = DEFAULT_RADIUS,
+		src: srcProp = DEFAULT_BACKGROUND_IMAGE_SRC
 	} = props;
 
 	const filters = useGetResponsiveValue<BackgroundImageFilters>(filtersProp);
@@ -62,23 +62,23 @@ const useBackgroundImageResponsiveValues = <Element extends PolymorphicElementTy
 	const src = useGetResponsiveValue<string>(srcProp);
 
 	const {
-		blur: blurProp = __DEFAULT_BACKGROUND_IMAGE_BLUR__,
-		brightness: brightnessProp = __DEFAULT_BACKGROUND_IMAGE_BRIGHTNESS__,
-		contrast: contrastProp = __DEFAULT_BACKGROUND_IMAGE_CONTRAST__,
-		grayscale: grayscaleProp = __DEFAULT_BACKGROUND_IMAGE_GRAYSCALE__,
-		hueRotate: hueRotateProp = __DEFAULT_BACKGROUND_IMAGE_HUE_ROTATE__,
-		invert: invertProp = __DEFAULT_BACKGROUND_IMAGE_INVERT__,
-		saturate: saturateProp = __DEFAULT_BACKGROUND_IMAGE_SATURATE__,
-		sepia: sepiaProp = __DEFAULT_BACKGROUND_IMAGE_SEPIA__
+		blur: blurProp = DEFAULT_BACKGROUND_IMAGE_BLUR,
+		brightness: brightnessProp = DEFAULT_BACKGROUND_IMAGE_BRIGHTNESS,
+		contrast: contrastProp = DEFAULT_BACKGROUND_IMAGE_CONTRAST,
+		grayscale: grayscaleProp = DEFAULT_BACKGROUND_IMAGE_GRAYSCALE,
+		hueRotate: hueRotateProp = DEFAULT_BACKGROUND_IMAGE_HUE_ROTATE,
+		invert: invertProp = DEFAULT_BACKGROUND_IMAGE_INVERT,
+		saturate: saturateProp = DEFAULT_BACKGROUND_IMAGE_SATURATE,
+		sepia: sepiaProp = DEFAULT_BACKGROUND_IMAGE_SEPIA
 	} = filters;
 	const {
-		attachment: attachmentProp = __DEFAULT_BACKGROUND_IMAGE_ATTACHMENT__,
-		blendMode: blendModeProp = __DEFAULT_BACKGROUND_IMAGE_BLEND_MODE__,
-		clip: clipProp = __DEFAULT_BACKGROUND_IMAGE_CLIP__,
-		origin: originProp = __DEFAULT_BACKGROUND_IMAGE_ORIGIN__,
-		position: positionProp = __DEFAULT_BACKGROUND_IMAGE_POSITION__,
-		repeat: repeatProp = __DEFAULT_BACKGROUND_IMAGE_REPEAT__,
-		size: sizeProp = __DEFAULT_BACKGROUND_IMAGE_SIZE__
+		attachment: attachmentProp = DEFAULT_BACKGROUND_IMAGE_ATTACHMENT,
+		blendMode: blendModeProp = DEFAULT_BACKGROUND_IMAGE_BLEND_MODE,
+		clip: clipProp = DEFAULT_BACKGROUND_IMAGE_CLIP,
+		origin: originProp = DEFAULT_BACKGROUND_IMAGE_ORIGIN,
+		position: positionProp = DEFAULT_BACKGROUND_IMAGE_POSITION,
+		repeat: repeatProp = DEFAULT_BACKGROUND_IMAGE_REPEAT,
+		size: sizeProp = DEFAULT_BACKGROUND_IMAGE_SIZE
 	} = options;
 
 	const blur = useGetResponsiveValue<ThemeBlurClass>(blurProp);

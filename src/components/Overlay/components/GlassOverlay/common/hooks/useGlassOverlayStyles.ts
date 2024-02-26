@@ -1,10 +1,10 @@
 import { transparentize } from 'color2k';
 
-import { __DEFAULT_COLOR__ } from '@common/constants';
+import { DEFAULT_COLOR } from '@common/constants';
 import { useAppTheme, useGetColor } from '@common/hooks';
 import type { PolymorphicElementType, Style } from '@common/types';
 
-import { __DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT__, __DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__ } from '../constants';
+import { DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT, DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND } from '../constants';
 import type { GlassOverlayProps } from '../types';
 
 import useGlassOverlayResponsiveValues from './useGlassOverlayResponsiveValues';
@@ -18,13 +18,13 @@ type UseGlassOverlayStylesReturn = Style;
 const useGlassOverlayStyles = <Element extends PolymorphicElementType>(
 	props: UseGlassOverlayStylesProps<Element>
 ): UseGlassOverlayStylesReturn => {
-	const { colorMode: __DEFAULT_GLASS_OVERLAY_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_GLASS_OVERLAY_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_GLASS_OVERLAY_COLORMODE__,
-		backdropAmount: backdropAmountProp = __DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT__,
-		hasBackground: hasBackgroundProp = __DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_GLASS_OVERLAY_COLORMODE,
+		backdropAmount: backdropAmountProp = DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT,
+		hasBackground: hasBackgroundProp = DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND
 	} = props;
 
 	const { backdropAmount: amount, hasBackground } = useGlassOverlayResponsiveValues<Element>({

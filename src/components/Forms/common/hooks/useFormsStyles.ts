@@ -1,19 +1,19 @@
 import { useMemo } from 'react';
 
-import { __DEFAULT_COLOR__ } from '@common/constants';
+import { DEFAULT_COLOR } from '@common/constants';
 import { useAppTheme, useGetAmount, useTheme } from '@common/hooks';
 import type { Style } from '@common/types';
 import { filterColorHex, getColorHue } from '@common/utils';
 
-import { __DEFAULT_FORM_CONTROL_IS_FOCUSED__ } from '@components/Forms/components/FormControl/common/constants';
+import { DEFAULT_FORM_CONTROL_IS_FOCUSED } from '@components/Forms/components/FormControl/common/constants';
 
 import {
-	__DEFAULT_FORMS_IS_DISABLED__,
-	__DEFAULT_FORMS_IS_ERROR__,
-	__DEFAULT_FORMS_IS_READONLY__,
-	__DEFAULT_FORMS_IS_SUCCESS__,
-	__DEFAULT_FORMS_IS_WARNING__,
-	__DEFAULT_FORMS_VARIANT__
+	DEFAULT_FORMS_IS_DISABLED,
+	DEFAULT_FORMS_IS_ERROR,
+	DEFAULT_FORMS_IS_READONLY,
+	DEFAULT_FORMS_IS_SUCCESS,
+	DEFAULT_FORMS_IS_WARNING,
+	DEFAULT_FORMS_VARIANT
 } from '../constants';
 import type { FormsCommonProps } from '../types';
 
@@ -36,19 +36,19 @@ type UseFormsStylesReturn = Style;
 const useFormsStyles = (props: UseFormsStylesProps): UseFormsStylesReturn => {
 	const theme = useTheme();
 
-	const { colorMode: __DEFAULT_FORMS_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_FORMS_COLORMODE } = useAppTheme();
 
 	const {
 		element,
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_FORMS_COLORMODE__,
-		isDisabled: isDisabledProp = __DEFAULT_FORMS_IS_DISABLED__,
-		isError: isErrorProp = __DEFAULT_FORMS_IS_ERROR__,
-		isFocused: isFocusedProp = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
-		isReadOnly: isReadOnlyProp = __DEFAULT_FORMS_IS_READONLY__,
-		isSuccess: isSuccessProp = __DEFAULT_FORMS_IS_SUCCESS__,
-		isWarning: isWarningProp = __DEFAULT_FORMS_IS_WARNING__,
-		variant: variantProp = __DEFAULT_FORMS_VARIANT__
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_FORMS_COLORMODE,
+		isDisabled: isDisabledProp = DEFAULT_FORMS_IS_DISABLED,
+		isError: isErrorProp = DEFAULT_FORMS_IS_ERROR,
+		isFocused: isFocusedProp = DEFAULT_FORM_CONTROL_IS_FOCUSED,
+		isReadOnly: isReadOnlyProp = DEFAULT_FORMS_IS_READONLY,
+		isSuccess: isSuccessProp = DEFAULT_FORMS_IS_SUCCESS,
+		isWarning: isWarningProp = DEFAULT_FORMS_IS_WARNING,
+		variant: variantProp = DEFAULT_FORMS_VARIANT
 	} = props;
 
 	const { isDisabled, isError, isFocused, isReadOnly, isSuccess, isWarning, variant } = useFormsResponsiveValues({

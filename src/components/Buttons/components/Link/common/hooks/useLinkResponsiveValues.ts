@@ -1,10 +1,6 @@
 import { useGetResponsiveValue } from '@common/hooks';
 
-import {
-	__DEFAULT_LINK_IS_DISABLED__,
-	__DEFAULT_LINK_IS_UNDERLINE__,
-	__DEFAULT_LINK_IS_UNSTYLED__
-} from '../constants';
+import { DEFAULT_LINK_IS_DISABLED, DEFAULT_LINK_IS_UNDERLINE, DEFAULT_LINK_IS_UNSTYLED } from '../constants';
 import type { LinkElement, LinkProps } from '../types';
 
 type UseLinkResponsiveValuesProps<Element extends LinkElement> = Partial<
@@ -13,9 +9,9 @@ type UseLinkResponsiveValuesProps<Element extends LinkElement> = Partial<
 
 const useLinkResponsiveValues = <Element extends LinkElement>(props: UseLinkResponsiveValuesProps<Element>) => {
 	const {
-		isDisabled: isDisabledProp = __DEFAULT_LINK_IS_DISABLED__,
-		isUnderline: isUnderlineProp = __DEFAULT_LINK_IS_UNDERLINE__,
-		isUnstyled: isUnstyledProp = __DEFAULT_LINK_IS_UNSTYLED__
+		isDisabled: isDisabledProp = DEFAULT_LINK_IS_DISABLED,
+		isUnderline: isUnderlineProp = DEFAULT_LINK_IS_UNDERLINE,
+		isUnstyled: isUnstyledProp = DEFAULT_LINK_IS_UNSTYLED
 	} = props;
 
 	const isDisabled = useGetResponsiveValue<boolean>(isDisabledProp);

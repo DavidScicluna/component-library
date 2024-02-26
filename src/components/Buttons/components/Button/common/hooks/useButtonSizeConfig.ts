@@ -3,10 +3,10 @@ import { useMemo } from 'react';
 import type { ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
 
 import {
-	__DEFAULT_BUTTON_IS_COMPACT__,
-	__DEFAULT_BUTTON_IS_ROUND__,
-	__DEFAULT_BUTTON_SIZE__,
-	__DEFAULT_BUTTON_VARIANT__
+	DEFAULT_BUTTON_IS_COMPACT,
+	DEFAULT_BUTTON_IS_ROUND,
+	DEFAULT_BUTTON_SIZE,
+	DEFAULT_BUTTON_VARIANT
 } from '../constants';
 import type { ButtonElement, ButtonProps } from '../types';
 
@@ -29,10 +29,10 @@ const useButtonSizeConfig = <Element extends ButtonElement>(
 	props: UseButtonSizeConfigProps<Element>
 ): UseButtonSizeConfigReturn => {
 	const {
-		isCompact: isCompactProp = __DEFAULT_BUTTON_IS_COMPACT__,
-		isRound: isRoundProp = __DEFAULT_BUTTON_IS_ROUND__,
-		size: sizeProp = __DEFAULT_BUTTON_SIZE__,
-		variant: variantProp = __DEFAULT_BUTTON_VARIANT__
+		isCompact: isCompactProp = DEFAULT_BUTTON_IS_COMPACT,
+		isRound: isRoundProp = DEFAULT_BUTTON_IS_ROUND,
+		size: sizeProp = DEFAULT_BUTTON_SIZE,
+		variant: variantProp = DEFAULT_BUTTON_VARIANT
 	} = props;
 
 	const { isCompact, isRound, size, variant } = useButtonResponsiveValues<Element>({

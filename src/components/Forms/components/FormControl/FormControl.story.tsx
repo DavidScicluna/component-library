@@ -4,8 +4,8 @@ import type { AlignItemsClassArr, JustifyContentClassArr } from '../../../../com
 
 import { Box } from '../../../Box';
 import {
-	__DEFAULT_STACK_ALIGN_ITEMS__,
-	__DEFAULT_STACK_JUSTIFY_CONTENT__
+	DEFAULT_STACK_ALIGN_ITEMS,
+	DEFAULT_STACK_JUSTIFY_CONTENT
 } from '../../../Layout/components/Stacks/Stack/common/constants';
 import { Text } from '../../../Typography';
 import React from 'react';
@@ -17,15 +17,15 @@ import { FormHelperText } from '../FormHelperText';
 import { FormLabel } from '../FormLabel';
 
 import {
-	__DEFAULT_FORM_CONTROL_IS_DISABLED__,
-	__DEFAULT_FORM_CONTROL_IS_ERROR__,
-	__DEFAULT_FORM_CONTROL_IS_FOCUSED__,
-	__DEFAULT_FORM_CONTROL_IS_READONLY__,
-	__DEFAULT_FORM_CONTROL_IS_REQUIRED__,
-	__DEFAULT_FORM_CONTROL_IS_SUCCESS__,
-	__DEFAULT_FORM_CONTROL_IS_WARNING__,
-	__DEFAULT_FORM_CONTROL_SIZE__,
-	__DEFAULT_FORM_CONTROL_SPACING__
+	DEFAULT_FORM_CONTROL_IS_DISABLED,
+	DEFAULT_FORM_CONTROL_IS_ERROR,
+	DEFAULT_FORM_CONTROL_IS_FOCUSED,
+	DEFAULT_FORM_CONTROL_IS_READONLY,
+	DEFAULT_FORM_CONTROL_IS_REQUIRED,
+	DEFAULT_FORM_CONTROL_IS_SUCCESS,
+	DEFAULT_FORM_CONTROL_IS_WARNING,
+	DEFAULT_FORM_CONTROL_SIZE,
+	DEFAULT_FORM_CONTROL_SPACING
 } from './common/constants';
 import type { FormControlDefaultElement, FormControlProps, FormControlSize } from './common/types';
 import type { FormControlStory, FormControlStoryMeta } from './common/types/story';
@@ -40,7 +40,7 @@ export default {
 		alignItems: {
 			name: 'Align Items',
 			type: 'string',
-			defaultValue: __DEFAULT_STACK_ALIGN_ITEMS__,
+			defaultValue: DEFAULT_STACK_ALIGN_ITEMS,
 			// description: '',
 			options: ['center', 'baseline', 'flex-start', 'flex-end', 'stretch'] as AlignItemsClassArr,
 			control: { type: 'radio' }
@@ -48,7 +48,7 @@ export default {
 		justifyContent: {
 			name: 'Justify Content',
 			type: 'string',
-			defaultValue: __DEFAULT_STACK_JUSTIFY_CONTENT__,
+			defaultValue: DEFAULT_STACK_JUSTIFY_CONTENT,
 			// description: '',
 			options: [
 				'center',
@@ -65,56 +65,56 @@ export default {
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
-			defaultValue: __DEFAULT_FORM_CONTROL_IS_DISABLED__,
+			defaultValue: DEFAULT_FORM_CONTROL_IS_DISABLED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isError: {
 			name: 'Error',
 			type: 'boolean',
-			defaultValue: __DEFAULT_FORM_CONTROL_IS_ERROR__,
+			defaultValue: DEFAULT_FORM_CONTROL_IS_ERROR,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isFocused: {
 			name: 'Focused',
 			type: 'boolean',
-			defaultValue: __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
+			defaultValue: DEFAULT_FORM_CONTROL_IS_FOCUSED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isReadOnly: {
 			name: 'ReadOnly',
 			type: 'boolean',
-			defaultValue: __DEFAULT_FORM_CONTROL_IS_READONLY__,
+			defaultValue: DEFAULT_FORM_CONTROL_IS_READONLY,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isRequired: {
 			name: 'Required',
 			type: 'boolean',
-			defaultValue: __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
+			defaultValue: DEFAULT_FORM_CONTROL_IS_REQUIRED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isSuccess: {
 			name: 'Success',
 			type: 'boolean',
-			defaultValue: __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
+			defaultValue: DEFAULT_FORM_CONTROL_IS_SUCCESS,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isWarning: {
 			name: 'Warning',
 			type: 'boolean',
-			defaultValue: __DEFAULT_FORM_CONTROL_IS_WARNING__,
+			defaultValue: DEFAULT_FORM_CONTROL_IS_WARNING,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: __DEFAULT_FORM_CONTROL_SIZE__,
+			defaultValue: DEFAULT_FORM_CONTROL_SIZE,
 			// description: '',
 			options: ['xs', 'sm', 'md', 'lg', 'xl'] as Array<FormControlSize>,
 			control: { type: 'radio' }
@@ -122,7 +122,7 @@ export default {
 		spacing: {
 			name: 'Spacing (0-24 | .0, .25, .5 or .75)',
 			type: 'number',
-			defaultValue: __DEFAULT_FORM_CONTROL_SPACING__,
+			defaultValue: DEFAULT_FORM_CONTROL_SPACING,
 			// description: '',
 			control: { type: 'number' }
 		}

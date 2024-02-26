@@ -1,11 +1,11 @@
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_COLOR__, __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_COLOR, DEFAULT_SPACING } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
 import type { ClassName } from '@common/types';
 
-import { __DEFAULT_MODAL_SIZE__ } from '../constants';
+import { DEFAULT_MODAL_SIZE } from '../constants';
 import type { ModalElement, ModalProps } from '../types';
 
 import useModalResponsiveValues from './useModalResponsiveValues';
@@ -15,13 +15,13 @@ type UseModalClassesProps<Element extends ModalElement> = Pick<ModalProps<Elemen
 type UseModalClassesReturn = Record<'container' | 'backdrop' | 'content', ClassName>;
 
 const useModalClasses = <Element extends ModalElement>(props: UseModalClassesProps<Element>): UseModalClassesReturn => {
-	const { colorMode: __DEFAULT_MODAL_CONTAINER_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_MODAL_CONTAINER_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_MODAL_CONTAINER_COLORMODE__,
-		spacing: spacingProp = __DEFAULT_SPACING__,
-		size: sizeProp = __DEFAULT_MODAL_SIZE__
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_MODAL_CONTAINER_COLORMODE,
+		spacing: spacingProp = DEFAULT_SPACING,
+		size: sizeProp = DEFAULT_MODAL_SIZE
 	} = props;
 
 	const { size, spacing } = useModalResponsiveValues<Element>({ spacing: spacingProp, size: sizeProp });

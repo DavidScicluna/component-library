@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import type { TextProps } from '@components/Typography';
@@ -10,8 +10,8 @@ import { Text } from '@components/Typography';
 
 import { useMessageContext } from '../../common/hooks';
 
-import { __DEFAULT_MESSAGE_TITLE_AS__ } from './common/constants';
-import { __KEYS_MESSAGE_TITLE_CLASS__ } from './common/keys';
+import { DEFAULT_MESSAGE_TITLE_AS } from './common/constants';
+import { KEYS_MESSAGE_TITLE_CLASS } from './common/keys';
 import type { MessageTitleElement, MessageTitleProps, MessageTitleRef } from './common/types';
 
 const MessageTitle = forwardRef(function MessageTitle<Element extends MessageTitleElement>(
@@ -20,7 +20,7 @@ const MessageTitle = forwardRef(function MessageTitle<Element extends MessageTit
 ): JSX.Element {
 	const { colorMode } = useMessageContext();
 
-	const __DEFAULT_MESSAGE_TITLE_COLOR__ = useGetColor({
+	const DEFAULT_MESSAGE_TITLE_COLOR = useGetColor({
 		color: 'gray',
 		colorMode,
 		colorType: 'default',
@@ -30,10 +30,10 @@ const MessageTitle = forwardRef(function MessageTitle<Element extends MessageTit
 
 	const {
 		children,
-		as = __DEFAULT_MESSAGE_TITLE_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_MESSAGE_TITLE_AS,
+		className = DEFAULT_CLASSNAME,
 		align = 'center',
-		color = __DEFAULT_MESSAGE_TITLE_COLOR__,
+		color = DEFAULT_MESSAGE_TITLE_COLOR,
 		fontSize = ['xl', '2xl'],
 		fontWeight = 'bold',
 		lineClamp = 'none',
@@ -45,7 +45,7 @@ const MessageTitle = forwardRef(function MessageTitle<Element extends MessageTit
 			{...(rest as TextProps<Element>)}
 			as={as}
 			ref={ref}
-			className={classNames(__KEYS_MESSAGE_TITLE_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_MESSAGE_TITLE_CLASS, { [className]: !!className })}
 			align={align}
 			color={color}
 			fontSize={fontSize}

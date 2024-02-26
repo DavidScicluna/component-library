@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useFocus } from 'rooks';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useBoolean, useGetColor } from '@common/hooks';
 import type {
 	PolymorphicChangeEvent,
@@ -25,24 +25,24 @@ import { getFormDescriptionID } from '../FormDescription/common/utils';
 import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
-	__DEFAULT_CHECKBOX_ID__,
-	__DEFAULT_CHECKBOX_IS_ACTIVE__,
-	__DEFAULT_CHECKBOX_IS_CHECKED__,
-	__DEFAULT_CHECKBOX_IS_CLICKABLE__,
-	__DEFAULT_CHECKBOX_IS_COMPACT__,
-	__DEFAULT_CHECKBOX_IS_DISABLED__,
-	__DEFAULT_CHECKBOX_IS_ERROR__,
-	__DEFAULT_CHECKBOX_IS_FOCUSED__,
-	__DEFAULT_CHECKBOX_IS_INDETERMINATE__,
-	__DEFAULT_CHECKBOX_IS_OUTLINED__,
-	__DEFAULT_CHECKBOX_IS_READONLY__,
-	__DEFAULT_CHECKBOX_IS_REQUIRED__,
-	__DEFAULT_CHECKBOX_IS_SUCCESS__,
-	__DEFAULT_CHECKBOX_IS_WARNING__,
-	__DEFAULT_CHECKBOX_LABEL_POSITION__,
-	__DEFAULT_CHECKBOX_LINE_HEIGHT_SIZE__,
-	__DEFAULT_CHECKBOX_SIZE__,
-	__DEFAULT_CHECKBOX_TYPE__
+	DEFAULT_CHECKBOX_ID,
+	DEFAULT_CHECKBOX_IS_ACTIVE,
+	DEFAULT_CHECKBOX_IS_CHECKED,
+	DEFAULT_CHECKBOX_IS_CLICKABLE,
+	DEFAULT_CHECKBOX_IS_COMPACT,
+	DEFAULT_CHECKBOX_IS_DISABLED,
+	DEFAULT_CHECKBOX_IS_ERROR,
+	DEFAULT_CHECKBOX_IS_FOCUSED,
+	DEFAULT_CHECKBOX_IS_INDETERMINATE,
+	DEFAULT_CHECKBOX_IS_OUTLINED,
+	DEFAULT_CHECKBOX_IS_READONLY,
+	DEFAULT_CHECKBOX_IS_REQUIRED,
+	DEFAULT_CHECKBOX_IS_SUCCESS,
+	DEFAULT_CHECKBOX_IS_WARNING,
+	DEFAULT_CHECKBOX_LABEL_POSITION,
+	DEFAULT_CHECKBOX_LINE_HEIGHT_SIZE,
+	DEFAULT_CHECKBOX_SIZE,
+	DEFAULT_CHECKBOX_TYPE
 } from './common/constants';
 import {
 	useCheckboxClasses,
@@ -50,7 +50,7 @@ import {
 	useCheckboxResponsiveValues,
 	useCheckboxSizeConfig
 } from './common/hooks';
-import { __KEYS_CHECKBOX_CLASS__ } from './common/keys';
+import { KEYS_CHECKBOX_CLASS } from './common/keys';
 import type { CheckboxFocusEvent, CheckboxMouseEvent, CheckboxProps, CheckboxRef } from './common/types';
 
 const Checkbox = forwardRef(function Checkbox<Element extends PolymorphicElementType>(
@@ -61,49 +61,49 @@ const Checkbox = forwardRef(function Checkbox<Element extends PolymorphicElement
 	const pushableOverlayRef = useRef<PolymorphicElement<PolymorphicDefaultElement>>(null);
 
 	const {
-		color: __DEFAULT_FORM_CONTROL_COLOR__,
-		colorMode: __DEFAULT_FORM_CONTROL_COLORMODE__,
-		id: __DEFAULT_FORM_CONTROL_ID__ = __DEFAULT_CHECKBOX_ID__,
+		color: DEFAULT_FORM_CONTROL_COLOR,
+		colorMode: DEFAULT_FORM_CONTROL_COLORMODE,
+		id: DEFAULT_FORM_CONTROL_ID = DEFAULT_CHECKBOX_ID,
 		hasFormControl,
-		isDisabled: __DEFAULT_FORM_CONTROL_IS_DISABLED__ = __DEFAULT_CHECKBOX_IS_DISABLED__,
-		isError: __DEFAULT_FORM_CONTROL_IS_ERROR__ = __DEFAULT_CHECKBOX_IS_ERROR__,
-		isFocused: __DEFAULT_FORM_CONTROL_IS_FOCUSED__ = __DEFAULT_CHECKBOX_IS_FOCUSED__,
-		isReadOnly: __DEFAULT_FORM_CONTROL_IS_READONLY__ = __DEFAULT_CHECKBOX_IS_READONLY__,
-		isRequired: __DEFAULT_FORM_CONTROL_IS_REQUIRED__ = __DEFAULT_CHECKBOX_IS_REQUIRED__,
-		isSuccess: __DEFAULT_FORM_CONTROL_IS_SUCCESS__ = __DEFAULT_CHECKBOX_IS_SUCCESS__,
-		isWarning: __DEFAULT_FORM_CONTROL_IS_WARNING__ = __DEFAULT_CHECKBOX_IS_WARNING__,
-		size: __DEFAULT_FORM_CONTROL_SIZE__ = __DEFAULT_CHECKBOX_SIZE__
+		isDisabled: DEFAULT_FORM_CONTROL_IS_DISABLED = DEFAULT_CHECKBOX_IS_DISABLED,
+		isError: DEFAULT_FORM_CONTROL_IS_ERROR = DEFAULT_CHECKBOX_IS_ERROR,
+		isFocused: DEFAULT_FORM_CONTROL_IS_FOCUSED = DEFAULT_CHECKBOX_IS_FOCUSED,
+		isReadOnly: DEFAULT_FORM_CONTROL_IS_READONLY = DEFAULT_CHECKBOX_IS_READONLY,
+		isRequired: DEFAULT_FORM_CONTROL_IS_REQUIRED = DEFAULT_CHECKBOX_IS_REQUIRED,
+		isSuccess: DEFAULT_FORM_CONTROL_IS_SUCCESS = DEFAULT_CHECKBOX_IS_SUCCESS,
+		isWarning: DEFAULT_FORM_CONTROL_IS_WARNING = DEFAULT_CHECKBOX_IS_WARNING,
+		size: DEFAULT_FORM_CONTROL_SIZE = DEFAULT_CHECKBOX_SIZE
 	} = useFormControlContext();
 
 	const {
-		id = __DEFAULT_FORM_CONTROL_ID__,
-		className = __DEFAULT_CLASSNAME__,
+		id = DEFAULT_FORM_CONTROL_ID,
+		className = DEFAULT_CLASSNAME,
 		renderLabel,
 		w,
 		h,
-		color = __DEFAULT_FORM_CONTROL_COLOR__,
-		colorMode = __DEFAULT_FORM_CONTROL_COLORMODE__,
+		color = DEFAULT_FORM_CONTROL_COLOR,
+		colorMode = DEFAULT_FORM_CONTROL_COLORMODE,
 		placeholder,
-		isActive: isActiveProp = __DEFAULT_CHECKBOX_IS_ACTIVE__,
-		isChecked: isCheckedProp = __DEFAULT_CHECKBOX_IS_CHECKED__,
-		isClickable: isClickableProp = __DEFAULT_CHECKBOX_IS_CLICKABLE__,
-		isCompact: isCompactProp = __DEFAULT_CHECKBOX_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
-		isError: isErrorProp = __DEFAULT_FORM_CONTROL_IS_ERROR__,
-		isFocused: focused = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
-		isIndeterminate: isIndeterminateProp = __DEFAULT_CHECKBOX_IS_INDETERMINATE__,
-		isOutlined: isOutlinedProp = __DEFAULT_CHECKBOX_IS_OUTLINED__,
-		isReadOnly: isReadOnlyProp = __DEFAULT_FORM_CONTROL_IS_READONLY__,
-		isRequired: isRequiredProp = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
-		isSuccess: isSuccessProp = __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
-		isWarning: isWarningProp = __DEFAULT_FORM_CONTROL_IS_WARNING__,
-		labelPosition: labelPositionProp = __DEFAULT_CHECKBOX_LABEL_POSITION__,
-		type = __DEFAULT_CHECKBOX_TYPE__,
+		isActive: isActiveProp = DEFAULT_CHECKBOX_IS_ACTIVE,
+		isChecked: isCheckedProp = DEFAULT_CHECKBOX_IS_CHECKED,
+		isClickable: isClickableProp = DEFAULT_CHECKBOX_IS_CLICKABLE,
+		isCompact: isCompactProp = DEFAULT_CHECKBOX_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_FORM_CONTROL_IS_DISABLED,
+		isError: isErrorProp = DEFAULT_FORM_CONTROL_IS_ERROR,
+		isFocused: focused = DEFAULT_FORM_CONTROL_IS_FOCUSED,
+		isIndeterminate: isIndeterminateProp = DEFAULT_CHECKBOX_IS_INDETERMINATE,
+		isOutlined: isOutlinedProp = DEFAULT_CHECKBOX_IS_OUTLINED,
+		isReadOnly: isReadOnlyProp = DEFAULT_FORM_CONTROL_IS_READONLY,
+		isRequired: isRequiredProp = DEFAULT_FORM_CONTROL_IS_REQUIRED,
+		isSuccess: isSuccessProp = DEFAULT_FORM_CONTROL_IS_SUCCESS,
+		isWarning: isWarningProp = DEFAULT_FORM_CONTROL_IS_WARNING,
+		labelPosition: labelPositionProp = DEFAULT_CHECKBOX_LABEL_POSITION,
+		type = DEFAULT_CHECKBOX_TYPE,
 		onClick,
 		onFocus,
 		onBlur,
 		onToggle,
-		size: sizeProp = __DEFAULT_FORM_CONTROL_SIZE__,
+		size: sizeProp = DEFAULT_FORM_CONTROL_SIZE,
 		...rest
 	} = props;
 
@@ -209,7 +209,7 @@ const Checkbox = forwardRef(function Checkbox<Element extends PolymorphicElement
 			{...(rest as GridProps<Element>)}
 			{...focusProps}
 			ref={ref}
-			className={classNames(__KEYS_CHECKBOX_CLASS__, classes, { [className]: !!className })}
+			className={classNames(KEYS_CHECKBOX_CLASS, classes, { [className]: !!className })}
 			w={hasFormControl ? '100%' : w}
 			h={hasFormControl ? '100%' : h}
 			templateColumns={compact([
@@ -234,7 +234,7 @@ const Checkbox = forwardRef(function Checkbox<Element extends PolymorphicElement
 								align: 'right',
 								color: labelColor,
 								fontSize: config.fontSize,
-								lineHeight: __DEFAULT_CHECKBOX_LINE_HEIGHT_SIZE__
+								lineHeight: DEFAULT_CHECKBOX_LINE_HEIGHT_SIZE
 							})
 						: null}
 				</GridItem>
@@ -298,7 +298,7 @@ const Checkbox = forwardRef(function Checkbox<Element extends PolymorphicElement
 								align: 'left',
 								color: labelColor,
 								fontSize: config.fontSize,
-								lineHeight: __DEFAULT_CHECKBOX_LINE_HEIGHT_SIZE__
+								lineHeight: DEFAULT_CHECKBOX_LINE_HEIGHT_SIZE
 							})
 						: null}
 				</GridItem>

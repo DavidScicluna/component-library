@@ -1,15 +1,2 @@
-import {
-	__DEFAULT_ALERT_AS__,
-	__DEFAULT_ALERT_DURATION__,
-	__DEFAULT_ALERT_STATUS__,
-	__DEFAULT_ALERT_VARIANT__
-} from './props';
-import { __DEFAULT_ALERT_LINE_HEIGHT_SIZE__ } from './sizes';
-
-export {
-	__DEFAULT_ALERT_AS__,
-	__DEFAULT_ALERT_DURATION__,
-	__DEFAULT_ALERT_LINE_HEIGHT_SIZE__,
-	__DEFAULT_ALERT_STATUS__,
-	__DEFAULT_ALERT_VARIANT__
-};
+export * from './props';
+export * from './sizes';

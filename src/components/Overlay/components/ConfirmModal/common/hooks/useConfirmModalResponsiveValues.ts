@@ -2,12 +2,12 @@ import { useGetResponsiveValue } from '@common/hooks';
 import type { ThemeSpacing } from '@common/types';
 
 import {
-	__DEFAULT_CONFIRM_MODAL_CLOSE_ON_ESC__,
-	__DEFAULT_CONFIRM_MODAL_CLOSE_ON_OVERLAY_CLICK__,
-	__DEFAULT_CONFIRM_MODAL_HAS_BACKDROP__,
-	__DEFAULT_CONFIRM_MODAL_IS_OPEN__,
-	__DEFAULT_CONFIRM_MODAL_SIZE__,
-	__DEFAULT_CONFIRM_MODAL_SPACING__
+	DEFAULT_CONFIRM_MODAL_CLOSE_ON_ESC,
+	DEFAULT_CONFIRM_MODAL_CLOSE_ON_OVERLAY_CLICK,
+	DEFAULT_CONFIRM_MODAL_HAS_BACKDROP,
+	DEFAULT_CONFIRM_MODAL_IS_OPEN,
+	DEFAULT_CONFIRM_MODAL_SIZE,
+	DEFAULT_CONFIRM_MODAL_SPACING
 } from '../constants';
 import type { ConfirmModalElement, ConfirmModalProps, ConfirmModalSize } from '../types';
 
@@ -20,12 +20,12 @@ const useConfirmModalResponsiveValues = <Element extends ConfirmModalElement>(
 	props: UseConfirmModalResponsiveValuesProps<Element>
 ) => {
 	const {
-		closeOnOverlayClick: closeOnOverlayClickProp = __DEFAULT_CONFIRM_MODAL_CLOSE_ON_OVERLAY_CLICK__,
-		closeOnEsc: closeOnEscProp = __DEFAULT_CONFIRM_MODAL_CLOSE_ON_ESC__,
-		hasBackdrop: hasBackdropProp = __DEFAULT_CONFIRM_MODAL_HAS_BACKDROP__,
-		isOpen: isOpenProp = __DEFAULT_CONFIRM_MODAL_IS_OPEN__,
-		spacing: spacingProp = __DEFAULT_CONFIRM_MODAL_SPACING__,
-		size: sizeProp = __DEFAULT_CONFIRM_MODAL_SIZE__
+		closeOnOverlayClick: closeOnOverlayClickProp = DEFAULT_CONFIRM_MODAL_CLOSE_ON_OVERLAY_CLICK,
+		closeOnEsc: closeOnEscProp = DEFAULT_CONFIRM_MODAL_CLOSE_ON_ESC,
+		hasBackdrop: hasBackdropProp = DEFAULT_CONFIRM_MODAL_HAS_BACKDROP,
+		isOpen: isOpenProp = DEFAULT_CONFIRM_MODAL_IS_OPEN,
+		spacing: spacingProp = DEFAULT_CONFIRM_MODAL_SPACING,
+		size: sizeProp = DEFAULT_CONFIRM_MODAL_SIZE
 	} = props;
 
 	const closeOnEsc = useGetResponsiveValue<boolean>(closeOnOverlayClickProp);

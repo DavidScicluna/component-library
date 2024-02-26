@@ -1,3 +1,3 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
-export const __KEYS_CAROUSEL_RIGHT_LINEAR_GRADIENT_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-carousel-right-linear-gradient`;
+export const KEYS_CAROUSEL_RIGHT_LINEAR_GRADIENT_CLASS = `${DEFAULT_CLASS_PREFIX}-carousel-right-linear-gradient`;

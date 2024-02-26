@@ -3,27 +3,27 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 import { merge } from 'lodash-es';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__, __DEFAULT_RADIUS__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX, DEFAULT_RADIUS } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
-	__DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
-	__DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
-	__DEFAULT_PUSHABLE_OVERLAY_IS_FIXED__,
-	__DEFAULT_PUSHABLE_OVERLAY_IS_FOCUSED__,
-	__DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED__,
-	__DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
-	__DEFAULT_PUSHABLE_OVERLAY_VARIANT__
+	DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE,
+	DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED,
+	DEFAULT_PUSHABLE_OVERLAY_IS_FIXED,
+	DEFAULT_PUSHABLE_OVERLAY_IS_FOCUSED,
+	DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED,
+	DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE,
+	DEFAULT_PUSHABLE_OVERLAY_VARIANT
 } from './common/constants';
 import {
 	usePushableOverlayClasses,
 	usePushableOverlayResponsiveValues,
 	usePushableOverlayStyles
 } from './common/hooks';
-import { __KEYS_PUSHABLE_OVERLAY_CLASS__ } from './common/keys';
+import { KEYS_PUSHABLE_OVERLAY_CLASS } from './common/keys';
 import type { PushableOverlayProps, PushableOverlayRef } from './common/types';
 
 // TODO: Add gradient prop that will replaced colors with gradient from, middle & to colors
@@ -33,18 +33,18 @@ const PushableOverlay = forwardRef(function PushableOverlay<Element extends Poly
 ): JSX.Element {
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		isActive: isActiveProp = __DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
-		isDisabled: isDisabledProp = __DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
-		isFixed: isFixedProp = __DEFAULT_PUSHABLE_OVERLAY_IS_FIXED__,
-		isFocused: isFocusedProp = __DEFAULT_PUSHABLE_OVERLAY_IS_FOCUSED__,
-		isOutlined: isOutlinedProp = __DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED__,
-		isPushable: isPushableProp = __DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
-		radius: radiusProp = __DEFAULT_RADIUS__,
-		variant: variantProp = __DEFAULT_PUSHABLE_OVERLAY_VARIANT__,
-		sx = __DEFAULT_POLYMORPHIC_SX__,
+		isActive: isActiveProp = DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE,
+		isDisabled: isDisabledProp = DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED,
+		isFixed: isFixedProp = DEFAULT_PUSHABLE_OVERLAY_IS_FIXED,
+		isFocused: isFocusedProp = DEFAULT_PUSHABLE_OVERLAY_IS_FOCUSED,
+		isOutlined: isOutlinedProp = DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED,
+		isPushable: isPushableProp = DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE,
+		radius: radiusProp = DEFAULT_RADIUS,
+		variant: variantProp = DEFAULT_PUSHABLE_OVERLAY_VARIANT,
+		sx = DEFAULT_POLYMORPHIC_SX,
 		...rest
 	} = props;
 
@@ -85,7 +85,7 @@ const PushableOverlay = forwardRef(function PushableOverlay<Element extends Poly
 		<Grid
 			{...(rest as GridProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_PUSHABLE_OVERLAY_CLASS__, classes, { [className]: !!className })}
+			className={classNames(KEYS_PUSHABLE_OVERLAY_CLASS, classes, { [className]: !!className })}
 			aria-disabled={isDisabled ? 'true' : 'false'}
 			aria-pressed={isFocused || isActive ? 'true' : 'false'}
 			templateColumns={1}

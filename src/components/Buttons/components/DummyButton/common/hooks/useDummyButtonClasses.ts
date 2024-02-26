@@ -5,12 +5,12 @@ import { useGetClass } from '@common/hooks';
 import type { ClassName } from '@common/types';
 
 import {
-	__DEFAULT_DUMMY_BUTTON_IS_COMPACT__,
-	__DEFAULT_DUMMY_BUTTON_IS_FULLWIDTH__,
-	__DEFAULT_DUMMY_BUTTON_IS_ROUND__,
-	__DEFAULT_DUMMY_BUTTON_LINE_HEIGHT_SIZE__,
-	__DEFAULT_DUMMY_BUTTON_SIZE__,
-	__DEFAULT_DUMMY_BUTTON_VARIANT__
+	DEFAULT_DUMMY_BUTTON_IS_COMPACT,
+	DEFAULT_DUMMY_BUTTON_IS_FULLWIDTH,
+	DEFAULT_DUMMY_BUTTON_IS_ROUND,
+	DEFAULT_DUMMY_BUTTON_LINE_HEIGHT_SIZE,
+	DEFAULT_DUMMY_BUTTON_SIZE,
+	DEFAULT_DUMMY_BUTTON_VARIANT
 } from '../constants';
 import type { DummyButtonElement, DummyButtonProps } from '../types';
 
@@ -27,11 +27,11 @@ const useDummyButtonClasses = <Element extends DummyButtonElement>(
 	props: UseDummyButtonClassesProps<Element>
 ): UseDummyButtonClassesReturn => {
 	const {
-		isCompact: isCompactProp = __DEFAULT_DUMMY_BUTTON_IS_COMPACT__,
-		isFullWidth: isFullWidthProp = __DEFAULT_DUMMY_BUTTON_IS_FULLWIDTH__,
-		isRound: isRoundProp = __DEFAULT_DUMMY_BUTTON_IS_ROUND__,
-		size: sizeProp = __DEFAULT_DUMMY_BUTTON_SIZE__,
-		variant: variantProp = __DEFAULT_DUMMY_BUTTON_VARIANT__
+		isCompact: isCompactProp = DEFAULT_DUMMY_BUTTON_IS_COMPACT,
+		isFullWidth: isFullWidthProp = DEFAULT_DUMMY_BUTTON_IS_FULLWIDTH,
+		isRound: isRoundProp = DEFAULT_DUMMY_BUTTON_IS_ROUND,
+		size: sizeProp = DEFAULT_DUMMY_BUTTON_SIZE,
+		variant: variantProp = DEFAULT_DUMMY_BUTTON_VARIANT
 	} = props;
 
 	const { isCompact, isFullWidth, isRound, size, variant } = useDummyButtonResponsiveValues<Element>({
@@ -51,7 +51,7 @@ const useDummyButtonClasses = <Element extends DummyButtonElement>(
 		[classes.typography.font_size[config.fontSize]]: variant !== 'unstyled',
 		[classes.typography.font_weight.semibold]: variant !== 'unstyled',
 		[classes.typography.letter_spacing.normal]: variant !== 'unstyled',
-		[classes.typography.line_height[__DEFAULT_DUMMY_BUTTON_LINE_HEIGHT_SIZE__]]: variant !== 'unstyled',
+		[classes.typography.line_height[DEFAULT_DUMMY_BUTTON_LINE_HEIGHT_SIZE]]: variant !== 'unstyled',
 		[classes.typography.transform.uppercase]: variant !== 'unstyled',
 		[classes.typography.text_overflow.ellipsis]: variant !== 'unstyled',
 		[classes.typography.whiteSpace.nowrap]: variant !== 'unstyled'

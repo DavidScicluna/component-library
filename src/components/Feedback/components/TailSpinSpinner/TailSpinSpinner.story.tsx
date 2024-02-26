@@ -2,11 +2,11 @@ import type { PolymorphicDefaultElement, ThemeRadiusArr } from '../../../../comm
 
 import { Center } from '../../../Layout';
 import React from 'react';
-import { __DEFAULT_TAIL_SPIN_SPINNER_IS_VISIBLE__, __DEFAULT_TAIL_SPIN_SPINNER_SIZE__ } from './common/constants';
+import { DEFAULT_TAIL_SPIN_SPINNER_IS_VISIBLE, DEFAULT_TAIL_SPIN_SPINNER_SIZE } from './common/constants';
 import type { TailSpinSpinnerProps, TailSpinSpinnerSize } from './common/types';
 import type { TailSpinSpinnerStory, TailSpinSpinnerStoryMeta } from './common/types/story';
 import { TailSpinSpinner as TailSpinSpinnerComponent } from '.';
-import { __DEFAULT_RADIUS__ } from '../../../../common/constants';
+import { DEFAULT_RADIUS } from '../../../../common/constants';
 
 export default {
 	title: 'Feedback/TailSpinSpinner',
@@ -21,14 +21,14 @@ export default {
 		isVisible: {
 			name: 'Visible',
 			type: 'boolean',
-			defaultValue: __DEFAULT_TAIL_SPIN_SPINNER_IS_VISIBLE__,
+			defaultValue: DEFAULT_TAIL_SPIN_SPINNER_IS_VISIBLE,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		radius: {
 			name: 'Radius',
 			type: 'string',
-			defaultValue: __DEFAULT_RADIUS__,
+			defaultValue: DEFAULT_RADIUS,
 			// description: '',
 			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as ThemeRadiusArr,
 			control: { type: 'radio' }
@@ -36,7 +36,7 @@ export default {
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: __DEFAULT_TAIL_SPIN_SPINNER_SIZE__,
+			defaultValue: DEFAULT_TAIL_SPIN_SPINNER_SIZE,
 			// description: '',
 			options: [
 				'xs',

@@ -1,3 +1,3 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
-export const __KEYS_ALERT_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-alert`;
+export const KEYS_ALERT_CLASS = `${DEFAULT_CLASS_PREFIX}-alert`;

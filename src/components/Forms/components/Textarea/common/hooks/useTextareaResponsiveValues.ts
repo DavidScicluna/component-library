@@ -2,19 +2,19 @@ import { useGetResponsiveValue } from '@common/hooks';
 import type { ResizeClass } from '@common/types';
 
 import {
-	__DEFAULT_TEXTAREA_IS_COMPACT__,
-	__DEFAULT_TEXTAREA_IS_DISABLED__,
-	__DEFAULT_TEXTAREA_IS_ERROR__,
-	__DEFAULT_TEXTAREA_IS_FOCUSED__,
-	__DEFAULT_TEXTAREA_IS_FULLWIDTH__,
-	__DEFAULT_TEXTAREA_IS_OUTLINED__,
-	__DEFAULT_TEXTAREA_IS_READONLY__,
-	__DEFAULT_TEXTAREA_IS_REQUIRED__,
-	__DEFAULT_TEXTAREA_IS_SUCCESS__,
-	__DEFAULT_TEXTAREA_IS_WARNING__,
-	__DEFAULT_TEXTAREA_RESIZE__,
-	__DEFAULT_TEXTAREA_SIZE__,
-	__DEFAULT_TEXTAREA_VARIANT__
+	DEFAULT_TEXTAREA_IS_COMPACT,
+	DEFAULT_TEXTAREA_IS_DISABLED,
+	DEFAULT_TEXTAREA_IS_ERROR,
+	DEFAULT_TEXTAREA_IS_FOCUSED,
+	DEFAULT_TEXTAREA_IS_FULLWIDTH,
+	DEFAULT_TEXTAREA_IS_OUTLINED,
+	DEFAULT_TEXTAREA_IS_READONLY,
+	DEFAULT_TEXTAREA_IS_REQUIRED,
+	DEFAULT_TEXTAREA_IS_SUCCESS,
+	DEFAULT_TEXTAREA_IS_WARNING,
+	DEFAULT_TEXTAREA_RESIZE,
+	DEFAULT_TEXTAREA_SIZE,
+	DEFAULT_TEXTAREA_VARIANT
 } from '../constants';
 import type { TextareaElement, TextareaProps, TextareaSize, TextareaVariant } from '../types';
 
@@ -40,19 +40,19 @@ const useTextareaResponsiveValues = <Element extends TextareaElement>(
 	props: UseTextareaResponsiveValuesProps<Element>
 ) => {
 	const {
-		isCompact: isCompactProp = __DEFAULT_TEXTAREA_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_TEXTAREA_IS_DISABLED__,
-		isFullWidth: isFullWidthProp = __DEFAULT_TEXTAREA_IS_FULLWIDTH__,
-		isError: isErrorProp = __DEFAULT_TEXTAREA_IS_ERROR__,
-		isFocused: isFocusedProp = __DEFAULT_TEXTAREA_IS_FOCUSED__,
-		isOutlined: isOutlinedProp = __DEFAULT_TEXTAREA_IS_OUTLINED__,
-		isReadOnly: isReadOnlyProp = __DEFAULT_TEXTAREA_IS_READONLY__,
-		isRequired: isRequiredProp = __DEFAULT_TEXTAREA_IS_REQUIRED__,
-		isSuccess: isSuccessProp = __DEFAULT_TEXTAREA_IS_SUCCESS__,
-		isWarning: isWarningProp = __DEFAULT_TEXTAREA_IS_WARNING__,
-		resize: resizeProp = __DEFAULT_TEXTAREA_RESIZE__,
-		size: sizeProp = __DEFAULT_TEXTAREA_SIZE__,
-		variant: variantProp = __DEFAULT_TEXTAREA_VARIANT__
+		isCompact: isCompactProp = DEFAULT_TEXTAREA_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_TEXTAREA_IS_DISABLED,
+		isFullWidth: isFullWidthProp = DEFAULT_TEXTAREA_IS_FULLWIDTH,
+		isError: isErrorProp = DEFAULT_TEXTAREA_IS_ERROR,
+		isFocused: isFocusedProp = DEFAULT_TEXTAREA_IS_FOCUSED,
+		isOutlined: isOutlinedProp = DEFAULT_TEXTAREA_IS_OUTLINED,
+		isReadOnly: isReadOnlyProp = DEFAULT_TEXTAREA_IS_READONLY,
+		isRequired: isRequiredProp = DEFAULT_TEXTAREA_IS_REQUIRED,
+		isSuccess: isSuccessProp = DEFAULT_TEXTAREA_IS_SUCCESS,
+		isWarning: isWarningProp = DEFAULT_TEXTAREA_IS_WARNING,
+		resize: resizeProp = DEFAULT_TEXTAREA_RESIZE,
+		size: sizeProp = DEFAULT_TEXTAREA_SIZE,
+		variant: variantProp = DEFAULT_TEXTAREA_VARIANT
 	} = props;
 
 	const isCompact = useGetResponsiveValue<boolean>(isCompactProp);

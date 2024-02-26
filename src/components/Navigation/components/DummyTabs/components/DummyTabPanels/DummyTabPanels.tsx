@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 import { isArray } from 'lodash-es';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -13,7 +13,7 @@ import { Center, Grid, GridItem } from '@components/Layout';
 import { useDummyTabsContext } from '../../common/hooks';
 import { getDummyTabPanelID, getDummyTabPanelsID, getDummyTabsID } from '../../common/utils';
 
-import { __KEYS_DUMMY_TABS_TAB_PANELS_CLASS__ } from './common/keys';
+import { KEYS_DUMMY_TABS_TAB_PANELS_CLASS } from './common/keys';
 import type { DummyTabPanelProps, DummyTabPanelsProps, DummyTabPanelsRef } from './common/types';
 
 const DummyTabPanel = <Element extends PolymorphicElementType>({ children, index }: DummyTabPanelProps<Element>) => {
@@ -40,7 +40,7 @@ const DummyTabPanels = forwardRef(function DummyTabPanels<Element extends Polymo
 ): JSX.Element {
 	const { id } = useDummyTabsContext();
 
-	const { children, className = __DEFAULT_CLASSNAME__, ...rest } = props;
+	const { children, className = DEFAULT_CLASSNAME, ...rest } = props;
 
 	return (
 		<Grid
@@ -48,7 +48,7 @@ const DummyTabPanels = forwardRef(function DummyTabPanels<Element extends Polymo
 			ref={ref}
 			aria-labelledby={getDummyTabsID(id)}
 			id={getDummyTabPanelsID(id)}
-			className={classNames(__KEYS_DUMMY_TABS_TAB_PANELS_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_DUMMY_TABS_TAB_PANELS_CLASS, { [className]: !!className })}
 			role='tabpanel'
 			w='100%'
 			h='100%'

@@ -2,7 +2,7 @@ import { forwardRef, useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
 import { getColorHex } from '@common/utils';
@@ -12,27 +12,27 @@ import { PuffSpinner, TailSpinSpinner, ThreeDotsSpinner } from '@components/Feed
 
 import { useIconButtonContext, useIconButtonFontSize } from '../../common/hooks';
 
-import { __DEFAULT_ICON_BUTTON_SPINNER_VARIANT__ } from './common/constants';
+import { DEFAULT_ICON_BUTTON_SPINNER_VARIANT } from './common/constants';
 import { useIconButtonSpinnerResponsiveValues } from './common/hooks';
-import { __KEYS_ICON_BUTTON_SPINNER_CLASS__ } from './common/keys';
+import { KEYS_ICON_BUTTON_SPINNER_CLASS } from './common/keys';
 import type { IconButtonSpinnerProps, IconButtonSpinnerRef } from './common/types';
 
 const IconButtonSpinner = forwardRef(function IconButtonSpinner<Element extends PolymorphicElementType>(
 	props: IconButtonSpinnerProps<Element>,
 	ref: IconButtonSpinnerRef<Element>
 ): JSX.Element {
-	const { color: __DEFAULT_ICON_BUTTON_COLOR__, colorMode: __DEFAULT_ICON_BUTTON_COLORMODE__ } = useAppTheme();
+	const { color: DEFAULT_ICON_BUTTON_COLOR, colorMode: DEFAULT_ICON_BUTTON_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_ICON_BUTTON_COLOR__,
-		colorMode = __DEFAULT_ICON_BUTTON_COLORMODE__,
+		color = DEFAULT_ICON_BUTTON_COLOR,
+		colorMode = DEFAULT_ICON_BUTTON_COLORMODE,
 		size,
 		variant: iconButtonVariant
 	} = useIconButtonContext();
 
 	const {
-		className = __DEFAULT_CLASSNAME__,
-		variant: variantProp = __DEFAULT_ICON_BUTTON_SPINNER_VARIANT__,
+		className = DEFAULT_CLASSNAME,
+		variant: variantProp = DEFAULT_ICON_BUTTON_SPINNER_VARIANT,
 		...rest
 	} = props;
 
@@ -62,7 +62,7 @@ const IconButtonSpinner = forwardRef(function IconButtonSpinner<Element extends 
 				<TailSpinSpinner
 					{...(rest as TailSpinSpinnerProps<Element>)}
 					ref={ref}
-					className={classNames(__KEYS_ICON_BUTTON_SPINNER_CLASS__, { [className]: !!className })}
+					className={classNames(KEYS_ICON_BUTTON_SPINNER_CLASS, { [className]: !!className })}
 					color={c}
 					isVisible
 					size={`${fontSize}px`}
@@ -73,7 +73,7 @@ const IconButtonSpinner = forwardRef(function IconButtonSpinner<Element extends 
 				<ThreeDotsSpinner
 					{...(rest as ThreeDotsSpinnerProps<Element>)}
 					ref={ref}
-					className={classNames(__KEYS_ICON_BUTTON_SPINNER_CLASS__, { [className]: !!className })}
+					className={classNames(KEYS_ICON_BUTTON_SPINNER_CLASS, { [className]: !!className })}
 					color={c}
 					isVisible
 					size={`${fontSize}px`}
@@ -84,7 +84,7 @@ const IconButtonSpinner = forwardRef(function IconButtonSpinner<Element extends 
 				<PuffSpinner
 					{...(rest as PuffSpinnerProps<Element>)}
 					ref={ref}
-					className={classNames(__KEYS_ICON_BUTTON_SPINNER_CLASS__, { [className]: !!className })}
+					className={classNames(KEYS_ICON_BUTTON_SPINNER_CLASS, { [className]: !!className })}
 					color={c}
 					isVisible
 					size={`${fontSize}px`}

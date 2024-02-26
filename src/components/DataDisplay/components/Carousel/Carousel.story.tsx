@@ -1,6 +1,6 @@
 import { range } from 'lodash-es';
 
-import { __DEFAULT_SPACING__ } from '../../../../common/constants';
+import { DEFAULT_SPACING } from '../../../../common/constants';
 import { useGetColor } from '../../../../common/hooks';
 
 import { Center } from '../../../Layout';
@@ -9,9 +9,9 @@ import React from 'react';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
-	__DEFAULT_CAROUSEL_ORIENTTATION__,
-	__DEFAULT_CAROUSEL_SCROLL_AMOUNT__,
-	__DEFAULT_CAROUSEL_VARIANT__
+	DEFAULT_CAROUSEL_ORIENTTATION,
+	DEFAULT_CAROUSEL_SCROLL_AMOUNT,
+	DEFAULT_CAROUSEL_VARIANT
 } from './common/constants';
 import type { CarouselDefaultElement, CarouselOrientation, CarouselProps, CarouselVariant } from './common/types';
 import type { CarouselStory, CarouselStoryMeta } from './common/types/story';
@@ -43,21 +43,21 @@ export default {
 		scrollAmount: {
 			name: 'Scroll Amount',
 			type: 'number',
-			defaultValue: __DEFAULT_CAROUSEL_SCROLL_AMOUNT__,
+			defaultValue: DEFAULT_CAROUSEL_SCROLL_AMOUNT,
 			// description: '',
 			control: { type: 'number' }
 		},
 		spacing: {
 			name: 'Spacing (0-24 | .0, .25, .5 or .75)',
 			type: 'number',
-			defaultValue: __DEFAULT_SPACING__,
+			defaultValue: DEFAULT_SPACING,
 			// description: '',
 			control: { type: 'number' }
 		},
 		orientation: {
 			name: 'Orientation',
 			type: 'string',
-			defaultValue: __DEFAULT_CAROUSEL_ORIENTTATION__,
+			defaultValue: DEFAULT_CAROUSEL_ORIENTTATION,
 			// description: '',
 			options: ['horizontal', 'vertical'] as Array<CarouselOrientation>,
 			control: { type: 'radio' }
@@ -65,7 +65,7 @@ export default {
 		variant: {
 			name: 'Variant',
 			type: 'string',
-			defaultValue: __DEFAULT_CAROUSEL_VARIANT__,
+			defaultValue: DEFAULT_CAROUSEL_VARIANT,
 			// description: '',
 			options: ['left', 'right', 'hidden', 'overlay'] as Array<CarouselVariant>,
 			control: { type: 'radio' }

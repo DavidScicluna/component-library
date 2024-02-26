@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import type { ThemeFontSize } from '@common/types';
 
-import { __DEFAULT_FORM_CONTROL_SIZE__ } from '../constants';
+import { DEFAULT_FORM_CONTROL_SIZE } from '../constants';
 import type { FormControlElement, FormControlProps } from '../types';
 
 import useFormControlResponsiveValues from './useFormControlResponsiveValues';
@@ -15,7 +15,7 @@ type UseFormControlFontSizeReturn = UseFormControlFontSize;
 const useFormControlFontSize = <Element extends FormControlElement>(
 	props: UseFormControlFontSizeProps<Element>
 ): UseFormControlFontSizeReturn => {
-	const { size: sizeProp = __DEFAULT_FORM_CONTROL_SIZE__ } = props;
+	const { size: sizeProp = DEFAULT_FORM_CONTROL_SIZE } = props;
 
 	const { size } = useFormControlResponsiveValues<Element>({ size: sizeProp });
 

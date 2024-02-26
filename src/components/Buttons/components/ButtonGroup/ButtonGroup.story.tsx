@@ -4,19 +4,19 @@ import type { FlexDirectionClassArr } from '../../../../common/types';
 import type { ButtonSize, ButtonVariant } from '../Button';
 import { Button } from '../Button';
 import {
-	__DEFAULT_BUTTON_IS_COMPACT__,
-	__DEFAULT_BUTTON_IS_DISABLED__,
-	__DEFAULT_BUTTON_IS_FULLWIDTH__,
-	__DEFAULT_BUTTON_IS_ROUND__,
-	__DEFAULT_BUTTON_SIZE__,
-	__DEFAULT_BUTTON_VARIANT__
+	DEFAULT_BUTTON_IS_COMPACT,
+	DEFAULT_BUTTON_IS_DISABLED,
+	DEFAULT_BUTTON_IS_FULLWIDTH,
+	DEFAULT_BUTTON_IS_ROUND,
+	DEFAULT_BUTTON_SIZE,
+	DEFAULT_BUTTON_VARIANT
 } from '../Button/common/constants';
 import { Center } from '../../../Layout';
-import { __DEFAULT_STACK_DIRECTION__ } from '../../..//Layout/components/Stacks/Stack/common/constants';
+import { DEFAULT_STACK_DIRECTION } from '../../..//Layout/components/Stacks/Stack/common/constants';
 
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
-import { __DEFAULT_BUTTON_GROUP_IS_ATTACHED__ } from './common/constants';
+import { DEFAULT_BUTTON_GROUP_IS_ATTACHED } from './common/constants';
 import type { ButtonGroupDefaultElement, ButtonGroupProps } from './common/types';
 import type { ButtonGroupStory, ButtonGroupStoryMeta } from './common/types/story';
 import { ButtonGroupItem } from './components';
@@ -30,7 +30,7 @@ export default {
 		direction: {
 			name: 'Direction',
 			type: 'string',
-			defaultValue: __DEFAULT_STACK_DIRECTION__,
+			defaultValue: DEFAULT_STACK_DIRECTION,
 			// description: '',
 			options: ['row', 'row-reverse', 'column', 'column-reverse'] as FlexDirectionClassArr,
 			control: { type: 'radio' }
@@ -38,42 +38,42 @@ export default {
 		isAttached: {
 			name: 'Attached',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BUTTON_GROUP_IS_ATTACHED__,
+			defaultValue: DEFAULT_BUTTON_GROUP_IS_ATTACHED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isCompact: {
 			name: 'Compact',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BUTTON_IS_COMPACT__,
+			defaultValue: DEFAULT_BUTTON_IS_COMPACT,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BUTTON_IS_DISABLED__,
+			defaultValue: DEFAULT_BUTTON_IS_DISABLED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isFullWidth: {
 			name: 'FullWidth',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BUTTON_IS_FULLWIDTH__,
+			defaultValue: DEFAULT_BUTTON_IS_FULLWIDTH,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isRound: {
 			name: 'Round',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BUTTON_IS_ROUND__,
+			defaultValue: DEFAULT_BUTTON_IS_ROUND,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: __DEFAULT_BUTTON_SIZE__,
+			defaultValue: DEFAULT_BUTTON_SIZE,
 			// description: '',
 			options: ['xs', 'sm', 'md', 'lg', 'xl'] as Array<ButtonSize>,
 			control: { type: 'radio' }
@@ -81,7 +81,7 @@ export default {
 		variant: {
 			name: 'Variant',
 			type: 'string',
-			defaultValue: __DEFAULT_BUTTON_VARIANT__,
+			defaultValue: DEFAULT_BUTTON_VARIANT,
 			// description: '',
 			options: ['contained', 'light', 'dark', 'outlined', 'monochrome', 'text'] as Array<ButtonVariant>,
 			control: { type: 'radio' }

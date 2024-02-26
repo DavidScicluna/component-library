@@ -1,6 +1,6 @@
 import type { PolymorphicElementType, Style } from '@common/types';
 
-import { __DEFAULT_GRID_TEMPLATE_COLUMNS__, __DEFAULT_GRID_TEMPLATE_ROWS__ } from '../constants';
+import { DEFAULT_GRID_TEMPLATE_COLUMNS, DEFAULT_GRID_TEMPLATE_ROWS } from '../constants';
 import type { GridProps } from '../types';
 
 import useGridResponsiveValues from './useGridResponsiveValues';
@@ -15,8 +15,8 @@ const useGridStyles = <Element extends PolymorphicElementType>(
 	props: UseGridStylesProps<Element>
 ): UseGridStylesReturn => {
 	const {
-		templateColumns: templateColumnsProp = __DEFAULT_GRID_TEMPLATE_COLUMNS__,
-		templateRows: templateRowsProp = __DEFAULT_GRID_TEMPLATE_ROWS__
+		templateColumns: templateColumnsProp = DEFAULT_GRID_TEMPLATE_COLUMNS,
+		templateRows: templateRowsProp = DEFAULT_GRID_TEMPLATE_ROWS
 	} = props;
 
 	const { templateColumns, templateRows } = useGridResponsiveValues({

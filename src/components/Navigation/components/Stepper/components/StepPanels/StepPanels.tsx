@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 import { isArray } from 'lodash-es';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -13,7 +13,7 @@ import { Center, Grid, GridItem } from '@components/Layout';
 import { useStepperContext } from '../../common/hooks';
 import { getStepPanelID, getStepPanelsID, getStepperID } from '../../common/utils';
 
-import { __KEYS_STEPPER_STEP_PANELS_CLASS__ } from './common/keys';
+import { KEYS_STEPPER_STEP_PANELS_CLASS } from './common/keys';
 import type { StepPanelProps, StepPanelsProps, StepPanelsRef } from './common/types';
 
 const StepPanel = <Element extends PolymorphicElementType>({ children, index }: StepPanelProps<Element>) => {
@@ -32,7 +32,7 @@ const StepPanels = forwardRef(function StepPanels<Element extends PolymorphicEle
 ): JSX.Element {
 	const { id } = useStepperContext();
 
-	const { children, className = __DEFAULT_CLASSNAME__, ...rest } = props;
+	const { children, className = DEFAULT_CLASSNAME, ...rest } = props;
 
 	return (
 		<Grid
@@ -40,7 +40,7 @@ const StepPanels = forwardRef(function StepPanels<Element extends PolymorphicEle
 			ref={ref}
 			aria-labelledby={getStepperID(id)}
 			id={getStepPanelsID(id)}
-			className={classNames(__KEYS_STEPPER_STEP_PANELS_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_STEPPER_STEP_PANELS_CLASS, { [className]: !!className })}
 			role='tabpanel'
 			w='100%'
 			h='100%'

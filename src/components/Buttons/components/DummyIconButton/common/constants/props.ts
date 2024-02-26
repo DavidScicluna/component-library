@@ -1,12 +1,12 @@
 import type { DummyIconButtonDefaultElement, DummyIconButtonSize, DummyIconButtonVariant } from '../types';
 
-export const __DEFAULT_DUMMY_ICON_BUTTON_AS__: DummyIconButtonDefaultElement = 'div';
+export const DEFAULT_DUMMY_ICON_BUTTON_AS: DummyIconButtonDefaultElement = 'div';
 
-export const __DEFAULT_DUMMY_ICON_BUTTON_IS_ANIMATED__ = true;
-export const __DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT__ = false;
-export const __DEFAULT_DUMMY_ICON_BUTTON_IS_ROUND__ = false;
-export const __DEFAULT_DUMMY_ICON_BUTTON_IS_OUTLINED__ = false;
+export const DEFAULT_DUMMY_ICON_BUTTON_IS_ANIMATED = true;
+export const DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT = false;
+export const DEFAULT_DUMMY_ICON_BUTTON_IS_ROUND = false;
+export const DEFAULT_DUMMY_ICON_BUTTON_IS_OUTLINED = false;
 
-export const __DEFAULT_DUMMY_ICON_BUTTON_SIZE__: DummyIconButtonSize = 'md';
+export const DEFAULT_DUMMY_ICON_BUTTON_SIZE: DummyIconButtonSize = 'md';
 
-export const __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__: DummyIconButtonVariant = 'contained';
+export const DEFAULT_DUMMY_ICON_BUTTON_VARIANT: DummyIconButtonVariant = 'contained';

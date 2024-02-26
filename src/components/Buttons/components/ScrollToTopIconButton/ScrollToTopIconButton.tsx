@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { debounce } from 'lodash-es';
 import { useEventListener, useWindowSize } from 'usehooks-ts';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 
 import { Transition } from '@components/Animation';
@@ -14,12 +14,12 @@ import type { IconButtonProps } from '../IconButton';
 import { IconButton, IconButtonIcon } from '../IconButton';
 
 import {
-	__DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_AS__,
-	__DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_HAS_TOOLTIP__,
-	__DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_LABEL__,
-	__DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_PLACEMENT__
+	DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_AS,
+	DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_HAS_TOOLTIP,
+	DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_LABEL,
+	DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_PLACEMENT
 } from './common/constants';
-import { __KEYS_SCROLL_TO_TOP_ICON_BUTTON_CLASS__ } from './common/keys';
+import { KEYS_SCROLL_TO_TOP_ICON_BUTTON_CLASS } from './common/keys';
 import type {
 	ScrollToTopIconButtonElement,
 	ScrollToTopIconButtonMouseEvent,
@@ -34,13 +34,13 @@ const ScrollToTopIconButton = forwardRef(function ScrollToTopIconButton<Element 
 	const { height: windowHeight = 0 } = useWindowSize();
 
 	const {
-		as = __DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_AS,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		hasTooltip = __DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_HAS_TOOLTIP__,
-		label = __DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_LABEL__,
-		placement = __DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_PLACEMENT__,
+		hasTooltip = DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_HAS_TOOLTIP,
+		label = DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_LABEL,
+		placement = DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_PLACEMENT,
 		onClick,
 		...rest
 	} = props;
@@ -85,7 +85,7 @@ const ScrollToTopIconButton = forwardRef(function ScrollToTopIconButton<Element 
 					{...(rest as IconButtonProps<Element>)}
 					as={as}
 					ref={ref}
-					className={classNames(__KEYS_SCROLL_TO_TOP_ICON_BUTTON_CLASS__, {
+					className={classNames(KEYS_SCROLL_TO_TOP_ICON_BUTTON_CLASS, {
 						[className]: !!className
 					})}
 					aria-label={label}

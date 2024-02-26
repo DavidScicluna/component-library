@@ -3,15 +3,15 @@ import React from 'react';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
-	__DEFAULT_BUTTON_IS_ACTIVE__,
-	__DEFAULT_BUTTON_IS_COMPACT__,
-	__DEFAULT_BUTTON_IS_DISABLED__,
-	__DEFAULT_BUTTON_IS_FOCUSED__,
-	__DEFAULT_BUTTON_IS_FULLWIDTH__,
-	__DEFAULT_BUTTON_IS_LOADING__,
-	__DEFAULT_BUTTON_IS_ROUND__,
-	__DEFAULT_BUTTON_SIZE__,
-	__DEFAULT_BUTTON_VARIANT__
+	DEFAULT_BUTTON_IS_ACTIVE,
+	DEFAULT_BUTTON_IS_COMPACT,
+	DEFAULT_BUTTON_IS_DISABLED,
+	DEFAULT_BUTTON_IS_FOCUSED,
+	DEFAULT_BUTTON_IS_FULLWIDTH,
+	DEFAULT_BUTTON_IS_LOADING,
+	DEFAULT_BUTTON_IS_ROUND,
+	DEFAULT_BUTTON_SIZE,
+	DEFAULT_BUTTON_VARIANT
 } from './common/constants';
 import type { ButtonDefaultElement, ButtonProps, ButtonSize, ButtonVariant } from './common/types';
 import type { ButtonStory, ButtonStoryMeta } from './common/types/story';
@@ -25,63 +25,63 @@ export default {
 		isActive: {
 			name: 'Active',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BUTTON_IS_ACTIVE__,
+			defaultValue: DEFAULT_BUTTON_IS_ACTIVE,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isCompact: {
 			name: 'Compact',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BUTTON_IS_COMPACT__,
+			defaultValue: DEFAULT_BUTTON_IS_COMPACT,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BUTTON_IS_DISABLED__,
+			defaultValue: DEFAULT_BUTTON_IS_DISABLED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isFocused: {
 			name: 'Focused',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BUTTON_IS_FOCUSED__,
+			defaultValue: DEFAULT_BUTTON_IS_FOCUSED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isFullWidth: {
 			name: 'FullWidth',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BUTTON_IS_FULLWIDTH__,
+			defaultValue: DEFAULT_BUTTON_IS_FULLWIDTH,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isLoading: {
 			name: 'Loading',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BUTTON_IS_LOADING__,
+			defaultValue: DEFAULT_BUTTON_IS_LOADING,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isRound: {
 			name: 'Round',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BUTTON_IS_ROUND__,
+			defaultValue: DEFAULT_BUTTON_IS_ROUND,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isOutlined: {
 			name: 'Outlined',
 			type: 'boolean',
-			defaultValue: __DEFAULT_BUTTON_IS_ROUND__,
+			defaultValue: DEFAULT_BUTTON_IS_ROUND,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: __DEFAULT_BUTTON_SIZE__,
+			defaultValue: DEFAULT_BUTTON_SIZE,
 			// description: '',
 			options: ['xs', 'sm', 'md', 'lg', 'xl'] as Array<ButtonSize>,
 			control: { type: 'radio' }
@@ -89,7 +89,7 @@ export default {
 		variant: {
 			name: 'Variant',
 			type: 'string',
-			defaultValue: __DEFAULT_BUTTON_VARIANT__,
+			defaultValue: DEFAULT_BUTTON_VARIANT,
 			// description: '',
 			options: [
 				'contained',

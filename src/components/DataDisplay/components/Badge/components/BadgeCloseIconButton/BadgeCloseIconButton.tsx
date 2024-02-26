@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 
 import type { CloseIconButtonProps } from '@components/Buttons';
 import { CloseIconButton } from '@components/Buttons';
@@ -12,11 +12,11 @@ import { usePushableOverlayStyles } from '@components/Overlay/components/Pushabl
 import { useBadgeContext } from '../../common/hooks';
 
 import {
-	__DEFAULT_BADGE_CLOSE_ICON_BUTTON_AS__,
-	__DEFAULT_BADGE_CLOSE_ICON_BUTTON_IS_COMPACT__,
-	__DEFAULT_BADGE_CLOSE_ICON_BUTTON_SIZE__
+	DEFAULT_BADGE_CLOSE_ICON_BUTTON_AS,
+	DEFAULT_BADGE_CLOSE_ICON_BUTTON_IS_COMPACT,
+	DEFAULT_BADGE_CLOSE_ICON_BUTTON_SIZE
 } from './common/constants';
-import { __KEYS_BADGE_CLOSE_ICON_BUTTON_CLASS__ } from './common/keys';
+import { KEYS_BADGE_CLOSE_ICON_BUTTON_CLASS } from './common/keys';
 import type { BadgeCloseIconButtonElement, BadgeCloseIconButtonProps, BadgeCloseIconButtonRef } from './common/types';
 
 const BadgeCloseIconButton = forwardRef(function BadgeCloseIconButton<Element extends BadgeCloseIconButtonElement>(
@@ -24,18 +24,18 @@ const BadgeCloseIconButton = forwardRef(function BadgeCloseIconButton<Element ex
 	ref: BadgeCloseIconButtonRef<Element>
 ): JSX.Element {
 	const {
-		color: __DEFAULT_BADGE_CLOSE_ICON_BUTTON_COLOR__,
-		colorMode: __DEFAULT_BADGE_CLOSE_ICON_BUTTON_COLORMODE__,
+		color: DEFAULT_BADGE_CLOSE_ICON_BUTTON_COLOR,
+		colorMode: DEFAULT_BADGE_CLOSE_ICON_BUTTON_COLORMODE,
 		variant
 	} = useBadgeContext();
 
 	const {
-		as = __DEFAULT_BADGE_CLOSE_ICON_BUTTON_AS__,
-		className = __DEFAULT_CLASSNAME__,
-		color = __DEFAULT_BADGE_CLOSE_ICON_BUTTON_COLOR__,
-		colorMode = __DEFAULT_BADGE_CLOSE_ICON_BUTTON_COLORMODE__,
-		isCompact = __DEFAULT_BADGE_CLOSE_ICON_BUTTON_IS_COMPACT__,
-		size = __DEFAULT_BADGE_CLOSE_ICON_BUTTON_SIZE__,
+		as = DEFAULT_BADGE_CLOSE_ICON_BUTTON_AS,
+		className = DEFAULT_CLASSNAME,
+		color = DEFAULT_BADGE_CLOSE_ICON_BUTTON_COLOR,
+		colorMode = DEFAULT_BADGE_CLOSE_ICON_BUTTON_COLORMODE,
+		isCompact = DEFAULT_BADGE_CLOSE_ICON_BUTTON_IS_COMPACT,
+		size = DEFAULT_BADGE_CLOSE_ICON_BUTTON_SIZE,
 		...rest
 	} = props;
 
@@ -51,7 +51,7 @@ const BadgeCloseIconButton = forwardRef(function BadgeCloseIconButton<Element ex
 			{...(rest as CloseIconButtonProps<Element>)}
 			as={as}
 			ref={ref}
-			className={classNames(__KEYS_BADGE_CLOSE_ICON_BUTTON_CLASS__, classes, { [className]: !!className })}
+			className={classNames(KEYS_BADGE_CLOSE_ICON_BUTTON_CLASS, classes, { [className]: !!className })}
 			color={color}
 			colorMode={colorMode}
 			isCompact={isCompact}

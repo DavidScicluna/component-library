@@ -3,7 +3,7 @@ import type { Required } from 'utility-types';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { ThemeSpacing, Undefinable } from '@common/types';
 
-import { __DEFAULT_CENTER_SPACING__ } from '../constants';
+import { DEFAULT_CENTER_SPACING } from '../constants';
 import type { CenterNonResponsiveValueProps, CenterResponsiveValueProps } from '../types';
 
 type UseCenterResponsiveValuesProps = Partial<CenterResponsiveValueProps>;
@@ -14,7 +14,7 @@ const useCenterResponsiveValues = (props: UseCenterResponsiveValuesProps): UseCe
 
 	const spacing = useGetResponsiveValue<Undefinable<ThemeSpacing>>(spacingProp);
 
-	return { spacing: spacing || __DEFAULT_CENTER_SPACING__ };
+	return { spacing: spacing || DEFAULT_CENTER_SPACING };
 };
 
 export default useCenterResponsiveValues;

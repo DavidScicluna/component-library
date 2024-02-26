@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import type { PolymorphicElementType, ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
 
-import { __DEFAULT_SWITCH_IS_COMPACT__, __DEFAULT_SWITCH_SIZE__ } from '../constants';
+import { DEFAULT_SWITCH_IS_COMPACT, DEFAULT_SWITCH_SIZE } from '../constants';
 import type { SwitchProps } from '../types';
 
 import { useSwitchResponsiveValues } from '.';
@@ -23,8 +23,7 @@ type UseSwitchSizeConfigReturn = SwitchSizeConfig;
 const useSwitchSizeConfig = <Element extends PolymorphicElementType>(
 	props: UseSwitchSizeConfigProps<Element>
 ): UseSwitchSizeConfigReturn => {
-	const { isCompact: isCompactProp = __DEFAULT_SWITCH_IS_COMPACT__, size: sizeProp = __DEFAULT_SWITCH_SIZE__ } =
-		props;
+	const { isCompact: isCompactProp = DEFAULT_SWITCH_IS_COMPACT, size: sizeProp = DEFAULT_SWITCH_SIZE } = props;
 
 	const { isCompact, size } = useSwitchResponsiveValues<Element>({ isCompact: isCompactProp, size: sizeProp });
 

@@ -1,19 +1,19 @@
 import { useGetResponsiveValue } from '@common/hooks';
 
 import {
-	__DEFAULT_SEARCH_INPUT_INITIAL_QUERY__,
-	__DEFAULT_SEARCH_INPUT_IS_COMPACT__,
-	__DEFAULT_SEARCH_INPUT_IS_DISABLED__,
-	__DEFAULT_SEARCH_INPUT_IS_ERROR__,
-	__DEFAULT_SEARCH_INPUT_IS_FOCUSED__,
-	__DEFAULT_SEARCH_INPUT_IS_FULLWIDTH__,
-	__DEFAULT_SEARCH_INPUT_IS_OUTLINED__,
-	__DEFAULT_SEARCH_INPUT_IS_READONLY__,
-	__DEFAULT_SEARCH_INPUT_IS_REQUIRED__,
-	__DEFAULT_SEARCH_INPUT_IS_SUCCESS__,
-	__DEFAULT_SEARCH_INPUT_IS_WARNING__,
-	__DEFAULT_SEARCH_INPUT_SIZE__,
-	__DEFAULT_SEARCH_INPUT_VARIANT__
+	DEFAULT_SEARCH_INPUT_INITIAL_QUERY,
+	DEFAULT_SEARCH_INPUT_IS_COMPACT,
+	DEFAULT_SEARCH_INPUT_IS_DISABLED,
+	DEFAULT_SEARCH_INPUT_IS_ERROR,
+	DEFAULT_SEARCH_INPUT_IS_FOCUSED,
+	DEFAULT_SEARCH_INPUT_IS_FULLWIDTH,
+	DEFAULT_SEARCH_INPUT_IS_OUTLINED,
+	DEFAULT_SEARCH_INPUT_IS_READONLY,
+	DEFAULT_SEARCH_INPUT_IS_REQUIRED,
+	DEFAULT_SEARCH_INPUT_IS_SUCCESS,
+	DEFAULT_SEARCH_INPUT_IS_WARNING,
+	DEFAULT_SEARCH_INPUT_SIZE,
+	DEFAULT_SEARCH_INPUT_VARIANT
 } from '../constants';
 import type { SearchInputElement, SearchInputProps, SearchInputSize, SearchInputVariant } from '../types';
 
@@ -39,19 +39,19 @@ const useSearchInputResponsiveValues = <Element extends SearchInputElement>(
 	props: UseSearchInputResponsiveValuesProps<Element>
 ) => {
 	const {
-		isCompact: isCompactProp = __DEFAULT_SEARCH_INPUT_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_SEARCH_INPUT_IS_DISABLED__,
-		isFullWidth: isFullWidthProp = __DEFAULT_SEARCH_INPUT_IS_FULLWIDTH__,
-		isError: isErrorProp = __DEFAULT_SEARCH_INPUT_IS_ERROR__,
-		isFocused: isFocusedProp = __DEFAULT_SEARCH_INPUT_IS_FOCUSED__,
-		isOutlined: isOutlinedProp = __DEFAULT_SEARCH_INPUT_IS_OUTLINED__,
-		isReadOnly: isReadOnlyProp = __DEFAULT_SEARCH_INPUT_IS_READONLY__,
-		isRequired: isRequiredProp = __DEFAULT_SEARCH_INPUT_IS_REQUIRED__,
-		isSuccess: isSuccessProp = __DEFAULT_SEARCH_INPUT_IS_SUCCESS__,
-		isWarning: isWarningProp = __DEFAULT_SEARCH_INPUT_IS_WARNING__,
-		initialQuery: initialQueryProp = __DEFAULT_SEARCH_INPUT_INITIAL_QUERY__,
-		size: sizeProp = __DEFAULT_SEARCH_INPUT_SIZE__,
-		variant: variantProp = __DEFAULT_SEARCH_INPUT_VARIANT__
+		isCompact: isCompactProp = DEFAULT_SEARCH_INPUT_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_SEARCH_INPUT_IS_DISABLED,
+		isFullWidth: isFullWidthProp = DEFAULT_SEARCH_INPUT_IS_FULLWIDTH,
+		isError: isErrorProp = DEFAULT_SEARCH_INPUT_IS_ERROR,
+		isFocused: isFocusedProp = DEFAULT_SEARCH_INPUT_IS_FOCUSED,
+		isOutlined: isOutlinedProp = DEFAULT_SEARCH_INPUT_IS_OUTLINED,
+		isReadOnly: isReadOnlyProp = DEFAULT_SEARCH_INPUT_IS_READONLY,
+		isRequired: isRequiredProp = DEFAULT_SEARCH_INPUT_IS_REQUIRED,
+		isSuccess: isSuccessProp = DEFAULT_SEARCH_INPUT_IS_SUCCESS,
+		isWarning: isWarningProp = DEFAULT_SEARCH_INPUT_IS_WARNING,
+		initialQuery: initialQueryProp = DEFAULT_SEARCH_INPUT_INITIAL_QUERY,
+		size: sizeProp = DEFAULT_SEARCH_INPUT_SIZE,
+		variant: variantProp = DEFAULT_SEARCH_INPUT_VARIANT
 	} = props;
 
 	const isCompact = useGetResponsiveValue<boolean>(isCompactProp);

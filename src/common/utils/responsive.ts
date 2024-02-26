@@ -1,7 +1,7 @@
 import { isArray, isObject } from 'lodash-es';
 import memoize from 'micro-memoize';
 
-import { __DEFAULT_BREAKPOINT__ } from '@common/constants';
+import { DEFAULT_BREAKPOINT } from '@common/constants';
 import type { ResponsiveValue, ThemeBreakpoint } from '@common/types';
 import { convertStringToNumber } from '@common/utils';
 
@@ -36,7 +36,7 @@ export const getBreakpoint = (width = 0): ThemeBreakpoint => {
 			return '2xl';
 		}
 	} else {
-		return __DEFAULT_BREAKPOINT__;
+		return DEFAULT_BREAKPOINT;
 	}
 };
 
@@ -47,7 +47,7 @@ export const getBreakpoint = (width = 0): ThemeBreakpoint => {
  * @returns - The responsive value within the array or object that aligns with the breakpoint
  */
 export const getResponsiveValue = memoize(
-	<D>(value: ResponsiveValue<D>, breakpoint: ThemeBreakpoint = __DEFAULT_BREAKPOINT__): D => {
+	<D>(value: ResponsiveValue<D>, breakpoint: ThemeBreakpoint = DEFAULT_BREAKPOINT): D => {
 		if (isArray(value)) {
 			switch (value.length) {
 				case 1:

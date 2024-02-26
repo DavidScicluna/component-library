@@ -18,7 +18,7 @@ import {
 } from '@floating-ui/react';
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
 
@@ -28,18 +28,18 @@ import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
-	__DEFAULT_TOOLTIP_CLOSE_DELAY__,
-	__DEFAULT_TOOLTIP_CLOSE_ON_CLICK__,
-	__DEFAULT_TOOLTIP_CLOSE_ON_ESC__,
-	__DEFAULT_TOOLTIP_GUTTER__,
-	__DEFAULT_TOOLTIP_IS_DISABLED__,
-	__DEFAULT_TOOLTIP_IS_OPEN__,
-	__DEFAULT_TOOLTIP_LABEL__,
-	__DEFAULT_TOOLTIP_OPEN_DELAY__,
-	__DEFAULT_TOOLTIP_PLACEMENT__
+	DEFAULT_TOOLTIP_CLOSE_DELAY,
+	DEFAULT_TOOLTIP_CLOSE_ON_CLICK,
+	DEFAULT_TOOLTIP_CLOSE_ON_ESC,
+	DEFAULT_TOOLTIP_GUTTER,
+	DEFAULT_TOOLTIP_IS_DISABLED,
+	DEFAULT_TOOLTIP_IS_OPEN,
+	DEFAULT_TOOLTIP_LABEL,
+	DEFAULT_TOOLTIP_OPEN_DELAY,
+	DEFAULT_TOOLTIP_PLACEMENT
 } from './common/constants';
 import { useTooltipClasses, useTooltipResponsiveValues } from './common/hooks';
-import { __KEYS_TOOLTIP_CLASS__ } from './common/keys';
+import { KEYS_TOOLTIP_CLASS } from './common/keys';
 import type { TooltipProps, TooltipRef } from './common/types';
 
 const Tooltip = forwardRef(function Tooltip<Element extends PolymorphicElementType>(
@@ -52,22 +52,22 @@ const Tooltip = forwardRef(function Tooltip<Element extends PolymorphicElementTy
 		children,
 		color,
 		colorMode,
-		className = __DEFAULT_CLASSNAME__,
-		closeDelay: closeDelayProp = __DEFAULT_TOOLTIP_CLOSE_DELAY__,
-		openDelay: openDelayProp = __DEFAULT_TOOLTIP_OPEN_DELAY__,
-		closeOnClick: closeOnClickProp = __DEFAULT_TOOLTIP_CLOSE_ON_CLICK__,
-		closeOnEsc: closeOnEscProp = __DEFAULT_TOOLTIP_CLOSE_ON_ESC__,
-		gutter: gutterProp = __DEFAULT_TOOLTIP_GUTTER__,
-		isDisabled: isDisabledProp = __DEFAULT_TOOLTIP_IS_DISABLED__,
-		label: labelProp = __DEFAULT_TOOLTIP_LABEL__,
+		className = DEFAULT_CLASSNAME,
+		closeDelay: closeDelayProp = DEFAULT_TOOLTIP_CLOSE_DELAY,
+		openDelay: openDelayProp = DEFAULT_TOOLTIP_OPEN_DELAY,
+		closeOnClick: closeOnClickProp = DEFAULT_TOOLTIP_CLOSE_ON_CLICK,
+		closeOnEsc: closeOnEscProp = DEFAULT_TOOLTIP_CLOSE_ON_ESC,
+		gutter: gutterProp = DEFAULT_TOOLTIP_GUTTER,
+		isDisabled: isDisabledProp = DEFAULT_TOOLTIP_IS_DISABLED,
+		label: labelProp = DEFAULT_TOOLTIP_LABEL,
 		onClose,
 		onCloseComplete,
 		onOpen,
-		placement: placementProp = __DEFAULT_TOOLTIP_PLACEMENT__,
+		placement: placementProp = DEFAULT_TOOLTIP_PLACEMENT,
 		...rest
 	} = props;
 
-	const [isOpen, setIsOpen] = useBoolean(__DEFAULT_TOOLTIP_IS_OPEN__);
+	const [isOpen, setIsOpen] = useBoolean(DEFAULT_TOOLTIP_IS_OPEN);
 
 	const { closeDelay, openDelay, closeOnClick, closeOnEsc, gutter, isDisabled, label, placement } =
 		useTooltipResponsiveValues<Element>({
@@ -130,7 +130,7 @@ const Tooltip = forwardRef(function Tooltip<Element extends PolymorphicElementTy
 					{...(rest as BoxProps<Element>)}
 					{...getFloatingProps()}
 					ref={refss}
-					className={classNames(__KEYS_TOOLTIP_CLASS__, classes.tooltip, { [className]: !!className })}
+					className={classNames(KEYS_TOOLTIP_CLASS, classes.tooltip, { [className]: !!className })}
 					style={floatingStyles}
 				>
 					<FloatingArrow ref={arrowRef as any} className={classes.arrow} context={context} />

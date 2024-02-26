@@ -1,13 +1,13 @@
-import { __DEFAULT_RADIUS__ } from '@common/constants';
+import { DEFAULT_RADIUS } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { ThemeRadius } from '@common/types';
 
 import {
-	__DEFAULT_PROGRESS_IS_INDETERMINATE__,
-	__DEFAULT_PROGRESS_MAX__,
-	__DEFAULT_PROGRESS_MIN__,
-	__DEFAULT_PROGRESS_VALUE__,
-	__DEFAULT_PROGRESS_VARIANT__
+	DEFAULT_PROGRESS_IS_INDETERMINATE,
+	DEFAULT_PROGRESS_MAX,
+	DEFAULT_PROGRESS_MIN,
+	DEFAULT_PROGRESS_VALUE,
+	DEFAULT_PROGRESS_VARIANT
 } from '../constants';
 import type { ProgressElement, ProgressProps, ProgressVariant } from '../types';
 
@@ -19,12 +19,12 @@ const useProgressResponsiveValues = <Element extends ProgressElement>(
 	props: UseProgressResponsiveValuesProps<Element>
 ) => {
 	const {
-		isIndeterminate: isIndeterminateProp = __DEFAULT_PROGRESS_IS_INDETERMINATE__,
-		max: maxProp = __DEFAULT_PROGRESS_MAX__,
-		min: minProp = __DEFAULT_PROGRESS_MIN__,
-		radius: radiusProp = __DEFAULT_RADIUS__,
-		value: valueProp = __DEFAULT_PROGRESS_VALUE__,
-		variant: variantProp = __DEFAULT_PROGRESS_VARIANT__
+		isIndeterminate: isIndeterminateProp = DEFAULT_PROGRESS_IS_INDETERMINATE,
+		max: maxProp = DEFAULT_PROGRESS_MAX,
+		min: minProp = DEFAULT_PROGRESS_MIN,
+		radius: radiusProp = DEFAULT_RADIUS,
+		value: valueProp = DEFAULT_PROGRESS_VALUE,
+		variant: variantProp = DEFAULT_PROGRESS_VARIANT
 	} = props;
 
 	const isIndeterminate = useGetResponsiveValue<boolean>(isIndeterminateProp);

@@ -3,16 +3,16 @@ import React from 'react';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
-	__DEFAULT_RATING_COUNT__,
-	__DEFAULT_RATING_DIRECTION__,
-	__DEFAULT_RATING_HIGHLIGHT_MODE__,
-	__DEFAULT_RATING_IS_DISABLED__,
-	__DEFAULT_RATING_IS_ERROR__,
-	__DEFAULT_RATING_IS_READONLY__,
-	__DEFAULT_RATING_IS_REQUIRED__,
-	__DEFAULT_RATING_IS_SUCCESS__,
-	__DEFAULT_RATING_IS_WARNING__,
-	__DEFAULT_RATING_SIZE__
+	DEFAULT_RATING_COUNT,
+	DEFAULT_RATING_DIRECTION,
+	DEFAULT_RATING_HIGHLIGHT_MODE,
+	DEFAULT_RATING_IS_DISABLED,
+	DEFAULT_RATING_IS_ERROR,
+	DEFAULT_RATING_IS_READONLY,
+	DEFAULT_RATING_IS_REQUIRED,
+	DEFAULT_RATING_IS_SUCCESS,
+	DEFAULT_RATING_IS_WARNING,
+	DEFAULT_RATING_SIZE
 } from './common/constants';
 import type { RatingDirection, RatingHighlightMode, RatingProps, RatingSize } from './common/types';
 import type { RatingStory, RatingStoryMeta } from './common/types/story';
@@ -26,14 +26,14 @@ export default {
 		count: {
 			name: 'Count',
 			type: 'number',
-			defaultValue: __DEFAULT_RATING_COUNT__,
+			defaultValue: DEFAULT_RATING_COUNT,
 			// description: '',
 			control: { type: 'number' }
 		},
 		direction: {
 			name: 'Direction',
 			type: 'string',
-			defaultValue: __DEFAULT_RATING_DIRECTION__,
+			defaultValue: DEFAULT_RATING_DIRECTION,
 			// description: '',
 			options: ['horizontal', 'vertical'] as Array<RatingDirection>,
 			control: { type: 'radio' }
@@ -41,7 +41,7 @@ export default {
 		highlightMode: {
 			name: 'Highlight Mode',
 			type: 'string',
-			defaultValue: __DEFAULT_RATING_HIGHLIGHT_MODE__,
+			defaultValue: DEFAULT_RATING_HIGHLIGHT_MODE,
 			// description: '',
 			options: ['trailing', 'single'] as Array<RatingHighlightMode>,
 			control: { type: 'radio' }
@@ -49,49 +49,49 @@ export default {
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
-			defaultValue: __DEFAULT_RATING_IS_DISABLED__,
+			defaultValue: DEFAULT_RATING_IS_DISABLED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isError: {
 			name: 'Error',
 			type: 'boolean',
-			defaultValue: __DEFAULT_RATING_IS_ERROR__,
+			defaultValue: DEFAULT_RATING_IS_ERROR,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isReadOnly: {
 			name: 'ReadOnly',
 			type: 'boolean',
-			defaultValue: __DEFAULT_RATING_IS_READONLY__,
+			defaultValue: DEFAULT_RATING_IS_READONLY,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isRequired: {
 			name: 'Required',
 			type: 'boolean',
-			defaultValue: __DEFAULT_RATING_IS_REQUIRED__,
+			defaultValue: DEFAULT_RATING_IS_REQUIRED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isSuccess: {
 			name: 'Success',
 			type: 'boolean',
-			defaultValue: __DEFAULT_RATING_IS_SUCCESS__,
+			defaultValue: DEFAULT_RATING_IS_SUCCESS,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isWarning: {
 			name: 'Warning',
 			type: 'boolean',
-			defaultValue: __DEFAULT_RATING_IS_WARNING__,
+			defaultValue: DEFAULT_RATING_IS_WARNING,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: __DEFAULT_RATING_SIZE__,
+			defaultValue: DEFAULT_RATING_SIZE,
 			// description: '',
 			options: ['xs', 'sm', 'md', 'lg', 'xl'] as Array<RatingSize>,
 			control: { type: 'radio' }

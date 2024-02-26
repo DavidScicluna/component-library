@@ -1,3 +1,3 @@
 import type { ButtonSpinnerVariant } from '../types';
 
-export const __DEFAULT_BUTTON_SPINNER_VARIANT__: ButtonSpinnerVariant = 'puff';
+export const DEFAULT_BUTTON_SPINNER_VARIANT: ButtonSpinnerVariant = 'puff';

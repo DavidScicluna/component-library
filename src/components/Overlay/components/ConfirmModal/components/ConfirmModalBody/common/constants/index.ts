@@ -1,3 +1,1 @@
-import { __DEFAULT_CONFIRM_MODAL_BODY_SPACING__ } from './props';
-
-export { __DEFAULT_CONFIRM_MODAL_BODY_SPACING__ };
+export * from './props';

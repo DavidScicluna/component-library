@@ -1,3 +1,3 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
-export const __KEYS_GLASS_OVERLAY_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-glass-overlay`;
+export const KEYS_GLASS_OVERLAY_CLASS = `${DEFAULT_CLASS_PREFIX}-glass-overlay`;

@@ -1,3 +1,3 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
-export const __KEYS_CONFIRM_MODAL_ACTIONS_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-confirm-modal-actions`;
+export const KEYS_CONFIRM_MODAL_ACTIONS_CLASS = `${DEFAULT_CLASS_PREFIX}-confirm-modal-actions`;

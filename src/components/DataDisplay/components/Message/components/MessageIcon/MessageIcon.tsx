@@ -2,28 +2,27 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 
 import type { IconProps } from '@components/DataDisplay';
-import { __DEFAULT_MESSAGE_ICON_AS__, Icon } from '@components/DataDisplay';
+import { DEFAULT_MESSAGE_ICON_AS, Icon } from '@components/DataDisplay';
 
 import { useMessageContext } from '../../common/hooks';
 
-import { __KEYS_MESSAGE_ICON_CLASS__ } from './common/keys';
+import { KEYS_MESSAGE_ICON_CLASS } from './common/keys';
 import type { MessageIconElement, MessageIconProps, MessageIconRef } from './common/types';
 
 const MessageIcon = forwardRef(function MessageIcon<Element extends MessageIconElement>(
 	props: MessageIconProps<Element>,
 	ref: MessageIconRef<Element>
 ): JSX.Element {
-	const { color: __DEFAULT_MESSAGE_ICON_COLOR__, colorMode: __DEFAULT_MESSAGE_ICON_COLORMODE__ } =
-		useMessageContext();
+	const { color: DEFAULT_MESSAGE_ICON_COLOR, colorMode: DEFAULT_MESSAGE_ICON_COLORMODE } = useMessageContext();
 
 	const {
-		as = __DEFAULT_MESSAGE_ICON_AS__,
-		className = __DEFAULT_CLASSNAME__,
-		color = __DEFAULT_MESSAGE_ICON_COLOR__,
-		colorMode = __DEFAULT_MESSAGE_ICON_COLORMODE__,
+		as = DEFAULT_MESSAGE_ICON_AS,
+		className = DEFAULT_CLASSNAME,
+		color = DEFAULT_MESSAGE_ICON_COLOR,
+		colorMode = DEFAULT_MESSAGE_ICON_COLORMODE,
 		...rest
 	} = props;
 
@@ -32,7 +31,7 @@ const MessageIcon = forwardRef(function MessageIcon<Element extends MessageIconE
 			{...(rest as IconProps<Element>)}
 			as={as}
 			ref={ref}
-			className={classNames(__KEYS_MESSAGE_ICON_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_MESSAGE_ICON_CLASS, { [className]: !!className })}
 			color={color}
 			colorMode={colorMode}
 		/>

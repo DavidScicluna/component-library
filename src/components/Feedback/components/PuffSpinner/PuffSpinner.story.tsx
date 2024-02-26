@@ -2,11 +2,11 @@ import type { PolymorphicDefaultElement, ThemeRadiusArr } from '../../../../comm
 
 import { Center } from '../../../Layout';
 import React from 'react';
-import { __DEFAULT_PUFF_SPINNER_IS_VISIBLE__, __DEFAULT_PUFF_SPINNER_SIZE__ } from './common/constants';
+import { DEFAULT_PUFF_SPINNER_IS_VISIBLE, DEFAULT_PUFF_SPINNER_SIZE } from './common/constants';
 import type { PuffSpinnerProps, PuffSpinnerSize } from './common/types';
 import type { PuffSpinnerStory, PuffSpinnerStoryMeta } from './common/types/story';
 import { PuffSpinner as PuffSpinnerComponent } from '.';
-import { __DEFAULT_RADIUS__ } from '../../../../common/constants';
+import { DEFAULT_RADIUS } from '../../../../common/constants';
 
 export default {
 	title: 'Feedback/PuffSpinner',
@@ -21,14 +21,14 @@ export default {
 		isVisible: {
 			name: 'Visible',
 			type: 'boolean',
-			defaultValue: __DEFAULT_PUFF_SPINNER_IS_VISIBLE__,
+			defaultValue: DEFAULT_PUFF_SPINNER_IS_VISIBLE,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		radius: {
 			name: 'Radius',
 			type: 'string',
-			defaultValue: __DEFAULT_RADIUS__,
+			defaultValue: DEFAULT_RADIUS,
 			// description: '',
 			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as ThemeRadiusArr,
 			control: { type: 'radio' }
@@ -36,7 +36,7 @@ export default {
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: __DEFAULT_PUFF_SPINNER_SIZE__,
+			defaultValue: DEFAULT_PUFF_SPINNER_SIZE,
 			// description: '',
 			options: [
 				'xs',

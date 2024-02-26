@@ -3,7 +3,7 @@ import { forwardRef, useState } from 'react';
 import classNames from 'classnames';
 import { range } from 'lodash-es';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
@@ -15,21 +15,21 @@ import { getFormDescriptionID } from '../FormDescription/common/utils';
 import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
-	__DEFAULT_RATING_COUNT__,
-	__DEFAULT_RATING_DIRECTION__,
-	__DEFAULT_RATING_HIGHLIGHT_MODE__,
-	__DEFAULT_RATING_ICONS__,
-	__DEFAULT_RATING_ID__,
-	__DEFAULT_RATING_IS_DISABLED__,
-	__DEFAULT_RATING_IS_ERROR__,
-	__DEFAULT_RATING_IS_READONLY__,
-	__DEFAULT_RATING_IS_REQUIRED__,
-	__DEFAULT_RATING_IS_SUCCESS__,
-	__DEFAULT_RATING_IS_WARNING__,
-	__DEFAULT_RATING_SIZE__
+	DEFAULT_RATING_COUNT,
+	DEFAULT_RATING_DIRECTION,
+	DEFAULT_RATING_HIGHLIGHT_MODE,
+	DEFAULT_RATING_ICONS,
+	DEFAULT_RATING_ID,
+	DEFAULT_RATING_IS_DISABLED,
+	DEFAULT_RATING_IS_ERROR,
+	DEFAULT_RATING_IS_READONLY,
+	DEFAULT_RATING_IS_REQUIRED,
+	DEFAULT_RATING_IS_SUCCESS,
+	DEFAULT_RATING_IS_WARNING,
+	DEFAULT_RATING_SIZE
 } from './common/constants';
 import { useRatingClasses, useRatingIconSize, useRatingResponsiveValues } from './common/hooks';
-import { __KEYS_RATING_CLASS__ } from './common/keys';
+import { KEYS_RATING_CLASS } from './common/keys';
 import type { RatingProps, RatingRef } from './common/types';
 
 const Rating = forwardRef(function Rating<Element extends PolymorphicElementType>(
@@ -37,39 +37,39 @@ const Rating = forwardRef(function Rating<Element extends PolymorphicElementType
 	ref: RatingRef<Element>
 ): JSX.Element {
 	const {
-		color: __DEFAULT_FORM_CONTROL_COLOR__,
-		colorMode: __DEFAULT_FORM_CONTROL_COLORMODE__,
-		id: __DEFAULT_FORM_CONTROL_ID__ = __DEFAULT_RATING_ID__,
+		color: DEFAULT_FORM_CONTROL_COLOR,
+		colorMode: DEFAULT_FORM_CONTROL_COLORMODE,
+		id: DEFAULT_FORM_CONTROL_ID = DEFAULT_RATING_ID,
 		hasFormControl,
-		isDisabled: __DEFAULT_FORM_CONTROL_IS_DISABLED__ = __DEFAULT_RATING_IS_DISABLED__,
-		isError: __DEFAULT_FORM_CONTROL_IS_ERROR__ = __DEFAULT_RATING_IS_ERROR__,
-		isReadOnly: __DEFAULT_FORM_CONTROL_IS_READONLY__ = __DEFAULT_RATING_IS_READONLY__,
-		isRequired: __DEFAULT_FORM_CONTROL_IS_REQUIRED__ = __DEFAULT_RATING_IS_REQUIRED__,
-		isSuccess: __DEFAULT_FORM_CONTROL_IS_SUCCESS__ = __DEFAULT_RATING_IS_SUCCESS__,
-		isWarning: __DEFAULT_FORM_CONTROL_IS_WARNING__ = __DEFAULT_RATING_IS_WARNING__,
-		size: __DEFAULT_FORM_CONTROL_SIZE__ = __DEFAULT_RATING_SIZE__
+		isDisabled: DEFAULT_FORM_CONTROL_IS_DISABLED = DEFAULT_RATING_IS_DISABLED,
+		isError: DEFAULT_FORM_CONTROL_IS_ERROR = DEFAULT_RATING_IS_ERROR,
+		isReadOnly: DEFAULT_FORM_CONTROL_IS_READONLY = DEFAULT_RATING_IS_READONLY,
+		isRequired: DEFAULT_FORM_CONTROL_IS_REQUIRED = DEFAULT_RATING_IS_REQUIRED,
+		isSuccess: DEFAULT_FORM_CONTROL_IS_SUCCESS = DEFAULT_RATING_IS_SUCCESS,
+		isWarning: DEFAULT_FORM_CONTROL_IS_WARNING = DEFAULT_RATING_IS_WARNING,
+		size: DEFAULT_FORM_CONTROL_SIZE = DEFAULT_RATING_SIZE
 	} = useFormControlContext();
 
 	const {
-		id = __DEFAULT_FORM_CONTROL_ID__,
-		className = __DEFAULT_CLASSNAME__,
+		id = DEFAULT_FORM_CONTROL_ID,
+		className = DEFAULT_CLASSNAME,
 		w,
 		h,
-		color = __DEFAULT_FORM_CONTROL_COLOR__,
-		colorMode = __DEFAULT_FORM_CONTROL_COLORMODE__,
-		count: countProp = __DEFAULT_RATING_COUNT__,
-		direction: directionProp = __DEFAULT_RATING_DIRECTION__,
-		highlightMode: highlightModeProp = __DEFAULT_RATING_HIGHLIGHT_MODE__,
-		icons: iconsProp = __DEFAULT_RATING_ICONS__,
-		isDisabled: isDisabledProp = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
-		isError: isErrorProp = __DEFAULT_FORM_CONTROL_IS_ERROR__,
-		isReadOnly: isReadOnlyProp = __DEFAULT_FORM_CONTROL_IS_READONLY__,
-		isRequired: isRequiredProp = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
-		isSuccess: isSuccessProp = __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
-		isWarning: isWarningProp = __DEFAULT_FORM_CONTROL_IS_WARNING__,
+		color = DEFAULT_FORM_CONTROL_COLOR,
+		colorMode = DEFAULT_FORM_CONTROL_COLORMODE,
+		count: countProp = DEFAULT_RATING_COUNT,
+		direction: directionProp = DEFAULT_RATING_DIRECTION,
+		highlightMode: highlightModeProp = DEFAULT_RATING_HIGHLIGHT_MODE,
+		icons: iconsProp = DEFAULT_RATING_ICONS,
+		isDisabled: isDisabledProp = DEFAULT_FORM_CONTROL_IS_DISABLED,
+		isError: isErrorProp = DEFAULT_FORM_CONTROL_IS_ERROR,
+		isReadOnly: isReadOnlyProp = DEFAULT_FORM_CONTROL_IS_READONLY,
+		isRequired: isRequiredProp = DEFAULT_FORM_CONTROL_IS_REQUIRED,
+		isSuccess: isSuccessProp = DEFAULT_FORM_CONTROL_IS_SUCCESS,
+		isWarning: isWarningProp = DEFAULT_FORM_CONTROL_IS_WARNING,
 		onChange,
 		onHover,
-		size: sizeProp = __DEFAULT_FORM_CONTROL_SIZE__,
+		size: sizeProp = DEFAULT_FORM_CONTROL_SIZE,
 		value,
 		...rest
 	} = props;
@@ -131,7 +131,7 @@ const Rating = forwardRef(function Rating<Element extends PolymorphicElementType
 		<Grid
 			{...(rest as GridProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_RATING_CLASS__, classes, { [className]: !!className })}
+			className={classNames(KEYS_RATING_CLASS, classes, { [className]: !!className })}
 			aria-disabled={isDisabled ? 'true' : 'false'}
 			aria-describedby={getFormDescriptionID(id)}
 			aria-invalid={isError ? 'true' : 'false'}

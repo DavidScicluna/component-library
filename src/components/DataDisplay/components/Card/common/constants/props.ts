@@ -1,24 +1,24 @@
 import { v4 as uuid } from 'uuid';
 
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 import type { ThemeRadius } from '@common/types';
 
 import type { CardDefaultElement, CardVariant } from '../types';
 
-export const __DEFAULT_CARD_AS__: CardDefaultElement = 'div';
+export const DEFAULT_CARD_AS: CardDefaultElement = 'div';
 
-export const __DEFAULT_CARD_ID__ = `${__DEFAULT_CLASS_PREFIX__}-${uuid()}`;
+export const DEFAULT_CARD_ID = `${DEFAULT_CLASS_PREFIX}-${uuid()}`;
 
-export const __DEFAULT_CARD_IS_ACTIVE__ = false;
-export const __DEFAULT_CARD_IS_CLICKABLE__ = false;
-export const __DEFAULT_CARD_IS_COLLAPSABLE__ = false;
-export const __DEFAULT_CARD_IS_DISABLED__ = false;
-export const __DEFAULT_CARD_IS_DIVISIBLE__ = true;
-export const __DEFAULT_CARD_IS_HOVERING__ = false;
-export const __DEFAULT_CARD_IS_FIXED__ = false;
-export const __DEFAULT_CARD_IS_OPEN__ = false;
-export const __DEFAULT_CARD_IS_OUTLINED__ = false;
+export const DEFAULT_CARD_IS_ACTIVE = false;
+export const DEFAULT_CARD_IS_CLICKABLE = false;
+export const DEFAULT_CARD_IS_COLLAPSABLE = false;
+export const DEFAULT_CARD_IS_DISABLED = false;
+export const DEFAULT_CARD_IS_DIVISIBLE = true;
+export const DEFAULT_CARD_IS_HOVERING = false;
+export const DEFAULT_CARD_IS_FIXED = false;
+export const DEFAULT_CARD_IS_OPEN = false;
+export const DEFAULT_CARD_IS_OUTLINED = false;
 
-export const __DEFAULT_CARD_RADIUS__: ThemeRadius = 'lg';
+export const DEFAULT_CARD_RADIUS: ThemeRadius = 'lg';
 
-export const __DEFAULT_CARD_VARIANT__: CardVariant = 'monochrome';
+export const DEFAULT_CARD_VARIANT: CardVariant = 'monochrome';

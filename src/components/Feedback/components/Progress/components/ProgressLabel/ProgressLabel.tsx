@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import type { TextProps } from '@components/Typography';
@@ -10,8 +10,8 @@ import { Text } from '@components/Typography';
 
 import { useProgressContext } from '../../common/hooks';
 
-import { __DEFAULT_PROGRESS_LABEL_AS__ } from './common/constants';
-import { __KEYS_PROGRESS_LABEL_CLASS__ } from './common/keys';
+import { DEFAULT_PROGRESS_LABEL_AS } from './common/constants';
+import { KEYS_PROGRESS_LABEL_CLASS } from './common/keys';
 import type { ProgressLabelElement, ProgressLabelProps, ProgressLabelRef } from './common/types';
 
 const ProgressLabel = forwardRef(function ProgressLabel<Element extends ProgressLabelElement>(
@@ -20,7 +20,7 @@ const ProgressLabel = forwardRef(function ProgressLabel<Element extends Progress
 ): JSX.Element {
 	const { colorMode } = useProgressContext();
 
-	const __DEFAULT_PROGRESS_LABEL_COLOR__ = useGetColor({
+	const DEFAULT_PROGRESS_LABEL_COLOR = useGetColor({
 		color: 'gray',
 		colorMode,
 		colorType: 'default',
@@ -30,10 +30,10 @@ const ProgressLabel = forwardRef(function ProgressLabel<Element extends Progress
 
 	const {
 		children,
-		as = __DEFAULT_PROGRESS_LABEL_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_PROGRESS_LABEL_AS,
+		className = DEFAULT_CLASSNAME,
 		align = 'center',
-		color = __DEFAULT_PROGRESS_LABEL_COLOR__,
+		color = DEFAULT_PROGRESS_LABEL_COLOR,
 		fontSize = 'xs',
 		fontWeight = 'semibold',
 		lineClamp = 1,
@@ -45,7 +45,7 @@ const ProgressLabel = forwardRef(function ProgressLabel<Element extends Progress
 			{...(rest as TextProps<Element>)}
 			as={as}
 			ref={ref}
-			className={classNames(__KEYS_PROGRESS_LABEL_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_PROGRESS_LABEL_CLASS, { [className]: !!className })}
 			align={align}
 			color={color}
 			fontSize={fontSize}

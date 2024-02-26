@@ -2,14 +2,14 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import type { VStackProps } from '@components/Layout';
 import { VStack } from '@components/Layout';
 
-import { __DEFAULT_MESSAGE_BODY_SPACING__ } from './common/constants';
-import { __KEYS_MESSAGE_BODY_CLASS__ } from './common/keys';
+import { DEFAULT_MESSAGE_BODY_SPACING } from './common/constants';
+import { KEYS_MESSAGE_BODY_CLASS } from './common/keys';
 import type { MessageBodyProps, MessageBodyRef } from './common/types';
 
 const MessageBody = forwardRef(function MessageBody<Element extends PolymorphicElementType>(
@@ -18,10 +18,10 @@ const MessageBody = forwardRef(function MessageBody<Element extends PolymorphicE
 ): JSX.Element {
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		alignItems = 'center',
 		justifyContent = 'center',
-		spacing = __DEFAULT_MESSAGE_BODY_SPACING__,
+		spacing = DEFAULT_MESSAGE_BODY_SPACING,
 		...rest
 	} = props;
 
@@ -29,7 +29,7 @@ const MessageBody = forwardRef(function MessageBody<Element extends PolymorphicE
 		<VStack
 			{...(rest as VStackProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_MESSAGE_BODY_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_MESSAGE_BODY_CLASS, { [className]: !!className })}
 			alignItems={alignItems}
 			justifyContent={justifyContent}
 			spacing={spacing}

@@ -1,14 +1,14 @@
-import { __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_SPACING } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { ThemeSpacing } from '@common/types';
 
 import {
-	__DEFAULT_TABS_ALIGN__,
-	__DEFAULT_TABS_INDEX__,
-	__DEFAULT_TABS_IS_DISABLED__,
-	__DEFAULT_TABS_IS_FITTED__,
-	__DEFAULT_TABS_ORIENTATION__,
-	__DEFAULT_TABS_SIZE__
+	DEFAULT_TABS_ALIGN,
+	DEFAULT_TABS_INDEX,
+	DEFAULT_TABS_IS_DISABLED,
+	DEFAULT_TABS_IS_FITTED,
+	DEFAULT_TABS_ORIENTATION,
+	DEFAULT_TABS_SIZE
 } from '../constants';
 import type { TabsAlign, TabsElement, TabsOrientation, TabsProps, TabsSize } from '../types';
 
@@ -18,13 +18,13 @@ type UseTabsResponsiveValuesProps<Element extends TabsElement> = Partial<
 
 const useTabsResponsiveValues = <Element extends TabsElement>(props: UseTabsResponsiveValuesProps<Element>) => {
 	const {
-		align: alignProp = __DEFAULT_TABS_ALIGN__,
-		index: indexProp = __DEFAULT_TABS_INDEX__,
-		isDisabled: isDisabledProp = __DEFAULT_TABS_IS_DISABLED__,
-		isFitted: isFittedProp = __DEFAULT_TABS_IS_FITTED__,
-		orientation: orientationProp = __DEFAULT_TABS_ORIENTATION__,
-		size: sizeProp = __DEFAULT_TABS_SIZE__,
-		spacing: spacingProp = __DEFAULT_SPACING__
+		align: alignProp = DEFAULT_TABS_ALIGN,
+		index: indexProp = DEFAULT_TABS_INDEX,
+		isDisabled: isDisabledProp = DEFAULT_TABS_IS_DISABLED,
+		isFitted: isFittedProp = DEFAULT_TABS_IS_FITTED,
+		orientation: orientationProp = DEFAULT_TABS_ORIENTATION,
+		size: sizeProp = DEFAULT_TABS_SIZE,
+		spacing: spacingProp = DEFAULT_SPACING
 	} = props;
 
 	const align = useGetResponsiveValue<TabsAlign>(alignProp);

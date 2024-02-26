@@ -5,9 +5,9 @@ import { useGetClass } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import {
-	__DEFAULT_CONTAINER_BREAKPOINT__,
-	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
-	__DEFAULT_CONTAINER_IS_FLUID__
+	DEFAULT_CONTAINER_BREAKPOINT,
+	DEFAULT_CONTAINER_IS_CONTENT_CENTERED,
+	DEFAULT_CONTAINER_IS_FLUID
 } from '../constants';
 import type { ContainerProps } from '../types';
 
@@ -23,9 +23,9 @@ const useContainerClasses = <Element extends PolymorphicElementType>(
 	props: UseContainerClassesProps<Element>
 ): UseContainerClassesReturn => {
 	const {
-		breakpoint: breakpointProp = __DEFAULT_CONTAINER_BREAKPOINT__,
-		isContentCentered: isContentCenteredProp = __DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
-		isFluid: isFluidProp = __DEFAULT_CONTAINER_IS_FLUID__
+		breakpoint: breakpointProp = DEFAULT_CONTAINER_BREAKPOINT,
+		isContentCentered: isContentCenteredProp = DEFAULT_CONTAINER_IS_CONTENT_CENTERED,
+		isFluid: isFluidProp = DEFAULT_CONTAINER_IS_FLUID
 	} = props;
 
 	const { breakpoint, isContentCentered, isFluid } = useContainerResponsiveValues({

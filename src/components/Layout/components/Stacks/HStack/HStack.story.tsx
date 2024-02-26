@@ -1,7 +1,7 @@
 import { range } from 'lodash-es';
 
 import classes from '../../../../../common/classes';
-import { __DEFAULT_SPACING__ } from '../../../../../common/constants';
+import { DEFAULT_SPACING } from '../../../../../common/constants';
 import { useGetColor } from '../../../../../common/hooks';
 import type {
 	AlignItemsClassArr,
@@ -15,9 +15,9 @@ import { Center } from '../../Center';
 import { useStorybookContext } from '../../../../Provider/components/StorybookProvider';
 import React from 'react';
 import {
-	__DEFAULT_STACK_ALIGN_ITEMS__,
-	__DEFAULT_STACK_JUSTIFY_CONTENT__,
-	__DEFAULT_STACK_WRAP__
+	DEFAULT_STACK_ALIGN_ITEMS,
+	DEFAULT_STACK_JUSTIFY_CONTENT,
+	DEFAULT_STACK_WRAP
 } from '../Stack/common/constants';
 
 import type { HStackProps } from './common/types';
@@ -33,7 +33,7 @@ export default {
 		alignItems: {
 			name: 'Align Items',
 			type: 'string',
-			defaultValue: __DEFAULT_STACK_ALIGN_ITEMS__,
+			defaultValue: DEFAULT_STACK_ALIGN_ITEMS,
 			// description: '',
 			options: ['center', 'baseline', 'flex-start', 'flex-end', 'stretch'] as AlignItemsClassArr,
 			control: { type: 'radio' }
@@ -41,7 +41,7 @@ export default {
 		wrap: {
 			name: 'Wrap',
 			type: 'string',
-			defaultValue: __DEFAULT_STACK_WRAP__,
+			defaultValue: DEFAULT_STACK_WRAP,
 			// description: '',
 			options: ['wrap', 'wrap-reverse', 'nowrap'] as FlexWrapClassArr,
 			control: { type: 'radio' }
@@ -49,7 +49,7 @@ export default {
 		justifyContent: {
 			name: 'Justify Content',
 			type: 'string',
-			defaultValue: __DEFAULT_STACK_JUSTIFY_CONTENT__,
+			defaultValue: DEFAULT_STACK_JUSTIFY_CONTENT,
 			// description: '',
 			options: [
 				'center',
@@ -66,7 +66,7 @@ export default {
 		spacing: {
 			name: 'Spacing (0-24 | .0, .25, .5 or .75)',
 			type: 'number',
-			defaultValue: __DEFAULT_SPACING__,
+			defaultValue: DEFAULT_SPACING,
 			// description: '',
 			control: { type: 'number' }
 		}

@@ -4,7 +4,7 @@ import type { ThemeFontSize, ThemeSpacing } from '@common/types';
 
 import { useTabsContext } from '@components/Navigation/components/Tabs/common/hooks';
 
-import { __DEFAULT_TAB_IS_COMPACT__ } from '../constants';
+import { DEFAULT_TAB_IS_COMPACT } from '../constants';
 import type { TabElement, TabProps } from '../types';
 
 import useTabResponsiveValues from './useTabResponsiveValues';
@@ -23,7 +23,7 @@ const useTabSizeConfig = <Element extends TabElement>(
 ): UseTabSizeConfigReturn => {
 	const { size } = useTabsContext();
 
-	const { isCompact: isCompactProp = __DEFAULT_TAB_IS_COMPACT__ } = props;
+	const { isCompact: isCompactProp = DEFAULT_TAB_IS_COMPACT } = props;
 
 	const { isCompact } = useTabResponsiveValues<Element>({ isCompact: isCompactProp });
 

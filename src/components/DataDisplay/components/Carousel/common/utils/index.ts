@@ -1,9 +1,9 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
 export const getCarouselID = (id: string): string => {
-	return `${__DEFAULT_CLASS_PREFIX__}-${id}-carousel`;
+	return `${DEFAULT_CLASS_PREFIX}-${id}-carousel`;
 };
 
 export const getCarouselItemID = (id: string, index: number): string => {
-	return `${__DEFAULT_CLASS_PREFIX__}-${id}-carousel-${index}-item`;
+	return `${DEFAULT_CLASS_PREFIX}-${id}-carousel-${index}-item`;
 };

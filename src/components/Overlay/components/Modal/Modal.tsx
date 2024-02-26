@@ -14,11 +14,11 @@ import { isBoolean } from 'lodash-es';
 import { useKey } from 'rooks';
 
 import {
-	__DEFAULT_APP_COLOR__,
-	__DEFAULT_APP_COLORMODE__,
-	__DEFAULT_CLASSNAME__,
-	__DEFAULT_METHOD__,
-	__DEFAULT_SPACING__
+	DEFAULT_APP_COLOR,
+	DEFAULT_APP_COLORMODE,
+	DEFAULT_CLASSNAME,
+	DEFAULT_METHOD,
+	DEFAULT_SPACING
 } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
@@ -30,16 +30,16 @@ import type { CenterRef, GridProps } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import {
-	__DEFAULT_MODAL_AS__,
-	__DEFAULT_MODAL_CLOSE_ON_ESC__,
-	__DEFAULT_MODAL_CLOSE_ON_OVERLAY_CLICK__,
-	__DEFAULT_MODAL_HAS_BACKDROP__,
-	__DEFAULT_MODAL_ID__,
-	__DEFAULT_MODAL_IS_OPEN__,
-	__DEFAULT_MODAL_SIZE__
+	DEFAULT_MODAL_AS,
+	DEFAULT_MODAL_CLOSE_ON_ESC,
+	DEFAULT_MODAL_CLOSE_ON_OVERLAY_CLICK,
+	DEFAULT_MODAL_HAS_BACKDROP,
+	DEFAULT_MODAL_ID,
+	DEFAULT_MODAL_IS_OPEN,
+	DEFAULT_MODAL_SIZE
 } from './common/constants';
 import { useModalClasses, useModalResponsiveValues } from './common/hooks';
-import { __KEYS_MODAL_CLASS__ } from './common/keys';
+import { KEYS_MODAL_CLASS } from './common/keys';
 import type {
 	ModalContext as ModalContextType,
 	ModalDefaultElement,
@@ -51,13 +51,13 @@ import { getModalID, getModalSubtitleID, getModalTitleID } from './common/utils'
 import { ModalBackdrop } from './components';
 
 export const ModalContext = createContext<ModalContextType<ModalDefaultElement>>({
-	color: __DEFAULT_APP_COLOR__,
-	colorMode: __DEFAULT_APP_COLORMODE__,
-	id: __DEFAULT_MODAL_ID__,
-	isOpen: __DEFAULT_MODAL_IS_OPEN__,
-	onClose: __DEFAULT_METHOD__,
-	spacing: __DEFAULT_SPACING__,
-	size: __DEFAULT_MODAL_SIZE__
+	color: DEFAULT_APP_COLOR,
+	colorMode: DEFAULT_APP_COLORMODE,
+	id: DEFAULT_MODAL_ID,
+	isOpen: DEFAULT_MODAL_IS_OPEN,
+	onClose: DEFAULT_METHOD,
+	spacing: DEFAULT_SPACING,
+	size: DEFAULT_MODAL_SIZE
 });
 
 const Modal = forwardRef(function Modal<Element extends ModalElement>(
@@ -66,28 +66,28 @@ const Modal = forwardRef(function Modal<Element extends ModalElement>(
 ): JSX.Element {
 	const {
 		children,
-		as = __DEFAULT_MODAL_AS__,
-		id = __DEFAULT_MODAL_ID__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_MODAL_AS,
+		id = DEFAULT_MODAL_ID,
+		className = DEFAULT_CLASSNAME,
 		renderTrigger,
 		renderBackdrop,
 		color,
 		colorMode,
-		closeOnEsc: closeOnEscProp = __DEFAULT_MODAL_CLOSE_ON_ESC__,
-		closeOnOverlayClick: closeOnOverlayClickProp = __DEFAULT_MODAL_CLOSE_ON_OVERLAY_CLICK__,
-		hasBackdrop: hasBackdropProp = __DEFAULT_MODAL_HAS_BACKDROP__,
-		isOpen: isOpenProp = __DEFAULT_MODAL_IS_OPEN__,
+		closeOnEsc: closeOnEscProp = DEFAULT_MODAL_CLOSE_ON_ESC,
+		closeOnOverlayClick: closeOnOverlayClickProp = DEFAULT_MODAL_CLOSE_ON_OVERLAY_CLICK,
+		hasBackdrop: hasBackdropProp = DEFAULT_MODAL_HAS_BACKDROP,
+		isOpen: isOpenProp = DEFAULT_MODAL_IS_OPEN,
 		onClose,
 		onCloseComplete,
 		onEsc,
 		onOverlayClick,
 		onOpen,
-		spacing: spacingProp = __DEFAULT_SPACING__,
-		size: sizeProp = __DEFAULT_MODAL_SIZE__,
+		spacing: spacingProp = DEFAULT_SPACING,
+		size: sizeProp = DEFAULT_MODAL_SIZE,
 		...rest
 	} = props;
 
-	const [isOpen, setIsOpen] = useBoolean(__DEFAULT_MODAL_IS_OPEN__);
+	const [isOpen, setIsOpen] = useBoolean(DEFAULT_MODAL_IS_OPEN);
 
 	const {
 		closeOnEsc,
@@ -188,7 +188,7 @@ const Modal = forwardRef(function Modal<Element extends ModalElement>(
 								as={as}
 								ref={ref}
 								id={getModalID(id)}
-								className={classNames(__KEYS_MODAL_CLASS__, classes.container, {
+								className={classNames(KEYS_MODAL_CLASS, classes.container, {
 									[className]: !!className
 								})}
 								w='100vw'

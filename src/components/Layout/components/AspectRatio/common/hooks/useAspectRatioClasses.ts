@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { useGetClass } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
-import { __DEFAULT_ASPECT_RATIO_RATIO__ } from '../constants';
+import { DEFAULT_ASPECT_RATIO_RATIO } from '../constants';
 import type { AspectRatioProps } from '../types';
 
 import useAspectRatioResponsiveValues from './useAspectRatioResponsiveValues';
@@ -14,7 +14,7 @@ type UseAspectRatioClassesReturn = ClassName;
 const useAspectRatioClasses = <Element extends PolymorphicElementType>(
 	props: UseAspectRatioClassesProps<Element>
 ): UseAspectRatioClassesReturn => {
-	const { ratio: ratioProp = __DEFAULT_ASPECT_RATIO_RATIO__ } = props;
+	const { ratio: ratioProp = DEFAULT_ASPECT_RATIO_RATIO } = props;
 
 	const { ratio } = useAspectRatioResponsiveValues({ ratio: ratioProp });
 

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useFocus } from 'rooks';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useBoolean, useGetColor } from '@common/hooks';
 import type {
 	PolymorphicChangeEvent,
@@ -25,26 +25,26 @@ import { getFormDescriptionID } from '../FormDescription/common/utils';
 import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
-	__DEFAULT_RADIO_ID__,
-	__DEFAULT_RADIO_IS_ACTIVE__,
-	__DEFAULT_RADIO_IS_CHECKED__,
-	__DEFAULT_RADIO_IS_CLICKABLE__,
-	__DEFAULT_RADIO_IS_COMPACT__,
-	__DEFAULT_RADIO_IS_DISABLED__,
-	__DEFAULT_RADIO_IS_ERROR__,
-	__DEFAULT_RADIO_IS_FOCUSED__,
-	__DEFAULT_RADIO_IS_OUTLINED__,
-	__DEFAULT_RADIO_IS_READONLY__,
-	__DEFAULT_RADIO_IS_REQUIRED__,
-	__DEFAULT_RADIO_IS_SUCCESS__,
-	__DEFAULT_RADIO_IS_WARNING__,
-	__DEFAULT_RADIO_LABEL_POSITION__,
-	__DEFAULT_RADIO_LINE_HEIGHT_SIZE__,
-	__DEFAULT_RADIO_SIZE__,
-	__DEFAULT_RADIO_TYPE__
+	DEFAULT_RADIO_ID,
+	DEFAULT_RADIO_IS_ACTIVE,
+	DEFAULT_RADIO_IS_CHECKED,
+	DEFAULT_RADIO_IS_CLICKABLE,
+	DEFAULT_RADIO_IS_COMPACT,
+	DEFAULT_RADIO_IS_DISABLED,
+	DEFAULT_RADIO_IS_ERROR,
+	DEFAULT_RADIO_IS_FOCUSED,
+	DEFAULT_RADIO_IS_OUTLINED,
+	DEFAULT_RADIO_IS_READONLY,
+	DEFAULT_RADIO_IS_REQUIRED,
+	DEFAULT_RADIO_IS_SUCCESS,
+	DEFAULT_RADIO_IS_WARNING,
+	DEFAULT_RADIO_LABEL_POSITION,
+	DEFAULT_RADIO_LINE_HEIGHT_SIZE,
+	DEFAULT_RADIO_SIZE,
+	DEFAULT_RADIO_TYPE
 } from './common/constants';
 import { useRadioClasses, useRadioIconSize, useRadioResponsiveValues, useRadioSizeConfig } from './common/hooks';
-import { __KEYS_RADIO_CLASS__ } from './common/keys';
+import { KEYS_RADIO_CLASS } from './common/keys';
 import type { RadioFocusEvent, RadioMouseEvent, RadioProps, RadioRef } from './common/types';
 
 const Radio = forwardRef(function Radio<Element extends PolymorphicElementType>(
@@ -54,48 +54,48 @@ const Radio = forwardRef(function Radio<Element extends PolymorphicElementType>(
 	const pushableOverlayRef = useRef<PolymorphicElement<PolymorphicDefaultElement>>(null);
 
 	const {
-		color: __DEFAULT_FORM_CONTROL_COLOR__,
-		colorMode: __DEFAULT_FORM_CONTROL_COLORMODE__,
-		id: __DEFAULT_FORM_CONTROL_ID__ = __DEFAULT_RADIO_ID__,
+		color: DEFAULT_FORM_CONTROL_COLOR,
+		colorMode: DEFAULT_FORM_CONTROL_COLORMODE,
+		id: DEFAULT_FORM_CONTROL_ID = DEFAULT_RADIO_ID,
 		hasFormControl,
-		isDisabled: __DEFAULT_FORM_CONTROL_IS_DISABLED__ = __DEFAULT_RADIO_IS_DISABLED__,
-		isError: __DEFAULT_FORM_CONTROL_IS_ERROR__ = __DEFAULT_RADIO_IS_ERROR__,
-		isFocused: __DEFAULT_FORM_CONTROL_IS_FOCUSED__ = __DEFAULT_RADIO_IS_FOCUSED__,
-		isReadOnly: __DEFAULT_FORM_CONTROL_IS_READONLY__ = __DEFAULT_RADIO_IS_READONLY__,
-		isRequired: __DEFAULT_FORM_CONTROL_IS_REQUIRED__ = __DEFAULT_RADIO_IS_REQUIRED__,
-		isSuccess: __DEFAULT_FORM_CONTROL_IS_SUCCESS__ = __DEFAULT_RADIO_IS_SUCCESS__,
-		isWarning: __DEFAULT_FORM_CONTROL_IS_WARNING__ = __DEFAULT_RADIO_IS_WARNING__,
-		size: __DEFAULT_FORM_CONTROL_SIZE__ = __DEFAULT_RADIO_SIZE__
+		isDisabled: DEFAULT_FORM_CONTROL_IS_DISABLED = DEFAULT_RADIO_IS_DISABLED,
+		isError: DEFAULT_FORM_CONTROL_IS_ERROR = DEFAULT_RADIO_IS_ERROR,
+		isFocused: DEFAULT_FORM_CONTROL_IS_FOCUSED = DEFAULT_RADIO_IS_FOCUSED,
+		isReadOnly: DEFAULT_FORM_CONTROL_IS_READONLY = DEFAULT_RADIO_IS_READONLY,
+		isRequired: DEFAULT_FORM_CONTROL_IS_REQUIRED = DEFAULT_RADIO_IS_REQUIRED,
+		isSuccess: DEFAULT_FORM_CONTROL_IS_SUCCESS = DEFAULT_RADIO_IS_SUCCESS,
+		isWarning: DEFAULT_FORM_CONTROL_IS_WARNING = DEFAULT_RADIO_IS_WARNING,
+		size: DEFAULT_FORM_CONTROL_SIZE = DEFAULT_RADIO_SIZE
 	} = useFormControlContext();
 
 	const {
-		id = __DEFAULT_FORM_CONTROL_ID__,
-		className = __DEFAULT_CLASSNAME__,
+		id = DEFAULT_FORM_CONTROL_ID,
+		className = DEFAULT_CLASSNAME,
 		renderLabel,
 		w,
 		h,
-		color = __DEFAULT_FORM_CONTROL_COLOR__,
-		colorMode = __DEFAULT_FORM_CONTROL_COLORMODE__,
+		color = DEFAULT_FORM_CONTROL_COLOR,
+		colorMode = DEFAULT_FORM_CONTROL_COLORMODE,
 		placeholder,
-		isActive: isActiveProp = __DEFAULT_RADIO_IS_ACTIVE__,
-		isChecked: isCheckedProp = __DEFAULT_RADIO_IS_CHECKED__,
-		isClickable: isClickableProp = __DEFAULT_RADIO_IS_CLICKABLE__,
-		isCompact: isCompactProp = __DEFAULT_RADIO_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
-		isError: isErrorProp = __DEFAULT_FORM_CONTROL_IS_ERROR__,
-		isFocused: isFocusedProp = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
-		isOutlined: isOutlinedProp = __DEFAULT_RADIO_IS_OUTLINED__,
-		isReadOnly: isReadOnlyProp = __DEFAULT_FORM_CONTROL_IS_READONLY__,
-		isRequired: isRequiredProp = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
-		isSuccess: isSuccessProp = __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
-		isWarning: isWarningProp = __DEFAULT_FORM_CONTROL_IS_WARNING__,
-		labelPosition: labelPositionProp = __DEFAULT_RADIO_LABEL_POSITION__,
-		type = __DEFAULT_RADIO_TYPE__,
+		isActive: isActiveProp = DEFAULT_RADIO_IS_ACTIVE,
+		isChecked: isCheckedProp = DEFAULT_RADIO_IS_CHECKED,
+		isClickable: isClickableProp = DEFAULT_RADIO_IS_CLICKABLE,
+		isCompact: isCompactProp = DEFAULT_RADIO_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_FORM_CONTROL_IS_DISABLED,
+		isError: isErrorProp = DEFAULT_FORM_CONTROL_IS_ERROR,
+		isFocused: isFocusedProp = DEFAULT_FORM_CONTROL_IS_FOCUSED,
+		isOutlined: isOutlinedProp = DEFAULT_RADIO_IS_OUTLINED,
+		isReadOnly: isReadOnlyProp = DEFAULT_FORM_CONTROL_IS_READONLY,
+		isRequired: isRequiredProp = DEFAULT_FORM_CONTROL_IS_REQUIRED,
+		isSuccess: isSuccessProp = DEFAULT_FORM_CONTROL_IS_SUCCESS,
+		isWarning: isWarningProp = DEFAULT_FORM_CONTROL_IS_WARNING,
+		labelPosition: labelPositionProp = DEFAULT_RADIO_LABEL_POSITION,
+		type = DEFAULT_RADIO_TYPE,
 		onClick,
 		onFocus,
 		onBlur,
 		onToggle,
-		size: sizeProp = __DEFAULT_FORM_CONTROL_SIZE__,
+		size: sizeProp = DEFAULT_FORM_CONTROL_SIZE,
 		...rest
 	} = props;
 
@@ -199,7 +199,7 @@ const Radio = forwardRef(function Radio<Element extends PolymorphicElementType>(
 			{...focusProps}
 			{...(rest as GridProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_RADIO_CLASS__, classes, { [className]: !!className })}
+			className={classNames(KEYS_RADIO_CLASS, classes, { [className]: !!className })}
 			w={hasFormControl ? '100%' : w}
 			h={hasFormControl ? '100%' : h}
 			templateColumns={compact([
@@ -224,7 +224,7 @@ const Radio = forwardRef(function Radio<Element extends PolymorphicElementType>(
 								align: 'right',
 								color: labelColor,
 								fontSize: config.fontSize,
-								lineHeight: __DEFAULT_RADIO_LINE_HEIGHT_SIZE__
+								lineHeight: DEFAULT_RADIO_LINE_HEIGHT_SIZE
 							})
 						: null}
 				</GridItem>
@@ -288,7 +288,7 @@ const Radio = forwardRef(function Radio<Element extends PolymorphicElementType>(
 								align: 'left',
 								color: labelColor,
 								fontSize: config.fontSize,
-								lineHeight: __DEFAULT_RADIO_LINE_HEIGHT_SIZE__
+								lineHeight: DEFAULT_RADIO_LINE_HEIGHT_SIZE
 							})
 						: null}
 				</GridItem>

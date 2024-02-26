@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -10,15 +10,15 @@ import { Box } from '@components/Box';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
-	__DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT__,
-	__DEFAULT_POSITION_OVERLAY_BLUR__,
-	__DEFAULT_POSITION_OVERLAY_BLUR_TYPE__,
-	__DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND__,
-	__DEFAULT_POSITION_OVERLAY_HAS_GLASS__,
-	__DEFAULT_POSITION_OVERLAY_IS_VISIBLE__,
-	__DEFAULT_POSITION_OVERLAY_ITEM_PLACEMENT__,
-	__DEFAULT_POSITION_OVERLAY_ITEMS__,
-	__DEFAULT_POSITION_OVERLAY_RADIUS__
+	DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT,
+	DEFAULT_POSITION_OVERLAY_BLUR,
+	DEFAULT_POSITION_OVERLAY_BLUR_TYPE,
+	DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND,
+	DEFAULT_POSITION_OVERLAY_HAS_GLASS,
+	DEFAULT_POSITION_OVERLAY_IS_VISIBLE,
+	DEFAULT_POSITION_OVERLAY_ITEM_PLACEMENT,
+	DEFAULT_POSITION_OVERLAY_ITEMS,
+	DEFAULT_POSITION_OVERLAY_RADIUS
 } from './common/constants';
 import {
 	usePositionOverlayClasses,
@@ -27,7 +27,7 @@ import {
 	usePositionOverlayResponsiveValues,
 	usePositionOverlayStyles
 } from './common/hooks';
-import { __KEYS_POSITION_OVERLAY_CLASS__ } from './common/keys';
+import { KEYS_POSITION_OVERLAY_CLASS } from './common/keys';
 import type {
 	PositionOverlayItem as PositionOverlayItemProps,
 	PositionOverlayProps,
@@ -35,7 +35,7 @@ import type {
 } from './common/types';
 
 const PositionOverlayItem = (props: PositionOverlayItemProps): JSX.Element => {
-	const { renderOverlay, placement: placementProp = __DEFAULT_POSITION_OVERLAY_ITEM_PLACEMENT__ } = props;
+	const { renderOverlay, placement: placementProp = DEFAULT_POSITION_OVERLAY_ITEM_PLACEMENT } = props;
 
 	const { placement } = usePositionOverlayItemResponsiveValues({ placement: placementProp });
 
@@ -50,18 +50,18 @@ const PositionOverlay = forwardRef(function PositionOverlay<Element extends Poly
 ): JSX.Element {
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		overlays = __DEFAULT_POSITION_OVERLAY_ITEMS__,
-		backdropAmount: backdropAmountProp = __DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT__,
-		blur: blurProp = __DEFAULT_POSITION_OVERLAY_BLUR__,
-		blurType: blurTypeProp = __DEFAULT_POSITION_OVERLAY_BLUR_TYPE__,
-		// placement: placementProp = __DEFAULT_POSITION_OVERLAY_PLACEMENT__,
-		radius: radiusProp = __DEFAULT_POSITION_OVERLAY_RADIUS__,
-		isVisible: isVisibleProp = __DEFAULT_POSITION_OVERLAY_IS_VISIBLE__,
-		hasGlass: hasGlassProp = __DEFAULT_POSITION_OVERLAY_HAS_GLASS__,
-		hasBackground: hasBackgroundProp = __DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND__,
+		overlays = DEFAULT_POSITION_OVERLAY_ITEMS,
+		backdropAmount: backdropAmountProp = DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT,
+		blur: blurProp = DEFAULT_POSITION_OVERLAY_BLUR,
+		blurType: blurTypeProp = DEFAULT_POSITION_OVERLAY_BLUR_TYPE,
+		// placement: placementProp = DEFAULT_POSITION_OVERLAY_PLACEMENT,
+		radius: radiusProp = DEFAULT_POSITION_OVERLAY_RADIUS,
+		isVisible: isVisibleProp = DEFAULT_POSITION_OVERLAY_IS_VISIBLE,
+		hasGlass: hasGlassProp = DEFAULT_POSITION_OVERLAY_HAS_GLASS,
+		hasBackground: hasBackgroundProp = DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND,
 		...rest
 	} = props;
 
@@ -83,7 +83,7 @@ const PositionOverlay = forwardRef(function PositionOverlay<Element extends Poly
 		<Grid
 			{...(rest as PositionOverlayProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_POSITION_OVERLAY_CLASS__, classes.container, { [className]: !!className })}
+			className={classNames(KEYS_POSITION_OVERLAY_CLASS, classes.container, { [className]: !!className })}
 			templateColumns={1}
 			templateRows={1}
 			alignItems='stretch'

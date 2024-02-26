@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 
 import type { IconProps } from '@components/DataDisplay';
 import { Icon } from '@components/DataDisplay';
@@ -10,8 +10,8 @@ import { Icon } from '@components/DataDisplay';
 import { useDummyTabsContext, useDummyTabsDummyTabFontSize } from '../../common/hooks';
 import { DummyTabSkeleton } from '../DummyTabSkeleton';
 
-import { __DEFAULT_DUMMY_TAB_ICON_AS__, __DEFAULT_DUMMY_TAB_ICON_VARIANT__ } from './common/constants';
-import { __KEYS_DUMMY_TAB_ICON_CLASS__ } from './common/keys';
+import { DEFAULT_DUMMY_TAB_ICON_AS, DEFAULT_DUMMY_TAB_ICON_VARIANT } from './common/constants';
+import { KEYS_DUMMY_TAB_ICON_CLASS } from './common/keys';
 import type { DummyTabIconElement, DummyTabIconProps, DummyTabIconRef } from './common/types';
 
 const DummyTabIcon = forwardRef(function DummyTabIcon<Element extends DummyTabIconElement>(
@@ -19,17 +19,17 @@ const DummyTabIcon = forwardRef(function DummyTabIcon<Element extends DummyTabIc
 	ref: DummyTabIconRef<Element>
 ): JSX.Element {
 	const {
-		color: __DEFAULT_DUMMY_TAB_ICON_COLOR__,
-		colorMode: __DEFAULT_DUMMY_TAB_ICON_COLORMODE__,
+		color: DEFAULT_DUMMY_TAB_ICON_COLOR,
+		colorMode: DEFAULT_DUMMY_TAB_ICON_COLORMODE,
 		size
 	} = useDummyTabsContext();
 
 	const {
-		as = __DEFAULT_DUMMY_TAB_ICON_AS__,
-		className = __DEFAULT_CLASSNAME__,
-		color = __DEFAULT_DUMMY_TAB_ICON_COLOR__,
-		colorMode = __DEFAULT_DUMMY_TAB_ICON_COLORMODE__,
-		variant = __DEFAULT_DUMMY_TAB_ICON_VARIANT__,
+		as = DEFAULT_DUMMY_TAB_ICON_AS,
+		className = DEFAULT_CLASSNAME,
+		color = DEFAULT_DUMMY_TAB_ICON_COLOR,
+		colorMode = DEFAULT_DUMMY_TAB_ICON_COLORMODE,
+		variant = DEFAULT_DUMMY_TAB_ICON_VARIANT,
 		...rest
 	} = props;
 
@@ -41,7 +41,7 @@ const DummyTabIcon = forwardRef(function DummyTabIcon<Element extends DummyTabIc
 				{...(rest as IconProps<Element>)}
 				as={as}
 				ref={ref}
-				className={classNames(__KEYS_DUMMY_TAB_ICON_CLASS__, { [className]: !!className })}
+				className={classNames(KEYS_DUMMY_TAB_ICON_CLASS, { [className]: !!className })}
 				w={`${fontSize}px`}
 				h={`${fontSize}px`}
 				color={color}

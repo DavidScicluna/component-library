@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import type { VStackProps } from '@components/Layout';
@@ -10,21 +10,21 @@ import { VStack } from '@components/Layout';
 
 import { useMessageContext } from '../../common/hooks';
 
-import { __KEYS_MESSAGE_STACK_CLASS__ } from './common/keys';
+import { KEYS_MESSAGE_STACK_CLASS } from './common/keys';
 import type { MessageStackProps, MessageStackRef } from './common/types';
 
 const MessageStack = forwardRef(function MessageStack<Element extends PolymorphicElementType>(
 	props: MessageStackProps<Element>,
 	ref: MessageStackRef<Element>
 ): JSX.Element {
-	const { spacing: __DEFAULT_MESSAGE_STACK_SPACING__ } = useMessageContext();
+	const { spacing: DEFAULT_MESSAGE_STACK_SPACING } = useMessageContext();
 
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		alignItems = 'stretch',
 		justifyContent = 'stretch',
-		spacing = __DEFAULT_MESSAGE_STACK_SPACING__,
+		spacing = DEFAULT_MESSAGE_STACK_SPACING,
 		...rest
 	} = props;
 
@@ -32,7 +32,7 @@ const MessageStack = forwardRef(function MessageStack<Element extends Polymorphi
 		<VStack
 			{...(rest as VStackProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_MESSAGE_STACK_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_MESSAGE_STACK_CLASS, { [className]: !!className })}
 			w='100%'
 			h='100%'
 			alignItems={alignItems}

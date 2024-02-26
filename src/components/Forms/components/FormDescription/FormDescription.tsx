@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import { useFormControlContext, useFormControlFontSize } from '@components/Forms/components/FormControl/common/hooks';
@@ -10,12 +10,12 @@ import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
 import {
-	__DEFAULT_FORM_DESCRIPTION_ALIGN__,
-	__DEFAULT_FORM_DESCRIPTION_AS__,
-	__DEFAULT_FORM_DESCRIPTION_LINE_CLAMP__,
-	__DEFAULT_FORM_DESCRIPTION_LINE_HEIGHT__
+	DEFAULT_FORM_DESCRIPTION_ALIGN,
+	DEFAULT_FORM_DESCRIPTION_AS,
+	DEFAULT_FORM_DESCRIPTION_LINE_CLAMP,
+	DEFAULT_FORM_DESCRIPTION_LINE_HEIGHT
 } from './common/constants';
-import { __KEYS_FORM_DESCRIPTION_CLASS__ } from './common/keys';
+import { KEYS_FORM_DESCRIPTION_CLASS } from './common/keys';
 import type { FormDescriptionElement, FormDescriptionProps, FormDescriptionRef } from './common/types';
 import { getFormDescriptionID } from './common/utils';
 
@@ -25,23 +25,23 @@ const FormDescription = forwardRef(function FormDescription<Element extends Form
 ): JSX.Element {
 	const { colorMode, id, size } = useFormControlContext();
 
-	const __DEFAULT_FORM_DESCRIPTION_COLOR__ = useGetColor({
+	const DEFAULT_FORM_DESCRIPTION_COLOR = useGetColor({
 		color: 'gray',
 		colorMode,
 		colorType: 'default',
 		hueType: 'text.secondary'
 	});
-	const __DEFAULT_FORM_DESCRIPTION_FONT_SIZE__ = useFormControlFontSize({ size });
+	const DEFAULT_FORM_DESCRIPTION_FONT_SIZE = useFormControlFontSize({ size });
 
 	const {
 		children,
-		as = __DEFAULT_FORM_DESCRIPTION_AS__,
-		className = __DEFAULT_CLASSNAME__,
-		align = __DEFAULT_FORM_DESCRIPTION_ALIGN__,
-		color = __DEFAULT_FORM_DESCRIPTION_COLOR__,
-		fontSize = __DEFAULT_FORM_DESCRIPTION_FONT_SIZE__.description,
-		lineClamp = __DEFAULT_FORM_DESCRIPTION_LINE_CLAMP__,
-		lineHeight = __DEFAULT_FORM_DESCRIPTION_LINE_HEIGHT__,
+		as = DEFAULT_FORM_DESCRIPTION_AS,
+		className = DEFAULT_CLASSNAME,
+		align = DEFAULT_FORM_DESCRIPTION_ALIGN,
+		color = DEFAULT_FORM_DESCRIPTION_COLOR,
+		fontSize = DEFAULT_FORM_DESCRIPTION_FONT_SIZE.description,
+		lineClamp = DEFAULT_FORM_DESCRIPTION_LINE_CLAMP,
+		lineHeight = DEFAULT_FORM_DESCRIPTION_LINE_HEIGHT,
 		...rest
 	} = props;
 
@@ -50,7 +50,7 @@ const FormDescription = forwardRef(function FormDescription<Element extends Form
 			{...(rest as TextProps<Element>)}
 			as={as}
 			ref={ref}
-			className={classNames(__KEYS_FORM_DESCRIPTION_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_FORM_DESCRIPTION_CLASS, { [className]: !!className })}
 			aria-description={children}
 			id={getFormDescriptionID(id)}
 			align={align}

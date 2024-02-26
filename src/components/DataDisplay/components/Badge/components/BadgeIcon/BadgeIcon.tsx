@@ -2,33 +2,29 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 
 import type { IconProps } from '@components/DataDisplay';
 import { Icon } from '@components/DataDisplay';
 
 import { useBadgeContext, useBadgeFontSize } from '../../common/hooks';
 
-import { __DEFAULT_BADGE_ICON_AS__, __DEFAULT_BADGE_ICON_VARIANT__ } from './common/constants';
-import { __KEYS_BADGE_ICON_CLASS__ } from './common/keys';
+import { DEFAULT_BADGE_ICON_AS, DEFAULT_BADGE_ICON_VARIANT } from './common/constants';
+import { KEYS_BADGE_ICON_CLASS } from './common/keys';
 import type { BadgeIconElement, BadgeIconProps, BadgeIconRef } from './common/types';
 
 const BadgeIcon = forwardRef(function BadgeIcon<Element extends BadgeIconElement>(
 	props: BadgeIconProps<Element>,
 	ref: BadgeIconRef<Element>
 ): JSX.Element {
-	const {
-		color: __DEFAULT_BADGE_ICON_COLOR__,
-		colorMode: __DEFAULT_BADGE_ICON_COLORMODE__,
-		size
-	} = useBadgeContext();
+	const { color: DEFAULT_BADGE_ICON_COLOR, colorMode: DEFAULT_BADGE_ICON_COLORMODE, size } = useBadgeContext();
 
 	const {
-		as = __DEFAULT_BADGE_ICON_AS__,
-		className = __DEFAULT_CLASSNAME__,
-		color = __DEFAULT_BADGE_ICON_COLOR__,
-		colorMode = __DEFAULT_BADGE_ICON_COLORMODE__,
-		variant = __DEFAULT_BADGE_ICON_VARIANT__,
+		as = DEFAULT_BADGE_ICON_AS,
+		className = DEFAULT_CLASSNAME,
+		color = DEFAULT_BADGE_ICON_COLOR,
+		colorMode = DEFAULT_BADGE_ICON_COLORMODE,
+		variant = DEFAULT_BADGE_ICON_VARIANT,
 		...rest
 	} = props;
 
@@ -39,7 +35,7 @@ const BadgeIcon = forwardRef(function BadgeIcon<Element extends BadgeIconElement
 			{...(rest as IconProps<Element>)}
 			as={as}
 			ref={ref}
-			className={classNames(__KEYS_BADGE_ICON_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_BADGE_ICON_CLASS, { [className]: !!className })}
 			w={`${fontSize}px`}
 			h={`${fontSize}px`}
 			color={color}

@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -12,12 +12,12 @@ import { Center, Grid, GridItem } from '@components/Layout';
 import { GlassOverlay } from '../GlassOverlay';
 
 import {
-	__DEFAULT_STATE_OVERLAY_HAS_GLASS__,
-	__DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE__,
-	__DEFAULT_STATE_OVERLAY_STATE__
+	DEFAULT_STATE_OVERLAY_HAS_GLASS,
+	DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE,
+	DEFAULT_STATE_OVERLAY_STATE
 } from './common/constants';
 import { useStateOverlayResponsiveValues } from './common/hooks';
-import { __KEYS_STATE_OVERLAY_CLASS__ } from './common/keys';
+import { KEYS_STATE_OVERLAY_CLASS } from './common/keys';
 import type { StateOverlayProps, StateOverlayRef } from './common/types';
 
 const StateOverlay = forwardRef(function StateOverlay<Element extends PolymorphicElementType>(
@@ -26,7 +26,7 @@ const StateOverlay = forwardRef(function StateOverlay<Element extends Polymorphi
 ): JSX.Element {
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
 		blur,
@@ -34,9 +34,9 @@ const StateOverlay = forwardRef(function StateOverlay<Element extends Polymorphi
 		renderEmpty: renderEmptyProp,
 		renderError: renderErrorProp,
 		renderSpinner: renderSpinnerProp,
-		hasGlass: hasGlassProp = __DEFAULT_STATE_OVERLAY_HAS_GLASS__,
-		isAlwaysVisible: isAlwaysVisibleProp = __DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE__,
-		state: stateProp = __DEFAULT_STATE_OVERLAY_STATE__,
+		hasGlass: hasGlassProp = DEFAULT_STATE_OVERLAY_HAS_GLASS,
+		isAlwaysVisible: isAlwaysVisibleProp = DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE,
+		state: stateProp = DEFAULT_STATE_OVERLAY_STATE,
 		...rest
 	} = props;
 
@@ -64,7 +64,7 @@ const StateOverlay = forwardRef(function StateOverlay<Element extends Polymorphi
 		<Grid
 			{...(rest as GridProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_STATE_OVERLAY_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_STATE_OVERLAY_CLASS, { [className]: !!className })}
 			templateColumns={1}
 			templateRows={1}
 			alignItems='stretch'

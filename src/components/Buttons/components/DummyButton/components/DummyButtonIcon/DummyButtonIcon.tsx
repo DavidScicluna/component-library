@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 
 import type { IconProps } from '@components/DataDisplay';
 import { Icon } from '@components/DataDisplay';
@@ -10,8 +10,8 @@ import { Icon } from '@components/DataDisplay';
 import { useDummyButtonContext, useDummyButtonFontSize } from '../../common/hooks';
 import { DummyButtonSkeleton } from '../DummyButtonSkeleton';
 
-import { __DEFAULT_DUMMY_BUTTON_ICON_AS__, __DEFAULT_DUMMY_BUTTON_ICON_VARIANT__ } from './common/constants';
-import { __KEY_DUMMY_BUTTON_ICON_CLASS__ } from './common/keys';
+import { DEFAULT_DUMMY_BUTTON_ICON_AS, DEFAULT_DUMMY_BUTTON_ICON_VARIANT } from './common/constants';
+import { KEY_DUMMY_BUTTON_ICON_CLASS } from './common/keys';
 import type { DummyButtonIconElement, DummyButtonIconProps, DummyButtonIconRef } from './common/types';
 
 const DummyButtonIcon = forwardRef(function DummyButtonIcon<Element extends DummyButtonIconElement>(
@@ -19,17 +19,17 @@ const DummyButtonIcon = forwardRef(function DummyButtonIcon<Element extends Dumm
 	ref: DummyButtonIconRef<Element>
 ): JSX.Element {
 	const {
-		color: __DEFAULT_DUMMY_BUTTON_ICON_COLOR__,
-		colorMode: __DEFAULT_DUMMY_BUTTON_ICON_COLORMODE__,
+		color: DEFAULT_DUMMY_BUTTON_ICON_COLOR,
+		colorMode: DEFAULT_DUMMY_BUTTON_ICON_COLORMODE,
 		size
 	} = useDummyButtonContext();
 
 	const {
-		as = __DEFAULT_DUMMY_BUTTON_ICON_AS__,
-		className = __DEFAULT_CLASSNAME__,
-		color = __DEFAULT_DUMMY_BUTTON_ICON_COLOR__,
-		colorMode = __DEFAULT_DUMMY_BUTTON_ICON_COLORMODE__,
-		variant = __DEFAULT_DUMMY_BUTTON_ICON_VARIANT__,
+		as = DEFAULT_DUMMY_BUTTON_ICON_AS,
+		className = DEFAULT_CLASSNAME,
+		color = DEFAULT_DUMMY_BUTTON_ICON_COLOR,
+		colorMode = DEFAULT_DUMMY_BUTTON_ICON_COLORMODE,
+		variant = DEFAULT_DUMMY_BUTTON_ICON_VARIANT,
 		...rest
 	} = props;
 
@@ -41,7 +41,7 @@ const DummyButtonIcon = forwardRef(function DummyButtonIcon<Element extends Dumm
 				{...(rest as IconProps<Element>)}
 				as={as}
 				ref={ref}
-				className={classNames(__KEY_DUMMY_BUTTON_ICON_CLASS__, { [className]: !!className })}
+				className={classNames(KEY_DUMMY_BUTTON_ICON_CLASS, { [className]: !!className })}
 				w={`${fontSize}px`}
 				h={`${fontSize}px`}
 				color={color}

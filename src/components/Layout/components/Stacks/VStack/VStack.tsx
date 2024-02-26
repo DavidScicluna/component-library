@@ -2,26 +2,26 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import type { StackProps } from '../Stack';
 import { Stack } from '../Stack';
 
-import { __KEYS_V_STACK_CLASS__ } from './common/keys';
+import { KEYS_V_STACK_CLASS } from './common/keys';
 import type { VStackProps, VStackRef } from './common/types';
 
 const VStack = forwardRef(function VStack<Element extends PolymorphicElementType>(
 	props: VStackProps<Element>,
 	ref: VStackRef<Element>
 ): JSX.Element {
-	const { children, className = __DEFAULT_CLASSNAME__, ...rest } = props;
+	const { children, className = DEFAULT_CLASSNAME, ...rest } = props;
 
 	return (
 		<Stack
 			{...(rest as StackProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_V_STACK_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_V_STACK_CLASS, { [className]: !!className })}
 			direction='column'
 		>
 			{children}

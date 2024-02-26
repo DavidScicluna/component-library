@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useDimensionsRef } from 'rooks';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import type { GridProps, GridRef } from '@components/Layout';
@@ -13,25 +13,25 @@ import { Grid, GridItem, VStack } from '@components/Layout';
 import { useFormControlContext } from '../FormControl/common/hooks';
 
 import {
-	__DEFAULT_FORM_HEADER_ALIGN_CONTENT__,
-	__DEFAULT_FORM_HEADER_ALIGN_ITEMS__,
-	__DEFAULT_FORM_HEADER_JUSTIFY_CONTENT__,
-	__DEFAULT_FORM_HEADER_JUSTIFY_ITEMS__
+	DEFAULT_FORM_HEADER_ALIGN_CONTENT,
+	DEFAULT_FORM_HEADER_ALIGN_ITEMS,
+	DEFAULT_FORM_HEADER_JUSTIFY_CONTENT,
+	DEFAULT_FORM_HEADER_JUSTIFY_ITEMS
 } from './common/constants';
-import { __KEYS_FORM_HEADER_CLASS__ } from './common/keys';
+import { KEYS_FORM_HEADER_CLASS } from './common/keys';
 import type { FormHeaderProps, FormHeaderRef } from './common/types';
 
 const FormHeader = forwardRef(function FormHeader<Element extends PolymorphicElementType>(
 	props: FormHeaderProps<Element>,
 	ref: FormHeaderRef<Element>
 ): JSX.Element {
-	const { color, colorMode, hasFormControl, spacing: __DEFAULT_FORM_HEADER_SPACING__ } = useFormControlContext();
+	const { color, colorMode, hasFormControl, spacing: DEFAULT_FORM_HEADER_SPACING } = useFormControlContext();
 
 	const [childrenRef, childrenDimensions] = useDimensionsRef();
 	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
 
 	const {
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		w,
 		h,
 		renderLeft,
@@ -39,11 +39,11 @@ const FormHeader = forwardRef(function FormHeader<Element extends PolymorphicEle
 		renderLabel,
 		renderDescription,
 		renderActions,
-		alignItems = __DEFAULT_FORM_HEADER_ALIGN_CONTENT__,
-		alignContent = __DEFAULT_FORM_HEADER_ALIGN_ITEMS__,
-		justifyItems = __DEFAULT_FORM_HEADER_JUSTIFY_CONTENT__,
-		justifyContent = __DEFAULT_FORM_HEADER_JUSTIFY_ITEMS__,
-		spacing = __DEFAULT_FORM_HEADER_SPACING__,
+		alignItems = DEFAULT_FORM_HEADER_ALIGN_CONTENT,
+		alignContent = DEFAULT_FORM_HEADER_ALIGN_ITEMS,
+		justifyItems = DEFAULT_FORM_HEADER_JUSTIFY_CONTENT,
+		justifyContent = DEFAULT_FORM_HEADER_JUSTIFY_ITEMS,
+		spacing = DEFAULT_FORM_HEADER_SPACING,
 		...rest
 	} = props;
 
@@ -51,7 +51,7 @@ const FormHeader = forwardRef(function FormHeader<Element extends PolymorphicEle
 		<Grid
 			{...(rest as GridProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_FORM_HEADER_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_FORM_HEADER_CLASS, { [className]: !!className })}
 			w={hasFormControl ? '100%' : w}
 			h={hasFormControl ? '100%' : h}
 			templateColumns={compact([renderLeft ? 'auto' : null, '1fr', renderRight ? 'auto' : null]).join(' ')}

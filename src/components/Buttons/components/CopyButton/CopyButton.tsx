@@ -2,13 +2,13 @@ import { Fragment, useCallback } from 'react';
 
 import { useBoolean } from '@common/hooks';
 
-import { __DEFAULT_COPY_BUTTON_TIMEOUT__ } from './common/constants';
+import { DEFAULT_COPY_BUTTON_TIMEOUT } from './common/constants';
 import { useCopyToClipboard } from './common/hooks';
 import type { CopyButtonProps } from './common/types';
 import { getCopyButtonTimeout } from './common/utils';
 
 const CopyButton = (props: CopyButtonProps): JSX.Element => {
-	const { children, timeout = __DEFAULT_COPY_BUTTON_TIMEOUT__, value } = props;
+	const { children, timeout = DEFAULT_COPY_BUTTON_TIMEOUT, value } = props;
 
 	const [hasCopied, setHasCopied] = useBoolean();
 

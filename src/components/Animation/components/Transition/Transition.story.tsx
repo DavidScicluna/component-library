@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from '../../../../common/classes';
-import { __DEFAULT_DURATION__, __DEFAULT_EASING__ } from '../../../../common/constants';
+import { DEFAULT_DURATION, DEFAULT_EASING } from '../../../../common/constants';
 import { useGetColor } from '../../../../common/hooks';
 import type {
 	PolymorphicDefaultElement,
@@ -11,11 +11,7 @@ import type {
 
 import { AspectRatio } from '../../../Layout';
 
-import {
-	__DEFAULT_TRANSITION__,
-	__DEFAULT_TRANSITION_IN__,
-	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
-} from './common/constants';
+import { DEFAULT_TRANSITION, DEFAULT_TRANSITION_IN, DEFAULT_TRANSITION_UNMOUNT_ON_EXIT } from './common/constants';
 import type { TransitionKey, TransitionProps } from './common/types';
 import type { TransitionStory, TransitionStoryMeta } from './common/types/story';
 import { Transition as TransitionComponent } from '.';
@@ -37,7 +33,7 @@ export default {
 		duration: {
 			name: 'Duration',
 			type: 'string',
-			defaultValue: __DEFAULT_DURATION__,
+			defaultValue: DEFAULT_DURATION,
 			// description: '',
 			options: ['ultra-fast', 'faster', 'fast', 'normal', 'slow', 'slower', 'ultra-slow'] as ThemeDurationArr,
 			control: { type: 'radio' }
@@ -45,7 +41,7 @@ export default {
 		easing: {
 			name: 'Easing',
 			type: 'string',
-			defaultValue: __DEFAULT_EASING__,
+			defaultValue: DEFAULT_EASING,
 			// description: '',
 			options: ['linear', 'ease-in', 'ease-out', 'ease-in-out'] as ThemeEaseArr,
 			control: { type: 'radio' }
@@ -53,14 +49,14 @@ export default {
 		in: {
 			name: 'Animate',
 			type: 'boolean',
-			defaultValue: __DEFAULT_TRANSITION_IN__,
+			defaultValue: DEFAULT_TRANSITION_IN,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		transition: {
 			name: 'Transition',
 			type: 'string',
-			defaultValue: __DEFAULT_TRANSITION__,
+			defaultValue: DEFAULT_TRANSITION,
 			// description: '',
 			options: [
 				'fade',
@@ -87,7 +83,7 @@ export default {
 		unmountOnExit: {
 			name: 'Unmount On Exit',
 			type: 'boolean',
-			defaultValue: __DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__,
+			defaultValue: DEFAULT_TRANSITION_UNMOUNT_ON_EXIT,
 			// description: '',
 			control: { type: 'boolean' }
 		}

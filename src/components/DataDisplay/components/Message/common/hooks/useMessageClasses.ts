@@ -3,12 +3,12 @@ import { useMemo } from 'react';
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ } from '@common/constants';
+import { DEFAULT_BORDER_WIDTH, DEFAULT_COLOR } from '@common/constants';
 import { useAppTheme, useGetClass } from '@common/hooks';
 import type { ClassName } from '@common/types';
 import { getColorHue } from '@common/utils';
 
-import { __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_VARIANT__ } from '../constants';
+import { DEFAULT_MESSAGE_RADIUS, DEFAULT_MESSAGE_VARIANT } from '../constants';
 import type { MessageElement, MessageProps } from '../types';
 
 import useMessageResponsiveValues from './useMessageResponsiveValues';
@@ -22,18 +22,18 @@ type UseMessageClassesReturn = ClassName;
 const useMessageClasses = <Element extends MessageElement>(
 	props: UseMessageClassesProps<Element>
 ): UseMessageClassesReturn => {
-	const { colorMode: __DEFAULT_ICON_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_ICON_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_ICON_COLORMODE__,
-		radius: radiusProp = __DEFAULT_MESSAGE_RADIUS__,
-		variant: variantProp = __DEFAULT_MESSAGE_VARIANT__
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_ICON_COLORMODE,
+		radius: radiusProp = DEFAULT_MESSAGE_RADIUS,
+		variant: variantProp = DEFAULT_MESSAGE_VARIANT
 	} = props;
 
 	const { radius, variant } = useMessageResponsiveValues<Element>({ radius: radiusProp, variant: variantProp });
 
-	const borderWidthClassName = useGetClass((classes) => classes.borders.border_width[__DEFAULT_BORDER_WIDTH__]);
+	const borderWidthClassName = useGetClass((classes) => classes.borders.border_width[DEFAULT_BORDER_WIDTH]);
 	const borderStyleClassName = useGetClass(
 		(classes) => classes.borders.border_style[variant === 'transparent' ? 'none' : variant]
 	);

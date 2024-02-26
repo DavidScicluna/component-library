@@ -1,5 +1,5 @@
 import type { AlignSelfClass, JustifySelfClass, ZIndexClass } from '@common/types';
 
-export const __DEFAULT_GRID_ITEM_ALIGN_SELF__: AlignSelfClass = 'stretch';
-export const __DEFAULT_GRID_ITEM_JUSTIFY_SELF__: JustifySelfClass = 'stretch';
-export const __DEFAULT_GRID_ITEM_Z_INDEX__: ZIndexClass = 0;
+export const DEFAULT_GRID_ITEM_ALIGN_SELF: AlignSelfClass = 'stretch';
+export const DEFAULT_GRID_ITEM_JUSTIFY_SELF: JustifySelfClass = 'stretch';
+export const DEFAULT_GRID_ITEM_Z_INDEX: ZIndexClass = 0;

@@ -1,16 +1,12 @@
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ } from '@common/constants';
+import { DEFAULT_BORDER_WIDTH, DEFAULT_COLOR } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
 import type { ClassName, ThemeColor } from '@common/types';
 import { checkColorType } from '@common/utils';
 
-import {
-	__DEFAULT_DIVIDER_ORIENTATION__,
-	__DEFAULT_DIVIDER_PLACEMENT__,
-	__DEFAULT_DIVIDER_VARIANT__
-} from '../constants';
+import { DEFAULT_DIVIDER_ORIENTATION, DEFAULT_DIVIDER_PLACEMENT, DEFAULT_DIVIDER_VARIANT } from '../constants';
 import type { DividerElement, DividerProps } from '../types';
 
 import useDividerResponsiveValues from './useDividerResponsiveValues';
@@ -22,15 +18,15 @@ type UseDividerClassesReturn = ClassName;
 const useDividerClasses = <Element extends DividerElement>(
 	props: UseDividerClassesProps<Element>
 ): UseDividerClassesReturn => {
-	const { colorMode: __DEFAULT_DIVIDER_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_DIVIDER_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_DIVIDER_COLORMODE__,
-		orientation: orientationProp = __DEFAULT_DIVIDER_ORIENTATION__,
-		placement: placementProp = __DEFAULT_DIVIDER_PLACEMENT__,
-		size: sizeProp = __DEFAULT_BORDER_WIDTH__,
-		variant: variantProp = __DEFAULT_DIVIDER_VARIANT__
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_DIVIDER_COLORMODE,
+		orientation: orientationProp = DEFAULT_DIVIDER_ORIENTATION,
+		placement: placementProp = DEFAULT_DIVIDER_PLACEMENT,
+		size: sizeProp = DEFAULT_BORDER_WIDTH,
+		variant: variantProp = DEFAULT_DIVIDER_VARIANT
 	} = props;
 
 	const { orientation, placement, size, variant } = useDividerResponsiveValues<Element>({

@@ -1,3 +1,3 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
-export const __KEYS_SPACE_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-space`;
+export const KEYS_SPACE_CLASS = `${DEFAULT_CLASS_PREFIX}-space`;

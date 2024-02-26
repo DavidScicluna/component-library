@@ -4,10 +4,10 @@ import classes from '@common/classes';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import {
-	__DEFAULT_SWITCH_IS_ACTIVE__,
-	__DEFAULT_SWITCH_IS_CLICKABLE__,
-	__DEFAULT_SWITCH_IS_DISABLED__,
-	__DEFAULT_SWITCH_IS_READONLY__
+	DEFAULT_SWITCH_IS_ACTIVE,
+	DEFAULT_SWITCH_IS_CLICKABLE,
+	DEFAULT_SWITCH_IS_DISABLED,
+	DEFAULT_SWITCH_IS_READONLY
 } from '../constants';
 import type { SwitchProps } from '../types';
 
@@ -23,10 +23,10 @@ const useSwitchClasses = <Element extends PolymorphicElementType>(
 	props: UseSwitchClassesProps<Element>
 ): UseSwitchClassesReturn => {
 	const {
-		isActive: isActiveProp = __DEFAULT_SWITCH_IS_ACTIVE__,
-		isClickable: isClickableProp = __DEFAULT_SWITCH_IS_CLICKABLE__,
-		isDisabled: isDisabledProp = __DEFAULT_SWITCH_IS_DISABLED__,
-		isReadOnly: isReadOnlyProp = __DEFAULT_SWITCH_IS_READONLY__
+		isActive: isActiveProp = DEFAULT_SWITCH_IS_ACTIVE,
+		isClickable: isClickableProp = DEFAULT_SWITCH_IS_CLICKABLE,
+		isDisabled: isDisabledProp = DEFAULT_SWITCH_IS_DISABLED,
+		isReadOnly: isReadOnlyProp = DEFAULT_SWITCH_IS_READONLY
 	} = props;
 
 	const { isActive, isClickable, isDisabled, isReadOnly } = useSwitchResponsiveValues<Element>({

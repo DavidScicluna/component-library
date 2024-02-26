@@ -4,7 +4,7 @@ import type { ThemeFontSize, ThemeSpacing } from '@common/types';
 
 import { useStepperContext } from '@components/Navigation/components/Stepper/common/hooks';
 
-import { __DEFAULT_STEP_IS_COMPACT__ } from '../constants';
+import { DEFAULT_STEP_IS_COMPACT } from '../constants';
 import type { StepElement, StepProps } from '../types';
 
 import useStepResponsiveValues from './useStepResponsiveValues';
@@ -23,7 +23,7 @@ const useStepSizeConfig = <Element extends StepElement>(
 ): UseStepSizeConfigReturn => {
 	const { size } = useStepperContext();
 
-	const { isCompact: isCompactProp = __DEFAULT_STEP_IS_COMPACT__ } = props;
+	const { isCompact: isCompactProp = DEFAULT_STEP_IS_COMPACT } = props;
 
 	const { isCompact } = useStepResponsiveValues<Element>({ isCompact: isCompactProp });
 

@@ -1,11 +1,11 @@
 import { createContext, useContext } from 'react';
 
-import { __DEFAULT_APP_COLOR__, __DEFAULT_APP_COLORMODE__ } from '@common/constants';
+import { DEFAULT_APP_COLOR, DEFAULT_APP_COLORMODE } from '@common/constants';
 import { getColorMode } from '@common/utils';
 
 import { Provider as DSCLProvider } from '@components/Provider';
 
-const StorybookContext = createContext({ color: __DEFAULT_APP_COLOR__, colorMode: __DEFAULT_APP_COLORMODE__ });
+const StorybookContext = createContext({ color: DEFAULT_APP_COLOR, colorMode: DEFAULT_APP_COLORMODE });
 
 export const useStorybookContext = () => {
 	const { color, colorMode } = useContext(StorybookContext);

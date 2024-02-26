@@ -2,17 +2,17 @@ import { useContext } from 'react';
 
 import { FormControlContext } from '../../FormControl';
 import {
-	__DEFAULT_FORM_CONTROL_HAS_FORM_CONTROL__,
-	__DEFAULT_FORM_CONTROL_ID__,
-	__DEFAULT_FORM_CONTROL_IS_DISABLED__,
-	__DEFAULT_FORM_CONTROL_IS_ERROR__,
-	__DEFAULT_FORM_CONTROL_IS_FOCUSED__,
-	__DEFAULT_FORM_CONTROL_IS_READONLY__,
-	__DEFAULT_FORM_CONTROL_IS_REQUIRED__,
-	__DEFAULT_FORM_CONTROL_IS_SUCCESS__,
-	__DEFAULT_FORM_CONTROL_IS_WARNING__,
-	__DEFAULT_FORM_CONTROL_SIZE__,
-	__DEFAULT_FORM_CONTROL_SPACING__
+	DEFAULT_FORM_CONTROL_HAS_FORM_CONTROL,
+	DEFAULT_FORM_CONTROL_ID,
+	DEFAULT_FORM_CONTROL_IS_DISABLED,
+	DEFAULT_FORM_CONTROL_IS_ERROR,
+	DEFAULT_FORM_CONTROL_IS_FOCUSED,
+	DEFAULT_FORM_CONTROL_IS_READONLY,
+	DEFAULT_FORM_CONTROL_IS_REQUIRED,
+	DEFAULT_FORM_CONTROL_IS_SUCCESS,
+	DEFAULT_FORM_CONTROL_IS_WARNING,
+	DEFAULT_FORM_CONTROL_SIZE,
+	DEFAULT_FORM_CONTROL_SPACING
 } from '../constants';
 import type { FormControlContext as FormControlContextType, FormControlElement } from '../types';
 
@@ -22,17 +22,17 @@ const useFormControlContext = <Element extends FormControlElement>() => {
 	const {
 		color,
 		colorMode,
-		id = __DEFAULT_FORM_CONTROL_ID__,
-		hasFormControl = __DEFAULT_FORM_CONTROL_HAS_FORM_CONTROL__,
-		isDisabled: isDisabledProp = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
-		isError: isErrorProp = __DEFAULT_FORM_CONTROL_IS_ERROR__,
-		isFocused: isFocusedProp = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
-		isReadOnly: isReadOnlyProp = __DEFAULT_FORM_CONTROL_IS_READONLY__,
-		isRequired: isRequiredProp = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
-		isSuccess: isSuccessProp = __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
-		isWarning: isWarningProp = __DEFAULT_FORM_CONTROL_IS_WARNING__,
-		size: sizeProp = __DEFAULT_FORM_CONTROL_SIZE__,
-		spacing: spacingProp = __DEFAULT_FORM_CONTROL_SPACING__
+		id = DEFAULT_FORM_CONTROL_ID,
+		hasFormControl = DEFAULT_FORM_CONTROL_HAS_FORM_CONTROL,
+		isDisabled: isDisabledProp = DEFAULT_FORM_CONTROL_IS_DISABLED,
+		isError: isErrorProp = DEFAULT_FORM_CONTROL_IS_ERROR,
+		isFocused: isFocusedProp = DEFAULT_FORM_CONTROL_IS_FOCUSED,
+		isReadOnly: isReadOnlyProp = DEFAULT_FORM_CONTROL_IS_READONLY,
+		isRequired: isRequiredProp = DEFAULT_FORM_CONTROL_IS_REQUIRED,
+		isSuccess: isSuccessProp = DEFAULT_FORM_CONTROL_IS_SUCCESS,
+		isWarning: isWarningProp = DEFAULT_FORM_CONTROL_IS_WARNING,
+		size: sizeProp = DEFAULT_FORM_CONTROL_SIZE,
+		spacing: spacingProp = DEFAULT_FORM_CONTROL_SPACING
 	} = useContext<FormControlContextType<Element>>(FormControlContext);
 
 	const { isDisabled, isError, isFocused, isReadOnly, isRequired, isSuccess, isWarning, size, spacing } =

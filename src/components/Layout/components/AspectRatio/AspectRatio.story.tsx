@@ -8,7 +8,7 @@ import { useStorybookContext } from '../../../Provider/components/StorybookProvi
 
 import { Center } from '../Center';
 
-import { __DEFAULT_ASPECT_RATIO_RATIO__ } from './common/constants';
+import { DEFAULT_ASPECT_RATIO_RATIO } from './common/constants';
 import type { AspectRatioProps } from './common/types';
 import type { AspectRatioStory, AspectRatioStoryMeta } from './common/types/story';
 import { AspectRatio as AspectRatioComponent } from '.';
@@ -22,7 +22,7 @@ export default {
 		ratio: {
 			name: 'Ratio',
 			type: 'string',
-			defaultValue: __DEFAULT_ASPECT_RATIO_RATIO__,
+			defaultValue: DEFAULT_ASPECT_RATIO_RATIO,
 			// description: '',
 			options: [
 				'auto',

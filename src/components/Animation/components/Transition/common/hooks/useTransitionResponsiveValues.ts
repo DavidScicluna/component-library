@@ -1,12 +1,8 @@
-import { __DEFAULT_DURATION__, __DEFAULT_EASING__ } from '@common/constants';
+import { DEFAULT_DURATION, DEFAULT_EASING } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { AnimationConfig, PolymorphicElementType, ThemeEase, Undefinable } from '@common/types';
 
-import {
-	__DEFAULT_TRANSITION__,
-	__DEFAULT_TRANSITION_IN__,
-	__DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
-} from '../constants';
+import { DEFAULT_TRANSITION, DEFAULT_TRANSITION_IN, DEFAULT_TRANSITION_UNMOUNT_ON_EXIT } from '../constants';
 import type { TransitionDelay, TransitionDuration, TransitionKey, TransitionProps, TransitionVariant } from '../types';
 
 type UseTransitionResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
@@ -19,11 +15,11 @@ const useTransitionResponsiveValues = <Element extends PolymorphicElementType>(
 	const {
 		config: configProp,
 		delay: delayProp,
-		duration: durationProp = __DEFAULT_DURATION__,
-		easing: easingProp = __DEFAULT_EASING__,
-		in: isAnimatedProp = __DEFAULT_TRANSITION_IN__,
-		transition: transitionProp = __DEFAULT_TRANSITION__,
-		unmountOnExit: unmountOnExitProp = __DEFAULT_TRANSITION_UNMOUNT_ON_EXIT__
+		duration: durationProp = DEFAULT_DURATION,
+		easing: easingProp = DEFAULT_EASING,
+		in: isAnimatedProp = DEFAULT_TRANSITION_IN,
+		transition: transitionProp = DEFAULT_TRANSITION,
+		unmountOnExit: unmountOnExitProp = DEFAULT_TRANSITION_UNMOUNT_ON_EXIT
 	} = props;
 
 	const config = useGetResponsiveValue<Undefinable<AnimationConfig>>(configProp);

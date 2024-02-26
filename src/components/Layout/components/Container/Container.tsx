@@ -2,19 +2,19 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
-	__DEFAULT_CONTAINER_BREAKPOINT__,
-	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
-	__DEFAULT_CONTAINER_IS_FLUID__
+	DEFAULT_CONTAINER_BREAKPOINT,
+	DEFAULT_CONTAINER_IS_CONTENT_CENTERED,
+	DEFAULT_CONTAINER_IS_FLUID
 } from './common/constants';
 import { useContainerClasses, useContainerResponsiveValues } from './common/hooks';
-import { __KEYS_CONTAINER_CLASS__ } from './common/keys';
+import { KEYS_CONTAINER_CLASS } from './common/keys';
 import type { ContainerProps, ContainerRef } from './common/types';
 
 const Container = forwardRef(function Container<Element extends PolymorphicElementType>(
@@ -23,10 +23,10 @@ const Container = forwardRef(function Container<Element extends PolymorphicEleme
 ): JSX.Element {
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
-		breakpoint: breakpointProp = __DEFAULT_CONTAINER_BREAKPOINT__,
-		isContentCentered: isContentCenteredProp = __DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
-		isFluid: isFluidProp = __DEFAULT_CONTAINER_IS_FLUID__,
+		className = DEFAULT_CLASSNAME,
+		breakpoint: breakpointProp = DEFAULT_CONTAINER_BREAKPOINT,
+		isContentCentered: isContentCenteredProp = DEFAULT_CONTAINER_IS_CONTENT_CENTERED,
+		isFluid: isFluidProp = DEFAULT_CONTAINER_IS_FLUID,
 		...rest
 	} = props;
 
@@ -42,7 +42,7 @@ const Container = forwardRef(function Container<Element extends PolymorphicEleme
 		<Box
 			{...(rest as BoxProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_CONTAINER_CLASS__, classes, { [className]: !!className })}
+			className={classNames(KEYS_CONTAINER_CLASS, classes, { [className]: !!className })}
 		>
 			{children}
 		</Box>

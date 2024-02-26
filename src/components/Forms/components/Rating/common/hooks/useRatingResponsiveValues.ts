@@ -2,17 +2,17 @@ import { useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
 
 import {
-	__DEFAULT_RATING_COUNT__,
-	__DEFAULT_RATING_DIRECTION__,
-	__DEFAULT_RATING_HIGHLIGHT_MODE__,
-	__DEFAULT_RATING_ICONS__,
-	__DEFAULT_RATING_IS_DISABLED__,
-	__DEFAULT_RATING_IS_ERROR__,
-	__DEFAULT_RATING_IS_READONLY__,
-	__DEFAULT_RATING_IS_REQUIRED__,
-	__DEFAULT_RATING_IS_SUCCESS__,
-	__DEFAULT_RATING_IS_WARNING__,
-	__DEFAULT_RATING_SIZE__
+	DEFAULT_RATING_COUNT,
+	DEFAULT_RATING_DIRECTION,
+	DEFAULT_RATING_HIGHLIGHT_MODE,
+	DEFAULT_RATING_ICONS,
+	DEFAULT_RATING_IS_DISABLED,
+	DEFAULT_RATING_IS_ERROR,
+	DEFAULT_RATING_IS_READONLY,
+	DEFAULT_RATING_IS_REQUIRED,
+	DEFAULT_RATING_IS_SUCCESS,
+	DEFAULT_RATING_IS_WARNING,
+	DEFAULT_RATING_SIZE
 } from '../constants';
 import type { RatingDirection, RatingHighlightMode, RatingIcons, RatingProps, RatingSize } from '../types';
 
@@ -36,17 +36,17 @@ const useRatingResponsiveValues = <Element extends PolymorphicElementType>(
 	props: UseRatingResponsiveValuesProps<Element>
 ) => {
 	const {
-		count: countProp = __DEFAULT_RATING_COUNT__,
-		direction: directionProp = __DEFAULT_RATING_DIRECTION__,
-		highlightMode: highlightModeProp = __DEFAULT_RATING_HIGHLIGHT_MODE__,
-		icons: iconsProp = __DEFAULT_RATING_ICONS__,
-		isDisabled: isDisabledProp = __DEFAULT_RATING_IS_DISABLED__,
-		isError: isErrorProp = __DEFAULT_RATING_IS_ERROR__,
-		isReadOnly: isReadOnlyProp = __DEFAULT_RATING_IS_READONLY__,
-		isRequired: isRequiredProp = __DEFAULT_RATING_IS_REQUIRED__,
-		isSuccess: isSuccessProp = __DEFAULT_RATING_IS_SUCCESS__,
-		isWarning: isWarningProp = __DEFAULT_RATING_IS_WARNING__,
-		size: sizeProp = __DEFAULT_RATING_SIZE__
+		count: countProp = DEFAULT_RATING_COUNT,
+		direction: directionProp = DEFAULT_RATING_DIRECTION,
+		highlightMode: highlightModeProp = DEFAULT_RATING_HIGHLIGHT_MODE,
+		icons: iconsProp = DEFAULT_RATING_ICONS,
+		isDisabled: isDisabledProp = DEFAULT_RATING_IS_DISABLED,
+		isError: isErrorProp = DEFAULT_RATING_IS_ERROR,
+		isReadOnly: isReadOnlyProp = DEFAULT_RATING_IS_READONLY,
+		isRequired: isRequiredProp = DEFAULT_RATING_IS_REQUIRED,
+		isSuccess: isSuccessProp = DEFAULT_RATING_IS_SUCCESS,
+		isWarning: isWarningProp = DEFAULT_RATING_IS_WARNING,
+		size: sizeProp = DEFAULT_RATING_SIZE
 	} = props;
 
 	const count = useGetResponsiveValue<number>(countProp);

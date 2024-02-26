@@ -1,10 +1,10 @@
 import { transparentize } from 'color2k';
 
-import { __DEFAULT_COLOR__ } from '@common/constants';
+import { DEFAULT_COLOR } from '@common/constants';
 import { useAppTheme, useGetColor } from '@common/hooks';
 import type { PolymorphicElementType, Style } from '@common/types';
 
-import { __DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT__, __DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND__ } from '../constants';
+import { DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT, DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND } from '../constants';
 import type { LoadingOverlayProps } from '../types';
 
 import useLoadingOverlayResponsiveValues from './useLoadingOverlayResponsiveValues';
@@ -18,13 +18,13 @@ type UseLoadingOverlayStylesReturn = Style;
 const useLoadingOverlayStyles = <Element extends PolymorphicElementType>(
 	props: UseLoadingOverlayStylesProps<Element>
 ): UseLoadingOverlayStylesReturn => {
-	const { colorMode: __DEFAULT_LOADING_OVERLAY_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_LOADING_OVERLAY_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_LOADING_OVERLAY_COLORMODE__,
-		backdropAmount: backdropAmountProp = __DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT__,
-		hasBackground: hasBackgroundProp = __DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND__
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_LOADING_OVERLAY_COLORMODE,
+		backdropAmount: backdropAmountProp = DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT,
+		hasBackground: hasBackgroundProp = DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND
 	} = props;
 
 	const { backdropAmount: amount, hasBackground } = useLoadingOverlayResponsiveValues<Element>({

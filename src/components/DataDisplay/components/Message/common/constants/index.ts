@@ -1,3 +1,1 @@
-import { __DEFAULT_MESSAGE_AS__, __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_VARIANT__ } from './props';
-
-export { __DEFAULT_MESSAGE_AS__, __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_VARIANT__ };
+export * from './props';

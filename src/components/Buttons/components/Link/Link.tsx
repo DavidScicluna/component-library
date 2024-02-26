@@ -2,19 +2,19 @@ import { forwardRef, useCallback } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 
 import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
-	__DEFAULT_LINK_AS__,
-	__DEFAULT_LINK_IS_DISABLED__,
-	__DEFAULT_LINK_IS_UNDERLINE__,
-	__DEFAULT_LINK_IS_UNSTYLED__
+	DEFAULT_LINK_AS,
+	DEFAULT_LINK_IS_DISABLED,
+	DEFAULT_LINK_IS_UNDERLINE,
+	DEFAULT_LINK_IS_UNSTYLED
 } from './common/constants';
 import { useLinkClasses, useLinkResponsiveValues } from './common/hooks';
-import { __KEYS_LINK_CLASS__ } from './common/keys';
+import { KEYS_LINK_CLASS } from './common/keys';
 import type { LinkElement, LinkMouseEvent, LinkProps, LinkRef } from './common/types';
 
 const Link = forwardRef(function Link<Element extends LinkElement>(
@@ -23,13 +23,13 @@ const Link = forwardRef(function Link<Element extends LinkElement>(
 ): JSX.Element {
 	const {
 		children,
-		as = __DEFAULT_LINK_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_LINK_AS,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		isDisabled: isDisabledProp = __DEFAULT_LINK_IS_DISABLED__,
-		isUnderline: isUnderlineProp = __DEFAULT_LINK_IS_UNDERLINE__,
-		isUnstyled: isUnstyledProp = __DEFAULT_LINK_IS_UNSTYLED__,
+		isDisabled: isDisabledProp = DEFAULT_LINK_IS_DISABLED,
+		isUnderline: isUnderlineProp = DEFAULT_LINK_IS_UNDERLINE,
+		isUnstyled: isUnstyledProp = DEFAULT_LINK_IS_UNSTYLED,
 		onClick,
 		...rest
 	} = props;
@@ -61,7 +61,7 @@ const Link = forwardRef(function Link<Element extends LinkElement>(
 			{...(rest as BoxProps<Element>)}
 			as={as}
 			ref={ref}
-			className={classNames(__KEYS_LINK_CLASS__, classes, { [className]: !!className })}
+			className={classNames(KEYS_LINK_CLASS, classes, { [className]: !!className })}
 			aria-disabled={isDisabled ? 'true' : 'false'}
 			onClick={handleClick}
 		>

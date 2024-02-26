@@ -5,7 +5,7 @@ import { getFontSizeHeight } from '@common/utils';
 
 import type { IconDefaultElement, IconProps } from '@components/DataDisplay';
 
-import { __DEFAULT_RATING_SIZE__ } from '../constants';
+import { DEFAULT_RATING_SIZE } from '../constants';
 import type { RatingProps } from '../types';
 
 import { useRatingResponsiveValues } from '.';
@@ -18,7 +18,7 @@ type UseRatingIconSizeReturn = RatingIconSize;
 const useRatingIconSize = <Element extends PolymorphicElementType>(
 	props: UseRatingIconSizeProps<Element>
 ): UseRatingIconSizeReturn => {
-	const { size: sizeProp = __DEFAULT_RATING_SIZE__ } = props;
+	const { size: sizeProp = DEFAULT_RATING_SIZE } = props;
 
 	const { size } = useRatingResponsiveValues<Element>({ size: sizeProp });
 

@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 
-import { __DEFAULT_METHOD__, __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_METHOD, DEFAULT_SPACING } from '@common/constants';
 
 import { ModalContext } from '../../Modal';
-import { __DEFAULT_MODAL_ID__, __DEFAULT_MODAL_IS_OPEN__, __DEFAULT_MODAL_SIZE__ } from '../constants';
+import { DEFAULT_MODAL_ID, DEFAULT_MODAL_IS_OPEN, DEFAULT_MODAL_SIZE } from '../constants';
 import type { ModalContext as ModalContextType, ModalElement } from '../types';
 
 import useModalResponsiveValues from './useModalResponsiveValues';
@@ -12,11 +12,11 @@ const useModalContext = <Element extends ModalElement>() => {
 	const {
 		color,
 		colorMode,
-		id = __DEFAULT_MODAL_ID__,
-		isOpen = __DEFAULT_MODAL_IS_OPEN__,
-		onClose = __DEFAULT_METHOD__,
-		spacing: spacingProp = __DEFAULT_SPACING__,
-		size: sizeProp = __DEFAULT_MODAL_SIZE__
+		id = DEFAULT_MODAL_ID,
+		isOpen = DEFAULT_MODAL_IS_OPEN,
+		onClose = DEFAULT_METHOD,
+		spacing: spacingProp = DEFAULT_SPACING,
+		size: sizeProp = DEFAULT_MODAL_SIZE
 	} = useContext<ModalContextType<Element>>(ModalContext);
 
 	const { size, spacing } = useModalResponsiveValues<Element>({ spacing: spacingProp, size: sizeProp });

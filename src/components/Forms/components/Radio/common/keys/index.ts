@@ -1,3 +1,3 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
-export const __KEYS_RADIO_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-radio`;
+export const KEYS_RADIO_CLASS = `${DEFAULT_CLASS_PREFIX}-radio`;

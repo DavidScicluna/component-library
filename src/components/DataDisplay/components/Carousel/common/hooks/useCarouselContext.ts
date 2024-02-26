@@ -1,15 +1,15 @@
 import { useContext } from 'react';
 
-import { __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_SPACING } from '@common/constants';
 
 import { CarouselContext } from '../../Carousel';
 import {
-	__DEFAULT_CAROUSEL_ID__,
-	__DEFAULT_CAROUSEL_ITEMS__,
-	__DEFAULT_CAROUSEL_ORIENTTATION__,
-	__DEFAULT_CAROUSEL_SCROLL_AMOUNT__,
-	__DEFAULT_CAROUSEL_VARIANT__,
-	__DEFAULT_CAROUSEL_VISIBLE_ITEMS__
+	DEFAULT_CAROUSEL_ID,
+	DEFAULT_CAROUSEL_ITEMS,
+	DEFAULT_CAROUSEL_ORIENTTATION,
+	DEFAULT_CAROUSEL_SCROLL_AMOUNT,
+	DEFAULT_CAROUSEL_VARIANT,
+	DEFAULT_CAROUSEL_VISIBLE_ITEMS
 } from '../constants';
 import type { CarouselContext as CarouselContextType, CarouselElement } from '../types';
 
@@ -19,13 +19,13 @@ const useCarouselContext = <Element extends CarouselElement>() => {
 	const {
 		color,
 		colorMode,
-		id = __DEFAULT_CAROUSEL_ID__,
-		items = __DEFAULT_CAROUSEL_ITEMS__,
-		visibleItems = __DEFAULT_CAROUSEL_VISIBLE_ITEMS__,
-		scrollAmount: scrollAmountProp = __DEFAULT_CAROUSEL_SCROLL_AMOUNT__,
-		spacing: spacingProp = __DEFAULT_SPACING__,
-		orientation: orientationProp = __DEFAULT_CAROUSEL_ORIENTTATION__,
-		variant: variantProp = __DEFAULT_CAROUSEL_VARIANT__
+		id = DEFAULT_CAROUSEL_ID,
+		items = DEFAULT_CAROUSEL_ITEMS,
+		visibleItems = DEFAULT_CAROUSEL_VISIBLE_ITEMS,
+		scrollAmount: scrollAmountProp = DEFAULT_CAROUSEL_SCROLL_AMOUNT,
+		spacing: spacingProp = DEFAULT_SPACING,
+		orientation: orientationProp = DEFAULT_CAROUSEL_ORIENTTATION,
+		variant: variantProp = DEFAULT_CAROUSEL_VARIANT
 	} = useContext<CarouselContextType<Element>>(CarouselContext);
 
 	const { scrollAmount, spacing, orientation, variant } = useCarouselResponsiveValues<Element>({

@@ -1,16 +1,16 @@
 import { useGetResponsiveValue } from '@common/hooks';
 
 import {
-	__DEFAULT_BUTTON_IS_ACTIVE__,
-	__DEFAULT_BUTTON_IS_COMPACT__,
-	__DEFAULT_BUTTON_IS_DISABLED__,
-	__DEFAULT_BUTTON_IS_FOCUSED__,
-	__DEFAULT_BUTTON_IS_FULLWIDTH__,
-	__DEFAULT_BUTTON_IS_LOADING__,
-	__DEFAULT_BUTTON_IS_OUTLINED__,
-	__DEFAULT_BUTTON_IS_ROUND__,
-	__DEFAULT_BUTTON_SIZE__,
-	__DEFAULT_BUTTON_VARIANT__
+	DEFAULT_BUTTON_IS_ACTIVE,
+	DEFAULT_BUTTON_IS_COMPACT,
+	DEFAULT_BUTTON_IS_DISABLED,
+	DEFAULT_BUTTON_IS_FOCUSED,
+	DEFAULT_BUTTON_IS_FULLWIDTH,
+	DEFAULT_BUTTON_IS_LOADING,
+	DEFAULT_BUTTON_IS_OUTLINED,
+	DEFAULT_BUTTON_IS_ROUND,
+	DEFAULT_BUTTON_SIZE,
+	DEFAULT_BUTTON_VARIANT
 } from '../constants';
 import type { ButtonElement, ButtonProps, ButtonSize, ButtonVariant } from '../types';
 
@@ -31,16 +31,16 @@ type UseButtonResponsiveValuesProps<Element extends ButtonElement> = Partial<
 
 const useButtonResponsiveValues = <Element extends ButtonElement>(props: UseButtonResponsiveValuesProps<Element>) => {
 	const {
-		isActive: isActiveProp = __DEFAULT_BUTTON_IS_ACTIVE__,
-		isCompact: isCompactProp = __DEFAULT_BUTTON_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_BUTTON_IS_DISABLED__,
-		isFocused: isFocusedProp = __DEFAULT_BUTTON_IS_FOCUSED__,
-		isFullWidth: isFullWidthProp = __DEFAULT_BUTTON_IS_FULLWIDTH__,
-		isLoading: isLoadingProp = __DEFAULT_BUTTON_IS_LOADING__,
-		isRound: isRoundProp = __DEFAULT_BUTTON_IS_ROUND__,
-		isOutlined: isOutlinedProp = __DEFAULT_BUTTON_IS_OUTLINED__,
-		size: sizeProp = __DEFAULT_BUTTON_SIZE__,
-		variant: variantProp = __DEFAULT_BUTTON_VARIANT__
+		isActive: isActiveProp = DEFAULT_BUTTON_IS_ACTIVE,
+		isCompact: isCompactProp = DEFAULT_BUTTON_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_BUTTON_IS_DISABLED,
+		isFocused: isFocusedProp = DEFAULT_BUTTON_IS_FOCUSED,
+		isFullWidth: isFullWidthProp = DEFAULT_BUTTON_IS_FULLWIDTH,
+		isLoading: isLoadingProp = DEFAULT_BUTTON_IS_LOADING,
+		isRound: isRoundProp = DEFAULT_BUTTON_IS_ROUND,
+		isOutlined: isOutlinedProp = DEFAULT_BUTTON_IS_OUTLINED,
+		size: sizeProp = DEFAULT_BUTTON_SIZE,
+		variant: variantProp = DEFAULT_BUTTON_VARIANT
 	} = props;
 
 	const isActive = useGetResponsiveValue<boolean>(isActiveProp);

@@ -1,3 +1,1 @@
-import { __DEFAULT_ALERT_ICON_AS__, __DEFAULT_ALERT_ICON_VARIANT__ } from './props';
-
-export { __DEFAULT_ALERT_ICON_AS__, __DEFAULT_ALERT_ICON_VARIANT__ };
+export * from './props';

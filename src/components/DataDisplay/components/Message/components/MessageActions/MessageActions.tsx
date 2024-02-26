@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useMediaQuery } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
 
@@ -11,7 +11,7 @@ import { Stack } from '@components/Layout';
 
 import { useMessageContext } from '../../common/hooks';
 
-import { __KEYS_MESSAGE_ACTIONS_CLASS__ } from './common/keys';
+import { KEYS_MESSAGE_ACTIONS_CLASS } from './common/keys';
 import type { MessageActionsProps, MessageActionsRef } from './common/types';
 
 const MessageActions = forwardRef(function MessageActions<Element extends PolymorphicElementType>(
@@ -20,15 +20,15 @@ const MessageActions = forwardRef(function MessageActions<Element extends Polymo
 ): JSX.Element {
 	const isSm = useMediaQuery({ breakpoint: 'sm', type: 'width', direction: 'max' });
 
-	const { color, colorMode, spacing: __DEFAULT_MESSAGE_ACTIONS_SPACING__ } = useMessageContext();
+	const { color, colorMode, spacing: DEFAULT_MESSAGE_ACTIONS_SPACING } = useMessageContext();
 
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		direction = isSm ? 'column-reverse' : 'row',
 		alignItems = 'center',
 		justifyContent = isSm ? 'center' : 'space-between',
-		spacing = __DEFAULT_MESSAGE_ACTIONS_SPACING__,
+		spacing = DEFAULT_MESSAGE_ACTIONS_SPACING,
 		...rest
 	} = props;
 
@@ -36,7 +36,7 @@ const MessageActions = forwardRef(function MessageActions<Element extends Polymo
 		<Stack
 			{...(rest as StackProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_MESSAGE_ACTIONS_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_MESSAGE_ACTIONS_CLASS, { [className]: !!className })}
 			direction={direction}
 			alignItems={alignItems}
 			justifyContent={justifyContent}

@@ -19,7 +19,7 @@ import {
 } from '@floating-ui/react';
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_RADIUS } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
@@ -28,17 +28,17 @@ import type { BoxProps, BoxRef } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
-	__DEFAULT_POPPER_CLOSE_DELAY__,
-	__DEFAULT_POPPER_CLOSE_ON_CLICK_OUTSIDE__,
-	__DEFAULT_POPPER_CLOSE_ON_ESC__,
-	__DEFAULT_POPPER_GUTTER__,
-	__DEFAULT_POPPER_IS_DISABLED__,
-	__DEFAULT_POPPER_IS_OPEN__,
-	__DEFAULT_POPPER_OPEN_DELAY__,
-	__DEFAULT_POPPER_PLACEMENT__
+	DEFAULT_POPPER_CLOSE_DELAY,
+	DEFAULT_POPPER_CLOSE_ON_CLICK_OUTSIDE,
+	DEFAULT_POPPER_CLOSE_ON_ESC,
+	DEFAULT_POPPER_GUTTER,
+	DEFAULT_POPPER_IS_DISABLED,
+	DEFAULT_POPPER_IS_OPEN,
+	DEFAULT_POPPER_OPEN_DELAY,
+	DEFAULT_POPPER_PLACEMENT
 } from './common/constants';
 import { usePopperClasses, usePopperResponsiveValues } from './common/hooks';
-import { __KEYS_POPPER_CLASS__ } from './common/keys';
+import { KEYS_POPPER_CLASS } from './common/keys';
 import type { PopperProps, PopperRef } from './common/types';
 
 const Popper = forwardRef(function Popper<Element extends PolymorphicElementType>(
@@ -52,22 +52,22 @@ const Popper = forwardRef(function Popper<Element extends PolymorphicElementType
 		renderTrigger,
 		color,
 		colorMode,
-		className = __DEFAULT_CLASSNAME__,
-		closeDelay: closeDelayProp = __DEFAULT_POPPER_CLOSE_DELAY__,
-		openDelay: openDelayProp = __DEFAULT_POPPER_OPEN_DELAY__,
-		closeOnClickOutside: closeOnClickOutsideProp = __DEFAULT_POPPER_CLOSE_ON_CLICK_OUTSIDE__,
-		closeOnEsc: closeOnEscProp = __DEFAULT_POPPER_CLOSE_ON_ESC__,
-		gutter: gutterProp = __DEFAULT_POPPER_GUTTER__,
-		isDisabled: isDisabledProp = __DEFAULT_POPPER_IS_DISABLED__,
+		className = DEFAULT_CLASSNAME,
+		closeDelay: closeDelayProp = DEFAULT_POPPER_CLOSE_DELAY,
+		openDelay: openDelayProp = DEFAULT_POPPER_OPEN_DELAY,
+		closeOnClickOutside: closeOnClickOutsideProp = DEFAULT_POPPER_CLOSE_ON_CLICK_OUTSIDE,
+		closeOnEsc: closeOnEscProp = DEFAULT_POPPER_CLOSE_ON_ESC,
+		gutter: gutterProp = DEFAULT_POPPER_GUTTER,
+		isDisabled: isDisabledProp = DEFAULT_POPPER_IS_DISABLED,
 		onClose,
 		onCloseComplete,
 		onOpen,
-		placement: placementProp = __DEFAULT_POPPER_PLACEMENT__,
-		radius: radiusProp = __DEFAULT_RADIUS__,
+		placement: placementProp = DEFAULT_POPPER_PLACEMENT,
+		radius: radiusProp = DEFAULT_RADIUS,
 		...rest
 	} = props;
 
-	const [isOpen, setIsOpen] = useBoolean(__DEFAULT_POPPER_IS_OPEN__);
+	const [isOpen, setIsOpen] = useBoolean(DEFAULT_POPPER_IS_OPEN);
 
 	const { closeDelay, openDelay, closeOnClickOutside, closeOnEsc, gutter, isDisabled, placement, radius } =
 		usePopperResponsiveValues<Element>({
@@ -141,7 +141,7 @@ const Popper = forwardRef(function Popper<Element extends PolymorphicElementType
 						{...(rest as BoxProps<Element>)}
 						{...getFloatingProps()}
 						ref={refss}
-						className={classNames(__KEYS_POPPER_CLASS__, classes.popper, { [className]: !!className })}
+						className={classNames(KEYS_POPPER_CLASS, classes.popper, { [className]: !!className })}
 						style={floatingStyles}
 					>
 						<FloatingArrow ref={arrowRef as any} className={classes.arrow} context={context} />

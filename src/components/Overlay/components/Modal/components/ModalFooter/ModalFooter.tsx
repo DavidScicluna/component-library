@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useMediaQuery } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
 
@@ -11,7 +11,7 @@ import { Stack } from '@components/Layout';
 
 import { useModalContext } from '../../common/hooks';
 
-import { __KEYS_MODAL_FOOTER_CLASS__ } from './common/keys';
+import { KEYS_MODAL_FOOTER_CLASS } from './common/keys';
 import type { ModalFooterProps, ModalFooterRef } from './common/types';
 
 const ModalFooter = forwardRef(function ModalFooter<Element extends PolymorphicElementType>(
@@ -20,16 +20,16 @@ const ModalFooter = forwardRef(function ModalFooter<Element extends PolymorphicE
 ): JSX.Element {
 	const isSm = useMediaQuery({ breakpoint: 'sm', type: 'width', direction: 'max' });
 
-	const { color, colorMode, onClose, spacing: __DEFAULT_MODAL_FOOTER_SPACING__ } = useModalContext();
+	const { color, colorMode, onClose, spacing: DEFAULT_MODAL_FOOTER_SPACING } = useModalContext();
 
 	const {
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		renderCancel,
 		renderAction,
 		direction = isSm ? 'column-reverse' : 'row',
 		alignItems = 'center',
 		justifyContent = isSm ? 'center' : 'space-between',
-		spacing = __DEFAULT_MODAL_FOOTER_SPACING__,
+		spacing = DEFAULT_MODAL_FOOTER_SPACING,
 		...rest
 	} = props;
 
@@ -37,7 +37,7 @@ const ModalFooter = forwardRef(function ModalFooter<Element extends PolymorphicE
 		<Stack
 			{...(rest as StackProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_MODAL_FOOTER_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_MODAL_FOOTER_CLASS, { [className]: !!className })}
 			w='100%'
 			h='100%'
 			direction={direction}

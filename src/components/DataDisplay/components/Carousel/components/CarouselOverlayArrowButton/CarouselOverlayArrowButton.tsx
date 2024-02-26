@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import { Transition } from '@components/Animation';
@@ -14,11 +14,11 @@ import type { CarouselArrowButtonProps } from '..';
 import { CarouselArrowButton } from '..';
 
 import {
-	__DEFAULT_CAROUSEL_OVERLAY_ARROW_BUTTON_AS__,
-	__DEFAULT_CAROUSEL_OVERLAY_ARROW_BUTTON_IS_VISIBLE__
+	DEFAULT_CAROUSEL_OVERLAY_ARROW_BUTTON_AS,
+	DEFAULT_CAROUSEL_OVERLAY_ARROW_BUTTON_IS_VISIBLE
 } from './common/constants';
 import { useCarouselOverlayArrowButtonResponsiveValues } from './common/hooks';
-import { __KEYS_CAROUSEL_OVERLAY_ARROW_BUTTON_CLASS__ } from './common/keys';
+import { KEYS_CAROUSEL_OVERLAY_ARROW_BUTTON_CLASS } from './common/keys';
 import type {
 	CarouselOverlayArrowButtonElement,
 	CarouselOverlayArrowButtonProps,
@@ -31,12 +31,12 @@ const CarouselOverlayArrowButton = forwardRef(function CarouselOverlayArrowButto
 	const { colorMode, spacing, orientation } = useCarouselContext();
 
 	const {
-		as = __DEFAULT_CAROUSEL_OVERLAY_ARROW_BUTTON_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_CAROUSEL_OVERLAY_ARROW_BUTTON_AS,
+		className = DEFAULT_CLASSNAME,
 		renderLeftLinearGradient,
 		renderRightLinearGradient,
 		direction: directionProp,
-		isVisible: isVisibleProp = __DEFAULT_CAROUSEL_OVERLAY_ARROW_BUTTON_IS_VISIBLE__,
+		isVisible: isVisibleProp = DEFAULT_CAROUSEL_OVERLAY_ARROW_BUTTON_IS_VISIBLE,
 		...rest
 	} = props;
 
@@ -89,7 +89,7 @@ const CarouselOverlayArrowButton = forwardRef(function CarouselOverlayArrowButto
 							{...(rest as CarouselArrowButtonProps<Element>)}
 							as={as}
 							ref={ref}
-							className={classNames(__KEYS_CAROUSEL_OVERLAY_ARROW_BUTTON_CLASS__, {
+							className={classNames(KEYS_CAROUSEL_OVERLAY_ARROW_BUTTON_CLASS, {
 								[className]: !!className
 							})}
 							direction={direction === 'left' ? 'left' : 'right'}

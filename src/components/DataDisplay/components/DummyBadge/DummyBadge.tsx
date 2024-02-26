@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useDimensionsRef } from 'rooks';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicDefaultElement } from '@common/types';
 
 import type { CenterRef } from '@components/Layout';
@@ -13,18 +13,18 @@ import type { DummyPushableOverlayProps } from '@components/Overlay';
 import { DummyPushableOverlay } from '@components/Overlay';
 
 import {
-	__DEFAULT_DUMMY_BADGE_AS__,
-	__DEFAULT_DUMMY_BADGE_IS_ANIMATED__,
-	__DEFAULT_DUMMY_BADGE_IS_COMPACT__,
-	__DEFAULT_DUMMY_BADGE_IS_FULLWIDTH__,
-	__DEFAULT_DUMMY_BADGE_IS_OUTLINED__,
-	__DEFAULT_DUMMY_BADGE_IS_ROUND__,
-	__DEFAULT_DUMMY_BADGE_IS_UPPERCASE__,
-	__DEFAULT_DUMMY_BADGE_SIZE__,
-	__DEFAULT_DUMMY_BADGE_VARIANT__
+	DEFAULT_DUMMY_BADGE_AS,
+	DEFAULT_DUMMY_BADGE_IS_ANIMATED,
+	DEFAULT_DUMMY_BADGE_IS_COMPACT,
+	DEFAULT_DUMMY_BADGE_IS_FULLWIDTH,
+	DEFAULT_DUMMY_BADGE_IS_OUTLINED,
+	DEFAULT_DUMMY_BADGE_IS_ROUND,
+	DEFAULT_DUMMY_BADGE_IS_UPPERCASE,
+	DEFAULT_DUMMY_BADGE_SIZE,
+	DEFAULT_DUMMY_BADGE_VARIANT
 } from './common/constants';
 import { useDummyBadgeClasses, useDummyBadgeResponsiveValues, useDummyBadgeSizeConfig } from './common/hooks';
-import { __KEYS_DUMMY_BADGE_CLASS__ } from './common/keys';
+import { KEYS_DUMMY_BADGE_CLASS } from './common/keys';
 import type {
 	DummyBadgeContext as DummyBadgeContextType,
 	DummyBadgeDefaultElement,
@@ -35,8 +35,8 @@ import type {
 import { DummyBadgeSkeleton } from './components';
 
 export const DummyBadgeContext = createContext<DummyBadgeContextType<DummyBadgeDefaultElement>>({
-	size: __DEFAULT_DUMMY_BADGE_SIZE__,
-	variant: __DEFAULT_DUMMY_BADGE_VARIANT__
+	size: DEFAULT_DUMMY_BADGE_SIZE,
+	variant: DEFAULT_DUMMY_BADGE_VARIANT
 });
 
 const DummyBadge = forwardRef(function DummyBadge<Element extends DummyBadgeElement>(
@@ -48,21 +48,21 @@ const DummyBadge = forwardRef(function DummyBadge<Element extends DummyBadgeElem
 
 	const {
 		children,
-		as = __DEFAULT_DUMMY_BADGE_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_DUMMY_BADGE_AS,
+		className = DEFAULT_CLASSNAME,
 		renderLeft,
 		renderRight,
 		renderAction,
 		color,
 		colorMode,
-		isAnimated: isAnimatedProp = __DEFAULT_DUMMY_BADGE_IS_ANIMATED__,
-		isCompact: isCompactProp = __DEFAULT_DUMMY_BADGE_IS_COMPACT__,
-		isFullWidth: isFullWidthProp = __DEFAULT_DUMMY_BADGE_IS_FULLWIDTH__,
-		isOutlined: isOutlinedProp = __DEFAULT_DUMMY_BADGE_IS_OUTLINED__,
-		isRound: isRoundProp = __DEFAULT_DUMMY_BADGE_IS_ROUND__,
-		isUppercase: isUppercaseProp = __DEFAULT_DUMMY_BADGE_IS_UPPERCASE__,
-		size: sizeProp = __DEFAULT_DUMMY_BADGE_SIZE__,
-		variant: variantProp = __DEFAULT_DUMMY_BADGE_VARIANT__,
+		isAnimated: isAnimatedProp = DEFAULT_DUMMY_BADGE_IS_ANIMATED,
+		isCompact: isCompactProp = DEFAULT_DUMMY_BADGE_IS_COMPACT,
+		isFullWidth: isFullWidthProp = DEFAULT_DUMMY_BADGE_IS_FULLWIDTH,
+		isOutlined: isOutlinedProp = DEFAULT_DUMMY_BADGE_IS_OUTLINED,
+		isRound: isRoundProp = DEFAULT_DUMMY_BADGE_IS_ROUND,
+		isUppercase: isUppercaseProp = DEFAULT_DUMMY_BADGE_IS_UPPERCASE,
+		size: sizeProp = DEFAULT_DUMMY_BADGE_SIZE,
+		variant: variantProp = DEFAULT_DUMMY_BADGE_VARIANT,
 		...rest
 	} = props;
 
@@ -88,7 +88,7 @@ const DummyBadge = forwardRef(function DummyBadge<Element extends DummyBadgeElem
 				{...(rest as DummyPushableOverlayProps<Element>)}
 				as={as}
 				ref={ref}
-				className={classNames(__KEYS_DUMMY_BADGE_CLASS__, classes, { [className]: !!className })}
+				className={classNames(KEYS_DUMMY_BADGE_CLASS, classes, { [className]: !!className })}
 				color={color}
 				colorMode={colorMode}
 				radius={config.radius}

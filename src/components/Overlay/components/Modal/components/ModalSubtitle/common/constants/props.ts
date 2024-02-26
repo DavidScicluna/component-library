@@ -1,3 +1,3 @@
 import type { ModalSubtitleDefaultElement } from '../types';
 
-export const __DEFAULT_MODAL_SUBTITLE_AS__: ModalSubtitleDefaultElement = 'p';
+export const DEFAULT_MODAL_SUBTITLE_AS: ModalSubtitleDefaultElement = 'p';

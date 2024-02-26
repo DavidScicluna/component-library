@@ -2,19 +2,19 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
-	__DEFAULT_GRID_ITEM_ALIGN_SELF__,
-	__DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
-	__DEFAULT_GRID_ITEM_Z_INDEX__
+	DEFAULT_GRID_ITEM_ALIGN_SELF,
+	DEFAULT_GRID_ITEM_JUSTIFY_SELF,
+	DEFAULT_GRID_ITEM_Z_INDEX
 } from './common/constants';
 import { useGridItemClasses, useGridItemResponsiveValues } from './common/hooks';
-import { __KEYS_GRID_ITEM_CLASS__ } from './common/keys';
+import { KEYS_GRID_ITEM_CLASS } from './common/keys';
 import type { GridItemProps, GridItemRef } from './common/types';
 
 const GridItem = forwardRef(function Grid<Element extends PolymorphicElementType>(
@@ -23,16 +23,16 @@ const GridItem = forwardRef(function Grid<Element extends PolymorphicElementType
 ): JSX.Element {
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
-		alignSelf: alignSelfProp = __DEFAULT_GRID_ITEM_ALIGN_SELF__,
+		className = DEFAULT_CLASSNAME,
+		alignSelf: alignSelfProp = DEFAULT_GRID_ITEM_ALIGN_SELF,
 		columnSpan: columnSpanProp,
 		columnStart: columnStartProp,
 		columnEnd: columnEndProp,
-		justifySelf: justifySelfProp = __DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
+		justifySelf: justifySelfProp = DEFAULT_GRID_ITEM_JUSTIFY_SELF,
 		rowSpan: rowSpanProp,
 		rowStart: rowStartProp,
 		rowEnd: rowEndProp,
-		zIndex: zIndexProp = __DEFAULT_GRID_ITEM_Z_INDEX__,
+		zIndex: zIndexProp = DEFAULT_GRID_ITEM_Z_INDEX,
 		...rest
 	} = props;
 
@@ -65,7 +65,7 @@ const GridItem = forwardRef(function Grid<Element extends PolymorphicElementType
 		<Box
 			{...(rest as BoxProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_GRID_ITEM_CLASS__, classes, { [className]: !!className })}
+			className={classNames(KEYS_GRID_ITEM_CLASS, classes, { [className]: !!className })}
 		>
 			{children}
 		</Box>

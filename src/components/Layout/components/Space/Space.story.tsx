@@ -7,7 +7,7 @@ import { useStorybookContext } from '../../../Provider/components/StorybookProvi
 
 import { Center } from '../Center';
 
-import { __DEFAULT_SPACE_HEIGHT__, __DEFAULT_SPACE_WIDTH__ } from './common/constants';
+import { DEFAULT_SPACE_HEIGHT, DEFAULT_SPACE_WIDTH } from './common/constants';
 import type { SpaceProps } from './common/types';
 import type { SpaceStory, SpaceStoryMeta } from './common/types/story';
 import { Space as SpaceComponent } from '.';
@@ -22,14 +22,14 @@ export default {
 		width: {
 			name: 'Width',
 			type: 'number',
-			defaultValue: __DEFAULT_SPACE_WIDTH__,
+			defaultValue: DEFAULT_SPACE_WIDTH,
 			// description: '',
 			control: { type: 'number' }
 		},
 		height: {
 			name: 'Height',
 			type: 'number',
-			defaultValue: __DEFAULT_SPACE_HEIGHT__,
+			defaultValue: DEFAULT_SPACE_HEIGHT,
 			// description: '',
 			control: { type: 'number' }
 		}

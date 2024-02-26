@@ -5,7 +5,7 @@ import { compact, merge } from 'lodash-es';
 import { useDimensionsRef, useFocus, useMergeRefs } from 'rooks';
 import { useUpdateEffect } from 'usehooks-ts';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 import { useBoolean, useDebounce } from '@common/hooks';
 import type { PolymorphicDefaultElement, PolymorphicElement } from '@common/types';
 
@@ -21,25 +21,25 @@ import { getFormDescriptionID } from '../FormDescription/common/utils';
 import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
-	__DEFAULT_SEARCH_INPUT_AS__,
-	__DEFAULT_SEARCH_INPUT_ID__,
-	__DEFAULT_SEARCH_INPUT_INITIAL_QUERY__,
-	__DEFAULT_SEARCH_INPUT_IS_COMPACT__,
-	__DEFAULT_SEARCH_INPUT_IS_DISABLED__,
-	__DEFAULT_SEARCH_INPUT_IS_ERROR__,
-	__DEFAULT_SEARCH_INPUT_IS_FOCUSED__,
-	__DEFAULT_SEARCH_INPUT_IS_FULLWIDTH__,
-	__DEFAULT_SEARCH_INPUT_IS_OUTLINED__,
-	__DEFAULT_SEARCH_INPUT_IS_READONLY__,
-	__DEFAULT_SEARCH_INPUT_IS_REQUIRED__,
-	__DEFAULT_SEARCH_INPUT_IS_SUCCESS__,
-	__DEFAULT_SEARCH_INPUT_IS_WARNING__,
-	__DEFAULT_SEARCH_INPUT_SIZE__,
-	__DEFAULT_SEARCH_INPUT_TYPE__,
-	__DEFAULT_SEARCH_INPUT_VARIANT__
+	DEFAULT_SEARCH_INPUT_AS,
+	DEFAULT_SEARCH_INPUT_ID,
+	DEFAULT_SEARCH_INPUT_INITIAL_QUERY,
+	DEFAULT_SEARCH_INPUT_IS_COMPACT,
+	DEFAULT_SEARCH_INPUT_IS_DISABLED,
+	DEFAULT_SEARCH_INPUT_IS_ERROR,
+	DEFAULT_SEARCH_INPUT_IS_FOCUSED,
+	DEFAULT_SEARCH_INPUT_IS_FULLWIDTH,
+	DEFAULT_SEARCH_INPUT_IS_OUTLINED,
+	DEFAULT_SEARCH_INPUT_IS_READONLY,
+	DEFAULT_SEARCH_INPUT_IS_REQUIRED,
+	DEFAULT_SEARCH_INPUT_IS_SUCCESS,
+	DEFAULT_SEARCH_INPUT_IS_WARNING,
+	DEFAULT_SEARCH_INPUT_SIZE,
+	DEFAULT_SEARCH_INPUT_TYPE,
+	DEFAULT_SEARCH_INPUT_VARIANT
 } from './common/constants';
 import { useSearchInputResponsiveValues } from './common/hooks';
-import { __KEYS_SEARCH_INPUT_CLASS__ } from './common/keys';
+import { KEYS_SEARCH_INPUT_CLASS } from './common/keys';
 import type {
 	SearchInputElement,
 	SearchInputFocusEvent,
@@ -59,52 +59,52 @@ const SearchInput = forwardRef(function SearchInput<Element extends SearchInputE
 	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
 
 	const {
-		color: __DEFAULT_FORM_CONTROL_COLOR__,
-		colorMode: __DEFAULT_FORM_CONTROL_COLORMODE__,
-		id: __DEFAULT_FORM_CONTROL_ID__ = __DEFAULT_SEARCH_INPUT_ID__,
+		color: DEFAULT_FORM_CONTROL_COLOR,
+		colorMode: DEFAULT_FORM_CONTROL_COLORMODE,
+		id: DEFAULT_FORM_CONTROL_ID = DEFAULT_SEARCH_INPUT_ID,
 		hasFormControl,
-		isDisabled: __DEFAULT_FORM_CONTROL_IS_DISABLED__ = __DEFAULT_SEARCH_INPUT_IS_DISABLED__,
-		isError: __DEFAULT_FORM_CONTROL_IS_ERROR__ = __DEFAULT_SEARCH_INPUT_IS_ERROR__,
-		isFocused: __DEFAULT_FORM_CONTROL_IS_FOCUSED__ = __DEFAULT_SEARCH_INPUT_IS_FOCUSED__,
-		isReadOnly: __DEFAULT_FORM_CONTROL_IS_READONLY__ = __DEFAULT_SEARCH_INPUT_IS_READONLY__,
-		isRequired: __DEFAULT_FORM_CONTROL_IS_REQUIRED__ = __DEFAULT_SEARCH_INPUT_IS_REQUIRED__,
-		isSuccess: __DEFAULT_FORM_CONTROL_IS_SUCCESS__ = __DEFAULT_SEARCH_INPUT_IS_SUCCESS__,
-		isWarning: __DEFAULT_FORM_CONTROL_IS_WARNING__ = __DEFAULT_SEARCH_INPUT_IS_WARNING__,
-		size: __DEFAULT_FORM_CONTROL_SIZE__ = __DEFAULT_SEARCH_INPUT_SIZE__
+		isDisabled: DEFAULT_FORM_CONTROL_IS_DISABLED = DEFAULT_SEARCH_INPUT_IS_DISABLED,
+		isError: DEFAULT_FORM_CONTROL_IS_ERROR = DEFAULT_SEARCH_INPUT_IS_ERROR,
+		isFocused: DEFAULT_FORM_CONTROL_IS_FOCUSED = DEFAULT_SEARCH_INPUT_IS_FOCUSED,
+		isReadOnly: DEFAULT_FORM_CONTROL_IS_READONLY = DEFAULT_SEARCH_INPUT_IS_READONLY,
+		isRequired: DEFAULT_FORM_CONTROL_IS_REQUIRED = DEFAULT_SEARCH_INPUT_IS_REQUIRED,
+		isSuccess: DEFAULT_FORM_CONTROL_IS_SUCCESS = DEFAULT_SEARCH_INPUT_IS_SUCCESS,
+		isWarning: DEFAULT_FORM_CONTROL_IS_WARNING = DEFAULT_SEARCH_INPUT_IS_WARNING,
+		size: DEFAULT_FORM_CONTROL_SIZE = DEFAULT_SEARCH_INPUT_SIZE
 	} = useFormControlContext();
 
 	const {
-		as = __DEFAULT_SEARCH_INPUT_AS__,
-		id = __DEFAULT_FORM_CONTROL_ID__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_SEARCH_INPUT_AS,
+		id = DEFAULT_FORM_CONTROL_ID,
+		className = DEFAULT_CLASSNAME,
 		renderClear,
 		renderSubmit,
 		renderLeft,
 		renderRight,
-		color = __DEFAULT_FORM_CONTROL_COLOR__,
-		colorMode = __DEFAULT_FORM_CONTROL_COLORMODE__,
+		color = DEFAULT_FORM_CONTROL_COLOR,
+		colorMode = DEFAULT_FORM_CONTROL_COLORMODE,
 		placeholder,
-		isCompact: isCompactProp = __DEFAULT_SEARCH_INPUT_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
-		isFullWidth: isFullWidthProp = __DEFAULT_SEARCH_INPUT_IS_FULLWIDTH__,
-		isError: isErrorProp = __DEFAULT_FORM_CONTROL_IS_ERROR__,
-		isFocused: isFocusedProp = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
-		isOutlined: isOutlinedProp = __DEFAULT_SEARCH_INPUT_IS_OUTLINED__,
-		isReadOnly: isReadOnlyProp = __DEFAULT_FORM_CONTROL_IS_READONLY__,
-		isRequired: isRequiredProp = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
-		isSuccess: isSuccessProp = __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
-		isWarning: isWarningProp = __DEFAULT_FORM_CONTROL_IS_WARNING__,
-		type = __DEFAULT_SEARCH_INPUT_TYPE__,
-		initialQuery: initialQueryProp = __DEFAULT_SEARCH_INPUT_INITIAL_QUERY__,
+		isCompact: isCompactProp = DEFAULT_SEARCH_INPUT_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_FORM_CONTROL_IS_DISABLED,
+		isFullWidth: isFullWidthProp = DEFAULT_SEARCH_INPUT_IS_FULLWIDTH,
+		isError: isErrorProp = DEFAULT_FORM_CONTROL_IS_ERROR,
+		isFocused: isFocusedProp = DEFAULT_FORM_CONTROL_IS_FOCUSED,
+		isOutlined: isOutlinedProp = DEFAULT_SEARCH_INPUT_IS_OUTLINED,
+		isReadOnly: isReadOnlyProp = DEFAULT_FORM_CONTROL_IS_READONLY,
+		isRequired: isRequiredProp = DEFAULT_FORM_CONTROL_IS_REQUIRED,
+		isSuccess: isSuccessProp = DEFAULT_FORM_CONTROL_IS_SUCCESS,
+		isWarning: isWarningProp = DEFAULT_FORM_CONTROL_IS_WARNING,
+		type = DEFAULT_SEARCH_INPUT_TYPE,
+		initialQuery: initialQueryProp = DEFAULT_SEARCH_INPUT_INITIAL_QUERY,
 		onClear,
 		onFilter,
 		onSubmit,
 		onClick,
 		onFocus,
 		onBlur,
-		size: sizeProp = __DEFAULT_FORM_CONTROL_SIZE__,
-		variant: variantProp = __DEFAULT_SEARCH_INPUT_VARIANT__,
-		sx = __DEFAULT_POLYMORPHIC_SX__,
+		size: sizeProp = DEFAULT_FORM_CONTROL_SIZE,
+		variant: variantProp = DEFAULT_SEARCH_INPUT_VARIANT,
+		sx = DEFAULT_POLYMORPHIC_SX,
 		...rest
 	} = props;
 
@@ -260,7 +260,7 @@ const SearchInput = forwardRef(function SearchInput<Element extends SearchInputE
 	return (
 		<Grid
 			{...focusProps}
-			className={classNames(__KEYS_SEARCH_INPUT_CLASS__, classes.container, { [className]: !!className })}
+			className={classNames(KEYS_SEARCH_INPUT_CLASS, classes.container, { [className]: !!className })}
 			w={hasFormControl || isFullWidth ? '100%' : undefined}
 			h={hasFormControl ? '100%' : undefined}
 			templateColumns={compact(['1fr', renderSubmit && onSubmit ? 'auto' : null]).join(' ')}

@@ -1,4 +1,4 @@
-import { __DEFAULT_SPACING__ } from '../../../../common/constants';
+import { DEFAULT_SPACING } from '../../../../common/constants';
 import { useGetColor } from '../../../../common/hooks';
 import type { ThemeRadiusArr } from '../../../../common/types';
 
@@ -8,16 +8,16 @@ import React from 'react';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
-	__DEFAULT_CARD_IS_ACTIVE__,
-	__DEFAULT_CARD_IS_CLICKABLE__,
-	__DEFAULT_CARD_IS_COLLAPSABLE__,
-	__DEFAULT_CARD_IS_DISABLED__,
-	__DEFAULT_CARD_IS_DIVISIBLE__,
-	__DEFAULT_CARD_IS_FIXED__,
-	__DEFAULT_CARD_IS_OPEN__,
-	__DEFAULT_CARD_IS_OUTLINED__,
-	__DEFAULT_CARD_RADIUS__,
-	__DEFAULT_CARD_VARIANT__
+	DEFAULT_CARD_IS_ACTIVE,
+	DEFAULT_CARD_IS_CLICKABLE,
+	DEFAULT_CARD_IS_COLLAPSABLE,
+	DEFAULT_CARD_IS_DISABLED,
+	DEFAULT_CARD_IS_DIVISIBLE,
+	DEFAULT_CARD_IS_FIXED,
+	DEFAULT_CARD_IS_OPEN,
+	DEFAULT_CARD_IS_OUTLINED,
+	DEFAULT_CARD_RADIUS,
+	DEFAULT_CARD_VARIANT
 } from './common/constants';
 import type { CardDefaultElement, CardProps, CardVariant } from './common/types';
 import type { CardStory, CardStoryMeta } from './common/types/story';
@@ -31,63 +31,63 @@ export default {
 		isActive: {
 			name: 'Active',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CARD_IS_ACTIVE__,
+			defaultValue: DEFAULT_CARD_IS_ACTIVE,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isClickable: {
 			name: 'Clickable',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CARD_IS_CLICKABLE__,
+			defaultValue: DEFAULT_CARD_IS_CLICKABLE,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isCollapsable: {
 			name: 'Collapsable',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CARD_IS_COLLAPSABLE__,
+			defaultValue: DEFAULT_CARD_IS_COLLAPSABLE,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CARD_IS_DISABLED__,
+			defaultValue: DEFAULT_CARD_IS_DISABLED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isDivisible: {
 			name: 'Divisible',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CARD_IS_DIVISIBLE__,
+			defaultValue: DEFAULT_CARD_IS_DIVISIBLE,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isFixed: {
 			name: 'Fixed',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CARD_IS_FIXED__,
+			defaultValue: DEFAULT_CARD_IS_FIXED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isOutlined: {
 			name: 'Outlined',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CARD_IS_OUTLINED__,
+			defaultValue: DEFAULT_CARD_IS_OUTLINED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isOpen: {
 			name: 'Open',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CARD_IS_OPEN__,
+			defaultValue: DEFAULT_CARD_IS_OPEN,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		radius: {
 			name: 'Radius',
 			type: 'string',
-			defaultValue: __DEFAULT_CARD_RADIUS__,
+			defaultValue: DEFAULT_CARD_RADIUS,
 			// description: '',
 			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as ThemeRadiusArr,
 			control: { type: 'radio' }
@@ -95,14 +95,14 @@ export default {
 		spacing: {
 			name: 'Spacing (0-24 | .0, .25, .5 or .75)',
 			type: 'number',
-			defaultValue: __DEFAULT_SPACING__,
+			defaultValue: DEFAULT_SPACING,
 			// description: '',
 			control: { type: 'number' }
 		},
 		variant: {
 			name: 'Variant',
 			type: 'string',
-			defaultValue: __DEFAULT_CARD_VARIANT__,
+			defaultValue: DEFAULT_CARD_VARIANT,
 			// description: '',
 			options: ['contained', 'light', 'dark', 'outlined', 'monochrome', 'transparent'] as Array<CardVariant>,
 			control: { type: 'radio' }

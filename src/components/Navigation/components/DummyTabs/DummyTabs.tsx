@@ -2,28 +2,23 @@ import { createContext, forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import {
-	__DEFAULT_APP_COLOR__,
-	__DEFAULT_APP_COLORMODE__,
-	__DEFAULT_CLASSNAME__,
-	__DEFAULT_SPACING__
-} from '@common/constants';
+import { DEFAULT_APP_COLOR, DEFAULT_APP_COLORMODE, DEFAULT_CLASSNAME, DEFAULT_SPACING } from '@common/constants';
 
 import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
-	__DEFAULT_DUMMY_TABS_ALIGN__,
-	__DEFAULT_DUMMY_TABS_AS__,
-	__DEFAULT_DUMMY_TABS_ID__,
-	__DEFAULT_DUMMY_TABS_INDEX__,
-	__DEFAULT_DUMMY_TABS_IS_ANIMATED__,
-	__DEFAULT_DUMMY_TABS_IS_FITTED__,
-	__DEFAULT_DUMMY_TABS_ORIENTATION__,
-	__DEFAULT_DUMMY_TABS_SIZE__
+	DEFAULT_DUMMY_TABS_ALIGN,
+	DEFAULT_DUMMY_TABS_AS,
+	DEFAULT_DUMMY_TABS_ID,
+	DEFAULT_DUMMY_TABS_INDEX,
+	DEFAULT_DUMMY_TABS_IS_ANIMATED,
+	DEFAULT_DUMMY_TABS_IS_FITTED,
+	DEFAULT_DUMMY_TABS_ORIENTATION,
+	DEFAULT_DUMMY_TABS_SIZE
 } from './common/constants';
 import { useDummyTabsResponsiveValues } from './common/hooks';
-import { __KEYS_DUMMY_TABS_CLASS__ } from './common/keys';
+import { KEYS_DUMMY_TABS_CLASS } from './common/keys';
 import type {
 	DummyTabsContext as DummyTabsContextType,
 	DummyTabsDefaultElement,
@@ -33,16 +28,16 @@ import type {
 } from './common/types';
 
 export const DummyTabsContext = createContext<DummyTabsContextType<DummyTabsDefaultElement>>({
-	color: __DEFAULT_APP_COLOR__,
-	colorMode: __DEFAULT_APP_COLORMODE__,
-	align: __DEFAULT_DUMMY_TABS_ALIGN__,
-	id: __DEFAULT_DUMMY_TABS_ID__,
-	index: __DEFAULT_DUMMY_TABS_INDEX__,
-	isAnimated: __DEFAULT_DUMMY_TABS_IS_ANIMATED__,
-	isFitted: __DEFAULT_DUMMY_TABS_IS_FITTED__,
-	orientation: __DEFAULT_DUMMY_TABS_ORIENTATION__,
-	size: __DEFAULT_DUMMY_TABS_SIZE__,
-	spacing: __DEFAULT_SPACING__
+	color: DEFAULT_APP_COLOR,
+	colorMode: DEFAULT_APP_COLORMODE,
+	align: DEFAULT_DUMMY_TABS_ALIGN,
+	id: DEFAULT_DUMMY_TABS_ID,
+	index: DEFAULT_DUMMY_TABS_INDEX,
+	isAnimated: DEFAULT_DUMMY_TABS_IS_ANIMATED,
+	isFitted: DEFAULT_DUMMY_TABS_IS_FITTED,
+	orientation: DEFAULT_DUMMY_TABS_ORIENTATION,
+	size: DEFAULT_DUMMY_TABS_SIZE,
+	spacing: DEFAULT_SPACING
 });
 
 const DummyTabs = forwardRef(function DummyTabs<Element extends DummyTabsElement>(
@@ -51,18 +46,18 @@ const DummyTabs = forwardRef(function DummyTabs<Element extends DummyTabsElement
 ): JSX.Element {
 	const {
 		children,
-		id = __DEFAULT_DUMMY_TABS_ID__,
-		as = __DEFAULT_DUMMY_TABS_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		id = DEFAULT_DUMMY_TABS_ID,
+		as = DEFAULT_DUMMY_TABS_AS,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		align: alignProp = __DEFAULT_DUMMY_TABS_ALIGN__,
-		index: indexProp = __DEFAULT_DUMMY_TABS_INDEX__,
-		isAnimated: isAnimatedProp = __DEFAULT_DUMMY_TABS_IS_ANIMATED__,
-		isFitted: isFittedProp = __DEFAULT_DUMMY_TABS_IS_FITTED__,
-		orientation: orientationProp = __DEFAULT_DUMMY_TABS_ORIENTATION__,
-		size: sizeProp = __DEFAULT_DUMMY_TABS_SIZE__,
-		spacing: spacingProp = __DEFAULT_SPACING__,
+		align: alignProp = DEFAULT_DUMMY_TABS_ALIGN,
+		index: indexProp = DEFAULT_DUMMY_TABS_INDEX,
+		isAnimated: isAnimatedProp = DEFAULT_DUMMY_TABS_IS_ANIMATED,
+		isFitted: isFittedProp = DEFAULT_DUMMY_TABS_IS_FITTED,
+		orientation: orientationProp = DEFAULT_DUMMY_TABS_ORIENTATION,
+		size: sizeProp = DEFAULT_DUMMY_TABS_SIZE,
+		spacing: spacingProp = DEFAULT_SPACING,
 		...rest
 	} = props;
 
@@ -84,7 +79,7 @@ const DummyTabs = forwardRef(function DummyTabs<Element extends DummyTabsElement
 				{...(rest as BoxProps<Element>)}
 				as={as}
 				ref={ref}
-				className={classNames(__KEYS_DUMMY_TABS_CLASS__, { [className]: !!className })}
+				className={classNames(KEYS_DUMMY_TABS_CLASS, { [className]: !!className })}
 			>
 				{children}
 			</Box>

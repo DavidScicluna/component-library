@@ -11,11 +11,11 @@ import { Box } from '@components/Box';
 import { VisuallyHidden } from '@components/VisuallyHidden';
 
 import {
-	__DEFAULT_FILE_BUTTON_ACCEPT__,
-	__DEFAULT_FILE_BUTTON_AS__,
-	__DEFAULT_FILE_BUTTON_IS_MULTIPLE__,
-	__DEFAULT_FILE_BUTTON_TIMEOUT__,
-	__DEFAULT_FILE_BUTTON_TYPE__
+	DEFAULT_FILE_BUTTON_ACCEPT,
+	DEFAULT_FILE_BUTTON_AS,
+	DEFAULT_FILE_BUTTON_IS_MULTIPLE,
+	DEFAULT_FILE_BUTTON_TIMEOUT,
+	DEFAULT_FILE_BUTTON_TYPE
 } from './common/constants';
 import type {
 	FileButtonBlob,
@@ -37,10 +37,10 @@ const FileButton = forwardRef(function FileButton<Element extends FileButtonElem
 
 	const {
 		children,
-		as = __DEFAULT_FILE_BUTTON_AS__,
-		accept = __DEFAULT_FILE_BUTTON_ACCEPT__,
-		multiple: isMultiple = __DEFAULT_FILE_BUTTON_IS_MULTIPLE__,
-		type = __DEFAULT_FILE_BUTTON_TYPE__,
+		as = DEFAULT_FILE_BUTTON_AS,
+		accept = DEFAULT_FILE_BUTTON_ACCEPT,
+		multiple: isMultiple = DEFAULT_FILE_BUTTON_IS_MULTIPLE,
+		type = DEFAULT_FILE_BUTTON_TYPE,
 		onSuccess,
 		onError,
 		...rest
@@ -97,7 +97,7 @@ const FileButton = forwardRef(function FileButton<Element extends FileButtonElem
 
 				onSuccess(event, blobs);
 
-				setTimeout(() => setIsUploading.off(), __DEFAULT_FILE_BUTTON_TIMEOUT__);
+				setTimeout(() => setIsUploading.off(), DEFAULT_FILE_BUTTON_TIMEOUT);
 			}
 
 			if (errors.length) {
@@ -113,7 +113,7 @@ const FileButton = forwardRef(function FileButton<Element extends FileButtonElem
 
 				onSuccess(event, blobs);
 
-				setTimeout(() => setIsUploading.off(), __DEFAULT_FILE_BUTTON_TIMEOUT__);
+				setTimeout(() => setIsUploading.off(), DEFAULT_FILE_BUTTON_TIMEOUT);
 			} else {
 				onError(event, errors);
 			}

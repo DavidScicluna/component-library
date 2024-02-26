@@ -7,13 +7,13 @@ import { Text } from '../../../Typography';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
-	__DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT__,
-	__DEFAULT_POSITION_OVERLAY_BLUR__,
-	__DEFAULT_POSITION_OVERLAY_BLUR_TYPE__,
-	__DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND__,
-	__DEFAULT_POSITION_OVERLAY_HAS_GLASS__,
-	__DEFAULT_POSITION_OVERLAY_IS_VISIBLE__,
-	__DEFAULT_POSITION_OVERLAY_RADIUS__
+	DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT,
+	DEFAULT_POSITION_OVERLAY_BLUR,
+	DEFAULT_POSITION_OVERLAY_BLUR_TYPE,
+	DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND,
+	DEFAULT_POSITION_OVERLAY_HAS_GLASS,
+	DEFAULT_POSITION_OVERLAY_IS_VISIBLE,
+	DEFAULT_POSITION_OVERLAY_RADIUS
 } from './common/constants';
 import type { PositionOverlayBlurType, PositionOverlayProps } from './common/types';
 import type { PositionOverlayStory, PositionOverlayStoryMeta } from './common/types/story';
@@ -28,14 +28,14 @@ export default {
 		backdropAmount: {
 			name: 'Backdrop Amount',
 			type: 'string',
-			defaultValue: __DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT__,
+			defaultValue: DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT,
 			// description: '',
 			control: { type: 'number' }
 		},
 		blur: {
 			name: 'Blur',
 			type: 'string',
-			defaultValue: __DEFAULT_POSITION_OVERLAY_BLUR__,
+			defaultValue: DEFAULT_POSITION_OVERLAY_BLUR,
 			// description: '',
 			options: [
 				'none',
@@ -58,7 +58,7 @@ export default {
 		blurType: {
 			name: 'Blur Type',
 			type: 'string',
-			defaultValue: __DEFAULT_POSITION_OVERLAY_BLUR_TYPE__,
+			defaultValue: DEFAULT_POSITION_OVERLAY_BLUR_TYPE,
 			// description: '',
 			options: ['backdrop', 'blur'] as Array<PositionOverlayBlurType>,
 			control: { type: 'radio' }
@@ -66,7 +66,7 @@ export default {
 		radius: {
 			name: 'Radius',
 			type: 'string',
-			defaultValue: __DEFAULT_POSITION_OVERLAY_RADIUS__,
+			defaultValue: DEFAULT_POSITION_OVERLAY_RADIUS,
 			// description: '',
 			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as ThemeRadiusArr,
 			control: { type: 'radio' }
@@ -74,21 +74,21 @@ export default {
 		isVisible: {
 			name: 'Visible',
 			type: 'boolean',
-			defaultValue: __DEFAULT_POSITION_OVERLAY_IS_VISIBLE__,
+			defaultValue: DEFAULT_POSITION_OVERLAY_IS_VISIBLE,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		hasGlass: {
 			name: 'Glass',
 			type: 'boolean',
-			defaultValue: __DEFAULT_POSITION_OVERLAY_HAS_GLASS__,
+			defaultValue: DEFAULT_POSITION_OVERLAY_HAS_GLASS,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		hasBackground: {
 			name: 'Has Background',
 			type: 'boolean',
-			defaultValue: __DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND__,
+			defaultValue: DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND,
 			// description: '',
 			control: { type: 'boolean' }
 		}

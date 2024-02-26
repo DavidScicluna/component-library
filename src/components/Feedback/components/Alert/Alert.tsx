@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { compact, round } from 'lodash-es';
 import { useCountdown, useEffectOnce, useUpdateEffect } from 'usehooks-ts';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_SPACING } from '@common/constants';
 import { useTheme } from '@common/hooks';
 import type { ThemeAppColor, ThemeAppColorMode, ThemeColor } from '@common/types';
 
@@ -14,13 +14,13 @@ import { Grid, GridItem, HStack, VStack } from '@components/Layout';
 import { Progress } from '../Progress';
 
 import {
-	__DEFAULT_ALERT_AS__,
-	__DEFAULT_ALERT_DURATION__,
-	__DEFAULT_ALERT_STATUS__,
-	__DEFAULT_ALERT_VARIANT__
+	DEFAULT_ALERT_AS,
+	DEFAULT_ALERT_DURATION,
+	DEFAULT_ALERT_STATUS,
+	DEFAULT_ALERT_VARIANT
 } from './common/constants';
 import { useAlertClasses, useAlertResponsiveValues } from './common/hooks';
-import { __KEYS_ALERT_CLASS__ } from './common/keys';
+import { KEYS_ALERT_CLASS } from './common/keys';
 import type {
 	AlertContext as AlertContextType,
 	AlertDefaultElement,
@@ -31,7 +31,7 @@ import type {
 import { getStatusColor } from './common/utils';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const AlertContext = createContext<AlertContextType<AlertDefaultElement>>({ status: __DEFAULT_ALERT_STATUS__ });
+export const AlertContext = createContext<AlertContextType<AlertDefaultElement>>({ status: DEFAULT_ALERT_STATUS });
 
 const Alert = forwardRef(function Alert<Element extends AlertElement>(
 	props: AlertProps<Element>,
@@ -40,8 +40,8 @@ const Alert = forwardRef(function Alert<Element extends AlertElement>(
 	const theme = useTheme();
 
 	const {
-		as = __DEFAULT_ALERT_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_ALERT_AS,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
 		renderActions,
@@ -50,10 +50,10 @@ const Alert = forwardRef(function Alert<Element extends AlertElement>(
 		renderDescription,
 		renderIcon,
 		onClose,
-		duration: durationProp = __DEFAULT_ALERT_DURATION__,
-		spacing: spacingProp = __DEFAULT_SPACING__,
-		status: statusProp = __DEFAULT_ALERT_STATUS__,
-		variant: variantProp = __DEFAULT_ALERT_VARIANT__,
+		duration: durationProp = DEFAULT_ALERT_DURATION,
+		spacing: spacingProp = DEFAULT_SPACING,
+		status: statusProp = DEFAULT_ALERT_STATUS,
+		variant: variantProp = DEFAULT_ALERT_VARIANT,
 		...rest
 	} = props;
 
@@ -109,7 +109,7 @@ const Alert = forwardRef(function Alert<Element extends AlertElement>(
 				{...(rest as GridProps<Element>)}
 				as={as}
 				ref={ref}
-				className={classNames(__KEYS_ALERT_CLASS__, classes, { [className]: !!className })}
+				className={classNames(KEYS_ALERT_CLASS, classes, { [className]: !!className })}
 				templateColumns={compact(['1fr', renderClose && onClose ? 'auto' : null]).join(' ')}
 				templateRows={1}
 				alignItems='stretch'

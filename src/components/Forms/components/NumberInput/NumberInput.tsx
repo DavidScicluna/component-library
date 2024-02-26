@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { clamp, compact, merge } from 'lodash-es';
 import { useDimensionsRef, useFocus, useMergeRefs } from 'rooks';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 import type { PolymorphicDefaultElement, PolymorphicElement } from '@common/types';
 
@@ -21,29 +21,29 @@ import { getFormDescriptionID } from '../FormDescription/common/utils';
 import { getFormLabelID } from '../FormLabel/common/utils';
 
 import {
-	__DEFAULT_NUMBER_INPUT_AS__,
-	__DEFAULT_NUMBER_INPUT_ID__,
-	__DEFAULT_NUMBER_INPUT_IS_COMPACT__,
-	__DEFAULT_NUMBER_INPUT_IS_DISABLED__,
-	__DEFAULT_NUMBER_INPUT_IS_ERROR__,
-	__DEFAULT_NUMBER_INPUT_IS_FOCUSED__,
-	__DEFAULT_NUMBER_INPUT_IS_FULLWIDTH__,
-	__DEFAULT_NUMBER_INPUT_IS_NEGATIVE_ALLOWED__,
-	__DEFAULT_NUMBER_INPUT_IS_OUTLINED__,
-	__DEFAULT_NUMBER_INPUT_IS_READONLY__,
-	__DEFAULT_NUMBER_INPUT_IS_REQUIRED__,
-	__DEFAULT_NUMBER_INPUT_IS_SUCCESS__,
-	__DEFAULT_NUMBER_INPUT_IS_WARNING__,
-	__DEFAULT_NUMBER_INPUT_MAX__,
-	__DEFAULT_NUMBER_INPUT_MIN__,
-	__DEFAULT_NUMBER_INPUT_SIZE__,
-	__DEFAULT_NUMBER_INPUT_START_VALUE__,
-	__DEFAULT_NUMBER_INPUT_STEP__,
-	__DEFAULT_NUMBER_INPUT_TYPE__,
-	__DEFAULT_NUMBER_INPUT_VARIANT__
+	DEFAULT_NUMBER_INPUT_AS,
+	DEFAULT_NUMBER_INPUT_ID,
+	DEFAULT_NUMBER_INPUT_IS_COMPACT,
+	DEFAULT_NUMBER_INPUT_IS_DISABLED,
+	DEFAULT_NUMBER_INPUT_IS_ERROR,
+	DEFAULT_NUMBER_INPUT_IS_FOCUSED,
+	DEFAULT_NUMBER_INPUT_IS_FULLWIDTH,
+	DEFAULT_NUMBER_INPUT_IS_NEGATIVE_ALLOWED,
+	DEFAULT_NUMBER_INPUT_IS_OUTLINED,
+	DEFAULT_NUMBER_INPUT_IS_READONLY,
+	DEFAULT_NUMBER_INPUT_IS_REQUIRED,
+	DEFAULT_NUMBER_INPUT_IS_SUCCESS,
+	DEFAULT_NUMBER_INPUT_IS_WARNING,
+	DEFAULT_NUMBER_INPUT_MAX,
+	DEFAULT_NUMBER_INPUT_MIN,
+	DEFAULT_NUMBER_INPUT_SIZE,
+	DEFAULT_NUMBER_INPUT_START_VALUE,
+	DEFAULT_NUMBER_INPUT_STEP,
+	DEFAULT_NUMBER_INPUT_TYPE,
+	DEFAULT_NUMBER_INPUT_VARIANT
 } from './common/constants';
 import { useNumberInputResponsiveValues } from './common/hooks';
-import { __KEYS_NUMBER_INPUT_CLASS__ } from './common/keys';
+import { KEYS_NUMBER_INPUT_CLASS } from './common/keys';
 import type {
 	NumberInputElement,
 	NumberInputFocusEvent,
@@ -63,54 +63,54 @@ const NumberInput = forwardRef(function NumberInput<Element extends NumberInputE
 	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
 
 	const {
-		color: __DEFAULT_FORM_CONTROL_COLOR__,
-		colorMode: __DEFAULT_FORM_CONTROL_COLORMODE__,
-		id: __DEFAULT_FORM_CONTROL_ID__ = __DEFAULT_NUMBER_INPUT_ID__,
+		color: DEFAULT_FORM_CONTROL_COLOR,
+		colorMode: DEFAULT_FORM_CONTROL_COLORMODE,
+		id: DEFAULT_FORM_CONTROL_ID = DEFAULT_NUMBER_INPUT_ID,
 		hasFormControl,
-		isDisabled: __DEFAULT_FORM_CONTROL_IS_DISABLED__ = __DEFAULT_NUMBER_INPUT_IS_DISABLED__,
-		isError: __DEFAULT_FORM_CONTROL_IS_ERROR__ = __DEFAULT_NUMBER_INPUT_IS_ERROR__,
-		isFocused: __DEFAULT_FORM_CONTROL_IS_FOCUSED__ = __DEFAULT_NUMBER_INPUT_IS_FOCUSED__,
-		isReadOnly: __DEFAULT_FORM_CONTROL_IS_READONLY__ = __DEFAULT_NUMBER_INPUT_IS_READONLY__,
-		isRequired: __DEFAULT_FORM_CONTROL_IS_REQUIRED__ = __DEFAULT_NUMBER_INPUT_IS_REQUIRED__,
-		isSuccess: __DEFAULT_FORM_CONTROL_IS_SUCCESS__ = __DEFAULT_NUMBER_INPUT_IS_SUCCESS__,
-		isWarning: __DEFAULT_FORM_CONTROL_IS_WARNING__ = __DEFAULT_NUMBER_INPUT_IS_WARNING__,
-		size: __DEFAULT_FORM_CONTROL_SIZE__ = __DEFAULT_NUMBER_INPUT_SIZE__
+		isDisabled: DEFAULT_FORM_CONTROL_IS_DISABLED = DEFAULT_NUMBER_INPUT_IS_DISABLED,
+		isError: DEFAULT_FORM_CONTROL_IS_ERROR = DEFAULT_NUMBER_INPUT_IS_ERROR,
+		isFocused: DEFAULT_FORM_CONTROL_IS_FOCUSED = DEFAULT_NUMBER_INPUT_IS_FOCUSED,
+		isReadOnly: DEFAULT_FORM_CONTROL_IS_READONLY = DEFAULT_NUMBER_INPUT_IS_READONLY,
+		isRequired: DEFAULT_FORM_CONTROL_IS_REQUIRED = DEFAULT_NUMBER_INPUT_IS_REQUIRED,
+		isSuccess: DEFAULT_FORM_CONTROL_IS_SUCCESS = DEFAULT_NUMBER_INPUT_IS_SUCCESS,
+		isWarning: DEFAULT_FORM_CONTROL_IS_WARNING = DEFAULT_NUMBER_INPUT_IS_WARNING,
+		size: DEFAULT_FORM_CONTROL_SIZE = DEFAULT_NUMBER_INPUT_SIZE
 	} = useFormControlContext();
 
 	const {
-		as = __DEFAULT_NUMBER_INPUT_AS__,
-		id = __DEFAULT_FORM_CONTROL_ID__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_NUMBER_INPUT_AS,
+		id = DEFAULT_FORM_CONTROL_ID,
+		className = DEFAULT_CLASSNAME,
 		renderLeft,
 		renderRight,
-		color = __DEFAULT_FORM_CONTROL_COLOR__,
-		colorMode = __DEFAULT_FORM_CONTROL_COLORMODE__,
+		color = DEFAULT_FORM_CONTROL_COLOR,
+		colorMode = DEFAULT_FORM_CONTROL_COLORMODE,
 		placeholder,
-		isCompact: isCompactProp = __DEFAULT_NUMBER_INPUT_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
-		isFullWidth: isFullWidthProp = __DEFAULT_NUMBER_INPUT_IS_FULLWIDTH__,
-		isError: isErrorProp = __DEFAULT_FORM_CONTROL_IS_ERROR__,
-		isFocused: isFocusedProp = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
-		isOutlined: isOutlinedProp = __DEFAULT_NUMBER_INPUT_IS_OUTLINED__,
-		isReadOnly: isReadOnlyProp = __DEFAULT_FORM_CONTROL_IS_READONLY__,
-		isRequired: isRequiredProp = __DEFAULT_FORM_CONTROL_IS_REQUIRED__,
-		isNegativeAllowed: isNegativeAllowedProp = __DEFAULT_NUMBER_INPUT_IS_NEGATIVE_ALLOWED__,
-		isSuccess: isSuccessProp = __DEFAULT_FORM_CONTROL_IS_SUCCESS__,
-		isWarning: isWarningProp = __DEFAULT_FORM_CONTROL_IS_WARNING__,
-		type = __DEFAULT_NUMBER_INPUT_TYPE__,
-		min = __DEFAULT_NUMBER_INPUT_MIN__,
-		max = __DEFAULT_NUMBER_INPUT_MAX__,
+		isCompact: isCompactProp = DEFAULT_NUMBER_INPUT_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_FORM_CONTROL_IS_DISABLED,
+		isFullWidth: isFullWidthProp = DEFAULT_NUMBER_INPUT_IS_FULLWIDTH,
+		isError: isErrorProp = DEFAULT_FORM_CONTROL_IS_ERROR,
+		isFocused: isFocusedProp = DEFAULT_FORM_CONTROL_IS_FOCUSED,
+		isOutlined: isOutlinedProp = DEFAULT_NUMBER_INPUT_IS_OUTLINED,
+		isReadOnly: isReadOnlyProp = DEFAULT_FORM_CONTROL_IS_READONLY,
+		isRequired: isRequiredProp = DEFAULT_FORM_CONTROL_IS_REQUIRED,
+		isNegativeAllowed: isNegativeAllowedProp = DEFAULT_NUMBER_INPUT_IS_NEGATIVE_ALLOWED,
+		isSuccess: isSuccessProp = DEFAULT_FORM_CONTROL_IS_SUCCESS,
+		isWarning: isWarningProp = DEFAULT_FORM_CONTROL_IS_WARNING,
+		type = DEFAULT_NUMBER_INPUT_TYPE,
+		min = DEFAULT_NUMBER_INPUT_MIN,
+		max = DEFAULT_NUMBER_INPUT_MAX,
 		onClick,
 		onFocus,
 		onBlur,
 		onIncrement,
 		onDecrement,
-		startValue: startValueProp = __DEFAULT_NUMBER_INPUT_START_VALUE__,
-		step = __DEFAULT_NUMBER_INPUT_STEP__,
-		size: sizeProp = __DEFAULT_FORM_CONTROL_SIZE__,
-		variant: variantProp = __DEFAULT_NUMBER_INPUT_VARIANT__,
+		startValue: startValueProp = DEFAULT_NUMBER_INPUT_START_VALUE,
+		step = DEFAULT_NUMBER_INPUT_STEP,
+		size: sizeProp = DEFAULT_FORM_CONTROL_SIZE,
+		variant: variantProp = DEFAULT_NUMBER_INPUT_VARIANT,
 		value,
-		sx = __DEFAULT_POLYMORPHIC_SX__,
+		sx = DEFAULT_POLYMORPHIC_SX,
 		...rest
 	} = props;
 
@@ -270,7 +270,7 @@ const NumberInput = forwardRef(function NumberInput<Element extends NumberInputE
 	return (
 		<Grid
 			{...focusProps}
-			className={classNames(__KEYS_NUMBER_INPUT_CLASS__, classes.container, { [className]: !!className })}
+			className={classNames(KEYS_NUMBER_INPUT_CLASS, classes.container, { [className]: !!className })}
 			w={hasFormControl || isFullWidth ? '100%' : undefined}
 			h={hasFormControl ? '100%' : undefined}
 			templateColumns={['1fr', 'auto'].join(' ')}

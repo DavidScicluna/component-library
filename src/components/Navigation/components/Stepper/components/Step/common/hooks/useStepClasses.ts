@@ -3,19 +3,19 @@ import { useMemo } from 'react';
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_COLOR__, __DEFAULT_OUTLINE_WIDTH__ } from '@common/constants';
+import { DEFAULT_COLOR, DEFAULT_OUTLINE_WIDTH } from '@common/constants';
 import { useAppTheme, useGetColor } from '@common/hooks';
 import type { ClassName } from '@common/types';
 import { getColorHue } from '@common/utils';
 
-import { __DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE__ } from '@components/Navigation/components/Stepper/common/constants';
+import { DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE } from '@components/Navigation/components/Stepper/common/constants';
 import { useStepperContext } from '@components/Navigation/components/Stepper/common/hooks';
 
 import {
-	__DEFAULT_STEP_IS_ACTIVE__,
-	__DEFAULT_STEP_IS_COMPACT__,
-	__DEFAULT_STEP_IS_DISABLED__,
-	__DEFAULT_STEP_IS_UPPERCASE__
+	DEFAULT_STEP_IS_ACTIVE,
+	DEFAULT_STEP_IS_COMPACT,
+	DEFAULT_STEP_IS_DISABLED,
+	DEFAULT_STEP_IS_UPPERCASE
 } from '../constants';
 import type { StepElement, StepProps } from '../types';
 
@@ -29,16 +29,16 @@ type UseStepClassesProps<Element extends StepElement> = Pick<StepProps<Element>,
 type UseStepClassesReturn = Record<'step' | 'topDivider' | 'bottomDivider' | 'label', ClassName>;
 
 const useStepClasses = <Element extends StepElement>(props: UseStepClassesProps<Element>): UseStepClassesReturn => {
-	const { colorMode: __DEFAULT_STEP_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_STEP_COLORMODE } = useAppTheme();
 	const { orientation } = useStepperContext();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_STEP_COLORMODE__,
-		isActive: isActiveProp = __DEFAULT_STEP_IS_ACTIVE__,
-		isCompact: isCompactProp = __DEFAULT_STEP_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_STEP_IS_DISABLED__,
-		isUppercase: isUppercaseProp = __DEFAULT_STEP_IS_UPPERCASE__
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_STEP_COLORMODE,
+		isActive: isActiveProp = DEFAULT_STEP_IS_ACTIVE,
+		isCompact: isCompactProp = DEFAULT_STEP_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_STEP_IS_DISABLED,
+		isUppercase: isUppercaseProp = DEFAULT_STEP_IS_UPPERCASE
 	} = props;
 
 	const { isActive, isCompact, isDisabled, isUppercase } = useStepResponsiveValues<Element>({
@@ -62,7 +62,7 @@ const useStepClasses = <Element extends StepElement>(props: UseStepClassesProps<
 			classes.effects.opacity[isDisabled ? 50 : 100],
 			classes.layout.display.focus_visible.outline,
 			classes.borders.outline_style.focus_visible.dashed,
-			classes.borders.outline_width.focus_visible[__DEFAULT_OUTLINE_WIDTH__],
+			classes.borders.outline_width.focus_visible[DEFAULT_OUTLINE_WIDTH],
 			classes.borders.outline_offset.focus_visible[0],
 			classes.borders.outline_color.focus_visible[color][outlineHue]
 		);
@@ -99,7 +99,7 @@ const useStepClasses = <Element extends StepElement>(props: UseStepClassesProps<
 			classes.typography.font_size[config.fontSize],
 			classes.typography.font_weight.semibold,
 			classes.typography.letter_spacing.normal,
-			classes.typography.line_height[__DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE__],
+			classes.typography.line_height[DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE],
 			classes.typography.transform[isUppercase ? 'uppercase' : 'normal'],
 			classes.typography.text_overflow.ellipsis,
 			classes.typography.whiteSpace.nowrap

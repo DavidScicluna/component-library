@@ -3,20 +3,15 @@ import { useMemo } from 'react';
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import {
-	__DEFAULT_BORDER_STYLE__,
-	__DEFAULT_BORDER_WIDTH__,
-	__DEFAULT_OUTLINE_WIDTH__,
-	__DEFAULT_RADIUS__
-} from '@common/constants';
+import { DEFAULT_BORDER_STYLE, DEFAULT_BORDER_WIDTH, DEFAULT_OUTLINE_WIDTH, DEFAULT_RADIUS } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import {
-	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED__,
-	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_OUTLINED__,
-	__DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__
+	DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED,
+	DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_OUTLINED,
+	DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT
 } from '../constants';
 import type { DummyPushableOverlayProps } from '../types';
 
@@ -31,14 +26,14 @@ type UseDummyPushableOverlayClassesReturn = ClassName;
 const useDummyPushableOverlayClasses = <Element extends PolymorphicElementType>(
 	props: UseDummyPushableOverlayClassesProps<Element>
 ): UseDummyPushableOverlayClassesReturn => {
-	const { colorMode: __DEFAULT_DUMMY_PUSHABLE_OVERLAY_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_DUMMY_PUSHABLE_OVERLAY_COLORMODE } = useAppTheme();
 
 	const {
-		colorMode = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_COLORMODE__,
-		isAnimated: isAnimatedProp = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED__,
-		isOutlined: isOutlinedProp = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_OUTLINED__,
-		radius: radiusProp = __DEFAULT_RADIUS__,
-		variant: variantProp = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__
+		colorMode = DEFAULT_DUMMY_PUSHABLE_OVERLAY_COLORMODE,
+		isAnimated: isAnimatedProp = DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_ANIMATED,
+		isOutlined: isOutlinedProp = DEFAULT_DUMMY_PUSHABLE_OVERLAY_IS_OUTLINED,
+		radius: radiusProp = DEFAULT_RADIUS,
+		variant: variantProp = DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT
 	} = props;
 
 	const { isAnimated, isOutlined, radius, variant } = useDummyPushableOverlayResponsiveValues<Element>({
@@ -60,11 +55,11 @@ const useDummyPushableOverlayClasses = <Element extends PolymorphicElementType>(
 				[classes.layout.display.outline]: isOutlined,
 				[classes.borders.outline_color.gray[outlineHue]]: isOutlined,
 				[classes.borders.outline_style.solid]: isOutlined,
-				[classes.borders.outline_width[__DEFAULT_OUTLINE_WIDTH__]]: isOutlined,
+				[classes.borders.outline_width[DEFAULT_OUTLINE_WIDTH]]: isOutlined,
 				[classes.borders.outline_offset[0]]: isOutlined,
-				[classes.borders.border_width[__DEFAULT_BORDER_WIDTH__]]:
+				[classes.borders.border_width[DEFAULT_BORDER_WIDTH]]:
 					variant !== 'transparent' && variant !== 'unstyled',
-				[classes.borders.border_style[__DEFAULT_BORDER_STYLE__]]:
+				[classes.borders.border_style[DEFAULT_BORDER_STYLE]]:
 					variant !== 'transparent' && variant !== 'unstyled',
 				[classes.borders.border_radius[radius]]: variant !== 'transparent' && variant !== 'unstyled',
 				[classes.borders.border_color.transparent]: variant !== 'transparent' && variant !== 'unstyled',

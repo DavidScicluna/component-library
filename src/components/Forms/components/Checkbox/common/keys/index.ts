@@ -1,3 +1,3 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
-export const __KEYS_CHECKBOX_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-checkbox`;
+export const KEYS_CHECKBOX_CLASS = `${DEFAULT_CLASS_PREFIX}-checkbox`;

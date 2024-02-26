@@ -7,11 +7,11 @@ import React from 'react';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
-	__DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT__,
-	__DEFAULT_GLASS_OVERLAY_BLUR__,
-	__DEFAULT_GLASS_OVERLAY_BLUR_TYPE__,
-	__DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__,
-	__DEFAULT_GLASS_OVERLAY_RADIUS__
+	DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT,
+	DEFAULT_GLASS_OVERLAY_BLUR,
+	DEFAULT_GLASS_OVERLAY_BLUR_TYPE,
+	DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND,
+	DEFAULT_GLASS_OVERLAY_RADIUS
 } from './common/constants';
 import type { GlassOverlayBlurType, GlassOverlayProps } from './common/types';
 import type { GlassOverlayStory, GlassOverlayStoryMeta } from './common/types/story';
@@ -26,14 +26,14 @@ export default {
 		backdropAmount: {
 			name: 'Backdrop Amount',
 			type: 'string',
-			defaultValue: __DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT__,
+			defaultValue: DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT,
 			// description: '',
 			control: { type: 'number' }
 		},
 		blur: {
 			name: 'Blur',
 			type: 'string',
-			defaultValue: __DEFAULT_GLASS_OVERLAY_BLUR__,
+			defaultValue: DEFAULT_GLASS_OVERLAY_BLUR,
 			// description: '',
 			options: [
 				'none',
@@ -56,7 +56,7 @@ export default {
 		blurType: {
 			name: 'Blur Type',
 			type: 'string',
-			defaultValue: __DEFAULT_GLASS_OVERLAY_BLUR_TYPE__,
+			defaultValue: DEFAULT_GLASS_OVERLAY_BLUR_TYPE,
 			// description: '',
 			options: ['backdrop', 'blur'] as Array<GlassOverlayBlurType>,
 			control: { type: 'radio' }
@@ -64,14 +64,14 @@ export default {
 		hasBackground: {
 			name: 'Has Background',
 			type: 'boolean',
-			defaultValue: __DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__,
+			defaultValue: DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		radius: {
 			name: 'Radius',
 			type: 'string',
-			defaultValue: __DEFAULT_GLASS_OVERLAY_RADIUS__,
+			defaultValue: DEFAULT_GLASS_OVERLAY_RADIUS,
 			// description: '',
 			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as ThemeRadiusArr,
 			control: { type: 'radio' }

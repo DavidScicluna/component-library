@@ -1,4 +1,2 @@
-import { __DEFAULT_DUMMY_TAB_IS_COMPACT__, __DEFAULT_DUMMY_TAB_IS_UPPERCASE__ } from './props';
-import { __DEFAULT_DUMMY_TAB_BORDER_WIDTH__ } from './sizes';
-
-export { __DEFAULT_DUMMY_TAB_BORDER_WIDTH__, __DEFAULT_DUMMY_TAB_IS_COMPACT__, __DEFAULT_DUMMY_TAB_IS_UPPERCASE__ };
+export * from './props';
+export * from './sizes';

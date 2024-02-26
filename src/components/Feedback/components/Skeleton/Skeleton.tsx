@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_RADIUS } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -10,9 +10,9 @@ import { Box } from '@components/Box';
 import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
-import { __DEFAULT_SKELETON_IS_ANIMATED__, __DEFAULT_SKELETON_IS_LOADED__ } from './common/constants';
+import { DEFAULT_SKELETON_IS_ANIMATED, DEFAULT_SKELETON_IS_LOADED } from './common/constants';
 import { useSkeletonClasses, useSkeletonResponsiveValues } from './common/hooks';
-import { __KEY_SKELETON_CHILD_CLASS__, __KEY_SKELETON_CLASS__, __KEY_SKELETON_OVERLAY_CLASS__ } from './common/keys';
+import { KEY_SKELETON_CHILD_CLASS, KEY_SKELETON_CLASS, KEY_SKELETON_OVERLAY_CLASS } from './common/keys';
 import type { SkeletonProps, SkeletonRef } from './common/types';
 
 const Skeleton = forwardRef(function Skeleton<Element extends PolymorphicElementType>(
@@ -21,12 +21,12 @@ const Skeleton = forwardRef(function Skeleton<Element extends PolymorphicElement
 ): JSX.Element {
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		isAnimated: isAnimatedProp = __DEFAULT_SKELETON_IS_ANIMATED__,
-		isLoaded: isLoadedProp = __DEFAULT_SKELETON_IS_LOADED__,
-		radius: radiusProp = __DEFAULT_RADIUS__,
+		isAnimated: isAnimatedProp = DEFAULT_SKELETON_IS_ANIMATED,
+		isLoaded: isLoadedProp = DEFAULT_SKELETON_IS_LOADED,
+		radius: radiusProp = DEFAULT_RADIUS,
 		...rest
 	} = props;
 
@@ -42,7 +42,7 @@ const Skeleton = forwardRef(function Skeleton<Element extends PolymorphicElement
 		<Grid
 			{...(rest as GridProps<Element>)}
 			ref={ref}
-			className={classNames(__KEY_SKELETON_CLASS__, { [className]: !!className })}
+			className={classNames(KEY_SKELETON_CLASS, { [className]: !!className })}
 			templateColumns={1}
 			templateRows={1}
 			alignItems='stretch'
@@ -54,7 +54,7 @@ const Skeleton = forwardRef(function Skeleton<Element extends PolymorphicElement
 			{children ? (
 				<GridItem columnStart={1} rowStart={1} zIndex={1}>
 					<Transition
-						className={__KEY_SKELETON_CHILD_CLASS__}
+						className={KEY_SKELETON_CHILD_CLASS}
 						w='100%'
 						h='100%'
 						duration='ultra-fast'
@@ -76,7 +76,7 @@ const Skeleton = forwardRef(function Skeleton<Element extends PolymorphicElement
 					in={children ? !isLoaded : true}
 					unmountOnExit={false}
 				>
-					<Box className={classNames(__KEY_SKELETON_OVERLAY_CLASS__, classes)} w='100%' h='100%' />
+					<Box className={classNames(KEY_SKELETON_OVERLAY_CLASS, classes)} w='100%' h='100%' />
 				</Transition>
 			</GridItem>
 		</Grid>

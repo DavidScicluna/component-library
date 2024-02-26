@@ -3,7 +3,7 @@ import { createContext, forwardRef } from 'react';
 import classNames from 'classnames';
 import { useFocus } from 'rooks';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__, __DEFAULT_USE_BOOLEAN_TOGGLES__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_SPACING, DEFAULT_USE_BOOLEAN_TOGGLES } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 
 import type { PushableOverlayProps } from '@components/Overlay';
@@ -11,22 +11,22 @@ import { PushableOverlay } from '@components/Overlay';
 import { VisuallyHidden } from '@components/VisuallyHidden';
 
 import {
-	__DEFAULT_CARD_AS__,
-	__DEFAULT_CARD_ID__,
-	__DEFAULT_CARD_IS_ACTIVE__,
-	__DEFAULT_CARD_IS_CLICKABLE__,
-	__DEFAULT_CARD_IS_COLLAPSABLE__,
-	__DEFAULT_CARD_IS_DISABLED__,
-	__DEFAULT_CARD_IS_DIVISIBLE__,
-	__DEFAULT_CARD_IS_FIXED__,
-	__DEFAULT_CARD_IS_HOVERING__,
-	__DEFAULT_CARD_IS_OPEN__,
-	__DEFAULT_CARD_IS_OUTLINED__,
-	__DEFAULT_CARD_RADIUS__,
-	__DEFAULT_CARD_VARIANT__
+	DEFAULT_CARD_AS,
+	DEFAULT_CARD_ID,
+	DEFAULT_CARD_IS_ACTIVE,
+	DEFAULT_CARD_IS_CLICKABLE,
+	DEFAULT_CARD_IS_COLLAPSABLE,
+	DEFAULT_CARD_IS_DISABLED,
+	DEFAULT_CARD_IS_DIVISIBLE,
+	DEFAULT_CARD_IS_FIXED,
+	DEFAULT_CARD_IS_HOVERING,
+	DEFAULT_CARD_IS_OPEN,
+	DEFAULT_CARD_IS_OUTLINED,
+	DEFAULT_CARD_RADIUS,
+	DEFAULT_CARD_VARIANT
 } from './common/constants';
 import { useCardResponsiveValues } from './common/hooks';
-import { __KEYS_CARD_CLASS__ } from './common/keys';
+import { KEYS_CARD_CLASS } from './common/keys';
 import type {
 	CardContext as CardContextType,
 	CardDefaultElement,
@@ -37,13 +37,13 @@ import type {
 } from './common/types';
 
 export const CardContext = createContext<CardContextType<CardDefaultElement>>({
-	isCollapsable: __DEFAULT_CARD_IS_COLLAPSABLE__,
-	isDivisible: __DEFAULT_CARD_IS_DIVISIBLE__,
-	isHovering: __DEFAULT_CARD_IS_HOVERING__,
-	isOpen: __DEFAULT_CARD_IS_OPEN__,
-	onHover: __DEFAULT_USE_BOOLEAN_TOGGLES__,
-	spacing: __DEFAULT_SPACING__,
-	variant: __DEFAULT_CARD_VARIANT__
+	isCollapsable: DEFAULT_CARD_IS_COLLAPSABLE,
+	isDivisible: DEFAULT_CARD_IS_DIVISIBLE,
+	isHovering: DEFAULT_CARD_IS_HOVERING,
+	isOpen: DEFAULT_CARD_IS_OPEN,
+	onHover: DEFAULT_USE_BOOLEAN_TOGGLES,
+	spacing: DEFAULT_SPACING,
+	variant: DEFAULT_CARD_VARIANT
 });
 
 const Card = forwardRef(function Card<Element extends CardElement>(
@@ -52,24 +52,24 @@ const Card = forwardRef(function Card<Element extends CardElement>(
 ): JSX.Element {
 	const {
 		children,
-		as = __DEFAULT_CARD_AS__,
-		id = __DEFAULT_CARD_ID__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_CARD_AS,
+		id = DEFAULT_CARD_ID,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		isActive: isActiveProp = __DEFAULT_CARD_IS_ACTIVE__,
-		isClickable: isClickableProp = __DEFAULT_CARD_IS_CLICKABLE__,
-		isCollapsable: isCollapsableProp = __DEFAULT_CARD_IS_COLLAPSABLE__,
-		isDisabled: isDisabledProp = __DEFAULT_CARD_IS_DISABLED__,
-		isDivisible: isDivisibleProp = __DEFAULT_CARD_IS_DIVISIBLE__,
-		isFixed: isFixedProp = __DEFAULT_CARD_IS_FIXED__,
-		isOpen: isOpenProp = __DEFAULT_CARD_IS_OPEN__,
-		isOutlined: isOutlinedProp = __DEFAULT_CARD_IS_OUTLINED__,
+		isActive: isActiveProp = DEFAULT_CARD_IS_ACTIVE,
+		isClickable: isClickableProp = DEFAULT_CARD_IS_CLICKABLE,
+		isCollapsable: isCollapsableProp = DEFAULT_CARD_IS_COLLAPSABLE,
+		isDisabled: isDisabledProp = DEFAULT_CARD_IS_DISABLED,
+		isDivisible: isDivisibleProp = DEFAULT_CARD_IS_DIVISIBLE,
+		isFixed: isFixedProp = DEFAULT_CARD_IS_FIXED,
+		isOpen: isOpenProp = DEFAULT_CARD_IS_OPEN,
+		isOutlined: isOutlinedProp = DEFAULT_CARD_IS_OUTLINED,
 		onToggle,
 		onClick,
-		radius: radiusProp = __DEFAULT_CARD_RADIUS__,
-		spacing: spacingProp = __DEFAULT_SPACING__,
-		variant: variantProp = __DEFAULT_CARD_VARIANT__,
+		radius: radiusProp = DEFAULT_CARD_RADIUS,
+		spacing: spacingProp = DEFAULT_SPACING,
+		variant: variantProp = DEFAULT_CARD_VARIANT,
 		...rest
 	} = props;
 
@@ -136,7 +136,7 @@ const Card = forwardRef(function Card<Element extends CardElement>(
 				{...(rest as PushableOverlayProps<Element>)}
 				as={as}
 				ref={ref}
-				className={classNames(__KEYS_CARD_CLASS__, { [className]: !!className })}
+				className={classNames(KEYS_CARD_CLASS, { [className]: !!className })}
 				color={color}
 				colorMode={colorMode}
 				radius={radius}

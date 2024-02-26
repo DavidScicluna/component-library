@@ -1,17 +1,1 @@
-import {
-	__DEFAULT_ICON_AS__,
-	__DEFAULT_ICON_CATEGORY__,
-	__DEFAULT_ICON_ICON__,
-	__DEFAULT_ICON_RADIUS__,
-	__DEFAULT_ICON_SIZE__,
-	__DEFAULT_ICON_VARIANT__
-} from './props';
-
-export {
-	__DEFAULT_ICON_AS__,
-	__DEFAULT_ICON_CATEGORY__,
-	__DEFAULT_ICON_ICON__,
-	__DEFAULT_ICON_RADIUS__,
-	__DEFAULT_ICON_SIZE__,
-	__DEFAULT_ICON_VARIANT__
-};
+export * from './props';

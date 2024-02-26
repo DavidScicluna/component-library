@@ -1,6 +1,6 @@
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 import React from 'react';
-import { __DEFAULT_LINEAR_GRADIENT_DIRECTION__ } from './common/constants';
+import { DEFAULT_LINEAR_GRADIENT_DIRECTION } from './common/constants';
 import type { LinearGradientDirections, LinearGradientProps } from './common/types';
 import type { LinearGradientStory, LinearGradientStoryMeta } from './common/types/story';
 import { LinearGradient as LinearGradientComponent } from '.';
@@ -14,7 +14,7 @@ export default {
 		direction: {
 			name: 'Direction',
 			type: 'string',
-			defaultValue: __DEFAULT_LINEAR_GRADIENT_DIRECTION__,
+			defaultValue: DEFAULT_LINEAR_GRADIENT_DIRECTION,
 			// description: '',
 			options: ['b', 'br', 'tr', 'r', 't', 'bl', 'l', 'tl'] as LinearGradientDirections,
 			control: { type: 'radio' }

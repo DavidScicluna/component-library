@@ -5,14 +5,14 @@ import { compact } from 'lodash-es';
 import type { Style } from '@common/types';
 import { getResponsiveValue } from '@common/utils';
 
-import { __DEFAULT_POSITION_OVERLAY_ITEM_PLACEMENT__ } from '../constants';
+import { DEFAULT_POSITION_OVERLAY_ITEM_PLACEMENT } from '../constants';
 import type { PositionOverlayItem, PositionOverlayItemPlacement } from '../types';
 
 type UsePositionOverlayItemStylesProps = Pick<PositionOverlayItem, 'placement'>;
 type UsePositionOverlayItemStylesReturn = Style;
 
 const usePositionOverlayItemStyles = (props: UsePositionOverlayItemStylesProps): UsePositionOverlayItemStylesReturn => {
-	const { placement = __DEFAULT_POSITION_OVERLAY_ITEM_PLACEMENT__ } = props;
+	const { placement = DEFAULT_POSITION_OVERLAY_ITEM_PLACEMENT } = props;
 
 	const position = useMemo<Style>(() => {
 		const styles: Style = { position: 'absolute' };

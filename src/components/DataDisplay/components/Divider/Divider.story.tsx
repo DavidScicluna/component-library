@@ -1,13 +1,9 @@
-import { __DEFAULT_BORDER_WIDTH__, __DEFAULT_SPACING__ } from '../../../../common/constants';
+import { DEFAULT_BORDER_WIDTH, DEFAULT_SPACING } from '../../../../common/constants';
 import type { ThemeBorderWidthArr } from '../../../../common/types';
 
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 import React from 'react';
-import {
-	__DEFAULT_DIVIDER_ORIENTATION__,
-	__DEFAULT_DIVIDER_PLACEMENT__,
-	__DEFAULT_DIVIDER_VARIANT__
-} from './common/constants';
+import { DEFAULT_DIVIDER_ORIENTATION, DEFAULT_DIVIDER_PLACEMENT, DEFAULT_DIVIDER_VARIANT } from './common/constants';
 import type {
 	DividerDefaultElement,
 	DividerOrientations,
@@ -25,7 +21,7 @@ export default {
 		orientation: {
 			name: 'Orientation',
 			type: 'string',
-			defaultValue: __DEFAULT_DIVIDER_ORIENTATION__,
+			defaultValue: DEFAULT_DIVIDER_ORIENTATION,
 			// description: '',
 			options: ['vertical', 'horizontal'] as DividerOrientations,
 			control: { type: 'radio' }
@@ -33,7 +29,7 @@ export default {
 		placement: {
 			name: 'Placement',
 			type: 'string',
-			defaultValue: __DEFAULT_DIVIDER_PLACEMENT__,
+			defaultValue: DEFAULT_DIVIDER_PLACEMENT,
 			// description: '',
 			options: ['left', 'center', 'right'] as Array<DividerPlacement>,
 			control: { type: 'radio' }
@@ -41,7 +37,7 @@ export default {
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: __DEFAULT_BORDER_WIDTH__,
+			defaultValue: DEFAULT_BORDER_WIDTH,
 			// description: '',
 			options: [0, 1, 2, 4, 8] as ThemeBorderWidthArr,
 			control: { type: 'radio' }
@@ -49,14 +45,14 @@ export default {
 		spacing: {
 			name: 'Spacing (0-24 | .0, .25, .5 or .75)',
 			type: 'number',
-			defaultValue: __DEFAULT_SPACING__,
+			defaultValue: DEFAULT_SPACING,
 			// description: '',
 			control: { type: 'number' }
 		},
 		variant: {
 			name: 'Variant',
 			type: 'string',
-			defaultValue: __DEFAULT_DIVIDER_VARIANT__,
+			defaultValue: DEFAULT_DIVIDER_VARIANT,
 			// description: '',
 			options: ['dotted', 'dashed', 'solid'] as Array<DividerVariant>,
 			control: { type: 'radio' }

@@ -3,7 +3,7 @@ import { round } from 'lodash-es';
 
 import type { Undefinable } from '@common/types';
 
-import { __DEFAULT_CAROUSEL_ITEMS__ } from '../constants';
+import { DEFAULT_CAROUSEL_ITEMS } from '../constants';
 import type { CarouselItem, CarouselItems } from '../types';
 
 import useCarouselContext from './useCarouselContext';
@@ -20,7 +20,7 @@ const getPrevItemIndex = (index: number = 0): number => {
 	}
 	return index;
 };
-const getNextItemIndex = (items: CarouselItems = __DEFAULT_CAROUSEL_ITEMS__, index: number = 0): number => {
+const getNextItemIndex = (items: CarouselItems = DEFAULT_CAROUSEL_ITEMS, index: number = 0): number => {
 	if (index > items.length - 1) {
 		return items.length - 1;
 	}

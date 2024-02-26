@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from '../../common/classes';
-import { __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_SX__ } from '../../common/constants';
+import { DEFAULT_POLYMORPHIC_ELEMENT, DEFAULT_POLYMORPHIC_SX } from '../../common/constants';
 import { useGetColor } from '../../common/hooks';
 import type { PolymorphicDefaultElement, PolymorphicElementType } from '../../common/types';
 
@@ -21,7 +21,7 @@ export default {
 		as: {
 			name: 'As',
 			type: 'string',
-			defaultValue: __DEFAULT_POLYMORPHIC_ELEMENT__,
+			defaultValue: DEFAULT_POLYMORPHIC_ELEMENT,
 			description: 'The component used for the root node. Either a string to use an HTML element or a component.',
 			options: ['div', 'span', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as Array<PolymorphicElementType>,
 			control: { type: 'select' }
@@ -29,7 +29,7 @@ export default {
 		sx: {
 			name: 'Sx',
 			type: 'string',
-			defaultValue: __DEFAULT_POLYMORPHIC_SX__,
+			defaultValue: DEFAULT_POLYMORPHIC_SX,
 			description:
 				'The system prop that allows [emotion css](https://emotion.sh/docs/introduction) objects to be passed down to as styles',
 			control: { type: 'object' }

@@ -1,11 +1,11 @@
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_SPACING } from '@common/constants';
 import { useGetClass } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
-import { __DEFAULT_SIMPLE_GRID_COLUMNS__ } from '../constants';
+import { DEFAULT_SIMPLE_GRID_COLUMNS } from '../constants';
 import type { SimpleGridProps } from '../types';
 
 import useSimpleGridResponsiveValues from './useSimpleGridResponsiveValues';
@@ -19,8 +19,7 @@ type UseSimpleGridClassesReturn = ClassName;
 const useSimpleGridClasses = <Element extends PolymorphicElementType>(
 	props: UseSimpleGridClassesProps<Element>
 ): UseSimpleGridClassesReturn => {
-	const { columns: columnsProp = __DEFAULT_SIMPLE_GRID_COLUMNS__, spacing: spacingProp = __DEFAULT_SPACING__ } =
-		props;
+	const { columns: columnsProp = DEFAULT_SIMPLE_GRID_COLUMNS, spacing: spacingProp = DEFAULT_SPACING } = props;
 
 	const { columns, spacing } = useSimpleGridResponsiveValues({ columns: columnsProp, spacing: spacingProp });
 

@@ -1,3 +1,3 @@
 import type { ThemeBreakpoint } from '@common/types';
 
-export const __DEFAULT_BREAKPOINT__: ThemeBreakpoint = 'xs';
+export const DEFAULT_BREAKPOINT: ThemeBreakpoint = 'xs';

@@ -2,19 +2,19 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
-import { __DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE__ } from '../../common/constants';
+import { DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE } from '../../common/constants';
 import { useStepperContext, useStepperSizeConfig } from '../../common/hooks';
 import { getStepID, getStepSubtitleID } from '../../common/utils';
 import { useStepContext } from '../Step/common/hooks';
 
-import { __DEFAULT_STEP_SUBTITLE_AS__ } from './common/constants';
-import { __KEYS_STEP_SUBTITLE_CLASS__ } from './common/keys';
+import { DEFAULT_STEP_SUBTITLE_AS } from './common/constants';
+import { KEYS_STEP_SUBTITLE_CLASS } from './common/keys';
 import type { StepSubtitleElement, StepSubtitleProps, StepSubtitleRef } from './common/types';
 
 const StepSubtitle = forwardRef(function StepSubtitle<Element extends StepSubtitleElement>(
@@ -24,7 +24,7 @@ const StepSubtitle = forwardRef(function StepSubtitle<Element extends StepSubtit
 	const { colorMode, size, id: stepperID } = useStepperContext();
 	const { id, index } = useStepContext();
 
-	const __DEFAULT_STEP_SUBTITLE_COLOR__ = useGetColor({
+	const DEFAULT_STEP_SUBTITLE_COLOR = useGetColor({
 		color: 'gray',
 		colorMode,
 		colorType: 'default',
@@ -36,14 +36,14 @@ const StepSubtitle = forwardRef(function StepSubtitle<Element extends StepSubtit
 
 	const {
 		children,
-		as = __DEFAULT_STEP_SUBTITLE_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_STEP_SUBTITLE_AS,
+		className = DEFAULT_CLASSNAME,
 		align = 'left',
-		color = __DEFAULT_STEP_SUBTITLE_COLOR__,
+		color = DEFAULT_STEP_SUBTITLE_COLOR,
 		fontSize = config.fontSize.subtitle,
 		fontWeight = 'normal',
 		lineClamp = 1,
-		lineHeight = __DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE__,
+		lineHeight = DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE,
 		...rest
 	} = props;
 
@@ -53,7 +53,7 @@ const StepSubtitle = forwardRef(function StepSubtitle<Element extends StepSubtit
 			as={as}
 			ref={ref}
 			id={getStepSubtitleID(id || getStepID(stepperID, index))}
-			className={classNames(__KEYS_STEP_SUBTITLE_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_STEP_SUBTITLE_CLASS, { [className]: !!className })}
 			align={align}
 			color={color}
 			fontSize={fontSize}

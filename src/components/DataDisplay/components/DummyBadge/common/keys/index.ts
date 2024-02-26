@@ -1,3 +1,3 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
-export const __KEYS_DUMMY_BADGE_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-dummy-badge`;
+export const KEYS_DUMMY_BADGE_CLASS = `${DEFAULT_CLASS_PREFIX}-dummy-badge`;

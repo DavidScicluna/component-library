@@ -3,7 +3,7 @@ import { ThreeDots } from 'react-loader-spinner';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_RADIUS } from '@common/constants';
 import { useGetColor, useTheme } from '@common/hooks';
 import type { PolymorphicElementType, ThemeFontSize } from '@common/types';
 import { checkFontSizeType, convertREMToPixels, convertStringToNumber } from '@common/utils';
@@ -11,9 +11,9 @@ import { checkFontSizeType, convertREMToPixels, convertStringToNumber } from '@c
 import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
-import { __DEFAULT_TAIL_SPIN_SPINNER_IS_VISIBLE__, __DEFAULT_TAIL_SPIN_SPINNER_SIZE__ } from './common/constants';
+import { DEFAULT_TAIL_SPIN_SPINNER_IS_VISIBLE, DEFAULT_TAIL_SPIN_SPINNER_SIZE } from './common/constants';
 import { useTailSpinSpinnerResponsiveValues } from './common/hooks';
-import { __KEYS_TAIL_SPIN_SPINNER_CLASS__, __KEYS_TAIL_SPIN_SPINNER_WRAPPER_CLASS__ } from './common/keys';
+import { KEYS_TAIL_SPIN_SPINNER_CLASS, KEYS_TAIL_SPIN_SPINNER_WRAPPER_CLASS } from './common/keys';
 import type { TailSpinSpinnerProps, TailSpinSpinnerRef, TailSpinSpinnerSize } from './common/types';
 
 const TailSpinSpinner = forwardRef(function TailSpinSpinner<Element extends PolymorphicElementType>(
@@ -22,14 +22,14 @@ const TailSpinSpinner = forwardRef(function TailSpinSpinner<Element extends Poly
 ): JSX.Element {
 	const theme = useTheme();
 
-	const __DEFAULT_TAIL_SPIN_SPINNER_COLOR__ = useGetColor({ colorType: 'default', hueType: 'default' });
+	const DEFAULT_TAIL_SPIN_SPINNER_COLOR = useGetColor({ colorType: 'default', hueType: 'default' });
 
 	const {
-		className = __DEFAULT_CLASSNAME__,
-		color = __DEFAULT_TAIL_SPIN_SPINNER_COLOR__,
-		isVisible: isVisibleProp = __DEFAULT_TAIL_SPIN_SPINNER_IS_VISIBLE__,
-		radius: radiusProp = __DEFAULT_RADIUS__,
-		size: sizeProp = __DEFAULT_TAIL_SPIN_SPINNER_SIZE__,
+		className = DEFAULT_CLASSNAME,
+		color = DEFAULT_TAIL_SPIN_SPINNER_COLOR,
+		isVisible: isVisibleProp = DEFAULT_TAIL_SPIN_SPINNER_IS_VISIBLE,
+		radius: radiusProp = DEFAULT_RADIUS,
+		size: sizeProp = DEFAULT_TAIL_SPIN_SPINNER_SIZE,
 		...rest
 	} = props;
 
@@ -49,7 +49,7 @@ const TailSpinSpinner = forwardRef(function TailSpinSpinner<Element extends Poly
 		<Box
 			{...(rest as BoxProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_TAIL_SPIN_SPINNER_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_TAIL_SPIN_SPINNER_CLASS, { [className]: !!className })}
 		>
 			<ThreeDots
 				width={dimensions}
@@ -57,7 +57,7 @@ const TailSpinSpinner = forwardRef(function TailSpinSpinner<Element extends Poly
 				color={color}
 				radius={theme.borderRadius[radius]}
 				// wrapperStyle={wrapperStyle}
-				wrapperClass={__KEYS_TAIL_SPIN_SPINNER_WRAPPER_CLASS__}
+				wrapperClass={KEYS_TAIL_SPIN_SPINNER_WRAPPER_CLASS}
 				visible={isVisible}
 			/>
 		</Box>

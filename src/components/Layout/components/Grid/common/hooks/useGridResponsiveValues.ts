@@ -1,6 +1,6 @@
 import type { Required } from 'utility-types';
 
-import { __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_SPACING } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	AlignContentClass,
@@ -14,12 +14,12 @@ import type {
 } from '@common/types';
 
 import {
-	__DEFAULT_GRID_ALIGN_CONTENT__,
-	__DEFAULT_GRID_ALIGN_ITEMS__,
-	__DEFAULT_GRID_JUSTIFY_CONTENT__,
-	__DEFAULT_GRID_JUSTIFY_ITEMS__,
-	__DEFAULT_GRID_TEMPLATE_COLUMNS__,
-	__DEFAULT_GRID_TEMPLATE_ROWS__
+	DEFAULT_GRID_ALIGN_CONTENT,
+	DEFAULT_GRID_ALIGN_ITEMS,
+	DEFAULT_GRID_JUSTIFY_CONTENT,
+	DEFAULT_GRID_JUSTIFY_ITEMS,
+	DEFAULT_GRID_TEMPLATE_COLUMNS,
+	DEFAULT_GRID_TEMPLATE_ROWS
 } from '../constants';
 import type {
 	GridNonResponsiveValueProps,
@@ -69,18 +69,18 @@ const useGridResponsiveValues = (props: UseGridResponsiveValuesProps): UseGridRe
 	const spacing = useGetResponsiveValue<Undefinable<ThemeSpacing>>(spacingProp);
 
 	return {
-		alignContent: alignContent || __DEFAULT_GRID_ALIGN_CONTENT__,
-		alignItems: alignItems || __DEFAULT_GRID_ALIGN_ITEMS__,
+		alignContent: alignContent || DEFAULT_GRID_ALIGN_CONTENT,
+		alignItems: alignItems || DEFAULT_GRID_ALIGN_ITEMS,
 		autoColumns,
 		autoFlow,
 		autoRows,
 		columnSpacing,
-		justifyContent: justifyContent || __DEFAULT_GRID_JUSTIFY_CONTENT__,
-		justifyItems: justifyItems || __DEFAULT_GRID_JUSTIFY_ITEMS__,
+		justifyContent: justifyContent || DEFAULT_GRID_JUSTIFY_CONTENT,
+		justifyItems: justifyItems || DEFAULT_GRID_JUSTIFY_ITEMS,
 		rowSpacing,
-		templateColumns: templateColumns || __DEFAULT_GRID_TEMPLATE_COLUMNS__,
-		templateRows: templateRows || __DEFAULT_GRID_TEMPLATE_ROWS__,
-		spacing: spacing || __DEFAULT_SPACING__
+		templateColumns: templateColumns || DEFAULT_GRID_TEMPLATE_COLUMNS,
+		templateRows: templateRows || DEFAULT_GRID_TEMPLATE_ROWS,
+		spacing: spacing || DEFAULT_SPACING
 	};
 };
 

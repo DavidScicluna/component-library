@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import type { BoxProps } from '@components/Box';
@@ -11,7 +11,7 @@ import { Box } from '@components/Box';
 import { useButtonGroupContext } from '../../common/hooks';
 
 import { useButtonGroupItemClasses } from './common/hooks';
-import { __KEYS_BUTTON_GROUP_ITEM_CLASS__ } from './common/keys';
+import { KEYS_BUTTON_GROUP_ITEM_CLASS } from './common/keys';
 import type { ButtonGroupItemProps, ButtonGroupItemRef } from './common/types';
 
 const ButtonGroupItem = forwardRef(function ButtonGroupItem<Element extends PolymorphicElementType>(
@@ -20,7 +20,7 @@ const ButtonGroupItem = forwardRef(function ButtonGroupItem<Element extends Poly
 ): JSX.Element {
 	const { isFullWidth } = useButtonGroupContext();
 
-	const { children, className = __DEFAULT_CLASSNAME__, index, total, ...rest } = props;
+	const { children, className = DEFAULT_CLASSNAME, index, total, ...rest } = props;
 
 	const classes = useButtonGroupItemClasses<Element>({ index, total });
 
@@ -28,7 +28,7 @@ const ButtonGroupItem = forwardRef(function ButtonGroupItem<Element extends Poly
 		<Box
 			{...(rest as BoxProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_BUTTON_GROUP_ITEM_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_BUTTON_GROUP_ITEM_CLASS, { [className]: !!className })}
 			w={isFullWidth ? '100%' : 'auto'}
 		>
 			{children({ className: classes })}

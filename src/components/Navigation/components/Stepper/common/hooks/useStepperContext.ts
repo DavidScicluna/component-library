@@ -1,19 +1,19 @@
 import { useContext } from 'react';
 
-import { __DEFAULT_METHOD__, __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_METHOD, DEFAULT_SPACING } from '@common/constants';
 
 import { StepperContext } from '../../Stepper';
 import {
-	__DEFAULT_STEPPER_ALIGN__,
-	__DEFAULT_STEPPER_ID__,
-	__DEFAULT_STEPPER_INDEX__,
-	__DEFAULT_STEPPER_IS_CONSECUTIVELY__,
-	__DEFAULT_STEPPER_IS_DISABLED__,
-	__DEFAULT_STEPPER_IS_FITTED__,
-	__DEFAULT_STEPPER_ORIENTATION__,
-	__DEFAULT_STEPPER_SIZE__,
-	__DEFAULT_STEPPER_TOTAL__,
-	__DEFAULT_STEPPER_VARIANT__
+	DEFAULT_STEPPER_ALIGN,
+	DEFAULT_STEPPER_ID,
+	DEFAULT_STEPPER_INDEX,
+	DEFAULT_STEPPER_IS_CONSECUTIVELY,
+	DEFAULT_STEPPER_IS_DISABLED,
+	DEFAULT_STEPPER_IS_FITTED,
+	DEFAULT_STEPPER_ORIENTATION,
+	DEFAULT_STEPPER_SIZE,
+	DEFAULT_STEPPER_TOTAL,
+	DEFAULT_STEPPER_VARIANT
 } from '../constants';
 import type { StepperContext as StepperContextType, StepperElement } from '../types';
 
@@ -23,18 +23,18 @@ const useStepperContext = <Element extends StepperElement>() => {
 	const {
 		color,
 		colorMode,
-		id = __DEFAULT_STEPPER_ID__,
-		align: alignProp = __DEFAULT_STEPPER_ALIGN__,
-		index: indexProp = __DEFAULT_STEPPER_INDEX__,
-		total: totalProp = __DEFAULT_STEPPER_TOTAL__,
-		isConsecutively: isConsecutivelyProp = __DEFAULT_STEPPER_IS_CONSECUTIVELY__,
-		isDisabled: isDisabledProp = __DEFAULT_STEPPER_IS_DISABLED__,
-		isFitted: isFittedProp = __DEFAULT_STEPPER_IS_FITTED__,
-		onChange = __DEFAULT_METHOD__,
-		orientation: orientationProp = __DEFAULT_STEPPER_ORIENTATION__,
-		size: sizeProp = __DEFAULT_STEPPER_SIZE__,
-		spacing: spacingProp = __DEFAULT_SPACING__,
-		variant: variantProp = __DEFAULT_STEPPER_VARIANT__
+		id = DEFAULT_STEPPER_ID,
+		align: alignProp = DEFAULT_STEPPER_ALIGN,
+		index: indexProp = DEFAULT_STEPPER_INDEX,
+		total: totalProp = DEFAULT_STEPPER_TOTAL,
+		isConsecutively: isConsecutivelyProp = DEFAULT_STEPPER_IS_CONSECUTIVELY,
+		isDisabled: isDisabledProp = DEFAULT_STEPPER_IS_DISABLED,
+		isFitted: isFittedProp = DEFAULT_STEPPER_IS_FITTED,
+		onChange = DEFAULT_METHOD,
+		orientation: orientationProp = DEFAULT_STEPPER_ORIENTATION,
+		size: sizeProp = DEFAULT_STEPPER_SIZE,
+		spacing: spacingProp = DEFAULT_SPACING,
+		variant: variantProp = DEFAULT_STEPPER_VARIANT
 	} = useContext<StepperContextType<Element>>(StepperContext);
 
 	const { align, index, total, isConsecutively, isDisabled, isFitted, orientation, size, spacing, variant } =

@@ -1,19 +1,19 @@
-import { __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_SPACING } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { FlexDirectionClass, ThemeSpacing, Undefinable } from '@common/types';
 
 import {
-	__DEFAULT_BUTTON_IS_COMPACT__,
-	__DEFAULT_BUTTON_IS_DISABLED__,
-	__DEFAULT_BUTTON_IS_FULLWIDTH__,
-	__DEFAULT_BUTTON_IS_ROUND__,
-	__DEFAULT_BUTTON_SIZE__,
-	__DEFAULT_BUTTON_VARIANT__
+	DEFAULT_BUTTON_IS_COMPACT,
+	DEFAULT_BUTTON_IS_DISABLED,
+	DEFAULT_BUTTON_IS_FULLWIDTH,
+	DEFAULT_BUTTON_IS_ROUND,
+	DEFAULT_BUTTON_SIZE,
+	DEFAULT_BUTTON_VARIANT
 } from '@components/Buttons/components/Button/common/constants';
 import type { ButtonSize, ButtonVariant } from '@components/Buttons/components/Button/common/types';
-import { __DEFAULT_STACK_DIRECTION__ } from '@components/Layout/components/Stacks/Stack/common/constants';
+import { DEFAULT_STACK_DIRECTION } from '@components/Layout/components/Stacks/Stack/common/constants';
 
-import { __DEFAULT_BUTTON_GROUP_IS_ATTACHED__ } from '../constants';
+import { DEFAULT_BUTTON_GROUP_IS_ATTACHED } from '../constants';
 import type { ButtonGroupElement, ButtonGroupProps } from '../types';
 
 type PickedButtonGroupProps =
@@ -34,15 +34,15 @@ const useButtonGroupResponsiveValues = <Element extends ButtonGroupElement>(
 	props: UseButtonGroupResponsiveValuesProps<Element>
 ) => {
 	const {
-		direction: directionProp = __DEFAULT_STACK_DIRECTION__,
-		isAttached: isAttachedProp = __DEFAULT_BUTTON_GROUP_IS_ATTACHED__,
-		isCompact: isCompactProp = __DEFAULT_BUTTON_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_BUTTON_IS_DISABLED__,
-		isFullWidth: isFullWidthProp = __DEFAULT_BUTTON_IS_FULLWIDTH__,
-		isRound: isRoundProp = __DEFAULT_BUTTON_IS_ROUND__,
-		spacing: spacingProp = __DEFAULT_SPACING__,
-		size: sizeProp = __DEFAULT_BUTTON_SIZE__,
-		variant: variantProp = __DEFAULT_BUTTON_VARIANT__
+		direction: directionProp = DEFAULT_STACK_DIRECTION,
+		isAttached: isAttachedProp = DEFAULT_BUTTON_GROUP_IS_ATTACHED,
+		isCompact: isCompactProp = DEFAULT_BUTTON_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_BUTTON_IS_DISABLED,
+		isFullWidth: isFullWidthProp = DEFAULT_BUTTON_IS_FULLWIDTH,
+		isRound: isRoundProp = DEFAULT_BUTTON_IS_ROUND,
+		spacing: spacingProp = DEFAULT_SPACING,
+		size: sizeProp = DEFAULT_BUTTON_SIZE,
+		variant: variantProp = DEFAULT_BUTTON_VARIANT
 	} = props;
 
 	const direction = useGetResponsiveValue<Undefinable<FlexDirectionClass>>(directionProp);

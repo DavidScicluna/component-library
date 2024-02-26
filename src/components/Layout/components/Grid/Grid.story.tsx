@@ -1,7 +1,7 @@
 import { range } from 'lodash-es';
 
 import classes from '../../../../common/classes';
-import { __DEFAULT_SPACING__ } from '../../../../common/constants';
+import { DEFAULT_SPACING } from '../../../../common/constants';
 import { useGetColor } from '../../../../common/hooks';
 import type {
 	AlignContentClassArr,
@@ -20,12 +20,12 @@ import { useStorybookContext } from '../../../Provider/components/StorybookProvi
 import { Center } from '../Center';
 
 import {
-	__DEFAULT_GRID_ALIGN_CONTENT__,
-	__DEFAULT_GRID_ALIGN_ITEMS__,
-	__DEFAULT_GRID_JUSTIFY_CONTENT__,
-	__DEFAULT_GRID_JUSTIFY_ITEMS__,
-	__DEFAULT_GRID_TEMPLATE_COLUMNS__,
-	__DEFAULT_GRID_TEMPLATE_ROWS__
+	DEFAULT_GRID_ALIGN_CONTENT,
+	DEFAULT_GRID_ALIGN_ITEMS,
+	DEFAULT_GRID_JUSTIFY_CONTENT,
+	DEFAULT_GRID_JUSTIFY_ITEMS,
+	DEFAULT_GRID_TEMPLATE_COLUMNS,
+	DEFAULT_GRID_TEMPLATE_ROWS
 } from './common/constants';
 import type { GridProps } from './common/types';
 import type { GridStory, GridStoryMeta } from './common/types/story';
@@ -41,7 +41,7 @@ export default {
 		alignContent: {
 			name: 'Align Content',
 			type: 'string',
-			defaultValue: __DEFAULT_GRID_ALIGN_CONTENT__,
+			defaultValue: DEFAULT_GRID_ALIGN_CONTENT,
 			// description: '',
 			options: [
 				'center',
@@ -59,7 +59,7 @@ export default {
 		alignItems: {
 			name: 'Align Items',
 			type: 'string',
-			defaultValue: __DEFAULT_GRID_ALIGN_ITEMS__,
+			defaultValue: DEFAULT_GRID_ALIGN_ITEMS,
 			// description: '',
 			options: ['flex-start', 'flex-end', 'center', 'baseline', 'stretch'] as AlignItemsClassArr,
 			control: { type: 'radio' }
@@ -95,7 +95,7 @@ export default {
 		justifyContent: {
 			name: 'Justify Content',
 			type: 'string',
-			defaultValue: __DEFAULT_GRID_JUSTIFY_CONTENT__,
+			defaultValue: DEFAULT_GRID_JUSTIFY_CONTENT,
 			// description: '',
 			options: [
 				'center',
@@ -112,7 +112,7 @@ export default {
 		justifyItems: {
 			name: 'Justify Items',
 			type: 'string',
-			defaultValue: __DEFAULT_GRID_JUSTIFY_ITEMS__,
+			defaultValue: DEFAULT_GRID_JUSTIFY_ITEMS,
 			// description: '',
 			options: ['start', 'end', 'center', 'stretch'] as JustifyItemsClassArr,
 			control: { type: 'radio' }
@@ -127,7 +127,7 @@ export default {
 		templateColumns: {
 			name: 'Template Columns',
 			type: 'string',
-			defaultValue: __DEFAULT_GRID_TEMPLATE_COLUMNS__,
+			defaultValue: DEFAULT_GRID_TEMPLATE_COLUMNS,
 			// description: '',
 			options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 'none'] as GridTemplateColumnsClassArr,
 			control: { type: 'radio' }
@@ -135,7 +135,7 @@ export default {
 		templateRows: {
 			name: 'Template Rows',
 			type: 'string',
-			defaultValue: __DEFAULT_GRID_TEMPLATE_ROWS__,
+			defaultValue: DEFAULT_GRID_TEMPLATE_ROWS,
 			// description: '',
 			options: [1, 2, 3, 4, 5, 6, 'none'] as GridTemplateRowsClassArr,
 			control: { type: 'radio' }
@@ -143,7 +143,7 @@ export default {
 		spacing: {
 			name: 'Spacing (0-24 , .0, .25, .5 or .75)',
 			type: 'number',
-			defaultValue: __DEFAULT_SPACING__,
+			defaultValue: DEFAULT_SPACING,
 			// description: '',
 			control: { type: 'number' }
 		}

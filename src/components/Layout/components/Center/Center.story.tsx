@@ -5,7 +5,7 @@ import { Text } from '../../../Typography';
 import React from 'react';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
-import { __DEFAULT_CENTER_SPACING__ } from './common/constants';
+import { DEFAULT_CENTER_SPACING } from './common/constants';
 import type { CenterProps } from './common/types';
 import type { CenterStory, CenterStoryMeta } from './common/types/story';
 import { Center as CenterComponent } from '.';
@@ -20,7 +20,7 @@ export default {
 		spacing: {
 			name: 'Spacing (0-24 | .0, .25, .5 or .75)',
 			type: 'number',
-			defaultValue: __DEFAULT_CENTER_SPACING__,
+			defaultValue: DEFAULT_CENTER_SPACING,
 			// description: '',
 			control: { type: 'number' }
 		}

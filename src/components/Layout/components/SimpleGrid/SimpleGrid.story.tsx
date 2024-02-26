@@ -1,7 +1,7 @@
 import { range } from 'lodash-es';
 
 import classes from '../../../../common/classes';
-import { __DEFAULT_SPACING__ } from '../../../../common/constants';
+import { DEFAULT_SPACING } from '../../../../common/constants';
 import { useGetColor } from '../../../../common/hooks';
 import React from 'react';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
@@ -30,7 +30,7 @@ export default {
 		spacing: {
 			name: 'Spacing (0-24 | .0, .25, .5 or .75)',
 			type: 'number',
-			defaultValue: __DEFAULT_SPACING__,
+			defaultValue: DEFAULT_SPACING,
 			// description: '',
 			control: { type: 'number' }
 		}

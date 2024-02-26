@@ -1,12 +1,12 @@
-import { __DEFAULT_BORDER_WIDTH__ } from '@common/constants';
+import { DEFAULT_BORDER_WIDTH } from '@common/constants';
 import type { ThemeBorderWidth } from '@common/types';
 
-export const __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__: Record<
+export const DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE: Record<
 	'base' | 'pushable' | 'hover' | 'active',
 	ThemeBorderWidth
 > = {
-	base: __DEFAULT_BORDER_WIDTH__,
-	pushable: (__DEFAULT_BORDER_WIDTH__ * 2) as ThemeBorderWidth,
-	hover: (__DEFAULT_BORDER_WIDTH__ * 3) as ThemeBorderWidth,
+	base: DEFAULT_BORDER_WIDTH,
+	pushable: (DEFAULT_BORDER_WIDTH * 2) as ThemeBorderWidth,
+	hover: (DEFAULT_BORDER_WIDTH * 3) as ThemeBorderWidth,
 	active: 0
 };

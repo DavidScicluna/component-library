@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { range, sample } from 'lodash-es';
 
-import { __DEFAULT_SPACING__ } from '../../../../common/constants';
+import { DEFAULT_SPACING } from '../../../../common/constants';
 import { appColors } from '../../../../common/data';
 import { useGetColor } from '../../../../common/hooks';
 import type { ThemeAppColor } from '../../../../common/types';
@@ -12,17 +12,17 @@ import { Text } from '../../../Typography';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
-	__DEFAULT_TABS_IS_DISABLED__,
-	__DEFAULT_TABS_IS_FITTED__,
-	__DEFAULT_TABS_ORIENTATION__,
-	__DEFAULT_TABS_SIZE__
+	DEFAULT_TABS_IS_DISABLED,
+	DEFAULT_TABS_IS_FITTED,
+	DEFAULT_TABS_ORIENTATION,
+	DEFAULT_TABS_SIZE
 } from './common/constants';
 import type { TabsAlign, TabsDefaultElement, TabsOrientation, TabsProps, TabsSize } from './common/types';
 import type { TabsStory, TabsStoryMeta } from './common/types/story';
 import { Tab, TabIcon, TabList, TabPanels, Tabs as TabsComponent } from '.';
 
-const __DEFAULT_TABS_STORY_COLOR__: ThemeAppColor = sample(appColors) || 'blue';
-const __DEFAULT_TABS_STORY_TABS__ = range(10);
+const DEFAULT_TABS_STORY_COLOR: ThemeAppColor = sample(appColors) || 'blue';
+const DEFAULT_TABS_STORY_TABS = range(10);
 
 export default {
 	title: 'Navigation/Tabs',
@@ -31,7 +31,7 @@ export default {
 		align: {
 			name: 'Align',
 			type: 'string',
-			defaultValue: __DEFAULT_TABS_SIZE__,
+			defaultValue: DEFAULT_TABS_SIZE,
 			// description: '',
 			options: ['center', 'end', 'start'] as Array<TabsAlign>,
 			control: { type: 'radio' }
@@ -39,21 +39,21 @@ export default {
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
-			defaultValue: __DEFAULT_TABS_IS_DISABLED__,
+			defaultValue: DEFAULT_TABS_IS_DISABLED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isFitted: {
 			name: 'Fitted',
 			type: 'boolean',
-			defaultValue: __DEFAULT_TABS_IS_FITTED__,
+			defaultValue: DEFAULT_TABS_IS_FITTED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		orientation: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: __DEFAULT_TABS_ORIENTATION__,
+			defaultValue: DEFAULT_TABS_ORIENTATION,
 			// description: '',
 			options: ['top', 'bottom', 'left', 'right'] as Array<TabsOrientation>,
 			control: { type: 'radio' }
@@ -61,7 +61,7 @@ export default {
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: __DEFAULT_TABS_SIZE__,
+			defaultValue: DEFAULT_TABS_SIZE,
 			// description: '',
 			options: ['xs', 'sm', 'md', 'lg', 'xl'] as Array<TabsSize>,
 			control: { type: 'radio' }
@@ -69,7 +69,7 @@ export default {
 		spacing: {
 			name: 'Spacing (0-24 , .0, .25, .5 or .75)',
 			type: 'number',
-			defaultValue: __DEFAULT_SPACING__,
+			defaultValue: DEFAULT_SPACING,
 			// description: '',
 			control: { type: 'number' }
 		}
@@ -93,10 +93,10 @@ export const Tabs: TabsStory = (props: TabsProps<TabsDefaultElement>): JSX.Eleme
 			onChange={(index) => setIndex(index as number)}
 		>
 			<TabList>
-				{__DEFAULT_TABS_STORY_TABS__.map((tab, index) => (
+				{DEFAULT_TABS_STORY_TABS.map((tab, index) => (
 					<Tab
 						key={tab}
-						color={!color ? __DEFAULT_TABS_STORY_COLOR__ : color}
+						color={!color ? DEFAULT_TABS_STORY_COLOR : color}
 						index={index}
 						renderTop={
 							props.orientation === 'top' ? () => <TabIcon icon='12mp' category='filled' /> : undefined
@@ -108,7 +108,7 @@ export const Tabs: TabsStory = (props: TabsProps<TabsDefaultElement>): JSX.Eleme
 				))}
 			</TabList>
 			<TabPanels>
-				{__DEFAULT_TABS_STORY_TABS__.map((tab, index) => (
+				{DEFAULT_TABS_STORY_TABS.map((tab, index) => (
 					<Center key={tab} p={4}>
 						<Text align='center' color={text}>
 							{`Tab ${index + 1} Panel`}

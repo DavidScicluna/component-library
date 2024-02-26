@@ -4,9 +4,9 @@ import { useGetClass } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import {
-	__DEFAULT_GLASS_OVERLAY_BLUR__,
-	__DEFAULT_GLASS_OVERLAY_BLUR_TYPE__,
-	__DEFAULT_GLASS_OVERLAY_RADIUS__
+	DEFAULT_GLASS_OVERLAY_BLUR,
+	DEFAULT_GLASS_OVERLAY_BLUR_TYPE,
+	DEFAULT_GLASS_OVERLAY_RADIUS
 } from '../constants';
 import type { GlassOverlayProps } from '../types';
 
@@ -22,9 +22,9 @@ const useGlassOverlayClasses = <Element extends PolymorphicElementType>(
 	props: UseGlassOverlayClassesProps<Element>
 ): UseGlassOverlayClassesReturn => {
 	const {
-		blur: blurProp = __DEFAULT_GLASS_OVERLAY_BLUR__,
-		blurType: blurTypeProp = __DEFAULT_GLASS_OVERLAY_BLUR_TYPE__,
-		radius: radiusProp = __DEFAULT_GLASS_OVERLAY_RADIUS__
+		blur: blurProp = DEFAULT_GLASS_OVERLAY_BLUR,
+		blurType: blurTypeProp = DEFAULT_GLASS_OVERLAY_BLUR_TYPE,
+		radius: radiusProp = DEFAULT_GLASS_OVERLAY_RADIUS
 	} = props;
 
 	const { blur, blurType, radius } = useGlassOverlayResponsiveValues<Element>({

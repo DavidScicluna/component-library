@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { compact, isArray } from 'lodash-es';
 import { useDimensionsRef } from 'rooks';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import type { CarouselDefaultElement, CarouselRef } from '@components/DataDisplay';
@@ -21,7 +21,7 @@ import { Grid, GridItem } from '@components/Layout';
 import { useTabsContext } from '../../common/hooks';
 import { getTabListID } from '../../common/utils';
 
-import { __KEYS_TABS_TAB_LIST_CLASS__ } from './common/keys';
+import { KEYS_TABS_TAB_LIST_CLASS } from './common/keys';
 import type { TabListProps, TabListRef } from './common/types';
 
 const TabList = forwardRef(function TabList<Element extends PolymorphicElementType>(
@@ -33,7 +33,7 @@ const TabList = forwardRef(function TabList<Element extends PolymorphicElementTy
 	const [childrenRef, childrenDimensions] = useDimensionsRef();
 	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
 
-	const { children, className = __DEFAULT_CLASSNAME__, renderLeft, renderRight, ...rest } = props;
+	const { children, className = DEFAULT_CLASSNAME, renderLeft, renderRight, ...rest } = props;
 
 	return (
 		<Grid
@@ -41,7 +41,7 @@ const TabList = forwardRef(function TabList<Element extends PolymorphicElementTy
 			ref={ref}
 			aria-orientation={orientation === 'top' || orientation === 'bottom' ? 'horizontal' : 'vertical'}
 			id={getTabListID(id)}
-			className={classNames(__KEYS_TABS_TAB_LIST_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_TABS_TAB_LIST_CLASS, { [className]: !!className })}
 			role='tablist'
 			w='100%'
 			h='100%'

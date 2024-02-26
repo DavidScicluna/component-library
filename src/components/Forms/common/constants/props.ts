@@ -1,16 +1,16 @@
 import type { FormsCommonSize, FormsCommonVariant } from '../types';
 
-export const __DEFAULT_FORMS_IS_COMPACT__ = false;
-export const __DEFAULT_FORMS_IS_DISABLED__ = false;
-export const __DEFAULT_FORMS_IS_FULLWIDTH__ = false;
-export const __DEFAULT_FORMS_IS_ERROR__ = false;
-export const __DEFAULT_FORMS_IS_FOCUSED__ = false;
-export const __DEFAULT_FORMS_IS_OUTLINED__ = false;
-export const __DEFAULT_FORMS_IS_READONLY__ = false;
-export const __DEFAULT_FORMS_IS_REQUIRED__ = false;
-export const __DEFAULT_FORMS_IS_SUCCESS__ = false;
-export const __DEFAULT_FORMS_IS_WARNING__ = false;
+export const DEFAULT_FORMS_IS_COMPACT = false;
+export const DEFAULT_FORMS_IS_DISABLED = false;
+export const DEFAULT_FORMS_IS_FULLWIDTH = false;
+export const DEFAULT_FORMS_IS_ERROR = false;
+export const DEFAULT_FORMS_IS_FOCUSED = false;
+export const DEFAULT_FORMS_IS_OUTLINED = false;
+export const DEFAULT_FORMS_IS_READONLY = false;
+export const DEFAULT_FORMS_IS_REQUIRED = false;
+export const DEFAULT_FORMS_IS_SUCCESS = false;
+export const DEFAULT_FORMS_IS_WARNING = false;
 
-export const __DEFAULT_FORMS_SIZE__: FormsCommonSize = 'md';
+export const DEFAULT_FORMS_SIZE: FormsCommonSize = 'md';
 
-export const __DEFAULT_FORMS_VARIANT__: FormsCommonVariant = 'outlined';
+export const DEFAULT_FORMS_VARIANT: FormsCommonVariant = 'outlined';

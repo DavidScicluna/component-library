@@ -1,7 +1,1 @@
-import {
-	__DEFAULT_GRID_ITEM_ALIGN_SELF__,
-	__DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
-	__DEFAULT_GRID_ITEM_Z_INDEX__
-} from './props';
-
-export { __DEFAULT_GRID_ITEM_ALIGN_SELF__, __DEFAULT_GRID_ITEM_JUSTIFY_SELF__, __DEFAULT_GRID_ITEM_Z_INDEX__ };
+export * from './props';

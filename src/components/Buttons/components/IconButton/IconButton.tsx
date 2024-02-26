@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { merge } from 'lodash-es';
 import { useFocus } from 'rooks';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 
 import { Center } from '@components/Layout';
@@ -14,16 +14,16 @@ import { PushableOverlay } from '@components/Overlay';
 import { useIconButtonGroupContext } from '../IconButtonGroup/common/hooks';
 
 import {
-	__DEFAULT_ICON_BUTTON_AS__,
-	__DEFAULT_ICON_BUTTON_IS_ACTIVE__,
-	__DEFAULT_ICON_BUTTON_IS_COMPACT__,
-	__DEFAULT_ICON_BUTTON_IS_DISABLED__,
-	__DEFAULT_ICON_BUTTON_IS_FOCUSED__,
-	__DEFAULT_ICON_BUTTON_IS_LOADING__,
-	__DEFAULT_ICON_BUTTON_IS_OUTLINED__,
-	__DEFAULT_ICON_BUTTON_IS_ROUND__,
-	__DEFAULT_ICON_BUTTON_SIZE__,
-	__DEFAULT_ICON_BUTTON_VARIANT__
+	DEFAULT_ICON_BUTTON_AS,
+	DEFAULT_ICON_BUTTON_IS_ACTIVE,
+	DEFAULT_ICON_BUTTON_IS_COMPACT,
+	DEFAULT_ICON_BUTTON_IS_DISABLED,
+	DEFAULT_ICON_BUTTON_IS_FOCUSED,
+	DEFAULT_ICON_BUTTON_IS_LOADING,
+	DEFAULT_ICON_BUTTON_IS_OUTLINED,
+	DEFAULT_ICON_BUTTON_IS_ROUND,
+	DEFAULT_ICON_BUTTON_SIZE,
+	DEFAULT_ICON_BUTTON_VARIANT
 } from './common/constants';
 import {
 	useIconButtonClasses,
@@ -31,7 +31,7 @@ import {
 	useIconButtonSizeConfig,
 	useIconButtonStyles
 } from './common/hooks';
-import { __KEYS_ICON_BUTTON_CLASS__ } from './common/keys';
+import { KEYS_ICON_BUTTON_CLASS } from './common/keys';
 import type {
 	IconButtonContext as IconButtonContextType,
 	IconButtonDefaultElement,
@@ -42,8 +42,8 @@ import type {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const IconButtonContext = createContext<IconButtonContextType<IconButtonDefaultElement>>({
-	size: __DEFAULT_ICON_BUTTON_SIZE__,
-	variant: __DEFAULT_ICON_BUTTON_VARIANT__
+	size: DEFAULT_ICON_BUTTON_SIZE,
+	variant: DEFAULT_ICON_BUTTON_VARIANT
 });
 
 const IconButton = forwardRef(function IconButton<Element extends IconButtonElement>(
@@ -51,32 +51,32 @@ const IconButton = forwardRef(function IconButton<Element extends IconButtonElem
 	ref: IconButtonRef<Element>
 ): JSX.Element {
 	const {
-		color: __DEFAULT_ICON_BUTTON_GROUP_COLOR__,
-		colorMode: __DEFAULT_ICON_BUTTON_GROUP_COLORMODE__,
-		isCompact: __DEFAULT_ICON_BUTTON_GROUP_IS_COMPACT__ = __DEFAULT_ICON_BUTTON_IS_COMPACT__,
-		isDisabled: __DEFAULT_ICON_BUTTON_GROUP_IS_DISABLED__ = __DEFAULT_ICON_BUTTON_IS_DISABLED__,
-		isRound: __DEFAULT_ICON_BUTTON_GROUP_IS_ROUND__ = __DEFAULT_ICON_BUTTON_IS_ROUND__,
-		size: __DEFAULT_ICON_BUTTON_GROUP_SIZE__ = __DEFAULT_ICON_BUTTON_SIZE__,
-		variant: __DEFAULT_ICON_BUTTON_GROUP_VARIANT__ = __DEFAULT_ICON_BUTTON_VARIANT__
+		color: DEFAULT_ICON_BUTTON_GROUP_COLOR,
+		colorMode: DEFAULT_ICON_BUTTON_GROUP_COLORMODE,
+		isCompact: DEFAULT_ICON_BUTTON_GROUP_IS_COMPACT = DEFAULT_ICON_BUTTON_IS_COMPACT,
+		isDisabled: DEFAULT_ICON_BUTTON_GROUP_IS_DISABLED = DEFAULT_ICON_BUTTON_IS_DISABLED,
+		isRound: DEFAULT_ICON_BUTTON_GROUP_IS_ROUND = DEFAULT_ICON_BUTTON_IS_ROUND,
+		size: DEFAULT_ICON_BUTTON_GROUP_SIZE = DEFAULT_ICON_BUTTON_SIZE,
+		variant: DEFAULT_ICON_BUTTON_GROUP_VARIANT = DEFAULT_ICON_BUTTON_VARIANT
 	} = useIconButtonGroupContext();
 
 	const {
 		children,
-		as = __DEFAULT_ICON_BUTTON_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_ICON_BUTTON_AS,
+		className = DEFAULT_CLASSNAME,
 		renderSpinner,
-		color = __DEFAULT_ICON_BUTTON_GROUP_COLOR__,
-		colorMode = __DEFAULT_ICON_BUTTON_GROUP_COLORMODE__,
-		isActive: isActiveProp = __DEFAULT_ICON_BUTTON_IS_ACTIVE__,
-		isCompact: isCompactProp = __DEFAULT_ICON_BUTTON_GROUP_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_ICON_BUTTON_GROUP_IS_DISABLED__,
-		isFocused: isFocusedProp = __DEFAULT_ICON_BUTTON_IS_FOCUSED__,
-		isLoading: isLoadingProp = __DEFAULT_ICON_BUTTON_IS_LOADING__,
-		isRound: isRoundProp = __DEFAULT_ICON_BUTTON_GROUP_IS_ROUND__,
-		isOutlined: isOutlinedProp = __DEFAULT_ICON_BUTTON_IS_OUTLINED__,
-		size: sizeProp = __DEFAULT_ICON_BUTTON_GROUP_SIZE__,
-		variant: variantProp = __DEFAULT_ICON_BUTTON_GROUP_VARIANT__,
-		sx = __DEFAULT_POLYMORPHIC_SX__,
+		color = DEFAULT_ICON_BUTTON_GROUP_COLOR,
+		colorMode = DEFAULT_ICON_BUTTON_GROUP_COLORMODE,
+		isActive: isActiveProp = DEFAULT_ICON_BUTTON_IS_ACTIVE,
+		isCompact: isCompactProp = DEFAULT_ICON_BUTTON_GROUP_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_ICON_BUTTON_GROUP_IS_DISABLED,
+		isFocused: isFocusedProp = DEFAULT_ICON_BUTTON_IS_FOCUSED,
+		isLoading: isLoadingProp = DEFAULT_ICON_BUTTON_IS_LOADING,
+		isRound: isRoundProp = DEFAULT_ICON_BUTTON_GROUP_IS_ROUND,
+		isOutlined: isOutlinedProp = DEFAULT_ICON_BUTTON_IS_OUTLINED,
+		size: sizeProp = DEFAULT_ICON_BUTTON_GROUP_SIZE,
+		variant: variantProp = DEFAULT_ICON_BUTTON_GROUP_VARIANT,
+		sx = DEFAULT_POLYMORPHIC_SX,
 		...rest
 	} = props;
 
@@ -120,7 +120,7 @@ const IconButton = forwardRef(function IconButton<Element extends IconButtonElem
 				{...(rest as PushableOverlayProps<Element>)}
 				as={as}
 				ref={ref}
-				className={classNames(__KEYS_ICON_BUTTON_CLASS__, classes, { [className]: !!className })}
+				className={classNames(KEYS_ICON_BUTTON_CLASS, classes, { [className]: !!className })}
 				color={color}
 				colorMode={colorMode}
 				radius={config.radius}

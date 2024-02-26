@@ -5,11 +5,11 @@ import { css } from '@emotion/react';
 import classNames from 'classnames';
 import { merge, omit, pick } from 'lodash-es';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_ELEMENT__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_ELEMENT, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { useBoxStyles } from './common/hooks';
-import { __KEYS_BOX__, __KEYS_BOX_CLASS__ } from './common/keys';
+import { KEYS_BOX, KEYS_BOX_CLASS } from './common/keys';
 import type { BoxProps, BoxRef } from './common/types';
 
 const Box = forwardRef(function Box<Element extends PolymorphicElementType>(
@@ -18,19 +18,19 @@ const Box = forwardRef(function Box<Element extends PolymorphicElementType>(
 ): JSX.Element {
 	const {
 		children,
-		as: Component = __DEFAULT_POLYMORPHIC_ELEMENT__ as BoxProps<Element>['as'],
-		className = __DEFAULT_CLASSNAME__,
-		sx = __DEFAULT_POLYMORPHIC_SX__,
+		as: Component = DEFAULT_POLYMORPHIC_ELEMENT as BoxProps<Element>['as'],
+		className = DEFAULT_CLASSNAME,
+		sx = DEFAULT_POLYMORPHIC_SX,
 		...rest
 	} = props;
 
-	const styles = useBoxStyles(pick({ ...rest }, __KEYS_BOX__));
+	const styles = useBoxStyles(pick({ ...rest }, KEYS_BOX));
 
 	return (
 		<Component
-			{...omit({ ...rest }, __KEYS_BOX__)}
+			{...omit({ ...rest }, KEYS_BOX)}
 			ref={ref}
-			className={classNames(__KEYS_BOX_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_BOX_CLASS, { [className]: !!className })}
 			css={css(merge(styles, sx))}
 		>
 			{children}

@@ -3,20 +3,20 @@ import { createContext, forwardRef } from 'react';
 import classNames from 'classnames';
 import { merge } from 'lodash-es';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 
 import { Center } from '@components/Layout';
 import type { DummyPushableOverlayProps } from '@components/Overlay';
 import { DummyPushableOverlay } from '@components/Overlay';
 
 import {
-	__DEFAULT_DUMMY_ICON_BUTTON_AS__,
-	__DEFAULT_DUMMY_ICON_BUTTON_IS_ANIMATED__,
-	__DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT__,
-	__DEFAULT_DUMMY_ICON_BUTTON_IS_OUTLINED__,
-	__DEFAULT_DUMMY_ICON_BUTTON_IS_ROUND__,
-	__DEFAULT_DUMMY_ICON_BUTTON_SIZE__,
-	__DEFAULT_DUMMY_ICON_BUTTON_VARIANT__
+	DEFAULT_DUMMY_ICON_BUTTON_AS,
+	DEFAULT_DUMMY_ICON_BUTTON_IS_ANIMATED,
+	DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT,
+	DEFAULT_DUMMY_ICON_BUTTON_IS_OUTLINED,
+	DEFAULT_DUMMY_ICON_BUTTON_IS_ROUND,
+	DEFAULT_DUMMY_ICON_BUTTON_SIZE,
+	DEFAULT_DUMMY_ICON_BUTTON_VARIANT
 } from './common/constants';
 import {
 	useDummyIconButtonClasses,
@@ -24,7 +24,7 @@ import {
 	useDummyIconButtonSizeConfig,
 	useDummyIconButtonStyles
 } from './common/hooks';
-import { __KEY_DUMMY_ICON_BUTTON_CLASS__ } from './common/keys';
+import { KEY_DUMMY_ICON_BUTTON_CLASS } from './common/keys';
 import type {
 	DummyIconButtonContext as DummyIconButtonContextType,
 	DummyIconButtonDefaultElement,
@@ -34,8 +34,8 @@ import type {
 } from './common/types';
 
 export const DummyIconButtonContext = createContext<DummyIconButtonContextType<DummyIconButtonDefaultElement>>({
-	size: __DEFAULT_DUMMY_ICON_BUTTON_SIZE__,
-	variant: __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__
+	size: DEFAULT_DUMMY_ICON_BUTTON_SIZE,
+	variant: DEFAULT_DUMMY_ICON_BUTTON_VARIANT
 });
 
 const DummyIconButton = forwardRef(function DummyIconButton<Element extends DummyIconButtonElement>(
@@ -44,17 +44,17 @@ const DummyIconButton = forwardRef(function DummyIconButton<Element extends Dumm
 ): JSX.Element {
 	const {
 		children,
-		as = __DEFAULT_DUMMY_ICON_BUTTON_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_DUMMY_ICON_BUTTON_AS,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		isAnimated: isAnimatedProp = __DEFAULT_DUMMY_ICON_BUTTON_IS_ANIMATED__,
-		isCompact: isCompactProp = __DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT__,
-		isRound: isRoundProp = __DEFAULT_DUMMY_ICON_BUTTON_IS_ROUND__,
-		isOutlined: isOutlinedProp = __DEFAULT_DUMMY_ICON_BUTTON_IS_OUTLINED__,
-		size: sizeProp = __DEFAULT_DUMMY_ICON_BUTTON_SIZE__,
-		variant: variantProp = __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__,
-		sx = __DEFAULT_POLYMORPHIC_SX__,
+		isAnimated: isAnimatedProp = DEFAULT_DUMMY_ICON_BUTTON_IS_ANIMATED,
+		isCompact: isCompactProp = DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT,
+		isRound: isRoundProp = DEFAULT_DUMMY_ICON_BUTTON_IS_ROUND,
+		isOutlined: isOutlinedProp = DEFAULT_DUMMY_ICON_BUTTON_IS_OUTLINED,
+		size: sizeProp = DEFAULT_DUMMY_ICON_BUTTON_SIZE,
+		variant: variantProp = DEFAULT_DUMMY_ICON_BUTTON_VARIANT,
+		sx = DEFAULT_POLYMORPHIC_SX,
 		...rest
 	} = props;
 
@@ -78,7 +78,7 @@ const DummyIconButton = forwardRef(function DummyIconButton<Element extends Dumm
 				{...(rest as DummyPushableOverlayProps<Element>)}
 				as={as}
 				ref={ref}
-				className={classNames(__KEY_DUMMY_ICON_BUTTON_CLASS__, classes, { [className]: !!className })}
+				className={classNames(KEY_DUMMY_ICON_BUTTON_CLASS, classes, { [className]: !!className })}
 				color={color}
 				colorMode={colorMode}
 				isAnimated={isAnimated}

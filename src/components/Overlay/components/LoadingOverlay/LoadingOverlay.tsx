@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -10,16 +10,16 @@ import type { GridProps } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import {
-	__DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT__,
-	__DEFAULT_LOADING_OVERLAY_BLUR__,
-	__DEFAULT_LOADING_OVERLAY_BLUR_TYPE__,
-	__DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND__,
-	__DEFAULT_LOADING_OVERLAY_HAS_GLASS__,
-	__DEFAULT_LOADING_OVERLAY_IS_LOADING__,
-	__DEFAULT_LOADING_OVERLAY_RADIUS__
+	DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT,
+	DEFAULT_LOADING_OVERLAY_BLUR,
+	DEFAULT_LOADING_OVERLAY_BLUR_TYPE,
+	DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND,
+	DEFAULT_LOADING_OVERLAY_HAS_GLASS,
+	DEFAULT_LOADING_OVERLAY_IS_LOADING,
+	DEFAULT_LOADING_OVERLAY_RADIUS
 } from './common/constants';
 import { useLoadingOverlayClasses, useLoadingOverlayResponsiveValues, useLoadingOverlayStyles } from './common/hooks';
-import { __KEYS_LOADING_OVERLAY_CLASS__ } from './common/keys';
+import { KEYS_LOADING_OVERLAY_CLASS } from './common/keys';
 import type { LoadingOverlayProps, LoadingOverlayRef } from './common/types';
 
 const LoadingOverlay = forwardRef(function LoadingOverlay<Element extends PolymorphicElementType>(
@@ -28,17 +28,17 @@ const LoadingOverlay = forwardRef(function LoadingOverlay<Element extends Polymo
 ): JSX.Element {
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		renderSpinner,
 		color,
 		colorMode,
-		backdropAmount: backdropAmountProp = __DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT__,
-		blur: blurProp = __DEFAULT_LOADING_OVERLAY_BLUR__,
-		blurType: blurTypeProp = __DEFAULT_LOADING_OVERLAY_BLUR_TYPE__,
-		radius: radiusProp = __DEFAULT_LOADING_OVERLAY_RADIUS__,
-		isLoading: isLoadingProp = __DEFAULT_LOADING_OVERLAY_IS_LOADING__,
-		hasGlass: hasGlassProp = __DEFAULT_LOADING_OVERLAY_HAS_GLASS__,
-		hasBackground: hasBackgroundProp = __DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND__,
+		backdropAmount: backdropAmountProp = DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT,
+		blur: blurProp = DEFAULT_LOADING_OVERLAY_BLUR,
+		blurType: blurTypeProp = DEFAULT_LOADING_OVERLAY_BLUR_TYPE,
+		radius: radiusProp = DEFAULT_LOADING_OVERLAY_RADIUS,
+		isLoading: isLoadingProp = DEFAULT_LOADING_OVERLAY_IS_LOADING,
+		hasGlass: hasGlassProp = DEFAULT_LOADING_OVERLAY_HAS_GLASS,
+		hasBackground: hasBackgroundProp = DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND,
 		...rest
 	} = props;
 
@@ -60,7 +60,7 @@ const LoadingOverlay = forwardRef(function LoadingOverlay<Element extends Polymo
 		<Grid
 			{...(rest as GridProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_LOADING_OVERLAY_CLASS__, classes.container, { [className]: !!className })}
+			className={classNames(KEYS_LOADING_OVERLAY_CLASS, classes.container, { [className]: !!className })}
 			templateColumns={1}
 			templateRows={1}
 			alignItems='stretch'

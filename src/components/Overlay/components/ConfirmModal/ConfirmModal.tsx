@@ -13,12 +13,7 @@ import classNames from 'classnames';
 import { isBoolean } from 'lodash-es';
 import { useKey } from 'rooks';
 
-import {
-	__DEFAULT_APP_COLOR__,
-	__DEFAULT_APP_COLORMODE__,
-	__DEFAULT_CLASSNAME__,
-	__DEFAULT_METHOD__
-} from '@common/constants';
+import { DEFAULT_APP_COLOR, DEFAULT_APP_COLORMODE, DEFAULT_CLASSNAME, DEFAULT_METHOD } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
 
@@ -29,17 +24,17 @@ import type { CenterProps, CenterRef, GridProps } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import {
-	__DEFAULT_CONFIRM_MODAL_AS__,
-	__DEFAULT_CONFIRM_MODAL_CLOSE_ON_ESC__,
-	__DEFAULT_CONFIRM_MODAL_CLOSE_ON_OVERLAY_CLICK__,
-	__DEFAULT_CONFIRM_MODAL_HAS_BACKDROP__,
-	__DEFAULT_CONFIRM_MODAL_ID__,
-	__DEFAULT_CONFIRM_MODAL_IS_OPEN__,
-	__DEFAULT_CONFIRM_MODAL_SIZE__,
-	__DEFAULT_CONFIRM_MODAL_SPACING__
+	DEFAULT_CONFIRM_MODAL_AS,
+	DEFAULT_CONFIRM_MODAL_CLOSE_ON_ESC,
+	DEFAULT_CONFIRM_MODAL_CLOSE_ON_OVERLAY_CLICK,
+	DEFAULT_CONFIRM_MODAL_HAS_BACKDROP,
+	DEFAULT_CONFIRM_MODAL_ID,
+	DEFAULT_CONFIRM_MODAL_IS_OPEN,
+	DEFAULT_CONFIRM_MODAL_SIZE,
+	DEFAULT_CONFIRM_MODAL_SPACING
 } from './common/constants';
 import { useConfirmModalClasses, useConfirmModalResponsiveValues } from './common/hooks';
-import { __KEYS_CONFIRM_MODAL_CLASS__ } from './common/keys';
+import { KEYS_CONFIRM_MODAL_CLASS } from './common/keys';
 import type {
 	ConfirmModalContext as ConfirmModalContextType,
 	ConfirmModalDefaultElement,
@@ -51,13 +46,13 @@ import { getConfirmModalID, getConfirmModalSubtitleID, getConfirmModalTitleID } 
 import { ConfirmModalBackdrop } from './components';
 
 export const ConfirmModalContext = createContext<ConfirmModalContextType<ConfirmModalDefaultElement>>({
-	color: __DEFAULT_APP_COLOR__,
-	colorMode: __DEFAULT_APP_COLORMODE__,
-	id: __DEFAULT_CONFIRM_MODAL_ID__,
-	isOpen: __DEFAULT_CONFIRM_MODAL_IS_OPEN__,
-	onClose: __DEFAULT_METHOD__,
-	spacing: __DEFAULT_CONFIRM_MODAL_SPACING__,
-	size: __DEFAULT_CONFIRM_MODAL_SIZE__
+	color: DEFAULT_APP_COLOR,
+	colorMode: DEFAULT_APP_COLORMODE,
+	id: DEFAULT_CONFIRM_MODAL_ID,
+	isOpen: DEFAULT_CONFIRM_MODAL_IS_OPEN,
+	onClose: DEFAULT_METHOD,
+	spacing: DEFAULT_CONFIRM_MODAL_SPACING,
+	size: DEFAULT_CONFIRM_MODAL_SIZE
 });
 
 const ConfirmModal = forwardRef(function ConfirmModal<Element extends ConfirmModalElement>(
@@ -65,30 +60,30 @@ const ConfirmModal = forwardRef(function ConfirmModal<Element extends ConfirmMod
 	ref: ConfirmModalRef<Element>
 ): JSX.Element {
 	const {
-		as = __DEFAULT_CONFIRM_MODAL_AS__,
+		as = DEFAULT_CONFIRM_MODAL_AS,
 		children,
-		id = __DEFAULT_CONFIRM_MODAL_ID__,
-		className = __DEFAULT_CLASSNAME__,
+		id = DEFAULT_CONFIRM_MODAL_ID,
+		className = DEFAULT_CLASSNAME,
 		renderTrigger,
 		renderBackdrop,
 		renderCancel,
 		color,
 		colorMode,
-		closeOnEsc: closeOnEscProp = __DEFAULT_CONFIRM_MODAL_CLOSE_ON_ESC__,
-		closeOnOverlayClick: closeOnOverlayClickProp = __DEFAULT_CONFIRM_MODAL_CLOSE_ON_OVERLAY_CLICK__,
-		hasBackdrop: hasBackdropProp = __DEFAULT_CONFIRM_MODAL_HAS_BACKDROP__,
-		isOpen: isOpenProp = __DEFAULT_CONFIRM_MODAL_IS_OPEN__,
+		closeOnEsc: closeOnEscProp = DEFAULT_CONFIRM_MODAL_CLOSE_ON_ESC,
+		closeOnOverlayClick: closeOnOverlayClickProp = DEFAULT_CONFIRM_MODAL_CLOSE_ON_OVERLAY_CLICK,
+		hasBackdrop: hasBackdropProp = DEFAULT_CONFIRM_MODAL_HAS_BACKDROP,
+		isOpen: isOpenProp = DEFAULT_CONFIRM_MODAL_IS_OPEN,
 		onClose,
 		onCloseComplete,
 		onEsc,
 		onOverlayClick,
 		onOpen,
-		spacing: spacingProp = __DEFAULT_CONFIRM_MODAL_SPACING__,
-		size: sizeProp = __DEFAULT_CONFIRM_MODAL_SIZE__,
+		spacing: spacingProp = DEFAULT_CONFIRM_MODAL_SPACING,
+		size: sizeProp = DEFAULT_CONFIRM_MODAL_SIZE,
 		...rest
 	} = props;
 
-	const [isOpen, setIsOpen] = useBoolean(__DEFAULT_CONFIRM_MODAL_IS_OPEN__);
+	const [isOpen, setIsOpen] = useBoolean(DEFAULT_CONFIRM_MODAL_IS_OPEN);
 
 	const {
 		closeOnEsc,
@@ -189,7 +184,7 @@ const ConfirmModal = forwardRef(function ConfirmModal<Element extends ConfirmMod
 								as={as}
 								ref={ref}
 								id={getConfirmModalID(id)}
-								className={classNames(__KEYS_CONFIRM_MODAL_CLASS__, classes.container, {
+								className={classNames(KEYS_CONFIRM_MODAL_CLASS, classes.container, {
 									[className]: !!className
 								})}
 								w='100vw'

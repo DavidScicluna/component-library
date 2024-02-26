@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 
-import { __DEFAULT_METHOD__ } from '@common/constants';
+import { DEFAULT_METHOD } from '@common/constants';
 
 import { ConfirmModalContext } from '../../ConfirmModal';
 import {
-	__DEFAULT_CONFIRM_MODAL_ID__,
-	__DEFAULT_CONFIRM_MODAL_IS_OPEN__,
-	__DEFAULT_CONFIRM_MODAL_SIZE__,
-	__DEFAULT_CONFIRM_MODAL_SPACING__
+	DEFAULT_CONFIRM_MODAL_ID,
+	DEFAULT_CONFIRM_MODAL_IS_OPEN,
+	DEFAULT_CONFIRM_MODAL_SIZE,
+	DEFAULT_CONFIRM_MODAL_SPACING
 } from '../constants';
 import type { ConfirmModalContext as ConfirmModalContextType, ConfirmModalElement } from '../types';
 
@@ -17,11 +17,11 @@ const useConfirmModalContext = <Element extends ConfirmModalElement>() => {
 	const {
 		color,
 		colorMode,
-		id = __DEFAULT_CONFIRM_MODAL_ID__,
-		isOpen = __DEFAULT_CONFIRM_MODAL_IS_OPEN__,
-		onClose = __DEFAULT_METHOD__,
-		spacing: spacingProp = __DEFAULT_CONFIRM_MODAL_SPACING__,
-		size: sizeProp = __DEFAULT_CONFIRM_MODAL_SIZE__
+		id = DEFAULT_CONFIRM_MODAL_ID,
+		isOpen = DEFAULT_CONFIRM_MODAL_IS_OPEN,
+		onClose = DEFAULT_METHOD,
+		spacing: spacingProp = DEFAULT_CONFIRM_MODAL_SPACING,
+		size: sizeProp = DEFAULT_CONFIRM_MODAL_SIZE
 	} = useContext<ConfirmModalContextType<Element>>(ConfirmModalContext);
 
 	const { size, spacing } = useConfirmModalResponsiveValues<Element>({ spacing: spacingProp, size: sizeProp });

@@ -7,9 +7,9 @@ import React from 'react';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
-	__DEFAULT_STATE_OVERLAY_HAS_GLASS__,
-	__DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE__,
-	__DEFAULT_STATE_OVERLAY_STATE__
+	DEFAULT_STATE_OVERLAY_HAS_GLASS,
+	DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE,
+	DEFAULT_STATE_OVERLAY_STATE
 } from './common/constants';
 import type { StateOverlayProps, StateOverlayState } from './common/types';
 import type { StateOverlayStory, StateOverlayStoryMeta } from './common/types/story';
@@ -25,21 +25,21 @@ export default {
 		isAlwaysVisible: {
 			name: 'Always Visible',
 			type: 'boolean',
-			defaultValue: __DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE__,
+			defaultValue: DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		hasGlass: {
 			name: 'Glass',
 			type: 'boolean',
-			defaultValue: __DEFAULT_STATE_OVERLAY_HAS_GLASS__,
+			defaultValue: DEFAULT_STATE_OVERLAY_HAS_GLASS,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		state: {
 			name: 'State',
 			type: 'boolean',
-			defaultValue: __DEFAULT_STATE_OVERLAY_STATE__,
+			defaultValue: DEFAULT_STATE_OVERLAY_STATE,
 			// description: '',
 			options: ['success', 'error', 'empty', 'loading', 'default'] as Array<StateOverlayState>,
 			control: { type: 'radio' }

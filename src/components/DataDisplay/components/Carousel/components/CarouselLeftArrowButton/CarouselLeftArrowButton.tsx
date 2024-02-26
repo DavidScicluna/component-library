@@ -2,14 +2,14 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 
 import { useCarouselArrowState, useCarouselManager } from '../../common/hooks';
 import type { CarouselArrowButtonMouseEvent, CarouselArrowButtonProps } from '..';
 import { CarouselArrowButton } from '..';
 
-import { __DEFAULT_CAROUSEL_LEFT_ARROW_BUTTON_AS__ } from './common/constants';
-import { __KEYS_CAROUSEL_LEFT_ARROW_BUTTON_CLASS__ } from './common/keys';
+import { DEFAULT_CAROUSEL_LEFT_ARROW_BUTTON_AS } from './common/constants';
+import { KEYS_CAROUSEL_LEFT_ARROW_BUTTON_CLASS } from './common/keys';
 import type {
 	CarouselLeftArrowButtonElement,
 	CarouselLeftArrowButtonProps,
@@ -19,12 +19,7 @@ import type {
 const CarouselLeftArrowButton = forwardRef(function CarouselLeftArrowButton<
 	Element extends CarouselLeftArrowButtonElement
 >(props: CarouselLeftArrowButtonProps<Element>, ref: CarouselLeftArrowButtonRef<Element>): JSX.Element {
-	const {
-		as = __DEFAULT_CAROUSEL_LEFT_ARROW_BUTTON_AS__,
-		className = __DEFAULT_CLASSNAME__,
-		onClick,
-		...rest
-	} = props;
+	const { as = DEFAULT_CAROUSEL_LEFT_ARROW_BUTTON_AS, className = DEFAULT_CLASSNAME, onClick, ...rest } = props;
 
 	const { scrollPrev } = useCarouselManager();
 	const { isDisabled } = useCarouselArrowState('left');
@@ -44,7 +39,7 @@ const CarouselLeftArrowButton = forwardRef(function CarouselLeftArrowButton<
 			{...(rest as CarouselArrowButtonProps<Element>)}
 			as={as}
 			ref={ref}
-			className={classNames(__KEYS_CAROUSEL_LEFT_ARROW_BUTTON_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_CAROUSEL_LEFT_ARROW_BUTTON_CLASS, { [className]: !!className })}
 			direction='left'
 			isDisabled={isDisabled}
 			onClick={handleScrollPrev}

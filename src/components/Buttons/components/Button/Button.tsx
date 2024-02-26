@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useDimensionsRef, useFocus } from 'rooks';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
 
@@ -16,20 +16,20 @@ import { PushableOverlay } from '@components/Overlay';
 import { useButtonGroupContext } from '../ButtonGroup/common/hooks';
 
 import {
-	__DEFAULT_BUTTON_AS__,
-	__DEFAULT_BUTTON_IS_ACTIVE__,
-	__DEFAULT_BUTTON_IS_COMPACT__,
-	__DEFAULT_BUTTON_IS_DISABLED__,
-	__DEFAULT_BUTTON_IS_FOCUSED__,
-	__DEFAULT_BUTTON_IS_FULLWIDTH__,
-	__DEFAULT_BUTTON_IS_LOADING__,
-	__DEFAULT_BUTTON_IS_OUTLINED__,
-	__DEFAULT_BUTTON_IS_ROUND__,
-	__DEFAULT_BUTTON_SIZE__,
-	__DEFAULT_BUTTON_VARIANT__
+	DEFAULT_BUTTON_AS,
+	DEFAULT_BUTTON_IS_ACTIVE,
+	DEFAULT_BUTTON_IS_COMPACT,
+	DEFAULT_BUTTON_IS_DISABLED,
+	DEFAULT_BUTTON_IS_FOCUSED,
+	DEFAULT_BUTTON_IS_FULLWIDTH,
+	DEFAULT_BUTTON_IS_LOADING,
+	DEFAULT_BUTTON_IS_OUTLINED,
+	DEFAULT_BUTTON_IS_ROUND,
+	DEFAULT_BUTTON_SIZE,
+	DEFAULT_BUTTON_VARIANT
 } from './common/constants';
 import { useButtonClasses, useButtonResponsiveValues, useButtonSizeConfig } from './common/hooks';
-import { __KEYS_BUTTON_CLASS__ } from './common/keys';
+import { KEYS_BUTTON_CLASS } from './common/keys';
 import type {
 	ButtonContext as ButtonContextType,
 	ButtonDefaultElement,
@@ -39,8 +39,8 @@ import type {
 } from './common/types';
 
 export const ButtonContext = createContext<ButtonContextType<ButtonDefaultElement>>({
-	size: __DEFAULT_BUTTON_SIZE__,
-	variant: __DEFAULT_BUTTON_VARIANT__
+	size: DEFAULT_BUTTON_SIZE,
+	variant: DEFAULT_BUTTON_VARIANT
 });
 
 const Button = forwardRef(function Button<Element extends ButtonElement>(
@@ -51,35 +51,35 @@ const Button = forwardRef(function Button<Element extends ButtonElement>(
 	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
 
 	const {
-		color: __DEFAULT_BUTTON_GROUP_COLOR__,
-		colorMode: __DEFAULT_BUTTON_GROUP_COLORMODE__,
-		isCompact: __DEFAULT_BUTTON_GROUP_IS_COMPACT__ = __DEFAULT_BUTTON_IS_COMPACT__,
-		isDisabled: __DEFAULT_BUTTON_GROUP_IS_DISABLED__ = __DEFAULT_BUTTON_IS_DISABLED__,
-		isFullWidth: __DEFAULT_BUTTON_GROUP_IS_FULLWIDTH__ = __DEFAULT_BUTTON_IS_FULLWIDTH__,
-		isRound: __DEFAULT_BUTTON_GROUP_IS_ROUND__ = __DEFAULT_BUTTON_IS_ROUND__,
-		size: __DEFAULT_BUTTON_GROUP_SIZE__ = __DEFAULT_BUTTON_SIZE__,
-		variant: __DEFAULT_BUTTON_GROUP_VARIANT__ = __DEFAULT_BUTTON_VARIANT__
+		color: DEFAULT_BUTTON_GROUP_COLOR,
+		colorMode: DEFAULT_BUTTON_GROUP_COLORMODE,
+		isCompact: DEFAULT_BUTTON_GROUP_IS_COMPACT = DEFAULT_BUTTON_IS_COMPACT,
+		isDisabled: DEFAULT_BUTTON_GROUP_IS_DISABLED = DEFAULT_BUTTON_IS_DISABLED,
+		isFullWidth: DEFAULT_BUTTON_GROUP_IS_FULLWIDTH = DEFAULT_BUTTON_IS_FULLWIDTH,
+		isRound: DEFAULT_BUTTON_GROUP_IS_ROUND = DEFAULT_BUTTON_IS_ROUND,
+		size: DEFAULT_BUTTON_GROUP_SIZE = DEFAULT_BUTTON_SIZE,
+		variant: DEFAULT_BUTTON_GROUP_VARIANT = DEFAULT_BUTTON_VARIANT
 	} = useButtonGroupContext();
 
 	const {
 		children,
-		as = __DEFAULT_BUTTON_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_BUTTON_AS,
+		className = DEFAULT_CLASSNAME,
 		renderLeft,
 		renderRight,
 		renderSpinner,
-		color = __DEFAULT_BUTTON_GROUP_COLOR__,
-		colorMode = __DEFAULT_BUTTON_GROUP_COLORMODE__,
-		isActive: isActiveProp = __DEFAULT_BUTTON_IS_ACTIVE__,
-		isCompact: isCompactProp = __DEFAULT_BUTTON_GROUP_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_BUTTON_GROUP_IS_DISABLED__,
-		isFocused: isFocusedProp = __DEFAULT_BUTTON_IS_FOCUSED__,
-		isFullWidth: isFullWidthProp = __DEFAULT_BUTTON_GROUP_IS_FULLWIDTH__,
-		isLoading: isLoadingProp = __DEFAULT_BUTTON_IS_LOADING__,
-		isRound: isRoundProp = __DEFAULT_BUTTON_GROUP_IS_ROUND__,
-		isOutlined: isOutlinedProp = __DEFAULT_BUTTON_IS_OUTLINED__,
-		size: sizeProp = __DEFAULT_BUTTON_GROUP_SIZE__,
-		variant: variantProp = __DEFAULT_BUTTON_GROUP_VARIANT__,
+		color = DEFAULT_BUTTON_GROUP_COLOR,
+		colorMode = DEFAULT_BUTTON_GROUP_COLORMODE,
+		isActive: isActiveProp = DEFAULT_BUTTON_IS_ACTIVE,
+		isCompact: isCompactProp = DEFAULT_BUTTON_GROUP_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_BUTTON_GROUP_IS_DISABLED,
+		isFocused: isFocusedProp = DEFAULT_BUTTON_IS_FOCUSED,
+		isFullWidth: isFullWidthProp = DEFAULT_BUTTON_GROUP_IS_FULLWIDTH,
+		isLoading: isLoadingProp = DEFAULT_BUTTON_IS_LOADING,
+		isRound: isRoundProp = DEFAULT_BUTTON_GROUP_IS_ROUND,
+		isOutlined: isOutlinedProp = DEFAULT_BUTTON_IS_OUTLINED,
+		size: sizeProp = DEFAULT_BUTTON_GROUP_SIZE,
+		variant: variantProp = DEFAULT_BUTTON_GROUP_VARIANT,
 		...rest
 	} = props;
 
@@ -124,7 +124,7 @@ const Button = forwardRef(function Button<Element extends ButtonElement>(
 				{...(rest as PushableOverlayProps<Element>)}
 				as={as}
 				ref={ref}
-				className={classNames(__KEYS_BUTTON_CLASS__, classes, { [className]: !!className })}
+				className={classNames(KEYS_BUTTON_CLASS, classes, { [className]: !!className })}
 				color={color}
 				colorMode={colorMode}
 				radius={config.radius}

@@ -1,8 +1,8 @@
-import { __DEFAULT_COLOR__ } from '@common/constants';
+import { DEFAULT_COLOR } from '@common/constants';
 import type { Style } from '@common/types';
 import { checkColorType } from '@common/utils';
 
-import { __DEFAULT_TEXT_DECORATION__ } from '../constants';
+import { DEFAULT_TEXT_DECORATION } from '../constants';
 import type { TextElement, TextProps } from '../types';
 
 import useTextResponsiveValues from './useTextResponsiveValues';
@@ -11,7 +11,7 @@ type UseTextStylesProps<Element extends TextElement> = Pick<TextProps<Element>, 
 type UseTextStylesReturn = Style;
 
 const useTextStyles = <Element extends TextElement>(props: UseTextStylesProps<Element>): UseTextStylesReturn => {
-	const { color = __DEFAULT_COLOR__, decoration: decorationProp = __DEFAULT_TEXT_DECORATION__ } = props;
+	const { color = DEFAULT_COLOR, decoration: decorationProp = DEFAULT_TEXT_DECORATION } = props;
 
 	const { decoration } = useTextResponsiveValues<Element>({ decoration: decorationProp });
 

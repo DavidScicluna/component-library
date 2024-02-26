@@ -2,7 +2,7 @@ import { forwardRef, useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_APP_COLOR__, __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_APP_COLOR, DEFAULT_CLASSNAME } from '@common/constants';
 
 import type { IconProps } from '@components/DataDisplay';
 import { Icon } from '@components/DataDisplay';
@@ -11,8 +11,8 @@ import { useStepperContext, useStepperSizeConfig } from '../../common/hooks';
 import { getStepStatusColor, getStepStatusIcon } from '../../common/utils';
 import { useStepContext } from '../Step/common/hooks';
 
-import { __DEFAULT_STEP_STATUS_ICON_AS__, __DEFAULT_STEP_STATUS_ICON_VARIANT__ } from './common/constants';
-import { __KEYS_STEP_STATUS_ICON_CLASS__ } from './common/keys';
+import { DEFAULT_STEP_STATUS_ICON_AS, DEFAULT_STEP_STATUS_ICON_VARIANT } from './common/constants';
+import { KEYS_STEP_STATUS_ICON_CLASS } from './common/keys';
 import type { StepStatusIconElement, StepStatusIconProps, StepStatusIconRef } from './common/types';
 
 const StepStatusIcon = forwardRef(function StepStatusIcon<Element extends StepStatusIconElement>(
@@ -23,16 +23,16 @@ const StepStatusIcon = forwardRef(function StepStatusIcon<Element extends StepSt
 	const { index, status } = useStepContext();
 
 	const {
-		as = __DEFAULT_STEP_STATUS_ICON_AS__,
-		className = __DEFAULT_CLASSNAME__,
-		variant = __DEFAULT_STEP_STATUS_ICON_VARIANT__,
+		as = DEFAULT_STEP_STATUS_ICON_AS,
+		className = DEFAULT_CLASSNAME,
+		variant = DEFAULT_STEP_STATUS_ICON_VARIANT,
 		...rest
 	} = props;
 
 	const config = useStepperSizeConfig({ size });
 
 	const statusColor = useMemo(() => {
-		return getStepStatusColor(color || __DEFAULT_APP_COLOR__, status);
+		return getStepStatusColor(color || DEFAULT_APP_COLOR, status);
 	}, [color, index, step]);
 	const statusIcon = useMemo(() => {
 		return getStepStatusIcon(status, stepVariant);
@@ -43,7 +43,7 @@ const StepStatusIcon = forwardRef(function StepStatusIcon<Element extends StepSt
 			{...(rest as IconProps<Element>)}
 			as={as}
 			ref={ref}
-			className={classNames(__KEYS_STEP_STATUS_ICON_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_STEP_STATUS_ICON_CLASS, { [className]: !!className })}
 			color={
 				statusColor !== 'gray' &&
 				statusColor !== 'transparent' &&

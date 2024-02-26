@@ -3,7 +3,7 @@ import type { Undefinable } from '@common/types';
 
 import type { CarouselArrowDirection } from '@components/DataDisplay/components/Carousel/common/types';
 
-import { __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_HAS_TOOLTIP__ } from '../constants';
+import { DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_HAS_TOOLTIP } from '../constants';
 import type { CarouselArrowIconButtonElement, CarouselArrowIconButtonProps } from '../types';
 
 type UseCarouselArrowIconButtonResponsiveValuesProps<Element extends CarouselArrowIconButtonElement> = Partial<
@@ -15,7 +15,7 @@ const useCarouselArrowIconButtonResponsiveValues = <Element extends CarouselArro
 ) => {
 	const {
 		direction: directionProp,
-		hasTooltip: hasTooltipProp = __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_HAS_TOOLTIP__,
+		hasTooltip: hasTooltipProp = DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_HAS_TOOLTIP,
 		label: labelProp
 	} = props;
 

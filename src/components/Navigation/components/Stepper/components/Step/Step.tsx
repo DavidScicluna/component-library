@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useDimensionsRef, useFocus } from 'rooks';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 import type { PolymorphicDefaultElement } from '@common/types';
 
@@ -15,22 +15,22 @@ import type { CenterRef, GridProps } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 import { HoverOverlay } from '@components/Overlay';
 
-import { __DEFAULT_STEPPER_ID__ } from '../../common/constants';
+import { DEFAULT_STEPPER_ID } from '../../common/constants';
 import { useStepperContext } from '../../common/hooks';
 import { getStepID, getStepPanelID } from '../../common/utils';
 
 import {
-	__DEFAULT_STEP_AS__,
-	__DEFAULT_STEP_BORDER_WIDTH__,
-	__DEFAULT_STEP_INDEX__,
-	__DEFAULT_STEP_IS_ACTIVE__,
-	__DEFAULT_STEP_IS_COMPACT__,
-	__DEFAULT_STEP_IS_DISABLED__,
-	__DEFAULT_STEP_IS_UPPERCASE__,
-	__DEFAULT_STEP_STATUS__
+	DEFAULT_STEP_AS,
+	DEFAULT_STEP_BORDER_WIDTH,
+	DEFAULT_STEP_INDEX,
+	DEFAULT_STEP_IS_ACTIVE,
+	DEFAULT_STEP_IS_COMPACT,
+	DEFAULT_STEP_IS_DISABLED,
+	DEFAULT_STEP_IS_UPPERCASE,
+	DEFAULT_STEP_STATUS
 } from './common/constants';
 import { useStepClasses, useStepResponsiveValues, useStepSizeConfig } from './common/hooks';
-import { __KEYS_STEP_CLASS__ } from './common/keys';
+import { KEYS_STEP_CLASS } from './common/keys';
 import type {
 	StepContext as StepContextType,
 	StepDefaultElement,
@@ -41,9 +41,9 @@ import type {
 } from './common/types';
 
 export const StepContext = createContext<StepContextType<StepDefaultElement>>({
-	id: getStepID(__DEFAULT_STEPPER_ID__, __DEFAULT_STEP_INDEX__),
-	index: __DEFAULT_STEP_INDEX__,
-	status: __DEFAULT_STEP_STATUS__
+	id: getStepID(DEFAULT_STEPPER_ID, DEFAULT_STEP_INDEX),
+	index: DEFAULT_STEP_INDEX,
+	status: DEFAULT_STEP_STATUS
 });
 
 const Step = forwardRef(function Step<Element extends StepElement>(
@@ -51,15 +51,15 @@ const Step = forwardRef(function Step<Element extends StepElement>(
 	ref: StepRef<Element>
 ): JSX.Element {
 	const {
-		color: __DEFAULT_STEP_COLOR__,
-		colorMode: __DEFAULT_STEP_COLORMODE__,
+		color: DEFAULT_STEP_COLOR,
+		colorMode: DEFAULT_STEP_COLORMODE,
 		id: stepperId,
 		index: panel,
 		isDisabled: isStepperDisabled,
 		isFitted,
 		orientation,
 		onChange,
-		spacing: __DEFAULT_STEP_SPACING__
+		spacing: DEFAULT_STEP_SPACING
 	} = useStepperContext();
 
 	const [childrenRef, childrenDimensions] = useDimensionsRef();
@@ -67,23 +67,23 @@ const Step = forwardRef(function Step<Element extends StepElement>(
 
 	const {
 		children,
-		as = __DEFAULT_STEP_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_STEP_AS,
+		className = DEFAULT_CLASSNAME,
 		renderLeft,
 		renderRight,
 		renderTop,
 		renderBottom,
-		color = __DEFAULT_STEP_COLOR__,
-		colorMode = __DEFAULT_STEP_COLORMODE__,
+		color = DEFAULT_STEP_COLOR,
+		colorMode = DEFAULT_STEP_COLORMODE,
 		id: stepId,
-		index = __DEFAULT_STEP_INDEX__,
-		isActive: isActiveProp = __DEFAULT_STEP_IS_ACTIVE__,
-		isCompact: isCompactProp = __DEFAULT_STEP_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_STEP_IS_DISABLED__,
-		isUppercase: isUppercaseProp = __DEFAULT_STEP_IS_UPPERCASE__,
+		index = DEFAULT_STEP_INDEX,
+		isActive: isActiveProp = DEFAULT_STEP_IS_ACTIVE,
+		isCompact: isCompactProp = DEFAULT_STEP_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_STEP_IS_DISABLED,
+		isUppercase: isUppercaseProp = DEFAULT_STEP_IS_UPPERCASE,
 		onClick,
-		status: statusProp = __DEFAULT_STEP_STATUS__,
-		spacing = __DEFAULT_STEP_SPACING__,
+		status: statusProp = DEFAULT_STEP_STATUS,
+		spacing = DEFAULT_STEP_SPACING,
 		...rest
 	} = props;
 
@@ -159,17 +159,15 @@ const Step = forwardRef(function Step<Element extends StepElement>(
 						aria-disabled={isDisabled}
 						aria-selected={isActive || isSelected}
 						id={id}
-						className={classNames(__KEYS_STEP_CLASS__, classes.step, { [className]: !!className })}
+						className={classNames(KEYS_STEP_CLASS, classes.step, { [className]: !!className })}
 						role='tab'
 						stepIndex={0}
 						w='100%'
 						h='100%'
 						templateColumns={1}
-						templateRows={[
-							`${__DEFAULT_STEP_BORDER_WIDTH__}px`,
-							'1fr',
-							`${__DEFAULT_STEP_BORDER_WIDTH__}px`
-						].join(' ')}
+						templateRows={[`${DEFAULT_STEP_BORDER_WIDTH}px`, '1fr', `${DEFAULT_STEP_BORDER_WIDTH}px`].join(
+							' '
+						)}
 						alignItems={isFitted ? 'center' : 'stretch'}
 						alignContent={isFitted ? 'center' : 'stretch'}
 						justifyItems={isFitted ? 'center' : 'stretch'}

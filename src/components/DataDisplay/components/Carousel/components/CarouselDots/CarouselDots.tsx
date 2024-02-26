@@ -4,19 +4,19 @@ import classNames from 'classnames';
 import { compact, debounce } from 'lodash-es';
 import { useArrayState } from 'rooks';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useDebounce } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
 
 import type { StackProps } from '@components/Layout';
 import { Stack } from '@components/Layout';
 
-import { __DEFAULT_CAROUSEL_DURATION_NUMBER__, __DEFAULT_CAROUSEL_DURATION_THEME__ } from '../../common/constants';
+import { DEFAULT_CAROUSEL_DURATION_NUMBER, DEFAULT_CAROUSEL_DURATION_THEME } from '../../common/constants';
 import { useCarouselContext, useCarouselManager } from '../../common/hooks';
 
-import { __DEFAULT_CAROUSEL_DOTS__, __DEFAULT_CAROUSEL_DOTS_SIZE__ } from './common/constants';
+import { DEFAULT_CAROUSEL_DOTS, DEFAULT_CAROUSEL_DOTS_SIZE } from './common/constants';
 import { useCarouselDotsResponsiveValues } from './common/hooks';
-import { __KEYS_CAROUSEL_DOTS_CLASS__ } from './common/keys';
+import { KEYS_CAROUSEL_DOTS_CLASS } from './common/keys';
 import type {
 	CarouselDot as CarouselDotType,
 	CarouselDots as CarouselDotsType,
@@ -30,25 +30,25 @@ const CarouselDots = forwardRef(function CarouselDots<Element extends Polymorphi
 	ref: CarouselDotsRef<Element>
 ): JSX.Element {
 	const {
-		color: __DEFAULT_CAROUSEL_DOTS_COLOR__,
-		colorMode: __DEFAULT_CAROUSEL_DOTS_COLORMODE__,
+		color: DEFAULT_CAROUSEL_DOTS_COLOR,
+		colorMode: DEFAULT_CAROUSEL_DOTS_COLORMODE,
 		items,
 		orientation,
-		spacing: __DEFAULT_CAROUSEL_DOTS_SPACING__
+		spacing: DEFAULT_CAROUSEL_DOTS_SPACING
 	} = useCarouselContext();
 	const { isItemVisible, getPrevItem, getNextItem } = useCarouselManager();
 
 	const {
-		className = __DEFAULT_CLASSNAME__,
-		color = __DEFAULT_CAROUSEL_DOTS_COLOR__,
-		colorMode = __DEFAULT_CAROUSEL_DOTS_COLORMODE__,
-		size: sizeProp = __DEFAULT_CAROUSEL_DOTS_SIZE__,
-		spacing: spacingProp = __DEFAULT_CAROUSEL_DOTS_SPACING__,
+		className = DEFAULT_CLASSNAME,
+		color = DEFAULT_CAROUSEL_DOTS_COLOR,
+		colorMode = DEFAULT_CAROUSEL_DOTS_COLORMODE,
+		size: sizeProp = DEFAULT_CAROUSEL_DOTS_SIZE,
+		spacing: spacingProp = DEFAULT_CAROUSEL_DOTS_SPACING,
 		...rest
 	} = props;
 
-	const [dots, setDots] = useArrayState<CarouselDotType>(__DEFAULT_CAROUSEL_DOTS__);
-	const dotsDebounced = useDebounce<CarouselDotsType>(dots, __DEFAULT_CAROUSEL_DURATION_THEME__);
+	const [dots, setDots] = useArrayState<CarouselDotType>(DEFAULT_CAROUSEL_DOTS);
+	const dotsDebounced = useDebounce<CarouselDotsType>(dots, DEFAULT_CAROUSEL_DURATION_THEME);
 
 	const { size, spacing } = useCarouselDotsResponsiveValues<Element>({
 		size: sizeProp,
@@ -81,7 +81,7 @@ const CarouselDots = forwardRef(function CarouselDots<Element extends Polymorphi
 				})
 			)
 		);
-	}, __DEFAULT_CAROUSEL_DURATION_NUMBER__);
+	}, DEFAULT_CAROUSEL_DURATION_NUMBER);
 
 	useEffect(() => handleDots(), [items]);
 
@@ -89,7 +89,7 @@ const CarouselDots = forwardRef(function CarouselDots<Element extends Polymorphi
 		<Stack
 			{...(rest as StackProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_CAROUSEL_DOTS_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_CAROUSEL_DOTS_CLASS, { [className]: !!className })}
 			w='100%'
 			h='100%'
 			direction={orientation === 'horizontal' ? 'row' : 'column'}

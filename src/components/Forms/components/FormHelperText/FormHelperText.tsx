@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import { useFormControlContext, useFormControlFontSize } from '@components/Forms/components/FormControl/common/hooks';
@@ -10,12 +10,12 @@ import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
 import {
-	__DEFAULT_FORM_HELPER_TEXT_ALIGN__,
-	__DEFAULT_FORM_HELPER_TEXT_AS__,
-	__DEFAULT_FORM_HELPER_TEXT_LINE_CLAMP__,
-	__DEFAULT_FORM_HELPER_TEXT_LINE_HEIGHT__
+	DEFAULT_FORM_HELPER_TEXT_ALIGN,
+	DEFAULT_FORM_HELPER_TEXT_AS,
+	DEFAULT_FORM_HELPER_TEXT_LINE_CLAMP,
+	DEFAULT_FORM_HELPER_TEXT_LINE_HEIGHT
 } from './common/constants';
-import { __KEYS_FORM_HELPER_TEXT_CLASS__ } from './common/keys';
+import { KEYS_FORM_HELPER_TEXT_CLASS } from './common/keys';
 import type { FormHelperTextElement, FormHelperTextProps, FormHelperTextRef } from './common/types';
 
 const FormHelperText = forwardRef(function FormHelperText<Element extends FormHelperTextElement>(
@@ -24,23 +24,23 @@ const FormHelperText = forwardRef(function FormHelperText<Element extends FormHe
 ): JSX.Element {
 	const { colorMode, isError, isWarning, isSuccess, size } = useFormControlContext();
 
-	const __DEFAULT_FORM_HELPER_TEXT_COLOR__ = useGetColor({
+	const DEFAULT_FORM_HELPER_TEXT_COLOR = useGetColor({
 		color: isError ? 'red' : isWarning ? 'yellow' : isSuccess ? 'green' : 'gray',
 		colorMode,
 		colorType: isError || isWarning || isSuccess ? 'color' : 'default',
 		hueType: isError || isWarning || isSuccess ? 'color' : 'text.secondary'
 	});
-	const __DEFAULT_FORM_HELPER_TEXT_FONT_SIZE__ = useFormControlFontSize({ size });
+	const DEFAULT_FORM_HELPER_TEXT_FONT_SIZE = useFormControlFontSize({ size });
 
 	const {
 		children,
-		as = __DEFAULT_FORM_HELPER_TEXT_AS__,
-		className = __DEFAULT_CLASSNAME__,
-		align = __DEFAULT_FORM_HELPER_TEXT_ALIGN__,
-		color = __DEFAULT_FORM_HELPER_TEXT_COLOR__,
-		fontSize = __DEFAULT_FORM_HELPER_TEXT_FONT_SIZE__.helper,
-		lineClamp = __DEFAULT_FORM_HELPER_TEXT_LINE_CLAMP__,
-		lineHeight = __DEFAULT_FORM_HELPER_TEXT_LINE_HEIGHT__,
+		as = DEFAULT_FORM_HELPER_TEXT_AS,
+		className = DEFAULT_CLASSNAME,
+		align = DEFAULT_FORM_HELPER_TEXT_ALIGN,
+		color = DEFAULT_FORM_HELPER_TEXT_COLOR,
+		fontSize = DEFAULT_FORM_HELPER_TEXT_FONT_SIZE.helper,
+		lineClamp = DEFAULT_FORM_HELPER_TEXT_LINE_CLAMP,
+		lineHeight = DEFAULT_FORM_HELPER_TEXT_LINE_HEIGHT,
 		...rest
 	} = props;
 
@@ -49,7 +49,7 @@ const FormHelperText = forwardRef(function FormHelperText<Element extends FormHe
 			{...(rest as TextProps<Element>)}
 			as={as}
 			ref={ref}
-			className={classNames(__KEYS_FORM_HELPER_TEXT_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_FORM_HELPER_TEXT_CLASS, { [className]: !!className })}
 			aria-errormessage={children}
 			align={align}
 			color={color}

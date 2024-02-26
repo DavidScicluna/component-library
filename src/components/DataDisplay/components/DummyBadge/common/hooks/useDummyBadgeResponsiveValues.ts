@@ -1,14 +1,14 @@
 import { useGetResponsiveValue } from '@common/hooks';
 
 import {
-	__DEFAULT_DUMMY_BADGE_IS_ANIMATED__,
-	__DEFAULT_DUMMY_BADGE_IS_COMPACT__,
-	__DEFAULT_DUMMY_BADGE_IS_FULLWIDTH__,
-	__DEFAULT_DUMMY_BADGE_IS_OUTLINED__,
-	__DEFAULT_DUMMY_BADGE_IS_ROUND__,
-	__DEFAULT_DUMMY_BADGE_IS_UPPERCASE__,
-	__DEFAULT_DUMMY_BADGE_SIZE__,
-	__DEFAULT_DUMMY_BADGE_VARIANT__
+	DEFAULT_DUMMY_BADGE_IS_ANIMATED,
+	DEFAULT_DUMMY_BADGE_IS_COMPACT,
+	DEFAULT_DUMMY_BADGE_IS_FULLWIDTH,
+	DEFAULT_DUMMY_BADGE_IS_OUTLINED,
+	DEFAULT_DUMMY_BADGE_IS_ROUND,
+	DEFAULT_DUMMY_BADGE_IS_UPPERCASE,
+	DEFAULT_DUMMY_BADGE_SIZE,
+	DEFAULT_DUMMY_BADGE_VARIANT
 } from '../constants';
 import type { DummyBadgeElement, DummyBadgeProps, DummyBadgeSize, DummyBadgeVariant } from '../types';
 
@@ -29,14 +29,14 @@ const useDummyBadgeResponsiveValues = <Element extends DummyBadgeElement>(
 	props: UseDummyBadgeResponsiveValuesProps<Element>
 ) => {
 	const {
-		isAnimated: isAnimatedProp = __DEFAULT_DUMMY_BADGE_IS_ANIMATED__,
-		isCompact: isCompactProp = __DEFAULT_DUMMY_BADGE_IS_COMPACT__,
-		isFullWidth: isFullWidthProp = __DEFAULT_DUMMY_BADGE_IS_FULLWIDTH__,
-		isOutlined: isOutlinedProp = __DEFAULT_DUMMY_BADGE_IS_OUTLINED__,
-		isRound: isRoundProp = __DEFAULT_DUMMY_BADGE_IS_ROUND__,
-		isUppercase: isUppercaseProp = __DEFAULT_DUMMY_BADGE_IS_UPPERCASE__,
-		size: sizeProp = __DEFAULT_DUMMY_BADGE_SIZE__,
-		variant: variantProp = __DEFAULT_DUMMY_BADGE_VARIANT__
+		isAnimated: isAnimatedProp = DEFAULT_DUMMY_BADGE_IS_ANIMATED,
+		isCompact: isCompactProp = DEFAULT_DUMMY_BADGE_IS_COMPACT,
+		isFullWidth: isFullWidthProp = DEFAULT_DUMMY_BADGE_IS_FULLWIDTH,
+		isOutlined: isOutlinedProp = DEFAULT_DUMMY_BADGE_IS_OUTLINED,
+		isRound: isRoundProp = DEFAULT_DUMMY_BADGE_IS_ROUND,
+		isUppercase: isUppercaseProp = DEFAULT_DUMMY_BADGE_IS_UPPERCASE,
+		size: sizeProp = DEFAULT_DUMMY_BADGE_SIZE,
+		variant: variantProp = DEFAULT_DUMMY_BADGE_VARIANT
 	} = props;
 
 	const isAnimated = useGetResponsiveValue<boolean>(isAnimatedProp);

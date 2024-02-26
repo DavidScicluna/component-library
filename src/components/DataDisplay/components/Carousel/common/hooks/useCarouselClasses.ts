@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import type { ClassName } from '@common/types';
 
-import { __DEFAULT_CAROUSEL_VARIANT__ } from '../constants';
+import { DEFAULT_CAROUSEL_VARIANT } from '../constants';
 import type { CarouselElement, CarouselProps } from '../types';
 
 import useCarouselResponsiveValues from './useCarouselResponsiveValues';
@@ -19,7 +19,7 @@ type UseCarouselClassesReturn = Record<'items' | 'item', ClassName> & {
 const useCarouselClasses = <Element extends CarouselElement>(
 	props: UseCarouselClassesProps<Element>
 ): UseCarouselClassesReturn => {
-	const { variant: variantProp = __DEFAULT_CAROUSEL_VARIANT__ } = props;
+	const { variant: variantProp = DEFAULT_CAROUSEL_VARIANT } = props;
 
 	const { variant } = useCarouselResponsiveValues<Element>({ variant: variantProp });
 

@@ -1,10 +1,10 @@
 import type { Required } from 'utility-types';
 
-import { __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_SPACING } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { ThemeSpacing, Undefinable } from '@common/types';
 
-import { __DEFAULT_SIMPLE_GRID_COLUMNS__ } from '../constants';
+import { DEFAULT_SIMPLE_GRID_COLUMNS } from '../constants';
 import type { SimpleGridColumn, SimpleGridNonResponsiveValueProps, SimpleGridResponsiveValueProps } from '../types';
 
 type UseSimpleGridResponsiveValuesProps = Partial<SimpleGridResponsiveValueProps>;
@@ -18,7 +18,7 @@ const useSimpleGridResponsiveValues = (
 	const columns = useGetResponsiveValue<Undefinable<SimpleGridColumn>>(columnsProp);
 	const spacing = useGetResponsiveValue<Undefinable<ThemeSpacing>>(spacingProp);
 
-	return { columns: columns || __DEFAULT_SIMPLE_GRID_COLUMNS__, spacing: spacing || __DEFAULT_SPACING__ };
+	return { columns: columns || DEFAULT_SIMPLE_GRID_COLUMNS, spacing: spacing || DEFAULT_SPACING };
 };
 
 export default useSimpleGridResponsiveValues;

@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import type { BackdropOverlayProps } from '@components/Overlay';
@@ -10,7 +10,7 @@ import { BackdropOverlay } from '@components/Overlay';
 
 import { useConfirmModalContext } from '../../common/hooks';
 
-import { __KEYS_CONFIRM_MODAL_BACKDROP_CLASS__ } from './common/keys';
+import { KEYS_CONFIRM_MODAL_BACKDROP_CLASS } from './common/keys';
 import type { ConfirmModalBackdropProps, ConfirmModalBackdropRef } from './common/types';
 
 const ConfirmModalBackdrop = forwardRef(function ConfirmModalBackdrop<Element extends PolymorphicElementType>(
@@ -19,13 +19,13 @@ const ConfirmModalBackdrop = forwardRef(function ConfirmModalBackdrop<Element ex
 ): JSX.Element {
 	const { color, colorMode } = useConfirmModalContext();
 
-	const { className = __DEFAULT_CLASSNAME__, ...rest } = props;
+	const { className = DEFAULT_CLASSNAME, ...rest } = props;
 
 	return (
 		<BackdropOverlay
 			{...(rest as BackdropOverlayProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_CONFIRM_MODAL_BACKDROP_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_CONFIRM_MODAL_BACKDROP_CLASS, { [className]: !!className })}
 			color={color}
 			colorMode={colorMode}
 			w='inherit'

@@ -2,13 +2,13 @@ import { useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicElementType, ThemeBlurClass, ThemeRadius } from '@common/types';
 
 import {
-	__DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT__,
-	__DEFAULT_LOADING_OVERLAY_BLUR__,
-	__DEFAULT_LOADING_OVERLAY_BLUR_TYPE__,
-	__DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND__,
-	__DEFAULT_LOADING_OVERLAY_HAS_GLASS__,
-	__DEFAULT_LOADING_OVERLAY_IS_LOADING__,
-	__DEFAULT_LOADING_OVERLAY_RADIUS__
+	DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT,
+	DEFAULT_LOADING_OVERLAY_BLUR,
+	DEFAULT_LOADING_OVERLAY_BLUR_TYPE,
+	DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND,
+	DEFAULT_LOADING_OVERLAY_HAS_GLASS,
+	DEFAULT_LOADING_OVERLAY_IS_LOADING,
+	DEFAULT_LOADING_OVERLAY_RADIUS
 } from '../constants';
 import type { LoadingOverlayBlurType, LoadingOverlayProps } from '../types';
 
@@ -28,13 +28,13 @@ const useLoadingOverlayResponsiveValues = <Element extends PolymorphicElementTyp
 	props: UseLoadingOverlayResponsiveValuesProps<Element>
 ) => {
 	const {
-		backdropAmount: backdropAmountProp = __DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT__,
-		blur: blurProp = __DEFAULT_LOADING_OVERLAY_BLUR__,
-		blurType: blurTypeProp = __DEFAULT_LOADING_OVERLAY_BLUR_TYPE__,
-		radius: radiusProp = __DEFAULT_LOADING_OVERLAY_RADIUS__,
-		isLoading: isLoadingProp = __DEFAULT_LOADING_OVERLAY_IS_LOADING__,
-		hasGlass: hasGlassProp = __DEFAULT_LOADING_OVERLAY_HAS_GLASS__,
-		hasBackground: hasBackgroundProp = __DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND__
+		backdropAmount: backdropAmountProp = DEFAULT_LOADING_OVERLAY_BACKDROP_AMOUNT,
+		blur: blurProp = DEFAULT_LOADING_OVERLAY_BLUR,
+		blurType: blurTypeProp = DEFAULT_LOADING_OVERLAY_BLUR_TYPE,
+		radius: radiusProp = DEFAULT_LOADING_OVERLAY_RADIUS,
+		isLoading: isLoadingProp = DEFAULT_LOADING_OVERLAY_IS_LOADING,
+		hasGlass: hasGlassProp = DEFAULT_LOADING_OVERLAY_HAS_GLASS,
+		hasBackground: hasBackgroundProp = DEFAULT_LOADING_OVERLAY_HAS_BACKGROUND
 	} = props;
 
 	const backdropAmount = useGetResponsiveValue<number>(backdropAmountProp);

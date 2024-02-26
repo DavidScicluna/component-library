@@ -1,11 +1,11 @@
 import { useGetResponsiveValue } from '@common/hooks';
 
 import {
-	__DEFAULT_STEP_IS_ACTIVE__,
-	__DEFAULT_STEP_IS_COMPACT__,
-	__DEFAULT_STEP_IS_DISABLED__,
-	__DEFAULT_STEP_IS_UPPERCASE__,
-	__DEFAULT_STEP_STATUS__
+	DEFAULT_STEP_IS_ACTIVE,
+	DEFAULT_STEP_IS_COMPACT,
+	DEFAULT_STEP_IS_DISABLED,
+	DEFAULT_STEP_IS_UPPERCASE,
+	DEFAULT_STEP_STATUS
 } from '../constants';
 import type { StepElement, StepProps, StepStatus } from '../types';
 
@@ -15,11 +15,11 @@ type UseStepResponsiveValuesProps<Element extends StepElement> = Partial<
 
 const useStepResponsiveValues = <Element extends StepElement>(props: UseStepResponsiveValuesProps<Element>) => {
 	const {
-		isActive: isActiveProp = __DEFAULT_STEP_IS_ACTIVE__,
-		isCompact: isCompactProp = __DEFAULT_STEP_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_STEP_IS_DISABLED__,
-		isUppercase: isUppercaseProp = __DEFAULT_STEP_IS_UPPERCASE__,
-		status: statusProp = __DEFAULT_STEP_STATUS__
+		isActive: isActiveProp = DEFAULT_STEP_IS_ACTIVE,
+		isCompact: isCompactProp = DEFAULT_STEP_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_STEP_IS_DISABLED,
+		isUppercase: isUppercaseProp = DEFAULT_STEP_IS_UPPERCASE,
+		status: statusProp = DEFAULT_STEP_STATUS
 	} = props;
 
 	const isActive = useGetResponsiveValue<boolean>(isActiveProp);

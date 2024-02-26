@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -10,17 +10,17 @@ import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
-	__DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
-	__DEFAULT_BACKDROP_OVERLAY_BLUR__,
-	__DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
-	__DEFAULT_BACKDROP_OVERLAY_RADIUS__
+	DEFAULT_BACKDROP_OVERLAY_AMOUNT,
+	DEFAULT_BACKDROP_OVERLAY_BLUR,
+	DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE,
+	DEFAULT_BACKDROP_OVERLAY_RADIUS
 } from './common/constants';
 import {
 	useBackdropOverlayClasses,
 	useBackdropOverlayResponsiveValues,
 	useBackdropOverlayStyles
 } from './common/hooks';
-import { __KEYS_BACKDROP_OVERLAY_CLASS__ } from './common/keys';
+import { KEYS_BACKDROP_OVERLAY_CLASS } from './common/keys';
 import type { BackdropOverlayProps, BackdropOverlayRef } from './common/types';
 
 const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends PolymorphicElementType>(
@@ -29,13 +29,13 @@ const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends Poly
 ): JSX.Element {
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		amount: amountProp = __DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
-		blur: blurProp = __DEFAULT_BACKDROP_OVERLAY_BLUR__,
-		blurType: blurTypeProp = __DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
-		radius: radiusProp = __DEFAULT_BACKDROP_OVERLAY_RADIUS__,
+		amount: amountProp = DEFAULT_BACKDROP_OVERLAY_AMOUNT,
+		blur: blurProp = DEFAULT_BACKDROP_OVERLAY_BLUR,
+		blurType: blurTypeProp = DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE,
+		radius: radiusProp = DEFAULT_BACKDROP_OVERLAY_RADIUS,
 		...rest
 	} = props;
 
@@ -53,7 +53,7 @@ const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends Poly
 		<Grid
 			{...(rest as GridProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_BACKDROP_OVERLAY_CLASS__, classes.container, { [className]: !!className })}
+			className={classNames(KEYS_BACKDROP_OVERLAY_CLASS, classes.container, { [className]: !!className })}
 			data-aria-hidden='true'
 			aria-hidden='true'
 			templateColumns={1}

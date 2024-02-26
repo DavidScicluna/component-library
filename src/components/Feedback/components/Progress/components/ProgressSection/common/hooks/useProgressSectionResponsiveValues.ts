@@ -1,7 +1,7 @@
 import { useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
 
-import { __DEFAULT_PROGRESS_SECTION_VALUE__ } from '../constants';
+import { DEFAULT_PROGRESS_SECTION_VALUE } from '../constants';
 import type { ProgressSectionProps } from '../types';
 
 type UseProgressSectionResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
@@ -11,7 +11,7 @@ type UseProgressSectionResponsiveValuesProps<Element extends PolymorphicElementT
 const useProgressSectionResponsiveValues = <Element extends PolymorphicElementType>(
 	props: UseProgressSectionResponsiveValuesProps<Element>
 ) => {
-	const { value: valueProp = __DEFAULT_PROGRESS_SECTION_VALUE__ } = props;
+	const { value: valueProp = DEFAULT_PROGRESS_SECTION_VALUE } = props;
 
 	const value = useGetResponsiveValue<number>(valueProp);
 

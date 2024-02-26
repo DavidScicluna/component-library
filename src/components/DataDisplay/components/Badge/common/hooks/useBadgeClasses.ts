@@ -5,13 +5,13 @@ import { useGetClass } from '@common/hooks';
 import type { ClassName } from '@common/types';
 
 import {
-	__DEFAULT_BADGE_IS_COMPACT__,
-	__DEFAULT_BADGE_IS_FULLWIDTH__,
-	__DEFAULT_BADGE_IS_ROUND__,
-	__DEFAULT_BADGE_IS_UPPERCASE__,
-	__DEFAULT_BADGE_LINE_HEIGHT_SIZE__,
-	__DEFAULT_BADGE_SIZE__,
-	__DEFAULT_BADGE_VARIANT__
+	DEFAULT_BADGE_IS_COMPACT,
+	DEFAULT_BADGE_IS_FULLWIDTH,
+	DEFAULT_BADGE_IS_ROUND,
+	DEFAULT_BADGE_IS_UPPERCASE,
+	DEFAULT_BADGE_LINE_HEIGHT_SIZE,
+	DEFAULT_BADGE_SIZE,
+	DEFAULT_BADGE_VARIANT
 } from '../constants';
 import type { BadgeElement, BadgeProps } from '../types';
 
@@ -26,12 +26,12 @@ type UseBadgeClassesReturn = ClassName;
 
 const useBadgeClasses = <Element extends BadgeElement>(props: UseBadgeClassesProps<Element>): UseBadgeClassesReturn => {
 	const {
-		isCompact: isCompactProp = __DEFAULT_BADGE_IS_COMPACT__,
-		isFullWidth: isFullWidthProp = __DEFAULT_BADGE_IS_FULLWIDTH__,
-		isRound: isRoundProp = __DEFAULT_BADGE_IS_ROUND__,
-		isUppercase: isUppercaseProp = __DEFAULT_BADGE_IS_UPPERCASE__,
-		size: sizeProp = __DEFAULT_BADGE_SIZE__,
-		variant: variantProp = __DEFAULT_BADGE_VARIANT__
+		isCompact: isCompactProp = DEFAULT_BADGE_IS_COMPACT,
+		isFullWidth: isFullWidthProp = DEFAULT_BADGE_IS_FULLWIDTH,
+		isRound: isRoundProp = DEFAULT_BADGE_IS_ROUND,
+		isUppercase: isUppercaseProp = DEFAULT_BADGE_IS_UPPERCASE,
+		size: sizeProp = DEFAULT_BADGE_SIZE,
+		variant: variantProp = DEFAULT_BADGE_VARIANT
 	} = props;
 
 	const { isCompact, isFullWidth, isRound, isUppercase, size, variant } = useBadgeResponsiveValues<Element>({
@@ -53,7 +53,7 @@ const useBadgeClasses = <Element extends BadgeElement>(props: UseBadgeClassesPro
 		classes.typography.font_size[config.fontSize],
 		classes.typography.font_weight.semibold,
 		classes.typography.letter_spacing.normal,
-		classes.typography.line_height[__DEFAULT_BADGE_LINE_HEIGHT_SIZE__],
+		classes.typography.line_height[DEFAULT_BADGE_LINE_HEIGHT_SIZE],
 		classes.typography.transform[isUppercase ? 'uppercase' : 'capitalize'],
 		classes.typography.text_overflow.ellipsis,
 		classes.typography.whiteSpace.nowrap

@@ -8,10 +8,10 @@ import { Center } from '../../../Layout';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 import React from 'react';
 import {
-	__DEFAULT_ICON_CATEGORY__,
-	__DEFAULT_ICON_RADIUS__,
-	__DEFAULT_ICON_SIZE__,
-	__DEFAULT_ICON_VARIANT__
+	DEFAULT_ICON_CATEGORY,
+	DEFAULT_ICON_RADIUS,
+	DEFAULT_ICON_SIZE,
+	DEFAULT_ICON_VARIANT
 } from './common/constants';
 import type { IconCategory, IconDefaultElement, IconProps, IconVariant } from './common/types';
 import type { IconStory, IconStoryMeta } from './common/types/story';
@@ -32,7 +32,7 @@ export default {
 		category: {
 			name: 'Category',
 			type: 'string',
-			defaultValue: __DEFAULT_ICON_CATEGORY__,
+			defaultValue: DEFAULT_ICON_CATEGORY,
 			// description: '',
 			options: ['filled', 'outlined', 'twoTone'] as Array<IconCategory>,
 			control: { type: 'radio' }
@@ -40,7 +40,7 @@ export default {
 		radius: {
 			name: 'Radius',
 			type: 'string',
-			defaultValue: __DEFAULT_ICON_RADIUS__,
+			defaultValue: DEFAULT_ICON_RADIUS,
 			// description: '',
 			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as ThemeRadiusArr,
 			control: { type: 'radio' }
@@ -48,7 +48,7 @@ export default {
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: __DEFAULT_ICON_SIZE__,
+			defaultValue: DEFAULT_ICON_SIZE,
 			// description: '',
 			options: [
 				'xs',
@@ -70,7 +70,7 @@ export default {
 		variant: {
 			name: 'Variant',
 			type: 'string',
-			defaultValue: __DEFAULT_ICON_VARIANT__,
+			defaultValue: DEFAULT_ICON_VARIANT,
 			// description: '',
 			options: ['contained', 'light', 'outlined', 'monochrome', 'transparent', 'unstyled'] as Array<IconVariant>,
 			control: { type: 'radio' }

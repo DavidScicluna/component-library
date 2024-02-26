@@ -3,15 +3,15 @@ import { useMemo } from 'react';
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_COLOR__, __DEFAULT_OUTLINE_WIDTH__ } from '@common/constants';
+import { DEFAULT_COLOR, DEFAULT_OUTLINE_WIDTH } from '@common/constants';
 import { useAppTheme, useGetColor } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 import { getColorHue } from '@common/utils';
 
-import { __DEFAULT_DUMMY_TABS_TAB_LINE_HEIGHT_SIZE__ } from '@components/Navigation/components/DummyTabs/common/constants';
+import { DEFAULT_DUMMY_TABS_TAB_LINE_HEIGHT_SIZE } from '@components/Navigation/components/DummyTabs/common/constants';
 import { useDummyTabsContext } from '@components/Navigation/components/DummyTabs/common/hooks';
 
-import { __DEFAULT_DUMMY_TAB_IS_COMPACT__, __DEFAULT_DUMMY_TAB_IS_UPPERCASE__ } from '../constants';
+import { DEFAULT_DUMMY_TAB_IS_COMPACT, DEFAULT_DUMMY_TAB_IS_UPPERCASE } from '../constants';
 import type { DummyTabProps } from '../types';
 
 import useDummyTabResponsiveValues from './useDummyTabResponsiveValues';
@@ -26,14 +26,14 @@ type UseDummyTabClassesReturn = Record<'tab' | 'topDivider' | 'bottomDivider' | 
 const useDummyTabClasses = <Element extends PolymorphicElementType>(
 	props: UseDummyTabClassesProps<Element>
 ): UseDummyTabClassesReturn => {
-	const { colorMode: __DEFAULT_DUMMY_TAB_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_DUMMY_TAB_COLORMODE } = useAppTheme();
 	const { orientation } = useDummyTabsContext();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_DUMMY_TAB_COLORMODE__,
-		isCompact: isCompactProp = __DEFAULT_DUMMY_TAB_IS_COMPACT__,
-		isUppercase: isUppercaseProp = __DEFAULT_DUMMY_TAB_IS_UPPERCASE__,
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_DUMMY_TAB_COLORMODE,
+		isCompact: isCompactProp = DEFAULT_DUMMY_TAB_IS_COMPACT,
+		isUppercase: isUppercaseProp = DEFAULT_DUMMY_TAB_IS_UPPERCASE,
 		isSelected
 	} = props;
 
@@ -56,7 +56,7 @@ const useDummyTabClasses = <Element extends PolymorphicElementType>(
 			classes.effects.opacity[50],
 			classes.layout.display.focus_visible.outline,
 			classes.borders.outline_style.focus_visible.dashed,
-			classes.borders.outline_width.focus_visible[__DEFAULT_OUTLINE_WIDTH__],
+			classes.borders.outline_width.focus_visible[DEFAULT_OUTLINE_WIDTH],
 			classes.borders.outline_offset.focus_visible[0],
 			classes.borders.outline_color.focus_visible[color][outlineHue]
 		);
@@ -93,7 +93,7 @@ const useDummyTabClasses = <Element extends PolymorphicElementType>(
 			classes.typography.font_size[config.fontSize],
 			classes.typography.font_weight.semibold,
 			classes.typography.letter_spacing.normal,
-			classes.typography.line_height[__DEFAULT_DUMMY_TABS_TAB_LINE_HEIGHT_SIZE__],
+			classes.typography.line_height[DEFAULT_DUMMY_TABS_TAB_LINE_HEIGHT_SIZE],
 			classes.typography.transform[isUppercase ? 'uppercase' : 'normal'],
 			classes.typography.text_overflow.ellipsis,
 			classes.typography.whiteSpace.nowrap

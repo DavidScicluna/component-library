@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 import { merge } from 'lodash-es';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 import { getIconFontFamily } from '@common/utils';
 
 import { Skeleton } from '@components/Feedback';
@@ -12,15 +12,15 @@ import { Center } from '@components/Layout';
 import useIconFontContext from '@components/Provider/common/hooks/useIconFontContext';
 
 import {
-	__DEFAULT_ICON_AS__,
-	__DEFAULT_ICON_CATEGORY__,
-	__DEFAULT_ICON_ICON__,
-	__DEFAULT_ICON_RADIUS__,
-	__DEFAULT_ICON_SIZE__,
-	__DEFAULT_ICON_VARIANT__
+	DEFAULT_ICON_AS,
+	DEFAULT_ICON_CATEGORY,
+	DEFAULT_ICON_ICON,
+	DEFAULT_ICON_RADIUS,
+	DEFAULT_ICON_SIZE,
+	DEFAULT_ICON_VARIANT
 } from './common/constants';
 import { useIconClasses, useIconResponsiveValues, useIconStyles } from './common/hooks';
-import { __KEYS_ICON_CLASS__ } from './common/keys';
+import { KEYS_ICON_CLASS } from './common/keys';
 import type { IconElement, IconProps, IconRef } from './common/types';
 
 const Icon = forwardRef(function Icon<Element extends IconElement>(
@@ -31,18 +31,18 @@ const Icon = forwardRef(function Icon<Element extends IconElement>(
 
 	const {
 		children,
-		as = __DEFAULT_ICON_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_ICON_AS,
+		className = DEFAULT_CLASSNAME,
 		w = 'auto',
 		h = 'auto',
 		color,
 		colorMode,
-		icon: iconProp = __DEFAULT_ICON_ICON__,
-		category: categoryProp = __DEFAULT_ICON_CATEGORY__,
-		radius: radiusProp = __DEFAULT_ICON_RADIUS__,
-		size: sizeProp = __DEFAULT_ICON_SIZE__,
-		variant: variantProp = __DEFAULT_ICON_VARIANT__,
-		sx = __DEFAULT_POLYMORPHIC_SX__,
+		icon: iconProp = DEFAULT_ICON_ICON,
+		category: categoryProp = DEFAULT_ICON_CATEGORY,
+		radius: radiusProp = DEFAULT_ICON_RADIUS,
+		size: sizeProp = DEFAULT_ICON_SIZE,
+		variant: variantProp = DEFAULT_ICON_VARIANT,
+		sx = DEFAULT_POLYMORPHIC_SX,
 		...rest
 	} = props;
 
@@ -65,7 +65,7 @@ const Icon = forwardRef(function Icon<Element extends IconElement>(
 				{...(rest as CenterProps<Element>)}
 				as={as}
 				ref={ref}
-				className={classNames(__KEYS_ICON_CLASS__, classes, { [className]: !!className })}
+				className={classNames(KEYS_ICON_CLASS, classes, { [className]: !!className })}
 				w={w}
 				h={h}
 				sx={merge(

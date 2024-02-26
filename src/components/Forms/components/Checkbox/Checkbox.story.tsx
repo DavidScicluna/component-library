@@ -4,21 +4,21 @@ import { Text } from '../../../Typography';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 import React from 'react';
 import {
-	__DEFAULT_CHECKBOX_IS_ACTIVE__,
-	__DEFAULT_CHECKBOX_IS_CHECKED__,
-	__DEFAULT_CHECKBOX_IS_CLICKABLE__,
-	__DEFAULT_CHECKBOX_IS_COMPACT__,
-	__DEFAULT_CHECKBOX_IS_DISABLED__,
-	__DEFAULT_CHECKBOX_IS_ERROR__,
-	__DEFAULT_CHECKBOX_IS_FOCUSED__,
-	__DEFAULT_CHECKBOX_IS_INDETERMINATE__,
-	__DEFAULT_CHECKBOX_IS_OUTLINED__,
-	__DEFAULT_CHECKBOX_IS_READONLY__,
-	__DEFAULT_CHECKBOX_IS_REQUIRED__,
-	__DEFAULT_CHECKBOX_IS_SUCCESS__,
-	__DEFAULT_CHECKBOX_IS_WARNING__,
-	__DEFAULT_CHECKBOX_LABEL_POSITION__,
-	__DEFAULT_CHECKBOX_SIZE__
+	DEFAULT_CHECKBOX_IS_ACTIVE,
+	DEFAULT_CHECKBOX_IS_CHECKED,
+	DEFAULT_CHECKBOX_IS_CLICKABLE,
+	DEFAULT_CHECKBOX_IS_COMPACT,
+	DEFAULT_CHECKBOX_IS_DISABLED,
+	DEFAULT_CHECKBOX_IS_ERROR,
+	DEFAULT_CHECKBOX_IS_FOCUSED,
+	DEFAULT_CHECKBOX_IS_INDETERMINATE,
+	DEFAULT_CHECKBOX_IS_OUTLINED,
+	DEFAULT_CHECKBOX_IS_READONLY,
+	DEFAULT_CHECKBOX_IS_REQUIRED,
+	DEFAULT_CHECKBOX_IS_SUCCESS,
+	DEFAULT_CHECKBOX_IS_WARNING,
+	DEFAULT_CHECKBOX_LABEL_POSITION,
+	DEFAULT_CHECKBOX_SIZE
 } from './common/constants';
 import type { CheckboxLabelPosition, CheckboxProps, CheckboxSize } from './common/types';
 import type { CheckboxStory, CheckboxStoryMeta } from './common/types/story';
@@ -32,98 +32,98 @@ export default {
 		isActive: {
 			name: 'Active',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CHECKBOX_IS_ACTIVE__,
+			defaultValue: DEFAULT_CHECKBOX_IS_ACTIVE,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isChecked: {
 			name: 'Checked',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CHECKBOX_IS_CHECKED__,
+			defaultValue: DEFAULT_CHECKBOX_IS_CHECKED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isClickable: {
 			name: 'Clickable',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CHECKBOX_IS_CLICKABLE__,
+			defaultValue: DEFAULT_CHECKBOX_IS_CLICKABLE,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isCompact: {
 			name: 'Compact',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CHECKBOX_IS_COMPACT__,
+			defaultValue: DEFAULT_CHECKBOX_IS_COMPACT,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CHECKBOX_IS_DISABLED__,
+			defaultValue: DEFAULT_CHECKBOX_IS_DISABLED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isError: {
 			name: 'Error',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CHECKBOX_IS_ERROR__,
+			defaultValue: DEFAULT_CHECKBOX_IS_ERROR,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isFocused: {
 			name: 'Focused',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CHECKBOX_IS_FOCUSED__,
+			defaultValue: DEFAULT_CHECKBOX_IS_FOCUSED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isIndeterminate: {
 			name: 'Indeterminate',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CHECKBOX_IS_INDETERMINATE__,
+			defaultValue: DEFAULT_CHECKBOX_IS_INDETERMINATE,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isOutlined: {
 			name: 'Outlined',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CHECKBOX_IS_OUTLINED__,
+			defaultValue: DEFAULT_CHECKBOX_IS_OUTLINED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isReadOnly: {
 			name: 'ReadOnly',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CHECKBOX_IS_READONLY__,
+			defaultValue: DEFAULT_CHECKBOX_IS_READONLY,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isRequired: {
 			name: 'Required',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CHECKBOX_IS_REQUIRED__,
+			defaultValue: DEFAULT_CHECKBOX_IS_REQUIRED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isSuccess: {
 			name: 'Success',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CHECKBOX_IS_SUCCESS__,
+			defaultValue: DEFAULT_CHECKBOX_IS_SUCCESS,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isWarning: {
 			name: 'Warning',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CHECKBOX_IS_WARNING__,
+			defaultValue: DEFAULT_CHECKBOX_IS_WARNING,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		labelPosition: {
 			name: 'Label Position',
 			type: 'string',
-			defaultValue: __DEFAULT_CHECKBOX_LABEL_POSITION__,
+			defaultValue: DEFAULT_CHECKBOX_LABEL_POSITION,
 			// description: '',
 			options: ['left', 'right'] as Array<CheckboxLabelPosition>,
 			control: { type: 'radio' }
@@ -131,7 +131,7 @@ export default {
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: __DEFAULT_CHECKBOX_SIZE__,
+			defaultValue: DEFAULT_CHECKBOX_SIZE,
 			// description: '',
 			options: ['xs', 'sm', 'md', 'lg', 'xl'] as Array<CheckboxSize>,
 			control: { type: 'radio' }

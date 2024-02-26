@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import type { HeadlineProps } from '@components/DataDisplay';
@@ -11,7 +11,7 @@ import { Text } from '@components/Typography';
 
 import { useStepperContext } from '../../common/hooks';
 
-import { __KEYS_STEP_HEADLINE_CLASS__ } from './common/keys';
+import { KEYS_STEP_HEADLINE_CLASS } from './common/keys';
 import type { StepHeadlineProps, StepHeadlineRef } from './common/types';
 
 const StepHeadline = forwardRef(function StepHeadline<Element extends PolymorphicElementType>(
@@ -19,16 +19,16 @@ const StepHeadline = forwardRef(function StepHeadline<Element extends Polymorphi
 	ref: StepHeadlineRef<Element>
 ): JSX.Element {
 	const {
-		color: __DEFAULT_STEP_HEADLINE_COLOR__,
-		colorMode: __DEFAULT_STEP_HEADLINE_COLORMODE__,
+		color: DEFAULT_STEP_HEADLINE_COLOR,
+		colorMode: DEFAULT_STEP_HEADLINE_COLORMODE,
 		index,
 		total
 	} = useStepperContext();
 
 	const {
-		className = __DEFAULT_CLASSNAME__,
-		color = __DEFAULT_STEP_HEADLINE_COLOR__,
-		colorMode = __DEFAULT_STEP_HEADLINE_COLORMODE__,
+		className = DEFAULT_CLASSNAME,
+		color = DEFAULT_STEP_HEADLINE_COLOR,
+		colorMode = DEFAULT_STEP_HEADLINE_COLORMODE,
 		renderCaption,
 		renderTitle,
 		...rest
@@ -38,7 +38,7 @@ const StepHeadline = forwardRef(function StepHeadline<Element extends Polymorphi
 		<Headline
 			{...(rest as HeadlineProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_STEP_HEADLINE_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_STEP_HEADLINE_CLASS, { [className]: !!className })}
 			w='100%'
 			h='100%'
 			color={color}

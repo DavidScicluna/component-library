@@ -2,7 +2,7 @@ import { Center } from '../../../Layout';
 import React from 'react';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
-import { __DEFAULT_CLEAR_ICON_BUTTON_HAS_TOOLTIP__ } from './common/constants';
+import { DEFAULT_CLEAR_ICON_BUTTON_HAS_TOOLTIP } from './common/constants';
 import type { ClearIconButtonDefaultElement, ClearIconButtonProps } from './common/types';
 import type { ClearIconButtonStory, ClearIconButtonStoryMeta } from './common/types/story';
 import { ClearIconButton as ClearIconButtonComponent } from '.';
@@ -14,7 +14,7 @@ export default {
 		hasTooltip: {
 			name: 'Has Tooltip',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CLEAR_ICON_BUTTON_HAS_TOOLTIP__,
+			defaultValue: DEFAULT_CLEAR_ICON_BUTTON_HAS_TOOLTIP,
 			// description: '',
 			control: { type: 'boolean' }
 		}

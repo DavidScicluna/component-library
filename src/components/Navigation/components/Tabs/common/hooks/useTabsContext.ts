@@ -1,16 +1,16 @@
 import { useContext } from 'react';
 
-import { __DEFAULT_METHOD__, __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_METHOD, DEFAULT_SPACING } from '@common/constants';
 
 import { TabsContext } from '../../Tabs';
 import {
-	__DEFAULT_TABS_ALIGN__,
-	__DEFAULT_TABS_ID__,
-	__DEFAULT_TABS_INDEX__,
-	__DEFAULT_TABS_IS_DISABLED__,
-	__DEFAULT_TABS_IS_FITTED__,
-	__DEFAULT_TABS_ORIENTATION__,
-	__DEFAULT_TABS_SIZE__
+	DEFAULT_TABS_ALIGN,
+	DEFAULT_TABS_ID,
+	DEFAULT_TABS_INDEX,
+	DEFAULT_TABS_IS_DISABLED,
+	DEFAULT_TABS_IS_FITTED,
+	DEFAULT_TABS_ORIENTATION,
+	DEFAULT_TABS_SIZE
 } from '../constants';
 import type { TabsContext as TabsContextType, TabsElement } from '../types';
 
@@ -20,15 +20,15 @@ const useTabsContext = <Element extends TabsElement>() => {
 	const {
 		color,
 		colorMode,
-		align: alignProp = __DEFAULT_TABS_ALIGN__,
-		id = __DEFAULT_TABS_ID__,
-		index: indexProp = __DEFAULT_TABS_INDEX__,
-		isDisabled: isDisabledProp = __DEFAULT_TABS_IS_DISABLED__,
-		isFitted: isFittedProp = __DEFAULT_TABS_IS_FITTED__,
-		onChange = __DEFAULT_METHOD__,
-		orientation: orientationProp = __DEFAULT_TABS_ORIENTATION__,
-		size: sizeProp = __DEFAULT_TABS_SIZE__,
-		spacing: spacingProp = __DEFAULT_SPACING__
+		align: alignProp = DEFAULT_TABS_ALIGN,
+		id = DEFAULT_TABS_ID,
+		index: indexProp = DEFAULT_TABS_INDEX,
+		isDisabled: isDisabledProp = DEFAULT_TABS_IS_DISABLED,
+		isFitted: isFittedProp = DEFAULT_TABS_IS_FITTED,
+		onChange = DEFAULT_METHOD,
+		orientation: orientationProp = DEFAULT_TABS_ORIENTATION,
+		size: sizeProp = DEFAULT_TABS_SIZE,
+		spacing: spacingProp = DEFAULT_SPACING
 	} = useContext<TabsContextType<Element>>(TabsContext);
 
 	const { align, index, isDisabled, isFitted, orientation, size, spacing } = useTabsResponsiveValues<Element>({

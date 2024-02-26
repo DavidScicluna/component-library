@@ -1,4 +1,4 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
-export const __KEYS_TEXTAREA_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-textarea`;
-export const __KEYS_TEXTAREA_TOTAL_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-textarea-total`;
+export const KEYS_TEXTAREA_CLASS = `${DEFAULT_CLASS_PREFIX}-textarea`;
+export const KEYS_TEXTAREA_TOTAL_CLASS = `${DEFAULT_CLASS_PREFIX}-textarea-total`;

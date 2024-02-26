@@ -1,13 +1,13 @@
 import { useGetResponsiveValue } from '@common/hooks';
 
 import {
-	__DEFAULT_DUMMY_BUTTON_IS_ANIMATED__,
-	__DEFAULT_DUMMY_BUTTON_IS_COMPACT__,
-	__DEFAULT_DUMMY_BUTTON_IS_FULLWIDTH__,
-	__DEFAULT_DUMMY_BUTTON_IS_OUTLINED__,
-	__DEFAULT_DUMMY_BUTTON_IS_ROUND__,
-	__DEFAULT_DUMMY_BUTTON_SIZE__,
-	__DEFAULT_DUMMY_BUTTON_VARIANT__
+	DEFAULT_DUMMY_BUTTON_IS_ANIMATED,
+	DEFAULT_DUMMY_BUTTON_IS_COMPACT,
+	DEFAULT_DUMMY_BUTTON_IS_FULLWIDTH,
+	DEFAULT_DUMMY_BUTTON_IS_OUTLINED,
+	DEFAULT_DUMMY_BUTTON_IS_ROUND,
+	DEFAULT_DUMMY_BUTTON_SIZE,
+	DEFAULT_DUMMY_BUTTON_VARIANT
 } from '../constants';
 import type { DummyButtonElement, DummyButtonProps, DummyButtonSize, DummyButtonVariant } from '../types';
 
@@ -22,13 +22,13 @@ const useDummyButtonResponsiveValues = <Element extends DummyButtonElement>(
 	props: UseDummyButtonResponsiveValuesProps<Element>
 ) => {
 	const {
-		isAnimated: isAnimatedProp = __DEFAULT_DUMMY_BUTTON_IS_ANIMATED__,
-		isCompact: isCompactProp = __DEFAULT_DUMMY_BUTTON_IS_COMPACT__,
-		isFullWidth: isFullWidthProp = __DEFAULT_DUMMY_BUTTON_IS_FULLWIDTH__,
-		isRound: isRoundProp = __DEFAULT_DUMMY_BUTTON_IS_ROUND__,
-		isOutlined: isOutlinedProp = __DEFAULT_DUMMY_BUTTON_IS_OUTLINED__,
-		size: sizeProp = __DEFAULT_DUMMY_BUTTON_SIZE__,
-		variant: variantProp = __DEFAULT_DUMMY_BUTTON_VARIANT__
+		isAnimated: isAnimatedProp = DEFAULT_DUMMY_BUTTON_IS_ANIMATED,
+		isCompact: isCompactProp = DEFAULT_DUMMY_BUTTON_IS_COMPACT,
+		isFullWidth: isFullWidthProp = DEFAULT_DUMMY_BUTTON_IS_FULLWIDTH,
+		isRound: isRoundProp = DEFAULT_DUMMY_BUTTON_IS_ROUND,
+		isOutlined: isOutlinedProp = DEFAULT_DUMMY_BUTTON_IS_OUTLINED,
+		size: sizeProp = DEFAULT_DUMMY_BUTTON_SIZE,
+		variant: variantProp = DEFAULT_DUMMY_BUTTON_VARIANT
 	} = props;
 
 	const isAnimated = useGetResponsiveValue<boolean>(isAnimatedProp);

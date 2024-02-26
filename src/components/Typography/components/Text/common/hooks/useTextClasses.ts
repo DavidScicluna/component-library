@@ -1,25 +1,25 @@
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_COLOR__ } from '@common/constants';
+import { DEFAULT_COLOR } from '@common/constants';
 import { useAppTheme, useGetClass, useGetColor } from '@common/hooks';
 import type { ClassName, ThemeColor } from '@common/types';
 import { checkColorType } from '@common/utils';
 
 import {
-	__DEFAULT_TEXT_ALIGN__,
-	__DEFAULT_TEXT_DECORATION__,
-	__DEFAULT_TEXT_FONT_SIZE__,
-	__DEFAULT_TEXT_FONT_WEIGHT__,
-	__DEFAULT_TEXT_IS_ITALIC__,
-	__DEFAULT_TEXT_IS_OVERFLOWN__,
-	__DEFAULT_TEXT_LETTER_SPACING__,
-	__DEFAULT_TEXT_LINE_CLAMP__,
-	__DEFAULT_TEXT_LINE_HEIGHT__,
-	__DEFAULT_TEXT_TRANSFORM__,
-	__DEFAULT_TEXT_USER_SELECT__,
-	__DEFAULT_TEXT_WHITESPACE__,
-	__DEFAULT_TEXT_WORD_BREAK__
+	DEFAULT_TEXT_ALIGN,
+	DEFAULT_TEXT_DECORATION,
+	DEFAULT_TEXT_FONT_SIZE,
+	DEFAULT_TEXT_FONT_WEIGHT,
+	DEFAULT_TEXT_IS_ITALIC,
+	DEFAULT_TEXT_IS_OVERFLOWN,
+	DEFAULT_TEXT_LETTER_SPACING,
+	DEFAULT_TEXT_LINE_CLAMP,
+	DEFAULT_TEXT_LINE_HEIGHT,
+	DEFAULT_TEXT_TRANSFORM,
+	DEFAULT_TEXT_USER_SELECT,
+	DEFAULT_TEXT_WHITESPACE,
+	DEFAULT_TEXT_WORD_BREAK
 } from '../constants';
 import type { TextElement, TextProps } from '../types';
 
@@ -46,24 +46,24 @@ type UseTextClassesProps<Element extends TextElement> = Pick<
 type UseTextClassesReturn = ClassName;
 
 const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<Element>): UseTextClassesReturn => {
-	const { colorMode: __DEFAULT_TEXT_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_TEXT_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_TEXT_COLORMODE__,
-		align: alignProp = __DEFAULT_TEXT_ALIGN__,
-		decoration: decorationProp = __DEFAULT_TEXT_DECORATION__,
-		fontSize: fontSizeProp = __DEFAULT_TEXT_FONT_SIZE__,
-		fontWeight: fontWeightProp = __DEFAULT_TEXT_FONT_WEIGHT__,
-		letterSpacing: letterSpacingProp = __DEFAULT_TEXT_LETTER_SPACING__,
-		lineClamp: lineClampProp = __DEFAULT_TEXT_LINE_CLAMP__,
-		lineHeight: lineHeightProp = __DEFAULT_TEXT_LINE_HEIGHT__,
-		textTransform: textTransformProp = __DEFAULT_TEXT_TRANSFORM__,
-		isItalic: isItalicProp = __DEFAULT_TEXT_IS_ITALIC__,
-		isOverflown: isOverflownProp = __DEFAULT_TEXT_IS_OVERFLOWN__,
-		whiteSpace: whiteSpaceProp = __DEFAULT_TEXT_WHITESPACE__,
-		wordBreak: wordBreakProp = __DEFAULT_TEXT_WORD_BREAK__,
-		userSelect: userSelectProp = __DEFAULT_TEXT_USER_SELECT__
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_TEXT_COLORMODE,
+		align: alignProp = DEFAULT_TEXT_ALIGN,
+		decoration: decorationProp = DEFAULT_TEXT_DECORATION,
+		fontSize: fontSizeProp = DEFAULT_TEXT_FONT_SIZE,
+		fontWeight: fontWeightProp = DEFAULT_TEXT_FONT_WEIGHT,
+		letterSpacing: letterSpacingProp = DEFAULT_TEXT_LETTER_SPACING,
+		lineClamp: lineClampProp = DEFAULT_TEXT_LINE_CLAMP,
+		lineHeight: lineHeightProp = DEFAULT_TEXT_LINE_HEIGHT,
+		textTransform: textTransformProp = DEFAULT_TEXT_TRANSFORM,
+		isItalic: isItalicProp = DEFAULT_TEXT_IS_ITALIC,
+		isOverflown: isOverflownProp = DEFAULT_TEXT_IS_OVERFLOWN,
+		whiteSpace: whiteSpaceProp = DEFAULT_TEXT_WHITESPACE,
+		wordBreak: wordBreakProp = DEFAULT_TEXT_WORD_BREAK,
+		userSelect: userSelectProp = DEFAULT_TEXT_USER_SELECT
 	} = props;
 
 	const {

@@ -3,12 +3,12 @@ import { useMemo } from 'react';
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_BORDER_STYLE__, __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__ } from '@common/constants';
+import { DEFAULT_BORDER_STYLE, DEFAULT_BORDER_WIDTH, DEFAULT_COLOR } from '@common/constants';
 import { useAppTheme, useGetColor } from '@common/hooks';
 import type { ClassName, ThemeColor } from '@common/types';
 import { getColorHue } from '@common/utils';
 
-import { __DEFAULT_ALERT_STATUS__ } from '../constants';
+import { DEFAULT_ALERT_STATUS } from '../constants';
 import type { AlertElement, AlertProps } from '../types';
 import { getStatusColor } from '../utils';
 
@@ -18,12 +18,12 @@ type UseAlertClassesProps<Element extends AlertElement> = Pick<AlertProps<Elemen
 type UseAlertClassesReturn = ClassName;
 
 const useAlertClasses = <Element extends AlertElement>(props: UseAlertClassesProps<Element>): UseAlertClassesReturn => {
-	const { colorMode: __DEFAULT_ALERT_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_ALERT_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_ALERT_COLORMODE__,
-		status: statusProp = __DEFAULT_ALERT_STATUS__
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_ALERT_COLORMODE,
+		status: statusProp = DEFAULT_ALERT_STATUS
 	} = props;
 
 	const { status } = useAlertResponsiveValues<Element>({ status: statusProp });
@@ -64,8 +64,8 @@ const useAlertClasses = <Element extends AlertElement>(props: UseAlertClassesPro
 
 	return classNames(
 		classes.effects.shadow.xl,
-		classes.borders.border_width[__DEFAULT_BORDER_WIDTH__],
-		classes.borders.border_style[__DEFAULT_BORDER_STYLE__],
+		classes.borders.border_width[DEFAULT_BORDER_WIDTH],
+		classes.borders.border_style[DEFAULT_BORDER_STYLE],
 		classes.borders.border_radius.base,
 		borderColorClassName,
 		backgroundClassName,

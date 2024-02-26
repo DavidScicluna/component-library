@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import type { TextProps } from '@components/Typography';
@@ -10,8 +10,8 @@ import { Text } from '@components/Typography';
 
 import { useCardContext } from '../../common/hooks';
 
-import { __DEFAULT_CARD_TITLE_AS__ } from './common/constants';
-import { __KEYS_CARD_TITLE_CLASS__ } from './common/keys';
+import { DEFAULT_CARD_TITLE_AS } from './common/constants';
+import { KEYS_CARD_TITLE_CLASS } from './common/keys';
 import type { CardTitleElement, CardTitleProps, CardTitleRef } from './common/types';
 
 const CardTitle = forwardRef(function CardTitle<Element extends CardTitleElement>(
@@ -20,7 +20,7 @@ const CardTitle = forwardRef(function CardTitle<Element extends CardTitleElement
 ): JSX.Element {
 	const { colorMode } = useCardContext();
 
-	const __DEFAULT_CARD_TITLE_COLOR__ = useGetColor({
+	const DEFAULT_CARD_TITLE_COLOR = useGetColor({
 		color: 'gray',
 		colorMode,
 		colorType: 'default',
@@ -30,10 +30,10 @@ const CardTitle = forwardRef(function CardTitle<Element extends CardTitleElement
 
 	const {
 		children,
-		as = __DEFAULT_CARD_TITLE_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_CARD_TITLE_AS,
+		className = DEFAULT_CLASSNAME,
 		align = 'left',
-		color = __DEFAULT_CARD_TITLE_COLOR__,
+		color = DEFAULT_CARD_TITLE_COLOR,
 		fontSize = 'xl',
 		fontWeight = 'bold',
 		lineClamp = 1,
@@ -45,7 +45,7 @@ const CardTitle = forwardRef(function CardTitle<Element extends CardTitleElement
 			{...(rest as TextProps<Element>)}
 			as={as}
 			ref={ref}
-			className={classNames(__KEYS_CARD_TITLE_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_CARD_TITLE_CLASS, { [className]: !!className })}
 			align={align}
 			color={color}
 			fontSize={fontSize}

@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -12,24 +12,24 @@ import { VStack } from '@components/Layout';
 import { useCardContext } from '../../common/hooks';
 import { CardDivider } from '../CardDivider';
 
-import { __KEYS_CARD_STACK_CLASS__ } from './common/keys';
+import { KEYS_CARD_STACK_CLASS } from './common/keys';
 import type { CardStackMouseEvent, CardStackProps, CardStackRef } from './common/types';
 
 const CardStack = forwardRef(function CardStack<Element extends PolymorphicElementType>(
 	props: CardStackProps<Element>,
 	ref: CardStackRef<Element>
 ): JSX.Element {
-	const { isCollapsable, isDivisible, isOpen, onHover, spacing: __DEFAULT_CARD_STACK_SPACING__ } = useCardContext();
+	const { isCollapsable, isDivisible, isOpen, onHover, spacing: DEFAULT_CARD_STACK_SPACING } = useCardContext();
 
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		alignItems = 'stretch',
 		justifyContent = 'stretch',
 		divider = <CardDivider />,
 		onMouseEnter,
 		onMouseLeave,
-		spacing = __DEFAULT_CARD_STACK_SPACING__,
+		spacing = DEFAULT_CARD_STACK_SPACING,
 		...rest
 	} = props;
 
@@ -58,7 +58,7 @@ const CardStack = forwardRef(function CardStack<Element extends PolymorphicEleme
 			<VStack
 				{...(rest as VStackProps<Element>)}
 				ref={ref}
-				className={classNames(__KEYS_CARD_STACK_CLASS__, { [className]: !!className })}
+				className={classNames(KEYS_CARD_STACK_CLASS, { [className]: !!className })}
 				w='100%'
 				h='100%'
 				alignItems={alignItems}

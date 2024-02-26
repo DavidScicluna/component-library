@@ -4,18 +4,18 @@ import type { FlexDirectionClassArr } from '../../../../common/types';
 import type { IconButtonSize, IconButtonVariant } from '../IconButton';
 import { IconButton, IconButtonIcon } from '../IconButton';
 import {
-	__DEFAULT_ICON_BUTTON_IS_COMPACT__,
-	__DEFAULT_ICON_BUTTON_IS_DISABLED__,
-	__DEFAULT_ICON_BUTTON_IS_ROUND__,
-	__DEFAULT_ICON_BUTTON_SIZE__,
-	__DEFAULT_ICON_BUTTON_VARIANT__
+	DEFAULT_ICON_BUTTON_IS_COMPACT,
+	DEFAULT_ICON_BUTTON_IS_DISABLED,
+	DEFAULT_ICON_BUTTON_IS_ROUND,
+	DEFAULT_ICON_BUTTON_SIZE,
+	DEFAULT_ICON_BUTTON_VARIANT
 } from '../IconButton/common/constants';
 import { Center } from '../../../Layout';
-import { __DEFAULT_STACK_DIRECTION__ } from '../../../Layout/components/Stacks/Stack/common/constants';
+import { DEFAULT_STACK_DIRECTION } from '../../../Layout/components/Stacks/Stack/common/constants';
 import React from 'react';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
-import { __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__ } from './common/constants';
+import { DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED } from './common/constants';
 import type { IconButtonGroupDefaultElement, IconButtonGroupProps } from './common/types';
 import type { IconButtonGroupStory, IconButtonGroupStoryMeta } from './common/types/story';
 import { IconButtonGroupItem } from './components';
@@ -30,7 +30,7 @@ export default {
 		direction: {
 			name: 'Direction',
 			type: 'string',
-			defaultValue: __DEFAULT_STACK_DIRECTION__,
+			defaultValue: DEFAULT_STACK_DIRECTION,
 			// description: '',
 			options: ['row', 'row-reverse', 'column', 'column-reverse'] as FlexDirectionClassArr,
 			control: { type: 'radio' }
@@ -38,35 +38,35 @@ export default {
 		isAttached: {
 			name: 'Attached',
 			type: 'boolean',
-			defaultValue: __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__,
+			defaultValue: DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isCompact: {
 			name: 'Compact',
 			type: 'boolean',
-			defaultValue: __DEFAULT_ICON_BUTTON_IS_COMPACT__,
+			defaultValue: DEFAULT_ICON_BUTTON_IS_COMPACT,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
-			defaultValue: __DEFAULT_ICON_BUTTON_IS_DISABLED__,
+			defaultValue: DEFAULT_ICON_BUTTON_IS_DISABLED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isRound: {
 			name: 'Round',
 			type: 'boolean',
-			defaultValue: __DEFAULT_ICON_BUTTON_IS_ROUND__,
+			defaultValue: DEFAULT_ICON_BUTTON_IS_ROUND,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: __DEFAULT_ICON_BUTTON_SIZE__,
+			defaultValue: DEFAULT_ICON_BUTTON_SIZE,
 			// description: '',
 			options: ['xs', 'sm', 'md', 'lg', 'xl'] as Array<IconButtonSize>,
 			control: { type: 'radio' }
@@ -74,7 +74,7 @@ export default {
 		variant: {
 			name: 'Variant',
 			type: 'string',
-			defaultValue: __DEFAULT_ICON_BUTTON_VARIANT__,
+			defaultValue: DEFAULT_ICON_BUTTON_VARIANT,
 			// description: '',
 			options: ['contained', 'light', 'dark', 'outlined', 'monochrome', 'icon'] as Array<IconButtonVariant>,
 			control: { type: 'radio' }

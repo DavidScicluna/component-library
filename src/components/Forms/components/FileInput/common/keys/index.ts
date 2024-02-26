@@ -1,3 +1,3 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
-export const __KEYS_FILE_INPUT_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-file-input`;
+export const KEYS_FILE_INPUT_CLASS = `${DEFAULT_CLASS_PREFIX}-file-input`;

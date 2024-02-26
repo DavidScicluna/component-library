@@ -1,4 +1,4 @@
-import { __DEFAULT_RADIUS__ } from '@common/constants';
+import { DEFAULT_RADIUS } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	BrightnessClass,
@@ -16,21 +16,21 @@ import type {
 } from '@common/types';
 
 import {
-	__DEFAULT_IMAGE_BLUR__,
-	__DEFAULT_IMAGE_BORING__,
-	__DEFAULT_IMAGE_BRIGHTNESS__,
-	__DEFAULT_IMAGE_CONTRAST__,
-	__DEFAULT_IMAGE_FILTERS__,
-	__DEFAULT_IMAGE_FIT__,
-	__DEFAULT_IMAGE_FULL__,
-	__DEFAULT_IMAGE_GRAYSCALE__,
-	__DEFAULT_IMAGE_HUE_ROTATE__,
-	__DEFAULT_IMAGE_INVERT__,
-	__DEFAULT_IMAGE_OPTIONS__,
-	__DEFAULT_IMAGE_POSITION__,
-	__DEFAULT_IMAGE_SATURATE__,
-	__DEFAULT_IMAGE_SEPIA__,
-	__DEFAULT_IMAGE_THUMBNAIL__
+	DEFAULT_IMAGE_BLUR,
+	DEFAULT_IMAGE_BORING,
+	DEFAULT_IMAGE_BRIGHTNESS,
+	DEFAULT_IMAGE_CONTRAST,
+	DEFAULT_IMAGE_FILTERS,
+	DEFAULT_IMAGE_FIT,
+	DEFAULT_IMAGE_FULL,
+	DEFAULT_IMAGE_GRAYSCALE,
+	DEFAULT_IMAGE_HUE_ROTATE,
+	DEFAULT_IMAGE_INVERT,
+	DEFAULT_IMAGE_OPTIONS,
+	DEFAULT_IMAGE_POSITION,
+	DEFAULT_IMAGE_SATURATE,
+	DEFAULT_IMAGE_SEPIA,
+	DEFAULT_IMAGE_THUMBNAIL
 } from '../constants';
 import type { ImageFilters, ImageMode, ImageOptions, ImageProps } from '../types';
 
@@ -42,12 +42,12 @@ const useImageResponsiveValues = <Element extends PolymorphicElementType>(
 	props: UseImageResponsiveValuesProps<Element>
 ) => {
 	const {
-		boring: boringProp = __DEFAULT_IMAGE_BORING__,
-		thumbnail: thumbnailProp = __DEFAULT_IMAGE_THUMBNAIL__,
-		full: fullProp = __DEFAULT_IMAGE_FULL__,
-		filters: filtersProp = __DEFAULT_IMAGE_FILTERS__,
-		options: optionsProp = __DEFAULT_IMAGE_OPTIONS__,
-		radius: radiusProp = __DEFAULT_RADIUS__
+		boring: boringProp = DEFAULT_IMAGE_BORING,
+		thumbnail: thumbnailProp = DEFAULT_IMAGE_THUMBNAIL,
+		full: fullProp = DEFAULT_IMAGE_FULL,
+		filters: filtersProp = DEFAULT_IMAGE_FILTERS,
+		options: optionsProp = DEFAULT_IMAGE_OPTIONS,
+		radius: radiusProp = DEFAULT_RADIUS
 	} = props;
 
 	const boring = useGetResponsiveValue<ImageMode>(boringProp);
@@ -59,16 +59,16 @@ const useImageResponsiveValues = <Element extends PolymorphicElementType>(
 	const radius = useGetResponsiveValue<ThemeRadius>(radiusProp);
 
 	const {
-		blur: blurProp = __DEFAULT_IMAGE_BLUR__,
-		brightness: brightnessProp = __DEFAULT_IMAGE_BRIGHTNESS__,
-		contrast: contrastProp = __DEFAULT_IMAGE_CONTRAST__,
-		grayscale: grayscaleProp = __DEFAULT_IMAGE_GRAYSCALE__,
-		hueRotate: hueRotateProp = __DEFAULT_IMAGE_HUE_ROTATE__,
-		invert: invertProp = __DEFAULT_IMAGE_INVERT__,
-		saturate: saturateProp = __DEFAULT_IMAGE_SATURATE__,
-		sepia: sepiaProp = __DEFAULT_IMAGE_SEPIA__
+		blur: blurProp = DEFAULT_IMAGE_BLUR,
+		brightness: brightnessProp = DEFAULT_IMAGE_BRIGHTNESS,
+		contrast: contrastProp = DEFAULT_IMAGE_CONTRAST,
+		grayscale: grayscaleProp = DEFAULT_IMAGE_GRAYSCALE,
+		hueRotate: hueRotateProp = DEFAULT_IMAGE_HUE_ROTATE,
+		invert: invertProp = DEFAULT_IMAGE_INVERT,
+		saturate: saturateProp = DEFAULT_IMAGE_SATURATE,
+		sepia: sepiaProp = DEFAULT_IMAGE_SEPIA
 	} = filters;
-	const { fit: fitProp = __DEFAULT_IMAGE_FIT__, position: positionProp = __DEFAULT_IMAGE_POSITION__ } = options;
+	const { fit: fitProp = DEFAULT_IMAGE_FIT, position: positionProp = DEFAULT_IMAGE_POSITION } = options;
 
 	const blur = useGetResponsiveValue<ThemeBlurClass>(blurProp);
 	const brightness = useGetResponsiveValue<BrightnessClass>(brightnessProp);

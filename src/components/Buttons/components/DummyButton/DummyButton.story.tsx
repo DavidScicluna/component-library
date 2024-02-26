@@ -3,13 +3,13 @@ import { Center } from '../../../Layout';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 import React from 'react';
 import {
-	__DEFAULT_DUMMY_BUTTON_IS_ANIMATED__,
-	__DEFAULT_DUMMY_BUTTON_IS_COMPACT__,
-	__DEFAULT_DUMMY_BUTTON_IS_FULLWIDTH__,
-	__DEFAULT_DUMMY_BUTTON_IS_OUTLINED__,
-	__DEFAULT_DUMMY_BUTTON_IS_ROUND__,
-	__DEFAULT_DUMMY_BUTTON_SIZE__,
-	__DEFAULT_DUMMY_BUTTON_VARIANT__
+	DEFAULT_DUMMY_BUTTON_IS_ANIMATED,
+	DEFAULT_DUMMY_BUTTON_IS_COMPACT,
+	DEFAULT_DUMMY_BUTTON_IS_FULLWIDTH,
+	DEFAULT_DUMMY_BUTTON_IS_OUTLINED,
+	DEFAULT_DUMMY_BUTTON_IS_ROUND,
+	DEFAULT_DUMMY_BUTTON_SIZE,
+	DEFAULT_DUMMY_BUTTON_VARIANT
 } from './common/constants';
 import type { DummyButtonDefaultElement, DummyButtonProps, DummyButtonSize, DummyButtonVariant } from './common/types';
 import type { DummyButtonStory, DummyButtonStoryMeta } from './common/types/story';
@@ -23,42 +23,42 @@ export default {
 		isAnimated: {
 			name: 'Animated',
 			type: 'boolean',
-			defaultValue: __DEFAULT_DUMMY_BUTTON_IS_ANIMATED__,
+			defaultValue: DEFAULT_DUMMY_BUTTON_IS_ANIMATED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isCompact: {
 			name: 'Compact',
 			type: 'boolean',
-			defaultValue: __DEFAULT_DUMMY_BUTTON_IS_COMPACT__,
+			defaultValue: DEFAULT_DUMMY_BUTTON_IS_COMPACT,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isFullWidth: {
 			name: 'FullWidth',
 			type: 'boolean',
-			defaultValue: __DEFAULT_DUMMY_BUTTON_IS_FULLWIDTH__,
+			defaultValue: DEFAULT_DUMMY_BUTTON_IS_FULLWIDTH,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isRound: {
 			name: 'Round',
 			type: 'boolean',
-			defaultValue: __DEFAULT_DUMMY_BUTTON_IS_ROUND__,
+			defaultValue: DEFAULT_DUMMY_BUTTON_IS_ROUND,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isOutlined: {
 			name: 'Outlined',
 			type: 'boolean',
-			defaultValue: __DEFAULT_DUMMY_BUTTON_IS_OUTLINED__,
+			defaultValue: DEFAULT_DUMMY_BUTTON_IS_OUTLINED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: __DEFAULT_DUMMY_BUTTON_SIZE__,
+			defaultValue: DEFAULT_DUMMY_BUTTON_SIZE,
 			// description: '',
 			options: ['xs', 'sm', 'md', 'lg', 'xl'] as Array<DummyButtonSize>,
 			control: { type: 'radio' }
@@ -66,7 +66,7 @@ export default {
 		variant: {
 			name: 'Variant',
 			type: 'string',
-			defaultValue: __DEFAULT_DUMMY_BUTTON_VARIANT__,
+			defaultValue: DEFAULT_DUMMY_BUTTON_VARIANT,
 			// description: '',
 			options: [
 				'contained',

@@ -1,10 +1,10 @@
 import { useGetResponsiveValue } from '@common/hooks';
 
 import {
-	__DEFAULT_TAB_IS_ACTIVE__,
-	__DEFAULT_TAB_IS_COMPACT__,
-	__DEFAULT_TAB_IS_DISABLED__,
-	__DEFAULT_TAB_IS_UPPERCASE__
+	DEFAULT_TAB_IS_ACTIVE,
+	DEFAULT_TAB_IS_COMPACT,
+	DEFAULT_TAB_IS_DISABLED,
+	DEFAULT_TAB_IS_UPPERCASE
 } from '../constants';
 import type { TabElement, TabProps } from '../types';
 
@@ -14,10 +14,10 @@ type UseTabResponsiveValuesProps<Element extends TabElement> = Partial<
 
 const useTabResponsiveValues = <Element extends TabElement>(props: UseTabResponsiveValuesProps<Element>) => {
 	const {
-		isActive: isActiveProp = __DEFAULT_TAB_IS_ACTIVE__,
-		isCompact: isCompactProp = __DEFAULT_TAB_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_TAB_IS_DISABLED__,
-		isUppercase: isUppercaseProp = __DEFAULT_TAB_IS_UPPERCASE__
+		isActive: isActiveProp = DEFAULT_TAB_IS_ACTIVE,
+		isCompact: isCompactProp = DEFAULT_TAB_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_TAB_IS_DISABLED,
+		isUppercase: isUppercaseProp = DEFAULT_TAB_IS_UPPERCASE
 	} = props;
 
 	const isActive = useGetResponsiveValue<boolean>(isActiveProp);

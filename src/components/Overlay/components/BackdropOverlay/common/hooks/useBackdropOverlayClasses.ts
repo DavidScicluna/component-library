@@ -4,9 +4,9 @@ import { useGetClass } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import {
-	__DEFAULT_BACKDROP_OVERLAY_BLUR__,
-	__DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
-	__DEFAULT_BACKDROP_OVERLAY_RADIUS__
+	DEFAULT_BACKDROP_OVERLAY_BLUR,
+	DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE,
+	DEFAULT_BACKDROP_OVERLAY_RADIUS
 } from '../constants';
 import type { BackdropOverlayProps } from '../types';
 
@@ -22,9 +22,9 @@ const useBackdropOverlayClasses = <Element extends PolymorphicElementType>(
 	props: UseBackdropOverlayClassesProps<Element>
 ): UseBackdropOverlayClassesReturn => {
 	const {
-		blur: blurProp = __DEFAULT_BACKDROP_OVERLAY_BLUR__,
-		blurType: blurTypeProp = __DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
-		radius: radiusProp = __DEFAULT_BACKDROP_OVERLAY_RADIUS__
+		blur: blurProp = DEFAULT_BACKDROP_OVERLAY_BLUR,
+		blurType: blurTypeProp = DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE,
+		radius: radiusProp = DEFAULT_BACKDROP_OVERLAY_RADIUS
 	} = props;
 
 	const { blur, blurType, radius } = useBackdropOverlayResponsiveValues<Element>({

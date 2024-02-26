@@ -1,3 +1,3 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
-export const __KEYS_FORM_HELPER_TEXT_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-form-helper-text`;
+export const KEYS_FORM_HELPER_TEXT_CLASS = `${DEFAULT_CLASS_PREFIX}-form-helper-text`;

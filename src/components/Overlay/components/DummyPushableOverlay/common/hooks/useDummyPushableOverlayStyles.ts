@@ -1,11 +1,11 @@
 import { useMemo } from 'react';
 
-import { __DEFAULT_COLOR__ } from '@common/constants';
+import { DEFAULT_COLOR } from '@common/constants';
 import { useAppTheme, useTheme } from '@common/hooks';
 import type { PolymorphicElementType, Style } from '@common/types';
 import { getColorHue } from '@common/utils';
 
-import { __DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__ } from '../constants';
+import { DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT } from '../constants';
 import type { DummyPushableOverlayProps } from '../types';
 
 import useDummyPushableOverlayResponsiveValues from './useDummyPushableOverlayResponsiveValues';
@@ -21,12 +21,12 @@ const useDummyPushableOverlayStyles = <Element extends PolymorphicElementType>(
 ): UseDummyPushableOverlayStylesReturn => {
 	const theme = useTheme();
 
-	const { colorMode: __DEFAULT_DUMMY_PUSHABLE_OVERLAY_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_DUMMY_PUSHABLE_OVERLAY_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_COLORMODE__,
-		variant: variantProp = __DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT__
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_DUMMY_PUSHABLE_OVERLAY_COLORMODE,
+		variant: variantProp = DEFAULT_DUMMY_PUSHABLE_OVERLAY_VARIANT
 	} = props;
 
 	const { variant } = useDummyPushableOverlayResponsiveValues<Element>({ variant: variantProp });

@@ -2,34 +2,33 @@ import { forwardRef, useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 import { useCarouselContext, useCarouselManager } from '@components/DataDisplay/components/Carousel/common/hooks';
 
-import { __DEFAULT_CAROUSEL_DOTS_SIZE__ } from '../../common/constants';
+import { DEFAULT_CAROUSEL_DOTS_SIZE } from '../../common/constants';
 
 import { useCarouselDotClasses, useCarouselDotResponsiveValues } from './common/hooks';
-import { __KEYS_CAROUSEL_DOT_CLASS__ } from './common/keys';
+import { KEYS_CAROUSEL_DOT_CLASS } from './common/keys';
 import type { CarouselDotProps, CarouselDotRef } from './common/types';
 
 const CarouselDot = forwardRef(function CarouselDot<Element extends PolymorphicElementType>(
 	props: CarouselDotProps<Element>,
 	ref: CarouselDotRef<Element>
 ): JSX.Element {
-	const { color: __DEFAULT_CAROUSEL_DOT_COLOR__, colorMode: __DEFAULT_CAROUSEL_DOT_COLORMODE__ } =
-		useCarouselContext();
+	const { color: DEFAULT_CAROUSEL_DOT_COLOR, colorMode: DEFAULT_CAROUSEL_DOT_COLORMODE } = useCarouselContext();
 	const { isItemVisible, scrollToItem } = useCarouselManager();
 
 	const {
-		className = __DEFAULT_CLASSNAME__,
-		color = __DEFAULT_CAROUSEL_DOT_COLOR__,
-		colorMode = __DEFAULT_CAROUSEL_DOT_COLORMODE__,
+		className = DEFAULT_CLASSNAME,
+		color = DEFAULT_CAROUSEL_DOT_COLOR,
+		colorMode = DEFAULT_CAROUSEL_DOT_COLORMODE,
 		item,
 		scale,
-		size: sizeProp = __DEFAULT_CAROUSEL_DOTS_SIZE__,
+		size: sizeProp = DEFAULT_CAROUSEL_DOTS_SIZE,
 		...rest
 	} = props;
 
@@ -43,7 +42,7 @@ const CarouselDot = forwardRef(function CarouselDot<Element extends PolymorphicE
 		<Box
 			{...(rest as BoxProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_CAROUSEL_DOT_CLASS__, classes.item, {
+			className={classNames(KEYS_CAROUSEL_DOT_CLASS, classes.item, {
 				[classes.scale100]: scale === 100,
 				[classes.scale75]: scale === 75,
 				[classes.scale50]: scale === 50,

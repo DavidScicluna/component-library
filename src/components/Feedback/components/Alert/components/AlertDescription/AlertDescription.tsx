@@ -2,19 +2,19 @@ import { forwardRef, useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 import type { ThemeColor } from '@common/types';
 
 import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
-import { __DEFAULT_ALERT_LINE_HEIGHT_SIZE__ } from '../../common/constants';
+import { DEFAULT_ALERT_LINE_HEIGHT_SIZE } from '../../common/constants';
 import { useAlertContext } from '../../common/hooks';
 import { getStatusColor } from '../../common/utils';
 
-import { __DEFAULT_ALERT_DESCRIPTION_AS__ } from './common/constants';
-import { __KEYS_ALERT_DESCRIPTION_CLASS__ } from './common/keys';
+import { DEFAULT_ALERT_DESCRIPTION_AS } from './common/constants';
+import { KEYS_ALERT_DESCRIPTION_CLASS } from './common/keys';
 import type { AlertDescriptionElement, AlertDescriptionProps, AlertDescriptionRef } from './common/types';
 
 const AlertDescription = forwardRef(function AlertDescription<Element extends AlertDescriptionElement>(
@@ -25,7 +25,7 @@ const AlertDescription = forwardRef(function AlertDescription<Element extends Al
 
 	const statusColor = useMemo<ThemeColor>(() => getStatusColor(status, color), [status, color]);
 
-	const __DEFAULT_ALERT_DESCRIPTION_COLOR__ = useGetColor({
+	const DEFAULT_ALERT_DESCRIPTION_COLOR = useGetColor({
 		color: statusColor,
 		colorMode,
 		colorType: 'color',
@@ -42,13 +42,13 @@ const AlertDescription = forwardRef(function AlertDescription<Element extends Al
 
 	const {
 		children,
-		as = __DEFAULT_ALERT_DESCRIPTION_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_ALERT_DESCRIPTION_AS,
+		className = DEFAULT_CLASSNAME,
 		align = 'left',
-		color: c = __DEFAULT_ALERT_DESCRIPTION_COLOR__,
+		color: c = DEFAULT_ALERT_DESCRIPTION_COLOR,
 		fontSize = variant === 'horizontal' ? 'xl' : 'sm',
 		fontWeight = 'normal',
-		lineHeight = __DEFAULT_ALERT_LINE_HEIGHT_SIZE__,
+		lineHeight = DEFAULT_ALERT_LINE_HEIGHT_SIZE,
 		lineClamp = variant === 'horizontal' ? 1 : 'none',
 		...rest
 	} = props;
@@ -58,7 +58,7 @@ const AlertDescription = forwardRef(function AlertDescription<Element extends Al
 			{...(rest as TextProps<Element>)}
 			as={as}
 			ref={ref}
-			className={classNames(__KEYS_ALERT_DESCRIPTION_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_ALERT_DESCRIPTION_CLASS, { [className]: !!className })}
 			align={align}
 			color={c}
 			fontSize={fontSize}

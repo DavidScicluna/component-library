@@ -2,29 +2,29 @@ import { useEffect, useState } from 'react';
 
 import { useMediaMatch } from 'rooks';
 
-import { __DEFAULT_APP_COLORMODE__ } from '@common/constants';
-import { __KEY_LOCALSTORAGE_APP_COLORMODE__ } from '@common/keys';
+import { DEFAULT_APP_COLORMODE } from '@common/constants';
+import { KEY_LOCALSTORAGE_APP_COLORMODE } from '@common/keys';
 import type { ThemeAppColorMode, ThemeColorMode } from '@common/types';
 
 const useGetColorMode = (initialColorMode: ThemeColorMode): ThemeAppColorMode => {
 	const isDarkMode = useMediaMatch('(prefers-color-scheme: dark)');
 
-	const [colorMode, setColorMode] = useState<ThemeAppColorMode>(__DEFAULT_APP_COLORMODE__);
+	const [colorMode, setColorMode] = useState<ThemeAppColorMode>(DEFAULT_APP_COLORMODE);
 
 	const handleSetColorMode = (): void => {
 		if (typeof window !== 'undefined') {
-			window.localStorage.removeItem(__KEY_LOCALSTORAGE_APP_COLORMODE__);
+			window.localStorage.removeItem(KEY_LOCALSTORAGE_APP_COLORMODE);
 
 			if (initialColorMode === 'system') {
 				const updatedColorMode: ThemeAppColorMode = isDarkMode ? 'dark' : 'light';
 
 				setColorMode(updatedColorMode);
 
-				window.localStorage.setItem(__KEY_LOCALSTORAGE_APP_COLORMODE__, updatedColorMode);
+				window.localStorage.setItem(KEY_LOCALSTORAGE_APP_COLORMODE, updatedColorMode);
 			} else {
 				setColorMode(initialColorMode);
 
-				window.localStorage.setItem(__KEY_LOCALSTORAGE_APP_COLORMODE__, initialColorMode);
+				window.localStorage.setItem(KEY_LOCALSTORAGE_APP_COLORMODE, initialColorMode);
 			}
 		}
 	};

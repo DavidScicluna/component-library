@@ -2,16 +2,16 @@ import { v4 as uuid } from 'uuid';
 
 import type { TabsAlign, TabsDefaultElement, TabsOrientation, TabsSize } from '../types';
 
-export const __DEFAULT_TABS_AS__: TabsDefaultElement = 'div';
+export const DEFAULT_TABS_AS: TabsDefaultElement = 'div';
 
-export const __DEFAULT_TABS_ALIGN__: TabsAlign = 'start';
+export const DEFAULT_TABS_ALIGN: TabsAlign = 'start';
 
-export const __DEFAULT_TABS_ID__ = uuid();
-export const __DEFAULT_TABS_INDEX__ = 0;
+export const DEFAULT_TABS_ID = uuid();
+export const DEFAULT_TABS_INDEX = 0;
 
-export const __DEFAULT_TABS_IS_DISABLED__ = false;
-export const __DEFAULT_TABS_IS_FITTED__ = false;
+export const DEFAULT_TABS_IS_DISABLED = false;
+export const DEFAULT_TABS_IS_FITTED = false;
 
-export const __DEFAULT_TABS_ORIENTATION__: TabsOrientation = 'bottom';
+export const DEFAULT_TABS_ORIENTATION: TabsOrientation = 'bottom';
 
-export const __DEFAULT_TABS_SIZE__: TabsSize = 'md';
+export const DEFAULT_TABS_SIZE: TabsSize = 'md';

@@ -4,13 +4,13 @@ import classes from '@common/classes';
 import type { ClassName } from '@common/types';
 
 import {
-	__DEFAULT_DUMMY_BADGE_IS_COMPACT__,
-	__DEFAULT_DUMMY_BADGE_IS_FULLWIDTH__,
-	__DEFAULT_DUMMY_BADGE_IS_ROUND__,
-	__DEFAULT_DUMMY_BADGE_IS_UPPERCASE__,
-	__DEFAULT_DUMMY_BADGE_LINE_HEIGHT_SIZE__,
-	__DEFAULT_DUMMY_BADGE_SIZE__,
-	__DEFAULT_DUMMY_BADGE_VARIANT__
+	DEFAULT_DUMMY_BADGE_IS_COMPACT,
+	DEFAULT_DUMMY_BADGE_IS_FULLWIDTH,
+	DEFAULT_DUMMY_BADGE_IS_ROUND,
+	DEFAULT_DUMMY_BADGE_IS_UPPERCASE,
+	DEFAULT_DUMMY_BADGE_LINE_HEIGHT_SIZE,
+	DEFAULT_DUMMY_BADGE_SIZE,
+	DEFAULT_DUMMY_BADGE_VARIANT
 } from '../constants';
 import type { DummyBadgeElement, DummyBadgeProps } from '../types';
 
@@ -27,12 +27,12 @@ const useDummyBadgeClasses = <Element extends DummyBadgeElement>(
 	props: UseDummyBadgeClassesProps<Element>
 ): UseDummyBadgeClassesReturn => {
 	const {
-		isCompact: isCompactProp = __DEFAULT_DUMMY_BADGE_IS_COMPACT__,
-		isFullWidth: isFullWidthProp = __DEFAULT_DUMMY_BADGE_IS_FULLWIDTH__,
-		isRound: isRoundProp = __DEFAULT_DUMMY_BADGE_IS_ROUND__,
-		isUppercase: isUppercaseProp = __DEFAULT_DUMMY_BADGE_IS_UPPERCASE__,
-		size: sizeProp = __DEFAULT_DUMMY_BADGE_SIZE__,
-		variant: variantProp = __DEFAULT_DUMMY_BADGE_VARIANT__
+		isCompact: isCompactProp = DEFAULT_DUMMY_BADGE_IS_COMPACT,
+		isFullWidth: isFullWidthProp = DEFAULT_DUMMY_BADGE_IS_FULLWIDTH,
+		isRound: isRoundProp = DEFAULT_DUMMY_BADGE_IS_ROUND,
+		isUppercase: isUppercaseProp = DEFAULT_DUMMY_BADGE_IS_UPPERCASE,
+		size: sizeProp = DEFAULT_DUMMY_BADGE_SIZE,
+		variant: variantProp = DEFAULT_DUMMY_BADGE_VARIANT
 	} = props;
 
 	const { isCompact, isFullWidth, isRound, isUppercase, size, variant } = useDummyBadgeResponsiveValues<Element>({
@@ -52,7 +52,7 @@ const useDummyBadgeClasses = <Element extends DummyBadgeElement>(
 		classes.typography.font_size[config.fontSize],
 		classes.typography.font_weight.semibold,
 		classes.typography.letter_spacing.normal,
-		classes.typography.line_height[__DEFAULT_DUMMY_BADGE_LINE_HEIGHT_SIZE__],
+		classes.typography.line_height[DEFAULT_DUMMY_BADGE_LINE_HEIGHT_SIZE],
 		classes.typography.transform[isUppercase ? 'uppercase' : 'capitalize'],
 		classes.typography.text_overflow.ellipsis,
 		classes.typography.whiteSpace.nowrap

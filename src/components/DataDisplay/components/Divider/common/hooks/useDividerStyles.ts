@@ -1,9 +1,9 @@
-import { __DEFAULT_BORDER_WIDTH__, __DEFAULT_COLOR__, __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_BORDER_WIDTH, DEFAULT_COLOR, DEFAULT_SPACING } from '@common/constants';
 import { useTheme } from '@common/hooks';
 import type { Style } from '@common/types';
 import { checkColorType } from '@common/utils';
 
-import { __DEFAULT_DIVIDER_ORIENTATION__, __DEFAULT_DIVIDER_PLACEMENT__ } from '../constants';
+import { DEFAULT_DIVIDER_ORIENTATION, DEFAULT_DIVIDER_PLACEMENT } from '../constants';
 import type { DividerElement, DividerProps } from '../types';
 
 import useDividerResponsiveValues from './useDividerResponsiveValues';
@@ -20,12 +20,12 @@ const useDividerStyles = <Element extends DividerElement>(
 	const theme = useTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
+		color = DEFAULT_COLOR,
 		hasChildren = false,
-		orientation: orientationProp = __DEFAULT_DIVIDER_ORIENTATION__,
-		placement: placementProp = __DEFAULT_DIVIDER_PLACEMENT__,
-		spacing: spacingProp = __DEFAULT_SPACING__,
-		size: sizeProp = __DEFAULT_BORDER_WIDTH__
+		orientation: orientationProp = DEFAULT_DIVIDER_ORIENTATION,
+		placement: placementProp = DEFAULT_DIVIDER_PLACEMENT,
+		spacing: spacingProp = DEFAULT_SPACING,
+		size: sizeProp = DEFAULT_BORDER_WIDTH
 	} = props;
 
 	const { orientation, placement, spacing, size } = useDividerResponsiveValues<Element>({

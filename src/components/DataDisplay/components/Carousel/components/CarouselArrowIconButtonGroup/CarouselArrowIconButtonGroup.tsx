@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 
 import type { IconButtonGroupItemChildrenProps, IconButtonGroupProps } from '@components/Buttons';
 import { IconButtonGroup, IconButtonGroupItem } from '@components/Buttons';
@@ -10,10 +10,10 @@ import { IconButtonGroup, IconButtonGroupItem } from '@components/Buttons';
 import { useCarouselContext } from '../../common/hooks';
 
 import {
-	__DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_AS__,
-	__DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_IS_ATTACHED__
+	DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_AS,
+	DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_IS_ATTACHED
 } from './common/constants';
-import { __KEYS_CAROUSEL_ARROW_ICON_BUTTON_GROUP_CLASS__ } from './common/keys';
+import { KEYS_CAROUSEL_ARROW_ICON_BUTTON_GROUP_CLASS } from './common/keys';
 import type {
 	CarouselArrowIconButtonGroupElement,
 	CarouselArrowIconButtonGroupProps,
@@ -23,15 +23,15 @@ import type {
 const CarouselArrowIconButtonGroup = forwardRef(function CarouselArrowIconButtonGroup<
 	Element extends CarouselArrowIconButtonGroupElement
 >(props: CarouselArrowIconButtonGroupProps<Element>, ref: CarouselArrowIconButtonGroupRef<Element>): JSX.Element {
-	const { spacing: __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_SPACING__, variant } = useCarouselContext();
+	const { spacing: DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_SPACING, variant } = useCarouselContext();
 
 	const {
-		as = __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_AS,
+		className = DEFAULT_CLASSNAME,
 		renderLeftAction,
 		renderRightAction,
-		isAttached = __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_IS_ATTACHED__,
-		spacing = __DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_SPACING__,
+		isAttached = DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_IS_ATTACHED,
+		spacing = DEFAULT_CAROUSEL_ARROW_ICON_BUTTON_GROUP_SPACING,
 		...rest
 	} = props;
 
@@ -40,7 +40,7 @@ const CarouselArrowIconButtonGroup = forwardRef(function CarouselArrowIconButton
 			{...(rest as IconButtonGroupProps<Element>)}
 			as={as}
 			ref={ref}
-			className={classNames(__KEYS_CAROUSEL_ARROW_ICON_BUTTON_GROUP_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_CAROUSEL_ARROW_ICON_BUTTON_GROUP_CLASS, { [className]: !!className })}
 			w='100%'
 			h='100%'
 			alignItems='center'

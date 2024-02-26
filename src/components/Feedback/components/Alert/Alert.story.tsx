@@ -1,4 +1,4 @@
-import { __DEFAULT_SPACING__ } from '../../../../common/constants';
+import { DEFAULT_SPACING } from '../../../../common/constants';
 import { useBoolean } from '../../../../common/hooks';
 
 import { Button, CloseIconButton } from '../../../Buttons';
@@ -6,7 +6,7 @@ import { VStack } from '../../../Layout';
 import React from 'react';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
-import { __DEFAULT_ALERT_DURATION__, __DEFAULT_ALERT_STATUS__, __DEFAULT_ALERT_VARIANT__ } from './common/constants';
+import { DEFAULT_ALERT_DURATION, DEFAULT_ALERT_STATUS, DEFAULT_ALERT_VARIANT } from './common/constants';
 import type { AlertDefaultElement, AlertProps, AlertStatus, AlertVariant } from './common/types';
 import type { AlertStory, AlertStoryMeta } from './common/types/story';
 import { Alert as AlertComponent, AlertDescription, AlertIcon, AlertLabel } from '.';
@@ -18,21 +18,21 @@ export default {
 		duration: {
 			name: 'Duration',
 			type: 'number',
-			defaultValue: __DEFAULT_ALERT_DURATION__,
+			defaultValue: DEFAULT_ALERT_DURATION,
 			// description: '',
 			control: { type: 'number' }
 		},
 		spacing: {
 			name: 'Spacing (0-24 | .0, .25, .5 or .75)',
 			type: 'number',
-			defaultValue: __DEFAULT_SPACING__,
+			defaultValue: DEFAULT_SPACING,
 			// description: '',
 			control: { type: 'number' }
 		},
 		status: {
 			name: 'Status',
 			type: 'string',
-			defaultValue: __DEFAULT_ALERT_STATUS__,
+			defaultValue: DEFAULT_ALERT_STATUS,
 			// description: '',
 			options: ['default', 'info', 'warning', 'success', 'error'] as Array<AlertStatus>,
 			control: { type: 'radio' }
@@ -40,7 +40,7 @@ export default {
 		variant: {
 			name: 'Variant',
 			type: 'string',
-			defaultValue: __DEFAULT_ALERT_VARIANT__,
+			defaultValue: DEFAULT_ALERT_VARIANT,
 			// description: '',
 			options: ['horizontal', 'vertical'] as Array<AlertVariant>,
 			control: { type: 'radio' }

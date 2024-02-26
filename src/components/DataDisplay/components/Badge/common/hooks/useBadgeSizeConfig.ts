@@ -3,10 +3,10 @@ import { useMemo } from 'react';
 import type { ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
 
 import {
-	__DEFAULT_BADGE_IS_COMPACT__,
-	__DEFAULT_BADGE_IS_ROUND__,
-	__DEFAULT_BADGE_SIZE__,
-	__DEFAULT_BADGE_VARIANT__
+	DEFAULT_BADGE_IS_COMPACT,
+	DEFAULT_BADGE_IS_ROUND,
+	DEFAULT_BADGE_SIZE,
+	DEFAULT_BADGE_VARIANT
 } from '../constants';
 import type { BadgeElement, BadgeProps } from '../types';
 
@@ -29,10 +29,10 @@ const useBadgeSizeConfig = <Element extends BadgeElement>(
 	props: UseBadgeSizeConfigProps<Element>
 ): UseBadgeSizeConfigReturn => {
 	const {
-		isCompact: isCompactProp = __DEFAULT_BADGE_IS_COMPACT__,
-		isRound: isRoundProp = __DEFAULT_BADGE_IS_ROUND__,
-		size: sizeProp = __DEFAULT_BADGE_SIZE__,
-		variant: variantProp = __DEFAULT_BADGE_VARIANT__
+		isCompact: isCompactProp = DEFAULT_BADGE_IS_COMPACT,
+		isRound: isRoundProp = DEFAULT_BADGE_IS_ROUND,
+		size: sizeProp = DEFAULT_BADGE_SIZE,
+		variant: variantProp = DEFAULT_BADGE_VARIANT
 	} = props;
 
 	const { isCompact, isRound, size, variant } = useBadgeResponsiveValues<Element>({

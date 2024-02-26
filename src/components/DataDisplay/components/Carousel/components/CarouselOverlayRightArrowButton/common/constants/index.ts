@@ -1,3 +1,1 @@
-import { __DEFAULT_CAROUSEL_OVERLAY_RIGHT_ARROW_BUTTON_AS__ } from './props';
-
-export { __DEFAULT_CAROUSEL_OVERLAY_RIGHT_ARROW_BUTTON_AS__ };
+export * from './props';

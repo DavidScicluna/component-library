@@ -1,18 +1,18 @@
 import { useGetResponsiveValue } from '@common/hooks';
 
 import {
-	__DEFAULT_FILE_INPUT_IS_COMPACT__,
-	__DEFAULT_FILE_INPUT_IS_DISABLED__,
-	__DEFAULT_FILE_INPUT_IS_ERROR__,
-	__DEFAULT_FILE_INPUT_IS_FOCUSED__,
-	__DEFAULT_FILE_INPUT_IS_FULLWIDTH__,
-	__DEFAULT_FILE_INPUT_IS_OUTLINED__,
-	__DEFAULT_FILE_INPUT_IS_READONLY__,
-	__DEFAULT_FILE_INPUT_IS_REQUIRED__,
-	__DEFAULT_FILE_INPUT_IS_SUCCESS__,
-	__DEFAULT_FILE_INPUT_IS_WARNING__,
-	__DEFAULT_FILE_INPUT_SIZE__,
-	__DEFAULT_FILE_INPUT_VARIANT__
+	DEFAULT_FILE_INPUT_IS_COMPACT,
+	DEFAULT_FILE_INPUT_IS_DISABLED,
+	DEFAULT_FILE_INPUT_IS_ERROR,
+	DEFAULT_FILE_INPUT_IS_FOCUSED,
+	DEFAULT_FILE_INPUT_IS_FULLWIDTH,
+	DEFAULT_FILE_INPUT_IS_OUTLINED,
+	DEFAULT_FILE_INPUT_IS_READONLY,
+	DEFAULT_FILE_INPUT_IS_REQUIRED,
+	DEFAULT_FILE_INPUT_IS_SUCCESS,
+	DEFAULT_FILE_INPUT_IS_WARNING,
+	DEFAULT_FILE_INPUT_SIZE,
+	DEFAULT_FILE_INPUT_VARIANT
 } from '../constants';
 import type { FileInputElement, FileInputProps, FileInputSize, FileInputVariant } from '../types';
 
@@ -38,19 +38,19 @@ const useFileInputResponsiveValues = <Element extends FileInputElement>(
 	props: UseFileInputResponsiveValuesProps<Element>
 ) => {
 	const {
-		isCompact: isCompactProp = __DEFAULT_FILE_INPUT_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_FILE_INPUT_IS_DISABLED__,
-		isFullWidth: isFullWidthProp = __DEFAULT_FILE_INPUT_IS_FULLWIDTH__,
-		isError: isErrorProp = __DEFAULT_FILE_INPUT_IS_ERROR__,
-		isFocused: isFocusedProp = __DEFAULT_FILE_INPUT_IS_FOCUSED__,
-		isMultiple: isMultipleProp = __DEFAULT_FILE_INPUT_IS_FOCUSED__,
-		isOutlined: isOutlinedProp = __DEFAULT_FILE_INPUT_IS_OUTLINED__,
-		isReadOnly: isReadOnlyProp = __DEFAULT_FILE_INPUT_IS_READONLY__,
-		isRequired: isRequiredProp = __DEFAULT_FILE_INPUT_IS_REQUIRED__,
-		isSuccess: isSuccessProp = __DEFAULT_FILE_INPUT_IS_SUCCESS__,
-		isWarning: isWarningProp = __DEFAULT_FILE_INPUT_IS_WARNING__,
-		size: sizeProp = __DEFAULT_FILE_INPUT_SIZE__,
-		variant: variantProp = __DEFAULT_FILE_INPUT_VARIANT__
+		isCompact: isCompactProp = DEFAULT_FILE_INPUT_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_FILE_INPUT_IS_DISABLED,
+		isFullWidth: isFullWidthProp = DEFAULT_FILE_INPUT_IS_FULLWIDTH,
+		isError: isErrorProp = DEFAULT_FILE_INPUT_IS_ERROR,
+		isFocused: isFocusedProp = DEFAULT_FILE_INPUT_IS_FOCUSED,
+		isMultiple: isMultipleProp = DEFAULT_FILE_INPUT_IS_FOCUSED,
+		isOutlined: isOutlinedProp = DEFAULT_FILE_INPUT_IS_OUTLINED,
+		isReadOnly: isReadOnlyProp = DEFAULT_FILE_INPUT_IS_READONLY,
+		isRequired: isRequiredProp = DEFAULT_FILE_INPUT_IS_REQUIRED,
+		isSuccess: isSuccessProp = DEFAULT_FILE_INPUT_IS_SUCCESS,
+		isWarning: isWarningProp = DEFAULT_FILE_INPUT_IS_WARNING,
+		size: sizeProp = DEFAULT_FILE_INPUT_SIZE,
+		variant: variantProp = DEFAULT_FILE_INPUT_VARIANT
 	} = props;
 
 	const isCompact = useGetResponsiveValue<boolean>(isCompactProp);

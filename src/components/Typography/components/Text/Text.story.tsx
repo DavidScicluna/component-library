@@ -12,16 +12,16 @@ import type {
 } from '../../../../common/types';
 
 import {
-	__DEFAULT_TEXT_ALIGN__,
-	__DEFAULT_TEXT_FONT_SIZE__,
-	__DEFAULT_TEXT_FONT_WEIGHT__,
-	__DEFAULT_TEXT_IS_ITALIC__,
-	__DEFAULT_TEXT_IS_OVERFLOWN__,
-	__DEFAULT_TEXT_LINE_HEIGHT__,
-	__DEFAULT_TEXT_TRANSFORM__,
-	__DEFAULT_TEXT_USER_SELECT__,
-	__DEFAULT_TEXT_WHITESPACE__,
-	__DEFAULT_TEXT_WORD_BREAK__
+	DEFAULT_TEXT_ALIGN,
+	DEFAULT_TEXT_FONT_SIZE,
+	DEFAULT_TEXT_FONT_WEIGHT,
+	DEFAULT_TEXT_IS_ITALIC,
+	DEFAULT_TEXT_IS_OVERFLOWN,
+	DEFAULT_TEXT_LINE_HEIGHT,
+	DEFAULT_TEXT_TRANSFORM,
+	DEFAULT_TEXT_USER_SELECT,
+	DEFAULT_TEXT_WHITESPACE,
+	DEFAULT_TEXT_WORD_BREAK
 } from './common/constants';
 import type { TextDefaultElement, TextProps } from './common/types';
 import type { TextStory, TextStoryMeta } from './common/types/story';
@@ -41,7 +41,7 @@ export default {
 		align: {
 			name: 'Align',
 			type: 'string',
-			defaultValue: __DEFAULT_TEXT_ALIGN__,
+			defaultValue: DEFAULT_TEXT_ALIGN,
 			// description: '',
 			options: ['left', 'center', 'right', 'justify', 'start', 'end'] as TextAlignClassArr,
 			control: { type: 'radio' }
@@ -55,7 +55,7 @@ export default {
 		fontSize: {
 			name: 'Font Size',
 			type: 'string',
-			defaultValue: __DEFAULT_TEXT_FONT_SIZE__,
+			defaultValue: DEFAULT_TEXT_FONT_SIZE,
 			// description: '',
 			options: [
 				'xs',
@@ -77,7 +77,7 @@ export default {
 		fontWeight: {
 			name: 'Font Weight',
 			type: 'string',
-			defaultValue: __DEFAULT_TEXT_FONT_WEIGHT__,
+			defaultValue: DEFAULT_TEXT_FONT_WEIGHT,
 			// description: '',
 			options: [
 				'thin',
@@ -102,7 +102,7 @@ export default {
 		lineHeight: {
 			name: 'Line Height',
 			type: 'string',
-			defaultValue: __DEFAULT_TEXT_LINE_HEIGHT__,
+			defaultValue: DEFAULT_TEXT_LINE_HEIGHT,
 			// description: '',
 			options: [
 				'none',
@@ -125,7 +125,7 @@ export default {
 		textTransform: {
 			name: 'Text Transform',
 			type: 'string',
-			defaultValue: __DEFAULT_TEXT_TRANSFORM__,
+			defaultValue: DEFAULT_TEXT_TRANSFORM,
 			// description: '',
 			options: ['uppercase', 'lowercase', 'capitalize', 'normal'] as TextTransformClassArr,
 			control: { type: 'radio' }
@@ -133,21 +133,21 @@ export default {
 		isItalic: {
 			name: 'Italic',
 			type: 'boolean',
-			defaultValue: __DEFAULT_TEXT_IS_ITALIC__,
+			defaultValue: DEFAULT_TEXT_IS_ITALIC,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isOverflown: {
 			name: 'Overflown',
 			type: 'boolean',
-			defaultValue: __DEFAULT_TEXT_IS_OVERFLOWN__,
+			defaultValue: DEFAULT_TEXT_IS_OVERFLOWN,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		whiteSpace: {
 			name: 'White Space',
 			type: 'string',
-			defaultValue: __DEFAULT_TEXT_WHITESPACE__,
+			defaultValue: DEFAULT_TEXT_WHITESPACE,
 			// description: '',
 			options: ['normal', 'nowrap', 'pre', 'pre-line', 'pre-wrap', 'break-spaces'] as WhiteSpaceClassArr,
 			control: { type: 'radio' }
@@ -155,7 +155,7 @@ export default {
 		wordBreak: {
 			name: 'Word Break',
 			type: 'string',
-			defaultValue: __DEFAULT_TEXT_WORD_BREAK__,
+			defaultValue: DEFAULT_TEXT_WORD_BREAK,
 			// description: '',
 			options: ['normal', 'words', 'all', 'keep'] as WordBreakClassArr,
 			control: { type: 'radio' }
@@ -163,7 +163,7 @@ export default {
 		userSelect: {
 			name: 'User Select',
 			type: 'string',
-			defaultValue: __DEFAULT_TEXT_USER_SELECT__,
+			defaultValue: DEFAULT_TEXT_USER_SELECT,
 			// description: '',
 			options: ['none', 'text', 'all', 'auto'] as UserSelectClassArr,
 			control: { type: 'radio' }

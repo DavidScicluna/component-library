@@ -4,7 +4,7 @@ import { useConst } from '@common/hooks';
 import type { Style } from '@common/types';
 import { getAnimationDuration } from '@common/utils';
 
-import { __DEFAULT_PROGRESS_VARIANT__ } from '../constants';
+import { DEFAULT_PROGRESS_VARIANT } from '../constants';
 import type { ProgressElement, ProgressProps } from '../types';
 
 import useProgressResponsiveValues from './useProgressResponsiveValues';
@@ -27,7 +27,7 @@ const useProgressStyles = <Element extends ProgressElement>(
 ): UseProgressStylesReturn => {
 	const duration = useConst(getAnimationDuration('ultra-slow'));
 
-	const { variant: variantProp = __DEFAULT_PROGRESS_VARIANT__ } = props;
+	const { variant: variantProp = DEFAULT_PROGRESS_VARIANT } = props;
 
 	const { variant } = useProgressResponsiveValues<Element>({ variant: variantProp });
 

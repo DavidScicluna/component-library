@@ -4,12 +4,12 @@ import classes from '@common/classes';
 import type { ClassName } from '@common/types';
 
 import {
-	__DEFAULT_BUTTON_IS_COMPACT__,
-	__DEFAULT_BUTTON_IS_FULLWIDTH__,
-	__DEFAULT_BUTTON_IS_ROUND__,
-	__DEFAULT_BUTTON_LINE_HEIGHT_SIZE__,
-	__DEFAULT_BUTTON_SIZE__,
-	__DEFAULT_BUTTON_VARIANT__
+	DEFAULT_BUTTON_IS_COMPACT,
+	DEFAULT_BUTTON_IS_FULLWIDTH,
+	DEFAULT_BUTTON_IS_ROUND,
+	DEFAULT_BUTTON_LINE_HEIGHT_SIZE,
+	DEFAULT_BUTTON_SIZE,
+	DEFAULT_BUTTON_VARIANT
 } from '../constants';
 import type { ButtonElement, ButtonProps } from '../types';
 
@@ -26,11 +26,11 @@ const useButtonClasses = <Element extends ButtonElement>(
 	props: UseButtonClassesProps<Element>
 ): UseButtonClassesReturn => {
 	const {
-		isCompact: isCompactProp = __DEFAULT_BUTTON_IS_COMPACT__,
-		isFullWidth: isFullWidthProp = __DEFAULT_BUTTON_IS_FULLWIDTH__,
-		isRound: isRoundProp = __DEFAULT_BUTTON_IS_ROUND__,
-		size = __DEFAULT_BUTTON_SIZE__,
-		variant = __DEFAULT_BUTTON_VARIANT__
+		isCompact: isCompactProp = DEFAULT_BUTTON_IS_COMPACT,
+		isFullWidth: isFullWidthProp = DEFAULT_BUTTON_IS_FULLWIDTH,
+		isRound: isRoundProp = DEFAULT_BUTTON_IS_ROUND,
+		size = DEFAULT_BUTTON_SIZE,
+		variant = DEFAULT_BUTTON_VARIANT
 	} = props;
 
 	const { isCompact, isFullWidth, isRound } = useButtonResponsiveValues<Element>({
@@ -46,7 +46,7 @@ const useButtonClasses = <Element extends ButtonElement>(
 		[classes.typography.font_size[config.fontSize]]: variant !== 'unstyled',
 		[classes.typography.font_weight.semibold]: variant !== 'unstyled',
 		[classes.typography.letter_spacing.normal]: variant !== 'unstyled',
-		[classes.typography.line_height[__DEFAULT_BUTTON_LINE_HEIGHT_SIZE__]]: variant !== 'unstyled',
+		[classes.typography.line_height[DEFAULT_BUTTON_LINE_HEIGHT_SIZE]]: variant !== 'unstyled',
 		[classes.typography.transform.uppercase]: variant !== 'unstyled',
 		[classes.typography.text_overflow.ellipsis]: variant !== 'unstyled',
 		[classes.typography.whiteSpace.nowrap]: variant !== 'unstyled'

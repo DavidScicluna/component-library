@@ -1,12 +1,12 @@
 import type { ProgressDefaultElement, ProgressVariant } from '../types';
 
-export const __DEFAULT_PROGRESS_AS__: ProgressDefaultElement = 'div';
+export const DEFAULT_PROGRESS_AS: ProgressDefaultElement = 'div';
 
-export const __DEFAULT_PROGRESS_IS_INDETERMINATE__ = false;
+export const DEFAULT_PROGRESS_IS_INDETERMINATE = false;
 
-export const __DEFAULT_PROGRESS_MAX__ = 100;
-export const __DEFAULT_PROGRESS_MIN__ = 0;
+export const DEFAULT_PROGRESS_MAX = 100;
+export const DEFAULT_PROGRESS_MIN = 0;
 
-export const __DEFAULT_PROGRESS_VALUE__ = 0;
+export const DEFAULT_PROGRESS_VALUE = 0;
 
-export const __DEFAULT_PROGRESS_VARIANT__: ProgressVariant = 'horizontal';
+export const DEFAULT_PROGRESS_VARIANT: ProgressVariant = 'horizontal';

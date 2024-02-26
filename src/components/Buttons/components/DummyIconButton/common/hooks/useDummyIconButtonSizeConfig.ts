@@ -3,10 +3,10 @@ import { useMemo } from 'react';
 import type { ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
 
 import {
-	__DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT__,
-	__DEFAULT_DUMMY_ICON_BUTTON_IS_ROUND__,
-	__DEFAULT_DUMMY_ICON_BUTTON_SIZE__,
-	__DEFAULT_DUMMY_ICON_BUTTON_VARIANT__
+	DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT,
+	DEFAULT_DUMMY_ICON_BUTTON_IS_ROUND,
+	DEFAULT_DUMMY_ICON_BUTTON_SIZE,
+	DEFAULT_DUMMY_ICON_BUTTON_VARIANT
 } from '../constants';
 import type { DummyIconButtonElement, DummyIconButtonProps } from '../types';
 
@@ -28,10 +28,10 @@ const useDummyIconButtonSizeConfig = <Element extends DummyIconButtonElement>(
 	props: UseDummyIconButtonSizeConfigProps<Element>
 ): UseDummyIconButtonSizeConfigReturn => {
 	const {
-		isCompact: isCompactProp = __DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT__,
-		isRound: isRoundProp = __DEFAULT_DUMMY_ICON_BUTTON_IS_ROUND__,
-		size: sizeProp = __DEFAULT_DUMMY_ICON_BUTTON_SIZE__,
-		variant: variantProp = __DEFAULT_DUMMY_ICON_BUTTON_VARIANT__
+		isCompact: isCompactProp = DEFAULT_DUMMY_ICON_BUTTON_IS_COMPACT,
+		isRound: isRoundProp = DEFAULT_DUMMY_ICON_BUTTON_IS_ROUND,
+		size: sizeProp = DEFAULT_DUMMY_ICON_BUTTON_SIZE,
+		variant: variantProp = DEFAULT_DUMMY_ICON_BUTTON_VARIANT
 	} = props;
 
 	const { isCompact, isRound, size, variant } = useDummyIconButtonResponsiveValues<Element>({

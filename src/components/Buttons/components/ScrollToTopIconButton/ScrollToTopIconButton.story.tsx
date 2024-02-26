@@ -2,7 +2,7 @@ import { Center } from '../../../Layout';
 import React from 'react';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
-import { __DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_HAS_TOOLTIP__ } from './common/constants';
+import { DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_HAS_TOOLTIP } from './common/constants';
 import type { ScrollToTopIconButtonDefaultElement, ScrollToTopIconButtonProps } from './common/types';
 import type { ScrollToTopIconButtonStory, ScrollToTopIconButtonStoryMeta } from './common/types/story';
 import { ScrollToTopIconButton as ScrollToTopIconButtonComponent } from '.';
@@ -14,7 +14,7 @@ export default {
 		hasTooltip: {
 			name: 'Has Tooltip',
 			type: 'boolean',
-			defaultValue: __DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_HAS_TOOLTIP__,
+			defaultValue: DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_HAS_TOOLTIP,
 			// description: '',
 			control: { type: 'boolean' }
 		}

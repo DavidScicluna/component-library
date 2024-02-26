@@ -2,23 +2,23 @@ import { createContext, forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_SPACING } from '@common/constants';
 
 import {
-	__DEFAULT_BUTTON_IS_COMPACT__,
-	__DEFAULT_BUTTON_IS_DISABLED__,
-	__DEFAULT_BUTTON_IS_FULLWIDTH__,
-	__DEFAULT_BUTTON_IS_ROUND__,
-	__DEFAULT_BUTTON_SIZE__,
-	__DEFAULT_BUTTON_VARIANT__
+	DEFAULT_BUTTON_IS_COMPACT,
+	DEFAULT_BUTTON_IS_DISABLED,
+	DEFAULT_BUTTON_IS_FULLWIDTH,
+	DEFAULT_BUTTON_IS_ROUND,
+	DEFAULT_BUTTON_SIZE,
+	DEFAULT_BUTTON_VARIANT
 } from '@components/Buttons/components/Button/common/constants';
 import type { StackProps } from '@components/Layout';
 import { Stack } from '@components/Layout';
-import { __DEFAULT_STACK_DIRECTION__ } from '@components/Layout/components/Stacks/Stack/common/constants';
+import { DEFAULT_STACK_DIRECTION } from '@components/Layout/components/Stacks/Stack/common/constants';
 
-import { __DEFAULT_BUTTON_GROUP_AS__, __DEFAULT_BUTTON_GROUP_IS_ATTACHED__ } from './common/constants';
+import { DEFAULT_BUTTON_GROUP_AS, DEFAULT_BUTTON_GROUP_IS_ATTACHED } from './common/constants';
 import { useButtonGroupResponsiveValues } from './common/hooks';
-import { __KEYS_BUTTON_GROUP_CLASS__ } from './common/keys';
+import { KEYS_BUTTON_GROUP_CLASS } from './common/keys';
 import type {
 	ButtonGroupContext as ButtonGroupContextType,
 	ButtonGroupDefaultElement,
@@ -28,7 +28,7 @@ import type {
 } from './common/types';
 
 export const ButtonGroupContext = createContext<ButtonGroupContextType<ButtonGroupDefaultElement>>({
-	isAttached: __DEFAULT_BUTTON_GROUP_IS_ATTACHED__
+	isAttached: DEFAULT_BUTTON_GROUP_IS_ATTACHED
 });
 
 const ButtonGroup = forwardRef(function ButtonGroup<Element extends ButtonGroupElement>(
@@ -37,19 +37,19 @@ const ButtonGroup = forwardRef(function ButtonGroup<Element extends ButtonGroupE
 ): JSX.Element {
 	const {
 		children,
-		as = __DEFAULT_BUTTON_GROUP_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_BUTTON_GROUP_AS,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		direction: directionProp = __DEFAULT_STACK_DIRECTION__,
-		isAttached: isAttachedProp = __DEFAULT_BUTTON_GROUP_IS_ATTACHED__,
-		isCompact: isCompactProp = __DEFAULT_BUTTON_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_BUTTON_IS_DISABLED__,
-		isFullWidth: isFullWidthProp = __DEFAULT_BUTTON_IS_FULLWIDTH__,
-		isRound: isRoundProp = __DEFAULT_BUTTON_IS_ROUND__,
-		spacing: spacingProp = __DEFAULT_SPACING__,
-		size: sizeProp = __DEFAULT_BUTTON_SIZE__,
-		variant: variantProp = __DEFAULT_BUTTON_VARIANT__,
+		direction: directionProp = DEFAULT_STACK_DIRECTION,
+		isAttached: isAttachedProp = DEFAULT_BUTTON_GROUP_IS_ATTACHED,
+		isCompact: isCompactProp = DEFAULT_BUTTON_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_BUTTON_IS_DISABLED,
+		isFullWidth: isFullWidthProp = DEFAULT_BUTTON_IS_FULLWIDTH,
+		isRound: isRoundProp = DEFAULT_BUTTON_IS_ROUND,
+		spacing: spacingProp = DEFAULT_SPACING,
+		size: sizeProp = DEFAULT_BUTTON_SIZE,
+		variant: variantProp = DEFAULT_BUTTON_VARIANT,
 		...rest
 	} = props;
 
@@ -85,7 +85,7 @@ const ButtonGroup = forwardRef(function ButtonGroup<Element extends ButtonGroupE
 				{...(rest as StackProps<Element>)}
 				as={as}
 				ref={ref}
-				className={classNames(__KEYS_BUTTON_GROUP_CLASS__, { [className]: !!className })}
+				className={classNames(KEYS_BUTTON_GROUP_CLASS, { [className]: !!className })}
 				w={isFullWidth ? '100%' : undefined}
 				direction={direction}
 				spacing={isAttached ? 0 : spacing}

@@ -2,17 +2,17 @@ import { useState } from 'react';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 import React from 'react';
 import {
-	__DEFAULT_SEARCH_INPUT_IS_COMPACT__,
-	__DEFAULT_SEARCH_INPUT_IS_DISABLED__,
-	__DEFAULT_SEARCH_INPUT_IS_ERROR__,
-	__DEFAULT_SEARCH_INPUT_IS_FOCUSED__,
-	__DEFAULT_SEARCH_INPUT_IS_OUTLINED__,
-	__DEFAULT_SEARCH_INPUT_IS_READONLY__,
-	__DEFAULT_SEARCH_INPUT_IS_REQUIRED__,
-	__DEFAULT_SEARCH_INPUT_IS_SUCCESS__,
-	__DEFAULT_SEARCH_INPUT_IS_WARNING__,
-	__DEFAULT_SEARCH_INPUT_SIZE__,
-	__DEFAULT_SEARCH_INPUT_VARIANT__
+	DEFAULT_SEARCH_INPUT_IS_COMPACT,
+	DEFAULT_SEARCH_INPUT_IS_DISABLED,
+	DEFAULT_SEARCH_INPUT_IS_ERROR,
+	DEFAULT_SEARCH_INPUT_IS_FOCUSED,
+	DEFAULT_SEARCH_INPUT_IS_OUTLINED,
+	DEFAULT_SEARCH_INPUT_IS_READONLY,
+	DEFAULT_SEARCH_INPUT_IS_REQUIRED,
+	DEFAULT_SEARCH_INPUT_IS_SUCCESS,
+	DEFAULT_SEARCH_INPUT_IS_WARNING,
+	DEFAULT_SEARCH_INPUT_SIZE,
+	DEFAULT_SEARCH_INPUT_VARIANT
 } from './common/constants';
 import type { SearchInputDefaultElement, SearchInputProps, SearchInputSize, SearchInputVariant } from './common/types';
 import type { SearchInputStory, SearchInputStoryMeta } from './common/types/story';
@@ -25,70 +25,70 @@ export default {
 		isCompact: {
 			name: 'Compact',
 			type: 'boolean',
-			defaultValue: __DEFAULT_SEARCH_INPUT_IS_COMPACT__,
+			defaultValue: DEFAULT_SEARCH_INPUT_IS_COMPACT,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
-			defaultValue: __DEFAULT_SEARCH_INPUT_IS_DISABLED__,
+			defaultValue: DEFAULT_SEARCH_INPUT_IS_DISABLED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isError: {
 			name: 'Error',
 			type: 'boolean',
-			defaultValue: __DEFAULT_SEARCH_INPUT_IS_ERROR__,
+			defaultValue: DEFAULT_SEARCH_INPUT_IS_ERROR,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isFocused: {
 			name: 'Focused',
 			type: 'boolean',
-			defaultValue: __DEFAULT_SEARCH_INPUT_IS_FOCUSED__,
+			defaultValue: DEFAULT_SEARCH_INPUT_IS_FOCUSED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isOutlined: {
 			name: 'Outlined',
 			type: 'boolean',
-			defaultValue: __DEFAULT_SEARCH_INPUT_IS_OUTLINED__,
+			defaultValue: DEFAULT_SEARCH_INPUT_IS_OUTLINED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isReadOnly: {
 			name: 'ReadOnly',
 			type: 'boolean',
-			defaultValue: __DEFAULT_SEARCH_INPUT_IS_READONLY__,
+			defaultValue: DEFAULT_SEARCH_INPUT_IS_READONLY,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isRequired: {
 			name: 'Required',
 			type: 'boolean',
-			defaultValue: __DEFAULT_SEARCH_INPUT_IS_REQUIRED__,
+			defaultValue: DEFAULT_SEARCH_INPUT_IS_REQUIRED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isSuccess: {
 			name: 'Success',
 			type: 'boolean',
-			defaultValue: __DEFAULT_SEARCH_INPUT_IS_SUCCESS__,
+			defaultValue: DEFAULT_SEARCH_INPUT_IS_SUCCESS,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isWarning: {
 			name: 'Warning',
 			type: 'boolean',
-			defaultValue: __DEFAULT_SEARCH_INPUT_IS_WARNING__,
+			defaultValue: DEFAULT_SEARCH_INPUT_IS_WARNING,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: __DEFAULT_SEARCH_INPUT_SIZE__,
+			defaultValue: DEFAULT_SEARCH_INPUT_SIZE,
 			// description: '',
 			options: ['xs', 'sm', 'md', 'lg', 'xl'] as Array<SearchInputSize>,
 			control: { type: 'radio' }
@@ -96,7 +96,7 @@ export default {
 		variant: {
 			name: 'Variant',
 			type: 'string',
-			defaultValue: __DEFAULT_SEARCH_INPUT_VARIANT__,
+			defaultValue: DEFAULT_SEARCH_INPUT_VARIANT,
 			// description: '',
 			options: ['outlined', 'underline', 'unstyled'] as Array<SearchInputVariant>,
 			control: { type: 'radio' }

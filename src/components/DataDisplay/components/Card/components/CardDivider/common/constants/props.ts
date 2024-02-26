@@ -1,3 +1,3 @@
 import type { CardDividerDefaultElement } from '../types';
 
-export const __DEFAULT_CARD_DIVIDER_AS__: CardDividerDefaultElement = 'hr';
+export const DEFAULT_CARD_DIVIDER_AS: CardDividerDefaultElement = 'hr';

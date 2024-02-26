@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { useGetClass } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
-import { __DEFAULT_SPACE_HEIGHT__, __DEFAULT_SPACE_WIDTH__ } from '../constants';
+import { DEFAULT_SPACE_HEIGHT, DEFAULT_SPACE_WIDTH } from '../constants';
 import type { SpaceProps } from '../types';
 
 import useSpaceResponsiveValues from './useSpaceResponsiveValues';
@@ -14,7 +14,7 @@ type UseSpaceClassesReturn = ClassName;
 const useSpaceClasses = <Element extends PolymorphicElementType>(
 	props: UseSpaceClassesProps<Element>
 ): UseSpaceClassesReturn => {
-	const { width: widthProp = __DEFAULT_SPACE_WIDTH__, height: heightProp = __DEFAULT_SPACE_HEIGHT__ } = props;
+	const { width: widthProp = DEFAULT_SPACE_WIDTH, height: heightProp = DEFAULT_SPACE_HEIGHT } = props;
 
 	const { width, height } = useSpaceResponsiveValues({ width: widthProp, height: heightProp });
 

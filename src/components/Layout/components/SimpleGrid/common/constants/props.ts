@@ -1,3 +1,3 @@
 import type { SimpleGridColumn } from '../types';
 
-export const __DEFAULT_SIMPLE_GRID_COLUMNS__: SimpleGridColumn = 1;
+export const DEFAULT_SIMPLE_GRID_COLUMNS: SimpleGridColumn = 1;

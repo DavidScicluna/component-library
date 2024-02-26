@@ -3,11 +3,7 @@ import classNames from 'classnames';
 import { useGetClass } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
-import {
-	__DEFAULT_GRID_ITEM_ALIGN_SELF__,
-	__DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
-	__DEFAULT_GRID_ITEM_Z_INDEX__
-} from '../constants';
+import { DEFAULT_GRID_ITEM_ALIGN_SELF, DEFAULT_GRID_ITEM_JUSTIFY_SELF, DEFAULT_GRID_ITEM_Z_INDEX } from '../constants';
 import type { GridItemProps } from '../types';
 
 import useGridItemResponsiveValues from './useGridItemResponsiveValues';
@@ -32,15 +28,15 @@ const useGridItemClasses = <Element extends PolymorphicElementType>(
 	props: UseGridItemClassesProps<Element>
 ): UseGridItemClassesReturn => {
 	const {
-		alignSelf: alignSelfProp = __DEFAULT_GRID_ITEM_ALIGN_SELF__,
+		alignSelf: alignSelfProp = DEFAULT_GRID_ITEM_ALIGN_SELF,
 		columnSpan: columnSpanProp,
 		columnStart: columnStartProp,
 		columnEnd: columnEndProp,
-		justifySelf: justifySelfProp = __DEFAULT_GRID_ITEM_JUSTIFY_SELF__,
+		justifySelf: justifySelfProp = DEFAULT_GRID_ITEM_JUSTIFY_SELF,
 		rowSpan: rowSpanProp,
 		rowStart: rowStartProp,
 		rowEnd: rowEndProp,
-		zIndex: zIndexProp = __DEFAULT_GRID_ITEM_Z_INDEX__
+		zIndex: zIndexProp = DEFAULT_GRID_ITEM_Z_INDEX
 	} = props;
 
 	const { alignSelf, columnSpan, columnStart, columnEnd, justifySelf, rowSpan, rowStart, rowEnd, zIndex } =

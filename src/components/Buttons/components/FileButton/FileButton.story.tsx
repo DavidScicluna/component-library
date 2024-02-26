@@ -4,7 +4,7 @@ import { useStorybookContext } from '../../../Provider/components/StorybookProvi
 import React from 'react';
 import { Button } from '../Button';
 
-import { __DEFAULT_FILE_BUTTON_ACCEPT__, __DEFAULT_FILE_BUTTON_IS_MULTIPLE__ } from './common/constants';
+import { DEFAULT_FILE_BUTTON_ACCEPT, DEFAULT_FILE_BUTTON_IS_MULTIPLE } from './common/constants';
 import type { FileButtonDefaultElement, FileButtonProps } from './common/types';
 import type { FileButtonStory, FileButtonStoryMeta } from './common/types/story';
 import { FileButton as FileButtonComponent } from '.';
@@ -16,14 +16,14 @@ export default {
 		accept: {
 			name: 'Accept',
 			type: 'string',
-			defaultValue: __DEFAULT_FILE_BUTTON_ACCEPT__,
+			defaultValue: DEFAULT_FILE_BUTTON_ACCEPT,
 			// description: '',
 			control: { type: 'text' }
 		},
 		isMultiple: {
 			name: 'Multiple',
 			type: 'boolean',
-			defaultValue: __DEFAULT_FILE_BUTTON_IS_MULTIPLE__,
+			defaultValue: DEFAULT_FILE_BUTTON_IS_MULTIPLE,
 			// description: '',
 			control: { type: 'boolean' }
 		}

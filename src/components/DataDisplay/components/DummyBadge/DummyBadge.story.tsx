@@ -3,14 +3,14 @@ import React from 'react';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
-	__DEFAULT_DUMMY_BADGE_IS_ANIMATED__,
-	__DEFAULT_DUMMY_BADGE_IS_COMPACT__,
-	__DEFAULT_DUMMY_BADGE_IS_FULLWIDTH__,
-	__DEFAULT_DUMMY_BADGE_IS_OUTLINED__,
-	__DEFAULT_DUMMY_BADGE_IS_ROUND__,
-	__DEFAULT_DUMMY_BADGE_IS_UPPERCASE__,
-	__DEFAULT_DUMMY_BADGE_SIZE__,
-	__DEFAULT_DUMMY_BADGE_VARIANT__
+	DEFAULT_DUMMY_BADGE_IS_ANIMATED,
+	DEFAULT_DUMMY_BADGE_IS_COMPACT,
+	DEFAULT_DUMMY_BADGE_IS_FULLWIDTH,
+	DEFAULT_DUMMY_BADGE_IS_OUTLINED,
+	DEFAULT_DUMMY_BADGE_IS_ROUND,
+	DEFAULT_DUMMY_BADGE_IS_UPPERCASE,
+	DEFAULT_DUMMY_BADGE_SIZE,
+	DEFAULT_DUMMY_BADGE_VARIANT
 } from './common/constants';
 import type { DummyBadgeDefaultElement, DummyBadgeProps, DummyBadgeSize, DummyBadgeVariant } from './common/types';
 import type { DummyBadgeStory, DummyBadgeStoryMeta } from './common/types/story';
@@ -24,49 +24,49 @@ export default {
 		isAnimated: {
 			name: 'Animated',
 			type: 'boolean',
-			defaultValue: __DEFAULT_DUMMY_BADGE_IS_ANIMATED__,
+			defaultValue: DEFAULT_DUMMY_BADGE_IS_ANIMATED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isCompact: {
 			name: 'Compact',
 			type: 'boolean',
-			defaultValue: __DEFAULT_DUMMY_BADGE_IS_COMPACT__,
+			defaultValue: DEFAULT_DUMMY_BADGE_IS_COMPACT,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isFullWidth: {
 			name: 'FullWidth',
 			type: 'boolean',
-			defaultValue: __DEFAULT_DUMMY_BADGE_IS_FULLWIDTH__,
+			defaultValue: DEFAULT_DUMMY_BADGE_IS_FULLWIDTH,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isOutlined: {
 			name: 'Outlined',
 			type: 'boolean',
-			defaultValue: __DEFAULT_DUMMY_BADGE_IS_OUTLINED__,
+			defaultValue: DEFAULT_DUMMY_BADGE_IS_OUTLINED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isRound: {
 			name: 'Round',
 			type: 'boolean',
-			defaultValue: __DEFAULT_DUMMY_BADGE_IS_ROUND__,
+			defaultValue: DEFAULT_DUMMY_BADGE_IS_ROUND,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isUppercase: {
 			name: 'Uppercase',
 			type: 'boolean',
-			defaultValue: __DEFAULT_DUMMY_BADGE_IS_UPPERCASE__,
+			defaultValue: DEFAULT_DUMMY_BADGE_IS_UPPERCASE,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: __DEFAULT_DUMMY_BADGE_SIZE__,
+			defaultValue: DEFAULT_DUMMY_BADGE_SIZE,
 			// description: '',
 			options: [
 				'xs',
@@ -88,7 +88,7 @@ export default {
 		variant: {
 			name: 'Variant',
 			type: 'string',
-			defaultValue: __DEFAULT_DUMMY_BADGE_VARIANT__,
+			defaultValue: DEFAULT_DUMMY_BADGE_VARIANT,
 			// description: '',
 			options: ['contained', 'light', 'dark', 'outlined', 'monochrome', 'text'] as Array<DummyBadgeVariant>,
 			control: { type: 'radio' }

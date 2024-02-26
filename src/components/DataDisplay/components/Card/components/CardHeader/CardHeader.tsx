@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { compact } from 'lodash-es';
 import { useDimensionsRef } from 'rooks';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
@@ -14,7 +14,7 @@ import { Grid, GridItem, HStack, VStack } from '@components/Layout';
 
 import { useCardContext } from '../../common/hooks';
 
-import { __KEYS_CARD_HEADER_CLASS__ } from './common/keys';
+import { KEYS_CARD_HEADER_CLASS } from './common/keys';
 import type { CardHeaderProps, CardHeaderRef } from './common/types';
 
 const CardHeader = forwardRef(function CardHeader<Element extends PolymorphicElementType>(
@@ -27,20 +27,20 @@ const CardHeader = forwardRef(function CardHeader<Element extends PolymorphicEle
 		isCollapsable,
 		isHovering,
 		isOpen,
-		spacing: __DEFAULT_CARD_HEADER_SPACING__
+		spacing: DEFAULT_CARD_HEADER_SPACING
 	} = useCardContext();
 
 	const [childrenRef, childrenDimensions] = useDimensionsRef();
 	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
 
 	const {
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		renderLeft,
 		renderRight,
 		renderTitle,
 		renderSubtitle,
 		renderActions,
-		spacing = __DEFAULT_CARD_HEADER_SPACING__,
+		spacing = DEFAULT_CARD_HEADER_SPACING,
 		...rest
 	} = props;
 
@@ -55,7 +55,7 @@ const CardHeader = forwardRef(function CardHeader<Element extends PolymorphicEle
 		<Grid
 			{...(rest as GridProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_CARD_HEADER_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_CARD_HEADER_CLASS, { [className]: !!className })}
 			w='100%'
 			h='100%'
 			templateColumns={compact([renderLeft ? 'auto' : null, '1fr', renderRight ? 'auto' : null]).join(' ')}

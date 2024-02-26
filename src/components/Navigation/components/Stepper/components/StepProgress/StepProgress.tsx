@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useTheme } from '@common/hooks';
 
 import type { ProgressProps } from '@components/Feedback';
@@ -10,7 +10,7 @@ import { Progress } from '@components/Feedback';
 
 import { useStepperContext } from '../../common/hooks';
 
-import { __KEYS_STEP_PROGRESS_CLASS__ } from './common/keys';
+import { KEYS_STEP_PROGRESS_CLASS } from './common/keys';
 import type { StepProgressElement, StepProgressProps, StepProgressRef } from './common/types';
 
 const StepProgress = forwardRef(function StepProgress<Element extends StepProgressElement>(
@@ -20,8 +20,8 @@ const StepProgress = forwardRef(function StepProgress<Element extends StepProgre
 	const theme = useTheme();
 
 	const {
-		color: __DEFAULT_STEP_PROGRESS_COLOR__,
-		colorMode: __DEFAULT_STEP_PROGRESS_COLORMODE__,
+		color: DEFAULT_STEP_PROGRESS_COLOR,
+		colorMode: DEFAULT_STEP_PROGRESS_COLORMODE,
 		index,
 		total,
 		isConsecutively,
@@ -29,9 +29,9 @@ const StepProgress = forwardRef(function StepProgress<Element extends StepProgre
 	} = useStepperContext();
 
 	const {
-		className = __DEFAULT_CLASSNAME__,
-		color = __DEFAULT_STEP_PROGRESS_COLOR__,
-		colorMode = __DEFAULT_STEP_PROGRESS_COLORMODE__,
+		className = DEFAULT_CLASSNAME,
+		color = DEFAULT_STEP_PROGRESS_COLOR,
+		colorMode = DEFAULT_STEP_PROGRESS_COLORMODE,
 		...rest
 	} = props;
 
@@ -39,7 +39,7 @@ const StepProgress = forwardRef(function StepProgress<Element extends StepProgre
 		<Progress
 			{...(rest as ProgressProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_STEP_PROGRESS_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_STEP_PROGRESS_CLASS, { [className]: !!className })}
 			w={theme.spacing['0.5']}
 			h='100%'
 			color={color}

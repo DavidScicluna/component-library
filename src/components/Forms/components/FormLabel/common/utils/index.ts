@@ -1,5 +1,5 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
 export const getFormLabelID = (id: string): string => {
-	return `${__DEFAULT_CLASS_PREFIX__}-${id}-form-label`;
+	return `${DEFAULT_CLASS_PREFIX}-${id}-form-label`;
 };

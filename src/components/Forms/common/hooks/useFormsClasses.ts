@@ -3,27 +3,22 @@ import { useMemo } from 'react';
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import {
-	__DEFAULT_BORDER_STYLE__,
-	__DEFAULT_BORDER_WIDTH__,
-	__DEFAULT_COLOR__,
-	__DEFAULT_OUTLINE_WIDTH__
-} from '@common/constants';
+import { DEFAULT_BORDER_STYLE, DEFAULT_BORDER_WIDTH, DEFAULT_COLOR, DEFAULT_OUTLINE_WIDTH } from '@common/constants';
 import { useAppTheme, useConst } from '@common/hooks';
 import type { ClassName } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import {
-	__DEFAULT_FORMS_IS_COMPACT__,
-	__DEFAULT_FORMS_IS_DISABLED__,
-	__DEFAULT_FORMS_IS_ERROR__,
-	__DEFAULT_FORMS_IS_OUTLINED__,
-	__DEFAULT_FORMS_IS_READONLY__,
-	__DEFAULT_FORMS_IS_SUCCESS__,
-	__DEFAULT_FORMS_IS_WARNING__,
-	__DEFAULT_FORMS_LINE_HEIGHT_SIZE__,
-	__DEFAULT_FORMS_SIZE__,
-	__DEFAULT_FORMS_VARIANT__
+	DEFAULT_FORMS_IS_COMPACT,
+	DEFAULT_FORMS_IS_DISABLED,
+	DEFAULT_FORMS_IS_ERROR,
+	DEFAULT_FORMS_IS_OUTLINED,
+	DEFAULT_FORMS_IS_READONLY,
+	DEFAULT_FORMS_IS_SUCCESS,
+	DEFAULT_FORMS_IS_WARNING,
+	DEFAULT_FORMS_LINE_HEIGHT_SIZE,
+	DEFAULT_FORMS_SIZE,
+	DEFAULT_FORMS_VARIANT
 } from '../constants';
 import type { FormsCommonProps } from '../types';
 
@@ -47,20 +42,20 @@ type UseFormsClassesProps = Pick<
 type UseFormsClassesReturn = Record<'container' | 'element', ClassName>;
 
 const useFormsClasses = (props: UseFormsClassesProps): UseFormsClassesReturn => {
-	const { colorMode: __DEFAULT_FORMS_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_FORMS_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_FORMS_COLORMODE__,
-		isCompact: isCompactProp = __DEFAULT_FORMS_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_FORMS_IS_DISABLED__,
-		isError: isErrorProp = __DEFAULT_FORMS_IS_ERROR__,
-		isOutlined: isOutlinedProp = __DEFAULT_FORMS_IS_OUTLINED__,
-		isReadOnly: isReadOnlyProp = __DEFAULT_FORMS_IS_READONLY__,
-		isSuccess: isSuccessProp = __DEFAULT_FORMS_IS_SUCCESS__,
-		isWarning: isWarningProp = __DEFAULT_FORMS_IS_WARNING__,
-		size: sizeProp = __DEFAULT_FORMS_SIZE__,
-		variant: variantProp = __DEFAULT_FORMS_VARIANT__
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_FORMS_COLORMODE,
+		isCompact: isCompactProp = DEFAULT_FORMS_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_FORMS_IS_DISABLED,
+		isError: isErrorProp = DEFAULT_FORMS_IS_ERROR,
+		isOutlined: isOutlinedProp = DEFAULT_FORMS_IS_OUTLINED,
+		isReadOnly: isReadOnlyProp = DEFAULT_FORMS_IS_READONLY,
+		isSuccess: isSuccessProp = DEFAULT_FORMS_IS_SUCCESS,
+		isWarning: isWarningProp = DEFAULT_FORMS_IS_WARNING,
+		size: sizeProp = DEFAULT_FORMS_SIZE,
+		variant: variantProp = DEFAULT_FORMS_VARIANT
 	} = props;
 
 	const { isCompact, isDisabled, isError, isOutlined, isReadOnly, isSuccess, isWarning, size, variant } =
@@ -91,13 +86,13 @@ const useFormsClasses = (props: UseFormsClassesProps): UseFormsClassesReturn => 
 				[classes.typography.font_size[config.fontSize]]: variant !== 'unstyled',
 				[classes.typography.font_weight.normal]: variant !== 'unstyled',
 				[classes.typography.letter_spacing.normal]: variant !== 'unstyled',
-				[classes.typography.line_height[__DEFAULT_FORMS_LINE_HEIGHT_SIZE__]]: variant !== 'unstyled',
+				[classes.typography.line_height[DEFAULT_FORMS_LINE_HEIGHT_SIZE]]: variant !== 'unstyled',
 				[classes.typography.transform.normal]: variant !== 'unstyled',
 				[classes.typography.text_overflow.ellipsis]: variant !== 'unstyled',
 				[classes.typography.whiteSpace.nowrap]: variant !== 'unstyled',
-				[classes.borders.border_width[__DEFAULT_BORDER_WIDTH__]]: variant === 'outlined',
-				[classes.borders.border_b_width[__DEFAULT_BORDER_WIDTH__]]: variant === 'underline',
-				[classes.borders.border_style[__DEFAULT_BORDER_STYLE__]]: variant !== 'unstyled',
+				[classes.borders.border_width[DEFAULT_BORDER_WIDTH]]: variant === 'outlined',
+				[classes.borders.border_b_width[DEFAULT_BORDER_WIDTH]]: variant === 'underline',
+				[classes.borders.border_style[DEFAULT_BORDER_STYLE]]: variant !== 'unstyled',
 				[classes.borders.border_radius[config.radius]]: variant === 'outlined',
 				[classes.borders.border_radius_t[config.radius]]: variant === 'underline'
 			}
@@ -109,7 +104,7 @@ const useFormsClasses = (props: UseFormsClassesProps): UseFormsClassesReturn => 
 
 		return classNames(
 			classes.layout.display.outline,
-			classes.borders.outline_width[__DEFAULT_OUTLINE_WIDTH__],
+			classes.borders.outline_width[DEFAULT_OUTLINE_WIDTH],
 			classes.borders.outline_style.solid,
 			classes.borders.outline_color.gray[outlineHue],
 			classes.borders.outline_color.focus_visible[

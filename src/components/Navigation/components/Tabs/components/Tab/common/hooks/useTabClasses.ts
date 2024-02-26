@@ -3,19 +3,19 @@ import { useMemo } from 'react';
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_COLOR__, __DEFAULT_OUTLINE_WIDTH__ } from '@common/constants';
+import { DEFAULT_COLOR, DEFAULT_OUTLINE_WIDTH } from '@common/constants';
 import { useAppTheme, useGetColor } from '@common/hooks';
 import type { ClassName } from '@common/types';
 import { getColorHue } from '@common/utils';
 
-import { __DEFAULT_TABS_TAB_LINE_HEIGHT_SIZE__ } from '@components/Navigation/components/Tabs/common/constants';
+import { DEFAULT_TABS_TAB_LINE_HEIGHT_SIZE } from '@components/Navigation/components/Tabs/common/constants';
 import { useTabsContext } from '@components/Navigation/components/Tabs/common/hooks';
 
 import {
-	__DEFAULT_TAB_IS_ACTIVE__,
-	__DEFAULT_TAB_IS_COMPACT__,
-	__DEFAULT_TAB_IS_DISABLED__,
-	__DEFAULT_TAB_IS_UPPERCASE__
+	DEFAULT_TAB_IS_ACTIVE,
+	DEFAULT_TAB_IS_COMPACT,
+	DEFAULT_TAB_IS_DISABLED,
+	DEFAULT_TAB_IS_UPPERCASE
 } from '../constants';
 import type { TabElement, TabProps } from '../types';
 
@@ -27,16 +27,16 @@ type UseTabClassesProps<Element extends TabElement> = Pick<TabProps<Element>, Pi
 type UseTabClassesReturn = Record<'tab' | 'topDivider' | 'bottomDivider' | 'label', ClassName>;
 
 const useTabClasses = <Element extends TabElement>(props: UseTabClassesProps<Element>): UseTabClassesReturn => {
-	const { colorMode: __DEFAULT_TAB_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_TAB_COLORMODE } = useAppTheme();
 	const { orientation } = useTabsContext();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_TAB_COLORMODE__,
-		isActive: isActiveProp = __DEFAULT_TAB_IS_ACTIVE__,
-		isCompact: isCompactProp = __DEFAULT_TAB_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_TAB_IS_DISABLED__,
-		isUppercase: isUppercaseProp = __DEFAULT_TAB_IS_UPPERCASE__
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_TAB_COLORMODE,
+		isActive: isActiveProp = DEFAULT_TAB_IS_ACTIVE,
+		isCompact: isCompactProp = DEFAULT_TAB_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_TAB_IS_DISABLED,
+		isUppercase: isUppercaseProp = DEFAULT_TAB_IS_UPPERCASE
 	} = props;
 
 	const { isActive, isCompact, isDisabled, isUppercase } = useTabResponsiveValues<Element>({
@@ -60,7 +60,7 @@ const useTabClasses = <Element extends TabElement>(props: UseTabClassesProps<Ele
 			classes.effects.opacity[isDisabled ? 50 : 100],
 			classes.layout.display.focus_visible.outline,
 			classes.borders.outline_style.focus_visible.dashed,
-			classes.borders.outline_width.focus_visible[__DEFAULT_OUTLINE_WIDTH__],
+			classes.borders.outline_width.focus_visible[DEFAULT_OUTLINE_WIDTH],
 			classes.borders.outline_offset.focus_visible[0],
 			classes.borders.outline_color.focus_visible[color][outlineHue]
 		);
@@ -97,7 +97,7 @@ const useTabClasses = <Element extends TabElement>(props: UseTabClassesProps<Ele
 			classes.typography.font_size[config.fontSize],
 			classes.typography.font_weight.semibold,
 			classes.typography.letter_spacing.normal,
-			classes.typography.line_height[__DEFAULT_TABS_TAB_LINE_HEIGHT_SIZE__],
+			classes.typography.line_height[DEFAULT_TABS_TAB_LINE_HEIGHT_SIZE],
 			classes.typography.transform[isUppercase ? 'uppercase' : 'normal'],
 			classes.typography.text_overflow.ellipsis,
 			classes.typography.whiteSpace.nowrap

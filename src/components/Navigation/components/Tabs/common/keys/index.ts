@@ -1,3 +1,3 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
-export const __KEYS_TABS_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-tabs`;
+export const KEYS_TABS_CLASS = `${DEFAULT_CLASS_PREFIX}-tabs`;

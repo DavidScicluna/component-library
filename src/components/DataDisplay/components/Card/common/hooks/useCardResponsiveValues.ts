@@ -1,18 +1,18 @@
-import { __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_SPACING } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { ThemeRadius, ThemeSpacing } from '@common/types';
 
 import {
-	__DEFAULT_CARD_IS_ACTIVE__,
-	__DEFAULT_CARD_IS_CLICKABLE__,
-	__DEFAULT_CARD_IS_COLLAPSABLE__,
-	__DEFAULT_CARD_IS_DISABLED__,
-	__DEFAULT_CARD_IS_DIVISIBLE__,
-	__DEFAULT_CARD_IS_FIXED__,
-	__DEFAULT_CARD_IS_OPEN__,
-	__DEFAULT_CARD_IS_OUTLINED__,
-	__DEFAULT_CARD_RADIUS__,
-	__DEFAULT_CARD_VARIANT__
+	DEFAULT_CARD_IS_ACTIVE,
+	DEFAULT_CARD_IS_CLICKABLE,
+	DEFAULT_CARD_IS_COLLAPSABLE,
+	DEFAULT_CARD_IS_DISABLED,
+	DEFAULT_CARD_IS_DIVISIBLE,
+	DEFAULT_CARD_IS_FIXED,
+	DEFAULT_CARD_IS_OPEN,
+	DEFAULT_CARD_IS_OUTLINED,
+	DEFAULT_CARD_RADIUS,
+	DEFAULT_CARD_VARIANT
 } from '../constants';
 import type { CardElement, CardProps, CardVariant } from '../types';
 
@@ -32,17 +32,17 @@ type UseCardResponsiveValuesProps<Element extends CardElement> = Partial<Pick<Ca
 
 const useCardResponsiveValues = <Element extends CardElement>(props: UseCardResponsiveValuesProps<Element>) => {
 	const {
-		isActive: isActiveProp = __DEFAULT_CARD_IS_ACTIVE__,
-		isClickable: isClickableProp = __DEFAULT_CARD_IS_CLICKABLE__,
-		isCollapsable: isCollapsableProp = __DEFAULT_CARD_IS_COLLAPSABLE__,
-		isDisabled: isDisabledProp = __DEFAULT_CARD_IS_DISABLED__,
-		isDivisible: isDivisibleProp = __DEFAULT_CARD_IS_DIVISIBLE__,
-		isFixed: isFixedProp = __DEFAULT_CARD_IS_FIXED__,
-		isOpen: isOpenProp = __DEFAULT_CARD_IS_OPEN__,
-		isOutlined: isOutlinedProp = __DEFAULT_CARD_IS_OUTLINED__,
-		radius: radiusProp = __DEFAULT_CARD_RADIUS__,
-		spacing: spacingProp = __DEFAULT_SPACING__,
-		variant: variantProp = __DEFAULT_CARD_VARIANT__
+		isActive: isActiveProp = DEFAULT_CARD_IS_ACTIVE,
+		isClickable: isClickableProp = DEFAULT_CARD_IS_CLICKABLE,
+		isCollapsable: isCollapsableProp = DEFAULT_CARD_IS_COLLAPSABLE,
+		isDisabled: isDisabledProp = DEFAULT_CARD_IS_DISABLED,
+		isDivisible: isDivisibleProp = DEFAULT_CARD_IS_DIVISIBLE,
+		isFixed: isFixedProp = DEFAULT_CARD_IS_FIXED,
+		isOpen: isOpenProp = DEFAULT_CARD_IS_OPEN,
+		isOutlined: isOutlinedProp = DEFAULT_CARD_IS_OUTLINED,
+		radius: radiusProp = DEFAULT_CARD_RADIUS,
+		spacing: spacingProp = DEFAULT_SPACING,
+		variant: variantProp = DEFAULT_CARD_VARIANT
 	} = props;
 
 	const isActive = useGetResponsiveValue<boolean>(isActiveProp);

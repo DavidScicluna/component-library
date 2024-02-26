@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
-import { __DEFAULT_RATING_IS_DISABLED__, __DEFAULT_RATING_IS_READONLY__ } from '../constants';
+import { DEFAULT_RATING_IS_DISABLED, DEFAULT_RATING_IS_READONLY } from '../constants';
 import type { RatingProps } from '../types';
 
 import { useRatingResponsiveValues } from '.';
@@ -18,8 +18,8 @@ const useRatingClasses = <Element extends PolymorphicElementType>(
 	props: UseRatingClassesProps<Element>
 ): UseRatingClassesReturn => {
 	const {
-		isDisabled: isDisabledProp = __DEFAULT_RATING_IS_DISABLED__,
-		isReadOnly: isReadOnlyProp = __DEFAULT_RATING_IS_READONLY__
+		isDisabled: isDisabledProp = DEFAULT_RATING_IS_DISABLED,
+		isReadOnly: isReadOnlyProp = DEFAULT_RATING_IS_READONLY
 	} = props;
 
 	const { isDisabled, isReadOnly } = useRatingResponsiveValues<Element>({

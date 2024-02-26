@@ -2,7 +2,7 @@ import { forwardRef, useEffect } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_RADIUS__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_RADIUS } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
 
@@ -12,19 +12,19 @@ import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
-	__DEFAULT_IMAGE_BORING__,
-	__DEFAULT_IMAGE_FILTERS__,
-	__DEFAULT_IMAGE_FULL__,
-	__DEFAULT_IMAGE_OPTIONS__,
-	__DEFAULT_IMAGE_THUMBNAIL__
+	DEFAULT_IMAGE_BORING,
+	DEFAULT_IMAGE_FILTERS,
+	DEFAULT_IMAGE_FULL,
+	DEFAULT_IMAGE_OPTIONS,
+	DEFAULT_IMAGE_THUMBNAIL
 } from './common/constants';
 import { useImageClasses, useImageResponsiveValues } from './common/hooks';
 import {
-	__KEYS_IMAGE_BORING_CLASS__,
-	__KEYS_IMAGE_CLASS__,
-	__KEYS_IMAGE_FALLBACK_CLASS__,
-	__KEYS_IMAGE_FULL_CLASS__,
-	__KEYS_IMAGE_THUMBNAIL_CLASS__
+	KEYS_IMAGE_BORING_CLASS,
+	KEYS_IMAGE_CLASS,
+	KEYS_IMAGE_FALLBACK_CLASS,
+	KEYS_IMAGE_FULL_CLASS,
+	KEYS_IMAGE_THUMBNAIL_CLASS
 } from './common/keys';
 import type { ImageProps, ImageRef, ImageSyntheticEvent } from './common/types';
 
@@ -33,15 +33,15 @@ const Image = forwardRef(function Image<Element extends PolymorphicElementType>(
 	ref: ImageRef<Element>
 ): JSX.Element {
 	const {
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		boring: boringProp = __DEFAULT_IMAGE_BORING__,
-		thumbnail: thumbnailProp = __DEFAULT_IMAGE_THUMBNAIL__,
-		full: fullProp = __DEFAULT_IMAGE_FULL__,
-		filters: filtersProp = __DEFAULT_IMAGE_FILTERS__,
-		options: optionsProp = __DEFAULT_IMAGE_OPTIONS__,
-		radius: radiusProp = __DEFAULT_RADIUS__,
+		boring: boringProp = DEFAULT_IMAGE_BORING,
+		thumbnail: thumbnailProp = DEFAULT_IMAGE_THUMBNAIL,
+		full: fullProp = DEFAULT_IMAGE_FULL,
+		filters: filtersProp = DEFAULT_IMAGE_FILTERS,
+		options: optionsProp = DEFAULT_IMAGE_OPTIONS,
+		radius: radiusProp = DEFAULT_RADIUS,
 		...rest
 	} = props;
 
@@ -132,7 +132,7 @@ const Image = forwardRef(function Image<Element extends PolymorphicElementType>(
 		<Grid
 			{...(rest as GridProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_IMAGE_CLASS__, classes.container, { [className]: !!className })}
+			className={classNames(KEYS_IMAGE_CLASS, classes.container, { [className]: !!className })}
 			templateColumns={1}
 			templateRows={1}
 			alignItems='stretch'
@@ -148,7 +148,7 @@ const Image = forwardRef(function Image<Element extends PolymorphicElementType>(
 					transition='fade'
 					in={!isBoringVisible && !isThumbnailVisible && !isFullVisible}
 				>
-					<Box w='100%' h='100%' className={classNames(__KEYS_IMAGE_FALLBACK_CLASS__, classes.fallback)} />
+					<Box w='100%' h='100%' className={classNames(KEYS_IMAGE_FALLBACK_CLASS, classes.fallback)} />
 				</Transition>
 			</GridItem>
 
@@ -157,7 +157,7 @@ const Image = forwardRef(function Image<Element extends PolymorphicElementType>(
 					<Transition w='100%' h='100%' transition='fade' in={isBoringVisible}>
 						<Box
 							as='img'
-							className={classNames(__KEYS_IMAGE_BORING_CLASS__, classes.image)}
+							className={classNames(KEYS_IMAGE_BORING_CLASS, classes.image)}
 							w='100%'
 							h='100%'
 							alt={boring.alt}
@@ -174,7 +174,7 @@ const Image = forwardRef(function Image<Element extends PolymorphicElementType>(
 					<Transition w='100%' h='100%' transition='fade' in={isThumbnailVisible}>
 						<Box
 							as='img'
-							className={classNames(__KEYS_IMAGE_THUMBNAIL_CLASS__, classes.image)}
+							className={classNames(KEYS_IMAGE_THUMBNAIL_CLASS, classes.image)}
 							w='100%'
 							h='100%'
 							alt={thumbnail.alt}
@@ -191,7 +191,7 @@ const Image = forwardRef(function Image<Element extends PolymorphicElementType>(
 					<Transition w='100%' h='100%' transition='fade' in={isFullVisible}>
 						<Box
 							as='img'
-							className={classNames(__KEYS_IMAGE_FULL_CLASS__, classes.image)}
+							className={classNames(KEYS_IMAGE_FULL_CLASS, classes.image)}
 							w='100%'
 							h='100%'
 							alt={full.alt}

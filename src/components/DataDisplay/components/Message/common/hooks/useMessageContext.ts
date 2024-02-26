@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_SPACING } from '@common/constants';
 
 import { MessageContext } from '../../Message';
 import type { MessageContext as MessageContextType, MessageElement } from '../types';
@@ -11,7 +11,7 @@ const useMessageContext = <Element extends MessageElement>() => {
 	const {
 		color,
 		colorMode,
-		spacing: spacingProp = __DEFAULT_SPACING__
+		spacing: spacingProp = DEFAULT_SPACING
 	} = useContext<MessageContextType<Element>>(MessageContext);
 
 	const { spacing } = useMessageResponsiveValues<Element>({ spacing: spacingProp });

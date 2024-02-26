@@ -2,7 +2,7 @@ import { forwardRef, useMemo } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useConst, useGetColor } from '@common/hooks';
 import type { IconKey, ThemeColor } from '@common/types';
 import { getFontSizeHeight } from '@common/utils';
@@ -10,31 +10,27 @@ import { getFontSizeHeight } from '@common/utils';
 import type { IconProps } from '@components/DataDisplay';
 import { Icon } from '@components/DataDisplay';
 
-import { __DEFAULT_ALERT_LINE_HEIGHT_SIZE__ } from '../../common/constants';
+import { DEFAULT_ALERT_LINE_HEIGHT_SIZE } from '../../common/constants';
 import { useAlertContext } from '../../common/hooks';
 import { getStatusColor, getStatusIcon } from '../../common/utils';
 
-import { __DEFAULT_ALERT_ICON_AS__, __DEFAULT_ALERT_ICON_VARIANT__ } from './common/constants';
-import { __KEYS_ALERT_ICON_CLASS__ } from './common/keys';
+import { DEFAULT_ALERT_ICON_AS, DEFAULT_ALERT_ICON_VARIANT } from './common/constants';
+import { KEYS_ALERT_ICON_CLASS } from './common/keys';
 import type { AlertIconElement, AlertIconProps, AlertIconRef } from './common/types';
 
 const AlertIcon = forwardRef(function AlertIcon<Element extends AlertIconElement>(
 	props: AlertIconProps<Element>,
 	ref: AlertIconRef<Element>
 ): JSX.Element {
-	const {
-		color: __DEFAULT_ALERT_ICON_COLOR__,
-		colorMode: __DEFAULT_ALERT_ICON_COLORMODE__,
-		status
-	} = useAlertContext();
+	const { color: DEFAULT_ALERT_ICON_COLOR, colorMode: DEFAULT_ALERT_ICON_COLORMODE, status } = useAlertContext();
 
 	const {
-		as = __DEFAULT_ALERT_ICON_AS__,
-		className = __DEFAULT_CLASSNAME__,
-		color: c = __DEFAULT_ALERT_ICON_COLOR__,
-		colorMode = __DEFAULT_ALERT_ICON_COLORMODE__,
+		as = DEFAULT_ALERT_ICON_AS,
+		className = DEFAULT_CLASSNAME,
+		color: c = DEFAULT_ALERT_ICON_COLOR,
+		colorMode = DEFAULT_ALERT_ICON_COLORMODE,
 		icon,
-		variant = __DEFAULT_ALERT_ICON_VARIANT__,
+		variant = DEFAULT_ALERT_ICON_VARIANT,
 		...rest
 	} = props;
 
@@ -55,7 +51,7 @@ const AlertIcon = forwardRef(function AlertIcon<Element extends AlertIconElement
 						: 'light'
 	});
 
-	const size = useConst(getFontSizeHeight('xl', __DEFAULT_ALERT_LINE_HEIGHT_SIZE__));
+	const size = useConst(getFontSizeHeight('xl', DEFAULT_ALERT_LINE_HEIGHT_SIZE));
 
 	return (
 		<Icon
@@ -63,7 +59,7 @@ const AlertIcon = forwardRef(function AlertIcon<Element extends AlertIconElement
 			as={as}
 			ref={ref}
 			// TODO: Maybe create a function that generates class names
-			className={classNames(__KEYS_ALERT_ICON_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_ALERT_ICON_CLASS, { [className]: !!className })}
 			w={`${size}px`}
 			h={`${size}px`}
 			color={c}

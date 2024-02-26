@@ -1,17 +1,17 @@
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_SPACING } from '@common/constants';
 import { useGetClass } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
 import {
-	__DEFAULT_GRID_ALIGN_CONTENT__,
-	__DEFAULT_GRID_ALIGN_ITEMS__,
-	__DEFAULT_GRID_JUSTIFY_CONTENT__,
-	__DEFAULT_GRID_JUSTIFY_ITEMS__,
-	__DEFAULT_GRID_TEMPLATE_COLUMNS__,
-	__DEFAULT_GRID_TEMPLATE_ROWS__
+	DEFAULT_GRID_ALIGN_CONTENT,
+	DEFAULT_GRID_ALIGN_ITEMS,
+	DEFAULT_GRID_JUSTIFY_CONTENT,
+	DEFAULT_GRID_JUSTIFY_ITEMS,
+	DEFAULT_GRID_TEMPLATE_COLUMNS,
+	DEFAULT_GRID_TEMPLATE_ROWS
 } from '../constants';
 import type { GridProps } from '../types';
 
@@ -37,18 +37,18 @@ const useGridClasses = <Element extends PolymorphicElementType>(
 	props: UseGridClassesProps<Element>
 ): UseGridClassesReturn => {
 	const {
-		alignContent: alignContentProp = __DEFAULT_GRID_ALIGN_CONTENT__,
-		alignItems: alignItemsProp = __DEFAULT_GRID_ALIGN_ITEMS__,
+		alignContent: alignContentProp = DEFAULT_GRID_ALIGN_CONTENT,
+		alignItems: alignItemsProp = DEFAULT_GRID_ALIGN_ITEMS,
 		autoColumns: autoColumnsProp,
 		autoFlow: autoFlowProp,
 		autoRows: autoRowsProp,
 		columnSpacing: columnSpacingProp,
-		justifyContent: justifyContentProp = __DEFAULT_GRID_JUSTIFY_CONTENT__,
-		justifyItems: justifyItemsProp = __DEFAULT_GRID_JUSTIFY_ITEMS__,
+		justifyContent: justifyContentProp = DEFAULT_GRID_JUSTIFY_CONTENT,
+		justifyItems: justifyItemsProp = DEFAULT_GRID_JUSTIFY_ITEMS,
 		rowSpacing: rowSpacingProp,
-		templateColumns: templateColumnsProp = __DEFAULT_GRID_TEMPLATE_COLUMNS__,
-		templateRows: templateRowsProp = __DEFAULT_GRID_TEMPLATE_ROWS__,
-		spacing: spacingProp = __DEFAULT_SPACING__
+		templateColumns: templateColumnsProp = DEFAULT_GRID_TEMPLATE_COLUMNS,
+		templateRows: templateRowsProp = DEFAULT_GRID_TEMPLATE_ROWS,
+		spacing: spacingProp = DEFAULT_SPACING
 	} = props;
 
 	const {
@@ -63,7 +63,7 @@ const useGridClasses = <Element extends PolymorphicElementType>(
 		rowSpacing,
 		templateColumns,
 		templateRows,
-		spacing = __DEFAULT_SPACING__
+		spacing = DEFAULT_SPACING
 	} = useGridResponsiveValues({
 		alignContent: alignContentProp,
 		alignItems: alignItemsProp,
@@ -97,12 +97,12 @@ const useGridClasses = <Element extends PolymorphicElementType>(
 	const templateColumnsClassName = useGetClass(
 		(classes) =>
 			classes.grid.template_columns[
-				typeof templateColumns === 'number' ? templateColumns : __DEFAULT_GRID_TEMPLATE_COLUMNS__
+				typeof templateColumns === 'number' ? templateColumns : DEFAULT_GRID_TEMPLATE_COLUMNS
 			]
 	);
 	const templateRowsClassName = useGetClass(
 		(classes) =>
-			classes.grid.template_rows[typeof templateRows === 'number' ? templateRows : __DEFAULT_GRID_TEMPLATE_ROWS__]
+			classes.grid.template_rows[typeof templateRows === 'number' ? templateRows : DEFAULT_GRID_TEMPLATE_ROWS]
 	);
 
 	const spacingClassName = useGetClass((classes) => classes.spacing.gap[spacing]);

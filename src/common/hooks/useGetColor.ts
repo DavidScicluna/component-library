@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { __DEFAULT_COLOR__ } from '@common/constants';
+import { DEFAULT_COLOR } from '@common/constants';
 import type { ColorTypeClass, ThemeAppearanceProps } from '@common/types';
 import type { ColorHueType } from '@common/utils';
 import { getColorClass, getColorHex } from '@common/utils';
@@ -14,11 +14,11 @@ type UseGetColorProps = ThemeAppearanceProps & {
 };
 
 const useGetColor = (props: UseGetColorProps): string => {
-	const { colorMode: __DEFAULT_GET_COLOR_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_GET_COLOR_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_GET_COLOR_COLORMODE__,
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_GET_COLOR_COLORMODE,
 		colorType = 'default',
 		hueType = 'default',
 		classType

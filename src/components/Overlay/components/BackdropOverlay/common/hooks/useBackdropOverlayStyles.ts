@@ -1,10 +1,10 @@
 import { transparentize } from 'color2k';
 
-import { __DEFAULT_COLOR__ } from '@common/constants';
+import { DEFAULT_COLOR } from '@common/constants';
 import { useAppTheme, useGetColor } from '@common/hooks';
 import type { PolymorphicElementType, Style } from '@common/types';
 
-import { __DEFAULT_BACKDROP_OVERLAY_AMOUNT__ } from '../constants';
+import { DEFAULT_BACKDROP_OVERLAY_AMOUNT } from '../constants';
 import type { BackdropOverlayProps } from '../types';
 
 import useBackdropOverlayResponsiveValues from './useBackdropOverlayResponsiveValues';
@@ -18,12 +18,12 @@ type UseBackdropOverlayStylesReturn = Style;
 const useBackdropOverlayStyles = <Element extends PolymorphicElementType>(
 	props: UseBackdropOverlayStylesProps<Element>
 ): UseBackdropOverlayStylesReturn => {
-	const { colorMode: __DEFAULT_BACKDROP_OVERLAY_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_BACKDROP_OVERLAY_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_BACKDROP_OVERLAY_COLORMODE__,
-		amount: amountProp = __DEFAULT_BACKDROP_OVERLAY_AMOUNT__
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_BACKDROP_OVERLAY_COLORMODE,
+		amount: amountProp = DEFAULT_BACKDROP_OVERLAY_AMOUNT
 	} = props;
 
 	const { amount } = useBackdropOverlayResponsiveValues<Element>({ amount: amountProp });

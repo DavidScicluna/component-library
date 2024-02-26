@@ -1,3 +1,1 @@
-import { __DEFAULT_CAROUSEL_LEFT_ARROW_ICON_BUTTON_AS__ } from './props';
-
-export { __DEFAULT_CAROUSEL_LEFT_ARROW_ICON_BUTTON_AS__ };
+export * from './props';

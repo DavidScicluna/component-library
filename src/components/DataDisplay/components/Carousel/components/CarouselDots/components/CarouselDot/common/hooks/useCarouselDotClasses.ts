@@ -1,11 +1,11 @@
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import { __DEFAULT_COLOR__ } from '@common/constants';
+import { DEFAULT_COLOR } from '@common/constants';
 import { useAppTheme, useGetColor } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 
-import { __DEFAULT_CAROUSEL_DOTS_SIZE__ } from '@components/DataDisplay/components/Carousel/components/CarouselDots/common/constants';
+import { DEFAULT_CAROUSEL_DOTS_SIZE } from '@components/DataDisplay/components/Carousel/components/CarouselDots/common/constants';
 
 import type { CarouselDotProps } from '../types';
 
@@ -20,13 +20,13 @@ type UseCarouselDotClassesReturn = Record<'item' | 'scale100' | 'scale75' | 'sca
 const useCarouselDotClasses = <Element extends PolymorphicElementType>(
 	props: UseCarouselDotClassesProps<Element>
 ): UseCarouselDotClassesReturn => {
-	const { colorMode: __DEFAULT_CAROUSEL_DOT_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_CAROUSEL_DOT_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_CAROUSEL_DOT_COLORMODE__,
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_CAROUSEL_DOT_COLORMODE,
 		isVisible,
-		size: sizeProp = __DEFAULT_CAROUSEL_DOTS_SIZE__
+		size: sizeProp = DEFAULT_CAROUSEL_DOTS_SIZE
 	} = props;
 
 	const { size } = useCarouselDotResponsiveValues<Element>({ size: sizeProp });

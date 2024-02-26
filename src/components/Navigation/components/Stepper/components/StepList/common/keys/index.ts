@@ -1,3 +1,3 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
-export const __KEYS_STEPPER_STEP_LIST_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-stepper-step-list`;
+export const KEYS_STEPPER_STEP_LIST_CLASS = `${DEFAULT_CLASS_PREFIX}-stepper-step-list`;

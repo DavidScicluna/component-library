@@ -2,14 +2,14 @@ import { createContext, forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_SPACING } from '@common/constants';
 
 import type { VStackProps } from '@components/Layout';
 import { VStack } from '@components/Layout';
 
-import { __DEFAULT_MESSAGE_AS__, __DEFAULT_MESSAGE_RADIUS__, __DEFAULT_MESSAGE_VARIANT__ } from './common/constants';
+import { DEFAULT_MESSAGE_AS, DEFAULT_MESSAGE_RADIUS, DEFAULT_MESSAGE_VARIANT } from './common/constants';
 import { useMessageClasses, useMessageResponsiveValues } from './common/hooks';
-import { __KEYS_MESSAGE_CLASS__ } from './common/keys';
+import { KEYS_MESSAGE_CLASS } from './common/keys';
 import type {
 	MessageContext as MessageContextType,
 	MessageDefaultElement,
@@ -19,7 +19,7 @@ import type {
 } from './common/types';
 
 export const MessageContext = createContext<MessageContextType<MessageDefaultElement>>({
-	spacing: __DEFAULT_SPACING__
+	spacing: DEFAULT_SPACING
 });
 
 // Move Message to DataDisplay folder since its not an overlay!
@@ -29,13 +29,13 @@ const Message = forwardRef(function Message<Element extends MessageElement>(
 ): JSX.Element {
 	const {
 		children,
-		as = __DEFAULT_MESSAGE_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_MESSAGE_AS,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		radius: radiusProp = __DEFAULT_MESSAGE_RADIUS__,
-		spacing: spacingProp = __DEFAULT_SPACING__,
-		variant: variantProp = __DEFAULT_MESSAGE_VARIANT__,
+		radius: radiusProp = DEFAULT_MESSAGE_RADIUS,
+		spacing: spacingProp = DEFAULT_SPACING,
+		variant: variantProp = DEFAULT_MESSAGE_VARIANT,
 		...rest
 	} = props;
 
@@ -53,7 +53,7 @@ const Message = forwardRef(function Message<Element extends MessageElement>(
 				{...(rest as VStackProps<Element>)}
 				as={as}
 				ref={ref}
-				className={classNames(__KEYS_MESSAGE_CLASS__, classes, { [className]: !!className })}
+				className={classNames(KEYS_MESSAGE_CLASS, classes, { [className]: !!className })}
 				spacing={spacing}
 			>
 				{children}

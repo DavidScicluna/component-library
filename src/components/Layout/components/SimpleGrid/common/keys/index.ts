@@ -1,3 +1,3 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
-export const __KEYS_SIMPLE_GRID_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-simple-grid`;
+export const KEYS_SIMPLE_GRID_CLASS = `${DEFAULT_CLASS_PREFIX}-simple-grid`;

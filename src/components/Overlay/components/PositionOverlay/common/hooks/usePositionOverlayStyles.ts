@@ -1,13 +1,10 @@
 import { transparentize } from 'color2k';
 
-import { __DEFAULT_COLOR__ } from '@common/constants';
+import { DEFAULT_COLOR } from '@common/constants';
 import { useAppTheme, useGetColor } from '@common/hooks';
 import type { PolymorphicElementType, Style } from '@common/types';
 
-import {
-	__DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT__,
-	__DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND__
-} from '../constants';
+import { DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT, DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND } from '../constants';
 import type { PositionOverlayProps } from '../types';
 
 import usePositionOverlayResponsiveValues from './usePositionOverlayResponsiveValues';
@@ -22,13 +19,13 @@ type UsePositionOverlayStylesReturn = Record<'overlay', Style>;
 const usePositionOverlayStyles = <Element extends PolymorphicElementType>(
 	props: UsePositionOverlayStylesProps<Element>
 ): UsePositionOverlayStylesReturn => {
-	const { colorMode: __DEFAULT_POSITION_OVERLAY_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_POSITION_OVERLAY_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_POSITION_OVERLAY_COLORMODE__,
-		backdropAmount: backdropAmountProp = __DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT__,
-		hasBackground: hasBackgroundProp = __DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND__
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_POSITION_OVERLAY_COLORMODE,
+		backdropAmount: backdropAmountProp = DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT,
+		hasBackground: hasBackgroundProp = DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND
 	} = props;
 
 	const { backdropAmount: amount, hasBackground } = usePositionOverlayResponsiveValues<Element>({

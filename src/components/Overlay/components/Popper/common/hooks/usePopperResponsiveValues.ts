@@ -1,15 +1,15 @@
-import { __DEFAULT_RADIUS__ } from '@common/constants';
+import { DEFAULT_RADIUS } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicElementType, ThemeRadius } from '@common/types';
 
 import {
-	__DEFAULT_POPPER_CLOSE_DELAY__,
-	__DEFAULT_POPPER_CLOSE_ON_CLICK_OUTSIDE__,
-	__DEFAULT_POPPER_CLOSE_ON_ESC__,
-	__DEFAULT_POPPER_GUTTER__,
-	__DEFAULT_POPPER_IS_DISABLED__,
-	__DEFAULT_POPPER_OPEN_DELAY__,
-	__DEFAULT_POPPER_PLACEMENT__
+	DEFAULT_POPPER_CLOSE_DELAY,
+	DEFAULT_POPPER_CLOSE_ON_CLICK_OUTSIDE,
+	DEFAULT_POPPER_CLOSE_ON_ESC,
+	DEFAULT_POPPER_GUTTER,
+	DEFAULT_POPPER_IS_DISABLED,
+	DEFAULT_POPPER_OPEN_DELAY,
+	DEFAULT_POPPER_PLACEMENT
 } from '../constants';
 import type { PopperPlacement, PopperProps } from '../types';
 
@@ -30,14 +30,14 @@ const usePopperResponsiveValues = <Element extends PolymorphicElementType>(
 	props: UsePopperResponsiveValuesProps<Element>
 ) => {
 	const {
-		closeDelay: closeDelayProp = __DEFAULT_POPPER_CLOSE_DELAY__,
-		openDelay: openDelayProp = __DEFAULT_POPPER_OPEN_DELAY__,
-		closeOnClickOutside: closeOnClickOutsideProp = __DEFAULT_POPPER_CLOSE_ON_CLICK_OUTSIDE__,
-		closeOnEsc: closeOnEscProp = __DEFAULT_POPPER_CLOSE_ON_ESC__,
-		gutter: gutterProp = __DEFAULT_POPPER_GUTTER__,
-		isDisabled: isDisabledProp = __DEFAULT_POPPER_IS_DISABLED__,
-		placement: placementProp = __DEFAULT_POPPER_PLACEMENT__,
-		radius: radiusProp = __DEFAULT_RADIUS__
+		closeDelay: closeDelayProp = DEFAULT_POPPER_CLOSE_DELAY,
+		openDelay: openDelayProp = DEFAULT_POPPER_OPEN_DELAY,
+		closeOnClickOutside: closeOnClickOutsideProp = DEFAULT_POPPER_CLOSE_ON_CLICK_OUTSIDE,
+		closeOnEsc: closeOnEscProp = DEFAULT_POPPER_CLOSE_ON_ESC,
+		gutter: gutterProp = DEFAULT_POPPER_GUTTER,
+		isDisabled: isDisabledProp = DEFAULT_POPPER_IS_DISABLED,
+		placement: placementProp = DEFAULT_POPPER_PLACEMENT,
+		radius: radiusProp = DEFAULT_RADIUS
 	} = props;
 
 	const closeDelay = useGetResponsiveValue<number>(closeDelayProp);

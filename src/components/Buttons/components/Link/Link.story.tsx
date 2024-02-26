@@ -5,11 +5,7 @@ import { Text } from '../../../Typography';
 
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 import React from 'react';
-import {
-	__DEFAULT_LINK_IS_DISABLED__,
-	__DEFAULT_LINK_IS_UNDERLINE__,
-	__DEFAULT_LINK_IS_UNSTYLED__
-} from './common/constants';
+import { DEFAULT_LINK_IS_DISABLED, DEFAULT_LINK_IS_UNDERLINE, DEFAULT_LINK_IS_UNSTYLED } from './common/constants';
 import type { LinkDefaultElement, LinkProps } from './common/types';
 import type { LinkStory, LinkStoryMeta } from './common/types/story';
 import { Link as LinkComponent } from '.';
@@ -21,21 +17,21 @@ export default {
 		isDisabled: {
 			name: 'Disabled',
 			type: 'boolean',
-			defaultValue: __DEFAULT_LINK_IS_DISABLED__,
+			defaultValue: DEFAULT_LINK_IS_DISABLED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isUnderline: {
 			name: 'Underline',
 			type: 'boolean',
-			defaultValue: __DEFAULT_LINK_IS_UNDERLINE__,
+			defaultValue: DEFAULT_LINK_IS_UNDERLINE,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isUnstyled: {
 			name: 'Unstyled',
 			type: 'boolean',
-			defaultValue: __DEFAULT_LINK_IS_UNSTYLED__,
+			defaultValue: DEFAULT_LINK_IS_UNSTYLED,
 			// description: '',
 			control: { type: 'boolean' }
 		}

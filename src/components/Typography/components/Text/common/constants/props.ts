@@ -13,23 +13,23 @@ import type {
 
 import type { TextDecorationProps, TextDefaultElement } from '../types';
 
-export const __DEFAULT_TEXT_AS__: TextDefaultElement = 'p';
-export const __DEFAULT_TEXT_ALIGN__: TextAlignClass = 'left';
-export const __DEFAULT_TEXT_DECORATION__: TextDecorationProps = {
+export const DEFAULT_TEXT_AS: TextDefaultElement = 'p';
+export const DEFAULT_TEXT_ALIGN: TextAlignClass = 'left';
+export const DEFAULT_TEXT_DECORATION: TextDecorationProps = {
 	color: 'transparent',
 	style: 'solid',
 	thickness: 0,
 	offset: 'auto',
 	variant: 'underline'
 };
-export const __DEFAULT_TEXT_FONT_SIZE__: ThemeFontSize = 'md';
-export const __DEFAULT_TEXT_FONT_WEIGHT__: ThemeFontWeight = 'normal';
-export const __DEFAULT_TEXT_LETTER_SPACING__: TextLetterSpacingClass = 'normal';
-export const __DEFAULT_TEXT_LINE_CLAMP__: TextLineClampClass = 'none';
-export const __DEFAULT_TEXT_LINE_HEIGHT__: ThemeLineHeight = 'normal';
-export const __DEFAULT_TEXT_TRANSFORM__: TextTransformClass = 'normal';
-export const __DEFAULT_TEXT_IS_ITALIC__ = false;
-export const __DEFAULT_TEXT_IS_OVERFLOWN__ = false;
-export const __DEFAULT_TEXT_WHITESPACE__: WhiteSpaceClass = 'normal';
-export const __DEFAULT_TEXT_WORD_BREAK__: WordBreakClass = 'normal';
-export const __DEFAULT_TEXT_USER_SELECT__: UserSelectClass = 'text';
+export const DEFAULT_TEXT_FONT_SIZE: ThemeFontSize = 'md';
+export const DEFAULT_TEXT_FONT_WEIGHT: ThemeFontWeight = 'normal';
+export const DEFAULT_TEXT_LETTER_SPACING: TextLetterSpacingClass = 'normal';
+export const DEFAULT_TEXT_LINE_CLAMP: TextLineClampClass = 'none';
+export const DEFAULT_TEXT_LINE_HEIGHT: ThemeLineHeight = 'normal';
+export const DEFAULT_TEXT_TRANSFORM: TextTransformClass = 'normal';
+export const DEFAULT_TEXT_IS_ITALIC = false;
+export const DEFAULT_TEXT_IS_OVERFLOWN = false;
+export const DEFAULT_TEXT_WHITESPACE: WhiteSpaceClass = 'normal';
+export const DEFAULT_TEXT_WORD_BREAK: WordBreakClass = 'normal';
+export const DEFAULT_TEXT_USER_SELECT: UserSelectClass = 'text';

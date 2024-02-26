@@ -2,9 +2,9 @@ import { useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicElementType, Undefinable } from '@common/types';
 
 import {
-	__DEFAULT_STATE_OVERLAY_HAS_GLASS__,
-	__DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE__,
-	__DEFAULT_STATE_OVERLAY_STATE__
+	DEFAULT_STATE_OVERLAY_HAS_GLASS,
+	DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE,
+	DEFAULT_STATE_OVERLAY_STATE
 } from '../constants';
 import type { StateOverlayProps, StateOverlayRenderType, StateOverlayState } from '../types';
 
@@ -24,9 +24,9 @@ const useStateOverlayResponsiveValues = <Element extends PolymorphicElementType>
 		renderEmpty: renderEmptyProp,
 		renderError: renderErrorProp,
 		renderSpinner: renderSpinnerProp,
-		hasGlass: hasGlassProp = __DEFAULT_STATE_OVERLAY_HAS_GLASS__,
-		isAlwaysVisible: isAlwaysVisibleProp = __DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE__,
-		state: stateProp = __DEFAULT_STATE_OVERLAY_STATE__
+		hasGlass: hasGlassProp = DEFAULT_STATE_OVERLAY_HAS_GLASS,
+		isAlwaysVisible: isAlwaysVisibleProp = DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE,
+		state: stateProp = DEFAULT_STATE_OVERLAY_STATE
 	} = props;
 
 	// const children = useGetResponsiveValue<StateOverlayRenderType>(childrenProp);

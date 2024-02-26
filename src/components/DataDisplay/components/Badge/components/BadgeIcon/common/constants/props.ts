@@ -2,5 +2,5 @@ import type { IconVariant } from '@components/DataDisplay';
 
 import type { BadgeIconDefaultElement } from '../types';
 
-export const __DEFAULT_BADGE_ICON_AS__: BadgeIconDefaultElement = 'span';
-export const __DEFAULT_BADGE_ICON_VARIANT__: IconVariant = 'unstyled';
+export const DEFAULT_BADGE_ICON_AS: BadgeIconDefaultElement = 'span';
+export const DEFAULT_BADGE_ICON_VARIANT: IconVariant = 'unstyled';

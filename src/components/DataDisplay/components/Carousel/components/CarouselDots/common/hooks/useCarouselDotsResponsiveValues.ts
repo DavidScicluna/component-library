@@ -1,8 +1,8 @@
-import { __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_SPACING } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicElementType, ThemeSpacing } from '@common/types';
 
-import { __DEFAULT_CAROUSEL_DOTS_SIZE__ } from '../constants';
+import { DEFAULT_CAROUSEL_DOTS_SIZE } from '../constants';
 import type { CarouselDotsProps } from '../types';
 
 type UseCarouselDotsResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
@@ -12,7 +12,7 @@ type UseCarouselDotsResponsiveValuesProps<Element extends PolymorphicElementType
 const useCarouselDotsResponsiveValues = <Element extends PolymorphicElementType>(
 	props: UseCarouselDotsResponsiveValuesProps<Element>
 ) => {
-	const { size: sizeProp = __DEFAULT_CAROUSEL_DOTS_SIZE__, spacing: spacingProp = __DEFAULT_SPACING__ } = props;
+	const { size: sizeProp = DEFAULT_CAROUSEL_DOTS_SIZE, spacing: spacingProp = DEFAULT_SPACING } = props;
 
 	const size = useGetResponsiveValue<ThemeSpacing>(sizeProp);
 	const spacing = useGetResponsiveValue<ThemeSpacing>(spacingProp);

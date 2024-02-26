@@ -1,12 +1,12 @@
 import type { StepDefaultElement, StepStatus } from '../types';
 
-export const __DEFAULT_STEP_AS__: StepDefaultElement = 'button';
+export const DEFAULT_STEP_AS: StepDefaultElement = 'button';
 
-export const __DEFAULT_STEP_INDEX__ = -1;
+export const DEFAULT_STEP_INDEX = -1;
 
-export const __DEFAULT_STEP_IS_ACTIVE__ = false;
-export const __DEFAULT_STEP_IS_COMPACT__ = false;
-export const __DEFAULT_STEP_IS_DISABLED__ = false;
-export const __DEFAULT_STEP_IS_UPPERCASE__ = false;
+export const DEFAULT_STEP_IS_ACTIVE = false;
+export const DEFAULT_STEP_IS_COMPACT = false;
+export const DEFAULT_STEP_IS_DISABLED = false;
+export const DEFAULT_STEP_IS_UPPERCASE = false;
 
-export const __DEFAULT_STEP_STATUS__: StepStatus = 'idle';
+export const DEFAULT_STEP_STATUS: StepStatus = 'idle';

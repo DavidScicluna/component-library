@@ -3,14 +3,14 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 import { merge } from 'lodash-es';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 
 import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
-import { __DEFAULT_VISUALLY_HIDDEN_AS__ } from './common/constants';
+import { DEFAULT_VISUALLY_HIDDEN_AS } from './common/constants';
 import { useVisuallyHiddenStyles } from './common/hooks';
-import { __KEYS_VISUALLY_HIDDEN_CLASS__ } from './common/keys';
+import { KEYS_VISUALLY_HIDDEN_CLASS } from './common/keys';
 import type { VisuallyHiddenElement, VisuallyHiddenProps, VisuallyHiddenRef } from './common/types';
 
 const VisuallyHidden = forwardRef(function VisuallyHidden<Element extends VisuallyHiddenElement>(
@@ -19,9 +19,9 @@ const VisuallyHidden = forwardRef(function VisuallyHidden<Element extends Visual
 ): JSX.Element {
 	const {
 		children,
-		as = __DEFAULT_VISUALLY_HIDDEN_AS__,
-		className = __DEFAULT_CLASSNAME__,
-		sx = __DEFAULT_POLYMORPHIC_SX__,
+		as = DEFAULT_VISUALLY_HIDDEN_AS,
+		className = DEFAULT_CLASSNAME,
+		sx = DEFAULT_POLYMORPHIC_SX,
 		...rest
 	} = props;
 
@@ -32,7 +32,7 @@ const VisuallyHidden = forwardRef(function VisuallyHidden<Element extends Visual
 			{...(rest as BoxProps<Element>)}
 			as={as}
 			ref={ref}
-			className={classNames(__KEYS_VISUALLY_HIDDEN_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_VISUALLY_HIDDEN_CLASS, { [className]: !!className })}
 			sx={merge(styles, sx)}
 		>
 			{children}

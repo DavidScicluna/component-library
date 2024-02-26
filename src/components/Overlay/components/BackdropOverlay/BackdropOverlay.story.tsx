@@ -7,10 +7,10 @@ import { Text } from '../../../Typography';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
-	__DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
-	__DEFAULT_BACKDROP_OVERLAY_BLUR__,
-	__DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
-	__DEFAULT_BACKDROP_OVERLAY_RADIUS__
+	DEFAULT_BACKDROP_OVERLAY_AMOUNT,
+	DEFAULT_BACKDROP_OVERLAY_BLUR,
+	DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE,
+	DEFAULT_BACKDROP_OVERLAY_RADIUS
 } from './common/constants';
 import type { BackdropOverlayBlurType, BackdropOverlayProps } from './common/types';
 import type { BackdropOverlayStory, BackdropOverlayStoryMeta } from './common/types/story';
@@ -25,14 +25,14 @@ export default {
 		amount: {
 			name: 'Amount',
 			type: 'string',
-			defaultValue: __DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
+			defaultValue: DEFAULT_BACKDROP_OVERLAY_AMOUNT,
 			// description: '',
 			control: { type: 'number' }
 		},
 		blur: {
 			name: 'Blur',
 			type: 'string',
-			defaultValue: __DEFAULT_BACKDROP_OVERLAY_BLUR__,
+			defaultValue: DEFAULT_BACKDROP_OVERLAY_BLUR,
 			// description: '',
 			options: [
 				'none',
@@ -55,7 +55,7 @@ export default {
 		blurType: {
 			name: 'Blur Type',
 			type: 'string',
-			defaultValue: __DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
+			defaultValue: DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE,
 			// description: '',
 			options: ['backdrop', 'blur'] as Array<BackdropOverlayBlurType>,
 			control: { type: 'radio' }
@@ -63,7 +63,7 @@ export default {
 		radius: {
 			name: 'Radius',
 			type: 'string',
-			defaultValue: __DEFAULT_BACKDROP_OVERLAY_RADIUS__,
+			defaultValue: DEFAULT_BACKDROP_OVERLAY_RADIUS,
 			// description: '',
 			options: ['none', 'xs', 'sm', 'base', 'lg', 'xl', 'full'] as ThemeRadiusArr,
 			control: { type: 'radio' }

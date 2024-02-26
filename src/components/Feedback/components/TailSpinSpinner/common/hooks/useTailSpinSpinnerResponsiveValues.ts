@@ -1,8 +1,8 @@
-import { __DEFAULT_RADIUS__ } from '@common/constants';
+import { DEFAULT_RADIUS } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicElementType, ThemeRadius } from '@common/types';
 
-import { __DEFAULT_TAIL_SPIN_SPINNER_IS_VISIBLE__, __DEFAULT_TAIL_SPIN_SPINNER_SIZE__ } from '../constants';
+import { DEFAULT_TAIL_SPIN_SPINNER_IS_VISIBLE, DEFAULT_TAIL_SPIN_SPINNER_SIZE } from '../constants';
 import type { TailSpinSpinnerProps, TailSpinSpinnerSize } from '../types';
 
 type UseTailSpinSpinnerResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
@@ -13,9 +13,9 @@ const useTailSpinSpinnerResponsiveValues = <Element extends PolymorphicElementTy
 	props: UseTailSpinSpinnerResponsiveValuesProps<Element>
 ) => {
 	const {
-		isVisible: isVisibleProp = __DEFAULT_TAIL_SPIN_SPINNER_IS_VISIBLE__,
-		radius: radiusProp = __DEFAULT_RADIUS__,
-		size: sizeProp = __DEFAULT_TAIL_SPIN_SPINNER_SIZE__
+		isVisible: isVisibleProp = DEFAULT_TAIL_SPIN_SPINNER_IS_VISIBLE,
+		radius: radiusProp = DEFAULT_RADIUS,
+		size: sizeProp = DEFAULT_TAIL_SPIN_SPINNER_SIZE
 	} = props;
 
 	const isVisible = useGetResponsiveValue<boolean>(isVisibleProp);

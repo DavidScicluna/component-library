@@ -11,12 +11,12 @@ type UseGetAmountProps = {
 	types?: GetAmountTypeArr;
 };
 
-const __DEFAULT_GET_AMOUNT_TYPES__: GetAmountTypeArr = ['active', 'back', 'focus', 'hover'];
+const DEFAULT_GET_AMOUNT_TYPES: GetAmountTypeArr = ['active', 'back', 'focus', 'hover'];
 
 const useGetAmount = (props: UseGetAmountProps) => {
-	const { colorMode: __DEFAULT_GET_COLOR_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_GET_COLOR_COLORMODE } = useAppTheme();
 
-	const { colorMode = __DEFAULT_GET_COLOR_COLORMODE__, types = __DEFAULT_GET_AMOUNT_TYPES__ } = props;
+	const { colorMode = DEFAULT_GET_COLOR_COLORMODE, types = DEFAULT_GET_AMOUNT_TYPES } = props;
 
 	const amount = useMemo<GetAmountTypeObj>(() => {
 		return types

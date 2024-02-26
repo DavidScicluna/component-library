@@ -1,14 +1,14 @@
 import { useContext } from 'react';
 
-import { __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_SPACING } from '@common/constants';
 
 import { CardContext } from '../../Card';
 import {
-	__DEFAULT_CARD_IS_COLLAPSABLE__,
-	__DEFAULT_CARD_IS_DISABLED__,
-	__DEFAULT_CARD_IS_DIVISIBLE__,
-	__DEFAULT_CARD_IS_OPEN__,
-	__DEFAULT_CARD_VARIANT__
+	DEFAULT_CARD_IS_COLLAPSABLE,
+	DEFAULT_CARD_IS_DISABLED,
+	DEFAULT_CARD_IS_DIVISIBLE,
+	DEFAULT_CARD_IS_OPEN,
+	DEFAULT_CARD_VARIANT
 } from '../constants';
 import type { CardContext as CardContextType, CardElement } from '../types';
 
@@ -18,14 +18,14 @@ const useCardContext = <Element extends CardElement>() => {
 	const {
 		color,
 		colorMode,
-		isCollapsable: isCollapsableProp = __DEFAULT_CARD_IS_COLLAPSABLE__,
-		isDisabled: isDisabledProp = __DEFAULT_CARD_IS_DISABLED__,
-		isDivisible: isDivisibleProp = __DEFAULT_CARD_IS_DIVISIBLE__,
+		isCollapsable: isCollapsableProp = DEFAULT_CARD_IS_COLLAPSABLE,
+		isDisabled: isDisabledProp = DEFAULT_CARD_IS_DISABLED,
+		isDivisible: isDivisibleProp = DEFAULT_CARD_IS_DIVISIBLE,
 		isHovering,
-		isOpen: isOpenProp = __DEFAULT_CARD_IS_OPEN__,
+		isOpen: isOpenProp = DEFAULT_CARD_IS_OPEN,
 		onHover,
-		spacing: spacingProp = __DEFAULT_SPACING__,
-		variant: variantProp = __DEFAULT_CARD_VARIANT__
+		spacing: spacingProp = DEFAULT_SPACING,
+		variant: variantProp = DEFAULT_CARD_VARIANT
 	} = useContext<CardContextType<Element>>(CardContext);
 
 	const { isCollapsable, isDisabled, isDivisible, isOpen, spacing, variant } = useCardResponsiveValues<Element>({

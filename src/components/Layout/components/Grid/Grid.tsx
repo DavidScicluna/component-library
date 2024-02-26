@@ -3,22 +3,22 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 import { merge } from 'lodash-es';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_POLYMORPHIC_SX__, __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX, DEFAULT_SPACING } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
-	__DEFAULT_GRID_ALIGN_CONTENT__,
-	__DEFAULT_GRID_ALIGN_ITEMS__,
-	__DEFAULT_GRID_JUSTIFY_CONTENT__,
-	__DEFAULT_GRID_JUSTIFY_ITEMS__,
-	__DEFAULT_GRID_TEMPLATE_COLUMNS__,
-	__DEFAULT_GRID_TEMPLATE_ROWS__
+	DEFAULT_GRID_ALIGN_CONTENT,
+	DEFAULT_GRID_ALIGN_ITEMS,
+	DEFAULT_GRID_JUSTIFY_CONTENT,
+	DEFAULT_GRID_JUSTIFY_ITEMS,
+	DEFAULT_GRID_TEMPLATE_COLUMNS,
+	DEFAULT_GRID_TEMPLATE_ROWS
 } from './common/constants';
 import { useGridClasses, useGridResponsiveValues, useGridStyles } from './common/hooks';
-import { __KEYS_GRID_CLASS__ } from './common/keys';
+import { KEYS_GRID_CLASS } from './common/keys';
 import type { GridProps, GridRef } from './common/types';
 
 const Grid = forwardRef(function Grid<Element extends PolymorphicElementType>(
@@ -27,20 +27,20 @@ const Grid = forwardRef(function Grid<Element extends PolymorphicElementType>(
 ): JSX.Element {
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
-		alignContent: alignContentProp = __DEFAULT_GRID_ALIGN_CONTENT__,
-		alignItems: alignItemsProp = __DEFAULT_GRID_ALIGN_ITEMS__,
+		className = DEFAULT_CLASSNAME,
+		alignContent: alignContentProp = DEFAULT_GRID_ALIGN_CONTENT,
+		alignItems: alignItemsProp = DEFAULT_GRID_ALIGN_ITEMS,
 		autoColumns: autoColumnsProp,
 		autoFlow: autoFlowProp,
 		autoRows: autoRowsProp,
 		columnSpacing: columnSpacingProp,
-		justifyContent: justifyContentProp = __DEFAULT_GRID_JUSTIFY_CONTENT__,
-		justifyItems: justifyItemsProp = __DEFAULT_GRID_JUSTIFY_ITEMS__,
+		justifyContent: justifyContentProp = DEFAULT_GRID_JUSTIFY_CONTENT,
+		justifyItems: justifyItemsProp = DEFAULT_GRID_JUSTIFY_ITEMS,
 		rowSpacing: rowSpacingProp,
-		templateColumns: templateColumnsProp = __DEFAULT_GRID_TEMPLATE_COLUMNS__,
-		templateRows: templateRowsProp = __DEFAULT_GRID_TEMPLATE_ROWS__,
-		spacing: spacingProp = __DEFAULT_SPACING__,
-		sx = __DEFAULT_POLYMORPHIC_SX__,
+		templateColumns: templateColumnsProp = DEFAULT_GRID_TEMPLATE_COLUMNS,
+		templateRows: templateRowsProp = DEFAULT_GRID_TEMPLATE_ROWS,
+		spacing: spacingProp = DEFAULT_SPACING,
+		sx = DEFAULT_POLYMORPHIC_SX,
 		...rest
 	} = props;
 
@@ -92,7 +92,7 @@ const Grid = forwardRef(function Grid<Element extends PolymorphicElementType>(
 		<Box
 			{...(rest as BoxProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_GRID_CLASS__, classes, { [className]: !!className })}
+			className={classNames(KEYS_GRID_CLASS, classes, { [className]: !!className })}
 			sx={merge(styles, sx)}
 		>
 			{children}

@@ -2,26 +2,20 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__, __DEFAULT_METHOD__ } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_METHOD } from '@common/constants';
 
 import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
-import { __DEFAULT_FORM_AS__ } from './common/constants';
-import { __KEYS_FORM_CLASS__ } from './common/keys';
+import { DEFAULT_FORM_AS } from './common/constants';
+import { KEYS_FORM_CLASS } from './common/keys';
 import type { FormElement, FormEvent, FormProps, FormRef } from './common/types';
 
 const Form = forwardRef(function Form<Element extends FormElement>(
 	props: FormProps<Element>,
 	ref: FormRef<Element>
 ): JSX.Element {
-	const {
-		children,
-		as = __DEFAULT_FORM_AS__,
-		className = __DEFAULT_CLASSNAME__,
-		onSubmit = __DEFAULT_METHOD__,
-		...rest
-	} = props;
+	const { children, as = DEFAULT_FORM_AS, className = DEFAULT_CLASSNAME, onSubmit = DEFAULT_METHOD, ...rest } = props;
 
 	const handleSubmit = (event: FormEvent<Element>): void => {
 		event.preventDefault();
@@ -36,7 +30,7 @@ const Form = forwardRef(function Form<Element extends FormElement>(
 			{...(rest as BoxProps<Element>)}
 			as={as}
 			ref={ref}
-			className={classNames(__KEYS_FORM_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_FORM_CLASS, { [className]: !!className })}
 			onSubmit={handleSubmit}
 		>
 			{children}

@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import { getFontSizeHeight } from '@common/utils';
 
-import { __DEFAULT_STEPPER_SIZE__, __DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE__ } from '../constants';
+import { DEFAULT_STEPPER_SIZE, DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE } from '../constants';
 import type { StepperElement, StepperProps } from '../types';
 
 import { useStepperResponsiveValues } from '.';
@@ -12,12 +12,12 @@ type UseStepperStepFontSizeProps<Element extends StepperElement> = Pick<StepperP
 const useStepperStepFontSize = <Element extends StepperElement>(
 	props: UseStepperStepFontSizeProps<Element>
 ): number => {
-	const { size: sizeProp = __DEFAULT_STEPPER_SIZE__ } = props;
+	const { size: sizeProp = DEFAULT_STEPPER_SIZE } = props;
 
 	const { size } = useStepperResponsiveValues<Element>({ size: sizeProp });
 
 	const fontSize = useMemo<number>(() => {
-		return getFontSizeHeight(size, __DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE__);
+		return getFontSizeHeight(size, DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE);
 	}, [size]);
 
 	return fontSize;

@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import type { TextProps } from '@components/Typography';
@@ -11,8 +11,8 @@ import { Text } from '@components/Typography';
 import { useModalContext } from '../../common/hooks';
 import { getModalSubtitleID } from '../../common/utils';
 
-import { __DEFAULT_MODAL_SUBTITLE_AS__ } from './common/constants';
-import { __KEYS_MODAL_SUBTITLE_CLASS__ } from './common/keys';
+import { DEFAULT_MODAL_SUBTITLE_AS } from './common/constants';
+import { KEYS_MODAL_SUBTITLE_CLASS } from './common/keys';
 import type { ModalSubtitleElement, ModalSubtitleProps, ModalSubtitleRef } from './common/types';
 
 const ModalSubtitle = forwardRef(function ModalSubtitle<Element extends ModalSubtitleElement>(
@@ -21,7 +21,7 @@ const ModalSubtitle = forwardRef(function ModalSubtitle<Element extends ModalSub
 ): JSX.Element {
 	const { colorMode, id } = useModalContext();
 
-	const __DEFAULT_MODAL_SUBTITLE_COLOR__ = useGetColor({
+	const DEFAULT_MODAL_SUBTITLE_COLOR = useGetColor({
 		color: 'gray',
 		colorMode,
 		colorType: 'default',
@@ -31,10 +31,10 @@ const ModalSubtitle = forwardRef(function ModalSubtitle<Element extends ModalSub
 
 	const {
 		children,
-		as = __DEFAULT_MODAL_SUBTITLE_AS__,
-		className = __DEFAULT_CLASSNAME__,
+		as = DEFAULT_MODAL_SUBTITLE_AS,
+		className = DEFAULT_CLASSNAME,
 		align = 'left',
-		color = __DEFAULT_MODAL_SUBTITLE_COLOR__,
+		color = DEFAULT_MODAL_SUBTITLE_COLOR,
 		fontSize = 'sm',
 		fontWeight = 'normal',
 		lineClamp = 1,
@@ -47,7 +47,7 @@ const ModalSubtitle = forwardRef(function ModalSubtitle<Element extends ModalSub
 			as={as}
 			ref={ref}
 			id={getModalSubtitleID(id)}
-			className={classNames(__KEYS_MODAL_SUBTITLE_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_MODAL_SUBTITLE_CLASS, { [className]: !!className })}
 			align={align}
 			color={color}
 			fontSize={fontSize}

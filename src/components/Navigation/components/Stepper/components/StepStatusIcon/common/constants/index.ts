@@ -1,3 +1,1 @@
-import { __DEFAULT_STEP_STATUS_ICON_AS__, __DEFAULT_STEP_STATUS_ICON_VARIANT__ } from './props';
-
-export { __DEFAULT_STEP_STATUS_ICON_AS__, __DEFAULT_STEP_STATUS_ICON_VARIANT__ };
+export * from './props';

@@ -2,10 +2,10 @@ import { useGetResponsiveValue } from '@common/hooks';
 import type { PolymorphicElementType, ThemeBlurClass, ThemeRadius } from '@common/types';
 
 import {
-	__DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
-	__DEFAULT_BACKDROP_OVERLAY_BLUR__,
-	__DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
-	__DEFAULT_BACKDROP_OVERLAY_RADIUS__
+	DEFAULT_BACKDROP_OVERLAY_AMOUNT,
+	DEFAULT_BACKDROP_OVERLAY_BLUR,
+	DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE,
+	DEFAULT_BACKDROP_OVERLAY_RADIUS
 } from '../constants';
 import type { BackdropOverlayBlurType, BackdropOverlayProps } from '../types';
 
@@ -17,10 +17,10 @@ const useBackdropOverlayResponsiveValues = <Element extends PolymorphicElementTy
 	props: UseBackdropOverlayResponsiveValuesProps<Element>
 ) => {
 	const {
-		amount: amountProp = __DEFAULT_BACKDROP_OVERLAY_AMOUNT__,
-		blur: blurProp = __DEFAULT_BACKDROP_OVERLAY_BLUR__,
-		blurType: blurTypeProp = __DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE__,
-		radius: radiusProp = __DEFAULT_BACKDROP_OVERLAY_RADIUS__
+		amount: amountProp = DEFAULT_BACKDROP_OVERLAY_AMOUNT,
+		blur: blurProp = DEFAULT_BACKDROP_OVERLAY_BLUR,
+		blurType: blurTypeProp = DEFAULT_BACKDROP_OVERLAY_BLUR_TYPE,
+		radius: radiusProp = DEFAULT_BACKDROP_OVERLAY_RADIUS
 	} = props;
 
 	const amount = useGetResponsiveValue<number>(amountProp);

@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import type { ThemeFontSize, ThemeSpacing } from '@common/types';
 
-import { __DEFAULT_STEPPER_SIZE__ } from '../constants';
+import { DEFAULT_STEPPER_SIZE } from '../constants';
 import type { StepperElement, StepperProps } from '../types';
 
 import { useStepperResponsiveValues } from '.';
@@ -20,7 +20,7 @@ type UseStepperSizeConfigReturn = StepperSizeConfig;
 const useStepperSizeConfig = <Element extends StepperElement>(
 	props: UseStepperSizeConfigProps<Element>
 ): UseStepperSizeConfigReturn => {
-	const { size: sizeProp = __DEFAULT_STEPPER_SIZE__ } = props;
+	const { size: sizeProp = DEFAULT_STEPPER_SIZE } = props;
 
 	const { size } = useStepperResponsiveValues<Element>({ size: sizeProp });
 

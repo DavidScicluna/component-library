@@ -6,9 +6,9 @@ import React from 'react';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
-	__DEFAULT_CONTAINER_BREAKPOINT__,
-	__DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
-	__DEFAULT_CONTAINER_IS_FLUID__
+	DEFAULT_CONTAINER_BREAKPOINT,
+	DEFAULT_CONTAINER_IS_CONTENT_CENTERED,
+	DEFAULT_CONTAINER_IS_FLUID
 } from './common/constants';
 import type { ContainerBreakpoint, ContainerProps } from './common/types';
 import type { ContainerStory, ContainerStoryMeta } from './common/types/story';
@@ -24,7 +24,7 @@ export default {
 		breakpoint: {
 			name: 'Breakpoint',
 			type: 'string',
-			defaultValue: __DEFAULT_CONTAINER_BREAKPOINT__,
+			defaultValue: DEFAULT_CONTAINER_BREAKPOINT,
 			// description: '',
 			options: ['sm', 'md', 'lg', 'xl', '2xl'] as Array<ContainerBreakpoint>,
 			control: { type: 'radio' }
@@ -32,14 +32,14 @@ export default {
 		isContentCentered: {
 			name: 'Center Content',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CONTAINER_IS_CONTENT_CENTERED__,
+			defaultValue: DEFAULT_CONTAINER_IS_CONTENT_CENTERED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isFluid: {
 			name: 'Fluid',
 			type: 'boolean',
-			defaultValue: __DEFAULT_CONTAINER_IS_FLUID__,
+			defaultValue: DEFAULT_CONTAINER_IS_FLUID,
 			// description: '',
 			control: { type: 'boolean' }
 		}

@@ -1,8 +1,8 @@
-import { __DEFAULT_SPACING__ } from '@common/constants';
+import { DEFAULT_SPACING } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type { ThemeSpacing } from '@common/types';
 
-import { __DEFAULT_ALERT_DURATION__, __DEFAULT_ALERT_STATUS__, __DEFAULT_ALERT_VARIANT__ } from '../constants';
+import { DEFAULT_ALERT_DURATION, DEFAULT_ALERT_STATUS, DEFAULT_ALERT_VARIANT } from '../constants';
 import type { AlertDuration, AlertElement, AlertProps, AlertStatus, AlertVariant } from '../types';
 
 type UseAlertResponsiveValuesProps<Element extends AlertElement> = Partial<
@@ -11,10 +11,10 @@ type UseAlertResponsiveValuesProps<Element extends AlertElement> = Partial<
 
 const useAlertResponsiveValues = <Element extends AlertElement>(props: UseAlertResponsiveValuesProps<Element>) => {
 	const {
-		duration: durationProp = __DEFAULT_ALERT_DURATION__,
-		spacing: spacingProp = __DEFAULT_SPACING__,
-		status: statusProp = __DEFAULT_ALERT_STATUS__,
-		variant: variantProp = __DEFAULT_ALERT_VARIANT__
+		duration: durationProp = DEFAULT_ALERT_DURATION,
+		spacing: spacingProp = DEFAULT_SPACING,
+		status: statusProp = DEFAULT_ALERT_STATUS,
+		variant: variantProp = DEFAULT_ALERT_VARIANT
 	} = props;
 
 	const duration = useGetResponsiveValue<AlertDuration>(durationProp);

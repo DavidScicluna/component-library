@@ -1,3 +1,3 @@
-import { __DEFAULT_CLASS_PREFIX__ } from '@common/constants';
+import { DEFAULT_CLASS_PREFIX } from '@common/constants';
 
-export const __KEYS_RATING_CLASS__ = `${__DEFAULT_CLASS_PREFIX__}-rating`;
+export const KEYS_RATING_CLASS = `${DEFAULT_CLASS_PREFIX}-rating`;

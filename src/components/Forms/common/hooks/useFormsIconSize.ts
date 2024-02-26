@@ -5,10 +5,10 @@ import { getFontSizeHeight } from '@common/utils';
 import type { IconDefaultElement, IconProps } from '@components/DataDisplay';
 
 import {
-	__DEFAULT_FORMS_IS_COMPACT__,
-	__DEFAULT_FORMS_LINE_HEIGHT_SIZE__,
-	__DEFAULT_FORMS_SIZE__,
-	__DEFAULT_FORMS_VARIANT__
+	DEFAULT_FORMS_IS_COMPACT,
+	DEFAULT_FORMS_LINE_HEIGHT_SIZE,
+	DEFAULT_FORMS_SIZE,
+	DEFAULT_FORMS_VARIANT
 } from '../constants';
 import type { FormsCommonProps } from '../types';
 
@@ -22,9 +22,9 @@ type UseFormsIconSizeReturn = FormsIconSize;
 
 const useFormsIconSize = (props: UseFormsIconSizeProps): UseFormsIconSizeReturn => {
 	const {
-		isCompact: isCompactProp = __DEFAULT_FORMS_IS_COMPACT__,
-		size: sizeProp = __DEFAULT_FORMS_SIZE__,
-		variant: variantProp = __DEFAULT_FORMS_VARIANT__
+		isCompact: isCompactProp = DEFAULT_FORMS_IS_COMPACT,
+		size: sizeProp = DEFAULT_FORMS_SIZE,
+		variant: variantProp = DEFAULT_FORMS_VARIANT
 	} = props;
 
 	const { isCompact, size, variant } = useFormsResponsiveValues({
@@ -35,7 +35,7 @@ const useFormsIconSize = (props: UseFormsIconSizeProps): UseFormsIconSizeReturn 
 
 	const config = useFormsSizeConfig({ isCompact, size, variant });
 	const iconSize = useMemo<number>(() => {
-		return getFontSizeHeight(config.fontSize, __DEFAULT_FORMS_LINE_HEIGHT_SIZE__);
+		return getFontSizeHeight(config.fontSize, DEFAULT_FORMS_LINE_HEIGHT_SIZE);
 	}, [config.fontSize]);
 
 	return { w: `${iconSize}px`, h: `${iconSize}px`, size: `${iconSize}px` };

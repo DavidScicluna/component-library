@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Box } from '@components/Box';
@@ -10,14 +10,14 @@ import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
-	__DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT__,
-	__DEFAULT_GLASS_OVERLAY_BLUR__,
-	__DEFAULT_GLASS_OVERLAY_BLUR_TYPE__,
-	__DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__,
-	__DEFAULT_GLASS_OVERLAY_RADIUS__
+	DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT,
+	DEFAULT_GLASS_OVERLAY_BLUR,
+	DEFAULT_GLASS_OVERLAY_BLUR_TYPE,
+	DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND,
+	DEFAULT_GLASS_OVERLAY_RADIUS
 } from './common/constants';
 import { useGlassOverlayClasses, useGlassOverlayResponsiveValues, useGlassOverlayStyles } from './common/hooks';
-import { __KEYS_GLASS_OVERLAY_CLASS__ } from './common/keys';
+import { KEYS_GLASS_OVERLAY_CLASS } from './common/keys';
 import type { GlassOverlayProps, GlassOverlayRef } from './common/types';
 
 const GlassOverlay = forwardRef(function GlassOverlay<Element extends PolymorphicElementType>(
@@ -26,14 +26,14 @@ const GlassOverlay = forwardRef(function GlassOverlay<Element extends Polymorphi
 ): JSX.Element {
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		backdropAmount: backdropAmountProp = __DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT__,
-		blur: blurProp = __DEFAULT_GLASS_OVERLAY_BLUR__,
-		blurType: blurTypeProp = __DEFAULT_GLASS_OVERLAY_BLUR_TYPE__,
-		radius: radiusProp = __DEFAULT_GLASS_OVERLAY_RADIUS__,
-		hasBackground: hasBackgroundProp = __DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND__,
+		backdropAmount: backdropAmountProp = DEFAULT_GLASS_OVERLAY_BACKDROP_AMOUNT,
+		blur: blurProp = DEFAULT_GLASS_OVERLAY_BLUR,
+		blurType: blurTypeProp = DEFAULT_GLASS_OVERLAY_BLUR_TYPE,
+		radius: radiusProp = DEFAULT_GLASS_OVERLAY_RADIUS,
+		hasBackground: hasBackgroundProp = DEFAULT_GLASS_OVERLAY_HAS_BACKGROUND,
 		...rest
 	} = props;
 
@@ -52,7 +52,7 @@ const GlassOverlay = forwardRef(function GlassOverlay<Element extends Polymorphi
 		<Grid
 			{...(rest as GridProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_GLASS_OVERLAY_CLASS__, classes.container, { [className]: !!className })}
+			className={classNames(KEYS_GLASS_OVERLAY_CLASS, classes.container, { [className]: !!className })}
 			templateColumns={1}
 			templateRows={1}
 			alignItems='stretch'

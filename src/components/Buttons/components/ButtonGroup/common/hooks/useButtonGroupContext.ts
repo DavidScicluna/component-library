@@ -1,17 +1,17 @@
 import { useContext } from 'react';
 
 import {
-	__DEFAULT_BUTTON_IS_COMPACT__,
-	__DEFAULT_BUTTON_IS_DISABLED__,
-	__DEFAULT_BUTTON_IS_FULLWIDTH__,
-	__DEFAULT_BUTTON_IS_ROUND__,
-	__DEFAULT_BUTTON_SIZE__,
-	__DEFAULT_BUTTON_VARIANT__
+	DEFAULT_BUTTON_IS_COMPACT,
+	DEFAULT_BUTTON_IS_DISABLED,
+	DEFAULT_BUTTON_IS_FULLWIDTH,
+	DEFAULT_BUTTON_IS_ROUND,
+	DEFAULT_BUTTON_SIZE,
+	DEFAULT_BUTTON_VARIANT
 } from '@components/Buttons/components/Button/common/constants';
-import { __DEFAULT_STACK_DIRECTION__ } from '@components/Layout/components/Stacks/Stack/common/constants';
+import { DEFAULT_STACK_DIRECTION } from '@components/Layout/components/Stacks/Stack/common/constants';
 
 import { ButtonGroupContext } from '../../ButtonGroup';
-import { __DEFAULT_BUTTON_GROUP_IS_ATTACHED__ } from '../constants';
+import { DEFAULT_BUTTON_GROUP_IS_ATTACHED } from '../constants';
 import type { ButtonGroupContext as ButtonGroupContextType, ButtonGroupElement } from '../types';
 
 import useButtonGroupResponsiveValues from './useButtonGroupResponsiveValues';
@@ -20,14 +20,14 @@ const useButtonGroupContext = <Element extends ButtonGroupElement>() => {
 	const {
 		color,
 		colorMode,
-		direction: directionProp = __DEFAULT_STACK_DIRECTION__,
-		isAttached: isAttachedProp = __DEFAULT_BUTTON_GROUP_IS_ATTACHED__,
-		isCompact: isCompactProp = __DEFAULT_BUTTON_IS_COMPACT__,
-		isDisabled: isDisabledProp = __DEFAULT_BUTTON_IS_DISABLED__,
-		isFullWidth: isFullWidthProp = __DEFAULT_BUTTON_IS_FULLWIDTH__,
-		isRound: isRoundProp = __DEFAULT_BUTTON_IS_ROUND__,
-		size: sizeProp = __DEFAULT_BUTTON_SIZE__,
-		variant: variantProp = __DEFAULT_BUTTON_VARIANT__
+		direction: directionProp = DEFAULT_STACK_DIRECTION,
+		isAttached: isAttachedProp = DEFAULT_BUTTON_GROUP_IS_ATTACHED,
+		isCompact: isCompactProp = DEFAULT_BUTTON_IS_COMPACT,
+		isDisabled: isDisabledProp = DEFAULT_BUTTON_IS_DISABLED,
+		isFullWidth: isFullWidthProp = DEFAULT_BUTTON_IS_FULLWIDTH,
+		isRound: isRoundProp = DEFAULT_BUTTON_IS_ROUND,
+		size: sizeProp = DEFAULT_BUTTON_SIZE,
+		variant: variantProp = DEFAULT_BUTTON_VARIANT
 	} = useContext<ButtonGroupContextType<Element>>(ButtonGroupContext);
 
 	const { direction, isAttached, isCompact, isDisabled, isFullWidth, isRound, size, variant } =

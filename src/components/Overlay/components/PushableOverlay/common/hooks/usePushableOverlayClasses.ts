@@ -4,24 +4,24 @@ import classNames from 'classnames';
 
 import classes from '@common/classes';
 import {
-	__DEFAULT_BORDER_STYLE__,
-	__DEFAULT_COLOR__,
-	__DEFAULT_OUTLINE_OFFSET__,
-	__DEFAULT_OUTLINE_WIDTH__,
-	__DEFAULT_RADIUS__
+	DEFAULT_BORDER_STYLE,
+	DEFAULT_COLOR,
+	DEFAULT_OUTLINE_OFFSET,
+	DEFAULT_OUTLINE_WIDTH,
+	DEFAULT_RADIUS
 } from '@common/constants';
 import { useAppTheme, useConst } from '@common/hooks';
 import type { ClassName, PolymorphicElementType } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import {
-	__DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
-	__DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
-	__DEFAULT_PUSHABLE_OVERLAY_IS_FIXED__,
-	__DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED__,
-	__DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
-	__DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__,
-	__DEFAULT_PUSHABLE_OVERLAY_VARIANT__
+	DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE,
+	DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED,
+	DEFAULT_PUSHABLE_OVERLAY_IS_FIXED,
+	DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED,
+	DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE,
+	DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE,
+	DEFAULT_PUSHABLE_OVERLAY_VARIANT
 } from '../constants';
 import type { PushableOverlayProps } from '../types';
 
@@ -46,19 +46,19 @@ type UsePushableOverlayClassesReturn = ClassName;
 const usePushableOverlayClasses = <Element extends PolymorphicElementType>(
 	props: UsePushableOverlayClassesProps<Element>
 ): UsePushableOverlayClassesReturn => {
-	const { colorMode: __DEFAULT_PUSHABLE_OVERLAY_COLORMODE__ } = useAppTheme();
+	const { colorMode: DEFAULT_PUSHABLE_OVERLAY_COLORMODE } = useAppTheme();
 
 	const {
-		color = __DEFAULT_COLOR__,
-		colorMode = __DEFAULT_PUSHABLE_OVERLAY_COLORMODE__,
-		isActive: isActiveProp = __DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE__,
+		color = DEFAULT_COLOR,
+		colorMode = DEFAULT_PUSHABLE_OVERLAY_COLORMODE,
+		isActive: isActiveProp = DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE,
 
-		isDisabled: isDisabledProp = __DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED__,
-		isFixed: isFixedProp = __DEFAULT_PUSHABLE_OVERLAY_IS_FIXED__,
-		isOutlined: isOutlinedProp = __DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED__,
-		isPushable: isPushableProp = __DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE__,
-		radius: radiusProp = __DEFAULT_RADIUS__,
-		variant: variantProp = __DEFAULT_PUSHABLE_OVERLAY_VARIANT__
+		isDisabled: isDisabledProp = DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED,
+		isFixed: isFixedProp = DEFAULT_PUSHABLE_OVERLAY_IS_FIXED,
+		isOutlined: isOutlinedProp = DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED,
+		isPushable: isPushableProp = DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE,
+		radius: radiusProp = DEFAULT_RADIUS,
+		variant: variantProp = DEFAULT_PUSHABLE_OVERLAY_VARIANT
 	} = props;
 
 	const { isActive, isDisabled, isFixed, isOutlined, isPushable, radius, variant } =
@@ -73,7 +73,7 @@ const usePushableOverlayClasses = <Element extends PolymorphicElementType>(
 		});
 
 	const rootClasses = useMemo<ClassName>(() => {
-		const { base } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { base } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		const outlineHue = getColorHue({ colorMode, type: 'background' });
 
@@ -83,7 +83,7 @@ const usePushableOverlayClasses = <Element extends PolymorphicElementType>(
 			classes.interactivity.will_change.auto,
 			{
 				[classes.borders.border_width.before[base]]: variant !== 'transparent' && variant !== 'unstyled',
-				[classes.borders.border_style.before[__DEFAULT_BORDER_STYLE__]]:
+				[classes.borders.border_style.before[DEFAULT_BORDER_STYLE]]:
 					variant !== 'transparent' && variant !== 'unstyled',
 				[classes.borders.border_color.transparent]: variant !== 'transparent' && variant !== 'unstyled',
 				[classes.borders.border_radius[radius]]: variant !== 'transparent' && variant !== 'unstyled',
@@ -91,12 +91,12 @@ const usePushableOverlayClasses = <Element extends PolymorphicElementType>(
 				[classes.layout.display.outline]: isOutlined,
 				[classes.borders.outline_color.gray[outlineHue]]: isOutlined,
 				[classes.borders.outline_style.solid]: isOutlined,
-				[classes.borders.outline_width[__DEFAULT_OUTLINE_WIDTH__]]: isOutlined,
+				[classes.borders.outline_width[DEFAULT_OUTLINE_WIDTH]]: isOutlined,
 				[classes.borders.outline_offset[0]]: isOutlined,
 				[classes.layout.display.focus_visible.outline]: isPushable && !isFixed,
 				[classes.borders.outline_style.focus_visible.dashed]: isPushable && !isFixed,
-				[classes.borders.outline_width.focus_visible[__DEFAULT_OUTLINE_WIDTH__]]: isPushable && !isFixed,
-				[classes.borders.outline_offset.focus_visible[__DEFAULT_OUTLINE_OFFSET__]]: isPushable && !isFixed
+				[classes.borders.outline_width.focus_visible[DEFAULT_OUTLINE_WIDTH]]: isPushable && !isFixed,
+				[classes.borders.outline_offset.focus_visible[DEFAULT_OUTLINE_OFFSET]]: isPushable && !isFixed
 			}
 		);
 	}, [colorMode, isDisabled, isFixed, isOutlined, isPushable, radius, variant]);
@@ -113,7 +113,7 @@ const usePushableOverlayClasses = <Element extends PolymorphicElementType>(
 	);
 
 	const pushableClasses = useMemo<ClassName>(() => {
-		const { base, pushable } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { base, pushable } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		return classNames(
 			classes.interactivity.cursor[!isFixed ? 'pointer' : 'default'],
@@ -127,13 +127,13 @@ const usePushableOverlayClasses = <Element extends PolymorphicElementType>(
 	}, [isPushable, isFixed, variant]);
 
 	const pushableHoverClasses = useMemo<ClassName>(() => {
-		const { active, hover } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { active, hover } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		return classNames(classes.borders.border_t_width.hover[active], classes.borders.border_b_width.hover[hover]);
 	}, []);
 
 	const pushableActiveClasses = useMemo<ClassName>(() => {
-		const { active, hover } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { active, hover } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		return classNames(
 			classes.borders.border_t_width.active[hover],
@@ -144,7 +144,7 @@ const usePushableOverlayClasses = <Element extends PolymorphicElementType>(
 	}, []);
 
 	const activeClasses = useMemo<ClassName>(() => {
-		const { active, hover } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { active, hover } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		return classNames(classes.interactivity.cursor.default, classes.interactivity.pointer_events.none, {
 			[classes.borders.border_t_width[hover]]: variant !== 'transparent' && variant !== 'unstyled',
@@ -153,7 +153,7 @@ const usePushableOverlayClasses = <Element extends PolymorphicElementType>(
 	}, [variant]);
 
 	const disabledClasses = useMemo<ClassName>(() => {
-		const { active, hover } = __DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE__;
+		const { active, hover } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;
 
 		return classNames(classes.interactivity.cursor.default, classes.interactivity.pointer_events.none, {
 			[classes.effects.opacity[50]]: variant !== 'unstyled',

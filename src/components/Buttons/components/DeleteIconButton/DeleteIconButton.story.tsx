@@ -2,7 +2,7 @@ import { Center } from '../../../Layout';
 import React from 'react';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
-import { __DEFAULT_DELETE_ICON_BUTTON_HAS_TOOLTIP__ } from './common/constants';
+import { DEFAULT_DELETE_ICON_BUTTON_HAS_TOOLTIP } from './common/constants';
 import type { DeleteIconButtonDefaultElement, DeleteIconButtonProps } from './common/types';
 import type { DeleteIconButtonStory, DeleteIconButtonStoryMeta } from './common/types/story';
 import { DeleteIconButton as DeleteIconButtonComponent } from '.';
@@ -14,7 +14,7 @@ export default {
 		hasTooltip: {
 			name: 'Has Tooltip',
 			type: 'boolean',
-			defaultValue: __DEFAULT_DELETE_ICON_BUTTON_HAS_TOOLTIP__,
+			defaultValue: DEFAULT_DELETE_ICON_BUTTON_HAS_TOOLTIP,
 			// description: '',
 			control: { type: 'boolean' }
 		}

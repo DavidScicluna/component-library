@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { __DEFAULT_CLASSNAME__ } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
@@ -11,12 +11,12 @@ import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
-	__DEFAULT_INDICATOR_IS_VISIBLE__,
-	__DEFAULT_INDICATOR_OFFSET__,
-	__DEFAULT_INDICATOR_PLACEMENT__
+	DEFAULT_INDICATOR_IS_VISIBLE,
+	DEFAULT_INDICATOR_OFFSET,
+	DEFAULT_INDICATOR_PLACEMENT
 } from './common/constants';
 import { useIndicatorResponsiveValues, useIndicatorStyles } from './common/hooks';
-import { __KEYS_INDICATOR_CLASS__ } from './common/keys';
+import { KEYS_INDICATOR_CLASS } from './common/keys';
 import type { IndicatorProps, IndicatorRef } from './common/types';
 
 const Indicator = forwardRef(function Indicator<Element extends PolymorphicElementType>(
@@ -25,11 +25,11 @@ const Indicator = forwardRef(function Indicator<Element extends PolymorphicEleme
 ): JSX.Element {
 	const {
 		children,
-		className = __DEFAULT_CLASSNAME__,
+		className = DEFAULT_CLASSNAME,
 		renderIndicator,
-		isVisible: isVisibleProp = __DEFAULT_INDICATOR_IS_VISIBLE__,
-		offset: offsetProp = __DEFAULT_INDICATOR_OFFSET__,
-		placement: placementProp = __DEFAULT_INDICATOR_PLACEMENT__,
+		isVisible: isVisibleProp = DEFAULT_INDICATOR_IS_VISIBLE,
+		offset: offsetProp = DEFAULT_INDICATOR_OFFSET,
+		placement: placementProp = DEFAULT_INDICATOR_PLACEMENT,
 		...rest
 	} = props;
 
@@ -45,7 +45,7 @@ const Indicator = forwardRef(function Indicator<Element extends PolymorphicEleme
 		<Grid
 			{...(rest as GridProps<Element>)}
 			ref={ref}
-			className={classNames(__KEYS_INDICATOR_CLASS__, { [className]: !!className })}
+			className={classNames(KEYS_INDICATOR_CLASS, { [className]: !!className })}
 			templateColumns={1}
 			templateRows={1}
 			alignItems='stretch'

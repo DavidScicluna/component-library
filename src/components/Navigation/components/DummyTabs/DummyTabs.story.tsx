@@ -1,6 +1,6 @@
 import { range, sample } from 'lodash-es';
 
-import { __DEFAULT_SPACING__ } from '../../../../common/constants';
+import { DEFAULT_SPACING } from '../../../../common/constants';
 import { appColors } from '../../../../common/data';
 import { useGetColor } from '../../../../common/hooks';
 import type { ThemeAppColor } from '../../../../common/types';
@@ -11,16 +11,16 @@ import { Text } from '../../../Typography';
 import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import {
-	__DEFAULT_DUMMY_TABS_IS_ANIMATED__,
-	__DEFAULT_DUMMY_TABS_IS_FITTED__,
-	__DEFAULT_DUMMY_TABS_SIZE__
+	DEFAULT_DUMMY_TABS_IS_ANIMATED,
+	DEFAULT_DUMMY_TABS_IS_FITTED,
+	DEFAULT_DUMMY_TABS_SIZE
 } from './common/constants';
 import type { DummyTabsAlign, DummyTabsDefaultElement, DummyTabsProps, DummyTabsSize } from './common/types';
 import type { DummyTabsStory, DummyTabsStoryMeta } from './common/types/story';
 import { DummyTab, DummyTabList, DummyTabPanels, DummyTabs as DummyTabsComponent } from '.';
 
-const __DEFAULT_DUMMY_TABS_STORY_COLOR__: ThemeAppColor = sample(appColors) || 'blue';
-const __DEFAULT_DUMMY_TABS_STORY_DUMMY_TABS__ = range(10);
+const DEFAULT_DUMMY_TABS_STORY_COLOR: ThemeAppColor = sample(appColors) || 'blue';
+const DEFAULT_DUMMY_TABS_STORY_DUMMY_TABS = range(10);
 
 export default {
 	title: 'Navigation/DummyTabs',
@@ -29,7 +29,7 @@ export default {
 		align: {
 			name: 'Align',
 			type: 'string',
-			defaultValue: __DEFAULT_DUMMY_TABS_SIZE__,
+			defaultValue: DEFAULT_DUMMY_TABS_SIZE,
 			// description: '',
 			options: ['center', 'end', 'start'] as Array<DummyTabsAlign>,
 			control: { type: 'radio' }
@@ -37,14 +37,14 @@ export default {
 		isAnimated: {
 			name: 'Animated',
 			type: 'boolean',
-			defaultValue: __DEFAULT_DUMMY_TABS_IS_ANIMATED__,
+			defaultValue: DEFAULT_DUMMY_TABS_IS_ANIMATED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
 		isFitted: {
 			name: 'Fitted',
 			type: 'boolean',
-			defaultValue: __DEFAULT_DUMMY_TABS_IS_FITTED__,
+			defaultValue: DEFAULT_DUMMY_TABS_IS_FITTED,
 			// description: '',
 			control: { type: 'boolean' }
 		},
@@ -52,7 +52,7 @@ export default {
 		size: {
 			name: 'Size',
 			type: 'string',
-			defaultValue: __DEFAULT_DUMMY_TABS_SIZE__,
+			defaultValue: DEFAULT_DUMMY_TABS_SIZE,
 			// description: '',
 			options: ['xs', 'sm', 'md', 'lg', 'xl'] as Array<DummyTabsSize>,
 			control: { type: 'radio' }
@@ -60,7 +60,7 @@ export default {
 		spacing: {
 			name: 'Spacing (0-24 , .0, .25, .5 or .75)',
 			type: 'number',
-			defaultValue: __DEFAULT_SPACING__,
+			defaultValue: DEFAULT_SPACING,
 			// description: '',
 			control: { type: 'number' }
 		}
@@ -75,14 +75,14 @@ export const DummyTabs: DummyTabsStory = (props: DummyTabsProps<DummyTabsDefault
 	return (
 		<DummyTabsComponent {...props} color={color} colorMode={colorMode} w='100%'>
 			<DummyTabList>
-				{__DEFAULT_DUMMY_TABS_STORY_DUMMY_TABS__.map((dummytab, index) => (
-					<DummyTab key={dummytab} color={!color ? __DEFAULT_DUMMY_TABS_STORY_COLOR__ : color} index={index}>
+				{DEFAULT_DUMMY_TABS_STORY_DUMMY_TABS.map((dummytab, index) => (
+					<DummyTab key={dummytab} color={!color ? DEFAULT_DUMMY_TABS_STORY_COLOR : color} index={index}>
 						{`Dummy Tab ${index + 1}`}
 					</DummyTab>
 				))}
 			</DummyTabList>
 			<DummyTabPanels>
-				{__DEFAULT_DUMMY_TABS_STORY_DUMMY_TABS__.map((dummytab, index) => (
+				{DEFAULT_DUMMY_TABS_STORY_DUMMY_TABS.map((dummytab, index) => (
 					<Center key={dummytab} p={4}>
 						<Text align='center' color={text}>
 							{`Dummy Tab ${index + 1} Panel`}

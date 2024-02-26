@@ -7,9 +7,9 @@ import type {
 	JustifyItemsClass
 } from '@common/types';
 
-export const __DEFAULT_GRID_ALIGN_CONTENT__: AlignContentClass = 'normal';
-export const __DEFAULT_GRID_ALIGN_ITEMS__: AlignItemsClass = 'stretch';
-export const __DEFAULT_GRID_JUSTIFY_CONTENT__: JustifyContentClass = 'normal';
-export const __DEFAULT_GRID_JUSTIFY_ITEMS__: JustifyItemsClass = 'stretch';
-export const __DEFAULT_GRID_TEMPLATE_COLUMNS__: GridTemplateColumnsClass = 'none';
-export const __DEFAULT_GRID_TEMPLATE_ROWS__: GridTemplateRowsClass = 'none';
+export const DEFAULT_GRID_ALIGN_CONTENT: AlignContentClass = 'normal';
+export const DEFAULT_GRID_ALIGN_ITEMS: AlignItemsClass = 'stretch';
+export const DEFAULT_GRID_JUSTIFY_CONTENT: JustifyContentClass = 'normal';
+export const DEFAULT_GRID_JUSTIFY_ITEMS: JustifyItemsClass = 'stretch';
+export const DEFAULT_GRID_TEMPLATE_COLUMNS: GridTemplateColumnsClass = 'none';
+export const DEFAULT_GRID_TEMPLATE_ROWS: GridTemplateRowsClass = 'none';
