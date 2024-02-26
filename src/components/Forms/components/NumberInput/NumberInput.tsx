@@ -27,6 +27,7 @@ import {
 	__DEFAULT_NUMBER_INPUT_IS_DISABLED__,
 	__DEFAULT_NUMBER_INPUT_IS_ERROR__,
 	__DEFAULT_NUMBER_INPUT_IS_FOCUSED__,
+	__DEFAULT_NUMBER_INPUT_IS_FULLWIDTH__,
 	__DEFAULT_NUMBER_INPUT_IS_NEGATIVE_ALLOWED__,
 	__DEFAULT_NUMBER_INPUT_IS_OUTLINED__,
 	__DEFAULT_NUMBER_INPUT_IS_READONLY__,
@@ -80,8 +81,6 @@ const NumberInput = forwardRef(function NumberInput<Element extends NumberInputE
 		as = __DEFAULT_NUMBER_INPUT_AS__,
 		id = __DEFAULT_FORM_CONTROL_ID__,
 		className = __DEFAULT_CLASSNAME__,
-		w,
-		h,
 		renderLeft,
 		renderRight,
 		color = __DEFAULT_FORM_CONTROL_COLOR__,
@@ -89,6 +88,7 @@ const NumberInput = forwardRef(function NumberInput<Element extends NumberInputE
 		placeholder,
 		isCompact: isCompactProp = __DEFAULT_NUMBER_INPUT_IS_COMPACT__,
 		isDisabled: isDisabledProp = __DEFAULT_FORM_CONTROL_IS_DISABLED__,
+		isFullWidth: isFullWidthProp = __DEFAULT_NUMBER_INPUT_IS_FULLWIDTH__,
 		isError: isErrorProp = __DEFAULT_FORM_CONTROL_IS_ERROR__,
 		isFocused: isFocusedProp = __DEFAULT_FORM_CONTROL_IS_FOCUSED__,
 		isOutlined: isOutlinedProp = __DEFAULT_NUMBER_INPUT_IS_OUTLINED__,
@@ -119,6 +119,7 @@ const NumberInput = forwardRef(function NumberInput<Element extends NumberInputE
 	const {
 		isCompact,
 		isDisabled,
+		isFullWidth,
 		isError,
 		isFocused: focused,
 		isOutlined,
@@ -133,6 +134,7 @@ const NumberInput = forwardRef(function NumberInput<Element extends NumberInputE
 	} = useNumberInputResponsiveValues<Element>({
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
+		isFullWidth: isFullWidthProp,
 		isError: isErrorProp,
 		isFocused: isFocusedProp,
 		isOutlined: isOutlinedProp,
@@ -269,8 +271,8 @@ const NumberInput = forwardRef(function NumberInput<Element extends NumberInputE
 		<Grid
 			{...focusProps}
 			className={classNames(__KEYS_NUMBER_INPUT_CLASS__, classes.container, { [className]: !!className })}
-			w={hasFormControl ? '100%' : w}
-			h={hasFormControl ? '100%' : h}
+			w={hasFormControl || isFullWidth ? '100%' : undefined}
+			h={hasFormControl ? '100%' : undefined}
 			templateColumns={['1fr', 'auto'].join(' ')}
 			templateRows={1}
 			onClick={handleClick}

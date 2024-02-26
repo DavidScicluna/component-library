@@ -5,6 +5,7 @@ import {
 	__DEFAULT_NUMBER_INPUT_IS_DISABLED__,
 	__DEFAULT_NUMBER_INPUT_IS_ERROR__,
 	__DEFAULT_NUMBER_INPUT_IS_FOCUSED__,
+	__DEFAULT_NUMBER_INPUT_IS_FULLWIDTH__,
 	__DEFAULT_NUMBER_INPUT_IS_NEGATIVE_ALLOWED__,
 	__DEFAULT_NUMBER_INPUT_IS_OUTLINED__,
 	__DEFAULT_NUMBER_INPUT_IS_READONLY__,
@@ -20,6 +21,7 @@ import type { NumberInputElement, NumberInputProps, NumberInputSize, NumberInput
 type PickedNumberInputProps =
 	| 'isCompact'
 	| 'isDisabled'
+	| 'isFullWidth'
 	| 'isError'
 	| 'isFocused'
 	| 'isOutlined'
@@ -41,6 +43,7 @@ const useNumberInputResponsiveValues = <Element extends NumberInputElement>(
 	const {
 		isCompact: isCompactProp = __DEFAULT_NUMBER_INPUT_IS_COMPACT__,
 		isDisabled: isDisabledProp = __DEFAULT_NUMBER_INPUT_IS_DISABLED__,
+		isFullWidth: isFullWidthProp = __DEFAULT_NUMBER_INPUT_IS_FULLWIDTH__,
 		isError: isErrorProp = __DEFAULT_NUMBER_INPUT_IS_ERROR__,
 		isFocused: isFocusedProp = __DEFAULT_NUMBER_INPUT_IS_FOCUSED__,
 		isOutlined: isOutlinedProp = __DEFAULT_NUMBER_INPUT_IS_OUTLINED__,
@@ -56,6 +59,7 @@ const useNumberInputResponsiveValues = <Element extends NumberInputElement>(
 
 	const isCompact = useGetResponsiveValue<boolean>(isCompactProp);
 	const isDisabled = useGetResponsiveValue<boolean>(isDisabledProp);
+	const isFullWidth = useGetResponsiveValue<boolean>(isFullWidthProp);
 	const isError = useGetResponsiveValue<boolean>(isErrorProp);
 	const isFocused = useGetResponsiveValue<boolean>(isFocusedProp);
 	const isOutlined = useGetResponsiveValue<boolean>(isOutlinedProp);
@@ -73,6 +77,7 @@ const useNumberInputResponsiveValues = <Element extends NumberInputElement>(
 	return {
 		isCompact,
 		isDisabled,
+		isFullWidth,
 		isError,
 		isFocused,
 		isOutlined,

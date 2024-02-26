@@ -8,7 +8,7 @@ import type {
 	ResponsiveValue
 } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
 
 export type NumberInputDefaultElement = 'input';
@@ -34,6 +34,7 @@ type PickedFormsCommonProps =
 	| 'colorMode'
 	| 'isCompact'
 	| 'isDisabled'
+	| 'isFullWidth'
 	| 'isError'
 	| 'isFocused'
 	| 'isOutlined'
@@ -62,11 +63,9 @@ type NumberInputOtherProps<Element extends NumberInputElement> = {
 	onDecrement?: (value: number) => void;
 } & Pick<FormsCommonProps, PickedFormsCommonProps>;
 
-type OmittedBoxProps = 'children' | keyof Omit<BoxOtherProps, 'w' | 'minW' | 'maxW' | 'h' | 'minH' | 'maxH'>;
-
 export type NumberInputProps<Element extends NumberInputElement> = Omit<
 	BoxProps<Element, NumberInputOtherProps<Element>>,
-	OmittedBoxProps
+	'children'
 >;
 
 export type NumberInputRef<Element extends NumberInputElement> = BoxRef<Element>;
