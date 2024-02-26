@@ -24,7 +24,7 @@ const Box = forwardRef(function Box<Element extends PolymorphicElementType>(
 		...rest
 	} = props;
 
-	const styles = useBoxStyles<Element>(pick({ ...rest }, __KEYS_BOX__));
+	const styles = useBoxStyles(pick({ ...rest }, __KEYS_BOX__));
 
 	return (
 		<Component
