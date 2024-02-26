@@ -10,7 +10,7 @@ import { Icon } from '@components/DataDisplay';
 import { useDummyButtonContext, useDummyButtonFontSize } from '../../common/hooks';
 import { DummyButtonSkeleton } from '../DummyButtonSkeleton';
 
-import { __DEFAULT_DUMMY_BUTTON_ICON_AS__ } from './common/constants';
+import { __DEFAULT_DUMMY_BUTTON_ICON_AS__, __DEFAULT_DUMMY_BUTTON_ICON_VARIANT__ } from './common/constants';
 import { __KEY_DUMMY_BUTTON_ICON_CLASS__ } from './common/keys';
 import type { DummyButtonIconElement, DummyButtonIconProps, DummyButtonIconRef } from './common/types';
 
@@ -29,6 +29,7 @@ const DummyButtonIcon = forwardRef(function DummyButtonIcon<Element extends Dumm
 		className = __DEFAULT_CLASSNAME__,
 		color = __DEFAULT_DUMMY_BUTTON_ICON_COLOR__,
 		colorMode = __DEFAULT_DUMMY_BUTTON_ICON_COLORMODE__,
+		variant = __DEFAULT_DUMMY_BUTTON_ICON_VARIANT__,
 		...rest
 	} = props;
 
@@ -46,7 +47,7 @@ const DummyButtonIcon = forwardRef(function DummyButtonIcon<Element extends Dumm
 				color={color}
 				colorMode={colorMode}
 				size={`${fontSize}px`}
-				variant='unstyled'
+				variant={variant}
 			/>
 		</DummyButtonSkeleton>
 	);
