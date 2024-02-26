@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import { __DEFAULT_CLASSNAME__ } from '@common/constants';
 
-import { __DEFAULT_DUMMY_ICON_BUTTON_ICON_AS__ } from '@components/Buttons';
+import { __DEFAULT_DUMMY_ICON_BUTTON_ICON_AS__, __DEFAULT_DUMMY_ICON_BUTTON_ICON_VARIANT__ } from '@components/Buttons';
 import type { IconProps } from '@components/DataDisplay';
 import { Icon } from '@components/DataDisplay';
 
@@ -29,6 +29,7 @@ const DummyBadgeIcon = forwardRef(function DummyBadgeIcon<Element extends DummyB
 		className = __DEFAULT_CLASSNAME__,
 		color = __DEFAULT_DUMMY_ICON_BUTTON_ICON_COLOR__,
 		colorMode = __DEFAULT_DUMMY_ICON_BUTTON_ICON_COLORMODE__,
+		variant = __DEFAULT_DUMMY_ICON_BUTTON_ICON_VARIANT__,
 		...rest
 	} = props;
 
@@ -46,7 +47,7 @@ const DummyBadgeIcon = forwardRef(function DummyBadgeIcon<Element extends DummyB
 				color={color}
 				colorMode={colorMode}
 				size={`${fontSize}px`}
-				variant='unstyled'
+				variant={variant}
 			/>
 		</DummyBadgeSkeleton>
 	);
