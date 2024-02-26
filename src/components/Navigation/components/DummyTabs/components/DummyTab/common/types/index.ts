@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 import type { PolymorphicElementType, ResponsiveValue, ThemeAppAppearanceProps, ThemeSpacing } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type DummyTabRenderProps<Element extends PolymorphicElementType> = Pick<
 	DummyTabOtherProps<Element>,
@@ -33,9 +33,6 @@ type DummyTabOtherProps<Element extends PolymorphicElementType> = ThemeAppAppear
 	spacing?: ResponsiveValue<ThemeSpacing>;
 };
 
-export type DummyTabProps<Element extends PolymorphicElementType> = Omit<
-	BoxProps<Element, DummyTabOtherProps<Element>>,
-	keyof BoxOtherProps
->;
+export type DummyTabProps<Element extends PolymorphicElementType> = BoxProps<Element, DummyTabOtherProps<Element>>;
 
 export type DummyTabRef<Element extends PolymorphicElementType> = BoxRef<Element>;

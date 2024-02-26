@@ -10,7 +10,7 @@ import { Icon } from '@components/DataDisplay';
 import { useDummyTabsContext, useDummyTabsDummyTabFontSize } from '../../common/hooks';
 import { DummyTabSkeleton } from '../DummyTabSkeleton';
 
-import { __DEFAULT_DUMMY_TAB_ICON_AS__ } from './common/constants';
+import { __DEFAULT_DUMMY_TAB_ICON_AS__, __DEFAULT_DUMMY_TAB_ICON_VARIANT__ } from './common/constants';
 import { __KEYS_DUMMY_TAB_ICON_CLASS__ } from './common/keys';
 import type { DummyTabIconElement, DummyTabIconProps, DummyTabIconRef } from './common/types';
 
@@ -29,6 +29,7 @@ const DummyTabIcon = forwardRef(function DummyTabIcon<Element extends DummyTabIc
 		className = __DEFAULT_CLASSNAME__,
 		color = __DEFAULT_DUMMY_TAB_ICON_COLOR__,
 		colorMode = __DEFAULT_DUMMY_TAB_ICON_COLORMODE__,
+		variant = __DEFAULT_DUMMY_TAB_ICON_VARIANT__,
 		...rest
 	} = props;
 
@@ -46,7 +47,7 @@ const DummyTabIcon = forwardRef(function DummyTabIcon<Element extends DummyTabIc
 				color={color}
 				colorMode={colorMode}
 				size={`${fontSize}px`}
-				variant='unstyled'
+				variant={variant}
 			/>
 		</DummyTabSkeleton>
 	);
