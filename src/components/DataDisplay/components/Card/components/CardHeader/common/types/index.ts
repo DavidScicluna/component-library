@@ -21,7 +21,7 @@ type CardHeaderOtherProps = Pick<GridProps<PolymorphicDefaultElement>, 'spacing'
 
 export type CardHeaderProps<Element extends PolymorphicElementType> = Omit<
 	BoxProps<Element, CardHeaderOtherProps>,
-	'children' | 'w' | 'h'
+	'children'
 >;
 
 export type CardHeaderRef<Element extends PolymorphicElementType> = BoxRef<Element>;
