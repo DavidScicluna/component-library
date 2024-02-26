@@ -1,22 +1,22 @@
-import { icons } from '@common/data';
-import type { FlexDirectionClassArr } from '@common/types';
+import { icons } from '../../../../common/data';
+import type { FlexDirectionClassArr } from '../../../../common/types';
 
-import type { IconButtonSize, IconButtonVariant } from '@components/Buttons';
-import { IconButton, IconButtonIcon } from '@components/Buttons';
+import type { IconButtonSize, IconButtonVariant } from '../IconButton';
+import { IconButton, IconButtonIcon } from '../IconButton';
 import {
 	__DEFAULT_ICON_BUTTON_IS_COMPACT__,
 	__DEFAULT_ICON_BUTTON_IS_DISABLED__,
 	__DEFAULT_ICON_BUTTON_IS_ROUND__,
 	__DEFAULT_ICON_BUTTON_SIZE__,
 	__DEFAULT_ICON_BUTTON_VARIANT__
-} from '@components/Buttons/components/IconButton/common/constants';
-import { Center } from '@components/Layout';
-import { __DEFAULT_STACK_DIRECTION__ } from '@components/Layout/components/Stacks/Stack/common/constants';
-
-import { useStorybookContext } from '@components/Provider/components/StorybookProvider';
+} from '../IconButton/common/constants';
+import { Center } from '../../../Layout';
+import { __DEFAULT_STACK_DIRECTION__ } from '../../../Layout/components/Stacks/Stack/common/constants';
+import React from 'react';
+import { useStorybookContext } from '../../../Provider/components/StorybookProvider';
 
 import { __DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED__ } from './common/constants';
-import type { IconButtonGroupProps } from './common/types';
+import type { IconButtonGroupDefaultElement, IconButtonGroupProps } from './common/types';
 import type { IconButtonGroupStory, IconButtonGroupStoryMeta } from './common/types/story';
 import { IconButtonGroupItem } from './components';
 import { IconButtonGroup as IconButtonGroupComponent } from '.';
@@ -82,7 +82,9 @@ export default {
 	}
 } as IconButtonGroupStoryMeta;
 
-export const IconButtonGroup: IconButtonGroupStory = (props: IconButtonGroupProps<any>): JSX.Element => {
+export const IconButtonGroup: IconButtonGroupStory = (
+	props: IconButtonGroupProps<IconButtonGroupDefaultElement>
+): JSX.Element => {
 	const { color, colorMode } = useStorybookContext();
 
 	return (
