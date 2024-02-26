@@ -5,7 +5,7 @@ import type {
 	ThemeAppAppearanceProps
 } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 import type { DummyPushableOverlayProps } from '@components/Overlay';
 
 export type DummyIconButtonDefaultElement = PolymorphicDefaultElement;
@@ -42,9 +42,9 @@ type DummyIconButtonOtherProps<Element extends DummyIconButtonElement> = ThemeAp
 	variant?: ResponsiveValue<DummyIconButtonVariant>;
 } & Pick<DummyPushableOverlayProps<Element>, 'isAnimated' | 'isOutlined'>;
 
-export type DummyIconButtonProps<Element extends DummyIconButtonElement> = Omit<
-	BoxProps<Element, DummyIconButtonOtherProps<Element>>,
-	keyof BoxOtherProps
+export type DummyIconButtonProps<Element extends DummyIconButtonElement> = BoxProps<
+	Element,
+	DummyIconButtonOtherProps<Element>
 >;
 
 export type DummyIconButtonRef<Element extends DummyIconButtonElement> = BoxRef<Element>;
