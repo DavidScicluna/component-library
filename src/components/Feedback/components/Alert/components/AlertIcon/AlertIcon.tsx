@@ -14,7 +14,7 @@ import { __DEFAULT_ALERT_LINE_HEIGHT_SIZE__ } from '../../common/constants';
 import { useAlertContext } from '../../common/hooks';
 import { getStatusColor, getStatusIcon } from '../../common/utils';
 
-import { __DEFAULT_ALERT_ICON_AS__ } from './common/constants';
+import { __DEFAULT_ALERT_ICON_AS__, __DEFAULT_ALERT_ICON_VARIANT__ } from './common/constants';
 import { __KEYS_ALERT_ICON_CLASS__ } from './common/keys';
 import type { AlertIconElement, AlertIconProps, AlertIconRef } from './common/types';
 
@@ -34,6 +34,7 @@ const AlertIcon = forwardRef(function AlertIcon<Element extends AlertIconElement
 		color: c = __DEFAULT_ALERT_ICON_COLOR__,
 		colorMode = __DEFAULT_ALERT_ICON_COLORMODE__,
 		icon,
+		variant = __DEFAULT_ALERT_ICON_VARIANT__,
 		...rest
 	} = props;
 
@@ -69,7 +70,7 @@ const AlertIcon = forwardRef(function AlertIcon<Element extends AlertIconElement
 			colorMode={colorMode}
 			icon={icon || statusIcon}
 			size={`${size}px`}
-			variant='unstyled'
+			variant={variant}
 			sx={{ color }}
 		/>
 	);

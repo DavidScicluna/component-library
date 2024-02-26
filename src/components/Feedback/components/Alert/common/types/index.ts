@@ -10,7 +10,7 @@ import type {
 } from '@common/types';
 
 // TODO: Check all components sub folder and replace all imports to import from root instead
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 import type { IconButtonDefaultElement, IconButtonProps } from '@components/Buttons';
 
 export type AlertDefaultElement = PolymorphicDefaultElement;
@@ -74,7 +74,7 @@ type AlertOtherProps = ThemeAppAppearanceProps & {
 	variant?: ResponsiveValue<AlertVariant>;
 };
 
-export type AlertProps<Element extends AlertElement> = Omit<BoxProps<Element, AlertOtherProps>, keyof BoxOtherProps>;
+export type AlertProps<Element extends AlertElement> = BoxProps<Element, AlertOtherProps>;
 
 export type AlertRef<Element extends AlertElement> = BoxRef<Element>;
 
