@@ -7,7 +7,7 @@ import type {
 	ThemeAppAppearanceProps
 } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 import type { PushableOverlayProps } from '@components/Overlay';
 
 export type ButtonDefaultElement = 'button';
@@ -66,10 +66,7 @@ type ButtonOtherProps<Element extends ButtonElement> = ThemeAppAppearanceProps &
 	variant?: ResponsiveValue<ButtonVariant>;
 } & Pick<PushableOverlayProps<Element>, 'isActive' | 'isDisabled' | 'isFocused' | 'isOutlined'>;
 
-export type ButtonProps<Element extends ButtonElement> = Omit<
-	BoxProps<Element, ButtonOtherProps<Element>>,
-	keyof BoxOtherProps
->;
+export type ButtonProps<Element extends ButtonElement> = BoxProps<Element, ButtonOtherProps<Element>>;
 
 export type ButtonRef<Element extends ButtonElement> = BoxRef<Element>;
 

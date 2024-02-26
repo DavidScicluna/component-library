@@ -9,7 +9,7 @@ import { Icon } from '@components/DataDisplay';
 
 import { useButtonContext, useButtonFontSize } from '../../common/hooks';
 
-import { __DEFAULT_BUTTON_ICON_AS__ } from './common/constants';
+import { __DEFAULT_BUTTON_ICON_AS__, __DEFAULT_BUTTON_ICON_VARIANT__ } from './common/constants';
 import { __KEYS_BUTTON_ICON_CLASS__ } from './common/keys';
 import type { ButtonIconElement, ButtonIconProps, ButtonIconRef } from './common/types';
 
@@ -28,6 +28,7 @@ const ButtonIcon = forwardRef(function ButtonIcon<Element extends ButtonIconElem
 		className = __DEFAULT_CLASSNAME__,
 		color = __DEFAULT_BUTTON_ICON_COLOR__,
 		colorMode = __DEFAULT_BUTTON_ICON_COLORMODE__,
+		variant = __DEFAULT_BUTTON_ICON_VARIANT__,
 		...rest
 	} = props;
 
@@ -44,7 +45,7 @@ const ButtonIcon = forwardRef(function ButtonIcon<Element extends ButtonIconElem
 			color={color}
 			colorMode={colorMode}
 			size={`${fontSize}px`}
-			variant='unstyled'
+			variant={variant}
 		/>
 	);
 });
