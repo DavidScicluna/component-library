@@ -58,7 +58,6 @@ const AlertIcon = forwardRef(function AlertIcon<Element extends AlertIconElement
 			{...(rest as IconProps<Element>)}
 			as={as}
 			ref={ref}
-			// TODO: Maybe create a function that generates class names
 			className={classNames(KEYS_ALERT_ICON_CLASS, { [className]: !!className })}
 			w={`${size}px`}
 			h={`${size}px`}

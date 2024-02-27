@@ -9,7 +9,6 @@ import type {
 	ThemeSpacing
 } from '@common/types';
 
-// TODO: Check all components sub folder and replace all imports to import from root instead
 import type { BoxProps, BoxRef } from '@components/Box';
 import type { IconButtonDefaultElement, IconButtonProps } from '@components/Buttons';
 

@@ -19,7 +19,6 @@ type UsePositionOverlayClassesProps<Element extends PolymorphicElementType> = Pi
 >;
 type UsePositionOverlayClassesReturn = Record<'container' | 'overlay', ClassName>;
 
-// TODO: Remove Get from all GetClasses hooks names
 const usePositionOverlayClasses = <Element extends PolymorphicElementType>(
 	props: UsePositionOverlayClassesProps<Element>
 ): UsePositionOverlayClassesReturn => {

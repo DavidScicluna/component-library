@@ -19,7 +19,6 @@ type UseLoadingOverlayClassesProps<Element extends PolymorphicElementType> = Pic
 >;
 type UseLoadingOverlayClassesReturn = Record<'container' | 'overlay', ClassName>;
 
-// TODO: Remove Get from all GetClasses hooks names
 const useLoadingOverlayClasses = <Element extends PolymorphicElementType>(
 	props: UseLoadingOverlayClassesProps<Element>
 ): UseLoadingOverlayClassesReturn => {

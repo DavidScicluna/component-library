@@ -33,7 +33,6 @@ const ConfirmModalIcon = forwardRef(function ConfirmModalIcon<Element extends Co
 			{...(rest as IconProps<Element>)}
 			as={as}
 			ref={ref}
-			// TODO: Maybe create a function that generates class names
 			className={classNames(KEYS_CONFIRM_MODAL_ICON_CLASS, { [className]: !!className })}
 			color={color}
 			colorMode={colorMode}
