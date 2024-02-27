@@ -9,6 +9,7 @@ import type {
 	ThemeSpacing
 } from '@common/types';
 
+import type { TransitionKey } from '@components/Animation';
 import type { BoxProps, BoxRef } from '@components/Box';
 
 export type ConfirmModalDefaultElement = 'dialog';
@@ -87,6 +88,12 @@ type ConfirmModalOtherProps<Element extends ConfirmModalElement> = ThemeAppAppea
 	 */
 	size?: ResponsiveValue<ConfirmModalSize>;
 	spacing?: ResponsiveValue<ThemeSpacing>;
+	/**
+	 * Transition name for the modal
+	 *
+	 * @default 'fade'
+	 */
+	transition?: ResponsiveValue<TransitionKey>;
 };
 
 export type ConfirmModalProps<Element extends ConfirmModalElement> = BoxProps<Element, ConfirmModalOtherProps<Element>>;

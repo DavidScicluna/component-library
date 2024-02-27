@@ -14,7 +14,7 @@ type UseGetConfirmModalClassesProps<Element extends ConfirmModalElement> = Pick<
 	ConfirmModalProps<Element>,
 	'color' | 'colorMode' | 'size' | 'spacing'
 >;
-type UseGetConfirmModalClassesReturn = Record<'container' | 'backdrop' | 'content' | 'cancel', ClassName>;
+type UseGetConfirmModalClassesReturn = Record<'overlay' | 'container' | 'backdrop' | 'content' | 'cancel', ClassName>;
 
 const useGetConfirmModalClasses = <Element extends ConfirmModalElement>(
 	props: UseGetConfirmModalClassesProps<Element>
@@ -50,12 +50,8 @@ const useGetConfirmModalClasses = <Element extends ConfirmModalElement>(
 	const marginClassName = useGetClass((classes) => classes.spacing.m[spacing]);
 
 	return {
-		container: classNames(
-			classes.layout.position.fixed,
-			classes.layout.top[0],
-			classes.layout.left[0],
-			classes.layout.z_index.modal
-		),
+		overlay: classNames(classes.layout.z_index.modal),
+		container: classNames(classes.sizing.width.full, classes.sizing.height.full),
 		backdrop: classNames(classes.sizing.width.full, classes.sizing.height.full),
 		content: classNames(
 			classes.layout.position.relative,

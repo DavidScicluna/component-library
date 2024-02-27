@@ -31,7 +31,8 @@ import {
 	DEFAULT_CONFIRM_MODAL_ID,
 	DEFAULT_CONFIRM_MODAL_IS_OPEN,
 	DEFAULT_CONFIRM_MODAL_SIZE,
-	DEFAULT_CONFIRM_MODAL_SPACING
+	DEFAULT_CONFIRM_MODAL_SPACING,
+	DEFAULT_CONFIRM_MODAL_TRANSITION
 } from './common/constants';
 import { useConfirmModalClasses, useConfirmModalResponsiveValues } from './common/hooks';
 import { KEYS_CONFIRM_MODAL_CLASS } from './common/keys';
@@ -80,6 +81,7 @@ const ConfirmModal = forwardRef(function ConfirmModal<Element extends ConfirmMod
 		onOpen,
 		spacing: spacingProp = DEFAULT_CONFIRM_MODAL_SPACING,
 		size: sizeProp = DEFAULT_CONFIRM_MODAL_SIZE,
+		transition: transitionProp = DEFAULT_CONFIRM_MODAL_TRANSITION,
 		...rest
 	} = props;
 
@@ -91,14 +93,16 @@ const ConfirmModal = forwardRef(function ConfirmModal<Element extends ConfirmMod
 		hasBackdrop,
 		isOpen: isConfirmModalOpen,
 		spacing,
-		size
+		size,
+		transition
 	} = useConfirmModalResponsiveValues<Element>({
 		closeOnEsc: closeOnEscProp,
 		closeOnOverlayClick: closeOnOverlayClickProp,
 		hasBackdrop: hasBackdropProp,
 		isOpen: isOpenProp,
 		spacing: spacingProp,
-		size: sizeProp
+		size: sizeProp,
+		transition: transitionProp
 	});
 
 	const handleOpen = useCallback((): void => {
@@ -176,8 +180,8 @@ const ConfirmModal = forwardRef(function ConfirmModal<Element extends ConfirmMod
 					</Box>
 				) : null}
 
-				<Transition as='section' transition='fade' in={isOpen}>
-					<FloatingOverlay lockScroll style={{ zIndex: 1 }}>
+				<Transition as='section' transition={transition} in={isOpen}>
+					<FloatingOverlay className={classes.overlay} lockScroll>
 						<FloatingFocusManager context={context}>
 							<Grid
 								{...(rest as GridProps<Element>)}

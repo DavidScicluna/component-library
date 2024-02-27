@@ -2,6 +2,8 @@ import { v4 as uuid } from 'uuid';
 
 import type { ThemeSpacing } from '@common/types';
 
+import type { TransitionKey } from '@components/Animation';
+
 import type { ConfirmModalDefaultElement, ConfirmModalSize } from '../types';
 
 export const DEFAULT_CONFIRM_MODAL_AS: ConfirmModalDefaultElement = 'dialog';
@@ -15,3 +17,5 @@ export const DEFAULT_CONFIRM_MODAL_HAS_BACKDROP = true;
 export const DEFAULT_CONFIRM_MODAL_SIZE: ConfirmModalSize = 'md';
 
 export const DEFAULT_CONFIRM_MODAL_SPACING: ThemeSpacing = 4;
+
+export const DEFAULT_CONFIRM_MODAL_TRANSITION: TransitionKey = 'fade';
