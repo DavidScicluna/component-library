@@ -12,7 +12,7 @@ import useModalResponsiveValues from './useModalResponsiveValues';
 
 type PickedModalProps = 'color' | 'colorMode' | 'size' | 'spacing';
 type UseModalClassesProps<Element extends ModalElement> = Pick<ModalProps<Element>, PickedModalProps>;
-type UseModalClassesReturn = Record<'container' | 'backdrop' | 'content', ClassName>;
+type UseModalClassesReturn = Record<'overlay' | 'container' | 'backdrop' | 'content', ClassName>;
 
 const useModalClasses = <Element extends ModalElement>(props: UseModalClassesProps<Element>): UseModalClassesReturn => {
 	const { colorMode: DEFAULT_MODAL_CONTAINER_COLORMODE } = useAppTheme();
@@ -48,12 +48,8 @@ const useModalClasses = <Element extends ModalElement>(props: UseModalClassesPro
 	const marginClassName = useGetClass((classes) => classes.spacing.m[spacing]);
 
 	return {
-		container: classNames(
-			classes.layout.position.fixed,
-			classes.layout.top[0],
-			classes.layout.left[0],
-			classes.layout.z_index.modal
-		),
+		overlay: classNames(classes.layout.z_index.modal),
+		container: classNames(classes.sizing.width.full, classes.sizing.height.full),
 		backdrop: classNames(classes.sizing.width.full, classes.sizing.height.full),
 		content: classNames(
 			widthClassName,

@@ -9,6 +9,7 @@ import type {
 	ThemeSpacing
 } from '@common/types';
 
+import type { TransitionKey } from '@components/Animation';
 import type { BoxProps, BoxRef } from '@components/Box';
 
 export type ModalDefaultElement = 'dialog';
@@ -78,6 +79,12 @@ type ModalOtherProps<Element extends ModalElement> = ThemeAppAppearanceProps & {
 	 */
 	size?: ResponsiveValue<ModalSize>;
 	spacing?: ResponsiveValue<ThemeSpacing>;
+	/**
+	 * Transition name for the modal
+	 *
+	 * @default 'fade'
+	 */
+	transition?: ResponsiveValue<TransitionKey>;
 };
 export type ModalProps<Element extends ModalElement> = BoxProps<Element, ModalOtherProps<Element>>;
 

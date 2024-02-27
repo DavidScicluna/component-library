@@ -36,7 +36,8 @@ import {
 	DEFAULT_MODAL_HAS_BACKDROP,
 	DEFAULT_MODAL_ID,
 	DEFAULT_MODAL_IS_OPEN,
-	DEFAULT_MODAL_SIZE
+	DEFAULT_MODAL_SIZE,
+	DEFAULT_MODAL_TRANSITION
 } from './common/constants';
 import { useModalClasses, useModalResponsiveValues } from './common/hooks';
 import { KEYS_MODAL_CLASS } from './common/keys';
@@ -84,6 +85,7 @@ const Modal = forwardRef(function Modal<Element extends ModalElement>(
 		onOpen,
 		spacing: spacingProp = DEFAULT_SPACING,
 		size: sizeProp = DEFAULT_MODAL_SIZE,
+		transition: transitionProp = DEFAULT_MODAL_TRANSITION,
 		...rest
 	} = props;
 
@@ -95,14 +97,16 @@ const Modal = forwardRef(function Modal<Element extends ModalElement>(
 		hasBackdrop,
 		isOpen: isModalOpen,
 		size,
-		spacing
+		spacing,
+		transition
 	} = useModalResponsiveValues<Element>({
 		closeOnEsc: closeOnEscProp,
 		closeOnOverlayClick: closeOnOverlayClickProp,
 		hasBackdrop: hasBackdropProp,
 		isOpen: isOpenProp,
 		spacing: spacingProp,
-		size: sizeProp
+		size: sizeProp,
+		transition: transitionProp
 	});
 
 	const handleOpen = useCallback((): void => {
@@ -180,8 +184,8 @@ const Modal = forwardRef(function Modal<Element extends ModalElement>(
 					</Box>
 				) : null}
 
-				<Transition as='section' transition='fade' in={isOpen}>
-					<FloatingOverlay lockScroll style={{ zIndex: 1 }}>
+				<Transition as='section' transition={transition} in={isOpen}>
+					<FloatingOverlay className={classes.overlay} lockScroll>
 						<FloatingFocusManager context={context}>
 							<Grid
 								{...(rest as GridProps<Element>)}
