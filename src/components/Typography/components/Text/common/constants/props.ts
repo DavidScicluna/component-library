@@ -20,7 +20,7 @@ export const DEFAULT_TEXT_DECORATION: TextDecorationProps = {
 	style: 'solid',
 	thickness: 0,
 	offset: 'auto',
-	variant: 'underline'
+	variant: 'no-underline'
 };
 export const DEFAULT_TEXT_FONT_SIZE: ThemeFontSize = 'md';
 export const DEFAULT_TEXT_FONT_WEIGHT: ThemeFontWeight = 'normal';
