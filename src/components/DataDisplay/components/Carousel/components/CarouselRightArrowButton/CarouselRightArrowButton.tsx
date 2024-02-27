@@ -6,7 +6,7 @@ import { DEFAULT_CLASSNAME } from '@common/constants';
 
 import { useCarouselArrowState, useCarouselManager } from '../../common/hooks';
 import type { CarouselArrowButtonMouseEvent, CarouselArrowButtonProps } from '..';
-import { DEFAULT_CAROUSEL_RIGHT_ARROW_BUTTON_AS, CarouselArrowButton } from '..';
+import { CarouselArrowButton, DEFAULT_CAROUSEL_RIGHT_ARROW_BUTTON_AS } from '..';
 
 import { KEYS_CAROUSEL_RIGHT_ARROW_BUTTON_CLASS } from './common/keys';
 import type {
