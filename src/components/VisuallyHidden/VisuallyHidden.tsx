@@ -5,7 +5,6 @@ import { merge } from 'lodash-es';
 
 import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import { DEFAULT_VISUALLY_HIDDEN_AS } from './common/constants';
@@ -29,7 +28,7 @@ const VisuallyHidden = forwardRef(function VisuallyHidden<Element extends Visual
 
 	return (
 		<Box
-			{...(rest as BoxProps<Element>)}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_VISUALLY_HIDDEN_CLASS, { [className]: !!className })}
