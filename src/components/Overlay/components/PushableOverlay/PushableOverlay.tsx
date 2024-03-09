@@ -6,7 +6,6 @@ import { merge } from 'lodash-es';
 import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX, DEFAULT_RADIUS } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
@@ -83,7 +82,7 @@ const PushableOverlay = forwardRef(function PushableOverlay<Element extends Poly
 
 	return (
 		<Grid
-			{...(rest as GridProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_PUSHABLE_OVERLAY_CLASS, classes, { [className]: !!className })}
 			aria-disabled={isDisabled ? 'true' : 'false'}
