@@ -5,7 +5,6 @@ import { merge } from 'lodash-es';
 
 import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
@@ -106,7 +105,7 @@ const Text = forwardRef(function Text<Element extends TextElement>(
 
 	return (
 		<Box
-			{...(rest as BoxProps<Element>)}
+			{...{ rest }}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_TEXT_CLASS, classes, { [className]: !!className })}

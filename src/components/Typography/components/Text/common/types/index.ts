@@ -21,7 +21,7 @@ import type {
 	WordBreakClass
 } from '@common/types';
 
-import type { BoxProps, BoxRef } from '@components/Box';
+import type { BoxHeightProps, BoxProps, BoxRef, BoxWidthProps } from '@components/Box';
 
 export type TextDefaultElement = 'p';
 export type TextElement = PickFrom<
@@ -55,8 +55,9 @@ type TextOtherProps = TextThemeAppearanceProps & {
 	whiteSpace?: ResponsiveValue<WhiteSpaceClass>;
 	wordBreak?: ResponsiveValue<WordBreakClass>;
 	userSelect?: ResponsiveValue<UserSelectClass>;
-};
+} & BoxWidthProps &
+	BoxHeightProps;
 
-export type TextProps<Element extends TextElement> = BoxProps<Element, TextOtherProps, true>;
+export type TextProps<Element extends TextElement> = BoxProps<Element, TextOtherProps>;
 
 export type TextRef<Element extends TextElement> = BoxRef<Element>;
