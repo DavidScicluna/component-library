@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 import { DEFAULT_APP_COLOR, DEFAULT_APP_COLORMODE, DEFAULT_CLASSNAME, DEFAULT_SPACING } from '@common/constants';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
@@ -76,7 +75,7 @@ const DummyTabs = forwardRef(function DummyTabs<Element extends DummyTabsElement
 			value={{ color, colorMode, align, id, index, isAnimated, isFitted, orientation, size, spacing }}
 		>
 			<Box
-				{...(rest as BoxProps<Element>)}
+				{...rest}
 				as={as}
 				ref={ref}
 				className={classNames(KEYS_DUMMY_TABS_CLASS, { [className]: !!className })}

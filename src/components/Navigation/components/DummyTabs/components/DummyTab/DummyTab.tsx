@@ -9,7 +9,7 @@ import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/
 
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
-import type { CenterRef, GridProps } from '@components/Layout';
+import type { CenterRef } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import { useDummyTabsContext } from '../../common/hooks';
@@ -71,7 +71,7 @@ const DummyTab = forwardRef(function DummyTab<Element extends PolymorphicElement
 
 	return (
 		<Grid
-			{...(rest as GridProps<Element>)}
+			{...rest}
 			ref={ref}
 			aria-controls={getDummyTabPanelID(id, panel)}
 			aria-disabled='true'

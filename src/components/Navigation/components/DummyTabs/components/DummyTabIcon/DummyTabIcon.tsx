@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 import { DEFAULT_CLASSNAME } from '@common/constants';
 
-import type { IconProps } from '@components/DataDisplay';
 import { Icon } from '@components/DataDisplay';
 
 import { useDummyTabsContext, useDummyTabsDummyTabFontSize } from '../../common/hooks';
@@ -38,7 +37,7 @@ const DummyTabIcon = forwardRef(function DummyTabIcon<Element extends DummyTabIc
 	return (
 		<DummyTabSkeleton color={color} colorMode={colorMode} radius='full'>
 			<Icon
-				{...(rest as IconProps<Element>)}
+				{...rest}
 				as={as}
 				ref={ref}
 				className={classNames(KEYS_DUMMY_TAB_ICON_CLASS, { [className]: !!className })}

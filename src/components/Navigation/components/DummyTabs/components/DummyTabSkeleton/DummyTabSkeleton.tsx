@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { SkeletonProps } from '@components/Feedback';
 import { Skeleton } from '@components/Feedback';
 import { KEY_SKELETON_OVERLAY_CLASS } from '@components/Feedback/components/Skeleton/common/keys';
 import { useDummyPushableOverlayStyles } from '@components/Overlay/components/DummyPushableOverlay/common/hooks';
@@ -34,7 +33,7 @@ const DummyTabSkeleton = forwardRef(function DummyTabSkeleton<Element extends Po
 
 	return (
 		<Skeleton
-			{...(rest as SkeletonProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEY_DUMMY_TAB_SKELETON_CLASS, { [className]: !!className })}
 			color={color}
