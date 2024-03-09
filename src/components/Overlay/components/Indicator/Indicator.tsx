@@ -7,7 +7,6 @@ import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
-import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
@@ -43,7 +42,7 @@ const Indicator = forwardRef(function Indicator<Element extends PolymorphicEleme
 
 	return (
 		<Grid
-			{...(rest as GridProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_INDICATOR_CLASS, { [className]: !!className })}
 			templateColumns={1}
