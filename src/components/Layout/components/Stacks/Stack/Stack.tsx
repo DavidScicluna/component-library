@@ -6,7 +6,6 @@ import { compact, isArray } from 'lodash-es';
 import { DEFAULT_CLASSNAME, DEFAULT_SPACING } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
@@ -47,11 +46,7 @@ const Stack = forwardRef(function Stack<Element extends PolymorphicElementType>(
 	const classes = useStackClasses<Element>({ alignItems, direction, justifyContent, spacing, wrap });
 
 	return (
-		<Box
-			{...(rest as BoxProps<Element>)}
-			ref={ref}
-			className={classNames(KEYS_STACK_CLASS, classes, { [className]: !!className })}
-		>
+		<Box {...rest} ref={ref} className={classNames(KEYS_STACK_CLASS, classes, { [className]: !!className })}>
 			{children
 				? isArray(children)
 					? compact(Children.toArray(children)).map((child, index: number) => (

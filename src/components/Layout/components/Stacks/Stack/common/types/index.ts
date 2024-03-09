@@ -10,7 +10,7 @@ import type {
 	ThemeSpacing
 } from '@common/types';
 
-import type { BoxProps, BoxRef } from '@components/Box';
+import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
 export type StackNonResponsiveValueProps = {
 	alignItems?: AlignItemsClass;
@@ -23,7 +23,7 @@ export type StackNonResponsiveValueProps = {
 };
 export type StackResponsiveValueProps = ResponsiveValueProps<StackNonResponsiveValueProps>;
 
-export type StackUniqueProps = StackResponsiveValueProps;
+export type StackUniqueProps = BoxOtherProps & StackResponsiveValueProps;
 
 export type StackProps<Element extends PolymorphicElementType> = BoxProps<Element, StackUniqueProps>;
 

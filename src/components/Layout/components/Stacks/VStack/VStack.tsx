@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { StackProps } from '../Stack';
 import { Stack } from '../Stack';
 
 import { KEYS_V_STACK_CLASS } from './common/keys';
@@ -19,7 +18,7 @@ const VStack = forwardRef(function VStack<Element extends PolymorphicElementType
 
 	return (
 		<Stack
-			{...(rest as StackProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_V_STACK_CLASS, { [className]: !!className })}
 			direction='column'
