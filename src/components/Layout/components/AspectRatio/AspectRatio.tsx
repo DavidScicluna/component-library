@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import { DEFAULT_ASPECT_RATIO_RATIO } from './common/constants';
@@ -24,11 +23,7 @@ const AspectRatio = forwardRef(function AspectRatio<Element extends PolymorphicE
 	const classes = useAspectRatioClasses<Element>({ ratio });
 
 	return (
-		<Box
-			{...(rest as BoxProps<Element>)}
-			ref={ref}
-			className={classNames(KEYS_ASPECT_RATIO_CLASS, classes, { [className]: !!className })}
-		>
+		<Box {...rest} ref={ref} className={classNames(KEYS_ASPECT_RATIO_CLASS, classes, { [className]: !!className })}>
 			{children}
 		</Box>
 	);
