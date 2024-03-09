@@ -6,7 +6,6 @@ import { merge } from 'lodash-es';
 import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX, DEFAULT_SPACING } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
@@ -90,7 +89,7 @@ const Grid = forwardRef(function Grid<Element extends PolymorphicElementType>(
 
 	return (
 		<Box
-			{...(rest as BoxProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_GRID_CLASS, classes, { [className]: !!className })}
 			sx={merge(styles, sx)}

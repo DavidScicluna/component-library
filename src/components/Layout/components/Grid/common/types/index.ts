@@ -12,7 +12,7 @@ import type {
 	ThemeSpacing
 } from '@common/types';
 
-import type { BoxProps, BoxRef } from '@components/Box';
+import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
 export type GridTemplateColumns = GridTemplateColumnsClass | string;
 export type GridTemplateRows = GridTemplateRowsClass | string;
@@ -33,7 +33,7 @@ export type GridNonResponsiveValueProps = {
 };
 export type GridResponsiveValueProps = ResponsiveValueProps<GridNonResponsiveValueProps>;
 
-export type GridUniqueProps = GridResponsiveValueProps;
+export type GridUniqueProps = BoxOtherProps & GridResponsiveValueProps;
 
 export type GridProps<Element extends PolymorphicElementType> = BoxProps<Element, GridUniqueProps>;
 

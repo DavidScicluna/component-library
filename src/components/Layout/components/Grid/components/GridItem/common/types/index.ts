@@ -10,7 +10,7 @@ import type {
 	ZIndexClass
 } from '@common/types';
 
-import type { BoxProps, BoxRef } from '@components/Box';
+import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
 
 export type GridItemNonResponsiveValueProps = {
 	alignSelf?: AlignSelfClass;
@@ -25,7 +25,7 @@ export type GridItemNonResponsiveValueProps = {
 };
 export type GridItemResponsiveValueProps = ResponsiveValueProps<GridItemNonResponsiveValueProps>;
 
-export type GridItemUniqueProps = GridItemResponsiveValueProps;
+export type GridItemUniqueProps = BoxOtherProps & GridItemResponsiveValueProps;
 
 export type GridItemProps<Element extends PolymorphicElementType> = BoxProps<Element, GridItemUniqueProps>;
 

@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
@@ -62,11 +61,7 @@ const GridItem = forwardRef(function Grid<Element extends PolymorphicElementType
 	});
 
 	return (
-		<Box
-			{...(rest as BoxProps<Element>)}
-			ref={ref}
-			className={classNames(KEYS_GRID_ITEM_CLASS, classes, { [className]: !!className })}
-		>
+		<Box {...rest} ref={ref} className={classNames(KEYS_GRID_ITEM_CLASS, classes, { [className]: !!className })}>
 			{children}
 		</Box>
 	);
