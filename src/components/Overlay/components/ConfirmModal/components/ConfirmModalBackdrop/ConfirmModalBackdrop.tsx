@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { BackdropOverlayProps } from '@components/Overlay';
 import { BackdropOverlay } from '@components/Overlay';
 
 import { useConfirmModalContext } from '../../common/hooks';
@@ -23,7 +22,7 @@ const ConfirmModalBackdrop = forwardRef(function ConfirmModalBackdrop<Element ex
 
 	return (
 		<BackdropOverlay
-			{...(rest as BackdropOverlayProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_CONFIRM_MODAL_BACKDROP_CLASS, { [className]: !!className })}
 			color={color}

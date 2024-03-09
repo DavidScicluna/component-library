@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { VStackProps } from '@components/Layout';
 import { VStack } from '@components/Layout';
 
 import { DEFAULT_CONFIRM_MODAL_BODY_SPACING } from './common/constants';
@@ -27,7 +26,7 @@ const ConfirmModalBody = forwardRef(function ConfirmModalBody<Element extends Po
 
 	return (
 		<VStack
-			{...(rest as VStackProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_CONFIRM_MODAL_BODY_CLASS, { [className]: !!className })}
 			w='100%'

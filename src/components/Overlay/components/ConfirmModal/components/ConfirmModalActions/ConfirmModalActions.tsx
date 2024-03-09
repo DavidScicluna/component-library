@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { VStackProps } from '@components/Layout';
 import { VStack } from '@components/Layout';
 
 import { useConfirmModalContext } from '../../common/hooks';
@@ -31,7 +30,7 @@ const ConfirmModalActions = forwardRef(function ConfirmModalActions<Element exte
 
 	return (
 		<VStack
-			{...(rest as VStackProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_CONFIRM_MODAL_ACTIONS_CLASS, { [className]: !!className })}
 			w='100%'

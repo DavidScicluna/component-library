@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
-import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
 import { useConfirmModalContext } from '../../common/hooks';
@@ -43,7 +42,7 @@ const ConfirmModalTitle = forwardRef(function ConfirmModalTitle<Element extends 
 
 	return (
 		<Text
-			{...(rest as TextProps<Element>)}
+			{...rest}
 			as={as}
 			ref={ref}
 			id={getConfirmModalTitleID(id)}
