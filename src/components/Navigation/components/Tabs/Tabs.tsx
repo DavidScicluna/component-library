@@ -10,7 +10,6 @@ import {
 	DEFAULT_SPACING
 } from '@common/constants';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
@@ -83,12 +82,7 @@ const Tabs = forwardRef(function Tabs<Element extends TabsElement>(
 		<TabsContext.Provider
 			value={{ color, colorMode, align, id, index, isDisabled, isFitted, onChange, orientation, size, spacing }}
 		>
-			<Box
-				{...(rest as BoxProps<Element>)}
-				as={as}
-				ref={ref}
-				className={classNames(KEYS_TABS_CLASS, { [className]: !!className })}
-			>
+			<Box {...rest} as={as} ref={ref} className={classNames(KEYS_TABS_CLASS, { [className]: !!className })}>
 				{children}
 			</Box>
 		</TabsContext.Provider>

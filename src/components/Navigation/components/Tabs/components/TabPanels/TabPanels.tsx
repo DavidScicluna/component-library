@@ -7,7 +7,6 @@ import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
-import type { GridProps } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import { useTabsContext } from '../../common/hooks';
@@ -44,7 +43,7 @@ const TabPanels = forwardRef(function TabPanels<Element extends PolymorphicEleme
 
 	return (
 		<Grid
-			{...(rest as GridProps<Element>)}
+			{...rest}
 			ref={ref}
 			aria-labelledby={getTabsID(id)}
 			id={getTabPanelsID(id)}

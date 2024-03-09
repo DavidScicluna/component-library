@@ -1,4 +1,4 @@
-import type { TabDefaultElement, TabElement, TabMouseEvent, TabProps, TabRef, TabRenderProps } from './common/types';
+import type { TabDefaultElement, TabElement, TabProps, TabRef, TabRenderProps } from './common/types';
 import Tab from './Tab';
 
 // Constants
@@ -14,4 +14,4 @@ export * from './common/hooks';
 export { Tab };
 
 // Component Types
-export type { TabDefaultElement, TabElement, TabMouseEvent, TabProps, TabRef, TabRenderProps };
+export type { TabDefaultElement, TabElement, TabProps, TabRef, TabRenderProps };

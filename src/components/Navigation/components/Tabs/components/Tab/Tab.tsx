@@ -6,12 +6,12 @@ import { useDimensionsRef, useFocus } from 'rooks';
 
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicMouseEvent } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
 import { useCarouselManager } from '@components/DataDisplay/components/Carousel/common/hooks';
-import type { CenterRef, GridProps } from '@components/Layout';
+import type { CenterRef } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 import { HoverOverlay } from '@components/Overlay';
 
@@ -28,7 +28,7 @@ import {
 } from './common/constants';
 import { useTabClasses, useTabResponsiveValues, useTabSizeConfig } from './common/hooks';
 import { KEYS_TAB_CLASS } from './common/keys';
-import type { TabElement, TabMouseEvent, TabProps, TabRef } from './common/types';
+import type { TabElement, TabProps, TabRef } from './common/types';
 
 const Tab = forwardRef(function Tab<Element extends TabElement>(
 	props: TabProps<Element>,
@@ -109,7 +109,7 @@ const Tab = forwardRef(function Tab<Element extends TabElement>(
 		}
 	};
 
-	const handleClick = (event: TabMouseEvent<Element>): void => {
+	const handleClick = (event: PolymorphicMouseEvent): void => {
 		if (index !== panel) {
 			if (onChange && typeof onChange === 'function') {
 				onChange(index);
@@ -129,7 +129,7 @@ const Tab = forwardRef(function Tab<Element extends TabElement>(
 			{(isHovering: boolean) => (
 				<Grid
 					{...focusProps}
-					{...(rest as GridProps<Element>)}
+					{...rest}
 					as={as}
 					ref={ref}
 					aria-controls={getTabPanelID(id, panel)}
