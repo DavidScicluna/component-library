@@ -6,7 +6,6 @@ import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
-import type { GridProps } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import {
@@ -58,7 +57,7 @@ const LoadingOverlay = forwardRef(function LoadingOverlay<Element extends Polymo
 
 	return (
 		<Grid
-			{...(rest as GridProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_LOADING_OVERLAY_CLASS, classes.container, { [className]: !!className })}
 			templateColumns={1}
