@@ -138,7 +138,7 @@ const Popper = forwardRef(function Popper<Element extends PolymorphicElementType
 			<Transition as='section' transition='fade' in={!isDisabled && isOpen}>
 				<FloatingFocusManager context={context} modal={false}>
 					<Box
-						{...(rest as BoxProps<Element>)}
+						{...rest}
 						{...getFloatingProps()}
 						ref={refss}
 						className={classNames(KEYS_POPPER_CLASS, classes.popper, { [className]: !!className })}
