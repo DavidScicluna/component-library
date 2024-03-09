@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME, DEFAULT_SPACING } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import { DEFAULT_SIMPLE_GRID_COLUMNS } from './common/constants';
@@ -30,11 +29,7 @@ const SimpleGrid = forwardRef(function SimpleGrid<Element extends PolymorphicEle
 	const classes = useSimpleGridClasses<Element>({ columns, spacing });
 
 	return (
-		<Box
-			{...(rest as BoxProps<Element>)}
-			ref={ref}
-			className={classNames(KEYS_SIMPLE_GRID_CLASS, classes, { [className]: !!className })}
-		>
+		<Box {...rest} ref={ref} className={classNames(KEYS_SIMPLE_GRID_CLASS, classes, { [className]: !!className })}>
 			{children}
 		</Box>
 	);
