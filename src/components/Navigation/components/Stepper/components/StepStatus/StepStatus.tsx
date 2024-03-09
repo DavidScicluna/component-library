@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_APP_COLOR, DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
-import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
 import { useStepperContext, useStepperSizeConfig } from '../../common/hooks';
@@ -48,7 +47,7 @@ const StepStatus = forwardRef(function StepStatus<Element extends StepStatusElem
 
 	return (
 		<Text
-			{...(rest as TextProps<Element>)}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_STEP_STATUS_CLASS, { [className]: !!className })}

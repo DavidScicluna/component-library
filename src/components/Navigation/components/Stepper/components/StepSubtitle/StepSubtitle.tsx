@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
-import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
 import { DEFAULT_STEPPER_STEP_LINE_HEIGHT_SIZE } from '../../common/constants';
@@ -49,7 +48,7 @@ const StepSubtitle = forwardRef(function StepSubtitle<Element extends StepSubtit
 
 	return (
 		<Text
-			{...(rest as TextProps<Element>)}
+			{...rest}
 			as={as}
 			ref={ref}
 			id={getStepSubtitleID(id || getStepID(stepperID, index))}

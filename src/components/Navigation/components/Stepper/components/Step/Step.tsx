@@ -6,12 +6,12 @@ import { useDimensionsRef, useFocus } from 'rooks';
 
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type { PolymorphicDefaultElement } from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicMouseEvent } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
 import { useCarouselManager } from '@components/DataDisplay/components/Carousel/common/hooks';
-import type { CenterRef, GridProps } from '@components/Layout';
+import type { CenterRef } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 import { HoverOverlay } from '@components/Overlay';
 
@@ -35,7 +35,6 @@ import type {
 	StepContext as StepContextType,
 	StepDefaultElement,
 	StepElement,
-	StepMouseEvent,
 	StepProps,
 	StepRef
 } from './common/types';
@@ -131,7 +130,7 @@ const Step = forwardRef(function Step<Element extends StepElement>(
 		}
 	};
 
-	const handleClick = (event: StepMouseEvent<Element>): void => {
+	const handleClick = (event: PolymorphicMouseEvent): void => {
 		if (index !== panel) {
 			if (onChange && typeof onChange === 'function') {
 				onChange(index);
@@ -152,7 +151,7 @@ const Step = forwardRef(function Step<Element extends StepElement>(
 				{(isHovering: boolean) => (
 					<Grid
 						{...focusProps}
-						{...(rest as GridProps<Element>)}
+						{...rest}
 						as={as}
 						ref={ref}
 						aria-controls={getStepPanelID(id, panel)}

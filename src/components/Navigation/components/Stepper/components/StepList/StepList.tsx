@@ -15,7 +15,6 @@ import {
 	CarouselOverlayRightArrowIconButton,
 	CarouselRightLinearGradient
 } from '@components/DataDisplay';
-import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import { useStepperContext } from '../../common/hooks';
@@ -37,7 +36,7 @@ const StepList = forwardRef(function StepList<Element extends PolymorphicElement
 
 	return (
 		<Grid
-			{...(rest as GridProps<Element>)}
+			{...rest}
 			ref={ref}
 			aria-orientation={orientation === 'top' || orientation === 'bottom' ? 'horizontal' : 'vertical'}
 			id={getStepListID(id)}

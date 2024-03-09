@@ -10,7 +10,6 @@ import {
 	DEFAULT_SPACING
 } from '@common/constants';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
@@ -111,12 +110,7 @@ const Stepper = forwardRef(function Stepper<Element extends StepperElement>(
 				variant
 			}}
 		>
-			<Box
-				{...(rest as BoxProps<Element>)}
-				as={as}
-				ref={ref}
-				className={classNames(KEYS_STEPPER_CLASS, { [className]: !!className })}
-			>
+			<Box {...rest} as={as} ref={ref} className={classNames(KEYS_STEPPER_CLASS, { [className]: !!className })}>
 				{children}
 			</Box>
 		</StepperContext.Provider>

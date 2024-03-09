@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 import { DEFAULT_APP_COLOR, DEFAULT_CLASSNAME } from '@common/constants';
 
-import type { IconProps } from '@components/DataDisplay';
 import { Icon } from '@components/DataDisplay';
 
 import { useStepperContext, useStepperSizeConfig } from '../../common/hooks';
@@ -40,7 +39,7 @@ const StepStatusIcon = forwardRef(function StepStatusIcon<Element extends StepSt
 
 	return (
 		<Icon
-			{...(rest as IconProps<Element>)}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_STEP_STATUS_ICON_CLASS, { [className]: !!className })}

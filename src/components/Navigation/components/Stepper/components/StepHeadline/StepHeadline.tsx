@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { HeadlineProps } from '@components/DataDisplay';
 import { Headline } from '@components/DataDisplay';
 import { Text } from '@components/Typography';
 
@@ -36,17 +35,19 @@ const StepHeadline = forwardRef(function StepHeadline<Element extends Polymorphi
 
 	return (
 		<Headline
-			{...(rest as HeadlineProps<Element>)}
+			{...{ rest }}
 			ref={ref}
 			className={classNames(KEYS_STEP_HEADLINE_CLASS, { [className]: !!className })}
 			w='100%'
 			h='100%'
 			color={color}
 			colorMode={colorMode}
-			renderCaption={
-				renderCaption ? renderCaption(props) : <Text<'p'> {...props}>{`Step ${index + 1} of ${total}`}</Text>
+			renderCaption={(props) =>
+				renderCaption ? renderCaption(props) : <Text {...props} as='p'>{`Step ${index + 1} of ${total}`}</Text>
 			}
-			renderTitle={renderTitle ? renderTitle(props) : <Text<'p'> {...props}>{`Step ${index + 1}`}</Text>}
+			renderTitle={(props) =>
+				renderTitle ? renderTitle(props) : <Text {...props} as='p'>{`Step ${index + 1}`}</Text>
+			}
 		/>
 	);
 });

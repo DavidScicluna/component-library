@@ -7,7 +7,6 @@ import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
-import type { GridProps } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import { useStepperContext } from '../../common/hooks';
@@ -36,7 +35,7 @@ const StepPanels = forwardRef(function StepPanels<Element extends PolymorphicEle
 
 	return (
 		<Grid
-			{...(rest as GridProps<Element>)}
+			{...rest}
 			ref={ref}
 			aria-labelledby={getStepperID(id)}
 			id={getStepPanelsID(id)}

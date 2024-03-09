@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useTheme } from '@common/hooks';
 
-import type { ProgressProps } from '@components/Feedback';
 import { Progress } from '@components/Feedback';
 
 import { useStepperContext } from '../../common/hooks';
@@ -37,7 +36,7 @@ const StepProgress = forwardRef(function StepProgress<Element extends StepProgre
 
 	return (
 		<Progress
-			{...(rest as ProgressProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_STEP_PROGRESS_CLASS, { [className]: !!className })}
 			w={theme.spacing['0.5']}
