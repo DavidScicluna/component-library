@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import { DEFAULT_SPACE_HEIGHT, DEFAULT_SPACE_WIDTH } from './common/constants';
@@ -28,13 +27,7 @@ const Space = forwardRef(function Space<Element extends PolymorphicElementType>(
 
 	const classes = useSpaceClasses<Element>({ width, height });
 
-	return (
-		<Box
-			{...(rest as BoxProps<Element>)}
-			ref={ref}
-			className={classNames(KEYS_SPACE_CLASS, classes, { [className]: !!className })}
-		/>
-	);
+	return <Box {...rest} ref={ref} className={classNames(KEYS_SPACE_CLASS, classes, { [className]: !!className })} />;
 });
 
 // Space.displayName = 'Space';
