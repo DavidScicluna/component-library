@@ -24,7 +24,6 @@ import type { PolymorphicElementType } from '@common/types';
 
 // TODO: Go over all Transition and see if they can be merged with the child component since it is based of Box
 import { AnimatePresence, Transition } from '@components/Animation';
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
@@ -127,7 +126,7 @@ const Tooltip = forwardRef(function Tooltip<Element extends PolymorphicElementTy
 			{cloneElement(children, { ...getReferenceProps(), ref: refs.setReference })}
 			<Transition as='section' transition='fade' in={!isDisabled && isOpen}>
 				<Box
-					{...(rest as BoxProps<Element>)}
+					{...rest}
 					{...getFloatingProps()}
 					ref={refss}
 					className={classNames(KEYS_TOOLTIP_CLASS, classes.tooltip, { [className]: !!className })}
