@@ -81,7 +81,7 @@ const PositionOverlay = forwardRef(function PositionOverlay<Element extends Poly
 
 	return (
 		<Grid
-			{...(rest as PositionOverlayProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_POSITION_OVERLAY_CLASS, classes.container, { [className]: !!className })}
 			templateColumns={1}
