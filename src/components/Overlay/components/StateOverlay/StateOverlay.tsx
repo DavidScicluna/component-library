@@ -6,7 +6,6 @@ import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
-import type { GridProps } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import { GlassOverlay } from '../GlassOverlay';
@@ -62,7 +61,7 @@ const StateOverlay = forwardRef(function StateOverlay<Element extends Polymorphi
 
 	return (
 		<Grid
-			{...(rest as GridProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_STATE_OVERLAY_CLASS, { [className]: !!className })}
 			templateColumns={1}
