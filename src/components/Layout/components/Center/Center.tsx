@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import { DEFAULT_CENTER_SPACING } from './common/constants';
@@ -24,11 +23,7 @@ const Center = forwardRef(function Center<Element extends PolymorphicElementType
 	const classes = useCenterClasses<Element>({ spacing });
 
 	return (
-		<Box
-			{...(rest as BoxProps<Element>)}
-			ref={ref}
-			className={classNames(KEYS_CENTER_CLASS, classes, { [className]: !!className })}
-		>
+		<Box {...rest} ref={ref} className={classNames(KEYS_CENTER_CLASS, classes, { [className]: !!className })}>
 			{children}
 		</Box>
 	);
