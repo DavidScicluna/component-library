@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
@@ -42,7 +41,7 @@ const LinearGradient = forwardRef(function LinearGradient<Element extends Polymo
 
 	return (
 		<Box
-			{...(rest as BoxProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_LINEAR_GRADIENT_CLASS, classes, { [className]: !!className })}
 		/>
