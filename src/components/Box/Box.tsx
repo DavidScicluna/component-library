@@ -18,7 +18,7 @@ const Box = forwardRef(function Box<Element extends PolymorphicElementType>(
 ): JSX.Element {
 	const {
 		children,
-		as: Component = DEFAULT_POLYMORPHIC_ELEMENT as BoxProps<Element>['as'],
+		as: Component = DEFAULT_POLYMORPHIC_ELEMENT,
 		className = DEFAULT_CLASSNAME,
 		sx = DEFAULT_POLYMORPHIC_SX,
 		...rest

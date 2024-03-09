@@ -14,7 +14,7 @@ import type {
 	BoxWidth
 } from '../types';
 
-type UseBoxStylesProps = BoxOtherProps<true>;
+type UseBoxStylesProps = BoxOtherProps;
 type UseBoxStylesReturn = Style;
 
 const useBoxStyles = (props: UseBoxStylesProps): UseBoxStylesReturn => {
