@@ -6,7 +6,6 @@ import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Box } from '@components/Box';
-import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
@@ -51,7 +50,7 @@ const BackdropOverlay = forwardRef(function BackdropOverlay<Element extends Poly
 
 	return (
 		<Grid
-			{...(rest as GridProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_BACKDROP_OVERLAY_CLASS, classes.container, { [className]: !!className })}
 			data-aria-hidden='true'
