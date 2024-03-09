@@ -1,10 +1,8 @@
 import type { ReactNode } from 'react';
 
-import type { PolymorphicElementType, PolymorphicMouseEvent } from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
-
-export type HoverOverlayMouseEvent<Element extends PolymorphicElementType> = PolymorphicMouseEvent<Element>;
 
 type HoverOverlayOtherProps = {
 	/**

@@ -1,4 +1,4 @@
-import type { HoverOverlayMouseEvent, HoverOverlayProps, HoverOverlayRef } from './common/types';
+import type { HoverOverlayProps, HoverOverlayRef } from './common/types';
 import HoverOverlay from './HoverOverlay';
 
 // Keys
@@ -8,4 +8,4 @@ export * from './common/keys';
 export { HoverOverlay };
 
 // Component Types
-export type { HoverOverlayMouseEvent, HoverOverlayProps, HoverOverlayRef };
+export type { HoverOverlayProps, HoverOverlayRef };
