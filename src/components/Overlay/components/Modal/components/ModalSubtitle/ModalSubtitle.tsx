@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
-import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
 import { useModalContext } from '../../common/hooks';
@@ -43,7 +42,7 @@ const ModalSubtitle = forwardRef(function ModalSubtitle<Element extends ModalSub
 
 	return (
 		<Text
-			{...(rest as TextProps<Element>)}
+			{...rest}
 			as={as}
 			ref={ref}
 			id={getModalSubtitleID(id)}

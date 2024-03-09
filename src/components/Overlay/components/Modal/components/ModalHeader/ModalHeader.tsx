@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { GridProps } from '@components/Layout';
 import { Grid, GridItem, VStack } from '@components/Layout';
 
 import { useModalContext } from '../../common/hooks';
@@ -30,7 +29,7 @@ const ModalHeader = forwardRef(function ModalHeader<Element extends PolymorphicE
 
 	return (
 		<Grid
-			{...(rest as GridProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_MODAL_HEADER_CLASS, { [className]: !!className })}
 			w='100%'

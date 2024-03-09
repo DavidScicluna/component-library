@@ -26,7 +26,7 @@ import type { PolymorphicDefaultElement } from '@common/types';
 import { AnimatePresence, Transition } from '@components/Animation';
 import type { BoxProps, BoxRef } from '@components/Box';
 import { Box } from '@components/Box';
-import type { CenterRef, GridProps } from '@components/Layout';
+import type { CenterRef } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
 
 import {
@@ -188,7 +188,7 @@ const Modal = forwardRef(function Modal<Element extends ModalElement>(
 					<FloatingOverlay className={classes.overlay} lockScroll>
 						<FloatingFocusManager context={context}>
 							<Grid
-								{...(rest as GridProps<Element>)}
+								{...rest}
 								as={as}
 								ref={ref}
 								id={getModalID(id)}

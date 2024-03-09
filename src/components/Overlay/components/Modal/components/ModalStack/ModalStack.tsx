@@ -6,7 +6,6 @@ import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Divider } from '@components/DataDisplay';
-import type { VStackProps } from '@components/Layout';
 import { VStack } from '@components/Layout';
 
 import { useModalContext } from '../../common/hooks';
@@ -33,7 +32,7 @@ const ModalStack = forwardRef(function ModalStack<Element extends PolymorphicEle
 
 	return (
 		<VStack
-			{...(rest as VStackProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_MODAL_STACK_CLASS, { [className]: !!className })}
 			w='100%'

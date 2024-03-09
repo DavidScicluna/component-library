@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { BackdropOverlayProps } from '@components/Overlay';
 import { BackdropOverlay } from '@components/Overlay';
 
 import { useModalContext } from '../../common/hooks';
@@ -23,7 +22,7 @@ const ModalBackdrop = forwardRef(function ModalBackdrop<Element extends Polymorp
 
 	return (
 		<BackdropOverlay
-			{...(rest as BackdropOverlayProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_MODAL_BACKDROP_CLASS, { [className]: !!className })}
 			color={color}

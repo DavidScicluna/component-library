@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { CenterProps } from '@components/Layout';
 import { Center } from '@components/Layout';
 
 import { KEYS_MODAL_BODY_CLASS } from './common/keys';
@@ -19,7 +18,7 @@ const ModalBody = forwardRef(function ModalBody<Element extends PolymorphicEleme
 
 	return (
 		<Center
-			{...(rest as CenterProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_MODAL_BODY_CLASS, { [className]: !!className })}
 			w='100%'

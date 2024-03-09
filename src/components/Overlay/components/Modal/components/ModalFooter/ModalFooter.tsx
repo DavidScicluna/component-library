@@ -6,7 +6,6 @@ import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useMediaQuery } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { StackProps } from '@components/Layout';
 import { Stack } from '@components/Layout';
 
 import { useModalContext } from '../../common/hooks';
@@ -35,7 +34,7 @@ const ModalFooter = forwardRef(function ModalFooter<Element extends PolymorphicE
 
 	return (
 		<Stack
-			{...(rest as StackProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_MODAL_FOOTER_CLASS, { [className]: !!className })}
 			w='100%'
