@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
@@ -39,11 +38,7 @@ const Container = forwardRef(function Container<Element extends PolymorphicEleme
 	const classes = useContainerClasses<Element>({ breakpoint, isContentCentered, isFluid });
 
 	return (
-		<Box
-			{...(rest as BoxProps<Element>)}
-			ref={ref}
-			className={classNames(KEYS_CONTAINER_CLASS, classes, { [className]: !!className })}
-		>
+		<Box {...rest} ref={ref} className={classNames(KEYS_CONTAINER_CLASS, classes, { [className]: !!className })}>
 			{children}
 		</Box>
 	);
