@@ -1,12 +1,4 @@
-import type {
-	CheckboxChangeEvent,
-	CheckboxFocusEvent,
-	CheckboxLabelPosition,
-	CheckboxMouseEvent,
-	CheckboxProps,
-	CheckboxRef,
-	CheckboxSize
-} from './common/types';
+import type { CheckboxLabelPosition, CheckboxProps, CheckboxRef, CheckboxSize } from './common/types';
 import Checkbox from './Checkbox';
 
 // Constants
@@ -22,12 +14,4 @@ export * from './common/hooks';
 export { Checkbox };
 
 // Component Types
-export type {
-	CheckboxChangeEvent,
-	CheckboxFocusEvent,
-	CheckboxLabelPosition,
-	CheckboxMouseEvent,
-	CheckboxProps,
-	CheckboxRef,
-	CheckboxSize
-};
+export type { CheckboxLabelPosition, CheckboxProps, CheckboxRef, CheckboxSize };

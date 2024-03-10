@@ -10,13 +10,14 @@ import type {
 	PolymorphicChangeEvent,
 	PolymorphicDefaultElement,
 	PolymorphicElement,
-	PolymorphicElementType
+	PolymorphicElementType,
+	PolymorphicFocusEvent,
+	PolymorphicMouseEvent
 } from '@common/types';
 
 import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
-import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 import { PushableOverlay } from '@components/Overlay';
 import { VisuallyHidden } from '@components/VisuallyHidden';
@@ -51,7 +52,7 @@ import {
 	useCheckboxSizeConfig
 } from './common/hooks';
 import { KEYS_CHECKBOX_CLASS } from './common/keys';
-import type { CheckboxFocusEvent, CheckboxMouseEvent, CheckboxProps, CheckboxRef } from './common/types';
+import type { CheckboxProps, CheckboxRef } from './common/types';
 
 const Checkbox = forwardRef(function Checkbox<Element extends PolymorphicElementType>(
 	props: CheckboxProps<Element>,
@@ -157,7 +158,7 @@ const Checkbox = forwardRef(function Checkbox<Element extends PolymorphicElement
 		hueType: 'text.primary'
 	});
 
-	const handleClick = (event: CheckboxMouseEvent<Element>): void => {
+	const handleClick = (event: PolymorphicMouseEvent): void => {
 		if (isClickable) {
 			setIsFocusedHook.on();
 		}
@@ -176,7 +177,7 @@ const Checkbox = forwardRef(function Checkbox<Element extends PolymorphicElement
 		}
 	};
 
-	const handleFocus = (event: CheckboxFocusEvent<Element>): void => {
+	const handleFocus = (event: PolymorphicFocusEvent): void => {
 		if (isClickable) {
 			setIsFocusedHook.on();
 		}
@@ -186,7 +187,7 @@ const Checkbox = forwardRef(function Checkbox<Element extends PolymorphicElement
 		}
 	};
 
-	const handleBlur = (event: CheckboxFocusEvent<Element>): void => {
+	const handleBlur = (event: PolymorphicFocusEvent): void => {
 		if (isClickable) {
 			setIsFocusedHook.off();
 		}
@@ -206,7 +207,7 @@ const Checkbox = forwardRef(function Checkbox<Element extends PolymorphicElement
 
 	return (
 		<Grid
-			{...(rest as GridProps<Element>)}
+			{...rest}
 			{...focusProps}
 			ref={ref}
 			className={classNames(KEYS_CHECKBOX_CLASS, classes, { [className]: !!className })}
@@ -272,7 +273,8 @@ const Checkbox = forwardRef(function Checkbox<Element extends PolymorphicElement
 							type={type}
 							onChange={
 								onToggle
-									? (event: PolymorphicChangeEvent<'input'>) => onToggle(!!event.target.checked)
+									? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+										(event: PolymorphicChangeEvent) => onToggle(!!(event.target as any).checked)
 									: undefined
 							}
 						/>
