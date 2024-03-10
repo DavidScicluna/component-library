@@ -10,13 +10,14 @@ import type {
 	PolymorphicChangeEvent,
 	PolymorphicDefaultElement,
 	PolymorphicElement,
-	PolymorphicElementType
+	PolymorphicElementType,
+	PolymorphicFocusEvent,
+	PolymorphicMouseEvent
 } from '@common/types';
 
 import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
-import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 import { PushableOverlay } from '@components/Overlay';
 import { VisuallyHidden } from '@components/VisuallyHidden';
@@ -45,7 +46,7 @@ import {
 } from './common/constants';
 import { useRadioClasses, useRadioIconSize, useRadioResponsiveValues, useRadioSizeConfig } from './common/hooks';
 import { KEYS_RADIO_CLASS } from './common/keys';
-import type { RadioFocusEvent, RadioMouseEvent, RadioProps, RadioRef } from './common/types';
+import type { RadioProps, RadioRef } from './common/types';
 
 const Radio = forwardRef(function Radio<Element extends PolymorphicElementType>(
 	props: RadioProps<Element>,
@@ -147,7 +148,7 @@ const Radio = forwardRef(function Radio<Element extends PolymorphicElementType>(
 		hueType: 'text.primary'
 	});
 
-	const handleClick = (event: RadioMouseEvent<Element>): void => {
+	const handleClick = (event: PolymorphicMouseEvent): void => {
 		if (isClickable) {
 			setIsFocusedHook.on();
 		}
@@ -166,7 +167,7 @@ const Radio = forwardRef(function Radio<Element extends PolymorphicElementType>(
 		}
 	};
 
-	const handleFocus = (event: RadioFocusEvent<Element>): void => {
+	const handleFocus = (event: PolymorphicFocusEvent): void => {
 		if (isClickable) {
 			setIsFocusedHook.on();
 		}
@@ -176,7 +177,7 @@ const Radio = forwardRef(function Radio<Element extends PolymorphicElementType>(
 		}
 	};
 
-	const handleBlur = (event: RadioFocusEvent<Element>): void => {
+	const handleBlur = (event: PolymorphicFocusEvent): void => {
 		if (isClickable) {
 			setIsFocusedHook.off();
 		}
@@ -197,7 +198,7 @@ const Radio = forwardRef(function Radio<Element extends PolymorphicElementType>(
 	return (
 		<Grid
 			{...focusProps}
-			{...(rest as GridProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_RADIO_CLASS, classes, { [className]: !!className })}
 			w={hasFormControl ? '100%' : w}
@@ -262,7 +263,8 @@ const Radio = forwardRef(function Radio<Element extends PolymorphicElementType>(
 							type={type}
 							onChange={
 								onToggle
-									? (event: PolymorphicChangeEvent<'input'>) => onToggle(!!event.target.checked)
+									? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+										(event: PolymorphicChangeEvent) => onToggle(!!(event.target as any).checked)
 									: undefined
 							}
 						/>
