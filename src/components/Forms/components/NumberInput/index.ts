@@ -1,9 +1,6 @@
 import type {
-	NumberInputChangeEvent,
 	NumberInputDefaultElement,
 	NumberInputElement,
-	NumberInputFocusEvent,
-	NumberInputMouseEvent,
 	NumberInputProps,
 	NumberInputRef,
 	NumberInputRenderProps,
@@ -24,11 +21,8 @@ export { NumberInput };
 
 // Component Types
 export type {
-	NumberInputChangeEvent,
 	NumberInputDefaultElement,
 	NumberInputElement,
-	NumberInputFocusEvent,
-	NumberInputMouseEvent,
 	NumberInputProps,
 	NumberInputRef,
 	NumberInputRenderProps,

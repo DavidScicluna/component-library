@@ -6,9 +6,13 @@ import { useDimensionsRef, useFocus, useMergeRefs } from 'rooks';
 
 import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type { PolymorphicDefaultElement, PolymorphicElement } from '@common/types';
+import type {
+	PolymorphicDefaultElement,
+	PolymorphicElement,
+	PolymorphicFocusEvent,
+	PolymorphicMouseEvent
+} from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 import type { IconButtonGroupItemChildrenProps } from '@components/Buttons';
 import { IconButton, IconButtonGroup, IconButtonGroupItem, IconButtonIcon } from '@components/Buttons';
@@ -44,20 +48,14 @@ import {
 } from './common/constants';
 import { useNumberInputResponsiveValues } from './common/hooks';
 import { KEYS_NUMBER_INPUT_CLASS } from './common/keys';
-import type {
-	NumberInputElement,
-	NumberInputFocusEvent,
-	NumberInputMouseEvent,
-	NumberInputProps,
-	NumberInputRef
-} from './common/types';
+import type { NumberInputElement, NumberInputProps, NumberInputRef } from './common/types';
 
 const NumberInput = forwardRef(function NumberInput<Element extends NumberInputElement>(
 	props: NumberInputProps<Element>,
 	ref: NumberInputRef<Element>
 ): JSX.Element {
-	const numberInputRef = useRef<PolymorphicElement<Element>>();
-	const refs = useMergeRefs(ref, numberInputRef);
+	const numberInputRef = useRef<PolymorphicElement<Element>>(null);
+	const refs = useMergeRefs(ref, numberInputRef.current as NumberInputRef<Element>);
 
 	const [childrenRef, childrenDimensions] = useDimensionsRef();
 	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
@@ -216,7 +214,7 @@ const NumberInput = forwardRef(function NumberInput<Element extends NumberInputE
 		}
 	};
 
-	const handleClick = (event: NumberInputMouseEvent<Element>): void => {
+	const handleClick = (event: PolymorphicMouseEvent): void => {
 		setIsFocusedHook.on();
 
 		if (numberInputRef && numberInputRef.current) {
@@ -230,7 +228,7 @@ const NumberInput = forwardRef(function NumberInput<Element extends NumberInputE
 		}
 	};
 
-	const handleFocus = (event: NumberInputFocusEvent<Element>): void => {
+	const handleFocus = (event: PolymorphicFocusEvent): void => {
 		setIsFocusedHook.on();
 
 		if (numberInputRef && numberInputRef.current) {
@@ -244,7 +242,7 @@ const NumberInput = forwardRef(function NumberInput<Element extends NumberInputE
 		}
 	};
 
-	const handleBlur = (event: NumberInputFocusEvent<Element>): void => {
+	const handleBlur = (event: PolymorphicFocusEvent): void => {
 		setIsFocusedHook.off();
 
 		if (numberInputRef && numberInputRef.current) {
@@ -308,7 +306,7 @@ const NumberInput = forwardRef(function NumberInput<Element extends NumberInputE
 
 					<GridItem ref={childrenRef as GridItemRef<PolymorphicDefaultElement>}>
 						<Box
-							{...(rest as BoxProps<Element>)}
+							{...rest}
 							as={as}
 							ref={refs}
 							className={classNames(classes.element)}
