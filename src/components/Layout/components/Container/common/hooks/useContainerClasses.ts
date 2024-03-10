@@ -22,13 +22,13 @@ type UseContainerClassesReturn = ClassName;
 const useContainerClasses = <Element extends PolymorphicElementType>(
 	props: UseContainerClassesProps<Element>
 ): UseContainerClassesReturn => {
-	const {
-		breakpoint: breakpointProp = DEFAULT_CONTAINER_BREAKPOINT,
-		isContentCentered: isContentCenteredProp = DEFAULT_CONTAINER_IS_CONTENT_CENTERED,
-		isFluid: isFluidProp = DEFAULT_CONTAINER_IS_FLUID
-	} = props;
+	const { breakpoint: breakpointProp, isContentCentered: isContentCenteredProp, isFluid: isFluidProp } = props;
 
-	const { breakpoint, isContentCentered, isFluid } = useContainerResponsiveValues({
+	const {
+		breakpoint = DEFAULT_CONTAINER_BREAKPOINT,
+		isContentCentered = DEFAULT_CONTAINER_IS_CONTENT_CENTERED,
+		isFluid = DEFAULT_CONTAINER_IS_FLUID
+	} = useContainerResponsiveValues({
 		breakpoint: breakpointProp,
 		isContentCentered: isContentCenteredProp,
 		isFluid: isFluidProp

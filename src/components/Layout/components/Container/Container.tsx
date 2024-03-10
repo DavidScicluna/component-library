@@ -7,11 +7,6 @@ import type { PolymorphicElementType } from '@common/types';
 
 import { Box } from '@components/Box';
 
-import {
-	DEFAULT_CONTAINER_BREAKPOINT,
-	DEFAULT_CONTAINER_IS_CONTENT_CENTERED,
-	DEFAULT_CONTAINER_IS_FLUID
-} from './common/constants';
 import { useContainerClasses, useContainerResponsiveValues } from './common/hooks';
 import { KEYS_CONTAINER_CLASS } from './common/keys';
 import type { ContainerProps, ContainerRef } from './common/types';
@@ -23,9 +18,9 @@ const Container = forwardRef(function Container<Element extends PolymorphicEleme
 	const {
 		children,
 		className = DEFAULT_CLASSNAME,
-		breakpoint: breakpointProp = DEFAULT_CONTAINER_BREAKPOINT,
-		isContentCentered: isContentCenteredProp = DEFAULT_CONTAINER_IS_CONTENT_CENTERED,
-		isFluid: isFluidProp = DEFAULT_CONTAINER_IS_FLUID,
+		breakpoint: breakpointProp,
+		isContentCentered: isContentCenteredProp,
+		isFluid: isFluidProp,
 		...rest
 	} = props;
 
