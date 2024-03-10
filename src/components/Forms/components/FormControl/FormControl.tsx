@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 import { DEFAULT_CLASSNAME } from '@common/constants';
 
-import type { VStackProps } from '@components/Layout';
 import { VStack } from '@components/Layout';
 import {
 	DEFAULT_STACK_ALIGN_ITEMS,
@@ -119,7 +118,7 @@ const FormControl = forwardRef(function FormControl<Element extends FormControlE
 			}}
 		>
 			<VStack
-				{...(rest as VStackProps<Element>)}
+				{...rest}
 				as={as}
 				ref={ref}
 				className={classNames(KEYS_FORM_CONTROL_CLASS, { [className]: !!className })}
