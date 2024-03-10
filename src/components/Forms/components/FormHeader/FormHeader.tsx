@@ -49,17 +49,17 @@ const FormHeader = forwardRef(function FormHeader<Element extends PolymorphicEle
 
 	return (
 		<Grid
-			{...(rest as GridProps<Element>)}
+			{...{ rest }}
 			ref={ref}
 			className={classNames(KEYS_FORM_HEADER_CLASS, { [className]: !!className })}
 			w={hasFormControl ? '100%' : w}
 			h={hasFormControl ? '100%' : h}
 			templateColumns={compact([renderLeft ? 'auto' : null, '1fr', renderRight ? 'auto' : null]).join(' ')}
 			templateRows={1}
-			alignItems={alignItems}
-			alignContent={alignContent}
-			justifyItems={justifyItems}
-			justifyContent={justifyContent}
+			alignItems={alignItems as GridProps<Element>['alignItems']}
+			alignContent={alignContent as GridProps<Element>['alignContent']}
+			justifyItems={justifyItems as GridProps<Element>['justifyItems']}
+			justifyContent={justifyContent as GridProps<Element>['justifyContent']}
 			spacing={spacing}
 		>
 			{renderLeft ? (
