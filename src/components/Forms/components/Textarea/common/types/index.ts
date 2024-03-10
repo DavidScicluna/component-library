@@ -1,13 +1,6 @@
 import type { ReactNode } from 'react';
 
-import type {
-	PolymorphicChangeEvent,
-	PolymorphicElementType,
-	PolymorphicFocusEvent,
-	PolymorphicMouseEvent,
-	ResizeClass,
-	ResponsiveValue
-} from '@common/types';
+import type { PolymorphicElementType, ResizeClass, ResponsiveValue } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
@@ -15,10 +8,6 @@ import type { TextDefaultElement, TextProps } from '@components/Typography';
 
 export type TextareaDefaultElement = 'textarea';
 export type TextareaElement = Extract<PolymorphicElementType, 'textarea'>;
-
-export type TextareaMouseEvent<Element extends TextareaElement> = PolymorphicMouseEvent<Element>;
-export type TextareaChangeEvent<Element extends TextareaElement> = PolymorphicChangeEvent<Element>;
-export type TextareaFocusEvent<Element extends TextareaElement> = PolymorphicFocusEvent<Element>;
 
 export type TextareaSize = FormsCommonSize;
 

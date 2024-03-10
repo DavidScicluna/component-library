@@ -1,9 +1,6 @@
 import type {
-	TextareaChangeEvent,
 	TextareaDefaultElement,
 	TextareaElement,
-	TextareaFocusEvent,
-	TextareaMouseEvent,
 	TextareaProps,
 	TextareaRef,
 	TextareaRenderProps,
@@ -24,11 +21,8 @@ export { Textarea };
 
 // Component Types
 export type {
-	TextareaChangeEvent,
 	TextareaDefaultElement,
 	TextareaElement,
-	TextareaFocusEvent,
-	TextareaMouseEvent,
 	TextareaProps,
 	TextareaRef,
 	TextareaRenderProps,

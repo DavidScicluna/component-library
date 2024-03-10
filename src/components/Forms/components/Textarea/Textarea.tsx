@@ -7,9 +7,13 @@ import { useDimensionsRef, useFocus, useMergeRefs } from 'rooks';
 import classes from '@common/classes';
 import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type { PolymorphicDefaultElement, PolymorphicElement } from '@common/types';
+import type {
+	PolymorphicDefaultElement,
+	PolymorphicElement,
+	PolymorphicFocusEvent,
+	PolymorphicMouseEvent
+} from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 import { useFormsClasses, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
@@ -38,13 +42,7 @@ import {
 } from './common/constants';
 import { useTextareaResponsiveValues } from './common/hooks';
 import { KEYS_TEXTAREA_CLASS, KEYS_TEXTAREA_TOTAL_CLASS } from './common/keys';
-import type {
-	TextareaElement,
-	TextareaFocusEvent,
-	TextareaMouseEvent,
-	TextareaProps,
-	TextareaRef
-} from './common/types';
+import type { TextareaElement, TextareaProps, TextareaRef } from './common/types';
 
 const { interactivity } = classes;
 
@@ -52,8 +50,8 @@ const Textarea = forwardRef(function Textarea<Element extends TextareaElement>(
 	props: TextareaProps<Element>,
 	ref: TextareaRef<Element>
 ): JSX.Element {
-	const textareaRef = useRef<PolymorphicElement<Element>>();
-	const refs = useMergeRefs(ref, textareaRef);
+	const textareaRef = useRef<PolymorphicElement<Element>>(null);
+	const refs = useMergeRefs(ref, textareaRef.current as TextareaRef<Element>);
 
 	const [childrenRef, childrenDimensions] = useDimensionsRef();
 	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
@@ -165,7 +163,7 @@ const Textarea = forwardRef(function Textarea<Element extends TextareaElement>(
 		variant
 	});
 
-	const handleClick = (event: TextareaMouseEvent<Element>): void => {
+	const handleClick = (event: PolymorphicMouseEvent): void => {
 		setIsFocusedHook.on();
 
 		if (textareaRef && textareaRef.current) {
@@ -179,7 +177,7 @@ const Textarea = forwardRef(function Textarea<Element extends TextareaElement>(
 		}
 	};
 
-	const handleFocus = (event: TextareaFocusEvent<Element>): void => {
+	const handleFocus = (event: PolymorphicFocusEvent): void => {
 		setIsFocusedHook.on();
 
 		if (textareaRef && textareaRef.current) {
@@ -193,7 +191,7 @@ const Textarea = forwardRef(function Textarea<Element extends TextareaElement>(
 		}
 	};
 
-	const handleBlur = (event: TextareaFocusEvent<Element>): void => {
+	const handleBlur = (event: PolymorphicFocusEvent): void => {
 		setIsFocusedHook.off();
 
 		if (textareaRef && textareaRef.current) {
@@ -256,7 +254,7 @@ const Textarea = forwardRef(function Textarea<Element extends TextareaElement>(
 
 					<GridItem ref={childrenRef as GridItemRef<PolymorphicDefaultElement>}>
 						<Box
-							{...(rest as BoxProps<Element>)}
+							{...rest}
 							as={as}
 							ref={refs}
 							className={classNames(classes.element, interactivity.resize[resize])}
