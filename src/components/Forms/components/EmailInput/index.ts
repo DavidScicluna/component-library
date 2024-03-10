@@ -1,9 +1,6 @@
 import type {
-	EmailInputChangeEvent,
 	EmailInputDefaultElement,
 	EmailInputElement,
-	EmailInputFocusEvent,
-	EmailInputMouseEvent,
 	EmailInputProps,
 	EmailInputRef,
 	EmailInputRenderProps,
@@ -24,11 +21,8 @@ export { EmailInput };
 
 // Component Types
 export type {
-	EmailInputChangeEvent,
 	EmailInputDefaultElement,
 	EmailInputElement,
-	EmailInputFocusEvent,
-	EmailInputMouseEvent,
 	EmailInputProps,
 	EmailInputRef,
 	EmailInputRenderProps,

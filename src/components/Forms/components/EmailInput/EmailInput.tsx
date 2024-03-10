@@ -6,9 +6,13 @@ import { useDimensionsRef, useFocus, useMergeRefs } from 'rooks';
 
 import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type { PolymorphicDefaultElement, PolymorphicElement } from '@common/types';
+import type {
+	PolymorphicDefaultElement,
+	PolymorphicElement,
+	PolymorphicFocusEvent,
+	PolymorphicMouseEvent
+} from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
 import { useFormsClasses, useFormsIconSize, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
@@ -38,20 +42,14 @@ import {
 } from './common/constants';
 import { useEmailInputResponsiveValues } from './common/hooks';
 import { KEYS_EMAIL_INPUT_CLASS } from './common/keys';
-import type {
-	EmailInputElement,
-	EmailInputFocusEvent,
-	EmailInputMouseEvent,
-	EmailInputProps,
-	EmailInputRef
-} from './common/types';
+import type { EmailInputElement, EmailInputProps, EmailInputRef } from './common/types';
 
 const EmailInput = forwardRef(function EmailInput<Element extends EmailInputElement>(
 	props: EmailInputProps<Element>,
 	ref: EmailInputRef<Element>
 ): JSX.Element {
-	const emailInput = useRef<PolymorphicElement<Element>>();
-	const refs = useMergeRefs(ref, emailInput);
+	const emailInput = useRef<PolymorphicElement<Element>>(null);
+	const refs = useMergeRefs(ref, emailInput.current as EmailInputRef<Element>);
 
 	const [childrenRef, childrenDimensions] = useDimensionsRef();
 	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
@@ -161,7 +159,7 @@ const EmailInput = forwardRef(function EmailInput<Element extends EmailInputElem
 		variant
 	});
 
-	const handleClick = (event: EmailInputMouseEvent<Element>): void => {
+	const handleClick = (event: PolymorphicMouseEvent): void => {
 		setIsFocusedHook.on();
 
 		if (emailInput && emailInput.current) {
@@ -175,7 +173,7 @@ const EmailInput = forwardRef(function EmailInput<Element extends EmailInputElem
 		}
 	};
 
-	const handleFocus = (event: EmailInputFocusEvent<Element>): void => {
+	const handleFocus = (event: PolymorphicFocusEvent): void => {
 		setIsFocusedHook.on();
 
 		if (emailInput && emailInput.current) {
@@ -189,7 +187,7 @@ const EmailInput = forwardRef(function EmailInput<Element extends EmailInputElem
 		}
 	};
 
-	const handleBlur = (event: EmailInputFocusEvent<Element>): void => {
+	const handleBlur = (event: PolymorphicFocusEvent): void => {
 		setIsFocusedHook.off();
 
 		if (emailInput && emailInput.current) {
@@ -246,7 +244,7 @@ const EmailInput = forwardRef(function EmailInput<Element extends EmailInputElem
 
 			<GridItem ref={childrenRef as GridItemRef<PolymorphicDefaultElement>}>
 				<Box
-					{...(rest as BoxProps<Element>)}
+					{...rest}
 					as={as}
 					ref={refs}
 					className={classNames(classes.element)}
