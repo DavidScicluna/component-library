@@ -1,9 +1,6 @@
 import type {
-	SearchInputChangeEvent,
 	SearchInputDefaultElement,
 	SearchInputElement,
-	SearchInputFocusEvent,
-	SearchInputMouseEvent,
 	SearchInputProps,
 	SearchInputRef,
 	SearchInputRenderProps,
@@ -24,11 +21,8 @@ export { SearchInput };
 
 // Component Types
 export type {
-	SearchInputChangeEvent,
 	SearchInputDefaultElement,
 	SearchInputElement,
-	SearchInputFocusEvent,
-	SearchInputMouseEvent,
 	SearchInputProps,
 	SearchInputRef,
 	SearchInputRenderProps,

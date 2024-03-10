@@ -7,9 +7,13 @@ import { useUpdateEffect } from 'usehooks-ts';
 
 import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 import { useBoolean, useDebounce } from '@common/hooks';
-import type { PolymorphicDefaultElement, PolymorphicElement } from '@common/types';
+import type {
+	PolymorphicDefaultElement,
+	PolymorphicElement,
+	PolymorphicFocusEvent,
+	PolymorphicMouseEvent
+} from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
 import { useFormsClasses, useFormsIconSize, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
@@ -40,20 +44,14 @@ import {
 } from './common/constants';
 import { useSearchInputResponsiveValues } from './common/hooks';
 import { KEYS_SEARCH_INPUT_CLASS } from './common/keys';
-import type {
-	SearchInputElement,
-	SearchInputFocusEvent,
-	SearchInputMouseEvent,
-	SearchInputProps,
-	SearchInputRef
-} from './common/types';
+import type { SearchInputElement, SearchInputProps, SearchInputRef } from './common/types';
 
 const SearchInput = forwardRef(function SearchInput<Element extends SearchInputElement>(
 	props: SearchInputProps<Element>,
 	ref: SearchInputRef<Element>
 ): JSX.Element {
-	const searchInputRef = useRef<PolymorphicElement<Element>>();
-	const refs = useMergeRefs(ref, searchInputRef);
+	const searchInputRef = useRef<PolymorphicElement<Element>>(null);
+	const refs = useMergeRefs(ref, searchInputRef.current as SearchInputRef<Element>);
 
 	const [childrenRef, childrenDimensions] = useDimensionsRef();
 	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
@@ -202,7 +200,7 @@ const SearchInput = forwardRef(function SearchInput<Element extends SearchInputE
 		}
 	};
 
-	const handleClick = (event: SearchInputMouseEvent<Element>): void => {
+	const handleClick = (event: PolymorphicMouseEvent): void => {
 		setIsFocusedHook.on();
 
 		if (searchInputRef && searchInputRef.current) {
@@ -216,7 +214,7 @@ const SearchInput = forwardRef(function SearchInput<Element extends SearchInputE
 		}
 	};
 
-	const handleFocus = (event: SearchInputFocusEvent<Element>): void => {
+	const handleFocus = (event: PolymorphicFocusEvent): void => {
 		setIsFocusedHook.on();
 
 		if (searchInputRef && searchInputRef.current) {
@@ -230,7 +228,7 @@ const SearchInput = forwardRef(function SearchInput<Element extends SearchInputE
 		}
 	};
 
-	const handleBlur = (event: SearchInputFocusEvent<Element>): void => {
+	const handleBlur = (event: PolymorphicFocusEvent): void => {
 		setIsFocusedHook.off();
 
 		if (searchInputRef && searchInputRef.current) {
@@ -304,7 +302,7 @@ const SearchInput = forwardRef(function SearchInput<Element extends SearchInputE
 
 					<GridItem ref={childrenRef as GridItemRef<PolymorphicDefaultElement>}>
 						<Box
-							{...(rest as BoxProps<Element>)}
+							{...rest}
 							as={as}
 							ref={refs}
 							className={classNames(classes.element)}
