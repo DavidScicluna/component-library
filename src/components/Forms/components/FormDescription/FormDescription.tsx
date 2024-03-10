@@ -6,7 +6,6 @@ import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import { useFormControlContext, useFormControlFontSize } from '@components/Forms/components/FormControl/common/hooks';
-import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
 import {
@@ -47,11 +46,11 @@ const FormDescription = forwardRef(function FormDescription<Element extends Form
 
 	return (
 		<Text
-			{...(rest as TextProps<Element>)}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_FORM_DESCRIPTION_CLASS, { [className]: !!className })}
-			aria-description={children}
+			aria-description={typeof children === 'string' ? children : ''}
 			id={getFormDescriptionID(id)}
 			align={align}
 			color={color}
