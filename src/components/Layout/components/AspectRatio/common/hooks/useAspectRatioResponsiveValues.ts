@@ -1,13 +1,10 @@
-import type { Required } from 'utility-types';
-
 import { useGetResponsiveValue } from '@common/hooks';
 import type { ThemeAspectRatio, Undefinable } from '@common/types';
 
-import { DEFAULT_ASPECT_RATIO_RATIO } from '../constants';
 import type { AspectRatioNonResponsiveValueProps, AspectRatioResponsiveValueProps } from '../types';
 
 type UseAspectRatioResponsiveValuesProps = Partial<AspectRatioResponsiveValueProps>;
-type UseCenterResponsiveValuesReturn = Required<AspectRatioNonResponsiveValueProps, 'ratio'>;
+type UseCenterResponsiveValuesReturn = AspectRatioNonResponsiveValueProps;
 
 const useAspectRatioResponsiveValues = (
 	props: UseAspectRatioResponsiveValuesProps
@@ -16,7 +13,7 @@ const useAspectRatioResponsiveValues = (
 
 	const ratio = useGetResponsiveValue<Undefinable<ThemeAspectRatio>>(ratioProp);
 
-	return { ratio: ratio || DEFAULT_ASPECT_RATIO_RATIO };
+	return { ratio };
 };
 
 export default useAspectRatioResponsiveValues;

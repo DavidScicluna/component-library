@@ -14,9 +14,9 @@ type UseAspectRatioClassesReturn = ClassName;
 const useAspectRatioClasses = <Element extends PolymorphicElementType>(
 	props: UseAspectRatioClassesProps<Element>
 ): UseAspectRatioClassesReturn => {
-	const { ratio: ratioProp = DEFAULT_ASPECT_RATIO_RATIO } = props;
+	const { ratio: ratioProp } = props;
 
-	const { ratio } = useAspectRatioResponsiveValues({ ratio: ratioProp });
+	const { ratio = DEFAULT_ASPECT_RATIO_RATIO } = useAspectRatioResponsiveValues({ ratio: ratioProp });
 
 	const ratioClassName = useGetClass((classes) => classes.layout.aspect_ratio[ratio]);
 
