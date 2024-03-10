@@ -19,9 +19,12 @@ type UseSimpleGridClassesReturn = ClassName;
 const useSimpleGridClasses = <Element extends PolymorphicElementType>(
 	props: UseSimpleGridClassesProps<Element>
 ): UseSimpleGridClassesReturn => {
-	const { columns: columnsProp = DEFAULT_SIMPLE_GRID_COLUMNS, spacing: spacingProp = DEFAULT_SPACING } = props;
+	const { columns: columnsProp, spacing: spacingProp } = props;
 
-	const { columns, spacing } = useSimpleGridResponsiveValues({ columns: columnsProp, spacing: spacingProp });
+	const { columns = DEFAULT_SIMPLE_GRID_COLUMNS, spacing = DEFAULT_SPACING } = useSimpleGridResponsiveValues({
+		columns: columnsProp,
+		spacing: spacingProp
+	});
 
 	const columnsClassName = useGetClass((classes) => classes.grid.template_columns[columns]);
 

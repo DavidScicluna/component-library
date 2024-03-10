@@ -2,12 +2,11 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
-import { DEFAULT_CLASSNAME, DEFAULT_SPACING } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Box } from '@components/Box';
 
-import { DEFAULT_SIMPLE_GRID_COLUMNS } from './common/constants';
 import { useSimpleGridClasses, useSimpleGridResponsiveValues } from './common/hooks';
 import { KEYS_SIMPLE_GRID_CLASS } from './common/keys';
 import type { SimpleGridProps, SimpleGridRef } from './common/types';
@@ -16,13 +15,7 @@ const SimpleGrid = forwardRef(function SimpleGrid<Element extends PolymorphicEle
 	props: SimpleGridProps<Element>,
 	ref: SimpleGridRef<Element>
 ): JSX.Element {
-	const {
-		children,
-		className = DEFAULT_CLASSNAME,
-		columns: columnsProp = DEFAULT_SIMPLE_GRID_COLUMNS,
-		spacing: spacingProp = DEFAULT_SPACING,
-		...rest
-	} = props;
+	const { children, className = DEFAULT_CLASSNAME, columns: columnsProp, spacing: spacingProp, ...rest } = props;
 
 	const { columns, spacing } = useSimpleGridResponsiveValues({ columns: columnsProp, spacing: spacingProp });
 
