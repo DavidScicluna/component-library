@@ -1,9 +1,6 @@
 import type {
-	FileInputChangeEvent,
 	FileInputDefaultElement,
 	FileInputElement,
-	FileInputFocusEvent,
-	FileInputMouseEvent,
 	FileInputProps,
 	FileInputRef,
 	FileInputRenderProps,
@@ -24,11 +21,8 @@ export { FileInput };
 
 // Component Types
 export type {
-	FileInputChangeEvent,
 	FileInputDefaultElement,
 	FileInputElement,
-	FileInputFocusEvent,
-	FileInputMouseEvent,
 	FileInputProps,
 	FileInputRef,
 	FileInputRenderProps,

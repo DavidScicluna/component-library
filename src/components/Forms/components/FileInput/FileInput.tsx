@@ -6,9 +6,13 @@ import { useDimensionsRef, useFocus, useMergeRefs } from 'rooks';
 
 import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type { PolymorphicDefaultElement, PolymorphicElement } from '@common/types';
+import type {
+	PolymorphicDefaultElement,
+	PolymorphicElement,
+	PolymorphicFocusEvent,
+	PolymorphicMouseEvent
+} from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 import type { FileButtonChildrenProps } from '@components/Buttons';
 import { FileButton } from '@components/Buttons';
@@ -41,20 +45,14 @@ import {
 } from './common/constants';
 import { useFileInputResponsiveValues } from './common/hooks';
 import { KEYS_FILE_INPUT_CLASS } from './common/keys';
-import type {
-	FileInputElement,
-	FileInputFocusEvent,
-	FileInputMouseEvent,
-	FileInputProps,
-	FileInputRef
-} from './common/types';
+import type { FileInputElement, FileInputProps, FileInputRef } from './common/types';
 
 const FileInput = forwardRef(function FileInput<Element extends FileInputElement>(
 	props: FileInputProps<Element>,
 	ref: FileInputRef<Element>
 ): JSX.Element {
-	const fileInputRef = useRef<PolymorphicElement<Element>>();
-	const refs = useMergeRefs(ref, fileInputRef);
+	const fileInputRef = useRef<PolymorphicElement<Element>>(null);
+	const refs = useMergeRefs(ref, fileInputRef.current as FileInputRef<Element>);
 
 	const [childrenRef, childrenDimensions] = useDimensionsRef();
 	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
@@ -170,7 +168,7 @@ const FileInput = forwardRef(function FileInput<Element extends FileInputElement
 		variant
 	});
 
-	const handleClick = (event: FileInputMouseEvent<Element>): void => {
+	const handleClick = (event: PolymorphicMouseEvent): void => {
 		event.preventDefault();
 		event.stopPropagation();
 
@@ -187,7 +185,7 @@ const FileInput = forwardRef(function FileInput<Element extends FileInputElement
 		}
 	};
 
-	const handleFocus = (event: FileInputFocusEvent<Element>): void => {
+	const handleFocus = (event: PolymorphicFocusEvent): void => {
 		setIsFocusedHook.on();
 
 		if (fileInputRef && fileInputRef.current) {
@@ -201,7 +199,7 @@ const FileInput = forwardRef(function FileInput<Element extends FileInputElement
 		}
 	};
 
-	const handleBlur = (event: FileInputFocusEvent<Element>): void => {
+	const handleBlur = (event: PolymorphicFocusEvent): void => {
 		setIsFocusedHook.off();
 
 		if (fileInputRef && fileInputRef.current) {
@@ -234,7 +232,7 @@ const FileInput = forwardRef(function FileInput<Element extends FileInputElement
 					h={hasFormControl ? '100%' : undefined}
 					templateColumns={compact(['auto', '1fr', renderRight ? 'auto' : null]).join(' ')}
 					templateRows={1}
-					onClick={(event: FileInputMouseEvent<Element>) => {
+					onClick={(event: PolymorphicMouseEvent) => {
 						handleUpload();
 						handleClick(event);
 					}}
@@ -263,7 +261,7 @@ const FileInput = forwardRef(function FileInput<Element extends FileInputElement
 
 					<GridItem ref={childrenRef as GridItemRef<PolymorphicDefaultElement>}>
 						<Box
-							{...(rest as BoxProps<Element>)}
+							{...rest}
 							as={as}
 							ref={refs}
 							className={classNames(classes.element)}
