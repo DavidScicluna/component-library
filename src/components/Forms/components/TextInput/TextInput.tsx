@@ -6,9 +6,13 @@ import { useDimensionsRef, useFocus, useMergeRefs } from 'rooks';
 
 import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type { PolymorphicDefaultElement, PolymorphicElement } from '@common/types';
+import type {
+	PolymorphicDefaultElement,
+	PolymorphicElement,
+	PolymorphicFocusEvent,
+	PolymorphicMouseEvent
+} from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 import { useFormsClasses, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
@@ -37,20 +41,14 @@ import {
 } from './common/constants';
 import { useTextInputResponsiveValues } from './common/hooks';
 import { KEYS_TEXT_INPUT_CLASS } from './common/keys';
-import type {
-	TextInputElement,
-	TextInputFocusEvent,
-	TextInputMouseEvent,
-	TextInputProps,
-	TextInputRef
-} from './common/types';
+import type { TextInputElement, TextInputProps, TextInputRef } from './common/types';
 
 const TextInput = forwardRef(function TextInput<Element extends TextInputElement>(
 	props: TextInputProps<Element>,
 	ref: TextInputRef<Element>
 ): JSX.Element {
-	const textInputRef = useRef<PolymorphicElement<Element>>();
-	const refs = useMergeRefs(ref, textInputRef);
+	const textInputRef = useRef<PolymorphicElement<Element>>(null);
+	const refs = useMergeRefs(ref, textInputRef.current as TextInputRef<Element>);
 
 	const [childrenRef, childrenDimensions] = useDimensionsRef();
 	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
@@ -159,7 +157,7 @@ const TextInput = forwardRef(function TextInput<Element extends TextInputElement
 		variant
 	});
 
-	const handleClick = (event: TextInputMouseEvent<Element>): void => {
+	const handleClick = (event: PolymorphicMouseEvent): void => {
 		setIsFocusedHook.on();
 
 		if (textInputRef && textInputRef.current) {
@@ -173,7 +171,7 @@ const TextInput = forwardRef(function TextInput<Element extends TextInputElement
 		}
 	};
 
-	const handleFocus = (event: TextInputFocusEvent<Element>): void => {
+	const handleFocus = (event: PolymorphicFocusEvent): void => {
 		setIsFocusedHook.on();
 
 		if (textInputRef && textInputRef.current) {
@@ -187,7 +185,7 @@ const TextInput = forwardRef(function TextInput<Element extends TextInputElement
 		}
 	};
 
-	const handleBlur = (event: TextInputFocusEvent<Element>): void => {
+	const handleBlur = (event: PolymorphicFocusEvent): void => {
 		setIsFocusedHook.off();
 
 		if (textInputRef && textInputRef.current) {
@@ -236,7 +234,7 @@ const TextInput = forwardRef(function TextInput<Element extends TextInputElement
 
 			<GridItem ref={childrenRef as GridItemRef<PolymorphicDefaultElement>}>
 				<Box
-					{...(rest as BoxProps<Element>)}
+					{...rest}
 					as={as}
 					ref={refs}
 					className={classNames(classes.element)}

@@ -1,9 +1,6 @@
 import type {
-	TextInputChangeEvent,
 	TextInputDefaultElement,
 	TextInputElement,
-	TextInputFocusEvent,
-	TextInputMouseEvent,
 	TextInputProps,
 	TextInputRef,
 	TextInputRenderProps,
@@ -24,11 +21,8 @@ export { TextInput };
 
 // Component Types
 export type {
-	TextInputChangeEvent,
 	TextInputDefaultElement,
 	TextInputElement,
-	TextInputFocusEvent,
-	TextInputMouseEvent,
 	TextInputProps,
 	TextInputRef,
 	TextInputRenderProps,
