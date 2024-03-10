@@ -7,7 +7,6 @@ import { useGetColor } from '@common/hooks';
 
 import { Box } from '@components/Box';
 import { useFormControlContext, useFormControlFontSize } from '@components/Forms/components/FormControl/common/hooks';
-import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
 import {
@@ -59,12 +58,12 @@ const FormLabel = forwardRef(function FormLabel<Element extends FormLabelElement
 
 	return (
 		<Text
-			{...(rest as TextProps<Element>)}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_FORM_LABEL_CLASS, { [className]: !!className })}
-			aria-braillelabel={children}
-			aria-label={children}
+			aria-braillelabel={typeof children === 'string' ? children : ''}
+			aria-label={typeof children === 'string' ? children : ''}
 			id={getFormLabelID(id)}
 			align={align}
 			color={color}
