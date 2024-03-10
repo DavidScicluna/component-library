@@ -6,7 +6,6 @@ import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import { useFormControlContext, useFormControlFontSize } from '@components/Forms/components/FormControl/common/hooks';
-import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
 import {
@@ -46,11 +45,11 @@ const FormHelperText = forwardRef(function FormHelperText<Element extends FormHe
 
 	return (
 		<Text
-			{...(rest as TextProps<Element>)}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_FORM_HELPER_TEXT_CLASS, { [className]: !!className })}
-			aria-errormessage={children}
+			aria-errormessage={typeof children === 'string' ? children : ''}
 			align={align}
 			color={color}
 			fontSize={fontSize}
