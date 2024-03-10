@@ -8,7 +8,6 @@ import type { PolymorphicElementType } from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
-import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import { getFormDescriptionID } from '../FormDescription/common/utils';
@@ -129,7 +128,7 @@ const Rating = forwardRef(function Rating<Element extends PolymorphicElementType
 
 	return (
 		<Grid
-			{...(rest as GridProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_RATING_CLASS, classes, { [className]: !!className })}
 			aria-disabled={isDisabled ? 'true' : 'false'}
