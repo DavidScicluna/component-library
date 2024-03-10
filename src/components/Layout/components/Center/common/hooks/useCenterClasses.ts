@@ -15,9 +15,9 @@ type UseCenterClassesReturn = ClassName;
 const useCenterClasses = <Element extends PolymorphicElementType>(
 	props: UseCenterClassesProps<Element>
 ): UseCenterClassesReturn => {
-	const { spacing: spacingProp = DEFAULT_CENTER_SPACING } = props;
+	const { spacing: spacingProp } = props;
 
-	const { spacing } = useCenterResponsiveValues({ spacing: spacingProp });
+	const { spacing = DEFAULT_CENTER_SPACING } = useCenterResponsiveValues({ spacing: spacingProp });
 
 	const spacingClassName = useGetClass((classes) => classes.spacing.gap[spacing]);
 
