@@ -37,32 +37,32 @@ const useGridClasses = <Element extends PolymorphicElementType>(
 	props: UseGridClassesProps<Element>
 ): UseGridClassesReturn => {
 	const {
-		alignContent: alignContentProp = DEFAULT_GRID_ALIGN_CONTENT,
-		alignItems: alignItemsProp = DEFAULT_GRID_ALIGN_ITEMS,
+		alignContent: alignContentProp,
+		alignItems: alignItemsProp,
 		autoColumns: autoColumnsProp,
 		autoFlow: autoFlowProp,
 		autoRows: autoRowsProp,
 		columnSpacing: columnSpacingProp,
-		justifyContent: justifyContentProp = DEFAULT_GRID_JUSTIFY_CONTENT,
-		justifyItems: justifyItemsProp = DEFAULT_GRID_JUSTIFY_ITEMS,
+		justifyContent: justifyContentProp,
+		justifyItems: justifyItemsProp,
 		rowSpacing: rowSpacingProp,
-		templateColumns: templateColumnsProp = DEFAULT_GRID_TEMPLATE_COLUMNS,
-		templateRows: templateRowsProp = DEFAULT_GRID_TEMPLATE_ROWS,
-		spacing: spacingProp = DEFAULT_SPACING
+		templateColumns: templateColumnsProp,
+		templateRows: templateRowsProp,
+		spacing: spacingProp
 	} = props;
 
 	const {
-		alignContent,
-		alignItems,
+		alignContent = DEFAULT_GRID_ALIGN_CONTENT,
+		alignItems = DEFAULT_GRID_ALIGN_ITEMS,
 		autoColumns,
 		autoFlow,
 		autoRows,
 		columnSpacing,
-		justifyContent,
-		justifyItems,
+		justifyContent = DEFAULT_GRID_JUSTIFY_CONTENT,
+		justifyItems = DEFAULT_GRID_JUSTIFY_ITEMS,
 		rowSpacing,
-		templateColumns,
-		templateRows,
+		templateColumns = DEFAULT_GRID_TEMPLATE_COLUMNS,
+		templateRows = DEFAULT_GRID_TEMPLATE_ROWS,
 		spacing = DEFAULT_SPACING
 	} = useGridResponsiveValues({
 		alignContent: alignContentProp,

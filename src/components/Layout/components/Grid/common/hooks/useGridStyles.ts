@@ -14,15 +14,13 @@ type UseGridStylesReturn = Style;
 const useGridStyles = <Element extends PolymorphicElementType>(
 	props: UseGridStylesProps<Element>
 ): UseGridStylesReturn => {
-	const {
-		templateColumns: templateColumnsProp = DEFAULT_GRID_TEMPLATE_COLUMNS,
-		templateRows: templateRowsProp = DEFAULT_GRID_TEMPLATE_ROWS
-	} = props;
+	const { templateColumns: templateColumnsProp, templateRows: templateRowsProp } = props;
 
-	const { templateColumns, templateRows } = useGridResponsiveValues({
-		templateColumns: templateColumnsProp,
-		templateRows: templateRowsProp
-	});
+	const { templateColumns = DEFAULT_GRID_TEMPLATE_COLUMNS, templateRows = DEFAULT_GRID_TEMPLATE_ROWS } =
+		useGridResponsiveValues({
+			templateColumns: templateColumnsProp,
+			templateRows: templateRowsProp
+		});
 
 	return {
 		gridTemplateColumns: typeof templateColumns === 'string' ? templateColumns : undefined,

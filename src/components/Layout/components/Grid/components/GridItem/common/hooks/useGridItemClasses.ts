@@ -28,29 +28,38 @@ const useGridItemClasses = <Element extends PolymorphicElementType>(
 	props: UseGridItemClassesProps<Element>
 ): UseGridItemClassesReturn => {
 	const {
-		alignSelf: alignSelfProp = DEFAULT_GRID_ITEM_ALIGN_SELF,
+		alignSelf: alignSelfProp,
 		columnSpan: columnSpanProp,
 		columnStart: columnStartProp,
 		columnEnd: columnEndProp,
-		justifySelf: justifySelfProp = DEFAULT_GRID_ITEM_JUSTIFY_SELF,
+		justifySelf: justifySelfProp,
 		rowSpan: rowSpanProp,
 		rowStart: rowStartProp,
 		rowEnd: rowEndProp,
-		zIndex: zIndexProp = DEFAULT_GRID_ITEM_Z_INDEX
+		zIndex: zIndexProp
 	} = props;
 
-	const { alignSelf, columnSpan, columnStart, columnEnd, justifySelf, rowSpan, rowStart, rowEnd, zIndex } =
-		useGridItemResponsiveValues({
-			alignSelf: alignSelfProp,
-			columnSpan: columnSpanProp,
-			columnStart: columnStartProp,
-			columnEnd: columnEndProp,
-			justifySelf: justifySelfProp,
-			rowSpan: rowSpanProp,
-			rowStart: rowStartProp,
-			rowEnd: rowEndProp,
-			zIndex: zIndexProp
-		});
+	const {
+		alignSelf = DEFAULT_GRID_ITEM_ALIGN_SELF,
+		columnSpan,
+		columnStart,
+		columnEnd,
+		justifySelf = DEFAULT_GRID_ITEM_JUSTIFY_SELF,
+		rowSpan,
+		rowStart,
+		rowEnd,
+		zIndex = DEFAULT_GRID_ITEM_Z_INDEX
+	} = useGridItemResponsiveValues({
+		alignSelf: alignSelfProp,
+		columnSpan: columnSpanProp,
+		columnStart: columnStartProp,
+		columnEnd: columnEndProp,
+		justifySelf: justifySelfProp,
+		rowSpan: rowSpanProp,
+		rowStart: rowStartProp,
+		rowEnd: rowEndProp,
+		zIndex: zIndexProp
+	});
 
 	const alignSelfClassName = useGetClass((classes) => classes.grid.align_self[alignSelf]);
 	const justifySelfClassName = useGetClass((classes) => classes.grid.justify_self[justifySelf]);

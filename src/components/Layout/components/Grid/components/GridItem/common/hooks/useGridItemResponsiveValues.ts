@@ -1,5 +1,3 @@
-import type { Required } from 'utility-types';
-
 import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	AlignSelfClass,
@@ -12,14 +10,10 @@ import type {
 	ZIndexClass
 } from '@common/types';
 
-import { DEFAULT_GRID_ITEM_ALIGN_SELF, DEFAULT_GRID_ITEM_JUSTIFY_SELF, DEFAULT_GRID_ITEM_Z_INDEX } from '../constants';
 import type { GridItemNonResponsiveValueProps, GridItemResponsiveValueProps } from '../types';
 
 type UseGridItemResponsiveValuesProps = Partial<GridItemResponsiveValueProps>;
-type UseGridItemResponsiveValuesReturn = Required<
-	GridItemNonResponsiveValueProps,
-	'alignSelf' | 'justifySelf' | 'zIndex'
->;
+type UseGridItemResponsiveValuesReturn = GridItemNonResponsiveValueProps;
 
 const useGridItemResponsiveValues = (props: UseGridItemResponsiveValuesProps): UseGridItemResponsiveValuesReturn => {
 	const {
@@ -44,17 +38,7 @@ const useGridItemResponsiveValues = (props: UseGridItemResponsiveValuesProps): U
 	const rowEnd = useGetResponsiveValue<Undefinable<GridRowStartEndClass>>(rowEndProp);
 	const zIndex = useGetResponsiveValue<Undefinable<ZIndexClass>>(zIndexProp);
 
-	return {
-		alignSelf: alignSelf || DEFAULT_GRID_ITEM_ALIGN_SELF,
-		columnSpan,
-		columnStart,
-		columnEnd,
-		justifySelf: justifySelf || DEFAULT_GRID_ITEM_JUSTIFY_SELF,
-		rowSpan,
-		rowStart,
-		rowEnd,
-		zIndex: zIndex || DEFAULT_GRID_ITEM_Z_INDEX
-	};
+	return { alignSelf, columnSpan, columnStart, columnEnd, justifySelf, rowSpan, rowStart, rowEnd, zIndex };
 };
 
 export default useGridItemResponsiveValues;

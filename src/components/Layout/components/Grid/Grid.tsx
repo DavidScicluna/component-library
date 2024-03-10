@@ -3,19 +3,11 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 import { merge } from 'lodash-es';
 
-import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX, DEFAULT_SPACING } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Box } from '@components/Box';
 
-import {
-	DEFAULT_GRID_ALIGN_CONTENT,
-	DEFAULT_GRID_ALIGN_ITEMS,
-	DEFAULT_GRID_JUSTIFY_CONTENT,
-	DEFAULT_GRID_JUSTIFY_ITEMS,
-	DEFAULT_GRID_TEMPLATE_COLUMNS,
-	DEFAULT_GRID_TEMPLATE_ROWS
-} from './common/constants';
 import { useGridClasses, useGridResponsiveValues, useGridStyles } from './common/hooks';
 import { KEYS_GRID_CLASS } from './common/keys';
 import type { GridProps, GridRef } from './common/types';
@@ -27,18 +19,18 @@ const Grid = forwardRef(function Grid<Element extends PolymorphicElementType>(
 	const {
 		children,
 		className = DEFAULT_CLASSNAME,
-		alignContent: alignContentProp = DEFAULT_GRID_ALIGN_CONTENT,
-		alignItems: alignItemsProp = DEFAULT_GRID_ALIGN_ITEMS,
+		alignContent: alignContentProp,
+		alignItems: alignItemsProp,
 		autoColumns: autoColumnsProp,
 		autoFlow: autoFlowProp,
 		autoRows: autoRowsProp,
 		columnSpacing: columnSpacingProp,
-		justifyContent: justifyContentProp = DEFAULT_GRID_JUSTIFY_CONTENT,
-		justifyItems: justifyItemsProp = DEFAULT_GRID_JUSTIFY_ITEMS,
+		justifyContent: justifyContentProp,
+		justifyItems: justifyItemsProp,
 		rowSpacing: rowSpacingProp,
-		templateColumns: templateColumnsProp = DEFAULT_GRID_TEMPLATE_COLUMNS,
-		templateRows: templateRowsProp = DEFAULT_GRID_TEMPLATE_ROWS,
-		spacing: spacingProp = DEFAULT_SPACING,
+		templateColumns: templateColumnsProp,
+		templateRows: templateRowsProp,
+		spacing: spacingProp,
 		sx = DEFAULT_POLYMORPHIC_SX,
 		...rest
 	} = props;

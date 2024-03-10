@@ -1,6 +1,3 @@
-import type { Required } from 'utility-types';
-
-import { DEFAULT_SPACING } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	AlignContentClass,
@@ -13,14 +10,6 @@ import type {
 	Undefinable
 } from '@common/types';
 
-import {
-	DEFAULT_GRID_ALIGN_CONTENT,
-	DEFAULT_GRID_ALIGN_ITEMS,
-	DEFAULT_GRID_JUSTIFY_CONTENT,
-	DEFAULT_GRID_JUSTIFY_ITEMS,
-	DEFAULT_GRID_TEMPLATE_COLUMNS,
-	DEFAULT_GRID_TEMPLATE_ROWS
-} from '../constants';
 import type {
 	GridNonResponsiveValueProps,
 	GridResponsiveValueProps,
@@ -29,15 +18,7 @@ import type {
 } from '../types';
 
 type UseGridResponsiveValuesProps = Partial<GridResponsiveValueProps>;
-type RequiredGridNonResponsiveValueProps =
-	| 'alignContent'
-	| 'alignItems'
-	| 'justifyContent'
-	| 'justifyItems'
-	| 'templateColumns'
-	| 'templateRows'
-	| 'spacing';
-type UseGridResponsiveValuesReturn = Required<GridNonResponsiveValueProps, RequiredGridNonResponsiveValueProps>;
+type UseGridResponsiveValuesReturn = GridNonResponsiveValueProps;
 
 const useGridResponsiveValues = (props: UseGridResponsiveValuesProps): UseGridResponsiveValuesReturn => {
 	const {
@@ -69,18 +50,18 @@ const useGridResponsiveValues = (props: UseGridResponsiveValuesProps): UseGridRe
 	const spacing = useGetResponsiveValue<Undefinable<ThemeSpacing>>(spacingProp);
 
 	return {
-		alignContent: alignContent || DEFAULT_GRID_ALIGN_CONTENT,
-		alignItems: alignItems || DEFAULT_GRID_ALIGN_ITEMS,
+		alignContent,
+		alignItems,
 		autoColumns,
 		autoFlow,
 		autoRows,
 		columnSpacing,
-		justifyContent: justifyContent || DEFAULT_GRID_JUSTIFY_CONTENT,
-		justifyItems: justifyItems || DEFAULT_GRID_JUSTIFY_ITEMS,
+		justifyContent,
+		justifyItems,
 		rowSpacing,
-		templateColumns: templateColumns || DEFAULT_GRID_TEMPLATE_COLUMNS,
-		templateRows: templateRows || DEFAULT_GRID_TEMPLATE_ROWS,
-		spacing: spacing || DEFAULT_SPACING
+		templateColumns,
+		templateRows,
+		spacing
 	};
 };
 
