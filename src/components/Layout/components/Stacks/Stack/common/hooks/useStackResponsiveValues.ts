@@ -1,8 +1,5 @@
 import type { ReactNode } from 'react';
 
-import type { Required } from 'utility-types';
-
-import { DEFAULT_SPACING } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 import type {
 	AlignItemsClass,
@@ -13,17 +10,10 @@ import type {
 	Undefinable
 } from '@common/types';
 
-import {
-	DEFAULT_STACK_ALIGN_ITEMS,
-	DEFAULT_STACK_DIRECTION,
-	DEFAULT_STACK_JUSTIFY_CONTENT,
-	DEFAULT_STACK_WRAP
-} from '../constants';
 import type { StackNonResponsiveValueProps, StackResponsiveValueProps } from '../types';
 
 type UseStackResponsiveValuesProps = Partial<StackResponsiveValueProps>;
-type RequiredStackNonResponsiveValueProps = 'alignItems' | 'direction' | 'justifyContent' | 'spacing' | 'wrap';
-type UseStackResponsiveValuesReturn = Required<StackNonResponsiveValueProps, RequiredStackNonResponsiveValueProps>;
+type UseStackResponsiveValuesReturn = StackNonResponsiveValueProps;
 
 const useStackResponsiveValues = (props: UseStackResponsiveValuesProps): UseStackResponsiveValuesReturn => {
 	const {
@@ -42,14 +32,7 @@ const useStackResponsiveValues = (props: UseStackResponsiveValuesProps): UseStac
 	const spacing = useGetResponsiveValue<Undefinable<ThemeSpacing>>(spacingProp);
 	const wrap = useGetResponsiveValue<Undefinable<FlexWrapClass>>(wrapProp);
 
-	return {
-		alignItems: alignItems || DEFAULT_STACK_ALIGN_ITEMS,
-		direction: direction || DEFAULT_STACK_DIRECTION,
-		divider,
-		justifyContent: justifyContent || DEFAULT_STACK_JUSTIFY_CONTENT,
-		spacing: spacing || DEFAULT_SPACING,
-		wrap: wrap || DEFAULT_STACK_WRAP
-	};
+	return { alignItems, direction, divider, justifyContent, spacing, wrap };
 };
 
 export default useStackResponsiveValues;

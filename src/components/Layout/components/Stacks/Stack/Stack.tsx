@@ -3,17 +3,11 @@ import { Children, forwardRef, Fragment } from 'react';
 import classNames from 'classnames';
 import { compact, isArray } from 'lodash-es';
 
-import { DEFAULT_CLASSNAME, DEFAULT_SPACING } from '@common/constants';
+import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Box } from '@components/Box';
 
-import {
-	DEFAULT_STACK_ALIGN_ITEMS,
-	DEFAULT_STACK_DIRECTION,
-	DEFAULT_STACK_JUSTIFY_CONTENT,
-	DEFAULT_STACK_WRAP
-} from './common/constants';
 import { useStackClasses, useStackResponsiveValues } from './common/hooks';
 import { KEYS_STACK_CLASS } from './common/keys';
 import type { StackProps, StackRef } from './common/types';
@@ -25,12 +19,12 @@ const Stack = forwardRef(function Stack<Element extends PolymorphicElementType>(
 	const {
 		children,
 		className = DEFAULT_CLASSNAME,
-		alignItems: alignItemsProp = DEFAULT_STACK_ALIGN_ITEMS,
-		direction: directionProp = DEFAULT_STACK_DIRECTION,
+		alignItems: alignItemsProp,
+		direction: directionProp,
 		divider: dividerProp,
-		justifyContent: justifyContentProp = DEFAULT_STACK_JUSTIFY_CONTENT,
-		spacing: spacingProp = DEFAULT_SPACING,
-		wrap: wrapProp = DEFAULT_STACK_WRAP,
+		justifyContent: justifyContentProp,
+		spacing: spacingProp,
+		wrap: wrapProp,
 		...rest
 	} = props;
 

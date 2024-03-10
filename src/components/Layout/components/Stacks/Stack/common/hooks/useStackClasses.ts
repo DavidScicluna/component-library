@@ -25,14 +25,20 @@ const useStackClasses = <Element extends PolymorphicElementType>(
 	props: UseStackClassesProps<Element>
 ): UseStackClassesReturn => {
 	const {
-		alignItems: alignItemsProp = DEFAULT_STACK_ALIGN_ITEMS,
-		direction: directionProp = DEFAULT_STACK_DIRECTION,
-		justifyContent: justifyContentProp = DEFAULT_STACK_JUSTIFY_CONTENT,
-		spacing: spacingProp = DEFAULT_SPACING,
-		wrap: wrapProp = DEFAULT_STACK_WRAP
+		alignItems: alignItemsProp,
+		direction: directionProp,
+		justifyContent: justifyContentProp,
+		spacing: spacingProp,
+		wrap: wrapProp
 	} = props;
 
-	const { alignItems, direction, justifyContent, spacing, wrap } = useStackResponsiveValues({
+	const {
+		alignItems = DEFAULT_STACK_ALIGN_ITEMS,
+		direction = DEFAULT_STACK_DIRECTION,
+		justifyContent = DEFAULT_STACK_JUSTIFY_CONTENT,
+		spacing = DEFAULT_SPACING,
+		wrap = DEFAULT_STACK_WRAP
+	} = useStackResponsiveValues({
 		alignItems: alignItemsProp,
 		direction: directionProp,
 		justifyContent: justifyContentProp,
