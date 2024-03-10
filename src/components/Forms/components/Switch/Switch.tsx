@@ -10,13 +10,14 @@ import type {
 	PolymorphicChangeEvent,
 	PolymorphicDefaultElement,
 	PolymorphicElement,
-	PolymorphicElementType
+	PolymorphicElementType,
+	PolymorphicFocusEvent,
+	PolymorphicMouseEvent
 } from '@common/types';
 
 import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
 import { useFormControlContext } from '@components/Forms/components/FormControl/common/hooks';
-import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 import { PushableOverlay } from '@components/Overlay';
 import { Text } from '@components/Typography';
@@ -48,7 +49,7 @@ import {
 import { useSwitchClasses, useSwitchIconSize, useSwitchResponsiveValues, useSwitchSizeConfig } from './common/hooks';
 import { KEYS_SWITCH_CLASS } from './common/keys';
 // TODO: Go over all Form components Event types and check if they are used if not remove
-import type { SwitchFocusEvent, SwitchMouseEvent, SwitchProps, SwitchRef } from './common/types';
+import type { SwitchProps, SwitchRef } from './common/types';
 
 const Switch = forwardRef(function Switch<Element extends PolymorphicElementType>(
 	props: SwitchProps<Element>,
@@ -153,7 +154,7 @@ const Switch = forwardRef(function Switch<Element extends PolymorphicElementType
 		hueType: 'text.primary'
 	});
 
-	const handleClick = (event: SwitchMouseEvent<Element>): void => {
+	const handleClick = (event: PolymorphicMouseEvent): void => {
 		if (isClickable) {
 			setIsFocusedHook.on();
 		}
@@ -172,7 +173,7 @@ const Switch = forwardRef(function Switch<Element extends PolymorphicElementType
 		}
 	};
 
-	const handleFocus = (event: SwitchFocusEvent<Element>): void => {
+	const handleFocus = (event: PolymorphicFocusEvent): void => {
 		if (isClickable) {
 			setIsFocusedHook.on();
 		}
@@ -182,7 +183,7 @@ const Switch = forwardRef(function Switch<Element extends PolymorphicElementType
 		}
 	};
 
-	const handleBlur = (event: SwitchFocusEvent<Element>): void => {
+	const handleBlur = (event: PolymorphicFocusEvent): void => {
 		if (isClickable) {
 			setIsFocusedHook.off();
 		}
@@ -202,7 +203,7 @@ const Switch = forwardRef(function Switch<Element extends PolymorphicElementType
 
 	return (
 		<Grid
-			{...(rest as GridProps<Element>)}
+			{...rest}
 			{...focusProps}
 			ref={ref}
 			className={classNames(KEYS_SWITCH_CLASS, classes, { [className]: !!className })}
@@ -268,7 +269,8 @@ const Switch = forwardRef(function Switch<Element extends PolymorphicElementType
 							type={type}
 							onChange={
 								onToggle
-									? (event: PolymorphicChangeEvent<'input'>) => onToggle(!!event.target.checked)
+									? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+										(event: PolymorphicChangeEvent) => onToggle(!!(event.target as any).checked)
 									: undefined
 							}
 						/>

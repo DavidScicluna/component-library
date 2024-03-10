@@ -1,22 +1,11 @@
 import type { ReactNode } from 'react';
 
-import type {
-	PolymorphicChangeEvent,
-	PolymorphicDefaultElement,
-	PolymorphicElementType,
-	PolymorphicFocusEvent,
-	PolymorphicMouseEvent,
-	ResponsiveValue
-} from '@common/types';
+import type { PolymorphicDefaultElement, PolymorphicElementType, ResponsiveValue } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 import type { FormsCommonProps, FormsCommonSize } from '@components/Forms/common/types';
 import type { PushableOverlayProps } from '@components/Overlay';
 import type { TextDefaultElement, TextProps } from '@components/Typography';
-
-export type SwitchMouseEvent<Element extends PolymorphicElementType> = PolymorphicMouseEvent<Element>;
-export type SwitchChangeEvent<Element extends PolymorphicElementType> = PolymorphicChangeEvent<Element>;
-export type SwitchFocusEvent<Element extends PolymorphicElementType> = PolymorphicFocusEvent<Element>;
 
 export type SwitchLabelPosition = 'left' | 'right';
 

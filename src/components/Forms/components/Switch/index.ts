@@ -1,12 +1,4 @@
-import type {
-	SwitchChangeEvent,
-	SwitchFocusEvent,
-	SwitchLabelPosition,
-	SwitchMouseEvent,
-	SwitchProps,
-	SwitchRef,
-	SwitchSize
-} from './common/types';
+import type { SwitchLabelPosition, SwitchProps, SwitchRef, SwitchSize } from './common/types';
 import Switch from './Switch';
 
 // Constants
@@ -22,12 +14,4 @@ export * from './common/hooks';
 export { Switch };
 
 // Component Types
-export type {
-	SwitchChangeEvent,
-	SwitchFocusEvent,
-	SwitchLabelPosition,
-	SwitchMouseEvent,
-	SwitchProps,
-	SwitchRef,
-	SwitchSize
-};
+export type { SwitchLabelPosition, SwitchProps, SwitchRef, SwitchSize };
