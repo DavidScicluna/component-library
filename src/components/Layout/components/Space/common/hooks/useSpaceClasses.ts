@@ -14,9 +14,12 @@ type UseSpaceClassesReturn = ClassName;
 const useSpaceClasses = <Element extends PolymorphicElementType>(
 	props: UseSpaceClassesProps<Element>
 ): UseSpaceClassesReturn => {
-	const { width: widthProp = DEFAULT_SPACE_WIDTH, height: heightProp = DEFAULT_SPACE_HEIGHT } = props;
+	const { width: widthProp, height: heightProp } = props;
 
-	const { width, height } = useSpaceResponsiveValues({ width: widthProp, height: heightProp });
+	const { width = DEFAULT_SPACE_WIDTH, height = DEFAULT_SPACE_HEIGHT } = useSpaceResponsiveValues({
+		width: widthProp,
+		height: heightProp
+	});
 
 	const widthClassName = useGetClass((classes) => classes.sizing.width[width]);
 	const heightClassName = useGetClass((classes) => classes.sizing.height[height]);
