@@ -1,9 +1,6 @@
 import type {
-	PasswordInputChangeEvent,
 	PasswordInputDefaultElement,
 	PasswordInputElement,
-	PasswordInputFocusEvent,
-	PasswordInputMouseEvent,
 	PasswordInputProps,
 	PasswordInputRef,
 	PasswordInputRenderProps,
@@ -24,11 +21,8 @@ export { PasswordInput };
 
 // Component Types
 export type {
-	PasswordInputChangeEvent,
 	PasswordInputDefaultElement,
 	PasswordInputElement,
-	PasswordInputFocusEvent,
-	PasswordInputMouseEvent,
 	PasswordInputProps,
 	PasswordInputRef,
 	PasswordInputRenderProps,

@@ -6,9 +6,13 @@ import { useDimensionsRef, useFocus, useMergeRefs } from 'rooks';
 
 import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type { PolymorphicDefaultElement, PolymorphicElement } from '@common/types';
+import type {
+	PolymorphicDefaultElement,
+	PolymorphicElement,
+	PolymorphicFocusEvent,
+	PolymorphicMouseEvent
+} from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 import { Icon } from '@components/DataDisplay';
 import { useFormsClasses, useFormsIconSize, useFormsSizeConfig, useFormsStyles } from '@components/Forms/common/hooks';
@@ -38,20 +42,14 @@ import {
 } from './common/constants';
 import { usePasswordInputResponsiveValues } from './common/hooks';
 import { KEYS_PASSWORD_INPUT_CLASS } from './common/keys';
-import type {
-	PasswordInputElement,
-	PasswordInputFocusEvent,
-	PasswordInputMouseEvent,
-	PasswordInputProps,
-	PasswordInputRef
-} from './common/types';
+import type { PasswordInputElement, PasswordInputProps, PasswordInputRef } from './common/types';
 
 const PasswordInput = forwardRef(function PasswordInput<Element extends PasswordInputElement>(
 	props: PasswordInputProps<Element>,
 	ref: PasswordInputRef<Element>
 ): JSX.Element {
-	const passwordInputRef = useRef<PolymorphicElement<Element>>();
-	const refs = useMergeRefs(ref, passwordInputRef);
+	const passwordInputRef = useRef<PolymorphicElement<Element>>(null);
+	const refs = useMergeRefs(ref, passwordInputRef.current as PasswordInputRef<Element>);
 
 	const [childrenRef, childrenDimensions] = useDimensionsRef();
 	const { width: childrenWidth = 0, height: childrenHeight = 0 } = childrenDimensions || {};
@@ -172,7 +170,7 @@ const PasswordInput = forwardRef(function PasswordInput<Element extends Password
 		}
 	}, [isVisible]);
 
-	const handleClick = (event: PasswordInputMouseEvent<Element>): void => {
+	const handleClick = (event: PolymorphicMouseEvent): void => {
 		setIsFocusedHook.on();
 
 		if (passwordInputRef && passwordInputRef.current) {
@@ -186,7 +184,7 @@ const PasswordInput = forwardRef(function PasswordInput<Element extends Password
 		}
 	};
 
-	const handleFocus = (event: PasswordInputFocusEvent<Element>): void => {
+	const handleFocus = (event: PolymorphicFocusEvent): void => {
 		setIsFocusedHook.on();
 
 		if (passwordInputRef && passwordInputRef.current) {
@@ -200,7 +198,7 @@ const PasswordInput = forwardRef(function PasswordInput<Element extends Password
 		}
 	};
 
-	const handleBlur = (event: PasswordInputFocusEvent<Element>): void => {
+	const handleBlur = (event: PolymorphicFocusEvent): void => {
 		setIsFocusedHook.off();
 
 		if (passwordInputRef && passwordInputRef.current) {
@@ -257,7 +255,7 @@ const PasswordInput = forwardRef(function PasswordInput<Element extends Password
 
 			<GridItem ref={childrenRef as GridItemRef<PolymorphicDefaultElement>}>
 				<Box
-					{...(rest as BoxProps<Element>)}
+					{...rest}
 					as={as}
 					ref={refs}
 					className={classNames(classes.element)}

@@ -1,11 +1,6 @@
 import type { ReactNode } from 'react';
 
-import type {
-	PolymorphicChangeEvent,
-	PolymorphicElementType,
-	PolymorphicFocusEvent,
-	PolymorphicMouseEvent
-} from '@common/types';
+import type { PolymorphicElementType } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 import type { IconButtonDefaultElement, IconButtonProps } from '@components/Buttons';
@@ -13,10 +8,6 @@ import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@com
 
 export type PasswordInputDefaultElement = 'input';
 export type PasswordInputElement = Extract<PolymorphicElementType, 'input'>;
-
-export type PasswordInputMouseEvent<Element extends PasswordInputElement> = PolymorphicMouseEvent<Element>;
-export type PasswordInputChangeEvent<Element extends PasswordInputElement> = PolymorphicChangeEvent<Element>;
-export type PasswordInputFocusEvent<Element extends PasswordInputElement> = PolymorphicFocusEvent<Element>;
 
 // export type PasswordInputAutoComplete = 'on' | 'password' | 'off';
 
