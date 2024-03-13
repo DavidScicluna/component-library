@@ -8,7 +8,6 @@ import { useGetColor, useTheme } from '@common/hooks';
 import type { PolymorphicElementType, ThemeFontSize } from '@common/types';
 import { checkFontSizeType, convertREMToPixels, convertStringToNumber } from '@common/utils';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import { DEFAULT_TAIL_SPIN_SPINNER_IS_VISIBLE, DEFAULT_TAIL_SPIN_SPINNER_SIZE } from './common/constants';
@@ -46,11 +45,7 @@ const TailSpinSpinner = forwardRef(function TailSpinSpinner<Element extends Poly
 	}, [size]);
 
 	return (
-		<Box
-			{...(rest as BoxProps<Element>)}
-			ref={ref}
-			className={classNames(KEYS_TAIL_SPIN_SPINNER_CLASS, { [className]: !!className })}
-		>
+		<Box {...rest} ref={ref} className={classNames(KEYS_TAIL_SPIN_SPINNER_CLASS, { [className]: !!className })}>
 			<ThreeDots
 				width={dimensions}
 				height={dimensions}
