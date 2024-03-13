@@ -8,7 +8,6 @@ import { useGetColor, useTheme } from '@common/hooks';
 import type { PolymorphicElementType, ThemeFontSize } from '@common/types';
 import { checkFontSizeType, convertREMToPixels, convertStringToNumber } from '@common/utils';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import { DEFAULT_THREE_DOTS_SPINNER_IS_VISIBLE, DEFAULT_THREE_DOTS_SPINNER_SIZE } from './common/constants';
@@ -46,11 +45,7 @@ const ThreeDotsSpinner = forwardRef(function ThreeDotsSpinner<Element extends Po
 	}, [size]);
 
 	return (
-		<Box
-			{...(rest as BoxProps<Element>)}
-			ref={ref}
-			className={classNames(KEYS_THREE_DOTS_SPINNER_CLASS, { [className]: !!className })}
-		>
+		<Box {...rest} ref={ref} className={classNames(KEYS_THREE_DOTS_SPINNER_CLASS, { [className]: !!className })}>
 			<ThreeDots
 				width={dimensions}
 				height={dimensions}
