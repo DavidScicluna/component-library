@@ -9,7 +9,6 @@ import type { PolymorphicDefaultElement } from '@common/types';
 
 import type { CenterRef } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
-import type { DummyPushableOverlayProps } from '@components/Overlay';
 import { DummyPushableOverlay } from '@components/Overlay';
 
 import {
@@ -81,7 +80,7 @@ const DummyButton = forwardRef(function DummyButton<Element extends DummyButtonE
 	return (
 		<DummyButtonContext.Provider value={{ color, colorMode, size, variant }}>
 			<DummyPushableOverlay
-				{...(rest as DummyPushableOverlayProps<Element>)}
+				{...rest}
 				as={as}
 				ref={ref}
 				className={classNames(KEY_DUMMY_BUTTON_CLASS, classes, {
