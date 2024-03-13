@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 import { DEFAULT_CLASSNAME, DEFAULT_RADIUS } from '@common/constants';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
@@ -68,7 +67,7 @@ const Progress = forwardRef(function Progress<Element extends ProgressElement>(
 	return (
 		<ProgressContext.Provider value={{ color, colorMode, isIndeterminate, max, min, radius, variant }}>
 			<Box
-				{...(rest as BoxProps<Element>)}
+				{...rest}
 				as={as}
 				ref={ref}
 				className={classNames(KEYS_PROGRESS_CLASS, classes, { [className]: !!className })}

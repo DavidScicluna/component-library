@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
-import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
 import { useProgressContext } from '../../common/hooks';
@@ -42,7 +41,7 @@ const ProgressLabel = forwardRef(function ProgressLabel<Element extends Progress
 
 	return (
 		<Text
-			{...(rest as TextProps<Element>)}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_PROGRESS_LABEL_CLASS, { [className]: !!className })}
