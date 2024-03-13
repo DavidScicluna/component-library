@@ -7,7 +7,6 @@ import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
-import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import { DEFAULT_SKELETON_IS_ANIMATED, DEFAULT_SKELETON_IS_LOADED } from './common/constants';
@@ -40,7 +39,7 @@ const Skeleton = forwardRef(function Skeleton<Element extends PolymorphicElement
 
 	return (
 		<Grid
-			{...(rest as GridProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEY_SKELETON_CLASS, { [className]: !!className })}
 			templateColumns={1}
