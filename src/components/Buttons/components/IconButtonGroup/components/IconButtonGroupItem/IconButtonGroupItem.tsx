@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import { useIconButtonGroupItemClasses } from './common/hooks';
@@ -22,7 +21,7 @@ const IconButtonGroupItem = forwardRef(function IconButtonGroupItem<Element exte
 
 	return (
 		<Box
-			{...(rest as BoxProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_ICON_BUTTON_GROUP_ITEM_CLASS, { [className]: !!className })}
 		>

@@ -11,7 +11,6 @@ import {
 	DEFAULT_ICON_BUTTON_SIZE,
 	DEFAULT_ICON_BUTTON_VARIANT
 } from '@components/Buttons/components/IconButton/common/constants';
-import type { StackProps } from '@components/Layout';
 import { Stack } from '@components/Layout';
 import { DEFAULT_STACK_DIRECTION } from '@components/Layout/components/Stacks/Stack/common/constants';
 
@@ -69,7 +68,7 @@ const IconButtonGroup = forwardRef(function IconButtonGroup<Element extends Icon
 			value={{ color, colorMode, direction, isAttached, isCompact, isDisabled, isRound, size, variant }}
 		>
 			<Stack
-				{...(rest as StackProps<Element>)}
+				{...rest}
 				as={as}
 				ref={ref}
 				className={classNames(KEYS_ICON_BUTTON_GROUP_CLASS, { [className]: !!className })}
