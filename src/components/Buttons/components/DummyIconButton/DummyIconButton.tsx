@@ -6,7 +6,6 @@ import { merge } from 'lodash-es';
 import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 
 import { Center } from '@components/Layout';
-import type { DummyPushableOverlayProps } from '@components/Overlay';
 import { DummyPushableOverlay } from '@components/Overlay';
 
 import {
@@ -75,7 +74,7 @@ const DummyIconButton = forwardRef(function DummyIconButton<Element extends Dumm
 	return (
 		<DummyIconButtonContext.Provider value={{ color, colorMode, size, variant }}>
 			<DummyPushableOverlay
-				{...(rest as DummyPushableOverlayProps<Element>)}
+				{...rest}
 				as={as}
 				ref={ref}
 				className={classNames(KEY_DUMMY_ICON_BUTTON_CLASS, classes, { [className]: !!className })}

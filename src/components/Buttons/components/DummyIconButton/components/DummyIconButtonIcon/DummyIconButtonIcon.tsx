@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 import { DEFAULT_CLASSNAME } from '@common/constants';
 
-import type { IconProps } from '@components/DataDisplay';
 import { Icon } from '@components/DataDisplay';
 
 import { useDummyIconButtonContext, useDummyIconButtonFontSize } from '../../common/hooks';
@@ -38,7 +37,7 @@ const DummyIconButtonIcon = forwardRef(function DummyIconButtonIcon<Element exte
 	return (
 		<DummyIconButtonSkeleton>
 			<Icon
-				{...(rest as IconProps<Element>)}
+				{...rest}
 				as={as}
 				ref={ref}
 				className={classNames(KEY_DUMMY_ICON_BUTTON_ICON_CLASS, { [className]: !!className })}
