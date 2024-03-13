@@ -8,7 +8,6 @@ import { useGetColor, useTheme } from '@common/hooks';
 import type { PolymorphicElementType, ThemeFontSize } from '@common/types';
 import { checkFontSizeType, convertREMToPixels, convertStringToNumber } from '@common/utils';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import { DEFAULT_PUFF_SPINNER_IS_VISIBLE, DEFAULT_PUFF_SPINNER_SIZE } from './common/constants';
@@ -46,11 +45,7 @@ const PuffSpinner = forwardRef(function PuffSpinner<Element extends PolymorphicE
 	}, [size]);
 
 	return (
-		<Box
-			{...(rest as BoxProps<Element>)}
-			ref={ref}
-			className={classNames(KEYS_PUFF_SPINNER_CLASS, { [className]: !!className })}
-		>
+		<Box {...rest} ref={ref} className={classNames(KEYS_PUFF_SPINNER_CLASS, { [className]: !!className })}>
 			<Puff
 				width={dimensions}
 				height={dimensions}
