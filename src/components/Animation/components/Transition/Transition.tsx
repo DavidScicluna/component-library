@@ -16,7 +16,6 @@ import type {
 import { getAnimationConfig, getAnimationDelay, getAnimationDuration, getAnimationEasings } from '@common/utils';
 
 import { AnimatePresence } from '@components/Animation';
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import { DEFAULT_TRANSITION, DEFAULT_TRANSITION_IN, DEFAULT_TRANSITION_UNMOUNT_ON_EXIT } from './common/constants';
@@ -105,7 +104,7 @@ const Transition = forwardRef(function Transition<Element extends PolymorphicEle
 		<AnimatePresence onExitComplete={onExitComplete}>
 			{isVisible ? (
 				<MotionBox
-					{...(rest as BoxProps<Element>)}
+					{...rest}
 					ref={ref}
 					className={classNames(KEYS_TRANSITION_CLASS, { [className]: !!className })}
 					initial='exit'
