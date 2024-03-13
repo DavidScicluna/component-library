@@ -8,7 +8,6 @@ import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 import { useBoolean } from '@common/hooks';
 
 import { Center } from '@components/Layout';
-import type { PushableOverlayProps } from '@components/Overlay';
 import { PushableOverlay } from '@components/Overlay';
 
 import { useIconButtonGroupContext } from '../IconButtonGroup/common/hooks';
@@ -117,7 +116,7 @@ const IconButton = forwardRef(function IconButton<Element extends IconButtonElem
 		<IconButtonContext.Provider value={{ color, colorMode, size, variant }}>
 			<PushableOverlay
 				{...focusProps}
-				{...(rest as PushableOverlayProps<Element>)}
+				{...rest}
 				as={as}
 				ref={ref}
 				className={classNames(KEYS_ICON_BUTTON_CLASS, classes, { [className]: !!className })}

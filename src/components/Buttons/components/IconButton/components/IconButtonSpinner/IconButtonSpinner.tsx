@@ -7,7 +7,6 @@ import { useAppTheme } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
 import { getColorHex } from '@common/utils';
 
-import type { PuffSpinnerProps, TailSpinSpinnerProps, ThreeDotsSpinnerProps } from '@components/Feedback';
 import { PuffSpinner, TailSpinSpinner, ThreeDotsSpinner } from '@components/Feedback';
 
 import { useIconButtonContext, useIconButtonFontSize } from '../../common/hooks';
@@ -60,7 +59,7 @@ const IconButtonSpinner = forwardRef(function IconButtonSpinner<Element extends 
 		case 'tail_spin':
 			return (
 				<TailSpinSpinner
-					{...(rest as TailSpinSpinnerProps<Element>)}
+					{...rest}
 					ref={ref}
 					className={classNames(KEYS_ICON_BUTTON_SPINNER_CLASS, { [className]: !!className })}
 					color={c}
@@ -71,7 +70,7 @@ const IconButtonSpinner = forwardRef(function IconButtonSpinner<Element extends 
 		case 'three_dots':
 			return (
 				<ThreeDotsSpinner
-					{...(rest as ThreeDotsSpinnerProps<Element>)}
+					{...rest}
 					ref={ref}
 					className={classNames(KEYS_ICON_BUTTON_SPINNER_CLASS, { [className]: !!className })}
 					color={c}
@@ -82,7 +81,7 @@ const IconButtonSpinner = forwardRef(function IconButtonSpinner<Element extends 
 		default:
 			return (
 				<PuffSpinner
-					{...(rest as PuffSpinnerProps<Element>)}
+					{...rest}
 					ref={ref}
 					className={classNames(KEYS_ICON_BUTTON_SPINNER_CLASS, { [className]: !!className })}
 					color={c}
