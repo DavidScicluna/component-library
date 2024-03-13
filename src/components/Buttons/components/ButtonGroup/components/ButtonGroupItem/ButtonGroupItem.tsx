@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import { useButtonGroupContext } from '../../common/hooks';
@@ -26,7 +25,7 @@ const ButtonGroupItem = forwardRef(function ButtonGroupItem<Element extends Poly
 
 	return (
 		<Box
-			{...(rest as BoxProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_BUTTON_GROUP_ITEM_CLASS, { [className]: !!className })}
 			w={isFullWidth ? '100%' : 'auto'}

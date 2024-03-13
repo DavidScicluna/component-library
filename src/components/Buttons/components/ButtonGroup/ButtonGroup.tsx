@@ -12,7 +12,6 @@ import {
 	DEFAULT_BUTTON_SIZE,
 	DEFAULT_BUTTON_VARIANT
 } from '@components/Buttons/components/Button/common/constants';
-import type { StackProps } from '@components/Layout';
 import { Stack } from '@components/Layout';
 import { DEFAULT_STACK_DIRECTION } from '@components/Layout/components/Stacks/Stack/common/constants';
 
@@ -82,7 +81,7 @@ const ButtonGroup = forwardRef(function ButtonGroup<Element extends ButtonGroupE
 			}}
 		>
 			<Stack
-				{...(rest as StackProps<Element>)}
+				{...rest}
 				as={as}
 				ref={ref}
 				className={classNames(KEYS_BUTTON_GROUP_CLASS, { [className]: !!className })}
