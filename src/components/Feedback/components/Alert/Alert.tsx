@@ -8,7 +8,6 @@ import { DEFAULT_CLASSNAME, DEFAULT_SPACING } from '@common/constants';
 import { useTheme } from '@common/hooks';
 import type { ThemeAppColor, ThemeAppColorMode, ThemeColor } from '@common/types';
 
-import type { GridProps } from '@components/Layout';
 import { Grid, GridItem, HStack, VStack } from '@components/Layout';
 
 import { Progress } from '../Progress';
@@ -106,7 +105,7 @@ const Alert = forwardRef(function Alert<Element extends AlertElement>(
 	return (
 		<AlertContext.Provider value={{ color, colorMode, status, variant }}>
 			<Grid
-				{...(rest as GridProps<Element>)}
+				{...rest}
 				as={as}
 				ref={ref}
 				className={classNames(KEYS_ALERT_CLASS, classes, { [className]: !!className })}

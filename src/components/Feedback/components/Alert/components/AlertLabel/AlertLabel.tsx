@@ -6,7 +6,6 @@ import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 import type { ThemeColor } from '@common/types';
 
-import type { TextProps } from '@components/Typography';
 import { Text } from '@components/Typography';
 
 import { DEFAULT_ALERT_LINE_HEIGHT_SIZE } from '../../common/constants';
@@ -55,7 +54,7 @@ const AlertLabel = forwardRef(function AlertLabel<Element extends AlertLabelElem
 
 	return (
 		<Text
-			{...(rest as TextProps<Element>)}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_ALERT_LABEL_CLASS, { [className]: !!className })}

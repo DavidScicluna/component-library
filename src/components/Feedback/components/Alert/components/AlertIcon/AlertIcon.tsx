@@ -7,7 +7,6 @@ import { useConst, useGetColor } from '@common/hooks';
 import type { IconKey, ThemeColor } from '@common/types';
 import { getFontSizeHeight } from '@common/utils';
 
-import type { IconProps } from '@components/DataDisplay';
 import { Icon } from '@components/DataDisplay';
 
 import { DEFAULT_ALERT_LINE_HEIGHT_SIZE } from '../../common/constants';
@@ -55,7 +54,7 @@ const AlertIcon = forwardRef(function AlertIcon<Element extends AlertIconElement
 
 	return (
 		<Icon
-			{...(rest as IconProps<Element>)}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_ALERT_ICON_CLASS, { [className]: !!className })}
