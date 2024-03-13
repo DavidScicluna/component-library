@@ -7,7 +7,6 @@ import { useAppTheme } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
 import { getColorHex } from '@common/utils';
 
-import type { PuffSpinnerProps, TailSpinSpinnerProps, ThreeDotsSpinnerProps } from '@components/Feedback';
 import { PuffSpinner, TailSpinSpinner, ThreeDotsSpinner } from '@components/Feedback';
 
 import { useButtonContext, useButtonFontSize } from '../../common/hooks';
@@ -56,7 +55,7 @@ const ButtonSpinner = forwardRef(function ButtonSpinner<Element extends Polymorp
 		case 'tail_spin':
 			return (
 				<TailSpinSpinner
-					{...(rest as TailSpinSpinnerProps<Element>)}
+					{...rest}
 					ref={ref}
 					className={classNames(KEYS_BUTTON_SPINNER_CLASS, { [className]: !!className })}
 					color={c}
@@ -67,7 +66,7 @@ const ButtonSpinner = forwardRef(function ButtonSpinner<Element extends Polymorp
 		case 'three_dots':
 			return (
 				<ThreeDotsSpinner
-					{...(rest as ThreeDotsSpinnerProps<Element>)}
+					{...rest}
 					ref={ref}
 					className={classNames(KEYS_BUTTON_SPINNER_CLASS, { [className]: !!className })}
 					color={c}
@@ -78,7 +77,7 @@ const ButtonSpinner = forwardRef(function ButtonSpinner<Element extends Polymorp
 		default:
 			return (
 				<PuffSpinner
-					{...(rest as PuffSpinnerProps<Element>)}
+					{...rest}
 					ref={ref}
 					className={classNames(KEYS_BUTTON_SPINNER_CLASS, { [className]: !!className })}
 					color={c}

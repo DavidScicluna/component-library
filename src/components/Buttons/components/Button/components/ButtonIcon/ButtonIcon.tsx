@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 import { DEFAULT_CLASSNAME } from '@common/constants';
 
-import type { IconProps } from '@components/DataDisplay';
 import { Icon } from '@components/DataDisplay';
 
 import { useButtonContext, useButtonFontSize } from '../../common/hooks';
@@ -32,7 +31,7 @@ const ButtonIcon = forwardRef(function ButtonIcon<Element extends ButtonIconElem
 
 	return (
 		<Icon
-			{...(rest as IconProps<Element>)}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_BUTTON_ICON_CLASS, { [className]: !!className })}
