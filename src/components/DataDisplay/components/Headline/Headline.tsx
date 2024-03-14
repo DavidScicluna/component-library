@@ -8,7 +8,7 @@ import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
-import type { GridProps, VStackRef } from '@components/Layout';
+import type { VStackRef } from '@components/Layout';
 import { Grid, GridItem, VStack } from '@components/Layout';
 
 import { DEFAULT_HEADLINE_SPACING } from './common/constants';
@@ -62,7 +62,7 @@ const Headline = forwardRef(function Headline<Element extends PolymorphicElement
 
 	return (
 		<Grid
-			{...(rest as GridProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_HEADLINE_CLASS, { [className]: !!className })}
 			templateColumns={compact([renderLeft ? 'auto' : null, '1fr', renderRight ? 'auto' : null]).join(' ')}
