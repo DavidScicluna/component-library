@@ -1,7 +1,6 @@
 import type {
 	CarouselArrowIconButtonDefaultElement,
 	CarouselArrowIconButtonElement,
-	CarouselArrowIconButtonMouseEvent,
 	CarouselArrowIconButtonProps,
 	CarouselArrowIconButtonRef
 } from './common/types';
@@ -23,7 +22,6 @@ export { CarouselArrowIconButton };
 export type {
 	CarouselArrowIconButtonDefaultElement,
 	CarouselArrowIconButtonElement,
-	CarouselArrowIconButtonMouseEvent,
 	CarouselArrowIconButtonProps,
 	CarouselArrowIconButtonRef
 };

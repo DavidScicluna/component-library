@@ -3,9 +3,9 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { DEFAULT_CLASSNAME } from '@common/constants';
+import type { PolymorphicMouseEvent } from '@common/types';
 
 import { useCarouselArrowState, useCarouselManager } from '../../common/hooks';
-import type { CarouselArrowIconButtonMouseEvent, CarouselArrowIconButtonProps } from '..';
 import { CarouselArrowIconButton, DEFAULT_CAROUSEL_RIGHT_ARROW_ICON_BUTTON_AS } from '..';
 
 import { KEYS_CAROUSEL_RIGHT_ARROW_ICON_BUTTON_CLASS } from './common/keys';
@@ -23,7 +23,7 @@ const CarouselRightArrowIconButton = forwardRef(function CarouselRightArrowIconB
 	const { scrollNext } = useCarouselManager();
 	const { isDisabled } = useCarouselArrowState('right');
 
-	const handleScrollNext = (event: CarouselArrowIconButtonMouseEvent<Element>): void => {
+	const handleScrollNext = (event: PolymorphicMouseEvent): void => {
 		scrollNext();
 
 		if (onClick) {
@@ -34,7 +34,7 @@ const CarouselRightArrowIconButton = forwardRef(function CarouselRightArrowIconB
 
 	return (
 		<CarouselArrowIconButton
-			{...(rest as CarouselArrowIconButtonProps<Element>)}
+			{...{ rest }}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_CAROUSEL_RIGHT_ARROW_ICON_BUTTON_CLASS, {

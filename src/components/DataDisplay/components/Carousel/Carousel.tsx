@@ -9,7 +9,6 @@ import { useEffectOnce } from 'usehooks-ts';
 import { DEFAULT_CLASSNAME, DEFAULT_SPACING } from '@common/constants';
 import { useDebounce } from '@common/hooks';
 
-import type { GridProps } from '@components/Layout';
 import { Grid, GridItem, Stack } from '@components/Layout';
 
 import {
@@ -132,7 +131,7 @@ const Carousel = forwardRef(function Carousel<Element extends CarouselElement>(
 			}}
 		>
 			<Grid
-				{...(rest as GridProps<Element>)}
+				{...rest}
 				as={as}
 				ref={ref}
 				id={getCarouselID(id)}

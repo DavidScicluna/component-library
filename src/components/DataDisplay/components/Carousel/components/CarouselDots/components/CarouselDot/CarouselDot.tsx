@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 import { useCarouselContext, useCarouselManager } from '@components/DataDisplay/components/Carousel/common/hooks';
 
@@ -40,7 +39,7 @@ const CarouselDot = forwardRef(function CarouselDot<Element extends PolymorphicE
 
 	return (
 		<Box
-			{...(rest as BoxProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_CAROUSEL_DOT_CLASS, classes.item, {
 				[classes.scale100]: scale === 100,

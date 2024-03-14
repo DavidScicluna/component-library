@@ -1,9 +1,4 @@
-import type {
-	PolymorphicDefaultElement,
-	PolymorphicMouseEvent,
-	ResponsiveValue,
-	ThemeAppAppearanceProps
-} from '@common/types';
+import type { PolymorphicDefaultElement, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
 
 import type { IconButtonDefaultElement, IconButtonElement, IconButtonProps, IconButtonRef } from '@components/Buttons';
 import type { CarouselArrowDirection } from '@components/DataDisplay';
@@ -11,9 +6,6 @@ import type { TooltipProps } from '@components/Overlay';
 
 export type CarouselArrowIconButtonDefaultElement = IconButtonDefaultElement;
 export type CarouselArrowIconButtonElement = IconButtonElement;
-
-export type CarouselArrowIconButtonMouseEvent<Element extends CarouselArrowIconButtonElement> =
-	PolymorphicMouseEvent<Element>;
 
 type CarouselArrowIconButtonOtherProps = ThemeAppAppearanceProps & {
 	/**

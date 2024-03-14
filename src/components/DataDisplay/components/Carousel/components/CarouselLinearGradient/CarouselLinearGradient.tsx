@@ -7,7 +7,6 @@ import { useAppTheme } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
-import type { LinearGradientProps } from '@components/Overlay';
 import { LinearGradient } from '@components/Overlay';
 
 import { useCarouselContext } from '../../common/hooks';
@@ -40,7 +39,7 @@ const CarouselLinearGradient = forwardRef(function CarouselLinearGradient<Elemen
 	return (
 		<Transition w='100%' h='100%' duration='ultra-fast' transition='fade' in={isVisible}>
 			<LinearGradient
-				{...(rest as LinearGradientProps<Element>)}
+				{...rest}
 				ref={ref}
 				className={classNames(KEYS_CAROUSEL_LINEAR_GRADIENT_CLASS, { [className]: !!className })}
 				w='100%'

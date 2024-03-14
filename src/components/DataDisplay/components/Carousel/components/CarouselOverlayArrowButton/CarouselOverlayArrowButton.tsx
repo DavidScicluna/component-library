@@ -10,7 +10,6 @@ import { CarouselLeftLinearGradient, CarouselRightLinearGradient } from '@compon
 import { useCarouselContext } from '@components/DataDisplay/components/Carousel/common/hooks';
 import { Center, Grid, GridItem } from '@components/Layout';
 
-import type { CarouselArrowButtonProps } from '..';
 import { CarouselArrowButton } from '..';
 
 import {
@@ -86,7 +85,7 @@ const CarouselOverlayArrowButton = forwardRef(function CarouselOverlayArrowButto
 						pb={orientation === 'vertical' && direction === 'left' ? spacing : 0}
 					>
 						<CarouselArrowButton
-							{...(rest as CarouselArrowButtonProps<Element>)}
+							{...{ rest }}
 							as={as}
 							ref={ref}
 							className={classNames(KEYS_CAROUSEL_OVERLAY_ARROW_BUTTON_CLASS, {

@@ -6,7 +6,6 @@ import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetColor } from '@common/hooks';
 
 import { Transition } from '@components/Animation';
-import type { CarouselArrowIconButtonProps } from '@components/DataDisplay';
 import {
 	CarouselArrowIconButton,
 	CarouselLeftLinearGradient,
@@ -88,7 +87,7 @@ const CarouselOverlayArrowIconButton = forwardRef(function CarouselOverlayArrowI
 						pb={orientation === 'vertical' && direction === 'left' ? spacing : 0}
 					>
 						<CarouselArrowIconButton
-							{...(rest as CarouselArrowIconButtonProps<Element>)}
+							{...{ rest }}
 							as={as}
 							ref={ref}
 							className={classNames(KEYS_CAROUSEL_OVERLAY_ARROW_ICON_BUTTON_CLASS, {

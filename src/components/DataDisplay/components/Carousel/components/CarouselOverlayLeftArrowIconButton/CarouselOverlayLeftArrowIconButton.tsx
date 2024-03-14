@@ -3,10 +3,9 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { DEFAULT_CLASSNAME } from '@common/constants';
+import type { PolymorphicMouseEvent } from '@common/types';
 
 import { useCarouselArrowState, useCarouselManager } from '../../common/hooks';
-import type { CarouselArrowIconButtonMouseEvent } from '../CarouselArrowIconButton';
-import type { CarouselOverlayArrowIconButtonProps } from '../CarouselOverlayArrowIconButton';
 import { CarouselOverlayArrowIconButton } from '../CarouselOverlayArrowIconButton';
 
 import { DEFAULT_CAROUSEL_OVERLAY_LEFT_ARROW_ICON_BUTTON_AS } from './common/constants';
@@ -33,7 +32,7 @@ const CarouselOverlayLeftArrowIconButton = forwardRef(function CarouselOverlayLe
 	const { scrollPrev } = useCarouselManager();
 	const { isVisible } = useCarouselArrowState('left');
 
-	const handleScrollPrev = (event: CarouselArrowIconButtonMouseEvent<Element>): void => {
+	const handleScrollPrev = (event: PolymorphicMouseEvent): void => {
 		scrollPrev();
 
 		if (onClick) {
@@ -44,7 +43,7 @@ const CarouselOverlayLeftArrowIconButton = forwardRef(function CarouselOverlayLe
 
 	return (
 		<CarouselOverlayArrowIconButton
-			{...(rest as CarouselOverlayArrowIconButtonProps<Element>)}
+			{...{ rest }}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_CAROUSEL_OVERLAY_LEFT_ARROW_ICON_BUTTON_CLASS, {

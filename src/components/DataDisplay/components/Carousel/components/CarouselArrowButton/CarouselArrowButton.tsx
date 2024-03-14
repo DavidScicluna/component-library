@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useGetResponsiveValue } from '@common/hooks';
 
-import type { ButtonProps } from '@components/Buttons';
 import { Button, ButtonIcon } from '@components/Buttons';
 
 import { useCarouselContext } from '../../common/hooks';
@@ -50,7 +49,7 @@ const CarouselArrowButton = forwardRef(function CarouselArrowButton<Element exte
 
 	return (
 		<Button
-			{...(rest as ButtonProps<Element>)}
+			{...{ rest }}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_CAROUSEL_ARROW_BUTTON_CLASS, { [className]: !!className })}

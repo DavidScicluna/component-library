@@ -8,7 +8,6 @@ import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useDebounce } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { StackProps } from '@components/Layout';
 import { Stack } from '@components/Layout';
 
 import { DEFAULT_CAROUSEL_DURATION_NUMBER, DEFAULT_CAROUSEL_DURATION_THEME } from '../../common/constants';
@@ -87,7 +86,7 @@ const CarouselDots = forwardRef(function CarouselDots<Element extends Polymorphi
 
 	return (
 		<Stack
-			{...(rest as StackProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_CAROUSEL_DOTS_CLASS, { [className]: !!className })}
 			w='100%'

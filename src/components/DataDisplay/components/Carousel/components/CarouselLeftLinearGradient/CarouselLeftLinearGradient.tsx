@@ -6,7 +6,6 @@ import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { useCarouselArrowState } from '../../common/hooks';
-import type { CarouselLinearGradientProps } from '..';
 import { CarouselLinearGradient } from '..';
 
 import { KEYS_CAROUSEL_LEFT_LINEAR_GRADIENT_CLASS } from './common/keys';
@@ -21,7 +20,7 @@ const CarouselLeftLinearGradient = forwardRef(function CarouselLeftLinearGradien
 
 	return (
 		<CarouselLinearGradient
-			{...(rest as CarouselLinearGradientProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_CAROUSEL_LEFT_LINEAR_GRADIENT_CLASS, { [className]: !!className })}
 			direction='left'

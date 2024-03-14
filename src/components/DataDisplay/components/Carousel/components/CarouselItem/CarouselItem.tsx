@@ -8,7 +8,6 @@ import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Transition } from '@components/Animation';
-import type { CenterProps } from '@components/Layout';
 import { Center } from '@components/Layout';
 
 import { KEYS_CAROUSEL_ITEM_CLASS } from './common/keys';
@@ -30,7 +29,7 @@ const CarouselItem = forwardRef(function CarouselItem<Element extends Polymorphi
 
 	return (
 		<Center
-			{...(rest as CenterProps<Element>)}
+			{...rest}
 			ref={refs}
 			id={id}
 			className={classNames(KEYS_CAROUSEL_ITEM_CLASS, { [className]: !!className })}

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import { DEFAULT_CLASSNAME } from '@common/constants';
 
-import type { IconButtonGroupItemChildrenProps, IconButtonGroupProps } from '@components/Buttons';
+import type { IconButtonGroupItemChildrenProps } from '@components/Buttons';
 import { IconButtonGroup, IconButtonGroupItem } from '@components/Buttons';
 
 import { useCarouselContext } from '../../common/hooks';
@@ -37,7 +37,7 @@ const CarouselArrowIconButtonGroup = forwardRef(function CarouselArrowIconButton
 
 	return (
 		<IconButtonGroup
-			{...(rest as IconButtonGroupProps<Element>)}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_CAROUSEL_ARROW_ICON_BUTTON_GROUP_CLASS, { [className]: !!className })}

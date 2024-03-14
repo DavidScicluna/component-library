@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 import { DEFAULT_CLASSNAME } from '@common/constants';
 
-import type { IconButtonProps } from '@components/Buttons';
 import { IconButton, IconButtonIcon } from '@components/Buttons';
 import { Tooltip } from '@components/Overlay';
 
@@ -73,7 +72,7 @@ const CarouselArrowIconButton = forwardRef(function CarouselArrowIconButton<
 			isDisabled={!hasTooltip}
 		>
 			<IconButton
-				{...(rest as IconButtonProps<Element>)}
+				{...{ rest }}
 				as={as}
 				ref={ref}
 				className={classNames(KEYS_CAROUSEL_ARROW_ICON_BUTTON_CLASS, { [className]: !!className })}
