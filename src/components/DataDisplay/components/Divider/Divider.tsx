@@ -5,7 +5,6 @@ import { merge } from 'lodash-es';
 
 import { DEFAULT_BORDER_WIDTH, DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX, DEFAULT_SPACING } from '@common/constants';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 import { Center } from '@components/Layout';
 
@@ -58,7 +57,7 @@ const Divider = forwardRef(function Divider<Element extends DividerElement>(
 
 	return (
 		<Box
-			{...(rest as BoxProps<Element>)}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_DIVIDER_CLASS, classes, { [className]: !!className })}
