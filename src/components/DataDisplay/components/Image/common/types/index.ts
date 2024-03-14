@@ -8,7 +8,6 @@ import type {
 	InvertClass,
 	PolymorphicElement,
 	PolymorphicElementType,
-	PolymorphicSyntheticEvent,
 	ResponsiveValue,
 	SaturateClass,
 	SepiaClass,
@@ -19,8 +18,6 @@ import type {
 import type { ObjectFitClass, ObjectPositionClass } from '@common/types/classes';
 
 import type { BoxProps, BoxRef } from '@components/Box';
-
-export type ImageSyntheticEvent = PolymorphicSyntheticEvent<'img'>;
 
 export type ImageFilters = {
 	/**

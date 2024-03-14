@@ -4,11 +4,10 @@ import classNames from 'classnames';
 
 import { DEFAULT_CLASSNAME, DEFAULT_RADIUS } from '@common/constants';
 import { useBoolean } from '@common/hooks';
-import type { PolymorphicElementType } from '@common/types';
+import type { PolymorphicElementType, PolymorphicSyntheticEvent } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Box } from '@components/Box';
-import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
@@ -26,7 +25,7 @@ import {
 	KEYS_IMAGE_FULL_CLASS,
 	KEYS_IMAGE_THUMBNAIL_CLASS
 } from './common/keys';
-import type { ImageProps, ImageRef, ImageSyntheticEvent } from './common/types';
+import type { ImageProps, ImageRef } from './common/types';
 
 const Image = forwardRef(function Image<Element extends PolymorphicElementType>(
 	props: ImageProps<Element>,
@@ -60,59 +59,66 @@ const Image = forwardRef(function Image<Element extends PolymorphicElementType>(
 
 	const classes = useImageClasses<Element>({ color, colorMode, filters, options, radius });
 
-	const handleOnBoringLoad = (event: ImageSyntheticEvent): void => {
+	const handleOnBoringLoad = (event: PolymorphicSyntheticEvent): void => {
 		setIsThumbnailVisible.off();
 		setIsFullVisible.off();
 
 		if (boring && boring.onLoad) {
-			boring.onLoad(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			boring.onLoad(event as any);
 		}
 	};
 
-	const handleOnBoringError = (event: ImageSyntheticEvent): void => {
+	const handleOnBoringError = (event: PolymorphicSyntheticEvent): void => {
 		setIsBoringVisible.off();
 		setIsThumbnailVisible.off();
 		setIsFullVisible.off();
 
 		if (boring && boring.onError) {
-			boring.onError(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			boring.onError(event as any);
 		}
 	};
 
-	const handleOnThumbnailLoad = (event: ImageSyntheticEvent): void => {
+	const handleOnThumbnailLoad = (event: PolymorphicSyntheticEvent): void => {
 		setIsFullVisible.on();
 
 		if (thumbnail && thumbnail.onLoad) {
-			thumbnail.onLoad(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			thumbnail.onLoad(event as any);
 		}
 	};
 
-	const handleOnThumbnailError = (event: ImageSyntheticEvent): void => {
+	const handleOnThumbnailError = (event: PolymorphicSyntheticEvent): void => {
 		setIsBoringVisible.on();
 		setIsThumbnailVisible.off();
 		setIsFullVisible.off();
 
 		if (thumbnail && thumbnail.onError) {
-			thumbnail.onError(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			thumbnail.onError(event as any);
 		}
 	};
 
-	const handleOnFullLoad = (event: ImageSyntheticEvent): void => {
+	const handleOnFullLoad = (event: PolymorphicSyntheticEvent): void => {
 		setIsBoringVisible.off();
 		setIsThumbnailVisible.off();
 
 		if (full && full.onLoad) {
-			full.onLoad(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			full.onLoad(event as any);
 		}
 	};
 
-	const handleOnFullError = (event: ImageSyntheticEvent): void => {
+	const handleOnFullError = (event: PolymorphicSyntheticEvent): void => {
 		setIsBoringVisible.on();
 		setIsThumbnailVisible.off();
 		setIsFullVisible.off();
 
 		if (full && full.onError) {
-			full.onError(event);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			full.onError(event as any);
 		}
 	};
 
@@ -130,7 +136,7 @@ const Image = forwardRef(function Image<Element extends PolymorphicElementType>(
 
 	return (
 		<Grid
-			{...(rest as GridProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_IMAGE_CLASS, classes.container, { [className]: !!className })}
 			templateColumns={1}
@@ -158,12 +164,11 @@ const Image = forwardRef(function Image<Element extends PolymorphicElementType>(
 						<Box
 							as='img'
 							className={classNames(KEYS_IMAGE_BORING_CLASS, classes.image)}
-							w='100%'
-							h='100%'
 							alt={boring.alt}
 							onLoad={handleOnBoringLoad}
 							onError={handleOnBoringError}
 							src={boring.src}
+							sx={{ w: '100%', h: '100%' }}
 						/>
 					</Transition>
 				</GridItem>
@@ -175,12 +180,11 @@ const Image = forwardRef(function Image<Element extends PolymorphicElementType>(
 						<Box
 							as='img'
 							className={classNames(KEYS_IMAGE_THUMBNAIL_CLASS, classes.image)}
-							w='100%'
-							h='100%'
 							alt={thumbnail.alt}
 							onLoad={handleOnThumbnailLoad}
 							onError={handleOnThumbnailError}
 							src={thumbnail.src}
+							sx={{ w: '100%', h: '100%' }}
 						/>
 					</Transition>
 				</GridItem>
@@ -192,12 +196,11 @@ const Image = forwardRef(function Image<Element extends PolymorphicElementType>(
 						<Box
 							as='img'
 							className={classNames(KEYS_IMAGE_FULL_CLASS, classes.image)}
-							w='100%'
-							h='100%'
 							alt={full.alt}
 							onLoad={handleOnFullLoad}
 							onError={handleOnFullError}
 							src={full.src}
+							sx={{ w: '100%', h: '100%' }}
 						/>
 					</Transition>
 				</GridItem>

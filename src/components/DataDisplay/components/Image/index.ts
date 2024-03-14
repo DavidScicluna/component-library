@@ -5,7 +5,6 @@ import type {
 	ImageOptions,
 	ImageProps,
 	ImageRef,
-	ImageSyntheticEvent,
 	ImageType
 } from './common/types';
 import Image from './Image';
@@ -23,4 +22,4 @@ export * from './common/hooks';
 export { Image };
 
 // Component Types
-export type { ImageFilters, ImageMode, ImageModes, ImageOptions, ImageProps, ImageRef, ImageSyntheticEvent, ImageType };
+export type { ImageFilters, ImageMode, ImageModes, ImageOptions, ImageProps, ImageRef, ImageType };
