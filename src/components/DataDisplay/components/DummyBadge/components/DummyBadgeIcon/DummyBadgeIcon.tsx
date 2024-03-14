@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 
 import { DEFAULT_DUMMY_ICON_BUTTON_ICON_AS, DEFAULT_DUMMY_ICON_BUTTON_ICON_VARIANT } from '@components/Buttons';
-import type { IconProps } from '@components/DataDisplay';
 import { Icon } from '@components/DataDisplay';
 
 import { useDummyBadgeContext, useDummyBadgeFontSize } from '../../common/hooks';
@@ -38,7 +37,7 @@ const DummyBadgeIcon = forwardRef(function DummyBadgeIcon<Element extends DummyB
 	return (
 		<DummyBadgeSkeleton>
 			<Icon
-				{...(rest as IconProps<Element>)}
+				{...rest}
 				as={as}
 				ref={ref}
 				className={classNames(KEY_DUMMY_BADGE_ICON_CLASS, { [className]: !!className })}
