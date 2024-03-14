@@ -9,7 +9,7 @@ import { useGetColor } from '@common/hooks';
 import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
 
 import { Icon } from '@components/DataDisplay';
-import type { GridProps, GridRef } from '@components/Layout';
+import type { GridRef } from '@components/Layout';
 import { Grid, GridItem, HStack, VStack } from '@components/Layout';
 
 import { useCardContext } from '../../common/hooks';
@@ -53,7 +53,7 @@ const CardHeader = forwardRef(function CardHeader<Element extends PolymorphicEle
 
 	return (
 		<Grid
-			{...(rest as GridProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_CARD_HEADER_CLASS, { [className]: !!className })}
 			w='100%'

@@ -3,17 +3,16 @@ import { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import { DEFAULT_CLASSNAME } from '@common/constants';
-import type { PolymorphicElementType } from '@common/types';
+import type { PolymorphicElementType, PolymorphicMouseEvent } from '@common/types';
 
 import { Transition } from '@components/Animation';
-import type { VStackProps } from '@components/Layout';
 import { VStack } from '@components/Layout';
 
 import { useCardContext } from '../../common/hooks';
 import { CardDivider } from '../CardDivider';
 
 import { KEYS_CARD_STACK_CLASS } from './common/keys';
-import type { CardStackMouseEvent, CardStackProps, CardStackRef } from './common/types';
+import type { CardStackProps, CardStackRef } from './common/types';
 
 const CardStack = forwardRef(function CardStack<Element extends PolymorphicElementType>(
 	props: CardStackProps<Element>,
@@ -33,7 +32,7 @@ const CardStack = forwardRef(function CardStack<Element extends PolymorphicEleme
 		...rest
 	} = props;
 
-	const handleMouseEnter = (event: CardStackMouseEvent<Element>): void => {
+	const handleMouseEnter = (event: PolymorphicMouseEvent): void => {
 		if (typeof onHover.on === 'function') {
 			onHover.on();
 		}
@@ -43,7 +42,7 @@ const CardStack = forwardRef(function CardStack<Element extends PolymorphicEleme
 		}
 	};
 
-	const handleMouseLeave = (event: CardStackMouseEvent<Element>): void => {
+	const handleMouseLeave = (event: PolymorphicMouseEvent): void => {
 		if (typeof onHover.off === 'function') {
 			onHover.off();
 		}
@@ -56,7 +55,7 @@ const CardStack = forwardRef(function CardStack<Element extends PolymorphicEleme
 	return (
 		<Transition w='100%' h='100%' duration='slow' transition='collapse' in={isCollapsable ? isOpen : true}>
 			<VStack
-				{...(rest as VStackProps<Element>)}
+				{...rest}
 				ref={ref}
 				className={classNames(KEYS_CARD_STACK_CLASS, { [className]: !!className })}
 				w='100%'

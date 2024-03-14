@@ -1,7 +1,6 @@
 import type { UseBooleanToggles } from '@common/hooks/useBoolean';
 import type {
 	PolymorphicElementType,
-	PolymorphicMouseEvent,
 	ResponsiveValue,
 	ThemeAppAppearanceProps,
 	ThemeRadius,
@@ -13,8 +12,6 @@ import type { PushableOverlayProps } from '@components/Overlay';
 
 export type CardDefaultElement = 'div';
 export type CardElement = Extract<PolymorphicElementType, 'div'>;
-
-export type CardMouseEvent<Element extends CardElement> = PolymorphicMouseEvent<Element>;
 
 export type CardVariant = 'contained' | 'light' | 'dark' | 'outlined' | 'monochrome' | 'transparent';
 

@@ -5,8 +5,8 @@ import { useFocus } from 'rooks';
 
 import { DEFAULT_CLASSNAME, DEFAULT_SPACING, DEFAULT_USE_BOOLEAN_TOGGLES } from '@common/constants';
 import { useBoolean } from '@common/hooks';
+import type { PolymorphicMouseEvent } from '@common/types';
 
-import type { PushableOverlayProps } from '@components/Overlay';
 import { PushableOverlay } from '@components/Overlay';
 import { VisuallyHidden } from '@components/VisuallyHidden';
 
@@ -31,7 +31,6 @@ import type {
 	CardContext as CardContextType,
 	CardDefaultElement,
 	CardElement,
-	CardMouseEvent,
 	CardProps,
 	CardRef
 } from './common/types';
@@ -104,7 +103,7 @@ const Card = forwardRef(function Card<Element extends CardElement>(
 
 	const { focusProps } = useFocus({ onFocus: () => setIsFocused.on(), onBlur: () => setIsFocused.off() });
 
-	const handleToggle = (event: CardMouseEvent<Element>) => {
+	const handleToggle = (event: PolymorphicMouseEvent) => {
 		if (isCollapsable && !isHovering && onToggle) {
 			onToggle(!isOpen);
 		}
@@ -133,7 +132,7 @@ const Card = forwardRef(function Card<Element extends CardElement>(
 		>
 			<PushableOverlay
 				{...focusProps}
-				{...(rest as PushableOverlayProps<Element>)}
+				{...rest}
 				as={as}
 				ref={ref}
 				className={classNames(KEYS_CARD_CLASS, { [className]: !!className })}

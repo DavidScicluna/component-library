@@ -6,7 +6,7 @@ import { DEFAULT_CLASSNAME, DEFAULT_COLOR } from '@common/constants';
 import { useAppTheme } from '@common/hooks';
 import { getColorHex } from '@common/utils';
 
-import type { DividerProps, DividerThemeAppearanceProps } from '@components/DataDisplay';
+import type { DividerThemeAppearanceProps } from '@components/DataDisplay';
 import { DEFAULT_CARD_DIVIDER_AS, Divider } from '@components/DataDisplay';
 
 import { useCardContext } from '../../common/hooks';
@@ -50,7 +50,7 @@ const CardDivider = forwardRef(function CardDivider<Element extends CardDividerE
 
 	return (
 		<Divider
-			{...(rest as DividerProps<Element>)}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_CARD_DIVIDER_CLASS, { [className]: !!className })}
