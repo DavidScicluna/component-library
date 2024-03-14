@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { VStackProps } from '@components/Layout';
 import { VStack } from '@components/Layout';
 
 import { DEFAULT_MESSAGE_BODY_SPACING } from './common/constants';
@@ -27,7 +26,7 @@ const MessageBody = forwardRef(function MessageBody<Element extends PolymorphicE
 
 	return (
 		<VStack
-			{...(rest as VStackProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_MESSAGE_BODY_CLASS, { [className]: !!className })}
 			alignItems={alignItems}

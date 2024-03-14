@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { VStackProps } from '@components/Layout';
 import { VStack } from '@components/Layout';
 
 import { useMessageContext } from '../../common/hooks';
@@ -30,7 +29,7 @@ const MessageStack = forwardRef(function MessageStack<Element extends Polymorphi
 
 	return (
 		<VStack
-			{...(rest as VStackProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_MESSAGE_STACK_CLASS, { [className]: !!className })}
 			w='100%'

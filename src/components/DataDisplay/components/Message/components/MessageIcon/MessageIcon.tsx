@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 import { DEFAULT_CLASSNAME } from '@common/constants';
 
-import type { IconProps } from '@components/DataDisplay';
 import { DEFAULT_MESSAGE_ICON_AS, Icon } from '@components/DataDisplay';
 
 import { useMessageContext } from '../../common/hooks';
@@ -28,7 +27,7 @@ const MessageIcon = forwardRef(function MessageIcon<Element extends MessageIconE
 
 	return (
 		<Icon
-			{...(rest as IconProps<Element>)}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_MESSAGE_ICON_CLASS, { [className]: !!className })}

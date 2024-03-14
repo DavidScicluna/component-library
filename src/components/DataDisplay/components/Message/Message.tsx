@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 import { DEFAULT_CLASSNAME, DEFAULT_SPACING } from '@common/constants';
 
-import type { VStackProps } from '@components/Layout';
 import { VStack } from '@components/Layout';
 
 import { DEFAULT_MESSAGE_AS, DEFAULT_MESSAGE_RADIUS, DEFAULT_MESSAGE_VARIANT } from './common/constants';
@@ -50,7 +49,7 @@ const Message = forwardRef(function Message<Element extends MessageElement>(
 	return (
 		<MessageContext.Provider value={{ color, colorMode, spacing }}>
 			<VStack
-				{...(rest as VStackProps<Element>)}
+				{...rest}
 				as={as}
 				ref={ref}
 				className={classNames(KEYS_MESSAGE_CLASS, classes, { [className]: !!className })}

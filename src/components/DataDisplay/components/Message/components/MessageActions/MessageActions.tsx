@@ -6,7 +6,6 @@ import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useMediaQuery } from '@common/hooks';
 import type { PolymorphicElementType } from '@common/types';
 
-import type { StackProps } from '@components/Layout';
 import { Stack } from '@components/Layout';
 
 import { useMessageContext } from '../../common/hooks';
@@ -34,7 +33,7 @@ const MessageActions = forwardRef(function MessageActions<Element extends Polymo
 
 	return (
 		<Stack
-			{...(rest as StackProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_MESSAGE_ACTIONS_CLASS, { [className]: !!className })}
 			direction={direction}
