@@ -6,7 +6,6 @@ import { DEFAULT_CLASSNAME, DEFAULT_RADIUS } from '@common/constants';
 import type { PolymorphicElementType } from '@common/types';
 
 import { Box } from '@components/Box';
-import type { GridProps } from '@components/Layout';
 import { Grid, GridItem } from '@components/Layout';
 
 import {
@@ -43,7 +42,7 @@ const BackgroundImage = forwardRef(function BackgroundImage<Element extends Poly
 
 	return (
 		<Grid
-			{...(rest as GridProps<Element>)}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_BACKGROUND_IMAGE_CLASS, classes.container, { [className]: !!className })}
 			templateColumns={1}
