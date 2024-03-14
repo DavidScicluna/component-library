@@ -10,7 +10,6 @@ import type { PolymorphicDefaultElement } from '@common/types';
 
 import type { CenterRef } from '@components/Layout';
 import { Center, Grid, GridItem } from '@components/Layout';
-import type { PushableOverlayProps } from '@components/Overlay';
 import { PushableOverlay } from '@components/Overlay';
 
 import {
@@ -106,7 +105,7 @@ const Badge = forwardRef(function Badge<Element extends BadgeElement>(
 		<BadgeContext.Provider value={{ color, colorMode, size, variant }}>
 			<PushableOverlay
 				{...focusProps}
-				{...(rest as PushableOverlayProps<Element>)}
+				{...rest}
 				as={as}
 				ref={ref}
 				className={classNames(KEYS_BADGE_CLASS, classes, { [className]: !!className })}

@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 import { DEFAULT_CLASSNAME } from '@common/constants';
 
-import type { IconProps } from '@components/DataDisplay';
 import { Icon } from '@components/DataDisplay';
 
 import { useBadgeContext, useBadgeFontSize } from '../../common/hooks';
@@ -32,7 +31,7 @@ const BadgeIcon = forwardRef(function BadgeIcon<Element extends BadgeIconElement
 
 	return (
 		<Icon
-			{...(rest as IconProps<Element>)}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_BADGE_ICON_CLASS, { [className]: !!className })}

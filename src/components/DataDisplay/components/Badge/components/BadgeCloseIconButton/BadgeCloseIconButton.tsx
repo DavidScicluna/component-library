@@ -1,10 +1,10 @@
 import { forwardRef } from 'react';
 
 import classNames from 'classnames';
+import { merge } from 'lodash-es';
 
-import { DEFAULT_CLASSNAME } from '@common/constants';
+import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 
-import type { CloseIconButtonProps } from '@components/Buttons';
 import { CloseIconButton } from '@components/Buttons';
 import { useIconButtonClasses } from '@components/Buttons/components/IconButton/common/hooks';
 import { usePushableOverlayStyles } from '@components/Overlay/components/PushableOverlay/common/hooks';
@@ -36,6 +36,7 @@ const BadgeCloseIconButton = forwardRef(function BadgeCloseIconButton<Element ex
 		colorMode = DEFAULT_BADGE_CLOSE_ICON_BUTTON_COLORMODE,
 		isCompact = DEFAULT_BADGE_CLOSE_ICON_BUTTON_IS_COMPACT,
 		size = DEFAULT_BADGE_CLOSE_ICON_BUTTON_SIZE,
+		sx = DEFAULT_POLYMORPHIC_SX,
 		...rest
 	} = props;
 
@@ -48,7 +49,7 @@ const BadgeCloseIconButton = forwardRef(function BadgeCloseIconButton<Element ex
 
 	return (
 		<CloseIconButton
-			{...(rest as CloseIconButtonProps<Element>)}
+			{...{ rest }}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_BADGE_CLOSE_ICON_BUTTON_CLASS, classes, { [className]: !!className })}
@@ -57,7 +58,7 @@ const BadgeCloseIconButton = forwardRef(function BadgeCloseIconButton<Element ex
 			isCompact={isCompact}
 			size={size}
 			variant='unstyled'
-			sx={{ color: styles.color }}
+			sx={merge({ color: styles.color }, sx)}
 		/>
 	);
 });
