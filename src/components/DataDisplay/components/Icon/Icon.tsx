@@ -7,7 +7,6 @@ import { DEFAULT_CLASSNAME, DEFAULT_POLYMORPHIC_SX } from '@common/constants';
 import { getIconFontFamily } from '@common/utils';
 
 import { Skeleton } from '@components/Feedback';
-import type { CenterProps } from '@components/Layout';
 import { Center } from '@components/Layout';
 import useIconFontContext from '@components/Provider/common/hooks/useIconFontContext';
 
@@ -62,7 +61,7 @@ const Icon = forwardRef(function Icon<Element extends IconElement>(
 	return (
 		<Skeleton color={color} colorMode={colorMode} isLoaded={hasIcon ? fonts[category] : true} radius='full'>
 			<Center
-				{...(rest as CenterProps<Element>)}
+				{...rest}
 				as={as}
 				ref={ref}
 				className={classNames(KEYS_ICON_CLASS, classes, { [className]: !!className })}
