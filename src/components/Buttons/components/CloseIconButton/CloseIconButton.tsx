@@ -6,7 +6,6 @@ import { DEFAULT_CLASSNAME } from '@common/constants';
 
 import { Tooltip } from '@components/Overlay';
 
-import type { IconButtonProps } from '../IconButton';
 import { IconButton, IconButtonIcon } from '../IconButton';
 
 import {
@@ -15,6 +14,7 @@ import {
 	DEFAULT_CLOSE_ICON_BUTTON_LABEL,
 	DEFAULT_CLOSE_ICON_BUTTON_PLACEMENT
 } from './common/constants';
+import { useCloseIconButtonResponsiveValues } from './common/hooks';
 import { KEYS_CLOSE_ICON_BUTTON_CLASS } from './common/keys';
 import type { CloseIconButtonElement, CloseIconButtonProps, CloseIconButtonRef } from './common/types';
 
@@ -27,11 +27,17 @@ const CloseIconButton = forwardRef(function CloseIconButton<Element extends Clos
 		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		hasTooltip = DEFAULT_CLOSE_ICON_BUTTON_HAS_TOOLTIP,
-		label = DEFAULT_CLOSE_ICON_BUTTON_LABEL,
-		placement = DEFAULT_CLOSE_ICON_BUTTON_PLACEMENT,
+		hasTooltip: hasTooltipProp = DEFAULT_CLOSE_ICON_BUTTON_HAS_TOOLTIP,
+		label: labelProp = DEFAULT_CLOSE_ICON_BUTTON_LABEL,
+		placement: placementProp = DEFAULT_CLOSE_ICON_BUTTON_PLACEMENT,
 		...rest
 	} = props;
+
+	const { hasTooltip, label, placement } = useCloseIconButtonResponsiveValues({
+		hasTooltip: hasTooltipProp,
+		label: labelProp,
+		placement: placementProp
+	});
 
 	return (
 		<Tooltip
@@ -42,7 +48,7 @@ const CloseIconButton = forwardRef(function CloseIconButton<Element extends Clos
 			isDisabled={!hasTooltip}
 		>
 			<IconButton
-				{...(rest as IconButtonProps<Element>)}
+				{...{ rest }}
 				as={as}
 				ref={ref}
 				className={classNames(KEYS_CLOSE_ICON_BUTTON_CLASS, { [className]: !!className })}
