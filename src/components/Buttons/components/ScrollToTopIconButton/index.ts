@@ -1,7 +1,6 @@
 import type {
 	ScrollToTopIconButtonDefaultElement,
 	ScrollToTopIconButtonElement,
-	ScrollToTopIconButtonMouseEvent,
 	ScrollToTopIconButtonProps,
 	ScrollToTopIconButtonRef
 } from './common/types';
@@ -13,6 +12,9 @@ export * from './common/constants';
 // Keys
 export * from './common/keys';
 
+// Hooks
+export * from './common/hooks';
+
 // Components
 export { ScrollToTopIconButton };
 
@@ -20,7 +22,6 @@ export { ScrollToTopIconButton };
 export type {
 	ScrollToTopIconButtonDefaultElement,
 	ScrollToTopIconButtonElement,
-	ScrollToTopIconButtonMouseEvent,
 	ScrollToTopIconButtonProps,
 	ScrollToTopIconButtonRef
 };

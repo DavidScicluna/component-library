@@ -6,11 +6,11 @@ import { useEventListener, useWindowSize } from 'usehooks-ts';
 
 import { DEFAULT_CLASSNAME } from '@common/constants';
 import { useBoolean } from '@common/hooks';
+import type { PolymorphicMouseEvent } from '@common/types';
 
 import { Transition } from '@components/Animation';
 import { Tooltip } from '@components/Overlay';
 
-import type { IconButtonProps } from '../IconButton';
 import { IconButton, IconButtonIcon } from '../IconButton';
 
 import {
@@ -19,10 +19,10 @@ import {
 	DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_LABEL,
 	DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_PLACEMENT
 } from './common/constants';
+import { useScrollToTopIconButtonResponsiveValues } from './common/hooks';
 import { KEYS_SCROLL_TO_TOP_ICON_BUTTON_CLASS } from './common/keys';
 import type {
 	ScrollToTopIconButtonElement,
-	ScrollToTopIconButtonMouseEvent,
 	ScrollToTopIconButtonProps,
 	ScrollToTopIconButtonRef
 } from './common/types';
@@ -38,17 +38,25 @@ const ScrollToTopIconButton = forwardRef(function ScrollToTopIconButton<Element 
 		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		hasTooltip = DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_HAS_TOOLTIP,
-		label = DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_LABEL,
-		placement = DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_PLACEMENT,
+		hasTooltip: hasTooltipProp = DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_HAS_TOOLTIP,
+		label: labelProp = DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_LABEL,
+		placement: placementProp = DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_PLACEMENT,
 		onClick,
 		...rest
 	} = props;
 
+	const { hasTooltip, label, placement } = useScrollToTopIconButtonResponsiveValues({
+		hasTooltip: hasTooltipProp,
+		label: labelProp,
+		placement: placementProp
+	});
+
 	const [isVisible, setIsVisible] = useBoolean();
 
-	const handleClick = (event: ScrollToTopIconButtonMouseEvent<Element>): void => {
+	const handleClick = (event: PolymorphicMouseEvent): void => {
 		if (typeof window !== 'undefined') {
+			setIsVisible.off();
+
 			window.scrollTo(0, 0);
 
 			if (onClick) {
@@ -82,7 +90,7 @@ const ScrollToTopIconButton = forwardRef(function ScrollToTopIconButton<Element 
 				isDisabled={!hasTooltip}
 			>
 				<IconButton
-					{...(rest as IconButtonProps<Element>)}
+					{...{ rest }}
 					as={as}
 					ref={ref}
 					className={classNames(KEYS_SCROLL_TO_TOP_ICON_BUTTON_CLASS, {

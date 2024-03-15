@@ -1,13 +1,10 @@
-import type { PolymorphicDefaultElement, PolymorphicMouseEvent, ThemeAppAppearanceProps } from '@common/types';
+import type { PolymorphicDefaultElement, ThemeAppAppearanceProps } from '@common/types';
 
 import type { IconButtonDefaultElement, IconButtonElement, IconButtonProps, IconButtonRef } from '@components/Buttons';
 import type { TooltipProps } from '@components/Overlay';
 
 export type ScrollToTopIconButtonDefaultElement = IconButtonDefaultElement;
 export type ScrollToTopIconButtonElement = IconButtonElement;
-
-export type ScrollToTopIconButtonMouseEvent<Element extends ScrollToTopIconButtonElement> =
-	PolymorphicMouseEvent<Element>;
 
 type ScrollToTopIconButtonOtherProps = ThemeAppAppearanceProps & {
 	/**
