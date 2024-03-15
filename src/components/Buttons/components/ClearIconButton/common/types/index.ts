@@ -1,4 +1,4 @@
-import type { PolymorphicDefaultElement, ThemeAppAppearanceProps } from '@common/types';
+import type { MergeTypes, PolymorphicDefaultElement, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
 
 import type { IconButtonDefaultElement, IconButtonElement, IconButtonProps, IconButtonRef } from '@components/Buttons';
 import type { TooltipProps } from '@components/Overlay';
@@ -12,10 +12,12 @@ type ClearIconButtonOtherProps = ThemeAppAppearanceProps & {
 	 *
 	 * @default true
 	 */
-	hasTooltip?: boolean;
+	hasTooltip?: ResponsiveValue<boolean>;
 } & Pick<TooltipProps<PolymorphicDefaultElement>, 'label' | 'placement'>;
 
-export type ClearIconButtonProps<Element extends ClearIconButtonElement> = IconButtonProps<Element> &
-	ClearIconButtonOtherProps;
+export type ClearIconButtonProps<Element extends ClearIconButtonElement> = MergeTypes<
+	IconButtonProps<Element>,
+	ClearIconButtonOtherProps
+>;
 
 export type ClearIconButtonRef<Element extends ClearIconButtonElement> = IconButtonRef<Element>;

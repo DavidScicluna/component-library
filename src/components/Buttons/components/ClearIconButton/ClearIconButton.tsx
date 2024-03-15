@@ -6,7 +6,6 @@ import { DEFAULT_CLASSNAME } from '@common/constants';
 
 import { Tooltip } from '@components/Overlay';
 
-import type { IconButtonProps } from '../IconButton';
 import { IconButton, IconButtonIcon } from '../IconButton';
 
 import {
@@ -15,6 +14,7 @@ import {
 	DEFAULT_CLEAR_ICON_BUTTON_LABEL,
 	DEFAULT_CLEAR_ICON_BUTTON_PLACEMENT
 } from './common/constants';
+import { useClearIconButtonResponsiveValues } from './common/hooks';
 import { KEYS_CLEAR_ICON_BUTTON_CLASS } from './common/keys';
 import type { ClearIconButtonElement, ClearIconButtonProps, ClearIconButtonRef } from './common/types';
 
@@ -27,11 +27,17 @@ const ClearIconButton = forwardRef(function ClearIconButton<Element extends Clea
 		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		hasTooltip = DEFAULT_CLEAR_ICON_BUTTON_HAS_TOOLTIP,
-		label = DEFAULT_CLEAR_ICON_BUTTON_LABEL,
-		placement = DEFAULT_CLEAR_ICON_BUTTON_PLACEMENT,
+		hasTooltip: hasTooltipProp = DEFAULT_CLEAR_ICON_BUTTON_HAS_TOOLTIP,
+		label: labelProp = DEFAULT_CLEAR_ICON_BUTTON_LABEL,
+		placement: placementProp = DEFAULT_CLEAR_ICON_BUTTON_PLACEMENT,
 		...rest
 	} = props;
+
+	const { hasTooltip, label, placement } = useClearIconButtonResponsiveValues({
+		hasTooltip: hasTooltipProp,
+		label: labelProp,
+		placement: placementProp
+	});
 
 	return (
 		<Tooltip
@@ -42,7 +48,7 @@ const ClearIconButton = forwardRef(function ClearIconButton<Element extends Clea
 			isDisabled={!hasTooltip}
 		>
 			<IconButton
-				{...(rest as IconButtonProps<Element>)}
+				{...{ rest }} // TODO: Check if this actually works
 				as={as}
 				ref={ref}
 				className={classNames(KEYS_CLEAR_ICON_BUTTON_CLASS, { [className]: !!className })}
