@@ -4,9 +4,8 @@ import Compressor from 'compressorjs';
 import { useMergeRefs } from 'rooks';
 
 import { useBoolean } from '@common/hooks';
-import type { PolymorphicElement } from '@common/types';
+import type { PolymorphicChangeEvent, PolymorphicElement } from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 import { VisuallyHidden } from '@components/VisuallyHidden';
 
@@ -20,7 +19,6 @@ import {
 import type {
 	FileButtonBlob,
 	FileButtonBlobs,
-	FileButtonChangeEvent,
 	FileButtonElement,
 	FileButtonErrors,
 	FileButtonFile,
@@ -33,7 +31,7 @@ const FileButton = forwardRef(function FileButton<Element extends FileButtonElem
 	ref: FileButtonRef<Element>
 ): JSX.Element {
 	const fileInputRef = useRef<PolymorphicElement<Element>>(null);
-	const refs = useMergeRefs(ref, fileInputRef);
+	const refs = useMergeRefs(ref, fileInputRef.current as FileButtonRef<Element>);
 
 	const {
 		children,
@@ -74,7 +72,7 @@ const FileButton = forwardRef(function FileButton<Element extends FileButtonElem
 		});
 	};
 
-	const handleChange = async (event: FileButtonChangeEvent<Element>) => {
+	const handleChange = async (event: PolymorphicChangeEvent) => {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		const files: FileButtonFile = (event.target as any).files;
 
@@ -124,12 +122,12 @@ const FileButton = forwardRef(function FileButton<Element extends FileButtonElem
 		<Fragment>
 			<VisuallyHidden>
 				<Box
-					{...(rest as BoxProps<Element>)}
+					{...rest}
 					as={as}
 					ref={refs}
 					accept={accept}
 					type={type}
-					onChange={(event: FileButtonChangeEvent<Element>) => handleChange(event)}
+					onChange={(event: PolymorphicChangeEvent) => handleChange(event)}
 				/>
 			</VisuallyHidden>
 			{children({ hasUploaded: isUploading, onUpload: handleUpload })}

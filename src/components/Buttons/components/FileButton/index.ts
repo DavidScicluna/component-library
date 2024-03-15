@@ -1,7 +1,6 @@
 import type {
 	FileButtonBlob,
 	FileButtonBlobs,
-	FileButtonChangeEvent,
 	FileButtonChildrenProps,
 	FileButtonDefaultElement,
 	FileButtonElement,
@@ -23,7 +22,6 @@ export { FileButton };
 export type {
 	FileButtonBlob,
 	FileButtonBlobs,
-	FileButtonChangeEvent,
 	FileButtonChildrenProps,
 	FileButtonDefaultElement,
 	FileButtonElement,
