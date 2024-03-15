@@ -1,4 +1,4 @@
-import type { LinkDefaultElement, LinkElement, LinkMouseEvent, LinkProps, LinkRef } from './common/types';
+import type { LinkDefaultElement, LinkElement, LinkProps, LinkRef } from './common/types';
 import Link from './Link';
 
 // Constants
@@ -14,4 +14,4 @@ export * from './common/hooks';
 export { Link };
 
 // Component Types
-export type { LinkDefaultElement, LinkElement, LinkMouseEvent, LinkProps, LinkRef };
+export type { LinkDefaultElement, LinkElement, LinkProps, LinkRef };

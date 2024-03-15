@@ -3,8 +3,8 @@ import { forwardRef, useCallback } from 'react';
 import classNames from 'classnames';
 
 import { DEFAULT_CLASSNAME } from '@common/constants';
+import type { PolymorphicMouseEvent } from '@common/types';
 
-import type { BoxProps } from '@components/Box';
 import { Box } from '@components/Box';
 
 import {
@@ -15,7 +15,7 @@ import {
 } from './common/constants';
 import { useLinkClasses, useLinkResponsiveValues } from './common/hooks';
 import { KEYS_LINK_CLASS } from './common/keys';
-import type { LinkElement, LinkMouseEvent, LinkProps, LinkRef } from './common/types';
+import type { LinkElement, LinkProps, LinkRef } from './common/types';
 
 const Link = forwardRef(function Link<Element extends LinkElement>(
 	props: LinkProps<Element>,
@@ -43,7 +43,7 @@ const Link = forwardRef(function Link<Element extends LinkElement>(
 	const classes = useLinkClasses<Element>({ color, colorMode, isDisabled, isUnderline, isUnstyled });
 
 	const handleClick = useCallback(
-		(event: LinkMouseEvent<Element>): void => {
+		(event: PolymorphicMouseEvent): void => {
 			if (isDisabled) {
 				event.preventDefault();
 			}
@@ -58,7 +58,7 @@ const Link = forwardRef(function Link<Element extends LinkElement>(
 
 	return (
 		<Box
-			{...(rest as BoxProps<Element>)}
+			{...{ rest }}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_LINK_CLASS, classes, { [className]: !!className })}
