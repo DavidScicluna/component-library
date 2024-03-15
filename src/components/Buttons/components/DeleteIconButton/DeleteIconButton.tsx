@@ -6,7 +6,6 @@ import { DEFAULT_CLASSNAME } from '@common/constants';
 
 import { Tooltip } from '@components/Overlay';
 
-import type { IconButtonProps } from '../IconButton';
 import { IconButton, IconButtonIcon } from '../IconButton';
 
 import {
@@ -15,6 +14,7 @@ import {
 	DEFAULT_DELETE_ICON_BUTTON_LABEL,
 	DEFAULT_DELETE_ICON_BUTTON_PLACEMENT
 } from './common/constants';
+import { useDeleteIconButtonResponsiveValues } from './common/hooks';
 import { KEYS_DELETE_ICON_BUTTON_CLASS } from './common/keys';
 import type { DeleteIconButtonElement, DeleteIconButtonProps, DeleteIconButtonRef } from './common/types';
 
@@ -27,11 +27,17 @@ const DeleteIconButton = forwardRef(function DeleteIconButton<Element extends De
 		className = DEFAULT_CLASSNAME,
 		color,
 		colorMode,
-		hasTooltip = DEFAULT_DELETE_ICON_BUTTON_HAS_TOOLTIP,
-		label = DEFAULT_DELETE_ICON_BUTTON_LABEL,
-		placement = DEFAULT_DELETE_ICON_BUTTON_PLACEMENT,
+		hasTooltip: hasTooltipProp = DEFAULT_DELETE_ICON_BUTTON_HAS_TOOLTIP,
+		label: labelProp = DEFAULT_DELETE_ICON_BUTTON_LABEL,
+		placement: placementProp = DEFAULT_DELETE_ICON_BUTTON_PLACEMENT,
 		...rest
 	} = props;
+
+	const { hasTooltip, label, placement } = useDeleteIconButtonResponsiveValues({
+		hasTooltip: hasTooltipProp,
+		label: labelProp,
+		placement: placementProp
+	});
 
 	return (
 		<Tooltip
@@ -42,7 +48,7 @@ const DeleteIconButton = forwardRef(function DeleteIconButton<Element extends De
 			isDisabled={!hasTooltip}
 		>
 			<IconButton
-				{...(rest as IconButtonProps<Element>)}
+				{...{ rest }}
 				as={as}
 				ref={ref}
 				className={classNames(KEYS_DELETE_ICON_BUTTON_CLASS, { [className]: !!className })}
