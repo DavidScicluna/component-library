@@ -1,11 +1,14 @@
 import type {
+	// NumberInputAutoComplete,
 	NumberInputDefaultElement,
 	NumberInputElement,
+	NumberInputNonResponsiveValueProps,
 	NumberInputProps,
 	NumberInputRef,
 	NumberInputRenderProps,
-	// NumberInputAutoComplete,
+	NumberInputResponsiveValueProps,
 	NumberInputSize,
+	NumberInputUniqueProps,
 	NumberInputVariant
 } from './common/types';
 import NumberInput from './NumberInput';
@@ -21,12 +24,15 @@ export { NumberInput };
 
 // Component Types
 export type {
+	// NumberInputAutoComplete,
 	NumberInputDefaultElement,
 	NumberInputElement,
+	NumberInputNonResponsiveValueProps,
 	NumberInputProps,
 	NumberInputRef,
 	NumberInputRenderProps,
-	// NumberInputAutoComplete,
+	NumberInputResponsiveValueProps,
 	NumberInputSize,
+	NumberInputUniqueProps,
 	NumberInputVariant
 };

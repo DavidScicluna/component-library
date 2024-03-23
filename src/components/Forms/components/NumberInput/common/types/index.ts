@@ -1,9 +1,14 @@
 import type { ReactNode } from 'react';
 
-import type { PolymorphicElementType, ResponsiveValue } from '@common/types';
+import type { PolymorphicElementType, ResponsiveValueProps, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
-import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
+import type {
+	FormsCommonSize,
+	FormsCommonVariant,
+	FormsNonResponsiveValueProps,
+	FormsResponsiveValueProps
+} from '@components/Forms/common/types';
 
 export type NumberInputDefaultElement = 'input';
 export type NumberInputElement = Extract<PolymorphicElementType, 'input'>;
@@ -14,47 +19,36 @@ export type NumberInputSize = FormsCommonSize;
 
 export type NumberInputVariant = FormsCommonVariant;
 
-export type NumberInputRenderProps<Element extends NumberInputElement> = Pick<
-	NumberInputOtherProps<Element>,
-	'color' | 'colorMode'
-> & { w?: number; h?: number };
+export type NumberInputRenderProps = ThemeAppAppearanceProps & {
+	w?: number;
+	h?: number;
+};
 
-type PickedFormsCommonProps =
-	| 'color'
-	| 'colorMode'
-	| 'isCompact'
-	| 'isDisabled'
-	| 'isFullWidth'
-	| 'isError'
-	| 'isFocused'
-	| 'isOutlined'
-	| 'isReadOnly'
-	| 'isRequired'
-	| 'isSuccess'
-	| 'isWarning'
-	| 'size'
-	| 'variant';
-
-type NumberInputOtherProps<Element extends NumberInputElement> = {
-	// autoComplete?: NumberInputAutoComplete;
-	renderLeft?: (props: NumberInputRenderProps<Element>) => ReactNode;
-	renderRight?: (props: NumberInputRenderProps<Element>) => ReactNode;
+export type NumberInputNonResponsiveValueProps = FormsNonResponsiveValueProps & {
 	/**
 	 * Value set to the input when increment/decrement buttons are clicked or up/down arrows pressed if the input is empty, 0 by default
 	 * @default 0
 	 */
-	startValue?: ResponsiveValue<number>;
+	startValue?: number;
 	/**
 	 * Determines whether negative values are allowed, `true` by default
 	 * @default true
 	 */
-	isNegativeAllowed?: ResponsiveValue<boolean>;
+	isNegativeAllowed?: boolean;
+};
+export type NumberInputResponsiveValueProps = FormsResponsiveValueProps &
+	ResponsiveValueProps<NumberInputNonResponsiveValueProps>;
+
+export type NumberInputUniqueProps = ThemeAppAppearanceProps & {
+	// autoComplete?: NumberInputAutoComplete;
+	renderLeft?: (props: NumberInputRenderProps) => ReactNode;
+	renderRight?: (props: NumberInputRenderProps) => ReactNode;
 	onIncrement?: (value: number) => void;
 	onDecrement?: (value: number) => void;
-} & Pick<FormsCommonProps, PickedFormsCommonProps>;
+} & NumberInputResponsiveValueProps;
 
 export type NumberInputProps<Element extends NumberInputElement> = Omit<
-	BoxProps<Element, NumberInputOtherProps<Element>>,
+	BoxProps<Element, NumberInputUniqueProps>,
 	'children'
 >;
 

@@ -115,21 +115,21 @@ const NumberInput = forwardRef(function NumberInput<Element extends NumberInputE
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
 	const {
-		isCompact,
-		isDisabled,
-		isFullWidth,
-		isError,
-		isFocused: focused,
-		isOutlined,
-		isReadOnly,
-		isRequired,
-		isNegativeAllowed,
-		isSuccess,
-		isWarning,
-		startValue,
-		size,
-		variant
-	} = useNumberInputResponsiveValues<Element>({
+		isCompact = DEFAULT_NUMBER_INPUT_IS_COMPACT,
+		isDisabled = DEFAULT_FORM_CONTROL_IS_DISABLED,
+		isFullWidth = DEFAULT_NUMBER_INPUT_IS_FULLWIDTH,
+		isError = DEFAULT_FORM_CONTROL_IS_ERROR,
+		isFocused: focused = DEFAULT_FORM_CONTROL_IS_FOCUSED,
+		isOutlined = DEFAULT_NUMBER_INPUT_IS_OUTLINED,
+		isReadOnly = DEFAULT_FORM_CONTROL_IS_READONLY,
+		isRequired = DEFAULT_FORM_CONTROL_IS_REQUIRED,
+		isNegativeAllowed = DEFAULT_NUMBER_INPUT_IS_NEGATIVE_ALLOWED,
+		isSuccess = DEFAULT_FORM_CONTROL_IS_SUCCESS,
+		isWarning = DEFAULT_FORM_CONTROL_IS_WARNING,
+		startValue = DEFAULT_NUMBER_INPUT_START_VALUE,
+		size = DEFAULT_FORM_CONTROL_SIZE,
+		variant = DEFAULT_NUMBER_INPUT_VARIANT
+	} = useNumberInputResponsiveValues({
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
 		isFullWidth: isFullWidthProp,
