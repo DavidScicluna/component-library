@@ -103,21 +103,21 @@ const Radio = forwardRef(function Radio<Element extends PolymorphicElementType>(
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
 	const {
-		isActive,
-		isChecked,
-		isClickable,
-		isCompact,
-		isDisabled,
-		isError,
-		isFocused: focused,
-		isOutlined,
-		isReadOnly,
-		isRequired,
-		isSuccess,
-		isWarning,
-		labelPosition,
-		size
-	} = useRadioResponsiveValues<Element>({
+		isActive = DEFAULT_RADIO_IS_ACTIVE,
+		isChecked = DEFAULT_RADIO_IS_CHECKED,
+		isClickable = DEFAULT_RADIO_IS_CLICKABLE,
+		isCompact = DEFAULT_RADIO_IS_COMPACT,
+		isDisabled = DEFAULT_FORM_CONTROL_IS_DISABLED,
+		isError = DEFAULT_FORM_CONTROL_IS_ERROR,
+		isFocused: focused = DEFAULT_FORM_CONTROL_IS_FOCUSED,
+		isOutlined = DEFAULT_RADIO_IS_OUTLINED,
+		isReadOnly = DEFAULT_FORM_CONTROL_IS_READONLY,
+		isRequired = DEFAULT_FORM_CONTROL_IS_REQUIRED,
+		isSuccess = DEFAULT_FORM_CONTROL_IS_SUCCESS,
+		isWarning = DEFAULT_FORM_CONTROL_IS_WARNING,
+		labelPosition = DEFAULT_RADIO_LABEL_POSITION,
+		size = DEFAULT_FORM_CONTROL_SIZE
+	} = useRadioResponsiveValues({
 		isActive: isActiveProp,
 		isChecked: isCheckedProp,
 		isClickable: isClickableProp,
@@ -136,10 +136,10 @@ const Radio = forwardRef(function Radio<Element extends PolymorphicElementType>(
 
 	const isFocused = useMemo<boolean>(() => focused || isFocusedHook, [focused, isFocusedHook]);
 
-	const classes = useRadioClasses<Element>({ isActive, isClickable, isDisabled, isReadOnly });
+	const classes = useRadioClasses({ isActive, isClickable, isDisabled, isReadOnly });
 
-	const config = useRadioSizeConfig<Element>({ isCompact, size });
-	const iconSize = useRadioIconSize<Element>({ isCompact, size });
+	const config = useRadioSizeConfig({ isCompact, size });
+	const iconSize = useRadioIconSize({ isCompact, size });
 
 	const labelColor = useGetColor({
 		color: 'gray',

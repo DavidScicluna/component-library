@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import type { ClassName, PolymorphicElementType } from '@common/types';
+import type { ClassName } from '@common/types';
 
 import {
 	DEFAULT_RADIO_IS_ACTIVE,
@@ -9,19 +9,14 @@ import {
 	DEFAULT_RADIO_IS_DISABLED,
 	DEFAULT_RADIO_IS_READONLY
 } from '../constants';
-import type { RadioProps } from '../types';
+import type { RadioUniqueProps } from '../types';
 
 import { useRadioResponsiveValues } from '.';
 
-type UseRadioClassesProps<Element extends PolymorphicElementType> = Pick<
-	RadioProps<Element>,
-	'isActive' | 'isClickable' | 'isDisabled' | 'isReadOnly'
->;
+type UseRadioClassesProps = Pick<RadioUniqueProps, 'isActive' | 'isClickable' | 'isDisabled' | 'isReadOnly'>;
 type UseRadioClassesReturn = ClassName;
 
-const useRadioClasses = <Element extends PolymorphicElementType>(
-	props: UseRadioClassesProps<Element>
-): UseRadioClassesReturn => {
+const useRadioClasses = (props: UseRadioClassesProps): UseRadioClassesReturn => {
 	const {
 		isActive: isActiveProp = DEFAULT_RADIO_IS_ACTIVE,
 		isClickable: isClickableProp = DEFAULT_RADIO_IS_CLICKABLE,
@@ -29,7 +24,7 @@ const useRadioClasses = <Element extends PolymorphicElementType>(
 		isReadOnly: isReadOnlyProp = DEFAULT_RADIO_IS_READONLY
 	} = props;
 
-	const { isActive, isClickable, isDisabled, isReadOnly } = useRadioResponsiveValues<Element>({
+	const { isActive, isClickable, isDisabled, isReadOnly } = useRadioResponsiveValues({
 		isActive: isActiveProp,
 		isClickable: isClickableProp,
 		isDisabled: isDisabledProp,

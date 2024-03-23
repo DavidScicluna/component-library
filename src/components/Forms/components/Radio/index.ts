@@ -1,4 +1,12 @@
-import type { RadioLabelPosition, RadioProps, RadioRef, RadioSize } from './common/types';
+import type {
+	RadioLabelPosition,
+	RadioNonResponsiveValueProps,
+	RadioProps,
+	RadioRef,
+	RadioResponsiveValueProps,
+	RadioSize,
+	RadioUniqueProps
+} from './common/types';
 import Radio from './Radio';
 
 // Constants
@@ -14,4 +22,12 @@ export * from './common/hooks';
 export { Radio };
 
 // Component Types
-export type { RadioLabelPosition, RadioProps, RadioRef, RadioSize };
+export type {
+	RadioLabelPosition,
+	RadioNonResponsiveValueProps,
+	RadioProps,
+	RadioRef,
+	RadioResponsiveValueProps,
+	RadioSize,
+	RadioUniqueProps
+};
