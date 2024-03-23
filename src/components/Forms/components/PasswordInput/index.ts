@@ -1,11 +1,15 @@
 import type {
+	// PasswordInputAutoComplete,
 	PasswordInputDefaultElement,
 	PasswordInputElement,
+	PasswordInputNonResponsiveValueProps,
 	PasswordInputProps,
 	PasswordInputRef,
 	PasswordInputRenderProps,
-	// PasswordInputAutoComplete,
+	PasswordInputRenderToggleProps,
+	PasswordInputResponsiveValueProps,
 	PasswordInputSize,
+	PasswordInputUniqueProps,
 	PasswordInputVariant
 } from './common/types';
 import PasswordInput from './PasswordInput';
@@ -21,12 +25,16 @@ export { PasswordInput };
 
 // Component Types
 export type {
+	// PasswordInputAutoComplete,
 	PasswordInputDefaultElement,
 	PasswordInputElement,
+	PasswordInputNonResponsiveValueProps,
 	PasswordInputProps,
 	PasswordInputRef,
 	PasswordInputRenderProps,
-	// PasswordInputAutoComplete,
+	PasswordInputRenderToggleProps,
+	PasswordInputResponsiveValueProps,
 	PasswordInputSize,
+	PasswordInputUniqueProps,
 	PasswordInputVariant
 };

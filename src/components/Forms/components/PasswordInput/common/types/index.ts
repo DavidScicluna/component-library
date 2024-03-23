@@ -1,10 +1,15 @@
 import type { ReactNode } from 'react';
 
-import type { PolymorphicElementType } from '@common/types';
+import type { PolymorphicElementType, ResponsiveValueProps, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 import type { IconButtonDefaultElement, IconButtonProps } from '@components/Buttons';
-import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
+import type {
+	FormsCommonSize,
+	FormsCommonVariant,
+	FormsNonResponsiveValueProps,
+	FormsResponsiveValueProps
+} from '@components/Forms/common/types';
 
 export type PasswordInputDefaultElement = 'input';
 export type PasswordInputElement = Extract<PolymorphicElementType, 'input'>;
@@ -19,36 +24,21 @@ export type PasswordInputRenderToggleProps = Pick<
 	IconButtonProps<IconButtonDefaultElement>,
 	'color' | 'colorMode' | 'isCompact' | 'onClick' | 'size' | 'variant'
 > & { isVisible: boolean };
-export type PasswordInputRenderProps<Element extends PasswordInputElement> = Pick<
-	PasswordInputOtherProps<Element>,
-	'color' | 'colorMode'
-> & { w?: number; h?: number };
+export type PasswordInputRenderProps = ThemeAppAppearanceProps & { w?: number; h?: number };
 
-type PickedFormsCommonProps =
-	| 'color'
-	| 'colorMode'
-	| 'isCompact'
-	| 'isDisabled'
-	| 'isFullWidth'
-	| 'isError'
-	| 'isFocused'
-	| 'isOutlined'
-	| 'isReadOnly'
-	| 'isRequired'
-	| 'isSuccess'
-	| 'isWarning'
-	| 'size'
-	| 'variant';
+export type PasswordInputNonResponsiveValueProps = FormsNonResponsiveValueProps;
+export type PasswordInputResponsiveValueProps = FormsResponsiveValueProps &
+	ResponsiveValueProps<PasswordInputNonResponsiveValueProps>;
 
-type PasswordInputOtherProps<Element extends PasswordInputElement> = {
+export type PasswordInputUniqueProps = ThemeAppAppearanceProps & {
 	// autoComplete?: PasswordInputAutoComplete;
 	renderToggle?: (props: PasswordInputRenderToggleProps) => ReactNode;
-	renderLeft?: (props: PasswordInputRenderProps<Element>) => ReactNode;
-	renderRight?: (props: PasswordInputRenderProps<Element>) => ReactNode;
-} & Pick<FormsCommonProps, PickedFormsCommonProps>;
+	renderLeft?: (props: PasswordInputRenderProps) => ReactNode;
+	renderRight?: (props: PasswordInputRenderProps) => ReactNode;
+} & PasswordInputResponsiveValueProps;
 
 export type PasswordInputProps<Element extends PasswordInputElement> = Omit<
-	BoxProps<Element, PasswordInputOtherProps<Element>>,
+	BoxProps<Element, PasswordInputUniqueProps>,
 	'children'
 >;
 

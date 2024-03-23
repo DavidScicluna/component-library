@@ -104,19 +104,19 @@ const PasswordInput = forwardRef(function PasswordInput<Element extends Password
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
 	const {
-		isCompact,
-		isDisabled,
-		isFullWidth,
-		isError,
-		isFocused: focused,
-		isOutlined,
-		isReadOnly,
-		isRequired,
-		isSuccess,
-		isWarning,
-		size,
-		variant
-	} = usePasswordInputResponsiveValues<Element>({
+		isCompact = DEFAULT_PASSWORD_INPUT_IS_COMPACT,
+		isDisabled = DEFAULT_FORM_CONTROL_IS_DISABLED,
+		isFullWidth = DEFAULT_PASSWORD_INPUT_IS_FULLWIDTH,
+		isError = DEFAULT_FORM_CONTROL_IS_ERROR,
+		isFocused: focused = DEFAULT_FORM_CONTROL_IS_FOCUSED,
+		isOutlined = DEFAULT_PASSWORD_INPUT_IS_OUTLINED,
+		isReadOnly = DEFAULT_FORM_CONTROL_IS_READONLY,
+		isRequired = DEFAULT_FORM_CONTROL_IS_REQUIRED,
+		isSuccess = DEFAULT_FORM_CONTROL_IS_SUCCESS,
+		isWarning = DEFAULT_FORM_CONTROL_IS_WARNING,
+		size = DEFAULT_FORM_CONTROL_SIZE,
+		variant = DEFAULT_PASSWORD_INPUT_VARIANT
+	} = usePasswordInputResponsiveValues({
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
 		isFullWidth: isFullWidthProp,
