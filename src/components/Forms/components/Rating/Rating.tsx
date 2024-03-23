@@ -76,18 +76,18 @@ const Rating = forwardRef(function Rating<Element extends PolymorphicElementType
 	const [hoveringCounts, setHoveringCounts] = useState<Array<number>>([]);
 
 	const {
-		count,
-		direction,
-		highlightMode,
-		icons,
-		isDisabled,
-		isError,
-		isReadOnly,
-		isRequired,
-		isSuccess,
-		isWarning,
-		size
-	} = useRatingResponsiveValues<Element>({
+		count = DEFAULT_RATING_COUNT,
+		direction = DEFAULT_RATING_DIRECTION,
+		highlightMode = DEFAULT_RATING_HIGHLIGHT_MODE,
+		icons = DEFAULT_RATING_ICONS,
+		isDisabled = DEFAULT_FORM_CONTROL_IS_DISABLED,
+		isError = DEFAULT_FORM_CONTROL_IS_ERROR,
+		isReadOnly = DEFAULT_FORM_CONTROL_IS_READONLY,
+		isRequired = DEFAULT_FORM_CONTROL_IS_REQUIRED,
+		isSuccess = DEFAULT_FORM_CONTROL_IS_SUCCESS,
+		isWarning = DEFAULT_FORM_CONTROL_IS_WARNING,
+		size = DEFAULT_FORM_CONTROL_SIZE
+	} = useRatingResponsiveValues({
 		count: countProp,
 		direction: directionProp,
 		highlightMode: highlightModeProp,
@@ -101,8 +101,8 @@ const Rating = forwardRef(function Rating<Element extends PolymorphicElementType
 		size: sizeProp
 	});
 
-	const classes = useRatingClasses<Element>({ isDisabled, isReadOnly });
-	const iconSize = useRatingIconSize<Element>({ size });
+	const classes = useRatingClasses({ isDisabled, isReadOnly });
+	const iconSize = useRatingIconSize({ size });
 
 	const handleCountMouseClick = (count: number): void => {
 		if (onChange) {

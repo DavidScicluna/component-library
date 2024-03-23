@@ -1,28 +1,23 @@
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import type { ClassName, PolymorphicElementType } from '@common/types';
+import type { ClassName } from '@common/types';
 
 import { DEFAULT_RATING_IS_DISABLED, DEFAULT_RATING_IS_READONLY } from '../constants';
-import type { RatingProps } from '../types';
+import type { RatingUniqueProps } from '../types';
 
 import { useRatingResponsiveValues } from '.';
 
-type UseRatingClassesProps<Element extends PolymorphicElementType> = Pick<
-	RatingProps<Element>,
-	'isDisabled' | 'isReadOnly'
->;
+type UseRatingClassesProps = Pick<RatingUniqueProps, 'isDisabled' | 'isReadOnly'>;
 type UseRatingClassesReturn = ClassName;
 
-const useRatingClasses = <Element extends PolymorphicElementType>(
-	props: UseRatingClassesProps<Element>
-): UseRatingClassesReturn => {
+const useRatingClasses = (props: UseRatingClassesProps): UseRatingClassesReturn => {
 	const {
 		isDisabled: isDisabledProp = DEFAULT_RATING_IS_DISABLED,
 		isReadOnly: isReadOnlyProp = DEFAULT_RATING_IS_READONLY
 	} = props;
 
-	const { isDisabled, isReadOnly } = useRatingResponsiveValues<Element>({
+	const { isDisabled, isReadOnly } = useRatingResponsiveValues({
 		isDisabled: isDisabledProp,
 		isReadOnly: isReadOnlyProp
 	});

@@ -1,7 +1,11 @@
-import type { IconKey, PolymorphicElementType, ResponsiveValue } from '@common/types';
+import type { IconKey, PolymorphicElementType, ResponsiveValueProps, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
-import type { FormsCommonProps, FormsCommonSize } from '@components/Forms/common/types';
+import type {
+	FormsCommonSize,
+	FormsNonResponsiveValueProps,
+	FormsResponsiveValueProps
+} from '@components/Forms/common/types';
 
 export type RatingDirection = 'horizontal' | 'vertical';
 
@@ -11,42 +15,36 @@ export type RatingIcons = Record<'default' | 'active' | 'hover', IconKey>;
 
 export type RatingSize = FormsCommonSize;
 
-type PickedFormsCommonProps =
-	| 'color'
-	| 'colorMode'
-	| 'isDisabled'
-	| 'isError'
-	| 'isReadOnly'
-	| 'isRequired'
-	| 'isSuccess'
-	| 'isWarning'
-	| 'size';
-
-type RatingOtherProps = Pick<FormsCommonProps, PickedFormsCommonProps> & {
+export type RatingNonResponsiveValueProps = Omit<FormsNonResponsiveValueProps, 'variant'> & {
 	/**
 	 * Number of controls that should be rendered
 	 *
 	 * @default 10
 	 */
-	count?: ResponsiveValue<number>;
+	count?: number;
 	/**
 	 * The direction in which the rating is directed
 	 *
 	 * @default 'horizontal'
 	 */
-	direction?: ResponsiveValue<RatingDirection>;
+	direction?: RatingDirection;
 	/**
 	 * If 'single', only the selected/hovered control will change color
 	 *
 	 * @default 'horizontal'
 	 */
-	highlightMode?: ResponsiveValue<RatingHighlightMode>;
+	highlightMode?: RatingHighlightMode;
 	/**
 	 * The icon used for each control depending on state
 	 *
 	 * @default { default: 'star_outline'; active: 'star'; hover: 'star' }
 	 */
-	icons?: ResponsiveValue<RatingIcons>;
+	icons?: RatingIcons;
+};
+export type RatingResponsiveValueProps = Omit<FormsResponsiveValueProps, 'variant'> &
+	ResponsiveValueProps<RatingNonResponsiveValueProps>;
+
+export type RatingUniqueProps = ThemeAppAppearanceProps & {
 	/**
 	 * Called when value changes
 	 */
@@ -59,8 +57,11 @@ type RatingOtherProps = Pick<FormsCommonProps, PickedFormsCommonProps> & {
 	 * Value for controlled component
 	 */
 	value?: number;
-};
+} & RatingResponsiveValueProps;
 
-export type RatingProps<Element extends PolymorphicElementType> = Omit<BoxProps<Element, RatingOtherProps>, 'children'>;
+export type RatingProps<Element extends PolymorphicElementType> = Omit<
+	BoxProps<Element, RatingUniqueProps>,
+	'children'
+>;
 
 export type RatingRef<Element extends PolymorphicElementType> = BoxRef<Element>;

@@ -1,67 +1,38 @@
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicElementType } from '@common/types';
 
-import {
-	DEFAULT_RATING_COUNT,
-	DEFAULT_RATING_DIRECTION,
-	DEFAULT_RATING_HIGHLIGHT_MODE,
-	DEFAULT_RATING_ICONS,
-	DEFAULT_RATING_IS_DISABLED,
-	DEFAULT_RATING_IS_ERROR,
-	DEFAULT_RATING_IS_READONLY,
-	DEFAULT_RATING_IS_REQUIRED,
-	DEFAULT_RATING_IS_SUCCESS,
-	DEFAULT_RATING_IS_WARNING,
-	DEFAULT_RATING_SIZE
-} from '../constants';
-import type { RatingDirection, RatingHighlightMode, RatingIcons, RatingProps, RatingSize } from '../types';
+import type { RatingNonResponsiveValueProps, RatingResponsiveValueProps } from '../types';
 
-type PickedRatingProps =
-	| 'count'
-	| 'direction'
-	| 'highlightMode'
-	| 'icons'
-	| 'isDisabled'
-	| 'isError'
-	| 'isReadOnly'
-	| 'isRequired'
-	| 'isSuccess'
-	| 'isWarning'
-	| 'size';
-type UseRatingResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
-	Pick<RatingProps<Element>, PickedRatingProps>
->;
+type UseRatingResponsiveValuesProps = Partial<RatingResponsiveValueProps>;
+type UseRatingResponsiveValuesReturn = RatingNonResponsiveValueProps;
 
-const useRatingResponsiveValues = <Element extends PolymorphicElementType>(
-	props: UseRatingResponsiveValuesProps<Element>
-) => {
+const useRatingResponsiveValues = (props: UseRatingResponsiveValuesProps): UseRatingResponsiveValuesReturn => {
 	const {
-		count: countProp = DEFAULT_RATING_COUNT,
-		direction: directionProp = DEFAULT_RATING_DIRECTION,
-		highlightMode: highlightModeProp = DEFAULT_RATING_HIGHLIGHT_MODE,
-		icons: iconsProp = DEFAULT_RATING_ICONS,
-		isDisabled: isDisabledProp = DEFAULT_RATING_IS_DISABLED,
-		isError: isErrorProp = DEFAULT_RATING_IS_ERROR,
-		isReadOnly: isReadOnlyProp = DEFAULT_RATING_IS_READONLY,
-		isRequired: isRequiredProp = DEFAULT_RATING_IS_REQUIRED,
-		isSuccess: isSuccessProp = DEFAULT_RATING_IS_SUCCESS,
-		isWarning: isWarningProp = DEFAULT_RATING_IS_WARNING,
-		size: sizeProp = DEFAULT_RATING_SIZE
+		count: countProp,
+		direction: directionProp,
+		highlightMode: highlightModeProp,
+		icons: iconsProp,
+		isDisabled: isDisabledProp,
+		isError: isErrorProp,
+		isReadOnly: isReadOnlyProp,
+		isRequired: isRequiredProp,
+		isSuccess: isSuccessProp,
+		isWarning: isWarningProp,
+		size: sizeProp
 	} = props;
 
-	const count = useGetResponsiveValue<number>(countProp);
-	const direction = useGetResponsiveValue<RatingDirection>(directionProp);
-	const highlightMode = useGetResponsiveValue<RatingHighlightMode>(highlightModeProp);
-	const icons = useGetResponsiveValue<RatingIcons>(iconsProp);
+	const count = useGetResponsiveValue<RatingNonResponsiveValueProps['count']>(countProp);
+	const direction = useGetResponsiveValue<RatingNonResponsiveValueProps['direction']>(directionProp);
+	const highlightMode = useGetResponsiveValue<RatingNonResponsiveValueProps['highlightMode']>(highlightModeProp);
+	const icons = useGetResponsiveValue<RatingNonResponsiveValueProps['icons']>(iconsProp);
 
-	const isDisabled = useGetResponsiveValue<boolean>(isDisabledProp);
-	const isError = useGetResponsiveValue<boolean>(isErrorProp);
-	const isReadOnly = useGetResponsiveValue<boolean>(isReadOnlyProp);
-	const isRequired = useGetResponsiveValue<boolean>(isRequiredProp);
-	const isSuccess = useGetResponsiveValue<boolean>(isSuccessProp);
-	const isWarning = useGetResponsiveValue<boolean>(isWarningProp);
+	const isDisabled = useGetResponsiveValue<RatingNonResponsiveValueProps['isDisabled']>(isDisabledProp);
+	const isError = useGetResponsiveValue<RatingNonResponsiveValueProps['isError']>(isErrorProp);
+	const isReadOnly = useGetResponsiveValue<RatingNonResponsiveValueProps['isReadOnly']>(isReadOnlyProp);
+	const isRequired = useGetResponsiveValue<RatingNonResponsiveValueProps['isRequired']>(isRequiredProp);
+	const isSuccess = useGetResponsiveValue<RatingNonResponsiveValueProps['isSuccess']>(isSuccessProp);
+	const isWarning = useGetResponsiveValue<RatingNonResponsiveValueProps['isWarning']>(isWarningProp);
 
-	const size = useGetResponsiveValue<RatingSize>(sizeProp);
+	const size = useGetResponsiveValue<RatingNonResponsiveValueProps['size']>(sizeProp);
 
 	return {
 		count,

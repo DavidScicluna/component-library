@@ -1,4 +1,14 @@
-import type { RatingDirection, RatingIcons, RatingProps, RatingRef, RatingSize } from './common/types';
+import type {
+	RatingDirection,
+	RatingHighlightMode,
+	RatingIcons,
+	RatingNonResponsiveValueProps,
+	RatingProps,
+	RatingRef,
+	RatingResponsiveValueProps,
+	RatingSize,
+	RatingUniqueProps
+} from './common/types';
 import Rating from './Rating';
 
 // Constants
@@ -14,4 +24,14 @@ export * from './common/hooks';
 export { Rating };
 
 // Component Types
-export type { RatingDirection, RatingIcons, RatingProps, RatingRef, RatingSize };
+export type {
+	RatingDirection,
+	RatingHighlightMode,
+	RatingIcons,
+	RatingNonResponsiveValueProps,
+	RatingProps,
+	RatingRef,
+	RatingResponsiveValueProps,
+	RatingSize,
+	RatingUniqueProps
+};
