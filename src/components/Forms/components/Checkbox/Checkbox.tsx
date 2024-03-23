@@ -91,7 +91,7 @@ const Checkbox = forwardRef(function Checkbox<Element extends PolymorphicElement
 		isCompact: isCompactProp = DEFAULT_CHECKBOX_IS_COMPACT,
 		isDisabled: isDisabledProp = DEFAULT_FORM_CONTROL_IS_DISABLED,
 		isError: isErrorProp = DEFAULT_FORM_CONTROL_IS_ERROR,
-		isFocused: focused = DEFAULT_FORM_CONTROL_IS_FOCUSED,
+		isFocused: isFocusedProp = DEFAULT_FORM_CONTROL_IS_FOCUSED,
 		isIndeterminate: isIndeterminateProp = DEFAULT_CHECKBOX_IS_INDETERMINATE,
 		isOutlined: isOutlinedProp = DEFAULT_CHECKBOX_IS_OUTLINED,
 		isReadOnly: isReadOnlyProp = DEFAULT_FORM_CONTROL_IS_READONLY,
@@ -111,29 +111,29 @@ const Checkbox = forwardRef(function Checkbox<Element extends PolymorphicElement
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
 	const {
-		isActive,
-		isChecked,
-		isClickable,
-		isCompact,
-		isDisabled,
-		isError,
-		isFocused: isFocusedProp,
-		isIndeterminate,
-		isOutlined,
-		isReadOnly,
-		isRequired,
-		isSuccess,
-		isWarning,
-		labelPosition,
-		size
-	} = useCheckboxResponsiveValues<Element>({
+		isActive = DEFAULT_CHECKBOX_IS_ACTIVE,
+		isChecked = DEFAULT_CHECKBOX_IS_CHECKED,
+		isClickable = DEFAULT_CHECKBOX_IS_CLICKABLE,
+		isCompact = DEFAULT_CHECKBOX_IS_COMPACT,
+		isDisabled = DEFAULT_FORM_CONTROL_IS_DISABLED,
+		isError = DEFAULT_FORM_CONTROL_IS_ERROR,
+		isFocused: focused = DEFAULT_FORM_CONTROL_IS_FOCUSED,
+		isIndeterminate = DEFAULT_CHECKBOX_IS_INDETERMINATE,
+		isOutlined = DEFAULT_CHECKBOX_IS_OUTLINED,
+		isReadOnly = DEFAULT_FORM_CONTROL_IS_READONLY,
+		isRequired = DEFAULT_FORM_CONTROL_IS_REQUIRED,
+		isSuccess = DEFAULT_FORM_CONTROL_IS_SUCCESS,
+		isWarning = DEFAULT_FORM_CONTROL_IS_WARNING,
+		labelPosition = DEFAULT_CHECKBOX_LABEL_POSITION,
+		size = DEFAULT_FORM_CONTROL_SIZE
+	} = useCheckboxResponsiveValues({
 		isActive: isActiveProp,
 		isChecked: isCheckedProp,
 		isClickable: isClickableProp,
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
 		isError: isErrorProp,
-		isFocused: focused,
+		isFocused: isFocusedProp,
 		isIndeterminate: isIndeterminateProp,
 		isOutlined: isOutlinedProp,
 		isReadOnly: isReadOnlyProp,
@@ -144,12 +144,12 @@ const Checkbox = forwardRef(function Checkbox<Element extends PolymorphicElement
 		size: sizeProp
 	});
 
-	const isFocused = useMemo<boolean>(() => isFocusedProp || isFocusedHook, [isFocusedProp, isFocusedHook]);
+	const isFocused = useMemo<boolean>(() => focused || isFocusedHook, [isFocusedProp, isFocusedHook]);
 
-	const classes = useCheckboxClasses<Element>({ isActive, isClickable, isDisabled, isReadOnly });
+	const classes = useCheckboxClasses({ isActive, isClickable, isDisabled, isReadOnly });
 
-	const config = useCheckboxSizeConfig<Element>({ isCompact, size });
-	const iconSize = useCheckboxIconSize<Element>({ isCompact, size });
+	const config = useCheckboxSizeConfig({ isCompact, size });
+	const iconSize = useCheckboxIconSize({ isCompact, size });
 
 	const labelColor = useGetColor({
 		color: 'gray',

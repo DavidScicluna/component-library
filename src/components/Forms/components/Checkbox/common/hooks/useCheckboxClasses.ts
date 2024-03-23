@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 
 import classes from '@common/classes';
-import type { ClassName, PolymorphicElementType } from '@common/types';
+import type { ClassName } from '@common/types';
 
 import {
 	DEFAULT_CHECKBOX_IS_ACTIVE,
@@ -9,19 +9,14 @@ import {
 	DEFAULT_CHECKBOX_IS_DISABLED,
 	DEFAULT_CHECKBOX_IS_READONLY
 } from '../constants';
-import type { CheckboxProps } from '../types';
+import type { CheckboxUniqueProps } from '../types';
 
 import { useCheckboxResponsiveValues } from '.';
 
-type UseCheckboxClassesProps<Element extends PolymorphicElementType> = Pick<
-	CheckboxProps<Element>,
-	'isActive' | 'isClickable' | 'isDisabled' | 'isReadOnly'
->;
+type UseCheckboxClassesProps = Pick<CheckboxUniqueProps, 'isActive' | 'isClickable' | 'isDisabled' | 'isReadOnly'>;
 type UseCheckboxClassesReturn = ClassName;
 
-const useCheckboxClasses = <Element extends PolymorphicElementType>(
-	props: UseCheckboxClassesProps<Element>
-): UseCheckboxClassesReturn => {
+const useCheckboxClasses = (props: UseCheckboxClassesProps): UseCheckboxClassesReturn => {
 	const {
 		isActive: isActiveProp = DEFAULT_CHECKBOX_IS_ACTIVE,
 		isClickable: isClickableProp = DEFAULT_CHECKBOX_IS_CLICKABLE,
@@ -29,7 +24,7 @@ const useCheckboxClasses = <Element extends PolymorphicElementType>(
 		isReadOnly: isReadOnlyProp = DEFAULT_CHECKBOX_IS_READONLY
 	} = props;
 
-	const { isActive, isClickable, isDisabled, isReadOnly } = useCheckboxResponsiveValues<Element>({
+	const { isActive, isClickable, isDisabled, isReadOnly } = useCheckboxResponsiveValues({
 		isActive: isActiveProp,
 		isClickable: isClickableProp,
 		isDisabled: isDisabledProp,

@@ -1,83 +1,47 @@
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicElementType } from '@common/types';
 
-import {
-	DEFAULT_CHECKBOX_IS_ACTIVE,
-	DEFAULT_CHECKBOX_IS_CHECKED,
-	DEFAULT_CHECKBOX_IS_CLICKABLE,
-	DEFAULT_CHECKBOX_IS_COMPACT,
-	DEFAULT_CHECKBOX_IS_DISABLED,
-	DEFAULT_CHECKBOX_IS_ERROR,
-	DEFAULT_CHECKBOX_IS_FOCUSED,
-	DEFAULT_CHECKBOX_IS_INDETERMINATE,
-	DEFAULT_CHECKBOX_IS_OUTLINED,
-	DEFAULT_CHECKBOX_IS_READONLY,
-	DEFAULT_CHECKBOX_IS_REQUIRED,
-	DEFAULT_CHECKBOX_IS_SUCCESS,
-	DEFAULT_CHECKBOX_IS_WARNING,
-	DEFAULT_CHECKBOX_LABEL_POSITION,
-	DEFAULT_CHECKBOX_SIZE
-} from '../constants';
-import type { CheckboxLabelPosition, CheckboxProps, CheckboxSize } from '../types';
+import type { CheckboxNonResponsiveValueProps, CheckboxResponsiveValueProps } from '../types';
 
-type PickedCheckboxProps =
-	| 'isActive'
-	| 'isChecked'
-	| 'isClickable'
-	| 'isCompact'
-	| 'isDisabled'
-	| 'isError'
-	| 'isFocused'
-	| 'isIndeterminate'
-	| 'isOutlined'
-	| 'isReadOnly'
-	| 'isRequired'
-	| 'isSuccess'
-	| 'isWarning'
-	| 'labelPosition'
-	| 'size';
-type UseCheckboxResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
-	Pick<CheckboxProps<Element>, PickedCheckboxProps>
->;
+type UseCheckboxResponsiveValuesProps = Partial<CheckboxResponsiveValueProps>;
+type UseCheckboxResponsiveValuesReturn = CheckboxNonResponsiveValueProps;
 
-const useCheckboxResponsiveValues = <Element extends PolymorphicElementType>(
-	props: UseCheckboxResponsiveValuesProps<Element>
-) => {
+const useCheckboxResponsiveValues = (props: UseCheckboxResponsiveValuesProps): UseCheckboxResponsiveValuesReturn => {
 	const {
-		isActive: isActiveProp = DEFAULT_CHECKBOX_IS_ACTIVE,
-		isChecked: isCheckedProp = DEFAULT_CHECKBOX_IS_CHECKED,
-		isClickable: isClickableProp = DEFAULT_CHECKBOX_IS_CLICKABLE,
-		isCompact: isCompactProp = DEFAULT_CHECKBOX_IS_COMPACT,
-		isDisabled: isDisabledProp = DEFAULT_CHECKBOX_IS_DISABLED,
-		isError: isErrorProp = DEFAULT_CHECKBOX_IS_ERROR,
-		isFocused: isFocusedProp = DEFAULT_CHECKBOX_IS_FOCUSED,
-		isIndeterminate: isIndeterminateProp = DEFAULT_CHECKBOX_IS_INDETERMINATE,
-		isOutlined: isOutlinedProp = DEFAULT_CHECKBOX_IS_OUTLINED,
-		isReadOnly: isReadOnlyProp = DEFAULT_CHECKBOX_IS_READONLY,
-		isRequired: isRequiredProp = DEFAULT_CHECKBOX_IS_REQUIRED,
-		isSuccess: isSuccessProp = DEFAULT_CHECKBOX_IS_SUCCESS,
-		isWarning: isWarningProp = DEFAULT_CHECKBOX_IS_WARNING,
-		labelPosition: labelPositionProp = DEFAULT_CHECKBOX_LABEL_POSITION,
-		size: sizeProp = DEFAULT_CHECKBOX_SIZE
+		isActive: isActiveProp,
+		isChecked: isCheckedProp,
+		isClickable: isClickableProp,
+		isCompact: isCompactProp,
+		isDisabled: isDisabledProp,
+		isError: isErrorProp,
+		isFocused: isFocusedProp,
+		isIndeterminate: isIndeterminateProp,
+		isOutlined: isOutlinedProp,
+		isReadOnly: isReadOnlyProp,
+		isRequired: isRequiredProp,
+		isSuccess: isSuccessProp,
+		isWarning: isWarningProp,
+		labelPosition: labelPositionProp,
+		size: sizeProp
 	} = props;
 
-	const isActive = useGetResponsiveValue<boolean>(isActiveProp);
-	const isChecked = useGetResponsiveValue<boolean>(isCheckedProp);
-	const isClickable = useGetResponsiveValue<boolean>(isClickableProp);
-	const isCompact = useGetResponsiveValue<boolean>(isCompactProp);
-	const isDisabled = useGetResponsiveValue<boolean>(isDisabledProp);
-	const isError = useGetResponsiveValue<boolean>(isErrorProp);
-	const isFocused = useGetResponsiveValue<boolean>(isFocusedProp);
-	const isIndeterminate = useGetResponsiveValue<boolean>(isIndeterminateProp);
-	const isOutlined = useGetResponsiveValue<boolean>(isOutlinedProp);
-	const isReadOnly = useGetResponsiveValue<boolean>(isReadOnlyProp);
-	const isRequired = useGetResponsiveValue<boolean>(isRequiredProp);
-	const isSuccess = useGetResponsiveValue<boolean>(isSuccessProp);
-	const isWarning = useGetResponsiveValue<boolean>(isWarningProp);
+	const isActive = useGetResponsiveValue<CheckboxNonResponsiveValueProps['isActive']>(isActiveProp);
+	const isChecked = useGetResponsiveValue<CheckboxNonResponsiveValueProps['isChecked']>(isCheckedProp);
+	const isClickable = useGetResponsiveValue<CheckboxNonResponsiveValueProps['isClickable']>(isClickableProp);
+	const isCompact = useGetResponsiveValue<CheckboxNonResponsiveValueProps['isCompact']>(isCompactProp);
+	const isDisabled = useGetResponsiveValue<CheckboxNonResponsiveValueProps['isDisabled']>(isDisabledProp);
+	const isError = useGetResponsiveValue<CheckboxNonResponsiveValueProps['isError']>(isErrorProp);
+	const isFocused = useGetResponsiveValue<CheckboxNonResponsiveValueProps['isFocused']>(isFocusedProp);
+	const isIndeterminate =
+		useGetResponsiveValue<CheckboxNonResponsiveValueProps['isIndeterminate']>(isIndeterminateProp);
+	const isOutlined = useGetResponsiveValue<CheckboxNonResponsiveValueProps['isOutlined']>(isOutlinedProp);
+	const isReadOnly = useGetResponsiveValue<CheckboxNonResponsiveValueProps['isReadOnly']>(isReadOnlyProp);
+	const isRequired = useGetResponsiveValue<CheckboxNonResponsiveValueProps['isRequired']>(isRequiredProp);
+	const isSuccess = useGetResponsiveValue<CheckboxNonResponsiveValueProps['isSuccess']>(isSuccessProp);
+	const isWarning = useGetResponsiveValue<CheckboxNonResponsiveValueProps['isWarning']>(isWarningProp);
 
-	const labelPosition = useGetResponsiveValue<CheckboxLabelPosition>(labelPositionProp);
+	const labelPosition = useGetResponsiveValue<CheckboxNonResponsiveValueProps['labelPosition']>(labelPositionProp);
 
-	const size = useGetResponsiveValue<CheckboxSize>(sizeProp);
+	const size = useGetResponsiveValue<CheckboxNonResponsiveValueProps['size']>(sizeProp);
 
 	return {
 		isActive,
