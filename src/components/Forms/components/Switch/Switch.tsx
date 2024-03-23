@@ -107,22 +107,22 @@ const Switch = forwardRef(function Switch<Element extends PolymorphicElementType
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
 	const {
-		hasIOLabel,
-		isActive,
-		isChecked,
-		isClickable,
-		isCompact,
-		isDisabled,
-		isError,
-		isFocused: focused,
-		isOutlined,
-		isReadOnly,
-		isRequired,
-		isSuccess,
-		isWarning,
-		labelPosition,
-		size
-	} = useSwitchResponsiveValues<Element>({
+		hasIOLabel = DEFAULT_SWITCH_HAS_IO_LABEL,
+		isActive = DEFAULT_SWITCH_IS_ACTIVE,
+		isChecked = DEFAULT_SWITCH_IS_CHECKED,
+		isClickable = DEFAULT_SWITCH_IS_CLICKABLE,
+		isCompact = DEFAULT_SWITCH_IS_COMPACT,
+		isDisabled = DEFAULT_FORM_CONTROL_IS_DISABLED,
+		isError = DEFAULT_FORM_CONTROL_IS_ERROR,
+		isFocused: focused = DEFAULT_FORM_CONTROL_IS_FOCUSED,
+		isOutlined = DEFAULT_SWITCH_IS_OUTLINED,
+		isReadOnly = DEFAULT_FORM_CONTROL_IS_READONLY,
+		isRequired = DEFAULT_FORM_CONTROL_IS_REQUIRED,
+		isSuccess = DEFAULT_FORM_CONTROL_IS_SUCCESS,
+		isWarning = DEFAULT_FORM_CONTROL_IS_WARNING,
+		labelPosition = DEFAULT_SWITCH_LABEL_POSITION,
+		size = DEFAULT_FORM_CONTROL_SIZE
+	} = useSwitchResponsiveValues({
 		hasIOLabel: hasIOLabelProp,
 		isActive: isActiveProp,
 		isChecked: isCheckedProp,
@@ -142,10 +142,10 @@ const Switch = forwardRef(function Switch<Element extends PolymorphicElementType
 
 	const isFocused = useMemo<boolean>(() => focused || isFocusedHook, [focused, isFocusedHook]);
 
-	const classes = useSwitchClasses<Element>({ isActive, isClickable, isDisabled, isReadOnly });
+	const classes = useSwitchClasses({ isActive, isClickable, isDisabled, isReadOnly });
 
-	const config = useSwitchSizeConfig<Element>({ isCompact, size });
-	const iconSize = useSwitchIconSize<Element>({ isCompact, size });
+	const config = useSwitchSizeConfig({ isCompact, size });
+	const iconSize = useSwitchIconSize({ isCompact, size });
 
 	const labelColor = useGetColor({
 		color: 'gray',

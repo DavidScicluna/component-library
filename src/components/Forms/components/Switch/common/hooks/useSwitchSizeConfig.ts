@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 
-import type { PolymorphicElementType, ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
+import type { ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
 
 import { DEFAULT_SWITCH_IS_COMPACT, DEFAULT_SWITCH_SIZE } from '../constants';
-import type { SwitchProps } from '../types';
+import type { SwitchUniqueProps } from '../types';
 
 import { useSwitchResponsiveValues } from '.';
 
@@ -14,18 +14,13 @@ type SwitchSizeConfig = {
 	spacing: ThemeSpacing;
 };
 
-type UseSwitchSizeConfigProps<Element extends PolymorphicElementType> = Pick<
-	SwitchProps<Element>,
-	'isCompact' | 'size'
->;
+type UseSwitchSizeConfigProps = Pick<SwitchUniqueProps, 'isCompact' | 'size'>;
 type UseSwitchSizeConfigReturn = SwitchSizeConfig;
 
-const useSwitchSizeConfig = <Element extends PolymorphicElementType>(
-	props: UseSwitchSizeConfigProps<Element>
-): UseSwitchSizeConfigReturn => {
+const useSwitchSizeConfig = (props: UseSwitchSizeConfigProps): UseSwitchSizeConfigReturn => {
 	const { isCompact: isCompactProp = DEFAULT_SWITCH_IS_COMPACT, size: sizeProp = DEFAULT_SWITCH_SIZE } = props;
 
-	const { isCompact, size } = useSwitchResponsiveValues<Element>({ isCompact: isCompactProp, size: sizeProp });
+	const { isCompact, size } = useSwitchResponsiveValues({ isCompact: isCompactProp, size: sizeProp });
 
 	const config = useMemo<SwitchSizeConfig>(() => {
 		const radius: ThemeRadius = 'full';
