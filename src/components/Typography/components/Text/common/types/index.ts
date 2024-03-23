@@ -3,7 +3,7 @@ import type { NonUndefined } from 'utility-types';
 import type {
 	PickFrom,
 	PolymorphicElementType,
-	ResponsiveValue,
+	ResponsiveValueProps,
 	TextAlignClass,
 	TextDecorationClass,
 	TextDecorationStyleClass,
@@ -21,7 +21,7 @@ import type {
 	WordBreakClass
 } from '@common/types';
 
-import type { BoxHeightProps, BoxProps, BoxRef, BoxWidthProps } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type TextDefaultElement = 'p';
 export type TextElement = PickFrom<
@@ -30,7 +30,7 @@ export type TextElement = PickFrom<
 >;
 
 export type TextThemeAppearanceProps = Partial<
-	Pick<ThemeAppearanceProps, 'colorMode'> & { color: NonUndefined<ThemeAppearanceProps['color']> | string }
+	Pick<ThemeAppearanceProps, 'colorMode'> & { color: ThemeAppearanceProps['color'] | string }
 >;
 
 export type TextDecorationProps = {
@@ -41,23 +41,25 @@ export type TextDecorationProps = {
 	variant: TextDecorationClass;
 };
 
-type TextOtherProps = TextThemeAppearanceProps & {
-	align?: ResponsiveValue<TextAlignClass>;
-	decoration?: ResponsiveValue<TextDecorationProps>;
-	fontSize?: ResponsiveValue<ThemeFontSize>;
-	fontWeight?: ResponsiveValue<ThemeFontWeight>;
-	letterSpacing?: ResponsiveValue<TextLetterSpacingClass>;
-	lineClamp?: ResponsiveValue<TextLineClampClass>;
-	lineHeight?: ResponsiveValue<ThemeLineHeight>;
-	textTransform?: ResponsiveValue<TextTransformClass>;
-	isItalic?: ResponsiveValue<boolean>;
-	isOverflown?: ResponsiveValue<boolean>;
-	whiteSpace?: ResponsiveValue<WhiteSpaceClass>;
-	wordBreak?: ResponsiveValue<WordBreakClass>;
-	userSelect?: ResponsiveValue<UserSelectClass>;
-} & BoxWidthProps &
-	BoxHeightProps;
+export type TextNonResponsiveValueProps = {
+	align?: TextAlignClass;
+	decoration?: TextDecorationProps;
+	fontSize?: ThemeFontSize;
+	fontWeight?: ThemeFontWeight;
+	letterSpacing?: TextLetterSpacingClass;
+	lineClamp?: TextLineClampClass;
+	lineHeight?: ThemeLineHeight;
+	textTransform?: TextTransformClass;
+	isItalic?: boolean;
+	isOverflown?: boolean;
+	whiteSpace?: WhiteSpaceClass;
+	wordBreak?: WordBreakClass;
+	userSelect?: UserSelectClass;
+};
+export type TextResponsiveValueProps = ResponsiveValueProps<TextNonResponsiveValueProps>;
 
-export type TextProps<Element extends TextElement> = BoxProps<Element, TextOtherProps>;
+export type TextUniqueProps = TextThemeAppearanceProps & TextResponsiveValueProps;
+
+export type TextProps<Element extends TextElement> = BoxProps<Element, TextUniqueProps>;
 
 export type TextRef<Element extends TextElement> = BoxRef<Element>;

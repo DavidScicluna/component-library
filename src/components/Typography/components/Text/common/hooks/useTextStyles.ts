@@ -3,17 +3,17 @@ import type { Style } from '@common/types';
 import { checkColorType } from '@common/utils';
 
 import { DEFAULT_TEXT_DECORATION } from '../constants';
-import type { TextElement, TextProps } from '../types';
+import type { TextUniqueProps } from '../types';
 
 import useTextResponsiveValues from './useTextResponsiveValues';
 
-type UseTextStylesProps<Element extends TextElement> = Pick<TextProps<Element>, 'color' | 'decoration'>;
+type UseTextStylesProps = Pick<TextUniqueProps, 'color' | 'decoration'>;
 type UseTextStylesReturn = Style;
 
-const useTextStyles = <Element extends TextElement>(props: UseTextStylesProps<Element>): UseTextStylesReturn => {
-	const { color = DEFAULT_COLOR, decoration: decorationProp = DEFAULT_TEXT_DECORATION } = props;
+const useTextStyles = (props: UseTextStylesProps): UseTextStylesReturn => {
+	const { color = DEFAULT_COLOR, decoration: decorationProp } = props;
 
-	const { decoration } = useTextResponsiveValues<Element>({ decoration: decorationProp });
+	const { decoration = DEFAULT_TEXT_DECORATION } = useTextResponsiveValues({ decoration: decorationProp });
 
 	return {
 		color: checkColorType(color) === 'other' ? color : undefined,

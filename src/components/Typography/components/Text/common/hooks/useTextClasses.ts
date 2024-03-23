@@ -21,12 +21,11 @@ import {
 	DEFAULT_TEXT_WHITESPACE,
 	DEFAULT_TEXT_WORD_BREAK
 } from '../constants';
-import type { TextElement, TextProps } from '../types';
+import type { TextUniqueProps } from '../types';
 
 import useTextResponsiveValues from './useTextResponsiveValues';
 
-type UseTextClassesProps<Element extends TextElement> = Pick<
-	TextProps<Element>,
+type PickedTextUniqueProps =
 	| 'color'
 	| 'colorMode'
 	| 'align'
@@ -41,46 +40,46 @@ type UseTextClassesProps<Element extends TextElement> = Pick<
 	| 'isOverflown'
 	| 'whiteSpace'
 	| 'wordBreak'
-	| 'userSelect'
->;
+	| 'userSelect';
+type UseTextClassesProps = Pick<TextUniqueProps, PickedTextUniqueProps>;
 type UseTextClassesReturn = ClassName;
 
-const useTextClasses = <Element extends TextElement>(props: UseTextClassesProps<Element>): UseTextClassesReturn => {
+const useTextClasses = (props: UseTextClassesProps): UseTextClassesReturn => {
 	const { colorMode: DEFAULT_TEXT_COLORMODE } = useAppTheme();
 
 	const {
 		color = DEFAULT_COLOR,
 		colorMode = DEFAULT_TEXT_COLORMODE,
-		align: alignProp = DEFAULT_TEXT_ALIGN,
-		decoration: decorationProp = DEFAULT_TEXT_DECORATION,
-		fontSize: fontSizeProp = DEFAULT_TEXT_FONT_SIZE,
-		fontWeight: fontWeightProp = DEFAULT_TEXT_FONT_WEIGHT,
-		letterSpacing: letterSpacingProp = DEFAULT_TEXT_LETTER_SPACING,
-		lineClamp: lineClampProp = DEFAULT_TEXT_LINE_CLAMP,
-		lineHeight: lineHeightProp = DEFAULT_TEXT_LINE_HEIGHT,
-		textTransform: textTransformProp = DEFAULT_TEXT_TRANSFORM,
-		isItalic: isItalicProp = DEFAULT_TEXT_IS_ITALIC,
-		isOverflown: isOverflownProp = DEFAULT_TEXT_IS_OVERFLOWN,
-		whiteSpace: whiteSpaceProp = DEFAULT_TEXT_WHITESPACE,
-		wordBreak: wordBreakProp = DEFAULT_TEXT_WORD_BREAK,
-		userSelect: userSelectProp = DEFAULT_TEXT_USER_SELECT
+		align: alignProp,
+		decoration: decorationProp,
+		fontSize: fontSizeProp,
+		fontWeight: fontWeightProp,
+		letterSpacing: letterSpacingProp,
+		lineClamp: lineClampProp,
+		lineHeight: lineHeightProp,
+		textTransform: textTransformProp,
+		isItalic: isItalicProp,
+		isOverflown: isOverflownProp,
+		whiteSpace: whiteSpaceProp,
+		wordBreak: wordBreakProp,
+		userSelect: userSelectProp
 	} = props;
 
 	const {
-		align,
-		decoration,
-		fontSize,
-		fontWeight,
-		letterSpacing,
-		lineClamp,
-		lineHeight,
-		textTransform,
-		isItalic,
-		isOverflown,
-		whiteSpace,
-		wordBreak,
-		userSelect
-	} = useTextResponsiveValues<Element>({
+		align = DEFAULT_TEXT_ALIGN,
+		decoration = DEFAULT_TEXT_DECORATION,
+		fontSize = DEFAULT_TEXT_FONT_SIZE,
+		fontWeight = DEFAULT_TEXT_FONT_WEIGHT,
+		letterSpacing = DEFAULT_TEXT_LETTER_SPACING,
+		lineClamp = DEFAULT_TEXT_LINE_CLAMP,
+		lineHeight = DEFAULT_TEXT_LINE_HEIGHT,
+		textTransform = DEFAULT_TEXT_TRANSFORM,
+		isItalic = DEFAULT_TEXT_IS_ITALIC,
+		isOverflown = DEFAULT_TEXT_IS_OVERFLOWN,
+		whiteSpace = DEFAULT_TEXT_WHITESPACE,
+		wordBreak = DEFAULT_TEXT_WORD_BREAK,
+		userSelect = DEFAULT_TEXT_USER_SELECT
+	} = useTextResponsiveValues({
 		align: alignProp,
 		decoration: decorationProp,
 		fontSize: fontSizeProp,

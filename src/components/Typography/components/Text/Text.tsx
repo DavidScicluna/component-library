@@ -55,20 +55,20 @@ const Text = forwardRef(function Text<Element extends TextElement>(
 	} = props;
 
 	const {
-		align,
-		decoration,
-		fontSize,
-		fontWeight,
-		letterSpacing,
-		lineClamp,
-		lineHeight,
-		textTransform,
-		isItalic,
-		isOverflown,
-		whiteSpace,
-		wordBreak,
-		userSelect
-	} = useTextResponsiveValues<Element>({
+		align = DEFAULT_TEXT_ALIGN,
+		decoration = DEFAULT_TEXT_DECORATION,
+		fontSize = DEFAULT_TEXT_FONT_SIZE,
+		fontWeight = DEFAULT_TEXT_FONT_WEIGHT,
+		letterSpacing = DEFAULT_TEXT_LETTER_SPACING,
+		lineClamp = DEFAULT_TEXT_LINE_CLAMP,
+		lineHeight = DEFAULT_TEXT_LINE_HEIGHT,
+		textTransform = DEFAULT_TEXT_TRANSFORM,
+		isItalic = DEFAULT_TEXT_IS_ITALIC,
+		isOverflown = DEFAULT_TEXT_IS_OVERFLOWN,
+		whiteSpace = DEFAULT_TEXT_WHITESPACE,
+		wordBreak = DEFAULT_TEXT_WORD_BREAK,
+		userSelect = DEFAULT_TEXT_USER_SELECT
+	} = useTextResponsiveValues({
 		align: alignProp,
 		decoration: decorationProp,
 		fontSize: fontSizeProp,
@@ -84,7 +84,7 @@ const Text = forwardRef(function Text<Element extends TextElement>(
 		userSelect: userSelectProp
 	});
 
-	const classes = useTextClasses<Element>({
+	const classes = useTextClasses({
 		color,
 		colorMode,
 		align,
@@ -101,7 +101,7 @@ const Text = forwardRef(function Text<Element extends TextElement>(
 		wordBreak,
 		userSelect
 	});
-	const styles = useTextStyles<Element>({ color, decoration });
+	const styles = useTextStyles({ color, decoration });
 
 	return (
 		<Box

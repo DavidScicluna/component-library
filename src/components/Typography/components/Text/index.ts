@@ -2,9 +2,12 @@ import type {
 	TextDecorationProps,
 	TextDefaultElement,
 	TextElement,
+	TextNonResponsiveValueProps,
 	TextProps,
 	TextRef,
-	TextThemeAppearanceProps
+	TextResponsiveValueProps,
+	TextThemeAppearanceProps,
+	TextUniqueProps
 } from './common/types';
 import Text from './Text';
 
@@ -21,4 +24,14 @@ export * from './common/hooks';
 export { Text };
 
 // Components Types
-export type { TextDecorationProps, TextDefaultElement, TextElement, TextProps, TextRef, TextThemeAppearanceProps };
+export type {
+	TextDecorationProps,
+	TextDefaultElement,
+	TextElement,
+	TextNonResponsiveValueProps,
+	TextProps,
+	TextRef,
+	TextResponsiveValueProps,
+	TextThemeAppearanceProps,
+	TextUniqueProps
+};
