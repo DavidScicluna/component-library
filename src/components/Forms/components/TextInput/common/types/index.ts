@@ -1,9 +1,14 @@
 import type { ReactNode } from 'react';
 
-import type { PolymorphicElementType } from '@common/types';
+import type { PolymorphicElementType, ResponsiveValueProps, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
-import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
+import type {
+	FormsCommonSize,
+	FormsCommonVariant,
+	FormsNonResponsiveValueProps,
+	FormsResponsiveValueProps
+} from '@components/Forms/common/types';
 
 export type TextInputDefaultElement = 'input';
 export type TextInputElement = Extract<PolymorphicElementType, 'input'>;
@@ -12,34 +17,22 @@ export type TextInputSize = FormsCommonSize;
 
 export type TextInputVariant = FormsCommonVariant;
 
-export type TextInputRenderProps<Element extends TextInputElement> = Pick<
-	TextInputOtherProps<Element>,
-	'color' | 'colorMode'
-> & { w?: number; h?: number };
+export type TextInputRenderProps = ThemeAppAppearanceProps & {
+	w?: number;
+	h?: number;
+};
 
-type PickedFormsCommonProps =
-	| 'color'
-	| 'colorMode'
-	| 'isCompact'
-	| 'isDisabled'
-	| 'isFullWidth'
-	| 'isError'
-	| 'isFocused'
-	| 'isOutlined'
-	| 'isReadOnly'
-	| 'isRequired'
-	| 'isSuccess'
-	| 'isWarning'
-	| 'size'
-	| 'variant';
+export type TextInputNonResponsiveValueProps = FormsNonResponsiveValueProps;
+export type TextInputResponsiveValueProps = FormsResponsiveValueProps &
+	ResponsiveValueProps<TextInputNonResponsiveValueProps>;
 
-type TextInputOtherProps<Element extends TextInputElement> = {
-	renderLeft?: (props: TextInputRenderProps<Element>) => ReactNode;
-	renderRight?: (props: TextInputRenderProps<Element>) => ReactNode;
-} & Pick<FormsCommonProps, PickedFormsCommonProps>;
+export type TextInputUniqueProps = ThemeAppAppearanceProps & {
+	renderLeft?: (props: TextInputRenderProps) => ReactNode;
+	renderRight?: (props: TextInputRenderProps) => ReactNode;
+} & TextInputResponsiveValueProps;
 
 export type TextInputProps<Element extends TextInputElement> = Omit<
-	BoxProps<Element, TextInputOtherProps<Element>>,
+	BoxProps<Element, TextInputUniqueProps>,
 	'children'
 >;
 

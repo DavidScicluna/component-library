@@ -1,11 +1,13 @@
 import type {
 	TextInputDefaultElement,
 	TextInputElement,
+	TextInputNonResponsiveValueProps,
 	TextInputProps,
 	TextInputRef,
 	TextInputRenderProps,
-	// TextInputAutoComplete,
+	TextInputResponsiveValueProps,
 	TextInputSize,
+	TextInputUniqueProps,
 	TextInputVariant
 } from './common/types';
 import TextInput from './TextInput';
@@ -23,10 +25,12 @@ export { TextInput };
 export type {
 	TextInputDefaultElement,
 	TextInputElement,
+	TextInputNonResponsiveValueProps,
 	TextInputProps,
 	TextInputRef,
 	TextInputRenderProps,
-	// TextInputAutoComplete,
+	TextInputResponsiveValueProps,
 	TextInputSize,
+	TextInputUniqueProps,
 	TextInputVariant
 };

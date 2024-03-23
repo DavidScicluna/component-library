@@ -100,19 +100,19 @@ const TextInput = forwardRef(function TextInput<Element extends TextInputElement
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
 	const {
-		isCompact,
-		isDisabled,
-		isFullWidth,
-		isError,
-		isFocused: focused,
-		isOutlined,
-		isReadOnly,
-		isRequired,
-		isSuccess,
-		isWarning,
-		size,
-		variant
-	} = useTextInputResponsiveValues<Element>({
+		isCompact = DEFAULT_TEXT_INPUT_IS_COMPACT,
+		isDisabled = DEFAULT_TEXT_INPUT_IS_DISABLED,
+		isFullWidth = DEFAULT_TEXT_INPUT_IS_FULLWIDTH,
+		isError = DEFAULT_TEXT_INPUT_IS_ERROR,
+		isFocused: focused = DEFAULT_TEXT_INPUT_IS_FOCUSED,
+		isOutlined = DEFAULT_TEXT_INPUT_IS_OUTLINED,
+		isReadOnly = DEFAULT_TEXT_INPUT_IS_READONLY,
+		isRequired = DEFAULT_TEXT_INPUT_IS_REQUIRED,
+		isSuccess = DEFAULT_TEXT_INPUT_IS_SUCCESS,
+		isWarning = DEFAULT_TEXT_INPUT_IS_WARNING,
+		size = DEFAULT_TEXT_INPUT_SIZE,
+		variant = DEFAULT_TEXT_INPUT_VARIANT
+	} = useTextInputResponsiveValues({
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
 		isFullWidth: isFullWidthProp,
