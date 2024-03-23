@@ -1,11 +1,13 @@
 import type {
 	TextareaDefaultElement,
 	TextareaElement,
+	TextareaNonResponsiveValueProps,
 	TextareaProps,
 	TextareaRef,
 	TextareaRenderProps,
-	// TextareaAutoComplete,
+	TextareaResponsiveValueProps,
 	TextareaSize,
+	TextareaUniqueProps,
 	TextareaVariant
 } from './common/types';
 import Textarea from './Textarea';
@@ -23,10 +25,12 @@ export { Textarea };
 export type {
 	TextareaDefaultElement,
 	TextareaElement,
+	TextareaNonResponsiveValueProps,
 	TextareaProps,
 	TextareaRef,
 	TextareaRenderProps,
-	// TextareaAutoComplete,
+	TextareaResponsiveValueProps,
 	TextareaSize,
+	TextareaUniqueProps,
 	TextareaVariant
 };

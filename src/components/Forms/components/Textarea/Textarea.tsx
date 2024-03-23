@@ -104,20 +104,20 @@ const Textarea = forwardRef(function Textarea<Element extends TextareaElement>(
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
 	const {
-		isCompact,
-		isDisabled,
-		isFullWidth,
-		isError,
-		isFocused: focused,
-		isOutlined,
-		isReadOnly,
-		isRequired,
-		isSuccess,
-		isWarning,
-		resize,
-		size,
-		variant
-	} = useTextareaResponsiveValues<Element>({
+		isCompact = DEFAULT_TEXTAREA_IS_COMPACT,
+		isDisabled = DEFAULT_FORM_CONTROL_IS_DISABLED,
+		isFullWidth = DEFAULT_TEXTAREA_IS_FULLWIDTH,
+		isError = DEFAULT_FORM_CONTROL_IS_ERROR,
+		isFocused: focused = DEFAULT_FORM_CONTROL_IS_FOCUSED,
+		isOutlined = DEFAULT_TEXTAREA_IS_OUTLINED,
+		isReadOnly = DEFAULT_FORM_CONTROL_IS_READONLY,
+		isRequired = DEFAULT_FORM_CONTROL_IS_REQUIRED,
+		isSuccess = DEFAULT_FORM_CONTROL_IS_SUCCESS,
+		isWarning = DEFAULT_FORM_CONTROL_IS_WARNING,
+		resize = DEFAULT_TEXTAREA_RESIZE,
+		size = DEFAULT_FORM_CONTROL_SIZE,
+		variant = DEFAULT_TEXTAREA_VARIANT
+	} = useTextareaResponsiveValues({
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
 		isFullWidth: isFullWidthProp,

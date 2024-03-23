@@ -1,9 +1,14 @@
 import type { ReactNode } from 'react';
 
-import type { PolymorphicElementType, ResizeClass, ResponsiveValue } from '@common/types';
+import type { PolymorphicElementType, ResizeClass, ResponsiveValueProps, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
-import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
+import type {
+	FormsCommonSize,
+	FormsCommonVariant,
+	FormsNonResponsiveValueProps,
+	FormsResponsiveValueProps
+} from '@components/Forms/common/types';
 import type { TextDefaultElement, TextProps } from '@components/Typography';
 
 export type TextareaDefaultElement = 'textarea';
@@ -13,43 +18,26 @@ export type TextareaSize = FormsCommonSize;
 
 export type TextareaVariant = FormsCommonVariant;
 
-export type TextareaRenderProps<Element extends TextareaElement> = Pick<
-	TextareaOtherProps<Element>,
-	'color' | 'colorMode'
-> & { w?: number; h?: number };
+export type TextareaRenderProps = ThemeAppAppearanceProps & { w?: number; h?: number };
 
-type PickedFormsCommonProps =
-	| 'color'
-	| 'colorMode'
-	| 'isCompact'
-	| 'isDisabled'
-	| 'isFullWidth'
-	| 'isError'
-	| 'isFocused'
-	| 'isOutlined'
-	| 'isReadOnly'
-	| 'isRequired'
-	| 'isSuccess'
-	| 'isWarning'
-	| 'size'
-	| 'variant';
-
-type TextareaOtherProps<Element extends TextareaElement> = {
-	// autoComplete?: TextareaAutoComplete;
-	renderLeft?: (props: TextareaRenderProps<Element>) => ReactNode;
-	renderRight?: (props: TextareaRenderProps<Element>) => ReactNode;
-	renderTotal?: (props: TextProps<TextDefaultElement>) => ReactNode;
+export type TextareaNonResponsiveValueProps = FormsNonResponsiveValueProps & {
 	/**
 	 * How the textarea can be resized
 	 *
 	 * @default 'none'
 	 */
-	resize?: ResponsiveValue<ResizeClass>;
-} & Pick<FormsCommonProps, PickedFormsCommonProps>;
+	resize?: ResizeClass;
+};
+export type TextareaResponsiveValueProps = FormsResponsiveValueProps &
+	ResponsiveValueProps<TextareaNonResponsiveValueProps>;
 
-export type TextareaProps<Element extends TextareaElement> = Omit<
-	BoxProps<Element, TextareaOtherProps<Element>>,
-	'children'
->;
+export type TextareaUniqueProps = ThemeAppAppearanceProps & {
+	// autoComplete?: TextareaAutoComplete;
+	renderLeft?: (props: TextareaRenderProps) => ReactNode;
+	renderRight?: (props: TextareaRenderProps) => ReactNode;
+	renderTotal?: (props: TextProps<TextDefaultElement>) => ReactNode;
+} & TextareaResponsiveValueProps;
+
+export type TextareaProps<Element extends TextareaElement> = Omit<BoxProps<Element, TextareaUniqueProps>, 'children'>;
 
 export type TextareaRef<Element extends TextareaElement> = BoxRef<Element>;
