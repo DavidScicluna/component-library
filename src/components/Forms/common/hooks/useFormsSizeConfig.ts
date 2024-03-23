@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import type { ThemeFontSize, ThemeRadius, ThemeSpacing } from '@common/types';
 
 import { DEFAULT_FORMS_IS_COMPACT, DEFAULT_FORMS_SIZE, DEFAULT_FORMS_VARIANT } from '../constants';
-import type { FormsCommonProps } from '../types';
+import type { FormsUniqueProps } from '../types';
 
 import useFormsResponsiveValues from './useFormsResponsiveValues';
 
@@ -14,7 +14,7 @@ type FormsSizeConfig = {
 	spacing: ThemeSpacing;
 };
 
-type UseFormsSizeConfigProps = Pick<FormsCommonProps, 'isCompact' | 'size' | 'variant'>;
+type UseFormsSizeConfigProps = Pick<FormsUniqueProps, 'isCompact' | 'size' | 'variant'>;
 type UseFormsSizeConfigReturn = FormsSizeConfig;
 
 const useFormsSizeConfig = (props: UseFormsSizeConfigProps): UseFormsSizeConfigReturn => {

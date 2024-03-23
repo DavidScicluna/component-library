@@ -1,80 +1,83 @@
-import type { ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
+import type { ResponsiveValueProps, ThemeAppAppearanceProps } from '@common/types';
 
 export type FormsCommonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type FormsCommonVariant = 'outlined' | 'underline' | 'unstyled';
 
-export type FormsCommonProps = ThemeAppAppearanceProps & {
+export type FormsNonResponsiveValueProps = {
 	/**
 	 * If true, the element will be styled in a more compressed state
 	 *
 	 * @default false
 	 */
-	isCompact?: ResponsiveValue<boolean>;
+	isCompact?: boolean;
 	/**
 	 * If true, the element will be disabled
 	 *
 	 * @default false
 	 */
-	isDisabled?: ResponsiveValue<boolean>;
+	isDisabled?: boolean;
 	/**
 	 * If true, the element will take the full width of its parent
 	 *
 	 * @default false
 	 */
-	isFullWidth?: ResponsiveValue<boolean>;
+	isFullWidth?: boolean;
 	/**
 	 * If true, the element will be invalid
 	 *
 	 * @default false
 	 */
-	isError?: ResponsiveValue<boolean>;
+	isError?: boolean;
 	/**
 	 * If true, the element will be focused & will have the success styling
 	 *
 	 * @default false
 	 */
-	isFocused?: ResponsiveValue<boolean>;
+	isFocused?: boolean;
 	/**
 	 * If `true`, the element will have an outline
 	 *
 	 * @default false
 	 */
-	isOutlined?: ResponsiveValue<boolean>;
+	isOutlined?: boolean;
 	/**
 	 * If true, the element will be readonly
 	 *
 	 * @default false
 	 */
-	isReadOnly?: ResponsiveValue<boolean>;
+	isReadOnly?: boolean;
 	/**
 	 * If true, the element will be required
 	 *
 	 * @default false
 	 */
-	isRequired?: ResponsiveValue<boolean>;
+	isRequired?: boolean;
 	/**
 	 * If true, the element will have the success styling
 	 *
 	 * @default false
 	 */
-	isSuccess?: ResponsiveValue<boolean>;
+	isSuccess?: boolean;
 	/**
 	 * If true, the element will have the warning styling
 	 *
 	 * @default false
 	 */
-	isWarning?: ResponsiveValue<boolean>;
+	isWarning?: boolean;
 	/**
 	 * The size of the element
 	 *
 	 * @default 'md'
 	 */
-	size?: ResponsiveValue<FormsCommonSize>;
+	size?: FormsCommonSize;
 	/**
 	 *  The variant of the element
 	 *
 	 * @default 'default'
 	 */
-	variant?: ResponsiveValue<FormsCommonVariant>;
+	variant?: FormsCommonVariant;
 };
+export type FormsResponsiveValueProps = ResponsiveValueProps<FormsNonResponsiveValueProps>;
+
+export type FormsUniqueProps = ThemeAppAppearanceProps & FormsResponsiveValueProps;

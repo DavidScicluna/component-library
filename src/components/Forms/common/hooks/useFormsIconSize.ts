@@ -10,14 +10,14 @@ import {
 	DEFAULT_FORMS_SIZE,
 	DEFAULT_FORMS_VARIANT
 } from '../constants';
-import type { FormsCommonProps } from '../types';
+import type { FormsUniqueProps } from '../types';
 
 import useFormsResponsiveValues from './useFormsResponsiveValues';
 import { useFormsSizeConfig } from '.';
 
 type FormsIconSize = Pick<IconProps<IconDefaultElement>, 'w' | 'h' | 'size'>;
 
-type UseFormsIconSizeProps = Pick<FormsCommonProps, 'isCompact' | 'size' | 'variant'>;
+type UseFormsIconSizeProps = Pick<FormsUniqueProps, 'isCompact' | 'size' | 'variant'>;
 type UseFormsIconSizeReturn = FormsIconSize;
 
 const useFormsIconSize = (props: UseFormsIconSizeProps): UseFormsIconSizeReturn => {

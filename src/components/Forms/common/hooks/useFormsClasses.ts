@@ -20,13 +20,12 @@ import {
 	DEFAULT_FORMS_SIZE,
 	DEFAULT_FORMS_VARIANT
 } from '../constants';
-import type { FormsCommonProps } from '../types';
+import type { FormsUniqueProps } from '../types';
 
 import useFormsResponsiveValues from './useFormsResponsiveValues';
 import useFormsSizeConfig from './useFormsSizeConfig';
 
-type UseFormsClassesProps = Pick<
-	FormsCommonProps,
+type PickedFormsUniqueProps =
 	| 'color'
 	| 'colorMode'
 	| 'isCompact'
@@ -37,8 +36,8 @@ type UseFormsClassesProps = Pick<
 	| 'isSuccess'
 	| 'isWarning'
 	| 'size'
-	| 'variant'
->;
+	| 'variant';
+type UseFormsClassesProps = Pick<FormsUniqueProps, PickedFormsUniqueProps>;
 type UseFormsClassesReturn = Record<'container' | 'element', ClassName>;
 
 const useFormsClasses = (props: UseFormsClassesProps): UseFormsClassesReturn => {

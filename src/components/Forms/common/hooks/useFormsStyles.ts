@@ -15,12 +15,11 @@ import {
 	DEFAULT_FORMS_IS_WARNING,
 	DEFAULT_FORMS_VARIANT
 } from '../constants';
-import type { FormsCommonProps } from '../types';
+import type { FormsUniqueProps } from '../types';
 
 import useFormsResponsiveValues from './useFormsResponsiveValues';
 
-type UseFormsStylesProps = Pick<
-	FormsCommonProps,
+type PickedFormsUniqueProps =
 	| 'color'
 	| 'colorMode'
 	| 'isDisabled'
@@ -29,8 +28,8 @@ type UseFormsStylesProps = Pick<
 	| 'isReadOnly'
 	| 'isSuccess'
 	| 'isWarning'
-	| 'variant'
-> & { element: 'input' | 'textarea' };
+	| 'variant';
+type UseFormsStylesProps = Pick<FormsUniqueProps, PickedFormsUniqueProps> & { element: 'input' | 'textarea' };
 type UseFormsStylesReturn = Style;
 
 const useFormsStyles = (props: UseFormsStylesProps): UseFormsStylesReturn => {
