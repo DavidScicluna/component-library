@@ -1,11 +1,13 @@
 import type {
 	FileInputDefaultElement,
 	FileInputElement,
+	FileInputNonResponsiveValueProps,
 	FileInputProps,
 	FileInputRef,
 	FileInputRenderProps,
-	// FileInputAutoComplete,
+	FileInputResponsiveValueProps,
 	FileInputSize,
+	FileInputUniqueProps,
 	FileInputVariant
 } from './common/types';
 import FileInput from './FileInput';
@@ -23,10 +25,12 @@ export { FileInput };
 export type {
 	FileInputDefaultElement,
 	FileInputElement,
+	FileInputNonResponsiveValueProps,
 	FileInputProps,
 	FileInputRef,
 	FileInputRenderProps,
-	// FileInputAutoComplete,
+	FileInputResponsiveValueProps,
 	FileInputSize,
+	FileInputUniqueProps,
 	FileInputVariant
 };

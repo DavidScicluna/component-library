@@ -108,20 +108,20 @@ const FileInput = forwardRef(function FileInput<Element extends FileInputElement
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
 	const {
-		isCompact,
-		isDisabled,
-		isFullWidth,
-		isError,
-		isFocused: focused,
-		isMultiple,
-		isOutlined,
-		isReadOnly,
-		isRequired,
-		isSuccess,
-		isWarning,
-		size,
-		variant
-	} = useFileInputResponsiveValues<Element>({
+		isCompact = DEFAULT_FILE_INPUT_IS_COMPACT,
+		isDisabled = DEFAULT_FORM_CONTROL_IS_DISABLED,
+		isFullWidth = DEFAULT_FILE_INPUT_IS_FULLWIDTH,
+		isError = DEFAULT_FORM_CONTROL_IS_ERROR,
+		isFocused: focused = DEFAULT_FORM_CONTROL_IS_FOCUSED,
+		isMultiple = DEFAULT_FILE_INPUT_IS_MULTIPLE,
+		isOutlined = DEFAULT_FILE_INPUT_IS_OUTLINED,
+		isReadOnly = DEFAULT_FORM_CONTROL_IS_READONLY,
+		isRequired = DEFAULT_FORM_CONTROL_IS_REQUIRED,
+		isSuccess = DEFAULT_FORM_CONTROL_IS_SUCCESS,
+		isWarning = DEFAULT_FORM_CONTROL_IS_WARNING,
+		size = DEFAULT_FORM_CONTROL_SIZE,
+		variant = DEFAULT_FILE_INPUT_VARIANT
+	} = useFileInputResponsiveValues({
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
 		isFullWidth: isFullWidthProp,
