@@ -1,9 +1,14 @@
 import type { ReactNode } from 'react';
 
-import type { PolymorphicElementType } from '@common/types';
+import type { PolymorphicElementType, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
-import type { FormsCommonProps, FormsCommonSize, FormsCommonVariant } from '@components/Forms/common/types';
+import type {
+	FormsCommonSize,
+	FormsCommonVariant,
+	FormsNonResponsiveValueProps,
+	FormsResponsiveValueProps
+} from '@components/Forms/common/types';
 
 export type EmailInputDefaultElement = 'input';
 export type EmailInputElement = Extract<PolymorphicElementType, 'input'>;
@@ -14,35 +19,19 @@ export type EmailInputSize = FormsCommonSize;
 
 export type EmailInputVariant = FormsCommonVariant;
 
-export type EmailInputRenderProps<Element extends EmailInputElement> = Pick<
-	EmailInputOtherProps<Element>,
-	'color' | 'colorMode'
-> & { w?: number; h?: number };
+export type EmailInputRenderProps = ThemeAppAppearanceProps & { w?: number; h?: number };
 
-type PickedFormsCommonProps =
-	| 'color'
-	| 'colorMode'
-	| 'isCompact'
-	| 'isDisabled'
-	| 'isFullWidth'
-	| 'isError'
-	| 'isFocused'
-	| 'isOutlined'
-	| 'isReadOnly'
-	| 'isRequired'
-	| 'isSuccess'
-	| 'isWarning'
-	| 'size'
-	| 'variant';
+export type EmailInputNonResponsiveValueProps = FormsNonResponsiveValueProps;
+export type EmailInputResponsiveValueProps = FormsResponsiveValueProps;
 
-type EmailInputOtherProps<Element extends EmailInputElement> = {
+export type EmailInputUniqueProps = ThemeAppAppearanceProps & {
 	// autoComplete?: EmailInputAutoComplete;
-	renderLeft?: (props: EmailInputRenderProps<Element>) => ReactNode;
-	renderRight?: (props: EmailInputRenderProps<Element>) => ReactNode;
-} & Pick<FormsCommonProps, PickedFormsCommonProps>;
+	renderLeft?: (props: EmailInputRenderProps) => ReactNode;
+	renderRight?: (props: EmailInputRenderProps) => ReactNode;
+} & EmailInputResponsiveValueProps;
 
 export type EmailInputProps<Element extends EmailInputElement> = Omit<
-	BoxProps<Element, EmailInputOtherProps<Element>>,
+	BoxProps<Element, EmailInputUniqueProps>,
 	'children'
 >;
 

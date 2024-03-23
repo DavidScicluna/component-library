@@ -1,11 +1,14 @@
 import type {
+	// EmailInputAutoComplete,
 	EmailInputDefaultElement,
 	EmailInputElement,
+	EmailInputNonResponsiveValueProps,
 	EmailInputProps,
 	EmailInputRef,
 	EmailInputRenderProps,
-	// EmailInputAutoComplete,
+	EmailInputResponsiveValueProps,
 	EmailInputSize,
+	EmailInputUniqueProps,
 	EmailInputVariant
 } from './common/types';
 import EmailInput from './EmailInput';
@@ -21,12 +24,15 @@ export { EmailInput };
 
 // Component Types
 export type {
+	// EmailInputAutoComplete,
 	EmailInputDefaultElement,
 	EmailInputElement,
+	EmailInputNonResponsiveValueProps,
 	EmailInputProps,
 	EmailInputRef,
 	EmailInputRenderProps,
-	// EmailInputAutoComplete,
+	EmailInputResponsiveValueProps,
 	EmailInputSize,
+	EmailInputUniqueProps,
 	EmailInputVariant
 };
