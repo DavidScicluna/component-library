@@ -1,11 +1,16 @@
 import type {
+	// SearchInputAutoComplete,
 	SearchInputDefaultElement,
 	SearchInputElement,
+	SearchInputNonResponsiveValueProps,
 	SearchInputProps,
 	SearchInputRef,
+	SearchInputRenderClearProps,
 	SearchInputRenderProps,
-	// SearchInputAutoComplete,
+	SearchInputRenderSubmitProps,
+	SearchInputResponsiveValueProps,
 	SearchInputSize,
+	SearchInputUniqueProps,
 	SearchInputVariant
 } from './common/types';
 import SearchInput from './SearchInput';
@@ -21,12 +26,17 @@ export { SearchInput };
 
 // Component Types
 export type {
+	// SearchInputAutoComplete,
 	SearchInputDefaultElement,
 	SearchInputElement,
+	SearchInputNonResponsiveValueProps,
 	SearchInputProps,
 	SearchInputRef,
+	SearchInputRenderClearProps,
 	SearchInputRenderProps,
-	// SearchInputAutoComplete,
+	SearchInputRenderSubmitProps,
+	SearchInputResponsiveValueProps,
 	SearchInputSize,
+	SearchInputUniqueProps,
 	SearchInputVariant
 };

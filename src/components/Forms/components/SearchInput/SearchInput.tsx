@@ -109,20 +109,20 @@ const SearchInput = forwardRef(function SearchInput<Element extends SearchInputE
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
 	const {
-		isCompact,
-		isDisabled,
-		isFullWidth,
-		isError,
-		isFocused: focused,
-		isOutlined,
-		isReadOnly,
-		isRequired,
-		isSuccess,
-		isWarning,
-		initialQuery,
-		size,
-		variant
-	} = useSearchInputResponsiveValues<Element>({
+		isCompact = DEFAULT_SEARCH_INPUT_IS_COMPACT,
+		isDisabled = DEFAULT_FORM_CONTROL_IS_DISABLED,
+		isFullWidth = DEFAULT_SEARCH_INPUT_IS_FULLWIDTH,
+		isError = DEFAULT_FORM_CONTROL_IS_ERROR,
+		isFocused: focused = DEFAULT_FORM_CONTROL_IS_FOCUSED,
+		isOutlined = DEFAULT_SEARCH_INPUT_IS_OUTLINED,
+		isReadOnly = DEFAULT_FORM_CONTROL_IS_READONLY,
+		isRequired = DEFAULT_FORM_CONTROL_IS_REQUIRED,
+		isSuccess = DEFAULT_FORM_CONTROL_IS_SUCCESS,
+		isWarning = DEFAULT_FORM_CONTROL_IS_WARNING,
+		initialQuery = DEFAULT_SEARCH_INPUT_INITIAL_QUERY,
+		size = DEFAULT_FORM_CONTROL_SIZE,
+		variant = DEFAULT_SEARCH_INPUT_VARIANT
+	} = useSearchInputResponsiveValues({
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
 		isFullWidth: isFullWidthProp,
