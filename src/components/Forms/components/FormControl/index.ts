@@ -2,9 +2,12 @@ import type {
 	FormControlContext,
 	FormControlDefaultElement,
 	FormControlElement,
+	FormControlNonResponsiveValueProps,
 	FormControlProps,
 	FormControlRef,
-	FormControlSize
+	FormControlResponsiveValueProps,
+	FormControlSize,
+	FormControlUniqueProps
 } from './common/types';
 import FormControl from './FormControl';
 
@@ -25,7 +28,10 @@ export type {
 	FormControlContext,
 	FormControlDefaultElement,
 	FormControlElement,
+	FormControlNonResponsiveValueProps,
 	FormControlProps,
 	FormControlRef,
-	FormControlSize
+	FormControlResponsiveValueProps,
+	FormControlSize,
+	FormControlUniqueProps
 };

@@ -1,84 +1,35 @@
 import { useGetResponsiveValue } from '@common/hooks';
-import type { AlignItemsClass, JustifyContentClass, ThemeSpacing, Undefinable } from '@common/types';
 
-import {
-	DEFAULT_STACK_ALIGN_ITEMS,
-	DEFAULT_STACK_JUSTIFY_CONTENT
-} from '@components/Layout/components/Stacks/Stack/common/constants';
+import type { FormControlNonResponsiveValueProps, FormControlResponsiveValueProps } from '../types';
 
-import {
-	DEFAULT_FORM_CONTROL_IS_DISABLED,
-	DEFAULT_FORM_CONTROL_IS_ERROR,
-	DEFAULT_FORM_CONTROL_IS_FOCUSED,
-	DEFAULT_FORM_CONTROL_IS_READONLY,
-	DEFAULT_FORM_CONTROL_IS_REQUIRED,
-	DEFAULT_FORM_CONTROL_IS_SUCCESS,
-	DEFAULT_FORM_CONTROL_IS_WARNING,
-	DEFAULT_FORM_CONTROL_SIZE,
-	DEFAULT_FORM_CONTROL_SPACING
-} from '../constants';
-import type { FormControlElement, FormControlProps, FormControlSize } from '../types';
+type UseFormControlResponsiveValuesProps = Partial<FormControlResponsiveValueProps>;
+type UseFormControlResponsiveValuesReturn = FormControlNonResponsiveValueProps;
 
-type PickedFormControlProps =
-	| 'alignItems'
-	| 'justifyContent'
-	| 'isDisabled'
-	| 'isError'
-	| 'isFocused'
-	| 'isReadOnly'
-	| 'isRequired'
-	| 'isSuccess'
-	| 'isWarning'
-	| 'size'
-	| 'spacing';
-type UseFormControlResponsiveValuesProps<Element extends FormControlElement> = Partial<
-	Pick<FormControlProps<Element>, PickedFormControlProps>
->;
-
-const useFormControlResponsiveValues = <Element extends FormControlElement>(
-	props: UseFormControlResponsiveValuesProps<Element>
-) => {
+const useFormControlResponsiveValues = (
+	props: UseFormControlResponsiveValuesProps
+): UseFormControlResponsiveValuesReturn => {
 	const {
-		alignItems: alignItemsProp = DEFAULT_STACK_ALIGN_ITEMS,
-		justifyContent: justifyContentProp = DEFAULT_STACK_JUSTIFY_CONTENT,
-		isDisabled: isDisabledProp = DEFAULT_FORM_CONTROL_IS_DISABLED,
-		isError: isErrorProp = DEFAULT_FORM_CONTROL_IS_ERROR,
-		isFocused: isFocusedProp = DEFAULT_FORM_CONTROL_IS_FOCUSED,
-		isReadOnly: isReadOnlyProp = DEFAULT_FORM_CONTROL_IS_READONLY,
-		isRequired: isRequiredProp = DEFAULT_FORM_CONTROL_IS_REQUIRED,
-		isSuccess: isSuccessProp = DEFAULT_FORM_CONTROL_IS_SUCCESS,
-		isWarning: isWarningProp = DEFAULT_FORM_CONTROL_IS_WARNING,
-		size: sizeProp = DEFAULT_FORM_CONTROL_SIZE,
-		spacing: spacingProp = DEFAULT_FORM_CONTROL_SPACING
+		isDisabled: isDisabledProp,
+		isError: isErrorProp,
+		isFocused: isFocusedProp,
+		isReadOnly: isReadOnlyProp,
+		isRequired: isRequiredProp,
+		isSuccess: isSuccessProp,
+		isWarning: isWarningProp,
+		size: sizeProp
 	} = props;
 
-	const alignItems = useGetResponsiveValue<Undefinable<AlignItemsClass>>(alignItemsProp);
-	const justifyContent = useGetResponsiveValue<Undefinable<JustifyContentClass>>(justifyContentProp);
+	const isDisabled = useGetResponsiveValue<FormControlNonResponsiveValueProps['isDisabled']>(isDisabledProp);
+	const isError = useGetResponsiveValue<FormControlNonResponsiveValueProps['isError']>(isErrorProp);
+	const isFocused = useGetResponsiveValue<FormControlNonResponsiveValueProps['isFocused']>(isFocusedProp);
+	const isReadOnly = useGetResponsiveValue<FormControlNonResponsiveValueProps['isReadOnly']>(isReadOnlyProp);
+	const isRequired = useGetResponsiveValue<FormControlNonResponsiveValueProps['isRequired']>(isRequiredProp);
+	const isSuccess = useGetResponsiveValue<FormControlNonResponsiveValueProps['isSuccess']>(isSuccessProp);
+	const isWarning = useGetResponsiveValue<FormControlNonResponsiveValueProps['isWarning']>(isWarningProp);
 
-	const isDisabled = useGetResponsiveValue<boolean>(isDisabledProp);
-	const isError = useGetResponsiveValue<boolean>(isErrorProp);
-	const isFocused = useGetResponsiveValue<boolean>(isFocusedProp);
-	const isReadOnly = useGetResponsiveValue<boolean>(isReadOnlyProp);
-	const isRequired = useGetResponsiveValue<boolean>(isRequiredProp);
-	const isSuccess = useGetResponsiveValue<boolean>(isSuccessProp);
-	const isWarning = useGetResponsiveValue<boolean>(isWarningProp);
+	const size = useGetResponsiveValue<FormControlNonResponsiveValueProps['size']>(sizeProp);
 
-	const size = useGetResponsiveValue<FormControlSize>(sizeProp);
-	const spacing = useGetResponsiveValue<Undefinable<ThemeSpacing>>(spacingProp);
-
-	return {
-		alignItems,
-		justifyContent,
-		isDisabled,
-		isError,
-		isFocused,
-		isReadOnly,
-		isRequired,
-		isSuccess,
-		isWarning,
-		size,
-		spacing
-	};
+	return { isDisabled, isError, isFocused, isReadOnly, isRequired, isSuccess, isWarning, size };
 };
 
 export default useFormControlResponsiveValues;

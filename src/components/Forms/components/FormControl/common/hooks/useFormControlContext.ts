@@ -1,5 +1,7 @@
 import { useContext } from 'react';
 
+import type { PolymorphicDefaultElement } from 'src';
+
 import { FormControlContext } from '../../FormControl';
 import {
 	DEFAULT_FORM_CONTROL_HAS_FORM_CONTROL,
@@ -14,11 +16,11 @@ import {
 	DEFAULT_FORM_CONTROL_SIZE,
 	DEFAULT_FORM_CONTROL_SPACING
 } from '../constants';
-import type { FormControlContext as FormControlContextType, FormControlElement } from '../types';
+import type { FormControlContext as FormControlContextType } from '../types';
 
 import useFormControlResponsiveValues from './useFormControlResponsiveValues';
 
-const useFormControlContext = <Element extends FormControlElement>() => {
+const useFormControlContext = () => {
 	const {
 		color,
 		colorMode,
@@ -32,11 +34,11 @@ const useFormControlContext = <Element extends FormControlElement>() => {
 		isSuccess: isSuccessProp = DEFAULT_FORM_CONTROL_IS_SUCCESS,
 		isWarning: isWarningProp = DEFAULT_FORM_CONTROL_IS_WARNING,
 		size: sizeProp = DEFAULT_FORM_CONTROL_SIZE,
-		spacing: spacingProp = DEFAULT_FORM_CONTROL_SPACING
-	} = useContext<FormControlContextType<Element>>(FormControlContext);
+		spacing = DEFAULT_FORM_CONTROL_SPACING
+	} = useContext<FormControlContextType<PolymorphicDefaultElement>>(FormControlContext);
 
-	const { isDisabled, isError, isFocused, isReadOnly, isRequired, isSuccess, isWarning, size, spacing } =
-		useFormControlResponsiveValues<Element>({
+	const { isDisabled, isError, isFocused, isReadOnly, isRequired, isSuccess, isWarning, size } =
+		useFormControlResponsiveValues({
 			isDisabled: isDisabledProp,
 			isError: isErrorProp,
 			isFocused: isFocusedProp,
@@ -44,8 +46,7 @@ const useFormControlContext = <Element extends FormControlElement>() => {
 			isRequired: isRequiredProp,
 			isSuccess: isSuccessProp,
 			isWarning: isWarningProp,
-			size: sizeProp,
-			spacing: spacingProp
+			size: sizeProp
 		});
 
 	return {

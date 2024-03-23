@@ -1,17 +1,24 @@
-import type { PolymorphicDefaultElement, PolymorphicElementType } from '@common/types';
+import type {
+	PolymorphicDefaultElement,
+	PolymorphicElementType,
+	ResponsiveValueProps,
+	ThemeAppAppearanceProps
+} from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
-import type { FormsCommonProps, FormsCommonSize } from '@components/Forms/common/types';
-import type { StackProps } from '@components/Layout';
+import type {
+	FormsCommonSize,
+	FormsNonResponsiveValueProps,
+	FormsResponsiveValueProps
+} from '@components/Forms/common/types';
+import type { StackUniqueProps } from '@components/Layout';
 
 export type FormControlDefaultElement = PolymorphicDefaultElement;
 export type FormControlElement = Extract<PolymorphicElementType, 'div'>;
 
 export type FormControlSize = FormsCommonSize;
 
-type PickedFormsCommonProps =
-	| 'color'
-	| 'colorMode'
+type PickedFormsProps =
 	| 'isDisabled'
 	| 'isError'
 	| 'isFocused'
@@ -21,12 +28,14 @@ type PickedFormsCommonProps =
 	| 'isWarning'
 	| 'size';
 
-type PickedStackProps = 'alignItems' | 'justifyContent' | 'spacing';
+export type FormControlNonResponsiveValueProps = Pick<FormsNonResponsiveValueProps, PickedFormsProps>;
 
-type FormControlOtherProps<Element extends FormControlElement> = Pick<FormsCommonProps, PickedFormsCommonProps> &
-	Pick<StackProps<Element>, PickedStackProps>;
+export type FormControlResponsiveValueProps = Pick<FormsResponsiveValueProps, PickedFormsProps> &
+	ResponsiveValueProps<FormControlNonResponsiveValueProps>;
 
-export type FormControlProps<Element extends FormControlElement> = BoxProps<Element, FormControlOtherProps<Element>>;
+export type FormControlUniqueProps = ThemeAppAppearanceProps & FormControlResponsiveValueProps & StackUniqueProps;
+
+export type FormControlProps<Element extends FormControlElement> = BoxProps<Element, FormControlUniqueProps>;
 
 export type FormControlRef<Element extends FormControlElement> = BoxRef<Element>;
 
