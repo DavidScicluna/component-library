@@ -1,8 +1,11 @@
 import type {
 	ClearIconButtonDefaultElement,
 	ClearIconButtonElement,
+	ClearIconButtonNonResponsiveValueProps,
 	ClearIconButtonProps,
-	ClearIconButtonRef
+	ClearIconButtonRef,
+	ClearIconButtonResponsiveValueProps,
+	ClearIconButtonUniqueProps
 } from './common/types';
 import ClearIconButton from './ClearIconButton';
 
@@ -19,4 +22,12 @@ export * from './common/hooks';
 export { ClearIconButton };
 
 // Component Types
-export type { ClearIconButtonDefaultElement, ClearIconButtonElement, ClearIconButtonProps, ClearIconButtonRef };
+export type {
+	ClearIconButtonDefaultElement,
+	ClearIconButtonElement,
+	ClearIconButtonNonResponsiveValueProps,
+	ClearIconButtonProps,
+	ClearIconButtonRef,
+	ClearIconButtonResponsiveValueProps,
+	ClearIconButtonUniqueProps
+};

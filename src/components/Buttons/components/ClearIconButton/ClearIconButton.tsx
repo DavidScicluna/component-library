@@ -33,7 +33,11 @@ const ClearIconButton = forwardRef(function ClearIconButton<Element extends Clea
 		...rest
 	} = props;
 
-	const { hasTooltip, label, placement } = useClearIconButtonResponsiveValues({
+	const {
+		hasTooltip = DEFAULT_CLEAR_ICON_BUTTON_HAS_TOOLTIP,
+		label = DEFAULT_CLEAR_ICON_BUTTON_LABEL,
+		placement = DEFAULT_CLEAR_ICON_BUTTON_PLACEMENT
+	} = useClearIconButtonResponsiveValues({
 		hasTooltip: hasTooltipProp,
 		label: labelProp,
 		placement: placementProp
