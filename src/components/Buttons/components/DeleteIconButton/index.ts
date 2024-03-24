@@ -1,8 +1,11 @@
 import type {
 	DeleteIconButtonDefaultElement,
 	DeleteIconButtonElement,
+	DeleteIconButtonNonResponsiveValueProps,
 	DeleteIconButtonProps,
-	DeleteIconButtonRef
+	DeleteIconButtonRef,
+	DeleteIconButtonResponsiveValueProps,
+	DeleteIconButtonUniqueProps
 } from './common/types';
 import DeleteIconButton from './DeleteIconButton';
 
@@ -19,4 +22,12 @@ export * from './common/hooks';
 export { DeleteIconButton };
 
 // Component Types
-export type { DeleteIconButtonDefaultElement, DeleteIconButtonElement, DeleteIconButtonProps, DeleteIconButtonRef };
+export type {
+	DeleteIconButtonDefaultElement,
+	DeleteIconButtonElement,
+	DeleteIconButtonNonResponsiveValueProps,
+	DeleteIconButtonProps,
+	DeleteIconButtonRef,
+	DeleteIconButtonResponsiveValueProps,
+	DeleteIconButtonUniqueProps
+};

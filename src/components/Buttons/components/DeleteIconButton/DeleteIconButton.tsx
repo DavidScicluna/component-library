@@ -33,7 +33,11 @@ const DeleteIconButton = forwardRef(function DeleteIconButton<Element extends De
 		...rest
 	} = props;
 
-	const { hasTooltip, label, placement } = useDeleteIconButtonResponsiveValues({
+	const {
+		hasTooltip = DEFAULT_DELETE_ICON_BUTTON_HAS_TOOLTIP,
+		label = DEFAULT_DELETE_ICON_BUTTON_LABEL,
+		placement = DEFAULT_DELETE_ICON_BUTTON_PLACEMENT
+	} = useDeleteIconButtonResponsiveValues({
 		hasTooltip: hasTooltipProp,
 		label: labelProp,
 		placement: placementProp
