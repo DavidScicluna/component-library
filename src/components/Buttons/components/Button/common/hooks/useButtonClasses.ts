@@ -11,20 +11,15 @@ import {
 	DEFAULT_BUTTON_SIZE,
 	DEFAULT_BUTTON_VARIANT
 } from '../constants';
-import type { ButtonElement, ButtonProps } from '../types';
+import type { ButtonUniqueProps } from '../types';
 
 import useButtonResponsiveValues from './useButtonResponsiveValues';
 import useButtonSizeConfig from './useButtonSizeConfig';
 
-type UseButtonClassesProps<Element extends ButtonElement> = Pick<
-	ButtonProps<Element>,
-	'isCompact' | 'isFullWidth' | 'isRound' | 'size' | 'variant'
->;
+type UseButtonClassesProps = Pick<ButtonUniqueProps, 'isCompact' | 'isFullWidth' | 'isRound' | 'size' | 'variant'>;
 type UseButtonClassesReturn = ClassName;
 
-const useButtonClasses = <Element extends ButtonElement>(
-	props: UseButtonClassesProps<Element>
-): UseButtonClassesReturn => {
+const useButtonClasses = (props: UseButtonClassesProps): UseButtonClassesReturn => {
 	const {
 		isCompact: isCompactProp = DEFAULT_BUTTON_IS_COMPACT,
 		isFullWidth: isFullWidthProp = DEFAULT_BUTTON_IS_FULLWIDTH,
@@ -33,13 +28,13 @@ const useButtonClasses = <Element extends ButtonElement>(
 		variant = DEFAULT_BUTTON_VARIANT
 	} = props;
 
-	const { isCompact, isFullWidth, isRound } = useButtonResponsiveValues<Element>({
+	const { isCompact, isFullWidth, isRound } = useButtonResponsiveValues({
 		isCompact: isCompactProp,
 		isFullWidth: isFullWidthProp,
 		isRound: isRoundProp
 	});
 
-	const config = useButtonSizeConfig<Element>({ isCompact, isRound, size, variant });
+	const config = useButtonSizeConfig({ isCompact, isRound, size, variant });
 
 	return classNames(classes.sizing.width[isFullWidth ? 'full' : 'auto'], {
 		[classes.typography.align.center]: variant !== 'unstyled',

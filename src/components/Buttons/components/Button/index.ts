@@ -2,10 +2,13 @@ import type {
 	ButtonContext,
 	ButtonDefaultElement,
 	ButtonElement,
+	ButtonNonResponsiveValueProps,
 	ButtonProps,
 	ButtonRef,
 	ButtonRenderProps,
+	ButtonResponsiveValueProps,
 	ButtonSize,
+	ButtonUniqueProps,
 	ButtonVariant
 } from './common/types';
 import Button from './Button';
@@ -28,9 +31,12 @@ export type {
 	ButtonContext,
 	ButtonDefaultElement,
 	ButtonElement,
+	ButtonNonResponsiveValueProps,
 	ButtonProps,
 	ButtonRef,
 	ButtonRenderProps,
+	ButtonResponsiveValueProps,
 	ButtonSize,
+	ButtonUniqueProps,
 	ButtonVariant
 };

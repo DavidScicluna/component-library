@@ -85,17 +85,17 @@ const Button = forwardRef(function Button<Element extends ButtonElement>(
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
 	const {
-		isActive,
-		isCompact,
-		isDisabled,
-		isFocused: focused,
-		isFullWidth,
-		isLoading,
-		isRound,
-		isOutlined,
-		size,
-		variant
-	} = useButtonResponsiveValues<Element>({
+		isActive = DEFAULT_BUTTON_IS_ACTIVE,
+		isCompact = DEFAULT_BUTTON_GROUP_IS_COMPACT,
+		isDisabled = DEFAULT_BUTTON_GROUP_IS_DISABLED,
+		isFocused: focused = DEFAULT_BUTTON_IS_FOCUSED,
+		isFullWidth = DEFAULT_BUTTON_GROUP_IS_FULLWIDTH,
+		isLoading = DEFAULT_BUTTON_IS_LOADING,
+		isRound = DEFAULT_BUTTON_GROUP_IS_ROUND,
+		isOutlined = DEFAULT_BUTTON_IS_OUTLINED,
+		size = DEFAULT_BUTTON_GROUP_SIZE,
+		variant = DEFAULT_BUTTON_GROUP_VARIANT
+	} = useButtonResponsiveValues({
 		isActive: isActiveProp,
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
@@ -110,9 +110,9 @@ const Button = forwardRef(function Button<Element extends ButtonElement>(
 
 	const isFocused = useMemo<boolean>(() => focused || isFocusedHook, [focused, isFocusedHook]);
 
-	const config = useButtonSizeConfig<Element>({ isCompact, isRound, size, variant });
+	const config = useButtonSizeConfig({ isCompact, isRound, size, variant });
 
-	const classes = useButtonClasses<Element>({ isCompact, isFullWidth, isRound, size, variant });
+	const classes = useButtonClasses({ isCompact, isFullWidth, isRound, size, variant });
 
 	const { focusProps } = useFocus({ onFocus: () => setIsFocusedHook.on(), onBlur: () => setIsFocusedHook.off() });
 
