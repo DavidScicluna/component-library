@@ -1,32 +1,19 @@
 import { useGetResponsiveValue } from '@common/hooks';
 
-import type { TooltipPlacement } from '@components/Overlay';
+import type { CloseIconButtonNonResponsiveValueProps, CloseIconButtonResponsiveValueProps } from '../types';
 
-import {
-	DEFAULT_CLOSE_ICON_BUTTON_HAS_TOOLTIP,
-	DEFAULT_CLOSE_ICON_BUTTON_LABEL,
-	DEFAULT_CLOSE_ICON_BUTTON_PLACEMENT
-} from '../constants';
-import type { CloseIconButtonElement, CloseIconButtonProps } from '../types';
+type UseCloseIconButtonResponsiveValuesProps = Partial<CloseIconButtonResponsiveValueProps>;
+type UseCloseIconButtonResponsiveValuesReturn = CloseIconButtonNonResponsiveValueProps;
 
-type PickedCloseIconButtonProps = 'hasTooltip' | 'label' | 'placement';
-type UseCloseIconButtonResponsiveValuesProps<Element extends CloseIconButtonElement> = Partial<
-	Pick<CloseIconButtonProps<Element>, PickedCloseIconButtonProps>
->;
+const useCloseIconButtonResponsiveValues = (
+	props: UseCloseIconButtonResponsiveValuesProps
+): UseCloseIconButtonResponsiveValuesReturn => {
+	const { hasTooltip: hasTooltipProp, label: labelProp, placement: placementProp } = props;
 
-const useCloseIconButtonResponsiveValues = <Element extends CloseIconButtonElement>(
-	props: UseCloseIconButtonResponsiveValuesProps<Element>
-) => {
-	const {
-		hasTooltip: hasTooltipProp = DEFAULT_CLOSE_ICON_BUTTON_HAS_TOOLTIP,
-		label: labelProp = DEFAULT_CLOSE_ICON_BUTTON_LABEL,
-		placement: placementProp = DEFAULT_CLOSE_ICON_BUTTON_PLACEMENT
-	} = props;
+	const hasTooltip = useGetResponsiveValue<CloseIconButtonNonResponsiveValueProps['hasTooltip']>(hasTooltipProp);
 
-	const hasTooltip = useGetResponsiveValue<boolean>(hasTooltipProp);
-
-	const label = useGetResponsiveValue<string>(labelProp);
-	const placement = useGetResponsiveValue<TooltipPlacement>(placementProp);
+	const label = useGetResponsiveValue<CloseIconButtonNonResponsiveValueProps['label']>(labelProp);
+	const placement = useGetResponsiveValue<CloseIconButtonNonResponsiveValueProps['placement']>(placementProp);
 
 	return { hasTooltip, label, placement };
 };

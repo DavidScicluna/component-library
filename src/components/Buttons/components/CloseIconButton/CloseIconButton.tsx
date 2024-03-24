@@ -33,7 +33,11 @@ const CloseIconButton = forwardRef(function CloseIconButton<Element extends Clos
 		...rest
 	} = props;
 
-	const { hasTooltip, label, placement } = useCloseIconButtonResponsiveValues({
+	const {
+		hasTooltip = DEFAULT_CLOSE_ICON_BUTTON_HAS_TOOLTIP,
+		label = DEFAULT_CLOSE_ICON_BUTTON_LABEL,
+		placement = DEFAULT_CLOSE_ICON_BUTTON_PLACEMENT
+	} = useCloseIconButtonResponsiveValues({
 		hasTooltip: hasTooltipProp,
 		label: labelProp,
 		placement: placementProp

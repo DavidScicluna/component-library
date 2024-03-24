@@ -1,8 +1,11 @@
 import type {
 	CloseIconButtonDefaultElement,
 	CloseIconButtonElement,
+	CloseIconButtonNonResponsiveValueProps,
 	CloseIconButtonProps,
-	CloseIconButtonRef
+	CloseIconButtonRef,
+	CloseIconButtonResponsiveValueProps,
+	CloseIconButtonUniqueProps
 } from './common/types';
 import CloseIconButton from './CloseIconButton';
 
@@ -19,4 +22,12 @@ export * from './common/hooks';
 export { CloseIconButton };
 
 // Component Types
-export type { CloseIconButtonDefaultElement, CloseIconButtonElement, CloseIconButtonProps, CloseIconButtonRef };
+export type {
+	CloseIconButtonDefaultElement,
+	CloseIconButtonElement,
+	CloseIconButtonNonResponsiveValueProps,
+	CloseIconButtonProps,
+	CloseIconButtonRef,
+	CloseIconButtonResponsiveValueProps,
+	CloseIconButtonUniqueProps
+};
