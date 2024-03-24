@@ -45,7 +45,11 @@ const ScrollToTopIconButton = forwardRef(function ScrollToTopIconButton<Element 
 		...rest
 	} = props;
 
-	const { hasTooltip, label, placement } = useScrollToTopIconButtonResponsiveValues({
+	const {
+		hasTooltip = DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_HAS_TOOLTIP,
+		label = DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_LABEL,
+		placement = DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_PLACEMENT
+	} = useScrollToTopIconButtonResponsiveValues({
 		hasTooltip: hasTooltipProp,
 		label: labelProp,
 		placement: placementProp

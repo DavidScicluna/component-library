@@ -1,32 +1,20 @@
 import { useGetResponsiveValue } from '@common/hooks';
 
-import type { TooltipPlacement } from '@components/Overlay';
+import type { ScrollToTopIconButtonNonResponsiveValueProps, ScrollToTopIconButtonResponsiveValueProps } from '../types';
 
-import {
-	DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_HAS_TOOLTIP,
-	DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_LABEL,
-	DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_PLACEMENT
-} from '../constants';
-import type { ScrollToTopIconButtonElement, ScrollToTopIconButtonProps } from '../types';
+type UseScrollToTopIconButtonResponsiveValuesProps = Partial<ScrollToTopIconButtonResponsiveValueProps>;
+type UseScrollToTopIconButtonResponsiveValuesReturn = ScrollToTopIconButtonNonResponsiveValueProps;
 
-type PickedScrollToTopIconButtonProps = 'hasTooltip' | 'label' | 'placement';
-type UseScrollToTopIconButtonResponsiveValuesProps<Element extends ScrollToTopIconButtonElement> = Partial<
-	Pick<ScrollToTopIconButtonProps<Element>, PickedScrollToTopIconButtonProps>
->;
+const useScrollToTopIconButtonResponsiveValues = (
+	props: UseScrollToTopIconButtonResponsiveValuesProps
+): UseScrollToTopIconButtonResponsiveValuesReturn => {
+	const { hasTooltip: hasTooltipProp, label: labelProp, placement: placementProp } = props;
 
-const useScrollToTopIconButtonResponsiveValues = <Element extends ScrollToTopIconButtonElement>(
-	props: UseScrollToTopIconButtonResponsiveValuesProps<Element>
-) => {
-	const {
-		hasTooltip: hasTooltipProp = DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_HAS_TOOLTIP,
-		label: labelProp = DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_LABEL,
-		placement: placementProp = DEFAULT_SCROLL_TO_TOP_ICON_BUTTON_PLACEMENT
-	} = props;
+	const hasTooltip =
+		useGetResponsiveValue<ScrollToTopIconButtonNonResponsiveValueProps['hasTooltip']>(hasTooltipProp);
 
-	const hasTooltip = useGetResponsiveValue<boolean>(hasTooltipProp);
-
-	const label = useGetResponsiveValue<string>(labelProp);
-	const placement = useGetResponsiveValue<TooltipPlacement>(placementProp);
+	const label = useGetResponsiveValue<ScrollToTopIconButtonNonResponsiveValueProps['label']>(labelProp);
+	const placement = useGetResponsiveValue<ScrollToTopIconButtonNonResponsiveValueProps['placement']>(placementProp);
 
 	return { hasTooltip, label, placement };
 };

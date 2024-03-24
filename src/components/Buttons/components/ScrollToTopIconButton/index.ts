@@ -1,8 +1,11 @@
 import type {
 	ScrollToTopIconButtonDefaultElement,
 	ScrollToTopIconButtonElement,
+	ScrollToTopIconButtonNonResponsiveValueProps,
 	ScrollToTopIconButtonProps,
-	ScrollToTopIconButtonRef
+	ScrollToTopIconButtonRef,
+	ScrollToTopIconButtonResponsiveValueProps,
+	ScrollToTopIconButtonUniqueProps
 } from './common/types';
 import ScrollToTopIconButton from './ScrollToTopIconButton';
 
@@ -22,6 +25,9 @@ export { ScrollToTopIconButton };
 export type {
 	ScrollToTopIconButtonDefaultElement,
 	ScrollToTopIconButtonElement,
+	ScrollToTopIconButtonNonResponsiveValueProps,
 	ScrollToTopIconButtonProps,
-	ScrollToTopIconButtonRef
+	ScrollToTopIconButtonRef,
+	ScrollToTopIconButtonResponsiveValueProps,
+	ScrollToTopIconButtonUniqueProps
 };
