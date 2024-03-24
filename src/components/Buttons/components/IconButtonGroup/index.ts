@@ -2,8 +2,11 @@ import type {
 	IconButtonGroupContext,
 	IconButtonGroupDefaultElement,
 	IconButtonGroupElement,
+	IconButtonGroupNonResponsiveValueProps,
 	IconButtonGroupProps,
-	IconButtonGroupRef
+	IconButtonGroupRef,
+	IconButtonGroupResponsiveValueProps,
+	IconButtonGroupUniqueProps
 } from './common/types';
 import IconButtonGroup from './IconButtonGroup';
 
@@ -25,6 +28,9 @@ export type {
 	IconButtonGroupContext,
 	IconButtonGroupDefaultElement,
 	IconButtonGroupElement,
+	IconButtonGroupNonResponsiveValueProps,
 	IconButtonGroupProps,
-	IconButtonGroupRef
+	IconButtonGroupRef,
+	IconButtonGroupResponsiveValueProps,
+	IconButtonGroupUniqueProps
 };

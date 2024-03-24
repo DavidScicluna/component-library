@@ -51,17 +51,25 @@ const IconButtonGroup = forwardRef(function IconButtonGroup<Element extends Icon
 		...rest
 	} = props;
 
-	const { direction, isAttached, isCompact, isDisabled, isRound, spacing, size, variant } =
-		useIconButtonGroupResponsiveValues<Element>({
-			direction: directionProp,
-			isAttached: isAttachedProp,
-			isCompact: isCompactProp,
-			isDisabled: isDisabledProp,
-			isRound: isRoundProp,
-			spacing: spacingProp,
-			size: sizeProp,
-			variant: variantProp
-		});
+	const {
+		direction = DEFAULT_STACK_DIRECTION,
+		isAttached = DEFAULT_ICON_BUTTON_GROUP_IS_ATTACHED,
+		isCompact = DEFAULT_ICON_BUTTON_IS_COMPACT,
+		isDisabled = DEFAULT_ICON_BUTTON_IS_DISABLED,
+		isRound = DEFAULT_ICON_BUTTON_IS_ROUND,
+		spacing = DEFAULT_SPACING,
+		size = DEFAULT_ICON_BUTTON_SIZE,
+		variant = DEFAULT_ICON_BUTTON_VARIANT
+	} = useIconButtonGroupResponsiveValues({
+		direction: directionProp,
+		isAttached: isAttachedProp,
+		isCompact: isCompactProp,
+		isDisabled: isDisabledProp,
+		isRound: isRoundProp,
+		spacing: spacingProp,
+		size: sizeProp,
+		variant: variantProp
+	});
 
 	return (
 		<IconButtonGroupContext.Provider

@@ -1,28 +1,47 @@
-import type { PolymorphicDefaultElement, PolymorphicElementType, ResponsiveValue } from '@common/types';
+import type {
+	PolymorphicDefaultElement,
+	PolymorphicElementType,
+	ResponsiveValueProps,
+	ThemeAppAppearanceProps
+} from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
-import type { IconButtonDefaultElement, IconButtonProps } from '@components/Buttons';
-import type { StackProps } from '@components/Layout';
+import type { IconButtonNonResponsiveValueProps } from '@components/Buttons';
+import type { StackNonResponsiveValueProps } from '@components/Layout';
 
 export type IconButtonGroupDefaultElement = PolymorphicDefaultElement;
 export type IconButtonGroupElement = Extract<PolymorphicElementType, 'div'>;
 
-type PickedIconButtonProps = 'color' | 'colorMode' | 'isCompact' | 'isDisabled' | 'isRound' | 'size' | 'variant';
-
-type IconButtonGroupOtherProps = Pick<IconButtonProps<IconButtonDefaultElement>, PickedIconButtonProps> & {
+export type IconButtonGroupNonResponsiveValueProps = Pick<StackNonResponsiveValueProps, 'direction' | 'spacing'> & {
 	/**
 	 * If true, the borderRadius of button that are direct children will be altered to look flushed together
 	 *
 	 * @default false
 	 */
-	isAttached?: ResponsiveValue<boolean>;
-} & Pick<StackProps<PolymorphicDefaultElement>, 'direction' | 'spacing'>;
+	isAttached?: boolean;
+} & Pick<IconButtonNonResponsiveValueProps, 'isCompact' | 'isDisabled' | 'isRound' | 'size' | 'variant'>;
+export type IconButtonGroupResponsiveValueProps = ResponsiveValueProps<IconButtonGroupNonResponsiveValueProps>;
 
-export type IconButtonGroupProps<Element extends IconButtonGroupElement> = BoxProps<Element, IconButtonGroupOtherProps>;
+export type IconButtonGroupUniqueProps = ThemeAppAppearanceProps & IconButtonGroupResponsiveValueProps;
+
+export type IconButtonGroupProps<Element extends IconButtonGroupElement> = BoxProps<
+	Element,
+	IconButtonGroupUniqueProps
+>;
 
 export type IconButtonGroupRef<Element extends IconButtonGroupElement> = BoxRef<Element>;
 
+type PickedIconButtonGroupProps =
+	| 'color'
+	| 'colorMode'
+	| 'direction'
+	| 'isAttached'
+	| 'isCompact'
+	| 'isDisabled'
+	| 'isRound'
+	| 'size'
+	| 'variant';
 export type IconButtonGroupContext<Element extends IconButtonGroupElement> = Pick<
 	IconButtonGroupProps<Element>,
-	'color' | 'colorMode' | 'direction' | 'isAttached' | 'isCompact' | 'isDisabled' | 'isRound' | 'size' | 'variant'
+	PickedIconButtonGroupProps
 >;
