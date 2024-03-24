@@ -2,8 +2,11 @@ import type {
 	ButtonGroupContext,
 	ButtonGroupDefaultElement,
 	ButtonGroupElement,
+	ButtonGroupNonResponsiveValueProps,
 	ButtonGroupProps,
-	ButtonGroupRef
+	ButtonGroupRef,
+	ButtonGroupResponsiveValueProps,
+	ButtonGroupUniqueProps
 } from './common/types';
 import ButtonGroup from './ButtonGroup';
 
@@ -21,4 +24,13 @@ export { ButtonGroup };
 export * from './components';
 
 // Component Types
-export type { ButtonGroupContext, ButtonGroupDefaultElement, ButtonGroupElement, ButtonGroupProps, ButtonGroupRef };
+export type {
+	ButtonGroupContext,
+	ButtonGroupDefaultElement,
+	ButtonGroupElement,
+	ButtonGroupNonResponsiveValueProps,
+	ButtonGroupProps,
+	ButtonGroupRef,
+	ButtonGroupResponsiveValueProps,
+	ButtonGroupUniqueProps
+};

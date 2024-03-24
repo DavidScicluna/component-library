@@ -52,18 +52,27 @@ const ButtonGroup = forwardRef(function ButtonGroup<Element extends ButtonGroupE
 		...rest
 	} = props;
 
-	const { direction, isAttached, isCompact, isDisabled, isFullWidth, isRound, spacing, size, variant } =
-		useButtonGroupResponsiveValues<Element>({
-			direction: directionProp,
-			isAttached: isAttachedProp,
-			isCompact: isCompactProp,
-			isDisabled: isDisabledProp,
-			isFullWidth: isFullWidthProp,
-			isRound: isRoundProp,
-			spacing: spacingProp,
-			size: sizeProp,
-			variant: variantProp
-		});
+	const {
+		direction = DEFAULT_STACK_DIRECTION,
+		isAttached = DEFAULT_BUTTON_GROUP_IS_ATTACHED,
+		isCompact = DEFAULT_BUTTON_IS_COMPACT,
+		isDisabled = DEFAULT_BUTTON_IS_DISABLED,
+		isFullWidth = DEFAULT_BUTTON_IS_FULLWIDTH,
+		isRound = DEFAULT_BUTTON_IS_ROUND,
+		spacing = DEFAULT_SPACING,
+		size = DEFAULT_BUTTON_SIZE,
+		variant = DEFAULT_BUTTON_VARIANT
+	} = useButtonGroupResponsiveValues({
+		direction: directionProp,
+		isAttached: isAttachedProp,
+		isCompact: isCompactProp,
+		isDisabled: isDisabledProp,
+		isFullWidth: isFullWidthProp,
+		isRound: isRoundProp,
+		spacing: spacingProp,
+		size: sizeProp,
+		variant: variantProp
+	});
 
 	return (
 		<ButtonGroupContext.Provider

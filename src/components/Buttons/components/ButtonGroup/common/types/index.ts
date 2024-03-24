@@ -1,31 +1,30 @@
-import type { PolymorphicDefaultElement, PolymorphicElementType, ResponsiveValue } from '@common/types';
+import type {
+	PolymorphicDefaultElement,
+	PolymorphicElementType,
+	ResponsiveValueProps,
+	ThemeAppAppearanceProps
+} from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
-import type { ButtonDefaultElement, ButtonProps } from '@components/Buttons';
-import type { StackProps } from '@components/Layout';
+import type { ButtonNonResponsiveValueProps } from '@components/Buttons';
+import type { StackNonResponsiveValueProps } from '@components/Layout';
 
 export type ButtonGroupDefaultElement = PolymorphicDefaultElement;
 export type ButtonGroupElement = Extract<PolymorphicElementType, 'div'>;
 
-type PickedButtonProps =
-	| 'color'
-	| 'colorMode'
-	| 'isCompact'
-	| 'isDisabled'
-	| 'isFullWidth'
-	| 'isRound'
-	| 'size'
-	| 'variant';
-type ButtonGroupOtherProps = Pick<ButtonProps<ButtonDefaultElement>, PickedButtonProps> & {
+export type ButtonGroupNonResponsiveValueProps = Pick<StackNonResponsiveValueProps, 'direction' | 'spacing'> & {
 	/**
 	 * If true, the borderRadius of button that are direct children will be altered to look flushed together
 	 *
 	 * @default false
 	 */
-	isAttached?: ResponsiveValue<boolean>;
-} & Pick<StackProps<PolymorphicDefaultElement>, 'direction' | 'spacing'>;
+	isAttached?: boolean;
+} & Pick<ButtonNonResponsiveValueProps, 'isCompact' | 'isDisabled' | 'isFullWidth' | 'isRound' | 'size' | 'variant'>;
+export type ButtonGroupResponsiveValueProps = ResponsiveValueProps<ButtonGroupNonResponsiveValueProps>;
 
-export type ButtonGroupProps<Element extends ButtonGroupElement> = BoxProps<Element, ButtonGroupOtherProps>;
+export type ButtonGroupUniqueProps = ThemeAppAppearanceProps & ButtonGroupResponsiveValueProps;
+
+export type ButtonGroupProps<Element extends ButtonGroupElement> = BoxProps<Element, ButtonGroupUniqueProps>;
 
 export type ButtonGroupRef<Element extends ButtonGroupElement> = BoxRef<Element>;
 

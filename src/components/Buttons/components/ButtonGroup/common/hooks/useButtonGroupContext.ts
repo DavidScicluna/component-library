@@ -12,11 +12,11 @@ import { DEFAULT_STACK_DIRECTION } from '@components/Layout/components/Stacks/St
 
 import { ButtonGroupContext } from '../../ButtonGroup';
 import { DEFAULT_BUTTON_GROUP_IS_ATTACHED } from '../constants';
-import type { ButtonGroupContext as ButtonGroupContextType, ButtonGroupElement } from '../types';
+import type { ButtonGroupContext as ButtonGroupContextType, ButtonGroupDefaultElement } from '../types';
 
 import useButtonGroupResponsiveValues from './useButtonGroupResponsiveValues';
 
-const useButtonGroupContext = <Element extends ButtonGroupElement>() => {
+const useButtonGroupContext = () => {
 	const {
 		color,
 		colorMode,
@@ -28,10 +28,10 @@ const useButtonGroupContext = <Element extends ButtonGroupElement>() => {
 		isRound: isRoundProp = DEFAULT_BUTTON_IS_ROUND,
 		size: sizeProp = DEFAULT_BUTTON_SIZE,
 		variant: variantProp = DEFAULT_BUTTON_VARIANT
-	} = useContext<ButtonGroupContextType<Element>>(ButtonGroupContext);
+	} = useContext<ButtonGroupContextType<ButtonGroupDefaultElement>>(ButtonGroupContext);
 
 	const { direction, isAttached, isCompact, isDisabled, isFullWidth, isRound, size, variant } =
-		useButtonGroupResponsiveValues<Element>({
+		useButtonGroupResponsiveValues({
 			direction: directionProp,
 			isAttached: isAttachedProp,
 			isCompact: isCompactProp,
