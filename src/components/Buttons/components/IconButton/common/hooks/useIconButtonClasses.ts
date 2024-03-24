@@ -4,19 +4,17 @@ import classes from '@common/classes';
 import type { ClassName } from '@common/types';
 
 import { DEFAULT_ICON_BUTTON_LINE_HEIGHT_SIZE, DEFAULT_ICON_BUTTON_VARIANT } from '../constants';
-import type { IconButtonElement, IconButtonProps } from '../types';
+import type { IconButtonUniqueProps } from '../types';
 
 import useIconButtonResponsiveValues from './useIconButtonResponsiveValues';
 
-type UseIconButtonClassesProps<Element extends IconButtonElement> = Pick<IconButtonProps<Element>, 'variant'>;
+type UseIconButtonClassesProps = Pick<IconButtonUniqueProps, 'variant'>;
 type UseIconButtonClassesReturn = ClassName;
 
-const useIconButtonClasses = <Element extends IconButtonElement>(
-	props: UseIconButtonClassesProps<Element>
-): UseIconButtonClassesReturn => {
+const useIconButtonClasses = (props: UseIconButtonClassesProps): UseIconButtonClassesReturn => {
 	const { variant: variantProp = DEFAULT_ICON_BUTTON_VARIANT } = props;
 
-	const { variant } = useIconButtonResponsiveValues<Element>({ variant: variantProp });
+	const { variant } = useIconButtonResponsiveValues({ variant: variantProp });
 
 	return classNames({
 		[classes.typography.align.center]: variant !== 'unstyled',

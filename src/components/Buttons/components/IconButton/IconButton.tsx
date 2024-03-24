@@ -82,16 +82,16 @@ const IconButton = forwardRef(function IconButton<Element extends IconButtonElem
 	const [isFocusedHook, setIsFocusedHook] = useBoolean();
 
 	const {
-		isActive,
-		isCompact,
-		isDisabled,
-		isFocused: focused,
-		isLoading,
-		isRound,
-		isOutlined,
-		size,
-		variant
-	} = useIconButtonResponsiveValues<Element>({
+		isActive = DEFAULT_ICON_BUTTON_IS_ACTIVE,
+		isCompact = DEFAULT_ICON_BUTTON_IS_COMPACT,
+		isDisabled = DEFAULT_ICON_BUTTON_IS_DISABLED,
+		isFocused: focused = DEFAULT_ICON_BUTTON_IS_FOCUSED,
+		isLoading = DEFAULT_ICON_BUTTON_IS_LOADING,
+		isRound = DEFAULT_ICON_BUTTON_IS_ROUND,
+		isOutlined = DEFAULT_ICON_BUTTON_IS_OUTLINED,
+		size = DEFAULT_ICON_BUTTON_SIZE,
+		variant = DEFAULT_ICON_BUTTON_VARIANT
+	} = useIconButtonResponsiveValues({
 		isActive: isActiveProp,
 		isCompact: isCompactProp,
 		isDisabled: isDisabledProp,
@@ -105,10 +105,10 @@ const IconButton = forwardRef(function IconButton<Element extends IconButtonElem
 
 	const isFocused = useMemo<boolean>(() => focused || isFocusedHook, [focused, isFocusedHook]);
 
-	const config = useIconButtonSizeConfig<Element>({ isCompact, isRound, size, variant });
+	const config = useIconButtonSizeConfig({ isCompact, isRound, size, variant });
 
-	const classes = useIconButtonClasses<Element>({ variant });
-	const styles = useIconButtonStyles<Element>({ size });
+	const classes = useIconButtonClasses({ variant });
+	const styles = useIconButtonStyles({ size });
 
 	const { focusProps } = useFocus({ onFocus: () => setIsFocusedHook.on(), onBlur: () => setIsFocusedHook.off() });
 

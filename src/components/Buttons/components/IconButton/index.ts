@@ -2,10 +2,13 @@ import type {
 	IconButtonContext,
 	IconButtonDefaultElement,
 	IconButtonElement,
+	IconButtonNonResponsiveValueProps,
 	IconButtonProps,
 	IconButtonRef,
 	IconButtonRenderProps,
+	IconButtonResponsiveValueProps,
 	IconButtonSize,
+	IconButtonUniqueProps,
 	IconButtonVariant
 } from './common/types';
 import IconButton from './IconButton';
@@ -28,9 +31,12 @@ export type {
 	IconButtonContext,
 	IconButtonDefaultElement,
 	IconButtonElement,
+	IconButtonNonResponsiveValueProps,
 	IconButtonProps,
 	IconButtonRef,
 	IconButtonRenderProps,
+	IconButtonResponsiveValueProps,
 	IconButtonSize,
+	IconButtonUniqueProps,
 	IconButtonVariant
 };

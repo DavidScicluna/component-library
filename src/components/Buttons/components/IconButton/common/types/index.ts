@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react';
 
-import type { PolymorphicElementType, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
+import type { PolymorphicElementType, ResponsiveValueProps, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
-import type { PushableOverlayProps } from '@components/Overlay';
+import type { PushableOverlayNonResponsiveValueProps } from '@components/Overlay';
 
 export type IconButtonDefaultElement = 'button';
 export type IconButtonElement = Extract<PolymorphicElementType, 'button'>;
@@ -12,50 +12,52 @@ export type IconButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type IconButtonVariant = 'contained' | 'light' | 'dark' | 'outlined' | 'monochrome' | 'icon' | 'unstyled';
 
-export type IconButtonRenderProps<Element extends IconButtonElement> = Pick<
-	IconButtonOtherProps<Element>,
-	'color' | 'colorMode'
->;
+export type IconButtonRenderProps = ThemeAppAppearanceProps;
 
-type IconButtonOtherProps<Element extends IconButtonElement> = ThemeAppAppearanceProps & {
-	renderSpinner?: (props: IconButtonRenderProps<Element>) => ReactNode;
+export type IconButtonNonResponsiveValueProps = {
 	/**
 	 * If true, the button will be styled in a more compressed state
 	 *
 	 * @default false
 	 */
-	isCompact?: ResponsiveValue<boolean>;
+	isCompact?: boolean;
 	/**
 	 * If true, the button will show a spinner
 	 *
 	 * @default false
 	 */
-	isLoading?: ResponsiveValue<boolean>;
+	isLoading?: boolean;
 	/**
 	 * If true, the button's border-radius will be styled in its fullest mode
 	 *
 	 * @default false
 	 */
-	isRound?: ResponsiveValue<boolean>;
+	isRound?: boolean;
 	/**
 	 * The size of the button
 	 *
 	 * @default 'md'
 	 */
-	size?: ResponsiveValue<IconButtonSize>;
+	size?: IconButtonSize;
 	/**
 	 * The variant of the button
 	 *
 	 * @default 'contained'
 	 */
-	variant?: ResponsiveValue<IconButtonVariant>;
-} & Pick<PushableOverlayProps<Element>, 'isActive' | 'isDisabled' | 'isFocused' | 'isOutlined'>;
+	variant?: IconButtonVariant;
+} & Pick<PushableOverlayNonResponsiveValueProps, 'isActive' | 'isDisabled' | 'isFocused' | 'isOutlined'>;
+export type IconButtonResponsiveValueProps = ResponsiveValueProps<IconButtonNonResponsiveValueProps>;
 
-export type IconButtonProps<Element extends IconButtonElement> = BoxProps<Element, IconButtonOtherProps<Element>>;
+export type IconButtonUniqueProps = ThemeAppAppearanceProps & {
+	renderSpinner?: (props: IconButtonRenderProps) => ReactNode;
+} & IconButtonResponsiveValueProps;
+
+export type IconButtonProps<Element extends IconButtonElement> = BoxProps<Element, IconButtonUniqueProps>;
 
 export type IconButtonRef<Element extends IconButtonElement> = BoxRef<Element>;
 
+type PickedIconButtonProps = 'color' | 'colorMode' | 'size' | 'variant';
 export type IconButtonContext<Element extends IconButtonElement> = Pick<
 	IconButtonProps<Element>,
-	'color' | 'colorMode' | 'size' | 'variant'
+	PickedIconButtonProps
 >;

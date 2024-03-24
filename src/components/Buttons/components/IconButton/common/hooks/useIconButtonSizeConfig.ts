@@ -8,7 +8,7 @@ import {
 	DEFAULT_ICON_BUTTON_SIZE,
 	DEFAULT_ICON_BUTTON_VARIANT
 } from '../constants';
-import type { IconButtonElement, IconButtonProps } from '../types';
+import type { IconButtonUniqueProps } from '../types';
 
 import useIconButtonResponsiveValues from './useIconButtonResponsiveValues';
 
@@ -18,15 +18,10 @@ type IconButtonSizeConfig = {
 	radius: ThemeRadius;
 };
 
-type UseIconButtonSizeConfigProps<Element extends IconButtonElement> = Pick<
-	IconButtonProps<Element>,
-	'isCompact' | 'isRound' | 'size' | 'variant'
->;
+type UseIconButtonSizeConfigProps = Pick<IconButtonUniqueProps, 'isCompact' | 'isRound' | 'size' | 'variant'>;
 type UseIconButtonSizeConfigReturn = IconButtonSizeConfig;
 
-const useIconButtonSizeConfig = <Element extends IconButtonElement>(
-	props: UseIconButtonSizeConfigProps<Element>
-): UseIconButtonSizeConfigReturn => {
+const useIconButtonSizeConfig = (props: UseIconButtonSizeConfigProps): UseIconButtonSizeConfigReturn => {
 	const {
 		isCompact: isCompactProp = DEFAULT_ICON_BUTTON_IS_COMPACT,
 		isRound: isRoundProp = DEFAULT_ICON_BUTTON_IS_ROUND,
@@ -34,7 +29,7 @@ const useIconButtonSizeConfig = <Element extends IconButtonElement>(
 		variant: variantProp = DEFAULT_ICON_BUTTON_VARIANT
 	} = props;
 
-	const { isCompact, isRound, size, variant } = useIconButtonResponsiveValues<Element>({
+	const { isCompact, isRound, size, variant } = useIconButtonResponsiveValues({
 		isCompact: isCompactProp,
 		isRound: isRoundProp,
 		size: sizeProp,
