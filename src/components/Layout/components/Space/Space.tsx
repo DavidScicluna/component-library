@@ -19,7 +19,7 @@ const Space = forwardRef(function Space<Element extends PolymorphicElementType>(
 
 	const { width, height } = useSpaceResponsiveValues({ width: widthProp, height: heightProp });
 
-	const classes = useSpaceClasses<Element>({ width, height });
+	const classes = useSpaceClasses({ width, height });
 
 	return <Box {...rest} ref={ref} className={classNames(KEYS_SPACE_CLASS, classes, { [className]: !!className })} />;
 });

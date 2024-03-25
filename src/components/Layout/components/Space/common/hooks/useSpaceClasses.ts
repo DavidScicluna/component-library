@@ -1,19 +1,17 @@
 import classNames from 'classnames';
 
 import { useGetClass } from '@common/hooks';
-import type { ClassName, PolymorphicElementType } from '@common/types';
+import type { ClassName } from '@common/types';
 
 import { DEFAULT_SPACE_HEIGHT, DEFAULT_SPACE_WIDTH } from '../constants';
-import type { SpaceProps } from '../types';
+import type { SpaceUniqueProps } from '../types';
 
 import useSpaceResponsiveValues from './useSpaceResponsiveValues';
 
-type UseSpaceClassesProps<Element extends PolymorphicElementType> = Pick<SpaceProps<Element>, 'width' | 'height'>;
+type UseSpaceClassesProps = Pick<SpaceUniqueProps, 'width' | 'height'>;
 type UseSpaceClassesReturn = ClassName;
 
-const useSpaceClasses = <Element extends PolymorphicElementType>(
-	props: UseSpaceClassesProps<Element>
-): UseSpaceClassesReturn => {
+const useSpaceClasses = (props: UseSpaceClassesProps): UseSpaceClassesReturn => {
 	const { width: widthProp, height: heightProp } = props;
 
 	const { width = DEFAULT_SPACE_WIDTH, height = DEFAULT_SPACE_HEIGHT } = useSpaceResponsiveValues({

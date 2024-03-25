@@ -1,5 +1,4 @@
 import { useGetResponsiveValue } from '@common/hooks';
-import type { ThemeSpacing, Undefinable } from '@common/types';
 
 import type { SpaceNonResponsiveValueProps, SpaceResponsiveValueProps } from '../types';
 
@@ -9,8 +8,8 @@ type UseSpaceResponsiveValuesReturn = SpaceNonResponsiveValueProps;
 const useSpaceResponsiveValues = (props: UseSpaceResponsiveValuesProps): UseSpaceResponsiveValuesReturn => {
 	const { width: widthProp, height: heightProp } = props;
 
-	const width = useGetResponsiveValue<Undefinable<ThemeSpacing>>(widthProp);
-	const height = useGetResponsiveValue<Undefinable<ThemeSpacing>>(heightProp);
+	const width = useGetResponsiveValue<SpaceNonResponsiveValueProps['width']>(widthProp);
+	const height = useGetResponsiveValue<SpaceNonResponsiveValueProps['height']>(heightProp);
 
 	return { width, height };
 };
