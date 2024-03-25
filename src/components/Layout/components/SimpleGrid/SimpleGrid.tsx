@@ -19,7 +19,7 @@ const SimpleGrid = forwardRef(function SimpleGrid<Element extends PolymorphicEle
 
 	const { columns, spacing } = useSimpleGridResponsiveValues({ columns: columnsProp, spacing: spacingProp });
 
-	const classes = useSimpleGridClasses<Element>({ columns, spacing });
+	const classes = useSimpleGridClasses({ columns, spacing });
 
 	return (
 		<Box {...rest} ref={ref} className={classNames(KEYS_SIMPLE_GRID_CLASS, classes, { [className]: !!className })}>
