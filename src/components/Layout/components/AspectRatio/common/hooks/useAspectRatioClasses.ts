@@ -1,19 +1,17 @@
 import classNames from 'classnames';
 
 import { useGetClass } from '@common/hooks';
-import type { ClassName, PolymorphicElementType } from '@common/types';
+import type { ClassName } from '@common/types';
 
 import { DEFAULT_ASPECT_RATIO_RATIO } from '../constants';
-import type { AspectRatioProps } from '../types';
+import type { AspectRatioUniqueProps } from '../types';
 
 import useAspectRatioResponsiveValues from './useAspectRatioResponsiveValues';
 
-type UseAspectRatioClassesProps<Element extends PolymorphicElementType> = Pick<AspectRatioProps<Element>, 'ratio'>;
+type UseAspectRatioClassesProps = Pick<AspectRatioUniqueProps, 'ratio'>;
 type UseAspectRatioClassesReturn = ClassName;
 
-const useAspectRatioClasses = <Element extends PolymorphicElementType>(
-	props: UseAspectRatioClassesProps<Element>
-): UseAspectRatioClassesReturn => {
+const useAspectRatioClasses = (props: UseAspectRatioClassesProps): UseAspectRatioClassesReturn => {
 	const { ratio: ratioProp } = props;
 
 	const { ratio = DEFAULT_ASPECT_RATIO_RATIO } = useAspectRatioResponsiveValues({ ratio: ratioProp });

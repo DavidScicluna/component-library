@@ -19,7 +19,7 @@ const AspectRatio = forwardRef(function AspectRatio<Element extends PolymorphicE
 
 	const { ratio } = useAspectRatioResponsiveValues({ ratio: ratioProp });
 
-	const classes = useAspectRatioClasses<Element>({ ratio });
+	const classes = useAspectRatioClasses({ ratio });
 
 	return (
 		<Box {...rest} ref={ref} className={classNames(KEYS_ASPECT_RATIO_CLASS, classes, { [className]: !!className })}>
