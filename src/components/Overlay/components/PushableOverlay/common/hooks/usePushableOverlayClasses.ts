@@ -11,7 +11,7 @@ import {
 	DEFAULT_RADIUS
 } from '@common/constants';
 import { useAppTheme, useConst } from '@common/hooks';
-import type { ClassName, PolymorphicElementType } from '@common/types';
+import type { ClassName } from '@common/types';
 import { getColorHue } from '@common/utils';
 
 import {
@@ -23,11 +23,11 @@ import {
 	DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE,
 	DEFAULT_PUSHABLE_OVERLAY_VARIANT
 } from '../constants';
-import type { PushableOverlayProps } from '../types';
+import type { PushableOverlayUniqueProps } from '../types';
 
 import usePushableOverlayResponsiveValues from './usePushableOverlayResponsiveValues';
 
-type PickedPushableOverlayProps =
+type PickedPushableOverlayUniqueProps =
 	| 'color'
 	| 'colorMode'
 	| 'isActive'
@@ -37,40 +37,41 @@ type PickedPushableOverlayProps =
 	| 'isPushable'
 	| 'radius'
 	| 'variant';
-type UsePushableOverlayClassesProps<Element extends PolymorphicElementType> = Pick<
-	PushableOverlayProps<Element>,
-	PickedPushableOverlayProps
->;
+type UsePushableOverlayClassesProps = Pick<PushableOverlayUniqueProps, PickedPushableOverlayUniqueProps>;
 type UsePushableOverlayClassesReturn = ClassName;
 
-const usePushableOverlayClasses = <Element extends PolymorphicElementType>(
-	props: UsePushableOverlayClassesProps<Element>
-): UsePushableOverlayClassesReturn => {
+const usePushableOverlayClasses = (props: UsePushableOverlayClassesProps): UsePushableOverlayClassesReturn => {
 	const { colorMode: DEFAULT_PUSHABLE_OVERLAY_COLORMODE } = useAppTheme();
 
 	const {
 		color = DEFAULT_COLOR,
 		colorMode = DEFAULT_PUSHABLE_OVERLAY_COLORMODE,
-		isActive: isActiveProp = DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE,
-
-		isDisabled: isDisabledProp = DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED,
-		isFixed: isFixedProp = DEFAULT_PUSHABLE_OVERLAY_IS_FIXED,
-		isOutlined: isOutlinedProp = DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED,
-		isPushable: isPushableProp = DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE,
-		radius: radiusProp = DEFAULT_RADIUS,
-		variant: variantProp = DEFAULT_PUSHABLE_OVERLAY_VARIANT
+		isActive: isActiveProp,
+		isDisabled: isDisabledProp,
+		isFixed: isFixedProp,
+		isOutlined: isOutlinedProp,
+		isPushable: isPushableProp,
+		radius: radiusProp,
+		variant: variantProp
 	} = props;
 
-	const { isActive, isDisabled, isFixed, isOutlined, isPushable, radius, variant } =
-		usePushableOverlayResponsiveValues<Element>({
-			isActive: isActiveProp,
-			isDisabled: isDisabledProp,
-			isFixed: isFixedProp,
-			isOutlined: isOutlinedProp,
-			isPushable: isPushableProp,
-			radius: radiusProp,
-			variant: variantProp
-		});
+	const {
+		isActive = DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE,
+		isDisabled = DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED,
+		isFixed = DEFAULT_PUSHABLE_OVERLAY_IS_FIXED,
+		isOutlined = DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED,
+		isPushable = DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE,
+		radius = DEFAULT_RADIUS,
+		variant = DEFAULT_PUSHABLE_OVERLAY_VARIANT
+	} = usePushableOverlayResponsiveValues({
+		isActive: isActiveProp,
+		isDisabled: isDisabledProp,
+		isFixed: isFixedProp,
+		isOutlined: isOutlinedProp,
+		isPushable: isPushableProp,
+		radius: radiusProp,
+		variant: variantProp
+	});
 
 	const rootClasses = useMemo<ClassName>(() => {
 		const { base } = DEFAULT_PUSHABLE_OVERLAY_TRANSFORM_SIZE;

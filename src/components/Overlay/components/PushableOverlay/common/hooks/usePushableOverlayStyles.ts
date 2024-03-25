@@ -41,16 +41,22 @@ const usePushableOverlayStyles = <Element extends PolymorphicElementType>(
 	const {
 		color = DEFAULT_COLOR,
 		colorMode = DEFAULT_PUSHABLE_OVERLAY_COLORMODE,
-		isActive: isActiveProp = DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE,
-		isDisabled: isDisabledProp = DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED,
-		isFixed: isFixedProp = DEFAULT_PUSHABLE_OVERLAY_IS_FIXED,
-		isPushable: isPushableProp = DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE,
-		variant: variantProp = DEFAULT_PUSHABLE_OVERLAY_VARIANT
+		isActive: isActiveProp,
+		isDisabled: isDisabledProp,
+		isFixed: isFixedProp,
+		isPushable: isPushableProp,
+		variant: variantProp
 	} = props;
 
 	const amount = useGetAmount({ colorMode, types: ['active', 'back', 'hover'] });
 
-	const { isActive, isDisabled, isFixed, isPushable, variant } = usePushableOverlayResponsiveValues<Element>({
+	const {
+		isActive = DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE,
+		isDisabled = DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED,
+		isFixed = DEFAULT_PUSHABLE_OVERLAY_IS_FIXED,
+		isPushable = DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE,
+		variant = DEFAULT_PUSHABLE_OVERLAY_VARIANT
+	} = usePushableOverlayResponsiveValues({
 		isActive: isActiveProp,
 		isDisabled: isDisabledProp,
 		isFixed: isFixedProp,

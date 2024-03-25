@@ -1,4 +1,11 @@
-import type { PushableOverlayProps, PushableOverlayRef, PushableOverlayVariant } from './common/types';
+import type {
+	PushableOverlayNonResponsiveValueProps,
+	PushableOverlayProps,
+	PushableOverlayRef,
+	PushableOverlayResponsiveValueProps,
+	PushableOverlayUniqueProps,
+	PushableOverlayVariant
+} from './common/types';
 import PushableOverlay from './PushableOverlay';
 
 // Constants
@@ -14,4 +21,11 @@ export * from './common/hooks';
 export { PushableOverlay };
 
 // Component Types
-export type { PushableOverlayProps, PushableOverlayRef, PushableOverlayVariant };
+export type {
+	PushableOverlayNonResponsiveValueProps,
+	PushableOverlayProps,
+	PushableOverlayRef,
+	PushableOverlayResponsiveValueProps,
+	PushableOverlayUniqueProps,
+	PushableOverlayVariant
+};

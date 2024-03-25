@@ -1,4 +1,4 @@
-import type { PolymorphicElementType, ResponsiveValue, ThemeAppAppearanceProps, ThemeRadius } from '@common/types';
+import type { PolymorphicElementType, ResponsiveValueProps, ThemeAppAppearanceProps, ThemeRadius } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
@@ -11,58 +11,63 @@ export type PushableOverlayVariant =
 	| 'transparent'
 	| 'unstyled';
 
-// TODO: Go over and add ResponsiveValue to all props
-type PushableOverlayOtherProps = ThemeAppAppearanceProps & {
+export type PushableOverlayNonResponsiveValueProps = {
 	/**
 	 * If `true`, the container will have the active styling
 	 *
 	 * @default false
 	 */
-	isActive?: ResponsiveValue<boolean>;
+	isActive?: boolean;
 	/**
 	 * If `true`, the container will have the disabled styling
 	 *
 	 * @default false
 	 */
-	isDisabled?: ResponsiveValue<boolean>;
+	isDisabled?: boolean;
 	/**
 	 * If `true`, the container will not be interactable
 	 *
 	 * @default false
 	 */
-	isFixed?: ResponsiveValue<boolean>;
+	isFixed?: boolean;
 	/**
 	 * If `true`, the container will be focused on
 	 *
 	 * @default false
 	 */
-	isFocused?: ResponsiveValue<boolean>;
+	isFocused?: boolean;
 	/**
 	 * If `true`, the container will have an outline
 	 *
 	 * @default false
 	 */
-	isOutlined?: ResponsiveValue<boolean>;
+	isOutlined?: boolean;
 	/**
 	 * If `true`, the container will be pushable
 	 *
 	 * @default true
 	 */
-	isPushable?: ResponsiveValue<boolean>;
+	isPushable?: boolean;
 	/**
 	 *  The radius of the container
 	 *
 	 * @default 'base'
 	 */
-	radius?: ResponsiveValue<ThemeRadius>;
+	radius?: ThemeRadius;
 	/**
 	 *  The variant of the container
 	 *
 	 * @default 'contained'
 	 */
-	variant?: ResponsiveValue<PushableOverlayVariant>;
+	variant?: PushableOverlayVariant;
 };
+export type PushableOverlayResponsiveValueProps = ResponsiveValueProps<PushableOverlayNonResponsiveValueProps>;
 
-export type PushableOverlayProps<Element extends PolymorphicElementType> = BoxProps<Element, PushableOverlayOtherProps>;
+export type PushableOverlayUniqueProps = ThemeAppAppearanceProps & PushableOverlayResponsiveValueProps;
+
+export type PushableOverlayProps<Element extends PolymorphicElementType> = BoxProps<
+	Element,
+	PushableOverlayUniqueProps
+>;
 
 export type PushableOverlayRef<Element extends PolymorphicElementType> = BoxRef<Element>;

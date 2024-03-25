@@ -47,19 +47,27 @@ const PushableOverlay = forwardRef(function PushableOverlay<Element extends Poly
 		...rest
 	} = props;
 
-	const { isActive, isDisabled, isFixed, isFocused, isOutlined, isPushable, radius, variant } =
-		usePushableOverlayResponsiveValues<Element>({
-			isActive: isActiveProp,
-			isDisabled: isDisabledProp,
-			isFixed: isFixedProp,
-			isFocused: isFocusedProp,
-			isOutlined: isOutlinedProp,
-			isPushable: isPushableProp,
-			radius: radiusProp,
-			variant: variantProp
-		});
+	const {
+		isActive = DEFAULT_PUSHABLE_OVERLAY_IS_ACTIVE,
+		isDisabled = DEFAULT_PUSHABLE_OVERLAY_IS_DISABLED,
+		isFixed = DEFAULT_PUSHABLE_OVERLAY_IS_FIXED,
+		isFocused = DEFAULT_PUSHABLE_OVERLAY_IS_FOCUSED,
+		isOutlined = DEFAULT_PUSHABLE_OVERLAY_IS_OUTLINED,
+		isPushable = DEFAULT_PUSHABLE_OVERLAY_IS_PUSHABLE,
+		radius = DEFAULT_RADIUS,
+		variant = DEFAULT_PUSHABLE_OVERLAY_VARIANT
+	} = usePushableOverlayResponsiveValues({
+		isActive: isActiveProp,
+		isDisabled: isDisabledProp,
+		isFixed: isFixedProp,
+		isFocused: isFocusedProp,
+		isOutlined: isOutlinedProp,
+		isPushable: isPushableProp,
+		radius: radiusProp,
+		variant: variantProp
+	});
 
-	const classes = usePushableOverlayClasses<Element>({
+	const classes = usePushableOverlayClasses({
 		color,
 		colorMode,
 		isActive,
@@ -70,7 +78,7 @@ const PushableOverlay = forwardRef(function PushableOverlay<Element extends Poly
 		radius,
 		variant
 	});
-	const styles = usePushableOverlayStyles<Element>({
+	const styles = usePushableOverlayStyles({
 		color,
 		colorMode,
 		isActive,
@@ -96,7 +104,7 @@ const PushableOverlay = forwardRef(function PushableOverlay<Element extends Poly
 			spacing={0}
 			sx={merge(styles, sx)}
 		>
-			<GridItem columnStart={1} rowStart={1} zIndex={1}>
+			<GridItem columnStart={1} rowStart={1} zIndex={1} width='asd'>
 				{children}
 			</GridItem>
 		</Grid>
