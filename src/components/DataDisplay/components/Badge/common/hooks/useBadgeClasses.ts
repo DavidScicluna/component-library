@@ -13,18 +13,16 @@ import {
 	DEFAULT_BADGE_SIZE,
 	DEFAULT_BADGE_VARIANT
 } from '../constants';
-import type { BadgeElement, BadgeProps } from '../types';
+import type { BadgeUniqueProps } from '../types';
 
 import useBadgeResponsiveValues from './useBadgeResponsiveValues';
 import useBadgeSizeConfig from './useBadgeSizeConfig';
 
-type UseBadgeClassesProps<Element extends BadgeElement> = Pick<
-	BadgeProps<Element>,
-	'isCompact' | 'isFullWidth' | 'isRound' | 'isUppercase' | 'size' | 'variant'
->;
+type PickedBadgeUniqueProps = 'isCompact' | 'isFullWidth' | 'isRound' | 'isUppercase' | 'size' | 'variant';
+type UseBadgeClassesProps = Pick<BadgeUniqueProps, PickedBadgeUniqueProps>;
 type UseBadgeClassesReturn = ClassName;
 
-const useBadgeClasses = <Element extends BadgeElement>(props: UseBadgeClassesProps<Element>): UseBadgeClassesReturn => {
+const useBadgeClasses = (props: UseBadgeClassesProps): UseBadgeClassesReturn => {
 	const {
 		isCompact: isCompactProp = DEFAULT_BADGE_IS_COMPACT,
 		isFullWidth: isFullWidthProp = DEFAULT_BADGE_IS_FULLWIDTH,
@@ -34,7 +32,7 @@ const useBadgeClasses = <Element extends BadgeElement>(props: UseBadgeClassesPro
 		variant: variantProp = DEFAULT_BADGE_VARIANT
 	} = props;
 
-	const { isCompact, isFullWidth, isRound, isUppercase, size, variant } = useBadgeResponsiveValues<Element>({
+	const { isCompact, isFullWidth, isRound, isUppercase, size, variant } = useBadgeResponsiveValues({
 		isCompact: isCompactProp,
 		isFullWidth: isFullWidthProp,
 		isRound: isRoundProp,
@@ -43,7 +41,7 @@ const useBadgeClasses = <Element extends BadgeElement>(props: UseBadgeClassesPro
 		variant: variantProp
 	});
 
-	const config = useBadgeSizeConfig<Element>({ isCompact, isRound, size, variant });
+	const config = useBadgeSizeConfig({ isCompact, isRound, size, variant });
 
 	const widthClassName = useGetClass((classes) => classes.sizing.width[isFullWidth ? 'full' : 'auto']);
 

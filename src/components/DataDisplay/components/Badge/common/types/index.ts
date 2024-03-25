@@ -1,9 +1,14 @@
 import type { ReactNode } from 'react';
 
-import type { PolymorphicElementType, ResponsiveValue, ThemeAppAppearanceProps, ThemeFontSize } from '@common/types';
+import type {
+	PolymorphicElementType,
+	ResponsiveValueProps,
+	ThemeAppAppearanceProps,
+	ThemeFontSize
+} from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
-import type { PushableOverlayProps } from '@components/Overlay';
+import type { PushableOverlayNonResponsiveValueProps } from '@components/Overlay';
 
 export type BadgeDefaultElement = 'span';
 export type BadgeElement = Extract<PolymorphicElementType, 'span'>;
@@ -12,12 +17,55 @@ export type BadgeSize = ThemeFontSize;
 
 export type BadgeVariant = 'contained' | 'light' | 'dark' | 'outlined' | 'monochrome' | 'text';
 
-export type BadgeRenderProps<Element extends BadgeElement> = Pick<BadgeOtherProps<Element>, 'color' | 'colorMode'> & {
-	w?: number;
-	h?: number;
-};
+export type BadgeRenderProps = ThemeAppAppearanceProps & { w?: number; h?: number };
 
-type BadgeOtherProps<Element extends BadgeElement> = ThemeAppAppearanceProps & {
+export type BadgeNonResponsiveValueProps = {
+	/**
+	 * If true, the badge will be clickable
+	 *
+	 * @default false
+	 */
+	isClickable?: boolean;
+	/**
+	 * If true, the badge will be styled in a more compressed state
+	 *
+	 * @default false
+	 */
+	isCompact?: boolean;
+	/**
+	 * If true, the badge will take the full width of its parent
+	 *
+	 * @default false
+	 */
+	isFullWidth?: boolean;
+	/**
+	 * If true, the badge's border-radius will be styled in its fullest mode
+	 *
+	 * @default false
+	 */
+	isRound?: boolean;
+	/**
+	 * If true, the badge text will be in uppercase else it will be capitalized
+	 *
+	 * @default true
+	 */
+	isUppercase?: boolean;
+	/**
+	 * The size of the badge
+	 *
+	 * @default 'md'
+	 */
+	size?: BadgeSize;
+	/**
+	 * The variant of the badge
+	 *
+	 * @default 'contained'
+	 */
+	variant?: BadgeVariant;
+} & Pick<PushableOverlayNonResponsiveValueProps, 'isActive' | 'isDisabled' | 'isOutlined'>;
+export type BadgeResponsiveValueProps = ResponsiveValueProps<BadgeNonResponsiveValueProps>;
+
+export type BadgeUniqueProps = ThemeAppAppearanceProps & {
 	/**
 	 * Callback invoked to render the action button
 	 */
@@ -25,60 +73,16 @@ type BadgeOtherProps<Element extends BadgeElement> = ThemeAppAppearanceProps & {
 	/**
 	 * Callback invoked to render the element to the left of the text
 	 */
-	renderLeft?: (props: BadgeRenderProps<Element>) => ReactNode;
+	renderLeft?: (props: BadgeRenderProps) => ReactNode;
 	/**
 	 * Callback invoked to render the element to the right of the text
 	 */
-	renderRight?: (props: BadgeRenderProps<Element>) => ReactNode;
-	/**
-	 * If true, the badge will be clickable
-	 *
-	 * @default false
-	 */
-	isClickable?: ResponsiveValue<boolean>;
-	/**
-	 * If true, the badge will be styled in a more compressed state
-	 *
-	 * @default false
-	 */
-	isCompact?: ResponsiveValue<boolean>;
-	/**
-	 * If true, the badge will take the full width of its parent
-	 *
-	 * @default false
-	 */
-	isFullWidth?: ResponsiveValue<boolean>;
-	/**
-	 * If true, the badge's border-radius will be styled in its fullest mode
-	 *
-	 * @default false
-	 */
-	isRound?: ResponsiveValue<boolean>;
-	/**
-	 * If true, the badge text will be in uppercase else it will be capitalized
-	 *
-	 * @default true
-	 */
-	isUppercase?: ResponsiveValue<boolean>;
-	/**
-	 * The size of the badge
-	 *
-	 * @default 'md'
-	 */
-	size?: ResponsiveValue<BadgeSize>;
-	/**
-	 * The variant of the badge
-	 *
-	 * @default 'contained'
-	 */
-	variant?: ResponsiveValue<BadgeVariant>;
-} & Pick<PushableOverlayProps<Element>, 'isActive' | 'isDisabled' | 'isOutlined'>;
+	renderRight?: (props: BadgeRenderProps) => ReactNode;
+} & BadgeResponsiveValueProps;
 
-export type BadgeProps<Element extends BadgeElement> = BoxProps<Element, BadgeOtherProps<Element>>;
+export type BadgeProps<Element extends BadgeElement> = BoxProps<Element, BadgeUniqueProps>;
 
 export type BadgeRef<Element extends BadgeElement> = BoxRef<Element>;
 
-export type BadgeContext<Element extends BadgeElement> = Pick<
-	BadgeProps<Element>,
-	'color' | 'colorMode' | 'size' | 'variant'
->;
+type PickedBadgeProps = 'color' | 'colorMode' | 'size' | 'variant';
+export type BadgeContext<Element extends BadgeElement> = Pick<BadgeProps<Element>, PickedBadgeProps>;

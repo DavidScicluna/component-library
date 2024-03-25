@@ -72,17 +72,17 @@ const Badge = forwardRef(function Badge<Element extends BadgeElement>(
 	const [isFocused, setIsFocused] = useBoolean();
 
 	const {
-		isActive,
-		isClickable,
-		isCompact,
-		isDisabled,
-		isFullWidth,
-		isOutlined,
-		isRound,
-		isUppercase,
-		size,
-		variant
-	} = useBadgeResponsiveValues<Element>({
+		isActive = DEFAULT_BADGE_IS_ACTIVE,
+		isClickable = DEFAULT_BADGE_IS_CLICKABLE,
+		isCompact = DEFAULT_BADGE_IS_COMPACT,
+		isDisabled = DEFAULT_BADGE_IS_DISABLED,
+		isFullWidth = DEFAULT_BADGE_IS_FULLWIDTH,
+		isOutlined = DEFAULT_BADGE_IS_OUTLINED,
+		isRound = DEFAULT_BADGE_IS_ROUND,
+		isUppercase = DEFAULT_BADGE_IS_UPPERCASE,
+		size = DEFAULT_BADGE_SIZE,
+		variant = DEFAULT_BADGE_VARIANT
+	} = useBadgeResponsiveValues({
 		isActive: isActiveProp,
 		isClickable: isClickableProp,
 		isCompact: isCompactProp,
@@ -95,9 +95,9 @@ const Badge = forwardRef(function Badge<Element extends BadgeElement>(
 		variant: variantProp
 	});
 
-	const config = useBadgeSizeConfig<Element>({ isCompact, isRound, size, variant });
+	const config = useBadgeSizeConfig({ isCompact, isRound, size, variant });
 
-	const classes = useBadgeClasses<Element>({ isCompact, isFullWidth, isRound, isUppercase, size, variant });
+	const classes = useBadgeClasses({ isCompact, isFullWidth, isRound, isUppercase, size, variant });
 
 	const { focusProps } = useFocus({ onFocus: () => setIsFocused.on(), onBlur: () => setIsFocused.off() });
 

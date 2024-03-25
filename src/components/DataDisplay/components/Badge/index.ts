@@ -2,10 +2,13 @@ import type {
 	BadgeContext,
 	BadgeDefaultElement,
 	BadgeElement,
+	BadgeNonResponsiveValueProps,
 	BadgeProps,
 	BadgeRef,
 	BadgeRenderProps,
+	BadgeResponsiveValueProps,
 	BadgeSize,
+	BadgeUniqueProps,
 	BadgeVariant
 } from './common/types';
 import Badge from './Badge';
@@ -28,9 +31,12 @@ export type {
 	BadgeContext,
 	BadgeDefaultElement,
 	BadgeElement,
+	BadgeNonResponsiveValueProps,
 	BadgeProps,
 	BadgeRef,
 	BadgeRenderProps,
+	BadgeResponsiveValueProps,
 	BadgeSize,
+	BadgeUniqueProps,
 	BadgeVariant
 };
