@@ -51,7 +51,7 @@ export type BoxOtherProps = BoxWidthProps & BoxHeightProps & BoxPaddingProps & B
 
 export type BoxProps<Element extends PolymorphicElementType, Props = PolymorphicDefaultProps> = PolymorphicProps<
 	Element,
-	Props
+	Props & BoxOtherProps
 >;
 
 export type BoxRef<Element extends PolymorphicElementType> = PolymorphicRef<Element>;

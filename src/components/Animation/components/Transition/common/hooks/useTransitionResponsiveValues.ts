@@ -30,15 +30,7 @@ const useTransitionResponsiveValues = <Element extends PolymorphicElementType>(
 	const transition = useGetResponsiveValue<TransitionKey | TransitionVariant>(transitionProp);
 	const unmountOnExit = useGetResponsiveValue<boolean>(unmountOnExitProp);
 
-	return {
-		config,
-		delay,
-		duration,
-		easing,
-		in: isAnimated,
-		transition,
-		unmountOnExit
-	};
+	return { config, delay, duration, easing, in: isAnimated, transition, unmountOnExit };
 };
 
 export default useTransitionResponsiveValues;

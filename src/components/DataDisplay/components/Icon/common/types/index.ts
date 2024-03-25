@@ -7,7 +7,7 @@ import type {
 	ThemeRadius
 } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type IconDefaultElement = 'span';
 export type IconElement = Extract<PolymorphicElementType, 'span'>;
@@ -44,7 +44,7 @@ type IconOtherProps = ThemeAppAppearanceProps & {
 	 * @default 'unstyled'
 	 */
 	variant?: ResponsiveValue<IconVariant>;
-} & BoxOtherProps;
+};
 
 export type IconProps<Element extends IconElement> = BoxProps<Element, IconOtherProps>;
 

@@ -8,7 +8,7 @@ import type {
 	ThemeSpacing
 } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type CarouselDefaultElement = 'div';
 export type CarouselElement = Extract<PolymorphicElementType, 'div'>;
@@ -44,7 +44,7 @@ type CarouselOtherProps = ThemeAppAppearanceProps & {
 	spacing?: ResponsiveValue<ThemeSpacing>;
 	orientation?: ResponsiveValue<CarouselOrientation>;
 	variant?: ResponsiveValue<CarouselVariant>;
-} & BoxOtherProps;
+};
 
 export type CarouselProps<Element extends CarouselElement> = BoxProps<Element, CarouselOtherProps>;
 

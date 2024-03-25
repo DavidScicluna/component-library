@@ -65,16 +65,24 @@ const PositionOverlay = forwardRef(function PositionOverlay<Element extends Poly
 		...rest
 	} = props;
 
-	const { backdropAmount, blur, blurType, radius, isVisible, hasGlass, hasBackground } =
-		usePositionOverlayResponsiveValues<Element>({
-			backdropAmount: backdropAmountProp,
-			blur: blurProp,
-			blurType: blurTypeProp,
-			radius: radiusProp,
-			isVisible: isVisibleProp,
-			hasGlass: hasGlassProp,
-			hasBackground: hasBackgroundProp
-		});
+	const {
+		backdropAmount = DEFAULT_POSITION_OVERLAY_BACKDROP_AMOUNT,
+		blur = DEFAULT_POSITION_OVERLAY_BLUR,
+		blurType = DEFAULT_POSITION_OVERLAY_BLUR_TYPE,
+		// placement = DEFAULT_POSITION_OVERLAY_PLACEMENT,
+		radius = DEFAULT_POSITION_OVERLAY_RADIUS,
+		isVisible = DEFAULT_POSITION_OVERLAY_IS_VISIBLE,
+		hasGlass = DEFAULT_POSITION_OVERLAY_HAS_GLASS,
+		hasBackground = DEFAULT_POSITION_OVERLAY_HAS_BACKGROUND
+	} = usePositionOverlayResponsiveValues<Element>({
+		backdropAmount: backdropAmountProp,
+		blur: blurProp,
+		blurType: blurTypeProp,
+		radius: radiusProp,
+		isVisible: isVisibleProp,
+		hasGlass: hasGlassProp,
+		hasBackground: hasBackgroundProp
+	});
 
 	const classes = usePositionOverlayClasses<Element>({ blur, blurType, radius, hasGlass });
 	const styles = usePositionOverlayStyles<Element>({ color, colorMode, backdropAmount, hasBackground });

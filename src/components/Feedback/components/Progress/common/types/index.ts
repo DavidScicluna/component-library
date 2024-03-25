@@ -6,7 +6,7 @@ import type {
 	ThemeRadius
 } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type ProgressDefaultElement = PolymorphicDefaultElement;
 export type ProgressElement = Extract<PolymorphicElementType, 'div'>;
@@ -49,7 +49,7 @@ type ProgressOtherProps = ThemeAppAppearanceProps & {
 	 * @default 'horizontal'
 	 */
 	variant?: ResponsiveValue<ProgressVariant>;
-} & BoxOtherProps;
+};
 
 export type ProgressProps<Element extends ProgressElement> = BoxProps<Element, ProgressOtherProps>;
 
