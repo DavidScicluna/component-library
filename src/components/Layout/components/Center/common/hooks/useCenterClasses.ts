@@ -2,19 +2,17 @@ import classNames from 'classnames';
 
 import classes from '@common/classes';
 import { useGetClass } from '@common/hooks';
-import type { ClassName, PolymorphicElementType } from '@common/types';
+import type { ClassName } from '@common/types';
 
 import { DEFAULT_CENTER_SPACING } from '../constants';
-import type { CenterProps } from '../types';
+import type { CenterUniqueProps } from '../types';
 
 import useCenterResponsiveValues from './useCenterResponsiveValues';
 
-type UseCenterClassesProps<Element extends PolymorphicElementType> = Pick<CenterProps<Element>, 'spacing'>;
+type UseCenterClassesProps = Pick<CenterUniqueProps, 'spacing'>;
 type UseCenterClassesReturn = ClassName;
 
-const useCenterClasses = <Element extends PolymorphicElementType>(
-	props: UseCenterClassesProps<Element>
-): UseCenterClassesReturn => {
+const useCenterClasses = (props: UseCenterClassesProps): UseCenterClassesReturn => {
 	const { spacing: spacingProp } = props;
 
 	const { spacing = DEFAULT_CENTER_SPACING } = useCenterResponsiveValues({ spacing: spacingProp });

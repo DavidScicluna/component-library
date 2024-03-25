@@ -19,7 +19,7 @@ const Center = forwardRef(function Center<Element extends PolymorphicElementType
 
 	const { spacing } = useCenterResponsiveValues({ spacing: spacingProp });
 
-	const classes = useCenterClasses<Element>({ spacing });
+	const classes = useCenterClasses({ spacing });
 
 	return (
 		<Box {...rest} ref={ref} className={classNames(KEYS_CENTER_CLASS, classes, { [className]: !!className })}>
