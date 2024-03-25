@@ -76,18 +76,18 @@ const Card = forwardRef(function Card<Element extends CardElement>(
 	const [isFocused, setIsFocused] = useBoolean();
 
 	const {
-		isActive,
-		isClickable,
-		isCollapsable,
-		isDisabled,
-		isDivisible,
-		isFixed,
-		isOpen,
-		isOutlined,
-		radius,
-		spacing,
-		variant
-	} = useCardResponsiveValues<Element>({
+		isActive = DEFAULT_CARD_IS_ACTIVE,
+		isClickable = DEFAULT_CARD_IS_CLICKABLE,
+		isCollapsable = DEFAULT_CARD_IS_COLLAPSABLE,
+		isDisabled = DEFAULT_CARD_IS_DISABLED,
+		isDivisible = DEFAULT_CARD_IS_DIVISIBLE,
+		isFixed = DEFAULT_CARD_IS_FIXED,
+		isOpen = DEFAULT_CARD_IS_OPEN,
+		isOutlined = DEFAULT_CARD_IS_OUTLINED,
+		radius = DEFAULT_CARD_RADIUS,
+		spacing = DEFAULT_SPACING,
+		variant = DEFAULT_CARD_VARIANT
+	} = useCardResponsiveValues({
 		isActive: isActiveProp,
 		isClickable: isClickableProp,
 		isCollapsable: isCollapsableProp,
