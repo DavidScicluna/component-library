@@ -1,14 +1,4 @@
-import type { ReactNode } from 'react';
-
 import { useGetResponsiveValue } from '@common/hooks';
-import type {
-	AlignItemsClass,
-	FlexDirectionClass,
-	FlexWrapClass,
-	JustifyContentClass,
-	ThemeSpacing,
-	Undefinable
-} from '@common/types';
 
 import type { StackNonResponsiveValueProps, StackResponsiveValueProps } from '../types';
 
@@ -25,12 +15,12 @@ const useStackResponsiveValues = (props: UseStackResponsiveValuesProps): UseStac
 		wrap: wrapProp
 	} = props;
 
-	const alignItems = useGetResponsiveValue<Undefinable<AlignItemsClass>>(alignItemsProp);
-	const direction = useGetResponsiveValue<Undefinable<FlexDirectionClass>>(directionProp);
-	const divider = useGetResponsiveValue<Undefinable<ReactNode>>(dividerProp);
-	const justifyContent = useGetResponsiveValue<Undefinable<JustifyContentClass>>(justifyContentProp);
-	const spacing = useGetResponsiveValue<Undefinable<ThemeSpacing>>(spacingProp);
-	const wrap = useGetResponsiveValue<Undefinable<FlexWrapClass>>(wrapProp);
+	const alignItems = useGetResponsiveValue<StackNonResponsiveValueProps['alignItems']>(alignItemsProp);
+	const direction = useGetResponsiveValue<StackNonResponsiveValueProps['direction']>(directionProp);
+	const divider = useGetResponsiveValue<StackNonResponsiveValueProps['divider']>(dividerProp);
+	const justifyContent = useGetResponsiveValue<StackNonResponsiveValueProps['justifyContent']>(justifyContentProp);
+	const spacing = useGetResponsiveValue<StackNonResponsiveValueProps['spacing']>(spacingProp);
+	const wrap = useGetResponsiveValue<StackNonResponsiveValueProps['wrap']>(wrapProp);
 
 	return { alignItems, direction, divider, justifyContent, spacing, wrap };
 };

@@ -37,7 +37,7 @@ const Stack = forwardRef(function Stack<Element extends PolymorphicElementType>(
 		wrap: wrapProp
 	});
 
-	const classes = useStackClasses<Element>({ alignItems, direction, justifyContent, spacing, wrap });
+	const classes = useStackClasses({ alignItems, direction, justifyContent, spacing, wrap });
 
 	return (
 		<Box {...rest} ref={ref} className={classNames(KEYS_STACK_CLASS, classes, { [className]: !!className })}>

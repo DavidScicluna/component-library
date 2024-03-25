@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { DEFAULT_SPACING } from '@common/constants';
 import { useGetClass } from '@common/hooks';
-import type { ClassName, PolymorphicElementType } from '@common/types';
+import type { ClassName } from '@common/types';
 
 import {
 	DEFAULT_STACK_ALIGN_ITEMS,
@@ -11,19 +11,14 @@ import {
 	DEFAULT_STACK_JUSTIFY_CONTENT,
 	DEFAULT_STACK_WRAP
 } from '../constants';
-import type { StackProps } from '../types';
+import type { StackUniqueProps } from '../types';
 
 import useStackResponsiveValues from './useStackResponsiveValues';
 
-type UseStackClassesProps<Element extends PolymorphicElementType> = Pick<
-	StackProps<Element>,
-	'alignItems' | 'direction' | 'justifyContent' | 'spacing' | 'wrap'
->;
+type UseStackClassesProps = Pick<StackUniqueProps, 'alignItems' | 'direction' | 'justifyContent' | 'spacing' | 'wrap'>;
 type UseStackClassesReturn = ClassName;
 
-const useStackClasses = <Element extends PolymorphicElementType>(
-	props: UseStackClassesProps<Element>
-): UseStackClassesReturn => {
+const useStackClasses = (props: UseStackClassesProps): UseStackClassesReturn => {
 	const {
 		alignItems: alignItemsProp,
 		direction: directionProp,
