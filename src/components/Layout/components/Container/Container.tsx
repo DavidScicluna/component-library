@@ -30,7 +30,7 @@ const Container = forwardRef(function Container<Element extends PolymorphicEleme
 		isFluid: isFluidProp
 	});
 
-	const classes = useContainerClasses<Element>({ breakpoint, isContentCentered, isFluid });
+	const classes = useContainerClasses({ breakpoint, isContentCentered, isFluid });
 
 	return (
 		<Box {...rest} ref={ref} className={classNames(KEYS_CONTAINER_CLASS, classes, { [className]: !!className })}>

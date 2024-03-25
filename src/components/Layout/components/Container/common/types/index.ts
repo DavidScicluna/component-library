@@ -1,6 +1,6 @@
 import type { PolymorphicElementType, ResponsiveValueProps, ThemeBreakpoint } from '@common/types';
 
-import type { BoxOtherProps, BoxProps, BoxRef } from '@components/Box';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type ContainerBreakpoint = Exclude<ThemeBreakpoint, 'xs'>;
 
@@ -11,7 +11,7 @@ export type ContainerNonResponsiveValueProps = {
 };
 export type ContainerResponsiveValueProps = ResponsiveValueProps<ContainerNonResponsiveValueProps>;
 
-export type ContainerUniqueProps = BoxOtherProps & ContainerResponsiveValueProps;
+export type ContainerUniqueProps = ContainerResponsiveValueProps;
 
 export type ContainerProps<Element extends PolymorphicElementType> = BoxProps<Element, ContainerUniqueProps>;
 

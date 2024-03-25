@@ -2,26 +2,21 @@ import classNames from 'classnames';
 
 import classes from '@common/classes';
 import { useGetClass } from '@common/hooks';
-import type { ClassName, PolymorphicElementType } from '@common/types';
+import type { ClassName } from '@common/types';
 
 import {
 	DEFAULT_CONTAINER_BREAKPOINT,
 	DEFAULT_CONTAINER_IS_CONTENT_CENTERED,
 	DEFAULT_CONTAINER_IS_FLUID
 } from '../constants';
-import type { ContainerProps } from '../types';
+import type { ContainerUniqueProps } from '../types';
 
 import useContainerResponsiveValues from './useContainerResponsiveValues';
 
-type UseContainerClassesProps<Element extends PolymorphicElementType> = Pick<
-	ContainerProps<Element>,
-	'breakpoint' | 'isContentCentered' | 'isFluid'
->;
+type UseContainerClassesProps = Pick<ContainerUniqueProps, 'breakpoint' | 'isContentCentered' | 'isFluid'>;
 type UseContainerClassesReturn = ClassName;
 
-const useContainerClasses = <Element extends PolymorphicElementType>(
-	props: UseContainerClassesProps<Element>
-): UseContainerClassesReturn => {
+const useContainerClasses = (props: UseContainerClassesProps): UseContainerClassesReturn => {
 	const { breakpoint: breakpointProp, isContentCentered: isContentCenteredProp, isFluid: isFluidProp } = props;
 
 	const {

@@ -1,7 +1,6 @@
 import { useGetResponsiveValue } from '@common/hooks';
-import type { Undefinable } from '@common/types';
 
-import type { ContainerBreakpoint, ContainerNonResponsiveValueProps, ContainerResponsiveValueProps } from '../types';
+import type { ContainerNonResponsiveValueProps, ContainerResponsiveValueProps } from '../types';
 
 type UseContainerResponsiveValuesProps = Partial<ContainerResponsiveValueProps>;
 type UseContainerResponsiveValuesReturn = ContainerNonResponsiveValueProps;
@@ -9,10 +8,11 @@ type UseContainerResponsiveValuesReturn = ContainerNonResponsiveValueProps;
 const useContainerResponsiveValues = (props: UseContainerResponsiveValuesProps): UseContainerResponsiveValuesReturn => {
 	const { breakpoint: breakpointProp, isContentCentered: isContentCenteredProp, isFluid: isFluidProp } = props;
 
-	const breakpoint = useGetResponsiveValue<Undefinable<ContainerBreakpoint>>(breakpointProp);
+	const breakpoint = useGetResponsiveValue<ContainerNonResponsiveValueProps['breakpoint']>(breakpointProp);
 
-	const isContentCentered = useGetResponsiveValue<Undefinable<boolean>>(isContentCenteredProp);
-	const isFluid = useGetResponsiveValue<Undefinable<boolean>>(isFluidProp);
+	const isContentCentered =
+		useGetResponsiveValue<ContainerNonResponsiveValueProps['isContentCentered']>(isContentCenteredProp);
+	const isFluid = useGetResponsiveValue<ContainerNonResponsiveValueProps['isFluid']>(isFluidProp);
 
 	return { breakpoint, isContentCentered, isFluid };
 };
