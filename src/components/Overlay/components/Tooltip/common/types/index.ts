@@ -1,4 +1,4 @@
-import type { PolymorphicElementType, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
+import type { PolymorphicElementType, ResponsiveValueProps, ThemeAppAppearanceProps } from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 
@@ -16,41 +16,50 @@ export type TooltipPlacement =
 	| 'left-start'
 	| 'left-end';
 
-type TooltipOtherProps = ThemeAppAppearanceProps & {
+export type TooltipNonResponsiveValueProps = {
 	/**
 	 * Delay (in ms) before hiding the tooltip
 	 * @default 0
 	 */
-	closeDelay?: ResponsiveValue<number>;
+	closeDelay?: number;
 	/**
 	 * Delay (in ms) before showing the tooltip
 	 * @default 0
 	 */
-	openDelay?: ResponsiveValue<number>;
+	openDelay?: number;
 	/**
 	 * If true, the tooltip will hide on click
 	 * @default true
 	 */
-	closeOnClick?: ResponsiveValue<boolean>;
+	closeOnClick?: boolean;
 	/**
 	 * If true, the tooltip will hide on pressing Esc key
 	 * @default true
 	 */
-	closeOnEsc?: ResponsiveValue<boolean>;
+	closeOnEsc?: boolean;
 	/**
 	 * The distance or margin between the trigger and the tooltip.
 	 * @default 8
 	 */
-	gutter?: ResponsiveValue<number>;
+	gutter?: number;
 	/**
 	 * If true, the tooltip will not be shown
 	 * @default false
 	 */
-	isDisabled?: ResponsiveValue<boolean>;
+	isDisabled?: boolean;
 	/**
 	 * The label of the tooltip
 	 */
-	label?: ResponsiveValue<string>;
+	label?: string;
+	/**
+	 * The placement of the tooltip relative to its reference.
+	 * @default 'top'
+	 */
+	placement?: TooltipPlacement;
+};
+export type TooltipResponsiveValueProps = ResponsiveValueProps<TooltipNonResponsiveValueProps>;
+
+export type TooltipUniqueProps = ThemeAppAppearanceProps & {
 	/**
 	 * Callback to run when the tooltip hides
 	 */
@@ -63,13 +72,8 @@ type TooltipOtherProps = ThemeAppAppearanceProps & {
 	 * Callback to run when the tooltip shows
 	 */
 	onOpen?: () => void;
-	/**
-	 * The placement of the tooltip relative to its reference.
-	 * @default 'top'
-	 */
-	placement?: ResponsiveValue<TooltipPlacement>;
-};
+} & TooltipResponsiveValueProps;
 
-export type TooltipProps<Element extends PolymorphicElementType> = BoxProps<Element, TooltipOtherProps>;
+export type TooltipProps<Element extends PolymorphicElementType> = BoxProps<Element, TooltipUniqueProps>;
 
 export type TooltipRef<Element extends PolymorphicElementType> = BoxRef<Element>;

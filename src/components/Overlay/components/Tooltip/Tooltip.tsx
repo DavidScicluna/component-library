@@ -68,17 +68,25 @@ const Tooltip = forwardRef(function Tooltip<Element extends PolymorphicElementTy
 
 	const [isOpen, setIsOpen] = useBoolean(DEFAULT_TOOLTIP_IS_OPEN);
 
-	const { closeDelay, openDelay, closeOnClick, closeOnEsc, gutter, isDisabled, label, placement } =
-		useTooltipResponsiveValues<Element>({
-			closeDelay: closeDelayProp,
-			openDelay: openDelayProp,
-			closeOnClick: closeOnClickProp,
-			closeOnEsc: closeOnEscProp,
-			gutter: gutterProp,
-			isDisabled: isDisabledProp,
-			label: labelProp,
-			placement: placementProp
-		});
+	const {
+		closeDelay = DEFAULT_TOOLTIP_CLOSE_DELAY,
+		openDelay = DEFAULT_TOOLTIP_OPEN_DELAY,
+		closeOnClick = DEFAULT_TOOLTIP_CLOSE_ON_CLICK,
+		closeOnEsc = DEFAULT_TOOLTIP_CLOSE_ON_ESC,
+		gutter = DEFAULT_TOOLTIP_GUTTER,
+		isDisabled = DEFAULT_TOOLTIP_IS_DISABLED,
+		label = DEFAULT_TOOLTIP_LABEL,
+		placement = DEFAULT_TOOLTIP_PLACEMENT
+	} = useTooltipResponsiveValues({
+		closeDelay: closeDelayProp,
+		openDelay: openDelayProp,
+		closeOnClick: closeOnClickProp,
+		closeOnEsc: closeOnEscProp,
+		gutter: gutterProp,
+		isDisabled: isDisabledProp,
+		label: labelProp,
+		placement: placementProp
+	});
 
 	const handleOpen = useCallback((): void => {
 		setIsOpen.on();
@@ -119,14 +127,14 @@ const Tooltip = forwardRef(function Tooltip<Element extends PolymorphicElementTy
 
 	const refss = useMergeRefs([ref, refs.setFloating as any]);
 
-	const classes = useTooltipClasses<Element>({ color, colorMode });
+	const classes = useTooltipClasses({ color, colorMode });
 
 	return (
 		<AnimatePresence onExitComplete={onCloseComplete}>
 			{cloneElement(children, { ...getReferenceProps(), ref: refs.setReference })}
 			<Transition as='section' transition='fade' in={!isDisabled && isOpen}>
 				<Box
-					{...rest}
+					{...{ rest }}
 					{...getFloatingProps()}
 					ref={refss}
 					className={classNames(KEYS_TOOLTIP_CLASS, classes.tooltip, { [className]: !!className })}

@@ -5,27 +5,22 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { DEFAULT_BORDER_STYLE, DEFAULT_BORDER_WIDTH, DEFAULT_COLOR } from '@common/constants';
 import { useAppTheme, useConst } from '@common/hooks';
-import type { ClassName, PolymorphicElementType } from '@common/types';
+import type { ClassName } from '@common/types';
 import { getColorHue } from '@common/utils';
 
-import type { TooltipProps } from '../types';
+import type { TooltipUniqueProps } from '../types';
 
-type UseTooltipClassesProps<Element extends PolymorphicElementType> = Pick<
-	TooltipProps<Element>,
-	'color' | 'colorMode'
->;
+type UseTooltipClassesProps = Pick<TooltipUniqueProps, 'color' | 'colorMode'>;
 type UseTooltipClassesReturn = Record<'tooltip' | 'arrow' | 'content', ClassName>;
 
-const useTooltipClasses = <Element extends PolymorphicElementType>(
-	props: UseTooltipClassesProps<Element>
-): UseTooltipClassesReturn => {
+const useTooltipClasses = (props: UseTooltipClassesProps): UseTooltipClassesReturn => {
 	const { colorMode: DEFAULT_ICON_COLORMODE } = useAppTheme();
 
 	const { color = DEFAULT_COLOR, colorMode = DEFAULT_ICON_COLORMODE } = props;
 
 	const tooltipRootClasses = useConst<ClassName>(
 		classNames(
-			classes.sizing.width.fit,
+			classes.sizing.width.max,
 			classes.interactivity.cursor.default,
 			classes.interactivity.user_select.none,
 			classes.interactivity.will_change.auto,
@@ -69,7 +64,7 @@ const useTooltipClasses = <Element extends PolymorphicElementType>(
 		classNames(
 			classes.typography.font_size.xs,
 			classes.typography.font_weight.medium,
-			classes.typography.word_break.all,
+			classes.typography.word_break.normal,
 			classes.typography.line_clamp[5]
 		)
 	);

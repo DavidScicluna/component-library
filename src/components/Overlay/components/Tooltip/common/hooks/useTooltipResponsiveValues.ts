@@ -1,58 +1,34 @@
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicElementType } from '@common/types';
 
-import {
-	DEFAULT_TOOLTIP_CLOSE_DELAY,
-	DEFAULT_TOOLTIP_CLOSE_ON_CLICK,
-	DEFAULT_TOOLTIP_CLOSE_ON_ESC,
-	DEFAULT_TOOLTIP_GUTTER,
-	DEFAULT_TOOLTIP_IS_DISABLED,
-	DEFAULT_TOOLTIP_LABEL,
-	DEFAULT_TOOLTIP_OPEN_DELAY,
-	DEFAULT_TOOLTIP_PLACEMENT
-} from '../constants';
-import type { TooltipPlacement, TooltipProps } from '../types';
+import type { TooltipNonResponsiveValueProps, TooltipResponsiveValueProps } from '../types';
 
-type PickedTooltipProps =
-	| 'closeDelay'
-	| 'openDelay'
-	| 'closeOnClick'
-	| 'closeOnEsc'
-	| 'gutter'
-	| 'label'
-	| 'isDisabled'
-	| 'placement';
-type UseTooltipResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
-	Pick<TooltipProps<Element>, PickedTooltipProps>
->;
+type UseTooltipResponsiveValuesProps = Partial<TooltipResponsiveValueProps>;
+type UseTooltipResponsiveValuesReturn = TooltipNonResponsiveValueProps;
 
-// TODO: See if we should add return for ResponsiveValues hooks (take look in layout folder)
-const useTooltipResponsiveValues = <Element extends PolymorphicElementType>(
-	props: UseTooltipResponsiveValuesProps<Element>
-) => {
+const useTooltipResponsiveValues = (props: UseTooltipResponsiveValuesProps): UseTooltipResponsiveValuesReturn => {
 	const {
-		closeDelay: closeDelayProp = DEFAULT_TOOLTIP_CLOSE_DELAY,
-		openDelay: openDelayProp = DEFAULT_TOOLTIP_OPEN_DELAY,
-		closeOnClick: closeOnClickProp = DEFAULT_TOOLTIP_CLOSE_ON_CLICK,
-		closeOnEsc: closeOnEscProp = DEFAULT_TOOLTIP_CLOSE_ON_ESC,
-		gutter: gutterProp = DEFAULT_TOOLTIP_GUTTER,
-		isDisabled: isDisabledProp = DEFAULT_TOOLTIP_IS_DISABLED,
-		label: labelProp = DEFAULT_TOOLTIP_LABEL,
-		placement: placementProp = DEFAULT_TOOLTIP_PLACEMENT
+		closeDelay: closeDelayProp,
+		openDelay: openDelayProp,
+		closeOnClick: closeOnClickProp,
+		closeOnEsc: closeOnEscProp,
+		gutter: gutterProp,
+		isDisabled: isDisabledProp,
+		label: labelProp,
+		placement: placementProp
 	} = props;
 
-	const closeDelay = useGetResponsiveValue<number>(closeDelayProp);
-	const openDelay = useGetResponsiveValue<number>(openDelayProp);
+	const closeDelay = useGetResponsiveValue<TooltipNonResponsiveValueProps['closeDelay']>(closeDelayProp);
+	const openDelay = useGetResponsiveValue<TooltipNonResponsiveValueProps['openDelay']>(openDelayProp);
 
-	const closeOnClick = useGetResponsiveValue<boolean>(closeOnClickProp);
-	const closeOnEsc = useGetResponsiveValue<boolean>(closeOnEscProp);
+	const closeOnClick = useGetResponsiveValue<TooltipNonResponsiveValueProps['closeOnClick']>(closeOnClickProp);
+	const closeOnEsc = useGetResponsiveValue<TooltipNonResponsiveValueProps['closeOnEsc']>(closeOnEscProp);
 
-	const gutter = useGetResponsiveValue<number>(gutterProp);
-	const label = useGetResponsiveValue<string>(labelProp);
+	const gutter = useGetResponsiveValue<TooltipNonResponsiveValueProps['gutter']>(gutterProp);
+	const label = useGetResponsiveValue<TooltipNonResponsiveValueProps['label']>(labelProp);
 
-	const isDisabled = useGetResponsiveValue<boolean>(isDisabledProp);
+	const isDisabled = useGetResponsiveValue<TooltipNonResponsiveValueProps['isDisabled']>(isDisabledProp);
 
-	const placement = useGetResponsiveValue<TooltipPlacement>(placementProp);
+	const placement = useGetResponsiveValue<TooltipNonResponsiveValueProps['placement']>(placementProp);
 
 	return { closeDelay, openDelay, closeOnClick, closeOnEsc, gutter, label, isDisabled, placement };
 };
