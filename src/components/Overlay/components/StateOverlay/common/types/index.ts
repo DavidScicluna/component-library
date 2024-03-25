@@ -1,6 +1,11 @@
 import type { ReactNode } from 'react';
 
-import type { PolymorphicElementType, ResponsiveValue, ThemeAppAppearanceProps } from '@common/types';
+import type {
+	PolymorphicDefaultElement,
+	PolymorphicElementType,
+	ResponsiveValueProps,
+	ThemeAppAppearanceProps
+} from '@common/types';
 
 import type { BoxProps, BoxRef } from '@components/Box';
 import type { GlassOverlayProps } from '@components/Overlay';
@@ -9,20 +14,22 @@ export type StateOverlayState = 'success' | 'error' | 'empty' | 'loading' | 'def
 
 export type StateOverlayRenderType = (state: StateOverlayState) => ReactNode;
 
-type StateOverlayOtherProps<Element extends PolymorphicElementType> = ThemeAppAppearanceProps & {
-	children: StateOverlayRenderType;
-	renderSuccess?: ResponsiveValue<StateOverlayRenderType>;
-	renderError?: ResponsiveValue<StateOverlayRenderType>;
-	renderEmpty?: ResponsiveValue<StateOverlayRenderType>;
-	renderSpinner?: ResponsiveValue<StateOverlayRenderType>;
-	hasGlass?: ResponsiveValue<boolean>;
-	isAlwaysVisible?: ResponsiveValue<boolean>;
-	state: ResponsiveValue<StateOverlayState>;
-} & Pick<GlassOverlayProps<Element>, 'blur'>;
+export type StateOverlayNonResponsiveValueProps = {
+	renderSuccess?: StateOverlayRenderType;
+	renderError?: StateOverlayRenderType;
+	renderEmpty?: StateOverlayRenderType;
+	renderSpinner?: StateOverlayRenderType;
+	hasGlass?: boolean;
+	isAlwaysVisible?: boolean;
+	state: StateOverlayState;
+};
+export type StateOverlayResponsiveValueProps = ResponsiveValueProps<StateOverlayNonResponsiveValueProps>;
 
-export type StateOverlayProps<Element extends PolymorphicElementType> = BoxProps<
-	Element,
-	StateOverlayOtherProps<Element>
->;
+export type StateOverlayUniqueProps = ThemeAppAppearanceProps & {
+	children: StateOverlayRenderType;
+} & StateOverlayResponsiveValueProps &
+	Pick<GlassOverlayProps<PolymorphicDefaultElement>, 'blur'>;
+
+export type StateOverlayProps<Element extends PolymorphicElementType> = BoxProps<Element, StateOverlayUniqueProps>;
 
 export type StateOverlayRef<Element extends PolymorphicElementType> = BoxRef<Element>;

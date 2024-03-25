@@ -1,45 +1,41 @@
+import type { Required } from 'utility-types';
+
 import { useGetResponsiveValue } from '@common/hooks';
-import type { PolymorphicElementType, Undefinable } from '@common/types';
 
-import {
-	DEFAULT_STATE_OVERLAY_HAS_GLASS,
-	DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE,
-	DEFAULT_STATE_OVERLAY_STATE
-} from '../constants';
-import type { StateOverlayProps, StateOverlayRenderType, StateOverlayState } from '../types';
+import { DEFAULT_STATE_OVERLAY_STATE } from '../constants';
+import type { StateOverlayNonResponsiveValueProps, StateOverlayResponsiveValueProps } from '../types';
 
-type PickedStateOverlayProps =
-	// | 'children'
-	'renderSuccess' | 'renderEmpty' | 'renderError' | 'renderSpinner' | 'hasGlass' | 'isAlwaysVisible' | 'state';
-type UseStateOverlayResponsiveValuesProps<Element extends PolymorphicElementType> = Partial<
-	Pick<StateOverlayProps<Element>, PickedStateOverlayProps>
->;
+type UseStateOverlayResponsiveValuesProps = Partial<StateOverlayResponsiveValueProps>;
+type UseStateOverlayResponsiveValuesReturn = Required<StateOverlayNonResponsiveValueProps, 'state'>;
 
-const useStateOverlayResponsiveValues = <Element extends PolymorphicElementType>(
-	props: UseStateOverlayResponsiveValuesProps<Element>
-) => {
+const useStateOverlayResponsiveValues = (
+	props: UseStateOverlayResponsiveValuesProps
+): UseStateOverlayResponsiveValuesReturn => {
 	const {
 		// children: childrenProp,
 		renderSuccess: renderSuccessProp,
 		renderEmpty: renderEmptyProp,
 		renderError: renderErrorProp,
 		renderSpinner: renderSpinnerProp,
-		hasGlass: hasGlassProp = DEFAULT_STATE_OVERLAY_HAS_GLASS,
-		isAlwaysVisible: isAlwaysVisibleProp = DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE,
+		hasGlass: hasGlassProp,
+		isAlwaysVisible: isAlwaysVisibleProp,
 		state: stateProp = DEFAULT_STATE_OVERLAY_STATE
 	} = props;
 
 	// const children = useGetResponsiveValue<StateOverlayRenderType>(childrenProp);
 
-	const renderSuccess = useGetResponsiveValue<Undefinable<StateOverlayRenderType>>(renderSuccessProp);
-	const renderEmpty = useGetResponsiveValue<Undefinable<StateOverlayRenderType>>(renderEmptyProp);
-	const renderError = useGetResponsiveValue<Undefinable<StateOverlayRenderType>>(renderErrorProp);
-	const renderSpinner = useGetResponsiveValue<Undefinable<StateOverlayRenderType>>(renderSpinnerProp);
+	const renderSuccess =
+		useGetResponsiveValue<StateOverlayNonResponsiveValueProps['renderSuccess']>(renderSuccessProp);
+	const renderEmpty = useGetResponsiveValue<StateOverlayNonResponsiveValueProps['renderEmpty']>(renderEmptyProp);
+	const renderError = useGetResponsiveValue<StateOverlayNonResponsiveValueProps['renderError']>(renderErrorProp);
+	const renderSpinner =
+		useGetResponsiveValue<StateOverlayNonResponsiveValueProps['renderSpinner']>(renderSpinnerProp);
 
-	const hasGlass = useGetResponsiveValue<boolean>(hasGlassProp);
-	const isAlwaysVisible = useGetResponsiveValue<boolean>(isAlwaysVisibleProp);
+	const hasGlass = useGetResponsiveValue<StateOverlayNonResponsiveValueProps['hasGlass']>(hasGlassProp);
+	const isAlwaysVisible =
+		useGetResponsiveValue<StateOverlayNonResponsiveValueProps['isAlwaysVisible']>(isAlwaysVisibleProp);
 
-	const state = useGetResponsiveValue<StateOverlayState>(stateProp);
+	const state = useGetResponsiveValue<StateOverlayNonResponsiveValueProps['state']>(stateProp);
 
 	return {
 		// children,

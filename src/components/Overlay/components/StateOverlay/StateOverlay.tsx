@@ -45,10 +45,10 @@ const StateOverlay = forwardRef(function StateOverlay<Element extends Polymorphi
 		renderEmpty,
 		renderError,
 		renderSpinner,
-		hasGlass,
-		isAlwaysVisible,
-		state
-	} = useStateOverlayResponsiveValues<Element>({
+		hasGlass = DEFAULT_STATE_OVERLAY_HAS_GLASS,
+		isAlwaysVisible = DEFAULT_STATE_OVERLAY_IS_ALWAYS_VISIBLE,
+		state = DEFAULT_STATE_OVERLAY_STATE
+	} = useStateOverlayResponsiveValues({
 		// children: childrenProp,
 		renderSuccess: renderSuccessProp,
 		renderEmpty: renderEmptyProp,

@@ -1,4 +1,12 @@
-import type { StateOverlayProps, StateOverlayRef, StateOverlayState } from './common/types';
+import type {
+	StateOverlayNonResponsiveValueProps,
+	StateOverlayProps,
+	StateOverlayRef,
+	StateOverlayRenderType,
+	StateOverlayResponsiveValueProps,
+	StateOverlayState,
+	StateOverlayUniqueProps
+} from './common/types';
 import StateOverlay from './StateOverlay';
 
 // Constants
@@ -14,4 +22,12 @@ export * from './common/hooks';
 export { StateOverlay };
 
 // Component Types
-export type { StateOverlayProps, StateOverlayRef, StateOverlayState };
+export type {
+	StateOverlayNonResponsiveValueProps,
+	StateOverlayProps,
+	StateOverlayRef,
+	StateOverlayRenderType,
+	StateOverlayResponsiveValueProps,
+	StateOverlayState,
+	StateOverlayUniqueProps
+};
