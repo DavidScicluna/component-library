@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import classes from '@common/classes';
 import { DEFAULT_SPACING } from '@common/constants';
 import { useGetClass } from '@common/hooks';
-import type { ClassName, PolymorphicElementType } from '@common/types';
+import type { ClassName } from '@common/types';
 
 import {
 	DEFAULT_GRID_ALIGN_CONTENT,
@@ -13,11 +13,11 @@ import {
 	DEFAULT_GRID_TEMPLATE_COLUMNS,
 	DEFAULT_GRID_TEMPLATE_ROWS
 } from '../constants';
-import type { GridProps } from '../types';
+import type { GridUniqueProps } from '../types';
 
 import useGridResponsiveValues from './useGridResponsiveValues';
 
-type PickedGridProps =
+type PickedGridUniqueProps =
 	| 'alignContent'
 	| 'alignItems'
 	| 'autoColumns'
@@ -30,12 +30,10 @@ type PickedGridProps =
 	| 'templateColumns'
 	| 'templateRows'
 	| 'spacing';
-type UseGridClassesProps<Element extends PolymorphicElementType> = Pick<GridProps<Element>, PickedGridProps>;
+type UseGridClassesProps = Pick<GridUniqueProps, PickedGridUniqueProps>;
 type UseGridClassesReturn = ClassName;
 
-const useGridClasses = <Element extends PolymorphicElementType>(
-	props: UseGridClassesProps<Element>
-): UseGridClassesReturn => {
+const useGridClasses = (props: UseGridClassesProps): UseGridClassesReturn => {
 	const {
 		alignContent: alignContentProp,
 		alignItems: alignItemsProp,

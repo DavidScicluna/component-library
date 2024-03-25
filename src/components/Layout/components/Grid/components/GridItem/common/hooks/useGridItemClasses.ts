@@ -1,14 +1,14 @@
 import classNames from 'classnames';
 
 import { useGetClass } from '@common/hooks';
-import type { ClassName, PolymorphicElementType } from '@common/types';
+import type { ClassName } from '@common/types';
 
 import { DEFAULT_GRID_ITEM_ALIGN_SELF, DEFAULT_GRID_ITEM_JUSTIFY_SELF, DEFAULT_GRID_ITEM_Z_INDEX } from '../constants';
-import type { GridItemProps } from '../types';
+import type { GridItemUniqueProps } from '../types';
 
 import useGridItemResponsiveValues from './useGridItemResponsiveValues';
 
-type PickedGridItemProps =
+type PickedGridItemUniqueProps =
 	| 'alignSelf'
 	| 'columnSpan'
 	| 'columnStart'
@@ -18,15 +18,10 @@ type PickedGridItemProps =
 	| 'rowStart'
 	| 'rowEnd'
 	| 'zIndex';
-type UseGridItemClassesProps<Element extends PolymorphicElementType> = Pick<
-	GridItemProps<Element>,
-	PickedGridItemProps
->;
+type UseGridItemClassesProps = Pick<GridItemUniqueProps, PickedGridItemUniqueProps>;
 type UseGridItemClassesReturn = ClassName;
 
-const useGridItemClasses = <Element extends PolymorphicElementType>(
-	props: UseGridItemClassesProps<Element>
-): UseGridItemClassesReturn => {
+const useGridItemClasses = (props: UseGridItemClassesProps): UseGridItemClassesReturn => {
 	const {
 		alignSelf: alignSelfProp,
 		columnSpan: columnSpanProp,

@@ -63,7 +63,7 @@ const Grid = forwardRef(function Grid<Element extends PolymorphicElementType>(
 		spacing: spacingProp
 	});
 
-	const classes = useGridClasses<Element>({
+	const classes = useGridClasses({
 		alignContent,
 		alignItems,
 		autoColumns,
@@ -77,11 +77,11 @@ const Grid = forwardRef(function Grid<Element extends PolymorphicElementType>(
 		templateRows,
 		spacing
 	});
-	const styles = useGridStyles<Element>({ templateColumns, templateRows });
+	const styles = useGridStyles({ templateColumns, templateRows });
 
 	return (
 		<Box
-			{...rest}
+			{...{ rest }}
 			ref={ref}
 			className={classNames(KEYS_GRID_CLASS, classes, { [className]: !!className })}
 			sx={merge(styles, sx)}

@@ -57,7 +57,7 @@ const GridItem = forwardRef(function Grid<Element extends PolymorphicElementType
 		zIndex: zIndexProp
 	});
 
-	const classes = useGridItemClasses<Element>({
+	const classes = useGridItemClasses({
 		alignSelf,
 		columnSpan,
 		columnStart,
@@ -70,7 +70,11 @@ const GridItem = forwardRef(function Grid<Element extends PolymorphicElementType
 	});
 
 	return (
-		<Box {...rest} ref={ref} className={classNames(KEYS_GRID_ITEM_CLASS, classes, { [className]: !!className })}>
+		<Box
+			{...{ rest }}
+			ref={ref}
+			className={classNames(KEYS_GRID_ITEM_CLASS, classes, { [className]: !!className })}
+		>
 			{children}
 		</Box>
 	);

@@ -1,14 +1,4 @@
 import { useGetResponsiveValue } from '@common/hooks';
-import type {
-	AlignSelfClass,
-	GridColumnSpanClass,
-	GridColumnStartEndClass,
-	GridRowSpanClass,
-	GridRowStartEndClass,
-	JustifySelfClass,
-	Undefinable,
-	ZIndexClass
-} from '@common/types';
 
 import type { GridItemNonResponsiveValueProps, GridItemResponsiveValueProps } from '../types';
 
@@ -28,15 +18,15 @@ const useGridItemResponsiveValues = (props: UseGridItemResponsiveValuesProps): U
 		zIndex: zIndexProp
 	} = props;
 
-	const alignSelf = useGetResponsiveValue<Undefinable<AlignSelfClass>>(alignSelfProp);
-	const columnSpan = useGetResponsiveValue<Undefinable<GridColumnSpanClass>>(columnSpanProp);
-	const columnStart = useGetResponsiveValue<Undefinable<GridColumnStartEndClass>>(columnStartProp);
-	const columnEnd = useGetResponsiveValue<Undefinable<GridColumnStartEndClass>>(columnEndProp);
-	const justifySelf = useGetResponsiveValue<Undefinable<JustifySelfClass>>(justifySelfProp);
-	const rowSpan = useGetResponsiveValue<Undefinable<GridRowSpanClass>>(rowSpanProp);
-	const rowStart = useGetResponsiveValue<Undefinable<GridRowStartEndClass>>(rowStartProp);
-	const rowEnd = useGetResponsiveValue<Undefinable<GridRowStartEndClass>>(rowEndProp);
-	const zIndex = useGetResponsiveValue<Undefinable<ZIndexClass>>(zIndexProp);
+	const alignSelf = useGetResponsiveValue<GridItemNonResponsiveValueProps['alignSelf']>(alignSelfProp);
+	const columnSpan = useGetResponsiveValue<GridItemNonResponsiveValueProps['columnSpan']>(columnSpanProp);
+	const columnStart = useGetResponsiveValue<GridItemNonResponsiveValueProps['columnStart']>(columnStartProp);
+	const columnEnd = useGetResponsiveValue<GridItemNonResponsiveValueProps['columnEnd']>(columnEndProp);
+	const justifySelf = useGetResponsiveValue<GridItemNonResponsiveValueProps['justifySelf']>(justifySelfProp);
+	const rowSpan = useGetResponsiveValue<GridItemNonResponsiveValueProps['rowSpan']>(rowSpanProp);
+	const rowStart = useGetResponsiveValue<GridItemNonResponsiveValueProps['rowStart']>(rowStartProp);
+	const rowEnd = useGetResponsiveValue<GridItemNonResponsiveValueProps['rowEnd']>(rowEndProp);
+	const zIndex = useGetResponsiveValue<GridItemNonResponsiveValueProps['zIndex']>(zIndexProp);
 
 	return { alignSelf, columnSpan, columnStart, columnEnd, justifySelf, rowSpan, rowStart, rowEnd, zIndex };
 };
