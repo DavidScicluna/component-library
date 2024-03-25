@@ -12,6 +12,6 @@ const Suspense = ({ children, renderError, fallback, ...rest }: SuspenseProps): 
 	</ErrorBoundary>
 );
 
-Suspense.displayName = 'Suspense';
+// Suspense.displayName = 'Suspense';
 
 export default Suspense;

@@ -14,6 +14,6 @@ const ColorScript = ({ initialColor = DEFAULT_APP_COLOR, onSetColor }: ColorScri
 	return <Fragment />;
 };
 
-ColorScript.displayName = 'ColorScript';
+// ColorScript.displayName = 'ColorScript';
 
 export default ColorScript;

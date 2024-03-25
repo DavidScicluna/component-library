@@ -8,6 +8,6 @@ const AnimatePresence = ({ children, ...rest }: AnimatePresenceProps): JSX.Eleme
 	</FMAnimatePresence>
 );
 
-AnimatePresence.displayName = 'AnimatePresence';
+// AnimatePresence.displayName = 'AnimatePresence';
 
 export default AnimatePresence;

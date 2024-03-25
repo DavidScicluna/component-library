@@ -36,6 +36,6 @@ const IconFontScript = (props: IconFontScriptProps): JSX.Element => {
 	return <Fragment />;
 };
 
-IconFontScript.displayName = 'IconFontScript';
+// IconFontScript.displayName = 'IconFontScript';
 
 export default IconFontScript;

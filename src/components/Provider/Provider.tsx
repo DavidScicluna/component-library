@@ -88,6 +88,6 @@ const Provider = (props: ProviderProps): JSX.Element => {
 	);
 };
 
-Provider.displayName = 'Provider';
+// Provider.displayName = 'Provider';
 
 export default Provider;

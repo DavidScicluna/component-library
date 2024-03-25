@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import type { PolymorphicDefaultElement } from 'src';
+import type { PolymorphicDefaultElement } from '@common/types';
 
 import { FormControlContext } from '../../FormControl';
 import {

@@ -16,6 +16,6 @@ const ColorModeScript = (props: ColorModeScriptProps): JSX.Element => {
 	return <Fragment />;
 };
 
-ColorModeScript.displayName = 'ColorModeScript';
+// ColorModeScript.displayName = 'ColorModeScript';
 
 export default ColorModeScript;

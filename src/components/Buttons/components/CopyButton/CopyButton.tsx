@@ -26,6 +26,6 @@ const CopyButton = (props: CopyButtonProps): JSX.Element => {
 	return <Fragment>{children({ hasCopied, onCopy: handleCopy })}</Fragment>;
 };
 
-CopyButton.displayName = 'CopyButton';
+// CopyButton.displayName = 'CopyButton';
 
 export default CopyButton;
