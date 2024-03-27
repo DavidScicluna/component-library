@@ -1,57 +1,50 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { resolve } from 'path';
-import viteCompression from 'vite-plugin-compression';
+import { extname, relative, resolve } from 'path';
 import dts from 'vite-plugin-dts';
 import tailwindcss from 'tailwindcss';
-import external from 'rollup-plugin-peer-deps-external';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
 import tsConfigPaths from 'vite-tsconfig-paths';
-import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill';
-import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfill';
-import rollupNodePolyFill from 'rollup-plugin-node-polyfills';
+import { fileURLToPath } from 'node:url';
+import { glob } from 'glob';
 
+// https://vitejs.dev/config/
 export default defineConfig({
-	optimizeDeps: {
-		esbuildOptions: {
-			jsx: 'automatic',
-			define: { global: 'globalThis' },
-			plugins: [NodeGlobalsPolyfillPlugin({ process: true, buffer: true }), NodeModulesPolyfillPlugin()]
-		}
-	},
+	plugins: [
+		react({ jsxImportSource: '@emotion/react', babel: { plugins: ['@emotion/babel-plugin'] } }),
+		tsConfigPaths(),
+		libInjectCss(),
+		dts()
+	],
 	build: {
 		outDir: 'build',
+		copyPublicDir: false,
 		lib: {
-			fileName: (format) => `index.${format}.js`,
-			entry: resolve(__dirname, './src/index.ts'),
-			name: '@davidscicluna/component-library',
-			formats: ['es', 'umd']
+			entry: resolve(__dirname, 'src/index.ts'),
+			formats: ['es']
 		},
 		rollupOptions: {
-			copyPublicDir: false,
 			external: ['react', 'react/jsx-runtime', 'react-dom', 'tailwindcss'],
+			input: Object.fromEntries(
+				glob
+					.sync('src/**/*.{ts,tsx}', { ignore: 'src/**/*.story.tsx' })
+					.map((file) => [
+						relative('src', file.slice(0, file.length - extname(file).length)),
+						fileURLToPath(new URL(file, import.meta.url))
+					])
+			),
 			output: {
+				assetFileNames: 'assets/[name][extname]',
+				entryFileNames: '[name].js',
 				globals: {
 					'react': 'React',
 					'react/jsx-runtime': 'react/jsx-runtime',
 					'react-dom': 'ReactDOM',
 					'tailwindcss': 'tailwindcss'
 				}
-			},
-			plugins: [rollupNodePolyFill()]
-		},
-		// commonjsOptions: { transformMixedEsModules: true },
-		sourcemap: true,
-		emptyOutDir: true
+			}
+		}
 	},
-	plugins: [
-		react({ jsxImportSource: '@emotion/react', babel: { plugins: ['@emotion/babel-plugin'] } }),
-		tsConfigPaths(),
-		libInjectCss(),
-		dts({ insertTypesEntry: true, rollupTypes: true }),
-		external(),
-		viteCompression()
-	],
 	// external: ['react', 'react-dom', 'tailwindcss'],
 	css: { postcss: { plugins: [tailwindcss] } }
 	// resolve: {
