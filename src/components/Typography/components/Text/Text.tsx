@@ -105,7 +105,7 @@ const Text = forwardRef(function Text<Element extends TextElement>(
 
 	return (
 		<Box
-			{...{ rest }}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_TEXT_CLASS, classes, { [className]: !!className })}

@@ -24,10 +24,7 @@ import type {
 import type { BoxProps, BoxRef } from '@components/Box';
 
 export type TextDefaultElement = 'p';
-export type TextElement = PickFrom<
-	PolymorphicElementType,
-	'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'label' | 'span'
->;
+export type TextElement = PickFrom<PolymorphicElementType, 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span'>;
 
 export type TextThemeAppearanceProps = Partial<
 	Pick<ThemeAppearanceProps, 'colorMode'> & { color: ThemeAppearanceProps['color'] | string }
