@@ -35,7 +35,7 @@ const StepHeadline = forwardRef(function StepHeadline<Element extends Polymorphi
 
 	return (
 		<Headline
-			{...{ rest }}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_STEP_HEADLINE_CLASS, { [className]: !!className })}
 			w='100%'

@@ -52,7 +52,7 @@ const DeleteIconButton = forwardRef(function DeleteIconButton<Element extends De
 			isDisabled={!hasTooltip}
 		>
 			<IconButton
-				{...{ rest }}
+				{...rest}
 				as={as}
 				ref={ref}
 				className={classNames(KEYS_DELETE_ICON_BUTTON_CLASS, { [className]: !!className })}

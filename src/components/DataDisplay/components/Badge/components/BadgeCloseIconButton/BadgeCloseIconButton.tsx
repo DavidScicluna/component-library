@@ -49,7 +49,7 @@ const BadgeCloseIconButton = forwardRef(function BadgeCloseIconButton<Element ex
 
 	return (
 		<CloseIconButton
-			{...{ rest }}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_BADGE_CLOSE_ICON_BUTTON_CLASS, classes, { [className]: !!className })}

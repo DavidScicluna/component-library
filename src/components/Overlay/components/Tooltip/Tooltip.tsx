@@ -134,7 +134,7 @@ const Tooltip = forwardRef(function Tooltip<Element extends PolymorphicElementTy
 			{cloneElement(children, { ...getReferenceProps(), ref: refs.setReference })}
 			<Transition as='section' transition='fade' in={!isDisabled && isOpen}>
 				<Box
-					{...{ rest }}
+					{...rest}
 					{...getFloatingProps()}
 					ref={refss}
 					className={classNames(KEYS_TOOLTIP_CLASS, classes.tooltip, { [className]: !!className })}

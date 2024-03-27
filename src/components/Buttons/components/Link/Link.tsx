@@ -58,7 +58,7 @@ const Link = forwardRef(function Link<Element extends LinkElement>(
 
 	return (
 		<Box
-			{...{ rest }}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_LINK_CLASS, classes, { [className]: !!className })}

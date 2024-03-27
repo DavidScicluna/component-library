@@ -36,7 +36,7 @@ const CarouselLeftArrowButton = forwardRef(function CarouselLeftArrowButton<
 
 	return (
 		<CarouselArrowButton
-			{...{ rest }}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_CAROUSEL_LEFT_ARROW_BUTTON_CLASS, { [className]: !!className })}

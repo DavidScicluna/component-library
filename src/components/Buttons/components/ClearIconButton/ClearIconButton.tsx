@@ -52,7 +52,7 @@ const ClearIconButton = forwardRef(function ClearIconButton<Element extends Clea
 			isDisabled={!hasTooltip}
 		>
 			<IconButton
-				{...{ rest }} // TODO: Check if this actually works
+				{...rest}
 				as={as}
 				ref={ref}
 				className={classNames(KEYS_CLEAR_ICON_BUTTON_CLASS, { [className]: !!className })}

@@ -43,7 +43,7 @@ const CarouselOverlayLeftArrowIconButton = forwardRef(function CarouselOverlayLe
 
 	return (
 		<CarouselOverlayArrowIconButton
-			{...{ rest }}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_CAROUSEL_OVERLAY_LEFT_ARROW_ICON_BUTTON_CLASS, {

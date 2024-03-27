@@ -85,7 +85,7 @@ const CarouselOverlayArrowButton = forwardRef(function CarouselOverlayArrowButto
 						pb={orientation === 'vertical' && direction === 'left' ? spacing : 0}
 					>
 						<CarouselArrowButton
-							{...{ rest }}
+							{...rest}
 							as={as}
 							ref={ref}
 							className={classNames(KEYS_CAROUSEL_OVERLAY_ARROW_BUTTON_CLASS, {

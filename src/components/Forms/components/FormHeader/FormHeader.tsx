@@ -49,7 +49,7 @@ const FormHeader = forwardRef(function FormHeader<Element extends PolymorphicEle
 
 	return (
 		<Grid
-			{...{ rest }}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_FORM_HEADER_CLASS, { [className]: !!className })}
 			w={hasFormControl ? '100%' : w}

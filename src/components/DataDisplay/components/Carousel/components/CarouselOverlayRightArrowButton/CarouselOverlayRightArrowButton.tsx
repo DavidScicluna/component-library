@@ -40,7 +40,7 @@ const CarouselOverlayRightArrowButton = forwardRef(function CarouselOverlayRight
 
 	return (
 		<CarouselOverlayArrowButton
-			{...{ rest }}
+			{...rest}
 			as={as}
 			ref={ref}
 			className={classNames(KEYS_CAROUSEL_OVERLAY_RIGHT_ARROW_BUTTON_CLASS, { [className]: !!className })}

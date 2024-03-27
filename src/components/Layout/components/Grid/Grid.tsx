@@ -81,7 +81,7 @@ const Grid = forwardRef(function Grid<Element extends PolymorphicElementType>(
 
 	return (
 		<Box
-			{...{ rest }}
+			{...rest}
 			ref={ref}
 			className={classNames(KEYS_GRID_CLASS, classes, { [className]: !!className })}
 			sx={merge(styles, sx)}

@@ -94,7 +94,7 @@ const ScrollToTopIconButton = forwardRef(function ScrollToTopIconButton<Element 
 				isDisabled={!hasTooltip}
 			>
 				<IconButton
-					{...{ rest }}
+					{...rest}
 					as={as}
 					ref={ref}
 					className={classNames(KEYS_SCROLL_TO_TOP_ICON_BUTTON_CLASS, {
