@@ -1,10 +1,37 @@
-import type { PickFrom } from '@common/types';
+import type {
+	PickFrom,
+	PolymorphicElementType,
+	ResponsiveValueProps,
+	TextAlignClass,
+	TextLineClampClass,
+	TextTransformClass,
+	ThemeAppearanceProps,
+	ThemeFontSize,
+	ThemeFontWeight,
+	ThemeLineHeight
+} from '@common/types';
 
-import type { TextElement, TextProps, TextRef } from '@components/Typography';
+import type { BoxProps, BoxRef } from '@components/Box';
 
 export type FormLabelDefaultElement = 'label';
-export type FormLabelElement = PickFrom<TextElement, 'label'>;
+export type FormLabelElement = PickFrom<PolymorphicElementType, 'label'>;
 
-export type FormLabelProps<Element extends FormLabelElement> = Partial<TextProps<Element>>;
+export type FormLabelThemeAppearanceProps = Partial<
+	Pick<ThemeAppearanceProps, 'colorMode'> & { color: ThemeAppearanceProps['color'] | string }
+>;
 
-export type FormLabelRef<Element extends FormLabelElement> = TextRef<Element>;
+export type FormLabelNonResponsiveValueProps = {
+	align?: TextAlignClass;
+	fontSize?: ThemeFontSize;
+	fontWeight?: ThemeFontWeight;
+	lineClamp?: TextLineClampClass;
+	lineHeight?: ThemeLineHeight;
+	textTransform?: TextTransformClass;
+};
+export type FormLabelResponsiveValueProps = ResponsiveValueProps<FormLabelNonResponsiveValueProps>;
+
+export type FormLabelUniqueProps = FormLabelThemeAppearanceProps & FormLabelResponsiveValueProps;
+
+export type FormLabelProps<Element extends FormLabelElement> = BoxProps<Element, FormLabelUniqueProps>;
+
+export type FormLabelRef<Element extends FormLabelElement> = BoxRef<Element>;
