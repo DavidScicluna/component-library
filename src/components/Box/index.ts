@@ -6,10 +6,13 @@ import type {
 	BoxMaxWidth,
 	BoxMinHeight,
 	BoxMinWidth,
+	BoxNonResponsiveValueProps,
 	BoxOtherProps,
 	BoxPaddingProps,
 	BoxProps,
 	BoxRef,
+	BoxResponsiveValueProps,
+	BoxUniqueProps,
 	BoxWidth,
 	BoxWidthProps
 } from './common/types';
@@ -33,10 +36,13 @@ export type {
 	BoxMaxWidth,
 	BoxMinHeight,
 	BoxMinWidth,
+	BoxNonResponsiveValueProps,
 	BoxOtherProps,
 	BoxPaddingProps,
 	BoxProps,
 	BoxRef,
+	BoxResponsiveValueProps,
+	BoxUniqueProps,
 	BoxWidth,
 	BoxWidthProps
 };
